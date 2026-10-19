@@ -59,6 +59,13 @@ export interface AiModel {
   verified?: string;
   /** Per-source score sets; the results selector swaps `scores` for one of these. */
   sources: Partial<Record<SourceKey, ModelScores>>;
+  /**
+   * Whether the model offers a free tier. Derived in `hasFreeTier()` from
+   * `freeTierNote` / a `$0`-or-free lane in the pricing notes, and suppressed
+   * when `meta.noFreeId` is set — never inferred from the *absence* of that
+   * flag (most paid models do not carry it).
+   */
+  hasFreeTier: boolean;
   meta: {
     contextWindow: string;
     modalities: string;
@@ -125,6 +132,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
     scores: avg,
     verified: VERIFIED[slug] ?? undefined,
     sources,
+    hasFreeTier: hasFreeTier(meta),
     meta: {
       contextWindow: meta.contextWindow,
       modalities: meta.modalities,
@@ -142,6 +150,22 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
 /** True for typed-decision (System-One) models, which never share a shelf with generative scores. */
 export function isDecisionModel(m: AiModel): boolean {
   return m.meta.category === "decision";
+}
+
+/**
+ * Derive the free-tier badge from evidence, not from the absence of a flag:
+ * an explicit `noFreeId` always wins; otherwise a `freeTierNote` or a `$0`
+ * / "free" lane in the pricing notes counts as a free tier. A "no free tier"
+ * note negates it. Cached prices like `$0.10` must not read as free.
+ */
+export function hasFreeTier(
+  meta: Pick<MetaFile, "freeTierNote" | "pricingNote" | "pricingTiers" | "noFreeId">,
+): boolean {
+  if (meta.noFreeId) return false;
+  if (meta.freeTierNote) return true;
+  const text = [meta.pricingNote, ...(meta.pricingTiers ?? [])].join(" ; ");
+  if (/\bno\s+free\s+tier\b/i.test(text)) return false;
+  return /\$\s?0(?:\.0+)?(?![.\d])/.test(text) || /\bfree\b/i.test(text);
 }
 
 /** Fixed axis order, clockwise from top of the hexagon. */

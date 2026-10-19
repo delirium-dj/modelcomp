@@ -139,7 +139,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                 {m.scores.overall}
               </span>
             </div>
-            {!m.meta.noFreeId ? (
+            {m.hasFreeTier ? (
               <p class="mt-1">
                 <span
                   class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
@@ -151,7 +151,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
             ) : (
               <p class="mt-1">
                 <span class="rounded bg-amber-100 px-1.5 py-0.5 text-xs font-semibold text-amber-800 transition-colors dark:bg-amber-950/80 dark:text-amber-300">
-                  Paid fallback — no Free ID
+                  Paid
                 </span>
               </p>
             )}
@@ -277,7 +277,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                         {m.name}
                       </a>
                     </span>
-                    {!m.meta.noFreeId ? (
+                    {m.hasFreeTier ? (
                       <span
                         class="ml-1.5 inline-block cursor-help whitespace-nowrap rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 align-middle transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                         title={m.meta.freeTierNote ?? m.meta.pricingNote}
@@ -368,7 +368,7 @@ export const ModelCards = component$<ModelCardsProps>(({ source, onSource$ }) =>
                 <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                   Overall {m.scores.overall}
                 </span>
-                {!m.meta.noFreeId ? (
+                {m.hasFreeTier ? (
                   <span
                     class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                     title={m.meta.freeTierNote ?? m.meta.pricingNote}

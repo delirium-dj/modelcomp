@@ -740,7 +740,7 @@ export default component$(() => {
                         <VendorIcon id={m.id} name={m.name} /> {m.name}
                       </a>
                       <span>Overall {m.scores.overall}</span>
-                      {!m.meta.noFreeId ? (
+                      {m.hasFreeTier ? (
                         <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>
                           · Free
                         </span>
@@ -1011,7 +1011,7 @@ export default component$(() => {
                               <a href={`/model/${m.slug}/`}>{m.name}</a>
                             </h3>
                             <p class="mt-0 text-xs font-bold">
-                              {!m.meta.noFreeId ? (
+                              {m.hasFreeTier ? (
                                 <span
                                   class="text-[#1c7a4d] dark:text-[#7fd6a4]"
                                   title={
@@ -1023,9 +1023,9 @@ export default component$(() => {
                               ) : (
                                 <span
                                   class="text-[#b26a1b] dark:text-[#e8b47e]"
-                                  title="Cost is scored on paid pricing — no free tier ID"
+                                  title="Cost is scored on paid pricing"
                                 >
-                                  Paid · no free tier
+                                  Paid
                                 </span>
                               )}
                             </p>

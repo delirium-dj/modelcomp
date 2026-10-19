@@ -66,7 +66,7 @@ Long context:
 - **Multimodal: 66/100.** Text + image in, text out is the 60–70 band; now supported by a verified **MMMU-Pro 78.1%** (Artificial Analysis), though there is still no audio/video input and no non-text output.
 - **Coding: 72/100.** LiveCodeBench 84.5% and the #1 BLXBench 85.5% are strong, but SWE-bench Verified 71.4%, SciCode 47.3% (<55) and Vibe Code Bench 19.4% hold it in the low 70s.
 - **Cost efficiency: 88/100.** $1.25/$2.50 with $0.20 cache reads maps just above the $1.25/$4.25 = 88 anchor thanks to the cheaper output; OfficeChai's Pareto-frontier framing and the ~$395 suite cost support a high-80s value score.
-- **Overall Score: 75.8/100.** (60 + 86 + 95 + 62 + 72) / 5 = 75.0 → 75. Best fit: high-reasoning, long-context text work and instruction-following at a value price — weaker on hard agentic/coding tasks and text-only on the input side.
+- **Overall Score: 76/100.** (60 + 86 + 95 + 66 + 72) / 5 = 75.8 → 75. Best fit: high-reasoning, long-context text work and instruction-following at a value price — weaker on hard agentic/coding tasks and text-only on the input side.
 
 ---
 

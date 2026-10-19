@@ -101,10 +101,10 @@
 76.6 gemini-3.1-flash-lite
 76.2 claude-sonnet-4
 75.7 glm-5.2-coding
-75.6 gemma-4.12b-unified
 75.6 muse-glimmer-30b
 75.4 claude-sonnet-3.7
-75.4 gemma-4.26b-a4b
+75.2 gemma-4.12b-unified
+75 gemma-4.26b-a4b
 74.9 mistral-medium-3.5
 74.5 gemini-2.0-flash
 74.4 gpt-5.1-codex
@@ -131,8 +131,8 @@
 69.8 grok-build-0.1
 69.7 qwen3-max
 69.5 glm-5.1
+69.3 beam
 69.3 gpt-5.1-codex-max
-68.9 beam
 68.5 hy3-preview
 68.3 diffusiongemma-26b-a4b
 67.9 solar-open-2
@@ -148,7 +148,7 @@
 64.8 claude-haiku-3.5
 64.7 gpt-5-codex
 64.5 glm-5
-64.1 deepseek-v3.2
+64.2 deepseek-v3.2
 63.8 ling-3.0-flash
 63.5 owl-alpha
 63.2 omen-alpha
@@ -165,8 +165,8 @@
 58.5 gpt-5.1-codex-mini
 58.2 llama_3.2_vision_instruct
 57.4 north_mini_code
+57.2 big-pickle
 57.1 solar-mini-4
-56.9 big-pickle
 56.8 nemotron-3.5-lightning-free
 56.3 exo-free
 53.8 ling-2.6-flash

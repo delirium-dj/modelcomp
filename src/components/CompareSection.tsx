@@ -160,7 +160,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                     {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
                   </span>
-                  {!s.model.meta.noFreeId ? (
+                  {s.model.hasFreeTier ? (
                     <span
                       class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                       title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}
@@ -198,7 +198,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                   Dimension
                 </th>
                 {series.map((s) => {
-                  const isFree = !s.model.meta.noFreeId;
+                  const isFree = s.model.hasFreeTier;
                   return (
                     <th
                       key={s.model.id}
@@ -277,7 +277,7 @@ export const CompareSection = component$<CompareSectionProps>(({ a, b, c, source
                 <span class="rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                   {s.hasData ? `Overall ${s.model.scores.overall}` : "Overall N/A"}
                 </span>
-                {!s.model.meta.noFreeId ? (
+                {s.model.hasFreeTier ? (
                   <span
                     class="cursor-help rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-semibold text-emerald-800 transition-colors dark:bg-emerald-950/80 dark:text-emerald-300"
                     title={s.model.meta.freeTierNote ?? s.model.meta.pricingNote}

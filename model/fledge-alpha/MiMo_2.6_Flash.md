@@ -1,7 +1,7 @@
 # Fledge Alpha — findings by Mimo v2.6 Flash
 
 - Source: unclaimed/anonymous (OpenCode Zen free tier, `opencode/fledge-alpha-free`)
-- Date: 2026-10-05 (UTC)
+- Date: 2026-10-19 (UTC; original research 2026-10-05, re-researched 2026-10-19)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Fledge Alpha
 - **Short description:** Anonymous stealth free model on OpenCode Zen/OpenRouter (first listed 2026-10-01) that posted the best free-tier coding numbers in independent Oct 1–4 test batteries — fast (~61 tok/s), 1M context, no claimed identity.
-- **Provider / access:** OpenCode Zen free tier (`opencode/fledge-alpha-free`, the evaluated route) + OpenRouter trial listing under an "unknown" publisher namespace; OpenAI-compatible Chat Completions (OpenCode Zen). No paid host found.
+- **Provider / access:** OpenCode Zen free tier (`opencode/fledge-alpha-free`, the evaluated route) — **still listed on models.dev's OpenCode catalog as of 2026-10-19** (1M/131,072, $0/$0, reasoning + tools). The earlier OpenRouter trial listing no longer resolves (openrouter.ai/fledge-alpha → 404, checked 2026-10-19). OpenAI-compatible Chat Completions (OpenCode Zen). No paid host found.
 - **Release / knowledge:** First listed 2026-10-01 (models.dev); knowledge cutoff unknown/undisclosed.
 - **IDs:** `opencode/fledge-alpha-free` (models.dev, released 2026-10-01); OpenRouter slug `fledge-alpha`.
 - **Context window:** 1,048,576 input (1M) / 131,072 max output per models.dev; verified 2026-10-05.
@@ -54,18 +54,24 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** TB2.1 79% and 15/15 bug-fix runs are strong, but n≤14 single-run indie harnesses with no Tau3/GDPval/MCP coverage (systemic gap) cap it at 75.
-- **Reasoning: 65/100.** GPQA 92.3% is frontier-tier (n=39), but HLE 23% sits below the 30% frontier ref and AA-Omniscience index −5 (worst-of-battery, net hallucination) drags the composite down.
-- **Context window: 95/100.** 1M window lands the ≥1M tier (95–100); no long-context retrieval eval exists, so scored at the tier floor.
-- **Multimodal: 75/100.** text+image-in tier (75–89); no vision benchmark (MMMU/AI2D) published, so low end of the band.
-- **Coding: 78/100.** SWE-bench Verified 75% + TB2.1 79% + SciCode 52% (battery-best) — just under the 55% SciCode frontier ref, no LiveCodeBench, all small-n single-run; 78.
-- **Cost efficiency: 100/100.** Evaluated free tier at $0.00/$0.00 (Zen free route, ≈$0.0056/task equivalent) → free = 100 per the cost rule; stealth-preview durability caveat noted in the card.
-- **Overall Score: 78/100.** (75+65+95+75+78)/5 = 77.6 → 78 — best fit: fast free agent/coding runner (bug-fixing, Terminal-Bench-class tasks); avoid for fact-sensitive work (Omniscience −5) or trust-critical pipelines (unclaimed identity).
+- **Tool use: 75/100.** TB2.1 79% and 15/15 bug-fix runs are strong, but n≤14 single-run indie harnesses with no Tau3/GDPval/MCP coverage (systemic gap) cap it at 75. Unchanged on re-research (no new measured harness found).
+- **Reasoning: 65/100.** GPQA 92.3% is frontier-tier (n=39), but HLE 23% sits below the 30% frontier ref and AA-Omniscience index −5 (worst-of-battery, net hallucination) drags the composite down. Unchanged.
+- **Context window: 95/100.** 1M window lands the ≥1M tier (95–100) — re-confirmed on models.dev 2026-10-19; no long-context retrieval eval exists, so scored at the tier floor. Unchanged.
+- **Multimodal: 75/100.** text+image-in tier (75–89); no vision benchmark (MMMU/AI2D) published, so low end of the band. Unchanged.
+- **Coding: 78/100.** SWE-bench Verified 75% + TB2.1 79% + SciCode 52% (battery-best) — just under the 55% SciCode frontier ref, no LiveCodeBench, all small-n single-run; 78. Unchanged (no entry on benchgap/BenchLM/AA for this stealth ID).
+- **Cost efficiency: 100/100.** Evaluated free tier at $0.00/$0.00 (Zen free route, re-confirmed on models.dev 2026-10-19) → free = 100 per the cost rule; stealth-preview durability caveat noted in the card. Unchanged.
+- **Overall Score: 78/100.** (75+65+95+75+78)/5 = 77.6 → 78 — unchanged on re-research: the model remains unclaimed and unmeasured by any major leaderboard, so the indie small-n battery remains the only evidence. Best fit: fast free agent/coding runner (bug-fixing, Terminal-Bench-class tasks); avoid for fact-sensitive work (Omniscience −5) or trust-critical pipelines (unclaimed identity).
+
+### 2026-10-19 re-research note
+
+- Identity: still unclaimed; no vendor has stepped forward; the "DeepSeek v4.1 Pro" rumor remains explicitly a guess.
+- Status: still listed on the OpenCode Zen catalog (models.dev, 2026-10-19); OpenRouter trial page no longer resolves (404).
+- No new measured benchmark numbers from any independent leaderboard (absent from benchgap/BenchLM/AA).
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-05
-- Method: public internet research (models.dev, fellipesoares/openagent-evals battery README, davila7/claude-code-templates multi-model battery, stealthmodels.dev, The Neural Feed); scores are normalized 1–100 interpretations, not official vendor scores. Independent small-n results (n≤39, single run) — treat as directional.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-19
+- Method: public internet research (2026-10-19 second pass: models.dev OpenCode catalog re-check, OpenRouter page check, leaderboard-absence verification; plus 2026-10-05 original: models.dev, fellipesoares/openagent-evals battery README, davila7/claude-code-templates multi-model battery, stealthmodels.dev, The Neural Feed) — scores are normalized 1–100 interpretations, not official vendor scores. Independent small-n results (n≤39, single run) — treat as directional.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

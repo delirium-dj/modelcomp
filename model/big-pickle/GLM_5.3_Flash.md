@@ -1,64 +1,60 @@
 # Big Pickle — findings by GLM 5.3 Flash
 
-- Source: OpenCode Zen (`opencode/big-pickle`, anonymous stealth alias)
-- Date: 2026-10-16 (UTC)
+- Source: OpenCode Zen (`opencode/big-pickle`, anonymous stealth alias / router)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Big Pickle (Free) — anonymous stealth alias on OpenCode Zen; no vendor has claimed it
-- **Short description:** OpenCode Zen's free experimental model, described in its config as a "Reasoning model for deliberate analysis, multi-step problem solving, and tool use", positioned for coding agents. Community consensus ties the alias to Zhipu AI's GLM-4.6 (OpenCode issue #4276, "Is zen/big-pickle glm 4.6?"), while a self-reported SWE-Atlas write-up notes leaked provider errors and API response signatures pointing toward DeepSeek infrastructure instead. Treat it as an alias, not a model: whatever answers to `big-pickle` can change without notice.
-- **Provider / access:** OpenCode Zen — Chat Completions at `https://opencode.ai/zen/v1/chat/completions`, ID `opencode/big-pickle`; integrates via the `@ai-sdk/openai-compatible` SDK; catalogued by models.dev as `providers/opencode/models/big-pickle.toml`.
-- **Release / knowledge:** models.dev lists release date 2025-10-17 and knowledge cutoff 2025-01; the alias was still served free on Zen as of the prior research (2026-09-17) with no announced end date for the free period. Re-verified 2026-10-16: `big-pickle` remains on the live Zen roster (`/zen/v1/models`, fetched 2026-10-16) — the free route persists.
-- **IDs:** `opencode/big-pickle` (models.dev / Zen). **This IS the Free ID** — served at $0 during the stealth period; no separate paid `big-pickle` route exists.
-- **Context window:** 200,000 tokens total; 160,000 input / 32,000 output — verified against the models.dev `big-pickle.toml` config, corroborated by a third-party directory (ayautomate: 200K, tier "S+", last verified June 2026).
-- **Modalities:** text in, text out (`modalities: text/text`); reasoning yes (`reasoning = true`, interleaved via a `reasoning_content` field); tool calls yes (`tool_call = true`); structured output yes; attachments no.
-- **Pricing (as of 2026-10-11):** Free — $0.00 input / $0.00 output / $0.00 cached (models.dev `cost` block: all zeros). Caveats: free-period prompts may be used to improve the model; commercial terms unclear; no announced end date or post-promo price.
-- **Architecture:** closed weights (`open_weights = false`), parameters undisclosed. Believed (unconfirmed) GLM-4.6; competing unconfirmed signal: DeepSeek infrastructure. Both identity claims are community inference, not vendor-confirmed.
+- **Short description:** OpenCode Zen's free experimental route, described in its config as a "Reasoning model for deliberate analysis, multi-step problem solving, and tool use". This pass establishes the decisive fact the prior passes lacked: **big-pickle is a router whose underlying model changes over time** — an OpenCode collaborator confirmed it launched as Zhipu GLM-4.6 (Nov 2025), the team later swapped it to DeepSeek V4 Flash (collaborator-confirmed Jun 2026), and multiple independent community reports (Aug–Oct 2026, including an accidental guardrail self-identification) indicate it now serves an **Ox Alpha** stealth deployment. Treat it as a variable-identity alias, not a model.
+- **Provider / access:** OpenCode Zen — Chat Completions at `https://opencode.ai/zen/v1/chat/completions`, ID `opencode/big-pickle`; integrates via `@ai-sdk/openai-compatible`; catalogued by models.dev. Re-verified 2026-10-19: still first on the live Zen roster — the free route persists.
+- **Release / knowledge:** free route live since 2025-10-17 (models.dev); knowledge cutoff listed as 2025-01 in the catalog but is now meaningless under the router model (the underlying model's cutoff changes with each swap).
+- **IDs:** `opencode/big-pickle`. **This IS the Free ID** — served at $0; no separate paid route. An OpenCode collaborator stated the team hopes "to keep it free in perpetuity, we have done the math and it seems possible" (issue #4276, Nov 13, 2025).
+- **Context window:** CONFLICTING — catalog (models.dev): 200,000 total / 160,000 in / 32,000 out; an OpenCode collaborator stated **max output is 128k** (issue #4276, Nov 13, 2025); community testing under the DeepSeek era reported the **actual context limit is ~1M** while the catalog still said 200K ("they still haven't updated opencode to reflect the actual context limit", issue #4276, Jun 17, 2026). The catalog numbers are stale and the true window varies with the underlying model.
+- **Modalities:** text in, text out; reasoning yes (interleaved `reasoning_content`); tool calls yes; structured output yes; attachments no (models.dev).
+- **Pricing (as of 2026-10-19):** Free — $0.00 in / out / cached (models.dev). Caveats: free-period prompts may be used to improve the model (Zen privacy note); identity and terms can change without notice.
+- **Architecture:** closed weights, parameters undisclosed. **Identity history (verified through the canonical community thread, issue #4276):** GLM-4.6 at launch (collaborator "Yes it is", Nov 13, 2025) → DeepSeek V4 Flash (collaborator woss, Jun 17, 2026: "big-pickle is changing the underlaying model, as of time of writing is `deepseek-v4-flash`"; corroborated by tokenizer checks and leaked `deepseek provider` errors) → currently reported as an **Ox Alpha** stealth deployment (community guardrail leak, Aug 24 + Oct 3, 2026; another user characterizes the route as "just a router to a new stealth or test models", like `openrouter/free`). The Ox Alpha identification is community inference, not vendor-confirmed.
 
 ### Raw benchmarks found
 
-> Second-pass verification (2026-10-11): BenchLM has no page for this anonymous stealth alias (404 on the canonical slug) — no new aggregator evidence has surfaced since the 2026-09-17/10-09 passes; the glonce.com SWE-Atlas run remains the sole direct measurement. GitHub issue #50202 (degraded/corrupted output) remains an operational caveat. Scores are carried, not moved.
+> The only direct alias-specific measurement (SWE-Atlas QnA 50.8%, Aug 2026) was taken under the DeepSeek-era underlying; the currently-served Ox Alpha deployment has no alias-specific published benchmark. Identity-era proxy scores from the GLM-4.6 era are recorded but superseded as stale.
 
 Agent / tool use:
 
-- SWE-Atlas Codebase QnA (mini-swe-agent scaffold): **50.8%** (63/124 tasks; self-reported run of 2026-08-11: Harbor 0.18.0 + Modal sandboxes, mini-swe-agent 2.4.6, Scale's shipped config and 250-step limit, judge claude-opus-4-5-20251101; the alias consumed 674M input + 4.3M output tokens at $0 model cost) — **best result in the Mini-SWE-Agent scaffold class** on the official leaderboard snapshot as of 2026-07-28. Caveats: single trial per task (≈±4.5 pts), sandboxes cut to 4 CPU/8 GB, and a stricter lower bound of **49.2%** (61/124) if two judge-unparseable rubric tasks count as failures. (glonce.com, 2026-08-16)
-- Terminal-Bench / Tau3 / Tau2 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found under the big-pickle alias
-- Identity proxy (GLM-4.6 public suite — valid only under the GLM-4.6 consensus): SWE-bench Verified ~68.0%, Terminal-Bench 2.1 49.4%, Tau3 10.5%, GDPval 934 Elo, τ² 76.9%
+- SWE-Atlas Codebase QnA (mini-swe-agent scaffold): **50.8%** (63/124 tasks; self-reported run of 2026-08-11: Harbor 0.18.0 + Modal sandboxes, mini-swe-agent 2.4.6, Scale's shipped config, judge claude-opus-4-5-20251101; 674M input + 4.3M output tokens at $0) — best result in the Mini-SWE-Agent scaffold class on the official leaderboard snapshot as of 2026-07-28; stricter lower bound **49.2%** (glonce.com, 2026-08-16). Era caveat: measured under the DeepSeek-V4-Flash underlying, not the current one.
+- Terminal-Bench / Tau3 / Tau2 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found under the alias (current or any era)
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / LCR / MLCR / CritPt / AA Intelligence Index / BenchLM overall (alias): no verified public score found — trackers do not carry anonymous stealth aliases (BenchLM 404 confirmed 2026-10-11)
-- Identity proxy (GLM-4.6): GPQA Diamond 63.2%, HLE 5.5%, LCR 28.3%, BenchLM 53.94 #107/411
+- GPQA Diamond / HLE / LCR / MLCR / CritPt / AA Intelligence Index (alias): no verified public score found — trackers do not carry anonymous stealth aliases
+- Identity proxies (era-locked, for history only): GLM-4.6 era — GPQA 63.2%, HLE 5.5%, LCR 28.3%; current Ox Alpha era — no public proxy rows located this pass (Ox Alpha is tracked under its own slug in this dataset)
 
 Coding:
 
-- SWE-Atlas Codebase QnA: **50.8%** — the one direct datapoint (details above)
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE (alias): no verified public score found
-- Third-party directory claim: "SWE-bench ~72%" (ayautomate) — unverified, likely inherited from the presumed GLM-4.6 identity; recorded as provisional only
-- Identity proxy (GLM-4.6): SWE-bench Verified 68.0%, LiveCodeBench 81.0%, SciCode 38.4%
+- SWE-Atlas Codebase QnA: **50.8%** — the one direct datapoint (era caveat above)
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE (alias): no verified public score found
+- Identity proxy (GLM-4.6 era, stale): SWE-bench Verified 68.0%, LiveCodeBench 81.0%, SciCode 38.4%
 
 Long context:
 
-- MRCR / RULER / GraphWalks: no long-context retrieval reported — 200K window, no public retrieval tests under the alias
+- No public MRCR/RULER retrieval tests under the alias; community-reported ~1M actual limit (Jun 2026, DeepSeek era) vs 200K catalog — unresolved conflict.
 
 ### Normalized scores (1–100)
 
-> Scores unchanged on the 2026-10-11 second pass: no aggregator page exists (BenchLM 404) and no new alias-specific measurements surfaced; the single SWE-Atlas run stands.
-
-- **Tool use: 58/100.** The one direct datapoint is genuinely strong — SWE-Atlas Codebase QnA 50.8% tops the Mini-SWE-Agent scaffold class — and the alias natively supports tool calls and structured output. Capped by weak identity-proxy orchestration (GLM-4.6 TB 2.1 49.4%, Tau3 10.5%) and zero alias-verified tool-suite scores.
-- **Reasoning: 58/100.** Proxy GPQA Diamond 63.2% is mid-pack; HLE 5.5% and LCR 28.3% are weak; no alias-verified reasoning numbers exist. The "reasoning model" positioning rests on the config description, not published results.
-- **Context window: 70/100.** 200,000 tokens verified (160K in / 32K out) — a mid tier; no long-context retrieval evidence under the alias.
-- **Multimodal: 15/100.** Text-only input and output (models.dev modalities); no attachments — methodology floor for text-only.
-- **Coding: 70/100.** SWE-Atlas QnA 50.8% (class-leading) plus proxy LiveCodeBench 81.0% and SWE-bench Verified 68.0% imply a solid mid-pack coder for its generation; capped below the frontier and by zero alias-verified classic-suite runs.
-- **Cost efficiency: 100/100.** $0 in / $0 out / $0 cache during the stealth period, no card required — the defining trait of the alias. Risks: data may be used for training, commercial terms unclear, and the $0 (or the model itself) can end without notice.
-- **Overall Score: 54.2/100.** Mean: (58 + 58 + 70 + 15 + 70) / 5 = 271/5 = 54.2 — unchanged. Best fit: zero-cost daily driver for coding agents and multi-step tool work; verify outputs and keep a paid, identity-confirmed fallback for production, since the alias can change or disappear without notice.
+- **Tool use: 60/100.** (Was 58.) Small raise: the direct SWE-Atlas QnA 50.8% class-leading row stands (era-stale), and the current underlying is credibly reported to be a stronger model (Ox Alpha-class per repeated community reports); the alias's native tool-calling/structured-output support is confirmed. Capped by zero current-era measurements and the router instability.
+- **Reasoning: 65/100.** (Was 58.) Raised: the GLM-4.6-era proxies that anchored the old score are stale — the route has since served DeepSeek V4 Flash and now reportedly Ox Alpha, a model rostered in this dataset's top tier; multiple independent community reports (tokenizer checks, provider-error leaks, a guardrail self-identification) support the upgrade. Capped because the current identity is community-inferred, not vendor-confirmed, and no alias-specific reasoning benchmark exists.
+- **Context window: 78/100.** (Was 70.) Raised on collaborator-verified evidence: max output 128k (OpenCode collaborator, issue #4276) contradicts the stale 32K catalog row, and community testing under the DeepSeek era measured ~1M actual context. Capped by the unresolved catalog-vs-reality conflict and the identity-dependent window.
+- **Multimodal: 15/100.** (Unchanged.) Text-only in/out per models.dev; no attachments.
+- **Coding: 72/100.** (Was 70.) Small raise: the direct SWE-Atlas 50.8% row remains class-leading for its scaffold, and the stale GLM-4.6-era proxies (SWE-bench Verified 68%, LiveCodeBench 81%) understate the presumably stronger current underlying; still zero alias-verified classic-suite runs.
+- **Cost efficiency: 100/100.** (Unchanged, strengthened.) $0 in/out/cache with a collaborator-stated intent to keep it "free in perpetuity". Risks remain: data may be used for training, and the underlying identity can change without notice.
+- **Overall Score: 58/100.** (Was 54.2.) Mean: (60 + 65 + 78 + 15 + 72) / 5 = 290/5 = 58. The raise is driven by verified router-history evidence (GLM-4.6 → DeepSeek V4 Flash → reported Ox Alpha) superseding the stale GLM-4.6-era proxy baseline, plus the collaborator-confirmed 128K output. Best fit: zero-cost daily driver for coding agents and multi-step tool work; keep a paid, identity-confirmed fallback for production, since the underlying model can change without notice.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for the anonymous stealth alias; the prior 2026-09-17/10-09 passes on models.dev/glonce.com/ayautomate remain the evidence base; GitHub issue #50202 degraded-output caveat stands); 2026-10-16 re-check: BenchLM still 404s the alias, the live Zen roster still lists it free, search engines rate-limited the identity-reveal check — no new evidence, scores unchanged.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: enrichment re-research 2026-10-19 (≥3 independent lookups: live OpenCode Zen roster re-verification, models.dev catalog fetch, the canonical identity thread `https://github.com/anomalyco/opencode/issues/4276` read in full — including the collaborator confirmations and the 2026 Ox Alpha reports — and a Bing web search). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
