@@ -253,7 +253,7 @@ export default component$(() => {
                     href={model.meta.officialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-block font-medium text-[#a9c7ef] underline hover:text-white"
+                    class="mt-2 block w-fit font-medium text-[#a9c7ef] underline hover:text-white"
                   >
                     Official page ↗
                   </a>
