@@ -9,5 +9,8 @@
   "pricingTiers": [
     "Free Zen / NVIDIA trial"
   ],
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3-ultra-free"
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3-ultra-free",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

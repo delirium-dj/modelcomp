@@ -10,5 +10,9 @@
     "Standard API hosting"
   ],
   "freeTierNote": "Open weights available for local deployment and community hosting",
-  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-31b"
+  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-31b",
+  "pricingLinks": [
+    "https://huggingface.co/blog/gemma4",
+    "https://ai.google.dev/gemma/docs/core/model_card_4"
+  ]
 }

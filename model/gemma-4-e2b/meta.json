@@ -9,5 +9,9 @@
     "Open weights (Apache 2.0, self-host)",
     "Hosted ~$0.04/$0.08 per 1M"
   ],
-  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e2b"
+  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e2b",
+  "pricingLinks": [
+    "https://huggingface.co/google/gemma-4-E2B",
+    "https://ai.google.dev/gemma/docs/releases"
+  ]
 }

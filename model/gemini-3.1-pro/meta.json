@@ -6,5 +6,8 @@
   "modalities": "Text, image, audio, video, PDF in; text out",
   "pricingNote": "Free tier available; Paid-tier pricing",
   "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen",
-  "officialUrl": "https://deepmind.google/technologies/gemini/"
+  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "pricingLinks": [
+    "https://www.nxcode.org/fi/resources/news/gemini-3-5-flash-complete-guide-benchmarks-pricing-api-2026"
+  ]
 }

@@ -9,5 +9,8 @@
     "$0 self-hosted MIT weights (no hosted route)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/mimo-v2.6-distill-qwen-9b/"
+  "officialUrl": "https://qwenlm.github.io/blog/mimo-v2.6-distill-qwen-9b/",
+  "pricingLinks": [
+    "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B"
+  ]
 }

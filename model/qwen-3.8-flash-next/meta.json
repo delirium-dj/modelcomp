@@ -10,5 +10,9 @@
     "Self-host (Qwen Community license)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-flash-next/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-flash-next/",
+  "pricingLinks": [
+    "https://vercel.com/ai-gateway/models/qwen3.8-flash-next",
+    "https://www.qwencloud.com/models/qwen3.8-flash"
+  ]
 }

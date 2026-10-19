@@ -6,5 +6,8 @@
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing ($5 input / $25 output per 1M)",
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.5"
+  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.5",
+  "pricingLinks": [
+    "https://www.anthropic.com/news/claude-opus-4-5"
+  ]
 }

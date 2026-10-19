@@ -5,5 +5,8 @@
   "contextWindow": "200,000 total; 64,000 max out (extended thinking)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input",
-  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-3.7"
+  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-3.7",
+  "pricingLinks": [
+    "https://www.anthropic.com/news/claude-3-7-sonnet"
+  ]
 }

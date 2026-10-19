@@ -10,5 +10,9 @@
     "Cached input $0.20 per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-6-sol/"
+  "officialUrl": "https://openai.com/index/gpt-6-sol/",
+  "pricingLinks": [
+    "https://developers.openai.com/api/docs/models/gpt-6-sol",
+    "https://developers.openai.com/api/docs/models/gpt-6-sol"
+  ]
 }

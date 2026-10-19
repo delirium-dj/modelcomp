@@ -11,5 +11,10 @@
     "Cloudflare $0.0485/$0.676; Inference.net $0.055/$0.055; DeepInfra $0.345/$0.345 per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=llama_3.2_vision_instruct"
+  "officialUrl": "https://huggingface.co/models?search=llama_3.2_vision_instruct",
+  "pricingLinks": [
+    "https://www.llama.com/docs/overview/",
+    "https://integrate.api.nvidia.com/v1`",
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+  ]
 }

@@ -11,5 +11,10 @@
     "OpenRouter from ~$0.30/$1.80 per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5-plus/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5-plus/",
+  "pricingLinks": [
+    "https://www.qwencloud.com/models/qwen3.5-plus",
+    "https://www.qwencloud.com/models/qwen3.5-plus",
+    "https://openrouter.ai/models/qwen/qwen-3.5-plus"
+  ]
 }

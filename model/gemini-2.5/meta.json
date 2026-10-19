@@ -6,5 +6,8 @@
   "modalities": "Text/image/audio/video in; text out",
   "pricingNote": "$1.25/$10.00 per 1M (Google API; OpenRouter google/gemini-2.5-pro); legacy access-limited model",
   "noFreeId": true,
-  "officialUrl": "https://deepmind.google/technologies/gemini/"
+  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "pricingLinks": [
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/"
+  ]
 }

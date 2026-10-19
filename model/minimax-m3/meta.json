@@ -9,5 +9,8 @@
     "Paid $0.30/$1.20 per 1M (no Zen Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=minimax-m3"
+  "officialUrl": "https://huggingface.co/models?search=minimax-m3",
+  "pricingLinks": [
+    "https://minimax.io/docs/pricing"
+  ]
 }

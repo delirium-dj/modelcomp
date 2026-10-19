@@ -10,5 +10,9 @@
     "Free promotional Zen tier",
     "Apache 2.0 open weights (self-host free)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=xing_4.0_29b_a4b"
+  "officialUrl": "https://huggingface.co/models?search=xing_4.0_29b_a4b",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/",
+    "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-FP8"
+  ]
 }

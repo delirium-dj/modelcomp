@@ -9,5 +9,9 @@
     "$1.00 in / $2.70 out per MTok ($0.10 cache-hit input)",
     "Rate-limit tier V0 (under $15 cumulative top-up): 5 concurrency, 100 RPM, 500K TPM"
   ],
-  "officialUrl": "https://www.stepfun.com/step-5-preview"
+  "officialUrl": "https://www.stepfun.com/step-5-preview",
+  "pricingLinks": [
+    "https://www.stepfun.com/",
+    "https://www.stepfun.com/"
+  ]
 }

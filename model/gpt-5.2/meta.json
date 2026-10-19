@@ -10,5 +10,9 @@
     "$21.00/$168.00 per 1M Pro"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5.2/"
+  "officialUrl": "https://openai.com/index/gpt-5.2/",
+  "pricingLinks": [
+    "https://openai.com/index/introducing-gpt-5-2/",
+    "https://openai.com/index/introducing-gpt-5-2/"
+  ]
 }

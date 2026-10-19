@@ -11,5 +11,10 @@
     "Contributor $0.10/$0.20",
     "Standard $1.25/$4.25"
   ],
-  "officialUrl": "https://huggingface.co/models?search=muse-spark-1.2"
+  "officialUrl": "https://huggingface.co/models?search=muse-spark-1.2",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models",
+    "https://opencode.ai/data/meta/muse-spark-1-2-contributor",
+    "https://dev.meta.ai/models/muse-spark-1-2"
+  ]
 }

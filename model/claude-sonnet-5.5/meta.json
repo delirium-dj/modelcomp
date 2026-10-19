@@ -9,5 +9,8 @@
     "Paid $2/$10 (no Zen Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-5.5"
+  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-5.5",
+  "pricingLinks": [
+    "https://www.anthropic.com/claude/sonnet"
+  ]
 }

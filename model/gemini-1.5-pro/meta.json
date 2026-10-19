@@ -6,5 +6,8 @@
   "modalities": "Text, image, audio, video in; text out",
   "pricingNote": "Legacy model; free tier via AI Studio; paid equiv. ~$1.25/$5 per 1M",
   "noFreeId": true,
-  "officialUrl": "https://deepmind.google/technologies/gemini/"
+  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "pricingLinks": [
+    "https://ai.google.dev/gemini-api/docs/models"
+  ]
 }

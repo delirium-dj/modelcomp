@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "$1.20/$6.00 per 1M in/out (Alibaba; tiered above 32K/128K)",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen3-max/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen3-max/",
+  "pricingLinks": [
+    "https://qwenlm.github.io/Qwen-Agent/en/guide/get_started/configuration/"
+  ]
 }

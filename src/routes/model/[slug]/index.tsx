@@ -371,18 +371,22 @@ export default component$(() => {
           <div class="border-l border-l-[#ccdae2] px-7 py-[30px] pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Access & pricing</span>
               <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-sm">
-                {(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => (
-                  <span key={tier}>
-                    {i > 0 ? "; " : ""}
-                    {model.meta.officialUrl ? (
-                      <a href={model.meta.officialUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-[#557ddd] dark:hover:text-[#7ba0ef]" title="View official pricing and provider details">
-                        {withFreeZenLink(tier)}
-                      </a>
-                    ) : (
-                      withFreeZenLink(tier)
-                    )}
-                  </span>
-                ))}
+                {(model.meta.pricingTiers ?? [model.meta.pricingNote]).map((tier, i) => {
+                  const content = withFreeZenLink(tier);
+                  const source = model.meta.pricingLinks?.[i];
+                  return (
+                    <span key={`${tier}-${i}`}>
+                      {i > 0 ? "; " : ""}
+                      {source && content.length === 1 ? (
+                        <a href={source} target="_blank" rel="noopener noreferrer" class="underline decoration-dotted underline-offset-2 hover:text-[#557ddd] dark:hover:text-[#7ba0ef]" title="Source claiming this pricing">
+                          {content}
+                        </a>
+                      ) : (
+                        content
+                      )}
+                    </span>
+                  );
+                })}
               </strong>
           </div>
         </section>

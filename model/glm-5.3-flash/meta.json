@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Free Zen tier available",
   "freeTierNote": "Free Zen tier available",
-  "officialUrl": "https://open.zhipuai.cn/"
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

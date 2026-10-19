@@ -5,5 +5,8 @@
   "contextWindow": "128K total (max output undisclosed)",
   "modalities": "Text in/out only (text-only preview)",
   "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)",
-  "officialUrl": "https://openai.com/index/gpt-5.3-codex-spark/"
+  "officialUrl": "https://openai.com/index/gpt-5.3-codex-spark/",
+  "pricingLinks": [
+    "https://openai.com/index/introducing-gpt-5-3-codex-spark/"
+  ]
 }

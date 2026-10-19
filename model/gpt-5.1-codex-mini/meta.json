@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
   "scaffolded": true,
-  "officialUrl": "https://openai.com/index/gpt-5.1-codex-mini/"
+  "officialUrl": "https://openai.com/index/gpt-5.1-codex-mini/",
+  "pricingLinks": [
+    "https://openai.com/index/gpt-5-1-for-developers"
+  ]
 }

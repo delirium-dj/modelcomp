@@ -5,5 +5,8 @@
   "contextWindow": "1,048,576 (1M); 128K output",
   "modalities": "Text, image, video in; text out",
   "pricingNote": "$0.37/$1.25 per 1M",
-  "officialUrl": "https://open.zhipuai.cn/"
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://z.ai/blog/glm-5.3-Flash"
+  ]
 }

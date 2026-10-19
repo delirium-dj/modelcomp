@@ -5275,6 +5275,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Muse_Spark_1.2.md": [94, 92, 100, 85, 95, 100, 93],
     "Muse_Spark_1.3.md": [95, 94, 100, 85, 95, 88, 94],
     "Nemotron_3.5_Super_VL_120B_A12B.md": [75, 80, 90, 85, 82, 85, 82],
+    "Nemotron_3_Ultra_550B_A55B.md": [95, 92, 100, 85, 95, 100, 93],
     "North_Mini_Code.md": [95, 94, 100, 85, 95, 88, 94],
     "Pixel_Canary.md": [94, 86, 97, 86, 93, 96, 91.2],
     "Qwen_3.7_Plus.md": [90, 92, 95, 80, 85, 78, 88],

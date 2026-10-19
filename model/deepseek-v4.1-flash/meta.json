@@ -9,5 +9,8 @@
     "Paid $0.30/$1.20 per 1M (no Zen Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://www.deepseek.com/"
+  "officialUrl": "https://www.deepseek.com/",
+  "pricingLinks": [
+    "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+  ]
 }

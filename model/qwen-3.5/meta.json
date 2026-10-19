@@ -5,5 +5,8 @@
   "contextWindow": "128K–1M (family range; tracked tier unconfirmed)",
   "modalities": "Text in/out (multimodal coverage unverified for tracked tier)",
   "pricingNote": "Low-cost Qwen tier (exact price unverified)",
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/",
+  "pricingLinks": [
+    "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
+  ]
 }

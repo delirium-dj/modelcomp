@@ -6,5 +6,8 @@
   "modalities": "Text in/out; image in via consumer app",
   "pricingNote": "Paid; third-party rates conflict",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.1"
+  "officialUrl": "https://x.ai/blog/grok-4.1",
+  "pricingLinks": [
+    "https://x.ai/news/grok-4-1"
+  ]
 }

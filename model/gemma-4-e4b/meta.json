@@ -9,5 +9,9 @@
     "Open weights (Apache 2.0, self-host)",
     "Hosted ~$0.02/$0.10 per 1M"
   ],
-  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e4b"
+  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e4b",
+  "pricingLinks": [
+    "https://huggingface.co/google/gemma-4-E4B-it/blob/main/README.md",
+    "https://deepmind.google/models/gemma/gemma-4/"
+  ]
 }

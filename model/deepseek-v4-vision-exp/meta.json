@@ -6,5 +6,8 @@
   "modalities": "Text, image, PDF in; text out",
   "pricingNote": "Free Zen tier available",
   "freeTierNote": "Free OpenCode Zen tier available for multimodal experimentation and vision benchmarking",
-  "officialUrl": "https://www.deepseek.com/"
+  "officialUrl": "https://www.deepseek.com/",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

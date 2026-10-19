@@ -10,5 +10,9 @@
     "Cached input $0.50; batch $2.50/$12.50"
   ],
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.7"
+  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.7",
+  "pricingLinks": [
+    "https://www.anthropic.com/news/claude-opus-4-7",
+    "https://www.anthropic.com/news/claude-opus-4-7"
+  ]
 }

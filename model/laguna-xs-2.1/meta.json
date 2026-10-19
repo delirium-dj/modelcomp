@@ -6,5 +6,8 @@
   "modalities": "Text in/out only",
   "pricingNote": "$0.06/$0.12 per 1M (OpenRouter); free tier available",
   "noFreeId": false,
-  "officialUrl": "https://huggingface.co/models?search=laguna-xs-2.1"
+  "officialUrl": "https://huggingface.co/models?search=laguna-xs-2.1",
+  "pricingLinks": [
+    "https://openrouter.ai/poolside/laguna-xs-2.1"
+  ]
 }

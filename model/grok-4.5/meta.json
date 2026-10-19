@@ -6,5 +6,8 @@
   "modalities": "Text, image, file in; text out",
   "pricingNote": "Paid $2.00/$6.00 per 1M; $0.30 cached",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.5"
+  "officialUrl": "https://x.ai/blog/grok-4.5",
+  "pricingLinks": [
+    "https://docs.x.ai/developers/models/grok-4.5"
+  ]
 }

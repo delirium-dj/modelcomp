@@ -10,5 +10,9 @@
     "$2.50/$5.00 per 1M at >=200K prompt"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.3"
+  "officialUrl": "https://x.ai/blog/grok-4.3",
+  "pricingLinks": [
+    "https://x.ai/news/grok-amazon-bedrock",
+    "https://x.ai/news/grok-amazon-bedrock"
+  ]
 }

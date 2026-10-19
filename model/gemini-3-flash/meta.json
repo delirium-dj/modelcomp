@@ -5,5 +5,8 @@
   "contextWindow": "1,000,000 (1M) total",
   "modalities": "Text, image, audio in; text out",
   "pricingNote": "$0.50/$3.00 per 1M (audio $1)",
-  "officialUrl": "https://deepmind.google/technologies/gemini/"
+  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "pricingLinks": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
 }

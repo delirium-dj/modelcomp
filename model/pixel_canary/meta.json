@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "$0 — free while in stealth",
   "freeTierNote": "Free for a limited time while in stealth (Vercel AI Gateway); no ZDR, prompts may be used for training",
-  "officialUrl": "https://huggingface.co/models?search=pixel_canary"
+  "officialUrl": "https://huggingface.co/models?search=pixel_canary",
+  "pricingLinks": [
+    "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway"
+  ]
 }

@@ -12,5 +12,11 @@
     "NVIDIA NIM $0"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=muse-glimmer-30b"
+  "officialUrl": "https://huggingface.co/models?search=muse-glimmer-30b",
+  "pricingLinks": [
+    "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+    "https://openrouter.ai/meta/muse-glimmer-30b",
+    "https://fireworks.ai",
+    "https://build.nvidia.com/meta/muse-glimmer-30b/modelcard"
+  ]
 }

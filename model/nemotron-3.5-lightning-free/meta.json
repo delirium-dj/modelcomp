@@ -11,5 +11,10 @@
     "$0.08 in / $0.20 out per 1M ($0.04 cached input)",
     "OpenMDW open weights (self-host, commercial use permitted)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-lightning-free"
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-lightning-free",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models",
+    "https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16"
+  ]
 }

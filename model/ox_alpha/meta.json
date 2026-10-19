@@ -6,5 +6,8 @@
   "modalities": "Text, image, video, PDF in; text out",
   "pricingNote": "Free Zen tier",
   "freeTierNote": "Free OpenCode Zen tier access for experimental agentic coding and logic puzzles",
-  "officialUrl": "https://huggingface.co/models?search=ox_alpha"
+  "officialUrl": "https://huggingface.co/models?search=ox_alpha",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

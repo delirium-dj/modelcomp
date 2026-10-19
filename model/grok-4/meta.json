@@ -9,5 +9,8 @@
     "$3 in / $15 out per 1M, $0.75 cached (base tier)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4"
+  "officialUrl": "https://x.ai/blog/grok-4",
+  "pricingLinks": [
+    "https://x.ai/news/grok-4"
+  ]
 }

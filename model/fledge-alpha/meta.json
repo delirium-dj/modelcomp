@@ -6,5 +6,8 @@
   "modalities": "Text + image in; text out",
   "pricingNote": "Free OpenCode Zen preview ($0/$0)",
   "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0",
-  "officialUrl": "https://huggingface.co/models?search=fledge-alpha"
+  "officialUrl": "https://huggingface.co/models?search=fledge-alpha",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

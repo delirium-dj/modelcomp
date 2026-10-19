@@ -9,5 +9,8 @@
     "Paid $10/$50 per 1M (no Zen Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-mythos-5.1"
+  "officialUrl": "https://www.anthropic.com/news/claude-mythos-5.1",
+  "pricingLinks": [
+    "https://www.anthropic.com/claude/mythos"
+  ]
 }

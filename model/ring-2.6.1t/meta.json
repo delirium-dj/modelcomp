@@ -7,5 +7,8 @@
   "pricingNote": "AA ~$0.30/$2.50 per 1M; MIT open weights, but self-hosting needs ~32 GPUs (vendor SGLang example: 4 nodes x 8)",
   "freeTierNote": "Free OpenRouter endpoint at $0.00/1M; no Zen Free ID. Hugging Face reports no Inference Provider deploys the weights directly.",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ring-2.6.1t"
+  "officialUrl": "https://huggingface.co/models?search=ring-2.6.1t",
+  "pricingLinks": [
+    "https://huggingface.co/inclusionAI/Ring-2.6-1T"
+  ]
 }

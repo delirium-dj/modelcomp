@@ -11,5 +11,11 @@
     "Batch/Flex 50% below standard",
     "Fast mode 2x standard"
   ],
-  "officialUrl": "https://openai.com/index/gpt-6.1-sol/"
+  "officialUrl": "https://openai.com/index/gpt-6.1-sol/",
+  "pricingLinks": [
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "https://artificialanalysis.ai/models/gpt-6-1-sol"
+  ]
 }

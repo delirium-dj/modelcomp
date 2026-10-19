@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",
   "noFreeId": true,
-  "officialUrl": "https://open.zhipuai.cn/"
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://z.ai/blog/glm-5.2"
+  ]
 }

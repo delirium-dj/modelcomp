@@ -5,5 +5,8 @@
   "contextWindow": "200,000 (64K max out)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$1.00/$5.00 per 1M",
-  "officialUrl": "https://www.anthropic.com/news/claude-haiku-4.5"
+  "officialUrl": "https://www.anthropic.com/news/claude-haiku-4.5",
+  "pricingLinks": [
+    "https://platform.claude.com/docs/en/models/haiku-4-5/overview"
+  ]
 }

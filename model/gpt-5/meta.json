@@ -10,5 +10,9 @@
     "OpenCode Zen $1.07/$8.50 per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5/"
+  "officialUrl": "https://openai.com/index/gpt-5/",
+  "pricingLinks": [
+    "https://developers.openai.com/api/docs/models/gpt-5",
+    "https://opencode.ai/docs/zen/"
+  ]
 }

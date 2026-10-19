@@ -9,5 +9,9 @@
     "API ~$0.15/$0.47 per 1M in/out",
     "Self-hosted $0 (open weights)"
   ],
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-flash/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-flash/",
+  "pricingLinks": [
+    "https://help.aliyun.com/en/model-studio/qwen3-8-flash",
+    "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+  ]
 }

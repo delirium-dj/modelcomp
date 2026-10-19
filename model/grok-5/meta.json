@@ -6,5 +6,8 @@
   "modalities": "Not announced",
   "pricingNote": "Not announced (no public API)",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-5"
+  "officialUrl": "https://x.ai/blog/grok-5",
+  "pricingLinks": [
+    "https://docs.x.ai/developers/models"
+  ]
 }

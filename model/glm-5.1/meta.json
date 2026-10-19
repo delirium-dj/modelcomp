@@ -9,5 +9,8 @@
     "Paid $1.40/$4.40 (no Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://open.zhipuai.cn/"
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://docs.z.ai/guides/overview/pricing"
+  ]
 }

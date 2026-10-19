@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Route-dependent: $0.075/$0.625 (BenchmarkList) or ~$0.30/$2.50 (AA) per 1M; MIT weights",
   "freeTierNote": "Free OpenRouter endpoint (inclusionai/ling-2.6-1t:free); MIT weights free self-host",
-  "officialUrl": "https://huggingface.co/models?search=ling-2.6.1t"
+  "officialUrl": "https://huggingface.co/models?search=ling-2.6.1t",
+  "pricingLinks": [
+    "https://openrouter.ai/inclusionai/ling-2.6-1t"
+  ]
 }

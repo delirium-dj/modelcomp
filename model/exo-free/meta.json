@@ -6,5 +6,8 @@
   "modalities": "Text + image in; text out",
   "pricingNote": "Free Zen tier (limited-time $0 in/out/cached; inputs may train the model)",
   "freeTierNote": "Limited-time free route for feedback collection with no stated end date; inputs may be used to improve the model. Expect 429s and 'endpoint unavailable' under load.",
-  "officialUrl": "https://huggingface.co/models?search=exo-free"
+  "officialUrl": "https://huggingface.co/models?search=exo-free",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models"
+  ]
 }

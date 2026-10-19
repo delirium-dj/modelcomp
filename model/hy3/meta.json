@@ -9,5 +9,8 @@
     "TokenHub preview ~$0.18/$0.59 (no Zen Free ID)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=hy3"
+  "officialUrl": "https://huggingface.co/models?search=hy3",
+  "pricingLinks": [
+    "https://api.tencentcloud.com/tokenhub/v1`"
+  ]
 }

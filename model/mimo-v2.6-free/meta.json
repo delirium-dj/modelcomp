@@ -10,5 +10,9 @@
     "Paid fallback $0.14/$0.28 per 1M"
   ],
   "freeTierNote": "Free tier on OpenCode Zen ($0 in/out); paid fallback $0.14/$0.28 per 1M",
-  "officialUrl": "https://huggingface.co/models?search=mimo-v2.6-free"
+  "officialUrl": "https://huggingface.co/models?search=mimo-v2.6-free",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models",
+    "https://mimo.mi.com/docs/pricing"
+  ]
 }

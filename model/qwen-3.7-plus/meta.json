@@ -11,5 +11,10 @@
     "$0.32/$1.28 via OpenRouter/OpenCode Go"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.7-plus/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.7-plus/",
+  "pricingLinks": [
+    "https://www.qwencloud.com/models/qwen3.7-plus",
+    "https://www.qwencloud.com/models/qwen3.7-plus",
+    "https://openrouter.ai/qwen/qwen3.7-plus"
+  ]
 }

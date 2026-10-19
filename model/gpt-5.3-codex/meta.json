@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Paid $1.75/$14.00 per 1M; $0.175 cached",
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5.3-codex/"
+  "officialUrl": "https://openai.com/index/gpt-5.3-codex/",
+  "pricingLinks": [
+    "https://developers.openai.com/api/docs/models/gpt-5.3-codex"
+  ]
 }

@@ -10,5 +10,9 @@
     "Open weights (OpenMDW-1.1) — self-host free"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-super-vl"
+  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-super-vl",
+  "pricingLinks": [
+    "https://nano-gpt.com/models/text/nvidia/nemotron-3.5-super-vl",
+    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"
+  ]
 }

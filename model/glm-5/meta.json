@@ -10,5 +10,9 @@
     "MIT open weights (self-host free)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://open.zhipuai.cn/"
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://z.ai/blog/glm-5?id=GLM5",
+    "https://huggingface.co/zai-org/GLM-5"
+  ]
 }

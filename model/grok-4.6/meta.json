@@ -10,5 +10,9 @@
     "$4 in / $12 out per 1M, $1 cached (>200K prompt)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.6"
+  "officialUrl": "https://x.ai/blog/grok-4.6",
+  "pricingLinks": [
+    "https://x.ai/news/grok-4-6",
+    "https://x.ai/news/grok-4-6"
+  ]
 }

@@ -11,5 +11,10 @@
     "MIT open weights: free self-host"
   ],
   "noFreeId": true,
-  "officialUrl": "https://www.deepseek.com/"
+  "officialUrl": "https://www.deepseek.com/",
+  "pricingLinks": [
+    "https://deepseek.com/en/news/v4-preview/",
+    "https://deepseek.com/en/news/v4-preview/",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"
+  ]
 }

@@ -6,5 +6,8 @@
   "modalities": "Text in → typed decision out (Choice/Score/Noul); no image, audio, or video",
   "pricingNote": "$0.042/M input; output free (no autoregressive generation)",
   "category": "decision",
-  "officialUrl": "https://huggingface.co/models?search=jev-1.13"
+  "officialUrl": "https://huggingface.co/models?search=jev-1.13",
+  "pricingLinks": [
+    "https://docs.typesafe.ai/models"
+  ]
 }

@@ -10,5 +10,9 @@
     "Free Zen tier",
     "Paid equiv. GLM-4.6 ~$0.60/$2.20"
   ],
-  "officialUrl": "https://huggingface.co/models?search=big-pickle"
+  "officialUrl": "https://huggingface.co/models?search=big-pickle",
+  "pricingLinks": [
+    "https://opencode.ai/v2/docs/console/models/#free-models",
+    "https://docs.z.ai/guides/overview/pricing"
+  ]
 }

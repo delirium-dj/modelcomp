@@ -6,5 +6,8 @@
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.6"
+  "officialUrl": "https://www.anthropic.com/news/claude-opus-4.6",
+  "pricingLinks": [
+    "https://claude.com/blog/1m-context-ga"
+  ]
 }

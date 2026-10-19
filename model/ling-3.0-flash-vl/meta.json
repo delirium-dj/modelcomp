@@ -6,5 +6,8 @@
   "modalities": "Text, image, video in; text out",
   "pricingNote": "OpenRouter $0.021/$0.0616 per 1M (free windows expired)",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-vl"
+  "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-vl",
+  "pricingLinks": [
+    "https://openrouter.ai/inclusionai/ling-3.0-flash-vl`"
+  ]
 }

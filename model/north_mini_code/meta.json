@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Free tier ($0/$0)",
   "freeTierNote": "Completely free tier ($0 input / $0 output)",
-  "officialUrl": "https://huggingface.co/models?search=north_mini_code"
+  "officialUrl": "https://huggingface.co/models?search=north_mini_code",
+  "pricingLinks": [
+    "https://openrouter.ai/cohere/north-mini-code:free"
+  ]
 }

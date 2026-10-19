@@ -11,5 +11,10 @@
     "$0.325/$1.95 via OpenRouter"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.6-plus/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.6-plus/",
+  "pricingLinks": [
+    "https://www.qwencloud.com/models/qwen3.6-plus",
+    "https://www.qwencloud.com/models/qwen3.6-plus",
+    "https://openrouter.ai/models/qwen/qwen-3.6-plus"
+  ]
 }

@@ -10,5 +10,9 @@
     "Long-context $2.00/$0.40/$4.00 (at/above 200K)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-build-0.1"
+  "officialUrl": "https://x.ai/blog/grok-build-0.1",
+  "pricingLinks": [
+    "https://x.ai/blog/grok-code-fast-1",
+    "https://x.ai/blog/grok-code-fast-1"
+  ]
 }

@@ -11,5 +11,10 @@
     "Hosted ~$0.09–$0.15/$0.45–$0.60 per 1M (OpenAI/Fireworks/Bedrock)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-oss-120b/"
+  "officialUrl": "https://openai.com/index/gpt-oss-120b/",
+  "pricingLinks": [
+    "https://huggingface.co/openai/gpt-oss-120b`",
+    "https://deepinfra.com/pricing",
+    "https://developers.openai.com/api/docs/models/gpt-oss-120b"
+  ]
 }

@@ -6,5 +6,8 @@
   "modalities": "Text in/out",
   "pricingNote": "Was free on OpenRouter during the alias period; endpoint now retired (404)",
   "freeTierNote": "Alias was a free OpenRouter endpoint; superseded by LongCat-2.0",
-  "officialUrl": "https://huggingface.co/models?search=owl-alpha"
+  "officialUrl": "https://huggingface.co/models?search=owl-alpha",
+  "pricingLinks": [
+    "https://openrouter.ai/openrouter/owl-alpha"
+  ]
 }

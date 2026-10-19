@@ -5,5 +5,8 @@
   "contextWindow": "262,144 total (per AA)",
   "modalities": "Text in/out",
   "pricingNote": "Open weights (MIT): free self-host",
-  "officialUrl": "https://huggingface.co/models?search=ling-2.6-flash"
+  "officialUrl": "https://huggingface.co/models?search=ling-2.6-flash",
+  "pricingLinks": [
+    "https://huggingface.co/inclusionAI/Ling-2.6-flash`"
+  ]
 }
