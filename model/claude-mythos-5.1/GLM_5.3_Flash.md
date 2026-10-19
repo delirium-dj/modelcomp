@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: platform.claude.com mythos-5-1 model page + models overview, benchlm.ai updated 2026-10-10 citing the joint Fable 5.1 & Mythos 5.1 system card, AA leaderboards for the shared-weight rows via the Fable 5.1 second pass; 2026-10-16 re-check: BenchLM still 1 row, the Fable 5.1 FrontierMath resolution (90.2/87.8) applies to shared weights — Reasoning 94→95, Overall 91→92); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (Bing web search for new Mythos 5.1 evaluations — none surfaced, consistent with the gated deployment's minimal-disclosure design; the prior evidence base stands: platform.claude.com mythos-5-1 model page + models overview, the joint Fable 5.1 & Mythos 5.1 system card via benchlm.ai, and AA shared-weight rows from the Fable 5.1 passes). No evidence supports a score change — all seven scores carried from the 2026-10-16 pass. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

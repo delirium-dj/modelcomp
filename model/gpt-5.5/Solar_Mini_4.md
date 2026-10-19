@@ -43,7 +43,7 @@
 - **Multimodal: 92/100.** Text + image in/out supported per official API specs.
 - **Coding: 88/100.** AA Intelligence Index 48 and LLM Arena coding dominance support elite-level coding performance.
 - **Cost efficiency: 95/100.** Competitive pricing ($2/$10/1M); highest value tier in GPT 5 family but not part of Overall Score formula.
-- **Overall Score: 87/100.** (88 + 87 + 95 + 92 + 88) / 5 = 90.0. Best-fit: a balanced flagship model excelling at reasoning and coding; superseded by GPT-6.1 Sol.
+- **Overall Score: 90/100.** (88 + 87 + 95 + 92 + 88) / 5 = 90.0. Best-fit: a balanced flagship model excelling at reasoning and coding; superseded by GPT-6.1 Sol.
 
 ---
 
