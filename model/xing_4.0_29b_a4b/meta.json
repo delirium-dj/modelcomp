@@ -12,7 +12,7 @@
   ],
   "officialUrl": "https://huggingface.co/models?search=xing_4.0_29b_a4b",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/",
+    "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-FP8"
   ]
 }

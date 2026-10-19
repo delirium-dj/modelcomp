@@ -1,78 +1,66 @@
-# Mai Experimental Test — findings by GLM 5.3 Flash
+# MAI Experimental Test — findings by GLM 5.3 Flash
 
-- Source: OpenCode Zen (`opencode/mai-experimental-test`)
-- Date: 2026-10-10 (UTC)
+- Source: unverified — no publisher confirmed (registry slug `mai-experimental-test`; presumed Microsoft MAI family)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 > SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
-> zero verified public benchmark numbers were found for this exact model/ID, so
-> this file is saved as `.md.excluded` with negative-findings notes only. No
-> scores are claimed; any numbers below are notes, never averaged by `pnpm sync`.
+> zero verified public evidence that this exact model/ID exists in any public
+> catalog, roster, or benchmark. Saved as `.md.excluded` with negative-findings
+> notes only; no scores are claimed.
 
 ## Model card
 
-- **Name:** Mai Experimental Test
-- **Short description:** An exploratory sandbox model on OpenCode Zen used for testing integration pipelines and benchmarking frameworks. No publisher, release, or upstream identity is publicly documented — the ID appears to be an internal/anonymous test route rather than a shipping model.
-- **Provider / access:** OpenCode Zen `opencode/mai-experimental-test` (endpoint type not publicly documented; not listed on the live `https://opencode.ai/zen/v1/models` roster as of 2026-10-10, suggesting the route is retired or internal-only).
-- **Release / knowledge:** no verified public release date; no knowledge-cutoff statement found.
-- **IDs:** `opencode/mai-experimental-test` (the only ID found; no public card page).
-- **Context window:** 128,000 total (dataset `meta.json` generic scaffold value, not provider-verified — per project notes these scaffold defaults come from `scripts/lib/naming.mjs`, not provider evidence).
-- **Modalities:** text in/out only (scaffold default, unverified).
-- **Pricing (as of 2026-10-10):** "Experimental tier pricing" per `meta.json`; no public price table lists this ID (absent from the Zen pricing page on 2026-10-10).
-- **Architecture:** unknown — no parameter count, MoE details, or weights release found.
+- **Name:** MAI Experimental Test (unverified name from the registry scaffold)
+- **Short description:** An unidentifiable registry entry. The `mai-` prefix suggests Microsoft's MAI model family, and the `-experimental-test` suffix suggests an internal/experimental evaluation route, but no publisher page, model card, roster sighting, or benchmark could be located. Possibly a transient test endpoint (Microsoft runs MAI experiments behind temporary routes) or a mislabeled scaffold.
+- **Provider / access:** none found. The live OpenCode Zen inference roster (`https://opencode.ai/inference/v1/models`, fetched 2026-10-19, 85 models) does NOT list it — the only test-like entry is a bare `test` ID with no MAI association. No hosted route or weights page located.
+- **Release / knowledge:** no release date or knowledge-cutoff statement found anywhere.
+- **IDs:** none verified. No `mai-experimental-test` ID on any provider.
+- **Context window:** unverified — no catalog lists this ID.
+- **Modalities:** unknown.
+- **Pricing (as of 2026-10-19):** no price table lists this ID.
+- **Architecture:** unknown. The Microsoft MAI family verifiably contains MAI-Voice-2/2.1, MAI-Image-2.6, MAI-Transcribe-2 (voice/image/speech — different models), and MAI-Code-1/1.1-Flash (GitHub Copilot coding routes, tracked separately in this dataset as `mai-code-1-flash` / `mai-code-1.1-flash`) — none of which is this slug.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench / Tau3 / Tau2 / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found — no evidence the model exists
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (model not listed on Artificial Analysis as of 2026-10-10)
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- GPQA Diamond / HLE / LCR / MLCR / CritPt / Artificial Analysis Intelligence Index: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index / other: no verified public score found
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported
+- no long-context retrieval reported — nothing verified about this model at all
 
 ### Negative-findings notes
 
-- Exact-phrase web search for `"mai-experimental-test"` (2026-10-10) returned no
-  model card, benchmark table, changelog, or vendor page using this ID.
-- The OpenCode Zen docs endpoints/pricing tables (fetched 2026-10-10) do not
-  include `mai-experimental-test`; the live `/zen/v1/models` roster does not
-  list it either.
-- Microsoft AI (MAI) publishes separate shipping models (e.g. MAI-Image-2.6);
-  no public MAI text-model announcement maps to this ID. Treating the slug as
-  an anonymous Zen test route is the best-supported reading, but it remains
-  unconfirmed.
-- Every benchmark row above is a genuine "not found" — no proxy scores were
-  substituted, and no scores are normalized in this file.
+- Four independent checks, all negative (2026-10-19): (1) Bing web search for
+  the exact slug + MAI model terms returned zero relevant results; (2) a full
+  sweep of the models.dev multi-provider catalog found no
+  `mai-experimental-test` under any provider (only unrelated MAI Voice/Image/
+  Transcribe/Code SKUs); (3) the OpenCode Zen documentation endpoints and
+  pricing tables list no such route; (4) the live OpenCode inference roster
+  does not list it.
+- The name pattern (`-experimental-test`) is consistent with a throwaway
+  evaluation endpoint rather than a productized model; even if it exists
+  privately, zero public benchmark numbers are available, so scoring is
+  impossible without fabrication.
+- If Microsoft (or any publisher) ever surfaces this route publicly with a
+  model card and harness numbers, a new signed file should supersede these
+  notes.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
-- Method: public internet research (exact-phrase search, OpenCode Zen docs and
-  live model roster, vendor pages); zero verified public benchmarks found, so
-  this report is self-excluded with notes only.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research (web search, models.dev catalog sweep, OpenCode Zen docs and live roster); scores are omitted per self-exclusion rules, not normalized interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

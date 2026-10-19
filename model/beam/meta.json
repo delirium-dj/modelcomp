@@ -15,6 +15,6 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-    null
+    "https://artificialanalysis.ai/models/reflection-beam"
   ]
 }

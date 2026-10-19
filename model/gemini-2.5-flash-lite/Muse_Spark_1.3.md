@@ -69,3 +69,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (Google DeepMind 2.5 Flash-Lite model card PDF, llm-stats compare pages, BenchGecko HELM rows, pricepertoken pricing/capability table); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis gemini-2-5-flash-lite page (non-reasoning lane: Index 7 est., 1M, text+image+speech+video in, $0.10/$0.40, deprecated → Sep-25 Preview), (2) benchgap lane (14 measured as of 2026-10-18), (3) DeepMind models page (now showcases 3.5 Flash-Lite successor — TB2.1 54.0%, SWE-Pro 54.2%, OSWorld 74.0%, GDPval 1140, MRCRv2 72.2%@128K/21.3%@1M; successor numbers noted, not scored here). Conflicting results compared below.
+
+| Dimension | 2026-09-26 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 55 | 55 | hold — still zero agentic absolutes for the 2.5-Lite cut; Tau2 19.0% measured is a weak lane consistent with cap; successor TB2.1 54.0%/OSWorld 74.0% noted, not scored here |
+| Reasoning | 66 | 66 | hold — GPQA 64.6% measured confirms filed row; HLE ~5-7% band confirmed (AA-HLE 3.7% measured lane differs, both listed); AIME 49.8% measured confirms filed 49.8% non-thinking; new Index 7 est. anchor consistent; LCR 32.0% measured fills filed gap |
+| Context | 95 | 95 | hold — 1M reconfirmed on AA; MRCRv2 ~23% est. only; successor MRCR 72.2%@128K/21.3%@1M noted, not scored here |
+| Multimodal | 80 | 80 | hold — 4-modality input reconfirmed on AA (text/image/speech/video); new MMMU 72.9% / MMMU-Pro 54.0% measured deepen pending-cut vision numbers without moving band |
+| Coding | 60 | 60 | hold — SWE-Ver 31.6% measured confirms filed row; new SWE-Pro 11.8% est. + LiveCode ~41% est. + Coding Index ~23% est. deepen consistent with cap; successor SWE-Pro 54.2% noted, not scored here |
+| Cost | 98 | 98 | hold — $0.10/$0.40 reconfirmed on AA |
+| Overall | 71 | 71 | hold — (55+66+95+80+60)/5 = 71.2 → 71 |
+
+STATUS NOTE: AA marks 2.5 Flash-Lite deprecated → Sep-25 Preview; DeepMind now spotlights 3.5 Flash-Lite (TB2.1 54.0%, SWE-Pro 54.2%, GDPval 1140, OSWorld 74.0%) — successor numbers recorded for traceability, not scored on this cut. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/gemini-2-5-flash-lite · https://benchgap.net/model/gemini-2-5-flash-lite
+

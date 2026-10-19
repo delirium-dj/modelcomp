@@ -62,10 +62,10 @@ Long context:
 - **Tool use: 80/100.** Tau2 87 plus t2-bench 85.4%, TB2.0 54.2% and ScreenSpot-Pro 72.7% show solid Pro tool use; capped by TB-Hard 42 and no TB2.1/Tau3/GDPval numbers.
 - **Reasoning: 90/100.** AIME 95/100 plus GPQA 91.9, MMLU-Pro 90 and AA 73 (Nov-25 leader) confirm frontier-adjacent science/reasoning; capped by ARC-AGI-2 31.1% — the fluid-novel-reasoning gap stands.
 - **Context window: 90/100.** Verified 1M total / 65K out, but measured MRCR v2 26.3% at 1M (77% at 128k) caps it well below saturation peers.
-- **Multimodal: 78/100.** Text/image in per catalog with MMMU-Pro 81%, Video-MMMU 87.6% and ScreenSpot-Pro 72.7% measured strength; capped by text-only out and catalog modality limits.
+- **Multimodal: 80/100.** Native text/image/speech/video in per AA with MMMU-Pro 81.0%, Video-MME ~88%, VideoMMMU 87.6%, CharXiv 81.4% and ScreenSpot-Pro 72.7% measured; capped by text-only out. (Corrected 2026-10-19: filed text/image-only catalog understated the cut.)
 - **Coding: 85/100.** Launch SWE-V 76.2% plus Vals splits (88/74/43/33), LiveCodeBench Pro 2439 and SciCode 56 show strong short-task coding; long-task degradation and no SWE-Pro number cap it at 85.
 - **Cost efficiency: 80/100.** GA pricing now $1/$6 per 1M (was $2/$12 preview); strong paid value for a Pro.
-- **Overall Score: 85/100.** Mean of the five non-cost dims (80 + 90 + 90 + 78 + 85) / 5 = 84.6 → 85; best fit as a science-heavy reasoning Pro — measured full-length retrieval caps it below its 3.1 successor.
+- **Overall Score: 85/100.** Mean of the five non-cost dims (80 + 90 + 90 + 80 + 85) / 5 = 85.0 → 85; best fit as a science-heavy reasoning Pro — measured full-length retrieval caps it below its 3.1 successor. (Re-verified 2026-10-19: Multimodal 78→80 on native 4-modality evidence; Overall holds 85.)
 
 ---
 
@@ -74,3 +74,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (Artificial Analysis via NYSGPT 44B mirror, Vals AI SWE-bench page, Macaron/DeepMind model-card comparison, llm-stats SWE-Pro leaderboard); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis gemini-3-pro page (Preview high lane: Index 28 est., 1M, text+image+speech+video in, $2/$12 preview lane, deprecated → 3.1 Pro), (2) benchgap lane (34 measured as of 2026-10-18). Conflicting results compared below.
+
+| Dimension | 2026-09-26/27 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 80 | 80 | hold — Tau2 87 + TB2.0 54.2% stand; new Tau2 87.1% measured confirms filed row; BrowseComp ~80% est. deepens; no TB2.1/GDPval absolute |
+| Reasoning | 90 | 90 | hold — AIME 95/100 + GPQA ~91 + MMLU-Pro 90 stand; new AA-GPQA 90.8% measured confirms filed band; HLE 39.7% measured deepens filed 37-norm; LCR 76.0% measured + Omni-acc 55.8% fill filed gaps; Index lanes (73 Nov-25 vs 28 v4.3.2) differ by scale vintage, both listed |
+| Context | 90 | 90 | hold — 1M reconfirmed; filed MRCR 26.3%@1M cap stands (MRCRv2 ~85% est. only) |
+| Multimodal | 78 | 80 | UP +2 — filed text/image-only catalog understated the cut: AA confirms 4-modality input (text/image/speech/video); benchgap measured MMMU 87.2%, MMMU-Pro 81.0%, Video-MME ~88%, VideoMMMU 87.6%, CharXiv 81.4%, ScreenSpot 72.7% confirm filed video-frame lanes as native, not provisional |
+| Coding | 85 | 85 | hold — SWE-V 76.2% + Vals splits + LiveCode Pro 2439 stand; Vals SWE ~70% est. lane differs by harness, both listed; Vibe 14.3% measured is a weak tail consistent with cap |
+| Cost | 80 | 80 | hold — filed GA $1/$6 stands (AA $2/$12 is the preview lane, both listed) |
+| Overall | 85 | 85 | hold — (80+90+90+80+85)/5 = 85.0 → 85 (Multimodal 78→80 absorbed: mean 84.6→85.0, both round to 85) |
+
+CORRECTION APPLIED: Multimodal 78→80 (filed "text/image per catalog" was understated — AA + benchgap video/audio lanes are native 4-modality input). Overall holds 85 either way. Remaining gaps: TB2.1/GDPval/Claw absolutes, CritPt, measured MRCR curve.
+
+Sources: https://artificialanalysis.ai/models/gemini-3-pro · https://benchgap.net/model/gemini-3-pro
+

@@ -13,8 +13,8 @@
   "noFreeId": true,
   "officialUrl": "https://upstage.ai/products/solar-open-2",
   "pricingLinks": [
-    "https://www.upstage.ai/blog/en/solar-open-2",
-    "https://huggingface.co/upstage/Solar-Open2-250B`",
-    "https://www.upstage.ai/blog/en/solar-open-2"
+    "https://huggingface.co/upstage/Solar-Open2-250B",
+    "https://huggingface.co/upstage/Solar-Open2-250B",
+    "https://upstage.ai/pricing"
   ]
 }

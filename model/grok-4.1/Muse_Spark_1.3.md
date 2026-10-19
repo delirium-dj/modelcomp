@@ -68,3 +68,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (xAI official docs, BenchLM model + compare pages, Vals AI SWE-bench page, llm-stats model compare, xAI release notes via docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis grok-4-1-fast page (non-reasoning lane: Index 11 est., 2M, text+image, 2025-11-19, deprecated → 4.3), (2) benchgap grok-4-1-fast lane (10 measured as of 2026-10-18), (3) xAI docs models page (4.7-succession + tooling context). Conflicting results compared below.
+
+| Dimension | 2026-09-26 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 82 | 82 | hold — filed Tau2 93.3% (BenchLM compare lane) stands; benchgap Tau2 63.7% measured is a different lane (AA-Tau2 vs BenchLM-Tau2 harness) — both listed, filed lane retained; no TB/GDPval absolute |
+| Reasoning | 72 | 72 | hold — filed AA-GPQA 85.3%/AA-HLE 17.6%/Omni 25.3/72.4 (BenchLM compare lane) stand; benchgap AA-GPQA 63.7%/AA-HLE 5.1% measured is a different lane/snapshot — both listed; filed lane retained; Index 11 est. anchor consistent with cap |
+| Context | 98 | 98 | hold — 2M reconfirmed on AA; no retrieval curve |
+| Multimodal | 65 | 65 | hold — text+image reconfirmed on AA; MMMU-Pro 48.4% measured deepens without moving band |
+| Coding | 62 | 62 | hold — Vals splits + Vibe 1.20% + SciCode 44.2% stand; no new SWE-Pro/LiveCode absolute |
+| Cost | 97 | 97 | hold — $0.20/$0.50 stands (AA non-reasoning lane carries no price row; filed xAI-docs pricing retained) |
+| Overall | 76 | 76 | hold — (82+72+98+65+62)/5 = 75.8 → 76 |
+
+LANE CONFLICTS (both listed, filed lanes retained): benchgap grok-4-1-fast (AA-GPQA 63.7%/AA-HLE 5.1%/Tau2 63.7%) vs filed BenchLM compare page (AA-GPQA 85.3%/AA-HLE 17.6%/Tau2 93.3%) — different harnesses/snapshots of a deprecated cut; neither contradicts within-lane. Scores hold; prior gaps (TB/GDPval/Claw, LCR/CritPt, SWE-Pro/LiveCode, MRCR/RULER) all stand.
+
+Sources: https://artificialanalysis.ai/models/grok-4-1-fast · https://benchgap.net/model/grok-4-1-fast · https://docs.x.ai/docs/models/grok-4-1-fast-reasoning
+

@@ -1,0 +1,29 @@
+# Nemotron 3.5 Bolt E4B — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: NVIDIA/Nemotron 3.5 Bolt E4B (announced/upcoming; no public release found)
+- Date: 2026-10-19 (UTC)
+- Reason for exclusion: **zero verified public benchmark numbers exist for this model.** Every raw-benchmark row below reads "no verified public score found", so per the research rules no scored findings file is written and no placeholder numbers are invented.
+
+## What is verified
+
+- **Existence as a tracked name:** BenchLM has a page for "Nemotron 3.5 Bolt E4B" by NVIDIA ("benchmark coverage is coming soon" — 0 of 644 benchmarks covered, context window and all specs listed as pending, updated 2026-10-19).
+- **Family context:** the Nemotron 3.5 Bolt line shipped on 2026-10-15 as a single SKU — 74B-A9B (BF16 + native-2-bit 24GB builds), compressed from Nemotron 3.5 Super VL 120B-A12B via Star Elastic. NVIDIA's official Bolt announcement and model cards list only 74B-A9B variants; no E4B checkpoint is referenced.
+- **No weights:** Hugging Face has no E4B repo (the Bolt family there is exclusively 74B-A9B BF16/24GB/GGUF/LiLiCorr plus community quantizations); models.dev has no E4B entry; Artificial Analysis has no page.
+
+## What is missing (why exclusion)
+
+- **No release:** no model card, no weights, no API route, no context-window spec, no pricing, no parameter disclosure for the E4B name.
+- **No benchmarks of any kind:** no SWE-bench, Terminal-Bench, GPQA, AA Index or any other figure — from NVIDIA or any independent tracker.
+- The name implies a smaller sibling of the 74B-A9B Bolt (E4B ≈ ~expert-scale 4B-active class by naming convention), but nothing about it is verified beyond the BenchLM tracking entry.
+
+Notes for future re-research:
+
+- Re-research triggers: an NVIDIA model card or HF repo for a Bolt E4B checkpoint; an Artificial Analysis page; or a BenchLM coverage update with sourced benchmark rows.
+- When data appears, a scored report should cover Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology, using the verified E4B figures only — never inheriting the 74B-A9B Bolt's numbers (that model's report lives in this same folder tree under `model/nemotron-3.5-bolt-74b-a9b/`).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research — NVIDIA's official Nemotron 3.5 Bolt announcement and model-card line, Hugging Face model search, models.dev full-catalog JSON, Artificial Analysis and BenchLM; no scores assigned because no release or benchmark data exists for this model name.

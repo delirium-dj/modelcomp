@@ -8,6 +8,6 @@
   "freeTierNote": "Free via API provider ($0 input / $0 output); MIT weights free self-host",
   "officialUrl": "https://huggingface.co/models?search=ling-3.0-tiny",
   "pricingLinks": [
-    "https://huggingface.co/inclusionAI/Ling-3.0-tiny`"
+    "https://huggingface.co/inclusionAI/Ling-3.0-tiny"
   ]
 }

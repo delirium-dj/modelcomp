@@ -8,6 +8,6 @@
   "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash route)",
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
-    "https://ai.google.dev/gemini-api/docs/models"
+    "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

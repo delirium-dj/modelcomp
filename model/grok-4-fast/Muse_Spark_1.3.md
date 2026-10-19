@@ -66,3 +66,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (xAI official docs for grok-4-fast-reasoning, Puter model card, Vals AI SWE-bench page, pricepertoken provider comparison, xAI release notes); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis grok-4-fast page (non-reasoning lane: Index 11 est., 2M, text+image, $0.20/$0.50, 2025-09-19, deprecated → 4.1 Fast), (2) xAI docs models page (4.7-succession context, function-calling/image-input tooling), (3) filed Vals/Puter rows as baseline. Conflicting results compared below.
+
+| Dimension | 2026-09-26 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 62 | 62 | hold — function-calling support reconfirmed; still zero agentic benchmark absolutes for this ID; no new TB/Tau/GDPval lane |
+| Reasoning | 68 | 68 | hold — Grok-4-class proxy stands; new Index 11 est. (non-reasoning lane) is consistent with a capped provisional, no crossing |
+| Context | 98 | 98 | hold — 2M reconfirmed on AA + xAI docs; no retrieval curve |
+| Multimodal | 65 | 65 | hold — text+image reconfirmed on AA; no new vision absolute |
+| Coding | 64 | 64 | hold — Vals splits 66/37/7/0 stand uncontradicted; no new SWE-Pro/LiveCode absolute |
+| Cost | 97 | 97 | hold — $0.20/$0.50 reconfirmed on AA |
+| Overall | 71 | 71 | hold — (62+68+98+65+64)/5 = 71.4 → 71 |
+
+STATUS NOTE: AA marks Grok 4 Fast deprecated → Grok 4.1 Fast; xAI docs spotlight 4.7 succession. No new verified benchmark absolutes published for this ID this pass. Scores hold; prior gaps (TB/Tau/GDPval/Claw, GPQA/HLE/LCR/CritPt, SWE-Pro/LiveCode, MRCR/RULER) all stand.
+
+Sources: https://artificialanalysis.ai/models/grok-4-fast · https://docs.x.ai/docs/models/grok-4-fast-reasoning
+

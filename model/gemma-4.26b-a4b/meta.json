@@ -15,6 +15,6 @@
   "pricingLinks": [
     "https://openrouter.ai/google/gemma-4-26b-a4b-it",
     "https://aws.amazon.com/bedrock/pricing/",
-    "https://huggingface.co/blog/gemma4"
+    "https://huggingface.co/google/gemma-4-26B-A4B"
   ]
 }

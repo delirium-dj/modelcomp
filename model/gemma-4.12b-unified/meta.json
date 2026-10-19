@@ -12,7 +12,7 @@
   "noFreeId": true,
   "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4.12b-unified",
   "pricingLinks": [
-    "https://ai.google.dev/gemma/docs/releases",
-    "https://huggingface.co/blog/gemma4"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://huggingface.co/google/gemma-4-12B"
   ]
 }

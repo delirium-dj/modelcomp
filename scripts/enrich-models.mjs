@@ -221,7 +221,7 @@ const PROVIDERS = [
   },
   {
     key: "artificialanalysis",
-    re: /\bartificial analysis\b|\baa\b/,
+    re: /\bartificial analysis\b|\baa\b/i,
     domains: ["artificialanalysis.ai"],
     url: "https://artificialanalysis.ai/models",
   },
@@ -256,6 +256,34 @@ const PROVIDERS = [
     domains: ["inclusionai.com", "modelscope.cn"],
     url: "",
   },
+  {
+    key: "inception",
+    re: /\binception\b|\bmercury\b/i,
+    domains: ["inceptionlabs.ai"],
+    url: "https://www.inceptionlabs.ai/",
+    firstParty: true,
+  },
+  {
+    key: "tokenra",
+    re: /\btokenra\b/i,
+    domains: ["tokenra.io"],
+    url: "https://tokenra.io/",
+    firstParty: true,
+  },
+  {
+    key: "byteplus",
+    re: /\bbyteplus\b|\bmodelark\b|\bbytedance\b/i,
+    domains: ["byteplus.com", "byteplus.cn"],
+    url: "https://www.byteplus.com/en/product/modelark",
+    firstParty: true,
+  },
+  {
+    key: "typesafe",
+    re: /\btypesafe\b/i,
+    domains: ["typesafe.ai"],
+    url: "https://docs.typesafe.ai/models",
+    firstParty: true,
+  },
 ];
 
 const PROVIDER_BY_KEY = new Map(PROVIDERS.map((p) => [p.key, p]));
@@ -285,6 +313,12 @@ const TRAILING = /[.,;:)\]}`]+$/;
 /** Trim punctuation/backticks that findings prose leaves stuck to a URL. */
 function cleanUrl(raw) {
   return raw.replace(TRAILING, "");
+}
+
+/** API endpoints (auth-gated JSON routes) are not pages that claim pricing. */
+function isApiEndpoint(url) {
+  const p = pathOf(url).toLowerCase();
+  return /(^|\/)v\d+(\/|$)/.test(p) || /\/(chat\/completions|completions|openai|anthropic|responses)(\/|$)/.test(p);
 }
 
 function norm(s) {
@@ -335,6 +369,7 @@ function collectUrls(slug) {
         /\bpricing\b/i.test(prev);
       for (const raw of matches) {
         const url = cleanUrl(raw);
+        if (isApiEndpoint(url)) continue;
         out.push({ url, line, pricing });
       }
     });
@@ -342,44 +377,56 @@ function collectUrls(slug) {
   return out;
 }
 
-/** Best findings URL for a provider: its domain, pricing lines and slug matches score highest. */
+/** Slug tokens collapsed for matching, with tier suffixes that never appear in URLs dropped. */
+function slugNeedles(slug) {
+  const base = slug.replace(/[-_.](free|preview|exp|beta|alpha)$/i, "");
+  return [...new Set([norm(slug), norm(base)])].filter((n) => n.length >= 4);
+}
+
+/**
+ * A findings URL on the provider's domain. `strong` means it identifies this
+ * model (full slug appears in host/path); otherwise it may be a sibling.
+ */
 function pickProviderUrl(candidates, provider, slug) {
-  const tokens = slug.split(/[-_.]/).filter((t) => t.length >= 3);
-  const scored = [];
+  const needles = slugNeedles(slug);
+  let best = null;
   for (const c of candidates) {
     const host = hostOf(c.url);
     if (!provider.domains.some((d) => host === d || host.endsWith("." + d))) continue;
-    let score = 1;
-    if (c.pricing) score += 3;
-    if (tokens.some((t) => c.url.toLowerCase().includes(t))) score += 2;
-    const segs = pathOf(c.url).split("/").filter(Boolean);
-    if (segs.length >= 2) score += 1;
-    scored.push({ url: c.url, score, len: c.url.length });
+    const strong = needles.some((n) => norm(c.url).includes(n));
+    let score = c.pricing ? 2 : 0;
+    if (strong) score += 5;
+    if (!best || score > best.score || (score === best.score && c.url.length < best.url.length)) {
+      best = { url: c.url, score, strong };
+    }
   }
-  if (!scored.length) return null;
-  scored.sort((a, b) => b.score - a.score || a.len - b.len);
-  return scored[0].url;
+  return best;
 }
 
-/** A Hugging Face model repo quoted in the findings (not a search/filter page). */
+/** A Hugging Face model repo quoted in the findings (not a search/blog/collection page). */
 function pickHuggingFaceUrl(candidates) {
+  const bad = new Set(["models", "datasets", "spaces", "blog", "papers", "collections", "docs"]);
   const hf = candidates.filter((c) => hostOf(c.url) === "huggingface.co");
   const repo = hf.find((c) => {
     const segs = pathOf(c.url).split("/").filter(Boolean);
-    return segs.length >= 2 && segs[0] !== "models" && segs[0] !== "datasets";
+    return segs.length >= 2 && !bad.has(segs[0]);
   });
   return (repo ?? hf[0])?.url ?? null;
 }
 
-/** Any findings URL whose host or path carries the given brand token. */
+/** A findings URL whose host/path contains the brand token as a delimited part. */
 function pickBrandUrl(candidates, token) {
   const n = norm(token);
   if (n.length < 4) return null;
-  const hit = candidates.find((c) => {
-    const host = norm(hostOf(c.url));
-    return host.includes(n) || norm(c.url).includes(n);
-  });
-  return hit?.url ?? null;
+  for (const c of candidates) {
+    const parts = `${hostOf(c.url)}/${pathOf(c.url)}`
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean);
+    if (parts.includes(n)) return c.url;
+    if (n.length >= 6 && norm(c.url).includes(n)) return c.url;
+  }
+  return null;
 }
 
 function inferProvider(modelText) {
@@ -398,12 +445,15 @@ function inferProvider(modelText) {
     [/muse|meta/i, "meta"],
     [/nemotron|nvidia/i, "nvidia"],
     [/solar|upstage/i, "upstage"],
-    [/step/i, "stepfun"],
+    [/[/-]step|stepfun/i, "stepfun"],
     [/longcat/i, "longcat"],
     [/hunyuan|tencent/i, "tencent"],
     [/laguna|poolside/i, "poolside"],
     [/ling/i, "inclusionai"],
-    [/nemotron|nvidia/i, "nvidia"],
+    [/\bmai\b|microsoft/i, "microsoft"],
+    [/mercury|inception/i, "inception"],
+    [/jev|typesafe/i, "typesafe"],
+    [/byteplus|seed/i, "byteplus"],
   ];
   for (const [re, key] of rules) if (re.test(modelText)) return PROVIDER_BY_KEY.get(key);
   return null;
@@ -412,6 +462,12 @@ function inferProvider(modelText) {
 function resolveLine(tier, candidates, slug, id) {
   const text = tier;
   const noFreeId = /\bno\s+(?:zen\s+)?free\s+id\b/i.test(text);
+
+  if (/open[\s-]?weights?|self[\s-]?host/i.test(text)) {
+    const hf = pickHuggingFaceUrl(candidates);
+    if (hf) return hf;
+    return `https://huggingface.co/models?search=${slug}`;
+  }
 
   const matched = [];
   for (const p of PROVIDERS) {
@@ -424,28 +480,28 @@ function resolveLine(tier, candidates, slug, id) {
 
   for (const { p } of matched) {
     if (p.freeUrl && p.freeRe?.test(text)) return p.freeUrl;
-    const hit = pickProviderUrl(candidates, p, slug);
-    if (hit) return hit;
-    if (p.url) return p.url;
+    const picked = pickProviderUrl(candidates, p, slug);
+    if (p.firstParty) {
+      if (p.url) return p.url;
+      if (picked) return picked.url;
+    } else {
+      if (picked?.strong) return picked.url;
+      if (p.url) return p.url;
+      if (picked) return picked.url;
+    }
   }
 
-  if (/open[\s-]?weights?|self[\s-]?host/i.test(text)) {
-    const hf = pickHuggingFaceUrl(candidates);
-    if (hf) return hf;
-    return `https://huggingface.co/models?search=${slug}`;
+  const inferred = inferProvider(`${slug} ${id}`);
+  if (inferred) {
+    if (inferred.url) return inferred.url;
+    const picked = pickProviderUrl(candidates, inferred, slug);
+    if (picked) return picked.url;
   }
 
   for (const token of text.match(/[A-Za-z][A-Za-z0-9.]{2,}/g) ?? []) {
     if (STOPWORDS.has(token.toLowerCase()) || token.length < 4) continue;
     const hit = pickBrandUrl(candidates, token);
     if (hit) return hit;
-  }
-
-  const inferred = inferProvider(`${slug} ${id}`);
-  if (inferred) {
-    const hit = pickProviderUrl(candidates, inferred, slug);
-    if (hit) return hit;
-    if (inferred.url) return inferred.url;
   }
 
   return candidates.find((c) => c.pricing)?.url ?? null;

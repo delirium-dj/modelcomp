@@ -14,7 +14,7 @@
   "officialUrl": "https://huggingface.co/models?search=muse-spark-1.2",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
-    "https://opencode.ai/data/meta/muse-spark-1-2-contributor",
+    "https://dev.meta.ai/models/muse-spark-1-2",
     "https://dev.meta.ai/models/muse-spark-1-2"
   ]
 }

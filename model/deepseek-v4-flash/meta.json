@@ -12,7 +12,7 @@
   "freeTierNote": "Free tier on Zen (opencode/deepseek-v4-flash-free, $0/$0, 200K ctx cap) with rate-limit caveats",
   "officialUrl": "https://www.deepseek.com/",
   "pricingLinks": [
-    "https://opencode.ai/docs/zen",
-    "https://opencode.ai/docs/zen"
+    "https://opencode.ai/v2/docs/console/models/",
+    "https://opencode.ai/v2/docs/console/models/"
   ]
 }

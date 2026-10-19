@@ -13,6 +13,6 @@
   "officialUrl": "https://huggingface.co/models?search=Inkling",
   "pricingLinks": [
     "https://artificialanalysis.ai/models/inkling",
-    "https://openrouter.ai/models/thinkingmachines/inkling"
+    "https://huggingface.co/thinkingmachines/inkling"
   ]
 }

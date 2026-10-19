@@ -1,9 +1,11 @@
 # Grok 4.5 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (SpaceXAI)/Grok 4.5 (`grok-4.5`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM now exposes 34 rows and confirms the first draft end-to-end: Terminal-Bench 2.1 83.3% (Vals 67.8%), GDPval-AA 1430 Elo / 44.2%, SWE-bench (Vals) 86.6%, LiveCodeBench 87.4%, GPQA Diamond 93.1%/92.9%, HLE 42.7%, MMLU-Pro 89.2%, AA-MMMU-Pro 80.4%, AA-LCR 79.3%, CritPt 15.4%, AA Intelligence Index 38.8%; adds FrontierMath v2 57.19%/24.39% and Design Arena 1281. **No score change** (Tool 85 / Reasoning 88 / Context 88 / Multimodal 68 / Coding 88 / Cost 78 / Overall 83).
 
 ## Model card
 
@@ -66,6 +68,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (xAI/SpaceXAI official model docs, evals.report 6-row benchmark table, BenchLM `grok-4-5` page with Artificial Analysis, Vals AI and FrontierBench rows, Cursor launch post, OpenRouter benchmark summary, Model Beat / Epoch AI rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
+- Method: public internet research (xAI/SpaceXAI official model docs, BenchLM `grok-4-5` — 34 rows — with Artificial Analysis, Vals AI and FrontierBench rows, Epoch AI, Cursor launch post, OpenRouter benchmark summary); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

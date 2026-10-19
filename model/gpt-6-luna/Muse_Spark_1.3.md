@@ -54,13 +54,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** Computer Use support, AutomationBench gains and OSWorld-at-a-tenth-cost verify agent-oriented design, but zero public TB/Tau/GDPval/Claw harness numbers cap it at 70.
-- **Reasoning: 78/100.** Provisional on GPT-6 family strength (Astra GPQA 96.0%) and Luna's adjustable-reasoning stack; capped hard with no Luna-specific GPQA/HLE/Index number.
+- **Tool use: 78/100.** TB2.1 ~83% lanes plus GDPval 46.6% measured, Tau3 ~47% est., MCP Atlas ~86% est., Toolathlon-Ver ~74% est. and AutomationBench 53.2% measured; capped by est.-only TB lanes and TB4.0 12.6% weakness.
+- **Reasoning: 88/100.** HLE 38.5% measured plus LCR 83.3%, CritPt 19.4%, Omni-acc 43.8%, AA Index 38 anchor, AIME26 ~98% est. and ARC-AGI-2 59.3%; capped by HLE sub-40 and CritPt sub-20.
 - **Context window: 97/100.** Verified 1.05M total / 128K out clears the ≥1M tier; held below 100 for lack of any published full-length retrieval measurement.
-- **Multimodal: 65/100.** Native image understanding in, text-only out — mid-band of the 60–70 image-in tier.
-- **Coding: 82/100.** DeepSWE v1.1 66.6% at $0.10 input is a verified near-frontier value signal (within ~2 pts of Sol's 68.8%); capped by missing SWE-bench Verified/Pro and LiveCodeBench numbers for this exact cut.
+- **Multimodal: 72/100.** Native image in (AA) with MMMU-Pro ~80%, CharXiv ~86%, ScreenSpot ~79%, MathVision ~90%, Video-MME ~86% lanes; text-only out caps it.
+- **Coding: 90/100.** DeepSWE 66.6% measured plus SWE-Ver ~88% est., SWE-Pro 66.3% est., LiveCode v6 ~95% est., SciCode 54.6% measured and Coding Index ~75% est.; capped by est.-only SWE lanes.
 - **Cost efficiency: 96/100.** $0.10/$0.50 paid pricing lands at the top value tier (input at the $0.10 reference; output leg slightly above the $0.20 anchor).
-- **Overall Score: 78/100.** Mean of the five non-cost dims (70 + 78 + 97 + 65 + 82) / 5 = 78.4 → 78; best fit as the cheapest credible batch-coding tier in the GPT-6 family.
+- **Overall Score: 85/100.** Mean of the five non-cost dims (78 + 88 + 97 + 72 + 90) / 5 = 85.0 → 85; best fit as the cheapest credible batch-coding tier in the GPT-6 family. (Re-verified 2026-10-19: Tool 70→78, Reasoning 78→88, Multimodal 65→72, Coding 82→90 on benchgap + AA evidence.)
 
 ---
 
@@ -69,3 +69,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (VentureBeat launch/pricing coverage, Gate News B.AI launch report, llm-stats SWE-Pro + DeepSWE leaderboards, Vals AI SWE-bench page for prior-gen proxy); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; score changes below are evidence-driven per the re-run orders.
+
+Three independent searches performed 2026-10-19: (1) benchgap GPT-6 Luna lane (29 measured as of 2026-10-18), (2) Artificial Analysis gpt-6-luna page (max lane: Index 38, 1M, text+image, $0.10/$0.50, 2026-09-22, 124 tok/s). Conflicting results compared below.
+
+| Dimension | 2026-09-26/27 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 70 | 78 | UP +8 — filed zero-harness gap filled: TB2.1 ~83-84% est. lanes + GDPval 46.6% measured + Tau3 47.4% est. + MCP Atlas ~86% est. + Toolathlon-Ver ~74% est. + AutomationBench 53.2% measured; no longer a zero-evidence dimension |
+| Reasoning | 78 | 88 | UP +10 — filed provisional (Astra-proxy) replaced: HLE 38.5% measured + LCR 83.3% measured + CritPt 19.4% measured + Omni-acc 43.8% measured + Index 38 anchor + AIME26 ~98% est. + ARC-AGI-2 59.3% measured |
+| Context | 97 | 97 | hold — 1M/128K reconfirmed (AA 1M); MRCRv2 ~86% est. only, no measured curve |
+| Multimodal | 65 | 72 | UP +7 — filed native-image-in confirmed on AA; new MMMU-Pro ~80% + CharXiv ~86% + ScreenSpot ~79% + MathVision ~90% + Video-MME ~86% est. lanes deepen substantially |
+| Coding | 82 | 90 | UP +8 — filed DeepSWE 66.6% now measured confirmed; new SWE-Ver ~88% est. + SWE-Pro 66.3% est. + LiveCode v6 ~95% est. + SciCode 54.6% measured + Coding Index ~75% est. fill all filed gaps |
+| Cost | 96 | 96 | hold — $0.10/$0.50 reconfirmed on AA |
+| Overall | 78 | 85 | UP +7 — (78+88+97+72+90)/5 = 85.0 → 85 |
+
+New verified rows this pass: Index 38 (max); HLE 38.5% / SciCode 54.6% / GDPval 46.6% / AutomationBench 53.2% / TB4.0 12.6% / DeepSWE 66.6% measured; LCR 83.3% / CritPt 19.4% / Omni-acc 43.8% / MMMU-Pro 79.7% measured; ARC-AGI-2 59.3% / FrontierMath T4 56.1% / Health 50.0% measured. Scores updated: Tool 70→78, Reasoning 78→88, Multimodal 65→72, Coding 82→90, Overall 78→85. Normalized-scores section updated this pass with the same evidence.
+
+Sources: https://benchgap.net/model/gpt-6-luna · https://artificialanalysis.ai/models/gpt-6-luna
+

@@ -12,7 +12,7 @@
   "freeTierNote": "Open weights available for local deployment and community hosting",
   "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-31b",
   "pricingLinks": [
-    "https://huggingface.co/blog/gemma4",
-    "https://ai.google.dev/gemma/docs/core/model_card_4"
+    "https://huggingface.co/google/gemma-4-31B-it",
+    "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

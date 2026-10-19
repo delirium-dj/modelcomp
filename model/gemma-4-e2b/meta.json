@@ -12,6 +12,6 @@
   "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e2b",
   "pricingLinks": [
     "https://huggingface.co/google/gemma-4-E2B",
-    "https://ai.google.dev/gemma/docs/releases"
+    "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

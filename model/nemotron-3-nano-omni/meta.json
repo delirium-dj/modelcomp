@@ -7,6 +7,6 @@
   "pricingNote": "$0 via NVIDIA Build free API endpoint; open checkpoints available",
   "officialUrl": "https://huggingface.co/models?search=nemotron-3-nano-omni",
   "pricingLinks": [
-    "https://docs.nvidia.com/nemo/automodel/latest/model-coverage/omni/nemotron-omni"
+    "https://docs.nvidia.com/nim/vision-language-models/1.7.0/examples/nemotron-3-nano-omni-30b-a3b-reasoning/api.html"
   ]
 }

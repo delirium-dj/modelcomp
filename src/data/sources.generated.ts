@@ -84,7 +84,8 @@ export type SourceKey =
   | "Nemotron 3.5 Super VL 120B A12B"
   | "Beam"
   | "Xing 4.0.29B A4B"
-  | "Nemotron 3 Ultra 550B A55B";
+  | "Nemotron 3 Ultra 550B A55B"
+  | "MiniMax M3.1 Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -180,4 +181,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Beam", label: "Beam", file: "Beam.md", slug: "beam" },
   { key: "Xing 4.0.29B A4B", label: "Xing 4.0.29B A4B", file: "Xing_4.0.29B_A4B.md", slug: "xing_4.0_29b_a4b" },
   { key: "Nemotron 3 Ultra 550B A55B", label: "Nemotron 3 Ultra 550B A55B", file: "Nemotron_3_Ultra_550B_A55B.md" },
+  { key: "MiniMax M3.1 Flash", label: "MiniMax M3.1 Flash", file: "MiniMax_M3.1_Flash.md" },
 ];

@@ -1,11 +1,13 @@
 # DeepSeek V4 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek/DeepSeek-V4-Pro (0813) (`deepseek-v4-pro`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/deepseek-v4-pro).
+> **Re-verified 2026-10-18.** BenchLM now exposes ~59 rows. The vendor's long-context figure is now published: **MRCR 1M 83.5%** (plus CorpusQA 1M 62.0%), which the first draft could not get. New independent rows also confirm and extend the first draft: AA-GPQA Diamond 92.8% (Vals 92.4%), AA-HLE 41.0%, AA-LCR 80.3%, AA Intelligence Index 53.2%, CritPt 18.0%, SWE-bench (Vals) 96.4%, LiveCodeBench (Vals) 87.5%, AA Coding Index 68.8%, SciCode 51.0%, τ²-bench 96.2%, AA EnterpriseOps-Gym 49.6%, AA Agentic Index 49.6%, GDPval-AA 1306 Elo / 54.5%, AA-IFBench 76.5%, Codeforces 3206, NL2Repo 61.5%. **No score change** (Tool 90 / Reasoning 90 / Context 94 / Multimodal 15 / Coding 89 / Cost 89 / Overall 76).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/deepseek-v4-pro).
 > BenchLM overall **63.95/100** (#39), context **1M**, pricing **$1.32 input / $3.96 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 52.4, #42/122): BrowseComp 83.4%; Terminal-Bench 2.0 67.9%; MCP Atlas 73.6%; Terminal-Bench 2.1 (Vals) 54.7%; HLE w/ tools 60.0%; Toolathlon 51.8%
@@ -71,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (DeepSeek official API pricing/feature page for context, output cap, vision support and peak/off-peak rates; the DeepSeek-V4 model card and technical report as summarised by InferenceX/SemiAnalysis; BenchmarkList 33-row evidence table for measured scores; HokAI vendor-checked model page for SWE-bench Verified/GPQA/MMLU figures); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
+- Method: public internet research (DeepSeek official API pricing/feature page; DeepSeek-V4 technical report/model card; BenchLM `deepseek-v4-pro-0813` — 59 rows — with Artificial Analysis, Vals AI, ARC Prize and Epoch AI rows); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

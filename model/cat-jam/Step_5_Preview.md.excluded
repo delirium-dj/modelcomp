@@ -1,0 +1,35 @@
+# cat-jam — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: OpenCode Zen free route (`opencode/cat-jam-free` — models.dev name "Cat Jam Free")
+- Date: 2026-10-19 (UTC)
+- Reason for exclusion: **zero verified public benchmark numbers exist for this model.** Every raw-benchmark row below reads "no verified public score found", so per the research rules no scored findings file is written and no placeholder numbers are invented.
+
+## What is verified (models.dev catalog record, fetched 2026-10-19)
+
+- **IDs:** `opencode/cat-jam-free` and `opencode-go/cat-jam-free` (OpenCode Zen; inference endpoint `https://opencode.ai/inference/openai/v1`).
+- **Description (catalog):** "A text-only reasoning model for coding and agentic workflows, with tool calling and structured JSON outputs."
+- **Modalities:** text in → text out; no attachments.
+- **Reasoning:** yes — effort levels low/medium/high/xhigh/max; interleaved thinking via `reasoning_content`.
+- **Tool use:** tool calling yes; structured (JSON) output yes; temperature yes.
+- **Context window:** 1,048,576 tokens (1M) total / 131,072 (128K) max output.
+- **Pricing:** $0 input, $0 output, $0 cache read (free Zen promotional route).
+- **Weights:** not open (proprietary/undisclosed); vendor not disclosed — the catalog carries no lab attribution.
+- **Release / status:** released 2026-10-12, last updated 2026-10-12, **status: deprecated**; the route is absent from the live OpenCode Zen model list (checked 2026-10-19), consistent with an already-withdrawn free promotion.
+
+## What is missing (why exclusion)
+
+- **No identity:** no vendor confirmation, no base-model disclosure (whether it re-weights an existing open model behind a free route is not stated anywhere).
+- **No benchmarks:** Artificial Analysis has no page (404), BenchLM has no page (404), OpenRouter has no listing, and no vendor model card or benchmark table exists for the `cat-jam` route.
+- **No pricing beyond $0:** the free route is deprecated, so no durable paid rate can be verified.
+
+Notes for future re-research:
+
+- Candidate leads if the operator or a tracker publishes data: an Artificial Analysis or BenchLM entry for `cat-jam`; a vendor announcement naming the underlying model; or Zen re-listing a paid `cat-jam` route. Any of those would support re-researching this into a scored `Step_5_Preview.md` covering Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology.
+- Verified specs that would feed such a report if benchmarks appear: 1M context / 128K output, text-only, reasoning with 5 effort levels, tool calling + JSON output, $0 during the promo window.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research — models.dev full-catalog JSON (verified specs, pricing, release and deprecation status) cross-checked against Artificial Analysis, BenchLM, OpenRouter and the live OpenCode Zen model list; no scores assigned because no benchmark data exists for this model.

@@ -8,6 +8,6 @@
   "freeTierNote": "Free tier available on Google AI Studio and OpenCode Zen with standard rate limits",
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
-    "https://pricepertoken.com/pricing-page/model/google-gemini-3.8-flash"
+    "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

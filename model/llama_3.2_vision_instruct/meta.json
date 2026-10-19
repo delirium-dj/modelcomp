@@ -13,8 +13,8 @@
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/models?search=llama_3.2_vision_instruct",
   "pricingLinks": [
-    "https://www.llama.com/docs/overview/",
-    "https://integrate.api.nvidia.com/v1`",
+    "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
+    "https://build.nvidia.com/",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/"
   ]
 }

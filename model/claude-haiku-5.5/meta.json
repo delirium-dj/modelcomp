@@ -7,6 +7,6 @@
   "pricingNote": "$0.10/$0.50 per 1M in/out (prompts ≤100K), $0.50/$2.50 above 100K",
   "officialUrl": "https://www.anthropic.com/news/claude-haiku-5.5",
   "pricingLinks": [
-    "https://platform.claude.com/docs/en/models/haiku-5-5/overview"
+    "https://www.anthropic.com/pricing"
   ]
 }

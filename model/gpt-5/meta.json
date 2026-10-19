@@ -12,7 +12,7 @@
   "noFreeId": true,
   "officialUrl": "https://openai.com/index/gpt-5/",
   "pricingLinks": [
-    "https://developers.openai.com/api/docs/models/gpt-5",
-    "https://opencode.ai/docs/zen/"
+    "https://openai.com/api/pricing/",
+    "https://opencode.ai/v2/docs/console/models/"
   ]
 }
