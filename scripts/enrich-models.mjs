@@ -38,82 +38,101 @@ const PROVIDERS = [
     key: "zen",
     re: /\bopencode\b|\bzen\b/i,
     noFreeRe: /\bno\s+(?:zen\s+)?free\s+id\b/i,
-    freeRe: /\bfree\s+(?:opencode\s+)?zen\b|\bzen\s+free\b|\bfree\s+zen\b/i,
+    freeRe: /\bfree\b[^;]{0,40}\bzen\b|\bzen\b[^;]{0,40}\bfree\b/i,
     freeUrl: FREE_ZEN_URL,
     domains: ["opencode.ai"],
     url: ZEN_URL,
+    firstParty: true,
   },
   {
     key: "openai",
     re: /\bopenai\b|\bchatgpt\b|\bo[13](?:\s|-|_|$)\b/i,
     domains: ["openai.com", "chatgpt.com"],
     url: "https://openai.com/api/pricing/",
+    firstParty: true,
   },
   {
     key: "azure",
     re: /\bazure\b/i,
     domains: ["azure.microsoft.com", "azure.com"],
     url: "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/",
+    firstParty: true,
   },
   {
     key: "anthropic",
     re: /\banthropic\b|\bclaude\b/i,
     domains: ["anthropic.com", "claude.com", "claude.ai"],
     url: "https://www.anthropic.com/pricing",
+    firstParty: true,
   },
   {
     key: "vertex",
     re: /\bvertex\b/i,
     domains: ["cloud.google.com"],
     url: "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+    firstParty: true,
   },
   {
     key: "google",
     re: /\bgoogle\b|\bgemini\b|\bgemma\b|\bai studio\b/i,
     domains: ["ai.google.dev", "deepmind.google", "blog.google", "developers.googleblog.com"],
     url: "https://ai.google.dev/gemini-api/docs/pricing",
+    firstParty: true,
   },
   {
     key: "deepseek",
     re: /\bdeepseek\b/i,
     domains: ["deepseek.com"],
     url: "https://api-docs.deepseek.com/quick_start/pricing",
+    firstParty: true,
   },
   {
     key: "xai",
     re: /\bxai\b|\bgrok\b/i,
     domains: ["x.ai"],
     url: "https://x.ai/api",
+    firstParty: true,
   },
   {
     key: "zhipu",
     re: /\bglm\b|\bzhipu\b|\bz\.ai\b|\bbigmodel\b/i,
     domains: ["z.ai", "zhipuai.cn", "bigmodel.cn"],
     url: "https://docs.z.ai/guides/overview/pricing",
+    firstParty: true,
   },
   {
     key: "alibaba",
     re: /\bqwen\b|\balibaba\b|\bmodel studio\b|\bqwencloud\b/i,
     domains: ["alibabacloud.com", "aliyun.com", "qwen.ai", "qwenlm.github.io", "qwencloud.com"],
     url: "https://www.alibabacloud.com/help/en/model-studio/models",
+    firstParty: true,
   },
   {
     key: "moonshot",
     re: /\bkimi\b|\bmoonshot\b/i,
     domains: ["moonshot.ai", "moonshot.cn", "kimi.com", "platform.moonshot"],
     url: "https://platform.moonshot.ai/docs/pricing/chat",
+    firstParty: true,
   },
   {
     key: "minimax",
     re: /\bminimax\b/i,
     domains: ["minimax.io", "minimaxi.com", "minimax.com"],
     url: "https://www.minimax.io/platform/pricing",
+    firstParty: true,
   },
   {
     key: "mistral",
     re: /\bmistral\b/i,
     domains: ["mistral.ai"],
     url: "https://mistral.ai/pricing",
+    firstParty: true,
+  },
+  {
+    key: "microsoft",
+    re: /\bmicrosoft\b|\bmai\b|\bcopilot\b/i,
+    domains: ["microsoft.com", "microsoft.ai"],
+    url: "",
   },
   {
     key: "nvidia",
@@ -138,12 +157,13 @@ const PROVIDERS = [
     re: /\bupstage\b|\bsolar\b/i,
     domains: ["upstage.ai"],
     url: "https://upstage.ai/pricing",
+    firstParty: true,
   },
   {
     key: "stepfun",
     re: /\bstepfun\b|\bstep[\s-]?\d/i,
     domains: ["stepfun.com"],
-    url: "https://platform.stepfun.com/",
+    url: "",
   },
   {
     key: "openrouter",
@@ -210,6 +230,7 @@ const PROVIDERS = [
     re: /\bcopilot\b|\bgithub\b/i,
     domains: ["github.com"],
     url: "https://github.com/features/copilot/plans",
+    firstParty: true,
   },
   {
     key: "longcat",
@@ -251,10 +272,20 @@ const STOPWORDS = new Set([
   "the", "for", "than", "over", "retired", "unverified", "announced", "conflict",
   "conflicting", "model", "studio", "gateway", "build", "trial", "limited",
   "time", "open", "closed", "source", "weights", "fine", "tune", "distill",
+  "pricing", "price", "read", "write", "hit", "off", "fast", "mode", "usage",
+  "based", "region", "china", "intl", "international", "developer", "credits",
+  "promo", "variant", "releases", "blog", "docs", "news", "report", "reported",
+  "published", "expected", "unpublished", "unknown", "varies", "varies",
 ]);
 
 const NO_MD = new Set(["average.md", "README.md", "meta.json"]);
-const URL_RE = /https?:\/\/[^\s<>"'\]\)]+/g;
+const URL_RE = /https?:\/\/[^\s<>"'`\]\)]+/g;
+const TRAILING = /[.,;:)\]}`]+$/;
+
+/** Trim punctuation/backticks that findings prose leaves stuck to a URL. */
+function cleanUrl(raw) {
+  return raw.replace(TRAILING, "");
+}
 
 function norm(s) {
   return s.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -303,7 +334,7 @@ function collectUrls(slug) {
         /\bpricing\b|\bprice|\$|per\s*(?:1m|mtok|million|token)/i.test(line) ||
         /\bpricing\b/i.test(prev);
       for (const raw of matches) {
-        const url = raw.replace(/[.,;:)\]]+$/, "");
+        const url = cleanUrl(raw);
         out.push({ url, line, pricing });
       }
     });

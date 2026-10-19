@@ -127,12 +127,12 @@
 71.6 nemotron-3-ultra-free
 71.4 claude-sonnet-3.5
 70.4 longcat-2.0
+70.1 nemotron-3.5-bolt-74b-a9b
 69.8 grok-build-0.1
 69.7 qwen3-max
 69.5 glm-5.1
 69.3 gpt-5.1-codex-max
-69.3 nemotron-3.5-bolt-74b-a9b
-68.8 beam
+68.9 beam
 68.5 hy3-preview
 68.3 diffusiongemma-26b-a4b
 67.9 solar-open-2

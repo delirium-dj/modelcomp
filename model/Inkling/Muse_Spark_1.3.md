@@ -76,3 +76,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (official Thinking Machines Inkling + Inkling-Small model cards and launch post, NVIDIA NIM card, Raschka architecture notes, BenchLM compare page, Vals AI SWE-bench page, WIRED/TechCrunch/Fortune launch coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis inkling page (xhigh lane: Index 25, 975B/41B, 1M, text+image+speech in, Apache 2.0, Jul 2026, 222.8 tok/s), (2) benchgap lane (41 measured as of 2026-10-18), (3) filed official card/BenchLM rows as baseline. Conflicting results compared below.
+
+| Dimension | 2026-09-26/27 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 82 | 82 | hold — TB2.1 63.8% + BrowseComp 77.1% + MCP Atlas 74.1% all confirmed measured; new Tau3 29.1% measured fills filed gap consistent with cap; no GDPval/Claw absolute |
+| Reasoning | 85 | 85 | hold — GPQA 87.2% + AIME 97.1% + LCR 77.3% (benchgap 77.3% measured confirms filed 73.3% mirror) stand; new Index 25 anchor fills filed Index gap consistent with band; CritPt 5.4% measured confirms filed tail |
+| Context | 97 | 97 | hold — 1M reconfirmed; MRCRv2 85.3% est. only, no measured curve |
+| Multimodal | 90 | 90 | hold — text/image/speech in reconfirmed on AA; MMMU-Pro 73.5% measured confirms filed row; CharXiv 82.0% measured confirms filed 82% |
+| Coding | 86 | 86 | hold — SWE-Ver 77.6% + SWE-Pro 54.3% + LiveCode 85.5% (Vals 85.5% measured confirms) stand; SciCode 47.0% measured confirms filed 46.1%; DeepSWE ~42% est. deepens without crossing |
+| Cost | 82 | 82 | hold — hosted $1.00/$4.05 on AA (vs filed $1.87/$4.68 BenchLM lane — provider lanes differ, both listed); Apache-2.0 self-host upside stands |
+| Overall | 88 | 88 | hold — (82+85+97+90+86)/5 = 88.0 → 88 |
+
+New verified rows this pass: AA Index 25 xhigh (fills filed Index gap); AA-HLE 31.9% measured (vs filed 29.7% card — lane differs, both listed); HLE 46.0% measured (tools lane — confirms filed 46.0%); Tau3 29.1% measured; Agentic Index 24.3% measured; Omni-acc 41.6% measured; LCR 77.3% measured; Vals GPQA 87.1%/LiveCode 85.5%/SWE 77.6% measured (confirm filed rows). Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://artificialanalysis.ai/models/inkling · https://benchgap.net/model/inkling
+

@@ -75,3 +75,26 @@ Vision detail (for the Multimodal score):
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
 - Method: public internet research (Meta Llama 3.2 vision model card on GitHub and Hugging Face, Meta launch blog 2024-09-25, NVIDIA NIM model page); scores are normalized 1–100 interpretations (11B-based), not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (25 days after 2026-09-24)
+
+Original research date 2026-09-24. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Hugging Face meta-llama/Llama-3.2-11B-Vision-Instruct (card reconfirmed: 11B/90B, 128K, Dec-2023 cutoff, image-reasoning evals), (2) Meta AI blog 2024-09-25 (Connect launch: 11B/90B vision + 1B/3B edge, 128K, Claude-3-Haiku-beating image understanding, torchtune/torchchat, Llama Stack), (3) NVIDIA NIM model card (third-party mirror: 10.6B/88.8B, 128K, 6B image-text pairs, SFT+RLHF, vision adapter cross-attention). Conflicting results compared below.
+
+| Dimension | 2026-09-24 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 40 | 40 | hold — still zero agentic harness numbers for vision variants; 11B chat-template tool-call support is formatting, not a benchmark |
+| Reasoning | 55 | 55 | hold — vendor GPQA/MMLU/MATH rows stand uncontradicted; no new HLE/Index absolute published |
+| Context | 70 | 70 | hold — 128K reconfirmed on all three sources; no retrieval curve published |
+| Multimodal | 75 | 75 | hold — VQAv2/DocVQA/ChartQA/AI2D rows stand; no new vision absolute published |
+| Coding | 45 | 45 | hold — still zero coding-harness numbers; not coding-tuned |
+| Cost | 85 | 85 | hold — Llama Community License self-host stands |
+| Overall | 57 | 57 | hold — (40+55+70+75+45)/5 = 57.0 → 57 |
+
+No new verified numbers found this pass — all filed rows reconfirmed across three sources, none contradicted. Scores hold; prior gaps (TB/Tau/GDPval/Claw, HLE/LCR/CritPt/Index, SWE/LiveCode/SciCode, MRCR/RULER) all stand.
+
+Sources: https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct · https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/ · https://build.nvidia.com/meta/llama-3.2-11b-vision-instruct/modelcard
+

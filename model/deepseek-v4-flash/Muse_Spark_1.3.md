@@ -75,3 +75,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (DeepSeek 0731 changelog via DeepSeek V4 Guide, DeepSeek-V4 technical report via BenchLM ledger, DataLearner multi-mode tables, Vals AI SWE-bench page, pricepertoken/llm-stats pricing, felloai/aitoolsrecap release coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Artificial Analysis deepseek-v4-flash page (0731 max lane: Index 34, 284B/13B, 1M, MIT, $0.14/$0.28, deprecated → V4.1 Flash), (2) DeepSeek API changelog (2026-09-10 V4.1-Flash release: TB2.1 90.6, GPQA 90.9, DeepSWE 74.2; V4 Flash + Vision Exp retired, names temporarily routed to V4.1 Flash), (3) filed 0731/BenchLM rows as baseline. Conflicting results compared below.
+
+| Dimension | 2026-09-26 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 87 | 87 | hold — TB2.1 82.7 + Toolathlon 70.3 + ALE 25.2 + Automation 25.1 stand; V4.1-Flash successor numbers (TB2.1 90.6, Automation 54.8) belong to the successor, not this cut — noted, not scored here |
+| Reasoning | 84 | 84 | hold — GPQA ≤88.1 + MMLU-Pro 86.4 + Index ≤50 stand; new AA Index 34 (max lane) anchors the filed 50 composite (lane differs, both listed); successor GPQA 90.9/HLE 36.8 noted, not scored here |
+| Context | 97 | 97 | hold — 1M/384K reconfirmed on AA; no retrieval curve |
+| Multimodal | 15 | 15 | hold — text-only cut reconfirmed on AA (vision lives in separate Exp variant, itself retired) |
+| Coding | 82 | 82 | hold — SWE-Ver ≤79% + LiveCode ≤91.6% + CodeForces 3052 + DeepSWE 54.4 stand; successor DeepSWE 74.2/77.0 noted, not scored here |
+| Cost | 97 | 97 | hold — $0.14/$0.28 reconfirmed on AA |
+| Overall | 73 | 73 | hold — (87+84+97+15+82)/5 = 73.0 → 73 |
+
+STATUS CHANGE: DeepSeek retired V4 Flash (and Vision Exp) — API names temporarily route to V4.1 Flash (changelog 2026-09-10); AA marks the 0731 page deprecated → V4.1 Flash. Scores describe the retired 0731 cut as measured; migrate new work to V4.1 Flash (TB2.1 90.6, GPQA 90.9, HLE 36.8/63.9-tools, DeepSWE 74.2, CyberGym 88.1, native multimodal). No band crossed on this cut's own numbers.
+
+Sources: https://artificialanalysis.ai/models/deepseek-v4-flash · https://api-docs.deepseek.com/updates
+

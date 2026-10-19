@@ -70,3 +70,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (Anthropic Claude 4 launch appendix + Opus 4/Sonnet 4 system card, llm-stats provider/pricing table, AnotherWrapper benchmark table for provisional rows, Clauder Navi generation comparison); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Anthropic Claude 4 announcement 2025-05-22 (reconfirms SWE 72.7%, Opus 43.2% TB, $3/$15, Bedrock/Vertex, extended-thinking-with-tools), (2) BenchmarkList claude-sonnet-4 page (148 benchmarks: TB2.1 36.3%, Tau2-Telecom 64.6%, Tau3 16.7%, GDPval 877, Claw 97th pct, LiveCode 62.4%, SciCode 40.0%, Aider 61.3%, SWE-Lite 60.3% #1), (3) Anthropic assets index (system-card reference). Conflicting results compared below.
+
+| Dimension | 2026-09-26 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 74 | 74 | hold — filed TAU 80.5/60.0 + TB 35.5% stand; new GDPval 877 + Tau2 64.6% + Tau3 16.7% + Claw 97th pct fill filed GDPval/Claw gaps consistent with cap; no crossing |
+| Reasoning | 76 | 76 | hold — GPQA 75.4% + MMMLU 86.5% + AIME 70.5% stand; new HLE-band rows consistent; no LCR/Index absolute, no crossing |
+| Context | 70 | 70 | hold — 200K reconfirmed; no retrieval curve |
+| Multimodal | 65 | 65 | hold — text+image reconfirmed; SWE-Multimodal 35.6% deepens without moving band |
+| Coding | 76 | 76 | hold — SWE-Ver 72.7% stands; new LiveCode 62.4% confirms filed 59.7% band, SciCode 40.0% confirms filed row, Aider 61.3% deepens; filed provisional SWE-Pro 74.8% stays excluded as harness-unconfirmed |
+| Cost | 60 | 60 | hold — $3/$15 reconfirmed |
+| Overall | 72 | 72 | hold — (74+76+70+65+76)/5 = 72.2 → 72 |
+
+New verified rows this pass: GDPval-AA 877; Tau2-Telecom 64.6%; Tau3-Banking 16.7%; Claw Bench 97th pct; TB2.1 36.3% (confirms filed 35.5% band); LiveCode 62.4%; SWE-Lite 60.3% #1; SWE-Multimodal 35.6%; CORE-Bench Hard 46.7%. Scores hold; evidence deepens without crossing a band boundary.
+
+Sources: https://www.anthropic.com/news/claude-4 · https://benchmarklist.com/models/anthropic-claude-sonnet-4/
+

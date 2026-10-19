@@ -71,3 +71,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-09-24
 - Method: public internet research (Alibaba Cloud blog 2026-08-17, Qwen3.8-27B vendor tables via AI/TLDR and HokAI aggregators, DataNorth and OfficeChai analyses 2026-08-14/17); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (25 days after 2026-09-24)
+
+Original research date 2026-09-24, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Hugging Face Qwen/Qwen3.8-27B (card reconfirmed: dense 27.78B, native vision-language, thinking control xhigh/medium/low, hosted 1M-context version coming), (2) Artificial Analysis qwen3-8-27b page (xhigh lane: Index 34, #1/141 in size class, 256K, text+image+video in, Apache 2.0, 2026-08-14, 44.6 tok/s), (3) Qwen launch blog (Qwen3.8 family framing). Conflicting results compared below.
+
+| Dimension | 2026-09-24/27 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 80 | 80 | hold — TB2.1 73.0% + OSWorld 84.3% + AndroidWorld 81.9% stand uncontradicted; no new Tau/GDPval/Claw absolute |
+| Reasoning | 79 | 79 | hold — GPQA 89.2% + IFBench 79.5% stand; new AA Index 34 (#1 size class) fills the filed Index gap and is consistent with the band, no crossing |
+| Context | 80 | 80 | hold — 262K native reconfirmed (AA 260K); YaRN-1M caveat stands; no retrieval curve |
+| Multimodal | 85 | 85 | hold — text/image/video in reconfirmed on AA + HF; no new vision absolute |
+| Coding | 84 | 84 | hold — SWE-Pro 61.7% + LiveCode v6 90.3% + DeepSWE 42.2% stand; no new coding absolute |
+| Cost | 80 | 80 | hold — Apache-2.0 self-host stands (AA hosted $0.50/$3.00 is the managed lane, not self-host) |
+| Overall | 82 | 82 | hold — (80+79+80+85+84)/5 = 81.6 → 82 |
+
+New verified rows this pass: AA Index 34 xhigh (#1/141 small class — fills filed Index gap); hosted 1M-context version announced (HF card — coming soon, not scored); thinking efforts xhigh/medium/low (HF card — confirms filed toggle). Scores hold; prior gaps (Tau/GDPval/Claw, LCR/CritPt, MRCR/RULER) all stand.
+
+Sources: https://huggingface.co/Qwen/Qwen3.8-27B · https://artificialanalysis.ai/models/qwen3-8-27b · https://qwen.ai/blog?id=qwen3-8-release
+

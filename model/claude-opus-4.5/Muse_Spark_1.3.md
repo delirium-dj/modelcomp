@@ -74,3 +74,26 @@ Long context:
 - Provided by: **Muse Spark 1.3 (Meta/muse-spark-1.3-contributor-free)** — 2026-09-26
 - Method: public internet research (Anthropic Opus 4.5 system card + announcement, TechCrunch launch coverage, ApX model record, Vals AI SWE-bench page, Claude 5 Hub compilation); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Re-verification — 2026-10-19 (23 days after 2026-09-26)
+
+Original research date 2026-09-26, amended 2026-09-27. Re-run requested by the user to compare prior findings against current data and fill missing-data gaps. Original findings above are preserved; corrections are marked inline.
+
+Three independent searches performed 2026-10-19: (1) Anthropic Opus 4.5 newsroom 2025-11-24 (reconfirms SWE SOTA positioning, $5/$25, 200K window, 64K thinking budget, TB +15% over Sonnet 4.5), (2) Artificial Analysis claude-opus-4-5 page (deprecated banner, Index 24 est., 200K, cutoff Aug 2025, successor 4.6), (3) benchgap lane (67 measured as of 2026-10-18). Conflicting results compared below.
+
+| Dimension | 2026-09-26/27 | 2026-10-19 | Change |
+|---|---|---|---|
+| Tool use | 86 | 86 | hold — TB2.0 59.3% measured confirms filed row; new Tau2 86.3% measured + Tau3 70.2% measured fill filed qualitative-only gaps consistent with SOTA claims; MCP Atlas 42.3% measured + OSWorld 66.3% measured deepen; no GDPval/Claw absolute |
+| Reasoning | 86 | 86 | hold — GPQA ~87% (AA-GPQA 81.0% measured lane differs by harness, both listed); new HLE 30.8% measured + LCR 70.7% measured + MMLU-Pro 89.5% measured + Omni-acc 40.9% fill filed gaps consistent with band; Index 24 est. anchor consistent; CritPt 0.3% weak tail noted |
+| Context | 70 | 70 | hold — 200K reconfirmed on all three sources; MRCRv2 ~77% est. only, no measured curve |
+| Multimodal | 65 | 65 | hold — text+image reconfirmed; new MMMU 80.7% / MMMU-Pro 71.2% / CharXiv 68.5% / Video-MME ~81% measured deepen without moving band |
+| Coding | 89 | 89 | hold — SWE-Ver 80.9% measured confirms filed row; new SWE-Pro 57.1% measured + Multilingual 77.5% measured + SWE-Rebench 61.8% + LiveCode v6 84.8% measured fill filed gaps; Vibe ~54% est. deepens; no crossing |
+| Cost | 45 | 45 | hold — $5/$25 reconfirmed on all three sources |
+| Overall | 79 | 79 | hold — (86+86+70+65+89)/5 = 79.2 → 79 |
+
+New verified rows this pass: Tau2 86.3% / Tau3 70.2% measured (fill filed qualitative gaps); HLE 30.8% / LCR 70.7% / MMLU-Pro 89.5% / Omni-acc 40.9% measured (fill filed gaps); SWE-Pro 57.1% / Multilingual 77.5% / LiveCode 84.8% measured (fill filed gaps); Index 24 est. (first anchor). Scores hold; evidence deepens substantially without crossing a band boundary.
+
+Sources: https://www.anthropic.com/news/claude-opus-4-5 · https://artificialanalysis.ai/models/claude-opus-4-5 · https://benchgap.net/model/claude-opus-4-5
+
