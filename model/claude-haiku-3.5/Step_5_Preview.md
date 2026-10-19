@@ -1,14 +1,14 @@
 # Claude 3.5 Haiku — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-3-5-haiku-20241022`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude 3.5 Haiku (announced 2024-10-22, GA 2024-11-04)
-- **Short description:** Anthropic's fast, cost-efficient 3.5-generation model — the Haiku-speed-tier model that matched its previous flagship Claude 3 Opus on many benchmarks, and whose launch headline was coding: **40.6% on SWE-bench Verified**, which Anthropic said outperformed many agents built on then-state-of-the-art models (including the original Claude 3.5 Sonnet and GPT-4o). It launched text-only (vision input arrived on the first-party API 2025-02-25; some platforms like Bedrock never got it), with a 200K context and an 8K output cap. **Retired**: deprecated 2025-12-19 and retired from the Anthropic API 2026-02-19 (Bedrock EOL 2026-06-19); the recommended replacement is Claude Haiku 4.5.
+- **Short description:** Anthropic's fast, cost-efficient 3.5-generation model — the Haiku-speed-tier model that matched its previous flagship Claude 3 Opus on many benchmarks, and whose launch headline was coding: **40.6% on SWE-bench Verified**, which Anthropic said outperformed many agents built on then-state-of-the-art models (including the original Claude 3.5 Sonnet and GPT-4o). It launched text-only (vision input arrived on the first-party API 2025-02-25; some platforms like Bedrock never got it), with a 200K context and an 8K output cap. **Retired**: deprecated 2025-12-19 and retired from the Anthropic API 2026-02-19; the recommended replacement is Claude Haiku 4.5.
 - **Provider / access:** Was Anthropic API, Amazon Bedrock, Google Cloud Vertex AI; proprietary, API-only.
 - **Release:** 2024-10-22. Knowledge cutoff July 2024.
 - **Context window:** 200K tokens; max output 8,192.
@@ -29,10 +29,12 @@ Third-party historical aggregations (LLMLearner, ECI):
 - GPQA Diamond (normal, no tools): **41.6** (an earlier GPQA Full run scored 77.6 on the model-card variant); MMMU-Pro: **45.6**
 - Aider-Polyglot: **28.0%**; Terminal-Bench Hard (with tools): **2.3%**
 - SimpleQA: **8.0**; FrontierMath: **0.3**; Creative Writing 1,146 Elo; ECI 127
-- Artificial Analysis Intelligence Index: **9** (deprecated-model page, 10k workload only)
+- Artificial Analysis Intelligence Index: **9** (deprecated-model page, 10k workload only — **re-confirmed 2026-10-19**; AA notes it is "above average among non-reasoning models (median 7)")
 - Benchmarks that did not exist at its launch (TB 2.x, τ³, MCP Atlas, GDPval, HLE, ARC-AGI, MRCR): **no verified public score found**
 
 ### Normalized scores (1–100)
+
+Re-run verdict 2026-10-19: **scores unchanged** — Anthropic's official deprecations table (re-checked today: `claude-3-5-haiku-20241022` → Retired 2026-02-19, replacement Haiku 4.5) and the Artificial Analysis deprecated page (Index 9, 200K, Jul-2024 cutoff) both confirm the previous evidence with no new measurements, so no recalculation is supported.
 
 - **Tool use: 35/100.** Native tool use existed in the API but no agentic-harness benchmark of its era (or since) was run — Terminal-Bench Hard 2.3% in later retro-tracking is the only agentic number and it is near zero; a structural low score.
 - **Reasoning: 45/100.** MMLU 77.6 / MMLU-Pro 65.0 / MATH 69.2 were mid-tier for late 2024 and are far below the 2026 frontier; GPQA Diamond 41.6%, SimpleQA 8.0%, FrontierMath 0.3% and AA Intelligence Index 9 mark a small non-reasoning model well past its shelf life.
@@ -46,6 +48,6 @@ Third-party historical aggregations (LLMLearner, ECI):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic Haiku page + model-deprecations doc, Artificial Analysis deprecated-model page, AI/TLDR and LLMLearner historical aggregations, Bedrock model card); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research, re-run 2026-10-19 — Anthropic's official model-deprecations table (retirement record) and the Artificial Analysis deprecated-model page (Index 9); original run used the Anthropic Haiku page + deprecations doc, AI/TLDR and LLMLearner historical aggregations, and the Bedrock model card. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Haiku_4_5_2026.md`, using the same headings.

@@ -4,7 +4,7 @@
   "short": "Tencent's open-weight 770B/49B MoE flagship with 1M+ context for self-hosted agentic coding; vendor-only DeepSWE 64.3%.",
   "contextWindow": "1M (960K in / 64K out)",
   "modalities": "Text in/out",
-  "pricingNote": "Apache 2.0 open weights, self-hosted (no Zen Free ID)",
+  "pricingNote": "Apache 2.0 open weights, self-hosted",
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/models?search=hy4",
   "pricingLinks": [

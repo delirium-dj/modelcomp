@@ -4,7 +4,7 @@
   "short": "OpenAI's budget tier (1.1M, $0.20/$1.20) for high-volume coding and math; SWE-Verified 93.0% #9, FrontierMath T4 61.0%.",
   "contextWindow": "1,050,000 / 128K out",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $0.20/$1.20 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $0.20/$1.20 per 1M",
   "noFreeId": true,
   "officialUrl": "https://openai.com/index/gpt-5.6-luna/",
   "pricingLinks": [

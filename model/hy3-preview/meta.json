@@ -4,9 +4,9 @@
   "short": "Tencent's Hy3 preview (295B/21B MoE, 256K) for coding/agents; superseded by full release, text-only.",
   "contextWindow": "256,000 (256K) / 32K out",
   "modalities": "Text in/out only",
-  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M (no Zen Free ID)",
+  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M",
   "pricingTiers": [
-    "TokenHub preview ~$0.18/$0.59 (no Zen Free ID)"
+    "TokenHub preview ~$0.18/$0.59"
   ],
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/models?search=hy3-preview",

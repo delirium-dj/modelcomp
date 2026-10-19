@@ -4,9 +4,9 @@
   "short": "Anthropic's Sonnet (1M/128K, $2/$10) for everyday fixes and docs; TB4 70.6% beats Opus 5.5.",
   "contextWindow": "1M total",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $2/$10 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $2/$10 per 1M",
   "pricingTiers": [
-    "Paid $2/$10 (no Zen Free ID)"
+    "Paid $2/$10"
   ],
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-5.5",

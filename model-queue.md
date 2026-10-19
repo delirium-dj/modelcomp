@@ -122,10 +122,10 @@
 72.1 mai-code-1.1-flash
 72 qwen-3.5-9b
 71.9 minimax-m3.1-flash-preview
-71.6 hy3
 71.6 longcat_2.5_preview
 71.6 nemotron-3-ultra-free
 71.4 claude-sonnet-3.5
+71.2 hy3
 70.4 longcat-2.0
 70.1 nemotron-3.5-bolt-74b-a9b
 69.8 grok-build-0.1
@@ -164,7 +164,7 @@
 59.3 ling-3.0-flash-sante
 58.5 gpt-5.1-codex-mini
 58.2 llama_3.2_vision_instruct
-57.5 north_mini_code
+57.4 north_mini_code
 57.1 solar-mini-4
 56.9 big-pickle
 56.8 nemotron-3.5-lightning-free

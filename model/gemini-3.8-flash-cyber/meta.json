@@ -4,7 +4,7 @@
   "short": "Google DeepMind's security fine-tune of 3.8 Flash for vuln-patching; CWE-Bench 47.2%, Fairwind-gated, Google-only.",
   "contextWindow": "1,048,576 (1M) / 65K out",
   "modalities": "Text, code in; text, code out",
-  "pricingNote": "Restricted Fairwind Program (no public pricing, no Zen Free ID)",
+  "pricingNote": "Restricted Fairwind Program (no public pricing)",
   "noFreeId": true,
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [

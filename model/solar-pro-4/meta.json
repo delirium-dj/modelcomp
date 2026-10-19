@@ -4,7 +4,7 @@
   "short": "Upstage's Solar Pro 4 closed agentic flagship (384K context) for docs and tool-calling workflows; GPQA 89.0%, LiveCodeBench 87.8%, GDPval 1277 Elo.",
   "contextWindow": "512,000 (512K)",
   "modalities": "Text in/out (modality statement unpublished)",
-  "pricingNote": "No public rate card found (no Zen Free ID)",
+  "pricingNote": "No public rate card found",
   "noFreeId": true,
   "officialUrl": "https://upstage.ai/products/solar-pro-4",
   "pricingLinks": [

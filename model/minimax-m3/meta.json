@@ -4,9 +4,9 @@
   "short": "MiniMax's open-weight 428B/23B-active MoE with 1M context for frontier coding/agents; SWE-V 80.5%, SWE-Pro 59%, $0.30/$1.20 promo.",
   "contextWindow": "1,048,576 (1M) / 512K out",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "Paid $0.30/$1.20 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $0.30/$1.20 per 1M",
   "pricingTiers": [
-    "Paid $0.30/$1.20 per 1M (no Zen Free ID)"
+    "Paid $0.30/$1.20 per 1M"
   ],
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/models?search=minimax-m3",

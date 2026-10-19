@@ -4,9 +4,9 @@
   "short": "OpenAI's reasoning/coding specialist (1M/128K, $5/$30) for agentic coding; AA Coding Index 80 SOTA, AA Index 59, SWE-Pro 64.6%.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $1.25/$10 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $1.25/$10 per 1M",
   "pricingTiers": [
-    "Paid $1.25/$10 per 1M (no Zen Free ID)"
+    "Paid $1.25/$10 per 1M"
   ],
   "noFreeId": true,
   "officialUrl": "https://openai.com/index/gpt-5.6-sol/",

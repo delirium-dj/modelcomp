@@ -4,9 +4,9 @@
   "short": "Anthropic's Mythos-class model above Opus 5 (1M/128K, $10/$50) for long-horizon coding; SWE-Pro 81.2%.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image, PDF in; text out",
-  "pricingNote": "Paid $10/$50 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $10/$50 per 1M",
   "pricingTiers": [
-    "Paid $10/$50 per 1M (no Zen Free ID)"
+    "Paid $10/$50 per 1M"
   ],
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-fable-5.1",

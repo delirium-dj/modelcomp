@@ -1,19 +1,19 @@
 # Claude Haiku 4.5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-haiku-4-5-20251001`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Haiku 4.5 (API ID `claude-haiku-4-5-20251001`, alias `claude-haiku-4-5`)
-- **Short description:** Anthropic's October 2025 small model — "what was recently at the frontier is now cheaper and faster": near-Sonnet-4 coding performance at one-third the cost and more than twice the speed. It was Anthropic's safest model at launch by automated alignment assessment (lower overall misalignment than Sonnet 4.5 and Opus 4.1), released under the lighter ASL-2 standard vs ASL-3 for its larger siblings, and it beats Sonnet 4 at some tasks (notably computer use). In 2026 it is a legacy model — still active on all platforms, but Anthropic's own docs steer users to Claude Haiku 5.5 (1M context, $0.10/$0.50) and the retirement commitment lands "not sooner than October 15, 2026" — i.e., this week.
+- **Short description:** Anthropic's October 2025 small model — "what was recently at the frontier is now cheaper and faster": near-Sonnet-4 coding performance at one-third the cost and more than twice the speed. It was Anthropic's safest model at launch by automated alignment assessment (lower overall misalignment than Sonnet 4.5 and Opus 4.1), released under the lighter ASL-2 standard vs ASL-3 for its larger siblings, and it beats Sonnet 4 at some tasks (notably computer use). In 2026 it is a legacy model — still active on all platforms, but Anthropic's own docs steer users to Claude Haiku 5.5 (1M context, $0.10/$0.50). **Lifecycle update 2026-10-19:** the official page still lists status "Active (legacy)" with retirement "not sooner than October 15, 2026" — that commitment date has now passed, so the retirement window is open even though the model remains available today.
 - **Provider / access:** Claude API, Amazon Bedrock (incl. InvokeModel), Google Cloud Vertex AI, Microsoft Foundry, Claude Platform on AWS, Claude Code and Claude apps.
 - **Release:** 2025-10-15. Knowledge cutoff Feb 2025 (training data to Jul 2025).
 - **Context window:** 200K tokens; max output 64K tokens.
-- **Modalities:** Text and images in → text out; manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`, max 128K budget in evals); computer use via `computer_20250124`; no adaptive-thinking/effort parameter on this generation.
-- **Pricing (as of 2026-10-09):** $1/M input, $5/M output (5m cache write $1.25, 1h cache write $2, cache read $0.10, batch 50% off).
+- **Modalities:** Text and images in → text out; manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`); computer use via `computer_20250124`; no adaptive-thinking/effort parameter on this generation.
+- **Pricing (as of 2026-10-19):** $1/M input, $5/M output (5m cache write $1.25, 1h cache write $2, cache read $0.10, batch 50% off) — **re-confirmed on the official model page 2026-10-19**.
 - **Speed:** ~88.6 tok/s output (AA, Anthropic API); third-party catalogs list 100–244 tok/s depending on platform.
 
 ### Raw benchmarks found
@@ -38,21 +38,24 @@ Other third-party evaluations:
 - ARC-AGI-1: **47.67%** (32K thinking); ARC-AGI-2: **4.03%** (32K) / 2.78% (16K)
 - SWE-bench Pro: **39.45%**; SWE-bench Multilingual: **64.7%** (vectorwire/SWE-bench)
 - SimpleQA: **no verified public score found** (Epoch AI's SimpleQA Verified lists 13.2%, but neither figure is Anthropic-vendor-confirmed)
+- **New in the 2026-10-19 re-run (Vals AI harnesses, via BenchLM):** SWE-bench (thinking) **66.6%**, Terminal-Bench 2.1 **43.8%**, LiveCodeBench **41.2%**, GPQA Diamond **72.2%**, MMLU-Pro **78.7%**; plus VulcanBench v3 **76.2%**, JobBench **16.0%**, MazeBench **0%** (ASCII), Design Arena Website **1122**; BenchLM aggregate **41.15** (#135/956)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** Vendor τ²-bench numbers are strong (Retail 83.2%, Telecom 83.0%, Airline 63.6%) and OSWorld 50.7% shows real computer-use ability; the independent read is much colder — AA Agentic Index 10.31 (reasoning mode), AA's own τ²-Telecom rerun at 54.68%, Terminal-Bench 41.0% and a 31.0% Finance Agent v2 score. Genuine tool plumbing, mid-band agentic reliability.
-- **Reasoning: 62/100.** GPQA Diamond 73.0%, MMMLU 83.0% and AIME 80.7–96.3% sit inside the mid band (GPQA 60–80%, HLE <10–15%); HLE 10.38% and ARC-AGI-2 4.03% show the ceiling — frontier-grade for its price tier, not a frontier reasoning model.
+Re-run verdict 2026-10-19: **scores unchanged.** The official model page (re-checked today: 200K/64K, $1/$5, legacy status with the Oct-15-2026 retirement commitment now past) plus the new Vals AI / BenchLM measurements corroborate the previous read without moving any dimension: Vals SWE-bench 66.6% and LiveCodeBench 41.2% confirm strong-classic / weak-agentic coding, Vals GPQA 72.2% sits exactly on the vendor's 73.0%, and TB 2.1 43.8% ≈ the vendor's 41.0%.
+
+- **Tool use: 60/100.** Vendor τ²-bench numbers are strong (Retail 83.2%, Telecom 83.0%, Airline 63.6%) and OSWorld 50.7% shows real computer-use ability; the independent read is much colder — AA Agentic Index 10.31 (reasoning mode), AA's own τ²-Telecom rerun at 54.68%, Terminal-Bench 41.0% / Vals TB 2.1 43.8%, JobBench 16.0% and a 31.0% Finance Agent v2 score. Genuine tool plumbing, mid-band agentic reliability.
+- **Reasoning: 62/100.** GPQA Diamond 73.0% (Vals rerun 72.2%), MMLU 83.0% / MMLU-Pro 78.7% and AIME 80.7–96.3% sit inside the mid band; HLE 10.38% and ARC-AGI-2 4.03% show the ceiling — frontier-grade for its price tier, not a frontier reasoning model.
 - **Context window: 70/100.** 200K tokens is the floor of the 200K–500K band (65–84), with no published long-context retrieval curve (MRCR/RULER/NIAH-style) to push it higher.
 - **Multimodal: 66/100.** Text + image in → text out is the 60–70 band; MMMU 73.2% (validation) is solid image understanding for a small model and OSWorld 50.7% adds screen interaction, but there is no video or audio input and no non-text output.
-- **Coding: 66/100.** SWE-bench Verified 73.3% (near-Sonnet-4 coding at a third of the price — the headline claim, and verified at 50-trial averaging) plus SWE-bench Multilingual 64.7%; held mid-band by Terminal-Bench 41.0%, SciCode 42.25%, SWE-bench Pro 39.45% and Coding Index 43.89 — strong classic issue-resolution coding, weaker on agentic/terminal and research-grade coding.
+- **Coding: 66/100.** SWE-bench Verified 73.3% (near-Sonnet-4 coding at a third of the price — the headline claim, verified at 50-trial averaging; Vals rerun 66.6%) plus SWE-bench Multilingual 64.7%; held mid-band by Terminal-Bench 41.0/43.8%, **LiveCodeBench 41.2% (new)**, SciCode 42.25%, SWE-bench Pro 39.45% and Coding Index 43.89 — strong classic issue-resolution coding, weaker on agentic/terminal and competitive-programming coding.
 - **Cost efficiency: 88/100.** $1/$5 per million tokens is the efficient tier (the methodology's ~$1.25/$4.25 ≈ 88 point), with 10% cache reads and 50% batch discounts; 88.6 tok/s keeps latency-sensitive workloads cheap in practice. In 2026 the cheaper Haiku 5.5 ($0.10/$0.50) outclasses it on both axes.
-- **Overall Score: 65/100.** Best-fit recommendation: the efficiency workhorse of its generation — classification, extraction, routing, sub-agent orchestration and near-frontier SWE-bench coding at small-model prices; as of October 2026 it is superseded by Haiku 5.5 on price, context and speed, and its API retirement window is opening.
+- **Overall Score: 65/100.** Best-fit recommendation: the efficiency workhorse of its generation — classification, extraction, routing, sub-agent orchestration and near-frontier SWE-bench coding at small-model prices; as of October 2026 it is superseded by Haiku 5.5 on price, context and speed, and its API retirement window is open.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Anthropic launch post + methodology notes, Haiku 4.5 system card, platform docs, Artificial Analysis via vectorwire, llmboard and third-party trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research, re-run 2026-10-19 — official Anthropic Haiku 4.5 model page (specs, pricing, lifecycle) and BenchLM's Vals AI aggregate (SWE-bench, TB 2.1, LiveCodeBench, GPQA, MMLU-Pro, VulcanBench, JobBench, MazeBench, Design Arena); original run used the Anthropic launch post + methodology notes, the Haiku 4.5 system card, and platform docs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Haiku_5_5.md`, using the same headings.

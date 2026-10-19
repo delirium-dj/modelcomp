@@ -4,9 +4,9 @@
   "short": "Anthropic's restricted Mythos variant (1M/128K, $10/$50) for vetted cyber/bio research; same weights as Fable 5.1, TB4 60.9%.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $10/$50 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $10/$50 per 1M",
   "pricingTiers": [
-    "Paid $10/$50 per 1M (no Zen Free ID)"
+    "Paid $10/$50 per 1M"
   ],
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-mythos-5.1",

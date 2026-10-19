@@ -4,7 +4,7 @@
   "short": "Alibaba's Qwen3.8 Max hosted multimodal MoE (2.4T/95B, 1M context) for code/reasoning/visual agents; SWE-bench Pro 67.7%, GPQA ~93.7% at $2/$6 per 1M.",
   "contextWindow": "1M / 131K out",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "Paid $2/$6 per 1M (one-time 1M-token free quota, no Zen Free ID)",
+  "pricingNote": "Paid $2/$6 per 1M (one-time 1M-token free quota)",
   "noFreeId": true,
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-max/",
   "pricingLinks": [

@@ -1,7 +1,7 @@
 # North Mini Code — findings by Mimo v2.6 Flash
 
 - Source: Cohere Labs (`north-mini-code` / North-Mini-Code-1.0)
-- Date: 2026-10-03 (UTC)
+- Date: 2026-10-19 (UTC; original research 2026-10-03, re-researched 2026-10-19)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **20.6** (Frontier tracker model page)
+- Artificial Analysis Intelligence Index: **10** (AA model page measured 2026-10-19, v4.3.2; class median 8, "#41" of 141 in the comparison view) — **corrects the earlier Frontier-tracker reading of 20.6** (older-scale composite; superseded)
 - GPQA Diamond: no verified public score found
 - HLE / LCR / CritPt: no verified public score found
 
@@ -51,18 +51,18 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** Terminal-Bench v2 36.0% is a real measured agentic score but sits below the documented mid band (TB2.1 45–60 → 50–70), and every TB2.1/Tau3/GDPval/Claw-Eval row is missing — mid-band floor at 55.
-- **Reasoning: 58/100.** Single signal: AA Intelligence Index 20.6, plus the methodology's mid band for GPQA/HLE (55–65) as the best-fit region for a code-specialized 3B-active model; with no GPQA/HLE/LCR row at all, scored at 58 within that band.
-- **Context window: 75/100.** 256K falls in the 200K–500K tier (65–84); 64K max output is a plus; 256K-vs-320K vendor discrepancy noted, both in-tier; no retrieval-at-length measurement.
-- **Multimodal: 15/100.** Text-only model — the methodology's explicit "text-only = 10-20 (use 15)" value.
-- **Coding: 72/100.** SWE-bench Verified 67.6% and SWE-bench Pro 40.2% are strong for a 3B-active model (AA Coding Index 33.4 leads its size class), but well short of the frontier band (DeepSWE 74+/TB2.1 85+/SciCode 55+), and LCB/SciCode numbers were not retrievable — 72.
-- **Cost efficiency: 100/100.** Free endpoint at $0.00/$0.00 (methodology: $0 = 100).
-- **Overall Score: 55/100.** (55 + 58 + 75 + 15 + 72) / 5 = 55.0 — best-fit as a free, self-hostable agentic coding specialist for high-volume terminal/SWE tasks where reasoning depth and multimodal input don't matter.
+- **Tool use: 55/100.** Terminal-Bench v2 36.0% is a real measured agentic score but sits below the documented mid band (TB2.1 45–60 → 50–70), and every TB2.1/Tau3/GDPval/Claw-Eval row is missing — mid-band floor at 55. Unchanged.
+- **Reasoning: 52/100.** **−6 on the Index correction:** AA v4.3.2 measures 10 (class median 8 — only slightly above average), below the 20–35 mid band the old 20.6 reading implied; still no GPQA/HLE/LCR row (was 58 on the stale 20.6).
+- **Context window: 75/100.** 256K (AA re-confirmed 2026-10-19) falls in the 200K–500K tier (65–84); 64K max output is a plus; 256K-vs-320K vendor discrepancy noted, both in-tier; no retrieval-at-length measurement. Unchanged.
+- **Multimodal: 15/100.** Text-only model (AA re-confirms text in/out) — the methodology's explicit "text-only = 10-20 (use 15)" value. Unchanged.
+- **Coding: 72/100.** SWE-bench Verified 67.6% and SWE-Pro 40.2% (HF eval YAMLs) remain the governing numbers — strong for a 3B-active model (AA Coding Index leads its size class per Cohere), but well short of the frontier band and no LCB/SciCode measured rows. Unchanged.
+- **Cost efficiency: 100/100.** Free on Cohere's own API per AA ($0.00/$0.00, "$0.00 cost per Intelligence Index task", cost rank #1/24) plus OpenRouter `:free` and free weights — $0 = 100. Unchanged.
+- **Overall Score: 54/100.** (55 + 52 + 75 + 15 + 72) / 5 = 53.8 → 54 (was 55 — the Index correction moves it −1). Best-fit: a free, self-hostable agentic coding specialist for high-volume terminal/SWE tasks where reasoning depth and multimodal input don't matter.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-03
-- Method: public internet research (Cohere blog + HF model card and `.eval_results` YAML files, OpenRouter, Microsoft Foundry, AI Weekly, Frontier/LMMarketCap trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-19
+- Method: public internet research (2026-10-19 second pass: Artificial Analysis model page (Index correction 20.6 → 10, speed 81.2 t/s, TTFT 0.44s, free Cohere API pricing), Cohere blog re-read with harness footnotes, BenchLM profile; plus 2026-10-03 original: Cohere blog + HF model card and `.eval_results` YAML files, OpenRouter, Microsoft Foundry, AI Weekly, Frontier tracker) — scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

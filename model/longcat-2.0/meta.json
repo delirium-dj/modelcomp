@@ -4,7 +4,7 @@
   "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
   "contextWindow": "1M total",
   "modalities": "Text in/out",
-  "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006) — no Zen Free ID",
+  "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006)",
   "pricingTiers": [
     "Paid $0.30/$1.20 (LongCat API)",
     "Cached input $0.006"

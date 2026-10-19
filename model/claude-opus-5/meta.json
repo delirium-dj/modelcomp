@@ -4,9 +4,9 @@
   "short": "Anthropic's Opus (1M/128K, $5/$25) for long autonomous coding; SWE-Pro 79.2%, succeeded by Opus 5.5.",
   "contextWindow": "1M / 128K out",
   "modalities": "Text, image, PDF in; text out",
-  "pricingNote": "Paid $5/$25 per 1M (no Zen Free ID)",
+  "pricingNote": "Paid $5/$25 per 1M",
   "pricingTiers": [
-    "Paid $5/$25 per 1M (no Zen Free ID)"
+    "Paid $5/$25 per 1M"
   ],
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-opus-5",

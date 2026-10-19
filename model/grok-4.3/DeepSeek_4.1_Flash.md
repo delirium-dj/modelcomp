@@ -1,11 +1,13 @@
 # Grok 4.3 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.3 (`grok-4.3`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-3).
+> **Re-verified 2026-10-18.** BenchLM now exposes ~32 rows and adds the vision + long-context signals the first draft lacked: **MMMU-Pro 78.1%**, AA-LCR 64.3%, CritPt 8.0%, AA-HLE 37.2%, AA-GPQA 90.1% (Vals 91.4%), AA Intelligence Index 37.6%, τ²-bench 97.7%, GDPval-AA 1018 Elo / 29.2%, AA Coding Index 42.3%, FrontierMath v2 42.81%/14.63%. **Multimodal 62 → 66** (MMMU-Pro now published); **Overall 75 → 76**. Context/pricing unchanged (1M, $1.25/$2.50).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-3).
 > BenchLM overall **53.59/100** (#72), context **1M**, pricing **$1.25 input / $2.50 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 26.9, #94/122): Terminal-Bench 2.1 (Vals) 41.9%; Gert Labs 43.86%; ResearchClawBench 12.4%
@@ -61,10 +63,10 @@ Long context:
 - **Tool use: 60/100.** Tau2-Bench Telecom 97.7–98% and AgentCIBench 91.5% are excellent instruction/agent-following signals, but the harder agentic rows are mid-table: Tau3-Banking 12.4%, GDPval-AA 1,099 Elo, Terminal-Bench 2.1 41.9% — around the 45–60% mid band, i.e. mid-50s to low-60s overall.
 - **Reasoning: 86/100.** GPQA Diamond 91.4% meets the 90%+ frontier anchor and HLE 37.2% nearly meets the 40% reference (Intelligence Index 53, 125 AIIQ); the sub-60 index and falling non-hallucination rate keep it under 90.
 - **Context window: 95/100.** A 1M-token window is the 95–100 tier; nothing published shows ≥98% retrieval at 512K+, so 100 is not supportable.
-- **Multimodal: 62/100.** Text + image in, text out is the 60–70 band; no audio/video input and no non-text output, and no multimodal benchmark scores were published for it.
+- **Multimodal: 66/100.** Text + image in, text out is the 60–70 band; now supported by a verified **MMMU-Pro 78.1%** (Artificial Analysis), though there is still no audio/video input and no non-text output.
 - **Coding: 72/100.** LiveCodeBench 84.5% and the #1 BLXBench 85.5% are strong, but SWE-bench Verified 71.4%, SciCode 47.3% (<55) and Vibe Code Bench 19.4% hold it in the low 70s.
 - **Cost efficiency: 88/100.** $1.25/$2.50 with $0.20 cache reads maps just above the $1.25/$4.25 = 88 anchor thanks to the cheaper output; OfficeChai's Pareto-frontier framing and the ~$395 suite cost support a high-80s value score.
-- **Overall Score: 75/100.** (60 + 86 + 95 + 62 + 72) / 5 = 75.0 → 75. Best fit: high-reasoning, long-context text work and instruction-following at a value price — weaker on hard agentic/coding tasks and text-only on the input side.
+- **Overall Score: 75.8/100.** (60 + 86 + 95 + 62 + 72) / 5 = 75.0 → 75. Best fit: high-reasoning, long-context text work and instruction-following at a value price — weaker on hard agentic/coding tasks and text-only on the input side.
 
 ---
 
