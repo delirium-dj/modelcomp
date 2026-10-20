@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash — findings by Step 5 Preview
 
 - Source: Xiaomi (`mimo-v2.6-flash`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,20 +54,25 @@ Long context:
 
 - 1M-token window at flat pricing; AA-LCR 74.3% (independent) is the only long-context measure; **no public MRCR/RULER**
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **64.59/100** overall, #39 of 959 models, 24 of 666 benchmarks covered; Artificial Analysis (hyphenated slug, not deprecated): Index **38** (#12/121 — matches the file's 37.9), 53.7 tok/s, TTFT 5.19s, $0.14/$0.28 with **98% cache discount** (blended $0.06/M; **$0.06 per Index task**), 1M context, 309B/15B, MIT, 5 providers, **240M Index tokens (very verbose — 44/47 in class)**; AA's modality row lists text+image vs Xiaomi's omni-modal claim (video/audio) — conflict noted
+- New AA rows filling the file's gaps: GDPval-AA **55.4% normalized** (the missing GDPval row — a strong agentic-knowledge-work result), AA-MMMU-Pro **73.1%** (the missing vision row — mid-tier), CritPt **12.0%**, AA-Omniscience index **−12.7%** / accuracy 27.0% / hallucination 54.4%, ExploitGym **6.0%**
+
 ### Normalized scores (1–100)
 
 - **Tool use: 80/100.** Terminal-Bench 2.1 87.6% (vendor) / 76.4% (Vals), AutomationBench 52.3%, Toolathlon 73.6% and OSWorld-Verified 80.8% sit mid-frontier; capped by Terminal-Bench 4.0 at 28.8%/24.2%, Agents' Last Exam 27.6%, no GDPval-AA, and every agentic number being Xiaomi's own harness.
 - **Reasoning: 72/100.** The independent AA Intelligence Index reads 37.9 (85th pct) and AA-LCR 74.3%, with unofficial third-party evals (MMLU-Pro 76.4%, GPQA-D ~56–86% budget-limited) consistent with a strong mid-tier; capped because Xiaomi publishes no GPQA/HLE/AIME/ARC-AGI numbers at all and CritPt/LiveBench are absent.
 - **Context window: 92/100.** 1,048,576-token window with 128K output at flat pricing is the ≥1M tier; AA-LCR 74.3% supports it, but the 100 tier's ≥98% retrieval at 512K+ is unverifiable with no MRCR/RULER published.
-- **Multimodal: 88/100.** Text + image + video + audio in → text out is the 90–100 modality band — the first Xiaomi model with the full omni-modal input set — placed just under 90 because no MMMU-Pro score is published and the vision evidence (MiMo Visual Coding 71.5%, Vision Arena 1247) is in-house/arena rather than a standard suite.
+- **Multimodal: 84/100.** Text + image + video + audio in → text out is the 90–100 modality band on Xiaomi's card, but the third pass measured the first independent vision row — AA-MMMU-Pro **73.1%** (mid-tier) — and Artificial Analysis's own modality row lists only text+image, so the omni-modal claim is unverified beyond vendor evals. Trimmed from 88 on that measurement.
 - **Coding: 82/100.** DeepSWE v1.1 67.9% (vendor) is only ~6 points off the Opus-5.5 lead, TB2.1 87.6% (76.4% independent) and WebDev Arena #13 back it; capped by ProgramBench 26.0%, no vendor SWE-bench Verified/Pro at all, and the vendor/independent 11-point Terminal-Bench spread.
 - **Cost efficiency: 97/100.** $0.14/$0.28 per MTok with $0.0028 cache hits is below the methodology's ~$0.10/$0.20 = 97–99 tier — the #1 AA Price board model at $0.17 blended, MIT weights included; the cheapest omni-modal 1M-context model in this comparison.
-- **Overall Score: 83/100.** Best-fit recommendation: the cost-efficiency pick for high-volume omni-modal and agentic office workloads — Pro-class agentic scores at $0.14/$0.28; verify on your own harness given how thin the independent coverage is.
+- **Overall Score: 82/100.** Mean of the five non-cost dims (80+72+92+84+82)/5 = 82.0 (Multimodal 88→84 on the newly measured AA-MMMU-Pro 73.1%; Overall 83→82). Best-fit recommendation: the cost-efficiency pick for high-volume omni-modal and agentic office workloads — Pro-class agentic scores at $0.14/$0.28 and a measured $0.06 per Index task; verify on your own harness given how thin the independent coverage is, and note the 240M-token verbosity.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (13 primary-source results, updated 2026-10-07 — NEW independent HLE 35.1% #58/478, AIIQ IQ 122 #45/147, AA-LCR 74.3% #92/408, TB2.1 87.6% #15/194, TB4.0 28.8% #17/29, DeepSWE 67.9% #18/52, OSWorld-Verified 80.8% #17/70, JobBench 61.2% #8/48, Agents' Last Exam 27.6% #17/41, SciCode 51.3%) — the newly-surfaced independent HLE 35.1% (below the 40% frontier bar) CONFIRMS the existing Reasoning 72 read rather than moving it; no score change warranted. Prior pass (2026-10-09) used Xiaomi mimo.mi.com model page + HF model card/tech report, OpenLM.ai, The Model Gap, Vals AI, BenchmarkList, OpenRouter, llm-stats, HokAI, WaitWhichModel, third-party EXL3 quant evals.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 38 #12/121 — unchanged; 53.7 tok/s; TTFT 5.19s; $0.06 per Index task; 240M tokens — very verbose; AA's modality row lists text+image vs Xiaomi's omni-modal claim) and BenchLM (composite 64.59/100, #39/959, 24/666 benchmarks): the file's GDPval and vision gaps are filled — GDPval-AA 55.4% normalized (strong, reinforcing Tool 80) and AA-MMMU-Pro 73.1% (mid-tier, trimming Multimodal 88→84, Overall 83→82); new rows CritPt 12.0%, AA-Omniscience −12.7%, ExploitGym 6.0%. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (13 primary-source results, updated 2026-10-07 — independent HLE 35.1% #58/478, AIIQ IQ 122 #45/147, AA-LCR 74.3% #92/408, TB2.1 87.6% #15/194, TB4.0 28.8% #17/29, DeepSWE 67.9% #18/52, OSWorld-Verified 80.8% #17/70, JobBench 61.2% #8/48, Agents' Last Exam 27.6% #17/41, SciCode 51.3%). Prior pass (2026-10-09) used Xiaomi mimo.mi.com model page + HF model card/tech report, OpenLM.ai, The Model Gap, Vals AI, BenchmarkList, OpenRouter, llm-stats, HokAI, WaitWhichModel, third-party EXL3 quant evals.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

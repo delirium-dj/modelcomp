@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://huggingface.co/google/gemma-4-31B-it",
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "Google’s laptop-class open weights: dense 31B with olympiad-math strength and competitive Codeforces play on a single accelerator.",
+  "tradeoff": "No hosted frontier sibling for the heavy stuff — the 256K window and 31B depth cap the hardest agentic runs."
 }

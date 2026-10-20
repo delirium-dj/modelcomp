@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://vercel.com/ai-gateway/models/qwen3.8-flash-next",
     "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
-  ]
+  ],
+  "standout": "A public peek at Qwen4’s direction: a tiny active footprint, strong efficient-coding scores, and weights you can run today.",
+  "tradeoff": "It is a checkpoint, not a product — expect churn and breaking changes before the real Qwen4 ships."
 }

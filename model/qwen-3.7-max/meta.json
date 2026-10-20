@@ -8,5 +8,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.7-max/",
   "pricingLinks": [
     "https://openrouter.ai/qwen/qwen3.7-max/benchmarks"
-  ]
+  ],
+  "standout": "The office-automation Max: long-horizon coding and document/office workflows over 1M context on Alibaba’s proprietary tier.",
+  "tradeoff": "Closed weights and text-only input — multimodal and self-hosting belong to the open Qwen lines."
 }

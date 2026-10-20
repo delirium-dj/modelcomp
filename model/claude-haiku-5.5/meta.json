@@ -8,5 +8,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-haiku-5.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The subagent engine: very fast, very cheap, full 1M context — Anthropic’s pick for fleets of small worker calls.",
+  "tradeoff": "A small-model reasoning ceiling: it executes and drafts while Opus/Sonnet decide."
 }

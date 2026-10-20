@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=kimi-k2.8-preview",
   "pricingLinks": [
     "https://platform.moonshot.ai/docs/pricing/chat"
-  ]
+  ],
+  "standout": "The missing middle: a 1M-context preview slotting between K2.7 Code and K3 for coding-heavy agent builds.",
+  "tradeoff": "Proprietary and unmeasured independently — adopt for experiments, not commitments."
 }

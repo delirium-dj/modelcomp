@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://artificialanalysis.ai/models/inkling",
     "https://huggingface.co/thinkingmachines/inkling"
-  ]
+  ],
+  "standout": "The fine-tuning base: Thinking Machines’ first open MoE, Apache-2.0 and sized to be customized — self-hosted, fast for its class, and built to be reshaped.",
+  "tradeoff": "Hosted pricing blurs the openness advantage, and the served context trails the claimed window."
 }

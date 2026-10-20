@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.4-mini/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The delegation tier: computer-use and coding errands at small-model prices, sized for fleets of subagents under one orchestrator.",
+  "tradeoff": "A smaller reasoning ceiling — it performs tasks, the 5.4/5.5 flagships architect them."
 }

@@ -16,5 +16,7 @@
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://openrouter.ai/models/qwen/qwen-3.5-plus"
-  ]
+  ],
+  "standout": "The vision-language Plus of its generation: a hosted 1M-context agent that reads images as readily as code.",
+  "tradeoff": "Superseded by Qwen 3.6 Plus and beyond, and its measured agent work already lagged the leaders — a migration-compatibility pick."
 }

@@ -10,6 +10,6 @@
   "pricingLinks": [
     "https://huggingface.co/Qwen/Qwen3.8-27B"
   ],
-  "standout": "A dense open-weights model that punches far above its size on agentic coding and vision, and costs nothing to run when self-hosted.",
-  "tradeoff": "At 27B dense it leans on context-extension tricks for very long inputs, and frontier-depth reasoning still belongs to its larger siblings."
+  "standout": "The self-host value pick: a dense 27B that keeps agentic coding and vision capability on hardware most teams already own.",
+  "tradeoff": "Frontier depth and very long inputs lean on context-extension tricks and the larger hosted siblings."
 }

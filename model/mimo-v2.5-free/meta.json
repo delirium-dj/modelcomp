@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://mimo.xiaomi.com/mimo-v2-5"
-  ]
+  ],
+  "standout": "A full omni-modal MoE behind a $0 Zen meter — Xiaomi’s cheapest way to try flagship-shaped multimodal agents.",
+  "tradeoff": "The free lane caps context hard and may train on your traffic; native capability only survives on paid hosting."
 }

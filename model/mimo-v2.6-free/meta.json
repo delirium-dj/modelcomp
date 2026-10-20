@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://mimo.mi.com/models/en-US/mimo-v2.6-flash"
-  ]
+  ],
+  "standout": "A verified-software-engineering beast behind a zero-dollar meter: Xiaomi’s MIT MoE, free through OpenCode Zen, punching at frontier weight.",
+  "tradeoff": "The free lane is capped in context and output, so long-horizon work must either fit the window or move to a paid Xiaomi host."
 }

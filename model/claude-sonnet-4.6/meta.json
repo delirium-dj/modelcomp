@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-4.6",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The cost-conscious coding Sonnet with adaptive thinking — the tier that made disciplined agentic coding affordable at the time.",
+  "tradeoff": "Later Sonnets and the cheaper tiers around it have overtaken it on price-per-capability; it survives as a compatibility choice."
 }

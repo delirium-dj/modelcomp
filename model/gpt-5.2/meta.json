@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://openai.com/api/pricing/",
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The science-and-knowledge flagship of the 5.2 generation, with an Instant/Thinking/Pro family that let callers pick their latency budget.",
+  "tradeoff": "A smaller 400K window and successors that dominate it on every axis make it a stepping stone in the OpenAI lineage."
 }

@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://platform.moonshot.ai/docs/pricing/chat",
     "https://openrouter.ai/models"
-  ]
+  ],
+  "standout": "The open-weight swarm specialist: a trillion-parameter multimodal MoE proven with 300-agent orchestration runs, at moderate API pricing.",
+  "tradeoff": "A comparatively short context window and heavy local footprint keep it behind the newer K3 generation for long-context work."
 }

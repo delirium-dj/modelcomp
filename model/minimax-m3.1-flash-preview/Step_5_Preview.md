@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by Step 5 Preview
 
 - Source: MiniMax (`MiniMax-M3.1-Flash-Preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -27,15 +27,23 @@ Independent (the only published eval of this model):
 
 Not published by anyone: SWE-bench, Terminal-Bench, GPQA, HLE, MCP Atlas, τ-bench, GDPval, Artificial Analysis Index — **no verified public score found**. The widely circulated "73.8% SWE-bench Verified / 165 tps" table is untraceable to a primary source and is treated as unverified. MiniMax M3's vendor numbers (SWE-Pro 59.0, TB 2.1 66.0, BrowseComp 83.52, MCP-Atlas 74.2, OSWorld 70.06) belong to M3 and do not transfer.
 
+**Third-pass update (2026-10-19) — the preview has graduated to GA:** MiniMax officially announced **MiniMax M3.1 Flash** (minimax.io/blog/minimax-m31f — the same model that shipped as the 2026-09-27 preview inside MiniMax Code; BenchLM lists them as siblings of one family) with full independent coverage. BenchLM composite **67.1/100** (#27/959, 29/666); the previously unmeasured dimensions now read:
+
+- Agentic: AA AutomationBench **72.5%**, GDPval-AA **47.9% normalized / Elo 1,458** (AA), Terminal-Bench 4.0 **38.1%** (vendor) / **25.8%** (AA), OSWorld 2.0 **61.7%**, ALE **29.6%**, CyberGym **82.2%**, BankerToolBench **76.2%**, AutomationBench 62.2% (vendor), AA Briefcase **Elo 1,474**, LOCA-Bench 256K 60.3 (vendor)
+- Reasoning: AA-HLE **48.0%**, HLE w/o tools **43.4%** (vendor) — both clear the 40% frontier bar; AA Intelligence Index **42.4**, CritPt **22.3%**, AA-Omniscience index **15.6%** / accuracy 56.2% / hallucination 92.8%
+- Coding: DeepSWE **73.7%** (vendor), NL2Repo **61.2%**, AA-SciCode **53.4%**, PostTrainBench v1.1 **39.3%**; SWE Refactor Bench **23.0%** (weak)
+- Multimodal: AA-MMMU-Pro **79.1%**, CharXiv **82.5%**, BabyVision w/ Python **91.0%**
+- Long context: AA-LCR **79.7%** — supports the 1M band
+
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Agentic reasoning and tool use are the documented design targets (it ships as the default model inside a coding agent), but no Terminal-Bench, τ³, MCP Atlas, Toolathlon or GDPval number exists for this checkpoint — a structural estimate with "no verified public score found" noted.
-- **Reasoning: 45/100.** No GPQA/HLE/ARC-AGI/math eval has been run; the five-level thinking dial and the +35-point KingBench jump over M3 suggest real capability, but the reasoning dimension is unevidenced beyond the coding eval.
+- **Tool use: 70/100.** The GA successor's independent rows are now measured: AA AutomationBench 72.5%, GDPval-AA 47.9% (Elo 1,458), OSWorld 2.0 61.7%, BankerToolBench 76.2% — strong mid-frontier agentic execution; capped by AA Terminal-Bench 4.0 at 25.8% (vendor row 38.1%) and Agents' Last Exam 29.6%. Raised from 45 on the GA measurement.
+- **Reasoning: 76/100.** AA-HLE 48.0% and HLE w/o tools 43.4% clear the 40% frontier bar, with AA Intelligence Index 42.4, CritPt 22.3% and AA-Omniscience accuracy 56.2% backing a strong mid-tier. Raised from 45; the 92.8% hallucination-rate metric is the reliability caveat.
 - **Context window: 88/100.** A 1M-token window is the ≥1M band (95–100), docked because MiniMax publishes no MRCR/RULER/needle curve and the code fixtures themselves carry mixed 512K/1M tiers — the window is documented, its retrieval quality is not.
 - **Multimodal: 78/100.** Text + image + video in → text out is the 75–90 band; input modalities are first-party documented and the KingBench visual tasks (3D builds, SVG) scored highest — but no MMMU/OCRBench/Video-MME number exists.
-- **Coding: 62/100.** KingBench 3 at 66.25% (more than double M3's 31.25%) is a real, independent improvement signal for build-from-scratch work; the failure pattern matters — it looks complete but breaks on interactive state (elevator 3/10, archery 4/10) — and there is no SWE-bench or Terminal-Bench score to check it against.
+- **Coding: 78/100.** DeepSWE 73.7% (vendor, just under the 74% frontier ref), NL2Repo 61.2%, AA-SciCode 53.4% and PostTrainBench 39.3% are mid-frontier on the GA rows, with the original KingBench 3 66.25% (2× M3) still standing; capped by AA Terminal-Bench 4.0 at 25.8% and SWE Refactor Bench 23.0%. Raised from 62.
 - **Cost efficiency: 85/100.** No per-token price exists (subscription-only: $20/$50/$120 per month for ~1.7B/5.1B/12.5B M3-class tokens), so cost is a plan-shape estimate: cheap for heavy users within quota, unbenchmarkable as an API — the methodology's ~$0.6/$2.2 ≈ 92 range discounted for the missing rate card.
-- **Overall Score: 64/100.** Best-fit recommendation: a promising everyday-coding preview — KingBench 3 more than doubled its predecessor and visual/3D builds are genuinely good — but with no public benchmarks, no API price, no weights and a documented weakness on interactive stateful builds, keep it in a side-by-side trial rather than a production default.
+- **Overall Score: 78/100.** Mean of the five non-cost dims (70+76+88+78+78)/5 = 78.0 (all five dimensions re-based on the GA successor's measured rows — the preview-era "no verified public score found" caps are lifted; Overall 64→78). Best-fit recommendation: a genuine everyday-coding model — the GA numbers put it at mid-frontier on agentic, reasoning and coding at once, with the original KingBank interactive-state weakness (elevator 3/10, archery 4/10) still the documented risk.
 
 ---
 

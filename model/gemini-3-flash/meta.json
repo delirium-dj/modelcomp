@@ -8,5 +8,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The interactive-coding bargain: near-Pro analysis quality with Flash latency, at Google’s friendliest launch price.",
+  "tradeoff": "A preview SKU with a modest output cap — long generations and hard reasoning are better delegated to the later Flash revisions."
 }

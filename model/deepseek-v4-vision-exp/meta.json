@@ -9,5 +9,7 @@
   "officialUrl": "https://www.deepseek.com/",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The UI-vision specialist: it reasons from screenshots into working code and topped a demanding visual benchmark against far larger models.",
+  "tradeoff": "Experimental by name: a short context window and unproven stability make it a preview lane for image-to-code work, not a daily driver."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=mistral-large-4",
   "pricingLinks": [
     "https://mistral.ai/pricing"
-  ]
+  ],
+  "standout": "The multilingual European option: solid reasoning and tool use with Mistral’s deployment flexibility and EU data posture.",
+  "tradeoff": "A 131K window and paid-only access look dated in a 1M-context market."
 }

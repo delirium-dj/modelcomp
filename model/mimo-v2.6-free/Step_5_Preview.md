@@ -1,7 +1,7 @@
 # MiMo-V2.6-Flash Free — findings by Step 5 Preview
 
 - Source: Xiaomi / OpenCode Zen (`mimo-v2.6-flash-free`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,6 +32,8 @@
 - SciCode: **51.3%** (85th pct)
 - **HLE: 35.1%** (independent, #58/478, 88th pct — BenchmarkList/verified 2026-10-07; surfaced in this second pass, previously no HLE run existed for Flash)
 - Sibling context: MiMo-V2.6-Pro scores 46 on the AA Intelligence Index — the strongest open-weights model per Xiaomi, behind only Claude Fable 5.1 and GPT-6 Astra
+
+Third-pass verification (2026-10-19): the paid sibling (MiMo-V2.6-Flash) was re-verified today — AA Index 38 (#12/121), $0.06 per Index task, 240M Index tokens (very verbose), plus two new independent rows: GDPval-AA 55.4% normalized (strong agentic knowledge work) and AA-MMMU-Pro 73.1% (mid-tier vision, which trimmed the paid model's Multimodal 88→84). This free Zen route inherits that evidence base unchanged (same weights, capped at 200K context / 32K output); the $0/$0 route pricing and the 200K route cap keep the existing Tool 80 / Reasoning 72 / Context 74 / Multimodal 70 / Coding 82 / Cost 100 reads — no score change.
 
 ### Normalized scores (1–100)
 

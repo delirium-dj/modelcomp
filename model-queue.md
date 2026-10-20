@@ -73,13 +73,13 @@
 83.6 gpt-5
 83.6 gpt-5.1
 83.6 gpt-6-luna
-83 claude-haiku-5.5
+83.5 claude-haiku-5.5
 83 qwen-3.5-397b
 82.8 claude-opus-4.5
-82.6 gemini-3.5-flash-lite
+82.7 gemini-3.5-flash-lite
 82.6 nemotron-3.5-super-vl
 82.5 qwen-3.7-max
-82 kimi-k2.7-code
+82.1 kimi-k2.7-code
 81.7 kimi-k2.5
 81.6 mimo-v2.5-free
 80.7 claude-sonnet-4.5
@@ -177,8 +177,8 @@
 53.7 mercury-2.5
 53.5 longcat-2.5
 53 mai-experimental-test
+52.5 qwen-3.5-flash
 52.2 ling-3.0-tiny
 52 cat-jam
-43 qwen-3.5-flash
 41 nemotron-3.5-bolt-e4b
 39.5 jev-1.13

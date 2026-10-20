@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://x.ai/api",
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The repo-scale and legal-agent specialist: xAI’s larger base leads professional legal benchmarks and heavy codebase work below frontier pricing.",
+  "tradeoff": "The larger base raises serving cost and the specialist tuning shines mainly in its niche — general chat work has cheaper homes."
 }

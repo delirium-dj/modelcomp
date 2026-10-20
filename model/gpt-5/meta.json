@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://openai.com/api/pricing/",
     "https://opencode.ai/v2/docs/console/models/"
-  ]
+  ],
+  "standout": "Where the router era began: a single flagship that silently picked Instant or Thinking lanes per request.",
+  "tradeoff": "Deprecated with removal scheduled — migrate to the 5.5/6.x lanes."
 }

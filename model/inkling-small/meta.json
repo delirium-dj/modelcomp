@@ -8,5 +8,7 @@
   "officialUrl": "https://huggingface.co/models?search=inkling-small",
   "pricingLinks": [
     "https://huggingface.co/thinkingmachines/Inkling-Small"
-  ]
+  ],
+  "standout": "Thinking Machines’ hybrid-reasoning debut: it decides when to deliberate, and takes text, image and audio in from an open-weight base.",
+  "tradeoff": "The served context is a fraction of the claimed window, and a young ecosystem means fewer deployment rails than the established open families."
 }

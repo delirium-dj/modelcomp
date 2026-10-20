@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Step 5 Preview
 
 - Source: MiniMax (`MiniMax-M3`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** MiniMax M3
 - **Short description:** MiniMax's June 2026 flagship (released 2026-05-31/06-01) — billed as the first open-weight model to combine frontier coding, a 1M-token context window and native multimodality. Powered by MiniMax Sparse Attention (MSA): 9x faster prefill, 15x faster decode and 1/20th per-token compute vs M2 at 1M context. Level with the previous Opus 4.7 frontier on agentic work at a fraction of the price; trails the newer Opus 4.8 by 10–14 points on comparable evals.
-- **Provider / access:** MiniMax API (`MiniMax-M3`) and MiniMax Code agent product; OpenRouter `minimax/minimax-m3` (day-one); open weights `MiniMaxAI/MiniMax-M3` on Hugging Face + GitHub (open-weight; license terms were unconfirmed at launch — verify before on-prem plans). Token plans: Plus $20/mo (~1.7B tokens), Max $50 (~5.1B), Ultra $120 (~9.8B).
+- **Provider / access:** MiniMax API (`MiniMax-M3`) and MiniMax Code agent product; OpenRouter `minimax/minimax-m3` (day-one); open weights `MiniMaxAI/MiniMax-M3` on Hugging Face + GitHub under the **MiniMax Community License** (license terms confirmed 2026-10-19 via Artificial Analysis — commercial use allowed with restrictions). Token plans: Plus $20/mo (~1.7B tokens), Max $50 (~5.1B), Ultra $120 (~9.8B).
 - **Release / knowledge:** 2026-05-31 (API), weights + technical report (arXiv:2606.13392) ~10 days later. Knowledge cutoff not disclosed.
 - **IDs:** `MiniMax-M3` (MiniMax API), `minimax/minimax-m3` (OpenRouter), `MiniMaxAI/MiniMax-M3` (HF).
 - **Context window:** 1M tokens (guaranteed minimum 512K); ≤512K input at standard rates, >512K at a higher long-context rate.
@@ -58,6 +58,11 @@ Long context:
 
 - 1M window (512K guaranteed) via MSA; **AA-LCR: 83%** (AA) — strong long-context reasoning; no MRCR/RULER published
 
+Third-pass verification (2026-10-19):
+
+- Artificial Analysis (hyphenated slug, not deprecated): Intelligence Index **29** (#23/121 — matches the file's 29.2), 100.3 tok/s (#27/78), TTFT 1.18s, $0.30/$1.20 with 80% cache discount (blended $0.22/M; **$0.51 per Index task**), 1M context, text/image/video, 428B/23B, 14 providers, 120M Index tokens (fairly concise)
+- BenchLM composite: **54.97/100** overall, #69 of 959 models, 47 of 666 benchmarks covered — the file's GDPval gap is now pinned at **Elo 1,304** (AA; the independent RankLLMs 1,056 is a harness outlier) with new rows GDPval rubrics **74.7%**, BankerToolBench **76.1%**, AA Harvey LAB **88.4%** (corroborates), ResearchClawBench 19.8%, MazeBench 0%, USAMO 2026 85.7% (vendor), plus a full multimodal corroboration table (OmniDocBench 1.5 91.6%, VideoMMMU 84.6%, Video-MME 85.4%, AA-MMMU-Pro 78.6%, OfficeQA Pro 45.1%, Design Arena 1,258) — all consistent with the existing reads, no score change
+
 ### Normalized scores (1–100)
 
 - **Tool use: 70/100.** MCP-Atlas 74.2%, Claw-Eval 74.5%, BrowseComp 83.5% and τ²-bench 88.9% show real agentic breadth; capped by GDPval-AA 37.3%, AA AutomationBench 21.3%, Terminal-Bench 4.0 at 2.0%, OSWorld 2.0 at 4.6% and the 12-point Vals gap on TB2.1 (66.0 vendor vs 53.6 independent).
@@ -72,6 +77,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 34.4% low-confidence, OSWorld 27.8%, Terminal-Bench 2.1 34.4%, GDPVal-AA Elo 1056, composite 41.9) and benchmarklist.com (MiniMax-M3 page 404; AA/Vals rows carried from first pass). The independent GDPval Elo 1056 and low OSWorld confirm the existing Tool use 70 cap; AA-LCR 83% and GPQA 92.9% keep Context 94 / Reasoning 78. No score change warranted — every headline benchmark remains MiniMax's own run. Prior pass (2026-10-09) used MiniMax M3 launch blog + model page, HuggingFace model card, NVIDIA developer blog, Artificial Analysis, Vals AI, BenchLM, DigitalApplied, felloai, madebyagents.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (Index 29 #23/121 — unchanged; 100.3 tok/s; $0.51 per Index task; MiniMax Community License confirmed) and BenchLM (composite 54.97/100, #69/959, 47/666 benchmarks): the GDPval gap is pinned at Elo 1,304 (vs the 1,056 harness outlier) with new rows GDPval rubrics 74.7%, BankerToolBench 76.1%, AA Harvey LAB 88.4%, MazeBench 0%, USAMO 85.7% (vendor) and a full multimodal corroboration table — all consistent with the existing Tool 70 / Reasoning 78 / Context 94 / Multimodal 82 / Coding 74 reads, no score change. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — GDPVal-AA Elo 1056, composite 41.9) and benchmarklist.com (MiniMax-M3 page 404). Prior pass (2026-10-09) used MiniMax M3 launch blog + model page, HuggingFace model card, NVIDIA developer blog, Artificial Analysis, Vals AI, BenchLM, DigitalApplied, felloai, madebyagents.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

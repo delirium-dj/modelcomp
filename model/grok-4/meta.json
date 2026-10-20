@@ -12,5 +12,7 @@
   "officialUrl": "https://x.ai/blog/grok-4",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The original X-native reasoner: AIME-class math with live X and web search woven into tool use.",
+  "tradeoff": "Deprecated and outclassed by the 4.5–4.7 line on every axis — migrate rather than build."
 }

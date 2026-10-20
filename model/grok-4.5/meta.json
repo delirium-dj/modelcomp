@@ -9,5 +9,7 @@
   "officialUrl": "https://x.ai/blog/grok-4.5",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "Token-efficiency is the speciality: co-developed with Cursor for agentic coding that spends fewer tokens on the same work, backed by an unusually deep output window.",
+  "tradeoff": "Adoption flows through Cursor/Build surfaces rather than a broad first-party API, which narrows who can use it comfortably."
 }

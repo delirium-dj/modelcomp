@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=kimi-k2.7-code",
   "pricingLinks": [
     "https://platform.moonshot.ai/docs/pricing/chat"
-  ]
+  ],
+  "standout": "A coding-specialized cut of Moonshot’s 1T MoE — long-horizon terminal work where every token budget goes to engineering, not chatter.",
+  "tradeoff": "Narrowed to coding: general knowledge and multimodal breadth stay with the full K2.5/K3 models."
 }

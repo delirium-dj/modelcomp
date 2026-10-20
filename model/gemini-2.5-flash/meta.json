@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The high-throughput multimodal workhorse of its era: 1M-context input processing at Flash prices.",
+  "tradeoff": "Shutdown is scheduled and Gemini 3.6 Flash replaces it outright — plan the migration now."
 }

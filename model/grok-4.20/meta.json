@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://x.ai/api",
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The council architecture: four agents debating inside one model call — a genuinely different shape of reasoning for coding tasks.",
+  "tradeoff": "Multi-agent inference is costly per request and the line is deprecated; the trick lives on only in spirit in later Groks."
 }

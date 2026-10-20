@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-6-luna/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The extraction workhorse: 1M context at pocket change, tuned for summarization and bulk document drudgery.",
+  "tradeoff": "Not built for hard reasoning — reach for it when volume, not depth, is the job."
 }

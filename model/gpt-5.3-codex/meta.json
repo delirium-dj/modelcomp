@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.3-codex/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The codex merger: it fused the 5.2 Codex line with 5.2-class reasoning — one model for both shipping code and judging it.",
+  "tradeoff": "Explicitly deprecated; its role lives on in the newer codex and Sol generations."
 }

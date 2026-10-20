@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://x.ai/api",
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "xAI’s long-running-agent flagship: built to stay useful across marathon knowledge-work sessions through Cursor and Build, at mid-frontier pricing.",
+  "tradeoff": "Access flows through partner surfaces rather than a broad first-party API, which shapes who can adopt it comfortably."
 }

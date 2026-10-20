@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ember-1",
   "pricingLinks": [
     "https://llmtr.com/en/blog/ember-1-baglam-cache-kullanim-maliyeti"
-  ]
+  ],
+  "standout": "The efficiency fine-tune: a Kimi K3 derivative that reaches comparable agentic-coding scores while emitting far fewer tokens — quality per billed token is the point.",
+  "tradeoff": "It inherits K3’s shape but not Moonshot’s roadmap, and its tuning is narrower: outside agentic coding the base model is the safer bet."
 }

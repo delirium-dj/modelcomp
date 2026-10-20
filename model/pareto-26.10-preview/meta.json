@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=pareto-26.10-preview",
   "pricingLinks": [
     "https://unbiased.ai/model-card/"
-  ]
+  ],
+  "standout": "A composite experiment: research, coding and agent skills assembled into one multimodal preview with per-task pricing.",
+  "tradeoff": "Independent verification is still thin — treat both scores and pricing as provisional."
 }

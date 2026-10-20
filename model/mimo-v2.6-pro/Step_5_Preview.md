@@ -1,7 +1,7 @@
 # MiMo V2.6 Pro — findings by Step 5 Preview
 
 - Source: Xiaomi `mimo-v2.6-pro`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,11 @@ Reasoning / knowledge:
 - Vector Wire capability: **Reasoning "Capable"** (−19.0% vs leader, 2/6); **Factuality "Capable"** (−20.4%)
 - GPQA Diamond / HLE exact rows: not surfaced live for MiMo V2.6 Pro — treated as provisional
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **73.67/100** overall, #12 of 959 models, 33 of 666 benchmarks covered; Artificial Analysis (hyphenated slug, not deprecated): Index **46** (#1/121 — the top open-weights model, unchanged), 50.1 tok/s, TTFT 3.22s, $0.435/$0.87 with **99% cache discount** (blended $0.18/M; **$0.13 per Index task**), 1M context, omni-modal (text/image/speech/video) confirmed, 1.0T/42B, MIT, 5 providers, 140M Index tokens
+- **The file's GPQA/HLE gap is filled: AA-HLE 49.4%** (independent — clears the 40% frontier bar by a wide margin), plus AA-LCR **86.3%** (strong long-context reasoning), CritPt **26.6%**, AA-SciCode **60.9%**, GDPval-AA **59.2% normalized / Elo 1,673** (AA confirms the vendor row), AA AutomationBench **58.6%**, AA TB4.0 **34.8%** (corroborates the vendor 34.9%), AA Briefcase Elo 1,515, AA-AnalystAgent 37.5%, GDP.pdf 19.2%, Bug Hunt Bench 22.7 fixes, Design Arena 1308, ExploitGym 17.8%, STEMBench 2.17, MLCR-AA 18.3%; AA-Omniscience index 8.4% / accuracy 34.8% / hallucination 40.6% — calibration remains the weak column
+
 Coding:
 
 - DeepSWE v1.1 (agentic coding): **71.9** (Xiaomi vendor-reported) — just under the 74% frontier ref
@@ -60,18 +65,18 @@ Long context:
 
 ### Normalized scores (1–100)
 - **Tool use: 82/100.** OSWorld 82.0 (computer use), Toolathlon 76.9%, and GDPval-AA 1,673 Elo are solid. Capped by Terminal-Bench 4.0 at 34.9%, ProgramBench 26.5%, Agents' Last Exam 31.6%, and Vector Wire's Agentic "Capable" (−22.1%) — plus the numbers are almost entirely Xiaomi self-reported (HokAI has not verified the "on par with GPT-5.6 Sol / Opus 5" claim).
-- **Reasoning: 80/100.** AA Intelligence Index 46 (top open-weights at release) with Reasoning "Capable" (−19.0%). Capped hard by AA-Omniscience 8.38 (weak factuality/calibration), the index being well below frontier 57–61, and no verified GPQA/HLE row — a mid-tier reasoner among open models, not a frontier one.
+- **Reasoning: 84/100.** AA Intelligence Index 46 (#1 open-weights) with Reasoning "Capable" (−19.0%), and the third pass filled the file's HLE gap: **AA-HLE 49.4%** (independent — clears the 40% frontier bar by a wide margin) plus AA-LCR 86.3%, CritPt 26.6% and AA-SciCode 60.9%. Raised from 80; still held below the frontier tier by the index gap to 57–61, AA-Omniscience 8.4 (weak calibration) and the vendor-reported nature of most rows.
 - **Context window: 95/100.** 1M input / 131K output with Vector Wire Long Context "Strong" (−4.2%, 1/3) — a top-tier long-context model, and the 131K output is the largest of the models reviewed here. Held from 100 by no explicit MRCR ≥98%-at-512K figure.
 - **Multimodal: 88/100.** Omni-modal input (text/image/video/audio) via dedicated 681M vision + 435M audio encoders, with LMArena·Vision 1,263.52 (independent) — hits the 90–100 input band; held to 88 by text-only output and Vector Wire not rating Multimodal (too few results).
 - **Coding: 78/100.** DeepSWE 71.9, MiMo VisualCoding 72.3, and CyberGym 94.0 are solid, but Terminal-Bench 4.0 34.9% is weak, there is no verified SWE-bench Verified/Pro row, and Vector Wire rates Coding "Limited" (−25.7%, 3/10) — coding is its weakest measured area despite the vendor claims.
 - **Cost efficiency: 96/100.** Hosted API $0.435/$0.87 per 1M (rubric ~$0.10–$0.60 in = 97–99, roughly an order of magnitude below proprietary flagships), cached input ~$0.0036/M (99% off), AND MIT open weights for free self-hosting (BF16/FP8/INT8). The best value in the top tier reviewed here.
-- **Overall Score: 85/100.** Mean of the five non-cost dims (82+80+95+88+78)/5 = 84.6. Best fit as a self-hostable, MIT-licensed, top-value open-weights option for long-context and agentic/computer-use workloads at a fraction of proprietary pricing; teams needing audited safety docs, named red-team partners, or enterprise compliance should look elsewhere (Xiaomi has published none).
+- **Overall Score: 85/100.** Mean of the five non-cost dims (82+84+95+88+78)/5 = 85.4 (Reasoning raised 80→84 on the newly measured AA-HLE 49.4% plus AA-LCR 86.3% / CritPt 26.6%; Overall unchanged at 85). Best fit as a self-hostable, MIT-licensed, top-value open-weights option for long-context and agentic/computer-use workloads at a fraction of proprietary pricing; teams needing audited safety docs, named red-team partners, or enterprise compliance should look elsewhere (Xiaomi has published none).
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no MiMo V2.6 Pro page; the Artificial Analysis live LLM leaderboard (2026-10-10) still lists MiMo-V2.6-Pro at Intelligence Index **46** as the top open-weights model — consistent with the first pass. No score change warranted. Prior pass (2026-10-08) used Xiaomi's own evals + Artificial Analysis (via hokai.io) and vectorwire.ai. Most headline numbers remain Xiaomi self-reported.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 46 #1/121 — unchanged; 50.1 tok/s; TTFT 3.22s; $0.13 per Index task; omni-modal input confirmed) and BenchLM (composite 73.67/100, #12/959, 33/666 benchmarks): the file's GPQA/HLE gap is filled — AA-HLE 49.4% (clears the 40% bar), AA-LCR 86.3%, CritPt 26.6%, AA-SciCode 60.9%, GDPval-AA 59.2%/Elo 1,673 (AA confirms the vendor row) — so Reasoning was raised 80→84 (Overall unchanged at 85); AA-Omniscience 8.4% keeps the calibration cap. Second-pass verification (2026-10-10): benchmarkregistry.org has no MiMo V2.6 Pro page; the AA live leaderboard still listed Index 46 as the top open-weights model. Prior pass (2026-10-08) used Xiaomi's own evals + Artificial Analysis (via hokai.io) and vectorwire.ai. Most headline numbers remain Xiaomi self-reported.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

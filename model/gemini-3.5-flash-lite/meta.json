@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The latency floor: Google’s lightest 1M-context tier for ultra-low-latency volume work, with a free lane on AI Studio/Zen.",
+  "tradeoff": "The lite tuning gives up reasoning depth — GPQA and coding scores trail the full Flash line, so it lives on volume, not difficulty."
 }

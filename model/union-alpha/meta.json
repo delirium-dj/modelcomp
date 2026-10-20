@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=union-alpha",
   "pricingLinks": [
     "https://opencode.ai/docs/zen/"
-  ]
+  ],
+  "standout": "The composite gambit: several models consulted per request, assembled behind one frontier-coding front door.",
+  "tradeoff": "You inherit every component’s cost structure and an opaque routing layer — quality is real, provenance is thin."
 }

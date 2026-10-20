@@ -9,5 +9,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://docs.z.ai/guides/overview/pricing"
-  ]
+  ],
+  "standout": "Z.ai’s open flagship: verified software-engineering and cyber-range scores at the top of the field under a permissive-in-spirit custom license.",
+  "tradeoff": "Not MIT like the Flash/5.2 lines — the custom license adds self-hosting obligations, and peak pricing sits near closed-model rates."
 }

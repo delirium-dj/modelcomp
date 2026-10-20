@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "Google’s purpose-tuned vulnerability-patching model — a security fine-tune of 3.8 Flash made specifically for finding and fixing exploitable code.",
+  "tradeoff": "Hard-gated distribution: Fairwind access and Google-only availability make it a specialist tool for vetted security teams, not an everyday API."
 }

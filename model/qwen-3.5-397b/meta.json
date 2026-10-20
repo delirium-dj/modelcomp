@@ -9,5 +9,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5-397b/",
   "pricingLinks": [
     "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
-  ]
+  ],
+  "standout": "The open generalist MoE: reasoning, coding and vision from Apache-2.0 weights sized for serious-but-feasible self-hosting.",
+  "tradeoff": "Superseded by the 3.6/3.7/3.8 open lines, which improved every axis at similar footprints."
 }

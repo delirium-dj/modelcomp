@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Step 5 Preview
 
 - Source: MiniMax (`MiniMax-M2.7`, weights `MiniMaxAI/MiniMax-M2.7`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,20 +36,22 @@ Third-party (NVIDIA NGC benchmark table vs MiniMax-2.7 / GLM-5.1 / Kimi-K2.6 / Q
 
 Z.ai's comparison table (GLM-5.2 blog, M2.7 column): HLE 37.0, AIME 2026 94.6, HMMT Feb 84.4, GPQA-Diamond 93.0, SWE-Pro 59.0, NL2Repo 42.1, TB2.1 65.0, DeepSWE 20.0, MCP-Atlas 74.2.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no minimax-m2.7 page (404); BenchLM composite **48.19/100** (#111/959, 46/666 benchmarks) — the file's independent-agentic gaps are now measured and weak: AA Agentic Index **16.8%**, APEX-Agents-AA **10.6%**, GDPval-AA **25.5% normalized / Elo 1,087** (well below the vendor's 1,495 claim), Gert Labs **40.40%**, TB 2.1 (Vals) **48.7%**, Claw-Eval **48.7%**; corroborating rows: AA-GPQA **87.4%** / AA-HLE **29.6%** / AIME26 **89.8%** (upper-mid reasoning), AA-LCR **78.3%** (context), AA Coding Index **52.6%**, AA-SciCode **50.1%**, SWE-bench (Vals) **73.8%**, Vibe Code Bench **27.04%**.
+
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** A genuinely strong agentic profile for 10B active: PinchBench 77.6%, TauBench V3 average 66.1% (Telecom 89.6), MCP-Atlas 74.2%, Toolathlon 46.3% and the open-weights-best GDPval Elo 1,495; held mid-upper by BrowseComp 54.1%, Banking 14.6% and TB 2.1 55.5%.
+- **Tool use: 62/100.** The vendor-side profile is strong (PinchBench 77.6%, TauBench V3 66.1%, MCP-Atlas 74.2%, Toolathlon 46.3%, vendor GDPval Elo 1,495), but the third pass measured the independent agentic suites and they are weak: AA Agentic Index 16.8%, APEX-Agents-AA 10.6%, GDPval-AA 25.5% (Elo 1,087 — far below the vendor claim), Gert Labs 40.4%, TB 2.1 (Vals) 48.7%, Claw-Eval 48.7%. Trimmed from 68.
 - **Reasoning: 70/100.** GPQA Diamond 86.6–93.0%, LiveCodeBench 77.2%, IMOAnswerBench 68.3% and MMLU-Pro 81.9% are upper-mid-band — better than its 10B-active size suggests; HLE 23.1–37.0%, Apex-Shortlist 28.9% and CritPt 0.6% cap it below frontier.
 - **Context window: 72/100.** 200K input (205K) is the 200K–500K band (65–84) with AA-LCR 69.8% — solid but a quarter of the 1M frontier norm.
 - **Multimodal: 12/100.** Text-only — the methodology's text-only band (10–20).
 - **Coding: 68/100.** SWE-bench Verified 72.2%, SWE-Pro 56.2–59.0%, TB 2.1 55.5–65.0% and LCB 77.2% are strong open-weights agentic coding (its MM Claw 62.7% ≈ Sonnet-4.6-level on that harness); SciCode 38.3%, DeepSWE 20.0% and Banking 14.6% show the remaining gaps.
 - **Cost efficiency: 90/100.** $0.30/$1.20 with $0.06 cache reads (OpenRouter $0.21/$0.84) — the methodology's ~$0.6/$2.2 ≈ 92 range — with a 4.3% activation rate keeping serving cheap; docked because the weights are non-commercially licensed.
-- **Overall Score: 58/100.** Best-fit recommendation: the best sub-300B open-weights agent — 10B-active economics with open-weights-best GDPval and Sonnet-adjacent MM Claw scores; text-only, 200K context, and the license blocks commercial self-hosting without authorization.
+- **Overall Score: 57/100.** Mean of the five non-cost dims (62+70+72+12+68)/5 = 56.8 (Tool use 68→62 on the newly measured weak independent agentic composite; Overall 58→57). Best-fit recommendation: the best sub-300B open-weights agent — 10B-active economics with open-weights-best GDPval and Sonnet-adjacent MM Claw scores; text-only, 200K context, and the license blocks commercial self-hosting without authorization.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (MiniMax model page + GitHub README + news post, Hugging Face card, NVIDIA developer blog benchmark table, OpenRouter, AI/TLDR, Z.ai comparison tables); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no minimax-m2.7 page (404); BenchLM composite 48.19/100 (#111/959, 46/666 benchmarks) — the independent agentic suite is now measured and weak (AA Agentic Index 16.8%, APEX-AA 10.6%, GDPval-AA 25.5%/Elo 1,087 vs the vendor's 1,495 claim, Gert Labs 40.4%, TB2.1 Vals 48.7%) so Tool use was trimmed 68→62 (Overall 58→57); AA-GPQA 87.4%, AA-HLE 29.6%, AIME26 89.8%, AA-LCR 78.3% and AA Coding Index 52.6% corroborate the other dims. First pass (2026-10-09) used MiniMax model page + GitHub README + news post, Hugging Face card, NVIDIA developer blog benchmark table, OpenRouter, AI/TLDR, Z.ai comparison tables.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3_1.md`, using the same headings.

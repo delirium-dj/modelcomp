@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing",
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The generation that normalized thinking models: dependable long-context reasoning that became the template Google’s 3.x line refined.",
+  "tradeoff": "Thoroughly superseded by Gemini 3.x at similar prices; it now serves migration compatibility."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=seed-2.0-pro",
   "pricingLinks": [
     "https://www.byteplus.com/en/product/modelark"
-  ]
+  ],
+  "standout": "ByteDance’s closed agent model: image and video input feeding real task execution inside its home toolchain.",
+  "tradeoff": "Vendor-measured scores and an announced successor (Seed 2.1) limit both independent trust and lifespan."
 }

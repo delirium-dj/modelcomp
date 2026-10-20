@@ -9,5 +9,7 @@
   "officialUrl": "https://x.ai/blog/grok-4.1-fast",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The tool-calling speed tier: a non-reasoning model tuned to make the right call fast, at rock-bottom pricing over 2M context.",
+  "tradeoff": "No deliberation means shallow judgment — it executes plans, it does not make them."
 }

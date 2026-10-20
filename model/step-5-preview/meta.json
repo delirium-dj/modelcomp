@@ -13,5 +13,7 @@
   "pricingLinks": [
     "https://www.stepfun.com/step-5-preview",
     "https://www.stepfun.com/step-5-preview"
-  ]
+  ],
+  "standout": "StepFun’s knowledge-work MoE: 1M-context reasoning for agents and research at a mid-budget rate.",
+  "tradeoff": "Preview status and uneven terminal performance mean adoption is best for experiments, not production guarantees."
 }

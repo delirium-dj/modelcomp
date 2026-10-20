@@ -9,5 +9,7 @@
   "officialUrl": "https://x.ai/blog/grok-4.1",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The conversational flagship of the 4.1 era: personality plus live X data with a Thinking/Non-Thinking switch.",
+  "tradeoff": "Superseded by 4.2/4.3 reasoning tiers; the chat lane moved on."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.1/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The 5.1 revision traded modest reasoning gains for a much friendlier price band on generalist work.",
+  "tradeoff": "Deprecated and dominated by 5.2 onward; keep it only for reproducibility of older runs."
 }

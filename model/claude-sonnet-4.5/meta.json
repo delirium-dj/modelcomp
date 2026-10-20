@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-4.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The Sonnet that made long-horizon coding a mid-tier feature — the generation where $3/$15 started doing Opus-shaped work.",
+  "tradeoff": "Superseded by Sonnet 4.6 and the 5.x line at the same price; it survives as a compatibility default."
 }

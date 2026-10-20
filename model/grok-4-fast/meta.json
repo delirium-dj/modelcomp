@@ -9,5 +9,7 @@
   "officialUrl": "https://x.ai/blog/grok-4-fast",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The 2M-context volume engine: Fast reasoning for search-heavy agent sweeps at a fraction of flagship Grok cost.",
+  "tradeoff": "Deprecated for 4.1 Fast; the same niche is served better and cheaper by the successor."
 }

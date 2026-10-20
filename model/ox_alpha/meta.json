@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ox_alpha",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The blind-arena legend: Z.ai previewed this GLM-5.3-Flash cut anonymously and it held its own on long-horizon coding — proof the quality survives the anonymization.",
+  "tradeoff": "It is a preview identity, not a product: teams adopting it should plan for graduation to the official GLM-5.3-Flash lane."
 }

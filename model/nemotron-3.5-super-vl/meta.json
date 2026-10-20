@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://nano-gpt.com/models/text/nvidia/nemotron-3.5-super-vl",
     "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"
-  ]
+  ],
+  "standout": "The vision-language open-weight with an exotic twist: a Mamba-Transformer hybrid MoE tuned for video-length multimodal agents.",
+  "tradeoff": "A modest general-quality index and a young NVIDIA toolchain make it a specialist pick rather than a general assistant."
 }
