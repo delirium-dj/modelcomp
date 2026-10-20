@@ -1,7 +1,7 @@
 # Llama 3.2 Vision (Instruct) — findings by Step 5 Preview
 
 - Source: Meta (`meta-llama/Llama-3.2-11B-Vision-Instruct`, `meta-llama/Llama-3.2-90B-Vision-Instruct`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,6 +29,8 @@ Vendor model card (instruct-tuned; 11B / 90B):
 
 SWE-bench, Terminal-Bench, τ-bench, MCP Atlas, GDPval, HLE, ARC-AGI, MRCR/RULER: **no verified public score found** (the model predates those evals).
 
+Third-pass verification (2026-10-19): Artificial Analysis has no Llama 3.2 Vision page (404 on the natural and hyphenated slugs) — a 2024 legacy model outside current tracker coverage; no new independent evidence exists for a two-year-old release. No score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 35/100.** No agentic-harness benchmark exists (the model predates TB/τ³/MCP-Atlas); it has no native function-calling/tool-use training focus — a structural low score.
@@ -43,6 +45,6 @@ SWE-bench, Terminal-Bench, τ-bench, MCP Atlas, GDPval, HLE, ARC-AGI, MRCR/RULER
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Meta model cards on GitHub/Hugging Face for 11B and 90B Vision Instruct, NVIDIA NIM cards, AI Wiki architecture summary); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no Llama 3.2 Vision page (404) — the 2024 legacy release is outside tracker coverage and no new independent evidence exists; the Meta model-card rows remain the only published numbers. No score change warranted. First pass (2026-10-09) used Meta model cards on GitHub/Hugging Face for 11B and 90B Vision Instruct, NVIDIA NIM cards, AI Wiki architecture summary.
 - Future sources: add a new file next to this one, e.g. `Llama_4_Vision.md`, using the same headings.

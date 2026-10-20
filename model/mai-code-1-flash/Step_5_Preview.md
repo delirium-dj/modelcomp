@@ -1,7 +1,7 @@
 # MAI-Code-1-Flash — findings by Step 5 Preview
 
 - Source: Microsoft AI (`MAI-Code-1-Flash`, released 2026-06-02)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -46,6 +46,6 @@ Microsoft production telemetry (VS Code, June–July 2026):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Microsoft AI model card + launch post + data card, VS Code blog production telemetry, models.dev/AnotherWrapper pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no MAI-Code-1-Flash page (404) and BenchLM has no MAI-Code-1-Flash page (404) — both trackers untracked for this proprietary Copilot model; no new independent evidence, no score change. First pass (2026-10-09) used Microsoft AI model card + launch post + data card, VS Code blog production telemetry, models.dev/AnotherWrapper pricing.
 - Future sources: add a new file next to this one, e.g. `MAI_Code_2.md`, using the same headings.

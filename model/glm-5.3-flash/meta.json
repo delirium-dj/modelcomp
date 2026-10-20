@@ -9,5 +9,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "Ultra-fast agentic coding from Z.ai’s Flash MoE — MIT weights, 1M context, and a track record of previewing anonymously at the top of blind coding arenas.",
+  "tradeoff": "As a Flash-class tuning it trades some peak reasoning for speed; the heaviest analysis is better left to Z.ai’s flagship lane."
 }

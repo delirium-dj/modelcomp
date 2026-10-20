@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://www.anthropic.com/pricing",
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The flat-rate 1M Opus generation — autonomous coding and long-horizon agents with wide multimodal vision at a predictable flat price.",
+  "tradeoff": "Squeezed from both sides: Opus 4.8 beats it on pure coding scores and 5.x adds cheaper long-context lanes."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-opus-4.8",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The proven multi-step coding Opus: rock-solid at chained edits and refactors on Anthropic’s then-standard 200K context.",
+  "tradeoff": "The 200K window and $5/$25 card are both outclassed by later 1M Opus generations at the same price, making it a legacy-pinning choice."
 }

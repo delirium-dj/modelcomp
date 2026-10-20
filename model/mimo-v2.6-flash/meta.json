@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://mimo.mi.com/models/en-US/mimo-v2.6-flash",
     "https://mimo.mi.com/models/en-US/mimo-v2.6-flash"
-  ]
+  ],
+  "standout": "Xiaomi’s lean omni-modal agent — the small sibling that still posts terminal scores close to far larger models while self-hosting free under MIT.",
+  "tradeoff": "Multimodal omni tuning and a modest active-parameter budget cap raw reasoning depth versus the Pro variant."
 }

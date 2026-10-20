@@ -1,7 +1,7 @@
 # MAI-Code-1.1-Flash — findings by Step 5 Preview
 
 - Source: Microsoft AI (`MAI-Code-1.1-Flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,6 +35,8 @@ MAI-Code-1.1-Flash (model card + Windows on-device blog + BenchmarkList):
 - Terminal-Bench 2.1 quantized on-device: **66.29%** (vs GPT-OSS-120B's 23.6%)
 - Prompt processing 923.5 / 769.8 tok/s at 64K / 128K context
 
+Third-pass verification (2026-10-19): Artificial Analysis has no MAI-Code-1.1-Flash page (404); BenchLM tracks it with 3 source rows and no public overall score (unranked) — all three rows (TB 2.1 62.9%, SWE-bench Verified 72.6%) are already on file, and the official Microsoft model-card PDF is now linked there. No new independent evidence — no score change warranted.
+
 VS Code production telemetry (6/2–7/24/26, vs other models):
 
 - Outperforms Claude Haiku 4.5 and GPT-5.4 Mini on code-survival, commit-survival and accept rates; GPT-5.6 Luna and Kimi K2.7 Code are +3–6% on quality but need +67–94% more tokens per turn
@@ -54,6 +56,6 @@ VS Code production telemetry (6/2–7/24/26, vs other models):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Microsoft AI model card + data card PDFs, MAI-Code-1.1-Flash announcement, microsoft/MAI-Code GitHub, VS Code blog production-telemetry analysis, Windows on-device benchmarks, BenchmarkList); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against BenchLM (3 source rows, unranked — TB 2.1 62.9% and SWE-bench Verified 72.6% both already on file; official model-card PDF now linked) — Artificial Analysis has no page (404). No new independent evidence, no score change. First pass (2026-10-09) used Microsoft AI model card + data card PDFs, MAI-Code-1.1-Flash announcement, microsoft/MAI-Code GitHub, VS Code blog production-telemetry analysis, Windows on-device benchmarks, BenchmarkList.
 - Future sources: add a new file next to this one, e.g. `MAI_Code_2.md`, using the same headings.

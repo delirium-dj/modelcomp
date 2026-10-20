@@ -1,7 +1,7 @@
 # MiMo-V2.6-Distill-Qwen-9B — findings by Step 5 Preview
 
 - Source: Xiaomi MiMo (`XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`, released 2026-09-21)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -28,6 +28,8 @@ Vendor (MiMo-V2.6 technical report; vs Qwen3.5-9B base in parents):
 Third-party:
 
 - ModelCap Index: 54.3 (#102/280, carried from lineage); no independent Artificial Analysis run of this checkpoint
+
+Third-pass verification (2026-10-19): Artificial Analysis and BenchLM both have no page for this research checkpoint (404/untracked) — consistent with the first pass; all numbers on file remain the Xiaomi technical report's vendor rows. No new independent evidence — no score change warranted.
 - Field context: sibling Flash scores TB 2.1 87.6 (vendor) / AA Intelligence Index 37.88; Pro 46.32
 - eWEEK caveat: Epoch AI classifies SWE-bench Verified and DeepSWE v1.1 as flawed (scoring/contamination), limiting what vendor scores establish
 
@@ -45,6 +47,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (XiaomiMiMo Hugging Face model card, codersera and HokAI guides, eWEEK coverage, ModelCap); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis and BenchLM both 404/untracked for this research checkpoint — no new independent evidence, no score change. First pass (2026-10-09) used XiaomiMiMo Hugging Face model card, codersera and HokAI guides, eWEEK coverage, ModelCap.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2_7.md`, using the same headings.

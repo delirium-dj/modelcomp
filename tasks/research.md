@@ -62,7 +62,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
-4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
+4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`, `gemini-3.1-flash`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
 ```
 
 ---
@@ -135,6 +135,10 @@ After that, check existence only for the folder you are currently writing (one c
        bare `Qwen 3.5` → the member folder for the cited ID
        (`model/qwen-3.5-397b/` / `model/qwen-3.5-plus/` /
        `model/qwen-3.5-9b/`, never a new `model/qwen-3.5/` folder);
+       bare `Gemini 3.1 Flash` → `model/gemini-3.1-flash-lite/` (Google
+        ships no bare `gemini-3.1-flash` text model — never scaffold
+        `model/gemini-3.1-flash/`, and never drop the `-Lite` suffix;
+        RULES.md phantom unsuffixed-name identity);
        `RULES.md` family-shorthand identity). A parked alias folder on disk
        is skipped entirely and surfaced, never queued or written.
        **Coding-suffix check:** a `Coding` label reflecting positioning or a

@@ -1,7 +1,7 @@
 # MAI-Thinking-1 — findings by Step 5 Preview
 
 - Source: Microsoft AI (`MAI-Thinking-1`, public preview 2026-08-12)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,12 @@ Third-party:
 - Surge blind human evaluation (1,276 tasks, single + multi-turn): preferred over **Claude Sonnet 4.6**, trailing Claude Opus 4.6
 - No Artificial Analysis / Epoch AI independent run surfaced yet (Foundry private/public preview only); no HLE, ARC-AGI, MCP Atlas, GDPval or SWE-Pro reproduction by an independent lab
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **53.26/100** overall, #83 of 959 models, 13 of 666 benchmarks covered (all rows source to the Microsoft technical report); Artificial Analysis has no MAI-Thinking-1 page (404)
+- New long-context row: GraphWalks BFS **90% at 128K** (Microsoft technical report via BenchLM) — the first published retrieval-style figure for this model, consistent with the 200K-band Context read
+- All file rows reconfirmed (SWE-V 73.5%, SWE-Pro 52.8%, TB 2.0 46.0%, LCB v6 87.7%, GPQA 84.2%, MMLU-Pro 85.0%, AIME 97%/94.5%, HMMT 84.9%, IFBench 85%) — no score change warranted
+
 ### Normalized scores (1–100)
 
 - **Tool use: 56/100.** Terminal-Bench 2.0 46.0% and Multi-Challenge 53.0% are the only agentic numbers; the 8M+ RL environments targeted tool use specifically, but no τ³, MCP Atlas or GDPval figure exists — mid-band on evidence.
@@ -45,6 +51,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Microsoft AI launch post + technical report + model card, Microsoft Foundry/Azure catalog, Surge evaluation writeup, LLM Reference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) via BenchLM (composite 53.26/100, #83/959, 13/666 benchmarks — every row sources the Microsoft technical report, all already on file, plus a new GraphWalks BFS 90% @128K long-context row); Artificial Analysis has no MAI-Thinking-1 page (404). No new independent evidence, no score change. First pass (2026-10-09) used Microsoft AI launch post + technical report + model card, Microsoft Foundry/Azure catalog, Surge evaluation writeup, LLM Reference.
 - Future sources: add a new file next to this one, e.g. `MAI_Thinking_2.md`, using the same headings.

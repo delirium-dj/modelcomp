@@ -1,7 +1,7 @@
 # MiMo v2.5 (free) — findings by Step 5 Preview
 
 - Source: Xiaomi MiMo (`mimo-v2.5`; free route `xiaomi-mimo-v2.5-free`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,6 +38,8 @@ Vendor:
 
 Design Arena: 1,148–1,270 Elo across code/3D/dataviz/website/SVG categories.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no mimo-v2.5 page (404 on the natural slug); BenchLM tracks the model (16 source rows, no public overall score): new rows MM-ClawBench **23.8%**, Terminal-Bench 2.0 **65.8%**, Gert Labs **46.89%**, ResearchClawBench **16.9%** (weak), TB 2.1 (Vals) **60.7%**, SWE-bench Pro **56.1%**, Video-MME **87.7%** (w/ subtitles), CharXiv **81%**, MMMU-Pro **77.9%**, GPQA (Vals) **81.6%**, Design Arena **1,266** — all consistent with the existing Tool 64 / Coding 66 / Multimodal 88 reads; the free route's $0/$0 economics are unchanged. No score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 64/100.** TB 2.1 63.7%, τ²-Telecom 90.6%, Claw-Eval 62.3 (vendor, Pareto-efficiency claim) and OSWorld-class multimodal agency; capped by GDPval 25.2%, τ-Banking 8.7% and AA Agentic Index 15.8 — decent tool use, uneven across domains.
@@ -52,6 +54,6 @@ Design Arena: 1,148–1,270 Elo across code/3D/dataviz/website/SVG categories.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Xiaomi MiMo launch pages, Artificial Analysis and Vals AI via OpenRouter, AIHubMix free-route listing, mimo pricing docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no mimo-v2.5 page (404); BenchLM tracks the model with 16 source rows and no public overall score, adding MM-ClawBench 23.8%, TB 2.0 65.8%, Gert Labs 46.89%, ResearchClawBench 16.9%, TB 2.1 (Vals) 60.7%, SWE-Pro 56.1%, Video-MME 87.7%, CharXiv 81%, MMMU-Pro 77.9% and GPQA (Vals) 81.6% — all consistent with the existing reads, no score change; the $0/$0 free-route economics are unchanged. First pass (2026-10-09) used Xiaomi MiMo launch pages, Artificial Analysis and Vals AI via OpenRouter, AIHubMix free-route listing, mimo pricing docs.
 - Future sources: add a new file next to this one, e.g. `MiMo_V2_6.md`, using the same headings.

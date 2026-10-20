@@ -211,6 +211,33 @@ override.
   "Highspeed"/"HighSpeed" suffix (or any vendor-stated serving profile) is
   never scaffolded as a folder — never create
   `model/kimi-k2.7-code-highspeed/` again.
+- **Phantom unsuffixed-name identity (absolute — `gemini-3.1-flash` parked
+  2026-10-20):** Google ships no text model with the bare id
+  `gemini-3.1-flash`. The only 3.1 Flash text SKU is
+  `gemini-3.1-flash-lite` (preview 2026-03-03, GA 2026-05-07), already
+  tracked as `model/gemini-3.1-flash-lite/`. Evidence: Google's own models
+  index (ai.google.dev) lists 3.1 Flash-Lite, 3.1 Flash-Image (Nano
+  Banana 2), 3.1 Flash-Lite-Image, 3.1 Flash-TTS and 3.1 Flash-Live-Preview
+  — never a plain 3.1 Flash; DeepMind's model card
+  `deepmind.google/models/model-cards/gemini-3-1-flash/` 404s while the
+  `-lite` card resolves; Google Cloud docs `.../gemini/3-1-flash` 404s while
+  `3-1-flash-lite` and `3-1-pro` resolve; OpenRouter, Artificial Analysis
+  and BenchLM all 404 or omit the bare id while carrying the suffixed
+  siblings; the documented Flash cadence (3 → 3.5 → 3.6 → 3.7 → 3.8) has no
+  3.1 Flash slot — the 3.1 point release is Pro + Flash-Lite; and the
+  folder's own findings (`DeepSeek_4.1_Flash.md`, `GPT_5.6_Sol.md`,
+  `Claude_Opus_5.md.excluded`, `Cat_Jam.md.excluded`, `GLM_5.3.md`) record
+  that they scored Flash-Lite's measured data or self-excluded. A reseller
+  route (e.g. a Zen catalog line) never establishes a Google model. Scores
+  for "Gemini 3.1 Flash" without `-Lite` are Flash-Lite duplicates; the
+  mid-tier never existed. Resolution is PARKING, not deletion: the folder
+  stays on disk and in git (permanence — its `average.md` stays a gate
+  input), is hidden from the site and omitted from the research queue via
+  both `RETIRED_SLUGS` lists. Research belongs in
+  `model/gemini-3.1-flash-lite/` — never scaffold `model/gemini-3.1-flash/`
+  again, and never drop the `-Lite` suffix when citing
+  `gemini-3.1-flash-lite`. (Gemini 3.1 Flash **Live** is a voice model and
+  routes to `models_voice/` — RULES.md domain routing.)
 - **Family-shorthand identity (general rule):** a bare family or base name
   with no distinct vendor ID is never scaffolded as a new folder. Before
   creating a folder for a short/base name, verify a distinct vendor route

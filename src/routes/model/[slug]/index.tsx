@@ -259,26 +259,6 @@ export default component$(() => {
                   </a>
                 )}
               </p>
-              {(model.meta.standout || model.meta.tradeoff) && (
-                <div class="mt-7 grid max-w-[640px] gap-3 min-[520px]:grid-cols-2">
-                  {model.meta.standout && (
-                    <div class="rounded-lg border border-[#274757] bg-white/[0.04] p-4 dark:border-[#274757]">
-                      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a9c7ef]">
-                        Where it stands out
-                      </p>
-                      <p class="mt-1.5 text-[13px] leading-[1.6] text-[#c6d9e3]">{model.meta.standout}</p>
-                    </div>
-                  )}
-                  {model.meta.tradeoff && (
-                    <div class="rounded-lg border border-[#274757] bg-white/[0.04] p-4 dark:border-[#274757]">
-                      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a8c2d0]">
-                        The trade-off
-                      </p>
-                      <p class="mt-1.5 text-[13px] leading-[1.6] text-[#c6d9e3]">{model.meta.tradeoff}</p>
-                    </div>
-                  )}
-                </div>
-              )}
               <div class="mt-auto flex items-end gap-[18px] pt-10">
                 <span class="font-[family-name:var(--font-display)] text-[88px] font-medium leading-[0.82] tracking-tighter tabular-nums">{model.scores.overall}</span>
                 <span class="pb-[2px] text-sm leading-[1.4] text-[#b6cdd9]">Overall score<br /><strong class="font-normal text-[#7da3b7]">out of 100</strong></span>
@@ -422,8 +402,13 @@ export default component$(() => {
               <div>
                 <h3 class="text-[21px] font-medium tracking-tight">Where it stands out</h3>
                 <p class="mt-2 max-w-[610px] leading-[1.7] text-[#49677a] dark:text-[#a9c2d2]">
-                  {names[highest]} is its highest-rated dimension at <strong class="text-[color:var(--color-ink)]">{model.scores[highest]}/100</strong>.
-                  Check the individual ratings below for how the reporting agents agree.
+                  {model.meta.standout ?? (
+                    <>
+                      {names[highest]} is its highest-rated dimension at{" "}
+                      <strong class="text-[color:var(--color-ink)]">{model.scores[highest]}/100</strong>. Check the
+                      individual ratings below for how the reporting agents agree.
+                    </>
+                  )}
                 </p>
               </div>
             </article>
@@ -432,9 +417,14 @@ export default component$(() => {
               <div>
                 <h3 class="text-[21px] font-medium tracking-tight">The trade-off</h3>
                 <p class="mt-2 max-w-[610px] leading-[1.7] text-[#49677a] dark:text-[#a9c2d2]">
-                  Cost efficiency scores <strong class="text-[color:var(--color-ink)]">{model.scores.cost}/100</strong>.
-                  This is a separate measure: it does not lower the {model.scores.overall} overall quality score.
-                  Check the pricing before choosing it for high-volume work.
+                  {model.meta.tradeoff ?? (
+                    <>
+                      Cost efficiency scores{" "}
+                      <strong class="text-[color:var(--color-ink)]">{model.scores.cost}/100</strong>. This is a
+                      separate measure: it does not lower the {model.scores.overall} overall quality score. Check the
+                      pricing before choosing it for high-volume work.
+                    </>
+                  )}
                 </p>
               </div>
             </article>

@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.5/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The all-round OpenAI flagship of its era — coding, computer use and research in one dependable package that set the baseline for everything after.",
+  "tradeoff": "Every successor (Terra, 5.6/6.1 Sol, Astra) undercuts it on price-per-capability, so it survives mainly as a compatibility default."
 }

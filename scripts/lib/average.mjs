@@ -109,14 +109,19 @@ export function applyAverageToPrev(prev, modelName, body) {
  * `kimi-k2.7-code-highspeed` (2026-10-20, Moonshot serving profile of
  * `kimi-k2.7-code` — same weights, same 262,144 window, exactly 2× API
  * price; Kimi Code docs: "the high-speed version of K2.7 Code, with the
- * same coding ability" — RULES.md serving-tier identity). The
+ * same coding ability" — RULES.md serving-tier identity);
+ * `gemini-3.1-flash` (2026-10-20, phantom unsuffixed name — Google ships no
+ * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
+ * `gemini-3.1-flash-lite` (own folder); DeepMind card, Google Cloud docs,
+ * OpenRouter, AA and BenchLM all 404 the bare id — RULES.md phantom
+ * unsuffixed-name identity). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Mirror list for the site: RETIRED_SLUGS in src/data/models.ts;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

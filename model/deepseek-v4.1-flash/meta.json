@@ -12,5 +12,7 @@
   "officialUrl": "https://www.deepseek.com/",
   "pricingLinks": [
     "https://api-docs.deepseek.com/quick_start/pricing"
-  ]
+  ],
+  "standout": "The long-context open-weight workhorse: multimodal, 1M-in/384K-out and terminal-grade coding under an MIT license.",
+  "tradeoff": "Flash-class tuning gives away some peak reasoning depth; the V4 Pro flagship is the one for hardest problems."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The computer-use Flash: it not only writes code but reliably drives real desktops and apps, at Flash-tier pricing.",
+  "tradeoff": "Steady mid-tier card but no headline speciality beyond computer use — specialists in coding depth or reasoning sit nearby at Google."
 }

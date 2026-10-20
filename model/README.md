@@ -77,10 +77,11 @@ free lane (a "no free tier" note negates; cached `$0.10` is not free).
 Never encode "no Zen Free ID" in `pricingNote`/`pricingTiers` — the badge
 already conveys it),
 `standout` / `tradeoff` (string — optional curated editorial one-liners,
-rendered as the "Where it stands out" / "The trade-off" blocks on the model
-profile. Analytical, NOT numbers: describe what the model is exceptionally
-good at / its main caveat based on the in-folder research. One sentence
-each, written from already-verified findings),
+rendered in the "Reading the profile" section ("Where it stands out" /
+"The trade-off") of the model profile, replacing the auto-derived text.
+Analytical, NOT numbers: describe what the model is exceptionally good at /
+its main caveat based on the in-folder research. One sentence each, written
+from already-verified findings),
 `category` ("generative" | "decision" — omit for generative; set `"decision"`
 for typed-decision System-One models like Jev, which return judgments instead
 of text and are never comparable to generative Overall),
@@ -169,7 +170,12 @@ docs: "the high-speed version of K2.7 Code, with the same coding ability and
 ~5–6× faster output" — same `moonshotai/Kimi-K2.7-Code` weights, same
 262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00) — a
 serving profile of the tracked `kimi-k2.7-code` — RULES.md serving-tier
-identity) — is parked, never
+identity;
+`gemini-3.1-flash`, parked 2026-10-20 — phantom unsuffixed name: Google
+ships no bare `gemini-3.1-flash` text model (DeepMind card, Google Cloud
+docs, OpenRouter, AA, BenchLM all 404 it; the only 3.1 Flash text SKU is
+`gemini-3.1-flash-lite`, already tracked) — folder findings scored
+Flash-Lite data — RULES.md phantom unsuffixed-name identity) — is parked, never
 deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
@@ -292,6 +298,17 @@ base slug instead of scaffolding a tier folder:
   262,144 window, exactly 2× token price ($1.90/$8.00 vs $0.95/$4.00).
   `model/kimi-k2.7-code-highspeed/` was parked 2026-10-20 (RULES.md
   serving-tier identity) — never create it again.
+- `gemini-3.1-flash-lite/` covers **every** "Gemini 3.1 Flash" text-model
+  name that resolves to the Lite SKU — `Gemini 3.1 Flash-Lite` (canonical,
+  `google/gemini-3.1-flash-lite`) and the bare spelling `Gemini 3.1 Flash` /
+  `gemini-3.1-flash`, which does not exist as a Google model (DeepMind card,
+  Google Cloud docs, OpenRouter, AA, BenchLM all 404 the bare id; Google's
+  own models index lists only Flash-Lite / Flash-Image / Flash-TTS /
+  Flash-Live-Preview for 3.1). `model/gemini-3.1-flash/` was parked
+  2026-10-20 (RULES.md phantom unsuffixed-name identity) — never create it
+  again, and never drop the `-Lite` suffix when citing the real model.
+  Gemini 3.1 Flash **Live** is a voice model → `models_voice/` (RULES.md
+  domain routing).
 - `space-bunny/` covers **every** name this anonymous stealth model ships
    under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
    `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,

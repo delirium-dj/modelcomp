@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://openai.com/api/pricing/",
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The mainstream Sol generation: strong abstract-reasoning puzzle skill and agentic coding at OpenAI’s mid price band.",
+  "tradeoff": "Superseded by 6.1 Sol — better coding scores for the same slot — so new work should start with the successor."
 }

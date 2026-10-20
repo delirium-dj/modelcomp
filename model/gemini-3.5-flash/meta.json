@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "Fast multimodal reasoning for coding and agents — the Flash generation that first made near-Pro quality feel instant.",
+  "tradeoff": "Positioned awkwardly in hindsight: 3.6/3.7 Flash deliver more capability at comparable prices, so it mostly serves existing deployments."
 }

@@ -1,7 +1,7 @@
 # LongCat-2.0 — findings by Step 5 Preview
 
 - Source: Meituan LongCat (`meituan-longcat/LongCat-2.0`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,8 @@ Vendor-reported, in-house unified harness (rival figures cited from their offici
 - GPQA-Diamond: **88.9** (Gemini 3.1 Pro 94.3*, GPT-5.5 93.6*, Opus 4.8 92.4)
 - HLE, MCP Atlas, Toolathlon, GDPval, LiveCodeBench, MRCR/RULER: **no verified public score found**
 
+Third-pass verification (2026-10-19): Artificial Analysis has no LongCat-2.0 page (404); BenchLM tracks the model but has no sourced benchmark rows yet (0 of 666, "coming soon"). Every number on file remains vendor-reported and unreproduced — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 70/100.** FORTE 73.2 (ties Opus 4.6), BrowseComp 79.9 and RWSearch 78.8 are genuinely upper-mid agentic results — competitive with Gemini 3.1 Pro on FORTE/RWSearch — but no MCP-Atlas, Toolathlon or GDPval figure exists, and BrowseComp trails the best frontier models by ~5 points.
@@ -45,6 +47,6 @@ Vendor-reported, in-house unified harness (rival figures cited from their offici
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Meituan LongCat GitHub/Hugging Face model cards + longcat.ai launch blog, VentureBeat and MarkTechPost launch coverage, llmreference and Awesome Agents trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no LongCat-2.0 page (404) and BenchLM has no sourced rows (0 of 666) — no new independent evidence; every number remains vendor-reported. No score change warranted. First pass (2026-10-09) used Meituan LongCat GitHub/Hugging Face model cards + longcat.ai launch blog, VentureBeat and MarkTechPost launch coverage, llmreference and Awesome Agents trackers.
 - Future sources: add a new file next to this one, e.g. `LongCat_3.md`, using the same headings.

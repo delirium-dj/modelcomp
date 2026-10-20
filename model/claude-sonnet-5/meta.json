@@ -12,5 +12,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The Sonnet that made top-tier agentic coding affordable — verified software-engineering scores once reserved for Opus, at $2/$10.",
+  "tradeoff": "Succeeded by Sonnet 5.5 with stronger terminal performance at identical pricing; it remains a safe legacy default."
 }

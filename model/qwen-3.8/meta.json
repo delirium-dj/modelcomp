@@ -13,5 +13,7 @@
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
-  ]
+  ],
+  "standout": "The self-hoster’s dense sweet spot: Apache-2.0 weights with real agentic coding strength on a single-GPU-class footprint.",
+  "tradeoff": "Long inputs depend on context-extension tricks, and frontier-tier depth is reserved for Alibaba’s bigger Max/Plus hosted models."
 }

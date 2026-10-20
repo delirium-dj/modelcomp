@@ -79,6 +79,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: Public internet research from zero — `Tencent-Hunyuan/Hy4-preview` GitHub model card, Tencent launch coverage (Winzheng 2026-08-30), ToolWorthy release review, Traictory model catalogue, RankLLMs leaderboard and BenchLM model record. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

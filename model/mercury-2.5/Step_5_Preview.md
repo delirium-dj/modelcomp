@@ -1,7 +1,7 @@
 # Mercury 2.5 — findings by Step 5 Preview
 
 - Source: Inception Labs (`inception/mercury-2.5`, released 2026-09-08)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,6 +19,8 @@
 ### Raw benchmarks found
 
 Artificial Analysis (independent; per-eval values paywalled/not public):
+
+**Update (2026-10-19): the AA per-eval rows are now public via BenchLM** — AA-LCR **68.0%**, AA-SciCode **38.5%**, CritPt **0.0%**, AA-HLE **11.8%**, AA-Omniscience index **−39.5%** / accuracy 22.0% / hallucination 67.0%, Index 12.3 reconfirmed (#97/182), GDPval-AA **0.0%** (near zero on agentic knowledge work); vendor launch-chart adds GPQA-D **79.0%**, IFBench **77%**, τ³-bench **96.0%** (vendor harness), DeepSearchQA **34.0%**, SciCode 38%; Vals TB 2.1 **34.5%**. BenchLM composite **33.98/100** (#167/959, 15/666).
 
 - Intelligence Index: **12** (12.3 with decimals) — **#97/182**, below the class median of 13
 - Output speed: **617.6 tok/s** (#2/182; vendor claim 1,107 tok/s on "widely-available NVIDIA GPUs")
@@ -50,6 +52,6 @@ Production/customer-reported (not standardized):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Inception Labs blog and models page, Artificial Analysis model page, OpenRouter comparison data, ORCA Router and RuntimeWire launch analysis, ARMES model docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no mercury-2.5 page (404 on the natural slug) but BenchLM now carries the previously paywalled AA per-eval rows — AA-LCR 68.0%, AA-SciCode 38.5%, CritPt 0.0%, AA-HLE 11.8%, AA-Omniscience −39.5%, GDPval-AA 0.0% — plus the vendor launch chart (GPQA-D 79.0%, IFBench 77%) and Vals TB 2.1 34.5%; BenchLM composite 33.98/100 (#167/959). All consistent with the existing low-mid Tool 42 / Reasoning 45 / Coding 43 / Context 66 reads (GDPval-AA 0.0% and CritPt 0.0% reinforce the caps) — no score change. First pass (2026-10-09) used Inception Labs blog and models page, Artificial Analysis model page, OpenRouter comparison data, ORCA Router and RuntimeWire launch analysis, ARMES model docs.
 - Future sources: add a new file next to this one, e.g. `Mercury_3.md`, using the same headings.

@@ -8,5 +8,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://docs.z.ai/guides/overview/pricing"
-  ]
+  ],
+  "standout": "The low-latency serving variant of GLM 5.3 Flash — same weights, tuned serving for streaming-heavy coding assistants.",
+  "tradeoff": "Identical capability to Flash but a different rate card; pick it only if latency (not price) is the binding constraint."
 }

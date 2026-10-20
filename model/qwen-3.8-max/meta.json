@@ -9,5 +9,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-max/",
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models"
-  ]
+  ],
+  "standout": "Alibaba’s everything-at-once hosted flagship: a 2.4T multimodal MoE handling code, reasoning and visual agents over 1M context.",
+  "tradeoff": "Hosted-only — the weights stay closed, so self-hosters must drop to the open Qwen lines and give up the multimodal ceiling."
 }

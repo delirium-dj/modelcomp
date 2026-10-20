@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.4-pro/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "OpenAI’s earlier extra-compute tier for the hardest research questions — abstract puzzles and expert-level software tasks under long deliberation.",
+  "tradeoff": "Extreme pricing and a Responses-API-only surface; succeeded by cheaper Pro-tier reasoning elsewhere in the lineup."
 }

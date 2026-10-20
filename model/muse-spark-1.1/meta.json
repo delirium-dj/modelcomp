@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=muse-spark-1.1",
   "pricingLinks": [
     "https://meta.com/blog/muse-spark-1-1"
-  ]
+  ],
+  "standout": "Meta’s multimodal agent generation one — coding and agent workflows over 1M context at the family’s standard affordable tier.",
+  "tradeoff": "Paid-only and thoroughly superseded by 1.2/1.3, which add free lanes and better scores for the same money."
 }

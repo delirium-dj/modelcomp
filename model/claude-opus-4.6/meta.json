@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-opus-4.6",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The Opus that introduced adaptive thinking — it decides how long to deliberate, keeping agentic coding sessions efficient.",
+  "tradeoff": "Later Opus generations match its judgment with bigger context and better scores at the same price, so it is now a legacy choice."
 }

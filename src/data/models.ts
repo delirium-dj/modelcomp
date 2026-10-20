@@ -302,7 +302,12 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * Moonshot serving profile of `kimi-k2.7-code` — same `moonshotai/Kimi-K2.7-Code`
  * weights, same 262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00);
  * Kimi Code's own model table calls HighSpeed "the high-speed version of K2.7
- * Code, with the same coding ability" — RULES.md serving-tier identity). The folder
+ * Code, with the same coding ability" — RULES.md serving-tier identity);
+ * `gemini-3.1-flash` (2026-10-20, phantom unsuffixed name — Google ships no
+ * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
+ * `gemini-3.1-flash-lite` (own folder). DeepMind card, Google Cloud docs,
+ * OpenRouter, AA and BenchLM all 404 the bare id; folder findings scored
+ * Flash-Lite data — RULES.md phantom unsuffixed-name identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -311,7 +316,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from
