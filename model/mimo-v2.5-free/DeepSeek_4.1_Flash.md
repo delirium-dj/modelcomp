@@ -77,6 +77,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Artificial Analysis figures via OpenRouter and Model Beat, BenchLM base-model page for Xiaomi MiMo-V2.5 — Vals AI, Claw-Eval and Xiaomi release rows, modelcompare.dev Zen record, model card derivations via LLM Reference, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) — Artificial Analysis figures via OpenRouter and Model Beat, BenchLM base-model page for Xiaomi MiMo-V2.5 — Vals AI, Claw-Eval and Xiaomi release rows, modelcompare.dev Zen record, model card derivations via LLM Reference, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

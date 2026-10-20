@@ -102,6 +102,20 @@ Strong performance on: code understanding, repository-level edits, automated tas
 
 ---
 
+## Normalized scores (1–100)
+
+> Derived from the verified benchmark numbers above; see `model-comparison.md` for methodology.
+
+- **Tool use: 82/100** — FORTE 73.2, BrowseComp 79.9 and RWSearch 78.8 show genuinely strong general-agent competence, and the model is a primary harness model for Claude Code / OpenClaw / Hermes; docked a bit for IFEval 90.0 trailing Gemini 3.1 Pro's 96.1 instruction-carrying precision.
+- **Reasoning: 85/100** — GPQA-diamond 88.9 and IMO-AnswerBench 81.8 are frontier-tier; still behind Gemini 3.1 Pro (94.3 / 90.0) and GPT-5.5 (93.6 / 79.5) by a visible gap on both.
+- **Context window: 95/100** — 1,000,000-token context trained on hundreds of billions of 1M-context tokens, in the same top tier as Grok 4 Fast models; retrieval quality at extreme depth not independently benchmarked.
+- **Multimodal: 10/100** — text-only model (explicitly noted; "LongCat-Video-Avatar" is a separate video-generation line, not this checkpoint).
+- **Coding: 80/100** — Terminal-Bench 2.1 70.8 essentially ties Gemini 3.1 Pro (70.7) and beats Claude Opus 4.7 (71.7); SWE-bench Multilingual 77.3 is competitive while SWE-bench Pro 59.5 trails Opus 4.8 (69.2), so the strongest agentic-coding frontier rate but not the ceiling.
+- **Cost efficiency: 90/100** — $0.30 input / $1.20 output per 1M tokens (with $0.006 cached input) is dramatically cheaper than the proprietary models it benchmarks against, and the MIT-licensed weights allow free self-hosting for those with cluster infrastructure.
+- **Overall Score: 70/100** — mean of the five quality dimensions: (82 + 85 + 95 + 10 + 80) / 5 = 352 / 5 = 70.4, half-up = 70. Cost efficiency is scored independently and does not count toward Overall.
+
+---
+
 ## Usage Considerations
 
 - Model weights released under MIT License

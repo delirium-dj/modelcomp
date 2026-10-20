@@ -13,9 +13,9 @@
       "evidenceUrl": "https://deepinfra.com/pricing"
     },
     {
-      "name": "GPU instances / other modalities",
-      "price": "Billed per execution time",
-      "notes": "Most non-text models (image, audio, video) bill inference time rather than tokens.",
+      "name": "GPU instances",
+      "price": "Per hour (GPU-dependent)",
+      "notes": "Dedicated deployments bill by the hour; serverless text models use the per-token rates above.",
       "evidenceUrl": "https://deepinfra.com/pricing"
     }
   ]

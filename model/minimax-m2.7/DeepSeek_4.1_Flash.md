@@ -1,9 +1,11 @@
 # MiniMax M2.7 — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax / MiniMax-M2.7 (`minimax-m2.7` — requested as Free; no free ID found on OpenCode Zen)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`minimax-m2-7`, 46 rows) computes an overall **48.19/100 (#111 of 967)** and confirms the first draft: τ²-bench 84.8%, τ³ 67.6%, Terminal-Bench 2.0 57.0% / 2.1 (Vals) 48.7%, Claw-Eval 48.7%, GDPval-AA 1087 / 25.5%, GPQA 87.4% (Vals 86.6%), HLE 29.6%, AA-LCR 78.3%, CritPt 0.6%, SWE-bench Pro 56.2%, Vals LiveCodeBench 79.9% / SWE-bench 73.8%. **No score change** (Tool 78 / Reasoning 80 / Context 70 / Multimodal 15 / Coding 80 / Cost 88 / Overall 65).
 
 ## Model card
 

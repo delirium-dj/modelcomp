@@ -9,7 +9,7 @@
       "name": "Free hosted endpoints",
       "price": "$0 (rate-limited)",
       "notes": "All catalog models are free to prototype; up to 40 RPM for most models, no per-token billing.",
-      "evidenceUrl": "https://build.nvidia.com/pricing"
+      "evidenceUrl": "https://build.nvidia.com/models"
     },
     {
       "name": "Self-hosted NIM",

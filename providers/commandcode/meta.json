@@ -1,39 +1,39 @@
 {
   "name": "Command Code",
   "kind": "aggregator",
-  "short": "Subscription coding-agent plus an OpenAI/Anthropic-compatible Provider API that bills every top model at upstream API rates with no markup.",
+  "short": "Subscription coding-agent plus an OpenAI/Anthropic-compatible Provider API that bills models at upstream rates with no markup.",
   "officialUrl": "https://commandcode.ai",
   "hosts": ["commandcode.ai", "api.commandcode.ai"],
   "plans": [
     {
       "name": "Go",
       "price": "$1/month + processing fee ($10 credits)",
-      "notes": "~15K requests; open models plus per-model premium allowances; no API access.",
-      "evidenceUrl": "https://commandcode.ai/pricing"
+      "notes": "60 of 98 models; $6–$10 per-model credits in one shared pool; $3/5h, $6/week, $10/month caps; no API access.",
+      "evidenceUrl": "https://commandcode.ai/docs/plans/go"
     },
     {
       "name": "GOAT",
-      "price": "$10/month ($70 credits)",
-      "notes": "~75K requests; open models, some closed per-model allowances; API access included.",
+      "price": "$10/month ($80 credits)",
+      "notes": "~75K requests, full API access, and free Laguna S 2.1, Glyph Cluster, Beam 1.0 and TypeSafe Jev.",
       "evidenceUrl": "https://commandcode.ai/pricing"
     },
     {
       "name": "Pro",
       "price": "$20/month ($80 credits)",
-      "notes": "~100K requests; premium models in the shared pool. Max 10x / 20x are $100 / $200 per month.",
+      "notes": "Open-source plus premium models; Max 10x is $100/month ($150 credits) and Max 20x is $200/month ($300 credits).",
       "evidenceUrl": "https://commandcode.ai/pricing"
     },
     {
       "name": "Provider API",
-      "price": "$15/month + pay-as-you-go at API rates",
-      "notes": "OpenAI and Anthropic compatible endpoints; credits never expire and roll over.",
+      "price": "$15/month + pay-as-you-go at upstream rates",
+      "notes": "OpenAI and Anthropic compatible endpoints, no markup; top-ups roll over and never expire.",
       "evidenceUrl": "https://commandcode.ai/provider"
     },
     {
-      "name": "Free stealth drops",
-      "price": "$0",
-      "notes": "Space Bunny Alpha, Laguna S 2.1 and Ling 3.0 Flash Sante run free during their previews.",
-      "evidenceUrl": "https://commandcode.ai/docs"
+      "name": "Teams",
+      "price": "$40/month + processing fee",
+      "notes": "~35K requests, one shared bucket with pooled usage and central admin; Enterprise is custom.",
+      "evidenceUrl": "https://commandcode.ai/pricing"
     }
   ]
 }

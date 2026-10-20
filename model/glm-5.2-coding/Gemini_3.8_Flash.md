@@ -1,57 +1,74 @@
-# GLM 5.2 Coding — findings by Gemini 3.8 Flash
+# GLM 5.2 Coding — Model Evaluation
 
-- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** GLM 5.2 Coding
-- **Short description:** Zhipu AI / Z.ai's specialized open-weights coding and agentic MoE model (753B total / 40B active), tuned for autonomous software engineering, terminal execution, and drop-in Claude Code workflows.
-- **Provider / access:** OpenCode Zen (`opencode/glm-5.2-coding`), Z.ai API, [Hugging Face](https://huggingface.co/zai-org) open weights (`zai-org/GLM-5.2`), and [OpenRouter](https://openrouter.ai/models/zai-org/glm-5.2).
-- **Release / knowledge:** 2026-06-16 release; knowledge cutoff mid-2026.
-- **IDs:** `opencode/glm-5.2-coding`, `zai-org/glm-5.2`
-- **Context window:** 131,072 tokens (128K on the evaluated Zen coding SKU; underlying architecture supports up to 1,048,576 tokens).
-- **Modalities:** Text in / text out only; tool calls and structured JSON output.
-- **Pricing (as of 2026-10-11):** $1.40 / 1M input tokens, $4.40 / 1M output tokens ($0.26 cached input) on standard API; MIT license open weights.
-- **Architecture:** 753B-parameter Mixture-of-Experts (40B active) with IndexShare attention and speculative Multi-Token Prediction (MTP).
-
-### Raw benchmarks found
-
-Agent / tool use:
-- Terminal-Bench 2.1: **81.0%** ([Z.ai Release Report](https://z.ai))
-- MCP-Atlas: **77.0%**
-- FrontierSWE: **74.4%** (near parity with Claude Opus 4.8)
-- Tool-Decathlon: **48.2%**
-- Code Arena: **#2 globally** for long-horizon agentic programming
-
-Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **51** (GLM-5.2 Max) ([Artificial Analysis](https://artificialanalysis.ai/models/glm-5-2))
-- GPQA Diamond: **91.2%**
-- AIME 2026: **99.2%**
-- Humanity's Last Exam (HLE): **40.5%** w/o tools, **54.7%** w/ tools
-
-Coding:
-- SWE-bench Pro: **62.1%** (ranked #1 open-weights at release)
-- LiveCodeBench: **74.3%**
-- ProgramBench: **63.7%**
-- DeepSWE: **46.2%**
-
-### Normalized scores (1–100)
-
-- **Tool use: 81/100.** High Terminal-Bench 2.1 (81.0%), FrontierSWE (74.4%), and MCP-Atlas (77.0%) substantiate outstanding terminal navigation and agentic integration.
-- **Reasoning: 83/100.** 91.2% on GPQA Diamond, 99.2% on AIME 2026, and AA Intelligence Index of 51 demonstrate exceptional algorithmic and mathematical problem solving.
-- **Context window: 58/100.** Zen coding SKU context is limited to 128K, restricting deep codebase retention compared to full 1M endpoints.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 81/100.** SWE-bench Pro 62.1% and Terminal-Bench 81.0% provide elite open-weights programming capabilities.
-- **Cost efficiency: 88/100.** Very cost-effective at $1.40 / $4.40 per 1M tokens with pure MIT open-weights availability.
-- **Overall Score: 64/100.** Arithmetic mean of non-cost metrics: (81 + 83 + 58 + 15 + 81) / 5 = 63.6 → 64. A top-flight open-weights coding agent, constrained in overall score primarily by text-only input and the 128K Zen gateway limit.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** GLM 5.2 Coding (`opencode/glm-5.2-coding`)
+- **Model Type:** Open-weights 753B parameter Mixture-of-Experts (MoE) coding agent foundation model (MIT)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public benchmark evaluation and analysis of Zhipu AI / Z.ai official releases, Artificial Analysis benchmarks, and open coding leaderboards; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+GLM 5.2 Coding (`opencode/glm-5.2-coding`) is Zhipu AI / Z.ai's specialized open-weights Mixture-of-Experts (MoE) coding foundation model released under the MIT license, specifically optimized for autonomous software engineering, full-stack code authoring, and drop-in integration with coding agent harnesses like OpenCode and Claude Code. Built on a 753B parameter backbone (40B active parameters per token) utilizing IndexShare sparse attention and speculative Multi-Token Prediction (MTP), it supports dual reasoning levels (`High` and `Max`).
+
+Operating across a native 1,048,576-token (1M) context window (with gateway configurations supporting up to 131K output tokens), GLM 5.2 Coding achieves top-tier open-weights developer benchmarks: **62.1% on SWE-bench Pro**, **74.4% on FrontierSWE** (evaluating multi-hour repository tasks), **81.0% on Terminal-Bench 2.1**, and 74.3% on LiveCodeBench. Delivering enterprise software engineering resilience without licensing fees, it represents one of the strongest open-source foundation models for autonomous development pipelines.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 82/100.** Scores 81.0% on Terminal-Bench 2.1 and 77.0% on MCP-Atlas. Exceptional shell tool resilience, autonomous error correction, and multi-turn subagent delegation in CLI environments like OpenCode.
+- **Reasoning: 85/100.** Scores 91.2% on GPQA Diamond, 99.2% on AIME 2026, and 54.7% on HLE (tools). Dual thinking modes (`High`, `Max`) allocate extended test-time compute to untangle subtle distributed race conditions and complex architectural refactors.
+- **Context window: 90/100.** Full 1M native context capability with IndexShare sparse attention. Supports full-repository monorepo ingestion and extensive documentation with minimal FLOP scaling overhead.
+- **Multimodal: 20/100.** Text and code inputs/outputs only; lacks native image, video, and audio ingestion.
+- **Coding: 87/100.** Reaches 62.1% on SWE-bench Pro and 74.4% on FrontierSWE. Demonstrates outstanding multi-file code editing, test generation, and bug remediation.
+- **Cost efficiency: 90/100.** Fully permissive MIT open weights for free self-hosting; API access via Z.ai Coding Plans ($18/mo) or standard pay-as-you-go (~$1.40 / $4.40 per 1M tokens with $0.26/1M cached reads).
+- **Overall Score: 73/100.** (Arithmetic mean: `(82 + 85 + 90 + 20 + 87) / 5 = 364 / 5 = 72.8`, rounded to **73**).
+
+---
+
+### Key Strengths
+
+1. **Top-Tier Open-Weights Coding:** 62.1% on SWE-bench Pro and 74.4% on FrontierSWE challenge leading closed proprietary flagships.
+2. **Terminal-Bench 2.1 Leadership:** 81.0% on Terminal-Bench ensures dependable command execution, tool chaining, and bash recovery.
+3. **True 1M Native Context:** Ingests expansive enterprise monorepos and comprehensive documentation without manual chunking.
+4. **MIT Open-Weights License:** Completely free for commercial distribution, private on-premise deployment, and fine-tuning.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Text/Code Only:** Modality support is strictly text and code without native visual OCR or diagram parsing.
+2. **Compute Infrastructure Demands:** Self-hosting a 753B parameter MoE requires multi-node GPU clusters or massive unified memory arrays.
+3. **Max Thinking Latency:** Deep "Max" reasoning passes can introduce noticeable latency during interactive agent turns.
+
+---
+
+### Pricing & Value Matrix
+
+- **Self-Host License:** MIT (Free open weights)
+- **Official API Input:** ~$1.40 per million tokens (Cached: $0.26/1M)
+- **Official API Output:** ~$4.40 per million tokens
+- **Subscription Option:** Z.ai Coding Plans from ~$18/month
+- **Context Capacity:** 1,048,576 tokens (up to 131,072 output tokens)
+- **Speed Tier:** Enterprise agentic MoE coding tier
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **SWE-bench Pro** | 62.1% | Autonomous repository software engineering |
+| **FrontierSWE** | 74.4% | Long-horizon open-ended technical projects |
+| **Terminal-Bench 2.1** | 81.0% | Terminus-2 autonomous CLI execution harness |
+| **GPQA Diamond** | 91.2% | Graduate-level scientific reasoning |
+| **MCP-Atlas** | 77.0% | Model Context Protocol agent tool calling |
+
+---
+
+### Evaluation Sources
+
+- Zhipu AI / Z.ai Technical Report: [GLM 5.2 Architecture & Coding Plan Releases](https://z.ai)
+- Emergent Mind & OpenCode Documentation: [GLM-5.2-Coding Benchmarks & Harnesses](https://emergent.sh)
+- Scale AI SEAL & OpenRouter Model Tracking: [GLM-5.2 Performance Index](https://openrouter.ai)

@@ -1,9 +1,11 @@
 # MiMo V2.6 Free — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi MiMo (`mimo-v2.6-flash-free` on OpenCode Zen) — the free-promotion route of MiMo-V2.6-Flash
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM's `mimo-v2-6-flash` page now computes an overall **64.59/100 (#39 of 967)** on 24 rows and confirms the first draft: Terminal-Bench 2.1 87.6%, OSWorld-Verified 80.8%, CyberGym 95.1%, Toolathlon-Verified 73.6%, GDPval-AA 55.4%, DeepSWE 67.9%, AA-MMMU-Pro 73.1%, AA-LCR 74.3%, AA-HLE 35.1%, AA Intelligence Index 37.9%, AA-SciCode 51.3%. **No score change** (Tool 87 / Reasoning 78 / Context 70 / Multimodal 90 / Coding 79 / Cost 100 / Overall 81).
 
 ## Model card
 
@@ -82,6 +84,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: public internet research (Xiaomi MiMo technical report and Hugging Face model card, BenchLM `mimo-v2-6-flash` page carrying the Artificial Analysis scorecard, Artificial Analysis, models.dev / Pi provider feeds, OpenRouter, LLM Stats aggregators, Tabbit review coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `mimo-v2-6-flash`) — Xiaomi MiMo technical report and Hugging Face model card, BenchLM `mimo-v2-6-flash` page carrying the Artificial Analysis scorecard, Artificial Analysis, models.dev / Pi provider feeds, OpenRouter, LLM Stats aggregators, Tabbit review coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

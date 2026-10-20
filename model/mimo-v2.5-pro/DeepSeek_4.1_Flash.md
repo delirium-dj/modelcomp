@@ -1,9 +1,11 @@
 # Xiaomi MiMo-V2.5-Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi / MiMo-V2.5-Pro (`mimo-v2.5-pro` — requested as Free; no free ID found on OpenCode Zen)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM's `mimo-v2-5-pro` record computes **53.01/100** (unranked on the leaderboard-comparable scale) and confirms the first draft's independent rows: τ²-bench 94.2%, GPQA 86.6%, SciCode 50.6%, SWE-bench Pro 57.2%, SWE-bench (Vals) 74.0%, LiveCodeBench 81.4%, AA-LCR 79.7%. No new material. **No score change** (Tool 85 / Reasoning 78 / Context 95 / Multimodal 15 / Coding 82 / Cost 88 / Overall 71).
 
 ## Model card
 
@@ -71,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Xiaomi model card, Vals AI and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI figures and OpenRouter specs via Model Beat, OpenRouter model page, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) — Xiaomi model card, Vals AI and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI figures and OpenRouter specs via Model Beat, OpenRouter model page, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

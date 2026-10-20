@@ -1,9 +1,11 @@
 # providers/ — curated provider (seller/console) data
 
 One folder per provider the site tracks as a place to *buy or access* models —
-marketplaces (`opencode-zen`, `openrouter`) and vendor-direct APIs
-(`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
-`xiaomi`, `minimax`, `alibaba`, `upstage`).
+marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
+`vercel-ai-gateway`, `commandcode`, `nvidia`, `deepinfra`, `amazon-bedrock`,
+`microsoft`) and vendor-direct
+APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
+`xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`).
 
 This folder is **not** scanned by `pnpm sync` (which covers `model/` only) —
 it is loaded directly by the website build via `import.meta.glob`

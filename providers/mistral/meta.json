@@ -1,0 +1,40 @@
+{
+  "name": "Mistral AI",
+  "kind": "vendor",
+  "short": "Direct API access to Mistral's open-weight and commercial models, plus the Vibe assistant and coding plans.",
+  "officialUrl": "https://mistral.ai",
+  "hosts": ["mistral.ai", "docs.mistral.ai"],
+  "idPrefixes": ["mistralai"],
+  "plans": [
+    {
+      "name": "API pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Mistral Large $0.50 input / $1.50 output; Batch is 50% cheaper and cached input up to 90% off.",
+      "evidenceUrl": "https://mistral.ai/pricing"
+    },
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Limited messages, web searches, and coding sessions in Vibe; basic image generation.",
+      "evidenceUrl": "https://mistral.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$14.99/month",
+      "notes": "Full Vibe access, all-day coding, and $15/month in API credits; verified students pay $5.99.",
+      "evidenceUrl": "https://mistral.ai/pricing"
+    },
+    {
+      "name": "Team",
+      "price": "$24.99/user/month",
+      "notes": "Shared workspace with higher limits, up to 30 GB storage per user, domain verification, and data export.",
+      "evidenceUrl": "https://mistral.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Private deployment with custom models, agents, and workflows; audit logs, SAML SSO, white label.",
+      "evidenceUrl": "https://mistral.ai/pricing"
+    }
+  ]
+}

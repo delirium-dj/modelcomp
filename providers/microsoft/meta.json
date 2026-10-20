@@ -1,0 +1,28 @@
+{
+  "name": "Microsoft",
+  "kind": "aggregator",
+  "short": "Azure OpenAI and Microsoft AI models through Microsoft Foundry, billed per token with batch and reserved-throughput options.",
+  "officialUrl": "https://azure.microsoft.com/en-us/products/ai-foundry/",
+  "hosts": ["microsoft.ai", "azure.microsoft.com"],
+  "idPrefixes": ["microsoft"],
+  "plans": [
+    {
+      "name": "Standard (pay-as-you-go)",
+      "price": "Per 1M tokens, per-model",
+      "notes": "GPT-5-nano Global: $0.05 input / $0.01 cached / $0.40 output.",
+      "evidenceUrl": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/"
+    },
+    {
+      "name": "Batch API",
+      "price": "50% off Global Standard",
+      "notes": "Asynchronous completions returned within 24 hours for eligible language models.",
+      "evidenceUrl": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/"
+    },
+    {
+      "name": "Provisioned throughput",
+      "price": "Hourly PTU reservation",
+      "notes": "Reserve throughput monthly or annually for predictable cost instead of per-token billing.",
+      "evidenceUrl": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/"
+    }
+  ]
+}

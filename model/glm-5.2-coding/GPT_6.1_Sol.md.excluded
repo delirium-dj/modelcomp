@@ -1,0 +1,60 @@
+# GLM 5.2 Coding — findings by GPT 6.1 Sol
+
+- Source: Tracked Z.ai/OpenCode identity `opencode/glm-5.2-coding`; exact live mapping and benchmark identity unresolved.
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- **Status: SELF-EXCLUDED — insufficient verified exact-ID evidence to compute Overall.** No placeholder dimensions assigned.
+
+## Model card
+
+- **Name:** GLM5.2 Coding. The project explicitly retains this as a separate tracked SKU; this investigation does not merge, rename or delete it. Its historical tracked ID is not by itself public proof of current serving or a byte-identical checkpoint.
+- **Short description:** Coding-labelled GLM5.2 entry. Three identities must be kept distinct: the exact suffix ID, ordinary **`glm-5.2`**, and today's **GLM Coding Plan subscription**. Generic “coding” positioning or plan membership does not prove their equivalence.
+- **Provider / IDs:** Intended tracked **`opencode/glm-5.2-coding`**. Current public OpenCode Console docs and successful model-list response show **`glm-5.2`**, not **`glm-5.2-coding`**; models.dev's successful public catalog fetch produced no matching exact suffix ID under any provider. No authenticated inference attempted.[1][2][3]
+- **Native access / mapping:** Current Coding Plan supports **GLM5.3 and5.3-Flash** and explicitly reroutes ordinary **GLM5.2/5.1 requests to5.3**. Native plan bases are **`https://api.z.ai/api/coding/paas/v4`** and Anthropic-compatible **`https://api.z.ai/api/anthropic`**. This proves the plan's current mapping for the named ordinary IDs, **not an undocumented mapping of the exact `glm-5.2-coding` suffix**.[4][5]
+- **Release / cutoff:** No verified public release date, exact suffix snapshot or training cutoff found. Parent release dates and repository label are not substituted.
+- **Context / output / modalities:** No exact suffix-specific cap or native media specification verified. Ordinary GLM5.2's guide says **1M/128K and text→text**; it does not establish that the suffix SKU shares those limits. Coding Plan's separate Vision MCP is not proof of native model vision.[4][6]
+- **Pricing / free access:** No verified exact suffix tariff or current free Zen ID. Console's **$1.40 input/$4.40 output/$0.26 cache read per1M** is for plain GLM5.2. Coding Plan starts **$18/month**, with five-hour and weekly quotas, not a free/unlimited API or fixed per-token tariff for this tracked SKU.[1][4][5]
+- **Architecture / licence:** Exact suffix parameter count, weights repository, architecture and licence unverified. Guessed HF candidate returned401; that response establishes neither released weights nor nonexistence. Parent/GLM5.3 licences do not transfer by naming resemblance.
+
+### Raw benchmarks found
+
+**No verified public benchmark for the exact `glm-5.2-coding` ID found.**
+
+- **Parent-only numbers, deliberately NOT adopted:** Z.ai's ordinary **GLM5.2** guide reports **Terminal-Bench2.1 81.0** and **SWE-bench Pro62.1**, compared with **GLM5.1 62.0/58.4**. The examples explicitly call `model:glm-5.2`; they do not identify a measured Coding-suffix checkpoint. These figures explain a potential conflation, not exact-model evidence.[6]
+- Plan documentation now naming5.3 is current subscription/serving information, not a fresh evaluation of historical5.2 Coding. The parent guide's statement that GLM5.2 was available early to Coding Plan users does not establish a separate released weight set for this exact suffix.[4][6]
+- Tool use: TB2.1/TB4, Tau3/Tau2, GDPval-AA, Claw-Eval/ClawProBench, Toolathlon, MCP-Atlas and SWE Atlas QnA — **no verified exact-ID public score found**.
+- Reasoning: GPQA, HLE, AIME, CritPt, intelligence index, Omniscience accuracy/hallucination and LCR/MLCR — **no verified exact-ID public score found**.
+- Coding: SWE Verified/Pro, LiveCodeBench, SciCode, DeepSWE and Vibe Code — **no verified exact-ID public score found**.
+- Multimodal/long context: MMMU, native audio/video, MRCR/RULER/GraphWalks and full-window retention — **no verified exact-ID public score found**.
+- No exact independent latency, output speed or measured task cost verified. Missing results are not zeros, and successful catalog retrieval does not establish successful generation.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact serving identity and representative quality measurements remain unresolved. Importing ordinary GLM5.2's benchmark table, a current subscription's5.3 performance or generic coding defaults would introduce unsupported precision. This evidence record stays `.md.excluded` until genuinely new exact-ID documentation or an explicit versioned mapping plus relevant measurements supports a defensible Overall.
+
+### Research trail and sources
+
+Three fresh searches: Bing RSS `"GLM-5.2-Coding" benchmark official` returned unrelated Gmail links; Google `"GLM5.2 Coding" model benchmark` an interstitial; DuckDuckGo `"glm-5.2-coding" context pricing` a bot challenge. Direct exact candidates were then checked:
+
+- Native guide `/guides/llm/glm-5.2-coding`, AA `/models/glm-5-2-coding`, Vals `/models/zai_glm-5.2-coding`, BenchLM `/models/glm-5-2-coding`, OpenRouter `/api/v1/models/z-ai/glm-5.2-coding/endpoints`: **404**.
+- HF `zai-org/GLM-5.2-Coding/raw/main/README.md`: **401**, not proof of a public/private/released checkpoint.
+- Current native documentation index lists the ordinary GLM5.2 guide and Coding Plan separately. Successful OpenCode catalog/docs and models.dev exact-ID checks found only relevant plain-model entries; exact suffix mapping remains unverified.[1][2][3][4][6][7]
+
+Failed guesses and present catalog omissions do not prove historical nonexistence. No peer findings used, no parent/successor scores adopted, and the permanent tracked folder is preserved.
+
+[1]: https://opencode.ai/docs/zen/ "Current Console model/endpoints/pricing list: plain glm-5.2, no exact coding suffix"
+[2]: https://opencode.ai/inference/v1/models "Successful live public model-list request includes glm-5.2 but not exact suffix"
+[3]: https://models.dev/api.json "Successful external provider catalog checked for exact glm-5.2-coding; no matching record"
+[4]: https://docs.z.ai/devpack/overview "Current subscription models, ordinary5.2→5.3 rerouting, paid quotas and separate Vision MCP"
+[5]: https://docs.z.ai/devpack/faq "Coding Plan quota separation, currently callable models and exact dedicated API bases"
+[6]: https://docs.z.ai/guides/llm/glm-5.2 "Ordinary glm-5.2 examples/specifications and parent-only benchmark numbers, not exact suffix"
+[7]: https://docs.z.ai/llms.txt "Primary current documentation index separates ordinary model guides and subscription docs"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-20 UTC
+- Method: Independent fresh searches, exact-ID evaluator/provider/weights attempts and successful current catalog/primary subscription-model distinction checks. Self-excluded for insufficient exact-ID scoring evidence; no fabricated Overall or model-identity merge.
+- Future sources: add a separate signed report only when genuinely new verified evidence supports its conclusions.

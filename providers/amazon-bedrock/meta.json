@@ -1,0 +1,33 @@
+{
+  "name": "Amazon Bedrock",
+  "kind": "aggregator",
+  "short": "Managed access to frontier and open models on AWS, with on-demand, batch, priority, flex, and provisioned-throughput billing.",
+  "officialUrl": "https://aws.amazon.com/bedrock/",
+  "hosts": ["aws.amazon.com"],
+  "plans": [
+    {
+      "name": "On-demand",
+      "price": "Per 1M tokens, per-model",
+      "notes": "Gemma 4 26B A4B in US East: $0.13 input / $0.40 output.",
+      "evidenceUrl": "https://aws.amazon.com/bedrock/pricing/"
+    },
+    {
+      "name": "Batch inference",
+      "price": "50% off on-demand",
+      "notes": "Asynchronous jobs for select models; results returned within 24 hours.",
+      "evidenceUrl": "https://aws.amazon.com/bedrock/pricing/"
+    },
+    {
+      "name": "Priority & Flex tiers",
+      "price": "Priority premium / Flex discount",
+      "notes": "Priority favors latency-sensitive workloads; Flex trades latency for lower per-token rates.",
+      "evidenceUrl": "https://aws.amazon.com/bedrock/pricing/"
+    },
+    {
+      "name": "Provisioned Throughput",
+      "price": "Per model unit per hour",
+      "notes": "Reserved capacity billed hourly with no per-token charge; commitments available.",
+      "evidenceUrl": "https://aws.amazon.com/bedrock/pricing/"
+    }
+  ]
+}
