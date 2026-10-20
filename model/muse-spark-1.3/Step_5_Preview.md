@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Step 5 Preview
 
 - Source: Meta (Meta Superintelligence Labs) `muse-spark-1.3`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,13 @@ Coding:
 Long context:
 
 - MRCR v2 8-needle 512K–1M: **98.1%**; 256K–512K: **98.5%** (self-reported) — ≥98% retrieval at 512K+
+- **AA-LCR: 83.0%** (Artificial Analysis, 2026-10-19 via BenchLM) — independent long-context-reasoning row
+
+Third-pass verification (2026-10-19):
+
+- Artificial Analysis (max): Intelligence Index **48** (#24/214 — matches the file), 132.5 tok/s (#37/186), TTFT 64.73s, Standard-tier pricing $1.25/$4.25 with 88% cache discount (blended $0.78/M; $1.60 per Index task), 1M context, text/image/video, 170M Index tokens (very verbose), 1 provider — not deprecated
+- BenchLM composite: 35 of 666 benchmarks covered, no public overall score (unranked); new rows filling the file's gaps: GDPval-AA **59.0% normalized** (AA — the missing normalized row for the file's Elo 1,754), AA Agentic Index **55.7%** (strong), AA Tau3 Banking **50.5%**, AA Coding Index **75.8%**, JobBench **64.9%**, CWE-bench v1 **55.0%**, CritPt **24.9%**, AA-Omniscience index **25.0%** / accuracy 43.6% / hallucination 32.9%, Epoch FrontierMath v2 Tiers 1–3 **74.0%** / Tier 4 **46.3%** (strong math), Bug Hunt Bench **32.2 fixes**, FrontierSWE v2 **25.8%** (weak), Gray Swan IPI **15.9%**
+- Still weak on the hardest suites: Terminal-Bench 4.0 ~24.75 (Vals AI), independent AutomationBench 20.7%, MazeBench **0%**, ApprenticeBench **19%** — the caps on Tool use 91 / Coding 93 are unchanged
 
 ### Normalized scores (1–100)
 
@@ -69,7 +76,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (30 primary-source results, updated 2026-10-07) and the Artificial Analysis live LLM leaderboard (Intelligence Index 48, max — previously pending). Prior pass (2026-10-08) used Meta's official page, benchmarkregistry.org, themodelgap.com, llm-stats.com, and benchlm.ai; independent runs preferred over vendor self-reports where both exist.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (max: Index 48 #24/214 — unchanged; 132.5 tok/s; TTFT 64.73s; $1.60 per Index task; 170M tokens — very verbose) and BenchLM (35/666, unranked): the file's GDPval-normalized and agentic-index gaps are filled (GDPval-AA 59.0% normalized, AA Agentic Index 55.7%, AA Coding Index 75.8%, Tau3 Banking 50.5%, JobBench 64.9%, CWE-bench 55.0%, CritPt 24.9%, Omniscience 25.0%, Epoch FrontierMath v2 74.0%/46.3%) — all reinforcing the existing Tool 91 / Reasoning 92 / Context 100 / Multimodal 90 / Coding 93 reads, no score change; TB4.0 ~24.75, MazeBench 0% and ApprenticeBench 19% keep the caps. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (30 primary-source results, updated 2026-10-07) and the AA live leaderboard (Index 48). Prior pass (2026-10-08) used Meta's official page, benchmarkregistry.org, themodelgap.com, llm-stats.com, and benchlm.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

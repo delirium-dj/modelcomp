@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://www.minimax.io/platform/pricing",
     "https://www.minimax.io/platform/pricing"
-  ]
+  ],
+  "standout": "The tool-use open pick: a compact-active MoE with verified coding scores that led its weight class.",
+  "tradeoff": "Modified-MIT license adds conditions plain Apache does not, and the M2.7 generation supersedes it."
 }

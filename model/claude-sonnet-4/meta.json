@@ -1,13 +1,15 @@
 {
   "id": "anthropic/claude-sonnet-4",
   "name": "Claude Sonnet 4",
-  "short": "Anthropic's Sonnet (200K/64K, $3/$15) for balanced coding; SWE-bench 74.8%, retired, Bedrock support ending.",
-  "contextWindow": "200K",
+  "short": "Anthropic's May 2025 Sonnet (200K/64K, $3/$15) for balanced coding; SWE-bench Verified 72.7% (80.2% high compute), retired from the Claude API 2026-06-15.",
+  "contextWindow": "200K (Anthropic; AA and some trackers quote the old 1M beta)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid-tier pricing ($3 input / $15 output per 1M)",
+  "pricingNote": "Paid $3 input / $15 output per 1M; $0.30 cached read, $3.75 cached write; not on OpenCode Zen",
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-4",
+  "officialUrl": "https://www.anthropic.com/news/claude-4",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The balanced-coding Sonnet of the 200K era — steady, well-behaved edits that anchored countless early agentic pipelines.",
+  "tradeoff": "Retired from the Claude API (still on Bedrock and Google Cloud) and gone from Zen; pin it only to preserve old behavior."
 }

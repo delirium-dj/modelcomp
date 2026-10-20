@@ -8,5 +8,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.3-codex-spark/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The real-time edit experiment: Cerebras-distilled codex streaming over a thousand tokens per second.",
+  "tradeoff": "Retired preview hardware-tuned to one serving stack — a speed stunt, not a platform."
 }

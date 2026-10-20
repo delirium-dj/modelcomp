@@ -1,0 +1,15 @@
+{
+  "name": "NanoGPT",
+  "kind": "aggregator",
+  "short": "Multi-model pay-as-you-go aggregator — one API key across open and frontier models, a common cheap-routing lane for open-weight releases.",
+  "officialUrl": "https://nano-gpt.com",
+  "hosts": ["nano-gpt.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-token, per-model rates",
+      "notes": "e.g. NVIDIA Nemotron 3.5 Super VL and Google DiffusionGemma 26B both list NanoGPT rate cards.",
+      "evidenceUrl": "https://nano-gpt.com/pricing"
+    }
+  ]
+}

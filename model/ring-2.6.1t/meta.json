@@ -10,5 +10,7 @@
   "officialUrl": "https://huggingface.co/models?search=ring-2.6.1t",
   "pricingLinks": [
     "https://huggingface.co/inclusionAI/Ring-2.6-1T"
-  ]
+  ],
+  "standout": "The adjustable deep-thinker: a 1T open-weights MoE with a high/xhigh reasoning-effort dial for thinking-heavy tasks.",
+  "tradeoff": "A 128K native window is short by 1M-era standards, and deep effort burns tokens fast."
 }

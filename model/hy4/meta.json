@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=hy4",
   "pricingLinks": [
     "https://huggingface.co/tencent/Hy4-preview"
-  ]
+  ],
+  "standout": "Tencent’s 1M+-context self-host flagship: open MoE weights aimed at long-running agentic coding on private infrastructure.",
+  "tradeoff": "Evidence is vendor-only — no independent verification backs the headline scores yet."
 }

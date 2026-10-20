@@ -1,7 +1,7 @@
 # Ox Alpha — findings by Step 5 Preview
 
 - Source: Z.ai (`glm-5.3-flash` — stealth preview alias `ox-alpha`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,8 @@ Long context:
 
 - 1M-token window; AA-LCR 80.0% (AA, #42/408) is the strongest published long-context measure; **no standalone MRCR/RULER**, but the independent GDM-MRCRv2 Context Arena (BenchmarkList 2026-10-07) shows AUC 128K ~69–75% dropping to AUC 1M **~36%** — top-of-window retrieval degrades sharply
 
+Third-pass verification (2026-10-19): the `stealth/ox-alpha` listing is withdrawn, so both trackers now 404 on the alias (Artificial Analysis and BenchLM have no ox-alpha page). The revealed identity — **GLM-5.3-Flash** — was re-verified today in its own report (`glm-5.3-flash`): Artificial Analysis (max) Intelligence Index **45**, #3/121 in its size class, 313.6 tok/s, TTFT 41.23s, $1.25/$4.25, $1.60 per Index task, 170M tokens, text-only per AA; BenchLM holds 67 rows (269 benchmarks) including AA-SciCode 51.3%, AA-LCR 80.1%, GPQA-Diamond 91.5%, GDPval-AA 69.0% normalized, TB 4.0 100.0%, Terminal-Bench Hard 100.0%, AA-Bug Hunt 46.8, AA-Omniscience 71.8, CritPt 23.1, FrontierSWE v2 25.0, HLE 40.0 — all corroborating the existing Tool use 80 / Reasoning 79 / Context 93 / Multimodal 82 / Coding 80 reads. No score change.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 80/100.** Terminal-Bench 2.1 84.3% (AA), Toolathlon 78.4%, GDPval-AA 57.3%/Elo 1773 and OSWorld 2.0 59.1% sit mid-frontier; capped by the Vals TB2.1 reading of 62.9%, Terminal-Bench 4.0 32.8%, Agents' Last Exam 26.3% and no public Claw-Eval.
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (50 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1773 #5/352, Tau3-Banking 47.2% #7/176, Toolathlon 78.4% #4/41, HLE w/tools 55.3% #11/29, MMVU 80.5% #2/46, CharXiv-R 89.4% #3/35, AA Intelligence Index 41.8 #43/427, AA-LCR 80.0% #42/408, GDM-MRCRv2 Context Arena AUC 128K ~72% → 1M ~36%) — confirms the existing Tool use 80 / Reasoning 79 / Multimodal 82 reads; the GDM-MRCRv2 1M-retrieval drop (AUC ~36%) confirms Context stays at 93 (not 100). No score change warranted. Prior pass (2026-10-09) used OpenRouter stealth listing + de-cloaking notice, Z.ai GLM-5.3-Flash launch blog/docs, Artificial Analysis, Vals AI, Zentor/AI Catchup reveal coverage, community fingerprinting write-ups.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the withdrawn stealth slug 404s on both Artificial Analysis and BenchLM, so the alias is tracker-untracked — the GLM-5.3-Flash identity was re-verified in its own report today (AA max: Index 45, #3/121, 313.6 tok/s, TTFT 41.23s, $1.25/$4.25, $1.60/task, 170M tokens, text-only per AA; BenchLM 67/269 rows incl. SciCode 51.3%, AA-LCR 80.1%, GPQA-D 91.5%, GDPval-AA 69.0% normalized, TB 4.0 100%, TB Hard 100%, Bug Hunt 46.8, Omniscience 71.8, CritPt 23.1, FrontierSWE v2 25.0, HLE 40.0 — all corroborating the existing reads). No score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (50 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1773 #5/352, Tau3-Banking 47.2% #7/176, Toolathlon 78.4% #4/41, HLE w/tools 55.3% #11/29, MMVU 80.5% #2/46, CharXiv-R 89.4% #3/35, AA Intelligence Index 41.8 #43/427, AA-LCR 80.0% #42/408, GDM-MRCRv2 Context Arena AUC 128K ~72% → 1M ~36%). Prior pass (2026-10-09) used OpenRouter stealth listing + de-cloaking notice, Z.ai GLM-5.3-Flash launch blog/docs, Artificial Analysis, Vals AI, Zentor/AI Catchup reveal coverage, community fingerprinting write-ups.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

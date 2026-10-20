@@ -1,7 +1,7 @@
 # Mistral Large 4 — findings by Step 5 Preview
 
 - Source: Mistral AI (`mistral-large-4` — "le Chonk", public preview 2026-10-06)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **Context window:** 1M tokens per Mistral docs (AA measures 524K served in the preview).
 - **Modalities:** Text and image in → text out; function calling, structured outputs, document QnA, agents/conversations APIs.
 - **Pricing (as of 2026-10-09):** $1.36/M input, $4.18/M output, $0.07–0.14 cache (Mistral's docs currently show a 50%-off sale: $0.68/$2.09).
-- **Speed:** 116.1 tok/s (AA); TTFT 1.46 s.
+- **Speed:** 68.1 tok/s (AA, 2026-10-19 — revised down from the 116.1 tok/s first-pass read; #121/186); TTFT 1.65 s.
 
 ### Raw benchmarks found
 
@@ -47,6 +47,6 @@ Artificial Analysis (independent summary): Intelligence Index 38, 116.1 tok/s, T
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Mistral-Large-4 page (a 2026-10-06 public preview with weights still landing end-of-October); re-checked the Artificial Analysis preview page, Vals AI and the Surge blind human eval — Intelligence Index 38 (#64/226), Coding Agent Index 49.8, DeepSWE v1.1 61.7%, AutomationBench 59.9%, AA-Briefcase 1,393 Elo, Dense-200 grounding 42%, cyber patch-reproduce 82% and the Surge code-quality 3.74/5 (#2 of 5) all confirm the existing Tool use 72 / Reasoning 70 / Multimodal 86 / Coding 72 reads. No score change warranted — verbosity (200M tokens/run), TB 4.0 28.3% and unpublished GPQA/HLE keep the caps. Prior pass (2026-10-09) used Mistral Large 4 launch post, Mistral docs model page, Artificial Analysis preview page.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (preview page, not deprecated: Index 38 #64/214 — unchanged; **output speed revised to 68.1 tok/s, down from the 116.1 first-pass read**; TTFT 1.65s; $1.36/$4.18 confirmed, blended $0.79/M, $1.13 per Index task; 524k context served, 200M Index tokens — very verbose; 2 providers) — all first-pass benchmark rows stand (DeepSWE 61.7%, AutomationBench 59.9%, AA-Briefcase 1,393, TB 4.0 28.3%, Dense-200 42% grounding, Surge code-quality #2) and no score change is warranted: verbosity, TB 4.0 and unpublished GPQA/HLE keep the caps. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Mistral-Large-4 page; the AA preview page and Vals/Surge rows confirmed the same reads. Prior pass (2026-10-09) used Mistral Large 4 launch post, Mistral docs model page, Artificial Analysis preview page.
 - Future sources: add a new file next to this one, e.g. `Mistral_Large_5.md`, using the same headings.

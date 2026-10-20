@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=longcat_2.5_preview",
   "pricingLinks": [
     "https://longcat.ai/platform/docs/pricing/longcat-2.5"
-  ]
+  ],
+  "standout": "Meituan’s open-weights preview for autonomous coding agents: 1M context at near-flat rates.",
+  "tradeoff": "Preview status — expect churn and thin guarantees while the line matures."
 }

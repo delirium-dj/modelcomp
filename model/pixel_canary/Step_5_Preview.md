@@ -1,7 +1,7 @@
 # Pixel Canary — findings by Step 5 Preview
 
 - Source: stealth (`stealth/pixel-canary`, Vercel AI Gateway)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -23,6 +23,8 @@ Next.js Agent Evals (nextjs.org/evals — open harness, vercel/next-evals-oss, r
 - Baseline: **90.3% — 28/31 tasks, tying GPT-6 Astra (high)**
 - With Next.js docs supplied via `AGENTS.md`: **96.8% — 30/31 tasks, tying the leaderboard's top score in that setting**
 - Same-run comparison (with docs → without): Claude Opus 5.5 (high) 97%→97%; GPT-6 Astra (high) 90%→97%; Gemini 3.8 Flash 90%→97%; Grok 4.7 94%→94%; Kimi K3 84%→97%
+
+Third-pass verification (2026-10-19): the stealth window closed ~2026-10-01 and the model is delisted — Artificial Analysis has no pixel-canary page (404, consistent with the "not yet scored" profile from the stealth period) and BenchLM has no pixel-canary page (404). No new evidence; the identity remains unconfirmed. No score change.
 - GPQA, SWE-bench, Terminal-Bench, LMArena, Artificial Analysis: **no verified public score found** — AA's profile lists both Intelligence and Coding indices as "not yet scored"
 
 ### Normalized scores (1–100)
@@ -39,6 +41,6 @@ Next.js Agent Evals (nextjs.org/evals — open harness, vercel/next-evals-oss, r
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Vercel changelog + AI Gateway model/stealth listings, nextjs.org/evals + next-evals-oss harness, stealthmodels.com and Command Code registry snapshots, HF blog coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both untracked — the delisted stealth model still has no independent tracker coverage and its identity is still unconfirmed; the Next.js eval harness rows on file stand. No score change. First pass (2026-10-09) used Vercel changelog + AI Gateway model/stealth listings, nextjs.org/evals + next-evals-oss harness, stealthmodels.com and Command Code registry snapshots, HF blog coverage.
 - Future sources: add a new file next to this one, e.g. `Glyph_Cluster.md`, using the same headings.

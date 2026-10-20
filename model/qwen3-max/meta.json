@@ -9,5 +9,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/qwen3-max/",
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models"
-  ]
+  ],
+  "standout": "Alibaba’s previous proprietary ceiling: thinking-mode coding agents at moderate flagship pricing.",
+  "tradeoff": "Text-only with a 262K window; the 3.7/3.8 Max generations have moved far past it."
 }

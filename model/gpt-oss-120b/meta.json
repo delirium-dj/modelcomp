@@ -16,5 +16,7 @@
     "https://huggingface.co/models?search=gpt-oss-120b",
     "https://deepinfra.com/pricing",
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The one-GPU open-weights reasoner: OpenAI’s Apache-2.0 MoE running strong math and coding on a single 80GB card.",
+  "tradeoff": "Open-weight but not open-training data, and successors in the gpt-oss line improved on it."
 }

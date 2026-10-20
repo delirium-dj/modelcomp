@@ -8,5 +8,7 @@
   "officialUrl": "https://huggingface.co/models?search=nemotron-3-nano-omni",
   "pricingLinks": [
     "https://docs.nvidia.com/nim/vision-language-models/1.7.0/examples/nemotron-3-nano-omni-30b-a3b-reasoning/api.html"
-  ]
+  ],
+  "standout": "The on-device omni: audio, vision and text reasoning from a 30B-A3B open model with a free hosted endpoint.",
+  "tradeoff": "Nano-class depth and a 262K ceiling — it senses and responds, frontier models conclude."
 }

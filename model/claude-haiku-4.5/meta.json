@@ -8,5 +8,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-haiku-4.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The original subagent workhorse: fast, cheap tool-calling that made orchestrator/worker stacks practical.",
+  "tradeoff": "Superseded by Haiku 5.5 (faster, cheaper, 1M context); legacy pinning only."
 }

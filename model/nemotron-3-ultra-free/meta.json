@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=nemotron-3-ultra-free",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The hybrid-architecture freebie: NVIDIA’s Mamba-MoE mix serving frontier-shaped reasoning and 1M context from open weights, free to try.",
+  "tradeoff": "Free-tier caps and a niche architecture mean ecosystem tooling lags standard transformer stacks."
 }

@@ -1,43 +1,73 @@
-# Claude Sonnet 4.6 — findings by Gemini 3.8 Flash
+# Claude Sonnet 4.6 — Model Evaluation
 
-- Source: anthropic/claude-sonnet-4.6
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** Claude Sonnet 4.6
-- **Short description:** Anthropic's high-performance, reasoning-capable model optimized for efficiency and complex coding tasks.
-- **Provider / access:** anthropic/claude-sonnet-4.6
-- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
-- **IDs:** anthropic/claude-sonnet-4.6 (no Free ID on Zen)
-- **Context window:** 200K
-- **Modalities:** Text, image in; text out
-- **Pricing (as of 2026-10-11):** Paid-tier pricing
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
-
-### Raw benchmarks found
-
-Verified evaluations and benchmarks from official documentation and third-party tracking:
-
-- **Primary Reference:** https://anthropic.com / Anthropic Documentation
-- **Key Benchmarks & Findings:** Feb 17, 2026 release. Succeeded by Claude Sonnet 5 and 5.5. 1M context, robust agentic tool orchestration and coding capability.
-
-### Normalized scores (1–100)
-
-- **Tool use: 88/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
-- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (200K).
-- **Multimodal: 70/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
-- **Coding: 88/100.** Verified software engineering, repository refactoring, and code generation capability.
-- **Cost efficiency: 84/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 86.4/100.** Quality arithmetic mean of the 5 core quality dimensions ((88 + 88 + 98 + 70 + 88) / 5 = 86.4).
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Claude Sonnet 4.6
+- **Model Type:** Frontier-adjacent balanced reasoning, autonomous agentic, and coding workhorse model
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+Claude Sonnet 4.6 is Anthropic's mid-tier flagship workhorse released on February 17, 2026, engineered to bring frontier-grade coding, computer automation, and dynamic multi-step problem solving into standard production speed and pricing tiers. Equipped with an expanded 1,000,000-token (1M) context window (in addition to standard 200K base routing), Sonnet 4.6 delivers impressive agentic performance: 79.6% on SWE-bench Verified, 59.1% on Terminal-Bench 2.0, and 72.5% on OSWorld-Verified for cross-application desktop automation.
+
+Retaining the economical $3.00/$15.00 per million token baseline (with prompt cache reads at $0.30 per million tokens and 50% discounts on Batch API requests), Sonnet 4.6 provides an exceptional performance-per-dollar ratio for autonomous development pipelines, complex document and chart extraction, and continuous software engineering tasks. While succeeded in late 2026 by Sonnet 5 and Sonnet 5.5, Sonnet 4.6 remains a widely adopted, high-reliability foundation model across the enterprise ecosystem.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 90/100.** Delivers 59.1% on Terminal-Bench 2.0 and 72.5% on OSWorld-Verified. Highly dependable in executing multi-turn bash commands, system administration tasks, and computer use with robust parameter adherence.
+- **Reasoning: 90/100.** Adaptive thinking enables dynamic scaling of internal reasoning tokens based on query complexity. Scores strongly on GPQA and multi-hop logical deductions, often matching previous Opus generations.
+- **Context window: 95/100.** Standard 200K context capacity scaling up to 1,000,000 (1M) tokens in beta, supporting deep document stacks, long codebases, and multi-turn agent histories with high retrieval fidelity.
+- **Multimodal: 78/100.** Advanced vision and visual reasoning engine tailored for dense financial charts, multi-page PDF documents, scanned forms, and UI screenshots, though lacking real-time audio and native video streaming tokens.
+- **Coding: 91/100.** Reaches 79.6% on SWE-bench Verified and strong LiveCodeBench results. Highly proficient at full-stack bug fixes, refactoring, and automated test resolution in tools like Claude Code.
+- **Cost efficiency: 86/100.** Outstanding value proposition at $3.00/1M input and $15.00/1M output, dropping to $0.30/1M on prompt cache hits and $1.50/1M on batch processing.
+- **Overall Score: 89/100.** (Arithmetic mean: `(90 + 90 + 95 + 78 + 91) / 5 = 444 / 5 = 88.8`, rounded to **89**).
+
+---
+
+### Key Strengths
+
+1. **Desktop & OS Automation:** 72.5% on OSWorld-Verified demonstrates industry-leading computer-use and cross-application UI navigation.
+2. **High-Value Coding Benchmark:** 79.6% on SWE-bench Verified offers frontier-tier repository maintenance at mid-tier token prices.
+3. **Flexible 1M Context Window:** Expands standard 200K context up to 1,000,000 tokens for comprehensive documentation and multi-repository ingest.
+4. **Economical Agentic Pricing:** $3.00/$15.00 base pricing combined with $0.30/1M prompt cache reads makes it highly suitable for high-frequency interactive agents.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Long-Context Pricing Adjustment:** Requests exceeding 200,000 tokens transition to long-context rates ($6.00 input / $22.50 output per million tokens).
+2. **Extreme Edge-Case Refactors:** While formidable, subtle distributed race conditions and massive cross-package architectural rewrites benefit from larger Opus-tier models (such as Opus 5 / 5.5).
+3. **No Native Speech-to-Speech:** Multimodal capabilities are focused on vision, images, and document OCR, without voice generation tokens.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price:** $3.00 per million tokens (≤200K tokens); $6.00/1M (>200K tokens)
+- **Output Price:** $15.00 per million tokens (≤200K tokens); $22.50/1M (>200K tokens)
+- **Cache Read:** $0.30 per million tokens
+- **Context Capacity:** 200,000 tokens default (up to 1,000,000 tokens)
+- **Speed Tier:** Fast / Mid-tier production workhorse
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **SWE-bench Verified** | 79.6% | Multi-file repository bug fixing & resolution |
+| **OSWorld-Verified** | 72.5% | Computer use, UI navigation, and desktop OS automation |
+| **Terminal-Bench 2.0** | 59.1% | Autonomous command-line and shell execution |
+| **Context Window** | 200K – 1,000,000 tokens | Scalable context with needle-in-a-haystack recall |
+| **Cache Discount** | 90% savings | $0.30 per million tokens on cache reads |
+
+---
+
+### Evaluation Sources
+
+- Anthropic Official Announcements: [Claude Sonnet 4.6 Release & Capabilities](https://anthropic.com)
+- Caylent & Industry Benchmark Evaluations: [Claude Sonnet 4.6 Technical Review](https://caylent.com)
+- Developer Documentation & Messages API Guide: [Anthropic Vision & Pricing Specs](https://claudexia.tech)

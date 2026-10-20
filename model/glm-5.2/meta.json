@@ -9,5 +9,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The MIT flagship before 5.3: long-horizon coding agents with self-host freedom and honest benchmarking.",
+  "tradeoff": "Superseded by GLM-5.3’s higher verified scores at the same open-weights posture."
 }

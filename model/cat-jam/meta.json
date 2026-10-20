@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://opencode.ai/v2/docs/console/models/"
-  ]
+  ],
+  "standout": "The speed-demon mystery: an anonymous free 1M-context coder that laps through agentic loops.",
+  "tradeoff": "Identity and benchmarks unverified — enjoy it while the free lane lasts."
 }

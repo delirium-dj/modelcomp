@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=laguna-xs-2.1",
   "pricingLinks": [
     "https://openrouter.ai/poolside/laguna-xs-2.1"
-  ]
+  ],
+  "standout": "The laptop-agent entry point: full agentic coding from a 3B-active MoE that fits a 36GB Mac.",
+  "tradeoff": "A 3B active budget bounds how far chains of reasoning can go before quality drops."
 }

@@ -1,0 +1,38 @@
+## JEV 1.13
+
+- **Name:** JEV 1.13
+- **Short description:** TypeSafe AI's System-One typed-decision model (not generative text). Outputs structured decisions (Choice/Score/Noul) for routing, triage, classification. 64K state budget, 136.5ms median latency, $0.042/M input, output free.
+- **Provider / access:** TypeSafe AI (proprietary API) — served via `POST /v1/systemone` endpoint. Model ID `jev-1.13.0`, alias `jev-latest`. Python/JS SDKs available.
+- **Release / knowledge:** Current stable release as of Oct 2026; JEV 1.14 preview available Oct 14, 2026. Knowledge cutoff not applicable (decision model, not knowledge retrieval).
+- **IDs:** `jev-1.13.0` (versioned), `jev-latest` (alias), `jev-preview` (points to 1.14).
+- **Context window:** 64K per-request (state + all questions); 32K per-question (state + one question). Long context header (`TypeSafe-Danger-Zone-Long-Context: true`) raises both to 262K.
+- **Modalities:** Text in → typed decision out (Choice/Score/Noul). No image, audio, video input. No generative text output.
+- **Pricing:** $0.042/M input tokens (per Btok $42); output tokens free (no autoregressive generation). Long context same per-token price.
+
+### Raw benchmarks found
+- **JEV 1.13 Jaggedness:** Accuracy vs. state growth documented at `/model-jaggedness/jev-1.13` (accuracy shifts as state grows).
+- **Speculative Fan-out:** Pattern for packing many questions into one request (`/patterns/fan-out`).
+- **Composite Scoring:** Pattern for decomposing broad judgments into atomic questions (`/patterns/composite-scoring`).
+- **AutoResearch Cookbook:** Training downstream classical model on JEV's probabilities (`/cookbooks/autoresearch_feature_discovery`).
+- **Standard NLP Benchmarks (MMLU, GPQA, HLE, etc.):** Not applicable — JEV is not a generative LLM; it does not produce free-form text.
+- **Coding Benchmarks (SWE-Bench, LiveCodeBench, etc.):** Not applicable — JEV does not generate code.
+- **Agentic Benchmarks (Terminal-Bench, Tau2, MCP Atlas, etc.):** Not applicable — JEV is a decision primitive, not an agent.
+- **Multimodal Benchmarks (MMMU, MathVision, etc.):** Not applicable — text-only input.
+- **Claw-Eval / BenchLM / Artificial Analysis / Vals AI / Epoch AI:** Not evaluated (different model class).
+- **Latency:** 136.5ms median (per TypeSafe docs).
+- **Rate limits:** Per-organization (tokens/sec, requests/sec); 429 on exceed, SDKs auto-retry.
+- **Data handling:** Zero data retention (ZDR) for enterprise; not trained on customer requests.
+
+### Normalized scores (1–100)
+> **Note:** JEV 1.13 is a **typed-decision model (System One)**, not a generative LLM. The standard 5-dimension scoring (Tool use, Reasoning, Context, Multimodal, Coding) does not apply directly. Scores below reflect decision-model equivalents where meaningful; N/A where inapplicable.
+
+- **Tool use: 0/100.** JEV does not call tools; it *is* a tool (decision primitive) called by agents. It evaluates questions against a provided state in parallel. Not applicable for decision models.
+- **Reasoning: N/A.** JEV performs calibrated decision-making (Choice/Score/Noul), not chain-of-thought reasoning. Accuracy on decision tasks (classification, extraction, compliance) is its quality metric — not benchmarked on GPQA/HLE.
+- **Context window: 65/100.** 64K per-request / 32K per-question default (methodology: 200K = 70; 64K ≈ 55-60). Long context 262K available via header.
+- **Multimodal: 10/100.** Text-only input; no image/audio/video. Output is structured decision (not text).
+- **Coding: N/A.** Does not generate code. Used for code-related decisions (e.g., "does this PR introduce a bug?") via questions.
+- **Cost efficiency: 95/100.** $0.042/M input, output free — extremely cheap for decision API. No autoregressive generation cost.
+- **Overall Score: N/A.** Not a generative model; excluded from generative Overall ranking (per model-comparison.md v7: decision models separated at render time, own shelf, excluded from A/B/C compare slots, never ranked against generative Overall).
+
+---
+*Category: decision (System One). Per model-comparison.md v7, decision models curated with `category: decision` in meta.json, separated from generative models in site render. This report documents decision-model capabilities for completeness; scores not comparable to generative models.*

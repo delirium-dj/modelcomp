@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=exo-free",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The no-name test lane: an anonymous 1M-context route for feedback-period experiments at zero cost.",
+  "tradeoff": "Lab unknown, no benchmarks published — strictly experimental."
 }

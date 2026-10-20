@@ -16,5 +16,7 @@
     "https://huggingface.co/upstage/Solar-Open2-250B",
     "https://huggingface.co/upstage/Solar-Open2-250B",
     "https://upstage.ai/pricing"
-  ]
+  ],
+  "standout": "The 1M-context open MoE that posts top live-coding scores while running on just two quantized accelerators.",
+  "tradeoff": "Self-hosting demands H200-class hardware; hosted availability is thin."
 }

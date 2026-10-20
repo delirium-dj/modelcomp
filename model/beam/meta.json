@@ -16,5 +16,7 @@
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
     "https://artificialanalysis.ai/models/reflection-beam"
-  ]
+  ],
+  "standout": "Reflection AI’s open sparse MoE: verified coding scores that embarrass many flagships, under Apache-2.0.",
+  "tradeoff": "A short served window and text-only input narrow where its strength applies."
 }

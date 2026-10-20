@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=mai-thinking-1",
   "pricingLinks": [
     "https://microsoft.ai/news/introducing-mai-thinking-1/"
-  ]
+  ],
+  "standout": "Microsoft’s trillion-parameter in-house reasoner: hard-reasoning and code work tuned for the Microsoft AI stack.",
+  "tradeoff": "A 256K window and Microsoft-first surface limit where its scale pays off."
 }

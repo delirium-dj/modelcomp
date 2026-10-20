@@ -62,7 +62,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
-4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`, `gemini-3.1-flash`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
+4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`, `gemini-3.1-flash`, `space-bunny`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
 ```
 
 ---
@@ -149,13 +149,28 @@ After that, check existence only for the folder you are currently writing (one c
        IDs, never by analogy; `RULES.md` coding-suffix identity). A
        merged/renamed `-coding` slug on disk is skipped entirely and surfaced,
        never queued or written.
-       **Retired-alias check:** a slug the vendor lists as an alias of a
-       tracked model is never a folder — check `RETIRED_ALIAS_SLUGS` in
-       `scripts/lib/validate.mjs` (e.g. `grok-code-fast-1` → write into
-       `model/grok-build-0.1/`, never scaffold `model/grok-code-fast-1/`;
-       `RULES.md` retired-alias identity). Figures measured under the retired
-       slug are lineage data: cite them only labelled with the ID actually
-       measured, never silently merged into the canonical model's scores.
+        **Retired-alias check:** a slug the vendor lists as an alias of a
+        tracked model is never a folder — check `RETIRED_ALIAS_SLUGS` in
+        `scripts/lib/validate.mjs` (e.g. `grok-code-fast-1` → write into
+        `model/grok-build-0.1/`, never scaffold `model/grok-code-fast-1/`;
+        `RULES.md` retired-alias identity). Merged reasoning-alias slugs
+        likewise: `grok-4-fast-reasoning` → `model/grok-4-fast/`,
+        `grok-4.1-fast-reasoning` → `model/grok-4.1-fast/`
+        (`MERGED_MODEL_SLUGS` there; `RULES.md` Grok Fast reasoning-alias
+        identity). A revealed stealth name resolves to the revealed model:
+        `Space Bunny` / `Space Bunny Alpha` / `Space Bunny Free` = **MiniMax
+        M3.1 Flash (Free)** → write into `model/minimax-m3.1-flash-preview/`,
+        never scaffold `model/space-bunny/` (`RULES.md` revealed-stealth
+        identity). Likewise `Union Alpha` / `stealth/union-alpha` /
+        `opencode/union-alpha` = **Pareto 26.9** (Unbiased composite) →
+        research lives in `model/union-alpha/` (the 26.9 record, kept
+        tracked) — never scaffold `model/pareto-26.9/` or
+        `model/unbiased-pareto/`; Pareto 26.10 is the separate
+        `pareto-26.10-preview/`; the circulated DeepSWE ~74% is GPT-6
+        Astra's number, Pareto is 69.9–70.0% (`RULES.md` Pareto alias
+        identity). Figures measured under the retired
+        slug are lineage data: cite them only labelled with the ID actually
+        measured, never silently merged into the canonical model's scores.
       **Display-name check (GPT):** when the discovered model is an OpenAI GPT
       model, its `meta.json` `name` and your report's Model-card `Name:` use the
       hyphenated vendor style (`GPT-5.6 Terra`, `GPT-OSS 120B` — never

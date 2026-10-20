@@ -16,5 +16,7 @@
     "https://huggingface.co/google/diffusiongemma-26B-A4B-it",
     "https://build.nvidia.com/google/diffusiongemma-26b-a4b-it/modelcard",
     "https://nano-gpt.com/pricing"
-  ]
+  ],
+  "standout": "A genuinely different engine: an open text-diffusion MoE generating over a thousand tokens per second for local OCR, infilling and drafting.",
+  "tradeoff": "Not built for agentic loops — a fast local generator, not a reasoner."
 }

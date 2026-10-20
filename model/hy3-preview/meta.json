@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=hy3-preview",
   "pricingLinks": [
     "https://hunyuan.tencent.com/announcements/hy3"
-  ]
+  ],
+  "standout": "Tencent’s preview MoE that opened the Hy line: 256K-context coding and agents from day one.",
+  "tradeoff": "Superseded by the full release; text-only preview status."
 }

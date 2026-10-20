@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-sante",
   "pricingLinks": [
     "https://vercel.com/ai-gateway/pricing"
-  ]
+  ],
+  "standout": "The health-domain specialist: Ling 3.0 Flash retuned for medical reasoning and retrieval-grade search.",
+  "tradeoff": "API-only, explicitly not a medical device — professional oversight stays mandatory."
 }

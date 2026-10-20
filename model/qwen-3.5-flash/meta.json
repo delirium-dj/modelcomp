@@ -6,5 +6,7 @@
   "modalities": "Text in/out (vision support unverified)",
   "pricingNote": "~$0.065/$0.26 per 1M (OpenRouter qwen3.5-flash-02-23)",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/"
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/",
+  "standout": "The hosted multimodal flash lane: fast, cheap agentic work over Alibaba’s Model Studio.",
+  "tradeoff": "Hosted-only and superseded by the 3.6/3.7 flash tiers."
 }

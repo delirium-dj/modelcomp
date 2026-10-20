@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=hy3",
   "pricingLinks": [
     "https://hunyuan.tencent.com/announcements/hy3"
-  ]
+  ],
+  "standout": "Tencent’s budget open-weights coder: strong science-question scores at some of the lowest serving costs around.",
+  "tradeoff": "Text-only and mid-tier on terminal tasks — breadth lives in the bigger Hy generations."
 }

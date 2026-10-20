@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash",
   "pricingLinks": [
     "https://huggingface.co/inclusionAI/Ling-3.0-flash"
-  ]
+  ],
+  "standout": "The open reasoning Flash: MIT weights tuned for coding agents and tool loops at flash-class serving costs.",
+  "tradeoff": "Small-active depth caps the hardest reasoning; the Ling 3.1 line is the upgrade path."
 }

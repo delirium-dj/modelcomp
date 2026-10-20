@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5-codex/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The codex variant that carried the GPT-5 generation into repo-scale agentic coding.",
+  "tradeoff": "A generation behind the current codex line — historical baseline rather than a choice."
 }

@@ -16,5 +16,7 @@
     "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "https://build.nvidia.com/",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-  ]
+  ],
+  "standout": "The 11B open-vision veteran: image QA and captioning that ran anywhere while bigger models needed data centers.",
+  "tradeoff": "Aging fast — 4K output caps and newer successors limit it to compatibility roles."
 }

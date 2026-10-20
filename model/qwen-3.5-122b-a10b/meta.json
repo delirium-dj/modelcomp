@@ -6,5 +6,7 @@
   "modalities": "Text, image, video in; text out",
   "pricingNote": "~$0.26/$2.08 per 1M (OpenRouter/SiliconFlow); Apache 2.0 self-host $0",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B",
+  "standout": "The vision-language agent MoE: image-in reasoning plus tool use at a friendly active-parameter budget.",
+  "tradeoff": "Apache weights mean self-hosting the full 122B stack — or trusting third-party hosts."
 }

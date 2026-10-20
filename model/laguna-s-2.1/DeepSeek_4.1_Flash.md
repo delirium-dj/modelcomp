@@ -1,9 +1,11 @@
 # Laguna S 2.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Poolside/Laguna S 2.1 (`poolside/laguna-s-2.1`, served as `laguna-s-2.1`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`laguna-s-2-1`) still carries only the 6 Poolside self-reported rows (TB2.1 70.2%, Toolathlon-Verified 49.7%, SWE Multilingual 78.5%, SWE-bench Pro 59.4%, DeepSWE 40.4%) and assigns **no overall score**; no new independent evidence. **No score change** (Tool 62 / Reasoning 52 / Context 95 / Multimodal 15 / Coding 68 / Cost 98 / Overall 58).
 
 ## Model card
 
@@ -66,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: Public internet research from zero — Poolside launch post and docs, LLM Stats model page (specs, pricing incl. cached-input, licence, launch date re-verified 2026-10-06), Traictory model catalogue, RankLLMs leaderboard, BenchLM model record (which re-confirms the same six sourced rows and still assigns no public overall score). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_4.md`, using the same headings.

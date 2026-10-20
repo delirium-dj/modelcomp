@@ -16,5 +16,7 @@
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://build.nvidia.com/",
     "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16"
-  ]
+  ],
+  "standout": "The always-on executor: a Mamba-2 hybrid priced to run agent loops continuously, with a free tier on top.",
+  "tradeoff": "Entry-level verified coding — execution speed is the point, not depth."
 }

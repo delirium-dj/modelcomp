@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 42.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 66/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 72.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 15/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 66.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 82.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 52.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 59.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 66/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 88.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 54.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 69/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 93.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 67.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 2 below-gate source(s): Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
-- Average from top 2 by Overall Score: Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Average from top 3 by Overall Score: Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

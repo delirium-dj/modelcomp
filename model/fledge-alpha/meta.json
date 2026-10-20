@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=fledge-alpha",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "The mystery-meat bargain: an unnamed vendor’s 1M-context coding preview served free, quietly posting near-frontier science scores.",
+  "tradeoff": "Discontinued with no successor — a reminder that free stealth tiers can vanish without notice."
 }

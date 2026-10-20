@@ -8,5 +8,7 @@
   "officialUrl": "https://huggingface.co/models?search=mai-experimental-test",
   "pricingLinks": [
     null
-  ]
+  ],
+  "standout": "The pipeline probe: a text-only sandbox model for exercising integration and eval plumbing.",
+  "tradeoff": "Exploratory status with no verified benchmarks — it tests systems, not models."
 }

@@ -1,12 +1,15 @@
 {
-  "id": "opencode/claude-sonnet-3.7",
+  "id": "anthropic/claude-sonnet-3.7",
   "name": "Claude Sonnet 3.7",
-  "short": "Anthropic's hybrid-reasoning Sonnet (200K) for coding; shut down, replaced by Sonnet 4.6, SWE-Verified 61.0%.",
-  "contextWindow": "200,000 total; 64,000 max out (extended thinking)",
+  "short": "Anthropic's February 2025 hybrid-reasoning Sonnet (200K) that introduced user-visible extended thinking; SWE-bench Verified 63.7% (70.3% high compute), retired from the API 2026-02-19.",
+  "contextWindow": "200,000 total; 128,000 max out per Anthropic (models.dev lists 64,000 for the dated id)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input",
-  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-3.7",
+  "pricingNote": "$3.00/$15.00 per 1M in/out; $0.30 cached input (retired - gateway rates only)",
+  "noFreeId": true,
+  "officialUrl": "https://www.anthropic.com/news/claude-3-7-sonnet",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The hybrid-reasoning pioneer: the Sonnet that introduced choose-your-depth thinking to the family.",
+  "tradeoff": "Shut down entirely and replaced by Sonnet 4.6+; historical significance only."
 }

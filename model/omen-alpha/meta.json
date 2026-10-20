@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/",
     "https://tokenra.io/"
-  ]
+  ],
+  "standout": "The zero-retention stealth pick: an anonymous reasoning model served cheaply with a strict no-training posture.",
+  "tradeoff": "Vendor unknown and scores thin — tempting for privacy, risky for production."
 }

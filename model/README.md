@@ -175,7 +175,14 @@ identity;
 ships no bare `gemini-3.1-flash` text model (DeepMind card, Google Cloud
 docs, OpenRouter, AA, BenchLM all 404 it; the only 3.1 Flash text SKU is
 `gemini-3.1-flash-lite`, already tracked) — folder findings scored
-Flash-Lite data — RULES.md phantom unsuffixed-name identity) — is parked, never
+Flash-Lite data — RULES.md phantom unsuffixed-name identity;
+`space-bunny`, parked 2026-10-20 — revealed stealth model: OpenCode's
+Space Bunny / Space Bunny Alpha / Space Bunny Free was **MiniMax M3.1 Flash
+(Free)** all along (models.dev `base_model = minimax/MiniMax-M3.1-Flash`,
+released 2026-10-19; OpenCode console commit "Reveal Space Bunny as MiniMax
+M3.1 Flash Free"; MiniMax tokenizer fingerprints 24/24 and 36/36) — one
+model, three stealth names, never a separate checkpoint — RULES.md
+revealed-stealth identity) — is parked, never
 deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
@@ -309,16 +316,50 @@ base slug instead of scaffolding a tier folder:
   again, and never drop the `-Lite` suffix when citing the real model.
   Gemini 3.1 Flash **Live** is a voice model → `models_voice/` (RULES.md
   domain routing).
-- `space-bunny/` covers **every** name this anonymous stealth model ships
-   under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
+- `space-bunny/` covers **every** name MiniMax's stealth model shipped under:
+   `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
    `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,
    limited-time $0 tier). All three verified as the same weights 2026-10-02;
    renamed from `space-bunny-alpha/` so the marketplace suffix can never read
-   as a separate model. Never create `model/space-bunny-alpha/` or
+   as a separate model. **Revealed 2026-10-19 as MiniMax M3.1 Flash (Free)**
+   — models.dev `base_model = minimax/MiniMax-M3.1-Flash` (released
+   2026-10-19; OpenCode/OpenCode Go serve `minimax-m3.1-flash-free` at $0/$0,
+   the id that replaced `space-bunny-free` on Zen); OpenCode console commit
+   "docs(console): reveal Space Bunny as MiniMax M3.1 Flash Free".
+   `model/space-bunny/` was parked 2026-10-20 (RULES.md revealed-stealth
+   identity) — searching "Space Bunny" resolves to **MiniMax M3.1 Flash**;
+   research belongs in `model/minimax-m3.1-flash-preview/` — never create
+   `model/space-bunny/`, `model/space-bunny-alpha/` or
    `model/space-bunny-free/` again.
+- `grok-4-fast/` covers **every** name xAI's Grok 4 Fast ships under —
+   `Grok 4 Fast` (canonical, `grok-4-fast`) and `grok-4-fast-reasoning`
+   (docs.x.ai lists `grok-4-fast` as an alias of `grok-4-fast-reasoning`;
+   same 2M window, same $0.20/$0.50; reasoning vs non-reasoning is
+   system-prompt steering of one checkpoint — xAI Grok 4 Fast announcement).
+   `model/grok-4-fast-reasoning/` was merged into `model/grok-4-fast/`
+   2026-10-20 (RULES.md Grok Fast reasoning-alias identity) — never create
+   it again. Grok 4 Fast ≠ Grok 4 (`grok-4/`, flagship 256K, $3/$15).
+- `grok-4.1-fast/` covers **every** name xAI's Grok 4.1 Fast ships under —
+   `Grok 4.1 Fast` (canonical, `grok-4.1-fast`) and
+   `grok-4.1-fast-reasoning` (docs.x.ai aliases `grok-4-1-fast` ←
+   `grok-4-1-fast-reasoning`; same 2M window, same $0.20/$0.50).
+   `model/grok-4.1-fast-reasoning/` was merged into `model/grok-4.1-fast/`
+   2026-10-20 (RULES.md Grok Fast reasoning-alias identity) — never create
+   it again. Grok 4.1 Fast ≠ Grok 4.1 (`grok-4.1/`, flagship).
 - `gemini-2.5-flash-lite/` covers **every** name this Google model ships
    under: `Gemini 2.5 Flash Lite` (canonical, `google/gemini-2.5-flash-lite`,
    1M context, multimodal) and the vendor-prefixed alias
    `opencode/google-gemini-2.5-flash-lite` (same weights, Zen gateway route).
    Merged from `model/google-gemini-2.5-flash-lite/` 2026-10-06 — never create
    `model/google-gemini-2.5-flash-lite/` again.
+- `union-alpha/` covers **every** name Unbiased's Pareto 26.9 composite
+   shipped under: `Union Alpha` (canonical), OpenRouter
+   `stealth/union-alpha`, OpenCode Zen `opencode/union-alpha` (free preview),
+   Cloudflare, and the current paid ID `unbiased/pareto`. Revealed
+   2026-09-17/18 as **Pareto 26.9** (Circuit & Chisel via Unbiased; blends
+   GPT-6 Astra + DeepSeek + GLM per request; 262,144 ctx, $2.50/$7.50).
+   This folder IS the 26.9 record — never create `model/pareto-26.9/` or
+   `model/unbiased-pareto/`; the successor is the separate
+   `pareto-26.10-preview/`. The circulated "DeepSWE ~74%" is GPT-6 Astra's
+   number — Pareto 26.9 is 70.0%, 26.10 is 69.9% (RULES.md Pareto alias
+   identity).

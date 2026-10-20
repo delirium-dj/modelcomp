@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Step 5 Preview
 
 - Source: Mistral AI (`mistral-medium-3.5`, model ID `mistral-medium-2604`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,8 @@ Artificial Analysis (as reported on OpenRouter, current index version):
 
 Notably absent from Mistral's launch materials: MMLU, AIME, MMMU, HumanEval, MATH — **no verified public score found** for those.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no mistral-medium-3.5 page (404 on the natural slug) and BenchLM has no mistral-medium-3.5 page (404) — both trackers untracked for this April-2026 model; the AA-via-OpenRouter rows on file remain the only independent evidence. No new data — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 60/100.** τ²-Bench Telecom 94.2% and vendor τ³-Telecom 91.4% are strong, and it is explicitly built for agentic work (powers Vibe); pulled back to mid-band by τ-Bench Banking 15.1%, GDPval-AA 13.2% and an Agentic Index of 7.0 — excellent in one domain, weak in others.
@@ -50,6 +52,6 @@ Notably absent from Mistral's launch materials: MMLU, AIME, MMMU, HumanEval, MAT
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Mistral docs + HF model card, Artificial Analysis via OpenRouter/OpenKey, llm-stats, TechSifted review); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both untracked for this model — no new independent evidence; the AA-via-OpenRouter rows on file stand and no score change is warranted. First pass (2026-10-09) used Mistral docs + HF model card, Artificial Analysis via OpenRouter/OpenKey, llm-stats, TechSifted review.
 - Future sources: add a new file next to this one, e.g. `Mistral_Large.md`, using the same headings.

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=mai-code-1-flash",
   "pricingLinks": [
     "https://github.com/features/copilot/plans"
-  ]
+  ],
+  "standout": "The token-thrifty VS Code agent: a sparse-MoE coder that finishes many tasks with far fewer tokens than its peers.",
+  "tradeoff": "Verified scores sit in the mid-pack; it wins on efficiency, not capability."
 }

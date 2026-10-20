@@ -238,6 +238,46 @@ override.
   again, and never drop the `-Lite` suffix when citing
   `gemini-3.1-flash-lite`. (Gemini 3.1 Flash **Live** is a voice model and
   routes to `models_voice/` — RULES.md domain routing.)
+- **Revealed-stealth identity (absolute — `space-bunny` parked 2026-10-20):**
+  OpenCode's anonymous stealth model `Space Bunny` / `Space Bunny Alpha`
+  (OpenRouter `stealth/space-bunny-alpha`) / `Space Bunny Free` (OpenCode Zen
+  `space-bunny-free`) was revealed 2026-10-19 as **MiniMax M3.1 Flash (Free)**.
+  Evidence: models.dev lists `MiniMax-M3.1-Flash` (released 2026-10-19) with
+  `base_model` linking the stealth slot and OpenCode/OpenCode Go providers
+  serving `minimax-m3.1-flash-free` at $0/$0 — the id that replaced
+  `space-bunny-free` on Zen; OpenCode's own console commit
+  "docs(console): reveal Space Bunny as MiniMax M3.1 Flash Free"; MiniMax
+  tokenizer fingerprints (stealthprint: 24/24 exact, MAE 0.00, ≥1M context,
+  same-gateway delta vector as `minimax-m3`/`minimax-m2.5`; @MarMarLabs 36/36);
+  MiniMax's own M3 deployment answering as Space Bunny on benchmark
+  leaderboards. One model, three stealth names, then the vendor's own free id —
+  never a separate checkpoint. Resolution is PARKING, not deletion: the folder
+  stays on disk and in git (permanence — its `average.md` stays a gate
+  input), is hidden from the site and omitted from the research queue via both
+  `RETIRED_SLUGS` lists. Research belongs in `model/minimax-m3.1-flash-preview/`
+  (the tracked M3.1 Flash checkpoint; the GA `MiniMax-M3.1-Flash` and the Zen
+  `minimax-m3.1-flash-free` slot are the revealed continuation) — never
+  scaffold `model/space-bunny/`, `model/space-bunny-alpha/`, or
+  `model/space-bunny-free/` again. Searching "Space Bunny" resolves to
+  **MiniMax M3.1 Flash** — the stealth name is an alias, never a model.
+- **Pareto alias identity (absolute — `union-alpha` kept tracked 2026-10-20):**
+  `Union Alpha` (OpenRouter `stealth/union-alpha`, OpenCode Zen
+  `opencode/union-alpha`, Cloudflare) was a free stealth preview
+  (2026-09-16 → ~18, ~33 h window) of **Unbiased's Pareto 26.9** composite —
+  Circuit & Chisel (ex-Stripe founders) blends GPT-6 Astra + DeepSeek + GLM
+  per request and keeps the best answer: a **composite/router product, not a
+  checkpoint**. Revealed 2026-09-17/18; specs match exactly (262,144 ctx /
+  131,072 out; $2.50 in / $0.25 cached / $7.50 out on `unbiased/pareto`).
+  `model/union-alpha/` IS the Pareto 26.9 record — **kept tracked** (unlike
+  space-bunny: no separate `pareto-26.9` folder exists, so nothing to park
+  into; the folder stays the 26.9 entry). Never scaffold `model/pareto-26.9/`
+  or `model/unbiased-pareto/` — research lives in `model/union-alpha/`. The
+  successor **Pareto 26.10** (1M ctx, $0.80/$3.20/$0.03) is the separate
+  tracked entry `pareto-26.10-preview/` — never merge the two. **DeepSWE
+  conflation:** the "~74%" circulated for Union Alpha/Pareto 26.9 is
+  **GPT-6 Astra's 74.0%** from Unbiased's own comparison table — Pareto
+  26.9's own DeepSWE is **70.0%** (30-task slice, $0.29/task) and 26.10's is
+  **69.9%** ($0.24/task) per the live vendor card; never cite 74% as Pareto's.
 - **Family-shorthand identity (general rule):** a bare family or base name
   with no distinct vendor ID is never scaffolded as a new folder. Before
   creating a folder for a short/base name, verify a distinct vendor route
@@ -291,6 +331,21 @@ override.
   figures measured under the retired slug stay labelled with their measured
   ID. A genuinely new alias case needs per-instance user sign-off with the
   vendor alias list cited before it joins the map.
+- **Grok Fast reasoning-alias identity (merged 2026-10-20):** docs.x.ai lists
+  `grok-4-fast` as an alias of `grok-4-fast-reasoning` (one model: 2M context,
+  $0.20/$0.50; xAI's Grok 4 Fast announcement: reasoning and non-reasoning are
+  "handled by the same model weights", steered via system prompts), and
+  `grok-4-1-fast` as an alias of `grok-4-1-fast-reasoning` for 4.1. The
+  scaffolded `model/grok-4-fast-reasoning/` and `model/grok-4.1-fast-reasoning/`
+  stub folders duplicated the tracked `model/grok-4-fast/` and
+  `model/grok-4.1-fast/` folders; on user order their findings were folded into
+  the canonical folders (newer same-stem reports won, per the merge precedent)
+  and the duplicate folders deleted. Both slugs are in `MERGED_MODEL_SLUGS`
+  (`scripts/lib/validate.mjs`) plus a pre-commit block: never recreate
+  `model/grok-4-fast-reasoning/` or `model/grok-4.1-fast-reasoning/`.
+  Distinct models in the same families stay separate: `grok-4` (flagship,
+  256K, $3/$15) vs `grok-4-fast` (2M, $0.20/$0.50), and `grok-4.1` vs
+  `grok-4.1-fast` — never merge those pairs.
 
 ## Scoring rules
 

@@ -123,6 +123,14 @@ describe("merged duplicate slugs (never come back)", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("glm-5.1-coding"), "glm-5.1");
   });
 
+  it("maps grok-4-fast-reasoning to its canonical folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("grok-4-fast-reasoning"), "grok-4-fast");
+  });
+
+  it("maps grok-4.1-fast-reasoning to its canonical folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("grok-4.1-fast-reasoning"), "grok-4.1-fast");
+  });
+
   it("message names both slugs and the canonical research route", () => {
     const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
     assert.match(msg, /google-gemini-2\.5-flash-lite/);

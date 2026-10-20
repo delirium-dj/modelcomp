@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://docs.z.ai/guides/overview/pricing"
-  ]
+  ],
+  "standout": "The codebase-Q&A freebie: a stealth 200K-context reasoner served free for understanding large repos.",
+  "tradeoff": "Vendor unknown and a single verified benchmark — use for exploration, not production."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-bolt-e4b",
   "pricingLinks": [
     "https://huggingface.co/models?search=nemotron-3.5-bolt-e4b"
-  ]
+  ],
+  "standout": "The Bolt family’s edge promise: a ~4B open model for on-device conversation and tool calls.",
+  "tradeoff": "Announced, unreleased — specs and scores remain unverified."
 }

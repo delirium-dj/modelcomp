@@ -9,5 +9,7 @@
   "officialUrl": "https://www.deepseek.com/",
   "pricingLinks": [
     "https://api-docs.deepseek.com/quick_start/pricing"
-  ]
+  ],
+  "standout": "The competition medalist: olympiad-level math and informatics from open weights with sparse-attention efficiency.",
+  "tradeoff": "A 164K window and the older V3 architecture — the V4 line is the one to build on."
 }

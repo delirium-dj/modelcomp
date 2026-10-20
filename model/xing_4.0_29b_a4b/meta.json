@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-FP8"
-  ]
+  ],
+  "standout": "The Ascend-trained operator: China Telecom’s small-active open MoE for coding and terminal agents on domestic silicon.",
+  "tradeoff": "Text-only and modest ceiling — specialized for its silicon ecosystem rather than raw capability."
 }

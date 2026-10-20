@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=north_mini_code",
   "pricingLinks": [
     "https://openrouter.ai/cohere/north-mini-code:free"
-  ]
+  ],
+  "standout": "The research gift: Cohere Labs’ Apache-2.0 code MoE with a 64K output window and a genuinely $0 rate card.",
+  "tradeoff": "A research release, not a product — no SLA and mid-tier verified scores."
 }

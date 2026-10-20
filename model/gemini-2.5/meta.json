@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "A parked alias pointing at the Gemini 2.5 Pro flagship — kept so old links resolve to the real page.",
+  "tradeoff": "Alias only: use gemini-2.5-pro for actual data."
 }

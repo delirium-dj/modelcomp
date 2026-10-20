@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=jev-1.13",
   "pricingLinks": [
     "https://docs.typesafe.ai/models"
-  ]
+  ],
+  "standout": "Not a chat model at all: a typed-decision System-One engine returning judgments in ~137ms for routing and triage.",
+  "tradeoff": "No generative text — it fits routing/triage slots in a pipeline, not assistant roles."
 }

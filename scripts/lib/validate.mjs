@@ -31,6 +31,13 @@ export const MERGED_MODEL_SLUGS = new Map([
   ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
   ["glm-5.1-coding", "glm-5.1"],
   ["embe-1", "ember-1"],
+  // xAI reasoning-alias merges (RULES.md Grok Fast reasoning-alias identity,
+  // 2026-10-20): docs.x.ai lists grok-4-fast as an alias of grok-4-fast-reasoning
+  // and grok-4-1-fast of grok-4-1-fast-reasoning — one checkpoint, same 2M
+  // window, same $0.20/$0.50; the scaffolded -reasoning stubs were folded into
+  // the tracked -fast folders on user order and deleted.
+  ["grok-4-fast-reasoning", "grok-4-fast"],
+  ["grok-4.1-fast-reasoning", "grok-4.1-fast"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */

@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.1-codex-mini/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The compact codex lane: smaller, cheaper agentic coding when the full Max tier is overkill.",
+  "tradeoff": "A superseded generation with modest ceiling and thin independent evidence."
 }

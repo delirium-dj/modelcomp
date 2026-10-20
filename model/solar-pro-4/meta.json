@@ -9,5 +9,7 @@
   "officialUrl": "https://upstage.ai/products/solar-pro-4",
   "pricingLinks": [
     "https://upstage.ai/pricing"
-  ]
+  ],
+  "standout": "Upstage’s closed agentic flagship: document-heavy, tool-calling workflows with strong live-coding and GDPval showing.",
+  "tradeoff": "Closed and niche-focused — a workflow tool for docs-heavy pipelines rather than a general frontier runner."
 }

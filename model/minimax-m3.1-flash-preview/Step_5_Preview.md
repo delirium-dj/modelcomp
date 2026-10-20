@@ -49,6 +49,6 @@ Not published by anyone: SWE-bench, Terminal-Bench, GPQA, HLE, MCP Atlas, τ-ben
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (MiniMax agent docs + platform documentation, eesel/threatfrontier/AI-on-Mac fact-checks, AICodeKing KingBench 3 via elma.sh and buildfastwithai, LLMReference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): the preview graduated to GA as MiniMax M3.1 Flash (official launch post, same model per BenchLM's sibling listing) with full independent coverage — BenchLM composite 67.1/100 (#27/959, 29/666): AA AutomationBench 72.5%, GDPval-AA 47.9%/Elo 1,458, AA-HLE 48.0%, HLE w/o tools 43.4%, Index 42.4, DeepSWE 73.7%, AA-SciCode 53.4%, AA-MMMU-Pro 79.1%, AA-LCR 79.7% — every dimension re-based on measurement (Overall 64→78); AA TB4.0 25.8% and the KingBench interactive-state weakness remain the caps. First pass (2026-10-09) used MiniMax agent docs + platform documentation, eesel/threatfrontier/AI-on-Mac fact-checks, AICodeKing KingBench 3 via elma.sh and buildfastwithai, LLMReference.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M4.md`, using the same headings.

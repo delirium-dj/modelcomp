@@ -1,20 +1,20 @@
 {
-  "id": "opencode/grok-4.20",
+  "id": "x-ai/grok-4.20",
   "name": "Grok 4.20",
-  "short": "xAI's 2M-context multi-agent council (4 agents debate) for coding/agents; SWE-bench 76.7%, LiveCodeBench 84.3%, deprecated for 4.3+.",
-  "contextWindow": "1,000,000–2,000,000 (variant-dependent; multi-agent 1M)",
-  "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $1.25/$2.50 per 1M (<200K); $2.50/$5.00 above",
+  "short": "xAI's March/April 2026 reasoning flagship with a 2M window and a multi-agent mode (leader + 4 or 16 agents); SWE-bench 72-77% by harness, LiveCodeBench 84.3%, deprecated for Grok 4.3.",
+  "contextWindow": "1,000,000-2,000,000 (xAI docs 1M with 30K max output; OpenRouter, AA and BenchLM list 2M)",
+  "modalities": "Text, image, file/PDF in; text out",
+  "pricingNote": "xAI and OpenRouter: $1.25/$2.50 per 1M (<200K), $2.50/$5.00 above; $0.20 cached (not on OpenCode Zen)",
   "pricingTiers": [
     "$1.25/$2.50 per 1M under 200K prompt",
     "$2.50/$5.00 per 1M at >=200K prompt"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.20",
+  "officialUrl": "https://docs.x.ai/developers/models/grok-4.20",
   "pricingLinks": [
-    "https://x.ai/api",
-    "https://x.ai/api"
+    "https://docs.x.ai/docs/models",
+    "https://openrouter.ai/x-ai/grok-4.20"
   ],
-  "standout": "The council architecture: four agents debating inside one model call — a genuinely different shape of reasoning for coding tasks.",
-  "tradeoff": "Multi-agent inference is costly per request and the line is deprecated; the trick lives on only in spirit in later Groks."
+  "standout": "The multi-agent mode: a leader agent plus 4 or 16 parallel agents inside one call - a different reasoning shape for hard research and coding.",
+  "tradeoff": "Multi-agent runs cost more per request and the line is deprecated; the trick survives only in spirit in later Groks."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=kimi-k2.7-code-highspeed",
   "pricingLinks": [
     "https://platform.moonshot.ai/docs/pricing/chat"
-  ]
+  ],
+  "standout": "The interactive-loop profile: the same K2.7 Code weights served for snappier back-and-forth coding sessions.",
+  "tradeoff": "Double the price for the same capability — only worth it when latency is the binding constraint."
 }

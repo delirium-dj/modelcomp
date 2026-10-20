@@ -8,5 +8,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/",
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models"
-  ]
+  ],
+  "standout": "The Qwen 3.5 generation umbrella: general and agentic work across a 128K–1M family of tiers.",
+  "tradeoff": "The tracked tier itself is unconfirmed and facts provisional — use the concrete 3.5 SKUs instead."
 }

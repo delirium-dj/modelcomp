@@ -1,7 +1,7 @@
 # Muse Spark 1.1 — findings by Step 5 Preview
 
 - Source: Meta (`muse-spark-1.1`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,8 @@ Agent / tool use:
 - Terminal-Bench 4.0: **6.06%** (AA)
 - GDPval-AA: **Elo 1375** (Meta) / **35.7%** (AA); BenchmarkList index reads **Elo 1381** (#50/352, 86th pct); Tau3-Banking 31.8% (#33/176)
 - AutomationBench-AA: **42.8%**; AA Agentic Index: **27.5%**
-- Finance Agent v2: **57.2%** (#1 in table); Cybench: **92.9% pass@1** (near-ceiling CTF); CyberGym 59.0%
+- Finance Agent v2: **57.2%** (#1 in table); Cybench: **92.9% pass@1** (near-ceiling CTF); CyberGym 59.0%; **new weak rows (2026-10-19): ExploitGym 0.8%** (BenchLM)
+- BenchLM composite (2026-10-19): **66.08/100** overall, #33 of 959 models, 40 of 666 benchmarks covered — every file row reconfirmed (MCP-Atlas 88.1%, Toolathlon 75.6%, OSWorld 80.8%, DeepSearchQA 84.9%, JobBench 54.7%, TB2.1 80.0%/69.3%, GDPval 35.6%/1,375, SWE-Pro 61.5%, AA Coding Index 71.3%, AA-LCR 77.7%, MRCR 1M 54.1%, AA-HLE 46.2%, AA-Omniscience 28.1%) plus new rows CritPt **15.1%** and HealthBench Professional **59.3%**; one discrepancy flagged — BenchLM carries an AA Index row of **33.7** while the file records **50.62** as the current rebased reading (verified via benchmarklist 2026-10-07; BenchLM's row appears stale). No score change warranted.
 
 Reasoning / knowledge:
 
@@ -70,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (72 primary-source results, updated 2026-10-07 — independent AA Intelligence Index 50.62 #22/427 [supersedes the earlier 33.7 rebased reading], AA-LCR 77.7% #68/408 [supersedes the earlier 63%/25-of-26], MCP-Atlas 88.1% #1/48, SWE-bench Verified 82.0% #11/72, DeepSWE 53.3% #39/52, Vibe Code 72.2% #12/75, HLE 52.2% #13/478, MMMU-Pro 86.6% #15/79, SciCode 58.8% #13/296) and the AA Muse Spark 1.1 article (Intelligence Index 51 v4.1, HLE 45% no-tools, Coding Index 71). The corrected AA-LCR 77.7% and rebased index 50.62 are modestly better than the first pass, but MRCR v2 54.1 and DeepSWE 53.3% still cap Context at 90 and Coding at 78 — no score change warranted. Prior pass (2026-10-09) used Meta AI blog + Muse Spark 1.1 evaluation report, Artificial Analysis article/tables, Vals AI, Scale AI, LiveBench, eesel AI, writingmate, sdd.sh, RankLLMs, BenchLM.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM (composite 66.08/100, #33/959, 40/666; Artificial Analysis has no muse-spark-1.1 page on the natural slug, 404): every file row reconfirmed (MCP-Atlas 88.1%, Toolathlon 75.6%, OSWorld 80.8%, DeepSearchQA 84.9%, JobBench 54.7%, TB2.1 80.0%/69.3% Vals, GDPval 35.6%/1,375, SWE-Pro 61.5%, AA Coding Index 71.3%, AA-LCR 77.7%, MRCR 1M 54.1%, AA-HLE 46.2%, Omniscience 28.1%) plus new rows ExploitGym 0.8%, CritPt 15.1%, HealthBench Professional 59.3% — no score change warranted; one discrepancy flagged (BenchLM's stale AA-Index 33.7 row vs the file's verified 50.62 rebased reading). Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (72 primary-source results, updated 2026-10-07 — AA Intelligence Index 50.62 #22/427, AA-LCR 77.7% #68/408, MCP-Atlas 88.1% #1/48, SWE-bench Verified 82.0% #11/72, DeepSWE 53.3% #39/52, Vibe Code 72.2% #12/75, HLE 52.2% #13/478, MMMU-Pro 86.6% #15/79, SciCode 58.8% #13/296). Prior pass (2026-10-09) used Meta AI blog + Muse Spark 1.1 evaluation report, Artificial Analysis article/tables, Vals AI, Scale AI, LiveBench, eesel AI, writingmate, sdd.sh, RankLLMs, BenchLM.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

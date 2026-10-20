@@ -10,5 +10,7 @@
   "officialUrl": "https://huggingface.co/models?search=laguna-s-2.1",
   "pricingLinks": [
     "https://huggingface.co/poolside/Laguna-S-2.1"
-  ]
+  ],
+  "standout": "The single-box agent: Poolside’s open MoE runs long-horizon coding on one DGX Spark with a full 1M context.",
+  "tradeoff": "Small-active tuning gives up frontier depth; hosting quality depends on the poolside lane you pick."
 }

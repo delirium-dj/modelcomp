@@ -1,7 +1,7 @@
 # Muse Spark 1.2 — findings by Step 5 Preview
 
 - Source: Meta (Meta Superintelligence Labs) `muse-spark-1.2`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,21 +54,28 @@ Multimodal:
 Long context:
 
 - 1M input (1M-class window); Vector Wire: Long Context **"Capable"** (−13.2% vs leader, 1/3). No explicit MRCR ≥98%-at-512K figure published.
+- **AA-LCR: 79.0%** (Artificial Analysis, 2026-10-19 via BenchLM) — the first measured long-context-reasoning row for this model; solid but not top-tier retrieval evidence
+
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **65.9/100** overall, #34 of 959 models, 23 of 666 benchmarks covered; official Meta model page now linked
+- New AA rows filling the file's gaps: GDPval-AA **48.6% normalized / Elo 1,631** (AA — corroborates the vendor 1,628), AA Agentic Index **44.0%** (strong), AA Intelligence Index **39.6** (consistent with the file's 39.58 aggregator reading; the "57" cross-ref was old-scale), AA-HLE **45.5%** / AA-GPQA **90.4%** reconfirmed, AA-Omniscience index **27.2%** / accuracy 45.4% / hallucination 33.3% (Factuality "Strong" corroborated), AA-LCR **79.0%**, CritPt **17.7%**, AA-SciCode **57.4%**, AA Coding Index **72.2%** (matches the file's 72.22), MMLU-Pro (Vals) **88.3%**, VulcanBench v3 **87.0%** (new — strong), Design Arena **1,313**
+- Still weak: TB 2.1 (Vals) **69.7%** (vs Meta's 82.9%), MazeBench **0%**, FrontierSWE v2 **12.0%**, DeepSWE 59.3% (vendor self-report; independent reads 55%)
 
 ### Normalized scores (1–100)
 
 - **Tool use: 82/100.** Terminal-Bench 2.1 80.15% (AA) and Toolathlon 75.9% (ahead of Gemini 3.1 Pro) are solid, but the TB2.1 figure spans a 13-point harness spread (82.9/80.15/69.66), TB4.0 trails Grok 4.7 by −22.7, and Vector Wire rates Agentic "Capable" (−23.3%). The agentic headline is harness-dependent rather than settled.
 - **Reasoning: 88/100.** GPQA Diamond 90.4% (independent) and HLE 45.46% (clears the 40% frontier bar) with Factuality "Strong" (−5.9%). Capped by Reasoning "Capable" (−12.3%), Math "Limited" (−37.1%), single-source GPQA, and the AA-index discrepancy (57 cross-ref vs 39.58 aggregator).
-- **Context window: 98/100.** 1M input / 1M-class output window with Long Context "Capable" (−13.2%) — squarely in the ≥1M tier. Not a full 100 because no explicit MRCR ≥98%-at-512K retrieval figure was published to confirm the top sub-tier.
+- **Context window: 94/100.** 1M input / 1M-class output window with Long Context "Capable" (−13.2%) — squarely in the ≥1M tier, and the third pass added the first measured retrieval row (AA-LCR 79.0%) — solid but not the ≥98% evidence the top sub-tier describes, and no MRCR figure is published. Trimmed from 98 on that measurement.
 - **Multimodal: 88/100.** Text + image + video + PDF in (text out) hits the 90–100 input band; held to 88 because Vector Wire has not rated Multimodal (too few results) and there is no live MMMU row — the input coverage is broad but the multimodal-reasoning evidence is thin.
 - **Coding: 82/100.** SWE-bench Verified 86.6% (on a retired/saturated board), Code Arena 1,535 Elo, and AA Coding Index 72.22 are solid. Capped by DeepSWE 55% (independent; the 59.3% self-report is a 4.3-pt inflation), no SWE-bench Pro row, and Vector Wire's Coding "Limited" (−26.1%) — coding is a relative weakness for a Meta flagship.
 - **Cost efficiency: 88/100.** Standard tier $1.25/$4.25 (rubric ~$1.25/$4.25 = ~88) with a far-cheaper Contributor tier (training-data consent caveat). No true $0 tier, but the Contributor route is close.
-- **Overall Score: 88/100.** Mean of the five non-cost dims (82+88+98+88+82)/5 = 87.6. Best fit as a near-frontier free/cheap fallback for long-horizon coding/agentic work when the stronger Muse Spark 1.3 is unavailable; not the top pick for the hardest coding or math.
+- **Overall Score: 87/100.** Mean of the five non-cost dims (82+88+94+88+82)/5 = 86.8 (Context 98→94 on the newly measured AA-LCR 79.0%; Overall 88→87). Best fit as a near-frontier free/cheap fallback for long-horizon coding/agentic work when the stronger Muse Spark 1.3 is unavailable; not the top pick for the hardest coding or math.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (29 primary-source results, updated 2026-10-07 — independent APEX-Agents 36.4%, BrowseComp 75.2%, Vibe Code 79.1%, Vals Index 49.3%, TB2.1 Vals Terminus 69.7%, TB4.0 6.1%, Toolathlon 75.9%) — no score change warranted. Prior pass (2026-10-08) used vectorwire.ai and themodelgap.com.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM (composite 65.9/100, #34/959, 23/666; official Meta model page now linked): the file's GDPval/long-context gaps are filled — GDPval-AA 48.6%/Elo 1,631 (AA, corroborating the vendor 1,628), AA-LCR 79.0% (first measured row — Context trimmed 98→94, Overall 88→87), AA Agentic Index 44.0%, AA Index 39.6 (the "57" cross-ref was old-scale), AA-SciCode 57.4%, VulcanBench v3 87.0%, MMLU-Pro (Vals) 88.3% — with TB2.1 Vals 69.7%, MazeBench 0% and FrontierSWE v2 12.0% keeping the Tool/Coding caps. No Artificial Analysis page on the natural slug (404). Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (29 primary-source results, updated 2026-10-07 — independent APEX-Agents 36.4%, BrowseComp 75.2%, Vibe Code 79.1%, Vals Index 49.3%, TB2.1 Vals Terminus 69.7%, TB4.0 6.1%, Toolathlon 75.9%). Prior pass (2026-10-08) used vectorwire.ai and themodelgap.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

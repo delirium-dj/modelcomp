@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=mai-code-1.1-flash",
   "pricingLinks": [
     "https://github.com/features/copilot/plans"
-  ]
+  ],
+  "standout": "Microsoft’s Copilot-native coding model: agentic engineering with image and PDF context baked into the loop.",
+  "tradeoff": "Mid-tier verified scores and a Copilot-centric surface make it a convenience pick rather than a benchmark leader."
 }

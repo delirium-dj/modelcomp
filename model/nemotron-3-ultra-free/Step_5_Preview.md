@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra (free) — findings by Step 5 Preview
 
 - Source: NVIDIA (`nvidia/nemotron-3-ultra-550b-a55b:free`; weights `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,8 @@ NVIDIA (post-trained, BF16; NVFP4 in parens where different):
 Third-party:
 
 - Artificial Analysis: Intelligence Index **22.9**, Coding **49.3**, Agentic **20.1**; GPQA Diamond 86.7%, HLE 28.4%, IFBench 81.4%, τ²-Telecom 83.3%, AA-LCR 79.3%, τ-Banking 14.2%, GDPval-AA 25.8%, TB 2.1 53.9%, TB Hard 36.4%, TB 4.0 0.5%
+
+Third-pass verification (2026-10-19): Artificial Analysis has no nemotron-3-ultra page on the natural or paid slugs (404) and BenchLM has no page (404) — the `:free` free route and its paid sibling both remain untracked by the live trackers today; the NVIDIA/AA/Vals rows on file stand as the complete evidence base. No new data — no score change warranted (the free-route uptime caveat remains the only moving part).
 - Vals AI: SWE-bench 69.0%, LiveCodeBench 86.0%, MMLU-Pro 85.8%, LegalBench 82.1%, TaxEval 73.1%, Vibe Code Bench 7.6%, ProgramBench 0.0%, Vals Index 44.0%
 - Design Arena: 1,069–1,148 Elo across categories
 
@@ -53,6 +55,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (NVIDIA Nemotron research page, technical report, NVIDIA developer blog, Hugging Face model cards, NGC model page, OpenRouter + Artificial Analysis + Vals AI trackers); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404 on natural and paid slugs) and BenchLM (404) both untracked today — no new independent evidence, no score change; the free route's availability caveat (41% uptime at measurement) still applies. First pass (2026-10-09) used NVIDIA Nemotron research page, technical report, NVIDIA developer blog, Hugging Face model cards, NGC model page, OpenRouter + Artificial Analysis + Vals AI trackers.
 - Future sources: add a new file next to this one, e.g. `Nemotron_4.md`, using the same headings.

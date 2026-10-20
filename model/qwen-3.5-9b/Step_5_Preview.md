@@ -1,7 +1,7 @@
 # Qwen3.5-9B — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (`Qwen3.5-9B`, weights `Qwen/Qwen3.5-9B`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,8 @@ Third-party:
 - AA Qwen3.5 small-models article: ~260M output tokens used to run the Intelligence Index (vs 86–98M for the 27B/397B siblings — a very verbose reasoner); 82% hallucination rate / 14.7% accuracy on AA-Omniscience
 - Roboflow legacy vision evals: 71.64% pass rate, #16 of 77 models
 
+Third-pass verification (2026-10-19): both trackers no longer list the 9B tier — Artificial Analysis 404s on qwen3.5-9b and BenchLM 404s on the canonical-pattern slug qwen3-5-9b (the 397B and Plus tiers persist, the 9B does not). No new evidence; no score change.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 55/100.** TAU2-Bench 79.1% (vendor setup) and BFCL-V4 66.1% are genuinely good for 9B, and AA's τ²-Telecom rerun confirms 86.8% — but τ-Banking 7.0%, GDPval-AA 0.0%, DeepPlanning 18.0% and AA Agentic Index 1.2% show it cannot carry multi-domain agentic workflows; mid-band at best.
@@ -50,6 +52,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen Hugging Face model card + README, Artificial Analysis small-models article and OpenRouter benchmark table, Roboflow, Awesome Agents, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404 on qwen3-5-9b) both delisted the 9B tier — no new independent evidence; the AA small-models article and OpenRouter rows on file stand. No score change. First pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis small-models article and OpenRouter benchmark table, Roboflow, Awesome Agents, llm-stats.
 - Future sources: add a new file next to this one, e.g. `Qwen4.md`, using the same headings.

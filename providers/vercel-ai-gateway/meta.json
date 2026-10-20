@@ -1,0 +1,21 @@
+{
+  "name": "Vercel AI Gateway",
+  "kind": "aggregator",
+  "short": "Vercel's unified model API — one endpoint and billing across providers, with free stealth drops on selected models.",
+  "officialUrl": "https://vercel.com/ai-gateway",
+  "hosts": ["vercel.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-token, per-model rates",
+      "notes": "e.g. Qwen 3.8 Flash Next and Ling 3.0 Flash Sante rate cards on the Gateway.",
+      "evidenceUrl": "https://vercel.com/ai-gateway/pricing"
+    },
+    {
+      "name": "Free stealth drops",
+      "price": "$0",
+      "notes": "Selected models run free during stealth windows (e.g. Pixel Canary).",
+      "evidenceUrl": "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway"
+    }
+  ]
+}

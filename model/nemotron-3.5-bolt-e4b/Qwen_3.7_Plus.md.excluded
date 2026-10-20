@@ -1,0 +1,62 @@
+# Nemotron 3.5 Bolt E4B — findings by Qwen 3.7 Plus
+
+- Source: NVIDIA (`nemotron-3.5-bolt-e4b`)
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's announced ~4B edge model in the Bolt family for on-device conversational agents and tool calls. Unreleased — specs and benchmarks remain unverified.
+- **Provider / access:** Announced only; no public API or weights available.
+- **Release / knowledge:** Announced; unreleased as of 2026-10-20.
+- **IDs:** No confirmed ID. OpenCode Zen `opencode/nemotron-3.5-bolt-e4b` (placeholder).
+- **Context window:** Unverified — unreleased, size not published.
+- **Modalities:** Unverified — unreleased, no published modalities.
+- **Pricing (as of 2026-10-20):** Open weights expected (self-host free); no pricing published.
+- **Architecture:** Expected ~4B parameters; part of Nemotron 3.5 Bolt family (compressed from Super VL). Details unreleased.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION: Zero verified public benchmark numbers found.** BenchLM tracks the model but reports 0 of 666 benchmarks covered. No official NVIDIA benchmarks published. No third-party evaluations available. This file is saved as `.md.excluded` per template rules.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Multimodal & Grounded:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> **EXCLUDED — No verified benchmarks.** Scores cannot be derived. Model is announced but unreleased. All capabilities remain speculative.
+
+- **Tool use: N/A.** No evidence.
+- **Reasoning: N/A.** No evidence.
+- **Context window: N/A.** No evidence.
+- **Multimodal: N/A.** No evidence.
+- **Coding: N/A.** No evidence.
+- **Cost efficiency: N/A.** No pricing published.
+- **Overall Score: N/A.** Cannot be computed without verified benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.7 Plus (opencode/qwen-3.7-plus)** — 2026-10-20
+- Method: public internet research across BenchLM, NVIDIA research pages, Hugging Face, and model announcement trackers. **Model is announced but unreleased — zero verified benchmarks exist. File saved as `.md.excluded` per template rules.**
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

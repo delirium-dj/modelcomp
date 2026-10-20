@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ling-3.0-tiny",
   "pricingLinks": [
     "https://huggingface.co/inclusionAI/Ling-3.0-tiny"
-  ]
+  ],
+  "standout": "The free-and-open minimal reasoner: a 1.3B-active MIT MoE with a $0 API and self-host path.",
+  "tradeoff": "Tiny-active limits — education and prototypes, not production agents."
 }

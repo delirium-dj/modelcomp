@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning (free) — findings by Step 5 Preview
 
 - Source: NVIDIA (`nvidia/nemotron-3.5-lightning:free`; weights `nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,6 +32,7 @@ Artificial Analysis (independent, via OpenRouter):
 
 - Intelligence Index: **12.9**; Coding Index: **26.8**; Agentic Index: **3.5**
 - GPQA Diamond 74.3%; HLE 10.6%; AA-LCR 60.3%; τ-Bench Banking 8.9%; GDPval-AA 7.1%; TB 2.1 24.3%; TB 4.0 0.5%; SciCode 32.1%; AA-Omniscience 14.4% accuracy / 62.4% non-hallucination
+- AA live page today (2026-10-19, not deprecated): Intelligence Index **13** (#28/141 — matches the file's 12.9; class median 8), **output speed 313.6 tok/s (#1/64 — the fastest in its open-weights class)**, TTFT 0.56s, paid-route pricing $0.06/M in · $0.20/M out with 42% cache discount (blended $0.06/M; $0.08 per Index task), 1M context, text-only, 31.6B/3.6B, OpenMDW-1.1, 6 providers, 120M Index tokens (somewhat verbose); BenchLM has no nemotron-3.5-lightning page (404). All consistent with the existing reads — no score change.
 
 ### Normalized scores (1–100)
 
@@ -47,6 +48,6 @@ Artificial Analysis (independent, via OpenRouter):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (NVIDIA developer blog, NGC/build model cards, Hugging Face base card, OpenRouter free-route page, Layer3 Labs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (not deprecated: Index 13 #28/141 — unchanged; **313.6 tok/s, #1/64 in its open-weights class** — the speed story is even stronger than the file recorded; TTFT 0.56s; paid route $0.06/$0.20, $0.08 per Index task) — BenchLM has no page (404). All consistent with the existing Tool 42 / Reasoning 48 / Context 74 / Coding 42 / Cost 100 reads, no score change. First pass (2026-10-09) used NVIDIA developer blog, NGC/build model cards, Hugging Face base card, OpenRouter free-route page, Layer3 Labs.
 - Future sources: add a new file next to this one, e.g. `Nemotron_3_6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Step 5 Preview
 
 - Source: Meta (`Muse-Glimmer-30B`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,20 +50,22 @@ Long context:
 
 - AA-LCR: **80.0** (field-best of the three); Beam 128K: **65.1** (field-best); no MRCR/RULER figure
 
+Third-pass verification (2026-10-19): Artificial Analysis has no muse-glimmer-30b page (404 on the natural slug); BenchLM composite **41.23/100** (#134/959, 28/666) carrying the AA rows (via the muse-glimmer page): GDPval-AA **14.3% normalized / Elo 893** (AA — below the vendor 953 figure, filling the file's GDPval gap), AA Agentic Index **10.5%** (weak), AA Intelligence Index **17.5**, AA-Omniscience index **−32.8%** / accuracy 27.0% / hallucination 81.9% (weak calibration), CritPt **2.6%** (very weak), AA-LCR **83.3%** (revised up from the 80.0 first-pass read), AA Coding Index **49.0%**, AA-SciCode **44.9%**, AA-MMMU-Pro **74.3%** — the independent agentic/calibration rows are materially weaker than the vendor card, so Tool use was trimmed 62→56.
+
 ### Normalized scores (1–100)
 
-- **Tool use: 62/100.** MCP-Atlas 75.5%, DeepSearchQA 74.6% and WildClawBench 47.6% are genuinely strong for a 30B local model; capped by τ³-Banking 23.5%, GDPval-AA Elo 953 and OSWorld-Verified 65.9%.
+- **Tool use: 56/100.** MCP-Atlas 75.5%, DeepSearchQA 74.6% and WildClawBench 47.6% are genuinely strong for a 30B local model on the vendor card, but the third pass measured the independent agentic rows and they are weak: AA Agentic Index 10.5%, GDPval-AA 14.3% (Elo 893 vs the vendor 953), τ³-Banking 23.5%, OSWorld-Verified 65.9%. Trimmed from 62.
 - **Reasoning: 66/100.** GPQA 83.5%, AIME 94.7% and IFBench 77.0% are solid for the size class; capped by HLE 22.0% and no ARC-AGI/LiveBench numbers.
 - **Context window: 64/100.** 131K-token window is the 100K–200K band; AA-LCR 80.0% and Beam-128K 65.1% (both field-best vs the two comparison models) support mid-band, but no MRCR/RULER figure exists.
 - **Multimodal: 70/100.** Text + image in → text out is the 60–70 band, at its top on MMMU-Pro 74.0% and CharXiv 78.8%; no video/audio input or non-text output.
 - **Coding: 66/100.** SWE-bench Verified 76.0% and SWE-bench Pro 51.2% (field-best of its comparison set) are respectable local-model coding; capped by Terminal-Bench 2.1 51.7%, SciCode 43.6% and no Vibe/DeepSWE data.
 - **Cost efficiency: 100/100.** Free Apache-2.0 weights running on a single 24/32GB consumer GPU (the methodology's $0 = 100 tier) — the entire pitch is local, private, zero-marginal-cost inference.
-- **Overall Score: 66/100.** Best-fit recommendation: the strongest local-first agentic model at 30B — Pro-class MCP-Atlas tool use and SWE-Pro for its size on a single consumer GPU; pair with a hosted frontier model for heavy document/coding work.
+- **Overall Score: 64/100.** Mean of the five non-cost dims (56+66+64+70+66)/5 = 64.4 (Tool use 62→56 on the newly measured weak independent agentic rows; Overall 66→64). Best-fit recommendation: the strongest local-first agentic model at 30B — Pro-class MCP-Atlas tool use and SWE-Pro for its size on a single consumer GPU; pair with a hosted frontier model for heavy document/coding work.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Meta Muse Glimmer model page + HuggingFace model card + NVIDIA NIM card + dev.meta.ai docs, HF blog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no muse-glimmer-30b page (404); BenchLM composite 41.23/100 (#134/959, 28/666) carrying the AA rows — GDPval-AA 14.3%/Elo 893, AA Agentic Index 10.5%, Index 17.5, Omniscience −32.8%, CritPt 2.6%, AA-LCR 83.3% — so Tool use was trimmed 62→56 (Overall 66→64); AA-LCR 83.3% and AA-MMMU-Pro 74.3% corroborate the other dims. First pass (2026-10-09) used Meta Muse Glimmer model page + HuggingFace model card + NVIDIA NIM card + dev.meta.ai docs, HF blog.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark.md`, using the same headings.

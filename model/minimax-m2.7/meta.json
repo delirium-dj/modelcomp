@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=minimax-m2.7",
   "pricingLinks": [
     "https://www.minimax.io/platform/pricing"
-  ]
+  ],
+  "standout": "The self-evolving coder: a compact-active MoE that keeps improving its own agentic behavior at rock-bottom prices.",
+  "tradeoff": "A 205K window and mid-pack verified scores keep it a value pick, not a ceiling chaser."
 }

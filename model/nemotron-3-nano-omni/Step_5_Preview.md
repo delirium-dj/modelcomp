@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni — findings by Step 5 Preview
 
 - Source: NVIDIA (`nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`; technical report arXiv:2604.24954)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,6 +32,8 @@ NVIDIA report / model card (reasoning-off unless noted; vs Nemotron Nano V2 VL):
 
 Text-side benchmarks (MMLU, GPQA, SWE-bench, Terminal-Bench) for this Omni checkpoint: **no verified public score found** in the release materials.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no nemotron-3-nano-omni page (404 on the natural slug) and BenchLM has no nemotron-3-nano-omni page (404) — both trackers untracked for this open omni-modal checkpoint; the NVIDIA technical report rows on file remain the only published evidence. No new data — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 55/100.** OSWorld-Verified 47.4% is strong agentic computer use for a 3B-active model (4.2× its predecessor), and the whole design targets GUI/document agent sub-agents — but no Terminal-Bench, τ³, MCP Atlas, Toolathlon or GDPval number exists, so the dimension rests on one eval.
@@ -46,6 +48,6 @@ Text-side benchmarks (MMLU, GPQA, SWE-bench, Terminal-Bench) for this Omni check
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (arXiv:2604.24954 technical report, NVIDIA research page and developer blog, Hugging Face model cards, NVIDIA Nemotron docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both remain untracked for this omni-modal checkpoint — no new independent evidence; the NVIDIA technical report rows on file stand and no score change is warranted. First pass (2026-10-09) used arXiv:2604.24954 technical report, NVIDIA research page and developer blog, Hugging Face model cards, NVIDIA Nemotron docs.
 - Future sources: add a new file next to this one, e.g. `Nemotron_3_Nano.md`, using the same headings.

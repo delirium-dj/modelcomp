@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.1-codex-max/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The heavy-lifting codex tier of the 5.1 generation — extra compute for the largest repo-scale agentic runs.",
+  "tradeoff": "A superseded generation with thinner independent evidence than the current codex lanes."
 }

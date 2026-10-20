@@ -4,5 +4,7 @@
   "short": "LongCat 2.5 Preview model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "Standard pricing",
+  "standout": "Meituan’s 2.5-generation preview: open MoE weights serving long-context agent work early.",
+  "tradeoff": "Preview status — superseded as the 2.5 line finalized."
 }

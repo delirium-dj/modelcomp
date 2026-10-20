@@ -1,15 +1,15 @@
 {
-  "id": "opencode/grok-4.1",
+  "id": "xai/grok-4.1",
   "name": "Grok 4.1",
-  "short": "xAI's 4.1 chat flagship (Thinking/Non-Thinking, 256K) for conversational AI with X data; τ² 93.3%, superseded by 4.2/4.3.",
-  "contextWindow": "128K (Zen listing; trackers claim up to 2M)",
+  "short": "xAI's November 2025 chat flagship (Thinking, 1483 Elo, LMArena #1) with live X data - a consumer product with no public API route, never on Zen; superseded by 4.2/4.3.",
+  "contextWindow": "1,000,000 (BenchLM spec; xAI never documented a window)",
   "modalities": "Text in/out; image in via consumer app",
-  "pricingNote": "Paid; third-party rates conflict",
+  "pricingNote": "No public API price - consumer Grok subscription only; never on OpenCode Zen",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.1",
+  "officialUrl": "https://x.ai/news/grok-4-1",
   "pricingLinks": [
-    "https://x.ai/api"
+    "https://x.ai/news/grok-4-1"
   ],
   "standout": "The conversational flagship of the 4.1 era: personality plus live X data with a Thinking/Non-Thinking switch.",
-  "tradeoff": "Superseded by 4.2/4.3 reasoning tiers; the chat lane moved on."
+  "tradeoff": "Superseded by the 4.2/4.3 reasoning tiers and retired as an API model - reference and history only."
 }

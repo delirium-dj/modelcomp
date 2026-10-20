@@ -12,5 +12,7 @@
   "officialUrl": "https://qwenlm.github.io/blog/mimo-v2.6-distill-qwen-9b/",
   "pricingLinks": [
     "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B"
-  ]
+  ],
+  "standout": "The research distillation: Xiaomi’s agentic-RL training recipe published as a Qwen-9B SFT you can study and rerun.",
+  "tradeoff": "A research baseline — self-host-only, and far from the Pro/Flash lines it was distilled from."
 }

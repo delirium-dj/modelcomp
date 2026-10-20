@@ -1,11 +1,11 @@
 # Kimi K2.7 Code — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI / Kimi K2.7 Code (`moonshotai/Kimi-K2.7-Code`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/kimi-k2-7-code).
+> **Re-verified 2026-10-18.** BenchLM (`kimi-k2-7-code`, 29 rows) computes an overall **49.35/100 (#103 of 959)** and confirms the first draft while adding independent rows: τ²-bench 90.1%, GDPval-AA 1114 / 26.9%, AA Agentic Index 22.5%, AA-GPQA Diamond 89.6%, AA-HLE 35.0%, AA-LCR 79.3%, CritPt 10.0%, AA Intelligence Index 25.8%, AA Coding Index 60.8%, FrontierMath v2 54.04%/12.20%. **No score change** (Tool 72 / Reasoning 78 / Context 76 / Multimodal 75 / Coding 79 / Cost 84 / Overall 76).
 > BenchLM overall **52.13/100** (#84), context **256K**, pricing **$0.95 input / $4 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 38, #67/122): MCP Atlas 76%; Terminal-Bench 2.1 (Vals) 67.0%; Kimi Claw 24/7 46.9%; MCP Mark Verified 81.1%
@@ -69,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
-- Method: public internet research (Kimi product page, Hugging Face model card, BenchLeader, Inferbase); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research (Kimi product page, Hugging Face model card, BenchLM `kimi-k2-7-code` — 29 rows — + Artificial Analysis/Vals AI, BenchLeader, Inferbase); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Owl Alpha — findings by Step 5 Preview
 
 - Source: Meituan LongCat — the stealth identity behind `owl-alpha` (OpenRouter), revealed 2026-06-30 to be **LongCat-2.0**
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,6 +25,8 @@ Vendor-reported in the reveal (in-house unified harness), as recorded in the Lon
 - SWE-bench Multilingual: **77.3**; FORTE: **73.2**; BrowseComp: **79.9**; RWSearch: **78.8**; IFEval: **90.0**; Writing Bench: **83.8**; IMO-AnswerBench: **81.8**; GPQA-Diamond: **88.9**
 - Production-traffic evidence (unique to the stealth period): ~10.1T monthly tokens, 559B/day, +242% MoM; #1 Hermes Agent, #2 Claude Code, #3 OpenClaw by monthly volume
 
+Third-pass verification (2026-10-19): the `owl-alpha` stealth route is retired — Artificial Analysis has no owl-alpha page (404) and BenchLM has no owl-alpha page (404), so no new tracker evidence exists for the alias. The revealed identity, **LongCat-2.0**, was re-verified today in its own report: Artificial Analysis remains 404 (unlisted) and BenchLM's LongCat-2.0 pages show 0 covered benchmarks (total score 0.0, not in the 100-model ranking), so the vendor reveal rows on file stand unchanged. No score change.
+
 ### Normalized scores (1–100)
 
 Identical to LongCat-2.0 — same system:
@@ -41,6 +43,6 @@ Identical to LongCat-2.0 — same system:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Meituan LongCat official reveal posts, VentureBeat, Decrypt, TensorFeed, Awesome Agents, AI Insiders coverage; benchmarks per the LongCat-2.0 report); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both untracked for the retired stealth alias; the revealed identity LongCat-2.0 was re-verified in its own report today (AA still unlisted, BenchLM 0/666 rows — vendor reveal rows stand). No score change. First pass (2026-10-09) used Meituan LongCat official reveal posts, VentureBeat, Decrypt, TensorFeed, Awesome Agents, AI Insiders coverage; benchmarks per the LongCat-2.0 report.
 - Future sources: add a new file next to this one, e.g. `Owl_Alpha_2.md`, using the same headings.

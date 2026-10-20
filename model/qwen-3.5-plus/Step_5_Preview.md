@@ -1,7 +1,7 @@
 # Qwen3.5-Plus — findings by Step 5 Preview
 
 - Source: Alibaba (`qwen3.5-plus`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,6 +51,8 @@ Long context:
 
 - 1M-token window; **no AA-LCR / MRCR / RULER number published** for the Plus model; CL-bench 19.8% / CL-bench Life 12.4% (Epoch — low)
 
+Third-pass verification (2026-10-19): Artificial Analysis has delisted the February tier (404 on qwen3.5-plus) — AA no longer tracks Qwen3.5-Plus. BenchLM (canonical slug `qwen3-5-plus`) holds only 2 of 667 rows: JobBench **18.5%** (new — weak agentic knowledge work) and Vibe Code Bench **15.74%** (corroborating the file's near-bottom end-to-end coding cap), overall 48.9 #105/959. The sparse coverage confirms the existing caps — no score change.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 68/100.** τ²-Bench 86.7%, PinchBench 85.8% (best) / 79.1% (average) and BrowseComp 78.6% (discard-all strategy) are respectable mid-band agentic evidence; capped by MCPMark 46.1%, Terminal-Bench 2.0 41.6%, OSWorld-Verified 62.2% and the wide BrowseComp strategy split (69.0 vs 78.6).
@@ -65,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Qwen3.5-Plus page (superseded by 3.6/3.7/3.8); re-checked the Qwen launch materials, Epoch/Vals runs and modelbenchmark.io — IFBench 76.5–81.3% (class-leading), SWE-bench Verified 71.2% (Vals 04-20 snapshot), LiveCodeBench 85.3%, MMMU 85.0%, τ²-Bench 86.7% and the PinchBench 85.8% best all confirm the existing Tool use 68 / Reasoning 78 / Multimodal 84 / Coding 72 reads; no published AA-LCR/MRCR keeps Context at 92. No score change warranted. Prior pass (2026-10-09) used Qwen3.5 launch blog, Alibaba Cloud Model Studio docs/pricing, QwenCloud model pages, OpenRouter, BenchmarkList, BenchLeader, modelbenchmark.io, mlabonne HF analysis, qwen35.com.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Artificial Analysis 404 — the Feb-2026 Plus tier is delisted; BenchLM (`qwen3-5-plus`) is down to 2/667 rows (JobBench 18.5%, Vibe Code Bench 15.74%) with an overall of 48.9 #105/959, both consistent with the file's mid-band caps. No score change. Second pass (2026-10-10) via benchmarklist.com (no page); Epoch/Vals runs and modelbenchmark.io confirmed Tool use 68 / Reasoning 78 / Multimodal 84 / Coding 72. Prior pass (2026-10-09) used Qwen3.5 launch blog, Alibaba Cloud Model Studio docs/pricing, QwenCloud model pages, OpenRouter, BenchmarkList, BenchLeader, modelbenchmark.io, mlabonne HF analysis, qwen35.com.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_397B.md`, using the same headings.

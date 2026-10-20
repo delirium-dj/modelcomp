@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://www.inceptionlabs.ai/",
     "https://www.inceptionlabs.ai/"
-  ]
+  ],
+  "standout": "The diffusion speed demon: parallel decoding delivering over a thousand tokens per second with sub-300ms first tokens.",
+  "tradeoff": "Diffusion generation trades some coherence on long structured output — a latency specialist, not a depth play."
 }

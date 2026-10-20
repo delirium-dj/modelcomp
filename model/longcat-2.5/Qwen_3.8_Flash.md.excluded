@@ -1,0 +1,51 @@
+# LongCat 2.5 — findings by Qwen 3.8 Flash (self-excluded: finalized 2.5 not shipped as a distinct benchmarked artifact; no verified benchmarks for this exact ID)
+
+- Source: Meituan LongCat (`longcat-2.5`; curated id `opencode/longcat-2.5`)
+- Date: 2026‑10‑20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because, as of 2026‑10‑20, **no finalized, distinct "LongCat‑2.5" (non‑Preview) model has shipped with published benchmarks or open weights**. Independent trackers agree the only shipping 2.5 artifact is the **closed, API‑only `LongCat‑2.5‑Preview`** (released 2026‑09‑25) — chinaidb tags it "**Closed**," themodelgap records "**no benchmarks published**," and llmtimeline lists "LongCat‑2.5‑Preview — Closed / Multimodal / 1.6T" as the *preview* of the next‑gen flagship. The curated `meta.json` here is **scaffolded** and asserts the opposite ("finalized 2.5 **open** MoE … **preview‑free stability**") — a placeholder claim contradicted by the evidence, so per `RULES.md` (a findings file is self‑excluded, never fabricated, when there are zero verified benchmarks for the exact ID) no scores are asserted. Reattributing LongCat‑**2.0**'s in‑house table or the Preview's specs to this `longcat‑2.5` slug would double‑count a *different* artifact; the scored lineage lives in the sibling `longcat-2.5-preview/Qwen_3.8_Flash.md` instead.
+
+## Model card (verified facts only)
+
+- **Name:** LongCat 2.5
+- **Status:** **NOT SHIPPED as a finalized distinct model.** Only the **`LongCat‑2.5‑Preview`** exists (2026‑09‑25): ~1.6T total / ~48B active MoE, 1M context, adds native image understanding, **closed / API‑only (no weights published for 2.5)**, and — per themodelgap — **no first‑party benchmark numbers** (its model card reproduces the LongCat‑2.0 in‑house table). The finalized, weight‑released "2.5" the scaffolded meta describes has no corresponding release, model card, AA page, or benchmark row as of the research date.
+- **Provider / access / IDs:** no distinct `longcat-2.5` (finalized) endpoint found; the `longcat-2.5-preview` route is covered in its own registry entry.
+- **Release / knowledge:** no verified finalized‑2.5 release date; no knowledge cutoff disclosed for this exact ID.
+- **Context window:** curated `meta.json` says "128K total" — placeholder template; the *Preview* is documented at 1M, but that spec belongs to a different slug and is not re‑asserted here.
+- **Modalities:** curated `meta.json` says "Text in/out" — placeholder template; Preview adds image, but again that is the sibling artifact.
+- **Pricing:** curated `meta.json` "Standard pricing" — placeholder; no first‑party finalized‑2.5 price schedule exists.
+- **Architecture:** no verified finalized‑2.5 architecture/weight disclosure found for this exact entry (2.0 lineage is LSA sparse attention + N‑gram Embedding + MOPD, but the 2.5 specifics are unconfirmed even for the Preview per explainx: "exact architecture deltas … unconfirmed pending Meituan's technical report").
+
+### Raw benchmarks found
+
+Every category: **no verified public score found for this exact finalized `longcat-2.5` ID** — the model has not shipped as a distinct benchmarked artifact; Meituan has published no standalone 2.5 (non‑Preview) benchmark table or independent reproduction.
+
+Agent / tool use:
+
+- FORTE / BrowseComp / RWSearch / τ² / Terminal‑Bench: **no verified public score found for this exact model** (values that circulate are LongCat‑**2.0**'s in‑house table or the Preview's re‑statement — not this slug).
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / IMO‑AnswerBench / IFEval / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE‑bench Pro / Verified / Multilingual / LiveCodeBench: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU‑Pro / video / audio: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self‑excluded for zero verified benchmarks on the exact finalized ID; scoring it would require fabricating a distinct capability profile for an unshipped model or reattributing LongCat‑2.0 / Preview numbers, both prohibited by `RULES.md`. If/when Meituan ships a finalized `longcat‑2.5` with published weights and a first‑party (or Artificial Analysis / BenchLM / OpenRouter) benchmark row distinct from the Preview, replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑20
+- Method: public internet research — cross‑referenced chinaidb ("LongCat‑2.5‑Preview … Closed … 1.6T/48B‑active MoE; adds native image"), themodelgap September‑2026 archive ("Meituan releases LongCat‑2.5‑Preview — 1.6T parameters, 1M context, **no benchmarks published**"), llmtimeline ("LongCat‑2.5‑Preview … Closed … preview release"), and explainx.ai's LongCat‑2.5 breakdown (architecture deltas "unconfirmed pending Meituan's technical report"; "do not assume LongCat‑2.5's benchmark specifics without checking Meituan's release notes"). No benchmark values were inferred from the LongCat‑2.0 table, the Preview entry, or peer reports. The curated `meta.json` is scaffolded and its "finalized / open / preview‑free stability" claim is contradicted by all three independent trackers, so it was **not** treated as evidence of a shipped model. Self‑excluded per `RULES.md` (zero verified benchmarks for the exact ID, never fabricate).
+- Revisit trigger: Meituan publishes a finalized `longcat‑2.5` model card with open weights (MIT, like 2.0) **and** a first‑party or independently reproduced benchmark table distinct from the 2.5‑Preview / 2.0 lineage.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.

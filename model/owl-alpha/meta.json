@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=owl-alpha",
   "pricingLinks": [
     "https://openrouter.ai/openrouter/owl-alpha"
-  ]
+  ],
+  "standout": "A confirmed Meituan stealth alias — the mystery coder that was later revealed as LongCat-2.0.",
+  "tradeoff": "Retired: the endpoint is gone; look at LongCat-2.0 for the real thing."
 }

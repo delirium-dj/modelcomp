@@ -70,6 +70,20 @@ if [ -n "$renamed_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged reasoning-alias duplicate slugs (RULES.md Grok Fast reasoning-alias
+# identity): model/grok-4-fast-reasoning/ was folded into model/grok-4-fast/
+# and model/grok-4.1-fast-reasoning/ into model/grok-4.1-fast/ on user order
+# (docs.x.ai aliases — same checkpoint) — block any staged addition under the
+# old slugs so the duplicates can never be re-cemented. Research/report under
+# the -fast folders instead.
+grok_reasoning_added="$(git diff --cached --name-only --diff-filter=A -z -- model/grok-4-fast-reasoning model/grok-4.1-fast-reasoning | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$grok_reasoning_added" ]; then
+  echo "BLOCKED by RULES.md: grok-*-fast-reasoning folders are merged aliases of grok-4-fast / grok-4.1-fast — never recreate them:" >&2
+  printf '%s\n' "$grok_reasoning_added" >&2
+  echo "Write into model/grok-4-fast/ or model/grok-4.1-fast/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Retired vendor alias (RULES.md retired-alias identity):
 # grok-code-fast-1 is a vendor-published alias of model/grok-build-0.1/
 # (docs.x.ai) and must never become a folder — block any staged addition

@@ -5,5 +5,7 @@
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "scaffolded": true,
+  "standout": "Meituan’s finalized 2.5 open MoE: long-context agentic coding at preview-free stability.",
+  "tradeoff": "Immediately followed by newer LongCat and rival 1M-context lines."
 }

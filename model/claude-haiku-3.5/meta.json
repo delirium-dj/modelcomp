@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-haiku-3.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The Haiku that made cheap tool-calling trustworthy — the original low-cost lane of the Claude family.",
+  "tradeoff": "Retired with an 8K output cap; modern Haikus outclass it everywhere."
 }

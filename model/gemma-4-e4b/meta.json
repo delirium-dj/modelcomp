@@ -13,5 +13,7 @@
   "pricingLinks": [
     "https://huggingface.co/google/gemma-4-E4B-it/blob/main/README.md",
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The edge-native agent: native image and audio input on a ~4B open model that fits Pi, Jetson and phones.",
+  "tradeoff": "Edge-class depth — it perceives and answers simply, nothing more."
 }

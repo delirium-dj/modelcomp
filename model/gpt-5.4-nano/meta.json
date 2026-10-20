@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.4-nano/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The classification-and-extraction nano: olympiad-math surprises at the smallest OpenAI price step.",
+  "tradeoff": "The smallest reasoning ceiling — strictly a specialist subagent, never the orchestrator."
 }

@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-bolt-74b-a9b",
   "pricingLinks": [
     "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB"
-  ]
+  ],
+  "standout": "The 24GB-VRAM promise: an open Mamba-2 vision-language MoE that runs local coding agents on a single desktop card.",
+  "tradeoff": "Small-active tuning trades away depth; scores sit at the entry level of this dataset."
 }

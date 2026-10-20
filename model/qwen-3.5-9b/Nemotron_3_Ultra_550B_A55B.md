@@ -1,0 +1,95 @@
+## Qwen 3.5-9B
+
+- **Name:** Qwen3.5-9B
+- **Short description:** Alibaba's unified vision-language model (9B params) with Gated DeltaNet + sparse MoE hybrid architecture. Native multimodal (image, video), 262K context extensible to 1M via YaRN. Apache 2.0 license.
+- **Provider / access:** Alibaba Qwen Team (open-weight, Apache 2.0) — available on Hugging Face, ModelScope, via Alibaba Cloud Model Studio, DashScope API, and local deployment (SGLang, vLLM, KTransformers, Transformers).
+- **Release / knowledge:** February 2026 release (Qwen 3.5 family); knowledge cutoff not explicitly stated.
+- **IDs:** `Qwen/Qwen3.5-9B` (HF), `Qwen/Qwen3.5-9B-Base`, quantized variants (598+ on HF).
+- **Context window:** 262,144 tokens native; extensible to 1,010,000 via YaRN (RoPE scaling).
+- **Modalities:** Image-text-to-text (image, video in; text out). No audio declared.
+- **Pricing:** Open-weight (free to self-host); Alibaba Cloud Model Studio / DashScope API pricing applies for managed inference.
+
+### Raw benchmarks found
+- **MMLU-Pro:** 82.5% (vs GPT-OSS-120B 80.8%, Qwen3-Next-80B 82.7%).
+- **MMLU-Redux:** 91.1%.
+- **C-Eval:** 88.2%.
+- **SuperGPQA:** 58.2%.
+- **GPQA Diamond:** 81.7%.
+- **IFEval:** 91.5%.
+- **IFBench:** 64.5%.
+- **MultiChallenge:** 54.5%.
+- **AA-LCR:** 63.0%.
+- **LongBench v2:** 55.2%.
+- **HMMT Feb 2025:** 83.2%.
+- **HMMT Nov 2025:** 82.9%.
+- **LiveCodeBench v6:** 65.6%.
+- **OJBench:** 29.2%.
+- **BFCL-V4:** 66.1%.
+- **TAU2-Bench:** 79.1%.
+- **VITA-Bench:** 29.8%.
+- **DeepPlanning:** 18.0%.
+- **MMMLU:** 81.2%.
+- **MMLU-ProX:** 76.3%.
+- **NOVA-63:** 55.9%.
+- **INCLUDE:** 75.6%.
+- **Global PIQA:** 83.2%.
+- **PolyMATH:** 57.3%.
+- **WMT24++:** 72.6%.
+- **MAXIFE:** 83.4%.
+- **MMMU:** 78.4%.
+- **MMMU-Pro:** 70.1%.
+- **MathVision:** 78.9%.
+- **MathVista (mini):** 85.7%.
+- **We-Math:** 75.2%.
+- **DynaMath:** 83.6%.
+- **ZEROBench:** 3.0.
+- **ZEROBench_sub:** 31.1%.
+- **VLMsAreBlind:** 93.7%.
+- **BabyVision:** 28.6/25.8.
+- **RealWorldQA:** 80.3%.
+- **MMStar:** 79.7%.
+- **MMBench EN:** 90.1%.
+- **SimpleVQA:** 51.2%.
+- **HallusionBench:** 69.3%.
+- **OmniDocBench 1.5:** 87.7%.
+- **CharXiv (RQ):** 73.0%.
+- **MMLongBench-Doc:** 57.7%.
+- **CC-OCR:** 79.3%.
+- **AI2D_TEST:** 90.2%.
+- **OCRBench:** 89.2%.
+- **ERQA:** 55.5%.
+- **CountBench:** 97.2%.
+- **RefCOCO (avg):** 89.7%.
+- **EmbSpatialBench:** 83.0%.
+- **RefSpatialBench:** 58.5%.
+- **LingoQA:** 80.4%.
+- **Hypersim:** 13.5%.
+- **Nuscene:** 11.8%.
+- **VideoMME (w sub):** 84.5%.
+- **VideoMME (w/o sub):** 78.4%.
+- **VideoMMMU:** 78.9%.
+- **MLVU:** 84.4%.
+- **MVBench:** 74.4%.
+- **LVBench:** 70.0%.
+- **MMVU:** 67.8%.
+- **ScreenSpot Pro:** 65.2%.
+- **OSWorld-Verified:** 41.8%.
+- **AndroidWorld:** 57.8%.
+- **TIR-Bench (w/o CI):** 31.9%.
+- **V* (w/o CI):** 88.5%.
+- **SLAKE:** 79.0%.
+- **PMC-VQA:** 57.9%.
+- **MedXpertQA-MM:** 49.9%.
+- **Terminal-Bench / DeepSWE / SWE-Bench / SWE-Atlas / GPQA / HLE / FrontierMath:** Not directly reported in model card tables.
+- **Claw-Eval:** Not reported.
+- **BenchLM:** Not found for 9B specifically.
+- **Cost per task / speed:** Self-host free; 9B fits consumer GPU. SGLang/vLLM with MTP (Multi-Token Prediction) for lower latency.
+
+### Normalized scores (1–100)
+- **Tool use: 72/100.** TAU2-Bench 79.1% (strong, frontier ~75%+), BFCL-V4 66.1% (mid), OSWorld-Verified 41.8% (mid), AndroidWorld 57.8% (mid), ScreenSpot Pro 65.2% (mid), TIR-Bench 31.9% (low), V* 88.5% (strong). Good agentic tool use but no Terminal-Bench, MCP Atlas, AutomationBench, GDPval.
+- **Reasoning: 78/100.** GPQA Diamond 81.7% (frontier 90%+ → ~75), MMLU-Pro 82.5% (strong), AA-LCR 63% (frontier 95%+ → ~55), LongBench v2 55.2% (mid), HMMT 83% (strong math), SuperGPQA 58.2% (mid), PolyMATH 57.3% (mid). Strong math/knowledge; long-context reasoning moderate.
+- **Context window: 95/100.** 262K native (methodology: 200K-500K = 65-84; 262K ≈ 75-80). Extensible to 1M via YaRN — demonstrated long-context capability.
+- **Multimodal: 85/100.** Native vision-language (image, video in; text out). MMMU 78.4%, MMMU-Pro 70.1%, MathVision 78.9%, VideoMME 84.5%, strong document/OCR (OmniDocBench 87.7%, CC-OCR 79.3%). No audio declared.
+- **Coding: 70/100.** LiveCodeBench 65.6% (frontier 90%+ → ~60), BFCL-V4 66.1% (tool calling for coding), OJBench 29.2% (low), no SWE-Bench, DeepSWE, SWE-Atlas, Vibe Code. Solid code generation; agentic coding unproven.
+- **Cost efficiency: 100/100.** Open-weight Apache 2.0 — free to self-host; 9B runs on consumer hardware.
+- **Overall Score: 80/100.** Mean of (72 + 78 + 95 + 85 + 70) / 5 = 80.

@@ -16,5 +16,7 @@
     "https://upstage.ai/pricing",
     "https://upstage.ai/pricing",
     "https://artificialanalysis.ai/articles/korean-ai-lab-upstage-releases-solar-mini-4"
-  ]
+  ],
+  "standout": "The bilingual mini: fast Korean/English reasoning from a 3B-active MoE with a very long reach.",
+  "tradeoff": "Terminal coding is its known weak spot — a rarity on this list where one axis collapses entirely."
 }

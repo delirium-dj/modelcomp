@@ -18,5 +18,7 @@
     "https://openrouter.ai/meta/muse-glimmer-30b",
     "https://fireworks.ai/pricing",
     "https://build.nvidia.com/meta/muse-glimmer-30b/modelcard"
-  ]
+  ],
+  "standout": "A self-hosted agent that fits on one consumer GPU: Apache-2.0 dense weights with surprisingly strong long-context ranking behavior.",
+  "tradeoff": "A 131K window and 30B ceiling — capable local helper, not a frontier runner."
 }

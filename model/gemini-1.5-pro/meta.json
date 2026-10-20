@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The 2M-context grandfather: the model that made whole-library document analysis routine.",
+  "tradeoff": "Retired and stale — a reference point, not an option."
 }

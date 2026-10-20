@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing",
     "https://cloud.google.com/vertex-ai/generative-ai/pricing"
-  ]
+  ],
+  "standout": "The workhorse that mainstreamed 1M-context multimodal speed — kept as a historical reference point for the Flash line.",
+  "tradeoff": "Deprecated and shut down; nothing new should target it."
 }

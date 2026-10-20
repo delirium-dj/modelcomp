@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.1-codex/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The repo-scale codex middle child: full OpenAI agentic coding between Mini and Max, tuned for whole-codebase engineering.",
+  "tradeoff": "Responses-API-only access and a deprecated status — newer codex lanes cover the same ground."
 }

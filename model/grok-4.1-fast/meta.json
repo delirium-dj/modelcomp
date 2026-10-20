@@ -1,15 +1,15 @@
 {
-  "id": "opencode/grok-4.1-fast",
+  "id": "xai/grok-4.1-fast-reasoning",
   "name": "Grok 4.1 Fast",
-  "short": "xAI's 2M-context 4.1 Fast non-reasoning speed tier for high-volume tool calling at $0.20/$0.50 per 1M; deprecated for 4.3+.",
+  "short": "xAI's 2M-context 4.1 Fast tier at $0.20/$0.50 for high-volume tool calling; xAI lists grok-4-1-fast as an alias of the reasoning build; tau2 93.3% (reasoning) vs 63.7% (plain).",
   "contextWindow": "2,000,000 total; ~30,000 max output",
   "modalities": "Text + image in; text out",
-  "pricingNote": "xAI native $0.20/$0.50 per 1M (cached $0.05)",
+  "pricingNote": "xAI native $0.20/$0.50 per 1M (cached $0.05); not on OpenCode Zen",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.1-fast",
+  "officialUrl": "https://x.ai/news/grok-4-1-fast",
   "pricingLinks": [
-    "https://x.ai/api"
+    "https://docs.x.ai/docs/models"
   ],
-  "standout": "The tool-calling speed tier: a non-reasoning model tuned to make the right call fast, at rock-bottom pricing over 2M context.",
-  "tradeoff": "No deliberation means shallow judgment — it executes plans, it does not make them."
+  "standout": "The tool-calling speed tier: 2M context at rock-bottom pricing, with a reasoning build that still tops tau2-bench.",
+  "tradeoff": "The plain build has no deliberation - it executes plans, it does not make them; deprecated in favour of Grok 4.3."
 }

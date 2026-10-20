@@ -9,5 +9,7 @@
   "officialUrl": "https://x.ai/blog/grok-5",
   "pricingLinks": [
     "https://x.ai/api"
-  ]
+  ],
+  "standout": "The coming Colossus-2 flagship — xAI’s next-generation bet, currently still in training.",
+  "tradeoff": "Unreleased: no specs, no benchmarks, no date — it is a placeholder until it ships."
 }

@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-vl",
   "pricingLinks": [
     "https://openrouter.ai/inclusionai/ling-3.0-flash-vl"
-  ]
+  ],
+  "standout": "The visual-agent bargain: image and video input from open weights at Flash-class serving costs.",
+  "tradeoff": "A 5.5B active budget caps depth; terminal coding trails the text-only Flash line."
 }

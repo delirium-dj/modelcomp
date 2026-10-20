@@ -12,5 +12,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://docs.z.ai/guides/overview/pricing"
-  ]
+  ],
+  "standout": "The consolidated GLM generation: one MIT flagship doing multi-hour agentic coding without a separate coding SKU.",
+  "tradeoff": "A 200K window and successors that dominate on verified scores make it a legacy self-host pick."
 }

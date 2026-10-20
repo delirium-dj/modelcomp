@@ -6,5 +6,7 @@
   "modalities": "Text, image, video in; text out",
   "pricingNote": "~$0.20/$1.56 per 1M (OpenRouter); Apache 2.0 self-host $0",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-27B"
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-27B",
+  "standout": "The dense multimodal workhorse: vision-language reasoning and fast coding from 27B open weights.",
+  "tradeoff": "Superseded by the 3.5 MoE and 3.6/3.7/3.8 generations on most axes."
 }

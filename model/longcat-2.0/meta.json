@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://longcat.chat",
     "https://longcat.chat"
-  ]
+  ],
+  "standout": "Meituan’s MIT heavyweight: a 1.6T MoE offering 1M-context coding agents with fully open weights.",
+  "tradeoff": "Self-hosting a 1.6T MoE is serious infrastructure; served pricing quality depends on the reseller."
 }

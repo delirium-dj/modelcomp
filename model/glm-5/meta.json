@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://artificialanalysis.ai/models/glm-5",
     "https://huggingface.co/zai-org/GLM-5"
-  ]
+  ],
+  "standout": "The foundation of the GLM-5 line: MIT weights, text-only discipline and verified coding strength that spawned a whole family.",
+  "tradeoff": "Every later GLM improved on it — the base is now the budget fallback."
 }

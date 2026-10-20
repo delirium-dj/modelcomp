@@ -1,7 +1,7 @@
 # Qwen3.5-397B-A17B — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (`Qwen3.5-397B-A17B`, weights `Qwen/Qwen3.5-397B-A17B`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,15 @@ Third-party:
 - BenchLeader Index 55.2 (#217 of 759): reasoning 44, agents & tools 56, knowledge 48, instruction following 76, multimodal 60, long context 64
 - benchmarklist.com (independent, 131 results, 2026-10-07): t2-bench **87.9% (#1/17 — field lead)**, Tau2-Bench Telecom **95.6% (#20/332)**, TAU3-Bench 71.0% (#5/13), Tau3-Banking 13.4% (#77/176), GDPval-AA **Elo 966 (#120/352)**, Terminal-Bench Hard 40.9% (#32/326), TB 2.1 51.3%, ScreenSpot-Pro #10/59, PinchBench 89.1% (#11/73), MCP Atlas, ClawProBench 64.18 (#4/48), Vals Financial Agent 61.3% (#1/7), BrowseComp 40.5% (#58/60 — weak)
 
+Third-pass verification (2026-10-19) — BenchLM canonical page `qwen3-5-397b` (73 of 667 rows, overall 55.42 #66/959; the reasoning sibling is unranked), AA via the non-reasoning workload slug:
+
+- New agentic rows: **SWE-bench Pro 50.9%**, QwenClawBench **51.8%**, **Claw-Eval 56.8%**, MCP-Tasks **74.2%** (distinct from MCP Atlas 46.1% — the file's "MCP-Mark 46.1" and this are the same family of rows), WideResearch 74.0%, τ³-bench 68.4%, VITA-Bench 43.7%, DeepPlanning 37.6%, Toolathlon 36.3%, Gert Labs **46.76%**, ResearchClawBench **14.2%** (weak)
+- New coding rows: NL2Repo **32.2%** (weak end-to-end), SWE-V 76.2% (vs the card's 76.4), AIME26 93.3% (vs the card's 91.3)
+- New multimodal rows: VideoMMMU 84.7%, V* 95.8%, RealWorldQA 83.9%, MMLongBench-Doc 61.5%, Video-MME w/o subs 83.7%, AI2D 93.9%, ERQA 67.5%
+- New knowledge/instruction rows: MMLU-ProX 84.7%, NOVA-63 59.1%, INCLUDE 85.6%, PolyMath 73.3%, MAXIFE 88.2%, HMMT Feb 2026 87.9%, MMAnswerBench 80.9%
+- Long context: **AI-Needle 68.7%** (vendor — partial fill of the retrieval-curve gap); AA-LCR now reads **64.3%** on the non-reasoning AA workload (vs 77.3% earlier AA runs and the card's 68.7%) — a variant/harness spread, both recorded
+- Conflicts flagged, not resolved: AA-HLE **19.8%** on the non-reasoning workload (file's AA row said 29.0%), AA-MMMU-Pro **52.7%** (file's AA row said 77.3%), AA-IFBench **51.6%** (file's AA row said 78.8%), AA-Omniscience **−37.9** / 82.7% hallucination (file: −32 / 88%), CritPt 0.9% (file: 1.7%) — the non-reasoning AA workload reads materially lower on knowledge/multimodal; the Intelligence Index is unchanged at 21.4
+
 ### Normalized scores (1–100)
 
 - **Tool use: 66/100.** TAU2-Bench 86.7% and BFCL-V4 72.9% (vendor) with AA confirming τ²-Telecom 95.6% — upper-mid tool use — but Tool Decathlon 38.3%, MCP-Mark 46.1%, τ³-Banking 13.4%, GDPval 14.8% and AA Agentic Index mid-teens show uneven agentic reliability outside telecom/retail.
@@ -53,6 +62,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (131 primary-source results, updated 2026-10-07 — independent t2-bench 87.9% #1/17 field lead, Tau2-Telecom 95.6% #20/332, Terminal-Bench Hard 40.9% #32/326, GDPval-AA Elo 966 #120/352, tau3-Banking 13.4% #77/176, ClawProBench 64.18 #4/48, Vals Financial Agent 61.3% #1/7, BrowseComp 40.5% #58/60). Confirms the existing Tool use 66 / Reasoning 74 / Context 74 / Multimodal 84 / Coding 72 reads — the t2-bench field-lead and TAU3-Bench #5 reinforce Tool use 66 while the low GDPval (Elo 966) and tau3-Banking (13.4%) keep it mid-band. No score change warranted. Prior pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis launch article and current index, BenchLeader, DeepInfra/Together provider benchmarks, Vector Wire, AI Atlas.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM canonical page `qwen3-5-397b` (73/667 rows, 55.42 #66/959) and the AA non-reasoning workload: new agentic/coding gaps filled (SWE-Pro 50.9%, QwenClawBench 51.8%, Claw-Eval 56.8%, MCP-Tasks 74.2%, Gert Labs 46.76%, ResearchClawBench 14.2%, NL2Repo 32.2%, AI-Needle 68.7%), while the non-reasoning AA workload conflicts (AA-HLE 19.8%, AA-MMMU-Pro 52.7%, AA-IFBench 51.6%, AA-Omniscience −37.9) are flagged, not resolved — the existing Tool use 66 / Reasoning 74 / Context 74 / Multimodal 84 / Coding 72 reads already carry the low-GDPval (Elo 966), τ³-Banking 13.4% and weak end-to-end coding caps, so no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (131 primary-source results, updated 2026-10-07). Prior pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis launch article and current index, BenchLeader, DeepInfra/Together provider benchmarks, Vector Wire, AI Atlas.
 - Future sources: add a new file next to this one, e.g. `Qwen_4.md`, using the same headings.

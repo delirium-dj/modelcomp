@@ -1,7 +1,7 @@
 {
   "id": "opencode/space-bunny-free",
   "name": "Space Bunny",
-  "short": "Undisclosed vendor's stealth reasoning model (1M context, 524K out) for free single-shot code gen and agents; one model as Space Bunny/Alpha/Free tier, Zen free live, OpenRouter ended.",
+  "short": "Revealed 2026-10-19 as MiniMax M3.1 Flash (Free) — this stealth slot (1M ctx, 524K out) is one model as Space Bunny/Alpha/Free; folder parked, research belongs in minimax-m3.1-flash-preview.",
   "contextWindow": "1M total (524K in / 524K out)",
   "modalities": "Text/image/video in; text out",
   "pricingNote": "Free on OpenCode Zen for a limited time; zero-retention provider, no training on your data",

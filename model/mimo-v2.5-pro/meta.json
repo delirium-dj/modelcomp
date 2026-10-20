@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=mimo-v2.5-pro",
   "pricingLinks": [
     "https://mimo.xiaomi.com/mimo-v2-5-pro"
-  ]
+  ],
+  "standout": "Xiaomi’s long-horizon agent MoE with top instruction-following discipline from open weights.",
+  "tradeoff": "Text-only and superseded by the omni-modal V2.6 generation."
 }

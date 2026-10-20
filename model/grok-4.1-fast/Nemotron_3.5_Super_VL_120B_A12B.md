@@ -1,71 +1,84 @@
-# Grok 4.1 Fast — findings by Nemotron 3.5 Super VL 120B A12B
+# Grok 4.1 Fast Reasoning — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: benchlm.ai/models/grok-4-1-fast (xAI Grok 4.1 Fast model page), Artificial Analysis (`artificialanalysis.ai/models/grok-4-1-fast`)
-- Date: 2026-10-16 (UTC)
+- Source: benchgap.net (`benchgap.net/model/grok-4-1-fast-reasoning`, 10 measured + 52 estimated benchmarks as of 2026-10-19), Artificial Analysis (`artificialanalysis.ai/models/grok-4-1-fast`, non-reasoning variant page for context window)
+- Date: 2026-10-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Grok 4.1 Fast
-- **Short description:** xAI's proprietary fast non-reasoning model; 1M context; proprietary (weights not public); sibling: Grok 4.1 Fast (Reasoning).
-- **Provider / access:** xAI API (`grok-4-1-fast`); proprietary (weights not public).
-- **Release / knowledge:** Released 2026 per xAI; knowledge cutoff not stated.
-- **IDs:** `grok-4-1-fast` (xAI API). No Free ID confirmed.
-- **Context window:** 1M tokens (benchlm.ai). Verified.
-- **Modalities:** Not confirmed on benchlm.ai; assumed text in → text out; reasoning type: Non-Reasoning per benchlm.ai; tool use yes (agentic tasks); JSON mode not advertised.
-- **Pricing (as of 2026-10-16):** Not found on benchlm.ai or AA.
-- **Architecture:** Proprietary (weights not public); parameter count undisclosed; non-reasoning model.
+- **Name:** Grok 4.1 Fast Reasoning
+- **Short description:** xAI's fast reasoning variant of Grok 4.1, released October 2026; reasoning model optimized for speed; text+image input, text output; proprietary (weights not public).
+- **Provider / access:** xAI API (`grok-4-1-fast-reasoning`, Chat Completions); OpenRouter route likely available.
+- **Release / knowledge:** Released October 2026; knowledge cutoff not stated.
+- **IDs:** `grok-4-1-fast-reasoning` (xAI API). No Free ID confirmed on OpenCode Zen.
+- **Context window:** 2M tokens declared by Artificial Analysis for Grok 4.1 Fast family; no public long-context retrieval score beyond AA-LCR 74.0%.
+- **Modalities:** Text and image in; text out; reasoning yes (fast reasoning variant); tool calling yes; structured output/JSON not explicitly confirmed.
+- **Pricing (as of 2026-10-20):** Not independently confirmed; treat as paid API, no Free tier confirmed.
+- **Architecture:** Proprietary (parameter count not disclosed); reasoning model.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- τ²-bench results: **63.7%** (Artificial Analysis)
-- Gert Labs: **47.32%** (Gert Labs rankings)
+- BrowseComp: **72.2% estimated ±12.8 pp, low confidence** (benchgap.net)
+- IFEval: **91.5% estimated ±2.7 pp, high confidence** (benchgap.net)
+- τ²-bench results: **93.3% measured** (benchgap.net)
+- AA Agentic Index: **24.1% estimated ±12.2 pp, low confidence** (benchgap.net)
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **11.3%** (Artificial Analysis)
-- AA-GPQA Diamond: **63.7%** (Artificial Analysis)
-- AA-HLE: **5.1%** (Artificial Analysis)
-- AA-Omniscience Index **-50.9%**; Accuracy **17.2%**; Hallucination rate **82.3%** (AA)
-- AA-LCR (long-context reasoning): **31.3%** (Artificial Analysis)
-- CritPt: **0.0%** (Artificial Analysis)
-- AA-IFBench: **36.5%** (Artificial Analysis)
+- GPQA Diamond: **84.2% estimated ±2.2 pp, high confidence** (benchgap.net)
+- AA-GPQA Diamond: **85.3% measured** (benchgap.net)
+- GPQA: **86.0% estimated ±3.9 pp, high confidence** (benchgap.net)
+- MMLU: **88.8% estimated ±3.6 pp, high confidence** (benchgap.net)
+- MMLU-Pro: **84.6% estimated ±6.2 pp, medium confidence** (benchgap.net)
+- ARC-AGI-1: **52.0% estimated ±5.4 pp, low confidence** (benchgap.net)
+- ARC-AGI-2: **19.2% estimated ±14.3 pp, low confidence** (benchgap.net)
+- HLE: **29.2% estimated ±9.3 pp, medium confidence** (benchgap.net)
+- HLE w/ tools: **48.4% estimated ±5.5 pp, low confidence** (benchgap.net)
+- CritPt: **2.9% measured** (benchgap.net)
+- Artificial Analysis Intelligence Index: **20.4% measured** (benchgap.net)
+- MathVision: **81.5% estimated ±4.9 pp, high confidence** (benchgap.net)
 
 Coding:
 
-- None found for this variant.
-
-Multimodal & grounded:
-
-- AA-MMMU-Pro: **48.4%** (Artificial Analysis)
+- SWE-bench Verified: **71.9% estimated ±4.4 pp, high confidence** (benchgap.net)
+- AA Coding Index: **39.3% estimated ±6.8 pp, medium confidence** (benchgap.net)
+- AA-SciCode: **45.9% estimated ±3.8 pp, high confidence** (benchgap.net)
+- BFCL v4: **66.9% estimated ±8.7 pp, low confidence** (benchgap.net)
 
 Long context:
 
-- AA-LCR: **31.3%** (Artificial Analysis); declared 1M context; no public full-depth needle-recall score beyond AA-LCR.
+- AA-LCR: **74.0% measured** (benchgap.net)
+- LongBench v2: **61.5% estimated ±5.8 pp, low confidence** (benchgap.net)
+- MRCRv2: **83.3% estimated ±11.3 pp, low confidence** (benchgap.net)
+
+Multimodal:
+
+- AA-MMMU-Pro: **63.3% measured** (benchgap.net)
+- MMMU: **77.3% estimated ±5.9 pp, medium confidence** (benchgap.net)
+- CharXiv: **73.3% estimated ±6.9 pp, low confidence** (benchgap.net)
+- Video-MME (w/o subtitle): **79.4% estimated ±6.3 pp, low confidence** (benchgap.net)
 
 ### Normalized scores (1–100)
 
-Derived from the raw numbers above using the methodology in `model-comparison.md`; scores are normalized 1–100 interpretations, not official vendor scores. Benchmark coverage is thin (benchlm 12 of 639 slots).
+Derived from the raw numbers above using the methodology in `model-comparison.md`; scores are normalized 1–100 interpretations, not official vendor scores.
 
-**OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-**NEVER include Cost efficiency** — scored independently.
+**OVERALL SCORE FORMULA (v4, see `RULES.md`):** Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 50/100.** τ²-bench (63.7%), Gert Labs (47.32%); capped by extremely thin coverage — only 2 agentic benchmarks found.
-- **Reasoning: 45/100.** AA-GPQA Diamond 63.7%, AA-LCR (31.3%), AA Intelligence Index (11.3%); capped by CritPt (0.0%), AA-HLE (5.1%), AA-Omniscience accuracy (17.2%), Intelligence Index (11.3%). Weakest reasoning profile.
-- **Context window: 90/100.** Verified 1M tokens (benchlm.ai); AA-LCR 31.3%; capped because no public full-depth needle-recall score beyond AA-LCR.
-- **Multimodal: 40/100.** AA-MMMU-Pro (48.4%); capped by text-only output assumption and thin multimodal coverage.
-- **Coding: 25/100.** No coding benchmarks found for this variant; scored conservatively due to zero data.
-- **Cost efficiency: 50/100.** No pricing data found; scored conservatively.
-- **Overall Score: 50/100.** Half-up mean of (50 + 45 + 90 + 40 + 25) / 5 = 50.0 → 50. Best-fit recommendation: large context window (1M) but very thin benchmark coverage overall; verify broadly on all task types given sparse data.
+- **Tool use: 55/100** IFEval 91.5% and τ²-bench 93.3% are strong, but Agentic Index 24.1% and BrowseComp 72.2% (low confidence) are weak. Good instruction following, weak autonomous agency.
+- **Reasoning: 55/100** Solid knowledge marks: GPQA Diamond 84.2%, MMLU 88.8%, MathVision 81.5%; held down by very low HLE 29.2%, CritPt 2.9%, and Intelligence Index 20.4%.
+- **Context window: 70/100** Declared 2M-token context (Artificial Analysis); AA-LCR 74.0% measured; no full-window MRCR/RULER curve.
+- **Multimodal: 65/100** Text+image in, text out; AA-MMMU-Pro 63.3% measured, MMMU 77.3% estimated; moderate vision coverage.
+- **Coding: 60/100** SWE-bench Verified 71.9%, AA-SciCode 45.9%, BFCL v4 66.9%; AA Coding Index 39.3% is low. Solid agentic coding, weaker competitive coding.
+- **Cost efficiency: 30/100** Paid API only, no Free tier confirmed; pricing not independently confirmed; fast-reasoning models typically carry a premium.
+- **Overall Score: 61/100** Half-up mean of (55 + 55 + 70 + 65 + 60) / 5 = 61.0 → 61. Best-fit recommendation: fast reasoning model for instruction-following tasks with large context; weakest on novel reasoning (HLE, CritPt).
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (benchlm.ai Grok 4.1 Fast model card + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores. Benchmark coverage is thin (12 of 639 slots) — treat scores as provisional.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
+- Method: public internet research (benchgap.net benchmark dataset + Artificial Analysis context window); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, using the same headings.

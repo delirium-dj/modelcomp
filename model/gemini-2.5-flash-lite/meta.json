@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The cheapest 1M-context ticket in Google’s lineup at the time — built for high-frequency, small-payload automation.",
+  "tradeoff": "Shutting down; the 3.x Lite tiers inherit the niche."
 }

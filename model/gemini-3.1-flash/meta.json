@@ -1,13 +1,16 @@
 {
-  "id": "google/gemini-3.1-flash",
-  "name": "Gemini 3.1 Flash",
-  "short": "Google's efficient 3.1 Flash (1M/65K) for balanced speed/cost coding; SWE-bench about 78%, free tier via AI Studio.",
+  "id": "google/gemini-3.1-flash-lite",
+  "name": "Gemini 3.1 Flash-Lite",
+  "short": "Google's only 3.1 Flash text SKU (GA 2026-05-07, 1M/65K) - Google never shipped a bare 'Gemini 3.1 Flash'; GPQA 82.2%, LiveCodeBench 72-80%. Folder parked: research lives in gemini-3.1-flash-lite.",
   "contextWindow": "1,048,576 (1M)",
-  "modalities": "Text, image, audio, PDF in; text out",
-  "pricingNote": "Free tier available; Paid-tier pricing",
-  "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash route)",
-  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Paid $0.25/M in, $1.50/M out (AI Studio); free tier available",
+  "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash-Lite route)",
+  "officialUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite",
   "pricingLinks": [
-    "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/deprecations"
+  ],
+  "standout": "The balanced 3.1 Flash: solid coding scores with a free AI Studio lane for everyday speed/cost trade-offs.",
+  "tradeoff": "Overshadowed by the 3.5–3.8 Flash revisions, which raised capability at similar prices."
 }

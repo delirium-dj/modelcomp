@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://openai.com/api/pricing/",
     "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/"
-  ]
+  ],
+  "standout": "The cheapest frontier-family ticket: an ultra-compact tier built for endless classification and extraction at a nickel-and-dimes rate.",
+  "tradeoff": "Text-plus-image in, but no serious reasoning depth — pure volume work."
 }

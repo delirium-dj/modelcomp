@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/",
     "https://opencode.ai/v2/docs/console/models/"
-  ]
+  ],
+  "standout": "The volume-reasoning champion: strong math and agentic coding at prices that make per-token anxiety obsolete.",
+  "tradeoff": "Text-only — multimodal needs a different DeepSeek lane."
 }

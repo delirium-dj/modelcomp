@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=ling-2.6.1t",
   "pricingLinks": [
     "https://artificialanalysis.ai/models/ling-2-6-1t"
-  ]
+  ],
+  "standout": "The scale demonstrator: a full 1T MIT MoE decoding at high speed for fast agents at scale.",
+  "tradeoff": "Instruct-only tuning and a 262K window; the 3.x generation refined everything it started."
 }

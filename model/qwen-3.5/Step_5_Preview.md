@@ -1,7 +1,7 @@
 # Qwen 3.5 — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (Qwen 3.5 flagship generation, 2026; weights `Qwen/Qwen3.5-397B-A17B`, hosted as Qwen3.5-Plus)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,6 +51,8 @@ Base-model checkpoints: MMLU 88.61, MMLU-Pro 76.01, SuperGPQA 57.96 (vs Qwen3-23
 
 Efficiency: decoding throughput 8.6×/19.0× Qwen3-Max at 32K/256K; 3.5×/7.2× Qwen3-235B-A22B.
 
+Third-pass verification (2026-10-19): Artificial Analysis has delisted the February tier from its current leaderboard (404 on the natural and hyphenated flagship slugs qwen3.5-397b-a17b / qwen-3.5-397b; the live AA page that persists for the 397B is the non-reasoning workload slug `qwen3-5-397b-a17b-non-reasoning`, deprecation-bannered). BenchLM's canonical page is `qwen3-5-397b` (73 of 667 rows, overall 55.42 #66/959) — see the dedicated 397B report for the full row set; the 9B tier is 404 on both trackers and the Plus tier is down to 2/667 rows on BenchLM. No new evidence changes the family reads; no score change.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 68/100.** BFCL-V4 72.9%, TAU2 86.7%, Tool Decathlon 38.3%, MCP-Mark 46.1%, BrowseComp 69.0–78.6% and WideSearch 74.0% — a good open-weights agentic profile that beats GPT-5.2 on 5 of the 6 tool evals, but MCP-Mark and Tool-Decathlon sit mid-band.
@@ -65,6 +67,6 @@ Efficiency: decoding throughput 8.6×/19.0× Qwen3-Max at 32K/256K; 3.5×/7.2× 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Qwen GitHub/Hugging Face model cards and release log, Alibaba Cloud blog, DeepLearning.AI The Batch coverage); scores are normalized 1–100 interpretations, not official vendor scores. This entry is a family-proxy — the tracked tier is unconfirmed.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis delisted the February tier (404 on qwen3.5-397b-a17b / qwen-3.5-397b; only the deprecation-bannered non-reasoning workload slug persists); BenchLM's canonical `qwen3-5-397b` page (73/667, 55.42 #66/959) is analyzed in the dedicated 397B report, the Plus tier is down to 2/667 rows and the 9B is 404 on both trackers — vendor rows stand, no score change for the family proxy. First pass (2026-10-09) used Qwen GitHub/Hugging Face model cards and release log, Alibaba Cloud blog, DeepLearning.AI The Batch coverage. This entry is a family-proxy — the tracked tier is unconfirmed.
 - Future sources: add a new file next to this one, e.g. `Qwen_3_6.md`, using the same headings.

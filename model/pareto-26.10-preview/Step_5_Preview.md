@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by Step 5 Preview
 
 - Source: Unbiased (`unbiased/pareto-26.10-preview`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,6 +33,8 @@ Transcribed comparators (from a September 21, 2026 comparison — not independen
 
 Independent evaluations: **none exist** — Artificial Analysis has no page for Pareto, SWE-bench plain has no score, and no third party (SMF Clearinghouse, AI BENCHY, stealthmodels) has run the model. benchlm.ai displays only the three vendor rows; lmmarketcap's "40/100 composite" is a scoring artifact, not an eval.
 
+Third-pass verification (2026-10-19): Artificial Analysis still 404s on pareto-26.10-preview and BenchLM still shows exactly 3 of 666 rows (TB 4.0 50.80%, DeepSWE 69.9%, GPQA-D 92.4% — all sourced to Unbiased's own preliminary-results page), so the vendor-only evidence base is unchanged nine days after the 2026-10-10 second pass. No score change.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** DeepSWE v1.1 69.9% and Terminal-Bench 4.0 50.8% (vendor runs) are upper-mid-band agentic results at $0.24–0.48/task — 28–56× cheaper per task than the transcribed comparators; held below the frontier band because every number is vendor-run, preliminary, and partially on sliced benchmarks.
@@ -47,6 +49,6 @@ Independent evaluations: **none exist** — Artificial Analysis has no page for 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com still have no Pareto page, and no independent evaluation exists (Artificial Analysis, SWE-bench, and all third parties remain absent) — the only data are Unbiased's own preliminary vendor runs (GPQA-Diamond 92.4%, HLE 49.9%, DeepSWE v1.1 69.9%, Terminal-Bench 4.0 50.8%). The absence of any independent validation confirms the conservative vendor-only caps in the existing Tool use 72 / Reasoning 80 / Coding 72 reads; no score change warranted. Prior pass (2026-10-09) used Unbiased launch blog + model card + how-it-works page, OpenRouter model/endpoints API, models.dev catalog, OrcaRouter and benchlm analyses, Union Alpha/Pareto identity coverage.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Artificial Analysis 404 and BenchLM still 3/666 vendor-only rows (TB 4.0 50.80%, DeepSWE 69.9%, GPQA-D 92.4%) — nine days on, the absence of any independent validation confirms the conservative vendor-only caps in Tool use 72 / Reasoning 80 / Coding 72; no score change. Second pass (2026-10-10) via benchmarklist.com and rankllms.com (no page). Prior pass (2026-10-09) used Unbiased launch blog + model card + how-it-works page, OpenRouter model/endpoints API, models.dev catalog, OrcaRouter and benchlm analyses, Union Alpha/Pareto identity coverage.
 - Future sources: add a new file next to this one, e.g. `Pareto_26_11.md`, using the same headings.

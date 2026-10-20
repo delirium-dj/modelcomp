@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://huggingface.co/Qwen/Qwen3.5-9B/blob/main/README.md"
-  ]
+  ],
+  "standout": "The thinking-by-default pipsqueak: a 9B open reasoner covering math, OCR and telecom tool calls on pocket hardware.",
+  "tradeoff": "At 9B the ceiling arrives fast — it assists, larger models architect."
 }
