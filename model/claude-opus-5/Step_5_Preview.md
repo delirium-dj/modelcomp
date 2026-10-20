@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-5`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (81 primary-source results, updated 2026-10-07) and the Artificial Analysis model page (now flags Opus 5 deprecated; partial-workload Intelligence Index 51 vs. the earlier full-run 61). Prior pass (2026-10-08) used Anthropic's Opus page, hokai.io, and vectorwire.ai.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated page re-confirms Intelligence Index 51 (partial 10k-input workload vs. the earlier full-run 61), 53.7 tok/s, 44.14 s TTFT, $5/$25 ($5.86/task), 1M window, 140M output tokens; the AA GDPval-AA v2.1 leaderboard places Opus 5 (Max) at Elo 1721 (#10/298) and (Xhigh) at 1691 (#14/298); Anthropic's official table shows Active with retirement not sooner than 2027-07-24 and 300K batch-output beta support — all consistent with the existing Tool use 93 / Reasoning 93 / Context 92 / Multimodal 78 / Coding 94 reads. No score change warranted. Prior pass (2026-10-10) used benchmarkregistry.org (81 primary-source results); the first pass used Anthropic's Opus page, hokai.io and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

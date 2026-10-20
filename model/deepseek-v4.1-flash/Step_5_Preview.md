@@ -1,7 +1,7 @@
 # DeepSeek-V4.1-Flash — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-flash`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification (1017 refresh incorporated)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,7 +29,7 @@ Agent / tool use:
 - Agent's Last Exam: **31.8%** (vendor, field-leading)
 - BrowseComp: **85.8% ±9** (BenchmarkList, 69th pct)
 - JobBench: **45.8%** (60th pct); Terminal-Bench-Science 15.7%; Finance Agent v2 61.6% (96th pct)
-- Claw-Eval / ClawProBench / GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**; **GDPval-AA: Elo 1746 (#7/298) — Artificial Analysis, 2026-10-19, for the 1017 build (new in this pass; fills the gap the first two passes marked unmeasured)**
 
 Reasoning / knowledge:
 
@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - HLE: **36.8%** (vendor full set; 39.1% text-only subset); Artificial Analysis **39.2%** (#43/478); with tools **63.9%** (vendor, #3/29)
 - AA-LCR: **84.0%** (Artificial Analysis, 99th percentile, #7/408)
 - CritPt: **14.3%** (AA, 26th pct); MathArena Apex 65.6%; Codeforces rating 3471 (#1/8)
-- Artificial Analysis Intelligence Index: **39.5** (max, 2026-10-07; #60/427); ARC-AGI-2: 72.9% (ARC Prize, max)
+- Artificial Analysis Intelligence Index: **39.5** (max, 2026-10-07; #60/427) for the September build — **45 for the 1017 refresh (2026-10-19; #2/121 in its open-weight class, class median 19; 210.6 tok/s, 1.13 s TTFT)**; ARC-AGI-2: 72.9% (ARC Prize, max)
 - Base model (from HF card): MMLU-Pro 74.1, SimpleQA-Verified 42.3, SuperGPQA 53.1, MATH 61.1 (MATH-500 97.3% per ARMEDS), LongBench-V2 45.2
 
 Coding:
@@ -59,18 +59,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** TB2.1 90.6% (vendor max-effort) and CyberGym 88.1% sit in the frontier band, with AutomationBench 54.8% and BrowseComp 85.8% supporting breadth; capped by the independent TB2.1 reading of 74.53% (Vals Terminus-2), TB3.0/4.0 at 30–31% (far behind Opus 5's 43.3/51.8), and no public GDPval-AA/Claw-Eval.
-- **Reasoning: 83/100.** GPQA 90.9% and AA Intelligence Index 39.5 with AA-LCR 84.0% put it solidly frontier-adjacent; HLE 36.8–39.2% (56.3% for Opus 5) and CritPt 14.3% cap it below the top tier, and the GPQA number lacks independent replication.
+- **Tool use: 87/100.** Raised from 84 on the 1017 refresh: GDPval-AA Elo 1746 (new, #7/298 — clears the ~1750 frontier threshold that was previously an unmeasured cap), the AA composite rising 39.5 → 45 (#2/121 in class), TB2.1 90.6% (vendor) and CyberGym 88.1% already frontier-band; still capped by the independent TB2.1 reading of 74.53% (Vals Terminus-2) and TB3.0/4.0 at 30–31%.
+- **Reasoning: 85/100.** Raised from 83 on the 1017 refresh: AA composite 45 (#2/121 in class) and GDPval-AA Elo 1746 join GPQA 90.9% and AA-LCR 84.0% as frontier-adjacent evidence; HLE 36.8–39.2% (56.3% for Opus 5) and CritPt 14.3% still cap it below the top tier, and the GPQA number lacks independent replication.
 - **Context window: 93/100.** 1,048,576-token native window with 384K max output is the ≥1M tier; AA-LCR 84.0% (99th pct) is strong evidence, but the 100 tier's ≥98%-retrieval-at-512K bar is unverifiable with no MRCR/RULER published, and the compressed-KV design's long-context reliability is flagged as unproven at the ceiling.
 - **Multimodal: 72/100.** Native text + image in → text out with a jointly trained ViT, backed by BabyVision 89.6% (w/ tools) and Chartography 78.9%; above the plain 60–70 image-input band but held below the video/PDF/audio tier — no video/audio input, no non-text output, and base MMMU-Pro is only 56.5%.
 - **Coding: 87/100.** DeepSWE v1.1 74.2% (tied field lead), TB2.1 90.6% (vendor) and Codeforces 3471 are frontier-band; capped by SciCode 51.9%, NL2Repo 64.0%, ProgramBench 20.3%, and the absence of any vendor or Vals SWE-bench Verified number — all headline coding scores run on DeepSeek's own harness at max effort.
-- **Cost efficiency: 97/100.** $0.30/$1.20 peak per MTok (half off-peak, ~$0.006 cache hits) is roughly an order of magnitude below the methodology's ~$0.60/$2.20 ≈ 92 tier — among the cheapest frontier-class models available, open weights included.
-- **Overall Score: 84/100.** Best-fit recommendation: the cost-efficiency leader for agentic coding and long-context pipelines — DeepSWE/TB2.1-class agentic coding at ~1/10th flagship pricing; route science-heavy agent tasks (TB4.0, TB-Science) to Opus/Fable-class models.
+- **Cost efficiency: 97/100.** $0.30/$1.20 peak per MTok (half off-peak, ~$0.006 cache hits; AA measures a 98% cache discount and $0.26/task on the 1017 build) is roughly an order of magnitude below the methodology's ~$0.60/$2.20 ≈ 92 tier — among the cheapest frontier-class models available; a $0 Zen promotional route (`opencode/deepseek-v4.1-flash-free`) also exists and would score 100 while active.
+- **Overall Score: 85/100.** Mean of 87/85/93/72/87 = 84.8 → 85 (raised from 84). Best-fit recommendation: the cost-efficiency leader for agentic coding and long-context pipelines — DeepSWE/TB2.1-class agentic coding plus a frontier-threshold GDPval at ~1/10th flagship pricing; route science-heavy agent tasks (TB4.0, TB-Science) to Opus/Fable-class models.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (40 percentile-ranked results — Codeforces 3471 #1/8, TB2.1 90.6% #3/194, DeepSWE 74.2% #5/52, AA-LCR 84.0% #7/408, CyberGym 88.1% #6/43, HLE w/tools 63.9% #3/29, MMMU-Pro 77.0% #17/72, AA-Omniscience −5.3 17th pct), confirming the first pass — no score change warranted; the independent AA-LCR (99th pct) and TB2.1 percentile ranks support the existing Context 93 / Coding 87. Prior pass (2026-10-09) used DeepSeek HF model card + tech report/arXiv + API docs, Artificial Analysis, Vals AI, BenchmarkList, ModelCap, models.dev, ARMEDS.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) incorporated the **1017 refresh** (2026-10-17): Artificial Analysis Index 45 (#2/121 in class, up from 39.5), 210.6 tok/s, 1.13 s TTFT, $0.30/$1.20 (98% cache discount, $0.26/task), 5 providers, MIT weights, 1M window, text+image in; the AA GDPval-AA v2.1 leaderboard reads **Elo 1746 (#7/298)** — filling the GDPval gap both prior passes had marked unmeasured. Scores updated: Tool use 84 → 87, Reasoning 83 → 85, Overall 84 → 85 (Context 93 / Multimodal 72 / Coding 87 / Cost 97 unchanged). Second pass (2026-10-10) used benchmarklist.com (40 percentile-ranked results); the first pass used DeepSeek's HF model card + tech report/arXiv + API docs, AA, Vals AI, BenchmarkList, ModelCap, models.dev and ARMEDS.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

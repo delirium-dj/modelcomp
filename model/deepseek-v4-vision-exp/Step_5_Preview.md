@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash Vision Exp — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -13,7 +13,7 @@
 - **Release:** 2026-08-21.
 - **Context window:** 1,048,576 tokens; max output 384K; 2,500 concurrency (same as Flash, 5× Pro's).
 - **Modalities:** Text and image in → text out; thinking on by default at effort `high` (costs 80 extra template tokens per call); JPEG/PNG/GIF/WebP via base64, URL or Files API.
-- **Pricing (as of 2026-10-09):** identical to V4-Flash — off-peak $0.22/M input, $0.66/M output, $0.007 cache; peak $0.44/$1.32/$0.014; an image costs ~$0.0001–0.00015 (~11,800 images per dollar at peak input).
+- **Pricing (as of 2026-10-19):** identical to V4-Flash — off-peak $0.22/M input, $0.66/M output, $0.007 cache; peak $0.44/$1.32/$0.014 (AA measures the peak card with a 97% cache discount, blended $0.23, ~$1.04 per Index task); an image costs ~$0.0001–0.00015 (~11,800 images per dollar at peak input).
 - **Architecture:** same sparse MoE as V4-Flash (13B active/284B), with vision encoder + aligner and DFlash/DFlash2 attention.
 
 ### Raw benchmarks found
@@ -34,7 +34,7 @@ Multimodal agent capabilities:
 
 Third-party:
 
-- Artificial Analysis (OpenRouter, Max effort): Intelligence Index **34.8**; Coding Index **65.0**; Agentic Index **47.5**; GPQA Diamond **91.3%**; HLE **34.5%**; AA-LCR **81.3%**; τ-Bench Banking **41.0%**; GDPval-AA **52.4%**; CritPt 10.9%; SciCode **49.7%**; TB 2.1 **74.2%**; TB Hard; TB 4.0 12.1%; AA-Omniscience 38.6% accuracy / 8.5% non-hallucination
+- Artificial Analysis (OpenRouter, Max effort): Intelligence Index **34.8** — **re-confirmed 2026-10-19 at 35 (#15/173 in class, class median 13)**; Coding Index **65.0**; Agentic Index **47.5**; GPQA Diamond **91.3%**; HLE **34.5%**; AA-LCR **81.3%**; τ-Bench Banking **41.0%**; GDPval-AA **52.4%**; CritPt 10.9%; SciCode **49.7%**; TB 2.1 **74.2%**; TB Hard; TB 4.0 12.1%; AA-Omniscience 38.6% accuracy / 8.5% non-hallucination. **New in the re-run:** 198.8 tok/s (#24/151), 1.55 s TTFT, 3 providers; the AA GDPval-AA v2.1 leaderboard places V4 Flash Vision (Max) at **Elo 1547 (#44/298)** — consistent with the 52.4% normalized reading above
 - LiveBench (AA): reasoning **85.40**, mathematics **87.81**, instruction following **70.96**
 - OpenRouter AutoExacto: GPQA Diamond 87.9–91.2%, TAU-Bench 74.2–78.1% (auto-routing 88.0/75.4)
 - Traictory average 50.4%; llmboard aggregate 72.57
@@ -53,6 +53,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone page (the `-exp` vision variant is a superseded experimental, now served by V4.1-Flash); re-checked the Artificial Analysis (via OpenRouter) and rankllms.com composites — AA Intelligence Index 34.8, Coding Index 65.0, Agentic Index 47.5%, GPQA 91.3%, HLE 34.5%, AA-LCR 81.3%, TB 2.1 74.2% and the independent RankLLMs composite of 51.8 all confirm the existing Tool use 74 / Reasoning 78 / Context 90 / Multimodal 82 / Coding 74 reads. No score change warranted — this is an experimental (`-exp`) image-only model retired in favor of V4.1-Flash. Prior pass (2026-10-09) used DeepSeek HF model card + API vision/pricing docs, Artificial Analysis via OpenRouter, Ofox and Rohit Raj image-cost measurements, SeaWhale/Traictory/llm-stats.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms Intelligence Index 35 (#15/173 in class), 198.8 tok/s, 1.55 s TTFT, $0.44/$1.32 peak (97% cache discount), 1M window, 284B params, text+image in, 3 providers, released 2026-08-21; the AA GDPval-AA v2.1 leaderboard reads Elo 1547 (#44/298) — consistent with the earlier 52.4% normalized figure. No score change warranted — the existing Tool use 74 / Reasoning 78 / Context 90 / Multimodal 82 / Coding 74 reads all confirmed; this remains an experimental (`-exp`) image-only model whose legacy name is now served by V4.1-Flash. Prior pass (2026-10-10) re-checked AA-via-OpenRouter and rankllms.com composites; the first pass used DeepSeek's HF model card + API vision/pricing docs, AA via OpenRouter, Ofox and Rohit Raj image-cost measurements, SeaWhale/Traictory/llm-stats.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4_1_Vision.md`, using the same headings.

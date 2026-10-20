@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-opus-4-6`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent verified runs — SWE-bench Verified 80.8%, LiveCodeBench 88.8%, BrowseComp 83.7%, Terminal-Bench 2.1 65.4%, GDPVal-AA Elo 1619, MRCR 1M 92.9%/CorpusQA 1M 71.7% = its #1 long-context standing, HLE w/ tools 53.1%, GPQA Diamond 91.3%, composite 54.0) — confirms the existing Context 95 (best-in-class 1M retrieval), Coding 80 and Reasoning 87 reads; the independent figures align with the Anthropic system card. No score change warranted — it remains a February-generation model superseded by Opus 4.8/5 on the current agentic suites. Prior pass (2026-10-09) used Anthropic Opus 4.6 launch post, model page, pricing page, system card PDF, 1M-context GA blog, BenchLM, Traictory, AI Release Tracker, DataCamp, DigitalApplied.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated page re-confirms Intelligence Index 26 (#4/56 in its class), 40.8 tok/s, $5/$25 (blended $3.85) and the 1M window; Anthropic's official page/deprecations table re-confirms Active status (retirement not sooner than 2027-02-05), 300K batch-output beta support, and that extended thinking is deprecated in favour of adaptive effort on this generation — all consistent with the existing Context 95 / Reasoning 87 / Coding 80 reads. No score change warranted. Prior pass (2026-10-10) used rankllms.com independent verified runs (MRCR 1M 92.9% = its #1 long-context standing); the first pass used Anthropic's launch post, model page, pricing page, system card PDF, 1M-context GA blog, BenchLM, Traictory, AI Release Tracker, DataCamp and DigitalApplied.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

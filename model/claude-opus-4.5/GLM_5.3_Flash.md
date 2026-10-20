@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-opus-4-5-20251101`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Multimodal (richly measured via the Qwen comparison tables):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Opus 4.5 system card + Qwen3.5-397B/Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, Epoch AI + AA rows via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: FrontierMath re-scored 20.7→34.4 / 4.2→4.9 — Reasoning 78→79, Overall 78 holds); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (Bing web search for new independent Opus 4.5 evaluations — none surfaced for the three-generations-old model; the 2026-10-16 evidence base stands: the Anthropic system card + Qwen3.5-397B/Qwen3.6-Plus comparison tables via benchlm.ai, Artificial Analysis benchmarks, and Epoch AI's FrontierMath refresh). No evidence supports a score change — all seven scores carried. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

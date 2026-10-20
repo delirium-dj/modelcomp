@@ -1,7 +1,7 @@
 # Claude Haiku 3.5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-3-5-haiku`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,7 +9,7 @@
 
 - **Name:** Claude 3.5 Haiku (listed as Claude Haiku 3.5 on Zen)
 - **Short description:** Anthropic's fastest and most compact 3.5-generation model (launched 2024-11-04), built for latency-sensitive chat, high-volume data processing, and lightweight coding sub-agents. It matched Claude 3 Opus on many benchmarks at launch but has since been largely superseded by Claude Haiku 4.5 (2025-10). Not a tier variant of Haiku 4.5 — a distinct prior-generation model.
-- **Provider / access:** Anthropic API `claude-3-5-haiku` (Chat Completions / Messages API); Amazon Bedrock; Google Cloud Vertex AI; OpenCode Zen as a provider-specific entry (models.dev: `claude-3-5-haiku`, 200K/8,192, $0.80/$4.00).
+- **Provider / access:** Anthropic API `claude-3-5-haiku` (Chat Completions / Messages API); Amazon Bedrock; Google Cloud Vertex AI; OpenCode Zen as a provider-specific entry (models.dev: `claude-3-5-haiku`, 200K/8,192, $0.80/$4.00) — **deprecated from Zen effective Feb 16, 2026** (OpenCode Zen deprecation table, re-verified 2026-10-19). AA also carries a deprecation banner (benchmarking limited to the default 10k-input workload).
 - **Release / knowledge:** Released 2024-11-04; pricing revised December 2024; knowledge cutoff July 2024.
 - **IDs:** `claude-3-5-haiku` (Anthropic API; state explicitly: no Zen Free ID exists — paid-only on Zen).
 - **Context window:** 200K total; 8,192 max output (Anthropic docs overview table, models.dev row).
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **40.8%** (AA) / **41.6%** (model card addendum) — CORRECTION: the prior pass had no GPQA row; this is far below the assumed mid-pack
 - HLE: **3.6%** (AA-HLE — very weak); AA-LCR: **27.3%**; CritPt: **0.0%**
-- Artificial Analysis Intelligence Index: **8.9** (AA current reading) — CORRECTION: the SentiSight "19" reading the prior pass carried is superseded
+- Artificial Analysis Intelligence Index: **9 (estimated** — AA now marks the reading as an estimate with "independent evaluation forthcoming"; the 8.9 prior reading is superseded by the flagged-estimate figure) — legacy-model caveat
 - MMLU-Pro: **65%** / MMLU: **80.3%** / BBH: **86.6%** / DROP: **83.1%** (model card addendum); AIME 2024: **5.3%**; MGSM: **85.6%**; IFEval: **85.9%** / AA-IFBench: **42.8%**
 - AA-Omniscience: accuracy **13.2%**, hallucination rate **41.1%**
 
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists for this legacy model; the prior 2026-10-03 pass on SentiSight/models.dev/Anthropic docs; 2026-10-16: the BenchLM 2026-10-17 refresh now carries 22 rows — profile recalculated downward (Tool 50→42, Reasoning 55→42, Multimodal 65→60, Coding 65→60, Overall 61→55)); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
+- Method: public internet research, enrichment re-check 2026-10-19 (AA model page fetched live — Index now shown as "9, estimated" with an independent evaluation still forthcoming, plus a deprecation banner; OpenCode Zen deprecation table re-verified — Zen removal effective Feb 16, 2026; the 22-row BenchLM profile and model-card-addendum rows from the 2026-10-16 pass remain the evidence base). No evidence supports a further score change — all seven scores carried from the 2026-10-16 recalculation. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

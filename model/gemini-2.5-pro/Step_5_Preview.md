@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by Step 5 Preview
 
 - Source: Google (`gemini-2.5-pro`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -26,7 +26,7 @@ Reasoning / knowledge (GA model card + AA):
 - AIME 2025: **88.0%**; Aider Polyglot: **82.2%**; MATH-500: 96.7%
 - SimpleQA: **54.0%**; FACTS Grounding: **87.8%**; Global MMLU (Lite): 89.2%; MMLU-Pro: 86.2%
 - ARC-AGI-2: **4.9%** (later Epoch run — the generation's known weak spot)
-- Artificial Analysis Intelligence Index: **16** (rebased scale — the model's current standing; deprecated by AA)
+- Artificial Analysis Intelligence Index: **16** (rebased scale — the model's current standing; deprecated by AA) — **re-confirmed 2026-10-19 (#175/217, below the class median of 27; 116.3 tok/s, 25.67 s TTFT, 55M output tokens, 2 providers)**
 
 Coding:
 
@@ -66,6 +66,6 @@ Long context (its standout legacy strength):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) re-checked the Google DeepMind model card + technical report, Artificial Analysis (Intelligence Index 16, deprecated) and Vals AI — GPQA 86.4%/84.4% (AA), AIME 88.0%, MMLU-Pro 86.2%, SWE-bench Verified 59.6–67.2% (Vals 54.4%), MRCR 58.0% @128K / 16.4% @1M, MMMU 82.0% and the effectively-failed new agentic suites (AutomationBench-AA 2%, TB 4.0 0%) all confirm the existing Tool use 48 / Reasoning 70 / Context 88 / Multimodal 90 / Coding 66 reads. No score change warranted — Gemini 2.5 Pro is a 15-month-old legacy model; its math/vision/long-context strengths remain but agentic coding and tool use have been superseded by the Gemini 3.x line. Prior pass (2026-10-09) used Google DeepMind Gemini 2.5 Pro model card + technical report + archived model page, Artificial Analysis, Vals AI, BenchLM, Dataconomy/TechBriefly AA tables, The Known Good.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated model page re-confirms Intelligence Index 16 (#175/217, below the class median of 27), $1.25/$10 (blended $1.34, $0.33/task), 1M window, text/image/speech/video input, 116.3 tok/s, 25.67 s TTFT, 55M output tokens (fairly concise), 2 remaining providers — identical to the second-pass reading, so the existing Tool use 48 / Reasoning 70 / Context 88 / Multimodal 90 / Coding 66 reads stand unchanged. Gemini 2.5 Pro remains a 15-month-old legacy model: math/vision/long-context strengths intact, agentic coding and tool use long superseded by the Gemini 3.x/4 line. Prior pass (2026-10-10) used the Google DeepMind model card + technical report, AA and Vals AI; the first pass also used BenchLM, Dataconomy/TechBriefly AA tables and The Known Good.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.5_Flash.md`, using the same headings.

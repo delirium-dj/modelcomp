@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-v4-pro`; GA build `DeepSeek-V4-Pro-0813`, weights `deepseek-ai/DeepSeek-V4-Pro-0813`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,17 +29,17 @@ Vendor (0813 model card, DeepSeek Harness "minimal mode", max effort; Opus 4.8 /
 
 Independent:
 
-- Artificial Analysis: Intelligence Index **53.2** (max effort — 3rd of ~106; preview 52); Coding Index **68.8**; Agentic Index **49.6**; GPQA Diamond 90.1–92.4; HLE 39.34% no-tools
+- Artificial Analysis: Intelligence Index **53.2** on the older (August-2026) scale — **re-measured 2026-10-19 at 36 on the current scale** (#13/121 among large open-weight models, class median 19); Coding Index **68.8**; Agentic Index **49.6**; GPQA Diamond 90.1–92.4; HLE 39.34% no-tools
 - Vals AI: **SWE-bench Verified 96.4%** (±0.83, max effort — era-1 saturated; preview 77.4 on the same harness); **Terminal-Bench 2.1 54.68%** (Terminus 2 reference harness); MMLU-Pro 86.97; ARC-AGI-1 **90.5%** / ARC-AGI-2 **61.3%** (ARC Prize-verified)
 - Vals AI: **SWE-bench Verified 96.4%** (±0.83, max effort — era-1 saturated; preview 77.4 on the same harness); **Terminal-Bench 2.1 54.68%** (Terminus 2 reference harness); MMLU-Pro 86.97; ARC-AGI-1 **90.5%** / ARC-AGI-2 **61.3%** (ARC Prize-verified); **benchmarklist.com ARC-AGI-2 0.8% (#81/99) and ARC-AGI-1 13.0% (#85/97)** — a large harness conflict vs the ARC Prize run (61.3%/90.5%), likely a different configuration
 - Epoch AI: OTIS Mock AIME 98.6%; FrontierMath T1-3 64.6% / T4 26.8%; SimpleQA Verified 52.9%; Chess Puzzles 47.0%; Mystery Game 43.0%
 - benchmarklist.com (2026-10-07): AutomationBench **43.2% (#12/48)**, HLE **42.7% (#28/478)**, GPQA Diamond **92.4% (#18/468)**, Codeforces 3348 (#2/8), Terminal-Bench 2.1 87.9% (#14/194), TB 4.0 12.4% (#25/29), DeepSWE 62.8% (#28/52), GDM-MRCRv2 Context Arena AUC 1M ~33%
-- GDPval-AA Elo 1554 (vendor); **independent BenchmarkList index reads Elo 1580 (#27/352, 93rd pct — 2026-10-07)** with a 94% hallucination rate
+- GDPval-AA Elo 1554 (vendor); **independent BenchmarkList index reads Elo 1580 (#27/352, 93rd pct — 2026-10-07)** with a 94% hallucination rate; **the AA GDPval-AA v2.1 leaderboard re-measures the model at Elo 1450 (#63/298, 2026-10-19)** — board re-anchoring since August
 
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** Toolathlon-Verified 74.1%, AutomationBench 31.8% (best in its comparison set), MCP-Atlas 73.6% and GDPval-AA Elo 1,554 are strong; the 33-point vendor-vs-independent gap on Terminal-Bench 2.1 (87.9 vs 54.68 on the reference Terminus 2 harness) and AA Agentic Index 49.6% cap it below the frontier band — the agentic numbers are harness-sensitive.
-- **Reasoning: 86/100.** GPQA Diamond 90.1–92.4%, HLE 39.3–42.7%, ARC-AGI-2 61.3%, MMLU-Pro 87.0%, FrontierMath T1-3 64.6% and AA Intelligence Index 53.2 (3rd-highest max-effort score) are frontier-band; SimpleQA Verified 52.9% and the 94% hallucination rate show the knowledge-reliability catch.
+- **Reasoning: 86/100.** GPQA Diamond 90.1–92.4%, HLE 39.3–42.7%, ARC-AGI-2 61.3%, MMLU-Pro 87.0% and FrontierMath T1-3 64.6% are frontier-band; SimpleQA Verified 52.9% and the 94% hallucination rate show the knowledge-reliability catch. (The AA composite now reads 36 on the current scale — it blends in the agentic/knowledge-work evals where V4 Pro is mid-pack; the frontier-band raw reasoning rows above are what anchor this score.)
 - **Context window: 92/100.** A verified 1M window with the V4 attention redesign explicitly built for it (27% FLOPs, 10% KV of V3.2 at 1M) plus published retrieval numbers — MRCR 1M 83.5%, CorpusQA 1M 62.0% — the ≥1M band, docked only because retrieval is not the ≥98% at 512K+ the top of the band describes.
 - **Multimodal: 12/100.** Text-only — the methodology's text-only band (10–20); DeepSeek's pricing page confirms V4 Pro has no vision support (vision lives in the separate Vision-Exp variant).
 - **Coding: 82/100.** SWE-bench Verified 96.4% (Vals, saturated era-1 benchmark), SWE-Pro 55.4%, DeepSWE 62.7%, CyberGym 83.3%, LCB 93.5% and Codeforces 3,206 — near-frontier coding with an independent caveat on the agentic-terminal side (TB 54.68%).
@@ -50,6 +50,6 @@ Independent:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (43 primary-source results, updated 2026-10-07 — independent GDPval-AA Elo 1580 #27/352, AutomationBench 43.2% #12/48, HLE 42.7% #28/478, GPQA 92.4% #18/468, Codeforces 3348 #2/8, TB 2.1 87.9% #14/194, TB 4.0 12.4% #25/29, DeepSWE 62.8% #28/52, GDM-MRCRv2 1M AUC ~33%). One conflict documented: benchmarklist's ARC-AGI-2 0.8% / ARC-AGI-1 13.0% vs the ARC Prize-verified 61.3%/90.5% — a harness/configuration divergence. Confirms the existing Tool use 72 / Reasoning 86 / Coding 82 reads; the low independent TB 4.0 (12.4%) and GDM-MRCRv2 1M AUC (~33%) keep the caps. No score change warranted. Prior pass (2026-10-09) used DeepSeek HF model card + GA coverage, Artificial Analysis, Vals AI via AI Model Timeline, ARMES, OpenLLMStack pricing analysis, Tokenhot.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms the 0813 GA build (1.6T/49B MoE, MIT, 1M window, text-only) with **Intelligence Index 36 on the current scale** (#13/121 among large open-weight models — the 53.2 cited in earlier passes was the older August-2026 scale, corrected above), 107.1 tok/s, $1.32/$3.96 peak (blended $0.69, $0.67/task, 97% cache discount), 10 providers; the AA GDPval-AA v2.1 leaderboard re-measures the model at Elo 1450 (#63/298) vs the 1554/1580 vendor and BenchmarkList figures (re-anchoring recorded). No score change warranted — the raw frontier reasoning rows (GPQA 90–92%, HLE ~40%, ARC-AGI-2 61.3%) that anchor Reasoning 86 are unchanged, and the harness-sensitive agentic caps (TB 54.68% independent, TB 4.0 12.4%) still hold Tool use at 72. Prior pass (2026-10-10) used benchmarklist.com (43 primary-source results) and documented the ARC-AGI harness conflict (0.8%/13.0% vs ARC Prize 61.3%/90.5%); the first pass used DeepSeek's HF model card + GA coverage, AA, Vals AI via AI Model Timeline, ARMES, OpenLLMStack pricing analysis and Tokenhot.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V5.md`, using the same headings.

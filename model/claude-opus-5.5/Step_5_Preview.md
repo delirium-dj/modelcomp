@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-5-5`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-opus-5-5` (Anthropic). No free/contributor ID.
 - **Context window:** 1,000,000 (1M) total; 128,000 max output (sync Messages API), 300,000 via Message Batches API (`output-300k-2026-03-24` beta).
 - **Modalities:** Text, image, PDF in; text + tool-calls out. No audio or video input; no image/audio output. Reasoning yes (effort tiers low→max, default medium); JSON mode yes.
-- **Pricing (as of 2026-10-08):** $4.00/M in · $0.20/M cached in (60% cheaper than Opus 5's $0.50) · $20.00/M out. Batch API 50% off ($2/$10). No free tier.
+- **Pricing (as of 2026-10-19):** $4.00/M in · $0.20/M cached in (AA measures a 95% cache discount; blended $2.94, ~$5.98 per Index task) · $20.00/M out. Batch API 50% off ($2/$10). No free tier.
 - **Architecture:** Proprietary; weights and parameter count undisclosed (consistent with all Claude releases).
 
 ### Raw benchmarks found
@@ -74,7 +74,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (49 primary-source results, updated 2026-10-07 — TB4.0 Claude Code 64.9% / Mercor mini-swe-agent 58.3%, Vibe Code 90.3%, BrowseComp 88.5%, CharXiv 96.4%, SWE-bench Pro) and the Artificial Analysis live LLM leaderboard (Intelligence Index 58, #1 at max) — no score change warranted; TB4.0 harness variance (64.9 vs the 66.4 xhigh cited) noted. Prior pass (2026-10-08) used Anthropic's Opus 5.5 system card (via hokai.io), Vellum's Artificial Analysis analysis, and BenchmarkList.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms Intelligence Index **58 (#1/217 globally)**, 94.4 tok/s, 562.75 s TTFT at max effort, 260M output tokens (the most verbose frontier model), $4/$20 (95% cache discount), 1M window, 9 providers, and no deprecation notice (current flagship); the AA GDPval-AA v2.1 leaderboard places Opus 5.5 (Max) at **Elo 1866 (#1/298)** and (Xhigh) at 1831 (#4); Anthropic's official page/deprecations table re-confirms Active status (retirement not sooner than 2027-09-22), 1M/128K, Jun-2026 cutoff, adaptive thinking always on with default effort medium and 5%-of-base cache reads — all consistent with the existing Tool use 93 / Reasoning 94 / Context 97 / Multimodal 80 / Coding 96 reads. No score change warranted. Prior pass (2026-10-10) used benchmarkregistry.org (49 primary-source results); the first pass used Anthropic's Opus 5.5 system card (via hokai.io), Vellum's Artificial Analysis analysis and BenchmarkList.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

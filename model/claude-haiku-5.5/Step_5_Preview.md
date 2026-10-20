@@ -1,7 +1,7 @@
 # Claude Haiku 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-haiku-5-5`, released 2026-10-07)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,17 +39,17 @@ Customer evals (early testing):
 ### Normalized scores (1–100)
 
 - **Tool use: 72/100.** OSWorld 2.1 offline 72.4% (4.6× Haiku 4.5), GDPval Elo 1,620 and AA-Briefcase 1,578 are strong upper-mid agentic execution for a Haiku tier — but τ³/MCP-Atlas numbers are absent and the model is explicitly not an agentic-coding lead.
-- **Reasoning: 76/100.** HLE 45.9% no-tools (57.4% with tools) is frontier-band for a model this size; GPQA/AIME/ARC-AGI figures are not published and AA-Omniscience is unpublished, so mid-upper on evidence.
+- **Reasoning: 78/100.** HLE 45.9% no-tools (57.4% with tools) is frontier-band for a model this size, and the now-published independent Artificial Analysis composite (Intelligence Index 43, #3/173 in its price class vs a class median of 13) confirms the jump; GPQA/AIME/ARC-AGI figures are still not published and AA-Omniscience is unpublished, so mid-upper on evidence.
 - **Context window: 88/100.** A 1M-token window is the ≥1M band (95–100), docked because Anthropic publishes no MRCR/RULER/AA-LCR retrieval curve for Haiku 5.5.
 - **Multimodal: 70/100.** Text + image in → text out is the 60–70 band, at its top on the OSWorld computer-use result; no video/audio input, no non-text output, no MMMU benchmark.
 - **Coding: 62/100.** FrontierCode Main 46.4% and TB 4.0 39.2% are the weakest axis — a deliberate design choice (Sonnet 5.5 scores 70.6% TB 4.0), though Devin Fusion's 66.2 with a 5.5 sidekick shows useful subagent coding.
-- **Cost efficiency: 97/100.** $0.10/$0.50 for ≤100K-token prompts (90% of requests) with $0.01 cache reads and 50%-off batch — 90% under Haiku 4.5 and near the methodology's ~$0.1/$0.2 ≈ 97–99 tier; >100K prompts pay 5× ($0.50/$2.50).
-- **Overall Score: 74/100.** Best-fit recommendation: the new default subagent — Haiku-4.5-plus-a-generation of capability (GDPval 1,620, HLE 45.9%, OSWorld 72.4%) at $0.10/$0.50 with 1M context; pair it with Opus/Sonnet 5.5 for the agent loop and keep it on narrowly scoped work.
+- **Cost efficiency: 97/100.** $0.10/$0.50 for ≤100K-token prompts (90% of requests) with $0.01 cache reads and 50%-off batch — 90% under Haiku 4.5 and near the methodology's ~$0.1/$0.2 ≈ 97–99 tier; >100K prompts pay 5× ($0.50/$2.50). Caveat measured 2026-10-19: at max effort AA records 440M output tokens on its Index (the most verbose of all 68 models in its class) and 258.49 s TTFT — real per-task spend is ~$0.21, so keep subagent turns short.
+- **Overall Score: 74/100.** Mean of 72/78/88/70/62 = 74.0. Best-fit recommendation: the new default subagent — Haiku-4.5-plus-a-generation of capability (GDPval 1,620, HLE 45.9%, OSWorld 72.4%, AA Index 43 class-#3) at $0.10/$0.50 with 1M context; pair it with Opus/Sonnet 5.5 for the agent loop, keep it on narrowly scoped work, and cap max-effort verbosity (440M tokens/Index-run).
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Claude-Haiku-5.5 page yet (released 2026-10-07, newest model in this batch); re-checked the Anthropic launch post + model docs/pricing/deprecation pages and the customer-eval coverage — GDPval-AA Elo 1,620, AA-Briefcase 1,578, OSWorld 2.1 offline 72.4%, HLE 45.9% no-tools/57.4% with tools, TB 4.0 39.2%, FrontierCode 46.4% and the HubSpot CRM 92.8% customer eval all confirm the existing Tool use 72 / Reasoning 76 / Context 88 / Coding 62 reads. No score change warranted — Haiku 5.5 is a subagent tier, explicitly not an agentic-coding rival to Sonnet/Opus 5.5. Prior pass (2026-10-09) used Anthropic Haiku 5.5 launch post + model docs/pricing/deprecation pages.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Artificial Analysis now publishes a Haiku 5.5 page (Intelligence Index 43, #3/173 in its price class; 232.2 tok/s; $0.10/$0.50 blended $0.08; 440M output tokens; 258.49 s TTFT at max) plus the official Anthropic model page/deprecations table (1M/128K, Active, retirement ≥ 2027-10-07) — Reasoning 76 → 78 on the new independent composite; Overall unchanged at 74. Second pass (2026-10-10) found no third-party page yet and re-verified the launch numbers. Prior pass (2026-10-09) used Anthropic's Haiku 5.5 launch post + model docs.
 - Future sources: add a new file next to this one, e.g. `Haiku_6.md`, using the same headings.

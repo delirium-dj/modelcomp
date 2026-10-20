@@ -29,7 +29,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- HLE: **57.2%** with tools / **43.1%** without tools (OpenAI GPT-5.5 blog)
+- HLE: **57.2%** (OpenAI GPT-5.5 blog) / **43.1%** without tools
 - CritPt: **30.6%** (Artificial Analysis)
 - ARC-AGI-1: **95.00%** (ARC Prize official leaderboard)
 - ARC-AGI-2: **84.2%** (ARC Prize official leaderboard)
@@ -55,12 +55,12 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 55/100.** BrowseComp 90.1% (strong web agent), but no TB 2.1/4.0, GDPval, OSWorld, MCP Atlas, Toolathlon data. Capped by minimal agentic benchmark coverage.
+- **Tool use: 55/100.** BrowseComp 90.1% (strong web agent), but no TB 2.1/4.0, GDPval, OSWorld, MCP Atlas, Toolathlon, Tau2 data. Capped by minimal agentic benchmark coverage.
 - **Reasoning: 82/100.** HLE 57.2% (exceeds 40%+ frontier), FrontierMath v2 Tiers 1-3 87.7% / Tier 4 78.0% (exceptional), ARC-AGI-1 95.0% / ARC-AGI-2 84.2%, CritPt 30.6%. Capped by no AA Intelligence Index, no GPQA Diamond, no LCR/MLCR.
-- **Context window: 90/100.** 922K native context (near 1M); no public MRCR ≥98% at 512K+ found. Methodology: 500K-1M = 85-94.
-- **Multimodal: 60/100.** Text + image input only per AA; no multimodal benchmark scores found. Methodology: +image in = 60-70.
+- **Context window: 90/100.** 922K native context; no public MRCR ≥98% at 512K+ found. Methodology: 500K-1M = 85-94.
+- **Multimodal: 60/100.** Text + image input only; no multimodal benchmark scores found. Methodology: +image in = 60-70.
 - **Coding: 45/100.** No verified public coding benchmarks found (no SWE-bench, LiveCodeBench, DeepSWE, CursorBench, FrontierCode). Capped by complete absence of coding benchmark data.
-- **Cost efficiency: 10/100.** $30/$180 per 1M (extreme premium). Methodology: $10/$50 ≈ 30, $30/$180 is 3x → ~10.
+- **Cost efficiency: 10/100.** $30/$180 per 1M, blended ~$45/M. Methodology: $10/$50 ≈ 30, $30/$180 is 3x → ~10.
 - **Overall Score: 66/100.** Half-up mean of (55 + 82 + 90 + 60 + 45) / 5 = 66.4 → 66. Best-fit: specialized math/reasoning model for STEM research at extreme premium; lacks coding/agentic verification; succeeded by GPT-6 Sol/Astra with better breadth.
 
 ---

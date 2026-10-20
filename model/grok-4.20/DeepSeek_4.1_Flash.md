@@ -1,11 +1,13 @@
 # Grok 4.20 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.20 (`x-ai/grok-4.20`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-20).
+> **Re-verified 2026-10-18.** BenchLM (slug `grok-4-20-beta`) exposes 25 rows and confirms the first draft: Terminal-Bench 2.0 47.1% / TB2.1 (Vals) 44.2%, SWE-bench Verified 76.7% (Vals 72.2%), SWE-bench Pro 51.8%, LiveCodeBench (Vals) 84.3% / Pro 74.2%, Vibe Code Bench 4.06%, GPQA 88.5/88.6%, MMLU-Pro 86.3%, HLE 31.6%, MMMU-Pro 75.2%, CharXiv 60.9%, ARC-AGI-2 53.3%, DeepSearchQA 62.8%. **No score change** (Tool 68 / Reasoning 80 / Context 95 / Multimodal 65 / Coding 72 / Cost 89 / Overall 76).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-20).
 > BenchLM overall **57.29/100** (#56), context **1M**, pricing **$1.25 input / $2.50 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 24.5, #98/122): Terminal-Bench 2.0 47.1%; Terminal-Bench 2.1 (Vals) 44.2%; DeepSearchQA 62.8%; Gert Labs 38.36%
@@ -80,6 +82,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06 UTC
-- Method: public internet research across Artificial Analysis (release page + cited figures), BenchmarkList's measured-row profile, HokAI's vendor-checked review, modelgrep's OpenRouter-derived specs and the AI BENCHY leaderboard; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research across Artificial Analysis, BenchLM `grok-4-20-beta` (25 rows), Vals AI, ARC Prize, BenchmarkList, HokAI's vendor-checked review and the AI BENCHY leaderboard; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

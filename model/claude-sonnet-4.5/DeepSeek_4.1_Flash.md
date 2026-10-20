@@ -1,11 +1,13 @@
 # Claude Sonnet 4.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic/Claude Sonnet 4.5 (`claude-sonnet-4.5`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/claude-sonnet-4-5).
+> **Re-verified 2026-10-18.** BenchLM (via the Claude Opus 4.5 system card) exposes 13 rows and confirms the first draft: Terminal-Bench 2.0 50%, OSWorld-Verified 61.4%, SWE-bench Verified 77.2%, GPQA 83.4%, ARC-AGI-2 13.6%, AIME 2025 87%, FrontierMath v2 23.86%/2.44%. **No score change** (Tool 72 / Reasoning 70 / Context 93 / Multimodal 78 / Coding 74 / Cost 60 / Overall 77).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/claude-sonnet-4-5).
 > BenchLM overall **48.51/100** (#100), context **200K**, pricing **$3 input / $15 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 34, #78/122): Terminal-Bench 2.0 50%; OSWorld-Verified 61.4%; JobBench 27.7%; VITA-Bench 17.0%; Gert Labs 48.51%
@@ -74,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (evals.report 46-row benchmark table for the official/verified rows, OpenRouter model page for the Artificial Analysis row set, pricing, context window, release date and knowledge cutoff); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
+- Method: public internet research (evals.report 46-row benchmark table, BenchLM `claude-sonnet-4-5`, Anthropic Claude Opus 4.5 system card, OpenRouter/Artificial Analysis rows, pricing, context window, cutoff); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

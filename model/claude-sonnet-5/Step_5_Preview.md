@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-sonnet-5`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -25,7 +25,7 @@ Agent / tool use:
 - Terminal-Bench 4.0: **10.3%** (Anthropic's own Sonnet 5.5 comparison table); other trackers 12.42% (high+tools) / AA 14.1% (max) — new hard suite, low field-wide
 - BrowseComp: **84.7%** (system card)
 - OSWorld-Verified: **81.2%** (system card; vs Opus 4.8 83.4%); OSWorld 2.1: 57.0% partial (5.5-generation table)
-- GDPval-AA: **1603** (system card; v2 reads 1618 — slightly above Opus 4.8's 1615); AA (max) 48.3%
+- GDPval-AA: **1603** (system card; v2 reads 1618 — slightly above Opus 4.8's 1615); AA (max) 48.3%; **the AA leaderboard re-measured at Elo 1464 (#57/298, 2026-10-19)** — board re-anchoring since the June-2026 launch reading, not a capability change
 - AA Agentic Index: **44.3%** (AA)
 - Claw-Eval / ClawProBench / Toolathon: **no verified public score found**
 - Cost per task: cheapest at low/medium effort; at xhigh effort, thinking-token burn makes per-task cost approach Opus 4.8 (Tabbit/Vellum analysis)
@@ -63,13 +63,13 @@ Long context:
 - **Context window: 94/100.** 1M-token default at standard pricing with 128K output (300K in batch) is the ≥1M tier; AA-LCR 82.0% (max) supports it, and the 100 tier's ≥98% retrieval-at-512K requirement is unverifiable — no public MRCR number exists for Sonnet 5.
 - **Multimodal: 70/100.** Text + image + file in → text out is the 60–70 band, placed at its top by MMMU-Pro 83.0% and Vals Multimodal Index 68.8%; Chartography 15.6% no-tools shows chart reasoning still lags, and no video/audio input or non-text output exists.
 - **Coding: 84/100.** SWE-bench Verified 85.2% (85.2 system card / 79.6 Vals), SWE-bench Pro 63.2%, LiveCodeBench 82.4% and Coding Index 71.5% are frontier-band; capped by DeepSWE 54.0%, CursorBench 4.0 34.1% and FrontierCode 42.7% on long-horizon agentic coding, and by the tokenizer's 1.0–1.35x token inflation on cost-per-task.
-- **Cost efficiency: 62/100.** $2/$10 per MTok sits between the methodology's $3/$15 ≈ 60 and $0.60/$2.20 ≈ 92 tiers (closer to the former), with $0.20 cache reads and 50%-off batch softening it; the tokenizer inflation and xhigh thinking-token burn erode the list-price advantage.
+- **Cost efficiency: 62/100.** $2/$10 per MTok sits between the methodology's $3/$15 ≈ 60 and $0.60/$2.20 ≈ 92 tiers (closer to the former), with $0.20 cache reads (AA measures a 90% cache discount) and 50%-off batch softening it; the tokenizer inflation, xhigh thinking-token burn and AA's measured 370M output tokens (very verbose) erode the list-price advantage.
 - **Overall Score: 84/100.** Best-fit recommendation: the default production agent — near-Opus tool use, coding and reasoning at Sonnet pricing for most workloads; reserve Opus/Fable for the hardest long-horizon autonomous work.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (55 primary-source results, updated 2026-10-07 — independent APEX-Agents 54.5%, BrowseComp 68.7%, TB2.1 Vals 74.5%, SWE-bench Pro 63.2%, AutomationBench 3.7–10.7%), confirming the first pass — no score change warranted. Prior pass (2026-10-09) used Anthropic Sonnet 5 model page, pricing page, launch post and system-card-derived tables, Artificial Analysis via OpenRouter, Vals AI, BenchLM, Vellum/Tabbit analyses, ThePlanetTools.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms Intelligence Index 38 (max; #68/217, above the class median of 27) and now **flags the model deprecated** (superseded by Sonnet 5.5); 79.4 tok/s, 182.28 s TTFT, $2/$10 (blended $1.54, $5.09/task), 1M window, 370M output tokens, 9 providers; the AA GDPval-AA v2.1 leaderboard re-measures the model at Elo 1464 (#57/298) vs the 1603 launch-era figure (re-anchoring recorded above); Anthropic's official overview/deprecations table re-confirms Active status (retirement not sooner than 2027-06-30), 1M/128K, $2/$10, Jun-2026 cutoff, default effort high, 300K batch-output beta — all consistent with the existing Tool use 84 / Reasoning 87 / Context 94 / Multimodal 70 / Coding 84 reads. No score change warranted. Prior pass (2026-10-10) used benchmarkregistry.org (55 primary-source results); the first pass used Anthropic's Sonnet 5 model page, pricing page, launch post and system-card-derived tables, AA via OpenRouter, Vals AI, BenchLM, Vellum/Tabbit analyses and ThePlanetTools.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

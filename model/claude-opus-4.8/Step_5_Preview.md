@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-opus-4.8`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,8 +69,8 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (55 primary-source results, updated 2026-10-07 — independent APEX-Agents 48.9%, AutomationBench 13.6–16.9%, BrowseComp 73.7%, TB4.0 23.2–23.6%) — no score change warranted; the independent real-world automation numbers are consistent with the existing Tool use 88 cap. Prior pass (2026-10-08) used Anthropic (via hokai.io) and vectorwire.ai.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated model page re-confirms Intelligence Index 42 (#50/217), 59.6 tok/s, 44.56 s TTFT, $5/$25 (blended $3.85, $4.08/task), 1M window, 170M output tokens; the AA GDPval-AA v2.1 leaderboard places Opus 4.8 (Max) at Elo 1453 (#61/298); Anthropic's official table shows Active with retirement not sooner than 2027-05-28 and 300K batch-output beta support — all consistent with the existing Tool use 88 / Reasoning 92 / Context 92 / Multimodal 80 / Coding 90 reads. No score change warranted. Prior pass (2026-10-10) used benchmarkregistry.org (55 primary-source results); the first pass used Anthropic (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

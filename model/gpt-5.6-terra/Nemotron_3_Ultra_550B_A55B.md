@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** GPT-5.6 Terra (Max effort tier)
-- **Short description:** OpenAI's balanced GPT-5.6 variant with strong coding (SWE-bench 95.4% Vals), fast 135 tok/s output, 1.05M context, at $2/$12 competitive pricing.
+- **Short description:** OpenAI's balanced GPT-5.6 variant with strong coding (SWE-bench 95.4% Vals, DeepSWE 69.6%), fast 135 tok/s output, 1.05M context, at competitive $2/$12 pricing.
 - **Provider / access:** OpenAI API (`gpt-5.6-terra` via `https://api.openai.com/v1/responses`), OpenCode Zen (`opencode/gpt-5.6-terra` via `https://opencode.ai/inference/openai/v1/responses`), Azure OpenAI, 7 total providers. Responses API (not Chat Completions).
 - **Release / knowledge:** 2026-07-09 release; knowledge cutoff not publicly disclosed.
 - **IDs:** `openai/gpt-5.6-terra` (OpenAI API), `opencode/gpt-5.6-terra` (OpenCode Zen). No Free tier on any platform.
@@ -35,6 +35,7 @@ Agent / tool use:
 - Tau2-bench: **86.3%** (Artificial Analysis)
 - AA ITBench: **51.0%** (Artificial Analysis)
 - APEX-Agents: **38.9%** (Artificial Analysis)
+- Terminal-Bench 2.1 (Vals): **77.5%** (Vals AI leaderboard)
 - AA Agentic Index: **43.7%** (Artificial Analysis)
 - ApprenticeBench: **16%** (NeoCognition)
 - Terminal-Bench 3.0: **20.8%** (Frontier-Bench leaderboard)
@@ -50,7 +51,7 @@ Reasoning / knowledge:
 - ARC-AGI-1: **96.50%** (ARC Prize semi-private)
 - ARC-AGI-2: **83.9%** (ARC Prize semi-private)
 - ARC-AGI-3: **0.8%** (ARC Prize semi-private)
-- AA Intelligence Index: **42** (rank #49/217) (Artificial Analysis)
+- AA Intelligence Index: **55.0%** (OpenAI GPT-5.6 blog) / rank #49/217 (Artificial Analysis)
 - AA LCR: **83.0%** (Artificial Analysis)
 - CritPt: **30.0%** (Artificial Analysis)
 - AA HLE: **42.9%** (Artificial Analysis)
@@ -58,10 +59,10 @@ Reasoning / knowledge:
 - AA Omniscience Accuracy: **46.8%** (Artificial Analysis)
 - AA Omniscience Hallucination Rate: **87.9%** (Artificial Analysis)
 - MMLU-Pro (Vals): **86.7%** (Vals AI)
-- FrontierMath (legacy): **84.9%** (OpenAI GPT-5.6 blog)
 - FrontierMath v2 Tiers 1-3: **84.900%** (OpenAI GPT-5.6 blog)
 - FrontierMath v2 Tier 4: **68.300%** (OpenAI GPT-5.6 blog)
-- AA IFBench: **71.2%** (Artificial Analysis)
+- GPQA Diamond (Vals): **90.9%** (Vals AI)
+- MMLU-Pro (Vals): **86.7%** (Vals AI)
 
 Coding:
 
@@ -95,7 +96,7 @@ Long context:
 - **Reasoning: 80/100.** GPQA Diamond 92.9% (exceeds 90%+ frontier), HLE 51.1% (exceeds 40%+ frontier), ARC-AGI-1 96.5% / ARC-AGI-2 83.9%, AA LCR 83.0%, FrontierMath Tiers 1-3 84.9% / Tier 4 68.3%, AA Intelligence Index 42 (<60 frontier). Capped by ARC-AGI-3 0.8%, AA Omniscience Index 0.1%, Hallucination Rate 87.9%.
 - **Context window: 95/100.** 1.05M native context; AA LCR 83.0% — no public MRCR ≥98% at 512K+ for 100 tier. Methodology: ≥1M = 95-100.
 - **Multimodal: 70/100.** Text + image input only; MMMU-Pro 80.7-82%. No video, audio, PDF input. Methodology: +image in = 60-70.
-- **Coding: 88/100.** SWE-bench 95.4% (Vals, exceeds 80%+ frontier), LiveCodeBench 85.9% (Vals), DeepSWE 69.6% (near 74%+ frontier), AA Coding Index 76.7% (exceeds 70%+), VulcanBench 87.0%, CursorBench 3.2 64.9%, FrontierCode Extended 55.8%. Capped by SWE-bench Pro 63.4%, CursorBench 4.0 41.3%.
+- **Coding: 88/100.** SWE-bench 95.4% (Vals, exceeds 80%+ frontier), DeepSWE 69.6% (near 74%+ frontier), LiveCodeBench 85.9% (Vals), AA Coding Index 76.7% (exceeds 70%+), VulcanBench 87.0%, CursorBench 3.2 64.9%, FrontierCode Extended 55.8%. Capped by SWE-bench Pro 63.4%, CursorBench 4.0 41.3%.
 - **Cost efficiency: 75/100.** $2/$12 per 1M (≤272K), $4/$18 (>272K), blended ~$1.74/M, 90% cache discount, cost/task $1.40. Methodology: $1.25/$4.25 ≈ 88, $3/$15 ≈ 60 → $2/$12 interpolates to ~75.
 - **Overall Score: 82/100.** Half-up mean of (78 + 80 + 95 + 70 + 88) / 5 = 82.2 → 82. Best-fit: strong all-rounder with exceptional SWE-bench 95.4% at Terra-tier pricing; fast 135 tok/s; balanced coding/agentic/reasoning; succeeded by GPT-6 Sol/Astra.
 

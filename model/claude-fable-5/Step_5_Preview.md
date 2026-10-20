@@ -1,14 +1,14 @@
 # Claude Fable 5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-fable-5`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Fable 5 (`claude-fable-5`; Anthropic's first generally available Mythos-class model)
-- **Short description:** Anthropic's first GA Mythos-class model, sitting above the Opus tier for autonomous coding, research, and long-horizon agentic tasks. The publicly accessible configuration of a shared Mythos-class architecture (the same weights power the Project Glasswing-gated Claude Mythos 5). Superseded by Fable 5.1 but still a strong frontier agentic-coding model.
+- **Short description:** Anthropic's first GA Mythos-class model, sitting above the Opus tier for autonomous coding, research, and long-horizon agentic tasks. The publicly accessible configuration of a shared Mythos-class architecture (the same weights power the Project Glasswing-gated Claude Mythos 5). Superseded by Fable 5.1; Artificial Analysis now lists it as deprecated (2026-10-19) while Anthropic's own lifecycle table still shows Active with retirement not sooner than 2027-06-09.
 - **Provider / access:** Anthropic Claude API, AWS Bedrock, Google Vertex AI, Microsoft Foundry; also in GitHub Copilot (added launch day). Adaptive thinking always on (effort-controlled). No free tier.
 - **Release / knowledge:** Released 2026-06-09. Knowledge cutoff not explicitly disclosed.
 - **IDs:** `claude-fable-5` (+ `-low/-medium/-high/-xhigh/-max`). No free/contributor ID.
@@ -57,15 +57,15 @@ Multimodal:
 - **Context window: 92/100.** 1M input / 128K output with the full window at one flat rate (no long-context surcharge) and Long Context "Strong" (−7.9%). Not a full 100 because no explicit MRCR ≥98%-at-512K retrieval figure was published to confirm the top sub-tier.
 - **Multimodal: 78/100.** Text + image + PDF in (text out), no audio/video input and no non-text output → the 75–90 "video/PDF in" band, held to 78 by the missing audio/video and Multimodal "Capable" (−16.4%); GDP.pdf 29.8% leads peers but is still a modest absolute number.
 - **Coding: 93/100.** SWE-bench Verified 95.0% (rank #3/32), SWE-bench Pro 80.3% (leads GA models), FrontierCode Diamond 29.3% (2×+ Opus 4.8), and a Vector Wire Coding "Frontier" (leads 9/10) rating — a top coding model. Capped only by the vendor-only reporting and missing live LiveCodeBench/SciCode rows.
-- **Cost efficiency: 30/100.** Paid-only at $10/$50 per 1M (the highest Claude tier, >95% of models); the 1M flat-rate (no surcharge) and Batch 50% off soften it, but there is no free tier and it is the priciest option in Anthropic's lineup.
-- **Overall Score: 89/100.** Mean of the five non-cost dims (90+90+92+78+93)/5 = 88.6. Best fit for autonomous long-horizon coding agents that need the strongest available benchmark performance (it leads GA models on SWE-bench Pro) and large-document reasoning at a 1M flat-rate context; the always-on reasoning adds latency, so cost-sensitive teams running many short queries should look to cheaper models.
+- **Cost efficiency: 30/100.** Paid-only at $10/$50 per 1M (the highest Claude tier, >95% of models; AA blended $7.70, ~$8.75 per Index task); the 1M flat-rate (no surcharge) and Batch 50% off soften it, but there is no free tier and it is the priciest option in Anthropic's lineup.
+- **Overall Score: 89/100.** Mean of the five non-cost dims (90+90+92+78+93)/5 = 88.6. Best fit for autonomous long-horizon coding agents that need the strongest available benchmark performance (it leads GA models on SWE-bench Pro) and large-document reasoning at a 1M flat-rate context; the always-on reasoning adds latency (AA measures 74.7 s TTFT at max effort), so cost-sensitive teams running many short queries should look to cheaper models.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (40 primary-source results, updated 2026-10-07 — Vibe Code 90.4%, τ³-bench Banking 39.7%, Vals Index 61.4%, BrowseComp 82.5%, APEX-Agents 63.6%, TB4.0 Claude Code 44.6%) — no score change warranted. Prior pass (2026-10-08) used Anthropic (via hokai.io) and vectorwire.ai.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-confirmed the Artificial Analysis model page (Intelligence Index 50, #20/217, 7 providers, 67.9 tok/s, 74.7 s TTFT at max effort) — **AA now marks the model deprecated in favor of Claude Fable 5.1** (Anthropic's own docs still list it Active with retirement not sooner than 2027-06-09; both statuses recorded) — no score change warranted. Second pass (2026-10-10) used benchmarkregistry.org (40 primary-source results). Prior pass (2026-10-08) used Anthropic (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 Long context:

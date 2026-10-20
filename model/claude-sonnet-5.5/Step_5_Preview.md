@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 — findings by Step 5 Preview
 
 - Source: Anthropic `claude-sonnet-5-5`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-sonnet-5-5`. No free/contributor ID.
 - **Context window:** 1,000,000 (1M) total; 128,000 max output. Full 1M window billed at one flat rate (no threshold repricing).
 - **Modalities:** Text, image, PDF in; text + tool-calls out. No audio/video input; no non-text output. Reasoning yes; tool calls yes; JSON yes.
-- **Pricing (as of 2026-10-08):** $2.00/M in · $10.00/M out (half of Opus 5.5). Cache reads $0.20/M; writes $2.50 (5-min) / $4 (1-hr). Batch 50% off. No free tier.
+- **Pricing (as of 2026-10-19):** $2.00/M in · $10.00/M out (half of Opus 5.5). Cache reads $0.20/M (AA measures a 95% cache discount; blended $1.47, ~$5.46 per Index task); writes $2.50 (5-min) / $4 (1-hr). Batch 50% off. No free tier.
 - **Architecture:** Proprietary; weights and parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -67,8 +67,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (50 primary-source results, updated 2026-10-07 — independent APEX-Agents 75.5%, BrowseComp 86.6%, Vibe Code 92.4%, TB4.0 Mercor mini-swe-agent 51.5%, CharXiv 96.1%) — no score change warranted. Prior pass (2026-10-08) used Anthropic's Sonnet 5.5 system card + Artificial Analysis (via hokai.io) and themodelgap.com.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms Intelligence Index 56 — now **#2/217 globally**, only behind Opus 5.5 — with 134.3 tok/s (notably fast), 388.54 s TTFT at max, 420M output tokens (the most verbose model tracked), $2/$10 (95% cache discount), 1M window, 9 providers, and no deprecation notice (current model); the AA GDPval-AA v2.1 leaderboard places Sonnet 5.5 (Max, Default Fallback) at **Elo 1838 (#3/298)**; Anthropic's official page/deprecations table re-confirms Active (retirement not sooner than 2027-09-28), 1M/128K, $2/$10, Jun-2026 cutoff, adaptive thinking default high — all consistent with the existing Tool use 86 / Reasoning 88 / Context 90 / Multimodal 78 / Coding 86 reads. No score change warranted; the verbosity (420M tokens) reinforces the medium-effort cost caveat already noted. Prior pass (2026-10-10) used benchmarkregistry.org (50 primary-source results); the first pass used Anthropic's Sonnet 5.5 system card + Artificial Analysis (via hokai.io) and themodelgap.com.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

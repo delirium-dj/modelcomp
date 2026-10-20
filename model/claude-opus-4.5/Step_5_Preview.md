@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-opus-4-5-20251101`, released 2025-11-24)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (192 primary-source results, updated 2026-10-07 — independent OSWorld-Verified 76.3% #23/70 [notably above the 66.3% system card], Terminal-Bench Hard 47.0% #13/326, ARC-AGI-2 37.6% #41/99, GDPval-AA Elo 1453 #42/352, MCP Atlas 69.8% #31/48, VibeCodingBench #1/15, SciCode 49.5% #58/296). Confirms the existing Tool use 80 / Reasoning 84 / Context 76 / Coding 86 reads — the higher independent OSWorld (76.3%) and VibeCodingBench #1 reinforce Tool use 80 and Coding 86 while the 200K window and AA-LCR 77.3% keep Context at 76. No score change warranted — Opus 4.5 is a legacy Nov-2025 model (retires 2026-11-24). Prior pass (2026-10-09) used Anthropic launch post + pricing docs, Artificial Analysis and Vals AI via OpenRouter, modelbenchmark.io, The AI Rankings, Amp cost analysis.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated page re-confirms Intelligence Index 24 (#8/56 in its non-reasoning class), 48.9 tok/s, $5/$25 (blended $3.85), 200K window; Anthropic's official deprecations table shows `claude-opus-4-5-20251101` Active with retirement **not sooner than 2026-11-24** — that window opens in ~5 weeks, so migration planning is now due. No score change warranted — the independent evidence base (OSWorld 76.3%, VibeCodingBench #1/15, GDPval Elo 1453) is unchanged. Prior pass (2026-10-10) used benchmarklist.com (192 primary-source results); the first pass used Anthropic's launch post + pricing docs, AA and Vals AI via OpenRouter, modelbenchmark.io, The AI Rankings and Amp cost analysis.
 - Future sources: add a new file next to this one, e.g. `Opus_5.md`, using the same headings.

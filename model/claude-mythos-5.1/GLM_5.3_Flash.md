@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-mythos-5-1` — Project Glasswing trusted access)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-19 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

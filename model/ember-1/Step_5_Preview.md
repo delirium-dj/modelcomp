@@ -1,7 +1,7 @@
 # Ember-1 — findings by Step 5 Preview
 
 - Source: Fireworks (`accounts/fireworks/models/ember-1`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,7 +31,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond / HLE / ARC-AGI-2 / MMLU-Pro: **no verified public score found**
-- Vals Index: **50.81% ±1.28** (#27/45)
+- Vals Index: **50.94% ±1.30** (#30/50 — re-verified 2026-10-19; the score is unchanged within noise, the rank moved as more models joined the board); Vals Science Index 31.76% (#15/21)
 - ProofBench v1.1: **61.0%** (#19/48); EMB (equity/mergers benchmark): **63.37%** (#26/72); Finance Agent v2: **51.85%** (#34/76); **Tax Agent Bench: 31.08% (#21/67 — corrected from the first-pass 68.0%, which was a misread of the Vals row)**; Public Benefits Bench 66.17%; CyberBench v1.1 69.52% (#22/45); Legal Research Bench 44.71%; MysteryMechanism 22.52%
 
 Coding:
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced vals.ai (16 independent verified runs, updated 2026-10-07 — Vals Index 50.81% #27/45, Vibe Code Bench 83.87% #16/110, ProofBench 61.0% #19/48, Code Migration 32.51% #36/75, IOI 46.33% #28/42, Legal Agent 9.17% #20/76, Terminal-Bench 4.0 19.70% #23/45, Terminal-Bench Science 5.71% #22/39) and CORRECTED a first-pass error: Tax Agent Bench is 31.08% (#21/67), not 68.0%. Confirms the existing Tool use 75 / Reasoning 72 / Coding 86 reads — the independent Vibe Code 83.9% and Vals Index 50.8% support Coding 86 while the weak IOI/Legal/TB4.0 confirm the caps. No score change warranted. Prior pass (2026-10-09) used Fireworks Ember-1 announcement blog, Vals AI model page, OpenRouter/Vercel catalogs, llmboard, allthemodels, TensorFeed, WPNews.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran the Vals AI model page: Vals Index 50.94% ±1.30 (#30/50 — unchanged within noise vs the 50.81% #27/45 read), and all 16 independent rows re-confirmed with current ranks (Vibe Code 83.87% #18/114; ProofBench 61.00% #21/50; Code Migration 32.51% #39/79; IOI 46.33% #30/44; Harvey LAB 9.17% #25/81; Terminal-Bench 4.0 20.71% #26/50 — the independent agentic cap is now 20.7% vs the 19.7% cited; TB-Science 5.71% #24/41; BioMysteryBench 67.04% #18/27; Public Benefits 66.17% #19/50; CyberBench 69.52% #24/47). No score change warranted — the existing Tool use 75 / Reasoning 72 / Context 90 / Multimodal 65 / Coding 86 reads all stand. Prior pass (2026-10-10) corrected the Tax Agent Bench misread (31.08%, not 68.0%); the first pass used Fireworks' Ember-1 announcement blog, Vals AI, OpenRouter/Vercel catalogs, llmboard, allthemodels, TensorFeed and WPNews.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
