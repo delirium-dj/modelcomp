@@ -1,9 +1,11 @@
 # GLM 5.1 Coding — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai (Zhipu AI) / GLM-5.1 (`glm-5.1` — requested as "Coding Free"; no free ID found on OpenCode Zen)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM now exposes 43 rows and computes an overall **56.29/100 (#63 of 956)**; it confirms the first draft and adds AA-GPQA Diamond **86.8%** (Vals 84.5%), AA-HLE **30.1%**, HLE-with-tools **52.3%**, AA-LCR **73.7%**, CritPt **4.6%**, AA Intelligence Index **26.1%**, AA-IFBench 76.3%, τ²-bench 97.7%, GDPval-AA 1181, SWE-Rebench 62.7%, Vibe Code Bench 31.46%, FrontierMath v2 36.84%. **No score change** (Tool 92 / Reasoning 80 / Context 70 / Multimodal 15 / Coding 89 / Cost 78 / Overall 69).
 
 ## Model card
 
@@ -74,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Z.ai GLM-5.1 technical report and blog, BenchLM and Artificial Analysis benchmark ledgers, Vals AI leaderboards, the Morph GLM-5.1 architecture writeup, Epoch AI figures via Model Beat, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (Z.ai GLM-5.1 technical report/blog, BenchLM `glm-5-1` — 43 rows — and Artificial Analysis, Vals AI leaderboards, Epoch AI, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM-5.3 Free — findings by Step 5 Preview
 
 - Source: Z.ai (`z-ai/glm-5.3-free` — free route of GLM-5.3)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -20,6 +20,8 @@
 ### Raw benchmarks found
 
 (Identical weights to GLM-5.3 — GLM-5.3's evidence base applies.)
+
+Third-pass verification (2026-10-19): re-confirmed via the GLM-5.3 re-run — Artificial Analysis Index **45** (#3/121 open-weights, 4/4 units), BenchLM composite **67.96/100** (#25/956), new rows AA Agentic Index 53.4%, AA Briefcase 1,507 (prior 1,526), AA Coding Index 74.8%; one conflict carried over (ProgramBench: prior 72.0% vs the vendor model-card row of 19.0%). The free route's scores are unchanged — it is the same model at $0.00.
 
 Agentic / tool use:
 
@@ -64,6 +66,6 @@ Cyber:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Z.ai GLM-5.3 launch blog/docs, models.dev + LLM-List free-route records, Artificial Analysis, Vals AI, BenchmarkList, Morph, Ridge); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): GLM-5.3 Free is the zero-cost route of the identical GLM-5.3 weights, so it inherits today's GLM-5.3 re-run (AA Index 45 #3/121 open-weights, BenchLM composite 67.96/100, AA Agentic Index 53.4%, AA Coding Index 74.8%, ProgramBench conflict 72.0% vs the vendor card's 19.0%) — no score change; the only delta from the paid sibling remains the $0.00 route price and plan terms. First pass (2026-10-09) used Z.ai GLM-5.3 launch blog/docs, models.dev + LLM-List free-route records, Artificial Analysis, Vals AI, BenchmarkList, Morph, Ridge.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3_Flash.md`, using the same headings.

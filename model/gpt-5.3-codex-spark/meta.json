@@ -1,6 +1,6 @@
 {
   "id": "opencode/gpt-5.3-codex-spark",
-  "name": "GPT-5.3-Codex-Spark",
+  "name": "GPT-5.3 Codex Spark",
   "short": "OpenAI's Cerebras-distilled preview (128K, 1000+ tok/s) for real-time edits; matches Codex with 77.3% TB 2.0, retired.",
   "contextWindow": "128K total (max output undisclosed)",
   "modalities": "Text in/out only (text-only preview)",

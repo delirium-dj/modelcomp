@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.6-luna`, released 2026-07-09)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,9 +14,12 @@
 - **Context window:** 1,050,000 tokens (1.1M via OpenRouter); max output 128K; prompts >272K input bill 2× input / 1.5× output.
 - **Modalities:** Text, image and document in → text out.
 - **Pricing (as of 2026-10-09):** $0.20/M input, $1.20/M output, $0.02 cache read (90% off), $0.25 cache write; Flex tier $0.10/$0.60; Fast mode $0.40/$2.40.
-- **Speed:** 101–127 tok/s (AA, by effort) — OpenAI claims ~9× the speed of the frontier models it undercuts on price.
+- **Speed:** 135.2 tok/s (AA, 2026-10-19 — pins the prior 101–127 range at the top); TTFT 100.86s at max effort. OpenAI claims ~9× the speed of the frontier models it undercuts on price.
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **64.4/100** overall, #40 of 956 models, 48 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **37** (#13/173, 4/4 units — pins the prior 37.3 max read), 135.2 tok/s, TTFT 100.86s, $0.20/$1.20 with 90% cache discount (blended $0.17/M; $0.18 per Index task), 1M context, 7 providers, 150M Index tokens (somewhat verbose) — DEPRECATED on AA (suggests GPT-6 Luna)
 
 OpenAI GPT-5.6 launch table (Luna; Sol / Terra / GPT-5.5 / Fable 5 / Opus 4.8 in parents):
 
@@ -35,6 +38,7 @@ Third-party:
 - Artificial Analysis (by effort): Intelligence Index **37.3 max / 34.6 xhigh / 32.1 high / 25.0 medium / 21.0 low / 15.5 non-reasoning**; Coding Index 71.4/68.6/63.3/50.7/44.2; Agentic Index 42.1/38.7/34.6/23.9/16.1; GPQA 91.1/89.5; HLE 39.5/37.0/25.8; TB 2.1 80.9/77.9; SciCode 53.6; GDPval-AA 48.2% (max); AA-LCR 83.7 (max); Omniscience 42.7% accuracy / 7.4% non-hallucination
 - Vals AI: SWE-bench **93.0%**; MMMU-Pro **85.0%**; GPQA 91.7%; IOI **61.8%**; SkillsBench 60.4%; Vibe Code Bench 22.6% (v1.1: 77.1%); ProgramBench 0.0%; LegalBench 84.0%; Vals Index 51.7%
 - LiveBench (max): mathematics 87.2, reasoning 85.64, coding 82.92, agentic coding 48.43, instruction following 60.12
+- New independent rows (2026-10-19): Terminal-Bench 3.0 **14.3%** (weak on the newest suite), CyberGym **77.9%** (OpenAI), ExploitGym **12.4%**, Toolathlon **53.4%**, GDPval-AA **48.0% normalized / Elo 1,582** (AA/OpenAI), Terminal-Bench 2.1 (Vals) **79.0%**, AA Agentic Index **42.7%**, ApprenticeBench **7%**, MazeBench **0%**; coding: FrontierCode 1.1 Extended **55.1%**, CursorBench 3.2 **61.1%**, CursorBench 4.0 **35.9%** (weak), VulcanBench v3 **85.5%**, AA-MMMU-Pro **78.6%** (OpenAI launch MMMU-Pro 78.4%/79.5%), ARC-AGI-2 **59.5%** (ARC Prize reconfirmed) / ARC-AGI-3 **0.2%**, CritPt **20.6%**, MMLU-Pro (Vals) **86.0%**, AA-Omniscience accuracy **42.7%** / index **−10.3%** / hallucination **92.6%**, HealthBench Professional **55.7%**, Epoch FrontierMath v2 **78.6%/58.5%** (matches the launch read)
 - Arenas: text 1,453 Elo (49th/171), coding 1,501 (52nd), agent −0.012 (37th/61; tool-use 28th, recovery 31st)
 - benchmarklist.com (independent, 100 results, 2026-10-07): ARC-AGI-1 **88.0% (#32/97)**, ARC-AGI-2 **59.5% (#33/99)**, OSWorld-Verified **72.6% (#28/70)**, AutomationBench **69.6% (#2/48)**, Toolathlon 74.6% (#14/41), Tau3-Banking 31.1% (#34/176), APEX-Agents-AA 35.8% (#9/33), BrowseComp 83.8% (#25/60), SWE-bench Verified **93.0% (#5/72)**, SWE-bench Pro 62.7% (#19/58), TB 2.1 84.7% (#22/194), IOI 72.9% (#8/58), Vibe Code Bench **77.1% (#11/75)**, Code Migration 44.5% (#6/33), Vals Index **69.9% (#6/40)**, Vals Multimodal Index 69.1% (#6/29), MMMU-Pro **85.0% (#19/79)**, GPQA 91.7% (#15/117), HLE 39.5% (#41/478), TaxEval 76.2% (#5/125)
 
@@ -52,6 +56,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (100 primary-source results, updated 2026-10-07 — independent ARC-AGI-2 59.5% #33/99, ARC-AGI-1 88.0% #32/97, OSWorld-Verified 72.6% #28/70, AutomationBench 69.6% #2/48, SWE-bench Verified 93.0% #5/72, TB 2.1 84.7% #22/194, IOI 72.9% #8/58, Vibe Code Bench 77.1% #11/75, Vals Index 69.9% #6/40, MMMU-Pro 85.0% #19/79, GPQA 91.7% #15/117). The new independent data confirms the existing Tool use 80 / Reasoning 84 / Context 86 / Multimodal 70 / Coding 82 reads — the ARC-AGI-2 59.5% and SWE-V 93.0% reinforce Reasoning/Coding while the MRCR 41.3% at 512K–1M keeps Context at 86. No score change warranted. Prior pass (2026-10-09) used OpenAI GPT-5.6 launch + price-cut posts + API docs, Artificial Analysis release analysis and OpenRouter benchmark table, Vals AI, LiveBench via llmap, SWEN.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated page, suggests GPT-6 Luna: Index 37 #13/173, 4/4 units — unchanged; 135.2 tok/s; TTFT 100.86s; pricing unchanged) and BenchLM (composite 64.4/100, #40/956, 48/644 benchmarks): new rows TB3.0 14.3%, CyberGym 77.9%, ExploitGym 12.4%, GDPval-AA Elo 1,582, AA Agentic Index 42.7%, FrontierCode 1.1 Extended 55.1%, CursorBench 3.2 61.1% / 4.0 35.9%, VulcanBench v3 85.5%, MMMU-Pro 78.4% (OpenAI launch; Vals 85.0%), ARC-AGI-3 0.2%, CritPt 20.6%, MMLU-Pro (Vals) 86.0%, HealthBench Professional 55.7% — all consistent with the existing Tool use 80 / Reasoning 84 / Context 86 / Multimodal 70 / Coding 82 / Cost 97 reads, no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (100 primary-source results, updated 2026-10-07 — independent ARC-AGI-2 59.5% #33/99, ARC-AGI-1 88.0% #32/97, OSWorld-Verified 72.6% #28/70, AutomationBench 69.6% #2/48, SWE-bench Verified 93.0% #5/72, TB 2.1 84.7% #22/194, IOI 72.9% #8/58, Vibe Code Bench 77.1% #11/75, Vals Index 69.9% #6/40, MMMU-Pro 85.0% #19/79, GPQA 91.7% #15/117) — same conclusion. Prior pass (2026-10-09) used OpenAI GPT-5.6 launch + price-cut posts + API docs, Artificial Analysis release analysis and OpenRouter benchmark table, Vals AI, LiveBench via llmap, SWEN.
 - Future sources: add a new file next to this one, e.g. `GPT_6_Luna.md`, using the same headings.

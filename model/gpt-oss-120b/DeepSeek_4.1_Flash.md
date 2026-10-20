@@ -1,11 +1,13 @@
 # GPT-OSS-120B — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / gpt-oss-120b (`openai/gpt-oss-120b`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-oss-120b).
+> **Re-verified 2026-10-18.** BenchLM now exposes 25 rows and fills the coding gap: **SWE-bench Verified 62.4%** (OpenAI model card — the first such row), plus MMLU 90%, GPQA 80.1%, HLE 14.9%, AIME 2024 95.8% / 2025 92.5%, AA-GPQA 78.2%, AA-HLE 19.6%, AA-LCR 52.0%, CritPt 1.1%, AA Coding Index 30.4%, SciCode 34.0%, AA AutomationBench. **No score change** (Tool 55 / Reasoning 62 / Context 57 / Multimodal 15 / Coding 65 / Cost 96 / Overall 51).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gpt-oss-120b).
 > BenchLM overall **37.23/100** (#143), context **128K**, pricing **Self-hosted; infrastructure cost varies**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 19.4, #103/122): Gert Labs 29.61%
@@ -69,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
-- Method: public internet research (evals.report benchmark ledger, OpenAI GPT-OSS model card); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research (OpenAI GPT-OSS model card, BenchLM `gpt-oss-120b` — 25 rows — + Artificial Analysis, evals.report ledger); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

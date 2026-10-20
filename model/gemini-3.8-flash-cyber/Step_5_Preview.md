@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash Cyber — findings by Step 5 Preview
 
 - Source: Google (`gemini-3.8-flash-cyber` — Fairwind Program)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,8 @@
 - **Architecture:** Cybersecurity fine-tune of Gemini 3.8 Flash (proprietary); trained with rigorous work in the cybersecurity domain, which also drove the shared core's coding/reasoning gains.
 
 ### Raw benchmarks found
+
+Third-pass verification (2026-10-19): BenchLM carries the same three source-displayable rows (CyberGym 86.2%, CWE-Bench 47.2%, Gray Swan IPI 6.0%) and still assigns no public overall score (unranked, 3 of 644 benchmarks, context "coming soon"); Artificial Analysis has no page for this model. No new independent cyber data — scores unchanged.
 
 Cybersecurity (Google launch post + Kingy's harness analysis):
 
@@ -55,6 +57,6 @@ Shared-core evidence (base Gemini 3.8 Flash model card, September 2026 — the C
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (3 primary-source results, updated 2026-10-07 — CWE-Bench 47.2% #2/14, CyberGym 86.2% #8/43, Gray Swan IPI 6.0% #6/19). One nuance corrected: the launch-post CyberGym "field lead" is vs named competitor cross-harness runs; on the aggregate CyberGym leaderboard it ranks #8/43 — consistent with the existing Tool use 82 cap (CWE-Bench still 0.6 pts behind Fable 5). No score change warranted — the cyber fine-tune shares the base 3.8 Flash core, whose independent figures were verified in the gemini-3.8-flash report. Prior pass (2026-10-09) used Google DeepMind Gemini 3.8 Flash model card + eval methodology + launch blog, Fairwind/cyber pages, Kingy and HokAI benchmark analyses, Ridge, Vector Wire.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): BenchLM still carries only the three source rows (CyberGym 86.2%, CWE-Bench 47.2%, Gray Swan IPI 6.0%), assigns no public overall score, and AA has no page — no new independent cyber evidence, no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (3 primary-source results, updated 2026-10-07 — CWE-Bench 47.2% #2/14, CyberGym 86.2% #8/43, Gray Swan IPI 6.0% #6/19). One nuance corrected: the launch-post CyberGym "field lead" is vs named competitor cross-harness runs; on the aggregate CyberGym leaderboard it ranks #8/43 — consistent with the existing Tool use 82 cap (CWE-Bench still 0.6 pts behind Fable 5). No score change warranted — the cyber fine-tune shares the base 3.8 Flash core, whose independent figures were verified in the gemini-3.8-flash report. Prior pass (2026-10-09) used Google DeepMind Gemini 3.8 Flash model card + eval methodology + launch blog, Fairwind/cyber pages, Kingy and HokAI benchmark analyses, Ridge, Vector Wire.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

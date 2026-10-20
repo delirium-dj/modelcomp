@@ -1,9 +1,11 @@
 # GLM-5.2 — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai (Zhipu AI) / GLM-5.2 (`glm-5.2`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM now exposes 46 rows and computes an overall **60.53/100 (#55 of 956)**; it confirms the first draft and adds AA-GPQA Diamond 89.5%, AA-HLE 41.1%, AA-IFBench 73.3%, AA Intelligence Index 33.7%, Vals TB2.1 67.8%, FrontierMath v2 59.21%/29.27%. **No score change** (Tool 85 / Reasoning 85 / Context 95 / Multimodal 15 / Coding 88 / Cost 90 / Overall 74).
 
 > Re-verified 2026-10-06: filled previously-missing GPQA/HLE/LCR/CritPt/SWE-bench-Vals
 > and agentic figures from BenchLM's Oct-6 snapshot, LLM Stats and Z.ai's Hugging Face
@@ -66,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Z.ai Hugging Face model card, BenchLM 2026-10-06 snapshot, LLM Stats, Artificial Analysis, Vals AI, GLM-5.3-Flash comparison material); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (Z.ai Hugging Face model card, BenchLM `glm-5-2` — 46 rows —, LLM Stats, Artificial Analysis, Vals AI, Epoch AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

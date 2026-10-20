@@ -1,6 +1,6 @@
 {
   "id": "opencode/nemotron-3-ultra-free",
-  "name": "Nemotron 3 Ultra 550B 55B",
+  "name": "Nemotron 3 Ultra 550B A55B",
   "short": "NVIDIA's open 550B/55B hybrid Mamba-MoE for frontier reasoning and long agents; 1M context, Ruler 95%, SWE-V ~73%, free Zen/trial tier.",
   "contextWindow": "1M (262K default serve)",
   "modalities": "Text in/out (beyond text unverified)",

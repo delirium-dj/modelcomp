@@ -1,7 +1,7 @@
 # GPT-5.2 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.2`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,6 +19,9 @@
 
 ### Raw benchmarks found
 
+- BenchLM composite (2026-10-19): **59.88/100** overall, #57 of 956 models, 43 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **30** (estimated, #93/217 — matches the prior rebased 30), 80.6 tok/s (#103/186 — slow), TTFT 86.48s, $1.75/$14.00 with 90% cache discount (blended $1.87/M), 400k context, text+image, 2 providers, knowledge cutoff 2025-08-31 — DEPRECATED on AA (suggests GPT-5.4)
+
 Agent / tool use (OpenAI launch table, Thinking at xhigh):
 
 - τ²-Bench: Telecom **98.7%** / Retail **82.0%**
@@ -27,6 +30,7 @@ Agent / tool use (OpenAI launch table, Thinking at xhigh):
 - Terminal-Bench 2.0: **64.7%** (Codex CLI harness, per the Claude Opus 4.6 system card); GDPval: **70.9% wins-or-ties / 49.8% clear wins** (Pro 74.1%)
 - Investment-banking spreadsheet tasks (internal): 68.4%
 - Claw-Eval / ClawProBench / GDPval-AA Elo: **no verified public score found**
+- New independent rows (2026-10-19): OSWorld-Verified **47.3%** (GPT-5.4 launch chart — modest computer use), τ²-Bench **84.8%** (AA read, below the launch Telecom 98.7%), Gert Labs **46.54%**, JobBench **34.3%**
 
 Reasoning / knowledge:
 
@@ -36,6 +40,7 @@ Reasoning / knowledge:
 - FrontierMath: Tier 1–3 **40.3%** (then-SOTA) / Tier 4 **14.6%** (with Python)
 - ARC-AGI-1 (Verified): **86.2%**; ARC-AGI-2 (Verified): **52.9%** (Pro 54.2%)
 - Artificial Analysis Intelligence Index: **30** (xhigh, rebased v4.3.2)
+- New independent rows (2026-10-19): AA-GPQA Diamond **90.3%**, AA-HLE **37.7%** (both at/above the prior reads), AA AIME 2025 **99.0%**, Epoch FrontierMath v2 Tiers 1–3 **67.400%** / Tier 4 **31.700%** (far above the v1-era 40.3%/14.6%), AA-LCR **82.7%**, CritPt **11.6%**, ARC-AGI-1 **86.17%** (ARC Prize, matches the launch row); AA-Omniscience index **−0.9%** / accuracy **44.3%** / hallucination-rate metric **81.2%** — weak calibration
 
 Coding:
 
@@ -51,6 +56,7 @@ Long context (the release's headline strength):
 Multimodal:
 
 - MMMU-Pro: **79.5% no tools / 80.4% with Python**; Video-MMMU: 85.9%; CharXiv Reasoning: 82.1% / 88.7% with Python; ScreenSpot-Pro (w/ Python): 86.3%
+- Independent multimodal corroboration (2026-10-19, via Qwen3.5/3.6 card tables): MMMU **86.7%**, RealWorldQA **83.3%**, OmniDocBench 1.5 **85.7%**, Video-MME **86.0%** w/ and **85.8%** w/o subtitles, MathVision **83.0%**, DynaMath **86.8%**, AI2D **92.2%**, CountBench **91.9%**, MLVU **85.6%**; soft spots SimpleVQA **55.8%**, ERQA **59.8%**, CC-OCR **70.3%**, V* **75.9%**; Design Arena Website **1196** (OpenRouter). Note: the launch table's Video-MMMU/Video-MME rows imply video input capability even though the API modality row lists text+image+file
 
 ### Normalized scores (1–100)
 
@@ -66,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) re-checked the OpenAI launch table, Artificial Analysis (Intelligence Index 30 rebased), evals.report and BenchmarkList GPT-5.2 rows — GPQA 92.4%, HLE 34.5% no-tools, ARC-AGI-2 52.9%, SWE-bench Pro 55.6%, SWE-bench Verified 80.0% and the standout MRCR v2 profile (98.2% → 77.0% out to 256K) all confirm the existing Tool use 78 / Reasoning 88 / Context 84 / Coding 82 reads; the 400K window (not 1M) keeps Context at 84 and the rebased AA index of 30 keeps Reasoning at 88. No score change warranted — GPT-5.2 is a December-2025 model superseded by GPT-5.5/5.6/GPT-6 Sol on price-performance. Prior pass (2026-10-09) used OpenAI GPT-5.2 launch page + model/pricing docs, GPT-5.2-Codex post, Artificial Analysis, evals.report, The Known Good, DataCamp.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated page, suggests GPT-5.4: Index 30 estimated #93/217, 80.6 tok/s, TTFT 86.48s, pricing unchanged) and BenchLM (composite 59.88/100, #57/956, 43/644 benchmarks): new rows OSWorld-Verified 47.3%, AA τ² 84.8% (vs launch 98.7%), Gert Labs 46.54%, JobBench 34.3%, Vibe Code 53.5%, AA-GPQA 90.3%, AA-HLE 37.7%, Epoch FrontierMath v2 67.4%/31.7% (well above the v1-era rows), AA-LCR 82.7%, ARC-AGI-1 86.17%, AA-Omniscience accuracy 44.3%/hallucination 81.2%, and an independent multimodal corroboration table (MMMU 86.7%, Video-MME 86.0%, AI2D 92.2%, ZeroBench-style soft spots SimpleVQA 55.8%/ERQA 59.8%). All consistent with the existing Tool use 78 / Reasoning 88 / Context 84 / Multimodal 70 / Coding 82 reads — no score change warranted. Second-pass verification (2026-10-10) re-checked the OpenAI launch table, Artificial Analysis (Intelligence Index 30 rebased), evals.report and BenchmarkList GPT-5.2 rows — GPQA 92.4%, HLE 34.5% no-tools, ARC-AGI-2 52.9%, SWE-bench Pro 55.6%, SWE-bench Verified 80.0% and the standout MRCR v2 profile (98.2% → 77.0% out to 256K) all confirmed the same reads; the 400K window (not 1M) keeps Context at 84 and the rebased AA index of 30 keeps Reasoning at 88. Prior pass (2026-10-09) used OpenAI GPT-5.2 launch page + model/pricing docs, GPT-5.2-Codex post, Artificial Analysis, evals.report, The Known Good, DataCamp.
 - Future sources: add a new file next to this one, e.g. `GPT_5.2_Codex.md`, using the same headings.

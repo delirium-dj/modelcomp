@@ -1,7 +1,7 @@
 # GPT-5 nano — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5-nano`, released 2025-08-07)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,14 +14,15 @@
 - **Context window:** 400K tokens; max output 128K (272K on some listings).
 - **Modalities:** Text and image in → text out; reasoning with configurable effort (low/medium/high).
 - **Pricing (as of 2026-10-09):** $0.05/M input, $0.40/M output, $0.005 cache read (90% discount); batch $0.025/$0.20; Priority tier $2.50/M input.
-- **Speed:** 123.9 tok/s output (AA, OpenAI API); TTFT 95.43 s at high effort (vs ~1 s at low).
+- **Speed:** 177.8 tok/s output (AA, OpenAI API, 2026-10-19 — re-measured up from 123.9); TTFT 63.89 s at high effort (re-measured down from 95.43 s; vs ~1 s at low).
 
 ### Raw benchmarks found
 
 Artificial Analysis (deprecated page, 10k workload):
 
-- Intelligence Index: **13** (estimated; #14 of 59 in its price class; class median 8)
-- Speed 123.9 tok/s; TTFT 95.43 s; blended price $0.05/M
+- Intelligence Index: **13** (estimated; #13 of 52 in its price class, 4/4 units; class median 8)
+- Speed 177.8 tok/s; TTFT 63.89 s; blended price $0.05/M
+- 2026-10-19 lifecycle: page deprecated (suggests GPT-5.4 nano), knowledge cutoff May 2024 confirmed, 400k context, $0.05/$0.40 with 90% cache discount, 2 providers. BenchLM tracks the slug but sourced coverage is still pending (unranked)
 
 Epoch AI (via modelbenchmark.io, by effort setting):
 
@@ -48,6 +49,6 @@ Reference (GPT-5 mini, high, from the GPT-5.4 nano launch table): SWE-bench Pro 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Artificial Analysis deprecated-model page, modelbenchmark.io Epoch-AI score table, OpenAI GPT-5 family pricing/lifecycle data via CloudPrice); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated page, suggests GPT-5.4 nano): Index 13 estimated (#13/52, 4/4 units — unchanged), speed re-measured at 177.8 tok/s (was 123.9), TTFT 63.89s (was 95.43s), pricing $0.05/$0.40 unchanged, cutoff May 2024 confirmed; BenchLM tracks the slug but has no sourced rows yet. All consistent with the existing Tool use 40 / Reasoning 52 / Context 72 / Multimodal 62 / Coding 45 reads — no score change. First pass (2026-10-09) used Artificial Analysis deprecated-model page, modelbenchmark.io Epoch-AI score table, OpenAI GPT-5 family pricing/lifecycle data via CloudPrice.
 - Future sources: add a new file next to this one, e.g. `GPT_5_4_Nano.md`, using the same headings.

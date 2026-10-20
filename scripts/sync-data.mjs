@@ -110,6 +110,13 @@ const sourcesTsPath = join(root, "src", "data", "sources.generated.ts");
 // tracked model page.
 const SOURCE_OVERRIDES = {
   "DeepSeek 4.1 Flash": { label: "DeepSeek v4.1 Flash", slug: "deepseek-v4.1-flash" },
+  // Rater-key spellings that differ from the vendor-accurate page name must
+  // still deep-link to the model page (catalog norm-match fails otherwise).
+  "DeepSeek 4 Flash": { label: "DeepSeek V4 Flash", slug: "deepseek-v4-flash" },
+  "Gemma 4 31B IT": { slug: "gemma-4-31b" },
+  // Rater self-name; the tracked page carries the vendor's Preview tier in the
+  // id (minimax-ai/minimax-m3.1-flash-preview), same product.
+  "MiniMax M3.1 Flash": { slug: "minimax-m3.1-flash-preview" },
   "Mimo v2.5 Free": { label: "MiMo v2.5 Free", slug: "mimo-v2.5-free" },
   "MiMo 2.6 Flash": { label: "MiMo 2.6 Flash", slug: "mimo-v2.6-free" },
   "big-pickle": { label: "Big Pickle", slug: "big-pickle" },

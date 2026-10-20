@@ -1,6 +1,6 @@
 {
   "id": "opencode/ling-2.6.1t",
-  "name": "Ling-2.6-1T",
+  "name": "Ling 2.6 1T",
   "short": "InclusionAI's 1T/63B-active MIT open-weights instruct MoE (262K) for fast agents at scale; Tau2-Telecom 89.8% with 109.6 tok/s decode.",
   "contextWindow": "262,144 total",
   "modalities": "Text in/out",

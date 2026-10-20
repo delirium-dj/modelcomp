@@ -1,9 +1,11 @@
 # GLM-5.2 Coding — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai / Zhipu AI (`glm-5.2` delivered through the GLM Coding Plan — catalogued in coding agents as "Z.ai: GLM 5.2 Coding"; no Free ID)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** The base GLM-5.2 record (BenchLM `glm-5-2`, now 46 rows / overall **60.53 #55 of 956**) still applies to this Coding-Plan route. No new disjoint evidence appeared; independent rows now include AA-GPQA 89.5%, AA-HLE 41.1%, Vals TB2.1 67.8%, FrontierMath v2 59.21%/29.27%. **No score change** (Tool 86 / Reasoning 90 / Context 93 / Multimodal 15 / Coding 88 / Cost 78 / Overall 74).
 
 > Re-verified 2026-10-06: this route serves the GLM-5.2 weights, so the base model's now-public
 > BenchLM suite applies and fills several gaps — Terminal-Bench 3.0 **4.6%**, τ²-bench **99.1%**,

@@ -1,0 +1,65 @@
+# Qwen 3.8 — findings by GPT 6.1 Sol
+
+- Source: Alibaba / unresolved bare `qwen-3.8` project label
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 (bare family label; exact endpoint unverified)
+- **Short description:** Public evidence distinguishes Qwen3.8-27B, Qwen3.8-2.4T-A95B, Max and Flash. It does not establish a separate bare Qwen3.8 model. This report is self-excluded pending a defensible subject-to-ID mapping.
+- **Provider / access:** The project's `opencode/qwen-3.8` metadata is a local claim, not proof of a live route. The [live Zen catalog](https://opencode.ai/zen/v1/models) returned `qwen3.8-max` and `qwen3.8-flash`, but neither `qwen-3.8` nor `qwen3.8`.
+- **Release / knowledge:** No exact-model release or cutoff verified. Repository creation dates are not treated as release dates.
+- **IDs:** No distinct bare ID verified. The [OpenRouter catalog](https://openrouter.ai/api/v1/models) separately lists `qwen/qwen3.8-27b`, `qwen/qwen3.8-2.4t-a95b`, `qwen/qwen3.8-max-0902` and `qwen/qwen3.8-flash`.
+- **Context window:** Unverified for the bare label; do not inherit a sibling's specifications.
+- **Modalities:** Unverified for the bare label. Critically, the 27B checkpoint is vision-language, whereas the 2.4T open checkpoint is text-only.
+- **Pricing (as of 2026-10-20):** No bare-model price verified. Open weights do not imply zero infrastructure or inference cost.
+- **Architecture:** Ambiguous: 27B dense and 2.4T-total/95B-active MoE are distinct public checkpoints, not interchangeable descriptions.
+
+### Raw benchmarks found
+
+**Exact subject:** no verified public score found for a distinct bare `qwen-3.8` ID. All figures below are identity-resolution evidence for named siblings and are expressly excluded from this entry's scores.
+
+Agent / tool use:
+
+- [Official Qwen3.8-27B card](https://huggingface.co/Qwen/Qwen3.8-27B): Terminal-Bench 2.1 (Terminus) **73.0%**, OSWorld-Verified **84.3%**, CoWorkBench **70.7%**. These belong to 27B.
+- The [2.4T card](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B) contains a comparison column explicitly titled **Qwen3.8-Max**, including Terminal-Bench 2.1 **86.6%**. Its presence in the weights repository is not proof that every hosted Max measurement applies to the open checkpoint, much less a bare family entry.
+
+Reasoning / knowledge:
+
+- Official 27B GPQA Diamond **89.2%** and HLE **30.8%**; [Artificial Analysis's 27B page](https://artificialanalysis.ai/models/qwen3-8-27b) independently reports Intelligence Index **34** (v4.3.2; a composite, not 34% accuracy).
+- [BenchLM's 27B entry](https://benchlm.ai/models/qwen3-8-27b), updated October 19, reports its own index **59.62/100**, rank **58/956**, and AA index **33.7**. Different index definitions explain 59.62 versus 34; 33.7 versus 34 is compatible with rounding. None identifies a separate bare model.
+
+Coding:
+
+- Official 27B SWE-bench Pro **61.7%**, LiveCodeBench v6 **90.3%**, DeepSWE 1.1 **42.2%**. SWE-Pro uses a refined task set, Claude Code, temperature 1.0, top-p 0.95 and 256K context; these are not universal harness-independent percentages.
+- BenchLM republishes those card results, so agreement is not independent replication. It also cites Vals Terminal-Bench **58.4%** and AA Terminal-Bench 2.1 **79.8%** for 27B. Those secondary attributions were not independently verified at their original result pages; no averaging or preferred-value selection is justified.
+
+Long context:
+
+- Official 27B: **262,144** native tokens, extensible to **1,000,000**. The [current QwenCloud 27B page](https://www.qwencloud.com/models/qwen3.8-27b) advertises **1M** context and **131K** output, while AA evaluates a **256K** configuration. Native capability, hosted configuration and evaluated configuration differ; this is not evidence of an additional bare model.
+
+### Search audit and conflicting evidence
+
+Fresh searches were performed before drafting; failed or irrelevant responses are recorded as access limitations, not proof of nonexistence:
+
+1. [Google: `"Qwen 3.8" model official benchmark`](https://www.google.com/search?q=%22Qwen+3.8%22+model+official+benchmark) — JavaScript redirect, no usable results.
+2. [Bing: `"Qwen3.8" benchmark review`](https://www.bing.com/search?q=%22Qwen3.8%22+benchmark+review) — unrelated automobile results; discarded.
+3. [Brave: `"qwen-3.8" model benchmark`](https://search.brave.com/search?q=%22qwen-3.8%22+model+benchmark) — HTTP 429.
+4. [DuckDuckGo: `"Qwen3.8" benchmark`](https://html.duckduckgo.com/html/?q=%22Qwen3.8%22+benchmark) — bot challenge.
+5. [Hugging Face official-publisher search](https://huggingface.co/api/models?author=Qwen&search=Qwen3.8&limit=20) — returned distinct named checkpoints, enabling direct official-card comparison.
+6. [Bing exact terms, English/US](https://www.bing.com/search?q=%22Qwen3.8%22+%22benchmark%22&setlang=en&cc=us) — no results; direct official and independent pages above nevertheless exist, demonstrating why search absence alone is insufficient.
+
+The local metadata describes 27B and quotes its SWE-Pro/LiveCodeBench figures but links its pricing to the different 2.4T checkpoint. External sources resolve those facts to separate already-tracked variants. The metadata's historical blog URL returned 404; the [current official blog](https://qwen.ai/blog?id=qwen3.8) rendered only an application shell. Neither supports a distinct bare route. Candidate duplicate/family alias requires user-directed identity resolution; no files were parked or moved.
+
+### Normalized scores (1–100)
+
+Not assigned. Identity is unresolved and no verified benchmark is attributable to a distinct bare subject. Sibling evidence cannot justify a scored report or an Overall.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-20
+- Method: Fresh multi-engine searches, official checkpoint and hosted-service documentation, live provider catalogs, and independent AA/BenchLM comparison. No peer findings read. This notes-only report is self-excluded; cited sibling figures are not subject scores.

@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-5.5-pro`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,6 +21,9 @@
 
 > Cross-referenced hokai.io (OpenAI) and vectorwire.ai (16 results/14 benchmarks, 9 independent). Because Pro shares GPT-5.5's weights, standard GPT-5.5 benchmark results apply to Pro.
 
+- BenchLM composite (2026-10-19): **73.48/100** overall, #13 of 956 models, 9 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): tracks the Pro setting but measures no Intelligence Index or speed (N/A); no live pricing row on the page today (the file's $30/$180 stands from prior research), 922k context, text+image — NOT flagged deprecated on AA
+
 Agent / tool use:
 
 - Terminal-Bench 2.0: **82.7%** (vendor-reported; ahead of Gemini 3.1 Pro 68.5% and Claude ~65%)
@@ -35,6 +38,7 @@ Reasoning / knowledge:
 - ARC-AGI-1: **95.0%** (xHigh) / **96.5%** (High) (ARC Prize, independent)
 - MMLU: **92.4%** (vendor-reported)
 - SimpleQA Verified: **64.5%** (epoch.ai, independent, xHigh)
+- New Pro-specific verified rows (2026-10-19, BenchLM/ARC Prize/Epoch): ARC-AGI-2 **84.2%** (ARC Prize — joins the 95.0% ARC-AGI-1), CritPt **30.6%** (AA), HLE **57.2% with tools / 43.1% without tools** (OpenAI — the no-tools read now clears the 40% bar, above the prior 41.4%), Epoch FrontierMath v2 Tiers 1–3 **87.719%** / Tier 4 **78.049%** (the strongest math result in this comparison alongside Gemini 4 Argon), FrontierMath legacy **52.4%**
 - Vector Wire capability: **Reasoning "Capable"** (−10.6% vs leader, 4/6); **Math "Capable"** (−21.7%)
 - GPQA Diamond / AIME 2025: OpenAI did not publish separate Pro-setting scores (shares GPT-5.5's) — treated as provisional
 
@@ -65,8 +69,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarkregistry.org has no standalone GPT-5.5 Pro page (Pro shares standard GPT-5.5's weights; the base GPT-5.5 page — 51 results, updated 2026-10-07 — carries the shared independent runs: APEX-Agents 55.1%, BrowseComp 77.7%, Vibe Code 69.8%, ARC/SWE-bench rows). No score change warranted. Prior pass (2026-10-08) used OpenAI (via hokai.io) and vectorwire.ai. GPT-5.5 Pro shares standard GPT-5.5's weights (parallel test-time compute is the only difference).
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (tracks the Pro setting but measures no Index/speed; no live pricing row today — the file's $30/$180 stands; not deprecated) and BenchLM (composite 73.48/100, #13/956, 9/644 benchmarks): new Pro-specific verified rows ARC-AGI-2 84.2% (ARC Prize), CritPt 30.6%, HLE 57.2% with tools / **43.1% without tools** (clears the 40% bar on the no-tools read), Epoch FrontierMath v2 87.7%/78.0% (strongest math alongside Gemini 4 Argon) — all consistent with the existing Tool use 84 / Reasoning 88 / Context 92 / Multimodal 88 / Coding 90 reads, no score change warranted. Second-pass verification (2026-10-10): benchmarkregistry.org has no standalone GPT-5.5 Pro page (Pro shares standard GPT-5.5's weights; the base GPT-5.5 page — 51 results, updated 2026-10-07 — carries the shared independent runs: APEX-Agents 55.1%, BrowseComp 77.7%, Vibe Code 69.8%, ARC/SWE-bench rows). Prior pass (2026-10-08) used OpenAI (via hokai.io) and vectorwire.ai. GPT-5.5 Pro shares standard GPT-5.5's weights (parallel test-time compute is the only difference).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

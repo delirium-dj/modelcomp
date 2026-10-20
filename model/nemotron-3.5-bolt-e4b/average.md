@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6.
 - Average from top 1 by Overall Score: Claude Opus 4.6.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1, Solar Mini 4.

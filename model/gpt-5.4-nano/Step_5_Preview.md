@@ -1,7 +1,7 @@
 # GPT-5.4 nano — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.4-nano`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,9 +14,12 @@
 - **Context window:** 400,000 tokens; max output 128,000.
 - **Modalities:** Text, image and PDF in → text out; tool use, function calling, web search, file search, computer use.
 - **Pricing (as of 2026-10-09):** $0.20/M input, $1.25/M output, $0.02/M cached input; Batch API $0.10/$0.625.
-- **Speed:** 164–171 tok/s output (AA); TTFT 0.65–1.21 s.
+- **Speed:** 165.6 tok/s output (AA, 2026-10-19 — pins the prior 164–171 read); TTFT 55.69 s at xhigh (vs 0.65–1.21 s at low effort).
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **46.85/100** overall, #115 of 956 models, 37 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **21** (#50/173 — matches the prior 21), 165.6 tok/s, TTFT 55.69s, $0.20/$1.25 with 90% cache discount (blended $0.18/M; $0.18 per Index task), 400k context, text+image, 1 provider, cutoff 2025-08-31 — DEPRECATED on AA (suggests GPT-5.6 Luna); 190M Index tokens (very verbose vs the 99M median)
 
 OpenAI launch table (nano at xhigh; GPT-5 mini at high for reference):
 
@@ -33,7 +36,8 @@ OpenAI launch table (nano at xhigh; GPT-5 mini at high for reference):
 
 Third-party:
 
-- Artificial Analysis: Intelligence Index **21** (xhigh) / 20 (medium) / 12 (non-reasoning); Coding Index **56.1**; Agentic Index 0.16; SciCode **47.2%**; Terminal-Bench 2.1 **60.7%** (AA protocol); GPQA Diamond 81.7% (Epoch AI: 78.5%); IFBench ~0.8 normalized (#25)
+- Artificial Analysis: Intelligence Index **21** (xhigh) / 20 (medium) / 12 (non-reasoning); Coding Index **56.1**; Agentic Index 0.16 (**corrected 2026-10-19: BenchLM's AA read is 17.7% — the earlier 0.16 was a parse artifact**); SciCode **47.2%**; Terminal-Bench 2.1 **60.7%** (AA protocol); GPQA Diamond 81.7% (Epoch AI: 78.5%); IFBench ~0.8 normalized (#25)
+- New independent rows (2026-10-19): APEX-Agents-AA **24.9%**, GDPval-AA **22.4% normalized / Elo 1,035**, Terminal-Bench 2.1 (Vals) **41.6%** (well below the AA-protocol 60.7% — harness split), LiveCodeBench (Vals) **84.0%**, SWE-bench (Vals) **69.8%**, Vibe Code Bench **26.10%** (weak), AA-MMMU-Pro **65.4%**, AA-LCR **76.7%**, CritPt **9.3%**, ARC-AGI-1 **51.50%** / ARC-AGI-2 **5.7%** (ARC Prize), AA-HLE **28.3%**, AA-Omniscience index **−29.5%** / accuracy **25.7%** / hallucination **74.2%**, GPQA (Vals) **77.5%**, MMLU-Pro (Vals) **77.2%**, AA-IFBench **75.9%**, Epoch FrontierMath v2 T1–3 **44.912%** / T4 **12.195%** (matches the prior Respan read)
 - Respan/LiveBench (Oct 2026): coding 70.8%, agentic coding 46.8%, reasoning 81.1%, data analysis 67.6%, mathematics 91%, instruction following 67.2%, language 62.5%, global 70%; FrontierMath T1-3 44.9% (T4 12.2%); OTIS Mock AIME 87.8%; SimpleQA Verified 11.7%
 - LMArena: 1,401 Elo text (#103 of 141)
 - BenchGecko: 32.7% average across 27 benchmarks (#256 overall)
@@ -52,6 +56,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenAI launch post + API docs, Artificial Analysis, Respan/LiveBench aggregations, CloudPrice, BenchGecko); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated page, suggests GPT-5.6 Luna: Index 21 #50/173 — unchanged; 165.6 tok/s; TTFT 55.69s at xhigh; 190M Index tokens — very verbose; pricing unchanged) and BenchLM (composite 46.85/100, #115/956, 37/644 benchmarks): new rows APEX-AA 24.9%, GDPval-AA Elo 1,035, TB2.1 (Vals) 41.6% (vs the AA protocol's 60.7% — harness split), LCB (Vals) 84.0%, SWE-bench (Vals) 69.8%, Vibe Code 26.1%, ARC-AGI-1 51.5%/ARC-AGI-2 5.7%, AA-Omniscience −29.5%, AA Agentic Index corrected to 17.7% (earlier 0.16 was a parse artifact) — all consistent with the existing Tool use 55 / Reasoning 62 / Context 68 / Multimodal 66 / Coding 60 reads, no score change. First pass (2026-10-09) used OpenAI launch post + API docs, Artificial Analysis, Respan/LiveBench aggregations, CloudPrice, BenchGecko.
 - Future sources: add a new file next to this one, e.g. `GPT_5_5_Nano.md`, using the same headings.

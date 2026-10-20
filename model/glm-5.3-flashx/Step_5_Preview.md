@@ -1,7 +1,7 @@
 # GLM-5.3-FlashX — findings by Step 5 Preview
 
 - Source: Z.ai (`glm-5.3-flashx`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -20,6 +20,8 @@
 ### Raw benchmarks found
 
 (All benchmark figures are for the shared GLM-5.3-Flash weights — Z.ai publishes no separate FlashX numbers because the model is unchanged.)
+
+Third-pass verification (2026-10-19): Artificial Analysis still has no standalone FlashX page (404) and BenchLM now 404s for the slug too — the shared-weights figures were re-confirmed against today's GLM-5.3-Flash pages (AA Index 42 #6/121, 78.0 tok/s; BenchLM composite 58.53/100 #59/956 with SWE-bench Vals 92.0%, LCB Vals 80.5%, AA-GPQA 91.2% filling the prior gaps). No score change warranted.
 
 Agent / tool use:
 
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): GLM-5.3-FlashX is a serving tier of the identical GLM-5.3-Flash weights (no separate benchmarks exist); Artificial Analysis has no standalone FlashX page (404), and the shared-weights figures were re-confirmed via benchmarkregistry.org's GLM-5.3-Flash page (32 results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor, TB4.0 29.8–35.8%, APEX 52.8%, DeepSWE 63.0%). No score change warranted. Prior pass (2026-10-09) used Z.ai docs + GLM-5.3-Flash blog/HF model card, Artificial Analysis via OpenRouter, Vals AI, APIMaster.AI, OrcaRouter, glm5.app.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): GLM-5.3-FlashX remains a serving tier of the identical GLM-5.3-Flash weights; Artificial Analysis still 404s for a standalone FlashX page and BenchLM now 404s as well — the shared-weights figures were re-confirmed against today's GLM-5.3-Flash AA/BenchLM pages (Index 42, 78.0 tok/s, composite 58.53/100, SWE-bench Vals 92.0%, LCB Vals 80.5%, AA-GPQA 91.2%). No score change warranted. Second-pass verification (2026-10-10): same shared-weights conclusion via benchmarkregistry.org's GLM-5.3-Flash page (32 results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor, TB4.0 29.8–35.8%, APEX 52.8%, DeepSWE 63.0%). Prior pass (2026-10-09) used Z.ai docs + GLM-5.3-Flash blog/HF model card, Artificial Analysis via OpenRouter, Vals AI, APIMaster.AI, OrcaRouter, glm5.app.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

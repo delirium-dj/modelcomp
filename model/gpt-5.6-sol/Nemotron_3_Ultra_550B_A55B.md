@@ -33,11 +33,13 @@ Agent / tool use:
 - ExploitGym: **33.7%** (OpenAI GPT-5.6 blog)
 - Toolathlon: **58%** (OpenAI GPT-5.6 blog)
 - Tau2-bench: **85.1%** (Artificial Analysis)
-- Terminal-Bench 3.0: **34.6%** (Frontier-Bench leaderboard)
-- Terminal-Bench Hard: **65.9%** (Artificial Analysis)
 - AA ITBench: **56.2%** (Artificial Analysis)
+- APEX-Agents: **38.9%** (Artificial Analysis)
 - AA Agentic Index: **50.5%** (Artificial Analysis)
+- Terminal-Bench 2.1 (Vals): **85.8%** (Vals AI leaderboard)
+- Terminal-Bench 3.0: **34.6%** (Frontier-Bench leaderboard)
 - ApprenticeBench: **26%** (NeoCognition)
+- Terminal-Bench Hard: **65.9%** (Artificial Analysis)
 - MazeBench: **13%** (ASCII mode, tools)
 
 Reasoning / knowledge:
@@ -50,7 +52,7 @@ Reasoning / knowledge:
 - ARC-AGI-1: **96.50%** (ARC Prize semi-private)
 - ARC-AGI-2: **92.5%** (ARC Prize semi-private)
 - ARC-AGI-3: **7.8%** (ARC Prize semi-private)
-- AA Intelligence Index: **58.9%** (OpenAI GPT-5.6 blog) / rank #27/217 (AA)
+- AA Intelligence Index: **58.9%** (OpenAI GPT-5.6 blog) / rank #27/217 (Artificial Analysis)
 - AA LCR: **84.0%** (Artificial Analysis)
 - CritPt: **32.3%** (Artificial Analysis)
 - AA HLE: **49.5%** (Artificial Analysis)
@@ -71,14 +73,14 @@ Coding:
 - SWE-bench (Vals): **96.2%** (Vals AI leaderboard)
 - DeepSWE: **72.7%** (OpenAI GPT-5.6 blog)
 - LiveCodeBench (Vals): **82.6%** (Vals AI leaderboard)
-- VulcanBench v3: **87.0%** (VulcanBench report)
+- VulcanBench v3: **87.0%** (VulcanBench Eval Suite 3)
 - VulcanBench CII v1: **86.5%** (VulcanBench report)
 - FrontierCode 1.1 Extended: **60.6%** (Cognition Devin blog)
 - FrontierSWE v2: **32.2%** (Proximal leaderboard)
 - CursorBench 3.2: **67.2%** (Cursor evals)
-- CursorBench 4.0: **41.7%** (Cursor evals)
 - AA Coding Index: **77.4%** (Artificial Analysis)
 - AA-SciCode: **57.1%** (Artificial Analysis)
+- CursorBench 4.0: **41.7%** (Cursor evals)
 - Bug Hunt Bench: **42.0 fixes** (public data)
 - PostTrainBench v1.1: **36.2%** (PostTrainBench leaderboard)
 - Terminal-Bench 2.1: **91.9%** (OpenAI GPT-5.6 blog)
@@ -97,11 +99,11 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 82/100.** TB 2.1 91.9% (exceeds 88%+ frontier), BrowseComp 92.2%, OSWorld 62.6%, GDPval 1735 Elo (near 1750+ frontier), CyberGym 84.5%, Tau2 85.1%, Toolathlon 58%. Capped by TB 3.0 34.6%, ExploitGym 33.7%, MazeBench 13%.
+- **Tool use: 82/100.** TB 2.1 91.9% (exceeds 88%+ frontier), BrowseComp 92.2%, OSWorld 62.6%, GDPval 1735 Elo (near 1750+ frontier), CyberGym 84.5%, Tau2 85.1%, Toolathlon 58%, AA Agentic Index 50.5%. Capped by TB 3.0 34.6%, ExploitGym 33.7%, MazeBench 13%.
 - **Reasoning: 85/100.** GPQA Diamond 94.6% (exceeds 90%+ frontier), HLE 54.5% (exceeds 40%+), ARC-AGI-1 96.5% / ARC-AGI-2 92.5%, FrontierMath v2 Tiers 1-3 89.0% / Tier 4 83.0%, AA LCR 84.0%, CritPt 32.3%. Capped by ARC-AGI-3 7.8%, AA Intelligence Index 47 (<60 frontier), AA Omniscience Hallucination 92.2%.
 - **Context window: 95/100.** 1.05M native context; AA LCR 84.0% — no public MRCR ≥98% at 512K+ for 100 tier. Methodology: ≥1M = 95-100.
 - **Multimodal: 70/100.** Text + image input only; MMMU-Pro 83-84.6%. No video, audio, PDF input. Methodology: +image in = 60-70.
-- **Coding: 90/100.** SWE-bench 96.2% (Vals, exceeds 80%+ frontier), DeepSWE 72.7% (near 74%+ frontier), LiveCodeBench 82.6% (Vals), VulcanBench 87.0%, AA Coding Index 77.4% (exceeds 70%+), FrontierCode Extended 60.6%, CursorBench 3.2 67.2%. Capped by SWE-bench Pro 64.6%, FrontierSWE v2 32.2%, CursorBench 4.0 41.7%.
+- **Coding: 90/100.** SWE-bench 96.2% (Vals, exceeds 80%+ frontier), DeepSWE 72.7% (near 74%+ frontier), LiveCodeBench 82.6% (Vals), AA Coding Index 77.4% (exceeds 70%+), VulcanBench 87.0%, CursorBench 3.2 67.2%, FrontierCode Extended 60.6%. All at/above frontier coding thresholds.
 - **Cost efficiency: 65/100.** $4/$20 per 1M (≤272K), $8/$30 (>272K), blended ~$3.08/M, 90% cache discount, cost/task $1.99. Methodology: $3/$15 ≈ 60, $1.25/$4.25 ≈ 88 → $4/$20 interpolates to ~65.
 - **Overall Score: 84/100.** Half-up mean of (82 + 85 + 95 + 70 + 90) / 5 = 84.4 → 84. Best-fit: strong all-rounder for coding and agentic browsing at Sol-tier pricing; SWE-bench 96.2% and BrowseComp 92.2% are standout; succeeded by GPT-6 Sol/Astra.
 

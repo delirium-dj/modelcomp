@@ -1,7 +1,7 @@
 # GPT-5 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5`, released 2025-08-07)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -17,6 +17,8 @@
 - **Speed:** competitive for its class; the model that established the "router decides how long to think" pattern.
 
 ### Raw benchmarks found
+
+- Artificial Analysis today (2026-10-19): Intelligence Index **23** (estimated, #140/217 — now below its class median of 27; deprecated page, 10k workload only), 109.9 tok/s, TTFT 63.16s, $1.25/$10.00 with 90% cache discount (blended $1.34/M), 400k context, text+image, 2 providers, knowledge cutoff Sep 2024 — DEPRECATED on AA (suggests GPT-5.1). BenchLM has no standalone GPT-5 page (404).
 
 Launch table (xhigh effort):
 
@@ -48,6 +50,6 @@ Benchmarks that did not exist at its launch (TB 2.x, τ³, MCP Atlas, GDPval, HL
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone GPT-5 page (a 2025 legacy model superseded by 5.1/5.2/5.3-Codex/5.4/5.6, retirement scheduled 2026-12-11); re-checked the OpenAI launch table, modelbenchmark.io Epoch-AI score table and CloudPrice lifecycle data — AIME 2025 94.6%, SWE-bench Verified 73.5–74.9%, GPQA Diamond 86.2–88.4%, Aider Polyglot 88%, MMMU 84.5% and the 94th-percentile coding composite all confirm the existing Tool use 70 / Reasoning 82 / Context 78 / Multimodal 68 / Coding 82 reads. No score change warranted — the agentic suites (TB 2.x, τ³, MCP Atlas, GDPval) still have no public GPT-5 run. Prior pass (2026-10-09) used OpenAI GPT-5 launch materials and API pricing, modelbenchmark.io Epoch-AI score table, CloudPrice lifecycle data.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Artificial Analysis now shows GPT-5 as a deprecated page (superseded by GPT-5.1) with an estimated Intelligence Index of 23 (#140/217 — below the class median, consistent with the legacy-tier read), 109.9 tok/s, TTFT 63.16s, $1.25/$10.00 unchanged; BenchLM still has no standalone GPT-5 page. The launch/Epoch evidence (AIME 94.6%, SWE-bench 73.5–74.9%, GPQA 86.2–88.4%, Aider Polyglot 88%) and the absent agentic-suite runs (TB 2.x, τ³, MCP Atlas, GDPval) are unchanged — no score change warranted; retirement remains scheduled 2026-12-11. Second-pass verification (2026-10-10): benchmarklist.com has no standalone GPT-5 page; re-checked the OpenAI launch table, modelbenchmark.io Epoch-AI score table and CloudPrice lifecycle data — same conclusion. Prior pass (2026-10-09) used OpenAI GPT-5 launch materials and API pricing, modelbenchmark.io Epoch-AI score table, CloudPrice lifecycle data.
 - Future sources: add a new file next to this one, e.g. `GPT_5_6_Sol.md`, using the same headings.

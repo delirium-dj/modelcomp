@@ -1,7 +1,7 @@
 # GLM-5.3 — findings by Step 5 Preview
 
 - Source: Z.ai (`glm-5.3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,6 +19,9 @@
 
 ### Raw benchmarks found
 
+- BenchLM composite (2026-10-19): **67.96/100** overall, #25 of 956 models, 56 of 644 benchmarks covered (partial coverage — conservative; official HF model card now linked)
+- Artificial Analysis today (2026-10-19): Intelligence Index **45** (#3/121 open-weights, 4/4 units — still top-3 open, was #1/112 at 44.8), 87.9 tok/s (#34/78; prior measurement 73.1), TTFT 2.44s, **210M Index tokens (very verbose vs the 140M median — a real cost multiplier)**, $2.01 per Index task, $1.40/$4.40 with 81% cache discount (blended $0.90/M), 1M context, 27 providers
+
 Agentic / tool use:
 
 - MCP-Atlas: **86.8%** (#4/48); Toolathlon Verified: 73.0% (#19/41)
@@ -27,13 +30,15 @@ Agentic / tool use:
 - GDPval-AA v2: **Elo 1769** (Z.ai) / 57.5% (AA) / 1763 (#6/352 BenchmarkList); AA-Briefcase: 1526 (#16/145)
 - Vending-Bench 2: **$8,163.61** net worth (#11/60); τ³-Banking: 50.3% (#3/176); JobBench: 61.4% (#7/48)
 - APEX-Agents: 38.1% (#2/8); DRACO: 82.3%
+- New independent rows (2026-10-19): AA Agentic Index **53.4%** (strong), AA Briefcase **Elo 1,507** (replaces the prior 1,526), AA EnterpriseOps-Gym **36.4%**, AA ITBench **46.1%**, AA-AnalystAgent **38.8%**, Hermes Index **39.2%** / Hermes Bench **71.8%**, ExploitGym **15.0%**, MazeBench **0%**, GDP.pdf **11.2%** (weak)
 
 Reasoning / knowledge:
 
 - AA Intelligence Index: **44.8** (max) — #1 open-weights of 112 (45 on v4.3, ahead of Kimi K3's 44)
 - GPQA Diamond: **91.7%** (AA, #22/468); HLE: **42.3%** (AA, #33/478); HLE w/ tools: 62.5% (#5/29)
 - SciCode: **59.0%** (AA, #10/296); CritPt: 19.1% (AA); MMLU-Pro: 86.8% (Vals)
-- AA-LCR: **79.7%** (AA); AA-Omniscience accuracy 33.9%, non-hallucination rate 70.4%
+- AA-LCR: **79.7%** (AA); AA-Omniscience accuracy 33.9%, non-hallucination rate 70.4% (= 29.6% hallucination-rate metric, reconfirmed 2026-10-19)
+- New independent rows (2026-10-19): GPQA Diamond (Vals) **88.1%**, MLCR-AA **48.3%**, FrontierMath v2 (Epoch AI) T1–3 **68.772%** / Tier 4 **29.268%** (mid-band math), Gray Swan IPI **31.5%** (weak safety), Design Arena Website **1295** (OpenRouter)
 
 Coding:
 
@@ -41,7 +46,8 @@ Coding:
 - SWE-bench Pro: **64.6%** (#14/58); DeepSWE v1.1: **66.9%** (Z.ai) / 69.0% (BenchmarkList #16/52)
 - Terminal-Bench 2.1: **88.2%** (Z.ai, Claude Code) / 83.9% (AA) / 71.54% (Vals Terminus-2, #26/76)
 - Terminal-Bench 3.0: **28.3%** (Z.ai) / 32.4% ±2.9 (BenchmarkList #4/20); Terminal-Bench 4.0: **41.9%** (AA) / 38.89% (Vals #10/45)
-- Vibe Code Bench v1.1: **78.1%** (Vals); ProgramBench: 72.0% (#8/37); SWE-Marathon v1.1: 42.5% (68/160 trials, #11/33); FrontierSWE: 78.1 / v2 30.2%; NL2Repo: 58.0%; LiveCodeBench: 80.5% (Vals)
+- Vibe Code Bench v1.1: **78.1%** (Vals); ProgramBench: 72.0% (#8/37) — **conflict noted (2026-10-19): the Z.ai model card row now shows 19.0% via BenchLM**; SWE-Marathon v1.1: 42.5% (68/160 trials, #11/33); FrontierSWE: 78.1 / v2 30.2%; NL2Repo: 58.0%; LiveCodeBench: 80.5% (Vals)
+- New independent coding rows (2026-10-19): AA Coding Index **74.8%**, PostTrainBench v1.1 **39.8%**, VulcanBench v3 **78.3%**, OpenHarmony Bench **60.8%**, Bug Hunt Bench **19.0 fixes** (weak)
 - LMArena WebDev Arena: 1609 Elo (#11/27); Arena: 1505
 
 Cyber (its differentiating program):
@@ -64,6 +70,6 @@ Cyber (its differentiating program):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Z.ai GLM-5.3 launch blog + docs, Artificial Analysis, Vals AI, BenchmarkList, Morph, SemiAnalysis, Ridge, ai-on-mac); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (Index 45, #3/121 open-weights, 4/4 units; 87.9 tok/s; 210M Index tokens — very verbose; $2.01/task; 27 providers) and BenchLM (composite 67.96/100, #25/956, 56/644 benchmarks): new rows AA Agentic Index 53.4%, AA Briefcase 1,507 (prior 1,526), EnterpriseOps-Gym 36.4%, ITBench 46.1%, AnalystAgent 38.8%, Hermes 39.2%/71.8%, AA Coding Index 74.8%, VulcanBench v3 78.3%, PostTrainBench 39.8%, MLCR-AA 48.3%, Epoch FrontierMath v2 68.8%/29.3%, GPQA (Vals) 88.1% — all consistent with the existing scores; one conflict flagged (ProgramBench: prior 72.0% vs the vendor model-card row of 19.0%). No score change warranted. First pass (2026-10-09) used Z.ai GLM-5.3 launch blog + docs, Artificial Analysis, Vals AI, BenchmarkList, Morph, SemiAnalysis, Ridge, ai-on-mac.
 - Future sources: add a new file next to this one, e.g. `GLM_5.2.md`, using the same headings.

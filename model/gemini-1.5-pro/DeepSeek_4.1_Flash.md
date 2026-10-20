@@ -1,13 +1,13 @@
 # Gemini 1.5 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google / Gemini 1.5 Pro (`gemini-1.5-pro`, API ids `gemini-1.5-pro-001` / `gemini-1.5-pro-002`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-1-5-pro).
-> BenchLM overall **n/a**, context **1M**, pricing **$1.25 input / $5 output**.
-> New/updated measurements that fill gaps in the rows above:
+> **Re-verified 2026-10-18.** BenchLM now computes an overall **27.74/100 (#202 of 956)** on 5 rows: AA-GPQA Diamond **58.9%**, AA-HLE **4.6%**, AA-MMMU-Pro **55.0%**, AA Coding Index **23.6%**, AA Intelligence Index **7.9%** — all confirm the first draft. **No score change** (Tool 40 / Reasoning 33 / Context 95 / Multimodal 72 / Coding 42 / Cost 42 / Overall 56).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/gemini-1-5-pro).
 
 ## Model card
 
@@ -74,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: public internet research — Google Cloud's needle-in-a-haystack write-up and the Gemini 1.5 report for long-context and long-document QA numbers, Google's Gemini 1.5 launch post for context tiers and pricing structure, the Gemini API long-context doc for the multi-needle caveat, Google's model-card benchmark table as reproduced by Langbase, plus BenchmarkList and Artificial Analysis aggregate harness runs. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `gemini-1-5-pro` and Artificial Analysis) — Google Cloud's needle-in-a-haystack write-up and the Gemini 1.5 report for long-context and long-document QA numbers, Google's Gemini 1.5 launch post for context tiers and pricing structure, the Gemini API long-context doc for the multi-needle caveat, Google's model-card benchmark table as reproduced by Langbase, plus BenchmarkList and Artificial Analysis aggregate harness runs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

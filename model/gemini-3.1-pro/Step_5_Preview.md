@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Step 5 Preview
 
 - Source: Google (DeepMind) `gemini-3.1-pro`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,6 +21,9 @@
 
 > Cross-referenced Google's official DeepMind benchmark table, llmboard.ai (47 benchmarks), hokai.io, and vectorwire.ai (215 results, 30 independent). Official Google table is the primary source; independent runs noted where available.
 
+- BenchLM composite (2026-10-19): **64.74/100** overall, #38 of 956 models, 48 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **30** (#98/217, v4.3.2 scale), 132.0 tok/s (#38/186), TTFT 20.22s, 67M Index output tokens (concise vs 85M median), $1.30 per Index task, $2/$12 with 90% cache discount (blended $1.74/M), 1M context, 3 providers — model NOT deprecated on AA
+
 Agent / tool use:
 
 - τ2-bench Retail: **90.8%** (Google; rank #1 on llmboard) / **99.3%** Telecom
@@ -32,6 +35,8 @@ Agent / tool use:
 - Chartography Oct 2026: **26.1%** (Surge AI, independent — reported 2026-10-07)
 - Vals Index 2.1: **33.4%** (Vals AI, independent — reported 2026-10-06)
 - Terminal-Bench 4.0: no verified public score found for 3.1 Pro
+- AA agentic suite (2026-10-19): AA Agentic Index **10.3%**, APEX-Agents-AA **32.0%**, Gert Labs **56.87%**, ResearchClawBench **13.3%**, Claw-Eval **57.8%**, DeepSearchQA **69.7%**, MazeBench **1.0%** — the independent agentic reads reinforce the weak real-world agentic signal
+- GDPval-AA conflict noted (2026-10-19): Google claims Elo **1,317**; Artificial Analysis' independent measurement is **904 Elo** (14.6% normalized) — a large vendor-vs-independent gap
 
 Reasoning / knowledge:
 
@@ -41,8 +46,11 @@ Reasoning / knowledge:
 - MMLU-Pro: **90.99%** (highest reported at launch per hokai); MMMLU (multilingual) **92.6%**
 - LiveBench: **79.9%** (rank #4/38)
 - AA Omniscience Accuracy: **54.85%** (rank #9/201)
-- Math: Vector Wire rates Math **"Limited"** (−40.0% vs leader, 5/5) — a clear reasoning blind spot
+- Math: Vector Wire rates Math **"Limited"** (−40.0% vs leader, 5/5) — a clear reasoning blind spot; FrontierMath v2 (Epoch AI, independent, 2026-10-19): Tiers 1–3 **59.649%**, Tier 4 **26.829%** — a mid-band read that partially offsets the "Limited" rating
 - AIME 2025: no verified public score found for 3.1 Pro
+- AA suite (2026-10-19): GPQA Diamond **94.1%**, HLE **47.0%**, MMLU-Pro **89.8%** (MMLU-Pro Vals **91.0%**), Global-MMLU-Lite **93.2%**, AA-Omniscience accuracy **54.9%** / index **31.9%** / hallucination-rate metric **50.9%**, AA-IFBench **77.1%** — independent corroboration of the near-ceiling GPQA
+- ARC-AGI-3: **0.4%** (ARC Prize semi-private, 2026-10-19) — near-zero on the newest ARC task; ARC-AGI-2 77.1% (Google) unchanged
+- HealthBench Hard **20.6%**; MedXpertQA Text **71.5%** / MM **81.3%** (Meta Muse Spark comparison, 2026-10-19)
 
 Coding:
 
@@ -55,17 +63,20 @@ Coding:
 - Vals Index 2.1: **33.4%** (Vals AI, independent — see tool use) — weak cross-industry coding composite
 - DeepSWE: no verified public 3.1-Pro row surfaced live
 - Terminal-Bench 2.0 (agentic coding): **68.5%** (see tool use)
+- Independent coding corroboration (2026-10-19): SWE-bench (Vals) **78.8%**, LiveCodeBench (Vals) **88.5%**, LiveCodeBench Pro **82.9%** (Meta Muse Spark chart — the pass-rate form of Google's Elo 2887), React Native Evals **78.9%**, AA Coding Index **68.8%**, AA-SciCode **58.7%** (matches Google's 59.0%); PostTrainBench v1.1 **22.0%** — weak on the newest agentic post-training suite
 
 Multimodal:
 
 - MMMU-Pro: **80.5%** no tools (rank #4 on llmboard); MMMU **82%**
 - VideoMME: **87.2%** (hokai; ~8-pt lead over Claude Opus 4.5)
 - Vector Wire: Multimodal **"Strong"** (−8.6% vs leader, 4/6)
+- Independent multimodal corroboration (2026-10-19): MMMU-Pro **83.9%** (Meta Muse Spark chart) / AA-MMMU-Pro **82.4%**, ScreenSpot Pro **84.4%**, CharXiv **80.2%**, ERQA **69.4%**, SimpleVQA **72.4%**, MedXpertQA MM **81.3%**; soft spot ZeroBench **29.0%**; Design Arena Website **1254** (OpenRouter)
 
 Long context:
 
 - MRCR v2 8-needle 128k average: **84.9%**; **1M pointwise: 26.3%** (Google) — retrieval collapses at the top of the window
 - Vector Wire: Long Context **"Capable"** (−13.5% vs leader, 2/3)
+- AA-LCR: **82.0%** (Artificial Analysis long-context reasoning, 2026-10-19) — consistent with the mid-window strength / top-end collapse pattern
 - **Tool use: 85/100.** Strong on structured/vendor tool evals — τ2-bench Retail 90.8% (#1), Telecom 99.3%, MCP Atlas 69.2%, TB2.0 68.5%, BrowseComp 85.9% (vendor) / 75.6% (independent). But independent real-world agentic runs are weak: AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, APEX-Agents 35.3% — the structured-tool strength does not carry to open-ended automation. Trimmed from 88 on the 2026-10-07 independent AutomationBench/Chartography/Vals evidence (previously unavailable).
 - **Reasoning: 92/100.** GPQA Diamond 94.3% (highest publicly verified) and ARC-AGI-2 77.1% are firmly frontier; HLE 44.4%/51.4% clears the 40% bar. Capped by Vector Wire's Math "Limited" (−40.0%) and no verified AIME row — math is a blind spot that keeps it below the very top.
 - **Context window: 88/100.** 1M input puts it in the ≥1M tier, but MRCR retrieval collapses from 84.9% at 128K to 26.3% at 1M, and Vector Wire rates Long Context only "Capable" (−13.5%); the 64K output cap is a further caveat. A nominal 1M window with weak 1M retrieval does not earn the top tier.
@@ -78,8 +89,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (51 primary-source results, updated 2026-10-07 — independent Mercor/Vals AI/Zapier/Surge runs), which surfaced real-world agentic/coding numbers (AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, Vibe Code 32.0%) that were not available in the first pass and trimmed Tool use 88→85 and Coding 82→80. Prior pass (2026-10-08) used Google's official DeepMind benchmark table, llmboard.ai, hokai.io, and vectorwire.ai.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis and BenchLM: AA Index 30 (#98/217, v4.3.2 scale), 132 tok/s, TTFT 20.22s, not deprecated; BenchLM composite 64.74/100 (#38/956, 48/644 benchmarks) adding the AA agentic suite (Agentic Index 10.3%, APEX-AA 32.0%, Gert Labs 56.9%, ResearchClawBench 13.3%, MazeBench 1.0%), the GDPval-AA conflict (Google 1,317 vs AA 904 Elo), AA GPQA 94.1%/HLE 47.0%, Epoch FrontierMath v2 T1–3 59.6%/T4 26.8%, ARC-AGI-3 0.4%, Vals SWE 78.8%/LCB 88.5%, PostTrainBench 22.0% and an independent multimodal corroboration table (MMMU-Pro 82.4–83.9%, ScreenSpot Pro 84.4%, ZeroBench 29.0%) — all consistent with the existing scores, no change warranted. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (51 primary-source results, updated 2026-10-07 — independent Mercor/Vals AI/Zapier/Surge runs), which surfaced real-world agentic/coding numbers (AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, Vibe Code 32.0%) that were not available in the first pass and trimmed Tool use 88→85 and Coding 82→80. Prior pass (2026-10-08) used Google's official DeepMind benchmark table, llmboard.ai, hokai.io, and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

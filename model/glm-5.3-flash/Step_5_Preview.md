@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Step 5 Preview
 
 - Source: Z.ai `glm-5.3-flash`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -21,6 +21,9 @@
 
 > Cross-referenced hokai.io (Z.ai + Artificial Analysis) and vectorwire.ai (48 results/41 benchmarks, 20 independent, capability profile). Note: AA re-benchmarked its Index methodology post-launch (57 under old v4.1.1 → 42 under current v4.3.2).
 
+- BenchLM composite (2026-10-19): **58.53/100** overall, #59 of 956 models, 45 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **42** (#6/121 open-weights, 4/4 units — was 4th/116; unchanged value), 78.0 tok/s (#39/78 — re-measured up from the 50.2 t/s launch read), TTFT 2.52s, **180M Index tokens (very verbose vs the 140M median — a cost multiplier)**, $0.28 per Index task, $0.15/$0.50 with 80% cache discount (blended $0.10/M), 1M context, 26 providers. AA's official modality row lists **text+image only** — the video/PDF claims rest on Z.ai's launch/multimodal evals (conflict noted)
+
 Agent / tool use:
 
 - Terminal-Bench 2.1: **84.3%** (vendor-reported; within a point of Claude Opus 4.8's 85.0%, just short of GPT-5.6 Terra's 87.4%) / **62.9%** (Vals AI Terminus-2, independent — reported 2026-09-28) — a large harness split
@@ -34,6 +37,7 @@ Agent / tool use:
 - Code Bench v1.0: **29.0** (Z.ai; vs Opus 4.8's 29.5)
 - Agent's Last Exam: **26.3%** (vendor-reported)
 - Vector Wire capability: **Agentic "Capable"** (−17.1% vs leader, 3/7)
+- New independent rows (2026-10-19): AA AutomationBench **60.4%**, AA Tau3 Banking **47.2%**, AA Briefcase **Elo 1,453**, AA EnterpriseOps-Gym **33.2%**, AA ITBench **51.2%**, AA Terminal-Bench 2.1 **84.3%**, AA Terminal-Bench 4.0 **32.8%** (sits between the Claude Code 35.8% and Mercor 29.8% reads), Hermes Index **35.0%** / Hermes Bench **68.9%**, GDP.pdf **15.4%**, AA-AnalystAgent **25.0%**, MazeBench **0%**
 
 Reasoning / knowledge:
 
@@ -41,7 +45,8 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **42** (current v4.3.2; 4th of 116 in its class — the day-one 57 was the old methodology)
 - AA-Omniscience: **7.47** (weak factuality/calibration)
 - Vector Wire capability: **Reasoning "Capable"** (−18.1% vs leader, 5/6); **Factuality "Limited"** (−26.7%); **Math "Limited"** (−47.2%)
-- GPQA Diamond / MMLU-Pro / SWE-bench Verified: NOT separately published for the Flash variant as of this writing
+- GPQA Diamond / MMLU-Pro now surfaced (2026-10-19): AA-GPQA Diamond **91.2%** (Vals **86.4%**) — near-ceiling on AA's run; MMLU-Pro (Vals) **86.1%**; AA-HLE **39.9%** (just below the 40% bar on AA's read; 55.3% with tools above)
+- FrontierMath v2 (Epoch AI, 2026-10-19): Tiers 1–3 **55.789%** / Tier 4 **17.073%** — mid-band math; AA-LCR **80.0%**, CritPt **15.4%**, MLCR-AA **51.1%**
 
 Coding:
 
@@ -49,7 +54,7 @@ Coding:
 - Terminal-Bench 2.1: **84.3%** (see tool use — strong terminal coding)
 - AA Coding Index: **71.53** (xHigh aggregator)
 - NL2Repo: **56.3%** (vendor-reported)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench: not published for the Flash variant — treated as provisional
+- SWE-bench Verified / LiveCodeBench now surfaced (2026-10-19): SWE-bench (Vals) **92.0%** — frontier-band, filling the prior gap; LiveCodeBench (Vals) **80.5%**; OpenHarmony Bench **57.3%**; still weak: FrontierSWE v2 **18.1%**, Bug Hunt Bench **17.7 fixes**
 - Vector Wire capability: **Coding "Limited"** (−25.5% vs leader, 5/10) — a relative weakness despite the strong TB2.1
 
 Multimodal:
@@ -73,8 +78,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (32 primary-source results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor [large harness split], TB4.0 29.8–35.8%, APEX-Agents 52.8%, DeepSWE 63.0%, CharXiv 92.5%, Chartography 16.3%) — no score change warranted; the vendor-vs-independent TB2.1 split confirms the existing mid-tier Tool use 84 / Coding 80 reads. Prior pass (2026-10-08) used Z.ai + Artificial Analysis (via hokai.io) and vectorwire.ai.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis and BenchLM: AA Index 42 unchanged (#6/121 open-weights), 78.0 tok/s (re-measured up from 50.2), 180M Index tokens (very verbose), $0.28/task, 26 providers; BenchLM composite 58.53/100 (#59/956, 45/644 benchmarks) filling the prior gaps — AA-GPQA 91.2%/Vals 86.4%, MMLU-Pro (Vals) 86.1%, SWE-bench (Vals) 92.0%, LCB (Vals) 80.5%, AA-HLE 39.9%, AA-LCR 80.0%, Epoch FrontierMath v2 55.8%/17.1%, AA AutomationBench 60.4%, AA TB4.0 32.8% — all consistent with the existing scores (GPQA/SWE-bench fills corroborate rather than raise the mid-tier reads, held by AA-HLE 39.9%, Omniscience 7.5 and the vendor-heavy tool evidence); AA's modality row lists text+image only vs Z.ai's video/PDF claims (conflict noted). No score change warranted. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (32 primary-source results, updated 2026-10-07 — independent TB2.1 Vals 62.9% vs 84.3% vendor [large harness split], TB4.0 29.8–35.8%, APEX-Agents 52.8%, DeepSWE 63.0%, CharXiv 92.5%, Chartography 16.3%) — no score change warranted; the vendor-vs-independent TB2.1 split confirms the existing mid-tier Tool use 84 / Coding 80 reads. Prior pass (2026-10-08) used Z.ai + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 

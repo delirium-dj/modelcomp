@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Gemini 3.6 Flash (High effort tier)
-- **Short description:** Google's mid-Gemini 3 series Flash model with native multimodal input (text, image, audio, video), fast 200 tok/s output, 1M context, and introductory $0.75/$3.75 pricing; succeeded by 3.7/3.8 Flash.
+- **Short description:** Google's mid-Gemini 3 series Flash model with native multimodal input (text, image, audio, video), fast 209 tok/s output, 1M context, and introductory $0.75/$3.75 pricing; succeeded by 3.7/3.8 Flash.
 - **Provider / access:** Google AI Studio / Gemini API (`gemini-3.6-flash` via `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash`), Google Cloud Vertex AI, OpenCode Zen (`opencode/gemini-3.6-flash` via `https://opencode.ai/inference/google/v1beta/models/gemini-3.6-flash`). Google GenAI API (not OpenAI-compatible).
 - **Release / knowledge:** 2026-07-21 release; knowledge cutoff not publicly disclosed.
 - **IDs:** `google/gemini-3.6-flash` (Google AI Studio/Vertex), `opencode/gemini-3.6-flash` (OpenCode Zen). No Free tier on any platform.
