@@ -1,7 +1,7 @@
 # GPT-5.6 Terra — findings by Step 5 Preview
 
 - Source: OpenAI `gpt-5.6-terra`
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,14 +65,14 @@ Long context:
 - **Multimodal: 68/100.** Text + image in (text + code out), no audio/video input and no non-text output → the 60–70 "+image in" band; Vector Wire rates Multimodal "Capable" (−18.9%).
 - **Coding: 78/100.** SWE-bench Verified 72.3% and Aider Polyglot 71.2% are capable mid-tier results, and Vector Wire rates Coding "Capable" (−12.1%). Capped by the bottom-third SWE-bench Verified rank (#23/32) and no live SWE-bench Pro/LiveCodeBench row — it is a solid production coder, not a frontier one.
 - **Cost efficiency: 78/100.** Paid-only at $2.50/$15 per 1M (exactly half of Sol; cached input $0.3125/M at 90% off). Between the ~$1.25/$4.25=88 and ~$3/$15=60 anchors. No batch discount at launch and no free tier.
-- **Overall Score: 75/100.** Mean of the five non-cost dims (78+82+70+68+78)/5 = 75.2. Best fit for engineering teams running production coding agents and cost-sensitive API apps that need GPT-5.5-class quality at half Sol's per-token cost; route the hardest reasoning, long-document work past 200K, or Sol's multi-agent mode to Sol instead.
+- **Overall Score: 79/100.** Mean of the five non-cost dims (78+84+86+68+78)/5 = 78.8 (Context raised 70→86 on the corrected 1M spec; Reasoning raised 82→84 on the resolved GPQA/HLE caps). Best fit for engineering teams running production coding agents and cost-sensitive API apps that need GPT-5.5-class quality at half Sol's per-token cost; route the hardest reasoning, long-document work past 64K output, or Sol's multi-agent mode to Sol instead.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (48 primary-source results, updated 2026-10-07 — independent APEX-Agents 58.2%, TB4.0 22.7–24.7%, Vibe Code 74.6%, AutomationBench up to 23.6%, BrowseComp 85.8%) — no score change warranted. Prior pass (2026-10-08) used OpenAI + Artificial Analysis (via hokai.io) and vectorwire.ai.
+- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (Index 42 #49/217 on the current scale — the prior 58 was old-scale; live pricing $2/$12 vs the file's $2.50/$15 — conflict flagged, Cost 78 kept; not deprecated) and BenchLM (composite 70.19/100, #15/956, 54/644 benchmarks). Two corrections: (1) the context spec is 1M (AA + BenchLM, consistent with Sol's confirmed window) — Context raised 70→86, Overall 75→79; (2) the file's GPQA 68.7% and HLE 18.9% vendor figures are contradicted by today's OpenAI/AA/Vals reads (GPQA 90.9–92.9%, HLE 42.9–51.1%, ARC-AGI-2 83.9%) — treated as stale, Reasoning raised 82→84. New rows: TB2.1 87.4%, BrowseComp 87.5%, GDPval-AA Elo 1,583, SWE-bench Pro 63.4% and LCB (Vals) 85.9% (both prior gaps filled), SWE-bench (Vals) 95.4%, AA-MMMU-Pro 80.7%, FrontierMath v2 84.9%/68.3%. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (48 primary-source results, updated 2026-10-07 — independent APEX-Agents 58.2%, TB4.0 22.7–24.7%, Vibe Code 74.6%, AutomationBench up to 23.6%, BrowseComp 85.8%). Prior pass (2026-10-08) used OpenAI + Artificial Analysis (via hokai.io) and vectorwire.ai.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 - 200K input / 64K output. Vector Wire rates Long Context **"Frontier"** (leads 2/3) — efficient use of its window, but the absolute window is only 200K (rubric: 200K = 70).

@@ -1,11 +1,13 @@
 # Grok 4 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4 (`grok-4`, `grok-4-0709`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4).
+> **Re-verified 2026-10-18.** BenchLM (13 rows) computes an overall **51.77/100 (#93 of 956)** and adds the vision row the first draft lacked: **AA-MMMU-Pro 68.8%**. It also confirms AA-GPQA Diamond 87.7%, AA-HLE 26.7%, AA-LCR 68.0%, CritPt 2.0%, AA-IFBench 53.7%, AA Intelligence Index 22.5%. **Multimodal 48 → 60** (MMMU-Pro now measured); **Overall 69.6 → 72**. BenchLM lists 128K context vs the 256K in xAI's docs — both noted.
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4).
 > BenchLM overall **51.97/100** (#86), context **128K**, pricing **API rate not published**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (no category score): Gert Labs 42.34%
