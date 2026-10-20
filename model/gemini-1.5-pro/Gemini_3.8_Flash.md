@@ -1,64 +1,74 @@
-# Gemini 1.5 Pro — findings by Gemini 3.8 Flash
+# Gemini 1.5 Pro — Model Evaluation
 
-- Source: Google (`google/gemini-1.5-pro`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** Gemini 1.5 Pro
-- **Short description:** Google's pioneering 2,097,152-token multimodal architecture (1.5 generation); landmark model for massive repository analysis, hour-long video understanding, and audio reasoning, now transitioned to legacy status behind Gemini 2.5 and 3.x lines.
-- **Provider / access:** Google AI Studio / Gemini API and Google Cloud Vertex AI (`gemini-1.5-pro`, `gemini-1.5-pro-002`), [OpenRouter](https://openrouter.ai/models/google/gemini-pro-1.5).
-- **Release / knowledge:** 2024-02 preview, September 2024 (002 update); knowledge cutoff late 2023.
-- **IDs:** `google/gemini-1.5-pro`
-- **Context window:** 2,097,152 tokens (2M input context, max output 8,192 tokens).
-- **Modalities:** Text, image, audio, video, and PDF input; text output; native tool/function calling; JSON mode.
-- **Pricing (as of 2026-10-11):** $1.25 / 1M input tokens and $5.00 / 1M output tokens (prompts <=128K); $2.50 / $10.00 (prompts >128K) ([Google AI Studio](https://aistudio.google.com/)).
-- **Architecture:** Sparse Mixture-of-Experts (MoE) transformer architecture optimized for long-sequence multimodal retrieval.
-
-### Raw benchmarks found
-
-Agent / tool use:
-- Function calling / Tool use: supported natively via Google AI Studio and Vertex SDKs
-- Terminal-Bench / Tau-bench: no verified public score found on modern agent suites
-
-Reasoning / knowledge:
-- GPQA Diamond: **58.9%** ([Vals AI / Artificial Analysis](https://vals.ai))
-- Humanity's Last Exam (HLE): **4.6%**
-- MMLU-Pro: **75.8%** ([Google DeepMind Technical Report](https://blog.google))
-- MATH: **67.7%**
-- BIG-Bench Hard: **89.2%**
-
-Coding:
-- LiveCodeBench: **41.7%**
-- HumanEval: **84.1%**
-- MBPP+: **74.6%**
-- SciCode: **29.5%**
-
-Long context:
-- Needle-in-a-haystack: **99.7%** recall across 1M tokens, **99.2%** recall across 2M tokens.
-- MRCR: **82.6%** (TechBriefly aggregate / arXiv:2403.05530).
-
-Multimodal:
-- Video-MME: **78.6%**
-- MathVista: **63.9%**
-- DocVQA / ChartQA: SOTA benchmarks at launch for dense document retrieval.
-
-### Normalized scores (1–100)
-
-- **Tool use: 48/100.** Baseline native function calling and structured JSON output, lacking modern autonomous agent scaffold and terminal evaluations.
-- **Reasoning: 64/100.** Capable general and mathematical reasoning backed by 58.9% GPQA Diamond and 75.8% MMLU-Pro, trailing current reasoning frontier.
-- **Context window: 98/100.** Historic 2M token input window with verified 99.7% needle recall, limited only by the 8,192 output token generation ceiling.
-- **Multimodal: 88/100.** True native multimodal ingestion handling audio, hour-long video, high-resolution imagery, and PDFs seamlessly; text-only output.
-- **Coding: 57/100.** Sound procedural code generation (84.1% HumanEval, 74.6% MBPP+), though subdued on modern competitive tests (41.7% LiveCodeBench).
-- **Cost efficiency: 84/100.** Historically attractive $1.25 in / $5.00 out pricing; legacy status.
-- **Overall Score: 71/100.** Mean of quality dimensions: Math.round((48 + 64 + 98 + 88 + 57) / 5) = 71.0 → 71. A legendary long-context multimodal pioneer serving as a high-context benchmark baseline.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Gemini 1.5 Pro (Google DeepMind)
+- **Model Type:** Sparse Mixture-of-Experts (MoE) multimodal foundation model (legacy milestone)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public web research across Google DeepMind technical publications (arXiv:2403.05530), Artificial Analysis, and OpenRouter model cards; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+Gemini 1.5 Pro is Google DeepMind's landmark multimodal foundation model, notable as the pioneering architecture that introduced commercial-scale 2,000,000-token (2M) context windows to developers in 2024. Operating on a sparse Mixture-of-Experts (MoE) transformer backbone, Gemini 1.5 Pro processes text, code, audio streams, multi-hour video feeds, and high-resolution PDFs natively within a single prompt buffer.
+
+While succeeded by Gemini 2.0/2.5 and the Gemini 3.x generation in modern agentic coding and test-time reasoning benchmarks (scoring 58.9% on GPQA Diamond and 41.7% on LiveCodeBench), Gemini 1.5 Pro remains a dependable benchmark baseline for long-context multi-modal ingestion. Available via Google AI Studio and Vertex AI at $1.25/$5.00 per 1M tokens (≤128K context) and $2.50/$10.00 per 1M (>128K context) with native Context Caching, it continues to serve large-scale historical document and multimedia indexing pipelines.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 50/100.** Baseline native function calling, Python code execution sandbox, and structured JSON output schema support; lacks modern agentic CLI navigation and autonomous multi-turn terminal benchmarks.
+- **Reasoning: 65/100.** Scores 58.9% on GPQA Diamond, 75.8% on MMLU-Pro, and 89.2% on BIG-Bench Hard. Capable multi-step problem solving, though eclipsed by newer test-time reasoning models.
+- **Context window: 98/100.** 2,097,152 (2M) input token capacity with verified 99.2%–99.7% needle-in-a-haystack recall across text, audio, and video streams. Limited only by an 8,192 token maximum generation limit.
+- **Multimodal: 88/100.** Native ingestion across audio, video (78.6% on Video-MME), high-res images, and multi-hundred-page PDFs; text and code output only.
+- **Coding: 58/100.** Scores 84.1% on HumanEval and 74.6% on MBPP+, though competitive coding sits lower at 41.7% on LiveCodeBench. Good for single-file scripts and procedural tasks.
+- **Cost efficiency: 84/100.** $1.25 / $5.00 per 1M tokens (≤128K) with context caching support, though newer flash models provide higher capability at lower token prices.
+- **Overall Score: 72/100.** (Arithmetic mean: `(50 + 65 + 98 + 88 + 58) / 5 = 359 / 5 = 71.8`, rounded to **72**).
+
+---
+
+### Key Strengths
+
+1. **Massive 2M Context Window:** Ingests hours of video footage, audio recordings, or full software repositories in a single prompt.
+2. **True Native Multimodality:** Ingests video, audio, text, and imagery directly without intermediate OCR or transcription pipelines.
+3. **High Long-Context Recall:** 99.2%+ needle retrieval retention across the full 2M span.
+4. **Context Caching:** Substantially cuts costs on persistent document and codebase analysis.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Legacy Generation Ceiling:** Max output generation is constrained to 8,192 tokens per request.
+2. **Subdued Agentic Tool Navigation:** Lacks modern autonomous agent loops and terminal tool resilience found in Claude 3.7 or Gemini 2.5/3.
+3. **Older Benchmark Standards:** Replaced in primary reasoning tiers by current Gemini 2.5 and 3.x architectures.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price (≤128K):** $1.25 per million tokens
+- **Output Price (≤128K):** $5.00 per million tokens
+- **Input Price (>128K):** $2.50 per million tokens
+- **Output Price (>128K):** $10.00 per million tokens
+- **Context Capacity:** 2,097,152 tokens (up to 8,192 output tokens)
+- **Speed Tier:** Batch & Long-context multimodal analysis
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **Needle-in-a-Haystack** | 99.7% (1M) / 99.2% (2M) | Multimodal retrieval fidelity |
+| **MMLU-Pro** | 75.8% | General multi-discipline reasoning |
+| **GPQA Diamond** | 58.9% | Expert-level academic reasoning |
+| **Video-MME** | 78.6% | Long-form video multimodal comprehension |
+| **HumanEval** | 84.1% | Zero-shot Python coding |
+
+---
+
+### Evaluation Sources
+
+- Google DeepMind Technical Disclosures: [Gemini 1.5 Technical Report (arXiv:2403.05530)](https://arxiv.org)
+- Google AI Studio Platform Documentation: [Gemini Pricing and Capabilities](https://aistudio.google.com)
+- Independent Benchmark Evaluations: Artificial Analysis & Vals AI Indexes.

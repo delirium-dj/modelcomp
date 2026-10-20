@@ -4,7 +4,11 @@
   "short": "Unbiased's Pareto 26.9 composite (revealed from stealth Union Alpha, 262K ctx) - a blend, not a checkpoint; DeepSWE 70.0% (26.9) / 69.9% (26.10), not the circulated 74% (that is GPT-6 Astra's). $2.50/$7.50.",
   "contextWindow": "262,144 total; 131,072 max out",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Pareto 26.9 paid route $2.50/$7.50 per 1M in/out, $0.25 cached; Union Alpha itself was a free Zen preview (2026-09-16 to 18, retired)",
+  "pricingNote": "Pareto 26.9 paid $2.50/$7.50 per 1M, $0.25 cached",
+  "pricingTiers": [
+    "Pareto 26.9 paid route: $2.50/$7.50 per 1M in/out, $0.25 cached input",
+    "Union Alpha itself: free Zen preview 2026-09-16 to 2026-09-18 (retired)"
+  ],
   "noFreeId": true,
   "officialUrl": "https://unbiased.ai/model-card",
   "pricingLinks": [

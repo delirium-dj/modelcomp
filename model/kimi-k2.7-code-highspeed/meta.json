@@ -1,15 +1,15 @@
 {
-  "id": "opencode/kimi-k2.7-code-highspeed",
+  "id": "moonshotai/kimi-k2.7-code-highspeed",
   "name": "Kimi K2.7 Code Highspeed",
-  "short": "Moonshot AI's HighSpeed serving profile of K2.7 Code (same 262K weights, 2x price) for interactive coding loops; AA Coding Index 60.76, not a separate model.",
-  "contextWindow": "262,144 (256K); 32,768 max out",
+  "short": "Moonshot's HighSpeed serving profile of K2.7 Code (same 262K weights, exactly 2x price, ~180-260 tok/s) - a tier, not a model; base AA Intelligence Index 25.8. Folder parked.",
+  "contextWindow": "262,144 (256K); Moonshot default max_tokens 32k",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "$1.90/$8.00 per 1M in/out; $0.38 cached input",
+  "pricingNote": "$1.90/$8.00 per 1M in/out; $0.38 cached input (exactly 2x base Kimi K2.7 Code)",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=kimi-k2.7-code-highspeed",
+  "officialUrl": "https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart",
   "pricingLinks": [
-    "https://platform.moonshot.ai/docs/pricing/chat"
+    "https://platform.kimi.ai/docs/pricing/chat"
   ],
   "standout": "The interactive-loop profile: the same K2.7 Code weights served for snappier back-and-forth coding sessions.",
-  "tradeoff": "Double the price for the same capability — only worth it when latency is the binding constraint."
+  "tradeoff": "Double the price for the same capability - only worth it when latency is the binding constraint; research belongs in kimi-k2.7-code."
 }

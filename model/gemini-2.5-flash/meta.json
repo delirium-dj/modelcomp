@@ -1,10 +1,10 @@
 {
   "id": "google/gemini-2.5-flash",
   "name": "Gemini 2.5 Flash",
-  "short": "Google's 1M-context multimodal workhorse for high-throughput input processing; shutdown scheduled, superseded by 3.6 Flash.",
+  "short": "Google's 1M-context multimodal workhorse for high-throughput input processing; not deprecated, but access is restricted for prior 2.5 users and superseded by 3.6/3.8 Flash.",
   "contextWindow": "1,048,576 (1M)",
-  "modalities": "Text, image, audio, PDF in; text out",
-  "pricingNote": "Free tier available; Paid-tier pricing",
+  "modalities": "Text, image, audio, video, PDF in; text out",
+  "pricingNote": "Paid $0.30/M in, $2.50/M out (AI Studio); free tier available",
   "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no Gemini 2.5 route)",
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [

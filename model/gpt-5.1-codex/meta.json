@@ -4,9 +4,9 @@
   "short": "OpenAI's agentic coding variant between Codex Mini and Max (400K/128K, $1.25/$10) for repo-scale software engineering; Responses API only.",
   "contextWindow": "400,000 total (128,000 out)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $1.25/$10.00 per 1M; $0.125 cached input",
+  "pricingNote": "OpenAI native $1.25/$10.00 per 1M ($0.125 cached); OpenCode Zen listed it at $1.07/$8.50 - API shutdown 2026-07-23",
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5.1-codex/",
+  "officialUrl": "https://developers.openai.com/codex/changelog",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
   ],

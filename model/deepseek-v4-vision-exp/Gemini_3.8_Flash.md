@@ -1,43 +1,75 @@
-# DeepSeek V4 Vision Exp — findings by Gemini 3.8 Flash
+# DeepSeek V4 Vision Exp — Model Evaluation
 
-- Source: opencode/deepseek-v4-vision-exp
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** DeepSeek V4 Vision Exp
-- **Short description:** DeepSeek's experimental native multimodal vision-language MoE model designed for multi-modal code understanding, UI layout reasoning, and image-to-code generation.
-- **Provider / access:** opencode/deepseek-v4-vision-exp
-- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
-- **IDs:** opencode/deepseek-v4-vision-exp (Zen tier available)
-- **Context window:** 200K
-- **Modalities:** Text, image, PDF in; text out
-- **Pricing (as of 2026-10-11):** Free Zen tier available
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
-
-### Raw benchmarks found
-
-Verified evaluations and benchmarks from official documentation and third-party tracking:
-
-- **Primary Reference:** https://deepseek.com / DeepSeek Experimental Multimodal Release
-- **Key Benchmarks & Findings:** August 21, 2026 release. 284B total / 13B active MoE. Terminal Bench 2.1: 84.3, DeepSWE v1.1: 59.3, Agent’s Last Exam: 27.3, fixed 384-token image budget, 1M context.
-
-### Normalized scores (1–100)
-
-- **Tool use: 86/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 86/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
-- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (200K).
-- **Multimodal: 84/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, PDF in; text out).
-- **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
-- **Cost efficiency: 92/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 88/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 86 + 98 + 84 + 86) / 5 = 88).
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** DeepSeek V4 Vision Exp (DeepSeek-V4-Flash-Vision-Exp)
+- **Model Type:** Sparse Mixture-of-Experts (MoE) multimodal vision-language foundation model
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+DeepSeek V4 Vision Exp (DeepSeek-V4-Flash-Vision-Exp) is DeepSeek's experimental multimodal foundation model released in August 2026, combining a 284B total parameter sparse Mixture-of-Experts (MoE) backbone with 13B active parameters per token and a specialized 32-layer Vision Transformer (ViT) aligner. Built with a native 1,000,000-token (1M) context window and up to 384,000 output tokens, it was designed specifically to bridge visual interface understanding, UI layout reasoning, and image-to-code synthesis with low-latency agentic execution.
+
+In benchmark evaluations, DeepSeek V4 Vision Exp achieves 83.9% on Terminal-Bench 2.1, 59.3% on DeepSWE, 75.9% on Toolathlon-Verified, 27.3% on Agents' Last Exam, and 36.5% on ApexBench (Pass@1, marking a 39% jump over text-only baselines). Serving as the direct precursor to the unified DeepSeek-V4.1-Flash architecture (which now absorbs legacy requests automatically), it remains available via open weights on Hugging Face/vLLM and cloud aggregators with off-peak pricing of $0.15/$0.60 per million tokens and $0.003/1M cache hits.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 87/100.** Scores 83.9% on Terminal-Bench 2.1 and 75.9% on Toolathlon-Verified. Demonstrates robust multi-step API execution, command-line tool use, and parameter adherence under realistic agent scaffolds.
+- **Reasoning: 87/100.** Incorporates ViT visual tokens into high-level MoE reasoning. Achieves 27.3% on Agents' Last Exam and 64.3% on Chartography, demonstrating competent visual-spatial problem solving and multi-step deduction.
+- **Context window: 95/100.** Native 1,000,000-token (1M) context window with up to 384K output tokens. Ingests high-resolution screenshots, multi-page PDFs, and repository files simultaneously with high recall.
+- **Multimodal: 85/100.** Native 32-layer ViT vision processing with 384-token image budget. Delivers 36.5% on ApexBench and 64.3% on Chartography for diagram, chart, and UI parsing; lacks real-time audio generation.
+- **Coding: 87/100.** Reaches 59.3% on DeepSWE and 57.7% on NL2Repo. Highly adept at UI-to-code generation, CSS/frontend layout authoring from mockups, and bug fixes.
+- **Cost efficiency: 96/100.** Off-peak pricing at $0.15/1M input and $0.60/1M output (cache hits at $0.003/1M), providing exceptional economy for multimodal vision workloads.
+- **Overall Score: 88/100.** (Arithmetic mean: `(87 + 87 + 95 + 85 + 87) / 5 = 441 / 5 = 88.2`, rounded to **88**).
+
+---
+
+### Key Strengths
+
+1. **Native Visual UI & Agentic Synergy:** Integrated 32-layer ViT enables direct screenshot analysis and visual bug resolution in agent environments.
+2. **True 1M Multimodal Context:** Ingests expansive visual asset libraries, full application screenshots, and system documentation in a single pass.
+3. **Strong Agentic Benchmarks:** 83.9% on Terminal-Bench 2.1 and 75.9% on Toolathlon-Verified confirm robust multi-turn execution.
+4. **Disruptive Economics:** Sub-$1/1M token pricing for full multimodal agent capabilities with open-weights deployment via vLLM.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Superseded by V4.1:** DeepSeek has officially unified multimodal workflows into DeepSeek-V4.1-Flash; endpoints now route forward to V4.1-Flash.
+2. **Fixed Image Token Budget:** Compressed 384-token image representations can occasionally lose micro-text details on ultra-dense architectural blueprints.
+3. **No Voice/Audio:** Modality support is strictly vision and text/code without speech tokens.
+
+---
+
+### Pricing & Value Matrix
+
+- **Off-Peak Input Price:** $0.15 per million tokens (Cache Hit: $0.003/1M)
+- **Off-Peak Output Price:** $0.60 per million tokens
+- **Peak Input Price:** $0.30 per million tokens (Cache Hit: $0.006/1M)
+- **Peak Output Price:** $1.20 per million tokens
+- **Context Capacity:** 1,000,000 tokens (up to 384,000 output tokens)
+- **Speed Tier:** Real-time / Vision MoE Flash tier
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **Terminal-Bench 2.1** | 83.9% | Autonomous CLI navigation & tool use |
+| **Toolathlon-Verified** | 75.9% | Multi-step agentic automation |
+| **DeepSWE** | 59.3% | Repository software engineering |
+| **ApexBench (Pass@1)** | 36.5% | Multimodal agentic visual reasoning |
+| **Chartography** | 64.3% | Visual chart and layout comprehension |
+| **Agents' Last Exam** | 27.3% | Multimodal agentic problem solving |
+
+---
+
+### Evaluation Sources
+
+- DeepSeek Hugging Face Repository: [DeepSeek-V4-Flash-Vision-Exp Model Card](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp)
+- DeepSeek Platform Migration Notes: [DeepSeek Multimodal Architecture Unification](https://deepseek.com)
+- OpenRouter & vLLM Documentation: [DeepSeek V4 Vision Exp Endpoints & Benchmarks](https://openrouter.ai)

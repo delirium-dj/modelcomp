@@ -4,7 +4,11 @@
   "short": "Google's only 3.1 Flash text SKU (GA 2026-05-07, 1M/65K) - Google never shipped a bare 'Gemini 3.1 Flash'; GPQA 82.2%, LiveCodeBench 72-80%. Folder parked: research lives in gemini-3.1-flash-lite.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, video, PDF in; text out",
-  "pricingNote": "Paid $0.25/M in, $1.50/M out (AI Studio); free tier available",
+  "pricingNote": "Paid $0.25/M in, $1.50/M out (AI Studio)",
+  "pricingTiers": [
+    "Paid $0.25/M in (text/image/video), $0.50/M audio in, $1.50/M out",
+    "Free tier available on AI Studio with standard rate limits"
+  ],
   "freeTierNote": "Free tier available on Google AI Studio with standard rate limits (NOT on OpenCode Zen: Zen's Gemini catalogue starts at Gemini 3 Flash and carries no 3.1 Flash-Lite route)",
   "officialUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite",
   "pricingLinks": [

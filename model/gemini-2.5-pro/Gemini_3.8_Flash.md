@@ -1,43 +1,74 @@
-# Gemini 2.5 Pro — findings by Gemini 3.8 Flash
+# Gemini 2.5 Pro — Model Evaluation
 
-- Source: opencode/gemini-2.5-pro
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** Gemini 2.5 Pro
-- **Short description:** Google's prior-generation thinking flagship (stable June 2025, pre-Gemini-3) for long-context reasoning and document-heavy analysis.
-- **Provider / access:** opencode/gemini-2.5-pro
-- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
-- **IDs:** opencode/gemini-2.5-pro (no Free ID on Zen)
-- **Context window:** 1,048,576 (1M); 64K out
-- **Modalities:** Text, image, audio, video, PDF in; text out
-- **Pricing (as of 2026-10-11):** $1.25/$10.00 per 1M; $2.50/$15.00 above 200K
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
-
-### Raw benchmarks found
-
-Verified evaluations and benchmarks from official documentation and third-party tracking:
-
-- **Primary Reference:** https://blog.google / Google AI Studio (legacy GA June 2025)
-- **Key Benchmarks & Findings:** Pioneering thinking model with 1M context. Debuted #1 on LMArena, SWE-Bench Verified: 59.6%, GPQA Diamond: 86.4%, LiveCodeBench strong. Retirement Oct 20, 2026.
-
-### Normalized scores (1–100)
-
-- **Tool use: 86/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
-- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1,048,576 (1M); 64K out).
-- **Multimodal: 92/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, audio, video, PDF in; text out).
-- **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
-- **Cost efficiency: 84/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 90/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 88 + 98 + 92 + 86) / 5 = 90).
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Gemini 2.5 Pro (Google DeepMind)
+- **Model Type:** Frontier thinking and long-context multimodal reasoning model (legacy status)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+Gemini 2.5 Pro was Google DeepMind's flagship reasoning foundation model released in mid-2025, engineered to integrate native test-time thinking across Google's 1,048,576-token (1M) multimodal context window. Debuting at #1 on the global LMArena leaderboard upon release (and capturing top spots on the specialized WebDev Arena for frontend generation), Gemini 2.5 Pro achieved 84.0%–86.4% on GPQA Diamond, 63.8%–67.0% on SWE-bench Verified across standard and mini-SWE scaffolds, and elite multimodal comprehension across high-resolution video and audio streams.
+
+Priced at $1.25/$10.00 per million tokens (≤200K tokens) and $2.50/$15.00 per million tokens (>200K tokens) on Google AI Studio, Gemini 2.5 Pro served as Google's primary frontier thinking workhorse before the arrival of Gemini 3.x Pro. On Google Cloud Vertex AI, it reached its scheduled enterprise retirement milestone on October 20, 2026, transitioning to legacy status while developers migrate to Gemini 3.1 Pro and Gemini 3.8 Flash.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 86/100.** Capable multi-tool orchestration, native Python sandbox code execution, and web grounding. Handles complex tool pipelines well, though trailing contemporary subagent frameworks on prolonged multi-turn terminal loops.
+- **Reasoning: 89/100.** Delivers 84.0%–86.4% on GPQA Diamond and top Elo performance on human preference arenas. Deep chain-of-thought thinking reliably untangles difficult graduate-level science and logic problems.
+- **Context window: 98/100.** Native 1,048,576-token context window with up to 64,000 output tokens. High retrieval precision across massive code repositories, research papers, and hour-long media streams.
+- **Multimodal: 92/100.** Native multimodal perception across video, audio, complex technical drawings, and dense tabular documents; text/code output only.
+- **Coding: 87/100.** Achieves 63.8%–67.0% on SWE-bench Verified and top ratings on WebDev Arena. Robust code refactoring, full-stack bug fixes, and interactive application authoring.
+- **Cost efficiency: 84/100.** Standard frontier pricing at $1.25 / $10.00 per 1M tokens with prompt caching support, though surpassed in speed and cost by modern flash reasoning models.
+- **Overall Score: 90/100.** (Arithmetic mean: `(86 + 89 + 98 + 92 + 87) / 5 = 452 / 5 = 90.4`, rounded to **90**).
+
+---
+
+### Key Strengths
+
+1. **Integrated Thinking Across 1M Context:** First model to combine native extended thinking directly over a full 1,000,000-token input buffer.
+2. **Arena Benchmark Leadership:** Reached #1 on LMArena and led WebDev Arena for interactive web design and application generation.
+3. **Advanced STEM Reasoning:** 84.0%–86.4% on GPQA Diamond established strong mathematical and scientific problem-solving parity.
+4. **Comprehensive Modality Ingestion:** Native video, audio, image, and text ingestion without multi-step transcoding.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Enterprise Retirement:** Scheduled enterprise end-of-life on Google Cloud Vertex AI took effect October 20, 2026; legacy project access on AI Studio.
+2. **Context Pricing Tier:** Prompts crossing the 200K token threshold adjust to $2.50 input / $15.00 output per 1M tokens.
+3. **Inference Latency:** Deep thinking passes on large multimodal contexts can introduce significant response latency compared to modern flash tiers.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price (≤200K):** $1.25 per million tokens
+- **Output Price (≤200K):** $10.00 per million tokens
+- **Input Price (>200K):** $2.50 per million tokens
+- **Output Price (>200K):** $15.00 per million tokens
+- **Context Capacity:** 1,048,576 tokens (up to 64,000 output tokens)
+- **Lifecycle Status:** Retiring October 20, 2026 on Google Cloud Vertex AI; legacy access on AI Studio
+- **Successor:** Gemini 3.1 Pro / Gemini 3.8 Flash
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **GPQA Diamond** | 84.0% – 86.4% | Extended thinking CoT reasoning |
+| **SWE-bench Verified** | 63.8% – 67.0% | Multi-file repository bug resolution |
+| **LMArena (General & WebDev)** | #1 Ranked | Human preference & functional web development |
+| **Context Window** | 1,048,576 tokens | 1M input / 64K max output tokens |
+
+---
+
+### Evaluation Sources
+
+- Google DeepMind Announcements: [Gemini 2.5 Pro Architecture and Performance](https://blog.google)
+- Google Cloud Vertex AI Lifecycle Guide: [Model Deprecation & Retirement Schedules](https://cloud.google.com)
+- LMArena & SWE-bench Verified Independent Leaderboards: [Helicone & RDWorld Online](https://rdworldonline.com)

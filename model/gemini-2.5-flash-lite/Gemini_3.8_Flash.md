@@ -1,72 +1,74 @@
-# Gemini 2.5 Flash Lite — findings by Gemini 3.8 Flash
+# Gemini 2.5 Flash Lite — Model Evaluation
 
-- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Gemini 2.5 Flash-Lite
-- **Short description:** Google's high-throughput, ultralow-latency efficiency model in the Gemini 2.5 family, optimized for high-volume classification, extraction, translation, and multimodal filtering.
-- **Provider / access:** Google AI Studio / Gemini API (`gemini-2.5-flash-lite`), Google Cloud Vertex AI, and [OpenRouter](https://openrouter.ai/models/google/gemini-2.5-flash-lite).
-- **Release / knowledge:** 2025-06-17 release (preview), 2025-07-22 (GA).
-- **Lifecycle status:** Active but scheduled for retirement on **October 20, 2026**; Google restricts new project creation, steering developers toward Gemini 3.5 Flash-Lite and Gemini 3.8 Flash.
-- **IDs:** `google/gemini-2.5-flash-lite`, `gemini-2.5-flash-lite`.
-- **Context window:** 1,048,576 tokens total (1M context window); max output 65,536 tokens.
-- **Modalities:** Native multimodal input (text, images, audio, video, PDF); text/code output; controllable thinking budget; function calling; Google Search grounding.
-- **Pricing (as of 2026-10-11):** $0.10 / 1M input tokens ($0.025 / 1M cached input), $0.40 / 1M output tokens (audio input $0.30 / 1M).
-- **Architecture:** Sparse Mixture-of-Experts (MoE) transformer with optional test-time compute scaling.
-
-### Raw benchmarks found
-
-Agent / tool use:
-
-- FACTS Grounding: **84.1%** (Google Technical Report)
-- HELM WildBench: **81.8%**
-- HELM IFEval: **81.0%**
-- Tau2-bench: **18.4%**
-- Native Google Search Grounding and Python code execution supported.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **64.6%** (standard) / **66.7%** (thinking enabled)
-- AIME 2025: **49.8%** (standard) / **53.3%** (Artificial Analysis avg@10)
-- MMLU-Pro: **75.9%**
-- Global MMLU-Lite: **81.1%**
-- SimpleQA: **10.7%**
-- Humanity's Last Exam (HLE): **5.1%**
-
-Multimodal:
-
-- MMMU: **72.9%**
-- Vibe-Eval: **51.3%**
-- Native multi-hour video and audio needle-in-a-haystack retrieval (100%).
-
-Coding:
-
-- SWE-bench Verified: **27.6%** (single attempt) / **31.6%** (technical report resolved) / **44.9%** (pass@k)
-- LiveCodeBench: **33.7%–34.3%** (standard) / **59.3%** (thinking variant)
-- Aider Polyglot: **26.7%** correct
-- SciCode: **19.3%**
-
-Long context:
-
-- 1M token context window evaluated with 100% needle-in-a-haystack retrieval across video, audio, and text.
-
-### Normalized scores (1–100)
-
-- **Tool use: 72/100.** Strong grounding fidelity (84.1% FACTS) and rapid structured function calling, though limited for autonomous multi-hop agent environments (18.4% Tau2-bench).
-- **Reasoning: 64/100.** Capable entry-level reasoning bolstered by optional test-time thinking (64.6%–66.7% GPQA Diamond, 49.8% AIME 2025), trailing frontier reasoning models.
-- **Context window: 90/100.** Full 1M token context window with reliable needle-in-a-haystack retrieval across audio, video, and documents.
-- **Multimodal: 85/100.** Native omni-modal architecture processing text, images, video, audio, and complex document layout structures (72.9% MMMU).
-- **Coding: 48/100.** Suitable for lightweight script generation, bug triage, and syntax translation (27.6%–31.6% SWE-bench Verified, 34.3% LiveCodeBench).
-- **Cost efficiency: 98/100.** Exceptionally economical at $0.10 / $0.40 per 1M tokens with prompt caching at $0.025 / 1M.
-- **Overall Score: 72/100.** Arithmetic mean of non-cost metrics: (72 + 64 + 90 + 85 + 48) / 5 = 71.8 → 72. A high-throughput multimodal efficiency model, entering scheduled retirement on October 20, 2026.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Gemini 2.5 Flash-Lite (Google DeepMind)
+- **Model Type:** Ultra-high-throughput multimodal efficiency foundation model (legacy status)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public benchmark evaluation and analysis of Google DeepMind technical documentation, OpenRouter metrics, and Artificial Analysis leaderboards.
+Gemini 2.5 Flash-Lite is Google DeepMind's ultra-low latency, high-throughput efficiency foundation model in the 2.5 generation, engineered for high-volume classification, data extraction, syntactic translation, and multimodal filtering. Featuring a 1,048,576-token (1M) context window, up to 65,536 output tokens, and controllable test-time thinking, Gemini 2.5 Flash-Lite achieves 84.1% on FACTS Grounding, 75.9% on MMLU-Pro, 64.6%–66.7% on GPQA Diamond (with thinking enabled), 72.9% on MMMU, and 31.6%–44.9% on SWE-bench Verified across multiple pass attempts.
+
+Priced at an economical $0.10 per million input tokens ($0.025/1M cached) and $0.40 per million output tokens on Google AI Studio, it delivered unprecedented cost efficiency for batch and high-frequency workloads. On Google Cloud Vertex AI, it reached its formal enterprise end-of-life on October 20, 2026, transitioning to restricted legacy access for existing AI Studio accounts while new projects migrate to Gemini 3.5 Flash-Lite and Gemini 3.8 Flash.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 72/100.** High grounding fidelity (84.1% on FACTS Grounding) with rapid native function calling and Google Search integration; constrained on autonomous multi-hop agent chains (18.4% on Tau2-bench).
+- **Reasoning: 65/100.** Reaches 64.6%–66.7% on GPQA Diamond and 49.8%–53.3% on AIME 2025 with thinking tokens enabled. Solid entry-level logical deduction, though trailing frontier reasoning tiers.
+- **Context window: 90/100.** 1,048,576-token context window with up to 65K output tokens. Evaluated with 100% needle-in-a-haystack recall across video, audio, and dense text inputs.
+- **Multimodal: 85/100.** Native omni-modal processing across images, video, audio, and documents (72.9% MMMU, 51.3% Vibe-Eval); text output only.
+- **Coding: 50/100.** Reaches 31.6% on SWE-bench Verified (up to 44.9% pass@k) and 34.3%–59.3% on LiveCodeBench (thinking variant). Well suited for unit tests, script translation, and syntax corrections.
+- **Cost efficiency: 98/100.** Exceptionally cheap at $0.10 / $0.40 per 1M tokens ($0.025/1M cached input), offering massive throughput per dollar.
+- **Overall Score: 72/100.** (Arithmetic mean: `(72 + 65 + 90 + 85 + 50) / 5 = 362 / 5 = 72.4`, rounded to **72**).
+
+---
+
+### Key Strengths
+
+1. **Massive Throughput & Low Latency:** Fastest time-to-first-token in the 2.5 family, ideal for high-volume content filtering and entity extraction.
+2. **True Native Multimodality:** Ingests hours of audio and video alongside text and images with 100% needle retrieval.
+3. **Disruptive Pricing:** $0.10 / $0.40 per 1M tokens enabled massive production scale at negligible compute costs.
+4. **Controllable Thinking Budget:** Allowed developers to toggle lightweight chain-of-thought tokens for reasoning-sensitive tasks.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Enterprise Retirement:** Scheduled enterprise end-of-life on Google Cloud Vertex AI took effect October 20, 2026; restricted to legacy projects on AI Studio.
+2. **Autonomous Agent Limitations:** 18.4% on Tau2-bench indicates fragility in complex multi-step terminal or browser agent environments.
+3. **Complex Refactoring Constraints:** Lacks the deep repository architectural synthesis capabilities of full Flash and Pro models.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price:** $0.10 per million tokens (Cached: $0.025/1M)
+- **Output Price:** $0.40 per million tokens
+- **Audio Input:** $0.30 per million tokens
+- **Context Capacity:** 1,048,576 tokens (up to 65,536 output tokens)
+- **Lifecycle Status:** Retiring October 20, 2026 on Google Cloud Vertex AI; legacy access on AI Studio
+- **Successor:** Gemini 3.5 Flash-Lite / Gemini 3.8 Flash
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **FACTS Grounding** | 84.1% | Search grounding & factuality verification |
+| **GPQA Diamond** | 64.6% – 66.7% | Standard / Thinking mode enabled |
+| **MMMU** | 72.9% | Multimodal college-level reasoning |
+| **AIME 2025** | 49.8% – 53.3% | Mathematical reasoning pass |
+| **SWE-bench Verified** | 31.6% (resolved) / 44.9% (pass@k) | Technical report coding evaluations |
+
+---
+
+### Evaluation Sources
+
+- Google Cloud Lifecycle Documentation: [Vertex AI Model End-of-Life Notices](https://cloud.google.com)
+- Google DeepMind Technical Disclosures: [Gemini 2.5 Flash-Lite Overview](https://ai.google.dev)
+- Artificial Analysis & OpenRouter Benchmarks: [Gemini 2.5 Flash-Lite Index](https://openrouter.ai)

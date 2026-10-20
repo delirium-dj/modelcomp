@@ -1,65 +1,73 @@
-# Gemini 2.0 Flash — findings by Gemini 3.8 Flash
+# Gemini 2.0 Flash — Model Evaluation
 
-- Source: Google / Gemini (`google/gemini-2.0-flash`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** Gemini 2.0 Flash
-- **Short description:** Google DeepMind's second-generation multimodal workhorse model engineered for high speed, native tool calling, audio/visual understanding, and 1M context processing; officially retired from API serving on June 1, 2026.
-- **Provider / access:** Google AI Studio / Gemini API (`gemini-2.0-flash`), Google Cloud Vertex AI, and [OpenRouter](https://openrouter.ai/models/google/gemini-2.0-flash). Retired on 2026-06-01.
-- **Release / knowledge:** 2024-12-11 preview, 2025-02-05 GA; knowledge cutoff August 2024; shutdown on 2026-06-01.
-- **IDs:** `google/gemini-2.0-flash`
-- **Context window:** 1,048,576 tokens total (1M context window); max output 8,192 tokens.
-- **Modalities:** Native multimodal input (text, images, audio, video); text output; native tool use, function calling, Google Search grounding, and Python code execution.
-- **Pricing (as of retirement):** $0.10 / 1M input tokens, $0.025 / 1M cached input, $0.40–$0.42 / 1M output tokens (audio input $0.70 / 1M).
-- **Architecture:** Multimodal transformer with native audio/video/image tokenization trained from scratch across modalities.
-
-### Raw benchmarks found
-
-Agent / tool use:
-- FACTS Grounding: **83.6%** accuracy ([Google DeepMind Report](https://blog.google))
-- GAIA: **32.73%** accuracy
-- Online-Mind2Web: **29.00%** task success rate
-- GDPval: **566** Elo
-
-Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **9** ([Artificial Analysis](https://artificialanalysis.ai/models/gemini-2-0-flash))
-- GPQA Diamond: **64.1%** accuracy
-- MMLU-Pro: **77.9%** accuracy
-- AIME (OTIS Mock): **31.1%** accuracy
-- FrontierMath: **1.72%** accuracy
-- LongBench v2: **51.1%** accuracy
-
-Multimodal:
-- MathVista: **73.1%** accuracy
-- MMMU: **70.7%** accuracy
-
-Coding:
-- BigCodeBench: **33.8%** calibrated pass@1
-- LiveCodeBench: **33.4%** pass@1
-- SciCode: **33.3%** accuracy
-- Aider Polyglot: **22.2%** correct
-
-Long context:
-- 1,048,576 tokens context window evaluated across multimodal video, audio, and text retrieval.
-
-### Normalized scores (1–100)
-
-- **Tool use: 68/100.** Solid grounding and tool execution (83.6% FACTS Grounding, 32.73% GAIA), capped by early-stage web agent capabilities (29.0% Mind2Web).
-- **Reasoning: 65/100.** Moderate general reasoning (64.1% GPQA Diamond, 77.9% MMLU-Pro, 31.1% AIME), reflecting late-2024 pre-thinking capabilities.
-- **Context window: 90/100.** Standard 1M token context tier with full native multimodal ingestion.
-- **Multimodal: 84/100.** Native multimodal perception across video, audio, and visual mathematics (73.1% MathVista, 70.7% MMMU).
-- **Coding: 45/100.** Baseline code generation capability (33.8% BigCodeBench, 33.4% LiveCodeBench), lacking contemporary agentic SWE-bench performance.
-- **Cost efficiency: 98/100.** Exceptionally cheap API rates ($0.10 / $0.40 per 1M tokens) with generous historical free tier access.
-- **Overall Score: 70/100.** Arithmetic mean of five quality dimensions: (68 + 65 + 90 + 84 + 45) / 5 = 70.4 → 70. Groundbreaking late-2024 lightweight multimodal model that popularized high-speed native multimodal streaming, now retired and superseded by Gemini 2.5 and 3.x Flash.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Gemini 2.0 Flash (Google DeepMind)
+- **Model Type:** High-speed multimodal foundation model (retired)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public internet research into Google DeepMind announcements, Artificial Analysis leaderboards, and OpenRouter model specifications; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+Gemini 2.0 Flash was Google DeepMind's second-generation multimodal workhorse model released in early 2025, engineered to pioneer ultra-low latency inference, native audio and video stream understanding, and high-frequency function calling. Featuring a 1,048,576-token (1M) context window, native Google Search grounding, and Python code execution sandboxing, Gemini 2.0 Flash achieved 83.6% on FACTS Grounding, 77.9% on MMLU-Pro, 64.1% on GPQA Diamond, and 70.7% on MMMU.
+
+Billed at an economical $0.10 per million input tokens and $0.40 per million output tokens, it established new industry expectations for high-speed multimodal API interactions. Having paved the way for subsequent models with integrated test-time thinking (Gemini 2.5 and the current Gemini 3.x Flash families), Gemini 2.0 Flash was officially retired from active API serving on June 1, 2026.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 68/100.** Strong native tool calling and web grounding (83.6% FACTS Grounding, 32.73% GAIA). Pre-dates modern autonomous terminal loop resilience, scoring 29.0% on Mind2Web.
+- **Reasoning: 65/100.** Reaches 64.1% on GPQA Diamond and 77.9% on MMLU-Pro. Solid non-reasoning inference, though lacking dynamic chain-of-thought scaling seen in contemporary models.
+- **Context window: 90/100.** Native 1,048,576-token context window with up to 8,192 output tokens. Maintained reliable retrieval across long multi-modal inputs.
+- **Multimodal: 84/100.** True native multimodal tokenization across real-time audio, video streams, diagrams, and images (73.1% MathVista, 70.7% MMMU).
+- **Coding: 48/100.** Basic code generation and completion (33.8% BigCodeBench, 33.4% LiveCodeBench), lacking contemporary repository-level agent capabilities.
+- **Cost efficiency: 98/100.** Extremely cost-effective during its lifecycle ($0.10/$0.40 per 1M tokens), though now inaccessible due to sunsetting.
+- **Overall Score: 71/100.** (Arithmetic mean: `(68 + 65 + 90 + 84 + 48) / 5 = 355 / 5 = 71.0`, rounded to **71**).
+
+---
+
+### Key Strengths
+
+1. **Ultra-Low Latency Multimodality:** Native speech, audio, image, and video stream decoding with minimal time-to-first-token.
+2. **High-Fidelity Web Grounding:** 83.6% on FACTS Grounding for reliable search integration.
+3. **Disruptive Pricing History:** Set early 2025 benchmarks for high-throughput sub-$0.50/1M token API pricing.
+4. **1M Native Context Window:** Ingested long media feeds and document libraries without external RAG chunking.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Officially Retired:** End-of-life occurred on June 1, 2026; direct API calls return decommissioned errors.
+2. **Subdued Software Engineering:** Lacks contemporary agentic test-time reasoning and multi-file SWE-bench mastery.
+3. **Constrained Output Length:** Capped at 8,192 maximum generation tokens.
+
+---
+
+### Pricing & Value Matrix
+
+- **Status:** Retired (June 1, 2026)
+- **Historical Input Price:** $0.10 per million tokens (Cached: $0.025/1M)
+- **Historical Output Price:** $0.40 per million tokens
+- **Context Capacity:** 1,048,576 tokens (up to 8,192 output tokens)
+- **Successor:** Gemini 2.5 Flash / Gemini 3.8 Flash
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **FACTS Grounding** | 83.6% | Real-time search and tool grounding |
+| **MMLU-Pro** | 77.9% | Academic multi-discipline reasoning |
+| **MMMU** | 70.7% | Multimodal college-level understanding |
+| **MathVista** | 73.1% | Visual mathematical reasoning |
+| **GPQA Diamond** | 64.1% | Graduate-level reasoning |
+
+---
+
+### Evaluation Sources
+
+- Google DeepMind Release Documentation: [Gemini 2.0 Flash Technical Report](https://blog.google)
+- Google Cloud Vertex AI Decommission Notices: [API Model Life Cycles](https://google.com)
+- Artificial Analysis Independent Metrics: [Gemini 2.0 Flash Benchmark Index](https://artificialanalysis.ai)

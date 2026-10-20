@@ -1,0 +1,67 @@
+# Kimi K2.8 Preview — findings by GPT 6.1 Sol
+
+- Source: Moonshot AI / Kimi Code `kimi-for-coding`, mapped to K2.8 Preview since September 11, 2026.
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded: verified product identity/specifications and narrow public observations, but insufficient broad exact-model evidence to compute a defensible five-dimension Overall.** No placeholder scores assigned.
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview.
+- **Short description:** Moonshot's mid-tier hosted coding/agent preview. “Performance close to K3” and improved thinking efficiency are qualitative publisher claims, not permission to copy K3 or K2.7 Code benchmark scores.[1][2]
+- **Provider / access:** Kimi Code **`kimi-for-coding`**, not the literal display name. Overseas OpenAI-compatible base `https://api.kimi.ai/coding/v1`, Anthropic-compatible `https://api.kimi.ai/coding/`; China equivalents use `api.kimi.com`. Current Code ID replaces the earlier K2.7 Code mapping in place. K3, K3-256K and K2.7 HighSpeed remain different selections.[1]
+- **Release:** **2026-09-11** in primary release notes. Current official docs verify the model and route; search/evaluator misses do not establish nonexistence.[1][2]
+- **Context / output:** **1,048,576 total context** for eligible K2.8 Code plans. Current Plus+ and legacy Andante+ have Code access; Go has none. Output maximum is **not published in inspected primary sources**; a client fallback or another Kimi model's 128K/256K output allowance is not substituted.[1][3][5]
+- **Modalities / thinking / tools:** Text/image/video → text; native audio/non-text generation not established. `low`/`high`/`max`, **default max**; `none` disables thinking. Primary docs explicitly say thinking-off K3-series requests are served by K2.8 Preview without thinking. Third-party “medium” maps to high and xhigh/ultra to max; effort changes invalidate cached context. Interactive agent tools are client-provided, not evidence of benchmark reliability.[1]
+- **Pricing / access:** Native Code is an eligible **paid subscription with shared monthly quota and rolling five-hour window**; legacy plans additionally retain weekly limits. Subscription quota is not an Open Platform token balance or free/unlimited API. B.AI separately advertises `kimi-k2.8-preview` at **$1 input/$4 output/$1 cache write/$0.25 cache read per 1M**, a reseller reference tariff, not verified Moonshot Global API pricing.[3][5]
+- **Architecture / licence / cutoff:** Exact K2.8 parameter count, active count, architecture, knowledge cutoff and open-weight licence **not verified**. A guessed HF repository returned 401, which by itself proves neither released weights nor nonexistence. K2.7's Modified MIT and K3's architecture do not transfer.[1][5][6]
+
+### Raw benchmarks found
+
+**Narrow independently reported observations, not a broad standardized suite:** KI AI's independent guide identifies its September 16 test dates, displayed model/mode and limitations; September 30 update rechecks specs without new model runs. These observations are source-reported, not reproduced by this research agent.[4]
+
+- **One small JavaScript repair**, Code CLI 0.43.0 displaying **K2.8 Preview/max**: original tests changed from **1 passing/3 failing to 4 passing**, and **12 additional held-back cases passed**. Only the permitted `src/slugify.js` changed. Crucially the model's own shell execution failed with `spawn EPERM`; the reviewer independently ran Node checks and supplied the result. This is **one repaired function**, not sixteen independent coding tasks or fully autonomous successful execution.[4]
+- **Three original practice images**, Chat displaying **K2.8 High**: **25 of 26 fields matched literally**. The remaining chart label had two defensible phrasings, not a numeric reading failure. Source includes images/answer checks; this is a narrow extraction exercise, not MMMU or general vision accuracy.[4]
+- **Ten documentation questions in two new Chat sessions**: **17 of 20 answers complete/confirmed**, **19 of 20 answer-level citation checks fully supported**, with official-source conflicts missed in two responses. Tool-enabled app behavior and factual-resolution/citation-support metrics differ. Repeated questions are not twenty independent standardized reasoning tasks.[4]
+- **Explicit-memory workflow**: source reports **12 requested values across four probes**, three saved-instruction-list checks, seven new chats, two fictional preferences, Dream Memory off. This measures a small application-memory scenario, **not million-token model retrieval or broad agent success**.[4]
+
+Agent / tool use:
+
+- TB2.1/TB4, Tau2/Tau3, GDPval, Claw-Eval/ClawProBench, MCP-Atlas, Toolathlon, SWE Atlas QnA: **no verified exact-model public score found**. Tool/CLI support and the interrupted one-function repair do not supply those scores.
+
+Reasoning / knowledge:
+
+- GPQA, HLE, AIME, CritPt, LCR/MLCR, Omniscience and broad measured intelligence index: **no verified exact-model public score found**. Publisher's “close to K3” is qualitative; app documentation questions are not a calibrated expert-reasoning suite.[1][2][4][5]
+
+Coding / vision / context:
+
+- SWE Verified/SWE-Pro, LiveCodeBench, SciCode, DeepSWE, Vibe Code and MMMU: **no verified exact-model public score found**. One publicly reported repair is useful practical evidence but insufficient to establish cross-repository/task reliability.
+- MRCR/RULER or measured maximum-window retrieval: **no verified public score found**. The source explicitly says it did not measure full-million-token recall; its app-memory exercise is not such a test.[4]
+- No verified exact output throughput, first-token latency, per-task cost or controlled K2.8-versus-K3 performance comparison. Do not inherit K2.7 HighSpeed's speed or convert a monthly plan into a per-million-token tariff.[1][3][4]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Verified specifications support capacity/modality/access descriptions, and the reported small tests merit preservation. They do not establish enough representative quality evidence across tool use, reasoning, multimodal and coding to compute a defensible Overall. Assigning generic mid/high numbers, treating one repair as a suite or copying K3/K2.7 would introduce unsupported precision. This report therefore remains `.md.excluded` rather than contributing invented scores.
+
+Reconsideration requires genuinely new exact-model benchmark evidence, ideally representative multi-task coding/tool/reasoning/vision evaluations with published mode, harness, attempt budget and version identity. A fresh scored sibling should be written only under the project's own-twin procedure; this evidence record must not be silently replaced.
+
+### Research trail and sources
+
+Four distinct fresh attempts: Bing RSS `"Kimi K2.8 Preview" official benchmarks` returned unrelated archive-file links; Google `"Kimi K2.8 Preview" independent benchmark review` an interstitial; DuckDuckGo `"Kimi K2.8 Preview" context model price` supplied actual publisher/reviewer/reseller leads; follow-up DuckDuckGo `"Kimi K2.8" "SWE" benchmark` hit a bot challenge. Primary current configuration, dated release notes, membership rules and exact third-party micro-test reporting were inspected. AA `kimi-k2-8-preview`, Vals `kimi_kimi-k2.8-preview` and guessed BenchLM page returned 404; HF candidate returned 401. LLM Stats exposes specs but no numeric benchmark suite; B.AI explicitly says numeric K2.8 benchmark results are not published. No peer findings or other models' scores used.
+
+[1]: https://www.kimi.com/code/docs/en/kimi-code/models.html "Primary exact in-place model mapping, plan-qualified 1M, modalities, effort defaults/routing and regional bases"
+[2]: https://www.kimi.com/code/docs/en/kimi-code/whats-new.html "Primary September 11 rollout, qualitative comparison and documented thinking-off routing"
+[3]: https://www.kimi.com/code/docs/en/kimi-code/membership.html "Primary eligible paid plans, shared quotas, rolling windows and subscription/platform separation"
+[4]: https://ki-ai.chat/models/kimi-k2-8/ "Independent dated exact-mode one-function repair and separately scoped image/search/memory observations"
+[5]: https://docs.b.ai/llmservice/models/kimi-k2.8-preview/ "Reseller's own exact route/rates; explicitly unpublished output cap and numeric benchmarks"
+[6]: https://huggingface.co/moonshotai/Kimi-K2.8-Preview/raw/main/README.md "Guessed candidate returned 401; no licence or architecture inferred"
+[7]: https://llm-stats.com/models/kimi-k2.8 "Secondary identified hosted preview/specifications; no numeric benchmark suite exposed"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-20 UTC
+- Method: Independent fresh searches, exact primary identity/spec/access verification and critical review of narrow disclosed third-party tests. Self-exclusion reflects insufficient broad scoring evidence, not a claim that the model does not exist or that its quality is zero.
+- Future sources: add a separate signed report only when genuinely new verified evidence supports its conclusions.

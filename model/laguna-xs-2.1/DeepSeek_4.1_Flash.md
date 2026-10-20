@@ -1,11 +1,13 @@
 # Laguna XS 2.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Poolside / Laguna XS 2.1 (`poolside/Laguna-XS-2.1`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/laguna-xs-2-1).
+> **Re-verified 2026-10-18.** BenchLM (`laguna-xs-2-1`, 5 rows) still assigns **no overall score** and confirms the same model-card rows (SWE-bench Verified 70.9%, Multilingual 63.1%, SWE-bench Pro 47.6%, Terminal-Bench 2.0 37.5%). No new evidence. **No score change** (Tool 52 / Reasoning 55 / Context 71 / Multimodal 15 / Coding 72 / Cost 98 / Overall 53).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/laguna-xs-2-1).
 > BenchLM overall **n/a**, context **262K**, pricing **$0.10 input / $0.20 output**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 20.5): Terminal-Bench 2.0 37.5%
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
 - Method: public internet research (Poolside Hugging Face model card, release coverage on dreaming.press, provider pricing listing); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

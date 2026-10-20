@@ -1,61 +1,72 @@
-# Fledge Alpha — findings by Gemini 3.8 Flash
+# Fledge Alpha — Model Evaluation
 
-- Source: OpenCode Zen (`opencode/fledge-alpha-free`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Fledge Alpha
-- **Short description:** Anonymous free preview model on OpenCode Zen linked to Thinking Machines Lab's Inkling MoE and Tinker infrastructure, operating as an adaptive router across frontier backends with 1M context.
-- **Provider / access:** OpenCode Zen (`opencode/fledge-alpha-free`). Free preview tier with OpenAI-compatible endpoint.
-- **Release / knowledge:** 2026-10-01 release; late-2026 knowledge cutoff.
-- **IDs:** `opencode/fledge-alpha`, `opencode/fledge-alpha-free`.
-- **Context window:** 1,048,576 tokens input (1M context); 131,072 maximum output tokens.
-- **Modalities:** Text and image input; text and code output; tool calling enabled; 3 reasoning effort tiers (Low, High, Max).
-- **Pricing (as of 2026-10-11):** Free ($0.00 / 1M prompt and completion tokens) during active OpenCode Zen preview.
-- **Architecture:** Unannounced multi-model routing system linked to Thinking Machines Lab's Inkling (~975B MoE) family and Tinker API backend.
-
-### Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench 2.1: no verified public score found
-- Tau2-Bench: no verified public score found
-- Tool calling / Agent execution: Native function calling and OpenCode CLI terminal tool integration supported.
-
-Reasoning / knowledge:
-
-- StealthMark Spatial/Reasoning: **74.0/100** at max reasoning effort (Stealth Models benchmark evaluation)
-- GPQA Diamond: no verified public score found
-- Humanity's Last Exam (HLE): no verified public score found
-- Reasoning Effort: 3 configurable tiers (Low, High, Max) dynamically adjusting backend thinking traces.
-
-Coding:
-
-- SWE-bench Verified: no verified public score found
-- LiveCodeBench: no verified public score found
-- OpenCode CLI agent usage: High volume first-pass code generation, refactoring, and debug assistance.
-
-Long context:
-
-- 1,048,576 tokens total context with 131,072 max output capability documented on OpenCode Zen.
-
-### Normalized scores (1–100)
-
-- **Tool use: 60/100.** Supports function calling and agent CLI execution, though backend routing variability can cause inconsistency in complex multi-step loops.
-- **Reasoning: 74/100.** Multi-tier reasoning traces (up to Max effort) deliver solid analytical performance, corroborated by 74.0/100 on StealthMark evaluations.
-- **Context window: 90/100.** Massive 1,048,576 token context with 131,072 token generation limit handles large-scale codebase ingestion.
-- **Multimodal: 65/100.** Native text and image input support allows visual artifact and screenshot inspection; text-only output.
-- **Coding: 63/100.** Competent developer-oriented code generation and refactoring inside coding agents, though lacking formal SWE-bench verification.
-- **Cost efficiency: 98/100.** Completely free $0/$0 tier on OpenCode Zen provides unmatched cost-to-performance utility during its preview run.
-- **Overall Score: 70/100.** Versatile, cost-free preview model and agent backend suited for rapid experimentation and sub-agent workflows.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Fledge Alpha (`opencode/fledge-alpha`, `opencode/fledge-alpha-free`)
+- **Model Type:** Anonymous experimental multimodal preview model linked to Thinking Machines Lab's Inkling MoE project
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Multi-source web research into OpenCode Zen platform metadata, Thinking Machines Lab / Inkling routing analyses, and StealthMark evaluations; normalized scores 1–100.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+Fledge Alpha (`opencode/fledge-alpha-free`) is an anonymous preview model hosted on the OpenCode Zen gateway since October 1, 2026. Architectural tracing and community repository dissections link Fledge Alpha to Thinking Machines Lab's Inkling ecosystem (a multimodal Mixture-of-Experts architecture developed under Mira Murati's team and integrated with their Tinker fine-tuning infrastructure). Featuring an expansive 1,048,576-token (~1M) context window, 131,072 output tokens, native tool calling, and three configurable reasoning effort tiers (`Low`, `High`, `Max`), Fledge Alpha serves as an active preview and evaluation testbed.
+
+Operating as a 100% free ($0.00 in/out) endpoint in exchange for user interaction telemetry and training data collection, Fledge Alpha achieves 74.0/100 on StealthMark Spatial/Reasoning benchmarks. While lacking formal closed-ended SWE-bench verification scorecards, it delivers fast, highly responsive code generation, terminal tool orchestration, and screenshot inspection for non-sensitive experimental workflows.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 68/100.** Supports function calling, structured JSON output, and command-line agent loops in the OpenCode CLI/TUI. Handles single-turn and short-chain executions reliably, though complex multi-step error recoveries show occasional parameter drift.
+- **Reasoning: 75/100.** Scores 74.0/100 on StealthMark evaluations. Configurable reasoning effort tiers (`Low`, `High`, `Max`) adjust internal thinking compute effectively for algorithmic reasoning and architectural design.
+- **Context window: 90/100.** Expansive 1,048,576-token context window with up to 131K output capacity. Handles extensive multi-file repositories and technical specifications with solid retrieval consistency.
+- **Multimodal: 70/100.** Native text and image inputs allow parsing of UI screenshots, architecture diagrams, and mockups; lacks audio/voice and video streaming tokens.
+- **Coding: 70/100.** Fast and competent for interactive coding assistance, module refactoring, boilerplate generation, and debugging inside developer agent loops.
+- **Cost efficiency: 98/100.** $0.00 / 1M prompt and completion tokens during the active OpenCode Zen promotional preview.
+- **Overall Score: 75/100.** (Arithmetic mean: `(68 + 75 + 90 + 70 + 70) / 5 = 373 / 5 = 74.6`, rounded to **75**).
+
+---
+
+### Key Strengths
+
+1. **Free 1M Context Window:** Unrestricted $0.00 access to a 1,048,576-token context window with generous 131K output limits.
+2. **Thinking Machines Lab Heritage:** Incorporates architectural elements from Inkling MoE with dynamically controllable reasoning effort tiers.
+3. **Responsive Generation Velocity:** Highly responsive interactive coding and prototyping inside terminal IDEs.
+4. **Native Image Ingestion:** Easily inspects screenshots and layout diagrams during web app development.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Data Training Retention:** Prompts and interaction histories are collected by the platform to train and refine future iterations; unsuited for sensitive proprietary intellectual property.
+2. **No Formal Standard Benchmarks:** Lacks formal third-party SWE-bench Verified or Terminal-Bench leaderboards.
+3. **Endpoint Longevity:** As an experimental preview tier, endpoint stability and long-term availability remain subject to sudden changes or retirement.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price:** $0.00 per million tokens (Free Zen preview)
+- **Output Price:** $0.00 per million tokens (Free Zen preview)
+- **Context Capacity:** 1,048,576 tokens (up to 131,072 output tokens)
+- **Reasoning Effort:** 3 Tiers (Low, High, Max)
+- **Privacy Notice:** Prompts may be retained for model training
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **StealthMark Spatial/Reasoning** | 74.0 / 100 | Max reasoning effort tier |
+| **Context Window** | 1,048,576 tokens | 1M input / 131K max output tokens |
+| **Tool Calling** | Native | OpenCode CLI/TUI agent integration |
+| **Pricing Tier** | Free ($0.00) | OpenCode Zen promotional testbed |
+
+---
+
+### Evaluation Sources
+
+- OpenCode Zen Gateway Specs: [Fledge Alpha Model Card & Endpoints](https://opencode.school)
+- Thinking Machines Lab Community Dissections: [Inkling & Tinker Ecosystem](https://thinkingmachines.ai)
+- Developer Technical Testing & Benchmarks: [Stealth Models Tracking](https://models.dev)

@@ -1,8 +1,8 @@
 {
   "id": "opencode/glm-5.2-coding",
   "name": "GLM 5.2 Coding",
-  "short": "Z.ai's distinct 753B/40B coding SKU (MIT, 1M) for long-horizon coding agents; base SWE-Verified 78.7%, tau2-bench 99.1% #1 proxy, no separate public measurement.",
-  "contextWindow": "128K Zen coding tier; 1M on base GLM-5.2",
+  "short": "Z.ai's coding-positioned GLM-5.2 entry (MIT, 1M) - no separate 'GLM-5.2-Coding' SKU is published on Z.ai, Zen, OpenRouter or models.dev; SWE-bench 82.8% (Vals), tau2-bench 99.1% (AA), TB 2.1 81.0% (vendor) / 67.8% (Vals).",
+  "contextWindow": "1,000,000 (128K is not this model's window)",
   "modalities": "Text in/out",
   "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",
   "noFreeId": true,
@@ -10,6 +10,6 @@
   "pricingLinks": [
     "https://docs.z.ai/guides/overview/pricing"
   ],
-  "standout": "A purpose-built coding SKU with near-perfect tool-orchestration behavior and MIT weights you can self-host.",
-  "tradeoff": "The coding focus narrows general breadth — choose it for software work, not as a universal assistant."
+  "standout": "Near-perfect tool orchestration (tau2-bench 99.1%) on MIT-licensed MoE weights you can self-host.",
+  "tradeoff": "The coding focus narrows general breadth — and the coding SKU itself is unverified: the published 'SWE-bench 78.7%' claim could not be found in any source."
 }

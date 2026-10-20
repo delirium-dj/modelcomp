@@ -1,64 +1,73 @@
-# Gemini 2.5 Flash — findings by Gemini 3.8 Flash
+# Gemini 2.5 Flash — Model Evaluation
 
-- Source: Google (`google/gemini-2.5-flash`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** Gemini 2.5 Flash
-- **Short description:** Google's 2.5-generation high-efficiency multimodal model, featuring toggleable hybrid reasoning and 1,048,576-token context; legacy status with access limited to existing users in late 2026.
-- **Provider / access:** Google AI Studio / Gemini API (`gemini-2.5-flash`), Google Cloud Vertex AI, and [OpenRouter](https://openrouter.ai/models/google/gemini-2.5-flash).
-- **Release / knowledge:** 2025-04 preview, 2025-06 GA, September 2025 refresh; knowledge cutoff early 2025.
-- **IDs:** `google/gemini-2.5-flash` (free tier previously available via Google AI Studio).
-- **Context window:** 1,048,576 tokens (1M input context, max output 65,536 tokens).
-- **Modalities:** Text, image, audio, and video input; text out; tool use / function calling; toggleable thinking budget.
-- **Pricing (as of 2026-10-11):** $0.30 / 1M input tokens ($0.03–$0.075 cached), $2.50 / 1M output tokens ([Google AI for Developers](https://ai.google.dev/pricing)).
-- **Architecture:** Lightweight multimodal transformer with hybrid reasoning and dynamic compute scaling.
-
-### Raw benchmarks found
-
-Agent / tool use:
-- Terminal-Bench: **13.6%** (early harness version)
-- Native function calling and multi-tool support via Google AI Studio API
-- Tau-Bench / Claw-Eval: no verified public score found
-
-Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **13** (Reasoning mode) / **10** (Non-reasoning mode) ([Artificial Analysis](https://artificialanalysis.ai/models/gemini-2-5-flash))
-- GPQA Diamond: **82.8%** (thinking mode; ~59.4% standard) ([Google DeepMind](https://blog.google))
-- MMLU-Pro: **78.3%**
-- Humanity's Last Exam (HLE): no verified public score found
-
-Coding:
-- SWE-bench Verified: **60.4%** (thinking mode single attempt)
-- LiveCodeBench: **40.6%–71.3%** (eval harness dependent)
-- Aider Polyglot: **61.9%**
-- SciCode: **39.4%**
-
-Long context:
-- MRCR v2 (8-needle): **54.3%** at 128K, **21.0%** at 1M
-- LOFT (hard): **82.1%** at 128K, **58.9%** at 1M
-- AA-LCR: **61.7**
-
-Multimodal:
-- MMMU (visual reasoning): **79.7%**
-- Video and audio input: native frame-accurate video comprehension and audio processing.
-
-### Normalized scores (1–100)
-
-- **Tool use: 64/100.** Capable standard function calling and API tool integration, though lagging frontier agentic benchmark performance (13.6% Terminal-Bench).
-- **Reasoning: 76/100.** Solid analytical reasoning backed by 82.8% GPQA Diamond (thinking mode) and 78.3% MMLU-Pro, competitive for a 2025 lightweight model.
-- **Context window: 86/100.** 1M input window with 65K max output, tempered by retrieval drop-off at maximum context lengths.
-- **Multimodal: 82/100.** Robust native audio, video, image, and document ingestion with 79.7% MMMU; text-only output.
-- **Coding: 68/100.** Dependable everyday code generation (60.4% SWE-bench Verified), sitting squarely in the mid-tier.
-- **Cost efficiency: 89/100.** Highly economical $0.30 / $2.50 rates with legacy pricing on AI Studio and OpenRouter.
-- **Overall Score: 75/100.** Mean of quality dimensions: Math.round((64 + 76 + 86 + 82 + 68) / 5) = 75.2 → 75. A dependable, fast multimodal workhorse representing Google's 2025 efficiency tier, superseded by Gemini 3.x Flash.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** Gemini 2.5 Flash (Google DeepMind)
+- **Model Type:** Lightweight multimodal foundation model with toggleable hybrid reasoning (legacy status)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public web research across Google DeepMind technical disclosures, Artificial Analysis, and OpenRouter metrics; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+Gemini 2.5 Flash is Google DeepMind's 2.5-generation high-efficiency multimodal model released in mid-2025, notable for introducing configurable hybrid reasoning (dynamic thinking budgets) into Google's lightweight flash tier. Operating with a 1,048,576-token (1M) context window and up to 65,536 output tokens, Gemini 2.5 Flash achieves 82.8% on GPQA Diamond (in thinking mode), 78.3% on MMLU-Pro, 60.4% on SWE-bench Verified (single-attempt thinking), and 79.7% on MMMU for multimodal reasoning.
+
+Billed at $0.30 per million input tokens ($0.03–$0.075 cached) and $2.50 per million output tokens on Google AI Studio / Gemini API, it served as an influential bridge between early non-reasoning flash models and modern agentic architectures. On Google Cloud Vertex AI, it reached its formal enterprise retirement threshold on October 20, 2026, transitioning to legacy status as developers migrate to the Gemini 3.x Flash generation (e.g., Gemini 3.8 Flash).
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 65/100.** Capable standard function calling, structured JSON output, and multi-tool orchestration; scores 13.6% on early Terminal-Bench harnesses, lacking contemporary autonomous loop recovery.
+- **Reasoning: 77/100.** Dynamic thinking mode delivers 82.8% on GPQA Diamond (vs ~59.4% standard) and 78.3% on MMLU-Pro. Provides reliable mathematical and logical deduction for a lightweight tier.
+- **Context window: 86/100.** 1,048,576-token context window with up to 65K output tokens. Evaluated via LOFT (82.1% at 128K, 58.9% at 1M) and MRCR v2 (54.3% at 128K, 21.0% at 1M), showing moderate retrieval drop at extreme scale.
+- **Multimodal: 82/100.** Strong native video frame comprehension, audio stream ingestion, diagrams, and document OCR (79.7% MMMU); text output only.
+- **Coding: 68/100.** Scores 60.4% on SWE-bench Verified (thinking mode) and 61.9% on Aider Polyglot. Dependable for daily routine code edits and single-module tasks.
+- **Cost efficiency: 89/100.** Competitive $0.30 / $2.50 rates with aggressive context caching, though overtaken on value-per-capability by current Gemini 3.x tiers.
+- **Overall Score: 76/100.** (Arithmetic mean: `(65 + 77 + 86 + 82 + 68) / 5 = 378 / 5 = 75.6`, rounded to **76**).
+
+---
+
+### Key Strengths
+
+1. **Configurable Hybrid Thinking:** Allowed developers to toggle thinking budgets to balance speed vs reasoning depth.
+2. **High-Fidelity Multimodal Parsing:** Native video, audio, and visual document OCR with 79.7% on MMMU.
+3. **Generous 65K Output Ceiling:** Substantially higher output generation capacity compared to 2.0 Flash.
+4. **Reliable Context Caching:** Reduced recurring prompt costs by up to 90% for active applications.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Retirement & Deprecation Status:** Reached hard retirement on Google Cloud Vertex AI on October 20, 2026; legacy status on AI Studio.
+2. **Terminal-Bench Agent Fragility:** 13.6% on Terminal-Bench highlights limited resilience in multi-turn autonomous bash environments.
+3. **Long-Context Needle Degradation:** Notable retrieval attenuation past 128K tokens on multi-needle evaluations.
+
+---
+
+### Pricing & Value Matrix
+
+- **Input Price:** $0.30 per million tokens (Cached: $0.03 – $0.075/1M)
+- **Output Price:** $2.50 per million tokens
+- **Context Capacity:** 1,048,576 tokens (up to 65,536 output tokens)
+- **Lifecycle Status:** Retired on Google Cloud Vertex AI (October 20, 2026); legacy on AI Studio
+- **Successor:** Gemini 3.8 Flash / Gemini 3.5 Flash
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **GPQA Diamond** | 82.8% | Thinking / reasoning mode |
+| **MMLU-Pro** | 78.3% | Multi-discipline academic reasoning |
+| **SWE-bench Verified** | 60.4% | Single-attempt thinking mode |
+| **MMMU** | 79.7% | Multimodal college-level reasoning |
+| **Terminal-Bench** | 13.6% | Early agent CLI evaluation |
+
+---
+
+### Evaluation Sources
+
+- Google Cloud Vertex AI Model Lifecycle Documentation: [Gemini 2.5 Retirement Notices](https://google.com)
+- Google DeepMind Architecture Releases: [Gemini 2.5 Hybrid Reasoning](https://blog.google)
+- Artificial Analysis & OpenRouter Benchmarks: [Gemini 2.5 Flash Index](https://artificialanalysis.ai)

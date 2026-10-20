@@ -9,7 +9,10 @@ interface VendorIconProps {
 }
 
 interface VendorMatch {
-  match: string;
+  /** Token-prefix match over `${id} ${name}`. */
+  match?: string;
+  /** Exact provider slug — for ids whose token would also match model ids. */
+  slug?: string;
   icon: keyof typeof VENDOR_ICON_SVGS | string;
   label: string;
   /** Brand color applied via `color` for monochrome (`currentColor`) marks. */
@@ -63,12 +66,20 @@ const VENDORS: VendorMatch[] = [
   { match: "meituan", icon: "longcat", label: "Meituan", adaptive: true },
   { match: "ling", icon: "antgroup", label: "Ant Group" },
   { match: "bailing", icon: "antgroup", label: "Ant Group" },
+  { match: "vercel", icon: "vercel", label: "Vercel", invertLight: true },
+  { match: "xai", icon: "xai", label: "xAI", adaptive: true },
+  { match: "zai", icon: "zai", label: "Z.ai", adaptive: true },
+  { slug: "opencode-zen", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "openrouter", icon: "openrouter", label: "OpenRouter", adaptive: true },
   // laguna / poolside have no free brand SVG — letter fallback below.
 ];
 
 function vendorFor(id: string, name: string): VendorMatch | undefined {
+  const norm = id.toLowerCase();
   const tokens = `${id} ${name}`.toLowerCase().split(/[^a-z0-9]+/);
-  return VENDORS.find((v) => tokens.some((t) => t.startsWith(v.match)));
+  return VENDORS.find((v) =>
+    v.slug ? v.slug === norm : Boolean(v.match) && tokens.some((t) => t.startsWith(v.match!)),
+  );
 }
 
 export const VendorIcon = component$<VendorIconProps>(({ id, name, size = "sm" }) => {

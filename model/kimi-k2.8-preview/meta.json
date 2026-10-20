@@ -1,15 +1,15 @@
 {
   "id": "moonshot/kimi-k2-8-preview",
   "name": "Kimi K2.8 Preview",
-  "short": "Moonshot AI's 1M-context preview mid-tier between K2.7 Code and K3 for coding/agents; proprietary, no independent benchmarks yet.",
-  "contextWindow": "1,048,576 (1M)",
-  "modalities": "Text, image in; text out",
-  "pricingNote": "Kimi membership plan (no per-token billing)",
+  "short": "No such Moonshot model could be verified as of 2026-10-20 - Moonshot's model list, pricing, changelog, docs index, HF org, models.dev, OpenRouter and Zen all lack a K2.8; negative record, self-excluded report.",
+  "contextWindow": "Unverified - no published figure (1M was claimed but never confirmed)",
+  "modalities": "Unverified - no published figure",
+  "pricingNote": "No published price - Moonshot's API is pay-as-you-go per token; no K2.8 line exists on any price sheet",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=kimi-k2.8-preview",
+  "officialUrl": "https://platform.kimi.ai/docs/models",
   "pricingLinks": [
-    "https://platform.moonshot.ai/docs/pricing/chat"
+    "https://platform.kimi.ai/docs/pricing/chat"
   ],
-  "standout": "The missing middle: a 1M-context preview slotting between K2.7 Code and K3 for coding-heavy agent builds.",
-  "tradeoff": "Proprietary and unmeasured independently — adopt for experiments, not commitments."
+  "standout": "A verified absence: the slot between K2.7 Code and K3 that never shipped, kept so the gap is auditable.",
+  "tradeoff": "Nothing to adopt - use Kimi K2.7 Code (262K, MIT weights) or Kimi K3 (1M) instead."
 }

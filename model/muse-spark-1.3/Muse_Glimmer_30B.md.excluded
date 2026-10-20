@@ -1,0 +1,60 @@
+# Muse Spark 1.3 — findings by Muse Glimmer 30B
+
+- Source: Meta / muse-spark-1.3
+- Date: 2026-10-20
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Muse Spark 1.3
+- **Short description:** Meta's frontier coding and long-horizon agentic model with 1M context / 131K output. Contributor/Free and Max are the same weights — only price and training-data consent differ.
+- **Provider / access:** Meta Model API; OpenCode Zen `opencode/muse-spark-1.3`. Chat Completions.
+- **Release / knowledge:** 2026-09-02 release per Meta research blog; knowledge cutoff not announced.
+- **IDs:** `opencode/muse-spark-1.3`
+- **Context window:** 1,048,576 total; 131,072 max output, verified via meta.json.
+- **Modalities:** Text, image, video, PDF in; text out.
+- **Pricing (as of 2026-10-20):** Free OpenCode Zen tier; Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M.
+- **Architecture:** Proprietary; parameter count not disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No verified public benchmark numbers found for this exact model/ID in independent, citable sources at time of research. Meta's announcement blog references internal scorecards and a methodology report but does not publish numeric values for public benchmarks such as Terminal-Bench 2.1, GPQA Diamond, HLE, SWE-bench Verified, LiveCodeBench, etc. The static methodology PDF is not machine-readable via available tools and does not expose numeric results in the fetched content. Without independently verifiable figures, scores cannot be normalized per methodology.
+
+Agent / tool use:
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported in publicly accessible numeric form
+
+### Normalized scores (1–100)
+
+SELF-EXCLUSION: Insufficient verified benchmark data to compute normalized scores. File saved as .md.excluded per template.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
