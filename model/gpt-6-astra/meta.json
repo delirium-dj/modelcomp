@@ -12,5 +12,7 @@
   "officialUrl": "https://openai.com/index/gpt-6-astra/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "OpenAI’s reasoning ceiling for frontier math and long-context agents, with a first-of-its-kind critical-cyber tier.",
+  "tradeoff": "Flagship positioning comes at flagship cost and behind a gated rollout — it is a specialist for high-stakes work, not an everyday default."
 }

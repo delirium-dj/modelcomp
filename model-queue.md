@@ -81,7 +81,6 @@
 82.5 qwen-3.7-max
 82 kimi-k2.7-code
 81.7 kimi-k2.5
-81.7 qwen-3.5
 81.6 mimo-v2.5-free
 80.8 gemini-3.1-flash
 80.7 claude-sonnet-4.5
@@ -126,7 +125,7 @@
 71.6 nemotron-3-ultra-free
 71.4 claude-sonnet-3.5
 71.3 gpt-5.1-codex-max
-71.2 hy3
+71.1 hy3
 70.4 longcat-2.0
 70.1 nemotron-3.5-bolt-74b-a9b
 69.8 grok-build-0.1
@@ -162,6 +161,7 @@
 60.4 mai-code-1-flash
 59.9 laguna-xs-2.1
 59.3 ling-3.0-flash-sante
+59 grok-4.1-fast-reasoning
 58.5 gpt-5.1-codex-mini
 58.2 llama_3.2_vision_instruct
 57.4 north_mini_code
@@ -169,9 +169,11 @@
 57.1 solar-mini-4
 56.8 nemotron-3.5-lightning-free
 56.3 exo-free
+54 grok-4-fast-reasoning
 53.8 ling-2.6-flash
 53.7 gemma-4-e2b
 53.7 mercury-2.5
+53 longcat-2.5-preview
 53 mai-experimental-test
 52.2 ling-3.0-tiny
 52 cat-jam

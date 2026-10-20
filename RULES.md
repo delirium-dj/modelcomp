@@ -170,6 +170,28 @@ override.
   decision in REPORT.md); it is hidden from the site and the research queue
   via `RETIRED_SLUGS` (`src/data/models.ts` + `scripts/lib/average.mjs`,
   `model/README.md` § Parking). Research belongs in `model/gemini-2.5-pro/`.
+- **Family-shorthand identity (absolute — `qwen-3.5` parked 2026-10-20):**
+  `model/qwen-3.5/` is a family/generation entry, never a separate model.
+  Evidence: Alibaba ships no standalone `Qwen 3.5` checkpoint — the 3.5
+  generation is 397B-A17B (flagship), 122B-A10B, 35B-A3B, 27B, 9B, 4B, 2B,
+  0.8B plus the hosted `Qwen3.5-Plus` / `Qwen3.5-Flash` tiers, each listed as
+  its own model in the vendor catalogs; the folder's own `meta.json` carries
+  `contextWindow` `"128K-1M (family range; tracked tier unconfirmed)"` and
+  says the tracked tier is unconfirmed / facts provisional; the curated id
+  `opencode/qwen-3.5` matches no live route (OpenCode Zen lists
+  `qwen3.5-plus`, never a bare `qwen-3.5` — live-verified 2026-10-20, same
+  finding already recorded in `model/qwen-3.5/GPT_6_Sol.md.excluded` and
+  `model/qwen-3.5/Big_Pickle.md.excluded`); and all 39 findings files in the
+  folder have twins in the member folders (zero unique stems) — the members
+  are already tracked as `model/qwen-3.5-397b/`, `model/qwen-3.5-plus/`,
+  `model/qwen-3.5-9b/`. Resolution is PARKING, not deletion: the folder stays
+  on disk and in git (permanence — its `average.md` stays a gate input), is
+  hidden from the site and omitted from the research queue via both
+  `RETIRED_SLUGS` lists. Research belongs in the member folder for the ID
+  actually cited (weights `Qwen/Qwen3.5-397B-A17B` → `model/qwen-3.5-397b/`,
+  hosted `Qwen3.5-Plus` → `model/qwen-3.5-plus/`, `Qwen3.5-9B` →
+  `model/qwen-3.5-9b/`); a bare "Qwen 3.5" with no ID has no folder of its
+  own — never scaffold `model/qwen-3.5/` again.
 - **Family-shorthand identity (general rule):** a bare family or base name
   with no distinct vendor ID is never scaffolded as a new folder. Before
   creating a folder for a short/base name, verify a distinct vendor route

@@ -41,25 +41,32 @@ Site origin for prerendered canonical URLs + sitemap is `SITE_ORIGIN`
 ## Component & Layout Directory
 
 - **Routes (`src/routes/`)**:
-  - `layout.tsx`: Main layout wrapper (`Header` + `Slot` + `Footer`).
-  - `index.tsx`: Main comparison page (`/`). Renders `Hero`, `CompareSection`, `Methodology`.
-  - `model/[slug]/index.tsx`: Per-model detail page (`/model/<slug>/`). Renders model meta, radar, and best-first reporting table. Per-model `<title>`/description via a `DocumentHead` resolver.
-  - `contact/index.tsx`: Contact page (unconfigured inbox — see audit B12).
+  - `layout.tsx`: Layout for plain pages (`/contact`) — theme init + `V2Header`/`V2Footer` chrome.
+    The v2 homepage, model profiles, the Providers page and design studies are standalone
+    canvases that render their own header/footer (the layout skips them).
+  - `index.tsx`: Main comparison page (`/`, v2 design). Self-contained hero, compare, all-models,
+    methodology sections + `V2Header`/`V2Footer`.
+  - `model/[slug]/index.tsx`: Per-model detail page (`/model/<slug>/`, v2 canvas). Model meta, hex
+    bars, best-first reporting table. Per-model `<title>`/description via a `DocumentHead`.
+  - `providers/index.tsx`: Providers page (`/providers/`, v2 canvas) — per-provider billing plans
+    (each price links its claimant page) and covered models (derived from `idPrefixes`/`hosts`),
+    sourced from `src/data/providers.ts` (data curated in `providers/<slug>/meta.json`).
+  - `contact/index.tsx`: Contact page (unconfigured inbox — see audit B12) — the only page using
+    the shared layout chrome.
+  - `design-6sol/`: standalone design-study canvas (own CSS, own theme toggle).
 
-- **Components (`src/components/`, 13 files)**:
-  - `Header.tsx`: Navigation header with model count badge, mobile hamburger drawer, and theme toggle.
-  - `Hero.tsx`: Page hero banner with key stats.
-  - `HeroArt.tsx`: SVG hex radar decorative background graphics.
-  - `CompareSection.tsx`: Model A/B/C comparison section with radar chart, exact score table, model cards, and source selector. Decision models are excluded from the A/B/C slots.
-  - `HexRadar.tsx`: Interactive SVG radar chart mapping 6 dimensions (Tool, Reasoning, Context, Cost, Coding, Multimodal). Tooltips append `freeTierNote` when present.
-  - `ModelCards.tsx`: Displays model cards with pricing badges, context window size, short description, and links. Decision models render on a separate shelf with native specs (never ranked against Overall).
-  - `ModelSelect.tsx`: Dropdown for switching Results source (`Average` or specific reporting agent).
-  - `Methodology.tsx`: Explains the 1–100 scoring rules and Overall score formula (mean of 5 quality dimensions, cost excluded), plus the decision-model paradigm note.
-  - `router-head.tsx`: Owns `<title>`, canonical link, `og:`/`twitter:` tags, tab favicon (`/avatar.png` Vercel PNG) + apple-touch/PWA icon (`/favicon.svg` brand SVG), manifest.
-  - `VendorIcon.tsx`: Brand icons inlined from `vendorIcons.generated.ts` (no `<img>`, no network requests).
+- **Components (`src/components/`)** — v1 chrome was removed 2026-10-20 (the v2 tree is the only
+  design; deleting it was user-ordered to kill the double-source confusion):
+  - `v2/V2Header.tsx`: Sticky header shared by the whole v2 tree (theme toggle driven by the
+    page-owned theme `Signal`, desktop anchor nav — Compare/Scoring/Models/Providers — and a
+    mobile hamburger drawer). Takes `theme` + `navBase` ("" on homepage, "/" on subpages).
+  - `v2/V2Footer.tsx`: Shared v2 footer.
+  - `v2/v2.css`: v2 design tokens (font/color `--color-*` variables).
+  - `VendorIcon.tsx`: Brand icons inlined from `vendorIcons.generated.ts` (no `<img>`, no network
+    requests).
   - `freeZenLink.tsx`: Links "Free OpenCode Zen tier" strings to the Zen catalog.
-  - `theme-toggle/theme-toggle.tsx`: Dark/light mode switcher interacting with `document.documentElement`.
-  - `Footer.tsx`: Footer with credits and copyright.
+  - `router-head.tsx`: Owns `<title>`, canonical link, `og:`/`twitter:` tags, tab favicon
+    (`/avatar.png` Vercel PNG) + apple-touch/PWA icon (`/favicon.svg` brand SVG), manifest.
 
 - **Data Layer (`src/data/`, 4 files)**:
   - `models.ts`: Core data logic, zero hardcoded model entries.

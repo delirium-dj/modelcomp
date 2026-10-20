@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-opus-5.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The long-horizon specialist of the Claude family: it holds an entire project in mind across extended agentic runs and stays coherent where smaller models drift.",
+  "tradeoff": "Premium Opus-lane pricing means it should be reserved for work that genuinely needs the depth; everyday coding is better served by the Sonnet/Haiku tiers at a fraction of the cost."
 }

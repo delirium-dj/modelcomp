@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The reasoning-per-dollar champion of Google’s Flash family — frontier-class agentic and enterprise coding in the cheap, fast lane.",
+  "tradeoff": "The launch price is an introductory rate, so treat it as launch-phase value rather than a permanent guarantee; heavier Pro-class specialties live in Google’s slower Pro line."
 }

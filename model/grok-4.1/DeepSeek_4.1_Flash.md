@@ -1,14 +1,13 @@
 # Grok 4.1 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4.1 (`xai/grok-4.1`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-1).
-> BenchLM overall **n/a**, context **1M**, pricing **API rate not published**.
-> New/updated measurements that fill gaps in the rows above:
-> - Agentic (BenchLM 84): ResearchClawBench 13.5%
+> **Re-verified 2026-10-18.** BenchLM (`grok-4-1`) still carries only **1 row** (ResearchClawBench 13.5%) and assigns **no overall score**; no new evidence surfaced, and the earlier live-availability uncertainty (xAI model-retirement notice) stands. **No score change** (Tool 78 / Reasoning 84 / Context 76 / Multimodal 65 / Coding 80 / Cost 62 / Overall 77).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-1).
 
 ## Model card
 
@@ -61,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (xAI Grok 4.1 launch post, LLM Stats provider/model page, BenchmarkList profile, ChatForest review). **Re-verification attempt 2026-09-27:** xAI's public models hub now surfaces only **Grok 4.7** (500K context, $2.00/$6.00, knowledge cutoff May 2026) and exposes a "Model Retirement (May 15, 2026)" notice; the retirement schedule page itself returned 404 on the URL tried, so **Grok 4.1's live availability on the xAI API could not be confirmed in this pass** — the specs and scores below stand as researched, but treat the endpoint status as unverified. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (xAI Grok 4.1 launch post, BenchLM `grok-4-1`, LLM Stats provider/model page, BenchmarkList profile, ChatForest review). **Re-verification attempt 2026-09-27:** xAI's public models hub now surfaces only **Grok 4.7** (500K context, $2.00/$6.00, knowledge cutoff May 2026) and exposes a "Model Retirement (May 15, 2026)" notice; the retirement schedule page itself returned 404 on the URL tried, so **Grok 4.1's live availability on the xAI API could not be confirmed in this pass** — the specs and scores below stand as researched, but treat the endpoint status as unverified. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

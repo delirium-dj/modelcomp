@@ -1,7 +1,7 @@
 # Hy3 — findings by Step 5 Preview
 
 - Source: Tencent Hy / Hunyuan (`hy3`, weights `tencent/Hy3`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,9 @@
 
 ### Raw benchmarks found
 
+- BenchLM composite (2026-10-19): **52.48/100** overall, #91 of 956 models, 14 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **25** (#31/121 — the file's first independent AA read), 83.9 tok/s, TTFT 2.82s, $0.136/$0.555 with 75% cache discount (blended $0.11/M; **$0.07 per Index task**), 256k context (260k per the FAQ row), text-only, 299B/21B, Apache 2.0, 4 providers, 170M Index tokens (somewhat verbose)
+
 Vendor + launch coverage (VentureBeat tabulation, BiggoNews, i-scoop, HF eval-results):
 
 - GPQA Diamond: **90.4%** (GPT-5.5: 93.6)
@@ -28,21 +31,22 @@ Vendor + launch coverage (VentureBeat tabulation, BiggoNews, i-scoop, HF eval-re
 - SWE-bench Verified: **78%**; SWE-bench Pro: **57.9%** (Opus 4.8: 69.2; GLM-5.2 leads open); SWE-bench Multilingual: **75.8%**; Terminal-Bench 2.1: **71.7%**
 - MathArena Apex: **38.7%** (GPT-5.5: 85.4 — the clear weakness)
 - Internal blind eval: **2.67/4** (270 experts, own tasks) vs GLM-5.1 2.51; WorkBuddy task success 90% (vs 72% preview); hallucination rate 5.4%
+- New independent rows (2026-10-19): GDPval-AA **28.3% normalized / Elo 1,136** (AA — fills the file's missing GDPval row; weak on agentic knowledge work), AA Agentic Index **25.6%** (weak), AA-SciCode **48.6%**, AA Coding Index **58.8%** (mid), AA-LCR **79.0%** (above the vendor 73.4% row), CritPt **4.9%** (very weak), AA-GPQA Diamond **89.7%** (corroborates the vendor 90.4%), AA-HLE **33.5%** (no-tools), AA-Omniscience index **−18.5%** / accuracy 32.0% / hallucination 74.1% (weak calibration), Design Arena Website **1183**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** MCP-Atlas 79.1%, BrowseComp 84.2% and DeepSearchQA 91.0% are frontier-band agentic results — Tencent's table has it ahead of every open model on search/tool orchestration and competitive with Opus 4.8/GPT-5.5; no Terminal-Bench-followup, Toolathlon or GDPval figure keeps it just under the top of the band.
+- **Tool use: 74/100.** MCP-Atlas 79.1%, BrowseComp 84.2% and DeepSearchQA 91.0% remain strong vendor-table agentic results, but the third pass measured the suites the file lacked and they are weak: GDPval-AA 28.3% (Elo 1,136) and AA Agentic Index 25.6%. Trimmed from 82: the search/tool-orchestration strength does not carry to the independent agentic composites.
 - **Reasoning: 84/100.** GPQA Diamond 90.4% (independently tabulated) and HLE-with-tools 53.2% are at the frontier threshold; MathArena Apex 38.7% vs GPT-5.5's 85.4% is a steep advanced-math deficit, so upper-reasoning-tier rather than class-leading.
 - **Context window: 72/100.** 256K is the 200K–500K band (65–84), with AA-LCR 73.4% leading open models on long-context retrieval — solid and verified, but a quarter of the 1M frontier norm.
 - **Multimodal: 12/100.** Text-only (no vision or audio in the Hy3 release) — the methodology's text-only band (10–20).
 - **Coding: 76/100.** SWE-bench Verified 78% and Terminal-Bench 2.1 71.7% are strong open-weights coding from 21B active parameters; SWE-bench Pro 57.9% trails GLM-5.2/Opus 4.8/GPT-5.5 on repository-scale work and there is no DeepSWE/SWE-Marathon number.
 - **Cost efficiency: 95/100.** ~$0.13–0.18/M input and ~$0.53–0.59/M output with Apache-2.0 weights free to self-host on 8× H20-3e — near the methodology's ~$0.1/$0.2 ≈ 97–99 tier, with the 47–49% token-efficiency advantage over GLM-5.2 making the effective cost even lower.
-- **Overall Score: 65/100.** Best-fit recommendation: the cost-efficiency open-weights pick — GLM-5.1-beating productivity at $0.14/$0.56, best-in-open tool orchestration and long-context retrieval; not the choice for advanced math or repo-scale coding.
+- **Overall Score: 63.6/100.** Best-fit recommendation: the cost-efficiency open-weights pick — GLM-5.1-beating productivity at $0.14/$0.56, best-in-open tool orchestration and long-context retrieval; not the choice for advanced math or repo-scale coding.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Tencent Hy release pages + HF model card/eval-results, Tencent Cloud techpedia, VentureBeat/AnIntent/i-scoop launch coverage, OpenRouter, concentrate.ai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (Index 25 #31/121 — first independent read; 83.9 tok/s; $0.07/task) and BenchLM (composite 52.48/100, #91/956, 14/644 benchmarks): the file's GDPval and AA-coded gaps are now measured — GDPval-AA 28.3%/Elo 1,136 and AA Agentic Index 25.6% (weak) trim Tool use 82→74 (Overall 65→64), while AA-GPQA 89.7%, AA-LCR 79.0%, AA Coding Index 58.8% and AA-HLE 33.5% corroborate the other dims. First pass (2026-10-09) used Tencent Hy release pages + HF model card/eval-results, Tencent Cloud techpedia, VentureBeat/AnIntent/i-scoop launch coverage, OpenRouter, concentrate.ai.
 - Future sources: add a new file next to this one, e.g. `Hy4_GA.md`, using the same headings.

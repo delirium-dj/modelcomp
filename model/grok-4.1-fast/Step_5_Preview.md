@@ -1,7 +1,7 @@
 # Grok 4.1 Fast — findings by Step 5 Preview
 
 - Source: xAI (`grok-4-1-fast-reasoning`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -42,11 +42,17 @@ Coding:
 
 Multimodal:
 
-- MMMU-Pro: **63.3%** (AA); MMMU: 72.7% (Vals)
+- MMMU-Pro: **63.3%** (AA, reasoning mode); MMMU: 72.7% (Vals); the non-reasoning mode reads AA-MMMU-Pro **48.4%** (2026-10-19)
 
 Long context:
 
-- 2M-token window with trained multi-turn consistency; **67% retrieval** across the full window (xAI's own measure); AA-LCR: **74%**
+- 2M-token window with trained multi-turn consistency; **67% retrieval** across the full window (xAI's own measure); AA-LCR: **74%** (reasoning mode — the non-reasoning mode reads **31.3%**)
+
+Third-pass verification (2026-10-19):
+
+- Artificial Analysis: deprecated (suggests Grok 4.3); non-reasoning-variant Index **11** (estimated, #75/296 — matches the file's non-reasoning read), 2M context, text+image; no pricing row on the page
+- BenchLM: composite **36.44/100**, #156 of 956 models, 12 of 644 benchmarks (the page's base variant is the non-reasoning slug); new non-reasoning-mode rows: Gert Labs **47.32%**, AA-MMMU-Pro **48.4%**, AA-LCR **31.3%**, CritPt **0.0%**, AA-IFBench **36.5%**, AA-Omniscience index **−50.9%** / accuracy 17.2% / hallucination 82.3% — these fill out the two-mode split the file already documents and do not move the reasoning-mode-based scores
+- **Context conflict noted:** BenchLM lists a 1M window vs the file's 2M — Artificial Analysis confirms 2M, so the 2M figure is retained and BenchLM's 1M is the outlier
 
 ### Normalized scores (1–100)
 
@@ -62,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI Grok 4.1 Fast launch post, Artificial Analysis, LLMLearner, Vector Wire, Oracle/OCI docs, Verdent, BenchLM, serenitiesai); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated, suggests Grok 4.3: non-reasoning Index 11 #75/296 — unchanged; 2M context confirmed) and BenchLM (composite 36.44/100, #156/956, 12/644 benchmarks): new non-reasoning-mode rows Gert Labs 47.32%, AA-MMMU-Pro 48.4%, AA-LCR 31.3%, CritPt 0.0%, IFBench 36.5% — consistent with the documented two-mode split (the file's scores rest on the reasoning slug), no score change; one conflict flagged (BenchLM's 1M context vs AA's 2M — 2M retained). First pass (2026-10-09) used xAI Grok 4.1 Fast launch post, Artificial Analysis, LLMLearner, Vector Wire, Oracle/OCI docs, Verdent, BenchLM, serenitiesai.
 - Future sources: add a new file next to this one, e.g. `Grok_4.2.md`, using the same headings.

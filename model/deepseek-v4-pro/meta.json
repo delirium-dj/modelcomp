@@ -16,5 +16,7 @@
     "https://api-docs.deepseek.com/quick_start/pricing",
     "https://api-docs.deepseek.com/quick_start/pricing",
     "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"
-  ]
+  ],
+  "standout": "MIT open-weights flagship whose software-engineering and math reasoning rivals closed frontier models while remaining self-hostable for free.",
+  "tradeoff": "The rate card swings with peak/off-peak windows and self-hosting demands a very large MoE footprint — real cost depends heavily on when and how you run it."
 }

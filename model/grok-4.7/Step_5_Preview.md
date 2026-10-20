@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.7`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,8 @@
 - **Architecture:** Proprietary; xAI publishes no parameter count (pre-launch 2.1T rumors absent from the official post).
 
 ### Raw benchmarks found
+
+- BenchLM (2026-10-19): 37 of 644 benchmarks covered but **no public overall score assigned** (unranked — the newest xAI flagship); Artificial Analysis today: Intelligence Index **46** (#30/217, 4/4 units — matches the file's 46.4), 93.8 tok/s, TTFT 46.62s, $2.00/$6.00 with 75% cache discount (blended $1.35/M; **$3.74 per Index task — expensive**), 500k context, 3 providers, **240M Index tokens (very verbose — a real cost multiplier at $6/M output)** — NOT deprecated on AA
 
 Agent / tool use:
 
@@ -49,13 +51,14 @@ Coding:
 
 Long context:
 
-- 500K window with the ≥200K whole-request repricing cliff; **no AA-LCR / MRCR number published** for Grok 4.7
+- 500K window with the ≥200K whole-request repricing cliff; AA-LCR: **76.7%** (Artificial Analysis, 2026-10-19 — fills the file's "no AA-LCR published" gap; decent but below the 80–84% leaders); still no MRCR
+- New independent rows (2026-10-19): CWE-bench v1 **68.0%**, AA-AnalystAgent **52.5%**, Hermes Index **39.3%** / Hermes Bench **74.4%**, Bug Hunt Bench **29.0 fixes**, Design Arena Website **1251**, MLCR-AA **15.0%** (weak), CritPt **17.7%**, ARC-AGI-1 **89.50%** / ARC-AGI-2 **61.4%** (ARC Prize — the file's first ARC rows) / ARC-AGI-3 **1.8%**, Epoch FrontierMath v2 Tiers 1–3 **52.982%** / Tier 4 **17.073%** (mid-band math)
 
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** AA AutomationBench 65.6%, GDPval-AA 60.8%/Elo 1715, AA-Briefcase 1657 and EEBench 64.0% are solidly mid-frontier; capped by Terminal-Bench 4.0 at 37.6% vendor / 25.8–28.8% independent (a ~20-point gap to Fable 5.1), CursorBench 46.3% and no published Claw-Eval or SWE-bench figures.
 - **Reasoning: 84/100.** AA Intelligence Index 46.4 (xhigh, +2 over 4.6), HLE 43.1%, SciCode 57.8% and the class-low 29.3% hallucination rate are frontier-band, with LiveBench 77.4 and Vals Index 54.95% corroborating; capped by HLE ~16 points behind the Fable-5.1/Opus-5.5 leaders and GDP.pdf 20.0%.
-- **Context window: 88/100.** 500,000 tokens sits in the 500K–1M band with no published output cap; the ≥200K cliff reprices the entire request 2x, and no AA-LCR/MRCR figure exists for this model, so it cannot be scored higher.
+- **Context window: 88/100.** 500,000 tokens sits in the 500K–1M band with no published output cap; the first published long-context measure (AA-LCR 76.7%, 2026-10-19) is decent but below the leaders, the ≥200K cliff reprices the entire request 2x, and no MRCR figure exists — held at 88.
 - **Multimodal: 68/100.** Text + image in → text out is the 60–70 band; no MMMU-Pro/CharXiv number was found for Grok 4.7, so it sits mid-band rather than at the top.
 - **Coding: 83/100.** DeepSWE v1.1 71.0% (vendor), Vibe Code Bench 86.17% (Vals), SWE-Marathon 46.0% and TB2.1 73.4% (Vals) are strong; capped by CursorBench 46.3% vs Fable 5.1's 51.8%, Terminal-Bench 4.0 at 37.6% vendor/25.8% AA, FrontierSWE v2 29.5% and KernelBench Mega 6.38 — long-horizon terminal work is the recurring weak row.
 - **Cost efficiency: 66/100.** $2/$6 per MTok is the same tier as GPT-6.1 Sol and Claude Sonnet 5 (between the methodology's $3/$15 ≈ 60 and $0.60/$2.20 ≈ 92) and beats Fable 5.1's $10/$50 by 5x on input; capped by the ≥200K whole-request cliff with no batch discount, $5/1K tool calls, and higher output-token burn per task than 4.6.
@@ -65,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Grok-4.7 page yet (released 2026-09-21, newest xAI flagship); re-checked the Vals AI and Artificial Analysis first-pass rows — Terminal-Bench 4.0 37.6% vendor / 25.8–28.8% independent, AA Intelligence Index 46.4 (xhigh), DeepSWE 71.0% (vendor), Vibe Code Bench 86.17% (Vals), CursorBench 46.3% and the class-low 29.3% hallucination rate all confirm the existing Tool use 78 / Reasoning 84 / Coding 83 reads; no published SWE-bench/AA-LCR and the 500K window keep Context at 88. No score change warranted. Prior pass (2026-10-09) used xAI Grok 4.7 launch post + model card + docs, Artificial Analysis, Vals AI, BenchmarkList, The Model Gap, AIEvals, DigitalApplied, explainx, YFarmX.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 46 #30/217 — unchanged; 93.8 tok/s; TTFT 46.62s; $2/$6 confirmed; **240M Index tokens — very verbose — at $3.74/task**) and BenchLM (37 of 644 benchmarks, still no public overall score): the file's long-context gap is filled — AA-LCR 76.7% (decent, below the leaders — Context held at 88) — plus new rows CWE-bench 68.0%, AnalystAgent 52.5%, Hermes 39.3%/74.4%, Bug Hunt 29.0 fixes, ARC-AGI-1 89.50%/ARC-AGI-2 61.4% (first ARC rows), Epoch FrontierMath v2 53.0%/17.1% (mid-band math) and MLCR-AA 15.0%. All consistent with the existing Tool use 78 / Reasoning 84 / Context 88 / Multimodal 68 / Coding 83 / Cost 66 reads — no score change; the verbosity measurement reinforces the Cost 66 cap. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com had no Grok-4.7 page; the Vals AI and AA first-pass rows confirmed the same reads. Prior pass (2026-10-09) used xAI Grok 4.7 launch post + model card + docs, Artificial Analysis, Vals AI, BenchmarkList, The Model Gap, AIEvals, DigitalApplied, explainx, YFarmX.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

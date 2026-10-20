@@ -1,7 +1,7 @@
 # Hy3 preview — findings by Step 5 Preview
 
 - Source: Tencent Hy / Hunyuan (`Hy3-preview`, weights `tencent/Hy3-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -17,6 +17,8 @@
 - **Architecture:** MoE 295B/21B, differentiated expert sizes + P-Penalty Loss, MTP speculative decoding.
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **52.23/100** overall, #92 of 956 models, 22 of 644 benchmarks covered (partial coverage — conservative)
 
 Instruct model (via Tencent launch coverage — Decrypt, GIGAZINE): 
 

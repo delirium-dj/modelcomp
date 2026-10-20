@@ -26,7 +26,7 @@ Agent / tool use:
 - Destructive-action avoidance **0.88**, official internal evaluation of preserving concurrent user edits, not task-completion accuracy [S3, PDF p.7/Table2].
 - CVE-Bench **90% pass@1 averaged over 3 rollouts**, on **34/40** tasks, blind zero-day configuration; professional CTF **88% pass@12** over selected rollouts; Cyber Range **80% of scenarios with at least one success in 16 trials** [S3, Figures5–7]. These are distinct datasets and attempt budgets, not one generic success rate. Launch CTF **77.6%** is retained separately [S1].
 - Irregular's external near-final-model evaluation, **as reported in the vendor card**, finds **86% network simulation /72% vulnerability research /53% evasion**, up to **1,000 turns**, compaction every **100K** and resumed runs; **no CyScenarioBench challenge solved** [S3, PDF pp.18–19]. Irregular's directly inspected methodology describes scenario-level orchestration but does not publish this exact Codex score there [S11]. External provenance through a vendor report is not an independently reread result sheet.
-- Tau2 **86%** appears only as secondary BenchLM attribution [S8]. Exact TB2.1 / Tau3-Banking / Claw-Eval / MCP-Atlas scores not verified in inspected sources.
+- Supplementary AA selected-model data directly confirms **Tau2 telecom85.96%** [S5]. `tauBanking`, TB2.1 and TB4 fields are **null**, not zero. Exact Tau3-Banking/Claw-Eval/MCP-Atlas scores remain unverified.
 
 Reasoning / knowledge:
 
@@ -34,7 +34,7 @@ Reasoning / knowledge:
 - Source inconsistency: ProtocolQA figure labels Codex44%, while adjacent prose says all models underperform a42% median expert baseline. Figure3 labels Codex50% vs predecessor48%, while prose calls the predecessor highest. These internal prose/chart conflicts are preserved, not silently resolved [S3, PDF pp.9–10].
 - AA Intelligence Index **33***, explicitly **estimated**, **independent evaluation forthcoming**; BenchLM reports **32.5** [S5,S8]. This is not treated as a completed independent index run. AA cost/task and aggregate token use are **N/A**, so no fabricated efficiency total is inferred.
 - AA measures serving **122.1 tokens/s**, **54.24s TTFT** [S5]; runtime measurement and estimated quality are separate evidence.
-- BenchLM attributes GPQA **91.5%**, HLE **42.5%**, CritPt **16.9%**, Omniscience accuracy **52.9%**, hallucination **89.2%**, IFBench **75.4%** to AA [S8]. These detailed submetrics were not directly extracted from the current AA evaluation table and are **secondary**, especially given the current composite's estimated status. Local 91.52/42.49 precision is not inherited as verified primary data.
+- During batch verification, AA's public selected-model `currentModel` record was parsed: UUID `59b5b14b-5365-4ee7-824a-18a8e6309644`, slug `gpt-5-3-codex`, effort **xhigh**. It directly exposes GPQA **91.515%**, HLE **42.493%**, Omniscience accuracy **52.883%**, hallucination **89.176%**, IFBench **75.374%** [S5]. Local91.52/42.49 is consistent with rounding these fields, not a separately verified vendor benchmark. **The composite remains explicitly estimated**, so these available submetrics do not establish that the whole current index evaluation is complete. CritPt16.9 remains secondary [S8].
 
 Coding:
 
@@ -49,13 +49,13 @@ Long context:
 
 - Verified **400K total /272K input /128K output** [S2,S6]. No verified ≥512K retrieval result or full-input MRCR accuracy found.
 - Official card documents compaction at100K in external evaluation and very long multi-compaction workloads [S3]. Millions of cumulative processed tokens in launch demos are not native millions-token context.
-- AA-LCR **83.3%** appears secondarily on BenchLM [S8]; not a directly inspected full-window recall rate.
+- AA-LCR **83.33%** directly confirmed in the exact AA selected-model record during batch verification [S5]; it is not a full400K recall guarantee.
 
 Multimodal:
 
 - Official image input plus OSWorld-Verified **64.7%** supplies model-specific visual grounding/action evidence [S1,S2]. Official file processing supports vision-backed PDFs but extracts non-PDF docs text-only [S10].
 - Card Figure3's specialist multimodal troubleshooting labels **50% pass@1** on350 held-out questions, with the prose/chart conflict noted above [S3].
-- AA MMMU-Pro **78.5%** is a secondary BenchLM attribution [S8], not a directly confirmed primary result. No native audio/video capability imported from the surrounding ChatGPT product.
+- AA MMMU-Pro **78.50%** directly confirmed in the selected-model page record during batch verification [S5]. No native audio/video capability imported from the surrounding ChatGPT product.
 
 ### Research trail and comparisons
 
@@ -79,7 +79,7 @@ Important resolutions: **Responses-only direct API vs translated gateways**, **2
 - [S2] https://developers.openai.com/api/docs/models/gpt-5.3-codex — current exact API, context/input/output split, image modality, prices, knowledge cutoff and features.
 - [S3] https://cdn.openai.com/pdf/23eca107-a9b1-4d2c-b156-7deb4fbc697c/GPT-5-3-Codex-System-Card-02.pdf — all31 pages read, including labelled figures; current HTML https://deploymentsafety.openai.com/gpt-5-3-codex linked by https://openai.com/index/gpt-5-3-codex-system-card/.
 - [S4] https://www.vals.ai/models/openai_gpt-5.3-codex — independent results/uncertainty, dated update and important high-vs-xhigh exception.
-- [S5] https://artificialanalysis.ai/models/gpt-5-3-codex — explicitly estimated quality index, N/A task costs and measured serving performance.
+- [S5] https://artificialanalysis.ai/models/gpt-5-3-codex — explicitly estimated quality index, N/A task costs and measured serving performance; exact selected-model public hydration data confirms available submetrics while retaining the estimated-composite flag.
 - [S6] https://openrouter.ai/api/v1/models/openai/gpt-5.3-codex/endpoints — live provider routes, advertised20260224 snapshot, exact272K input and current tier prices; no inference made.
 - [S7] https://developers.openai.com/api/docs/deprecations.md — October1 official deprecation with April1,2027 shutdown.
 - [S8] https://benchlm.ai/models/gpt-5-3-codex — secondary source discovery, updated2026-10-19; mismatched SWE85% source explicitly excluded.

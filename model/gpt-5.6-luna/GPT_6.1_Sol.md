@@ -26,8 +26,8 @@ Agent / tool use:
 - Independent Vals Terminal-Bench **4.0 11.62% ±1.01**, rank36/51; Terminal-Bench-Science **0.00%**, rank39/41; SRE **1.53% ±0.76**, rank26/35 [S4]. These newer/harder tasks cap autonomy despite excellent older-task economics; TB2.1/4.0 are not directly comparable percentages.
 - SkillsBench **60.45% ±4.75**, rank7/35; Finance Agent v2 **55.04% ±0.31**, Tax Agent **24.82% ±3.11**, Legal Research **36.54% ±3.35** [S4]. Strong skills use does not imply equally strong specialist workflows.
 - Official BrowseComp **83.3%**, OSWorld2.0 **45.6%**, Toolathlon **53.4%**, AutomationBench **14.9%** [S1].
-- Official GDPval-AA **v2 1591.8 Elo**, Agents' Last Exam **50.3%** [S1]. BenchLM lists a differently dated1592-like record as **1582** and a normalized GDP score; no averaging with raw Elo [S9]. Direct ALE homepage confirms methodology/55-field scope, not a separately read exact Luna result [S13].
-- Exact Tau3-Banking/Claw-Eval/MCP-Atlas: no verified public model-specific result found in inspected sources; support for MCP tools alone does not establish an MCP-Atlas score.
+- Official GDPval-AA **v2 1591.8 Elo**, Agents' Last Exam **50.3%** [S1]. Supplementary current AA selected-model data gives **GDPval1459.2 Elo**, current **TB2.1 80.90%** and **TB4 11.62%** [S5]; current evaluation versions/harnesses differ from the launch and Vals records. BenchLM lists a differently dated1582 and normalized GDP score [S9]; no averaging with raw Elo. Direct ALE homepage confirms methodology/55-field scope, not a separately read exact Luna result [S13].
+- **Tau3-Banking31.13%**, directly confirmed during batch verification from AA's public `currentModel` record: UUID `426d24c8-49ae-482a-b4a8-20f1c53f21c1`, slug `gpt-5-6-luna`, effort **max** [S5]. No verified Claw-Eval/MCP-Atlas score found; tool support alone is not an evaluator result. Banking methodology is97 tasks with about195K policy tokens [S14].
 
 Reasoning / knowledge:
 
@@ -37,25 +37,25 @@ Reasoning / knowledge:
 - FrontierMath **v2 tiers1–3 78.6% /tier4 58.5%**, official [S1]. Epoch directly documents a **June12 v2 correction**,43 Tier4 problems, Python tools and generous evaluation token budgets, but its rendered page did not expose a Luna-specific row [S12]. Therefore local metadata's **61.0% T4** is **unverified**, not substituted for the visible58.5% primary result.
 - Independent Vals ProofBenchv1.1 **60.00% ±4.92**, Science Index **25.30% ±0.82** (21/21), MysteryMechanism **14.41% ±2.36** (26/27) [S4]. Strong GPQA/math coexists with limited broader scientific agency.
 - Official HealthBench Professional length-adjusted **55.7%**, raw **59.8%**, mean3389characters; HealthBench Hard adjusted **32.0%** [S11]. Metric variants retained rather than conflated.
-- AA-attributed HLE **39.5%**, CritPt **20.6%**, Omniscience accuracy **42.7%** /hallucination **92.6%** appear secondarily on BenchLM [S9]; not directly extracted from current AA detailed tables here and not assumed representative production error rates.
+- Supplementary AA selected-model data directly confirms **GPQA91.11%**, **HLE39.48%**, Omniscience accuracy **42.73%** /hallucination **92.58%** [S5]. These are dataset-specific measures, not representative production error rates. CritPt **20.6%** remains a secondary BenchLM attribution [S9].
 
 Coding:
 
 - Independent Vals SWE-bench **93.00% ±1.14**, rank9/88, max; Vibe Code Benchv1.1 **77.06% ±3.07**, VCB1–100 **22.59% ±4.00**, migration **44.55% ±4.24**, IOI **61.78% ±11.61** [S4]. High bug-patch success does not imply complete multi-stage app-building success.
 - Official SWE-Pro **62.7%**, **DeepSWE v1.1 67.2%**, AA Coding Agent Index **v1.1 74.6** [S1]. Exact versions/harnesses matter; none is the same metric as SWE Verified.
 - Vals ProgramBench **0.00% full resolution** [S4]. This is a hard-task outcome, not absent data assigned zero.
-- Secondary CursorBench **3.2 61.1 /4.0 35.9**, SciCode **53.6%**, FrontierCode1.1 Extended **55.1%** [S9]. The linked Cognition URL returned404; those code-review/provider figures are not claimed directly inspected primary runs.
+- AA SciCode **53.59%** directly confirmed in the selected-model record [S5]. Secondary CursorBench **3.2 61.1 /4.0 35.9**, FrontierCode1.1 Extended **55.1%** remain unreplicated attributions [S9]. The linked Cognition URL returned404; those code-review/provider figures are not claimed directly inspected primary runs.
 - Primary family internal research debugging **50.8%**, KernelGen1P **22.4%**, RSIIndex **41.9** for Luna [S1]. These are internal scientific-engineering suites, not public SWE equivalents.
 
 Long context:
 
 - Verified1.05M total/922K input/128K output [S2,S7].
 - Official **MRCRv2 eight-needle 41.3%** in both **256K–512K** and **512K–1M** table bins; GraphWalks BFS F1 **81.3% at256K /51.2% at1M** [S1]. These table bins do not override the current922K input cap or establish98% reliable recall. Repeated41.3% rows are reported as published, not “corrected” by guessing.
-- AA-LCR **83.7%** is a secondary attribution [S9], not a full1M recall measurement. Capacity receives its documented tier, with long-input reliability explicitly qualified.
+- AA-LCR **83.67%** directly confirmed in selected-model page data [S5], not a full1M recall measurement; the evaluator describes a roughly10K–100K test range [S14]. Capacity receives its documented tier, with long-input reliability explicitly qualified.
 
 Multimodal:
 
-- Official MMMU-Pro **78.4% without tools /79.5% with tools**, GDP.pdf **22.7%** [S1]. Independent Vals MMMU-Pro **85.03% ±0.86**, max [S4]; AA-attributed78.6% is secondary [S9]. Different tools/subsets/budgets may matter; exact cause of the Vals gap was not verified, so numbers are preserved separately.
+- Official MMMU-Pro **78.4% without tools /79.5% with tools**, GDP.pdf **22.7%** [S1]. Independent Vals MMMU-Pro **85.03% ±0.86**, max [S4]; **AA78.55%** directly confirmed in selected-model page data [S5]. Different tools/subsets/budgets may matter; exact cause of the Vals gap was not verified, so numbers are preserved separately.
 - Official BenchCAD **63.1%**, with Python **73.9%**, plus OSWorld2.0 **45.6%** provide visual/computer-action evidence [S1]. CAD/GUI operation and a hosted image-generation tool do not establish native image/audio/video generation.
 
 ### Research trail and comparison
@@ -80,7 +80,7 @@ Most consequential comparisons: **API default medium vs max-scored evaluations**
 - [S2] https://developers.openai.com/api/docs/models/gpt-5.6-luna.md — current exact model, medium default, context/input/output, supported tools and whole-request long-input pricing.
 - [S3] https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ — official July30 dated80% Luna price reduction and separate subscription rules.
 - [S4] https://www.vals.ai/models/openai_gpt-5.6-luna — direct independent results, max effort, uncertainty and task-specific weaknesses.
-- [S5] https://artificialanalysis.ai/models/gpt-5-6-luna — direct v4.3.2 index37,135.2tokens/s,100.86sTTFT,150M eval output tokens,$0.18/task and deprecated-evaluation qualification.
+- [S5] https://artificialanalysis.ai/models/gpt-5-6-luna — direct v4.3.2 index37,135.2tokens/s,100.86sTTFT,150M eval output tokens,$0.18/task and deprecated-evaluation qualification; exact selected-model public hydration record verified during batch checks.
 - [S6] https://arcprize.org/results/openai-gpt-5-6-luna — verified effort-specific ARC results and historical$1/$6 header.
 - [S7] https://openrouter.ai/api/v1/models/openai/gpt-5.6-luna/endpoints — live provider1050000/922000/128000 limits, price overrides and tier differences; no inference call made.
 - [S8] https://www.vals.ai/benchmarks/terminal-bench-2-1 — direct archived pass@1/Terminus2 result79.03 and$0.05/test.
@@ -89,6 +89,7 @@ Most consequential comparisons: **API default medium vs max-scored evaluations**
 - [S11] https://deploymentsafety.openai.com/gpt-5-6 — relevant original system-card model-data, effort-curve, vision and HealthBench sections inspected; no claim that all figures/appendices were individually verified.
 - [S12] https://epoch.ai/benchmarks/frontiermath-tier-4-v2 — direct benchmark version/tool/budget methodology; no rendered Luna-specific61% result verified.
 - [S13] https://agents-last-exam.org/ — direct benchmark scope and methodology; exact Luna50.3 remains vendor-table attribution.
+- [S14] https://artificialanalysis.ai/evaluations/tau3-banking — direct97-task banking methodology and evaluator benchmark definitions, including AA-LCR's shorter-than1M test range.
 
 ---
 

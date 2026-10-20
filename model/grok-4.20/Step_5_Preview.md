@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.20-0309`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,12 +43,20 @@ Agentic / tool use:
 
 Multimodal:
 
-- MMMU-Pro: **83.5%** (Vals) / 74.6% (AA, 0309 v2 Reasoning); Vals Multimodal Index: 39.1% (#28/29 — low)
+- MMMU-Pro: **83.5%** (Vals) / 74.6% (AA, 0309 v2 Reasoning) / **75.2%** (Meta Muse Spark chart via BenchLM, 2026-10-19); Vals Multimodal Index: 39.1% (#28/29 — low)
+- New independent multimodal rows (2026-10-19, Meta Muse Spark chart via BenchLM): CharXiv **60.9%**, ERQA **54.1%**, SimpleVQA **57.4%**, MedXpertQA MM **65.8%**, Design Arena Website **1231** (OpenRouter) — a middling multimodal table that keeps Multimodal mid-band
 
 Long context (its headline feature):
 
 - **>95% needle-retrieval accuracy at all positions across the full 2M-token window** (xAI + independent needle-in-a-haystack testing), vs 60–70% mid-context degradation in earlier models; 2M ≈ 1,500 pages / 250K lines of code
 - AA-LCR: **69.0%** (AA, 0309 v2 Reasoning); prefill of 2M tokens takes ~45–90s
+
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **57.43/100** overall, #61 of 956 models, 25 of 644 benchmarks covered; Artificial Analysis (0309 reasoning page): deprecated (suggests the 0309 v2), Index **25** (estimated, #121/217 — matches the file's 25.7–26), 2M context confirmed, 1 provider, no speed measured
+- **Pricing conflict noted:** Artificial Analysis lists **$2.00/$6.00** while the file records the post-February-cut **$1.25/$2.50** from xAI's pricing docs — AA appears to carry the February launch rate for the deprecated slug; the file's lower current price is retained
+- **ARC-AGI-2 conflict noted:** the file's 65.1% (#10/71) vs a Meta Muse Spark chart row of **53.3%** via BenchLM — the lower independent read is recorded; GPQA 88.5–91.1% and SimpleQA 88.3% keep Reasoning in-band at 80
+- New rows: MazeBench **0%**, ARC-AGI-3 **0.1%**
 
 ### Normalized scores (1–100)
 
@@ -64,6 +72,6 @@ Long context (its headline feature):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI Grok 4.20 docs + pricing, ARMES, HokAI, BenchmarkList, graysoft/AA runs, Vals AI, Benchgen, DigitalApplied); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (0309 reasoning page, deprecated → 0309 v2: Index 25 estimated #121/217 — unchanged; 2M confirmed; carries the $2/$6 February launch rate vs the file's current $1.25/$2.50 — conflict flagged) and BenchLM (composite 57.43/100, #61/956, 25/644 benchmarks): new rows MazeBench 0%, ARC-AGI-3 0.1%, a Meta-chart multimodal table (MMMU-Pro 75.2%, CharXiv 60.9%, ERQA 54.1%) and a conflicting ARC-AGI-2 read (53.3% vs the file's 65.1%). All consistent with the existing Tool use 62 / Reasoning 80 / Context 95 / Multimodal 70 / Coding 70 / Cost 92 reads — no score change. First pass (2026-10-09) used xAI Grok 4.20 docs + pricing, ARMES, HokAI, BenchmarkList, graysoft/AA runs, Vals AI, Benchgen, DigitalApplied.
 - Future sources: add a new file next to this one, e.g. `Grok_4.3.md`, using the same headings.

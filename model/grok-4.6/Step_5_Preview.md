@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.6`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,9 @@
 - **Architecture:** Proprietary (undisclosed parameters).
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **67.09/100** overall, #28 of 956 models, 40 of 644 benchmarks covered (partial coverage — conservative); an official xAI model-documentation page now exists
+- Artificial Analysis today (2026-10-19): Intelligence Index **44** (#37/217, 4/4 units — matches the file's rebased 44.3), 65.4 tok/s, TTFT 37.19s, $2.00/$6.00 with 75% cache discount (blended $1.35/M; $1.48 per Index task), 500k context, 4 providers, 94M Index tokens (somewhat verbose) — DEPRECATED on AA (suggests Grok 4.7)
 
 Agent / tool use:
 
@@ -49,6 +52,7 @@ Coding:
 - FrontierCode 1.1 Extended: **61.3%** (vendor; Fable 5 Max 63.6%)
 - LiveCodeBench: **88.2%** (Vals); Vibe Code Bench v1.1: **76.2%** (Vals); AA Coding Index: **76.8%**
 - SWE-Marathon v1.1 and OfficeQA Pro reported in the model card (no public figure extracted)
+- New independent rows (2026-10-19): AA EnterpriseOps-Gym **48.3%**, ApprenticeBench **13%**, CWE-bench v1 **57.0%**, MazeBench **1%**, Bug Hunt Bench **27.0 fixes**, VulcanBench v3 **87.0%**, FrontierSWE v2 **25.3%**, Design Arena Website **1289**, AA-LCR **80.3%** (reconfirms the 81.0% read), CritPt **17.1%**, ARC-AGI-1 **87.00%** / ARC-AGI-2 **67.1%** (ARC Prize — the file's first ARC-AGI-2 row) / ARC-AGI-3 **2.1%**, Gray Swan IPI **51.8%** (weak safety), Epoch FrontierMath v2 Tiers 1–3 **65.965%** / Tier 4 **31.707%** (mid-band math)
 
 Multimodal:
 
@@ -72,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 78.5%, OSWorld 58.0%, Terminal-Bench 2.1 26.0% low-confidence, GDPVal-AA Elo 1753, APEX-Agents 57.5%, AA Intelligence Index 61, composite 55.6 #15) and re-checked the Vals/AA first-pass rows. Note the RankLLMs Terminal-Bench 2.1 26.0% is a low-confidence harness outlier vs the 88.4% (AA) / 78.28% (Vals) consensus — the frontier-band SWE-bench Verified and GDPval Elo 1753 confirm Coding 87 and Tool use 84; no score change warranted. Prior pass (2026-10-09) used xAI launch post + model card + pricing docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter, Ridge, eesel AI, agentguides, genztech.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated, suggests Grok 4.7: Index 44 #37/217, 4/4 units — unchanged; 65.4 tok/s; TTFT 37.19s; $2/$6 confirmed) and BenchLM (composite 67.09/100, #28/956, 40/644 benchmarks; official xAI docs page now exists): new rows AA EnterpriseOps-Gym 48.3%, ApprenticeBench 13%, CWE-bench v1 57.0%, MazeBench 1%, Bug Hunt Bench 27.0 fixes, VulcanBench v3 87.0%, FrontierSWE v2 25.3%, AA-LCR 80.3% (reconfirms 81.0%), CritPt 17.1%, ARC-AGI-1 87.00% / ARC-AGI-2 67.1% (first ARC-AGI-2 row), Gray Swan IPI 51.8% (weak safety), Epoch FrontierMath v2 66.0%/31.7% — all consistent with the existing Tool use 84 / Reasoning 90 / Context 89 / Multimodal 68 / Coding 87 / Cost 66 reads, no score change. Second-pass verification (2026-10-10) cross-referenced rankllms.com (independent composite — SWE-bench Verified 78.5%, OSWorld 58.0%, Terminal-Bench 2.1 26.0% low-confidence, GDPVal-AA Elo 1753, APEX-Agents 57.5%, AA Intelligence Index 61, composite 55.6 #15) — same conclusion. Prior pass (2026-10-09) used xAI launch post + model card + pricing docs, Artificial Analysis, Vals AI, BenchLM, OpenRouter, Ridge, eesel AI, agentguides, genztech.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

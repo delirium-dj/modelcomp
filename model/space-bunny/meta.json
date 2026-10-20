@@ -10,5 +10,7 @@
   "officialUrl": "https://huggingface.co/models?search=space-bunny",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
-  ]
+  ],
+  "standout": "Exceptional at single-shot creative work — most notably SVG art and self-contained code generation — straight from a free, zero-retention endpoint.",
+  "tradeoff": "The vendor and provenance are undisclosed, and the wider benchmarks rarely reward it outside that sweet spot; treat it as a specialist tool, not a general workhorse."
 }

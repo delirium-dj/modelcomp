@@ -75,6 +75,11 @@ is unset **and** `freeTierNote` exists or the pricing notes cite a `$0`/
 free lane (a "no free tier" note negates; cached `$0.10` is not free).
 Never encode "no Zen Free ID" in `pricingNote`/`pricingTiers` — the badge
 already conveys it),
+`standout` / `tradeoff` (string — optional curated editorial one-liners,
+rendered as the "Where it stands out" / "The trade-off" blocks on the model
+profile. Analytical, NOT numbers: describe what the model is exceptionally
+good at / its main caveat based on the in-folder research. One sentence
+each, written from already-verified findings),
 `category` ("generative" | "decision" — omit for generative; set `"decision"`
 for typed-decision System-One models like Jev, which return judgments instead
 of text and are never comparable to generative Overall),
@@ -154,8 +159,11 @@ A slug that turns out fictional — no vendor route, phantom catalog entry
 (e.g. `glm-5.3-free`, parked 2026-10-10 after live Zen verification showed
 `opencode/glm-5.3-free` in no listing) — or a duplicate alias for an already
 tracked model (e.g. `gemini-2.5`, parked 2026-10-12 — every cited ID resolves
-to `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists; RULES.md
-family-shorthand identity) — is parked, never deleted (`RULES.md`
+to `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists;
+`qwen-3.5`, parked 2026-10-20 — a family/generation name with no distinct
+vendor ID, members already tracked as `qwen-3.5-397b`, `qwen-3.5-plus`,
+`qwen-3.5-9b` — RULES.md family-shorthand identity) — is parked, never
+deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
 - the folder keeps every file; `pnpm sync` keeps scanning, averaging, and
@@ -221,6 +229,11 @@ also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it;
 `gemini-2.5-pro/` covers every bare `Gemini 2.5` name — do not scaffold or
 research `model/gemini-2.5/` (parked duplicate alias, RULES.md
 family-shorthand identity);
+`qwen-3.5-397b/`, `qwen-3.5-plus/` and `qwen-3.5-9b/` cover every bare
+`Qwen 3.5` name — the bare name is the generation (397B-A17B / 122B-A10B /
+35B-A3B / 27B / 9B / 4B / 2B / 0.8B plus hosted Plus/Flash tiers), never a
+model — do not scaffold or research `model/qwen-3.5/` (parked family entry,
+RULES.md family-shorthand identity);
 `glm-5.1/` covers every `GLM 5.1 Coding` name — the `-coding` suffix was a
 dataset label, never a SKU (renamed from `model/glm-5.1-coding/` 2026-10-12;
 RULES.md GLM-5.1 coding-suffix identity — never recreate the old slug);

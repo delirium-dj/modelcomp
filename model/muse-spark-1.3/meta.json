@@ -16,5 +16,7 @@
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://research.meta.ai/blog/introducing-muse-spark-1-3",
     "https://research.meta.ai/blog/introducing-muse-spark-1-3"
-  ]
+  ],
+  "standout": "Elite all-round agentic coding and long-horizon agent work, with the same frontier weights reachable through a generous free/Contributor lane.",
+  "tradeoff": "Tier identity, not capability, is the catch: Contributor/Free, Standard and Max share one set of weights, and only the price plus training-data consent differ — pick the lane by privacy, never by expected quality."
 }

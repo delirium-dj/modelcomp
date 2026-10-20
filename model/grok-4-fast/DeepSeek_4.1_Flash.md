@@ -1,14 +1,13 @@
 # Grok 4 Fast — findings by DeepSeek 4.1 Flash
 
 - Source: xAI / Grok 4 Fast (`xai/grok-4-fast`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-fast-reasoning).
-> BenchLM overall **43.64/100** (#119), context **2M**.
-> New/updated measurements that fill gaps in the rows above:
-> - Coding (BenchLM 21.7, #116/146): Vibe Code Bench 0.00%
+> **Re-verified 2026-10-18.** BenchLM (`grok-4-fast-reasoning`, 12 rows) computes an overall **43.49/100 (#129 of 956)** and adds independent Artificial Analysis rows: AA-GPQA 84.7%, AA-HLE 19.1%, AA-LCR 73.7%, CritPt 2.9%, **AA-MMMU-Pro 61.8%** (conflicts with the BenchmarkList MMMU-Pro 72.8% already recorded), AA-IFBench 50.5%, AA Intelligence Index 17.9%, Vibe Code Bench 0.0%. Model is retired from the served lineup (2026-08-15). **No score change** (Tool 72 / Reasoning 82 / Context 98 / Multimodal 62 / Coding 68 / Cost 94 / Overall 76).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/grok-4-fast-reasoning).
 
 ## Model card
 
@@ -60,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (xAI Grok 4 Fast launch post, BenchmarkList profile with third-party eval rows). **Re-verified 2026-09-27** against xAI's own docs hub (now showing only Grok 4.7 — 4 Fast has left the served lineup) and a mid-2026 vendor-page record confirming deprecation 2026-05-15, retirement 2026-08-15, 16K max output and AA index 35; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (xAI Grok 4 Fast launch post, BenchLM `grok-4-fast-reasoning` — 12 rows — + Artificial Analysis, BenchmarkList profile with third-party eval rows). **Re-verified 2026-09-27** against xAI's own docs hub (now showing only Grok 4.7 — 4 Fast has left the served lineup) and a mid-2026 vendor-page record confirming deprecation 2026-05-15, retirement 2026-08-15, 16K max output and AA index 35; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

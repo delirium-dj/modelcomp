@@ -90,6 +90,13 @@ export interface AiModel {
     pricingLinks?: (string | null)[];
     /** True when no Zen Free ID exists; cost is scored on paid pricing. */
     noFreeId?: boolean;
+    /**
+     * Curated qualitative one-liner (no scores): what this model is
+     * exceptionally good at ("Where it stands out" block on the profile).
+     */
+    standout?: string;
+    /** Curated qualitative one-liner (no scores): the model's main caveat. */
+    tradeoff?: string;
     /** Official website or documentation URL for the model */
     officialUrl?: string;
   };
@@ -142,6 +149,8 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
       pricingLinks: meta.pricingLinks,
       freeTierNote: meta.freeTierNote,
       noFreeId: meta.noFreeId,
+      standout: meta.standout,
+      tradeoff: meta.tradeoff,
       officialUrl: meta.officialUrl,
     },
   };
@@ -228,6 +237,8 @@ interface MetaFile {
   pricingLinks?: (string | null)[];
   freeTierNote?: string;
   noFreeId?: boolean;
+  standout?: string;
+  tradeoff?: string;
   scaffolded?: boolean;
   /** Optional paradigm tag: "generative" (default) or "decision". */
   category?: string;
@@ -281,10 +292,13 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
 
 /**
  * Parked (retired) slugs — user-directed: `glm-5.3-free` (2026-10-10,
- * fictional Zen route, live-verified absent from zen/v1/models) and
+ * fictional Zen route, live-verified absent from zen/v1/models);
  * `gemini-2.5` (2026-10-12, duplicate alias: every cited ID resolves to
  * `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists — RULES.md
- * family-shorthand identity). The folder
+ * family-shorthand identity); `qwen-3.5` (2026-10-20, family/generation name,
+ * no distinct vendor ID — Zen lists `qwen3.5-plus`, never a bare `qwen-3.5`,
+ * and the 3.5 members 397B/Plus/9B are tracked in their own folders —
+ * RULES.md family-shorthand identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -293,7 +307,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

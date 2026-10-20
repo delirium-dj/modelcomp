@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=kimi-k3",
   "pricingLinks": [
     "https://platform.moonshot.ai/docs/pricing/chat"
-  ]
+  ],
+  "standout": "A huge multimodal MoE flagship that pairs terminal-grade coding with market-leading web browsing and frontend design.",
+  "tradeoff": "List pricing sits at premium-API level, so heavy automated workloads usually get better value from the smaller Kimi lines."
 }

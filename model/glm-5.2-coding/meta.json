@@ -9,5 +9,7 @@
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
     "https://docs.z.ai/guides/overview/pricing"
-  ]
+  ],
+  "standout": "A purpose-built coding SKU with near-perfect tool-orchestration behavior and MIT weights you can self-host.",
+  "tradeoff": "The coding focus narrows general breadth — choose it for software work, not as a universal assistant."
 }

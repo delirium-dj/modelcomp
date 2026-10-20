@@ -1,7 +1,10 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { PROVIDERS } from "../../data/providers";
 import { VendorIcon } from "../../components/VendorIcon";
+import { V2Header } from "../../components/v2/V2Header";
+import { V2Footer } from "../../components/v2/V2Footer";
+import "../../components/v2/v2.css";
 
 const KIND_BADGE: Record<string, string> = {
   vendor: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
@@ -15,8 +18,59 @@ const linkClass =
   "text-indigo-600 transition-colors hover:text-indigo-500 hover:underline dark:text-indigo-400 dark:hover:text-indigo-300";
 
 export default component$(() => {
+  // Theme is owned by the page (same init as routes/index.tsx and model
+  // profiles): explicit choice → inherited html.dark → OS preference.
+  // The self-owned chrome keeps other pages out of this page's concerns.
+  const theme = useSignal<"light" | "dark">("light");
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    const root = document.documentElement;
+    const apply = (v: "light" | "dark") => {
+      theme.value = v;
+      root.classList.toggle("dark", v === "dark");
+      try {
+        localStorage.setItem("v2-theme", v);
+        localStorage.setItem("theme", v);
+      } catch {
+        /* storage unavailable — theme just doesn't persist */
+      }
+    };
+    const sys = window.matchMedia("(prefers-color-scheme: dark)");
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem("v2-theme");
+    } catch {
+      stored = null;
+    }
+    if (stored === "light" || stored === "dark") {
+      apply(stored);
+      return;
+    }
+    if (root.classList.contains("dark")) {
+      apply("dark");
+      return;
+    }
+    apply(sys.matches ? "dark" : "light");
+    const follow = (e: MediaQueryListEvent) => {
+      try {
+        if (localStorage.getItem("v2-theme")) return;
+      } catch {
+        /* storage unavailable — keep following */
+      }
+      apply(e.matches ? "dark" : "light");
+    };
+    sys.addEventListener("change", follow);
+    cleanup(() => sys.removeEventListener("change", follow));
+  });
+
   return (
-    <section class="mx-auto max-w-6xl px-4 py-10">
+    <main
+      class={`flex min-h-screen flex-col font-[family-name:var(--font-body)] text-sm leading-normal antialiased bg-[color:var(--color-page)] text-[color:var(--color-ink)]${theme.value === "dark" ? " dark" : ""}`}
+    >
+      <V2Header theme={theme} navBase="/" />
+      <div class="flex-1">
+      <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4 py-10">
       <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Providers</h1>
       <p class="mt-2 max-w-3xl text-sm text-slate-600 dark:text-slate-400">
         Every tracked model reaches you through a provider — the console, gateway or API you actually
@@ -25,11 +79,11 @@ export default component$(() => {
         it.
       </p>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="mt-8 gap-6 md:columns-2">
         {PROVIDERS.map((provider) => (
           <article
             key={provider.slug}
-            class="flex flex-col rounded-lg border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-800/50"
+            class="mb-6 break-inside-avoid rounded-lg border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-800/50"
           >
             <div class="flex items-start gap-3">
               <VendorIcon id={provider.slug} name={provider.name} size="lg" />
@@ -117,7 +171,12 @@ export default component$(() => {
           </article>
         ))}
       </div>
-    </section>
+      </div>
+      </div>
+      <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4">
+        <V2Footer />
+      </div>
+    </main>
   );
 });
 

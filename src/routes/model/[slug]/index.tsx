@@ -259,6 +259,26 @@ export default component$(() => {
                   </a>
                 )}
               </p>
+              {(model.meta.standout || model.meta.tradeoff) && (
+                <div class="mt-7 grid max-w-[640px] gap-3 min-[520px]:grid-cols-2">
+                  {model.meta.standout && (
+                    <div class="rounded-lg border border-[#274757] bg-white/[0.04] p-4 dark:border-[#274757]">
+                      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a9c7ef]">
+                        Where it stands out
+                      </p>
+                      <p class="mt-1.5 text-[13px] leading-[1.6] text-[#c6d9e3]">{model.meta.standout}</p>
+                    </div>
+                  )}
+                  {model.meta.tradeoff && (
+                    <div class="rounded-lg border border-[#274757] bg-white/[0.04] p-4 dark:border-[#274757]">
+                      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a8c2d0]">
+                        The trade-off
+                      </p>
+                      <p class="mt-1.5 text-[13px] leading-[1.6] text-[#c6d9e3]">{model.meta.tradeoff}</p>
+                    </div>
+                  )}
+                </div>
+              )}
               <div class="mt-auto flex items-end gap-[18px] pt-10">
                 <span class="font-[family-name:var(--font-display)] text-[88px] font-medium leading-[0.82] tracking-tighter tabular-nums">{model.scores.overall}</span>
                 <span class="pb-[2px] text-sm leading-[1.4] text-[#b6cdd9]">Overall score<br /><strong class="font-normal text-[#7da3b7]">out of 100</strong></span>

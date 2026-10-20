@@ -16,5 +16,7 @@
     "https://ai.google.dev/gemini-api/docs/pricing",
     "https://ai.google.dev/gemini-api/docs/pricing",
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "A unique massive-output window lets it generate whole documents and applications in one pass, and independent trackers currently rank its agentic coding at the very top.",
+  "tradeoff": "Access is the real cost: a gated launch means availability and rate limits — not the price card — decide whether you can rely on it."
 }

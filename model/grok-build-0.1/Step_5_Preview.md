@@ -1,7 +1,7 @@
 # Grok Build 0.1 — findings by Step 5 Preview
 
 - Source: xAI / SpaceXAI (`grok-build-0.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -24,6 +24,7 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **52.1%** (Artificial Analysis, via OpenRouter)
+- Gert Labs: **49.15%** (Gert Labs rankings via BenchLM, 2026-10-19) — mid-band, consistent with the Tool use 55 read
 - Terminal Bench 2.0 (official Kilo eval): **50.6%** completion, $30.70 avg cost per attempt (Kilo Code leaderboard)
 - τ-Bench Banking: **13.4%** (Artificial Analysis) — weak at general banking tool use
 - GDPval-AA: **28.5%** (Artificial Analysis) — low; coding specialist, not a general agent
@@ -62,7 +63,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (OpenRouter Artificial Analysis + Vals AI benchmark table, Kilo Code official Terminal-Bench 2.0 + PinchBench leaderboard, TopReviewed xAI-harness review, docs.x.ai model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no grok-build-0.1 page (404) and BenchLM assigns no public overall score (1 of 644 benchmarks, unranked); the only new independent row is Gert Labs **49.15%** — a mid-band agentic read consistent with the existing Tool use 55. No score change warranted. First pass (2026-10-09) used OpenRouter Artificial Analysis + Vals AI benchmark table, Kilo Code official Terminal-Bench 2.0 + PinchBench leaderboard, TopReviewed xAI-harness review, docs.x.ai model page.
 - Re-score note: this replaces the 2026-10-09 `.md.excluded` self-exclusion, which correctly found zero benchmarks at the time; Artificial Analysis and Vals AI have since indexed the model and xAI published SWE-bench Verified 70.8%, meeting the re-score trigger.
 - Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

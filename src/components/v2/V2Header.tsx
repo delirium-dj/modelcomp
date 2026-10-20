@@ -151,6 +151,7 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#compare`}>Compare</a>
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#methodology`}>Scoring</a>
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#models`}>Models</a>
+              <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href="/providers/">Providers</a>
             </nav>
             <button
               type="button"
@@ -218,6 +219,15 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               }}
             >
               Models
+            </a>
+            <a
+              class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"
+              href="/providers/"
+              onClick$={() => {
+                isMenuOpen.value = false;
+              }}
+            >
+              Providers
             </a>
             <a
               class="px-6 py-3 text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)]"

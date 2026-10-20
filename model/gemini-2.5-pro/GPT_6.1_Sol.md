@@ -23,8 +23,8 @@ Agent / tool use:
 
 - Vals Terminal-Bench **2.0: 30.34% ±4.90**, rank **44/67**, temperature **1**, max output **65,536** [S4]. This is not Terminal-Bench 2.1 or 4.0.
 - SWE-agent behavior is measured by Google's GA SWE-bench **59.6% single attempt / 67.2% multiple attempts**; Google's multi-attempt scaffold samples trajectories and re-scores them with model judgment [S1]. Not a single-rollout 67.2% success rate.
-- Tau2 **54.1%**, GDPval-AA **616 Elo** and AA Agentic Index **3.5** are BenchLM's secondary AA-attributed rows [S6]. Not independently recovered from AA's rendered detailed table here, and Tau2 is not Tau3-Banking.
-- Exact TB2.1 / Tau3-Banking / Claw-Eval / MCP-Atlas: no verified public score found in inspected primary/independent pages.
+- Supplementary exact-model AA page-data verification: **Tau2 telecom54.09%**, **Tau3-Banking9.69%**, **TB2.1 28.46%**, **TB4.0 0.00%**, current GDPval-AA **455.95 Elo** [S3]. The selected `currentModel` record is UUID `27202e5f-c82d-4710-92e9-4317877d4883`, slug `gemini-2-5-pro`; fractions converted to percentages. Independent banking methodology covers97 tasks and about195K policy tokens [S8].
+- BenchLM's GDPval-AA **616 Elo** and AA Agentic Index **3.5** remain secondary historical rows [S6], not replacements for the current exact-model record. No verified Claw-Eval/MCP-Atlas score found.
 
 Reasoning / knowledge:
 
@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - March experimental GPQA **84.0%**, AIME 2025 **86.7%**, HLE **18.8%**; May preview GPQA **83.0%**, AIME **83.0%**, HLE **17.8%** [S1]. These dated snapshots are retained as lineage, not combined into a synthetic GA result.
 - AA Intelligence Index: **16**, independently measured **v4.3.2**, with **116.3 output tokens/s**, **25.90s TTFT**, **55M** evaluation output tokens and approximately **$0.33/task** [S3]. BenchLM's **16.1** rounds compatibly; its own **49.13/100** aggregate is a different index [S6].
 - Official GA SimpleQA **54.0%**, FACTS Grounding **87.8%**, Global-MMLU-Lite **89.2%** [S1]. Different factuality suites do not measure a universal hallucination probability.
-- BenchLM AA-attributed GPQA **84.4%**, HLE **22.5%**, CritPt **2.6%**, Omniscience accuracy **39.1%** / hallucination rate **90.9%** are secondary only [S6]. Neither the 90.9% attribution nor FACTS Grounding can substitute for the other's dataset/metric.
+- Supplementary AA selected-model data directly confirms GPQA **84.44%**, HLE **22.52%**, Omniscience accuracy **39.05%** / hallucination rate **90.89%**, IFBench **48.71%** [S3]. CritPt **2.6%** remains a secondary BenchLM attribution [S6]. Neither the Omniscience rate nor FACTS Grounding can substitute for the other's dataset/metric.
 
 Coding:
 
@@ -41,19 +41,19 @@ Coding:
 - LiveCodeBench GA **69.0%**, **2025-01-01 to 2025-05-01** problem window, official card. Report prose separately mentions **74.2%**; different date windows/settings are material, so the 74.2 figure is not presented as a controlled correction to the dated 69.0 result [S1,S2].
 - Aider Polyglot: **82.2% diff-fenced**, average of **3 trials**, official [S1,S2].
 - Vals Vibe Code Bench v1.1: **0.40% ±0.40**, rank **111/115** [S4]. This end-to-end app measure is not Reka's similarly named visual Vibe-Eval.
-- SciCode **46.3%**, AA Coding Index **33.3**: secondary BenchLM attribution [S6]. No verified exact GA DeepSWE/SWE-Pro/Atlas result found in inspected pages.
+- SciCode **46.30%** directly confirmed in AA's selected-model page data [S3]; AA Coding Index **33.3** remains secondary [S6]. No verified exact GA DeepSWE/SWE-Pro/Atlas result found in inspected pages.
 
 Long context:
 
 - Official harder **MRCR v2, 8 needles: 58.0% up-to-128K average / 16.4% exactly-1M pointwise**, GA [S1, PDF p.6]. The card explicitly notes changed methodology from easier earlier MRCR variants.
 - Older preview/experimental MRCR **82.9/83.1% at 1M** and **93.0/94.5% at 128K** are from an easier benchmark and different snapshots [S1]. They do not disprove the harder GA result or establish 98% reliable million-token recall.
-- AA-LCR **69.0%** is a secondary BenchLM attribution [S6]. Capacity, easy retrieval and harder long-context reasoning remain separate.
+- AA-LCR **69.0%** directly confirmed in AA's selected-model page data [S3]. The evaluator's long-context suite covers approximately10K–100K tokens [S8], not full1M retrieval. Capacity, easy retrieval and harder long-context reasoning remain separate.
 
 Multimodal:
 
 - Official GA MMMU **82.0%**, Reka Vibe-Eval **67.2%**, VideoMME with audio/visual/subtitles **86.9%**, VideoMMMU **83.6%** [S1]. MMMU is not MMMU-Pro; visual Vibe-Eval is not Vals Vibe Code Bench.
 - The technical report discusses up to **3 hours** of video using lower media resolution, not an unconditional guarantee at any frame/token setting [S2].
-- BenchLM AA MMMU-Pro **74.9%** is secondary, under a different suite [S6]. No native non-text generation is assigned to standard Pro.
+- AA MMMU-Pro **74.91%** directly confirmed in selected-model page data [S3], under a different suite from Google's MMMU. No native non-text generation is assigned to standard Pro.
 
 ### Research trail and conflicts
 
@@ -62,6 +62,8 @@ Fresh searches: [Bing official card/benchmark](https://www.bing.com/search?q=%22
 The discovered [RockB review](https://baeseokjae.github.io/posts/gemini-2-5-pro-coding-review-2026/) has a **2M** title but repeatedly says **1M** in its body, quotes approximate SWE **~62%**, mixes preview AIME **86.7%** with newer comparisons, and supplies no controlled independent benchmark run [S7]. Its broad “most capable in 2026”/price-superiority claims are not scoring evidence. Primary GA/preview tables and current independent results take precedence.
 
 BenchLM labels the model non-reasoning, contradicted by Google's model card and AA's explicit reasoning description. AA's deprecated-evaluation notice is not proof all serving routes have shut down. Most importantly, different checkpoints, candidate-selection budgets, LCB date windows, and MRCR difficulty explain why the apparent numerical conflicts must remain labelled instead of averaged.
+
+During batch verification, AA's publicly embedded `currentModel` JSON was parsed for this exact slug/UUID, allowing direct confirmation of previously secondary submetrics and discovery of Tau3-Banking/TB2.1/TB4. Its current GDPval455.95 differs from BenchLM's older616; current evaluation versions and dated records are retained separately, not interpreted as a controlled model regression.
 
 ### Normalized scores (1–100)
 
@@ -77,11 +79,12 @@ BenchLM labels the model non-reasoning, contradicted by Google's model card and 
 
 - [S1] https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Pro-Model-Card.pdf — official June 27 card, all 21 pages read; GA/preview distinctions and exact tables on pp.4–6.
 - [S2] https://arxiv.org/html/2507.06261v1 — original Gemini 2.5 technical report; model IDs, architecture, reasoning, dated benchmark methodology and separate audio/Deep Think offerings.
-- [S3] https://artificialanalysis.ai/models/gemini-2-5-pro — independent current index, cost/runtime metrics, reasoning flag and historical/deprecated status.
+- [S3] https://artificialanalysis.ai/models/gemini-2-5-pro — independent current index, cost/runtime metrics, reasoning flag and historical/deprecated status; exact selected-model public hydration data verified during batch checks.
 - [S4] https://www.vals.ai/models/google_gemini-2.5-pro — independent exact-model results, uncertainty and evaluation settings.
 - [S5] https://openrouter.ai/api/v1/models/google/gemini-2.5-pro/endpoints — current provider-listed context/output, modalities, features and tiered serving prices; no inference call made.
 - [S6] https://benchlm.ai/models/gemini-2-5-pro — secondary source discovery and submetrics, updated 2026-10-19; its reasoning classification explicitly disputed.
 - [S7] https://baeseokjae.github.io/posts/gemini-2-5-pro-coding-review-2026/ — independently authored review compared against primary evidence, not an independent measured run.
+- [S8] https://artificialanalysis.ai/evaluations/tau3-banking — direct banking methodology and evaluator benchmark definitions, including AA-LCR's shorter-than1M test range.
 
 ---
 
