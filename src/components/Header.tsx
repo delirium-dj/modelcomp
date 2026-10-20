@@ -114,6 +114,12 @@ export const Header = component$(() => {
               >
                 Models
               </a>
+              <a
+                href="/providers/"
+                class="text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+              >
+                Providers
+              </a>
             </nav>
 
             {/* Mobile Hamburger / Close Button trigger (swaps in place) */}
@@ -192,6 +198,15 @@ export const Header = component$(() => {
               }}
             >
               Models
+            </a>
+            <a
+              href="/providers/"
+              class="px-6 py-3 text-slate-800 transition-colors hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400"
+              onClick$={() => {
+                isMenuOpen.value = false;
+              }}
+            >
+              Providers
             </a>
             <a
               href="/contact"

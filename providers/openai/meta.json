@@ -1,0 +1,22 @@
+{
+  "name": "OpenAI",
+  "kind": "vendor",
+  "short": "GPT and Codex models direct from OpenAI's API.",
+  "officialUrl": "https://openai.com",
+  "hosts": ["openai.com", "platform.openai.com"],
+  "idPrefixes": ["openai"],
+  "plans": [
+    {
+      "name": "OpenAI API pay-as-you-go",
+      "price": "from $0.05/$0.40 per 1M (GPT-5 Nano) up to $21.00/$168.00 per 1M (GPT-5.2 Pro)",
+      "notes": "Cached-input and long-prompt tiers are documented per model.",
+      "evidenceUrl": "https://openai.com/api/pricing/"
+    },
+    {
+      "name": "ChatGPT Pro preview",
+      "price": "Design-partner API only",
+      "notes": "GPT-5.3 Codex Spark has no public per-token rate.",
+      "evidenceUrl": "https://openai.com/api/pricing/"
+    }
+  ]
+}

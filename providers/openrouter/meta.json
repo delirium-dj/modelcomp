@@ -1,0 +1,21 @@
+{
+  "name": "OpenRouter",
+  "kind": "aggregator",
+  "short": "Multi-provider billing aggregator with per-token rates and free `:free` endpoints on selected models.",
+  "officialUrl": "https://openrouter.ai",
+  "hosts": ["openrouter.ai"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-token, per-model rates",
+      "notes": "e.g. Laguna XS 2.1 at $0.06/$0.12 per 1M; Kimi K2.6 at $0.80/$3.40.",
+      "evidenceUrl": "https://openrouter.ai/models"
+    },
+    {
+      "name": "Free endpoints",
+      "price": "$0",
+      "notes": "Selected models ship `:free` variants (e.g. North Mini Code).",
+      "evidenceUrl": "https://openrouter.ai/cohere/north-mini-code:free"
+    }
+  ]
+}

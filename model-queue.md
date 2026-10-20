@@ -62,10 +62,10 @@
 85.1 grok-4.5
 85.1 qwen-3.8-flash-next
 85 qwen-3.5-plus
+84.8 gpt-5.6-luna
 84.7 gemini-2.5-pro
 84.7 seed-2.0-pro
-84.4 gpt-5.3-codex
-84.3 gpt-5.6-luna
+84.5 gpt-5.3-codex
 84.2 grok-4.3
 84 mistral-large-4
 84 pareto-26.10-preview

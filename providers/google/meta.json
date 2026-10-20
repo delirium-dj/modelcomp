@@ -1,0 +1,26 @@
+{
+  "name": "Google",
+  "kind": "vendor",
+  "short": "Gemini and Gemma models via Google AI Studio / the Gemini API, with Vertex AI as the enterprise lane.",
+  "officialUrl": "https://ai.google.dev",
+  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com"],
+  "idPrefixes": ["google"],
+  "plans": [
+    {
+      "name": "AI Studio free tier",
+      "price": "$0",
+      "notes": "Free tier on selected Gemini Flash / Flash-Lite / Pro models.",
+      "evidenceUrl": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "name": "Gemini API pay-as-you-go",
+      "price": "from $0.10/$0.40 per 1M (Gemini 2.0 Flash, historical) up to $2.50/$15.00 per 1M (Gemini 2.5 Pro, prompts >200K)",
+      "evidenceUrl": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "name": "Vertex AI",
+      "price": "e.g. $0.15/$0.60 per 1M (Gemini 2.0 Flash, historical)",
+      "evidenceUrl": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    }
+  ]
+}

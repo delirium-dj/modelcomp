@@ -1,0 +1,15 @@
+{
+  "name": "Z.AI",
+  "kind": "vendor",
+  "short": "GLM models on Z.AI's open platform (open.zhipuai.cn / docs.z.ai).",
+  "officialUrl": "https://docs.z.ai",
+  "hosts": ["open.zhipuai.cn", "docs.z.ai"],
+  "plans": [
+    {
+      "name": "Z.AI API pay-as-you-go",
+      "price": "$0.60/$2.20 per 1M (GLM-4.6) up to $1.40/$4.40 per 1M (GLM 5.1 / 5.2 / 5.3)",
+      "notes": "GLM 5.3 FlashX is the low-cost lane at $0.37/$1.25 per 1M; cached input $0.26 on the 5.x tier.",
+      "evidenceUrl": "https://docs.z.ai/guides/overview/pricing"
+    }
+  ]
+}

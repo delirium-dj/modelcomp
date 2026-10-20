@@ -1,0 +1,28 @@
+{
+  "name": "Alibaba (Qwen)",
+  "kind": "vendor",
+  "short": "Qwen models via Alibaba Cloud Model Studio (international and China-region rate cards) plus Apache-2.0 open weights.",
+  "officialUrl": "https://www.alibabacloud.com",
+  "hosts": ["alibabacloud.com", "dashscope.aliyuncs.com", "modelstudio.console.alibabacloud.com"],
+  "idPrefixes": ["alibaba", "Qwen"],
+  "plans": [
+    {
+      "name": "Model Studio pay-as-you-go",
+      "price": "from $0.10/$0.15 per 1M (Qwen 3.5 9B) up to $2/$6 per 1M (Qwen 3.8 Max; tiered by input length)",
+      "notes": "International and China-region cards differ (e.g. Qwen 3.5 Plus: ~$0.40/$2.40 intl vs ~$0.115/$0.688 China).",
+      "evidenceUrl": "https://www.alibabacloud.com/help/en/model-studio/models"
+    },
+    {
+      "name": "Free quota",
+      "price": "One-time 1M-token free quota",
+      "notes": "e.g. Qwen 3.8 Max (Alibaba list).",
+      "evidenceUrl": "https://www.alibabacloud.com/help/en/model-studio/models"
+    },
+    {
+      "name": "Open weights",
+      "price": "Self-host free (Apache-2.0)",
+      "notes": "e.g. Qwen 3.8 27B; API provider pricing varies.",
+      "evidenceUrl": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    }
+  ]
+}

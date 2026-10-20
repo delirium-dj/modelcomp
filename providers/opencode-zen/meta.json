@@ -1,0 +1,28 @@
+{
+  "name": "OpenCode Zen",
+  "kind": "aggregator",
+  "short": "OpenCode's model gateway — 122 tracked models ship under `opencode/` ids, several with free tiers and a Go subscription plan.",
+  "officialUrl": "https://opencode.ai",
+  "hosts": ["opencode.ai"],
+  "idPrefixes": ["opencode"],
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0",
+      "notes": "Free IDs on selected models (e.g. Beam, Big Pickle (GLM 4.6), Cat Jam); availability is labeled per model page.",
+      "evidenceUrl": "https://opencode.ai/v2/docs/console/models/#free-models"
+    },
+    {
+      "name": "OpenCode Go plan",
+      "price": "Subscription plan",
+      "notes": "Selected models are free under the Go plan (e.g. Cat Jam).",
+      "evidenceUrl": "https://opencode.ai/v2/docs/console/models/"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-model, per-token rates",
+      "notes": "Each covered model page links the rate claiming its price.",
+      "evidenceUrl": "https://opencode.ai/v2/docs/console/models/"
+    }
+  ]
+}

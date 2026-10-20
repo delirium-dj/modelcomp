@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,9 @@
 - **Architecture:** Proprietary (weights not released).
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **84.21/100** overall, #2 of 956 models, 40 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **52** (max, #12/217, 4/4 units — matches the prior 51.8–52), 55.2 tok/s (#151/186 — notably slow), TTFT 244.06s, $2.00/$10.00 with 95% cache discount (blended $1.47/M; $0.72 per Index task), 1M context, 10 providers, 67M Index tokens (concise) — NOT deprecated on AA
 
 Agent / tool use:
 
@@ -54,6 +57,7 @@ Coding:
 - SciCode: **54.2%** (AA, max); **55.8%** (AA, high — #24/296)
 - SWE-Marathon: **68/160 trials** (42.5%, 59th pct; mean $7.9/trial, 26.7M tokens/trial)
 - LiveBench Coding: **80.4%** (max); Agentic Coding 54.5%; AA Coding Index: **82.4** (ArtificialWatch, #6)
+- New verified rows (2026-10-19): DeepSWE **71.9%** (OpenAI GPT-6.1 Sol launch post via BenchLM — sits alongside the file's 75.2% high-effort read; effort-config difference noted), ARC-AGI-1 **96.50%** / ARC-AGI-2 **94.2%** (ARC Prize — the file's missing ARC rows, near-frontier) / ARC-AGI-3 **52.7%** (+96.18% via the Provider Adapter), STEMBench **2.76**, MLCR-AA **33.9%**, ExploitGym **35.1%**, MazeBench **17%**, Hermes Index **57.1%** / Hermes Bench **73.9%**, AutomationBench 1.0.6 **36.1%** (vendor — above the file's 31.7% medium-effort read), GDPval-AA **54.7% normalized / Elo 1,594** (AA — updates the 53.8/Elo 1,575), AA Briefcase **Elo 1,557**, Bug Hunt Bench **44.3 fixes**, HealthBench (raw) 56.7% / Hard 36.2% / Professional (raw) 67.2%, Design Arena Website **1321** (OpenRouter)
 
 Multimodal:
 
@@ -77,6 +81,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (22 primary-source results, updated 2026-10-07 — independent BrowseComp 95.4% #1/60, RuneBench 6.9 #2/61, AA-LCR 84.0% #10/408, AIIQ IQ 141 #3/147, AutomationBench-AA 66.6% #7/26, DeepSWE 75.2% #3/52, MMMU-Pro 86.0% #4/72, HLE 52.9% #12/478, AA Intelligence Index 51.8 #18/427) — confirms the existing Tool use 88 / Reasoning 92 / Context 93 / Coding 90 reads; the independent BrowseComp field-lead and AA-LCR 84% reinforce rather than move the scores. Prior pass (2026-10-09) used OpenAI model/pricing docs + DevDay announcement + Deployment Safety Hub system card, Artificial Analysis releases/article, BenchLeader, BenchLM, Model Pareto, ArtificialWatch, developer-community analysis.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 52 #12/217, 4/4 units — unchanged; 55.2 tok/s #151/186 — slow; TTFT 244.06s; pricing $2/$10 with 95% cache discount confirmed) and BenchLM (composite 84.21/100, #2/956, 40/644 benchmarks): the file's ARC gap is filled — ARC-AGI-1 96.50% / ARC-AGI-2 94.2% (ARC Prize) — plus DeepSWE 71.9% (vendor launch read alongside the file's 75.2% high-effort figure; effort-config difference noted), GDPRval-AA Elo 1,594, ExploitGym 35.1%, Hermes 57.1%, Bug Hunt 44.3 fixes, HealthBench rows — all consistent with the existing Tool use 88 / Reasoning 92 / Context 93 / Multimodal 72 / Coding 90 / Cost 62 reads, no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (22 primary-source results, updated 2026-10-07 — independent BrowseComp 95.4% #1/60, RuneBench 6.9 #2/61, AA-LCR 84.0% #10/408, AIIQ IQ 141 #3/147, AutomationBench-AA 66.6% #7/26, DeepSWE 75.2% #3/52, MMMU-Pro 86.0% #4/72, HLE 52.9% #12/478, AA Intelligence Index 51.8 #18/427) — same conclusion. Prior pass (2026-10-09) used OpenAI model/pricing docs + DevDay announcement + Deployment Safety Hub system card, Artificial Analysis releases/article, BenchLeader, BenchLM, Model Pareto, ArtificialWatch, developer-community analysis.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

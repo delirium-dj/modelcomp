@@ -1,0 +1,22 @@
+{
+  "name": "Moonshot AI",
+  "kind": "vendor",
+  "short": "Kimi models on Moonshot's platform, with a membership lane for the K2.8 Preview.",
+  "officialUrl": "https://platform.moonshot.ai",
+  "hosts": ["platform.moonshot.ai", "kimi.com"],
+  "idPrefixes": ["moonshot", "moonshotai"],
+  "plans": [
+    {
+      "name": "Moonshot API pay-as-you-go",
+      "price": "$0.95/$4.00 per 1M (Kimi K2.6 / K2.7 Code) up to $3.00/$15.00 per 1M (Kimi K3)",
+      "notes": "Kimi K2.7 Code Highspeed $1.90/$8.00 per 1M; cached input $0.19–$0.30 per 1M.",
+      "evidenceUrl": "https://platform.moonshot.ai/docs/pricing/chat"
+    },
+    {
+      "name": "Kimi membership plan",
+      "price": "Membership (no per-token billing)",
+      "notes": "Kimi K2.8 Preview is sold via the membership plan.",
+      "evidenceUrl": "https://platform.moonshot.ai/docs/pricing/chat"
+    }
+  ]
+}

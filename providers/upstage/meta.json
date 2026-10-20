@@ -1,0 +1,22 @@
+{
+  "name": "Upstage (Solar)",
+  "kind": "vendor",
+  "short": "Solar models on Upstage's API; dated launch discounts on Solar Mini 4.",
+  "officialUrl": "https://upstage.ai",
+  "hosts": ["upstage.ai", "console.upstage.ai"],
+  "idPrefixes": ["upstageai"],
+  "plans": [
+    {
+      "name": "Upstage API pay-as-you-go",
+      "price": "$0.10/$0.40 per 1M (Solar Mini 4)",
+      "notes": "50% off through 2026-10-22; cache-hit input $0.01.",
+      "evidenceUrl": "https://upstage.ai/pricing"
+    },
+    {
+      "name": "Solar Open 2 / Pro 4",
+      "price": "No published per-token rate",
+      "notes": "No public rate card found at review time.",
+      "evidenceUrl": "https://upstage.ai/pricing"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Grok 4.1 — findings by Step 5 Preview
 
 - Source: xAI (`grok-4.1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,6 +43,12 @@ Agentic / tool use:
 - Berkeley Function Calling v4: **72% overall** (xAI launch) / 69.6% (AA, thinking, #5)
 - Terminal-Bench Hard: 24.2% (AA); Terminal-Bench 2.0: 24.7% (Vals)
 - MCP-Atlas / BrowseComp / GDPval-AA / Claw-Eval: **no verified public score found**
+- ResearchClawBench: **13.5%** (ResearchClawBench leaderboard via BenchLM, 2026-10-19) — a weak real-research-agentic data point consistent with the mid Tool use read
+
+Third-pass verification (2026-10-19):
+
+- Artificial Analysis has no grok-4.1 page (404 on both dotted and hyphenated slugs) — the AA rows above stand from the original pass
+- BenchLM tracks the slug but assigns no public overall score (1 of 644 benchmarks covered, unranked); **context conflict noted: BenchLM lists a 1M window vs the file's 256K** — the 256K figure stands (launch-era xAI docs), the 1M claim is a single uncorroborated tracker row
 
 ### Normalized scores (1–100)
 
@@ -58,6 +64,6 @@ Agentic / tool use:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (xAI Grok 4.1 launch post + Grok 4.1 Fast post, Artificial Analysis, Vals AI, HokAI, TheExpertRanking, ShawnHack, DataCamp); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no grok-4.1 page (404 on both slug forms) and BenchLM assigns no public overall score (1 of 644 benchmarks, unranked); the only new independent row is ResearchClawBench 13.5% (weak — consistent with Tool use 58), and one conflict is flagged: BenchLM lists a 1M context window vs the file's 256K (uncorroborated single-source claim; the 256K figure is retained). No score change warranted — the LMArena/EQ-Bench-led positioning and the thinking-vs-standard benchmark split are unchanged. First pass (2026-10-09) used xAI Grok 4.1 launch post + Grok 4.1 Fast post, Artificial Analysis, Vals AI, HokAI, TheExpertRanking, ShawnHack, DataCamp.
 - Future sources: add a new file next to this one, e.g. `Grok_4.2.md`, using the same headings.

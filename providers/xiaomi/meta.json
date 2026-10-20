@@ -1,0 +1,16 @@
+{
+  "name": "Xiaomi (MiMo)",
+  "kind": "vendor",
+  "short": "MiMo models on Xiaomi's own API at flat low rates.",
+  "officialUrl": "https://mimo.xiaomi.com",
+  "hosts": ["mimo.xiaomi.com", "mimo.mi.com"],
+  "idPrefixes": ["xiaomi"],
+  "plans": [
+    {
+      "name": "Xiaomi API pay-as-you-go",
+      "price": "$0.14/$0.28 per 1M (Flash / Free fallback) up to $0.435/$0.87 per 1M (V2.6 Pro)",
+      "notes": "Cached input $0.0028–$0.0036 per 1M.",
+      "evidenceUrl": "https://mimo.mi.com/models/en-US/mimo-v2.6-flash"
+    }
+  ]
+}

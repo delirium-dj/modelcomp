@@ -1,7 +1,7 @@
 # GPT-6 Sol — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-6-sol`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,9 @@
 - **Architecture:** Proprietary (undisclosed parameters; reasoning transformer trained with Astra-like methods).
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **78.6/100** overall, #9 of 956 models, 33 of 644 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **48** (max, #26/217, 4/4 units — matches the prior 47.6), 117.7 tok/s, TTFT 89.88s, $2.00/$10.00 with 90% cache discount (blended $1.54/M; $1.04 per Index task), 1M context (1.1M per the FAQ row), 7 providers, 77M Index tokens (concise) — DEPRECATED on AA (suggests GPT-6.1 Sol)
 
 Agent / tool use:
 
@@ -51,6 +54,7 @@ Coding:
 - SWE-bench Verified: **84.8%** (RankLLMs aggregate); SWE-bench Pro: **no verified public score found**
 - AA Coding Agent Index: **57** (vs 55 for GPT-5.6 Sol); LiveBench Agentic Coding 52.9%
 - Coding-deception rate fell to 1.3% from 10.4% (OpenAI internal test)
+- New verified rows (2026-10-19): ARC-AGI-1 **95.50%** (ARC Prize — the file's missing ARC-AGI-1 row; ARC-AGI-2 89.6% reconfirmed, ARC-AGI-3 4.6%), Epoch FrontierMath v2 Tiers 1–3 **89.825%** / Tier 4 **90.000%** (exceptional math — a large jump over the launch-era reads), CWE-bench v1 **52.0%**, ExploitGym **22.1%**, Hermes Index **44.1%** / Hermes Bench **73.5%**, Gray Swan IPI **10.1%**, HealthBench (raw) 47.1% / Hard 30.1%, AA-Omniscience index 27.1% / hallucination 60.1% (reconfirms the 92%→60% factuality gain)
 
 Long context:
 
@@ -70,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (31 primary-source results, updated 2026-10-07 — independent BrowseComp 89.4% #10/60, AA-LCR 83.7% #12/408, OSWorld2.0 64.4% #7/24, GDPval-AA Elo 1487 #39/352, DeepSWE 68.8% #17/52, AA Intelligence Index 47.6 #25/427, HLE 47.9% #18/478, CritPt 30.9% #7/28, MMMU-Pro 82.9% #6/72) — confirms the existing Tool use 84 / Reasoning 88 / Context 94 / Coding 85 reads; the independent BrowseComp 89.4% and AA-LCR 83.7% reinforce rather than move the scores. No score change warranted. Prior pass (2026-10-09) used OpenAI launch post + model/pricing docs, Artificial Analysis via The Model Gap/ShawnHack/BenchLeader, Vals AI, Snorkel, ARC Prize, The New Stack, HITL Systems, HokAI.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated page, suggests GPT-6.1 Sol: Index 48 #26/217 — unchanged; 117.7 tok/s; TTFT 89.88s; pricing $2/$10 confirmed) and BenchLM (composite 78.6/100, #9/956, 33/644 benchmarks): new rows ARC-AGI-1 95.50% (fills the missing ARC-AGI-1 row; ARC-AGI-2 89.6% reconfirmed), Epoch FrontierMath v2 89.8%/90.0% (exceptional math), CWE-bench v1 52.0%, ExploitGym 22.1%, Hermes 44.1%/73.5%, Gray Swan IPI 10.1%, AA-Omniscience 27.1% — all consistent with the existing Tool use 84 / Reasoning 88 / Context 94 / Multimodal 70 / Coding 85 / Cost 62 reads, no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (31 primary-source results, updated 2026-10-07 — independent BrowseComp 89.4% #10/60, AA-LCR 83.7% #12/408, OSWorld2.0 64.4% #7/24, GDPval-AA Elo 1487 #39/352, DeepSWE 68.8% #17/52, AA Intelligence Index 47.6 #25/427, HLE 47.9% #18/478, CritPt 30.9% #7/28, MMMU-Pro 82.9% #6/72) — same conclusion. Prior pass (2026-10-09) used OpenAI launch post + model/pricing docs, Artificial Analysis via The Model Gap/ShawnHack/BenchLeader, Vals AI, Snorkel, ARC Prize, The New Stack, HITL Systems, HokAI.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

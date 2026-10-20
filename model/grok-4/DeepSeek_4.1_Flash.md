@@ -73,15 +73,15 @@ Long context:
 - **Tool use: 78/100.** Native RL-trained tool use with verified agentic rows (MCP-Universe 33.33%, rank 2 of 27; BFCL 62.97%; Tau2 Telecom 74.9%; Terminal-Bench Hard 37.9%; METR 109-minute task horizon; Vending-Bench dominance over Claude Opus 4 and humans); capped by Terminal-Bench 2.0 at 28.1% and a 2.08% Remote Labor Index automation rate.
 - **Reasoning: 72/100.** GPQA Diamond 87.0% and AIME 2025 91.7% are strong and HLE 24.52% no-tool versus 50.7% Heavy-with-tools is the headline result; capped by ARC-AGI-2 15.97% and an Artificial Analysis Intelligence Index of 22, below the current median.
 - **Context window: 78/100.** 256K in / 8K out is upper-mid tier in a 1M-token field and no MRCR, RULER or NIAH measurement exists to validate it, so the window cannot score in the top band.
-- **Multimodal: 48/100.** Image and PDF input with text-only output: OCRBench v2 45.0 and ZeroBench 1.0% pass@1 are the only measured vision rows, alongside strong arena chat Elo (LMArena 1409) but no MMMU, audio or video evidence.
+- **Multimodal: 60/100.** Image and PDF input with text-only output, now supported by a verified **AA-MMMU-Pro 68.8%** (bottom of the +image-in band); also OCRBench v2 45.0, ZeroBench 1.0% pass@1 and LMArena 1409 Elo; no audio or video.
 - **Coding: 72/100.** LiveCodeBench 81.9–83.2%, Aider Polyglot 79.6% and SciCode 45.7% are solid, but SWE-bench Verified 57.8% sits in the 11th percentile of the current field and the `grok-4-0709` endpoint is deprecated.
 - **Cost efficiency: 45/100.** $3.00 / $15.00 per 1M ($0.75 cached), $6 / $30 above 128K prompts, no free tier — premium pricing on a deprecated endpoint.
-- **Overall Score: 69.6/100.** Mean of the five quality dimensions (78 + 72 + 78 + 48 + 72) / 5 = 69.6; best fit is tool-driven, search-grounded reasoning and math work, not long-context or repo-scale agentic coding.
+- **Overall Score: 72/100.** Mean of the five quality dimensions (78 + 72 + 78 + 60 + 72) / 5 = 72.0 → **72**; best fit is tool-driven, search-grounded reasoning and math work, not long-context or repo-scale agentic coding.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: public internet research — xAI's Grok 4 announcement for HLE, ARC-AGI-2, USAMO, Vending-Bench and context-window claims; evals.report's labeled per-benchmark rows (official / verified / unverified) for GPQA, HLE, FrontierMath, METR, MCP-Universe, BFCL and others; BenchmarkList third-party harness runs for SWE-bench Verified, LiveCodeBench, Terminal-Bench, Tau2 and arena Elo; Artificial Analysis for the Intelligence Index, pricing and modality specs; Benchgen and Awesome Agents for spec cross-checks. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research — xAI's Grok 4 announcement (HLE, ARC-AGI-2, USAMO, Vending-Bench, context claims); BenchLM `grok-4` (13 rows) with Artificial Analysis; evals.report labeled rows; BenchmarkList third-party harnesses; Benchgen for spec cross-checks. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
