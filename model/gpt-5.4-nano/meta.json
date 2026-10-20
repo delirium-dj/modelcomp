@@ -1,15 +1,15 @@
 {
   "id": "opencode/gpt-5.4-nano",
   "name": "GPT-5.4 Nano",
-  "short": "OpenAI's smallest tier (400K, $0.20/$1.25) for classification, extraction and coding subagents; AIME 88.8%, LiveCodeBench 84.0%.",
+  "short": "OpenAI's smallest tier (400K/128K, $0.20/$1.25) for classification, extraction and coding subagents: SWE-bench 69.8%, LiveCodeBench 84.0%, Terminal-Bench 2.0 46.3%.",
   "contextWindow": "400,000 (128,000 max out)",
   "modalities": "Text, image in; text out",
   "pricingNote": "$0.20/$1.25 per 1M (cached $0.02)",
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5.4-nano/",
+  "officialUrl": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
   ],
-  "standout": "The classification-and-extraction nano: olympiad-math surprises at the smallest OpenAI price step.",
+  "standout": "The classification-and-extraction nano: cheap OpenAI reasoning for fleets of subagents.",
   "tradeoff": "The smallest reasoning ceiling — strictly a specialist subagent, never the orchestrator."
 }

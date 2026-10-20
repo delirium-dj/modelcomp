@@ -1,15 +1,15 @@
 {
   "id": "google/gemini-1.5-pro",
   "name": "Gemini 1.5 Pro",
-  "short": "Google's legacy 2M-context multimodal model for long-document analysis; retired/stale, superseded by 2.x/3.x.",
-  "contextWindow": "2,000,000 (2M)",
+  "short": "Google's Feb 2024 long-context landmark: a 2M window with 99% needle-in-a-haystack recall at 1M, MMLU 85.9% - retired from the Gemini API in 2025.",
+  "contextWindow": "2,000,000 (GA 2024-09-24)",
   "modalities": "Text, image, audio, video in; text out",
-  "pricingNote": "Legacy model; free tier via AI Studio; paid equiv. ~$1.25/$5 per 1M",
+  "pricingNote": "Retired - last published $1.25/$5.00 per 1M (up to 128K), $2.50/$10.00 above",
   "noFreeId": true,
-  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "officialUrl": "https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024/",
   "pricingLinks": [
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://cloud.google.com/vertex-ai/generative-ai/pricing"
   ],
   "standout": "The 2M-context grandfather: the model that made whole-library document analysis routine.",
-  "tradeoff": "Retired and stale — a reference point, not an option."
+  "tradeoff": "Retired and stale - a reference point, not an option."
 }

@@ -1,18 +1,18 @@
 {
-  "id": "xiaomi/mimo-v2-5-pro",
+  "id": "xiaomi/mimo-v2.5-pro",
   "name": "MiMo V2.5 Pro",
-  "short": "Xiaomi's 1.02T/42B-active open-weights MoE (1M, text-only) for long-horizon agents; IFBench 79.9%, superseded by MiMo-V2.6-Pro.",
+  "short": "Xiaomi's Apr 2026 MIT open-weight MoE (1.02T total/42B active, 1M, text-only) for long-horizon agents: ClawEval 63.8, SWE-bench Verified 78.9%, HLE 48.0%.",
   "contextWindow": "1M (Base 256K)",
   "modalities": "Text in/out only",
-  "pricingNote": "Paid ~$0.44/$0.87 per 1M",
+  "pricingNote": "$0.435/$0.87 per 1M in/out ($0.0036 cached); self-host $0 (MIT)",
   "pricingTiers": [
-    "Paid ~$0.44/$0.87"
+    "Xiaomi FP8 route $0.435/$0.87 per 1M in/out, $0.0036 cached read; self-host $0 (MIT)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=mimo-v2.5-pro",
+  "officialUrl": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro",
   "pricingLinks": [
-    "https://mimo.xiaomi.com/mimo-v2-5-pro"
+    "https://openrouter.ai/xiaomi/mimo-v2.5-pro"
   ],
   "standout": "Xiaomi’s long-horizon agent MoE with top instruction-following discipline from open weights.",
-  "tradeoff": "Text-only and superseded by the omni-modal V2.6 generation."
+  "tradeoff": "Text-only, and the omni-modal MiMo-V2.5/V2.6 line covers images and audio."
 }

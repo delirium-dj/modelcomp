@@ -1,15 +1,16 @@
 {
-  "id": "opencode/fledge-alpha",
+  "id": "opencode/fledge-alpha-free",
   "name": "Fledge Alpha",
-  "short": "OpenCode Zen's unidentified-vendor free preview (1M context) for coding tests; discontinued after GPQA 92.3%, no successor.",
+  "short": "OpenCode Zen's unidentified-vendor free stealth preview (1M ctx, image in), listed 2026-10-01 and retired by 2026-10-08 - no public benchmarks, no successor.",
   "contextWindow": "1,048,576 (1M) total; 131,072 max output",
-  "modalities": "Text + image in; text out",
-  "pricingNote": "Free OpenCode Zen preview ($0/$0)",
-  "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0",
-  "officialUrl": "https://huggingface.co/models?search=fledge-alpha",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Free ($0/$0) during the 2026-10-01 to 2026-10-08 preview; now retired",
+  "freeTierNote": "Free during the OpenCode Zen preview — input, output and reasoning bill at $0; the model was never listed in the Zen free-model notes",
+  "noFreeId": true,
+  "officialUrl": "https://opencode.ai/changelog",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models"
+    "https://opencode.ai/docs/zen"
   ],
-  "standout": "The mystery-meat bargain: an unnamed vendor’s 1M-context coding preview served free, quietly posting near-frontier science scores.",
-  "tradeoff": "Discontinued with no successor — a reminder that free stealth tiers can vanish without notice."
+  "standout": "The mystery-meat bargain: an unnamed vendor’s 1M-context preview served free for about a week.",
+  "tradeoff": "Discontinued with no successor and no published evaluation - a reminder that free stealth tiers can vanish without notice."
 }

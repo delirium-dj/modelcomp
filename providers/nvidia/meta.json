@@ -1,0 +1,27 @@
+{
+  "name": "NVIDIA (NIM)",
+  "kind": "aggregator",
+  "short": "NVIDIA NIM inference microservices — free hosted endpoints for prototyping NVIDIA and partner models, then self-host or buy AI Enterprise.",
+  "officialUrl": "https://build.nvidia.com",
+  "hosts": ["build.nvidia.com", "docs.nvidia.com"],
+  "plans": [
+    {
+      "name": "Free hosted endpoints",
+      "price": "$0 (rate-limited)",
+      "notes": "All catalog models are free to prototype; up to 40 RPM for most models, no per-token billing.",
+      "evidenceUrl": "https://build.nvidia.com/pricing"
+    },
+    {
+      "name": "Self-hosted NIM",
+      "price": "Free under license; you pay for the GPUs",
+      "notes": "Download the same NIM container for your own cloud or a CSP partner (AWS, Azure, GCP, OCI).",
+      "evidenceUrl": "https://docs.nvidia.com/nim/large-language-models/latest/about-nim-llm/nim-offerings.html"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "price": "Subscription (quote)",
+      "notes": "Production Branch, enterprise support and security maintenance; a 90-day trial is available.",
+      "evidenceUrl": "https://www.nvidia.com/en-us/data-center/products/ai-enterprise/get-started/"
+    }
+  ]
+}

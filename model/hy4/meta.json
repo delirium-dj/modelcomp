@@ -1,15 +1,20 @@
 {
-  "id": "tencent/hy4",
-  "name": "Hy4",
-  "short": "Tencent's open-weight 770B/49B MoE flagship with 1M+ context for self-hosted agentic coding; vendor-only DeepSWE 64.3%.",
-  "contextWindow": "1M (960K in / 64K out)",
+  "id": "tencent/hy4-preview",
+  "name": "Hy4 (preview)",
+  "short": "Tencent's Aug 2026 open-weight 770B/49B-active MoE (Apache 2.0, 1M ctx): vendor Terminal-Bench 2.1 85.4% vs Vals 55.1%, GPQA 92.3% - not on Zen.",
+  "contextWindow": "1,000,000 (1,024,000 = 960K in + 64K out); 64,000 max out",
   "modalities": "Text in/out",
-  "pricingNote": "Apache 2.0 open weights, self-hosted",
+  "pricingNote": "Apache 2.0 open weights; hosted ~$0.75/$2.25 per 1M (OpenRouter), self-host $0",
+  "pricingTiers": [
+    "Hosted ~$0.7506/$2.2509 per 1M in/out (OpenRouter, NanoGPT, Kilo)",
+    "Self-host $0 (Apache 2.0 weights)"
+  ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=hy4",
+  "officialUrl": "https://huggingface.co/tencent/Hy4-preview",
   "pricingLinks": [
+    "https://openrouter.ai/tencent/hy4-preview",
     "https://huggingface.co/tencent/Hy4-preview"
   ],
   "standout": "Tencent’s 1M+-context self-host flagship: open MoE weights aimed at long-running agentic coding on private infrastructure.",
-  "tradeoff": "Evidence is vendor-only — no independent verification backs the headline scores yet."
+  "tradeoff": "Evidence is vendor-only — the one independent agentic run lands 30 points below the vendor Terminal-Bench score."
 }

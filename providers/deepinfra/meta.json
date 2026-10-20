@@ -1,0 +1,22 @@
+{
+  "name": "DeepInfra",
+  "kind": "aggregator",
+  "short": "Serverless inference cloud with per-token pricing across open models — no long-term contracts or upfront costs.",
+  "officialUrl": "https://deepinfra.com",
+  "hosts": ["deepinfra.com"],
+  "idPrefixes": ["deepinfra"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go (text)",
+      "price": "Per-token, per-model",
+      "notes": "e.g. DeepSeek-V4-Flash $0.09/$0.18 per 1M; Kimi K3 $2.85/$14.25; Nemotron 3.5 Lightning $0.06/$0.16.",
+      "evidenceUrl": "https://deepinfra.com/pricing"
+    },
+    {
+      "name": "GPU instances / other modalities",
+      "price": "Billed per execution time",
+      "notes": "Most non-text models (image, audio, video) bill inference time rather than tokens.",
+      "evidenceUrl": "https://deepinfra.com/pricing"
+    }
+  ]
+}

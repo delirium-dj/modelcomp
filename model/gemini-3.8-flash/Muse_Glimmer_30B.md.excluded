@@ -5,3 +5,15 @@
 
 ## Signature
 - Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+
+## Model card
+- **Name:** Gemini 3.8 Flash
+- **Context window:** 1,048,576 (1M) per meta.json
+- **Modalities:** Text, image, audio, PDF in; text out per meta.json
+
+### Raw benchmarks found
+SELF-EXCLUSION: No verified public benchmark numbers found for the exact model ID google/gemini-3.8-flash via independent web research.
+
+### Normalized scores (1–100)
+Scores omitted due to SELF-EXCLUSION.
+

@@ -1,12 +1,20 @@
 {
-  "id": "opencode/qwen-3.5-35b-a3b",
+  "id": "qwen/qwen3.5-35b-a3b",
   "name": "Qwen 3.5 35B",
-  "short": "Alibaba's 35B-total/3B-active Qwen 3.5 open-weights MoE for cheap multimodal reasoning and coding; 262K native context, Apache 2.0, from ~$0.08/$0.75 per 1M.",
-  "contextWindow": "262,144 native (extensible to ~1,010,000 via YaRN)",
+  "short": "Alibaba's Feb 2026 open-weight MoE (36B total/3B active, Apache 2.0) for cheap multimodal agents: GPQA 84.2%, SWE-bench Verified 69.2%, LiveCodeBench v6 74.6% at $0.14/$1.00 - not on Zen.",
+  "contextWindow": "262,144 native (extensible to ~1,010,000 via YaRN); 65,536 max out",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "~$0.08/$0.75 per 1M (OpenRouter); Apache 2.0 self-host $0",
+  "pricingNote": "$0.14/$1.00 per 1M (OpenRouter); $0.25/$2.00 (Model Studio)",
+  "pricingTiers": [
+    "Hosted $0.14/$1.00 per 1M in/out (OpenRouter), $0.25/$2.00 (Model Studio)",
+    "Self-host $0 (Apache 2.0 weights)"
+  ],
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B",
+  "pricingLinks": [
+    "https://openrouter.ai/qwen/qwen3.5-35b-a3b",
+    "https://huggingface.co/Qwen/Qwen3.5-35B-A3B"
+  ],
   "standout": "The 3B-active sweet spot: full multimodal reasoning and coding at price levels that make always-on agents viable.",
   "tradeoff": "Small-active depth — it handles breadth cheaply, not frontier difficulty."
 }

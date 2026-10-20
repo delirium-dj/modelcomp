@@ -1,12 +1,12 @@
 {
-  "id": "opencode/ling-3.0-flash-vl",
+  "id": "inclusionai/ling-3.0-flash-vl",
   "name": "Ling 3.0 Flash VL",
-  "short": "InclusionAI's 124B/5.5B-active open-weights multimodal MoE (262K, image+video in) for visual agents; MMMU-Pro 79.0%, Terminal-Bench 2.1 64.4%.",
-  "contextWindow": "262,144 (256K) served; 32,768 max output",
+  "short": "inclusionAI's Sep 2026 MIT open-weight VL MoE (124B total/5.5B active) for GUI agents: WebVoyager 90.8, MMSearch 79.0, MMMU-Pro 79.0 at $0.06/$0.18 - not on Zen.",
+  "contextWindow": "131,072 native (262,144 via YaRN); 32,768 max out",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "OpenRouter $0.021/$0.0616 per 1M (free windows expired)",
+  "pricingNote": "$0.06/$0.18 per 1M (OpenRouter/DeepInfra); self-host $0 (MIT)",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-vl",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-3.0-flash-VL",
   "pricingLinks": [
     "https://openrouter.ai/inclusionai/ling-3.0-flash-vl"
   ],

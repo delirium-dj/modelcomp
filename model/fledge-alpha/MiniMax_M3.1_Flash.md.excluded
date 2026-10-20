@@ -1,0 +1,52 @@
+# Fledge Alpha — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> The id `opencode/fledge-alpha` resolves to nothing: the only registry entry is
+> `opencode/fledge-alpha-free`, and **zero verified public benchmark numbers**
+> exist for it on any tracker. Per the project template (`model-report-TEMPLATE.md`,
+> "SELF-EXCLUSION") this file is saved as `MiniMax_M3.1_Flash.md.excluded`: it is
+> skipped by `pnpm sync` (never parsed, averaged or registered) and contains only
+> the negative findings.
+
+- Source: OpenCode (stealth free preview) — *no vendor identified*
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha (Free) — **no vendor, no announcement, no weights**
+- **Short description:** An unannounced, free, limited-time stealth model on OpenCode Zen, listed on **2026-10-01** and retired by **2026-10-08** — a roughly one-week preview that OpenCode's changelog only mentions when removing it. **Identity note:** the id in this folder (`opencode/fledge-alpha`) does not exist; the only real id is `opencode/fledge-alpha-free` (models.dev, `status: deprecated`).
+- **Provider / access:** OpenCode Zen `fledge-alpha-free` — **retired**; absent from today's Zen model table, Zen pricing table, Zen free-model list, Zen deprecation table and `https://opencode.ai/inference/v1/models`.
+- **Release / knowledge:** listed **2026-10-01** (models.dev `release_date`); retired on or before **2026-10-08** (OpenCode changelog v2.0.26: "Added Step 5 Preview Free to OpenCode's free models for a limited time and **removed the retired Fledge Alpha Free listing**"). Knowledge cutoff unknown.
+- **IDs:** `fledge-alpha-free` (models.dev, OpenCode provider) — no other id on any provider.
+- **Context window:** **1,048,576** tokens, **131,072** max output (models.dev only — no corroborating source exists).
+- **Modalities:** text and image input; text output; reasoning with effort levels low/high/max; tool calling and temperature supported (models.dev only).
+- **Pricing (as of 2026-10-20):** **$0 in / $0 out** (free tier, limited time — no zero-retention or no-training note is published for this model, unlike OpenCode's documented free models).
+- **Architecture:** unknown — no weights, no model card, no parameters disclosed.
+
+### Raw benchmarks found
+
+> No benchmark row exists for this id on any source. The checks below are listed so the
+> absence is auditable rather than assumed.
+
+- Artificial Analysis: no model page — `https://artificialanalysis.ai/models/fledge-alpha` → **404** (verified live 2026-10-20)
+- BenchLM: no model page — `https://benchlm.ai/models/fledge-alpha` → **404** (verified live 2026-10-20); the slug is also absent from BenchLM's 960-model index
+- OpenRouter: absent from `https://openrouter.ai/api/v1/models` (verified live 2026-10-20)
+- Hugging Face: no model — `https://huggingface.co/api/models?search=fledge` returns only unrelated repositories
+- OpenCode changelog: "Fledge" appears exactly once in the entire history — the removal line. It was never announced, only retired.
+- Terminal-Bench / Tau2 / GDPval / GPQA / HLE / LCR / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found**
+
+### Negative findings summary
+
+- No verified public benchmark, no third-party evaluation and no vendor page exist for this model; the only evidence is a single models.dev catalogue row.
+- No context, output, modality or pricing figure could be confirmed from a primary source beyond that row.
+- Closest **real** neighbouring free Zen previews for orientation only (not used as a proxy): Big Pickle, LL Alpha Free, Beam Free, Step 5 Preview Free.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-20
+- Method: public internet research (OpenCode Zen docs, changelog and live model endpoint, models.dev API, OpenRouter API, Artificial Analysis and BenchLM 404 checks, Hugging Face API); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Step_5_Preview.md`, using the same headings.

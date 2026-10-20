@@ -1,9 +1,11 @@
 # MiMo V2.5 Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / MiMo V2.5 Free (`opencode/mimo-v2-5-free`, Xiaomi)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM still has **no page for the free ID** and the base `mimo-v2-5` page remains **unranked** (16 rows, unchanged): τ²-bench 90.6%, Terminal-Bench 2.0 65.8% / 2.1 (Vals) 60.7%, GPQA-D (Vals) 81.6%, MMLU-Pro (Vals) 82.9%, SWE-bench Pro 56.1%, Vals LiveCodeBench 81.5% / SWE-bench 71.0%, Video-MME 87.7%, MMMU-Pro 77.9%. No new evidence. **No score change** (Tool 72 / Reasoning 72 / Context 70 / Multimodal 95 / Coding 68 / Overall 75).
 
 ## Model card
 

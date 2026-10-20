@@ -1,12 +1,20 @@
 {
-  "id": "opencode/qwen-3.5-27b",
+  "id": "qwen/qwen3.5-27b",
   "name": "Qwen 3.5 27B",
-  "short": "Alibaba's dense 27B Qwen 3.5 open-weights vision-language model for fast coding and multimodal reasoning; 262K context, Apache 2.0, hosted from ~$0.20/$1.56 per 1M.",
-  "contextWindow": "262,144 total",
+  "short": "Alibaba's Feb 2026 dense open-weight multimodal model (27.8B, Apache 2.0, 262K window): GPQA 85.5%, SWE-bench Verified 72.4%, LiveCodeBench v6 80.7% at $0.27/$2.16 - not on Zen.",
+  "contextWindow": "262,144 native (extensible to 1,010,000); 65,536 max out",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "~$0.20/$1.56 per 1M (OpenRouter); Apache 2.0 self-host $0",
+  "pricingNote": "$0.27/$2.16 per 1M (OpenRouter); $0.30/$2.40 (Model Studio)",
+  "pricingTiers": [
+    "Hosted $0.27/$2.16 per 1M in/out (OpenRouter), $0.30/$2.40 (Model Studio)",
+    "Self-host $0 (Apache 2.0 weights)"
+  ],
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-27B",
+  "pricingLinks": [
+    "https://openrouter.ai/qwen/qwen3.5-27b",
+    "https://huggingface.co/Qwen/Qwen3.5-27B"
+  ],
   "standout": "The dense multimodal workhorse: vision-language reasoning and fast coding from 27B open weights.",
-  "tradeoff": "Superseded by the 3.5 MoE and 3.6/3.7/3.8 generations on most axes."
+  "tradeoff": "Superseded by the Qwen 3.5 MoE sizes and the 3.6/3.7/3.8 generations on most axes."
 }

@@ -1,19 +1,19 @@
 {
-  "id": "opencode/qwen-3.5-9b",
+  "id": "qwen/qwen3.5-9b",
   "name": "Qwen 3.5 9B",
-  "short": "Alibaba's Qwen3.5-9B dense open-weights reasoner (9.65B, 262K context) for cheap math, OCR and tool calls; tau2 Telecom 86.8%, thinking on by default.",
-  "contextWindow": "262,144 native (hosts serve 128K–262K)",
-  "modalities": "Text, image in; text out",
-  "pricingNote": "~$0.10/$0.15 per 1M; self-host $0",
+  "short": "Alibaba's Feb-Mar 2026 dense 9.65B open-weight multimodal model (Apache 2.0, 262K): tau2 86.8%, LiveCodeBench v6 65.6%, MMMU-Pro 70.1% at ~$0.10/$0.15 - not on Zen.",
+  "contextWindow": "262,144 native (extensible to 1,010,000); 32,768 max out",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.10/$0.15 per 1M (OpenRouter); $0.135/$0.20 (AA)",
   "pricingTiers": [
-    "Hosted ~$0.10/$0.15 per 1M in/out",
-    "Self-host $0 (Apache 2.0)"
+    "Hosted ~$0.10/$0.15 per 1M in/out (OpenRouter), $0.17/$0.25 (HF router, Together)",
+    "Self-host $0 (Apache 2.0 weights)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5-9b/",
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-9B",
   "pricingLinks": [
-    "https://www.alibabacloud.com/help/en/model-studio/models",
-    "https://huggingface.co/Qwen/Qwen3.5-9B/blob/main/README.md"
+    "https://openrouter.ai/qwen/qwen3.5-9b",
+    "https://huggingface.co/Qwen/Qwen3.5-9B"
   ],
   "standout": "The thinking-by-default pipsqueak: a 9B open reasoner covering math, OCR and telecom tool calls on pocket hardware.",
   "tradeoff": "At 9B the ceiling arrives fast — it assists, larger models architect."

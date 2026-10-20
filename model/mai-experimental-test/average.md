@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 62/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 63/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 62.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 15/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 63/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 69.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 53/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 52.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 53.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 63.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 15/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 53.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 64.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 47.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
-- Average from top 3 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
+- Average from top 4 by Overall Score: Claude Opus 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.7 Plus.
 - Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GPT 5.6 Luna, Laguna XS 2.1, Ling 3.1 Flash.

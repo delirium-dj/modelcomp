@@ -1,14 +1,14 @@
 {
   "id": "opencode/glm-5.2",
   "name": "GLM 5.2",
-  "short": "Z.ai's 753B MIT MoE (1M) for long-horizon coding agents; SWE-bench Pro 62.1%, TB 2.1 81.0%, superseded by GLM-5.3.",
-  "contextWindow": "204K",
+  "short": "Z.ai's MIT 753B/40B-active MoE (1M, text-only) for long-horizon coding agents: SWE-bench 82.8% (Vals), Terminal-Bench 2.1 81.0% (vendor) - superseded by GLM-5.3.",
+  "contextWindow": "1,000,000 (1M)",
   "modalities": "Text in/out",
-  "pricingNote": "Free Zen tier available",
-  "freeTierNote": "Free Zen tier available",
-  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/zai-org/GLM-5.2",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models"
+    "https://docs.z.ai/guides/overview/pricing"
   ],
   "standout": "The MIT flagship before 5.3: long-horizon coding agents with self-host freedom and honest benchmarking.",
   "tradeoff": "Superseded by GLM-5.3’s higher verified scores at the same open-weights posture."

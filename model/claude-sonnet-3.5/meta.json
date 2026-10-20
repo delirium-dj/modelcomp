@@ -1,12 +1,12 @@
 {
-  "id": "anthropic/claude-3-5-sonnet",
+  "id": "anthropic/claude-3-5-sonnet-20241022",
   "name": "Claude Sonnet 3.5",
-  "short": "Anthropic's Sonnet workhorse (200K, $3/$15) for era coding; SWE-bench 49% (64% agentic), now legacy.",
-  "contextWindow": "200K total (64K max output)",
-  "modalities": "Text + image in, text out",
-  "pricingNote": "Paid $3/$15 per 1M in/out",
+  "short": "Anthropic's Jun 2024 Sonnet (200K, $3/$15): MMLU 88.7%, HumanEval 92.0%, SWE-bench Verified 49% - retired from the Claude API on 2025-10-28.",
+  "contextWindow": "200,000 (max output not published for this model)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Retired - last published $3/$15 per 1M in/out",
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-sonnet-3.5",
+  "officialUrl": "https://www.anthropic.com/news/claude-3-5-sonnet",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
   ],

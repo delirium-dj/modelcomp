@@ -1,18 +1,20 @@
 {
   "id": "tencent/hy3",
   "name": "Hy3",
-  "short": "Tencent's open-weight text-only model with 256K context for cheap coding/agents; GPQA 89.7%, TB 2.1 64.4% aggregator.",
-  "contextWindow": "256,000 (256K) / 32K out",
+  "short": "Tencent's Jul 2026 open-weight 295B/21B-active MoE (Apache 2.0, 256K): SWE-bench Verified 78.0%, Terminal-Bench 2.1 71.7%, GPQA 90.4% at ~$0.08/$0.33 - not on Zen.",
+  "contextWindow": "256,000 (262,144 on some hosts); 64,000-128,000 max out",
   "modalities": "Text in/out only",
-  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M",
+  "pricingNote": "$0.0825/$0.33 off-peak (Tencent fp8), $0.14/$0.58 on other hosts, $0 on the TokenHub plan",
   "pricingTiers": [
-    "TokenHub preview ~$0.18/$0.59"
+    "Tencent fp8 $0.0825/$0.33 per 1M off-peak (00:00-16:00 UTC); $0.14/$0.58 on other hosts",
+    "Self-host $0 (Apache 2.0 weights)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=hy3",
+  "officialUrl": "https://huggingface.co/tencent/Hy3",
   "pricingLinks": [
-    "https://hunyuan.tencent.com/announcements/hy3"
+    "https://openrouter.ai/tencent/hy3",
+    "https://huggingface.co/tencent/Hy3"
   ],
   "standout": "Tencent’s budget open-weights coder: strong science-question scores at some of the lowest serving costs around.",
-  "tradeoff": "Text-only and mid-tier on terminal tasks — breadth lives in the bigger Hy generations."
+  "tradeoff": "Text-only and mid-tier on terminal tasks — breadth lives in the bigger Hy generations; the earlier hy3-preview carried a custom licence."
 }

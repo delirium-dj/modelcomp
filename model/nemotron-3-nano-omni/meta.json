@@ -1,13 +1,14 @@
 {
-  "id": "opencode/nemotron-3-nano-omni",
-  "name": "Nemotron 3 Nano Omni 30B 3B",
-  "short": "NVIDIA's open 30B-A3B omni-modal reasoning model with audio, vision and text; 262K context for on-device agents, free Build endpoint.",
-  "contextWindow": "262,144 total (65,536 max output)",
+  "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "name": "Nemotron 3 Nano Omni 30B A3B",
+  "short": "NVIDIA's Apr 2026 open 31B/3B-active omni reasoning model (audio+vision+video+text in, 256-262K ctx) with a free Build endpoint - not on Zen.",
+  "contextWindow": "256,000-262,144 (NVIDIA states both); 65,536 max output",
   "modalities": "Text, image, video, audio in; text out",
-  "pricingNote": "$0 via NVIDIA Build free API endpoint; open checkpoints available",
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3-nano-omni",
+  "pricingNote": "$0 on NVIDIA Build and the OpenRouter free route; paid $0.20/$0.80 (DeepInfra)",
+  "noFreeId": true,
+  "officialUrl": "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
   "pricingLinks": [
-    "https://docs.nvidia.com/nim/vision-language-models/1.7.0/examples/nemotron-3-nano-omni-30b-a3b-reasoning/api.html"
+    "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
   ],
   "standout": "The on-device omni: audio, vision and text reasoning from a 30B-A3B open model with a free hosted endpoint.",
   "tradeoff": "Nano-class depth and a 262K ceiling — it senses and responds, frontier models conclude."

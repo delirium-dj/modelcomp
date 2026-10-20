@@ -1,0 +1,70 @@
+# Grok 4.1 — findings by GPT 6.1 Sol
+
+- Source: xAI / original Grok 4.1 consumer model, not Grok 4.1 Fast.
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- **Status: SELF-EXCLUDED — insufficient verified exact-model specifications and broad coding/quality coverage to compute a defensible Overall.** Genuine benchmark observations are preserved below; this is not a claim that the model or all its measurements are absent.
+
+## Model card
+
+- **Name:** Grok 4.1, Thinking (`quasarflux`) and Non-Thinking (`tensor`) configurations. Vendor's original model card explicitly assesses both with its production system prompt. **Grok 4.1 Fast is a distinct model**, not a source of interchangeable context, pricing, tools or quality scores.[1][2]
+- **Short description:** November 2025 consumer-focused update emphasizing dialogue, creative writing, emotional awareness and search-grounded factuality. Vendor's statement that predecessor intelligence is retained is not a new GPQA/SWE replication.[1]
+- **Provider / access / IDs:** Launch explicitly on grok.com, X and mobile apps, selected as Grok 4.1. The current native API index omits exact plain 4.1; both dashed/dotted guessed native/API-gateway pages return 404. These checks do not prove it never had an API or that all access is globally unavailable. No exact current Zen Free ID verified. No authenticated inference performed.[1][3]
+- **Release / knowledge:** Public **2025-11-17**, preliminary silent rollout **November 1–14, 2025**. Exact knowledge cutoff not verified; live search does not change a training cutoff.[1][2]
+- **Context window:** No primary exact-model total/input/output cap verified. BenchLM labels this entry **1M**, but its display does not establish an exact native route or capacity test. Do not replace this with Grok 4's 256K or Grok 4.1 Fast's 2M; no verified exact full-window MRCR/RULER result found.[2][3][4]
+- **Modalities:** Text dialogue and search-enabled text responses established. FigQA in the exact model card is limited quantitative evidence of scientific-figure reasoning, not proof of full consumer/API image/video/audio input support. Separate Grok Voice/Imagine services do not establish this model's native output modalities.[1][2][3]
+- **Pricing:** Launch availability to all consumer users does not establish today's exact model-pinned free allocation or a $0 API tariff. No exact current plain-4.1 per-token rate verified; Fast's $0.20/$0.50 or original 4's $3/$15 are not substituted.[1][3]
+- **Architecture:** Proprietary; exact parameter count, public weights and open licence not verified. Primary card describes pretraining, targeted mid-training and supervised/reinforcement post-training.[2]
+
+### Raw benchmarks found
+
+Conversation / emotional and creative capability:
+
+- **LMArena launch snapshot:** Thinking **1483 ± 11 Elo, #1**, Non-Thinking **1465 ± 11, #2**, as reported in vendor's chart. These are **November 2025 human preference** rankings, not today's ranks, scientific accuracy or normalized 1–100 general intelligence. Vendor live-traffic blind pairwise preference **64.78%** versus prior production model.[1]
+- Vendor's **EQ-Bench3 normalized Elo 1586 Thinking / 1585 NT**; 45 roleplay scenarios, usually 3 turns, official repository/default sampling, Claude Sonnet 3.7 judge and no system prompt. Vendor was still working with benchmark authors to get these numbers on their board at launch. Current independently fetched legacy chart data contains **`grok-4.1-fast`**, not the exact unsuffixed entries; that is not independent replication of these original-model scores.[1][5]
+- Vendor's **Creative Writing v3 Elo 1721.9 Thinking / 1708.6 NT**, 32 prompts × 3 iterations. Same launch publication/LLM-judging caveat; current writing data's Fast entry is not substituted.[1][6]
+- Vendor **non-thinking with web search**: factual-claim error **4.22%** on stratified production info-seeking prompts and **2.97%** on its FActScore evaluation of 500 biography questions. Chart explicitly says **lower is better**; these are macro-averaged atomic-claim error rates, not 4.22/2.97 accuracy, unassisted Thinking performance or AA Omniscience hallucination.[1]
+
+Agent / research and coding:
+
+- **ResearchClawBench independently published original row:** `ResearchHarness (Grok-4.1)` in the benchmark's machine-readable leaderboard, model label `Grok-4.1`; **39 scored tasks of the listed 40**, arithmetic mean **13.5023 rubric points**. Site's scale says **50 matches the target paper, 100 surpasses it**. BenchLM displays **13.5%**, but this must not become 13.5% fully solved research tasks.[4][7]
+- Selected first record `Astronomy_000_20260414_175140`: **20.0 points / 434 seconds / $0.039783**; last `Physics_003_20260414_223016`: **40.9 / 370 seconds / $0.033917**. Sum of listed costs **$1.39379 across 39 rows** is a historical harness observation, not current API pricing or proof of endpoint/snapshot/effort. Leaderboard labels do not resolve how an independently reproducible present-day plain-4.1 API is pinned.[7]
+- **CyBench unguided end-to-end success 39%**, exact **Thinking**, primary card Table 4, versus original Grok 4's 43% in that table. CTF/security agents are narrower than general software repairs; not SWE-bench or Terminal-Bench success.[2]
+- **AgentDojo prompt-injection attack success 5% Thinking / 1% NT**, primary card Table 1. Lower attack success is robustness, **not 95%/99% benign-task success**, and does not warrant inflating tool capability. No verified exact TB2.1/TB4, Tau3/Tau2, GDPval-AA, Claw-Eval/ClawProBench, Toolathlon/MCP-Atlas/SWE Atlas QnA found.[2]
+- No verified exact SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench or DeepSWE result found. Predecessor/Fast/successor repair and terminal numbers remain distinct.
+
+Reasoning / multimodal and calibration:
+
+- Exact **Thinking** card Table 4: **WMDP Bio 87% / Chemistry 84% / Cyber 84%; VCT 61%; BioLP-Bench 37%; ProtocolQA 79%; FigQA 34%; CloningScenarios 46%**. WMDP/VCT evaluated **text-only**; FigQA is figure reasoning. Vendor explicitly removes safeguards for dual-use capability assessment, so these are not guaranteed production-filtered outputs or a broad GPQA/MMMU suite.[2]
+- Exact card Table 3: **MASK dishonesty 49% Thinking / 46% NT**, **sycophancy 19% / 23%**, versus original 4's **43% / 7%** in that table. Preserve the table's direction rather than turning surrounding mitigation language into an unsupported improvement claim. MASK belief contradiction is not ordinary factual hallucination.[2]
+- No verified exact GPQA Diamond, HLE, CritPt, AA Intelligence Index, Omniscience accuracy/hallucination, LCR/MLCR or general MMMU-Pro result found. BenchLM explicitly leaves this entry **unranked with no overall**, only one sourced row.[4]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Verified preference, specialist and research-agent measurements warrant an evidence record, but do not resolve exact context capacity, current modality coverage, broad software engineering or model-pinned serving identity. Assigning five quality dimensions and cost here would require unsupported specifications or numbers from Grok 4.1 Fast. No placeholder score or computed Overall is written.
+
+### Research trail and sources
+
+Fresh Bing RSS `"Grok 4.1" benchmark model card` produced generic Grok links; Google `"Grok 4.1" independent benchmark not fast` a JavaScript interstitial; DuckDuckGo `"Grok 4.1" context pricing API` a bot challenge. Direct original announcement, **all six pages** of its linked model-card PDF, current native index, BenchLM's cited research benchmark JSON and both EQ benchmark data files were inspected. Extracted original launch chart payloads to avoid treating missing rendered chart labels as zero.
+
+Exact attempted AA `/models/grok-4-1` and `/models/grok-4-1-thinking`, Vals `/models/grok_grok-4.1` and `/models/grok_grok-4-1`, OpenRouter `/api/v1/models/x-ai/grok-4.1/endpoints` and `/api/v1/models/x-ai/grok-4-1/endpoints`, and both native model-page guesses returned 404. These failed candidates are research limits, not proof of global nonexistence. No peer reports or Fast results supplied missing quality dimensions.
+
+Revisit when an exact version-pinned spec/serving record plus broad coding/context and modality evidence becomes available; consumer launch evidence and genuine narrow measurements remain useful without a fabricated Overall.
+
+[1]: https://x.ai/news/grok-4-1 "November 17 original launch, configurations, dated Arena/EQ/writing and search-grounded error charts"
+[2]: https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf "All six pages inspected: exact Thinking/NT tables, specialist figures and configuration limits"
+[3]: https://docs.x.ai/developers/models "Current native models/prices omit plain 4.1; separate generation/voice services"
+[4]: https://benchlm.ai/models/grok-4-1 "Unranked single-row secondary profile; unsupported 1M cap not promoted to verified primary spec"
+[5]: https://eqbench.com/eqbench3_chartdata.js?v=1.0.4 "Current exact data inspect: Fast entry is not original Thinking/NT replication"
+[6]: https://eqbench.com/creative_writing_chartdata.js?v=1.0.91 "Current writing data also distinguishes Fast; do not inherit its numbers"
+[7]: https://internscience.github.io/ResearchClawBench-Home/data/leaderboard.json "Original cited evaluator's exact ResearchHarness Grok-4.1 row: 39 results, rubric mean13.5023 and historical costs"
+[8]: https://internscience.github.io/ResearchClawBench-Home/ "Benchmark rubric scale: 50 matches original research paper, 100 surpasses it"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-20 UTC
+- Method: Independent fresh searches, original full model-card/launch-chart inspection and exact research-agent record selection; self-excluded because unresolved specifications and cross-axis coverage prevent a defensible normalized Overall, not because all benchmark evidence is absent.
+- Future sources: add a separate signed file alongside this report using the same headings.

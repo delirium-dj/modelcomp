@@ -1,17 +1,20 @@
 {
   "id": "opencode/nemotron-3-ultra-free",
   "name": "Nemotron 3 Ultra 550B A55B",
-  "short": "NVIDIA's open 550B/55B hybrid Mamba-MoE for frontier reasoning and long agents; 1M context, Ruler 95%, SWE-V ~73%, free Zen/trial tier.",
-  "contextWindow": "1M (262K default serve)",
-  "modalities": "Text in/out (beyond text unverified)",
-  "pricingNote": "Free Zen / NVIDIA trial",
-  "freeTierNote": "Free OpenCode Zen and NVIDIA trial access for frontier reasoning and agents",
+  "short": "NVIDIA's Jun 2026 open 550B/55B LatentMoE (1M ctx, RULER 94.7% at 1M): SWE-bench Verified 70.7%, LiveCodeBench 89.0% - free on Zen under NVIDIA trial terms.",
+  "contextWindow": "1M (262,144 default serve)",
+  "modalities": "Text in/out",
+  "pricingNote": "Free ($0/$0) on Zen under NVIDIA trial terms; paid $0.50/$2.50 (NVIDIA Build)",
+  "freeTierNote": "Free on OpenCode Zen and the NVIDIA trial endpoint - usage is logged for product improvement, so no confidential data",
   "pricingTiers": [
-    "Free Zen / NVIDIA trial"
+    "Free OpenCode Zen tier: nemotron-3-ultra-free ($0/$0, 1M ctx, 128K max out)",
+    "Paid $0.50/$2.50 per 1M on NVIDIA Build; OpenRouter paid $0.60/$2.40"
   ],
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3-ultra-free",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models"
+    "https://opencode.ai/docs/zen",
+    "https://build.nvidia.com/nvidia/nemotron-3-ultra-550b-a55b"
   ],
   "standout": "The hybrid-architecture freebie: NVIDIA’s Mamba-MoE mix serving frontier-shaped reasoning and 1M context from open weights, free to try.",
   "tradeoff": "Free-tier caps and a niche architecture mean ecosystem tooling lags standard transformer stacks."

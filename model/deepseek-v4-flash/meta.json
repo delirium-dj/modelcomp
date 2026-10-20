@@ -1,19 +1,19 @@
 {
   "id": "opencode/deepseek-v4-flash",
   "name": "DeepSeek V4 Flash",
-  "short": "DeepSeek's 1M-context text-only Flash reasoning model for high-volume agentic coding; GPQA 90.8% and AIME 95.8% at $0.14/$0.28 per 1M.",
+  "short": "DeepSeek's 1M-context text-only reasoning MoE (284B total/13B active) for agentic coding: MRCR 78.7% at 1M, LiveCodeBench 91.6%, SWE-bench Verified 79%.",
   "contextWindow": "1,000,000 total (384K max out)",
   "modalities": "Text in/out",
-  "pricingNote": "Paid ~$0.14/$0.28 per 1M; $0 free tier (200K cap)",
+  "pricingNote": "Market rate ~$0.14/$0.28 per 1M; the Zen id exists but Zen publishes no price row for it",
   "pricingTiers": [
-    "Paid ~$0.14/$0.28 per 1M in/out (Zen)",
-    "Free $0: opencode/deepseek-v4-flash-free (200K ctx cap)"
+    "Hosted ~$0.14/$0.28 per 1M in/out (HF, NVIDIA, SiliconFlow and other gateways)",
+    "Zen id deepseek-v4-flash: no published price row; DeepSeek's own API now serves V4.1-Flash-1017"
   ],
-  "freeTierNote": "Free tier on Zen (opencode/deepseek-v4-flash-free, $0/$0, 200K ctx cap) with rate-limit caveats",
-  "officialUrl": "https://www.deepseek.com/",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/",
-    "https://opencode.ai/v2/docs/console/models/"
+    "https://openrouter.ai/deepseek/deepseek-v4-flash",
+    "https://api-docs.deepseek.com/quick_start/pricing"
   ],
   "standout": "The volume-reasoning champion: strong math and agentic coding at prices that make per-token anxiety obsolete.",
   "tradeoff": "Text-only — multimodal needs a different DeepSeek lane."

@@ -87,7 +87,8 @@ export type SourceKey =
   | "Nemotron 3 Ultra 550B A55B"
   | "MiniMax M3.1 Flash"
   | "Qwen 3.8 Max"
-  | "Muse Glimmer 30B";
+  | "Muse Glimmer 30B"
+  | "LongCat 2.0";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -186,4 +187,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "MiniMax M3.1 Flash", label: "MiniMax M3.1 Flash", file: "MiniMax_M3.1_Flash.md", slug: "minimax-m3.1-flash-preview" },
   { key: "Qwen 3.8 Max", label: "Qwen 3.8 Max", file: "Qwen_3.8_Max.md", slug: "qwen-3.8-max" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md", slug: "muse-glimmer-30b" },
+  { key: "LongCat 2.0", label: "LongCat 2.0", file: "LongCat_2.0.md", slug: "longcat-2.0" },
 ];

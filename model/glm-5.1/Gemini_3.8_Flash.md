@@ -1,63 +1,74 @@
-# GLM 5.1 Coding — findings by Gemini 3.8 Flash
+# GLM 5.1 — Model Evaluation
 
-- Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** GLM 5.1 Coding
-- **Short description:** Z.ai's (Zhipu AI) 754B Mixture-of-Experts open-weights foundation model optimized for multi-hour autonomous coding, sustained terminal execution, and high-frequency tool usage under an MIT license.
-- **Provider / access:** OpenCode Zen (`opencode/glm-5.1`), Z.ai API, [OpenRouter](https://openrouter.ai/models/z-ai/glm-5.1) (`z-ai/glm-5.1`), NVIDIA NIM, [Hugging Face](https://huggingface.co/zai-org) open weights.
-- **Release / knowledge:** April 7, 2026.
-- **IDs:** `opencode/glm-5.1`, `z-ai/glm-5.1`, `zai-org/GLM-5.1`
-- **Context window:** 204,800 tokens (~200K context window; max output 128K tokens).
-- **Modalities:** Text in / text out only. Tool calls and structured outputs.
-- **Pricing (as of 2026-10-11):** ~$0.966 / 1M input tokens, ~$3.04 / 1M output tokens ($0.1794 / 1M cached input); MIT license for zero-license-cost on-premise deployments.
-- **Architecture:** 754B total / 40B active MoE with DeepSeek Sparse Attention (DSA) and MTP layers, trained natively on Huawei Ascend infrastructure.
-
-### Raw benchmarks found
-
-Agent / tool use:
-
-- SWE-bench Pro: **58.4%**
-- Terminal-Bench 2.1: **56.9%** (up to **63.5%** in Terminus-2 harness)
-- MCP-Atlas: **71.8%**
-- Tau3: **70.6%**
-- Claw-Eval v2: **83.6%**
-- CyberGym: **68.7%**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **86.2%**
-- Humanity's Last Exam (HLE): **31.0%** w/o tools, **52.3%** w/ tools
-- AIME 2026: **95.3%**
-
-Coding:
-
-- Arena Code Elo: **1530**
-- LiveBench Coding: **75.4%**
-- SciCode: **43.8%**
-- NL2Repo: **42.7%**
-
-Long context:
-
-- AA-LCR: **68.0%** across 200K context window.
-
-### Normalized scores (1–100)
-
-- **Tool use: 78/100.** Strong tool endurance over multi-turn agent runs; 71.8% MCP-Atlas, 70.6% Tau3, and 63.5% on Terminal-Bench validate autonomous execution.
-- **Reasoning: 78/100.** 86.2% on GPQA Diamond and 95.3% on AIME 2026 demonstrate reliable mathematical reasoning.
-- **Context window: 70/100.** 200K context window with 128K max output; balanced for multi-file development.
-- **Multimodal: 15/100.** Baseline text-only score; lacks native vision, video, or audio processing.
-- **Coding: 84/100.** 58.4% on SWE-bench Pro and 1530 Code Arena Elo substantiate superior open-weights coding aptitude.
-- **Cost efficiency: 74/100.** Commercial API pricing (~$0.97 / $3.04 per 1M tokens) with free self-hosting option via MIT license.
-- **Overall Score: 65/100.** Arithmetic mean of non-cost metrics: (78 + 78 + 70 + 15 + 84) / 5 = 65.0. An elite open-weights coding specialist with endurance across complex software engineering pipelines.
+- **Research Date:** 2026-10-20
+- **Researcher:** Gemini 3.8 Flash
+- **Model Name:** GLM 5.1 (Zhipu AI / Z.ai)
+- **Model Type:** Open-weights 754B Mixture-of-Experts (MoE) software engineering foundation model (MIT)
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public benchmark evaluation and analysis of Z.ai technical documentation, OpenRouter pricing, and Artificial Analysis leaderboards.
+GLM 5.1 (GLM 5.1 Coding) is Zhipu AI / Z.ai's open-weights flagship Mixture-of-Experts (MoE) foundation model released under the MIT license on April 7, 2026. Built with a 754B total parameter footprint activating **40B active parameters per token** (256 routed experts + 1 shared expert, with 8 active experts per token), GLM 5.1 incorporates DeepSeek Sparse Attention (DSA) and Multi-Token Prediction (MTP) layers trained natively on Huawei Ascend infrastructure.
+
+Specifically engineered for long-horizon autonomous software engineering and multi-hour terminal loops without early-plateau failure, GLM 5.1 achieves leading benchmarks: **58.4% on SWE-bench Pro**, **63.5% on Terminal-Bench 2.0** (Terminus-2 harness), **42.7% on NL2Repo**, 95.3% on AIME 2026, and 86.2% on GPQA Diamond. Operating across a ~204,800-token (200K) context window with up to 128,000 output tokens, it stands as an elite open-source alternative to proprietary frontier models for autonomous repository maintenance.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 80/100.** Scores 63.5% on Terminal-Bench 2.0 (56.9% on standard runs), 71.8% on MCP-Atlas, and 70.6% on Tau3. Demonstrates exceptional endurance over multi-turn agent loops (supporting up to thousands of consecutive tool executions without loop stalling).
+- **Reasoning: 84/100.** Delivers 86.2% on GPQA Diamond and 95.3% on AIME 2026. Excels at complex algorithmic synthesis, formal mathematical logic, and deep system architecture modeling.
+- **Context window: 72/100.** 204,800-token (~200K) context window with an expansive 128K maximum output token limit. DeepSeek Sparse Attention (DSA) preserves 68.0% long-context reasoning retention (AA-LCR).
+- **Multimodal: 20/100.** Text and code inputs/outputs only; lacks native video, audio, or image ingestion in the base 5.1 model.
+- **Coding: 88/100.** SOTA open-weights performance with 58.4% on SWE-bench Pro, 1530 Arena Code Elo, and 42.7% on NL2Repo. Capable of multi-file refactoring, test suite synthesis, and autonomous bug patching.
+- **Cost efficiency: 90/100.** MIT open-weights license enables completely free on-premise execution; official API pricing is ~$0.97–$1.05 per 1M input tokens and ~$3.04–$3.50 per 1M output tokens ($0.205/1M cached).
+- **Overall Score: 69/100.** (Arithmetic mean: `(80 + 84 + 72 + 20 + 88) / 5 = 344 / 5 = 68.8`, rounded to **69**).
+
+---
+
+### Key Strengths
+
+1. **Long-Horizon Agent Endurance:** Engineered to sustain hundreds of autonomous tool iterations over multi-hour coding sessions without memory degeneration.
+2. **Top-Tier Open-Weights SWE-bench Pro:** 58.4% on SWE-bench Pro places it ahead of many proprietary frontier systems on repository tasks.
+3. **DeepSeek Sparse Attention (DSA):** Substantially reduces computational overhead across 200K token buffers while activating only 40B parameters per token.
+4. **Permissive MIT License:** Unrestricted commercial distribution, local cluster self-hosting, and zero vendor lock-in.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Text/Code Only:** Completely lacks multimodal vision, audio, or video processing in the base GLM 5.1 release.
+2. **Hardware Cluster Requirements:** Deploying a 754B MoE locally requires dedicated enterprise multi-GPU or Ascend cluster infrastructure.
+3. **200K Context vs 1M Tiers:** While 200K is ample for most codebases, it is smaller than modern 1M+ token frontier models.
+
+---
+
+### Pricing & Value Matrix
+
+- **Self-Host License:** MIT (Free open weights)
+- **Official API Input:** ~$0.97 – $1.05 per million tokens (Cached: ~$0.205/1M)
+- **Official API Output:** ~$3.04 – $3.50 per million tokens
+- **Architecture:** 754B total / 40B active MoE (DeepSeek Sparse Attention)
+- **Context Capacity:** 204,800 tokens (up to 128,000 output tokens)
+- **Speed Tier:** Enterprise agentic MoE tier
+
+---
+
+### Benchmark Reference Summary
+
+| Benchmark | Score | Context / Configuration |
+| :--- | :--- | :--- |
+| **SWE-bench Pro** | 58.4% | Autonomous software engineering benchmark |
+| **Terminal-Bench 2.0** | 63.5% | Terminus-2 autonomous CLI execution harness |
+| **NL2Repo** | 42.7% | Whole repository architecture generation |
+| **AIME 2026** | 95.3% | Mathematics competition |
+| **GPQA Diamond** | 86.2% | Graduate-level STEM reasoning |
+
+---
+
+### Evaluation Sources
+
+- Zhipu AI / Z.ai Technical Report: [GLM-5.1 Architecture & Benchmark Disclosures](https://z.ai)
+- OpenRouter & NVIDIA NIM Model Cards: [GLM 5.1 Specifications & Pricing](https://openrouter.ai)
+- Autonomous Agent Evaluation Studies: MorphLLM & SiliconFlow Trackers.

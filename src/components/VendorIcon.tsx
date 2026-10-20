@@ -51,6 +51,7 @@ const VENDORS: VendorMatch[] = [
   { match: "llama", icon: "meta", label: "Meta" },
   { match: "muse", icon: "meta", label: "Meta" },
   { match: "meta", icon: "meta", label: "Meta" },
+  { match: "nvidia", icon: "nvidia", label: "NVIDIA" },
   { match: "nemotron", icon: "nvidia", label: "NVIDIA" },
   { match: "mistral", icon: "mistral", label: "Mistral" },
   { match: "solar", icon: "upstage", label: "Upstage", adaptive: true },
@@ -70,7 +71,10 @@ const VENDORS: VendorMatch[] = [
   { match: "xai", icon: "xai", label: "xAI", adaptive: true },
   { match: "zai", icon: "zai", label: "Z.ai", adaptive: true },
   { slug: "opencode-zen", icon: "opencode", label: "OpenCode", adaptive: true },
-  { match: "openrouter", icon: "openrouter", label: "OpenRouter", adaptive: true },
+  { match: "openrouter", icon: "openrouter", label: "OpenRouter" },
+  { match: "nanogpt", icon: "nanogpt", label: "NanoGPT" },
+  { match: "commandcode", icon: "commandcode", label: "Command Code", adaptive: true },
+  { match: "deepinfra", icon: "deepinfra", label: "DeepInfra" },
   // laguna / poolside have no free brand SVG — letter fallback below.
 ];
 

@@ -1,8 +1,8 @@
 {
   "id": "meituan/longcat-2.0",
   "name": "LongCat 2.0",
-  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
-  "contextWindow": "1M total",
+  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M context) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
+  "contextWindow": "1M tokens",
   "modalities": "Text in/out",
   "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006)",
   "pricingTiers": [
@@ -10,11 +10,11 @@
     "Cached input $0.006"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=longcat-2.0",
+  "officialUrl": "https://huggingface.co/meituan-longcat/LongCat-2.0",
   "pricingLinks": [
     "https://longcat.chat",
-    "https://longcat.chat"
+    "https://longcat.ai"
   ],
-  "standout": "Meituan’s MIT heavyweight: a 1.6T MoE offering 1M-context coding agents with fully open weights.",
+  "standout": "Meituan's MIT heavyweight: a 1.6T MoE offering 1M-context coding agents with fully open weights and LSA attention.",
   "tradeoff": "Self-hosting a 1.6T MoE is serious infrastructure; served pricing quality depends on the reseller."
 }

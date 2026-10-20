@@ -1,0 +1,53 @@
+# LongCat 2.5 Preview — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> LongCat 2.5 Preview is a real hosted API product, but **zero verified public
+> benchmark numbers** were ever published for it (no model card, no technical
+> report, no tracker entries). Per the project template
+> (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: Meituan (LongCat 2.5 Preview, hosted API preview), `meituan/longcat-2.5-preview`
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's hosted-API preview of the LongCat 2 generation — released **2026-09-25** with a new image-understanding capability and "superior coding capability", served as an API-only preview (no open weights) at $0.30/$1.20 per 1M, plus a free OpenCode Zen slot. **Identity note:** the id in this folder (`opencode/longcat_2.5_preview`) matches no registry; the real ids are `opencode/longcat-2.5-preview-free` (Zen), `meituan/longcat-2.5-preview` (Vercel/NanoGPT canonical id) and `longcat-2.5-preview` (NanoGPT).
+- **Provider / access:** LongCat API Platform (`https://api.longcat.chat`), Vercel AI Gateway (`meituan/longcat-2.5-preview`), NanoGPT, **OpenCode Zen `longcat-2.5-preview-free`** (free, limited time; the live Zen model list carries only that hyphenated id). Not on OpenRouter, not on Artificial Analysis, not on BenchLM.
+- **Release / knowledge:** **2026-09-25** (LongCat platform change log). Knowledge cutoff not published.
+- **IDs:** `meituan/longcat-2.5-preview` (canonical), `longcat-2.5-preview` (NanoGPT), `longcat-2.5-preview-free` (Zen).
+- **Context window:** **1,048,576** tokens; `max_tokens` limit **262,144** per LongCat's own parameter table (models.dev lists 131,072 for 2.5 and 262,144 for 2.0 — the two sources appear transposed; conflict flagged).
+- **Modalities:** text and image input, text output; reasoning toggle; tool calling; temperature is fixed/overridden (not user-settable).
+- **Pricing (as of 2026-10-20):** **$0.30/M in, $1.20/M out, $0.006/M cached read** ("Discounted Price, limited-time"; ¥2 / ¥8 / ¥0.04). Resellers list $0.30/$1.20 (Vercel) and $0.75/$2.95 (NanoGPT).
+- **Architecture:** not published — no model card, no weights, no technical report, no parameter count. It is a hosted preview of the LongCat 2.0 generation (1.6T total / ~48B active MoE, MIT, 1M context), not a checkpoint anyone can inspect.
+
+### Raw benchmarks found
+
+> No benchmark row exists for LongCat-2.5-Preview on any source. The checks below are
+> listed so the absence is auditable; the LongCat-2.0 numbers are a **different model**
+> and are deliberately not used as a proxy.
+
+- Artificial Analysis: no model page — `https://artificialanalysis.ai/models/longcat-2-5-preview` → **404** (verified live 2026-10-20)
+- BenchLM: no model page — `https://benchlm.ai/models/longcat-2-5-preview` → **404** (verified live 2026-10-20)
+- OpenRouter: `https://openrouter.ai/meituan/longcat-2.5-preview` → 404 (only `meituan/longcat-2.0` is listed)
+- Hugging Face: no `LongCat-2.5*` repository exists (search returns 0); the `meituan-longcat` GitHub org's newest repos are LongCat-2.0 (2026-06-29) and LongCat-DeepResearch (2026-09-22)
+- The platform change log claims "Superior Coding Capability" and multimodal understanding, but publishes **no numbers** for the preview
+- Terminal-Bench / Tau2 / GDPval / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found** for LongCat-2.5-Preview
+
+### Negative findings summary
+
+- No verified public benchmark, no third-party evaluation and no model card exist for this preview; only capability prose and a price table.
+- No parameter count, architecture or weights are published.
+- Closest **real** neighbouring model for orientation only (not used as a proxy): **LongCat 2.0** (MIT, 1.6T/48B active, 1M context) with its own card numbers — Terminal-Bench 2.1 70.8, SWE-bench Pro 59.5, GPQA-D 88.9, plus LongCat-DeepResearch (DeepResearchBench 55.25).
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-20
+- Method: public internet research (LongCat platform change log, pricing and model-parameter pages, GitHub meituan-longcat org, Hugging Face API, models.dev API, OpenRouter API, Artificial Analysis and BenchLM 404 checks, OpenCode Zen live model endpoint); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `LongCat_2.0.md`, using the same headings.
