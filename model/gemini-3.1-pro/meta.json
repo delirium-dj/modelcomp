@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The long-memory specialist: a 2M-token window plus unusually strong abstract-reasoning puzzle skill makes it Google’s pick for whole-repository analysis and research-grade multimodal agents.",
+  "tradeoff": "Pro-lane pricing with a comparatively modest output cap — you pay flagship rates for a slower model that earns its keep only where the huge input window matters."
 }

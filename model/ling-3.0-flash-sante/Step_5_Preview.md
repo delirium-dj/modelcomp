@@ -1,7 +1,7 @@
 # Ling 3.0 Flash Santé — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`inclusionai/ling-3.0-flash-sante`, released 2026-09-04)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,6 +34,8 @@ Backbone reference (independent, base model):
 
 Direct Sante-vs-Flash comparison on medical prompts, SWE-bench, Terminal-Bench, τ³, MCP Atlas, GDPval for Santé: **no verified public score found**.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no ling-3-0-flash-sante page (404) and BenchLM has no ling-3.0-flash-sante page (404) — both trackers remain untracked for this domain-tuned variant, consistent with the first pass; every Santé-specific number is still vendor-reported and unreproduced, and the backbone reference (base Ling 3.0 Flash, re-verified today: AA Index 20, BenchLM composite 45.11) is unchanged. No score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 55/100.** The vendor's multi-agent BrowseComp 86.9 shows the retrieval-heavy tool loops Sante was tuned for, and function calling is native; with no Terminal-Bench, τ³, MCP Atlas or GDPval number — and no independent verification of anything — mid-band is the honest ceiling.
@@ -48,6 +50,6 @@ Direct Sante-vs-Flash comparison on medical prompts, SWE-bench, Terminal-Bench, 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Ant/inclusionAI launch announcement via LinkedIn, OrcaRouter verification analysis, Vercel AI Gateway and OpenRouter listings, SurfMind free-route page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both remain untracked for this variant — no new independent evidence; every Santé-specific number is still vendor-reported and unreproduced, and the base-model backbone reference (re-verified today, AA Index 20 / BenchLM 45.11) is unchanged. No score change warranted. First pass (2026-10-09) used Ant/inclusionAI launch announcement via LinkedIn, OrcaRouter verification analysis, Vercel AI Gateway and OpenRouter listings, SurfMind free-route page.
 - Future sources: add a new file next to this one, e.g. `Ling_3_0_Flash_Med.md`, using the same headings.

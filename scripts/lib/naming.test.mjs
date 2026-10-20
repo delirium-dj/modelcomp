@@ -122,12 +122,21 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.8-27b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-9b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-397b"));
+    assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-27b"));
+    assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-35b-a3b"));
+    assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-122b-a10b"));
     assert.equal(hyphenVersionViolation("gemma-4-31b"), null);
     assert.equal(hyphenVersionViolation("qwen-3.8-27b"), null);
     // Version 3.5 + 9B params: the "5-9" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-9b"), null);
     // Version 3.5 + 397B params (Qwen3.5-397B-A17B): the "5-397" hit is not a hyphen version.
     assert.equal(hyphenVersionViolation("qwen-3.5-397b"), null);
+    // Version 3.5 + 27B params: the "5-2" hit is not a hyphen version.
+    assert.equal(hyphenVersionViolation("qwen-3.5-27b"), null);
+    // Version 3.5 + 35B/3B-active params (Qwen3.5-35B-A3B): the "5-3" hit is not a hyphen version.
+    assert.equal(hyphenVersionViolation("qwen-3.5-35b-a3b"), null);
+    // Version 3.5 + 122B/10B-active params (Qwen3.5-122B-A10B): the "5-1" hit is not a hyphen version.
+    assert.equal(hyphenVersionViolation("qwen-3.5-122b-a10b"), null);
   });
 });
 

@@ -13,5 +13,7 @@
   "pricingLinks": [
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
-  ]
+  ],
+  "standout": "Sparse-MoE economics for high-volume automation — coding agent sweeps and batch pipelines at a price that makes volume practical.",
+  "tradeoff": "Speed-first sparse tuning gives up some frontier depth; the heaviest reasoning is better delegated to the Plus/Max lanes."
 }

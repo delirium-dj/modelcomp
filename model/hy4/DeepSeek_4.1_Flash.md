@@ -1,9 +1,11 @@
 # HY4 (Hy4 Preview) — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/Hy4 preview (`tencent/Hy4-preview`, served as `hy4-preview`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`hy4-preview`, 34 rows) computes an overall **61.35/100 (#52 of 959)** and confirms the first draft. It re-anchors every headline on the Tencent appendix and adds independent rows: Terminal-Bench 2.1 (Vals) **55.1%** vs Tencent's self-reported 85.4% (the ~30-point divergence stands), STEMBench 2.59, Hermes Index 26.1 / Bench 58.6, OfficeQA Pro 66.2%, CWE-bench v1 53.0%. **No score change** (Tool 87 / Reasoning 87 / Context 95 / Multimodal 15 / Coding 84 / Cost 90 / Overall 74).
 
 ## Model card
 

@@ -1,7 +1,7 @@
 # Hy4 preview — findings by Step 5 Preview
 
 - Source: Tencent Hy / Hunyuan (`hy4-preview`, weights `tencent/Hy4-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,20 +35,25 @@ Third-party:
 - Throughput 15–42 tok/s and latency 1.68–11.25 s depending on provider (OpenRouter)
 - Not yet listed on the Artificial Analysis Intelligence Index as of 2026-08-29
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **61.35/100** overall, #52 of 956 models, 34 of 644 benchmarks covered; Artificial Analysis has no hy4-preview page (404 on the natural slug)
+- New independent rows (BenchLM): Terminal-Bench 2.1 (Vals) **55.1%** — far below the 85.4% vendor Claude-Code-harness row (harness spread flagged), APEX-Agents **37.1%**, Agents' Last Exam **22.8%**, AutomationBench **32.1%**, Hermes Index **26.1%** / Hermes Bench **58.6%**, CWE-bench v1 **53.0%**, PostTrainBench **35.6%**, NL2Repo **58.9%**, STEMBench **2.59**, WideResearch **83.9%**, DRACO **77.2%**, BankerToolBench **78.6%**, JobBench **61.7%**, HLE with tools **55.4%**, OfficeQA Pro **66.2%**
+
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** MCP-Atlas public 83.7%, Toolathlon-Verified 74.1%, GDPval-AA V2 Elo 1678 and independent TAU-Bench ~73.8–75.8% (OpenRouter AutoExacto) sit at the frontier band (MCP-Atlas ~75+, Toolathlon ~50+, GDPval ~1750 is the only miss at 1678) — the best agentic profile of any open-weights model at its size.
+- **Tool use: 76/100.** MCP-Atlas public 83.7%, Toolathlon-Verified 74.1%, GDPval-AA V2 Elo 1678, WideResearch 83.9% and BankerToolBench 78.6% remain strong, but the third pass added the independent agentic rows the file lacked and they are mid-to-weak: Terminal-Bench 2.1 (Vals) 55.1% (vs the 85.4% vendor row), APEX-Agents 37.1%, ALE 22.8%, AutomationBench 32.1%, Hermes Index 26.1%. Trimmed from 82 — still the best agentic profile of any open-weights model at its size, but not the frontier band.
 - **Reasoning: 88/100.** GPQA Diamond 92.3% (independently reproduced at 89–91% across OpenRouter providers), HLE 43.4% no-tools and MathArena Apex 74.2% are all in the frontier band (GPQA 90%+, HLE 40%+); CritPt 16.9% and no ARC-AGI figure hold it just below the top.
 - **Context window: 92/100.** A 1M-token window (up from Hy3's 256K) built on sparse attention designed for it — the ≥1M band worth 95–100, docked because Tencent publishes no MRCR/RULER/needle-retrieval curve for this model, so retrieval quality at 512K+ is unevidenced.
 - **Multimodal: 12/100.** Text-only (HF pipeline `text-generation`, OpenRouter text→text) — the methodology's text-only band (10–20); no vision or audio variant has shipped.
 - **Coding: 86/100.** Terminal-Bench 2.1 85.4% (Claude Code harness, 500 turns), SWE-bench Multilingual 82.9%, SWE-bench Pro 65.7%, DeepSWE 64.3% and CyberGym 78.4% are near-frontier coding — clearly the best open model and only a few points behind Claude Opus 5 on the marquee agentic coding evals; SWE-Marathon 31.9% and ProgramBench 17.5% (vs Opus 5's 50.0/39.5) show where the gap remains.
 - **Cost efficiency: 90/100.** $0.834/$2.501 per million tokens with $0.042 cache reads and Apache-2.0 weights free to self-host (the methodology's ~$0.6/$2.2 ≈ 92 / ~$1.25/$4.25 ≈ 88 range); through provider routing and the MTP drafter, frontier-class agentic coding at well under half of Opus pricing.
-- **Overall Score: 72/100.** Best-fit recommendation: the strongest open-weights agentic coder of late 2026 — frontier-class tool use and coding at ~$0.83/$2.50, preview quirks (overlong reasoning, over-verification) included.
+- **Overall Score: 71/100.** Mean of the five non-cost dims (76+88+92+12+86)/5 = 70.8 (Tool use 82→76 on the newly measured independent agentic rows). Best-fit recommendation: the strongest open-weights agentic coder of late 2026 — frontier-class coding and strong tool use at ~$0.83/$2.50, preview quirks (overlong reasoning, over-verification) included.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Tencent Hy release page, Hugging Face model card + benchmark appendix + eval-results widget, OpenRouter provider benchmarks, Lab Index and Tencent Cloud analyses); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) via BenchLM (composite 61.35/100, #52/956, 34/644 benchmarks; Artificial Analysis has no hy4-preview page): new independent rows Terminal-Bench 2.1 (Vals) 55.1% (vs the 85.4% vendor row — harness spread flagged), APEX-Agents 37.1%, ALE 22.8%, AutomationBench 32.1%, Hermes 26.1%, CWE-bench 53.0%, PostTrainBench 35.6%, NL2Repo 58.9%, WideResearch 83.9%, DRACO 77.2%, BankerToolBench 78.6%, JobBench 61.7% — Tool use was trimmed 82→76 on that evidence (Overall 72→71); the frontier-band GPQA/HLE/MathArena reads keep Reasoning at 88 and Coding at 86. First pass (2026-10-09) used Tencent Hy release page, Hugging Face model card + benchmark appendix + eval-results widget, OpenRouter provider benchmarks, Lab Index and Tencent Cloud analyses.
 - Future sources: add a new file next to this one, e.g. `Hy4_GA.md`, using the same headings.

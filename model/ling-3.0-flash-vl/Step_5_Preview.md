@@ -1,7 +1,7 @@
 # Ling-3.0-flash-VL — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`Ling-3.0-flash-VL`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -36,6 +36,12 @@ Vendor-reported multimodal table (vs Qwen3.8-27B xhigh, Gemini 3.5 Flash-Lite hi
 
 Not published: text-side SWE-bench/Terminal-Bench splits for the VL checkpoint itself, and any independent (non-vendor) run of the multimodal chart.
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **46.82/100** overall, #116 of 956 models, 11 of 648 benchmarks covered; the official Hugging Face model card is now linked there
+- Artificial Analysis (hyphenated slug, not deprecated): Index **25** (#2/67 in class, median 8 — matches the file), 262k context (260k per the FAQ row), text/image/video, 124B/5.5B, MIT, 160M Index tokens (somewhat verbose), released Sept 2026 — no speed or pricing rows on the page
+- All the file's AA rows reconfirmed via BenchLM: GDPval-AA 33.1%, AA-SciCode 44.2%, AA-MMMU-Pro 79.0%, AA-LCR 78.3%, CritPt 2.0%, AA-GPQA 86.2%, AA-HLE 22.0%, AA-Omniscience index −4.5% / accuracy 14.4% / hallucination 22.0%. No new independent evidence — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 58/100.** WebVoyager 90.83 and ClawEval-MM 59.9 show genuine GUI-agent ability (leading the vendor's comparison field on both), but the general agentic suites are mid-band: τ-Bench Banking 34.4%, GDPval-AA 33.2%, Agentic Index 28.7, AutomationBench 16% — strong at reading-and-clicking interfaces, average on general tool workflows.
@@ -50,6 +56,6 @@ Not published: text-side SWE-bench/Terminal-Bench splits for the VL checkpoint i
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Ant Ling developer docs + HF model card, Artificial Analysis via OpenRouter, AI/TLDR benchmark tables, OrcaRouter and RuntimeWire launch analyses); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 25 #2/67 — matches the file; 160M Index tokens) and BenchLM (composite 46.82/100, #116/956, 11/648 benchmarks; official HF model card now linked): every AA row on file reconfirmed (GDPval-AA 33.1%, AA-SciCode 44.2%, AA-MMMU-Pro 79.0%, AA-LCR 78.3%, CritPt 2.0%, Omniscience −4.5%) — no new independent evidence, no score change. First pass (2026-10-09) used Ant Ling developer docs + HF model card, Artificial Analysis via OpenRouter, AI/TLDR benchmark tables, OrcaRouter and RuntimeWire launch analyses.
 - Future sources: add a new file next to this one, e.g. `Ling_4.md`, using the same headings.

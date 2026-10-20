@@ -9,5 +9,7 @@
   "officialUrl": "https://huggingface.co/models?search=kimi-k2.5",
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/"
-  ]
+  ],
+  "standout": "An open-weight trillion-parameter MoE that stays strong on olympiad math and long-context agent runs at open-model prices.",
+  "tradeoff": "Context is short by 1M-era standards, and hosting the full MoE locally is a serious hardware commitment."
 }

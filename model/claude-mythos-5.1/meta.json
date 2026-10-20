@@ -12,5 +12,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-mythos-5.1",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "Made for vetted high-risk research — the tier organizations reach for when cyber/bio analysis needs Anthropic’s strictest access controls.",
+  "tradeoff": "Identical weights to Fable 5.1 but restricted access and top-tier pricing; the only reason to choose it is eligibility for the safety-vetted lane."
 }

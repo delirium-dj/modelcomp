@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://openai.com/api/pricing/",
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The think-longer-pay-more tier: extra-compute reasoning that turns the most stubborn research questions into answers.",
+  "tradeoff": "Extreme per-token cost — a specialist for decisive, high-stakes calls rather than routine development."
 }

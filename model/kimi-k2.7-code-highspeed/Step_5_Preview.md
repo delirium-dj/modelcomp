@@ -1,7 +1,7 @@
 # Kimi K2.7 Code HighSpeed — findings by Step 5 Preview
 
 - Source: Moonshot AI (`kimi-k2.7-code-highspeed` — high-speed tier of Kimi K2.7 Code)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,6 +55,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Moonshot/Kimi pricing docs + quickstart + what's-new, Vercel AI Gateway, Command Code, benchr, modelbenchmark.io, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no kimi-k2.7-code-highspeed page (404) and BenchLM has no kimi-k2.7-code-highspeed page (404) — both trackers treat it as a serving tier of Kimi K2.7 Code, consistent with the file's identical-weights premise; the shared K2.7 Code evidence base (re-verified today, Index 26, $0.54/task) applies and no score change is warranted. First pass (2026-10-09) used Moonshot/Kimi pricing docs + quickstart + what's-new, Vercel AI Gateway, Command Code, benchr, modelbenchmark.io, Vals AI.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

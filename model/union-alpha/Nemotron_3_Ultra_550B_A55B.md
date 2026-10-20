@@ -39,7 +39,7 @@
 - **Multimodal: 20/100.** Unknown modalities; presumed text-only. Capped by unknown identity.
 - **Coding: 30/100.** No public coding benchmarks. Capped by absence of evidence.
 - **Cost efficiency: 20/100.** Unknown pricing; no public API access. Capped by unknown identity.
-- **Overall Score: 27/100.** Half-up mean of (30 + 30 + 30 + 20 + 30) / 5 = 28 → 28. Using six incl. cost: (30+30+30+20+30+20)/6 = 160/6 = 26.7 → 27. Model-queue says 78.3; **massive discrepancy confirmed as unverifiable model** — likely community merge without public benchmarks.
+- **Overall Score: 28/100.** Half-up mean of (30 + 30 + 30 + 20 + 30) / 5 = 28 → 28. Using six incl. cost: (30+30+30+20+30+20)/6 = 160/6 = 26.7 → 27. Model-queue says 78.3; **massive discrepancy confirmed as unverifiable model** — likely community merge without public benchmarks.
 
 ---
 

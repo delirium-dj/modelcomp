@@ -12,5 +12,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-opus-5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "Built for long autonomous coding sessions: it plans and executes multi-step engineering work for hours without losing the thread.",
+  "tradeoff": "Superseded inside its own family — Opus 5.5 covers the same ground with a higher ceiling, so it mainly matters where availability or existing integrations pin you to it."
 }

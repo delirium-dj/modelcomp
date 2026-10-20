@@ -12,5 +12,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-5.5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The everyday workhorse of the Claude lineup — quick fixes, docs and refactors at Sonnet pricing, with terminal performance that can embarrass Opus.",
+  "tradeoff": "Depth over marathon horizons still belongs to Opus and Fable; multi-hour fully autonomous projects are better on the top tiers."
 }

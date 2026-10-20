@@ -1,0 +1,54 @@
+# Kimi K2.8 Preview — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> The exact id in this folder (`kimi-k2-8-preview` / "Kimi K2.8 Preview") could not be
+> verified to exist on any vendor or tracker surface as of 2026-10-20, and **zero
+> verified public benchmark numbers** were found for it. Per the project template
+> (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: Moonshot AI — *no published model found*
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview — **not verifiable as an existing model**
+- **Short description:** The repository folder claims a "Kimi K2.8 Preview" id (`moonshot/kimi-k2-8-preview`) — a 1M-context preview tier between Kimi K2.7 Code and Kimi K3, priced through a "Kimi membership plan" rather than per-token billing. Every Moonshot-controlled surface checked on 2026-10-20 lists only `kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed` and `kimi-k2.6`; there is no announcement, API id, model card or changelog entry for a "K2.8" anywhere. The claimed id prefix `moonshot/` also does not match Moonshot's own provider naming (`moonshotai` on OpenRouter and models.dev). Structurally the slot is redundant: K3 shipped in July 2026 with a 1M context and a per-token price.
+- **Provider / access:** none found. No API id, no Zen route, no OpenRouter id, no Hugging Face repository.
+- **Release / knowledge:** no release date found; no knowledge cutoff published.
+- **IDs:** none found. `moonshot/kimi-k2-8-preview` resolves nowhere.
+- **Context window:** no verified published figure (the repo's 1,048,576 claim is unverified).
+- **Modalities:** no verified published figure (the repo's "text, image in" claim is unverified).
+- **Pricing (as of 2026-10-20):** no verified published figure. The "Kimi membership plan" description is a subscription product, not a model price, and the Kimi API platform is explicitly pay-as-you-go with no subscription.
+- **Architecture:** unknown — no weights, no model card, no config published.
+
+### Raw benchmarks found
+
+> No benchmark row exists for this id on any source. The searches below were made to
+> document the negative result; they are listed so the absence is auditable.
+
+- Artificial Analysis: no model page matching "k2.8" across the full model index (https://artificialanalysis.ai/models) — `/models/kimi-k2-8-preview` → **404**
+- BenchLM: no `kimi-k2-8` entry in the model index; `/models/kimi-k2-8-preview` → **404**
+- OpenRouter `/api/v1/models`: Moonshot ids present are `moonshotai/kimi-k3`, `kimi-k2.7-code`, `kimi-k2.6`, `kimi-k2.5`, `kimi-k2-thinking`, `kimi-k2-0905` — **no `kimi-k2.8*`**
+- models.dev: **zero** entries matching `k2.8` / `k2-8` in **any** provider (https://models.dev/api.json)
+- Moonshot model list (https://platform.kimi.ai/docs/models), pricing table (https://platform.kimi.ai/docs/pricing/chat), platform changelog and docs index (https://platform.kimi.ai/docs/llms.txt): K3, K2.7 Code, K2.7 Code HighSpeed, K2.6 only — **no K2.8 page or changelog entry**
+- Hugging Face org `moonshotai` (20 repos): newest are Kimi-K3 (2026-06-13) and Kimi-K2.7-Code (2026-06-11) — **no K2.8**
+- OpenCode Zen catalogue and `https://opencode.ai/inference/v1/models`: Kimi K2.5 / K2.6 / K2.7 Code / K3 only — **no K2.8**
+- Kimi consumer surfaces (kimi.com, kimi.ai/code, membership pricing): no "K2.8" / "preview" string in page text
+
+### Negative findings summary
+
+- No verified public score found for Terminal-Bench, τ²/τ³, GDPval, GPQA, HLE, LCR/MLCR, CritPt, SWE-bench, LiveCodeBench, DeepSWE, SciCode, MMMU-Pro or any long-context retrieval test.
+- No verified context window, max output, modality list, pricing or licence could be confirmed from a primary source.
+- Closest **real** neighbouring models, for orientation only: Kimi K2.7 Code / K2.7 Code HighSpeed (262,144 tokens, $0.95/$4.00 and $1.90/$8.00, modified-MIT weights) and Kimi K3 (1,048,576 tokens, $3.00/$15.00). Their numbers are **not** used as a proxy here.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-20
+- Method: public internet research (Moonshot/Kimi platform docs, pricing, changelog and llms.txt, Hugging Face moonshotai org, models.dev API, OpenRouter API, Artificial Analysis model index, BenchLM model index, OpenCode Zen catalogue and live model endpoint); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

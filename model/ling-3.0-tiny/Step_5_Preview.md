@@ -1,7 +1,7 @@
 # Ling-3.0-tiny — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`inclusionai/ling-3.0-tiny`, released 2026-08-06)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,20 +32,26 @@ Other trackers:
 - Franklin AI: intelligence index 24.5, coding index 26.5, 202.17 tok/s, TTFT 2.02 s
 - AI BENCHY: score 3.6, rank #375, 23.2% pass rate (unreliable trackers — directional only)
 
+Third-pass verification (2026-10-19):
+
+- BenchLM: no public overall score (10 of 648 benchmarks, unranked); the official Hugging Face model card is now linked there
+- Artificial Analysis (hyphenated slug): Index **11** (#36/141 — matches the file), **19.9 tok/s** median across providers (the launch 154.1 read is stale; class median 78.6), TTFT 3.59s, **$0.00/$0.00** per the provider median (free routes), 262k context (260k per the FAQ row), text-only, 7.9B/1.3B, MIT, 1 provider, **230M Index tokens (very verbose — last of 27 in class)**
+- The file's per-benchmark gaps are now filled (AA rows via BenchLM): GDPval-AA **3.1%** (near zero), AA-SciCode **24.2%**, AA-LCR **60.3%** (weak retrieval), CritPt **0.0%**, AA-GPQA Diamond **73.4%**, AA-HLE **9.3%**, AA-Omniscience index **−19.3%** / accuracy 8.5% / hallucination 30.5% — uniformly small-model-tier numbers that confirm the low reads
+
 ### Normalized scores (1–100)
 
-- **Tool use: 48/100.** Native function calling and an AA Agentic Index of 16 (in the 0–100 style scale used on the v4.1.1 card) with an eval composite containing τ³-Banking and Terminal-Bench 2.1 — mid-band for size; no public BFCL, τ²/τ³ or MCP-Atlas figure specific to this checkpoint.
+- **Tool use: 44/100.** Native function calling and an AA Agentic Index of 16 (v4.1.1 card) — but the third pass measured the GDPval row and it is near zero: GDPval-AA **3.1%**, with AA-SciCode 24.2% and CritPt 0.0% confirming the small-model tier. Trimmed from 48.
 - **Reasoning: 48/100.** Intelligence Index 25 (v4.1.1, 6th/56 in class) is above-median for its class, but 11 on the rebased v4.3.2 and the absence of any published GPQA/HLE/AIME number make this a low-mid score.
 - **Context window: 66/100.** 262,144 tokens puts it in the 200K–500K band (65–84); AA-LCR is folded into the composite but unlisted, so the top of the band is not earned.
 - **Multimodal: 12/100.** Text-only — the methodology's text-only band (10–20).
 - **Coding: 45/100.** No SWE-bench, Terminal-Bench or SciCode figure is public for this checkpoint (SciCode and TB2.1 are index components only); third-party coding-index scores around 26.5 reflect a small-model coding tier.
 - **Cost efficiency: 88/100.** ≈ $0.06/$0.18 per million with $0.01 cached input is the methodology's ~$0.1/$0.2 ≈ 97–99 tier, docked for AA's finding that it burns ~3× the class-median output tokens per task, which erodes the headline price.
-- **Overall Score: 44/100.** Best-fit recommendation: the sub-server small model — 1.3B active parameters, 262K context and MIT weights for local/edge deployment; above-median class intelligence at $0.06/$0.18, with per-benchmark transparency still missing.
+- **Overall Score: 43/100.** Mean of the five non-cost dims (44+48+66+12+45)/5 = 43.0 (Tool use 48→44 on the newly measured GDPval-AA 3.1% row; Overall 44→43). Best-fit recommendation: the sub-server small model — 1.3B active parameters, 262K context and MIT weights for local/edge deployment; above-median class intelligence at free-to-$0.06/$0.18 routes, though it burns ~3× the class-median tokens per task and measured provider speed is only 19.9 tok/s.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (inclusionAI Hugging Face model card, Artificial Analysis model page, AIToolsReview launch analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) re-ran Artificial Analysis (Index 11 #36/141 — unchanged; 19.9 tok/s median — the launch 154.1 read is stale; $0.00/$0.00 provider median; 230M Index tokens — very verbose) and BenchLM (no public overall score, 10 of 648, unranked): the file's per-benchmark gaps are filled and uniformly small-model — GDPval-AA 3.1%, AA-GPQA 73.4%, AA-HLE 9.3%, AA-SciCode 24.2%, AA-LCR 60.3%, CritPt 0.0%, Omniscience −19.3% — Tool use trimmed 48→44 (Overall 44→43). First pass (2026-10-09) used inclusionAI Hugging Face model card, Artificial Analysis model page, AIToolsReview launch analysis.
 - Future sources: add a new file next to this one, e.g. `Ling_3_1.md`, using the same headings.

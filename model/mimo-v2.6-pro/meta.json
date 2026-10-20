@@ -14,5 +14,7 @@
   "pricingLinks": [
     "https://mimo.mi.com/models/en-US/mimo-v2.6-pro",
     "https://mimo.mi.com/models/en-US/mimo-v2.6-pro"
-  ]
+  ],
+  "standout": "Xiaomi’s omni-modal surprise: MIT weights, terminal-coding behavior near the frontier, and a full senses stack (vision, audio) in one self-hostable model.",
+  "tradeoff": "The community ecosystem and tooling are younger than the big vendors’, so integration effort is the price of the open license."
 }

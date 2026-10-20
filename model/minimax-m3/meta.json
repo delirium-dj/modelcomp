@@ -12,5 +12,7 @@
   "officialUrl": "https://huggingface.co/models?search=minimax-m3",
   "pricingLinks": [
     "https://www.minimax.io/platform/pricing"
-  ]
+  ],
+  "standout": "The value wildcard among open-weights: 1M context and frontier-grade software engineering at some of the lowest API rates around.",
+  "tradeoff": "Promotional pricing and lighter enterprise support mean fewer deployment guarantees; verify the current rate card before betting production traffic."
 }

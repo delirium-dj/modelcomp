@@ -1,0 +1,10 @@
+{
+  "id": "opencode/qwen-3.5-122b-a10b",
+  "name": "Qwen 3.5 122B",
+  "short": "Alibaba's 122B-total/10B-active Qwen 3.5 open-weights MoE for vision-language reasoning and tool-use agents; 262K context, Apache 2.0, hosted from ~$0.26/$2.08 per 1M.",
+  "contextWindow": "262,144 total; 65,536 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$0.26/$2.08 per 1M (OpenRouter/SiliconFlow); Apache 2.0 self-host $0",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
+}

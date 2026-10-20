@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Step 5 Preview
 
 - Source: Poolside (`poolside/Laguna-XS-2.1`, released 2026-07-02)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,6 +33,8 @@ FP8 quantization vs BF16 (same harness):
 
 Not published: GPQA/HLE/AIME/ARC-AGI, Terminal-Bench 2.1, τ³, MCP Atlas, GDPval.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no Laguna XS 2.1 page (404) and BenchLM tracks the model but assigns no public overall score (5 of 648 benchmarks, unranked) — its five rows are the same vendor-sourced figures already on file (SWE-V 70.9%, SWE-Multi 63.1%, SWE-Pro 47.6%, TB 2.0 37.5%). No new independent evidence — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 50/100.** Terminal-Bench 2.0 37.5% is the only agentic-terminal result; no τ³, MCP Atlas or GDPval figure exists — low-mid band, honest about the gap.
@@ -47,6 +49,6 @@ Not published: GPQA/HLE/AIME/ARC-AGI, Terminal-Bench 2.1, τ³, MCP Atlas, GDPva
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Poolside launch blog + model card + release notes, Hugging Face card incl. FP8 quantization study, NVIDIA NIM/build cards, vLLM recipe); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no Laguna XS 2.1 page (404) and BenchLM assigns no public overall score (5 of 648, unranked) with only the vendor-sourced rows already on file — no new independent evidence, no score change. First pass (2026-10-09) used Poolside launch blog + model card + release notes, Hugging Face card incl. FP8 quantization study, NVIDIA NIM/build cards, vLLM recipe.
 - Future sources: add a new file next to this one, e.g. `Laguna_3.md`, using the same headings.

@@ -298,7 +298,11 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * family-shorthand identity); `qwen-3.5` (2026-10-20, family/generation name,
  * no distinct vendor ID — Zen lists `qwen3.5-plus`, never a bare `qwen-3.5`,
  * and the 3.5 members 397B/Plus/9B are tracked in their own folders —
- * RULES.md family-shorthand identity). The folder
+ * RULES.md family-shorthand identity); `kimi-k2.7-code-highspeed` (2026-10-20,
+ * Moonshot serving profile of `kimi-k2.7-code` — same `moonshotai/Kimi-K2.7-Code`
+ * weights, same 262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00);
+ * Kimi Code's own model table calls HighSpeed "the high-speed version of K2.7
+ * Code, with the same coding ability" — RULES.md serving-tier identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -307,7 +311,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

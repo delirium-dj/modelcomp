@@ -12,5 +12,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-fable-5.1",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "Anthropic’s ceiling for long-horizon software engineering — the pick when a coding run outgrows what Opus can hold together.",
+  "tradeoff": "Mythos-class pricing at the very top of the family, so its edge shows mostly on the hardest, longest jobs."
 }

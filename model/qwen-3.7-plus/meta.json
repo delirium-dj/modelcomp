@@ -16,5 +16,7 @@
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://openrouter.ai/qwen/qwen3.7-plus"
-  ]
+  ],
+  "standout": "The GUI-agent tier: it drives real interfaces — screens, apps, clicks — on top of the Max backbone, not just APIs and terminals.",
+  "tradeoff": "The Zen lane is text-only with a smaller window, so the full GUI experience is tied to Alibaba’s hosted API."
 }

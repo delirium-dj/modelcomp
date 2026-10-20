@@ -102,7 +102,8 @@ override.
   Normalize every freshly derived slug before creating or comparing anything:
   replace each digit-hyphen-digit join with a dot (`4-12` → `4.12`) — the only
   exceptions are param sizes, never versions (`gemma-4-31b`, `qwen-3.8-27b`,
-  `qwen-3.5-9b`, `qwen-3.5-397b`); single majors with codename/experimental suffixes
+  `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b`,
+  `qwen-3.5-122b-a10b`); single majors with codename/experimental suffixes
   (`gpt-6-astra`) never match. A hyphen-versioned folder is a forbidden
   duplicate, never a new model: it must not be scaffolded, researched, or
   written to — always check for the existing dotted folder first (both trees
@@ -192,6 +193,24 @@ override.
   hosted `Qwen3.5-Plus` → `model/qwen-3.5-plus/`, `Qwen3.5-9B` →
   `model/qwen-3.5-9b/`); a bare "Qwen 3.5" with no ID has no folder of its
   own — never scaffold `model/qwen-3.5/` again.
+- **Serving-tier identity (absolute — `kimi-k2.7-code-highspeed` parked
+  2026-10-20):** Moonshot's HighSpeed route is the same Kimi K2.7 Code
+  checkpoint, never a separate model. Evidence: Kimi Code's own model table
+  describes `kimi-for-coding-highspeed` as "the high-speed version of K2.7
+  Code, with the same coding ability and ~5–6× faster output" and lists the
+  same 262,144 context for both; Alibaba Model Studio: "shares the same model
+  as the standard version"; the official K2.7 Code page prices HighSpeed at
+  exactly 2× ($1.90/$8.00 vs $0.95/$4.00, cache $0.38 vs $0.19) for the same
+  open weights (`moonshotai/Kimi-K2.7-Code`); Artificial Analysis and BenchLM
+  both 404 the highspeed id and track only the base; Vector Wire carries it as
+  an alias of `kimi-k2-7-code`. Same weights + same window + flat 2× serving
+  surcharge = a tier, never a model. Resolution is PARKING, not deletion: the
+  folder stays on disk and in git (permanence — its `average.md` stays a gate
+  input), is hidden from the site and omitted from the research queue via both
+  `RETIRED_SLUGS` lists. Research belongs in `model/kimi-k2.7-code/`; a
+  "Highspeed"/"HighSpeed" suffix (or any vendor-stated serving profile) is
+  never scaffolded as a folder — never create
+  `model/kimi-k2.7-code-highspeed/` again.
 - **Family-shorthand identity (general rule):** a bare family or base name
   with no distinct vendor ID is never scaffolded as a new folder. Before
   creating a folder for a short/base name, verify a distinct vendor route

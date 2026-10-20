@@ -1,7 +1,7 @@
 # Inkling-Small — findings by Step 5 Preview
 
 - Source: Thinking Machines Lab (`thinkingmachines/inkling-small`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,8 @@ Multimodal:
 Long context:
 
 - AA-LCR: **75.7%** (AA); no MRCR/RULER published; hosted endpoints currently at 524K despite the 1M card claim
+- Third-pass verification (2026-10-19): BenchLM composite **52.72/100** (#89/956, 41/644 benchmarks); Artificial Analysis now lists a **1M** window (partially resolving the card-1M/AA-256K discrepancy in the card's favor — the hosted 524K caps still apply), Index **26** (#30/121 — matches the file's 25.7 rebased read), 189.9 tok/s, TTFT 1.77s, $0.30/$1.20 confirmed (80% cache discount, blended $0.22/M, $0.09/task), 266B/12B, Apache 2.0, 2 providers
+- New corroborating rows (2026-10-19): ARC-AGI-1 **84.00%** / ARC-AGI-2 **40.1%** (ARC Prize semi-private — independent confirmation of the file's ARC rows), AA Agentic Index **24.9%** (weak), GDPval-AA Elo **1,191** (AA — updates the vendor 1,269), AA Coding Index **53.0%**, Epoch FrontierMath v2 Tiers 1–3 **46.3%** / Tier 4 **17.1%** (mid-band math)
 
 ### Normalized scores (1–100)
 
@@ -71,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Inkling-Small page (it is a small open-weight MoE tracked primarily via Artificial Analysis and Vals AI); re-checked the AA article/OpenRouter tables and Vals AI — the AA Intelligence Index (40 v4.1 / 25.7 rebased), Terminal-Bench 2.1 55.1% (AA) / 64.7% (vendor), Vibe Code Bench 19.1% (Vals) and AA-Omniscience −9.0 all confirm the first-pass Tool use 68 / Reasoning 78 / Context 88 / Coding 79 reads; the documented context discrepancy (card 1M vs AA 256K vs hosted 524K) keeps Context at 88. No score change warranted. Prior pass (2026-10-09) used Thinking Machines Lab announcement + model card, HuggingFace weights page, Artificial Analysis article/OpenRouter/AA tables, Vals AI, VentureBeat, OrcaRouter, Kingy, Opper.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (Index 26 #30/121 — unchanged; **AA now lists a 1M window**, partially resolving the documented card-1M/AA-256K discrepancy — the hosted 524K caps still apply; 189.9 tok/s; $0.30/$1.20 confirmed) and BenchLM (composite 52.72/100, #89/956, 41/644 benchmarks): new rows ARC-AGI-1 84.00%/ARC-AGI-2 40.1% (ARC Prize — independent confirmation), AA Agentic Index 24.9%, GDPval-AA Elo 1,191 (updates the vendor 1,269), AA Coding Index 53.0%, Epoch FrontierMath v2 46.3%/17.1% — all consistent with the existing Tool use 68 / Reasoning 78 / Context 88 / Multimodal 88 / Coding 79 / Cost 94 reads, no score change. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Inkling-Small page; the AA article/OpenRouter tables and Vals AI confirmed the same reads. Prior pass (2026-10-09) used Thinking Machines Lab announcement + model card, HuggingFace weights page, Artificial Analysis article/OpenRouter/AA tables, Vals AI, VentureBeat, OrcaRouter, Kingy, Opper.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

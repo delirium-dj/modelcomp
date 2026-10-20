@@ -1,0 +1,14 @@
+# Ring-2.6.1t — EXCLUDED (Pipeline Artifact)
+
+- Source: Unknown/Community (`ring-2.6.1t`)
+- Date: 2026-10-20 (UTC)
+- Status: **EXCLUDED** — Pipeline comparison baseline, not a producible model
+
+## Reason for Exclusion
+
+This model identifier appears only as a comparison baseline (`Ring_2.6.1t.md` files) in many model directories. No public benchmarks on BenchLM, Artificial Analysis, Vals AI, Epoch AI, ARC Prize, OpenRouter, or Hugging Face. Queue Overall 66.2 is a pipeline artifact.
+
+## Signature
+
+- Determined by: **Nemotron 3 Ultra 550B A55B** — 2026-10-20
+- Method: 6+ independent web searches across major benchmark aggregators and Hugging Face; analysis of model directory structure.

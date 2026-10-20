@@ -1,11 +1,11 @@
 {
   "id": "opencode/mimo-v2.5-free",
   "name": "MiMo V2.5 Free",
-  "short": "Xiaomi's 310B/15B-active MIT omni-modal MoE (1M, image/video/audio in) for agentic coding; Video-MME 87.7% via free Zen tier.",
-  "contextWindow": "1M native (Xiaomi); Zen per-model window not published",
+  "short": "Xiaomi's 310B/15B-active MiMo-V2.5 base (not Pro) omni-modal MoE served on a free Zen tier; Zen caps 200K/32K (native 1M), free period may use data to improve the model.",
+  "contextWindow": "200,000 Zen total; 32,768 max out (native 1M)",
   "modalities": "Text, image, audio, video in; text out",
   "pricingNote": "Free Zen tier; native from ~$0.14/$0.28 per 1M",
-  "freeTierNote": "Free Zen capped tier for omni-modal inference and agentic coding",
+  "freeTierNote": "Free Zen tier for a limited time; data collected during the free period may be used to improve the model (not zero-retention)",
   "pricingTiers": [
     "Free Zen tier",
     "Native ~$0.14/$0.28"

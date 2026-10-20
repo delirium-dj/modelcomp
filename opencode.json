@@ -11,9 +11,7 @@
           "name": "Gemini 3.8 Flash (Antigravity Tier)"
         }
       }
-    }
-  },
-  "providers": {
+    },
     "agentrouter": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "AgentRouter",

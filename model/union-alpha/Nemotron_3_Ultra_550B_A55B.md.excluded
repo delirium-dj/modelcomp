@@ -1,0 +1,14 @@
+# Union-Alpha — EXCLUDED (Unverifiable)
+
+- Source: Unknown/Community (`union-alpha`)
+- Date: 2026-10-20 (UTC)
+- Status: **EXCLUDED** — No verifiable public model or benchmarks
+
+## Reason for Exclusion
+
+No public benchmarks on BenchLM, Artificial Analysis, Vals AI, Epoch AI, ARC Prize, OpenRouter, or Hugging Face (only "stealth-model/union-alpha" with 10 downloads, no benchmarks). No comparison baseline files found in model directories. Queue Overall 78.3 appears to be an unverifiable community merge.
+
+## Signature
+
+- Determined by: **Nemotron 3 Ultra 550B A55B** — 2026-10-20
+- Method: 6+ independent web searches across major benchmark aggregators and Hugging Face.

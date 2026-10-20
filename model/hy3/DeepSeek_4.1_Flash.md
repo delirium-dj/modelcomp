@@ -1,9 +1,11 @@
 # HY3 — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/HY3 (`tencent/Hy3`, served as `hunyuan-hy3` / `hy3`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`hy3`, 14 rows) computes an overall **52.48/100 (#91 of 956)** and confirms the first draft: AA-GPQA Diamond 89.7%, AA-HLE 33.5%, AA-LCR 79.0%, CritPt 4.9%, AA Intelligence Index 25.3%, AA-SciCode 48.6%, AA Coding Index 58.8%, GDPval-AA 1136 / 28.3%. llm-stats and BenchLM both confirm **text-only** I/O (295B MoE, Apache 2.0) — retiring the vendor's unsupported "multimodal-capable" marketing claim. **No score change** (Tool 78 / Reasoning 82 / Context 72 / Multimodal 15 / Coding 76 / Cost 95 / Overall 65).
 
 ## Model card
 
@@ -76,6 +78,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: Public internet research from zero — Tencent newsroom release note (2026-07-06), `Tencent-Hunyuan/Hy3` GitHub model card, Hugging Face `tencent/Hy3`, Tencent Cloud TokenHub access/pricing docs, Artificial Analysis and BenchmarkList aggregator pages. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: Public internet research (re-verified 2026-10-18) — Tencent release note (2026-07-06), `Tencent-Hunyuan/Hy3` GitHub model card, Hugging Face `tencent/Hy3`, Tencent Cloud TokenHub docs, BenchLM `hy3` (14 rows) and Artificial Analysis, llm-stats, BenchmarkList. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6_Astra.md`, using the same headings.

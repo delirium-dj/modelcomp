@@ -9,5 +9,7 @@
   "officialUrl": "https://www.anthropic.com/news/claude-fable-5",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
-  ]
+  ],
+  "standout": "The first Mythos-class model — it proved an above-Opus tier could hold long engineering narratives together end to end.",
+  "tradeoff": "Fully superseded by Fable 5.1; new work should default to the successor."
 }

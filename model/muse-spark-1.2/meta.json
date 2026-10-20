@@ -16,5 +16,7 @@
     "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://dev.meta.ai/models/muse-spark-1-2",
     "https://dev.meta.ai/models/muse-spark-1-2"
-  ]
+  ],
+  "standout": "Co-trained with Muse Code for terminal work — the smaller sibling that keeps the family’s agentic discipline at Standard-tier prices.",
+  "tradeoff": "Largely superseded by Muse Spark 1.3 at the same tier prices, so it mainly matters for cost-sensitive pinning."
 }

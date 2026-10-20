@@ -1,9 +1,11 @@
 # HY3 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: Tencent/Hy3-preview (`tencent/Hy3-preview`, served as `hy3-preview`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`hy3-preview`, 22 rows) computes an overall **52.23/100 (#92 of 959)** and confirms the first draft: SWE-bench Verified 74.4%, Terminal-Bench 2.0 54.4%, GPQA 87.2%, AA-GPQA 89.7%, AA-HLE 33.5%, AA-LCR 66.7%, CritPt 4.9%, AA Intelligence Index 41.2%, AA-SciCode 48.6%, AA Coding Index 58.8%, GDPval-AA 1136 / 35.8%. **No score change** (Tool 70 / Reasoning 78 / Context 72 / Multimodal 15 / Coding 70 / Cost 96 / Overall 61). Superseded by HY3.
 
 ## Model card
 
@@ -72,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
-- Method: Public internet research from zero — `Tencent-Hunyuan/Hy3-preview` GitHub model card, Tencent Cloud Hy3-preview launch note, Hugging Face `tencent/Hy3-preview`, Artificial Analysis (deprecated model page) and LLMLearner/BenchLM aggregator records. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: Public internet research (re-verified 2026-10-18) — `Tencent-Hunyuan/Hy3-preview` GitHub model card, Tencent Cloud launch note, Hugging Face `tencent/Hy3-preview`, BenchLM `hy3-preview` (22 rows) + Artificial Analysis, LLMLearner records. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3_Flash.md`, using the same headings.

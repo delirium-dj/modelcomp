@@ -9,5 +9,7 @@
   "officialUrl": "https://deepmind.google/technologies/gemini/",
   "pricingLinks": [
     "https://ai.google.dev/gemini-api/docs/pricing"
-  ]
+  ],
+  "standout": "The Deep Think research partner — Google’s pick for hard science questions and deliberative agent research where thinking longer beats responding faster.",
+  "tradeoff": "Outclassed within its own family by Gemini 3.1 Pro at similar pricing; its main role today is budget-priced research work."
 }

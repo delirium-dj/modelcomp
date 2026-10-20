@@ -1,7 +1,7 @@
 # Ling-2.6-1T — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`inclusionAI/Ling-2.6-1T`, released 2026-04-29)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,6 +30,8 @@ Base model (Table 3): MMLU 86.82, MMLU-Pro 67.79, GPQA 45.45, LiveCodeBench 44.2
 
 Artificial Analysis (independent): Intelligence Index **17** (#14/46 in class, #26/697; deprecated status) — the vendor card's 34 figure is on an earlier index version.
 
+Third-pass verification (2026-10-19): Artificial Analysis (hyphenated slug ling-2-6-1t) reconfirms the file — deprecated (suggests Ling 3.0 Flash), Index **17** (estimated, #14/46 in class, median 12), $0.30/$2.00→$2.50 pricing (blended $0.52/M at AA's 7:2:1 ratio), 262k context (260k per the FAQ row), text-only, 1.0T/63B active, MIT, 1 provider; BenchLM has no ling-2-6-1t page (404). No new independent evidence — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 66/100.** BFCL-V4 70.64, τ²-bench 78.36, PinchBench 85.24 and IFBench 57.62 are solid upper-mid agentic results for a non-reasoning tier; ClawEval 51.0 and Terminal-Bench 2.0 40.45 pull it below the top band.
@@ -44,6 +46,6 @@ Artificial Analysis (independent): Intelligence Index **17** (#14/46 in class, #
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (inclusionAI Ling-2.6-1T and -base Hugging Face cards, tech report arXiv:2606.15079, Artificial Analysis, Ant Ling developer docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (hyphenated slug, deprecated → Ling 3.0 Flash: Index 17 estimated #14/46 — matches the file; pricing $0.30/$2.50 confirmed) — BenchLM has no ling-2-6-1t page (404); no new independent evidence, no score change. First pass (2026-10-09) used inclusionAI Ling-2.6-1T and -base Hugging Face cards, tech report arXiv:2606.15079, Artificial Analysis, Ant Ling developer docs.
 - Future sources: add a new file next to this one, e.g. `Ling_2_7.md`, using the same headings.

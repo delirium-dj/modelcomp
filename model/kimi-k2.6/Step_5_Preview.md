@@ -1,7 +1,7 @@
 # Kimi K2.6 — findings by Step 5 Preview
 
 - Source: Moonshot AI (`kimi-k2.6`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Date: 2026-10-19 (UTC) — third-pass verification
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -18,6 +18,9 @@
 - **Architecture:** MoE, 1T total / 32B active, 61 layers (1 dense), 384 experts (8 selected + 1 shared), MLA attention, SwiGLU, 160K vocab; native INT4 QAT on experts + BF16 elsewhere.
 
 ### Raw benchmarks found
+
+- BenchLM composite (2026-10-19): **58.4/100** overall, #60 of 956 models, 55 of 648 benchmarks covered (partial coverage — conservative)
+- Artificial Analysis today (2026-10-19): Intelligence Index **27** (#26/121 — matches the file's 27.0), 77.3 tok/s, TTFT 2.72s, $0.95/$4.00 with 83% cache discount (blended $0.70/M; $0.80 per Index task), 256k context (260k per the FAQ row), text/image/video, 1T/32B, Modified MIT, 12 providers, 180M Index tokens (very verbose) — DEPRECATED on AA (suggests Kimi K3)
 
 Agent / tool use (Moonshot's own table, thinking mode, 262K context, tools where noted):
 
@@ -59,18 +62,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** DeepSearchQA f1 92.5 (field-leading), BrowseComp 83.2% (86.3% with agent swarm), Claw-Eval 80.9 pass@3 and OSWorld-Verified 73.1% are genuinely strong agentic evidence; capped by GDPval-AA 27.0%, APEX-Agents 27.9%, MCPMark 55.9%, Toolathlon 50.0% and Terminal-Bench 4.0 at 0.5% — the new-generation hard suites expose the same gap as other April-era models.
+- **Tool use: 68/100.** DeepSearchQA f1 92.5 (field-leading), BrowseComp 83.2% (86.3% with agent swarm), Claw-Eval 80.9 pass@3 and OSWorld-Verified 73.1% remain strong, but the third pass measured the agentic suites the file lacked and they are weak: AA Agentic Index 22.1%, OSWorld 2.0 4.6%, ResearchClawBench 18.0%, GDPval-AA Elo 1,115 (AA — well below the vendor 1,520). Trimmed from 74 — the vendor search/orchestration rows do not carry to the independent agentic composites.
 - **Reasoning: 84/100.** GPQA 90.5–91.1%, HLE 54.0% with tools (best in its comparison table), AIME 96.4%, HMMT 92.7% and the #1 open-weights AA Intelligence Index (27.0) are frontier-adjacent; capped by HLE 34.7% without tools, CritPt 8.0% and the Omniscience accuracy of 32.6% — knowledge depth trails the coding-led headline.
 - **Context window: 78/100.** 262,144-token window sits in the 200K–500K band, backed by AA-LCR 81.0% (reasoning); the 1M-class models in this comparison out-rank it on raw window, and no MRCR/RULER figure exists.
 - **Multimodal: 85/100.** Native text + image + video in → text out is the 75–90 band, anchored by MMMU-Pro 79.4–86.3%, MathVision 93.2% (with Python), V* 96.9% and the coding-driven design work; no audio input or non-text output keeps it below 90.
 - **Coding: 82/100.** SWE-bench Pro 58.6% (ahead of GPT-5.4 and Opus 4.6 on the same table), SWE-bench Verified 80.2% and LiveCodeBench 89.6% are frontier-adjacent for open weights; capped by Vibe Code Bench 37.9%, ProgramBench 0.0%, SciCode 52.2% and the 0.5% Terminal-Bench 4.0 — long-horizon terminal work trails the closed frontier.
 - **Cost efficiency: 89/100.** $0.95/$4.00 per MTok first-party ($0.16 cache reads) maps to the methodology's ~$1.25/$4.25 ≈ 88 tier, with the OpenRouter route at $0.465/$2.45 and Parasail at $0.60/$2.80 undercutting further — the cheapest frontier-adjacent coding model with open weights included.
-- **Overall Score: 81/100.** Best-fit recommendation: the leading open-weights agentic-coding model — SWE-Pro-class software engineering, DeepSearchQA-class research agents and swarm orchestration at commodity pricing with self-hostable weights; pair with a closed frontier model for TB4.0-grade terminal work.
+- **Overall Score: 79/100.** Mean of the five non-cost dims (68+84+78+85+82)/5 = 79.4 (Tool use 74→68 on the newly measured weak independent agentic rows). Best-fit recommendation: the leading open-weights agentic-coding model — SWE-Pro-class software engineering, DeepSearchQA-class research agents and swarm orchestration at commodity pricing with self-hostable weights; pair with a closed frontier model for TB4.0-grade terminal work.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (199 primary-source results, updated 2026-10-07 — independent TAU3-Bench 72.4% #3/13, Tau3-Banking 23.3% #45/176, TerminalWorld 57.5% #2/8, AgentTrap 75 #1/8, PinchBench 90.2 #6/73, OSWorld 73.1% #6/72, Terminal-Bench Hard 43.9% #20/326, APEX-Agents-AA 28.5% #14/33, ClawProBench 59.31 #16/48, AA-Briefcase 818 #72/145, BrowseComp 83.2% #32/60). Confirms the existing Tool use 74 / Reasoning 84 / Coding 82 reads — the strong TAU3-Bench 72.4% and DeepSearchQA f1 92.5 reinforce the agentic profile while the low Tau3-Banking (23.3%) and Terminal-Bench 4.0 0.5% keep the caps. No score change warranted. Prior pass (2026-10-09) used Moonshot Kimi K2.6 tech blog + HF model card, Artificial Analysis, Vals AI, DeepInfra provider benchmarks, Lambda, DataLearner, OpenLM, opengodmode.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated, suggests Kimi K3: Index 27 #26/121 — unchanged; 77.3 tok/s; $0.80/task; 180M Index tokens — very verbose) and BenchLM (composite 58.4/100, #60/956, 55/648 benchmarks): new rows AA Agentic Index 22.1%, OSWorld 2.0 4.6%, ResearchClawBench 18.0%, GDPval-AA Elo 1,115 (AA — vs the vendor 1,520; conflict flagged), AA-HLE 37.5%, AA-IFBench 76.0%, Epoch FrontierMath v2 57.2%/25.6%, CursorBench 3.1 47.6%, Gert Labs 56.82%, Design Arena Website 1269 — Tool use was trimmed 74→68 on the weak independent agentic composite (Overall 81→79). Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (199 primary-source results, updated 2026-10-07 — independent TAU3-Bench 72.4% #3/13, Tau3-Banking 23.3% #45/176, TerminalWorld 57.5% #2/8, AgentTrap 75 #1/8, PinchBench 90.2 #6/73, OSWorld 73.1% #6/72, Terminal-Bench Hard 43.9% #20/326, APEX-Agents-AA 28.5% #14/33, ClawProBench 59.31 #16/48, AA-Briefcase 818 #72/145, BrowseComp 83.2% #32/60) — the then-existing reads held. Prior pass (2026-10-09) used Moonshot Kimi K2.6 tech blog + HF model card, Artificial Analysis, Vals AI, DeepInfra provider benchmarks, Lambda, DataLearner, OpenLM, opengodmode.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

@@ -1,0 +1,10 @@
+{
+  "id": "opencode/qwen-3.5-27b",
+  "name": "Qwen 3.5 27B",
+  "short": "Alibaba's dense 27B Qwen 3.5 open-weights vision-language model for fast coding and multimodal reasoning; 262K context, Apache 2.0, hosted from ~$0.20/$1.56 per 1M.",
+  "contextWindow": "262,144 total",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$0.20/$1.56 per 1M (OpenRouter); Apache 2.0 self-host $0",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-27B"
+}

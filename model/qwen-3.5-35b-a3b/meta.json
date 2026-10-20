@@ -1,0 +1,10 @@
+{
+  "id": "opencode/qwen-3.5-35b-a3b",
+  "name": "Qwen 3.5 35B",
+  "short": "Alibaba's 35B-total/3B-active Qwen 3.5 open-weights MoE for cheap multimodal reasoning and coding; 262K native context, Apache 2.0, from ~$0.08/$0.75 per 1M.",
+  "contextWindow": "262,144 native (extensible to ~1,010,000 via YaRN)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$0.08/$0.75 per 1M (OpenRouter); Apache 2.0 self-host $0",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B"
+}

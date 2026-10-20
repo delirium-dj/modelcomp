@@ -13,7 +13,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
    (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
-   `qwen-3.5-397b` = Qwen 3.5, 397B params — none is a dotted version).
+   `qwen-3.5-397b` = Qwen 3.5, 397B params; `qwen-3.5-122b-a10b` = Qwen 3.5,
+   122B-total/10B-active params — none is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
   provider-qualified second slugs for a model that already had a folder (e.g.
   `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
@@ -162,7 +163,13 @@ tracked model (e.g. `gemini-2.5`, parked 2026-10-12 — every cited ID resolves
 to `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists;
 `qwen-3.5`, parked 2026-10-20 — a family/generation name with no distinct
 vendor ID, members already tracked as `qwen-3.5-397b`, `qwen-3.5-plus`,
-`qwen-3.5-9b` — RULES.md family-shorthand identity) — is parked, never
+`qwen-3.5-9b` — RULES.md family-shorthand identity;
+`kimi-k2.7-code-highspeed`, parked 2026-10-20 — Moonshot's own Kimi Code
+docs: "the high-speed version of K2.7 Code, with the same coding ability and
+~5–6× faster output" — same `moonshotai/Kimi-K2.7-Code` weights, same
+262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00) — a
+serving profile of the tracked `kimi-k2.7-code` — RULES.md serving-tier
+identity) — is parked, never
 deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
@@ -185,7 +192,8 @@ reports stay visible by design (`RULES.md` crown rule).
    NORMALIZE it per `RULES.md` slug identity before creating anything:
    replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
    `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
-   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
+   `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
    (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted
@@ -276,6 +284,14 @@ base slug instead of scaffolding a tier folder:
   from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
   a separate model. Never create `model/muse-spark-1.2-free/` or
   `model/muse-spark-1.2-max/` again.
+- `kimi-k2.7-code/` covers **every** Kimi K2.7 Code serving-profile name —
+  `Kimi K2.7 Code Highspeed` / `HighSpeed`, API id `kimi-k2.7-code-highspeed`,
+  Kimi Code id `kimi-for-coding-highspeed`. Moonshot's own docs: HighSpeed is
+  "the high-speed version of K2.7 Code, with the same coding ability and
+  ~5–6× faster output" — same `moonshotai/Kimi-K2.7-Code` weights, same
+  262,144 window, exactly 2× token price ($1.90/$8.00 vs $0.95/$4.00).
+  `model/kimi-k2.7-code-highspeed/` was parked 2026-10-20 (RULES.md
+  serving-tier identity) — never create it again.
 - `space-bunny/` covers **every** name this anonymous stealth model ships
    under: `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
    `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,

@@ -42,10 +42,19 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
 /**
  * Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions.
  * Param sizes: `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`,
- * `qwen-3.5-9b` and `qwen-3.5-397b` (version + *B params — the hit is
- * version-digit → param-digit).
+ * `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b` and
+ * `qwen-3.5-122b-a10b` (version + *B params — the hit is version-digit →
+ * param-digit).
  */
-export const SLUG_VERSION_EXCEPTION = new Set(["gemma-4-31b", "qwen-3.8-27b", "qwen-3.5-9b", "qwen-3.5-397b"]);
+export const SLUG_VERSION_EXCEPTION = new Set([
+  "gemma-4-31b",
+  "qwen-3.8-27b",
+  "qwen-3.5-9b",
+  "qwen-3.5-397b",
+  "qwen-3.5-27b",
+  "qwen-3.5-35b-a3b",
+  "qwen-3.5-122b-a10b",
+]);
 
 /**
  * Canonical slug normalizer (single source of truth — RULES.md slug identity).

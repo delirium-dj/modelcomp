@@ -62,7 +62,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<slug>/<STEM>.md immediately,
    then advance. Skip existing <STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
-4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
+4. Retired (parked) slugs (`model/README.md` § Parking — currently `glm-5.3-free`, `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`) are never queued, researched, or written — drop them even when the audit finds the folder on disk missing your file.
 ```
 
 ---
@@ -103,15 +103,16 @@ After that, check existence only for the folder you are currently writing (one c
          `gemma-4.12b-unified`, never `gemma-4-12b-unified`.
       b. Self-check: if the slug has a digit on BOTH sides of a hyphen
           (`0-9 - 0-9`, e.g. the `4-1` in `gemma-4-12b`) and is NOT one of
-          `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b` (param sizes, not
-         versions — the only exceptions), replace every such join with a
+           `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`,
+           `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b` (param sizes, not
+          versions — the only exceptions), replace every such join with a
          dot (`4-12` → `4.12`) before proceeding.
       c. Check for an existing dotted folder first (both trees in full mode)
          — a hyphen-versioned folder is a duplicate, not a new model.
          `pnpm sync` FAILs hyphen variants loudly and the pre-commit hook
          blocks staging them, so an unnormalized slug wastes the whole pass.
-      **Tier-name check:** a name whose suffix is only a pricing or effort tier
-      (Contributor, Contributor Free, Free, Standard, Max, …) is not a new
+**Tier-name check:** a name whose suffix is only a pricing or effort tier
+   (Contributor, Contributor Free, Free, Standard, Max, Highspeed, …) is not a new
       model — resolve it to the existing base folder via the "Tier aliases"
       list in `model/README.md` (e.g. Muse Spark 1.3 Contributor / Free / Max
       → `model/muse-spark-1.3/`, Muse Spark 1.2 Free / Max →

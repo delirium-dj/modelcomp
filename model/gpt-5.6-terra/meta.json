@@ -9,5 +9,7 @@
   "officialUrl": "https://openai.com/index/gpt-5.6-terra/",
   "pricingLinks": [
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "The balanced all-rounder of OpenAI’s 5.6 line — dependable across coding, research and very long context recall without flagship pricing.",
+  "tradeoff": "It deliberately tops out below the Sol specialists: for peak coding or peak reasoning, the pricier siblings win."
 }

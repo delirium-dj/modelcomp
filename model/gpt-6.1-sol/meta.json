@@ -17,5 +17,7 @@
     "https://openai.com/api/pricing/",
     "https://openai.com/api/pricing/",
     "https://openai.com/api/pricing/"
-  ]
+  ],
+  "standout": "Astra-class agentic coding at a fraction of the flagship’s cost, with cheap cached input that rewards repeat traffic.",
+  "tradeoff": "The reasoning ceiling still sits below Astra — the flagship remains the answer when only the top tier will do."
 }

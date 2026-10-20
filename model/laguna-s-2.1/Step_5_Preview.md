@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Step 5 Preview
 
 - Source: Poolside (`poolside/Laguna-S-2.1`, released 2026-07-21)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,6 +29,8 @@ Vendor (benchmarks as of 2026-07-21; Poolside agent harness on a Harbor fork, 50
 
 Third-party: Artificial Analysis does not list Laguna S 2.1; no GPQA/HLE/AIME/ARC-AGI/MMLU figure has been published for it.
 
+Third-pass verification (2026-10-19): Artificial Analysis has no Laguna S 2.1 page (404) and BenchLM tracks the model but assigns no public overall score (6 of 648 benchmarks, unranked) — its six rows are the same vendor-sourced figures already on file (TB 2.1 70.2%, Toolathlon 49.7%, SWE-Multilingual 78.5%, SWE-Pro 59.4%, DeepSWE 40.4%). No new independent evidence — no score change warranted.
+
 ### Normalized scores (1–100)
 
 - **Tool use: 68/100.** TB 2.1 70.2% (thinking), Toolathlon 49.7% and SWE Atlas QnA 46.2% are a strong upper-mid agentic profile for 8B active — but no MCP Atlas, GDPval or τ-bench number exists, so the top of the band is unevidenced.
@@ -43,6 +45,6 @@ Third-party: Artificial Analysis does not list Laguna S 2.1; no GPQA/HLE/AIME/AR
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Poolside launch blog, Hugging Face model cards incl. NVFP4 variant, Vercel AI Gateway/LMStudio listings, aimadetools benchmark analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no Laguna S 2.1 page (404) and BenchLM assigns no public overall score (6 of 648, unranked) with only the vendor-sourced rows already on file — no new independent evidence, no score change. First pass (2026-10-09) used Poolside launch blog, Hugging Face model cards incl. NVFP4 variant, Vercel AI Gateway/LMStudio listings, aimadetools benchmark analysis.
 - Future sources: add a new file next to this one, e.g. `Laguna_XS_2.1.md`, using the same headings.

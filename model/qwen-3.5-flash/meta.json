@@ -1,0 +1,10 @@
+{
+  "id": "opencode/qwen-3.5-flash",
+  "name": "Qwen 3.5 Flash",
+  "short": "Alibaba's hosted Qwen 3.5 Flash tier on Model Studio for fast, cheap multimodal agentic work; from ~$0.065/$0.26 per 1M via OpenRouter (qwen3.5-flash-02-23).",
+  "contextWindow": "Unverified — tracker-reported ~1M; 65,536 max output",
+  "modalities": "Text in/out (vision support unverified)",
+  "pricingNote": "~$0.065/$0.26 per 1M (OpenRouter qwen3.5-flash-02-23)",
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/"
+}

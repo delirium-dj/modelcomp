@@ -1,7 +1,7 @@
 # Jev 1.13 — findings by Step 5 Preview
 
 - Source: TypeSafe AI (`jev-1.13.0`, alias `jev-latest`; type-safe "System One" decision model)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,6 +45,6 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (TypeSafe docs and launch blog, arXiv:2609.37647, models.dev, third-party independent testing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no jev-1.13 page (404) and BenchLM has no jev-1.13 page (404) — both trackers remain untracked, consistent with the first pass's finding that the "System One" decision model is outside standard benchmark coverage; the arXiv:2609.37647 independent evaluation (37 datasets, 95–99% on IMDB/SST-2/HellaSwag/ARC, calibrated probabilities) still stands as the strongest evidence. No score change warranted. First pass (2026-10-09) used TypeSafe docs and launch blog, arXiv:2609.37647, models.dev, third-party independent testing.
 - Future sources: add a new file next to this one, e.g. `Jev_1_14.md`, using the same headings.

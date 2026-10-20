@@ -1,7 +1,7 @@
 # Ling-2.6-flash — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`inclusionai/ling-2.6-flash`, released 2026-04-28)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -31,6 +31,12 @@ Artificial Analysis (independent; via benchmarklist/AI Reference):
 - TAU2-Bench Telecom: **86.0%**; τ³-Banking: **2.9%**; GDPval-AA: **547 Elo**; ClawProBench: 27.04 (48th of 48); Agentic Index: 2.25
 - ObviousBench answer pass³: 57.6%; AA Openness Index: 38.89
 
+Third-pass verification (2026-10-19):
+
+- BenchLM composite: **32.47/100** overall, #174 of 956 models, 16 of 648 benchmarks covered
+- Artificial Analysis (hyphenated slug ling-2-6-flash): deprecated (suggests Ling 3.0 Flash), Index **10** (estimated, #3/39 in class, median 7), 262k context (260k per the FAQ row), text-only, 107B/7.4B, MIT — no speed or pricing rows on the page
+- New corroborating rows: CritPt **0.0%** (AA), AA-Omniscience index **−66.1%** / accuracy 15.6% / hallucination 96.7% — the worst calibration in this comparison, reinforcing the low Reasoning/Tool reads
+
 ### Normalized scores (1–100)
 
 - **Tool use: 45/100.** The vendor's BFCL-V4/TAU2-bench size-class SOTA claims and AA's τ²-Telecom 86.0% are real mid-band results, but τ³-Banking 2.9%, GDPval Elo 547, ClawProBench 27.0 and Agentic Index 2.25 show tool use collapses outside telecom/retail.
@@ -45,6 +51,6 @@ Artificial Analysis (independent; via benchmarklist/AI Reference):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (inclusionAI Hugging Face model card and base card, Artificial Analysis, benchmarklist.com AA data, Clore.ai and LLM Reference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated, suggests Ling 3.0 Flash: Index 10 estimated #3/39 — matches the file; no speed/pricing rows) and BenchLM (composite 32.47/100, #174/956, 16/648 benchmarks): new rows CritPt 0.0% and AA-Omniscience index −66.1% / accuracy 15.6% / hallucination 96.7% — the worst calibration measured here, reinforcing the low reads; all other AA rows reconfirmed. No score change warranted. First pass (2026-10-09) used inclusionAI Hugging Face model card and base card, Artificial Analysis, benchmarklist.com AA data, Clore.ai and LLM Reference.
 - Future sources: add a new file next to this one, e.g. `Ling_2_7.md`, using the same headings.
