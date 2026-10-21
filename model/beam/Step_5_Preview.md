@@ -1,80 +1,80 @@
-# Beam 1.0 — findings by Step 5 Preview
+# Beam — findings by Step 5 Preview
 
-- Source: Reflection/Beam 1.0 (`reflection/Beam-1.0-501B-A23B`)
-- Date: 2026-10-19 (UTC)
+- Source: Reflection AI / Beam 1.0 (`reflection/Beam-1.0-501B-A23B`)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Beam 1.0 (501B-A23B)
-- **Short description:** Reflection's first open-weight model (Oct 2026): a 501B-total/23B-active MoE built for token-efficient reasoning, software engineering and agentic tool use at 1M context; text-only.
-- **Provider / access:** Self-host weights (Hugging Face `reflection/Beam-1.0-501B-A23B`, Apache 2.0, BF16/FP8/NVFP4; modified Harmony chat template); 4 API providers per Artificial Analysis (median $0.70/$2.10 per MTok). OpenCode Zen lists a $0 promotional route `opencode/beam-free` (verified 2026-10-19); no paid Zen ID was listed.
-- **Release / knowledge:** Released 2026-10-16 (Artificial Analysis; HF card); knowledge cutoff June 30, 2026 (official model card).
-- **IDs:** `reflection/Beam-1.0-501B-A23B` (HF BF16; FP8/NVFP4 siblings) · `opencode/beam-free` (Zen, free promo).
-- **Context window:** 1,048,576 tokens (official model card); text-only in/out.
-- **Modalities:** Text in → text out (official: "Supported Modalities: Text"); reasoning model; tool use / code / conversational; English-focused ("developed predominantly for English").
-- **Pricing (as of 2026-10-19):** Provider median $0.70 / 1M input, $2.10 / 1M output (Artificial Analysis; blended $0.43 at 7:2:1, ~$0.57 per Intelligence-Index task, 84% cache discount); free ($0) on the Zen promotional route.
-- **Architecture:** Open weights, Apache 2.0; sparse MoE — 501.3B total / 23.4B active, 52 layers (3 dense + 49 MoE), 256 experts, Gated GQA + Sliding Window Attention, 152k vocabulary.
+- **Name:** Beam 1.0 (Beam 501B-A23B)
+- **Short description:** Reflection AI's first open-weight model — a 501B-total / 23B-active sparse MoE (256 experts, 1M context, Apache 2.0, day-one BF16/FP8/NVFP4) with SWE-bench Verified 81.6%, AIME 2026 97.7% and Terminal-Bench 2.1 80.1%, served free on Zen as Beam Free; text-only and token-efficient (~3x fewer reasoning tokens per Reflection).
+- **Provider / access:** Open weights on Hugging Face (`reflection/Beam-1.0-501B-A23B`, Apache 2.0); free OpenCode Zen tier (Beam Free); hosted routes $0.25–$1.30 in / $1.00–$4.30 out (folder meta); vLLM/SGLang serving.
+- **Release / knowledge:** debut 2026-10-05/06 (llm-releases, aimodelreport); open-weight drop with FP8/NVFP4 variants 2026-10-17 (Benchgen, digitalapplied, saltindex); knowledge cutoff 2026-06-30 (Benchgen).
+- **IDs:** `reflection/Beam-1.0-501B-A23B` (HF), `opencode/beam-free` (Zen free route, folder meta).
+- **Context window:** 1,048,576 (1M) pretrained; API beta requests capped at 262,144 (llm-releases); 131,072 max output (folder meta).
+- **Modalities:** text in/out only — no vision/multimodal (Benchgen "Where it lags"); reasoning; tool calling (MCP).
+- **Pricing (as of 2026-10-21):** open weights free to self-host (Apache 2.0); free Zen tier; paid hosted $0.25–$1.30 in / $1.00–$4.30 out (folder meta).
+- **Architecture:** sparse MoE, 501.3B total / 23.4B active, 256 experts, 52 layers (3 dense + 49 MoE), gated GQA + sliding-window attention; trained on ~23.8T tokens; Reflection emphasizes token-efficient reasoning (~3x fewer reasoning tokens than comparable open models, vendor claim).
 
 ### Raw benchmarks found
 
-> Reflection publishes a full model-card table (BF16, temp=0.7/top_p=0.99); Artificial Analysis and BenchLM measure independently. Where vendor and AA disagree (HLE 36.0% vs AA 34.7%; AutomationBench 39.3% public split vs AA 48.5%), both are kept.
+Reflection AI Beam 1.0 model card (via BenchLM and Benchgen, BF16 numerics, temp=0.7/top_p=0.99) + Artificial Analysis figures via BenchLM:
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **80.1%** (official model card, BF16) — near-frontier agentic terminal coding
-- Terminal-Bench 4.0: **3.0%** (Artificial Analysis, via BenchLM) — near-floor on the newest terminal eval
-- MCP Atlas: **80.8%** (official)
-- Tau3-Banking: **36.1%** (official)
-- AutomationBench (public split): **39.3%** (official) / **48.5%** (Artificial Analysis harness)
-- BrowseComp: **76.8%**, DeepSearchQA: **80.5%** (official, with context management)
-- GDPval-AA v2.1: **Elo 1177** (#125/298; Artificial Analysis) — top of the methodology's mid band
-- AA-Briefcase: **Elo 976** (Artificial Analysis)
-- GDP.pdf: **11.6%** (Artificial Analysis, via BenchLM)
-- Claw-Eval: no verified public score found
+- MCP Atlas: **80.8%** (Reflection card via BenchLM)
+- DeepSearchQA: **80.5%** (Reflection card via BenchLM)
+- Terminal-Bench 2.1: **80.1%** (Reflection card via BenchLM)
+- BrowseComp: **76.8%** (Reflection card via BenchLM)
+- AA AutomationBench: **48.5%** (Artificial Analysis via BenchLM) / **39.3%** public split (Reflection card via Benchgen)
+- τ³-bench (banking): **36.1%** (Reflection card via BenchLM) — mid
+- GDPval-AA: **1,177 Elo / 33.9%** normalized (Artificial Analysis via BenchLM); AA Briefcase: **976** (AA via BenchLM)
+- AA Terminal-Bench 4.0: **3.0%** (Artificial Analysis via BenchLM) — collapses on the newest harness
+- GDP.pdf: **11.6%** (Artificial Analysis via BenchLM)
+- Tau2-Bench / Claw-Eval / OSWorld: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.6%** (official) — frontier-level
-- HLE: **36.0%** no tools / **51.1%** with tools (official); AA-HLE: **34.7%** (Artificial Analysis, stricter harness)
-- AIME 2026: **97.7%** (official)
-- SciCode: **49.2%** (official) / AA-SciCode: **48.5%** (Artificial Analysis)
-- CritPt: **16.3%** (official)
-- AA-LCR: **78.2%** (official); LongBench v2: **67.5%** (official)
-- Artificial Analysis Intelligence Index: **30** (AA; BenchLM records 30.3%) — well above its open-weight class median of 19, mid-pack globally
-- AA-Omniscience: Index **1.5–10.8**, Accuracy **33.1%**, Hallucination Rate **47.2%** — weak knowledge reliability
+- AIME 2026: **97.7%** (Reflection card via BenchLM/Benchgen)
+- GPQA Diamond: **90.6%** (Reflection card via BenchLM); aimodelreport carries 90.5%
+- HLE (no tools): **36.0%** (Reflection card); **51.1% with tools** (Reflection card); AA-HLE **34.7%** (Artificial Analysis via BenchLM)
+- LiveCodeBench: **88.3%** (Reflection card, carried in Benchgen's footnote)
+- Artificial Analysis Intelligence Index: **30.3%** (Artificial Analysis via BenchLM — mid band)
+- AA-LCR (long-context reasoning): **78.2%** (Reflection card via BenchLM)
+- CritPt: **16.3%** (Reflection card via BenchLM)
+- AA-Omniscience: Accuracy **33.1%**, Hallucination Rate **47.2%** (Artificial Analysis via BenchLM) — low hallucination for the class
+- IFBench: **79.6%** (Reflection card via BenchLM)
+- MMLU-Pro: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **81.6%** (official; also published to the SWE-bench leaderboard eval-results)
-- Terminal-Bench 2.1: **80.1%** (official; see agentic section)
-- LiveCodeBench: **88.3%** (official)
-- SWE-bench Pro: **66.1%** / Pro v2-Hard: **76.5%** (official); SWE-bench Multilingual: **78.3%** (official)
-- DeepSWE v1.1: **43.3%** (official) — far below the 74%+ frontier reference
-- SWE Atlas Codebase QnA: **31.8%** (official)
+- SWE-bench Verified: **81.6%** (Reflection card via BenchLM — matches the folder's claim; aimodelreport carries an earlier 80.9)
+- SWE-bench Pro: **66.1%** (Reflection card via BenchLM); SWE Multilingual: **78.3%**
+- Terminal-Bench 2.1: **80.1%** (listed above)
+- DeepSWE: **43.3%** (Reflection card via BenchLM; aimodelreport carries 44.4%)
+- SciCode: **49.2%** (Reflection card) / **48.5%** (Artificial Analysis via BenchLM)
+- SWE-Atlas Codebase QnA: **31.8%** (Reflection card via BenchLM)
 - Vibe Code Bench: no verified public score found
 
 Long context:
 
-- 1M window verified (official); AA-LCR 78.2% and LongBench v2 67.5% are the closest retrieval/reasoning-at-length figures; no MRCR/RULER/GraphWalks pass rate published.
-
-Speed / cost (Artificial Analysis, median across 4 providers): 324.0 output tokens/s (#4/78 in class), TTFT 0.82 s; very concise — 79M output tokens on the Intelligence Index (median 140M; the card claims ~3× fewer reasoning tokens than leading open models).
+- AA-LCR **78.2%** and LongBench v2 **67.5%** (Reflection card / AA via BenchLM) on the full 1M pretrained window; no MRCR/RULER/GraphWalks retrieval-at-length figure published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 80.1%, MCP Atlas 80.8%, BrowseComp 76.8% and DeepSearchQA 80.5% sit well above the mid band and near the frontier reference, with GDPval-AA Elo 1177 at the top of mid; capped by Tau3 36.1%, AutomationBench 39–48% and Terminal-Bench 4.0 at 3.0%.
-- **Reasoning: 76/100.** GPQA Diamond 90.6%, AIME 2026 97.7% and HLE-with-tools 51.1% are frontier-adjacent, but the composite Intelligence Index of ~30 is mid-pack, CritPt 16.3% and SciCode ~48% are mid, and a 47.2% hallucination rate (AA-Omniscience index ~1.5–10.8) caps it.
-- **Context window: 95/100.** 1M-token window verified on the official card; the 100 tier requires ≥98% retrieval at 512K+ and no MRCR/RULER/GraphWalks figure exists, so AA-LCR 78.2% supports 95.
-- **Multimodal: 15/100.** Text-only input and output per the official model card ("Supported Modalities: Text") — squarely in the methodology's text-only 10–20 band.
-- **Coding: 82/100.** SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1% and LiveCodeBench 88.3% are strong near-frontier results, but DeepSWE 43.3%, SciCode 49.2%, SWE Atlas QnA 31.8% and Terminal-Bench 4.0 3.0% keep it out of the 90+ frontier tier (DeepSWE 74%+/TB 85%+ references).
-- **Cost efficiency: 91/100.** Open weights (Apache 2.0) served at a provider median $0.70/$2.10 per MTok — right at the methodology's ~$0.60/$2.20 anchor; a $0 Zen promotional route (`opencode/beam-free`) exists and would score 100 while active, but paid provider pricing is the durable figure.
-- **Overall Score: 70/100.** Mean of 82/76/95/15/82 = 70.0 → 70. Best fit: a strong, cheap-to-run open-weight text model for coding agents, MCP tool workflows and token-efficient reasoning — pick it self-hosted or via cheap providers for agentic coding at 1M context; do not expect multimodal or frontier-tier hard-reasoning results.
+- **Tool use: 82/100.** Terminal-Bench 2.1 80.1%, MCP Atlas 80.8%, DeepSearchQA 80.5% and BrowseComp 76.8% are a genuinely strong agentic suite; capped by AA AutomationBench 48.5%, τ³-bench 36.1%, GDPval 1,177 Elo (33.9%) and AA Terminal-Bench 4.0 collapsing to 3.0%.
+- **Reasoning: 88/100.** AIME 2026 97.7%, GPQA Diamond 90.6% and LiveCodeBench 88.3% are frontier-adjacent, HLE 36.0% (51.1% w/tools) is solid-mid, and the 47.2% hallucination rate is low for the class; capped by AA Intelligence Index 30.3% (mid band), CritPt 16.3% and no MMLU-Pro number.
+- **Context window: 95/100.** 1,048,576 pretrained window lands in the ≥1M tier; AA-LCR 78.2% is good but below the ≥98% retrieval-at-512K evidence needed for 100, and the hosted API beta caps requests at 262,144.
+- **Multimodal: 15/100.** Text-only model — text in, text out (Benchgen's explicit "where it lags"); the text-only tier (10–20) applies.
+- **Coding: 84/100.** SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1%, SWE-bench Pro 66.1% and SWE Multilingual 78.3% are strong agentic-coding evidence with token efficiency as the multiplier; capped by DeepSWE 43.3%, SciCode ~49%, SWE-Atlas QnA 31.8% and AA TB4.0 3.0%.
+- **Cost efficiency: 98/100.** Apache 2.0 open weights (free self-host, day-one FP8/NVFP4) plus a free Zen tier put the floor at $0; the ~3x reasoning-token efficiency claim, if it holds, compounds the free-weights advantage.
+- **Overall Score: 73/100.** Mean of (82 + 88 + 95 + 15 + 84) / 5 = 72.8 → 73. Best fit: the strongest free/Apache-2.0 1M-context agentic coding backbone you can self-host or run free on Zen — text-only, so vision workloads route elsewhere.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research — official Reflection model card (Hugging Face, full BF16 eval table) cross-checked against Artificial Analysis (model page + leaderboards via BenchLM) and the OpenCode Zen model list; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Step_5_Preview_v2.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (Reflection AI model card figures via BenchLM and Benchgen, Artificial Analysis figures via BenchLM, llm-releases, aimodelreport); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

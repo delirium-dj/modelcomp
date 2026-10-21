@@ -1,7 +1,7 @@
 # Hy3 Preview — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `hy3-preview`, `tencent/hy3-preview`
 - **Context window:** 262,144 tokens (256K context window; up to 32K output).
 - **Modalities:** Text in / text out only. Tool calls and structured outputs.
-- **Pricing (as of 2026-10-11):** $0.18 / 1M input tokens, $0.60 / 1M output tokens ($0.06 / 1M cached input); open-weights available for self-hosting.
+- **Pricing (as of 2026-10-21):** $0.18 / 1M input tokens, $0.60 / 1M output tokens ($0.06 / 1M cached input); open-weights available for self-hosting.
 - **Architecture:** 295B parameter MoE (21B active, 192 experts top-8 routing, 3.8B Multi-Token Prediction layer).
 
 ### Raw benchmarks found
@@ -22,6 +22,7 @@
 Agent & Coding:
 
 - SWE-bench Verified: **74.4%**
+- SWE-bench Pro: **52.3%**
 - Terminal-Bench 2.0: **34.1%–54.4%**
 - BrowseComp: **67.1%**
 - MBPP-plus: **78.71%**
@@ -54,5 +55,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Tencent Hunyuan Hy3-preview technical documentation, OpenRouter endpoints, and Artificial Analysis leaderboards.

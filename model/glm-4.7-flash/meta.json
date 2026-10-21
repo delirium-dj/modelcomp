@@ -1,0 +1,15 @@
+{
+  "id": "opencode/glm-4.7-flash",
+  "name": "GLM 4.7 Flash",
+  "short": "Z.ai's 30B-A3B MoE lightweight model with 1M context, MIT license, and balanced performance for agentic workflows.",
+  "contextWindow": "1M total",
+  "modalities": "Text in/out",
+  "pricingNote": "Free on Zen; no Free tier is required",
+  "noFreeId": false,
+  "officialUrl": "https://huggingface.co/zai-org/GLM-4.7-Flash",
+  "pricingLinks": [
+    "https://docs.z.ai/guides/overview/pricing"
+  ],
+  "standout": "MIT-licensed 30B MoE with competitive benchmark scores in the 30B class and a generous 1M context window, offering an open-weights alternative in the mid-tier space.",
+  "tradeoff": "Open-source MIT license contrasts with Z.ai's custom license for flagship GLM-5.3; Flash variant is designed for efficiency, not for top-tier closed-model reasoning at scale."
+}

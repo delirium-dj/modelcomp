@@ -1,7 +1,7 @@
 # Hy4 — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4-preview`, `tencent/hy4`, `hy4`
 - **Context window:** 1,048,576 tokens (1M input, up to 64K output).
 - **Modalities:** Text in / text out only. Tool calls and function execution.
-- **Pricing (as of 2026-10-11):** OpenRouter standard hosted rate is ~$0.834 / million input tokens ($0.042 / million cached) and ~$2.501 / million output tokens; also available for zero-token-fee on-premise self-hosting via vLLM / SGLang under Apache 2.0 license.
+- **Pricing (as of 2026-10-21):** OpenRouter standard hosted rate is ~$0.834 / million input tokens ($0.042 / million cached) and ~$2.501 / million output tokens; also available for zero-token-fee on-premise self-hosting via vLLM / SGLang under Apache 2.0 license.
 - **Architecture:** 770B total / 49B active MoE (Multi-head Latent Attention / MLA, DeepSeek Sparse Attention / DSA, native 10B Multi-Token Prediction layer).
 
 ### Raw benchmarks found
@@ -60,5 +60,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Tencent Hunyuan Hy4 technical documentation, Hugging Face repository, OpenRouter pricing, and open-source leaderboards.

@@ -1,52 +1,73 @@
-# Hy3 — findings by Step 5 Preview
+# Tencent Hy3 — findings by Step 5 Preview
 
-- Source: Tencent Hy / Hunyuan (`hy3`, weights `tencent/Hy3`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Tencent / Hy3 (`tencent/hy3`)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Hy3 (Tencent Hy team; "Hunyuan" in the China market)
-- **Short description:** Tencent's third-generation open-weight flagship (preview 2026-04-24, GA 2026-07-06 under Apache 2.0 — the first Hunyuan release without the preview's EU/UK/South-Korea license exclusion). A 295B-parameter MoE with only 21B active per token (192 experts, top-8 routed, 80 layers, hidden 4096, GQA), a 256K context window, a native 3.8B MTP layer for speculative decoding, and hybrid fast/slow thinking. The GA release scaled post-training RL after feedback from 50+ products: WorkBuddy task success rose 72%→90% with 34% faster completion, hallucination rate fell 12.5%→5.4%, and it uses 47–49% fewer tokens than GLM-5.2 on document/presentation tasks. Tencent positions it as rivaling flagship open models with 2–5× the parameters at 21B active; in its internal blind eval, 270 experts scored it 2.67/4 vs GLM-5.1's 2.51.
-- **Provider / access:** Open weights (BF16 + FP8) on Hugging Face / ModelScope / GitCode / CNB; API on Tencent Cloud TokenHub and OpenRouter (launched as a free endpoint); integrates with OpenClaw, Cline, KiloCode, CodeBuddy, Hermes, Cherry Studio.
-- **Release:** 2026-07-06 (preview 2026-04-24).
-- **Context window:** 256K tokens (262,144 per OpenRouter).
-- **Modalities:** Text in → text out; three reasoning modes (no-think default, low and high chain-of-thought); tool calling with production-grade stability (accuracy variance across CodeBuddy/Cline/KiloCode scaffoldings within 4%).
-- **Pricing (as of 2026-10-09):** Tencent Cloud ¥1/M input, ¥4/M output, ¥0.25/M cache (≈$0.14/$0.56; third-party trackers list $0.13/$0.53); Apache-2.0 weights free to self-host (8× H20-3e recommended); preview was free on OpenRouter through 2026-07-21.
-- **Architecture:** MoE 295B/21B, 192 experts top-8, 1 MTP layer, hybrid fast/slow thinking; +40% inference efficiency vs preview.
+- **Name:** Tencent Hy3
+- **Short description:** Tencent Hy Team's July 2026 open-weight flagship — a 295B MoE (21B active + 3.8B MTP, 192 experts top-8, 256K context) under Apache 2.0 with GPQA Diamond 90.4% and SWE-bench Verified 78.0%, production-hardened tool calling and a vendor-measured 5.4% internal hallucination rate, at ~$0.08–$0.14/$0.33–$0.58 per 1M.
+- **Provider / access:** Open weights (HF `tencent/Hy3` + `Hy3-FP8`, ModelScope, GitCode, CNB) under Apache 2.0 (no territorial restrictions, unlike the April preview); vLLM/SGLang serving recipes, AngelSlim quantization, full finetune + GRPO RL pipeline; hosted via Tencent fp8 and third parties; not on OpenCode Zen.
+- **Release / knowledge:** Hy3 Preview late April 2026; full Hy3 released 2026-07-06 (GitHub repo, AI Model Timeline); knowledge cutoff not published.
+- **IDs:** `tencent/hy3` (HF/hosted style), `hy3` (served model name).
+- **Context window:** 256K (262,144 on some hosts — GitHub says 256K); ~64,000–128,000 max output (folder meta).
+- **Modalities:** text in/out only (AI Model Timeline: "Text-only model"); reasoning effort `no_think`/`low`/`high`; tool calling (vLLM `hy_v3` / SGLang `hunyuan` parsers); MTP speculative decoding.
+- **Pricing (as of 2026-10-21):** Tencent fp8 ~$0.0825/$0.33 off-peak, ~$0.14/$0.58 on other hosts (folder meta); llm-stats lists $0.14/$0.58 cached $0.035; free self-host under Apache 2.0 (~170GB VRAM at Q4, multi-GPU class).
+- **Architecture:** 295B-total MoE, 21B active per token, 3.8B MTP layer, 80 layers, GQA (64 heads, 8 KV), 192 experts top-8 activated, hidden 4096, BF16; dense-MoE hybrid with an always-active shared expert.
 
 ### Raw benchmarks found
 
-- BenchLM composite (2026-10-19): **52.48/100** overall, #91 of 956 models, 14 of 644 benchmarks covered (partial coverage — conservative)
-- Artificial Analysis today (2026-10-19): Intelligence Index **25** (#31/121 — the file's first independent AA read), 83.9 tok/s, TTFT 2.82s, $0.136/$0.555 with 75% cache discount (blended $0.11/M; **$0.07 per Index task**), 256k context (260k per the FAQ row), text-only, 299B/21B, Apache 2.0, 4 providers, 170M Index tokens (somewhat verbose)
+Tencent Hy3 model card (via AI Model Timeline + official GitHub) + Artificial Analysis figures via BenchLM:
 
-Vendor + launch coverage (VentureBeat tabulation, BiggoNews, i-scoop, HF eval-results):
+Agent / tool use:
 
-- GPQA Diamond: **90.4%** (GPT-5.5: 93.6)
-- HLE with tools: **53.2%** (DeepSeek-V4-Pro: 48.2)
-- FrontierScience-Olympiad: **74.8%** (GLM-5.2: 72.5; GPT-5.5: 73.8)
-- BrowseComp: **84.2%**; DeepSearchQA: **91.0%** (both best open models in Tencent's table)
-- MCP-Atlas: **79.1%** (leads open models); AA-LCR: **73.4%** (leads open models)
-- SWE-bench Verified: **78%**; SWE-bench Pro: **57.9%** (Opus 4.8: 69.2; GLM-5.2 leads open); SWE-bench Multilingual: **75.8%**; Terminal-Bench 2.1: **71.7%**
-- MathArena Apex: **38.7%** (GPT-5.5: 85.4 — the clear weakness)
-- Internal blind eval: **2.67/4** (270 experts, own tasks) vs GLM-5.1 2.51; WorkBuddy task success 90% (vs 72% preview); hallucination rate 5.4%
-- New independent rows (2026-10-19): GDPval-AA **28.3% normalized / Elo 1,136** (AA — fills the file's missing GDPval row; weak on agentic knowledge work), AA Agentic Index **25.6%** (weak), AA-SciCode **48.6%**, AA Coding Index **58.8%** (mid), AA-LCR **79.0%** (above the vendor 73.4% row), CritPt **4.9%** (very weak), AA-GPQA Diamond **89.7%** (corroborates the vendor 90.4%), AA-HLE **33.5%** (no-tools), AA-Omniscience index **−18.5%** / accuracy 32.0% / hallucination 74.1% (weak calibration), Design Arena Website **1183**
+- Tool-call reliability: vendor-fixed to "production-grade standards" — SWE-bench Verified accuracy variance **within 4%** across CodeBuddy / Cline / KiloCode scaffoldings (official GitHub)
+- AA Agentic Index: **25.6%** (Artificial Analysis via BenchLM)
+- GDPval-AA: **1,136 Elo / 28.3%** normalized (Artificial Analysis via BenchLM)
+- Terminal-Bench 2.x: **not reported by the vendor** (AI Model Timeline) — no verified public score found
+- Tau2 / Tau3 / Claw-Eval / OSWorld / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **90.4%** (vendor model card via AI Model Timeline); **89.7%** (Artificial Analysis via BenchLM)
+- AA-HLE: **33.5%** (Artificial Analysis via BenchLM) — mid band
+- Artificial Analysis Intelligence Index: **25.3%** (Artificial Analysis via BenchLM — mid band)
+- AA-LCR (long-context reasoning): **79.0%** (Artificial Analysis via BenchLM)
+- CritPt: **4.9%** (Artificial Analysis via BenchLM) — weak
+- AA-Omniscience: Accuracy **32.0%**, Hallucination Rate **74.1%** (Artificial Analysis via BenchLM) — vendor reports internal real-world hallucination dropped 12.5% → **5.4%** and commonsense errors 25.4% → 12.7% (official GitHub)
+- MMLU-Pro: not in the vendor card (AI Model Timeline) — no verified public score found
+- Blind expert evaluation: **2.67/4** vs GLM-5.1's 2.51/4 across 270 experts (official GitHub)
+
+Coding:
+
+- SWE-bench Verified: **78.0%** (vendor model card via AI Model Timeline; scaffolding variance <4%)
+- SWE-bench Pro: **57.9%** (vendor model card via AI Model Timeline)
+- AA-SciCode: **48.6%** (Artificial Analysis via BenchLM)
+- AA Coding Index: **58.8%** (Artificial Analysis via BenchLM)
+- LiveCodeBench / DeepSWE / Vibe Code Bench / Terminal-Bench: no verified public score found
+
+Long context:
+
+- AA-LCR **79.0%** (Artificial Analysis via BenchLM); vendor reports MRCR and multi-turn intent-tracking improvements (coreference/ellipsis/multi-turn constraint inheritance; issue rate 17.4% → 7.9% internally); 256K window; no RULER/GraphWalks retrieval-at-length figure published.
+
+Human preference / design (traceability): Design Arena Website 1183 Elo (OpenRouter via BenchLM).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** MCP-Atlas 79.1%, BrowseComp 84.2% and DeepSearchQA 91.0% remain strong vendor-table agentic results, but the third pass measured the suites the file lacked and they are weak: GDPval-AA 28.3% (Elo 1,136) and AA Agentic Index 25.6%. Trimmed from 82: the search/tool-orchestration strength does not carry to the independent agentic composites.
-- **Reasoning: 84/100.** GPQA Diamond 90.4% (independently tabulated) and HLE-with-tools 53.2% are at the frontier threshold; MathArena Apex 38.7% vs GPT-5.5's 85.4% is a steep advanced-math deficit, so upper-reasoning-tier rather than class-leading.
-- **Context window: 72/100.** 256K is the 200K–500K band (65–84), with AA-LCR 73.4% leading open models on long-context retrieval — solid and verified, but a quarter of the 1M frontier norm.
-- **Multimodal: 12/100.** Text-only (no vision or audio in the Hy3 release) — the methodology's text-only band (10–20).
-- **Coding: 76/100.** SWE-bench Verified 78% and Terminal-Bench 2.1 71.7% are strong open-weights coding from 21B active parameters; SWE-bench Pro 57.9% trails GLM-5.2/Opus 4.8/GPT-5.5 on repository-scale work and there is no DeepSWE/SWE-Marathon number.
-- **Cost efficiency: 95/100.** ~$0.13–0.18/M input and ~$0.53–0.59/M output with Apache-2.0 weights free to self-host on 8× H20-3e — near the methodology's ~$0.1/$0.2 ≈ 97–99 tier, with the 47–49% token-efficiency advantage over GLM-5.2 making the effective cost even lower.
-- **Overall Score: 63.6/100.** Best-fit recommendation: the cost-efficiency open-weights pick — GLM-5.1-beating productivity at $0.14/$0.56, best-in-open tool orchestration and long-context retrieval; not the choice for advanced math or repo-scale coding.
+- **Tool use: 78/100.** The vendor's reliability work is the differentiator — production-grade tool-call error recovery, <4% accuracy variance across CodeBuddy/Cline/KiloCode scaffoldings and generalization across agent scaffolds; capped by AA Agentic Index 25.6%, GDPval 1,136 Elo (28.3%) and zero published Terminal-Bench/Tau/OSWorld/MCP numbers.
+- **Reasoning: 84/100.** GPQA Diamond 89.7–90.4% is frontier-leaning graduate science and AA-LCR 79.0% shows good long-context reasoning; capped by HLE 33.5%, AA Intelligence Index 25.3% (mid band), CritPt 4.9% and the 74.1% AA-Omniscience hallucination rate (vs the vendor's 5.4% internal figure — different measurement bases, both listed).
+- **Context window: 78/100.** 256K native with 64–128K max output lands in the 200K–500K tier (65–84, above the 200K=70 floor); AA-LCR 79.0% is solid but no ≥512K retrieval evidence exists.
+- **Multimodal: 15/100.** Text-only model — text in, text out (AI Model Timeline, official GitHub); the text-only tier (10–20) applies with no vision/audio encoder.
+- **Coding: 78/100.** SWE-bench Verified 78.0% (vendor, scaffold-stable) and AA Coding Index 58.8% are solid upper-mid band; capped by SWE-bench Pro 57.9%, SciCode 48.6% and no LiveCodeBench/DeepSWE/Terminal-Bench numbers — the expert blind eval (2.67/4, beating GLM-5.1's 2.51) supports real-world frontend/CI-CD strength.
+- **Cost efficiency: 92/100.** ~$0.08–$0.14 in / $0.33–$0.58 out (cache $0.035) sits near the ~$0.60/$2.20 ≈ 92 reference band on the cheaper side; Apache 2.0 weights (free self-host, ~170GB Q4) hold the floor at $0.
+- **Overall Score: 67/100.** Mean of (78 + 84 + 78 + 15 + 78) / 5 = 66.6 → 67. Best fit: the cost-efficient open-weight reasoning/agent MoE for text coding and office automation — flagship-adjacent GPQA and rock-solid tool calling at 21B-active serving cost; text-only, so any vision workload routes elsewhere.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (Index 25 #31/121 — first independent read; 83.9 tok/s; $0.07/task) and BenchLM (composite 52.48/100, #91/956, 14/644 benchmarks): the file's GDPval and AA-coded gaps are now measured — GDPval-AA 28.3%/Elo 1,136 and AA Agentic Index 25.6% (weak) trim Tool use 82→74 (Overall 65→64), while AA-GPQA 89.7%, AA-LCR 79.0%, AA Coding Index 58.8% and AA-HLE 33.5% corroborate the other dims. First pass (2026-10-09) used Tencent Hy release pages + HF model card/eval-results, Tencent Cloud techpedia, VentureBeat/AnIntent/i-scoop launch coverage, OpenRouter, concentrate.ai.
-- Future sources: add a new file next to this one, e.g. `Hy4_GA.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (Tencent official GitHub model card + product-reliability section, Artificial Analysis figures via BenchLM, AI Model Timeline vendor benchmark record); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

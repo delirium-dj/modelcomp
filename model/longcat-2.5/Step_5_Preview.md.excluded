@@ -1,0 +1,41 @@
+# LongCat 2.5 — findings by Step 5 Preview (SELF-EXCLUDED)
+
+> SELF-EXCLUSION: no verified public benchmark data exists for a model behind this folder name. Scores inside are intentionally absent (see below); saved as `.excluded` per `model-report-TEMPLATE.md` and `RULES.md`.
+
+- Source: Meituan / LongCat 2.5 (bare GA name) — no distinct vendor model behind it
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (2026-10-21 fresh research)
+
+**No Meituan model exists under the bare name "LongCat 2.5".** The only 2.5-line model Meituan has shipped is the API-only preview:
+
+- **LongCat-2.5-Preview** (2026-09-25, LongCat API Open Platform + Vercel AI Gateway) — proprietary, API-only, ~1.6T total / ~48B active MoE, 1M context (1,048,576), 131K max output, text+image in / text out, reasoning + tool calling, $0.30/$1.20 per 1M (cached $0.006) — tracked in `model/longcat-2.5-preview/`.
+- **LongCat-2.0** (open weights, 2026-06-30) — tracked in `model/longcat-2.0/`.
+
+Evidence for the negative record (all checked 2026-10-21 or dated since the 2026-09-25 launch):
+
+1. Meituan's LongCat API catalog announcements (aioga, cocoloop, anyrouter, pandaily, technode, nocode.mba, nerallabs, explainx, verticaltabs, aimodel.directory) uniformly name only `LongCat-2.5-Preview` — no GA slug.
+2. Hugging Face model search (`longcat`): the newest LongCat release is the 2.0-era open-weights line; no `LongCat-2.5` (or `LongCat-2.5-Preview`) weights repo exists — the 2.5 line is proprietary and API-only.
+3. BenchmarkList carries `meituan-longcat-2.5-preview` with **0 benchmark rows** — "Meituan published no benchmarks for this preview... No independent evaluation had been confirmed when it was imported."
+4. models.dev (via aimodel.directory) lists the 2.5-line entry only as `meituan/longcat-2.5-preview`.
+
+Consequences for this folder: the bare name "LongCat 2.5" is a family-shorthand form of the tracked preview model (per `RULES.md` family-shorthand identity). The preview model itself has **zero verified public benchmarks** (no SWE-bench, GPQA, Terminal-Bench, Tau, or any harness number from any source). Therefore no `Overall` can be computed for the name this folder tracks.
+
+- Tool use: no verified public score found
+- Reasoning: no verified public score found
+- Context window: 1,048,576 (131,072 max out) per models.dev — but scored only on the preview ID, not on this bare name
+- Multimodal: no verified public score found
+- Coding: no verified public score found
+- Cost efficiency: no verified public score found
+- Overall Score: not computable — self-excluded (zero verified benchmarks)
+
+Research belongs in `model/longcat-2.5-preview/` (the tracked 2.5-line model, itself currently twin-pending for want of any published benchmark). If Meituan ships a GA LongCat 2.5 with benchmarks, this folder can be re-researched then.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (Meituan LongCat API launch coverage across 10 independent outlets, Hugging Face model search, BenchmarkList, models.dev via AI Model Directory); scores are normalized 1–100 interpretations, not official vendor scores — none could be computed here.

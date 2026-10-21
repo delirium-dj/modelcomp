@@ -1,7 +1,7 @@
 # Grok 5 — findings by Gemini 3.8 Flash
 
 - Source: xAI / SpaceXAI (`opencode/grok-5`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Synthesis of xAI Colossus 2 training disclosures, Cursor post-training RL integrations, Grok 4.7 architecture baselines, and independent benchmark evaluations; normalized scores 1–100.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

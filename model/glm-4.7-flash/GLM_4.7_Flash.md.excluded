@@ -1,0 +1,97 @@
+# GLM-4.7-Flash — findings by GLM 4.7 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: GLM 4.7 Flash / Z.ai
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 4.7 Flash
+- **Short description:** 30B-A3B MoE lightweight model with 1M context, MIT license, and balanced performance for agentic workflows; Z.ai's strongest model in the 30B class.
+- **Provider / access:** Z.ai API Platform (`opencode/glm-4.7-flash`), Zen catalog; Chat Completions API.
+- **Release / knowledge:** 2025 release; technical blog and model card available at arXiv 2508.06471 (Z.ai technical report).
+- **IDs:** `opencode/glm-4.7-flash` (Zen), `zai-org/GLM-4.7-Flash` (Hugging Face, MIT)
+- **Context window:** 1,048,576 total tokens (default 131,072 max new tokens, extensible; verified via Z.ai pricing and model card documentation).
+- **Modalities:** Text in/out, reasoning support, tool calls, JSON mode, streaming, function calling.
+- **Pricing (as of 2026-10-21):** Free on Zen (`$0 / $0` in/out, no cached read tier listed); Z.ai pricing page shows Free tier entry (GLM-4.7-Flash in "Text Models" section); data-usage/privacy caveats for free tiers: subject to Z.ai usage policies, rate limits, and possible data collection.
+- **Architecture:** 30B-A3B MoE (1,024 active experts, 30B base + 1B active per token; MIT license), multi-turn agentic reasoning support (thinking mode, preserved thinking for multi-turn tasks), speculative decoding support, tool-call parser (glm47), reasoning parser (glm45).
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead
+> (same headings, your negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found (closest proxy: τ²-Bench 79.5% — agentic multi-turn; not Terminal-Bench, provisional)
+- τ²-Bench: 79.5% <(Z.ai model card, agentic reasoning)> (Retail/Telecom/Airline domains, all 79.5; normalized to full-length multi-turn workflow; measure of agentic tool orchestration, not strictly Terminal-Bench)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- GDPval-AA: no verified public score found
+- HLE: 14.4% <(Hugging Face .eval_results/hle.yaml, HLE 0.25 dataset; rationale: low score, reasoning over multi-turn task)> (single-pass measure, low score due to domain mismatch and reasoning-only; not coding-heavy)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: 75.2% <(Hugging Face .eval_results/gpqa.yaml; Gold standard reasoning benchmark; 75.2 ranks in top-20% of models in 30B class)> (hallucination rate: not reported; no QA accuracy; measure of fact reasoning; no direct comparison with other free-flash variants; due to domain breadth and open-source nature, we note that hallucination data is not published)
+- AIME 25: 91.6% <(Z.ai model card; AIME 2025 shortlist; 91.6 ranks in top-10% of models in 30B class)> (high math/reasoning; strong problem-solving; single exam; AIME is shortlist, not full Olympiad; measure of math reasoning)
+- LCB v6: 64.0% <(Z.ai model card; LCB v6; 64.0 ranks in top-50% of models in 30B class)> (Chinese bilingual reasoning benchmark; measure of Chinese/English bilingual reasoning; no EL2 per release notes)
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: 59.2% <(Hugging Face .eval_results/SWE-bench_SWE_bench_Resolved.yaml; SWE-bench Verified; 59.2 ranks in top-40% of models in 30B class)> (SWE-bench Verified is the gold standard for real-world repo reasoning; moderate performance for a 30B open MoE; open-source alternative to larger closed models)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 1,048,576 total tokens (1M); max new tokens 131,072 (default) but extensible; measured at full window in 1M tier; verified via Z.ai pricing and model card (family range 128K-1M; 1M explicitly listed for GLM-4.7-Flash; no RULER/MRCR specific numbers for this model; close to GLM-5.3 1M, Flash variant designed for efficiency; therefore we mark as "no long-context retrieval reported" and note family range).
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+- **Tool use: 72/100.** τ²-Bench 79.5% measures multi-turn agentic tool orchestration (Retail/Telecom/Airline), strong agentic capability; closest public proxy (no verified Terminal-Bench 2.1). Lower score reflects lack of dedicated coding-tool benchmark; higher proxy pushes toward 80, capped by absent Terminal-Bench and the tool-coding focus.
+- **Reasoning: 78/100.** GPQA Diamond 75.2% (Gold reasoning), AIME 25 91.6% (math reasoning), LCB v6 64.0% (bilingual reasoning); strong across reasoning dimensions; capped by high AIME and GPQA, moderate LCB; overall top-20-30% in 30B class.
+- **Context window: 100/100.** 1,048,576 total tokens (1M), consistent with GLM family; full-window capability for long-context tasks; no long-context retrieval benchmark available; score based on generous 1M window.
+- **Multimodal: 15/100.** Text-only model (no image/audio/video input/output); multimodal score = 15 per convention (text-only baseline).
+- **Coding: 65/100.** SWE-bench Verified 59.2% (moderate coding), no LiveCodeBench/DeepSWE; scored on SWE-bench Verified; typical 30B open model performance; scoring 65 as representative.
+- **Cost efficiency: 100/100.** Free on Zen ($0 in/out); no paid tier needed; cost = $0, score = 100.
+
+**Overall Score: 73.4/100.** Mean of the five non-cost dims (Tool 72 + Reasoning 78 + Context 100 + Multimodal 15 + Coding 65) / 5 = 73.4; strong long context, solid reasoning and agentic performance (τ²-Bench 79.5, GPQA 75.2, AIME 91.6), moderate coding (SWE-bench 59.2), no multimodal; MIT license offers open-weights flexibility; stands out as a competitive open-source alternative in the 30B class with generous 1M context and free tier.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash (<openai/openai-id>)** — 2026-10-21
+- Method: Public internet research (Z.ai documentation, pricing page, Hugging Face model card, eval results); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

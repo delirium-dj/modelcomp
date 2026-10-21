@@ -1,7 +1,7 @@
 # Jev 1.13 — findings by Gemini 3.8 Flash
 
 - Source: opencode/jev-1.13
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -9,13 +9,13 @@
 
 - **Name:** Jev 1.13
 - **Short description:** TypeSafe AI's System-One decision model: returns typed judgments (Choice, Score, yes/no probability) with calibrated confidence instead of generated text. Built for routing, triage, and guardrails inside agent pipelines.
-- **Provider / access:** opencode/jev-1.13
-- **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** opencode/jev-1.13 (Zen tier available)
-- **Context window:** 64K state budget (state + questions; 32K state + longest question)
-- **Modalities:** Text in → typed decision out (Choice/Score/Noul); no image, audio, or video
-- **Pricing (as of 2026-10-11):** $0.042/M input; output free (no autoregressive generation)
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
+- **Provider / access:** TypeSafe AI, [OpenRouter](https://openrouter.ai/models/typesafe-ai/jev-1.13) (`typesafe-ai/jev-1.13`), `opencode/jev-1.13`.
+- **Release / knowledge:** September 15, 2026 release; version milestone 1.13.0.
+- **IDs:** `opencode/jev-1.13`, `typesafe-ai/jev-1.13`, `jev-1.13`
+- **Context window:** 65,536 tokens (64K state budget; 32K state + longest question).
+- **Modalities:** Text in → typed decision out (Choice/Score/Noul); no generative prose, image, audio, or video.
+- **Pricing (as of 2026-10-21):** $0.040 – $0.042 / 1M input tokens; output free (zero autoregressive generation cost).
+- **Architecture:** Specialized parallel-pass typed evaluation transformer (System One fast decision architecture).
 
 ### Raw benchmarks found
 
@@ -47,18 +47,17 @@ General-purpose LLM benchmarks:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 36/100.** Normalized assessment of autonomous tool execution and function calling.
-- **Reasoning: 50/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 45/100.** Effective retrieval fidelity across context capacity (64K state budget (state + questions; 32K state + longest question)).
-- **Multimodal: 15/100.** Input/output modality comprehension (Text in → typed decision out (Choice/Score/Noul); no image, audio, or video).
-- **Coding: 20/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 98/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 33.2/100.** Balanced quality capability across the 5 core dimensions.
+- **Tool use: 36/100.** Normalized assessment of autonomous tool execution and function calling; specialized for decision routing rather than multi-step tool execution.
+- **Reasoning: 50/100.** Normalized assessment of complex multi-step reasoning and deductive analysis (focused strictly on calibrated probability/classification).
+- **Context window: 45/100.** Effective retrieval fidelity across context capacity (64K state budget).
+- **Multimodal: 15/100.** Baseline text-only score; lacks image, audio, or video modalities.
+- **Coding: 20/100.** Limited software engineering capability (evaluates schemas/classifiers, not generative coding).
+- **Cost efficiency: 98/100.** Outstanding value proposition at $0.04/M input and zero output generation cost.
+- **Overall Score: 33/100.** Arithmetic mean of non-cost metrics: (36 + 50 + 45 + 15 + 20) / 5 = 33.2 → 33. Ultra-low-latency, zero-generation-cost System One decision and routing engine.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Method: Public benchmark evaluation and analysis of TypeSafe AI technical documentation, JevBench leaderboard results, and independent research papers.

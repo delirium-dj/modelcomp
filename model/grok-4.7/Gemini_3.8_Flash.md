@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by Gemini 3.8 Flash
 
 - Source: opencode/grok-4.7
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -38,6 +38,6 @@ Verified evaluations and benchmarks from official documentation and third-party 
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

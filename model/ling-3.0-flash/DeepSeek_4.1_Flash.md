@@ -1,9 +1,11 @@
 # Ling 3.0 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Ant Group / InclusionAI / Ling-3.0-flash (`inclusionAI/Ling-3.0-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ling-3-0-flash`, 40 rows) computes an overall **45.07/100 (#125 of 972)** and confirms the first draft, adding independent rows: AA-GPQA 85.5% (Vals 84.8%), AA-HLE 23.7%, AA-LCR 73.0%, CritPt 1.7%, AA Intelligence Index 20.1%, SWE-bench (Vals) 65.2%, LiveCodeBench (Vals) 84.0%, AA Coding Index 50.6%, AA-SciCode 42.0%, AA Tau3 Banking 28.0%, GDPval-AA 1107 / 22.4%, WideResearch 73.6%. **No score change** (Tool 74 / Reasoning 78 / Context 72 / Multimodal 15 / Coding 76 / Cost 98 / Overall 63).
 
 ## Model card
 
