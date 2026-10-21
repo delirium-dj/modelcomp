@@ -8,7 +8,7 @@
 92.6 gemini-4-argon
 92.5 gemini-3.8-flash
 92.1 gemini-3.1-pro
-92 gpt-6-astra
+91.9 gpt-6-astra
 91.8 claude-opus-5
 91.4 claude-mythos-5.1
 91.4 claude-sonnet-5.5
@@ -20,13 +20,13 @@
 90.6 mimo-v2.6-pro
 90.5 gpt-5.5-pro
 90.5 gpt-5.6-sol
-90.4 gpt-6.1-sol
+90.5 gpt-6.1-sol
 89.7 claude-opus-4.8
 89.6 muse-spark-1.2
 89.4 glm-5.3-flash
-89.4 gpt-5.5
 89.4 qwen-3.8-max
 89.3 claude-opus-4.7
+89.3 gpt-5.5
 89.2 gemini-3.5-flash
 88.7 gemini-3.6-flash
 88.7 gpt-5.6-terra
@@ -36,9 +36,9 @@
 88.2 qwen-3.8
 88.1 claude-opus-4.6
 88 glm-5.3-flashx
+88 gpt-6-sol
 88 muse-spark-1.1
 87.9 claude-sonnet-5
-87.9 gpt-6-sol
 87.7 ox_alpha
 87.6 gemini-3-flash
 87.5 qwen-3.8-flash
@@ -72,8 +72,8 @@
 84 pareto-26.10-preview
 83.9 gpt-5.1
 83.8 gpt-5
-83.6 gpt-6-luna
 83.5 claude-haiku-5.5
+83.4 gpt-6-luna
 83 qwen-3.5-397b
 82.8 claude-opus-4.5
 82.7 gemini-3.5-flash-lite

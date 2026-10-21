@@ -1,0 +1,41 @@
+{
+  "name": "LLM7.io",
+  "kind": "aggregator",
+  "short": "Budget OpenAI-compatible router across dozens of hosted models, with a permanent free-token tier.",
+  "officialUrl": "https://llm7.io",
+  "hosts": ["llm7.io", "api.llm7.io", "dash.llm7.io"],
+  "catalogUrl": "https://api.llm7.io/v1/models",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Free API token: 100,000 tokens/day over a rolling 24h window, 1 req/s, 60 req/min and 250 req/h; free-token quotas may be reduced under fair-use controls.",
+      "evidenceUrl": "https://docs.llm7.io/limits"
+    },
+    {
+      "name": "Pro",
+      "price": "$12/mo",
+      "notes": "Dynamic token allowance across the billing month, 25 req/s, 1,500 req/min, 15,000 req/h, JSON mode, function calling, and Pro-tier models.",
+      "evidenceUrl": "https://docs.llm7.io/limits"
+    },
+    {
+      "name": "Pay as you go",
+      "price": "Usage-based",
+      "notes": "Top up from $5; paid access unlocks Pro models with usage-billed pricing (e.g. DeepSeek $1.11/$3.33 per 1M).",
+      "evidenceUrl": "https://llm7.io"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "deepseek-v4.1-flash",
+    "deepseek-v4-pro",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "kimi-k2.6",
+    "kimi-k2.7-code",
+    "kimi-k3",
+    "minimax-m2.7",
+    "minimax-m3"
+  ]
+}

@@ -5,7 +5,7 @@ marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
 `vercel-ai-gateway`, `commandcode`, `cursor`, `qoder`, `github`, `nvidia`,
 `deepinfra`, `huggingface`, `fireworks-ai`, `cloudflare-workers-ai`,
 `amazon-bedrock`, `microsoft`, `together-ai`, `novita-ai`, `baseten`, `ollama`,
-`scaleway`, `sambanova`, `groq`) and vendor-direct
+`scaleway`, `sambanova`, `groq`, `llm7`, `ovhcloud`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
 `xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`).
 

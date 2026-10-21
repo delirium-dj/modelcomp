@@ -1,0 +1,34 @@
+{
+  "name": "OVHcloud AI Endpoints",
+  "kind": "aggregator",
+  "short": "European serverless inference platform serving open models through an OpenAI-compatible API, with keyless free access.",
+  "officialUrl": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/",
+  "hosts": ["ovhcloud.com", "oai.endpoints.kepler.ai.cloud.ovh.net"],
+  "catalogUrl": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/",
+  "plans": [
+    {
+      "name": "Anonymous free access",
+      "price": "$0",
+      "notes": "Try models without an account or API key: 2 requests/minute per IP and per model.",
+      "evidenceUrl": "https://docs.ovhcloud.com/en/guides/public-cloud/ai-machine-learning/ai-endpoints-capabilities"
+    },
+    {
+      "name": "Free trial",
+      "price": "$0",
+      "notes": "Public Cloud Free Trial: US$200 credit for a first project, valid one month, covering the free-tier AI API trial.",
+      "evidenceUrl": "https://www.ovhcloud.com/en/public-cloud/free-ai-api/"
+    },
+    {
+      "name": "Pay as you go",
+      "price": "Usage-based",
+      "notes": "No commitment, per-token catalog pricing (e.g. Qwen 3.8 27B at €0.40/M input, €2.70/M output); 400 requests/minute per project and per model with an access key.",
+      "evidenceUrl": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/qwen-3-8-27b/"
+    }
+  ],
+  "covers": [
+    "gpt-oss-120b",
+    "qwen-3.5-397b",
+    "qwen-3.5-9b",
+    "qwen-3.8-27b"
+  ]
+}
