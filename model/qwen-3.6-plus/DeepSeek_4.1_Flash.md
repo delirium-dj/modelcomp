@@ -1,9 +1,11 @@
 # Qwen 3.6 Plus — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen3.6 Plus (`qwen/qwen3.6-plus`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-6-plus`, 64 rows) computes an overall **53.75/100 (#80 of 972)** and confirms the 2026-10-11 deep pass; it adds MCP-Tasks 74.1%, QwenClawBench 57.2%, HMMT Feb 2025 96.7%, FrontierMath v2 38.25%, V* 96.9%, ScreenSpot Pro 68.2%. **No score change** (Tool 78 / Reasoning 80 / Context 95 / Multimodal 80 / Coding 80 / Cost 93 / Overall 83).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: official/Qwen rows — Terminal-Bench 2.0 **61.6%**, TB 2.1 53.18% (Vals) / 61% (Together), τ²-bench **97.7%**, τ³-bench 70.7%, Toolathlon 39.8%, MCP Atlas 48.2%, Claw-Eval 58.8%, WideResearch 74.3%; GPQA Diamond **88.2–90.4%**, HLE 27.8% / **50.6% with tools**, MMLU-Pro 88.5%, AIME26 95.3%, IFEval 94.3%, IFBench 75.2%; **SWE-bench Verified 78.8%** (official) / 73.40% (Vals), SWE-bench Pro 56.6%, LiveCodeBench v6 **87.1%** / 85.95% (Vals), AA Coding Index 54.5%, Vibe Code Bench 25.56%; MMMU 86.0%, **MMMU-Pro 78.8%** / 84.16% (Vals), **VideoMMMU 84.0%**; AA-LCR 78.3%, LongBench v2 62%. Independent: AA Intelligence Index **27 (#109/219)**, Vals AI 49.36% accuracy (#17, index 58.8%), BenchLM overall 53.39 (#79/891).
@@ -65,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Artificial Analysis, BenchLM, Vals AI, Together AI, OpenRouter, RankedAGI). Independent rows were promoted over the prior OpenRouter-only table; the video-input modality correction and the GDPval/TB2.1 spreads are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.7.md`, using the same headings.
