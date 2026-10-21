@@ -1,0 +1,9 @@
+{
+  "id": "opencode/qwen-3.5-flash-lite",
+  "name": "Qwen 3.5 Flash Lite",
+  "short": "Qwen 3.5 Flash Lite model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

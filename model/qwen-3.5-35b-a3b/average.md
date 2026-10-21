@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 67.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 69.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 77.7/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 76.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 66.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 93/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 71.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 65.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 69.6/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 77.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 77.1/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 66.6/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 93.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 71.2/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash, Step 5 Preview.
-- Average from top 7 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): GLM 5.3, LongCat 2.5 Preview, MiniMax M3.1 Flash, Nemotron 3.5 Super VL 120B A12B.
+- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash, Step 5 Preview.
+- Average from top 8 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash, Step 5 Preview.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 5.3, LongCat 2.5 Preview, MiniMax M3.1 Flash, Nemotron 3.5 Super VL 120B A12B.

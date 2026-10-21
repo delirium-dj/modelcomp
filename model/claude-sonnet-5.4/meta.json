@@ -1,0 +1,9 @@
+{
+  "id": "opencode/claude-sonnet-5.4",
+  "name": "Claude Sonnet 5.4",
+  "short": "Claude Sonnet 5.4 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

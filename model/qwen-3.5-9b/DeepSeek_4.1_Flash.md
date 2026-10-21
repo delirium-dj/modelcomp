@@ -1,7 +1,9 @@
 # Qwen 3.5 9B — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba/Qwen3.5-9B (`Qwen/Qwen3.5-9B`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+
+> **Re-verified 2026-10-18.** No BenchLM page exists for this slug (404) and no new independent benchmark surfaced; the official HF card, Artificial Analysis, LLM-Stats and BenchmarkList rows from the 2026-10-11 deep pass stand. **No score change** (Tool 60 / Reasoning 70 / Context 76 / Multimodal 78 / Coding 62 / Cost 95 / Overall 69).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
