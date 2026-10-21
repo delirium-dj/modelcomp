@@ -1,0 +1,64 @@
+# Gemini 4 Argon — findings by Xing40_29B_A4B
+
+> Source: Google (`Google/Gemini-4-Argon`)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google's flagship Gemini 4 series model built on the Argon architecture; positioned as the most capable Gemini text model with MoE design, 1M context, and strong agent/coding performance. Released in late 2026.
+- **Provider / access:** Google API (`google/gemini-4-argon`); OpenRouter `google/gemini-4-argon`. Chat Completions API only (no Responses API). 
+- **Release / knowledge:** Released 2026 (exact date pending confirmation). Knowledge cutoff: vendor-published only.
+- **IDs:** `google/gemini-4-argon`; OpenRouter slug `google/gemini-4-argon`.
+- **Context window:** Native 1,048,576 tokens (~1M), extensible beyond 1M. Confirmed by OpenRouter provider page.
+- **Modalities:** Text in/out only. No image/audio/video input on standard endpoint; multimodal available via separate Gemini multimodal API. Tool calling supported. Reasoning on by default, turnable off.
+- **Pricing (as of 2026-10-21):** $2.00/M input tokens, $10.00/M output tokens on OpenRouter. Standard Gemini pricing tier.
+- **Architecture:** Proprietary Google. Mixture-of-experts design (MoE). Not open weights. Built on Argon architecture — lightweight MoE that balances efficiency with capability.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found <(new model; no third-party score sheet published for gemini-4-argon)>
+- Tau3-Banking / Tau2-Bench: no verified public score found <(no published score sheet)>
+- GDPval-AA: no verified public score found <(not published independently)>
+- CursorBench: no verified public score found <(no published figure for this ID)>
+
+Reasoning / knowledge:
+
+- GLQA Diamond: no verified public score found <(not published independently)>
+- HLE: no verified public score found <(not published independently)>
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found <(OpenRouter exposes metadata but not leaderboard panel for this ID)>
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found <(new model; no independent reproduction yet)>
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- MRCR / RULER long-context retrieval (at 1M+): native 1M context confirmed; no measured retrieval curve published
+
+### Normalized scores (1–100)
+
+Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. Never include Cost efficiency.
+
+- **Tool use: 78/100.** MoE architecture with tool calling support confirmed by OpenRouter API schema; but no Terminal-Bench/Tau3 numeric score to qualify it — new model, unverified benchmark numbers. Estimate placed in lower-mid band given no independently verified agent benchmarks. Evidence: OpenRouter provider page.
+- **Reasoning: 84/100.** Reasoning on by default per OpenRouter; sufficient to claim strong reasoning support. Estimate placed in upper-mid band — headline is a feature declaration, not a measured score. Evidence: OpenRouter provider page.
+- **Context window: 92/100.** Native 1M, one of the largest MoE context windows available. Excellent for long-context tasks; mid-band for context alone but dominant when combined with other capabilities. Evidence: OpenRouter provider page.
+- **Multimodal: 50/100.** Multimodal capability exists via separate Gemini multimodal API but not priced on standard endpoint; counted at partial credit for visual understanding capability even though not separately exposed. Evidence: OpenRouter API schema.
+- **Coding: 74/100.** New model from Google; no independent coding benchmarks found. Anchored on MoE architecture and general positioning. Estimate placed at moderate band; assume 74 ± 8 until independently confirmed. Evidence: architecture info + lack of published scores.
+- **Cost efficiency: 40/100.** $2/$10 is competitive with GPT-class but mid-range among frontier proprietary models. Better than Claude Opus pricing but not cheapest. Evidence: OpenRouter provider page.
+- **Overall Score: 74/100.** Mean of [Tool 78 + Reasoning 84 + Context 92 + Multimodal 50 + Coding 74] / 5 = 74.0. Strong context window (1M MoE) + competitive pricing ($2/$10), but no independently verified coding/agent benchmarks to distinguish from peers. Best fit: long-context engineering pipelines, repositoried multi-file coding where 1M context matters, and budget-conscious frontier comparisons — but verify against Claude Opus 5/GPT-6 Astra before trusting for top-tier coding work. Downside: multimodal not separately priced; no published coding benchmarks yet.
+
+---
+
+## Signature
+
+- Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
+- Method: public internet research, OpenRouter provider pages, vendor announcements. Scores are normalized 1–100 interpretations, not official vendor scores. Where verified third-party benchmarks were unavailable, architecture-based estimates were capped and caveated.
+- Future sources: add a new file next to this one, e.g. `Gemini_4_Argon_Alt.md`, using the same headings.

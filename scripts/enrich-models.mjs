@@ -129,6 +129,13 @@ const PROVIDERS = [
     firstParty: true,
   },
   {
+    key: "reflection",
+    re: /\breflection\b/i,
+    domains: ["reflection.ai", "platform.reflection.ai", "developers.reflection.ai", "api.reflection.ai"],
+    url: "https://reflection.ai/legal/beta-pricing-information",
+    firstParty: true,
+  },
+  {
     key: "microsoft",
     re: /\bmicrosoft\b|\bmai\b|\bcopilot\b/i,
     domains: ["microsoft.com", "microsoft.ai"],

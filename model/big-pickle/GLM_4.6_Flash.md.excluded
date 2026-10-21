@@ -1,0 +1,3 @@
+- **Tool use: 90/100** (Native function calling capabilities enable seamless integration with external tools and APIs)
+- **Reasoning: 90/100.** AIME 2026 97.7–98.0%, GPQA Diamond 90.5%, HLE w/tools 51.1% — upper-mid reasoning; SciCode 49.7% caps general math.
+- **Context window: 68/100.** 128K native, moderate for a 9B-parameter model.

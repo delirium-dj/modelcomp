@@ -1,7 +1,7 @@
 # Kimi K2.7 Code Highspeed — findings by Gemini 3.8 Flash
 
 - Source: Moonshot AI / Kimi (`moonshot/kimi-k2.7-code-highspeed`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -14,7 +14,7 @@
 - **IDs:** `moonshot/kimi-k2.7-code-highspeed`
 - **Context window:** 262,144 tokens total (256K context window); max output 32,768 tokens.
 - **Modalities:** Text, image, and video input; text, code, structured JSON, and tool-calling output; mandatory thinking mode.
-- **Pricing (as of 2026-10-11):** $1.90 / 1M input tokens, $8.00 / 1M output tokens ($0.38 / 1M cached input); priced for ultra-low latency interactive developer workflows.
+- **Pricing (as of 2026-10-21):** $1.90 / 1M input tokens, $8.00 / 1M output tokens ($0.38 / 1M cached input); priced for ultra-low latency interactive developer workflows.
 - **Architecture:** 1T-parameter Mixture-of-Experts (32B active) multimodal architecture deployed on optimized high-throughput inference infrastructure.
 
 ### Raw benchmarks found
@@ -55,6 +55,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research into Moonshot AI documentation, Artificial Analysis evaluations, and OpenRouter model cards; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

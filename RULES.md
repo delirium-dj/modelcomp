@@ -125,7 +125,8 @@ override.
   averages). Normalize every freshly derived STEM before writing a findings
   file: replace each digit-underscore-digit join with a dot (`2_1` → `2.1`) —
   the only exceptions are param sizes, never versions (`Gemma_4_31B_IT`,
-  `Qwen_3.8_27B`). An underscore-versioned findings file is a forbidden
+  `Qwen_3.8_27B`, `Xing_4.0_29b_a4b`: version 4.0 dotted, 29B/4B-active
+  params underscored). An underscore-versioned findings file is a forbidden
   duplicate of its dotted twin, never a second source: merge the newer
   content into the dotted file, then remove the variant (user sign-off;
   pre-commit bypass `ALLOW_MODEL_DELETE=1`). It must never come back:

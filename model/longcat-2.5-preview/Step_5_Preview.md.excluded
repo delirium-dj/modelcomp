@@ -1,0 +1,44 @@
+# LongCat 2.5 Preview — findings by Step 5 Preview (SELF-EXCLUDED)
+
+> SELF-EXCLUSION: no verified public benchmark numbers exist for this exact model/ID. Scores inside are intentionally absent (see below); saved as `.excluded` per `model-report-TEMPLATE.md` and `RULES.md`.
+
+- Source: Meituan / LongCat-2.5-Preview (`meituan/longcat-2.5-preview`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (2026-10-21 fresh research)
+
+**Specs verified — benchmarks absent.** The model exists and its catalog specs are confirmed, but neither Meituan nor any independent evaluator has published a single benchmark score for it:
+
+- Released 2026-09-25 on Meituan's LongCat API Open Platform (models.dev via AI Model Directory — release date corrected from 26 to 25 Sept; aimodel.directory change log 2026-10-20).
+- Architecture: proprietary, API-only, ~1.6T total / ~48B active MoE (Meituan announcement via nerallabs, explainx, anyrouter, Phaseo, BenchmarkList).
+- Context: 1,048,576 (1M) with 131,072 max output (models.dev).
+- Modalities: text + image in; text out; reasoning; tool calling; thinking toggle (models.dev, nerallabs).
+- Pricing: $0.30/$1.20 per 1M with $0.006 cached input on the Vercel AI Gateway route (limited-time promotional price; aimodel.directory, CloudPrice, BenchmarkList); free Zen slot `longcat-2.5-preview-free` (folder meta).
+- Positioning: long-horizon agent work across terminals, browsers, GUIs, spreadsheets and design tools; Claude-Code-compatible harnesses; OpenAI + Anthropic dual API formats (nerallabs, BenchmarkList).
+
+Benchmark evidence checked (2026-10-21):
+
+1. BenchmarkList carries `meituan-longcat-2.5-preview` with **0 score rows**: "Meituan published no benchmarks for this preview... No independent evaluation had been confirmed when it was imported."
+2. No SWE-bench, SWE-bench Pro, LiveCodeBench, Terminal-Bench, GPQA, HLE, Tau, GDPval, OSWorld, Claw-Eval, MCP-Atlas, MMMU or AA-index figure exists for this ID on any source checked (BenchLM 404s the page; Artificial Analysis carries no row).
+3. Hugging Face: no weights repo — the 2.5 line is proprietary and API-only, so community reproduction is not possible either.
+
+Consequences for scoring: with zero verified public benchmark numbers, no dimension can be scored without fabrication. Every row below reads "no verified public score found" — Tool use, Reasoning, Context window retrieval, Multimodal and Coding all lack measured values (the 1M window and image input are catalog specs, not measurements).
+
+- Tool use: no verified public score found
+- Reasoning: no verified public score found
+- Context window: no verified public retrieval measurement (1,048,576 catalog window only)
+- Multimodal: no verified public score found (text+image in, text out per models.dev)
+- Coding: no verified public score found
+- Cost efficiency: $0.30/$1.20 per 1M, $0.006 cached (Vercel AI Gateway, models.dev); free Zen slot per catalog
+- Overall Score: not computable — self-excluded (zero verified benchmarks)
+
+If Meituan or an independent evaluator publishes benchmark numbers for `longcat-2.5-preview`, this file can be re-researched and replaced by a scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (Meituan LongCat API launch coverage, models.dev via AI Model Directory, BenchmarkList, CloudPrice, Vercel AI Gateway); scores are normalized 1–100 interpretations, not official vendor scores — none could be computed here.

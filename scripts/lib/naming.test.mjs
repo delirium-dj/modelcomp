@@ -166,6 +166,22 @@ describe("stemVersionViolation (RULES.md findings-stem identity)", () => {
     // Version 3.8 + 27B params: the "8_2" hit is not an underscore version.
     assert.equal(stemVersionViolation("Qwen_3.8_27B"), null);
   });
+
+  it("leaves param-size joins underscored (general digits+b/B rule, no set membership)", () => {
+    // Version 4.0 + 29B/4B-active params: the "0_29" hit is not a version.
+    assert.equal(stemVersionViolation("Xing_4.0_29b_a4b"), null);
+    assert.equal(normalizeStem("Xing_4.0_29b_a4b"), "Xing_4.0_29b_a4b");
+    assert.equal(stemVersionViolation("Xing_4.0.29B_A4B"), null);
+    // Generic param stems never in the exception set.
+    assert.equal(stemVersionViolation("Foo_1.2_70b"), null);
+    assert.equal(stemVersionViolation("Foo_2_31B"), null);
+  });
+
+  it("still flags real version joins, including before/after a param join", () => {
+    assert.equal(stemVersionViolation("Foo_2_1_30B"), "Foo_2.1_30B");
+    assert.equal(stemVersionViolation("Laguna_XS_2_1"), "Laguna_XS_2.1");
+    assert.equal(normalizeStem("Foo_2_1_30B"), "Foo_2.1_30B");
+  });
 });
 
 describe("vendorPrefixViolation (RULES.md vendor-prefix identity)", () => {

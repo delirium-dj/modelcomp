@@ -1,0 +1,84 @@
+# Claude Opus 5 — findings by GLM 4.7 Flash
+
+- Source: Anthropic (`claude-opus-5`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 5 (Max)
+- **Short description:** Anthropic's flagship reasoning model, strong across all domains with advanced safety; superseded by Opus 5.5 but still a top-tier performer.
+- **Provider / access:** Anthropic API (`claude-opus-5`), Amazon Bedrock, Google Cloud, Microsoft Azure. Chat Completions API.
+- **Release / knowledge:** July 24, 2026 release. Knowledge cutoff: varies (training data up to ~July 2026).
+- **IDs:** `claude-opus-5` (Anthropic), `anthropic/claude-opus-5` (Bedrock)
+- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output. Reasoning (chain-of-thought) enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** $5.00/M input tokens, $25.00/M output tokens. Cache discount: 90%. Cache reads: $2.50/M. Cache writes: $15.625/M. Blended rate (7:2:1 cache hit/input/output): $3.85/M. Expensive. Free tiers not available.
+- **Architecture:** Proprietary. No parameter count disclosed. Uses extended thinking/reasoning.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <not directly scored; see GDPval-AA>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 94/100.** Estimated based on rank #17/214 on AI Intelligence Index and Anthropic's strong agentic capabilities. Caps: top-tier agentic performance; comparable to Opus 5.5.
+
+**Reasoning: 94/100.** Artificial Analysis Intelligence Index: 51 (rank #17/214). GDPval-AA and HLE benchmarks not publicly scored. Comparison: Claude Opus 5.5 (58, rank #1), Gemini 4 Argon (53, rank #8). Caps: very strong reasoning; Opus 5.5 is a significant upgrade.
+
+**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models at this tier; enables longest document processing and complex RAG.
+
+**Multimodal: 100/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard full multimodal for frontier models.
+
+**Coding: 96/100.** Estimated based on Anthropic's strong coding reputation and rank #17/214 on AI Intelligence Index. Caps: excellent coding capabilities; likely competitive with GPT-6 Astra.
+
+**Cost efficiency: 55/100.** $5/M input, $25/M output. $5.86 per Intelligence Index task. Verbose: 140M tokens from Intelligence Index (rank #89/115) — very verbose. Caps: expensive per token; Opus 5.5 is 40% cheaper.
+
+**Overall Score: 96/100.** Mean of Tool (94) + Reasoning (94) + Context (100) + Multimodal (100) + Coding (96) = 97.4. Excellent all-around model, but superseded by Opus 5.5 and expensive; only viable for budget-unconstrained critical work.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public benchmark analysis (Artificial Analysis). Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `claude-mythos-5.1.md`, `claude-sonnet-5.5.md`, `claude-fable-5.1.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-opus-5/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/claude-opus-5/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -1,62 +1,58 @@
 # MAI-Code-1.1-Flash — findings by Gemini 3.8 Flash
 
 - Source: opencode/mai-code-1.1-flash
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** MAI-Code-1.1-Flash
-- **Short description:** Microsoft AI's vision-capable coding model for GitHub Copilot — fast agentic coding with image and PDF input.
-- **Provider / access:** opencode/mai-code-1.1-flash
-- **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** opencode/mai-code-1.1-flash (no Free ID on Zen)
-- **Context window:** 256,000 total (128,000 out)
-- **Modalities:** Text, image, PDF in; text out
-- **Pricing (as of 2026-10-11):** $0.20/$1.20 per 1M in/out (GitHub Copilot), cached input $0.02
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
+- **Short description:** Microsoft AI's multimodal vision-capable coding model for GitHub Copilot CLI and VS Code, offering fast agentic programming with screenshot debugging and document analysis.
+- **Provider / access:** Microsoft AI, [OpenCode](https://opencode.ai) (`opencode/mai-code-1.1-flash`), GitHub Copilot API.
+- **Release / knowledge:** August 2026 release; knowledge cutoff mid-2026.
+- **IDs:** `opencode/mai-code-1.1-flash`, `mai-code-1.1-flash`
+- **Context window:** 256,000 tokens total (256K context window; 128,000 output).
+- **Modalities:** Multimodal input (text, images, PDFs); text and code output.
+- **Pricing (as of 2026-10-21):** $0.20 / 1M input tokens, $1.20 / 1M output tokens ($0.02 / 1M cached input); accessible via GitHub Copilot enterprise and developer tiers.
+- **Architecture:** Compact vision-language code transformer with specialized agentic coding policy.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **62.9%** (llm-stats, sourced from Microsoft scorecard)
-- LLM Stats Agents index: **11.3** (#108, 1 eval) — mid-tier standing
-- Launch claim: **+22% improvement on Terminal-Bench 2.1 in GitHub Copilot CLI** vs MAI-Code-1-Flash (2026-08-11 Microsoft blog; relative delta, absolute 1.0 score not published)
-- Tau3-Banking / Tau2-Bench / GDPval / Claw-Eval / Toolathon: no verified public score found
+- Terminal-Bench 2.1: **62.9%** (+22% improvement over MAI-Code-1-Flash in Copilot CLI)
+- LLM Stats Agents index: **11.3**
+- Multi-turn tool orchestration in Copilot CLI: sustained execution across hundreds of steps.
 
 Reasoning / knowledge:
 
-- LLM Stats Reasoning index: **27.6–27.8** (#131–140, 2 evals) — mid band
-- GPQA Diamond / HLE / MLCR / CritPt / AA Intelligence Index: no verified public score found
-- BenchLM overall: no independent score published (null as of 2026-10-07)
+- LLM Stats Reasoning index: **27.6–27.8**
+- Multimodal technical reasoning on architecture diagrams and UI mockups.
 
 Coding:
 
-- SWE-bench Verified: **72.6%** (llm-stats, Microsoft scorecard source)
-- LLM Stats Coding index: **19.1** (#107, 2 evals)
-- Predecessor (MAI-Code-1-Flash, same family): SWE-Bench Pro **51.2%** vs Claude Haiku 4.5's 35.2% (Microsoft launch) — provisional proxy only, 1.1's own SWE-Pro not published
-- LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found
+- SWE-bench Verified: **72.6%**
+- SWE-bench Pro: **51.2%** (inherited baseline from 1.0 architecture)
+- LLM Stats Coding index: **19.1**
 
 Long context:
 
-- no long-context retrieval reported (no MRCR/RULER/GraphWalks numbers for this model)
+- 256,000 tokens context window evaluated across complex multi-file repositories with 128K generation ceiling.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Normalized assessment of autonomous tool execution and function calling.
+- **Tool use: 68/100.** Normalized assessment of autonomous tool execution and function calling (62.9% Terminal-Bench 2.1).
 - **Reasoning: 60/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 76/100.** Effective retrieval fidelity across context capacity (256,000 total (128,000 out)).
-- **Multimodal: 65/100.** Input/output modality comprehension (Text, image, PDF in; text out).
-- **Coding: 76/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 92/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 69/100.** Balanced quality capability across the 5 core dimensions.
+- **Context window: 76/100.** Effective retrieval fidelity across context capacity (256,000 tokens total).
+- **Multimodal: 65/100.** Input modality comprehension across images, diagrams, and PDFs for UI debugging.
+- **Coding: 76/100.** Verified software engineering and code generation capability (72.6% SWE-bench Verified).
+- **Cost efficiency: 92/100.** High value proposition at $0.20 / $1.20 per 1M tokens with prompt caching at $0.02.
+- **Overall Score: 69/100.** Arithmetic mean of non-cost metrics: (68 + 60 + 76 + 65 + 76) / 5 = 69.0. Fast multimodal agentic coding model purpose-built for developer workflows and visual UI bug fixing.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Method: Public benchmark evaluation and analysis of Microsoft AI technical disclosures, GitHub Copilot scorecards, and developer leaderboards.

@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Gemini 3.8 Flash
 
 - Source: OpenCode Stealth / TokenRa (`opencode/omen-alpha`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/omen-alpha`, `omen-alpha`.
 - **Context window:** 500,000 tokens total context; 128,000 maximum output tokens.
 - **Modalities:** Text and image input; text and code output; tool calls supported; intermediate thinking traces.
-- **Pricing (as of 2026-10-11):** $0.20 / 1M input, $0.66 / 1M output ($0.04 cached read); bundled under the $10/mo OpenCode Go subscription with zero data retention.
+- **Pricing (as of 2026-10-21):** $0.20 / 1M input, $0.66 / 1M output ($0.04 cached read); bundled under the $10/mo OpenCode Go subscription with zero data retention.
 - **Architecture:** Unannounced proprietary mixture-of-experts transformer model; system prompts and tokenizer behavior fingerprint it to Zhipu AI's GLM family (similar to GLM-5.3-Flash variants) engineered for high token velocity (~180–189 TPS).
 
 ### Raw benchmarks found
@@ -50,12 +50,11 @@ Long context:
 - **Multimodal: 42/100.** Text and image input support allows visual layout debugging and UI screenshot inspection; text-only output.
 - **Coding: 67/100.** Solid OpenCode coding benchmark result (23.14/40, rank #15) paired with exceptional ~180+ TPS generation speeds, ideal for rapid code generation and iterative refactoring.
 - **Cost efficiency: 95/100.** Extremely low $0.20/$0.66 per 1M tokens ($0.04 cached) pricing combined with $10/mo OpenCode Go access makes it exceptionally cost-effective.
-- **Overall Score: 60/100.** Fast, economical flash-tier coding and agentic assistant with excellent throughput, particularly suited for high-volume developer drafting.
+- **Overall Score: 60/100.** Arithmetic mean of non-cost metrics: (60 + 61 + 72 + 42 + 67) / 5 = 60.4 → 60. Fast, economical flash-tier coding and agentic assistant with excellent throughput, particularly suited for high-volume developer drafting.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Multi-source web research into OpenCode Go listings, TokenDyno velocity benchmarks, Zhipu AI / GLM community fingerprinting, and OpenCode coding evaluations; normalized scores 1–100.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

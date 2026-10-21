@@ -1,9 +1,9 @@
 # Mistral Medium 3.5 — findings by Gemini 3.8 Flash
 
 - Source: Mistral AI (`mistral-medium-3-5`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
@@ -14,7 +14,7 @@
 - **IDs:** `mistral-medium-3-5`, `mistralai/mistral-medium-3.5`
 - **Context window:** 262,144 tokens (256K context window).
 - **Modalities:** Text and image input; text output; configurable reasoning effort and multi-tool calling.
-- **Pricing (as of 2026-10-11):** $1.50 / 1M input tokens, $7.50 / 1M output tokens ($0.75 / $3.75 batch pricing) ([Mistral API Pricing](https://mistral.ai/pricing/)).
+- **Pricing (as of 2026-10-21):** $1.50 / 1M input tokens, $7.50 / 1M output tokens ($0.75 / $3.75 batch pricing) ([Mistral API Pricing](https://mistral.ai/pricing/)).
 - **Architecture:** 128B dense parameter transformer achieving high inference throughput (~164 tokens/sec).
 
 ### Raw benchmarks found
@@ -54,6 +54,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Mistral AI documentation, Artificial Analysis leaderboards, and OpenRouter metrics; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

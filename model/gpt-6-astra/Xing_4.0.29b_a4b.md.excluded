@@ -1,0 +1,63 @@
+# GPT-6 Astra — findings by Xing40_29B_A4B
+
+> Source: OpenAI (`OpenAI/GPT-6-Astra`)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6 Astra
+- **Short description:** OpenAI's latest flagship model, successor to GPT-5/GPT-5.5, top-tier in coding, reasoning, and knowledge work across the benchmark set. Positioned for professional daily use.
+- **Provider / access:** OpenAI API (`openai/gpt-6-astra`); OpenRouter `openai/gpt-6-astra`. Chat Completions API only (no Responses API). Available on OpenAI Platform and via OpenRouter routing.
+- **Release / knowledge:** Released 2026 (exact date pending confirmation; believed late 2026). Knowledge cutoff: vendor-published only.
+- **IDs:** `openai/gpt-6-astra`; API key format: `sk_...`. No Responses-API variant.
+- **Context window:** Native ~1,050,000 tokens (~1M). One of the largest context windows in the current frontier. Confirmed by OpenRouter provider page.
+- **Modalities:** Text in/out only. Tool calling supported. Reasoning on by default, turnable off. Image understanding available via separate multimodal GPT interface but not separately priced on standard API.
+- **Pricing (as of 2026-10-21):** $10.00/M input tokens, $50.00/M output tokens on OpenRouter. Premium pricing among frontier models.
+- **Architecture:** Proprietary OpenAI. Not open weights. Built on internal architecture with MoE components.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found <(new model; no third-party score sheet for this ID)>
+- CursorBench: no verified public score found <(no published figure for gpt-6-astra)>
+- Zapier AutomationBench: no verified public score found
+
+Reasoning / knowledge:
+
+- HLE: no verified public score found <(not independently published; positioned as top tier)>
+- DeepSearchQA: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found <(new ID not on leaderboard panel)>
+
+Coding:
+
+- SWE-bench Verified: no verified public score found <(new model; no independent reproduction yet)>
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- RULER long-context retrieval at 1M+: native ~1.05M confirmed; no measured retrieval curve published
+
+### Normalized scores (1–100)
+
+Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. Never include Cost efficiency.
+
+- **Tool use: 82/100.** Tool calling supported (confirmed by OpenRouter API schema); but no terminal/CursorBench numeric score to qualify it — new model, no independent reproduction. Estimate placed in upper-mid band given lack of verified agent benchmarks. Evidence: OpenRouter provider page.
+- **Reasoning: 88/100.** Top-tier reasoning positioning per industry reports; sufficient to claim strong reasoning support. Estimate placed at high band — headline is general positioning, not a measured score. Evidence: market reports + vendor announcements.
+- **Context window: 93/100.** ~1.05M native; among the largest context windows in the dataset. Excellent for long-horizon tasks. Evidence: OpenRouter provider page.
+- **Multimodal: 55/100.** Native image understanding exists but not separately priced on standard API endpoint; counted at partial credit. Standard for a premium proprietary model. Evidence: OpenRouter API schema.
+- **Coding: 82/100.** Top-tier expected in coding per positioning; GPT family historically leads coding benchmarks. Anchored on architecture history + general positioning. Estimate at high band; assume 82 ± 7 until independently confirmed. Evidence: vendor positioning + historical GPT benchmark trends.
+- **Cost efficiency: 15/100.** $10/$50/M is among the most expensive frontier models. Far from cost-efficient regardless of capability level. Evidence: OpenRouter provider page.
+- **Overall Score: 79/100.** Mean of [Tool 82 + Reasoning 88 + Context 93 + Multimodal 55 + Coding 82] / 5 = 79.0. Top-tier proprietary model: strongest context + expected top-tier coding/reasoning, but extremely expensive ($10/$50) limits practical deployment volume. Best fit: high-budget production engineering, multi-file project scaffolding, complex agentic workflows requiring top-tier reasoning + 1M+ context — and where cost is not the primary constraint. Downside: premium pricing makes it impractical for volume; multimodal not separately exposed; no independently verified coding benchmarks yet.
+
+---
+
+## Signature
+
+- Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
+- Method: public internet research, OpenRouter provider pages, vendor announcements, market intelligence on competitive landscape. Scores are normalized 1–100 interpretations, not official vendor scores. Where verified benchmarks unavailable, architecture/history-based estimates were capped.
+- Future sources: add a new file next to this one, e.g. `GPT_6_Astra_Alt.md`, using the same headings.

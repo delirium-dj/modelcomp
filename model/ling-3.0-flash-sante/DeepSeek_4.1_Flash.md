@@ -1,9 +1,11 @@
 # Ling 3.0 Flash Santé — findings by DeepSeek 4.1 Flash
 
 - Source: Ant Group / InclusionAI / Ling-3.0-flash-sante (`ling-3.0-flash-sante`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** Still no BenchLM page (404) and no numeric eval exists for this exact SKU; the vendor's MedXpertQA-Text / DiagnosisArena-MCQ claims remain qualitative. Capability dims stay inherited from the Ling-3.0-flash base. **No score change** (Tool 68 / Reasoning 74 / Context 72 / Multimodal 15 / Coding 66 / Cost 99 / Overall 59). **Routing note:** this is a health/life-sciences domain SKU (like the finance/voice carve-outs in `RULES.md`) and is a candidate for relocation to a `models_health/<slug>/` parent — flagged for the orchestrator, not moved in-pass.
 
 ## Model card
 
@@ -48,6 +50,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research via the OpenRouter endpoint/model metadata and Ant Group press coverage. This SKU publishes no numeric evals; Tool/Reasoning/Coding are inherited from the documented Ling-3.0-flash base and explicitly labelled, following the established fine-tuned-variant precedent. No number was invented. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) via the OpenRouter endpoint/model metadata and Ant Group press coverage. This SKU publishes no numeric evals; Tool/Reasoning/Coding are inherited from the documented Ling-3.0-flash base and explicitly labelled, following the established fine-tuned-variant precedent. No number was invented. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

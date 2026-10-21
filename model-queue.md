@@ -3,7 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
-94 muse-spark-1.3
+93.9 muse-spark-1.3
 93.4 claude-opus-5.5
 92.6 gemini-4-argon
 92.5 gemini-3.8-flash
@@ -24,9 +24,9 @@
 89.7 claude-opus-4.8
 89.6 muse-spark-1.2
 89.4 glm-5.3-flash
-89.4 qwen-3.8-max
 89.3 claude-opus-4.7
 89.3 gpt-5.5
+89.3 qwen-3.8-max
 89.2 gemini-3.5-flash
 88.7 gemini-3.6-flash
 88.7 gpt-5.6-terra
@@ -35,9 +35,9 @@
 88.3 mimo-v2.6-flash
 88.2 qwen-3.8
 88.1 claude-opus-4.6
+88.1 muse-spark-1.1
 88 glm-5.3-flashx
 88 gpt-6-sol
-88 muse-spark-1.1
 87.9 claude-sonnet-5
 87.7 ox_alpha
 87.6 gemini-3-flash
@@ -45,12 +45,12 @@
 87.4 gemini-3.8-flash-cyber
 86.7 ember-1
 86.6 minimax-m3
-86.5 mimo-v2.6-free
 86.5 step-5-preview
 86.4 inkling-small
+86.4 mimo-v2.6-free
+86.4 qwen-3.7-plus
 86.3 gpt-5.4
 86.3 grok-4.6
-86.3 qwen-3.7-plus
 86.2 claude-sonnet-4.6
 86.1 qwen-3.8-27b
 85.8 gpt-5.2
@@ -63,10 +63,10 @@
 85.1 grok-4.5
 85.1 qwen-3.5-plus
 85 gpt-5.3-codex
+84.9 mistral-large-4
 84.9 seed-2.0-pro
 84.8 gpt-5.6-luna
 84.7 gemini-2.5-pro
-84.3 mistral-large-4
 84.3 pareto-26.10-preview
 84.2 grok-4.3
 84 deepseek-v4-pro
@@ -80,7 +80,7 @@
 82.6 nemotron-3.5-super-vl
 82.6 qwen-3.7-max
 82.4 kimi-k2.7-code
-82 kimi-k2.5
+82.1 kimi-k2.5
 81.6 mimo-v2.5-free
 80.7 claude-sonnet-4.5
 80.5 grok-4.1-fast
@@ -89,6 +89,7 @@
 79.8 grok-4
 79.4 grok-4-fast
 79.1 kimi-k2.8-preview
+79 glm-4.6-flash
 79 gpt-5.4-mini
 78.6 glm-5.3
 78.4 union-alpha
@@ -97,12 +98,12 @@
 76.9 gemini-3.1-flash-lite
 76.2 claude-sonnet-4
 75.9 glm-5.2-coding
+75.9 minimax-m3.1-flash-preview
 75.6 muse-glimmer-30b
 75.5 gemma-4.12b-unified
 75.5 gemma-4.26b-a4b
 75.4 claude-sonnet-3.7
 75.1 gpt-5.1-codex
-74.9 minimax-m3.1-flash-preview
 74.9 mistral-medium-3.5
 74.7 ling-3.0-flash-vl
 74.6 gemini-2.0-flash
@@ -124,27 +125,29 @@
 71.6 nemotron-3-ultra-free
 71.4 claude-sonnet-3.5
 71.4 hy3
+71.4 qwen-3.5-35b-a3b
 71.2 beam
 70.9 nemotron-3.5-bolt-74b-a9b
 70.6 grok-build-0.1
 70.4 longcat-2.0
-69.9 qwen-3.5-35b-a3b
 69.8 glm-5.1
 69.7 gpt-5.1-codex-max
 69.7 qwen3-max
 68.8 hy3-preview
 68.5 longcat-2.5-preview
 68.4 diffusiongemma-26b-a4b
+68 qwen-3.5-flash
 67.9 solar-open-2
 67.7 ling-3.1-flash
 67.6 solar-pro-4
-66.9 mai-thinking-1
+67.2 glm-5.3-flash-x
+67 glm-4.7-flash
+66.8 mai-thinking-1
 66.8 pixel_canary
 66.6 minimax-m2.7
 66.2 laguna-s-2.1
 66.2 ring-2.6.1t
 65.9 gpt-5-nano
-65.6 qwen-3.5-flash
 65.2 minimax-m2.5
 64.8 claude-haiku-3.5
 64.5 glm-5
@@ -158,6 +161,7 @@
 63 ling-2.6.1t
 62.5 grok-5
 62.3 gemma-4-e4b
+62 glm-4.5-flash
 60.9 gpt-oss-120b
 60.6 mimo-v2.6-distill-qwen-9b
 60.4 mai-code-1-flash
@@ -174,6 +178,7 @@
 54.2 gemma-4-e2b
 53.8 ling-2.6-flash
 53.7 mercury-2.5
+53 gpt-oss-120b-lite
 52.2 ling-3.0-tiny
 47.5 mai-experimental-test
 41 nemotron-3.5-bolt-e4b

@@ -1,0 +1,84 @@
+# GPT-6 Astra — findings by GLM 4.7 Flash
+
+- Source: OpenAI (`gpt-6-astra`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6 Astra (Max)
+- **Short description:** OpenAI's advanced reasoning model with strong intelligence across all domains, excels at coding and complex workflows at a premium price.
+- **Provider / access:** OpenAI API (`gpt-6-astra`), Azure OpenAI, Anthropic API, others. Chat Completions API.
+- **Release / knowledge:** September 3, 2026 release. Knowledge cutoff: April 30, 2026.
+- **IDs:** `gpt-6-astra` (OpenAI), `openai/gpt-6-astra` (Azure)
+- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output. Reasoning (chain-of-thought) enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** $10.00/M input tokens, $50.00/M output tokens. Cache discount: 90%. Cache reads: $9/M. Cache writes: $45/M. Blended rate (7:2:1 cache hit/input/output): $7.70/M. Very expensive. No free tiers (paid API only).
+- **Architecture:** Proprietary. No parameter count disclosed. Uses extended thinking/reasoning (max effort).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <not directly scored; see GDPval-AA>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 93/100.** Estimated based on rank #7/214 on AI Intelligence Index and similar-tier models. Caps: top-tier agentic capabilities.
+
+**Reasoning: 92/100.** Artificial Analysis Intelligence Index: 53 (rank #7/214). GDPval-AA and HLE benchmarks not publicly scored. Comparison: Claude Opus 5.5 (58, rank #1), Gemini 4 Argon (53, rank #8). Caps: strong reasoning but not top-of-class; similar to Gemini 4 Argon.
+
+**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models at this tier; enables longest document processing and complex RAG.
+
+**Multimodal: 100/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard full multimodal for frontier models.
+
+**Coding: 95/100.** Estimated based on OpenAI's strong coding reputation and rank #7/214 on AI Intelligence Index. Caps: excellent coding capabilities; likely competitive with Claude Opus 5.5 on coding tasks.
+
+**Cost efficiency: 40/100.** $10/M input, $50/M output. $3.26 per Intelligence Index task. Very expensive per token. 60M tokens from Intelligence Index (rank #45/115) — fairly concise. Caps: poor cost-efficiency; only viable for budget unconstrained workloads.
+
+**Overall Score: 88/100.** Mean of Tool (93) + Reasoning (92) + Context (100) + Multimodal (100) + Coding (95) = 95.8. High-performance reasoning and coding model, but extremely expensive; best for budget-unconstrained critical work.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public benchmark analysis (Artificial Analysis). Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gpt-6-astra-xhigh.md`, `gpt-5.6-sol.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gpt-6-astra/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gpt-6-astra/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

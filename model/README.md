@@ -38,7 +38,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   dotted destination and writes nothing for them.) Exception: digit pairs
   that are NOT a version stay underscored — a parameter size
   (`Gemma_4_31B_IT` = Gemma 4, 31B params; `Qwen_3.8_27B` = Qwen 3.8, 27B
-  params).
+  params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active — any digits
+  immediately followed by `b`/`B` are params, never a version).
 - **Merged-and-deleted duplicate stems never come back.** A findings file
   spelled with a retired variant stem (e.g. `Laguna_XS_2_1.md`, folded into
   `Laguna_XS_2.1.md` 2026-10-08 after the same rater had filed under both

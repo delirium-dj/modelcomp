@@ -1,9 +1,11 @@
 # Ling-2.6-1T — findings by DeepSeek 4.1 Flash
 
 - Source: Ant Group / InclusionAI / Ling-2.6-1T (`inclusionAI/Ling-2.6-1T`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** No BenchLM page exists for this slug (404) and no new independent benchmark surfaced; the tech-report self-reported rows and the lone independent AA Intelligence Index (17, non-reasoning) stand. **No score change** (Tool 72 / Reasoning 68 / Context 72 / Multimodal 15 / Coding 72 / Cost 93 / Overall 60).
 
 ## Model card
 
@@ -51,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across the Hugging Face model card, the Ling-2.6 technical report (arXiv:2606.15079) and the Artificial Analysis model page. The card-vs-AA Intelligence-Index conflict (34 vs 17, reasoning-vs-instruct variant) is surfaced. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18), cross-checked across the Hugging Face model card, the Ling-2.6 technical report (arXiv:2606.15079) and the Artificial Analysis model page. The card-vs-AA Intelligence-Index conflict (34 vs 17, reasoning-vs-instruct variant) is surfaced. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

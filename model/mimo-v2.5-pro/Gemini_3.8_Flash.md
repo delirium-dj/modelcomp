@@ -1,20 +1,20 @@
 # Xiaomi MiMo-V2.5-Pro — findings by Gemini 3.8 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.5-pro`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Xiaomi MiMo-V2.5-Pro
-- **Short description:** Xiaomi's flagship open-weights Mixture-of-Experts model (1.02T total / 42B active) built for long-horizon agentic execution, complex SWE workflows, and deep 1M context coherence under an MIT license; legacy status ahead of scheduled October 21, 2026 endpoint deprecation.
+- **Short description:** Xiaomi's flagship open-weights Mixture-of-Experts model (1.02T total / 42B active) built for long-horizon agentic execution, complex SWE workflows, and deep 1M context coherence under an MIT license; scheduled for API endpoint sunset as traffic shifts to MiMo-V2.6.
 - **Provider / access:** Xiaomi API Platform (`mimo-v2.5-pro`), [OpenRouter](https://openrouter.ai/models/xiaomi/mimo-v2.5-pro), Novita, and Hugging Face open weights.
-- **Release / knowledge:** 2026-04 release; knowledge cutoff early 2026; scheduled for API deprecation on 2026-10-21 in favor of MiMo-V2.6.
+- **Release / knowledge:** 2026-04 release; knowledge cutoff early 2026; transitional status ahead of MiMo-V2.6 deprecation sunset.
 - **IDs:** `xiaomi/mimo-v2-5-pro`, `mimo-v2.5-pro`
 - **Context window:** 1,048,576 tokens (1M chat tokens; up to 128K output).
 - **Modalities:** Text in / text out only (Pro text-focused edition).
-- **Pricing (as of 2026-10-11):** ~$0.44 / 1M input tokens, ~$0.87 / 1M output tokens (deep prompt caching discounts); MIT license open weights.
+- **Pricing (as of 2026-10-21):** ~$0.44 / 1M input tokens, ~$0.87 / 1M output tokens (deep prompt caching discounts); MIT license open weights.
 - **Architecture:** 1.02T parameter MoE (42B active) with hybrid Local SWA and Global Attention.
 
 ### Raw benchmarks found
@@ -48,7 +48,7 @@ Long context:
 - **Tool use: 80/100.** Tau2-Bench at 94.2%, ClawEval at 63.8, and IFBench at 79.9% substantiate robust multi-turn agent tool execution.
 - **Reasoning: 78/100.** 86.6% on GPQA Diamond and 35.7% on HLE demonstrate strong, disciplined open-weights reasoning.
 - **Context window: 95/100.** Exceptional 1M context with verified GraphWalks multi-hop retention across 512K and 1M tokens.
-- **Multimodal: 15/100.** Text-only input and output on the Pro variant.
+- **Multimodal: 15/100.** Baseline text-only score; lacks native vision, video, or audio processing on the Pro variant.
 - **Coding: 82/100.** 78.9% on SWE-bench Verified and 57.2% on SWE-bench Pro represent top-tier open-weights coding capability.
 - **Cost efficiency: 86/100.** Extremely affordable at ~$0.44 / $0.87 per 1M tokens with generous caching discounts and open-weights availability.
 - **Overall Score: 70/100.** Arithmetic mean of non-cost metrics: (80 + 78 + 95 + 15 + 82) / 5 = 70.0. A formidable open-weights model for long-context text processing and software engineering, superseded by MiMo-V2.6.
@@ -57,6 +57,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Xiaomi MiMo model disclosures, Artificial Analysis benchmarks, and OpenRouter endpoint audits; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

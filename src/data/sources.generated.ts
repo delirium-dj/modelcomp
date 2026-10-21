@@ -88,7 +88,15 @@ export type SourceKey =
   | "MiniMax M3.1 Flash"
   | "Qwen 3.8 Max"
   | "Muse Glimmer 30B"
-  | "LongCat 2.0";
+  | "LongCat 2.0"
+  | "GLM 4.5 Flash"
+  | "GLM 4.6 Flash"
+  | "GLM 4.7 Flash"
+  | "Xing 4.0 29b a4b"
+  | "Anthropic Official"
+  | "Comprehensive Summary"
+  | "Independent Benchmark Research"
+  | "Independent AI Research";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -188,4 +196,12 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Qwen 3.8 Max", label: "Qwen 3.8 Max", file: "Qwen_3.8_Max.md", slug: "qwen-3.8-max" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md", slug: "muse-glimmer-30b" },
   { key: "LongCat 2.0", label: "LongCat 2.0", file: "LongCat_2.0.md", slug: "longcat-2.0" },
+  { key: "GLM 4.5 Flash", label: "GLM 4.5 Flash", file: "GLM_4.5_Flash.md", slug: "glm-4.5-flash" },
+  { key: "GLM 4.6 Flash", label: "GLM 4.6 Flash", file: "GLM_4.6_Flash.md", slug: "glm-4.6-flash" },
+  { key: "GLM 4.7 Flash", label: "GLM 4.7 Flash", file: "GLM_4.7_Flash.md", slug: "glm-4.7-flash" },
+  { key: "Xing 4.0 29b a4b", label: "Xing 4.0 29b a4b", file: "Xing_4.0_29b_a4b.md", slug: "xing_4.0_29b_a4b" },
+  { key: "Anthropic Official", label: "Anthropic Official", file: "Anthropic_Official.md" },
+  { key: "Comprehensive Summary", label: "Comprehensive Summary", file: "Comprehensive_Summary.md" },
+  { key: "Independent Benchmark Research", label: "Independent Benchmark Research", file: "Independent_Benchmark_Research.md" },
+  { key: "Independent AI Research", label: "Independent AI Research", file: "Independent_AI_Research.md" },
 ];

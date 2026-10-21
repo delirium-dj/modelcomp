@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/minimax-m2.7`, `minimax/minimax-m2.7`, `MiniMaxAI/MiniMax-M2.7`
 - **Context window:** 204,800 tokens (~205K context window; max output 131,072 tokens).
 - **Modalities:** Text in / text out only. Tool calls, JSON mode, and Agent Teams.
-- **Pricing (as of 2026-10-11):** OpenRouter hosts at ~$0.21 / 1M input tokens, ~$0.84 / 1M output tokens ($0.042 / 1M cached input); standard MiniMax API is $0.30 / $1.20 per 1M tokens.
+- **Pricing (as of 2026-10-21):** OpenRouter hosts at ~$0.21 / 1M input tokens, ~$0.84 / 1M output tokens ($0.042 / 1M cached input); standard MiniMax API is $0.30 / $1.20 per 1M tokens.
 - **Architecture:** 229.9B total / 9.8B active MoE (256 experts, 8 active, 3-head Multi-Token Prediction layer).
 
 ### Raw benchmarks found
@@ -23,7 +23,7 @@ Agent / tool use:
 
 - GDPval-AA: **1,495 Elo**
 - Terminal Bench 2.0: **57.0%**
-- Toolathon: **46.3%**
+- Toolathlon: **46.3%**
 - Skill adherence: **97.0%** (over 40+ complex skill profiles)
 - MLE Bench Lite: **66.6%** medal rate
 
@@ -64,5 +64,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of MiniMax technical publications, OpenRouter pricing, and Artificial Analysis leaderboards.

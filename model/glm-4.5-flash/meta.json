@@ -1,0 +1,15 @@
+{
+  "id": "opencode/glm-4.5-flash",
+  "name": "GLM 4.5 Flash",
+  "short": "Z.ai's high-speed, free-tier lightweight language model with 128K context, dual thinking modes, and optimized agentic tool execution.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Free on Zen; $0.00/$0.00 on Z.ai developer platform",
+  "noFreeId": false,
+  "officialUrl": "https://z.ai",
+  "pricingLinks": [
+    "https://docs.z.ai/guides/overview/pricing"
+  ],
+  "standout": "Zero-cost developer tier featuring interleaved thinking modes, up to 98K max output generation, and robust tool-calling support.",
+  "tradeoff": "Inherits lightweight distilled parameter footprint relative to flagship GLM-4.5 (355B MoE), resulting in lower headroom on multi-file SWE-bench tasks."
+}

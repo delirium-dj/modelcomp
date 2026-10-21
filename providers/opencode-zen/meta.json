@@ -9,7 +9,7 @@
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "Free IDs on selected models (e.g. Beam, Big Pickle (GLM 4.6), Cat Jam); availability is labeled per model page.",
+      "notes": "Free IDs on selected models (e.g. Beam Free, Big Pickle, MiMo-V2.6-Flash Free); availability is labeled per model page. Since 2026-09-17 the free tier only works inside the OpenCode app/CLI — third-party harnesses get HTTP 403 (OpenCode team statement: github.com/anomalyco/opencode/issues/49587). Paid Zen and Go models are unaffected.",
       "evidenceUrl": "https://opencode.ai/v2/docs/console/models/#free-models"
     },
     {

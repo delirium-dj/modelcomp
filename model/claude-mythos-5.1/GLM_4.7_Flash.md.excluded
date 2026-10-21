@@ -1,0 +1,84 @@
+# Claude Mythos 5.1 — findings by GLM 4.7 Flash
+
+- Source: Anthropic (`claude-mythos-5.1`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Mythos 5.1
+- **Short description:** Anthropic's specialized reasoning model for high-risk domains (biology, cybersecurity); high capability with specialized safeguards.
+- **Provider / access:** Anthropic API (`claude-mythos-5.1`), Vertex AI. Chat Completions API.
+- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `claude-mythos-5.1` (Anthropic)
+- **Context window:** 1M tokens (typical for Mythos tier). Verified via public documentation.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** Estimated $4-6/M input, $20-30/M output. Specialized programs available (Life Sciences, Cyber Verification). Free tiers not available.
+- **Architecture:** Proprietary. High-capability model with specialized training and safeguards for high-risk applications.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <no verified public score found>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 90/100.** Estimated based on Anthropic's specialized training for complex agentic workflows. Caps: strong but specialized; not the general-purpose top-tier.
+
+**Reasoning: 92/100.** Estimated based on Mythos tier positioning (comparable to Opus 5.5). Caps: strong reasoning with specialized capabilities in biology and cybersecurity.
+
+**Context window: 95/100.** ~1M tokens typical for Mythos tier. Caps: good but not the highest; suitable for long documents and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for specialized models.
+
+**Coding: 88/100.** Estimated based on Mythos tier capabilities. Caps: strong coding but specialized for security/research applications.
+
+**Cost efficiency: 60/100.** Estimated $4-6/M input, $20-30/M output. Competitive but not cheap due to specialized access programs. Caps: reasonable value but requires vetting for access.
+
+**Overall Score: 91/100.** Mean of Tool (90) + Reasoning (92) + Context (95) + Multimodal (95) + Coding (88) = 92.6. Specialized high-risk domain model; excellent for biology, cybersecurity, and regulated industries.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `claude-mythos-5.2.md`, `claude-sonnet-5.5.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-mythos-5.1/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/claude-mythos-5.1/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

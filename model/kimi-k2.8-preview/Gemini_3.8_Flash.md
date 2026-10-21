@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Gemini 3.8 Flash
 
 - Source: Moonshot AI / Kimi (`moonshot/kimi-k2.8-preview`, `kimi-for-coding`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -14,7 +14,7 @@
 - **IDs:** `kimi-for-coding`, `moonshotai/kimi-k2.8-preview`
 - **Context window:** 1,048,576 tokens (1M context window).
 - **Modalities:** Text and image input; text, code, and tool-calling output; configurable thinking effort levels (Low, High, Max).
-- **Pricing (as of 2026-10-11):** ~$1.055 / 1M input tokens, $4.22 / 1M output tokens ($0.26 / 1M cached input); also accessible via Kimi Code subscription tiers.
+- **Pricing (as of 2026-10-21):** ~$1.055 / 1M input tokens, $4.22 / 1M output tokens ($0.26 / 1M cached input); also accessible via Kimi Code subscription tiers.
 - **Architecture:** Large-scale Mixture-of-Experts (MoE) transformer trained with specialized long-horizon programming post-training.
 
 ### Raw benchmarks found
@@ -47,12 +47,11 @@ Multimodal:
 - **Multimodal: 68/100.** Vision frame analysis supported; optimized primarily as a coding-centric agent with text/code output.
 - **Coding: 77/100.** Inherits ~80% SWE-bench Verified from the K2 series with improved speed and token efficiency, though slightly below K3 flagship self-correction fidelity.
 - **Cost efficiency: 72/100.** Economical developer pricing at $1.055 / $4.22 per 1M tokens alongside platform subscription options.
-- **Overall Score: 77/100.** Arithmetic mean of five quality dimensions: (74 + 78 + 88 + 68 + 77) / 5 = 77.0 → 78. A swift and practical developer-oriented coding model for day-to-day software development.
+- **Overall Score: 77/100.** Arithmetic mean of five quality dimensions: (74 + 78 + 88 + 68 + 77) / 5 = 77.0 → 77. A swift and practical developer-oriented coding model for day-to-day software development.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research into Moonshot AI technical disclosures, OpenRouter model cards, and developer benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

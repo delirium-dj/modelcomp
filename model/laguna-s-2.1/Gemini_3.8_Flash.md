@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Laguna S 2.1
 - **Short description:** Poolside's 118B open-weights Mixture-of-Experts foundation model (8B active) designed for autonomous software engineering, long-horizon terminal execution, and codebase Q&A across a 1M token context.
 - **Provider / access:** Poolside API, [Hugging Face](https://huggingface.co/poolside/Laguna-S-2.1) (`poolside/Laguna-S-2.1`), [OpenRouter](https://openrouter.ai/models/poolside/laguna-s-2.1) (`poolside/laguna-s-2.1` and `:free`), Vercel AI Gateway.
-- **Release / knowledge:** July 2026.
+- **Release / knowledge:** July 2026 (OpenMDW-1.1 license).
 - **IDs:** `poolside/laguna-s-2.1`, `poolside/laguna-s-2.1:free`
-- **Context window:** 1,048,576 tokens (1M; max output up to 131,072 tokens).
+- **Context window:** 1,048,576 tokens (1M context window; max output up to 131,072 tokens).
 - **Modalities:** Text in / text out only. Interleaved thinking and native tool calling.
-- **Pricing (as of 2026-10-11):** ~$0.09 / 1M input tokens, ~$0.18 / 1M output tokens ($0.009 / 1M cached input); free tier available (`poolside/laguna-s-2.1:free`).
+- **Pricing (as of 2026-10-21):** ~$0.09 / 1M input tokens, ~$0.18 / 1M output tokens ($0.009 / 1M cached input); promotional free tier on OpenRouter (`poolside/laguna-s-2.1:free`); OpenMDW-1.1 open weights.
 - **Architecture:** 118B total / 8B active MoE (48 layers, 256 routed experts top-10 + 1 shared expert, sliding-window and global attention).
 
 ### Raw benchmarks found
@@ -56,5 +56,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Poolside technical announcements, Hugging Face model cards, OpenRouter endpoints, and Artificial Analysis data.

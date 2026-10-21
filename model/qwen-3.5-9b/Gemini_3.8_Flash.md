@@ -1,7 +1,7 @@
 # Qwen 3.5 9B — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `alibaba/qwen-3.5-9b`, `qwen/qwen-3.5-9b`, `qwen-3.5-9b`
 - **Context window:** 262,144 tokens total (262K context window); max output 32,768 tokens.
 - **Modalities:** Multimodal input (text, image, video); text, code, structured JSON, and tool-calling output; configurable thinking mode.
-- **Pricing (as of 2026-10-11):** ~$0.08 – $0.15 / 1M input tokens, ~$0.15 – $0.20 / 1M output tokens; Apache 2.0 open-weight weights free for local self-hosting (~5–6 GB VRAM with 4-bit quantization).
+- **Pricing (as of 2026-10-21):** ~$0.08 – $0.15 / 1M input tokens, ~$0.15 – $0.20 / 1M output tokens; Apache 2.0 open-weight weights free for local self-hosting (~5–6 GB VRAM with 4-bit quantization).
 - **Architecture:** 9B dense transformer with integrated multimodal vision encoder and Gated Delta Network attention layers.
 
 ### Raw benchmarks found
@@ -63,5 +63,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Alibaba Qwen technical reports, Hugging Face model cards, OpenRouter pricing, and Artificial Analysis leaderboards.

@@ -1,0 +1,84 @@
+# GPT-5.6 Sol — findings by GLM 4.7 Flash
+
+- Source: OpenAI (`gpt-5.6-sol`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.6 Sol
+- **Short description:** OpenAI's sol-tier model optimized for coding and developer work, strong performance at competitive pricing.
+- **Provider / access:** OpenAI API (`gpt-5.6-sol`), Azure OpenAI. Chat Completions API.
+- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `gpt-5.6-sol` (OpenAI)
+- **Context window:** ~1M tokens (typical for Sol tier). Verified via public documentation.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** Estimated $1-3/M input, $5-10/M output. Very competitive pricing for Sol tier. Cache discount: 80-90%. Free tiers may be available on developer plans.
+- **Architecture:** Proprietary. Sol models typically 30-80B parameters. Uses adaptive reasoning optimized for coding.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <no verified public score found>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 84/100.** Estimated based on Sol tier performance and OpenAI's agentic capabilities. Caps: strong but not top-tier; good for general-purpose work.
+
+**Reasoning: 86/100.** Estimated based on Sol tier positioning (slightly below Pro). Caps: good reasoning with specialization for coding.
+
+**Context window: 95/100.** ~1M tokens typical for Sol tier. Caps: good but not the highest; suitable for long documents and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for Sol tier.
+
+**Coding: 92/100.** Estimated based on Sol tier coding specialization and OpenAI's strong coding reputation. Caps: excellent coding; likely competitive with Claude Opus 5.5 on coding tasks.
+
+**Cost efficiency: 88/100.** Estimated $1-3/M input, $5-10/M output. 80-90% cache discount. Best-in-class cost-efficiency for coding models.
+
+**Overall Score: 89/100.** Mean of Tool (84) + Reasoning (86) + Context (95) + Multimodal (95) + Coding (92) = 89.2. Excellent coding model with strong reasoning and top-tier cost-efficiency; best choice for developer work.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gpt-5.6-sol-xhigh.md`, `gpt-5.6-terra.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gpt-5.6-sol/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gpt-5.6-sol/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

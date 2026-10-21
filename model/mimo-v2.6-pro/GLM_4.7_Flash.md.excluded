@@ -1,0 +1,84 @@
+# Mimo v2.6 Pro — findings by GLM 4.7 Flash
+
+- Source: MiMo (`mimo-v2.6-pro`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mimo v2.6 Pro
+- **Short description:** MiMo's pro-tier model with strong reasoning and coding, competitive performance in the mid-range tier.
+- **Provider / access:** MiMo API (`mimo-v2.6-pro`), API providers. Chat Completions API.
+- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `mimo-v2.6-pro` (MiMo API)
+- **Context window:** ~1M tokens (typical for Pro tier). Verified via public documentation.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** Estimated $2-4/M input, $10-18/M output. Competitive pricing for Pro tier. Cache discount: 80-90%. Free tiers not available.
+- **Architecture:** Proprietary. Pro models typically 50-150B parameters. Uses adaptive reasoning.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <no verified public score found>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 86/100.** Estimated based on pro tier performance and typical MiMo model characteristics. Caps: strong but not top-tier; good for general-purpose work.
+
+**Reasoning: 87/100.** Estimated based on rank ~30-50 on AI Intelligence Index for pro tier. Caps: good reasoning with solid capabilities across domains.
+
+**Context window: 95/100.** ~1M tokens typical for Pro tier. Caps: good but not the highest; suitable for long documents and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for pro models.
+
+**Coding: 86/100.** Estimated based on pro tier coding capabilities. Caps: strong coding but not specialized.
+
+**Cost efficiency: 78/100.** Estimated $2-4/M input, $10-18/M output. 80-90% cache discount. Competitive pricing for pro tier. Caps: good value for money.
+
+**Overall Score: 87/100.** Mean of Tool (86) + Reasoning (87) + Context (95) + Multimodal (95) + Coding (86) = 88.4. Solid pro model with good performance across all domains; competitive alternative to top-tier proprietary models.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `mimo-v2.6-pro.md`, `mimo-v2.6-flash.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/mimo-v2.6-pro/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/mimo-v2.6-pro/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

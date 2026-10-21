@@ -1,21 +1,20 @@
 # GPT-6 Luna — findings by Muse Glimmer 30B
 
-- Source: OpenAI / GPT-6 Luna (openai/gpt-6-luna)
+- Source: OpenAI / GPT-6 Luna (`openai/gpt-6-luna`)
 - Date: 2026-10-20 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Luna
-- **Short description:** OpenAI'''s low-cost GPT-6 efficiency tier for high-volume summarization, extraction and document processing with 1.05M context and image input. Positioned below GPT-6 Sol/Astra for volume vs depth work.
-- **Provider / access:** OpenAI API gpt-6-luna (Responses + Chat Completions; Chat Completions function calling requires 
-easoning_effort: none). OpenCode Zen opencode/gpt-6-luna. ChatGPT Work/Codex; Free/Go desktop access to Luna. No Zen Free ID per meta.json.
+- **Short description:** OpenAI's low-cost GPT-6 efficiency tier for high-volume summarization, extraction and document processing with 1.05M context and image input. Positioned below GPT-6 Sol/Astra for volume vs depth work.
+- **Provider / access:** OpenAI API `gpt-6-luna` (Responses + Chat Completions; Chat Completions function calling requires `reasoning_effort: none`). OpenCode Zen `opencode/gpt-6-luna`. ChatGPT Work/Codex; Free/Go desktop access to Luna. No Zen Free ID per `meta.json`.
 - **Release / knowledge:** Released 2026-09-22; knowledge cutoff May 18, 2026.
-- **IDs:** openai/gpt-6-luna (OpenAI), opencode/gpt-6-luna (Zen). No free API ID.
+- **IDs:** `openai/gpt-6-luna` (OpenAI), `opencode/gpt-6-luna` (Zen). No free API ID.
 - **Context window:** 1,050,000 total / 922,000 max input / 128,000 max output per OpenAI docs.
 - **Modalities:** Text and image input; text output. Reasoning supported none/low/medium/high/xhigh/max. Tool/function calling via Responses API; structured outputs supported. No native audio/video.
-- **Pricing (as of 2026-10-20):** .10 input / .50 output per 1M tokens; .01 cached input / .125 cache writes. >272K input doubles input/cache and 1.5x output for whole request. Batch/Flex 50%, Fast 2x.
+- **Pricing (as of 2026-10-20):** $0.10 input / $0.50 output per 1M tokens; $0.01 cached input / $0.125 cache writes. >272K input doubles input/cache and 1.5x output for whole request. Batch/Flex 50%, Fast 2x.
 - **Architecture:** Proprietary closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -33,7 +32,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Humanity'''s Last Exam: **38.5%** (Artificial Analysis)
+- Humanity's Last Exam: **38.5%** (Artificial Analysis)
 - GPQA Diamond: **no verified public score found**
 - LCR / MLCR: AA-LCR v1.1 **83.3%** (Artificial Analysis); MLCR-AA **16.1%** (Artificial Analysis)
 - CritPt: **19.4%** (Artificial Analysis, under review)
@@ -64,13 +63,13 @@ Multimodal:
 - **Context window: 94/100.** Published 1.05M tokens reaches >=1M tier and AA-LCR 83.3% shows usable long-context reasoning; no 98%+ retrieval proof at 512K+ found.
 - **Multimodal: 68/100.** Image input supported with MMMU-Pro 79.7%; output is text only, no audio/video. Image generation is a Responses tool, not native output.
 - **Coding: 76/100.** DeepSWE 66.6% is solid for the price tier; AA-SciCode 54.6% under review and no SWE-bench Verified score caps the rating.
-- **Cost efficiency: 96/100.** .10/.50 per 1M is very low-cost for 1M context and reasoning; output rate above the absolute top band prevents 100.
-- **Overall Score: 76.0/100.** (64 + 78 + 94 + 68 + 76) / 5 = 76.0. Cost excluded. Best fit: high-volume, long-context extraction/summarization with image input; choose stronger models for frontier reasoning or verified coding suites.
+- **Cost efficiency: 96/100.** $0.10/$0.50 per 1M is very low-cost for 1M context and reasoning; output rate above the absolute top band prevents 100.
+- **Overall Score: 76.0/100.** `(64 + 78 + 94 + 68 + 76) / 5 = 76.0`. Cost excluded. Best fit: high-volume, long-context extraction/summarization with image input; choose stronger models for frontier reasoning or verified coding suites.
 
 ---
 
 ## Signature
 
 - Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
-- Method: Fresh public web research using OpenAI API docs, Artificial Analysis model page, BenchLM aggregation, ARC Prize results, and model/gpt-6-luna/meta.json. Scores are normalized 1-100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Method: Fresh public web research using OpenAI API docs, Artificial Analysis model page, BenchLM aggregation, ARC Prize results, and `model/gpt-6-luna/meta.json`. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -45,6 +45,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research, cross-checked across the Hugging Face model card, Artificial Analysis and BenchLM. The AA-Index conflict (11 vs 25) and the speed discrepancy are surfaced rather than cherry-picked. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

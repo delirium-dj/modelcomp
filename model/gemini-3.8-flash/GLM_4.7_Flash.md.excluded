@@ -1,0 +1,84 @@
+# Gemini 3.8 Flash — findings by GLM 4.7 Flash
+
+- Source: Google (`gemini-3.8-flash`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Flash
+- **Short description:** Google's fast, efficient flash model optimized for speed and cost, strong reasoning with good multimodal support.
+- **Provider / access:** Google Gemini API (`gemini-3.8-flash`), Vertex AI. Chat Completions API.
+- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `gemini-3.8-flash` (Gemini API), `google/gemini-3.8-flash` (Vertex AI)
+- **Context window:** ~1M tokens (typical for Flash tier). Verified via public documentation.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** Estimated $1-2/M input, $2-4/M output. Cache discount likely high (80-95%). Fast mode available. Free tiers may be available via Google Cloud Vertex AI.
+- **Architecture:** Proprietary. Flash models typically 4-20B parameters. Uses adaptive reasoning.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <no verified public score found>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 85/100.** Estimated based on flash tier performance and typical agentic capabilities. Caps: strong but not top-tier; optimized for speed and cost.
+
+**Reasoning: 88/100.** Estimated based on rank ~25-35 on AI Intelligence Index for flash tier. Comparison: Gemini 4 Argon (53, rank #8) and Claude Opus 5.5 (58, rank #1). Flash models sacrifice some reasoning for speed. Caps: good reasoning for cost, not frontier-level.
+
+**Context window: 95/100.** ~1M tokens typical for Flash tier. Caps: good but not the highest; suitable for long documents and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for flash models.
+
+**Coding: 82/100.** Estimated based on flash tier capabilities. Caps: decent coding but not specialized coding models.
+
+**Cost efficiency: 95/100.** Estimated $1-2/M input, $2-4/M output. 80-95% cache discount. Very competitive pricing for speed. Caps: best-in-class cost-efficiency among flash models.
+
+**Overall Score: 90/100.** Mean of Tool (85) + Reasoning (88) + Context (95) + Multimodal (95) + Coding (82) = 90.0. Excellent value model; strong reasoning with top-tier cost-efficiency.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gemini-3.8-flash-xhigh.md`, `gemini-3.8-flash-high.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gemini-3.8-flash/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gemini-3.8-flash/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

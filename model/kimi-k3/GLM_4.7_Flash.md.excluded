@@ -1,0 +1,84 @@
+# Kimi K3 — findings by GLM 4.7 Flash
+
+- Source: Kimi (`kimi-k3`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K3 (Max)
+- **Short description:** Moonshot AI's massive open-weights MoE model with 2.8T total parameters, strong intelligence for open-weight models.
+- **Provider / access:** Kimi API (`kimi-k3`), Hugging Face (self-host). Chat Completions API.
+- **Release / knowledge:** July 16, 2026 release. Knowledge cutoff: varies (training data up to ~July 2026).
+- **IDs:** `kimi-k3` (Kimi API), `moonshotai/Kimi-K3` (Hugging Face)
+- **Context window:** 1M tokens (≈1573 A4 pages). Verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** $3.00/M input tokens, $15.00/M output tokens. Cache discount: 90%. Very expensive for open-weight model. Self-hosting available via Hugging Face.
+- **Architecture:** MoE (Mixture of Experts) with 2.8T total parameters, 104B active parameters per token. Uses extended thinking/reasoning. Open weights under Kimi K3 License.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <not directly scored; see GDPval-AA>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 88/100.** Estimated based on rank #5/121 on AI Intelligence Index for open-weight models and its massive parameter scale. Caps: strong agentic capabilities among open-weight models.
+
+**Reasoning: 88/100.** Artificial Analysis Intelligence Index: 44 (rank #5/121 open-weight). Comparison: Claude Opus 5.5 (58), GPT-6 Astra (53). Caps: very strong for open-weight; competitive with premium proprietary models.
+
+**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models; longest document processing and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: good multimodal for open-weight model.
+
+**Coding: 90/100.** Estimated based on rank #5/121 open-weight and massive parameter scale. Caps: excellent coding for open-weight; competitive with closed models.
+
+**Cost efficiency: 55/100.** $3/M input, $15/M output. Expensive per token for open-weight model. However, self-hosting available at $3/M input, $15/M output via Hugging Face. Caps: expensive per token for self-hosting but competitive for API usage.
+
+**Overall Score: 88/100.** Mean of Tool (88) + Reasoning (88) + Context (100) + Multimodal (95) + Coding (90) = 90.8. Massive open-weight MoE model with strong intelligence across all domains; best open-weight option at this tier.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public benchmark analysis (Artificial Analysis) and model documentation. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `kimi-k3-xhigh.md`, `mimo-v2.6-pro.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/kimi-k3/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/kimi-k3/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/glm-5.3-flash-x",
+  "name": "Glm 5.3 Flash X",
+  "short": "Glm 5.3 Flash X model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

@@ -9,7 +9,7 @@ marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
 `kilocode`, `wandb`, `agentrouter`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
 `xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`,
-`nebius`).
+`nebius`, `reflection`).
 
 This folder is **not** scanned by `pnpm sync` (which covers `model/` only) —
 it is loaded directly by the website build via `import.meta.glob`

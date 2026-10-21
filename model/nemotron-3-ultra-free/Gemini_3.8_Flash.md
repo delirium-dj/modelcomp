@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra Free — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/nemotron-3-ultra-free`, `nvidia/nemotron-3-ultra:free`, `nvidia/nemotron-3-ultra-550b-a55b`
 - **Context window:** 1,048,576 tokens (1M context window; verified on RULER).
 - **Modalities:** Text in / text out only. Tool calls and function execution.
-- **Pricing (as of 2026-10-11):** Free tier available on OpenCode Zen and OpenRouter (`:free` variant subject to rate limits); standard hosted NIM pricing ~$0.50 / $2.20 per 1M tokens.
+- **Pricing (as of 2026-10-21):** Free tier available on OpenCode Zen and OpenRouter (`:free` variant subject to rate limits); standard hosted NIM pricing ~$0.50 / $2.20 per 1M tokens.
 - **Architecture:** 550B total / 55B active LatentMoE (Mamba-2 + Transformer Attention + MoE with Multi-Token Prediction layer), NVFP4/BF16.
 
 ### Raw benchmarks found
@@ -61,5 +61,5 @@ Coding:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of NVIDIA technical documentation, Hugging Face model cards, OpenRouter pricing, and Artificial Analysis leaderboards.

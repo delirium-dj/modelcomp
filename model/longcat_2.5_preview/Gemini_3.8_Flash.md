@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — findings by Gemini 3.8 Flash
 
 - Source: Meituan / LongCat (`meituan/longcat-2.5-preview`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **IDs:** `meituan/longcat-2.5-preview`, `longcat_2.5_preview`
 - **Context window:** 1,048,576 tokens total (1M context window; max output 131,072 tokens).
 - **Modalities:** Text and image input; text, code, structured output, and tool-calling output; interleaved reasoning toggle.
-- **Pricing (as of 2026-10-11):** Free ($0.00) on OpenCode Zen during promotional trial; standard Meituan promotional API rate is ~$0.30 / 1M input, $1.20 / 1M output ($0.006 cached input).
+- **Pricing (as of 2026-10-21):** Free ($0.00) on OpenCode Zen during promotional trial; standard Meituan promotional API rate is ~$0.30 / 1M input, $1.20 / 1M output ($0.006 cached input).
 - **Architecture:** ~1.6T parameter sparse MoE (~48B active parameters per token) with native multimodal cross-attention and LongCat Sparse Attention (LSA).
 
 ### Raw benchmarks found
@@ -58,5 +58,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Meituan release notes, OpenCode Zen endpoints, and community developer evaluations.

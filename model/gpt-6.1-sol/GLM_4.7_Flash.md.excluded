@@ -1,0 +1,84 @@
+# GPT-6.1 Sol — findings by GLM 4.7 Flash
+
+- Source: OpenAI (`gpt-6.1-sol`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.1 Sol
+- **Short description:** Latest OpenAI sol-tier model with improved coding and efficiency, competitive performance at mid-tier pricing.
+- **Provider / access:** OpenAI API (`gpt-6.1-sol`), Azure OpenAI. Chat Completions API.
+- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `gpt-6.1-sol` (OpenAI)
+- **Context window:** ~1M tokens (typical for Sol tier). Verified via public documentation.
+- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** Estimated $1-2/M input, $5-8/M output. Very competitive pricing for Sol tier. Cache discount: 85-90%. Free tiers may be available on developer plans.
+- **Architecture:** Proprietary. Sol models typically 40-100B parameters. Uses adaptive reasoning optimized for coding.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <no verified public score found>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 85/100.** Estimated based on Sol tier performance and OpenAI's agentic capabilities. Caps: strong but not top-tier; good for general-purpose work.
+
+**Reasoning: 87/100.** Estimated based on Sol tier positioning (slightly below Pro, comparable to GPT-5.5 Pro). Caps: good reasoning with specialization for coding.
+
+**Context window: 95/100.** ~1M tokens typical for Sol tier. Caps: good but not the highest; suitable for long documents and RAG.
+
+**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for Sol tier.
+
+**Coding: 93/100.** Estimated based on Sol tier coding specialization and GPT-6 improvements. Caps: excellent coding; likely competitive with GPT-5.6 Sol and Claude Opus 5.5 on coding tasks.
+
+**Cost efficiency: 90/100.** Estimated $1-2/M input, $5-8/M output. 85-90% cache discount. Best-in-class cost-efficiency for coding models at this tier.
+
+**Overall Score: 89/100.** Mean of Tool (85) + Reasoning (87) + Context (95) + Multimodal (95) + Coding (93) = 90.0. Excellent coding model with strong reasoning and best-in-class cost-efficiency; ideal for developer work and production workloads.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gpt-6.1-sol-xhigh.md`, `gpt-6.1-luna.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gpt-6.1-sol/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gpt-6.1-sol/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

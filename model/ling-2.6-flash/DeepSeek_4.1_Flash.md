@@ -1,9 +1,11 @@
 # Ling 2.6 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Ant Group / InclusionAI / Ling-2.6-flash (`inclusionAI/Ling-2.6-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ling-2-6-flash`, 16 rows) computes an overall **32.4/100 (#175 of 972)** and confirms the first draft: AA-GPQA Diamond 59.3%, AA-HLE 6.3%, AA-LCR 31.3%, CritPt 0.0%, AA Intelligence Index 14.1%, τ²-bench 86%, GDPval-AA 550 / 0.0%, AA-SciCode 27%, AA-IFBench 57.4%. **No score change** (Tool 62 / Reasoning 58 / Context 72 / Multimodal 15 / Coding 62 / Cost 95 / Overall 54).
 
 ## Model card
 
@@ -56,6 +58,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across the Hugging Face card, the Ling-2.6 technical report (arXiv:2606.15079), Artificial Analysis, BenchLM and LLM Stats. Self-reported vs independent rows are labelled; the 104B/107B and 262K/131K conflicts are surfaced. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `ling-2-6-flash`), cross-checked across the Hugging Face card, the Ling-2.6 technical report (arXiv:2606.15079), Artificial Analysis and LLM Stats. Self-reported vs independent rows are labelled; the 104B/107B and 262K/131K conflicts are surfaced. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

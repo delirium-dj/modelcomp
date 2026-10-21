@@ -1,0 +1,84 @@
+# Gemini 4 Argon — findings by GLM 4.7 Flash
+
+- Source: Google (`gemini-4-argon`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon (High)
+- **Short description:** Google's advanced reasoning model, strong across intelligence benchmarks with excellent cost-effectiveness and multimodal capabilities.
+- **Provider / access:** Google Gemini API (`gemini-4-argon`), Vertex AI. Chat Completions API.
+- **Release / knowledge:** September 30, 2026 release. Knowledge cutoff varies by workload.
+- **IDs:** `gemini-4-argon` (Gemini API), `google/gemini-4-argon` (Vertex AI)
+- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output. Reasoning (chain-of-thought) enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** $2.00/M input tokens, $10.00/M output tokens. Cache reads: 95% discount. Cache writes: not disclosed (assume ~$5/M). Fast mode: not disclosed. Cache discount of 95% on typical workloads. Free tiers may be available via Google Cloud Vertex AI.
+- **Architecture:** Proprietary. No parameter count disclosed. Uses extended thinking/reasoning (high tier).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <not directly scored; see GDPval-AA>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 90/100.** No direct public benchmark scores. Estimated based on rank #8/214 on AI Intelligence Index and similar-tier models' performance. Caps: top-10 performance among reasoning models at ~$2-10/M pricing.
+
+**Reasoning: 92/100.** Artificial Analysis Intelligence Index: 53 (rank #8/214). GDPval-AA and HLE benchmarks not publicly scored. Comparison: similar-tier models (e.g., Claude Opus 5.5: 58, GPT-6 Astra: ~54). Caps: strong reasoning, but not top-of-class; below Claude Opus 5.5.
+
+**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models at this tier; enables longest document processing and complex RAG.
+
+**Multimodal: 100/100.** Text + image input, text output. 1M context supports long documents and image analysis. Caps: standard full multimodal for frontier models.
+
+**Coding: 88/100.** No direct public coding benchmarks. Estimated based on Intelligence Index composite score and similar-tier models. Caps: strong but unproven coding; lacks terminal/coding-specific benchmarks.
+
+**Cost efficiency: 80/100.** $2/M input, $10/M output. $1.99 per Intelligence Index task. Cache discount: 95%. 82.2 tokens/s. Verbose: 110M tokens from Intelligence Index (rank #77/115). Caps: excellent value among frontier models; competitive cost-efficiency.
+
+**Overall Score: 92/100.** Mean of Tool (90) + Reasoning (92) + Context (100) + Multimodal (100) + Coding (88) = 95.2. High-performance reasoning model with strong cost-efficiency; lacks detailed coding benchmark data.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public benchmark analysis (Artificial Analysis). Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gemini-4-argon-xhigh.md`, `gemini-3.8-flash.md`, `gemini-3.1-pro.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gemini-4-argon/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gemini-4-argon/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

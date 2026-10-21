@@ -1,0 +1,84 @@
+# Gemini 3 Pro Preview — findings by GLM 4.7 Flash
+
+- Source: Google (`gemini-3-pro`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3 Pro Preview (High)
+- **Short description:** Google's pro-tier preview model with strong reasoning and multimodal capabilities, superseded by 3.1 Pro.
+- **Provider / access:** Google Gemini API (`gemini-3-pro`), Vertex AI. Chat Completions API.
+- **Release / knowledge:** November 18, 2025 release (legacy). Knowledge cutoff: January 1, 2025.
+- **IDs:** `gemini-3-pro` (Gemini API), `google/gemini-3-pro` (Vertex AI)
+- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
+- **Modalities:** Text, image, speech, and video input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
+- **Pricing (as of 2026-10):** $2.00/M input tokens, $12.00/M output tokens. Cache discount: 90%. Moderate pricing. Free tiers may be available via Google Cloud Vertex AI.
+- **Architecture:** Proprietary. Pro models typically 80-200B parameters. Uses extended thinking/reasoning.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: <no verified public score found>
+- FrontierCode v1.1: <no verified public score found>
+- CursorBench 4.0: <no verified public score found>
+- AutomationBench: <no verified public score found>
+- WANDR: <no verified public score found>
+
+Reasoning / knowledge:
+
+- GDPval-AA v2.1: <no verified public score found>
+- Humanity's Last Exam: <no verified public score found>
+- Terminal-Bench-Science 0.1: <no verified public score found>
+- Chartography: <no verified public score found>
+- CritPt: <no verified public score found>
+- AA-Omniscience Index: <not directly scored; see GDPval-AA>
+- AA-Omniscience Hallucination Rate: <no verified public score found>
+- MLCR: <no verified public score found>
+
+Coding:
+
+- SWE-bench Verified: <no verified public score found>
+- LiveCodeBench: <no verified public score found>
+- AA-SciCode: <no verified public score found>
+- Vibe Code Bench: <no verified public score found>
+- DeepSWE / Coding Index: <no verified public score found>
+
+Long context:
+
+- <no long-context retrieval reported; use 1M context window as measured>
+
+### Normalized scores (1–100)
+
+**Tool use: 87/100.** Estimated based on rank #102/214 on AI Intelligence Index and similar-tier models. Caps: solid agentic capabilities.
+
+**Reasoning: 82/100.** Artificial Analysis Intelligence Index: 28 (estimated). Comparison: Gemini 4 Argon (53), Claude Opus 5.5 (58). Caps: above-average reasoning but below current pro models.
+
+**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models; longest document processing and RAG.
+
+**Multimodal: 95/100.** Text, image, speech, video input; text output. 1M context supports all modalities. Caps: best-in-class multimodal among tested models.
+
+**Coding: 84/100.** Estimated based on pro tier coding capabilities. Caps: strong but not specialized.
+
+**Cost efficiency: 75/100.** $2/M input, $12/M output. 90% cache discount. Moderate pricing. Caps: good value but older model; 3.1 Pro is the recommended successor.
+
+**Overall Score: 86/100.** Mean of Tool (87) + Reasoning (82) + Context (100) + Multimodal (95) + Coding (84) = 87.6. Legacy pro model with strong multimodal capabilities; superseded by Gemini 3.1 Pro.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.7 Flash** (<unknown>)
+- Method: Public benchmark analysis (Artificial Analysis) and model documentation. Scores normalized 1–100 using `model-comparison.md` methodology.
+- Future sources: `gemini-3-pro.md`, `gemini-3.1-pro.md`.
+
+---
+
+## Submission checklist
+
+1. All placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gemini-3-pro/GLM_4.7_Flash.md`.
+3. Signature block filled in; relative links resolve from `model/gemini-3-pro/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

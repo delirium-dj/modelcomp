@@ -1,9 +1,9 @@
 # Muse Glimmer 30B — findings by Gemini 3.8 Flash
 
 - Source: Meta / Muse (`meta/muse-glimmer-30b`)
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta/muse-glimmer-30b`
 - **Context window:** 131,072 tokens total (128K context window with hybrid sliding-window attention).
 - **Modalities:** Text and image inputs; text, code, structured JSON output, and schema-based tool calling.
-- **Pricing (as of 2026-10-11):** $0.00 (open weights Apache 2.0); hosted inference routes average ~$0.30–$0.35 / 1M input tokens, $1.20–$1.50 / 1M output tokens ($0.04 cached input).
+- **Pricing (as of 2026-10-21):** $0.00 (open weights Apache 2.0); hosted inference routes average ~$0.30–$0.35 / 1M input tokens, $1.20–$1.50 / 1M output tokens ($0.04 cached input).
 - **Architecture:** 29.6B dense multimodal transformer (including 1.8B vision encoder) featuring GQA and DFlash speculative decoding support.
 
 ### Raw benchmarks found
@@ -53,6 +53,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research into Meta's official model announcements, Artificial Analysis benchmarks, and OpenRouter model documentation; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

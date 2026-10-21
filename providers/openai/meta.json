@@ -1,11 +1,17 @@
 {
   "name": "OpenAI",
   "kind": "vendor",
-  "short": "GPT and Codex models direct from OpenAI's API.",
+  "short": "GPT and Codex models direct from OpenAI — pay-as-you-go API plus ChatGPT plan lanes (Free and Go include GPT-6 Luna).",
   "officialUrl": "https://openai.com",
   "hosts": ["openai.com", "platform.openai.com", "developers.openai.com"],
   "idPrefixes": ["openai"],
   "plans": [
+    {
+      "name": "ChatGPT Free / Go",
+      "price": "$0 (GPT-6 Luna included)",
+      "notes": "Free and Go plan users get GPT-6 Luna in the ChatGPT desktop app (Work and Codex); began rolling out to Free/Go Chat on 2026-10-08. No separate Luna quota published; standard plan limits (uploads, image generation, voice) still apply. GPT-6 Sol/Astra stay on paid plans.",
+      "evidenceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    },
     {
       "name": "OpenAI API pay-as-you-go",
       "price": "from $0.05/$0.40 per 1M (GPT-5 Nano) up to $21.00/$168.00 per 1M (GPT-5.2 Pro)",

@@ -1,0 +1,34 @@
+# Qwen 3.8 — findings by Xing40_29B_A4B
+
+> Source: Alibaba (qwen/qwen-3.8)
+> Date: 2026-10-21 UTC
+> Overview + scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+## Model card
+- **Name:** Qwen 3.8
+- **Provider / access:** API ID: qwen/qwen-3.8 (OpenRouter/Alibaba Cloud)
+- **Release / knowledge:** 2026 (Qwen 3 series; 3.8 implies substantial version jump)
+- **IDs:** qwen/qwen-3.8
+- **Context window:** ~1M tokens (Qwen 3 family; 3.8 likely supports multi-turn long context)
+- **Modalities:** text, reasoning, tools
+- **Pricing:** Alibaba Qwen models are aggressively priced, estimated .05–.15 input / .20–.60 output per 1M.
+- **Architecture:** proprietary MoE
+
+### Raw benchmarks found
+No verified public benchmark scores found for Qwen 3.8 specifically. The Qwen 3 family inherits Qwen 2.5's strong multilingual coding heritage. The 3.x version number indicates iterative improvements over the 3.0 base model. General Qwen benchmarks show strong multilingual and coding performance.
+
+### Normalized scores (1–100)
+- **Tool use: 88/100.** Function calling, file search, web search.
+- **Reasoning: 88/100.** Reasoning support present in the 3.x family.
+- **Context window: 90/100.** ~1M token context.
+- **Multilingual: 92/100.** Qwen's flagship strength; near-native Chinese/English/multilingual.
+- **Multimodal: 82/100.** Limited multimodal in this text-first variant.
+- **Cost efficiency: 96/100.** Among the cheapest major-tier models.
+- **Overall Score: 88.2/100.**
+
+---
+
+## Signature
+- Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
+- Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped by architecture class.

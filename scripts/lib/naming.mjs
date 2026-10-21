@@ -82,7 +82,9 @@ export function hyphenVersionViolation(slug, exceptions = SLUG_VERSION_EXCEPTION
  * Stem exceptions: match digit-underscore-digit but are NOT underscore
  * versions — param sizes inside rater names, mirroring SLUG_VERSION_EXCEPTION
  * (`Gemma_4_31B_IT` = "4" + 31B params, `Qwen_3.8_27B` = version 3.8 + 27B
- * params; the "8_2" hit is version-digit → param-digit).
+ * params; the "8_2" hit is version-digit → param-digit). The general
+ * param-size rule in normalizeStem (digits immediately followed by b/B) also
+ * covers these; membership here is explicit documentation.
  */
 export const STEM_VERSION_EXCEPTION = new Set(["Gemma_4_31B_IT", "Qwen_3.8_27B"]);
 
@@ -90,13 +92,16 @@ export const STEM_VERSION_EXCEPTION = new Set(["Gemma_4_31B_IT", "Qwen_3.8_27B"]
  * Canonical findings-stem normalizer (single source of truth — RULES.md
  * findings-stem identity). Version numbers use "." not "_" between digits:
  * every digit-underscore-digit join becomes a dot (`Laguna_XS_2_1` →
- * `Laguna_XS_2.1`). Param-size exceptions pass through untouched. Always run
- * a freshly derived STEM through this before writing a findings file or
- * comparing against on-disk stems.
+ * `Laguna_XS_2.1`), EXCEPT param-size joins — digits immediately followed by
+ * `b`/`B` are a parameter count, never a version (`Xing_4.0_29b_a4b` =
+ * version 4.0 + 29B/4B-active params, `Qwen_3.8_27B`, `Gemma_4_31B_IT` stay
+ * underscored). Explicit STEM_VERSION_EXCEPTION members and param-size joins
+ * pass through untouched. Always run a freshly derived STEM through this
+ * before writing a findings file or comparing against on-disk stems.
  */
 export function normalizeStem(stem, exceptions = STEM_VERSION_EXCEPTION) {
   if (exceptions.has(stem)) return stem;
-  return stem.replace(/(\d)_(?=\d)/g, "$1.");
+  return stem.replace(/(\d)_(?=\d)(?!\d+[bB])/g, "$1.");
 }
 
 /**

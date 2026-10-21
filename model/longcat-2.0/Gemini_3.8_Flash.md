@@ -1,7 +1,7 @@
 # LongCat 2.0 — findings by Gemini 3.8 Flash
 
 - Source: Google Gemini 3.8 Flash (`gemini-3.8-flash`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meituan/longcat-2.0`, `longcat-2.0`
 - **Context window:** 1,000,000 tokens total (1M context window; max output 65,536 tokens).
 - **Modalities:** Text in; text, code, structured JSON, and tool-calling output; text-only foundation architecture.
-- **Pricing (as of 2026-10-11):** $0.30 / 1M input tokens, $1.20 / 1M output tokens ($0.006 / 1M cached input); economical commercial deployment.
+- **Pricing (as of 2026-10-21):** $0.30 / 1M input tokens, $1.20 / 1M output tokens ($0.006 / 1M cached input); economical commercial deployment.
 - **Architecture:** 1.6T sparse Mixture-of-Experts (MoE) transformer with 48B active parameters per token, LongCat Sparse Attention (LSA), and dynamic zero-compute experts.
 
 ### Raw benchmarks found
@@ -53,11 +53,11 @@ Long context:
 - **Multimodal: 15/100.** Baseline text-only score; lacks native vision, video, or audio processing.
 - **Coding: 86/100.** Strong software engineering aptitude highlighted by 59.5% on SWE-bench Pro, 77.3% on SWE-bench Multilingual, and 75.2% on SWE-bench Verified.
 - **Cost efficiency: 94/100.** Highly affordable open-weights deployment at $0.30 / $1.20 per 1M tokens with prompt caching at $0.006 / 1M.
-- **Overall Score: 72/100.** Arithmetic mean of non-cost metrics: (78 + 85 + 96 + 15 + 86) / 5 = 72.0. Open-weights coding and reasoning specialist delivering 1M context at low cost, with overall score capped by its text-only modality.
+- **Overall Score: 72/100.** Arithmetic mean of non-cost metrics: (78 + 85 + 96 + 15 + 86) / 5 = 72.0 → 72. Open-weights coding and reasoning specialist delivering 1M context at low cost, with overall score capped by its text-only modality.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of Meituan technical documentation, OpenRouter pricing, and Artificial Analysis leaderboards.
