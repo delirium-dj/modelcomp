@@ -1,15 +1,19 @@
 {
-  "id": "opencode/ling-3.0-flash-sante",
+  "id": "inclusionai/ling-3.0-flash-sante",
   "name": "Ling 3.0 Flash Sante",
-  "short": "Ant Group's 124B/5.1B-active health variant of Ling 3.0 Flash for medical reasoning and retrieval; API-only, DiagnosisArena-MCQ 83.8%, not a medical device.",
-  "contextWindow": "262,144 total; 32,768 max output (OpenRouter)",
-  "modalities": "Text in/out; no vision (medical images out of scope)",
-  "pricingNote": "$0.042/$0.123 per 1M (list); Vercel $0 promo ended 2026-10-04, OpenRouter retains a rate-limited free tier",
+  "short": "Ant Group's API-only health specialization of Ling 3.0 Flash (256K, $0.075/$0.22) - no weights, no model card, no public licence and no published benchmarks.",
+  "contextWindow": "256,000 (Vercel) / 262,144 (Novita); 32,768 max output",
+  "modalities": "Text in/out",
+  "pricingNote": "$0.075/$0.22 per 1M in/out, $0.015 cached (Vercel AI Gateway, Novita)",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash-sante",
+  "officialUrl": "https://models.dev/models/vercel/inclusionai/ling-3.0-flash-sante",
   "pricingLinks": [
-    "https://vercel.com/ai-gateway/pricing"
+    "https://models.dev/models/vercel/inclusionai/ling-3.0-flash-sante"
   ],
-  "standout": "The health-domain specialist: Ling 3.0 Flash retuned for medical reasoning and retrieval-grade search.",
-  "tradeoff": "API-only, explicitly not a medical device — professional oversight stays mandatory."
+  "standout": "A hosted medical-reasoning variant of a strong open base, reachable only through two gateways.",
+  "tradeoff": "No weights, no licence, and the folder's 'DiagnosisArena-MCQ 83.8%' could not be verified in any source - the findings are a self-exclusion.",
+  "pricingTiers": [
+    "Vercel AI Gateway / Novita $0.075/M in, $0.22/M out, $0.015/M cached read"
+  ],
+  "idNote": "A gateway id for a hosted-only specialization: there is no Sante repository, model card or licence."
 }

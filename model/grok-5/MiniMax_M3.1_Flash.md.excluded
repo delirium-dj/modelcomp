@@ -1,0 +1,54 @@
+# Grok 5 — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> xAI has **never published a "Grok 5"**: no announcement, no API id, no price, no
+> context window, no release date and no benchmarks exist, on any surface checked.
+> The folder tracks an unreleased model. Per the project template
+> (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: xAI — *no published model*
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 — **not published**
+- **Short description:** The repository folder tracks xAI's next-generation flagship, which remains **in training and entirely unannounced**. The current xAI flagship is Grok 4.7 (released 2026-09-21, 500K context, $2/$6). xAI's own model line has run 3 → 4 → 4.1 → 4.3 → 4.5 → 4.6 → 4.7 → 4.20 without ever publishing a "Grok 5" as a model, id or preview.
+- **Provider / access:** none. No API id, no chat surface, no hosted route.
+- **Release / knowledge:** no release date; knowledge cutoff unknown.
+- **IDs:** none.
+- **Context window:** not announced (rumoured ranges from 128K to 2M exist with no source).
+- **Modalities:** not announced.
+- **Pricing (as of 2026-10-20):** not announced — no public API.
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+> No benchmark row exists for Grok 5 on any surface. The checks below are listed so the
+> absence is auditable rather than assumed.
+
+- xAI developer docs model catalogue: latest flagship is **Grok 4.7**; no `grok-5` entry — https://docs.x.ai/docs/models
+- xAI release notes: no "grok-5" anywhere (latest entries are Grok 4.7, Grok Voice 3.0, Grok 4.6, Grok 4.5, Grok 4.20, Grok 4.1 Fast) — https://docs.x.ai/docs/release-notes
+- xAI docs index (`llms.txt`): **0** occurrences of "grok-5" and **0** of "Colossus" — https://docs.x.ai/llms.txt
+- xAI news path `https://x.ai/news/grok-5` → **404**
+- OpenRouter catalogue: xAI models are grok-4.7, 4.6, 4.5, 4.3, 4.20 (+multi-agent), grok-build-0.1, grok-latest — **no grok-5** — https://openrouter.ai/api/v1/models
+- models.dev: **no `grok-5` id in any of 200+ providers** — https://models.dev/api.json
+- Artificial Analysis: `https://artificialanalysis.ai/models/grok-5` → **404**
+- BenchLM: no `grok-5` page; its index runs Grok 2 → 4.7, Grok Build, Grok Voice, Grok Code — https://benchlm.ai/models
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found**
+
+### Negative findings summary
+
+- Nothing about a "Grok 5" is public: no announcement, id, price, context, modalities or benchmark exists. The "Colossus 2" training claim in the folder is **not** in any xAI documentation.
+- Nearest **real** model for orientation only (not used as a proxy): **Grok 4.7** (2026-09-21, 500K context, $2/$6 under 200K prompts, $4/$12 above, cached $0.50).
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (xAI developer docs, release notes, docs index and news paths, OpenRouter API, models.dev API, Artificial Analysis and BenchLM 404 checks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.

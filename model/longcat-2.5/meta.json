@@ -1,11 +1,21 @@
 {
   "id": "opencode/longcat-2.5",
-  "name": "Longcat 2.5",
-  "short": "Longcat 2.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true,
-  "standout": "Meituan’s finalized 2.5 open MoE: long-context agentic coding at preview-free stability.",
-  "tradeoff": "Immediately followed by newer LongCat and rival 1M-context lines."
+  "name": "LongCat 2.5",
+  "short": "No GA 'LongCat 2.5' exists - Meituan's API lists only LongCat-2.0 and the API-only LongCat-2.5-Preview (2026-09-25, 1M, image in) with no published benchmarks.",
+  "contextWindow": "1,048,576 for the only real 2.5-line route (the preview); no GA figure",
+  "modalities": "Text, image in; text out (preview)",
+  "pricingNote": "No GA price; the preview is $0.30/$1.20 per 1M ($0.006 cached) plus a free Zen slot",
+  "standout": "A verified absence: the 2.5 generation exists only as an API-only preview, so the GA slot is a negative record.",
+  "tradeoff": "No weights, no model card and no benchmarks for any GA 2.5 - this folder's findings are a self-exclusion.",
+  "pricingTiers": [
+    "LongCat-2.5-Preview $0.30/M in, $1.20/M out, $0.006/M cached read (limited-time price)",
+    "Free OpenCode Zen slot: longcat-2.5-preview-free"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://longcat.chat/platform/docs/change-log",
+  "pricingLinks": [
+    "https://longcat.chat/platform/docs/pricing/longcat-2.5",
+    "https://opencode.ai/docs/zen"
+  ],
+  "idNote": "The id does not resolve: no GA LongCat 2.5 was ever published. The only real 2.5-line route is the preview, tracked in model/longcat-2.5-preview/."
 }

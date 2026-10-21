@@ -1,18 +1,18 @@
 {
-  "id": "opencode/mimo-v2.6-distill-qwen-9b",
-  "name": "MiMo-V2.6-Distill-Qwen-9B",
-  "short": "Xiaomi's MIT ~9.4B dense SFT of Qwen3.5-9B (256K) for agentic-RL research; SWE-bench Verified 61.1%, self-host-only baseline.",
-  "contextWindow": "262,144 (256K) native per config.json / max output not disclosed",
+  "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+  "name": "MiMo V2.6 Distill Qwen 9B",
+  "short": "Xiaomi's Sep 2026 MIT 9.41B dense SFT of Qwen3.5-9B, released as an agentic-RL research baseline: SWE-bench Verified 61.1%, Terminal-Bench 2.1 37.1%, self-host only.",
+  "contextWindow": "262,144 total",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "$0 — MIT open weights, self-hosted (18.8 GB BF16); no hosted route on Zen, OpenRouter or HF inference",
+  "pricingNote": "$0 - MIT open weights, self-hosted (18.85 GB BF16); no hosted route on Zen, OpenRouter or HF inference",
   "pricingTiers": [
-    "$0 self-hosted MIT weights (no hosted route)"
+    "Self-host $0 (MIT weights, 18.85 GB BF16); no hosted route exists"
   ],
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/mimo-v2.6-distill-qwen-9b/",
+  "officialUrl": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
   "pricingLinks": [
     "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B"
   ],
-  "standout": "The research distillation: Xiaomi’s agentic-RL training recipe published as a Qwen-9B SFT you can study and rerun.",
-  "tradeoff": "A research baseline — self-host-only, and far from the Pro/Flash lines it was distilled from."
+  "standout": "A purpose-built starting checkpoint for open agentic-RL research, with the base-model deltas published (SWE-Pro 32.0 -> 44.6).",
+  "tradeoff": "No hosted route, no standard reasoning benchmarks, and every published score is vendor-measured on a mix of internal MiMo sets."
 }

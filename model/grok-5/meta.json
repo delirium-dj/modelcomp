@@ -1,15 +1,19 @@
 {
   "id": "opencode/grok-5",
   "name": "Grok 5",
-  "short": "xAI's unreleased next-gen flagship still in training on Colossus 2; no benchmarks or specs announced, current flagship is 4.7.",
-  "contextWindow": "Not announced (speculation ranges 128K to 2M; no vendor figure exists)",
+  "short": "xAI's next flagship is unreleased and unannounced: no model id, price, context, modalities or benchmarks exist on any xAI surface.",
+  "contextWindow": "Not announced (no vendor figure exists)",
   "modalities": "Not announced",
-  "pricingNote": "Not announced (no public API)",
+  "pricingNote": "Not announced - no public API",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-5",
+  "officialUrl": "https://docs.x.ai/docs/models",
   "pricingLinks": [
-    "https://x.ai/api"
+    "https://docs.x.ai/docs/models"
   ],
-  "standout": "The coming Colossus-2 flagship — xAI’s next-generation bet, currently still in training.",
-  "tradeoff": "Unreleased: no specs, no benchmarks, no date — it is a placeholder until it ships."
+  "standout": "A documented absence: the flagship slot xAI has not filled yet.",
+  "tradeoff": "Nothing to evaluate - the folder's findings are a self-exclusion until xAI publishes.",
+  "pricingTiers": [
+    "No published price - no API, no hosted route, no announcement"
+  ],
+  "idNote": "The id does not resolve: xAI has never published a 'Grok 5' as a model, id or preview. The current flagship is Grok 4.7."
 }

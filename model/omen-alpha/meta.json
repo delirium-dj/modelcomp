@@ -1,20 +1,21 @@
 {
-  "id": "opencode/omen-alpha",
+  "id": "omen-alpha",
   "name": "Omen Alpha",
-  "short": "Anonymous stealth reasoning model live on OpenCode Go for coding/agents; $0.20/$0.66 with 0-day retention, OpenCode 23.14/40; vendor unknown.",
-  "contextWindow": "Not publicly disclosed (vendor states parameters and context are undisclosed)",
-  "modalities": "Text in/out",
-  "pricingNote": "Paid $0.20/$0.66 per 1M ($0.04 cached; TokenRa promo $0.08/$0.26)",
+  "short": "Anonymous stealth reasoning model on OpenCode Go ($0.20/$0.66, zero-day retention): the only public data is a 2026-09-04 OpenCode coding snapshot at 23.14/40.",
+  "contextWindow": "~500,000 (third-party listing); 128,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.20/$0.66 per 1M in/out, $0.04 cached; TokenRa promo $0.08/$0.26; 0-day retention",
   "pricingTiers": [
-    "OpenCode Go $0.20/$0.66 per 1M ($0.04 cached)",
-    "TokenRa promo $0.08/$0.26 per 1M"
+    "OpenCode Go $0.20/M in, $0.66/M out, $0.04/M cached read (zero-day retention)",
+    "TokenRa route $0.08/M in, $0.26/M out (60% off promo)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=omen-alpha",
+  "officialUrl": "https://opencode.ai/v2/docs/console/go/",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/",
-    "https://tokenra.io/"
+    "https://omenalpha.io",
+    "https://opencode.ai/v2/docs/console/go/"
   ],
-  "standout": "The zero-retention stealth pick: an anonymous reasoning model served cheaply with a strict no-training posture.",
-  "tradeoff": "Vendor unknown and scores thin — tempting for privacy, risky for production."
+  "standout": "Cheap private agentic coding on a subscription, with no vendor behind it.",
+  "tradeoff": "Undisclosed vendor and undisclosed parameters; the single published number is a 40-point coding leaderboard snapshot.",
+  "idNote": "Listed on the OpenCode Go models endpoint but absent from the Go docs model list, pricing table and models.dev; the vendor is not confirmed (OpenCode's data namespace points at zhipu/)."
 }

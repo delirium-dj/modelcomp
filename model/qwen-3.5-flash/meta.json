@@ -1,12 +1,20 @@
 {
-  "id": "opencode/qwen-3.5-flash",
+  "id": "qwen/qwen3.5-flash-02-23",
   "name": "Qwen 3.5 Flash",
-  "short": "Alibaba's hosted Qwen 3.5 Flash tier on Model Studio for fast, cheap multimodal agentic work; from ~$0.065/$0.26 per 1M via OpenRouter (qwen3.5-flash-02-23).",
-  "contextWindow": "Unverified — tracker-reported ~1M; 65,536 max output",
-  "modalities": "Text in/out (vision support unverified)",
-  "pricingNote": "~$0.065/$0.26 per 1M (OpenRouter qwen3.5-flash-02-23)",
+  "short": "Alibaba's hosted Qwen3.5-Flash tier - the production profile of the open 35B-A3B weights with 1M context by default; GPQA 82.8%, LiveCodeBench 83.3% (Vals).",
+  "contextWindow": "1,000,000 by default (hosted tier); 65,536 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.065/$0.26 per 1M (OpenRouter snapshot); $0.10/$0.40 Model Studio international",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen-3.5/",
-  "standout": "The hosted multimodal flash lane: fast, cheap agentic work over Alibaba’s Model Studio.",
-  "tradeoff": "Hosted-only and superseded by the 3.6/3.7 flash tiers."
+  "officialUrl": "https://www.alibabacloud.com/help/en/model-studio/models",
+  "standout": "A 1M-context multimodal tier from 3B-active weights, priced like a small model.",
+  "tradeoff": "Terminal-Bench 2.0 24.7% and FrontierMath Tiers 1-3 18.2% are weak, and the open 35B-A3B weights score higher on agentic suites - this is a hosted serving profile, not new weights.",
+  "pricingTiers": [
+    "OpenRouter snapshot qwen3.5-flash-02-23 $0.065/M in, $0.26/M out",
+    "Alibaba Model Studio $0.10/M in, $0.40/M out (intl); $0.029/$0.287 in the China region with context tiers"
+  ],
+  "pricingLinks": [
+    "https://openrouter.ai/qwen/qwen3.5-flash-02-23",
+    "https://www.alibabacloud.com/help/en/model-studio/models"
+  ]
 }

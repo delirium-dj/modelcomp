@@ -1,15 +1,20 @@
 {
-  "id": "opencode/ling-3.0-flash",
+  "id": "inclusionai/ling-3.0-flash",
   "name": "Ling 3.0 Flash",
-  "short": "InclusionAI's 124B/5.1B-active MIT open-weights reasoning MoE for coding agents and tool use; successor to Ling 2.6 Flash.",
-  "contextWindow": "262,144 total (per AA)",
+  "short": "InclusionAI's Aug 2026 MIT 124B/5.1B-active reasoning MoE (262K, 316 tok/s): GPQA 85.0%, LiveCodeBench 82.8%, SWE-bench Pro 56.6% at $0.075/$0.22.",
+  "contextWindow": "262,144 total",
   "modalities": "Text in/out",
-  "pricingNote": "$0.075/$0.22 per 1M (80% cache discount); MIT open weights",
+  "pricingNote": "$0.075/$0.22 per 1M (first-party API; some routes list $0.021/$0.063); MIT self-host $0",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ling-3.0-flash",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
   "pricingLinks": [
+    "https://openrouter.ai/inclusionai/ling-3.0-flash",
     "https://huggingface.co/inclusionAI/Ling-3.0-flash"
   ],
-  "standout": "The open reasoning Flash: MIT weights tuned for coding agents and tool loops at flash-class serving costs.",
-  "tradeoff": "Small-active depth caps the hardest reasoning; the Ling 3.1 line is the upgrade path."
+  "standout": "Open-weight reasoning at 316 tok/s and a 44.1% hallucination rate - one of the cheapest capable MIT models.",
+  "tradeoff": "Terminal-Bench 2.1 50-57% and Vibe Code Bench 2.9% show the agentic ceiling, and the same base now ships as Ling 3.1 Flash with a much stronger profile.",
+  "pricingTiers": [
+    "Hosted $0.075/M in, $0.22/M out, $0.015/M cached read (first-party API); OpenRouter/Vercel list $0.021/$0.063",
+    "Self-host $0 (MIT weights)"
+  ]
 }

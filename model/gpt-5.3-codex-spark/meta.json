@@ -1,14 +1,20 @@
 {
   "id": "opencode/gpt-5.3-codex-spark",
   "name": "GPT-5.3 Codex Spark",
-  "short": "OpenAI's Cerebras-distilled preview (128K, 1000+ tok/s) for real-time edits; matches Codex with 77.3% TB 2.0, retired.",
-  "contextWindow": "128K total (max output undisclosed)",
+  "short": "OpenAI's Feb 2026 Cerebras-served preview model for real-time edits (>1000 tok/s, 128K text-only): Terminal-Bench 2.0 58.4%, SWE-Bench Pro 51.5% - retired 2026-09-14.",
+  "contextWindow": "128,000 total; 32,000 max output",
   "modalities": "Text in/out only (text-only preview)",
-  "pricingNote": "No public per-token rate; ChatGPT Pro preview (design-partner API only)",
-  "officialUrl": "https://openai.com/index/gpt-5.3-codex-spark/",
+  "pricingNote": "No public per-token rate (ChatGPT Pro preview, design-partner API); Zen third-party route $1.75/$14.00",
+  "officialUrl": "https://openai.com/index/introducing-gpt-5-3-codex-spark/",
   "pricingLinks": [
-    "https://openai.com/api/pricing/"
+    "https://opencode.ai/docs/zen",
+    "https://developers.openai.com/codex/changelog"
   ],
-  "standout": "The real-time edit experiment: Cerebras-distilled codex streaming over a thousand tokens per second.",
-  "tradeoff": "Retired preview hardware-tuned to one serving stack — a speed stunt, not a platform."
+  "standout": "The latency play: a distinct smaller checkpoint served on Cerebras Wafer Scale Engine 3 at more than 1000 tokens/second.",
+  "tradeoff": "A research preview with no public price and no reasoning benchmarks - the 77.3% Terminal-Bench in circulation is GPT-5.3-Codex's score, not Spark's.",
+  "pricingTiers": [
+    "No first-party rate (ChatGPT Pro preview; API access for design partners only)",
+    "OpenCode Zen route $1.75/M in, $14.00/M out, $0.175/M cached read"
+  ],
+  "noFreeId": true
 }

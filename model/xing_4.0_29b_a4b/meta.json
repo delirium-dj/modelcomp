@@ -1,20 +1,21 @@
 {
-  "id": "opencode/xing_4.0_29b_a4b",
+  "id": "XingChen-AGI/Xing4.0-29B-A4B",
   "name": "Xing 4.0 29B A4B",
-  "short": "China Telecom's open-weight 29B/4B-active text-only MoE (256K, Ascend-trained) for coding and terminal agents; SWE-bench Verified 75%, Apache 2.0.",
-  "contextWindow": "256,000 native (extensible to 512,000 via YaRN)",
+  "short": "China Telecom TeleAI's Sep 2026 Apache-2.0 MoE (29B/4B active, 256K, 512K via YaRN): SWE-bench Verified 75.0%, Terminal-Bench 2.1 57.5% - first model of its scale trained on Ascend NPUs.",
+  "contextWindow": "262,144 native (extensible to 512,000 via YaRN)",
   "modalities": "Text in/out only",
-  "pricingNote": "Apache 2.0 open weights (self-host free); free Zen promo tier",
+  "pricingNote": "Apache 2.0 open weights (self-host free); OpenRouter free route xingchen-agi/xing4.0-29b-a4b:free",
   "freeTierNote": "Free promotional OpenCode Zen tier; Apache 2.0 weights self-host free",
   "pricingTiers": [
-    "Free promotional Zen tier",
-    "Apache 2.0 open weights (self-host free)"
+    "Self-host $0 (Apache 2.0 weights, bf16)",
+    "OpenRouter :free route $0/$0 (single provider, 262,144 ctx)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=xing_4.0_29b_a4b",
+  "officialUrl": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models",
-    "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-FP8"
+    "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B",
+    "https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free"
   ],
-  "standout": "The Ascend-trained operator: China Telecom’s small-active open MoE for coding and terminal agents on domestic silicon.",
-  "tradeoff": "Text-only and modest ceiling — specialized for its silicon ecosystem rather than raw capability."
+  "standout": "A 29B agentic model with 75% SWE-bench Verified, trained end-to-end on Ascend NPUs with MindSpore.",
+  "tradeoff": "Every number is vendor-published, no GPQA or LiveCodeBench figure exists, and the Ascend-first stack is a portability caveat outside China.",
+  "noFreeId": true
 }

@@ -1,15 +1,18 @@
 {
-  "id": "opencode/claude-haiku-3.5",
+  "id": "anthropic/claude-3-5-haiku-20241022",
   "name": "Claude Haiku 3.5",
-  "short": "Anthropic's small/fast model (200K/8K, $0.80/$4.00 final) for low-cost tasks; retired, replaced by Haiku 4.5.",
+  "short": "Anthropic's Oct 2024 small/fast model (200K/8K, $0.80/$4.00): SWE-bench Verified 40.6%, GPQA 41.6%, tau-bench Retail 51.0% - retired 2026-02-19.",
   "contextWindow": "200,000 total; 8,192 max output",
-  "modalities": "Text in/out; image + PDF input (image added 2025-02-25); text-only output",
-  "pricingNote": "Retired 2026-02-19; final rate $0.80/$4.00 per 1M",
+  "modalities": "Text, image, PDF in; text out (text-only at launch)",
+  "pricingNote": "Retired 2026-02-19; final rate $0.80/$4.00 per 1M ($0.08 cached read)",
   "noFreeId": true,
-  "officialUrl": "https://www.anthropic.com/news/claude-haiku-3.5",
+  "officialUrl": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
   ],
-  "standout": "The Haiku that made cheap tool-calling trustworthy — the original low-cost lane of the Claude family.",
-  "tradeoff": "Retired with an 8K output cap; modern Haikus outclass it everywhere."
+  "standout": "The cheapest 200K Claude of its era - a text-only launch with a 74% internal agentic-coding score.",
+  "tradeoff": "Retired and long superseded by Haiku 4.5 ($1/$5, 200K, SWE-bench Verified 73.3%); the 8,192-token output cap is the other hard limit.",
+  "pricingTiers": [
+    "Final published rate $0.80/M in, $4.00/M out, $0.08/M cached read (batch $0.40/$2.00)"
+  ]
 }

@@ -1,15 +1,21 @@
 {
-  "id": "opencode/ling-2.6.1t",
+  "id": "inclusionai/ling-2.6-1t",
   "name": "Ling 2.6 1T",
-  "short": "InclusionAI's 1T/63B-active MIT open-weights instruct MoE (262K) for fast agents at scale; Tau2-Telecom 89.8% with 109.6 tok/s decode.",
+  "short": "InclusionAI's Apr 2026 MIT instruct MoE at 1T scale (1.03T/63B active, 262K, MRCR 80.4% at 16K): SWE-bench Verified 72.2%, tau2 78.4%.",
   "contextWindow": "262,144 total",
   "modalities": "Text in/out",
-  "pricingNote": "Route-dependent: $0.075/$0.625 (BenchmarkList) or ~$0.30/$2.50 (AA) per 1M; MIT weights",
+  "pricingNote": "$0.30/$2.50 per 1M (requesty, Zenmux); MIT self-host $0",
   "freeTierNote": "Free OpenRouter endpoint (inclusionai/ling-2.6-1t:free); MIT weights free self-host",
-  "officialUrl": "https://huggingface.co/models?search=ling-2.6.1t",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-2.6-1T",
   "pricingLinks": [
-    "https://artificialanalysis.ai/models/ling-2-6-1t"
+    "https://huggingface.co/inclusionAI/Ling-2.6-1T",
+    "https://models.dev/models/inclusionai/ling-2.6-1t"
   ],
-  "standout": "The scale demonstrator: a full 1T MIT MoE decoding at high speed for fast agents at scale.",
-  "tradeoff": "Instruct-only tuning and a 262K window; the 3.x generation refined everything it started."
+  "standout": "Instruction-following at 1T scale with measured long-context retrieval (MRCR 80.4% at 16K, 68.4% at 256K).",
+  "tradeoff": "HLE 8.7-10.1% and a 92.8% hallucination rate, and the reasoning sibling (Ring-2.6-1T) is the better buy - superseded by Ling 3.0/3.1 Flash.",
+  "pricingTiers": [
+    "Hosted $0.30/M in, $2.50/M out, $0.06/M cached read (requesty, Zenmux)",
+    "Self-host $0 (MIT weights)"
+  ],
+  "noFreeId": true
 }

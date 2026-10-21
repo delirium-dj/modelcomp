@@ -1,0 +1,54 @@
+# LongCat 2.5 — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> **There is no released GA "LongCat 2.5".** Meituan's LongCat API catalogue lists
+> exactly two models: `LongCat-2.0` and the API-only **`LongCat-2.5-Preview`**
+> (released 2026-09-25, no published weights, **no published benchmark numbers at
+> all**). This folder therefore tracks a GA model that does not exist, and the only
+> real 2.5-line entry is the preview — already covered in
+> `model/longcat-2.5-preview/`. Per the project template
+> (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: Meituan (LongCat 2.5) — *no GA model published*
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 — **no GA release exists**
+- **Short description:** The GA "LongCat 2.5" is not a released model. Meituan's first-party API catalogue lists only `LongCat-2.0` and `LongCat-2.5-Preview`; the Hugging Face org has no LongCat-2.5 repository; OpenRouter carries only `meituan/longcat-2.0`; and no LongCat blog post for a 2.5 GA exists. The 2.5 generation exists only as an **API-only preview** (2026-09-25) with 1M context, image input, $0.30/$1.20 per 1M and **no published benchmarks**.
+- **Provider / access:** none for a GA "LongCat 2.5". The preview's routes: `LongCat-2.5-Preview` on `https://api.longcat.chat/openai/v1` and `/anthropic/v1`, Vercel AI Gateway `meituan/longcat-2.5-preview`, NanoGPT `longcat-2.5-preview`, and the free OpenCode Zen slot `longcat-2.5-preview-free`.
+- **Release / knowledge:** no GA release date. The preview shipped **2026-09-25** (LongCat platform change log). Knowledge cutoff not published.
+- **IDs:** none for a GA "LongCat 2.5"; the preview's ids are `LongCat-2.5-Preview`, `meituan/longcat-2.5-preview`, `longcat-2.5-preview-free`.
+- **Context window:** the preview is 1,048,576 with 131,072 max output; a GA 2.5 would have no documented window.
+- **Modalities:** the preview takes text + image and returns text; nothing is documented for a GA model.
+- **Pricing (as of 2026-10-20):** not applicable to a GA model. The preview is $0.30/M in, $1.20/M out, $0.006/M cached, plus a free Zen slot.
+- **Architecture:** not published for any 2.5 GA model.
+
+### Raw benchmarks found
+
+> No benchmark row exists for a GA "LongCat 2.5" on any source, and the preview itself
+> has no published numbers either.
+
+- Artificial Analysis: no model page for any LongCat 2.5 slug (only `longcat-2-0`) — https://artificialanalysis.ai/models
+- BenchLM: no `longcat-2-5*` page in its model sitemap (only `longcat-2-0` and `longcat-flash-lite-sparse`) — https://benchlm.ai/sitemap-models.xml
+- OpenRouter: no `meituan/longcat-2.5` entry (only `meituan/longcat-2.0`) — https://openrouter.ai/api/v1/models
+- Hugging Face: the `meituan-longcat` org (30 models) has no LongCat-2.5 repository — https://huggingface.co/api/models?author=meituan-longcat
+- LongCat blog paths for a 2.5 GA (`/blog/longcat-2.5/`, `/blog/longcat-2-5-preview/`) all return Meituan's `ResourceNotFoundException`; only `/blog/longcat-2.0/` exists
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found**
+
+### Negative findings summary
+
+- No GA "LongCat 2.5" model exists; the only 2.5-line entry is the API-only preview, which itself has no published benchmark numbers.
+- Nearest **real** models for orientation only (not used as a proxy): **LongCat 2.0** (MIT, 1.6T/48B active, 1M context) and **LongCat-Flash-Lite-Sparse** (69B/3B active, native 1M).
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (LongCat platform docs and change log, LongCat blog paths, meituan-longcat GitHub and Hugging Face orgs, models.dev API, OpenRouter API, Artificial Analysis and BenchLM sitemap checks, OpenCode Zen live model endpoint); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `LongCat_2.0.md`, using the same headings.

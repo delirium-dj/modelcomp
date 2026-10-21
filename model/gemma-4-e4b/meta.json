@@ -1,19 +1,20 @@
 {
-  "id": "opencode/gemma-4-e4b",
+  "id": "google/gemma-4-E4B",
   "name": "Gemma 4 E4B",
-  "short": "Google DeepMind's ~4.4B open-weight edge model (Apache 2.0, 128K) for Pi/Jetson/mobile agents; MMLU 69.4%, LiveCodeBench 52.0%, native image+audio input.",
-  "contextWindow": "128,000 total (half the 256K of the larger Gemma 4 variants)",
+  "short": "Google's Apr 2026 Apache-2.0 edge model (4.5B effective, 128K, image+audio in): MMLU-Pro 69.4%, LiveCodeBench v6 52.0%, Q4 GGUF 4.59 GB at $0.02/$0.10.",
+  "contextWindow": "128,000 total",
   "modalities": "Text, image, audio in; video as frames; text out",
-  "pricingNote": "Apache 2.0 open weights; hosted ~$0.02/$0.10 per 1M",
+  "pricingNote": "Hosted $0.02/$0.10 per 1M; Apache 2.0 self-host $0 (Q4 GGUF 4.59 GB)",
   "pricingTiers": [
-    "Open weights (Apache 2.0, self-host)",
-    "Hosted ~$0.02/$0.10 per 1M"
+    "Hosted $0.02/M in, $0.10/M out",
+    "Self-host $0 (Apache 2.0; Q4_0 GGUF 4.59 GB, Q8_0 8.03 GB, BF16 15.05 GB)"
   ],
-  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e4b",
+  "officialUrl": "https://huggingface.co/google/gemma-4-E4B",
   "pricingLinks": [
-    "https://huggingface.co/google/gemma-4-E4B-it/blob/main/README.md",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://huggingface.co/google/gemma-4-E4B",
+    "https://ai.google.dev/gemma/docs"
   ],
-  "standout": "The edge-native agent: native image and audio input on a ~4B open model that fits Pi, Jetson and phones.",
-  "tradeoff": "Edge-class depth — it perceives and answers simply, nothing more."
+  "standout": "The cheapest on-device multimodal Gemma: native image and audio understanding in a 4.6 GB build.",
+  "tradeoff": "Terminal-Bench 2.1 1.87% and tau2 20.8% mean it senses rather than concludes - pick the E2B only for perception work.",
+  "noFreeId": true
 }

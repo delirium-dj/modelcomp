@@ -1,22 +1,20 @@
 {
-  "id": "opencode/gpt-oss-120b",
+  "id": "openai/gpt-oss-120b",
   "name": "GPT-OSS 120B",
-  "short": "OpenAI's open-weight 117B/5.1B MoE (Apache 2.0) for self-hosted reasoning/coding on one 80GB GPU; SWE-bench 62.4%, AIME 92.5%.",
-  "contextWindow": "128K total (131,072)",
+  "short": "OpenAI's Aug 2025 Apache-2.0 open MoE (117B/5.1B active, 131K, Harmony format): SWE-bench Verified 62.4%, AIME 2025 92.5%, one 80 GB GPU at $0.15/$0.60.",
+  "contextWindow": "131,072 total",
   "modalities": "Text in/out only",
-  "pricingNote": "Apache 2.0 open weights (self-host $0); hosted ~$0.04–$0.15/$0.17–$0.60 per 1M",
+  "pricingNote": "$0.15/$0.60 per 1M in/out, $0.075 cached (17 providers); Apache 2.0 self-host $0",
   "pricingTiers": [
-    "Apache 2.0 open weights (self-host $0, single 80GB GPU)",
-    "Hosted ~$0.04/$0.18 per 1M (DeepInfra/Geodd)",
-    "Hosted ~$0.09–$0.15/$0.45–$0.60 per 1M (OpenAI/Fireworks/Bedrock)"
+    "Hosted $0.15/M in, $0.60/M out, $0.075/M cached read (OpenRouter, Groq, Together)",
+    "Self-host $0 (Apache 2.0; MXFP4, fits one 80 GB GPU)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-oss-120b/",
+  "officialUrl": "https://huggingface.co/openai/gpt-oss-120b",
   "pricingLinks": [
-    "https://huggingface.co/models?search=gpt-oss-120b",
-    "https://deepinfra.com/pricing",
-    "https://openai.com/api/pricing/"
+    "https://openrouter.ai/openai/gpt-oss-120b",
+    "https://huggingface.co/openai/gpt-oss-120b"
   ],
-  "standout": "The one-GPU open-weights reasoner: OpenAI’s Apache-2.0 MoE running strong math and coding on a single 80GB card.",
-  "tradeoff": "Open-weight but not open-training data, and successors in the gpt-oss line improved on it."
+  "standout": "The strongest fully open reasoning model per dollar, with a published model card of its own numbers.",
+  "tradeoff": "Terminal-Bench 2.1 26.2% and a 90.8% hallucination rate make it a poor agent, and the mandatory Harmony format is a real integration cost."
 }

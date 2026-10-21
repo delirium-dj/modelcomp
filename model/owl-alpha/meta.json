@@ -1,15 +1,20 @@
 {
-  "id": "opencode/owl-alpha",
+  "id": "owl-alpha",
   "name": "Owl Alpha",
-  "short": "LongCat's retired Owl Alpha stealth alias, not a current model; confirmed theirs, re-released as LongCat-2.0, endpoint 404s.",
-  "contextWindow": "~1,000,000 (1M) during the alias period",
+  "short": "Retired free OpenRouter alias with no vendor prefix and a reported ~1.05M context; the endpoint now 404s, no vendor and no public scores.",
+  "contextWindow": "~1,048,576 (third-party listing only)",
   "modalities": "Text in/out",
-  "pricingNote": "Was free on OpenRouter during the alias period; endpoint now retired (404)",
+  "pricingNote": "Was free on OpenRouter during the alias period; the endpoint is retired (404)",
   "freeTierNote": "Alias was a free OpenRouter endpoint; superseded by LongCat-2.0",
-  "officialUrl": "https://huggingface.co/models?search=owl-alpha",
+  "officialUrl": "https://openrouter.ai/owl-alpha",
   "pricingLinks": [
-    "https://openrouter.ai/openrouter/owl-alpha"
+    "https://openrouter.ai/owl-alpha"
   ],
-  "standout": "A confirmed Meituan stealth alias — the mystery coder that was later revealed as LongCat-2.0.",
-  "tradeoff": "Retired: the endpoint is gone; look at LongCat-2.0 for the real thing."
+  "standout": "A documented absence: a free stealth alias that vanished without an announcement.",
+  "tradeoff": "No vendor, no weights, no scores and no endpoint - the folder's findings are a self-exclusion.",
+  "pricingTiers": [
+    "Free during the alias period; no live route remains (404)"
+  ],
+  "noFreeId": true,
+  "idNote": "The id is a vendorless OpenRouter alias, not a first-party model route; the endpoint no longer resolves."
 }

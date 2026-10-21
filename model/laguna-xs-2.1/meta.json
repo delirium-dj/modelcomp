@@ -1,15 +1,20 @@
 {
-  "id": "opencode/laguna-xs-2.1",
+  "id": "poolside/laguna-xs-2.1",
   "name": "Laguna XS 2.1",
-  "short": "Poolside's 33B/3B-active open-weights MoE for local agentic coding on a 36GB Mac; SWE-bench Verified 70.9% and Pro 47.6% under OpenMDW-1.1.",
-  "contextWindow": "262K (HF); 256K in benchmarks",
+  "short": "Poolside's Jun 2026 OpenMDW-1.1 MoE (33B/3B active, 262K): SWE-bench Verified 70.9%, SWE-bench Pro 47.6% from a model that fits a 36 GB Mac, with a free hosted route.",
+  "contextWindow": "262,144 total",
   "modalities": "Text in/out only",
-  "pricingNote": "$0.06/$0.12 per 1M (OpenRouter); free tier available",
-  "noFreeId": false,
-  "officialUrl": "https://huggingface.co/models?search=laguna-xs-2.1",
+  "pricingNote": "$0.06/$0.12 per 1M in/out, $0.03 cached (OpenRouter) plus a free tier; OpenMDW-1.1 self-host $0",
+  "noFreeId": true,
+  "officialUrl": "https://huggingface.co/poolside/Laguna-XS-2.1",
   "pricingLinks": [
-    "https://openrouter.ai/poolside/laguna-xs-2.1"
+    "https://openrouter.ai/poolside/laguna-xs-2.1",
+    "https://huggingface.co/poolside/Laguna-XS-2.1"
   ],
-  "standout": "The laptop-agent entry point: full agentic coding from a 3B-active MoE that fits a 36GB Mac.",
-  "tradeoff": "A 3B active budget bounds how far chains of reasoning can go before quality drops."
+  "standout": "The local-agent tier: 70.9% SWE-bench Verified from 3B active parameters on a 36 GB Mac.",
+  "tradeoff": "Terminal-Bench 2.0 37.5% and SWE-bench Pro 47.6%, and no GPQA, HLE or LiveCodeBench figure was ever published.",
+  "pricingTiers": [
+    "OpenRouter $0.06/M in, $0.12/M out, $0.03/M cached read; free route poolside/laguna-xs-2.1:free",
+    "Self-host $0 (OpenMDW-1.1; runs on a 36 GB Mac)"
+  ]
 }

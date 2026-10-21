@@ -1,0 +1,52 @@
+# Ling 3.0 Flash Sante — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> "Ling 3.0 Flash Sante" is a real **API-only hosted** specialization of Ling 3.0
+> Flash (Ant Group, health/medical), but it has **no public weights, no public model
+> card, no public licence and no verified benchmark numbers**. Per the project
+> template (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: Ant Group / inclusionAI (hosted Ling 3.0 Flash Sante), `inclusionai/ling-3.0-flash-sante`
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante (hosted, API-only)
+- **Short description:** Ant Group's hosted health/medical specialization of Ling 3.0 Flash — "health and medicine specialization of Ling 3.0 Flash for medical reasoning and evidence-based retrieval" — served only through API gateways. There are no weights, no model card, no licence text and **no published benchmark figures** for it.
+- **Provider / access:** Vercel AI Gateway and Novita AI, canonical id `inclusionai/ling-3.0-flash-sante`; **$0.075/M in, $0.22/M out, $0.015/M cached**; reasoning effort none/low/medium/high (Vercel) or a toggle (Novita); tool calling supported; text in / text out. **Not on OpenCode Zen, not on OpenRouter.**
+- **Release / knowledge:** **2026-09-04** (both Vercel and Novita registry entries). Knowledge cutoff not published.
+- **IDs:** `inclusionai/ling-3.0-flash-sante` (gateway canonical id).
+- **Context window:** **256,000** (Vercel) / **262,144** (Novita); max output 32,000 / 32,768.
+- **Modalities:** text in / text out (no image modality).
+- **Pricing (as of 2026-10-20):** $0.075/M in, $0.22/M out, $0.015/M cached.
+- **Architecture:** undisclosed — the base model's weights are MIT, but no licence is published for the Sante service itself.
+
+### Raw benchmarks found
+
+> No benchmark row exists for Sante on any source. The checks below are listed so the
+> absence is auditable.
+
+- Artificial Analysis: no page — `https://artificialanalysis.ai/models/ling-3-0-flash-sante` → **404**
+- BenchLM: no page and no entry in its model sitemap — https://benchlm.ai/sitemap-models.xml
+- Hugging Face: `inclusionAI/Ling-3.0-flash-sante` → **401 / not found**; the inclusionAI org (~230 repos) contains no "Sante" model — https://huggingface.co/api/models?author=inclusionAI
+- ModelScope: no matching model
+- The folder's "**DiagnosisArena-MCQ 83.8%**" could not be verified in any source — no vendor post, no tracker page, and exact-phrase searches for it return nothing
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MRCR: **no verified public score found**
+- Nearest publicly sourced medical evals belong to the **base** Ling 3.0 Flash on Vals AI: MedScribe **80.90%** and MedCode **32.27%** — different model, not transferable
+
+### Negative findings summary
+
+- No verified public benchmark, no public licence, and no weights for the Sante specialization; the evidence base is a single gateway registry row.
+- The base model's public numbers (GPQA 85.0, LiveCodeBench 82.8, SWE-bench 65.2 on Vals) describe Ling 3.0 Flash, not Sante, and are not used as a proxy here.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (models.dev registry entries for the Vercel and Novita routes, Hugging Face API and org listing, ModelScope, Artificial Analysis and BenchLM 404 checks, Vals AI base-model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Ling_3.1_Flash.md`, using the same headings.

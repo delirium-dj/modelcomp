@@ -1,15 +1,19 @@
 {
   "id": "opencode/gpt-5.1-codex-mini",
   "name": "GPT-5.1 Codex Mini",
-  "short": "GPT-5.1 Codex Mini model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
+  "short": "OpenAI's Nov 2025 cheapest Codex tier (400K/128K, $0.25/$2.00): SWE-Bench Pro 49.0%, Terminal-Bench 2.0 46.1% - removed from Codex 2026-04, deprecated on Zen 2026-07.",
+  "contextWindow": "400,000 total; 128,000 max out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.25/$2.00 per 1M in/out, $0.025 cached (native and Zen identical)",
   "scaffolded": true,
-  "officialUrl": "https://openai.com/index/gpt-5.1-codex-mini/",
+  "officialUrl": "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini",
   "pricingLinks": [
-    "https://openai.com/api/pricing/"
+    "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini"
   ],
-  "standout": "The compact codex lane: smaller, cheaper agentic coding when the full Max tier is overkill.",
-  "tradeoff": "A superseded generation with modest ceiling and thin independent evidence."
+  "standout": "The cheapest Codex tier - a fifth of gpt-5-codex's price with 400K context and Responses-API support.",
+  "tradeoff": "No published SWE-bench Verified figure, Vibe Code Bench 22.2%, and it was pulled from Codex surfaces in April 2026.",
+  "pricingTiers": [
+    "OpenAI native and OpenCode Zen $0.25/M in, $2.00/M out, $0.025/M cached read"
+  ],
+  "noFreeId": true
 }

@@ -1,0 +1,50 @@
+# Owl Alpha — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> "Owl Alpha" was a **free, vendorless OpenRouter alias that is now retired (404)**,
+> and **no verified public benchmark number** has ever been published for it. Per the
+> project template (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved
+> as `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: OpenRouter stealth alias (vendor unconfirmed), `owl-alpha`
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owl Alpha — **retired stealth alias, endpoint 404**
+- **Short description:** A free OpenRouter model id with **no vendor prefix** (`owl-alpha`, not `meituan/…`) — the signature of a stealth or alias slot. It was listed as a primary free model by third-party OpenRouter aggregators with a reported ~1.05M context, and the endpoint now returns **404**. The "LongCat alias" attribution is plausible but unverified: OpenRouter's only Meituan model is LongCat 2.0 (context 1,048,756 ≈ 1.05M), and a dead `meituan/longcat-2.0:free` id still sits in the catalogue.
+- **Provider / access:** none — `openrouter.ai/owl-alpha` and `openrouter.ai/meituan/owl-alpha` both 404, and the id is absent from the 468-model OpenRouter catalogue.
+- **Release / knowledge:** the alias period is only loosely bounded — public aggregator traces referencing `openrouter/owl-alpha` date from late May and June 2026, which is **before** LongCat 2.0's OpenRouter record (created 2026-07-20), so the alias may have pointed at an earlier Meituan release or been a placeholder. Knowledge cutoff unknown.
+- **IDs:** `owl-alpha` (OpenRouter, retired).
+- **Context window:** ~1,048,576 ("1.05M") per a third-party spec table only — not vendor-confirmed.
+- **Modalities:** text in / text out (third-party listing).
+- **Pricing (as of 2026-10-20):** it was **free** during the alias period; the endpoint no longer resolves, so there is no live price.
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+> No benchmark row has ever been published for this alias, on any tracker.
+
+- Artificial Analysis: no page for `owl-alpha` (404) — https://artificialanalysis.ai/models
+- BenchLM: no page for `owl-alpha` (404) and no entry in its model sitemap — https://benchlm.ai/models
+- models.dev: no `owl-alpha` id in any provider — https://models.dev/api.json
+- Hugging Face / Meituan: no Owl Alpha weights or card — https://huggingface.co/api/models?author=meituan-longcat
+- No media coverage: Bing returns "no results" for `"owl-alpha"` as a model
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MRCR: **no verified public score found**
+
+### Negative findings summary
+
+- The only citable facts: it was a free, vendorless OpenRouter alias with a reported ~1.05M context, and it is now 404.
+- No vendor confirmation, no public scores, and the Meituan/LongCat attribution — plausible given the context match — remains unverified.
+- Nearest **real** model for orientation only (not used as a proxy): **LongCat 2.0** (MIT, 1.6T/48B active, 1M context, AA Intelligence Index 19.11).
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (OpenRouter catalogue and endpoint probes with live controls, models.dev API, Artificial Analysis and BenchLM 404 checks, third-party aggregator spec tables, Meituan Hugging Face org); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `LongCat_2.0.md`, using the same headings.

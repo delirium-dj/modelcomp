@@ -1,15 +1,20 @@
 {
-  "id": "opencode/deepseek-v3.2",
+  "id": "deepseek/deepseek-v3.2",
   "name": "DeepSeek V3.2",
-  "short": "DeepSeek's open-weight MoE (671B total, 164K context) for agentic coding/reasoning; IMO/IOI gold-medalist with Sparse Attention, non-thinking route.",
-  "contextWindow": "128,000 (128K) / 8,192 max output (some hosts advertise ~164K)",
+  "short": "DeepSeek's Dec 2025 MIT MoE (685B/37B active, 128K) with thinking inside tool use: SWE-bench Verified 73.1%, LiveCodeBench 83.3%, tau2 80.3% at $0.28/$0.42.",
+  "contextWindow": "128,000 (128K first-party; 163,840 on OpenRouter); 65,536 max output",
   "modalities": "Text in/out only",
-  "pricingNote": "DeepSeek API ~$0.21/$0.31 per 1M (cached input $0.022)",
+  "pricingNote": "$0.28/$0.42 per 1M in/out, $0.028 cached (release rate; MIT self-host $0)",
   "noFreeId": true,
-  "officialUrl": "https://www.deepseek.com/",
+  "officialUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
   "pricingLinks": [
-    "https://api-docs.deepseek.com/quick_start/pricing"
+    "https://openrouter.ai/deepseek/deepseek-v3.2",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
   ],
-  "standout": "The competition medalist: olympiad-level math and informatics from open weights with sparse-attention efficiency.",
-  "tradeoff": "A 164K window and the older V3 architecture — the V4 line is the one to build on."
+  "standout": "The first DeepSeek model that thinks inside tool use, with IMO/IOI gold-medal results and a thinking and non-thinking API pair.",
+  "tradeoff": "128K context (a fifth of the V4 line), a 93.3% hallucination rate on AA, and the December 2025 release date is often misdated to 2024.",
+  "pricingTiers": [
+    "Hosted $0.28/M in, $0.42/M out, $0.028/M cached read (DeepSeek API / OpenRouter)",
+    "Self-host $0 (MIT weights)"
+  ]
 }

@@ -1,15 +1,21 @@
 {
   "id": "opencode/gpt-5-codex",
   "name": "GPT-5 Codex",
-  "short": "GPT-5 Codex model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
+  "short": "OpenAI's Sep 2025 coding-specialist GPT-5 (400K/128K, $1.25/$10): SWE-bench Verified 74.5%, code-refactor 51.3%, 93.7% fewer tokens - removed from Codex 2026-04.",
+  "contextWindow": "400,000 total; 128,000 max out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.25/$10.00 per 1M native ($0.125 cached); OpenCode Zen $1.07/$8.50",
   "scaffolded": true,
-  "officialUrl": "https://openai.com/index/gpt-5-codex/",
+  "officialUrl": "https://openai.com/index/introducing-upgrades-to-codex/",
   "pricingLinks": [
-    "https://openai.com/api/pricing/"
+    "https://developers.openai.com/api/docs/models/gpt-5-codex",
+    "https://opencode.ai/docs/zen"
   ],
-  "standout": "The codex variant that carried the GPT-5 generation into repo-scale agentic coding.",
-  "tradeoff": "A generation behind the current codex line — historical baseline rather than a choice."
+  "standout": "The model that made Codex the default coding surface: 74.5% SWE-bench Verified with a sixth of the tokens.",
+  "tradeoff": "Responses-API-only, no public Terminal-Bench or LiveCodeBench figure of its own, and deprecated on Zen in favour of the 5.1/5.3 Codex line.",
+  "pricingTiers": [
+    "OpenAI native $1.25/M in, $10.00/M out, $0.125/M cached read",
+    "OpenCode Zen $1.07/M in, $8.50/M out, $0.107/M cached read"
+  ],
+  "noFreeId": true
 }

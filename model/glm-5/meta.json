@@ -1,20 +1,20 @@
 {
   "id": "opencode/glm-5",
   "name": "GLM 5",
-  "short": "Z.ai's 744B/40B-active MIT open-weight MoE (200K) for text-only agentic coding; SWE-bench Verified 77.8%, the base of the GLM-5.x line.",
+  "short": "Z.ai's 744B/40B-active MIT MoE (200K) that started the GLM-5.x line: SWE-bench Verified 77.8%, Terminal-Bench 2.0 56.2%, tau2 89.7% at $1.00/$3.20.",
   "contextWindow": "200,000 total (128,000 out)",
   "modalities": "Text in/out only",
-  "pricingNote": "$1.00/$3.20 per 1M cross-provider median; MIT open weights (self-host free)",
+  "pricingNote": "$1.00/$3.20 per 1M in/out, $0.20 cached (Zen price = Z.ai list price); MIT self-host $0",
   "pricingTiers": [
-    "AA median $1.00 in / $3.20 out per 1M",
-    "MIT open weights (self-host free)"
+    "Hosted $1.00/M in, $3.20/M out, $0.20/M cached read (Zen = Z.ai list price)",
+    "Self-host $0 (MIT weights)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://open.zhipuai.cn/",
+  "officialUrl": "https://huggingface.co/zai-org/GLM-5",
   "pricingLinks": [
-    "https://artificialanalysis.ai/models/glm-5",
+    "https://docs.z.ai/guides/overview/pricing",
     "https://huggingface.co/zai-org/GLM-5"
   ],
-  "standout": "The foundation of the GLM-5 line: MIT weights, text-only discipline and verified coding strength that spawned a whole family.",
-  "tradeoff": "Every later GLM improved on it — the base is now the budget fallback."
+  "standout": "The open-weights base of the GLM-5.x line: 744B/40B-active at the cheapest 744B-class price.",
+  "tradeoff": "Superseded by GLM-5.1, 5.2 and 5.3 (SWE-Pro 58.4 -> 62.1, Terminal-Bench 81.0, 1M context) - and every headline number is vendor-published."
 }

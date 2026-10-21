@@ -1,15 +1,20 @@
 {
-  "id": "opencode/mai-code-1-flash",
+  "id": "microsoft/mai-code-1-flash",
   "name": "MAI-Code-1-Flash",
-  "short": "Microsoft AI's Copilot-native sparse-MoE coding model (256K) for VS Code agents; SWE-bench Pro 51.2% with up to 60% fewer tokens.",
+  "short": "Microsoft's Jun 2026 Copilot-native agentic coding model (5B active, 256K): SWE-Bench Pro 51.2% vs Haiku 4.5's 35.2% and up to 60% fewer tokens at $0.75/$4.50.",
   "contextWindow": "256,000 total (128,000 out)",
   "modalities": "Text in/out",
-  "pricingNote": "$0.75/$4.50 per 1M in/out (GitHub Copilot), cached input $0.075",
+  "pricingNote": "$0.75/$4.50 per 1M in/out (GitHub Copilot / models.dev); no Microsoft price card published",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=mai-code-1-flash",
+  "officialUrl": "https://microsoft.ai/news/introducingmai-code-1-flash/",
   "pricingLinks": [
+    "https://models.dev/models/microsoft/mai-code-1-flash",
     "https://github.com/features/copilot/plans"
   ],
-  "standout": "The token-thrifty VS Code agent: a sparse-MoE coder that finishes many tasks with far fewer tokens than its peers.",
-  "tradeoff": "Verified scores sit in the mid-pack; it wins on efficiency, not capability."
+  "standout": "A 5B-active model that beat Haiku 4.5 by 16 points on SWE-Bench Pro inside real Copilot, and used 60% fewer tokens.",
+  "tradeoff": "Three of the four harness evals exist only as chart images, the successor is cheaper and stronger, and OpenRouter never listed it despite Microsoft's announcement.",
+  "pricingTiers": [
+    "GitHub Copilot $0.75/M in, $4.50/M out (no published cache rate)",
+    "Successor MAI-Code-1.1-Flash is a quarter of the cost at $0.20/$1.20"
+  ]
 }
