@@ -9,7 +9,7 @@
     {
       "name": "Public beta API",
       "price": "Free (daily usage limits)",
-      "notes": "First-party endpoint api.reflection.ai (OpenAI-compatible Chat Completions). Allocations reset daily at 12:00 AM PT; requests past the limit are declined until reset. Some organizations must verify a credit card in Billing before API keys can be used (developers.reflection.ai/authentication). No per-token price published; Reflection may change limits or end the beta at any time.",
+      "notes": "First-party endpoint api.reflection.ai (OpenAI-compatible Chat Completions). Allocations reset daily at 12:00 AM PT; requests past the limit are declined until reset. No per-token price published; Reflection may change limits or end the beta at any time.",
       "evidenceUrl": "https://reflection.ai/legal/beta-pricing-information"
     }
   ]

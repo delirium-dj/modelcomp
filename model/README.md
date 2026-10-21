@@ -9,16 +9,12 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   `gpt-5-5`; `mimo-v2.5-free`, never `mimo-v2-5-free`. Before creating a folder,
   check for an existing dotted variant first — a hyphen-versioned folder is a
   duplicate, not a new model. (`pnpm sync` fails loudly on hyphen-versioned
-   folders with the dotted destination.) Exception: digits that are NOT a version
-   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
-   experimental suffix (`deepseek-v4-vision-exp`), or a parameter size —
-   digits immediately followed by `b`/`B` after a hyphen are a parameter
-   count, never a version (`qwen-3.8-325b` = Qwen 3.8, 325B params;
-   `gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
-   `qwen-3.5-397b`; `qwen-3.5-122b-a10b` = 122B-total/10B-active params). The
-   same general digits+b/B rule gates finding-stem normalizing (`normalizeStem`).
-   Already-dotted on-disk folders (`gemma-4.12b-unified`, `gemma-4.26b-a4b`)
-   stay dotted — files are never renamed (`RULES.md` permanence).
+  folders with the dotted destination.) Exception: digits that are NOT a version
+  stay hyphenated — a single major with a codename (`gpt-6-astra`), an
+   experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
+   (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
+   `qwen-3.5-397b` = Qwen 3.5, 397B params; `qwen-3.5-122b-a10b` = Qwen 3.5,
+   122B-total/10B-active params — none is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
   provider-qualified second slugs for a model that already had a folder (e.g.
   `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
@@ -217,11 +213,11 @@ reports stay visible by design (`RULES.md` crown rule).
 
 1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then
    NORMALIZE it per `RULES.md` slug identity before creating anything:
-   replace every digit-hyphen-digit join with a dot (`gpt-5-5` →
-   `gpt-5.5`, `gpt-5-6-terra` → `gpt-5.6-terra`) — except param-size
-   joins: digits immediately followed by `b`/`B` after a hyphen are a
-   parameter count, never a version, and stay hyphenated (`qwen-3.8-325b`,
-   `gemma-4-31b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`).
+   replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
+   `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
+   `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
+   (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted
    folder instead. Then strip any leading vendor prefix (`google-`,

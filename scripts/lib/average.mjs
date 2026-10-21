@@ -117,26 +117,14 @@ export function applyAverageToPrev(prev, modelName, body) {
  * unsuffixed-name identity);
  * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
  * OpenCode PR #55993; same 501B/23B weights; id deprecated 2026-10-16 →
- * `opencode/beam-free` — RULES.md revealed-stealth identity);
- * `glm-5.3-flash-x` (2026-10-21, phantom ID — Z.AI ships GLM-5.3-Flash /
- * FlashX / FlashX-Legal only; no `-flash-x` SKU anywhere, and the folder's
- * lone Xing report contradicts real FlashX specs — RULES.md phantom
- * unsuffixed-name identity; research lives in glm-5.3-flashx/);
- * `gpt-oss-120b-lite` (2026-10-21, phantom ID — OpenAI's open-weight lineup
- * is gpt-oss-120b / gpt-oss-20b (+ safeguard previews); no Lite SKU on
- * openai.com or HF; gpt-oss is never served via the OpenAI API — RULES.md
- * phantom unsuffixed-name identity; research lives in gpt-oss-120b/);
- * `longcat-2.5-preview` (2026-10-21, duplicate — same meta id
- * `opencode/longcat-2.5-preview-free` as canonical longcat_2.5_preview/;
- * underscore slug is pinned in scripts/sync-data.mjs and holds the older,
- * far fuller research set — RULES.md duplicate-slug identity). The
+ * `opencode/beam-free` — RULES.md revealed-stealth identity). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Mirror list for the site: RETIRED_SLUGS in src/data/models.ts;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam", "glm-5.3-flash-x", "gpt-oss-120b-lite", "longcat-2.5-preview"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

@@ -23,15 +23,21 @@ export type { SourceKey, ResultsView };
 /**
  * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
  * per build environment (SSR bundle, client, SSG prerender), so a bare
- * console.warn spams the same line 3-4x per build. Deduping by message keeps
- * the production signal (e.g. someone built without re-running sync) while
- * the log stays readable. `pnpm sync` remains the strict gate.
+ * console.warn spams the same line 3-4x per build. Deduping by message plus
+ * a single suppressed-notes summary keeps the log readable; the full lines
+ * print only with MODELS_DEBUG=1. `pnpm sync` remains the strict gate.
  */
 const warned = new Set<string>();
+function debugModelsEnabled(): boolean {
+  return (
+    (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env
+      ?.MODELS_DEBUG === "1"
+  );
+}
 function warnOnce(msg: string): void {
   if (warned.has(msg)) return;
   warned.add(msg);
-  console.warn(msg);
+  if (debugModelsEnabled()) console.warn(msg);
 }
 
 export interface ModelScores {
@@ -266,10 +272,6 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
     if (!m) throw new Error(`[models] unexpected meta path: ${path}`);
     const slug = m[1];
     const meta = metaModules[path] as Partial<MetaFile>;
-    // Retired (parked) folder: stays on disk and in git (permanence, RULES.md)
-    // but is hidden from the site — skip before any warning or duplicate-id
-    // detection so parked metas (and their ids) never warn.
-    if (RETIRED_SLUGS.has(slug)) continue;
     let valid = true;
     for (const k of META_REQUIRED) {
       if (typeof meta[k] !== "string" || (meta[k] as string).length === 0) {
@@ -322,22 +324,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * OpenCode PR #55993 merged 2026-10-16; same 501B/23B Apache 2.0 weights,
  * SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match Beam 1.0; id
  * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md revealed-stealth
- * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases);
- * `glm-5.3-flash-x` (2026-10-21, phantom ID — Z.AI ships GLM-5.3-Flash /
- * FlashX / FlashX-Legal only (docs.z.ai model codes); no `-flash-x` SKU on
- * OpenRouter/HF, and the folder's lone Xing report contradicts real FlashX
- * specs (text-only vs native multimodal, $0.50/$2 vs $0.37/$1.25) — RULES.md
- * phantom unsuffixed-name identity; research lives in glm-5.3-flashx/);
- * `gpt-oss-120b-lite` (2026-10-21, phantom ID — OpenAI's open-weight lineup
- * is gpt-oss-120b / gpt-oss-20b (+ gpt-oss-safeguard previews); no Lite SKU
- * on openai.com or HF, and gpt-oss is never served via the OpenAI API, so the
- * report's "OpenAI API openai/gpt-oss-120b-lite" route is impossible —
- * RULES.md phantom unsuffixed-name identity; research lives in gpt-oss-120b/);
- * `longcat-2.5-preview` (2026-10-21, duplicate — longcat-2.5-preview/ and
- * longcat_2.5_preview/ both carry meta id `opencode/longcat-2.5-preview-free`;
- * the underscore slug is canonical: "LongCat 2.5 Preview" is pinned to it in
- * scripts/sync-data.mjs, and it holds the older, far fuller research set —
- * RULES.md duplicate-slug identity). The folder
+ * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -346,7 +333,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam", "glm-5.3-flash-x", "gpt-oss-120b-lite", "longcat-2.5-preview"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from
@@ -359,7 +346,6 @@ export const MODELS: AiModel[] = (() => {
   const metas = loadMetas();
   const metaBySlug = new Map(metas.map((e) => [e.slug, e.meta] as const));
   for (const slug of Object.keys(GENERATED_SCORES)) {
-    if (RETIRED_SLUGS.has(slug)) continue; // retired (parked) — hidden from site
     if (!metaBySlug.has(slug)) {
       warnOnce(`[models] model/${slug}/ has findings but no meta.json — skipped (add one, schema in model/README.md)`);
     }
@@ -372,6 +358,17 @@ export const MODELS: AiModel[] = (() => {
   }
   return models;
 })();
+
+/**
+ * Compact signal for the suppressed per-message warnings above: one line
+ * instead of a wall of `[models] ...` during dev/SSG. Full detail prints
+ * with MODELS_DEBUG=1; `pnpm sync` fails loudly on the actionable ones.
+ */
+if (warned.size && !debugModelsEnabled()) {
+  console.warn(
+    `[models] ${warned.size} data note(s) suppressed — MODELS_DEBUG=1 to print; pnpm sync is the strict gate`,
+  );
+}
 
 /**
  * Virtual sort views for the results-source dropdown. Each entry mirrors the

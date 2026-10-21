@@ -97,11 +97,8 @@ export type SourceKey =
   | "Comprehensive Summary"
   | "Independent Benchmark Research"
   | "Independent AI Research"
-  | "Artificial Analysis"
-  | "Xiaomi Official"
-  | "Comprehensive Benchmark Summary"
-  | "Sophon"
-  | "Independent Research";
+  | "Independent Research"
+  | "Xiaomi Official";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -209,9 +206,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Comprehensive Summary", label: "Comprehensive Summary", file: "Comprehensive_Summary.md" },
   { key: "Independent Benchmark Research", label: "Independent Benchmark Research", file: "Independent_Benchmark_Research.md" },
   { key: "Independent AI Research", label: "Independent AI Research", file: "Independent_AI_Research.md" },
-  { key: "Artificial Analysis", label: "Artificial Analysis", file: "Artificial_Analysis.md" },
-  { key: "Xiaomi Official", label: "Xiaomi Official", file: "Xiaomi_Official.md" },
-  { key: "Comprehensive Benchmark Summary", label: "Comprehensive Benchmark Summary", file: "Comprehensive_Benchmark_Summary.md" },
-  { key: "Sophon", label: "Sophon", file: "Sophon.md" },
   { key: "Independent Research", label: "Independent Research", file: "Independent_Research.md" },
+  { key: "Xiaomi Official", label: "Xiaomi Official", file: "Xiaomi_Official.md" },
 ];
