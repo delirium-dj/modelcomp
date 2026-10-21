@@ -1,0 +1,33 @@
+{
+  "name": "Kilo Code",
+  "kind": "aggregator",
+  "short": "Unified AI gateway with a rotating pool of free models available to authenticated and anonymous users, no credit card required.",
+  "officialUrl": "https://kilo.ai",
+  "hosts": ["kilo.ai", "ai-gateway.kilo.ai", "app.kilo.ai"],
+  "catalogUrl": "https://ai-gateway.kilo.ai/api/v1/models",
+  "plans": [
+    {
+      "name": "Free models",
+      "price": "$0",
+      "notes": "Several models available at no cost, subject to rate limits. Available to both authenticated and anonymous users; anonymous users are limited to 200 requests per hour per IP. Free model pool changes over time — check the live catalog.",
+      "evidenceUrl": "https://kilo.ai/docs/gateway/models-and-providers"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Hundreds of paid models through one OpenAI-compatible API; model IDs use provider/model format.",
+      "evidenceUrl": "https://kilo.ai/docs/gateway/models-and-providers"
+    }
+  ],
+  "covers": [
+    "minimax-m3.1-flash-preview",
+    "nemotron-3.5-super-vl",
+    "xing_4.0_29b_a4b",
+    "laguna-s-2.1",
+    "laguna-xs-2.1",
+    "north_mini_code",
+    "nemotron-3.5-lightning-free",
+    "nemotron-3-nano-omni",
+    "nemotron-3-ultra-free"
+  ]
+}

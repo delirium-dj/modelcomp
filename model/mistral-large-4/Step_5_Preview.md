@@ -1,52 +1,67 @@
 # Mistral Large 4 — findings by Step 5 Preview
 
-- Source: Mistral AI (`mistral-large-4` — "le Chonk", public preview 2026-10-06)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Mistral AI / Mistral Large 4 (`opencode/mistral-large-4`)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Mistral Large 4 (preview; open-weight MoE, weights announced for end of October 2026)
-- **Short description:** Mistral's largest and most capable model — a 1.05T-parameter natively multimodal MoE (52B active, 1.6B vision encoder) trained from scratch on 3,800 Grace Blackwell GPUs in Mistral's own European datacenters, mixing instruction, reasoning and agentic capability in one open-weight model across 160+ languages. Its positioning is vertical sovereignty: state-of-the-art among open models on cybersecurity, finance and law, and — because it ships with weights and reduced-moderation access for vetted partners — able to do vulnerability-reproduction work that closed models refuse (82% on the AA cyber patch test, the highest of any model, while Opus 5.5 and GPT-6 Astra score near zero on refusals). Independent numbers so far: AA Intelligence Index 38 (#64/226), DeepSWE v1.1 61.7%, AutomationBench 59.9%, AA-Briefcase 1,393 Elo, Dense-200 visual grounding 42% (beating GPT-6 Astra's 41%), and a Surge blind human eval where professional annotators ranked its code 2nd of 5 (3.74/5, behind only Claude Opus 5). Caveats: very verbose (200M output tokens per AA Index run), TB 4.0 only 28.3%, and the preview weights had not shipped at research time.
-- **Provider / access:** Mistral Studio / preview API (Mistral-operated European deployment under European law); open weights announced for end of October 2026.
-- **Release:** 2026-10-06 (public preview).
-- **Context window:** 1M tokens per Mistral docs (AA measures 524K served in the preview).
-- **Modalities:** Text and image in → text out; function calling, structured outputs, document QnA, agents/conversations APIs.
-- **Pricing (as of 2026-10-09):** $1.36/M input, $4.18/M output, $0.07–0.14 cache (Mistral's docs currently show a 50%-off sale: $0.68/$2.09).
-- **Speed:** 68.1 tok/s (AA, 2026-10-19 — revised down from the 116.1 tok/s first-pass read; #121/186); TTFT 1.65 s.
+- **Name:** Mistral Large 4 ("Le Chonk")
+- **Short description:** Mistral AI's largest model — a from-scratch European 1.05T-total / 49B-active MoE with a 1.6B vision encoder, 1M context and hybrid instruct-and-reasoning for multilingual document, legal/finance and agentic work; public preview since 2026-10-06 with open weights announced for later in October (not yet published).
+- **Provider / access:** Mistral AI Studio (`mistral-large-4-0`), OpenRouter (`mistralai/mistral-large-4-0`), Vercel AI Gateway, Opper (`mistral:eu/mistral-large-4` EU residency / `mistral:global/...`), LiteLLM/Portkey/Martian routers; OpenCode Zen (`opencode/mistral-large-4`). Chat Completions API; tools, structured outputs, prompt caching, batch API.
+- **Release / knowledge:** public preview launched 2026-10-06 (llmreference, opper.ai); knowledge cutoff not published; weights not yet released despite the open-weight claim — currently served under Mistral's proprietary terms.
+- **IDs:** `mistral-large-4-0` (official), `mistralai/mistral-large-4-0` (OpenRouter), `opencode/mistral-large-4` (Zen).
+- **Context window:** 1M total (llmreference, OpenRouter, opper.ai); 256K max output (Vals AI harness config).
+- **Modalities:** text and image in; text out; optional/hybrid reasoning (High effort configurable); tool calling; structured outputs; multilingual 160+ languages including all official EU languages.
+- **Pricing (as of 2026-10-21):** OpenRouter/Vercel $0.68/$2.09 per 1M (cache $0.07); Opper EU $0.75/$2.30 (cache $0.08); Mistral AI Studio list $1.36/$4.18 (cache $0.14).
+- **Architecture:** granular MoE, 1.05T total / 49B active per token (52B incl. embeddings + output layers), 1.6B vision encoder, trained from scratch (multi-stage); parameter-level details otherwise unpublished.
+
+> **Spec discrepancy surfaced:** the folder's `meta.json` (131K context / 32K output / text-only / $2/$6 / no Free ID) conflicts with every live source checked (1M context / 256K output / text+image in / $0.68–$1.36 in · $2.09–$4.18 out). The verified web facts above are used for scoring; the curated meta should be corrected by the maintainer.
 
 ### Raw benchmarks found
 
-Third-party (artificialanalysis / vals.ai / Surge, as reported by Mistral):
+Epoch AI Benchmarking Hub (independent, high effort) + Vals AI (third-party) + Artificial Analysis via Opper + BenchLeader:
 
-- AA Intelligence Index: **38** (#64 of 226); AA Coding Agent Index: **49.8** (ahead of DeepSeek V4 Pro 0813 and Qwen3.8 Max)
-- DeepSWE v1.1: **61.7%**; SWE-Atlas-QnA: **59.4%**; Terminal-Bench 4.0: **28.3%**
-- AutomationBench (657 business workflows): **59.9%** (ahead of Kimi K3, MiMo-V2.6-Pro, DeepSeek V4 Pro)
-- AA-Briefcase (long-horizon knowledge work): **1,393 Elo** (ahead of DeepSeek V4 Pro)
-- Dense 200 (visual grounding, bbox): **42%** vs GPT-6 Astra 41%
-- SciCode-Verified: SOTA among open-weight models; STEM human-eval preferred over GLM-5.3
-- Cybersecurity: AA Cyber Index top-5 globally, #1 non-Chinese open weights; vulnerability patch-reproduce test **82%** (highest of any model — closed leaders refuse); Cybench **93%**
-- Surge AI blind coding human eval: **3.74/5**, 2nd of 5 (Claude Opus 5 4.22, GLM-5.3 3.60, Kimi K3 3.59, GLM-5.2 3.40)
-- val.ai Finance Agent v2 and Harvey's Legal Agent: exceeds GPT-6-Astra; Harvey's Legal Agent: outperforms all open-source models
-- Safety: Lakera B3 attack resistance **93.3%** (no higher competitor score); KORA 1.691 (Mistral's best); higher cyber-refusal rate than all OSS peers
+Agent / tool use:
 
-Artificial Analysis (independent summary): Intelligence Index 38, 116.1 tok/s, TTFT 1.46 s, 200M output tokens per index run (very verbose), $1.13 per Index task, 524K context served.
+- Finance Agent v2 (Vals): **54.7%** (Vals AI harness, $1.20/task; Mistral's own chart read matches at 54.7)
+- Harvey Legal Agent Benchmark v1 (Vals): **15.8%** task all-pass rate (Vals AI, ±2.96, $4.18/task; Mistral chart read matches)
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / OSWorld / Claw-Eval / MCP-Atlas / Toolathlon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **88.1%** (Epoch AI Inspect harness, high effort, run started 2026-10-12 — evaluator of record, confirmed)
+- FrontierMath Tier 4 v2 (private): **26.8%** (Epoch AI, high effort, confirmed)
+- Humanity's Last Exam: **35%** (Artificial Analysis via Opper)
+- AA Intelligence Index: **38.4** (Artificial Analysis via Opper; global rank #76 of 696)
+- Long-context reasoning (AA-LCR): **81%** (Artificial Analysis via Opper)
+- BenchLeader Index: **56.7 ±5.9**, rank #194/778 — its highest category is long context (66) (benchleader.com)
+- CritPt / MMLU-Pro / Omniscience: no verified public score found
+
+Coding:
+
+- SciCode: **54%** (Artificial Analysis via Opper — near the 55%+ frontier reference)
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / DeepSWE / Terminal-Bench / Vibe Code Bench: no verified public score found (LLM Reference: "No task-mapped benchmark peers are available for this model yet")
+
+Long context:
+
+- AA-LCR **81%** long-context reasoning (Artificial Analysis via Opper); BenchLeader ranks long context as its strongest category (66); 1M window native with 256K max output; no MRCR/RULER/GraphWalks retrieval-at-length figure published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** Strong vertical agentic results — AutomationBench 59.9% (ahead of Kimi K3 and DeepSeek V4 Pro), AA-Briefcase 1,393 Elo, best-in-class legal/finance agent benchmarks — but Terminal-Bench 4.0 at 28.3% and no MCP Atlas/Toolathlon figure keep it below the frontier agentic band.
-- **Reasoning: 70/100.** AA Intelligence Index 38 (above its price class's 26 median), SciCode-Verified SOTA among open weights and an internal STEM win over GLM-5.3 — but Mistral published no GPQA/HLE/AIME number, and AA's composite is the only independent overall read.
-- **Context window: 82/100.** 1M declared on the docs but 524K measured as served in the preview, with no MRCR/RULER/AA-LCR curve published — the ≥1M band discounted for unverified delivery.
-- **Multimodal: 86/100.** Text + image in → text out is the 75–90 band, near its top: a step change in Mistral's vision with Dense-200 grounding beating GPT-6 Astra, gigapixel satellite/engineering-drawing demos, and ChartQA Pro/GDP.pdf strength; no audio/video input or non-text output.
-- **Coding: 72/100.** DeepSWE v1.1 61.7%, Coding Agent Index 49.8 (above DS V4 Pro and Qwen3.8 Max) and a 2nd-place blind human eval on code quality — but TB 4.0 28.3% and no SWE-bench figure yet.
-- **Cost efficiency: 88/100.** $1.36/$4.18 list (50%-off sale: $0.68/$2.09) with $0.07 cache maps to the methodology's ~$1.25/$4.25 ≈ 88 point; the very high verbosity (200M tokens per index run) is the cost risk.
-- **Overall Score: 76/100.** Best-fit recommendation: the sovereign open-weights enterprise model — SOTA open cyber/finance/legal agent work, top-tier visual grounding and a blind-eval #2 on code, from a European stack under European law; a verbosity problem, a TB-4.0 gap, and preview weights still landing.
+- **Tool use: 78/100.** Finance Agent v2 54.7% is a respectable professional-agent result and tool calling/structured outputs are first-class API features; capped by Harvey LAB 15.8% (weak task all-pass) and a total absence of Terminal-Bench, Tau, GDPval, OSWorld, Claw-Eval and MCP-Atlas numbers in any harness.
+- **Reasoning: 84/100.** GPQA Diamond 88.1% (Epoch AI, evaluator of record) is strong and AA-LCR 81% shows good long-context reasoning; capped by HLE 35%, FrontierMath Tier 4 26.8%, AA Intelligence Index 38.4 (mid band, rank #76/696) and no CritPt/Omniscience data.
+- **Context window: 95/100.** 1M native window with 256K max output lands in the ≥1M tier; AA-LCR 81% and BenchLeader's long-context category (66, its best) are solid but below the ≥98% retrieval-at-512K evidence needed for 100.
+- **Multimodal: 68/100.** Text + image input with text out (image-in tier 60–70) via the built-in 1.6B vision encoder — document/chart/photo understanding is a stated strength, but no video/audio input and no MMMU-class published score.
+- **Coding: 68/100.** The only verified coding number is SciCode 54% (near the frontier reference); every SWE-bench/LiveCodeBench/Terminal-Bench cell is unmeasured for this ID, so the score is provisional and evidence-thin.
+- **Cost efficiency: 85/100.** $0.68/$2.09 on OpenRouter/Vercel (cache $0.07) sits between the ~$0.60/$2.20 ≈ 92 and ~$1.25/$4.25 ≈ 88 reference bands on the cheaper side; Mistral Studio list pricing ($1.36/$4.18) is materially higher, so the score follows the cheaper verified route.
+- **Overall Score: 79/100.** Mean of (78 + 84 + 95 + 68 + 68) / 5 = 78.6 → 79. Best fit: long-document multilingual analysis (legal/finance) in EU residency — the coding and agentic profiles remain provisional until independent harnesses measure them.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (preview page, not deprecated: Index 38 #64/214 — unchanged; **output speed revised to 68.1 tok/s, down from the 116.1 first-pass read**; TTFT 1.65s; $1.36/$4.18 confirmed, blended $0.79/M, $1.13 per Index task; 524k context served, 200M Index tokens — very verbose; 2 providers) — all first-pass benchmark rows stand (DeepSWE 61.7%, AutomationBench 59.9%, AA-Briefcase 1,393, TB 4.0 28.3%, Dense-200 42% grounding, Surge code-quality #2) and no score change is warranted: verbosity, TB 4.0 and unpublished GPQA/HLE keep the caps. Second-pass verification (2026-10-10): benchmarklist.com and rankllms.com have no Mistral-Large-4 page; the AA preview page and Vals/Surge rows confirmed the same reads. Prior pass (2026-10-09) used Mistral Large 4 launch post, Mistral docs model page, Artificial Analysis preview page.
-- Future sources: add a new file next to this one, e.g. `Mistral_Large_5.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (LLM Reference with Epoch AI/Vals AI rows, Opper with Artificial Analysis figures, BenchLeader, opper.click); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

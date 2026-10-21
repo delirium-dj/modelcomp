@@ -1,0 +1,71 @@
+# LongCat 2.5 — findings by LongCat 2.5 Preview
+
+- Source: Meituan/LongCat-2.5 (no GA route)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION — this is a negative record. No GA "LongCat 2.5" model exists,
+> and the only real 2.5-line route (the API-only LongCat-2.5-Preview) has no
+> published or independent benchmarks. Per `tasks/research.md` rule 9 and the
+> template's SELF-EXCLUSION block, this report is filed as `.md.excluded`
+> (notes only; scores inside are ignored by `pnpm sync`). No placeholder
+> numbers are invented.
+
+## Model card
+
+- **Name:** LongCat 2.5 (no GA model)
+- **Short description:** There is no generally-available "LongCat 2.5". Meituan's LongCat API lists only LongCat-2.0 (open-weight, June 2026) and LongCat-2.5-Preview (API-only, 2026-09-25). The GA 2.5 slot is a verified absence.
+- **Provider / access:** No GA route. The only 2.5-line route is the preview (`meituan/longcat-2.5-preview`), tracked separately in `model/longcat-2.5-preview/`.
+- **Release / knowledge:** None (no GA release).
+- **IDs:** none resolve to a GA model. The preview ID is `meituan/longcat-2.5-preview`.
+- **Context window:** No GA figure; the preview lists 1,048,576 (1M) with 131,072 max output.
+- **Modalities:** No GA model; the preview is text, image in → text out.
+- **Pricing (as of 2026-10-21):** No GA price; the preview is $0.30 in / $1.20 out per 1M, $0.006 cached read, plus a free OpenCode Zen slot.
+- **Architecture:** No GA weights, no model card. (The preview is positioned as a 1.6T total / ~48B active multimodal MoE, but Meituan published no benchmarks and no weights.)
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found (no GA model)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported.
+
+### Notes (why no scores)
+
+- Meituan's LongCat API change log and pricing pages list only LongCat-2.0 and LongCat-2.5-Preview; no GA "LongCat 2.5" product exists. (https://longcat.chat/platform/docs/ChangeLog.html)
+- BenchmarkList tracks the preview at **0 benchmark rows** and states Meituan "published no benchmarks for this preview" with no confirmed independent evaluation. (https://benchmarklist.com/models/meituan-longcat-2.5-preview/)
+- No source — official or third-party — publishes benchmark numbers under a GA "LongCat 2.5" name. LongCat-2.0's vendor numbers (SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8) belong to the separate `model/longcat-2.0/` folder and must not be attributed here.
+- This folder is a negative record documenting the absence; it must not be scaffolded into a scored entry.
+
+No normalized 1–100 scores are assigned.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-21
+- Method: public internet research (LongCat API change log/pricing docs, BenchmarkList, OpenCode Data, GitHub `meituan-longcat`); verified absence of any GA LongCat 2.5 and of benchmarks for the preview, so this is a self-exclusion.
+- Future sources: if a GA LongCat 2.5 with benchmarks ever ships, a new scored `LongCat_2.5_Preview.md` should be written next to this file.

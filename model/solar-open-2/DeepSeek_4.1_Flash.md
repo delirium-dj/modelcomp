@@ -1,9 +1,11 @@
 # Solar Open 2 — findings by DeepSeek 4.1 Flash
 
 - Source: Upstage / Solar Open 2 (250B) (`upstage/Solar-Open2-250B`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`solar-open-2`, 15 rows) still assigns **no overall score** (all rows trace to Upstage's own model card): MMLU-Pro 86.2%, GPQA-D 86.3%, HLE 28.8%, AIME26 95.7%, HMMT Feb 2026 93.9%, LiveCodeBench v6 92.4%, SWE-bench Verified 70.4%, Terminal-Bench Hard 28.3%, MCP Atlas 58.2%, AA-LCR 62.3%, KMMLU-Pro 78.4%, CLIcK 90.7%. No new independent evidence. **No score change** (Tool 75 / Reasoning 80 / Context 95 / Multimodal 15 / Coding 76 / Cost 96 / Overall 68).
 
 ## Model card
 
@@ -54,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across the Upstage Hugging Face card/blog and the Artificial Analysis model page. Nearly all capability numbers are Upstage self-reported; the only third-party result is an estimated AA Intelligence Index, and this is stated. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `solar-open-2`), cross-checked across the Upstage Hugging Face card/blog and the Artificial Analysis model page. Nearly all capability numbers are Upstage self-reported; the only third-party result is an estimated AA Intelligence Index, and this is stated. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

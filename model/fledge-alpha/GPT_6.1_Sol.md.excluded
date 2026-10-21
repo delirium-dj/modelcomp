@@ -1,0 +1,48 @@
+# Fledge Alpha — evidence-limited findings by GPT 6.1 Sol
+
+- Source: OpenCode preview alias `fledge-alpha-free`; publisher/checkpoint undisclosed.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded: identity/serving metadata exists, but no verified exact-model capability benchmark found.**
+
+## Model card
+
+- **Name:** Fledge Alpha / Fledge Alpha Free. The free suffix denotes the documented preview route; it does not establish a separate underlying checkpoint.
+- **Identity / access:** Models.dev's exact OpenCode record **`fledge-alpha-free`** describes an OpenCode-only preview, operator-supplied metadata dated **2026-10-01**, provider base **`https://opencode.ai/inference/openai/v1`**, currently **deprecated**. Current **`https://opencode.ai/inference/v1/models`** and legacy **`https://opencode.ai/zen/v1/models`** both return200 with no Fledge entry; no authenticated successful inference performed. OpenCode Data independently preserves the historical usage name **`fledge-alpha`**, lab **Custom**, not an identified model developer.[1][2][3][4]
+- **Declared specifications:** Historical route **1,048,576 shared-context tokens/131,072 output**, text/image input→text, reasoning with **low/high/max** effort, tools and temperature, closed weights. Metadata comments explicitly say input/output/reasoning share context. These are operator/catalog claims, not independent image/tool/long-context success measurements. Exact architecture, parameter count, knowledge cutoff and underlying developer remain unverified.[1][2]
+- **Pricing:** Historical preview catalog **$0 input/$0 output**; usage dashboard reports$0 list-price spend. Current tariff/availability and exact historical retention/training terms not verified; generic policies for different current stealth models are not substituted. A retired preview does not earn a present-day free inference score.[1][2][4]
+
+### Raw benchmarks found
+
+- **No verified exact-model capability benchmark found** for tools, reasoning, coding, image perception or long-context retrieval. No defensible overall score can be computed from metadata alone.
+- OpenCode Data, update timestamp **2026-10-19T12:42:39Z**, reports **2.2T tokens/32K users/974,359 completed sessions/92.6% cache share** over two months. Its methodology defines tokens as input/output/reasoning/cache and sessions as approximate usage counts, not task correctness. These are adoption/traffic statistics, **not benchmarks**, and “completed sessions” is not an agent-task success rate.[4]
+- The OpenCode comparison search result advertises generic “benchmarks” in its snippet, but its fetched exact page contains only specifications/prices and usage; Fledge specification cells are dashes. GPT-5 Nano's populated column cannot be transferred to Fledge.[5]
+- Exact AA candidate **`/models/fledge-alpha`**, Vals candidate **`/models/unknown_fledge-alpha`**, OpenRouter page **`/stealth/fledge-alpha`**, and endpoint candidates **`stealth/fledge-alpha`**, **`openrouter/fledge-alpha`** returned404. These exact-path failures do not prove universal/historical absence. Unauthenticated GitHub code search returned401, not a negative search finding.[6][7][8][9]
+- No verified public Claw-Eval, Terminal-Bench, Tau2/Tau3, GDPval, GPQA, HLE, CritPt, SWE-bench, LiveCodeBench, SciCode, Vibe Code, MMMU or retrieval score found under the exact alias. No speculative successor/developer fingerprint is used as a benchmark bridge.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Serving limits, a historical zero tariff, adoption and feature flags cannot establish quality dimensions. This exclusion contains no placeholder scores and is not intended for averaging.
+
+### Research trail and sources
+
+Fresh **Bing** RSS exact-name benchmark query returned unrelated retail links; **Google** official-model query returned a JavaScript interstitial; **DuckDuckGo** exact-name provider/benchmark query found the actual OpenCode usage/comparison pages. An additional DuckDuckGo SWE/context query returned the same two pages without task results. Inspected current models.dev JSON plus raw exact record/operator provenance, both current/legacy OpenCode model catalogs, OpenCode usage/comparison pages and exact evaluator/gateway candidates. No peer research read and no unsupported benchmark proxy used.
+
+[1]: https://raw.githubusercontent.com/anomalyco/models.dev/dev/providers/opencode/models/fledge-alpha-free.toml "Exact deprecated preview record and operator-supplied provenance,shared context,effort and historical free price"
+[2]: https://models.dev/api.json "Exact OpenCode fledge-alpha-free entry,deprecated status,modalities,limits and provider"
+[3]: https://opencode.ai/inference/v1/models "Current catalog returned200;no exact Fledge entry onOctober21"
+[4]: https://opencode.ai/data/unknown/fledge-alpha "Historical usage alias,Custom lab,October19 update and traffic-statistics methodology"
+[5]: https://opencode.ai/data/compare/openai/gpt-5-nano/unknown/fledge-alpha "Actual comparison table has no Fledge capability results;usage is not task success"
+[6]: https://artificialanalysis.ai/models/fledge-alpha "Exact candidate404,not a global nonexistence claim"
+[7]: https://www.vals.ai/models/unknown_fledge-alpha "Exact candidate404"
+[8]: https://openrouter.ai/api/v1/models/stealth/fledge-alpha/endpoints "Exact endpoint candidate404"
+[9]: https://opencode.ai/zen/v1/models "Legacy catalog also lacks Fledge;historical status not inferred solely from this absence"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,exact preview record/operator provenance,current catalog checks and inspection of advertised comparison evidence. No normalized quality scores assigned without verified task measurements.
+- Future sources: add a separate signed report if exact-checkpoint capability evidence becomes verifiable; preserve this evidence record.

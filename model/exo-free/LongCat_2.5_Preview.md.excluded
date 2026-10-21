@@ -1,0 +1,70 @@
+# Exo Free — findings by LongCat 2.5 Preview
+
+- Source: OpenCode Zen/exo-free (vendor unidentified)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION — an unidentified vendor's short-lived free stealth slot with
+> no published model card and no benchmarks. Per `tasks/research.md` rule 9 and
+> the template's SELF-EXCLUSION block, this report is filed as `.md.excluded`
+> (notes only; scores inside are ignored by `pnpm sync`). No placeholder
+> numbers are invented.
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** An unidentified vendor's free OpenCode Zen stealth slot (Oct 2026) — 1M context, image input, reasoning and tool calling — that lived roughly three days and is now deprecated (HTTP 410). Vendor never disclosed; no model card.
+- **Provider / access:** OpenCode Zen `opencode/exo-free` (`https://opencode.ai/zen/v1/chat/completions`, `@ai-sdk/openai-compatible`); free during the preview window. Retired slot — the id no longer resolves.
+- **Release / knowledge:** Appeared 2026-10-06; gone by ~2026-10-09 (HTTP 410 ModelDeprecated); knowledge cutoff unknown.
+- **IDs:** `exo-free` (Zen, retired).
+- **Context window:** 1,048,576 (1M) total; 131,072 max output (Zen docs / Sulat registry).
+- **Modalities:** text, image in; text out. Reasoning, tool calling, attachments.
+- **Pricing (as of 2026-10-21):** Free ($0/$0/$0) during the limited preview; now deprecated.
+- **Architecture:** undisclosed (stealth).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported.
+
+### Notes (why no scores)
+
+- Exo Free was a stealth slot: OpenCode's own docs describe it only as "available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model." No vendor, no model card, no weights.
+- It was added to the Zen docs (commit `e2564336`, PR #53622) with the 1M/131K specs and removed within days; the id now returns HTTP 410 ModelDeprecated.
+- No benchmark tracker (Artificial Analysis, BenchLM, BenchmarkList, Vals) carries measured scores for `exo-free`; only registry rows (Sulat) and a YouTube short exist, with no evaluation.
+- Because the vendor was never identified, no proxy model can be substituted and no verified numbers exist. Treat as unmeasured.
+
+No normalized 1–100 scores are assigned.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-21
+- Method: public internet research (OpenCode Zen docs + changelog, OpenCode GitHub commit e2564336, Sulat registry, models.sulat.com); no vendor identity and no verified benchmarks, so this is a self-exclusion.
+- Future sources: if the vendor is later revealed with benchmarks, a new scored `LongCat_2.5_Preview.md` should be written next to this file.

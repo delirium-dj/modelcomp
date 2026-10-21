@@ -5,9 +5,11 @@ marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
 `vercel-ai-gateway`, `commandcode`, `cursor`, `qoder`, `github`, `nvidia`,
 `deepinfra`, `huggingface`, `fireworks-ai`, `cloudflare-workers-ai`,
 `amazon-bedrock`, `microsoft`, `together-ai`, `novita-ai`, `baseten`, `ollama`,
-`scaleway`, `sambanova`, `groq`, `llm7`, `ovhcloud`, `siliconflow`, `cerebras`) and vendor-direct
+`scaleway`, `sambanova`, `groq`, `llm7`, `ovhcloud`, `siliconflow`, `cerebras`,
+`kilocode`, `wandb`, `agentrouter`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
-`xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`).
+`xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`,
+`nebius`).
 
 This folder is **not** scanned by `pnpm sync` (which covers `model/` only) —
 it is loaded directly by the website build via `import.meta.glob`

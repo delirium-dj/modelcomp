@@ -1,0 +1,29 @@
+{
+  "name": "AgentRouter",
+  "kind": "aggregator",
+  "short": "Chinese-language multi-model gateway (Claude Opus / GPT-5.5 / GLM) sold below official list price; pay-as-you-go only — no free tier on the official site.",
+  "officialUrl": "https://co.agentrouter.org",
+  "hosts": ["agentrouter.org", "co.agentrouter.org"],
+  "catalogUrl": "https://co.agentrouter.org/portal/models",
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Claude Opus 4.8 $8/$40; Opus 4.7 $8/$40; Opus 4.6 $2/$10; GPT-5.5 $4/$8; GLM 5.2 $3/$4.5 (input/output). Balance never expires; no minimum spend. Claims ~27% of official list price.",
+      "evidenceUrl": "https://co.agentrouter.org/portal/models"
+    },
+    {
+      "name": "Enterprise seats",
+      "price": "Custom",
+      "notes": "Monthly seat quotas without weekly limits, SSO/RBAC, usage audit; contact sales.",
+      "evidenceUrl": "https://co.agentrouter.org/portal/pricing"
+    }
+  ],
+  "covers": [
+    "claude-opus-4.8",
+    "claude-opus-4.7",
+    "claude-opus-4.6",
+    "gpt-5.5",
+    "glm-5.2"
+  ]
+}

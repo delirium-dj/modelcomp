@@ -5,7 +5,6 @@
   "contextWindow": "400,000 total; 128,000 max out",
   "modalities": "Text, image in; text out",
   "pricingNote": "$0.25/$2.00 per 1M in/out, $0.025 cached (native and Zen identical)",
-  "scaffolded": true,
   "officialUrl": "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini",
   "pricingLinks": [
     "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini"

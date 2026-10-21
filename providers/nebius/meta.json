@@ -1,0 +1,30 @@
+{
+  "name": "Nebius Token Factory",
+  "kind": "vendor",
+  "short": "Nebius AI Cloud inference platform for open-weight models, with a one-time trial credit on first sign-up.",
+  "officialUrl": "https://nebius.com",
+  "hosts": ["tokenfactory.nebius.com", "docs.tokenfactory.nebius.com"],
+  "catalogUrl": "https://tokenfactory.nebius.com/endpoints",
+  "plans": [
+    {
+      "name": "Trial credit",
+      "price": "$1",
+      "notes": "One-time $1 trial credit on first sign-up, valid for 30 days. Billing setup (bank card) is mandatory during onboarding before the credit can be used.",
+      "evidenceUrl": "https://docs.tokenfactory.nebius.com/other-capabilities/billing-new.md"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per token",
+      "notes": "Serverless endpoints billed by token usage; promo codes can add free credits.",
+      "evidenceUrl": "https://docs.tokenfactory.nebius.com/other-capabilities/billing-new.md"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "qwen-3.5-397b",
+    "gpt-oss-120b",
+    "gemma-4-31b",
+    "minimax-m3",
+    "glm-5.2"
+  ]
+}

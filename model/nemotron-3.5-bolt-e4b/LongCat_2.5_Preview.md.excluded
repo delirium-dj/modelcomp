@@ -1,0 +1,71 @@
+# Nemotron 3.5 Bolt E4B — findings by LongCat 2.5 Preview
+
+- Source: NVIDIA/Nemotron-3.5-Bolt-E4B
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION — announced but not yet released. NVIDIA scheduled the
+> Nemotron 3.5 Bolt E4B 4GB for 2026-10-23; as of 2026-10-21 there are no
+> weights, no specs and no benchmarks. Per `tasks/research.md` rule 9 and the
+> template's SELF-EXCLUSION block, this report is filed as `.md.excluded`
+> (notes only; scores inside are ignored by `pnpm sync`). No placeholder
+> numbers are invented.
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's announced ~4GB-class edge model for fast conversational and physical agents on GeForce RTX, Jetson and RTX/DGX Spark. Scheduled for release 2026-10-23; no weights, specs or benchmarks published yet.
+- **Provider / access:** Not released. Expected open weights under the Bolt family (OpenMDW-1.1) once shipped; no Hugging Face repo resolves yet.
+- **Release / knowledge:** Announced 2026-10-15; scheduled release 2026-10-23.
+- **IDs:** none resolve yet (`opencode/nemotron-3.5-bolt-e4b` is a tracked placeholder).
+- **Context window:** Not published.
+- **Modalities:** text in/out expected (voice implied by positioning, not specified).
+- **Pricing (as of 2026-10-21):** Not published; Bolt-family open weights expected to be self-host-free.
+- **Architecture:** undisclosed; the sibling Bolt 74B-A9B uses a Mamba-2–Transformer hybrid LatentMoE with a C-RADIO v4-H vision encoder — not confirmed for E4B.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found (unreleased)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported.
+
+### Notes (why no scores)
+
+- NVIDIA's own blog and newsroom state plainly: "Super VL and Bolt 74B-A9B are available now, with Bolt E4B coming Oct. 23." (https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+- Multiple outlets (Yahoo Finance, VentureBeat, News.az, tech-insider.org) repeat the 2026-10-23 date and note that NVIDIA published no benchmark scores for the E4B, so performance claims remain unconfirmed pending release and independent testing.
+- The sibling Nemotron 3.5 Bolt 74B-A9B 24GB (a separate, released model) has its own technical report and benchmarks — but those belong to a different product and must not be attributed to the E4B.
+- As of the run date the E4B is a documented absence: an announced product with no measurable artifact.
+
+No normalized 1–100 scores are assigned.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-21
+- Method: public internet research (NVIDIA blog + newsroom, NVIDIA Nemotron research pages for the released Bolt 74B-A9B, Hugging Face `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16`, Yahoo Finance, VentureBeat, News.az, tech-insider.org); the E4B is unreleased with no benchmarks, so this is a self-exclusion.
+- Future sources: once the E4B ships (expected 2026-10-23), a new scored `LongCat_2.5_Preview.md` should be written next to this file.

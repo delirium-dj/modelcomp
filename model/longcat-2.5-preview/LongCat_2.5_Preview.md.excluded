@@ -1,0 +1,73 @@
+# LongCat 2.5 Preview — findings by LongCat 2.5 Preview
+
+- Source: Meituan/LongCat-2.5-Preview
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION — no verified public benchmark numbers found for this exact
+> model/ID. Per `tasks/research.md` Step 3.3 / rule 9 and the template's
+> SELF-EXCLUSION block, this report is filed as `.md.excluded` (notes only;
+> scores inside are ignored by `pnpm sync`). No placeholder numbers are
+> invented.
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's API-only hosted preview (released 2026-09-25) of its next LongCat generation — a natively multimodal MoE (1.6T total / ~48B active) with a 1M-token context, positioned for long-horizon coding/agent work across terminals, browsers, GUIs, spreadsheets and design tools. Not the open-weight LongCat 2.0.
+- **Provider / access:** Hosted API on the LongCat platform (`meituan/longcat-2.5-preview`), OpenCode Zen free slot `longcat-2.5-preview-free`, Blackbox AI `blackboxai/meituan/longcat-2.5-preview`, Nous Portal `meituan/longcat-2.5-preview:free`. OpenAI-compatible Chat Completions. Closed weights.
+- **Release / knowledge:** Released 2026-09-25; knowledge cutoff not published.
+- **IDs:** `meituan/longcat-2.5-preview`; Zen free slot `longcat-2.5-preview-free`.
+- **Context window:** 1,048,576 (1M); 131,072 max output (OpenCode Data model facts, Blackbox spec sheet).
+- **Modalities:** text, image in; text out. Reasoning and tool calling supported.
+- **Pricing (as of 2026-10-21):** $0.30 in / $1.20 out per 1M, $0.006 cached read (limited-time price); free at OpenCode Zen and Nous Portal while the slots last.
+- **Architecture:** natively multimodal mixture-of-experts, 1.6T total / ~48B active (BenchmarkList / explainx positioning); closed weights, no model card.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (not on the AA leaderboard)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval (RULER / MRCR / GraphWalks) reported.
+
+### Notes (why no scores)
+
+- Meituan published no benchmarks for this preview; BenchmarkList records **0 benchmark rows** and states explicitly: "Meituan published no benchmarks for this preview, so its claims rest on positioning... No independent evaluation had been confirmed when it was imported." (https://benchmarklist.com/models/meituan-longcat-2.5-preview/)
+- LLMperks: "This model is not on the Artificial Analysis leaderboard yet." (https://www.llmperks.com/longcat/longcat-2-5-preview)
+- The only public qualitative coverage is a hands-on write-up (aichina.news, 2026-10-08) that plugged the preview into Claude Code for three coding tasks and concluded "usable, cheap enough, but not yet fast enough" — no measured benchmark numbers. LongCat's own change log lists capabilities only (multimodal understanding, coding, Claude Code compatibility), no figures. (https://longcat.chat/platform/docs/ChangeLog.html)
+- LongCat 2.0 (the open-weight predecessor, a separate tracked folder) does have vendor benchmarks (SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8) — but those belong to `model/longcat-2.0/` and must not be silently merged into this preview's scores.
+- OpenCode usage telemetry (8.4T tokens, #8 by tokens, 252K users over 2 months) is adoption data, not a benchmark, and is not scored.
+
+No normalized 1–100 scores are assigned; the model is treated as unmeasured.
+
+---
+
+## Signature
+
+- Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-21
+- Method: public internet research (BenchmarkList, LLMperks, OpenCode Data, Blackbox AI spec sheet, LongCat platform change log/pricing docs, aichina.news hands-on, explainx); no verified benchmark numbers exist, so this is a self-exclusion.
+- Future sources: if benchmarks are later published, a new scored `LongCat_2.5_Preview.md` should be written next to this file.

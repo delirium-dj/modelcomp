@@ -1,58 +1,74 @@
-# DeepSeek V4 Flash Vision Exp — findings by Step 5 Preview
+# DeepSeek V4 Vision Exp — findings by Step 5 Preview
 
-- Source: DeepSeek (`deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: DeepSeek / DeepSeek-V4-Flash-Vision-Exp (`opencode/deepseek-v4-vision-exp`)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek-V4-Flash-Vision-Exp (2026-08-21 — DeepSeek's first experimental multimodal model in the V4 family)
-- **Short description:** The V4-Flash architecture (284B total / 13B active sparse MoE, 1M context) plus visual modules and continued training — and the pitch is "vision at the Flash price with zero text loss": identical rate card to the text model, image input capped at **384 tokens per image** (images are resized to ~800×800 before tokenization, so a 2000×2000 and a 5000×5000 photo bill the same — measured 348 tokens), up to 600 images per request, and text-side agent/reasoning scores unchanged. On multimodal agent benchmarks it approaches Claude Opus 4.8 and beats it on 3 of 11 rows (ZeroBench Pass@5 35.0 vs 34.0; ApexBench 36.5 vs 39.4; Agents' Last Exam 27.3 vs 25.7). Practical caveat from developers: the 800×800 downscale quietly breaks dense OCR — tile small text before sending.
-- **Provider / access:** DeepSeek API only (experimental; `-exp` makes no stability promise; DeepSeek's pricing page notes the legacy `deepseek-v4-flash-vision-exp` name is now served by V4.1-Flash), plus OpenRouter/DeepInfra/GMICloud/SiliconFlow/Novita.
-- **Release:** 2026-08-21.
-- **Context window:** 1,048,576 tokens; max output 384K; 2,500 concurrency (same as Flash, 5× Pro's).
-- **Modalities:** Text and image in → text out; thinking on by default at effort `high` (costs 80 extra template tokens per call); JPEG/PNG/GIF/WebP via base64, URL or Files API.
-- **Pricing (as of 2026-10-19):** identical to V4-Flash — off-peak $0.22/M input, $0.66/M output, $0.007 cache; peak $0.44/$1.32/$0.014 (AA measures the peak card with a 97% cache discount, blended $0.23, ~$1.04 per Index task); an image costs ~$0.0001–0.00015 (~11,800 images per dollar at peak input).
-- **Architecture:** same sparse MoE as V4-Flash (13B active/284B), with vision encoder + aligner and DFlash/DFlash2 attention.
+- **Name:** DeepSeek V4 Vision Exp (DeepSeek-V4-Flash-Vision-Exp)
+- **Short description:** DeepSeek's first experimental multimodal model in the V4 family — the V4-Flash architecture plus visual modules and continued training (305B, MIT), improving multimodal agent capability over V4-Flash-0731 while holding text-agent performance; ZeroBench 35.0% tops Opus 4.8's 34.0%.
+- **Provider / access:** Open weights on Hugging Face (`deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`, MIT license); DeepInfra inference provider ("NEW" listing); vLLM/SGLang serving with the `deepseek_v4` tool-call + reasoning parsers and DSpark speculative decoding; free Zen tier per catalog (unverified in this research).
+- **Release / knowledge:** experimental checkpoint; HF repo updated 2026-09-01 (V4-Flash-0731 base 2026-07-31); knowledge cutoff not published.
+- **IDs:** `deepseek-ai/DeepSeek-V4-Flash-Vision-Exp` (HF + DeepInfra); `opencode/deepseek-v4-vision-exp` (Zen catalog slug).
+- **Context window:** not stated on the model card; catalog metadata lists 200K (unverified in this research) — scored on the 200K claim with that caveat.
+- **Modalities:** image + text in; text out; reasoning (max-effort evaluable); tool calling (`--tool-call-parser deepseek_v4`).
+- **Pricing (as of 2026-10-21):** MIT open weights — free self-host; hosted DeepInfra listing live, price not captured in this research; Zen free-tier access per catalog (unverified here).
+- **Architecture:** 305B-parameter MoE (V4-Flash base) + vision encoder + aligner; DFlash attention, Hyper-Connections, DSpark speculative path; BF16/FP8/I8 weights; serves on a single 4×GB300 node for vLLM.
 
 ### Raw benchmarks found
 
-Vendor (DeepSeek Harness minimal mode, max effort; V4-Flash-0731 / Opus-4.8 in parentheses):
+Official DeepSeek model card (DeepSeek Harness, minimal mode, max reasoning effort, temp=1.0, top_p=0.95; Opus-4.8 reference from the same table):
 
-Text agent capabilities:
+Agent / tool use (text-agent rows):
 
-- Terminal-Bench 2.1: **83.9** (82.7 / 85.0); NL2Repo: **57.7** (54.2 / 69.7); CyberGym: **75.3** (76.7 / 78.3)
-- DeepSWE: **59.3** (54.4 / 58.0 — beats Opus 4.8); Toolathlon-Verified: **75.9** (70.3 / 76.2)
-- DSBench-Hard: **63.6** (59.6 / 71.7); AutomationBench (Public): **25.7** (25.1 / 27.2)
+- Terminal-Bench 2.1: **83.9%** (ref: Opus-4.8 85.0%, V4-Flash-0731 82.7%)
+- Toolathlon-Verified: **75.9%** (ref: Opus-4.8 76.2%, V4-Flash-0731 70.3%)
+- Cybergym: **75.3%** (ref: Opus-4.8 78.3%, V4-Flash-0731 76.7%)
+- DeepSWE: **59.3%** (ref: Opus-4.8 58.0% — beats the reference, V4-Flash-0731 54.4%)
+- DSBench-Hard: **63.6%** (ref: Opus-4.8 71.7%)
+- NL2Repo: **57.7%** (ref: Opus-4.8 69.7%)
+- AutomationBench (Public): **25.7%** (ref: Opus-4.8 27.2%)
+- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / MCP-Atlas: no verified public score found
 
-Multimodal agent capabilities:
+Multimodal agent rows:
 
-- ApexBench (Pass@1): **36.5** (26.2† / 39.4); Agents' Last Exam: **27.3** (25.2† / 25.7 — beats Opus 4.8)
-- Chartography: **64.3** (Opus 4.8 65.0); ZeroBench (Pass@5): **35.0** (Opus 4.8 34.0)
-- † the text-only V4-Flash ignores the multimodal elements on those two evals
+- ApexBench (Pass@1): **36.5%** (ref: Opus-4.8 39.4%; V4-Flash-0731 26.2% ignores multimodal input)
+- Agents' Last Exam: **27.3%** (ref: Opus-4.8 25.7% — beats the reference, V4-Flash-0731 25.2%†)
+- Chartography: **64.3%** (ref: Opus-4.8 65.0%)
+- ZeroBench (Pass@5): **35.0%** (ref: Opus-4.8 34.0% — beats the reference)
 
-Third-party:
+Reasoning / knowledge:
 
-- Artificial Analysis (OpenRouter, Max effort): Intelligence Index **34.8** — **re-confirmed 2026-10-19 at 35 (#15/173 in class, class median 13)**; Coding Index **65.0**; Agentic Index **47.5**; GPQA Diamond **91.3%**; HLE **34.5%**; AA-LCR **81.3%**; τ-Bench Banking **41.0%**; GDPval-AA **52.4%**; CritPt 10.9%; SciCode **49.7%**; TB 2.1 **74.2%**; TB Hard; TB 4.0 12.1%; AA-Omniscience 38.6% accuracy / 8.5% non-hallucination. **New in the re-run:** 198.8 tok/s (#24/151), 1.55 s TTFT, 3 providers; the AA GDPval-AA v2.1 leaderboard places V4 Flash Vision (Max) at **Elo 1547 (#44/298)** — consistent with the 52.4% normalized reading above
-- LiveBench (AA): reasoning **85.40**, mathematics **87.81**, instruction following **70.96**
-- OpenRouter AutoExacto: GPQA Diamond 87.9–91.2%, TAU-Bench 74.2–78.1% (auto-routing 88.0/75.4)
-- Traictory average 50.4%; llmboard aggregate 72.57
+- GPQA Diamond / HLE / LCR / CritPt / Intelligence Index: no verified public score found for this exact checkpoint (the card publishes none)
+- Agents' Last Exam 27.3% and ZeroBench 35.0% (above) are the only published reasoning-adjacent numbers
+
+Coding:
+
+- DeepSWE: **59.3%** (listed above — mid-band)
+- Terminal-Bench 2.1: **83.9%** (listed above — strong)
+- NL2Repo: **57.7%** (listed above — mid)
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
+
+Long context:
+
+- No MRCR / RULER / GraphWalks / LCR retrieval-at-length figure published; window itself unverified (catalog 200K claim).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** Toolathlon-Verified 75.9%, TB 2.1 83.9% (74.2% independent), τ-Bench Banking 41.0% (vs Flash's ~26.7%), GDPval-AA 52.4% and AA Agentic Index 47.5% — a strong agentic profile from 13B active, held below the frontier band by AutomationBench 25.7% and the vendor-vs-independent TB gap.
-- **Reasoning: 78/100.** GPQA Diamond 91.3% (AA) and LiveBench reasoning 85.4 / math 87.8 are upper-mid-band; HLE 34.5%, AA Intelligence Index 34.8 and Omniscience 8.5% non-hallucination cap it below the frontier tier.
-- **Context window: 90/100.** A 1M-token window (same hybrid CSA+HCA attention as the rest of V4) with AA-LCR at 81.3% — genuinely strong long-context reasoning, just under the ≥98%-retrieval evidence the top band requires.
-- **Multimodal: 82/100.** Text + image in → text out is the 75–90 band, near its top: ZeroBench Pass@5 35.0 (beats Opus 4.8), ApexBench 36.5 (vs Pro's 38.3), Chartography 64.3, and multimodal-agent scores approaching Opus 4.8 overall — with the documented 384-token/800×800 image ceiling as the structural limit (no video input).
-- **Coding: 74/100.** DeepSWE 59.3% (ahead of Opus 4.8's 58.0 in the vendor table), TB 2.1 83.9%, NL2Repo 57.7%, SciCode 49.7% and AA Coding Index 65.0% — near-frontier agentic coding at 13B active; NL2Repo trails Opus 4.8 by 12 points.
-- **Cost efficiency: 96/100.** Identical pricing to the text Flash tier ($0.22/$0.66 off-peak, images effectively free at ≤384 tokens) with 1M context and 2,500 concurrency — near the methodology's ~$0.1/$0.2 ≈ 97–99 tier; the experimental status and text-only legacy-name retirement are the caveats.
-- **Overall Score: 80/100.** Best-fit recommendation: the cheapest multimodal agent on the market — Opus-4.8-adjacent multimodal agent benchmarks, 91% GPQA and 1M context at $0.22/$0.66 with image input that costs a rounding error; experimental (`-exp`), image-only (no video), and the 800×800 resize means dense OCR needs tiling.
+- **Tool use: 82/100.** Terminal-Bench 2.1 83.9% and Toolathlon-Verified 75.9% / Cybergym 75.3% are strong agentic numbers that hold text-agent parity with V4-Flash; capped by NL2Repo 57.7%, DSBench-Hard 63.6%, AutomationBench 25.7% and a mid 36.5% ApexBench — and by no Tau3/GDPval/Claw-Eval numbers in any harness.
+- **Reasoning: 62/100.** No GPQA/HLE/CritPt/Index figure is published for this checkpoint; the available proxies — Agents' Last Exam 27.3%, ZeroBench Pass@5 35.0%, Chartography 64.3% — sit in the mid reference bands, so the score is a provisional mid-band interpretation, not a frontier read.
+- **Context window: 70/100.** The model card states no window; the catalog's 200K claim is scored at the 200K=70 tier point and explicitly flagged unverified — a verified shorter/longer window would move this score materially.
+- **Multimodal: 68/100.** Image + text input with text out (image-in tier 60–70); ZeroBench 35.0% beating Opus-4.8 (34.0%) and Agents' Last Exam 27.3% vs 25.7% are genuine vision strengths, but there is no video/audio input and no non-text output.
+- **Coding: 74/100.** Terminal-Bench 2.1 83.9% is the standout, and DeepSWE 59.3% edges the Opus-4.8 reference (58.0%); capped by NL2Repo 57.7% (vs Opus 69.7%) and no published SWE-bench Verified / LiveCodeBench / SciCode numbers.
+- **Cost efficiency: 95/100.** MIT-licensed 305B open weights (free self-host, INT4/FP8 quants available) put the floor at $0; the DeepInfra hosted price and the claimed Zen free tier are unverified here, so the score leans on the free self-host lane.
+- **Overall Score: 71/100.** Mean of (82 + 62 + 70 + 68 + 74) / 5 = 71.2 → 71. Best fit: an experimental open-weight image-to-code / visual-agent checkpoint to self-host and evaluate — strong vision-agent behavior for an MIT model, but its unverified context window and missing text-reasoning numbers keep it off the frontier shelf.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis model page re-confirms Intelligence Index 35 (#15/173 in class), 198.8 tok/s, 1.55 s TTFT, $0.44/$1.32 peak (97% cache discount), 1M window, 284B params, text+image in, 3 providers, released 2026-08-21; the AA GDPval-AA v2.1 leaderboard reads Elo 1547 (#44/298) — consistent with the earlier 52.4% normalized figure. No score change warranted — the existing Tool use 74 / Reasoning 78 / Context 90 / Multimodal 82 / Coding 74 reads all confirmed; this remains an experimental (`-exp`) image-only model whose legacy name is now served by V4.1-Flash. Prior pass (2026-10-10) re-checked AA-via-OpenRouter and rankllms.com composites; the first pass used DeepSeek's HF model card + API vision/pricing docs, AA via OpenRouter, Ofox and Rohit Raj image-cost measurements, SeaWhale/Traictory/llm-stats.
-- Future sources: add a new file next to this one, e.g. `DeepSeek_V4_1_Vision.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (DeepSeek official HF model card + benchmark table, Hugging Face inference-provider listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

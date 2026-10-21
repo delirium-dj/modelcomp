@@ -1,0 +1,37 @@
+{
+  "name": "Weights & Biases",
+  "kind": "aggregator",
+  "short": "W&B Serverless Inference (now CoreWeave Forge) on Free/Pro/Academic plans, with promotional inference credits for a limited time.",
+  "officialUrl": "https://wandb.ai",
+  "hosts": ["wandb.ai", "site.wandb.ai", "docs.wandb.ai", "coreweave.com"],
+  "catalogUrl": "https://site.wandb.ai/pricing/inference",
+  "plans": [
+    {
+      "name": "Free plan credits",
+      "price": "$0",
+      "notes": "Serverless Inference credits are included with Free, Pro, and Academic plans for a limited time. Free accounts must activate pay-as-you-go or upgrade once credits run out. Default free-tier spending cap is $100/month.",
+      "evidenceUrl": "https://docs.wandb.ai/inference/usage-limits"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Model-specific rates after credits are exhausted or PAYG is activated; CoreWeave bills Pro overages monthly.",
+      "evidenceUrl": "https://site.wandb.ai/pricing/inference"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "deepseek-v4-pro",
+    "deepseek-v4-flash",
+    "glm-5.3-flash",
+    "glm-5.2",
+    "minimax-m3",
+    "kimi-k2.7-code",
+    "kimi-k2.6",
+    "nemotron-3.5-lightning-free",
+    "nemotron-3-ultra-free",
+    "gemma-4-31b",
+    "qwen-3.8-27b",
+    "gpt-oss-120b"
+  ]
+}
