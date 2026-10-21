@@ -3,7 +3,7 @@
   "kind": "vendor",
   "short": "Qwen models via Alibaba Cloud Model Studio (international and China-region rate cards) plus Apache-2.0 open weights.",
   "officialUrl": "https://www.alibabacloud.com",
-  "hosts": ["alibabacloud.com", "dashscope.aliyuncs.com", "modelstudio.console.alibabacloud.com"],
+  "hosts": ["alibabacloud.com", "dashscope.aliyuncs.com", "modelstudio.console.alibabacloud.com", "qwenlm.github.io"],
   "idPrefixes": ["alibaba", "Qwen"],
   "plans": [
     {

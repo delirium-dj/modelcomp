@@ -1,0 +1,66 @@
+{
+  "name": "GitHub",
+  "kind": "aggregator",
+  "short": "GitHub Copilot subscriptions, bundling first-party MAI-Code models with Claude, GPT, Gemini, Grok and Kimi under GitHub AI Credits.",
+  "officialUrl": "https://github.com/features/copilot",
+  "hosts": ["github.com"],
+  "catalogUrl": "https://github.com/features/copilot/plans",
+  "covers": [
+    "claude-fable-5",
+    "claude-fable-5.1",
+    "claude-haiku-4.5",
+    "claude-haiku-5.5",
+    "claude-sonnet-4",
+    "claude-sonnet-4.6",
+    "claude-sonnet-5",
+    "claude-sonnet-5.5",
+    "claude-opus-4.8",
+    "claude-opus-5",
+    "claude-opus-5.5",
+    "gpt-5.2",
+    "gpt-5.3-codex",
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "gpt-5.5",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-6-astra",
+    "gpt-6-luna",
+    "gpt-6-sol",
+    "gpt-6.1-sol",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "gemini-4-argon",
+    "grok-4.5",
+    "grok-4.6",
+    "grok-4.7",
+    "kimi-k3"
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "Limited chat and agent usage; 2,000 completions and 50 chat requests per month.",
+      "evidenceUrl": "https://github.com/features/copilot/plans"
+    },
+    {
+      "name": "Pro",
+      "price": "$10/month",
+      "notes": "$15/month of GitHub AI Credits ($10 base + $5 flex); unlimited completions; 1 credit = $0.01.",
+      "evidenceUrl": "https://github.com/features/copilot/plans"
+    },
+    {
+      "name": "Pro+",
+      "price": "$39/month",
+      "notes": "$70/month of GitHub AI Credits ($39 base + $31 flex); delegate tasks to third-party coding agents.",
+      "evidenceUrl": "https://github.com/features/copilot/plans"
+    },
+    {
+      "name": "Max",
+      "price": "$100/month",
+      "notes": "$200/month of GitHub AI Credits ($100 base + $100 flex) for sustained agent workflows.",
+      "evidenceUrl": "https://github.com/features/copilot/plans"
+    }
+  ]
+}

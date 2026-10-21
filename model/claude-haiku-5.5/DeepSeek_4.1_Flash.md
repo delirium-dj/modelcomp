@@ -1,9 +1,11 @@
 # Claude Haiku 5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Haiku 5.5 (`claude-haiku-5-5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-haiku-5-5`, 35 rows) computes an overall **67.23/100 (#26 of 972)** and confirms the launch profile while adding independent rows: ARC-AGI-1 89.00%, ARC-AGI-2 61.3%, MLCR-AA 63.3%, GDPval-AA 1620 / 55.9%, AA-AnalystAgent 53.8%, FrontierMath v2 75.09%/46.34%, AA-SciCode 55.0%, AA-Omniscience Accuracy 36.4% / Hallucination 40.4%. **No score change** (Tool 79 / Reasoning 78 / Context 94 / Multimodal 75 / Coding 82 / Cost 90 / Overall 82).
 
 ## Model card
 
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across BenchLM, the LLM Stats Haiku 5.5 launch review (Anthropic launch table + system card), Artificial Analysis and Anthropic's own materials. All launch scores are Anthropic self-reported and not independently verified; normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `claude-haiku-5-5` and Artificial Analysis), cross-checked across the Anthropic Haiku 5.5 launch table + system card and LLM Stats; normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

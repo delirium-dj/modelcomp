@@ -1,0 +1,23 @@
+{
+  "name": "LongCat",
+  "kind": "vendor",
+  "short": "Meituan's LongCat model family, served through the LongCat API Platform with OpenAI-, Responses- and Anthropic-compatible endpoints.",
+  "officialUrl": "https://longcat.chat",
+  "hosts": ["longcat.chat", "longcat.ai"],
+  "catalogUrl": "https://longcat.chat/platform/docs/pricing/longcat-2.5",
+  "covers": ["longcat-2.5", "longcat-2.5-preview"],
+  "plans": [
+    {
+      "name": "LongCat-2.5-Preview — pay-as-you-go",
+      "price": "$0.30 in / $1.20 out per 1M",
+      "notes": "Limited-time discounted rate; cached input $0.006/1M.",
+      "evidenceUrl": "https://longcat.chat/platform/docs/pricing/longcat-2.5"
+    },
+    {
+      "name": "LongCat-2.0 — pay-as-you-go",
+      "price": "$0.30 in / $1.20 out per 1M",
+      "notes": "Limited-time discounted rate; cached input $0.006/1M.",
+      "evidenceUrl": "https://longcat.chat/platform/docs/pricing/longcat-2.0"
+    }
+  ]
+}

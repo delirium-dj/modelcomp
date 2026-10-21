@@ -1,9 +1,11 @@
 # Qwen3.5-397B-A17B — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen3.5-397B-A17B (`Qwen/Qwen3.5-397B-A17B`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-5-397b`, 73 rows) computes an overall **55.39/100 (#66 of 972)** and confirms the first draft, adding independent rows: τ²-bench 83.9%, τ³ 68.4%, Claw-Eval 56.8%, MCP Atlas 46.1%, OSWorld-Verified 62.2%, SWE-bench Verified 76.2%, SWE-bench Pro 50.9%, LiveCodeBench 83.6%, AA-GPQA 86.1%, AA-LCR 64.3%, CritPt 0.9%, MMMU 85.0%, MMMU-Pro 79.0% (AA-MMMU-Pro 52.7%). Note: BenchLM's `-non-reasoning` variant is listed at 128K context vs the HF card's 262K→1.01M — both noted. **No score change** (Tool 78 / Reasoning 82 / Context 88 / Multimodal 80 / Coding 76 / Cost 90 / Overall 81).
 
 ## Model card
 
@@ -59,6 +61,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research, cross-checked across the Hugging Face model card, Artificial Analysis, Vals AI, BenchmarkList, Epoch and LLM Stats. Note `397B` is a parameter count, not a version; self-reported vs independent rows are labelled and AA-Index conflicts surfaced. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

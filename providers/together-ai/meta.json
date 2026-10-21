@@ -1,0 +1,58 @@
+{
+  "name": "Together AI",
+  "kind": "aggregator",
+  "short": "Together's serverless inference, provisioned capacity and dedicated GPUs for open models — one API over Kimi, Qwen, DeepSeek, GLM and more.",
+  "officialUrl": "https://www.together.ai",
+  "hosts": ["together.ai", "api.together.xyz"],
+  "catalogUrl": "https://www.together.ai/models",
+  "plans": [
+    {
+      "name": "Serverless Inference",
+      "price": "$3.00 in / $15.00 out per 1M (Kimi K3)",
+      "notes": "Per-model rates with cached-input discounts; Qwen3.8 Max $2.00/$6.00, DeepSeek V4 Pro $1.32/$3.96.",
+      "evidenceUrl": "https://www.together.ai/pricing"
+    },
+    {
+      "name": "Provisioned Throughput",
+      "price": "Per PTU/minute",
+      "notes": "Reserve fixed capacity in throughput units; delivered tokens-per-minute depends on the model and token type.",
+      "evidenceUrl": "https://www.together.ai/pricing"
+    },
+    {
+      "name": "Dedicated Inference",
+      "price": "$5.49/GPU-hour (H100)",
+      "notes": "Single-tenant on-demand endpoints; B200 $8.99/GPU-hour, reserved capacity via sales.",
+      "evidenceUrl": "https://www.together.ai/pricing"
+    },
+    {
+      "name": "Fine-Tuning",
+      "price": "From $0.34/1M training tokens",
+      "notes": "LoRA or full supervised fine-tuning and DPO; $4 minimum charge on small models.",
+      "evidenceUrl": "https://www.together.ai/pricing"
+    }
+  ],
+  "covers": [
+    "beam",
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "deepseek-v4.1-flash",
+    "gemma-4-31b",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-oss-120b",
+    "Inkling",
+    "kimi-k3",
+    "minimax-m2.7",
+    "minimax-m3",
+    "muse-glimmer-30b",
+    "nemotron-3.5-super-vl",
+    "qwen-3.5-397b",
+    "qwen-3.5-9b",
+    "qwen-3.6-plus",
+    "qwen-3.7-max",
+    "qwen-3.7-plus",
+    "qwen-3.8-flash",
+    "qwen-3.8-max"
+  ]
+}

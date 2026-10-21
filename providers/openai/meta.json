@@ -3,7 +3,7 @@
   "kind": "vendor",
   "short": "GPT and Codex models direct from OpenAI's API.",
   "officialUrl": "https://openai.com",
-  "hosts": ["openai.com", "platform.openai.com"],
+  "hosts": ["openai.com", "platform.openai.com", "developers.openai.com"],
   "idPrefixes": ["openai"],
   "plans": [
     {

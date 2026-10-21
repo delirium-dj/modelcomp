@@ -1,0 +1,63 @@
+# GLM 5.3 Flash — findings by Muse Glimmer 30B
+
+- Source: Z.AI / GLM 5.3 Flash
+- Date: 2026-10-20
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** GLM 5.3 Flash
+- **Short description:** Z.ai’s 320B/18B-active Flash MoE for ultra-fast agentic coding. Per meta.json short description: “ultra-fast agentic coding from Z.ai’s Flash MoE — MIT weights, 1M context, and a track record of previewing anonymously at the top of blind coding arenas.” No verified public release date or knowledge cutoff confirmed.
+- **Provider / access:** OpenCode Zen `opencode/glm-5.3-flash` via `https://opencode.ai/inference/openai/v1/chat/completions`; official site https://open.zhipuai.cn/. Chat Completions API.
+- **Release / knowledge:** no verified public release date found; knowledge cutoff not publicly documented.
+- **IDs:** opencode/glm-5.3-flash
+- **Context window:** 204K per meta.json `contextWindow`. Meta short description mentions 1M context; no verified public measurement found for the Flash SKU.
+- **Modalities:** Text in/out per meta.json `modalities`.
+- **Pricing (as of 2026-10-20):** OpenCode Console pricing $0.15 / 1M input, $0.50 / 1M output, $0.03 / 1M cached read. meta.json notes “Free Zen tier available”.
+- **Architecture:** 320B total / 18B active MoE per meta short description; weights described as MIT in meta short description. No verified public architecture sheet found.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION (mandatory): zero verified public benchmark numbers were found for GLM 5.3 Flash via fresh web research. Every benchmark row below reads “no verified public score found”. Per model-report-TEMPLATE.md and RULES.md, a scored .md file would be fabricated; this file is saved as .md.excluded with negative-findings notes only. Scores are ignored.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no long-context retrieval reported with a verified public source for this exact ID.
+
+### Normalized scores (1–100)
+
+Scores are intentionally omitted under SELF-EXCLUSION. No verified public benchmark numbers were found to derive Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, or Overall Score. The file is quarantined as .md.excluded per `model-report-TEMPLATE.md` § SELF-EXCLUSION.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: fresh public web research via webfetch; meta.json used for model-card basics only. No verified public benchmark numbers located for this exact model/ID.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

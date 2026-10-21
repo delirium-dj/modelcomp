@@ -1,0 +1,71 @@
+{
+  "name": "Novita AI",
+  "kind": "aggregator",
+  "short": "Novita's serverless model API and GPU cloud — 200+ open models with per-token billing, dedicated endpoints and agent sandboxes.",
+  "officialUrl": "https://novita.ai",
+  "hosts": ["novita.ai"],
+  "catalogUrl": "https://novita.ai/models",
+  "plans": [
+    {
+      "name": "Serverless Endpoints",
+      "price": "Per-token, per-model rates",
+      "notes": "e.g. DeepSeek V4.1 Flash $0.30/$1.20, GLM 5.3 Flash $0.15/$0.50, MiMo V2.6 Flash $0.14/$0.28 per 1M.",
+      "evidenceUrl": "https://novita.ai/pricing"
+    },
+    {
+      "name": "Dedicated Endpoints",
+      "price": "Per-GPU hourly",
+      "notes": "Reserved GPU capacity for dedicated model endpoints.",
+      "evidenceUrl": "https://novita.ai/pricing"
+    },
+    {
+      "name": "Agent Sandbox",
+      "price": "Pay-as-you-go",
+      "notes": "Secure agent runtimes alongside the model APIs.",
+      "evidenceUrl": "https://novita.ai/pricing"
+    },
+    {
+      "name": "GPU Instances",
+      "price": "On-demand or spot (50% off)",
+      "notes": "Per-second billing with scale-to-zero on the serverless GPU platform.",
+      "evidenceUrl": "https://novita.ai/gpus"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "deepseek-v4.1-flash",
+    "gemma-4-31b",
+    "gemma-4.26b-a4b",
+    "glm-5",
+    "glm-5.1",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-oss-120b",
+    "hy3",
+    "hy4",
+    "kimi-k2.5",
+    "kimi-k2.6",
+    "kimi-k2.7-code",
+    "kimi-k3",
+    "ling-3.0-flash",
+    "ling-3.0-flash-sante",
+    "ling-3.0-flash-vl",
+    "ling-3.1-flash",
+    "mimo-v2.6-flash",
+    "mimo-v2.6-pro",
+    "minimax-m2.5",
+    "minimax-m2.7",
+    "minimax-m3",
+    "qwen-3.5-122b-a10b",
+    "qwen-3.5-27b",
+    "qwen-3.5-35b-a3b",
+    "qwen-3.5-397b",
+    "qwen-3.7-max",
+    "qwen-3.8-27b",
+    "qwen-3.8-flash",
+    "qwen-3.8-max",
+    "step-5-preview"
+  ]
+}

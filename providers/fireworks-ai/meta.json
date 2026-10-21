@@ -1,0 +1,27 @@
+{
+  "name": "Fireworks AI",
+  "kind": "aggregator",
+  "short": "Serverless and dedicated inference for open models, billed per token or per GPU-second with optional managed fine-tuning.",
+  "officialUrl": "https://fireworks.ai",
+  "hosts": ["fireworks.ai"],
+  "plans": [
+    {
+      "name": "Serverless Inference",
+      "price": "pay-per-token (prepaid credits)",
+      "notes": "No subscription; billed on input, cached and output tokens, with Auto Reload or a monthly spend cap.",
+      "evidenceUrl": "https://fireworks.ai/pricing"
+    },
+    {
+      "name": "On-demand deployments",
+      "price": "from $8.00/GPU-hour",
+      "notes": "H100/H200 $8.00, B200 $13.00, B300 $15.00 and GB300 $20.00 per hour; billed per GPU-second.",
+      "evidenceUrl": "https://fireworks.ai/pricing"
+    },
+    {
+      "name": "Managed fine-tuning",
+      "price": "from $0.50 per 1M training tokens",
+      "notes": "LoRA SFT for models up to 16B; full-parameter DPO for >300B models reaches $40 per 1M training tokens.",
+      "evidenceUrl": "https://fireworks.ai/pricing"
+    }
+  ]
+}

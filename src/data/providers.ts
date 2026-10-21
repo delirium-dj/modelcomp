@@ -28,6 +28,10 @@ export interface ProviderMeta {
   officialUrl?: string;
   hosts?: string[];
   idPrefixes?: string[];
+  /** Model slugs the provider sells, for catalogs model metas do not cite. */
+  covers?: string[];
+  /** Official catalog page backing `covers` (claim culture). */
+  catalogUrl?: string;
   plans: ProviderPlan[];
 }
 
@@ -67,17 +71,27 @@ function hostOf(url: string): string | undefined {
 function matchModels(meta: ProviderMeta): AiModel[] {
   const prefixes = meta.idPrefixes ?? [];
   const hosts = new Set(meta.hosts ?? []);
-  const matched: AiModel[] = [];
+  const matched = new Map<string, AiModel>();
   for (const m of MODELS) {
     const prefix = m.id.split("/")[0];
     if (prefixes.includes(prefix)) {
-      matched.push(m);
+      matched.set(m.slug, m);
       continue;
     }
     const urls = [m.meta.officialUrl, ...(m.meta.pricingLinks ?? [])];
-    if (urls.some((u) => u && hostOf(u) && hosts.has(hostOf(u)!))) matched.push(m);
+    if (urls.some((u) => u && hostOf(u) && hosts.has(hostOf(u)!))) matched.set(m.slug, m);
   }
-  return matched.sort((a, b) => b.scores.overall - a.scores.overall || (a.name < b.name ? -1 : 1));
+  if (meta.covers?.length) {
+    const bySlug = new Map(MODELS.map((m) => [m.slug, m]));
+    for (const slug of meta.covers) {
+      const m = bySlug.get(slug);
+      if (m) matched.set(m.slug, m);
+      else warnOnce(`[providers] covers references unknown model slug "${slug}" — ignored`);
+    }
+  }
+  return [...matched.values()].sort(
+    (a, b) => b.scores.overall - a.scores.overall || (a.name < b.name ? -1 : 1),
+  );
 }
 
 const PROVIDER_MODULES = Object.entries(providerModules) as [string, unknown][];

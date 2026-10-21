@@ -3,7 +3,7 @@
   "kind": "vendor",
   "short": "Kimi models on Moonshot's platform, with a membership lane for the K2.8 Preview.",
   "officialUrl": "https://platform.moonshot.ai",
-  "hosts": ["platform.moonshot.ai", "kimi.com"],
+  "hosts": ["platform.moonshot.ai", "platform.kimi.ai", "kimi.com"],
   "idPrefixes": ["moonshot", "moonshotai"],
   "plans": [
     {

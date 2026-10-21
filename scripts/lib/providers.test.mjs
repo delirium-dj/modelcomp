@@ -4,7 +4,7 @@
 // (see package.json "test").
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -53,6 +53,16 @@ describe("providers/<slug>/meta.json", () => {
         }
       }
       if (meta.officialUrl !== undefined) assert.ok(meta.officialUrl.startsWith("https"), "officialUrl https");
+      if (meta.catalogUrl !== undefined) assert.ok(meta.catalogUrl.startsWith("https"), "catalogUrl https");
+      if (meta.covers !== undefined) {
+        assert.ok(Array.isArray(meta.covers) && meta.covers.length > 0, "covers must be a non-empty array");
+        assert.equal(new Set(meta.covers).size, meta.covers.length, "covers slugs must be unique");
+        assert.ok(meta.catalogUrl, "covers requires catalogUrl (claim culture)");
+        for (const slug of meta.covers) {
+          assert.ok(typeof slug === "string" && slug.length > 0, "covers entries are strings");
+          assert.ok(existsSync(join(root, "model", slug, "meta.json")), `covers slug has no model folder: ${slug}`);
+        }
+      }
     });
 
     it(`${slug}: display name is unique across providers`, () => {

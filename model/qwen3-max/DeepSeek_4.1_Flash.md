@@ -1,9 +1,11 @@
 # Qwen3-Max — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen3-Max (`qwen3-max`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-max`, 12 rows) computes an overall **39.53/100 (#144 of 972)** and adds independent rows: τ²-bench 74.3%, AA-GPQA 76.4%, AA-HLE 11.9%, AA-LCR 50.0%, CritPt 0.0%, AA Intelligence Index 15.6%, Vibe Code Bench 3.51%, AA-IFBench 44.1%, AA-Omniscience Accuracy 24.4% / Hallucination 89.9%. **No score change** (Tool 74 / Reasoning 76 / Context 72 / Multimodal 15 / Coding 72 / Cost 83 / Overall 62).
 
 ## Model card
 
@@ -54,6 +56,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across Vals AI, BenchmarkList, Artificial Analysis, LLM Stats and MarkTechPost. Independent coverage is preferred over the thin vendor table; the BenchmarkList "open weights" mislabel and the AA-Index conflict are noted rather than copied. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `qwen3-max`), cross-checked across Vals AI, BenchmarkList, Artificial Analysis, LLM Stats and MarkTechPost. Independent coverage is preferred over the thin vendor table; the BenchmarkList "open weights" mislabel and the AA-Index conflict are noted rather than copied. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

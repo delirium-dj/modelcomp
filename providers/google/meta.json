@@ -3,7 +3,7 @@
   "kind": "vendor",
   "short": "Gemini and Gemma models via Google AI Studio / the Gemini API, with Vertex AI as the enterprise lane and Antigravity as the agent-first IDE.",
   "officialUrl": "https://ai.google.dev",
-  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com", "antigravity.google"],
+  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com", "antigravity.google", "blog.google"],
   "idPrefixes": ["google"],
   "plans": [
     {

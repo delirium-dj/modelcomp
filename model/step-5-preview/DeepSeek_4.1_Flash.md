@@ -1,9 +1,11 @@
 # Step 5 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: StepFun / Step 5 Preview (`stepfun/step-5-preview`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`step-5-preview`, 44 rows) computes an overall **69.67/100 (#19 of 972)** and confirms the launch profile with independent Artificial Analysis rows: AA-HLE 46.5%, AA-LCR 88.3%, MLCR-AA 16.7%, AA-SciCode 58.9%, AA-MMMU-Pro 76.4%, AA Harvey LAB 93.4%, AA ITBench 55.6%, AA EnterpriseOps-Gym 47.2%, GDPval-AA 1566 / 54.3%; adds SWE-Marathon 72.7%, APEX-Agents 37.8%. Open weights on HF (`stepfun-ai/Step-5-Preview`). **No score change** (Tool 84 / Reasoning 83 / Context 94 / Multimodal 76 / Coding 85 / Cost 90 / Overall 84).
 
 ## Model card
 
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across BenchmarkList (per-benchmark ranks), Vals AI, Artificial Analysis references, StepFun's launch page and third-party reviews (explains.ai, cellcog, aiintelreport). Note that StepFun's launch table mixes its own runs with AA measurements; independently verified figures are preferred here. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `step-5-preview`), cross-checked across BenchmarkList, Vals AI, Artificial Analysis, the StepFun launch page and third-party reviews (explains.ai, cellcog, aiintelreport). Note that StepFun's launch table mixes its own runs with AA measurements; independently verified figures are preferred here. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

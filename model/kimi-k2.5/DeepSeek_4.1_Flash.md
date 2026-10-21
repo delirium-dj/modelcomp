@@ -1,9 +1,11 @@
 # Kimi K2.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI / Kimi K2.5 (`moonshotai/kimi-k2.5`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`kimi-k2-5`, 84 rows) computes an overall **53.03/100 (#86 of 972)** and confirms the first draft: τ²-bench 95.9%, τ³ 65.7%, Claw-Eval 52.3%, OSWorld-Verified 63.3%, SWE-bench Verified 76.8%, SWE-bench Pro 50.7%, LiveCodeBench 85.0%, GPQA 87.6%, HLE 30.1%, AA-LCR 78.0%, CritPt 3.1%, MMMU-Pro 78.5%, Video-MME 87.4%, AA-MMMU-Pro 75.4%, GDPval-AA 936 / 17.0%. **No score change** (Tool 78 / Reasoning 78 / Context 72 / Multimodal 80 / Coding 76 / Cost 90 / Overall 77).
 
 ## Model card
 
@@ -60,6 +62,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across the Hugging Face model card, Vals AI, Artificial Analysis, BenchmarkList, Epoch and LLM Stats. Self-reported vs independent rows are labelled; the AA-Index conflict (23 vs 35) is surfaced. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `kimi-k2-5`), cross-checked across the Hugging Face model card, Vals AI, Artificial Analysis, BenchmarkList, Epoch and LLM Stats. Self-reported vs independent rows are labelled; the AA-Index conflict (23 vs 35) is surfaced. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

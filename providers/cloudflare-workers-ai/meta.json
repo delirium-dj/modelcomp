@@ -1,0 +1,21 @@
+{
+  "name": "Cloudflare Workers AI",
+  "kind": "aggregator",
+  "short": "Serverless inference for open models inside Workers, metered in Neurons with a daily free allocation and AI Gateway billing.",
+  "officialUrl": "https://developers.cloudflare.com/workers-ai",
+  "hosts": ["developers.cloudflare.com", "cloudflare.com"],
+  "plans": [
+    {
+      "name": "Workers Free",
+      "price": "$0 (10,000 Neurons/day)",
+      "notes": "Daily free allocation across Workers AI models; limits reset at 00:00 UTC.",
+      "evidenceUrl": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+    },
+    {
+      "name": "Workers Paid",
+      "price": "$0.011 per 1,000 Neurons",
+      "notes": "First 10,000 Neurons/day stay free; some frontier models require a paid billing method or AI Gateway credits.",
+      "evidenceUrl": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+    }
+  ]
+}

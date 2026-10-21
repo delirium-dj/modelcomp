@@ -1,9 +1,11 @@
 # Mistral Large 4 — findings by DeepSeek 4.1 Flash
 
 - Source: Mistral AI / Mistral Large 4 (`mistral-large-4`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`mistral-large-4`, 20 rows) computes an overall **61.56/100 (#51 of 972)** and adds independent rows: AA-LCR **81.3%**, AA-HLE 35.0%, AA Intelligence Index 38.4%, Cybench 93%, Finance Agent v2 54.7%, **Vibe Code Bench 78.40%**, AA-SciCode 54.2%, AA-MMMU-Pro 76.4%, GDPval-AA 1422 / 46.1%, CritPt 10.6%. BenchLM lists **1M** context (AA still says 512K). **No score change** (Tool 82 / Reasoning 78 / Context 92 / Multimodal 74 / Coding 82 / Cost 68 / Overall 82).
 
 ## Model card
 
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across the LLM Stats Large 4 review, Artificial Analysis' independent benchmark article (Intelligence Index, Cyber Index, Cost-per-Task), Tom's Hardware / byterminal third-party coverage and Mistral's own announce/docs. Self-reported Mistral rows are labelled; the AA context-window conflict (512K vs 1M) is surfaced rather than resolved silently. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `mistral-large-4`), cross-checked across the LLM Stats Large 4 review, Artificial Analysis' independent benchmark article (Intelligence Index, Cyber Index, Cost-per-Task), Vals AI and Mistral's own announce/docs. Self-reported Mistral rows are labelled; the AA context-window conflict (512K vs 1M) is surfaced rather than resolved silently. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

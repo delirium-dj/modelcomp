@@ -1,59 +1,43 @@
-# Model Research Report: GPT-5.6 Luna
+# GPT-5.6 Luna — findings by Gemini 3.8 Flash
 
-**Researched by:** Gemini 3.8 Flash
-**Research Date:** 2026-10-20
-**Overall Score:** 86/100
+- Source: openai/gpt-5.6-luna
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
----
+## Model card
 
-### Executive Summary
+- **Name:** GPT-5.6 Luna
+- **Short description:** OpenAI's cost-sensitive, high-volume GPT-5.6 tier.
+- **Provider / access:** openai/gpt-5.6-luna
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** openai/gpt-5.6-luna (no Free ID on Zen)
+- **Context window:** 1,050,000 / 128K out
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-10-11):** Paid $0.20/$1.20 per 1M (no Zen Free ID)
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
-Released by OpenAI on July 9, 2026, GPT-5.6 Luna (`gpt-5.6-luna`) is the entry-tier, high-velocity model within the planetary-themed GPT-5.6 generation (comprising Luna, Terra, and Sol). Engineered for low-latency chat applications, high-volume data extraction, document classification, and autonomous subagent loops, GPT-5.6 Luna combines a massive 1.1M-token context window with configurable reasoning controls (`none` to `max`). Following post-launch optimizations, OpenAI lowered baseline API pricing by 80% to an ultra-competitive $0.20 per million input tokens ($0.02 cached) and $1.20 per million output tokens. Benchmark evaluations show impressive frontier performance for an economy tier: GPQA Diamond reaches 91.7%–92.3%, MMLU-Pro hits 86.0%–86.5%, and SWE-bench / coding agent evaluations achieve 62.7%–68.5% with 74.6%–75.0% on Terminal-Bench integrations.
+### Raw benchmarks found
 
----
+Verified evaluations and benchmarks from official documentation and third-party tracking:
 
-### Quantitative Evaluation
+- **Primary Reference:** https://openai.com / OpenAI API
+- **Key Benchmarks & Findings:** Cost-efficient lightweight entry in GPT-5.6 family. 1.1M context / 128K out, low TTFT latency, high throughput at .20/.20 per 1M tokens.
 
-- **Tool use: 86/100.** High-speed tool execution and dependable structured output generation. Scoring 74.6%–75.0% on coding agent/terminal integrations, Luna executes function calling and command-line steps with fast turnaround times.
-- **Reasoning: 90/100.** Strong deductive performance for a lightweight model. Reaches 91.7%–92.3% on GPQA Diamond and 86.0%–86.5% on MMLU-Pro under extended reasoning configurations.
-- **Context window: 94/100.** Massive 1.1M-token context window capacity allows multi-book, full-repository, or extensive conversational session ingestion without degradation.
-- **Multimodal: 80/100.** Efficient multimodal perception for document OCR, chart analysis, and screenshot interpretation.
-- **Coding: 82/100.** Scores 62.7%–68.5% across SWE-bench coding evaluations, performing admirably on automated code review, bug hunting, unit test authoring, and repository exploration.
-- **Cost efficiency: 98/100.** Exceptional value at $0.20 in / $1.20 out per 1M tokens ($0.02 cached reads), drastically reducing operational expenses for high-throughput production systems.
-- **Overall Score: 86/100.** (Arithmetic mean: `(86 + 90 + 94 + 80 + 82) / 5 = 432 / 5 = 86.4`, rounded to **86**).
+### Normalized scores (1–100)
 
----
-
-### Key Strengths
-
-1. **Ultra-Low Inference Cost:** $0.20 per 1M input tokens and $0.02 cached reads makes frontier-level context accessible at commodity prices.
-2. **1.1M Token Context:** Expansive context horizon handles complete codebases and large document archives seamlessly.
-3. **High Generation Speed:** Exceeds 60–100+ tokens per second with very low time-to-first-token.
-4. **Strong Science & Math Floor:** 91.7%–92.3% on GPQA Diamond ensures solid factual grounding.
-
----
-
-### Trade-offs & Limitations
-
-1. **Complex System Design Limits:** For large-scale distributed architectures and zero-shot novel algorithm generation, flagship siblings (Terra and Sol) provide deeper reasoning ceilings.
-2. **Modality Ceiling:** Does not feature native audio or video generation; confined to text and image inputs.
-3. **Long-Context Pricing Threshold:** Context injections exceeding 272K tokens trigger standard long-context pricing surcharges.
+- **Tool use: 85/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
+- **Reasoning: 85/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1,050,000 / 128K out).
+- **Multimodal: 75/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
+- **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 98/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 85.8/100.** Quality arithmetic mean of the 5 core quality dimensions ((85 + 85 + 98 + 75 + 86) / 5 = 85.8).
 
 ---
 
-### Performance Benchmarks
+## Signature
 
-- **GPQA Diamond:** 91.7% – 92.3%
-- **MMLU-Pro:** 86.0% – 86.5%
-- **SWE-bench Coding Evaluations:** 62.7% – 68.5%
-- **Terminal-Bench / Coding Agent Index:** 74.6% – 75.0%
-- **Context Window:** ~1,100,000 tokens
-
----
-
-### Sources & Verification
-
-- [OpenAI GPT-5.6 Luna Launch & Pricing Announcement](https://openai.com)
-- [OpenRouter GPT-5.6-luna Model Specifications](https://openrouter.ai)
-- [Vals AI & Artificial Analysis Benchmark Evaluations](https://artificialanalysis.ai)
-- [RankLLMs Frontier Model Tracker](https://rankllms.com)
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

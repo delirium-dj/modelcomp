@@ -4,6 +4,19 @@
   "short": "Agentic coding IDE with credit-metered chat, agent and Quest runs across premium models, plus bring-your-own-key on the free tier.",
   "officialUrl": "https://qoder.com",
   "hosts": ["qoder.com", "docs.qoder.com"],
+  "catalogUrl": "https://docs.qoder.com/qoder/model-selector",
+  "covers": [
+    "qwen-3.8-max",
+    "qwen-3.8-flash",
+    "qwen-3.7-max",
+    "qwen-3.7-plus",
+    "deepseek-v4-pro",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "kimi-k3",
+    "kimi-k2.8-preview",
+    "minimax-m3.1-flash-preview"
+  ],
   "plans": [
     {
       "name": "Community Edition",

@@ -1,0 +1,52 @@
+{
+  "name": "Baseten",
+  "kind": "aggregator",
+  "short": "Baseten's inference platform — pre-optimized Model APIs plus dedicated GPU deployments with per-minute billing.",
+  "officialUrl": "https://www.baseten.co",
+  "hosts": ["baseten.co"],
+  "catalogUrl": "https://www.baseten.co/library/",
+  "plans": [
+    {
+      "name": "Basic",
+      "price": "$0 per month, pay as you go",
+      "notes": "Dedicated deployments, Model APIs, training, fast cold starts; SOC 2 Type II and HIPAA compliant.",
+      "evidenceUrl": "https://www.baseten.co/pricing/"
+    },
+    {
+      "name": "Pro",
+      "price": "Volume discounts available",
+      "notes": "Priority GPU access, dedicated compute, higher Model API rate limits, Slack/Zoom support.",
+      "evidenceUrl": "https://www.baseten.co/pricing/"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Volume discounts available",
+      "notes": "Custom SLAs, self-hosted or hybrid deployment, data residency and advanced RBAC.",
+      "evidenceUrl": "https://www.baseten.co/pricing/"
+    },
+    {
+      "name": "Model APIs",
+      "price": "$0.40 in / $1.20 out per 1M (Beam)",
+      "notes": "Pre-optimized per-token models; GLM-5.3 $1.40/$4.40, Kimi K3 $3.00/$15.00.",
+      "evidenceUrl": "https://www.baseten.co/pricing/"
+    },
+    {
+      "name": "Dedicated Deployments",
+      "price": "From $0.01052/min (T4)",
+      "notes": "Per-minute GPU billing; H100 $0.10833/min, B200 $0.16633/min.",
+      "evidenceUrl": "https://www.baseten.co/pricing/"
+    }
+  ],
+  "covers": [
+    "beam",
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "deepseek-v4.1-flash",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-oss-120b",
+    "kimi-k3",
+    "nemotron-3.5-super-vl"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Hugging Face",
+  "kind": "aggregator",
+  "short": "Open-model hub whose Inference Providers route one API across many serving backends, with PRO credits and dedicated Inference Endpoints.",
+  "officialUrl": "https://huggingface.co",
+  "hosts": ["huggingface.co"],
+  "plans": [
+    {
+      "name": "Inference Providers",
+      "price": "usage-based, billed by the serving provider",
+      "notes": "One API across many inference backends; a PRO account includes $2 of inference credits per month.",
+      "evidenceUrl": "https://huggingface.co/pricing"
+    },
+    {
+      "name": "PRO",
+      "price": "$9/month",
+      "notes": "$2 of included inference credits monthly, 10x private storage, 8x ZeroGPU quota and highest queue priority.",
+      "evidenceUrl": "https://huggingface.co/pricing"
+    },
+    {
+      "name": "Team",
+      "price": "$20/user/month",
+      "notes": "SSO, audit logs and resource groups; every member gets Inference Providers PRO benefits.",
+      "evidenceUrl": "https://huggingface.co/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "$50/user/month",
+      "notes": "SCIM provisioning, highest storage/bandwidth/API rate limits and managed annual billing.",
+      "evidenceUrl": "https://huggingface.co/pricing"
+    },
+    {
+      "name": "Inference Endpoints",
+      "price": "from $0.033/hour",
+      "notes": "Dedicated autoscaling deployments; GPUs from $0.40/hour (T4) up to $74/hour (8x B200).",
+      "evidenceUrl": "https://huggingface.co/pricing"
+    }
+  ]
+}

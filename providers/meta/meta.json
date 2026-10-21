@@ -1,0 +1,51 @@
+{
+  "name": "Meta",
+  "kind": "vendor",
+  "short": "Meta Superintelligence Labs' Muse models, sold through the self-serve Meta Model API and the Muse Code coding agent.",
+  "officialUrl": "https://dev.meta.ai",
+  "hosts": ["dev.meta.ai", "meta.com", "research.meta.ai"],
+  "plans": [
+    {
+      "name": "Model API — Standard",
+      "price": "$1.25 in / $4.25 out per 1M",
+      "notes": "Muse Spark 1.3, 1.2 and 1.1; cached input $0.15/1M; 1M context.",
+      "evidenceUrl": "https://dev.meta.ai/docs/pricing-rate-limits"
+    },
+    {
+      "name": "Model API — Contributor",
+      "price": "$0.10 in / $0.20 out per 1M",
+      "notes": "Muse Spark 1.3 and 1.2 only; Meta may train on your content; cached input $0.002/1M.",
+      "evidenceUrl": "https://dev.meta.ai/docs/pricing-rate-limits"
+    },
+    {
+      "name": "Muse Wonder — Model API",
+      "price": "$4.00 in / $20.00 out per 1M",
+      "notes": "Cached input $0.20/1M; web search grounding $2.50 per 1,000 queries.",
+      "evidenceUrl": "https://dev.meta.ai/docs/pricing-rate-limits"
+    },
+    {
+      "name": "Muse Code Everyday",
+      "price": "$5/month",
+      "notes": "Muse Spark, Muse Wonder and Muse Image; 10–50 prompts every 5 hours.",
+      "evidenceUrl": "https://dev.meta.ai/products/muse-code/"
+    },
+    {
+      "name": "Muse Code High",
+      "price": "$15/month",
+      "notes": "5x Everyday usage; more multimodal inputs.",
+      "evidenceUrl": "https://dev.meta.ai/products/muse-code/"
+    },
+    {
+      "name": "Muse Code Power",
+      "price": "$50/month",
+      "notes": "20x Everyday usage; Muse Wonder Full and early access.",
+      "evidenceUrl": "https://dev.meta.ai/products/muse-code/"
+    },
+    {
+      "name": "Muse Code Maximum",
+      "price": "$200/month",
+      "notes": "80x Everyday usage.",
+      "evidenceUrl": "https://dev.meta.ai/products/muse-code/"
+    }
+  ]
+}

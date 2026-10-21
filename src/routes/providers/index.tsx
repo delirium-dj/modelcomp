@@ -154,10 +154,23 @@ export default component$(() => {
               </table>
             </div>
 
-            {provider.models.length > 0 && (
+            {provider.models.length > 0 ? (
               <div class="mt-4">
                 <p class="mb-2 text-[10px] uppercase tracking-wide text-slate-400 dark:text-slate-500">
                   Models we cover on this provider
+                  {provider.catalogUrl && (
+                    <>
+                      {" · "}
+                      <a
+                        href={provider.catalogUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`normal-case tracking-normal ${linkClass}`}
+                      >
+                        catalog ↗
+                      </a>
+                    </>
+                  )}
                 </p>
                 <div class="flex flex-wrap gap-1.5">
                   {provider.models.map((m) => (
@@ -167,6 +180,10 @@ export default component$(() => {
                   ))}
                 </div>
               </div>
+            ) : (
+              <p class="mt-4 text-[11px] text-slate-400 dark:text-slate-500">
+                No tracked models cite this provider yet.
+              </p>
             )}
           </article>
         ))}
