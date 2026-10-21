@@ -269,13 +269,15 @@ try {
 // "-". A hyphen between two digits is never a valid version separator, so a
 // folder like `gpt-5-5` is a duplicate of `gpt-5.5`, not a new model — fail
 // loudly with the dotted destination instead of cementing the duplicate.
-// Slug exceptions (match digit-hyphen-digit but are NOT hyphen versions):
-// param sizes `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`
-// (version 3.8 + 27B params), `qwen-3.5-9b` (version 3.5 + 9B params) and
-// `qwen-3.5-397b` (version 3.5 + 397B params, Qwen3.5-397B-A17B).
+// Slug param-size carve-out: digits immediately followed by b/B after a
+// hyphen are a parameter count, never a version (`qwen-3.8-325b` = version
+// 3.8 + 325B params, `qwen-3.5-397b`, `gemma-4-31b` stay hyphenated — same
+// general digits+b/B rule as normalizeStem). Explicit set members (see
+// SLUG_VERSION_EXCEPTION in scripts/lib/naming.mjs) pass through as well.
 // (Single majors with codename/experimental suffixes like `gpt-6-astra`
-// never match the check at all.) Full list: SLUG_VERSION_EXCEPTION in
-// scripts/lib/naming.mjs.
+// never match the check at all.) Already-dotted folders on disk
+// (`gemma-4.12b-unified`, `gemma-4.26b-a4b`) stay dotted — files are never
+// renamed (RULES.md permanence).
 // Hyphen-versioned folders are forbidden duplicates, never new models — so
 // beyond FAILing, sync must not cement them: no meta.json scaffold, no
 // average.md rewrite, no score-index / registry input from these folders.

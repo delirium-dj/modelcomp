@@ -1,7 +1,7 @@
 # Claude Opus 4.7 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic/Claude Opus 4.7 (`claude-opus-4-7`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-4-7`, `anthropic.claude-opus-4-7-v1:0` (Bedrock); no Free tier on Zen.
 - **Context window:** 1,000,000 tokens (1M) input window, 128,000 tokens (128K) maximum output.
 - **Modalities:** Text, high-resolution image (up to 3.75 MP, 2576 px long edge), and PDF document input; text output; native tool use, computer use, and structured JSON output.
-- **Pricing (as of 2026-10-16):** $5.00 / 1M input tokens, $25.00 / 1M output tokens; prompt caching reads at $0.50 / 1M and writes at $6.25 / 1M (note: updated tokenizer yields ~30-35% higher token counts for identical text vs Opus 4.6).
+- **Pricing (as of 2026-10-21):** $5.00 / 1M input tokens, $25.00 / 1M output tokens; prompt caching reads at $0.50 / 1M and writes at $6.25 / 1M (note: updated tokenizer yields ~30-35% higher token counts for identical text vs Opus 4.6).
 - **Architecture:** Proprietary frontier dense/MoE architecture featuring configurable reasoning effort levels including the `xhigh` extended thought mode.
 
 ### Raw benchmarks found
@@ -26,7 +26,7 @@ Agent / tool use:
 - Terminal-Bench 2.0 / 2.1: **69.4%** (standard Terminus-2 harness) / **80.2%** (with WOZCODE scaffold)
 - Tau3-Banking / Tau2-Bench: **40.2% - 88.6%** (Tau2 customer service vs complex Tau3 banking agent benchmarks)
 - GDPval-AA: **1742** (provisional frontier agentic evaluation)
-- Claw-Eval / ClawProBench: no verified public score found
+- CursorBench: **>70%**
 
 Reasoning / knowledge:
 
@@ -57,12 +57,12 @@ Long context:
 - **Multimodal: 88/100.** High-fidelity 3.75 MP image perception and robust multi-page PDF document comprehension; capped by lack of native audio/video streaming modalities.
 - **Coding: 96/100.** Frontier software engineering benchmark leader with 87.6% SWE-bench Verified and 64.3% multi-language SWE-bench Pro; capped by competitive programming LiveCodeBench trade-offs against specialized math-code reasoners.
 - **Cost efficiency: 58/100.** Substantial $5/$25 per 1M pricing exacerbated by 30-35% higher token density from the new tokenizer, though offset by effective prompt caching.
-- **Overall Score: 93/100.** Exceptional frontier software engineering and autonomous agentic model; primary recommendation for mission-critical full-repo development and complex tool-use loops.
+- **Overall Score: 93/100.** Quality arithmetic mean of the 5 core quality dimensions ((90 + 94 + 97 + 88 + 96) / 5 = 93.0). Exceptional frontier software engineering and autonomous agentic model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research synthesizing official Anthropic releases, model card data, and independent evaluations from Vellum, BenchLM, Thesys, and Vals.ai; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

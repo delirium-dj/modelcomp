@@ -1,9 +1,11 @@
 # GPT 5.1 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.1 (`openai/gpt-5.1`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-1`, 18 rows) computes an overall **57.2/100 (#62 of 972)** and confirms the 2026-10-11 deep pass; it adds ARC-AGI-1 72.83%, AA-MMMU-Pro 75.5%, AA-IFBench 72.9%, CritPt 4.9%. **No score change** (Tool 80 / Reasoning 85 / Context 80 / Multimodal 68 / Coding 82 / Cost 76 / Overall 79).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from OpenAI's developer launch post + independent sources: **τ²-bench Telecom 95.6%**, Airline 67.0%, Retail 77.9%; Terminal-Bench Hard 45.5%; **GPQA Diamond 88.1%** (87.3% Epoch), HLE 28.5%, **AIME 2025 94.0%**, MMLU-Pro 87.0%; **SWE-bench Verified 76.3%** (OpenAI, all 500) / 69.8% (Vals), LiveCodeBench 86.5%, Terminal-Bench 2.1 52.4%, Vibe Code Bench 24.61%; MMMU 85.4%, MMMU-Pro 75.5–83.2%; **ARC-AGI-1 72.8%**, ARC-AGI-2 17.6%; AA-LCR 80.0%; BrowseComp Long-Context 128k 90.0%. Independent: AA Intelligence Index **25**, BenchLM overall 56.59 (#60/891), BenchmarkList AA index 36.87 (#8 board rank).
@@ -13,7 +15,7 @@
 
 ## Model card
 
-- **Name:** GPT 5.1
+- **Name:** GPT-5.1
 - **Short description:** The primary full-capability successor to GPT-5 — adaptive reasoning with improved instruction adherence, longer-context performance and a more natural conversational style (variants: GPT-5.1 Instant, GPT-5.1 Thinking).
 - **Provider / access:** OpenAI API, plus OpenRouter and Vercel AI Gateway; OpenAI Flex tier available. Not open weights.
 - **Release / knowledge:** ChatGPT rollout 2025-11-12, API snapshot `gpt-5.1-2025-11-13`; knowledge cutoff 2024-09-30.
@@ -64,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (OpenAI GPT-5.1 developer launch post + API docs, BenchLM, BenchmarkList, Artificial Analysis, Codesota, OpenRouter). The official launch table resolved the prior "no SWE-bench number" gap; the context, SWE and τ² spreads are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

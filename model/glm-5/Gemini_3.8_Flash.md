@@ -1,7 +1,7 @@
 # GLM 5 — findings by Gemini 3.8 Flash
 
 - Source: Z.ai/GLM 5 (`zai-org/GLM-5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5`, `z-ai/glm-5`; no Free tier on Zen.
 - **Context window:** 200,000 tokens (200K) native context window, with up to 128,000 maximum output tokens.
 - **Modalities:** Text input; text output (pure text/code architecture optimized for function calling, multi-step tool loops, and structured JSON output).
-- **Pricing (as of 2026-10-16):** Hosted API ~$1.00 - $1.40 / 1M input tokens, ~$3.20 - $4.40 / 1M output tokens; prompt cache read ~$0.20 / 1M tokens; free self-hosting with open weights.
+- **Pricing (as of 2026-10-21):** Hosted API ~$1.00 - $1.40 / 1M input tokens, ~$3.20 - $4.40 / 1M output tokens; prompt cache read ~$0.20 / 1M tokens; free self-hosting with open weights.
 - **Architecture:** 744B total / 40B active parameters per token (256-expert MoE), trained on 28.5T tokens with DeepSeek Sparse Attention (DSA) and asynchronous reinforcement learning.
 
 ### Raw benchmarks found
@@ -54,12 +54,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output architecture without native image or audio channels; scored per the standard text-only baseline (10-20).
 - **Coding: 86/100.** High-level code synthesis with 77.8% SWE-bench Verified and 80.5% LiveCodeBench; capped by newer closed frontier iterations (Opus 4.7 / GPT-5.5).
 - **Cost efficiency: 74/100.** Moderate commercial API pricing ($1.00-$1.40 / $3.20-$4.40 per 1M tokens) offset by full open-weights availability under MIT license.
-- **Overall Score: 67/100.** Exceptional open-weights coding and reasoning workhorse, ideally suited for on-premise development agent environments and large-scale repository manipulation.
+- **Overall Score: 67/100.** Quality arithmetic mean of the 5 core quality dimensions ((80 + 82 + 70 + 15 + 86) / 5 = 66.6 rounded to 67). Exceptional open-weights coding and reasoning workhorse.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research synthesizing Z.ai official technical releases, Hugging Face model cards, and independent evaluations from Artificial Analysis, Clore.ai, and OpenCode Zen documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

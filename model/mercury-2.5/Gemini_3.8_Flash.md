@@ -1,7 +1,7 @@
 # Mercury 2.5 — findings by Gemini 3.8 Flash
 
 - Source: Inception Labs/Mercury 2.5 (`inception/mercury-2.5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `inception/mercury-2.5`, `opencode/mercury-2.5`.
 - **Context window:** 260,000 tokens total (260K context window), with up to 65,536 maximum output tokens.
 - **Modalities:** Text and code input; text and code output; native parallel tool calling, structured JSON formatting, and tunable reasoning effort.
-- **Pricing (as of 2026-10-16):** Standard list $0.20 / 1M input tokens, $0.75 / 1M output tokens; promotional rates down to $0.04 / $0.15; cache reads down to ~$0.004 / 1M tokens.
+- **Pricing (as of 2026-10-21):** Standard list $0.20 / 1M input tokens, $0.75 / 1M output tokens; promotional rates down to $0.04 / $0.15; cache reads down to ~$0.004 / 1M tokens.
 - **Architecture:** Continuous-discrete diffusion transformer (dLLM) utilizing parallel iterative refinement instead of sequential token-by-token autoregressive decoding.
 
 ### Raw benchmarks found
@@ -56,12 +56,12 @@ Long context:
 - **Multimodal: 15/100.** Pure text-and-code diffusion architecture without native visual, image, or audio processing modalities.
 - **Coding: 58/100.** Capable high-speed code completion (45.0% SWE-bench Verified and 52.0% LiveCodeBench) delivered at ultra-low latency (1,100+ tok/s).
 - **Cost efficiency: 96/100.** Economical standard rates ($0.20/$0.75 per 1M) with promotional discounts reaching $0.04/$0.15 and deep prompt caching.
-- **Overall Score: 51/100.** Groundbreaking ultra-fast diffusion language model designed for latency-critical agent pipelines, real-time code autocomplete, and high-frequency tool invocation.
+- **Overall Score: 51/100.** Quality arithmetic mean of the 5 core quality dimensions ((56 + 52 + 74 + 15 + 58) / 5 = 51.0). Ultra-fast diffusion language model for latency-critical agent pipelines.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research into Inception Labs technical disclosures, diffusion LLM benchmark leaderboards, and OpenRouter deployment metrics; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

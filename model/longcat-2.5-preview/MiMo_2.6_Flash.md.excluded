@@ -1,0 +1,54 @@
+# LongCat-2.5-Preview — findings by MiMo 2.6 Flash (SELF-EXCLUDED)
+
+- Source: Meituan (`meituan/longcat-2.5-preview`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark scores found for this exact model/ID as of 2026-10-21. BenchmarkList carries 0 score rows and states Meituan published no benchmarks for the preview; the official LongCat benchmarks page covers LongCat-2.0 only. No scored file written — notes only, per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md` permanence.
+
+## Model card
+
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan's API-only preview of its next LongCat model — a natively multimodal MoE (~1.6T total / ~48B active per BenchmarkList) aimed at long-horizon agent work (terminals, browsers, GUIs, spreadsheets, design tools) with image understanding and Claude Code-style harness compatibility.
+- **Provider / access:** OpenCode Zen `meituan/longcat-2.5-preview`; Blackbox AI `blackboxai/meituan/longcat-2.5-preview` (OpenAI-compatible Chat Completions at `https://enterprise.blackbox.ai/v1/chat/completions`).
+- **Release / knowledge:** released 2026-09-25 (OpenCode data; Blackbox lists Sep 26, 2026); knowledge cutoff not published.
+- **IDs:** `meituan/longcat-2.5-preview` (Zen), `blackboxai/meituan/longcat-2.5-preview` (Blackbox). Closed weights — no open-weights release (unlike LongCat 2.0).
+- **Context window:** 1,000,000 tokens (1M); max output 131,072 tokens (OpenCode data, Blackbox spec sheet).
+- **Modalities:** text and image in; text out; reasoning yes; tool calling yes; structured outputs / response_format supported (Blackbox spec sheet).
+- **Pricing (as of 2026-10-21):** $0.30 in / $1.20 out per 1M, cached input $0.006 (OpenCode Zen; Blackbox matches) — BenchmarkList notes this is a limited-time promotional price. No Free ID verified.
+- **Architecture:** proprietary closed-weight MoE, ~1.6T total / ~48B active (BenchmarkList model summary).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / Tau2 / GDPval / OSWorld / Claw-Eval: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE: no verified public score found (BenchmarkList: 0 score rows; Meituan published no benchmarks for the preview)
+
+Long context:
+
+- No long-context retrieval figure published
+
+### Adoption signals (not benchmarks)
+
+- OpenCode: #8 by tokens last week, 8.4T tokens over past 2 months, 252K unique users, 14.4M completed sessions, 580K avg tokens/session, 94.4% input tokens served from cache, 63.8% weekly retention (OpenCode data, updated 2026-10-19).
+
+### Normalized scores (1–100)
+
+- No normalized scores computed — self-excluded for lack of any verified public benchmark (see notice above). Re-research when Meituan or an independent harness publishes numbers.
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-21
+- Method: fresh public web research (BenchmarkList profile, OpenCode data catalog, Blackbox spec sheet); negative-findings notes only, no scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

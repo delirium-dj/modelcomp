@@ -1,0 +1,60 @@
+# GPT Oss 120b Lite — findings by MiMo 2.6 Flash
+
+- Source: OpenAI (repo entry `opencode/gpt-oss-120b-lite`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card
+
+- **Name:** GPT Oss 120b Lite
+- **Short description:** Scaffolded evaluation entry for a "Lite" flavour of the gpt-oss-120b line; the repo's `meta.json` describes it only as a "GPT Oss 120b Lite model evaluation entry" (128K, text in/out, `scaffolded: true`, "Standard pricing"). No vendor announcement, model card, API listing or aggregator row for a `gpt-oss-120b-lite` ID could be found.
+- **Provider / access:** repo lists opencode id `opencode/gpt-oss-120b-lite`; no verifiable public API route, HF repo, Ollama tag or OpenRouter slug for the lite ID was located.
+- **Release / knowledge:** no release date published (unlike standard `gpt-oss-120b`, released 2025-08-05); knowledge cutoff not published.
+- **IDs:** `opencode/gpt-oss-120b-lite` (repo only).
+- **Context window:** 128K per repo meta (no independent confirmation).
+- **Modalities:** text in/out per repo meta.
+- **Pricing (as of 2026-10-21):** "Standard pricing" per repo meta — no verified public price found for this ID.
+- **Architecture:** not published for this ID.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Tau3 / Tau2 / GDPval / Terminal-Bench / BFCL / Claw-Eval: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AIME / MATH: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / HumanEval / SciCode / Aider: no verified public score found
+
+Multimodal:
+
+- MMMU / MathVista / Video-MME: no verified public score found
+
+Long context:
+
+- MRCR / RULER: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Four independent public web searches on 2026-10-21 (including exact-phrase queries `"gpt-oss-120b-lite"` and `"gpt-oss-120b-lite" OR "gpt oss 120b lite"`) returned **no result for a lite ID** — every hit resolved to the standard `gpt-oss-120b` (OpenAI, 2025-08-05, 117B/5.1B-active MoE, Apache 2.0, 128K).
+2. No BenchLM, llm-stats, Vals AI, serenitiesai, OpenRouter, Ollama, Hugging Face or NVIDIA catalog entry for a `gpt-oss-120b-lite` identifier was located.
+3. **Standard `gpt-oss-120b` numbers were deliberately NOT imported** (GPQA Diamond 80.1, AIME25 92.5, SWE-V 62.4, HLE 14.9, etc.): the lite ID's relationship to the flagship model is unestablished — same standard applied elsewhere in this queue for unattributed IDs (no score borrowing without vendor confirmation).
+
+### Scores
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `gpt-oss-120b-lite`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-21
+- Method: public internet research (four web-search passes across vendor/registry/tracker sources listed above); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if a public benchmark row for this exact ID appears, re-research and replace this twin per `tasks/research.md` Step 3.3.

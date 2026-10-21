@@ -94,15 +94,31 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("gpt-5-5"), "gpt-5.5");
   });
 
-  it("flags multi-digit hyphen versions (2026-10-05 repeat incident)", () => {
-    assert.equal(hyphenVersionViolation("gemma-4-12b-unified"), "gemma-4.12b-unified");
-    assert.equal(hyphenVersionViolation("gemma-4-26b-a4b"), "gemma-4.26b-a4b");
+  it("flags multi-digit hyphen versions", () => {
+    assert.equal(hyphenVersionViolation("gpt-5-5-5"), "gpt-5.5.5");
+  });
+
+  it("leaves param-size joins alone (general digits+b/B rule, no set membership)", () => {
+    // Version 3.8 + 325B params (Qwen3.8-325B): the "8-3" hit is version-digit → param-digit.
+    assert.equal(hyphenVersionViolation("qwen-3.8-325b"), null);
+    // Version 4 + 12B params, then a codename suffix.
+    assert.equal(hyphenVersionViolation("gemma-4-12b-unified"), null);
+    // Version 4 + 26B/4B-active params (Qwen3.5-35B-A3B shape).
+    assert.equal(hyphenVersionViolation("gemma-4-26b-a4b"), null);
+    // Already-dotted on-disk folders stay fine (never renamed, RULES.md permanence).
     assert.equal(hyphenVersionViolation("gemma-4.12b-unified"), null);
+  });
+
+  it("still flags real version joins before and after a param join", () => {
+    // "2.1" in "unified-2-1" is a version join, dotted; the "4-12b" param join stays.
+    assert.equal(hyphenVersionViolation("gemma-4-12b-unified-2-1"), "gemma-4-12b-unified-2.1");
   });
 
   it("normalizeSlug is the canonical normalizer (gate delegates to it)", () => {
     assert.equal(normalizeSlug("gpt-5-6-terra"), "gpt-5.6-terra");
-    assert.equal(normalizeSlug("gemma-4-12b-unified"), "gemma-4.12b-unified");
+    assert.equal(normalizeSlug("gpt-5-5"), "gpt-5.5");
+    assert.equal(normalizeSlug("qwen-3.8-325b"), "qwen-3.8-325b");
+    assert.equal(normalizeSlug("gemma-4-12b-unified"), "gemma-4-12b-unified");
     assert.equal(normalizeSlug("gpt-5.5"), "gpt-5.5");
     assert.equal(normalizeSlug("gpt-6-astra"), "gpt-6-astra");
     assert.equal(normalizeSlug("gemma-4-31b"), "gemma-4-31b");
@@ -117,7 +133,7 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("gpt-5.5"), null);
   });
 
-  it("honors param-size exceptions", () => {
+  it("honors grandfathered param-size exceptions (set + general rule agree)", () => {
     assert.ok(SLUG_VERSION_EXCEPTION.has("gemma-4-31b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.8-27b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-9b"));

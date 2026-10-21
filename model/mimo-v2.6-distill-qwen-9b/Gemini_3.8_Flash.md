@@ -1,7 +1,7 @@
 # MiMo V2.6 Distill Qwen 9B — findings by Gemini 3.8 Flash
 
 - Source: Xiaomi/MiMo V2.6 Distill Qwen 9B (`XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`, `opencode/mimo-v2.6-distill-qwen-9b`.
 - **Context window:** 262,144 tokens total (262K native context window), supporting up to 16,384 maximum output tokens.
 - **Modalities:** Interleaved text and image input; text and code output; native step-by-step thinking paths, tool execution, and structured outputs.
-- **Pricing (as of 2026-10-16):** Free ($0.00) under permissive MIT license; self-hosted with low GPU operational requirements (single 24GB VRAM GPU).
+- **Pricing (as of 2026-10-21):** Free ($0.00) under permissive MIT license; self-hosted with low GPU operational requirements (single 24GB VRAM GPU).
 - **Architecture:** 9.4B dense distilled autoregressive transformer fine-tuned on Xiaomi MiMo synthetic data with verl/uni-agent reinforcement learning.
 
 ### Raw benchmarks found
@@ -55,12 +55,12 @@ Long context:
 - **Multimodal: 65/100.** Solid visual perception supporting image inputs and visual coding (72.4% on MiMo Visual Coding); capped by lack of video/audio streams.
 - **Coding: 66/100.** Impressive 61.1%-66.2% SWE-bench Verified and 44.6%-47.6% SWE-bench Pro for a 9B parameter dense open model.
 - **Cost efficiency: 100/100.** Completely free under MIT license, deployable locally without API dependencies.
-- **Overall Score: 63/100.** Outstanding 9B open-weights agent and coding model, delivering competitive repository-level bug fixing and visual coding on consumer GPU hardware.
+- **Overall Score: 63/100.** Quality arithmetic mean of the 5 core quality dimensions ((58 + 54 + 74 + 65 + 66) / 5 = 63.4 rounded to 63). Outstanding 9B open-weights agent and coding model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research synthesizing Xiaomi MiMo official technical documentation, Hugging Face repository releases, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

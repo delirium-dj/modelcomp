@@ -1,9 +1,11 @@
 # Claude Sonnet 4.6 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Sonnet 4.6 (`anthropic/claude-sonnet-4.6`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-sonnet-4-6`, 40 rows) computes an overall **55.89/100 (#65 of 972)** and confirms the corrected evidence set from the 2026-10-11 deep pass; it adds SuperGPQA 95%, React Native Evals 80.6%, Gert Labs 62.92%, AA-IFBench 41.2%. **No score change** (Tool 86 / Reasoning 84 / Context 95 / Multimodal 80 / Coding 88 / Cost 70 / Overall 87).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Anthropic docs — release **2026-02-17**, knowledge cutoff Aug 2025 (reliable) / Jan 2026 (training), 1M context / 128K output (300K Batch beta), $3 in / $0.30 cached / $15 out; system-card/independent rows **GPQA Diamond 89.9%**, **HLE 49% with tools**, **ARC-AGI-2 58.3%** (60.4% high effort), **ARC-AGI-1 86.0%**, **SWE-bench Verified 79.6%** (Anthropic 76.2% 10-trial / 80.2% prompt-mod), SWE-Rebench 60.7%, LiveCodeBench 82.09%, Terminal-Bench 2.0 59.1–59.55%, **Terminal-Bench 2.1 57.3%**, **OSWorld-Verified 72.1%**, τ²-bench 79.5%, Claw-Eval 67.8%, **AA-LCR 68.3%**, CharXiv 77.4%, MMMU-Pro 83.58% (Vals) / 70.6% (AA); BenchLM overall 55.41; Vals accuracy 56.68%.
@@ -68,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Anthropic Sonnet 4.6 docs + news, BenchLM model page + per-eval results, Vals AI, Artificial Analysis). Newly published GPQA/HLE rows corrected the prior conservatively sub-Opus Reasoning; the context-window, SWE and GPQA spreads are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

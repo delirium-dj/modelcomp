@@ -1,0 +1,50 @@
+# LongCat 2.5 — findings by MiMo 2.6 Flash (SELF-EXCLUDED)
+
+- Source: Meituan (`opencode/longcat-2.5` — id does not resolve; see notes)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: no distinct GA "LongCat 2.5" model exists — Meituan's LongCat API Platform lists only LongCat-2.0 and the API-only LongCat-2.5-Preview (2026-09-25). Zero verified public benchmarks exist for any GA 2.5 SKU because the SKU was never published. Notes only, no scores — per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md` family-shorthand identity.
+
+## Model card
+
+- **Name:** LongCat 2.5 (dataset negative record; no GA model)
+- **Short description:** A verified absence: Meituan never published a GA LongCat 2.5. The vendor's model-listing endpoint returns only LongCat-2.0 and LongCat-2.5-Preview (Orcarouter 2026-10-12 field check of Meituan docs, 2026-10-13); this folder records that negative finding. The real 2.5-line route is `model/longcat-2.5-preview/` (tracked separately, itself benchmark-free).
+- **Provider / access:** The curated project id `opencode/longcat-2.5` does not resolve to a live vendor route. Only live 2.5 route: `meituan/longcat-2.5-preview` (OpenCode Zen, incl. free slot `longcat-2.5-preview-free` per models.dev; Vercel AI Gateway; NanoGPT $0.75/$2.95).
+- **Release / knowledge:** no GA release (the preview shipped 2026-09-25); knowledge cutoff not published.
+- **IDs:** none for a GA 2.5. Preview ids: `meituan/longcat-2.5-preview`, `meituan/longcat-2.5-preview-free`, Vercel `meituan/longcat-2.5-preview`.
+- **Context window:** no GA figure; the preview route is 1,048,576 tokens (Meituan Retrieve Model example `context_length: 1048576`; models.dev 1,000,000).
+- **Modalities:** no GA spec; preview supports text + image in, text out, reasoning, tool calling.
+- **Pricing (as of 2026-10-21):** no GA price; preview limited-time $0.30 in / $1.20 out / $0.006 cached per 1M plus the free Zen slot (models.dev, CloudPrice, Meituan pricing page per Orcarouter).
+- **Architecture:** unpublished for any GA 2.5; the preview is closed-weight (BenchmarkList estimates ~1.6T/48B MoE but Meituan publishes no parameter count — Orcarouter confirms the vendor silence).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / Tau2 / GDPval / OSWorld / Claw-Eval: no verified public score found (no GA model exists to measure)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE: no verified public score found
+
+Long context:
+
+- No long-context retrieval figure published
+
+### Normalized scores (1–100)
+
+- No normalized scores computed — self-excluded: the GA slot is a verified negative record; benchmark research belongs on the preview entry (`model/longcat-2.5-preview/`) once Meituan or an independent harness publishes numbers.
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-21
+- Method: fresh public web research (Orcarouter field check of Meituan docs/pricing, models.dev provider table, CloudPrice, BenchmarkList); negative-findings notes only, no scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

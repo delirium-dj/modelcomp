@@ -40,11 +40,13 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
 }
 
 /**
- * Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions.
- * Param sizes: `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`,
- * `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b` and
- * `qwen-3.5-122b-a10b` (version + *B params — the hit is version-digit →
- * param-digit).
+ * Slug exceptions (grandfathered): match digit-hyphen-digit but predate the
+ * general param-size rule. Param sizes like `gemma-4-31b` ("4" + 31B params),
+ * `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`,
+ * `qwen-3.5-35b-a3b` and `qwen-3.5-122b-a10b` (version + *B params — the hit
+ * is version-digit → param-digit) now pass through `normalizeSlug`'s general
+ * digits+b/B rule without membership; the set remains for documentation and
+ * any future non-param lookalikes.
  */
 export const SLUG_VERSION_EXCEPTION = new Set([
   "gemma-4-31b",
@@ -58,15 +60,20 @@ export const SLUG_VERSION_EXCEPTION = new Set([
 
 /**
  * Canonical slug normalizer (single source of truth — RULES.md slug identity).
- * Version numbers use "." not "-": every digit-hyphen-digit join becomes a
- * dot (`gpt-5-6-terra` → `gpt-5.6-terra`, `gemma-4-12b-unified` →
- * `gemma-4.12b-unified`). Param-size exceptions pass through untouched.
- * Always run a freshly derived slug through this before creating a folder
- * or comparing against on-disk slugs.
+ * Version numbers use "." not "-" between digits: every digit-hyphen-digit
+ * join becomes a dot (`gpt-5-6-terra` → `gpt-5.6-terra`, `gpt-5-5` →
+ * `gpt-5.5`), EXCEPT param-size joins — digits immediately followed by
+ * `b`/`B` are a parameter count, never a version (`qwen-3.8-325b` =
+ * version 3.8 + 325B params, `gemma-4-31b` stay hyphenated), mirroring
+ * normalizeStem's general digits+b/B rule. Explicit SLUG_VERSION_EXCEPTION
+ * members pass through untouched. Already-dotted folders on disk
+ * (`gemma-4.12b-unified`) stay dotted — files are never renamed (RULES.md
+ * permanence). Always run a freshly derived slug through this before
+ * creating a folder or comparing against on-disk slugs.
  */
 export function normalizeSlug(slug, exceptions = SLUG_VERSION_EXCEPTION) {
   if (exceptions.has(slug)) return slug;
-  return slug.replace(/(\d)-(?=\d)/g, "$1.");
+  return slug.replace(/(\d)-(?=\d)(?!\d+[bB])/g, "$1.");
 }
 
 /**

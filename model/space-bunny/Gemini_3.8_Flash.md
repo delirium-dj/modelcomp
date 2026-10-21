@@ -1,21 +1,21 @@
 # Space Bunny Alpha — findings by Gemini 3.8 Flash
 
 - Source: OpenRouter Stealth (`stealth/space-bunny-alpha`) / OpenCode Zen (`opencode/space-bunny-free`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Space Bunny (Space Bunny Alpha)
-- **Short description:** Anonymous frontier stealth reasoning model with native multimodal input (text, image, video), 1M token context, high-throughput generation (>100 tok/s), and adjustable chain-of-thought reasoning.
+- **Name:** Space Bunny (Space Bunny Alpha / MiniMax M3.1-Flash Preview)
+- **Short description:** Frontier reasoning model with native multimodal input (text, image, video), 1M token context, high-throughput generation (>100 tok/s), and adjustable chain-of-thought reasoning (revealed as early preview of MiniMax M3.1-Flash).
 - **Provider / access:** [OpenRouter](https://openrouter.ai/stealth/space-bunny-alpha) (`stealth/space-bunny-alpha`), OpenCode Zen free tier (`opencode/space-bunny-free`).
 - **Release / knowledge:** September 23, 2026.
-- **Lifecycle status:** Active stealth preview on OpenRouter and OpenCode Zen with temporary promotional free access.
+- **Lifecycle status:** Active preview on OpenRouter and OpenCode Zen (revealed as MiniMax M3.1-Flash precursor).
 - **IDs:** `stealth/space-bunny-alpha`, `opencode/space-bunny-free`, `space-bunny`
 - **Context window:** 1,000,000 tokens total (1M context window; max output 524,288 tokens).
 - **Modalities:** Native multimodal input (text, image, video); text, code, structured JSON, and tool-calling output; configurable reasoning effort.
-- **Pricing (as of 2026-10-11):** Free ($0.00 / 1M prompt and completion) during stealth promotional preview on OpenRouter and OpenCode Zen.
+- **Pricing (as of 2026-10-21):** Free ($0.00 / 1M prompt and completion) during promotional stealth preview on OpenRouter and OpenCode Zen.
 - **Architecture:** Large-scale proprietary Mixture-of-Experts architecture with native vision projection layers and integrated chain-of-thought reasoning.
 
 ### Raw benchmarks found
@@ -24,6 +24,7 @@ Agent / tool use:
 
 - AI BENCHY high-effort evaluation: **7.5/10** (Tool Calling: **10/10**, Agentic: **10/10**)
 - Autonomous self-verification: capable of analyzing screenshots of its own rendered output to perform multi-step bug fixing.
+- OSWorld V2: **61.7** (under MiniMax M3.1-Flash evaluation)
 - Terminal-Bench / Tau2-Bench: no standardized full-suite vendor run published.
 
 Reasoning / knowledge:
@@ -40,6 +41,7 @@ Multimodal:
 
 Coding:
 
+- DeepSWE v1.1: **73.7%**
 - AI BENCHY Coding: **6.2/10**
 - Fast prototyping and full-stack application scaffolding in Zed Editor and Hermes Agent harnesses.
 
@@ -61,5 +63,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public benchmark evaluation and analysis of OpenRouter stealth endpoint documentation, AI BENCHY results, and independent evaluator test logs.

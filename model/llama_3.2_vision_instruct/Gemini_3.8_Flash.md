@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by Gemini 3.8 Flash
 
 - Source: Meta/Llama 3.2 Vision Instruct (`meta-llama/Llama-3.2-11B-Vision-Instruct`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta-llama/llama-3.2-11b-vision-instruct`; open weights under the Llama 3.2 Community License.
 - **Context window:** 131,072 tokens (128K context window).
 - **Modalities:** Interleaved text and image input; text and code output; basic tool-calling support formatted via system prompts.
-- **Pricing (as of 2026-10-16):** Hosted API ~$0.05 - $0.35 / 1M input tokens, ~$0.35 - $0.68 / 1M output tokens; free self-hosting via open weights.
+- **Pricing (as of 2026-10-21):** Hosted API ~$0.05 - $0.35 / 1M input tokens, ~$0.35 - $0.68 / 1M output tokens; free self-hosting via open weights.
 - **Architecture:** 10.7B dense parameter autoregressive transformer combining an 8B text model with a Vision Transformer (ViT) encoder and cross-attention adapters.
 
 ### Raw benchmarks found
@@ -36,9 +36,9 @@ Reasoning / knowledge:
 
 Multimodal & Visual Perception:
 
-- DocVQA: **88.4%** (ANLS document understanding metric)
+- DocVQA: **62.3%** (Meta official model card, ANLS unseen val)
 - AI2 Diagram (AI2D): **91.1%** (diagram comprehension accuracy)
-- ChartQA: **83.4%** (relaxed accuracy on charts and data graphics)
+- ChartQA: **39.4%** (Meta official model card test accuracy)
 - MMMU: **50.7%** (val, CoT micro-average accuracy)
 - MMMU-Pro: **33.0%** (standard 10-option accuracy) / **23.7%** (vision-only test)
 
@@ -57,15 +57,15 @@ Long context:
 - **Tool use: 45/100.** Supports basic single-turn function calling via prompt formatting; lacks multi-step autonomous agent execution or verified Terminal-Bench evaluations.
 - **Reasoning: 54/100.** Moderate reasoning for an 11B parameter dense model with 73.0% MMLU and 51.9% MathVista; capped by 32.8% GPQA and lack of extended reasoning capabilities.
 - **Context window: 56/100.** Native 131,072-token (128K) window; accurately calibrated within the 100K-200K rubric tier (50-64).
-- **Multimodal: 68/100.** Strong document and diagram vision capabilities with 91.1% AI2D, 88.4% DocVQA, and 83.4% ChartQA; capped by lack of video or audio modalities.
+- **Multimodal: 68/100.** Strong document and diagram vision capabilities with 91.1% AI2D, 62.3% DocVQA, and 50.7% MMMU; capped by lack of video or audio modalities.
 - **Coding: 56/100.** Functional script generation with ~74% HumanEval; lacks verified multi-file repository problem-solving (SWE-bench).
 - **Cost efficiency: 97/100.** Highly accessible open weights for edge and local GPU deployment, backed by low cloud inference fees ($0.05/$0.68 per 1M).
-- **Overall Score: 56/100.** Compact and highly accessible edge multimodal model excelling at visual document QA, invoice analysis, and diagram extraction.
+- **Overall Score: 56/100.** Quality arithmetic mean of the 5 core quality dimensions ((45 + 54 + 56 + 68 + 56) / 5 = 55.8 rounded to 56).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research synthesizing Meta's official model card releases, Hugging Face repository benchmarks, and Cloudflare/OpenRouter platform documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

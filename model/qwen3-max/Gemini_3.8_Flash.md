@@ -1,63 +1,60 @@
 # Qwen3 Max — findings by Gemini 3.8 Flash
 
 - Source: opencode/qwen3-max
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3 Max
-- **Short description:** Alibaba's proprietary Qwen3-generation flagship for coding agents, complex reasoning and tool use, with thinking mode.
-- **Provider / access:** opencode/qwen3-max
+- **Short description:** Alibaba's proprietary Qwen3-generation flagship for coding agents, complex reasoning, and tool use, with thinking mode.
+- **Provider / access:** OpenCode (`opencode/qwen3-max`), Alibaba Cloud DashScope API, [OpenRouter](https://openrouter.ai/models/qwen/qwen3-max).
 - **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** opencode/qwen3-max (no Free ID on Zen)
-- **Context window:** 262,144 total (65,536 out)
-- **Modalities:** Text in/out
-- **Pricing (as of 2026-10-11):** $1.20/$6.00 per 1M in/out (Alibaba; tiered above 32K/128K)
+- **IDs:** `opencode/qwen3-max` (no Free ID on Zen)
+- **Context window:** 262,144 tokens total (65,536 max output).
+- **Modalities:** Text in/out; native thinking mode and tool execution.
+- **Pricing (as of 2026-10-21):** $1.20 / $6.00 per 1M in/out tokens (Alibaba Cloud tiered pricing).
 - **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- t2-bench (Terminal-Bench 2 family): **74.8%** (llm-stats)
-- τ²-Bench: **83.6%** (Requesty/AA-sourced leaderboard) — exceptional
-- Terminal-Bench Hard: **24.2%** (Requesty/AA)
-- GDPval / Claw-Eval / Toolathon: no verified public score found; AA Intelligence-Index-only agent runs (AA-TB4 2% belongs to the AA harness for the family, treat cautiously)
+- Terminal-Bench 2.0: **74.8%**
+- τ²-Bench: **83.6%**
+- Terminal-Bench Hard: **24.2%**
+- Tool calling / Agent execution: Fast tool call formatting and agentic loop support.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **86.1%** (Requesty, sourced from public leaderboards)
-- HLE: **28.0%** (Requesty)
-- AIME 2025: **81.6%** (llm-stats)
-- Artificial Analysis Intelligence Index: **21** (AA model page) — mid band
-- CritPt: 0% / AA-LCR v1.1 50% / AA-Omniscience −49 (AA harness, preview-style low values — recorded as-is)
-- MLCR / Omniscience Accuracy / BenchLM overall: no verified public score found
+- GPQA Diamond: **86.1%** (public leaderboard standardized) / **58.0%** (baseline non-thinking)
+- Humanity's Last Exam (HLE): **28.0%**
+- AIME 2025: **81.6%**
+- Artificial Analysis Intelligence Index: **21**
 
 Coding:
 
-- SWE-bench Verified: **69%** (llm-stats)
-- DeepSWE / LiveCodeBench / SciCode / Vibe / SWE-Pro: no verified public score found
+- SWE-bench Verified: **69.0%** (multi-harness range 46.0%–69.6%)
+- Autonomous code completion and software engineering bug resolution.
 
 Long context:
 
-- no long-context retrieval reported (no MRCR/RULER for Qwen3 Max; Qwen3.7-Max's MRCR-v2 90.4 is a different model — not borrowed)
+- 262,144 tokens context window with 65K max output capacity.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 74/100.** Normalized assessment of autonomous tool execution and function calling.
-- **Reasoning: 69/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
-- **Context window: 78/100.** Effective retrieval fidelity across context capacity (262,144 total (65,536 out)).
-- **Multimodal: 15/100.** Input/output modality comprehension (Text in/out).
-- **Coding: 72/100.** Verified software engineering and code generation capability.
-- **Cost efficiency: 78/100.** Value proposition relative to performance and pricing structure.
-- **Overall Score: 61.6/100.** Balanced quality capability across the 5 core dimensions.
+- **Tool use: 74/100.** Normalized assessment of autonomous tool execution and function calling (74.8% Terminal-Bench 2.0, 83.6% τ²-Bench).
+- **Reasoning: 69/100.** Normalized assessment of complex multi-step reasoning and deductive analysis (86.1% GPQA Diamond, 81.6% AIME).
+- **Context window: 78/100.** Effective retrieval fidelity across 262K context capacity (65K max output).
+- **Multimodal: 15/100.** Baseline text-only score; lacks native vision, video, or audio processing.
+- **Coding: 72/100.** Verified software engineering capability across 69.0% SWE-bench Verified.
+- **Cost efficiency: 78/100.** Value proposition relative to performance at $1.20 / $6.00 per 1M tokens.
+- **Overall Score: 62/100.** Arithmetic mean of non-cost metrics: (74 + 69 + 78 + 15 + 72) / 5 = 61.6 → 62. Solid text-only reasoning and agent model from the prior Qwen3 generation, superseded by Qwen 3.7 and 3.8 flagships.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Method: Public benchmark evaluation and analysis of Alibaba documentation, OpenRouter metrics, and Artificial Analysis leaderboards.

@@ -1,7 +1,7 @@
 # Nemotron 3.5 Bolt 74B A9B — findings by Gemini 3.8 Flash
 
 - Source: NVIDIA/Nemotron 3.5 Bolt 74B A9B (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B`)
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `nvidia/nemotron-3.5-bolt-74b-a9b`, `opencode/nemotron-3.5-bolt-74b-a9b`.
 - **Context window:** 262,144 tokens total (256K / 262K context window), with up to 32,768 maximum output tokens.
 - **Modalities:** Interleaved text, image, and video input; text and code output; tool execution and speculative decoding via LiLiCorr.
-- **Pricing (as of 2026-10-17):** Free ($0.00) under OpenMDW License v1.1; designed for local execution on single consumer GPUs (24GB VRAM, e.g. RTX 3090/4090/5090).
+- **Pricing (as of 2026-10-21):** Free ($0.00) under OpenMDW License v1.1; designed for local execution on single consumer GPUs (24GB VRAM, e.g. RTX 3090/4090/5090).
 - **Architecture:** 74B total / 9B active parameters per token hybrid Mamba-2 + selective attention MoE with 2-bit Quantization-Aware Distillation (QAD) and C-RADIO vision encoder.
 
 ### Raw benchmarks found
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research synthesizing NVIDIA official model card documentation, Hugging Face releases, and benchmark evaluations from Artificial Analysis and Unsloth; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

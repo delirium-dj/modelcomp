@@ -1,0 +1,9 @@
+{
+  "id": "opencode/owo-2.5",
+  "name": "Owo 2.5",
+  "short": "Owo 2.5 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

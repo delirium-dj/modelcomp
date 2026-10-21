@@ -1,0 +1,56 @@
+# Qwen 3.8 325B — findings by Muse Glimmer 30B
+
+- Source: Alibaba/Qwen 3.8 325B
+- Date: 2026-10-20
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Qwen 3.8 325B
+- **Short description:** Alibaba's Qwen 3.8 325B model; parameter size and capabilities unverified as of 2026-10-20.
+- **Provider / access:** No verified public provider ID found.
+- **Release / knowledge:** No verified public release date found.
+- **IDs:** opencode/qwen-3.8-325b
+- **Context window:** Unverified
+- **Modalities:** Unverified
+- **Pricing (as of 2026-10-20):** Unverified
+- **Architecture:** No verified public architecture details found.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found for Qwen 3.8 325B as of 2026-10-20 via webfetch.
+
+Agent / tool use:
+- No verified public score found.
+
+Reasoning / knowledge:
+- No verified public score found.
+
+Coding:
+- No verified public score found.
+
+Long context:
+- No verified public score found.
+
+Multimodal:
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found.**
+- **Reasoning: no verified public score found.**
+- **Context window: no verified public score found.**
+- **Multimodal: no verified public score found.**
+- **Coding: no verified public score found.**
+- **Cost efficiency: no verified public score found.**
+- **Overall Score: no verified public score found — insufficient verified evidence.**
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: public internet research; meta.json reviewed; no verified public benchmark scores found for Qwen 3.8 325B as of 2026-10-20.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+

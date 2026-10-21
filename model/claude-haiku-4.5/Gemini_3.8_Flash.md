@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic / Claude (`anthropic/claude-haiku-4.5`)
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-haiku-4.5`
 - **Context window:** 200,000 tokens total (200K context window); max output 64,000 tokens.
 - **Modalities:** Text and image input; text, code, structured JSON, and tool-calling output; extended thinking with budget controls.
-- **Pricing (as of 2026-10-17):** $1.00 / 1M input tokens, $5.00 / 1M output tokens ($0.10 / 1M cached input, $0.50 / $2.50 batch pricing) ([Anthropic Pricing](https://anthropic.com/pricing)).
+- **Pricing (as of 2026-10-21):** $1.00 / 1M input tokens, $5.00 / 1M output tokens ($0.10 / 1M cached input, $0.50 / $2.50 batch pricing) ([Anthropic Pricing](https://anthropic.com/pricing)).
 - **Architecture:** Compact high-efficiency transformer tuned for low-latency generation, extended thinking traces, and structured tool execution under ASL-2 safety standards.
 
 ### Raw benchmarks found
@@ -57,12 +57,12 @@ Long context:
 - **Multimodal: 70/100.** Solid visual processing across user interfaces, document layouts, and diagnostic diagrams; text + vision in, text out.
 - **Coding: 72/100.** Reliable coding output demonstrated by 73.3% on SWE-bench Verified and 51.1%–71.5% on LiveCodeBench; capped by lower SWE-bench Pro resolution (36.5%).
 - **Cost efficiency: 84/100.** Highly economical at $1.00 / $5.00 per 1M tokens with prompt caching discounts ($0.10).
-- **Overall Score: 71/100.** Fast, cost-efficient agentic workhorse ideally matched for sub-agents, automated classification, and rapid code review loops; superseded by Haiku 5.5.
+- **Overall Score: 71/100.** Quality arithmetic mean of the 5 core quality dimensions ((70 + 73 + 72 + 70 + 72) / 5 = 71.4 rounded to 71). Fast, cost-efficient agentic workhorse.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
 - Method: Public internet research into Anthropic product announcements, developer documentation, Artificial Analysis, and OpenRouter model listings; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
