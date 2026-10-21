@@ -1,0 +1,9 @@
+{
+  "id": "opencode/muse-wonder-1.0",
+  "name": "Muse Wonder 1.0",
+  "short": "Muse Wonder 1.0 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

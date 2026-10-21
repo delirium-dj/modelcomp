@@ -1,0 +1,55 @@
+# Qwen3.7 Flash — partial-evidence findings by GPT 6.1 Sol
+
+- Source: Alibaba Cloud / `qwen3.7-flash`,native vision-language hosted model.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded from quality overall: verified identity and independent reasoning results,but insufficient verified tool/coding/perception task coverage to score all five quality dimensions.**
+
+## Model card
+
+- **Identity:** Exact native **`qwen3.7-flash`**,snapshot **`qwen3.7-flash-2026-07-15`**,not Qwen3.7 Plus/Max,3.8Flash or old text-only `qwen-flash`. Dedicated primary Alibaba model page verifies the actual model despite this folder's generic scaffold defaults. No peer findings read.[1][2]
+- **Access / dates:** Actual current gateway **`qwen/qwen3.7-flash`**,Alibaba backend **`qwen/qwen3.7-flash-20260727`**,reported status0. Epoch labels evaluated model release **2026-07-27**,while native snapshot isJuly15;byte-identical snapshot/rolling-alias history not established. Current OpenCode catalog has no exact proposed Zen ID. No authenticated inference performed.[1][3][4][7]
+- **Context / output:** Primary **1,000,000 total**,input **991,808**,thinking-mode input **983,616**,output **131,072**,declared maximum CoT **262,144**. These are separate provider limits,not all simultaneously additive maxima. Current gateway1M/**65,536 output** is lower than native. No exact complex full-window retention benchmark verified.[1][3]
+- **Modalities / functions:** Primary **image,text,video→text**,functions,structured output,caching/prefix completion;web search available in Beijing/Singapore but not several global regions. No native audio/media generation. Thinking toggle/budget in actual gateway/secondary metadata;precise evaluated default effort not inferred solely from an unsuffixed model name.[1][3][8]
+- **Architecture / licence / cutoff:** Hosted closed weights;exact parameter/active counts and cutoff not verified. Official Qwen HF3.7 search had no matching checkpoint;absence in that search is not a universal publication claim. No Apache licence inherited from3.5.[1][8]
+- **Pricing (2026-10-21):** Primary Singapore international USD per1M **≤32K input $0.03/$0.13 output;32K–256K $0.10/$0.40;>256K $0.20/$0.80**. Implicit-cache input **$0.006/$0.02/$0.04**,explicit-cache read **$0.003/$0.01/$0.02**,creation **$0.038/$0.125/$0.25**. Current standard gateway tiered rates agree but its cache categories are route-specific. Native region/currency and long-input tiers matter;no current unrestricted$0 or exact free Zen tariff verified.[1][3]
+
+### Raw benchmarks found
+
+**Primary independent evidence recovered:** BenchLM initially showed one sourced mathematical row. Followed its Epoch attribution to the actual official **October21 benchmark_data.zip**,parsed CSVs in memory,selected exact model-version names and retained **raw per-run CSV scores**,not transformed ECI inputs. This revealed more exact-model reasoning evidence than the aggregator profile.[4][5][6]
+
+- **GPQA Diamond**,Epoch `gpqa_diamond.csv`,started **2026-08-07**: **82.3232%**,standard error **2.7179percentage points**,model version **`qwen3.7-flash`**;**80.8081%**,SE **2.8058points**,version **`qwen3.7-flash_none`**. Model labels retained;no undocumented low/high/xhigh setting inferred. Public log/viewer links provided by Epoch.[4]
+- **OTIS Mock AIME2024–2025**,Epoch `otis_mock_aime_2024_2025.csv`,August7: **86.6667%** unsuffixed,SE **5.1247points**;**77.7778%** `_none`,SE **6.2675points**. This is OTIS mock competition,not the real AIME2025/2026 contest score.[4]
+- **FrontierMath Tiers1–3 v2**,Epoch `frontiermath_tiers_1_3_v2.csv`,August29: both exact labels **19.2982456%**,SE **2.34175points**. Dedicated methodology describes code/Python-assisted mathematical answer submission and a large token budget;it does not establish that this specific run used every allowed resource. Private-run logs were not retrieved;public summary CSV is the cited result.[4][5]
+- **Mystery Game Puzzles**,Epoch `mystery_game_puzzles.csv`,August27/28: **15.0%** unsuffixed/**14.0%** `_none`,SE **3.5887/3.4874points**. This is puzzle-solving evidence,not SWE,terminal or general function-calling reliability.[4]
+- Epoch ECI summary **144.05 [141.89,145.92]** is a composite on its own scale,not a1–100 rating or an AA Intelligence Index. `processed_data_for_eci.csv` contains transformed performances that differ from raw scores;those are **not** substituted for the raw task percentages above.[4]
+- No verified exact SWE Verified,DeepSWE,LCB,SciCode,Vibe Code,terminal,Tau2/Tau3,GDPval,AutomationBench,Claw-Eval,MCP Atlas,Toolathlon or native image/video task result found in inspected sources. Primary claims of better agents,spatial perception and vibe coding remain qualitative.[1]
+- Exact AA candidate404;public AA selector did not reveal a matching record. Exact guessed Vals/BenchmarkList candidates404. Qwen blog URLs returned application shells,not usable exact-task disclosures. The old primary **`qwen-flash`** page explicitly describes a2025 text-only snapshot and is **not** an identity/benchmark substitute.[2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact independent math/knowledge evidence is real and retained. It does not verify broad software engineering,tool-task success or perception quality;capacity,cheap tariffs and feature flags cannot fill those missing axes. No fabricated quality overall or placeholder scores included.
+
+### Research trail and sources
+
+Fresh Bing official-benchmark RSS,Google exact model/pricing query returning an interstitial,and DuckDuckGo benchmark/context query a202 challenge. Yahoo follow-up500. Direct correct dedicated Alibaba English/Chinese pages and actual gateway resolved identity/specifications;an initial generic qwen-flash page was recognized as a different2025 model. BenchLM's Epoch citation led to official benchmark methodology/data page and downloadable raw CSVs,which were inspected for exact unsuffixed/none runs. No peer,Plus/Max or3.8 scores substituted.
+
+[1]: https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash "Exact primary model/snapshot,modalities,region-specific tools,1M and native tiered USD pricing"
+[2]: https://www.alibabacloud.com/help/en/model-studio/qwen-flash "Different old text-only2025 model;not substituted for3.7 Flash"
+[3]: https://openrouter.ai/api/v1/models/qwen/qwen3.7-flash/endpoints "Actual July27 Alibaba backend,1M/64K and tiered paid rates/tools"
+[4]: https://epoch.ai/data/benchmark_data.zip "Official raw exact-version GPQA,OTIS,FrontierMath v2,Mystery Game runs plus separately scaled/transformed ECI data"
+[5]: https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2 "Exact benchmark version,private-set scope and code/Python-answer methodology"
+[6]: https://epoch.ai/benchmarks/use-this-data "Official source linking raw CSV archive and update date"
+[7]: https://opencode.ai/inference/v1/models "Current catalog lacks proposed exact Zen ID;not a claim of no other serving access"
+[8]: https://models.dev/api.json "Exact native/third-party identity and metadata,not independent quality evidence"
+[9]: https://benchlm.ai/models/qwen3-7-flash "Partial one-row profile led to primary Epoch data;aggregate not copied as quality overall"
+[10]: https://logs.epoch.ai/inspect-viewer/36231d6d/viewer.html?log_file=https%3A%2F%2Flogs.epoch.ai%2Finspect_ai_logs%2Fi6i3gQf3ng2aAipvowPpws.eval "Public GPQA run-viewer link declared in exact Epoch raw CSV;effort details not assumed from label"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,exact primary native/serving identity and tariff verification,primary evaluator CSV provenance and version/mode-sensitive raw-result inspection. Overall withheld because cross-axis quality evidence remains insufficient.
+- Future sources: preserve this record and add a separate signed scored report when exact tool,coding and perception task evidence becomes verifiable.

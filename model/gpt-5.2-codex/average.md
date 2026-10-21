@@ -5,17 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 83/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Reasoning: 76.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Context window: 85.5/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Multimodal: 80/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Coding: 85/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Cost efficiency: 79/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
-- **Overall Score: 82/100.** Fallback mean of all 2 reporting source(s) — no rater clears own Overall > 84.9, so the gate cannot filter (every model gets an average, RULES.md).
+- **Tool use: 70/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 80/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 84/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 79/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 75/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 78/100.** Mean of 1 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Fallback: no qualifying raters (need own Overall > 84.9); average from all 2 below-gate source(s): MiniMax M3.1 Flash, Solar Mini 4.
-- Average from top 2 by Overall Score: MiniMax M3.1 Flash, Solar Mini 4.
+- Based on 1 qualifying reporting source(s) (rater Overall > 84.9): GPT-6.1 Sol.
+- Average from top 1 by Overall Score: GPT-6.1 Sol.
+- Ignored below-gate rater(s): MiniMax M3.1 Flash, Solar Mini 4.

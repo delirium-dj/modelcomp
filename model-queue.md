@@ -55,6 +55,7 @@
 86.3 grok-4.6
 86.2 claude-sonnet-4.6
 86.1 qwen-3.8-27b
+86 gpt-5.2-pro
 85.8 gpt-5.2
 85.7 qwen-3.6-plus
 85.6 grok-4.7
@@ -83,7 +84,6 @@
 82.6 qwen-3.7-max
 82.4 kimi-k2.7-code
 82.1 kimi-k2.5
-82 gpt-5.2-codex
 81.6 mimo-v2.5-free
 80.7 claude-sonnet-4.5
 80.5 grok-4.1-fast
@@ -96,6 +96,7 @@
 78.6 glm-5.3
 78.4 union-alpha
 78.2 grok-4.1
+78 gpt-5.2-codex
 77.2 gemini-2.5-flash
 76.9 gemini-3.1-flash-lite
 76.2 claude-sonnet-4
@@ -109,7 +110,6 @@
 74.9 mistral-medium-3.5
 74.7 ling-3.0-flash-vl
 74.6 gemini-2.0-flash
-74.5 glm-4.6-flash
 74.4 gemini-1.5-pro
 74.4 qwen-3.5-27b
 74.2 glm-5.2
@@ -132,6 +132,7 @@
 71.3 qwen-3.5-35b-a3b
 71.2 beam
 70.9 nemotron-3.5-bolt-74b-a9b
+70.7 glm-4.6-flash
 70.6 grok-build-0.1
 70.5 gpt-5.1-codex-max
 70.4 longcat-2.0
@@ -183,7 +184,9 @@
 53.8 ling-2.6-flash
 53.7 mercury-2.5
 53 gpt-oss-120b-lite
+53 qwen-3.5-2b
 52.2 ling-3.0-tiny
 47.5 mai-experimental-test
 41 nemotron-3.5-bolt-e4b
+41 qwen-3.5-0.8b
 39.5 jev-1.13

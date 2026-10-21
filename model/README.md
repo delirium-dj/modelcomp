@@ -13,8 +13,9 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
    (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
-   `qwen-3.5-397b` = Qwen 3.5, 397B params; `qwen-3.5-122b-a10b` = Qwen 3.5,
-   122B-total/10B-active params — none is a dotted version).
+   `qwen-3.5-0.8b` = Qwen 3.5, 0.8B params; `qwen-3.5-397b` = Qwen 3.5, 397B
+   params; `qwen-3.5-122b-a10b` = Qwen 3.5, 122B-total/10B-active params — none
+   is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
   provider-qualified second slugs for a model that already had a folder (e.g.
   `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
@@ -38,8 +39,9 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   dotted destination and writes nothing for them.) Exception: digit pairs
   that are NOT a version stay underscored — a parameter size
   (`Gemma_4_31B_IT` = Gemma 4, 31B params; `Qwen_3.8_27B` = Qwen 3.8, 27B
-  params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active — any digits
-  immediately followed by `b`/`B` are params, never a version).
+  params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active; `Qwen_3.5_0.8B`
+  = Qwen 3.5, 0.8B params — a parameter count (optionally decimal)
+  immediately followed by `b`/`B` is never a version).
 - **Merged-and-deleted duplicate stems never come back.** A findings file
   spelled with a retired variant stem (e.g. `Laguna_XS_2_1.md`, folded into
   `Laguna_XS_2.1.md` 2026-10-08 after the same rater had filed under both
@@ -215,8 +217,8 @@ reports stay visible by design (`RULES.md` crown rule).
    NORMALIZE it per `RULES.md` slug identity before creating anything:
    replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
    `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
-   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
-   `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-0.8b`, `qwen-3.5-9b`,
+   `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
    (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted

@@ -20,18 +20,19 @@ fi
 # Block staged additions under hyphen-versioned model folders — they FAIL
 # `pnpm sync` (hyphenVersionViolation in scripts/lib/naming.mjs), so catching
 # them here saves a failed sync pass. Rename to the dotted slug first (e.g.
-# model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/). Param-size
-# exceptions (NOT versions): gemma-4-31b, qwen-3.8-27b, qwen-3.5-9b,
-# qwen-3.5-397b, qwen-3.5-27b, qwen-3.5-35b-a3b, qwen-3.5-122b-a10b.
+# model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/). Param sizes
+# (digits, optional decimal, b/B) are NOT versions and may sit on either side
+# of the join (mirror of normalizeSlug's (?!\d+(\.\d+)?[bB]) rule): strip
+# them before the check. Covers gemma-4-31b, qwen-3.8-27b, qwen-3.5-0.8b,
+# qwen-3.5-9b, qwen-3.5-397b, qwen-3.5-27b, qwen-3.5-35b-a3b,
+# qwen-3.5-122b-a10b.
 hyphen_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '^model/[^/]*/' || true)"
 hyphen_blocked=""
 while IFS= read -r f; do
   [ -z "$f" ] && continue
   slug="$(printf '%s' "$f" | sed -e 's|^model/||' -e 's|/.*$||')"
-  case "$slug" in
-    gemma-4-31b|qwen-3.8-27b|qwen-3.5-9b|qwen-3.5-397b|qwen-3.5-27b|qwen-3.5-35b-a3b|qwen-3.5-122b-a10b) continue;;
-  esac
-  case "$slug" in
+  probe="$(printf '%s' "$slug" | sed -e 's/[0-9][0-9]*\(\.[0-9][0-9]*\)\{0,1\}[bB]//g')"
+  case "$probe" in
     *[0-9]-[0-9]*) hyphen_blocked="${hyphen_blocked}${f}\n";;
   esac
 done <<EOF
@@ -116,14 +117,15 @@ fi
 # `pnpm sync` (stemVersionViolation in scripts/lib/naming.mjs), so catching
 # them here saves a failed sync pass. Write the dotted stem instead (e.g.
 # model/foo/Laguna_XS_2_1.md -> model/foo/Laguna_XS_2.1.md). Param-size joins
-# (digits immediately followed by b/B) are NOT versions and stay underscored
-# (mirror of normalizeStem's (?!\d+[bB]) rule): strip them before the check.
+# (digits, optional decimal, b/B) are NOT versions and stay underscored
+# (mirror of normalizeStem's (?!\d+(\.\d+)?[bB]) rule): strip them before the
+# check.
 stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 stem_blocked=""
 while IFS= read -r f; do
   [ -z "$f" ] && continue
   stem="$(basename "$f" | sed -e 's|\.excluded$||' -e 's|\.md$||')"
-  stripped="$(printf '%s' "$stem" | sed -e 's/[0-9][0-9]*[bB]//g')"
+  stripped="$(printf '%s' "$stem" | sed -e 's/[0-9][0-9]*\(\.[0-9][0-9]*\)\{0,1\}[bB]//g')"
   case "$stripped" in
     *[0-9]_[0-9]*) stem_blocked="${stem_blocked}${f}\n";;
   esac

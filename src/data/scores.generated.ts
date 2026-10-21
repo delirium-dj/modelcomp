@@ -2460,9 +2460,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [62, 64.5, 72, 15, 61.5, 98.5, 55],
   },
   "glm-4.6-flash": {
+    "GPT_6.1_Sol.md": [47, 61, 60, 82, 64, 100, 63],
     "Gemini_3.8_Flash.md": [78, 77, 80, 88, 72, 98, 79],
     "MiMo_2.6_Flash.md": [70, 72, 64, 78, 66, 98, 70],
-    "average.md": [74, 74.5, 72, 83, 69, 98, 74.5],
+    "average.md": [65, 70, 68, 82.7, 67.3, 98.7, 70.7],
   },
   "glm-4.7-flash": {
     "Gemini_3.8_Flash.md": [79, 83, 84, 15, 74, 97, 67],
@@ -3044,9 +3045,14 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [84.9, 89.2, 87.6, 80, 87.1, 71.6, 85.8],
   },
   "gpt-5.2-codex": {
+    "GPT_6.1_Sol.md": [70, 80, 84, 78, 79, 75, 78],
     "MiniMax_M3.1_Flash.md": [78, 66, 76, 68, 82, 63, 74],
     "Solar_Mini_4.md": [88, 87, 95, 92, 88, 95, 90],
-    "average.md": [83, 76.5, 85.5, 80, 85, 79, 82],
+    "average.md": [70, 80, 84, 78, 79, 75, 78],
+  },
+  "gpt-5.2-pro": {
+    "GLM_4.5_Flash.md": [91, 89, 88, 80, 82, 72, 86],
+    "average.md": [91, 89, 88, 80, 82, 72, 86],
   },
   "gpt-5.3-codex": {
     "Beam.md": [72, 72, 70, 68, 74, 82, 71.2],
@@ -6443,6 +6449,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Step_5_Preview.md": [68, 76, 76, 84, 72, 93, 75],
     "average.md": [80, 84.2, 80.5, 80.9, 83.6, 92.3, 81.7],
   },
+  "qwen-3.5-0.8b": {
+    "GLM_5.3.md": [20, 25, 72, 62, 25, 100, 41],
+    "average.md": [20, 25, 72, 62, 25, 100, 41],
+  },
   "qwen-3.5-122b-a10b": {
     "Claude_Opus_4.6.md": [48, 62, 78, 68, 58, 85, 63],
     "GLM_5.3.md": [66, 81, 72, 86, 75, 100, 76],
@@ -6473,6 +6483,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [80, 76, 76, 72, 66, 86, 74],
     "Step_5_Preview.md": [80, 82, 78, 88, 78, 90, 81],
     "average.md": [68, 74.8, 78.1, 79.1, 72.3, 89.4, 74.4],
+  },
+  "qwen-3.5-2b": {
+    "GLM_5.3.md": [38, 48, 72, 76, 30, 100, 53],
+    "average.md": [38, 48, 72, 76, 30, 100, 53],
   },
   "qwen-3.5-35b-a3b": {
     "Claude_Opus_4.6.md": [35, 42, 78, 68, 38, 92, 52],

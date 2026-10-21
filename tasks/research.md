@@ -103,10 +103,13 @@ After that, check existence only for the folder you are currently writing (one c
          `gemma-4.12b-unified`, never `gemma-4-12b-unified`.
       b. Self-check: if the slug has a digit on BOTH sides of a hyphen
           (`0-9 - 0-9`, e.g. the `4-1` in `gemma-4-12b`) and is NOT one of
-           `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`,
-           `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b` (param sizes, not
-          versions — the only exceptions), replace every such join with a
-         dot (`4-12` → `4.12`) before proceeding.
+           `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-0.8b`, `qwen-3.5-9b`,
+           `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b`,
+           `qwen-3.5-122b-a10b` (param sizes, not versions — the only
+          exceptions), replace every such join with a dot (`4-12` → `4.12`)
+          before proceeding. A parameter count (digits, optionally decimal,
+          immediately followed by `b`/`B` — `31b`, `397b`, `0.8b`) is never a
+          version and stays hyphenated.
       c. Check for an existing dotted folder first (both trees in full mode)
          — a hyphen-versioned folder is a duplicate, not a new model.
          `pnpm sync` FAILs hyphen variants loudly and the pre-commit hook

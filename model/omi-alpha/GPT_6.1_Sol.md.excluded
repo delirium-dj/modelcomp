@@ -1,0 +1,45 @@
+# Omi Alpha — identity-unverified findings by GPT 6.1 Sol
+
+- Source: Dataset label `omi-alpha`;no verified publisher/checkpoint resolved.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded: exact model identity and task measurements not verified.**
+
+## Model card
+
+- **Name / identity:** Omi Alpha / `omi-alpha` is the name investigated. No verified official developer,release,model card,weights or dated inference identity found. Similar “Omi”,“Omni”,AlphaFold or other alpha models are not assumed aliases.
+- **Dataset metadata:** This folder's curated metadata was inspected only to resolve the proposed ID **`opencode/omi-alpha`**. It is explicitly **`scaffolded: true`**;its128K/text-only/“Standard pricing” values are generic placeholders,not independently established serving specifications. No peer findings or scores read.
+- **Access:** Current OpenCode and OpenRouter model catalogs returned200 with **no exact `omi-alpha` entry**. Models.dev had no matching record. Exact OpenRouter `openrouter/omi-alpha` and `stealth/omi-alpha` endpoint candidates returned404. These are dated catalog/path findings,not proof of global or historical nonexistence.[1][2][3][4]
+- **Context / modalities / reasoning / tools / price:** Unknown for an exact verified checkpoint. No free tariff,paid rate,capacity or modality score inferred from the scaffold or another alpha model.
+- **Architecture / licence / knowledge / release:** Unknown. Official HF model search returned200 with no exact-name matches;GitHub repository search returned unrelated AlphaFold/omicron repositories rather than a verified publisher/model card.[5]
+
+### Raw benchmarks found
+
+- **No verified exact-model task-success benchmark found** for tools,reasoning,coding,multimodal understanding or context retention. No authenticated inference performed.
+- Exact AA candidate **`/models/omi-alpha`**,Vals **`/models/openrouter_omi-alpha`**,OpenCode usage-page candidate **`/data/unknown/omi-alpha`** and OpenRouter model-page candidate returned404. No unrelated model substituted after these path failures.[6][7]
+- Without a stable model identity,an advertised or copied score cannot be linked to a known checkpoint. No normalized quality overall can be computed from generic metadata.
+
+### Normalized scores (1–100)
+
+**Not assigned.** No placeholder scores included;unknown evidence is not a measured zero.
+
+### Research trail and sources
+
+Fresh Bing exact-name benchmark RSS attempt yielded no usable exact-model lead;Google official-model query returned a JavaScript interstitial;DuckDuckGo provider/benchmark query returned202 and a human-verification challenge on follow-up. Additional Brave query returned429. Inspected proposed-ID scaffold metadata,current OpenCode/OpenRouter/models.dev catalogs,exact gateway/evaluator candidates and public HF/GitHub model-discovery leads. Search access failures and irrelevant repositories are recorded as limits,not evidence of a specific underlying model. No peer reports read.
+
+[1]: https://opencode.ai/inference/v1/models "Current public catalog returned200,no exact proposed ID"
+[2]: https://openrouter.ai/api/v1/models "Current public catalog returned200,no exact model"
+[3]: https://models.dev/api.json "No exact omi-alpha provider record at inspection"
+[4]: https://openrouter.ai/api/v1/models/openrouter/omi-alpha/endpoints "Exact candidate404;stealth-prefixed candidate also404"
+[5]: https://huggingface.co/api/models?search=omi-alpha&limit=20 "Public exact-name weight search returned empty list"
+[6]: https://artificialanalysis.ai/models/omi-alpha "Exact evaluator candidate404"
+[7]: https://www.vals.ai/models/openrouter_omi-alpha "Exact evaluator candidate404"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,proposed-ID provenance and current public catalog/evaluator checks. No quality scores assigned without verified identity and task evidence.
+- Future sources: preserve this record and add a separate signed report if an exact publisher/checkpoint and capability measurements become verifiable.

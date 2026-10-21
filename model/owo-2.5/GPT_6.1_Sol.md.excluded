@@ -1,0 +1,45 @@
+# OWO 2.5 — identity-unverified findings by GPT 6.1 Sol
+
+- Source: Dataset label `owo-2.5`;publisher/checkpoint unresolved.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded: exact model identity and task measurements not verified.**
+
+## Model card
+
+- **Name / identity:** OWO2.5 / Owo2.5 / `owo-2.5` investigated without assuming it is Qwen,MiMo,another2.5 family or an emoticon-style stealth alias. No verified official developer,dated model card,weights or inference revision resolved.
+- **Dataset metadata:** This folder proposes **`opencode/owo-2.5`** and explicitly says **`scaffolded: true`**. Its128K/text-only/“Standard pricing” values are generic scaffold metadata,not verified model specifications. Metadata was read only for proposed identity;no peer research or scores read.
+- **Access:** Current OpenCode/OpenRouter catalogs returned200 with no OWO match;models.dev had no matching provider record. Exact gateway candidate `openrouter/owo-2.5` returned404. These are bounded current catalog/path findings,not universal nonexistence claims.[1][2][3][4]
+- **Context / output / modalities / thinking / tools:** Unknown for a verified checkpoint. No quality score derived from the folder defaults or another similarly named model.
+- **Architecture / licence / knowledge / release / pricing:** Unknown. Official HF name search returned200 with no matching weights. No actual free or paid tariff verified.[5]
+
+### Raw benchmarks found
+
+- **No verified exact-model task-success benchmark found** for tool use,reasoning,coding,multimodal understanding or context retention. No authenticated inference performed.
+- Exact AA **`owo-2-5`** and Vals **`unknown_owo-2.5`** candidates returned404. A guessed URL failure is not a measured capability result or evidence of an underlying model alias.[6][7]
+- Without publisher/serving identity,benchmark provenance cannot be tied to a stable checkpoint. No unrelated2.5 scores,placeholder capacities or unsupported aggregate rankings are used.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Unknown values are not measured zeros;no fabricated score block included.
+
+### Research trail and sources
+
+Three fresh attempts:Bing exact spaced-name model/benchmark RSS yielded no usable lead;Google exact-slug official-model query returned a JavaScript interstitial;DuckDuckGo exact-slug provider/benchmark query returned202 and a human-verification challenge. Checked the proposed scaffold ID against current OpenCode/OpenRouter/models.dev catalogs,exact gateway/evaluator candidates and official HF search. Search restrictions are recorded as limitations;no claim that all public sources have been exhausted. No peer findings read.
+
+[1]: https://opencode.ai/inference/v1/models "Current catalog returned200,no proposed OWO entry"
+[2]: https://openrouter.ai/api/v1/models "Current public catalog returned200,no OWO entry"
+[3]: https://models.dev/api.json "No exact provider/model identity found"
+[4]: https://openrouter.ai/api/v1/models/openrouter/owo-2.5/endpoints "Exact candidate404"
+[5]: https://huggingface.co/api/models?search=owo-2.5&limit=20 "Public exact-name model search returned empty list"
+[6]: https://artificialanalysis.ai/models/owo-2-5 "Exact evaluator candidate404"
+[7]: https://www.vals.ai/models/unknown_owo-2.5 "Exact evaluator candidate404"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,proposed-ID scaffold provenance,current provider catalogs and exact evaluator checks. No quality scores assigned without verified identity and task evidence.
+- Future sources: preserve this record and add a separate signed report if exact publisher/checkpoint and capability measurements become verifiable.

@@ -42,15 +42,17 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
 /**
  * Slug exceptions (grandfathered): match digit-hyphen-digit but predate the
  * general param-size rule. Param sizes like `gemma-4-31b` ("4" + 31B params),
- * `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`,
- * `qwen-3.5-35b-a3b` and `qwen-3.5-122b-a10b` (version + *B params — the hit
- * is version-digit → param-digit) now pass through `normalizeSlug`'s general
- * digits+b/B rule without membership; the set remains for documentation and
- * any future non-param lookalikes.
+ * `qwen-3.8-27b`, `qwen-3.5-0.8b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
+ * `qwen-3.5-27b`, `qwen-3.5-35b-a3b` and `qwen-3.5-122b-a10b` (version +
+ * *B params — the hit is version-digit → param-digit, decimal params
+ * included) now pass through `normalizeSlug`'s general digits+b/B rule
+ * without membership; the set remains for documentation and any future
+ * non-param lookalikes.
  */
 export const SLUG_VERSION_EXCEPTION = new Set([
   "gemma-4-31b",
   "qwen-3.8-27b",
+  "qwen-3.5-0.8b",
   "qwen-3.5-9b",
   "qwen-3.5-397b",
   "qwen-3.5-27b",
@@ -63,17 +65,18 @@ export const SLUG_VERSION_EXCEPTION = new Set([
  * Version numbers use "." not "-" between digits: every digit-hyphen-digit
  * join becomes a dot (`gpt-5-6-terra` → `gpt-5.6-terra`, `gpt-5-5` →
  * `gpt-5.5`), EXCEPT param-size joins — digits immediately followed by
- * `b`/`B` are a parameter count, never a version (`qwen-3.8-325b` =
- * version 3.8 + 325B params, `gemma-4-31b` stay hyphenated), mirroring
- * normalizeStem's general digits+b/B rule. Explicit SLUG_VERSION_EXCEPTION
- * members pass through untouched. Already-dotted folders on disk
- * (`gemma-4.12b-unified`) stay dotted — files are never renamed (RULES.md
- * permanence). Always run a freshly derived slug through this before
- * creating a folder or comparing against on-disk slugs.
+ * `b`/`B`, with or without a decimal (`325b`, `0.8b`), are a parameter count,
+ * never a version (`qwen-3.8-325b` = version 3.8 + 325B params,
+ * `qwen-3.5-0.8b` = version 3.5 + 0.8B params, `gemma-4-31b` stay
+ * hyphenated), mirroring normalizeStem's general digits+b/B rule. Explicit
+ * SLUG_VERSION_EXCEPTION members pass through untouched. Already-dotted
+ * folders on disk (`gemma-4.12b-unified`) stay dotted — files are never
+ * renamed (RULES.md permanence). Always run a freshly derived slug through
+ * this before creating a folder or comparing against on-disk slugs.
  */
 export function normalizeSlug(slug, exceptions = SLUG_VERSION_EXCEPTION) {
   if (exceptions.has(slug)) return slug;
-  return slug.replace(/(\d)-(?=\d)(?!\d+[bB])/g, "$1.");
+  return slug.replace(/(\d)-(?=\d)(?!\d+(?:\.\d+)?[bB])/g, "$1.");
 }
 
 /**
@@ -100,15 +103,17 @@ export const STEM_VERSION_EXCEPTION = new Set(["Gemma_4_31B_IT", "Qwen_3.8_27B"]
  * findings-stem identity). Version numbers use "." not "_" between digits:
  * every digit-underscore-digit join becomes a dot (`Laguna_XS_2_1` →
  * `Laguna_XS_2.1`), EXCEPT param-size joins — digits immediately followed by
- * `b`/`B` are a parameter count, never a version (`Xing_4.0_29b_a4b` =
- * version 4.0 + 29B/4B-active params, `Qwen_3.8_27B`, `Gemma_4_31B_IT` stay
- * underscored). Explicit STEM_VERSION_EXCEPTION members and param-size joins
- * pass through untouched. Always run a freshly derived STEM through this
- * before writing a findings file or comparing against on-disk stems.
+ * `b`/`B`, with or without a decimal (`29b`, `0.8B`), are a parameter count,
+ * never a version (`Xing_4.0_29b_a4b` = version 4.0 + 29B/4B-active params,
+ * `Qwen_3.5_0.8B` = version 3.5 + 0.8B params, `Qwen_3.8_27B`,
+ * `Gemma_4_31B_IT` stay underscored). Explicit STEM_VERSION_EXCEPTION members
+ * and param-size joins pass through untouched. Always run a freshly derived
+ * STEM through this before writing a findings file or comparing against
+ * on-disk stems.
  */
 export function normalizeStem(stem, exceptions = STEM_VERSION_EXCEPTION) {
   if (exceptions.has(stem)) return stem;
-  return stem.replace(/(\d)_(?=\d)(?!\d+[bB])/g, "$1.");
+  return stem.replace(/(\d)_(?=\d)(?!\d+(?:\.\d+)?[bB])/g, "$1.");
 }
 
 /**
