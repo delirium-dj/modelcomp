@@ -1,0 +1,52 @@
+# Exo Free — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> "Exo Free" was an **anonymous free OpenCode Zen slot that lived for about three
+> days** (added 2026-10-06, already returning HTTP 410 `ModelDeprecated` by
+> 2026-10-09) and has **zero verified public benchmark numbers** on any tracker.
+> Per the project template (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file
+> is saved as `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never
+> parsed, averaged or registered) and contains only the negative findings.
+
+- Source: OpenCode Zen (stealth free preview, vendor unknown) — `exo-free`
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** An unidentified vendor's free reasoning model on OpenCode Zen — text + image in, 1M context, reasoning at "high", tool use — announced **2026-10-06** and already dead (HTTP 410) three days later, after it was shipped as the **default model for fresh OpenCode installs** and broke their first prompt. Its specs come from a single models.dev row; no vendor, no card, no scores.
+- **Provider / access:** OpenCode Zen `exo-free` — **retired**; the endpoint returns HTTP 410 `ModelDeprecated`, the id is absent from `https://opencode.ai/inference/v1/models`, the Zen docs entries were removed on 2026-10-16, and models.dev marks it `status: deprecated`.
+- **Release / knowledge:** added to the Zen catalogue **2026-10-06** (OpenCode PR #53622, merged 2026-10-06T22:29Z; models.dev `release_date` 2026-10-06). Knowledge cutoff unknown.
+- **IDs:** `exo-free` (models.dev provider `opencode`) — no other id anywhere.
+- **Context window:** **1,048,576** tokens, **131,072** max output (models.dev only — no corroborating source).
+- **Modalities:** text and image input; text output; reasoning effort `high`; tool calling supported; temperature not settable; attachments supported; no open weights.
+- **Pricing (as of 2026-10-20):** **$0 / $0 / $0** (free tier, limited time). Zen's data policy for this slot: *"During its free period, collected data may be used to improve the model"* — **not** zero-retention.
+- **Architecture:** undisclosed; no vendor claim, no parameter count.
+
+### Raw benchmarks found
+
+> No benchmark row exists for Exo Free on any source. The checks below are listed so
+> the absence is auditable.
+
+- Artificial Analysis: `https://artificialanalysis.ai/models/exo-free` → **404**; "Exo" is absent from the AA model set
+- BenchLM: `https://benchlm.ai/models/exo-free` → **404**; "Exo" is absent from the BenchLM model index
+- OpenRouter: absent from `https://openrouter.ai/api/v1/models` (468 models)
+- models.dev: the only "exo" entry in the entire registry is `opencode/exo-free` itself — no provider maps any model to an "Exo" base, and there is no `canonical_model_id` or `base_model` link
+- Hugging Face: no model matches `exo-free`
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / LCR / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found**
+- The only public performance trace is an operational one: it was the default model for fresh installs and immediately returned deprecation errors (OpenCode issue #54065, Oct 2026)
+
+### Negative findings summary
+
+- Three days of life, one registry row, no vendor, no evaluation. A documented absence is the whole finding.
+- Nearest **real** free Zen neighbours for orientation only (not used as a proxy): Big Pickle (live), Beam Free, GLM-5.3-Flash Free, Nemotron 3.5 Lightning Free.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (OpenCode Zen docs and changelog, GitHub PR/issue history for the add and deprecation, models.dev API, OpenRouter API, Artificial Analysis and BenchLM 404 checks, Hugging Face API); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Big_Pickle.md`, using the same headings.

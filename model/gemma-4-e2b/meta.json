@@ -1,19 +1,20 @@
 {
-  "id": "opencode/gemma-4-e2b",
+  "id": "google/gemma-4-E2B",
   "name": "Gemma 4 E2B",
-  "short": "Google DeepMind's ~2B open-weight edge model (Apache 2.0, 128K, 2-3GB RAM) for phones and Raspberry Pi; native text+image+audio input.",
+  "short": "Google's Apr 2026 Apache-2.0 edge model (2.3B effective, 128K, text+image+audio in) with a 3.3GB Q4 build for phones and Pis: MMLU-Pro 60.0%, AA index 7.8.",
   "contextWindow": "128,000 total",
-  "modalities": "Text, image, audio in; text out",
-  "pricingNote": "Apache 2.0 open weights; hosted ~$0.04/$0.08 per 1M",
+  "modalities": "Text, image, audio in; video as frames; text out",
+  "pricingNote": "Apache 2.0 open weights (Q4_0 GGUF ~3.3GB); hosted ~$0.04/$0.08 per 1M",
   "pricingTiers": [
-    "Open weights (Apache 2.0, self-host)",
-    "Hosted ~$0.04/$0.08 per 1M"
+    "Hosted ~$0.04/M in, $0.08/M out",
+    "Self-host $0 (Apache 2.0; Q4_0 GGUF ~3.30 GB with vision projector, Q8_0 ~5.36 GB, BF16 ~9.98 GB)"
   ],
-  "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-e2b",
+  "officialUrl": "https://huggingface.co/google/gemma-4-E2B",
   "pricingLinks": [
     "https://huggingface.co/google/gemma-4-E2B",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://huggingface.co/ggml-org/gemma-4-E2B-it-GGUF"
   ],
-  "standout": "The Raspberry-Pi class citizen: text, image and audio in from 2-3GB of RAM, fully open.",
-  "tradeoff": "A 2B ceiling — it demos the possible, bigger siblings deliver the useful."
+  "standout": "The smallest fully multimodal Gemma: image and audio understanding in a 3.3 GB build.",
+  "tradeoff": "MRCR 19.1% at 128k, Terminal-Bench 2.1 0.4% and HLE 4.8% - it senses, it does not reason or code.",
+  "noFreeId": true
 }

@@ -1,22 +1,21 @@
 {
   "id": "opencode/nemotron-3.5-lightning-free",
-  "name": "Nemotron 3.5 Lightning 30B 3B",
-  "short": "NVIDIA's open 30B/3B hybrid Mamba-2 MoE for always-on agent execution; PinchBench 85.37, SWE-V 51.56, $0.08/$0.20 plus free tier.",
-  "contextWindow": "262,144 native (Benchgen and others report 1M; conflict unresolved)",
+  "name": "Nemotron 3.5 Lightning 30B A3B",
+  "short": "NVIDIA's Aug 2026 open-weight (OpenMDW-1.1) 30B/3B-active Mamba-2 MoE text model - the always-on execution layer at 313 tok/s, free on Zen under NVIDIA trial terms.",
+  "contextWindow": "262,144 total (card: up to 1M on 8x H100)",
   "modalities": "Text in/out only",
-  "pricingNote": "$0.08/$0.20 per 1M ($0.04 cached); free Zen tier and NVIDIA trial; OpenMDW self-host weights",
-  "freeTierNote": "Free OpenCode Zen and NVIDIA trial access; self-host free under OpenMDW (DGX Spark optimized)",
+  "pricingNote": "Free Zen tier (NVIDIA trial: usage logged, no confidential data); paid $0.07/$0.20 per 1M; OpenMDW self-host $0",
+  "freeTierNote": "Free on OpenCode Zen for a limited time under NVIDIA's API trial terms - your use is logged, so keep confidential data off it",
   "pricingTiers": [
-    "Free Zen tier / NVIDIA trial",
-    "$0.08 in / $0.20 out per 1M ($0.04 cached input)",
-    "OpenMDW open weights (self-host, commercial use permitted)"
+    "Free OpenCode Zen tier: nemotron-3.5-lightning-free ($0/$0, NVIDIA trial terms apply)",
+    "Paid $0.07/M in, $0.20/M out (OpenRouter); $0.06/$0.20 (AA median); self-host $0 (OpenMDW-1.1)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-lightning-free",
+  "officialUrl": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models",
-    "https://build.nvidia.com/",
+    "https://opencode.ai/docs/zen",
     "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16"
   ],
-  "standout": "The always-on executor: a Mamba-2 hybrid priced to run agent loops continuously, with a free tier on top.",
-  "tradeoff": "Entry-level verified coding — execution speed is the point, not depth."
+  "standout": "The execution layer: 313 tok/s, 0.6 s TTFT and a free tier for high-volume agent steps.",
+  "tradeoff": "It executes rather than plans - Terminal-Bench 2.1 24.6%, tau3-Banking 9.3% and AutomationBench 0.8% - and the free tier logs your usage.",
+  "noFreeId": false
 }

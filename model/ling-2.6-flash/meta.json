@@ -1,14 +1,20 @@
 {
-  "id": "opencode/ling-2.6-flash",
+  "id": "inclusionai/ling-2.6-flash",
   "name": "Ling 2.6 Flash",
-  "short": "InclusionAI's 107B/7.4B-active MIT open-weights non-reasoning MoE (262K) for tool-calling agents; deprecated, succeeded by Ling 3.0 Flash.",
-  "contextWindow": "262,144 total (per AA)",
+  "short": "InclusionAI's Apr 2026 MIT 107B/7.4B-active non-reasoning MoE (128K native, 256K via YaRN): SWE-bench Verified 61.2%, tau2 76.4%, MRCR 75.9% - deprecated in favour of Ling 3.0 Flash.",
+  "contextWindow": "131,072 native (262,144 via YaRN)",
   "modalities": "Text in/out",
-  "pricingNote": "Open weights (MIT): free self-host",
-  "officialUrl": "https://huggingface.co/models?search=ling-2.6-flash",
+  "pricingNote": "$0.10/$0.30 per 1M (ZenMux, Requesty); a free Zen slot existed and is now deprecated; MIT self-host $0",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-2.6-flash",
   "pricingLinks": [
-    "https://huggingface.co/inclusionAI/Ling-2.6-flash"
+    "https://huggingface.co/inclusionAI/Ling-2.6-flash",
+    "https://zenmux.ai/api/v1/models"
   ],
-  "standout": "The tool-calling predecessor: the Flash MoE that made cheap open-weights agent loops routine.",
-  "tradeoff": "Deprecated and non-reasoning; Ling 3.0 Flash is the direct heir."
+  "standout": "An instant (non-reasoning) tool-calling model with a 75.9% MRCR at 256K and a low $0.10/$0.30 price.",
+  "tradeoff": "A 96.7% hallucination rate and an Intelligence Index of 10 make it unsafe for unattended work; superseded by Ling 3.0/3.1 Flash.",
+  "pricingTiers": [
+    "Hosted $0.10/M in, $0.30/M out, $0.02/M cached read (ZenMux, Requesty)",
+    "Self-host $0 (MIT weights)"
+  ],
+  "noFreeId": true
 }

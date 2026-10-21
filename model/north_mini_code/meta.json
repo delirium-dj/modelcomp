@@ -1,15 +1,21 @@
 {
-  "id": "opencode/north_mini_code",
+  "id": "CohereLabs/North-Mini-Code-1.0",
   "name": "North Mini Code",
-  "short": "Cohere Labs' Apache-2.0 30B-A3B MoE research release for code generation; 256K/64K out, SWE-V 67.6%, GPQA 75.7%, free $0/$0.",
+  "short": "Cohere's Jun 2026 open-weight (Apache 2.0) 30B/3B-active code model (256K/64K): SWE-bench Verified 61.0% pass@1, AA Coding Index 33.4 - free API and free weights.",
   "contextWindow": "256,000 total (64,000 max output)",
   "modalities": "Text in/out",
-  "pricingNote": "Free tier ($0/$0)",
+  "pricingNote": "Free ($0/$0) on the OpenRouter free route and the Cohere API row; Apache 2.0 self-host $0",
   "freeTierNote": "Completely free tier ($0 input / $0 output)",
-  "officialUrl": "https://huggingface.co/models?search=north_mini_code",
+  "officialUrl": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
   "pricingLinks": [
-    "https://openrouter.ai/cohere/north-mini-code:free"
+    "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
+    "https://openrouter.ai/cohere/north-mini-code"
   ],
-  "standout": "The research gift: Cohere Labs’ Apache-2.0 code MoE with a 64K output window and a genuinely $0 rate card.",
-  "tradeoff": "A research release, not a product — no SLA and mid-tier verified scores."
+  "standout": "A real coding model at zero cost: 61% SWE-bench Verified pass@1 from 3B active parameters.",
+  "tradeoff": "Weak agentic and reasoning ceilings (tau2 37.4%, HLE 11.1%, AutomationBench 1.5%) - a code model, not a planner.",
+  "pricingTiers": [
+    "Free $0/$0 hosted routes (OpenRouter cohere/north-mini-code:free; Cohere API row)",
+    "Self-host $0 (Apache 2.0 weights)"
+  ],
+  "noFreeId": false
 }

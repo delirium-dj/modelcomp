@@ -1,20 +1,20 @@
 {
   "id": "opencode/big-pickle",
-  "name": "Big Pickle (GLM 4.6)",
-  "short": "Vendor-unknown stealth reasoning model on OpenCode Zen (free, 200K/32K text-only) for codebase Q&A; only verified score SWE Atlas 50.8%.",
+  "name": "Big Pickle",
+  "short": "OpenCode Zen's long-running free stealth slot (200K/32K, text-only, $0). The underlying model is disputed - maintainer-confirmed GLM-4.6 in 2025, DeepSeek-class by mid-2026.",
   "contextWindow": "200,000 total (32,000 max output)",
   "modalities": "Text in/out only",
-  "pricingNote": "Free Zen stealth tier ($0); no rate card and no published end date",
-  "freeTierNote": "Free stealth promotional tier on OpenCode Zen offering zero-cost inference during active community trial",
+  "pricingNote": "Free Zen stealth tier ($0/$0/$0), no published end date; data may be used to improve the model",
+  "freeTierNote": "Free on OpenCode Zen for a limited time; during the free period collected data may be used to improve the model (not zero-retention)",
   "pricingTiers": [
-    "Free Zen tier",
-    "Paid equiv. GLM-4.6 ~$0.60/$2.20"
+    "Free $0/$0/$0 on OpenCode Zen (no published end date)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=big-pickle",
+  "officialUrl": "https://opencode.ai/docs/zen",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models",
-    "https://docs.z.ai/guides/overview/pricing"
+    "https://opencode.ai/docs/zen"
   ],
-  "standout": "The codebase-Q&A freebie: a stealth 200K-context reasoner served free for understanding large repos.",
-  "tradeoff": "Vendor unknown and a single verified benchmark — use for exploration, not production."
+  "standout": "The free slot that has survived every purge - and the only one whose underlying model is publicly disputed.",
+  "tradeoff": "One third-party measurement (SWE-Atlas 50.8%) and no tracker coverage; treat its capability as unknown.",
+  "noFreeId": false,
+  "idNote": "The underlying checkpoint has been swapped at least once in place, so no score can be attributed to a stable model."
 }

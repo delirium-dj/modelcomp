@@ -1,0 +1,52 @@
+# Nemotron 3.5 Bolt E4B — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> NVIDIA's Nemotron 3.5 Bolt E4B was **announced but not released** as of
+> 2026-10-21 (blog: "Bolt E4B coming Oct. 23"), and it has **no verified public
+> benchmark numbers** — no parameters, no context window, no modality spec, no
+> weights. Per the project template (`model-report-TEMPLATE.md`, "SELF-EXCLUSION")
+> this file is saved as `MiniMax_M3.1_Flash.md.excluded`: it is skipped by
+> `pnpm sync` (never parsed, averaged or registered) and contains only the negative
+> findings.
+
+- Source: NVIDIA (announced only) — Nemotron 3.5 Bolt E4B
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** NVIDIA's announced ~4 GB-class edge model in the Nemotron 3.5 Bolt family, "optimized for intelligence per GB" for fast conversational agents, voice assistants, interactive characters and embedded interfaces on GeForce RTX, Jetson and RTX/DGX Spark. Announced 2026-10-15, scheduled for **2026-10-23** — not yet downloadable or measurable.
+- **Provider / access:** none yet. NVIDIA's blog says Super VL and Bolt 74B-A9B are available now, with **Bolt E4B coming Oct. 23**.
+- **Release / knowledge:** announced **2026-10-15**; release date **2026-10-23** (scheduled, not confirmed shipped).
+- **IDs:** none published. Candidate Hugging Face ids (`nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B` and variants) all return HTTP 401, and HF searches for `Bolt-E4B` / `E4B` under the nvidia org return empty.
+- **Context window:** not published (BenchLM lists it as "Coming soon").
+- **Modalities:** not published. The blog mentions voice assistants and interactive characters, implying speech, but NVIDIA publishes no modality spec for it.
+- **Pricing (as of 2026-10-20):** not published. The Bolt family's licence is OpenMDW-1.1 (used by Lightning, Bolt 74B-A9B and Super VL) — expected, but **not confirmed** for E4B.
+- **Architecture:** undisclosed. "E4B" denotes the **4 GB memory-footprint class**, not a parameter count.
+
+### Raw benchmarks found
+
+> No benchmark row exists for Bolt E4B on any source; BenchLM tracks it as a
+> placeholder with zero coverage.
+
+- Artificial Analysis: no entry for the Bolt E4B (the nvidia creator page lists only Lightning, Bolt 74B-A9B, Super VL, Ultra, Nano and Cascade) — https://artificialanalysis.ai/models/creators/nvidia
+- BenchLM: the profile exists but every field is a placeholder — "Source Type: Pending", "Overall Score: Coming soon", unranked, **0 of 668 benchmarks covered** — https://benchlm.ai/models/nemotron-3-5-bolt-e4b
+- Hugging Face: no repo id resolves (401 on every candidate path; `?search=Bolt-E4B` and `?search=E4B&author=nvidia` return empty) — https://huggingface.co/api/models?author=nvidia&search=E4B
+- NVIDIA blog: the only source of any fact about it — "Nemotron 3.5 Bolt E4B 4GB … optimized for intelligence per GB for fast conversational agents … built for physical and conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark … with Bolt E4B coming Oct. 23" — https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/
+- Terminal-Bench 2.1 / 3.0 / SWE-bench / SWE-bench Pro / GPQA / HLE / MMMU-Pro / LiveCodeBench / MRCR: **no verified public score found**
+- Nearest **real** 4B-class NVIDIA open model (a different model — do not conflate): `nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16`, 4.0B params, 262K context, AA Intelligence Index 5
+
+### Negative findings summary
+
+- An announced product with no shipped weights, no specs and no measurements. The scheduled 2026-10-23 date is the earliest point at which a scored report becomes possible.
+- The rest of the Bolt 3.5 family is already covered in this dataset (`model/nemotron-3.5-bolt-74b-a9b/`).
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (NVIDIA Nemotron 3.5 blog, NVIDIA research pages, Hugging Face API, Artificial Analysis creator index, BenchLM profile, models.dev); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Nemotron_3.5_Bolt_74B.md`, using the same headings.

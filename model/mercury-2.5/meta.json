@@ -1,20 +1,20 @@
 {
-  "id": "opencode/mercury-2.5",
+  "id": "inception/mercury-2.5",
   "name": "Mercury 2.5",
-  "short": "Inception Labs' diffusion LLM (260K) for latency-sensitive coding subagents; 1,107 tok/s with sub-300ms TTFT via parallel decoding.",
-  "contextWindow": "260K total (65K max output)",
+  "short": "Inception's Sep 2026 diffusion LLM (260K, closed weights): 781-1107 tok/s with sub-300ms TTFT, tau3-bench 96.0% - but closed to new users on 2026-10-19.",
+  "contextWindow": "260,000 total (65,536 max output)",
   "modalities": "Text in/out only",
-  "pricingNote": "Paid $0.20/$0.75 per 1M ($0.02 cached); launch 80% off $0.04/$0.15",
+  "pricingNote": "$0.20/$0.75 per 1M ($0.02 cached) at Inception's list; $0.04/$0.15 launch price still shown on OpenRouter/Vercel",
   "pricingTiers": [
-    "List $0.20/$0.75 per 1M ($0.02 cached)",
-    "Launch discount $0.04/$0.15 per 1M ($0.004 cached)"
+    "Inception list $0.20/M in, $0.75/M out, $0.02/M cached read",
+    "OpenRouter / Vercel list $0.04/M in, $0.15/M out (the launch price); closed to new users 2026-10-19"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=mercury-2.5",
+  "officialUrl": "https://inceptionlabs.ai/blog/introducing-mercury-2-5",
   "pricingLinks": [
-    "https://www.inceptionlabs.ai/",
-    "https://www.inceptionlabs.ai/"
+    "https://docs.inceptionlabs.ai/get-started/models",
+    "https://openrouter.ai/inception/mercury-2.5"
   ],
-  "standout": "The diffusion speed demon: parallel decoding delivering over a thousand tokens per second with sub-300ms first tokens.",
-  "tradeoff": "Diffusion generation trades some coherence on long structured output — a latency specialist, not a depth play."
+  "standout": "The latency champion: parallel decoding gives 780-1100 tok/s and sub-300ms time-to-first-token.",
+  "tradeoff": "Closed weights, closed to new users after 2026-10-19 (Mercury 3 is the successor), and no code benchmark at all."
 }

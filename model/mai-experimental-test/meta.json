@@ -1,14 +1,19 @@
 {
   "id": "opencode/mai-experimental-test",
   "name": "Mai Experimental Test",
-  "short": "OpenCode Zen's experimental sandbox model (128K, text-only) for testing pipelines; exploratory status, no verified benchmarks.",
+  "short": "OpenCode's experimental Microsoft MAI sandbox slot (128K, text-only) with no public model id, endpoint, weights, price or benchmarks - a placeholder, not a model.",
   "contextWindow": "128,000 total",
   "modalities": "Text in/out only",
-  "pricingNote": "Experimental tier pricing",
-  "officialUrl": "https://huggingface.co/models?search=mai-experimental-test",
+  "pricingNote": "Experimental tier pricing - no published rate",
+  "officialUrl": "https://microsoft.ai/models/",
   "pricingLinks": [
-    null
+    "https://microsoft.ai/models/"
   ],
-  "standout": "The pipeline probe: a text-only sandbox model for exercising integration and eval plumbing.",
-  "tradeoff": "Exploratory status with no verified benchmarks — it tests systems, not models."
+  "standout": "A documented absence: the sandbox slot name outlived the model behind it.",
+  "tradeoff": "Nothing to evaluate - the folder's findings are a self-exclusion.",
+  "pricingTiers": [
+    "Experimental tier - no published per-token rate"
+  ],
+  "noFreeId": true,
+  "idNote": "The id resolves nowhere: no registry lists it, Microsoft's MAI catalogue does not include it, and Zen serves no MAI model."
 }

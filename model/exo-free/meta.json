@@ -1,15 +1,20 @@
 {
   "id": "opencode/exo-free",
   "name": "Exo Free",
-  "short": "OpenCode Zen's anonymous free route (1M context, 131K out) for feedback-period experimentation; lab unknown, no benchmarks published.",
-  "contextWindow": "1M total (1,048,576 in / 131,072 out)",
-  "modalities": "Text + image in; text out",
-  "pricingNote": "Free Zen tier (limited-time $0 in/out/cached; inputs may train the model)",
+  "short": "An unidentified vendor's free OpenCode Zen stealth slot (1M ctx, image in) that lived ~3 days in Oct 2026 and is now HTTP 410 - no vendor, no card, no benchmarks.",
+  "contextWindow": "1,048,576 total (131,072 max output)",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Free Zen tier ($0/$0/$0) during a limited window in Oct 2026; now deprecated (HTTP 410)",
   "freeTierNote": "Limited-time free route for feedback collection with no stated end date; inputs may be used to improve the model. Expect 429s and 'endpoint unavailable' under load.",
-  "officialUrl": "https://huggingface.co/models?search=exo-free",
+  "officialUrl": "https://opencode.ai/changelog",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models"
+    "https://opencode.ai/docs/zen"
   ],
-  "standout": "The no-name test lane: an anonymous 1M-context route for feedback-period experiments at zero cost.",
-  "tradeoff": "Lab unknown, no benchmarks published — strictly experimental."
+  "standout": "The shortest-lived free slot in the Zen history - and the default model for fresh installs, briefly.",
+  "tradeoff": "Three days of life, one registry row, zero published scores - the folder's findings are a self-exclusion.",
+  "pricingTiers": [
+    "Free $0/$0/$0 during the limited preview (2026-10-06 to ~2026-10-09, HTTP 410 thereafter)"
+  ],
+  "noFreeId": false,
+  "idNote": "Retired slot: the id no longer resolves on Zen (410 ModelDeprecated) and the vendor was never identified."
 }

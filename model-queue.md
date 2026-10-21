@@ -102,15 +102,15 @@
 75.5 gemma-4.26b-a4b
 75.4 claude-sonnet-3.7
 75.1 gpt-5.1-codex
+74.9 minimax-m3.1-flash-preview
 74.9 mistral-medium-3.5
 74.7 ling-3.0-flash-vl
 74.6 gemini-2.0-flash
 74.4 gemini-1.5-pro
 74.2 glm-5.2
 73.7 claude-haiku-4.5
+73.7 gpt-5.4-nano
 73.6 deepseek-v4-flash
-73.2 gpt-5.4-nano
-73.2 minimax-m3.1-flash-preview
 73 mimo-v2.5-pro
 72.9 gemini-2.5-flash-lite
 72.8 fledge-alpha

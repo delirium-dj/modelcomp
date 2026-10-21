@@ -1,15 +1,21 @@
 {
   "id": "opencode/jev-1.13",
   "name": "Jev 1.13",
-  "short": "TypeSafe AI's System-One typed-decision model (not generative text) with 64K budget for routing/triage; 136.5ms median, $0.042/M in, output free.",
-  "contextWindow": "64K state budget (state + questions; 32K state + longest question)",
-  "modalities": "Text in → typed decision out (Choice/Score/Noul); no image, audio, or video",
-  "pricingNote": "$0.042/M input; output free (no autoregressive generation)",
+  "short": "TypeSafe AI's System One typed-decision model (not a text LLM): returns noul/choice/score with probabilities in ~0.6s, JevBench 1.5.4 score 72.13, $0.042/M input with free output.",
+  "contextWindow": "64K per request (32K state + 32K question); 262K opt-in via header",
+  "modalities": "Text, JSON or array state in; typed decision out; no image, audio or video",
+  "pricingNote": "$0.042 per 1M input tokens; output free (no autoregressive generation); ~950 tokens per decision",
   "category": "decision",
-  "officialUrl": "https://huggingface.co/models?search=jev-1.13",
+  "officialUrl": "https://docs.typesafe.ai/concepts/system-one",
   "pricingLinks": [
-    "https://docs.typesafe.ai/models"
+    "https://docs.typesafe.ai/models.md",
+    "https://opencode.ai/docs/zen"
   ],
-  "standout": "Not a chat model at all: a typed-decision System-One engine returning judgments in ~137ms for routing and triage.",
-  "tradeoff": "No generative text — it fits routing/triage slots in a pipeline, not assistant roles."
+  "standout": "A calibrated decision engine, not a chatbot: routing, triage and guardrails for a fraction of a cent per call.",
+  "tradeoff": "It cannot generate text, so the coding and general-reasoning axes barely apply - score it as a component, not a model.",
+  "pricingTiers": [
+    "OpenCode Zen $0.042/M input, output free; free slot jev-1.13-free also available",
+    "TypeSafe direct: same $0.042/M input tariff with free output"
+  ],
+  "noFreeId": false
 }

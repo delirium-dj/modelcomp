@@ -1,15 +1,19 @@
 {
   "id": "opencode/nemotron-3.5-bolt-e4b",
   "name": "Nemotron 3.5 Bolt E4B",
-  "short": "NVIDIA's announced ~4B edge model in the Bolt family for on-device conversational agents and tool calls; unreleased, specs and benchmarks unverified.",
-  "contextWindow": "Unverified — unreleased, size not published",
-  "modalities": "Unverified — unreleased, no published modalities",
-  "pricingNote": "Open weights expected (self-host free); no pricing published",
+  "short": "NVIDIA's announced ~4GB-class edge model for fast conversational agents on RTX and Jetson - scheduled for 2026-10-23, with no weights, specs or benchmarks published yet.",
+  "contextWindow": "Not published (scheduled release 2026-10-23)",
+  "modalities": "Text in/out (unreleased; voice implied, not specified)",
+  "pricingNote": "Not published; the Bolt family ships open weights under OpenMDW-1.1, so self-hosting is expected to be free",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-bolt-e4b",
+  "officialUrl": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
   "pricingLinks": [
-    "https://huggingface.co/models?search=nemotron-3.5-bolt-e4b"
+    "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"
   ],
-  "standout": "The Bolt family’s edge promise: a ~4B open model for on-device conversation and tool calls.",
-  "tradeoff": "Announced, unreleased — specs and scores remain unverified."
+  "standout": "A documented absence: NVIDIA's smallest Bolt, aimed at 4 GB footprints on Jetson and RTX.",
+  "tradeoff": "Nothing to evaluate until the 2026-10-23 release - the folder's findings are a self-exclusion.",
+  "pricingTiers": [
+    "No published price - no weights released as of 2026-10-21"
+  ],
+  "idNote": "No Hugging Face repo resolves for this model yet; the entry tracks an announced, unreleased product."
 }

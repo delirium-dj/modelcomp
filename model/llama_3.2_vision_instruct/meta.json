@@ -1,22 +1,20 @@
 {
-  "id": "opencode/llama_3.2_vision_instruct",
+  "id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
   "name": "Llama 3.2 Vision Instruct",
-  "short": "Meta's 11B/90B open-weights vision model (128K, 4K output) for image QA and captioning; aging, text+image in under Llama Community License.",
-  "contextWindow": "128K total (131,072; 4K max output)",
+  "short": "Meta's Sep 2024 open-weight 11B/90B vision model (128K, 4K out) for document/chart QA: DocVQA 88.4, AI2D 91.1, MMMU 50.7 - now delisted by most hosts.",
+  "contextWindow": "128,000 total (4,096 max output)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Open weights; hosted $0 (NIM credits) to ~$0.35/$0.35 per 1M",
+  "pricingNote": "Open weights (Llama 3.2 Community License); hosted $0.0485-$0.35 per 1M in, $0.055-$0.676 out",
   "pricingTiers": [
-    "Llama Community License open weights (self-host)",
-    "NVIDIA NIM $0/$0 (developer credits)",
-    "Cloudflare $0.0485/$0.676; Inference.net $0.055/$0.055; DeepInfra $0.345/$0.345 per 1M"
+    "Hosted from $0.0485/M in (Cloudflare Workers AI) to $0.35/M (io.net 90B); DeepInfra $0.345/$0.345",
+    "Self-host $0 (Llama 3.2 Community License; EU multimodal clause applies)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=llama_3.2_vision_instruct",
+  "officialUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
   "pricingLinks": [
     "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
-    "https://build.nvidia.com/",
-    "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+    "https://developers.cloudflare.com/workers-ai/models/llama-3.2-11b-vision-instruct/"
   ],
-  "standout": "The 11B open-vision veteran: image QA and captioning that ran anywhere while bigger models needed data centers.",
-  "tradeoff": "Aging fast — 4K output caps and newer successors limit it to compatibility roles."
+  "standout": "The legacy vision workhorse for document, chart and diagram reading from open weights.",
+  "tradeoff": "A 4,096-token output cap, no audio/video, and Together, Groq, Cerebras and OpenRouter have all delisted both sizes."
 }

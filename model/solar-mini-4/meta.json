@@ -1,22 +1,20 @@
 {
-  "id": "opencode/solar-mini-4",
+  "id": "upstage/solar-mini4",
   "name": "Solar Mini 4",
-  "short": "Upstage's Solar Mini 4 compact reasoning MoE (35B total/3B active, 524K context) for fast Korean/English tasks; AA-LCR 83%, Terminal-Bench 4.0 1% weakness.",
-  "contextWindow": "524,288 / 131,072 out on hosted endpoints (Artificial Analysis records 1M native / 262K out)",
+  "short": "Upstage's Sep 2026 compact reasoning MoE (35B total/3B active, 512K, text-only): AA Intelligence Index 24, AA-LCR 83.3%, 121 tok/s - proprietary, ~$0.05/$0.20 on promo.",
+  "contextWindow": "524,288 total (131,072 max output; AA states 1M)",
   "modalities": "Text in/out only",
-  "pricingNote": "$0.10/$0.40 per 1M ($0.01 cache hit); 50% off through 2026-10-22",
+  "pricingNote": "List $0.10/$0.40 per 1M ($0.01 cached); promo $0.05/$0.20 through 2026-10-23 - proprietary, no weights",
   "pricingTiers": [
-    "$0.10/$0.40 per 1M ($0.01 cache hit)",
-    "50% off through 2026-10-22",
-    "AA measured $0.36/task (48% cache service)"
+    "List $0.10/M in, $0.40/M out, $0.01/M cached read (Upstage Console, OpenRouter)",
+    "Promo $0.05/M in, $0.20/M out through 2026-10-23"
   ],
   "noFreeId": true,
-  "officialUrl": "https://upstage.ai/products/solar-mini-4",
+  "officialUrl": "https://console.upstage.ai/docs/models/solar-mini-4",
   "pricingLinks": [
-    "https://upstage.ai/pricing",
-    "https://upstage.ai/pricing",
-    "https://artificialanalysis.ai/articles/korean-ai-lab-upstage-releases-solar-mini-4"
+    "https://console.upstage.ai/docs/models/solar-mini-4",
+    "https://openrouter.ai/upstage/solar-mini4"
   ],
-  "standout": "The bilingual mini: fast Korean/English reasoning from a 3B-active MoE with a very long reach.",
-  "tradeoff": "Terminal coding is its known weak spot — a rarity on this list where one axis collapses entirely."
+  "standout": "The best long-context recall in its price class (AA-LCR 83.3%) on 3B active parameters.",
+  "tradeoff": "Proprietary with no weights, no published GPQA/AIME/LiveCodeBench, and Terminal-Bench 4.0 at 1.0% - a reasoning model, not an agent."
 }

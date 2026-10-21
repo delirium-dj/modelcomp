@@ -1,15 +1,21 @@
 {
-  "id": "opencode/ling-3.0-tiny",
+  "id": "inclusionAI/Ling-3.0-tiny",
   "name": "Ling 3.0 Tiny",
-  "short": "InclusionAI's 7.9B/1.3B-active MIT open-weights reasoning MoE (262K) for efficient deployment; free $0 API and self-host.",
-  "contextWindow": "262,144 total (per AA)",
+  "short": "InclusionAI's Aug 2026 MIT reasoning MoE at 7.9B total but 1.3B active (128K native, 256K YaRN): GPQA 73.4%, free $0 API, 8.34 GiB local footprint at ~100 tok/s.",
+  "contextWindow": "131,072 native (262,144 via YaRN)",
   "modalities": "Text in/out",
-  "pricingNote": "Free ($0/$0 per 1M); MIT open weights",
+  "pricingNote": "Free ($0/$0) hosted API; MIT open weights, ~8.34 GiB local footprint at 8K context",
   "freeTierNote": "Free via API provider ($0 input / $0 output); MIT weights free self-host",
-  "officialUrl": "https://huggingface.co/models?search=ling-3.0-tiny",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
   "pricingLinks": [
-    "https://huggingface.co/inclusionAI/Ling-3.0-tiny"
+    "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+    "https://openrouter.ai/inclusionai/ling-3.0-tiny"
   ],
-  "standout": "The free-and-open minimal reasoner: a 1.3B-active MIT MoE with a $0 API and self-host path.",
-  "tradeoff": "Tiny-active limits — education and prototypes, not production agents."
+  "standout": "The efficiency play: real reasoning scores from 1.3B active parameters, free to run on a MacBook.",
+  "tradeoff": "Terminal-Bench 2.1 27.7%, SciCode 24.2% and no SWE-bench or LiveCodeBench figure - a research-tier reasoning model.",
+  "pricingTiers": [
+    "Free $0/$0 hosted API (Requesty; the Zen free slot ling-3.0-tiny-free is now deprecated)",
+    "Self-host $0 (MIT weights; ~100 tok/s FP8 on a DGX Spark, ~86-90 tok/s on an M4 Pro MacBook)"
+  ],
+  "noFreeId": false
 }

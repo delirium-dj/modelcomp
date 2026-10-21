@@ -1,0 +1,32 @@
+{
+  "name": "Cerebras",
+  "kind": "aggregator",
+  "short": "Wafer-scale inference cloud serving open models at very high token throughput, with a one-time promotional credit.",
+  "officialUrl": "https://www.cerebras.ai",
+  "hosts": ["cerebras.ai", "api.cerebras.ai", "cloud.cerebras.ai"],
+  "catalogUrl": "https://api.cerebras.ai/public/v1/models",
+  "plans": [
+    {
+      "name": "Promotional credit",
+      "price": "$0",
+      "notes": "One-time $5 credit after adding a valid payment method; expires 30 days after activation. No automatic paid enrollment — access pauses when the credit is exhausted.",
+      "evidenceUrl": "https://www.cerebras.ai/pricing"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "gpt-oss-120b $0.35/$0.75; Qwen 3.8 27B $0.99/$1.49.",
+      "evidenceUrl": "https://api.cerebras.ai/public/v1/models"
+    },
+    {
+      "name": "Dedicated",
+      "price": "Custom",
+      "notes": "Reserved capacity with custom weights and fine-tuning; enterprise agreement.",
+      "evidenceUrl": "https://inference-docs.cerebras.ai/dedicated/overview"
+    }
+  ],
+  "covers": [
+    "gpt-oss-120b",
+    "qwen-3.8-27b"
+  ]
+}

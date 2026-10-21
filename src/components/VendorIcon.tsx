@@ -94,6 +94,8 @@ const VENDORS: VendorMatch[] = [
   { match: "groq", icon: "groq", label: "Groq", adaptive: true },
   { match: "llm7", icon: "llm7", label: "LLM7.io", adaptive: true },
   { match: "ovh", icon: "ovhcloud", label: "OVHcloud", adaptive: true },
+  { match: "cerebras", icon: "cerebras", label: "Cerebras", adaptive: true },
+  { match: "siliconflow", icon: "siliconflow", label: "SiliconFlow", adaptive: true },
   // laguna / poolside have no free brand SVG — letter fallback below.
 ];
 

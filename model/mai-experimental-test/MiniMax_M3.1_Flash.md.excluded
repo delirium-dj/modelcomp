@@ -1,0 +1,51 @@
+# Mai Experimental Test — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> `mai-experimental-test` is an **internal / design-partner slot with no public
+> identity**: no model id, no endpoint, no weights, no price and **no verified public
+> benchmark numbers** exist in any registry. Per the project template
+> (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this file is saved as
+> `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync` (never parsed,
+> averaged or registered) and contains only the negative findings.
+
+- Source: OpenCode Zen (Microsoft MAI experimental slot) — `mai-experimental-test`
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test (Microsoft MAI experimental slot)
+- **Short description:** A sandbox slot on OpenCode Zen, 128K context, text-only, published for pipeline testing against a Microsoft MAI-family model whose identity was never disclosed. Nothing about it is public: no model id, no endpoint, no weights, no price card and no evaluation.
+- **Provider / access:** OpenCode Zen `mai-experimental-test` — an experimental tier with "experimental" pricing and no documented access terms; the id does not appear in Zen's public model table, its pricing table, or its free-model list.
+- **Release / knowledge:** no release date; knowledge cutoff unknown.
+- **IDs:** `mai-experimental-test` (repo id) — **no published model id anywhere**.
+- **Context window:** **128,000** tokens (folder metadata; no first-party source).
+- **Modalities:** text in / text out.
+- **Pricing (as of 2026-10-20):** "experimental tier pricing" — no published rate.
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+> No benchmark row exists for this slot on any source. The checks below are listed so
+> the absence is auditable.
+
+- OpenRouter: **no** `mai*` ids at all in the 468-model catalogue (Microsoft's only entry is `microsoft/phi-4`) — https://openrouter.ai/api/v1/models
+- models.dev: no `mai-experimental*` entry; the MAI ids that do exist are `microsoft/mai-image-2.6`, `mai-voice-2.1`, `mai-voice-2`, `mai-voice-2.1-flash`, `mai-voice-2-flash`, `mai-transcribe-2`, `mai-transcribe-2-streaming` (provider `vercel`) and `mai-code-1-flash-picker`, `mai-code-1.1-flash` (provider `github-copilot`) — https://models.dev/api.json
+- Microsoft AI model index: the published MAI catalogue is MAI-Code-1.1-Flash, MAI-Voice-2.1, MAI-Transcribe-2, MAI-Thinking-1, MAI-Image-2.6 (plus MAI-Cyber-1-Flash as a foundational model); the string "experimental" appears nowhere — https://microsoft.ai/models/
+- BenchLM: no `mai-experimental` entry; Microsoft's tracked models are MAI-Thinking-1, MAI-Code-1.1-Flash, MAI-Cyber-1-Flash, MAI-Voice-2/2.1, MAI-Transcribe-2, MAI-Image-2.6, Fara1.5-4B/27B and the Phi-4 family — https://benchlm.ai/models
+- OpenCode Zen: the Zen model endpoint lists `jev-1.13`, `jev-1.13-free` and a literal `test` id, but no MAI model; OpenCode's provider list has no Microsoft/MAI provider — https://opencode.ai/inference/v1/models
+- Terminal-Bench / Tau2 / Tau3 / GDPval-AA / GPQA / HLE / SWE-bench / LiveCodeBench / DeepSWE / MMMU-Pro / MRCR: **no verified public score found**
+
+### Negative findings summary
+
+- Nothing public identifies the model behind this slot: no id, no weights, no endpoint, no price, no scores. The folder's own findings are a self-exclusion.
+- Nearest **real** Microsoft MAI models for orientation only (not used as a proxy): **MAI-Thinking-1** (BenchLM 53.1/100, SWE-bench Verified 73.5%, LiveCodeBench v6 87.7%, 256K), **MAI-Code-1.1-Flash** ($0.20/$1.20, SWE-bench Verified 72.6%, Terminal-Bench 2.1 62.9%), **MAI-Cyber-1-Flash**, and the MAI-Voice/Transcribe/Image families.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-21
+- Method: public internet research (Microsoft AI model index and news, models.dev API, OpenRouter API, BenchLM model index, OpenCode Zen docs and live model endpoint); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `MAI_Thinking_1.md`, using the same headings.
