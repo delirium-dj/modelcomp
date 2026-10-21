@@ -1,0 +1,60 @@
+# Claude Opus 5 — findings by Muse Glimmer 30B
+
+- Source: Anthropic/claude-opus-5
+- Date: 2026-10-20
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Claude Opus 5
+- **Short description:** Anthropic's Opus generation for long autonomous coding; 1M/128K context, succeeded by Opus 5.5. Built for long autonomous coding sessions.
+- **Provider / access:** Anthropic anthropic/claude-opus-5. Chat Completions API.
+- **Release / knowledge:** 2026-07-24 release per official news; knowledge cutoff not published.
+- **IDs:** anthropic/claude-opus-5 — no Free ID on Zen.
+- **Context window:** 1M total / 128K max output per meta.json.
+- **Modalities:** Text, image, PDF in; text out. Reasoning yes; tool calls supported.
+- **Pricing (as of 2026-10-20):** $5 / $25 per 1M input / output. Paid only.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Zero verified public benchmark numbers found for Claude Opus 5 with traceable source and numeric value.
+
+Fresh web research of official announcement https://www.anthropic.com/news/claude-opus-5 and system card, Artificial Analysis, FrontierBench, etc., yields only qualitative claims and relative comparisons without published numeric scores for this exact ID.
+
+- Agent / tool use:
+  - no verified public score found
+  - Terminal-Bench 2.1: no verified public score found
+  - Tau3-Banking / Tau2-Bench: no verified public score found
+  - GDPval-AA: no verified public score found
+  - Claw-Eval / ClawProBench: no verified public score found
+  - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+  - GPQA Diamond: no verified public score found
+  - HLE: no verified public score found
+  - LCR / MLCR: no verified public score found
+  - CritPt: no verified public score found
+  - Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+  - Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+  - SWE-bench Verified / SWE-Pro: meta short notes SWE-Pro 79.2% — not independently verified via public source; treated as unverified
+  - LiveCodeBench: no verified public score found
+  - SciCode / AA-SciCode: no verified public score found
+  - Vibe Code Bench: no verified public score found
+  - DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+  - no long-context retrieval reported with numeric score
+
+Normalized scores are omitted per SELF-EXCLUSION rule.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: public internet research; zero verified public benchmark numbers located for this exact model ID
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

@@ -1,9 +1,9 @@
 {
   "name": "Google",
   "kind": "vendor",
-  "short": "Gemini and Gemma models via Google AI Studio / the Gemini API, with Vertex AI as the enterprise lane.",
+  "short": "Gemini and Gemma models via Google AI Studio / the Gemini API, with Vertex AI as the enterprise lane and Antigravity as the agent-first IDE.",
   "officialUrl": "https://ai.google.dev",
-  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com"],
+  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com", "antigravity.google"],
   "idPrefixes": ["google"],
   "plans": [
     {
@@ -16,6 +16,18 @@
       "name": "Gemini API pay-as-you-go",
       "price": "from $0.10/$0.40 per 1M (Gemini 2.0 Flash, historical) up to $2.50/$15.00 per 1M (Gemini 2.5 Pro, prompts >200K)",
       "evidenceUrl": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "name": "Antigravity Individual",
+      "price": "$0/month",
+      "notes": "Unlimited Tab completions and Command requests with a choice of agent models; basic weekly rate limits. Google AI Pro / Ultra raise the limits.",
+      "evidenceUrl": "https://antigravity.google/pricing"
+    },
+    {
+      "name": "Antigravity Business",
+      "price": "from $30/seat/month",
+      "notes": "Via Gemini Enterprise Standard/Plus; a pay-as-you-go plan has a $0 seat fee plus consumption-based pricing.",
+      "evidenceUrl": "https://antigravity.google/pricing"
     },
     {
       "name": "Vertex AI",

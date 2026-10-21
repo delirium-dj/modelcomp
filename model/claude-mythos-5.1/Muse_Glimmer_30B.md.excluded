@@ -1,0 +1,64 @@
+# Claude Mythos 5.1 — findings by Muse Glimmer 30B
+
+- Source: Anthropic/claude-mythos-5.1
+- Date: 2026-10-20
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Mythos 5.1
+- **Short description:** Anthropic's restricted Mythos variant for vetted cyber/bio research; same weights as Fable 5.1. Restricted access and top-tier pricing.
+- **Provider / access:** anthropic/claude-mythos-5.1. No Free ID. Paid access only.
+- **Release / knowledge:** No verified public release date found.
+- **IDs:** anthropic/claude-mythos-5.1
+- **Context window:** 1M total / 128K output. Source: meta.json.
+- **Modalities:** Text, image in; text out. No verified public audio/video.
+- **Pricing (as of 2026-10-20):** Paid $10/$50 per 1M input/output. Source: meta.json. No free tier.
+- **Architecture:** Proprietary. No verified public parameter count.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION: Zero verified public benchmark numbers found for anthropic/claude-mythos-5.1 via fresh web search. Meta.json notes “TB4 60.9%” and “same weights as Fable 5.1” but no public source, scorecard, or independent report was located for this exact ID. Official URL https://www.anthropic.com/news/claude-mythos-5.1 returned 404 on 2026-10-20. No verified public score found for any benchmark below.
+
+Agent / tool use:
+
+- Agent / tool use: no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no long-context retrieval reported publicly
+
+### Normalized scores (1–100)
+
+Scores are withheld under SELF-EXCLUSION. No verified public benchmark numbers were found for this exact model/ID, so normalized scores are not provided and the file is saved as .md.excluded per template rules.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: public internet research via webfetch; no verified public benchmark numbers located for anthropic/claude-mythos-5.1 on 2026-10-20.
+- Future sources: add a new file next to this one, e.g., `GPT_5.md`, using the same headings.

@@ -1,9 +1,11 @@
 # Nemotron 3.5 Lightning Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Nemotron 3.5 Lightning Free (`opencode/nemotron-3.5-lightning-free`, NVIDIA)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`nemotron-3-5-lightning-30b-a3b-nvfp4`, 27 rows) computes an overall **25.55/100 (#209 of 972)** and confirms the first draft: PinchBench 83.4%, Terminal-Bench 2.1 23.5%, τ³ 9.5%, GDPval-AA 865 / 6.9%, GPQA 75.6% (AA 74.3%), MMLU-Pro 81.6%, HLE 10.5%, AA-LCR 49.2%, CritPt 0.0%, SWE-bench Verified 52.8%, SciCode 31.4%. The NVFP4 card now lists **1M** context (vs the tracked Zen/NIM 262,144). Adds AA Openness Index 83.3%. **No score change** (Tool 45 / Reasoning 55 / Context 72 / Multimodal 15 / Coding 55 / Cost 100 / Overall 48).
 
 ## Model card
 
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (NVIDIA Nemotron 3.5 Lightning launch blog, Hugging Face NVFP4 model card and Artificial Analysis rows via BenchLM re-verified 2026-10-06, Epoch AI/Artificial Analysis figures via Model Beat, OpenCode Zen privacy page, OpenRouter/ModelScope hosting listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) — NVIDIA Nemotron 3.5 Lightning launch blog, Hugging Face NVFP4 model card and Artificial Analysis rows via BenchLM, Epoch AI/Artificial Analysis figures via Model Beat, OpenCode Zen privacy page, OpenRouter/ModelScope hosting listings); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -79,6 +79,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (Epoch AI and Artificial Analysis figures via Model Beat, BenchLM's MiniMax M2.7 page for Vals AI, Claw-Eval, Toolathlon, SWE-Rebench and Arcee rows, OpenRouter/Groq serving documentation, price-tracker listings, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `minimax-m2-7`) — Artificial Analysis figures, BenchLM's MiniMax M2.7 page for Vals AI, Claw-Eval, Toolathlon, SWE-Rebench and Arcee rows, OpenRouter/Groq serving documentation, price-tracker listings, OpenCode Zen docs for free-ID verification); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

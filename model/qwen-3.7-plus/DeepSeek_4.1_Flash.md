@@ -1,11 +1,13 @@
 # Qwen3.7 Plus — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen3.7 Plus (`opencode/qwen-3.7-plus`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-7-plus).
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-7-plus`, 71 rows) computes an overall **53.74/100 (#81 of 972)** and confirms the first draft: Terminal-Bench 2.0 70.3% (Vals 52.8%), SWE-bench Verified 77.7%, SWE-bench Pro 57.6%, LiveCodeBench 89.6%, GPQA 90.3% (AA 90.0%), HLE 34.7% (AA 35.6%), MRCRv2 91.7%, AA-LCR 73.0%, CritPt 9.1%, MMMU-Pro 79% (AA 80.5%), Video-MME 88.0%, OmniDocBench 91.4%. **No score change** (Tool 68 / Reasoning 76 / Context 95 / Multimodal 80 / Coding 80 / Cost 93 / Overall 80).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-7-plus).
 > BenchLM overall **55.34/100** (#59), context **1M**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 35.7, #73/122): OSWorld 2.0 2.8%; Terminal-Bench 2.0 70.3%; OSWorld-Verified 73.3%; MCP Atlas 73.2%; Terminal-Bench 2.1 (Vals) 52.8%; BFCL v4 72.9%
@@ -79,6 +81,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
-- Method: public internet research (Artificial Analysis, BenchmarkList, Easy Benchmarks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research (re-verified 2026-10-18) — Alibaba Cloud launch benchmarks via BenchLM `qwen3-7-plus` (71 rows), Artificial Analysis, Vals AI, BenchmarkList, Easy Benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

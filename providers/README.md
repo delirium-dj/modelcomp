@@ -2,8 +2,8 @@
 
 One folder per provider the site tracks as a place to *buy or access* models —
 marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
-`vercel-ai-gateway`, `commandcode`, `nvidia`, `deepinfra`, `amazon-bedrock`,
-`microsoft`) and vendor-direct
+`vercel-ai-gateway`, `commandcode`, `cursor`, `qoder`, `nvidia`, `deepinfra`,
+`amazon-bedrock`, `microsoft`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
 `xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`).
 

@@ -1,9 +1,11 @@
 # Nemotron 3 Ultra Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Nemotron 3 Ultra Free (`opencode/nemotron-3-ultra-free`, NVIDIA)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`nemotron-3-ultra`, 42 rows) computes an overall **46.78/100 (#116 of 972)** and confirms the first draft: PinchBench 90.0%, Terminal-Bench 2.1 56.4% (Vals 50.9%), τ³ 70.9%, τ² 83.3%, GDPval-AA 1091 / 33.1%, GPQA 87.0% (Vals 86.1%), MMLU-Pro 86.8%, HLE 26.7%, AA-LCR 67.0%, CritPt 3.1%, SWE-bench Verified 71.9% (Vals 69.0%), LiveCodeBench 89.0%, SciCode 44.6%. Adds AA Openness Index 83.3%. **No score change** (Tool 78 / Reasoning 77 / Context 95 / Multimodal 15 / Coding 80 / Cost 100 / Overall 69).
 
 ## Model card
 
@@ -78,6 +80,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-06
-- Method: public internet research (NVIDIA Nemotron 3 Ultra launch blog, Hugging Face model card and Artificial Analysis/Vals AI rows via BenchLM re-verified 2026-10-06, Epoch AI figures via Model Beat, modelcompare.dev Zen record, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) — NVIDIA Nemotron 3 Ultra launch blog, Hugging Face model card and Artificial Analysis/Vals AI rows via BenchLM, Epoch AI figures via Model Beat, modelcompare.dev Zen record, OpenCode Zen privacy page); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

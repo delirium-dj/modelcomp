@@ -97,7 +97,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — Z.ai's GLM-5.2 launch blog and the `zai-org/GLM-5.2` Hugging Face card/model card, vendor benchmark tables as re-reported by Apidog, Emergent and Verdent, OpenRouter/GetDeploying/Kilo spec and pricing listings, the Braintrust × Baseten long-context retrieval eval, TheVibeFather sourced composites, and GLM Coding Plan coverage; scores are normalized 1–100 interpretations, not official vendor scores.
 - Idempotency: created only because this folder had no `DeepSeek_4.1_Flash.md`; no existing file was read, overwritten, or deleted.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

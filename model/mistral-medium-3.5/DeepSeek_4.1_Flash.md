@@ -1,9 +1,11 @@
 # Mistral Medium 3.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Mistral AI/Mistral Medium 3.5 (`mistral-medium-26.04`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for this ID (`mistral-medium-3-5` → 404) and no new independent benchmark surfaced; llm-stats lists the model but exposes no additional rows. The first draft's measured rows stand unchanged. **No score change** (Tool 68 / Reasoning 62 / Context 71 / Multimodal 64 / Coding 68 / Cost 73 / Overall 67).
 
 ## Model card
 
@@ -60,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
 - Method: public internet research (Mistral official launch post for version/pricing/licence/positioning, official Hugging Face model card for context/architecture/agentic benchmarks, LLM Stats model page, Mistral docs model overview for IDs and lifecycle, ChatForest review for context window and architecture, BenchmarkList 44-row evidence table for measured scores); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

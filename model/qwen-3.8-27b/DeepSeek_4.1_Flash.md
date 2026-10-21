@@ -1,11 +1,13 @@
 # Qwen3.8-27B — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen / Qwen3.8-27B (`Qwen/Qwen3.8-27B`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-8-27b).
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-8-27b`, 70 rows) computes an overall **59.6/100 (#58 of 972)** and confirms the first draft while adding independent rows: Terminal-Bench 2.1 (AA) **79.8%** (Vals 58.4%), SWE-bench (Vals) **86.0%**, LiveCodeBench (Vals) 84.0%, AA Coding Index 68.1%, AA-GPQA 90.5% (Vals 88.9%), AA-HLE 33.9%, AA-LCR 82.0%, CritPt 5.4%, AA-MMMU-Pro 76.3%, GDPval-AA 1420 / 46.0%, AA Agentic Index 46.5%. **No score change** (Tool 88 / Reasoning 88 / Context 76 / Multimodal 80 / Coding 82 / Cost 90 / Overall 83).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-8-27b).
 > BenchLM overall **58.2/100** (#54), context **262K**, pricing **Self-hosted; infrastructure cost varies**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 61.9, #19/122): Terminal-Bench 2.1 73.0%; OSWorld-Verified 84.3%; JobBench 33.4%; Terminal-Bench 2.1 (Vals) 58.4%; Agents' Last Exam 42.9%; CoWorkBench 70.7%
@@ -75,6 +77,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
-- Method: public internet research (BenchmarkList model page, vendor/registry entries); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
+- Method: public internet research (re-verified 2026-10-18) — Qwen3.8-27B model card via BenchLM `qwen3-8-27b` (70 rows), Artificial Analysis, Vals AI, BenchmarkList; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

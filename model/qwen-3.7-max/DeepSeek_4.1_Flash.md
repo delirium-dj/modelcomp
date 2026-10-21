@@ -1,11 +1,13 @@
 # Qwen 3.7 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen/Qwen 3.7 (`Qwen3.7-Max`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-7-max).
+> **Re-verified 2026-10-18.** BenchLM (`qwen3-7-max`, 59 rows) computes an overall **62.56/100 (#47 of 972)** and fills the reasoning gaps the first draft left open with independent Artificial Analysis rows: **AA-GPQA 92.3%**, **HLE 40.5%** (AA) / 41.4% (Qwen), **AA-LCR 79.0%**, **CritPt 13.4%**, **AA Intelligence Index 29.5%**, plus τ²-bench 94.7%, Claw-Eval 65.2%, MCP Atlas 76.4%, SWE-bench (Vals) 68.8%, LiveCodeBench (Vals) 87.1%, AA Coding Index 66.0%, FrontierMath v2 64.56%/34.15%. **Reasoning 80 → 82**; **Overall 84 → 85**. Context/pricing unchanged (1M, $1.25/$3.75).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/qwen3-7-max).
 > BenchLM overall **62.65/100** (#42), context **1M**, pricing **API rate not published**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 39.6, #63/122): Terminal-Bench 2.0 69.7%; MCP Atlas 76.4%; Terminal-Bench 2.1 (Vals) 61.0%; BFCL v4 75.0%; HLE w/ tools 53.5%; QwenClawBench 64.3%
@@ -57,17 +59,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** Terminal-Bench 2.1 74.5% and 2.0 69.7% are solidly above the 45–60% mid band without reaching the 88%+ frontier band, and OSWorld-Verified 73.3% / CoWorkBench 64.6% back the agentic positioning; capped by the absence of any Tau3-Banking, Toolathon or MCP-Atlas number and by two low-confidence aggregator rows (OSWorld 38.0%, BrowseComp 35.0%).
-- **Reasoning: 80/100.** GPQA Diamond 92.4% is frontier-grade and CharXiv 85.9% supports chart reasoning, but HLE, CritPt and any AA index are unverified for this ID and the contradictory GPQA 50.2% row had to be discarded — missing evidence caps it below the 90+ band.
+- **Reasoning: 82/100.** GPQA Diamond 92.4% (AA 92.3%) is frontier-grade; the previously-unverified HLE is now published (**40.5–41.4%**), with AA-LCR 79.0%, CritPt 13.4%, AA Intelligence Index 29.5% and MRCRv2 90.4% corroborating. Capped below the 90s by the discarded contradictory GPQA 50.2% row and AA-HLE just at the 40% reference.
 - **Context window: 94/100.** 1M input is the ≥1M tier but at its floor: no retention figure exists and provider routes disagree (1.0M vs 256K) about what the API serves.
 - **Multimodal: 85/100.** LVBench 76.2% (long video) and CharXiv 85.9% (charts) demonstrate image/video understanding in the "+video/PDF in = 75–90" band; not 90+ because no audio input is documented and no provider modality row confirms video ingestion.
 - **Coding: 85/100.** SWE-bench Verified 80.4% plus SWE-bench Pro 60.6% and QwenReactBench 1538 Elo are credible; capped because LiveCodeBench, SciCode and DeepSWE were all unverified, so the 90+ band cannot be claimed.
 - **Cost efficiency: 88/100.** $1.25 in / $3.75 out per 1M with $0.25 cached matches the ~$1.25/$4.25 ≈ 88 anchor; cheaper on output, slightly above it on cached input.
-- **Overall Score: 84/100.** (78 + 80 + 94 + 85 + 85) / 5 = 84.4 → **84**. Best fit: long-horizon coding and office-automation agents on proprietary weights — strong published engineering numbers, thin third-party verification.
+- **Overall Score: 85/100.** (78 + 82 + 94 + 85 + 85) / 5 = 84.8 → **85**. Best fit: long-horizon coding and office-automation agents on proprietary weights — strong published engineering numbers now corroborated by independent Artificial Analysis rows.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 (UTC)
-- Method: public internet research (Yotta Labs 2026-08-04 benchmark survey quoting Qwen's figures, llm-stats model page for release/pricing/context/licence, RankLLMs aggregator table); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
+- Method: public internet research (Qwen3.7-Max launch blog via BenchLM `qwen3-7-max` — 59 rows —, Artificial Analysis, Vals AI, Epoch AI; llm-stats for release/pricing/context/licence; Yotta Labs survey); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

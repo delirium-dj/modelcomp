@@ -1,0 +1,45 @@
+{
+  "name": "Qoder",
+  "kind": "aggregator",
+  "short": "Agentic coding IDE with credit-metered chat, agent and Quest runs across premium models, plus bring-your-own-key on the free tier.",
+  "officialUrl": "https://qoder.com",
+  "hosts": ["qoder.com", "docs.qoder.com"],
+  "plans": [
+    {
+      "name": "Community Edition",
+      "price": "$0/month",
+      "notes": "2-week Pro trial with 300 credits; limited completions and next edits; bring your own API key.",
+      "evidenceUrl": "https://docs.qoder.com/account/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$20/month",
+      "notes": "2,000 credits/month; first purchase adds 2,000 bonus credits, renewals add 1,000; Quest, Repo Wiki and Knowledge Card.",
+      "evidenceUrl": "https://qoder.com/pricing"
+    },
+    {
+      "name": "Pro+",
+      "price": "$60/month",
+      "notes": "6,000 credits/month; first purchase adds 6,000 bonus credits; priority access to upcoming features.",
+      "evidenceUrl": "https://qoder.com/pricing"
+    },
+    {
+      "name": "Ultra",
+      "price": "$200/month",
+      "notes": "20,000 credits/month; early access to new features; renewals add 1,000 bonus credits.",
+      "evidenceUrl": "https://qoder.com/pricing"
+    },
+    {
+      "name": "Credit Pack",
+      "price": "$20 / 1,500 credits",
+      "notes": "One-time, stackable top-up for paid plans; valid 1 month from purchase and non-refundable.",
+      "evidenceUrl": "https://docs.qoder.com/account/pricing"
+    },
+    {
+      "name": "Teams",
+      "price": "$40/seat/month",
+      "notes": "Centralized billing and seat management.",
+      "evidenceUrl": "https://qoder.com/pricing"
+    }
+  ]
+}

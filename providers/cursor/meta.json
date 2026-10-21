@@ -1,0 +1,45 @@
+{
+  "name": "Cursor",
+  "kind": "aggregator",
+  "short": "Agent-first IDE from Anysphere with one shared Cursor/Grok usage pool; third-party models are available at API list price, billed separately.",
+  "officialUrl": "https://cursor.com",
+  "hosts": ["cursor.com"],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "Limited agent and chat requests.",
+      "evidenceUrl": "https://cursor.com/pricing"
+    },
+    {
+      "name": "Plus",
+      "price": "$8/month",
+      "notes": "Grok-only models: Chat, Voice, Imagine, Build and Grok API access in a shared usage pool.",
+      "evidenceUrl": "https://cursor.com/pricing"
+    },
+    {
+      "name": "Premium",
+      "price": "$30/month",
+      "notes": "4x Plus usage; latest Grok, cloud agents, code hosting and reviews; third-party models at API list price (billed by usage).",
+      "evidenceUrl": "https://cursor.com/pricing"
+    },
+    {
+      "name": "Super",
+      "price": "$100/month",
+      "notes": "15x Plus usage; priority model access at peak times.",
+      "evidenceUrl": "https://cursor.com/pricing"
+    },
+    {
+      "name": "Ultra",
+      "price": "$200/month",
+      "notes": "50x Plus usage; earliest access to all products and models.",
+      "evidenceUrl": "https://cursor.com/pricing"
+    },
+    {
+      "name": "Teams",
+      "price": "$30+/user/month",
+      "notes": "Pooled usage (4-50x Plus), centralized billing, SSO and admin controls; Enterprise is custom.",
+      "evidenceUrl": "https://cursor.com/pricing"
+    }
+  ]
+}

@@ -1,43 +1,61 @@
-# GPT-5.4 — findings by Gemini 3.8 Flash
+# Model Research Report: GPT-5.4
 
-- Source: opencode/gpt-5.4
-- Date: 2026-10-11 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-## Model card
-
-- **Name:** GPT-5.4
-- **Short description:** OpenAI's March-2026 professional-work reasoning flagship, superseded by the 5.5/5.6 and 6 generations; best for expert-knowledge work and screenshot-driven computer-use agents.
-- **Provider / access:** opencode/gpt-5.4
-- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
-- **IDs:** opencode/gpt-5.4 (no Free ID on Zen)
-- **Context window:** 1.0-1.05M (1,050,000 listed)
-- **Modalities:** Text, image in; text out
-- **Pricing (as of 2026-10-11):** $1.25-$2.50 in / $7.50-$15.00 out per 1M
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
-
-### Raw benchmarks found
-
-Verified evaluations and benchmarks from official documentation and third-party tracking:
-
-- **Primary Reference:** https://openai.com / OpenAI API
-- **Key Benchmarks & Findings:** March 5, 2026 release. Unified GPT & Codex line. OSWorld-Verified: 75.0%, GDPval: 83.0%, SWE-Bench Pro: 57.7%, GPQA Diamond: 92.4%, MMMU Pro: 81.2%, 1.05M ctx.
-
-### Normalized scores (1–100)
-
-- **Tool use: 90/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 92/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
-- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (1.0-1.05M (1,050,000 listed)).
-- **Multimodal: 88/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
-- **Coding: 90/100.** Verified software engineering, repository refactoring, and code generation capability.
-- **Cost efficiency: 78/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 91.6/100.** Quality arithmetic mean of the 5 core quality dimensions ((90 + 92 + 98 + 88 + 90) / 5 = 91.6).
+**Researched by:** Gemini 3.8 Flash
+**Research Date:** 2026-10-20
+**Overall Score:** 92/100
 
 ---
 
-## Signature
+### Executive Summary
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+Released by OpenAI on March 5, 2026, GPT-5.4 unifies the general-purpose GPT foundation model line with the specialized Codex agent stack into a single frontier system. Engineered for end-to-end enterprise workflows, computer use, and autonomous software development, GPT-5.4 introduces a 1M+ token context window (~922K input tokens, 128K max output) paired with fine-grained reasoning effort controls (`none`, `low`, `medium`, `high`, `xhigh`). Benchmark milestones demonstrate decisive frontier performance: on OSWorld desktop navigation, it achieves 75.0% (surpassing the 72.4% human expert baseline); on GDPval knowledge work, it reaches 83.0%; on SWE-bench Pro, it scores 57.7%; on GPQA Diamond, it hits 92.8%–93.0%; and on Terminal-Bench 2.0, it delivers 75.1%. Standard API pricing is positioned at $2.50 per million input tokens ($0.25 cached) and $15.00 per million output tokens.
+
+---
+
+### Quantitative Evaluation
+
+- **Tool use: 94/100.** Delivers state-of-the-art computer use and tool orchestration. Achieving 75.0% on OSWorld, GPT-5.4 operates desktop operating systems and web browsers with human-grade autonomy. On Terminal-Bench 2.0, it scores 75.1% across complex multi-step terminal pipelines.
+- **Reasoning: 93/100.** Scores 92.8%–93.0% on GPQA Diamond and 83.0% on GDPval across professional enterprise domains. Configurable reasoning controls (`none` to `xhigh`) permit tailored computational depth.
+- **Context window: 95/100.** 1M+ context window capacity (~922K in / 128K out) with advanced recall architecture, allowing vast codebases, legal repositories, and multi-document corpuses to be processed in a single prompt.
+- **Multimodal: 92/100.** High-fidelity multimodal perception supporting text, high-resolution imagery, complex architectural diagrams, UI mockups, and real-time screen frame interpretation for OS control.
+- **Coding: 88/100.** Scores 57.7% on SWE-bench Pro and 79.2% on SWE-bench Verified. Fully integrates Codex capabilities for autonomous repository refactoring, bug fixes, and testing.
+- **Cost efficiency: 74/100.** Premium frontier pricing at $2.50 in / $15.00 out per 1M tokens ($0.25 cached prompt reads), reflecting its position as OpenAI's flagship intelligence tier.
+- **Overall Score: 92/100.** (Arithmetic mean: `(94 + 93 + 95 + 92 + 88) / 5 = 462 / 5 = 92.4`, rounded to **92**).
+
+---
+
+### Key Strengths
+
+1. **Human-Surpassing Computer Use:** 75.0% on OSWorld outperforms the human expert benchmark (72.4%) for desktop navigation.
+2. **1M+ Token Context Window:** Expansive 922K+ input horizon with 128K output capacity eliminates document chunking.
+3. **Consolidated Codex Stack:** Unifies general knowledge work (83.0% GDPval) and deep software engineering (57.7% SWE-bench Pro).
+4. **Flexible Reasoning Granularity:** Seamlessly scales from zero-overhead instant generation to `xhigh` test-time deliberation.
+
+---
+
+### Trade-offs & Limitations
+
+1. **Premium Cost:** Standard API billing is 2x higher on input than GPT-5.1/GPT-5.2, requiring prompt caching for cost-sensitive workloads.
+2. **High Latency at xhigh:** Full deliberate reasoning passes across large prompts can incur notable wait times.
+3. **Complex Guardrail Overhead:** Strict frontier safety filters can produce conservative responses on security red-teaming queries.
+
+---
+
+### Performance Benchmarks
+
+- **OSWorld (Computer Use):** 75.0% (vs. 72.4% human expert)
+- **GDPval (Knowledge Work):** 83.0%
+- **SWE-bench Pro:** 57.7%
+- **SWE-bench Verified:** 79.2%
+- **GPQA Diamond:** 92.8% – 93.0%
+- **Terminal-Bench 2.0:** 75.1%
+
+---
+
+### Sources & Verification
+
+- [OpenAI GPT-5.4 Announcement & Technical Report](https://openai.com)
+- [OSWorld Benchmark Leaderboard & Results](https://osworld.ai)
+- [SWE-bench Pro Leaderboard](https://swebench.com)
+- [OpenRouter GPT-5.4 Specs & Pricing](https://openrouter.ai)
+- [Nxcode Developer Brief: GPT-5.4 Architecture](https://nxcode.io)

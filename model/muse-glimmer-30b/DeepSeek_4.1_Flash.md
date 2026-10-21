@@ -1,11 +1,13 @@
 # Muse Glimmer 30B — findings by DeepSeek 4.1 Flash
 
 - Source: Meta Superintelligence Labs / Muse Glimmer 30B (`meta/muse-glimmer-30b`)
-- Date: 2026-10-06 (UTC)
+- Date: 2026-10-06 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/muse-glimmer-30b).
+> **Re-verified 2026-10-18.** BenchLM (`muse-glimmer-30b`, 28 rows) computes an overall **41.23/100 (#134 of 967)** and — importantly — the vendor-only rows now have **independent Artificial Analysis counterparts** that corroborate them: AA-GPQA Diamond 83.5%, AA-HLE 22.0%, AA-MMMU-Pro 74.3%, AA-LCR 83.3%, CritPt 2.6%, AA-SciCode 44.9%, AA Coding Index 49.0%, plus new GDPval-AA 893 / 14.3% and AA Agentic Index 10.5%. **No score change** (Tool 64 / Reasoning 74 / Context 57 / Multimodal 68 / Coding 73 / Cost 94 / Overall 67).
+
+> **Previous re-verification 2026-10-06** against BenchLM's 2026-10-08 snapshot (https://benchlm.ai/models/muse-glimmer-30b).
 > BenchLM overall **41.7/100** (#125), context **131K**, pricing **Self-hosted; infrastructure cost varies**.
 > New/updated measurements that fill gaps in the rows above:
 > - Agentic (BenchLM 24.9, #96/122): OSWorld-Verified 65.9%; MCP Atlas 75.5%; DeepSearchQA 74.6%; skillsBench 44.3%
@@ -77,6 +79,6 @@ Local-deployment measurements (vendor card, not accuracy benchmarks):
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-06 UTC
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 UTC
 - Method: public internet research (slm.expert model profile, vendor model card references, provider pricing listings); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
