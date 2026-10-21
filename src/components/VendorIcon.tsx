@@ -27,9 +27,9 @@ interface VendorMatch {
 
 // Token-prefix match over `${id} ${name}` lowercase, so e.g. "Inkling"
 // never matches "ling". Artwork: free brand SVGs from thesvg.org
-// (GLINCKER/thesvg, MIT) and LobeHub icons (MIT; trademarks belong to their
-// owners), inlined from src/data/vendorIcons.generated.ts — no <img>, no
-// network requests.
+// (GLINCKER/thesvg, MIT), LobeHub icons (MIT) and Simple Icons (CC0;
+// trademarks belong to their owners), inlined from
+// src/data/vendorIcons.generated.ts — no <img>, no network requests.
 const VENDORS: VendorMatch[] = [
   { match: "claude", icon: "anthropic", label: "Anthropic", chip: true },
   { match: "anthropic", icon: "anthropic", label: "Anthropic", chip: true },
@@ -88,6 +88,10 @@ const VENDORS: VendorMatch[] = [
   { match: "together", icon: "together", label: "Together AI", adaptive: true },
   { match: "novita", icon: "novita", label: "Novita AI", adaptive: true },
   { match: "baseten", icon: "baseten", label: "Baseten", adaptive: true },
+  { match: "ollama", icon: "ollama", label: "Ollama", adaptive: true },
+  { match: "scaleway", icon: "scaleway", label: "Scaleway", adaptive: true },
+  { match: "sambanova", icon: "sambanova", label: "SambaNova", adaptive: true },
+  { match: "groq", icon: "groq", label: "Groq", adaptive: true },
   // laguna / poolside have no free brand SVG — letter fallback below.
 ];
 

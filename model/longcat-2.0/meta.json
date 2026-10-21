@@ -1,20 +1,20 @@
 {
   "id": "meituan/longcat-2.0",
   "name": "LongCat 2.0",
-  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M context) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8%.",
-  "contextWindow": "1M tokens",
+  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M context) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8% self-reported vs 50.19% on AA.",
+  "contextWindow": "1,000,000 (1M); max output not published",
   "modalities": "Text in/out",
-  "pricingNote": "Paid $0.30/$1.20 per 1M (LongCat API; cached $0.006)",
+  "pricingNote": "$0.30/$1.20 per 1M in/out, $0.006 cached (OpenRouter); $0.75/$2.95 on SiliconFlow; self-host $0 (MIT)",
   "pricingTiers": [
-    "Paid $0.30/$1.20 (LongCat API)",
-    "Cached input $0.006"
+    "Hosted $0.30/$1.20 per 1M in/out, $0.006 cached read (OpenRouter); $0.75/$2.95 (SiliconFlow)",
+    "Self-host $0 (MIT weights)"
   ],
   "noFreeId": true,
   "officialUrl": "https://huggingface.co/meituan-longcat/LongCat-2.0",
   "pricingLinks": [
-    "https://longcat.chat",
-    "https://longcat.ai"
+    "https://openrouter.ai/meituan/longcat-2.0",
+    "https://huggingface.co/meituan-longcat/LongCat-2.0"
   ],
-  "standout": "Meituan's MIT heavyweight: a 1.6T MoE offering 1M-context coding agents with fully open weights and LSA attention.",
-  "tradeoff": "Self-hosting a 1.6T MoE is serious infrastructure; served pricing quality depends on the reseller."
+  "standout": "Meituan's open-weights preview for autonomous coding agents: 1M context at near-flat rates.",
+  "tradeoff": "Trillion-parameter serving is heavy, and every headline number is vendor-published - AA's Terminal-Bench 2.1 lands 20 points lower."
 }

@@ -1,15 +1,15 @@
 {
-  "id": "opencode/mai-thinking-1",
+  "id": "microsoft/mai-thinking-1",
   "name": "MAI-Thinking-1",
-  "short": "Microsoft AI's ~1T/35B-active in-house reasoning MoE (256K) for hard reasoning and code; SWE-bench Verified 73.5%, GPQA Diamond 84.2%.",
-  "contextWindow": "256,000 (256K) — max output not published",
+  "short": "Microsoft AI's ~1T/35B-active in-house reasoning MoE (256K, closed) for hard reasoning and code; SWE-bench Verified 73.5%, GPQA 84.2% - no published API id or rate card.",
+  "contextWindow": "256,000 (256K) - max output 25,000",
   "modalities": "Text in/out",
-  "pricingNote": "$2.00 in per 1M; output reported as $8.00 (AIHubMix) or $10.00 — Microsoft publishes no public rate card",
+  "pricingNote": "No public rate card - Microsoft publishes no token price; the folder's $2.00 in / $8-$10 out is unverified",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=mai-thinking-1",
+  "officialUrl": "https://microsoft.ai/models/mai-thinking-1/",
   "pricingLinks": [
-    "https://microsoft.ai/news/introducing-mai-thinking-1/"
+    "https://microsoft.ai/pdf/mai-thinking-1.pdf"
   ],
-  "standout": "Microsoft’s trillion-parameter in-house reasoner: hard-reasoning and code work tuned for the Microsoft AI stack.",
-  "tradeoff": "A 256K window and Microsoft-first surface limit where its scale pays off."
+  "standout": "Microsoft's from-scratch reasoning flagship: 30T pretraining tokens, AIME 2025 97.0% and a 43% human win rate vs Opus 4.6.",
+  "tradeoff": "Every number is vendor-published, there is no independent measurement, and the price is unknown."
 }

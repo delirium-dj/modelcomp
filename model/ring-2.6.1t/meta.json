@@ -1,16 +1,16 @@
 {
-  "id": "opencode/ring-2.6.1t",
+  "id": "inclusionai/ring-2.6-1t",
   "name": "Ring 2.6 1T",
-  "short": "InclusionAI's Ring 2.6 1T open-weights reasoning MoE (1T total/63B active, 128K native) for thinking tasks; adjustable Reasoning Effort high/xhigh.",
-  "contextWindow": "128K native (256K with YaRN); 262,144 served (per AA)",
+  "short": "InclusionAI's open-weights reasoning MoE (1T total/63B active, MIT, 128K native/256K YaRN) for maths and research at high/xhigh effort: GPQA 88.3%, AIME 2026 95.8%.",
+  "contextWindow": "131,072 native (256,144 with YaRN)",
   "modalities": "Text in/out",
-  "pricingNote": "AA ~$0.30/$2.50 per 1M; MIT open weights, but self-hosting needs ~32 GPUs (vendor SGLang example: 4 nodes x 8)",
+  "pricingNote": "AA ~$0.30/$2.50 per 1M (cache $0.06); MIT open weights, but self-hosting needs ~32 GPUs",
   "freeTierNote": "Free OpenRouter endpoint at $0.00/1M. Hugging Face reports no Inference Provider deploys the weights directly.",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=ring-2.6.1t",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ring-2.6-1T",
   "pricingLinks": [
     "https://huggingface.co/inclusionAI/Ring-2.6-1T"
   ],
-  "standout": "The adjustable deep-thinker: a 1T open-weights MoE with a high/xhigh reasoning-effort dial for thinking-heavy tasks.",
-  "tradeoff": "A 128K native window is short by 1M-era standards, and deep effort burns tokens fast."
+  "standout": "Open-weight thinking at 1T scale: adjustable high/xhigh reasoning with GPQA 88.3% and ARC-AGI-2 66.2%.",
+  "tradeoff": "No Terminal-Bench was ever published, MRCR rows in the report belong to Ling 2.6, and OpenRouter has no live endpoint for it."
 }

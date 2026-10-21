@@ -1,8 +1,8 @@
 {
   "id": "opencode/gpt-5-nano",
   "name": "GPT-5 Nano",
-  "short": "OpenAI's ultra-compact tier (400K/128K, $0.05/$0.40) for high-volume classification and extraction; text+image in, cheapest frontier-family tier.",
-  "contextWindow": "400K total (128K max output)",
+  "short": "OpenAI's ultra-compact tier (400K/128K, $0.05/$0.40) for high-volume classification and extraction; AIME 2025 85.2%, SWE-bench Verified 54.7% - superseded by GPT-5.4 nano.",
+  "contextWindow": "400,000 total (128,000 max out)",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid $0.05/$0.40 per 1M ($0.005 cached)",
   "pricingTiers": [
@@ -10,11 +10,11 @@
     "Azure $0.055/$0.44 per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://openai.com/index/gpt-5-nano/",
+  "officialUrl": "https://openai.com/index/introducing-gpt-5/",
   "pricingLinks": [
     "https://openai.com/api/pricing/",
-    "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/"
+    "https://openai.com/index/introducing-gpt-5-for-developers/"
   ],
-  "standout": "The cheapest frontier-family ticket: an ultra-compact tier built for endless classification and extraction at a nickel-and-dimes rate.",
-  "tradeoff": "Text-plus-image in, but no serious reasoning depth — pure volume work."
+  "standout": "The price floor of the frontier family: $0.05/M in and $0.40/M out for a 400K-context reasoning model.",
+  "tradeoff": "Agentic work is out of reach (tau2 telecom 35.5%, Terminal-Bench Hard 12.1%) and GPT-5.4 nano beats it on both price-per-capability and axis scores."
 }

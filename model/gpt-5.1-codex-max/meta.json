@@ -1,15 +1,16 @@
 {
   "id": "opencode/gpt-5.1-codex-max",
   "name": "GPT-5.1 Codex Max",
-  "short": "GPT-5.1 Codex Max model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
+  "short": "OpenAI's frontier coding model with compaction (400K/128K, $1.25/$10): SWE-bench Verified 77.9%, SWE-Lancer 79.9% - API shut down 2026-07-23.",
+  "contextWindow": "400,000 total; 128,000 max out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $1.25/$10.00 per 1M in/out; $0.125 cached (Zen price = native)",
   "scaffolded": true,
-  "officialUrl": "https://openai.com/index/gpt-5.1-codex-max/",
+  "officialUrl": "https://openai.com/index/gpt-5-1-codex-max/",
   "pricingLinks": [
-    "https://openai.com/api/pricing/"
+    "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max"
   ],
-  "standout": "The heavy-lifting codex tier of the 5.1 generation — extra compute for the largest repo-scale agentic runs.",
-  "tradeoff": "A superseded generation with thinner independent evidence than the current codex lanes."
+  "standout": "The compaction pioneer: the first model natively trained to work across multiple context windows, and Codex's default for a month.",
+  "tradeoff": "Responses-API-only, 3x slower than the plain Codex on SWE-bench, and the id was shut down in favour of gpt-5.6-sol.",
+  "noFreeId": true
 }

@@ -1,10 +1,20 @@
 {
-  "id": "opencode/longcat-2.5-preview",
+  "id": "opencode/longcat-2.5-preview-free",
   "name": "LongCat 2.5 Preview",
-  "short": "LongCat 2.5 Preview model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "standout": "Meituan’s 2.5-generation preview: open MoE weights serving long-context agent work early.",
-  "tradeoff": "Preview status — superseded as the 2.5 line finalized."
+  "short": "Meituan's Sep 2026 hosted API-only preview (1M ctx, image in) for autonomous coding agents - no open weights and no published benchmarks; a free Zen slot exists.",
+  "contextWindow": "1,048,576 (1M); 131,072 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.30/$1.20 per 1M in/out, $0.006 cached (limited-time price); free Zen slot longcat-2.5-preview-free",
+  "standout": "Meituan's hosted preview for autonomous coding agents: 1M context at near-flat rates, free on Zen while the slot lasts.",
+  "tradeoff": "API-only with no weights, no model card and no published benchmarks - the folder's own findings are a self-exclusion, so treat the scores as unknown.",
+  "pricingTiers": [
+    "LongCat platform $0.30/$1.20 per 1M in/out, $0.006 cached read (limited-time price)",
+    "Free OpenCode Zen slot: longcat-2.5-preview-free (zero-retention provider)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://longcat.chat/platform/docs/change-log",
+  "pricingLinks": [
+    "https://longcat.chat/platform/docs/pricing/longcat-2.5",
+    "https://opencode.ai/docs/zen"
+  ]
 }

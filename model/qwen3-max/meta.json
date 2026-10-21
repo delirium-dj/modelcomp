@@ -1,15 +1,15 @@
 {
   "id": "opencode/qwen3-max",
   "name": "Qwen 3 Max",
-  "short": "Alibaba's Qwen 3 Max proprietary flagship (262K context, 65K out, thinking mode) for coding agents and reasoning; text-only at $1.20/$6.00 per 1M.",
+  "short": "Alibaba's closed-weights Qwen3 Max flagship (262K ctx, 65K out) for coding agents and reasoning; AA Intelligence Index 15.6, HLE 11.9% - deprecated for the 3.6/3.7/3.8 tiers.",
   "contextWindow": "262,144 total (65,536 out)",
   "modalities": "Text in/out",
-  "pricingNote": "$1.20/$6.00 per 1M in/out (Alibaba; tiered above 32K/128K)",
+  "pricingNote": "$1.20/$6.00 per 1M in/out (Alibaba; resellers $0.36-$0.85 in)",
   "noFreeId": true,
-  "officialUrl": "https://qwenlm.github.io/blog/qwen3-max/",
+  "officialUrl": "https://models.dev/models/alibaba/qwen3-max",
   "pricingLinks": [
-    "https://www.alibabacloud.com/help/en/model-studio/models"
+    "https://www.alibabacloud.com/help/en/model-studio/model-list-text-generation"
   ],
-  "standout": "Alibaba’s previous proprietary ceiling: thinking-mode coding agents at moderate flagship pricing.",
-  "tradeoff": "Text-only with a 262K window; the 3.7/3.8 Max generations have moved far past it."
+  "standout": "Alibaba's 2025 flagship Max tier - the reference point the Qwen3.6/3.7/3.8 Max line replaced.",
+  "tradeoff": "Closed weights, a modest measured profile for a flagship, and no public SWE-bench or Terminal-Bench figure was ever published for it."
 }

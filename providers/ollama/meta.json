@@ -1,0 +1,55 @@
+{
+  "name": "Ollama",
+  "kind": "aggregator",
+  "short": "Ollama Cloud hosts open models behind an OpenAI-compatible API, with a free plan that includes starter usage credits; local inference stays free and unlimited.",
+  "officialUrl": "https://ollama.com",
+  "hosts": ["ollama.com", "ollama.ai"],
+  "catalogUrl": "https://ollama.com/search?c=cloud",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Starter usage credits and starter models; 1 concurrent request; usage resets monthly; add credits to unlock all models.",
+      "evidenceUrl": "https://ollama.com/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$20/mo ($16.67/mo annual)",
+      "notes": "$60 of usage credits per month, 3 concurrent requests and access to larger pro models.",
+      "evidenceUrl": "https://ollama.com/pricing"
+    },
+    {
+      "name": "Max",
+      "price": "$100/mo",
+      "notes": "$300 of usage credits per month, 10 concurrent requests and early access to the newest models.",
+      "evidenceUrl": "https://ollama.com/pricing"
+    },
+    {
+      "name": "Team",
+      "price": "$500/mo",
+      "notes": "Unlimited users, $1,000 of shared usage credits per month and priority support.",
+      "evidenceUrl": "https://ollama.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Volume pricing, model access controls, cost budgets and a private support channel.",
+      "evidenceUrl": "https://ollama.com/pricing"
+    }
+  ],
+  "covers": [
+    "beam",
+    "deepseek-v4.1-flash",
+    "deepseek-v4-pro",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-oss-120b",
+    "kimi-k2.6",
+    "kimi-k2.7-code",
+    "kimi-k3",
+    "minimax-m2.7",
+    "minimax-m3",
+    "mistral-large-4"
+  ]
+}

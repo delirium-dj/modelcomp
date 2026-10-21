@@ -1,0 +1,44 @@
+{
+  "name": "Scaleway Generative APIs",
+  "kind": "aggregator",
+  "short": "Scaleway's European serverless inference for open models, with a free token allowance and per-token billing across GLM, Qwen, DeepSeek and more.",
+  "officialUrl": "https://www.scaleway.com/en/generative-apis/",
+  "hosts": ["scaleway.com", "scaleway.ai"],
+  "catalogUrl": "https://www.scaleway.com/en/docs/generative-apis/reference-content/supported-models/",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "1,000,000 tokens free",
+      "notes": "Serverless only; also 60 minutes of audio transcription. Applied to the most expensive tokens first, with a 1,000-token minimum billing unit.",
+      "evidenceUrl": "https://www.scaleway.com/en/docs/generative-apis/faq/"
+    },
+    {
+      "name": "Serverless",
+      "price": "Per-token, per-model rates",
+      "notes": "GLM 5.3 €1.80 in / €5.50 out; DeepSeek V4.1 Flash €0.60/€1.80; Qwen3.8 27B €0.60/€3.30 per 1M.",
+      "evidenceUrl": "https://www.scaleway.com/en/pricing/model-as-a-service"
+    },
+    {
+      "name": "Batches API",
+      "price": "50% discount",
+      "notes": "Asynchronous batch requests are billed at half the serverless token rate.",
+      "evidenceUrl": "https://www.scaleway.com/en/pricing/model-as-a-service"
+    },
+    {
+      "name": "Dedicated Deployment",
+      "price": "Per GPU-hour",
+      "notes": "Dedicated capacity without serverless rate limits; provisioned from Scaleway's GPU Instance range.",
+      "evidenceUrl": "https://www.scaleway.com/en/docs/generative-apis/faq/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "deepseek-v4-flash",
+    "gemma-4.26b-a4b",
+    "glm-5.2",
+    "glm-5.3",
+    "gpt-oss-120b",
+    "qwen-3.5-397b",
+    "qwen-3.8-27b"
+  ]
+}

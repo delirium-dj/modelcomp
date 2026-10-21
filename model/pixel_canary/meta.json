@@ -1,15 +1,16 @@
 {
-  "id": "opencode/pixel_canary",
+  "id": "callstack/apex",
   "name": "Pixel Canary",
-  "short": "Callstack's Apex coding model (revealed from stealth Pixel Canary) with 262K context for Next.js/React builds; 28/31 baseline, 30/31 with docs on Vercel's 31-task suite, free preview ended.",
+  "short": "Callstack's Apex coding model (revealed from stealth 'Pixel Canary', 262K, image in): 28/31 Next.js tasks baseline, 30/31 with docs, 87.8% on React Native evals.",
   "contextWindow": "262,144 total (131,072 max out; gateway-declared)",
-  "modalities": "Text in/out",
-  "pricingNote": "$0 — free while in stealth",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.50/M in, $0.20 cached, $3.00/M out (GA) - the 'free while stealth' claim is unverified",
   "freeTierNote": "Free for a limited time while in stealth (Vercel AI Gateway); no ZDR, prompts may be used for training",
-  "officialUrl": "https://huggingface.co/models?search=pixel_canary",
+  "officialUrl": "https://www.callstack.com/blog/apex-agetic-coding-for-mobile-and-web-spcialied-in-react",
   "pricingLinks": [
-    "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway"
+    "https://apex.callstack.com/"
   ],
-  "standout": "The Next.js/React specialist: a stealth-revealed Apex coding model that aced Vercel’s full build suite once given docs.",
-  "tradeoff": "The free preview has ended, and its skill is unusually narrow — framework-specific builds, not general frontier work."
+  "standout": "The React specialist: a domain post-train that beats frontier models on its own framework evals at 1/13th the cost.",
+  "tradeoff": "Two framework evals are the entire evidence base - no SWE-bench, Terminal-Bench or LiveCodeBench row exists, and the model is closed.",
+  "noFreeId": true
 }

@@ -1,20 +1,20 @@
 {
   "id": "opencode/minimax-m2.5",
   "name": "MiniMax M2.5",
-  "short": "MiniMax's open-weight 230B/10B-active MoE (~205K context) for agentic coding and tool use; SWE-bench Verified 80.2%, Modified-MIT.",
-  "contextWindow": "~205,000 total (192K–205K class)",
+  "short": "MiniMax's open-weight 228.7B/10B-active MoE (~197K, Modified MIT) for agentic coding and tool use; SWE-bench Verified 80.2% claimed (74.2% on Vals AI), LiveCodeBench 79.2%.",
+  "contextWindow": "196,608 total (192K-205K class)",
   "modalities": "Text in/out only",
-  "pricingNote": "Paid $0.15–$0.30 in / $0.60–$1.20 out per 1M by tier; Modified-MIT open weights",
+  "pricingNote": "Paid $0.15-$0.30 in / $0.60-$1.20 out per 1M by tier; Modified-MIT open weights",
   "pricingTiers": [
     "M2.5 $0.15 in / $0.60 out per 1M",
     "M2.5-Lightning $0.30 in / $2.40 out per 1M"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=minimax-m2.5",
+  "officialUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5",
   "pricingLinks": [
-    "https://www.minimax.io/platform/pricing",
-    "https://www.minimax.io/platform/pricing"
+    "https://www.minimax.io/news/minimax-m25",
+    "https://openrouter.ai/minimax/minimax-m2.5"
   ],
-  "standout": "The tool-use open pick: a compact-active MoE with verified coding scores that led its weight class.",
-  "tradeoff": "Modified-MIT license adds conditions plain Apache does not, and the M2.7 generation supersedes it."
+  "standout": "The commercial-licence open-weights entry: 229B/10B-active agentic coding at $0.30/$1.20.",
+  "tradeoff": "One generation behind M2.7 and the same weights with weaker post-training - plus a 4x price spread between launch and current routes."
 }

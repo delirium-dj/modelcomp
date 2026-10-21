@@ -1,9 +1,11 @@
 # NVIDIA Nemotron 3 Nano Omni — findings by DeepSeek 4.1 Flash
 
 - Source: NVIDIA / Nemotron 3 Nano Omni (`nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`nemotron-3-nano-omni-30b-a3b`, 30 rows) computes an overall **32.11/100 (#176 of 972)**, re-anchors the rows on NVIDIA's technical report, and adds independent **VoiceBench 89.39 (#4 of 44)** plus Artificial Analysis rows: AA-MMMU-Pro 53.2%, AA-LCR 39.7%, AA-HLE 4.8%, AA Intelligence Index 10.3%, AA-GPQA 46.9%, AA Coding Index 13.8%, τ²-bench 45.3%, LiveCodeBench v5 63.2%, SciCode 32%, GPQA 72.2%, MMLU-Pro 77.3%, AIME 2025 82.1%. **No score change** (Tool 70 / Reasoning 66 / Context 72 / Multimodal 95 / Coding 55 / Cost 98 / Overall 72).
 
 ## Model card
 

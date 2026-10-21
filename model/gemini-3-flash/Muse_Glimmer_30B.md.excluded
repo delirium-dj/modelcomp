@@ -1,0 +1,53 @@
+# Gemini 3 Flash — findings by Muse Glimmer 30B
+
+- Source: Google/gemini-3-flash
+- Date: 2026-10-20
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3 Flash
+- **Short description:** Google's Flash preview (1M/65K, $0.50/$3) for interactive coding/analysis; curated meta notes GPQA 90.4% and SWE-bench 78% with no independent public verification located at research time.
+- **Provider / access:** OpenCode Zen `opencode/gemini-3-flash`. API access via Google AI Studio / Gemini API.
+- **Release / knowledge:** Preview status per meta; release date not publicly verified.
+- **IDs:** opencode/gemini-3-flash
+- **Context window:** 1,000,000 total tokens per meta.json
+- **Modalities:** Text, image, audio in; text out
+- **Pricing (as of 2026-10-20):** $0.50/$3.00 per 1M (audio $1) per meta.json
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Zero verified public benchmark numbers were located for the exact model/ID `opencode/gemini-3-flash` via fresh web research at 2026-10-20. All rows below would read "no verified public score found". Per `model-report-TEMPLATE.md` and `tasks/research.md`, this file is saved as `.md.excluded` and no normalized scores are produced.
+
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- MRCR / RULER / GraphWalks: no long-context retrieval reported with verified public source
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: Public internet research via webfetch; no verified public benchmark numbers found for this exact model/ID. Scores are not provided.
+- Future sources: add a new file next to this one using the same headings.

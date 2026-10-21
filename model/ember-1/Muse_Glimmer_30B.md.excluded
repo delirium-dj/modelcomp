@@ -1,0 +1,59 @@
+# Ember 1 — findings by Muse Glimmer 30B
+
+- Source: Fireworks / Ember-1
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Ember 1
+- **Short description:** Fireworks Research Kimi K3 fine-tune for agentic coding with ~40% fewer tokens.
+- **Provider / access:** Fireworks Serverless accounts/fireworks/models/ember-1; OpenCode Zen opencode/ember-1. No free tier.
+- **Release / knowledge:** Created 2026-09-22; public launch 2026-09-23.
+- **IDs:** opencode/ember-1 / fireworks/ember-1
+- **Context window:** 1,040,000 total; 131K output
+- **Modalities:** Text + image in; text out; function calling; reasoning; tool calls
+- **Pricing (as of 2026-10-20):** $3.00 / $0.30 cached / $15.00 per 1M
+- **Architecture:** MoE ~2.78T total parameters; based on Kimi K3
+
+### Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench 2.1: 82.0% (Fireworks blog 2026-09-23)
+- Tau-2 Bench Airline: 66% (Fireworks blog 2026-09-23)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+- SWE-bench Verified: 92.2% (Fireworks blog 2026-09-23)
+- DeepSWE 1.1: 75.2% (Fireworks blog 2026-09-23)
+- SWE-Interact: 20.0% (Fireworks blog 2026-09-23)
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+
+Long context:
+- MRCR / RULER: no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+- **Tool use: 85/100.** Terminal-Bench 2.1 82.0% just below frontier ~88%+; capped by lack of Tau3/GDPval.
+- **Reasoning: 50/100.** No verified public GPQA/HLE/MRCR scores; capped by evidence gap.
+- **Context window: 95/100.** 1.04M total / 131K out verified.
+- **Multimodal: 65/100.** Image input supported, text output only.
+- **Coding: 92/100.** SWE-bench Verified 92.2% and DeepSWE 1.1 75.2% meet frontier refs.
+- **Cost efficiency: 60/100.** $3/$15 per 1M, no free tier.
+- **Overall Score: 77/100.** Mean of Tool 85, Reasoning 50, Context 95, Multimodal 65, Coding 92.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: public internet research; scores are normalized 1–100 interpretations.

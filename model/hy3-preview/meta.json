@@ -1,18 +1,20 @@
 {
   "id": "tencent/hy3-preview",
   "name": "Hy3 Preview",
-  "short": "Tencent's Hy3 preview (295B/21B MoE, 256K) for coding/agents; superseded by full release, text-only.",
-  "contextWindow": "256,000 (256K) / 32K out",
+  "short": "Tencent's Apr 2026 Hy3 preview (295B/21B MoE, 256K) - SWE-bench Verified 74.4%, Terminal-Bench 2.0 54.4% - superseded by the Apache-2.0 GA Hy3.",
+  "contextWindow": "256,000 (262,144 on some hosts); 64,000-128,000 max out",
   "modalities": "Text in/out only",
-  "pricingNote": "TokenHub preview ~$0.18/$0.59 per 1M",
+  "pricingNote": "OpenRouter list \\.18/\\.60 per 1M (cache \\.06); no Tencent rate card",
   "pricingTiers": [
-    "TokenHub preview ~$0.18/$0.59"
+    "OpenRouter $0.18/$0.60 per 1M in/out, $0.06 cached read (sole GMICloud endpoint)",
+    "Self-host $0 (Tencent Hy Community License Agreement, not Apache)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=hy3-preview",
+  "officialUrl": "https://huggingface.co/tencent/Hy3-preview",
   "pricingLinks": [
-    "https://hunyuan.tencent.com/announcements/hy3"
+    "https://openrouter.ai/tencent/hy3-preview",
+    "https://huggingface.co/tencent/Hy3-preview"
   ],
-  "standout": "Tencent’s preview MoE that opened the Hy line: 256K-context coding and agents from day one.",
-  "tradeoff": "Superseded by the full release; text-only preview status."
+  "standout": "The preview that made Tencent's Hy line credible - the same 295B/21B architecture the GA release shipped three months later.",
+  "tradeoff": "Superseded by GA Hy3 (Apache-2.0, SWE-bench Verified 78.0%) and still bound by the more restrictive community licence."
 }

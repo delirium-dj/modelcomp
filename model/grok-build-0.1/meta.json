@@ -1,20 +1,20 @@
 {
   "id": "opencode/grok-build-0.1",
   "name": "Grok Build 0.1",
-  "short": "xAI's 256K fast coding beta at 100+ tok/s for agentic loops and MCP tooling; renamed retrained successor of retired grok-code-fast-1.",
-  "contextWindow": "256,000 (230,400 max out)",
+  "short": "xAI's 256K fast coding beta at 100+ tok/s for agentic loops and MCP tooling; Terminal-Bench 2.1 52.06%, GPQA 89.5% (AA 0616) - deprecated for Grok 4.5+.",
+  "contextWindow": "256,000 total (230,400 max out)",
   "modalities": "Text, image in; text out",
-  "pricingNote": "$1.00/$2.00 per 1M (cached $0.20; 2× past 200K)",
+  "pricingNote": "$1.00/$2.00 per 1M (cached $0.20; 2x past 200K)",
   "pricingTiers": [
     "Standard $1.00/$0.20 cached/$2.00 per 1M (under 200K prompt)",
     "Long-context $2.00/$0.40/$4.00 (at/above 200K)"
   ],
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-build-0.1",
+  "officialUrl": "https://docs.x.ai/developers/models/grok-build-0.1",
   "pricingLinks": [
-    "https://x.ai/api",
-    "https://x.ai/api"
+    "https://docs.x.ai/docs/models",
+    "https://docs.x.ai/developers/models/grok-build-0.1"
   ],
-  "standout": "The fast-loop builder: a 100+ tok/s coding beta designed for agentic iteration and MCP tooling.",
-  "tradeoff": "A beta of a renamed lineage — stability and long-term support are the risks."
+  "standout": "The fast coding beta: 100+ tok/s with tool calling and MCP support at $1/$2.",
+  "tradeoff": "The 70.8% SWE-bench Verified in circulation is inherited from the retired grok-code-fast-1, never measured for this model - and xAI now points code at Grok 4.7."
 }

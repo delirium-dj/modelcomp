@@ -1,0 +1,34 @@
+{
+  "name": "SambaNova Cloud",
+  "kind": "aggregator",
+  "short": "SambaNova's fast inference cloud for open models, with a no-payment-method free tier and pay-per-token developer access.",
+  "officialUrl": "https://cloud.sambanova.ai",
+  "hosts": ["sambanova.ai", "cloud.sambanova.ai"],
+  "catalogUrl": "https://sambanova.ai/docs/en/models",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0",
+      "notes": "20 RPM, 20 RPD and 200K TPD per model; applied when no payment method is linked.",
+      "evidenceUrl": "https://docs.sambanova.ai/docs/en/models/rate-limits"
+    },
+    {
+      "name": "Developer",
+      "price": "Usage-based",
+      "notes": "20M tokens/day across all models; gpt-oss-120b $0.22/$0.59 and gemma-4-31B $0.38/$1.15 per 1M.",
+      "evidenceUrl": "https://cloud.sambanova.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Higher rate limits and dedicated capacity via SambaNova sales.",
+      "evidenceUrl": "https://docs.sambanova.ai/docs/en/models/rate-limits"
+    }
+  ],
+  "covers": [
+    "gemma-4-31b",
+    "gpt-oss-120b",
+    "minimax-m2.7",
+    "minimax-m3"
+  ]
+}

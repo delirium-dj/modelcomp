@@ -1,18 +1,18 @@
 {
-  "id": "opencode/nemotron-3.5-bolt-74b-a9b",
+  "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
   "name": "Nemotron 3.5 Bolt 74B A9B",
-  "short": "NVIDIA's open-weight 74B/9B-active Mamba-2 vision-language MoE (256K, fits 24GB) for local coding and agentic work; Terminal-Bench 2.1 50.98%, OpenMDW-1.1.",
+  "short": "NVIDIA's open-weight 74B/9B-active Mamba-2 vision-language MoE (256K, IQ2 fits 24GB) for local coding and agentic work; Terminal-Bench 2.1 50.98%, no SWE-bench published.",
   "contextWindow": "262,144 (256K) total",
-  "modalities": "Text, image in; text out",
+  "modalities": "Text, image, video in; text out",
   "pricingNote": "Open weights (OpenMDW-1.1); runs locally in 24GB, no per-token list price",
   "pricingTiers": [
     "Open weights (OpenMDW-1.1) — self-host / NVIDIA NIM"
   ],
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=nemotron-3.5-bolt-74b-a9b",
+  "officialUrl": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
   "pricingLinks": [
-    "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB"
+    "https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/"
   ],
-  "standout": "The 24GB-VRAM promise: an open Mamba-2 vision-language MoE that runs local coding agents on a single desktop card.",
-  "tradeoff": "Small-active tuning trades away depth; scores sit at the entry level of this dataset."
+  "standout": "The 24GB local agent: frontier-shaped Mamba-2 MoE with vision that fits a single desktop GPU at 83.99 tok/s.",
+  "tradeoff": "The IQ2 24GB build trails BF16 on every quality row, and the agentic evidence is thin - no SWE-bench, LiveCodeBench or DeepSWE figure exists."
 }

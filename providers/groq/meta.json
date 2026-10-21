@@ -1,0 +1,32 @@
+{
+  "name": "Groq",
+  "kind": "aggregator",
+  "short": "Groq's low-latency inference cloud for open models, with a free plan and pay-per-token developer access.",
+  "officialUrl": "https://groq.com",
+  "hosts": ["groq.com", "console.groq.com", "api.groq.com"],
+  "catalogUrl": "https://console.groq.com/docs/models",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "30 RPM, 1K RPD, 8K TPM and 200K TPD on free-plan models.",
+      "evidenceUrl": "https://console.groq.com/docs/rate-limits"
+    },
+    {
+      "name": "Developer",
+      "price": "Usage-based",
+      "notes": "Higher limits; gpt-oss-120b $0.15/$0.60 and Qwen3.8 27B $0.80/$4.00 per 1M.",
+      "evidenceUrl": "https://console.groq.com/docs/models"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Contact sales for enterprise models and higher limits.",
+      "evidenceUrl": "https://console.groq.com/docs/models"
+    }
+  ],
+  "covers": [
+    "gpt-oss-120b",
+    "qwen-3.8-27b"
+  ]
+}

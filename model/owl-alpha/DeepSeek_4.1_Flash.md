@@ -1,9 +1,11 @@
 # Owl Alpha — findings by DeepSeek 4.1 Flash
 
 - Source: undisclosed provider (OpenRouter stealth) / Owl Alpha (`openrouter/owl-alpha`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** Still no BenchLM page (404) and no new independent benchmark; the model remains anonymous and unserved. Only the ClawBench V2 14.6% third-party row and OpenRouter traffic metadata stand. **No score change** (Tool 60 / Reasoning 60 / Context 95 / Multimodal 15 / Coding 55 / Cost 100 / Overall 57) — still low-confidence.
 
 > **LOW-CONFIDENCE FILE.** Owl Alpha is an anonymous OpenRouter stealth model with no published vendor, weights, or specs. Only one third-party benchmark and OpenRouter traffic metadata were found. Scores below are conservative interpretations from that thin evidence, not from a vendor model card. Not to be confused with the separate `stealth/ox-alpha` ("Ox Alpha").
 
@@ -40,6 +42,6 @@
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research via OpenRouter model/endpoint metadata (live + archived), the TIGER-Lab ClawBench dataset and Hugging Face full-text references. No vendor card, weights or standard benchmark suite exists; the four capability scores without benchmarks are clearly flagged as low-confidence provisional interpretations, not measured results. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18) via OpenRouter model/endpoint metadata (live + archived), the TIGER-Lab ClawBench dataset and Hugging Face full-text references. No vendor card, weights or standard benchmark suite exists; the four capability scores without benchmarks are clearly flagged as low-confidence provisional interpretations, not measured results. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

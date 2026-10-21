@@ -1,15 +1,15 @@
 {
-  "id": "upstageai/solar-pro-4",
+  "id": "upstage/solar-pro4",
   "name": "Solar Pro 4",
-  "short": "Upstage's Solar Pro 4 closed agentic flagship (384K context) for docs and tool-calling workflows; GPQA 89.0%, LiveCodeBench 87.8%, GDPval 1277 Elo.",
-  "contextWindow": "512,000 (512K)",
-  "modalities": "Text in/out (modality statement unpublished)",
-  "pricingNote": "No public rate card found",
+  "short": "Upstage's closed agentic flagship (512K/128K, $0.30/$1.20): GPQA 89.0%, LiveCodeBench 87.8%, SWE-bench Verified 70.6% - GDPval-AA Elo 1106, not 1277.",
+  "contextWindow": "524,288 (512K); 131,072 max out",
+  "modalities": "Text in/out",
+  "pricingNote": "$0.30/M in, $1.20/M out, $0.06 cached (Upstage) - the $2/$6 in the old note is wrong",
   "noFreeId": true,
-  "officialUrl": "https://upstage.ai/products/solar-pro-4",
+  "officialUrl": "https://www.upstage.ai/blog/en/solar-pro-4",
   "pricingLinks": [
-    "https://upstage.ai/pricing"
+    "https://openrouter.ai/upstage/solar-pro4"
   ],
-  "standout": "Upstage’s closed agentic flagship: document-heavy, tool-calling workflows with strong live-coding and GDPval showing.",
-  "tradeoff": "Closed and niche-focused — a workflow tool for docs-heavy pipelines rather than a general frontier runner."
+  "standout": "Upstage's flagship for Korean/Japanese enterprise agents: GPQA 89.0% and LiveCodeBench 87.8% at $0.30/$1.20.",
+  "tradeoff": "Text-only, and the agentic rows are modest (Terminal-Bench 2.1 57.0%, APEX-Agents 18.7%, Terminal-Bench 4.0 0%)."
 }

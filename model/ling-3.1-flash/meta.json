@@ -1,20 +1,21 @@
 {
-  "id": "opencode/ling-3.1-flash",
+  "id": "inclusionai/ling-3.1-flash",
   "name": "Ling 3.1 Flash",
-  "short": "InclusionAI's 560B/~25B-active hybrid-reasoning MoE (262K) for coding and tool-using agents; CyberGym 87.9%, vendor-reported, free trial.",
-  "contextWindow": "262,144 (256K) served; 32,768 max output (1M behind post-trial paid tier)",
+  "short": "inclusionAI's open-weight 560B/25B-active hybrid-reasoning MoE (MIT, 262K) for tool-using agents: Terminal-Bench 2.1 81.2%, CyberGym 87.9%, AA Intelligence Index 41.",
+  "contextWindow": "262,144 (config and endpoints; card and AA advertise 1M)",
   "modalities": "Text in/out",
-  "pricingNote": "Free during trial ($0/$0); paid pricing unannounced",
+  "pricingNote": "$0.075/$0.225 per 1M on OpenRouter (75% off a $0.30/$0.90 list, cache $0.015); self-host $0 (MIT)",
   "freeTierNote": "Free trial via opencode/ling-3.1-flash-free and OpenRouter/Vercel (through 2026-10-13)",
   "pricingTiers": [
-    "Free trial ($0/$0)",
-    "Paid tier (unannounced)"
+    "Hosted $0.075/$0.225 per 1M in/out, $0.015 cached read (OpenRouter, running 75% discount)",
+    "Self-host $0 (MIT weights)"
   ],
-  "officialUrl": "https://huggingface.co/models?search=ling-3.1-flash",
+  "officialUrl": "https://huggingface.co/inclusionAI/Ling-3.1-flash",
   "pricingLinks": [
-    "https://artificialanalysis.ai/models/ling-3-1-flash",
-    "https://artificialanalysis.ai/models/ling-3-1-flash"
+    "https://openrouter.ai/inclusionai/ling-3.1-flash",
+    "https://huggingface.co/inclusionAI/Ling-3.1-flash"
   ],
-  "standout": "The cyber-range specialist: InclusionAI’s hybrid-reasoning MoE with standout security-benchmark behavior from open weights.",
-  "tradeoff": "Vendor-reported evidence and a 262K ceiling; independent confirmation is still catching up."
+  "standout": "Frontier-adjacent open weights at a discount price: Terminal-Bench 2.1 81.2%, GDPval-AA 1618 and a 37.9% hallucination rate.",
+  "tradeoff": "The free Zen trial slot has ended and no opencode/ paid id exists, and no SWE-bench Verified or LiveCodeBench figure is published.",
+  "noFreeId": true
 }

@@ -1,16 +1,21 @@
 {
   "id": "poolside/laguna-s-2.1",
   "name": "Laguna S 2.1",
-  "short": "Poolside's 118B/8B-active open-weights MoE (1M context) for agentic coding and long-horizon work; Terminal-Bench 2.1 70.2%, runs on a single DGX Spark.",
-  "contextWindow": "1M (OpenRouter free endpoint capped at 256K)",
+  "short": "Poolside's 118B/8B-active open-weights MoE (1M, OpenMDW-1.1) for agentic coding: Terminal-Bench 2.1 70.2% (#12 at launch), runs on one DGX Spark.",
+  "contextWindow": "1,048,576 (1M; OpenRouter free endpoint capped at 256K)",
   "modalities": "Text in/out only (no vision)",
-  "pricingNote": "$0.10/$0.20 per 1M ($0.01 cache read) on OpenRouter's 1M endpoint; open weights under OpenMDW-1.1",
+  "pricingNote": "\\.10/\\.20 per 1M (\\.01 cache) on Poolside 1M endpoint; OpenRouter \\.09/\\.18",
   "freeTierNote": "Free OpenRouter endpoint at 256K context; self-host free under OpenMDW-1.1 (8B active, runs on a single NVIDIA DGX Spark)",
   "noFreeId": true,
-  "officialUrl": "https://huggingface.co/models?search=laguna-s-2.1",
+  "officialUrl": "https://huggingface.co/poolside/Laguna-S-2.1",
   "pricingLinks": [
-    "https://huggingface.co/poolside/Laguna-S-2.1"
+    "https://openrouter.ai/poolside/laguna-s-2.1",
+    "https://poolside.ai/blog/introducing-laguna-s-2-1"
   ],
-  "standout": "The single-box agent: Poolside’s open MoE runs long-horizon coding on one DGX Spark with a full 1M context.",
-  "tradeoff": "Small-active tuning gives up frontier depth; hosting quality depends on the poolside lane you pick."
+  "standout": "The desktop agent: 1M context and Terminal-Bench 2.1 70.2% from a model sized for a single DGX Spark.",
+  "tradeoff": "No general-reasoning benchmark (GPQA, HLE, AIME) has ever been published, and the free 256K endpoint is deprecated.",
+  "pricingTiers": [
+    "Poolside 1M endpoint $0.10/$0.20 per 1M in/out, $0.01 cached read; OpenRouter $0.09/$0.18",
+    "Self-host $0 (OpenMDW-1.1 weights)"
+  ]
 }
