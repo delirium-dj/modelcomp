@@ -98,7 +98,8 @@ export type SourceKey =
   | "Independent Benchmark Research"
   | "Independent AI Research"
   | "Independent Research"
-  | "Xiaomi Official";
+  | "Xiaomi Official"
+  | "Flint";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -208,4 +209,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Independent AI Research", label: "Independent AI Research", file: "Independent_AI_Research.md" },
   { key: "Independent Research", label: "Independent Research", file: "Independent_Research.md" },
   { key: "Xiaomi Official", label: "Xiaomi Official", file: "Xiaomi_Official.md" },
+  { key: "Flint", label: "Flint", file: "Flint.md", slug: "flint" },
 ];

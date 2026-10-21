@@ -181,6 +181,7 @@
 56.8 nemotron-3.5-lightning-free
 55 glm-4.5-flash
 54.2 gemma-4-e2b
+54 flint
 53.8 ling-2.6-flash
 53.7 mercury-2.5
 53 gpt-oss-120b-lite

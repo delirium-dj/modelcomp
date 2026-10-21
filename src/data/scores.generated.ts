@@ -1408,6 +1408,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Step_5_Preview.md": [45, 73, 88, 62, 40, 100, 62],
     "average.md": [62.8, 77, 90.9, 67.2, 65.6, 99.4, 72.8],
   },
+  "flint": {
+    "Flint.md": [55, 55, 75, 15, 70, 100, 54],
+    "average.md": [55, 55, 75, 15, 70, 100, 54],
+  },
   "gemini-1.5-pro": {
     "Beam.md": [56, 56, 88, 76, 54, 82, 66],
     "Big_Pickle.md": [45, 58, 96, 90, 58, 80, 69],
@@ -3052,7 +3056,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gpt-5.2-pro": {
     "GLM_4.5_Flash.md": [91, 89, 88, 80, 82, 72, 86],
-    "average.md": [91, 89, 88, 80, 82, 72, 86],
+    "Gemini_3.5_Flash_Lite.md": [86, 86, 86, 86, 86, 85, 86],
+    "average.md": [88.5, 87.5, 87, 83, 84, 78.5, 86],
   },
   "gpt-5.3-codex": {
     "Beam.md": [72, 72, 70, 68, 74, 82, 71.2],
@@ -6258,8 +6263,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [60.1, 61.2, 76.9, 50.6, 67.2, 93.2, 63.2],
   },
   "omi-alpha": {
+    "Gemini_3.5_Flash_Lite.md": [90, 90, 90, 90, 90, 90, 90],
     "Solar_Mini_4.md": [88, 87, 95, 92, 88, 95, 90],
-    "average.md": [88, 87, 95, 92, 88, 95, 90],
+    "average.md": [89, 88.5, 92.5, 91, 89, 92.5, 90],
   },
   "owl-alpha": {
     "Beam.md": [50, 50, 80, 40, 50, 100, 54],
@@ -6289,8 +6295,9 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [69.8, 70.4, 93.3, 14.7, 68.8, 92.4, 63.5],
   },
   "owo-2.5": {
+    "Gemini_3.5_Flash_Lite.md": [90, 90, 90, 90, 90, 90, 90],
     "Solar_Mini_4.md": [88, 87, 95, 92, 88, 95, 90],
-    "average.md": [88, 87, 95, 92, 88, 95, 90],
+    "average.md": [89, 88.5, 92.5, 91, 89, 92.5, 90],
   },
   "ox_alpha": {
     "Beam.md": [78, 72, 80, 82, 76, 100, 78],

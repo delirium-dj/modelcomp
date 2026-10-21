@@ -1,0 +1,53 @@
+# GPT-5.2-Pro — partial-evidence findings by GPT 6.1 Sol
+
+- Source: OpenAI / `gpt-5.2-pro-2025-12-11`,not base Thinking or Codex.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded from quality overall: strong exact reasoning/professional evidence,but no defensible exact coding/perception measurements to complete all five quality axes.**
+
+## Model card
+
+- **Identity / dates:** Exact **`gpt-5.2-pro`**,snapshot **`gpt-5.2-pro-2025-12-11`**,released **2025-12-11**,cutoff **2025-08-31**. Different from GPT-5.2 Thinking,Instant,Codex and later Pro models.[1][2]
+- **Access / lifecycle:** Responses-only native model;primary page calls it previous Pro and recommends5.5Pro. Current exact OpenRouter **`openai/gpt-5.2-pro`** lists OpenAI status0,December11 backend. No exact native shutdown notice found in current deprecation log;supersession is not retirement. No authenticated inference/free Zen route verified.[1][3]
+- **Context / modes:** **400,000 total/128,000 output**,medium/high/xhigh effort;some calls may take minutes,background mode recommended by primary. No base Thinking MRCR or compaction performance inherited.[1][2]
+- **Modalities / tools:** **Text,image→text**,functions,file search,web search,MCP and image-generation tool documented. That tool invokes image generation;it is not evidence Pro has a native image decoder. No native audio/video claimed.[1]
+- **Architecture / licence:** Proprietary closed weights;parameter counts unknown.[1]
+- **Pricing (2026-10-21):** Native/current OpenAI gateway **$21 input/$168 output per1M**,no verified cached-input discount. Separate tool fees apply. ChatGPT subscription access and API token tariffs are different products;no$0 inference assumed.[1][2][3]
+
+### Raw benchmarks found
+
+**Attribution:** Full primary launch **Pro appendix column** and footnotes inspected. Its base Thinking column contains many results whose Pro cells are **dashes**;these are not Pro measurements. Primary defaults maximum xhigh except explicitly marked ARC high and professional-evaluation distinctions. Independent Epoch raw archive inspected for exact Pro model versions;raw versus ECI-transformed values kept separate.[2][4]
+
+- **Professional/tool workflows:** Vendor **GDPval wins-or-ties74.1%,clear wins60.0%,no-ties67.6%**,different adjudication definitions;**investment-banking spreadsheet internal71.7%**;**BrowseComp77.9%**. These are not GDPval-AA Elo or generic tool success. Exact Tau2/Tau3,terminal,Claw-Eval/ClawProBench,MCP Atlas/Toolathlon Pro cells were not verified.[2]
+- **Science/math:** Vendor **GPQA93.2% no-tools/HLE36.6% no-tools,50.0% search+Python/HMMT Feb2025 100%/AIME2025 100%**. No inference that tool-assisted HLE equals unaided reasoning or all future mathematics.[2]
+- **Abstract reasoning:** Vendor **ARC-AGI1 90.5%/ARC-AGI2 54.2% high**. Epoch's externally sourced ARC records separately label **xhigh90.5%**,**high85.67%**,**medium81.17%** on ARC1,with recorded costs/task **$11.6542/$5.8694/$3.9774**;ARC2 **high54.16%/$15.721 versus medium38.47%/$8.9928**. External rows and duplicates are not multiple independent reproductions.[2][4]
+- **Independent mathematics:** Epoch raw **FrontierMath Tiers1–3 v2 74.0% ±2.635percentage-point SE**,**Tier4 v2 46.0% ±7.790point SE**,exact **`gpt-5.2-pro-2025-12-11_xhigh`**,June13 runs. Earlier **Tier4 v1 webapp31.3%** is a different benchmark version/product and not combined with API v2.[4][5]
+- Epoch raw **Chess Puzzles60.0% ±4.924point SE**,xhigh,October14. External SimpleBench **AVG@5 57.4%** is also reported;it is not single-attempt accuracy. Epoch ECI156.33 is on its own scale;ECI-adjusted FrontierMath77.8947% is not substituted for raw74.0%.[4]
+- **Coverage gap:** Primary Pro cells for SWE-Pro,SWE Verified,SWE-Lancer,MRCR,GraphWalks,CharXiv,MMMU-Pro,VideoMMMU,ScreenSpot,Tau2 andMCP-Atlas are blank. No exact independent repair/contest/scientific coding or hard-perception score verified. A general “complex programming” description cannot numerically fill the coding axis.[2]
+- Exact AA/Vals candidates404;public AA selector had no exact Pro record. BenchLM's exact profile reports no sourced coverage;Scale SWE-Pro table and additional exact Vals/LLM-Stats candidates did not supply a Pro result. These source/path findings are bounded,not a global claim that no evaluator has ever tested Pro.[6][7]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact science/math/professional capability is well evidenced;absence of exact coding/perception task measurements prevents a defensible five-axis overall. No base Thinking/Codex numbers or fabricated placeholder scores used.
+
+### Research trail and sources
+
+Fresh Bing official query returned generic OpenAI links;Google independent query an interstitial;DuckDuckGo pricing/context query a202 challenge. Read full primary model page and launch Pro column,checked actual current paid route/native lifecycle,and independently downloaded Epoch's published raw CSV archive in memory with exact-version filtering. Inspected broader coding/evaluator leads rather than treating missing Pro cells as inherited Thinking results. No peer findings read.
+
+[1]: https://developers.openai.com/api/docs/models/gpt-5.2-pro "Exact Responses-only snapshot,400K/128K,efforts,modalities/tools and$21/$168"
+[2]: https://openai.com/index/introducing-gpt-5-2/ "Full exact Pro appendix column,explicit missing cells,definitions,effort footnotes and December11 release"
+[3]: https://openrouter.ai/api/v1/models/openai/gpt-5.2-pro/endpoints "Current exact OpenAI backend,paid pricing and reported healthy status"
+[4]: https://epoch.ai/data/benchmark_data.zip "Official exact Pro raw FrontierMath/chess and externally sourced ARC/SimpleBench rows;transformed ECI kept separate"
+[5]: https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2 "Version2 scope/methodology,not old Thinking or webapp Tier4 result"
+[6]: https://benchlm.ai/models/gpt-5-2-pro "Exact profile has no sourced benchmark coverage;not independent coding evidence"
+[7]: https://scale.com/leaderboard/swe_bench_pro_public "Inspected public coding table did not provide exact Pro result"
+[8]: https://developers.openai.com/api/docs/deprecations "Current lifecycle log did not name exact5.2-Pro shutdown"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,exact Pro primary-column inspection,raw independent evaluator/version/effort provenance and current serving verification. Overall withheld rather than transferring base-model coding/vision scores.
+- Future sources: preserve this record and add a separate signed scored report once exact coding/perception evidence supports a complete quality assessment.

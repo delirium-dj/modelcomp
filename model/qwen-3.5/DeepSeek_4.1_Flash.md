@@ -1,9 +1,12 @@
 # Qwen 3.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen — Qwen3.5-397B-A17B (`qwen-3.5`, the Qwen3.5 flagship)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** The Qwen3.5-397B-A17B record (BenchLM `qwen3-5-397b`, 73 rows, overall 55.39) still applies; no new disjoint evidence. **No score change** (Tool 84 / Reasoning 84 / Context 82 / Multimodal 68 / Coding 83 / Cost 90 / Overall 80).
+> **Family-shorthand flag (for the orchestrator):** this bare `qwen-3.5` slug resolves to the Qwen3.5-397B-A17B flagship (same weights as the hosted `Qwen3.5-Plus`), i.e. likely a **duplicate alias of `model/qwen-3.5-397b/`** under `RULES.md` § Family-shorthand identity. Both folders are in the queue with distinct Overalls (81.5 vs 82.6). Not moved or merged in-pass; flagged for user-directed parking/merge.
 
 > **Slug note:** the folder slug is bare `qwen-3.5`; I resolved it to Alibaba's Qwen3.5 **flagship** release — `Qwen3.5-397B-A17B` — the canonical "Qwen 3.5" model (the card states the hosted `Qwen3.5-Plus` is the same weights with 1M default context and built-in tools).
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
@@ -66,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Qwen3.5-397B-A17B Hugging Face card, Artificial Analysis, BenchLM, Digital Applied, LLM-Stats, OpenRouter). The AA index/hallucination rows and the vendor-vs-AA multimodal spread were added; the BenchLM context/reasoning-label discrepancies are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

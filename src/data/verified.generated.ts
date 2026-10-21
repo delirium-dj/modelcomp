@@ -33,6 +33,7 @@ export const VERIFIED: Record<string, string> = {
   "ember-1": "2026-10-21",
   "exo-free": "2026-10-20",
   "fledge-alpha": "2026-10-20",
+  "flint": "2026-10-22",
   "gemini-1.5-pro": "2026-10-21",
   "gemini-2.0-flash": "2026-10-21",
   "gemini-2.5": "2026-10-20",

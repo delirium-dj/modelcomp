@@ -1,0 +1,36 @@
+# Flint — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Recursive (`recursive/flint`, OpenCode Zen free lane `flint-40b-free`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (catalog/registry metadata only, no measured numbers):
+
+- **Identity:** Flint — the first model from the "Recursive" lab, released 2026-10-21 (today) and served as the OpenCode Zen free lane `flint-40b-free` ("Flint 40B Free is free on OpenCode for a limited time. The team is using this time to collect feedback and improve the model." — Zen docs, fetched 2026-10-21).
+- **Specs (models.dev `recursive/flint`, 2026-10-21):** 262,144 context / 262,144 max output; reasoning yes; tool call yes; structured output yes; open weights; $0.00/$0.00.
+- **Privacy caveat:** during the free period, collected data may be used to improve the model and is retained for 30 days (Zen docs) — do not route confidential code through the free lane.
+- **Availability:** 1 provider listed on models.dev; on the live Zen models endpoint (`opencode.ai/zen/v1/models`, fetched 2026-10-21) as `flint-40b-free`.
+
+Sources checked with no benchmark rows (2026-10-21):
+
+- BenchLM (`flint`): 404 — no page.
+- Web search (Bing): zero occurrences of a "Flint 40B" benchmark; the model is hours-to-days old and no independent evaluation exists yet.
+- models.dev: metadata only — no benchmark fields.
+- No Hugging Face model card was reachable with published evals this pass.
+
+Interpolation from other free-tier slots or same-size open models was deliberately NOT used. A future re-research (days or weeks out) should look for (a) a Recursive launch blog or HF model card with a benchmark table, (b) aggregator coverage (BenchLM/AA) once the model has been measured, (c) whether the free lane graduates to a paid ID — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-21
+- Method: public internet research (OpenCode Zen docs + live models endpoint, models.dev catalog, BenchLM, Bing search); no verified public scores exist for this day-old free-slot release.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
