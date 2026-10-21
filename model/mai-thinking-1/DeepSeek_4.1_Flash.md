@@ -1,9 +1,11 @@
 # MAI-Thinking-1 — findings by DeepSeek 4.1 Flash
 
 - Source: Microsoft (MAI) / MAI-Thinking-1 (`microsoft/mai-thinking-1`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`mai-thinking-1`, 13 rows) computes an overall **53.1/100 (#84 of 972)** and confirms the technical-report rows (all still Microsoft self-reported): GPQA 84.2%, MMLU-Pro 85%, AIME 2025 97.0%, LiveCodeBench v6 87.7%, SWE-bench Verified 73.5%, SWE-bench Pro 52.8%, Terminal-Bench 2.0 46.0%, GraphWalks BFS 128K 90%, HMMT Feb 2026 84.9%. No independent re-run. **No score change** (Tool 74 / Reasoning 82 / Context 72 / Multimodal 15 / Coding 76 / Cost 72 / Overall 64).
 
 ## Model card
 
@@ -51,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across Microsoft's model page, technical report, Foundry card and launch blog, plus BenchLM, BenchmarkList, LLM Stats and Azure pricing aggregators. All capability numbers are Microsoft self-reported; the pricing conflict and lack of independent runs are surfaced. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `mai-thinking-1`), cross-checked across Microsoft's model page, technical report, Foundry card and launch blog, plus BenchmarkList, LLM Stats and Azure pricing aggregators. All capability numbers are Microsoft self-reported; the pricing conflict and lack of independent runs are surfaced. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

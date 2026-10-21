@@ -1,9 +1,11 @@
 # MAI-Code-1.1-Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Microsoft (MAI) / MAI-Code-1.1-Flash (`microsoft/mai-code-1.1-flash`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC; re-verified 2026-10-18)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`mai-code-1-1-flash`, 3 rows) still assigns **no overall score** and carries only the Microsoft model-card rows (SWE-bench Verified 72.6%, Terminal-Bench 2.1 62.9%). No independent re-run exists. **No score change** (Tool 72 / Reasoning 66 / Context 72 / Multimodal 65 / Coding 80 / Cost 95 / Overall 71).
 
 ## Model card
 
@@ -48,6 +50,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-09
-- Method: public internet research, cross-checked across Microsoft's model card and launch blog, GitHub MAI-Code repo, models.dev, BenchLM, BenchmarkList, LLM Stats and explainx.ai. All capability numbers are Microsoft self-reported; no independent reproduction was found, and that limitation is stated. Normalized 1–100 interpretations, not vendor scores.
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Method: public internet research (re-verified 2026-10-18 against BenchLM `mai-code-1-1-flash`), cross-checked across Microsoft's model card and launch blog, GitHub MAI-Code repo, models.dev, BenchmarkList, LLM Stats and explainx.ai. All capability numbers are Microsoft self-reported; no independent reproduction was found, and that limitation is stated. Normalized 1–100 interpretations, not vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -51,6 +51,8 @@ export interface AiModel {
   id: string;
   name: string;
   short: string;
+  /** Alternate names/IDs matched by the list search (stealth aliases, former names). */
+  aliases?: string[];
   /** Filesystem-safe folder name under model/ (NOT the provider id). */
   slug: string;
   /** Averaged scores (default view). */
@@ -135,6 +137,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
     id: meta.id,
     name: meta.name,
     short: meta.short,
+    aliases: meta.aliases,
     slug,
     scores: avg,
     verified: VERIFIED[slug] ?? undefined,
@@ -230,6 +233,8 @@ interface MetaFile {
   id: string;
   name: string;
   short: string;
+  /** Alternate names/IDs for search (stealth aliases, former names). */
+  aliases?: string[];
   contextWindow: string;
   modalities: string;
   pricingNote: string;
@@ -307,7 +312,13 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
  * `gemini-3.1-flash-lite` (own folder). DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id; folder findings scored
- * Flash-Lite data — RULES.md phantom unsuffixed-name identity). The folder
+ * Flash-Lite data — RULES.md phantom unsuffixed-name identity);
+ * `space-bunny` (2026-10-20, revealed stealth alias of MiniMax M3.1 Flash Free);
+ * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
+ * OpenCode PR #55993 merged 2026-10-16; same 501B/23B Apache 2.0 weights,
+ * SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match Beam 1.0; id
+ * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md revealed-stealth
+ * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -316,7 +327,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

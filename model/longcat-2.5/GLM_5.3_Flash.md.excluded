@@ -1,0 +1,54 @@
+# LongCat 2.5 — findings by GLM 5.3 Flash (SELF-EXCLUDED, notes only)
+
+- Source: Meituan (`LongCat-2.5-Preview` — bare "LongCat 2.5" resolves to the Preview; no GA checkpoint exists), API-only
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion note
+
+**Why excluded:** zero verified public benchmark numbers found for "LongCat 2.5"
+as its own model. Every independent source checked on 2026-10-21
+(BenchmarkList, CloudPrice versions table, TOKRACE, theresanaiforthat,
+orcarouter, explainx) resolves bare "LongCat 2.5" to Meituan's
+**LongCat 2.5 Preview** — an API-only preview introduced 2025-09-25/26 with
+**no published official benchmarks** and no independent leaderboard scores.
+CloudPrice's family version list shows no GA "LongCat 2.5" row (only
+2.5 Preview, 2.0, Flash Thinking, Flash Chat). Meituan's GitHub organization
+(38 repos) and Hugging Face organization (29 models) carry LongCat-2.0 weights
+but no 2.5 weights. Scores inside this file are ignored by the pipeline.
+
+## Notes (negative findings + verified facts)
+
+- **Alias situation:** "LongCat 2.5" = `LongCat-2.5-Preview` (vendor changelog,
+  2026-09-25). The Preview is already tracked in this dataset under
+  `longcat_2.5_preview/` and `longcat-2.5-preview/`; this bare-name folder is
+  family shorthand for the same preview, not a separate checkpoint.
+- **Specs (vendor docs via BenchmarkList/CloudPrice, 2026-10-21):** natively
+  multimodal MoE, ~1.6T total / ~48B active (vendor positioning, not
+  independently measured), 1.0M context, 131K max output; image + text input,
+  text output; function calling, prompt caching; thinking on by default with a
+  documented disable switch.
+- **Pricing (verified on two sources):** $0.30 / 1M input, $1.20 / 1M output,
+  $0.006 / 1M cached input — promotional API-only rates.
+- **Benchmarks:** none published by Meituan for the preview (BenchmarkList:
+  0 score rows; TOKRACE's official-source check on 2026-10-20 found none).
+  No SWE-bench, GPQA, Terminal-Bench, LiveCodeBench, MRCR or any other
+  verifiable number exists for this ID — nothing to anchor a normalized score.
+- **LongCat 2.0 comparison data** (Terminal-Bench, SWE-bench Pro, FORTE,
+  BrowseComp, GPQA-Diamond tables cited by explainx) belongs to the 2.0
+  checkpoint, not this preview — never attributed here.
+- **Re-evaluation trigger:** a GA "LongCat 2.5" release with an official
+  benchmark table, or independent leaderboard entry for the preview,
+  justifies re-research into a scored report.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-21
+- Method: public internet research (BenchmarkList, CloudPrice, TOKRACE,
+  explainx/orcarouter vendor analyses, Meituan HF/GitHub organization scans,
+  DuckDuckGo-indexed sources); scores are normalized 1–100 interpretations,
+  not official vendor scores. No scores issued here (self-exclusion).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

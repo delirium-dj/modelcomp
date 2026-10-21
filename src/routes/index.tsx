@@ -210,20 +210,14 @@ export default component$(() => {
   const generative = rankBase.filter((m) => !isDecisionModel(m));
   const decisions = rankBase.filter((m) => isDecisionModel(m));
   const q = query.value.trim().toLowerCase();
-  const filtered = generative.filter(
-    (m) =>
-      q === "" ||
-      m.name.toLowerCase().includes(q) ||
-      m.id.toLowerCase().includes(q) ||
-      m.short.toLowerCase().includes(q),
-  );
-  const decisionFiltered = decisions.filter(
-    (m) =>
-      q === "" ||
-      m.name.toLowerCase().includes(q) ||
-      m.id.toLowerCase().includes(q) ||
-      m.short.toLowerCase().includes(q),
-  );
+  const matchesQuery = (m: { name: string; id: string; short: string; aliases?: string[] }) =>
+    q === "" ||
+    m.name.toLowerCase().includes(q) ||
+    m.id.toLowerCase().includes(q) ||
+    m.short.toLowerCase().includes(q) ||
+    (m.aliases?.some((a) => a.toLowerCase().includes(q)) ?? false);
+  const filtered = generative.filter(matchesQuery);
+  const decisionFiltered = decisions.filter(matchesQuery);
   const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
   const visibleModels = filtered.slice(0, displayCount.value);
   // Hero animation cast: top 12 of the current source ranking, spotlighted

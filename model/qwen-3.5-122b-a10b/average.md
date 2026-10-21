@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 67.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 71.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 79.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 76/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 71.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 88/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 73.3/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 65.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 71.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 79.2/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 77.3/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 71/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 88.7/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 73.1/100.** Mean of 6 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
-- Average from top 5 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Average from top 6 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, Qwen 3.7 Plus, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): LongCat 2.5 Preview, MiniMax M3.1 Flash, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

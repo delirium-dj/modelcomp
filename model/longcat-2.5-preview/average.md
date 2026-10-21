@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 70/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 65.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 92.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 53.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 71/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 86.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 70.6/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 66.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 62/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 92.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 53.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 67.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 85.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 68.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
-- Average from top 3 by Overall Score: Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
+- Average from top 4 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Nemotron 3 Ultra 550B A55B.

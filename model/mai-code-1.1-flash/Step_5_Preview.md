@@ -1,61 +1,60 @@
 # MAI-Code-1.1-Flash — findings by Step 5 Preview
 
-- Source: Microsoft AI (`MAI-Code-1.1-Flash`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Microsoft AI / MAI-Code-1.1-Flash (`microsoft/mai-code-1.1-flash`)
+- Date: 2026-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** MAI-Code-1.1-Flash (Microsoft AI's in-house coding model; MAI-Code-1-Flash was the June 2026 original)
-- **Short description:** Microsoft's small-tier coding workhorse, built "for developers, not benchmarks" — trained end-to-end on Microsoft's own curated data (no third-party distillation) from the MAI-Thinking-1 mid-training checkpoint, and tuned inside the actual GitHub Copilot/VS Code production harnesses: ~2M synthetic agentic tasks in a mid2 phase, then large-scale RL across 150,000+ environments. The 1.1 update (2026-08-11) adds native image input and focuses on CLI and .NET work: +22% Terminal-Bench 2.1 in GitHub Copilot CLI, +15% on .NET tasks, 4% more code surviving to commit, 25% faster token streaming, 25% fewer tokens per task — at a quarter of 1.0's price (73% lower list; 0.25× premium-request multiplier for Copilot annual subscribers). It now also ships quantized for on-device use in GitHub Copilot on Surface Laptop Ultra (53 GB, 80% smaller, with DFlash2 speculative decoding).
-- **Provider / access:** GitHub Copilot (VS Code, Copilot CLI, auto-picker), Microsoft AI API; on-device local variant on Windows/Surface.
-- **Release:** 2026-08-11 (1.0: 2026-06-02).
-- **Context window:** not published in the model card; the on-device build is benchmarked at 64K/128K/256K (peak memory 75.5 GB at 256K).
-- **Modalities:** Text and image in → text out (1.1 added vision); adaptive solution length.
-- **Pricing (as of 2026-10-09):** 0.25× premium-request multiplier in Copilot; 73% lower list than MAI-Code-1-Flash; free (no per-inference charge) when run locally on device.
-- **Architecture:** coding-optimized MoE — 137B total / 6.8B active (per the local-model announcement).
+- **Name:** MAI-Code-1.1-Flash
+- **Short description:** Microsoft AI's successor to MAI-Code-1-Flash — a 138B-total / 5B-active sparse MoE coding model with 256K context, native vision and production-harness scores of SWE-bench Verified 72.6% and Terminal-Bench 2.1 62.9% at just 8.6K output tokens per solved task, inside GitHub Copilot at $0.20/$1.20.
+- **Provider / access:** GitHub Copilot (all paid tiers), Copilot CLI/VS Code; Microsoft AI API (`microsoft/mai-code-1.1-flash`); quantized local build (120GB+ RAM recommended by Microsoft). Not on OpenCode Zen.
+- **Release / knowledge:** launched 2026-08-11 in GitHub Copilot (LLM Reference); knowledge cutoff 2025-12 (LLM Reference); weights not released (proprietary, restricted commercial use).
+- **IDs:** `microsoft/mai-code-1.1-flash`, `MAI-Code-1.1-Flash` (API).
+- **Context window:** 256K total; 128K max output (folder meta).
+- **Modalities:** text and image in; text out; reasoning (thinking); tool/JSON calling; prompt caching.
+- **Pricing (as of 2026-10-21):** $0.20/$1.20 per 1M in/out via GitHub Copilot's models-and-pricing page, $0.02 cached input (LLM Reference, llm-stats) — about a quarter of the June 2026 MAI-Code-1-Flash launch cost.
+- **Architecture:** sparse MoE, 138B total / 5B active per token (Microsoft model card via LLM Reference); fine-tuned for the Copilot coding stack.
 
 ### Raw benchmarks found
 
-MAI-Code-1-Flash model card (production VS Code harness; Claude Haiku 4.5 in parentheses):
+Microsoft AI MAI-Code-1.1-Flash model card (August 2026; VS Code-based production Copilot harness with repository context, tool calls and end-to-end verification) via LLM Reference and BenchLM:
 
-- SWE-bench Verified: **71.6%** (66.6) — using up to 60% fewer tokens
-- SWE-bench Pro: **51.2%** (35.2); SWE-bench Multilingual: **65.5%** (62.7); Terminal-Bench 2: **54.8%** (41.6)
-- AIME 2026: **92.5%** (83.3); AMO Bench (olympiad math): **40.0%** (16.0); FrontierMath T1-3: **31.2%** (2.8)
-- GPQA Diamond: **84.6%** (73.2); Frontier Science: **58.2%** (42.3); HLE: **6.3%** (2.8)
-- ArtifactsBench (visual/interactive coding): **36.4%** (36.6)
-- IFBench: **75.0%** (46.1); Rubric-based IF 71.4 (56.9); Robust IF 61.2 (45); τ²-Bench telecom: **71.7%** (54.7)
-- Microsoft's internal adversarial-reasoning benchmark (186 questions, 34 categories): **85.8% adjusted accuracy** (Einstellung traps still <50%)
+Agent / tool use:
 
-MAI-Code-1.1-Flash (model card + Windows on-device blog + BenchmarkList):
+- Terminal-Bench 2.1: **62.9%** (Microsoft model card, Copilot harness; 17.0K tokens per task)
+- Tau2 / Tau3 / GDPval-AA / OSWorld / Claw-Eval / MCP-Atlas / Toolathlon / BFCL: no verified public score found
 
-- Terminal-Bench 2.1: **62.9%** (cloud, Oct 2026 measurement; the 1.1 model card lists 51.7%, 61st percentile of 194)
-- SWE-bench Verified: **72.6%** (cloud) / **70.80%** (quantized on-device)
-- Terminal-Bench 2.1 quantized on-device: **66.29%** (vs GPT-OSS-120B's 23.6%)
-- Prompt processing 923.5 / 769.8 tok/s at 64K / 128K context
+Reasoning / knowledge:
 
-Third-pass verification (2026-10-19): Artificial Analysis has no MAI-Code-1.1-Flash page (404); BenchLM tracks it with 3 source rows and no public overall score (unranked) — all three rows (TB 2.1 62.9%, SWE-bench Verified 72.6%) are already on file, and the official Microsoft model-card PDF is now linked there. No new independent evidence — no score change warranted.
+- GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index / LCR / CritPt: no verified public score found — Microsoft's card is coding-scoped and publishes no general-reasoning rows
 
-VS Code production telemetry (6/2–7/24/26, vs other models):
+Coding:
 
-- Outperforms Claude Haiku 4.5 and GPT-5.4 Mini on code-survival, commit-survival and accept rates; GPT-5.6 Luna and Kimi K2.7 Code are +3–6% on quality but need +67–94% more tokens per turn
-- Copilot Auto A/B flights: 11% higher 2-day repeat usage than Haiku 4.5, 13% lower median token usage than GPT-5.4 Mini
+- SWE-bench Verified: **72.6%** (Microsoft model card, Copilot harness; 8.6K tokens per solved task — extreme token efficiency; rank 59/101 on LLM Reference's peer bar, ref: Claude Fable 5 96.0%, Opus 4.8 88.6%)
+- Terminal-Bench 2.1: **62.9%** (listed above)
+- Token efficiency: **~25% better** than MAI-Code-1-Flash (Microsoft model post)
+- SWE-bench Pro / LiveCodeBench / DeepSWE / SciCode / Vibe Code Bench: no verified public score found
+
+Long context:
+
+- 256K native window; no MRCR / RULER / GraphWalks / LCR retrieval-at-length figure published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 66/100.** τ²-Bench telecom 71.7%, IFBench 75.0% and the whole production-harness training story (150,000+ RL environments, Copilot harness) point to solid tool use; no MCP Atlas, Toolathlon or GDPval number exists, so mid-upper band.
-- **Reasoning: 66/100.** AIME 2026 92.5%, GPQA Diamond 84.6%, Frontier Science 58.2% and 85.8% on Microsoft's adversarial set are genuinely upper-mid for a 6.8B-active coding model; HLE 6.3% and FrontierMath 31.2% cap it.
-- **Context window: 70/100.** No cloud context window is published in the model card (the on-device build is tested at 64K/128K/256K with 923.5/769.8 tok/s prompt processing) — a 200K-500K structural read with "no verified public score found" noted.
-- **Multimodal: 64/100.** Text + image in → text out (added in 1.1) is the 60–70 band; ArtifactsBench 36.4% shows visual/interactive coding is its weakest area — roughly Haiku-4.5-parity rather than a vision leader.
-- **Coding: 70/100.** SWE-bench Verified 71.6–72.6%, SWE-Multilingual 65.5%, TB 2.1 62.9% (1.1, +22% in the Copilot CLI harness) and the strongest production telemetry of any small model (beats Haiku 4.5 on every survival metric) — but SWE-Pro 51.2% and ArtifactsBench 36.4% keep it below the frontier band.
-- **Cost efficiency: 92/100.** A quarter of 1.0's price, 0.25× premium multiplier in Copilot, 25% fewer tokens per task than 1.0 and free on-device inference — the methodology's ~$0.6/$2.2 ≈ 92 tier, purpose-built for token-efficient Copilot traffic.
-- **Overall Score: 67/100.** Best-fit recommendation: the best value small coding model inside the Microsoft/GitHub ecosystem — beats Haiku 4.5 on every production survival metric at a quarter of the cost, with a 53 GB on-device build that keeps 70%+ of SWE-bench on a laptop.
+- **Tool use: 74/100.** Terminal-Bench 2.1 62.9% measured end-to-end in the production Copilot harness (repository context + tool calls + verification included) is a genuinely agentic result for a 5B-active model; capped by no Tau/GDPval/OSWorld/Claw numbers and the harness being Microsoft's own.
+- **Reasoning: 62/100.** No GPQA/HLE/MMLU/Index figure is published for this ID — the score is a provisional mid-band interpretation from the coding profile (8.6K tokens per solved SWE-bench task implies efficient, not deep, reasoning); any general-reasoning number would be fabricated, so none is claimed.
+- **Context window: 78/100.** 256K with 128K max output lands in the 200K–500K tier (65–84, above the 200K=70 floor); no retrieval-at-length measurement exists.
+- **Multimodal: 68/100.** Text + image input (native vision added in 1.1) with text out (image-in tier 60–70); no MMMU-class score published; no video/audio input and no non-text output.
+- **Coding: 80/100.** SWE-bench Verified 72.6% at 8.6K output tokens/task and Terminal-Bench 2.1 62.9% are strong upper-mid results — the token efficiency (25% better than 1-Flash) is the real story; capped by no SWE-bench Pro, SciCode, LiveCodeBench or Vibe Code Bench numbers on any harness.
+- **Cost efficiency: 95/100.** $0.20/$1.20 with $0.02 cached input sits near the ~$0.10/$0.20 ≈ 97–99 reference band; the local quantized build (free, 120GB+ RAM) adds a $0 self-host lane with vendor-reported comparable coding performance.
+- **Overall Score: 72/100.** Mean of (74 + 62 + 78 + 68 + 80) / 5 = 72.4 → 72. Best fit: GitHub Copilot users wanting an extremely token-efficient coding model at budget rates — the cheapest real agentic coder in the Copilot lineup, but its reasoning depth is unproven outside the coding harness.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against BenchLM (3 source rows, unranked — TB 2.1 62.9% and SWE-bench Verified 72.6% both already on file; official model-card PDF now linked) — Artificial Analysis has no page (404). No new independent evidence, no score change. First pass (2026-10-09) used Microsoft AI model card + data card PDFs, MAI-Code-1.1-Flash announcement, microsoft/MAI-Code GitHub, VS Code blog production-telemetry analysis, Windows on-device benchmarks, BenchmarkList.
-- Future sources: add a new file next to this one, e.g. `MAI_Code_2.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Method: public internet research (Microsoft model card figures via LLM Reference and BenchLM, hokai.io, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,53 @@
+# LongCat 2.5 Preview — evidence-limited findings by GPT 6.1 Sol
+
+- Source: Meituan / `LongCat-2.5-Preview`,OpenCode `longcat-2.5-preview-free`.
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded: no verified exact-model task-success benchmark found.**
+
+## Model card
+
+- **Identity / release:** Primary **`LongCat-2.5-Preview`**,**2026-09-25**,not2.0,Flash-Thinking or a verified separate final2.5 checkpoint. Exact free route maps to this preview. The existing underscored `longcat_2.5_preview` metadata names the same OpenCode ID;spelling is not a second model identity. No peer findings read or folder merge performed.[1][5]
+- **Access:** Native OpenAI-compatible **`https://api.longcat.chat/openai/v1/chat/completions`**,Anthropic Messages and documented Responses API. Current OpenCode model catalog returned200 and includes **`longcat-2.5-preview-free`**. Listing is not authenticated successful inference.[2][6]
+- **Context / output:** Current native parameter table **1,048,576 total input+output /262,144 max output**,thinking budget up to262,144;OpenCode metadata **1,000,000/131,072**. Older generic native samples/secondary articles give128K output;current dedicated parameter table and actual serving route are kept distinct. No exact retrieval measurement verified.[3][5]
+- **Modalities / thinking / tools:** Primary launch claims **text/image→text**,tools and reasoning. Native retrieval **example** still says text→text;it is not a live authenticated response,so inconsistency is explicit. Thinking enabled/disabled switch;temperature **1.0 on/0.7 off,fixed and overrides caller values**,top-p0.95 default. No native audio/video/generation inherited.[1][2][3]
+- **Pricing (2026-10-21):** Native limited-time **$0.30 uncached input/$1.20 output/$0.006 cached per1M**. OpenCode exact route advertises **$0 input/output/cache**,limited-time,provider zero retention/no model training. No verified end date or unlimited-capacity guarantee. Pricing and feature flags cannot substitute for quality evidence.[4][5][6][7]
+- **Architecture / licence / knowledge:** Exact total/active parameters,downloadable weights,weight licence and cutoff not verified. Fresh official HF2.5 search returned no matching weights;LongCat2.0's1.6T/48B/MIT are not transferred.[1][8]
+
+### Raw benchmarks found
+
+- **No verified exact-model task-success benchmark found** for tool use,reasoning,coding,vision or long-context retention. Primary pages contain interface limits and qualitative intent,not measured task accuracy.[1][2][3]
+- Fresh exact candidate checks **AA `longcat-2-5-preview`,Vals `meituan_longcat-2.5-preview`,BenchLM `longcat-2-5-preview`** all returned404. These path findings do not prove universal nonexistence.[9][10][11]
+- Search again surfaced **AI Coding Daily “Coding Benchmark”**;direct fetch failed transport. No numerical result,task definitions or methodology could be inspected;the search title is not evidence of a particular score.[12]
+- Dated secondary OrcaRouter free-access documentation audit reports no published benchmark and discusses the native image-example inconsistency. It did not run an independent quality evaluation. Its copied parameter estimates/older output limit are not preferred over current primary disclosures.[3][8]
+- No LongCat2.0/Flash predecessor scores,usage statistics or generated aggregate rankings substituted. Missing quality values remain unknown,not zeros.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Verified current access,free/paid tariffs and1M capacity do not establish the five quality dimensions or a defensible overall. No placeholder score block included.
+
+### Research trail and sources
+
+Three fresh exact-preview attempts:Bing SWE-benchmark RSS,Google independent-evaluation query returning an interstitial,and DuckDuckGo benchmark/score query finding AI Coding Daily and secondary documentation articles. Re-fetched primary changelog,pricing,model parameters/retrieval example;checked current OpenCode catalog,exact evaluator paths and official HF weight search. Rechecked inaccessible coding-benchmark lead and read a dated secondary access audit. No peer findings or predecessor scores used.
+
+[1]: https://longcat.chat/platform/docs/change-log "ExactSeptember25 release and qualitative image/coding claims"
+[2]: https://longcat.chat/platform/docs/api/model "Exact ID and stale text-only sample,not live response"
+[3]: https://longcat.chat/platform/docs/api/model-params "Current1M shared budget,256K output/thinking and fixed sampling rules"
+[4]: https://longcat.chat/platform/docs/pricing/longcat-2.5 "Current limited-time native price/cache table"
+[5]: https://models.dev/api.json "Exact free/native canonical identity and route-specific context/output limits"
+[6]: https://opencode.ai/inference/v1/models "Current free ID exists in live catalog,no authenticated inference performed"
+[7]: https://opencode.ai/docs/zen/ "Exact limited-time zero tariff and provider zero-retention/no-training statement"
+[8]: https://www.orcarouter.ai/blog/longcat-2-5-preview-free-opencode "Dated secondary documentation audit,not task evaluator;outdated copied figures not adopted"
+[9]: https://artificialanalysis.ai/models/longcat-2-5-preview "Exact candidate404"
+[10]: https://www.vals.ai/models/meituan_longcat-2.5-preview "Exact candidate404"
+[11]: https://benchlm.ai/models/longcat-2-5-preview "Exact candidate404"
+[12]: https://aicodingdaily.com/model/longcat-2-5-preview "Search-discovered benchmark lead,transport failure,results unverified"
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-21 UTC
+- Method: Independent fresh searches,primary lifecycle/interface/pricing checks,current exact catalog and benchmark-lead verification. No quality scores assigned without verified exact-model task measurements.
+- Future sources: preserve this record and add a separate signed report when exact-model capability evidence becomes verifiable.

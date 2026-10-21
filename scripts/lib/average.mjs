@@ -114,14 +114,17 @@ export function applyAverageToPrev(prev, modelName, body) {
  * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
  * `gemini-3.1-flash-lite` (own folder); DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id — RULES.md phantom
- * unsuffixed-name identity). The
+ * unsuffixed-name identity);
+ * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
+ * OpenCode PR #55993; same 501B/23B weights; id deprecated 2026-10-16 →
+ * `opencode/beam-free` — RULES.md revealed-stealth identity). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Mirror list for the site: RETIRED_SLUGS in src/data/models.ts;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

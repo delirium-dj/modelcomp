@@ -1,0 +1,57 @@
+# LongCat 2.5 Preview — findings by GLM 5.3 Flash (SELF-EXCLUDED, notes only)
+
+- Source: Meituan (`LongCat-2.5-Preview`), API-only preview
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion note
+
+**Why excluded:** zero verified public benchmark numbers found for this exact
+model/ID across four independent sources checked on 2026-10-21. Meituan
+published no benchmarks for the preview (BenchmarkList: 0 score rows;
+TOKRACE's official-source check of the changelog, API/pricing pages,
+homepage, GitHub and HF organizations on 2026-10-20 found none either).
+TOKRACE's own 33 attempts are a custom micro-suite (15 trivial text tasks,
+3 small JS functions, 8 SVG renders) explicitly "not convertible into a
+SWE-bench score" — recorded below as qualitative notes, never as scores.
+Scores inside this file are ignored by the pipeline.
+
+## Notes (negative findings + verified facts)
+
+- **Identity:** Meituan LongCat 2.5 Preview (`LongCat-2.5-Preview`), introduced
+  2026-09-25 per the official changelog; CloudPrice lists release 2026-09-26.
+  Distinct from open-weight LongCat 2.0 (1.8T) and the older Flash models.
+- **Specs (CloudPrice, 2026-10-21):** 1.0M-token context, up to 131K max
+  output; image + text input, text output; function calling and prompt caching
+  supported; reasoning default-on with `{"thinking":{"type":"disabled"}}`
+  switch (official API docs). BenchmarkList describes a natively multimodal
+  MoE with 1.6T total / ~48B active parameters — vendor positioning, not an
+  independent measurement.
+- **Pricing (verified on two sources):** $0.30 / 1M input, $1.20 / 1M output,
+  $0.006 / 1M cached input — promotional, served via Vercel AI Gateway
+  (`meituan/longcat-2.5-preview`) and the official platform
+  (¥2 / ¥0.04 cached / ¥8 per 1M CNY schedule).
+- **No Free ID verified** on OpenCode Zen.
+- **Qualitative signals only (TOKRACE, 2026-10-10/20, single endpoint):**
+  15/15 short text tasks passed in both thinking modes; 2 of 3 small JS
+  coding tasks passed predeclared checks (the third hit a 4096-token output
+  budget); SVG renders mixed (1 of 4 renderable with thinking disabled);
+  median first-content 4.51 s (thinking) / 1.22 s (disabled) with slow-tail
+  observations up to 37.6 s and two 180 s timeouts on thinking-mode SVG jobs.
+  No official benchmark figures, no MRCR/RULER, no SWE-bench, no GPQA —
+  nothing that can anchor a normalized 1–100 score.
+- **Re-evaluation trigger:** any published official benchmark table or
+  independent leaderboard entry (Artificial Analysis, SWE-bench, LiveCodeBench)
+  for `LongCat-2.5-Preview` justifies re-research into a scored report.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-21
+- Method: public internet research (BenchmarkList, CloudPrice, TOKRACE review,
+  DuckDuckGo-indexed vendor pages; HF/GitHub organizations checked for weights —
+  none published); scores are normalized 1–100 interpretations, not official
+  vendor scores. No scores issued here (self-exclusion).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

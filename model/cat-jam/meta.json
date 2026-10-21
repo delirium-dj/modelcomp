@@ -1,7 +1,8 @@
 {
   "id": "opencode/cat-jam",
   "name": "Cat Jam",
-  "short": "The stealth label of Reflection's Beam 1.0 (501B/23B-active, Apache 2.0), live free on Zen 2026-10-12 to 10-16 before being renamed Beam Free: SWE-bench Verified 81.6%.",
+  "aliases": ["Beam 1.0", "beam"],
+  "short": "Revealed as Reflection Beam 1.0 — same 501B/23B Apache 2.0 weights; folder parked (RULES.md revealed-stealth identity), research belongs in beam (Beam 1.0).",
   "contextWindow": "1,048,576 total (131,072 max output)",
   "modalities": "Text in/out only",
   "pricingNote": "Free ($0/$0/$0) during the Oct 2026 stealth window; retired 2026-10-16 in favour of the opencode/beam-free id",
@@ -18,5 +19,5 @@
   "standout": "The same open weights as Beam 1.0 - one of the strongest open coding models, briefly served under a stealth name.",
   "tradeoff": "A three-day window and a 30-day-retention free route; use beam-free instead.",
   "noFreeId": false,
-  "idNote": "The id was deprecated on 2026-10-16 and replaced by opencode/beam-free for the same weights; the model is tracked separately in model/beam/."
+  "idNote": "The id was deprecated on 2026-10-16 and replaced by opencode/beam-free for the same weights; folder parked as a revealed stealth alias of Beam 1.0 (RULES.md revealed-stealth identity)."
 }

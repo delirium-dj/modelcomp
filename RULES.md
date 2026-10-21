@@ -260,6 +260,22 @@ override.
   scaffold `model/space-bunny/`, `model/space-bunny-alpha/`, or
   `model/space-bunny-free/` again. Searching "Space Bunny" resolves to
   **MiniMax M3.1 Flash** — the stealth name is an alias, never a model.
+- **Revealed-stealth identity (absolute — `cat-jam` parked 2026-10-21):**
+  OpenCode's anonymous stealth model `Cat Jam` / `Cat Jam Free` (Zen
+  `cat-jam-free`) was revealed as **Reflection Beam 1.0**
+  (`opencode/beam-free`). Evidence: `model/cat-jam/meta.json` idNote —
+  deprecated 2026-10-16 → `opencode/beam-free`, same 501B/23B Apache 2.0
+  weights; `model/beam/MiniMax_M3.1_Flash.md` — OpenCode PR #55993 merged
+  2026-10-16, "previously listed as Cat Jam Free"; benchmarks match Beam 1.0
+  (SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1%). One model, stealth
+  label then the vendor's own free id — never a separate checkpoint.
+  Resolution is PARKING, not deletion: the folder stays on disk and in git
+  (permanence — its `average.md` stays a gate input; "Cat Jam" remains a
+  tracked rater STEM across the dataset), is hidden from the site and omitted
+  from the research queue via both `RETIRED_SLUGS` lists. Research belongs in
+  `model/beam/` — never scaffold `model/cat-jam/` again. Searching
+  "Cat Jam" / "cat-jam" / "catjam" resolves to **Beam 1.0** via the tracked
+  entry's `aliases` field — the stealth name is an alias, never a model.
 - **Pareto alias identity (absolute — `union-alpha` kept tracked 2026-10-20):**
   `Union Alpha` (OpenRouter `stealth/union-alpha`, OpenCode Zen
   `opencode/union-alpha`, Cloudflare) was a free stealth preview
