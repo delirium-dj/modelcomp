@@ -1,9 +1,8 @@
 {
   "id": "opencode/omi-alpha",
-  "name": "Omi Alpha",
-  "short": "Omi Alpha model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "OMI Alpha",
+  "short": "OMI's September 2026 LLM (1M ctx, $0.40/$3.20) with text+image input and tool use; proprietary, hosted via the OMI API and Zen.",
+  "contextWindow": "1,048,576 total; 256,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.40/$3.20 per 1M in/out (official OMI API docs)"
 }

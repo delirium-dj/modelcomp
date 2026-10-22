@@ -1,9 +1,11 @@
 # Pixel_canary — findings by DeepSeek 4.1 Flash
 
 - Source: anonymous stealth vendor, served by Vercel AI Gateway (`stealth/pixel-canary`) — **revealed 2026-10-01 as Callstack Apex** (`callstack/apex`), a Qwen-foundation coding model for React Native / React / Next.js
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `pixel-canary` (404; revealed as Callstack Apex); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). The 2026-09-27 pass read only the Vercel AI Gateway row and the Next.js eval. This pass re-checked the post-reveal record against the independent [Stealth Models Pixel Canary dossier](https://stealthmodels.com/pixel-canary) (identity, pricing and access checked 10 Oct 2026), the [Hugging Face community guide](https://huggingface.co/blog/liliruli/what-is-pixel-canary-free-stealth-model) (28 Sep 2026), the [margrop.net deep dive](https://blog.margrop.net/en/post/pixel-canary-stealth-coding-model-deep-dive/) (26 Sep 2026), the [Vercel launch changelog](https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway) (25 Sep 2026), [Next.js Agent Evals](https://nextjs.org/evals) and [Callstack's Apex reveal / model docs](https://apex.callstack.com/models). Two material changes: (1) the model is no longer anonymous — Callstack named it **Apex** on 1 Oct 2026, a Qwen-foundation model post-trained for React Native, React and Next.js; (2) the free stealth preview **ended 2026-10-01**, and Apex is now paid at **$0.50 in / $0.20 cached / $3.00 out per 1M**. No new reasoning, tool-use or long-context benchmark appeared, so the five quality dimensions hold; only Cost efficiency moves. Conflicts surfaced below.
 
@@ -64,7 +66,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (independent Stealth Models Pixel Canary dossier — identity, pricing and access checked 10 Oct 2026; Hugging Face community guide; margrop.net deep dive; Vercel AI Gateway launch changelog; Next.js Agent Evals; Callstack Apex model docs and reveal post). `stealth/pixel-canary` and `callstack/apex` are the same system, so this single folder covers both names. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass note: one dimension moved on new evidence — Cost efficiency 100 → 91, because the free stealth preview ended 2026-10-01 and verified Apex pricing is $0.50/$0.20/$3.00 per 1M. Tool use, Reasoning, Context window, Multimodal and Coding are unchanged for lack of any new verified benchmark number. The other material change is identity: Pixel Canary is now known to be Callstack Apex (Qwen foundation). Conflicts surfaced rather than reconciled: identity pre-reveal guesses (Google DeepMind "Pixel"/Gemini 4 vs a Vercel+OpenAI fine-tune) vs the confirmed Callstack Apex; modalities (image in per Vercel vs text-only per Callstack direct); reasoning-effort ladder six levels (prior pass) vs four (`none`/`low`/`medium`/`xhigh`); speed (~8.9 s TTFT / ~9 tps gateway read vs margrop's ~410 ms / 95.4 tps claim vs a 16.9-min average eval duration); and the nextjs leaderboard (Canary ties GPT-6 Astra at 28/31 baseline while Claude Opus 5.5 leads at 30/31). No number here is inferred from another model.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

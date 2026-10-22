@@ -1,0 +1,40 @@
+# Omen Alpha — findings by GPT 6.1 Sol
+
+- Source: OpenCode Go/anonymous `omen-alpha`; underlying publisher unresolved.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified cross-axis evidence for Overall**, despite a real catalog ID and partial coding evidence.
+
+## Model card
+
+- Current public **OpenCode Go** catalogs at both `/zen/go/v1/models` and `/inference/go/v1/models` return exact `omen-alpha`.[1] This establishes a listing, not successful authenticated inference, vendor identity or fixed weights.
+- Main Go guide does not expose an Omen-specific specification/price/privacy row in the checked content.[2] models.dev has no matching entry; guessed OpenRouter stealth and AA exact profiles404.[4][5]
+- Reseller-associated `omenalpha.io` claims $0.20 input/$0.66 output/$0.04 cached per1M, TokenRa promotional$0.08/$0.26 and zero retention/no training.[3] These are that site's claims, not independently verified OpenCode contractual guarantees. The site itself says parameters/context are undisclosed, so local ~500K/128K-output metadata is not accepted as native fact.
+- Exact release/cutoff, parameter count, license, context/output and multimodal contract remain unverified. Claimed succession from Ox Alpha is explicitly unconfirmed; no GLM or other candidate's scores transferred.
+
+### Raw benchmarks found
+
+- Secondary site reports **OpenCode coding23.14/40**, September4,2026, **four projects**, rank15, $0.03/prompt and1m51s average.[3] This is a narrow dated snapshot, **not57.85% universal accuracy**, an independently rerun benchmark, or a current rank.
+- No verified exact broad GPQA/HLE/retention/perception/tool-reliability evidence found. Anonymous catalog presence and reseller claims cannot fill missing quality axes. No invented academic results.
+
+### Normalized scores (1–100)
+
+Not assigned. Preserve real partial evidence but withhold Overall and unsupported dimension/pricing ratings.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Omen%20Alpha%22%20benchmark): empty feed.
+- [Google](https://www.google.com/search?q=%22Omen%20Alpha%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Omen%20Alpha%22%20model%20benchmark): human challenge, not bypassed. Direct primary Go catalog/guide and reseller checks supplement search limitations; no peer findings or authenticated inference.
+
+[1]: https://opencode.ai/inference/go/v1/models
+[2]: https://opencode.ai/v2/docs/console/go/
+[3]: https://omenalpha.io
+[4]: https://artificialanalysis.ai/models/omen-alpha
+[5]: https://models.dev/api.json
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent primary catalog and qualified secondary research; partial-coverage exclusion, not a nonexistent-model verdict.

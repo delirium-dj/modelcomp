@@ -1,0 +1,35 @@
+# Grok 5 — findings by GPT 6.1 Sol
+
+- Source: requested xAI `grok-5`; exact released identity unverified.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence for Overall.**
+
+## Model card
+
+The checked primary xAI model documentation contains no exact Grok5 entry.[1] models.dev has no matching released ID; guessed exact OpenRouter and AA profiles404.[2][3][4] No first-party release, architecture/license, cutoff, context/output, modalities, paid/free tariff or authenticated serving contract established. Current-generation Grok4.x or speculation about a future flagship is not Grok5 evidence. Catalog absence is date/source-bounded, not a universal assertion about private research or future releases.
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID** across tools, reasoning, coding, perception or retention. No predecessor numbers or local roster score transferred.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld; no placeholder ratings or invented native specifications.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Grok%205%22%20benchmark): unrelated telecom pages.
+- [Google](https://www.google.com/search?q=%22Grok%205%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Grok%205%22%20model%20benchmark): human challenge, not bypassed. Direct primary/catalog checks supplement search limits; no peer findings used.
+
+[1]: https://docs.x.ai/developers/models
+[2]: https://models.dev/api.json
+[3]: https://openrouter.ai/api/v1/models/x-ai/grok-5/endpoints
+[4]: https://artificialanalysis.ai/models/grok-5
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web identity verification and bounded self-exclusion.

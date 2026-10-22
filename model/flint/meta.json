@@ -1,9 +1,8 @@
 {
   "id": "opencode/flint",
-  "name": "Flint",
-  "short": "Flint model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Flint 40B Free",
+  "short": "Recursive's Apache-2.0 40B/2.5B-active MoE (262K ctx, always-on reasoning, tool use) served free on OpenCode Zen as flint-40b-free.",
+  "contextWindow": "262,144 total; 65,536 max output",
+  "modalities": "Text in/out only",
+  "pricingNote": "Free on OpenCode Zen ($0/$0); Apache 2.0 open weights (self-host free)"
 }

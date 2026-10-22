@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Google DeepMind model-card index + Gemini 3.1 Flash-Lite card, BenchLM, OpenRouter Google registry, SearchEngineJournal/eWeek for the voice-variant disambiguation). The absence of a standalone "Gemini 3.1 Flash" was reconfirmed; the newly published full-window MRCR corrected Context. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

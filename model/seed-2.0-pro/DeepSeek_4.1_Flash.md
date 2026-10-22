@@ -1,7 +1,7 @@
 # Seed 2.0 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: ByteDance/Seed 2.0 Pro (`ByteDance/Seed-2.0-pro`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (ByteDance Seed official Seed2.0 page/card, Digital Applied, TokenMix, Opper, aiRank, RankLLMs, LLM-Stats). The RankLLMs scale-mismatched outlier and the Seed-1.6 attribution risk are surfaced rather than adopted. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -64,6 +64,6 @@ Multimodal (VL) evidence:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (official Hugging Face `Qwen/Qwen3.5-9B` model card; Artificial Analysis model page; LLM-Stats; BenchmarkList; XDA Developers launch analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

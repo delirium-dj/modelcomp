@@ -9,7 +9,7 @@
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "Free IDs on selected models (e.g. Beam, Big Pickle (GLM 4.6), Cat Jam); availability is labeled per model page.",
+      "notes": "Free IDs on selected models (e.g. Beam, Big Pickle (GLM 4.6) ...); availability is labeled per model page.",
       "evidenceUrl": "https://opencode.ai/v2/docs/console/models/#free-models"
     },
     {

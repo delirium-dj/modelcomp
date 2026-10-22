@@ -13,9 +13,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   stay hyphenated — a single major with a codename (`gpt-6-astra`), an
    experimental suffix (`deepseek-v4-vision-exp`), or a parameter size
    (`gemma-4-31b` = Gemma 4, 31B params; `qwen-3.8-27b` = Qwen 3.8, 27B params;
-   `qwen-3.5-0.8b` = Qwen 3.5, 0.8B params; `qwen-3.5-397b` = Qwen 3.5, 397B
-   params; `qwen-3.5-122b-a10b` = Qwen 3.5, 122B-total/10B-active params — none
-   is a dotted version).
+   `qwen-3.5-397b` = Qwen 3.5, 397B params; `qwen-3.5-122b-a10b` = Qwen 3.5,
+   122B-total/10B-active params — none is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
   provider-qualified second slugs for a model that already had a folder (e.g.
   `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
@@ -39,9 +38,8 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   dotted destination and writes nothing for them.) Exception: digit pairs
   that are NOT a version stay underscored — a parameter size
   (`Gemma_4_31B_IT` = Gemma 4, 31B params; `Qwen_3.8_27B` = Qwen 3.8, 27B
-  params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active; `Qwen_3.5_0.8B`
-  = Qwen 3.5, 0.8B params — a parameter count (optionally decimal)
-  immediately followed by `b`/`B` is never a version).
+  params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active — any digits
+  immediately followed by `b`/`B` are params, never a version).
 - **Merged-and-deleted duplicate stems never come back.** A findings file
   spelled with a retired variant stem (e.g. `Laguna_XS_2_1.md`, folded into
   `Laguna_XS_2.1.md` 2026-10-08 after the same rater had filed under both
@@ -87,11 +85,6 @@ rendered in the "Reading the profile" section ("Where it stands out" /
 Analytical, NOT numbers: describe what the model is exceptionally good at /
 its main caveat based on the in-folder research. One sentence each, written
 from already-verified findings),
-`notable` (string[] — optional curated "Worth noting" callouts, rendered as a
-third bullet in the "Reading the profile" section of the model profile. Unlike
-`standout`/`tradeoff`, numbers ARE welcome here — each entry is one sentence
-carrying a verified, sourced fact that doesn't fit the standout/tradeoff
-one-liners, e.g. a domain-specific published result with its citation),
 `category` ("generative" | "decision" — omit for generative; set `"decision"`
 for typed-decision System-One models like Jev, which return judgments instead
 of text and are never comparable to generative Overall),
@@ -199,7 +192,12 @@ Cat Jam Free (Zen `cat-jam-free`) was **Reflection Beam 1.0** all along
 weights; OpenCode PR #55993, "previously listed as Cat Jam Free";
 SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match) — one model,
 stealth label then the vendor's own free id, never a separate checkpoint —
-RULES.md revealed-stealth identity) — is parked, never
+RULES.md revealed-stealth identity;
+`longcat-2.5`, parked 2026-10-22 — phantom GA name: Meituan published no
+standalone LongCat 2.5; the 2.5 generation exists only as the API-only
+LongCat-2.5-Preview already tracked in `longcat-2.5-preview/` (the folder's
+own meta idNote records the id does not resolve) — RULES.md family-shorthand
+identity) — is parked, never
 deleted (`RULES.md`
 permanence: the folder stays on disk and in git). Parking means all three of:
 
@@ -222,8 +220,8 @@ reports stay visible by design (`RULES.md` crown rule).
    NORMALIZE it per `RULES.md` slug identity before creating anything:
    replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
    `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
-   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-0.8b`, `qwen-3.5-9b`,
-   `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
+   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
+   `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
    (param sizes, not versions).
    Then check for an existing dotted folder first: a hyphen-versioned folder
    is a duplicate, not a new model — never create it, write into the dotted

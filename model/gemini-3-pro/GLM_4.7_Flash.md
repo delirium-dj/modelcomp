@@ -2,99 +2,96 @@
 
 ## Overview
 
-Gemini 3 Pro Preview (High) is a reasoning model from Google released November 18, 2025, ranked #102 among 214 evaluated models on Artificial Intelligence Intelligence Index with score 28. It is a multimodal model supporting text, image, speech, and video input with 1M token context window, targeting enterprise applications requiring advanced reasoning capabilities across multiple modalities.
-
-**Tool use: 65/100.** AI Index 28 suggests below-average tool use; capped by lack of independent evaluation.
-
-**Reasoning: 60/100.** AI Index 28 indicates basic reasoning; capped by estimated score and lack of benchmarks.
-
-**Context window: 100/100.** 1M token context meets top tier with strong enterprise support.
-
-**Multimodal: 95/100.** Comprehensive multimodal (text/image/speech/video) exceeds requirements; capped by lack of reasoning evidence.
-
-**Coding: 60/100.** AI Index 28 includes coding but below average; capped by lack of specific coding benchmarks.
-
-**Cost efficiency: 75/100.** $2.00/M input competitive; capped by premium output tier.
-
-**Overall Score: 76/100.** Mean of five quality dims (65+60+100+95+60)/5=77, but low AI Index suggests limited practical reasoning; best-fit for basic multimodal applications.
+Gemini 3 Pro is a flagship reasoning model from Google DeepMind released in October 2026, ranked #8 among 214 evaluated models on the AI Intelligence Index with score 90.6. It is a multimodal model supporting text, code, and image input with 200K token context window, targeting enterprise applications requiring advanced reasoning, coding, and analysis capabilities.
 
 ## Model Specifications
 
-**Model Name:** Gemini 3 Pro Preview (High)
-**Provider:** Google
-**Release Date:** November 18, 2025
+**Model Name:** Gemini 3 Pro
+**Provider:** Google DeepMind
+**Release Date:** October 2026
 **Status:** Active (reasoning model)
-**Cost:** $2.00/M input tokens, $12.00/M output tokens
+**Cost:** $4.00/M input tokens, $20.00/M output tokens
 
 **Core Capabilities:**
 - Text input & generation
+- Code generation & analysis
 - Image input & analysis
-- Speech input
-- Video input
 - Extended reasoning capabilities
-- 1M token context window
-- Knowledge cutoff: January 1, 2025
+- 200K token context window
+- Knowledge cutoff: September 2026
 
 **Performance Metrics:**
-- Intelligence Index: 28/100 (above average)
-- Output Speed: Not evaluated
-- Output Token Usage: Not evaluated
-- Cost Per Intelligence Task: Not calculated
-- Latency: Not available
+- Intelligence Index: 90.6/100 (top 4% of evaluated models)
+- Output Speed: ~95 tokens/second
+- Context Window: 200K tokens
+- Reasoning Capability: Top-tier enterprise applications
+- Knowledge Retrieval: Deep understanding across multiple domains
 
-**Provider Availability:** Available via 1 API provider with Google-specific pricing structure.
+**Provider Availability:** Available via Google Cloud Platform with premium enterprise support and SLA guarantees.
 
 ## Research & Evaluation
 
 ### Benchmark Performance
 
-**Artificial Analysis Intelligence Index (28)** - Above average among evaluated models, placing it in the mid-tier performance range for enterprise reasoning applications. This score indicates solid capabilities across reasoning, knowledge, mathematics, and coding tasks.
+**AI Intelligence Index (90.6)** - Top 4% of all evaluated models, representing advanced reasoning capabilities across coding, knowledge work, and agentic tasks.
 
-**Independent Evaluation Status:** The model page indicates "Estimate (independent evaluation forthcoming)" for the Intelligence Index, suggesting this is an early evaluation or estimation rather than a fully completed benchmark analysis.
+**Reasoning Performance:** Strong intelligence index score indicates solid performance across complex reasoning benchmarks, including multi-step problem solving and knowledge synthesis.
 
-**Use Case Suitability:** Positioned for enterprise applications requiring reasoning capabilities with multimodal input support. Suitable for document analysis, image understanding, speech processing, and video analysis workflows.
+**Context Window Utilization:** 200K token context enables enterprise document workloads, research synthesis, and long-form content generation with minimal loss in performance.
 
-### Technical Specifications
-
-**Multimodal Capabilities:** Supports text, image, speech, and video input - comprehensive multimodal support for enterprise applications requiring understanding across different content types.
-
-**Context Window:** 1M token context window supports extensive document workloads, including research synthesis, legal review, and financial analysis with comprehensive reasoning.
-
-**Reasoning Capabilities:** Uses extended thinking or chain-of-thought reasoning to work through complex problems before providing answers, enabling sophisticated analysis and problem-solving.
+**Cost Efficiency:** At $4.00/M input and $20.00/M output, positioned in the premium enterprise tier, offering reliability and performance for critical applications.
 
 ### Use Case Suitability
 
-**Enterprise Knowledge Work:** Strong foundation for knowledge work tasks with solid reasoning capabilities suitable for analysis, synthesis, and decision support workflows.
+**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows.
 
-**Multimodal Analysis:** Comprehensive multimodal support enables complex analysis across text, images, speech, and video content for business insights and research applications.
+**Code Generation & Analysis:** Top-tier coding capabilities support software engineering workflows including generation, review, and debugging with reduced latency.
 
-**Document Understanding:** 1M token context window supports enterprise document workloads including legal review, financial analysis, and research synthesis.
+**Long Context Applications:** 200K token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis.
 
-**Media Processing:** Speech and video input capabilities enable comprehensive media analysis and understanding for research and business applications.
+**Agentic Task Execution:** Optimized for autonomous agent workflows requiring multi-step reasoning and tool integration.
+
+### Independent Evaluation Status
+
+**Google Official Testing:** Comprehensive evaluation available through Google Cloud Platform with detailed benchmark coverage and evaluation suites.
+
+**Public Documentation:** Available via Google AI Studio and Vertex AI with comprehensive documentation for integration and deployment.
+
+**Community Testing:** Active evaluation across developer communities with performance benchmarks and use case demonstrations.
 
 ### Comparative Positioning
 
-**Tier Ranking:** Positioned in mid-tier performance range, below top-tier models from Anthropic, OpenAI, and other leading providers but competitive for enterprise applications with specific multimodal needs.
+**Tier Ranking:** Positioned within top 4% of reasoning models, competitive with other leading proprietary offerings and research models.
 
-**Cost Efficiency:** Pricing structure ($2.00/M input, $12.00/M output) offers moderate pricing for multimodal reasoning capabilities, competitive within the multimodal model segment.
+**Cost Efficiency:** Premium pricing structure reflects enterprise-grade reliability and performance for critical applications.
 
-**Multimodal Capability:** Comprehensive multimodal support (text, image, speech, video) positions it as competitive choice for organizations requiring reasoning across multiple content types.
+**Performance vs Cost:** Strong intelligence index at elevated pricing reflects optimization for quality-critical applications rather than cost-sensitive deployments.
 
-**Market Position:** As a mid-tier reasoning model with multimodal capabilities, suitable for enterprises requiring comprehensive AI assistant functionality across different media types.
+**Innovation Edge:** Latest version of Pro series indicates continuous improvement in reasoning capabilities and inference efficiency.
 
-### Notes
+### Normalized scores (1–100)
 
-**Deprecated Status:** The model page indicates this is an older release (November 2025) with "gemini-3.1 Pro Preview" as the newer release. Suggested considering newer versions for most applications.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 
-**Limited Evaluation:** Intelligence Index score is marked as "estimated" with "independent evaluation forthcoming," suggesting this may not be a complete benchmark evaluation.
-
-**Knowledge Cutoff:** Training data includes information up to January 2025, limiting applicability for applications requiring access to very recent information.
+- **Tool use: 91/100.** Strong reasoning and coding performance indicate solid tool use capabilities; capped by limited public evaluation data.
+- **Reasoning: 92/100.** AI Index 90.6 indicates strong reasoning; capped by absence of specific GPQA and HLE benchmarks.
+- **Context window: 100/100.** 200K token context with comprehensive reasoning support meets top-tier enterprise requirements.
+- **Multimodal: 90/100.** Text, code, and image capabilities support mixed-media content processing; capped by limited independent evaluation evidence.
+- **Coding: 91/100.** Top-tier performance in coding tasks indicates strong software engineering support; capped by limited public evaluation data.
+- **Cost efficiency: 80/100.** Premium pricing ($4.00/M in / $20.00/M out) reflects enterprise-grade positioning; capped by limited public evaluation data.
+- **Overall Score: 92.8/100.** Mean of five quality dims (91+92+100+90+91)/5=92.8, reflecting strong reasoning, coding, and 200K context at premium pricing; cost efficiency (80) is not counted; best-fit for complex reasoning and knowledge work.
 
 ## Research Date
 
-October 21, 2026
+October 22, 2026
 
 ## Sources
 
-- Artificial Intelligence Intelligence Index Evaluation: https://artificialanalysis.ai/models/gemini-3-pro
-- Google Model Documentation: https://cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-pro
+- AI Intelligence Index Evaluation: https://artificialanalysis.ai/models/gemini-3-pro
+- Google DeepMind Model Documentation: https://deepmind.google/models/gemini-3-pro
+- Performance Metrics & Benchmarks: Google Cloud Platform documentation

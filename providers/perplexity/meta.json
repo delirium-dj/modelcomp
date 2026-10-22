@@ -1,0 +1,21 @@
+{
+  "name": "Perplexity",
+  "kind": "vendor",
+  "short": "Conversational search engines and Sonar API powered by leading open and proprietary foundation models.",
+  "officialUrl": "https://perplexity.ai",
+  "hosts": ["perplexity.ai"],
+  "plans": [
+    {
+      "name": "API Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Sonar models starting at $1.00/$1.00 per 1M up to advanced search reasoning tiers.",
+      "evidenceUrl": "https://docs.perplexity.ai/guides/pricing"
+    },
+    {
+      "name": "Perplexity Pro",
+      "price": "$20/month",
+      "notes": "Unlimited Pro searches, reasoning models, and file analysis in web and mobile apps.",
+      "evidenceUrl": "https://www.perplexity.ai/pro"
+    }
+  ]
+}

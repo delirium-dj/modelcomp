@@ -1,0 +1,30 @@
+# Neomorph - findings by Beam (excluded)
+
+- Source: Beam (Beam)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Neomorph"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Neomorph (folder slug `neomorph`, id `opencode/neomorph`).
+- **Finding:** "Neomorph" is an OpenCode Zen experimental route (`opencode/neomorph`) with scaffolded
+  meta (64K context, $0.50/$1.50, text in/out, structured-output focus). No first-party model card,
+  system card, API documentation, or independent benchmark row exists for a model by that name.
+  OpenCode Zen's public model catalogue and docs do not list a "Neomorph" entry with verified specs.
+- **Context window / modalities / pricing:** unverified - adopted from scaffolded meta only.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Neomorph in any first-party or independent source:
+  no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI /
+  Vals AI / SWE-bench / BenchLM row.
+
+## Signature
+
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: checked OpenCode Zen docs/catalogue and independent aggregators (Artificial Analysis,
+  BenchLM, Epoch AI, Vals AI). No verified benchmark exists; scores are withheld rather than
+  fabricated.
+- Future sources: if a genuine Neomorph appears, add `Beam.md` with the standard headings;
+  do not edit this exclusion.

@@ -5,7 +5,7 @@
   "short": "Reflection AI's open-weight 501B/23B-active MoE (Apache 2.0, 1M ctx) — SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1% — served free on Zen as Beam Free; formerly the stealth label Cat Jam.",
   "contextWindow": "1,048,576 total; 131,072 max output",
   "modalities": "Text in/out only",
-  "pricingNote": "Free on OpenCode Zen (Beam Free) and Reflection beta; hosted from $0.25/$1.00 per 1M; self-host free",
+  "pricingNote": "Free on Zen & Reflection API beta; hosted $0.25-$1.30 in / $1.00-$4.30 out; self-host $0",
   "freeTierNote": "Free limited-time OpenCode Zen / Command Code route; free Reflection API public beta (daily usage limits); Apache 2.0 weights self-host free",
   "pricingTiers": [
     "Free on OpenCode Zen: beam-free ($0/$0; no training, 30-day retention for safety)",

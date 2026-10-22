@@ -1,25 +1,45 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "llm7/DeepSeek-V4-Flash-0731",
-  "providers": {
+  "model": "llm7/nemotron-3-nano:30b",
+  "provider": {
     "llm7": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM7",
+      "env": ["LLM7_API_KEY"],
       "options": {
         "baseURL": "https://api.llm7.io/v1",
         "apiKey": "{env:LLM7_API_KEY}"
       },
       "models": {
-        "DeepSeek-V4-Flash-0731": {
-          "name": "DeepSeek V4 Flash"
+        "minimax-m2.7": {
+          "name": "MiniMax M2.7 (free tier)",
+          "limit": { "context": 180000, "output": 32768 }
+        },
+        "gpt-oss:20b": {
+          "name": "GPT-OSS 20B (free tier)",
+          "limit": { "context": 128000, "output": 32768 }
+        },
+        "nemotron-3-nano:30b": {
+          "name": "Nemotron 3 Nano 30B (free tier)",
+          "limit": { "context": 1000000, "output": 32768 }
+        },
+        "deepseek-v4-flash:0731": {
+          "name": "DeepSeek V4 Flash (0731) — paid",
+          "limit": { "context": 1024000, "output": 65536 }
+        },
+        "DeepSeek-V4.1-Flash": {
+          "name": "DeepSeek V4.1 Flash — paid",
+          "limit": { "context": 1000000, "output": 65536 }
         }
       }
     },
     "agentrouter": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "AgentRouter",
+      "env": ["AGENTROUTER_API_KEY"],
       "options": {
-        "baseURL": "https://agentrouter.org/v1"
+        "baseURL": "https://agentrouter.org/v1",
+        "apiKey": "{env:AGENTROUTER_API_KEY}"
       },
       "models": {
         "claude-opus-5-5": {
@@ -29,6 +49,102 @@
             "medium": { "reasoningEffort": "medium" },
             "high": { "reasoningEffort": "high" }
           }
+        },
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4.8",
+          "variants": {
+            "low": { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "high": { "reasoningEffort": "high" }
+          }
+        }
+      }
+    },
+    "kilocode": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "KiloCode",
+      "env": ["KILOCODE_API_KEY"],
+      "options": {
+        "baseURL": "https://ai-gateway.kilo.ai/api/v1"
+      },
+      "models": {
+        "nemotron-3.5-super-vl-free": {
+          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "name": "Nemotron 3.5 Super VL",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 1000000, "output": 131072 }
+        },
+        "nemotron-3.5-lightning-free": {
+          "id": "nvidia/nemotron-3.5-lightning:free",
+          "name": "Nemotron 3.5 Lightning",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 1000000, "output": 65536 }
+        },
+        "nemotron-3-ultra-free": {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "name": "Nemotron 3 Ultra",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 1000000, "output": 65536 }
+        },
+        "nemotron-3-super-free": {
+          "id": "nvidia/nemotron-3-super-120b-a12b:free",
+          "name": "Nemotron 3 Super",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 262144, "output": 235929 }
+        },
+        "nemotron-3-nano-omni-free": {
+          "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "name": "Nemotron 3 Nano Omni",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 256000, "output": 65536 }
+        },
+        "nemotron-3.5-content-safety-free": {
+          "id": "nvidia/nemotron-3.5-content-safety:free",
+          "name": "Nemotron 3.5 Content Safety",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "dots-3-note-preview-free": {
+          "id": "dots-studio/dots-3-note-preview:free",
+          "name": "Dots 3 Note Preview",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 512000, "output": 460800 }
+        },
+        "laguna-s-2.1-free": {
+          "id": "poolside/laguna-s-2.1:free",
+          "name": "Poolside Laguna S 2.1",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 262144, "output": 32768 }
+        },
+        "laguna-xs-2.1-free": {
+          "id": "poolside/laguna-xs-2.1:free",
+          "name": "Poolside Laguna XS 2.1",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 262144, "output": 32768 }
+        },
+        "flint-v1.0-free": {
+          "id": "recursive/flint-v1.0:free",
+          "name": "Flint 1.0",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 262144, "output": 235929 }
+        },
+        "xing4.0-29b-a4b-free": {
+          "id": "xingchen-agi/xing4.0-29b-a4b:free",
+          "name": "Xing 4.0 29B A4B",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 262144, "output": 235929 }
+        },
+        "lfm-2.5-2.6b-free": {
+          "id": "liquid/lfm-2.5-2.6b:free",
+          "name": "LFM 2.5 2.6B",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 65536, "output": 8192 }
+        },
+        "north-mini-code-free": {
+          "id": "cohere/north-mini-code:free",
+          "name": "North Mini Code",
+          "cost": { "input": 0, "output": 0 },
+          "limit": { "context": 256000, "output": 64000 }
         }
       }
     }

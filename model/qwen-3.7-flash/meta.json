@@ -1,9 +1,8 @@
 {
   "id": "opencode/qwen-3.7-flash",
   "name": "Qwen 3.7 Flash",
-  "short": "Qwen 3.7 Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Alibaba's July 2026 Flash (1M ctx, $0.03/$0.13) - reasoning, function calling and web search at ultra-low cost; proprietary API model.",
+  "contextWindow": "1,000,000 total; 131,072 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.03/$0.13 per 1M in (<=32K input) on QwenCloud; cache $0.006"
 }

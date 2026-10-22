@@ -1,9 +1,11 @@
 # Llama 3.2 11B Vision Instruct — findings by DeepSeek 4.1 Flash
 
 - Source: Meta / Llama 3.2 11B Vision Instruct (`llama_3.2_vision_instruct`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-25)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-25); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `llama-3.2-vision-instruct` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked the official Meta model card on Hugging Face (https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct — instruction-tuned 11B: MMMU CoT 50.7, MMMU-Pro Standard 33.0, MathVista 51.5, ChartQA CoT 83.4, AI2 Diagram 91.1, DocVQA 88.4, VQAv2 75.2, MMLU CoT 73.0, MATH CoT 51.9, GPQA 32.8, MGSM 68.9; 11B/10.6B params, 128K, Dec-2023 cutoff, Llama 3.2 Community License), Artificial Analysis (https://artificialanalysis.ai/models/llama-3-2-instruct-11b-vision — Intelligence Index **5** estimated, #56/74 open-weight non-reasoning, 23.1 tok/s, $0.345/$0.345 per 1M, 128k, text+image in / text out, no reasoning mode), the IDP document-AI leaderboard (https://www.idp-leaderboard.org/models/llama-3-2-vision-11b/ — overall 50.8, #24/29; KIE 76.1, OCR 65.8, Table 41.1, VQA 51.5) and Ollama (https://ollama.com/library/llama3.2-vision — 11B/90B, 128K, text+image). RankedAGI (https://rankedagi.com/models/llama-3.2-(vision)-90b) and the Bing/DuckDuckGo result sets were used as cross-checks. **Size note:** I score the **11B**; RankedAGI's MMLU 86.0 / GPQA 43.0 rows are the **90B** sibling and are not merged. Conflicts surfaced: (a) GPQA **32.8%** (Meta official, CoT) vs **22.1%** (BenchmarkList, prior pass); (b) AA Intelligence Index **5** (current, v4.3.2, estimated) vs **3.33** (prior); (c) official card vision rows (MMMU 50.7, DocVQA 88.4, ChartQA 83.4) are far above the prior third-party rows (Visual-Language Understanding 20.5%, MechVQA 25.5%, OpenVLM 57.7) — different harnesses/scopes; (d) context 128K (Meta/HF/Ollama) vs "130k"/"131K" rounding (AA/IDP). New official vision evidence lifts Multimodal; official GPQA/MMLU lifts Reasoning; **Overall 40 → 41**.
 
@@ -69,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: independent public internet research (official Meta Hugging Face model card; Artificial Analysis; IDP Leaderboard; Ollama; RankedAGI + Bing/DuckDuckGo cross-checks). Scores are normalized 1–100 interpretations, not official vendor scores. I score the **11B**; 90B figures are labelled and never merged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

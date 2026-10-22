@@ -7,7 +7,6 @@ import {
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
-  SANCTIONED_DELETIONS,
   RETIRED_ALIAS_SLUGS,
   META_SHORT_MAX,
   META_MODALITIES_MAX,
@@ -64,12 +63,6 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
   it("merged-source wins over twin retirement and mirror relocation", () => {
     assert.equal(classifyMissingTracked({ twinRetired: true, mirror: undefined, mergedSource: true }), "merged-source");
     assert.equal(classifyMissingTracked({ twinRetired: false, mirror: "models_voice", mergedSource: true }), "merged-source");
-  });
-
-  it("user-sanctioned deletion is INFO, never FAIL (2026-10-22)", () => {
-    assert.equal(classifyMissingTracked({ twinRetired: false, mirror: undefined, sanctionedDeletion: true }), "user-sanctioned");
-    assert.ok(SANCTIONED_DELETIONS.has("model/mimo-v2.6-pro/Xiaomi_Official.md"));
-    assert.ok(SANCTIONED_DELETIONS.has("model/muse-spark-1.2/Independent_Research.md"));
   });
 });
 
@@ -136,6 +129,10 @@ describe("merged duplicate slugs (never come back)", () => {
 
   it("maps grok-4.1-fast-reasoning to its canonical folder", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("grok-4.1-fast-reasoning"), "grok-4.1-fast");
+  });
+
+  it("maps longcat_2.5_preview to its dotted canonical folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("longcat_2.5_preview"), "longcat-2.5-preview");
   });
 
   it("message names both slugs and the canonical research route", () => {

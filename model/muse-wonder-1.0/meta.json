@@ -1,9 +1,8 @@
 {
   "id": "opencode/muse-wonder-1.0",
   "name": "Muse Wonder 1.0",
-  "short": "Muse Wonder 1.0 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Meta's 2026-10-12 Muse-family frontier agent model (1M ctx, $4/$20) for personal and professional AI agents; proprietary, reasoning always on.",
+  "contextWindow": "1,048,576 total; 131,072 max output",
+  "modalities": "Text, image, video, audio in; text out",
+  "pricingNote": "$4.00/$20.00 per 1M in/out; $0.20 cached input; paid only"
 }

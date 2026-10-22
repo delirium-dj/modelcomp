@@ -1,9 +1,11 @@
 # Mercury 2.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Inception / Mercury 2.5 (`inception/mercury-2.5`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`mercury-2-5`, 15 rows) computes an overall **33.94/100 (#168 of 972)** and confirms the deep pass: τ³ 96.0%, GPQA-D 79.0%, AA-LCR 68.0%, SciCode 38%/38.5%, IFBench 77%, Terminal-Bench 2.1 (Vals) 34.5%, DeepSearchQA 34.0%, AA-HLE 11.8%, AA Intelligence Index 12.3%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against the official Inception launch post (2026-09-08), BenchLM (`mercury-2-5`, updated 2026-10-12), Vals AI (`inception_mercury-2.5`), LMMarketCap (`inception-mercury-2-5`) and Benchable (`inception/mercury-2.5-20260908`). The official card and pricing are confirmed unchanged; the benchmark picture is now populated by three independent harnesses (Artificial Analysis via BenchLM, Vals AI, Benchable) whose numbers diverge sharply — surfaced under conflicts below. No dimension changes are supported beyond a small Reasoning adjustment from new GPQA-D evidence.
 
@@ -69,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (official Inception launch post; BenchLM, Vals AI, LMMarketCap and Benchable trackers; OpenRouter model page and its Artificial Analysis table); scores are normalized 1–100 interpretations, not official vendor scores; Tool use and Coding flagged where no matching benchmark exists.
 - Future sources: add a new file next to this one, e.g. `Mercury_3.md`, using the same headings.

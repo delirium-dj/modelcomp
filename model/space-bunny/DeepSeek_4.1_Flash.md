@@ -1,9 +1,11 @@
 # Space Bunny Alpha — findings by DeepSeek 4.1 Flash
 
 - Source: anonymous stealth vendor / Space Bunny Alpha (`stealth/space-bunny-alpha`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-25 UTC)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-25 UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `space-bunny-alpha` (404; stealth model); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (6 independent sources). This pass re-pulled the model's OpenRouter/OpenCode metadata, the spacebunnyalpha.com field guide (which now carries a previously-missing HLE result), the Codersera identity post-mortem, the spacebunnymodel.com listing page, the BeatAPI explainer and the Hugging Face community guide. Two material changes from 2026-09-25: (1) the free preview has ended (OpenRouter listing expiry `2026-10-05`; BeatAPI records the free model withdrawn 2026-10-06), and (2) a new reasoning datapoint — HLE **46.1%** on a 300-question subset — is now published that the prior pass explicitly listed as missing. Both are reflected below. Everything else remains thin: no vendor card, no Artificial Analysis Index, no public-suite agent/coding run.
 
@@ -76,7 +78,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research across the OpenRouter model/endpoint metadata, the AI BENCHY leaderboard and its published runs, the spacebunnyalpha.com field guide, Codersera's `api/v1/models` forensic pull, BeatAPI's listing explainer, the Hugging Face community access guide, the spacebunnymodel.com listing page and the margrop.net identity analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass note: two dimensions moved on new evidence — Reasoning 68 → 70 (new HLE 46.1% subset result; the prior report listed HLE as missing) and Cost efficiency 100 → 90 (the free preview ended; paid fallback ~$0.30/$1.20). Tool use, Context window, Multimodal and Coding are unchanged for lack of any new verified number. Conflicts surfaced rather than reconciled: identity (MiniMax M3.1-Flash vs GPT-6.1-Sol fusion router vs Moonshot Kimi k2), modalities (audio claimed by one affiliate page only), HLE 46.1% vs weak AI BENCHY General Intelligence/Trivia, and speed (87 tok/s field-guide P50 vs 118.5 tok/s claim). No number here is inferred from another model.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

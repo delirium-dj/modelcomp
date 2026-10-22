@@ -105,9 +105,6 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(hyphenVersionViolation("gemma-4-12b-unified"), null);
     // Version 4 + 26B/4B-active params (Qwen3.5-35B-A3B shape).
     assert.equal(hyphenVersionViolation("gemma-4-26b-a4b"), null);
-    // Decimal params are still params: version 3.5 + 0.8B (Qwen3.5-0.8B).
-    assert.equal(hyphenVersionViolation("qwen-3.5-0.8b"), null);
-    assert.equal(hyphenVersionViolation("qwen-3.5-1.5b"), null);
     // Already-dotted on-disk folders stay fine (never renamed, RULES.md permanence).
     assert.equal(hyphenVersionViolation("gemma-4.12b-unified"), null);
   });
@@ -126,8 +123,6 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
     assert.equal(normalizeSlug("gpt-6-astra"), "gpt-6-astra");
     assert.equal(normalizeSlug("gemma-4-31b"), "gemma-4-31b");
     assert.equal(normalizeSlug("qwen-3.8-27b"), "qwen-3.8-27b");
-    assert.equal(normalizeSlug("qwen-3.5-0.8b"), "qwen-3.5-0.8b");
-    assert.equal(normalizeSlug("qwen-3.5-1.5b"), "qwen-3.5-1.5b");
   });
 
   it("leaves codename suffixes alone (gpt-6-astra)", () => {
@@ -141,7 +136,6 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
   it("honors grandfathered param-size exceptions (set + general rule agree)", () => {
     assert.ok(SLUG_VERSION_EXCEPTION.has("gemma-4-31b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.8-27b"));
-    assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-0.8b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-9b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-397b"));
     assert.ok(SLUG_VERSION_EXCEPTION.has("qwen-3.5-27b"));
@@ -194,9 +188,6 @@ describe("stemVersionViolation (RULES.md findings-stem identity)", () => {
     assert.equal(stemVersionViolation("Xing_4.0_29b_a4b"), null);
     assert.equal(normalizeStem("Xing_4.0_29b_a4b"), "Xing_4.0_29b_a4b");
     assert.equal(stemVersionViolation("Xing_4.0.29B_A4B"), null);
-    // Decimal params are still params: version 3.5 + 0.8B (Qwen3.5-0.8B).
-    assert.equal(stemVersionViolation("Qwen_3.5_0.8B"), null);
-    assert.equal(stemVersionViolation("Qwen_3.5_1.5B"), null);
     // Generic param stems never in the exception set.
     assert.equal(stemVersionViolation("Foo_1.2_70b"), null);
     assert.equal(stemVersionViolation("Foo_2_31B"), null);
@@ -204,7 +195,6 @@ describe("stemVersionViolation (RULES.md findings-stem identity)", () => {
 
   it("still flags real version joins, including before/after a param join", () => {
     assert.equal(stemVersionViolation("Foo_2_1_30B"), "Foo_2.1_30B");
-    assert.equal(stemVersionViolation("Foo_2_1_0.8B"), "Foo_2.1_0.8B");
     assert.equal(stemVersionViolation("Laguna_XS_2_1"), "Laguna_XS_2.1");
     assert.equal(normalizeStem("Foo_2_1_30B"), "Foo_2.1_30B");
   });

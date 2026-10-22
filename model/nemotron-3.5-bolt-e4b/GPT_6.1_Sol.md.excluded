@@ -1,0 +1,39 @@
+# Nemotron 3.5 Bolt E4B — findings by GPT 6.1 Sol
+
+- Source: NVIDIA, announced Bolt E4B4GB.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — announced model, insufficient released specifications/benchmarks for Overall.**
+
+## Model card
+
+- Primary NVIDIA announcement explicitly distinguishes **Bolt74B-A9B24GB available now** from **BoltE4B4GB comingOctober23**.[1] This report is datedOctober22 and does not treat scheduled release as completed.
+- Primary describes physical/conversational agents on RTX/Jetson/Spark, including local voice-assistant applications. Exact native input/output modalities, context/output, parameters and cutoff are not published in the checked evidence. A voice-assistant use case does not alone establish native speech I/O.
+- **4GB is the advertised footprint**, not proof of4B parameters or a tested memory figure. No exact weight license/current API/free tariff established; sibling OpenMDW terms or free local operation are not assumed.
+- Publisher-scoped HF search currently finds only74B variants; models.dev and current NVIDIA serving catalog have no exact E4B record. These are bounded observations, not denial of the announcement.[2][3][4]
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID.** AA guessed exact profile404.[5] SuperVL/Bolt74B scores,2-bit recipes and rankings are not E4B evidence.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld without invented future-release results or placeholder dimensions.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Nemotron%203.5%20Bolt%20E4B%22%20benchmark): unrelated solitaire pages.
+- [Google](https://www.google.com/search?q=%22Nemotron%203.5%20Bolt%20E4B%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Nemotron%203.5%20Bolt%20E4B%22%20model%20benchmark): human challenge, not bypassed. Primary announcement and exact public catalogs checked; no peer findings used.
+
+[1]: https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/
+[2]: https://huggingface.co/api/models?author=nvidia&search=Nemotron-3.5-Bolt&limit=20
+[3]: https://models.dev/api.json
+[4]: https://integrate.api.nvidia.com/v1/models
+[5]: https://artificialanalysis.ai/models/nemotron-3-5-bolt-e4b
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent primary-announcement research, preserving scheduled versus completed release and exact sibling distinctions.

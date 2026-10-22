@@ -1,9 +1,11 @@
 # Omen Alpha — findings by DeepSeek 4.1 Flash
 
 - Source: unannounced vendor model shipped by OpenCode Go (`omen-alpha`, data path `zhipu/omen-alpha`) and resold by the TokenRa gateway / listed on Pi
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `omen-alpha` (404; stealth/unannounced model); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Three independent media outlets (explainx.ai, Startup Fortune, kie.ai) plus the aggregator AI Coding Daily now agree on the shape of this model: an OpenCode Go-exclusive stealth coding model shipped **2026-09-04**, a **500K-token context with 128K max output**, text+image input with reasoning and tool calling, reference pricing **$0.20 in / $0.66 out per 1M**, and **no confirmed vendor**. The prior file's $0.13/$0.50 rate is superseded by the $0.20/$0.66 figure that OpenCode Go, Pi and all three media sources now quote.
@@ -62,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (explainx.ai, Startup Fortune, kie.ai, AI Coding Daily, LLM Stats, plus Bing/DuckDuckGo sweeps that surfaced omenalpha.io and developermemos.com). Independent media rows were promoted and unverified prior rows flagged rather than carried forward; no benchmark number was invented. Scores are normalized 1–100 interpretations, not official vendor scores, and remain the lowest-confidence set in this report.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

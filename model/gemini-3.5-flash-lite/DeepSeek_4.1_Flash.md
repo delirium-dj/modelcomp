@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Google DeepMind Gemini 3.5 Flash-Lite model card, BenchLM model page + per-eval results, Artificial Analysis, Vals AI, LLM-Stats, gradually.ai). The rebased AA index and the newly published full-window MRCR figure corrected Reasoning and Context; the TB2.1/MMMU spreads are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

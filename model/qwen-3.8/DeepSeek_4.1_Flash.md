@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen/Qwen 3.8 (`qwen-3.8`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Hugging Face Qwen3.8-2.4T-A95B card, Artificial Analysis, BenchLM Alibaba ranking, Codersera flagship guide, OpenRouter). Vendor harnesses were compared against neutral AA/Vals runs; the index rebase, TB2.1 spread, τ³ spread and Max/base naming conflation are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

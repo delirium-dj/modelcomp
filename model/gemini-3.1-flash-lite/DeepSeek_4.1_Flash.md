@@ -67,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (official Google DeepMind model card + evals page, BenchLM model page + per-eval results, Vals AI model page + leaderboards, Artificial Analysis, llm-stats.com, TopReviewed.ai); deep second-pass re-verification of the 2026-10-01 report, with conflicting harness figures listed side by side. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,11 @@
 # Fledge Alpha — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Fledge Alpha (`opencode/fledge-alpha-free`; anonymous stealth preview) — https://opencode.ai/data/unknown/fledge-alpha
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `fledge-alpha` (404; anonymous stealth preview); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against Stealth Models' Fledge Alpha dossier (https://stealthmodels.com/fledge-alpha), AnyRouter's catalog entry (https://blog.anyrouter.dev/releases/2026-10-02-fledge-alpha), OpenCode's own usage telemetry (https://opencode.ai/data/unknown/fledge-alpha), the OpenRouter Stealth hub (https://openrouter.ai/stealth) and models.dev/Zen metadata (https://github.com/anomalyco/models.dev/pull/8568). The academic numbers are **unchanged** from the 2026-10-03 pass (GPQA Diamond 92.3%, MMLU-Pro 92.0%, HLE 25.4%); no agentic, coding or retrieval benchmark appeared. The material change is **access**: Stealth Models reports the free OpenCode Zen preview ended on 2026-10-11 (OpenCode v1.19.0 removed the endpoint; https://github.com/anomalyco/opencode/releases/tag/v1.19.0), and Zen telemetry shows zero tokens/sessions from 2026-10-09 onward. Identity is still unconfirmed — no host, weights or knowledge cutoff. Two conflicts surfaced (see below). No verified new number justifies a score change, so all six dimensions and the Overall stay at their conservative 2026-10-03 values.
 
@@ -66,7 +68,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: fresh public internet research (Stealth Models Fledge Alpha dossier, 2026-10-11; AnyRouter catalog entry, 2026-10-02; OpenCode telemetry `opencode.ai/data/unknown/fledge-alpha`, updated 2026-10-08; OpenRouter Stealth hub; models.dev/Zen metadata and OpenCode v1.19.0 removal PR). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Conflicts surfaced: (1) **availability** — AnyRouter lists a free `stealth/fledge-alpha` via OpenRouter/Novita BYOK, but OpenRouter's Stealth hub does not list fledge-alpha and OpenCode Zen removed it on 2026-10-11; (2) **HLE** — 25.4% (67-question run) vs 25.8% (66-shared comparison table) within the same Stealth Models page.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

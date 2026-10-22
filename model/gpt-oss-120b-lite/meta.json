@@ -1,9 +1,8 @@
 {
   "id": "opencode/gpt-oss-120b-lite",
-  "name": "GPT Oss 120b Lite",
-  "short": "GPT Oss 120b Lite model evaluation entry.",
-  "contextWindow": "128K total",
+  "name": "GPT-OSS 120B Lite",
+  "short": "OpenAI's Apache-2.0 open-weight 117B/5.1B-active MoE Lite (128K ctx) tuned for concise, high-density reasoning; free to self-host.",
+  "contextWindow": "131,072 total; 32,768 max output",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Free Apache 2.0 open weights; hosted ~$0.15/$0.60 per 1M"
 }

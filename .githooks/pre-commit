@@ -20,17 +20,18 @@ fi
 # Block staged additions under hyphen-versioned model folders — they FAIL
 # `pnpm sync` (hyphenVersionViolation in scripts/lib/naming.mjs), so catching
 # them here saves a failed sync pass. Rename to the dotted slug first (e.g.
-# model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/). Param sizes
-# (digits immediately followed by b/B, optional decimal) are NOT versions and
-# stay hyphenated, mirroring normalizeSlug's (?!\d+(?:\.\d+)?[bB]) rule; strip
-# them before the check.
+# model/gemma-4-12b-unified/ -> model/gemma-4.12b-unified/). Param-size
+# exceptions (NOT versions): gemma-4-31b, qwen-3.8-27b, qwen-3.5-9b,
+# qwen-3.5-397b, qwen-3.5-27b, qwen-3.5-35b-a3b, qwen-3.5-122b-a10b.
 hyphen_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '^model/[^/]*/' || true)"
 hyphen_blocked=""
 while IFS= read -r f; do
   [ -z "$f" ] && continue
   slug="$(printf '%s' "$f" | sed -e 's|^model/||' -e 's|/.*$||')"
-  stripped_slug="$(printf '%s' "$slug" | sed -E 's/[0-9]+(\.[0-9]+)?[bB]//g')"
-  case "$stripped_slug" in
+  case "$slug" in
+    gemma-4-31b|qwen-3.8-27b|qwen-3.5-9b|qwen-3.5-397b|qwen-3.5-27b|qwen-3.5-35b-a3b|qwen-3.5-122b-a10b) continue;;
+  esac
+  case "$slug" in
     *[0-9]-[0-9]*) hyphen_blocked="${hyphen_blocked}${f}\n";;
   esac
 done <<EOF
@@ -83,6 +84,19 @@ if [ -n "$grok_reasoning_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged duplicate slug (RULES.md slug identity): model/longcat_2.5_preview/
+# (underscores) folded into the dotted model/longcat-2.5-preview/ and deleted
+# on user order (2026-10-23; both folders declared id
+# opencode/longcat-2.5-preview-free — one model) — block any staged addition
+# under the underscore slug. Research/report under longcat-2.5-preview instead.
+longcat_underscore_added="$(git diff --cached --name-only --diff-filter=A -z -- model/longcat_2.5_preview | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$longcat_underscore_added" ]; then
+  echo "BLOCKED by RULES.md: model/longcat_2.5_preview/ is a merged duplicate of model/longcat-2.5-preview/ — never recreate it:" >&2
+  printf '%s\n' "$longcat_underscore_added" >&2
+  echo "Write into model/longcat-2.5-preview/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Retired vendor alias (RULES.md retired-alias identity):
 # grok-code-fast-1 is a vendor-published alias of model/grok-build-0.1/
 # (docs.x.ai) and must never become a folder — block any staged addition
@@ -115,15 +129,14 @@ fi
 # `pnpm sync` (stemVersionViolation in scripts/lib/naming.mjs), so catching
 # them here saves a failed sync pass. Write the dotted stem instead (e.g.
 # model/foo/Laguna_XS_2_1.md -> model/foo/Laguna_XS_2.1.md). Param-size joins
-# (digits immediately followed by b/B, optional decimal) are NOT versions and
-# stay underscored (mirror of normalizeStem's (?!\d+(?:\.\d+)?[bB]) rule):
-# strip them before the check.
+# (digits immediately followed by b/B) are NOT versions and stay underscored
+# (mirror of normalizeStem's (?!\d+[bB]) rule): strip them before the check.
 stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -E '\.md(\.excluded)?$' || true)"
 stem_blocked=""
 while IFS= read -r f; do
   [ -z "$f" ] && continue
   stem="$(basename "$f" | sed -e 's|\.excluded$||' -e 's|\.md$||')"
-  stripped="$(printf '%s' "$stem" | sed -E 's/[0-9]+(\.[0-9]+)?[bB]//g')"
+  stripped="$(printf '%s' "$stem" | sed -e 's/[0-9][0-9]*[bB]//g')"
   case "$stripped" in
     *[0-9]_[0-9]*) stem_blocked="${stem_blocked}${f}\n";;
   esac
@@ -156,13 +169,6 @@ while IFS= read -r f; do
       if git ls-files --error-unmatch "$sib" >/dev/null 2>&1 || [ -e "$sib" ]; then
         continue
       fi
-      ;;
-  esac
-  case "$f" in
-    # User-sanctioned removals (2026-10-22): irregular template copies the
-    # user confirmed are not needed - never restore them.
-    model/claude-fable-5/Independent_AI_Research.md|model/mimo-v2.6-pro/Xiaomi_Official.md|model/muse-spark-1.2/Independent_Research.md)
-      continue
       ;;
   esac
   case "$f" in

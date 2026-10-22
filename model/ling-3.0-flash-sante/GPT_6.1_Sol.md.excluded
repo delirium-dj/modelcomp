@@ -1,0 +1,44 @@
+# Ling 3.0 Flash Sante — findings by GPT 6.1 Sol
+
+- Source: inclusionAI, `inclusionAI/Ling-3.0-flash-Sante`.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — meaningful verified medical/agent evidence, but insufficient exact coding coverage for Overall.** Not a no-benchmarks finding.
+
+## Model card
+
+- **New primary identity evidence:** Exact public HF card, **MIT weights**,124B/5.1B-active hybrid-linear MoE and `BailingMoeV3ForCausalLM` config now exist. Repository created **October19,2026**; gateway's September4 release date predates the public weight drop. Local metadata's “no weights/card/license/benchmarks” is obsolete.[1][2][3]
+- **Context / modalities:** Exact config **262,144**, text→text, default thinking/functions. Vercel current exact `inclusionai/ling-3.0-flash-sante` lists **256,000/32,000 output**. Architecture/base-model likeness does not license transferring parent coding scores.[2][4]
+- **Pricing:** Current primary Vercel catalog **$0.075 input/$0.22 output/$0.015 cached per1M**, paid; no verified free entitlement. No authenticated inference performed. Published gateway fields do not establish a zero-retention/no-training guarantee.[4]
+
+### Raw benchmarks found
+
+Both original primary PNG charts downloaded and visually inspected, including column headers and footnotes.[1][5]
+
+- **HealthBench Professional54.3 /DiagnosisArena-MCQ79.2 /ReDisQA89.7 /MedXpertQA-Text51.0 /MedQA-USMLE94.2 /MedMCQA80.3**. The exact chart says **79.2**, not the locally mentioned83.8 DiagnosisArena value.
+- Internal **AFUMED-ComplexReasoning76.9 /AFUSAFE-MedSCE80.1 /AFUMED-Drug90.6**; these are vendor internal/domain metrics, not general academic or clinical-outcome accuracy.
+- **BrowseComp single-agent80.2% /multi-agent90.5%**, **DeepSearchQA90.8% /HLE with tools57.1% /GDPval-V2-AA1288Elo /Tau3-Banking44.3% /MCP-Atlas75.6% /AA-LCR70.5%**. These are the **publisher's reported chart values**, not independently rerun AA measurements; guessed exact AA profile404.
+- Highest reasoning tier,temperature1/top-p0.95. BrowseComp≤**1,000turns**,single-agent discard-all at40% of256K context; multi-agent≤**64subagents**. HLE-with-tools/DeepSearch use256K without context management. Banking uses **terminal_use only**. Those budgets/settings constrain comparisons and do not establish unassisted reasoning or perfect retention.[1]
+- **No verified exact SWE/LCB/SciCode/repository coding score found.** Strong medical reasoning, search, banking and parent-model claims do not provide a measured coding dimension. Native text-only status is documented, not fabricated perception failure.
+
+### Normalized scores (1–100)
+
+Not assigned. Preserve positive primary evidence but withhold Overall rather than invent the missing coding axis or reuse Ling3.0 Flash's scores. A later exact coding measurement could justify a fresh scored report.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Ling-3.0-Flash-Sante%22%20benchmark): empty feed.
+- [Google](https://www.google.com/search?q=%22Ling-3.0-Flash-Sante%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Ling-3.0-Flash-Sante%22%20model%20benchmark): human challenge, not bypassed. Direct original card/config/images and current hosted tariff inspected; no peer findings used.
+
+[1]: https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante/raw/main/README.md
+[2]: https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante/raw/main/config.json
+[3]: https://huggingface.co/api/models/inclusionAI/Ling-3.0-flash-Sante?expand[]=createdAt&expand[]=safetensors
+[4]: https://ai-gateway.vercel.sh/v1/models
+[5]: https://intranetproxy.alipay.com/skylark/lark/0/2026/png/139056389/1792679263821-6277a66f-9b7e-4f4c-bdc7-432904587034.png
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web and original-image research, correcting obsolete absence claims while retaining an evidence-based partial-coverage exclusion.

@@ -21,17 +21,14 @@ export type { SourceKey, ResultsView };
 // code-splits it into profile-only chunks.
 
 /**
- * Console diagnostics are quiet in `pnpm dev` by default: scaffolded stubs,
- * duplicate ids, and not-yet-synced folders are useful when debugging data but
- * noisy on every restart. Set `VITE_MODELS_WARN=1` to restore them. Production
- * builds still warn, where a missing `pnpm sync` matters most; `pnpm sync`
- * itself remains the strict gate. Warn-once per process because this module is
- * re-evaluated per build environment (SSR, client, prerender).
+ * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
+ * per build environment (SSR bundle, client, SSG prerender), so a bare
+ * console.warn spams the same line 3-4x per build. Deduping by message keeps
+ * the production signal (e.g. someone built without re-running sync) while
+ * the log stays readable. `pnpm sync` remains the strict gate.
  */
-const QUIET_MODEL_WARNINGS = import.meta.env.DEV && import.meta.env.VITE_MODELS_WARN !== "1";
 const warned = new Set<string>();
 function warnOnce(msg: string): void {
-  if (QUIET_MODEL_WARNINGS) return;
   if (warned.has(msg)) return;
   warned.add(msg);
   console.warn(msg);
@@ -102,12 +99,6 @@ export interface AiModel {
     standout?: string;
     /** Curated qualitative one-liner (no scores): the model's main caveat. */
     tradeoff?: string;
-    /**
-     * Curated "worth noting" callouts: verified, sourced facts (numbers
-     * welcome) that don't fit the standout/tradeoff one-liners — rendered
-     * as the "Worth noting" block on the model profile.
-     */
-    notable?: string[];
     /** Official website or documentation URL for the model */
     officialUrl?: string;
   };
@@ -163,7 +154,6 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
       noFreeId: meta.noFreeId,
       standout: meta.standout,
       tradeoff: meta.tradeoff,
-      notable: meta.notable,
       officialUrl: meta.officialUrl,
     },
   };
@@ -252,10 +242,9 @@ interface MetaFile {
   pricingLinks?: (string | null)[];
   freeTierNote?: string;
   noFreeId?: boolean;
-    standout?: string;
-    tradeoff?: string;
-    notable?: string[];
-    scaffolded?: boolean;
+  standout?: string;
+  tradeoff?: string;
+  scaffolded?: boolean;
   /** Optional paradigm tag: "generative" (default) or "decision". */
   category?: string;
   officialUrl?: string;
@@ -329,7 +318,11 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * OpenCode PR #55993 merged 2026-10-16; same 501B/23B Apache 2.0 weights,
  * SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match Beam 1.0; id
  * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md revealed-stealth
- * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases). The folder
+ * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases);
+ * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
+ * LongCat 2.5; the 2.5 generation exists only as the API-only LongCat-2.5-Preview
+ * tracked in `longcat-2.5-preview/`, and the folder's own meta idNote records the
+ * id does not resolve — RULES.md family-shorthand identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
@@ -338,7 +331,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam", "longcat-2.5"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from
@@ -469,7 +462,7 @@ export function checkOverallScores(): void {
       if (!s) return;
       const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding) / 5;
       if (Math.abs(mean - s.overall) > 0.51) {
-        warnOnce(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
+        console.warn(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
       }
     });
   }

@@ -1,9 +1,11 @@
 # North Mini Code — findings by DeepSeek 4.1 Flash
 
 - Source: Cohere / North Mini Code 1.0 (`cohere/north-mini-code`; OpenCode route `opencode/north_mini_code`; upstream `CohereLabs/North-Mini-Code-1.0`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`north-mini-code-1-0`, 12 rows) assigns **no overall score** (unranked) and confirms the deep pass: AA-GPQA Diamond 75.7%, τ² 37.4%, AA-SciCode 38.8%, AA-LCR 37.3%, AA-IFBench 57.6%, AA-HLE 11.1%, AA Intelligence Index 9.9%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Vendor re-confirmed as **Cohere** (not a stealth model): Cohere blog + HF card, Artificial Analysis, BenchmarkList, BenchLM, BenchLeader, LLM Stats and OpenRouter all agree on Cohere as creator. Independent sources re-read this pass: BenchLM (`benchlm.ai/models/north-mini-code`, updated 2026-10-12), **BenchLeader (`benchleader.com/models/north-mini-code`, data as of 2026-10-13)** and **LLM Stats (`llm-stats.com/models/north-mini-code-1.0`)** — the last two are new to this pass — plus Artificial Analysis (`artificialanalysis.ai/models/north-mini-code`), BenchmarkList (`benchmarklist.com/models/cohere-north-mini-code/`), OpenRouter (`openrouter.ai/cohere/north-mini-code:free`) and Sebastian Raschka's release teardown. BenchLeader adds an independent cross-vendor normalization (BenchLeader Index **46.0 ±6.8, #479/760**; Reasoning 42, Agents & tools 43, Knowledge 40, Instruction following 58, Long context 43, Composite 41) that is directionally consistent with the existing conservative band. Most first-pass figures hold; conflicts persist on the Artificial Analysis Intelligence Index (9.9 live BenchLeader/BenchLM vs 10 prior AA render vs 19.8 BenchmarkList), AA-LCR (37.3% vs 32.3% index subscore), GDPval-AA (543 Elo BenchmarkList vs 0.0% normalized BenchLeader/BenchLM) and IFBench (57.5% BenchLeader vs 57.6% BenchLM). None of the six dimension scores moves; Overall is unchanged at 53.
 
@@ -76,6 +78,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: independent public internet research (Cohere blog + HF model card, Artificial Analysis, BenchmarkList, BenchLM, BenchLeader, LLM Stats, OpenRouter, Sebastian Raschka). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

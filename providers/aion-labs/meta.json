@@ -1,0 +1,26 @@
+{
+  "name": "Aion Labs",
+  "kind": "aggregator",
+  "short": "OpenAI-compatible serverless inference cloud specializing in creative storytelling, reasoning, and autonomous agents with a free developer tier.",
+  "officialUrl": "https://aionlabs.ai",
+  "hosts": ["aionlabs.ai", "api.aionlabs.ai"],
+  "catalogUrl": "https://aionlabs.ai",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0",
+      "notes": "Instant OpenAI-compatible API key on signup (no credit card required). Standard rate limits around 15 RPM and 20,000 tokens/day for local application testing via https://api.aionlabs.ai/v1.",
+      "evidenceUrl": "https://aionlabs.ai"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based per token",
+      "notes": "Prepaid credit balance with higher throughput and no daily token cap across specialized reasoning and agent models.",
+      "evidenceUrl": "https://aionlabs.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

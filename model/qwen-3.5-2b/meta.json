@@ -1,9 +1,8 @@
 {
   "id": "opencode/qwen-3.5-2b",
-  "name": "Qwen 3.5 2b",
-  "short": "Qwen 3.5 2b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Qwen 3.5 2B",
+  "short": "Alibaba's dense 2B multimodal Qwen 3.5 (262K ctx, Apache 2.0) for single-GPU deployments; free hosted lanes available.",
+  "contextWindow": "262,144 native (81,920 max output per provider rows)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Free Apache 2.0 open weights; cheapest hosted route $0.00/$0.00"
 }

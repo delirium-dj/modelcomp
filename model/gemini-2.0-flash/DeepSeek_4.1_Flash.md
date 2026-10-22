@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 2.0 Flash (`google/gemini-2.0-flash`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-27); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -74,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — independent consolidated trackers (Artificial Analysis, BenchmarkList, evals.report, RankedAGI, LLM Stats, LLM Decision Hub, plus Bing/DuckDuckGo aggregate search) cross-checked with the prior Sophon/BenchGecko notes, Google's deprecated-model status and repo `meta.json` for curated pricing/modality fields. **Re-verified 2026-10-11:** every dimension score held; the six independent sources confirm the old ranges within tracker noise. Conflicting numbers are listed rather than averaged (GPQA 60.1–65.2%; LiveCodeBench 33.4% vs 43.6%; MATH-500 88.0% vs 93.0%; AIME 2025 21.7% vs 27.5%; knowledge cutoff Jun vs Aug 2024). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

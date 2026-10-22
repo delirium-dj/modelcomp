@@ -24,22 +24,28 @@ override.
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing
   from disk — except sanctioned survivals (own-twin retirement with a fresh
   sibling present; user-directed relocation with the same path alive under
-  `models_voice/` or `models_finance/`, logged as INFO pending commit;
-  user-sanctioned removal, exact paths only). User sign-off 2026-10-22:
-  `model/mimo-v2.6-pro/Xiaomi_Official.md`,
-  `model/muse-spark-1.2/Independent_Research.md`, and
-  `model/claude-fable-5/Independent_AI_Research.md` were template copies the
-  user confirmed are not needed and are removed; they are listed in
-  `SANCTIONED_DELETIONS` (`scripts/lib/validate.mjs`) and must never be
-  restored. The committed pre-commit hook (`.githooks/pre-commit`,
+  `models_voice/` or `models_finance/`, logged as INFO pending commit).
+  The committed pre-commit hook (`.githooks/pre-commit`,
   activate with `git config core.hooksPath .githooks`) rejects commits that
-  delete research files, except those same sanctioned paths.
+  delete them.
 - `model/<slug>/` folders are permanent too: never moved out of the tree or
   deleted, even with zero qualifying raters (a `FALLBACK` notice is an accepted
   standing signal — never a failure). Reporting-agent folders are dataset
   infrastructure — the gate reads the agent's own `average.md` from its
   folder, so a below-gate rater becomes eligible once its model is peer-rated
   above the gate.
+- **Parked slugs are never researched (absolute):** a slug listed as parked
+  (`RETIRED_SLUGS` in `src/data/models.ts` + `scripts/lib/average.mjs`,
+  roster: `model/README.md` § Parking — currently `glm-5.3-free`,
+  `gemini-2.5`, `qwen-3.5`, `kimi-k2.7-code-highspeed`, `gemini-3.1-flash`,
+  `space-bunny`, `cat-jam`) must not be queued, researched, or written to by
+  any agent or audit pass — dropped even when the audit finds the folder on
+  disk missing the agent's file. `model-queue.md` omits these slugs
+  automatically; treat its absence as the queue duty. Rationale: every parked
+  folder is either a duplicate alias or a phantom entry already resolved
+  (identities above); researching one burns agent tokens with zero dataset
+  value. On encountering a parked slug, skip it and surface it — a user may
+  only un-park it by removing it from both `RETIRED_SLUGS` lists.
 - **Voice/speech routing (absolute):** a model whose core capability is voice
   or speech (realtime voice API, TTS/STT-first, voice-assistant I/O — name or
   modalities say so) lives under `models_voice/<slug>/`, never under

@@ -1,9 +1,8 @@
 {
   "id": "opencode/neomorph",
   "name": "Neomorph",
-  "short": "Neomorph model evaluation entry.",
-  "contextWindow": "128K total",
+  "short": "OpenCode Zen experimental model (64K ctx, $0.50/$1.50) with modular sub-network architecture and structured-output focus.",
+  "contextWindow": "64,000 total; 4,096 max output",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "$0.50/$1.50 per 1M in/out (provider documentation)"
 }

@@ -1,0 +1,43 @@
+# Jev 1.13 — findings by GPT 6.1 Sol
+
+- Source: TypeSafe AI, exact native `jev-1.13.0`; Zen`jev-1.13`.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded from generative Overall scoring**. Real typed-decision model; local `category: decision` is appropriate, and native component facts are retained below.
+
+## Model card
+
+- **Paradigm:** SystemOne evaluates text/JSON/array **state** against typed questions and returns **noul probabilities, choice distributions, or rubric scores**. It does **not generate prose/code/explanations**. Images/audio/video unsupported; indirect/extended reasoning is intentionally decomposed in application code.[1][2]
+- **Identity:** Native endpoint **POST`/v1/systemone`**, exact`jev-1.13.0`. Primary current docs still map **`jev-latest`→1.13.0**, while`jev-preview`→1.14.0. Do not silently score the newer version under1.13. Exact release/cutoff/parameter count and downloadable weight license unverified.[3]
+- **Context correction:** Defaults **64K per-request** (state+all questions) and **32K per-question** (state+one question). This is **not32K state plus32K question**. Opt-in `TypeSafe-Danger-Zone-Long-Context: true` raises **both** limits to262K, explicitly slower/less accurate; no perfect retention claimed.[3]
+- **Price/access:** Native **$0.042 per1M input**, output free. Primary Zen guide/catalog also lists paid`jev-1.13` and limited-time **`jev-1.13-free`** at$0input/output, using a SystemOne endpoint rather than ChatCompletions.[3][5][6] Account/quotas/terms apply; no authenticated inference performed.
+- **Data:** Native docs say customer requests/responses are not used for training; enterprise ZDR is separate. Calibration across groups does not guarantee each individual prediction.[2][3]
+
+### Raw benchmarks found
+
+- Primary exact1.13 jaggedness page, reviewed **October2,2026**, documents counting/arithmetic/date-comparison weakness, literal reading/indirection, irrelevant-context degradation, option-order effects, adversarial framing and unsupported generation.[4] These are model-specific limitations, not invented numeric benchmark results.
+- No verified exact generative SWE/LCB/HLE/GPQA/retention suite compatible with all five quality axes recovered; guessed AA profile404. Local JevBench1.5.4 score72.13 was not independently checked in its original run here, and is not turned into general model accuracy.
+- Documentation's example probabilities and rubric values are **illustrations**, not benchmark observations. A decision component's inability to produce code is not a reason to fabricate a low coding score and average it with unrelated dimensions.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld: the general generative-tool/reasoning/coding/perception rubric is not supported by this model's native contract and verified evidence. No placeholder dimensions or fake text-generation benchmarks.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Jev%201.13%22%20benchmark): useful TypeSafe documentation/release leads mixed with unofficial sites.
+- [Google](https://www.google.com/search?q=%22Jev%201.13%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Jev%201.13%22%20model%20benchmark): human challenge, not bypassed. Original native models/SystemOne/jaggedness and primary gateway checked; no peer findings used.
+
+[1]: https://docs.typesafe.ai/
+[2]: https://docs.typesafe.ai/concepts/system-one
+[3]: https://docs.typesafe.ai/models.md
+[4]: https://docs.typesafe.ai/model-jaggedness/jev-1.13
+[5]: https://opencode.ai/docs/zen/
+[6]: https://opencode.ai/inference/v1/models
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent primary public-web research, preserving typed-decision paradigm, exact aliases and two separate context constraints. No comparable generative Overall fabricated.

@@ -1,9 +1,11 @@
 # Kimi K2.8 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI / Kimi K2.8 Preview (`kimi-for-coding`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-18)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-18); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `kimi-k2-8-preview` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Still no
 > published benchmark for this checkpoint, but this pass confirmed two facts the first
@@ -73,6 +75,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Moonshot Kimi Code What's New + Model Configuration docs; HokAI 2026-10-10; k3-kimi.com 2026-09-25; LLM-Stats model page; ZenMux reseller listing; ai-all.info and AI Quill reviews); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

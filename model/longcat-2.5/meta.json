@@ -1,7 +1,7 @@
 {
   "id": "opencode/longcat-2.5",
   "name": "LongCat 2.5",
-  "short": "No GA 'LongCat 2.5' exists - Meituan's API lists only LongCat-2.0 and the API-only LongCat-2.5-Preview (2026-09-25, 1M, image in) with no published benchmarks.",
+  "short": "No GA 'LongCat 2.5' exists - Meituan's API lists only LongCat-2.0 and the API-only LongCat-2.5-Preview (2026-09-25, 1M, image in) with no published benchmarks. Folder parked: research lives in longcat-2.5-preview.",
   "contextWindow": "1,048,576 for the only real 2.5-line route (the preview); no GA figure",
   "modalities": "Text, image in; text out (preview)",
   "pricingNote": "No GA price; the preview is $0.30/$1.20 per 1M ($0.006 cached) plus a free Zen slot",

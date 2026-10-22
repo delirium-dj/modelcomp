@@ -117,14 +117,18 @@ export function applyAverageToPrev(prev, modelName, body) {
  * unsuffixed-name identity);
  * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
  * OpenCode PR #55993; same 501B/23B weights; id deprecated 2026-10-16 →
- * `opencode/beam-free` — RULES.md revealed-stealth identity). The
+ * `opencode/beam-free` — RULES.md revealed-stealth identity);
+ * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
+ * LongCat 2.5: the 2.5 generation exists only as the API-only LongCat-2.5-Preview
+ * already tracked in `longcat-2.5-preview/`; the folder's own meta idNote records
+ * that the id does not resolve — RULES.md family-shorthand identity). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Mirror list for the site: RETIRED_SLUGS in src/data/models.ts;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam", "longcat-2.5"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

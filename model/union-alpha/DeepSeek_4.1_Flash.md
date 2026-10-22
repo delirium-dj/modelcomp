@@ -1,9 +1,11 @@
 # Union Alpha — findings by DeepSeek 4.1 Flash
 
 - Source: OpenRouter stealth listing `stealth/union-alpha`, revealed 2026-09-17/18 as **Pareto 26.9 by Circuit & Chisel, sold through Unbiased** — post-reveal route `unbiased/pareto`
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-21)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-21); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `union-alpha`/Pareto (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). The 2026-09-21 pass relied on the stealth-window pages (OpenRouter API, Siora, Crypto Briefing, MindStudio). This pass re-checked the post-reveal record against the independent portal [union-alpha.com](https://union-alpha.com/) (updated 18 Sep 2026), the [LiveBench leaderboard](https://livebench.ai/) (Union Alpha preview snapshot, #26/58, 17 Sep 2026), [AI BENCHY](https://aibenchy.com/model/unbiased-pareto-none/) (paid `unbiased/pareto` endpoint, tested 18 Sep 2026), [StealthMark / stealthmodels.com](https://stealthmodels.com/benchmarks#model-union-alpha) (7 SVG agentic/visual results), the [ARI Bench Union Alpha report](https://aribench.com/reports/union-alpha.html), and Cloudflare's [`unbiased/pareto` model page](https://developers.cloudflare.com/ai/models/unbiased/pareto/). Newly verified, previously-missing numbers: **GPQA Diamond 90.9%**, **LiveBench 76.1**, **ARI Bench 32/100**, **AI BENCHY 8.9/10**, **StealthMark 60.7/100**. Conflicts surfaced below; unverifiable marketing numbers are flagged and not scored.
 
@@ -95,7 +97,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — OpenRouter's stealth model page and API metadata for `stealth/union-alpha`, the post-reveal independent portal union-alpha.com, the Unbiased/Pareto reveal coverage (Siora AI's API read-out, Crypto Briefing, the Melvin Vivas note), Cloudflare's `unbiased/pareto` model page, and the independent benchmark sources LiveBench, AI BENCHY, StealthMark/stealthmodels.com and ARI Bench; scores are normalized 1–100 interpretations, not official vendor scores.
 - Identity note: `union-alpha` and the revealed `unbiased/pareto` (Pareto 26.9) are the same system, so this single folder covers both names — no separate duplicate entry was created.
 - Idempotency: this is a deep second-pass re-verification approved by the user, overwriting only this file (`DeepSeek_4.1_Flash.md`); no other file was read-for-overwrite, overwritten, or deleted.

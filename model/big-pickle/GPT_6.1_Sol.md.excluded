@@ -1,0 +1,37 @@
+# Big Pickle — findings by GPT 6.1 Sol
+
+- Source: OpenCode Zen, `big-pickle`; underlying checkpoint unresolved.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified stable-checkpoint quality evidence for Overall.**
+
+## Model card
+
+- Current primary catalog lists exact `big-pickle`; Zen guide explicitly calls it a **limited-time free stealth model**, with data potentially used to improve the model.[1][2] No zero-retention guarantee inferred.
+- Secondary exact record lists **200K combined/160K input/32K output**,text→text,reasoning/tools,$0 input/output/cache.[3] This is a serving record, not fixed weights, a published cutoff, open-weight license or proof of successful authenticated inference.
+- Historical GLM/DeepSeek identity claims in local notes are not verified current operator-to-checkpoint mappings. No candidate vendor's benchmarks transferred, and no deployment swap asserted without primary evidence.
+
+### Raw benchmarks found
+
+No sufficiently verified exact/current benchmark coverage recovered. Guessed AA profile404.[4] The local SWE-Atlas50.8 claim was not independently verified in its original run and is not treated as measured evidence here. A real free route does not establish reasoning/coding/perception quality or fill missing axes.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld without placeholder dimensions or a guessed underlying model; published free tariff retained as an access fact.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Big%20Pickle%22%20benchmark): unrelated entities.
+- [Google](https://www.google.com/search?q=%22Big%20Pickle%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Big%20Pickle%22%20model%20benchmark): human challenge, not bypassed. Primary route/guide and scoped secondary record checked; no peer findings or authenticated inference.
+
+[1]: https://opencode.ai/inference/v1/models
+[2]: https://opencode.ai/docs/zen/
+[3]: https://models.dev/api.json
+[4]: https://artificialanalysis.ai/models/big-pickle
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web research; actual free route distinguished from unverified stable identity and quality.

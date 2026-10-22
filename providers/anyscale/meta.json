@@ -9,13 +9,13 @@
     {
       "name": "Trial Credits",
       "price": "$0 ($100 credit)",
-      "notes": "$100 trial credit granted on account creation. Generates API keys to test OpenAI-compatible serverless endpoints or launch Ray clusters in your own environment.",
+      "notes": "$100 trial credit for new accounts to benchmark, evaluate, and prototype hosted endpoints.",
       "evidenceUrl": "https://anyscale.com/pricing"
     },
     {
-      "name": "Pay-as-you-go / BYOC",
+      "name": "Pay-as-you-go",
       "price": "Usage-based",
-      "notes": "Metered Ray node-hours or serverless per-token inference. Supports Bring-Your-Own-Cloud (AWS/GCP/Azure) deployments.",
+      "notes": "On-demand Ray clusters and serverless token billing.",
       "evidenceUrl": "https://anyscale.com/pricing"
     }
   ],

@@ -1,7 +1,7 @@
 # Claude Sonnet 3.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic/Claude 3.5 Sonnet (`anthropic/claude-3-5-sonnet`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -75,6 +75,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Anthropic launch + engineering posts, BenchmarkList model page and per-eval results, BenchLM model page, RankLLMs benchmark guide, LLM-Stats, catalogue data); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

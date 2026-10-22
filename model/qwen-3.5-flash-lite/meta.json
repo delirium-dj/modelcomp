@@ -1,9 +1,8 @@
 {
   "id": "opencode/qwen-3.5-flash-lite",
   "name": "Qwen 3.5 Flash Lite",
-  "short": "Qwen 3.5 Flash Lite model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Alibaba's MoE Qwen 3.5 Flash-Lite API tier (~35B total/3B active, 1M ctx) for high-volume multimodal work at ultra-low pricing.",
+  "contextWindow": "1,000,000 total; 65,536 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$0.10/$0.40 per 1M in/out; commercial Alibaba Cloud tier"
 }

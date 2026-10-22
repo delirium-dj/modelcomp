@@ -1,9 +1,11 @@
 # Kimi K2.7 Code Highspeed — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI / Kimi K2.7-Code HighSpeed (`kimi-k2.7-code-highspeed`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `kimi-k2-7-code-highspeed` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked the official Moonshot platform docs (`platform.kimi.ai`, pricing + K2.7-Code quickstart), the Hugging Face model card (`moonshotai/Kimi-K2.7-Code`), and two independent trackers — Artificial Analysis (`artificialanalysis.ai/models/kimi-k2-7-code`) and BenchLM (`benchlm.ai/models/kimi-k2-7-code`), the latter carrying Vals AI Terminal-Bench 2.1 / LiveCodeBench / SWE-bench rows. This pass surfaced the first independent reasoning, coding, tool-use and long-context numbers for the base weights that HighSpeed serves; corrected the input modality to **text + image + video**; and flagged a max-output discrepancy against the prior report. HighSpeed itself still publishes no separate benchmark table.
 
@@ -62,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — official Moonshot platform docs (pricing + K2.7-Code quickstart), the Hugging Face model card (`moonshotai/Kimi-K2.7-Code`), and independent trackers Artificial Analysis and BenchLM (plus Vals AI rows it carries). No number invented; capability is inherited from the documented base model and each figure is cited to its URL.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

@@ -1,9 +1,8 @@
 {
   "id": "opencode/claude-opus-4.4",
   "name": "Claude Opus 4.4",
-  "short": "Claude Opus 4.4 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's late-2025 Opus (200K/64K, $15/$75) for nuanced instruction following and agentic work; archival premium tier.",
+  "contextWindow": "200,000 total; 64,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$15.00/$75.00 per 1M in/out; $1.50 cached read"
 }

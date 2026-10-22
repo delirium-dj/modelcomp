@@ -1,9 +1,11 @@
 # Jev 1.13 — findings by DeepSeek 4.1 Flash
 
 - Source: TypeSafe AI / Jev-1.13 (`typesafe/jev-1.13`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `jev-1.13` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-verified that Jev is TypeSafe AI's structured *decision* ("System One") model, `typesafe/jev-1.13`, text-in / typed-answer out, 64K total context (32K state + longest question), $0.042/1M input with free output. Independent confirmations came from OrcaRouter's live serving write-up (2026-09-30), AI/TLDR's model page, JevBench's external decision leaderboard (2026-09-25), DecisionsApi, AIHubMix, and thejevai.com's model directory; the vendor spec is the primary authority for native facts (docs.typesafe.ai/models). No verified public score exists for GPQA/HLE/SWE-bench/Terminal-Bench/MRCR, so all quality dimensions keep their prior conservative values; only rate-limit and throughput details moved. Conflicts surfaced: gateway price $0.0462 vs vendor $0.042; provider "context 32K" (AIHubMix) vs 64K combined (state alone is 32K — both true); rate limits revised 250K/1,200 → 100K/80 (docs say dynamic); throughput readings 192/221/349 tok/s across sources (and Jev emits no generated text, so the meter is not comparable).
 
@@ -58,6 +60,6 @@ Throughput / latency (independent, no generated text — figures are for the str
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research from zero, second pass (TypeSafe docs.typesafe.ai/models; OrcaRouter "Jev 1.13 Explained" serving write-up 2026-09-30; AI/TLDR model page; JevBench.dev leaderboard; DecisionsApi model page; AIHubMix model page; thejevai.com model directory; Benchmark Heaven JevBench v1.4.2.2 page; Failproof operational snapshot; Bing and DuckDuckGo HTML searches). Scores are normalized 1–100 interpretations, not official vendor scores; Tool use and Coding marked provisional where no matching benchmark exists. No scored dimension changed in this second pass — evidence confirmed the prior values but produced no new verified quality benchmark; rate-limit and throughput details were updated.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

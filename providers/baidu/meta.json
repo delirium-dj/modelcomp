@@ -1,0 +1,15 @@
+{
+  "name": "Baidu Cloud",
+  "kind": "vendor",
+  "short": "ERNIE foundation models and Qianfan enterprise AI platform services.",
+  "officialUrl": "https://cloud.baidu.com",
+  "hosts": ["cloud.baidu.com", "qianfan.baidubce.com"],
+  "plans": [
+    {
+      "name": "API Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "ERNIE 4.0 and ERNIE Turbo tier-based pricing.",
+      "evidenceUrl": "https://cloud.baidu.com/product/wenxinworkshop"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # DeepSeek V4-Flash-Vision-Exp — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek / DeepSeek-V4-Flash-Vision-Exp (`deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (DeepSeek API release notes + pricing/vision guides, Hugging Face card, vLLM recipe, DataNorth, LLM-Stats, OpenRouter). The alias/routing status and the vendor-only provenance were reconfirmed; the multimodal band correction and the advertised-vs-measured context caveat are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

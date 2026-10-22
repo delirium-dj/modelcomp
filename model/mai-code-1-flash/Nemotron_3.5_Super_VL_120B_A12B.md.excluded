@@ -1,40 +1,35 @@
-# Mai Code 1 Flash — findings by Nemotron 3.5 Super VL 120B A12B
+# MAI Code 1 Flash — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: web search (mai-code-1-flash model, benchmark, Microsoft, Artificial Analysis, benchlm) — no results returned; rate-limited before independent sources could be fetched
-- Date: 2026-10-16 (UTC)
+- Source: opencode.ai/data (`opencode.ai/data/mai/mai-code-1-flash`, usage/specs), temperature2.com (benchmark lookup, not found), benchgap.net (benchmark lookup, not found), modelcompare.dev (benchmark lookup, not found), modelbenchmark.io (benchmark lookup, not found)
+- Date: 2026-10-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Mai Code 1 Flash (InclusionAI / mai) — identity unconfirmed
-- **Short description:** Slug `mai-code-1-flash` appears in model-queue.md (curated Overall 72.1). No public model card, technical report, benchmark table, or Hugging Face repository found in fetched sources; no independent benchmark numbers exist for this slug.
-- **Provider / access:** Undisclosed.
-- **Release / knowledge:** Undisclosed.
-- **IDs:** `mai-code-1-flash` (model-queue slug). No HF/OpenRouter/API ID confirmed.
-- **Context window:** Undisclosed.
-- **Modalities:** Undisclosed (text assumed, unconfirmed).
-- **Reasoning / tool calls / structured output:** Undisclosed.
-- **Pricing (as of 2026-10-16):** Undisclosed.
-- **Architecture:** Undisclosed.
+- **Name:** MAI Code 1 Flash
+- **Short description:** Microsoft's MAI-Code-1-Flash, released June 2026; coding-optimized model; text input, text output; proprietary (weights not public).
+- **Provider / access:** Microsoft API (`mai-code-1-flash`, Chat Completions); available via OpenCode.
+- **Release / knowledge:** Released June 2026; knowledge cutoff Dec 2025.
+- **IDs:** `mai-code-1-flash` (Microsoft API, OpenCode). No Free ID confirmed on OpenCode Zen.
+- **Context window:** 256,000 tokens declared (opencode.ai); max output 128K tokens; no public long-context retrieval score.
+- **Modalities:** Text in; text out; no vision/audio confirmed; tool calling not explicitly advertised; structured output/JSON not confirmed.
+- **Pricing (as of 2026-10-20):** Not published on OpenCode (no efficiency data, no usage rows); treat as paid API, no Free tier confirmed.
+- **Architecture:** Proprietary (parameter count not disclosed); coding-optimized; from Microsoft.
 
 ### Raw benchmarks found
 
-None. Web searches for mai-code-1-flash returned no model card, benchmark, or review source; subsequent searches were rate-limited before independent sources could be fetched. No scores exist for any dimension (agent/tool use, reasoning/knowledge, coding, multimodal/grounded, long context, instruction following).
-
-### Conflicting results noted
-
-- None — there are no results to conflict.
+No standardized benchmark scores found in any source checked. opencode.ai shows no usage rows and no efficiency data. No GPQA, HLE, MMLU, SWE-bench, LiveCodeBench, HumanEval, or any other public benchmark results exist.
 
 ### Normalized scores (1–100)
 
-**No evidence base exists for scoring.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
 
 - **Tool use: insufficient evidence.** No public agent/tool benchmarks.
 - **Reasoning: insufficient evidence.** No public reasoning benchmarks.
-- **Context window: insufficient evidence.** Context undisclosed.
-- **Multimodal: insufficient evidence.** Modalities undisclosed.
-- **Coding: insufficient evidence.** No public coding benchmarks (model name suggests coding focus but unverified).
+- **Context window: insufficient evidence.** Declared 256K tokens; no public retrieval score.
+- **Multimodal: insufficient evidence.** Text in, text out only confirmed; no vision benchmark scores.
+- **Coding: insufficient evidence.** No public coding benchmarks.
 - **Cost efficiency: not scored** (per formula).
 - **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
 
@@ -42,6 +37,6 @@ None. Web searches for mai-code-1-flash returned no model card, benchmark, or re
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet search; model-queue.md lists the slug (Overall 72.1) but no public model card, benchmark, or review source was found. No numeric scores assigned due to insufficient evidence.
-- Future sources: if a model card or benchmarks are published, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
+- Method: public internet research (opencode.ai usage/specs + temperature2 + benchgap.net + modelcompare.dev + modelbenchmark.io); zero public benchmark results found for MAI Code 1 Flash — no numeric scores assigned due to insufficient evidence.
+- Future sources: if Microsoft publishes benchmarks or independent evaluations appear, add a new file next to this one using the same headings.

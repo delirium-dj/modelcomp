@@ -1,7 +1,7 @@
 # Big Pickle — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Big Pickle (`opencode/big-pickle`, free stealth alias)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — OpenCode Zen product page (https://opencode.ai/zen), Pi model card (https://pi.dev/models/opencode/big-pickle), Grokipedia fact-checked page (https://grokipedia.com/page/Big_Pickle_model), Cracked AI Engineering spec page (https://www.crackedaiengineering.com/ai-models/opencode-big-pickle), models.dev (https://github.com/anomalyco/models.dev), the direct SWE Atlas eval repo (https://github.com/PhillipChaffee/big-pickle-swe-atlas), plus Bing and DuckDuckGo result sets. Deep second pass of the 2026-10-01 report; conflicting figures (max output 32K vs 128K; GLM-4.6 vs GLM-4.7 proxy) are surfaced, not reconciled. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

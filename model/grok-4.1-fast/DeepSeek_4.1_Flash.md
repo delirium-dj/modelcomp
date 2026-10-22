@@ -1,7 +1,7 @@
 # Grok 4.1 Fast — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (SpaceXAI) / Grok 4.1 Fast (`grok-4-1-fast`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -72,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: independent public internet research (BenchLM base + reasoning rows, Artificial Analysis model pages, Vals AI Vibe Code Bench, x.ai official news, docs.x.ai). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

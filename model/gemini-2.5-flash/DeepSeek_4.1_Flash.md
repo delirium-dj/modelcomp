@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 2.5 Flash (`gemini-2.5-flash`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -90,6 +90,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research via Bing and DuckDuckGo HTML search plus direct model pages — Artificial Analysis, BenchLeader, BenchmarkList, BenchLM, LLM-Stats, Vals AI and Roboflow (≥3 independent sources); deep second pass over the 2026-10-01 report. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

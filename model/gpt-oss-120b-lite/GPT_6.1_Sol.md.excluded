@@ -1,0 +1,38 @@
+# GPT-OSS 120B Lite — findings by GPT 6.1 Sol
+
+- Source: requested `gpt-oss-120b-lite`; distinct publisher identity unresolved.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence for Overall.**
+
+## Model card
+
+Local metadata is scaffolded;128K/text/standard-pricing defaults are not provider evidence. OpenAI's primary GPT-OSS card describes120B and20B and adjustable reasoning levels, not a separate Lite checkpoint.[1] Low reasoning, quantization or a reseller label cannot establish new weights or justify copying120B high-effort results.
+
+Publisher-scoped HF search and models.dev return no exact Lite record; guessed exact AA/OpenRouter URLs404.[2][3][4][5] These are bounded public-record findings. Exact architecture/license, release/cutoff, context/output, modalities and current paid/free access remain unverified for Lite.
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID.** No120B/20B scores, low-effort results, or local roster average transferred.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld; no placeholder dimensions or inferred free entitlement.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22GPT-OSS-120B-Lite%22%20benchmark): generic OpenAI pages.
+- [Google](https://www.google.com/search?q=%22GPT-OSS-120B-Lite%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22GPT-OSS-120B-Lite%22%20model%20benchmark): human challenge, not bypassed. Primary family definition and exact catalog searches checked; no peer findings used.
+
+[1]: https://huggingface.co/openai/gpt-oss-120b/raw/main/README.md
+[2]: https://huggingface.co/api/models?author=openai&search=gpt-oss-120b-lite&limit=10
+[3]: https://models.dev/api.json
+[4]: https://artificialanalysis.ai/models/gpt-oss-120b-lite
+[5]: https://openrouter.ai/api/v1/models/openai/gpt-oss-120b-lite/endpoints
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent exact-identity public-web research and bounded self-exclusion.

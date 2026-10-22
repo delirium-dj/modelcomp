@@ -73,6 +73,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — official Anthropic launch post (SWE-bench Verified 63.7%/70.3%, TAU-bench SOTA, $3/$15, 200K/128K, 2025-02-24); Artificial Analysis Claude 3.7 Sonnet non-reasoning page (Intelligence Index 15 estimated, deprecated, 200K, $3/$15); RankedAGI (SWE-bench 70.3%, GPQA 68.0%, HLE 8.0%, Aider 60.4%, MMMU 71.8%, GDPval-AA 1047, Agentic 45.7%, Overall 47.8%); LLM Stats (200K/128K, 3 providers, pricing); Serenities AI (GPQA 84.8%, SWE-bench 62.3%, MMLU-Pro 79.0%, MATH 96.2%, AIME 2025 52.7%, RULER 92.0%, MMMU/MathVista, Arena ELO 1340). Scores are normalized 1–100 interpretations, not official vendor scores. Conflicting figures retained and attributed per source.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.md`, using the same headings.

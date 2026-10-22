@@ -8,7 +8,7 @@
     {
       "name": "Workers Free",
       "price": "$0 (10,000 Neurons/day)",
-      "notes": "Daily free allocation across Workers AI models; limits reset at 00:00 UTC.",
+      "notes": "Generates a Cloudflare API Token for local development via the OpenAI-compatible REST endpoint (api.cloudflare.com/client/v4/accounts/{id}/ai/v1/chat/completions). 10,000 Neurons/day reset daily at 00:00 UTC without a credit card.",
       "evidenceUrl": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
     },
     {

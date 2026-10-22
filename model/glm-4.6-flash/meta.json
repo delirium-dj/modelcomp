@@ -1,0 +1,8 @@
+{
+  "id": "opencode/glm-4.6-flash",
+  "name": "GLM 4.6 Flash",
+  "short": "Z.ai's free text-only Flash variant of GLM-4.6 (128K ctx, tool calling, reasoning) - no published Flash-specific benchmarks; Z.ai publishes flagship numbers only.",
+  "contextWindow": "131,072 (128K); no published retrieval benchmark",
+  "modalities": "Text in; text out",
+  "pricingNote": "Free ($0/$0) on the Z.ai Flash tier"
+}

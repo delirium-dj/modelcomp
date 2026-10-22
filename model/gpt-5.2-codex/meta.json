@@ -1,9 +1,8 @@
 {
   "id": "opencode/gpt-5.2-codex",
   "name": "GPT-5.2 Codex",
-  "short": "GPT-5.2 Codex model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenAI's GPT-5.2 Codex (400K/128K, $1.75/$14) - agentic coding model with native context compaction; Responses API, paid only.",
+  "contextWindow": "400,000 total; 272,000 max input; 128,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$1.75/$14.00 per 1M in/out; $0.175 cached read; no free lane"
 }

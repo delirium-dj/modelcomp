@@ -363,7 +363,7 @@ export default component$(() => {
                   what actually matters
                 </span>
               </h1>
-              <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#577184] min-[1000px]:mx-0 dark:text-[#c6d9e3]">
+              <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[#4e6678] min-[1000px]:mx-0 dark:text-[#c6d9e3]">
                 Tool use, reasoning, context, multimodal, coding and cost —
                 normalized to 1–100 from public benchmarks so current and future
                 models can be compared side by side.
@@ -474,7 +474,7 @@ export default component$(() => {
                       dominant-baseline="middle"
                       font-size="12"
                       font-weight={600}
-                      class="fill-[#577184] dark:fill-[#93adbe]"
+                      class="fill-[#4e6678] dark:fill-[#93adbe]"
                     >
                       {d.short}
                     </text>
@@ -1031,7 +1031,7 @@ export default component$(() => {
                                 </span>
                               ) : (
                                 <span
-                                  class="text-[#b26a1b] dark:text-[#e8b47e]"
+                                  class="text-[#9a5c15] dark:text-[#e8b47e]"
                                   title="Cost is scored on paid pricing"
                                 >
                                   Paid

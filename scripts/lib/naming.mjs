@@ -40,17 +40,15 @@ export function resolveSourceMeta(key, overrides, catalogLookup) {
 }
 
 /**
- * Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions -
- * param sizes grandfathered before the general digits+b/B rule in
- * normalizeSlug covered them (`gemma-4-31b` ("4" + 31B params),
- * `qwen-3.8-27b`, `qwen-3.5-0.8b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
- * `qwen-3.5-27b`, `qwen-3.5-35b-a3b` and `qwen-3.5-122b-a10b` (version + *B
- * params - the hit is version-digit → param-digit)).
+ * Slug exceptions: match digit-hyphen-digit but are NOT hyphen versions.
+ * Param sizes: `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`,
+ * `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b` and
+ * `qwen-3.5-122b-a10b` (version + *B params — the hit is version-digit →
+ * param-digit).
  */
 export const SLUG_VERSION_EXCEPTION = new Set([
   "gemma-4-31b",
   "qwen-3.8-27b",
-  "qwen-3.5-0.8b",
   "qwen-3.5-9b",
   "qwen-3.5-397b",
   "qwen-3.5-27b",
@@ -100,17 +98,15 @@ export const STEM_VERSION_EXCEPTION = new Set(["Gemma_4_31B_IT", "Qwen_3.8_27B"]
  * findings-stem identity). Version numbers use "." not "_" between digits:
  * every digit-underscore-digit join becomes a dot (`Laguna_XS_2_1` →
  * `Laguna_XS_2.1`), EXCEPT param-size joins — digits immediately followed by
- * `b`/`B`, with or without a decimal (`29b`, `0.8B`), are a parameter count,
- * never a version (`Xing_4.0_29b_a4b` = version 4.0 + 29B/4B-active params,
- * `Qwen_3.5_0.8B` = version 3.5 + 0.8B params, `Qwen_3.8_27B`,
- * `Gemma_4_31B_IT` stay
+ * `b`/`B` are a parameter count, never a version (`Xing_4.0_29b_a4b` =
+ * version 4.0 + 29B/4B-active params, `Qwen_3.8_27B`, `Gemma_4_31B_IT` stay
  * underscored). Explicit STEM_VERSION_EXCEPTION members and param-size joins
  * pass through untouched. Always run a freshly derived STEM through this
  * before writing a findings file or comparing against on-disk stems.
  */
 export function normalizeStem(stem, exceptions = STEM_VERSION_EXCEPTION) {
   if (exceptions.has(stem)) return stem;
-  return stem.replace(/(\d)_(?=\d)(?!\d+(?:\.\d+)?[bB])/g, "$1.");
+  return stem.replace(/(\d)_(?=\d)(?!\d+[bB])/g, "$1.");
 }
 
 /**

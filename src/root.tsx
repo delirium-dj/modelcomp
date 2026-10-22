@@ -8,7 +8,18 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
-        
+
+        {/*
+          Preload the display/body family (theme.css --font-display and
+          --font-body are both "Ubuntu") so the hero H1 — the LCP element —
+          can paint in the webfont in its first pass instead of repainting
+          seconds later. Pagespeed attributes that font fetch to the
+          "element render delay" part of the LCP breakdown. crossorigin is
+          required for font preloads even same-origin.
+        */}
+        <link rel="preload" href="/fonts/ubuntu/ubuntu-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ubuntu/ubuntu-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
         {/*
           Anti-flash script: runs synchronously in <head> BEFORE the first paint.
           WHY only html.dark? document.body does NOT exist yet at this point,

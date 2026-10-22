@@ -1,9 +1,8 @@
 {
   "id": "opencode/qwen-3.5-4b",
-  "name": "Qwen 3.5 4b",
-  "short": "Qwen 3.5 4b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Qwen 3.5 4B",
+  "short": "Alibaba's dense 4B multimodal Qwen 3.5 (262K ctx, YaRN-extendable to 1M, Apache 2.0) for light tools/coding and local assistants.",
+  "contextWindow": "262,144 native; extensible to 1,010,000 via YaRN (81,920 max output)",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Free Apache 2.0 open weights; verified free hosted lane (SiliconFlow)"
 }

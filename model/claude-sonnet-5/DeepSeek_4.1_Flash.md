@@ -67,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Anthropic Sonnet 5 docs + news, BenchLM model page + per-eval results, Vals AI, Artificial Analysis). The anomalous prior GPQA value was replaced with current independent readings; the system-card/Vals spreads are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

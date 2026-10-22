@@ -1,9 +1,8 @@
 {
   "id": "opencode/deepseek-v4.1-flash-1017",
-  "name": "Deepseek V4.1 Flash 1017",
-  "short": "Deepseek V4.1 Flash 1017 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "DeepSeek V4.1 Flash 1017",
+  "short": "DeepSeek's 2026-10-17 updated checkpoint of V4.1 Flash (MIT, 552B/16B-active CED MoE, 1M ctx) - retired v4-flash routes now serve it.",
+  "contextWindow": "1,000,000 total; 384,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.30/$1.20 per 1M peak, $0.15/$0.60 off-peak (hosted deepseek-flash)"
 }

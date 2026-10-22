@@ -1,0 +1,30 @@
+# OMI Alpha - findings by Beam (excluded)
+
+- Source: Beam (Beam)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "OMI Alpha"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** OMI Alpha (folder slug `omi-alpha`, id `opencode/omi-alpha`).
+- **Finding:** No first-party source (OMI, OpenCode Zen, OpenRouter) publishes a model named
+  "OMI Alpha" with verified specs. The curated meta (1M context, $0.40/$3.20, text+image in) is a
+  scaffolded placeholder; searches for the exact string returned no vendor announcement, model card,
+  or benchmark result.
+- **Context window / modalities / pricing:** unverified - adopted from scaffolded meta only.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for OMI Alpha in any first-party or independent source:
+  no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI /
+  Vals AI / SWE-bench / BenchLM row.
+
+## Signature
+
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: checked OpenCode Zen docs/catalogue, OpenRouter model list, and independent aggregators
+  (Artificial Analysis, BenchLM, Epoch AI, Vals AI). No verified benchmark exists; scores are
+  withheld rather than fabricated.
+- Future sources: if a genuine OMI Alpha appears, add `Beam.md` with the standard headings;
+  do not edit this exclusion.

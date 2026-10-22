@@ -1,9 +1,8 @@
 {
   "id": "opencode/claude-sonnet-5.4",
   "name": "Claude Sonnet 5.4",
-  "short": "Claude Sonnet 5.4 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's mid-2026 Sonnet (1M/128K, $2.50/$12.50) with adaptive thinking, sub-turn checkpointing and computer use; paid only, no free Zen id.",
+  "contextWindow": "1,000,000 total; 128,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$2.50/$12.50 per 1M in/out; $0.25 cached read"
 }

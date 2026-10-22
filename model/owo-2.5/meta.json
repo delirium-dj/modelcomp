@@ -1,9 +1,8 @@
 {
   "id": "opencode/owo-2.5",
   "name": "Owo 2.5",
-  "short": "Owo 2.5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Owo's September 2026 proprietary LLM (1M ctx) with multimodal input and tool use; hosted via the Owo API and OpenCode Zen.",
+  "contextWindow": "1,048,576 total; 256,000 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.40/$3.20 per 1M in/out (official Owo API docs)"
 }

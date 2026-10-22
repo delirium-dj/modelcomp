@@ -1,9 +1,11 @@
 # Ember 1 — findings by DeepSeek 4.1 Flash
 
 - Source: Fireworks Research / Ember-1 (`accounts/fireworks/models/ember-1`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ember-1`, 5 rows) assigns **no overall score** (unranked) and confirms the deep pass: Terminal-Bench 2.1 82.0%, SWE-bench Verified 92.2%, DeepSWE 75.2%, τ²-bench Airline 66.0%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > The prior file stated Ember-1 "publishes no standard capability benchmarks"; this pass found **direct Ember-1 rows**. Fireworks launch: **SWE-bench Verified 92.2%**, **DeepSWE 1.1 75.2%**, **Terminal-Bench 2.1 82.0%**, τ²-bench Airline 66.0%, SWE-Interact 20.0%. Independent Vals AI: **Vals Index 50.81% (#27/45)**, **Vibe Code Bench v1.1 83.87% (#16/110)**, Terminal-Bench 4.0 19.70%, Terminal-Bench Science 5.71%, Finance Agent v2 51.85%, CyberBench v1.1 69.52%, IOI 46.33%. BenchLM overall 72.0 (page header 72.4); LLM-Stats score pending.
@@ -67,6 +69,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Fireworks model card + launch blog with direct Ember-1 benchmark and token-efficiency rows, Vals AI model page, OpenRouter, Vercel, LLM-Stats, LLMBoard). Direct Ember-1 rows replaced the prior inherited-only scoring for Tool/Coding; Reasoning remains carried from the documented Kimi K3 base with the discrepancy flagged. No number invented.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

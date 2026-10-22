@@ -1,46 +1,37 @@
 # Ling 3.0 Flash Sante — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: opencode.ai/data/inclusionai/ling-3-0-flash-sante (usage/pricing only), vercel.com/ai-gateway/models/ling-3-0-flash-sante-free/api (Vercel listing), www.llm-releases.com/models/ling-3-0-flash-sante (release note)
-- Date: 2026-10-16 (UTC)
+- Source: opencode.ai/data (`opencode.ai/data/inclusionai/ling-3-0-flash-sante`, usage/specs), Orca Router (`www.orcarouter.ai/blog/ling-3-0-flash-sante-vs-ling-3-0-flash`, comparison blog), temperature2.com (`temperature2.com/models/ling-3-0-flash/`, base Ling 3.0 Flash benchmarks for reference only), benchmarklist.com (benchmark lookup)
+- Date: 2026-10-20 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Ling 3.0 Flash Sante (InclusionAI)
-- **Short description:** Health and medicine-specialized mixture-of-experts model built on Ling 3.0 Flash, 124B total / ~5.1B active parameters, 262K context, 32K max output; MIT license; released 2026-09-04. Specialized for medical reasoning and evidence-based retrieval; retains general reasoning, coding, and agentic capabilities of Ling 3.0 Flash.
-- **Provider / access:** Vercel AI Gateway (inclusionai/ling-3-0-flash-sante-free, free), OpenRouter.
-- **Release / knowledge:** Released 2026-09-04; knowledge cutoff not stated.
-- **IDs:** `inclusionai/ling-3.0-flash-sante` (OpenCode), `inclusionai/ling-3.0-flash-sante-free` (Vercel AI Gateway).
-- **Context window:** 262,000 tokens (opencode.ai; Vercel). Verified.
-- **Modalities:** Text in, text out (text-only — NOT multimodal); reasoning yes; tool calls yes; structured output not explicitly advertised.
-- **Pricing (as of 2026-10-16):** $0.07/M input, $0.22/M output, $0.01/M cached input (opencode.ai); free on Vercel AI Gateway.
-- **Architecture:** 124B total / ~5.1B active MoE, inherits Ling-3.0-flash hybrid-linear architecture; fine-tuned on medical data.
+- **Name:** Ling 3.0 Flash Sante
+- **Short description:** inclusionAI's medical-specialist variant of Ling 3.0 Flash, released September 2026; positioned for clinical-document analysis, evidence-based retrieval, drug-related reasoning; text input, text output; proprietary (not open weights); free trial promotion, weights not yet released for self-hosting.
+- **Provider / access:** inclusionAI API (`ling-3.0-flash-sante`, Chat Completions); available via Orca Router gateway.
+- **Release / knowledge:** Released September 2026; knowledge cutoff not stated.
+- **IDs:** `ling-3.0-flash-sante` (inclusionAI API, OpenCode). No Free ID confirmed on OpenCode Zen.
+- **Context window:** 262,144 tokens declared (opencode.ai); max output 33K tokens; no public long-context retrieval score.
+- **Modalities:** Text in; text out; no vision/audio confirmed; tool calling not explicitly advertised; structured output/JSON not confirmed.
+- **Pricing (as of 2026-10-20):** Free promotion active ("effectively costless" per Orca Router); no published per-token price; efficiency data not yet available on OpenCode (no usage rows).
+- **Architecture:** Proprietary (parameter count not disclosed); medical-specialist fine-tune of Ling 3.0 Flash; weights not yet released.
 
 ### Raw benchmarks found
 
-No public benchmark scores found for Ling 3.0 Flash Sante in any source (benchlm.ai, Artificial Analysis, Hugging Face eval_results, Vercel listing all lack benchmark numbers).
+No standardized benchmark scores found for Ling 3.0 Flash Sante in any source checked. Orca Router confirms "the weights release or a first independent medical benchmark is the event that would make the comparison a real one." opencode.ai shows no usage rows and no efficiency data. No GPQA, HLE, MMLU, SWE-bench, LiveCodeBench, or any other public benchmark results exist for the Sante variant.
 
-Agent / tool use: None found.
-Reasoning / knowledge: None found.
-Coding: None found.
-Multimodal & grounded: Text-only — NOT multimodal.
-Long context: Declared 262K; no retrieval score.
-Instruction following: None found.
-
-### Conflicting results noted
-
-- None — there are no results. The only public information is specs/pricing from opencode.ai and Vercel AI Gateway; no benchmark evaluation exists publicly.
+Reference only (NOT Sante): Ling 3.0 Flash base model has GPQA Diamond 85.5, LongContext Reasoning 73.0, Terminal-Bench 2.1 55.4, SciCode 42.0, HLE 23.7 (temperature2/Artificial Analysis) — these do NOT apply to Sante.
 
 ### Normalized scores (1–100)
 
-**No evidence base exists for scoring.** All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned. Cost efficiency is not scored regardless.
+All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
 
-- **Tool use: insufficient evidence.** No public agent/tool benchmarks.
-- **Reasoning: insufficient evidence.** No public reasoning benchmarks.
-- **Context window: 75/100.** Declared 262K (spec sheet only); no retrieval score.
-- **Multimodal: 50/100.** Text in / text out only — NOT multimodal.
-- **Coding: insufficient evidence.** No public coding benchmarks.
+- **Tool use: insufficient evidence.** No public agent/tool benchmarks for Sante variant.
+- **Reasoning: insufficient evidence.** No public reasoning benchmarks for Sante variant.
+- **Context window: insufficient evidence.** Declared 262K tokens; no public retrieval score.
+- **Multimodal: insufficient evidence.** Text in, text out only confirmed; no vision benchmark scores.
+- **Coding: insufficient evidence.** No public coding benchmarks for Sante variant.
 - **Cost efficiency: not scored** (per formula).
 - **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
 
@@ -48,6 +39,6 @@ Instruction following: None found.
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (opencode.ai specs + Vercel AI Gateway listing + llm-releases release note); all major benchmark aggregators checked — zero benchmark data found for this variant. No numeric scores assigned due to insufficient evidence.
-- Future sources: if benchmark data appears, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
+- Method: public internet research (opencode.ai usage/specs + Orca Router comparison blog + temperature2/Artificial Analysis base-model reference + benchmarklist.com); zero public benchmark results found for Ling 3.0 Flash Sante — no numeric scores assigned due to insufficient evidence.
+- Future sources: if inclusionAI publishes benchmarks or independent medical evaluations appear, add a new file next to this one using the same headings.

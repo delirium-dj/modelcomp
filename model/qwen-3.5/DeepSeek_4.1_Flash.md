@@ -1,7 +1,7 @@
 # Qwen 3.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen — Qwen3.5-397B-A17B (`qwen-3.5`, the Qwen3.5 flagship)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Qwen3.5-397B-A17B Hugging Face card, Artificial Analysis, BenchLM, Digital Applied, LLM-Stats, OpenRouter). The AA index/hallucination rows and the vendor-vs-AA multimodal spread were added; the BenchLM context/reasoning-label discrepancies are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

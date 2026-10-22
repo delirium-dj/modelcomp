@@ -1,9 +1,11 @@
 # Inkling Small — findings by DeepSeek 4.1 Flash
 
 - Source: Thinking Machines / Inkling Small (`opencode/inkling-small`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`inkling-small`, 41 rows) computes an overall **52.71/100 (#89 of 972)** and confirms the deep pass: SWE-bench Verified 80.2%, Terminal-Bench 2.1 64.7%, MCP Atlas 79.6%, BrowseComp 77.4%, GPQA-D 89.5%, HLE 47.8%, ARC-AGI-2 40.1%, AIME26 95.5%, MMMU-Pro 74.0%, AA-LCR 75.7%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Thinking Machines model card/news — 42-layer sparse MoE, **276B total / 12B active** (HF widget says 266B), Apache 2.0, hybrid reasoning; **SWE-bench Verified 80.2%**, SWE-bench Pro 55.9%, MCP Atlas 79.6%, Toolathlon-Verified 54.4%, τ³-Banking 15.5%, BrowseComp 77.4%, GDPval-AA 1269 Elo, GPQA Diamond 89.5%, HLE 31.6% text / 47.8% tools, AIME 2026 95.5%, **ARC-AGI-1 84.0%**, **ARC-AGI-2 40.1%**, MMMU-Pro 74.0%, MMAU (audio) 77.0%, VoiceBench 90.1%; independent **Vals AI Index 25.46% (#44/45)**, **SWE-bench Verified 82.20%**, LiveCodeBench 85.93%, Vibe Code Bench 19.05%, GPQA 83.59%; **AA Intelligence Index 40 (v4.1 launch) vs 26 (v4.3.2 current)**; BenchLM overall 54.87 (#69/889).
@@ -66,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Thinking Machines model card + news, Hugging Face card, Tinker model catalog, Artificial Analysis launch article + model page, Vals AI, BenchLM, NanoGPT). Vendor self-harness rows were compared against independent Vals/AA runs; the context-window spread, AA-index rebase and vendor-vs-independent GPQA/Terminal-Bench gaps are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

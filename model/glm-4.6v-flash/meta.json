@@ -1,9 +1,8 @@
 {
   "id": "opencode/glm-4.6v-flash",
-  "name": "Glm 4.6v Flash",
-  "short": "Glm 4.6v Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "GLM 4.6V Flash",
+  "short": "Z.ai's free dense-9B multimodal Flash (128K ctx, MIT weights) - visual function calling, grounding, file/video in; free Flash API tier.",
+  "contextWindow": "128,000 total",
+  "modalities": "Text, image, video, file in; text out",
+  "pricingNote": "Free on Z.ai Flash tier (in/out/cached $0); MIT open weights (self-host free)"
 }

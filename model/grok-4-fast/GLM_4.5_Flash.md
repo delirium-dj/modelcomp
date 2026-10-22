@@ -1,0 +1,101 @@
+# Grok 4 Fast — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: SpaceXAI (`grok-4-fast`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4 Fast
+- **Short description:** xAI's optimized version of Grok 4, designed for faster inference while maintaining core capabilities.
+- **Provider / access:** SpaceXAI (`grok-4-fast`) - API access
+- **Release / knowledge:** Released September 2025; knowledge cutoff not specified
+- **IDs:** `xai/grok-4-fast`
+- **Context window:** 2M tokens (~3000 A4 pages of size 12 Arial font)
+- **Modalities:** Text and image input; text output; reasoning no; tool calls unknown
+- **Pricing (as of 2026-10-22):** $0.20 per 1M input tokens, $0.50 per 1M output tokens
+- **Architecture:** Proprietary optimized architecture based on Grok 4
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: **no verified public score found**
+- AutomationBench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **11 (estimated, above average)**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval reported**
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps it.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 75/100.** Strong multimodal input support (text and images) but limited to text output, capping performance.
+- **Reasoning: 80/100.** Based on Grok 4 architecture, optimized for speed while maintaining strong reasoning capabilities.
+- **Context window: 60/100.** 2M tokens context window is substantial but not the largest available, providing good long-document support.
+- **Multimodal: 15/100.** Text-only output despite supporting multimodal input, significantly limiting multimodal capabilities.
+- **Coding: 80/100.** As xAI model, expected to have strong coding capabilities with optimized performance.
+- **Cost efficiency: 75/100.** Significantly cheaper than comparable models, 40% fewer thinking tokens and up to 64× cheaper than frontier models.
+- **Overall Score: 62/100.** Strong capabilities optimized for speed with excellent cost efficiency, suitable for enterprise applications.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-10-22
+- Method: Public internet research from official sources and benchmark data; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

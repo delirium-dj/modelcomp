@@ -1,7 +1,7 @@
 # GPT 5.2 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.2 (`openai/gpt-5.2`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,6 +67,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (OpenAI GPT-5.2 docs + launch page full evaluation tables, BenchLM model page, Artificial Analysis, Vals AI, AI Release Tracker). The official launch table replaced the prior OpenRouter-only rows; the FrontierMath/HLE/GPQA spreads and the weak-provenance multimodal rows are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

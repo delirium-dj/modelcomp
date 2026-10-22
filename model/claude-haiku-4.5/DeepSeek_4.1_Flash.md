@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Haiku 4.5 (`anthropic/claude-haiku-4.5`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,6 +59,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Anthropic official model page + launch post; BenchLM; BenchmarkList; Vals AI; APX; LLM Stats). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Haiku_5.md`, using the same headings.

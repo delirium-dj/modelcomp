@@ -1,0 +1,37 @@
+# Owl Alpha — findings by GPT 6.1 Sol
+
+- Source: requested vendorless/stealth `owl-alpha`.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence for Overall.**
+
+## Model card
+
+Publisher, checkpoint, release/cutoff, architecture/license and actual modality contract remain unresolved. Local notes describe an old free alias and suggest LongCat2.0 succession, but no public resolving identity/weights evidence was recovered. LongCat's quality is not transferred.
+
+Both guessed vendorless and `stealth/owl-alpha` endpoint queries return404; the current OpenRouter model list and models.dev contain no matching ID.[1][2][3] AA exact profile404.[4] These are bounded current-catalog findings, not proof against historical/private existence. Historical ~1M context and free access cannot establish current capacity, retrieval or price.
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID** for tools, reasoning, coding, perception or retention. No sibling/alias benchmark or roster average used.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld; no invented scores or current free entitlement.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Owl%20Alpha%22%20benchmark): empty feed.
+- [Google](https://www.google.com/search?q=%22Owl%20Alpha%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Owl%20Alpha%22%20model%20benchmark): human challenge, not bypassed. Direct public catalog checks supplement search limitations; no peer findings or authenticated inference.
+
+[1]: https://openrouter.ai/api/v1/models/owl-alpha/endpoints
+[2]: https://openrouter.ai/api/v1/models
+[3]: https://models.dev/api.json
+[4]: https://artificialanalysis.ai/models/owl-alpha
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web identity research and bounded evidence-based exclusion.

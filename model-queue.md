@@ -3,6 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
+94.2 gemini-4-argo
 94 muse-spark-1.3
 93.4 claude-opus-5.5
 92.6 gemini-4-argon
@@ -22,7 +23,6 @@
 90.5 gpt-5.6-sol
 90.5 gpt-6.1-sol
 90 claude-sonnet-5.4
-90 muse-wonder-1.0
 89.7 claude-opus-4.8
 89.6 muse-spark-1.2
 89.4 glm-5.3-flash
@@ -41,6 +41,7 @@
 88 glm-5.3-flashx
 88 gpt-5.2-pro
 88 gpt-6-sol
+88 muse-wonder-1.0
 87.9 claude-sonnet-5
 87.7 ox_alpha
 87.6 gemini-3-flash
@@ -62,13 +63,13 @@
 85.4 kimi-k2.6
 85.3 Inkling
 85.2 deepseek-v4-vision-exp
+85.2 gemini-2.5-pro
 85.2 qwen-3.8-flash-next
 85.1 grok-4.5
 85.1 qwen-3.5-plus
 85 gpt-5.3-codex
 84.9 seed-2.0-pro
 84.8 gpt-5.6-luna
-84.7 gemini-2.5-pro
 84.3 mistral-large-4
 84.3 pareto-26.10-preview
 84.2 grok-4.3
@@ -140,15 +141,15 @@
 71.2 beam
 71.2 qwen-3.5-35b-a3b
 71 qwen-3.7-flash
+70.8 gpt-5.1-codex-max
 70.7 glm-4.6v-flash
-70.5 gpt-5.1-codex-max
 70.4 longcat-2.0
 69.8 glm-5.1
 69.7 qwen3-max
 69.5 qwen-3.5-flash
 68.8 hy3-preview
-68.5 longcat-2.5-preview
 68.4 diffusiongemma-26b-a4b
+68.3 longcat-2.5-preview
 68.1 ling-3.1-flash
 68.1 solar-open-2
 67.6 solar-pro-4
@@ -164,7 +165,6 @@
 64.8 claude-haiku-3.5
 64.5 glm-5
 64.2 deepseek-v3.2
-64 longcat-2.5
 63.8 gpt-5.3-codex-spark
 63.8 ling-3.0-flash
 63.5 owl-alpha
@@ -173,31 +173,32 @@
 63 qwen-3.5-4b
 62.5 grok-5
 62.3 gemma-4-e4b
-61.7 xing_4.0_29b_a4b
-60.9 gpt-5.1-codex-mini
+62.2 gpt-5.1-codex-mini
+62 xing_4.0_29b_a4b
+61.7 mimo-v2.6-distill-qwen-9b
 60.9 gpt-oss-120b
 60.7 glm-4.7-flash
-60.6 mimo-v2.6-distill-qwen-9b
-60.4 mai-code-1-flash
+60.7 mai-code-1-flash
 59.9 laguna-xs-2.1
 59.3 ling-3.0-flash-sante
 59 gpt-oss-120b-lite
 58.4 exo-free
 58.2 llama_3.2_vision_instruct
-58 flint
+57.9 solar-mini-4
+57.5 flint
 57.4 north_mini_code
 57.2 big-pickle
-57.2 solar-mini-4
-57 qwen-3.5-2b
-56.8 nemotron-3.5-lightning-free
+56.9 nemotron-3.5-lightning-free
 55 glm-4.5-flash
 54.2 gemma-4-e2b
 53.8 ling-2.6-flash
 53.7 mercury-2.5
-52.2 ling-3.0-tiny
+53 glm-4.6-flash
+52.5 qwen-3.5-2b
+52.3 ling-3.0-tiny
 52 omi-alpha
 51 owo-2.5
-50 qwen-3.5-0.8b
 47.5 mai-experimental-test
+44 qwen-3.5-0.8b
 41 nemotron-3.5-bolt-e4b
 39.5 jev-1.13

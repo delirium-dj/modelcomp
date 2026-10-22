@@ -1,9 +1,8 @@
 {
   "id": "opencode/gemma-4-26b-a4b",
-  "name": "Gemma 4 26b A4b",
-  "short": "Gemma 4 26b A4b model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "Gemma 4 26B A4B",
+  "short": "Google's April 2026 sparse Gemma 4 MoE (25.2B total/4B active, 262K ctx) for high-throughput multimodal use; free open weights.",
+  "contextWindow": "262,144 total; 32,768 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Free open weights; hosted ~$0.12/$0.30 per 1M"
 }

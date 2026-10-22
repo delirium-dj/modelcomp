@@ -1,0 +1,37 @@
+# Exo Free — findings by GPT 6.1 Sol
+
+- Source: OpenCode `exo-free`, underlying vendor/checkpoint unidentified.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified quality evidence for Overall.**
+
+## Model card
+
+- Primary Zen guide still lists ExoFree, a free limited-time feedback slot, and says collected data may improve the model.[1] That is not a zero-retention/no-training guarantee.
+- Current public model catalog contains no exact Exo ID, while models.dev marks it **deprecated** and records1,048,576 context/131,072 output,text+image→text,zero input/output tariff.[2][3] These conflicting documentation/catalog states do not prove live entitlement or authenticated availability. Local notes' exact three-day lifetime/HTTP410 were not independently reproduced here.
+- Publisher, fixed weights, architecture/license, release/cutoff and native modality/retention quality remain unresolved. No identification with the unrelated distributed-inference software named Exo.
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID.** Exact guessed AA profile404.[4] Registry limits and a free price are not measured tool/reasoning/coding/perception quality; no sibling or roster scores transferred.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld without fabricated dimensions, even though a historical/documented free slot is real.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22Exo%20Free%20AI%22%20benchmark): empty feed.
+- [Google](https://www.google.com/search?q=%22Exo%20Free%20AI%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22Exo%20Free%20AI%22%20model%20benchmark): human challenge, not bypassed. Primary catalog/guide and scoped secondary record inspected; no peer findings or authenticated inference.
+
+[1]: https://opencode.ai/docs/zen/
+[2]: https://opencode.ai/inference/v1/models
+[3]: https://models.dev/api.json
+[4]: https://artificialanalysis.ai/models/exo
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web identity research, separating documented free pricing from unverified live availability and missing quality evidence.

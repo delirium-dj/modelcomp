@@ -1,0 +1,15 @@
+{
+  "name": "Replicate",
+  "kind": "aggregator",
+  "short": "Cloud hosting and API platform for open-source AI models, fine-tuned weights, and custom runtimes.",
+  "officialUrl": "https://replicate.com",
+  "hosts": ["replicate.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-second hardware compute rates",
+      "notes": "Pricing varies by GPU type (e.g., A100, H100, L40S) and model inference duration.",
+      "evidenceUrl": "https://replicate.com/pricing"
+    }
+  ]
+}

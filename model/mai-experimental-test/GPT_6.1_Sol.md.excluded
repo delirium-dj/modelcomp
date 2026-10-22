@@ -1,0 +1,37 @@
+# MAI Experimental Test — findings by GPT 6.1 Sol
+
+- Source: requested `opencode/mai-experimental-test`; released checkpoint unresolved.
+- Date: 2026-10-22 (UTC)
+- Overview: [model-comparison](../../model-comparison.md)
+- Signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence for Overall.**
+
+## Model card
+
+No exact experimental-test entry found in the checked primary Microsoft model catalog or models.dev.[1][2] Guessed exact AA/OpenRouter URLs404.[3][4] These are bounded public-record observations, not proof against private/internal experiments.
+
+Exact publisher mapping, stable weights, architecture/license, release/cutoff, context/output, modalities and paid/free access remain unverified. Local sandbox-slot and128K/text defaults do not establish a measured public product. Published MAI-Code/Thinking/Image/Voice models are not silently substituted for this name.
+
+### Raw benchmarks found
+
+**No verified public score found for this exact model/ID** for tools, reasoning, coding, perception or retention. No placeholder scores, local roster average or other MAI model's measurements used.
+
+### Normalized scores (1–100)
+
+Not assigned. Overall withheld rather than inventing an identity or quality dimensions.
+
+### Fresh search trail and sources
+
+- [Bing](https://www.bing.com/search?format=rss&q=%22MAI%20Experimental%20Test%22%20benchmark): generic names, with Microsoft's actual model catalog lead.
+- [Google](https://www.google.com/search?q=%22MAI%20Experimental%20Test%22%20model%20benchmark): JavaScript interstitial.
+- [DuckDuckGo](https://duckduckgo.com/html/?q=%22MAI%20Experimental%20Test%22%20model%20benchmark): human challenge, not bypassed. Direct primary/catalog checks supplement search limitations; no peer findings used.
+
+[1]: https://microsoft.ai/models/
+[2]: https://models.dev/api.json
+[3]: https://artificialanalysis.ai/models/mai-experimental-test
+[4]: https://openrouter.ai/api/v1/models/microsoft/mai-experimental-test/endpoints
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent exact-identity public-web research and bounded evidence-based exclusion.

@@ -1,0 +1,34 @@
+# Gemini 4 Argo - findings by Beam (excluded)
+
+- Source: Beam (Beam)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Gemini 4 Argo"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Gemini 4 Argo (folder slug `gemini-4-argo`, id `opencode/gemini-4-argo`).
+- **Finding:** No first-party Google source (model card, system card, API docs, pricing page, Vertex AI catalog)
+  publishes a "Gemini 4 Argo" model. The curated meta (200K context, $3.50/$17.50, text/code/image in)
+  is a scaffolded placeholder; the live Google/Gemini lineup does not include an "Argo" SKU. Search
+  for the exact string returned only the sibling "Gemini 4 Argon" (a distinct slug in this dataset)
+  and unrelated third-party "argo" projects.
+- **Context window / modalities / pricing:** unverified - adopted from scaffolded meta only, not a
+  vendor source.
+- **Access:** no verified route on OpenCode Zen, OpenRouter, or Vertex AI.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Gemini 4 Argo in any first-party or independent
+  source: no Google model page, no system card, no API id, no pricing row, no Artificial Analysis /
+  Epoch AI / Vals AI / SWE-bench row, no BenchLM entry.
+
+## Signature
+
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: checked first-party sources first (Google/Gemini model lineup, Vertex AI catalog,
+  OpenRouter model list, OpenCode Zen catalogue) then independent aggregators (Artificial Analysis,
+  BenchLM, Epoch AI, Vals AI). No verified benchmark exists; scores are withheld rather than
+  fabricated. The sibling slug `gemini-4-argon` is a separate entry and is not a proxy for this one.
+- Future sources: if a genuine Gemini 4 Argo appears, add `Beam.md` with the standard headings;
+  do not edit this exclusion.

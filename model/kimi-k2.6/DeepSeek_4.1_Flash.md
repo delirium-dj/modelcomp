@@ -67,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (Moonshot Kimi K2.6 blog + Hugging Face card, Vals AI, BenchLM, Artificial Analysis, Together AI, OpenRouter). Independent Vals/AA rows were added to the vendor table; the SWE/Terminal-Bench/MMMU spreads and the composite-index method differences are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -428,19 +428,6 @@ export default component$(() => {
                 </p>
               </div>
             </article>
-            {model.meta.notable?.length ? (
-              <article class="grid grid-cols-[24px_1fr] gap-4">
-                <span class="mt-2 h-[13px] w-[13px] rounded-full bg-[#4f9d7e]" aria-hidden="true" />
-                <div>
-                  <h3 class="text-[21px] font-medium tracking-tight">Worth noting</h3>
-                  <ul class="mt-2 max-w-[610px] list-disc pl-5 leading-[1.7] text-[#49677a] dark:text-[#a9c2d2]">
-                    {model.meta.notable.map((note) => (
-                      <li key={note}>{note}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ) : null}
           </div>
         </section>
 

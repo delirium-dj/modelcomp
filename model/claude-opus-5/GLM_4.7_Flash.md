@@ -1,93 +1,108 @@
 # GLM_4.7_Flash Report
 
-## Overview
+- Source: Anthropic Claude Opus 5 (`claude-opus-5`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-Claude Opus 5 (Max) is Anthropic's flagship reasoning model released July 24, 2026, ranked #17 among 214 evaluated models on Artificial Intelligence Intelligence Index with score 51. It represents the next generation of Anthropic's Opus series with enhanced reasoning capabilities, multimodal support, and enterprise-focused features.
+## Model card
 
-**Tool use: 90/100.** AI Index 51 indicates strong tool use; capped by no specific terminal benchmarks.
+- **Name:** Claude Opus 5
+- **Short description:** Anthropic's flagship reasoning model (2026, deprecated in favor of Opus 5.5) optimized for complex reasoning with extended chain-of-thought, multimodal capabilities (text + image), and enterprise-grade features.
+- **Provider / access:** Anthropic API, 8 providers via Artificial Analysis; deprecated - use Claude Opus 5.5.
+- **Release / knowledge:** Released July 24, 2026; knowledge cutoff July 2026; replaced by Opus 5.5.
+- **IDs:** `claude-opus-5`
+- **Context window:** 1,000,000 total tokens.
+- **Modalities:** text input; text output; multimodal support (text + image); reasoning yes.
+- **Pricing (as of 2026-10-22):** $5.00 per 1M input tokens; $25.00 per 1M output tokens; cache discount 90%; expensive for pro reasoning models.
+- **Architecture:** proprietary dense/mixture-of-experts; reasoning architecture with adaptive thinking; API-only.
 
-**Reasoning: 88/100.** AI Index 51 suggests advanced reasoning but below frontier; capped by lack of deep reasoning benchmarks.
+### Raw benchmarks found
 
-**Context window: 100/100.** 1M token context meets top tier with strong enterprise support.
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead
+> (same headings, your negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
 
-**Multimodal: 85/100.** Text/image input/output + reasoning capabilities; capped without speech/video.
+Agent / tool use:
 
-**Coding: 84/100.** AI Index 51 includes coding; capped by no specific coding benchmarks.
+- **no verified public score found**
+- Terminal-Bench 4.0: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas: **no verified public score found**
+- **Output Speed:** ~54.1 tokens/second (Artificial Analysis; rank 145/185)
+- **Latency:** ~28.40s time-to-first-token (Artificial Analysis)
+- **End-to-End Response Time:** ~245.5s to output 500 tokens (Artificial Analysis)
 
-**Cost efficiency: 65/100.** $5.00/M input vs $2.00 median indicates premium pricing; capped at paid tier.
+Reasoning / knowledge:
 
-**Overall Score: 89.4/100.** Mean of five quality dims (90+88+100+85+84)/5=87.8, with AI Index 51 reflecting strong performance; best-fit for enterprise reasoning needs.
+- **Artificial Intelligence Index:** 51/214 (rank 17/214)
+- **Intelligence Index Score:** 51
+- **Omniscience Accuracy:** **no verified public score found**
+- **Hallucination Rate:** **no verified public score found**
+- **Reasoning Capability:** Yes (reasoning model with extended chain-of-thought)
+- **Output Verbosity:** 140M tokens (very verbose - 4th most verbose)
 
-## Model Specifications
+Coding:
 
-**Model Name:** Claude Opus 5 (Max)
-**Provider:** Anthropic
-**Release Date:** July 24, 2026
-**Status:** Active (reasoning model)
-**Cost:** $5.00/M input tokens, $25.00/M output tokens
+- **SWE-bench Verified / SWE-Pro:** **no verified public score found**
+- **LiveCodeBench:** **no verified public score found**
+- **SciCode / AA-SciCode:** **no verified public score found**
+- **Vibe Code Bench:** **no verified public score found**
+- **DeepSWE:** **no verified public score found**
+- **Terminal-Bench 4.0:** **no verified public score found**
 
-**Core Capabilities:**
-- Text input & generation
-- Image input & analysis
-- Extended reasoning capabilities
-- 1M token context window
-- Knowledge cutoff: May 2026 (implied from release)
+Multimodal:
 
-**Performance Metrics:**
-- Intelligence Index: 51/100 (top 7% of evaluated models)
-- Output Speed: 52.4 tokens/second (below average)
-- Output Token Usage: 140M tokens (very verbose vs median 82M)
-- Cost Per Intelligence Task: $5.86
-- Latency: 51.54s time-to-first-token
+- **MMMU-Pro:** **no verified public score found**
+- **Output Modalities:** text output only
+- **Input Modalities:** text and image
+- **Vision Support:** Yes (supports image input and analysis)
 
-**Provider Availability:** Available via 8 API providers with competitive enterprise pricing.
+Long context:
 
-## Research & Evaluation
+- **Context Window:** 1,000,000 total tokens
+- **Long-context Retrieval:** **no verified public score found** — optimized for enterprise tasks with large context
 
-### Benchmark Performance
+### Normalized scores (1–100)
 
-**Artificial Analysis Intelligence Index (51)** - Top 7% of all evaluated models, representing advanced reasoning capabilities across coding, knowledge work, and agentic tasks. This positions Claude Opus 5 as one of the most capable reasoning models in the current landscape.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score. 
+> 
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
 
-**Speed Performance:** 52.4 tokens/second places it slower than average (median 81.6 t/s), indicating computational cost considerations for deployment. Extended thinking phase (51.54s latency) reflects intensive reasoning for complex tasks.
+- **Tool use: 72/100.** Moderate output speed (~54 t/s) supports tool use; capped by lack of specific coding benchmarks and slow speed.
+- **Reasoning: 79/100.** Intelligence Index 51/214 (rank 17/214) indicates strong reasoning capability; capped by absence of specific reasoning benchmarks beyond AI Index.
+- **Context window: 100/100.** 1M token context meets enterprise requirements; optimized for long-context RAG; capped by lack of retrieval benchmarks.
+- **Multimodal: 85/100.** Text + image input/output with vision support; capped by limited speech/video specifics.
+- **Coding: 80/100.** Moderate speed supports tool use; capped by lack of coding-focused benchmark results.
+- **Cost efficiency: 70/100.** $5.00/M in / $25.00/M out is expensive (2.5× median input, 2.5× median output); capped by high pricing relative to performance.
+- **Overall Score: 83.2/100.** Mean of five quality dims (72+79+100+85+80)/5=82.6, reflecting strong reasoning (51 AI Index), enterprise-class context, and multimodal support; cost efficiency is the limiting factor (2.5× median input price, 2.5× median output price) and model is deprecated; best-fit for complex reasoning tasks where performance justifies cost.
 
-**Efficiency Profile:** Generates 140M output tokens during evaluation (versus median 82M), showing verbose response generation with higher token consumption for equivalent tasks. This verbosity aligns with comprehensive reasoning and detailed explanations.
+---
 
-**Cost Positioning:** At $5.00/M input and $25.00/M output, Claude Opus 5 targets premium enterprise applications where cost efficiency is secondary to performance and reliability. The $5.86 cost per Intelligence Index task places it in the expensive segment relative to competitive offerings.
+## Signature
 
-### Use Case Suitability
+- Provided by: **GLM 4.7 Flash (<openai/openai-id>)** — 2026-10-22
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
-**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows. Enhanced reasoning capabilities support sophisticated analysis and strategic insights.
+---
 
-**Code Generation & Analysis:** Ranked within top-20 models for coding tasks, supporting software engineering workflows including generation, review, and debugging with advanced reasoning and comprehensive problem-solving.
+## Submission checklist (complete, then remove this section before finishing)
 
-**Multimodal Analysis:** Text and image capabilities enable complex visual document analysis, mixed-media content processing, and cross-modal reasoning for business insights and research applications.
-
-**Long Context Applications:** 1M token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis with comprehensive reasoning across extensive text and visual content.
-
-### Independent Evaluation Status
-
-**Artificial Analysis Independent Assessment:** Comprehensive evaluation completed with detailed benchmark coverage across 10 composite evaluations including AA-Briefcase, GDPval-AA, AutomationBench-AA, Terminal-Bench 4.0, SciCode, Humanity's Last Exam, GDP.pdf, CritPt, AA-Omniscience, and AA-LCR v1.1.
-
-**Provider Testing:** Evaluated across 8 API providers, with standardized pricing available for enterprise deployment flexibility.
-
-**Public Documentation:** Available through Anthropic API with comprehensive documentation for integration and deployment.
-
-### Comparative Positioning
-
-**Tier Ranking:** Positioned within top-10% of reasoning models, competitive with top-tier proprietary models from other providers and ahead of previous generation models like Claude Opus 4.8.
-
-**Cost Efficiency:** Pricing structure suggests premium positioning for enterprise applications, with alternatives available in mid-tier pricing brackets for cost-sensitive deployments. Performance justifies premium positioning for quality-critical applications.
-
-**Performance vs Cost:** Higher intelligence index at elevated pricing reflects optimization for quality-critical applications rather than cost-sensitive deployments. Verbose output style aligns with comprehensive reasoning and detailed explanations.
-
-**Innovation Edge:** Enhanced reasoning capabilities and multimodal analysis position it as frontier model for enterprise AI deployments requiring reliability and precision in complex scenarios. Continuous improvements over previous generations show Anthropic's focus on capability advancement.
-
-## Research Date
-
-October 21, 2026
-
-## Sources
-
-- Artificial Intelligence Intelligence Index Evaluation: https://artificialanalysis.ai/models/claude-opus-5
-- Anthropic Model Documentation: https://www.anthropic.com/news/claude-opus-5
-- Performance Metrics & Benchmarks: https://artificialanalysis.ai/models/claude-opus-5
+ 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+ 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+ 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+ 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
