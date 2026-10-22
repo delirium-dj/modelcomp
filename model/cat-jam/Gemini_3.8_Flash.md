@@ -1,7 +1,7 @@
 # Cat Jam — findings by Gemini 3.8 Flash
 
 - Source: OpenCode/Cat Jam (`opencode/cat-jam`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/cat-jam`, `opencode/cat-jam-free`.
 - **Context window:** 1,048,576 tokens nominal capacity (1M context window, with 262K practical active window on many clients), supporting up to 131,072 maximum output tokens.
 - **Modalities:** Text input; text and code output; native reasoning traces, tool calling, and structured JSON output.
-- **Pricing (as of 2026-10-21):** Free ($0.00) on OpenCode Zen promotional tier; unmetered usage on OpenCode Go.
+- **Pricing (as of 2026-10-17):** Free ($0.00) on OpenCode Zen promotional tier; unmetered usage on OpenCode Go.
 - **Architecture:** High-throughput stealth transformer model with adjustable reasoning effort levels (`low`, `medium`, `high`, `xhigh`, `max`).
 
 ### Raw benchmarks found
@@ -52,12 +52,12 @@ Long context:
 - **Multimodal: 15/100.** Pure text-and-code architecture without native visual, image, or audio processing modalities.
 - **Coding: 58/100.** Capable code generator with ~50% SWE-bench Verified, 56.5% LiveCodeBench, and 62.0% on Vibe Code Bench for rapid application prototyping.
 - **Cost efficiency: 100/100.** 100% Free on OpenCode Zen and unmetered on OpenCode Go.
-- **Overall Score: 51/100.** Quality arithmetic mean of the 5 core quality dimensions ((54 + 52 + 76 + 15 + 58) / 5 = 51.0). Highly responsive zero-cost sub-agent and scaffolding engine.
+- **Overall Score: 51/100.** Highly responsive zero-cost sub-agent and scaffolding engine, excelling at fast application prototyping and high-volume coding passes.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
 - Method: Public internet research synthesizing OpenCode platform documentation, developer benchmark trials, and community evaluation logs; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -23,21 +23,15 @@ export type { SourceKey, ResultsView };
 /**
  * Warn-once per process (GLM53F_IMP.md item 2): this module is re-evaluated
  * per build environment (SSR bundle, client, SSG prerender), so a bare
- * console.warn spams the same line 3-4x per build. Deduping by message plus
- * a single suppressed-notes summary keeps the log readable; the full lines
- * print only with MODELS_DEBUG=1. `pnpm sync` remains the strict gate.
+ * console.warn spams the same line 3-4x per build. Deduping by message keeps
+ * the production signal (e.g. someone built without re-running sync) while
+ * the log stays readable. `pnpm sync` remains the strict gate.
  */
 const warned = new Set<string>();
-function debugModelsEnabled(): boolean {
-  return (
-    (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env
-      ?.MODELS_DEBUG === "1"
-  );
-}
 function warnOnce(msg: string): void {
   if (warned.has(msg)) return;
   warned.add(msg);
-  if (debugModelsEnabled()) console.warn(msg);
+  console.warn(msg);
 }
 
 export interface ModelScores {
@@ -105,6 +99,12 @@ export interface AiModel {
     standout?: string;
     /** Curated qualitative one-liner (no scores): the model's main caveat. */
     tradeoff?: string;
+    /**
+     * Curated "worth noting" callouts: verified, sourced facts (numbers
+     * welcome) that don't fit the standout/tradeoff one-liners — rendered
+     * as the "Worth noting" block on the model profile.
+     */
+    notable?: string[];
     /** Official website or documentation URL for the model */
     officialUrl?: string;
   };
@@ -160,6 +160,7 @@ function hydrateModel(slug: string, meta: MetaFile): AiModel | null {
       noFreeId: meta.noFreeId,
       standout: meta.standout,
       tradeoff: meta.tradeoff,
+      notable: meta.notable,
       officialUrl: meta.officialUrl,
     },
   };
@@ -248,9 +249,10 @@ interface MetaFile {
   pricingLinks?: (string | null)[];
   freeTierNote?: string;
   noFreeId?: boolean;
-  standout?: string;
-  tradeoff?: string;
-  scaffolded?: boolean;
+    standout?: string;
+    tradeoff?: string;
+    notable?: string[];
+    scaffolded?: boolean;
   /** Optional paradigm tag: "generative" (default) or "decision". */
   category?: string;
   officialUrl?: string;
@@ -358,17 +360,6 @@ export const MODELS: AiModel[] = (() => {
   }
   return models;
 })();
-
-/**
- * Compact signal for the suppressed per-message warnings above: one line
- * instead of a wall of `[models] ...` during dev/SSG. Full detail prints
- * with MODELS_DEBUG=1; `pnpm sync` fails loudly on the actionable ones.
- */
-if (warned.size && !debugModelsEnabled()) {
-  console.warn(
-    `[models] ${warned.size} data note(s) suppressed — MODELS_DEBUG=1 to print; pnpm sync is the strict gate`,
-  );
-}
 
 /**
  * Virtual sort views for the results-source dropdown. Each entry mirrors the

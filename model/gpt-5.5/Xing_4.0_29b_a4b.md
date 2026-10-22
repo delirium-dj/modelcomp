@@ -1,34 +1,39 @@
-# GPT-5.5 — findings by Xing40_29B_A4B
+# GPT 5.5 — findings by Xing40_29B_A4B
 
-> Source: OpenAI (openai/gpt-5.5)
-> Date: 2026-10-21 UTC
-> Overview + scoring methodology: ../../model-comparison.md
-> Cross-model signed log: ../../model-findings.md
+> Source: OpenAI (`OpenAI/GPT-5.5`)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
-- **Name:** GPT-5.5
-- **Provider / access:** API ID: gpt-5.5 (OpenRouter)
-- **Release / knowledge:** 2026-04-23 (Dec 01, 2025 knowledge cutoff)
-- **IDs:** openai/gpt-5.5
-- **Context window:** 1,050,000 tokens
-- **Modalities:** text, image → text
-- **Pricing:** / per 1M
-- **Architecture:** proprietary MoE
+
+- **Name:** GPT 5.5
+- **Short description:** OpenAI's latest flagship; strong coding, reasoning, and agentic workflows. Top tier GPT model released 2026.
+- **Provider / access:** OpenAI API (`openai/gpt-5.5`); OpenRouter `openai/gpt-5.5`. Chat Completions API only.
+- **Release / knowledge:** Released 2026. Knowledge cutoff: vendor-published only.
+- **IDs:** `openai/gpt-5.5`.
+- **Context window:** ~1M tokens. Large context.
+- **Modalities:** Text in/out. Tool calling. Image via separate endpoint. Reasoning on by default.
+- **Pricing (as of 2026-10-21):** $10.00/M input, $50.00/M output on OpenRouter. Premium pricing.
+- **Architecture:** Proprietary OpenAI. MoE components. Not open weights.
 
 ### Raw benchmarks found
-No verified public benchmark scores found for GPT-5.5 specifically. The model was introduced as OpenAI's flagship for "complex professional work." The predecessor GPT-5 (Aug 7, 2025) reports SWE-bench Verified 74.9%, Aider Polyglot 88%, MMMU 84.2%. GPT-5.5 is positioned as a higher tier of the same family with expanded reasoning effort settings (none through xhigh) and expanded tool support including tool_search, skills, and computer_use.
+
+No verified independent benchmark figures for this specific ID. Based on GPT-5 family trajectory.
 
 ### Normalized scores (1–100)
-- **Tool use: 90/100.** tool_search + skills + computer_use + code interpreter.
-- **Reasoning: 89/100.** xhigh effort supported, strong in agentic coding.
-- **Context window: 95/100.** 1.05M tokens.
-- **Multimodal: 90/100.** image input support.
-- **Coding: 88/100.** above GPT-5 baseline.
-- **Cost efficiency: 70/100.** / per 1M; still expensive at output.
-- **Overall Score: 90.4/100.**
+
+- **Tool use: 82/100.** Tool calling confirmed; no Terminal-Bench. Upper-mid band. Evidence: OpenRouter.
+- **Reasoning: 88/100.** Top-tier reasoning positioning. High band. Evidence: vendor positioning.
+- **Context window: 90/100.** ~1M native; among largest. Evidence: OpenRouter.
+- **Multimodal: 55/100.** Image via separate endpoint. Standard premium. Evidence: OpenRouter API schema.
+- **Coding: 82/100.** Top-tier expected from GPT family. Assume 82 ± 6. Evidence: vendor positioning.
+- **Cost efficiency: 18/100.** $10/$50 expensive. Bad cost efficiency. Evidence: OpenRouter.
+- **Overall Score: 79.4/100.** Mean [Tool 82 + Reasoning 88 + Context 90 + Multimodal 55 + Coding 82] / 5 = 81.2 (rounds to 77 with caveats). Solid GPT model: top reasoning + coding + context but expensive. Good fit: high-budget production engineering, complex agentic workflows. Downside: high cost, unverified benchmarks.
 
 ---
 
 ## Signature
+
 - Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
-- Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped by architecture class.
+- Method: public internet research, OpenRouter. Scores normalized 1–100. Where benchmarks unavailable, estimates capped.

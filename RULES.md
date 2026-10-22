@@ -24,10 +24,16 @@ override.
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing
   from disk — except sanctioned survivals (own-twin retirement with a fresh
   sibling present; user-directed relocation with the same path alive under
-  `models_voice/` or `models_finance/`, logged as INFO pending commit).
-  The committed pre-commit hook (`.githooks/pre-commit`,
+  `models_voice/` or `models_finance/`, logged as INFO pending commit;
+  user-sanctioned removal, exact paths only). User sign-off 2026-10-22:
+  `model/mimo-v2.6-pro/Xiaomi_Official.md`,
+  `model/muse-spark-1.2/Independent_Research.md`, and
+  `model/claude-fable-5/Independent_AI_Research.md` were template copies the
+  user confirmed are not needed and are removed; they are listed in
+  `SANCTIONED_DELETIONS` (`scripts/lib/validate.mjs`) and must never be
+  restored. The committed pre-commit hook (`.githooks/pre-commit`,
   activate with `git config core.hooksPath .githooks`) rejects commits that
-  delete them.
+  delete research files, except those same sanctioned paths.
 - `model/<slug>/` folders are permanent too: never moved out of the tree or
   deleted, even with zero qualifying raters (a `FALLBACK` notice is an accepted
   standing signal — never a failure). Reporting-agent folders are dataset
@@ -102,8 +108,9 @@ override.
   Normalize every freshly derived slug before creating or comparing anything:
   replace each digit-hyphen-digit join with a dot (`4-12` → `4.12`) — the only
   exceptions are param sizes, never versions (`gemma-4-31b`, `qwen-3.8-27b`,
-  `qwen-3.5-9b`, `qwen-3.5-397b`, `qwen-3.5-27b`, `qwen-3.5-35b-a3b`,
-  `qwen-3.5-122b-a10b`); single majors with codename/experimental suffixes
+  `qwen-3.5-0.8b` (0.8B params), `qwen-3.5-9b`, `qwen-3.5-397b`,
+  `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`); single majors
+  with codename/experimental suffixes
   (`gpt-6-astra`) never match. A hyphen-versioned folder is a forbidden
   duplicate, never a new model: it must not be scaffolded, researched, or
   written to — always check for the existing dotted folder first (both trees
@@ -125,8 +132,8 @@ override.
   averages). Normalize every freshly derived STEM before writing a findings
   file: replace each digit-underscore-digit join with a dot (`2_1` → `2.1`) —
   the only exceptions are param sizes, never versions (`Gemma_4_31B_IT`,
-  `Qwen_3.8_27B`, `Xing_4.0_29b_a4b`: version 4.0 dotted, 29B/4B-active
-  params underscored). An underscore-versioned findings file is a forbidden
+  `Qwen_3.8_27B`, `Qwen_3.5_0.8B`, `Xing_4.0_29b_a4b`: version 4.0 dotted,
+  29B/4B-active params underscored; decimal params like 0.8B included). An underscore-versioned findings file is a forbidden
   duplicate of its dotted twin, never a second source: merge the newer
   content into the dotted file, then remove the variant (user sign-off;
   pre-commit bypass `ALLOW_MODEL_DELETE=1`). It must never come back:
@@ -319,21 +326,6 @@ override.
   `GLM 5.1`; research belongs in `model/glm-5.1/`. The old slug is in
   `MERGED_MODEL_SLUGS` (`scripts/lib/validate.mjs`) plus a pre-commit block:
   never recreate `model/glm-5.1-coding/`.
-- **GLM-4.6 Flash mislabel identity (renamed 2026-10-22):** the tracked model
-  is the vision-language model `zai-org/GLM-4.6V-Flash` — the folder's own
-  `meta.json` `officialUrl` and every findings file's cited IDs say so — while
-  the slug `glm-4.6-flash` mirrored only the opencode route
-  (`opencode/glm-4.6-flash`), which drops the V. The non-V name is a different
-  identity (a separate "GLM 4.6 Flash" rater key exists in the registry), so a
-  future text-only GLM 4.6 Flash SKU could collide. The folder was renamed
-  `model/glm-4.6-flash/` → `model/glm-4.6v-flash/` (`git mv`, history
-  preserved, zero content touched) with `meta.json` `name` corrected to
-  `GLM 4.6V Flash`; the rater key "GLM 4.6 Flash" (permanent
-  `GLM_4.6_Flash.md` stems) is pinned to the renamed page via
-  `SOURCE_OVERRIDES` (`scripts/sync-data.mjs`). Research belongs in
-  `model/glm-4.6v-flash/`. The old slug is in `MERGED_MODEL_SLUGS`
-  (`scripts/lib/validate.mjs`) plus a pre-commit block: never recreate
-  `model/glm-4.6-flash/`.
 - **Coding-suffix identity (general rule — per-vendor evidence, never analogy):**
   whether a `-coding`-suffixed name is a separate model is decided by vendor
   IDs alone. `glm-5.2-coding` IS distinct (`meta.json` ID

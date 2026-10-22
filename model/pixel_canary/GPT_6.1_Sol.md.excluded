@@ -1,0 +1,59 @@
+# Pixel Canary / Callstack Apex — findings by GPT 6.1 Sol
+
+- Source: Callstack Apex, revealed from Vercel's `stealth/pixel-canary`.
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: real identity, pricing and narrow coding/experimental benchmarks verified; insufficient broad reasoning and native-perception coverage for a defensible Overall.**
+
+## Model card
+
+- **Name / identity:** Pixel Canary was **Callstack Apex**, not an unidentified Google image model. Callstack's October 1 announcement explicitly reveals the stealth identity and links Vercel's original launch. The permanent `pixel_canary` folder is retained; no duplicate Apex folder is created.[1][2]
+- **Short description:** Callstack's Qwen-based domain post-trained model for React Native, React and Next.js agents. An earlier Apex prototype used Gemma 4; the publisher explicitly says the released family moved to Qwen. No exact Qwen foundation size/revision or byte-identical relationship to all historical stealth runs is verified.[1]
+- **Provider / access / IDs:** Current **`callstack/apex`** is independently present in the live Vercel AI Gateway catalog, corroborating the publisher site's current gateway link. The retired stealth name is absent from that catalog. Publisher offers direct Apex API and commercial self-hosting; this is not a public weight download. Catalog presence is not authenticated inference.[1][3][4]
+- **Release / knowledge:** Revealed/GA **2026-10-01**; Vercel stealth announcement **September 25**. Gateway `released` metadata corresponds to October 8, a separate listing milestone. No exact knowledge cutoff verified.[1][2][4]
+- **Context / output:** Current gateway **262,144 total / 131,072 maximum output**; publisher calls it 256K. No measured near-perfect long-window retention verified.[3][4]
+- **Modalities / controls:** Gateway declares **text/image input, text output**, reasoning and tools. Image support is a serving capability claim, not measured visual accuracy; writing SVG code or a mobile UI is not native image synthesis. Gateway flags give no ZDR/no-training guarantee; the historical stealth launch explicitly warned prompts/responses could be used for training.[2][4]
+- **Pricing (2026-10-22):** Primary GA rate **$0.50 input / $3.00 output / $0.20 cached input per 1M**, matching live Vercel metadata. Historical free access was explicitly limited to stealth; it is not current zero-price inference. No exact Pixel/Apex entry found in current Zen/OpenRouter/models.dev catalogs, but the actual Vercel provider was checked directly.[1][2][4]
+- **Architecture / licensing:** Qwen foundation plus proprietary Callstack post-training; parameter counts undisclosed. Commercial self-hosting requires agreement with Callstack, not a verified open-weight license. The community `stealth-model/pixel-canary` repository says GGUFs would be provided **when weights become available**, not that weights are already released.[1][5]
+
+### Raw benchmarks found
+
+**Independent framework evaluator / original stealth ID:** Vercel's September 25 announcement explicitly reports **28/31 Next.js tasks = 90.3% baseline**, **30/31 = 96.8% with Next.js docs supplied through AGENTS.md**. Crucially, this is **pass@4: any of four attempts can succeed**, not single-attempt reliability.[2]
+
+- Current Next.js evaluator page, last-run October 13, still labels the row **Pixel Canary / OpenCode**, rounds results to **90% / 97%**, and reports **1015.80 s average duration**, cost **N/A**. Infrastructure failures are rerun; changed evals can retain old results until rerun. This dated alias/harness result is not silently relabelled a fresh GA checkpoint test.[6]
+- Callstack's React Native eval shows **87.8%** on its own task mix; evaluator page identifies **10× runs**, October 1, across navigation, animation, async state, lists and React Native APIs. This is publisher/framework-specialist evidence, not broad SWE-bench or reasoning coverage.[3][7]
+- Publisher's **$0.067 Next.js task estimate** explicitly assumes cache reads billed at **10% of input**. Actual current cached input is **$0.20 versus $0.50 input (40%)**. Thus the marketing task estimate is not accepted as a current measured bill; no corrected universal task cost is invented without token counts.[3][4]
+- Publisher's single recorded review demo: **2 min 16 s / $0.09** after repricing, versus its recorded-session display **$0.17**. One task is not a general latency/cost distribution.[1]
+
+**Separate small experimental evaluation**, Stealth Models' own results, with original task names and limitations preserved:[8]
+
+- **StealthMark 49.5/100**, its labelled “General Intelligence” **40.2/100**, “Visual Intelligence” **59.7/100**. These are that site's proprietary SVG/spatial-construction aggregates, not this project's Overall, a broad academic intelligence index, or native image-perception accuracy.
+- **Newton's Mirror 32.3**, **Ground Truth 44.1**, **Selfie 74.1**, **Raccoon 77.6** on the site's own judged scales. They provide narrow evidence of text-to-SVG construction/spatial consistency, not a replacement for GPQA/HLE/MMMU.
+- The displayed **Latch 100.0** is accompanied by **only one of five levels played**; pending/unplayed levels preclude treating it as full-game mastery. Foresight has no run. No metric denominator is silently broadened.
+
+**Coverage gaps:** No verified exact SWE-bench Verified/Pro, Terminal-Bench, LiveCodeBench, SciCode, GPQA, HLE, CritPt, Tau/MCP/Claw, native image understanding, or full-window retrieval suite was located. The guessed AA model profile returned 404; narrow experimental tests above remain real evidence rather than being described as nonexistent. Framework success at pass@4 does not provide the missing general reasoning and perception calibration.
+
+### Normalized scores (1–100)
+
+Withheld. There is enough verified evidence for a useful identity and specialist-coding dossier, but **insufficient broad reasoning/native-perception task coverage** to assign all five quality dimensions and compute a defensible Overall. No invented numeric placeholders are assigned; this is a partial-coverage exclusion, not a claim that Pixel Canary/Apex is fake or incapable.
+
+### Fresh search trail and sources
+
+- Bing RSS [`"Pixel Canary" AI model benchmark`](https://www.bing.com/search?format=rss&q=%22Pixel+Canary%22+AI+model+benchmark): unrelated retailer pages.
+- Google [`"pixel-canary" model benchmark`](https://www.google.com/search?q=%22pixel-canary%22+model+benchmark): JavaScript/access interstitial.
+- DuckDuckGo [`"pixel-canary" model benchmark`](https://duckduckgo.com/html/?q=%22pixel-canary%22+model+benchmark): real stealth-model leads. Follow-up [`"Pixel Canary" "Apex" Callstack`](https://duckduckgo.com/html/?q=%22Pixel+Canary%22+%22Apex%22+Callstack) located the reveal and experimental evaluation. Original publisher, gateway and evaluator sources were checked; no peer findings consulted.
+
+[1]: https://www.callstack.com/blog/apex-agetic-coding-for-mobile-and-web-spcialied-in-react
+[2]: https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway
+[3]: https://apex.callstack.com/
+[4]: https://ai-gateway.vercel.sh/v1/models
+[5]: https://huggingface.co/stealth-model/pixel-canary/raw/main/README.md
+[6]: https://nextjs.org/evals
+[7]: https://rn-evals.vercel.app/
+[8]: https://stealthmodels.com/benchmarks/models/pixel-canary
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web research, publisher identity reveal, current gateway metadata, framework evaluator methodology and narrow experimental results. Missing general quality-axis evidence is not a measured zero; all real partial evidence is retained without a fabricated Overall.

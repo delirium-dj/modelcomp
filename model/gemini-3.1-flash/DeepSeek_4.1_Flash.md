@@ -1,7 +1,9 @@
 # Gemini 3.1 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.1 Flash (requested tier; resolved to Gemini 3.1 Flash-Lite)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+
+> **Re-verified 2026-10-18.** Still no standalone text model named exactly `gemini-3.1-flash` (BenchLM 404); the file continues to score `google/gemini-3.1-flash-lite` (BenchLM `gemini-3-1-flash-lite`, 46.98). No new material. **No score change** (Tool / Reasoning / Context 90 / Multimodal / Coding / Overall 66) — see the full record below.
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

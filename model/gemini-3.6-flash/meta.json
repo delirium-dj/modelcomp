@@ -11,5 +11,8 @@
     "https://ai.google.dev/gemini-api/docs/pricing"
   ],
   "standout": "The computer-use Flash: it not only writes code but reliably drives real desktops and apps, at Flash-tier pricing.",
-  "tradeoff": "Steady mid-tier card but no headline speciality beyond computer use — specialists in coding depth or reasoning sit nearby at Google."
+  "tradeoff": "Steady mid-tier card but no headline speciality beyond computer use — specialists in coding depth or reasoning sit nearby at Google.",
+  "notable": [
+    "Medical imaging: a feature-based hybrid pipeline using Gemini 3.6 Flash reached 99.2% accuracy (387/390 lesions) on O-RADS risk stratification from free-text pelvic ultrasound reports — near-perfect agreement with expert consensus (weighted κ 1.00), the best of eight LLMs tested and well above the original clinical reports' 87.7% (arXiv:2608.23061)."
+  ]
 }

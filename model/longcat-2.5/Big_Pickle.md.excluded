@@ -1,0 +1,110 @@
+# LongCat 2.5 — findings by Big Pickle
+
+- Source: OpenCode (`opencode/big-pickle`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — zero verified public benchmark numbers for this exact model/ID.**
+> Meituan has never released a GA "LongCat 2.5". The only 2.5-line model that exists is
+> `LongCat-2.5-Preview` (released 2026-09-25), which is documented separately in
+> `../longcat-2.5-preview/Big_Pickle.md`. There is no GA checkpoint, no GA API id, no GA
+> weights and no GA benchmark, so every row below reads "no verified public score found" for
+> the ID this folder stands for. Scores are intentionally withheld rather than fabricated —
+> saved as `.md.excluded` per `model-report-TEMPLATE.md`.
+
+## Model card
+
+- **Name:** LongCat 2.5 (GA — does not exist as of 2026-10-22)
+- **Short description:** Not a released model. The LongCat family by Meituan currently ends at
+  **LongCat-2.5-Preview**, an API-only preview of the 1.6T-parameter sparse-MoE agentic-coding
+  line. The vendor's own change log has no GA 2.5 entry, and its pay-as-you-go pricing page states
+  that "Pay-As-You-Go currently supports LongCat-2.5-Preview" — so no GA endpoint can be called.
+  The best-documented description of the intended GA release comes from the same vendor's
+  September 2026 ecosystem report: "Buyers needing verified coding benchmarks, SLAs, or enterprise
+  access controls should wait for the 2.5 GA" — i.e. the GA was still pending.
+- **Provider / access:** None. The configured id `opencode/longcat-2.5` does not resolve: the
+  official OpenCode Zen catalogue lists only `longcat-2.5-preview-free` (free, limited time,
+  zero-retention) for this family, with no `longcat-2.5` entry, paid or free.
+- **Release / knowledge:** N/A (no GA release). The preview's release date is 2026-09-25 and no
+  knowledge-cutoff date is published for any LongCat checkpoint.
+- **IDs:** `opencode/longcat-2.5` (configured for this folder — **does not resolve**). The only
+  live 2.5-line ids are `opencode/longcat-2.5-preview-free` (OpenCode Zen),
+  `meituan/longcat-2.5-preview` (Vercel AI Gateway / OpenCode Data) and `LongCat-2.5-Preview`
+  (LongCat API Platform).
+- **Context window:** N/A for a GA model. The preview advertises 1,048,576 tokens in / 131,072 out
+  (Vercel, OpenCode Data, LongCat quick-start docs), with some hosts listing 262,144 max output.
+- **Modalities:** N/A for a GA model. The preview is text + image in, text out, reasoning and tool
+  calling supported.
+- **Pricing (as of 2026-10-22):** No GA price list exists. The preview's limited-time rates are
+  $0.30 input / $0.006 cached input / $1.20 output per 1M, and every one of them is flagged
+  "limited-time" with no end date and **no published undiscounted list price** — an unusual pricing
+  state that alone argues against quoting a GA price.
+- **Architecture:** N/A for a GA model. The preview is proprietary / API-only (no 2.5 weights on
+  the Meituan Hugging Face org); vendor-adjacent reporting puts it at ~1.6T total, ~48B active per
+  token, 1M context. The nearest open-weight checkpoint remains **LongCat-2.0** (MIT licence, with
+  FP8/INT8 quantisations), and the Sep 2026 **LongCat-DeepResearch** release is explicitly
+  "LongCat-2.0-based".
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 2.0 / 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks at 512K–1M: no verified public score found
+- Not transferable: **LongCat-2.0**'s published card numbers (Terminal-Bench 2.1 **70.8**,
+  SWE-bench Pro **59.5**, SWE-Multi **77.3**, GPQA-diamond **88.9**, IMO-AnswerBench 81.8,
+  IFEval 90.0, BrowseComp 79.9) belong to the previous generation and to a different checkpoint.
+
+### Normalized scores (1–100)
+
+- **Tool use: withheld.** There is no GA LongCat 2.5 to measure, and no benchmark is published for
+  the id this folder represents; the preview's third-party agent data lives in the sibling report.
+- **Reasoning: withheld.** Same reason — zero verified public scores for this exact id.
+- **Context window: withheld.** The 1M window is a preview-endpoint claim, not a GA property.
+- **Multimodal: withheld.** Image input is a preview feature; the GA spec does not exist.
+- **Coding: withheld.** Meituan published no benchmark table for 2.5 at all, and LongCat-2.0's
+  numbers cannot be carried over.
+- **Cost efficiency: withheld.** No GA price exists; the preview's prices are explicitly
+  temporary and the free Zen slot is limited-time.
+- **Overall Score: withheld.** Withholding all seven dimensions avoids publishing a fabricated
+  number for a model that has not been released.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-22
+- Method: public internet research of the official LongCat API Platform change log and pay-as-you-go
+  pricing pages, the official OpenCode Zen model catalogue (confirming no `longcat-2.5` entry and
+  only `longcat-2.5-preview-free`), the Meituan Hugging Face organisation listing (newest
+  checkpoints are LongCat-2.0, LongCat-2.0-FP8, LongCat-2.0-INT8, LongCat-Flash-Lite-Sparse), the
+  Meituan September 2026 ecosystem/pricing report, and launch coverage from TechNode, Post-Cutoff,
+  Creative AI News and a September 2026 Automatica Press verification piece — all of which agree
+  that no GA 2.5 exists and that no benchmark table or weights were published for the 2.5 line.
+  Scores are withheld because zero verified public benchmark numbers exist for this exact id.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

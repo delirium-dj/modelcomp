@@ -1,15 +1,17 @@
 # GPT 5.4 Mini — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.4 mini (`openai/gpt-5.4-mini`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-4-mini`, 38 rows) computes an overall **53.38/100 (#82 of 972)** and confirms the deep pass: Terminal-Bench 2.0 60.0% (Vals 2.1 54.7%), OSWorld-Verified 72.1%, MCP Atlas 57.7%, τ² 93.4%, GDPval-AA 1095 / 25.6%, GPQA 88% (AA 87.5%), HLE 41.5% (AA 28.1%), AA-LCR 77.0%, MMMU-Pro 76.6%, Vibe Code Bench 47.97%, FrontierMath v2 51.23%/9.76%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against the official OpenAI launch (openai.com/index/introducing-gpt-5-4-mini-and-nano/), Artificial Analysis (artificialanalysis.ai/models/gpt-5-4-mini), BenchLM (benchlm.ai/models/gpt-5-4-mini), BenchmarkList (benchmarklist.com/models/openai-gpt-5.4-mini/), Vals AI (vals.ai/models/openai_gpt-5.4-mini-2026-03-17), DataCamp (datacamp.com/blog/gpt-5-4-mini-nano), LLM Stats (llm-stats.com/models/gpt-5.4-mini) and AI Release Tracker (aireleasetracker.com/model/openai/gpt-5.4-mini). Net effect: now-public xhigh tool-use, reasoning, coding and vision figures replace the earlier non-reasoning-only capture — Tool use, Reasoning, Coding and Multimodal all revised upward; **Overall 73 → 75**. Conflicts logged inline: Terminal-Bench 2.0 60.0% (OpenAI/Vals) vs 44.9% (Vals harness re-score); τ²-bench Telecom 93.4% (OpenAI) vs 83.3% (AA/BenchmarkList); AA-LCR 37.0% (prior, non-reasoning) → 77.0% (xhigh); GDPval-AA non-reasoning 3.8% → xhigh 1095–1167 Elo.
 
 ## Model card
 
-- **Name:** GPT 5.4 Mini
+- **Name:** GPT-5.4 mini
 - **Short description:** The faster, cheaper mid-tier of the GPT-5.4 family — text and image input with strong reasoning, coding and tool use at reduced latency and cost, built for high-throughput chat, coding assistants and agent workflows at scale.
 - **Provider / access:** OpenAI API, OpenRouter, Vercel AI Gateway (multi-provider). Not open weights.
 - **Release / knowledge:** Released 2026-03-17; knowledge cutoff August 2025 (Aug 31, 2025 per Artificial Analysis).
@@ -72,6 +74,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (official OpenAI GPT-5.4 mini/nano launch table, Artificial Analysis, BenchLM, BenchmarkList, Vals AI, DataCamp, LLM Stats, AI Release Tracker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

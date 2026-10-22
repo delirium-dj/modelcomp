@@ -1,11 +1,9 @@
 # GPT 5.2 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.2 (`openai/gpt-5.2`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`gpt-5-2`, 43 rows) computes an overall **59.86/100 (#57 of 972)** and confirms the 2026-10-11 deep pass; it adds AA AIME 2025 99.0%, FrontierMath v2 67.4%/31.7%, AA-IFBench 75.4%, AA-HLE 37.7%, MMMU 86.7% (weak-provenance Qwen table). **No score change** (Tool 78 / Reasoning 85 / Context 80 / Multimodal 68 / Coding 80 / Cost 70 / Overall 78).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > The prior file had almost no agentic/coding rows; the official OpenAI launch page supplies a full table. Newly confirmed: **τ²-bench Telecom 98.7%** / Retail 82.0%, BrowseComp 65.8%, MCP-Atlas 60.6%, Toolathlon 46.3%, **GDPval 70.9%**, OSWorld-Verified 47.3%, **SWE-bench Verified 80.0%**, SWE-bench Pro 55.6%, SWE-Lancer IC Diamond 74.6%, **GPQA Diamond 92.4%**, HLE 34.5% (45.5% with tools), AIME 2025 100%, **ARC-AGI-1 86.2% / ARC-AGI-2 52.9%**, MRCRv2 8-needle 98.2%→77.0% at 128–256K, **AA-LCR 82.7%**, MMMU-Pro 79.5%, Video-MMMU 85.9%, ScreenSpot-Pro 86.3%; independent **Vibe Code Bench v1.1 53.50%**; AA Intelligence Index **30**; BenchLM overall 60.33 (#50/889).
@@ -15,7 +13,7 @@
 
 ## Model card
 
-- **Name:** GPT-5.2 (ChatGPT-facing "GPT-5.2 Thinking"; series also has Instant and Pro)
+- **Name:** GPT 5.2 (ChatGPT-facing "GPT-5.2 Thinking"; series also has Instant and Pro)
 - **Short description:** The frontier-grade general model of the GPT-5 series — an adaptive-reasoning successor to GPT-5.1 with stronger agentic, computer-use and long-context performance, targeted at broad task coverage across math, coding, science and tool-calling workloads.
 - **Provider / access:** OpenAI API (Responses + Chat Completions), plus OpenRouter and Vercel AI Gateway; OpenAI Flex tier available. Not open weights.
 - **Release / knowledge:** Released 2025-12-11 (snapshot `gpt-5.2-2025-12-11`); knowledge cutoff 2025-08-31.
@@ -69,6 +67,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: deep second-pass public internet research (OpenAI GPT-5.2 docs + launch page full evaluation tables, BenchLM model page, Artificial Analysis, Vals AI, AI Release Tracker). The official launch table replaced the prior OpenRouter-only rows; the FrontierMath/HLE/GPQA spreads and the weak-provenance multimodal rows are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

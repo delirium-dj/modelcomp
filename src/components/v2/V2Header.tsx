@@ -3,9 +3,9 @@ import type { Signal } from "@builder.io/qwik";
 
 /**
  * V2Header — shared header for the whole v2 tree, in the v1 Tailwind dialect.
- * Same functionality as the v1 Header (sticky bar, mobile-only auto-hide on
- * scroll, theme toggle, desktop anchor nav, hamburger/X + fullscreen drawer).
- * v1 Header.tsx is untouched.
+ * Same functionality as the v1 Header had (sticky bar, mobile-only auto-hide
+ * on scroll, theme toggle, desktop anchor nav, hamburger/X + fullscreen
+ * drawer).
  *
  * Theme is owned by the page (it also drives the `dark` root class) and
  * passed in as a signal; the toggle persists to the shared `v2-theme` key.

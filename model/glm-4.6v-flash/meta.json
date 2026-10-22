@@ -1,15 +1,9 @@
 {
-  "id": "opencode/glm-4.6-flash",
-  "name": "GLM 4.6V Flash",
-  "short": "Z.ai's 9B multimodal vision-language model with 128K context, native visual function calling, and fast local edge inference.",
+  "id": "opencode/glm-4.6v-flash",
+  "name": "Glm 4.6v Flash",
+  "short": "Glm 4.6v Flash model evaluation entry.",
   "contextWindow": "128K total",
-  "modalities": "Text, image, video in; text out",
-  "pricingNote": "Free on Zen; open weights under Apache 2.0 / open license",
-  "noFreeId": false,
-  "officialUrl": "https://huggingface.co/zai-org/GLM-4.6V-Flash",
-  "pricingLinks": [
-    "https://docs.z.ai/guides/overview/pricing"
-  ],
-  "standout": "9B edge-deployable vision-language model featuring native function calling with visual inputs and full 128K context.",
-  "tradeoff": "9B parameter capacity trades away deep multi-step textual reasoning compared to 30B+ MoE and dense frontier models."
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
 }

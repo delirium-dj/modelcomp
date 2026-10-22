@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Gemini 3.8 Flash
 
 - Source: OpenAI/GPT-OSS 120B (`openai/gpt-oss-120b`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-oss-120b`, `opencode/gpt-oss-120b`.
 - **Context window:** 131,072 tokens (128K context window).
 - **Modalities:** Text input and text output; Python code execution sandbox integration, function calling, and structured JSON outputs.
-- **Pricing (as of 2026-10-21):** Hosted API ~$0.03 - $0.15 / 1M input tokens, ~$0.17 - $0.60 / 1M output tokens; free self-hosting via Apache 2.0 weights.
+- **Pricing (as of 2026-10-16):** Hosted API ~$0.03 - $0.15 / 1M input tokens, ~$0.17 - $0.60 / 1M output tokens; free self-hosting via Apache 2.0 weights.
 - **Architecture:** 117B total / 5.1B active parameters MoE (36 layers, alternating dense and banded-sparse attention layers, native MXFP4 quantization support).
 
 ### Raw benchmarks found
@@ -56,12 +56,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output architecture without native vision, image, or audio modalities.
 - **Coding: 72/100.** Capable 62.4% SWE-bench Verified and 78.6%-83.2% LiveCodeBench; capped by moderate performance on multi-language refactoring suites (44.4% Aider).
 - **Cost efficiency: 97/100.** Fully permissive Apache 2.0 license for local single-GPU deployment combined with dirt-cheap hosted rates ($0.03-$0.15 / $0.17-$0.60 per 1M).
-- **Overall Score: 59/100.** Quality arithmetic mean of the 5 core quality dimensions ((70 + 82 + 56 + 15 + 72) / 5 = 59.0). Exceptional open-weights reasoning and mathematical engine.
+- **Overall Score: 59/100.** Exceptional open-weights reasoning and mathematical engine, highly optimized for cost-effective code generation, competitive problem-solving, and private single-node infrastructure.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing OpenAI official model card documentation (arXiv:2508.10925), Hugging Face repository specifications, and independent evaluations from Artificial Analysis and OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

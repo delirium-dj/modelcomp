@@ -1,7 +1,9 @@
 # Gemini 3.1 Flash-Lite — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.1 Flash-Lite (`google/gemini-3.1-flash-lite`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-1-flash-lite`, 12 rows) computes an overall **46.98/100 (#113 of 972)** and confirms the 2026-10-11 deep pass (GPT-1: GPQA Vals 81.1%, MMLU-Pro 86.2%, LiveCodeBench 80.1%, SWE-bench Vals 62.8%, Terminal-Bench 2.1 Vals 34.1%, CharXiv 73.2%, Vibe Code Bench 0.0%, ParseBench 58.32%, FrontierMath v2 27.72%). **No score change** (Overall 66).
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

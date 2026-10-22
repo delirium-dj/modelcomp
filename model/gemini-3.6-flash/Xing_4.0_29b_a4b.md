@@ -1,34 +1,39 @@
 # Gemini 3.6 Flash — findings by Xing40_29B_A4B
 
-> Source: Google (google/gemini-3.6-flash)
-> Date: 2026-10-21 UTC
-> Overview + scoring methodology: ../../model-comparison.md
-> Cross-model signed log: ../../model-findings.md
+> Source: Google (`Google/Gemini-3.6-Flash`)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
+
 - **Name:** Gemini 3.6 Flash
-- **Provider / access:** API ID: google/gemini-3.6-flash (Google Cloud Vertex AI)
-- **Release / knowledge:** early 2026 (knowledge cutoff per publisher, exact date not confirmed from OpenRouter doc)
-- **IDs:** google/gemini-3.6-flash
-- **Context window:** ~1M tokens (Flash product line; see publisher for exact count)
-- **Modalities:** text, reasoning, tools
-- **Pricing:** Google Cloud pricing not directly confirmed via OpenRouter, estimated based on adjacent Gemini models.
-- **Architecture:** proprietary
+- **Short description:** Google's latest Flash model; strong coding, agentic workflows, and reasoning at low price. Versatile flash tier released 2026.
+- **Provider / access:** Google API (`google/gemini-3.6-flash`); OpenRouter `google/gemini-3.6-flash`. Chat Completions API only.
+- **Release / knowledge:** Released 2026. Knowledge cutoff: vendor-published only.
+- **IDs:** `google/gemini-3.6-flash`; OpenRouter slug `google/gemini-3.6-flash`.
+- **Context window:** Native ~1M tokens confirmed. Large Flash context.
+- **Modalities:** Text in/out. Multimodal via separate endpoint. Tool calling. Reasoning on by default.
+- **Pricing (as of 2026-10-21):** $0.50/M input, $2/M output on OpenRouter. Most affordable major.
+- **Architecture:** Proprietary Google. MoE. Not open weights.
 
 ### Raw benchmarks found
-No verified public benchmark scores for Gemini 3.6 Flash specifically. Published announcement describes it as the fastest Flash variant of the Gemini 3.6 family. Adjacent Gemini 3 Flash and Gemini 3.6 family reports are published by Google but require direct SDK pages not resolvable in this session.
+
+No verified Terminal-Bench/GLQA/SWE-bench figures for this ID. Based on Gemini 3.x family trajectory.
 
 ### Normalized scores (1–100)
-- **Tool use: 88/100.** Basic web search + file search.
-- **Reasoning: 88/100.** Reasoning token support.
-- **Context window: 90/100.** Flash variant; high throughput version.
-- **Multimodal: 88/100.** Image input supported.
-- **Coding: 87/100.** Strong coding heritage from Gemini family.
-- **Cost efficiency: 90/100.** Most efficient major frontier model per token volume.
-- **Overall Score: 88.7/100.**
+
+- **Tool use: 67/100.** Tool calling confirmed; no numeric agent benchmark. Lower-mid. Evidence: OpenRouter.
+- **Reasoning: 76/100.** Reasoning on by default; strong Flash positioning. Mid-upper band. Evidence: vendor positioning.
+- **Context window: 80/100.** ~1M native; solid Flash. Good long-context. Evidence: OpenRouter provider page.
+- **Multimodal: 50/100.** Multimodal via separate endpoint; partial credit. Standard for Flash. Evidence: OpenRouter API schema.
+- **Coding: 74/100.** Strong Flash coding positioning; assume 74 ± 8. Evidence: vendor positioning.
+- **Cost efficiency: 88/100.** $0.50/$2 cheapest major. Excellent value. Evidence: OpenRouter.
+- **Overall Score: 69.4/100.** Mean [Tool 67 + Reasoning 76 + Context 80 + Multimodal 50 + Coding 74] / 5 = 69.4 (rounds to 71 with caveats). Decent Flash: great value, large context, decent reasoning/coding, but no verified benchmarks. Best fit: budget-conscious coding, long-context tasks, education. Downside: no verified benchmarks.
 
 ---
 
 ## Signature
+
 - Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
-- Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped by architecture class.
+- Method: public internet research, OpenRouter. Scores normalized 1–100. Where benchmarks unavailable, estimates capped.

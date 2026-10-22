@@ -1,4 +1,4 @@
-# GLM 4.6 Flash — Averaged findings
+# Glm 4.6v Flash — Averaged findings
 
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`

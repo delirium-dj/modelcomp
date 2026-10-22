@@ -13,6 +13,27 @@ import { missingMetaFields, metaNameHasUnderscore } from "./naming.mjs";
 export const MIRROR_ROOTS = ["models_voice", "models_finance"];
 
 /**
+ * User-sanctioned removals (2026-10-22): exact git-tracked research paths the
+ * user identified as irregular template copies that are not needed. Their
+ * on-disk deletion is INFO, never a permanence FAIL, and the pre-commit hook
+ * allows the same paths. Never restore these files.
+ */
+export const SANCTIONED_DELETIONS = new Map([
+  [
+    "model/claude-fable-5/Independent_AI_Research.md",
+    "unwanted template copy removed on user order (not needed; never restore)",
+  ],
+  [
+    "model/mimo-v2.6-pro/Xiaomi_Official.md",
+    "irregular template copy removed on user order (not needed; never restore)",
+  ],
+  [
+    "model/muse-spark-1.2/Independent_Research.md",
+    "irregular template copy removed on user order (not needed; never restore)",
+  ],
+]);
+
+/**
  * Forbidden duplicate roots: retired names that must never be recreated
  * (e.g. `voicemodels/` is the pre-2026-09-28 name of `models_voice/`).
  * Sync FAILs loudly while one exists on disk so the duplicate can never be
@@ -38,12 +59,6 @@ export const MERGED_MODEL_SLUGS = new Map([
   // the tracked -fast folders on user order and deleted.
   ["grok-4-fast-reasoning", "grok-4-fast"],
   ["grok-4.1-fast-reasoning", "grok-4.1-fast"],
-  // GLM-4.6 Flash mislabel identity (RULES.md, renamed 2026-10-22): the
-  // tracked model is the vision-language GLM-4.6V-Flash (zai-org/GLM-4.6V-Flash);
-  // the old slug mirrored only the opencode route (opencode/glm-4.6-flash),
-  // which drops the V. Renamed to glm-4.6v-flash so a future text-only
-  // GLM 4.6 Flash SKU can never collide with the vision model's slug.
-  ["glm-4.6-flash", "glm-4.6v-flash"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -128,10 +143,13 @@ export function isRegenerablePath(posix) {
  * - mergedSource: it is a merged duplicate stem whose canonical sibling exists
  *   (user-ordered source merge, 2026-10-08);
  * - twinRetired: its fresh <.md> sibling exists (own-twin re-research);
- * - mirror: name of the sanctioned mirror tree holding the same path (if any).
- * Returns "merged-source" | "twin-retired" | "relocated" | "deleted" (=> FAIL).
+ * - mirror: name of the sanctioned mirror tree holding the same path (if any);
+ * - sanctionedDeletion: exact path in SANCTIONED_DELETIONS (user sign-off).
+ * Returns "merged-source" | "twin-retired" | "relocated" | "user-sanctioned" |
+ * "deleted" (=> FAIL).
  */
-export function classifyMissingTracked({ twinRetired, mirror, mergedSource }) {
+export function classifyMissingTracked({ twinRetired, mirror, mergedSource, sanctionedDeletion }) {
+  if (sanctionedDeletion) return "user-sanctioned";
   if (mergedSource) return "merged-source";
   if (twinRetired) return "twin-retired";
   if (mirror !== undefined) return "relocated";
@@ -274,6 +292,17 @@ export function checkMetaFile(slug, meta, required = META_REQUIRED) {
           messages.push(
             `model/${slug}/meta.json: "pricingLinks[${i}]" must be an https URL or null (got ${JSON.stringify(u)})`,
           );
+        }
+      });
+    }
+  }
+  if (meta.notable !== undefined) {
+    if (!Array.isArray(meta.notable)) {
+      messages.push(`model/${slug}/meta.json: "notable" must be an array of strings`);
+    } else {
+      meta.notable.forEach((n, i) => {
+        if (typeof n !== "string" || n.length === 0) {
+          messages.push(`model/${slug}/meta.json: "notable[${i}]" must be a non-empty string`);
         }
       });
     }

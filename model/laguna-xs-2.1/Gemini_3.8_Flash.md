@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Gemini 3.8 Flash
 
 - Source: Poolside/Laguna XS 2.1 (`poolside/laguna-xs-2.1`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `poolside/laguna-xs-2.1`, `openrouter/poolside/laguna-xs-2.1`.
 - **Context window:** 262,144 tokens total (256K / 262K context window), with up to 32,000 maximum output tokens.
 - **Modalities:** Text and code input; text, code, structured JSON output, and XML-style tool calls; native interleaved thinking mode between action steps.
-- **Pricing (as of 2026-10-21):** Hosted API ~$0.06 / 1M input tokens, ~$0.12 / 1M output tokens, prompt cache read ~$0.05 / 1M tokens; free self-hosting with open weights.
+- **Pricing (as of 2026-10-16):** Hosted API ~$0.06 / 1M input tokens, ~$0.12 / 1M output tokens, prompt cache read ~$0.05 / 1M tokens; free self-hosting with open weights.
 - **Architecture:** 33B total / 3B active parameters per token sparse MoE (256 experts + 1 shared expert, top-8 routing across 40 layers, 3:1 mixed sliding-window/global attention with native FP8 KV cache).
 
 ### Raw benchmarks found
@@ -53,12 +53,12 @@ Long context:
 - **Multimodal: 15/100.** Text and code-only model without native vision, image inspect, or audio processing modalities.
 - **Coding: 76/100.** High efficiency-to-power ratio with 70.9% SWE-bench Verified, 63.1% SWE-bench Multilingual, and 47.6% SWE-bench Pro.
 - **Cost efficiency: 98/100.** Extremely cost-effective hosted API rates ($0.06 / $0.12 per 1M) combined with permissive OpenMDW-1.1 open weights runnable on prosumer local GPUs.
-- **Overall Score: 58/100.** Quality arithmetic mean of the 5 core quality dimensions ((64 + 62 + 74 + 15 + 76) / 5 = 58.2 rounded to 58).
+- **Overall Score: 58/100.** Exceptional lightweight, open-weights software engineering engine, providing near-frontier SWE-bench capabilities at a tiny 3B active compute footprint.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing Poolside's official model card releases, Hugging Face open-weights documentation, and independent evaluations from vLLM and OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

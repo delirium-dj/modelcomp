@@ -87,6 +87,11 @@ rendered in the "Reading the profile" section ("Where it stands out" /
 Analytical, NOT numbers: describe what the model is exceptionally good at /
 its main caveat based on the in-folder research. One sentence each, written
 from already-verified findings),
+`notable` (string[] — optional curated "Worth noting" callouts, rendered as a
+third bullet in the "Reading the profile" section of the model profile. Unlike
+`standout`/`tradeoff`, numbers ARE welcome here — each entry is one sentence
+carrying a verified, sourced fact that doesn't fit the standout/tradeoff
+one-liners, e.g. a domain-specific published result with its citation),
 `category` ("generative" | "decision" — omit for generative; set `"decision"`
 for typed-decision System-One models like Jev, which return judgments instead
 of text and are never comparable to generative Overall),

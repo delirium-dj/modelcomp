@@ -1,11 +1,9 @@
 # GPT 5.3 Codex — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.3-Codex (`openai/gpt-5.3-codex`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`gpt-5-3-codex`, 23 rows) computes an overall **60.51/100 (#54 of 972)** and confirms the 2026-10-11 deep pass (TB 2.0 77.3%, OSWorld 64.7%, SWE-bench Verified 85%, SWE Pro 56.8%, Vibe Code Bench 61.77%, LiveCodeBench 87.3%, AA-GPQA 91.5%, AA-HLE 42.5%, AA-LCR 83.3%). **No score change** (Tool 87 / Reasoning 90 / Context 80 / Multimodal 68 / Coding 90 / Cost 70 / Overall 83).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from OpenAI's launch post + independent suites: **Terminal-Bench 2.0 77.3%**, **OSWorld-Verified 64.7%**, τ²-bench 86%, Cybersecurity CTF 77.6%, **SWE-Lancer IC Diamond 81.4%**, GDPval (wins/ties) 70.9%; **AA-GPQA Diamond 91.5%**, AA-HLE 42.5%, AA-Omniscience accuracy 52.9%, CritPt 16.9%, AA-IFBench 75.4%; **SWE-bench Verified 85%** (system card), SWE-bench Pro (public) 56.8%, SWE-Rebench 58.2%, **Vibe Code Bench 61.77%**, LiveCodeBench 87.3%, SWE-bench (Vals) 78.0%; AA-LCR 83.3%; AA-MMMU-Pro 78.5%. Independent: AA Intelligence Index **33 (estimated)**, BenchLM overall 59.87 (#51/891), Vals rows via BenchLM.
@@ -15,7 +13,7 @@
 
 ## Model card
 
-- **Name:** GPT-5.3 Codex
+- **Name:** GPT 5.3 Codex
 - **Short description:** OpenAI's most advanced agentic coding model — GPT-5.2-Codex's software-engineering ability combined with GPT-5.2's broader reasoning, with state-of-the-art SWE-bench Pro, strong Terminal-Bench 2.0 / OSWorld-Verified, and enhanced cybersecurity awareness. ~25% faster and more token-efficient than prior Codex models.
 - **Provider / access:** OpenAI API plus OpenRouter and Vercel AI Gateway; codex CLI/cloud workflows. Not open weights.
 - **Release / knowledge:** Released 2026-02-05 (OpenRouter lists 2026-02-24); knowledge cutoff 2025-08-31.
@@ -65,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: deep second-pass public internet research (OpenAI GPT-5.3 Codex launch post, BenchLM model page + per-eval results, Artificial Analysis, OpenRouter, LLM-Stats). The vendor-claimed rows the prior file could not capture are now quantified; the release-date and index discrepancies are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.3_Codex_Spark.md`, using the same headings.

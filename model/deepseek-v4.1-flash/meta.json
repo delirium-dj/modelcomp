@@ -14,5 +14,8 @@
     "https://api-docs.deepseek.com/quick_start/pricing"
   ],
   "standout": "The long-context open-weight workhorse: multimodal, 1M-in/384K-out and terminal-grade coding under an MIT license.",
-  "tradeoff": "Flash-class tuning gives away some peak reasoning depth; the V4 Pro flagship is the one for hardest problems."
+  "tradeoff": "Flash-class tuning gives away some peak reasoning depth; the V4 Pro flagship is the one for hardest problems.",
+  "notable": [
+    "Cybersecurity: CyberGym 88.1% is the field-leading defensive vulnerability-discovery figure in DeepSeek's own comparison panel (ahead of GPT-5.6 Sol and GLM-5.3 at 84.5%), corroborated across the folder's reports; offensive exploit generation is the weak side (ExploitGym 15.3%)."
+  ]
 }

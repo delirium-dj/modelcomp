@@ -15,10 +15,9 @@ import { V2Footer } from "../components/v2/V2Footer";
 import { V2Header } from "../components/v2/V2Header";
 
 /**
- * /v2 — full-site redesign in the design-6sol language.
- * Same infrastructure (MODELS from pnpm sync), new UI everywhere:
- * header, hero, compare, all-models, methodology, footer.
- * Homepage (/) is untouched; delete this folder to abandon.
+ * / — the v2 homepage (primary since the 2026-10-15 promotion), in the
+ * design-6sol language. See docs/v2-promotion-rollback.md for the
+ * promotion history and recovery recipes.
  */
 
 type SortKey = DimensionKey | "overall" | "name";
@@ -139,7 +138,7 @@ export default component$(() => {
   const displayCount = useSignal(PAGE_SIZE);
   const source = useSignal<ResultsView>("average");
   const scrollerRef = useSignal<HTMLDivElement>();
-  // Hero animation spotlight: cycles through the top-5 models, one at a
+  // Hero animation spotlight: cycles through the top-12 models, one at a
   // time. Skipped entirely under prefers-reduced-motion (static hexagon).
   const heroActive = useSignal(0);
 
@@ -410,7 +409,7 @@ export default component$(() => {
                   opacity={0.5}
                   class="origin-center animate-[spin_60s_linear_infinite] motion-reduce:animate-none"
                 >
-                  <title>Top-5 performance hexagon</title>
+                  <title>Top-12 performance hexagon</title>
                 </polygon>
                 {heroTop12.map((m, hi) => (
                   <polygon

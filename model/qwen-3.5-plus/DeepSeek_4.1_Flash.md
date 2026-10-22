@@ -1,11 +1,9 @@
 # Qwen 3.5 Plus — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba / Qwen3.5 Plus (`qwen3.5-plus`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`qwen3-5-plus`, 2 rows) lists an overall **48.83/100 (#105 of 972)** but carries only 2 benchmarks (JobBench 18.5%, Vibe Code Bench 15.74%); the official HF-397B rows and Vals spreads from the 2026-10-11 deep pass stand. **No score change** (Tool 72 / Reasoning 82 / Context 95 / Multimodal 78 / Coding 76 / Cost 93 / Overall 81).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: the official HF card for the underlying **Qwen3.5-397B-A17B** (Plus = hosted tier of those weights) — **TAU2-Bench 86.7%**, **BFCL-V4 72.9%**, MCP-Mark 46.1, Tool Decathlon 38.3, BrowseComp 69.0/78.6, OSWorld-Verified 62.2%; **GPQA 88.4%**, MMLU-Pro 87.8%, HLE 28.7%, AIME26 91.3%, HMMT 92.7–94.8%; **SWE-bench Verified 76.4%**, SWE Multilingual 69.3%, LiveCodeBench v6 83.6%, SecCodeBench 68.3%, Terminal-Bench 2.0 52.5%; AA-LCR 68.7%, LongBench v2 63.2%; MMMU 85.0%, **MMMU-Pro 79.0%**, MathVista 90.3%. Independent Vals: TB 2.0 41.57%, SWE 71.2%, LCB 85.33%, GPQA 87.37%, MMLU-Pro 87.18%, **Finance Agent v1.1 #8 (#1 open-weight)**, **Vals Index 57.1% (#10 overall, #3 open-weight)**; BenchLM overall 47.65 (#106/891, only 4 benchmarks).
@@ -66,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: deep second-pass public internet research (Hugging Face Qwen3.5-397B-A17B card, QwenCloud model page, Vals AI, BenchLM, Digital Applied). The Vals MMMU-Pro outlier is documented against the official value rather than adopted; the SWE/TB spreads and the weights distinction are surfaced. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.6.md`, using the same headings.

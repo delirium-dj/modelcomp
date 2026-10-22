@@ -11,7 +11,7 @@
 - **Multimodal: 87.7/100.** Mean of top 10 of 26 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Coding: 87.3/100.** Mean of top 10 of 26 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Cost efficiency: 83/100.** Mean of top 10 of 26 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 89.3/100.** Mean of top 10 of 26 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 89.4/100.** Mean of top 10 of 26 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 

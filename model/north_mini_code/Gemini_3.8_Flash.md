@@ -1,7 +1,7 @@
 # North Mini Code — findings by Gemini 3.8 Flash
 
 - Source: Cohere/North Mini Code (`cohere/north-mini-code`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/north_mini_code`, `cohere/north-mini-code`.
 - **Context window:** 256,000 tokens total (256K context window), with up to 64,000 maximum output tokens.
 - **Modalities:** Text input; text, code, structured JSON output, and tool-calling output; native reasoning traces across multi-turn loops.
-- **Pricing (as of 2026-10-21):** Free ($0.00) tier on OpenCode Zen; free self-hosting with Apache 2.0 open weights.
+- **Pricing (as of 2026-10-16):** Free ($0.00) tier on OpenCode Zen; free self-hosting with Apache 2.0 open weights.
 - **Architecture:** 30B total / 3B active parameters per token sparse MoE transformer trained across diverse agent harnesses (SWE-Agent, OpenCode, mini-SWE-agent).
 
 ### Raw benchmarks found
@@ -32,8 +32,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **74.0%** (graduate-level reasoning without web search)
 - Humanity's Last Exam (HLE): **18.0%** (text-only, no tools)
 - LCR / MLCR: **71.5%**
-- Artificial Analysis Coding Index: **33.4**
-- Artificial Analysis Intelligence Index: **10**
+- Artificial Analysis Intelligence Index: **33.5**
 - Omniscience Accuracy / Hallucination Rate: **47.0% / 8.3%**
 
 Coding:
@@ -51,17 +50,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 70/100.** Strong tool orchestration and terminal navigation with 56.2%-63.0% on Terminal-Bench v2 and 81.4% on Tau2-Bench; trained specifically for OpenCode and SWE-Agent harnesses.
-- **Reasoning: 70/100.** Solid code-level derivation and analytical planning with 74.0% on GPQA Diamond and 33.4 AA Coding Index; capped by 18.0% on Humanity's Last Exam.
+- **Reasoning: 70/100.** Solid code-level derivation and analytical planning with 74.0% on GPQA Diamond and 33.5 AA Intelligence Index; capped by 18.0% on Humanity's Last Exam.
 - **Context window: 74/100.** Practical 256,000-token context window with high 64K output token limit for full-file rewriting and diff generation.
 - **Multimodal: 15/100.** Text-only architecture without native vision, image inspect, or audio processing modalities.
 - **Coding: 73/100.** Impressive open-weights coding throughput with 64.5%-67.6% on SWE-bench Verified and 71.0% on LiveCodeBench.
 - **Cost efficiency: 100/100.** Completely free tier ($0.00) available on OpenCode Zen and fully accessible under Apache 2.0.
-- **Overall Score: 60/100.** Quality arithmetic mean of the 5 core quality dimensions ((70 + 70 + 74 + 15 + 73) / 5 = 60.4 rounded to 60). Highly agile zero-cost open-weights coding specialist.
+- **Overall Score: 60/100.** Highly agile zero-cost open-weights coding specialist for local development, fast refactoring, and automated terminal debugging.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing Cohere technical releases, Apache 2.0 open-weights documentation, and independent benchmark evaluations from OpenRouter and AI-TLDR; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

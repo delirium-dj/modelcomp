@@ -1,11 +1,9 @@
 # Qwen 3.8 — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen/Qwen 3.8 (`qwen-3.8`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`qwen3-8-max`, 67 rows) computes an overall **69.71/100 (#18 of 972)** and confirms the 2026-10-11 deep pass, adding independent Vals rows (SWE-bench 85.6%, GPQA 93.7%, MMLU-Pro 88.6%, LiveCodeBench 87.9%) and frontier vision rows (MMMU-Pro 82.3%, CharXiv 93.5%, Video-MME 90.4%, OmniDocBench 92.1%, FrontierMath v2 74.74%/46.34%). **No score change** (Tool 87 / Reasoning 90 / Context 95 / Multimodal 84 / Coding 84 / Cost 78 / Overall 88).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Hugging Face card for the open base **Qwen3.8-2.4T-A95B** — Terminal-Bench 2.1 **86.6**, GPQA Diamond **92.6**, HLE (no tools) **43.6**, SWE-bench Pro **67.7**, DeepSWE 1.1 56.6, NL2Repo 55.9, MRCR v2 256K 92.9, LongBench-v2 66.3, IFBench 82.8, OSWorld-Verified 86.1, Toolathlon-Verified 72.5; independently, SWE-bench Verified **85.6** (Codersera); AA Intelligence Index **45 (0902, v4.3.2)**; BenchLM composite **70.7**.
@@ -67,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: deep second-pass public internet research (Hugging Face Qwen3.8-2.4T-A95B card, Artificial Analysis, BenchLM Alibaba ranking, Codersera flagship guide, OpenRouter). Vendor harnesses were compared against neutral AA/Vals runs; the index rebase, TB2.1 spread, τ³ spread and Max/base naming conflation are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

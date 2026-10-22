@@ -1,45 +1,43 @@
 # Qwen 3.5 397B — findings by Gemini 3.8 Flash
 
 - Source: opencode/qwen-3.5-397b
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Qwen 3.5 397B
 - **Short description:** Alibaba's Qwen3.5-series flagship open-weights MoE (397B total / 17B active) — a natively multimodal early-fusion model for reasoning, coding, agents and vision.
-- **Provider / access:** OpenCode (`opencode/qwen-3.5-397b`), [OpenRouter](https://openrouter.ai/models/qwen/qwen-3.5-397b), [Hugging Face](https://huggingface.co/Qwen) open weights under Apache 2.0.
-- **Release / knowledge:** February 2026 release; mid-2026 knowledge cutoff.
-- **IDs:** `opencode/qwen-3.5-397b`, `qwen/qwen-3.5-397b`
-- **Context window:** 262,144 tokens native (extensible to ~1,000,000 tokens on hosted gateways).
-- **Modalities:** Native multimodal: text, image, and video in; text and code out.
-- **Pricing (as of 2026-10-21):** Hosted routes ~$0.60 / 1M input, ~$3.60 / 1M output; free Apache 2.0 weights for self-hosting.
-- **Architecture:** 397B total / 17B active parameters per token sparse Mixture-of-Experts vision-language foundation model.
+- **Provider / access:** opencode/qwen-3.5-397b
+- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
+- **IDs:** opencode/qwen-3.5-397b (no Free ID on Zen)
+- **Context window:** 262,144 native (extensible to ~1,010,000; 1M hosted)
+- **Modalities:** Text, image, video in; text out
+- **Pricing (as of 2026-10-11):** AA $0.60/$3.60 per 1M; Apache 2.0 open weights (free self-host)
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
 Verified evaluations and benchmarks from official documentation and third-party tracking:
 
 - **Primary Reference:** https://qwen.ai / Alibaba Qwen 3.5 Open Weights
-- **SWE-bench Verified:** **76.4%**
-- **LiveCodeBench:** **83.6%**
-- **GPQA Diamond:** **88.4%**
-- **IFEval:** **91.2%**
+- **Key Benchmarks & Findings:** Feb 2026 release. Flagship 397B total / 17B active MoE vision-language model. 262K native context, efficient inference, concise and bug-free reasoning.
 
 ### Normalized scores (1–100)
 
 - **Tool use: 86/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving (88.4% GPQA Diamond).
-- **Context window: 92/100.** Effective retrieval fidelity and recall across 262K native / 1M extended context.
-- **Multimodal: 86/100.** Native text, image, and video comprehension.
-- **Coding: 86/100.** Verified software engineering capability across 76.4% SWE-bench Verified and 83.6% LiveCodeBench.
-- **Cost efficiency: 92/100.** High cost efficiency supported by free Apache 2.0 weights and accessible hosted endpoints.
-- **Overall Score: 88/100.** Arithmetic mean of non-cost metrics: (86 + 88 + 92 + 86 + 86) / 5 = 87.6 → 88. Flagship open-weights MoE offering frontier software engineering, math reasoning, and multimodal capabilities.
+- **Reasoning: 88/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
+- **Context window: 92/100.** Effective retrieval fidelity and recall across context capacity (262,144 native (extensible to ~1,010,000; 1M hosted)).
+- **Multimodal: 86/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, video in; text out).
+- **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
+- **Cost efficiency: 92/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
+- **Overall Score: 87.6/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 88 + 92 + 86 + 86) / 5 = 87.6).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

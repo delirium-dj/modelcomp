@@ -1,0 +1,35 @@
+# MiMo v2.6 Pro — findings by GPT 5.6 Luna
+
+- Source: OpenAI/GPT-5.6-Luna
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiMo v2.6 Pro
+- **Short description:** No independently verifiable public model record was found for this exact model name.
+- **Provider / access:** No verified Xiaomi model ID or provider endpoint found.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified provider/model ID.
+- **Context window:** No verified public specification.
+- **Modalities:** No verified public specification.
+- **Pricing (as of 2026-10-17):** No verified public pricing.
+- **Architecture:** No verified public specification.
+
+### Raw benchmarks found
+
+No verified public benchmark number was found for this exact model/ID. Official and independent searches produced no attributable evidence sufficient for scoring.
+
+- Official/model benchmark search (2026-10-17): https://www.google.com/search?q=MiMo+v2.6+Pro+official+model+benchmark
+- Independent review search (2026-10-17): https://www.google.com/search?q=MiMo+v2.6+Pro+independent+review+benchmark
+- Official context/pricing search (2026-10-17): https://www.google.com/search?q=MiMo+v2.6+Pro+context+pricing+official
+
+### Normalized scores (1–100)
+
+Not scored. Zero verified evidence requires self-exclusion.
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (OpenAI/GPT-5.6-Luna)** — 2026-10-17
+- Method: Independent public web searches across official and benchmark/review queries; no verified evidence located.

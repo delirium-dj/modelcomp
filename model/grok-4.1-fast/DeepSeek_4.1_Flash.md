@@ -1,11 +1,9 @@
 # Grok 4.1 Fast — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (SpaceXAI) / Grok 4.1 Fast (`grok-4-1-fast`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`grok-4-1-fast` base variant, 12 rows) computes an overall **36.41/100 (#157 of 972)**; the model remains deprecated (requests redirect to Grok 4.3). All rows match the 2026-10-11 deep pass — no new evidence. **No score change** (Tool 62 / Reasoning 64 / Context 95 / Multimodal 62 / Coding 56 / Cost 95 / Overall 68).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-pulled live: BenchLM (base + reasoning), Artificial Analysis (non-reasoning + reasoning), Vals AI Vibe Code Bench, x.ai's official Grok 4.1 news, and docs.x.ai.
 > New numbers found this pass: τ²-Bench Telecom 93.3% (reasoning) / 63.7% (non-reasoning), Gert Labs 47.32% (base), AA Intelligence Index 20.4 (reasoning) / 11.3 (base), AA-GPQA Diamond 85.3% / 63.7%, AA-HLE 19.3% / 5.1%, AA-LCR v1.1 74.0% (reasoning) / 31.3% (base), AA-MMMU-Pro 63.3% / 48.4%, AA-IFBench 52.7% / 36.5%, Vibe Code Bench 1.20% (reasoning), BenchLM composites 36.1 (base) / 45.73 (reasoning).
@@ -74,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: independent public internet research (BenchLM base + reasoning rows, Artificial Analysis model pages, Vals AI Vibe Code Bench, x.ai official news, docs.x.ai). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

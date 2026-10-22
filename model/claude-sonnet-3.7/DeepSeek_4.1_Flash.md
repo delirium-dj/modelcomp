@@ -1,7 +1,7 @@
 # Claude Sonnet 3.7 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude 3.7 Sonnet (`anthropic/claude-3.7-sonnet`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic/Claude Fable 5.1 (`claude-fable-5-1`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-fable-5-1`, `opencode/claude-fable-5.1`; no Free tier on Zen.
 - **Context window:** 1,000,000 tokens (1M context window), with up to 128,000 maximum output tokens.
 - **Modalities:** Text, high-resolution image, diagram, and multi-page PDF document input; text, code, structured JSON output, and Model Context Protocol (MCP) tool execution.
-- **Pricing (as of 2026-10-21):** $10.00 / 1M input tokens, $50.00 / 1M output tokens; prompt cache read slashed to $0.25 / 1M tokens (75% reduction).
+- **Pricing (as of 2026-10-16):** $10.00 / 1M input tokens, $50.00 / 1M output tokens; prompt cache read slashed to $0.25 / 1M tokens (75% reduction).
 - **Architecture:** Frontier Mythos-class transformer with native adaptive thinking and per-message effort parameter controls.
 
 ### Raw benchmarks found
@@ -54,12 +54,12 @@ Long context:
 - **Multimodal: 80/100.** Comprehensive visual layout understanding across images, charts, and dense PDF technical documents; capped by absence of native audio/video modalities.
 - **Coding: 96/100.** Exceptional software development capabilities evidenced by 81.2% on SWE-bench Pro and 90.5% on LiveCodeBench.
 - **Cost efficiency: 38/100.** Premium frontier pricing ($10.00/$50.00 per 1M), significantly mitigated by aggressive $0.25/M prompt cache read pricing.
-- **Overall Score: 92/100.** Quality arithmetic mean of the 5 core quality dimensions ((93 + 95 + 97 + 80 + 96) / 5 = 92.2 rounded to 92).
+- **Overall Score: 92/100.** Anthropic's most capable generally available model, delivering peerless multi-step autonomous agent performance, deep scientific discovery, and complex enterprise software engineering.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing Anthropic official system cards, technical announcements, and independent benchmark evaluations from Vals AI and Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

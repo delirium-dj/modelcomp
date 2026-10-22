@@ -1,7 +1,7 @@
 # Claude Sonnet 3.7 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic / Claude (`anthropic/claude-3.7-sonnet`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-3.7-sonnet`, `opencode/claude-sonnet-3.7`
 - **Context window:** 200,000 tokens total (200K context window; 64,000 max output tokens with extended thinking).
 - **Modalities:** Text and image input; text, code, structured JSON, tool-calling output; user-visible extended thinking budget.
-- **Pricing (as of 2026-10-21):** $3.00 / 1M input tokens, $15.00 / 1M output tokens ($0.30 / 1M prompt cache read; $1.50 / $7.50 batch pricing).
+- **Pricing (as of 2026-10-17):** $3.00 / 1M input tokens, $15.00 / 1M output tokens ($0.30 / 1M prompt cache read; $1.50 / $7.50 batch pricing).
 - **Architecture:** Dense transformer architecture with hybrid reasoning pathways, configurable thinking budgets, and computer use capability.
 
 ### Raw benchmarks found
@@ -74,6 +74,6 @@ Long context / vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
 - Method: Public documentation, official Anthropic release announcements, independent benchmarks, and platform listings; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,11 +1,9 @@
 # Big Pickle — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / Big Pickle (`opencode/big-pickle`, free stealth alias)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** Big Pickle remains untracked on BenchLM (404) and the other aggregators; the maker-anonymous/rotating-identity status, 200K/text-only/$0 specs and the direct SWE Atlas 50.8% eval all still stand. No new verified evidence. **No score change** (Tool 60 / Reasoning 55 / Context 70 / Multimodal 15 / Coding 72 / Cost 100 / Overall 54).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against OpenCode Zen (https://opencode.ai/zen), Pi models (https://pi.dev/models/opencode/big-pickle), Grokipedia (https://grokipedia.com/page/Big_Pickle_model), Cracked AI Engineering (https://www.crackedaiengineering.com/ai-models/opencode-big-pickle), the models.dev database (https://github.com/anomalyco/models.dev) and the DuckDuckGo result set (https://duckduckgo.com/html/?q=Big+Pickle+model+OpenCode+Zen) plus the Bing result set (https://www.bing.com/search?q=%22Big+Pickle%22+opencode+zen+model). The identity consensus, the 200K / text-only / $0 specs and the direct SWE Atlas 50.8% eval all still stand. New proxy GLM benchmark numbers and one hard spec conflict surfaced (max output 32K vs 128K); both are labelled below. No dimension crossed its evidence threshold, so the five quality scores are unchanged.
 
@@ -67,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: public internet research — OpenCode Zen product page (https://opencode.ai/zen), Pi model card (https://pi.dev/models/opencode/big-pickle), Grokipedia fact-checked page (https://grokipedia.com/page/Big_Pickle_model), Cracked AI Engineering spec page (https://www.crackedaiengineering.com/ai-models/opencode-big-pickle), models.dev (https://github.com/anomalyco/models.dev), the direct SWE Atlas eval repo (https://github.com/PhillipChaffee/big-pickle-swe-atlas), plus Bing and DuckDuckGo result sets. Deep second pass of the 2026-10-01 report; conflicting figures (max output 32K vs 128K; GLM-4.6 vs GLM-4.7 proxy) are surfaced, not reconciled. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

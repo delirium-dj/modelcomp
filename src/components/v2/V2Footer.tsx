@@ -2,8 +2,8 @@ import { component$ } from "@builder.io/qwik";
 
 /**
  * V2Footer — shared footer for the v2 homepage, in the v1 Tailwind dialect.
- * Same functionality as the v1 Footer (sponsor tiers, soon-links, research
- * backers, fine print, bottom bar). v1 Footer.tsx is untouched.
+ * Same functionality as the v1 Footer had (sponsor tiers, soon-links,
+ * research backers, fine print, bottom bar).
  */
 
 const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";

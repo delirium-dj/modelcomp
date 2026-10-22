@@ -3,7 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
-93.9 muse-spark-1.3
+94 muse-spark-1.3
 93.4 claude-opus-5.5
 92.6 gemini-4-argon
 92.5 gemini-3.8-flash
@@ -26,9 +26,9 @@
 89.7 claude-opus-4.8
 89.6 muse-spark-1.2
 89.4 glm-5.3-flash
+89.4 qwen-3.8-max
 89.3 claude-opus-4.7
 89.3 gpt-5.5
-89.3 qwen-3.8-max
 89.2 gemini-3.5-flash
 88.7 gemini-3.6-flash
 88.7 gpt-5.6-terra
@@ -51,9 +51,9 @@
 86.6 minimax-m3
 86.5 step-5-preview
 86.4 inkling-small
-86.4 qwen-3.7-plus
 86.3 gpt-5.4
 86.3 grok-4.6
+86.3 qwen-3.7-plus
 86.2 claude-sonnet-4.6
 86.1 qwen-3.8-27b
 85.8 gpt-5.2
@@ -66,10 +66,10 @@
 85.1 grok-4.5
 85.1 qwen-3.5-plus
 85 gpt-5.3-codex
-84.9 mistral-large-4
 84.9 seed-2.0-pro
 84.8 gpt-5.6-luna
 84.7 gemini-2.5-pro
+84.3 mistral-large-4
 84.3 pareto-26.10-preview
 84.2 grok-4.3
 84 deepseek-v4-pro
@@ -136,17 +136,17 @@
 71.2 beam
 71.2 qwen-3.5-35b-a3b
 71 qwen-3.7-flash
-70.7 glm-4.6-flash
+70.7 glm-4.6v-flash
 70.5 gpt-5.1-codex-max
 70.4 longcat-2.0
 69.8 glm-5.1
 69.7 qwen3-max
-69.2 qwen-3.5-flash
+69.5 qwen-3.5-flash
 68.8 hy3-preview
 68.5 longcat-2.5-preview
 68.4 diffusiongemma-26b-a4b
-67.9 solar-open-2
-67.7 ling-3.1-flash
+68.1 ling-3.1-flash
+68.1 solar-open-2
 67.6 solar-pro-4
 66.8 mai-thinking-1
 66.8 pixel_canary

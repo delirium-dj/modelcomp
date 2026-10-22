@@ -1,15 +1,17 @@
 # GPT 5.4 Nano — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.4 nano (`openai/gpt-5.4-nano`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-4-nano`, 39 rows) computes an overall **46.83/100 (#115 of 972)** and confirms the deep pass: Terminal-Bench 2.0 46.3% (Vals 2.1 41.6%), OSWorld-Verified 39%, MCP Atlas 56.1%, τ² 92.5%, GPQA 82.8% (AA 81.7%), HLE 37.7%, AA-LCR 76.7%, MMMU-Pro 66.1%, Vibe Code Bench 26.10%, FrontierMath v2 44.91%/12.20%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against OpenAI's launch post (2026-03-17), Artificial Analysis, BenchLM, LLM-Stats, BenchmarkList, Benchable and AI Release Tracker (7 independent sources). New verified rows added this pass: SWE-bench Verified 69.8% (Vals), SWE-Bench Pro (Public) 52.4% and MCP Atlas 56.1% / Toolathlon 35.5% / τ²-Bench Telecom 92.5% (OpenAI), Vals LiveCodeBench 84.0%, Vals GPQA Diamond 77.5%, and long-context MRCR v2 / Graphwalks. Harness conflicts were surfaced rather than merged (τ²-Bench Telecom 92.5% OpenAI vs 76.0% AA/BenchmarkList; GPQA 82.8% OpenAI vs 81.7% AA vs 77.5% Vals). Coding was re-scored where the new SWE/LiveCode evidence warranted it (76→77); Tool use, Reasoning, Context, Multimodal and Cost were kept with refreshed justification.
 
 ## Model card
 
-- **Name:** GPT 5.4 Nano
+- **Name:** GPT-5.4 nano
 - **Short description:** The most lightweight and cost-efficient GPT-5.4 variant — text and image input optimised for speed-critical, high-volume work such as classification, extraction, ranking and sub-agent execution, where responsiveness beats deep reasoning. OpenAI's launch summary calls it "the smallest, cheapest version of GPT‑5.4 for tasks where speed and cost matter most" (https://openai.com/index/introducing-gpt-5-4-mini-and-nano/).
 - **Provider / access:** OpenAI API (first-party; also surfaced on Azure OpenAI and listed on OpenRouter/BenchmarkList). OpenAI states GPT‑5.4 nano is "only available in the API". Not open weights. Curated prior note: OpenCode Zen tracks it as `opencode/gpt-5.4-nano`; not independently re-verified this pass. No Zen Free ID.
 - **Release / knowledge:** Released 2026-03-17; knowledge cutoff August 2025 (2025-08-31 per LLM-Stats and Artificial Analysis).
@@ -64,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (OpenAI launch post; Artificial Analysis; BenchLM; LLM-Stats; BenchmarkList; Benchable; AI Release Tracker); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

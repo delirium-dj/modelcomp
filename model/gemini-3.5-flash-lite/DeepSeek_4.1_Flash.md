@@ -1,9 +1,11 @@
 # Gemini 3.5 Flash-Lite — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-5-flash-lite`, 27 rows) computes an overall **49.59/100 (#101 of 972)** and confirms the deep pass (Terminal-Bench 2.1 54.0% / Vals 50.2%, OSWorld-Verified 74%, GDPval-AA 1139 / 24.2%, SWE-bench Pro 54.2%, Vals SWE-bench 75.0% / LiveCodeBench 79.0%, AA-MMMU-Pro 79.0%, MRCRv2 72.2%, AA-LCR 76.0%, AA-GPQA 83.8%, AA-HLE 18.8%, AA Intelligence Index 22.2%). **No score change** (Tool 62 / Reasoning 70 / Context 90 / Multimodal 82 / Coding 70 / Overall 75).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from the official Google model card: **Terminal-Bench 2.1 54.0%**, **OSWorld-Verified 74.0%**, GDPval-AA v2 1140 Elo, **SWE-Bench Pro (public) 54.2%**, SWE-bench Verified 75.0% (Vals), LiveCodeBench 79.01% (Vals), **GPQA Diamond 83.84% (Vals) / 83.8% (AA)**, MMLU-Pro 85.84%, HLE 17.5–18.8%, CharXiv 74.5%/76.5%, **GDM-MRCR v2 128k 72.2% / 1M 21.3%**, AA-LCR 76.0%, MMMU-Pro 79.0% (AA) / 83.58% (Vals); official release **2026-07-21**, knowledge cutoff March 2026, pricing **$0.30 in / $0.03 cached / $2.50 out**. Independent: AA Intelligence Index **22 (#39/175, v4.3.2)**, BenchLM overall 51.45 (#91/891), Vals Index 36.71% (#29/43).

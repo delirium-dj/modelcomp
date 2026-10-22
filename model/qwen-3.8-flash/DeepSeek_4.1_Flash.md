@@ -1,11 +1,9 @@
 # Qwen 3.8 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Qwen/Qwen3.8 Flash (`qwen3.8-flash`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23); re-verified 2026-10-18
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-23)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> **Re-verified 2026-10-18.** BenchLM (`qwen3-8-flash-next`, 38 rows) computes an overall **62.84/100 (#44 of 972)** and confirms the 2026-10-11 deep pass; it adds ExtractBench 89.88%, Vision2Web 64.0%, AA-MMMU-Pro 79.8%. **No score change** (Tool 88 / Reasoning 88 / Context 95 / Multimodal 85 / Coding 85 / Cost 96 / Overall 88).
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Hugging Face **Qwen3.8-Flash-Next** card rows — SWE-bench Pro **62.5%**, SWE Multilingual 81.0%, DeepSWE 1.1 **58.7%**, NL2Repo 48.1%, **LiveCodeBench v6 91.9%**, **Toolathlon-Verified 73.5%**, JobBench 55.7%, CoWorkBench 73.9%, Agents' Last Exam 51.2%, AndroidWorld 84.5%, OSWorld 2.0 19.4%, GPQA Diamond **91.7%**, HLE 35.9%, IFBench 81.3%, CharXiv 90.6%/84.6%, MathVision 90.6%/95.7%, RealWorldQA 88.5%, LVBench 76.6%; Artificial Analysis **Intelligence Index 39.8 (#7/118 open-weights)**, GDPval-AA **1648 Elo / 56.6%**, AA-SciCode 50.6%, AA Coding Index 73.0%, AA-MMMU-Pro 79.8%, AA-LCR 79.7%, CritPt 11.1%, AA-HLE 38.0%; BenchLM overall **64.23 (#37/889)**.
@@ -65,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
 - Method: deep second-pass public internet research (Hugging Face Qwen3.8-Flash-Next card, BenchLM model page + per-eval results, Artificial Analysis, LLM-Stats, Codersera). Independent AA rows were promoted over prior BenchmarkList-only rows; the index rebase, context and licence facts are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

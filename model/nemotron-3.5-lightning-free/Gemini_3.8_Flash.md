@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.8 Flash
 
 - Source: NVIDIA/Nemotron 3.5 Lightning Free (`opencode/nemotron-3.5-lightning-free`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/nemotron-3.5-lightning-free`, `nvidia/nemotron-3.5-lightning-30b-a3b`.
 - **Context window:** 262,144 tokens (262K native context, extended up to 1,000,000 tokens on OpenCode Zen router), with up to 65,536 maximum output tokens.
 - **Modalities:** Text input; text output (pure text/code model, optimized for low-latency tool execution, JSON mode, and speculative decoding via Multi-Token Prediction).
-- **Pricing (as of 2026-10-21):** Free ($0.00) on OpenCode Zen and OpenRouter promotional tiers; commercial host rates ~$0.05 / 1M input, $0.20 / 1M output.
+- **Pricing (as of 2026-10-16):** Free ($0.00) on OpenCode Zen and OpenRouter promotional tiers; commercial host rates ~$0.05 / 1M input, $0.20 / 1M output.
 - **Architecture:** 30B total / 3B active parameters per token hybrid LatentMoE (combining Mamba-2 linear attention, selective transformer attention, and MoE routing).
 
 ### Raw benchmarks found
@@ -55,12 +55,12 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output architecture without image, vision, or audio support.
 - **Coding: 56/100.** Solid ~52% on SWE-bench Verified and 39.33% Multilingual SWE for a 3B active parameter model; capped on complex algorithm generation.
 - **Cost efficiency: 100/100.** Completely free ($0) access tier on OpenCode Zen with extreme single-GPU inference efficiency.
-- **Overall Score: 51/100.** Quality arithmetic mean of the 5 core quality dimensions ((50 + 62 + 74 + 15 + 56) / 5 = 51.4 rounded to 51). Swift, low-latency execution subagent.
+- **Overall Score: 51/100.** Swift, low-latency execution subagent designed to work in concert with a frontier planner for high-frequency tool calls and validation passes.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing NVIDIA Nemotron-3.5 technical documentation, Hugging Face model card evaluations, OpenCode Zen specifications, and NeMo Gym benchmark logs; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -54,6 +54,7 @@ import {
   FORBIDDEN_ROOTS,
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
+  SANCTIONED_DELETIONS,
   RETIRED_ALIAS_SLUGS,
   mergedSlugMessage,
   mergedStemMessage,
@@ -213,8 +214,10 @@ log(`sync-data: ${slugs.length} model folders`);
 //   - twin retirement: <.md.excluded> gone but its fresh <.md> sibling exists
 //     (tasks/research.md Step 3.3);
 //   - relocation: the same relative path exists under a sanctioned mirror tree
-//     (user-directed moves, e.g. models_voice/, models_finance/) — content
-//     preserved, pending commit.
+//     (user-directed moves, e.g. models_voice/, models_finance/) - content
+//     preserved, pending commit;
+//   - user-sanctioned deletion: exact path in SANCTIONED_DELETIONS (corrupted
+//     template copies removed on user order, 2026-10-22).
 const ALLOW_MODEL_DELETE = process.env.ALLOW_MODEL_DELETE === "1" || process.env.ALLOW_MODEL_DELETE === "true";
 try {
   if (ALLOW_MODEL_DELETE) {
@@ -245,7 +248,12 @@ try {
       canonicalStem !== undefined &&
       (existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`)) ||
         existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md.excluded`)));
-    const verdict = classifyMissingTracked({ twinRetired, mirror, mergedSource });
+    const sanctionedDeletion = SANCTIONED_DELETIONS.has(posix);
+    const verdict = classifyMissingTracked({ twinRetired, mirror, mergedSource, sanctionedDeletion });
+    if (verdict === "user-sanctioned") {
+      log(`  INFO  ${posix}: user-sanctioned deletion (${SANCTIONED_DELETIONS.get(posix)}) - never restore`);
+      continue;
+    }
     if (verdict === "merged-source") {
       log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
       continue;
@@ -270,11 +278,10 @@ try {
 // folder like `gpt-5-5` is a duplicate of `gpt-5.5`, not a new model — fail
 // loudly with the dotted destination instead of cementing the duplicate.
 // Slug exceptions (match digit-hyphen-digit but are NOT hyphen versions):
-// Param sizes (with or without a decimal) are not versions: `gemma-4-31b`
-// ("4" + 31B params), `qwen-3.8-27b` (version 3.8 + 27B params),
-// `qwen-3.5-0.8b` (version 3.5 + 0.8B params), `qwen-3.5-9b` (version 3.5 +
-// 9B params) and `qwen-3.5-397b` (version 3.5 + 397B params,
-// Qwen3.5-397B-A17B).
+// param sizes `gemma-4-31b` ("4" + 31B params), `qwen-3.8-27b`
+// (version 3.8 + 27B params), `qwen-3.5-0.8b` (version 3.5 + 0.8B params),
+// `qwen-3.5-9b` (version 3.5 + 9B params) and `qwen-3.5-397b` (version 3.5 +
+// 397B params, Qwen3.5-397B-A17B).
 // (Single majors with codename/experimental suffixes like `gpt-6-astra`
 // never match the check at all.) Full list: SLUG_VERSION_EXCEPTION in
 // scripts/lib/naming.mjs.

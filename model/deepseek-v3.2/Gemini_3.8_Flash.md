@@ -1,7 +1,7 @@
 # DeepSeek V3.2 — findings by Gemini 3.8 Flash
 
 - Source: DeepSeek / OpenCode (`opencode/deepseek-v3.2`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/deepseek-v3.2` (no Free ID on Zen)
 - **Context window:** 163,840 tokens total (~164K context window; up to 128K max output depending on provider).
 - **Modalities:** Text in/out; hybrid reasoning/thinking modes, tool calls, structured JSON; text-only (no native vision/audio).
-- **Pricing (as of 2026-10-21):** ~$0.27 / 1M input tokens, ~$0.40 / 1M output tokens (prompt cache read ~$0.028 / 1M tokens).
+- **Pricing (as of 2026-10-17):** ~$0.27 / 1M input tokens, ~$0.40 / 1M output tokens (prompt cache read ~$0.028 / 1M tokens).
 - **Architecture:** 685B total / 37B active parameters, Mixture-of-Experts (MoE) with DeepSeek Sparse Attention (DSA) and integrated CoT tool-use synthesis.
 
 ### Raw benchmarks found
@@ -73,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
 - Method: Public documentation, DeepSeek-V3.2 technical report (`arXiv:2512.02556`), BenchLM tracking, and OpenRouter API listings; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,11 @@
 # Kimi K2.6 — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI (`kimi-k2.6`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-29)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-09-29); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`kimi-2-6`, 55 rows) computes an overall **58.38/100 (#60 of 972)** and confirms the deep pass: Terminal-Bench 2.0 66.7%, BrowseComp 83.2%, τ² 95.9%, OSWorld-Verified 73.1%, SWE-bench Verified 80.2%, SWE-bench Pro 58.6%, LiveCodeBench 89.6%, GPQA 90.5% (AA 91.1%), HLE 34.7%, AA-LCR 81.0%, MMMU-Pro 79.4%, CharXiv 80.4%, FrontierMath v2 57.19%/25.64%. **No score change**.
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from the Hugging Face card + Kimi blog: **Terminal-Bench 2.0 66.7%**, **SWE-bench Verified 80.2%**, SWE-bench Pro 58.6%, SWE Multilingual 76.7%, SciCode 52.2%, **LiveCodeBench v6 89.6%**, OJBench-py 60.6%; **GPQA Diamond 90.5%**, HLE 34.7% (no tools) / **54.0% with tools**, AIME 2026 96.4%, HMMT 92.7%, IMO-AnswerBench 86.0%; **Toolathlon 50.0%**, MCPMark 55.9%, OSWorld-Verified 73.1%, **BrowseComp 83.2%** (86.3% agent-swarm), DeepSearchQA-F1 92.5%, WideSearch 80.8%, APEX-Agents 27.9%, Claw-Eval 62.3%; MMMU-Pro 79.4%, CharXiv-RQ 80.4%, MathVision 87.4%, **V\* 96.9%**. Independent: **Vals Index 63.9% (#7 overall, #1 open-weight)**, TB 2.1 53.56%, SWE-bench 76.20%, LiveCodeBench 86.77%, MMMU-Pro 86.30%; AA Intelligence Index **27 (#21/117)**, AA-LCR 81.0%, τ²-bench 95.9%, GDPval-AA 1115 Elo; BenchLM overall 58.26 (#56/891).

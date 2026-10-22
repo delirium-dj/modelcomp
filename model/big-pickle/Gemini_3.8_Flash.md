@@ -1,7 +1,7 @@
 # Big Pickle (GLM 4.6) — findings by Gemini 3.8 Flash
 
 - Source: OpenCode Zen (`opencode/big-pickle`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/big-pickle` (Free Zen tier).
 - **Context window:** 200,000 tokens total (160K input / 32K output confirmed on models.dev).
 - **Modalities:** Text and code input; text and code output; tool calling and structured JSON output.
-- **Pricing (as of 2026-10-21):** Free ($0) on OpenCode Zen promotional tier; commercial counterpart (GLM-4.6) equivalent to ~$0.60 / 1M input, $2.20 / 1M output.
+- **Pricing (as of 2026-10-16):** Free ($0) on OpenCode Zen promotional tier; commercial counterpart (GLM-4.6) equivalent to ~$0.60 / 1M input, $2.20 / 1M output.
 - **Architecture:** 357B parameter Mixture of Experts (MoE) transformer with reasoning-tuned inference routing served via OpenAI-compatible endpoint.
 
 ### Raw benchmarks found
@@ -55,12 +55,12 @@ Long context:
 - **Multimodal: 15/100.** Text and code only; standard baseline for models lacking vision, image, or audio input capabilities.
 - **Coding: 68/100.** Direct 50.8% SWE Atlas coupled with 81.0% LiveCodeBench and ~68% SWE-bench Verified; capped by low Vibe Code Bench and moderate SciCode performance.
 - **Cost efficiency: 100/100.** Fully free ($0.00) tier on OpenCode Zen during promotional deployment.
-- **Overall Score: 52/100.** Quality arithmetic mean of the 5 core quality dimensions ((50 + 58 + 70 + 15 + 68) / 5 = 52.2 rounded to 52).
+- **Overall Score: 52/100.** Highly cost-effective daily driver for code analysis, exploratory coding, and automated repo question-answering when utilizing the free OpenCode Zen tier.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing OpenCode Zen platform documentation, models.dev registry definitions, direct SWE Atlas evaluation records, and GLM-4.6 verified consensus benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,52 @@
+# Claude Opus 4.4 — findings by GPT 6.1 Sol
+
+- Source: claimed Anthropic Claude Opus 4.4; exact publisher identity unverified.
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: exact identity and task benchmarks remain unverified.**
+
+## Model card
+
+- **Name:** Claude Opus 4.4 (dataset label).
+- **Short description:** An existing queued entry whose exact Anthropic release, snapshot, and hosting identity could not be established. It must not inherit Opus 4, 4.1, 4.5, or later Opus results merely because its name sits between them.
+- **Provider / access / IDs:** The plausible native spelling `claude-opus-4-4` and dotted gateway spelling `anthropic/claude-opus-4.4` remain unverified. Fresh HTTP-200 full-catalog inspections of OpenCode Zen, OpenRouter, and models.dev found no exact Opus 4.4 entry; each did find distinct Opus 4.5 entries as a positive control.[1][2][3] No exact free route was verified.
+- **Release / knowledge / lifecycle:** Unknown. Anthropic's inspected model overview lists legacy Opus 4.5, 4.6, 4.7, and 4.8 alongside newer models; the lifecycle history covers older Opus 4/4.1 retirements, without establishing a 4.4 release.[4][5] The checked native overview and announcement URL candidates returned HTTP 404.[6][7]
+- **Context window / modalities / tools:** No exact vendor-verified limits or modality contract found. Local `meta.json` was unavailable at inspection; no metadata was reconstructed from family assumptions.
+- **Pricing:** No verified exact-model per-token tariff, subscription entitlement, or current free inference found.
+- **Architecture:** No verified exact checkpoint, weights, parameter count, or license found.
+
+### Raw benchmarks found
+
+- **Agent / tool use:** no verified public score found for this exact model/ID, including Terminal-Bench, Tau-bench, GDPval-AA, Claw evaluations, or MCP-Atlas.
+- **Reasoning / knowledge:** no verified public score found for exact-model GPQA, HLE, CritPt, or Intelligence Index.
+- **Coding:** no verified public score found for exact-model SWE-bench, LiveCodeBench, SciCode, or Vibe Code Bench.
+- **Long context / multimodal:** no verified public score found for exact-model retrieval, image, or other perception accuracy. No capacity or modality score is inferred from the family name.
+- **Evaluator checks:** Guessed exact Artificial Analysis, Vals, and BenchLM profile paths returned HTTP 404, as did the exact OpenRouter endpoint candidate.[8][9][10][11] These are bounded URL failures, not measured zeros or proof that every possible private/historical release is absent. Combined with publisher/catalog checks, the available evidence is insufficient for identification and scoring.
+
+### Normalized scores (1–100)
+
+Withheld. Exact identity and task-level benchmark evidence are insufficient to compute the quality dimensions or Overall. No fabricated numeric scores are assigned.
+
+### Fresh search trail and sources
+
+- Bing RSS [`"Claude Opus 4.4" benchmark`](https://www.bing.com/search?format=rss&q=%22Claude+Opus+4.4%22+benchmark) returned generic Claude product/login/help pages, without exact-model evidence.
+- Google [`"Claude Opus 4.4" Anthropic`](https://www.google.com/search?q=%22Claude+Opus+4.4%22+Anthropic) returned a JavaScript/access interstitial.
+- DuckDuckGo [`"Claude Opus 4.4" model`](https://duckduckgo.com/html/?q=%22Claude+Opus+4.4%22+model) returned no results. A separate [`"claude-opus-4-4" benchmark`](https://duckduckgo.com/html/?q=%22claude-opus-4-4%22+benchmark) query also returned no results. Direct publisher/evaluator and full-catalog inspection followed.
+
+[1]: https://opencode.ai/zen/v1/models
+[2]: https://openrouter.ai/api/v1/models
+[3]: https://models.dev/api.json
+[4]: https://platform.claude.com/docs/en/models/overview
+[5]: https://platform.claude.com/docs/en/about-claude/model-deprecations
+[6]: https://platform.claude.com/docs/en/models/opus-4-4/overview
+[7]: https://www.anthropic.com/news/claude-opus-4-4
+[8]: https://artificialanalysis.ai/models/claude-opus-4-4
+[9]: https://www.vals.ai/models/anthropic_claude-opus-4-4
+[10]: https://benchlm.ai/models/claude-opus-4-4
+[11]: https://openrouter.ai/api/v1/models/anthropic/claude-opus-4.4/endpoints
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web research and exact-ID/catalog checks; no peer findings consulted. Evidence absence is not a measured zero; this exclusion preserves the audit without inventing an Overall score.

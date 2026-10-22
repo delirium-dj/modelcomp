@@ -1,21 +1,21 @@
 # Nemotron 3 Nano Omni — findings by Gemini 3.8 Flash
 
 - Source: opencode/nemotron-3-nano-omni
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+- Date: 2026-10-11 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Nemotron 3 Nano Omni
 - **Short description:** NVIDIA's open 30B-A3B omni-modal reasoning model with native audio, vision, and text support.
-- **Provider / access:** OpenCode (`opencode/nemotron-3-nano-omni`), NVIDIA Build free API endpoint, Hugging Face open weights.
+- **Provider / access:** opencode/nemotron-3-nano-omni
 - **Release / knowledge:** 2026 release; knowledge cutoff 2026.
-- **IDs:** `opencode/nemotron-3-nano-omni` (Zen tier available)
-- **Context window:** 262,144 tokens total (65,536 max output).
-- **Modalities:** Native omni: text, image, video, audio in; text out.
-- **Pricing (as of 2026-10-21):** $0.00 via NVIDIA Build free API endpoint; open checkpoints available for self-hosting.
-- **Architecture:** 30B total / ~3B active omni-modal Mixture-of-Experts with native audio, vision, and text processing.
+- **IDs:** opencode/nemotron-3-nano-omni (Zen tier available)
+- **Context window:** 262,144 total (65,536 max output)
+- **Modalities:** Text, image, video, audio in; text out
+- **Pricing (as of 2026-10-11):** $0 via NVIDIA Build free API endpoint; open checkpoints available
+- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
 
 ### Raw benchmarks found
 
@@ -60,17 +60,18 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 62/100.** Normalized assessment of autonomous tool execution and function calling (47.4% OSWorld, 45.3% τ²-bench).
-- **Reasoning: 65/100.** Normalized assessment of complex multi-step reasoning, factoring the divergence between vendor and independent GPQA measurements.
-- **Context window: 74/100.** Effective retrieval fidelity across 262K context capacity with 65K max output.
-- **Multimodal: 90/100.** Input/output modality comprehension across speech, image, video, and document understanding (89.39 on VoiceBench, 72.2% Video-MME).
-- **Coding: 55/100.** Basic code completion and script generation (63.2% LiveCodeBench v5, 13.8% AA Coding Index).
-- **Cost efficiency: 96/100.** High cost efficiency via NVIDIA Build free API access and open weights.
-- **Overall Score: 69/100.** Arithmetic mean of non-cost metrics: (62 + 65 + 74 + 90 + 55) / 5 = 69.2 → 69. Open omni-modal model excelling in speech and visual perception with lightweight edge inference.
+- **Tool use: 62/100.** Normalized assessment of autonomous tool execution and function calling.
+- **Reasoning: 65/100.** Normalized assessment of complex multi-step reasoning and deductive analysis.
+- **Context window: 74/100.** Effective retrieval fidelity across context capacity (262,144 total (65,536 max output)).
+- **Multimodal: 90/100.** Input/output modality comprehension (Text, image, video, audio in; text out).
+- **Coding: 55/100.** Verified software engineering and code generation capability.
+- **Cost efficiency: 96/100.** Value proposition relative to performance and pricing structure.
+- **Overall Score: 69.2/100.** Balanced quality capability across the 5 core dimensions.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
-- Method: Public benchmark evaluation and analysis of NVIDIA technical documentation, VoiceBench, and Artificial Analysis leaderboards.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

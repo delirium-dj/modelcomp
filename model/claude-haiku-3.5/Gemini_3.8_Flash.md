@@ -1,7 +1,7 @@
 # Claude Haiku 3.5 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic/Claude Haiku 3.5 (`claude-3-5-haiku-20241022`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-10-16 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-3-5-haiku-20241022`, `opencode/claude-haiku-3.5`; no Free tier on Zen.
 - **Context window:** 200,000 tokens total (200K context window), with up to 8,192 maximum output tokens.
 - **Modalities:** Text, image, and PDF document input (vision support enabled February 2025); text and code output; basic function calling.
-- **Pricing (as of 2026-10-21):** Final API rate $0.80 / 1M input tokens, $4.00 / 1M output tokens; prompt caching read at $0.08 / 1M tokens.
+- **Pricing (as of 2026-10-16):** Final API rate $0.80 / 1M input tokens, $4.00 / 1M output tokens; prompt caching read at $0.08 / 1M tokens.
 - **Architecture:** Compact dense transformer architecture optimized for high output token velocity (~170 tokens/sec) and low latency.
 
 ### Raw benchmarks found
@@ -61,12 +61,12 @@ Multimodal:
 - **Multimodal: 62/100.** Text, image, and PDF document input supporting basic diagram and visual QA (45.6% MMMU-Pro); text-only output without audio or video streaming.
 - **Coding: 60/100.** Competent basic code generator (88.1% HumanEval), but bounded on complex autonomous software engineering (40.6% vendor / 22.0% independent SWE-bench Verified).
 - **Cost efficiency: 86/100.** Economical $0.80 / $4.00 pricing tier with 90% prompt cache discount, though superseded by newer cost-performance models.
-- **Overall Score: 59/100.** Quality arithmetic mean of the 5 core quality dimensions ((50 + 55 + 70 + 62 + 60) / 5 = 59.4 rounded to 59).
+- **Overall Score: 59/100.** Fast, low-latency utility engine suitable for triage, lightweight routing, and structured classification, capped on advanced autonomous coding tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
 - Method: Public internet research synthesizing Anthropic official system documentation, Model Card Addendums, and independent benchmark tracking from Serenities AI, Vals AI, and RankedAGI; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
