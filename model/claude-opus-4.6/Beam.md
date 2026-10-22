@@ -1,7 +1,7 @@
 # Claude Opus 4.6 — findings by Beam
 
 - Source: Anthropic/Claude Opus 4.6, `anthropic/claude-opus-4-6`
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-4-6`
 - **Context window:** 1,000,000 tokens (beta); max output 128,000.
 - **Modalities:** text, image, PDF in; text out; reasoning yes (adaptive thinking); tool calling yes; structured output yes.
-- **Pricing (as of 2026-10-17):** $5.00 / 1M input, $25.00 / 1M output, $0.50 / 1M cache read, $6.25 / 1M cache write; paid.
+- **Pricing (as of 2026-10-22):** $5.00 / 1M input, $25.00 / 1M output, $0.50 / 1M cache read, $6.25 / 1M cache write; paid.
 - **Architecture:** proprietary; params not published.
 
 ### Raw benchmarks found
@@ -63,6 +63,16 @@ Multimodal:
 - ERQA: **51.6%**
 - ScreenSpot Pro: **83.1%**
 
+### New data (benchgap 2026-10-21 snapshot)
+
+- AA Intelligence Index: **26.4%** (measured); AA-GPQA Diamond **84.0%**; AA-HLE **19.1%**; AA-SciCode **46.9%** (est.).
+- HLE **53.0%** (measured); GPQA **91.3%** (measured); SuperGPQA **95.0%** (measured); ARC-AGI-2 **52.6%** (est.).
+- SWE-bench Verified **80.8%** (measured); SWE-bench Pro **53.4%** (measured); LiveCodeBench v6 **87.0%** (est.).
+- MMMU-Pro **77.3%** (measured); ScreenSpot Pro **83.1%** (measured); CharXiv **85.7%** (est.).
+- MRCRv2 **58.0%** (est.); LongBench v2 **59.9%** (est.); AA-LCR **67.0%** (measured).
+- Terminal-Bench 2.0 **65.4%** (measured); BrowseComp **83.7%** (measured); OSWorld-Verified **72.7%** (measured); DeepSearchQA **73.7%** (measured).
+- τ²-bench **84.8%** (measured); MCP Atlas **61.8%** (est.); Toolathlon **52.5%** (est.); AutomationBench **19.8%** (est.).
+
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** Agentic lane #57/128 (45.7), Terminal-Bench 2.0 65.4%, BrowseComp 83.7%, OSWorld 72.7%, DeepSearchQA 73.7%, Claw-Eval 70.4%; caps at ResearchClawBench 19.9%.
@@ -77,6 +87,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-10-17
-- Method: public internet research (Anthropic news, BenchLM, ucstrategies); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: public internet research (Anthropic news, BenchLM, benchgap Oct-21 snapshot); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.<|end|>

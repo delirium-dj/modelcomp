@@ -1,0 +1,69 @@
+# GPT-5.3-Codex-Spark — findings by GPT 6.1 Sol
+
+- Source: OpenAI, `gpt-5.3-codex-spark`.
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — real model with meaningful coding evidence, but insufficient verified broad reasoning coverage to compute Overall.** This is not a no-benchmarks or nonexistent-model finding.
+
+## Model card
+
+- **Name / identity:** GPT-5.3-Codex-Spark, a distinct **smaller model** optimized for interactive coding, not just a fast serving tier of full GPT-5.3-Codex. Publisher and Cerebras independently describe that relationship.[1][2]
+- **Provider / access / lifecycle:** Released **2026-02-12** as ChatGPT Pro Codex research preview, with selected API design partners. The launch changelog says not generally available through ordinary API-key workflows, whereas the release article explicitly describes restricted partner API access; these are different scopes. Native Codex preview **retired September14,2026**, no longer available in desktop/CLI/IDE.[1][3][4]
+- **Surviving gateway ID:** Current OpenCode catalog and guide list **`gpt-5.3-codex-spark`**, Responses endpoint `https://opencode.ai/inference/openai/v1/responses`. This does not undo the native retirement or establish authenticated availability, the original Cerebras backend, or byte-identical weights. Exact guessed OpenRouter and native API model-doc URLs return404.[5][6]
+- **Architecture / knowledge:** Proprietary, undisclosed parameters/internal architecture/cutoff. Served on **Cerebras Wafer Scale Engine3** at launch. No open-weight license or local deployment inferred.[1][2]
+- **Context / modalities:** Verified launch **128K, text-only**. Larger future windows and multimodal input were roadmap language. Secondary catalog's256K claim conflicts with the primary contract; another catalog claims images/PDF under a nominal native provider despite no exact public model page, and is not accepted as proof. Reported32K output appears in secondary metadata, not verified native launch documentation.[1][7][8]
+- **Pricing (2026-10-22):** Primary Zen guide quotes **$1.75 input/$14 output/$0.175 cached per1M** for its surviving route; these are gateway prices, not a verified first-party public API tariff. Launch subscription inclusion is not free inference. models.dev's Poe0/0 fields lack a verified zero-price entitlement/billing explanation and do not establish free service. No cost score derived from them.[1][5][8]
+
+### Raw benchmarks found
+
+**Verified primary performance/behavior evidence:**[1][2]
+
+- **Over1,000 generated tokens/s** vendor/serving-partner claim on the specialized launch path; not independent current sustained throughput or a customer task-completion rate.
+- OpenAI's release compares Spark on **SWE-Bench Pro and Terminal-Bench2.0**, qualitatively stating faster completion than full Codex. Cerebras likewise describes competitive coding relative to Codex-mini. The retrieved article text does not expose numeric chart coordinates; those images/curves were not independently audited here.
+- Duration methodology explicitly sums **generation +prefill +tool execution +network overhead**. Infrastructure improvements **80% lower roundtrip overhead /30% lower per-token overhead /50% lower first-token time** are relative pipeline claims, not three independent accuracy results.
+- Default interactive behavior makes targeted edits and **does not automatically run tests unless asked**. This is workflow positioning, not proof of general long-horizon reliability.
+
+**Secondary exact-model benchmark aggregation, preserved with provenance limits:**[9][10]
+
+- Atlas displays **SWE-Bench Pro Public51.5% /TB2.0 58.4%** for Spark. These are secondary displays of the coding evidence; no claim of independent Atlas reruns or firsthand extraction of OpenAI's numeric curves.
+- Atlas SlopCodeBench: **Core Solved29.1%**, **full checkpoint solved3.1%**, **isolated solved8.2%**, **whole problems solved0%**. Its metric definition says Core Solved is the fraction of development checkpoints passing core tests, not complete evolving problems. Original run configuration and checkpoint byte identity were not recovered, so these remain secondary evidence.
+- Atlas also displays **“Capability148.8”**; its methodology page defines this as a **synthetic factor-model estimate**, not an observed general reasoning benchmark or IQ. It is not used to fill a missing quality axis.[11]
+- BenchLM's lone displayable row is **MazeBench0% gems**, ASCII/no-tools, linked to a particular July19 run. The original leaderboard fetch returns a JavaScript shell with no numeric run details; independent reproduction/primary row verification not achieved. Even verified zero gems in one game would not establish zero general reasoning.[7][12]
+
+**What remains missing:**
+
+- **No verified exact GPQA, HLE, MMLU-style broad reasoning, LCR/retention, CritPt or comparable broad reasoning result found.** A targeted fresh Spark+GPQA+MMLU search led to launch/review pages, not exact academic measurements.
+- Exact guessed AA profile404; official Epoch benchmark archive had **no exact Spark matches** in the checked raw tables. Absence from those sources does not establish universal absence.[13][14]
+- Speed, coding benchmarks and a synthetic cross-benchmark estimate cannot independently determine all five quality dimensions. Full GPT-5.3-Codex results, including circulated terminal scores, are not transferred to Spark.
+
+### Normalized scores (1–100)
+
+Not assigned. Positive identity, launch context, text-only status, coding evidence and gateway tariff are retained, but **Overall is withheld for insufficient verified broad reasoning coverage**. No invented academic score, engineering-to-general-reasoning conversion or synthetic-index substitution is used to complete the score block.
+
+### Fresh search trail and sources
+
+- Bing RSS [`"GPT-5.3-Codex-Spark" benchmark`](https://www.bing.com/search?format=rss&q=%22GPT-5.3-Codex-Spark%22+benchmark): generic ChatGPT/OpenAI pages.
+- Google [`"GPT-5.3-Codex-Spark" benchmark`](https://www.google.com/search?q=%22GPT-5.3-Codex-Spark%22+benchmark): JavaScript/access interstitial.
+- DuckDuckGo [`"GPT-5.3-Codex-Spark" benchmark`](https://duckduckgo.com/html/?q=%22GPT-5.3-Codex-Spark%22+benchmark): useful exact Atlas/BenchLM/release leads, alongside conflicting secondary attribution.
+- Additional DuckDuckGo [`Spark GPQA MMLU`](https://duckduckgo.com/html/?q=%22GPT-5.3-Codex-Spark%22+GPQA+MMLU) recovered the actual Cerebras release, but no exact broad academic measurements; targeted SlopCodeBench+Spark search returned no results. Primary release/lifecycle, gateway tariff and aggregation provenance inspected; no peer findings used or authenticated inference performed.
+
+[1]: https://openai.com/index/introducing-gpt-5-3-codex-spark/
+[2]: https://www.cerebras.ai/blog/openai-codexspark
+[3]: https://developers.openai.com/codex/changelog
+[4]: https://developers.openai.com/codex/models
+[5]: https://opencode.ai/docs/zen/
+[6]: https://opencode.ai/inference/v1/models
+[7]: https://benchlm.ai/models/gpt-5-3-codex-spark
+[8]: https://models.dev/api.json
+[9]: https://atlas.kevinhu.io/models/gpt-5-3-codex-spark
+[10]: https://atlas.kevinhu.io/benchmarks/slopcodebench-core-solved-scbench
+[11]: https://atlas.kevinhu.io/benchmarks/capability
+[12]: https://mazebench.com/leaderboard/ai?mode=ascii&tools=0&metric=gems&run=2026-07-19T16-50-52-392-aebb45
+[13]: https://artificialanalysis.ai/models/gpt-5-3-codex-spark
+[14]: https://epoch.ai/data/benchmark_data.zip
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web exact-model research, separating primary launch/retirement from secondary benchmark displays and synthetic estimates; evidence-based partial-coverage self-exclusion.

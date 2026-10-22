@@ -1,9 +1,11 @@
 # LongCat 2.5 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: Meituan / LongCat-2.5-Preview (`meituan/longcat-2.5-preview`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `longcat-2.5-preview` (404; Meituan coverage limited to `longcat-flash-lite-sparse`); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Re-checked the launch claims against Meituan's official LongCat API docs (pricing + tools pages — https://longcat.ai/platform/docs/pricing/longcat-2.5), the Hugging Face `meituan-longcat` org (https://huggingface.co/meituan-longcat), BenchmarkList (https://benchmarklist.com/models/meituan-longcat-2.5-preview/), AI Coding Daily (https://aicodingdaily.com/model/longcat-2-5-preview), OpenCode Data (https://opencode.ai/data/meituan/longcat-2-5-preview), explainx.ai and Enera. Specs (~1.6T total / ~48B active MoE, 1M-token input, 128K/131,072 max output, text+image in / text out) and the limited-time rate ($0.30 uncached / $0.006 cached / $1.20 output per 1M) are corroborated by Meituan's own docs and ≥3 aggregators. **Still zero published or independently reproduced benchmark for the 2.5 model**: BenchmarkList reports "0 score rows" and "no independent evaluation had been confirmed"; explainx and Enera both state Meituan published no benchmark scores. The sole measured datapoint remains AI Coding Daily, whose leaderboard has since widened from /60 to /80 (a Bug-Finding project, max 20, was added) and now reports **46.65/80, rank #38, evaluated 2026-10-02** — the same evaluation the prior report logged as 44.25/60, rank #34. No dimension clears the bar for a change; scores are held with refreshed evidence. Not found / dead ends: benchlm.ai/models/longcat-2-5-preview → 404; llm-stats.com/models/longcat-2.5-preview → human-verification gate, no data; openrouter.ai/meituan/longcat-2.5-preview → 404.
@@ -60,6 +62,6 @@ Usage context (not a benchmark): OpenCode Data ranks it **#9** by OpenCode token
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: live public-internet re-research (Bing + DuckDuckGo HTML sweeps; Meituan LongCat API docs pricing/tools pages; HF `meituan-longcat`; BenchmarkList; AI Coding Daily; OpenCode Data; explainx.ai; Enera; CloudPrice). No benchmark value invented — reasoning marked provisional from the same-family LongCat 2.0 proxy, and the AI Coding Daily change is labelled as a scale expansion rather than a re-measurement. Conflicts surfaced: release date (2026-09-25 official vs 2026-09-26 CloudPrice), video input (Enera video-URL vs CloudPrice unsupported), and the coding-leaderboard scale (/60→/80).
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_4.md`, using the same headings.

@@ -1,0 +1,49 @@
+# LongCat 2.5 — findings by GPT 6.1 Sol
+
+- Source: Meituan/LongCat, requested unsuffixed `LongCat-2.5`.
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence to compute Overall.**
+
+## Model card
+
+- **Name / identity:** LongCat 2.5, requested unsuffixed/GA record. The verified public 2.5-line model is **`LongCat-2.5-Preview`**, not a separately established GA checkpoint. Local metadata explicitly describes this as a negative record; that description is checked against public sources rather than treated as benchmark evidence.
+- **Primary release:** Publisher changelog **2026-09-25** announces **Preview**. Pricing page URL ends `/longcat-2.5`, but its actual heading/body say **LongCat-2.5-Preview**. URL shorthand does not establish a second model.[1][2]
+- **Provider / IDs:** Native API documentation's model-list **example** contains `LongCat-2.5-Preview` and `LongCat-2.0`; native parameter tables use the same exact names.[3][4] An unauthenticated GET to the real endpoint returns **401 missing_api_key**. That is an access limitation, **not** a verified live model-list response or proof of GA absence.[5]
+- **Verified neighboring Preview specifications:** **1,048,576 combined context /262,144 output**, text/image input and text output, optional thinking/tools. Temperature fixed to **1.0 thinking /0.7 non-thinking**, other supplied values overridden; max thinking budget262,144. These are Preview contracts, not independently verified unsuffixed GA specifications.[1][4]
+- **Pricing:** Preview's limited-time native **$0.30 input/$1.20 output/$0.006 cached per 1M** verified. No distinct GA tariff or free entitlement established. Secondary models.dev carries only Preview rows, and its Zen free Preview entries are **deprecated**; both checked current public OpenCode catalog endpoints contain no matching 2.5 route. A historical free Preview label does not establish a current free GA model.[2][6][7]
+- **Architecture / weights / release / cutoff:** No verified unsuffixed GA checkpoint, release date, parameter count, license, weights or cutoff found. The public publisher HF catalog includes other LongCat releases but no exact 2.5 weights; this does not prove private/unlisted weights cannot exist. LongCat2.0's architecture/license are not inherited.[8]
+
+### Raw benchmarks found
+
+- **Tool use, reasoning, coding, native perception and long-context retention:** **no verified public score found for this exact unsuffixed model/ID.**
+- Guessed exact AA `longcat-2-5` profile and OpenRouter `meituan/longcat-2.5` endpoint query return **404**.[9][10] These are bounded URL/catalog findings, not universal nonexistence claims.
+- Search results resolve chiefly to the real Preview, including Vercel and secondary explainers. Preview's context length, price and qualitative “superior coding” claims are not numeric quality benchmarks for GA.
+- No transfer of LongCat2.0 benchmarks, speculative1.6T architecture claims, a Preview score, or another LongCat visual/voice model's performance.
+
+### Normalized scores (1–100)
+
+Not assigned. A distinct exact-model identity and enough verified quality-axis evidence are missing; Overall is withheld rather than filled with placeholder numbers. The positive evidence above describes Preview serving, not a scored GA model.
+
+### Fresh search trail and sources
+
+- Bing RSS [`"LongCat 2.5" model benchmark`](https://www.bing.com/search?format=rss&q=%22LongCat+2.5%22+model+benchmark): unrelated Microsoft help pages.
+- Google [`"LongCat 2.5" model`](https://www.google.com/search?q=%22LongCat+2.5%22+model): JavaScript/access interstitial.
+- DuckDuckGo [`"LongCat 2.5" model`](https://duckduckgo.com/html/?q=%22LongCat+2.5%22+model): useful Preview release/serving and identity-explainer leads; primary changelog, pricing, parameter table and model-list documentation inspected directly. No peer findings used; no authenticated inference.
+
+[1]: https://longcat.chat/platform/docs/change-log
+[2]: https://longcat.chat/platform/docs/pricing/longcat-2.5
+[3]: https://longcat.chat/platform/docs/api/models
+[4]: https://longcat.chat/platform/docs/api/model-params
+[5]: https://api.longcat.chat/openai/v1/models
+[6]: https://models.dev/api.json
+[7]: https://opencode.ai/inference/v1/models
+[8]: https://huggingface.co/api/models?author=meituan-longcat&search=LongCat&limit=100
+[9]: https://artificialanalysis.ai/models/longcat-2-5
+[10]: https://openrouter.ai/api/v1/models/meituan/longcat-2.5/endpoints
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent exact-identity public-web research; positive Preview evidence separated from an unverified GA record, with access failures and catalog absences explicitly bounded.

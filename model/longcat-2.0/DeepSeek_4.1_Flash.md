@@ -1,9 +1,11 @@
 # LongCat 2.0 — findings by DeepSeek 4.1 Flash
 
 - Source: Meituan / LongCat-2.0 (`meituan/longcat-2.0`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`longcat-2-0`) carries **0 benchmark rows** (unranked, "coming soon"); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Re-fetched the official Meituan model card (Hugging Face) and four independent
@@ -85,6 +87,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Meituan official Hugging Face model card, BenchmarkList, Artificial Analysis, LLMPodium, ApX, long-cat.org publisher-score mirror); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

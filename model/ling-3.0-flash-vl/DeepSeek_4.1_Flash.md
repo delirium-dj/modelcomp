@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: independent public internet research (HF model card `inclusionAI/Ling-3.0-flash-VL`, Artificial Analysis `ling-3-0-flash-vl`, OpenRouter, BenchLM, Benchable, LM Market Cap, Opper). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

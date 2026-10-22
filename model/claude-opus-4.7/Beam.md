@@ -1,7 +1,7 @@
 # Claude Opus 4.7 — findings by Beam
 
 - Source: Anthropic/Claude Opus 4.7, `anthropic/claude-opus-4-7`
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-opus-4-7`
 - **Context window:** 1,000,000 tokens; max output 128,000.
 - **Modalities:** text, image, file in; text out; reasoning yes (adaptive thinking only); tool calling yes; structured output yes.
-- **Pricing (as of 2026-10-17):** $5.00 / 1M input, $25.00 / 1M output, $0.50 / 1M cache read, $6.25 / 1M cache write; paid.
+- **Pricing (as of 2026-10-22):** $5.00 / 1M input, $25.00 / 1M output, $0.50 / 1M cache read, $6.25 / 1M cache write; paid.
 - **Architecture:** proprietary; params not published.
 
 ### Raw benchmarks found
@@ -54,20 +54,29 @@ Multimodal:
 
 - Not individually reported for 4.7 (4.6 MMMU-Pro 77.3%, ERQA 51.6%, ScreenSpot Pro 83.1%)
 
+### New data (benchgap 2026-10-21 snapshot)
+
+- AA Intelligence Index: **30.9%** (measured); AA-GPQA Diamond **88.5%**; AA-HLE **33.3%**; AA-SciCode **55.5%** (est.).
+- HLE **51.1%** (est.); GPQA Diamond **90.8%** (est.); GPQA **92.9%** (est.); ARC-AGI-2 **65.4%** (est.); FrontierMath Tier4 **31.7%** (measured).
+- SWE-bench Verified **83.1%** (est.); SWE-bench Pro **57.2%** (est.); LiveCodeBench v6 **88.6%** (est.); Vibe Code **71.0%** (measured); React Native Evals **82.8%** (measured).
+- Terminal-Bench 2.1 **83.3%** (est.); BrowseComp **82.8%** (est.); OSWorld-Verified **74.2%** (est.); MCP Atlas **79.6%** (est.); τ²-bench **74.0%** (measured); DeepSearchQA **77.2%** (est.).
+- MMMU-Pro **77.3%** (est.); ScreenSpot Pro **83.8%** (est.); CharXiv **83.8%** (est.); MRCRv2 **84.6%** (est.); LongBench v2 **61.5%** (est.); AA-LCR **75.7%** (measured).
+- Vals: GPQA Diamond **90.2%** (measured); LiveCodeBench **85.1%** (measured); SWE-bench **82.0%** (measured); MMLU-Pro **89.9%** (measured); Terminal-Bench 2.1 **68.5%** (measured).
+
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Agentic lane #42/128 (54.5), Gert Labs 65.59%, ResearchClawBench 20.7%; caps at unverified BrowseComp/OSWorld.
-- **Reasoning: 74/100.** MRCR v2 128K-256K 59.2%; caps at no published ARC-AGI/HLE/FrontierMath for 4.7.
-- **Context window: 80/100.** 1M window; MRCR v2 128K-256K 59.2% caps higher.
-- **Multimodal: 80/100.** Text/image/file in; caps at no verified 4.7-specific multimodal numbers.
-- **Coding: 74/100.** Vibe Code 71.00%, React Native Evals 82.8%, coding lane #32/150 (55.4); caps at unverified SWE-bench.
+- **Tool use: 78/100.** Agentic lane #42/128 (54.5), Terminal-Bench 2.1 83.3% (est.), BrowseComp 82.8% (est.), OSWorld-Verified 74.2% (est.), MCP Atlas 79.6% (est.), τ²-bench 74.0% (measured); caps at ResearchClawBench 20.7% (measured) and ApprenticeBench 7.0% (measured).
+- **Reasoning: 76/100.** HLE 51.1% (est.), GPQA 92.9% (est.), ARC-AGI-2 65.4% (est.), FrontierMath Tier4 31.7% (measured); caps at HLE w/o tools 51.3% (est.).
+- **Context window: 82/100.** 1M window; MRCRv2 84.6% (est.), LongBench v2 61.5% (est.), AA-LCR 75.7% (measured).
+- **Multimodal: 82/100.** Text/image/file in; MMMU-Pro 77.3% (est.), ScreenSpot Pro 83.8% (est.), CharXiv 83.8% (est.).
+- **Coding: 76/100.** SWE-bench Verified 83.1% (est.), SWE-bench Pro 57.2% (est.), LiveCodeBench v6 88.6% (est.), Vibe Code 71.0% (measured), React Native Evals 82.8% (measured); coding lane #32/150 (55.4).
 - **Cost efficiency: 75/100.** Paid $5/$25 per 1M.
-- **Overall Score: 76.8/100.** Mean of five quality dims (BenchLM aggregate 66.72); best-fit for difficult coding at mid cost (superseded by 4.8).
+- **Overall Score: 78.8/100.** Mean of five quality dims (BenchLM aggregate 66.72); best-fit for difficult coding at mid cost (superseded by 4.8).
 
 ---
 
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-10-17
-- Method: public internet research (Anthropic news, AWS Bedrock, BenchLM, Kilo); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: public internet research (Anthropic news, AWS Bedrock, BenchLM, benchgap Oct-21 snapshot); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
