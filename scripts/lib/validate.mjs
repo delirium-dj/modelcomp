@@ -38,6 +38,12 @@ export const MERGED_MODEL_SLUGS = new Map([
   // the tracked -fast folders on user order and deleted.
   ["grok-4-fast-reasoning", "grok-4-fast"],
   ["grok-4.1-fast-reasoning", "grok-4.1-fast"],
+  // GLM-4.6 Flash mislabel identity (RULES.md, renamed 2026-10-22): the
+  // tracked model is the vision-language GLM-4.6V-Flash (zai-org/GLM-4.6V-Flash);
+  // the old slug mirrored only the opencode route (opencode/glm-4.6-flash),
+  // which drops the V. Renamed to glm-4.6v-flash so a future text-only
+  // GLM 4.6 Flash SKU can never collide with the vision model's slug.
+  ["glm-4.6-flash", "glm-4.6v-flash"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */

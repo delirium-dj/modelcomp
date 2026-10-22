@@ -1,6 +1,6 @@
 {
   "id": "opencode/glm-4.6-flash",
-  "name": "GLM 4.6 Flash",
+  "name": "GLM 4.6V Flash",
   "short": "Z.ai's 9B multimodal vision-language model with 128K context, native visual function calling, and fast local edge inference.",
   "contextWindow": "128K total",
   "modalities": "Text, image, video in; text out",

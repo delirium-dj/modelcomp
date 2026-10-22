@@ -319,6 +319,21 @@ override.
   `GLM 5.1`; research belongs in `model/glm-5.1/`. The old slug is in
   `MERGED_MODEL_SLUGS` (`scripts/lib/validate.mjs`) plus a pre-commit block:
   never recreate `model/glm-5.1-coding/`.
+- **GLM-4.6 Flash mislabel identity (renamed 2026-10-22):** the tracked model
+  is the vision-language model `zai-org/GLM-4.6V-Flash` — the folder's own
+  `meta.json` `officialUrl` and every findings file's cited IDs say so — while
+  the slug `glm-4.6-flash` mirrored only the opencode route
+  (`opencode/glm-4.6-flash`), which drops the V. The non-V name is a different
+  identity (a separate "GLM 4.6 Flash" rater key exists in the registry), so a
+  future text-only GLM 4.6 Flash SKU could collide. The folder was renamed
+  `model/glm-4.6-flash/` → `model/glm-4.6v-flash/` (`git mv`, history
+  preserved, zero content touched) with `meta.json` `name` corrected to
+  `GLM 4.6V Flash`; the rater key "GLM 4.6 Flash" (permanent
+  `GLM_4.6_Flash.md` stems) is pinned to the renamed page via
+  `SOURCE_OVERRIDES` (`scripts/sync-data.mjs`). Research belongs in
+  `model/glm-4.6v-flash/`. The old slug is in `MERGED_MODEL_SLUGS`
+  (`scripts/lib/validate.mjs`) plus a pre-commit block: never recreate
+  `model/glm-4.6-flash/`.
 - **Coding-suffix identity (general rule — per-vendor evidence, never analogy):**
   whether a `-coding`-suffixed name is a separate model is decided by vendor
   IDs alone. `glm-5.2-coding` IS distinct (`meta.json` ID
