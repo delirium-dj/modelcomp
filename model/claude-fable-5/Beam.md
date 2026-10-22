@@ -75,8 +75,6 @@ Multimodal:
 
 ---
 
----
-
 ## Research update — 2026-10-22 (re-run)
 
 ≥5 independent web searches performed (Anthropic, Artificial Analysis, llmbenchmark, BenchLM, Vals AI, Epoch AI). Key new/verified data:

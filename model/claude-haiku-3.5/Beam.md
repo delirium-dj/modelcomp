@@ -1,7 +1,7 @@
 # Claude Haiku 3.5 — findings by Beam
 
 - Source: Anthropic/Claude Haiku 3.5, `anthropic/claude-haiku-3.5`
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Claude Haiku 3.5
 - **Short description:** Anthropic's small model (Oct 22, 2024): 200K context, 8K output. HumanEval 88.1%, SWE-bench Verified 40.6%. GPQA 41.6%, MMLU-Pro 65%. BenchLM 14.19 (#220 of 954). Superseded by Haiku 4.5/5.5.
 - **Provider / access:** Anthropic API `claude-haiku-3-5`; AWS Bedrock; OpenRouter.
-- **Release / knowledge:** Released 2024-10-22; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2024-10-22; knowledge cutoff July 2024 (Artificial Analysis).
 - **IDs:** `anthropic/claude-haiku-3.5`
 - **Context window:** 200,000 tokens; max output 8,192.
 - **Modalities:** text, image in; text out; reasoning no; tool calling yes; structured output yes.
-- **Pricing (as of 2026-10-17):** $0.80 / 1M input, $4.00 / 1M output; paid.
+- **Pricing (as of 2026-10-22):** $0.80 / 1M input, $4.00 / 1M output; paid.
 - **Architecture:** proprietary; params not published.
 
 ### Raw benchmarks found
@@ -24,7 +24,10 @@ Agent / tool use:
 - Agentic public-lane (BenchLM): not individually reported
 - τ²-bench: **24.6%** (Artificial Analysis)
 - GDPval-AA: **0.0%** (Artificial Analysis)
-- OSWorld: not reported
+- OSWorld-Verified: **55.2%** estimated (benchgap, low confidence)
+- AA Agentic Index: **0.0%** estimated (benchgap)
+- MazeBench: **0.5%** estimated (benchgap)
+- Toolathlon: **27.0%** estimated (benchgap)
 
 Reasoning / knowledge:
 
@@ -36,19 +39,27 @@ Reasoning / knowledge:
 - DROP: **83.1%** (Anthropic model card)
 - AA-LCR: **27.3%** (Artificial Analysis)
 - CritPt: **0.0%** (Artificial Analysis)
-- AA Intelligence Index: not reported
+- AA Intelligence Index: **9** (Artificial Analysis, estimated; #105/296 non-reasoning)
+- AA-HLE: **3.6%** (Artificial Analysis)
 - AA-IFBench: **42.8%** (Artificial Analysis)
+- AA Omniscience Accuracy: **13.2%** (Artificial Analysis)
+- AIME 2024: **5.3%** (Artificial Analysis)
+- AIME 2025: **20.0%** estimated (benchgap)
+- MATH-500: **49.0%** estimated (benchgap)
 
 Coding:
 
 - Coding public-lane (BenchLM): not individually reported
 - HumanEval: **88.1%** (Anthropic model card)
 - SWE-bench Verified: **40.6%** (Anthropic model card)
-- LiveCodeBench: not reported
+- LiveCodeBench: **50.0%** estimated (benchgap)
+- SWE-bench Pro: **14.7%** estimated (benchgap)
+- AA-SciCode: **27.9%** estimated (benchgap)
+- AA Coding Index: **23.6%** estimated (benchgap)
 
 Long context:
 
-- 200K window; AA-LCR **27.3%**; MRCR not reported.
+- 200K window; AA-LCR **27.3%**; MRCRv2 **22.8%** estimated (benchgap, low confidence).
 
 Multimodal:
 
@@ -56,11 +67,11 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 54/100.** τ²-bench 24.6%, GDPval-AA 0.0%; caps at GDPval-AA 0.0%.
-- **Reasoning: 60/100.** GPQA 41.6%, MMLU 80.3%, MMLU-Pro 65%, BBH 86.6%, DROP 83.1%, AA-LCR 27.3%, CritPt 0.0%; caps at CritPt 0.0%.
-- **Context window: 60/100.** 200K window; AA-LCR 27.3%; caps at no published MRCR.
+- **Tool use: 54/100.** τ²-bench 24.6%, GDPval-AA 0.0%, OSWorld-Verified ~55% (estimated); caps at GDPval-AA 0.0%.
+- **Reasoning: 60/100.** GPQA 41.6%, MMLU 80.3%, MMLU-Pro 65%, BBH 86.6%, DROP 83.1%, AA-LCR 27.3%, CritPt 0.0%, AA-HLE 3.6%; caps at CritPt 0.0%.
+- **Context window: 60/100.** 200K window; AA-LCR 27.3%; MRCRv2 22.8% estimated (low confidence); caps at no verified MRCR.
 - **Multimodal: 60/100.** Text/image in; AA-MMMU-Pro 45.6%; caps at no verified multimodal benchmarks.
-- **Coding: 58/100.** HumanEval 88.1%, SWE-bench 40.6%; caps at SWE-bench 40.6%.
+- **Coding: 58/100.** HumanEval 88.1%, SWE-bench 40.6%, SWE-bench Pro ~14.7% estimated; caps at SWE-bench 40.6%.
 - **Cost efficiency: 92/100.** Cheap $0.80/$4.00 per 1M.
 - **Overall Score: 58.4/100.** Mean of five quality dims (BenchLM 14.19); best-fit for cheap fast tasks at low cost (superseded by Haiku 4.5/5.5).
 
@@ -68,6 +79,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-10-17
-- Method: public internet research (Anthropic official, BenchLM, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: public internet research (Anthropic official, Artificial Analysis, BenchLM, Vals AI, benchgap); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings. Claude Haiku 3.5 is superseded by Haiku 4.5 (Oct 15, 2025) and Haiku 5.5 (Oct 7, 2026).<|end|>>2>

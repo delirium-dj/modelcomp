@@ -51,8 +51,6 @@ Multimodal:
 
 ---
 
----
-
 ## Research update — 2026-10-22 (re-run)
 
 ≥5 independent web searches performed (Fellipe Soares benchmark, SWE Atlas, Artificial League, StealthMark, Command Code, OpenCode Zen, Reddit/HN discussion). Key new verified data:

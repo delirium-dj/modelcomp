@@ -1,9 +1,11 @@
 # Ling 3.0 Flash VL — findings by DeepSeek 4.1 Flash
 
 - Source: InclusionAI / Ant Group — Ling-3.0-flash-VL (`opencode/ling-3.0-flash-vl`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ling-3-0-flash-vl`, 11 rows) computes an overall **46.74/100 (#117 of 972)** and confirms the deep pass: AA-MMMU-Pro 79.0%, AA-GPQA Diamond 86.2%, AA-LCR 78.3%, AA-SciCode 44.2%, GDPval-AA 33.1%, AA-HLE 22.0%, AA Intelligence Index 24.6%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked the official HF card (`inclusionAI/Ling-3.0-flash-VL`), Artificial Analysis (`artificialanalysis.ai/models/ling-3-0-flash-vl`), OpenRouter (`openrouter.ai/inclusionai/ling-3.0-flash-vl`), BenchLM (`benchlm.ai/models/ling-3-0-flash-vl`), Benchable (`benchable.ai`), LM Market Cap (`lmmarketcap.com`) and Opper (`opper.ai`). Confirmed: 124B total / 5.5B active MoE, text+image+video in → text out, MIT open weights, native VideoRoPE, and the AA Intelligence Index ≈ 24.6–25 (AA v4.3.2) with GPQA 86.2%, HLE 22%, LCR 78.3%, SciCode 44.2%, MMMU-Pro 79.0%. Newly stress-tested the pricing and context rows: **pricing conflicts** — AA / first-party = $0.075 in / $0.22 out, but OpenRouter/Novita = $0.021 / $0.0616 and DeepInfra = $0.06 / $0.18 (LMMarketCap $0.02 / $0.06); **context conflicts** — 262K (HF "up to 256K", AA, BenchLM, LMMarketCap, OpenRouter 262,144) vs 131K native on the DeepInfra/Opper route (Opper: "128K native extended to 256K with YaRN"); max output now confirmed 32,768. Net effect: Cost efficiency 97 → 98 (cheaper verified routes); all five quality dims unchanged; Overall holds at 73.
 

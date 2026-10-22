@@ -51,8 +51,6 @@ Multimodal:
 
 ---
 
----
-
 ## Research update — 2026-10-22 (re-run)
 
 ≥5 independent web searches performed (OpenCode Zen, Artificial League, StealthMark, Command Code, Reddit/HN discussion, Vercel AI Gateway). Key findings:

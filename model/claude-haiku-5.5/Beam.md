@@ -1,20 +1,20 @@
 # Claude Haiku 5.5 — findings by Beam
 
 - Source: Anthropic/Claude Haiku 5.5, `anthropic/claude-haiku-5-5`
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Haiku 5.5
-- **Short description:** Anthropic's fastest, most efficient Haiku (Oct 7, 2026): 75% cheaper than Haiku 4.5; first Haiku with effort controls; strong coding, computer use, agents. Vals Index #18 (54.44%).
+- **Short description:** Anthropic's fastest, most efficient Haiku (Oct 7, 2026): 75% cheaper than Haiku 4.5; first Haiku with effort controls; strong coding, computer use, agents. AA Intelligence Index 43 (#4 of 173). Vals Index #18 (54.44%).
 - **Provider / access:** Anthropic API `claude-haiku-5-5`; AWS Bedrock; OpenRouter; Kie AI.
-- **Release / knowledge:** Released 2026-10-07; knowledge cutoff June 2026.
+- **Release / knowledge:** Released 2026-10-07; knowledge cutoff not stated in sources (likely mid-2026).
 - **IDs:** `anthropic/claude-haiku-5-5`
 - **Context window:** 1,000,000 tokens; max output 128,000.
 - **Modalities:** text, image, PDF in; text out; reasoning yes (adaptive thinking, effort low..max, default medium); tool calling yes; structured output yes.
-- **Pricing (as of 2026-10-17):** $0.10 / 1M input, $0.50 / 1M output, $0.01 / 1M cache read, $0.125 / 1M cache write; paid. (Tiered: >100K tokens higher rates.)
+- **Pricing (as of 2026-10-22):** $0.10 / 1M input, $0.50 / 1M output, $0.01 / 1M cache read, $0.125 / 1M cache write; paid. (Tiered: >100K tokens higher rates.)
 - **Architecture:** proprietary; params not published.
 
 ### Raw benchmarks found
@@ -23,59 +23,89 @@ Agent / tool use:
 
 - Agentic public-lane (BenchLM): **62.7** (#21/128)
 - Terminal-Bench 4.0: **39.20%** (Vals 36.36%)
-- OSWorld 2.1: **72.4%** (offline subset)
-- HLE w/ tools: **57.4%**
+- Terminal-Bench 2.1: **86.9%** estimated (benchgap); AA Terminal-Bench 2.1 **86.4%** estimated
+- OSWorld 2.1: **72.4%** (offline subset); OSWorld-Verified **85.1%** estimated (benchgap)
+- HLE w/ tools: **57.4%** (measured)
 - Vals Index: **54.44%** (#18/48)
 - CyberBench v1.1: **75.48%** (Vals)
+- CyberGym: **88.2%** estimated (benchgap)
 - Vibe Code Bench v1.1: **90.44%** (Vals, #3/112)
-- FrontierCode 1.1 (Main): **46.4%**
-- FrontierSWE v2: **43.8%**
-- Bug Hunt Bench: **21.5 fixes**
-- DeepSWE: not reported (coming soon)
-- Terminal-Bench 2.1: not reported
+- FrontierCode 1.1 (Main): **46.4%** (measured)
+- FrontierSWE v2: **43.8%** (measured)
+- Bug Hunt Bench: **21.5 fixes** (measured)
+- DeepSWE: **69.3%** estimated (benchgap)
+- GDPval-AA: **55.9%** (measured)
+- BrowseComp: **91.2%** estimated (benchgap)
+- DeepSearchQA: **89.6%** estimated (benchgap)
+- MCP Atlas: **84.3%** estimated (benchgap)
+- τ²-bench: **98.1%** estimated (benchgap, high confidence)
+- AA Agentic Index: **52.0%** estimated (benchgap)
+- JobBench: **60.7%** estimated (benchgap)
+- WideResearch: **81.9%** estimated (benchgap)
+- APEX-Agents-AA: **40.8%** estimated (benchgap)
 
 Reasoning / knowledge:
 
 - Reasoning public-lane (BenchLM): **82.7** (#8/28)
-- HLE: **45.9%** (no tools) / **57.4%** (with tools)
-- ARC-AGI: not reported
-- GPQA: not reported for Haiku 5.5
-- AA Intelligence Index: not reported
-- FrontierMath v2 (Tier 4): **46.341%**
+- HLE: **45.9%** (measured, w/o tools); HLE w/ tools **57.4%** (measured)
+- AA-HLE: **44.4%** (measured)
+- ARC-AGI-1: **89.0%** (measured)
+- ARC-AGI-2: **61.3%** (measured)
+- GPQA Diamond: **91.3%** estimated (benchgap); GPQA **92.9%** estimated
+- MMLU: **89.7%** estimated; MMLU-Pro **85.8%** estimated
+- AA Intelligence Index: **43.4%** (measured; #4 of 173)
+- AA-LCR: **82.7%** (measured)
+- CritPt: **18.9%** (measured)
+- AA Omniscience Accuracy: **36.4%** (measured)
+- FrontierMath v2 (Tier 4): **46.3%** (measured); Tiers 1-3 **75.1%** (measured)
+- AA-IFBench: not separately published
+- HLE-Verified: **30.5%** estimated (benchgap)
 
 Coding:
 
 - Coding public-lane (BenchLM): **53** (#38/150)
 - Vibe Code Bench v1.1: **90.44%** (Vals)
 - Vibe Code Bench 1-100: **20.41%** (Vals)
-- FrontierCode 1.1 (Main): **46.4%**
-- FrontierSWE v2: **43.8%**
-- Bug Hunt Bench: **21.5 fixes**
-- SWE-bench Verified: not reported
-- DeepSWE: not reported
+- FrontierCode 1.1 (Main): **46.4%** (measured)
+- FrontierSWE v2: **43.8%** (measured)
+- Bug Hunt Bench: **21.5 fixes** (measured)
+- SWE-bench Verified: **88.4%** estimated (benchgap); Vals SWE-bench **86.6%** estimated
+- SWE-bench Pro: **75.9%** estimated (benchgap)
+- SWE-bench Multimodal: **25.2%** estimated (benchgap)
+- LiveCodeBench v6: **95.7%** estimated (benchgap)
+- DeepSWE: **69.3%** estimated (benchgap)
+- AA-SciCode: **55.0%** (measured)
+- AA Coding Index: **76.7%** estimated (benchgap)
+- Vibe Code Bench: **75.2%** estimated (benchgap)
+- CyberGym: **88.2%** estimated (benchgap)
+- SciCode: **54.7%** estimated (benchgap)
 
 Long context:
 
-- 1M window; MRCR: not reported.
+- 1M window; AA-LCR **82.7%** (measured); MRCRv2 **85.9%** estimated (benchgap, low confidence).
 
 Multimodal:
 
 - Multimodal: not separately reported (text/image/PDF in).
+- AA-MMMU-Pro: **72.9%** estimated (benchgap)
+- MMMU-Pro: **75.3%** estimated (benchgap)
+- CharXiv: **81.4%** estimated (benchgap); CharXiv w/o tools **74.4%** estimated
+- SWE-bench Multimodal: **25.2%** estimated (benchgap)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Agentic lane #21/128 (62.7), Terminal-Bench 4.0 39.2%, OSWorld 72.4%, HLE w/tools 57.4%, CyberBench 75.48%; caps at Vals Index 54.44%.
-- **Reasoning: 78/100.** HLE 45.9-57.4%, FrontierMath Tier4 46.341%, reasoning lane #8/28 (82.7); caps at no published GPQA/ARC-AGI.
-- **Context window: 82/100.** 1M window; caps at no published MRCR.
-- **Multimodal: 76/100.** Text/image/PDF in; caps at no verified multimodal benchmarks.
-- **Coding: 76/100.** Vibe Code 90.44%, FrontierCode 46.4%, FrontierSWE 43.8%, Bug Hunt 21.5 fixes, coding lane #38/150 (53); caps at Vibe Code 1-100 20.41%.
+- **Tool use: 85/100.** Agentic lane #21/128 (62.7), Terminal-Bench 4.0 39.2%, OSWorld 72.4%→85.1% estimated, HLE w/tools 57.4%, CyberBench 75.48%, GDPval-AA 55.9% measured, τ²-bench 98.1% estimated, BrowseComp 91.2% estimated; caps at Vals Index 54.44%.
+- **Reasoning: 86/100.** HLE 45.9% measured, GPQA 92.9% estimated, ARC-AGI-1 89.0% measured, ARC-AGI-2 61.3% measured, FrontierMath Tier4 46.3% measured, CritPt 18.9% measured, AA-LCR 82.7% measured; caps at AA Omniscience 36.4%.
+- **Context window: 88/100.** 1M window; AA-LCR 82.7% measured, MRCRv2 85.9% estimated; caps below 95 at retrieval <90%.
+- **Multimodal: 78/100.** Text/image/PDF in; AA-MMMU-Pro 72.9% estimated, CharXiv 81.4% estimated; caps at no verified multimodal benchmark suite.
+- **Coding: 83/100.** Vibe Code 90.44%, FrontierCode 46.4% measured, SWE-bench Verified 88.4% estimated, SWE-bench Pro 75.9% estimated, LiveCodeBench 95.7% estimated, DeepSWE 69.3% estimated; caps at Vibe Code 1-100 20.41% and SciCode 54.7%.
 - **Cost efficiency: 98/100.** Very cheap $0.10/$0.50 per 1M.
-- **Overall Score: 78/100.** Mean of five quality dims (BenchLM aggregate 70.03); best-fit for high-volume agentic at very low cost.
+- **Overall Score: 84/100.** Mean of five quality dims; best-fit for high-volume agentic at very low cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-10-17
-- Method: public internet research (Anthropic news/system card, AWS Bedrock, BenchLM, Vals AI, Kie AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Beam (Beam)** — 2026-10-22
+- Method: public internet research (Anthropic news/system card, Artificial Analysis, AWS Bedrock, BenchLM, Vals AI, benchgap); scores are normalized 1–100 interpretations, not official vendor scores. Many 5.5 figures previously inherited from Mythos 5 where 5.5-specific numbers were not published have now been replaced with measured/estimated AA + benchgap data.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

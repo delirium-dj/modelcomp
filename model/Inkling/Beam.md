@@ -69,8 +69,6 @@ Multimodal:
 
 ---
 
----
-
 ## Research update — 2026-10-22 (re-run)
 
 ≥5 independent web searches performed (Thinking Machines official, Artificial Analysis, llmbenchmark, BenchLM, Vals AI, Epoch AI, ARC Prize, NVIDIA NIM, Sebastian Raschka analysis). Key new/verified data:
