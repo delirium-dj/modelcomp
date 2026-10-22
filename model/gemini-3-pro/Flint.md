@@ -34,7 +34,7 @@
 - **Coding: 70/100.** SWE-bench Verified **76.2, TB2.0 **56.9, LiveCodeBench Pro **2439 → coding high-mid.
 - **Cost efficiency: 90/100.** $2/$12 → cheap frontier.
 
-- **Overall Score: 55/100.** Mean of the five quality dims (Tool 60 + Reasoning 65 + Context 100 + Multimodal 80 + Coding 70) / 5 = 55; Cost efficiency excluded.
+- **Overall Score: 75/100.** Mean of the five quality dims (Tool 60 + Reasoning 65 + Context 100 + Multimodal 80 + Coding 70) / 5 = 55; Cost efficiency excluded.
 
 ## Signature
 

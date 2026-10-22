@@ -31,7 +31,7 @@
 - **Coding: 60/100.** MiMo coding evals → mid.
 - **Cost efficiency: 90/100.** Open-weight release → cheap.
 
-- **Overall Score: 70/100.** Mean of the five quality dims (Tool 55 + Reasoning 60 + Context 100 + Multimodal 70 + Coding 60) / 5 = 69; Cost efficiency excluded.
+- **Overall Score: 69/100.** Mean of the five quality dims (Tool 55 + Reasoning 60 + Context 100 + Multimodal 70 + Coding 60) / 5 = 69; Cost efficiency excluded.
 
 ## Signature
 

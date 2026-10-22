@@ -31,7 +31,7 @@
 - **Coding: 55/100.** SWE-bench Pro **67.7 → mid.
 - **Cost efficiency: 90/100.** Open-weight release → cheap.
 
-- **Overall Score: 65/100.** Mean of the five quality dims (Tool 55 + Reasoning 60 + Context 100 + Multimodal 70 + Coding 55) / 5 = 68; Cost efficiency excluded.
+- **Overall Score: 68/100.** Mean of the five quality dims (Tool 55 + Reasoning 60 + Context 100 + Multimodal 70 + Coding 55) / 5 = 68; Cost efficiency excluded.
 
 ## Signature
 
