@@ -1006,7 +1006,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "HLE", value: "14.4%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "GPQA Diamond", value: "75.2%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "SWE-bench Verified", value: "59.2%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
-    { benchmark: "AIME", value: "91.6%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
+    { benchmark: "AIME", value: "91.6%", raters: ["GPT_6.1_Sol", "Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "BrowseComp", value: "42.8%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "LiveCodeBench", value: "64%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "Tau2-bench", value: "79.5%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },

@@ -7,6 +7,12 @@
   "idPrefixes": ["deepinfra"],
   "plans": [
     {
+      "name": "Unauthenticated Free Testing",
+      "price": "$0",
+      "notes": "Allows querying supported open models without an API key or credit card via the OpenAI-compatible endpoint, rate-limited strictly by IP address for quick local prototyping.",
+      "evidenceUrl": "https://deepinfra.com/docs"
+    },
+    {
       "name": "Pay-as-you-go (text)",
       "price": "Per-token, per-model",
       "notes": "e.g. DeepSeek-V4-Flash $0.09/$0.18 per 1M; Kimi K3 $2.85/$14.25; Nemotron 3.5 Lightning $0.06/$0.16.",

@@ -7,9 +7,9 @@
   "catalogUrl": "https://www.baseten.co/library/",
   "plans": [
     {
-      "name": "Basic",
-      "price": "$0 per month, pay as you go",
-      "notes": "Dedicated deployments, Model APIs, training, fast cold starts; SOC 2 Type II and HIPAA compliant.",
+      "name": "Basic (Free Signup Trial)",
+      "price": "$0/mo ($30 trial credit)",
+      "notes": "Instant API key with $30 trial credits on signup to test OpenAI-compatible serverless Model APIs (DeepSeek, GLM, Beam) and scale-to-zero deployments locally with no monthly platform fee.",
       "evidenceUrl": "https://www.baseten.co/pricing/"
     },
     {

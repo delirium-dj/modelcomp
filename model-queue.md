@@ -155,12 +155,11 @@
 66.8 mai-thinking-1
 66.8 pixel_canary
 66.6 minimax-m2.7
+66.3 gpt-5-codex
 66.2 laguna-s-2.1
 66.2 ring-2.6.1t
 66.1 gpt-5-nano
 65.2 minimax-m2.5
-65 glm-4.7-flash
-64.9 gpt-5-codex
 64.8 claude-haiku-3.5
 64.5 glm-5
 64.2 deepseek-v3.2
@@ -176,6 +175,7 @@
 61.7 xing_4.0_29b_a4b
 60.9 gpt-5.1-codex-mini
 60.9 gpt-oss-120b
+60.7 glm-4.7-flash
 60.6 mimo-v2.6-distill-qwen-9b
 60.4 mai-code-1-flash
 59.9 laguna-xs-2.1

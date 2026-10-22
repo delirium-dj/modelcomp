@@ -1,0 +1,47 @@
+# Qwen 3.5 Flash Lite — findings by GPT 6.1 Sol
+
+- Source: Alibaba/Qwen, requested exact name `Qwen3.5-Flash-Lite`; public identity unresolved.
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Decision: **self-excluded — insufficient verified exact-model evidence to compute Overall.**
+
+## Model card
+
+- **Name:** Qwen 3.5 Flash Lite, the requested dataset label. No distinct publisher checkpoint or serving SKU established for the `Lite` suffix.
+- **Short description / identity:** The primary Alibaba text-generation and pricing catalogs list **`qwen3.5-flash`**, with pricing explicitly resolving it to **`qwen3.5-flash-2026-02-23`**. Those are positive evidence for Flash, not proof of a distinct Flash-Lite or authorization to transfer its measurements.[1][2]
+- **Provider / access / IDs:** Local `opencode/qwen-3.5-flash-lite` comes from a `scaffolded: true` metadata record; the placeholder is not a verified live Zen route. The checked Zen catalog contains no exact matching ID. Exact guessed OpenRouter `qwen/qwen3.5-flash-lite` endpoint query returns **404**.[3][4]
+- **Release / knowledge:** No verified exact release date or cutoff found.
+- **Context / modalities:** Exact contract unverified. Local `128K total` and `Text in/out` are generic scaffold defaults, not observed limitations. Neither Flash's million-token serving profile nor another Qwen member's vision support is inherited.
+- **Pricing / architecture:** No verified exact tariff, free entitlement, parameter count, weights or license found. The public models.dev catalog has no matching Flash-Lite record, while it does carry ordinary Qwen3.5 Flash.[5]
+
+### Raw benchmarks found
+
+- **Agent / tool use, reasoning / knowledge, coding, long-context retention and native perception:** **no verified public score found for this exact model/ID.**
+- The guessed AA exact slug returns **404**. Its shared site payload includes other Qwen models, which are not a result for the requested Lite name.[6]
+- The public HF API query scoped to publisher `Qwen` and search `Qwen3.5-Flash-Lite` returns **HTTP 200 with `[]`**.[7] This is a bounded public-catalog observation, not proof that a private, differently named or future release cannot exist.
+- No sibling Flash/Plus/open-weight benchmark is reassigned to Lite. A Flash-alias interpretation needs an actual resolving vendor ID; absence alone does not establish that alias.
+
+### Normalized scores (1–100)
+
+Not assigned. Exact identity and benchmark coverage are insufficient to derive the five quality dimensions or their Overall mean. No placeholder scores or cost rating are supplied.
+
+### Fresh search trail and sources
+
+- Bing RSS [`"Qwen3.5-Flash-Lite" benchmark`](https://www.bing.com/search?format=rss&q=%22Qwen3.5-Flash-Lite%22+benchmark): unrelated retail/clothing results.
+- Google [`"Qwen3.5-Flash-Lite" model`](https://www.google.com/search?q=%22Qwen3.5-Flash-Lite%22+model): JavaScript/access interstitial.
+- DuckDuckGo [`"Qwen3.5-Flash-Lite" model`](https://duckduckgo.com/html/?q=%22Qwen3.5-Flash-Lite%22+model): explicit no-results response.
+- Direct primary catalog, pricing, publisher weights search and independent/serving catalogs were checked to supplement these search failures. No authenticated inference or peer-report evidence used.
+
+[1]: https://www.alibabacloud.com/help/en/model-studio/text-generation-model
+[2]: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+[3]: https://opencode.ai/zen/v1/models
+[4]: https://openrouter.ai/api/v1/models/qwen/qwen3.5-flash-lite/endpoints
+[5]: https://models.dev/api.json
+[6]: https://artificialanalysis.ai/models/qwen3-5-flash-lite
+[7]: https://huggingface.co/api/models?author=Qwen&search=Qwen3.5-Flash-Lite&limit=20
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-22
+- Method: independent public-web exact-identity research and evidence-based self-exclusion; catalog absences are scoped to the checked public records on this date.

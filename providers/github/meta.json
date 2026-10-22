@@ -39,9 +39,15 @@
   ],
   "plans": [
     {
-      "name": "Free",
+      "name": "GitHub Models (Free Prototyping API)",
+      "price": "$0",
+      "notes": "Instant OpenAI-compatible API key via GitHub Personal Access Token (PAT). Free rate-limited inference (15 RPM / 150 RPD) for prototyping across GPT-4o, Llama, and Phi models locally.",
+      "evidenceUrl": "https://github.com/marketplace/models"
+    },
+    {
+      "name": "Copilot Free",
       "price": "$0/month",
-      "notes": "Limited chat and agent usage; 2,000 completions and 50 chat requests per month.",
+      "notes": "Limited IDE chat and code agent usage; 2,000 completions and 50 chat requests per month.",
       "evidenceUrl": "https://github.com/features/copilot/plans"
     },
     {

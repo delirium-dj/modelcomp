@@ -27,9 +27,9 @@ interface VendorMatch {
 
 // Token-prefix match over `${id} ${name}` lowercase, so e.g. "Inkling"
 // never matches "ling". Artwork: free brand SVGs from thesvg.org
-// (GLINCKER/thesvg, MIT), LobeHub icons (MIT) and Simple Icons (CC0);
-// puter, synthetic and reflection are the vendors' own favicon SVGs,
-// inlined from
+// (GLINCKER/thesvg, MIT), LobeHub icons (MIT), Simple Icons (CC0) and SVGL;
+// puter, synthetic, reflection, unbiased, callstack and teleai are the
+// vendors' own artwork; trademarks belong to their owners — inlined from
 // src/data/vendorIcons.generated.ts — no <img>, no network requests.
 const VENDORS: VendorMatch[] = [
   { match: "claude", icon: "anthropic", label: "Anthropic", chip: true },
@@ -118,7 +118,41 @@ const VENDORS: VendorMatch[] = [
   { match: "hyperbolic", icon: "hyperbolic", label: "Hyperbolic" },
   { match: "inference", icon: "inference", label: "Inference.net", adaptive: true },
   { match: "pollinations", icon: "pollinations", label: "Pollinations", adaptive: true },
-  // laguna / poolside / glhf / lepton have no free brand SVG — letter fallback below.
+  // Vendors whose brand artwork was added later — Poolside (Laguna),
+  // Inception Labs (Mercury), StepFun, Unbiased (Pareto / Union Alpha),
+  // Callstack (Pixel Canary), TypeSafe AI (Jev), China Telecom's TeleAI
+  // (Xing 4.0) and Thinking Machines Lab (Inkling).
+  { match: "poolside", icon: "poolside", label: "Poolside", adaptive: true },
+  { match: "laguna", icon: "poolside", label: "Poolside", adaptive: true },
+  { match: "inception", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
+  { match: "step", icon: "stepfun", label: "StepFun", adaptive: true },
+  { match: "unbiased", icon: "unbiased", label: "Unbiased" },
+  { match: "pareto", icon: "unbiased", label: "Unbiased" },
+  { match: "union", icon: "unbiased", label: "Unbiased" },
+  { match: "callstack", icon: "callstack", label: "Callstack", adaptive: true },
+  { match: "typesafe", icon: "typesafe", label: "TypeSafe AI", adaptive: true },
+  { match: "jev", icon: "typesafe", label: "TypeSafe AI", adaptive: true },
+  { match: "xing", icon: "teleai", label: "China Telecom (TeleAI)" },
+  { match: "inkling", icon: "thinkingmachines", label: "Thinking Machines Lab" },
+  // Models that belong to a vendor already in the table but whose id/name
+  // never carries the vendor token (stealth labels, tier aliases).
+  { match: "ember", icon: "fireworks", label: "Fireworks AI", adaptive: true },
+  { match: "beam", icon: "reflection", label: "Reflection AI" },
+  { match: "cat", icon: "reflection", label: "Reflection AI" },
+  { match: "bunny", icon: "minimax", label: "MiniMax" },
+  { match: "ring", icon: "antgroup", label: "Ant Group" },
+  { match: "ox", icon: "zai", label: "Z.ai", adaptive: true },
+  // Anonymous stealth slots: the vendor is unknown or disputed, so the mark of
+  // the platform serving them is the honest company reference.
+  { match: "pickle", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "exo", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "fledge", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "flint", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "neomorph", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "omen", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "omi", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "owo", icon: "opencode", label: "OpenCode", adaptive: true },
+  { match: "owl", icon: "openrouter", label: "OpenRouter" },
 ];
 
 function vendorFor(id: string, name: string): VendorMatch | undefined {
