@@ -1,0 +1,25 @@
+{
+  "name": "Glama",
+  "kind": "aggregator",
+  "short": "AI gateway and ecosystem for Model Context Protocol (MCP) integrations with free evaluation credits.",
+  "officialUrl": "https://glama.ai",
+  "hosts": ["glama.ai"],
+  "catalogUrl": "https://glama.ai/pricing",
+  "plans": [
+    {
+      "name": "Free Plan",
+      "price": "$0/month",
+      "notes": "Default plan on signup ($0/mo, no credit card required). Includes 1,000 monthly credits and API keys to connect MCP tool servers, run inspection workflows, and route LLM calls in your own environment.",
+      "evidenceUrl": "https://glama.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "Usage-based",
+      "notes": "Higher concurrency, shared team workspaces, dedicated endpoints, and scaled token volume for production agents.",
+      "evidenceUrl": "https://glama.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "A4F",
+  "kind": "aggregator",
+  "short": "Unified AI proxy and gateway providing access to hundreds of LLMs through an OpenAI-compatible API key with a free tier.",
+  "officialUrl": "https://a4f.co",
+  "hosts": ["a4f.co", "api.a4f.co"],
+  "catalogUrl": "https://a4f.co",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0",
+      "notes": "Instant OpenAI-compatible API key upon sign-up (no credit card required). Grants access to explore and query a broad catalog of open and hosted models locally via api.a4f.co/v1.",
+      "evidenceUrl": "https://a4f.co"
+    },
+    {
+      "name": "Pro / Credit Pack",
+      "price": "Usage-based",
+      "notes": "Higher request concurrency, priority routing, failovers, and expanded access to premium frontier model pipelines.",
+      "evidenceUrl": "https://a4f.co"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "gemma-4-31b"
+  ]
+}

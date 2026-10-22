@@ -1,0 +1,33 @@
+{
+  "name": "Hyperbolic",
+  "kind": "aggregator",
+  "short": "Decentralized AI cloud offering OpenAI-compatible serverless LLM inference and on-demand GPU clusters with a default free account tier.",
+  "officialUrl": "https://hyperbolic.xyz",
+  "hosts": ["hyperbolic.xyz", "api.hyperbolic.xyz", "hyperbolic.ai"],
+  "catalogUrl": "https://docs.hyperbolic.ai",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0",
+      "notes": "Default plan on signup ($0/mo, no deposit required). Generates an OpenAI-compatible API key for testing serverless inference in your own environment (capped at 60 RPM; GPU/storage launches disabled).",
+      "evidenceUrl": "https://docs.hyperbolic.ai"
+    },
+    {
+      "name": "Pro Tier",
+      "price": "From $5 one-time deposit",
+      "notes": "Unlocked by depositing ≥$5 in prepaid compute credits. Raises API rate limits to 600 RPM and unlocks on-demand GPU instances and storage volumes.",
+      "evidenceUrl": "https://docs.hyperbolic.ai"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Custom SLAs, dedicated compute clusters, and unlimited API rate limits.",
+      "evidenceUrl": "https://docs.hyperbolic.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "gemma-4-31b",
+    "qwen-3.8-27b"
+  ]
+}

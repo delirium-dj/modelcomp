@@ -1,0 +1,21 @@
+{
+  "name": "GLHF",
+  "kind": "aggregator",
+  "retired": true,
+  "short": "Community and developer inference gateway providing free testing routes for popular open-weight models via an OpenAI-compatible API.",
+  "officialUrl": "https://glhf.chat",
+  "hosts": ["glhf.chat"],
+  "catalogUrl": "https://glhf.chat",
+  "plans": [
+    {
+      "name": "Free Testing Tier",
+      "price": "$0",
+      "notes": "Instant OpenAI-compatible API key for your local environment (no credit card required). Designed for CLI coding tools (Aider, Cline) and developers experimenting with open weights (Llama, Qwen, DeepSeek).",
+      "evidenceUrl": "https://glhf.chat"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

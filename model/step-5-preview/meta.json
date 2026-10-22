@@ -15,5 +15,9 @@
     "https://www.stepfun.com/step-5-preview"
   ],
   "standout": "StepFun’s knowledge-work MoE: 1M-context reasoning for agents and research at a mid-budget rate.",
-  "tradeoff": "Preview status and uneven terminal performance mean adoption is best for experiments, not production guarantees."
+  "tradeoff": "Preview status and uneven terminal performance mean adoption is best for experiments, not production guarantees.",
+  "notable": [
+    "Domain strength against open-weight peers: on Artificial Analysis’s capability indexes (checked 2026-10-22) Step 5 Preview scores 46.2 on the Legal Index (#3 of 98 open-weight models), 52.9 on Economics (#3 of 102) and 41.1 on Healthcare & Medical (#3 of 49); the same indexes give it 45.0 on Engineering (#4 of 98) and 45.4 on Finance & Accounting (#4 of 98).",
+    "Not a frontier lead: across all models with a published index score those same AA tables rank it #57/225 (Legal), #42/232 (Economics), #49/165 (Healthcare & Medical), #42/224 (Engineering), #54/225 (Finance & Accounting) and #59/225 (Strategy & Ops) — a peer-group showing, not a top-10 finish."
+  ]
 }

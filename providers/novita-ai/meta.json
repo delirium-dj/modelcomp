@@ -7,6 +7,12 @@
   "catalogUrl": "https://novita.ai/models",
   "plans": [
     {
+      "name": "Free Tier & Trial Voucher",
+      "price": "$0",
+      "notes": "Instant OpenAI-compatible API key on signup (no credit card required). Includes introductory trial vouchers and a permanent rotation of $0.00/token open-source models for local development.",
+      "evidenceUrl": "https://novita.ai/pricing"
+    },
+    {
       "name": "Serverless Endpoints",
       "price": "Per-token, per-model rates",
       "notes": "e.g. DeepSeek V4.1 Flash $0.30/$1.20, GLM 5.3 Flash $0.15/$0.50, MiMo V2.6 Flash $0.14/$0.28 per 1M.",

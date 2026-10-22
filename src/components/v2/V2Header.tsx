@@ -150,7 +150,16 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
             <nav aria-label="Primary" class="hidden items-center gap-5 text-sm font-semibold min-[800px]:inline-flex">
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#compare`}>Compare</a>
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#methodology`}>Scoring</a>
-              <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href={`${navBase}#models`}>Models</a>
+              <a
+                class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]"
+                href={`${navBase}#models`}
+                onClick$={() => {
+                  if (window.location.hash === "#models")
+                    document.getElementById("model-search")?.focus({ preventScroll: true });
+                }}
+              >
+                Models
+              </a>
               <a class="text-[#577184] hover:text-[color:var(--color-ink)] dark:text-[#93adbe]" href="/providers/">Providers</a>
             </nav>
             <button
@@ -216,6 +225,8 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               href={`${navBase}#models`}
               onClick$={() => {
                 isMenuOpen.value = false;
+                if (window.location.hash === "#models")
+                  document.getElementById("model-search")?.focus({ preventScroll: true });
               }}
             >
               Models

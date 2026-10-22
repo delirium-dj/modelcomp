@@ -1,0 +1,25 @@
+{
+  "name": "Featherless AI",
+  "kind": "aggregator",
+  "short": "Serverless open-weights inference cloud hosting thousands of Hugging Face models with initial free trial tokens.",
+  "officialUrl": "https://featherless.ai",
+  "hosts": ["featherless.ai"],
+  "catalogUrl": "https://featherless.ai/pricing",
+  "plans": [
+    {
+      "name": "Starter Trial",
+      "price": "$0 (100K tokens)",
+      "notes": "100,000 free trial tokens on account creation. Generates an OpenAI-compatible API key for testing any of thousands of hosted open-source models directly in your local code.",
+      "evidenceUrl": "https://featherless.ai/pricing"
+    },
+    {
+      "name": "Developer Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Prepaid token pools (or monthly flat subscriptions) with no server cold-starts or idle charges across open checkpoints.",
+      "evidenceUrl": "https://featherless.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash"
+  ]
+}

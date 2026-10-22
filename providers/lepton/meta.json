@@ -1,0 +1,27 @@
+{
+  "name": "Lepton AI",
+  "kind": "aggregator",
+  "retired": true,
+  "short": "High-efficiency serverless AI cloud providing OpenAI-compatible endpoints with complimentary starter credits for developers.",
+  "officialUrl": "https://lepton.ai",
+  "hosts": ["lepton.ai"],
+  "catalogUrl": "https://lepton.ai",
+  "plans": [
+    {
+      "name": "Free Starter Credits",
+      "price": "$0 ($5 credit)",
+      "notes": "Granted automatically upon registration. Provides an OpenAI-compatible API key with $5 in free credits to test serverless model calls and custom photon deployments in your own environment.",
+      "evidenceUrl": "https://lepton.ai"
+    },
+    {
+      "name": "Standard Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Prepaid balance model billed per million tokens or per GPU-second, featuring automatic scale-to-zero when idle.",
+      "evidenceUrl": "https://lepton.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "gemma-4-31b"
+  ]
+}

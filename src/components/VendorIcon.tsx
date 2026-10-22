@@ -27,8 +27,9 @@ interface VendorMatch {
 
 // Token-prefix match over `${id} ${name}` lowercase, so e.g. "Inkling"
 // never matches "ling". Artwork: free brand SVGs from thesvg.org
-// (GLINCKER/thesvg, MIT), LobeHub icons (MIT) and Simple Icons (CC0;
-// trademarks belong to their owners), inlined from
+// (GLINCKER/thesvg, MIT), LobeHub icons (MIT) and Simple Icons (CC0);
+// puter, synthetic and reflection are the vendors' own favicon SVGs,
+// inlined from
 // src/data/vendorIcons.generated.ts — no <img>, no network requests.
 const VENDORS: VendorMatch[] = [
   { match: "claude", icon: "anthropic", label: "Anthropic", chip: true },
@@ -45,6 +46,7 @@ const VENDORS: VendorMatch[] = [
   { match: "chatglm", icon: "zhipu", label: "Zhipu" },
   { match: "deepseek", icon: "deepseek", label: "DeepSeek" },
   { match: "mimo", icon: "mimo", label: "Xiaomi", color: "#FF6900" },
+  { match: "xiaomi", icon: "xiaomi", label: "Xiaomi" },
   { match: "qwen", icon: "qwen", label: "Qwen", invertLight: true },
   { match: "kimi", icon: "kimi", label: "Moonshot AI" },
   { match: "moonshot", icon: "moonshot", label: "Moonshot AI", adaptive: true },
@@ -58,6 +60,7 @@ const VENDORS: VendorMatch[] = [
   { match: "microsoft", icon: "microsoft", label: "Microsoft" },
   { match: "mai", icon: "microsoft", label: "Microsoft" },
   { match: "amazon", icon: "aws", label: "AWS", adaptive: true },
+  { match: "alibaba", icon: "alibabacloud", label: "Alibaba Cloud" },
   { match: "solar", icon: "upstage", label: "Upstage", adaptive: true },
   { match: "upstage", icon: "upstage", label: "Upstage", adaptive: true },
   { match: "seed", icon: "bytedance", label: "ByteDance" },
@@ -102,7 +105,20 @@ const VENDORS: VendorMatch[] = [
   { match: "weightsandbiases", icon: "wandb", label: "Weights & Biases", adaptive: true },
   { match: "coreweave", icon: "wandb", label: "Weights & Biases", adaptive: true },
   { match: "agentrouter", icon: "agentrouter", label: "AgentRouter", adaptive: true },
-  // laguna / poolside have no free brand SVG — letter fallback below.
+  { match: "reflection", icon: "reflection", label: "Reflection AI" },
+  { match: "puter", icon: "puter", label: "Puter", invertLight: true },
+  { match: "synthetic", icon: "synthetic", label: "Synthetic", adaptive: true },
+  { match: "ai21", icon: "ai21", label: "AI21 Labs", adaptive: true },
+  { match: "aimlapi", icon: "aimlapi", label: "AI/ML API", adaptive: true },
+  { match: "anyscale", icon: "anyscale", label: "Anyscale" },
+  { match: "chutes", icon: "chutes", label: "Chutes", adaptive: true },
+  { match: "cohere", icon: "cohere", label: "Cohere" },
+  { match: "featherless", icon: "featherless", label: "Featherless AI" },
+  { match: "glama", icon: "glama", label: "Glama", adaptive: true },
+  { match: "hyperbolic", icon: "hyperbolic", label: "Hyperbolic" },
+  { match: "inference", icon: "inference", label: "Inference.net", adaptive: true },
+  { match: "pollinations", icon: "pollinations", label: "Pollinations", adaptive: true },
+  // laguna / poolside / glhf / lepton have no free brand SVG — letter fallback below.
 ];
 
 function vendorFor(id: string, name: string): VendorMatch | undefined {

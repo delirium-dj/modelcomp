@@ -1,0 +1,26 @@
+{
+  "name": "FriendliAI",
+  "kind": "aggregator",
+  "short": "High-throughput serverless model API platform powered by the Friendli Engine with free evaluation access.",
+  "officialUrl": "https://friendli.ai",
+  "hosts": ["friendli.ai", "api.friendli.ai"],
+  "catalogUrl": "https://friendli.ai",
+  "plans": [
+    {
+      "name": "Serverless Free Trial",
+      "price": "$0",
+      "notes": "Sign-up evaluation grant for serverless model endpoints. Generates a Personal Access Token (FRIENDLI_TOKEN) to run OpenAI-compatible inference locally across open models.",
+      "evidenceUrl": "https://friendli.ai"
+    },
+    {
+      "name": "Serverless Pay-as-you-go",
+      "price": "Usage-based per 1M tokens",
+      "notes": "Metered per-token pricing accelerated by the Friendli Engine with continuous batching and scale-to-zero.",
+      "evidenceUrl": "https://friendli.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "gemma-4-31b"
+  ]
+}

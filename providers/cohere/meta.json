@@ -1,0 +1,26 @@
+{
+  "name": "Cohere",
+  "kind": "vendor",
+  "short": "Enterprise and developer LLMs featuring the Command model family, embedding, and reranking endpoints with an ongoing free evaluation tier.",
+  "officialUrl": "https://cohere.com",
+  "hosts": ["cohere.com", "docs.cohere.com"],
+  "idPrefixes": ["cohere", "CohereLabs"],
+  "catalogUrl": "https://cohere.com/pricing",
+  "plans": [
+    {
+      "name": "Trial API Key",
+      "price": "$0",
+      "notes": "Default free tier on signup ($0/mo, no credit card required). Generates a personal Trial API key for your own environment: capped at 1,000 calls/month across all endpoints, 20 RPM on Chat (Command R, Command R+, Command A), strictly for evaluation and prototyping.",
+      "evidenceUrl": "https://cohere.com/pricing"
+    },
+    {
+      "name": "Production Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Unlocked by adding a payment method. Removes the 1,000 monthly call ceiling, raises rate limits, and licenses usage for commercial production applications.",
+      "evidenceUrl": "https://cohere.com/pricing"
+    }
+  ],
+  "covers": [
+    "north_mini_code"
+  ]
+}

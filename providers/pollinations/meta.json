@@ -1,0 +1,28 @@
+{
+  "name": "Pollinations",
+  "kind": "aggregator",
+  "short": "Open AI infrastructure with a permanently free, no-signup API for text and image generation, rate-limited per IP; API keys unlock every model and higher limits.",
+  "officialUrl": "https://pollinations.ai",
+  "hosts": ["pollinations.ai", "text.pollinations.ai", "image.pollinations.ai", "enter.pollinations.ai", "gen.pollinations.ai"],
+  "catalogUrl": "https://text.pollinations.ai/models",
+  "plans": [
+    {
+      "name": "Free (no signup)",
+      "price": "$0",
+      "notes": "Classic API needs no key: text is rate-limited to one request at least 30 s apart per IP (images 45 s). Best-effort, no uptime guarantee.",
+      "evidenceUrl": "https://github.com/pollinations/pollinations/blob/master/APIDOCS.md"
+    },
+    {
+      "name": "API key (Enter)",
+      "price": "Free pollen + top-up",
+      "notes": "Your own key from enter.pollinations.ai removes the per-IP limit and unlocks every image, text, audio and video model; start with free pollen from quests and buy more when needed.",
+      "evidenceUrl": "https://github.com/pollinations/pollinations/blob/master/APIDOCS.md"
+    },
+    {
+      "name": "Per-request",
+      "price": "$0.01/request",
+      "notes": "Agent wallets can pay per request via x402 (USDC on Base, via Weft); the 402 response carries the payment details.",
+      "evidenceUrl": "https://github.com/pollinations/pollinations/blob/master/APIDOCS.md"
+    }
+  ]
+}

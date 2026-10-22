@@ -1,0 +1,25 @@
+{
+  "name": "Inference.net",
+  "kind": "aggregator",
+  "short": "High-performance inference platform and agent tracing gateway offering a persistent free developer tier.",
+  "officialUrl": "https://inference.net",
+  "hosts": ["inference.net"],
+  "catalogUrl": "https://inference.net/pricing",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0",
+      "notes": "Default developer tier ($0/mo). Provides an OpenAI-compatible API key for testing open-weights endpoints, running local evaluations, and recording telemetry traces in your own environment.",
+      "evidenceUrl": "https://inference.net/pricing"
+    },
+    {
+      "name": "Production Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Higher concurrency, reserved capacity, and team observability features with volume token pricing.",
+      "evidenceUrl": "https://inference.net/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash"
+  ]
+}

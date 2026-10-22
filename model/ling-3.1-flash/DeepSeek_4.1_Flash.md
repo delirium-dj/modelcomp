@@ -1,9 +1,11 @@
 # Ling 3.1 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: InclusionAI / Ant Group — Ling-3.1-flash (`opencode/ling-3.1-flash`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ling-3-1-flash`, 27 rows) computes an overall **68.08/100 (#24 of 972)** and confirms the deep pass: Terminal-Bench 2.1 81.2%, MCP Atlas 83%, CyberGym 87.9%, BrowseComp 91.7%, skillsBench 68.7%, SWE-bench Pro 68.7%, SWE Multilingual 88.5%, DeepSWE 59.7%, AA-LCR 83.0%, AA-HLE 39.4%, AA-SciCode 54.1%, GDPval-AA 1673 / 55.9%, AA Intelligence Index 41.1%. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked beyond Ant's launch table against Artificial Analysis (Intelligence Index 41, #5/175; https://artificialanalysis.ai/models/ling-3-1-flash), BenchLM (60.62/100, #50/891; https://benchlm.ai/models/ling-3-1-flash), BenchmarkList (13 rows; https://benchmarklist.com/models/inclusionai-ling-3.1-flash/), AgentBreaking (68/100, #24/177; https://agentbreaking.com/models/inclusionai--ling-3.1-flash/), Benchable (reliability 93%; https://benchable.ai/models/inclusionai/ling-3.1-flash-20261002) and LLM-Stats (LLM Stats Score 51.0, #15; https://llm-stats.com/models/ling-3.1-flash). The official Hugging Face card is still not public (HTTP 401 — weights/API-only at launch). Independent numbers land below Ant's launch table, so the quality dims are trimmed from the launch-only pass. Conflicts surfaced: (1) Terminal-Bench 4.0 **40.4%** (Ant, via BenchmarkList) vs **33.3%** (AA-derived, via AgentBreaking); (2) context **1M** (AA, LLM-Stats) vs **262,144** served (OpenRouter, Benchable, AgentBreaking); (3) three composite scales disagree — BenchLM 60.62, AgentBreaking 68, LLM-Stats 51.0; (4) pricing **$0** promo (OpenRouter) vs **$0.30/$0.90** eventual first-party (AA); (5) HealthBench Professional 65.3% was measured inside Ant's AQ health app, not on the API model.
 
@@ -75,6 +77,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: independent public internet research (Artificial Analysis, BenchLM, BenchmarkList, AgentBreaking, Benchable, LLM-Stats; official HF model card not public — HTTP 401). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

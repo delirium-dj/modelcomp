@@ -1,0 +1,51 @@
+# Claude Opus 4.4 - findings by Big Pickle (excluded)
+
+- Source: OpenCode (`opencode/big-pickle`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no such model exists in Anthropic's published line-up**, so no scores are
+  reported in this file.
+
+## Model card
+
+- **Claimed name:** Claude Opus 4.4 (folder slug `claude-opus-4.4`, id `opencode/claude-opus-4.4`).
+- **Finding:** Anthropic has never released a Claude Opus 4.4. The Opus 4.x line goes
+  **4 -> 4.1 -> 4.5 -> 4.6 -> 4.7 -> 4.8 -> 5 -> 5.5**; there is no 4.2, 4.3 or 4.4 in any
+  first-party source, and the folder's placeholder meta ("128K total", "Text in/out",
+  "Standard pricing") matches the generic scaffold, not any real spec.
+- **Context window / modalities / pricing:** unknown - the model does not exist.
+- **Access:** not served on OpenCode Zen (the live catalogue lists `claude-opus-4-5`,
+  `claude-opus-4-6`, `claude-opus-4-7`, `claude-opus-4-8`, `claude-opus-5`, `claude-opus-5-5`,
+  `claude-opus-5-5-backup` - no 4.4). `opencode/claude-opus-4.4` therefore resolves to no route.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Claude Opus 4.4 in any first-party or independent
+  source: no Anthropic model page, no system card, no API id, no pricing row, no Artificial
+  Analysis / Epoch AI / Vals AI / SWE-bench row.
+- Every "4.4" sighting on the open web is derivative and self-contradictory:
+  - a Copilot-compatibility shim in a third-party GitHub repo maps `claude-opus-4-6` to a
+    `claude-opus-4.4` string (an internal alias, not a release);
+  - a JPMorgan webcast slide transcript (2026-06-24) mentions "Claude Opus 4.4" in an AA
+    Intelligence Index chart, while an AA chart transcription lists "Claude Opus 4.4" at the
+    lowest output-token value - mutually inconsistent and unverifiable;
+  - a machine-translated energy blog (2026-03) invents a whole "Opus 4.3 / 4.4 / Sonnet 4.3 / 4.4"
+    ladder that no vendor ever shipped;
+  - a 2025 LinkedIn post uses "Claude Opus 4.4" as a typo for Claude Opus 4.
+- No long-context, coding, tool-use, reasoning or multimodal number exists to normalize.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-10-22
+- Method: checked first-party sources first - the Claude models overview (current and legacy
+  lineup), the model deprecations table (full lifecycle history back to 2024), and the full
+  pricing table (Opus 4, 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5 only) - then the live OpenRouter model
+  list (`anthropic/claude-opus-*` = 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5) and the live OpenCode Zen
+  catalogue (no 4.4 id). Searches for the exact string "Claude Opus 4.4" returned only derivative
+  artifacts (a name-translation shim, a slide transcript, a machine-translated energy table, a
+  typo), none of which is a vendor announcement, model card or benchmark result. Scores are
+  withheld rather than fabricated; the nearest real neighbours are Claude Opus 4.1 (retired
+  2026-08-05) and Claude Opus 4.5 (2025-11-24, $5/$25, 200K context), and this report should not
+  be read as a proxy for either.
+- Future sources: if a genuine Claude Opus 4.4 appears, add `Claude_Opus_4_4.md` with the standard
+  headings; do not edit this exclusion.

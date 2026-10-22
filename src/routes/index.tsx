@@ -135,6 +135,7 @@ export default component$(() => {
   const allModelsView = useSignal<"cards" | "list">("cards");
   const theme = useSignal<"light" | "dark">("light");
   const query = useSignal("");
+  const searchRef = useSignal<HTMLInputElement>();
   const displayCount = useSignal(PAGE_SIZE);
   const source = useSignal<ResultsView>("average");
   const scrollerRef = useSignal<HTMLDivElement>();
@@ -185,6 +186,19 @@ export default component$(() => {
     };
     sys.addEventListener("change", follow);
     cleanup(() => sys.removeEventListener("change", follow));
+  });
+
+  // The header's "Models" link lands on #models — put the caret straight into
+  // the search field so typing can begin without a second click.
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    const focusSearch = () => {
+      if (window.location.hash !== "#models") return;
+      searchRef.value?.focus({ preventScroll: true });
+    };
+    focusSearch();
+    window.addEventListener("hashchange", focusSearch);
+    cleanup(() => window.removeEventListener("hashchange", focusSearch));
   });
 
   // Results-source mapping mirrors the v1 All-models logic: average numbers,
@@ -943,6 +957,8 @@ export default component$(() => {
           </p>
           <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
             <input
+              ref={searchRef}
+              id="model-search"
               type="search"
               role="searchbox"
               aria-label="Search models"

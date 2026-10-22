@@ -1,0 +1,37 @@
+{
+  "name": "Synthetic",
+  "kind": "aggregator",
+  "short": "Privacy-first OpenAI-compatible API for open-source models in private datacenters - no training on your data, no prompt storage - popular with coding agents like Cline, Roo and OpenCode.",
+  "officialUrl": "https://synthetic.new",
+  "hosts": ["synthetic.new", "dev.synthetic.new"],
+  "catalogUrl": "https://synthetic.new/pricing",
+  "plans": [
+    {
+      "name": "Go",
+      "price": "$9/mo",
+      "notes": "Generous limits and reliable access, discounted model rates, web search API, beta models, fast mode.",
+      "evidenceUrl": "https://synthetic.new/pricing"
+    },
+    {
+      "name": "Standard",
+      "price": "$30/mo",
+      "notes": "Larger limits for demanding projects, priority access, one usage reset per month.",
+      "evidenceUrl": "https://synthetic.new/pricing"
+    },
+    {
+      "name": "Big",
+      "price": "$90/mo",
+      "notes": "Biggest limits, higher priority, plus Fast mode (2x speed, 2x rate-limit use) and Infinite mode for background agents (never counts against the rate limit, runs slower).",
+      "evidenceUrl": "https://synthetic.new/pricing"
+    },
+    {
+      "name": "Usage-based",
+      "price": "Per-token API pricing",
+      "notes": "Buy tokens at API rates without subscribing; extra usage on any plan is also billed at API pricing.",
+      "evidenceUrl": "https://synthetic.new/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash", "glm-4.7-flash", "glm-5.3", "glm-5.3-flash", "gpt-oss-120b", "kimi-k3", "qwen-3.8-27b"
+  ]
+}

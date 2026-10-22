@@ -1,0 +1,23 @@
+{
+  "name": "AI21 Labs",
+  "kind": "vendor",
+  "short": "AI systems lab developing production enterprise LLMs with a dedicated evaluation credit tier.",
+  "officialUrl": "https://ai21.com",
+  "hosts": ["ai21.com"],
+  "idPrefixes": ["ai21"],
+  "catalogUrl": "https://ai21.com/pricing",
+  "plans": [
+    {
+      "name": "Developer Trial",
+      "price": "$0 ($10 credit)",
+      "notes": "Instant API key upon account signup with $10 in trial credits (valid 3 months, no credit card required). Usable locally via the AI21 REST API, Python SDK, or playground for Jamba 1.5 Mini & Large.",
+      "evidenceUrl": "https://ai21.com/pricing"
+    },
+    {
+      "name": "Production Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Activated by adding credit card details. Converts account to unmetered standard per-token billing with higher concurrency and enterprise tier options.",
+      "evidenceUrl": "https://ai21.com/pricing"
+    }
+  ]
+}

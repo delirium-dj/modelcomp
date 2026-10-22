@@ -1,0 +1,25 @@
+{
+  "name": "Anyscale",
+  "kind": "aggregator",
+  "short": "Ray-powered AI compute platform offering distributed inference and fine-tuning with developer trial credits.",
+  "officialUrl": "https://anyscale.com",
+  "hosts": ["anyscale.com"],
+  "catalogUrl": "https://anyscale.com/pricing",
+  "plans": [
+    {
+      "name": "Trial Credits",
+      "price": "$0 ($100 credit)",
+      "notes": "$100 trial credit granted on account creation. Generates API keys to test OpenAI-compatible serverless endpoints or launch Ray clusters in your own environment.",
+      "evidenceUrl": "https://anyscale.com/pricing"
+    },
+    {
+      "name": "Pay-as-you-go / BYOC",
+      "price": "Usage-based",
+      "notes": "Metered Ray node-hours or serverless per-token inference. Supports Bring-Your-Own-Cloud (AWS/GCP/Azure) deployments.",
+      "evidenceUrl": "https://anyscale.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash"
+  ]
+}

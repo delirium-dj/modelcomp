@@ -1,0 +1,52 @@
+{
+  "name": "Puter",
+  "kind": "aggregator",
+  "short": "Cloud OS with an AI gateway: 500+ models from OpenAI, Anthropic, Google, xAI, Mistral and more via Puter.js, with a free account tier and a user-pays billing model where the app's end user covers AI costs.",
+  "officialUrl": "https://puter.com",
+  "hosts": ["puter.com", "developer.puter.com", "docs.puter.com"],
+  "catalogUrl": "https://developer.puter.com/ai/models/",
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0",
+      "notes": "Free account with 25 MB storage and limited AI & Cloud access.",
+      "evidenceUrl": "https://puter.com"
+    },
+    {
+      "name": "User-Pays model",
+      "price": "$0 for the developer",
+      "notes": "Apps built on Puter.js pass AI usage costs to the signed-in end user's own Puter account instead of the developer's.",
+      "evidenceUrl": "https://docs.puter.com/user-pays-model/"
+    },
+    {
+      "name": "Basic",
+      "price": "$10/mo",
+      "notes": "100 GB storage with expanded AI & Cloud access.",
+      "evidenceUrl": "https://puter.com"
+    },
+    {
+      "name": "Plus",
+      "price": "$25/mo",
+      "notes": "500 GB storage with advanced AI & Cloud access.",
+      "evidenceUrl": "https://puter.com"
+    },
+    {
+      "name": "Pro",
+      "price": "$100/mo",
+      "notes": "2 TB storage with maximum AI & Cloud access.",
+      "evidenceUrl": "https://puter.com"
+    },
+    {
+      "name": "Free model ids",
+      "price": "$0",
+      "notes": "Selected catalog ids bill $0 per 1M tokens (e.g. Recursive Flint, MiniMax M3.1 Flash, Fireworks Ember-1).",
+      "evidenceUrl": "https://developer.puter.com/ai/models/"
+    }
+  ],
+  "covers": [
+    "beam", "claude-haiku-5.5", "claude-opus-5.5", "claude-sonnet-5.5", "ember-1", "flint",
+    "gemini-4-argon", "gpt-6-luna", "gpt-6-sol", "gpt-6.1-sol", "grok-4.7", "ling-3.1-flash",
+    "mimo-v2.6-flash", "mimo-v2.6-pro", "minimax-m3.1-flash-preview", "mistral-large-4",
+    "muse-wonder-1.0", "nemotron-3.5-super-vl", "pareto-26.10-preview", "solar-mini-4", "step-5-preview"
+  ]
+}

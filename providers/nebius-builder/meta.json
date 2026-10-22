@@ -1,0 +1,26 @@
+{
+  "name": "Nebius AI Studio",
+  "kind": "aggregator",
+  "short": "Token Factory inference and GPU cloud infrastructure with an active developer builder grant program.",
+  "officialUrl": "https://nebius.com",
+  "hosts": ["nebius.com", "tokenfactory.nebius.com"],
+  "catalogUrl": "https://nebius.com/builders",
+  "plans": [
+    {
+      "name": "AI Builder Program",
+      "price": "$0 ($400+ credit)",
+      "notes": "Grant program for engineers and startups: $400+ in free platform compute credits, API keys for token factory inference, blueprints, and engineering office hours.",
+      "evidenceUrl": "https://nebius.com/builders"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based",
+      "notes": "Fast per-token inference on open-weights (DeepSeek, Qwen, Llama) and dedicated high-speed InfiniBand GPU clusters.",
+      "evidenceUrl": "https://nebius.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

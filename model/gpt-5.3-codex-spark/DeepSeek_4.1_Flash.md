@@ -1,15 +1,17 @@
 # GPT 5.3 Codex Spark — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.3-Codex-Spark (`gpt-5.3-codex-spark`; Cerebras-served research preview)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-03); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-3-codex-spark`) carries only **1 row** (MazeBench 0%) and assigns **no overall score**; no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against the OpenAI launch post (2026-02-12), the Cerebras launch note (2026-02-12), Turing College's speed-vs-intelligence teardown (2026-02-14), CometAPI's Spark-vs-Codex analysis (updated 2026-09-03), OrcaRouter's retirement write-up (2026-08-18), Benchmark Atlas, Pi's model card, and BenchLM (updated 2026-10-12). No dimension moved: the launch facts (128K, text-only, 1,000+ tok/s, distilled sibling of GPT-5.3-Codex) and the weak spots (unreliable tool-call formatting, drift after 6–8 steps, ~56% SWE-Bench Pro vs the sibling's ~72%) all held. Two conflicts surfaced: (a) BenchLM lists a **256K** window against the official/Pi **128K**; (b) third-party trackers (Pi, OrcaRouter) print **$1.75/$14**, but OpenAI never published a public API price and OrcaRouter calls that tracker figure fiction. Official 128K and "no public price" win; scores unchanged. The model is now retired per an OpenAI executive statement (2026-09-11).
 
 ## Model card
 
-- **Name:** GPT 5.3 Codex Spark (GPT-5.3-Codex-Spark)
+- **Name:** GPT-5.3-Codex-Spark (GPT-5.3-Codex-Spark)
 - **Short description:** A distilled, Cerebras-accelerated variant of OpenAI's GPT-5.3-Codex, purpose-built for low-latency real-time coding at 1,000+ tokens/second. Shipped as a ChatGPT Pro research preview and now retired (exec statement 2026-09-11, pulled the week of 2026-09-14) — OpenAI pointed users to GPT-5.3-Codex / GPT-5.6 Sol for new work. A fast drafter, not a frontier reasoner.
 - **Provider / access:** OpenAI research preview via ChatGPT Pro (Codex app, CLI, VS Code extension); API access only to select design partners, never a general public endpoint. Served on Cerebras Wafer Scale Engine 3 (WSE-3). Repo tracks it as `opencode/gpt-5.3-codex-spark`; no OpenCode Zen Free ID.
 - **Release / knowledge:** Released 2026-02-12 (research preview); retired week of 2026-09-14. Parent GPT-5.3-Codex released 2026-02-05. Knowledge cutoff not published.
@@ -71,7 +73,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep second-pass public internet research (≥3 independent sources: OpenAI launch post `openai.com/index/introducing-gpt-5-3-codex-spark/` 2026-02-12; Cerebras `cerebras.ai/blog/openai-codexspark` 2026-02-12; Turing College "Codex 5.3 vs. Codex Spark" 2026-02-14; CometAPI Spark-vs-Codex 2026-09-03; OrcaRouter retirement analysis 2026-08-18; Benchmark Atlas `atlas.kevinhu.io/models/gpt-5-3-codex-spark`; Pi model card `pi.dev/models/openai-codex/gpt-5-3-codex-spark`; BenchLM `benchlm.ai/models/gpt-5-3-codex-spark` 2026-10-12; OpenAI GPT-5.3-Codex appendix for the sibling baseline). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Conflicts on record: context window 128K (primary) vs 256K (BenchLM); pricing $1.75/$14 (Pi/OrcaRouter trackers) vs no public API price (OpenAI, and OrcaRouter's own "fiction" note); SWE-Bench Pro 51.5 (Benchmark Atlas) vs ~56 (Turing College).
 - Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.

@@ -1,16 +1,18 @@
 # GPT 5 Nano — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5 Nano (`openai/gpt-5-nano`)
-- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01)
+- Date: 2026-10-11 (UTC) — deep second pass (previous Signature 2026-10-01); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-nano`) carries **0 benchmark rows** (unranked, "coming soon"); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
 
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Re-checked against OpenAI official model docs (https://developers.openai.com/api/docs/models/gpt-5-nano), Artificial Analysis (https://artificialanalysis.ai/models/gpt-5-nano), LLM Stats (https://llm-stats.com/models/gpt-5-nano-2025-08-07), AI Release Tracker (https://aireleasetracker.com/model/openai/gpt-5-nano), BenchLM (https://benchlm.ai/models/gpt-5-nano) and OpenRouter (https://openrouter.ai/openai/gpt-5-nano) — six independent pages. **No dimension changed; the prior Overall (63) stands.** Corrections/conflicts surfaced: OpenAI docs publish max input **272K** and max output **128K** tokens (first pass said max output was "not separately published"); knowledge cutoff is **May 31 2024** per OpenAI vs **May 30 2024** per Artificial Analysis; Artificial Analysis now labels GPT-5 nano (High) **deprecated** and points to GPT-5.4 nano, and its live page shows only a composite Intelligence Index of **13 (estimated)** with per-benchmark figures no longer publicly displayed; BenchLM tracks the model but reports **0/626 benchmarks covered (unranked)**. Prices ($0.05 / $0.40 per 1M), the 400K window and the text+image→text modality are confirmed by every vendor/tracker checked.
 
 ## Model card
 
-- **Name:** GPT 5 Nano
+- **Name:** GPT-5 nano
 - **Short description:** The smallest and fastest variant in the GPT-5 system — built for developer tools, rapid interactions and ultra-low-latency environments; limited in reasoning depth but retaining GPT-5's instruction-following and safety features. Successor to GPT-4.1-nano (per OpenAI docs).
 - **Provider / access:** OpenAI API, OpenRouter, Vercel AI Gateway (multi-provider). Not open weights (AI Release Tracker: closed).
 - **Release / knowledge:** Released 2025-08-07 (snapshot `gpt-5-nano-2025-08-07`); knowledge cutoff May 31 2024 (OpenAI docs) / May 30 2024 (Artificial Analysis) — older than later GPT-5.x siblings.
@@ -62,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-11
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research — OpenAI official model docs + GPT-5 launch page, Artificial Analysis, LLM Stats, AI Release Tracker, BenchLM, OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores; Coding is provisional where no benchmark exists.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -6,10 +6,12 @@ marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
 `deepinfra`, `huggingface`, `fireworks-ai`, `cloudflare-workers-ai`,
 `amazon-bedrock`, `microsoft`, `together-ai`, `novita-ai`, `baseten`, `ollama`,
 `scaleway`, `sambanova`, `groq`, `llm7`, `ovhcloud`, `siliconflow`, `cerebras`,
-`kilocode`, `wandb`, `agentrouter`) and vendor-direct
+`kilocode`, `wandb`, `agentrouter`, `aimlapi`, `puter`, `pollinations`,
+`synthetic`, `chutes`, `anyscale`, `featherless-ai`, `glama`, `hyperbolic`,
+`inference-net`, `nebius-builder`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
 `xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`,
-`nebius`, `reflection`).
+`nebius`, `reflection`, `ai21`, `cohere`).
 
 This folder is **not** scanned by `pnpm sync` (which covers `model/` only) —
 it is loaded directly by the website build via `import.meta.glob`
@@ -27,6 +29,7 @@ it is loaded directly by the website build via `import.meta.glob`
 | `idPrefixes` | no | Model-id first path word that means "served by this provider" (e.g. `opencode`, `anthropic`, `Qwen` — case-sensitive, matches `id` prefixes in `model/<slug>/meta.json`) |
 | `covers` | no | Model slugs the provider sells when no model meta cites its catalog (needs `catalogUrl`) |
 | `catalogUrl` | no | Official model catalog page backing `covers` (required when `covers` is present) |
+| `retired` | no | `true` parks the provider: the folder stays on disk and in git, but its card is hidden from the site (`src/data/providers.ts` skips it) |
 | `plans[]` | yes | ≥1 entry: billing lanes this provider offers |
 | `plans[].name` | yes | Plan/lane name (e.g. `Free tier`, `Pay-as-you-go`) |
 | `plans[].price` | yes | Price text — copy it verbatim from an already-curated claim; never invent numbers |
@@ -58,3 +61,17 @@ Adding a new provider folder is enough — coverage updates on the next build.
   permanent like `model/<slug>/`.
 - Vendor-official hyphenation is fine for providers (`openrouter`), but keep
   display casing in `name`.
+
+## Parked providers
+
+Parking is deletion-free: the folder stays on disk and in git (with
+`"retired": true` in its `meta.json`), but `src/data/providers.ts` skips it so
+no card renders — same spirit as `RETIRED_SLUGS` for models. Only un-park or
+delete with explicit user sign-off.
+
+- `glhf/` — parked 2026-10-22 (user sign-off): the provider is unavailable
+  (glhf.chat was unreachable during verification; no verifiable claimant
+  pages remain to back its free-tier plans).
+- `lepton/` — parked 2026-10-22 (user sign-off): Lepton AI's brand was merged
+  into NVIDIA DGX Cloud Lepton (lepton.ai now serves NVIDIA's product page);
+  the standalone provider no longer exists to bill for.

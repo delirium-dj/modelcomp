@@ -1,0 +1,141 @@
+# Claude Sonnet 5.4 — findings by Big Pickle
+
+- Source: OpenCode (`opencode/big-pickle`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION — zero verified public benchmark numbers for this exact model/ID.**
+> Anthropic has never documented a "Claude Sonnet 5.4". The official Sonnet line reads
+> **Sonnet 5** (released 2026-06-30) → **Sonnet 5.5** (released 2026-09-28) with no 5.4
+> release, no `claude-sonnet-5-4` API id, no model page, no system card and no price line.
+> The configured id `opencode/claude-sonnet-5.4` does not resolve on OpenCode Zen, and no
+> Anthropic model id `claude-sonnet-5.4` exists on OpenRouter, Vertex AI or the Hugging Face
+> Hub. Every row below therefore reads "no verified public score found" for the id this
+> folder stands for. Scores are intentionally withheld rather than fabricated — saved as
+> `.md.excluded` per `model-report-TEMPLATE.md`.
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (no such Anthropic model — as of 2026-10-22)
+- **Short description:** Not an announced or released Anthropic model. Anthropic's own model
+  pages, release notes, pricing sheet, transparency hub and system-card index list the Sonnet
+  generations as **3 → 3.5 → 3.7 → 4 → 4.5 → 4.6 → 5 → 5.5**; there is no 5.4 entry in any of
+  them, and the closest neighbours are the June 2026 **Claude Sonnet 5** and the September 2026
+  **Claude Sonnet 5.5**. The folder entry is therefore a scaffold placeholder (its `meta.json`
+  carries generic text: "Claude Sonnet 5.4 model evaluation entry.", "128K total",
+  "Text in/out", "Standard pricing", `scaffolded: true`), not a documented checkpoint.
+- **Provider / access:** None verifiable. The configured id `opencode/claude-sonnet-5.4` does not
+  resolve: the official OpenCode Zen catalogue (and its `/zen/v1/models` endpoint, 86 entries)
+  lists only `claude-sonnet-5` and `claude-sonnet-5-5` for this family — no `claude-sonnet-5-4`.
+  Anthropic's platform docs URL for a 5.4 model page (`/docs/en/models/sonnet-5-4/overview`)
+  resolves to a "not found" documentation page.
+- **Release / knowledge:** N/A (no release). Comparable Sonnet checkpoints: Claude Sonnet 5 —
+  released 2026-06-30, reliable knowledge cutoff January 2026; Claude Sonnet 5.5 — released
+  2026-09-28, reliable knowledge cutoff June 2026.
+- **IDs:** `opencode/claude-sonnet-5.4` (configured for this folder — **does not resolve**).
+  Live Anthropic ids in the same family are `claude-sonnet-5` and `claude-sonnet-5-5`
+  (Anthropic API), `anthropic/claude-sonnet-5` / `anthropic/claude-sonnet-5.5` (OpenRouter),
+  and `sonnet-5` / `sonnet-5-5` (Google Cloud Vertex AI Claude model ids). **No Free ID exists**
+  for a 5.4 variant on Zen because no such variant is listed there.
+- **Context window:** N/A for a 5.4 (no such model). The two real Sonnet checkpoints are
+  **1M tokens** context with 128K max output (Anthropic models overview; 300K output on the
+  Message Batches API via the `output-300k-2026-03-24` beta header). The folder's meta value
+  "128K total" matches neither and looks like a scaffold default rather than a measurement.
+- **Modalities:** N/A for a 5.4. The documented Sonnet 5 / 5.5 generation is text **and image**
+  input (plus voice dictation) with text output, adaptive thinking, tool use and web search —
+  i.e. the folder's "Text in/out" is another scaffold placeholder, not a verified spec.
+- **Pricing (as of 2026-10-22):** N/A — no 5.4 SKU exists. Anthropic's price sheet lists
+  **Claude Sonnet 5 at $2 / MTok input and $10 / MTok output** (cache writes $2.50 / $4, cache
+  hits $0.20; $1 / $5 batch), with Sonnet 5.5 on the same $2 / $10 list price. Note the
+  documented change log entry: the "$3 in / $15 out" standard price that was scheduled for
+  2026-09-01 was **cancelled** — which is the likely origin of the "$3/$15" figures circulating
+  in third-party write-ups of this folder; they describe a planned Sonnet 5 price that never
+  applied, not a 5.4 price.
+- **Architecture:** N/A — proprietary Anthropic model family, but no 5.4 checkpoint exists to
+  describe.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 2.0 / 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks at 512K–1M: no verified public score found
+- Not transferable: **Claude Sonnet 5.5**'s published numbers (Terminal-Bench 4.0 **70.6%**,
+  FrontierCode 1.1 Main **46.2%** Max / **52.1%** Xhigh, CursorBench 4.0 **55.5%**, GDPval-AA
+  v2.1 **1844**, AA-Briefcase v1.1 **1811**, HLE **64.5%** with tools, OSWorld 2.1 **80.1%**
+  partial, Chartography **61.6%** no tools) and **Claude Sonnet 5**'s row in the same table
+  (Terminal-Bench 4.0 **10.3%**, FrontierCode 1.1 **42.4%**, CursorBench 4.0 **34.1%**,
+  GDPval-AA v2.1 **1449**, AA-Briefcase **1359**, HLE **54.9%**, OSWorld 2.1 **57.0%**,
+  Chartography **15.6%**) belong to two different, documented checkpoints — there is no 5.4
+  figure between them.
+
+### Normalized scores (1–100)
+
+- **Tool use: withheld.** No model with this name is documented by Anthropic and no benchmark
+  row exists for it; the Sonnet 5 / 5.5 agentic numbers are for other checkpoints.
+- **Reasoning: withheld.** Same reason — zero verified public scores for this exact id.
+- **Context window: withheld.** 1M is a Sonnet 5 / 5.5 property; the folder's "128K total"
+  placeholder is unverified and cannot be scored.
+- **Multimodal: withheld.** Image input is documented for Sonnet 5 / 5.5, not for a 5.4.
+- **Coding: withheld.** Terminal-Bench / FrontierCode / CursorBench results exist only for
+  Sonnet 5 and Sonnet 5.5.
+- **Cost efficiency: withheld.** No 5.4 price list exists; the "$3/$15" figure floating around
+  this folder is a cancelled Sonnet 5 list price.
+- **Overall Score: withheld.** Withholding all seven dimensions avoids publishing a fabricated
+  number for a model that was never released under this name.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-22
+- Method: public internet research, cross-checked across four independent source classes —
+  (1) Anthropic's official documentation surface: the models overview
+  (`docs.anthropic.com/en/docs/about-claude/models/all-models`, lineup Fable 5.1 / Opus 5 /
+  Sonnet 5 / Haiku 4.5, API id `claude-sonnet-5`), the Claude Platform model page
+  (`platform.claude.com/docs/en/models/sonnet-5/overview` — Sonnet 5, 1M ctx, 128K out,
+  $2/$10, cutoff Jan 2026, legacy status), the Anthropic release-notes overview (Sonnet 3 →
+  3.5 → 3.7 → 4 → 4.5 → 4.6 → 5 → 5.5, no 5.4), the pricing sheet (no 5.4 SKU; the $3/$15
+  Sonnet 5 price explicitly cancelled on 2026-08-10), the system-card index and the
+  transparency-hub model report; a request for `/docs/en/models/sonnet-5-4/overview` returns
+  Anthropic's "not found" documentation page. (2) Cloud-provider catalogues: Google Cloud
+  Vertex AI's Claude model list exposes `sonnet-4-5`, `sonnet-4-6`, `sonnet-5`, `sonnet-5-5`
+  and no `sonnet-5-4`. (3) Aggregator catalogues: the OpenCode Zen model list and
+  `/zen/v1/models` (86 ids) contain `claude-sonnet-5` and `claude-sonnet-5-5` but no
+  `claude-sonnet-5-4`; OpenRouter's `/api/v1/models` (468 ids) lists
+  `anthropic/claude-sonnet-5` and `anthropic/claude-sonnet-5.5` only; the Hugging Face Hub
+  model search returns no `claude-sonnet-5.4` checkpoint. (4) Independent trackers and
+  reviews: no LMArena / Artificial Analysis / Epoch / Terminal-Bench entry for a 5.4 — the only
+  "5.4" mentions found are one low-credibility wiki article asserting a "Claude Sonnet 5.4 →
+  5.5" transition, two blog posts from March/April 2026 crediting a "Claude Sonnet 5.4
+  Extended" chat session (both pre-date Anthropic's own 2026-06-30 Sonnet 5 release, so they
+  cannot describe an official 5.4 checkpoint), and AI-generated code-farm pages whose model
+  catalogues pair "claude-sonnet-5.4" with impossible ids such as `claude-sonnet-5-6` and
+  `anthropic/claude-sonnet-4-9`. Scores are withheld because zero verified public benchmark
+  numbers exist for this exact id.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

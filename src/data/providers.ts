@@ -32,6 +32,9 @@ export interface ProviderMeta {
   covers?: string[];
   /** Official catalog page backing `covers` (claim culture). */
   catalogUrl?: string;
+  /** Parked provider: folder stays on disk/git, card hidden from the site
+   * (providers/README.md § Parked). */
+  retired?: boolean;
   plans: ProviderPlan[];
 }
 
@@ -104,6 +107,10 @@ export const PROVIDERS: Provider[] = (() => {
     if (!m) throw new Error(`[providers] unexpected meta path: ${path}`);
     const slug = m[1];
     const meta = value as Partial<ProviderMeta>;
+    if (meta.retired === true) {
+      warnOnce(`[providers] providers/${slug}/meta.json: retired — parked, hidden from the site`);
+      continue;
+    }
     let valid = true;
     for (const k of REQUIRED) {
       if (meta[k] === undefined) {

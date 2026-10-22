@@ -1,0 +1,27 @@
+{
+  "name": "Requesty",
+  "kind": "aggregator",
+  "short": "OpenAI-compatible universal AI gateway and router connecting 600+ models with a default free tier for open-weights.",
+  "officialUrl": "https://requesty.ai",
+  "hosts": ["requesty.ai", "router.requesty.ai", "router.eu.requesty.ai"],
+  "catalogUrl": "https://requesty.ai",
+  "plans": [
+    {
+      "name": "Free Plan",
+      "price": "$0/month",
+      "notes": "Default plan on signup ($0/mo, no credit card required). Generates an OpenAI-compatible API key for local code with up to 200 requests/day (20 RPM) across select $0 models (Nemotron, Gemma, Mistral architectures).",
+      "evidenceUrl": "https://requesty.ai"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Base model cost + 5% markup",
+      "notes": "Unlocks 600+ models across OpenAI, Anthropic, Google, and open-source with 1,000+ RPD, semantic caching, and EU data residency.",
+      "evidenceUrl": "https://requesty.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "gemma-4-31b",
+    "qwen-3.8-27b"
+  ]
+}

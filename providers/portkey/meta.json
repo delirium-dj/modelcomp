@@ -1,0 +1,26 @@
+{
+  "name": "Portkey",
+  "kind": "aggregator",
+  "short": "Open-source AI gateway and control plane providing unified routing, logging, and observability with a free developer plan.",
+  "officialUrl": "https://portkey.ai",
+  "hosts": ["portkey.ai", "api.portkey.ai"],
+  "catalogUrl": "https://portkey.ai/pricing",
+  "plans": [
+    {
+      "name": "Dev Plan (Free Forever)",
+      "price": "$0/month",
+      "notes": "10,000 requests/logs per month ($0/mo, no credit card required). Generates a unified Portkey API key to route, log, fallback, and track 1,000+ models in your own local environment.",
+      "evidenceUrl": "https://portkey.ai/pricing"
+    },
+    {
+      "name": "Production / Pro",
+      "price": "From $49/month",
+      "notes": "Higher request quotas, extended log analytics retention, enterprise guardrails, and automated cost optimization.",
+      "evidenceUrl": "https://portkey.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

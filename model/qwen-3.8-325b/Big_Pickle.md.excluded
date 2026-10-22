@@ -1,0 +1,35 @@
+# Qwen 3.8 325B - findings by Big Pickle (excluded)
+
+- Source: OpenCode (`opencode/big-pickle`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no such model exists**. Scores withheld.
+
+## Model card
+
+- **Claimed name:** Qwen 3.8 325B (folder slug `qwen-3.8-325b`, id `opencode/qwen-3.8-325b`).
+- **Finding:** Alibaba's Qwen 3.8 lineup does not include a 325B model. The released/announced
+  Qwen 3.8 variants are **Qwen3.8-2.4T-A95B** (2.4T total, ~95B active, MoE, released Aug 12 2026),
+  **Qwen3.8-27B** (27B dense VLM, released Aug 14 2026), and **Qwen3.8-Flash-Next** (125B main +
+  51B n-gram embeddings, ~6B active, hybrid MoE/DeltaNet architecture, preview). There is no
+  Qwen 3.8 325B; the "325B" appears to be a typo/confusion with another model size.
+- **Context window / modalities / pricing:** unknown (model does not exist).
+- **Access:** not found on OpenCode Zen or in Alibaba Cloud Model Studio model lists.
+
+### Raw benchmarks found
+
+- No verified public benchmark results for Qwen 3.8 325B from any source.
+- Qwen3.8-2.4T-A95B (the actual flagship) has published benchmarks (GPQA Diamond 92.6, PaperBench
+  93.0, OSWorld 86.1, Terminal Bench 2.1 86.6, SWE-bench Pro 67.7, etc.) but those are for
+  2.4T-A95B, not 325B.
+- No other source references a "qwen-3.8-325b" model.
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-10-22
+- Method: checked official sources - QwenLM GitHub repo (Qwen3.8 models listed as 2.4T-A95B,
+  27B, Flash-Next), Alibaba Cloud Model Studio model lists/pricing, HuggingFace Qwen org,
+  and OpenRouter/OpenCode catalogues. No "325B" variant exists in any of these. The folder's
+  placeholder metadata ("Unverified") is correct - the model does not exist; scores withheld
+  rather than fabricated.
+- Future sources: if a real Qwen 3.8 325B appears, replace this exclusion with a proper report.
