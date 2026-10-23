@@ -1,8 +1,0 @@
-{
-  "id": "opencode/gemini-4-argo",
-  "name": "Gemini 4 Argo",
-  "short": "Google's Gemini 4 Argo (200K ctx, $3.50/$17.50) - top-tier reasoning and coding plus image input in early raters; thin independent evaluation data so far.",
-  "contextWindow": "200,000 total",
-  "modalities": "Text, code, image in; text out",
-  "pricingNote": "$3.50/$17.50 per 1M in/out (Mid-tier positioning); no free id"
-}
