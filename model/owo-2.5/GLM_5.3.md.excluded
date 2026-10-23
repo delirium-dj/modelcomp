@@ -1,0 +1,32 @@
+# Owo 2.5 — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown (`opencode/owo-2.5`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no trace of an "Owo 2.5" model or an "Owo" vendor exists on any registry, catalog, or endpoint.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-23):
+
+- **BenchLM** (`owo-2.5`): 404 — no page.
+- **Artificial Analysis** (`owo-2-5`): 404 — no page.
+- **Web search (Bing):** no relevant coverage found — no vendor site, announcement, or review for an "Owo 2.5" LLM.
+- **Official OpenCode Zen docs** (complete endpoint/pricing/deprecated tables, fetched 2026-10-23) and the **live Zen models endpoint**: no `owo-2.5` id — the curated "hosted via the Owo API and OpenCode Zen" claim resolves nowhere on Zen today.
+- **models.dev** and **OpenRouter** (full catalogs fetched this session): no Owo entry of any kind.
+
+**Curated-meta observation:** the meta describes "Owo's September 2026 proprietary LLM (1M ctx, 256K out, text+image in, $0.40/$3.20, official Owo API docs)" — spec-for-spec identical to the sibling `model/omi-alpha/meta.json` ("OMI's September 2026 LLM", same 1,048,576 ctx / 256,000 out, same modalities, same $0.40/$3.20). Neither vendor ("Owo", "OMI") is discoverable anywhere; both metas cite "official API docs" that cannot be located. The pair reads as template-scaffolded placeholder entries rather than documented models.
+
+A future re-research should look for (a) a live `owo-2.5` id on Zen or any provider, (b) an "Owo" vendor site, docs, or announcement, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (BenchLM, Artificial Analysis, Bing search, official OpenCode Zen docs + live endpoint, models.dev, OpenRouter); no verified public data exists for this unresolvable model/vendor.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

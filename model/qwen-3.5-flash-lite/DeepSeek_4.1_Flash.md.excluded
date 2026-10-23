@@ -1,0 +1,56 @@
+# Qwen 3.5 Flash Lite — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Alibaba/Qwen3.5-Flash-Lite (`qwen3.5-flash-lite`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** No published benchmark number was found for the exact
+> `Qwen3.5-Flash-Lite` API tier. Counts from its larger sibling (`Qwen3.5-Flash`)
+> or the open 35B-A3B weights are proxy data, not measurements of this ID, so no
+> 1–100 scores are filed here. The notes record what is verified; nothing is scored.
+
+## Model card (verified facts only)
+
+- **Name:** Qwen 3.5 Flash Lite
+- **Short description:** Alibaba's MoE Qwen 3.5 Flash-Lite API tier (~35B total / ~3B active per the folder's curated metadata), offered for high-volume multimodal work at ultra-low pricing; a distinct hosted tier, not the 35B-A3B open-weights checkpoint.
+- **Provider / access:** Alibaba Cloud Model Studio / Qwen Cloud (commercial tier), OpenAI-compatible Chat Completions. No OpenCode Zen Free ID confirmed.
+- **Release / knowledge:** Qwen 3.5 generation (2026); exact date not stated in the sources found. Knowledge cutoff not disclosed.
+- **IDs:** `qwen3.5-flash-lite` (hosted tier).
+- **Context window:** 1,000,000 total; 65,536 max output (curated metadata / hosted catalogue).
+- **Modalities:** text, image and video in; text out; tool calling.
+- **Pricing (as of 2026-10-23):** ~$0.10/$0.40 per 1M in/out (commercial Alibaba Cloud tier).
+- **Architecture:** hosted MoE serving profile, proprietary endpoint.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported for this exact tier
+
+### Why the file is excluded (evidence trail)
+
+- Searches across Vals AI, BenchLM, BenchmarkList, LLM-Stats and Artificial Analysis surfaced no dated benchmark row for `Qwen3.5-Flash-Lite`; comparison pages only carry its sibling `Qwen3.5-Flash` (GPQA 82.83, LiveCodeBench 83.28, SWE-bench Verified 54.9 on vals.ai) and the open `Qwen3.5-35B-A3B` card.
+- The 1M-context, ~35B/3B-active specs come from the folder's curated `meta.json` and hosted catalogues, not from a scored evaluation.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified numbers for the exact ID means self-exclusion; no value was copied from a sibling or invented.
+- Re-research trigger: if Alibaba or an independent harness publishes dated `qwen3.5-flash-lite` scores, write a fully scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Vals AI, BenchLM, BenchmarkList, LLM-Stats, Artificial Analysis searches; Alibaba Model Studio catalogues). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

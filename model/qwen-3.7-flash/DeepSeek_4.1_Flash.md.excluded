@@ -1,0 +1,56 @@
+# Qwen 3.7 Flash — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Alibaba/Qwen3.7-Flash (`qwen3.7-flash` / `qwen/qwen3.7-flash`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Alibaba published no benchmark table at the Qwen3.7-Flash
+> launch, and independent trackers still list its rows as "Coming soon". With zero
+> verified public numbers for this exact ID, no 1–100 scores are filed here — proxy
+> values from Qwen3.7-Max or Qwen3.6-Plus would be fabrication for this tier.
+
+## Model card (verified facts only)
+
+- **Name:** Qwen 3.7 Flash
+- **Short description:** Alibaba's low-cost, fast tier of the Qwen 3.7 family (July 2026) — a native vision-language model accepting text, image, video and PDF input across a 1M-token window, with reasoning on by default and function calling.
+- **Provider / access:** Alibaba Cloud Model Studio / Bailian, OpenRouter (`qwen/qwen3.7-flash`) and Vercel AI Gateway (`alibaba/qwen3.7-flash`), OpenAI-compatible Chat Completions. No OpenCode Zen Free ID.
+- **Release / knowledge:** 2026-07-27 (API snapshot `qwen3.7-flash-2026-07-15`); knowledge cutoff not disclosed.
+- **IDs:** `qwen3.7-flash` (Alibaba), `qwen/qwen3.7-flash` (OpenRouter), `alibaba/qwen3.7-flash` (Vercel).
+- **Context window:** 1,000,000 total; ~64–66K max output — provider catalogues.
+- **Modalities:** text, image, video and PDF in; text out; reasoning, tool calling, structured outputs, prompt caching.
+- **Pricing (as of 2026-10-23):** $0.03/$0.13 per 1M under 32K input; $0.20/$0.80 above 256K (OpenRouter / Vercel / Alibaba); ~$0.0055 cached read.
+- **Architecture:** proprietary hosted MoE/vLM tier (weights private).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported for this exact ID
+
+### Why the file is excluded (evidence trail)
+
+- Puter Developer's model card states plainly: "Alibaba published no benchmarks at launch" (2026-07-27).
+- BenchLM comparison pages involving Qwen3.7 Flash show every benchmark row as "Coming soon"; Vals AI and BenchmarkList carry no model page for it. Only metadata (1M context, 66K output, modality/price rows) is verifiable.
+- With no measured number on any axis, the self-exclusion condition in `model-report-TEMPLATE.md` / `.agents/rules.md` applies. No score was invented or borrowed from Qwen3.7-Max/Plus.
+- Re-research trigger: any dated benchmark from Alibaba or an independent harness → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Puter Developer model card, LLMReference, CloudPrice, BenchLM comparison pages, Vals AI/BenchmarkList searches). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

@@ -1,0 +1,56 @@
+# Qwen 3.8 325B — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Alibaba / unverified Qwen 3.8 325B (`opencode/qwen-3.8-325b`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** No vendor ID, model card, benchmark row or hosted route was
+> found for a "Qwen 3.8 325B". The Qwen 3.8 generation's documented sizes are
+> 27B, Flash/Flash-Next, Omni-Flash and the 2.4T-A95B Max flagship. With zero
+> verified numbers for this exact entry, no 1–100 scores are filed here.
+
+## Model card (verified facts only)
+
+- **Name:** Qwen 3.8 325B (unverified)
+- **Short description:** A folder entry that does not resolve to any published Alibaba checkpoint. The only 325B-class Qwen parameter counts in circulation belong to other generations/routes; nothing ties "3.8 325B" to a real model card.
+- **Provider / access:** Not found. No Hugging Face repo, Model Studio route, OpenRouter id or OpenCode Zen id resolves.
+- **Release / knowledge:** Not published.
+- **IDs:** None verified (`opencode/qwen-3.8-325b` is a curated folder id only).
+- **Context window:** Unverified.
+- **Modalities:** Unverified.
+- **Pricing (as of 2026-10-23):** Not published.
+- **Architecture:** Unverified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Why the file is excluded (evidence trail)
+
+- A targeted search for "Qwen3.8-325B" returned no model card, leaderboard row or vendor page; results instead resolve to Qwen3.8-Max (2.4T-A95B, hosted as `qwen3.8-max`), Qwen3.8-27B, Qwen3.8-Flash and Qwen3.8-Omni-Flash.
+- The folder's own `meta.json` already marks context window, modalities and pricing as "Unverified", consistent with a phantom/placeholder entry rather than a released checkpoint.
+- No score may be borrowed from Qwen3.8-Max or any 325B-class model of another generation (`RULES.md` family-shorthand / no-fabrication rules). Self-exclusion is the only honest outcome.
+- Re-research trigger: a vendor model card or gateway id for a real "Qwen 3.8 325B" → write a scored file and retire this twin; otherwise the folder should be parked per the family-shorthand rule with user sign-off.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Qwen official blog/GitHub/Hugging Face model cards, OpenRouter, Vals AI, BenchLM; targeted exact-ID searches). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

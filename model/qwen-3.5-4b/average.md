@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 52.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 59.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 76.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 71.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 57/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 100/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 63.4/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 53/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 62/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 73/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 69/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 55.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 99.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 62.6/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
-- Average from top 3 by Overall Score: Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
+- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
+- Average from top 4 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
 - Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

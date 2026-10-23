@@ -33,7 +33,7 @@ export const VERIFIED: Record<string, string> = {
   "deepseek-v4.1-flash": "2026-10-23",
   "deepseek-v4.1-flash-1017": "2026-10-23",
   "diffusiongemma-26b-a4b": "2026-10-22",
-  "ember-1": "2026-10-22",
+  "ember-1": "2026-10-23",
   "exo-free": "2026-10-22",
   "fledge-alpha": "2026-10-22",
   "flint": "2026-10-23",
