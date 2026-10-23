@@ -1,0 +1,31 @@
+# Claude Sonnet 5.4 — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Anthropic (`opencode/claude-sonnet-5.4`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no Claude Sonnet 5.4 has ever existed on any Anthropic surface.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23, fresh independent passes over official docs, the migration guide, registries, and the live Zen endpoint):
+
+- **Official models overview** (platform.claude.com, fetched 2026-10-23): current lineup Claude Fable 5.1 / Opus 5.5 / **Sonnet 5.5** / Haiku 5.5; the legacy Sonnet list names Sonnet 5, 4.6, 4.5 — **no Sonnet 5.4**.
+- **Official model-deprecations lifecycle table** (complete history including retired models): the Sonnet sequence is `claude-3-7-sonnet-20250219` (retired) → `claude-sonnet-4-20250514` (retired) → `claude-sonnet-4-5-20250929` (deprecated) → `claude-sonnet-4-6` → `claude-sonnet-5` → `claude-sonnet-5-5`. There has never been a Sonnet 5.4 announcement, model card, or API ID.
+- **Claude Sonnet 5.5 migration guide** (official): enumerates every migration source — "from Claude Sonnet 5, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Sonnet 4, Claude 3.7 Sonnet, or Claude Haiku 4.5". A Sonnet 5.4 predecessor path does not exist; the mid-2026 Sonnet slot is **Sonnet 5** (released 2026-06-30).
+- **Curated-meta contradiction:** this folder's `meta.json` claims a "mid-2026 Sonnet (1M/128K, $2.50/$12.50)". The actual current Sonnet 5.5 prices at **$2/$10** (official pricing) and the mid-2026 Sonnet 5 is already tracked as `model/claude-sonnet-5/`. The $2.50/$12.50 figures match no official Anthropic Sonnet price sheet.
+- **Live OpenCode Zen models endpoint** (`https://opencode.ai/zen/v1/models`, fetched 2026-10-23): Anthropic ids served are `claude-sonnet-4-5`, `claude-sonnet-4-6`, `claude-sonnet-5`, `claude-sonnet-5-5` — **no `claude-sonnet-5.4` route exists**. The curated id resolves nowhere.
+- **BenchLM** (`claude-sonnet-5-4`): 404. **Artificial Analysis** (`claude-sonnet-5-4`): 404. **models.dev**: no Sonnet 5.4 entry (Anthropic lab lists 5.5 as current, 5 as predecessor).
+
+Conclusion: a phantom version slot of the same shape as `claude-opus-4.4` and the parked `gemini-3.1-flash` case — a number the vendor never shipped (the x.4 decimal was skipped twice: 4.1 → 4.5 in the 4-series, 5 → 5.5 in the 5-series). Genuine mid-2026 Sonnet measurements belong in `model/claude-sonnet-5/` (already tracked). A future re-research should look for (a) an Anthropic announcement or model card for a "Sonnet 5.4", (b) a live `claude-sonnet-5.4` id on Zen or any provider, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (Anthropic official models overview + deprecations lifecycle + Sonnet 5.5 migration guide, live OpenCode Zen models endpoint, BenchLM, Artificial Analysis, models.dev); no verified public data exists for this never-shipped version slot.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

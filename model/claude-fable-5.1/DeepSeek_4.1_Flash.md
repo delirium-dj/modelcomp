@@ -1,9 +1,11 @@
 # Claude Fable 5.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Fable 5.1 (`anthropic/claude-fable-5.1`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-fable-5-1`, 34 rows) computes an overall **83.09/100 (#4 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **93.4%** (Vals), MMLU-Pro **92.4%** (Vals), HLE **65%** w/ tools / **60.9%** w/o tools, ARC-AGI-1 97.5%, ARC-AGI-2 **90%**, GraphWalks BFS 256K–1M 65.0%, MMMU-Pro 90.64%; SWE-bench Pro **81.2%**, SWE Multilingual 89.1%, SWE Multimodal 54.7%, LiveCodeBench **90.5%** (Vals), DeepSWE 67.4%, FrontierSWE v2 56.3%, ProgramBench 87.6%, CursorBench 3.2 73.4%, Terminal-Bench 2.1 **85.0%** (Vals), Terminal-Bench 4.0 55.8%, Terminal-Bench-Science 0.1 52.6%, OSWorld 2.0 **41.7% strict / 77.9% partial**, Toolathlon-Verified 77.8% Pass@1 / 81.5% Pass@3, ApprenticeBench 72%, GDPval-AA v2 **1853 Elo**, Vals Index 67.9%, BenchLM overall 82.64.
@@ -60,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Anthropic Fable page, llm-stats launch analysis, LiteLLM day-0 post, fable51.com benchmark collation, BenchLM SWE-bench Pro leaderboard). The AA-vs-BenchmarkList index conflict, the OSWorld safeguard-zero caveat and the Verified third-party-only row are surfaced; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

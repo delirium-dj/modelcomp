@@ -1,9 +1,11 @@
 # Kimi K3 — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI (`kimi-k3`), also `moonshotai/kimi-k3` on OpenRouter
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`kimi-k3`, 57 rows) computes an overall **69.96/100 (#16 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **93.5%** (vendor) / **92.93%** (Vals); MMLU-Pro 88.0% (Vals); HLE 43.5% no-tools / 56% with tools; AA-LCR 74.7% (vendor) / 88.7% (Kilo); CritPt 23.4%; SWE-bench Verified **93.40%** (Vals) / 95.10% (Vals Index subset); Terminal-Bench 2.1 **88.3%** (vendor) / **80.9%** (Vals); Terminal-Bench 2.0 88.3%; Terminal-Bench 4.0 **17.17%** (Vals); DeepSWE 67.5%; FrontierSWE 81.2%; ProgramBench 77.8%; SWE-Marathon 42.0; LiveCodeBench 87.2% (Vals); SciCode 58.7%; MCPMark-Verified **94.5%**; MCP Atlas 84.2%; BrowseComp 91.2%; DeepSearchQA 95.0%; Toolathlon-Verified 73.2%; OSWorld-Verified 84.8% / OSWorld 2.0 58.3%; GDPval-AA v2.1 1533; MMMU-Pro 81.6%; OmniDocBench 91.1%; Vals Index 50.30% (#28/45); BenchLM 80.5 (#5/218).
@@ -63,6 +65,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Moonshot Kimi K3 blog + k3-kimi.com, Vals AI model page, BenchLM model/GLM comparison, DeepInfra comparison, the community model-card benchmark compilation). The bimodal coding split, SWE-bench and AA-Index spreads and modality/context conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

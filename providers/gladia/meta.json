@@ -1,9 +1,11 @@
 {
   "name": "Gladia",
   "kind": "vendor",
-  "short": "Enterprise-grade speech-to-text, audio intelligence, and real-time transcription APIs.",
+  "short": "Enterprise-grade speech-to-text, audio intelligence, and real-time transcription APIs; high-accuracy transcription from $0.005/min pay-as-you-go.",
   "officialUrl": "https://gladia.io",
-  "hosts": ["gladia.io"],
+  "hosts": [
+    "gladia.io"
+  ],
   "plans": [
     {
       "name": "Pay-as-you-go",

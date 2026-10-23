@@ -1,9 +1,11 @@
 # Claude Mythos 5.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Mythos 5.1 (`claude-mythos-5-1`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-mythos-5-1`) re-checked; no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-confirms that this is the **same underlying model as Claude Fable 5.1**, differing only in safeguards (cyber/bio relaxed). Anthropic states "Claude Fable 5.1 and Claude Mythos 5.1 are the same underlying model… where Mythos 5.1 results are shown, the gap reflects tasks where Fable 5.1's safeguards intervene." The only published Mythos-5.1-specific benchmark is **Terminal-Bench 4.0 60.9%** (vs Fable 5.1's 55.8%). Newly confirmed this pass: **list pricing is now published** — $10 in / $50 out per 1M, cache hits $0.25, 5m write $12.50 / 1h $20, Batch $2.50/$12.50, US-only $11/$55; available on the Claude API, Bedrock, Google Cloud and Microsoft Foundry (`claude-mythos-5-1`); input **text and images → text**; Anthropic ECI point estimate **161.98** (frontier, comparable to Mythos 5 on AI R&D tasks); system-card biosecurity results (virology Task 1 0.81 / Task 2 0.87; VCT 0.58).
@@ -62,6 +64,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Anthropic Mythos page, platform docs, the Fable 5.1 & Mythos 5.1 system card, Anthropic list-price PDF, BenchLM Fable-5.1 comparison, LLM Stats). Re-confirmed the same-weight Fable 5.1 relationship, the now-published pricing and the absence of independent scoring; dimensions without a direct number are flagged provisional proxies. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,11 @@
 # DeepSeek V4 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek / DeepSeek V4 Flash (`deepseek/deepseek-v4-flash`; checkpoints "Preview" 2026-04-24 and "0731" July 2026) — retired, see Model card
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`deepseek-v4-flash`, 42 rows) assigns **no overall score** (unranked); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `deepseek-ai/DeepSeek-V4-Flash-0731`, Artificial Analysis, BenchLM, Vals AI, DeepSeek API docs).
 > Biggest correction: **the `deepseek-v4-flash` model ID is retired.** DeepSeek's official Models & Pricing page lists `deepseek-flash` = **DeepSeek-V4.1-Flash**; the legacy names `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are still accepted, but that page states "the corresponding models have been retired, their requests are served by the DeepSeek-V4.1-Flash model and billed at the Flash price." Artificial Analysis also flags the 0731 checkpoint as **deprecated**.
@@ -72,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card `deepseek-ai/DeepSeek-V4-Flash-0731` (and the DeepSeek-V4 technical report it links), Artificial Analysis, BenchLM, Vals AI and DeepSeek's Models & Pricing page, adding the official 0731 agentic/coding rows (Terminal-Bench 2.1, Toolathlon-Verified, CyberGym, NL2Repo, DeepSWE, DSBench), the first long-context retrieval rows (MRCR 1M, CorpusQA 1M, AA-LCR), AA-Omniscience/CritPt and Vals Index rows, resolving the image-input conflict to text-only, correcting the pricing (different checkpoint) and output-ceiling figures, and flagging the retirement of the `deepseek-v4-flash` ID, the 284B-vs-304B parameter dispute and the provider-count discrepancy. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

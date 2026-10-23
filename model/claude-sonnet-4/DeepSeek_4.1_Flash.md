@@ -1,9 +1,11 @@
 # Claude Sonnet 4 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Sonnet 4 (`anthropic/claude-sonnet-4`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `claude-sonnet-4` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Anthropic Claude 4 launch post, Artificial Analysis, BenchLM, OpenRouter).
 > Newly found rows: AA-MMMU-Pro **62.4%**, Anthropic MMMU **72.6%** (no extended thinking), AA-LCR **44.0%**, CritPt **1.1%**, AA Intelligence Index **16.6** (BenchLM) / **17 estimated** (AA non-reasoning page, #42 of 296), AA-GPQA Diamond **68.3%**, AA-HLE **4.3%**, AA-Omniscience Index **-9.0 / accuracy 22.7% / hallucination rate 41.0%**, AA-IFBench **45.4%**, τ²-bench **52.3%**, Gert Labs **39.66%**, JobBench **18.4%**, AIME 2025 **33.1%**.
@@ -68,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Anthropic Claude 4 launch post, Artificial Analysis, BenchLM and OpenRouter, adding AA-MMMU-Pro, AA-LCR, CritPt, AA-Omniscience, AA Intelligence Index and Anthropic MMMU 72.6% rows over the 2026-10-06 pass, correcting the "no MMMU published" note, and recording the 200K-vs-1M context, cutoff-date, GPQA-harness and hallucination-definition conflicts rather than inventing values. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

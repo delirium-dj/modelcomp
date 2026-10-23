@@ -1,9 +1,11 @@
 # GPT-6 Astra — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-6 Astra (`gpt-6-astra`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-6-astra`, 55 rows) computes an overall **84.03/100 (#3 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **96.0%** (llm-stats #1), ARC-AGI-1 98.5%, ARC-AGI-2 95% (ARC Prize verified), ARC-AGI-3 **62.7%** (ARC Prize verified), FrontierMath Tier 4 v2 97.6%, HLE w/ tools 57.2%, MRCR v2 256K–512K **100%** / 512K–1M **96.3%**, Terminal-Bench 2.1 87.3% (Vals) / 88.4% (AA), Terminal-Bench 4.0 57.9–59% (Vals/AA), OSWorld 2.0 72.6%, BrowseComp 91.5%, ApprenticeBench 68%, Agents' Last Exam 59.3%, AutomationBench-AA 68.5%, GDPval-AA **1574 Elo**, DeepSWE 74.1%, AA Coding Index 76.9%, SWE-Atlas Codebase QnA 59.14 (Codex xHigh), AA-MMMU-Pro 86.9%, ScreenSpot Pro 92.7%, BenchLM overall 83.5 (#3/932).
@@ -64,6 +66,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (LiteLLM day-0 post, BenchLM model page and comparisons, llm-stats GPQA leaderboard, Artificial Analysis benchmarking article, tbench.ai, Scale Labs SWE-Atlas). Verified ARC Prize rows were promoted over vendor saturation claims; the ARC-AGI-3 scaffold gap and GDPval/context/pricing conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

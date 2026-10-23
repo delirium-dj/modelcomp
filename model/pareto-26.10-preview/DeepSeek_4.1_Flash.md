@@ -1,9 +1,11 @@
 # Pareto 26.10 Preview — findings by DeepSeek 4.1 Flash
 
 - Source: Unbiased/Pareto 26.10 Preview (`unbiased/pareto-26.10-preview`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`pareto-26-10-preview`, 3 rows) assigns **no overall score** (unranked); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (sources: official Unbiased Pareto 26.10 model card, OpenRouter model page + `pareto-latest` guide, BenchLM).
 > **Evidence is essentially unchanged since 2026-10-05** — Pareto 26.10 Preview still carries only **three preliminary rows** (Terminal-Bench 4.0 50.80%, DeepSWE 69.9%, GPQA-D 92.4%) and BenchLM still lists it as **unranked** (3 of 638 benchmarks covered, "no public overall score"). New this pass: (1) the official Unbiased model card **confirms pricing $0.80 in / $0.03 cached / $3.20 out** and states **"Pareto 26.10 is out of preview"** (blog), while the OpenRouter route is still named `pareto-26.10-preview`; (2) the **sibling Pareto 26.9** is now documented (TB4.0 51.0%, DeepSWE 74.0%, MMMU-Pro 78%, HLE w/o tools 49%) and (3) OpenRouter serves the alias `~unbiased/pareto-latest`. DeepSWE cost is **$0.24/task** (vs Fable 5's $13.50).
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Unbiased Pareto 26.10 model card, OpenRouter model page and `pareto-latest` API guide, and BenchLM (preliminary results); confirmed the unchanged $0.80/$3.20 pricing against a BenchLM compare-page error ($2.50/$7.50), added the sibling Pareto 26.9 and the "out of preview" status, and found no new 26.10 benchmark rows. Scores are normalized 1–100 interpretations of vendor-preliminary data, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

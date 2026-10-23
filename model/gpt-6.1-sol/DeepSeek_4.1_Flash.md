@@ -1,9 +1,11 @@
 # GPT-6.1 Sol — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-6.1 Sol (`openai/gpt-6.1-sol`; repo catalogue id `opencode/gpt-6.1-sol`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-6-1-sol`, 24 rows) computes an overall **84.21/100 (#2 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Artificial Analysis (max): Intelligence Index **52 (#12/217)**, AA-Briefcase **1564**, GDPval-AA v2.1 **1575 Elo**, AA AutomationBench **65%**, Terminal-Bench 4.0 **56%**, AA-SciCode 54%, HLE 53%, CritPt 32%, GDP.pdf 31%, AA-Omniscience 41; ~53.5 t/s, TTFT 277–322s, **$0.72/task**. Vals AI: **Vals Index 61.15% (#9/48)**, Terminal-Bench 4.0 **55.05% (#7/48)**, Terminal-Bench Science **52.86% (#2/41)**, Vibe Code Bench v1.1 **88.93% (#8/112)**, IOI **96.89% (#3/44)**, Code Migration 65.12% (#5/77), ProofBench **99.0% (#4/50)**, BioMysteryBench 79.63% (#2), SRE Bench 50.76% (#2), ProgramBench 3.0%, CyberBench 39.29%, SWE-bench Multimodal 43.54%, cost/test **$3.237**. OpenAI self: DeepSWE v1.1 **75.2%** (high) / 71.9% (max), OSWorld 2.0 offline **71.4%** (max), GDP.pdf 32.0%, AutomationBench 36.1%. Microsoft Foundry + opencode.ai data confirm **1.05M context, 128K out, text+image+pdf in, $2/$10 ($0.10 cached; long-context $4/$15)**.
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (OpenAI launch post + DevDay coverage, Artificial Analysis model page, Vals AI model page, Microsoft Foundry blog, LLM-Stats, opencode.ai data, TTMS). Independent AA/Vals rows were promoted over vendor-only rows; the file/PDF-input corroboration, DeepSWE effort-peak discrepancy, AutomationBench effort framing and context-rounding mismatch are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

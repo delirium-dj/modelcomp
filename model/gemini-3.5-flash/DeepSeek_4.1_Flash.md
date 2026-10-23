@@ -1,9 +1,11 @@
 # Gemini 3.5 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.5 Flash (`gemini-3.5-flash`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-5-flash`, 31 rows) computes an overall **61.88/100 (#51 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. BenchLM: **overall 61.86** (multimodal & grounded lane; #44/889 on the prior pass). Vals AI: **Vals Index 44.79% (#36/45)** with **Finance Agent v2 57.86% (#11)**, **GPQA Diamond 92.68% (#14)**, **MMLU-Pro 89.52%**, **MMMU-Pro 88.27% (#8)**, **SWE-bench 78.80%**, **LiveCodeBench 87.60%**, MedCode 55.83% (#6), Public Benefits Bench 59.47%, Vibe Code Bench v1.1 48.68%, ProofBench v1.1 31.00%, Terminal-Bench 4.0 6.06%, Terminal-Bench Science 5.71%, Code Migration 26.75%, Harvey Legal Agent 2.50%; cost/test **$3.30**. Artificial Analysis: **Intelligence Index 33.6 (#60)** with **AA Coding Index 70.1 (#26)**, TAU2 1.0 (#24), IFBench 0.8 (#21), SciCode 0.5, LCR 0.7 (#101), **~198.5 output tok/s**, TTFT ~0.97s. Google launch rows: **MCP Atlas 83.6%**, **Toolathlon 56.5%**, OSWorld-Verified 78.4%, CharXiv 84.2%, Blueprint-Bench 2 33.6%, **MRCRv2 77.3%**, MRCR 1M 26.6%, **GDPval-AA 1656 Elo**, HLE 40.2%, ARC-AGI-2 72.1%, SWE-bench Pro 55.1%. opencode.ai data confirms **1M ctx, 66K out, cutoff 2025-01, release 2026-05-19, text+image+video+audio+pdf in, $1.50/$9.00**.
@@ -65,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Google DeepMind model page, Artificial Analysis launch article + model pages, Vals AI comparison page, BenchLM model page + per-eval results, opencode.ai data, CloudPrice, GIGAZINE/Fello AI generational coverage). Independent AA/Vals rows were promoted over vendor-only rows; the AA-index basket rebase, the GDPval-AA scale mismatch, the TB2.1 discrepancy and the weak full-window MRCR are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

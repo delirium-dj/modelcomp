@@ -1,9 +1,11 @@
 # Claude Opus 5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Opus 5.5 (`claude-opus-5-5`)
-- Date: 2026-10-16 (UTC) — deep rewrite pass
+- Date: 2026-10-16 (UTC) — deep rewrite pass; re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-opus-5-5`, 63 rows) computes an overall **86.62/100 (#1 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources re-run).
 > Confirmed independent data this pass: Artificial Analysis Terminal-Bench 4.0 **60% (max, AA)** / **66.4% xhigh (Anthropic/Zapier)**, GDPval-AA v2.1 **1846 Elo**, AA-Briefcase v1.1 **1822 Elo**, AutomationBench-AA **70%**, SciCode **67%**, HLE **61%** (67.7% with tools), CritPt 32%, AA Intelligence Index **58 (#1/227)**. Coding: SWE-bench Pro **89.9% (#1/88, Vals; #1 on llm-stats)**, SWE Multilingual 93.9%, SWE-bench (Vals) 97.0%. **LMArena Agent leaderboard #1 of 54 (17.2%, Max config, 2026-10-14).**
@@ -62,6 +64,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep rewrite-pass public internet research (Anthropic Opus 5.5 announcement/model pages, AWS Bedrock model card, Artificial Analysis model page, BenchLM, Vals AI, LLM Stats, ModelCap/LMArena). Independent AA rows were promoted; the HLE/TB4.0 harness gaps, the OSWorld 2.0 discrepancy and the max-effort latency caveat are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.8_Flash.md`, using the same headings.

@@ -1,9 +1,11 @@
 # DiffusionGemma 26B A4B — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`google/diffusiongemma-26b-a4b-it`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `diffusiongemma-26b-a4b` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `google/diffusiongemma-26B-A4B-it`, the Google launch blog, and Artificial Analysis).
 > **Biggest correction: the model takes video input, not just text + image.** Both the official HF card ("handling text, image, and video inputs to generate text output"; video understanding over frames) and Artificial Analysis ("supports text, image, and video input") confirm it, so the earlier pass's "text and image in" is **wrong as of this pass**. The architecture is also now pinned down by the vendor: **25.2B total / 3.8B active** (the earlier "4B or 8B active" dispute is settled), 30 layers, 1024-token sliding window, 256-token canvas, 262K vocabulary, 8 active / 128 total + 1 shared expert, ~550M vision encoder, encoder-decoder with bidirectional canvas attention.
@@ -83,6 +85,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card (`google/diffusiongemma-26B-A4B-it`), the Google launch blog (speed framing, 2026-06-10) and Artificial Analysis, correcting the modality set (video confirmed, despite the HF spec table's "Text, Image"), architecture parameters and release context, and adding the vendor benchmark table, MMMLU, Codeforces ELO and the revised AA Intelligence Index over the 2026-10-05 pass. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

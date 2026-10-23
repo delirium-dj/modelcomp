@@ -1,9 +1,11 @@
 # MiMo V2.6 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-flash`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`mimo-v2-6-flash`, 14 rows) computes an overall **64.51/100 (#39 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Official MiMo V2.6 series page + GIGAZINE + CloudPrice re-confirm: released **2026-09-22** (AA/CloudPrice date it 2026-09-21), MIT weights, sparse MoE **309B total / 15B active** (CloudPrice/safetensors list 311B), **1M context** (1,048,576) / ~**128K output**, text/image/video/audio in, text out, **$0.14 / $0.28 / $0.0028 cached** on every provider. Independent rows: AA **Intelligence Index 38** (BenchLM 37.9), **AA-Briefcase v1.1 1493**, **GDPval-AA v2.1 1600–1605**, **AutomationBench-AA 64%**, TB4.0 23%, SciCode 51%, HLE 35%, CritPt 12%, AA-MMMU-Pro 73.1, AA-LCR 74.3; Vals **Index 53.23% (#18/45)**, **CyberBench v1.1 75.36 (#6/45)**, **Vibe Code Bench 78.96**; BenchLM overall **66.03 (#32/889)**; LLM-Stats score 45.4 (#32). Vendor card: **Terminal-Bench 2.1 87.6%**, Toolathlon-Verified 73.6%, **OSWorld-Verified 80.8%**, **CyberGym 95.1%**, DeepSWE v1.1 67.9%.
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Xiaomi MiMo model card + series page, Hugging Face MiMo-V2.6-Flash-RL card, Artificial Analysis model + provider pages, Vals AI, BenchLM model/compare pages, LLM-Stats, CloudPrice, GIGAZINE, eesel, arXiv MiMo-V2-Flash report). Direct vendor rows were promoted; the video-modality, parameter, ProgramBench, TB4.0 and speed discrepancies are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

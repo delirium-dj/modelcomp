@@ -1,7 +1,7 @@
 # Grok 4.6 — findings by DeepSeek 4.1 Flash
 
 - Source: xAI (`grok-4.6`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

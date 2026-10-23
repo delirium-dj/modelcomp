@@ -1,9 +1,11 @@
 # Muse Spark 1.3 — findings by DeepSeek 4.1 Flash
 
 - Source: Meta / Muse Spark 1.3 (API IDs `muse-spark-1.3` and `muse-spark-1.3-contributor`; Contributor/Free/Max are the same weights)
-- Date: 2026-10-16 (UTC) — deep rewrite pass
+- Date: 2026-10-16 (UTC) — deep rewrite pass; re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`muse-spark-1-3`, 20 rows) assigns **no overall score** (unranked); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources re-run).
 > Confirmed independent data this pass: Artificial Analysis Terminal-Bench 2.1 **85% (xhigh) / 86% (max)**, Tau3-Banking **47% / 52% (max, #1)**, GDPval-AA v2 **1709 / 1754 Elo**, HLE **47% / 49%**, SciCode **58.8%**, AA Coding Index **75.8**. Newly captured this pass: **MRCR v2 98.5% (256K–512K) / 98.1% (512K–1M)** and CursorBench 4.0 **41.6** (Meta scorecard via BenchLM/Cursor) — the previous file recorded no long-context retrieval number, so 1M recall is now independently evidenced. **BridgeBench** ranks it #8/27 (606), the top non-Claude/OpenAI/GPT-6 entry.
@@ -64,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep rewrite-pass public internet research (Meta dev model page and launch blog, Artificial Analysis launch article + current model page, BenchLM, BridgeBench, DataCamp, TechRepublic). Independent AA rows were promoted over vendor-only rows; the AA index rebase, the missing-output-cap dispute and the Muse 1.2→1.3 finance regression are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

@@ -1,10 +1,16 @@
 {
   "name": "OpenAI",
   "kind": "vendor",
-  "short": "GPT and Codex models direct from OpenAI's API.",
+  "short": "GPT and Codex models direct from OpenAI's API; pay-as-you-go from $0.05/$0.40 per 1M (GPT-5 Nano) up to $21.00/$168.00 per 1M (GPT-5.2 Pro), with cached-input and long-prompt tiers.",
   "officialUrl": "https://openai.com",
-  "hosts": ["openai.com", "platform.openai.com", "developers.openai.com"],
-  "idPrefixes": ["openai"],
+  "hosts": [
+    "openai.com",
+    "platform.openai.com",
+    "developers.openai.com"
+  ],
+  "idPrefixes": [
+    "openai"
+  ],
   "plans": [
     {
       "name": "OpenAI API pay-as-you-go",

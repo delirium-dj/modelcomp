@@ -1,9 +1,11 @@
 # Nemotron 3.5 Bolt 74B-A9B — findings by DeepSeek 4.1 Flash
 
 - Source: NVIDIA / Nemotron 3.5 Bolt 74B-A9B (`nemotron-3.5-bolt-74b-a9b`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-16 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`nemotron-3-5-bolt-74b-a9b`, 8 rows) computes an overall **45.2/100 (#125 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Research pass — 2026-10-16** (≥3 independent sources).
 > Released **2026-10-15**. A **74B-total / 9B-active hybrid Mamba-2/Transformer MoE vision-language model**, derived from Nemotron 3.5 Super VL 120B-A12B via **Star Elastic** compression plus **2-bit Quantization-Aware Distillation** to fit in **24GB** and run locally on RTX Spark / DGX Spark. **256K-token context** (262,144); vision + text in / text out; reasoning toggle; tool calls; **OpenMDW 1.1** license. NVIDIA card rows: **Terminal-Bench 2.1 50.98**, **GDPVal-AA-V2 28.47**, **Tau3 Banking 17.01**. **Artificial Analysis Intelligence Index 21** (21.4) — 4th among models under 100B, 1st among US models in that class, ~1.5 pts behind Nemotron 3 Ultra (550B) with ~1/7 the parameters; AA-Briefcase **912 Elo**, AutomationBench-AA **15.5%**, AA-LCR **70%**, HLE **25%**. #1 open model in its class on PinchBench and #2 open model on BrowseComp (vendor).
@@ -61,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (NVIDIA Hugging Face model card and technical report, Artificial Analysis release article and comparisons, Ollama/Unsloth cards, NVIDIA blog, Gate/StreetInsider coverage). Vendor-reported figures flagged; the quantization checkpoint identity, context wording and the absence of GPQA/SWE-bench are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

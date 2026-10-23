@@ -1,0 +1,16 @@
+{
+  "name": "Tencent Cloud",
+  "kind": "aggregator",
+  "short": "Tencent Cloud TokenHub LLM service — pay-per-token access to Hunyuan (Hy3/Hy4) and other hosted models, with peak/off-peak billing.",
+  "officialUrl": "https://www.tencentcloud.com",
+  "hosts": ["tencentcloud.com", "www.tencentcloud.com", "cloud.tencent.com", "intl.cloud.tencent.com"],
+  "idPrefixes": ["tencent"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based (per token)",
+      "notes": "Hy3 $0.132 in / $0.528 out per 1M ($0.033 cached); Hy4 preview $0.834 in / $2.501 out per 1M ($0.042 cached).",
+      "evidenceUrl": "https://www.tencentcloud.com/document/product/1300/78937"
+    }
+  ]
+}

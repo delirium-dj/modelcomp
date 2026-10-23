@@ -1,9 +1,11 @@
 # Gemini 4 Argon — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 4 Argon (`gemini-4-argon`; Fairwind-gated at launch, public 2026-10-13)
-- Date: 2026-10-16 (UTC) — deep rewrite pass
+- Date: 2026-10-16 (UTC) — deep rewrite pass; re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-4-argon`, 26 rows) computes an overall **82.81/100 (#5 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources re-run).
 > Confirmed/added this pass: **Vals Index 68.90% (#1)**; **AA AutomationBench-AA 77.5% (#1)**; AA Intelligence Index **52.6–53 (high)**; HLE **57.1%**, HLE w/tools 62.4%, SciCode **61.8%**, CritPt 27.1%, AA-LCR 79.7%, AA-Omniscience accuracy 49.9% (15% hallucination); Coding Index 78.6%; GDPval-AA 56.2% (AA). Vendor: DeepSWE v1.1 **77.9% (#1)**, Vibe Code Bench **91.9% (#1)**, Finance Agent v2 **65.4% (#1)**, AutomationBench (Zapier) 51.3% (#1), LVBench **91.7% (#1)**, CWE-bench v1 68.0% (tie #1), GraphWalks 128K 99.7% / 256K–1M 84.2%, OSWorld 2.0 69.2%, Terminal-Bench 4.0 57.0–57.4%, FrontierMath v2 Tier-4 78.0%. Independent Terminal-Bench 4.0 **57% (AA)** vs Opus 5.5 60% and Sonnet 5.5 64%; FrontierSWE v2 **55.0%** trails GPT-6 Astra 65.5%.
@@ -60,6 +62,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep rewrite-pass public internet research (Google launch blog + latest-model docs, FelloAI, kie.ai comparison, BenchGap, Vals AI model page, Gigazine, AA). Vendor #1 claims are separated from independent Vals/AA rows; non-default harness settings, the GPQA-estimate caveat and access gating are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.1_Pro.md`, using the same headings.

@@ -1,9 +1,11 @@
 # GPT-5.6 Sol — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`openai/gpt-5.6-sol`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-6-sol`, 54 rows) computes an overall **75.21/100 (#10 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. OpenAI official docs: **1,050,000 context / 922,000 max input / 128,000 max output, knowledge cutoff 2026-02-16, effort none→max + `ultra` (4 parallel agents), text+image in → text out, $4/$20 ($0.40 cached; promo through ≥2026-11-21)**. OpenAI self-reports Terminal-Bench 2.1 **88.8%** (Ultra 91.9%), AA Coding Agent Index **80 (SOTA)**, DeepSWE v1.1 72.7%, SWE-bench Pro 64.6%, GPQA Diamond 94.6%, HLE 47.2%, GDPval-AA v2 **1747.8 Elo**, Agents' Last Exam 53.6, ARC-AGI-2 92.5%, FrontierMath T4 83%, BrowseComp 92.2%. Vals AI: **Vals Index 58.01% (#12/47)**, SWE-bench Verified **96.20% (#3/88)**, GPQA Diamond **95.20% (#2/138)**, IOI 91.17% (#5), MMMU-Pro 88.84% (#6), TB2.1 85.77%, TB4.0 37.88%, Vibe Code Bench 80.50%, MMLU-Pro 89.10%, LiveCodeBench 82.60%, ProofBench 83.0%, LegalBench 86.97% (#9). Artificial Analysis: Intelligence Index **47 (max)** / 42 (high) / 39 (medium) / 33 (low), ~$0.81–1.99/index task, AA-Briefcase 1370, GDPval-AA 1480, HLE 46%, CritPt 26%, SciCode 58%, ~70 t/s. BenchLM 75.35–77.81.
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (OpenAI GPT-5.6 docs + launch/preview pages, Vals AI model page, Artificial Analysis model pages, BenchLM/BenchAlign, AWS Bedrock, eWeek/METR). Vendor harness claims were separated from independent AA/Vals rows; the Vals-drift, index, context-pricing and harness conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

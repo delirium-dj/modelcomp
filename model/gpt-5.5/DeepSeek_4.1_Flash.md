@@ -1,9 +1,11 @@
 # GPT-5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-06)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-06); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-5`, 48 rows) computes an overall **69.07/100 (#20 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources; the earlier pass had no vendor card and rested on one aggregator).
 > Re-sourced this pass. **OpenAI is now confirmed** as the vendor: `gpt-5.5` (API 2026-04-24), **$5/$30 per 1M with a 1M context window**, long-context surcharge above 272K; Pro variant $30/$180. OpenAI launch rows: Terminal-Bench 2.0 **82.7%**, Expert-SWE (internal, 20h tasks) **73.1%**, GDPval (wins/ties) **84.9%**, SWE-Bench Pro **58.6%**, Tau2-bench Telecom **98.0%**, FinanceAgent 60.0%, OfficeQA Pro 54.1%, internal investment-banking 88.5%. Artificial Analysis (xhigh): **Intelligence Index 38 (#65/227)** with AA-Briefcase 1000/1218, AutomationBench-AA **40%**, Terminal-Bench 4.0 5%, SciCode 55%, HLE 42%, GDP.pdf 21%, CritPt 19%, AA-Omniscience 18; **93.8 tok/s**, **$2.63/task**. Vals AI: Terminal-Bench 2.1 **76.4%**, SWE-bench **82.6%**, LiveCodeBench 85.3%, Vibe Code Bench 69.85%, React Native Evals 84.7%, FrontierCode 1.1 Main 43.0%, CyberGym 81.8%. BenchLM (2026-10-08): overall **68.42**, agentic 61.5, coding 62.1; OSWorld 2.0 13.0%, BrowseComp 84.4%, OSWorld-Verified 78.7%, MCP Atlas 75.3%, MRCR v2 128K–256K **87.5%**, ARC-AGI-2 85.0%, MMMU-Pro 81.2%, GPQA 93.6%, HLE 52.2% (w/tools), FrontierMath v2 T4 35.4%. LLMReference: SWE-bench Verified **82.6**, GPQA 93.6, HLE 41.4, MMMU-Pro 88.3, MMLU-Pro 88.1, ARC-AGI-2 85.0, Chatbot Arena 1488.
@@ -70,6 +72,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (OpenAI launch post + API update, Artificial Analysis model + comparison pages, Vals AI Vals Index leaderboard, BenchLM model/comparison pages and 2026-10-08 panel snapshot, LLMReference comparisons). The prior pass's single-aggregator, largely unverified record was replaced with vendor + independent data; the AA-index rebase, pricing-tier spread, context rounding, HLE with/without tools and harness-sensitive coding rows are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

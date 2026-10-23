@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-6 Luna (`gpt-6-luna`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

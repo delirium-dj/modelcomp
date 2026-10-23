@@ -1338,6 +1338,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "deepseek-v4.1-flash-1017": {
     "Beam.md": [60, 72, 90, 65, 74, 95, 72],
     "Big_Pickle.md": [82, 74, 95, 78, 82, 98, 82.2],
+    "GLM_5.3.md": [72, 72, 96, 68, 84, 94, 78],
     "GPT_5.6_Luna.md": [86, 88, 95, 87, 88, 97, 89],
     "GPT_6.1_Sol.md": [74, 84, 95, 86, 83, 98, 84],
     "Gemini_3.5_Flash_Lite.md": [85, 84, 86, 80, 85, 98, 84],

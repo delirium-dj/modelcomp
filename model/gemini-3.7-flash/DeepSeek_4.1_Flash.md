@@ -1,9 +1,11 @@
 # Gemini 3.7 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.7 Flash (`gemini-3.7-flash`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-7-flash`, 29 rows) computes an overall **66.77/100 (#29 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **93.94%** (Vals, #5/138), MMLU-Pro **90.12%** (Vals), MMMU-Pro **88.96%** (Vals), CharXiv 88.7% / CharXiv w/o tools 84.5%, HLE 45.7% (HLE-Verified 53.6%), ARC-AGI-1 95.5%, ARC-AGI-2 **84.6%**, FrontierMath T4 v2 36.585%, MRCR v2 64K–128K **97.0%**; LiveCodeBench **88.65%** (Vals, #5), SWE-bench **80.80%** (Vals), SWE-bench Pro **60.4%** (Google), SWE-Atlas 48.0%, DeepSWE 65.3%, FrontierCode 1.1 Main 43.6%, Terminal-Bench 2.1 85.8% (card) / 81.6% (Google) / 77.5% (Vals), Terminal-Bench 3.0 14.9%, Terminal-Bench 4.0 12.12% (Vals), OSWorld 2.0 47.9–59.0%, Finance Agent v2 59.04%, AutomationBench 30.4%, GDP.pdf 34.0%, GDPval-AA v2 1482 Elo, LABBench2 82.1%, BenchLM overall 66.87.
@@ -64,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Google 3.7 Flash launch blog + llm-stats launch analysis, Vals AI model page, DataNorth launch write-up, BenchLM comparisons, Google 3.8 Flash developer guide for 3.7 cross-rows). Independent Vals rows were promoted over the vendor card; the TB2.1-vs-TB4.0 gap and OSWorld/pricing conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

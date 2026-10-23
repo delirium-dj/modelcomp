@@ -1,9 +1,11 @@
 # Muse Spark 1.2 — findings by DeepSeek 4.1 Flash
 
 - Source: Meta / Muse Spark 1.2 (`meta/muse-spark-1.2`; Contributor is the same weights under different data terms)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`muse-spark-1-2`, 9 rows) computes an overall **65.87/100 (#34 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Independent Vals AI (Opus 4.7 comparison page + SkillsBench + Vals Index): **SWE-bench 86.60% (#14/88)**, Finance Agent v2 **60.60% (#3/76)**, **Harvey Legal Agent Bench 25.42% (#1/76)**, Vibe Code Bench v1.1 79.10%, MMMU-Pro **86.13%**, MMLU-Pro **88.28%**, Legal Research Bench 43.75%, MortgageTax 65.42%, Tax Agent Bench 56.86%, TaxEval v2 **80.38%**, SAGE 47.66%, Code Migration 29.95%, **Terminal-Bench 4.0 6.06%**, SkillsBench 53.04% (#17, $0.65/task), **Vals Index 49.29% (#31/45)**. Artificial Analysis: **Intelligence Index 40 (#58/227)**, Coding 72.2 (90th pct), GPQA 90.4 (94th pct), 325.2 t/s (#1), $0.97/index task. BenchLM: overall **65.81** (BenchAlign v5.8), Terminal-Bench 2.1 **82.9%** (Meta) / **69.7%** (Vals), DeepSWE 59.3%, VulcanBench v3 87.0%, FrontierSWE v2 12.0%. opencode.ai data + dev.meta.ai confirm **1M ctx, 131K out, release 2026-08-05, text+image+video+pdf+audio in, contributor $0.10/$0.20 ($0.002 cached), standard $1.25/$4.25**.
@@ -61,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Meta developer/research blogs, Vals AI model + comparison + SkillsBench pages, Artificial Analysis model page, BenchLM comparison page, LLM Stats, opencode.ai data, codersera). Independent Vals/AA rows were separated from Meta's vendor charts; the bimodal coding split, Terminal-Bench 2.1 vendor/independent gap, Vals-index drift, modality spread, output-cap and pricing conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

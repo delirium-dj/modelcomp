@@ -1,0 +1,28 @@
+{
+  "name": "Unbiased",
+  "kind": "vendor",
+  "short": "Unbiased's Pareto blended AI model — personal subscriptions and prepaid pay-as-you-go API credits, with published per-token rates.",
+  "officialUrl": "https://unbiased.ai",
+  "hosts": ["unbiased.ai", "api.unbiased.ai"],
+  "idPrefixes": ["unbiased"],
+  "plans": [
+    {
+      "name": "Personal",
+      "price": "$10 / month",
+      "notes": "50M tokens/week, 20 RPM; one person.",
+      "evidenceUrl": "https://unbiased.ai/pricing"
+    },
+    {
+      "name": "Personal Max",
+      "price": "$100 / month",
+      "notes": "600M tokens/week, 60 RPM; heavier personal use.",
+      "evidenceUrl": "https://unbiased.ai/pricing"
+    },
+    {
+      "name": "Pay as you go",
+      "price": "$0.80 in / $0.03 cached / $3.20 out per 1M",
+      "notes": "Prepaid credits across a team; 300 RPM; no weekly token cap.",
+      "evidenceUrl": "https://unbiased.ai/pricing"
+    }
+  ]
+}

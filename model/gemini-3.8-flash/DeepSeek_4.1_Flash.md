@@ -1,9 +1,11 @@
 # Gemini 3.8 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.8 Flash (`gemini-3.8-flash`; separate sibling `gemini-3.8-flash-cyber` and TTS variant are different models)
-- Date: 2026-10-16 (UTC) — deep rewrite pass
+- Date: 2026-10-16 (UTC) — deep rewrite pass; re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-8-flash`, 34 rows) computes an overall **68.99/100 (#21 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources re-run).
 > Now sourced with numerics this pass: Google model card / Cloud guide — Terminal-Bench 2.1 **90.8%**, SWE-Bench Pro **61.6%**, SWE-Atlas **51.9%**, τ³-bench Banking **38.1%**, HLE **45.4%**, HLE-Verified **54.9%**; Google eval table — DeepSWE v1.1 **73.7%**, GDPval-AA v2 **1545 Elo**, Vals Finance Agent v2 **61.4%**, Harvey Legal Agent **10.0%**, Terminal-Bench 4.0 **19.1%**, OSWorld-2.0 **59.0%**, GDP.PDF 35.0%, CharXiv 86.2%, LVBench 87.1–87.8%, BioMysteryBench 88.8%/56.5%, LABBench2 86.2%. Independent: Vals Index 54.83%, GPQA-Diamond **94.4%**, LiveCodeBench **89.5%**, SWE-bench (Vals) **80.0%**, CursorBench 4.0 39.6%, Tau3-Banking 45% (AA). ARC-AGI-1 98.5% / ARC-AGI-2 89.2%.
@@ -61,6 +63,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: deep rewrite-pass public internet research (Google Gemini API model page, Cloud Enterprise Agent Platform guide, DeepMind Flash page, FelloAI's transcription of Google's eval table, BenchLM, Vals AI comparison, pricepertoken). Vendor self-reported rows are separated from independent rows; the TB2.1 harness spread, AA index rebase and pricing-schedule conflict are flagged. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

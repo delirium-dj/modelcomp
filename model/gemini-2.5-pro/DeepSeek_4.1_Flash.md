@@ -1,9 +1,11 @@
 # Gemini 2.5 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind/Gemini 2.5 Pro (`gemini-2.5-pro`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-2-5-pro`, 9 rows) computes an overall **49.09/100 (#105 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: Artificial Analysis, BenchLM, Vals AI, OpenRouter, Google DeepMind).
 > **Newly found rows:** Artificial Analysis now **flags Gemini 2.5 Pro as deprecated** — only the default 10k-token workload is still re-benchmarked; Intelligence Index **16 (#174/217, median 27)**, output speed **119 tok/s (#47/188)**, TTFT **20.88s**, cache discount **90%** and **$0.33 per Intelligence Index task**. BenchLM's 2026-10-15 snapshot reads overall **49.13–49.15/100 (#102 of 950–951)** and adds **Gert Labs 42.01%**, **AA Agentic Index 3.5%**, **GDPval-AA 616 Elo**, **AA-MMMU-Pro 74.9%**, **Design Arena Website 1169**, **AA-Omniscience Index -16.3%**, **AIME 2024 92%**, **FrontierMath v2 Tiers 1-3 24.561% / Tier 4 0.000%** and **AA-IFBench 48.7%**. Vals AI adds **Terminal-Bench 2.0 30.34% (#44/67)**, **SWE-bench 54.40% (#82/88)**, **Vibe Code Bench v1.1 0.40% (#108/112)**, **MedCode 50.59% (#17/107)**, MedScribe 73.55%, MortgageTax 68.92% and SAGE 41.92%, with a Vals accuracy of 45.73%.
@@ -80,6 +82,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against Artificial Analysis (deprecated-page snapshot with Intelligence Index 16, speed/latency/cache), BenchLM's 2026-10-15 snapshot, Vals AI (release date, max output, Vibe/SWE/MedCode/Terminal-Bench rows), OpenRouter (pricing, context, deprecation notice) and Google DeepMind (Gemini page) — correcting the max-output and deprecation facts and recording the release-date, SWE-bench and FrontierMath conflicts over the 2026-10-06 pass; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

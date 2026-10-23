@@ -1,9 +1,11 @@
 # Gemma 4 31B IT — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`gemma-4-31b`) — instruction-tuned (IT) release; public sources label it simply "Gemma 4 31B"
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-09-20)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-09-20); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemma-4-31b`, 11 rows) computes an overall **39.8/100 (#143 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `google/gemma-4-31B-it` + Gemma 4 Technical Report arXiv:2607.02770, Artificial Analysis, BenchLM, Vals AI).
 > **Newly found rows:** LiveCodeBench v6 80.0%, MRCR v2 (8-needle, 128K) 66.4%, Codeforces ELO 2150, BigBench Extra Hard 74.4%, MMMLU 88.4%, AIME 2026 (no tools) 89.2%, Tau2 (average over 3) 76.9% and MMMU-Pro 76.9% (official HF model card); MATH-Vision 85.6%, MedXPertQA-MM 61.3% and OmniDocBench 1.5 0.131 (edit distance) (HF card); AA-IFBench 75.6% and AA-Omniscience Index -47.9 (Artificial Analysis via BenchLM); Vals AI Terminal-Bench 2.0 39.33% (#35/67), SAGE 55.03% (#2/91), MortgageTax 61.37%, Case Law v2 52.63%, Finance Agent v1.1 50.79%, Vals Index 38.94% and Vals Multimodal Index 45.12%.
@@ -81,6 +83,6 @@ Composite panels:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card (`google/gemma-4-31B-it`) and the Gemma 4 Technical Report (arXiv:2607.02770), Artificial Analysis, BenchLM and Vals AI — correcting the modality (video supported) and knowledge-cutoff facts and adding the first LiveCodeBench, MRCR v2, Codeforces, Vals and AA-IFBench rows over the 2026-09-20 pass; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

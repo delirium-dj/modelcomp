@@ -1,0 +1,16 @@
+{
+  "name": "Inception",
+  "kind": "vendor",
+  "short": "Inception Labs' diffusion-LLM API (Mercury family) with pay-per-token pricing, cached input discounts and a free-tier-less developer access model.",
+  "officialUrl": "https://inceptionlabs.ai",
+  "hosts": ["inceptionlabs.ai", "api.inceptionlabs.ai", "docs.inceptionlabs.ai"],
+  "idPrefixes": ["inception"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based (per token)",
+      "notes": "Mercury 2.5 $0.20 in / $0.75 out per 1M ($0.02 cached in). Mercury 3 launch promo $0.10 / $0.35 per 1M.",
+      "evidenceUrl": "https://docs.inceptionlabs.ai/get-started/models"
+    }
+  ]
+}

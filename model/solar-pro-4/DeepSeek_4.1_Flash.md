@@ -1,9 +1,11 @@
 # Solar Pro 4 — findings by DeepSeek 4.1 Flash
 
 - Source: Upstage/Solar Pro 4 (`upstage/solar-pro4`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-18)
+- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-18); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`solar-pro-4`, 11 rows) assigns **no overall score** (unranked); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (sources: BenchLM, Artificial Analysis, Upstage launch post, OpenRouter, ModelCap, RankLLMs).
 > BenchLM now carries **22 rows** for Solar Pro 4 (still unranked, no overall score) and surfaces vendor rows the earlier passes had marked missing: **SWE-bench Verified 70.6%** and **LiveCodeBench 87.8%** (Upstage), **MCP Atlas 61.4%**, **APEX-Agents 18.7%**, **BrowseComp 49.2%**, **MMLU-Pro 86.3%**, **KMMLU-Pro 79.2%**, **AIME 2026 95.3%**, and a normalized **GDPval-AA 30.4%**. These corroborate the existing rows (Terminal-Bench 2.1 57%, Tau³-Banking 23%, GPQA-D 89.0–89.1%, AA Index 28.1, AA-LCR 71.0%, SciCode 44.6%, CritPt 5.4%, AA-Omniscience −0.8/accuracy 18.9%/hallucination 24.4%).
@@ -72,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against BenchLM (22 rows, unranked), Artificial Analysis, the Upstage launch post, OpenRouter, ModelCap and RankLLMs, adding the vendor SWE-bench Verified/LiveCodeBench/MCP Atlas/APEX-Agents/BrowseComp/MMLU-Pro/AIME 2026/KMMLU-Pro rows and flagging the vendor-vs-independent conflicts over the 2026-10-05 and 2026-09-18 passes (Overall 61 → 62). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.6_Flash.md`, using the same headings.

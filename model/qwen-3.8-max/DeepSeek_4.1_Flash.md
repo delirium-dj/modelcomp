@@ -1,9 +1,11 @@
 # Qwen3.8-Max — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Cloud (Qwen team) / Qwen3.8-Max (`qwen3.8-max-0902`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.8-max` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Vals AI: **Vals Index 48.27% (#34/47)**, **SWE-bench 85.60% (#17/88)**, **LiveCodeBench 87.85% (#10/143)**, **GPQA Diamond 93.69% (#6/138)**, **MMLU-Pro 88.60% (#18/138)**, **MMMU-Pro 88.03% (#12/93)**, **Terminal-Bench 4.0 34.34% (#15/47)**, Terminal-Bench Science 12.86%, Vibe Code Bench v1.1 64.70%, Vibe Code Bench 1–100 12.83% (#19/22), CyberBench v1.1 **28.57% (#47/47, last)**, Code Migration 23.96%, SAGE 51.25% (#14/91), Finance Agent v2 50.59%, Legal Research Bench 47.60%, Harvey Legal Agent 10.42%, ProofBench v1.1 58.00%, TaxEval v2 75.55%; cost/test **$4.964**, latency ~101 min. Artificial Analysis (0902): **Intelligence Index 45** with AA-Briefcase 1621, **GDPval-AA v2.1 1671 Elo**, AutomationBench-AA 56%, Terminal-Bench 4.0 39%, SciCode 52%, HLE 43%, GDP.pdf 23%, CritPt 18%; **37.9–41 tok/s**, ~$1.18 blended. Vendor (Qwen/HF/Alibaba Cloud): Terminal-Bench 2.1 **86.6%**, SWE-bench Pro 67.7%, DeepSWE 1.1 56.6%, FrontierSWE 73.5%, GPQA 92.6%, HLE 43.6% / 56.2% with tools, OSWorld-Verified **86.1%**, IFBench 82.8%, PaperBench 93.0, JobBench 53.4%, MMMU-Pro 82.3%, MRCRv2 **92.9%**, VideoMME (subs) **90.4**, Parametric CAD 91.5, OmniDocBench 92.1. Open weights `Qwen/Qwen3.8-2.4T-A95B` (text-only). Pricing $2/$6 (International) or $1.65/$4.95 (China/Singapore), cached $0.25 (or $0.206).
@@ -66,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Qwen blog, Alibaba Cloud Model Studio model page, Vals AI model + comparison pages, Artificial Analysis model + comparison pages, DataNorth, LLM Stats, Alibaba Group press release, GIGAZINE). Independent Vals/AA rows were promoted over vendor-only rows; the AA-index/snapshot spread, hosted-vs-open-weights modality split and the mixed coding signal are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

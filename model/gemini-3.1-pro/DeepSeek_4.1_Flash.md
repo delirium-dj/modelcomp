@@ -1,9 +1,11 @@
 # Gemini 3.1 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3.1 Pro (`gemini-3.1-pro-preview`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-1-pro`, 31 rows) computes an overall **64.72/100 (#38 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond 94.3%, HLE 45.4% no-tools (47% AA), ARC-AGI-2 77.1%, Terminal-Bench 2.1 70.8% (Vals) / 2.0 68.5%, τ²-bench 95.6%, MCP Atlas 78.2%, OSWorld-Verified 76.2%, SWE-bench Verified 80.6%, SWE-bench Pro 54.2%, SciCode 59%, GDPval-AA ~1314–1317 Elo, MMMU-Pro 80.5%, CharXiv Reasoning 83.3%, MRCR v2 128K **84.9%** / 1M **26.3%**, LiveBench 2.0 overall 54.9 (reasoning 84.0 / coding 66.7 / agentic 23.9 / browser 4.0), BenchLM overall 65.17.
@@ -66,6 +68,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Google DeepMind model page, Gemini API long-context docs, Artificial Analysis model page, BenchLM comparisons, LiveBench 2.0, NxCode 3.5 Flash comparison). The vendor-vs-independent and AA-version gaps are surfaced rather than averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

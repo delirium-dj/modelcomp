@@ -1,9 +1,11 @@
 # Gemma 4 E2B — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`google/gemma-4-E2B`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemma-4-e2b`, 6 rows) computes an overall **29.91/100 (#186 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `google/gemma-4-E2B` plus the Google launch blog, Artificial Analysis, BenchLM).
 > **New rows found.** The official HF family card now publishes the long-context and multilingual rows the 2026-10-05 pass lacked: **MRCR v2 8-needle 128K 19.1%**, **Tau2 (average over 3) 24.5%** (vendor), **BigBench Extra Hard 21.9%**, **MMMLU 67.4%**, **OmniDocBench 1.5 0.290**, **MATH-Vision 52.4%**, **MedXpertQA MM 23.5%**, **CoVoST 33.47**, **FLEURS 0.09**. Artificial Analysis now scores the reasoning build **8 (estimated) on Intelligence Index v4.3.2, #64/141 among similar-size open-weight models**, with **AA-LCR 16.3%**, **AA-Omniscience index -23.6 / accuracy 6.6% / hallucination 32.4%** and **CritPt 0.0%**. BenchLM gives a conservative **29.97/100 (#182/950, partial coverage)**.
@@ -85,6 +87,6 @@ Multimodal / audio:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card `google/gemma-4-E2B`, the Google launch blog, Artificial Analysis and BenchLM, adding the first MRCR v2 long-context, Tau2-vendor, MMMLU, OmniDocBench, CoVoST/FLEURS and CritPt rows, correcting the CoVoST/FLEURS values, and flagging the vendor-vs-AA Tau2 spread and AA's incorrect MoE/image-output labels. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

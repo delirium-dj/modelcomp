@@ -1,9 +1,11 @@
 # Gemma 4 E4B — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`google/gemma-4-E4B`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemma-4-e4b`, 7 rows) computes an overall **30.99/100 (#182 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `google/gemma-4-E4B` plus the Google launch blog, Artificial Analysis, BenchLM).
 > **New rows found.** The official HF family card now publishes **MRCR v2 8-needle 128K 25.4%**, **Tau2 (average over 3) 42.2%** (vendor), **BigBench Extra Hard 33.1%**, **MMMLU 76.6%**, **OmniDocBench 1.5 0.181**, **MATH-Vision 59.5%**, **MedXpertQA MM 28.7%**, **CoVoST 35.54** and **FLEURS 0.08**. Artificial Analysis scores the reasoning build **9 on Intelligence Index v4.3.2, #51/141 among similar-size open-weight models**, with **AA-SciCode 24.4%**, **AA Coding Index 9.4%**, **AA-LCR 32.0%**, **CritPt 0.6%** and **AA-Omniscience index -19.7 / accuracy 8.6% / hallucination 30.9%**; hosted pricing **$0.02 in / $0.10 out**, 46.6 tok/s, TTFT 0.92s. BenchLM gives **31.05/100 (#178/950, partial coverage)**.
@@ -85,6 +87,6 @@ Multimodal / audio:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card `google/gemma-4-E4B`, the Google launch blog, Artificial Analysis and BenchLM, adding the first MRCR v2 long-context, Tau2-vendor, MMMLU, OmniDocBench, AA-SciCode, CritPt and CoVoST/FLEURS rows, correcting the CoVoST/FLEURS values and the AA index, and flagging the Tau2 vendor-vs-AA spread and AA's incorrect MoE label. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

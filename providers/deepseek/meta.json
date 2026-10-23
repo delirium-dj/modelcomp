@@ -1,10 +1,15 @@
 {
   "name": "DeepSeek",
   "kind": "vendor",
-  "short": "DeepSeek V4 family on the official API, with off-peak discount lanes.",
+  "short": "DeepSeek V3.2/V4 family on the official API; pay-as-you-go from $0.21/$0.31 per 1M up to $1.32/$3.96 peak, with off-peak lanes and cached input.",
   "officialUrl": "https://deepseek.com",
-  "hosts": ["deepseek.com", "api-docs.deepseek.com"],
-  "idPrefixes": ["deepseek"],
+  "hosts": [
+    "deepseek.com",
+    "api-docs.deepseek.com"
+  ],
+  "idPrefixes": [
+    "deepseek"
+  ],
   "plans": [
     {
       "name": "DeepSeek API pay-as-you-go",

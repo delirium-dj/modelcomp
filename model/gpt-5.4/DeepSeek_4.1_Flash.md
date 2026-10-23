@@ -1,7 +1,7 @@
 # GPT-5.4 — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-5.4 (`gpt-5.4`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -1,9 +1,11 @@
 # DeepSeek V3.2 — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek/DeepSeek V3.2 (`deepseek-ai/DeepSeek-V3.2`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`deepseek-v3-2`, 5 rows) computes an overall **50.15/100 (#98 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (sources: BenchLM, Artificial Analysis, OpenRouter, DeepSeek AI Guide).
 > V3.2 is a 2025 vintage superseded by DeepSeek V4, and the evidence base is stable: BenchLM now scores it **50.2/100 (#95 of 950, 16 benchmarks covered)** as a **non-reasoning** open-weight model with a **128K** context. The full row set corroborates the earlier pass (Tau²-Bench 78.9%, Claw-Eval 40.2%, VITA-Bench 18.5%, Gert Labs 29.57%, SWE-Rebench 60.9%, React Native Evals 71.5%, AA-GPQA 75.1%, AA-HLE 11.2%, AA Index 16.0, AA-LCR 45.7%, CritPt 0.9%, AA-IFBench 49.0%). New/updated this pass: **AA-Omniscience Index −46.9** (accuracy 24.0%, hallucination rate 93.3% — the hallucination figure dominates the negative index) and **Design Arena Website revised to 1176** (was 1181). No new reasoning/coding rows appeared; still no Terminal-Bench or GDPval-AA value.
@@ -72,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against BenchLM (overall 50.2, #95/950), Artificial Analysis, OpenRouter and the DeepSeek AI Guide, adding the AA-Omniscience Index and a revised Design Arena row over the 2026-10-05 sources; no score dims changed. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

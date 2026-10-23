@@ -1,9 +1,11 @@
 # GPT 5.5 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.5 Pro (`openai/gpt-5.5-pro`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-5-pro`, 8 rows) computes an overall **73.39/100 (#13 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. **Independent coverage remains scarce**: Artificial Analysis shows the Pro ID's Intelligence Index as **N/A ("Not publicly available")**; Vals AI carries a GPT-5.5 page but **no Vals Index** (N/A); ApX and LLMReference note "no Pro-specific evaluation" and reuse base-GPT-5.5 rows. OpenAI official docs: **1,050,000 context / 128,000 max output, knowledge cutoff 2025-12-01, $30/$180, Responses API + Batch**; system card lists xhigh-effort evals. Vendor Pro figures: BrowseComp **90.1%**, HLE **57.2% with tools** (43.1% no-tools), FrontierMath T1–3 51.7% / **T4 39.6%**, GeneBench 33.2%, GDPval-AA ~1769–1785 Elo, MMMU-Pro 64.5% (AA-sourced). Base-GPT-5.5 weights: GPQA **93.6%**, TB2.0 **82.7%**, SWE-bench Pro 58.6% (Vals 82.6% SWE-bench Verified), OSWorld-Verified 78.7%, ARC-AGI-2 83.3–85.0%, Vibe Code Bench 69.85%, BrowseComp 84.4%. Economize/LLM Stats: Batch $15/$90, Flex $15/$90, long-context surcharge $60/$270.
@@ -12,7 +14,7 @@
 
 ## Model card
 
-- **Name:** GPT 5.5 Pro
+- **Name:** GPT-5.5 Pro
 - **Short description:** OpenAI's premium extra-compute ("Pro") deployment of GPT-5.5 — same weights served with additional parallel test-time compute for the hardest tasks; several times slower and costlier than standard GPT-5.5.
 - **Provider / access:** OpenAI API (Responses; Chat Completions), OpenRouter, Vercel AI Gateway, AWS Bedrock; Batch + Flex half price. Not open weights.
 - **Release / knowledge:** 2026-04-23/24; knowledge cutoff 2025-12-01.
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (OpenAI GPT-5.5 Pro docs + launch page, Artificial Analysis model page — no index data, Vals AI, LLM Stats, Economize, ApX, Wikipedia). The near-total absence of independent Pro-specific evaluation is stated explicitly; all Pro figures are vendor self-reported, and the context/AA-index pricing conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -539,9 +539,12 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "FrontierMath", value: "67.368%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
   ],
   "deepseek-v4.1-flash-1017": [
-    { benchmark: "Terminal-Bench", value: "42.3%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash"] },
-    { benchmark: "HLE", value: "42.6%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash"] },
-    { benchmark: "DeepSWE", value: "77%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "Terminal-Bench", value: "42.3%", raters: ["Beam", "Big_Pickle", "GLM_5.3", "GPT_5.6_Luna", "Gemini_3.8_Flash"] },
+    { benchmark: "HLE", value: "42.6%", raters: ["Beam", "Big_Pickle", "GLM_5.3", "GPT_5.6_Luna", "Gemini_3.8_Flash"] },
+    { benchmark: "GPQA Diamond", value: "90.9%", raters: ["GLM_5.3", "GPT_5.6_Luna"] },
+    { benchmark: "DeepSWE", value: "77%", raters: ["Beam", "Big_Pickle", "GLM_5.3", "GPT_5.6_Luna", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "AA-LCR", value: "84%", raters: ["GLM_5.3", "GPT_5.6_Luna"] },
+    { benchmark: "CritPt", value: "14.3%", raters: ["GLM_5.3", "GPT_5.6_Luna"] },
   ],
   "diffusiongemma-26b-a4b": [
     { benchmark: "Terminal-Bench", value: "12.4%", raters: ["Claude_Opus_5", "DeepSeek_4.1_Flash", "Space_Bunny"] },

@@ -1,9 +1,11 @@
 # Claude Opus 4.6 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Opus 4.6 (`anthropic/claude-opus-4.6`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-opus-4-6`, 38 rows) computes an overall **62.3/100 (#49 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Official Anthropic launch news + **system card** confirm: release **2026-02-05**, first Opus-class **1M-token context** (beta), **128K output** (300K Batch beta), $5/$25. System-card table: **SWE-bench Verified 80.8%** (80.84% avg of 25 trials), SWE Multilingual 77.83%, **Terminal-Bench 2.0 65.4%**, τ²-bench Retail **91.9%** / Telecom **99.3%**, MCP-Atlas **59.5% max / 62.7% high**, **OSWorld-Verified 72.7%**, ARC-AGI-2 68.8%, **GPQA Diamond 91.3%**, **MMMU-Pro 73.9%**, Vending-Bench 2 100%, AIME 2025 99.8%, GraphWalks (>128k parents) 95.4%, **MRCR v2 8-needle (1M) 76%**. Independent: LLM-Stats score **44.5 (#44)**; BenchLM **61.13** (vs GLM-5.2) / 62.12 / 68.52 (blog) — version spread; Vals accuracy 64.19%; BrowseComp 83.7%.
@@ -68,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Anthropic Opus 4.6 news + system-card PDF + pricing, BenchLM model/blog/compare pages, LLM-Stats, Vals AI, Artificial Analysis, pricepertoken, GetDeploying). Independent and system-card rows were reconciled; the SWE-bench-Pro anomaly, the MMMU-Pro revision, the GPQA spreads, the non-reasoning-variant index caveat and two aggregator outliers are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

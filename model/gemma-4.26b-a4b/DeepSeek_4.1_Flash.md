@@ -1,9 +1,11 @@
 # Gemma 4 26B A4B — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`google/gemma-4-26B-A4B`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemma-4-26b-a4b`, 9 rows) computes an overall **45.58/100 (#122 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `google/gemma-4-26B-A4B`, Artificial Analysis, BenchLM, plus the Google blog launch post; Vals AI and OpenRouter have no Gemma 4 26B A4B entry — both 404).
 > **New rows found.** The 2026-10-05 pass had no hosted pricing; this pass adds the first verified hosted rates — **~$0.10 in / $0.40 out** per 1M (AA median across 9 providers, 50% cache discount, blended **$0.10/1M**), **62.0 tok/s** output speed, **TTFT 0.97 s**. The official HF card now fills the benchmark table directly and adds **Tau2 (average over 3) 68.2%** (vendor), **MMLU Pro 82.6%**, **AIME 2026 88.3%**, **LiveCodeBench v6 77.1%**, **Codeforces 1718**, **GPQA 82.3%**, **HLE no-tools 8.7% / with-search 17.2%**, **BigBench Extra Hard 64.8%**, **MMMLU 86.3%**, **MMMU Pro 73.8%**, **OmniDocBench 1.5 0.149**, **MATH-Vision 82.4%**, **MedXpertQA MM 58.1%** and **MRCR v2 8-needle 128K 44.1%**. Artificial Analysis / BenchLM add **AA-LCR 65.7%**, **AA-MMMU-Pro 69.2%**, **AA-GPQA Diamond 79.2%**, **AA-HLE 19.3%**, **AA-Omniscience Index -50.8 / accuracy 19.1% / hallucination 86.4%**, **AA Coding Index 39.3%**, **AA-SciCode 40.0%**, **AA-IFBench 72.4%**, **AA Intelligence Index 16.7 (#15/141; AA page prints 17 estimated)** and **GDPval-AA 713 Elo / 3.3% normalized**. BenchLM overall **45.65/100 (#119/950, 22 of 638 benchmarks covered — conservative)**.
@@ -86,6 +88,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card `google/gemma-4-26B-A4B`, Artificial Analysis, BenchLM and the Google blog launch post, correcting the architecture (25.2B total / 3.8B active, 30 layers) and GDPval-AA normalization (3.3%), and adding the first verified hosted pricing, output speed/TTFT, and the AA long-context (AA-LCR), omniscience, IFBench and HF benchmark-table rows; Vals AI and OpenRouter were checked and have no 26B A4B entry (404). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

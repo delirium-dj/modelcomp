@@ -1,9 +1,11 @@
 # GLM-5.3 — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai (Zhipu AI) / GLM-5.3 (`opencode/glm-5.3`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-25)
+- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-25); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`glm-5-3`, 32 rows) computes an overall **67.94/100 (#25 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `zai-org/GLM-5.3`, Artificial Analysis, BenchLM, Vals AI, Unbiased, Nous Research).
 > **Biggest correction: GLM-5.3 ships open weights.** The flagship is published at `huggingface.co/zai-org/GLM-5.3` (753B total / 40B active MoE, FP8/BF16, tag `glm_moe_dsa`) under the **GLM-5.3 License** — "commercial use allowed with restrictions", *not* the permissive MIT of GLM-5.3-Flash. The earlier pass's "proprietary, weights not released" line is **wrong as of this pass**. The official benchmark table (HF card) also fills nearly every gap the 2026-10-05 pass left open: **Terminal-Bench 3.0 28.3**, **CyberGym 84.5**, **ExploitGym 105/130 (2h/6h)**, **ExploitBench 54.4**, **Toolathlon Verified 73.0**, **AutomationBench 48.2**, **HLE w/ tools 62.5**, **GDPval-AA v2 1769**, plus independent rows **AA Tau3-Banking 50.3**, **AA-Briefcase Elo 1508**, **EnterpriseOps-Gym 36.4**, **AA-ITBench 46.1**, **AA Agentic Index 53.4**, **AA-LCR 79.7**, **MLCR-AA 48.3**, **AA-Omniscience Index 14.3 / accuracy 33.9 / hallucination 29.6**. Artificial Analysis now scores it **45 on the Intelligence Index v4.3.2** (was "no figure captured"). Vals AI runs **SWE-bench 95.40% (#6/88)**, **LiveCodeBench 80.53%**, **Terminal-Bench 4.0 38.89%** and a **Vals Index of 53.51% (#19/48)**.
@@ -69,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card (`zai-org/GLM-5.3`), Artificial Analysis, BenchLM, Vals AI, Unbiased and Nous Research, correcting the open-weight status, release date and architecture and adding the first AA Intelligence Index, long-context (AA-LCR/MLCR), omniscience and TC/Tau3/GDPval rows over the 2026-10-05 and 2026-09-25 passes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

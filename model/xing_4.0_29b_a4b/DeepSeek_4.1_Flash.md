@@ -1,9 +1,11 @@
 # Xing 4.0 29B-A4B — findings by DeepSeek 4.1 Flash
 
 - Source: China Telecom AI (`XingChen-AGI/Xing4.0-29B-A4B`, hosted as `opencode/xing_4.0_29b_a4b`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `xing_4.0_29b_a4b` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 ## Model card
 

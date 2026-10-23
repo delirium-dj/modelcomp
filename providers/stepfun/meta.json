@@ -1,0 +1,22 @@
+{
+  "name": "StepFun",
+  "kind": "vendor",
+  "short": "StepFun's open platform API for the Step model family (multimodal reasoning, vision, speech, image), with pay-as-you-go per-token pricing and tiered rate limits.",
+  "officialUrl": "https://platform.stepfun.ai",
+  "hosts": ["stepfun.com", "platform.stepfun.ai", "www.stepfun.com"],
+  "idPrefixes": ["step"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based (per token)",
+      "notes": "step-5-preview $1.00 in / $2.70 out per 1M ($0.10 cached in). Rate limits scale with cumulative top-up.",
+      "evidenceUrl": "https://platform.stepfun.ai/docs/en/guides/pricing/details"
+    },
+    {
+      "name": "Step Plan",
+      "price": "Subscription (monthly credits)",
+      "notes": "Monthly credit allowance governed by the subscribed tier; separate from pay-as-you-go top-up tiers.",
+      "evidenceUrl": "https://platform.stepfun.ai/docs/en/guides/pricing/details"
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 # MiniMax M2.5 — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax (`minimax/minimax-m2.5`, weights `MiniMaxAI/MiniMax-M2.5`, hosted as `opencode/minimax-m2.5`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`minimax-m2-5`, 8 rows) computes an overall **49.9/100 (#100 of 228)** and re-confirms the prior pass. **No score change.**
 
 ## Model card
 

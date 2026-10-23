@@ -1,9 +1,11 @@
 # Beam — findings by DeepSeek 4.1 Flash
 
 - Source: Reflection AI (`Beam-501B-A23B`, hosted as `opencode/beam`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `beam` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 ## Model card
 

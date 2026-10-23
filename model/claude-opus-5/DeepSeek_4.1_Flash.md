@@ -1,9 +1,11 @@
 # Claude Opus 5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Opus 5 (`anthropic/claude-opus-5`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-opus-5`, 80 rows) computes an overall **79.95/100 (#8 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: SWE-bench Verified **96.0%** (Anthropic, avg of 5 trials) / **97.0%** (Vals, #1/88); SWE-bench Pro **79.2%**; Frontier-Bench v0.1 **43.3%** (SOTA); CursorBench 3.2 70.0%; GDPval-AA v2 **1861 Elo** (#1); ARC-AGI-3 **30.2%** (≈3–4× next best); ARC-AGI-2 90.4%; ARC-AGI-1 97.5%; GPQA 93.2–93.43%; MMMU-Pro 89.88% (Vals); MMLU-Pro 91.59% (Vals); LiveCodeBench 89.0% (Vals); Terminal-Bench 3.0 42.7% (#1); Terminal-Bench 4.0 52.3%; OSWorld 2.0 70.6%; BrowseComp 90.8%; HLE w/ tools 64.7%; DeepSWE 1.1 68.8%; SWE Multilingual 89.5%; SWE Multimodal 59.4%.
@@ -61,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Anthropic Opus 5 launch page, BenchLM Fable-5 comparison, claude5.ai launch analysis, llm-stats Opus 5 vs 5.5, pricepertoken, dev.to critical review). Anthropic absolute rows were cross-checked against third-party tables; the GDPval-AA instability and modality conflict are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

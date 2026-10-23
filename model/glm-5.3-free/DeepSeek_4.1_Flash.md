@@ -1,9 +1,11 @@
 # GLM 5.3 Free — findings by DeepSeek 4.1 Flash
 
 - Source: OpenCode Zen / GLM 5.3 Free (`opencode/glm-5.3-free` — free alias of GLM-5.3-Flash, Z.ai)
-- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-18)
+- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-18); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `glm-5.3-free` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: Z.ai official blog + docs.z.ai, NVIDIA NGC/NIM model cards, Artificial Analysis, BenchLM, Vals AI, DataCamp, LLM-Stats, Lambda, Kilo Code, Ollama, OpenRouter).
 > New since 2026-10-05: **independent benchmark rows now exist** where the earlier passes reported none. Vals AI now runs **Terminal-Bench 2.1 62.9%**, **SWE-bench (Vals) 92.0%**, **LiveCodeBench (Vals) 80.5%**, **GPQA Diamond (Vals) 86.4%** and **MMLU-Pro (Vals) 86.1%**. BenchLM carries a **57.36 independent public score (#56/216)** with lane scores Agentic 55.7 (#34/123), Coding 49.3 (#42/146), Reasoning 81.1 (#11/28), Multimodal 60.5 (#43/177). Official architecture is now precisely documented (NVIDIA NIM): **34 KDA linear-attention layers interleaved with 11 DeepSeek Sparse Attention layers (every 4th), Manifold-Constrained Hyper-Connections, 288 routed experts top-8, 1 MTP layer, native FP8, 30T-token multimodal corpus**. Official context/max-output confirmed **1M / 128K**; a high-speed sibling **GLM-5.3-FlashX** (200 tok/s, launched 2026-09) shares the weights.
@@ -71,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Z.ai blog and docs.z.ai model guide, NVIDIA NIM/NGC cards, Artificial Analysis, BenchLM, Vals AI, DataCamp, LLM-Stats, Lambda, Kilo Code, Ollama and OpenRouter, adding the first independent Vals/BenchLM rows and correcting the architecture, modality and max-output details over the 2026-10-05 and 2026-09-18 passes. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

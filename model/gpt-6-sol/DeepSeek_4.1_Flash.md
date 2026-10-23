@@ -1,9 +1,11 @@
 # GPT-6 Sol — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-6 Sol (`gpt-6-sol`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-23)
+- Date: 2026-10-16 (UTC) — third pass (previous Signatures 2026-10-05 / 2026-09-23); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-6-sol`, 24 rows) computes an overall **78.58/100 (#9 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (sources: BenchLM, Artificial Analysis, ARC Prize, OpenAI GPT-6 launch post and GPT-6 Astra system card, Nous Research).
 > The 2026-10-05 pass had large gaps; BenchLM now covers **32 benchmarks** and scores GPT-6 Sol **78.45/100 (#9 of 950)**. New rows: **OSWorld 2.0 60.5%**, **Agents' Last Exam 56.4%**, **AutomationBench 33.2%**, **ExploitGym 22.1%**, **CWE-bench v1 52.0%**, **AA-ITBench 49.4%**, **GDPval-AA normalized 50.4%**, **Hermes Index 44.1 / Hermes Bench 73.5**, **MazeBench 7%**, **DeepSWE 68.8%**, **AA-SciCode 57.6%**, **AA-MMMU-Pro 82.9%** (first vision row for this ID), **AA-LCR 83.7%**, **CritPt 30.9%**, **ARC-AGI-1 95.50% / ARC-AGI-2 89.6% / ARC-AGI-3 4.6%** (ARC Prize verified), **FrontierMath v2 T1-3 89.825% / T4 90.000%** (Epoch AI — the earlier pass had no FrontierMath), **HealthBench** family (raw 47.1, length-adjusted 53.2, Professional 60.8, Hard 30.1), **Gray Swan IPI 10.1%**, and **AA-Omniscience Index 27.1** (accuracy 54.5%, hallucination 60.1%). AA Intelligence Index is confirmed at **47.6** (v4.3.2).
@@ -72,6 +74,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against BenchLM (overall 78.45, #9/950), Artificial Analysis, ARC Prize verified results, the OpenAI GPT-6 launch post and GPT-6 Astra system card, and Nous Research, adding the first OSWorld/AutomationBench/DeepSWE/MMMU-Pro/ARC-AGI/FrontierMath/HealthBench rows over the 2026-10-05 and 2026-09-23 passes (Overall 83 → 84). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

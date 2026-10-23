@@ -1,9 +1,11 @@
 # Gemma 4 12B Unified — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind (`google/gemma-4-12B-it`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `gemma-4.12b-unified` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources re-checked: official Hugging Face model card `google/gemma-4-12B`, Artificial Analysis, BenchLM; Vals AI and OpenRouter have no Gemma 4 12B entry — both 404 — so no independent coding/arena panel exists yet).
 > **New rows found.** The 2026-10-05 pass had no Artificial Analysis evidence at all; this pass re-confirms the full AA panel — **Intelligence Index 14 (estimated; v4.3.2, #20/141 open weights of similar size; BenchLM lists 14.2)**, **AA-LCR 63.7%**, **AA-GPQA Diamond 75.3%**, **AA-HLE 15.7%**, **AA-MMMU-Pro 69.7%**, **AA Coding Index 31.0%**, **AA-IFBench 73.5%**, **GDPval-AA 591 Elo**, **CritPt 0.0%** and **AA-Omniscience index -52.7 / accuracy 15.6% / hallucination 81.0%**. Hosted pricing reconfirmed: **~$0.10 in / $0.30 out** per 1M (AA median), 117.6 tok/s, TTFT 2.43s. The HF card also adds **MRCR v2 8-needle 128K 43.4%**, **Tau2 (average over 3) 69.0%** (vendor), **HLE (no tools) 5.2%**, **MMMLU 83.4%**, **OmniDocBench 1.5 0.164**, **MedXpertQA MM 48.7%**, **CoVoST 38.5\*** and **FLEURS 0.069\*** (asterisk = excluding Chinese). BenchLM gives **36.84/100 (#153/950, 25 of 638 benchmarks covered — conservative)**.
@@ -82,6 +84,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card `google/gemma-4-12B`, Artificial Analysis and BenchLM, reconfirming the full AA panel (Intelligence Index, AA-LCR, GDPval-AA, omniscience, CritPt, Coding/IFBench), the hosted pricing, the HF long-context/multilingual/audio rows, and the Tau2 vendor-vs-AA spread plus the 256K-vs-262K context discrepancy; Vals AI and OpenRouter were checked and have no 12B entry (404). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

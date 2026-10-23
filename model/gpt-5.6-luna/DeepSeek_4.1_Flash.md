@@ -1,9 +1,11 @@
 # GPT-5.6 Luna — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`gpt-5.6-luna`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-6-luna`, 35 rows) computes an overall **64.37/100 (#40 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Re-verified 2026-10-18 — major correction.** The first draft scored this model on sparse, conflicting third-party rows (GPQA 55.3%, HLE 14.2%, SWE-bench 60.2%). BenchLM now exposes 48 rows sourced to OpenAI's own GPT-5.6 launch post and system card, and the picture is much stronger: **GPQA 92.3%** (AA 91.1% / Vals 91.7%), **Terminal-Bench 2.1 84.7%** (Vals 79.0%), **SWE-bench (Vals) 93.0%**, DeepSWE 67.2%, **AA-LCR 83.7%**, **HLE 39.5%**, GDPval-AA 1582 Elo, MMMU-Pro 78.4%. Reasoning 58 → 86, Tool 70 → 86, Coding 65 → 86, Multimodal 62 → 68; **Overall 70 → 84**.
 

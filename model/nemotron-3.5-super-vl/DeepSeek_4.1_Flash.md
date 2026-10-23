@@ -1,9 +1,11 @@
 # Nemotron 3.5 Super VL — findings by DeepSeek 4.1 Flash
 
 - Source: NVIDIA / Nemotron 3.5 Super VL (`nemotron-3.5-super-vl`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-10-16 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `nemotron-3.5-super-vl` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Research pass — 2026-10-16** (≥3 independent sources).
 > Released **2026-10-15**. An **open-weights 120B-total / 12B-active hybrid Mamba-Transformer MoE vision-language model** built with the "Nemotron Coalition", for reasoning, coding, tool use, document/GUI understanding and video understanding. **1M-token context** (AA); one host (NanoGPT) caps the served window at **262,144** with a 16K response limit. Text, image and **video** in / text out; reasoning; tool calls; structured output. **OpenMDW 1.1** license. Artificial Analysis: **Intelligence Index 26.5** — the **leading US open-weights model**, ~2× its predecessor Nemotron 3 Super (13), edging Inkling Small (25.7) and ahead of Nemotron 3 Ultra (23); HLE **30.7%**, AA-LCR **69.0%**, SciCode **47.8%**. NVFP4 release is near-lossless (within 0.1 index points of BF16). Notably fast: ~**630 tok/s** at 100K-token prompts. Trained on ~26T tokens + ~3.8M RL samples.
@@ -57,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Artificial Analysis release article, NVIDIA blog, Hugging Face NVFP4 card, NanoGPT model page, StreetInsider/Gate coverage, BenchLM tracking). Vendor-reported figures flagged; the context/max-output host split, release-date variance and thin benchmark coverage are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,11 @@
 # Claude Sonnet 5.5 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic (`anthropic/claude-sonnet-5.5`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-sonnet-5-5`, 56 rows) computes an overall **82.19/100 (#6 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: Terminal-Bench 4.0 **70.6%** (Anthropic) / **64.14%** (Vals), Terminal-Bench 2.1 83.15% (Vals), Terminal-Bench-Science 0.1 59.9%; SWE-bench Pro **81.3%**, SWE Multilingual 90.3%, SWE Multimodal 54.3%, DeepSWE 71.0%, FrontierSWE v2 61.9%, ProgramBench 79.7%, CursorBench 4.0 55.5%, FrontierCode 1.1 Main 46.2% Max / 52.1% xhigh; HLE **64.5%** w/ tools / 56.9% w/o; GDPval-AA v2.1 **1844 Elo** / AA-Briefcase 1811; OSWorld 2.1 **43.5% strict / 80.1% partial**; AutomationBench 44.7%; Toolathlon-Verified 77.8% Pass@1 / 85.2% Pass@3; Vibe Code Bench **92.39% (#1)**; Code Migration 69.83%; BioMysteryBench 81.11%; Chartography 61.6% no-tools / 90.2% tools; BenchCAD tools 0.963; Vals Index 67.04%; BenchLM overall 83.92.
@@ -63,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Anthropic Sonnet line page + Sonnet 5.5 launch page, Apidog benchmark breakdown, BenchLM Kimi K3/Haiku comparisons, Vals AI model page, ComputePrices). Independent Vals/AA rows were promoted over the vendor-only basis; the harness, cache-price, OSWorld-partial and unpublished-GPQA conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

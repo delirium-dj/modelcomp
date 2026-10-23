@@ -1,9 +1,11 @@
 # Gemini 3 Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind/Gemini 3 Flash (`gemini-3-flash-preview`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-06); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-flash`, 12 rows) computes an overall **54.16/100 (#77 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥4 independent sources: Artificial Analysis, BenchLM (2026-10-15), Vals AI, OpenRouter / Google release blog).
 > **Variant caveat (new, load-bearing):** Artificial Analysis now benchmarks `gemini-3-flash-preview` only as a **non-reasoning** model and flags it **deprecated** (suggests Gemini 3.5 Flash). The 2026-10-06 pass mixed reasoning-mode and non-reasoning rows without labelling them, which explains most corrections below.
@@ -76,6 +78,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16 (UTC)
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18 (UTC)
 - Method: public internet research; third-pass re-verification on 2026-10-16 against Artificial Analysis (non-reasoning model page + provider benchmark page), BenchLM (2026-10-15 snapshot), Vals AI and the OpenRouter listing / Google release blog, adding independent Terminal-Bench 2.1, LiveCodeBench, GPQA/MMLU/MMMU, AA Intelligence Index, AA-Omniscience, AA-LCR and Epoch FrontierMath rows and correcting the earlier reasoning numbers (which had mixed reasoning-mode and non-reasoning variants) with scores recalculated as normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

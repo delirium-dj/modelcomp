@@ -1,7 +1,7 @@
 # GLM 5.3 FlashX — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai/GLM-5.3-FlashX (`glm-5.3-flashx`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

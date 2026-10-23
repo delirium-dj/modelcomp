@@ -1,0 +1,16 @@
+{
+  "name": "Poolside",
+  "kind": "vendor",
+  "short": "Poolside's in-house Laguna coding models, served via an OpenAI-compatible inference API (free for a limited time) with downloadable weights.",
+  "officialUrl": "https://poolside.ai",
+  "hosts": ["poolside.ai", "inference.poolside.ai"],
+  "idPrefixes": ["poolside"],
+  "plans": [
+    {
+      "name": "Inference API (limited time)",
+      "price": "$0 (free for a limited time)",
+      "notes": "Laguna S 2.1 / XS 2.1 via OpenAI-compatible endpoint at inference.poolside.ai; self-host weights also available.",
+      "evidenceUrl": "https://poolside.ai/models"
+    }
+  ]
+}

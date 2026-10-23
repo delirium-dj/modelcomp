@@ -1,9 +1,11 @@
 # Qwen3.8-Flash-Next — findings by DeepSeek 4.1 Flash
 
 - Source: Alibaba Cloud/Qwen (`qwen/qwen3.8-flash-next`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.8-flash-next` (404); no new independent benchmark surfaced and the prior deep-pass rows stand. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: official Hugging Face model card `Qwen/Qwen3.8-Flash-Next`, the first-party QwenCloud `qwen3.8-flash` model page, LLM Stats, plus the earlier Artificial Analysis / BenchmarkList aggregates).
 > **Newly found rows (official HF card):** GPQA Diamond **91.7%**, HLE **35.9%** (GPT-4o-judged; Claude Opus 4.6 leads the vendor comparison table at 40.0), LiveCodeBench v6 **91.9%**, IFBench **81.3%**, DeepSWE 1.1 **58.7%**, SWE-bench Pro **62.5%**, SWE-bench Multilingual **81.0%**, NL2Repo-Bench **48.1%**, CoWorkBench **73.9%**, JobBench **55.7%**, Toolathlon Verified **73.5%**, Agents' Last Exam **pass@1 24.3 / score 51.2**; vision **ClawEval-MM 64.4% pass@3 / 60.4 avg**, **AndroidWorld 84.5%**, **OSWorld 2.0 19.4% binary / 52.3% partial**, **Vision2Web 64.0%**, **ERQA 72.3%**, **LVBench 76.6%**, **RealWorldQA 88.5%**, **MathVision 90.6% / 95.7% with CI**, **CharXiv (RQ) 84.6% / 90.6% with CI**. QwenCloud adds the production sibling **`qwen3.8-flash`**: 1M context by default, official built-in tools (web search, code interpreter, PDF parsing, web fetch), **$0.15/$0.47 per 1M** (implicit cache $0.016), max output 131K, 2M TPM / 15K RPM.
@@ -83,6 +85,6 @@ Vision (vendor HF card):
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against the official Hugging Face model card (`Qwen/Qwen3.8-Flash-Next`), the first-party QwenCloud `qwen3.8-flash` page and LLM Stats, correcting the YaRN target (1M = 1,000,000, not 1,048,576) and the input price ($0.15), pinning the architecture (125B LM + 51B N-gram + 4B MTP) and adding the full vendor benchmark table (GPQA 91.7, HLE 35.9, LiveCodeBench 91.9, DeepSWE 58.7, SWE-bench Pro 62.5, Toolathlon 73.5, vision rows) over the 2026-10-05 pass. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

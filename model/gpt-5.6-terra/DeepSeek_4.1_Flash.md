@@ -1,9 +1,11 @@
 # GPT-5.6 Terra — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI / GPT-5.6 Terra (`gpt-5.6-terra`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-6-terra`, 38 rows) computes an overall **70.09/100 (#15 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > OpenAI model docs confirm the balanced "mini-tier" of the GPT-5.6 family: **1,050,000 ctx / 922K max input / 128K max output**, cutoff **2026-02-16**, effort none→max, **$2 / $12 per 1M** (cached $0.20; >272K re-prices to **$4 / $18**), release **2026-07-09**. Independent: Vals AI SWE-bench **95.40% (#5/88)**, **Vals Index 53.09% (#20/45)**, TB4.0 **22.73%**; BenchLM overall **70.22** (agentic 60.6 #26/125, coding 61.9–63.5, reasoning 69.2, multimodal 84.5 #11/54); CloudPrice coding index **76.7 (#6)** and AA-derived rows (TerminalBench Hard 0.6 #3); Requesty GPQA Diamond **92.5%**, τ² **86.3%**, Coding Index 76.7%; The Agent Report (family) Sol > Terra. New rows this pass: **ARC-AGI-2 83.9%**, HLE-Verified 51.1%, MMMU-Pro 80.7%, HealthBench Hard 32.7%, CyberGym 81.8%, BrowseComp 87.5%.
@@ -59,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (OpenAI model docs + pricing, Vals AI model page, BenchLM model + compare pages, Artificial Analysis comparison pages, CloudPrice, Requesty, LLM Gateway, Models.dev, The Agent Report). Independent Vals/BenchLM rows promoted; the AA effort-tier spread, the legacy-vs-current pricing and the weak independent terminal-agent results are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

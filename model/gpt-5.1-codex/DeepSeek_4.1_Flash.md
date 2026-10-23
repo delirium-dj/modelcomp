@@ -1,9 +1,11 @@
 # GPT-5.1 Codex — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI (`openai/gpt-5.1-codex`, hosted as `opencode/gpt-5.1-codex`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-1-codex`, 4 rows) computes an overall **50.39/100 (#96 of 228)** and re-confirms the prior pass. **No score change.**
 
 ## Model card
 

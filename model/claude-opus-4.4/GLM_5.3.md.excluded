@@ -1,0 +1,30 @@
+# Claude Opus 4.4 — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Anthropic (`opencode/claude-opus-4.4`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no Claude Opus 4.4 has ever existed on any Anthropic surface.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23, fresh independent passes over official docs, registries, and the live Zen endpoint):
+
+- **Official models overview** (platform.claude.com, fetched 2026-10-23): current lineup Claude Fable 5.1 / Opus 5.5 / Sonnet 5.5 / Haiku 5.5; the legacy list names Opus 4.5, 4.6, 4.7, 4.8 — **no Opus 4.4 anywhere**.
+- **Official model-deprecations lifecycle table** (complete history including retired models back to Claude 1): the Opus sequence is `claude-opus-4-20250514` (retired) → `claude-opus-4-1-20250805` (retired) → `claude-opus-4-5-20251101` (active, legacy) → 4.6 → 4.7 → 4.8 → 5 → 5.5. There has never been an Opus 4.4 announcement, model card, system card, or API ID.
+- **Curated-meta contradiction:** this folder's `meta.json` claims a "late-2025 Opus (200K/64K, $15/$75)". The actual late-2025 Opus is **4.5** (released 2025-11-24, 200K/64K, **$5/$25**, cache read $0.50 — official Opus 4.5 overview page). The $15/$75 figures match no Anthropic price sheet (they resemble the older Opus 4.1 pricing); the meta's specs and price are unverifiable placeholder-looking values.
+- **Live OpenCode Zen models endpoint** (`https://opencode.ai/zen/v1/models`, fetched 2026-10-23): Anthropic ids served are `claude-opus-4-5`, `claude-opus-4-6`, `claude-opus-4-7`, `claude-opus-4-8`, `claude-opus-5`, `claude-opus-5-5` — **no `claude-opus-4.4` route exists**. The curated id resolves nowhere.
+- **BenchLM** (`claude-opus-4-4`): 404. **Artificial Analysis** (`claude-opus-4-4`): 404. **models.dev**: no Opus 4.4 entry (Anthropic lab lists 4.5 as the oldest Opus with a page).
+
+Conclusion: a phantom entry of the same shape as the parked `gemini-3.1-flash` case — a version slot that the vendor never filled. Any genuine late-2025 Opus measurement belongs in `model/claude-opus-4.5/` (already tracked and researched). A future re-research should look for (a) an Anthropic announcement or model card for an "Opus 4.4", (b) a live `claude-opus-4.4` id on Zen or any provider, (c) aggregator coverage — then write a fresh `GLM_5.3.md`. Until such evidence exists, there is nothing an honest score could be computed from.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (Anthropic official models overview + deprecations lifecycle + Opus 4.5 model page, live OpenCode Zen models endpoint, BenchLM, Artificial Analysis, models.dev); no verified public data exists for this never-shipped version slot.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

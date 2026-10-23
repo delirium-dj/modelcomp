@@ -1,0 +1,32 @@
+# GLM 4.6 Flash — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Z.ai (`opencode/glm-4.6-flash`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found for a text-only GLM-4.6-Flash — every primary source indicates it never shipped.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23, fresh independent passes over the vendor's own surfaces plus third-party registries):
+
+- **Official Z.ai pricing docs** (docs.z.ai, fetched 2026-10-23 — complete model price list): the free Flash lane is listed as **GLM-4.5-Flash** (Free, 2025-07-28 generation) and **GLM-4.7-Flash** (Free, 2026-01-19 generation). There is **no GLM-4.6-Flash line anywhere**; the 4.6 generation's only Flash-tier model is **GLM-4.6V-Flash** (Free) — a *vision* model.
+- **Official Z.ai documentation index** (`docs.z.ai/llms.txt`, fetched 2026-10-23): no GLM-4.6-Flash page exists; current model docs cover GLM-5.3 / GLM-5.2 / GLM-5.3-Flash/FlashX only.
+- **models.dev registry:** no `zhipuai/glm-4.6-flash` entry. The GLM-4.6 generation lists exactly `GLM-4.6` (flagship, 2025-09-30), `GLM-4.6V` and `GLM-4.6V-Flash` (both 2025-12-08, vision, 128K/32K) — the text-Flash cadence skips 4.6: GLM-4.5-Flash (2025-07-28) → GLM-4.7-Flash (2026-01-19).
+- **BenchLM** (`glm-4-6-flash`): 404 — no page; the Z.AI family list (glm-4.5, glm-4.6, glm-4.7, glm-4-5-air, glm-4-7-flash …) contains no 4.6-flash. **Artificial Analysis** (`glm-4-6-flash`): 404.
+- **Live OpenCode Zen models endpoint** (fetched 2026-10-23): no `glm-4.6-flash` id (GLM entries: glm-5, glm-5.1, glm-5.2, glm-5.3, glm-5.3-flash, glm-5.3-flash-free). The curated id resolves nowhere.
+
+**Curated-meta contradiction:** this folder's `meta.json` describes "Z.ai's free text-only Flash variant of GLM-4.6" — a model that matches no Z.ai price-sheet line, no registry entry, and no Zen route. The description's specs (131,072 ctx, text in/out, free) resemble the *vision* GLM-4.6V-Flash minus the vision modality — but dropping the `V` from a vision model's id invents a checkpoint that was never published.
+
+Conclusion: a phantom version slot of the same shape as `claude-opus-4.4` — the text-Flash lane skipped the 4.6 generation. Genuine 4.6-generation Flash research belongs in `model/glm-4.6v-flash/` (tracked separately, vision model); flagship GLM-4.6 measurements live in `model/glm-4.6/`. A future re-research should look for (a) a Z.ai price line, docs page, or registry entry for a text-only `glm-4.6-flash`, (b) a live id on Zen or any provider, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (official Z.ai pricing docs + documentation index, models.dev registry, BenchLM incl. Z.AI family list, Artificial Analysis, live OpenCode Zen models endpoint); no verified public data exists for this never-shipped text-only Flash slot.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

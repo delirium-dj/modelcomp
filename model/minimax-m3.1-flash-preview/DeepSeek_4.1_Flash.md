@@ -1,9 +1,11 @@
 # MiniMax M3.1 Flash Preview — findings by DeepSeek 4.1 Flash
 
 - Source: MiniMax/MiniMax M3.1 Flash Preview (`MiniMax-M3.1-Flash-Preview`)
-- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — third pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`minimax-m3-1-flash-preview`, 14 rows) computes an overall **67.01/100 (#28 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Third-pass refresh — 2026-10-16** (≥3 independent sources: MiniMax's own M3 model page and M3 launch blog, the LLM Reference model page, and BenchLM).
 > **No new benchmark evidence appeared.** The one independent benchmark already on file (AICodeKing's KingBench 3, 53/80 = 66.25%) remains the only verified figure. BenchLM now has a tracking page for this ID but it is **empty — "0 of 638 benchmarks covered", "data coming soon", Overall Rank "Unranked"** (last updated 2026-10-15). Artificial Analysis has no page for the `MiniMax-M3.1-Flash-Preview` ID, and Vals AI has no matching route.
@@ -65,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research; third-pass re-verification on 2026-10-16 against MiniMax's own M3 model page and M3 launch blog, LLM Reference and BenchLM (plus the previously recorded ThreatFrontier analysis of AICodeKing's KingBench 3), confirming there is still no new verified benchmark or price data for this plan-only preview ID, so scores are unchanged. Scores are normalized 1–100 interpretations with one verified benchmark, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

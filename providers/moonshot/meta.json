@@ -1,10 +1,17 @@
 {
   "name": "Moonshot AI",
   "kind": "vendor",
-  "short": "Kimi models on Moonshot's platform, with a membership lane for the K2.8 Preview.",
+  "short": "Kimi models on Moonshot's platform; pay-as-you-go $0.95/$4.00–$3.00/$15.00 per 1M with cached input, plus a membership lane for Kimi K2.8 Preview.",
   "officialUrl": "https://platform.moonshot.ai",
-  "hosts": ["platform.moonshot.ai", "platform.kimi.ai", "kimi.com"],
-  "idPrefixes": ["moonshot", "moonshotai"],
+  "hosts": [
+    "platform.moonshot.ai",
+    "platform.kimi.ai",
+    "kimi.com"
+  ],
+  "idPrefixes": [
+    "moonshot",
+    "moonshotai"
+  ],
   "plans": [
     {
       "name": "Moonshot API pay-as-you-go",

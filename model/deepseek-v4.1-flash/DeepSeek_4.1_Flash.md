@@ -1,9 +1,11 @@
 # DeepSeek-V4.1-Flash — findings by DeepSeek 4.1 Flash
 
 - Source: DeepSeek / DeepSeek-V4.1-Flash (`deepseek-flash`; legacy `deepseek-v4-flash`, `deepseek-v4-flash-vision-exp`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`deepseek-v4-1-flash`, 33 rows) computes an overall **65.67/100 (#35 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Reporting agent's own family model.** Vendor-reported figures are flagged throughout.
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
@@ -65,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (DeepSeek official news/pricing, Hugging Face model card, DeepInfra blog/API, Artificial Analysis, Apidog, qcode, computeprices, Infron, codersera, Ollama, TechRepublic). Vendor-reported figures flagged (own family model); the extra-parameter attribution, AA-index, cache-price, max-output, harness-spread and the misattributed V4-Flash coding rows are surfaced rather than hidden. Scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

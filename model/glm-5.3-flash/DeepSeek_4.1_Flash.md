@@ -1,9 +1,11 @@
 # GLM-5.3-Flash — findings by DeepSeek 4.1 Flash
 
 - Source: Z.ai (Zhipu AI) / GLM-5.3-Flash (`glm-5.3-flash`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-05)
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-05); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`glm-5-3-flash`, 28 rows) computes an overall **58.51/100 (#60 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Artificial Analysis (v4.3/v4.1.1): **Intelligence Index 42 (#49/651, v4.3)** with AA-Briefcase 1449, **GDPval-AA v2 1655 Elo**, AutomationBench-AA **60%**, Terminal-Bench 4.0 **33%**, SciCode 52%, HLE 40%, GDP.pdf 15%, CritPt 15%, AA-Omniscience 7, AA-LCR v1.1 80%; blended **$0.0982/1M**, **$0.25/task**; 50.2–114 tok/s across pages, TTFT 1.47–2.34s. Z.ai launch blog: Terminal Bench 2.1 **84.3%**, DeepSWE v1.1 **63.4%**, NL2Repo 56.3%, **OSWorld 2.0 59.1%**, Vision2Web 77.8%, AutomationBench 48.8%, HLE-with-tools 55.3%, OfficeQA Pro 62.4%, Z.ai Code Bench v1.0 29.0 (vs Opus 4.8 29.5). Vals AI (Legal page): Legal Research Bench 41.83% (#22/76), Harvey Legal Agent 19.17% (#6/77), LegalBench 86.23% (#14/150). BenchLeader: Index **62.2 (#83/760)**, Vibe Code Bench 1–100 **16.0 (#13)**, Code Migration 20.5%, ProgramBench 0.0%. **FlashX** high-speed variant (glm-5.3-flashx, 2026-09-18, up to 200 tok/s) is a sibling, not this slug. Pricing $0.15/$0.50, cached $0.03, 1,048,576 ctx, 131K max out, MIT weights.
@@ -69,6 +71,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (`deepseek/deepseek-v4.1-flash`)** — 2026-10-16
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: rewrite-pass public internet research (Z.ai launch blog + alphaXiv summary, Artificial Analysis model + comparison pages, Vals AI Legal model page, BenchLeader, Capital & Compute, glm5.app vendor-vs-independent analysis, Modular Model Garden, LM Market Cap, UsagePricing). Independent AA/Vals rows were promoted over vendor-only rows; the AA-index rebase, speed spread, unreproduced SWE-bench row, context/output revision and modality mismatch are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,10 +1,15 @@
 {
   "name": "Anthropic",
   "kind": "vendor",
-  "short": "Claude models direct from Anthropic's API — Haiku 3.5 through Opus 5.5.",
+  "short": "Claude models direct from Anthropic's API; pay-as-you-go from $0.10/$0.50 per 1M (Haiku 5.5) up to $10/$50 per 1M (Opus / Fable class), with a 50% Batch API discount.",
   "officialUrl": "https://www.anthropic.com",
-  "hosts": ["anthropic.com", "docs.anthropic.com"],
-  "idPrefixes": ["anthropic"],
+  "hosts": [
+    "anthropic.com",
+    "docs.anthropic.com"
+  ],
+  "idPrefixes": [
+    "anthropic"
+  ],
   "plans": [
     {
       "name": "Claude API pay-as-you-go",

@@ -1,0 +1,22 @@
+{
+  "name": "InclusionAI",
+  "kind": "vendor",
+  "short": "Ant Intelligence's Ling model family via the Ant Ling developer platform — pay-as-you-go (CNY) with daily free quota and OpenAI/Anthropic-compatible APIs.",
+  "officialUrl": "https://developer.ant-ling.com",
+  "hosts": ["developer.ant-ling.com", "ant-ling.com"],
+  "idPrefixes": ["inclusionAI", "inclusionai"],
+  "plans": [
+    {
+      "name": "Free quota",
+      "price": "$0 (daily free quota)",
+      "notes": "Daily free token quota per account; auto-switches to pay-as-you-go once exhausted (with Alipay binding).",
+      "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Usage-based (CNY per token)",
+      "notes": "Ling-3.1-flash ¥2.00 in / ¥6.00 out per 1M (75% promo); Ling-3.0-flash ¥0.50 in / ¥1.50 out per 1M (72% promo).",
+      "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
+    }
+  ]
+}

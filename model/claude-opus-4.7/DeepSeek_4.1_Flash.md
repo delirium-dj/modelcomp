@@ -1,9 +1,11 @@
 # Claude Opus 4.7 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic (`claude-opus-4-7`, hosted as `opencode/claude-opus-4.7`)
-- Date: 2026-10-18 (UTC)
+- Date: 2026-10-18 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-opus-4-7`, 17 rows) computes an overall **65.3/100 (#36 of 228)** and re-confirms the prior pass. **No score change.**
 
 ## Model card
 
