@@ -17,10 +17,6 @@ import type { Plugin } from "@opencode-ai/plugin"
 //      We match only the stable "temporarily rate-limited upstream" fragment
 //      (the "[Vendor] model" prefix, "Please retry shortly" tail, and the
 //      settings URL all vary).
-//   3. generic service-overload drops. Some models send
-//        "The service may be temporarily overloaded, please try again later"
-//      We match the stable core "temporarily overloaded" (the advice tail
-//      "please try again later" can vary or be absent).
 // Any model/provider can send either error, so the plugin is deliberately
 // global (no model filter).
 //
@@ -45,10 +41,6 @@ import type { Plugin } from "@opencode-ai/plugin"
 const PATTERNS = [
   "currently experiencing high demand",
   "temporarily rate-limited upstream",
-  // Generic service-overload drop ("The service may be temporarily
-  // overloaded, please try again later"). Scoped narrowly to avoid a legit
-  // assistant answer about outages tripping the silent/embedded scanner.
-  "temporarily overloaded",
 ]
 
 // How long to wait before nudging: 20 seconds = 20_000 milliseconds.

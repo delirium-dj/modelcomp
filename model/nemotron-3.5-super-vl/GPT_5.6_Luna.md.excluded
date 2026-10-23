@@ -1,0 +1,35 @@
+# Nemotron 3.5 Super VL — findings by GPT 5.6 Luna
+
+- Source: Nemotron 3.5 Super VL
+- Date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Super VL
+- **Short description:** The exact model identity could not be verified from authoritative public documentation.
+- **Provider / access:** No verified public provider or API ID found for this exact name.
+- **Release / knowledge:** Not verified.
+- **IDs:** Not verified.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-17):** Not verified.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found
+
+- No verified public benchmark score found for the exact Nemotron 3.5 Super VL model/ID after fresh independent searches.
+- Official-source check: [NVIDIA Nemotron foundation models](https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron-3/) returned no matching public model page.
+- Model-card check: [Hugging Face search target](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super) was unavailable and did not verify the exact model.
+- Independent/search checks: [Bing exact-name benchmark search](https://www.bing.com/search?q=%22Nemotron+3.5+Super+VL%22+benchmark) and [arXiv exact-name search](https://arxiv.org/search/?query=Nemotron+3.5+Super+VL&searchtype=all) produced no verifiable exact-model benchmark result. Google and DuckDuckGo checks were also attempted, but did not provide a verifiable exact-model source.
+- Search conflicts: no source established a distinct model card, provider ID, or benchmark result for this exact name; similarly named Nemotron entries were not treated as evidence for this model.
+
+## Normalized scores (1–100)
+
+- Not scored: zero verified benchmark evidence. This file is intentionally excluded from averages.
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-17
+- Method: fresh public web research using official-source, independent search, and academic-index checks; self-excluded because no verified benchmark evidence was found.

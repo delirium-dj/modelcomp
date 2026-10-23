@@ -1,6 +1,7 @@
 {
   "name": "Helicone",
   "kind": "aggregator",
+  "retired": true,
   "short": "Open-source LLM observability platform and AI gateway with an included free monthly logging and proxy tier.",
   "officialUrl": "https://helicone.ai",
   "hosts": ["helicone.ai", "ai-gateway.helicone.ai"],

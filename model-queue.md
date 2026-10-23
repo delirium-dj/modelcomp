@@ -150,6 +150,7 @@
 68.4 diffusiongemma-26b-a4b
 68.1 ling-3.1-flash
 68.1 solar-open-2
+68 leanstral-1.5
 67.6 solar-pro-4
 66.8 mai-thinking-1
 66.8 pixel_canary
@@ -158,7 +159,6 @@
 66.2 laguna-s-2.1
 66.2 ring-2.6.1t
 66.1 gpt-5-nano
-66 neomorph
 65.2 minimax-m2.5
 64.8 claude-haiku-3.5
 64.5 glm-5
@@ -167,6 +167,7 @@
 63.8 ling-3.0-flash
 63.5 owl-alpha
 63.4 qwen-3.5-4b
+63.2 glm-4.6-flash
 63.2 omen-alpha
 63 ling-2.6.1t
 62.5 grok-5
@@ -187,16 +188,16 @@
 57.2 big-pickle
 56.9 nemotron-3.5-lightning-free
 56.6 gpt-oss-120b-lite
-56.4 glm-4.6-flash
 56.3 glm-4.5-flash
 54.2 gemma-4-e2b
 53.8 ling-2.6-flash
 53.7 mercury-2.5
 52.5 qwen-3.5-2b
 52.3 ling-3.0-tiny
+52 neomorph
 52 omi-alpha
 51 owo-2.5
+50 nemotron-3.5-bolt-e4b
 47.5 mai-experimental-test
 44.3 qwen-3.5-0.8b
-41 nemotron-3.5-bolt-e4b
 39.5 jev-1.13

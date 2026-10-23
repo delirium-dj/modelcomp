@@ -1,0 +1,8 @@
+{
+  "id": "opencode/leanstral-1.5",
+  "name": "Leanstral 1.5",
+  "short": "Mistral AI's 119B/6.5B active MoE formal theorem proving model for Lean 4 autoformalization across 256K context.",
+  "contextWindow": "262,144 (256K)",
+  "modalities": "Text in; text out",
+  "pricingNote": "Free open weights ($0/$0); hosted ~$0.15/$0.45"
+}

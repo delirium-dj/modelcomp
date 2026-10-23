@@ -1,0 +1,31 @@
+# Neomorph — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: unknown (`opencode/neomorph`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no trace of a "Neomorph" model exists on any current catalog, registry, or endpoint.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-23):
+
+- **Official OpenCode Console/Zen docs** (`opencode.ai/docs/zen`, fetched 2026-10-23 — the complete endpoint table, pricing table, free-model list, **and deprecated-models list**): no "Neomorph" in any table, at any price, in any state. The curated meta's "$0.50/$1.50 (provider documentation)" matches no current price line.
+- **Live OpenCode Zen models endpoint** (`https://opencode.ai/zen/v1/models`, fetched 2026-10-23): no `neomorph` id — the curated `opencode/neomorph` resolves nowhere.
+- **BenchLM** (`neomorph`): 404. **Artificial Analysis**: no page. **models.dev**: no entry.
+- Web search: blocked by bot-challenge this pass — no independent coverage found through accessible channels.
+
+The curated meta describes "OpenCode Zen experimental model (64K ctx, $0.50/$1.50) with modular sub-network architecture and structured-output focus" — the shape of a transient experimental Zen slot (cf. `mai-experimental-test`). Whether it was a short-lived test alias or never existed, there is nothing verifiable behind the name today: no vendor, no weights, no benchmarks, no live route, and not even a deprecation record.
+
+A future re-research should look for (a) a live `neomorph` id on Zen or any provider, (b) an OpenCode changelog/console announcement covering it, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (official OpenCode Zen docs incl. complete endpoint/pricing/deprecated tables, live Zen models endpoint, BenchLM, Artificial Analysis, models.dev); no verified public data exists for this unresolvable slot.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

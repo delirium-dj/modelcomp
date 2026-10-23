@@ -1,0 +1,38 @@
+# GPT-5.2 Pro — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: OpenAI (`openai/gpt-5.2-pro`, official id `gpt-5.2-pro-2025-12-11`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23, identity/specs/pricing only, no measured numbers):
+
+- **Identity (official OpenAI model docs):** GPT-5.2 Pro — "previous pro model for professional work that produces smarter and more precise responses"; superseded by GPT-5.5 Pro. Responses API only; reasoning efforts `medium`/`high`/`xhigh`; "some requests may take several minutes" (background mode recommended). Snapshot `gpt-5.2-pro-2025-12-11`, released 2025-12-11.
+- **Specs (official docs):** 400,000 context / 128,000 max output; text + image in, text out; knowledge cutoff 2025-08-31; tools: function_calling, file_search, image_generation, mcp, web_search.
+- **Pricing (official pricing page, fetched 2026-10-23):** **$21 in / $168 out per 1M** — confirms the curated meta; models.dev's $19.09/$152.73 figures are stale/different and are superseded by the official sheet. No cached-input line published for this tier.
+- **Zen:** `gpt-5.2-pro` absent from the live OpenCode Zen models endpoint (2026-10-23).
+
+Sources checked with no benchmark rows (2026-10-23):
+
+- **BenchLM** (`gpt-5-2-pro`): page exists but **0 of 705 benchmarks covered — "Benchmark data is coming soon", unranked** (updated 2026-10-23). The 66.64 figure visible in BenchLM's OpenAI family sidebar has no displayable rows behind it on the model page — not citable as verified evidence.
+- **Artificial Analysis** (`gpt-5-2-pro`): 404 — no page (AA does not benchmark the Pro tier).
+- **Vals AI** (`openai_gpt-5.2-pro`): 404 — no leaderboard entry.
+- OpenAI's model docs carry specs and pricing but publish no benchmark table for this tier.
+
+Interpolation from the non-Pro GPT-5.2 (BenchLM 59.83), GPT-5.2 Codex, or the successor GPT-5.5 Pro was deliberately NOT used — the Pro tier is a distinct high-compute checkpoint, and its scores cannot be derived from siblings.
+
+A future re-research should look for (a) an OpenAI announcement post or system card with GPT-5.2 Pro benchmark figures (AIME/GPQA/SWE-bench style rows), (b) BenchLM rows once coverage lands, (c) any independent Pro-tier evaluation — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (official OpenAI model docs + pricing, BenchLM tracker page, Artificial Analysis, Vals AI, models.dev, live OpenCode Zen models endpoint); no verified public scores exist for this Pro-tier checkpoint.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,29 @@
+# GPT-OSS 120B Lite — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: OpenAI (`opencode/gpt-oss-120b-lite`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no GPT-OSS 120B "Lite" exists on any OpenAI surface.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23):
+
+- **The official GPT-OSS family (HF search over 5,475 gpt-oss results, trending page):** OpenAI's own repos are `openai/gpt-oss-120b` (117B, Aug 2025), `openai/gpt-oss-20b` (21B), and `openai/gpt-oss-safeguard-120b` — **no `gpt-oss-120b-lite` repo exists**; every other result is a community quantization/finetune of the 120B or 20B.
+- **Official OpenAI model docs:** `gpt-oss-120b-lite` → 404; the documented open-weight SKUs are gpt-oss-120b and gpt-oss-20b.
+- **BenchLM** (`gpt-oss-120b-lite`): 404 — no page. **models.dev:** no such entry (family: GPT OSS 120B, GPT OSS 20B, Safeguard 120B/20B only). **Live OpenCode Zen models endpoint** (2026-10-23): no `gpt-oss-120b-lite` id — the curated id resolves nowhere.
+- **Curated-meta contradiction:** this folder's `meta.json` describes a "117B/5.1B-active MoE Lite (131,072 ctx / 32,768 out) tuned for concise, high-density reasoning". Those specs are **exactly the real `gpt-oss-120b`'s specs** (117B total / 5.1B active MoE, 131,072 context, 32,768 output, Apache 2.0) with a "-lite" suffix — the suffix invents a checkpoint OpenAI never published; "concise, high-density reasoning" reads as a reasoning-effort label, not a distinct model.
+
+Conclusion: a phantom SKU of the same shape as `claude-opus-4.4` — a suffix variant of a real model that was never shipped as its own checkpoint. Genuine GPT-OSS 120B research belongs in `model/gpt-oss-120b/` (already tracked and researched). A future re-research should look for (a) an OpenAI announcement or HF repo for a `gpt-oss-120b-lite`, (b) a live id on Zen or any provider, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (Hugging Face full gpt-oss catalog search, official OpenAI model docs, BenchLM, models.dev, live OpenCode Zen models endpoint); no verified public data exists for this never-shipped SKU.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
