@@ -1,0 +1,42 @@
+# Neomorph — findings by Qwen 3.8 Flash (self-excluded: unattributed stealth codename, no verified benchmarks)
+
+## Exclusion note
+
+**No scores are asserted for `neomorph`.** As of 2026-10-23, **"Neomorph" cannot be attributed to any identified lab, product, or benchmarked model.** It appears only as an **anonymous/experimental slot** (the curated card labels it an "OpenCode Zen *experimental* model" with a speculative "modular sub-network architecture"), and a broad web sweep surfaced **no first-party model card, no technical report, no Artificial Analysis / OpenRouter / Vals benchmark row, and no independent press** for an LLM by that name. Every "neomorph" hit resolves to unrelated things (a WordPress theme, a biology "neomorph protein," a shop brand) — **not** an AI model. Per `RULES.md` (research permanence + no-fabrication + no-reattribution), a stealth/experimental ID with **zero verified public benchmarks and no confirmed identity** is **excluded**, not scored.
+
+### Why this is an exclusion rather than a lineage- or spec-inferred score
+
+- **No identity anchor.** Unlike a same-lineage point release (Claude Sonnet 5.4, scorable on family evidence) or even a documented-but-unbenchmarked shipping API tier (Qwen 3.7 Flash, whose *existence, maker, context and price* are all confirmed), Neomorph has **no confirmed provider or product page** — only a curated guess.
+- **No capability evidence at all.** The `meta.json` fields are marked as coming from unnamed "provider documentation"; none could be corroborated, and there is **no benchmark absolute of any kind** to normalize against.
+- **Stealth-codename pattern.** OpenCode Zen has historically run anonymous pre-release aliases (e.g. Z.ai tested GLM-5.3-Flash as "ox-alpha"); an anonymous "experimental" entry with a fabricated-sounding architecture note fits that mold — meaning its true underlying model is **unknown**, and guessing/attributing it would be fabrication. (If it later de-anonymizes to a real model, it should be scored under *that* identity's evidence, not invented here.)
+
+## Model card (verified facts only)
+
+- **Name (as listed):** Neomorph
+- **Curated id:** `opencode/neomorph`
+- **Queue Overall (aggregate, for context only):** 66 — *reflects other reporters' unverified entries; this STEM asserts none.*
+- **Claimed provider:** "OpenCode Zen experimental" (unconfirmed; no verifiable product page found)
+- **Claimed context:** 64,000 total / 4,096 max output (unverified)
+- **Claimed modalities:** Text in/out (unverified)
+- **Claimed pricing:** $0.50/$1.50 per 1M (attributed only to unnamed "provider documentation")
+
+### Raw benchmarks found
+
+- Artificial Analysis Intelligence Index — **no entry located**
+- GPQA / MMLU / MMLU-Pro / HLE — **no verified public score found**
+- SWE-bench / LiveCodeBench / Terminal-Bench — **no verified public score found**
+- MRCR / RULER / multimodal evals — **none located**
+- Any first-party model card, tech report, or named vendor — **not found**
+
+### No scores asserted
+
+Because neither the model's identity nor a single benchmark can be verified, all seven dimensions (Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall) are left **unscored**. Scoring would invent capability figures for an unidentified model and corrupt the dataset.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
+- Method: public internet research — repeated web searches for "Neomorph" as an LLM/AI model (OpenCode Zen listing, benchmark aggregators, tech press) returned **no model by that name**; all hits were unrelated (software theme, biology term, retail brand). Scaffolded/speculative `meta.json` ("experimental model," "modular sub-network architecture," pricing "per provider documentation") is uncorroborated. `model-queue.md` confirms `neomorph` is in-scope (aggregate 66) but that aggregate is not evidence of identity or capability. Conclusion: **unattributed stealth/experimental codename with zero verified benchmarks → self-excluded**, not scored and not attributed to any guessed parent model.
+- Revisit trigger: a de-anonymization event — OpenCode Zen (or a lab) publishing a real model card, maker, or any independent benchmark (Artificial Analysis / Vals / OpenRouter) for `neomorph`. Until then, exclusion stands.
+- Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

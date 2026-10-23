@@ -1,0 +1,46 @@
+# Qwen 3.8 325B — findings by Qwen 3.8 Flash (self-excluded: unverified / phantom slug)
+
+## Exclusion note
+
+**No scores are asserted for `qwen-3.8-325b`.** As of 2026-10-23 there is **no verifiable public evidence that a distinct "Qwen 3.8 325B" model exists**, and no benchmark, model card, API route, or pricing row could be located for that exact identifier. The curated `meta.json` is itself **scaffolded/unverified** ("Alibaba Qwen 3.8 325B model unverified as of 2026-10-20", context/modality/pricing all "Unverified"). Per `RULES.md` (research permanence + no-fabrication) and the self-exclusion protocol, a model with **zero verified public benchmarks for its exact ID** is **not scored and not reattributed** — writing numbers here would require inventing them or stealing a sibling's, both forbidden.
+
+### Why it is being treated as a phantom (not folded into a real sibling)
+
+The documented **Qwen 3.8 family** (verified on qwen.ai and Hugging Face, Aug 2026) spans three shipped sizes, none of which is 325B:
+
+- **Qwen3.8-27B** — dense, 5120 hidden dim, 64 layers, hybrid Gated DeltaNet + Gated Attention (HF `Qwen/Qwen3.8-27B`, 2026-08-13)
+- **Qwen3.8-Flash-Next** — ~180B MoE preview (HF `Qwen/Qwen3.8-Flash-Next`, 2026-08-26)
+- **Qwen3.8-Max** — **2.4 trillion total / 95B active** MoE (HF `Qwen/Qwen3.8-2.4T-A95B`; qwen.ai blog 2026-08-02)
+
+**325B matches none of these.** It is not a re-spelling of the 180B flash, the 27B dense, or the 2.4T Max. Reattributing, e.g., "325B is really the Flash-Next" would be fabrication — hence exclusion rather than a scored report or a lineage-anchored report (contrast: a legitimate same-lineage point release like Claude Sonnet 5.4 *is* scorable on family evidence; a non-existent size is not). Community HF threads even show users *requesting* intermediate Qwen 3.8 MoE sizes that Alibaba had not shipped — consistent with "325B" being an aspirational/mis-listed entry rather than a released model.
+
+## Model card (verified facts only)
+
+- **Name (as listed):** Qwen 3.8 325B
+- **Curated id:** `opencode/qwen-3.8-325b`
+- **Claimed provider:** Alibaba Qwen
+- **Context window:** Unverified (meta)
+- **Modalities:** Unverified (meta)
+- **Pricing:** Unverified (meta)
+- **Release:** No verifiable release record for this exact size located as of 2026-10-23.
+
+### Raw benchmarks found
+
+- SWE-bench Verified — **no verified public score found** for `qwen-3.8-325b`
+- GPQA-Diamond / HLE / AIME — **no verified public score found**
+- Artificial Analysis Intelligence Index — **no entry located for this exact ID**
+- Terminal-Bench / agentic — **no verified public score found**
+- Context-window (MRCR/RULER) and multimodal evals — **none located**
+
+### No scores asserted
+
+Because no independent or first-party benchmark row exists for the exact identifier, all seven dimensions (Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall) are left **unscored**. Scoring would misrepresent the dataset.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
+- Method: public internet research — **qwen.ai** Qwen3.8-Max launch blog (2.4T params, 2026-08-02) and the **Hugging Face** Qwen org (`Qwen/Qwen3.8-27B` dense, `Qwen/Qwen3.8-Flash-Next` ~180B MoE, `Qwen/Qwen3.8-2.4T-A95B`) establishing that the shipped 3.8 lineup is 27B / 180B / 2.4T with **no 325B variant**; corroborating third-party writeups (yottalabs, kie.ai, mindstudio, explainx) and r/LocalLLaMA threads likewise list no 325B. Scaffolded `meta.json` flags the entry as unverified. Conclusion: **phantom/unreleased slug → self-excluded**, not scored and not reattributed.
+- Revisit trigger: a genuine Qwen 3.8 325B model card, API route, or Artificial Analysis / third-party benchmark row appearing for the **exact** `325B` identifier — at which point this exclusion should be replaced by a scored `Qwen_3.8_Flash.md`.
+- Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.
