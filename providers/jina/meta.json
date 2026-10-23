@@ -1,14 +1,14 @@
 {
   "name": "Jina AI",
   "kind": "vendor",
-  "short": "Multimodal embedding models, rerankers, and reader APIs for search and RAG pipelines.",
+  "short": "High-performance multimodal embedding models, advanced neural rerankers, and reader APIs optimized for RAG and search pipelines.",
   "officialUrl": "https://jina.ai",
   "hosts": ["jina.ai"],
   "plans": [
     {
       "name": "API Pay-as-you-go",
       "price": "Per 1M tokens",
-      "notes": "Jina Embeddings v3 and Rerank v2 volumetric API pricing.",
+      "notes": "Jina Embeddings v3 and Rerank v2 volumetric API tier pricing.",
       "evidenceUrl": "https://jina.ai/pricing/"
     }
   ]

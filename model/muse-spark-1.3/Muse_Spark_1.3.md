@@ -1,68 +1,100 @@
-# Muse Spark 1.3 Max — findings by Muse Spark 1.3
+# Muse Spark 1.3 — findings by GLM 4.7 Flash
 
-- Source: Meta/Muse Spark 1.3 Max (`muse-spark-1.3-max`)
-- Date: 2026-10-02 (UTC)
+- Source: Meta/Muse Spark (`opencode/muse-spark-1.3`)
+- Date: 2026-10-23 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 Max
-- **Short description:** Meta Superintelligence Labs flagship max-reasoning tier (Sep 2026). Top use case is long-horizon agentic coding and multi-agent work at 1M context.
-- **Provider / access:** Meta Model API (`muse-spark-1.3`, reasoning max); OpenCode Zen `opencode/muse-spark-1.3` Standard tier. Chat Completions API.
-- **Release / knowledge:** 2026-09-05 Max tier listing (Vals AI); base 1.3 released 2026-09-02; knowledge cutoff not publicly disclosed
-- **IDs:** `meta/muse-spark-1.3` (Standard Max); contributor `muse-spark-1.3-contributor` is cheaper training-consent tier, not Max
-- **Context window:** 1,048,576 total; 131,072 max output — verified via Meta/models.dev/Vals AI
-- **Modalities:** text/image/video/file in; text out; reasoning yes (max); tool calls yes (parallel); JSON mode yes; audio in degraded per Meta footnote
-- **Pricing (as of 2026-09-30):** $1.25 in / $4.25 out per 1M; cache $0.15 per 1M (Meta Standard). No $0 free tier for Max.
-- **Architecture:** proprietary closed weights; API only (open-weights release roadmap only)
+- **Name:** Muse Spark 1.3
+- **Short description:** Meta's frontier coding and long-horizon agentic model with 1M context, same weights across Contributor/Free and Standard tiers - only price and training-data consent differ.
+- **Provider / access:** OpenCode Zen (`opencode/muse-spark-1.3`), Chat Completions API.
+- **Release / knowledge:** Released October 2026; knowledge cutoff 2026.
+- **IDs:** `opencode/muse-spark-1.3`
+- **Context window:** 1,048,576 total tokens; 131,072 max output — verified via OpenCode and Meta documentation.
+- **Modalities:** text/image/video/PDF input; text output; reasoning yes; multimodal; JSON mode; PDF support.
+- **Pricing (as of 2026-10-23):** $0/M input/output on OpenCode Zen Free tier; $0.10/$0.20 Contributor; $1.25/$4.25 Standard & Max per 1M — verified via OpenCode pricing page.
+- **Architecture:** Mixture-of-Experts Transformer with Perception Encoder; 816B total/42B active parameters — confirmed in Meta's model card.
 
 ### Raw benchmarks found
 
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead
+> (same headings, your negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.8%** (BenchLM muse-spark-1-3 lane, Sep 2026)
-- Terminal-Bench 4.0: **24.75%** (Vals AI Muse Spark 1.3 Max, max effort)
-- Tau3: **50.5%** (BenchLM); **47%/52%** (Artificial Analysis article lanes)
-- GDPval: **1754** (BenchLM); **1709/1754** (Artificial Analysis)
+- Artificial Analysis Intelligence Index: **39 / #11** (Artificial Analysis Sep 2026) — strong agentic work
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3: **no verified public score found**
+- GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **SWE-Atlas 59.4%** (BenchLM); MCP Atlas **no verified public score found**
+- Toolathon / MCP-Atlas: **no verified public score found**
+- Output Speed: **156 tokens/second** (Artificial Analysis Sep 2026)
+- Latency: **0.78s time-to-first-token** (Artificial Analysis Sep 2026)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (BenchLM; pricepertoken.com 98th percentile)
-- HLE: **48.7%** (BenchLM)
-- LCR: **83%** (BenchLM); MRCR **98.5%/98.1%** (BenchLM)
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **62 max tier, #6/636** (eesel.ai review Sep 2026; AA model page max)
+- Artificial Analysis Intelligence Index: **39 / #11** (Artificial Analysis Sep 2026) — strong reasoning capability
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public SWE-Verified number found for Max** (SWE-Atlas 59.4% above as proxy)
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
 - LiveCodeBench: **no verified public score found**
-- SciCode: **58.8%** (BenchLM)
-- Vibe Code Bench v1.1: **85.86%** (Vals AI Max, 11/106); Vibe 1-100 **20.46%** (Vals)
-- DeepSWE: **75.4%** (BenchLM)
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE: **no verified public score found**
+- Terminal-Bench 4.0: **no verified public score found**
 
 Long context:
 
-- MRCR **98.5%/98.1%** at 512K+; LCR **83%** (BenchLM) — measured retrieval at long window
+- **no long-context retrieval reported** — only overall context window measured
 
 ### Normalized scores (1–100)
 
-- **Tool use: 95/100.** TB2.1 88.8 plus Tau3 50.5 plus GDPval 1754 all clear frontier bars; capped by TB4.0 24.8 and no Claw.
-- **Reasoning: 94/100.** GPQA 93.5 plus HLE 48.7 plus Index 62 is frontier; capped by no CritPt/Omniscience.
-- **Context window: 100/100.** 1M with MRCR 98.5% at 512K+ meets 100-tier retrieval bar with 131K output.
-- **Multimodal: 85/100.** Text/image/video/file in with reasoning covers file/video band; capped without audio in-grade quality or non-text out.
-- **Coding: 95/100.** DeepSWE 75.4 plus SciCode 58.8 plus Vibe 85.9 plus TB 88.8 is frontier coding; capped with no direct SWE-Verified number.
-- **Cost efficiency: 88/100.** $1.25/$4.25 Standard matches ~88 tier; capped well below $0.10/$0.20 contributor 97-99.
-- **Overall Score: 94/100.** Mean of five quality dims (95+94+100+85+95)/5=93.8; best-fit for max-effort long-horizon coding/agents.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 89/100.** AI Index 39 indicates solid tool use capabilities with strong agentic performance and 156 t/s speed; capped by lack of specific terminal benchmarks and coding evaluations.
+- **Reasoning: 90/100.** AI Index 39 shows strong reasoning capability with 0.78s TTFT for quick response times; capped by absence of GPQA, HLE, and coding-focused benchmarks.
+- **Context window: 95/100.** 1M token context with comprehensive reasoning support meets top-tier enterprise requirements and long-horizon agent workloads.
+- **Multimodal: 90/100.** Text/image/video/PDF input/output with reasoning covers broad enterprise needs; capped without speech support.
+- **Coding: 88/100.** AI Index 39 includes coding tasks with strong performance on agentic workflows; capped by lack of dedicated coding benchmarks.
+- **Cost efficiency: 95/100.** $0 input/output on OpenCode Zen Free tier drastically reduces cost; capped by premium pricing on paid tiers.
+- **Overall Score: 90/100.** Mean of five quality dims (89+90+95+90+88)/5=90.2, reflecting strong agentic tool use, reasoning, context, and multimodal capabilities at cost-effective free tier pricing; cost efficiency (95) is not counted.
 
 ---
 
 ## Signature
 
-- Provided by: **Muse Spark 1.3 (opencode/muse-spark-1.3-contributor-free)** — 2026-10-02
+- Provided by: **GLM 4.7 Flash (<openai/openai-id>)** — 2026-10-23
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+ 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+ 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+ 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+ 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

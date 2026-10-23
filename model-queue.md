@@ -3,8 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
-94.2 gemini-4-argo
-94 muse-spark-1.3
+93.9 muse-spark-1.3
 93.4 claude-opus-5.5
 92.6 gemini-4-argon
 92.5 gemini-3.8-flash
@@ -31,6 +30,7 @@
 89.2 gemini-3.5-flash
 88.9 gpt-5.4-pro
 88.8 gpt-5.6-terra
+88.8 muse-wonder-1.0
 88.7 gemini-3.6-flash
 88.4 deepseek-v4.1-flash
 88.3 mimo-v2.6-flash
@@ -38,7 +38,6 @@
 88.1 claude-opus-4.6
 88.1 muse-spark-1.1
 88 gpt-6-sol
-88 muse-wonder-1.0
 87.9 claude-sonnet-5
 87.7 ox_alpha
 87.6 gemini-3-flash

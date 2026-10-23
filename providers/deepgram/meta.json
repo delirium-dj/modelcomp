@@ -1,0 +1,15 @@
+{
+  "name": "Deepgram",
+  "kind": "vendor",
+  "short": "Enterprise speech-to-text, text-to-speech, and audio intelligence APIs.",
+  "officialUrl": "https://deepgram.com",
+  "hosts": ["deepgram.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per audio minute",
+      "notes": "Nova-3 speech-to-text starting at $0.0043 per minute.",
+      "evidenceUrl": "https://deepgram.com/pricing"
+    }
+  ]
+}

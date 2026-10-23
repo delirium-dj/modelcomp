@@ -157,7 +157,7 @@ export const VERIFIED: Record<string, string> = {
   "muse-glimmer-30b": "2026-10-21",
   "muse-spark-1.1": "2026-10-22",
   "muse-spark-1.2": "2026-10-22",
-  "muse-spark-1.3": "2026-10-22",
+  "muse-spark-1.3": "2026-10-23",
   "muse-wonder-1.0": "2026-10-23",
   "nemotron-3-nano-omni": "2026-10-21",
   "nemotron-3-ultra-free": "2026-10-21",

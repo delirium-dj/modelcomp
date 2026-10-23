@@ -1,20 +1,20 @@
 {
   "name": "ElevenLabs",
   "kind": "vendor",
-  "short": "Voice cloning, text-to-speech, and sound effects APIs and creative workspace.",
+  "short": "State-of-the-art voice cloning, multilingual text-to-speech, sound effects, and conversational voice agent APIs.",
   "officialUrl": "https://elevenlabs.io",
   "hosts": ["elevenlabs.io", "api.elevenlabs.io"],
   "plans": [
     {
       "name": "Free",
       "price": "$0",
-      "notes": "10,000 characters per month with attribution.",
+      "notes": "10,000 characters per month (~10 minutes of audio) with required attribution.",
       "evidenceUrl": "https://elevenlabs.io/pricing"
     },
     {
       "name": "Creator",
       "price": "$22/month",
-      "notes": "100,000 characters per month (~2 hours of audio) and commercial license.",
+      "notes": "100,000 characters per month (~2 hours of audio), professional voice cloning, and commercial usage rights.",
       "evidenceUrl": "https://elevenlabs.io/pricing"
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "name": "Fal",
+  "kind": "vendor",
+  "short": "High-speed serverless media generation models (image, video, audio) and lightning-fast inference APIs.",
+  "officialUrl": "https://fal.ai",
+  "hosts": ["fal.ai"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-second generation rates",
+      "notes": "Pricing varies by GPU and model duration for Flux, Stable Diffusion, and video models.",
+      "evidenceUrl": "https://fal.ai/pricing"
+    }
+  ]
+}
