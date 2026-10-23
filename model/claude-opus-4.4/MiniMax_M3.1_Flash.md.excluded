@@ -1,0 +1,68 @@
+# Claude Opus 4.4 — findings by MiniMax M3.1 Flash
+
+- Source: Anthropic (no exact public model ID verified)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.4
+- **Short description:** No distinct public Anthropic release named Claude Opus 4.4 could be verified. Anthropic's Opus numbering goes from Opus 4.1 to Opus 4.5 — the 4.2/4.3/4.4 slots were never used — and every live catalog checked exposes Opus 4.5 and 4.6 but no 4.4 checkpoint.
+- **Provider / access:** No exact API route was verified. Anthropic's public Messages API uses IDs such as `claude-opus-4-5-20251101`, `claude-opus-4-6`, `claude-opus-4-7`, `claude-opus-4-8`, `claude-opus-5` and `claude-opus-5-5`; no `claude-opus-4-4` or `claude-opus-4.4` route was found in the first-party documentation or in any third-party catalog reviewed.
+- **Release / knowledge:** No release date or knowledge cutoff could be verified for a distinct 4.4 model.
+- **IDs:** no exact public ID verified; the project slug `claude-opus-4.4` is not itself a vendor ID.
+- **Context window:** no verified public limit for a distinct 4.4 model; figures from Opus 4.5, 4.6 or 4.8 must not be silently transferred.
+- **Modalities:** no exact-model modalities verified.
+- **Pricing (as of 2026-10-23):** no exact-model pricing verified.
+- **Architecture:** proprietary; no exact checkpoint, parameter count, or license verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found for Claude Opus 4.4
+- Tau3-Banking / Tau2-Bench: no verified public score found for Claude Opus 4.4
+- GDPval-AA: no verified public score found for Claude Opus 4.4
+- Claw-Eval / ClawProBench: no verified public score found for Claude Opus 4.4
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for Claude Opus 4.4
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for Claude Opus 4.4
+- HLE: no verified public score found for Claude Opus 4.4
+- LCR / MLCR: no verified public score found for Claude Opus 4.4
+- CritPt: no verified public score found for Claude Opus 4.4
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found for Claude Opus 4.4
+- Omniscience Accuracy / Hallucination Rate: no verified public score found for Claude Opus 4.4
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found for Claude Opus 4.4
+- LiveCodeBench: no verified public score found for Claude Opus 4.4
+- SciCode / AA-SciCode: no verified public score found for Claude Opus 4.4
+- Vibe Code Bench: no verified public score found for Claude Opus 4.4
+- DeepSWE / Coding Index / other: no verified public score found for Claude Opus 4.4
+
+Long context:
+
+- No long-context retrieval result was found for Claude Opus 4.4.
+
+### Independent-source comparison and identity resolution
+
+- Anthropic's official Opus announcement history lists Claude Opus 5.5 (2026-09-22), Opus 5 (2026-07-24), Opus 4.8 (2026-05-28), Opus 4.7 (2026-04-16) and Opus 4.6 (2026-02-05), with the pre-4.5 models (4.5, 4.1, 4) appearing only in the model lifecycle history — there is no Opus 4.4 entry, and the numbering skips 4.2–4.4 entirely ([Claude Opus page](https://www.anthropic.com/claude/opus)).
+- Anthropic's lifecycle table lists every current and recently retired Opus model with its status and retirement date; the Opus entries are `claude-opus-4-1-20250805`, `claude-opus-20250514`, `claude-3-opus-20240229` and `claude-2.x`. No 4.4 model was ever announced, deprecated or retired ([model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)).
+- Anthropic's model-ID documentation and current models overview contain no `opus-4-4` string; the documented point-release convention is hyphenated (`claude-opus-4-5-20251101`, `claude-opus-5-5`) with no 4-4 example ([model IDs and versioning](https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions), [models overview](https://platform.claude.com/docs/en/about-claude/models/overview)).
+- Live independent catalogs agree with the first-party record: OpenRouter exposes `anthropic/claude-opus-4.1`, `-4.5`, `-4.6`, `-4.7`, `-4.8` and the Opus 5/5.5 entries but no 4.4 ([OpenRouter models API](https://openrouter.ai/api/v1/models)); models.dev's provider catalog contains `claude-opus-4`, `claude-opus-4-1`, `claude-opus-4-5`, `claude-opus-4-6`, `claude-opus-4-7` and `claude-opus-4-8` but no exact 4.4 ID ([models.dev API](https://models.dev/api.json)); OpenCode Zen's live catalog contains `claude-opus-4-5`, `-4-6`, `-4-7`, `-4-8`, `claude-opus-5` and `claude-opus-5-5` but no `claude-opus-4-4` ([OpenCode Zen models](https://opencode.ai/zen/v1/models)); Vercel AI Gateway's model list contains no `claude-opus-4.4`/`claude-opus-4-4` entry ([Vercel AI Gateway models](https://ai-gateway.vercel.sh/v1/models)).
+- Tracker lookups are empty as well: BenchLM's model page for `claude-opus-4-4` returns HTTP 404 ([BenchLM](https://benchlm.ai/models/claude-opus-4-4)), and the Hugging Face model search for `claude-opus-4.4` returns an empty result set ([Hugging Face API](https://huggingface.co/api/models?search=claude-opus-4.4&limit=50)). No Artificial Analysis, LLM Stats, Design Arena or Vals AI entry for Opus 4.4 was found.
+- Multiple exact-phrase searches ("Claude Opus 4.4" with release/pricing/benchmark/API/model-card qualifiers, and the `opus-4-4` / `opus 4.4` spellings) surfaced only generic Claude pages and the real Opus 4.5/4.6/4.7/4.8/5/5.5 records — no exact 4.4 model card, system card, announcement, benchmark, or review.
+- The conflict is therefore between the repository label and the public vendor record, not between vendors: the likely explanations are an interpolated label for Opus 4.5 or 4.6, an internal/preview codename, or a phantom entry.
+- Because no exact model or benchmark was verified, Opus 4.5/4.6/4.8 measurements were deliberately not merged into this record. No normalized score is defensible without evidence for the exact ID.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (nvidia/nvidia/minimaxai/minimax-m3.1-flash)** — 2026-10-23
+- Method: Independent public-web research across Anthropic's official Opus announcement history, model lifecycle/deprecation table, model-ID documentation and models overview; OpenRouter, models.dev, OpenCode Zen, Vercel AI Gateway, BenchLM and Hugging Face catalogs; and multiple exact-name searches. Self-excluded because zero verified public benchmark numbers exist for the exact claimed model; scores are intentionally omitted.
+- Future sources: add a new file next to this one, using the same headings.

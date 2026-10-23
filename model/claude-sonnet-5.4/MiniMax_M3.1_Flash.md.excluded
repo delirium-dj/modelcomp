@@ -1,0 +1,66 @@
+# Claude Sonnet 5.4 — findings by MiniMax M3.1 Flash
+
+- Source: Anthropic (no exact public model ID verified)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** No distinct public Anthropic release named Claude Sonnet 5.4 could be verified. Anthropic's documented Sonnet sequence moves from Sonnet 5 to Sonnet 5.5, and the public model catalogs checked expose Sonnet 5 and Sonnet 5.5 but no 5.4 checkpoint.
+- **Provider / access:** No exact API route was verified. Anthropic's public Messages API uses IDs such as `claude-sonnet-5` and `claude-sonnet-5-5`; no `claude-sonnet-5-4` or `claude-sonnet-5.4` route was found in the first-party model documentation, OpenRouter's live model catalog, OpenCode Zen's live model catalog, or models.dev.
+- **Release / knowledge:** No release date or knowledge cutoff could be verified for a distinct 5.4 model.
+- **IDs:** no exact public ID verified; the project slug `claude-sonnet-5.4` is not itself a vendor ID.
+- **Context window:** no verified public limit for a distinct 5.4 model; figures from Sonnet 5 or 5.5 must not be silently transferred.
+- **Modalities:** no exact-model modalities verified.
+- **Pricing (as of 2026-10-23):** no exact-model pricing verified.
+- **Architecture:** proprietary; no exact checkpoint, parameter count, or license verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found for Claude Sonnet 5.4
+- Tau3-Banking / Tau2-Bench: no verified public score found for Claude Sonnet 5.4
+- GDPval-AA: no verified public score found for Claude Sonnet 5.4
+- Claw-Eval / ClawProBench: no verified public score found for Claude Sonnet 5.4
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for Claude Sonnet 5.4
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for Claude Sonnet 5.4
+- HLE: no verified public score found for Claude Sonnet 5.4
+- LCR / MLCR: no verified public score found for Claude Sonnet 5.4
+- CritPt: no verified public score found for Claude Sonnet 5.4
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found for Claude Sonnet 5.4
+- Omniscience Accuracy / Hallucination Rate: no verified public score found for Claude Sonnet 5.4
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found for Claude Sonnet 5.4
+- LiveCodeBench: no verified public score found for Claude Sonnet 5.4
+- SciCode / AA-SciCode: no verified public score found for Claude Sonnet 5.4
+- Vibe Code Bench: no verified public score found for Claude Sonnet 5.4
+- DeepSWE / Coding Index / other: no verified public score found for Claude Sonnet 5.4
+
+Long context:
+
+- No long-context retrieval result was found for Claude Sonnet 5.4.
+
+### Independent-source comparison and identity resolution
+
+- Anthropic's official Sonnet history lists Sonnet 5.5, Sonnet 5, Sonnet 4.6, Sonnet 4.5, Sonnet 4, and Sonnet 3.7; Sonnet 5.4 is absent ([Anthropic Sonnet page](https://www.anthropic.com/claude/sonnet)). The current first-party model overview likewise lists Sonnet 5.5 and Sonnet 5, with no 5.4 entry ([Claude Platform models overview](https://platform.claude.com/docs/en/about-claude/models/overview)).
+- Anthropic's release notes record the Sonnet 5.5 launch on 2026-09-28 and describe it as a successor to Sonnet 5, with no intervening 5.4 launch ([Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview)). The current and recently retired model table likewise contains no Sonnet 5.4 lifecycle entry ([model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)).
+- Anthropic's versioning documentation explains that dateless major-release IDs such as `claude-sonnet-5` omit the minor segment, while the later point release uses `claude-sonnet-5-5`; it provides no `5-4` example ([model IDs and versioning](https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions)).
+- Live independent catalogs agree with the first-party record: OpenRouter exposes `anthropic/claude-sonnet-5` and `anthropic/claude-sonnet-5.5` but no Sonnet 5.4 ([OpenRouter models API](https://openrouter.ai/api/v1/models)); models.dev's provider catalog contains Sonnet 5 and 5.5 routes but no exact 5.4 ID ([models.dev API](https://models.dev/api.json)); and OpenCode Zen's live catalog contains `claude-sonnet-5` and `claude-sonnet-5-5` but no `claude-sonnet-5-4` ([OpenCode Zen models](https://opencode.ai/zen/v1/models)).
+- Multiple searches using the exact display name and possible API spellings returned only generic Claude pages and the real Sonnet 5/5.5 records, not an exact 5.4 model card, system card, announcement, benchmark, or review. This creates a conflict with the repository label but not with the public vendor record: the likely explanations are a conflation of Sonnet 5 with 5.5, an internal/preview label, or a phantom entry.
+- Because no exact model or benchmark was verified, Sonnet 5 and 5.5 measurements were deliberately not merged into this record. No normalized score is defensible without evidence for the exact ID.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (nvidia/nvidia/minimaxai/minimax-m3.1-flash)** — 2026-10-23
+- Method: Independent public-web research across Anthropic's official model history, model-ID documentation, release notes, lifecycle table, OpenRouter, models.dev, OpenCode Zen, and multiple exact-name searches. Self-excluded because zero verified public benchmark numbers exist for the exact claimed model; scores are intentionally omitted.
+- Future sources: add a new file next to this one, using the same headings.

@@ -101,6 +101,7 @@
 78.4 union-alpha
 78.2 grok-4.1
 78 qwen-3.8-325b
+77.9 space-bunny
 77.2 gemini-2.5-flash
 76.9 gemini-3.1-flash-lite
 76.2 claude-sonnet-4

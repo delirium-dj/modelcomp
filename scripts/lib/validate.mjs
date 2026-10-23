@@ -7,7 +7,8 @@
 // does the fs/git calls and logging, these functions lock the *decisions*.
 
 import { FILENAME_RE, META_REQUIRED } from "./parse.mjs";
-import { missingMetaFields, metaNameHasUnderscore } from "./naming.mjs";
+import { missingMetaFields, metaNameHasUnderscore, normName } from "./naming.mjs";
+import { RETIRED_SLUGS } from "./average.mjs";
 
 /** Sanctioned mirror trees for user-directed relocations (e.g. voice models). */
 export const MIRROR_ROOTS = ["models_voice", "models_finance"];
@@ -280,4 +281,212 @@ export function checkMetaFile(slug, meta, required = META_REQUIRED) {
     }
   }
   return messages;
+}
+
+// ---------------------------------------------------------------------------
+// Stem-vs-signature identity tripwire (2026-10 STEM/slug conflation incident
+// prevention, layer 3). An agent once read `model/<slug>/<STEM>.md` as
+// `model/<slug>/<slug>.md` and wrote files named after the model it was
+// researching instead of its own reporter STEM — the signature line
+// (`Provided by: **<Display> (<id>)** — <date>`, honest about the author)
+// is the only in-file evidence of the true reporter, so sync FAILs any
+// findings file whose signature names a model that relates to neither the
+// filename stem nor the folder subject (nor a known spelling variant).
+// ---------------------------------------------------------------------------
+
+/**
+ * Grandfathered signature-display variants per stem (calibrated against the
+ * full committed dataset 2026-10-23 — every entry is a real legacy file
+ * convention, not a free pass: the incident pattern names a FOREIGN model
+ * and matches none of these). Raw display strings; folded at compare time.
+ */
+export const SIGNATURE_STEM_EXCEPTIONS = new Map([
+  // The "Flint" rater signs with the folder subject's name — accepted
+  // separately via the subject match, not listed here.
+  ["MiMo_2.6_Flash", ["Mimo v2.6 Flash", "MiMo V2.6 Flash"]],
+  // GLM_4.5_Flash.md legacy files signed "Gemini 4.5 Flash (openai/gpt-4-turbo)".
+  ["GLM_4.5_Flash", ["Gemini 4.5 Flash"]],
+  ["GPT_5", ["Research Agent"]],
+  ["GPT_6_Luna", ["GPT 6 Astra"]],
+  ["GPT_OSS_120B", ["Antigravity"]],
+  ["Claude_Opus_5.5", ["GLM 4.7 Flash"]],
+  ["Muse_Spark_1.3", ["GLM 4.7 Flash"]],
+  ["Gemini_2_Flash", ["Gemini 2.0 Flash Thinking", "Gemini 2"]],
+  ["Gemini_2.0_Flash", ["Search Agent"]],
+  ["Gemini_1.5_Pro", ["Google Gemini"]],
+  ["Gemini_2.5_Pro", ["Google Gemini"]],
+  // Word-order swaps / short forms the prefix rule cannot fold.
+  ["Claude_Sonnet_3.5", ["Claude 3.5 Sonnet", "Claude 3.5"]],
+  ["Claude_Sonnet_3.7", ["Claude 3.7 Sonnet", "Claude 3.7"]],
+  ["Claude_Opus_4.5", ["Claude 4.5 Opus"]],
+  ["Claude_Sonnet_4.5", ["Claude 4.5 (Sonnet)", "Claude 4.5"]],
+  ["Claude_Sonnet_5.5", ["Claude Sonnet 5"]],
+  ["Claude_Sonnet_4", ["Claude 3.5 Sonnet"]],
+  // Digit-tail short forms (the prefix rule rejects pure-numeric extensions).
+  ["Grok_4", ["Grok"]],
+  ["Grok_4.5", ["Grok"]],
+  // Subject-name spelling drift (Flint-convention rater, folder omi-alpha).
+  ["Flint", ["Omni Alpha"]],
+]);
+
+/** Signature-display candidates: raw, minus the trailing `(<id>)`, minus all parens. */
+function signatureCandidates(signature) {
+  const raw = signature.replace(/^[\s[*_]+|[\s\]*_]+$/g, "").trim();
+  const out = new Set([raw]);
+  out.add(raw.replace(/\s*\([^()]*\)\s*$/, "").trim());
+  out.add(raw.replace(/\s*\([^()]*\)/g, "").trim());
+  return [...out].filter(Boolean);
+}
+
+/** Exact FAIL text for a signature that names a foreign model (locked: it routes to a human). */
+export function signatureStemMessage(stem, signature, where) {
+  return (
+    `${where}: signature "Provided by: **${signature}**" does not match the filename stem "${stem}" — ` +
+    `the stem must carry the REPORTER's identity (model/<subject-folder>/<YOUR_STEM>.md); a file named ` +
+    `after the model it researches is the STEM/slug conflation pattern (2026-10 incident). Fix the filename ` +
+    `to the reporter's stem, or add a legitimate spelling variant to SIGNATURE_STEM_EXCEPTIONS in scripts/lib/validate.mjs`
+  );
+}
+
+/**
+ * Pure decision for one findings file. `signature` comes from
+ * extractSignatureName (parse.mjs; null = no usable bold signature — legacy
+ * files are skipped, never guessed). `acceptNames` = display names derived
+ * from the stem (stem, stem key, label, SOURCE_OVERRIDES key/label);
+ * `subjectNames` = the folder subject's names (meta.name, slug). Accepts:
+ * exact fold match, ChatGPT≡GPT, word-prefix/short-form relations (never a
+ * pure digit extension), subject-name match (the Flint convention: some
+ * raters sign with the subject's name), and the exception list above.
+ * Returns null when fine, the FAIL message when the signature is foreign.
+ */
+export function checkSignatureStem({
+  stem,
+  signature,
+  acceptNames,
+  subjectNames,
+  where,
+  exceptions = SIGNATURE_STEM_EXCEPTIONS,
+}) {
+  if (signature === null) return null;
+  const accept = new Set((acceptNames ?? []).map(normName));
+  const subject = new Set((subjectNames ?? []).map(normName));
+  const extra = new Set((exceptions.get(stem) ?? []).map(normName));
+  for (const c of signatureCandidates(signature)) {
+    const s = normName(c);
+    if (s.length === 0) continue;
+    if (accept.has(s) || subject.has(s) || extra.has(s)) return null;
+    // ChatGPT ≡ GPT: official display style differs from the stem.
+    const noChat = s.replace(/^chat/, "");
+    const forms = noChat !== s ? [s, noChat] : [s];
+    for (const f of forms) {
+      // Short-form (the reporter shortened its own name) and tier-suffix
+      // ("Muse Spark 1.3 Contributor") relations — against the stem-derived
+      // names and, for the Flint convention (raters that sign with the
+      // subject's name), against the folder subject. A pure digit tail
+      // ("Grok" for "Grok 4", "GPT 5.5" for "GPT 5") never passes — that is
+      // a *different model in the same family*, exactly what must FAIL.
+      if (f.length < 3) continue;
+      const related = (set) => {
+        for (const a of set) {
+          if (a.length < 3) continue;
+          if (a.startsWith(f) && !/^[0-9]+$/.test(a.slice(f.length))) return true;
+          if (f.startsWith(a) && !/^[0-9]+$/.test(f.slice(a.length))) return true;
+        }
+        return false;
+      };
+      if (related(accept) || related(subject)) return null;
+    }
+  }
+  return signatureStemMessage(stem, signature, where);
+}
+
+// ---------------------------------------------------------------------------
+// model-aliases.generated.md (research-agent compact roster, compaction
+// proposal item 2): ONE generated file holds every forbidden / redirected
+// identity so prose rule files point instead of restating (drift-proof:
+// the data lives in the code lists below, same contract as model-queue.md).
+// ---------------------------------------------------------------------------
+
+/**
+ * One-line case notes rendered into model-aliases.generated.md. Keys are the
+ * parked slugs (RETIRED_SLUGS in scripts/lib/average.mjs), merged duplicate
+ * slugs (MERGED_MODEL_SLUGS), retired vendor aliases (RETIRED_ALIAS_SLUGS)
+ * and merged duplicate stems (MERGED_SOURCE_STEMS) — the evidence summaries
+ * previously duplicated across RULES.md and model/README.md.
+ */
+export const CASE_LAW_NOTES = new Map([
+  // Parked (retired) slugs
+  ["glm-5.3-free", "fictional Zen route — live-verified absent from the catalog; parked 2026-10-10"],
+  ["gemini-2.5", "family shorthand for gemini-2.5-pro (every cited ID resolves to the Pro flagship); parked 2026-10-12 — research belongs in model/gemini-2.5-pro/"],
+  ["qwen-3.5", "generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20 — research belongs in the member folder for the ID actually cited"],
+  ["kimi-k2.7-code-highspeed", "serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20 — research belongs in model/kimi-k2.7-code/"],
+  ["gemini-3.1-flash", "phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20 — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped"],
+  ["space-bunny", "revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; parked 2026-10-20 — research belongs in model/minimax-m3.1-flash-preview/"],
+  ["cat-jam", "revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); parked 2026-10-21 — research belongs in model/beam/"],
+  ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/"],
+  // Merged-and-deleted duplicate slugs
+  ["google-gemini-2.5-flash-lite", "vendor-prefixed duplicate of gemini-2.5-flash-lite (same weights, Zen gateway route); merged + deleted 2026-10-06"],
+  ["glm-5.1-coding", "the -coding suffix was a dataset label of glm-5.1, never a SKU (vendor lists exactly one glm-5.1 route); folder renamed, old slug merged + deleted 2026-10-12"],
+  ["embe-1", "duplicate spelling of ember-1; merged + deleted"],
+  ["grok-4-fast-reasoning", "docs.x.ai alias of grok-4-fast (one checkpoint, reasoning is system-prompt steering, same 2M window and price); merged + deleted 2026-10-20"],
+  ["grok-4.1-fast-reasoning", "docs.x.ai alias of grok-4.1-fast (one checkpoint); merged + deleted 2026-10-20"],
+  ["longcat_2.5_preview", "underscore-spelling duplicate of longcat-2.5-preview (both declared id opencode/longcat-2.5-preview-free — one model); merged + deleted 2026-10-23"],
+  // Retired vendor aliases
+  ["grok-code-fast-1", "docs.x.ai alias of grok-build-0.1 — never a folder; alias-measured figures are lineage data, cited only labelled with the measured ID"],
+  // Merged-and-deleted duplicate findings-file stems
+  ["Laguna_XS_2_1", "underscore-version spelling of Laguna_XS_2.1 (one rater, two spellings, silent double-count risk); merged + deleted 2026-10-08"],
+  ["Mimo_v2.6_Flash", "spelling variant of MiMo_2.6_Flash (same Xiaomi rater, lowercase + _v2.6); merged + deleted 2026-10-09"],
+]);
+
+/**
+ * Alias-family records that stay TRACKED (hidden from nothing, never parked)
+ * but own forbidden sibling names. Rendered as the last section of
+ * model-aliases.generated.md.
+ */
+export const TRACKED_ALIAS_NOTES = new Map([
+  [
+    "union-alpha",
+    "Pareto 26.9 composite record (Union Alpha / stealth/union-alpha / opencode/union-alpha / unbiased/pareto — one product, a composite router, never a checkpoint); NEVER scaffold model/pareto-26.9/ or model/unbiased-pareto/; the successor Pareto 26.10 is the separate tracked model/pareto-26.10-preview/; the circulated DeepSWE ~74% is GPT-6 Astra's number — Pareto 26.9 is 70.0%",
+  ],
+]);
+
+/** Render one identity entry line (shared by the slug sections). */
+function aliasEntry(key, value, notes) {
+  const note = notes.get(key);
+  const target = value === undefined ? "" : ` -> \`${value}\``;
+  return `- \`${key}\`${target} — ${note ?? "(no case note recorded)"}`;
+}
+
+/**
+ * Build model-aliases.generated.md (repo root, committed, regenerated by
+ * `pnpm sync` — same freshness contract as model-queue.md: only on zero
+ * failures). Pure + deterministic. Research agents read this ONE file
+ * instead of the retired/merged/alias rosters previously restated in
+ * RULES.md, model/README.md and the task files.
+ */
+export function buildAliasesFile(retired = RETIRED_SLUGS) {
+  const lines = [
+    "# model-aliases — AUTO-GENERATED by `pnpm sync`, do not hand-edit.",
+    "#",
+    "# Single point of reference for forbidden / redirected identities.",
+    "# If a slug or stem appears here it is NEVER scaffolded, queued,",
+    "# researched, or written to — resolve to the canonical target instead",
+    "# (general identity rules: RULES.md; the list data lives in",
+    "# scripts/lib/validate.mjs and scripts/lib/average.mjs). Prose rule",
+    "# files point here; this roster is the only copy.",
+    "",
+    "## Parked (retired) slugs — folders stay on disk and in git; never researched",
+    "",
+  ];
+  for (const slug of retired) lines.push(aliasEntry(slug, undefined, CASE_LAW_NOTES));
+  lines.push("", "## Merged-and-deleted duplicate slugs — never recreate (not even from git history)", "");
+  for (const [slug, canonical] of MERGED_MODEL_SLUGS) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
+  lines.push("", "## Retired vendor aliases — never a folder", "");
+  for (const [slug, canonical] of RETIRED_ALIAS_SLUGS) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
+  lines.push("", "## Merged-and-deleted duplicate findings-file stems — never recreate", "");
+  for (const [stem, canonical] of MERGED_SOURCE_STEMS) lines.push(aliasEntry(stem, canonical, CASE_LAW_NOTES));
+  lines.push("", "## Alias-family records (kept tracked) — research under the listed folder only", "");
+  for (const [slug, note] of TRACKED_ALIAS_NOTES) lines.push(`- \`${slug}\` — ${note}`);
+  lines.push("");
+  return lines.join("\n");
 }

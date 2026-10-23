@@ -40,6 +40,7 @@ import {
   parseScoresPure,
   nearMissLine,
   extractReportDate,
+  extractSignatureName,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -67,6 +68,8 @@ import {
   deletionFailMessage,
   checkFilename,
   checkMetaFile,
+  checkSignatureStem,
+  buildAliasesFile,
 } from "./lib/validate.mjs";
 import { buildAverageEntry, buildAverageBody, applyAverageToPrev, buildQueueFile } from "./lib/average.mjs";
 import {
@@ -543,6 +546,35 @@ for (const slug of slugs) {
     fail(msg);
   }
 
+  // Stem-vs-signature identity tripwire (validate.mjs checkSignatureStem,
+  // tested): a findings file whose `Provided by: **<name>**` signature names
+  // a model that relates to neither the filename stem nor the folder subject
+  // (nor a grandfathered spelling variant) is the 2026-10 STEM/slug
+  // conflation pattern — an agent wrote files named after the model it was
+  // researching instead of its own reporter STEM. The signature is the only
+  // in-file evidence of the true reporter, so FAIL loudly and never cement.
+  // Files without a usable bold signature (legacy) are skipped, and the
+  // Flint-convention raters (signed with the subject's name) pass via the
+  // subject match.
+  for (const f of entries.filter(
+    (f) =>
+      (f.endsWith(".md") || f.includes(".md.excluded")) &&
+      f !== "average.md" &&
+      f !== "README.md" &&
+      !forbiddenStemFiles.has(f),
+  )) {
+    const stem = f.replace(/\.md(\.excluded)?$/, "");
+    const signature = extractSignatureName(readFileSync(join(dir, f), "utf8"));
+    const msg = checkSignatureStem({
+      stem,
+      signature,
+      acceptNames: [stem, stemToKey(stem), resolveSourceMeta(stemToKey(stem)).label],
+      subjectNames: [meta.name, slug, ...(Array.isArray(meta.aliases) ? meta.aliases : [])],
+      where: `model/${slug}/${f}`,
+    });
+    if (msg !== null) fail(msg);
+  }
+
   const perFile = [];
   let skipAverage = false;
   const evidenceRows = [];
@@ -809,6 +841,24 @@ if (failures === 0) {
   if (prevRobots !== robotsNext) {
     writeFileSync(robotsPath, robotsNext);
     log(`  WRITE public/robots.txt (Sitemap: ${process.env.SITE_ORIGIN ?? "http://localhost:4173"}/sitemap.xml)`);
+  }
+  // Forbidden/redirected identity roster for research agents
+  // (model-aliases.generated.md): parked slugs, merged duplicate slugs,
+  // retired vendor aliases, merged duplicate stems, tracked alias families.
+  // The single generated copy the prose rule files point at — restating the
+  // roster in prose is how the lists drifted (longcat-2.5 incident).
+  // Same freshness contract as model-queue.md — only on zero failures.
+  const aliasesPath = join(root, "model-aliases.generated.md");
+  const aliasesNext = buildAliasesFile();
+  let prevAliases = null;
+  try {
+    prevAliases = readFileSync(aliasesPath, "utf8");
+  } catch {
+    // created below
+  }
+  if (prevAliases !== aliasesNext) {
+    writeFileSync(aliasesPath, aliasesNext);
+    log(`  WRITE model-aliases.generated.md (identity roster: ${aliasesNext.split("\n").filter((l) => l.startsWith("- `")).length} entries)${prevAliases === null ? " (created)" : ""}`);
   }
 } else {
   log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");

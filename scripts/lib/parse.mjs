@@ -116,6 +116,23 @@ export function extractReportDate(md) {
 }
 
 /**
+ * Reporter display name claimed by a findings file's signature line
+ * (`Provided by: **<Display> (<id>)** — <YYYY-MM-DD`). Bold form only — a
+ * file with no usable bold signature returns null and the stem-vs-signature
+ * tripwire skips it (legacy files are grandfathered, never guessed). Pure +
+ * tested; the identity decision itself lives in validate.mjs
+ * (checkSignatureStem) so the FAIL text stays with the other tripwires.
+ */
+export function extractSignatureName(md) {
+  for (const line of md.split("\n")) {
+    if (!line.includes("Provided by:")) continue;
+    const m = line.match(/Provided by:\s*\*\*(.+?)\*\*/);
+    if (m) return m[1].trim();
+  }
+  return null;
+}
+
+/**
  * Overall auto-correct decision: source-file Overall is DERIVED (half-up mean
  * of the five quality dims). Returns the 5-dim mean, the corrected Overall,
  * and whether the drift exceeds tolerance (=> sync rewrites the line).
