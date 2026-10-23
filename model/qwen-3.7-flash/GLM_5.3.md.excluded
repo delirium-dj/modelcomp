@@ -1,0 +1,39 @@
+# Qwen 3.7 Flash — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Alibaba (`opencode/qwen-3.7-flash`, API ids `qwen3.7-flash` / `qwen3.7-flash-2026-07-15`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public benchmark numbers were found for this exact model/ID.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23, catalog/pricing metadata only, no measured numbers):
+
+- **Identity (LLMReference, researched 4 days prior):** Qwen 3.7 Flash is Alibaba's native **vision-language** Flash model in the Qwen3.7 series — multimodal agents, visual coding, search/CI agents; positioned as an upgrade over 3.6-Flash.
+- **Specs (models.dev, LLMReference):** 1,000,000 context / 131,072 max output; reasoning yes; tool call / JSON yes; structured outputs; prompt caching; vision + multimodal input; proprietary weights (commercial use restricted). Bailian Model Studio pricing 0.2/0.8 CNY per 1M in/out.
+- **Pricing (LLMReference, 3 tracked provider routes):** $0.03 in / $0.13 out per 1M (OpenRouter and Vercel AI Gateway; Vercel cache read $0.006) — consistent with the curated meta's $0.03/$0.13 (≤32K input tier on QwenCloud) and models.dev's $0.0282/$0.1128.
+- **Providers:** OpenRouter, Vercel AI Gateway, Alibaba Cloud PAI-EAS (3 routes; models.dev counts 15 downstream providers).
+
+Sources checked with no benchmark rows (2026-10-23):
+
+- **BenchLM** (`qwen-3-7-flash`): 404 — no page.
+- **Artificial Analysis** (`qwen-3-7-flash`): 404 — no page for this hosted Flash tier.
+- **LLMReference** (`qwen3.7-flash`): specs and pricing tracked, but **"No task-mapped benchmark peers are available for this model yet"** — zero benchmark rows as of its 2026-10-19 refresh.
+- **Vals AI** (`alibaba_qwen3.7-flash`): 404 — no leaderboard entry.
+- Alibaba publishes benchmark tables for its flagship tiers (qwen3.8-max etc.), not for this hosted Flash tier — the same vendor pattern already recorded for Z.ai's Flash variants in this dataset.
+
+Interpolation from Qwen 3.7 Plus / Max (tracked siblings) or the 3.6-Flash predecessor was deliberately NOT used —a hosted Flash tier is a distinct serving checkpoint, and its scores cannot be derived from family measurements.
+
+A future re-research should look for (a) an Alibaba benchmark table or announcement with qwen3.7-flash rows, (b) aggregator coverage (BenchLM/AA/Vals) once the tier is measured, (c) the successor-generation pattern (the 3.8 generation now ships qwen3.8-flash, already tracked) — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (LLMReference model page, models.dev registry, Alibaba Cloud Model Studio, BenchLM, Artificial Analysis, Vals AI); no verified public scores exist for this hosted Flash tier.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

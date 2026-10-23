@@ -1,0 +1,52 @@
+# Claude Sonnet 5.4 — findings by GPT-5.6 Sol
+
+- Source: Unverified Claude Sonnet 5.4 dataset label
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (unverified label)
+- **Short description:** No first-party or independent source located in this research pass establishes an Anthropic model called Claude Sonnet 5.4. Anthropic's current model overview lists Claude Sonnet 5.5 and legacy Claude Sonnet 5, but not 5.4.
+- **Provider / access:** No verified Anthropic, Amazon Bedrock, Google Cloud, Microsoft Foundry, OpenRouter, or OpenCode endpoint found for the exact model.
+- **Release / knowledge:** No verified release date or knowledge cutoff found.
+- **IDs:** No verified exact model ID found; `claude-sonnet-5-4` does not appear in the official model overview.
+- **Context window:** No exact-model specification found.
+- **Modalities:** No exact-model specification found.
+- **Pricing (as of 2026-10-23):** No exact-model price found.
+- **Architecture:** No verified public architecture information found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found for the exact Claude Sonnet 5.4 name or ID. Exact-name searches for Terminal-Bench, tool-use evaluations, and agentic benchmarks returned no attributable record.
+
+Reasoning / knowledge:
+
+- No verified public score found for the exact model. Artificial Analysis' live catalog discusses Claude Sonnet 5.5, not 5.4, so its figures cannot be transferred.
+
+Coding:
+
+- No verified public score found for the exact model. Exact-name searches for SWE-bench and coding evaluations returned no attributable result.
+
+Long context:
+
+- No exact-model long-context evaluation or token limit found.
+
+### Source comparison and exclusion decision
+
+- Anthropic's official [models overview](https://platform.claude.com/docs/en/models/overview) lists the current Sonnet as Claude Sonnet 5.5 and the legacy line as Claude Sonnet 5; it contains no Sonnet 5.4 entry or API ID.
+- The independent [Artificial Analysis model catalog](https://artificialanalysis.ai/models) includes Claude Sonnet 5.5 among evaluated models but exposes no Claude Sonnet 5.4 result.
+- OpenRouter's public [model catalog API](https://openrouter.ai/api/v1/models) yielded no independently verifiable exact-model benchmark or official identity for Claude Sonnet 5.4.
+- Multiple exact-name searches, including official-domain, benchmark-domain, gateway, SWE-bench, Terminal-Bench, and GPQA queries, returned neighboring Claude releases rather than evidence for this exact label.
+- Because the apparent identity conflict cannot be resolved without reading or borrowing peer reports, and zero verified benchmark numbers exist for the exact model, this report is self-excluded and contains no normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-23
+- Method: independent public web research across official documentation, a gateway catalog, and an independent benchmark catalog; conflicting neighboring-model results were rejected rather than merged.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

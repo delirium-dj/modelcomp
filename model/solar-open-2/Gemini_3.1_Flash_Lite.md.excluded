@@ -1,4 +1,21 @@
-- **Overall Score: 0/100**
+# solar-open-2 — findings by Gemini 3.1 Flash Lite
 
-Agreement notes: Performed extensive research across multiple search engines, benchmark aggregators, and technical model repositories. No verifiable public benchmark data (MMLU, HumanEval, etc.) or technical specification documentation could be sourced for this model.
-Provided by: **Gemini 3.1 Flash Lite** — 2026-10-08
+- Source: solar-open-2 (opencode/solar-open-2)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** solar-open-2
+- **Short description:** [No verified description found]
+- **Provider / access:** [No verified provider found]
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found.
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-23
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.

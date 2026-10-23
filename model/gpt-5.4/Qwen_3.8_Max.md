@@ -1,0 +1,61 @@
+# GPT-5.4 — findings by Qwen 3.8 Max
+
+- Source: OpenAI (`gpt-5.4`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.4
+- **Short description:** **OpenAI's first general-purpose mainline reasoning model with native computer-use capabilities**, released **2026-03-05**. It is a model-line reset rather than a narrow bump: it **absorbs GPT-5.3-Codex-level frontier coding**, adds a **Computer Use API** (operates professional desktops/apps, not just tool calls), carries a **1.05M-token API context**, and supports the **full modern agent stack** — web search, file search, image generation, code interpreter, hosted shell, apply-patch, skills, computer use, MCP and tool search. Its headline is **professional knowledge work + computer use**: **OSWorld-Verified 75.0%** (the #1 field-leader slot, above the 72.4% human-expert baseline OpenAI cites and GPT-5.2's 47.3%) and **GDPval 83.0%** (up from GPT-5.2's 70.9%). ⚠ It has since been **outflanked within its own family by GPT-5.5/5.6** (and GPT-6 Astra leads several agent/abstract boards), and its **1.05M context degrades sharply past ~256K** (retrieval success falls to ~36.6% at 512K–1M) — so new computer-use work should start with the successors.
+- **Provider / access:** **OpenAI**. API (`gpt-5.4`), ChatGPT (**GPT-5.4 Thinking** replaced GPT-5.2 Thinking for Plus/Team/Pro; GPT-5.2 Thinking retired 2026-06-05), and Codex (experimental 1M context). Also via resellers (OpenRouter / Bedrock / Azure). **No free tier** (`noFreeId`). Listed here as `opencode/gpt-5.4`; a higher-ceiling **GPT-5.4 Pro** ($30/$180) exists for the hardest tasks.
+- **Release / knowledge:** Released **2026-03-05** (alongside GPT-5.4 Pro; two days after GPT-5.3 Instant on 2026-03-03). Knowledge cutoff not stated in the sources reviewed.
+- **IDs:** `gpt-5.4` / `opencode/gpt-5.4` / `gpt-5.4-pro` (OpenAI line: GPT-5.2 → GPT-5.3-Codex → **GPT-5.4** → GPT-5.5 → GPT-5.6 Luna/Sol/Terra).
+- **Context window:** **1,050,000 (1.05M) tokens input / 128,000 (128K) max output** in the API. ⚠ **Effective usable context is far smaller than the claim** — OpenAI's own long-context data and third-party tests show **retrieval quality drops sharply past ~256K**, falling to **~36.6% success at 512K–1M**. Best used for **synthesis over large inputs**, not precise far-edge retrieval.
+- **Modalities:** **Text + image in → text out.** Vision is strong (**MMMU Pro 81.2% no-tools / 82.1% with tools**) and underpins **native computer use** (the model reads screenshots and returns UI actions). The agent stack can *call* an image-generation tool, but the model itself outputs text. No native audio or video input.
+- **Pricing (as of 2026-10-23):** **$2.50 / $15.00 per 1M in/out** standard (reseller rate); **$0.25 cached input**. **Direct API: $1.25 / $7.50** for prompts ≤272K, rising to a **long-context surcharge of $5.00 / $22.50** for prompts >272K. **GPT-5.4 Pro: $30 / $180.** No free tier — premium frontier pricing.
+- **Architecture:** Undisclosed-parameter **reasoning model** with **variable thinking effort** (GDPval-AA measured at x-high). Native **computer-use** head that maps screenshots → UI actions; unified tool/MCP orchestration. Trained for professional knowledge work (spreadsheets, presentations, documents, legal/finance analysis) alongside GPT-5.3-Codex-derived coding; OpenAI reports **33% fewer user-flagged false claims** and **18% fewer full responses containing any error** vs GPT-5.2.
+
+### Raw benchmarks found
+
+Computer use / agentic (**independent** Artificial Analysis where noted; else OpenAI-reported):
+
+- **OSWorld-Verified: 75.0%** (computer-use/desktop navigation — **#1 field leader, 100th pct** on the AA-tracked board; > GPT-5.2 47.3% and the 72.4% human-expert baseline) — the defining result
+- **AgentWorldBench: 58.25 overall (#2/169)** — MCP 70.1, Terminal 53.69, SWE 66.29, OS 68.58, Web 51.8, Android 60
+- **Terminal-Bench Hard (AA): 57.6% (#4/326, 99th pct)**; **WolfBench (TB 2.0-based): 71.0% avg (#4/198)**
+- **ScreenSpot-Pro (GUI grounding): 67.4%** (#24/59, self-reported; well below GPT-6 Astra's 92.7)
+- **τ²-Bench Telecom: 87.1%**; full agent stack (web/file search, code interpreter, hosted shell, apply-patch, MCP, tool search)
+
+Professional knowledge work (OpenAI-reported unless noted):
+
+- **GDPval: 83.0%** (vs GPT-5.2 70.9%); **GDPval-AA (independent, x-high): 1385 Elo (#53/356, 85th pct)** — a more modest neutral rank (field leader O-5 at 1861)
+- **Investment-banking modeling tasks: 87.3%** (vs GPT-5.2 68.4%); **OfficeQA: 68.1%** (vs 63.1%)
+- Presentations preferred **68.0%** of the time over GPT-5.2; **33% fewer false claims**, **18% fewer error-containing responses**
+
+Reasoning / coding:
+
+- **GPQA Diamond: 93.3%** (meta.json / OpenAI-reported) — frontier-level science reasoning
+- **ARC-AGI-1 (AA): 93.7% (#18/97, 82nd pct)**; **ARC-AGI-2 (AA): 74.0% (#16/99, 85th pct)** — strong, but below GPT-6 Astra (98.5 / 95)
+- **SWE-bench Pro (public): 57.7%** (> GPT-5.3-Codex 56.8%, > GPT-5.2 55.6%); **Terminal-Bench 2.0: 75.1%** (< GPT-5.3-Codex 77.3%, > GPT-5.2 62.2%)
+- **Vision — MMMU Pro: 81.2% no-tools / 82.1% with tools**
+
+> Provenance: **OSWorld-Verified 75.0%, ARC-AGI-1 93.7%, ARC-AGI-2 74.0%, GDPval-AA 1385 Elo, Terminal-Bench Hard 57.6%, AgentWorldBench 58.25, WolfBench 71.0% and τ²-Bench Telecom 87.1% are independently tracked (Artificial Analysis / neutral boards)** and weighted highest — several carry AA rank/percentile. **GDPval 83.0%, investment-banking 87.3%, OfficeQA 68.1%, SWE-bench Pro 57.7%, Terminal-Bench 2.0 75.1%, GPQA 93.3%, MMMU Pro 81.2/82.1% and the error-rate claims are OpenAI-reported** and discounted as an upper bound. ⚠ **Discrepancy flagged (not inherited):** the folder meta.json cites **"TB 81.8% #2, SWE-Pro 59.1% #2"**, but the well-corroborated launch figures are **Terminal-Bench 2.0 = 75.1%** (AA TB-Hard 57.6%; WolfBench 71.0%) and **SWE-bench Pro = 57.7%** — the higher meta.json numbers could not be independently confirmed and may reflect a later/alternative leaderboard variant, so I scored against the corroborated figures. Context/pricing/modality from OpenAI docs + the umesh-malik, therundown, hokai, digit-ai and nxcode guides. **No benchmark was invented.**
+
+### Normalized scores (1–100)
+
+- **Tool use: 88/100.** The defining strength — **native computer use** with **OSWorld-Verified 75.0% (#1 field leader, above the human baseline)**, **AgentWorldBench 58.25 (#2/169)**, Terminal-Bench Hard 57.6% (#4/326, 99th pct), τ²-Bench Telecom 87.1%, ScreenSpot-Pro 67.4% GUI grounding, and the **full agent stack** (web/file search, code interpreter, hosted shell, apply-patch, MCP, tool search). Held below the current peak because **GPT-6 Astra leads the GUI/abstract agent boards** (ScreenSpot-Pro 92.7, ARC-AGI-2 95) and GPT-5.5/5.6 supersede it, but this is genuinely frontier, independently-verified tool/computer use.
+- **Reasoning: 86/100.** Frontier science/abstract reasoning — **GPQA Diamond 93.3%**, **ARC-AGI-1 93.7% (AA)**, strong professional-work results (investment-banking 87.3%) and **33% fewer factual errors** vs GPT-5.2. Capped by the **independent GDPval-AA rank of #53/356 (1385 Elo, field leader O-5 at 1861)** and **ARC-AGI-2 74.0% (#16/99)** below GPT-6 Astra's 95 — a top-tier-but-not-#1 general reasoner.
+- **Context window: 85/100.** A huge **1.05M-token input / 128K output** claim, but the **effective window is much smaller** — OpenAI's own data and third-party tests show **retrieval collapsing past ~256K (to ~36.6% at 512K–1M)**. Scored with the other ~1M models but **discounted below MiniMax M3 (89**, guaranteed 512K floor + 512K output) because the far-end degradation makes the headline number unreliable for precise retrieval; strong for large-input synthesis.
+- **Multimodal: 80/100.** **Text + image in → text out**, with **genuinely strong vision (MMMU Pro 81.2% no-tools / 82.1% with tools)** that directly powers native computer-use screenshot grounding. Held at 80 (above claude-sonnet-5.4's 76, below the audio-capable Inkling-Small/omnimodal peers at 82) because there is **no native audio or video input** and no generative multimodal output from the model itself.
+- **Coding: 86/100.** Inherits **GPT-5.3-Codex frontier coding** — **SWE-bench Pro 57.7%** (edges Codex's 56.8%), **Terminal-Bench 2.0 75.1%**, WolfBench 71.0%, and it is "the best default when coding is mixed with analysis, docs, browser steps and tool orchestration." A step below the latest family (GPT-5.6 Luna posted SWE-bench Verified 93.0% in Thinking Machines' table) and slightly behind GPT-5.3-Codex on pure terminal loops, so 86 rather than the high-80s.
+- **Cost efficiency: 60/100.** Premium frontier pricing — **$2.50/$15.00** standard (direct $1.25/$7.50 ≤272K), **$0.25 cached**, a **long-context surcharge to $5.00/$22.50** past 272K, **GPT-5.4 Pro $30/$180**, and **no free tier**. The ≤272K direct rate is reasonable for the capability, but the surcharge, Pro tier and lack of a free option make it expensive for high-volume agent loops. Scored but **not** counted in the Overall per methodology.
+- **Overall Score: 85/100.** Mean of Tool 88 + Reasoning 86 + Context 85 + Multimodal 80 + Coding 86 = 425/5 = 85.0 → 85. Best fit: **complex professional knowledge work that also drives a computer** — multi-step workflows spanning documents, spreadsheets, presentations, browsers, desktops, codebases and tool chains, where native computer use (OSWorld #1), a full agent stack, 1.05M-context synthesis and frontier coding combine in one default model. **Not** the pick for precise far-edge retrieval (context collapses past 256K), audio/video, or the absolute latest coding ceiling (use GPT-5.5/5.6 or GPT-5.3-Codex for pure terminal loops). Independent read: my **85 sits ~1.3 below the queue's curated 86.4** — a *smaller* gap than the open-weight/preview models because GPT-5.4's headline claims are **independently verified on neutral boards** (OSWorld-Verified #1, ARC-AGI, GDPval-AA, Terminal-Bench Hard), with the discount driven by the **sharp long-context degradation**, **image-only multimodality**, **premium pricing** (not counted) and its **superseded** status. Internally consistent: GPT-5.4 (85) lands just above the strong open-weight generalists (inkling-small, ember-1, mimo-v2.6-free, minimax-m3 at 84) and alongside claude-sonnet-5.4 (85) and muse-wonder-1.0 (85) — an accurate portrait of a genuine, independently-verified frontier computer-use generalist now sitting a generation below the current OpenAI peak.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-23
+- Method: public internet research (OpenAI's **"Introducing GPT-5.4"** positioning as relayed by the umesh-malik.com complete guide [2026-03-06, updated 2026-08-06] for the 2026-03-05 release, native computer use, full agent stack, 1.05M/128K context with the past-256K retrieval collapse, the GDPval 83.0% / investment-banking 87.3% / OfficeQA 68.1% / SWE-bench Pro 57.7% / Terminal-Bench 2.0 75.1% / OSWorld-Verified 75.0% / MMMU Pro 81.2–82.1% tables and the $2.50/$15 pricing + Pro $30/$180; **benchmarklist.com** for the **independent Artificial Analysis** rows — OSWorld-Verified 75.0% [#1 field leader], GDPval-AA 1385 Elo [#53/356], Terminal-Bench Hard 57.6% [#4/326], ARC-AGI-1 93.7% [#18/97], ARC-AGI-2 74.0% [#16/99], AgentWorldBench 58.25 [#2/169], WolfBench 71.0%, τ²-Bench Telecom 87.1%, ScreenSpot-Pro 67.4%; hokai.io, therundown.ai, digit-ai.fr, nxcode.io, pas7 and alexlavaee.me for the 33%-fewer-factual-errors claim, long-context surcharge and cross-checks). **Independent AA / neutral-board rows are weighted highest; OpenAI-reported figures are discounted as an upper bound.** The folder meta.json specs were verified against these sources rather than inherited, and its **"TB 81.8% #2 / SWE-Pro 59.1% #2"** claims were **flagged as unconfirmed** (corroborated launch figures: Terminal-Bench 2.0 75.1% / AA TB-Hard 57.6% and SWE-bench Pro 57.7%). Scores are normalized 1–100 interpretations, not official vendor scores. No unverified benchmark was invented.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

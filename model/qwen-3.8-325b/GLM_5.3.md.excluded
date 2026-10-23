@@ -1,0 +1,29 @@
+# Qwen 3.8 325B — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Alibaba (`opencode/qwen-3.8-325b`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no Qwen 3.8 325B exists on any Alibaba surface.** The curated meta itself already marked the model "unverified as of 2026-10-20"; this pass confirms the stronger negative: the checkpoint never shipped. Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-23):
+
+- **Official Qwen Hugging Face org** (fetched 2026-10-23): the Qwen3.8 generation's released weights are **Qwen3.8-2.4T-A95B** (2.4T flagship MoE), **Qwen3.8-27B** (28B), and **Qwen3.8-Flash-Next** (180B) — no 325B checkpoint exists among the org's 469 models or its Qwen3.8 collections.
+- **models.dev** (complete Qwen 3.8 family, fetched this session): qwen3.8-27b, qwen3.8-max / max-0902 / max-prime, qwen3.8-flash, qwen3.8-flash-next, qwen3.8-omni-flash, qwen3.8-2.4t-a95b — **no 325B entry**. The "325B" figure matches no 3.8-generation size (nearest relatives: Qwen3.5-397B-A17B, 2.4T-A95B).
+- **BenchLM** (`qwen-3-8-325b`): 404. **Artificial Analysis**: 404.
+- **Live OpenCode Zen models endpoint** (2026-10-23): no such id (Qwen 3.8 routes: qwen3.8-flash, qwen3.8-max).
+
+Conclusion: a phantom size-variant — a parameter count that no vendor catalog, registry, or endpoint corroborates. Genuine Qwen 3.8-generation research belongs in the tracked folders: `model/qwen-3.8/` (2.4T-A95B flagship), `model/qwen-3.8-27b/`, `model/qwen-3.8-flash-next/`, `model/qwen-3.8-flash/`. A future re-research should look for (a) an Alibaba announcement or HF repo for a 325B-class 3.8 checkpoint, (b) a live id on Zen or any provider, (c) aggregator coverage — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (official Qwen Hugging Face org incl. Qwen3.8 collections, models.dev complete Qwen 3.8 family listing, BenchLM, Artificial Analysis, live OpenCode Zen models endpoint); no verified public data exists for this never-shipped size variant.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

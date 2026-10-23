@@ -1,0 +1,21 @@
+# gpt-5.2-codex — findings by Gemini 3.1 Flash Lite
+
+- Source: gpt-5.2-codex (opencode/gpt-5.2-codex)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** gpt-5.2-codex
+- **Short description:** [No verified description found]
+- **Provider / access:** [No verified provider found]
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found.
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-23
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.
