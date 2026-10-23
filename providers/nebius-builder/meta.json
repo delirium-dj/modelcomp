@@ -1,9 +1,12 @@
 {
   "name": "Nebius AI Studio",
   "kind": "aggregator",
-  "short": "Token Factory inference and GPU cloud infrastructure with an active developer builder grant program.",
+  "short": "Token Factory inference and GPU cloud with a developer Builder Program offering $400+ free credits; pay-as-you-go per-token plus on-demand/reserved GPU instances.",
   "officialUrl": "https://nebius.com",
-  "hosts": ["nebius.com", "tokenfactory.nebius.com"],
+  "hosts": [
+    "nebius.com",
+    "tokenfactory.nebius.com"
+  ],
   "catalogUrl": "https://nebius.com/builders",
   "plans": [
     {

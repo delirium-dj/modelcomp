@@ -1,9 +1,11 @@
 {
   "name": "Replicate",
   "kind": "aggregator",
-  "short": "Cloud hosting and API platform for open-source AI models, custom weights, fine-tuned LoRAs, and serverless GPU execution.",
+  "short": "Cloud hosting/API for open-source models, custom weights, LoRAs, and serverless GPU execution; pay-as-you-go per-second hardware compute.",
   "officialUrl": "https://replicate.com",
-  "hosts": ["replicate.com"],
+  "hosts": [
+    "replicate.com"
+  ],
   "plans": [
     {
       "name": "Pay-as-you-go",

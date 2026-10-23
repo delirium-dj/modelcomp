@@ -1,10 +1,17 @@
 {
   "name": "Tencent Cloud",
   "kind": "aggregator",
-  "short": "Tencent Cloud TokenHub LLM service — pay-per-token access to Hunyuan (Hy3/Hy4) and other hosted models, with peak/off-peak billing.",
+  "short": "Tencent Cloud TokenHub LLM service — pay-per-token access to Hunyuan (Hy3/Hy4) and other hosted models with peak/off-peak billing.",
   "officialUrl": "https://www.tencentcloud.com",
-  "hosts": ["tencentcloud.com", "www.tencentcloud.com", "cloud.tencent.com", "intl.cloud.tencent.com"],
-  "idPrefixes": ["tencent"],
+  "hosts": [
+    "tencentcloud.com",
+    "www.tencentcloud.com",
+    "cloud.tencent.com",
+    "intl.cloud.tencent.com"
+  ],
+  "idPrefixes": [
+    "tencent"
+  ],
   "plans": [
     {
       "name": "Pay-as-you-go",

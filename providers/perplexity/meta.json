@@ -1,9 +1,11 @@
 {
   "name": "Perplexity",
   "kind": "vendor",
-  "short": "Conversational search engines and Sonar API powered by leading open and proprietary foundation models.",
+  "short": "Conversational search and Sonar API powered by leading foundation models; API pay-as-you-go from $1/$1 per 1M, plus Perplexity Pro $20/mo.",
   "officialUrl": "https://perplexity.ai",
-  "hosts": ["perplexity.ai"],
+  "hosts": [
+    "perplexity.ai"
+  ],
   "plans": [
     {
       "name": "API Pay-as-you-go",

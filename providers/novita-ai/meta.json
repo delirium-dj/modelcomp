@@ -1,9 +1,11 @@
 {
   "name": "Novita AI",
   "kind": "aggregator",
-  "short": "Novita's serverless model API and GPU cloud — 200+ open models with per-token billing, dedicated endpoints and agent sandboxes.",
+  "short": "Serverless LLM endpoints plus dedicated GPU instances; free trial voucher and $0-token open models, serverless per-token (DeepSeek V4.1 Flash $0.30/$1.20 per 1M), dedicated per-GPU hourly, agent sandbox.",
   "officialUrl": "https://novita.ai",
-  "hosts": ["novita.ai"],
+  "hosts": [
+    "novita.ai"
+  ],
   "catalogUrl": "https://novita.ai/models",
   "plans": [
     {

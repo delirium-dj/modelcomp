@@ -1,10 +1,15 @@
 {
   "name": "Mistral AI",
   "kind": "vendor",
-  "short": "Direct API access to Mistral's open-weight and commercial models, plus the Vibe assistant and coding plans.",
+  "short": "Direct API access to Mistral models with a free tier; pay-as-you-go per-1M (Mistral Large $0.50/$1.50), 50% batch discount, cached input up to 90% off, and Vibe plans $14.99–$24.99/mo.",
   "officialUrl": "https://mistral.ai",
-  "hosts": ["mistral.ai", "docs.mistral.ai"],
-  "idPrefixes": ["mistralai"],
+  "hosts": [
+    "mistral.ai",
+    "docs.mistral.ai"
+  ],
+  "idPrefixes": [
+    "mistralai"
+  ],
   "plans": [
     {
       "name": "Free mode (API)",

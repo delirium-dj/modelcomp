@@ -1,9 +1,12 @@
 {
   "name": "Tavily",
   "kind": "aggregator",
-  "short": "AI-native search and contextual web content retrieval API optimized for autonomous agents, tool calling, and RAG architectures.",
+  "short": "AI-native search and contextual web retrieval for agents/RAG; Researcher free 1K credits/mo, Project from $30/mo with overages.",
   "officialUrl": "https://tavily.com",
-  "hosts": ["tavily.com", "api.tavily.com"],
+  "hosts": [
+    "tavily.com",
+    "api.tavily.com"
+  ],
   "catalogUrl": "https://tavily.com",
   "plans": [
     {

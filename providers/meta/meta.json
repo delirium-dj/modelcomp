@@ -1,9 +1,13 @@
 {
   "name": "Meta",
   "kind": "vendor",
-  "short": "Meta Superintelligence Labs' Muse models, sold through the self-serve Meta Model API and the Muse Code coding agent.",
+  "short": "Meta Muse models via the self-serve Meta Model API and Muse Code coding agent; standard $1.25/$4.25 per 1M, contributor tier $0.10/$0.20 per 1M, Muse Code plans $5–$200/mo.",
   "officialUrl": "https://dev.meta.ai",
-  "hosts": ["dev.meta.ai", "meta.com", "research.meta.ai"],
+  "hosts": [
+    "dev.meta.ai",
+    "meta.com",
+    "research.meta.ai"
+  ],
   "plans": [
     {
       "name": "Model API — Standard",
