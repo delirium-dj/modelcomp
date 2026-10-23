@@ -1,0 +1,56 @@
+# Claude Opus 4.4 — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verifiable model)
+
+- Source: Anthropic/Claude Opus 4.4 (`claude-opus-4.4`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** No Anthropic model named Claude Opus 4.4 appears in the
+> official API/model documentation or in any dated benchmark source. Anthropic's
+> Opus line goes 4 → 4.1 → 4.5 → 4.6 → 4.7 → 4.8 → 5 → 5.5. There is no exact-ID
+> model card, price or benchmark row to score.
+
+## Model card (verified facts only)
+
+- **Name:** Claude Opus 4.4 (claimed)
+- **Short description:** No verifiable product. The nearest real models are Claude Opus 4.5 (November 2025) and Claude Opus 4.6 (February 2026); neither is this ID.
+- **Provider / access:** Not listed by Anthropic.
+- **Release / knowledge:** No release date found.
+- **IDs:** `claude-opus-4.4` is not an Anthropic API model ID in the documentation reviewed.
+- **Context window:** Not published for this ID.
+- **Modalities:** Not published for this ID.
+- **Pricing (as of 2026-10-23):** Not published.
+- **Architecture:** Not published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for this ID
+
+Reasoning / knowledge:
+
+- no verified public score found for this ID
+
+Coding:
+
+- no verified public score found for this ID
+
+Long context:
+
+- no verified public score found for this ID
+
+### Why the file is excluded (evidence trail)
+
+- Anthropic's context-window and model pages enumerate Opus 4, 4.1, 4.5, 4.6, 4.7, 4.8, 5 and 5.5; `claude-opus-4.4` is absent.
+- Exact-phrase searches for `"Claude Opus 4.4"` return only 4.5/4.6/4.8/5 pages, never an official 4.4 model card.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, a folder whose exact model has no verifiable release or measurements is self-excluded; scores from neighbouring versions are not substituted.
+- Re-research trigger: an official Anthropic model card for this exact ID → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Anthropic model/context docs, Artificial Analysis, BenchLM, exact-phrase search). Negative-result file: **no verifiable model or benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once the model exists.

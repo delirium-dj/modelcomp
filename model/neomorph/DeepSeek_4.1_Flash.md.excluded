@@ -1,0 +1,55 @@
+# Neomorph — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, not an AI model)
+
+- Source: Neomorph (`neomorph`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Neomorph is a San Diego biotechnology company developing
+> molecular-glue protein degraders. It is not a language, vision or multimodal AI
+> model; there is no model card, context window, price or benchmark to score.
+
+## Model card (verified facts only)
+
+- **Name:** Neomorph, Inc.
+- **Short description:** Clinical-stage biotech founded in 2020, building molecular glue degraders against previously undruggable proteins; lead program NEO-811 (ARNT/HIF-1β) in Phase 1/2 for ccRCC, with AbbVie, Biogen and Novo Nordisk partnerships.
+- **Provider / access:** Not an AI model or API.
+- **Release / knowledge:** Company founded 2020; no model release.
+- **IDs:** `neomorph` is a company name, not a model ID.
+- **Context window:** Not applicable.
+- **Modalities:** Not applicable.
+- **Pricing (as of 2026-10-23):** Not applicable.
+- **Architecture:** Not applicable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- not applicable — no AI model
+
+Reasoning / knowledge:
+
+- not applicable — no AI model
+
+Coding:
+
+- not applicable — no AI model
+
+Long context:
+
+- not applicable — no AI model
+
+### Why the file is excluded (evidence trail)
+
+- `neomorph.com`, its pipeline page and Dealroom profile describe a protein-degradation biotech, not an LLM.
+- Searches for "Neomorph AI model benchmarks" return the biotech, a protein-interface paper and unrelated benchmark leaderboards; no model card exists.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, a non-model entity cannot receive a scored report; self-exclusion is the only valid outcome.
+- Re-research trigger: only if this slug is reassigned to a real AI model with a dated model card.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (neomorph.com, pipeline/press pages, Dealroom, Springer medicinal-chemistry review). Negative-result file: **not an AI model — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), only if the slug becomes an actual model.

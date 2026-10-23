@@ -1,0 +1,56 @@
+# Claude Sonnet 5.4 — findings by Qwen 3.8 Max
+
+- Source: Anthropic (`claude-sonnet-5.4`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** **Anthropic's mid-2026 Sonnet-tier point release**, sitting in the well-documented **Claude Sonnet 5 line** (Sonnet 4.6 → Sonnet 5 → Sonnet 5.5). Per its product listing it is a **1M-context / 128K-output** hybrid-reasoning model with **adaptive thinking (on by default), sub-turn checkpointing and computer use**, priced **below Sonnet 5** at **$2.50/$12.50** (vs Sonnet 5's $3/$15) — i.e. a slightly cheaper, checkpoint-enabled Sonnet-5-caliber agent/coding model. ⚠ **Important provenance caveat:** in the public sources reviewed there is **no distinct "Claude Sonnet 5.4" benchmark table** — Anthropic's and aggregators' coverage documents **Sonnet 5** (released 2026-06-30) and **Sonnet 5.5**, and reference **Sonnet 4.6/5/5.5** but never a separate 5.4 eval sheet. I therefore **anchor this report to the real, documented Sonnet 5 line** and score 5.4 as a Sonnet-5-caliber model with a **small discount for the 5.4-specific provenance gap**. **No 5.4-specific benchmark number is asserted or invented**; every figure below is explicitly attributed to Sonnet 5 or Sonnet 4.6.
+- **Provider / access:** **Anthropic** — Claude (Messages) API, AWS Bedrock, Microsoft Foundry, Google Vertex AI, plus day-one access via Claude Code and GitHub Copilot (Sonnet 5's deployment footprint). **Paid only** (`noFreeId` — no free API quota; the consumer claude.ai Free/Pro plans carry the Sonnet line but not full-rate API access). SOC 2 Type I/II, ISO 27001:2022, ISO/IEC 42001:2023, HIPAA BAA, Zero Data Retention (outside Batch API).
+- **Release / knowledge:** Mid-2026 Sonnet point release (the Sonnet 5 base launched **2026-06-30**). Sonnet 5's reliable **knowledge cutoff is January 2026**; 5.4 inherits the line's cutoff (not separately stated). Uses the Opus-4.7-introduced tokenizer (~30% more tokens than Sonnet 4.6 for identical text).
+- **IDs:** `claude-sonnet-5.4` / `opencode/claude-sonnet-5.4` (line: Sonnet 4.6 < Sonnet 5 < **Sonnet 5.4** < Sonnet 5.5; siblings Haiku 5.5, Opus 4.8/5/5.5, Fable 5.1, Mythos 5).
+- **Context window:** **1,000,000 (1M) tokens total / 128,000 (128K) max output** (Sonnet 5 extends to 300K output on the Batch API). Top-tier, matching the native-1M leaders. **Sub-turn checkpointing** (per meta.json) aids long agentic runs within that window.
+- **Modalities:** **Text, image, PDF in → text (+ tool-calls) out.** ⚠ **No native audio or video I/O** (an explicit Sonnet 5 con) and no image generation. Vision is nonetheless genuinely capable — evidenced on the Sonnet 5 line by **ARC-AGI-2 84.7%** (abstract *visual* puzzles) and **OSWorld-Verified 81.2%** (visual computer use).
+- **Pricing (as of 2026-10-23):** **$2.50 / $12.50 per 1M in/out; $0.25 cached read** (meta.json). This undercuts **Sonnet 5's $3/$15** and is ~40% below Opus-tier pricing; Sonnet 5 also ran an intro $2/$10 discount through 2026-08-31, cache reads at 0.1×, and Batch at −50%. The ~30%-higher token counts from the new tokenizer partially offset the lower rate.
+- **Architecture:** Undisclosed dense **hybrid-reasoning Transformer** (Anthropic does not publish a parameter count for the Sonnet 5 line); **adaptive thinking on by default** (dynamically allocates reasoning effort by request complexity, replacing Sonnet 4.6's opt-in extended thinking), plus **sub-turn checkpointing** for this SKU.
+
+### Raw benchmarks found
+
+⚠ **No Sonnet-5.4-specific table exists in the sources reviewed.** The real, documented **Sonnet-line anchors** (all attributed to Sonnet 5 / 4.6, vendor-reported by Anthropic unless noted) used to bracket this model:
+
+Coding / agentic — **Claude Sonnet 5** (2026-06-30, Anthropic vendor-reported):
+
+- **SWE-bench Verified: 82.1%** — first model to clear 80% at launch; ahead of Gemini 3.1 Pro and GPT-5.4 on Anthropic's real-world coding-agent evals (for context, **Claude Opus 5 later reached 97.0%** on SWE-bench Verified via Mini-SWE-agent, per vals.ai 2026-09-01)
+- **Terminal-Bench 2.1: 80.4%** — up from Sonnet 4.6's 67.0%
+- **OSWorld-Verified (computer use): 81.2%** — up from Sonnet 4.6 (reported 78.5% by HokAI; ~72.5% by kilo.ai — sources vary by OSWorld variant)
+
+Reasoning / knowledge — **Claude Sonnet 5** (Anthropic vendor-reported):
+
+- **GPQA Diamond: 96.2%** (ranked #1 of 60 on HokAI's tracked set)
+- **ARC-AGI-2: 84.7%** (abstract visual reasoning)
+- **AA Intelligence Index: 53** — *cited to Artificial Analysis, 2026-06-30* (⚠ a **June-2026 basket**, not directly convertible to the Oct-2026 v4.3 basket where Gemini 3.8 Flash = 59, Opus 5.5 = 58, Astra = 53)
+
+Predecessor — **Claude Sonnet 4.6** (2026-02-17): **SWE-bench Verified 79.6%**, adaptive + extended thinking, context-compaction beta.
+
+> Provenance: **Every number above is a real Sonnet 5 / Sonnet 4.6 figure** from Anthropic's launch reporting as transcribed by HokAI's Claude Sonnet 5 model page (2026-06-30), the kilo.ai and emergent.sh Sonnet-5 benchmark walk, caylent's Sonnet 5 launch analysis, and vals.ai's SWE-bench leaderboard — **not** Sonnet 5.4 figures. **I found no public benchmark sheet specific to "Claude Sonnet 5.4";** the coverage consistently names Sonnet 4.6, Sonnet 5 and Sonnet 5.5. The **product specs** for this slug (1M/128K, $2.50/$12.50, $0.25 cached, adaptive thinking, sub-turn checkpointing, computer use, text+image→text, paid-only) come from the folder **meta.json** and are treated as a verifiable product listing. Sonnet 5's **AA Index 53 is basket-specific (June-2026)** and flagged as non-convertible to the Oct-2026 v4.3 basket. Per methodology the vendor cells are an **upper bound and discounted**, and I apply an **additional discount for the 5.4-specific provenance gap** (no independent or vendor table confirms 5.4 = Sonnet 5). **No benchmark was invented; no number is attributed to 5.4 that was not published for Sonnet 5/4.6.**
+
+### Normalized scores (1–100)
+
+- **Tool use: 86/100.** The Sonnet 5 line is Anthropic's **"most agentic Sonnet yet"** — **OSWorld-Verified 81.2%** and **Terminal-Bench 2.1 80.4%** (both sharp jumps over Sonnet 4.6's 67.0%), **adaptive thinking on by default**, and this SKU adds **sub-turn checkpointing** for long agent runs. Scored as Sonnet-5-caliber agency, held below the frontier by the **5.4-specific provenance gap** (no 5.4 table) and because general long-horizon agent rows weren't separately confirmed for this point release.
+- **Reasoning: 86/100.** Very strong on the anchors — **GPQA Diamond 96.2%** (top of HokAI's tracked set), **ARC-AGI-2 84.7%**, adaptive hybrid reasoning, and an **AA Index 53** (June-2026 basket) that is frontier-adjacent. Discounted for the **provenance gap** and because the AA Index is **basket-specific** (June-2026, below the Oct-2026 v4.3 leaders Gemini 3.8 Flash 59 / Opus 5.5 58), so it is not directly comparable to current-frontier index scores.
+- **Context window: 88/100.** **1M native context / 128K output** (300K on Batch) — top-tier, matching the native-1M leaders, with sub-turn checkpointing to exploit it on long tasks. Scored just below the very top because no 5.4-specific long-context-recall figure was published.
+- **Multimodal: 76/100.** **Text + image + PDF input** with genuinely capable vision — evidenced on the line by **ARC-AGI-2 84.7%** (abstract visual puzzles) and **OSWorld-Verified 81.2%** (visual computer use). Held well below the omnimodal leaders (muse-wonder / mimo-v2.6 at 82, Gemini at 85+) because there is **no native audio or video I/O** and **no image output**; it is a vision-literate text model, not a full multimodal one.
+- **Coding: 87/100.** Strong, near-Opus coding — **SWE-bench Verified 82.1%** (first to clear 80% at Sonnet 5's launch), ahead of **Gemini 3.1 Pro and GPT-5.4** on Anthropic's coding-agent evals, at Sonnet pricing. Discounted from the low-90s because **Opus 5 has since reached 97.0%** on SWE-bench Verified (so 82.1% is no longer the ceiling), the figure is **vendor-reported**, and it is a **Sonnet 5** number standing in for an unconfirmed 5.4.
+- **Cost efficiency: 83/100.** Good value — **$2.50/$12.50** undercuts Sonnet 5's $3/$15 and is ~40% below Opus-tier pricing, with **$0.25 cached reads** and Batch at −50%; near-frontier coding per dollar. Tempered by the **~30% token inflation** from the new tokenizer (which the intro discount only partly offsets) and paid-only access. Scored but **not** counted in the Overall per methodology.
+- **Overall Score: 85/100.** Mean of Tool 86 + Reasoning 86 + Context 88 + Multimodal 76 + Coding 87 = 423/5 = 84.6 → 85. Best fit: **high-volume agentic coding and computer-use automation** that want near-Opus quality at (sub-)Sonnet pricing, with a 1M context, adaptive thinking and sub-turn checkpointing — but **not** voice/video products (no audio/video I/O). Independent read: my **85 sits below the queue's curated 86.6**, and the discount is deliberate — it reflects (a) the **absence of any Sonnet-5.4-specific public benchmark** (I score it as Sonnet-5-caliber minus a provenance-gap haircut rather than crediting unverified 5.4 numbers), (b) the **June-2026 AA-Index basket** caveat, and (c) **no audio/video multimodality**. Internally consistent: 5.4 (85) lands **just below Sonnet 5's caliber and clearly below Sonnet 5.5** (curated 91.4), **above Sonnet 4.6** (curated 86.2; SWE-bench 79.6 vs the line's 82.1), and level with the other strong-but-sub-frontier 2026 agents I've scored (muse-wonder-1.0 85; above ember-1 / mimo-v2.6-free at 84) — an accurate portrait of a cost-optimized Sonnet-5-line agent whose composite is capped by a real provenance gap and text/image-only multimodality.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-23
+- Method: public internet research (HokAI's "Claude Sonnet 5" model page, 2026-06-30, for SWE-bench Verified 82.1% / GPQA Diamond 96.2% / ARC-AGI-2 84.7% / OSWorld-Verified 81.2% / Terminal-Bench 2.1 80.4% / AA Index 53 / 1M-128K context / text+image+pdf→text+tool-calls / $3-$15 pricing / adaptive-thinking-default / the Opus-4.7 tokenizer +30% / January-2026 cutoff / no-audio-video con; the kilo.ai, emergent.sh and caylent Sonnet-5 launch analyses and vals.ai SWE-bench leaderboard [Opus 5 = 97.0%] for corroboration; Sonnet 4.6 = SWE-bench Verified 79.6% from the Sonnet-4.6 coverage; the folder **meta.json** for this slug's product specs — 1M/128K, $2.50/$12.50, $0.25 cached, adaptive thinking, **sub-turn checkpointing**, computer use, paid-only). **No Sonnet-5.4-specific public benchmark was found**; the model is scored as a **Sonnet-5-caliber bracketed interpolation** with an explicit discount for that provenance gap, and **every cited figure is attributed to Sonnet 5 or Sonnet 4.6, never fabricated for 5.4**. Vendor cells are discounted as an upper bound; the AA Index 53 is flagged as a June-2026 basket (non-convertible to v4.3). Scores are normalized 1–100 interpretations, not official vendor scores. No unverified benchmark was invented.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

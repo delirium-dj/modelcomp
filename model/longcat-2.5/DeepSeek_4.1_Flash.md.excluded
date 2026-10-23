@@ -1,0 +1,56 @@
+# LongCat 2.5 — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified benchmarks)
+
+- Source: Meituan/LongCat-2.5-Preview (`meituan/longcat-2.5-preview`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** LongCat 2.5 exists and is documented, but Meituan has not
+> published a benchmark table for the 2.5 Preview. Only LongCat 2.0 numbers are
+> public, and those belong to a different model, so no 1–100 scores are filed.
+
+## Model card (verified facts only)
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan's multimodal agentic coding model with native tool calling, image understanding and a 1M-token window; positioned for Claude Code-style long-horizon repository work.
+- **Provider / access:** LongCat API (OpenAI and Anthropic formats), OpenCode Go / OpenCode Zen free lane (`longcat-2.5-preview-free`), Vercel AI Gateway, models.dev.
+- **Release / knowledge:** 2026-09-25; knowledge cutoff not disclosed.
+- **IDs:** `meituan/longcat-2.5-preview`; `longcat-2.5-preview-free`; closed weights.
+- **Context window:** 1,048,576 input; 131,072 max output (128K per LongCat docs).
+- **Modalities:** text and image input; text output; reasoning and tool calling.
+- **Pricing (as of 2026-10-23):** $0.30/$1.20 per 1M in/out; free on the OpenCode Go/Zen lane.
+- **Architecture:** Meituan's multimodal reasoning model; exact parameter count not disclosed for 2.5 (2.0 is a 1.6T-A48B MoE).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for LongCat-2.5-Preview
+
+Reasoning / knowledge:
+
+- no verified public score found for LongCat-2.5-Preview
+
+Coding:
+
+- no verified public score found for LongCat-2.5-Preview
+
+Long context:
+
+- no MRCR/RULER score found for LongCat-2.5-Preview
+
+### Why the file is excluded (evidence trail)
+
+- Meituan's LongCat 2.5 product/API pages publish context, pricing, modalities and tool support, but no benchmark table.
+- BenchLM lists "public-lane score: coming soon" and zero shared sourced rows for Nemotron/other comparisons; no LongCat 2.5 row exists.
+- The available LongCat benchmark numbers (SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8, SWE-bench Multilingual 77.3) belong to **LongCat-2.0**, not 2.5.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified numbers for the exact model means self-exclusion; predecessor scores are not reused.
+- Re-research trigger: a vendor or harness table for `longcat-2.5-preview` → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (LongCat API docs and product site, models.dev, Vercel AI Gateway, BenchLM, LongCat-2.0 coverage). Negative-result file: **zero verified public benchmarks for 2.5 — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

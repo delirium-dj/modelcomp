@@ -1,0 +1,56 @@
+# Owo 2.5 — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verifiable model)
+
+- Source: Owo 2.5 (`owo-2.5`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** No AI model named "Owo 2.5" was found. Searches resolve to
+> the OwO Discord bot, an unrelated Hugging Face hobby account, Qwen 2.5 and
+> "oWo AI" newsletters. There is no exact-ID model card, context window, price or
+> benchmark to score.
+
+## Model card (verified facts only)
+
+- **Name:** Owo 2.5 (claimed)
+- **Short description:** No verifiable AI product. The name collides with the OwO Discord bot and is not an LLM family in any catalogue reviewed.
+- **Provider / access:** Not an AI model or API found.
+- **Release / knowledge:** No release date found.
+- **IDs:** `owo-2.5` does not match a model card in the catalogues searched.
+- **Context window:** Not published.
+- **Modalities:** Not published.
+- **Pricing (as of 2026-10-23):** Not published.
+- **Architecture:** Not published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for this ID
+
+Reasoning / knowledge:
+
+- no verified public score found for this ID
+
+Coding:
+
+- no verified public score found for this ID
+
+Long context:
+
+- no verified public score found for this ID
+
+### Why the file is excluded (evidence trail)
+
+- Exact-phrase search for `"Owo 2.5"` returns the OwO Discord bot, a Hugging Face account named OwOOwO, Qwen2.5 pages and "oWo AI" news roundups — none is this model.
+- BenchLM, models.dev and llm-stats have no `owo-2.5` entry.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, no exact model means self-exclusion; Qwen2.5 scores are not substituted.
+- Re-research trigger: an official model card for `owo-2.5` → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (exact-phrase web search, Hugging Face, BenchLM/models.dev/llm-stats, Qwen2.5 and OwO bot pages). Negative-result file: **no verifiable model or benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), only if the slug becomes a real AI model.

@@ -1,0 +1,55 @@
+# Omi Alpha — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verifiable AI model)
+
+- Source: Omi Alpha (`omi-alpha`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** No AI model named "Omi Alpha" exists in the sources found.
+> The exact name resolves to a 1939 Italian cipher machine; the closest modern
+> model is the unrelated "Omen Alpha" (`omen-alpha`), which must not be substituted.
+
+## Model card (verified facts only)
+
+- **Name:** Omi Alpha (claimed AI model)
+- **Short description:** No verifiable AI product. "OMI Alpha" is a rotor cipher machine built by Ottico Meccanica Italiana around 1939, not a language model.
+- **Provider / access:** Not an AI model or API.
+- **Release / knowledge:** Cipher machine ca. 1939; no AI release.
+- **IDs:** `omi-alpha` does not match any AI model card found.
+- **Context window:** Not applicable.
+- **Modalities:** Not applicable.
+- **Pricing (as of 2026-10-23):** Not applicable.
+- **Architecture:** Five-rotor electromechanical cipher machine (historical), not a neural model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- not applicable — no AI model
+
+Reasoning / knowledge:
+
+- not applicable — no AI model
+
+Coding:
+
+- not applicable — no AI model
+
+Long context:
+
+- not applicable — no AI model
+
+### Why the file is excluded (evidence trail)
+
+- Exact-phrase search for `"Omi Alpha"` returns the Crypto Museum's OMI Alpha cipher machine and the Omi wearable/health company; no AI model card.
+- "Omen Alpha" is a different ID (`omen-alpha`, OpenAI/GLM-linked stealth coding model) and is explicitly not merged into this folder.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, no exact model means self-exclusion; nearest-name substitution is forbidden.
+- Re-research trigger: an official model card for `omi-alpha` → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Crypto Museum OMI Alpha, Omi wearable/health docs, exact-phrase searches, Omen Alpha coverage). Negative-result file: **no AI model named Omi Alpha — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), only if the slug becomes a real AI model.

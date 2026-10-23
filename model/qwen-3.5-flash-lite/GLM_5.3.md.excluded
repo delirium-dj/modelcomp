@@ -1,0 +1,31 @@
+# Qwen 3.5 Flash Lite — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Alibaba (`opencode/qwen-3.5-flash-lite`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers were found — no "Qwen 3.5 Flash Lite" exists in Alibaba's Qwen 3.5 lineup on any catalog or registry.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was checked (2026-10-23):
+
+- **models.dev — complete Qwen 3.5 family listing** (fetched this session): `qwen3.5-0.8b`, `qwen3.5-2b`, `qwen3.5-4b`, `qwen3.5-9b` (+Base), `qwen3.5-27b`, `qwen3.5-35b-a3b` (+Base), `qwen3.5-122b-a10b`, `qwen3.5-397b-a17b`, `qwen3.5-flash`, `qwen3.5-plus` — **no Flash-Lite tier**. The 3.5 generation's low-cost hosted lane is `qwen3.5-flash` (1M ctx, $0.0282/$0.282, 2026-02-23).
+- **Alibaba Cloud Model Studio** (official "Recommended models" page, updated 2026-10-11): text-generation lineup centers on qwen3.8-max / qwen3.7-plus / qwen3.8-flash — no qwen3.5-flash-lite anywhere in the current recommendation set.
+- **BenchLM** (`qwen-3-5-flash-lite`): 404. **Artificial Analysis**: 404.
+- **OpenRouter** (full catalog fetched this session) and the **live OpenCode Zen models endpoint**: no qwen3.5-flash-lite id — the curated `opencode/qwen-3.5-flash-lite` resolves nowhere.
+
+**Curated-meta contradiction:** the meta describes "~35B total / 3B active, 1M ctx, ~$0.10/$0.40" — a mixture of the open-weights **Qwen3.5-35B-A3B** specs (35B/3B active, but 262K ctx, $0.0564/$0.4512) with the hosted **qwen3.5-flash** context (1M). "Flash Lite" is a Gemini-style tier name that Alibaba never applied to the Qwen 3.5 generation.
+
+Conclusion: a phantom tier — the low-cost 3.5 lane is `qwen3.5-flash` (tracked as `model/qwen-3.5-flash/`) and the 35B/3B open model is tracked as `model/qwen-3.5-35b-a3b/`; research belongs in those folders. A future re-research should look for (a) an Alibaba Cloud / Model Plaza listing or API id for a `qwen3.5-flash-lite`, (b) aggregator coverage, (c) a live Zen/OpenRouter route — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (models.dev complete Qwen 3.5 family listing, Alibaba Cloud Model Studio, BenchLM, Artificial Analysis, OpenRouter catalog, live OpenCode Zen models endpoint); no verified public data exists for this never-shipped tier.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

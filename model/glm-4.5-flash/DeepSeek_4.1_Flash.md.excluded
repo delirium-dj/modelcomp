@@ -1,0 +1,56 @@
+# GLM 4.5 Flash — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Z.ai/GLM-4.5-Flash (`glm-4.5-flash`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Z.ai published benchmarks for the GLM-4.5 flagship
+> (355B-A32B) and GLM-4.5-Air, but no Flash-specific measurement was found. The
+> Flash is a separate lightweight/free tier, so the flagship numbers cannot be
+> attributed to it; no 1–100 scores are filed here.
+
+## Model card (verified facts only)
+
+- **Name:** GLM 4.5 Flash
+- **Short description:** Z.ai's high-speed free-tier lightweight 4.5-generation model with a 128K window, dual thinking modes and agentic tool execution; a distinct Flash route, not the 355B-A32B flagship.
+- **Provider / access:** Z.ai developer platform (free tier) and OpenCode Zen (`opencode/glm-4.5-flash`), OpenAI-compatible Chat Completions.
+- **Release / knowledge:** GLM-4.5 generation (2025); exact Flash release date not published in the sources found.
+- **IDs:** `glm-4.5-flash`, `opencode/glm-4.5-flash`.
+- **Context window:** 128K total; up to 98K max output (Z.ai docs / curated metadata).
+- **Modalities:** text in/out; interleaved thinking; tool calling.
+- **Pricing (as of 2026-10-23):** Free — $0.00/$0.00 in/out on the Z.ai Flash tier and Zen.
+- **Architecture:** distilled lightweight 4.5-generation model; proprietary endpoint.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the Flash tier
+
+Reasoning / knowledge:
+
+- no verified public score found for the Flash tier
+
+Coding:
+
+- no verified public score found for the Flash tier
+
+Long context:
+
+- no long-context retrieval reported for this tier
+
+### Why the file is excluded (evidence trail)
+
+- Z.ai's GLM-4.5 launch post and arXiv paper (2508.06471) report GLM-4.5 and GLM-4.5-Air rows only: GPQA 79.1/75.0, HLE 14.4/10.6, LiveCodeBench 72.9/70.7, SWE-bench Verified 64.2/57.6. No Flash row exists.
+- Searches across BenchLM, Vals AI, llm-stats and the Z.ai docs surfaced pricing/context for `glm-4.5-flash` but no benchmark table.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified numbers for the exact tier means self-exclusion; flagship figures are not silently merged.
+- Re-research trigger: a dated Flash-specific benchmark → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (Z.ai GLM-4.5 launch post, arXiv 2508.06471, Z.ai pricing docs, BenchLM/Vals/llm-stats searches). Negative-result file: **zero verified public benchmarks for this tier — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.

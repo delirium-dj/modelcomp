@@ -1,0 +1,57 @@
+# GPT-OSS 120B Lite — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: OpenAI/GPT-OSS-120B Lite (`opencode/gpt-oss-120b-lite`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** The published gpt-oss-120b model card belongs to the base
+> 117B/5.1B-active checkpoint, not to this "Lite" variant. No benchmark, model
+> card or hosted route for `gpt-oss-120b-lite` was found, so no 1–100 scores are
+> filed here — reusing the base model's numbers would misattribute measurements
+> to a different ID.
+
+## Model card (verified facts only)
+
+- **Name:** GPT-OSS 120B Lite
+- **Short description:** A lighter derivative of OpenAI's Apache-2.0 gpt-oss-120b MoE (117B total / 5.1B active) tuned for concise, high-density reasoning; the "Lite" identity and tuning are not documented on OpenAI's model card.
+- **Provider / access:** Curated `opencode/gpt-oss-120b-lite`; open-weight family distributed via Hugging Face (base `openai/gpt-oss-120b`). No dedicated Lite repo was found.
+- **Release / knowledge:** Base gpt-oss-120b released 2025-08-05; Lite release date not published. Knowledge cutoff of the base: 2024-06.
+- **IDs:** `opencode/gpt-oss-120b-lite` (no verified upstream `lite` id).
+- **Context window:** 131,072 total; 32,768 max output (curated metadata, matching the base family).
+- **Modalities:** text in/out.
+- **Pricing (as of 2026-10-23):** free Apache-2.0 weights; hosted ~$0.15/$0.60 per 1M.
+- **Architecture:** sparse MoE, ~117B total / ~5.1B active (base); Lite tuning unverified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the Lite variant
+
+Reasoning / knowledge:
+
+- no verified public score found for the Lite variant
+
+Coding:
+
+- no verified public score found for the Lite variant
+
+Long context:
+
+- no long-context retrieval reported for this variant
+
+### Why the file is excluded (evidence trail)
+
+- OpenAI's official card (arXiv 2508.10925 / cdn.openai.com PDF) reports GPQA 80.1 (tools), HLE 14.9, MMLU 90.0, SWE-bench Verified 62.4 and Tau-Bench Retail 67.8 for **gpt-oss-120b**, and no "Lite" row.
+- Search across Hugging Face, BenchLM, Vals AI, llm-stats and Artificial Analysis surfaced no `gpt-oss-120b-lite` model page, weights repo or evaluation; the folder's own metadata describes tuning but cites no measurements.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified numbers for the exact ID means self-exclusion; base-model figures are not silently merged (`RULES.md` lineage rule).
+- Re-research trigger: a dated Lite model card or independent harness result → write a scored `DeepSeek_4.1_Flash.md` and retire this twin (`RULES.md` twin rule).
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-23
+- Method: public internet research (OpenAI gpt-oss-120b model card, Hugging Face, BenchLM, Vals AI, llm-stats, Artificial Analysis). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.
