@@ -1,0 +1,17 @@
+{
+  "name": "RunPod",
+  "kind": "aggregator",
+  "short": "GPU cloud hosting and serverless endpoints for deploying/scaling AI models; hourly/per-second GPU rates across community and enterprise H100 clusters.",
+  "officialUrl": "https://www.runpod.io",
+  "hosts": [
+    "runpod.io"
+  ],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Hourly and per-second GPU rates",
+      "notes": "Secure cloud rentals ranging from community GPUs to enterprise H100 clusters.",
+      "evidenceUrl": "https://www.runpod.io/pricing"
+    }
+  ]
+}

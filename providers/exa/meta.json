@@ -1,9 +1,12 @@
 {
   "name": "Exa",
   "kind": "aggregator",
-  "short": "Neural semantic web search, embeddings, and crawling API engineered specifically for AI agents and LLM retrieval pipelines.",
+  "short": "Neural semantic web search, embeddings, and crawling API for AI agents and RAG; $10/mo free credits, pay-as-you-go from $4–$7 per 1K requests.",
   "officialUrl": "https://exa.ai",
-  "hosts": ["exa.ai", "api.exa.ai"],
+  "hosts": [
+    "exa.ai",
+    "api.exa.ai"
+  ],
   "catalogUrl": "https://exa.ai/pricing",
   "plans": [
     {

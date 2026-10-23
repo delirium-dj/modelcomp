@@ -1,9 +1,11 @@
 {
   "name": "Cursor",
   "kind": "aggregator",
-  "short": "Agent-first IDE from Anysphere with one shared Cursor/Grok usage pool; third-party models are available at API list price, billed separately.",
+  "short": "Agent-first IDE from Anysphere with a free tier and $8/mo Plus plan; one shared usage pool, third-party models billed at API list price separately.",
   "officialUrl": "https://cursor.com",
-  "hosts": ["cursor.com"],
+  "hosts": [
+    "cursor.com"
+  ],
   "catalogUrl": "https://cursor.com/docs/models-and-pricing",
   "covers": [
     "claude-sonnet-4",

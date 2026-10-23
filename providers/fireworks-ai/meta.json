@@ -1,9 +1,11 @@
 {
   "name": "Fireworks AI",
   "kind": "aggregator",
-  "short": "Serverless and dedicated inference for open models, billed per token or per GPU-second with optional managed fine-tuning.",
+  "short": "Serverless and dedicated inference for open models, billed per token or per GPU-second, with managed fine-tuning from $0.50 per 1M training tokens.",
   "officialUrl": "https://fireworks.ai",
-  "hosts": ["fireworks.ai"],
+  "hosts": [
+    "fireworks.ai"
+  ],
   "plans": [
     {
       "name": "Serverless Inference",

@@ -1,9 +1,12 @@
 {
   "name": "Baidu Cloud",
   "kind": "vendor",
-  "short": "ERNIE foundation models, multimodal APIs, and Qianfan enterprise AI platform services direct from Baidu.",
+  "short": "ERNIE foundation models, multimodal APIs, and Qianfan enterprise AI platform services direct from Baidu; volumetric per-1M-token pricing (ERNIE 4.0 Turbo/Speed).",
   "officialUrl": "https://cloud.baidu.com",
-  "hosts": ["cloud.baidu.com", "qianfan.baidubce.com"],
+  "hosts": [
+    "cloud.baidu.com",
+    "qianfan.baidubce.com"
+  ],
   "plans": [
     {
       "name": "API Pay-as-you-go",

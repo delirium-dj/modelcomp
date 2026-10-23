@@ -1,0 +1,17 @@
+{
+  "name": "Lambda Labs",
+  "kind": "vendor",
+  "short": "Deep learning infrastructure and GPU cloud instances for AI training/inference; hourly rentals for H100/A100/GH200.",
+  "officialUrl": "https://lambdalabs.com",
+  "hosts": [
+    "lambdalabs.com"
+  ],
+  "plans": [
+    {
+      "name": "On-demand GPU Cloud",
+      "price": "Hourly GPU rental",
+      "notes": "H100, A100, and GH200 instance pricing for high-performance AI workloads.",
+      "evidenceUrl": "https://lambdalabs.com/service/gpu-cloud"
+    }
+  ]
+}

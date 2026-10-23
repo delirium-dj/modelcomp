@@ -1,0 +1,43 @@
+{
+  "name": "Melious",
+  "kind": "aggregator",
+  "short": "European OpenAI/Anthropic-compatible inference aggregator over 60+ open models from 11+ providers, with pay-as-you-go credits, coding subscriptions, cached-input pricing, and per-request carbon tracking.",
+  "officialUrl": "https://melious.ai",
+  "hosts": [
+    "melious.ai",
+    "api.melious.ai"
+  ],
+  "catalogUrl": "https://melious.ai/models",
+  "covers": [
+    "deepseek-v4.1-flash-1017",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gemma-4-31b",
+    "kimi-k3",
+    "qwen-3.8-27b",
+    "gpt-oss-120b",
+    "minimax-m3",
+    "qwen-3.5-9b",
+    "qwen-3.5-122b-a10b"
+  ],
+  "plans": [
+    {
+      "name": "Pay-as-you-go credits",
+      "price": "Top up credits; no subscription or minimum spend",
+      "notes": "Per-token list prices across every model, e.g. GLM 5.3 Flash €0.10/€0.40 per 1M and DeepSeek V4.1 Flash €0.30/€1.20 per 1M; cached input from €0.02/1M.",
+      "evidenceUrl": "https://melious.ai/pricing"
+    },
+    {
+      "name": "Coding subscriptions",
+      "price": "Basic €49/mo, Pro €149/mo, Unlimited 3x €499/mo, Unlimited 6x €1399/mo",
+      "notes": "Fixed monthly token allowances for coding agents (Cursor, Codex, Claude Code, OpenCode) on EU-hosted open models.",
+      "evidenceUrl": "https://melious.ai/pricing"
+    },
+    {
+      "name": "Cached input",
+      "price": "Lower Cache In rate where listed",
+      "notes": "Repeated prompt prefixes (long system prompts, codebases) are billed at the cached-input price.",
+      "evidenceUrl": "https://melious.ai/pricing"
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 {
   "name": "Firecrawl",
   "kind": "aggregator",
-  "short": "Web scraping, crawling, and clean markdown extraction API built specifically for LLM context windows and autonomous agent pipelines.",
+  "short": "Web scraping, crawling, and clean markdown extraction for LLM context; free 1K credits/mo, Hobby from $19/mo.",
   "officialUrl": "https://firecrawl.dev",
-  "hosts": ["firecrawl.dev", "api.firecrawl.dev"],
+  "hosts": [
+    "firecrawl.dev",
+    "api.firecrawl.dev"
+  ],
   "catalogUrl": "https://firecrawl.dev/pricing",
   "plans": [
     {

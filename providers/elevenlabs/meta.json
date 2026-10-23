@@ -1,9 +1,12 @@
 {
   "name": "ElevenLabs",
   "kind": "vendor",
-  "short": "State-of-the-art voice cloning, multilingual text-to-speech, sound effects, and conversational voice agent APIs.",
+  "short": "State-of-the-art voice cloning, multilingual TTS, sound effects, and conversational voice agents; free 10K chars/mo, Creator $22/mo for 100K chars.",
   "officialUrl": "https://elevenlabs.io",
-  "hosts": ["elevenlabs.io", "api.elevenlabs.io"],
+  "hosts": [
+    "elevenlabs.io",
+    "api.elevenlabs.io"
+  ],
   "plans": [
     {
       "name": "Free",

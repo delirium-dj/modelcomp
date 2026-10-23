@@ -1,0 +1,35 @@
+{
+  "name": "Lyceum",
+  "kind": "aggregator",
+  "short": "European serverless and dedicated inference for open models over an OpenAI/Anthropic-compatible API, billed per token with prompt caching and no base fee.",
+  "officialUrl": "https://lyceum.technology",
+  "hosts": [
+    "lyceum.technology",
+    "api.lyceum.technology"
+  ],
+  "catalogUrl": "https://lyceum.technology/models",
+  "covers": [
+    "glm-5.3",
+    "glm-5.3-flash"
+  ],
+  "plans": [
+    {
+      "name": "Serverless pay-as-you-go",
+      "price": "Per token, no base fee; e.g. GLM-5.3 $1.40 input / $4.40 output per 1M",
+      "notes": "23 open models, OpenAI- and Anthropic-compatible endpoints, runs in European data centres.",
+      "evidenceUrl": "https://lyceum.technology/inference/"
+    },
+    {
+      "name": "Dedicated endpoints",
+      "price": "Commitment pricing per contract",
+      "notes": "Reserved GPU capacity, model configuration and data-centre location agreed before launch.",
+      "evidenceUrl": "https://lyceum.technology/inference/"
+    },
+    {
+      "name": "Prompt caching",
+      "price": "Cached input price where listed",
+      "notes": "Repeated prompt starts still in GPU memory are billed at the cached input price.",
+      "evidenceUrl": "https://lyceum.technology/inference/"
+    }
+  ]
+}

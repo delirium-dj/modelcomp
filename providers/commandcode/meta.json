@@ -1,9 +1,12 @@
 {
   "name": "Command Code",
   "kind": "aggregator",
-  "short": "Subscription coding-agent plus an OpenAI/Anthropic-compatible Provider API that bills models at upstream rates with no markup.",
+  "short": "Subscription coding agent plus an OpenAI/Anthropic-compatible Provider API billing models at upstream rates with no markup; plans from $1/mo to $200/mo with pooled credits.",
   "officialUrl": "https://commandcode.ai",
-  "hosts": ["commandcode.ai", "api.commandcode.ai"],
+  "hosts": [
+    "commandcode.ai",
+    "api.commandcode.ai"
+  ],
   "catalogUrl": "https://commandcode.ai/models",
   "covers": [
     "minimax-m3.1-flash-preview",

@@ -1,9 +1,11 @@
 {
   "name": "Databricks Mosaic AI",
   "kind": "vendor",
-  "short": "Secure enterprise LLM serving, fine-tuning, vector search, and custom governance on the Databricks Data Intelligence Platform.",
+  "short": "Secure enterprise LLM serving, fine-tuning, vector search, and governance on the Databricks Data Intelligence Platform (pay-per-token, batch/reserved options).",
   "officialUrl": "https://www.databricks.com",
-  "hosts": ["databricks.com"],
+  "hosts": [
+    "databricks.com"
+  ],
   "plans": [
     {
       "name": "Enterprise Pay-as-you-go",

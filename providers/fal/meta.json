@@ -1,9 +1,11 @@
 {
   "name": "Fal",
   "kind": "vendor",
-  "short": "High-speed serverless media generation models (image, video, audio) and lightning-fast inference APIs.",
+  "short": "High-speed serverless media generation (image/video/audio) and inference APIs, billed per-second by GPU/model.",
   "officialUrl": "https://fal.ai",
-  "hosts": ["fal.ai"],
+  "hosts": [
+    "fal.ai"
+  ],
   "plans": [
     {
       "name": "Pay-as-you-go",

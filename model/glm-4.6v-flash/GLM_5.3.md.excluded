@@ -1,0 +1,37 @@
+# GLM 4.6V Flash — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Z.ai (`opencode/glm-4.6v-flash`, HF `zai-org/GLM-4.6V-Flash`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**Only ONE verified public benchmark number exists for this exact model — far too thin to honestly populate five dimension scores.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented.
+
+What was verified (2026-10-23):
+
+- **Identity (official HF model card `zai-org/GLM-4.6V-Flash`, 10B params BF16, MIT):** the lightweight sibling of GLM-4.6V (106B) in the GLM-4.6V series, released 2025-12-08 — a ~9B vision model optimized for local deployment and low-latency applications. Native multimodal function calling (images/screenshots/document pages as tool inputs), interleaved image-text generation, 128K multimodal document understanding, frontend replication/visual editing. Known weaknesses per the card itself: pure-text QA "significant room for improvement", overthinking/repetition, perception limits (counting, specific individuals).
+- **Specs:** 128K context (128,000/32,768 per models.dev); text/image/video/file in, text out; Free on the Z.ai Flash tier (official pricing docs, fetched 2026-10-23) and MIT open weights (self-host free).
+- **The single measured public row:** LlamaIndex **ExtractBench Mean 45.19** (Short 47.28 / Medium 44.52), vLLM one-shot pipeline, surfaced on the HF card's evaluation results — a mediocre extraction score (class leader DeepSeek V4.1 Flash 1017 scores 87.11% on the same leaderboard family).
+
+Sources checked with no further rows (2026-10-23):
+
+- **BenchLM** (`glm-4-6v-flash`): 404 — no page (the Z.AI family list tracks flagships only).
+- **Artificial Analysis** (`glm-4-6v-flash`): 404.
+- **Official GLM-4.6V blog** (`z.ai/blog/glm-4.6v`): not fetchable this pass — no readable benchmark table for the 9B Flash.
+- **Z.ai docs index:** no GLM-4.6V-Flash model page; pricing table only.
+
+Interpolation from the 106B flagship GLM-4.6V, the GLM-4.5V lineage, or same-size vision models was deliberately NOT used — the Flash is a distinct 9B checkpoint. One extraction benchmark cannot honestly populate Tool use, Reasoning, Context window, Coding, or Multimodal scores (a single mediocre row would fabricate four dimensions).
+
+A future re-research should look for (a) the official GLM-4.6V blog benchmark table with Flash rows (MMMU-Pro, OSWorld, video benches), (b) aggregator coverage (BenchLM/AA) once the 9B is measured, (c) Vals/OpenCompass/community evals of the `GLM-4.6V-Flash` id — then write a fresh `GLM_5.3.md`.
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-23
+- Method: public internet research (official Hugging Face model card incl. evaluation results, BenchLM, Artificial Analysis, z.ai pricing docs + docs index, models.dev); one verified benchmark row exists — insufficient for honest dimension scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

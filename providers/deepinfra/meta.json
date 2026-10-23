@@ -1,10 +1,14 @@
 {
   "name": "DeepInfra",
   "kind": "aggregator",
-  "short": "Serverless inference cloud with per-token pricing across open models — no long-term contracts or upfront costs.",
+  "short": "Serverless inference cloud with per-token pricing across open models (e.g. DeepSeek V4 Flash $0.09/$0.18 per 1M); no long-term contracts, plus dedicated GPU instances by the hour.",
   "officialUrl": "https://deepinfra.com",
-  "hosts": ["deepinfra.com"],
-  "idPrefixes": ["deepinfra"],
+  "hosts": [
+    "deepinfra.com"
+  ],
+  "idPrefixes": [
+    "deepinfra"
+  ],
   "plans": [
     {
       "name": "Unauthenticated Free Testing",

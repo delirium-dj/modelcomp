@@ -1,9 +1,11 @@
 {
   "name": "Baseten",
   "kind": "aggregator",
-  "short": "Baseten's inference platform — pre-optimized Model APIs plus dedicated GPU deployments with per-minute billing.",
+  "short": "Baseten's inference platform — pre-optimized Model APIs (Beam $0.40/$1.20 per 1M) plus dedicated GPU deployments from $0.01052/min, with a $30 signup trial credit.",
   "officialUrl": "https://www.baseten.co",
-  "hosts": ["baseten.co"],
+  "hosts": [
+    "baseten.co"
+  ],
   "catalogUrl": "https://www.baseten.co/library/",
   "plans": [
     {

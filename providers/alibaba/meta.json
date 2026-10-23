@@ -1,10 +1,18 @@
 {
   "name": "Alibaba (Qwen)",
   "kind": "vendor",
-  "short": "Qwen models via Alibaba Cloud Model Studio (international and China-region rate cards) plus Apache-2.0 open weights.",
+  "short": "Qwen models via Alibaba Cloud Model Studio; pay-as-you-go from $0.10/$0.15 per 1M up to $2/$6 per 1M, with a one-time 1M-token free quota and Apache-2.0 open weights.",
   "officialUrl": "https://www.alibabacloud.com",
-  "hosts": ["alibabacloud.com", "dashscope.aliyuncs.com", "modelstudio.console.alibabacloud.com", "qwenlm.github.io"],
-  "idPrefixes": ["alibaba", "Qwen"],
+  "hosts": [
+    "alibabacloud.com",
+    "dashscope.aliyuncs.com",
+    "modelstudio.console.alibabacloud.com",
+    "qwenlm.github.io"
+  ],
+  "idPrefixes": [
+    "alibaba",
+    "Qwen"
+  ],
   "plans": [
     {
       "name": "Model Studio pay-as-you-go",

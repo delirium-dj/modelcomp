@@ -1,10 +1,18 @@
 {
   "name": "Google",
   "kind": "vendor",
-  "short": "Gemini and Gemma models via Google AI Studio / the Gemini API, with Vertex AI as the enterprise lane and Antigravity as the agent-first IDE.",
+  "short": "Gemini/Gemma via Google AI Studio with a free tier; pay-as-you-go from $0.10/$0.40 per 1M, Vertex AI enterprise lane, and Antigravity IDE from $0/$30 per seat.",
   "officialUrl": "https://ai.google.dev",
-  "hosts": ["ai.google.dev", "deepmind.google", "cloud.google.com", "antigravity.google", "blog.google"],
-  "idPrefixes": ["google"],
+  "hosts": [
+    "ai.google.dev",
+    "deepmind.google",
+    "cloud.google.com",
+    "antigravity.google",
+    "blog.google"
+  ],
+  "idPrefixes": [
+    "google"
+  ],
   "plans": [
     {
       "name": "AI Studio free tier",

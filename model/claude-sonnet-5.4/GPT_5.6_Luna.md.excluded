@@ -1,0 +1,53 @@
+# Claude Sonnet 5.4 - findings by GPT 5.6 Luna
+
+- Source: Anthropic (exact model ID not verified)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** Queue-listed Anthropic model name; no authoritative public model card for this exact name was verified.
+- **Provider / access:** No exact Anthropic API ID, OpenCode Zen ID, or official access route was verified.
+- **Release / knowledge:** No exact release date or knowledge cutoff was verified.
+- **IDs:** No exact verified ID.
+- **Context window:** No exact verified value.
+- **Modalities:** No exact verified modality specification.
+- **Pricing (as of 2026-10-23):** No exact verified price.
+- **Architecture:** No exact verified architecture information.
+
+### Raw benchmarks found
+
+> No verified public benchmark number was found for the exact `Claude Sonnet 5.4` model name or ID.
+
+Agent / tool use:
+
+- No verified public score found for the exact model.
+
+Reasoning / knowledge:
+
+- No verified public score found for the exact model.
+
+Coding:
+
+- No verified public score found for the exact model.
+
+Long context:
+
+- No verified exact-model long-context retrieval score found.
+
+Multimodal:
+
+- No verified public score found for the exact model.
+
+### Normalized scores (1-100)
+
+- Not scored. The exact model has zero verified public benchmark numbers.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
+- Method: Exact-name public web research and checks against authoritative Anthropic model information; excluded under the repository's zero-evidence rule. Related Claude Sonnet and Opus scores were not substituted.

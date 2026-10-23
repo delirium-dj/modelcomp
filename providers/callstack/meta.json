@@ -1,10 +1,16 @@
 {
   "name": "Callstack",
   "kind": "vendor",
-  "short": "Callstack's Apex agentic coding model for React Native and web, with pay-per-token API access (business accounts) and on-premise deployments.",
+  "short": "Callstack's Apex agentic coding model for React Native/web; pay-per-token API access at $0.50 in / $0.20 cached / $3.00 out per 1M (business accounts), plus on-premise deployments.",
   "officialUrl": "https://apex.callstack.com",
-  "hosts": ["callstack.com", "www.callstack.com", "apex.callstack.com"],
-  "idPrefixes": ["callstack"],
+  "hosts": [
+    "callstack.com",
+    "www.callstack.com",
+    "apex.callstack.com"
+  ],
+  "idPrefixes": [
+    "callstack"
+  ],
   "plans": [
     {
       "name": "API Access",

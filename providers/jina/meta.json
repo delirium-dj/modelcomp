@@ -1,9 +1,11 @@
 {
   "name": "Jina AI",
   "kind": "vendor",
-  "short": "High-performance multimodal embedding models, advanced neural rerankers, and reader APIs optimized for RAG and search pipelines.",
+  "short": "Multimodal embeddings, neural rerankers, and reader APIs for RAG/search; 10M free tokens, then per-1M-token pay-as-you-go.",
   "officialUrl": "https://jina.ai",
-  "hosts": ["jina.ai"],
+  "hosts": [
+    "jina.ai"
+  ],
   "plans": [
     {
       "name": "Free Tier (Non-commercial)",

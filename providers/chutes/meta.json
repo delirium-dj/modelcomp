@@ -1,9 +1,13 @@
 {
   "name": "Chutes",
   "kind": "aggregator",
-  "short": "Decentralized inference on Bittensor with flat per-token rates and confidential TEE compute - no subscription required, plus optional monthly plans and self-serve private GPU deployments.",
+  "short": "Decentralized inference on Bittensor with flat per-token rates (e.g. DeepSeek V4 Flash $0.44/$1.32 per 1M) and confidential TEE compute; no free tier, plus $10/$20 monthly plans and self-serve GPU deployments.",
   "officialUrl": "https://chutes.ai",
-  "hosts": ["chutes.ai", "llm.chutes.ai", "app.chutes.ai"],
+  "hosts": [
+    "chutes.ai",
+    "llm.chutes.ai",
+    "app.chutes.ai"
+  ],
   "catalogUrl": "https://chutes.ai/models",
   "plans": [
     {
@@ -32,7 +36,14 @@
     }
   ],
   "covers": [
-    "deepseek-v3.2", "deepseek-v4-flash", "glm-5.1", "glm-5.2", "kimi-k2.6", "kimi-k3",
-    "nemotron-3-nano-omni", "qwen-3.5-397b", "qwen-3.8-27b"
+    "deepseek-v3.2",
+    "deepseek-v4-flash",
+    "glm-5.1",
+    "glm-5.2",
+    "kimi-k2.6",
+    "kimi-k3",
+    "nemotron-3-nano-omni",
+    "qwen-3.5-397b",
+    "qwen-3.8-27b"
   ]
 }
