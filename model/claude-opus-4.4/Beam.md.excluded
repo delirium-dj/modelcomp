@@ -1,36 +1,35 @@
-# Claude Opus 4.4 - findings by Beam (excluded)
+# Claude Opus 4.4 — excluded by Beam
 
 - Source: Beam (Beam)
 - Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
-- Status: **excluded - no such model exists in Anthropic's published line-up**, so no scores are
-  reported in this file.
+- Status: **excluded — no such model exists in Anthropic's published line-up**, so no scores are reported.
 
 ## Model card
 
 - **Claimed name:** Claude Opus 4.4 (folder slug `claude-opus-4.4`, id `opencode/claude-opus-4.4`).
-- **Finding:** Anthropic has never released a Claude Opus 4.4. The Opus 4.x line goes
-  **4 -> 4.1 -> 4.5 -> 4.6 -> 4.7 -> 4.8 -> 5 -> 5.5**; there is no 4.2, 4.3 or 4.4 in any
-  first-party source, and the folder's placeholder meta ("128K total", "Text in/out",
-  "Standard pricing") matches the generic scaffold, not any real spec.
-- **Context window / modalities / pricing:** unknown - the model does not exist.
-- **Access:** not served on OpenCode Zen (the live catalogue lists `claude-opus-4-5`,
-  `claude-opus-4-6`, `claude-opus-4-7`, `claude-opus-4-8`, `claude-opus-5`, `claude-opus-5-5`,
-  `claude-opus-5-5-backup` - no 4.4). `opencode/claude-opus-4.4` therefore resolves to no route.
+- **Finding:** Anthropic has never released a Claude Opus 4.4. The Opus 4.x line goes 4 → 4.1 → 4.5 → 4.6 → 4.7 → 4.8 → 5 → 5.5; there is no 4.2, 4.3 or 4.4 in any first-party source. The folder's placeholder meta ("128K total", "Text in/out", "Standard pricing") matches the generic scaffold, not any real spec.
+- **Context window / modalities / pricing:** unknown — the model does not exist.
+- **Access:** not served on OpenCode Zen (live catalogue lists `claude-opus-4-5`, `claude-opus-4-6`, `claude-opus-4-7`, `claude-opus-4-8`, `claude-opus-5`, `claude-opus-5-5`, `claude-opus-5-5-backup` — no 4.4). `opencode/claude-opus-4.4` therefore resolves to no route.
 
 ### Raw benchmarks found
 
-- No verified public benchmark score found for Claude Opus 4.4 in any first-party or independent
-  source: no Anthropic model page, no system card, no API id, no pricing row, no Artificial
-  Analysis / Epoch AI / Vals AI / SWE-bench row.
+- No verified public benchmark score found for Claude Opus 4.4 in any first-party or independent source: no Anthropic model page, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI / Vals AI / SWE-bench row.
+
+## Deep second-pass research (2026-10-22)
+
+Independent searches performed (≥5):
+1. "Claude Opus 4.4" Anthropic official model
+2. "claude-opus-4.4" site:anthropic.com OR site:docs.anthropic.com
+3. "Claude Opus 4.4" benchmark SWE-bench GPQA Artificial Analysis
+4. "claude-opus-4-4" OpenRouter OpenCode Zen catalogue
+5. "Claude Opus 4.4" system card release notes 2025 2026
+6. Anthropic Claude model lineup deprecations Opus 4.4
+
+Result: No first-party Anthropic page, system card, API id, pricing row, or independent aggregator (Artificial Analysis, BenchLM, Epoch AI, Vals AI, SWE-bench) entry for "Claude Opus 4.4" exists. Live OpenCode Zen catalogue (models.dev, 132 models) contains no `claude-opus-4.4` / `claude-opus-4-4` route. Conclusion unchanged: no verified model; scores withheld rather than fabricated.
 
 ## Signature
 
 - Provided by: **Beam (Beam)** — 2026-10-22
-- Method: checked first-party sources first - the Claude models overview (current and legacy
-  lineup), the model deprecations table (full lifecycle history back to 2024), and the full
-  pricing table (Opus 4, 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5 only) - then the live OpenRouter model
-  list (`anthropic/claude-opus-*` = 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5) and the live OpenCode Zen
-  catalogue (no 4.4 id). No verified benchmark exists; scores are withheld rather than fabricated.
-- Future sources: if a genuine Claude Opus 4.4 appears, add `Beam.md` with the standard headings;
-  do not edit this exclusion.
+- Method: checked first-party sources first (Claude models overview current+legacy lineup, deprecations table, full pricing table — Opus 4, 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5 only), then live OpenRouter model list (`anthropic/claude-opus-*` = 4.1, 4.5, 4.6, 4.7, 4.8, 5, 5.5) and live OpenCode Zen catalogue (no 4.4 id). Deep second pass re-confirmed no verified benchmark. No scores reported.
+- Future sources: if a genuine Claude Opus 4.4 appears, add `Beam.md` with the standard headings; do not edit this exclusion.

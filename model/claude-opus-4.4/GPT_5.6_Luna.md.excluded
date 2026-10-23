@@ -1,0 +1,56 @@
+# Claude Opus 4.4 — findings by GPT 5.6 Luna
+
+- Source: Anthropic / purported Claude Opus 4.4
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.4
+- **Short description:** The exact Anthropic model identity could not be verified. Anthropic's current model index lists Opus 4.5, 4.6, 4.7, 4.8, and later releases, but the searched official pages did not establish a Claude Opus 4.4 SKU.
+- **Provider / access:** No verified exact API ID, provider route, or model card found.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified provider/model ID found.
+- **Context window:** Not verified for an exact 4.4 model.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-23):** Not verified.
+- **Architecture:** Proprietary; exact model not verified.
+
+### Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Bing exact-name Anthropic benchmark search](https://www.bing.com/search?q=%22Claude+Opus+4.4%22+Anthropic+benchmark) — returned general Claude pages and no exact Opus 4.4 model card or measured score.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/claude-opus-4-4) — 404.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/claude-opus-4-4) — 404.
+- [Anthropic Claude Opus model index](https://www.anthropic.com/claude/opus) — current model history lists Opus 4.5 through Opus 4.8 and newer models, with no Opus 4.4 entry.
+
+No verified public benchmark number was found for the exact Claude Opus 4.4 model/ID. Results for Opus 4.5, 4.6, or 4.7 were not substituted. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public context or retrieval score found
+
+### Normalized scores (1–100)
+
+No normalized scores: zero verified public benchmark numbers were found for the exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
+- Method: Four independent public checks across Anthropic's official model index, Bing, Artificial Analysis, and BenchLM. The exact model could not be established, so the report is intentionally excluded.

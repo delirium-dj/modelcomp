@@ -1,0 +1,22 @@
+{
+  "name": "Exa",
+  "kind": "aggregator",
+  "short": "Neural semantic web search, embeddings, and crawling API engineered specifically for AI agents and LLM retrieval pipelines.",
+  "officialUrl": "https://exa.ai",
+  "hosts": ["exa.ai", "api.exa.ai"],
+  "catalogUrl": "https://exa.ai/pricing",
+  "plans": [
+    {
+      "name": "Free Monthly Credits",
+      "price": "$0/month ($10 credit)",
+      "notes": "Instant API key upon account registration (no credit card required) with $10 in free credits that automatically resets on the 1st of every month for neural search and web document retrieval.",
+      "evidenceUrl": "https://exa.ai/pricing"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "From $4 to $7 per 1,000 requests",
+      "notes": "Pure consumption-based pricing with no mandatory monthly subscription fee; deep reasoning searches scale up to $15 per 1,000 requests.",
+      "evidenceUrl": "https://exa.ai/pricing"
+    }
+  ]
+}

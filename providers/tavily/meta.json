@@ -1,0 +1,22 @@
+{
+  "name": "Tavily",
+  "kind": "aggregator",
+  "short": "AI-native search and contextual web content retrieval API optimized for autonomous agents, tool calling, and RAG architectures.",
+  "officialUrl": "https://tavily.com",
+  "hosts": ["tavily.com", "api.tavily.com"],
+  "catalogUrl": "https://tavily.com",
+  "plans": [
+    {
+      "name": "Researcher Plan (Free)",
+      "price": "$0/month (1,000 credits)",
+      "notes": "Instant API key upon dashboard signup (no credit card required) with 1,000 free search credits refreshed on the 1st of every month for local agent workflows.",
+      "evidenceUrl": "https://tavily.com"
+    },
+    {
+      "name": "Project Plan",
+      "price": "From $30/month",
+      "notes": "4,000 credits per month with pay-as-you-go overages ($0.008/credit), higher concurrency, and access to deep multi-step research endpoints.",
+      "evidenceUrl": "https://tavily.com"
+    }
+  ]
+}

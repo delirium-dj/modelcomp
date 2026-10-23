@@ -1,0 +1,15 @@
+{
+  "name": "Modal",
+  "kind": "aggregator",
+  "short": "Serverless Python cloud infrastructure for running custom AI models, batch inference, and web endpoints.",
+  "officialUrl": "https://modal.com",
+  "hosts": ["modal.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-second CPU and GPU compute rates",
+      "notes": "Pricing varies by container GPU hardware (e.g., T4, L4, A10G, H100) and execution time.",
+      "evidenceUrl": "https://modal.com/pricing"
+    }
+  ]
+}

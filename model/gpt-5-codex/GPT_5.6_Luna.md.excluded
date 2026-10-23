@@ -1,0 +1,56 @@
+# GPT-5 Codex — findings by GPT 5.6 Luna
+
+- Source: OpenAI (`openai/gpt-5-codex`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5 Codex
+- **Short description:** Models.dev identifies this as a proprietary coding-optimized GPT model for repository edits, reviews, and agentic software work.
+- **Provider / access:** Models.dev lists `gpt-5-codex` across OpenAI, OpenCode, OpenRouter, Azure, and other providers.
+- **Release / knowledge:** Models.dev lists release `2025-09-15` and a `2024-09` knowledge cutoff.
+- **IDs:** `openai/gpt-5-codex` / `gpt-5-codex`.
+- **Context window:** Models.dev lists 400,000 tokens with a 128,000-token output limit.
+- **Modalities:** Reasoning and tool calls; no verified image/audio/video input for this exact route.
+- **Pricing (as of 2026-10-23):** Models.dev lists common pricing around $1.25 input / $10.00 output per 1M tokens; OpenCode is listed at $1.07/$8.50.
+- **Architecture:** Proprietary OpenAI Codex reasoning model.
+
+### Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Models.dev exact model record](https://models.dev/models/openai/gpt-5-codex) — verifies the model identity, provider routes, 400K context, and pricing, but publishes no benchmark measurements.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/gpt-5-codex) — 404.
+- [Bing exact-name benchmark search](https://www.bing.com/search?q=%22GPT-5+Codex%22+benchmark) — returned general ChatGPT/OpenAI pages but no verifiable exact-model benchmark result.
+- [OpenAI Codex announcement lookup](https://openai.com/index/introducing-gpt-5-1-codex-max/) — unavailable for the exact GPT-5 Codex benchmark query; no exact benchmark score was verified.
+
+No verified public benchmark number was found for the exact GPT-5 Codex model/ID. Scores for GPT-5.1 Codex, GPT-5.1 Codex Max, or GPT-5.2 Codex were not substituted. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public retrieval score found
+
+### Normalized scores (1–100)
+
+No normalized scores: zero verified public benchmark numbers were found for the exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
+- Method: Four independent public checks across Models.dev, BenchLM, Bing, and OpenAI documentation. The exact model has metadata but no verified public benchmark score, so the report is intentionally excluded.

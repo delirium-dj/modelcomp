@@ -1,0 +1,51 @@
+# GPT-5.1 Codex mini — findings by GPT 5.6 Luna
+
+- Source: OpenAI (`GPT-5.1-Codex-mini`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1 Codex mini
+- **Short description:** The queue identifies this as a compact Codex model, but no authoritative exact model card or stable public model ID was verified.
+- **Provider / access:** OpenAI model documentation was checked; exact public access details were not verified.
+- **Release / knowledge:** no verified exact-model release or knowledge cutoff found.
+- **IDs:** no verified exact provider ID found.
+- **Context window:** no verified exact-model value found.
+- **Modalities:** no verified exact-model specification found.
+- **Pricing (as of 2026-10-23):** no verified exact-model price found.
+- **Architecture:** proprietary; no verified exact-model architecture details found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the exact `GPT-5.1-Codex-mini` model ID.
+
+Reasoning / knowledge:
+
+- no verified public score found for the exact model.
+
+Coding:
+
+- no verified public score found for the exact model. Results for GPT-5.1, GPT-5.1-Codex, or other Codex variants were not substituted.
+
+Long context:
+
+- no verified exact-model context retrieval score found.
+
+Multimodal:
+
+- no verified exact-model benchmark found.
+
+### Normalized scores (1-100)
+
+- Not scored. The exact model could not be tied to any verified public benchmark results.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
+- Method: OpenAI model documentation and exact-name web searches. This file is excluded because benchmark evidence for the exact model was insufficient.

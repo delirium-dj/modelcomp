@@ -80,7 +80,7 @@ Long context:
 - **Multimodal: 90/100.** Text/image input/output with reasoning covers broad enterprise needs; capped without speech support.
 - **Coding: 88/100.** AI Index 58 includes coding tasks with strong performance on agentic workflows; capped by lack of dedicated coding benchmarks.
 - **Cost efficiency: 85/100.** $4.00/$20.00 per 1M tokens reflects premium pricing; capped by high operational costs compared to alternatives.
-- **Overall Score: 93/100.** Mean of five quality dims (92+95+95+90+88)/5=93.4, reflecting elite agentic tool use, reasoning, context, and multimodal capabilities at premium pricing; cost efficiency (85) is not counted.
+- **Overall Score: 92/100.** Mean of five quality dims (92+95+95+90+88)/5=93.4, reflecting elite agentic tool use, reasoning, context, and multimodal capabilities at premium pricing; cost efficiency (85) is not counted.
 
 ---
 

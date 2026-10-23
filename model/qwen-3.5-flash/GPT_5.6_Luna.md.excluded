@@ -1,0 +1,56 @@
+# Qwen3.5 Flash — findings by GPT 5.6 Luna
+
+- Source: Qwen / purported Qwen3.5 Flash
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.5 Flash
+- **Short description:** The exact model identity could not be verified. Public Qwen catalogs expose size-specific Qwen3.5 checkpoints, but no exact bare `Qwen3.5-Flash` model card or benchmark entry was found.
+- **Provider / access:** No verified exact API ID, provider route, or model card found.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified exact provider/model ID found.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-23):** Not verified.
+- **Architecture:** Not verified; Qwen3.5-122B-A10B and other size-specific variants were not substituted.
+
+### Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Bing exact-name benchmark search](https://www.bing.com/search?q=%22Qwen3.5-Flash%22+benchmark) — returned no relevant exact-model benchmark result.
+- [Bing exact-name Hugging Face search](https://www.bing.com/search?q=site%3Ahuggingface.co%2FQwen+Qwen3.5+Flash) — returned no exact Qwen3.5 Flash checkpoint.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/qwen-3-5-flash) — 404.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/qwen-3-5-flash) — 404.
+
+No verified public benchmark number was found for an exact Qwen3.5 Flash model/ID. Results for Qwen3.5 size-specific checkpoints or Qwen3.5 Flash Lite were not substituted. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public context or retrieval score found
+
+### Normalized scores (1–100)
+
+No normalized scores: zero verified public benchmark numbers were found for the exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
+- Method: Four independent public checks across exact-name search and benchmark catalogs. The exact model could not be established, so the report is intentionally excluded.

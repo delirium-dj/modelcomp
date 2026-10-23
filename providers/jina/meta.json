@@ -6,6 +6,12 @@
   "hosts": ["jina.ai"],
   "plans": [
     {
+      "name": "Free Tier (Non-commercial)",
+      "price": "$0 (10M tokens)",
+      "notes": "Instant API key upon registration (no credit card required) with 10 million free tokens shared across Jina Embeddings, Reranker, and Reader APIs (500 RPM on Reader, 100 RPM on Embeddings).",
+      "evidenceUrl": "https://jina.ai/pricing/"
+    },
+    {
       "name": "API Pay-as-you-go",
       "price": "Per 1M tokens",
       "notes": "Jina Embeddings v3 and Rerank v2 volumetric API tier pricing.",

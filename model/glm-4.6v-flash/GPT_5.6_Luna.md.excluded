@@ -1,0 +1,56 @@
+# GLM-4.6V Flash — findings by GPT 5.6 Luna
+
+- Source: Z.ai / purported GLM-4.6V Flash
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6V Flash
+- **Short description:** The exact model identity could not be verified. Z.ai's public model namespace and the searched benchmark catalogs did not establish an exact GLM-4.6V Flash checkpoint or API SKU.
+- **Provider / access:** No verified exact API ID, provider route, or model card found.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified exact provider/model ID found.
+- **Context window:** Not verified.
+- **Modalities:** Not verified for the exact model.
+- **Pricing (as of 2026-10-23):** Not verified.
+- **Architecture:** Not verified; no other GLM-4.6V variant was substituted.
+
+### Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Bing exact-name benchmark search](https://www.bing.com/search?q=%22GLM-4.6V-Flash%22+benchmark) — returned no relevant exact-model benchmark result.
+- [THUDM official Hugging Face organization](https://huggingface.co/THUDM) — states that Z.ai releases are hosted under the separate `zai-org` organization and lists no THUDM model for this exact name.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/glm-4-6v-flash) — 404.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/glm-4-6v-flash) — 404.
+
+No verified public benchmark number was found for an exact GLM-4.6V Flash model/ID. Results for GLM-4.6, GLM-4.6V, GLM-5.1, or other GLM variants were not substituted. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public context or retrieval score found
+
+### Normalized scores (1–100)
+
+No normalized scores: zero verified public benchmark numbers were found for the exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
+- Method: Four independent public checks across the official THUDM/Z.ai model namespace, Bing, Artificial Analysis, and BenchLM. The exact model could not be established, so the report is intentionally excluded.

@@ -1,30 +1,34 @@
-# Neomorph - findings by Beam (excluded)
+# Neomorph — excluded by Beam
 
 - Source: Beam (Beam)
 - Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
-- Status: **excluded - no verified public benchmarks for "Neomorph"**; no scores reported.
+- Status: **excluded — no verified public benchmarks for "Neomorph"**; no scores reported.
 
 ## Model card
 
 - **Claimed name:** Neomorph (folder slug `neomorph`, id `opencode/neomorph`).
-- **Finding:** "Neomorph" is an OpenCode Zen experimental route (`opencode/neomorph`) with scaffolded
-  meta (64K context, $0.50/$1.50, text in/out, structured-output focus). No first-party model card,
-  system card, API documentation, or independent benchmark row exists for a model by that name.
-  OpenCode Zen's public model catalogue and docs do not list a "Neomorph" entry with verified specs.
-- **Context window / modalities / pricing:** unverified - adopted from scaffolded meta only.
+- **Finding:** "Neomorph" is an OpenCode Zen experimental route (`opencode/neomorph`) with scaffolded meta (64K context, $0.50/$1.50, text in/out, structured-output focus). No first-party model card, system card, API documentation, or independent benchmark row exists for a model by that name. OpenCode Zen's public model catalogue (models.dev, 132 models) does not list a "Neomorph" entry with verified specs. Web searches surface only an unrelated drug-discovery company "Neomorph" (targeted protein degradation), not an LLM.
+- **Context window / modalities / pricing:** unverified — adopted from scaffolded meta only.
 
 ### Raw benchmarks found
 
-- No verified public benchmark score found for Neomorph in any first-party or independent source:
-  no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI /
-  Vals AI / SWE-bench / BenchLM row.
+- No verified public benchmark score found for Neomorph in any first-party or independent source: no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI / Vals AI / SWE-bench / BenchLM row.
+
+## Deep second-pass research (2026-10-22)
+
+Independent searches performed (≥5):
+1. "Neomorph" LLM model benchmark
+2. "Neomorph" OpenCode Zen opencode model
+3. "Neomorph" AI model context window pricing
+4. "neomorph" site:models.dev OR site:opencode.ai
+5. "Neomorph" artificial analysis OR benchlm OR epoch AI LLM
+6. "Neomorph" company drug discovery (disambiguation)
+
+Result: No LLM named "Neomorph" exists in any first-party or independent source. The only "Neomorph" references are an unrelated biotech company. OpenCode Zen's public catalogue contains no `neomorph` route. Conclusion unchanged: no verified model; scores withheld rather than fabricated.
 
 ## Signature
 
 - Provided by: **Beam (Beam)** — 2026-10-22
-- Method: checked OpenCode Zen docs/catalogue and independent aggregators (Artificial Analysis,
-  BenchLM, Epoch AI, Vals AI). No verified benchmark exists; scores are withheld rather than
-  fabricated.
-- Future sources: if a genuine Neomorph appears, add `Beam.md` with the standard headings;
-  do not edit this exclusion.
+- Method: checked OpenCode Zen docs/catalogue and independent aggregators (Artificial Analysis, BenchLM, Epoch AI, Vals AI). Deep second pass re-confirmed no verified benchmark. No scores reported.
+- Future sources: if a genuine Neomorph appears, add `Beam.md` with the standard headings; do not edit this exclusion.

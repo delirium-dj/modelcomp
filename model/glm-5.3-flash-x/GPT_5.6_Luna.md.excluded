@@ -1,0 +1,58 @@
+# GLM-5.3 Flash X — findings by GPT 5.6 Luna
+
+- Source: Z.AI / purported `glm-5.3-flash-x`
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-5.3 Flash X
+- **Short description:** The exact public identity of this purported GLM-5.3 Flash X variant could not be verified. It may be a provider label or an unindexed serving variant rather than a separately documented Z.AI model.
+- **Provider / access:** No authoritative provider page or exact API route was found. Searches for `glm-5.3-flash-x` did not establish whether it is distinct from GLM-5.3 Flash.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified provider/model ID found.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-23):** Not verified.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Bing exact-name official/benchmark search](https://www.bing.com/search?q=%22GLM-5.3-Flash-X%22+official+benchmark) — no exact Z.AI model card or benchmark result surfaced.
+- [Hugging Face exact repository](https://huggingface.co/zai-org/GLM-5.3-Flash-X) — returned 401; no public exact model card was verified.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/glm-5-3-flash-x) — 404.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/glm-5-3-flash-x) — 404.
+- [Models.dev model catalog lookup](https://models.dev/models/zai/glm-5.3-flash-x) — no exact model page; the catalog did not establish a canonical entry.
+- [OpenRouter catalog search](https://openrouter.ai/models?q=glm-5.3-flash-x) — no exact model listing was surfaced.
+
+No verified public benchmark number was found for the exact model/ID. Figures from GLM-5.3 Flash or GLM-5.3 FlashX were not substituted because the exact identity is unresolved. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public context or retrieval measurement found
+
+### Normalized scores (1–100)
+
+No normalized scores: zero verified public benchmark numbers were found for the exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
+- Method: Six independent public checks across search, Hugging Face, Artificial Analysis, BenchLM, Models.dev, and OpenRouter. The exact model identity and benchmark evidence could not be established, so the report is intentionally excluded.

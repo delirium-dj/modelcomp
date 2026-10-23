@@ -1,0 +1,51 @@
+# GLM-4.5-Flash — findings by GPT 5.6 Luna
+
+- Source: Z.ai (`GLM-4.5-Flash`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.5-Flash
+- **Short description:** The queue identifies a GLM-4.5 Flash entry, but an authoritative exact model card and stable public model identity were not verified.
+- **Provider / access:** no verified exact public route or weights ID found.
+- **Release / knowledge:** no verified exact-model release or knowledge cutoff found.
+- **IDs:** no verified exact provider ID found.
+- **Context window:** no verified exact-model value found.
+- **Modalities:** no verified exact-model specification found.
+- **Pricing (as of 2026-10-23):** no verified exact-model price found.
+- **Architecture:** no verified exact-model architecture details found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the exact `GLM-4.5-Flash` model.
+
+Reasoning / knowledge:
+
+- no verified public score found for the exact model.
+
+Coding:
+
+- no verified public score found for the exact model. GLM-4.5, GLM-4.7-Flash, and other GLM variants were not substituted.
+
+Long context:
+
+- no verified exact-model context retrieval score found.
+
+Multimodal:
+
+- no verified exact-model benchmark found.
+
+### Normalized scores (1-100)
+
+- Not scored. The exact model identity and benchmark evidence could not be verified.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
+- Method: Z.ai/Hugging Face model-catalog checks and exact-name web searches. This file is excluded because verified exact-model benchmark evidence was not found.

@@ -1,0 +1,51 @@
+# gpt-oss-120b-lite — findings by GPT 5.6 Luna
+
+- Source: OpenAI (`gpt-oss-120b-lite`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** gpt-oss-120b-lite
+- **Short description:** The exact `lite` variant is listed in the queue, but the verified OpenAI gpt-oss documentation and weights identify `gpt-oss-120b`, not a separate `gpt-oss-120b-lite` checkpoint.
+- **Provider / access:** no verified exact `lite` provider route or weights repository found.
+- **Release / knowledge:** no verified exact-variant release or knowledge cutoff found.
+- **IDs:** no verified exact `gpt-oss-120b-lite` ID found.
+- **Context window:** no verified exact-variant value found.
+- **Modalities:** no verified exact-variant specification found.
+- **Pricing (as of 2026-10-23):** no verified exact-variant price found.
+- **Architecture:** results for OpenAI `gpt-oss-120b` were not silently reused for the unverified `lite` variant.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the exact `gpt-oss-120b-lite` model.
+
+Reasoning / knowledge:
+
+- no verified public score found for the exact variant.
+
+Coding:
+
+- no verified public score found for the exact variant. Official `gpt-oss-120b` figures were not substituted.
+
+Long context:
+
+- no verified exact-variant context retrieval score found.
+
+Multimodal:
+
+- no verified exact-variant benchmark found.
+
+### Normalized scores (1-100)
+
+- Not scored. The exact `lite` variant could not be verified as a distinct publicly documented model.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
+- Method: OpenAI gpt-oss documentation, Hugging Face model catalog, and exact-name web searches. This file is excluded because exact-variant evidence was insufficient.

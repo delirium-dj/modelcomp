@@ -1,0 +1,22 @@
+{
+  "name": "Firecrawl",
+  "kind": "aggregator",
+  "short": "Web scraping, crawling, and clean markdown extraction API built specifically for LLM context windows and autonomous agent pipelines.",
+  "officialUrl": "https://firecrawl.dev",
+  "hosts": ["firecrawl.dev", "api.firecrawl.dev"],
+  "catalogUrl": "https://firecrawl.dev/pricing",
+  "plans": [
+    {
+      "name": "Free Plan",
+      "price": "$0/month (1,000 credits)",
+      "notes": "Instant API key upon signup (no credit card required) with 1,000 free credits refreshed every month (1 page = 1 credit) and up to 2 concurrent browser sessions for local development.",
+      "evidenceUrl": "https://firecrawl.dev/pricing"
+    },
+    {
+      "name": "Hobby Plan",
+      "price": "From $19/month",
+      "notes": "5,000 monthly credits with higher concurrency, priority queueing, and structured JSON extraction modifiers.",
+      "evidenceUrl": "https://firecrawl.dev/pricing"
+    }
+  ]
+}

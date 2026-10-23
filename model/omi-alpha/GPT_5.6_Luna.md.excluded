@@ -1,0 +1,51 @@
+# Omi Alpha — findings by GPT 5.6 Luna
+
+- Source: Omi (`Omi-Alpha`)
+- Date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Omi Alpha
+- **Short description:** The queue contains an Omi Alpha entry, but no authoritative vendor model card, stable public model ID, or exact model documentation was verified.
+- **Provider / access:** no verified provider or API route found.
+- **Release / knowledge:** no verified exact-model release or knowledge cutoff found.
+- **IDs:** no verified exact provider or weights ID found.
+- **Context window:** no verified exact-model value found.
+- **Modalities:** no verified exact-model specification found.
+- **Pricing (as of 2026-10-23):** no verified exact-model price found.
+- **Architecture:** no verified exact-model architecture details found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the exact `Omi-Alpha` model.
+
+Reasoning / knowledge:
+
+- no verified public score found for the exact model.
+
+Coding:
+
+- no verified public score found for the exact model.
+
+Long context:
+
+- no verified exact-model context retrieval score found.
+
+Multimodal:
+
+- no verified exact-model benchmark found.
+
+### Normalized scores (1-100)
+
+- Not scored. The exact model identity and benchmark evidence could not be verified.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
+- Method: Exact-name web searches and model-catalog checks. This file is excluded because verified exact-model benchmark evidence was not found.

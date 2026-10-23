@@ -1,9 +1,11 @@
 # Ling 3.0 Tiny — findings by DeepSeek 4.1 Flash
 
 - Source: Ant Group / InclusionAI / Ling-3.0-tiny (`inclusionAI/Ling-3.0-tiny`)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-10-09 (UTC); re-verified 2026-10-18
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Re-verified 2026-10-18.** BenchLM (`ling-3-0-tiny`, 10 rows) assigns **no overall score** (unranked) and confirms the deep pass: AA-GPQA Diamond 73.4%, AA-LCR 60.3%, AA-SciCode 24.2%, AA-HLE 9.3%, GDPval-AA 3.1%, AA Intelligence Index 11.1%. **No score change.**
 
 ## Model card
 

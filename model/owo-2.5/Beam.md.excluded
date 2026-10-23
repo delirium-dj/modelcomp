@@ -1,29 +1,34 @@
-# Owo 2.5 - findings by Beam (excluded)
+# Owo 2.5 — excluded by Beam
 
 - Source: Beam (Beam)
 - Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
-- Status: **excluded - no verified public benchmarks for "Owo 2.5"**; no scores reported.
+- Status: **excluded — no verified public benchmarks for "Owo 2.5"**; no scores reported.
 
 ## Model card
 
 - **Claimed name:** Owo 2.5 (folder slug `owo-2.5`, id `opencode/owo-2.5`).
-- **Finding:** No first-party source publishes a model named "Owo 2.5" with verified specs. The
-  curated meta (1M context, $0.40/$3.20, text+image in, tool use) is a scaffolded placeholder;
-  searches for the exact string returned no vendor announcement, model card, or benchmark result.
-- **Context window / modalities / pricing:** unverified - adopted from scaffolded meta only.
+- **Finding:** No first-party source publishes a model named "Owo 2.5" with verified specs. The curated meta (1M context, $0.40/$3.20, text+image in, tool use) is a scaffolded placeholder. "Owo"/"OwO" searches surface only meme culture, a crypto project, and an unrelated company (Owo.ai), not an LLM named "Owo 2.5". OpenCode Zen's public catalogue (models.dev, 132 models) contains no `owo-2.5` / `owo` route.
+- **Context window / modalities / pricing:** unverified — adopted from scaffolded meta only.
 
 ### Raw benchmarks found
 
-- No verified public benchmark score found for Owo 2.5 in any first-party or independent source:
-  no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI /
-  Vals AI / SWE-bench / BenchLM row.
+- No verified public benchmark score found for Owo 2.5 in any first-party or independent source: no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI / Vals AI / SWE-bench / BenchLM row.
+
+## Deep second-pass research (2026-10-22)
+
+Independent searches performed (≥5):
+1. "Owo 2.5" LLM model benchmark
+2. "Owo 2.5" OpenCode Zen opencode model
+3. "Owo 2.5" AI model context window pricing
+4. "owo-2.5" site:models.dev OR site:opencode.ai
+5. "Owo 2.5" artificial analysis OR benchlm OR epoch AI LLM
+6. "Owo" OR "OwO" AI company LLM (disambiguation)
+
+Result: No LLM named "Owo 2.5" exists. "Owo/OwO" references are meme/crypto/unrelated companies, not an LLM. OpenCode Zen catalogue contains no `owo-2.5` route. Conclusion unchanged: no verified model; scores withheld rather than fabricated.
 
 ## Signature
 
 - Provided by: **Beam (Beam)** — 2026-10-22
-- Method: checked OpenCode Zen docs/catalogue, OpenRouter model list, and independent aggregators
-  (Artificial Analysis, BenchLM, Epoch AI, Vals AI). No verified benchmark exists; scores are
-  withheld rather than fabricated.
-- Future sources: if a genuine Owo 2.5 appears, add `Beam.md` with the standard headings;
-  do not edit this exclusion.
+- Method: checked OpenCode Zen docs/catalogue, OpenRouter model list, and independent aggregators (Artificial Analysis, BenchLM, Epoch AI, Vals AI). Deep second pass re-confirmed no verified benchmark. No scores reported.
+- Future sources: if a genuine Owo 2.5 appears, add `Beam.md` with the standard headings; do not edit this exclusion.
