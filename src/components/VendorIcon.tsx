@@ -125,11 +125,16 @@ const VENDORS: VendorMatch[] = [
   { match: "ai21", icon: "ai21", label: "AI21 Labs", adaptive: true },
   { match: "aimlapi", icon: "aimlapi", label: "AI/ML API", adaptive: true },
   { match: "aion", icon: "aionlabs", label: "Aion Labs", adaptive: true },
+  { match: "a4f", icon: "a4f", label: "A4F" },
+  { match: "portkey", icon: "portkey", label: "Portkey" },
+  { match: "requesty", icon: "requesty", label: "Requesty" },
   { match: "anyscale", icon: "anyscale", label: "Anyscale" },
   { match: "baidu", icon: "baidu", label: "Baidu", adaptive: true },
   { match: "chutes", icon: "chutes", label: "Chutes", adaptive: true },
   { match: "cohere", icon: "cohere", label: "Cohere" },
   { match: "databricks", icon: "databricks", label: "Databricks", adaptive: true },
+  { match: "deepgram", icon: "deepgram", label: "Deepgram" },
+  { match: "fal", icon: "fal", label: "Fal", adaptive: true },
   { match: "featherless", icon: "featherless", label: "Featherless AI" },
   { match: "elevenlabs", icon: "elevenlabs", label: "ElevenLabs", adaptive: true },
   { match: "friendli", icon: "friendli", label: "FriendliAI", adaptive: true },
@@ -144,8 +149,8 @@ const VENDORS: VendorMatch[] = [
   { match: "replicate", icon: "replicate", label: "Replicate", adaptive: true },
   // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
   // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
-  // pick up the OpenCode mark below; a4f / portkey / requesty (and originals
-  // omen / owl) have no free brand SVG — letter fallback below.
+  // pick up the OpenCode mark below; originals omen / owl have no brand SVG —
+  // letter fallback. a4f / portkey / requesty have their own entries above.
   { match: "opencode", icon: "opencode", label: "OpenCode", adaptive: true },
 ];
 

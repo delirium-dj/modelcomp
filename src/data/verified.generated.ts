@@ -14,7 +14,7 @@ export const VERIFIED: Record<string, string> = {
   "claude-opus-4.4": "2026-10-23",
   "claude-opus-4.5": "2026-10-22",
   "claude-opus-4.6": "2026-10-23",
-  "claude-opus-4.7": "2026-10-22",
+  "claude-opus-4.7": "2026-10-23",
   "claude-opus-4.8": "2026-10-22",
   "claude-opus-5": "2026-10-22",
   "claude-opus-5.5": "2026-10-22",

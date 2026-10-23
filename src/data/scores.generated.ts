@@ -554,6 +554,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "GLM_4.7_Flash.md": [85, 85, 100, 88, 85, 65, 88.6],
     "GLM_5.3.md": [90, 91, 95, 68, 93, 48, 87],
     "GLM_5.3_Flash.md": [90, 89, 90, 80, 92, 32, 88],
+    "GPT_5.6_Luna.md": [87, 89, 95, 88, 90, 62, 90],
     "GPT_5.6_Terra.md": [84, 88, 95, 80, 92, 50, 88],
     "GPT_6.1_Sol.md": [84, 89, 95, 80, 88, 43, 87],
     "GPT_6_Astra.md": [91, 92, 95, 70, 92, 48, 88],
@@ -2574,6 +2575,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "glm-4.6-flash": {
     "Beam.md": [62, 64, 60, 15, 62, 100, 53],
+    "Gemini_3.5_Flash_Lite.md": [78, 76, 80, 70, 75, 98, 76.2],
     "Qwen_3.8_Flash.md": [70, 70, 66, 15, 60, 100, 56.4],
     "average.md": [70, 70, 66, 15, 60, 100, 56.4],
   },
