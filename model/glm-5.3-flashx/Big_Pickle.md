@@ -1,74 +1,116 @@
-# Z.ai GLM 5.3 FlashX — findings by Big Pickle
+# GLM-5.3-Flash-X - findings by Big Pickle
 
-- Source: Z.ai (Zhipu AI)/GLM-5.3-FlashX (`z-ai/glm-5.3-flashx`)
-- Date: 2026-10-07 (UTC)
+- Source: OpenCode (`opencode/big-pickle`)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GLM 5.3 FlashX
-- **Short description:** High-speed serving variant (up to ~200 tok/s) of Z.ai's GLM-5.3-Flash — identical 320B-A18B weights, native multimodal, aimed at low-latency agentic coding. Same intelligence as GLM-5.3-Flash; only inference throughput differs.
-- **Provider / access:** Z.ai API (`glm-5.3-flashx`, Chat Completions), OpenRouter `z-ai/glm-5.3-flashx`, Vercel AI Gateway `zai/glm-5.3-flashx`, OpenCode Zen `opencode/glm-5.3-flashx` (per `meta.json`). Not available on the Z.ai Coding Plan (Flash only).
-- **Release / knowledge:** 2026-09-18 (LM Market Cap / CloudPrice version history); base Flash released 2026-08-26 (previously tested anonymously as "ox-alpha" on OpenCode/OpenRouter). Knowledge cutoff not published.
-- **IDs:** `z-ai/glm-5.3-flashx` (OpenRouter), `zai/glm-5.3-flashx` (Vercel), `glm-5.3-flashx` (Z.ai); no $0 Free ID found on Zen for the FlashX SKU as of 2026-10-07.
-- **Context window:** 1,048,576 (1M) input; 128K (131,072) max output (Z.ai docs `docs.z.ai/guides/vlm/glm-5.3-flash.md`, Blackbox spec sheet).
-- **Modalities:** text, image, video in; text out; reasoning supported; tool/function calling; structured outputs / native JSON schema; prompt caching.
-- **Pricing (as of 2026-10-07):** $0.37 in / $1.25 out / $0.075 cache read per 1M tokens (OpenRouter, Vercel AI Gateway, Blackbox, CloudPrice — all $0.37/$1.25). Base GLM-5.3-Flash is cheaper at $0.15/$0.50. Paid, no free tier found.
-- **Architecture:** 320B total / 18B active MoE, hybrid sparse + linear attention (3.01x less attention compute, 4.44x smaller KV cache vs GLM-5.3), mHC scaling, 30T-token multimodal pretraining corpus; open weights on Hugging Face (`zai-org/GLM-5.3-Flash`, MIT license).
+- **Name:** GLM-5.3-Flash-X
+- **Short description:** High-speed serving variant of Z.ai's GLM-5.3-Flash (same 320B/18B hybrid MoE family),
+  optimized for lower latency/higher throughput at the cost of higher per-token price. The "X"
+  lane is an inference-speed variant, not a larger model.
+- **Provider / access:** Z.ai API (`glm-5.3-flashx`), also surfaced via OpenRouter/Vercel/Model Studio
+  providers; present in many gateways but **not listed in the live OpenCode Zen catalogue**
+  (checked 2026-10-22 — Zen shows `glm-5.3-flash-free`, `glm-5.3`, `glm-5.1`, `glm-5.2`,
+  `glm-5.3`, `glm-5.3-flash`; no `glm-5.3-flashx`).
+- **Release / knowledge:** Released **2026-09-18** (announced as the speed-optimized
+  variant of GLM-5.3-Flash; GLM-5.3-Flash itself launched 2026-08-26). Knowledge cutoff not
+  publicly specified by vendor.
+- **IDs:** `glm-5.3-flashx` (Z.ai), `z-ai/glm-5.3-flashx` (OpenRouter/Vercel), `ZHIPU/GLM-5.3-FlashX`
+  (Model Studio). Sibling: `glm-5.3-flash` (cheaper Flash lane).
+- **Context window:** **1,000,000 / 1,048,576 tokens** (1M). Max output **128,000 / 131,072
+  tokens** depending on provider docs (e.g. Z.ai docs 128K, some providers 131K).
+- **Modalities:** Input **text, image, video, file**; output **text**. Function/tool calling,
+  structured outputs, reasoning (thinking always on; supports effort levels low/high/max),
+  interleaved and preserved thinking (with correct return of reasoning_content), prefix
+  completion, context caching.
+- **Pricing (as of 2026-10-22):** **$0.37 input / $0.075 cached / $1.25 output per 1M tokens**
+  (Z.ai pricing page, consistent across providers). This is **~2.5×** the price of GLM-5.3-Flash
+  ($0.15/$0.03/$0.50), while offering higher throughput/latency tradeoffs reported by users.
+- **Architecture:** 320B total parameters, **18B active** (MoE); hybrid sparse + linear
+  attention, mHC, IndexPool for long-context efficiency. Natively multimodal.
 
 ### Raw benchmarks found
 
-> FlashX serves the same weights as GLM-5.3-Flash, so Z.ai's published Flash benchmarks and independent runs on Flash apply to FlashX (serving variant only).
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%** (Z.ai launch post, corroborated by Artificial Analysis `terminalbench-v2-1` leaderboard; Vals AI harness: 62.9%)
-- AA Tau3-Banking: **47.2%** (Artificial Analysis tau3-banking leaderboard)
-- GDPval-AA: **1773** (Z.ai launch post — ahead of Claude Opus 4.8 1582, GPT-5.6 Terra 1571, Gemini 3.7 Flash 1527 on the general dev/programming eval)
-- Toolathlon-Verified: **78.4%** (Z.ai launch post)
-- AutomationBench: **48.8%** (Z.ai launch post); AA AutomationBench: **60.4%** (Artificial Analysis)
-- Agents' Last Exam: **26.3%** (Z.ai launch post)
-- AA Briefcase Elo: **1454**; AA ITBench: **51.2%**; AA EnterpriseOps-Gym: **33.2%** (Artificial Analysis)
-- Claw-Eval / ClawProBench: no verified public score found
+- Terminal-Bench 2.1: **84.3%** (Z.ai blog, GLM-5.3-Flash family figure; GLM-5.3-FlashX is the speed
+  variant of the same family; direct per-id evals are sparse).
+- Toolathlon Verified: **78.4%** (family figure).
+- AutomationBench v1.0.6: **48.8%** (family figure).
+- SWE-bench Pro / Agents' Last Exam / APEX-Agents: reported for the Flash family; no
+  GLM-5.3-FlashX-specific independent sweep was found.
+- No verified public scores for BrowseComp, OSWorld, MCP-Atlas, Tau3/Tau2 in standalone
+  GLM-5.3-FlashX listings.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.2%** (Artificial Analysis); Vals AI: 86.4%
-- HLE: **39.9%** (Artificial Analysis, no tools); **55.3%** with tools (Z.ai launch post / HF eval results)
-- MLCR-AA: **51.1%**; AA-LCR (long-context reasoning): **80.0%** (Artificial Analysis)
-- CritPt: **15.4%** (Artificial Analysis)
-- Artificial Analysis Intelligence Index: **41.8** (AA leaderboard); Z.ai claims **57** on v4.1.1 at $0.045/task — harness/version conflict, both recorded
-- AA-Omniscience Index: **7.5%**; AA-Omniscience non-hallucination rate: **72.4%** (Artificial Analysis)
-- MMLU-Pro: **86.1%** (Vals AI)
+- GPQA Diamond: **90.2%** (AnotherWrapper family listing for GLM-5.3-Flash; FlashX is the
+  speed lane of the same base/family with no separate published GPQA).
+- HLE w/ tools: **55.3%** (family figure).
+- LiveBench / MMLU-Pro / others appear in aggregator summaries but are not consistently
+  broken out per FlashX with full provenance.
+- AIME 2025: **93.9%** (family figure).
 
 Coding:
 
-- SWE-bench (Vals): **92.0%** (Vals AI SWE-bench leaderboard; harness label "Vals", not Verified)
-- DeepSWE v1.1: **63.4%** (Z.ai launch post; vs GLM-5.2's 46.2)
-- LiveCodeBench: **80.5%** (Vals AI)
-- AA-SciCode: **51.6%** (Artificial Analysis)
-- NL2Repo: **56.3%**; OpenHarmony Bench: **57.3%**; FrontierSWE v2: **18.1%** (Z.ai / OpenHarmony / Proximal leaderboards)
-- Z.ai Code Bench v1.0 (max effort): **29.0** vs Claude Opus 4.8 29.5 (Z.ai launch post, Claude Code 2.1.207)
+- DeepSWE v1.1: **63.4%** (family figure).
+- LiveCodeBench: **80.5%** (family figure).
+- Terminal-Bench 2.1: **84.3%**.
+- SWE-bench Verified: **92%** (family figure); SWE-bench Pro: **50.1%** (TrustTheBench
+  aggregation for FlashX in places) but provenance varies.
+- Vibe Code Bench: **30.8%** (family figure).
 
 Long context:
 
-- No MRCR / RULER / GraphWalks retrieval number published for the 1M window; AA-LCR 80.0% at long context is the closest verified long-context signal. Hybrid sparse+linear attention is explicitly designed to preserve long-context quality while cutting KV cache 4.44x.
+- 1M token context window with 128K/131K max output. Architecture designed for long context
+  (hybrid attention, IndexPool). RULER/OpenAI-MRCR appear in some aggregator listings but
+  numbers are inconsistent across sources; no definitive public retrieval score found that is
+  unambiguously tied to GLM-5.3-FlashX vs GLM-5.3-Flash.
 
-### Normalized scores (1–100)
+### Normalized scores (1-100)
 
-- **Tool use: 88/100.** TB2.1 84.3%, GDPval-AA 1773 (frontier band is 1750+), Toolathlon 78.4%, Tau3-Banking 47.2% — near-frontier agentic stack; capped below 90 by AutomationBench 48.8% and Agents' Last Exam 26.3%.
-- **Reasoning: 85/100.** AA-GPQA 91.2% and HLE 39.9% (55.3% w/ tools) hit the frontier reference band; capped by AA Index 41.8 (Z.ai's claimed 57 not independently confirmed), CritPt 15.4%, and Omniscience 7.5%.
-- **Context window: 95/100.** 1M total / 128K output sits in the ≥1M tier (95–100); no public 512K+ retrieval score, so no claim to 100.
-- **Multimodal: 85/100.** Text/image/video in, text out (no audio in, no non-text out) — video input lands mid 75–90 band; MMVU 80.5%, CharXiv 89.4%, OfficeQA Pro 62.4%.
-- **Coding: 84/100.** TB2.1 84.3%, LiveCodeBench 80.5%, SWE-bench (Vals) 92.0% are near-frontier; capped by DeepSWE 63.4% (frontier ref 74%+), AA-SciCode 51.6%, FrontierSWE v2 18.1%.
-- **Cost efficiency: 94/100.** $0.37/$1.25 per 1M with $0.075 cache reads — cheaper than the ~$0.60/$2.20 (=92) reference point, no verified $0 tier (base Flash would score higher at $0.15/$0.50).
-- **Overall Score: 87.4/100.** (88+85+95+85+84)/5 = 87.4 — best-fit: fast, cheap frontier-class multimodal coding/agent driver where 200 tok/s latency matters more than absolute top-tier long-horizon depth.
+- **Tool use: 72/100.** Toolathlon 78.4% and strong agentic family results suggest decent
+  tool use; but GLM-5.3-FlashX is primarily marketed as a speed lane and there is no
+  FlashX-specific BrowseComp/OSWorld/MCP-Atlas row, and many "tool use" figures are for the
+  cheaper GLM-5.3-Flash, not this pricier variant.
+- **Reasoning: 74/100.** GPQA 90.2% and AIME 93.9% (family figures) are strong for the Flash
+  tier, HLE w/tools 55.3% is solid; without FlashX-specific published numbers, we credit the
+  family but with some uncertainty discount.
+- **Context window: 95/100.** 1M context with hybrid attention architecture is near the top of
+  the band; max output 128K/131K is generous. Some providers note 1M window but no published
+  needle-retrieval score clearly tied to FlashX.
+- **Multimodal: 82/100.** Natively multimodal (text/image/video/file in, text out) with
+  visual coding capabilities. Family scores in vision/agentic benchmarks are decent (e.g.
+  OSWorld family figures) but there are no FlashX-specific MMMU/CharXiv rows in the sources
+  we found; credit is appropriate but not to the very top.
+- **Coding: 80/100.** DeepSWE 63.4%, LiveCodeBench 80.5%, Terminal-Bench 2.1 84.3%
+  (family figures) show a strong coding profile for the Flash tier; approaching Opus-level in
+  Z.ai's own comparisons. FlashX is the speed variant, likely same capability as Flash.
+- **Cost efficiency: 58/100.** $0.37/$0.075/$1.25 is **2.5×** more expensive than GLM-5.3-Flash
+  ($0.15/$0.03/$0.50) for essentially the same model family/capability; throughput gains
+  (users report ~130-170 tps vs ~30-70 for Flash in practice) may justify for interactive
+  use, but price/performance is worse than the cheaper Flash lane. No free tier on many
+  gateways.
+- **Overall Score: 80.6/100.** A capable 1M multimodal model with strong coding/reasoning for the
+  Flash tier, but it's a speed-optimized lane at ~2.5× the price of GLM-5.3-Flash with no
+  FlashX-specific benchmark breakout in most public sources and no listing on OpenCode Zen.
+  Treat as GLM-5.3-Flash-equivalent capability with a latency tax.
 
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-07
-- Method: fresh public web research (Z.ai docs/launch post, BenchLM, Artificial Analysis, Vals AI, OpenRouter, CloudPrice, Hugging Face); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-10-22
+- Method: public research across vendor docs (Z.ai pricing and GLM-5.3-Flash/FlashX pages),
+  third-party gateways (OpenRouter/Vercel/Model Studio/Alibaba Cloud), aggregators
+  (AnotherWrapper, TrustTheBench, ModelBank, OpenRouter comparison), and community reports
+  (Linux.do threads noting ~2.5× price vs Flash and higher throughput). Confirmed
+  OpenCode Zen catalogue (no `glm-5.3-flashx` id) vs presence elsewhere. Identity: Ox Alpha
+  was GLM-5.3-Flash (confirmed by Z.ai), Flash-X is the high-speed serving variant of the
+  same family. Most benchmark numbers are for GLM-5.3-Flash (family) because FlashX has no
+  dedicated published eval set; we explicitly note this and discount certainty accordingly.
+- Future sources: add a file next to this one if FlashX gets dedicated benchmarks; do not
+  fabricate per-variant scores.

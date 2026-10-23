@@ -1,0 +1,41 @@
+# Owo 2.5 — findings by Qwen 3.8 Flash (self-excluded: unattributed codename, no verified model of that name)
+
+## Exclusion note
+
+**No scores are asserted for `owo-2.5`.** As of 2026-10-23 there is **no identifiable AI model named "Owo 2.5"** from any lab, product, or benchmark aggregator. It carries only a **scaffolded `meta.json`** ("Owo 2.5 model evaluation entry / 128K / Text in/out / Standard pricing") with no provider, repo, or product page. A direct check of the **live OpenRouter "Stealth" model roster** shows the current anonymous slots are exactly **`stealth/ox-alpha`, `stealth/space-bunny-alpha`, and `stealth/union-alpha`** — **`owo-2.5` is not among them**. Every web sweep for "Owo 2.5" as an LLM resolves only to noise: OCR garble from an unrelated scanned yearbook, the **"OwO"** roleplay/internet meme, the **"OwQ"** *outlier-aware weight-quantization* **method** (a technique, not a model), and **QwQ** chatter. There is **no first-party model card, no tech report, no Artificial Analysis / OpenRouter / Vals row, and no independent press** for an LLM called Owo 2.5. Per `RULES.md` (research permanence + no-fabrication + no-reattribution), this is **excluded**, not scored.
+
+### Why this is an exclusion rather than a score
+
+- **Not in the real stealth roster.** The genuine OpenRouter/OpenCode anonymous aliases (ox-alpha → de-anonymized to GLM-5.3-Flash; space-bunny-alpha; union-alpha) each have documented footprints and, in two cases, **their own folders here**. `owo-2.5` matches **none** of them and has **no listing** on the stealth endpoint — so it is not even a corroborated anonymous model.
+- **No identity anchor.** Unlike a freshly-shipped short-named real model (Flint — resolvable to Recursive Intelligence with a launch date, HF repo and press), Owo 2.5 resolves to **no maker or product** at all.
+- **Name-collisions are not evidence.** "OwQ" is a **quantization method** and "OwO" is a **meme**, not this model; treating either as Owo 2.5's identity would be **fabrication**. Attributing it to a guessed parent (e.g. an ox-alpha/space-bunny/union sibling) is likewise forbidden **reattribution**.
+- **Zero capability data.** The scaffold's "128K / text / Standard pricing" is generic placeholder boilerplate, uncorroborated by any source, with no benchmark absolute to normalize against.
+
+## Model card (verified facts only)
+
+- **Name (as listed):** Owo 2.5
+- **Curated id:** `opencode/owo-2.5`
+- **Queue reference:** ~51 (aggregate from other reporters) — *context only; this STEM asserts no scores.*
+- **Claimed provider:** none verifiable (scaffolded entry; absent from the OpenRouter stealth roster)
+- **Claimed context / modalities / pricing:** 128K / text / "Standard pricing" — generic scaffold defaults, **uncorroborated**
+
+### Raw benchmarks found
+
+- Artificial Analysis Intelligence Index — **no entry located**
+- GPQA / MMLU / MMLU-Pro / HLE / AIME — **no verified public score found**
+- SWE-bench / LiveCodeBench / Terminal-Bench — **no verified public score found**
+- OpenRouter stealth roster / HuggingFace endpoint for "owo-2.5" — **not listed / not found**
+- Any first-party model card, tech report, or named vendor — **not found**
+
+### No scores asserted
+
+Because neither the model's identity nor a single benchmark can be verified, all seven dimensions (Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall) are left **unscored**. Scoring would invent capability figures for an unidentified model and corrupt the dataset.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
+- Method: public internet research — web searches for "Owo 2.5" as an LLM returned **no model by that name** (only OCR noise, the "OwO" meme, and the "OwQ" quantization method). A direct fetch of the **OpenRouter `stealth` roster** enumerated exactly three anonymous models — `ox-alpha`, `space-bunny-alpha`, `union-alpha` — **none of which is `owo-2.5`**. The `meta.json` is **scaffolded** (generic 128K/text/"Standard pricing"). Conclusion: **unattributed codename with no listing on the real stealth roster, zero verified benchmarks, and no confirmed identity → self-excluded**, not scored, and explicitly **not** reattributed to any guessed sibling (ox-alpha/space-bunny/union) or to the unrelated OwQ quantization work.
+- Revisit trigger: `owo-2.5` appearing as a genuine OpenRouter/OpenCode stealth slot, or a lab publishing a real model card, maker, HF repo, or any independent benchmark (Artificial Analysis / Vals / OpenRouter) under that name. Until then, exclusion stands.
+- Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

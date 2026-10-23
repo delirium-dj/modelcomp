@@ -1,0 +1,64 @@
+# Glm 5.3 Flash X — findings by MiMo 2.6 Flash
+
+- Source: Z.ai / Zhipu AI (API id `glm-5.3-flashx`)
+- Date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card
+
+- **Name:** Glm 5.3 Flash X (GLM-5.3-FlashX)
+- **Short description:** Z.ai's high-speed serving tier for GLM-5.3-Flash (launched 2026-09-18) — same 320B-total / 18B-active MoE weights, same 1M context, sold at a 2.5× price premium for up to 200 tok/s peak inference (measured P50 ≈ 50 tok/s via OpenRouter monitoring). Explicitly "not a new model" per multiple launch recaps; no distinct FlashX checkpoint is published.
+- **Provider / access:** Zhipu Open Platform / Z.ai API (`glm-5.3-flashx`, chat-completions live at launch), OpenRouter (`z-ai/glm-5.3-flashx`), glm5.app and aggregators (sulat, naga); no local weights linked for FlashX (docs point at Flash weights).
+- **Release / knowledge:** released 2026-09-18 (Zhipu launch; Gate News/4SAPI/todayforai coverage); previously surfaced as codename "Ox Alpha" in blind tests. Knowledge cutoff not published for the tier.
+- **IDs:** `glm-5.3-flashx` (Zhipu API), `z-ai/glm-5.3-flashx` (OpenRouter), opencode id `opencode/glm-5.3-flash-x`.
+- **Context window:** 1,048,576 tokens (1M) input, 131,072 max output per Z.ai/OpenRouter (the repo's `meta.json` "128K total" conflicts with every public source and appears wrong). glm5.app's hosted proxy caps completions at 8,192.
+- **Modalities:** text, image, video, file in; text out (natively multimodal — inherited from Flash; glm5.app proxy currently forwards text only).
+- **Pricing (as of 2026-10-21):** $0.37 in / $1.25 out per 1M (OpenRouter; cache read $0.09) ≈ 2.5× Flash's $0.15/$0.50; China list ¥2.0 / ¥7.0 per 1M (2.5× Flash's ¥0.8/¥2.8); cache storage temporarily free. glm5.app credit route ≈ $1.85/$6.25 effective.
+- **Architecture:** identical to GLM-5.3-Flash — 320B total / 18B active MoE, hybrid sparse + linear attention, optimized operators on domestic chip clusters (5× throughput vs Flash's ~40 tok/s).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Tau3 / Tau2 / GDPval / Terminal-Bench / Claw-Eval: no verified public score found **for FlashX**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index: no verified public score found for FlashX ("Separate intelligence benchmark: None published for FlashX" — gptproto.com comparison table, 2026-09-21; "Zhipu publishing no new benchmark" — models.sulat/APIMaster recaps; commandcode.ai lineup shows "—" for FlashX Intelligence/Coding; BenchGecko's FlashX family row lists no benchmark count)
+
+Coding:
+
+- SWE-bench / LiveCodeBench / Terminal-Bench 2.1 / DeepSWE: no verified public score found for FlashX
+
+Multimodal:
+
+- MMMU / MathVista / Video-MME: no verified public score found for FlashX
+
+Long context:
+
+- Window = 1M (spec, not a benchmark); no MRCR/RULER figure for FlashX
+
+Throughput (the tier's only measured property, not a quality dim):
+
+- Vendor claim: **200 tok/s peak** (Zhipu, 2026-09-18); OpenRouter monitoring: **P50 ≈ 50 tok/s** output, 2.27 s round-trip (glm5.app compilation)
+
+### Research trail (why this is excluded)
+
+1. Two public web searches on 2026-10-21 (exact-phrase `"GLM-5.3-FlashX" OR "GLM 5.3 FlashX" benchmark …`) surfaced the full launch coverage, Z.ai docs, OpenRouter/models.dev specs and four independent trackers — all agree FlashX is a **serving tier of GLM-5.3-Flash**, and all explicitly state that **no benchmark suite is published for the FlashX ID itself** (gptproto: "Separate intelligence benchmark: None published for FlashX"; models.sulat: "Zhipu publishing no new benchmark"; commandcode: Intelligence/Coding "—"; BenchGecko: no benchmark rows).
+2. **GLM-5.3-Flash's suite (Terminal-Bench 2.1 84.3, AA Intelligence Index 57, GPQA 91.2, HLE 55.3, DeepSWE v1.1 63.4, GDPval-AA 1773, 1M context, etc.) was deliberately NOT imported**: the repo's own rules forbid borrowing another ID's scores without vendor confirmation at the checkpoint level — and gptproto notes Z.ai has not even published a separate FlashX checkpoint that would settle weight-level identity. Scored rows would otherwise be guesses attributed to the wrong identifier.
+3. The repo `meta.json` scaffold entry ("evaluation entry", 128K) adds no benchmark evidence and its 128K context conflicts with the 1M all public sources report.
+
+### Scores
+
+- Not scored — self-exclusion triggered (zero verified public benchmark numbers for `glm-5.3-flashx`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-21
+- Method: public internet research (Zhipu launch coverage via Gate News/4SAPI/todayforai, Z.ai developer docs, OpenRouter and glm5.app spec/price pages, gptproto comparison, models.sulat/APIMaster recaps, commandcode.ai and BenchGecko lineup rows); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if Z.ai ever publishes a FlashX-specific benchmark table (or a distinct checkpoint), re-research and replace this twin per `tasks/research.md` Step 3.3.

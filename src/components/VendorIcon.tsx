@@ -105,10 +105,48 @@ const VENDORS: VendorMatch[] = [
   { match: "weightsandbiases", icon: "wandb", label: "Weights & Biases", adaptive: true },
   { match: "coreweave", icon: "wandb", label: "Weights & Biases", adaptive: true },
   { match: "agentrouter", icon: "agentrouter", label: "AgentRouter", adaptive: true },
-  { match: "reflection", icon: "reflection", label: "Reflection AI" },
+  { match: "reflection", icon: "reflection", label: "Reflection AI", adaptive: true },
   { match: "puter", icon: "puter", label: "Puter", invertLight: true },
   { match: "synthetic", icon: "synthetic", label: "Synthetic", adaptive: true },
-  // laguna / poolside / chutes / aimlapi / pollinations have no free brand SVG — letter fallback below.
+  // OpenCode originals with their own brand marks.
+  { match: "inkling", icon: "thinkingmachines", label: "Thinking Machines" },
+  { match: "jev", icon: "typesafe", label: "Typesafe", adaptive: true },
+  { match: "pareto", icon: "unbiased", label: "Unbiased", chip: true },
+  { match: "union", icon: "unbiased", label: "Unbiased", chip: true },
+  { slug: "opencode/step-5-preview", icon: "stepfun", label: "StepFun", adaptive: true },
+  { match: "ring", icon: "antgroup", label: "Ant Group" },
+  { match: "poolside", icon: "poolside", label: "Poolside" },
+  { match: "laguna", icon: "poolside", label: "Poolside" },
+  { match: "callstack", icon: "callstack", label: "CallStack", adaptive: true },
+  { match: "inception", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
+  { match: "mercury", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
+  { match: "xing", icon: "teleai", label: "TeleAI" },
+  // Providers / hosts without their own entry above.
+  { match: "ai21", icon: "ai21", label: "AI21 Labs", adaptive: true },
+  { match: "aimlapi", icon: "aimlapi", label: "AI/ML API", adaptive: true },
+  { match: "aion", icon: "aionlabs", label: "Aion Labs", adaptive: true },
+  { match: "anyscale", icon: "anyscale", label: "Anyscale" },
+  { match: "baidu", icon: "baidu", label: "Baidu", adaptive: true },
+  { match: "chutes", icon: "chutes", label: "Chutes", adaptive: true },
+  { match: "cohere", icon: "cohere", label: "Cohere" },
+  { match: "databricks", icon: "databricks", label: "Databricks", adaptive: true },
+  { match: "featherless", icon: "featherless", label: "Featherless AI" },
+  { match: "elevenlabs", icon: "elevenlabs", label: "ElevenLabs", adaptive: true },
+  { match: "friendli", icon: "friendli", label: "FriendliAI", adaptive: true },
+  { match: "glama", icon: "glama", label: "Glama", adaptive: true },
+  { match: "helicone", icon: "helicone", label: "Helicone" },
+  { match: "hyperbolic", icon: "hyperbolic", label: "Hyperbolic" },
+  { match: "inference", icon: "inference", label: "Inference.net", adaptive: true },
+  { match: "jina", icon: "jina", label: "Jina AI", adaptive: true },
+  { match: "lepton", icon: "lepton", label: "Lepton AI", adaptive: true },
+  { match: "perplexity", icon: "perplexity", label: "Perplexity", adaptive: true },
+  { match: "pollinations", icon: "pollinations", label: "Pollinations", adaptive: true },
+  { match: "replicate", icon: "replicate", label: "Replicate", adaptive: true },
+  // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
+  // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
+  // pick up the OpenCode mark below; a4f / portkey / requesty (and originals
+  // omen / owl) have no free brand SVG — letter fallback below.
+  { match: "opencode", icon: "opencode", label: "OpenCode", adaptive: true },
 ];
 
 function vendorFor(id: string, name: string): VendorMatch | undefined {

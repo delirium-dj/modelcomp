@@ -1,0 +1,41 @@
+# Omi Alpha — findings by Qwen 3.8 Flash (self-excluded: unattributed stealth codename, no verified model of that name)
+
+## Exclusion note
+
+**No scores are asserted for `omi-alpha`.** As of 2026-10-23, there is **no identifiable AI model named "Omi Alpha"** from any lab, product, or benchmark aggregator. It carries only a **scaffolded `meta.json`** ("Omi Alpha model evaluation entry / 128K / Text in/out / Standard pricing") with no provider, no repo, and no product page. Every web sweep for "Omi Alpha" as an LLM **collapses onto *other* things**: the documented OpenCode/OpenRouter stealth codename **"ox-alpha"** (a *different* alias, since de-anonymized as Z.ai GLM-5.3-Flash), and the unrelated **BasedHardware "Omi"** AI-wearable / "OMI Obsidian" productivity tool. The `openrouter.ai/stealth/omi-alpha` endpoint returns **404**. There is **no first-party model card, no technical report, no Artificial Analysis / OpenRouter / Vals row, and no independent press** for an LLM called Omi Alpha. Per `RULES.md` (research permanence + no-fabrication + no-reattribution), this is **excluded**, not scored.
+
+### Why this is an exclusion rather than a score
+
+- **No identity anchor.** Unlike a freshly-shipped short-named real model (**Flint** — resolvable to Recursive Intelligence with a launch date, HF repo and press), Omi Alpha resolves to **no maker or product** at all — only a curated guess.
+- **Search-collapse is not evidence.** The fact that search engines substitute **"ox-alpha"** does *not* license scoring omi-alpha as ox-alpha: they are **distinct codenames**, and ox-alpha is itself already de-anonymized (GLM-5.3-Flash) with its **own** folder/report. Attributing omi-alpha to ox-alpha (or to any guessed parent) would be **fabrication + reattribution**, which `RULES.md` forbids.
+- **Zero capability data.** No benchmark absolute of any kind exists to normalize against; the scaffold's "128K / text" is generic boilerplate applied to many placeholder entries, not a corroborated spec.
+- **Stealth-codename pattern.** OpenCode/OpenRouter have run anonymous aliases (ox-alpha, hunter-alpha, MissingNo). A bare "-alpha" slot with no verifiable footprint fits that mold — its true underlying model is **unknown**, so it must not be invented here.
+
+## Model card (verified facts only)
+
+- **Name (as listed):** Omi Alpha
+- **Curated id:** `opencode/omi-alpha`
+- **Queue reference:** ~52 (aggregate from other reporters) — *context only; this STEM asserts no scores.*
+- **Claimed provider:** none verifiable (scaffolded entry; no product page found)
+- **Claimed context / modalities / pricing:** 128K / text / "Standard pricing" — all generic scaffold defaults, **uncorroborated**
+
+### Raw benchmarks found
+
+- Artificial Analysis Intelligence Index — **no entry located**
+- GPQA / MMLU / MMLU-Pro / HLE / AIME — **no verified public score found**
+- SWE-bench / LiveCodeBench / Terminal-Bench — **no verified public score found**
+- OpenRouter / HuggingFace endpoint for "omi-alpha" — **404 / not found**
+- Any first-party model card, tech report, or named vendor — **not found**
+
+### No scores asserted
+
+Because neither the model's identity nor a single benchmark can be verified, all seven dimensions (Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall) are left **unscored**. Scoring would invent capability figures for an unidentified model and corrupt the dataset.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
+- Method: public internet research — repeated targeted web searches ("Omi Alpha" as an LLM, OpenCode/OpenRouter stealth rosters, HF, benchmark aggregators) returned **no model by that name**; results only ever surfaced the distinct **ox-alpha** codename (already de-anonymized as GLM-5.3-Flash, with its own folder) and the unrelated **BasedHardware Omi** wearable / OMI Obsidian. A direct probe of `openrouter.ai/stealth/omi-alpha` returned **404**. The `meta.json` is **scaffolded** (generic 128K/text/"Standard pricing"), providing no product data. Conclusion: **unattributed stealth/experimental codename with zero verified benchmarks and no confirmed identity → self-excluded**, not scored, and explicitly **not** reattributed to ox-alpha or any guessed parent model.
+- Revisit trigger: a de-anonymization event — a lab or OpenCode/OpenRouter publishing a real model card, maker, HF repo, or any independent benchmark (Artificial Analysis / Vals / OpenRouter) for `omi-alpha`. Until then, exclusion stands.
+- Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

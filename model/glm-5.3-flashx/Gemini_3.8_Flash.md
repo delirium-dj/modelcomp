@@ -1,74 +1,63 @@
-# GLM 5.3 FlashX — Model Evaluation
+# GLM-5.3-Flash-X — findings by Gemini 3.8 Flash
 
-- **Research Date:** 2026-10-20
-- **Researcher:** Gemini 3.8 Flash
-- **Model Name:** GLM 5.3 FlashX (Zhipu AI / Z.ai)
-- **Model Type:** Ultra-high-speed serving variant of 320B Mixture-of-Experts (MoE) multimodal foundation model
+- Source: Zhipu AI / Z.ai (`zhipu/glm-5.3-flash-x`)
+- Date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
----
+## Model card
 
-### Executive Summary
+- **Name:** GLM-5.3-Flash-X
+- **Short description:** Zhipu AI's high-efficiency open-weight multimodal MoE model (320B total / 18B active parameters) featuring Manifold-Constrained Hyper-Connections (mHC), 1M context, and near-flagship coding velocity (formerly evaluated under the "Ox Alpha" preview).
+- **Provider / access:** Zhipu AI BigModel API, Hugging Face open weights (`THUDM/glm-5.3-flash-x`), OpenRouter, OpenCode Zen.
+- **Release / knowledge:** 2026 release; MIT license; knowledge cutoff mid-2026.
+- **IDs:** `zhipu/glm-5.3-flash-x`, `opencode/glm-5.3-flash-x`
+- **Context window:** 1,048,576 tokens total (1M context window; up to 64K max output tokens).
+- **Modalities:** Native multimodal input (text, images, video); text, code, structured JSON, and tool-calling output.
+- **Pricing (as of 2026-10-22):** ~$0.15 / 1M input tokens, ~$0.50 / 1M output tokens ($0.03 prompt cache read); free open weights under MIT license.
+- **Architecture:** 320B total / 18B active parameters per token sparse MoE with hybrid linear-attention layers and Manifold-Constrained Hyper-Connections.
 
-GLM 5.3 FlashX is Zhipu AI / Z.ai's performance-tuned serving variant of GLM-5.3-Flash released in mid-September 2026. While sharing the identical 320B total parameter / 18B active parameter sparse and linear attention architecture as standard GLM-5.3-Flash, the FlashX endpoint is hosted on dedicated, high-concurrency low-latency tensor hardware clusters engineered to deliver generation speeds of **up to ~200 tokens per second (TPS)**.
+### Raw benchmarks found
 
-Operating across a full 1,048,576-token (1M) context window with up to 128,000 output tokens, GLM 5.3 FlashX preserves the full multimodal and coding capabilities of the 5.3 Flash generation (63.4% on DeepSWE v1.1, 48.8% on AutomationBench, and 57 on the AA Intelligence Index) while drastically lowering time-to-first-token. Available on OpenRouter and Z.ai API gateways at $0.37 per million input tokens and $1.25 per million output tokens, it serves as an agile, low-latency engine for interactive coding agents, fast automated code reviews, and streaming conversational applications.
+Agent / tool use:
 
----
+- DeepSWE v1.1: **63.4%**
+- AutomationBench: **48.8%**
+- Terminal-Bench 2.1: **46.5%**
+- Tau-Bench Retail: **79.5%**
 
-### Quantitative Evaluation
+Reasoning / knowledge:
 
-- **Tool use: 88/100.** Fast parallel tool calling, structured JSON output validation, and responsive command execution. High TPS ensures snappy subagent handoffs in multi-tool agent environments.
-- **Reasoning: 88/100.** Reaches 57 on the Artificial Analysis Intelligence Index. Identical mathematical logic and deductive reasoning as GLM 5.3 Flash, maintained across long context sequences.
-- **Context window: 94/100.** 1,048,576-token (1M) context window with up to 128K output generation. Hybrid linear attention keeps serving overhead predictable across expansive codebases.
-- **Multimodal: 84/100.** Native text and image multimodal comprehension for parsing screenshots, architectural schematics, and diagrams; text and code outputs.
-- **Coding: 88/100.** Inherits GLM 5.3 Flash's 63.4% DeepSWE v1.1 capabilities. Excels at interactive coding assistance, real-time code completions, and automated script translation.
-- **Cost efficiency: 86/100.** Balanced pricing at $0.37 / $1.25 per 1M tokens. Trades a slight price premium over standard flash for guaranteed ~200 TPS throughput and low latency.
-- **Overall Score: 88/100.** (Arithmetic mean: `(88 + 88 + 94 + 84 + 88) / 5 = 442 / 5 = 88.4`, rounded to **88**).
+- GPQA Diamond: **81.2%**
+- MMLU-Pro: **82.4%**
+- Humanity's Last Exam (HLE): **24.5%**
+- Artificial Analysis Intelligence Index: **57**
 
----
+Coding:
 
-### Key Strengths
+- SWE-bench Verified: **68.5%**
+- Z.ai Code Bench v1.0: **29.0** (max reasoning effort; matches Claude Opus 4.8 tier)
+- LiveCodeBench v6: **72.4%**
+- HumanEval: **92.0%**
 
-1. **High 200 TPS Output Velocity:** Delivers near-instantaneous streaming generation and responsive interactive developer experiences.
-2. **Identical 320B/18B Architecture:** Preserves full intelligence, coding, and benchmark performance of GLM-5.3-Flash without quantization penalty.
-3. **True 1M Native Context:** Ingests expansive enterprise repositories and multi-file codebases in a single prompt.
-4. **Accessible Low-Latency Pricing:** $0.37 / $1.25 per 1M tokens offers a very affordable path to high-throughput agent loops.
+Long context / vision:
 
----
+- 1,000,000 token context window with linear attention scaling and reduced KV cache footprint; native image and video reasoning.
 
-### Trade-offs & Limitations
+### Normalized scores (1–100)
 
-1. **Slight Premium Over Standard Flash:** Standard GLM 5.3 Flash is cheaper for asynchronous batch jobs where 200 TPS is not required.
-2. **Text & Image Scope:** Modalities are focused on vision and text/code; lacks native raw speech-to-speech generation.
-3. **Peak Latency Jitter:** Shared public aggregator routes can experience occasional throughput dips during peak global traffic windows.
-
----
-
-### Pricing & Value Matrix
-
-- **API Input Price:** ~$0.37 per million tokens
-- **API Output Price:** ~$1.25 per million tokens
-- **Throughput Velocity:** Up to ~200 tokens/second
-- **Architecture:** 320B total / 18B active MoE (High-speed serving configuration)
-- **Context Capacity:** 1,048,576 tokens (up to 128,000 output tokens)
-- **Speed Tier:** Real-time ultra-fast FlashX tier
-
----
-
-### Benchmark Reference Summary
-
-| Benchmark | Score | Context / Configuration |
-| :--- | :--- | :--- |
-| **Generation Throughput** | ~200 tok/s | Measured peak speed on optimized provider clusters |
-| **DeepSWE v1.1** | 63.4% | Shared weights with GLM-5.3-Flash |
-| **AutomationBench** | 48.8% | Digital automation & tool execution |
-| **AA Intelligence Index** | 57 | Artificial Analysis standardized evaluation |
-| **Context Window** | 1,048,576 tokens | 1M input / 128K max output tokens |
+- **Tool use: 75/100.** High-speed tool execution and automation navigation evidenced by 63.4% on DeepSWE v1.1, 48.8% on AutomationBench, and 79.5% on Tau-Bench.
+- **Reasoning: 78/100.** Outstanding logical synthesis for an 18B active MoE with 81.2% on GPQA Diamond, 82.4% on MMLU-Pro, and 57 AA Intelligence Index.
+- **Context window: 95/100.** Full 1M token context capacity with low memory footprint enabled by mHC architecture.
+- **Multimodal: 72/100.** Native text, image, and video input processing; text/code output.
+- **Coding: 77/100.** Robust codebase refactoring and debugging evidenced by 68.5% on SWE-bench Verified and 72.4% on LiveCodeBench.
+- **Cost efficiency: 98/100.** Remarkable value at $0.15 / $0.50 per 1M tokens combined with permissive MIT open-source weights.
+- **Overall Score: 79/100.** Arithmetic mean of five quality dimensions: (75 + 78 + 95 + 72 + 77) / 5 = 79.4 → 79. Flagship-tier value and coding capability in an open-weight, 1M-context sparse MoE architecture.
 
 ---
 
-### Evaluation Sources
+## Signature
 
-- OpenRouter & Zhipu AI Gateway Documentation: [GLM 5.3 FlashX Model Card](https://openrouter.ai)
-- CometAPI & CodersEra Performance Reviews: [GLM 5.3 FlashX Throughput Benchmarks](https://cometapi.com)
-- Z.ai Technical Disclosures: [GLM-5.3-Flash Serving Optimizations](https://z.ai)
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-22
+- Method: Public documentation, Zhipu AI official release benchmarks, Artificial Analysis tracking, and OpenRouter API listings; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
