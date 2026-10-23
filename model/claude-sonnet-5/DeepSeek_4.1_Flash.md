@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`claude-sonnet-5`, 30 rows) computes an overall **64.87/100 (#37 of 227)** and confirms the deep pass. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Anthropic docs/pricing — release **2026-06-30**, knowledge cutoff Jan 2026, 1M context / 128K output (300K Batch beta), $2 in / $0.20 cached / $10 out, adaptive thinking default; system-card rows **Terminal-Bench 2.1 80.4%**, **OSWorld-Verified 81.2%**, BrowseComp 84.7%, GDPval-AA 1603 Elo, **SWE-bench Verified 85.2%**, SWE Pro 63.2%, SWE Multilingual 78.3%, GPQA 91.1% (AA) / 88.89% (Vals), HLE 57.4% tools / 43.2% no tools, **AA-LCR 82.0%**, MMMU-Pro 83.01% (Vals) / 77.3% (AA), CharXiv 88.3%; independent **Vibe Code Bench v1.1 81.33%**, LiveCodeBench 82.43%; AA Intelligence Index **38**, Vals Index 51.77%, BenchLM overall 65.92.
 > **Conflicts surfaced:** (1) **GPQA Diamond** — the prior file's **96.2% ("rank 1 of 48") is not reproduced**; current sources read **91.1% (AA) / 88.89% (Vals)**, so Reasoning is corrected downward. (2) **SWE-bench Verified** — 85.2% (system card) vs 79.6% (Vals). (3) **Terminal-Bench 2.1** — 80.4% (system card) vs 74.5% (Vals). (4) **MMMU-Pro** — 83.01% (Vals) vs 77.3% (AA). (5) Vals' own index text shows launch-era 68.61% / #3 vs current 51.77%.

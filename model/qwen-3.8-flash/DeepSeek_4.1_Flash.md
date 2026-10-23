@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.8-flash` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Hugging Face **Qwen3.8-Flash-Next** card rows — SWE-bench Pro **62.5%**, SWE Multilingual 81.0%, DeepSWE 1.1 **58.7%**, NL2Repo 48.1%, **LiveCodeBench v6 91.9%**, **Toolathlon-Verified 73.5%**, JobBench 55.7%, CoWorkBench 73.9%, Agents' Last Exam 51.2%, AndroidWorld 84.5%, OSWorld 2.0 19.4%, GPQA Diamond **91.7%**, HLE 35.9%, IFBench 81.3%, CharXiv 90.6%/84.6%, MathVision 90.6%/95.7%, RealWorldQA 88.5%, LVBench 76.6%; Artificial Analysis **Intelligence Index 39.8 (#7/118 open-weights)**, GDPval-AA **1648 Elo / 56.6%**, AA-SciCode 50.6%, AA Coding Index 73.0%, AA-MMMU-Pro 79.8%, AA-LCR 79.7%, CritPt 11.1%, AA-HLE 38.0%; BenchLM overall **64.23 (#37/889)**.
 > **Conflicts surfaced:** (1) **AA Intelligence Index** — the prior file's **55.8** is a **v4.1.1-era** number; the current **v4.3.2 rebase reads 39.8**, and the "Qwen is 2× faster" claim also died (55.2 vs GLM's 51.4 tok/s). (2) **Context** — 262,144 native (open checkpoint) vs 1M on the hosted route. (3) **Licence** — the weights are public under **Qwen Community License 1.0** (not OSI open source); the 27B sibling is Apache-2.0. (4) **Hosted vs open** — `qwen3.8-flash` is the managed tier **based on** the Flash-Next checkpoint; benchmark rows are the checkpoint's.

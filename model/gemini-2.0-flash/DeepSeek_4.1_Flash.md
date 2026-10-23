@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`gemini-2-0-flash`, 5 rows) assigns **no overall score** (unranked); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against Artificial Analysis (https://artificialanalysis.ai/models/gemini-2-0-flash), BenchmarkList (https://benchmarklist.com/models/google-gemini-2.0-flash/), evals.report (https://evals.report/models/google-gemini-2-0-flash), RankedAGI (https://rankedagi.com/models/gemini-2.0-flash), LLM Stats (https://llm-stats.com/models/gemini-2.0-flash), LLM Decision Hub (https://llmleaderboard.ai/model/gemini-2-0-flash/) and Bing/DuckDuckGo aggregate searches. The prior 2.0-generation picture holds: still a cheap, 1M-window, natively multimodal Flash workhorse, no longer a live endpoint, mid-tier reasoning, weak agentic/coding. New independent numbers broadly confirm the old ranges (τ²-bench 29.5%, Terminal-Bench Hard 3.8%, MMLU-Pro 77.4–77.9%, Aider Polyglot 22.2%, ARC-AGI-2 1.3%) but several conflicts were surfaced: GPQA Diamond ranges 60.1–65.2% across trackers; LiveCodeBench splits 33.4% (evals.report) vs 43.6% (BenchmarkList/vals); MATH-500 88.0% here vs 93.0% in the prior Sophon note; AIME 2025 21.7% vs 27.5%; knowledge cutoff is given as Jun 1 2024 (Artificial Analysis) vs Aug 2024 (LLM Stats, RankedAGI). No dimension score changed; the Overall is unchanged at 66.2.
 
 ## Model card

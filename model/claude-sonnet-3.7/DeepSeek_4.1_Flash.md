@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `claude-sonnet-3.7` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Re-checked against the official Anthropic launch post (https://www.anthropic.com/news/claude-3-7-sonnet), Artificial Analysis (https://artificialanalysis.ai/models/claude-3-7-sonnet), RankedAGI (https://rankedagi.com/models/claude-3.7-sonnet), LLM Stats (https://llm-stats.com/models/claude-3-7-sonnet-20250219) and Serenities AI (https://serenitiesai.com/benchmark/models/claude-3-7-sonnet). All five dimensions held at their prior values; no dimension change was justified. Conflicting same-name figures surfaced for GPQA Diamond, SWE-bench Verified and the Intelligence Index — all three conflicts are listed below rather than silently averaged.
 

@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `seed-2.0-pro` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from ByteDance's official Seed2.0 Pro (0215) card: **BrowseComp 77.3%**, WideSearch 74.7%, GDPval 54.4%, SkillsBench 42.3%, Tob-Agent 52.6%, FinSearchComp 70.2%; **GPQA Diamond 88.9%**, SuperGPQA 68.7%, HLE (text-only) 32.4%, BeyondAIME 86.5%, FrontierSci-olympiad 74.0%, MultiChallenge 68.3%; **SWE Multilingual 71.7%**, SWE-Bench Pro 46.9%, Terminal Bench 2.0 55.8%, NL2Repo 27.9%, PaperBench 53.8%; MathVision 88.8%, **MMMU_Pro 78.2%**, CharXiv-DQ 93.5%, ERQA 68.5%, BabyVision 60.6%; video **VideoMME 89.5%**, LongVideoBench 80.3%, LVBench 76.4%, VideoMMMU 86.9%. Independent (Digital Applied/TokenMix/Opper): AIME 2025 **98.3%**, Codeforces 3020, LiveCodeBench v6 87.8%, **SWE-bench Verified 76.5%**, MMLU-Pro 87, τ²-bench 90.4 retail / 94.2 telecom.
 > **Conflicts surfaced:** (1) **SWE-bench Verified** — 76.5% (blogs/aiRank) vs **21.5%** (RankLLMs, a composite 39.5/100 outlier with GPQA 39.0 / BrowseComp 16.7 — scale-mismatched vs every other source). (2) **Pricing** $0.50/$3.00 vs $0.47/$2.37. (3) **Context** 256K vs 272.4K. (4) **Modalities** text+image+video vs Opper's text-only flag. (5) **Attribution risk** — AIME/Codeforces/LiveCodeBench/SWE-V circulate for "Seed 2.0 Pro" but are absent from the official card (possibly Seed 1.6 figures).

@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no distinct page** for `gemini-2.5-flash-lite` (no source-displayable rows); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-ran the live web sweep on the official Google Cloud Vertex model page plus five independent trackers — BenchmarkList, BenchLeader (data as of 12 Oct 2026), Artificial Analysis, LLM-Stats and Vals AI — with RankedAGI as a sixth cross-check. Net result: all six normalized dims held, so the Overall is unchanged at 57. The pass did surface four genuine source conflicts (MMLU-Pro 75.9% vs 53.7%; AA Intelligence Index 11.41 vs 8.6 vs 7; LiveCodeBench 59.3% vs v6 34.3%; AIME 2025 53.3% vs 63.1%) and one new unverified coding claim (RankedAGI SWE-bench Verified 44.9%, not corroborated by Google, Artificial Analysis, Vals AI or BenchmarkList). AA-LCR was revised down from 56.3% to 55.7%. No fabricated numbers; every figure below carries its URL.
 
 ## Model card

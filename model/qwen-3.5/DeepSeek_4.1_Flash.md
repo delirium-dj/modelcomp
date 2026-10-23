@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.5` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Slug note:** the folder slug is bare `qwen-3.5`; I resolved it to Alibaba's Qwen3.5 **flagship** release — `Qwen3.5-397B-A17B` — the canonical "Qwen 3.5" model (the card states the hosted `Qwen3.5-Plus` is the same weights with 1M default context and built-in tools).
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from the official HF card: **TAU2-Bench 86.7%**, **BFCL-V4 72.9%**, VITA-Bench 49.7, Tool Decathlon 38.3, MCP-Mark 46.1, BrowseComp 69.0/78.6, **HLE with tools 48.3%**; **GPQA 88.4%**, MMLU-Pro 87.8%, HLE 28.7% (37.6% verified), AIME26 91.3%, HMMT 92.7–94.8%, SuperGPQA 70.4%, IFBench 76.5%, MultiChallenge 67.6%; **SWE-bench Verified 76.4%**, SWE Multilingual 69.3%, LiveCodeBench v6 83.6%, SecCodeBench 68.3%, Terminal-Bench 2.0 52.5%; AA-LCR 68.7%, LongBench v2 63.2%; MMMU **85.0%**, MMMU-Pro 79.0%, MathVision 88.6%, OmniDocBench v1.5 90.8%, Video-MME 87.5%, OSWorld-Verified 62.2%. Independent: AA Intelligence Index **18 (#59/117)** with **AA-Omniscience index −37.9 (hallucination 82.7%)**, BenchLM overall 55.58 (#63/891).

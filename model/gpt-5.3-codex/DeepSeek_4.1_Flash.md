@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`gpt-5-3-codex`, 11 rows) computes an overall **60.51/100 (#54 of 227)** and confirms the deep pass. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed from OpenAI's launch post + independent suites: **Terminal-Bench 2.0 77.3%**, **OSWorld-Verified 64.7%**, τ²-bench 86%, Cybersecurity CTF 77.6%, **SWE-Lancer IC Diamond 81.4%**, GDPval (wins/ties) 70.9%; **AA-GPQA Diamond 91.5%**, AA-HLE 42.5%, AA-Omniscience accuracy 52.9%, CritPt 16.9%, AA-IFBench 75.4%; **SWE-bench Verified 85%** (system card), SWE-bench Pro (public) 56.8%, SWE-Rebench 58.2%, **Vibe Code Bench 61.77%**, LiveCodeBench 87.3%, SWE-bench (Vals) 78.0%; AA-LCR 83.3%; AA-MMMU-Pro 78.5%. Independent: AA Intelligence Index **33 (estimated)**, BenchLM overall 59.87 (#51/891), Vals rows via BenchLM.
 > **Conflicts surfaced:** (1) **Release** — Feb 5, 2026 (OpenAI/AA) vs Feb 24, 2026 (OpenRouter). (2) **BenchLM overall** — 59.87/100 #51/891 (page) vs 60.9/100 #49/218 (search snippet). (3) **AA Index** — 33 (AA page) vs 32.5% (BenchLM copy); AA marks it "Estimated". (4) The prior file's "no exact public percentage" for TB 2.0/OSWorld/SWE-bench Pro is now resolved by the launch table.
@@ -13,7 +15,7 @@
 
 ## Model card
 
-- **Name:** GPT 5.3 Codex
+- **Name:** GPT-5.3 Codex
 - **Short description:** OpenAI's most advanced agentic coding model — GPT-5.2-Codex's software-engineering ability combined with GPT-5.2's broader reasoning, with state-of-the-art SWE-bench Pro, strong Terminal-Bench 2.0 / OSWorld-Verified, and enhanced cybersecurity awareness. ~25% faster and more token-efficient than prior Codex models.
 - **Provider / access:** OpenAI API plus OpenRouter and Vercel AI Gateway; codex CLI/cloud workflows. Not open weights.
 - **Release / knowledge:** Released 2026-02-05 (OpenRouter lists 2026-02-24); knowledge cutoff 2025-08-31.

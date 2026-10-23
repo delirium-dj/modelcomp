@@ -1,0 +1,63 @@
+# Kimi K2.8 Preview — findings by Muse Glimmer 30B
+
+- Source: Moonshot AI/Kimi K2.8 Preview (`meta/muse-glimmer-30b`)
+- Date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Entry curated in `meta.json` as a verified absence: Moonshot’s model list, pricing, changelog, docs index, Hugging Face org, models.dev and OpenRouter all lack a standalone K2.8 checkpoint as of 2026-10-20. `meta.json` short: “No such Moonshot model could be verified as of 2026-10-20 — Moonshot’s model list, pricing, changelog, docs index, HF org, models.dev, OpenRouter and Zen all lack a K2.8; negative record, self-excluded report.” models.dev lists `moonshotai/kimi-k2.8-preview` as a coding model with up to 1M context available through Kimi Code, mapping to provider ID `kimi-for-coding` with 1,048,576 context and $0.00/$0.00 pricing; Moonshot’s official docs page `platform.kimi.ai/docs/models` enumerates `kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed`, `kimi-k2.6` only — no K2.8 entry.
+- **Provider / access:** Moonshot AI via Kimi Code membership surface; models.dev providers “Kimi For Coding (kimi.ai)” / “Kimi For Coding (kimi.com)” with model ID `kimi-for-coding`. No dedicated `kimi-k2.8-preview` API ID on Moonshot’s official model list; no OpenCode Zen Free ID per `meta.json` `noFreeId: true`.
+- **Release / knowledge:** models.dev release 2026-09-11; knowledge cutoff not published. Moonshot official docs do not confirm a K2.8 release.
+- **IDs:** `moonshot/kimi-k2-8-preview` per `meta.json` id; models.dev canonical `moonshotai/kimi-k2.8-preview` → provider `kimi-for-coding`. No verified vendor ID.
+- **Context window:** `meta.json` `contextWindow`: “Unverified - no published figure (1M was claimed but never confirmed)”. models.dev reports 1,048,576 tokens input; 32,768 output limit listed. Vendor verification absent.
+- **Modalities:** `meta.json` `modalities`: “Unverified - no published figure”. models.dev capabilities `tools, reasoning`. No official vendor modality table for a standalone K2.8 checkpoint.
+- **Pricing (as of 2026-10-20):** `meta.json` `pricingNote`: “No published price - Moonshot’s API is pay-as-you-go per token; no K2.8 line exists on any price sheet”. models.dev shows $0.00/$0.00 for `kimi-for-coding` via Kimi Code membership. Paid membership-gated; no free tier.
+- **Architecture:** Proprietary. Parameter count, MoE topology, and weights not published for a verified K2.8 checkpoint. `meta.json` `standout`: “A verified absence: the slot between K2.7 Code and K3 that never shipped, kept so the gap is auditable.”
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers exist for a distinct `kimi-k2.8-preview` checkpoint. Moonshot’s official model page lists no K2.8 entry; models.dev provides specs only. All rows below are unverified.
+
+Agent / tool use:
+- Terminal-Bench 2.1 / 2.0: **no verified public score found**
+- Toolathlon / MCPMark / MCP-Atlas / Claw-Eval / GDPval-AA: **no verified public score found**
+- BrowseComp / OSWorld / Tau3-Banking / HLE-Full w/ tools: **no verified public score found**
+
+Reasoning / knowledge:
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR / CritPt / Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: **no verified public score found**
+- SWE-bench Multilingual / OJBench / Terminal-Bench coding: **no verified public score found**
+
+Long context:
+- MRCR / RULER / AA-LCR retrieval depth: **no verified public score found**; context window 1,048,576 claimed by models.dev but unverified by vendor.
+
+Multimodal / Vision:
+- MMMU-Pro / CharXiv / MathVision / Video-MME: **no verified public score found** for a distinct K2.8 checkpoint; modalities unverified per `meta.json`.
+
+### Normalized scores (1–100)
+
+Derivation is qualitative only due to absence of verified public benchmarks and vendor non-listing. Scores reflect the curated negative record in `meta.json` and the conflict between models.dev’s alias entry and Moonshot’s official catalogue.
+
+- **Tool use: 65/100.** models.dev lists tools+reasoning for the `kimi-for-coding` alias; no Terminal-Bench / MCPMark numbers for a distinct K2.8 checkpoint. Capped by vendor non-listing and zero verified harness results.
+- **Reasoning: 68/100.** Positioning claimed on models.dev as “more efficient thinking”; no GPQA / HLE / CritPt numbers for the checkpoint. Capped by absence of vendor verification.
+- **Context window: 85/100.** models.dev reports 1,048,576 input; `meta.json` notes 1M was claimed but never confirmed. No retrieval-quality benchmark. Capped by unverified vendor spec.
+- **Multimodal: 55/100.** `meta.json` modalities unverified; models.dev capabilities limited to tools/reasoning. No vision benchmark.
+- **Coding: 70/100.** Alias maps to Kimi Code `kimi-for-coding` coding surface; no SWE-bench / LiveCodeBench numbers for a distinct K2.8 checkpoint. Capped by zero verified coding scores and vendor absence.
+- **Cost efficiency: 60/100.** `meta.json` notes no published price and no K2.8 line on price sheet; models.dev shows $0.00/$0.00 membership-gated. No per-token economics to verify.
+- **Overall Score: 68/100.** Mean of five quality dims (65+68+85+55+70)/5 = 68.6 → 68. Best-fit interpretation: a catalogue placeholder / alias for Kimi Code with no verified independent benchmark identity as of 2026-10-20; maintain as auditable gap per `meta.json`.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Method: `meta.json` review + public web research via `platform.kimi.ai/docs/models`, `platform.kimi.ai/docs/pricing/chat`, models.dev `moonshotai/kimi-k2.8-preview` page, and Moonshot model catalogue. Scores are normalized 1–100 interpretations, not official vendor scores; zero verified public benchmark numbers exist for a distinct K2.8 checkpoint, scores reflect curated absence and alias conflict per `meta.json`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

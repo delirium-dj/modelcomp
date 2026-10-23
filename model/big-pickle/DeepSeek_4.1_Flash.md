@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `big-pickle` (404; free stealth alias); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against OpenCode Zen (https://opencode.ai/zen), Pi models (https://pi.dev/models/opencode/big-pickle), Grokipedia (https://grokipedia.com/page/Big_Pickle_model), Cracked AI Engineering (https://www.crackedaiengineering.com/ai-models/opencode-big-pickle), the models.dev database (https://github.com/anomalyco/models.dev) and the DuckDuckGo result set (https://duckduckgo.com/html/?q=Big+Pickle+model+OpenCode+Zen) plus the Bing result set (https://www.bing.com/search?q=%22Big+Pickle%22+opencode+zen+model). The identity consensus, the 200K / text-only / $0 specs and the direct SWE Atlas 50.8% eval all still stand. New proxy GLM benchmark numbers and one hard spec conflict surfaced (max output 32K vs 128K); both are labelled below. No dimension crossed its evidence threshold, so the five quality scores are unchanged.
 
 ## Model card

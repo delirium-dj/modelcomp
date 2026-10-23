@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `deepseek-v4-vision-exp` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > **Alias status reconfirmed:** DeepSeek's own docs state *"`deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` … are retired [and] route to V4.1-Flash"*; the current API model name is `deepseek-flash` (DeepSeek-V4.1-Flash). Newly confirmed vendor rows (HF card, 2026-08-21): **Terminal-Bench 2.1 83.9%**, NL2Repo 57.7, CyberGym 75.3, **DeepSWE 59.3**, **Toolathlon-Verified 75.9**, DSBench-Hard 63.6, AutomationBench 25.7; multimodal-agent rows ApexBench 36.5, Agents' Last Exam 27.3, Chartography 64.3, ZeroBench 35.0; independent **vLLM OCRBench 83.5%** (GB200). Context 1,048,576 (vLLM recipe), max output 384K (official pricing page); MIT open weights (HF repo), ≈305B (HF card) / 285B (vLLM).
 > **Conflicts surfaced:** (1) **Context measurement** — the 1M window is *advertised, not measured*; the vLLM reference run used 32K. (2) **Parameters** — 305B (HF card) vs 285B/13B (vLLM) vs ~304.6B (4SAPI). (3) **Pricing** — official peak $0.30/$1.20 (off-peak $0.15/$0.60) vs $0.22/$0.66 (OpenCode/LLM-Stats) vs $0.44/$1.32 (DeepInfra). (4) **Open weights** — HF repo live (MIT) vs DataNorth "API-only, not released". (5) **Image-token cap** 384/image (release note) vs 1024/image (current Vision guide).

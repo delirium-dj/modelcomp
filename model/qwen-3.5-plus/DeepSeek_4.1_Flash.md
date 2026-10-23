@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.5-plus` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: the official HF card for the underlying **Qwen3.5-397B-A17B** (Plus = hosted tier of those weights) — **TAU2-Bench 86.7%**, **BFCL-V4 72.9%**, MCP-Mark 46.1, Tool Decathlon 38.3, BrowseComp 69.0/78.6, OSWorld-Verified 62.2%; **GPQA 88.4%**, MMLU-Pro 87.8%, HLE 28.7%, AIME26 91.3%, HMMT 92.7–94.8%; **SWE-bench Verified 76.4%**, SWE Multilingual 69.3%, LiveCodeBench v6 83.6%, SecCodeBench 68.3%, Terminal-Bench 2.0 52.5%; AA-LCR 68.7%, LongBench v2 63.2%; MMMU 85.0%, **MMMU-Pro 79.0%**, MathVista 90.3%. Independent Vals: TB 2.0 41.57%, SWE 71.2%, LCB 85.33%, GPQA 87.37%, MMLU-Pro 87.18%, **Finance Agent v1.1 #8 (#1 open-weight)**, **Vals Index 57.1% (#10 overall, #3 open-weight)**; BenchLM overall 47.65 (#106/891, only 4 benchmarks).
 > **Conflicts surfaced:** (1) **MMMU-Pro** — **79.0% (official card) vs 22.77% (Vals, dead last, 0th pct)**; Vals itself attributes this to a "highly sensitive content filter" and strict-format failures. (2) **SWE-bench Verified** — 76.4% (HF) vs 71.20% (Vals). (3) **Terminal-Bench 2.0** — 52.5% (HF) vs 41.57% (Vals). (4) **Weights** — Plus is hosted/proprietary while the 397B-A17B sibling is Apache-2.0. (5) BenchLM's 47.65 overall covers only 4 of 626 benchmarks.

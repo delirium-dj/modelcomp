@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`claude-haiku-4-5`, 10 rows) computes an overall **41.13/100 (#135 of 227)** and confirms the deep pass. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked against Anthropic's official model page + launch post plus five independent trackers (BenchLM, BenchmarkList, Vals AI, APX, LLM Stats). Prior figures held up: 200K context, $1/$5 per 1M, SWE-bench Verified 73.3% (vendor), AA-LCR 74.3%, HLE 10.4%, τ²-Bench Telecom 54.7%, Terminal-Bench Hard 27.3%, IFBench 54.3%, GPQA 67.2%, SciCode ~42–43%. New datapoints found: MCP Atlas 40.2%, BFCL 68.7%, MMLU-Pro 78.7–80.0%, AIME 2025 83.7%, Terminal-Bench 2.1 43.8–49.4%, SWE-bench (Vals harness) 66.6%, LiveCodeBench 41.2%, Vibe Code Bench v1.1 11.4%, MMMU Pro 46.1%. Conflicting numbers surfaced: SWE-bench Verified 73.3% (Anthropic) vs 66.6% (Vals) vs 69.8% (OpenAI harness); GPQA Diamond 72.2% (Vals) vs 67.2% (Epoch); AA Intelligence Index 29.58 (BenchmarkList) vs 16.9 (prior report). Distinguish from Claude Haiku 3.5 (2024-10-22, 200K) and Claude Haiku 5.5 (2026-10-07, $0.10/$0.50 first-100K tier).
 
 ## Model card

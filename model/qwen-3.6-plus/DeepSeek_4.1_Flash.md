@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.6-plus` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: official/Qwen rows — Terminal-Bench 2.0 **61.6%**, TB 2.1 53.18% (Vals) / 61% (Together), τ²-bench **97.7%**, τ³-bench 70.7%, Toolathlon 39.8%, MCP Atlas 48.2%, Claw-Eval 58.8%, WideResearch 74.3%; GPQA Diamond **88.2–90.4%**, HLE 27.8% / **50.6% with tools**, MMLU-Pro 88.5%, AIME26 95.3%, IFEval 94.3%, IFBench 75.2%; **SWE-bench Verified 78.8%** (official) / 73.40% (Vals), SWE-bench Pro 56.6%, LiveCodeBench v6 **87.1%** / 85.95% (Vals), AA Coding Index 54.5%, Vibe Code Bench 25.56%; MMMU 86.0%, **MMMU-Pro 78.8%** / 84.16% (Vals), **VideoMMMU 84.0%**; AA-LCR 78.3%, LongBench v2 62%. Independent: AA Intelligence Index **27 (#109/219)**, Vals AI 49.36% accuracy (#17, index 58.8%), BenchLM overall 53.39 (#79/891).
 > **Conflicts surfaced:** (1) **Multimodal** — the prior file said text+image; Artificial Analysis and Together both list **text + image + video** input, which moves it into the `+video/PDF in` band. (2) **GDPval-AA** — 1363 Elo (RankedAGI) vs 1066 Elo / 24.5% (AA) vs 32% (Together). (3) **TB 2.1** 53.18% (Vals) vs 61% (Together). (4) **Context** 1M vs 984k (Vals). (5) **Release** Apr 2 (AA/Vals/OpenRouter) vs Mar 31 (LLM-Stats). Benchable reports all-zero rows (eval failure, not model weakness).

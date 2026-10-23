@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`gemini-2-5-flash`) carries **no source-displayable benchmark rows**; no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Re-read live: Artificial Analysis (AA), BenchLeader, BenchmarkList, BenchLM,
 > LLM-Stats, Vals AI and Roboflow. Top-line composites disagree sharply —

@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM (`claude-sonnet-4-6`, 28 rows) computes an overall **55.89/100 (#65 of 227)** and confirms the deep pass. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Anthropic docs — release **2026-02-17**, knowledge cutoff Aug 2025 (reliable) / Jan 2026 (training), 1M context / 128K output (300K Batch beta), $3 in / $0.30 cached / $15 out; system-card/independent rows **GPQA Diamond 89.9%**, **HLE 49% with tools**, **ARC-AGI-2 58.3%** (60.4% high effort), **ARC-AGI-1 86.0%**, **SWE-bench Verified 79.6%** (Anthropic 76.2% 10-trial / 80.2% prompt-mod), SWE-Rebench 60.7%, LiveCodeBench 82.09%, Terminal-Bench 2.0 59.1–59.55%, **Terminal-Bench 2.1 57.3%**, **OSWorld-Verified 72.1%**, τ²-bench 79.5%, Claw-Eval 67.8%, **AA-LCR 68.3%**, CharXiv 77.4%, MMMU-Pro 83.58% (Vals) / 70.6% (AA); BenchLM overall 55.41; Vals accuracy 56.68%.
 > **Conflicts surfaced:** (1) **Context window** — 1M (official docs) vs **200K** (BenchLM). (2) **SWE-bench Verified** — 79.6% (system card) vs 77.40% (Vals) vs 76.2%/80.2% (Anthropic trials). (3) **GPQA Diamond** — 89.9% (system card) vs 85.61% (Vals) vs 79.9% (AA variant). (4) **HLE** 49% with tools vs 13.3% no tools (AA). (5) **Reasoning flag** — Anthropic "yes" (adaptive thinking) vs AA's *non-reasoning* variant page.

@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `claude-sonnet-3.5` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources: Anthropic news + engineering, BenchmarkList, BenchLM, RankLLMs, LLM-Stats). Scores the **2024-10-22 "upgraded" revision** of `anthropic/claude-3-5-sonnet` (the id's default snapshot); June-2024 (`20240620`) numbers are labelled where the two differ. New hard evidence (GPQA 59.3%, HLE 3.9%, AA Intelligence Index 9.91, SWE-bench Verified 49%) trimmed Reasoning and raised Multimodal into the repo's `+image` band; Overall unchanged.
 
 ## Model card

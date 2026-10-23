@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `qwen-3.8` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources).
 > Newly confirmed: Hugging Face card for the open base **Qwen3.8-2.4T-A95B** — Terminal-Bench 2.1 **86.6**, GPQA Diamond **92.6**, HLE (no tools) **43.6**, SWE-bench Pro **67.7**, DeepSWE 1.1 56.6, NL2Repo 55.9, MRCR v2 256K 92.9, LongBench-v2 66.3, IFBench 82.8, OSWorld-Verified 86.1, Toolathlon-Verified 72.5; independently, SWE-bench Verified **85.6** (Codersera); AA Intelligence Index **45 (0902, v4.3.2)**; BenchLM composite **70.7**.
 > **Conflicts surfaced:** (1) **AA Intelligence Index** — **56** (early v4.1.1-era) vs **45** (0902, v4.3.2) vs **40** (0803) — basket rebase, not convertible. (2) **Terminal-Bench 2.1** — vendor **86.6** vs AA Terminus-2 **81.3** vs Vals **67.4** (neutral harnesses run materially lower). (3) **τ³-Banking** — "#1 of 20" (vendor) vs **42%** / **48%** (AA). (4) **Context** — 1M advertised vs **984K** (AA). (5) **Naming** — many sources treat "Qwen 3.8" as shorthand for the hosted **Qwen3.8-Max**; sibling rows (27B SWE-bench Pro 61.7, Flash) are flagged where used.

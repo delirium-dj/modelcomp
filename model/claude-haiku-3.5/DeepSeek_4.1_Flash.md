@@ -5,6 +5,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Re-verified 2026-10-18.** BenchLM has **no page** for `claude-haiku-3.5` (404); no new independent benchmark surfaced and the 2026-10-11 deep-pass rows stand. **No score change.**
+
 > **Deep second-pass re-verification — 2026-10-11** (≥3 independent sources). Re-checked Artificial Analysis (https://artificialanalysis.ai/models/claude-3-5-haiku — Intelligence Index **9** estimated, #105/300, text+image in / text out, 200k, knowledge cutoff Jul 2024), RankedAGI (https://rankedagi.com/models/claude-3.5-haiku — SWE-bench Verified 40.6%, Aider-Polyglot 28.0%, GPQA Diamond 41.6%, HumanEval 88.1%, MMLU-Pro 65.0%, MMLU 81.0%), LLMLearner (https://llmlearner.com/models/claude-3-5-haiku — retired 2026-02-19, MMLU 77.6%, ECI 127, MMMU-Pro 45.6%, SimpleQA 8.0%, Terminal Bench Hard 2.3%) and llm-stats (https://llm-stats.com/models/claude-3-5-haiku-20241022 — 200K/200K, $0.80/$4.00 Bedrock vs $1.00/$5.00 first-party), plus the official launch/model card (https://www.anthropic.com/news/3-5-models-and-computer-use, via LLMLearner) and Anthropic model overview (https://platform.claude.com/docs/en/models/overview — the 3.5 generation is superseded by Haiku 4.5/5.5). Conflicts logged: **MMLU 77.6% (LLMLearner) vs 81.0% (RankedAGI)**; **pricing $0.80/$4.00 (Bedrock) vs $1.00/$5.00 (Anthropic first-party)**; **GPQA 37.5% vs GPQA Diamond 41.6%**; **MATH 69.2% vs 69.4%**; **AA Intelligence Index 9 (current, estimated) vs deprecated AA Quality Index 69 (RankedAGI)**. Evidence confirms the prior band placements; all six dims re-verified, none changed.
 
 ## Model card
