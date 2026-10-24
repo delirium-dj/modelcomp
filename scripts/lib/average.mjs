@@ -109,7 +109,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * `kimi-k2.7-code-highspeed` (2026-10-20, Moonshot serving profile of
  * `kimi-k2.7-code` — same weights, same 262,144 window, exactly 2× API
  * price; Kimi Code docs: "the high-speed version of K2.7 Code, with the
- * same coding ability" — RULES.md serving-tier identity);
+ * same coding ability" — RULES.md serving-profile identity);
  * `gemini-3.1-flash` (2026-10-20, phantom unsuffixed name — Google ships no
  * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
  * `gemini-3.1-flash-lite` (own folder); DeepMind card, Google Cloud docs,
@@ -117,7 +117,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * unsuffixed-name identity);
  * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
  * OpenCode PR #55993; same 501B/23B weights; id deprecated 2026-10-16 →
- * `opencode/beam-free` — RULES.md revealed-stealth identity);
+ * `opencode/beam-free` — RULES.md serving-profile / revealed-stealth identity);
  * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
  * LongCat 2.5: the 2.5 generation exists only as the API-only LongCat-2.5-Preview
  * already tracked in `longcat-2.5-preview/`; the folder's own meta idNote records

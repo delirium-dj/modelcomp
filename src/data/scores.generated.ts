@@ -1495,6 +1495,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Big_Pickle.md": [55, 50, 72, 10, 55, 100, 48.4],
     "DeepSeek_4.1_Flash.md": [70, 65, 75, 15, 80, 96, 61],
     "Flint.md": [55, 55, 75, 15, 70, 100, 54],
+    "GLM_5.3.md": [62, 42, 72, 15, 88, 100, 56],
     "GPT_6.1_Sol.md": [60, 60, 76, 15, 73, 100, 57],
     "Gemini_3.5_Flash_Lite.md": [54, 54, 54, 54, 54, 97, 54],
     "Gemini_3.8_Flash.md": [64, 66, 74, 20, 68, 100, 58],

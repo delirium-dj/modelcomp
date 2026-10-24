@@ -32,7 +32,8 @@ export const MERGED_MODEL_SLUGS = new Map([
   ["google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite"],
   ["glm-5.1-coding", "glm-5.1"],
   ["embe-1", "ember-1"],
-  // xAI reasoning-alias merges (RULES.md Grok Fast reasoning-alias identity,
+  // xAI reasoning-alias merges (RULES.md serving-profile identity / alias-family
+  // entries in model-aliases.generated.md,
   // 2026-10-20): docs.x.ai lists grok-4-fast as an alias of grok-4-fast-reasoning
   // and grok-4-1-fast of grok-4-1-fast-reasoning — one checkpoint, same 2M
   // window, same $0.20/$0.50; the scaffolded -reasoning stubs were folded into
@@ -447,6 +448,30 @@ export const TRACKED_ALIAS_NOTES = new Map([
   [
     "union-alpha",
     "Pareto 26.9 composite record (Union Alpha / stealth/union-alpha / opencode/union-alpha / unbiased/pareto — one product, a composite router, never a checkpoint); NEVER scaffold model/pareto-26.9/ or model/unbiased-pareto/; the successor Pareto 26.10 is the separate tracked model/pareto-26.10-preview/; the circulated DeepSWE ~74% is GPT-6 Astra's number — Pareto 26.9 is 70.0%",
+  ],
+  [
+    "muse-spark-1.3",
+    "covers EVERY Muse Spark 1.3 tier name (Contributor, Contributor Free, Free, Standard, Max, muse-spark-1.3-free/-max/-contributor) — one model: same weights, 1M context; only price and Meta's training-data use differ (reasoning_effort max is a paid-Standard option, never a model); NEVER scaffold a tier-suffixed variant folder",
+  ],
+  [
+    "muse-spark-1.2",
+    "covers EVERY Muse Spark 1.2 tier name (Contributor, Contributor Free, Free, Standard, Max, muse-spark-1.2-free/-max/-contributor) — same weights everywhere, only price and data-use differ; NEVER scaffold a tier-suffixed variant folder",
+  ],
+  [
+    "nemotron-3-ultra-free",
+    "covers EVERY Nemotron 3 Ultra name — Free is an access tier (Zen free route, OpenRouter :free suffix, NVIDIA free endpoint); paid NIM/OpenRouter routes serve the same 550B-A55B weights; NEVER scaffold model/nemotron-3-ultra/",
+  ],
+  [
+    "nemotron-3.5-lightning-free",
+    "covers EVERY Nemotron 3.5 Lightning name — Free is an access tier; paid/NIM routes serve the same 30B-A3B weights; NEVER scaffold model/nemotron-3.5-lightning/",
+  ],
+  [
+    "nemotron-3-nano-omni",
+    "canonical folder for Nemotron 3 Nano Omni — a single model (30B-A3B-Reasoning weights; free serving on Zen/NVIDIA Build plus open checkpoints, never a -free split); research under it",
+  ],
+  [
+    "mimo-v2.5-free",
+    "also covers the Xiaomi MiMo-V2.5 Free name — do not scaffold a second folder for it",
   ],
 ]);
 

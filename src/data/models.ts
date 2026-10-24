@@ -307,18 +307,18 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * Moonshot serving profile of `kimi-k2.7-code` — same `moonshotai/Kimi-K2.7-Code`
  * weights, same 262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00);
  * Kimi Code's own model table calls HighSpeed "the high-speed version of K2.7
- * Code, with the same coding ability" — RULES.md serving-tier identity);
+ * Code, with the same coding ability" — RULES.md serving-profile identity);
  * `gemini-3.1-flash` (2026-10-20, phantom unsuffixed name — Google ships no
  * bare `gemini-3.1-flash` text model; the only 3.1 Flash text SKU is
  * `gemini-3.1-flash-lite` (own folder). DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id; folder findings scored
- * Flash-Lite data — RULES.md phantom unsuffixed-name identity);
+ * Flash-Lite data — RULES.md family-shorthand identity);
  * `space-bunny` (2026-10-20, revealed stealth alias of MiniMax M3.1 Flash Free);
  * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
  * OpenCode PR #55993 merged 2026-10-16; same 501B/23B Apache 2.0 weights,
  * SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match Beam 1.0; id
- * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md revealed-stealth
- * identity; searching "Cat Jam" resolves to Beam 1.0 via aliases);
+ * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md serving-profile /
+ * revealed-stealth identity; searching "Cat Jam" resolves to Beam 1.0 via aliases);
  * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
  * LongCat 2.5; the 2.5 generation exists only as the API-only LongCat-2.5-Preview
  * tracked in `longcat-2.5-preview/`, and the folder's own meta idNote records the

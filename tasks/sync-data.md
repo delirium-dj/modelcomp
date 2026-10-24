@@ -37,16 +37,23 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    quality dims with zero cited numbers. Varied dims with cited numbers are
    never touched, however low the scores.
    Filenames must match `/^[A-Za-z0-9_.]+\.md$/`; anything else fails loudly.
- 2. Parses the seven `1–100` scores from each file (fails loudly on any
-   missing/invalid score line — never invent numbers). Each file's Overall
-   must equal the half-up mean of its five non-cost dims (Cost efficiency
-   never counts toward Overall since v4): drift `> 0.51` is auto-corrected
-   (only the Overall number is rewritten, logged as an `AUTO` line) and the
-   folder proceeds on the corrected value. Dims, benchmarks, and prose are
-   never touched. Alongside scores it extracts benchmark figures
-   (`- <Benchmark>: **82.6%**` rows, curated vocabulary in
-   `scripts/lib/benchmarks.mjs`); figures cited by 2+ independent files feed
-   the model pages' Verified-benchmarks section.
+  2. Parses the seven `1–100` scores from each file (fails loudly on any
+    missing/invalid score line — never invent numbers). Each file's Overall
+    must equal the half-up mean of its five non-cost dims (Cost efficiency
+    never counts toward Overall since v4): drift `> 0.51` is auto-corrected
+    (only the Overall number is rewritten, logged as an `AUTO` line) and the
+    folder proceeds on the corrected value. Dims, benchmarks, and prose are
+    never touched. Alongside scores it extracts benchmark figures
+    (`- <Benchmark>: **82.6%**` rows, curated vocabulary in
+    `scripts/lib/benchmarks.mjs`); figures cited by 2+ independent files feed
+    the model pages' Verified-benchmarks section. Signature-vs-stem identity
+    tripwire (2026-10 STEM/slug conflation prevention): every findings file
+    (`.md` and `.md.excluded`) whose `Provided by: **<name>**` signature names
+    a model that relates to neither the filename stem nor the folder subject
+    (nor a grandfathered variant in `SIGNATURE_STEM_EXCEPTIONS`,
+    `scripts/lib/validate.mjs`) FAILs loudly — an agent that wrote files
+    named after the model it was researching instead of its own STEM. Legacy
+    files without a usable bold signature are skipped, never guessed.
 3. Recomputes `model/<slug>/average.md` as arithmetic means with standard
    half-up rounding to 1 decimal (`72.25` → `72.3`; only differences `> 0.051`
    count as drift). Overall = mean of source Overall scores, NOT re-derived
@@ -83,12 +90,21 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
    plus `src/data/evidence.generated.ts`: benchmark figures cited by 2+
    independent files per slug for the model pages' Verified-benchmarks
    section.
-7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line
-   per model, highest Overall first (ties A-Z) — the pre-sorted research
-   queue for `tasks/research-assign.md`, so agents stop scanning every
-   `average.md` themselves. Same freshness contract as step 6 (zero failures
-   only, rewritten when drifted). Retired (parked) slugs (`RETIRED_SLUGS` in
-   `scripts/lib/average.mjs`) are omitted — never researched.
+  7. Emits `model-queue.md` (repo root, committed): one `<Overall> <slug>` line
+    per model, highest Overall first (ties A-Z) — the pre-sorted research
+    queue for `tasks/research-assign.md`, so agents stop scanning every
+    `average.md` themselves. Same freshness contract as step 6 (zero failures
+    only, rewritten when drifted). Retired (parked) slugs (`RETIRED_SLUGS` in
+    `scripts/lib/average.mjs`) are omitted — never researched.
+  8. Emits `model-aliases.generated.md` (repo root, committed): the single
+    identity roster for research agents — parked slugs, merged duplicate
+    slugs, retired vendor aliases, merged duplicate stems, alias-family
+    records, each with its canonical target and one-line case note
+    (`buildAliasesFile` in `scripts/lib/validate.mjs`; data: the code lists
+    in `scripts/lib/validate.mjs` + `RETIRED_SLUGS` in
+    `scripts/lib/average.mjs`). Prose rule files point here and never
+    restate the roster (restatements drift). Same freshness contract as
+    step 6 (zero failures only, rewritten when drifted).
 
 Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines).
 

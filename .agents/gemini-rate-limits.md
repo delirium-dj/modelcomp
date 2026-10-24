@@ -35,7 +35,11 @@ are not supported` on any text-only turn. Therefore, during an active task:
   file — never re-sort it, and never verify it against `average.md` files:
   opening all 160+ averages burns ~30 000 input tokens for zero new
   information), and run ONE wildcard listing for `model/*/<STEM>.md*` (every
-  folder already holding your file, `.md.excluded` twins included). Your queue
+  folder already holding your file, `.md.excluded` twins included). Forbidden
+  identity questions (is this slug parked / merged / an alias?) are answered
+  by ONE lookup into `model-aliases.generated.md` (repo root, auto-generated
+  roster) — only when a specific slug question actually arises, never up
+  front. Your queue
   = queue-file slugs minus folders with `<STEM>.md`, in file order; twin-only
   folders stay queued (twin procedure at write time, `tasks/research.md`
   Step 3.3). After that, check existence only for the folder you are currently

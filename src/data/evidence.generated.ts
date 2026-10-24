@@ -579,8 +579,9 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "SciCode", value: "52%", raters: ["MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
   ],
   "flint": [
-    { benchmark: "Terminal-Bench", value: "54.9%", raters: ["Beam", "DeepSeek_4.1_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "SWE-bench Pro", value: "89.7%", raters: ["Beam", "DeepSeek_4.1_Flash"] },
+    { benchmark: "Terminal-Bench", value: "54.9%", raters: ["Beam", "DeepSeek_4.1_Flash", "GLM_5.3", "Qwen_3.8_Flash"] },
+    { benchmark: "SWE-bench Verified", value: "74.2%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3"] },
+    { benchmark: "SWE-bench Pro", value: "89.7%", raters: ["Beam", "DeepSeek_4.1_Flash", "GLM_5.3"] },
   ],
   "gemini-1.5-pro": [
     { benchmark: "HLE", value: "4.6%", raters: ["DeepSeek_4_Flash", "GLM_5.3_Flash", "Kimi_K3", "Ling_3.1_Flash", "Muse_Spark_1.3", "Qwen_3.8_Flash"] },

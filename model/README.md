@@ -16,14 +16,12 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
    `qwen-3.5-397b` = Qwen 3.5, 397B params; `qwen-3.5-122b-a10b` = Qwen 3.5,
    122B-total/10B-active params — none is a dotted version).
 - **Merged-and-deleted duplicate slugs never come back.** Some folders were
-  provider-qualified second slugs for a model that already had a folder (e.g.
-  `google-gemini-2.5-flash-lite/` → `gemini-2.5-flash-lite/`, a vendor-prefixed
-  alias of the *same* weights, merged 2026-10-06). Those were merged on user
-  order and deleted; the merged slugs are listed in
-  `../scripts/lib/validate.mjs` (`MERGED_MODEL_SLUGS`) and `pnpm sync` FAILs
-  loudly if one reappears. Do not recreate them, do not restore them from git
-  history, and do not scaffold a new folder from a vendor-prefixed ID — strip
-  the vendor prefix and use the canonical slug. A vendor-prefixed *API id*
+  provider-qualified second slugs for a model that already had a folder. Those
+  were merged on user order and deleted; the full list with canonical targets
+  and one-line evidence lives in ONE generated roster: `../model-aliases.generated.md`
+  (`MERGED_MODEL_SLUGS` in `../scripts/lib/validate.mjs` is the data source;
+  `pnpm sync` FAILs loudly if one reappears). Do not recreate them, do not
+  restore them from git history. A vendor-prefixed *API id*
   (e.g. `opencode/google-gemini-2.5-flash-lite`) is still fine to cite as a
   provider route inside a report.
 - Findings file name: `<Source_Name>.md` using letters, digits and underscores only
@@ -41,13 +39,12 @@ and `meta.json` (curated display metadata, edited by hand when facts change).
   params; `Xing_4.0_29b_a4b` = Xing 4.0, 29B params / 4B active — any digits
   immediately followed by `b`/`B` are params, never a version).
 - **Merged-and-deleted duplicate stems never come back.** A findings file
-  spelled with a retired variant stem (e.g. `Laguna_XS_2_1.md`, folded into
-  `Laguna_XS_2.1.md` 2026-10-08 after the same rater had filed under both
-  spellings) is a resurrected duplicate: it would silently double-count the
-  rater in averages. The merged stems are listed in
-  `../scripts/lib/validate.mjs` (`MERGED_SOURCE_STEMS`) and `pnpm sync`
-  FAILs loudly if one reappears. Do not recreate them and do not restore
-  them from git history — write the canonical dotted stem instead.
+  spelled with a retired variant stem is a resurrected duplicate: it would
+  silently double-count the rater in averages. The full list with canonical
+  targets lives in `../model-aliases.generated.md` (`MERGED_SOURCE_STEMS` in
+  `../scripts/lib/validate.mjs` is the data source; `pnpm sync` FAILs loudly
+  if one reappears and writes nothing for it). Do not recreate them and do
+  not restore them from git history — write the canonical dotted stem instead.
 - Each findings file is self-contained: model card, raw benchmarks, normalized
   1–100 scores, signature. Start from `../model-report-TEMPLATE.md` and research
   independently (do not read other agents' files first).
@@ -160,46 +157,14 @@ never a renamed folder.
 
 ## Parking a model (retired slugs — hidden, never deleted)
 
-A slug that turns out fictional — no vendor route, phantom catalog entry
-(e.g. `glm-5.3-free`, parked 2026-10-10 after live Zen verification showed
-`opencode/glm-5.3-free` in no listing) — or a duplicate alias for an already
-tracked model (e.g. `gemini-2.5`, parked 2026-10-12 — every cited ID resolves
-to `gemini-2.5-pro`, no standalone `gemini-2.5` vendor model exists;
-`qwen-3.5`, parked 2026-10-20 — a family/generation name with no distinct
-vendor ID, members already tracked as `qwen-3.5-397b`, `qwen-3.5-plus`,
-`qwen-3.5-9b` — RULES.md family-shorthand identity;
-`kimi-k2.7-code-highspeed`, parked 2026-10-20 — Moonshot's own Kimi Code
-docs: "the high-speed version of K2.7 Code, with the same coding ability and
-~5–6× faster output" — same `moonshotai/Kimi-K2.7-Code` weights, same
-262,144 window, exactly 2× API price ($1.90/$8.00 vs $0.95/$4.00) — a
-serving profile of the tracked `kimi-k2.7-code` — RULES.md serving-tier
-identity;
-`gemini-3.1-flash`, parked 2026-10-20 — phantom unsuffixed name: Google
-ships no bare `gemini-3.1-flash` text model (DeepMind card, Google Cloud
-docs, OpenRouter, AA, BenchLM all 404 it; the only 3.1 Flash text SKU is
-`gemini-3.1-flash-lite`, already tracked) — folder findings scored
-Flash-Lite data — RULES.md phantom unsuffixed-name identity;
-`space-bunny`, parked 2026-10-20 — revealed stealth model: OpenCode's
-Space Bunny / Space Bunny Alpha / Space Bunny Free was **MiniMax M3.1 Flash
-(Free)** all along (models.dev `base_model = minimax/MiniMax-M3.1-Flash`,
-released 2026-10-19; OpenCode console commit "Reveal Space Bunny as MiniMax
-M3.1 Flash Free"; MiniMax tokenizer fingerprints 24/24 and 36/36) — one
-model, three stealth names, never a separate checkpoint — RULES.md
-revealed-stealth identity;
-`cat-jam`, parked 2026-10-21 — revealed stealth model: OpenCode's Cat Jam /
-Cat Jam Free (Zen `cat-jam-free`) was **Reflection Beam 1.0** all along
-(deprecated 2026-10-16 → `opencode/beam-free`, same 501B/23B Apache 2.0
-weights; OpenCode PR #55993, "previously listed as Cat Jam Free";
-SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match) — one model,
-stealth label then the vendor's own free id, never a separate checkpoint —
-RULES.md revealed-stealth identity;
-`longcat-2.5`, parked 2026-10-22 — phantom GA name: Meituan published no
-standalone LongCat 2.5; the 2.5 generation exists only as the API-only
-LongCat-2.5-Preview already tracked in `longcat-2.5-preview/` (the folder's
-own meta idNote records the id does not resolve) — RULES.md family-shorthand
-identity) — is parked, never
-deleted (`RULES.md`
-permanence: the folder stays on disk and in git). Parking means all three of:
+A slug that turns out fictional (no vendor route, phantom catalog entry) or a
+duplicate alias for an already tracked model (family shorthand, serving
+profile, revealed stealth name, phantom unsuffixed name) is parked, never
+deleted (`RULES.md` permanence: the folder stays on disk and in git). The
+ONE roster of parked slugs with per-slug evidence notes is
+`../model-aliases.generated.md` (repo root, auto-generated by `pnpm sync`
+from `RETIRED_SLUGS` in `../scripts/lib/average.mjs`). Parking means all
+three of:
 
 - the folder keeps every file; `pnpm sync` keeps scanning, averaging, and
   tripwire-guarding it (averages stay fresh; unparking restores everything);
@@ -219,23 +184,15 @@ reports stay visible by design (`RULES.md` crown rule).
 1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then
    NORMALIZE it per `RULES.md` slug identity before creating anything:
    replace every digit-hyphen-digit join with a dot (`gpt-5-6-terra` →
-   `gpt-5.6-terra`, `gemma-4-12b-unified` → `gemma-4.12b-unified`) — except
-   `gemma-4-31b`, `qwen-3.8-27b`, `qwen-3.5-9b`, `qwen-3.5-397b`,
-   `qwen-3.5-27b`, `qwen-3.5-35b-a3b`, `qwen-3.5-122b-a10b`
-   (param sizes, not versions).
-   Then check for an existing dotted folder first: a hyphen-versioned folder
-   is a duplicate, not a new model — never create it, write into the dotted
-   folder instead. Then strip any leading vendor prefix (`google-`,
-   `openai-`, `anthropic-`, …) and check the unprefixed folder too: a
-   vendor-prefixed folder whose remainder already exists (e.g.
-   `google-gemini-2.5-flash-lite` when `gemini-2.5-flash-lite/` exists) is a
-   duplicate, not a new model — never create it, write into the canonical
-   folder instead. Then check for a `-coding` label trap: a `Coding` suffix
-   reflecting positioning or a subscription plan is not a model — verify a
-   distinct vendor route exists before scaffolding a `-coding` folder
-   (`glm-5.1-coding` was a label for plain `glm-5.1`, renamed 2026-10-12;
-   `glm-5.2-coding` is a real SKU — decide per vendor IDs, never by analogy;
-   RULES.md coding-suffix identity).
+   `gpt-5.6-terra`) — except param sizes (digits immediately followed by
+   `b`/`B`, never versions). Then check for an existing dotted folder first:
+   a hyphen-versioned folder is a duplicate, not a new model — write into
+   the dotted folder instead. Then strip any leading vendor prefix and check
+   the unprefixed folder too. Then check ONE roster for every forbidden or
+   redirected identity (parked slugs, merged duplicates, retired vendor
+   aliases, alias families): `../model-aliases.generated.md` — never
+   scaffold, queue, or write anything listed there; write into the
+   canonical target the entry names.
 2. Create `model/<slug>/` with findings file(s) + `meta.json` (schema above).
 3. Run `pnpm sync` (creates `average.md`, validates everything; FAILs hyphen
    variants and writes nothing for them — merge into the dotted folder first).
@@ -255,126 +212,24 @@ model (e.g. a stale registry entry with no files and no vendor ID).
    Results-source dropdown automatically).
 3. Run `pnpm build.types && pnpm build`.
 
-## Folders
+## Folders, aliases, and tier families — one generated roster
 
 One folder per tracked model, each self-described by its own `meta.json`
 (this list is intentionally not enumerated here — `meta.json` is the source
-of truth; examples: `big-pickle/`, `muse-spark-1.3/`,
-`glm-5.1-coding/`). Known aliases: `mimo-v2.5-free/`
-also covers `Xiaomi MiMo-V2.5 Free` — do not scaffold a second folder for it;
-`gemini-2.5-pro/` covers every bare `Gemini 2.5` name — do not scaffold or
-research `model/gemini-2.5/` (parked duplicate alias, RULES.md
-family-shorthand identity);
-`qwen-3.5-397b/`, `qwen-3.5-plus/` and `qwen-3.5-9b/` cover every bare
-`Qwen 3.5` name — the bare name is the generation (397B-A17B / 122B-A10B /
-35B-A3B / 27B / 9B / 4B / 2B / 0.8B plus hosted Plus/Flash tiers), never a
-model — do not scaffold or research `model/qwen-3.5/` (parked family entry,
-RULES.md family-shorthand identity);
-`glm-5.1/` covers every `GLM 5.1 Coding` name — the `-coding` suffix was a
-dataset label, never a SKU (renamed from `model/glm-5.1-coding/` 2026-10-12;
-RULES.md GLM-5.1 coding-suffix identity — never recreate the old slug);
-`grok-build-0.1/` covers every `grok-code-fast-1` name — a retired vendor
-alias, never a folder (RULES.md retired-alias identity — never scaffold
-`model/grok-code-fast-1/`);
-`nemotron-3-ultra-free/` covers every `Nemotron 3 Ultra` name — `Free` is an
-access tier only (Zen free route, OpenRouter `:free` suffix, NVIDIA free
-endpoint); paid routes (NIM/OpenRouter `nvidia/nemotron-3-ultra-550b-a55b`)
-serve the same 550B-A55B weights — never scaffold `model/nemotron-3-ultra/`;
-`nemotron-3.5-lightning-free/` covers every `Nemotron 3.5 Lightning` name —
-`Free` is an access tier only (Zen free route, `:free` suffixed IDs, NVIDIA
-free endpoint); paid/NIM routes (`nvidia/nemotron-3.5-lightning-30b-a3b`)
-serve the same 30B-A3B weights — never scaffold
-`model/nemotron-3.5-lightning/`;
-`nemotron-3-nano-omni/` is the canonical folder for `Nemotron 3 Nano Omni`
-(single model — 30B-A3B-Reasoning weights; free serving on Zen/NVIDIA Build
-plus open checkpoints, never a `-free` split) — research under it.
+of truth; examples: `big-pickle/`, `muse-spark-1.3/`, `glm-5.1/`).
+
+Every known alias, tier family, and forbidden/redirected identity — which
+folder covers which name, which slugs are parked or merged, which stems were
+folded — lives in ONE auto-generated roster: `../model-aliases.generated.md`
+(repo root, regenerated by `pnpm sync`; data sources: `RETIRED_SLUGS` in
+`../scripts/lib/average.mjs`, `MERGED_MODEL_SLUGS` / `RETIRED_ALIAS_SLUGS` /
+`MERGED_SOURCE_STEMS` / tracked alias-family notes in
+`../scripts/lib/validate.mjs`). Read it instead of quoting older inline lists:
+they had already drifted. A name resolving to a roster entry is NEVER
+scaffolded as a second folder — write into the canonical target the entry
+names. Figures measured under an alias/steadth name are lineage data: cite
+them only labelled with the ID actually measured.
 
 **Domain routing — Voice & Finance models do NOT live in `model/`.**
 - Voice/speech models live strictly under `models_voice/<slug>/` (`RULES.md` routing rule).
 - Finance domain models (e.g. `ling-3.0-flash-fin`) live strictly under `models_finance/<slug>/` (`RULES.md` routing rule). Never place or scaffold them under `model/`.
-
-**Tier aliases — one model, one folder, whatever the tier is called.** If a
-source names a model only by its pricing or effort tier, resolve it to the
-base slug instead of scaffolding a tier folder:
-
-- `muse-spark-1.3/` covers **every** Muse Spark 1.3 variant name —
-  `Contributor`, `Contributor Free`, `Free`, `Standard`, `Max`,
-  `muse-spark-1.3-free/`, `muse-spark-1.3-max/`, `muse-spark-1.3-contributor/`.
-  Meta ships one model: same weights, 1M context (131,072 max output),
-  text/image/video/PDF in. The only real differences are price and data policy
-  — the Contributor/Free tier costs $0 because Meta may train on your prompts;
-  `reasoning_effort: "max"` is available on the paid Standard tier only. Never
-  create `model/muse-spark-1.3-free/` or `model/muse-spark-1.3-max/` again.
-- `muse-spark-1.2/` covers **every** Muse Spark 1.2 variant name —
-  `Contributor`, `Contributor Free`, `Free`, `Standard`, `Max`,
-  `muse-spark-1.2-free/`, `muse-spark-1.2-max/`, `muse-spark-1.2-contributor/`.
-  Same weights everywhere (only price and Meta's data-use differ); renamed
-  from `muse-spark-1.2-free/` 2026-10-02 so the tier suffix can never read as
-  a separate model. Never create `model/muse-spark-1.2-free/` or
-  `model/muse-spark-1.2-max/` again.
-- `kimi-k2.7-code/` covers **every** Kimi K2.7 Code serving-profile name —
-  `Kimi K2.7 Code Highspeed` / `HighSpeed`, API id `kimi-k2.7-code-highspeed`,
-  Kimi Code id `kimi-for-coding-highspeed`. Moonshot's own docs: HighSpeed is
-  "the high-speed version of K2.7 Code, with the same coding ability and
-  ~5–6× faster output" — same `moonshotai/Kimi-K2.7-Code` weights, same
-  262,144 window, exactly 2× token price ($1.90/$8.00 vs $0.95/$4.00).
-  `model/kimi-k2.7-code-highspeed/` was parked 2026-10-20 (RULES.md
-  serving-tier identity) — never create it again.
-- `gemini-3.1-flash-lite/` covers **every** "Gemini 3.1 Flash" text-model
-  name that resolves to the Lite SKU — `Gemini 3.1 Flash-Lite` (canonical,
-  `google/gemini-3.1-flash-lite`) and the bare spelling `Gemini 3.1 Flash` /
-  `gemini-3.1-flash`, which does not exist as a Google model (DeepMind card,
-  Google Cloud docs, OpenRouter, AA, BenchLM all 404 the bare id; Google's
-  own models index lists only Flash-Lite / Flash-Image / Flash-TTS /
-  Flash-Live-Preview for 3.1). `model/gemini-3.1-flash/` was parked
-  2026-10-20 (RULES.md phantom unsuffixed-name identity) — never create it
-  again, and never drop the `-Lite` suffix when citing the real model.
-  Gemini 3.1 Flash **Live** is a voice model → `models_voice/` (RULES.md
-  domain routing).
-- `space-bunny/` covers **every** name MiniMax's stealth model shipped under:
-   `Space Bunny` (canonical), `Space Bunny Alpha` (OpenRouter
-   `stealth/space-bunny-alpha`), `Space Bunny Free` (OpenCode `space-bunny-free`,
-   limited-time $0 tier). All three verified as the same weights 2026-10-02;
-   renamed from `space-bunny-alpha/` so the marketplace suffix can never read
-   as a separate model. **Revealed 2026-10-19 as MiniMax M3.1 Flash (Free)**
-   — models.dev `base_model = minimax/MiniMax-M3.1-Flash` (released
-   2026-10-19; OpenCode/OpenCode Go serve `minimax-m3.1-flash-free` at $0/$0,
-   the id that replaced `space-bunny-free` on Zen); OpenCode console commit
-   "docs(console): reveal Space Bunny as MiniMax M3.1 Flash Free".
-   `model/space-bunny/` was parked 2026-10-20 (RULES.md revealed-stealth
-   identity) — searching "Space Bunny" resolves to **MiniMax M3.1 Flash**;
-   research belongs in `model/minimax-m3.1-flash-preview/` — never create
-   `model/space-bunny/`, `model/space-bunny-alpha/` or
-   `model/space-bunny-free/` again.
-- `grok-4-fast/` covers **every** name xAI's Grok 4 Fast ships under —
-   `Grok 4 Fast` (canonical, `grok-4-fast`) and `grok-4-fast-reasoning`
-   (docs.x.ai lists `grok-4-fast` as an alias of `grok-4-fast-reasoning`;
-   same 2M window, same $0.20/$0.50; reasoning vs non-reasoning is
-   system-prompt steering of one checkpoint — xAI Grok 4 Fast announcement).
-   `model/grok-4-fast-reasoning/` was merged into `model/grok-4-fast/`
-   2026-10-20 (RULES.md Grok Fast reasoning-alias identity) — never create
-   it again. Grok 4 Fast ≠ Grok 4 (`grok-4/`, flagship 256K, $3/$15).
-- `grok-4.1-fast/` covers **every** name xAI's Grok 4.1 Fast ships under —
-   `Grok 4.1 Fast` (canonical, `grok-4.1-fast`) and
-   `grok-4.1-fast-reasoning` (docs.x.ai aliases `grok-4-1-fast` ←
-   `grok-4-1-fast-reasoning`; same 2M window, same $0.20/$0.50).
-   `model/grok-4.1-fast-reasoning/` was merged into `model/grok-4.1-fast/`
-   2026-10-20 (RULES.md Grok Fast reasoning-alias identity) — never create
-   it again. Grok 4.1 Fast ≠ Grok 4.1 (`grok-4.1/`, flagship).
-- `gemini-2.5-flash-lite/` covers **every** name this Google model ships
-   under: `Gemini 2.5 Flash Lite` (canonical, `google/gemini-2.5-flash-lite`,
-   1M context, multimodal) and the vendor-prefixed alias
-   `opencode/google-gemini-2.5-flash-lite` (same weights, Zen gateway route).
-   Merged from `model/google-gemini-2.5-flash-lite/` 2026-10-06 — never create
-   `model/google-gemini-2.5-flash-lite/` again.
-- `union-alpha/` covers **every** name Unbiased's Pareto 26.9 composite
-   shipped under: `Union Alpha` (canonical), OpenRouter
-   `stealth/union-alpha`, OpenCode Zen `opencode/union-alpha` (free preview),
-   Cloudflare, and the current paid ID `unbiased/pareto`. Revealed
-   2026-09-17/18 as **Pareto 26.9** (Circuit & Chisel via Unbiased; blends
-   GPT-6 Astra + DeepSeek + GLM per request; 262,144 ctx, $2.50/$7.50).
-   This folder IS the 26.9 record — never create `model/pareto-26.9/` or
-   `model/unbiased-pareto/`; the successor is the separate
-   `pareto-26.10-preview/`. The circulated "DeepSWE ~74%" is GPT-6 Astra's
-   number — Pareto 26.9 is 70.0%, 26.10 is 69.9% (RULES.md Pareto alias
-   identity).

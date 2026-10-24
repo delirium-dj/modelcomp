@@ -13,6 +13,7 @@ import {
   parseScoresPure,
   nearMissLine,
   extractReportDate,
+  extractSignatureName,
   shortenScores,
   overallDrift,
   applyOverallFix,
@@ -102,6 +103,21 @@ describe("extractReportDate (signature first, frontmatter fallback)", () => {
 
   it("rejects impossible months", () => {
     assert.equal(extractReportDate("Provided by: **X** — 2026-13-01\n"), null);
+  });
+});
+
+describe("extractSignatureName (reporter display, bold form only)", () => {
+  it("reads the bulleted template form with the id parenthetical", () => {
+    assert.equal(extractSignatureName("- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-17\n"), "Big Pickle (opencode/big-pickle)");
+  });
+
+  it("reads the bare template first-line form", () => {
+    assert.equal(extractSignatureName("Provided by: **Gemini 2.5 (google/gemini-2.5)** — 2026-09-30\n"), "Gemini 2.5 (google/gemini-2.5)");
+  });
+
+  it("returns null for legacy files without a bold signature (tripwire skips them)", () => {
+    assert.equal(extractSignatureName("# Report\n\nNo signature line at all.\n"), null);
+    assert.equal(extractSignatureName("- Provided by: — 2026-10-09 (broken sig, no bold name)\n"), null);
   });
 });
 
