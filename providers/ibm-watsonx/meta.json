@@ -1,0 +1,27 @@
+{
+  "name": "IBM watsonx.ai",
+  "kind": "vendor",
+  "short": "IBM's enterprise AI studio running its Granite foundation models alongside third-party Meta, Google, DeepSeek and Mistral models, with a Free plan for playground usage and pay-as-you-go production billing.",
+  "officialUrl": "https://www.ibm.com/products/watsonx-ai",
+  "hosts": ["ibm.com", "watsonx.ai", "us-south.ml.cloud.ibm.com"],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Toolbox playground: foundation models up to 300,000 tokens per month, machine-learning tools up to 20 compute-usage hours (CUH) per month, text extraction up to 100 documents per month.",
+      "evidenceUrl": "https://www.ibm.com/products/watsonx-ai/pricing"
+    },
+    {
+      "name": "Essentials (Pay-as-you-go)",
+      "price": "Starting at USD 0/month",
+      "notes": "Production deployments billed per million tokens across IBM and third-party foundation models, plus hourly on-demand hosting; embedding models USD 0.10 per million tokens.",
+      "evidenceUrl": "https://www.ibm.com/products/watsonx-ai/pricing"
+    },
+    {
+      "name": "Standard (Pay-as-you-go)",
+      "price": "Starting at USD 1110/month",
+      "notes": "Enterprise production tier with the same per-token model pricing plus platform and support features.",
+      "evidenceUrl": "https://www.ibm.com/products/watsonx-ai/pricing"
+    }
+  ]
+}

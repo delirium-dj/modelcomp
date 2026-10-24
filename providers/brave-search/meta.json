@@ -1,0 +1,27 @@
+{
+  "name": "Brave Search API",
+  "kind": "vendor",
+  "short": "Brave's independent web index served as a search and grounding API for agents and RAG, with up to $20 of free calls every month and prepaid per-request pricing.",
+  "officialUrl": "https://brave.com/search/api/",
+  "hosts": ["brave.com", "api.search.brave.com"],
+  "plans": [
+    {
+      "name": "Free monthly credits",
+      "price": "$0",
+      "notes": "Up to $20 in free calls every month; prepaid credits, no subscription. Each plan includes $5 in free credits every month, applied automatically.",
+      "evidenceUrl": "https://brave.com/search/api/"
+    },
+    {
+      "name": "Search",
+      "price": "$5 per 1,000 requests",
+      "notes": "Complete search results (URLs, text, news, images) plus an LLM-context endpoint; 50 queries/second; Goggles reranking and schema-enriched results.",
+      "evidenceUrl": "https://brave.com/search/api/"
+    },
+    {
+      "name": "Answers",
+      "price": "$4 per 1,000 requests + $5 per million tokens",
+      "notes": "Summarized, citation-grounded answers over one or more searches; streaming supported.",
+      "evidenceUrl": "https://brave.com/search/api/"
+    }
+  ]
+}

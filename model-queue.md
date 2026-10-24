@@ -51,13 +51,13 @@
 86.5 step-5-preview
 86.4 gpt-5.4
 86.4 inkling-small
+86.3 claude-sonnet-4.6
 86.3 grok-4.6
 86.3 qwen-3.7-plus
-86.2 claude-sonnet-4.6
 86.1 qwen-3.8-27b
-85.8 gpt-5.2
+85.9 gpt-5.2
+85.7 grok-4.7
 85.7 qwen-3.6-plus
-85.6 grok-4.7
 85.4 kimi-k2.6
 85.3 Inkling
 85.2 deepseek-v4-vision-exp

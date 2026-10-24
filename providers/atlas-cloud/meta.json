@@ -1,0 +1,27 @@
+{
+  "name": "Atlas Cloud",
+  "kind": "aggregator",
+  "short": "Unified OpenAI-compatible API spanning 300+ image, video, audio, 3D and LLM models at transparent pay-as-you-go rates, with free credits to start and no subscription required.",
+  "officialUrl": "https://www.atlascloud.ai",
+  "hosts": ["atlascloud.ai"],
+  "plans": [
+    {
+      "name": "Free credits",
+      "price": "$0",
+      "notes": "Free credits to start on signup; no subscription required, one OpenAI-compatible key across the catalog.",
+      "evidenceUrl": "https://www.atlascloud.ai"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per call / per second (per model)",
+      "notes": "Transparent per-request pricing across 300+ models, e.g. video from $0.02/second and image from $0.004/generation; 99.99% uptime target.",
+      "evidenceUrl": "https://www.atlascloud.ai"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Vendor support and infrastructure options for high-volume production use.",
+      "evidenceUrl": "https://www.atlascloud.ai"
+    }
+  ]
+}

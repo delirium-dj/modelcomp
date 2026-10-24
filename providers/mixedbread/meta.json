@@ -1,0 +1,27 @@
+{
+  "name": "Mixedbread",
+  "kind": "vendor",
+  "short": "Search-and-retrieval platform shipping its own Toast 1 agent model plus a managed indexing and search stack, with a free Starter plan and a $20/month Scale plan billed at flat per-unit usage rates.",
+  "officialUrl": "https://www.mixedbread.com",
+  "hosts": ["mixedbread.com", "mixedbread.ai"],
+  "plans": [
+    {
+      "name": "Starter",
+      "price": "$0",
+      "notes": "Free with $5 one-time credits, no card required; 3 workspace users, 3 stores, 100 queries/min, 6,000 uploads/min.",
+      "evidenceUrl": "https://www.mixedbread.com/pricing"
+    },
+    {
+      "name": "Scale",
+      "price": "$20/mo",
+      "notes": "$20/month included as credits, then pay-as-you-go at the standard rates; unlimited workspace users, 10,000 stores, 2,400 queries/min.",
+      "evidenceUrl": "https://www.mixedbread.com/pricing"
+    },
+    {
+      "name": "Toast 1 (agent model)",
+      "price": "$0.30 in / $0.72 out per 1M",
+      "notes": "40% launch discount off the $0.50/$1.20 regular rate; cached input $0.036; cache writes free. Search usage billed separately.",
+      "evidenceUrl": "https://www.mixedbread.com/pricing"
+    }
+  ]
+}

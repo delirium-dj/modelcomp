@@ -1,0 +1,76 @@
+{
+  "name": "Nous Portal",
+  "kind": "aggregator",
+  "short": "Nous Research's model catalog and agent platform: 300+ models from frontier labs behind a single API key, with a free tier limited to free models and paid subscriptions that bundle monthly credits.",
+  "officialUrl": "https://portal.nousresearch.com",
+  "hosts": ["nousresearch.com", "portal.nousresearch.com"],
+  "catalogUrl": "https://portal.nousresearch.com",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Free models only, standard rate limits, $0 monthly credits.",
+      "evidenceUrl": "https://portal.nousresearch.com"
+    },
+    {
+      "name": "Plus",
+      "price": "$20/mo",
+      "notes": "$22 monthly credits (10% bonus), $10 rollover cap, 200+ models, hosted tool usage, high rate limits.",
+      "evidenceUrl": "https://portal.nousresearch.com"
+    },
+    {
+      "name": "Super",
+      "price": "$100/mo",
+      "notes": "$110 monthly credits (10% bonus), $50 rollover cap.",
+      "evidenceUrl": "https://portal.nousresearch.com"
+    },
+    {
+      "name": "Ultra",
+      "price": "$200/mo",
+      "notes": "$220 monthly credits (10% bonus), $100 rollover cap.",
+      "evidenceUrl": "https://portal.nousresearch.com"
+    },
+    {
+      "name": "Credit top-up",
+      "price": "+$10 / +$20 / +$50 / +$100 / +$200",
+      "notes": "Prepaid credit top-ups billed through Stripe.",
+      "evidenceUrl": "https://portal.nousresearch.com"
+    }
+  ],
+  "covers": [
+    "claude-opus-5",
+    "deepseek-v3.2",
+    "deepseek-v4-flash",
+    "deepseek-v4.1-flash",
+    "ember-1",
+    "gemini-3.8-flash",
+    "gemini-4-argon",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "glm-5.3-flashx",
+    "gpt-oss-120b",
+    "grok-4.7",
+    "hy4",
+    "kimi-k2.6",
+    "kimi-k3",
+    "laguna-s-2.1",
+    "ling-3.1-flash",
+    "longcat-2.0",
+    "longcat-2.5-preview",
+    "mimo-v2.6-flash",
+    "minimax-m2.7",
+    "minimax-m3",
+    "mistral-large-4",
+    "mistral-medium-3.5",
+    "muse-glimmer-30b",
+    "muse-spark-1.3",
+    "nemotron-3.5-super-vl",
+    "qwen-3.8-27b",
+    "qwen-3.8-flash",
+    "qwen-3.8-max",
+    "solar-mini-4",
+    "solar-pro-4",
+    "step-5-preview"
+  ]
+}
