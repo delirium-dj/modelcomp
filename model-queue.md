@@ -43,8 +43,8 @@
 87.6 glm-5.3-flashx
 87.5 qwen-3.8-flash
 87.4 gemini-3.8-flash-cyber
-86.9 muse-wonder-1.0
 86.8 claude-sonnet-5.4
+86.8 muse-wonder-1.0
 86.7 ember-1
 86.7 mimo-v2.6-free
 86.6 minimax-m3
@@ -83,10 +83,10 @@
 82.6 qwen-3.7-max
 82.4 kimi-k2.7-code
 82.1 kimi-k2.5
-81.7 deepseek-v4.1-flash-1017
 81.7 glm-5.3-flash-x
 81.6 mimo-v2.5-free
-81.4 gpt-5.2-pro
+81.3 deepseek-v4.1-flash-1017
+80.8 gpt-5.2-pro
 80.7 claude-sonnet-4.5
 80.5 grok-4.1-fast
 80 gemma-4-31b

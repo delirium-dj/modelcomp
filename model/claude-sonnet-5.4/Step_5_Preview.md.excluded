@@ -1,0 +1,81 @@
+# claude-sonnet-5.4 — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact
+> model ID across four independent authoritative sources. Per the template's
+> SELF-EXCLUSION clause (`RULES.md`, `tasks/research.md` step 3.9) this file is saved
+> as notes only and carries NO scores — a fabricated number would drag the mean for
+> every reader. Scores here are intentionally absent.
+
+- Source: Anthropic (`claude-sonnet-5.4`) — **identity unverified / likely phantom**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists in any authoritative source consulted. Anthropic's Sonnet line runs Claude Sonnet 4.5 → 4.6 → 5 → 5.5; there is no 5.4 checkpoint, API ID, or provider route.
+- **Provider / access:** none found. Anthropic's current Anthropic-operated platform tables list Active models `claude-sonnet-5-5`, `claude-sonnet-5`, `claude-sonnet-4-6`, `claude-sonnet-4-5-20250929` (Deprecated 2026-09-30) — no `claude-sonnet-5-4` or `claude-sonnet-5.4` anywhere, active or legacy.
+- **Release / knowledge:** not found.
+- **IDs:** none verified. OpenRouter's complete Anthropic catalog (an independent, near-exhaustive listing) contains `anthropic/claude-sonnet-4.5`, `claude-sonnet-4.6`, `claude-sonnet-5`, `claude-sonnet-5.5` — and no `claude-sonnet-5.4`. models.dev's full database (a third independent catalog) likewise lists Anthropic Sonnet 4.5 / 4.6 / 5 / 5.5 only.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — Artificial Analysis's Anthropic roster carries Claude Sonnet 5.5 (referenced in its Muse Wonder launch comparison as 56 on Intelligence Index) with no Sonnet 5.4 entry.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (four independent sources, all consulted 2026-10-24)
+
+1. **Anthropic official — Models overview** (`https://platform.claude.com/docs/en/models/overview`): the current comparison table lists exactly four current models — Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5. The legacy list at the bottom names Claude Fable 5, Opus 5, Opus 4.8, Opus 4.7, Opus 4.6, Opus 4.5, Sonnet 5, Sonnet 4.6, Haiku 4.5. No Sonnet 5.4 in either group.
+2. **Anthropic official — Model deprecations** (`https://platform.claude.com/docs/en/about-claude/model-deprecations`): the full lifecycle table (Active / Deprecated / Retired, current through 2026-10) contains every Anthropic API model name ever shipped. `claude-sonnet-5-4` does not appear. Anthropic ships per-version snapshots and keeps dated IDs even after retirement, so a real 5.4 would be visible here even if retired.
+3. **OpenRouter — Anthropic catalog** (`https://openrouter.ai/anthropic`): an independent near-exhaustive provider listing. Anthropic Sonnet entries: claude-sonnet-4, claude-sonnet-4.5, claude-sonnet-4.6, claude-sonnet-5, claude-sonnet-5.5. No 5.4.
+4. **models.dev database** (`https://models.dev/api/anthropic.json`): a third independent catalog. Anthropic entries for the 2026 Sonnet generation: Claude Sonnet 4.6 (2026-02-17), Claude Sonnet 5 (2026-06-30), Claude Sonnet 5.5 (2026-09-28). No 5.4 entry, no release date, no price, no context window.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found — all four agree independently that no such model exists. The absence is consistent across the vendor's own docs, the vendor's lifecycle table, and two independent third-party catalogs, which is a stronger negative result than any single source could give.
+- Closest real models, for anyone who needs a substitute: `claude-sonnet-5-5` (Active, 1M context / 128K output, $2/$10 per 1M, knowledge cutoff Jun 2026) is the current Sonnet flagship; `claude-sonnet-5` (Active, same specs and price) is the prior generation. Neither should be silently merged into this folder's numbers — only the ID actually measured may be cited.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops. If the user confirms the slug is a phantom (vendor ships no such model), parking it would follow the documented procedure.
+- Note for contrast: the sibling queue entry `claude-opus-4.4` is absent from all four of the same sources (Anthropic's Opus line runs 4.5 → 4.6 → 4.7 → 4.8 → 5 → 5.5), which strengthens the case that both slugs share one root cause. This was observed incidentally while verifying this folder and is not a substitute for researching that folder.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public benchmark numbers exist for this exact model/ID, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across four independent source families (Anthropic's own model overview, Anthropic's own deprecations/lifecycle table, OpenRouter's Anthropic catalog, and the models.dev database), cross-compared for conflicts; scores are normalized 1–100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified public data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
