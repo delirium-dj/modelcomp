@@ -5,13 +5,14 @@ import type { Plugin } from "@opencode-ai/plugin"
 // What we catch: provider request-rejection blocks. Some models drop this way
 // sometimes with
 //   "[Phala] The request was rejected as invalid"
+//   "Bad Request: Invalid request"
 // — usually a FALSE positive: the model rejects the assembled payload (one
 // wrapper/turn the endpoint dislikes) but a plain "continue" turns the last
 // message back into a user turn and brings the session straight back to work.
 // The "[Vendor]" prefix varies, so we only match the stable tail. Any
-// model/provider can send the same error, so the plugin is deliberately global
-// (no model filter): future-proof for whichever model starts producing this
-// message next.
+// model/provider can send either error, so the plugin is deliberately global
+// (no model filter): future-proof for whichever model starts producing these
+// messages next.
 //
 // NOTE on matching breadth: we deliberately match the WHOLE stable phrase,
 // not the bare word "invalid". The silent/embedded paths below scan the last
@@ -37,7 +38,10 @@ import type { Plugin } from "@opencode-ai/plugin"
 // Stable, lowercase fragments of the error text. Matching is
 // case-insensitive on the FULL text; any fragment here trips the plugin.
 // Add more fragments here if a sibling reject error shows up.
-const PATTERNS = ["the request was rejected as invalid"]
+const PATTERNS = [
+  "the request was rejected as invalid",
+  "bad request: invalid request",
+]
 
 // How long to wait before nudging: 8 seconds = 8_000 milliseconds.
 // A false-positive reject clears instantly, so we only give the endpoint a

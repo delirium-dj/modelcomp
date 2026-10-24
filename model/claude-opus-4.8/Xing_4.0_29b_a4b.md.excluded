@@ -1,0 +1,10 @@
+# Claude Opus 4.8 — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: Claude Opus 4.8 exists per Anthropic official
+> documentation (`platform.claude.com/docs/en/models/opus-4-8/overview`): released
+> May 28, 2026, $5 / $25 USD input / output tokens per MMT, 1M token context,
+> 128K max output, Text + Images → Text, default effort high, knowledge cutoff
+> January 2026. No benchmark aggregator was reachable for this legacy release
+> through the research session; per RULES §3.9 protocol this folder is saved
+> as `<Source_Name>.md.excluded`. See `../../model-comparison.md` and
+> `../model-findings.md` for the scoring methodology and signed cross-model log.

@@ -130,10 +130,17 @@ const SOURCE_OVERRIDES = {
   "Muse Spark 1.3": { slug: "muse-spark-1.3" },
   "Muse Spark 1.2": { slug: "muse-spark-1.2" },
   // Space Bunny = Space Bunny Alpha (OpenRouter stealth/space-bunny-alpha) =
-  // Space Bunny Free (OpenCode space-bunny-free): one anonymous stealth model
-  // under three marketplace labels (confirmed 2026-10-02). Never scaffold
-  // space-bunny-alpha/ or space-bunny-free/.
-  "Space Bunny": { slug: "space-bunny" },
+  // Space Bunny Free (OpenCode space-bunny-free): revealed 2026-10-19 as
+  // MiniMax M3.1 Flash (Free) — one model under four labels. The stealth
+  // folder was merged into the revealed model's canonical folder on user
+  // order 2026-10-24 (RULES.md revealed-stealth identity); the rater key
+  // deep-links to the revealed model's page. Never scaffold
+  // space-bunny / space-bunny-alpha / space-bunny-free folders.
+  "Space Bunny": { slug: "minimax-m3.1-flash-preview" },
+  // Cat Jam / Cat Jam Free (Zen cat-jam-free): revealed as Reflection Beam 1.0
+  // (opencode/beam-free); stealth folder merged into model/beam/ on user
+  // order 2026-10-24. Rater key deep-links to Beam 1.0's page.
+  "Cat Jam": { slug: "beam" },
   // GPT display labels (official OpenAI style is hyphenated "GPT-5.x", never
   // "GPT 5.x" — openai.com/index/gpt-5-1/, openai.com/index/gpt-4, API IDs
   // like `gpt-5.4-2026-03-05`). Filename stems keep underscores

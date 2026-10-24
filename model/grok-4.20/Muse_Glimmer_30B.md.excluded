@@ -1,0 +1,60 @@
+# Grok 4.20 — findings by Muse Glimmer 30B
+
+- Source: xAI / grok-4.20
+- Date: 2026-10-24
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Grok 4.20
+- **Short description:** xAI March/April 2026 reasoning flagship with 2M window and multi-agent mode per repo meta.
+- **Provider / access:** xAI API docs.x.ai/developers/models/grok-4.20 referenced in repo meta; OpenRouter x-ai/grok-4.20.
+- **Release / knowledge:** Conflicting internal findings: 2026-03-31 vs 2026-03-10; knowledge cutoff Sep 1 2025 per GPT_5.md.
+- **IDs:** x-ai/grok-4.20
+- **Context window:** Repo meta 1,000,000-2,000,000 tokens; conflicting reports.
+- **Modalities:** Text, image, file/PDF in; text out per repo meta.
+- **Pricing as of 2026-10-24:** Conflicting: $1.25/$2.50 vs $2.00/$6.00 per repo findings.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION: No verified public benchmark numbers found for this exact model/ID in independent, citable sources at time of research via public web search 2026-10-24. Public web searches for `grok-4.20` / `grok 4.20 x.ai` return only generic Grok pages; no official xAI model card, benchmark review or independent article for `grok-4.20` is publicly reachable. All verifiable data is internal to the modelcomp repo.
+
+Agent / tool use:
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported in publicly accessible numeric form
+
+### Normalized scores (1–100)
+
+SELF-EXCLUSION: Insufficient verified public benchmark data to compute normalized scores. File saved as .md.excluded per template.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

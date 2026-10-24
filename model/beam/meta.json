@@ -1,7 +1,7 @@
 {
   "id": "opencode/beam-free",
   "name": "Beam 1.0",
-  "aliases": ["Beam", "Cat Jam", "cat-jam", "catjam", "Cat-Jam", "beam-free", "Beam Free", "stealth/cat-jam"],
+  "aliases": ["Beam", "Cat Jam", "Cat Jam Free", "cat-jam", "cat-jam-free", "catjam", "Cat-Jam", "beam-free", "Beam Free", "stealth/cat-jam"],
   "short": "Reflection AI's open-weight 501B/23B-active MoE (Apache 2.0, 1M ctx) — SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1% — served free on Zen as Beam Free; formerly the stealth label Cat Jam.",
   "contextWindow": "1,048,576 total; 131,072 max output",
   "modalities": "Text in/out only",

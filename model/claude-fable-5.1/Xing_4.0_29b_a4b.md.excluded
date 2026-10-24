@@ -1,0 +1,12 @@
+# Claude Fable 5.1 — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: Claude Fable 5.1 confirmed per Anthropic docs
+> (`platform.claude.com/docs/en/models/fable-5-1/overview`); released September 1,
+> 2026, $10/$50 USD input/output tokens per MMT, 1M token context, 128K max output,
+> Adaptive thinking (always on), default effort high, knowledge cutoff June 2026,
+> latest in release lineup. Same access restrictions apply to the sibling
+> `Claude Mythos 5.1` (verification required). Multiple benchmark-aggregator URL
+> attempts across Artificial Analysis and Papers With Code returned HTTP 404 /
+> transport errors during the session; no verified percentile rows were retrievable.
+> Per RULES §3.9 this file is saved as `<Source_Name>.md.excluded`; see
+> `../../model-comparison.md`, `../model-findings.md`.

@@ -47,6 +47,17 @@ export const MERGED_MODEL_SLUGS = new Map([
   // (newer-content-wins per stem) and the underscore folder deleted on user
   // order.
   ["longcat_2.5_preview", "longcat-2.5-preview"],
+  // Revealed-stealth merges (RULES.md revealed-stealth identity, user rule
+  // 2026-10-24: a revealed stealth alias MERGES into the revealed model's
+  // canonical folder — never parked): `space-bunny` (Space Bunny / Alpha /
+  // Free) was revealed 2026-10-19 as MiniMax M3.1 Flash (Free) — unique
+  // findings moved into the tracked model/minimax-m3.1-flash-preview/
+  // (revealed-folder-wins on colliding stems), stealth slug deleted; same for
+  // `cat-jam` (revealed as Reflection Beam 1.0) into model/beam/. The revealed
+  // models' meta.json `aliases` carry the stealth names so search by the old
+  // name still resolves (RULES.md § Revealed-stealth identity).
+  ["space-bunny", "minimax-m3.1-flash-preview"],
+  ["cat-jam", "beam"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -422,8 +433,6 @@ export const CASE_LAW_NOTES = new Map([
   ["qwen-3.5", "generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20 — research belongs in the member folder for the ID actually cited"],
   ["kimi-k2.7-code-highspeed", "serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20 — research belongs in model/kimi-k2.7-code/"],
   ["gemini-3.1-flash", "phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20 — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped"],
-  ["space-bunny", "revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; parked 2026-10-20 — research belongs in model/minimax-m3.1-flash-preview/"],
-  ["cat-jam", "revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); parked 2026-10-21 — research belongs in model/beam/"],
   ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/"],
   // Merged-and-deleted duplicate slugs
   ["google-gemini-2.5-flash-lite", "vendor-prefixed duplicate of gemini-2.5-flash-lite (same weights, Zen gateway route); merged + deleted 2026-10-06"],
@@ -432,6 +441,8 @@ export const CASE_LAW_NOTES = new Map([
   ["grok-4-fast-reasoning", "docs.x.ai alias of grok-4-fast (one checkpoint, reasoning is system-prompt steering, same 2M window and price); merged + deleted 2026-10-20"],
   ["grok-4.1-fast-reasoning", "docs.x.ai alias of grok-4.1-fast (one checkpoint); merged + deleted 2026-10-20"],
   ["longcat_2.5_preview", "underscore-spelling duplicate of longcat-2.5-preview (both declared id opencode/longcat-2.5-preview-free — one model); merged + deleted 2026-10-23"],
+  ["space-bunny", "revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; folder merged into model/minimax-m3.1-flash-preview/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/minimax-m3.1-flash-preview/"],
+  ["cat-jam", "revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/"],
   // Retired vendor aliases
   ["grok-code-fast-1", "docs.x.ai alias of grok-build-0.1 — never a folder; alias-measured figures are lineage data, cited only labelled with the measured ID"],
   // Merged-and-deleted duplicate findings-file stems

@@ -1,0 +1,84 @@
+# glm-4.6-flash — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: zero verified data was found for this exact model ID across six
+> independent authoritative sources. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores — a fabricated number would drag the mean for every reader.
+> Scores here are intentionally absent.
+
+- Source: Zhipu AI / Z.ai (`glm-4.6-flash`) — **identity unverified / phantom**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6-Flash (as named by the slug; no such vendor product was found)
+- **Short description:** No text-only GLM-4.6-Flash exists. Zhipu's GLM 4.6 generation shipped three models — GLM-4.6 (text flagship), GLM-4.6V (vision flagship) and GLM-4.6V-Flash (vision, lightweight) — and the "Flash" tier was applied **only to the vision line**, never to the text line. The naming asymmetry is itself the evidence: the earlier GLM-4.5 generation *did* have a text `GLM-4.5-Flash`, so a 4.6 text-Flash would be expected if it existed, yet none does.
+- **Provider / access:** none found. No Zhipu route, no gateway listing, no weights repo.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404 for `/models/glm-4-6-flash`.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (six independent checks, all run 2026-10-24)
+
+1. **models.dev — Zhipu catalog** (`https://models.dev/api/zhipuai.json`): the complete set of entries containing "4.6" or "4.7" is — `glm-4.6` (204,800 ctx / 131,072 out, open weights, $0.00/$0.00, 2025-09-30), `glm-4.6v` (128,000 / 32,768, open, 2025-12-08), `glm-4.6v-flash` (128,000 / 32,768, open, 2025-12-08), `glm-4.7` (204,800 / 131,072, 2025-12-22), `glm-4.7-flash` (200,000 / 131,072, 2026-01-19), `glm-4.7-flashx` (200,000 / 131,072, $0.06/$0.40, 2026-01-19). **No `glm-4.6-flash` entry exists.** For contrast, `glm-4.5-flash` *is* present in the same catalog, which is what makes this absence meaningful rather than an artifact of a narrow search.
+2. **OpenRouter — Z.ai catalog** (`https://openrouter.ai/z-ai`): the GLM-4.6/4.7 entries are `glm-4.6`, `glm-4.6v`, `glm-4.7`, `glm-4.7-flash`. No text-only GLM-4.6-Flash. (OpenRouter also omits `glm-4.6v-flash` and `glm-4.7-flashx`, so its coverage is partial — it is counted as one data point, not as a complete negative.)
+3. **Artificial Analysis:** `https://artificialanalysis.ai/models/glm-4-6-flash` returns **404**.
+4. **Hugging Face:** `zai-org/GLM-4.6-Flash`, `zai-org/GLM-4.6-Flash-9B` and the lowercase variant all return 401 rather than content. A control fetch of `zai-org/GLM-4.6V-Flash` (definitely real) loaded full content through the same tool, so the 401s indicate non-public or non-existent repos rather than an access failure.
+5. **Z.ai's own docs** (`https://docs.z.ai/` overview + llms.txt, and `https://z.ai/blog` which itself 404s): the text-model matrix lists only GLM-5.3(-FlashX-Legal), 5.2, 5.1, 5, 4.7 and 4.6 — with **no GLM-4.6-Flash announcement, guide page, or entry anywhere**.
+6. **Web search (Bing)** for `"GLM-4.6-Flash" Zhipu`: ~9,000 raw hits but zero genuine model pages in the visible results (all irrelevant "private banking" spam). No launch post, benchmark, or vendor page exists under this name.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found. Every source that could answer the question answered "no", and the three partial-coverage sources (OpenRouter, HF, Bing) are individually labelled as such above rather than presented as complete negatives.
+- **The strongest single piece of evidence is the naming asymmetry**, not any one 404: Zhipu shipped a text-Flash at 4.5 and again at 4.7 and 5.x, but applied "Flash" only to the *vision* line at 4.6. A repo slug `glm-4.6-flash` therefore most plausibly arose as a bad merge target for `glm-4.6v-flash` (the real 4.6-era Flash model, already researched and scored separately in `model/glm-4.6v-flash/`) or for `glm-4.5-flash`.
+- Closest real models, for anyone needing a substitute: **GLM-4.6V-Flash** (real, 9B vision, 128K ctx, MIT, researched in this pass), **GLM-4.6** (real, text flagship, 204.8K ctx / 131,072 out, open weights), and **GLM-4.7-Flash** (real, 30B-A3B text MoE, 200K ctx / 131,072 out, MIT). None of these should be silently merged into this folder's numbers — only the ID actually measured may be cited.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 63.2, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Batch note:** this is the fifth phantom slug found in this queue (`claude-sonnet-5.4`, `claude-opus-4.4`, `qwen-3.8-325b`, `gpt-oss-120b-lite`, and now `glm-4.6-flash`), each verified against the same class of independent catalogs. The recurring pattern is informative: three of the five are a plausible-but-wrong name formed by transplanting a real suffix (`-4.4`, `-325b`, `-flash`) onto a real family. That clustering strengthens the case for a wider queue audit once the user decides how to handle these.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public data exists for this exact model/ID, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across six independent checks (models.dev's Zhipu catalog, OpenRouter's Z.ai catalog, an Artificial Analysis URL test, three Hugging Face repo tests benchmarked against a known-real control, Z.ai's own docs and blog, and a targeted web search), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

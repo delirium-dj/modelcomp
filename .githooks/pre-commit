@@ -106,6 +106,21 @@ if [ -n "$longcat_underscore_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged revealed-stealth slugs (RULES.md revealed-stealth identity, user
+# rule 2026-10-24): model/space-bunny/ was merged into
+# model/minimax-m3.1-flash-preview/ (stealth slot revealed 2026-10-19 as
+# MiniMax M3.1 Flash Free) and model/cat-jam/ into model/beam/ (revealed as
+# Reflection Beam 1.0) on user order — block any staged addition under the
+# stealth slugs so they can never be re-cemented. Searching the stealth names
+# resolves via the revealed models' meta `aliases`.
+stealth_added="$(git diff --cached --name-only --diff-filter=A -z -- model/space-bunny model/space-bunny-alpha model/space-bunny-free model/cat-jam model/cat-jam-free | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$stealth_added" ]; then
+  echo "BLOCKED by RULES.md: model/space-bunny/ and model/cat-jam/ are merged revealed-stealth aliases of model/minimax-m3.1-flash-preview/ resp. model/beam/ — never recreate them:" >&2
+  printf '%s\n' "$stealth_added" >&2
+  echo "Write into model/minimax-m3.1-flash-preview/ or model/beam/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Retired vendor alias (RULES.md retired-alias identity):
 # grok-code-fast-1 is a vendor-published alias of model/grok-build-0.1/
 # (docs.x.ai) and must never become a folder — block any staged addition

@@ -1,0 +1,85 @@
+# gpt-oss-120b-lite — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: zero verified data was found for this exact model ID across seven
+> independent authoritative checks. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores — a fabricated number would drag the mean for every reader.
+> Scores here are intentionally absent.
+
+- Source: OpenAI (`gpt-oss-120b-lite`) — **identity unverified / phantom**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-OSS-120B-Lite (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists anywhere in the ecosystem. OpenAI shipped exactly four open-weights GPT-OSS models — `gpt-oss-120b`, `gpt-oss-20b`, `gpt-oss-safeguard-120b` and `gpt-oss-safeguard-20b` — and **no "lite" variant of any of them**. Notably, the `-lite` suffix does not exist even among the roughly 140 third-party GGUF/AWQ re-encodings of the real 120B weights, so this is not a case of a real quantization hiding behind an unfamiliar host.
+- **Provider / access:** none found. No OpenAI route, no gateway listing, no weights repo.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404 for `/models/gpt-oss-120b-lite`.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (seven independent checks, all run 2026-10-24)
+
+1. **models.dev — OpenAI catalog** (`https://models.dev/api/openai.json`): every OpenAI entry containing "oss" is exactly four — `openai/gpt-oss-120b` (131,072 ctx / 32,768 out, reasoning Yes, tool Yes, structured Yes, open weights, $0.00/$0.00, released 2025-08-05, 97 providers), `openai/gpt-oss-20b` (131,072 / 32,768, open, 2025-08-05, 53 providers), `openai/gpt-oss-safeguard-120b` (131,072 / 32,768, open, $0.15/$0.60, 2025-10-29, 6 providers), `openai/gpt-oss-safeguard-20b` (131,072 / 131,072, open, $0.07/$0.20, 2025-10-29, 12 providers). **Zero `-lite` entries.**
+2. **OpenRouter — OpenAI catalog** (`https://openrouter.ai/openai`): gpt-oss entries are `openai/gpt-oss-120b`, `openai/gpt-oss-20b`, `openai/gpt-oss-safeguard-20b`. No `gpt-oss-120b-lite`.
+3. **Hugging Face search** (`https://huggingface.co/models?search=gpt-oss-120b-lite`): **0 results — "No results found."** This is the decisive check, because a direct model-repo search returning nothing rules out both an OpenAI checkpoint and any third-party upload of that name.
+4. **Hugging Face direct repo paths:** `openai/gpt-oss-120b-lite` → 401; `unsloth/gpt-oss-120b-lite` → 401. No model page exists at either.
+5. **Hugging Face quantization search** (`https://huggingface.co/models?search=gpt-oss-120b&other=gguf`): returns **140 repos** — `ggml-org/gpt-oss-120b-GGUF`, `unsloth/gpt-oss-120b-GGUF`, `lmstudio-community/gpt-oss-120b-GGUF`, `bartowski`, Intel and second-state variants, ~117B, Aug 2025 — and **none is named "-lite"**. This closes the loophole where a real quantized derivative might be tracked under a different host.
+6. **Artificial Analysis:** `https://artificialanalysis.ai/models/gpt-oss-120b-lite` returns **404**.
+7. **Web search (Bing)** for `"gpt-oss-120b-lite"`: no genuine model pages; only generic junk (chatgpt.com, openai.com's GPT-4/ChatGPT/GPT-5/GPT-6 Astra pages, Wikipedia).
+
+### Conflict / resolution notes
+
+- No conflicting sources were found — all seven agree independently that nothing exists under this name.
+- **Critical distinction recorded explicitly:** a quantized GGUF/AWQ derivative would *not* constitute a separate model — it is a re-encoding of the same weights, and per `RULES.md` research on it belongs in the base model's folder (`model/gpt-oss-120b/`, already researched and scored separately). So even if a "-lite"-named quant had been found, the correct outcome would have been to write into `model/gpt-oss-120b/`, never into this folder. In the event, no such quant exists either, so the question does not arise.
+- Closest real models, for anyone needing a substitute: **`gpt-oss-120b`** (the real 117B-class open-weights flagship, 131,072 ctx / 32,768 out, $0.00/$0.00, researched separately in this pass) and **`gpt-oss-20b`** (the genuinely smaller real sibling, same context and price). `gpt-oss-20b` is the model that plays the role "120B-Lite" appears to have been invented to fill.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 56.6, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Batch note:** this is the sixth phantom slug found in this queue, and the clearest case of a suffix-transplant pattern — `gpt-oss-20b` is the real smaller tier, so `gpt-oss-120b-lite` looks like an attempt to name a mid-size tier that OpenAI never shipped.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public data exists for this exact model/ID, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across seven independent checks (models.dev's OpenAI catalog, OpenRouter's OpenAI catalog, a zero-result Hugging Face model search, two direct HF repo path tests, a 140-repo Hugging Face GGUF search used to close the quantization loophole, an Artificial Analysis URL test, and a targeted web search), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

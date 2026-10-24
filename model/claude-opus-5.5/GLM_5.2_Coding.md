@@ -1,4 +1,5 @@
 # Claude Opus 5.5 — findings by GLM 5. Anthropic (`claude-opus-5-5`)
+
 - Date: 2026-09-17 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`

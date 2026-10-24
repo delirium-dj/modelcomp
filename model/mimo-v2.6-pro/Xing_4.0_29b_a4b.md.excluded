@@ -1,0 +1,10 @@
+# MiMo V2.6 Pro — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: MiMo V2.6 Pro exists on OpenRouter / MiniMax mirrors
+> (e.g. `minimax/mimo-v2.6-pro`), but no verified benchmark row was retrievable
+> through any reachable third party this session — Artificial Analysis board pages
+> returned HTTP 404 across the matching slugs and the vendor documentation
+> endpoints consistently failed to deliver content during the run. Per
+> RULES §3.9 protocol this findings file is saved as
+> `<Source_Name>.md.excluded`; see `../../model-comparison.md`,
+> `../model-findings.md`.

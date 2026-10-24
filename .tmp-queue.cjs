@@ -5,7 +5,10 @@ const ROOT = path.resolve(__dirname);
 const STEM = 'MiniMax_M3.1_Flash.md';
 
 // Authoritative RETIRED_SLUGS (scripts/lib/average.mjs + src/data/models.ts).
-const RETIRED = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "space-bunny", "cat-jam"]);
+// space-bunny + cat-jam were merged into minimax-m3.1-flash-preview / beam
+// (revealed-stealth merge rule, 2026-10-24) — merged slugs live in
+// scripts/lib/validate.mjs MERGED_MODEL_SLUGS, never here.
+const RETIRED = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5"]);
 
 const mr = path.join(ROOT, 'model');
 const dirs = fs.readdirSync(mr, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name);

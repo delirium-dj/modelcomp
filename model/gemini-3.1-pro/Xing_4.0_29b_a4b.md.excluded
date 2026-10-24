@@ -1,0 +1,9 @@
+# Gemini 3.1 Pro — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: model exists in Google's published documentation
+> (`ai.google.dev/gemini-api/docs/models/gemini-3`), but benchmark-metric source
+> was unreachable this session: both Artificial Analysis aggregator URL forms
+> returned HTTP 404 and the Google docs fetch returned a transport error. No third-
+> party row for verified benchmark percentiles was retrievable. Per RULES §3.9 this
+> findings file is saved as `<Source_Name>.md.excluded`; see `../../model-comparison.md`
+> and `../model-findings.md`.

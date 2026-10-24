@@ -1,0 +1,67 @@
+# Claude Opus 4.4 — findings by Muse Glimmer 30B
+
+- Source: Anthropic / claude-opus-4.4
+- Date: 2026-10-24
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Claude Opus 4.4
+- **Short description:** No verified model by this name exists in Anthropic official documentation.
+- **Provider / access:** Anthropic – no route found
+- **Release / knowledge:** not found
+- **IDs:** no verified vendor ID
+- **Context window:** not verifiable
+- **Modalities:** not verifiable
+- **Pricing as of 2026-10-24:** not verifiable
+- **Architecture:** not verifiable
+
+### Raw benchmarks found
+
+SELF-EXCLUSION: No verified public benchmark numbers found for this exact model/ID in independent, citable sources. Six independent checks performed 2026-10-24:
+
+1. Anthropic models overview https://platform.claude.com/docs/en/models/overview – Opus line is 4 → 4.1 → 4.5 → 4.6 → 4.7 → 4.8 → 5 → 5.5; no 4.4.
+2. Anthropic model deprecations https://platform.claude.com/docs/en/about-claude/model-deprecations – no claude-opus-4-4 entry.
+3. Vendor URL test https://platform.claude.com/docs/en/models/opus-4-4/overview → 404.
+4. OpenRouter Anthropic catalog – no claude-opus-4-4 id.
+5. OpenCode Zen live models endpoint – no claude-opus-4.4 id.
+6. Artificial Analysis / BenchLM – no model page.
+
+Agent / tool use:
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+SELF-EXCLUSION: Insufficient verified public benchmark data and model does not exist per official sources. File saved as .md.excluded per template.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -14,7 +14,6 @@
 - `qwen-3.5` — generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20 — research belongs in the member folder for the ID actually cited
 - `kimi-k2.7-code-highspeed` — serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20 — research belongs in model/kimi-k2.7-code/
 - `gemini-3.1-flash` — phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20 — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped
-- `cat-jam` — revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); parked 2026-10-21 — research belongs in model/beam/
 - `longcat-2.5` — phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/
 
 ## Merged-and-deleted duplicate slugs — never recreate (not even from git history)
@@ -25,6 +24,8 @@
 - `grok-4-fast-reasoning` -> `grok-4-fast` — docs.x.ai alias of grok-4-fast (one checkpoint, reasoning is system-prompt steering, same 2M window and price); merged + deleted 2026-10-20
 - `grok-4.1-fast-reasoning` -> `grok-4.1-fast` — docs.x.ai alias of grok-4.1-fast (one checkpoint); merged + deleted 2026-10-20
 - `longcat_2.5_preview` -> `longcat-2.5-preview` — underscore-spelling duplicate of longcat-2.5-preview (both declared id opencode/longcat-2.5-preview-free — one model); merged + deleted 2026-10-23
+- `space-bunny` -> `minimax-m3.1-flash-preview` — revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; folder merged into model/minimax-m3.1-flash-preview/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/minimax-m3.1-flash-preview/
+- `cat-jam` -> `beam` — revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/
 
 ## Retired vendor aliases — never a folder
 

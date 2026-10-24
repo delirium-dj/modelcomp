@@ -1,0 +1,9 @@
+# Gemini 3.7 Flash — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: model exists in Google's Gemini API documentation
+> (`ai.google.dev/gemini-api/docs/models/gemini-3`), but no independent third-party
+> benchmark source was retrievable during this session: Artificial Analysis and
+> Papers With Code both returned HTTP 404 across multiple URL forms and the
+> Google docs endpoint was consistently transport-erroring during the run.
+> Per RULES §3.9 protocol this findings file is saved as `<Source_Name>.md.excluded`;
+> see `../../model-comparison.md`, `../model-findings.md`.

@@ -1,0 +1,82 @@
+# qwen-3.8-325b — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: zero verified data was found for this exact model ID across five
+> independent authoritative sources. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores — a fabricated number would drag the mean for every reader.
+> Scores here are intentionally absent.
+
+- Source: Alibaba (`qwen-3.8-325b`) — **identity unverified / phantom**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8-325B (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists in any authoritative source consulted. Alibaba's real Qwen 3.8 line contains no 325B checkpoint of any kind — the family is Qwen3.8 2.4T A95B, Qwen3.8 Max (and its Max 0902 / Max Prime / Max Preview snapshots), Qwen3.8 27B, Qwen3.8 Flash, Qwen3.8 Flash Next, and Qwen3.8 Omni Flash.
+- **Provider / access:** none found. No Alibaba route, no gateway listing, no weights repo.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — both candidate AA URLs (`/models/qwen3-8-325b` and `/models/qwen3-8-325b-a18b`) return 404.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (five independent checks, all run 2026-10-24)
+
+1. **models.dev — Alibaba catalog** (`https://models.dev/api/alibaba.json`): searched for every occurrence of "325" in the entire Alibaba roster. Zero matches. The complete Qwen 3.8 family present: `qwen3.8-2.4t-a95b` (1,048,576 ctx / 131,072 out), `qwen3.8-max`, `qwen3.8-max-0902`, `qwen3.8-max-prime`, `qwen3.8-max-preview`, `qwen3.8-27b` (262,144 / 32,768), `qwen3.8-flash` (1,000,000 / 131,072), `qwen3.8-flash-next` (262,144 / 131,072), `qwen3.8-omni-flash` (1,000,000 / 131,072). No 325B entry, and therefore no context window, output limit, price, or release date exists to record.
+2. **OpenRouter — Qwen author catalog** (`https://openrouter.ai/qwen`): an independent near-exhaustive provider listing. Qwen 3.8 entries: `qwen3.8-2.4t-a95b`, `qwen3.8-27b`, `qwen3.8-flash`, `qwen3.8-max`, `qwen3.8-max-0902`, `qwen3.8-max-prime`, `qwen3.8-omni-flash`. Zero 325B variants.
+3. **Artificial Analysis:** both `https://artificialanalysis.ai/models/qwen3-8-325b` and `https://artificialanalysis.ai/models/qwen3-8-325b-a18b` return **404** — AA generates a page for every model it evaluates, so a double 404 is direct evidence.
+4. **Web search (Bing)** for `Qwen3.8-325B-A17B OR "Qwen3.8 325B" MoE`: ~65 raw hits, but every single one is irrelevant — locale Bluetooth-pairing support pages and unrelated content. No genuine model page, launch post, or benchmark exists under this name.
+5. **Alibaba's own surface:** `https://chat.qwen.ai/` returns a JS-rendered shell with no retrievable model list, so it offers neither confirmation nor refutation — it is recorded as an inconclusive check rather than counted as evidence either way.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found — every source that could answer the question answered "no". The one inconclusive check (Alibaba's JS-only chat site) is disclosed above and is not used as evidence.
+- **Likely origin of the phantom** (hypothesis, clearly labelled as such): a garbled conflation of the real `qwen3.5-397b-a17b` — Alibaba's largest open-weights MoE — with an invented "325B" total-parameter figure, plus an "A17B" active-parameter token borrowed from that same real model. Supporting detail: models.dev and OpenRouter both show `qwen3.5-397b-a17b` (262,144 ctx / 65,536 out, open weights) as the largest open-weights Qwen, and `qwen3.8-2.4t-a95b` as the largest MoE; there is no parameter count between them that ends in 325B.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 78, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops. If the user confirms the slug is a phantom, parking it would follow the documented procedure.
+- **Batch note:** this is the third phantom slug found in consecutive queue slots (`claude-sonnet-5.4`, `claude-opus-4.4`, `qwen-3.8-325b`), each verified against the same class of independent catalogs. That clustering suggests the queue file may carry a systematic set of invented slugs rather than isolated typos — worth a wider audit once the user decides how to handle these three.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public data exists for this exact model/ID, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across five independent source families (models.dev's Alibaba catalog searched exhaustively for "325", OpenRouter's full Qwen author catalog, two Artificial Analysis URL tests, a targeted web search, and Alibaba's own consumer surface), cross-compared for conflicts; scores are normalized 1–100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

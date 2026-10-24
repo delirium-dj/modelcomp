@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 85/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 87/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 74/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 66/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 86/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 33/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 79.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 82.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 85.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 72.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 66.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 83.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 32/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 78/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Qwen 3.8 Flash.
-- Average from top 2 by Overall Score: Gemini 3.8 Flash, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.8 Flash.
+- Average from top 3 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, North Mini Code.

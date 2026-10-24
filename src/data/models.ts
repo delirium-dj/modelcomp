@@ -313,25 +313,24 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * `gemini-3.1-flash-lite` (own folder). DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id; folder findings scored
  * Flash-Lite data — RULES.md family-shorthand identity);
- * `space-bunny` (2026-10-20, revealed stealth alias of MiniMax M3.1 Flash Free);
- * `cat-jam` (2026-10-21, revealed stealth alias of Reflection Beam 1.0 —
- * OpenCode PR #55993 merged 2026-10-16; same 501B/23B Apache 2.0 weights,
- * SWE-bench Verified 81.6% / Terminal-Bench 2.1 80.1% match Beam 1.0; id
- * deprecated 2026-10-16 → `opencode/beam-free` — RULES.md serving-profile /
- * revealed-stealth identity; searching "Cat Jam" resolves to Beam 1.0 via aliases);
  * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
  * LongCat 2.5; the 2.5 generation exists only as the API-only LongCat-2.5-Preview
  * tracked in `longcat-2.5-preview/`, and the folder's own meta idNote records the
  * id does not resolve — RULES.md family-shorthand identity). The folder
  * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
  * scanning it, but it is hidden from the site: excluded from MODELS, so no
- * cards, no A/B/C slots, no per-model page, no prev/next links. Mirror list
- * for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
+ * cards, no A/B/C slots, no per-model page, no prev/next links. Revealed
+ * stealth aliases are NOT parked anymore (user rule 2026-10-24): `space-bunny`
+ * and `cat-jam` were merged into their revealed models' canonical folders
+ * (`minimax-m3.1-flash-preview/` resp. `beam/`) and deleted — they live in
+ * MERGED_MODEL_SLUGS (scripts/lib/validate.mjs), never here; searching
+ * "Space Bunny" / "Cat Jam" resolves via the revealed models' meta `aliases`.
+ * Mirror list for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "cat-jam", "longcat-2.5"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

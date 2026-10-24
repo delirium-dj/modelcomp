@@ -2,7 +2,7 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// What we catch: transient provider-side congestion. Two error families,
+// What we catch: transient provider-side congestion. Three error families,
 // same recovery (wait, then "continue"):
 //   1. provider overload rejections. Some Gemini models drop this way
 //      sometimes with
@@ -17,8 +17,12 @@ import type { Plugin } from "@opencode-ai/plugin"
 //      We match only the stable "temporarily rate-limited upstream" fragment
 //      (the "[Vendor] model" prefix, "Please retry shortly" tail, and the
 //      settings URL all vary).
-// Any model/provider can send either error, so the plugin is deliberately
-// global (no model filter).
+//   3. generic provider-side overload notices. Some models drop this way with
+//        "The service may be temporarily overloaded, please try again later"
+//      We match only the stable "the service may be temporarily overloaded"
+//      fragment (the advice tail may vary).
+// Any model/provider can send any of these errors, so the plugin is
+// deliberately global (no model filter).
 //
 // Arrival shapes (same lessons as bang-drop-retry.ts):
 //   1. as a `session.error` event (the common case),
@@ -41,6 +45,7 @@ import type { Plugin } from "@opencode-ai/plugin"
 const PATTERNS = [
   "currently experiencing high demand",
   "temporarily rate-limited upstream",
+  "the service may be temporarily overloaded",
 ]
 
 // How long to wait before nudging: 20 seconds = 20_000 milliseconds.

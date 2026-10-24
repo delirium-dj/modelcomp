@@ -1,0 +1,13 @@
+# Claude Sonnet 5.5 — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: `Claude Sonnet 5.5` exists per Anthropic's published docs
+> (`platform.claude.com/docs/en/models/sonnet-5-5/overview`), released September 28,
+> 2026, $2/$10 USD input/output tokens per MMT, 1M token context, 128K max output,
+> Adaptive thinking, default effort high, knowledge cutoff June 2026, fast latency
+> ranking vs the current lineup. Independent benchmark aggregator sources were
+> unreachable this session (Artificial Analysis HTTP 404 and Google docs HTTP
+> transport errors returned), so verified benchmark rows for this release remain
+> absent from any record I could retrieve this pass. Per RULES §3.9 protocol this
+> file is saved as `<Source_Name>.md.excluded`; reference URLs appear under the
+> Signature block as dated session notes. See `../../model-comparison.md`,
+> `../model-findings.md`.

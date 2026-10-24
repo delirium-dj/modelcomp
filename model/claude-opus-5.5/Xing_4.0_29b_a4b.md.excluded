@@ -1,0 +1,13 @@
+# Claude Opus 5.5 — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: model exists per Anthropic official documentation
+> (`platform.claude.com/docs/en/models/opus-5-5/overview`), released September
+> 22, 2026 — $4 / $20 USD input / output tokens per MMT, 1M token context,
+> 128K max output, adaptive thinking always on, Text+Images → Text. I attempted
+> three independent benchmark-aggregator queries (Papers With Code search
+> endpoint and two Artificial Analysis board page attempts both returned HTTP
+> 404 for the exact listed slug); none supplied a verified per-metric
+> percentile row. RULES §3.9 mandates this self-exclusion for a model whose
+> model artifacts contain no verified public benchmark. See
+> `../../model-comparison.md` for scoring methodology, and
+> `../model-findings.md` for the signed cross-model log. This file is excluded.

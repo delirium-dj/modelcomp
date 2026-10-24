@@ -167,10 +167,19 @@ override.
 - **Serving-profile / revealed-stealth identity:** a vendor-stated serving
   profile (speed/latency tier of the same weights at a different price) is
   never a separate model — research belongs in the base folder. A revealed
-  stealth name resolves to the revealed model: research belongs in the
-  revealed model's folder; the stealth folder is parked, never deleted,
-  never scaffolded again; figures measured under the stealth/alias name are
-  cited labelled with the ID actually measured.
+  stealth name resolves to the revealed model by MERGE, never parking (user
+  rule 2026-10-24): the stealth folder and all its research files are renamed
+  to the revealed model — unique findings move into the revealed model's
+  canonical folder (revealed-folder's file wins on colliding stems; a fresh
+  `.md` retires its `.md.excluded` twin), the stealth slug is deleted and
+  joins `MERGED_MODEL_SLUGS` (`scripts/lib/validate.mjs`, rendered in the
+  generated roster) — never scaffolded again; the revealed model's
+  `meta.json` `aliases` carry the stealth names so searching the old name
+  still resolves (the stealth name is an alias, never a model); findings
+  written BY the model keep their stealth-era rater stems as frozen history,
+  and their rater keys deep-link to the revealed model's page
+  (`SOURCE_OVERRIDES` in `scripts/sync-data.mjs`). Figures measured under the
+  stealth/alias name are cited labelled with the ID actually measured.
 - **Qwen 3.5 397B identity (user-confirmed 2026-10-08):** `Qwen/Qwen3.5-397B-A17B`
   and `opencode/qwen-3.5-397b` identify the same model; research belongs in
   `model/qwen-3.5-397b/`. The `397B` suffix is a parameter count, not a

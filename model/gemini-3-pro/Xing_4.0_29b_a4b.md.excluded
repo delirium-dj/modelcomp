@@ -1,0 +1,9 @@
+# Gemini 3 Pro — findings by Xing_4.0_29b_a4b
+
+> Self-exclusion note: model exists in Google's Gemini API documentation
+> (`ai.google.dev/gemini-api/docs/models/...`), but no independent benchmark
+> source was retrievable this session: Artificial Analysis aggregation page
+> (HTTP 404) and the Google docs endpoint both failed with transport errors
+> during the run. Per RULES §3.9 protocol this file is saved as
+> `<Source_Name>.md.excluded`; see `../../model-comparison.md`,
+> `../model-findings.md`.

@@ -1,0 +1,56 @@
+# Qwen3.8-325B — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/Qwen3.8-325B
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.8-325B (unverified identity)
+- **Short description:** No official Qwen release, model card, or provider route could be verified for a model named `Qwen3.8-325B`. The official Qwen3.8 roster instead lists `Qwen3.8-27B` and `Qwen3.8-2.4T-A95B`, neither of which can be substituted for this exact target.
+- **Provider / access:** No verified exact-model endpoint found.
+- **Release / knowledge:** No verified exact-model release date or knowledge cutoff found.
+- **IDs:** No verified `Qwen/Qwen3.8-325B` or provider-equivalent ID found.
+- **Context window:** No exact-model specification found.
+- **Modalities:** No exact-model specification found.
+- **Pricing (as of 2026-10-24):** No exact-model pricing found.
+- **Architecture:** No exact-model architecture or weights found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau-bench / AutomationBench / GDPval-AA / Claw-Eval: no verified public score found for the exact `Qwen3.8-325B` identity.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / Artificial Analysis Intelligence Index / CritPt: no verified public score found for the exact identity.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE: no verified public score found for the exact identity.
+
+Long context:
+
+- No verified context-window specification or retrieval benchmark found for the exact identity.
+
+### Cross-source comparison
+
+- Three exact-name searches for `Qwen3.8-325B`, its API spelling, and benchmarks returned no authoritative model card, route, or exact-model benchmark.
+- Qwen's official Qwen3.8 repository lists only `Qwen3.8-27B` and `Qwen3.8-2.4T-A95B` as open models and links their model cards; it does not list a 325B release.
+- The live Hugging Face API for Qwen's Qwen3.8 models returned the 27B, 2.4T-A95B, and Flash-Next families, but no 325B model. The guessed `Qwen/Qwen3.8-325B` page did not resolve.
+- Guessed OpenRouter, Artificial Analysis, BenchLM, and Vals pages for this identity returned 404. Live OpenRouter and models.dev catalog scans also returned no exact match.
+- Specifications or benchmark results from the released Qwen3.8 sizes are not transferred because they describe materially different parameter configurations.
+
+### Exclusion decision
+
+This exact identity has zero verified public benchmark numbers and no verified first-party or provider model record. Per the mandatory self-exclusion rule, this file is saved as `.md.excluded` and contains no normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-24
+- Method: independent public internet research with three exact-name searches; checked Qwen's official repository, Hugging Face API, OpenRouter, Artificial Analysis, BenchLM, Vals, and models.dev while refusing to substitute other Qwen3.8 parameter sizes. Scores are omitted because no exact-model benchmark exists.
+- Future sources: if Qwen publishes an authoritative 325B model card or provider route, add a fresh findings file rather than copying evidence from another Qwen3.8 model.
