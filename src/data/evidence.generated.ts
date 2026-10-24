@@ -1374,12 +1374,12 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Vibe Code Bench", value: "37.91%", raters: ["GLM_5.3", "GPT_5.6_Luna"] },
   ],
   "gpt-5.2-pro": [
-    { benchmark: "HLE", value: "36.6%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna"] },
-    { benchmark: "GPQA Diamond", value: "93.2%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_5.6_Luna", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "HLE", value: "36.6%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol"] },
+    { benchmark: "GPQA Diamond", value: "93.2%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_5.6_Luna", "GPT_5.6_Sol", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
     { benchmark: "GDPval", value: "74.1%", raters: ["GPT_5.6_Luna", "Gemini_3.8_Flash"] },
-    { benchmark: "AIME", value: "100%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "ARC-AGI", value: "54.2%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "BrowseComp", value: "77.9%", raters: ["Big_Pickle", "GPT_5.6_Luna", "Gemini_3.8_Flash"] },
+    { benchmark: "AIME", value: "100%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "ARC-AGI", value: "54.2%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol", "Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "BrowseComp", value: "77.9%", raters: ["Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol", "Gemini_3.8_Flash"] },
   ],
   "gpt-5.3-codex": [
     { benchmark: "Terminal-Bench", value: "77.3%", raters: ["Beam", "Big_Pickle", "Claude_Sonnet_4.6", "DeepSeek_4.1_Flash", "DeepSeek_4_Flash", "Fledge_Alpha", "GPT_5.5", "GPT_5.6_Terra", "GPT_6.1_Sol", "Kimi_K3", "Laguna_S_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3", "Nemotron_3.5_Super_VL_120B_A12B", "Qwen_3.7_Plus", "Qwen_3.8_27B", "Step_5_Preview"] },
