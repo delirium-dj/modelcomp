@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash.
 - Average from top 2 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite.
+- Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, GLM 4.7 Flash.

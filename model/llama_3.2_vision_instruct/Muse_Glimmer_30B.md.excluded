@@ -1,0 +1,80 @@
+# Llama 3.2 Vision Instruct — findings by Muse Glimmer 30B
+
+- Source: Meta / llama_3.2_vision_instruct
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Llama 3.2 Vision Instruct
+- **Short description:** Meta's September 2024 open-weights multimodal family for image understanding and visual reasoning. Released as 11B and 90B instruction-tuned variants built on Llama 3.1 with a cross-attention vision adapter. Optimized for document/chart/diagram QA and visual question answering, English-only for image+text. Now legacy, largely delisted by hosts.
+- **Provider / access:** Open weights under Llama 3.2 Community License; hosted via OpenAI-compatible Chat Completions on NVIDIA NIM, Cloudflare Workers AI, DeepInfra, io.net, Inference.net. No Responses API. No OpenCode Zen ID.
+- **Release / knowledge:** 2024-09-25; knowledge cutoff December 2023
+- **IDs:** `meta-llama/Llama-3.2-11B-Vision-Instruct`, `meta-llama/Llama-3.2-90B-Vision-Instruct` (Hugging Face gated); `meta/llama-3.2-11b-vision-instruct` (NVIDIA NIM), `@cf/meta/llama-3.2-11b-vision-instruct` (Cloudflare)
+- **Context window:** 128,000 tokens total, 4,096 max output verified on hosted endpoints. Verified by Meta model card and NVIDIA NIM spec.
+- **Modalities:** Input text + image; Output text. No audio/video. English only for image+text; text-only supports en/de/fr/it/pt/hi/es/th. No native reasoning mode, no verified tool calling on reference endpoint.
+- **Pricing (as of 2026-10-25):** Open weights free to self-host. Hosted $0.00/$0.00 on NVIDIA NIM developer credits, Cloudflare $0.0485/M in / $0.676/M out, DeepInfra $0.345/$0.345, Inference.net $0.055/$0.055 with 16K window. Llama 3.2 Community License with 700M MAU commercial threshold.
+- **Architecture:** 11B dense 10.6B params, 90B dense 88.8B params, GQA, cross-attention vision adapter on Llama 3.1. Pretrained on 6B image-text pairs; instruction tuned with public vision datasets + 3M synthetic examples. SFT + RLHF.
+
+### Raw benchmarks found
+
+> Sources: Meta Llama 3.2 Vision model card reproduced on Hugging Face and NVIDIA NIM; Meta blog release notes Sept 2024; independent re-measurements on BenchmarkList / Artificial Analysis. 11B and 90B numbers are reported separately where divergent; conflicts favor the official Meta card values.
+
+Agent / tool use:
+
+- Tau2-Bench Telecom: 14.6% success rate 11B (Artificial Analysis, 2026-06-10, rank 281/332)
+- Terminal-Bench Hard: 0.8% 11B (Artificial Analysis, 2026-06-10, rank 279/326)
+- Function calling: not supported on NVIDIA NIM reference endpoint; no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- MMLU CoT Macro avg: 73.0% 11B / 86.0% 90B (Meta official)
+- MATH CoT Final EM: 51.9% 11B / 68.0% 90B (Meta official)
+- GPQA: 32.8% 11B / 46.7% 90B (Meta official); Artificial Analysis re-measure 22.1% 11B
+- Humanity's Last Exam: no verified public score found for 11B/90B; Artificial Analysis Intelligence Index uses 5.2% component for 11B
+- MGSM CoT EM: 68.9% 11B / 86.9% 90B (Meta official)
+- Artificial Analysis Intelligence Index v4.3.2: 3.33 11B approx (rank 382/418) per third-party aggregation; 90B not independently indexed
+
+Coding:
+
+- SciCode: 11.2% 11B (Artificial Analysis, rank 402/458)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- AA-LCR v1.1: 15.7% 11B (Artificial Analysis, rank 293/409); 11.7% inside Intelligence Index
+- MRCR / RULER / GraphWalks: no long-context retrieval reported
+
+Image / multimodal:
+
+- VQAv2 test accuracy: 75.2% 11B / 78.1% 90B (Meta instruction tuned)
+- DocVQA test ANLS: 88.4 11B / 90.1 90B
+- AI2 Diagram test accuracy: 91.1% 11B / 92.3% 90B
+- ChartQA test CoT relaxed accuracy: 83.4% 11B / 85.5% 90B
+- MMMU val CoT micro avg: 50.7% 11B / 60.3% 90B
+- MMMU-Pro Standard: 33.0% 11B / 45.2% 90B
+- MathVista testmini: 51.5% 11B / 57.3% 90B
+
+### Normalized scores (1–100)
+
+- **Tool use: 32/100.** No function calling on reference endpoint; Terminal-Bench Hard 0.8% and Tau2-Bench Telecom 14.6% at 14-15th percentile. No GDPval/Claw/Toolathon scores found. Caps score at low band.
+- **Reasoning: 58/100.** MMLU 73-86% and MGSM 68.9-86.9% are solid for 2024 open weights, MATH 51.9-68% mid-range, GPQA 32.8-46.7% modest. Independent re-measure GPQA 22.1% and Intelligence Index 3.33 pull down; December 2023 cutoff caps contemporaneous knowledge.
+- **Context window: 68/100.** 128K native verified, but max output 4,096 and AA-LCR 15.7% show the window is poorly exercised. Sits in 100K-200K band upper-mid.
+- **Multimodal: 76/100.** Strong document/chart/diagram performance: DocVQA 88.4-90.1, AI2D 91.1-92.3, ChartQA 83.4-85.5, VQAv2 75.2-78.1. English-only image input and weak visual reasoning on MMMU-Pro Vision 23.7-33.8% cap score below top tier.
+- **Coding: 38/100.** SciCode 11.2% low; no SWE-bench, LiveCodeBench or Vibe Code numbers. MathVista 51.5-57.3% suggests limited code-related math. Below mid band.
+- **Cost efficiency: 94/100.** Open weights free to self-host; $0 NIM developer tier, sub-$0.05/M input on Cloudflare. Custom commercial license and 4K output cap reduce perfect score.
+- **Overall Score: 54/100.** Mean of five quality dims (32+58+68+76+38)/5 = 54.4 → 54. Best-fit: capable legacy open vision reader for document/chart extraction at very low cost; reasoning, tool use and coding are now bottom-quartile.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,11 +1,16 @@
 # Kimi K3 — findings by DeepSeek 4.1 Flash
 
 - Source: Moonshot AI (`kimi-k3`), also `moonshotai/kimi-k3` on OpenRouter
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`kimi-k3`, 57 rows) computes an overall **69.96/100 (#16 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`kimi-k3`) re-read on 2026-10-23 carries **75 source-displayable rows** (was 57 on 2026-10-18) and computes **69.93/100, #16 of 992** (was #16 of 228). Newly captured: **AA Harvey LAB v1.0 94.6%**, AA Agentic Index 50.6%, APEX-Agents-AA 41.3%, AA ITBench 47.7%, GDPval-AA **1533 Elo / 51.6%**, AutomationBench 30.8%, SpreadsheetBench 2 34.8%, DECK-Bench 73.5%, ApprenticeBench 18%, Hermes Index 39.2 / Bench 71.5, MazeBench 1%; Coding FrontierSWE v2 25.9%, MLS-Bench Lite 48.3%, VulcanBench v3 73.7%, OpenHarmony 57.3%, PostTrainBench v1.1 32.0%, Bug Hunt 21.0 fixes; Multimodal ExtractBench 83.17%, OfficeQA Pro 63.3%, CharXiv 91.3% / 84.8% no-tools, MathVision 94.3% / 97.8% Python, BabyVision 85.7%, ZeroBench 23% / 41% Python, WorldVQA ForceAnswer 51%, OmniDocBench 91.1%, PerceptionBench 58.5%, AA-MMMU-Pro 80.5%, Design Arena 1335; Reasoning **AA-LCR 88.7%**, CritPt 23.4%, ARC-AGI-1 94.5%, **ARC-AGI-2 60.4%**; Knowledge **AA Intelligence Index 43.6%**, AA-GPQA 93.5%, AA-HLE 46.9%, **AA-Omniscience index 19.7 / accuracy 47.6% / hallucination 53.2%**, MMLU-Pro 88.0%.
+> **Refreshed / conflicts:** ARC Prize rows are now cited — **ARC-AGI-2 60.4%** (weak for a frontier-class open model) alongside ARC-AGI-1 94.5%; AA-Omniscience index 19.7% is low. The coding bimodality, SWE-bench/AA-Index spreads and modality/context conflicts stand.
+> **Scores adjusted this pass: Reasoning 90→89; Overall held at 90.**
+> Sources this pass: https://benchlm.ai/models/kimi-k3 · https://artificialanalysis.ai/models/kimi-k3 · https://arcprize.org/results/moonshot-kimi-k3 · https://www.vals.ai/models/kimi_kimi-k3 · https://epoch.ai/benchmarks/frontiermath-tier-4-v2
+
+> **Re-verified 2026-10-18.** BenchLM (`kimi-k3`, 57 rows) computed an overall **69.96/100 (#16 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **93.5%** (vendor) / **92.93%** (Vals); MMLU-Pro 88.0% (Vals); HLE 43.5% no-tools / 56% with tools; AA-LCR 74.7% (vendor) / 88.7% (Kilo); CritPt 23.4%; SWE-bench Verified **93.40%** (Vals) / 95.10% (Vals Index subset); Terminal-Bench 2.1 **88.3%** (vendor) / **80.9%** (Vals); Terminal-Bench 2.0 88.3%; Terminal-Bench 4.0 **17.17%** (Vals); DeepSWE 67.5%; FrontierSWE 81.2%; ProgramBench 77.8%; SWE-Marathon 42.0; LiveCodeBench 87.2% (Vals); SciCode 58.7%; MCPMark-Verified **94.5%**; MCP Atlas 84.2%; BrowseComp 91.2%; DeepSearchQA 95.0%; Toolathlon-Verified 73.2%; OSWorld-Verified 84.8% / OSWorld 2.0 58.3%; GDPval-AA v2.1 1533; MMMU-Pro 81.6%; OmniDocBench 91.1%; Vals Index 50.30% (#28/45); BenchLM 80.5 (#5/218).
@@ -54,17 +59,17 @@ Multimodal / long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 89/100.** TB2.1 80.9–88.3%, MCPMark 94.5%, BrowseComp 91.2%, OSWorld-Verified 84.8% and DeepSearchQA 95% are elite on tool use; capped by TB4.0 17.2% and GDPval-AA 1533 (below the 1750 ref).
-- **Reasoning: 90/100.** GPQA 93.5%, HLE 56% with tools and AA-LCR 74.7–88.7% lead open weights; held by AA Index 44 and CritPt 23.4%.
+- **Reasoning: 89/100.** GPQA 93.5%, HLE 56% with tools and AA-LCR 88.7% lead open weights; held by AA Index 43.6, ARC-AGI-2 60.4%, CritPt 23.4% and a low Omniscience index (19.7%).
 - **Context window: 96/100.** 1M input with 131K output and AA-LCR up to 88.7%; the ≥98%-at-512K condition for 100 is unmet.
 - **Multimodal: 86/100.** Native text + image + video in (video band) with MMMU-Pro 81.6% and OmniDocBench 91.1%; text-only output and the AA text+image-only conflict cap it.
 - **Coding: 88/100.** Vals SWE-bench 93.4%, LiveCodeBench 87.2%, FrontierSWE 81.2% and AA-SciCode 59.5% are near-frontier; capped by TB4.0 17.2% / Code Migration 16.1%.
 - **Cost efficiency: 63/100.** Premium $3/$15 with $0.30 cached maps to the ~60 anchor; nudged up for ~$2 AA cost/task and free prefix caching.
-- **Overall Score: 90/100.** (89 + 90 + 96 + 86 + 88) / 5 = 89.8 → 90. Best fit: near-frontier open-weight reasoning plus a genuine 1M window and best-in-class MCP/tool use; pair with a coding specialist for hard terminal/agentic harnesses.
+- **Overall Score: 90/100.** (89 + 89 + 96 + 86 + 88) / 5 = 89.6 → 90. Best fit: near-frontier open-weight reasoning plus a genuine 1M window and best-in-class MCP/tool use; pair with a coding specialist for hard terminal/agentic harnesses.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Moonshot Kimi K3 blog + k3-kimi.com, Vals AI model page, BenchLM model/GLM comparison, DeepInfra comparison, the community model-card benchmark compilation). The bimodal coding split, SWE-bench and AA-Index spreads and modality/context conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

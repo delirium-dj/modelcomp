@@ -1,11 +1,16 @@
 # MiMo V2.6 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.6-pro`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`mimo-v2-6-pro`, 16 rows) computes an overall **73.54/100 (#12 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`mimo-v2-6-pro`) re-read on 2026-10-23 carries **33 source-displayable rows** (was 16 on 2026-10-18) and computes **73.47/100, #12 of 992** (was #12 of 228). Newly captured: **GDPval-AA 1673 Elo / 59.2%** (AA), AA-Briefcase 1515, AA AutomationBench 58.6%, AA TB4.0 34.8%, AA-AnalystAgent 37.5%, GDP.pdf 19.2%, ExploitGym 17.8%, STEMBench 2.17, AA-LCR 86.3%, CritPt 26.6%, MLCR-AA 18.3, AA-HLE 49.4, **AA-Omniscience index 8.4 / accuracy 34.8% / hallucination 40.6%**, AA-SciCode 60.9%, Bug Hunt 22.7 fixes, Design Arena 1307.
+> **Refreshed / conflicts:** GDPval-AA now yields an **Elo of 1673 / 59.2%** (the launch file recorded only AA-Briefcase 1516 and no GDPval row); AA-Index 46.3 confirms #1 of 117 open-weight. The modality, TB2.1/TB4.0 harness, ProgramBench and speed conflicts stand.
+> **No material score change:** the added rows confirm the strongest-open-omnimodal-agentic profile, so scores are held.
+> Sources this pass: https://benchlm.ai/models/mimo-v2-6-pro · https://artificialanalysis.ai/models/mimo-v2-6-pro · https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL · https://www.vals.ai/models/xiaomi_mimo-v2.6-pro
+
+> **Re-verified 2026-10-18.** BenchLM (`mimo-v2-6-pro`, 16 rows) computed an overall **73.54/100 (#12 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: Artificial Analysis Intelligence Index **46 / 46.32 (v4.3.2) — #1/117 open-weight** (median 18), cost $0.1332/task, **43.7–44 t/s**, TTFT 4.06s, AA-HLE 49.4, AA-LCR 86.3, AA-SciCode 60.9, AA-Omniscience Index 8.4. Vals AI: Vals Index **55.20% (#12/45)**, Vibe Code Bench v1.1 **85.22% (#9–13/110)**, CyberBench **72.86% (#3)**, MedScribe 88.31% (#12/108), Finance Agent v2 57.34%, Public Benefits 68.94% (#5–6), Legal Research 47.12%, Harvey Legal 10.83%, Terminal-Bench 2.1 **67.79%**, Terminal-Bench 4.0 **31.31%**, ProgramBench **0.50%**, IOI 39.33%, Terminal-Bench-Science 2.86%, Code Migration 43.01%, cost/test **$0.410**, latency 67m19s. BenchAlign/BenchLM: public 73.53 (#12), Coding 63.3 (#13/149), Terminal-Bench 2.1 89.9%, TB4.0 34.90%, Toolathlon-Verified 76.9%, OSWorld-Verified 82.0%, JobBench 62.0%, CyberGym 94.0%, DeepSWE 71.9%, ProgramBench 26.0–26.5%. Novita/OpenRouter confirm 1,048,576 ctx / 131,072 max-out and text+image+video+audio in.
@@ -63,6 +68,6 @@ Multimodal / long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Xiaomi MiMo news/blog, Artificial Analysis model page, Vals AI model page, BenchLM/BenchAlign comparisons, Novita and Codersera guides, heise news, OpenRouter/LLMReference). The modality, TB2.1/TB4.0 harness, ProgramBench and speed conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

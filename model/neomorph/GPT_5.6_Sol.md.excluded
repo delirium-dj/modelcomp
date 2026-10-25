@@ -1,0 +1,38 @@
+# NeoMorph — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/NeoMorph
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** NeoMorph (unverified identity)
+- **Short description:** Exact-name searches did not identify a unique public model, vendor release, route, or model card corresponding to this repository entry.
+- **Provider / access:** No verified endpoint found.
+- **Release / knowledge:** No verified dates found.
+- **IDs:** No verified exact ID.
+- **Context window:** No exact specification found.
+- **Modalities:** No exact specification found.
+- **Pricing (as of 2026-10-25):** No exact price found.
+- **Architecture:** No exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public exact-model score found.
+
+### Cross-source comparison
+
+- Three exact-name searches plus OpenRouter, models.dev, Hugging Face, AA, and BenchLM checks returned no resolvable exact identity.
+
+### Exclusion decision
+
+Zero exact-model benchmark numbers and no verified identity require exclusion.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct catalog checks.
+- Future sources: add a fresh file when the identity is publicly resolved.

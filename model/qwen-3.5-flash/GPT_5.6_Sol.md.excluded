@@ -1,0 +1,38 @@
+# Qwen3.5-Flash — excluded findings by GPT-5.6 Sol
+
+- Source: Alibaba/Qwen3.5-Flash
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.5-Flash
+- **Short description:** Alibaba's hosted production model corresponding to the Qwen3.5-35B-A3B lineage, with a larger default context and built-in tools.
+- **Provider / access:** models.dev records `alibaba/qwen3.5-flash` through Vercel; Qwen's 35B card describes the hosted correspondence.
+- **Release / knowledge:** Catalog release date 2026-02-23; no knowledge cutoff found.
+- **IDs:** `alibaba/qwen3.5-flash`.
+- **Context window:** 1,000,000 tokens with 64,000 output in provider metadata.
+- **Modalities:** Text, image, and PDF input; text output.
+- **Pricing (as of 2026-10-25):** $0.10 input / $0.40 output / $0.01 cached input per 1M tokens in provider metadata.
+- **Architecture:** Hosted derivative; exact production checkpoint details are undisclosed.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified numeric score published under the exact hosted `Qwen3.5-Flash` ID.
+
+### Cross-source comparison
+
+- Three searches and direct Qwen/provider checks verified the service. The open 35B-A3B card calls it corresponding weights, but its checkpoint numbers are not silently copied to this separately tracked production ID.
+
+### Exclusion decision
+
+Zero verified benchmark numbers for the exact hosted ID require exclusion without normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct Qwen/provider checks, preserving identity boundaries.
+- Future sources: add a fresh file when Alibaba publishes exact hosted-model results.

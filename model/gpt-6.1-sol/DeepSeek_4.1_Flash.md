@@ -1,11 +1,16 @@
 # GPT-6.1 Sol — findings by DeepSeek 4.1 Flash
 
 - Source: OpenAI/GPT-6.1 Sol (`openai/gpt-6.1-sol`; repo catalogue id `opencode/gpt-6.1-sol`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`gpt-6-1-sol`, 24 rows) computes an overall **84.21/100 (#2 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`gpt-6-1-sol`) re-read on 2026-10-23/25 carries **42 source-displayable rows** (was 24 on 2026-10-18) and computes **84.32/100, #2 of 992** (was #2 of 228). Newly captured: **FrontierMath v2 Tier-4 100.000% / T1–3 93.684%** (Epoch AI), GDPval-AA **1596 Elo / 54.8%**, AA-Briefcase 1555, AA AutomationBench 64.9%, AA TB4.0 56.1%, TB-Science 57.0%, ExploitGym 35.1%, GDP.pdf 31.0%, AA-AnalystAgent 50.0%, MazeBench 17%, Hermes Index 57.1 / Bench 73.9, MLCR-AA 38.3%, HealthBench Pro 64.2%, **AA-Omniscience index 41.5 / accuracy 62.1% / hallucination 54.3%**, AA-MMMU-Pro 86.0%, ExtractBench Pro 12%, ParseBench 69.70%, Design Arena 1320, Bug Hunt 44.3 fixes.
+> **Refreshed / conflicts:** the Epoch **FrontierMath v2 Tier-4 100.000%** is a standout new reasoning datapoint; the DeepSWE effort-peak discrepancy, AutomationBench effort framing and context-rounding mismatch stand.
+> **Scores adjusted this pass: Reasoning 85→86; Overall held at 83.**
+> Sources this pass: https://benchlm.ai/models/gpt-6-1-sol · https://openai.com/index/introducing-gpt-6-1-sol/ · https://artificialanalysis.ai/models/gpt-6-1-sol · https://epoch.ai/benchmarks/frontiermath-tier-4-v2 · https://www.vals.ai/models/openai_gpt-6.1-sol
+
+> **Re-verified 2026-10-18.** BenchLM (`gpt-6-1-sol`, 24 rows) computed an overall **84.21/100 (#2 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Artificial Analysis (max): Intelligence Index **52 (#12/217)**, AA-Briefcase **1564**, GDPval-AA v2.1 **1575 Elo**, AA AutomationBench **65%**, Terminal-Bench 4.0 **56%**, AA-SciCode 54%, HLE 53%, CritPt 32%, GDP.pdf 31%, AA-Omniscience 41; ~53.5 t/s, TTFT 277–322s, **$0.72/task**. Vals AI: **Vals Index 61.15% (#9/48)**, Terminal-Bench 4.0 **55.05% (#7/48)**, Terminal-Bench Science **52.86% (#2/41)**, Vibe Code Bench v1.1 **88.93% (#8/112)**, IOI **96.89% (#3/44)**, Code Migration 65.12% (#5/77), ProofBench **99.0% (#4/50)**, BioMysteryBench 79.63% (#2), SRE Bench 50.76% (#2), ProgramBench 3.0%, CyberBench 39.29%, SWE-bench Multimodal 43.54%, cost/test **$3.237**. OpenAI self: DeepSWE v1.1 **75.2%** (high) / 71.9% (max), OSWorld 2.0 offline **71.4%** (max), GDP.pdf 32.0%, AutomationBench 36.1%. Microsoft Foundry + opencode.ai data confirm **1.05M context, 128K out, text+image+pdf in, $2/$10 ($0.10 cached; long-context $4/$15)**.
@@ -54,17 +59,17 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 88/100.** AA Terminal-Bench 4.0 56%, GDPval-AA 1575 Elo, AA AutomationBench 65% and Vals TB-Science 52.86% (#2/41) confirm strong agentic ability; held below 90 because the headline DeepSWE/AutomationBench claims are vendor-run and GDPval-AA sits under the ~1750 frontier reference.
-- **Reasoning: 85/100.** HLE 53% (AA), ARC-AGI-2 94.2% (ARC Prize verified), CritPt 32% and AA-LCR 83.0% are frontier-adjacent; capped by an AA Intelligence Index of 52 (six behind Opus 5.5) and still-missing GPQA Diamond.
+- **Reasoning: 86/100.** HLE 53% (AA), ARC-AGI-2 94.2% (ARC Prize verified), CritPt 31.7% and AA-LCR 83.0% are frontier-adjacent, and Epoch's FrontierMath v2 Tier-4 reads **100.0%**; capped by an AA Intelligence Index of 51.8 (behind Opus 5.5) and still-missing GPQA Diamond.
 - **Context window: 92/100.** 1.05M-token input and 128K output clear the 1M band; held below 97 by the 272K reprice threshold and the absence of a ≥98%-at-512K retrieval benchmark (AA-LCR 83.0% is reasoning, not pure recall).
 - **Multimodal: 60/100.** Text, image and PDF/file input, text out, with a strong MMMU-Pro 86.0% (AA); clear text+image band (60–70) now that opencode.ai data, Vals and Microsoft Foundry all list PDF/file support; no audio/video keeps it mid-pack.
 - **Coding: 91/100.** DeepSWE v1.1 75.2% (high effort) beats Astra's best run at about one-seventh the per-task cost, and independent Vals Vibe Code Bench 88.93% (#8/112), IOI 96.89% (#3) plus AA-SciCode 54% corroborate the coding claim; capped by vendor-only sourcing on the DeepSWE peak and no SWE-bench Verified.
 - **Cost efficiency: 72/100.** $2.00/$10.00 with a $0.10 cache read is mid-price for 2026 (roughly a fifth of Astra, about half of Opus 5.5's per-task cost) but far from the sub-$0.5 open-weight tier.
-- **Overall Score: 83/100.** Mean of the five quality dims (88+85+92+60+91)/5 = 83.2 → 83. Best fit: high-volume agentic coding, computer-use and document work where near-Astra quality at mid-tier cost beats absolute peak scores.
+- **Overall Score: 83/100.** Mean of the five quality dims (88+86+92+60+91)/5 = 83.4 → 83. Best fit: high-volume agentic coding, computer-use and document work where near-Astra quality at mid-tier cost beats absolute peak scores.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (OpenAI launch post + DevDay coverage, Artificial Analysis model page, Vals AI model page, Microsoft Foundry blog, LLM-Stats, opencode.ai data, TTMS). Independent AA/Vals rows were promoted over vendor-only rows; the file/PDF-input corroboration, DeepSWE effort-peak discrepancy, AutomationBench effort framing and context-rounding mismatch are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

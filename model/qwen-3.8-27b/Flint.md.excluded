@@ -1,0 +1,30 @@
+# Qwen 3.8 27B — findings by Flint
+
+- Source: Qwen / Qwen 3.8 27B
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 27B
+- **Short description:** Qwen's open-weight 27B-parameter reasoning/coding model in the Qwen 3.8 family; small-parameter tier aimed at cost-efficient coding and reasoning.
+- **Provider / access:** OpenRouter (`qwen/qwen3.8-27b`), Qwen official API.
+
+### Raw benchmarks found
+
+- no verified public score found
+
+### Cross-source comparison
+
+- Independent OpenRouter coverage confirmed the model ID and API surface; official Qwen pages could not be fetched during this research window; no independent benchmark figures captured.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for this model; no scored file written.
+
+## Signature
+
+- Provided by: **Flint (opencode/flint)** — 2026-10-25
+- Method: public web research prioritizing official model docs plus independent benchmarks/reviews.
+- Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

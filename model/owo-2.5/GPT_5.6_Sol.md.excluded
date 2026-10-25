@@ -1,0 +1,38 @@
+# OWO 2.5 — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/OWO 2.5
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** OWO 2.5 (unverified identity)
+- **Short description:** Exact-name research did not identify an authoritative AI-model vendor release, endpoint, model card, or weight repository for this name.
+- **Provider / access:** No verified endpoint found.
+- **Release / knowledge:** No verified dates found.
+- **IDs:** No verified exact ID.
+- **Context window:** No exact specification found.
+- **Modalities:** No exact specification found.
+- **Pricing (as of 2026-10-25):** No exact price found.
+- **Architecture:** No exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public exact-model score found.
+
+### Cross-source comparison
+
+- Three exact-name searches and checks of OpenRouter, models.dev, Hugging Face, Artificial Analysis, and BenchLM yielded no authoritative exact identity.
+
+### Exclusion decision
+
+Zero verified benchmark numbers and no resolved exact model require exclusion.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct catalog checks.
+- Future sources: add a fresh file when an authoritative model is published.

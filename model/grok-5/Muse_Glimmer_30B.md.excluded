@@ -1,0 +1,69 @@
+# Grok 5 — findings by Muse Glimmer 30B
+
+> **SELF-EXCLUDED (notes only, not scored).** As of 2026-10-25 there is no verifiable shipping Grok 5 model. xAI's official developer docs list Grok 4.7 as the current flagship with no Grok 5 entry, no model card, no API ID, and no public benchmark suite. Independent trackers and benchmark catalogs contain no verified Grok 5 scores. Per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md`, this entry is saved as `.md.excluded` so no rumored numbers enter the dataset mean.
+
+- Source: xAI / SpaceXAI (registry placeholder `x-ai/grok-5`)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 — unreleased / not listed
+- **Short description:** xAI's rumored next-generation flagship MoE reported as "in training on Colossus 2" in January 2026 Series E reporting. No official release announcement, model card, or API endpoint exists as of 2026-10-25. Current shipping flagship is Grok 4.7 released 2026-09-21.
+- **Provider / access:** Not on xAI API. Official developer docs `docs.x.ai/developers/models` lists grok-4.7, grok-4.6, grok-4.5, grok-4.3, grok-4.20 variants, grok-build-0.1, and Imagine/Voice routes. No `grok-5` entry.
+- **Release / knowledge:** No release date confirmed. Official knowledge cutoff for Grok 4.7 is May 2026.
+- **IDs:** No official API ID published. `x-ai/grok-5` is a registry placeholder only.
+- **Context window:** Unconfirmed. Shipping Grok 4.7 has 500K context; Grok 4.3 has 1M. Any 256K/500K/1M claims for Grok 5 are unsourced.
+- **Modalities:** Unconfirmed. Grok 4.7 supports text and image input, text output, reasoning, tool calling. Grok 5 modality claims are speculative.
+- **Pricing (as of 2026-10-25):** Unannounced. Grok 4.7 pricing is $2.00 / 1M input / $6.00 / 1M output <200k prompt, $4/$12 ≥200k.
+- **Architecture:** Unconfirmed. Rumored 6-10T MoE circulates without attribution. No official architecture disclosure.
+
+## Raw benchmarks found
+
+Every row: **no verified public score found** for Grok 5.
+
+Agent / tool use:
+- Terminal-Bench 2.1 / Terminal-Bench 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found — Artificial Analysis model catalog contains no Grok 5 page; BenchLM has no Grok 5 listing in site searches
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+- MRCR / RULER / GraphWalks: no verified public score found
+
+### Conflicting / unverified claims logged
+
+Independent web searches performed 2026-10-25:
+
+1. Official xAI developer docs `docs.x.ai/developers/models` — verified 2026-10-25: model table enumerates grok-4.7, grok-4.6, grok-4.5, grok-4.3, grok-4.20 families, grok-build-0.1. No grok-5. Source: xAI official documentation.
+2. Artificial Analysis model comparison page — search for `grok-5` returns no model page; catalog shows Grok 4.7, 4.6, 4.5, 4.3. No verified benchmarks for Grok 5.
+3. Bing site search `site:benchlm.org grok-5` — no results returned for Grok 5 leaderboard entries. Existing repo findings by other agents claiming BenchLM scores for Grok 5 are not corroborated by publicly accessible BenchLM listings as of 2026-10-25.
+
+Some repo entries, e.g., Beam.md, claim a July 9 2026 release with BenchLM 63.27, Terminal-Bench 2.1 83.3%, SWE-bench Pro 64.7%, AA Intelligence Index 38.8%. Those numbers are not present in xAI official docs or in independent benchmark catalogs accessed above and are therefore treated as unverified / conflicting rumors. They are not used.
+
+## Normalized scores (1–100)
+
+Not scored. Self-excluded: Overall Score requires mean of five quality dims; for Grok 5 every dim would rest on rumor. Scoring an unreleased model from Musk posts or third-party aggregators would inject fiction into the dataset mean, which is exactly what SELF-EXCLUSION prevents.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Method: public internet research: official xAI developer model catalog `docs.x.ai/developers/models` accessed 2026-10-25, Artificial Analysis model catalog search, Bing site search for BenchLM Grok 5 entries; scores are normalized 1–100 interpretations, not official vendor scores. Zero verified public benchmarks found for this exact model/ID.
+- Future sources: if xAI ships Grok 5, delete this file and write `Muse_Glimmer_30B.md` against the vendor model card.
+
+---

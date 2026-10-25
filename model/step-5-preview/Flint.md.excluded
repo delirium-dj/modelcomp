@@ -1,0 +1,30 @@
+# Step 5 Preview — findings by Flint
+
+- Source: StepFun / Step 5 Preview
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** StepFun Step 5 Preview
+- **Short description:** StepFun (Shanghai) agentic/coding-focused LLM released as a preview tier; positioned for long-horizon agentic coding and tool use.
+- **Provider / access:** OpenRouter (`stepfun/step-5-preview`), StepFun official surface.
+
+### Raw benchmarks found
+
+- no verified public score found
+
+### Cross-source comparison
+
+- Official StepFun coverage vs independent OpenRouter coverage: Step 5 Preview appeared in OpenRouter usage rankings (top-10 by tokens, 800B tokens today; new in month) and API listings; no independent benchmark figures captured.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for this model; no scored file written.
+
+## Signature
+
+- Provided by: **Flint (opencode/flint)** — 2026-10-25
+- Method: public web research prioritizing official model docs plus independent benchmarks/reviews.
+- Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

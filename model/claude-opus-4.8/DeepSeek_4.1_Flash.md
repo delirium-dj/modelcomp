@@ -1,11 +1,16 @@
 # Claude Opus 4.8 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Opus 4.8 (`anthropic/claude-opus-4-8`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-11); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`claude-opus-4-8`, 43 rows) computes an overall **69.82/100 (#17 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`claude-opus-4-8`) re-read on 2026-10-23/25 carries **63 source-displayable rows** (was 43 on 2026-10-18) and computes **69.75/100, #18 of 992** (was #17 of 228). Newly captured: **aaTerminalBench21 84.6%**, TB2.1 Vals 71.9%, terminalBenchHard 58.3%, **AA Agentic Index 42.6%**, EnterpriseOps-Gym 44.0%, AA-AnalystAgent 45.0%, Gert Labs 72.97%, ResearchClawBench 21.1%, MazeBench 0%; Coding CursorBench 3.1 58.4% / 3.2 62.3%, AA-SciCode 54.4%, FrontierCode 46.5%, AA Coding Index 74.3%, ExtractBench 87.09%, ParseBench 62.27%, CharXiv 80.5% no-tools; Knowledge **AA Intelligence Index 41.8%**, AA-GPQA 92.0%, AA-HLE 48.7%, **AA-Omniscience index 28.8 / accuracy 48.8% / hallucination 39.3%**, AA-IFBench 62.2%, FrontierMath v2 T1–3 80.000% / Tier-4 56.098%.
+> **Refreshed / conflicts:** the current AA Index is anchored at 41.8 (v4.3.2) vs the old-basket 61.4; GDPval-AA reads 1593 (system card) / 47.7% (AA normalized); the Vals-index drift, TB2.1 gap and OSWorld version mismatch stand.
+> **No material score change:** the added rows confirm the enterprise-agent profile, so scores are held.
+> Sources this pass: https://benchlm.ai/models/claude-opus-4-8 · https://www.vals.ai/models/anthropic_claude-opus-4-8 · https://artificialanalysis.ai/models/claude-opus-4-8 · https://epoch.ai/benchmarks/frontiermath-tier-4-v2 · https://www.anthropic.com/news/claude-opus-4-8
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-opus-4-8`, 43 rows) computed an overall **69.82/100 (#17 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Vals AI: **Vals Index 55.10% (#15/45)** with **SWE-bench Verified 88.60% (#1)**, **Vibe Code Bench 82.72% (#1)**, **ProofBench 69.00% (#1)**, **Terminal Bench 2 70.04% (#2)**, Finance Agent v2 53.92% (#2), LiveCodeBench 87.82% (#3), GPQA 92.42% (#4), MMLU-Pro 89.58% (#4), MMMU 86.59% (#9), SAGE 54.79% (#3), MortgageTax 69.91% (#2), TaxEval v2 75.63% (#7), CorpFin v2 66.71% (#8). Artificial Analysis (max): **Intelligence Index 42 (#49/690)**, AA-Briefcase v1.1 1321, **GDPval-AA v2.1 1456 Elo**, AutomationBench-AA 46%, Terminal-Bench 4.0 22%, AA-SciCode 54%, HLE 49%, CritPt 21%, AA-Omniscience 29, AA Coding Index 74; TTFT ~37.9s. Anthropic system card / launch: OSWorld-Verified **83.4%**, BrowseComp **84.3%** (88.5 multi-agent), SWE-bench Pro 69.2%, SWE Multilingual 84.4%, SWE Multimodal 38.4%, GPQA Diamond 93.6%, HLE 49.8% / 57.9% with tools, USAMO 2026 96.7%, FrontierMath v2 T4 31.25%, MCP Atlas 82.2%, DeepSearchQA 93.1%, CharXiv 89.9%, ScreenSpot Pro 87.9%, OfficeQA Pro 66.2%. opencode.ai data confirms **1M ctx, 128K out, cutoff 2026-01, text+image+pdf in, $5/$25 ($0.50 cached)**.
@@ -72,6 +77,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Anthropic Opus 4.8 announcement + system card, Vals AI model page + Vals Index leaderboard, Artificial Analysis launch article + model pages, BenchLM comparison pages, opencode.ai data, GIGAZINE / Tech Insider / RD World coverage). Direct system-card and independent Vals/AA measurements were promoted over vendor-only rows; the AA-index rebase, GDPval-AA decline, Vals-index drift, Terminal-Bench 2.1 gap and OSWorld version mismatch are surfaced rather than hidden. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

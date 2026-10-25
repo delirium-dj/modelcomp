@@ -1,0 +1,38 @@
+# Xing 4.0 29B A4B — excluded findings by GPT-5.6 Sol
+
+- Source: XingChen AGI/Xing4.0 29B A4B
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Xing 4.0 29B A4B
+- **Short description:** A text model exposed by XingChen AGI and provider catalogs, with a 29B-total/4B-active name and a free OpenRouter route.
+- **Provider / access:** OpenRouter `xingchen-agi/xing4.0-29b-a4b:free`; other catalogs list a paid route.
+- **Release / knowledge:** Provider release dates range from 2026-10-16 to 2026-10-24; no knowledge cutoff found.
+- **IDs:** `xingchen-agi/xing4.0-29b-a4b:free`.
+- **Context window:** 262,144 tokens; OpenRouter lists up to 235,929 output tokens.
+- **Modalities:** Text input and output.
+- **Pricing (as of 2026-10-25):** OpenRouter free route at $0/$0; paid catalog route about $0.22/$0.90 per 1M tokens.
+- **Architecture:** The name indicates 29B total / 4B active; no accessible authoritative architecture card was verified.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no independently verified public exact-model numeric score found.
+
+### Cross-source comparison
+
+- Three exact searches and direct OpenRouter, models.dev, Hugging Face, ModelScope, AA, and BenchLM checks verified provider metadata but did not expose an authoritative exact benchmark table.
+
+### Exclusion decision
+
+Zero verified exact-model benchmark figures require exclusion without normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct provider/model-host checks.
+- Future sources: add a fresh file when an accessible authoritative benchmark card is published.

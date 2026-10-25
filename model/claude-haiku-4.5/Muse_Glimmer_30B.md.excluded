@@ -1,0 +1,83 @@
+# Claude Haiku 4.5 — findings by Muse Glimmer 30B
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Anthropic/Claude Haiku 4.5, e.g. Anthropic `claude-haiku-4-5-20251001`
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Haiku 4.5
+- **Short description:** Anthropic's small, fast Haiku-class model released October 2025. Positioned as a cost-efficient coding and agent workhorse; marketed as matching Sonnet 4 performance on coding/computer use with ~1/3 cost and >2x speed. Legacy model; successor is Claude Haiku 5.5.
+- **Provider / access:** Anthropic Claude Messages API `claude-haiku-4-5-20251001` alias `claude-haiku-4-5`; Amazon Bedrock `anthropic.claude-haiku-4-5`; Google Cloud Vertex `claude-haiku-4-5@20251001`; Microsoft Foundry. Chat Completions style Messages API with tool use and extended thinking.
+- **Release / knowledge:** 2025-10-15 release; reliable knowledge cutoff Feb 2025, training data cutoff Jul 2025
+- **IDs:** `anthropic/claude-haiku-4-5-20251001` ; alias `claude-haiku-4-5`. No free tier ID on Zen.
+- **Context window:** 200K tokens total; max output 64K tokens. Verified from platform docs https://platform.claude.com/docs/en/models/haiku-4-5/overview
+- **Modalities:** Text and images input → text output; reasoning yes via manual extended thinking budget_tokens; tool use yes; JSON mode supported via Messages API
+- **Pricing (as of 2026-10-25):** $1 / MTok input, $5 / MTok output; 5m cache write $1.25 / MTok, 1h cache write $2 / MTok, cache read $0.10 / MTok; Batch API 50% discount. Paid; no free tier.
+- **Architecture:** Proprietary; parameters not disclosed; not open-weights
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: 40.21% without thinking (6 runs), 41.75% with 32K thinking budget (5 runs) (Anthropic news claude-haiku-4-5 footnotes, Terminus 2 framework, XML parser, n-attempts=1)
+- Tau2-Bench: no verified public score found; Anthropic notes scores achieved with extended thinking 128k budget but numeric not published
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: 73.3% (Anthropic news Introducing Claude Haiku 4.5, averaged over 50 trials, no test-time compute, 128K thinking budget, default sampling, full 500-problem dataset)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported for Haiku 4.5; 200K window documented, no MRCR/RULER/GraphWalks public score found
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+
+- **Tool use: 42/100.** Terminal-Bench ~40-42% on default Terminus 2 scaffold caps the score; limited public agent scores and no independent tool-benchmark validation.
+- **Reasoning: 45/100.** No verified GPQA/HLE/LCR/CritPt public scores found; inference from coding strength and Anthropic marketing of near-Sonnet 4 performance, capped by lack of independent reasoning benchmarks.
+- **Context window: 55/100.** 200K token window with 64K max output is mid-tier per tier mapping; capped by smaller window vs 1M+ models and no long-context retrieval measurements.
+- **Multimodal: 35/100.** Input supports text + images, output text only; partial multimodal coverage, no audio/video. Above text-only floor of 15 but below full multi-modal models.
+- **Coding: 73/100.** SWE-bench Verified 73.3% from official release, one of the strongest Haiku-class coding results; capped by absence of independent LiveCodeBench/SciCode verification and no SWE-Pro data.
+- **Cost efficiency: 78/100.** $1/$5 per MTok is low for 2025-2026 frontier small models with 200K context; not free and successor Haiku 5.5 is 10x cheaper, limiting score.
+- **Overall Score: 50/100.** Mean of Tool 42, Reasoning 45, Context 55, Multimodal 35, Coding 73 = 50. Best-fit recommendation: high-volume sub-agent for coding/classification/routing under a larger orchestrator; not suitable for open-ended reasoning or long-horizon agents.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B** — 2026-10-25
+- Method: Public internet research; Anthropic news page, platform docs, Wikipedia; scores are normalized 1-100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---

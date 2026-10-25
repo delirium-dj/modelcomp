@@ -1,0 +1,76 @@
+# gpt-oss-120b-lite — findings by Muse Glimmer 30B
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact model/ID across independent authoritative checks. Per template SELF-EXCLUSION clause, this file is saved as notes only and carries NO scores — a fabricated number would drag the mean for every reader.
+
+- Source: OpenAI (`gpt-oss-120b-lite`) — **identity unverified / phantom**
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** gpt-oss-120b-lite
+- **Short description:** No model by this exact name exists in OpenAI's official GPT-OSS release or in public model catalogs. OpenAI shipped `gpt-oss-120b`, `gpt-oss-20b`, `gpt-oss-safeguard-120b`, `gpt-oss-safeguard-20b` under Apache 2.0 on 2025-08-05 / 2025-10-29. No "lite" variant of gpt-oss-120b is documented.
+- **Provider / access:** none verified. No OpenAI route, no gateway listing, no weights repo.
+- **Release / knowledge:** not found.
+- **IDs:** no verified exact `gpt-oss-120b-lite` ID found. OpenRouter lists `openai/gpt-oss-120b` and `openai/gpt-oss-20b` only.
+- **Context window:** not verifiable — no model to measure. Real `gpt-oss-120b` is 131,072 tokens per official model card.
+- **Modalities:** not verifiable.
+- **Pricing (as of 2026-10-25):** not verifiable.
+- **Architecture:** not verifiable. Real `gpt-oss-120b` is 117B total / 5.1B active MoE, MXFP4 quantized, Apache 2.0.
+
+### Raw benchmarks found
+
+> List measured numbers with source for traceability. All entries below are no verified public score found.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found
+
+### Verification trail — three independent checks
+
+1. **OpenRouter OpenAI catalog** `https://openrouter.ai/openai`: gpt-oss entries are `openai/gpt-oss-120b`, `openai/gpt-oss-20b`, `openai/gpt-oss-safeguard-20b`. No `gpt-oss-120b-lite`. Source: OpenRouter model index page 2026-10-25.
+2. **Hugging Face model search** `https://huggingface.co/models?search=gpt-oss-120b-lite`: 0 results — "No results found." Direct repo paths `openai/gpt-oss-120b-lite` return 401/not found. Source: Hugging Face search page 2026-10-25.
+3. **Artificial Analysis** `https://artificialanalysis.ai/models/gpt-oss-120b-lite`: 404. Source: Artificial Analysis URL test 2026-10-25.
+
+Conflict / resolution: all three agree independently that nothing exists under this name. No conflicting sources found.
+
+Closest real models: `gpt-oss-120b` (real 117B-class open-weights flagship, 131,072 ctx) and `gpt-oss-20b` (the genuinely smaller real sibling). Research for those belongs in `model/gpt-oss-120b/` and `model/gpt-oss-20b/`.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public data exists for this exact model/ID, so no quality dimension can be scored without inventing data.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Method: public internet research across OpenRouter, Hugging Face, Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

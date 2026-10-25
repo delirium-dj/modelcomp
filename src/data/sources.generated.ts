@@ -97,7 +97,11 @@ export type SourceKey =
   | "Comprehensive Summary"
   | "Independent Benchmark Research"
   | "Independent AI Research"
-  | "Flint";
+  | "Flint"
+  | "Inkling"
+  | "Xing 4.0 29B A4B"
+  | "Gemini 4 Argon"
+  | "Xing 4.0 29b a4b.md";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -206,4 +210,8 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Independent Benchmark Research", label: "Independent Benchmark Research", file: "Independent_Benchmark_Research.md" },
   { key: "Independent AI Research", label: "Independent AI Research", file: "Independent_AI_Research.md" },
   { key: "Flint", label: "Flint", file: "Flint.md" },
+  { key: "Inkling", label: "Inkling", file: "Inkling.md", slug: "Inkling" },
+  { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
+  { key: "Gemini 4 Argon", label: "Gemini 4 Argon", file: "Gemini_4_Argon.md", slug: "gemini-4-argon" },
+  { key: "Xing 4.0 29b a4b.md", label: "Xing 4.0 29b a4b.md", file: "Xing_4.0_29b_a4b.md.md" },
 ];

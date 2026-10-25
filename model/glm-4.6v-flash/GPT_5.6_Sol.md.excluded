@@ -1,0 +1,38 @@
+# GLM-4.6V-Flash — excluded findings by GPT-5.6 Sol
+
+- Source: Z.ai/GLM-4.6V-Flash
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6V-Flash
+- **Short description:** Z.ai's open-weight 9B visual-language model for multimodal documents, frontend replication, visual editing, and visual tool use.
+- **Provider / access:** `zai-org/GLM-4.6V-Flash` on Hugging Face; `glm-4.6v-flash` on Z.ai.
+- **Release / knowledge:** Released 2025-12-08; no knowledge cutoff found.
+- **IDs:** `zai-org/GLM-4.6V-Flash`; `glm-4.6v-flash`.
+- **Context window:** 128K trained context; provider records range from 128K to 200K.
+- **Modalities:** Text, image, video, and PDF input by provider; text output; native multimodal function calling.
+- **Pricing (as of 2026-10-25):** Z.ai catalogs a free route; paid hosts vary.
+- **Architecture:** MIT open weights; 9B model in the GLM-V family.
+
+### Raw benchmarks found
+
+- The exact model card links a benchmark image but exposes no machine-readable numeric values; no exact numeric agent, reasoning, coding, or retrieval score was independently verified.
+
+### Cross-source comparison
+
+- Three exact searches and direct Z.ai, Hugging Face, provider, Artificial Analysis, and BenchLM checks verified identity/specifications but yielded zero transcribable exact-model benchmark numbers.
+
+### Exclusion decision
+
+The mandatory zero-numeric-evidence rule requires `.md.excluded`; no scores are inferred from claims or images.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct vendor/model-card checks.
+- Future sources: add a fresh file when numeric results become accessible.

@@ -1,0 +1,38 @@
+# Omi Alpha — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/Omi Alpha
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Omi Alpha (unverified identity)
+- **Short description:** No unique public vendor model, exact route, model card, or technical release could be resolved for this alpha name.
+- **Provider / access:** No verified endpoint found.
+- **Release / knowledge:** No verified dates found.
+- **IDs:** No verified exact ID.
+- **Context window:** No exact specification found.
+- **Modalities:** No exact specification found.
+- **Pricing (as of 2026-10-25):** No exact price found.
+- **Architecture:** No exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public exact-model score found.
+
+### Cross-source comparison
+
+- Three exact-name searches and OpenRouter, models.dev, Hugging Face, AA, and BenchLM checks did not resolve an authoritative identity; similarly named projects were rejected.
+
+### Exclusion decision
+
+Zero exact-model benchmark numbers and unresolved identity require exclusion.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct catalog checks.
+- Future sources: add a fresh file when the alpha identity is disclosed.

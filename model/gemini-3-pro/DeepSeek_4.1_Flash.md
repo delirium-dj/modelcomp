@@ -1,11 +1,16 @@
 # Gemini 3 Pro — findings by DeepSeek 4.1 Flash
 
 - Source: Google DeepMind / Gemini 3 Pro (`gemini-3-pro`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`gemini-3-pro`, 27 rows) computes an overall **61.17/100 (#54 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`gemini-3-pro`) re-read on 2026-10-23 carries **41 source-displayable rows** (was 27 on 2026-10-18) and computes **61.13/100, #53 of 992** (was #54 of 228). Newly captured: **AA LiveCodeBench 91.7%**, **MMMU 87.2%**, VideoMMMU 87.6%, Video-MME 88.4% / 87.7%, OmniDocBench 1.5 88.5%, MathVision 86.6%, AI2D 94.1%, CountBench 97.3%, RefCOCO 84.1%, ERQA 70.5%, CharXiv 81.4%, V* 88.0%, ScreenSpot Pro 72.7%, AA-MMMU-Pro 80.2%, MMLongBench-Doc 60.5%, ODINW13 46.3%; Reasoning AA-LCR 76.0%, CritPt 9.1%, ARC-AGI-1 75.0%, **ARC-AGI-2 31.1%**; Knowledge **AA Intelligence Index 28.0%**, **AA-GPQA 90.8%**, AA-HLE 39.7%, **AA-Omniscience index 15.3 / accuracy 55.8% / hallucination 91.5%**, AA MMLU-Pro 89.8%, AA-IFBench 70.4%, AA Global-MMLU-Lite 92.2%, Gert Labs 63.23%, JobBench 11.4%.
+> **Refreshed / conflicts:** AA-LiveCodeBench 91.7% is higher than the Vals LiveCodeBench 86.41% the launch file cited (Lite/Pro harness difference); **AA-Omniscience hallucination 91.5%** remains extreme. BenchLM still mislists a **2M** context window (2M belongs to Gemini 3.1 Pro) — the sourced 1M figure stands. The deprecated/estimated AA Index and bimodal-coding caveats stand.
+> **No material score change:** the added rows confirm the strong-multimodal / generational-coding profile, so scores are held.
+> Sources this pass: https://benchlm.ai/models/gemini-3-pro · https://artificialanalysis.ai/models/gemini-3-pro · https://arcprize.org/leaderboard · https://www.vals.ai/models/google_gemini-3-pro-preview · https://deepmind.google/models/gemini/pro/
+
+> **Re-verified 2026-10-18.** BenchLM (`gemini-3-pro`, 27 rows) computed an overall **61.17/100 (#54 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: Vals AI GPQA Diamond **91.67%**, MMLU-Pro 90.10%, SWE-bench Verified **76.40%**, Terminal-Bench 2.0 55.06%, LiveCodeBench 86.41%, MMMU-Pro 87.51%, LegalBench 87.03% (#6/149), SAGE 47.62%, MortgageTax 69.08% (#7), τ²-bench ~87%, **Vibe Code Bench v1.1 14.30% (#86/110)**. Google/self: GPQA 91.9%, HLE 37.5% no-tools, SWE-bench Verified 76.2%, MMMU-Pro 81%, Video-MMMU 87.6%, LMArena ~1501 Elo, TB2.0 54.2%, SWE-bench Pro 43.3%, ARC-AGI-1 75% / ARC-AGI-2 31.1%, AIME 2025 95%, 5/6 IMO 2025. Artificial Analysis: Intelligence Index **28 (deprecated/estimated)**, GPQA 90.8%, HLE 39.7%, MMLU-Pro ~90%, AA-LCR 76.0%, τ² 87.1%, Omniscience Accuracy 55.8% / Hallucination 91.5%. BenchLM 59.42 (#~22); context billed $2/$12 (≤200K), $4/$18 (>200K), $0.20 cached, Batch 50%.
@@ -62,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Google DeepMind Gemini 3 model card + blog, Vals AI model page, Artificial Analysis model page, CloudPrice, AI Wiki, ModHub). Independent Vals/AA rows were promoted over the mix of official and unverified rows; the deprecated-index, GPQA-outlier, context-2M and bimodal-coding conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

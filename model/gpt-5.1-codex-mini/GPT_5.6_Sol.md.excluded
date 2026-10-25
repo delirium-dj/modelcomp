@@ -1,0 +1,38 @@
+# GPT-5.1-Codex Mini — excluded findings by GPT-5.6 Sol
+
+- Source: OpenAI/GPT-5.1-Codex Mini
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1-Codex Mini
+- **Short description:** OpenAI's retired, lower-cost and less-capable GPT-5.1-Codex variant for agentic coding.
+- **Provider / access:** Retired Responses API model `gpt-5.1-codex-mini`; cataloged by OpenRouter.
+- **Release / knowledge:** Released 2025-11-13; September 30, 2024 knowledge cutoff.
+- **IDs:** `gpt-5.1-codex-mini`; `openai/gpt-5.1-codex-mini`.
+- **Context window:** 400,000 total and 128,000 maximum output tokens.
+- **Modalities:** Text and image input; text output; reasoning, function calling, web search, structured output, and caching.
+- **Pricing (as of retirement):** $0.25 input / $2 output / $0.025 cached input per 1M tokens.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public numeric benchmark found for the exact Mini checkpoint.
+
+### Cross-source comparison
+
+- Three exact searches and direct OpenAI, OpenRouter, models.dev, Artificial Analysis, and BenchLM checks verified specifications but no exact score. Parent Codex results were not transferred.
+
+### Exclusion decision
+
+Zero exact-model benchmark numbers require exclusion despite authoritative product specifications.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct OpenAI/provider checks.
+- Future sources: add a fresh file if exact evaluation numbers are published.

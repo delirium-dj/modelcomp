@@ -1,0 +1,70 @@
+# Exo Free — findings by Muse Glimmer 30B
+
+- Source: OpenCode / exo-free (anonymous Zen route)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** Anonymous limited-time free route on OpenCode Zen billed as a reasoning model with ~1M context, image input and tool use. Provider gives no official model card; community fingerprint probing reports a 99.4% match to Claude Opus 5.5, but the vendor confirms no identity and the fingerprint is closed-set and disputed.
+- **Provider / access:** OpenCode Zen `opencode/exo-free`. OpenAI-compatible Chat Completions via `https://opencode.ai/zen/v1/chat/completions`. Model ID `exo-free`.
+- **Release / knowledge:** First observed 2026-10-06 ~22:30 UTC; virally reported 2026-10-07. Knowledge cutoff not disclosed.
+- **IDs:** `opencode/exo-free` / `exo-free`
+- **Context window:** 1,048,576 tokens total, max output 131,072 tokens. Reported consistently by Pi/dev aggregators and community trackers; not officially confirmed in vendor docs.
+- **Modalities:** Input text + image; output text. Reasoning yes (reported fixed high effort), tool calls yes, attachments supported. No verified audio/video.
+- **Pricing (as of 2026-10-25):** $0 input / $0 output / $0 cached. Free limited time with no end date announced. Prompts may be used for training; no zero-data-retention guarantee. Frequent `Endpoint is unavailable` / 429s reported under load.
+- **Architecture:** Undisclosed. No parameter count, license, or weights info. Anonymous lab.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers exist for the exact `exo-free` ID. Community anecdotes and fingerprint speculation are not measured benchmarks.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified long-context retrieval reported. 1M window is community-reported, not vendor-confirmed; no MRCR / RULER / GraphWalks numbers found.
+
+**Conflicting evidence noted:**
+- freeaiapi.org 2026-10-07 hands-on review reports lm.ikale.io fingerprint 99.4% match to Claude Opus 5.5 vs 0.4% to claude-fable-5.1, plus qualitative Blender/Pelican tests with no scores.
+- aipromonow.com 2026-10-... lists ~1M context, image input, tool use, $0 pricing, reasoning high, with no benchmark numbers.
+- aimodelapis.com lists context 1.0M, max output 131K, text+image in, text out, reasoning yes, tool use yes, pricing free, release Oct 6 2026, no benchmark data.
+- horizonlux.com notes data-retention warning and lack of API free tier, no performance rating.
+No source provides a verified public benchmark for the exact ID; fingerprint evidence is explicitly described as closed-set matching that cannot distinguish a model from a distillate or router.
+
+### Normalized scores (1–100)
+
+Excluded from scoring. No verified capability data exists for `exo-free`. Cost efficiency is trivially $0 but cannot justify an Overall without quality dimensions. Scores omitted per RULES.md self-exclusion.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Method: public internet research; three independent sources: Free AI API hands-on review 2026-10-07, AI Promo Now OpenCode Exo Free promo, AI Model APIs Exo Free API page, plus HorizonLux free model notes. Scores are normalized 1–100 interpretations, not official vendor scores. No verified benchmark numbers exist for this exact model/ID; file saved as `.md.excluded` per template self-exclusion rule.
+- Future sources: add a new file next to this one using the same headings.

@@ -1,0 +1,38 @@
+# GLM-4.6-Flash — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/GLM-4.6-Flash
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6-Flash (unverified exact identity)
+- **Short description:** No exact Z.ai release or current provider route was found; GLM-4.6 and GLM-4.6V-Flash are distinct nearby identities.
+- **Provider / access:** No verified exact endpoint found.
+- **Release / knowledge:** No verified exact-model dates found.
+- **IDs:** No verified exact ID.
+- **Context window:** No exact specification found.
+- **Modalities:** No exact specification found.
+- **Pricing (as of 2026-10-25):** No exact price found.
+- **Architecture:** No exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public score found for the exact Flash identity.
+
+### Cross-source comparison
+
+- Three exact searches and Z.ai, Hugging Face, OpenRouter, models.dev, AA, and BenchLM checks did not verify this exact SKU. Base GLM-4.6 and visual Flash evidence was not substituted.
+
+### Exclusion decision
+
+Zero exact-model benchmark numbers and no authoritative identity require exclusion.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct vendor/catalog checks.
+- Future sources: add a fresh file if Z.ai publishes an exact SKU.

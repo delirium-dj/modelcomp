@@ -1,11 +1,16 @@
 # Claude Fable 5.1 — findings by DeepSeek 4.1 Flash
 
 - Source: Anthropic / Claude Fable 5.1 (`anthropic/claude-fable-5.1`)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`claude-fable-5-1`, 34 rows) computes an overall **83.09/100 (#4 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`claude-fable-5-1`) re-read on 2026-10-23 carries **58 source-displayable rows** (was 34 on 2026-10-18) and computes **83.07/100, #4 of 992** (was #4 of 228). Newly captured: **AA Agentic Index 58.0%**, **AA Harvey LAB v1.0 93.0%**, GDPval-AA **1754 Elo / 62.7%**, AA-Briefcase 1672, aaTerminalBench21 **91.4%** / AA TB4.0 52.0%, AA Tau3-Banking 47.2%, AA AutomationBench 59.4%, ApprenticeBench 72%, AA ITBench 49.5%, OSWorld 2.0 41.7% strict, Toolathlon 77.8%, CWE-bench 58.0%, MazeBench 10%; Coding SWE-bench Pro 81.2%, SWE Multilingual 89.1%, SWE Multimodal 54.7%, DeepSWE 67.4%, FrontierSWE v2 56.3%, ProgramBench 87.6%, CursorBench 3.2 73.4% / 4.0 51.8%, SciCode 63.1%, LiveCodeBench 90.5%, AA Coding Index 81.6%, Bug Hunt 43.0 fixes, PostTrainBench 40.2%; Reasoning **ARC-AGI-2 90%**, **AA-LCR 85.3%**, CritPt 29.7%, MLCR-AA 71.1%, GraphWalks 65.0%; Knowledge HLE 65% (60.9% w/o tools), **AA Intelligence Index 53.4%**, **AA-GPQA 93.7%**, AA-HLE 59.1%, **AA-Omniscience index 43.5 / accuracy 67.2% / hallucination 72.6%**, MMLU-Pro 92.4%; FrontierMath v2 T1–3 90.175% / Tier-4 87.805%.
+> **Refreshed / conflicts:** the AA Index conflict is now anchored at **53.4** (BenchLM/AA) vs the 65.7 BenchmarkList aggregation, which remains inconsistent with AA's own page. **Hallucination rate 72.6%** is high. The OSWorld 2.0 safeguard-zero caveat and the third-party-only Verified row stand.
+> **No material score change:** the added rows confirm the top-tier agentic/coding profile, so scores are held.
+> Sources this pass: https://benchlm.ai/models/claude-fable-5-1 · https://artificialanalysis.ai/models/claude-fable-5-1 · https://www.vals.ai/models/anthropic_claude-fable-5-1 · https://epoch.ai/benchmarks/frontiermath-tier-4-v2 · https://www.anthropic.com/system-cards
+
+> **Re-verified 2026-10-18.** BenchLM (`claude-fable-5-1`, 34 rows) computed an overall **83.09/100 (#4 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Independently re-sourced this pass: GPQA Diamond **93.4%** (Vals), MMLU-Pro **92.4%** (Vals), HLE **65%** w/ tools / **60.9%** w/o tools, ARC-AGI-1 97.5%, ARC-AGI-2 **90%**, GraphWalks BFS 256K–1M 65.0%, MMMU-Pro 90.64%; SWE-bench Pro **81.2%**, SWE Multilingual 89.1%, SWE Multimodal 54.7%, LiveCodeBench **90.5%** (Vals), DeepSWE 67.4%, FrontierSWE v2 56.3%, ProgramBench 87.6%, CursorBench 3.2 73.4%, Terminal-Bench 2.1 **85.0%** (Vals), Terminal-Bench 4.0 55.8%, Terminal-Bench-Science 0.1 52.6%, OSWorld 2.0 **41.7% strict / 77.9% partial**, Toolathlon-Verified 77.8% Pass@1 / 81.5% Pass@3, ApprenticeBench 72%, GDPval-AA v2 **1853 Elo**, Vals Index 67.9%, BenchLM overall 82.64.
@@ -62,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Anthropic Fable page, llm-stats launch analysis, LiteLLM day-0 post, fable51.com benchmark collation, BenchLM SWE-bench Pro leaderboard). The AA-vs-BenchmarkList index conflict, the OSWorld safeguard-zero caveat and the Verified third-party-only row are surfaced; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

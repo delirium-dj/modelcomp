@@ -1,0 +1,38 @@
+# Qwen3.7-Flash — excluded findings by GPT-5.6 Sol
+
+- Source: Alibaba/Qwen3.7-Flash
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.7-Flash
+- **Short description:** A hosted Alibaba model present in provider metadata, but without an accessible exact-model benchmark report.
+- **Provider / access:** models.dev records `alibaba/qwen3.7-flash` through Vercel.
+- **Release / knowledge:** Catalog release date 2026-07-15; no knowledge cutoff found.
+- **IDs:** `alibaba/qwen3.7-flash`.
+- **Context window:** 991,000 tokens with 64,000 output in the catalog record.
+- **Modalities:** Text, image, and PDF input; text output.
+- **Pricing (as of 2026-10-25):** Tiered catalog rates from $0.03/$0.13 to $0.20/$0.80 per 1M tokens by context length.
+- **Architecture:** Proprietary hosted model; no exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public exact-model numeric score found.
+
+### Cross-source comparison
+
+- Three exact-name searches and Alibaba, provider, leaderboard, and model-card checks verified the route metadata but no exact benchmark figure. Qwen3.5 or Qwen3.7 sibling results were not transferred.
+
+### Exclusion decision
+
+The identity has catalog specifications but zero verified exact-model benchmark numbers; this report is excluded.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with three exact-name searches and direct provider/catalog checks.
+- Future sources: add a fresh findings file when an exact benchmark is published.

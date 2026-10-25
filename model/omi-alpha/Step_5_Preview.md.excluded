@@ -1,0 +1,87 @@
+# omi-alpha — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: no genuine AI model could be found under this slug across eight
+> independent authoritative checks — no model card, no weights repo, no API route, no
+> gateway listing, no usage-catalog record and no benchmark-tracker entry. Per the
+> template's SELF-EXCLUSION clause (`RULES.md`, `tasks/research.md` step 3.9) this file
+> is saved as notes only and carries NO scores. Scores here are intentionally absent.
+
+- Source: unknown (`omi-alpha`) — **identity unverified / no such model found**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Omi Alpha (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists in any authoritative source consulted. The most likely origin is a **one-off spelling corruption of `omen-alpha`**, which *is* a real stealth model (OpenCode Go, 2026-09-04, 500K context, vendor unconfirmed) — the two slugs differ by a single character and sit adjacent in this repo's roster.
+- **Provider / access:** none found.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (eight independent checks, all run 2026-10-24)
+
+1. **Artificial Analysis:** `https://artificialanalysis.ai/models/omi-alpha` returns **404** — no model page.
+2. **DuckDuckGo** for `"omi-alpha" model`: an exact-phrase open-web search returns **"No results found"** — nothing indexed anywhere under this name.
+3. **Hugging Face model search** (`https://huggingface.co/models?search=omi-alpha`): returns **"No results found"** — zero models, zero orgs.
+4. **OpenRouter full API catalog** (`https://openrouter.ai/api/v1/models`): the complete inventory was enumerated — **467 models, `total_count: 467`, `next: null`** (so this is exhaustive, not a page-one sample). Of the 30 substring matches for "omi", **every one is a Xiaomi MiMo slug or the word "omnimodal"**. There is no standalone `omi` or `omi-alpha` model ID anywhere in OpenRouter's entire catalog.
+5. **models.dev canonical table:** searched for any lab or model named "Omi" — **no match**. The only substring hits are Xiaomi MiMo entries. (For contrast, `qwen3.8-omni-flash` exists but is "omni", unrelated.)
+6. **OpenCode Zen docs** (`https://opencode.ai/docs/zen`): the full endpoint table, the full per-1M pricing table, and the stealth/free-models sections were all read. **No "Omi" or "omi-alpha" anywhere.** The only explicitly stealth model on Zen is **Big Pickle**; the free models are GLM-5.3-Flash Free, DeepSeek V4.1 Flash Free, Beam Free, Flint 40B Free, MiMo-V2.6-Flash Free, the three Nemotron Free tiers, and Jev 1.13 Free.
+7. **Bing** for `"omi-alpha" LLM OR model OR stealth`: returned only irrelevant Wikipedia homepage spam; **zero relevant hits** for the exact string.
+8. **OpenCode usage-data catalog** (`https://opencode.ai/data/`): the page and its tables (top-18 at 7d and 1d, daily tables, retention, labs) were checked. **No omi-alpha** appears. The sole unknown-lab entry currently listed is **`iceman`** (617B tokens/7d, 183B/day, status "New"). Notably, **`omen-alpha` itself no longer appears** in the current top tables — it was withdrawn after its limited window and only partially restored, which is consistent with the stealth-route lifecycle documented in `model/omen-alpha/`.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found — all eight agree independently that nothing exists under this name.
+- **The exhaustive OpenRouter check is the strongest single piece of evidence**: a full 467-model inventory with a null `next` cursor rules out pagination as an explanation, so the absence is definitive rather than a sampling artifact.
+- **Most likely origin — a spelling corruption of a real sibling.** `omen-alpha` is a verified-real stealth model (OpenCode Go, released 2026-09-04, 500K context / 128K output, text+image in, reasoning, vendor unconfirmed — see `model/omen-alpha/`). The two slugs differ by one character and sit adjacent in this roster, which makes a one-off Levenshtein error the most plausible explanation for this folder. Nothing was merged or renamed on the strength of that inference — it is recorded as a hypothesis, not acted on, because `RULES.md` requires per-instance user sign-off for slug merges.
+- Closest real model for anyone who needs a substitute: **`omen-alpha`**, already researched (and self-excluded on zero benchmarks) in this pass. Its own evidence base is thin — no benchmark-tracker entry and an unconfirmed vendor — but it is real, whereas this slug is not.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 52, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Batch note:** this is the twelfth phantom slug found in this queue, and the second (`neomorph`, `owo-2.5` being the others) where the *word itself* is common outside AI. It is also the first whose most probable origin is a single-character corruption of a real sibling slug, which is a distinct failure mode from the suffix-transplant phantoms (`gpt-oss-120b-lite`, `qwen-3.5-flash-lite`, `glm-4.6-flash`) and the invented-number phantoms (`qwen-3.8-325b`, `claude-opus-4.4`).
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No model could be identified, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across eight independent checks (Artificial Analysis URL test, an exact-phrase DuckDuckGo search, a Hugging Face model search, an exhaustive OpenRouter API-catalog enumeration, a models.dev canonical-table search, OpenCode Zen's full endpoint/pricing/stealth tables, a Bing search, and the OpenCode usage-data catalog), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — no genuine AI model could be found under this slug in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

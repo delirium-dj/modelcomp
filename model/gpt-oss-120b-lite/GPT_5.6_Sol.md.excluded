@@ -1,0 +1,38 @@
+# GPT-OSS-120B-Lite — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/GPT-OSS-120B-Lite
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-OSS-120B-Lite (unverified distinct identity)
+- **Short description:** No authoritative OpenAI checkpoint or provider route was found for a distinct `-lite` model; the published GPT-OSS-120B model is a different tracked identity.
+- **Provider / access:** No verified exact endpoint found.
+- **Release / knowledge:** No verified exact-model dates found.
+- **IDs:** No verified exact ID.
+- **Context window:** No exact specification found.
+- **Modalities:** No exact specification found.
+- **Pricing (as of 2026-10-25):** No exact price found.
+- **Architecture:** No distinct exact architecture found.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified score for an exact Lite checkpoint.
+
+### Cross-source comparison
+
+- Three searches and OpenAI, Hugging Face, OpenRouter, models.dev, AA, and BenchLM checks found the base 120B model but no distinct Lite identity; base results were not copied.
+
+### Exclusion decision
+
+No authoritative exact identity and zero exact-model benchmark numbers require exclusion.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct vendor/catalog checks.
+- Future sources: add a fresh file only if a distinct Lite model is documented.

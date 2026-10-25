@@ -1,0 +1,38 @@
+# Flint — excluded findings by GPT-5.6 Sol
+
+- Source: Recursive/Flint v1.0
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Flint v1.0 / Flint 40B Free
+- **Short description:** A free text model served by Recursive through OpenRouter and by OpenCode under a 40B label, without a public technical benchmark report.
+- **Provider / access:** `recursive/flint-v1.0:free` on OpenRouter; `flint-40b-free` on OpenCode.
+- **Release / knowledge:** Provider release date 2026-10-21; no knowledge cutoff found.
+- **IDs:** `recursive/flint-v1.0:free`; `flint-40b-free`.
+- **Context window:** 262,144 tokens; provider output limits range from 65,536 to 235,929.
+- **Modalities:** Text input and output.
+- **Pricing (as of 2026-10-25):** $0/$0 on the verified free routes.
+- **Architecture:** Provider naming suggests 40B, but no authoritative weight or architecture disclosure was verified.
+
+### Raw benchmarks found
+
+- Agent / reasoning / coding / long context: no verified public exact-model numeric score found.
+
+### Cross-source comparison
+
+- Three exact searches and OpenRouter, OpenCode/models.dev, Hugging Face, AA, and BenchLM checks verified route metadata only.
+
+### Exclusion decision
+
+Zero exact-model benchmark numbers require `.md.excluded` and no normalized scores.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-25
+- Method: independent public internet research with exact-name searches and direct provider checks.
+- Future sources: add a fresh file if Recursive publishes exact evaluations.

@@ -1,11 +1,16 @@
 # Muse Spark 1.2 — findings by DeepSeek 4.1 Flash
 
 - Source: Meta / Muse Spark 1.2 (`meta/muse-spark-1.2`; Contributor is the same weights under different data terms)
-- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18
+- Date: 2026-10-16 (UTC) — rewrite pass (previous Signature 2026-10-09); re-verified 2026-10-18; enriched 2026-10-24
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-> **Re-verified 2026-10-18.** BenchLM (`muse-spark-1-2`, 9 rows) computes an overall **65.87/100 (#34 of 228)** and re-confirms the prior pass. **No score change.**
+> **Enrichment pass — 2026-10-24** (second pass, user-approved). BenchLM (`muse-spark-1-2`) re-read on 2026-10-23/25 carries **24 source-displayable rows** (was 9 on 2026-10-18) and computes **65.98/100, #34 of 992** (was #34 of 228). Newly captured: GDPval-AA **1631 Elo / 48.6%** (AA), AA Agentic Index 44.0%, EnterpriseOps-Gym 47.3%, MazeBench 0%, AA-LCR 79.0%, CritPt 17.7%, **AA Intelligence Index 39.6%**, AA-GPQA 90.4%, AA-HLE 45.5%, **AA-Omniscience index 27.2 / accuracy 45.4% / hallucination 33.3%**, AA-SciCode 57.4%, MMLU-Pro 88.3%, Design Arena 1311.
+> **Refreshed / conflicts:** GDPval-AA 1631 Elo confirms the strong finance/agentic rows; FrontierSWE v2 12.0% and TB4.0/MazeBench remain the weak spots. The bimodal-coding, TB2.1 vendor/independent gap, Vals-index drift, modality-spread and output-cap conflicts stand.
+> **No material score change:** the added rows confirm the agentic-document profile, so scores are held.
+> Sources this pass: https://benchlm.ai/models/muse-spark-1-2 · https://artificialanalysis.ai/models/muse-spark-1-2 · https://developer.meta.com/ai/models/muse-spark/ · https://www.vals.ai/models/meta_muse_spark_1_2
+
+> **Re-verified 2026-10-18.** BenchLM (`muse-spark-1-2`, 9 rows) computed an overall **65.87/100 (#34 of 228)** and re-confirms the prior pass. **No score change.**
 
 > **Rewrite pass — 2026-10-16** (≥3 independent sources).
 > Re-sourced this pass. Independent Vals AI (Opus 4.7 comparison page + SkillsBench + Vals Index): **SWE-bench 86.60% (#14/88)**, Finance Agent v2 **60.60% (#3/76)**, **Harvey Legal Agent Bench 25.42% (#1/76)**, Vibe Code Bench v1.1 79.10%, MMMU-Pro **86.13%**, MMLU-Pro **88.28%**, Legal Research Bench 43.75%, MortgageTax 65.42%, Tax Agent Bench 56.86%, TaxEval v2 **80.38%**, SAGE 47.66%, Code Migration 29.95%, **Terminal-Bench 4.0 6.06%**, SkillsBench 53.04% (#17, $0.65/task), **Vals Index 49.29% (#31/45)**. Artificial Analysis: **Intelligence Index 40 (#58/227)**, Coding 72.2 (90th pct), GPQA 90.4 (94th pct), 325.2 t/s (#1), $0.97/index task. BenchLM: overall **65.81** (BenchAlign v5.8), Terminal-Bench 2.1 **82.9%** (Meta) / **69.7%** (Vals), DeepSWE 59.3%, VulcanBench v3 87.0%, FrontierSWE v2 12.0%. opencode.ai data + dev.meta.ai confirm **1M ctx, 131K out, release 2026-08-05, text+image+video+pdf+audio in, contributor $0.10/$0.20 ($0.002 cached), standard $1.25/$4.25**.
@@ -63,6 +68,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-24
 - Method: rewrite-pass public internet research (Meta developer/research blogs, Vals AI model + comparison + SkillsBench pages, Artificial Analysis model page, BenchLM comparison page, LLM Stats, opencode.ai data, codersera). Independent Vals/AA rows were separated from Meta's vendor charts; the bimodal coding split, Terminal-Bench 2.1 vendor/independent gap, Vals-index drift, modality spread, output-cap and pricing conflicts are surfaced. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

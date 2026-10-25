@@ -1,0 +1,35 @@
+# DeepSeek V4 Vision Exp — findings by Flint
+
+- Source: DeepSeek / DeepSeek V4 Vision Exp
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4 Vision Exp
+- **Short description:** DeepSeek's experimental vision variant of the V4 family; positioned for multimodal/agentic evaluation.
+- **Provider / access:** DeepSeek API (platform.deepseek.com, api-docs.deepseek.com), DeepSeek official.
+- **Release / knowledge:** Release date not verified; V4 family context ~1M per DeepSeek materials.
+- **IDs:** `DeepSeek-V4-Vision-Exp` (API naming per DeepSeek).
+- **Context window:** not verified.
+- **Modalities:** image in; text out (vision).
+- **Pricing (as of 2026-10-25):** not verified.
+
+### Raw benchmarks found
+
+- no verified public score found
+
+### Cross-source comparison
+
+- Official DeepSeek coverage vs independent coverage: DeepSeek official materials reviewed; independent Epoch AI coverage for the Vision Exp ID was not found.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for this model; no scored file written.
+
+## Signature
+
+- Provided by: **Flint (opencode/flint)** — 2026-10-25
+- Method: public web research prioritizing official model docs (DeepSeek) plus independent benchmarks/reviews (Epoch AI, OpenRouter).
+- Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
