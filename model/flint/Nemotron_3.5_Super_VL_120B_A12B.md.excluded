@@ -1,42 +1,47 @@
-# Flint — findings by Nemotron 3.5 Super VL 120B A12B
+# Recursive Flint — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: temperature2.com (benchmark lookup, not found), benchgap.net (benchmark lookup, not found), artificialanalysis.ai (benchmark lookup, not found), benchmarklist.com (benchmark lookup, not found), modelbenchmark.io (benchmark lookup, not found), modelcompare.dev (benchmark lookup, not found)
-- Date: 2026-10-20 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: Recursive Superintelligence (flint)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
-- **Name:** Flint
-- **Short description:** Flint; no verified public information found beyond the model name in the model-queue; provider, capabilities, and specifications unknown.
-- **Provider / access:** Unknown; not confirmed.
-- **Release / knowledge:** Unknown.
-- **IDs:** `flint` (model-queue slug). No Free ID confirmed on OpenCode Zen.
-- **Context window:** Unknown — not found in any source checked.
-- **Modalities:** Unknown — not found in any source checked.
-- **Pricing (as of 2026-10-20):** Unknown — not found in any source checked.
-- **Architecture:** Unknown — not found in any source checked.
+- **Name:** Recursive Flint
+- **Short description:** Open-weight mixture-of-experts model built for fast agentic coding on local hardware; 40B total / ~2.5B active parameters per token.
+- **Provider / access:** Hugging Face (`RecursiveSI/flint`, `RecursiveSI/flint-nvfp4-gguf`), llama.cpp, Ollama, Unsloth, LM Studio, vLLM, SGLang, Recursive's `rec` inference engine. Apache 2.0 license.
+- **Release / knowledge:** Released 2026-10-21. Knowledge cutoff not stated.
+- **IDs:** `RecursiveSI/flint` (HF).
+- **Context window:** Up to 512k tokens (vendor); 262,144 tokens (vLLM/FreshContext); recommends staying within 256k for best results.
+- **Modalities:** Text in; text out. Reasoning model (emits GLM-4.7-style tool calls and thinking blocks). Tool calling supported.
+- **Pricing (as of 2026-10-25):** Open weights (Apache 2.0, self-hosted; no per-token API pricing found).
+- **Architecture:** 40B total / ~2.5B active MoE; 49-layer pre-norm MoE, hidden size 2048, 256 experts (sigmoid top-6 + shared expert), 35 sliding-window layers (window 513) + 14 full-attention layers, 4 KV heads, GQA with 32 query heads. NVFP4 quantized checkpoint (GGUF) alongside BF16. Built with Recursive's Eureka Machine automated research system.
 
 ### Raw benchmarks found
 
-No information found in any source checked. No model card, no benchmark scores, no specifications, no pricing, no modalities.
+- SWE-bench Verified: **74.2%** measured (recursive.com release evals, benchgap measured, MindStudio, FreshContext)
+- SWE-bench Pro v2: **89.7%** measured (recursive.com, MindStudio, FreshContext) vs **51.9%** estimated ±4.6 pp (benchgap) — major conflict between vendor-measured and model-estimated scores
+- Terminal-Bench 2.1: **54.9%** measured (recursive.com, benchgap measured, MindStudio, FreshContext)
+- LiveCodeBench v6: **80.3%** measured (benchgap); vendor mentions it in average but no specific number
+- IFBench: **89.2%** measured (benchgap); vendor mentions in average
+- IFEval: **95.1%** measured (benchgap); vendor mentions in average
+- SciCode: **45.4%** estimated ±3.4 pp (benchgap); AA-SciCode **45.7%** estimated ±3.9 pp
+- AA Coding Index: **48.3%** estimated ±5.3 pp (benchgap)
+- FreshContext own tests: screening 98.3%, grounding 77.6%, nullschema 70.8%, toolcall 55.0%, toolscale 95.0%, contract 60.4%, needle 60.0%
+- Speed: 125+ tok/s on M4 Pro MacBook Pro, 150+ tok/s on RTX Spark (vendor); ~500 tok/s on GB200, 485 tok/s batch-1 at 100K context (vLLM); 74.2 t/s single-stream decode (FreshContext)
 
 ### Normalized scores (1–100)
 
-All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
-
-- **Tool use: insufficient evidence.** No information found.
-- **Reasoning: insufficient evidence.** No information found.
-- **Context window: insufficient evidence.** No information found.
-- **Multimodal: insufficient evidence.** No information found.
-- **Coding: insufficient evidence.** No information found.
-- **Cost efficiency: not scored** (per formula).
-- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
-
----
+- Tool use: **78/100.** Strong tool-calling suite (toolscale 95%, toolcall 55% in FreshContext); emits GLM-4.7-style tool calls; capped by low unprompted tool invocation (2/12 when tool holds answer).
+- Reasoning: **82/100.** Strong coding reasoning (SWE-bench Verified 74.2%, SWE-bench Pro v2 89.7%, Terminal-Bench 2.1 54.9%); SWE-bench Pro v2 conflict (89.7% vendor vs 51.9% benchgap estimate) tempers confidence.
+- Context window: **75/100.** 262K–512K tokens; FreshContext measured 26.4GB peak RSS at 64K context, fits on single consumer/prosumer GPU.
+- Multimodal: **15/100.** Text-only input/output (template minimum for text-only models).
+- Coding: **88/100.** Headline coding model; SWE-bench Verified 74.2%, SWE-bench Pro v2 89.7%, LiveCodeBench v6 80.3%; leads sub-50B MoE models on agentic coding benchmarks per vendor.
+- Cost efficiency: **85/100.** Apache 2.0 open weights (free to self-host), ~2.5B active params enables fast local inference; BF16 checkpoint ~80GB requires substantial hardware.
+- **Overall Score: 81/100.** Half-up mean of the five non-cost dims; best-fit recommendation: local, self-hosted agentic coding agent where open weights and fast inference matter more than multimodal capability.
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
-- Method: public internet research (temperature2.com + benchgap.net + artificialanalysis.ai + benchmarklist.com + modelbenchmark.io + modelcompare.dev); zero information found for Flint beyond the model name — no numeric scores assigned due to insufficient evidence.
-- Future sources: if any information about Flint appears, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (official Recursive AI announcement; vLLM day-0 support blog; Hugging Face model card; benchgap independent benchmarks; MindStudio and FreshContext independent reviews); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

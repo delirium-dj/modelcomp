@@ -5,13 +5,13 @@
 
 ## Averaged scores
 
-- **Tool use: 76/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Reasoning: 76.1/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Context window: 79.4/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Multimodal: 71.6/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Coding: 79.9/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Cost efficiency: 66.3/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 76.7/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 76.4/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 76.5/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 79.6/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 71.9/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 80.3/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 66.1/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 77/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 

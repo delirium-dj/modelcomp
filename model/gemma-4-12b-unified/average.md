@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 67.3/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 72.4/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 71.9/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 80.1/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 68.9/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 93/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 72/100.** Mean of 7 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 68/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 73.1/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 72.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 81.1/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 69.6/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 93.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 72.8/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 7 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.8 Flash, Step 5 Preview.
-- Average from top 7 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.8 Flash, Step 5 Preview.
+- Based on 8 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.8 Flash, Step 5 Preview.
+- Average from top 8 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.8 Flash, Step 5 Preview.
 - Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, Muse Glimmer 30B.

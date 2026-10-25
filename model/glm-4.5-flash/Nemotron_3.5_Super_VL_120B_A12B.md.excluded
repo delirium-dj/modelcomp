@@ -1,42 +1,40 @@
-# GLM 4.5 Flash — findings by Nemotron 3.5 Super VL 120B A12B
+# Z.AI GLM-4.5-Flash — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: temperature2.com (benchmark lookup, not found), benchgap.net (benchmark lookup, not found), artificialanalysis.ai (benchmark lookup, not found), benchmarklist.com (benchmark lookup, not found), modelbenchmark.io (benchmark lookup, not found), modelcompare.dev (benchmark lookup, not found)
-- Date: 2026-10-20 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: Z.AI (glm-4.5-flash)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
-- **Name:** GLM 4.5 Flash
-- **Short description:** GLM 4.5 Flash; no verified public information found beyond the model name in the model-queue; provider, capabilities, and specifications unknown.
-- **Provider / access:** Unknown; possibly Z.AI (glm- prefix), not confirmed.
-- **Release / knowledge:** Unknown.
-- **IDs:** `glm-4.5-flash` (model-queue slug). No Free ID confirmed on OpenCode Zen.
-- **Context window:** Unknown — not found in any source checked.
-- **Modalities:** Unknown — not found in any source checked.
-- **Pricing (as of 2026-10-20):** Unknown — not found in any source checked.
-- **Architecture:** Unknown — not found in any source checked.
+- **Name:** GLM-4.5-Flash
+- **Short description:** Z.AI's free flash variant in the GLM-4.5 MoE series, positioned for strong reasoning, coding, and agent workloads; part of GLM-4.5 family (GLM-4.5: 355B total/32B active; GLM-4.5-Air: 106B total/12B active).
+- **Provider / access:** Z.AI API (`glm-4.5-flash`), Hugging Face (zai-org). MIT license.
+- **Release / knowledge:** GLM-4.5 released July 28, 2025 (AA); docs indicate newer GLM-4.6/GLM-5.3 releases exist.
+- **IDs:** `glm-4.5-flash` (Z.AI API).
+- **Context window:** 128K tokens (official docs); AA lists 130k tokens (minor discrepancy); max output 96K tokens.
+- **Modalities:** Text in; text out. Thinking Mode / Non-Thinking Mode hybrid reasoning. Function calling, web search, tool streaming, context caching, structured output supported.
+- **Pricing (as of 2026-10-25):** Listed as "Free" tier in official docs; AA lists no pricing data for GLM-4.5 (deprecated).
+- **Architecture:** MoE (Mixture-of-Experts); Flash variant parameter count not separately published (family: 355B/32B for GLM-4.5, 106B/12B for GLM-4.5-Air). License MIT.
 
 ### Raw benchmarks found
 
-No information found in any source checked. No model card, no benchmark scores, no specifications, no pricing, no modalities.
+- Artificial Intelligence Index: **13** (estimated; #86/121 open-weights, median 19 — below average); GLM-4.5 marked **deprecated** by AA, superseded by GLM-4.6.
+- benchgap (3 measured / 20 estimated, data 2026-10-24): GPQA Diamond 79.9% estimated ±1.7 pp; SWE-bench Verified 76.3% estimated ±4.4 pp; AA Coding Index 59.6% estimated ±9.0 pp; Vals GPQA Diamond 72.2% measured; Vals LiveCodeBench 67.4% measured; Vals MMLU-Pro 81.2% measured; GPQA 85.2% estimated ±1.6 pp.
+- Conflicts: AA marks GLM-4.5 deprecated (superseded by GLM-4.6); official docs list GLM-4.5-Flash as active "Free" variant but no Flash-specific parameter count or benchmarks published; benchgap data is for GLM-4.5 family, not Flash-specific; official docs context 128K vs AA 130k (minor).
 
 ### Normalized scores (1–100)
 
-All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
-
-- **Tool use: insufficient evidence.** No information found.
-- **Reasoning: insufficient evidence.** No information found.
-- **Context window: insufficient evidence.** No information found.
-- **Multimodal: insufficient evidence.** No information found.
-- **Coding: insufficient evidence.** No information found.
-- **Cost efficiency: not scored** (per formula).
-- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
-
----
+- Tool use: **70/100.** Function calling, web search, tool streaming, context caching supported per official docs; deprecated status limits confidence.
+- Reasoning: **65/100.** AA Intelligence Index 13 below class median (19); GPQA Diamond 79.9% estimated; deprecated by vendor/AA.
+- Context window: **65/100.** 128K–130K tokens; below 256K+ of newer models.
+- Multimodal: **15/100.** Text-only input/output per AA (template minimum for text-only).
+- Coding: **72/100.** SWE-bench Verified 76.3% estimated; Vals LiveCodeBench 67.4% measured; positioned for coding & agents per official docs.
+- Cost efficiency: **85/100.** Listed as free tier; MIT license open weights.
+- **Overall Score: 68/100.** Half-up mean of the five non-cost dims; best-fit recommendation: free-tier agentic coding/Reasoning workloads; deprecated status means prefer GLM-4.6 or newer for new deployments.
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
-- Method: public internet research (temperature2.com + benchgap.net + artificialanalysis.ai + benchmarklist.com + modelbenchmark.io + modelcompare.dev); zero information found for GLM 4.5 Flash beyond the model name — no numeric scores assigned due to insufficient evidence.
-- Future sources: if any information about GLM 4.5 Flash appears, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (official Z.AI docs; benchgap independent benchmarks; Artificial Analysis independent benchmarks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

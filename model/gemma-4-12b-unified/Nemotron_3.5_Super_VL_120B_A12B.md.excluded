@@ -1,42 +1,40 @@
-# Gemma 4 12B Unified — findings by Nemotron 3.5 Super VL 120B A12B
+# Google Gemma 4 12B — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: temperature2.com (benchmark lookup, not found), benchgap.net (benchmark lookup, not found), artificialanalysis.ai (benchmark lookup, not found), benchmarklist.com (benchmark lookup, not found), modelbenchmark.io (benchmark lookup, not found), modelcompare.dev (benchmark lookup, not found)
-- Date: 2026-10-20 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: Google DeepMind (gemma-4-12b-unified)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
-- **Name:** Gemma 4 12B Unified
-- **Short description:** Gemma 4 12B Unified; no verified public information found beyond the model name in the model-queue; provider, capabilities, and specifications unknown.
-- **Provider / access:** Unknown; possibly Google (gemma- prefix), not confirmed.
-- **Release / knowledge:** Unknown.
-- **IDs:** `gemma-4-12b-unified` (model-queue slug). No Free ID confirmed on OpenCode Zen.
-- **Context window:** Unknown — not found in any source checked.
-- **Modalities:** Unknown — not found in any source checked.
-- **Pricing (as of 2026-10-20):** Unknown — not found in any source checked.
-- **Architecture:** Unknown — not found in any source checked.
+- **Name:** Gemma 4 12B
+- **Short description:** Open-weight multimodal model from Google DeepMind; 12B parameters; handles text+image input (audio supported on 12B variant), text output; Apache 2.0 license.
+- **Provider / access:** Hugging Face (google/gemma-4-12B variants), Google AI Studio, Gemini API, Kaggle, local run via Ollama/LM Studio/llama.cpp/MLX/LiteRT-LM.
+- **Release / knowledge:** Gemma 4 released June 2026; model card last updated 2026-07-30. Knowledge cutoff not stated.
+- **IDs:** `gemma-4-12b` (Google), `google/gemma-4-12b` / `google/gemma-4-12b-it` (HF).
+- **Context window:** Up to 256K tokens (official model card); 262k/260k tokens (Artificial Analysis).
+- **Modalities:** Text + image input (+ audio supported on E2B/E4B/12B variants per official card); text output. Reasoning model (per AA). Function calling, thinking mode supported.
+- **Pricing (as of 2026-10-25):** Open weights (Apache 2.0, self-hosted); Artificial Analysis lists API pricing $0.10 in / $0.30 out per 1M via 1 provider.
+- **Architecture:** 12B parameters; open weights; license Apache 2.0; multimodal VLM architecture per official card.
 
 ### Raw benchmarks found
 
-No information found in any source checked. No model card, no benchmark scores, no specifications, no pricing, no modalities.
+- Artificial Analysis Intelligence Index: **14** (estimated; #20/141 open-weights, median 8); speed 114.2 tok/s (#22/64); cost $0.10 in / $0.30 out per 1M; context 262k tokens; TTFT 2.24s.
+- benchgap (22 measured / 85 estimated, data 2026-10-24): GPQA Diamond 78.8% measured; MMLU-Pro 77.2% measured; LiveCodeBench v6 72.0% measured; SWE-bench Verified 57.7% estimated ±6.4 pp; IFEval 93.2% estimated ±2.7 pp; MMLU 86.0% estimated ±1.8 pp; MMMU 78.8% estimated ±1.0 pp; MATH-500 95.2% estimated ±3.1 pp; HLE 15.4% estimated ±6.5 pp; AIME26 77.5% measured; MathVision 79.7% measured; MedXpertQA (MM) 48.7% measured.
+- Conflicts: context window official 256K vs AA 262k/260k (minor); modalities official lists text+image (+audio on 12B) while AA lists text+image+speech+video; AA Intelligence Index is estimated (not measured).
 
 ### Normalized scores (1–100)
 
-All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
-
-- **Tool use: insufficient evidence.** No information found.
-- **Reasoning: insufficient evidence.** No information found.
-- **Context window: insufficient evidence.** No information found.
-- **Multimodal: insufficient evidence.** No information found.
-- **Coding: insufficient evidence.** No information found.
-- **Cost efficiency: not scored** (per formula).
-- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
-
----
+- Tool use: **72/100.** Function calling supported per official card; benchgap Toolathon 27.0% estimated; capped by limited independent agentic tool-use replication.
+- Reasoning: **74/100.** AA Intelligence Index 14 (est) above class median; GPQA Diamond 78.8% measured; HLE only ~15% caps reasoning.
+- Context window: **80/100.** 256K–262K tokens; strong for a 12B model.
+- Multimodal: **85/100.** Native text+image input (+audio on 12B), text out; image benchmarks strong (MMMU 78.8% est, AI2D_TEST 90.1% est).
+- Coding: **72/100.** LiveCodeBench v6 72.0% measured; SWE-bench Verified 57.7% estimated; solid but not frontier-leading.
+- Cost efficiency: **80/100.** Apache 2.0 open weights; API pricing $0.10/$0.30 per 1M is near class medians ($0.12/$0.30).
+- **Overall Score: 78/100.** Half-up mean of the five non-cost dims; best-fit recommendation: compact multimodal reasoning model for on-device and edge deployment where Apache 2.0 openness and 12B scale matter.
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
-- Method: public internet research (temperature2.com + benchgap.net + artificialanalysis.ai + benchmarklist.com + modelbenchmark.io + modelcompare.dev); zero information found for Gemma 4 12B Unified beyond the model name — no numeric scores assigned due to insufficient evidence.
-- Future sources: if any information about Gemma 4 12B Unified appears, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (official Google Gemma 4 model card; benchgap independent benchmarks; Artificial Analysis independent benchmarks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

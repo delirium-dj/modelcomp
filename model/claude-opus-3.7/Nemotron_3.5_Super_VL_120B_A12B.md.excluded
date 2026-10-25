@@ -1,0 +1,38 @@
+# Anthropic Claude Opus 3.7 — negative findings by Nemotron 3.5 Super VL 120B A12B
+
+> Source: Anthropic (claude-opus-3.7)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Claude Opus 3.7
+- **Short description:** No verified public model by this ID exists. Anthropic's public model roster includes Claude 3.7 Sonnet, Claude Opus 4, Claude Opus 4.5, Claude Sonnet 5, Claude Sonnet 5.5 — but not "Claude Opus 3.7."
+- **Provider / access:** None — no public API ID, Hugging Face repo, or model card found for claude-opus-3.7.
+- **Release / knowledge:** N/A — model not found.
+- **IDs:** None found.
+- **Context window:** Not found.
+- **Modalities:** Not found.
+- **Pricing (as of 2026-10-25):** Not found.
+- **Architecture:** Not found.
+
+### Raw benchmarks found
+
+- No verified public benchmark numbers found for claude-opus-3.7 across Anthropic docs, benchgap, Artificial Analysis, or independent review sources. Searches returned results only for related models (Claude 3.7 Sonnet, Claude Opus 4.5, Claude Opus 4.7).
+
+### Normalized scores (1–100)
+
+- Tool use: not scored (no verified data)
+- Reasoning: not scored (no verified data)
+- Context window: not scored (no verified data)
+- Multimodal: not scored (no verified data)
+- Coding: not scored (no verified data)
+- Cost efficiency: not scored (no verified data)
+- **Overall Score:** not scored — SELF-EXCLUSION applies (zero verified public benchmarks)
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (Anthropic platform docs, benchgap, Artificial Analysis, general web); zero verified public benchmark numbers found for this exact model ID.
+- Future sources: add a new file next to this one using the same headings.

@@ -1,0 +1,41 @@
+# OpenAI GPT-5.2 Pro — findings by Nemotron 3.5 Super VL 120B A12B
+
+> Source: OpenAI (gpt-5.2-pro)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** GPT-5.2 Pro
+- **Short description:** OpenAI's previous pro model for complex professional work — "smarter and more precise responses"; proprietary multimodal model, Responses API only.
+- **Provider / access:** OpenAI API (`gpt-5.2-pro`, `gpt-5.2-pro-2025-12-11`), Responses API only. Proprietary.
+- **Release / knowledge:** Released December 11, 2025; knowledge cutoff Aug 31, 2025. Superseded by GPT-5.5 Pro per OpenAI docs.
+- **IDs:** `gpt-5.2-pro` (OpenAI API).
+- **Context window:** 400,000 tokens; max output 128,000 tokens.
+- **Modalities:** Text + image input; text output. Reasoning effort: medium, high, xhigh. Function calling, structured outputs (not supported), fine-tuning (not supported), batch API supported.
+- **Pricing (as of 2026-10-25):** Input $21.00/1M, Output $168.00/1M (OpenAI); Batch API $10.50/1M input. Very expensive vs class medians ($2.00/$10.00).
+- **Architecture:** Proprietary; parameter count undisclosed by OpenAI. Closed weights.
+
+### Raw benchmarks found
+
+- BenchGecko (7 tested, data 2026-10-25): Avg score 71.0, Rank #38/320; ARC-AGI 90.5%; ARC-AGI-2 54.2%; SimpleBench 48.9%; FrontierMath-Tiers-1-3-v2-Private 77.9%; FrontierMath-Tier-4-v2-Private 46.0%; FrontierMath-Tier-4-2025-07-01-Private 31.3%; Chess Puzzles 57.9%. Capabilities: reasoning 64.5 (#61 globally), math 51.7 (#126 globally), knowledge 57.9 (#74 globally).
+- Epoch AI (ECI): ECI score 156, Rank #30/253; SimpleBench 57%; ARC-AGI-2 54%; ARC-AGI-1 91%; Chess Puzzles 60%; FrontierMath Tiers 1-3 (v2) 74%; FrontierMath Tier 4 (v2) 46%.
+- Official OpenAI docs: positions GPT-5.2 Pro as "previous pro model for professional work"; recommends GPT-5.5 Pro instead; designed for tough problems, may take several minutes; background mode recommended.
+- Conflicts: OpenAI knowledge cutoff Aug 31, 2025 vs release Dec 11, 2025 (consistent—released after cutoff); parameter count undisclosed; different benchmark sets between BenchGecko and Epoch.
+
+### Normalized scores (1–100)
+
+- Tool use: **72/100.** Function calling supported, Responses API for multi-turn; structured outputs not supported; fine-tuning not supported.
+- Reasoning: **76/100.** ARC-AGI 90.5% (BenchGecko), ARC-AGI-1 91% (Epoch), FrontierMath 74-78%; ECI rank #30/253; but "Slowest" speed per OpenAI.
+- Context window: **85/100.** 400K tokens — large but below 1M of newer models.
+- Multimodal: **80/100.** Text + image in, text out; no audio/video.
+- Coding: **72/100.** Positioned for professional work and agentic coding; no specific coding benchmarks (SWE-bench, LiveCodeBench) found.
+- Cost efficiency: **15/100.** Among the most expensive ($21/$168 per 1M); batch API $10.50/1M input helps but still very expensive.
+- **Overall Score: 75/100.** Half-up mean of the five non-cost dims; best-fit recommendation: complex professional reasoning tasks where accuracy and 400K context matter more than cost or speed; superseded by GPT-5.5 Pro.
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (official OpenAI API docs; BenchGecko independent benchmarks; Epoch AI independent benchmarks); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

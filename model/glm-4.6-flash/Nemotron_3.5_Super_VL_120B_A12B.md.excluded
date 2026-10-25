@@ -1,42 +1,40 @@
-# GLM 4.6 Flash — findings by Nemotron 3.5 Super VL 120B A12B
+# Z.AI GLM-4.6-Flash — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: temperature2.com (benchmark lookup, not found), benchgap.net (benchmark lookup, not found), artificialanalysis.ai (benchmark lookup, not found), benchmarklist.com (benchmark lookup, not found), modelbenchmark.io (benchmark lookup, not found), modelcompare.dev (benchmark lookup, not found)
-- Date: 2026-10-20 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: Z.AI (glm-4.6-flash)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
-- **Name:** GLM 4.6 Flash
-- **Short description:** GLM 4.6 Flash; no verified public information found beyond the model name in the model-queue; provider, capabilities, and specifications unknown.
-- **Provider / access:** Unknown; possibly Z.AI (glm- prefix), not confirmed.
-- **Release / knowledge:** Unknown.
-- **IDs:** `glm-4.6-flash` (model-queue slug). No Free ID confirmed on OpenCode Zen.
-- **Context window:** Unknown — not found in any source checked.
-- **Modalities:** Unknown — not found in any source checked.
-- **Pricing (as of 2026-10-20):** Unknown — not found in any source checked.
-- **Architecture:** Unknown — not found in any source checked.
+- **Name:** GLM-4.6-Flash (also listed as GLM-4.6V-Flash on Hugging Face)
+- **Short description:** Z.AI's flash variant in the GLM-4.6 multimodal MoE family; text+image input, text output; part of GLM-4.6V series (108B total / 12B active per AA).
+- **Provider / access:** Hugging Face (`zai-org/GLM-4.6V-Flash`), Z.AI API. MIT license.
+- **Release / knowledge:** GLM-4.6V released December 2025 (AA); newer GLM-5.3 series exists per AA.
+- **IDs:** `glm-4.6-flash` (Z.AI API slug); `zai-org/GLM-4.6V-Flash` (HF).
+- **Context window:** 128k tokens (AA for GLM-4.6V family; benchgap context not specified for Flash variant).
+- **Modalities:** Text + image input; text output. Tool calling supported (XML tool format in chat template).
+- **Pricing (as of 2026-10-25):** GLM-4.6V (Reasoning) $0.30 in / $0.90 out per 1M per AA; Flash variant pricing not separately published.
+- **Architecture:** MoE; 108B total / 12B active per token (AA for GLM-4.6V family; Flash variant parameter count not separately published). License MIT.
 
 ### Raw benchmarks found
 
-No information found in any source checked. No model card, no benchmark scores, no specifications, no pricing, no modalities.
+- Artificial Analysis (GLM-4.6V family): Intelligence Index **11** (estimated; #15/67 open-weights, median 8); speed 83.9 tok/s (#17/26); cost $0.30 in / $0.90 out per 1M; context 128k; text+image input.
+- benchgap (GLM-4.6 family, 12 measured / 46 estimated, data 2026-10-24): GPQA Diamond 81.4% estimated ±1.7 pp; LiveCodeBench v6 86.2% estimated ±2.4 pp; SWE-bench Verified 72.2% estimated ±4.4 pp; MMLU-Pro 78.4% estimated ±6.2 pp; IFEval 87.5% estimated ±2.7 pp; Vals LiveCodeBench 81.0% measured; Vals GPQA Diamond 74.5% measured; Vals MMLU-Pro 82.2% measured; τ²-bench results 76.9% measured.
+- Conflicts: benchgap/AA data is for GLM-4.6/GLM-4.6V family, not Flash-specific; Flash variant parameter count not separately published; official blog page returned no content.
 
 ### Normalized scores (1–100)
 
-All quality dimensions and Overall are marked insufficient evidence; no numeric scores are assigned.
-
-- **Tool use: insufficient evidence.** No information found.
-- **Reasoning: insufficient evidence.** No information found.
-- **Context window: insufficient evidence.** No information found.
-- **Multimodal: insufficient evidence.** No information found.
-- **Coding: insufficient evidence.** No information found.
-- **Cost efficiency: not scored** (per formula).
-- **Overall Score: not computed — insufficient evidence.** No dimensional scores available to average.
-
----
+- Tool use: **72/100.** Tool calling (XML format) supported; agent capabilities per GLM-4.6 family positioning; limited independent agentic replication.
+- Reasoning: **68/100.** AA Intelligence Index 11 (est) above small-model median; GPQA Diamond 81.4% estimated; Flash variant not separately benchmarked.
+- Context window: **65/100.** 128k tokens; below 256K+ of newer models.
+- Multimodal: **80/100.** Text+image input per AA (GLM-4.6V family); image benchmarks strong (MMMLU 83.3% estimated).
+- Coding: **70/100.** LiveCodeBench v6 86.2% estimated; SWE-bench Verified 72.2% estimated; Vals LiveCodeBench 81.0% measured.
+- Cost efficiency: **70/100.** GLM-4.6V pricing $0.30/$0.90 per 1M is above class medians ($0.15/$0.43); Flash variant pricing unknown.
+- **Overall Score: 71/100.** Half-up mean of the five non-cost dims; best-fit recommendation: flash-tier multimodal agentic workloads where speed and cost matter; Flash-specific data limited — verify against GLM-4.6V family numbers.
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
-- Method: public internet research (temperature2.com + benchgap.net + artificialanalysis.ai + benchmarklist.com + modelbenchmark.io + modelcompare.dev); zero information found for GLM 4.6 Flash beyond the model name — no numeric scores assigned due to insufficient evidence.
-- Future sources: if any information about GLM 4.6 Flash appears, add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (benchgap independent benchmarks; Artificial Analysis independent benchmarks; Hugging Face model card); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

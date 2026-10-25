@@ -1,0 +1,40 @@
+# Z.AI GLM-5.3-Flash-X — findings by Nemotron 3.5 Super VL 120B A12B
+
+> Source: Z.AI (glm-5.3-flash-x)
+> Date: 2026-10-25 (UTC)
+> Overview and scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** GLM-5.3-Flash-X (GLM-5.3-Flash series)
+- **Short description:** Z.AI's flash-tier flagship for complex software engineering and agent capabilities; cheaper token pricing than GLM-5.3 main model; text-only inputs.
+- **Provider / access:** Z.AI API, FriendliAI Model APIs (day-0 support), Hugging Face (zai-org). License not explicitly stated on docs page.
+- **Release / knowledge:** GLM-5.3 released September 2026 (FriendliAI blog date).
+- **IDs:** `glm-5.3-flash-x` (folder slug); GLM-5.3-Flash/FlashX variants listed in Z.AI docs.
+- **Context window:** 1M tokens (GLM-5.3 main model per official docs); max output 128K tokens.
+- **Modalities:** Text in; text out. Reasoning always enabled with low/high/max effort levels. Function calling, tool streaming, context caching, structured output, web search supported.
+- **Pricing (as of 2026-10-25):** GLM-5.3-Flash: $0.15 in / $0.03 cached / $0.50 out per 1M (FriendliAI) — significantly cheaper than GLM-5.3 ($1.40 in / $4.40 out).
+- **Architecture:** Flash variant parameter count not separately published (GLM-5.3 uses same base as GLM-5.2 with post-training improvements).
+
+### Raw benchmarks found
+
+- benchgap (GLM-5.3-Flash, 40 measured / 83 estimated, data 2026-10-24): AA-GPQA Diamond 91.2% measured; AA-HLE 39.9% measured; AA-SciCode 51.6% measured; LiveCodeBench v6 94.0% estimated ±1.9 pp; Terminal-Bench 2.1 84.3% measured; SWE-bench Verified 81.6% estimated ±2.3 pp; GPQA Diamond 88.7% estimated ±1.7 pp; MMLU-Pro 85.5% estimated ±6.2 pp; AIME26 95.9% estimated ±1.2 pp; CharXiv 89.4% measured; FrontierMath v2 (Tier 4) 17.1% measured; Agents' Last Exam 26.3% measured; OpenHarmony Bench 57.3% measured.
+- FriendliAI (agentic benchmarks, Sep 2026): GLM-5.3-Flash beats GLM-5.2 on accuracy at lower cost per task across SWE-bench Verified, Terminal-Bench 2.1, CyberGym; cost advantage from cheaper tokens (not fewer turns — GLM-5.3 is more turn-efficient).
+- Conflicts: benchgap data is for GLM-5.3-Flash (not specifically Flash-X); official docs cover GLM-5.3 main model, not Flash-X variant specifics; parameter count for Flash variant not published.
+
+### Normalized scores (1–100)
+
+- Tool use: **78/100.** Function calling, tool streaming, web search, context caching supported; strong agentic performance per FriendliAI benchmarks.
+- Reasoning: **80/100.** AA-GPQA Diamond 91.2% measured; AA-HLE 39.9% measured; reasoning always enabled with max effort for complex tasks.
+- Context window: **90/100.** 1M tokens (GLM-5.3 family) — among the largest in this batch.
+- Multimodal: **15/100.** Text-only input/output per official docs (template minimum for text-only).
+- Coding: **88/100.** LiveCodeBench v6 94.0% estimated; SWE-bench Verified 81.6% estimated; Terminal-Bench 2.1 84.3% measured; SOTA on Terminal Bench 3.0 and Agents' Last Exam per vendor.
+- Cost efficiency: **85/100.** GLM-5.3-Flash pricing $0.15/$0.50 per 1M is well below GLM-5.3 ($1.40/$4.40) and class medians.
+- **Overall Score: 81/100.** Half-up mean of the five non-cost dims; best-fit recommendation: cost-sensitive agentic coding workloads where 1M context and strong coding benchmarks matter; text-only limitation.
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (Nemotron_3.5_Super_VL_120B_A12B)** — 2026-10-25
+- Method: public internet research (official Z.AI GLM-5.3 docs; benchgap independent benchmarks; FriendliAI independent comparison); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.

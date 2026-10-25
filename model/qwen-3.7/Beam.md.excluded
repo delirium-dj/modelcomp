@@ -1,0 +1,35 @@
+# Qwen 3.7 — excluded by Beam
+
+- Source: Beam (Beam)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmarks for "Qwen 3.7" (base, unsuffixed)**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Qwen 3.7 (folder slug `qwen-3.7`, id `opencode/qwen-3.7`).
+- **Finding:** Alibaba's Qwen 3.7 line ships only three tiers — Qwen3.7-Max, Qwen3.7-Plus, and Qwen3.7-Flash (per Alibaba Cloud Model Studio docs and the Qwen team's "Qwen3.7: The Agent Frontier" launch post). There is no unsuffixed base "Qwen 3.7" model ID in Alibaba's catalogue, on OpenRouter, or on models.dev. The folder's scaffolded meta ("128K total; Text in/out; Standard pricing") is a placeholder, not a real spec. The existing `GLM_4.7_Flash.md` report for this slug also found no verified public scores.
+- **Context window / modalities / pricing:** unknown for a base "Qwen 3.7" — no such model exists; the real tiers are Max/Plus/Flash (1M context, 131,072 max output, $0.03–$7.50 per 1M).
+- **Access:** no `qwen-3.7` (unsuffixed) route on Alibaba DashScope, OpenRouter, or models.dev; only `qwen3.7-max`, `qwen3.7-plus`, `qwen3.7-flash` are served.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for a base "Qwen 3.7" in any first-party or independent source: no Alibaba model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI / Vals AI / SWE-bench / BenchLM row. (Benchmarks that do exist — GPQA Diamond 92.4%, MMLU-Pro 89.6%, SWE-bench Verified ~68.8%, Terminal-Bench 2.0 69.7% — belong to Qwen3.7-Max, not to an unsuffixed "Qwen 3.7".)
+
+## Deep second-pass research (2026-10-25)
+
+Independent searches performed (≥5):
+1. "Qwen 3.7" base model Alibaba DashScope
+2. "Qwen3.7" (without max/plus/flash) model ID
+3. "qwen-3.7" site:models.dev OR site:openrouter.ai
+4. Alibaba Cloud Model Studio supported models list (qwen3.7-flash, qwen3.7-max, qwen3.7-plus only)
+5. "Qwen3.7: The Agent Frontier" launch post (introduces Qwen3.7-Max only; Plus announced separately as "Qwen3.7-Plus: Multimodal Agent Intelligence")
+6. orcarouter.ai "Qwen 3.7: the three tiers, and the four IDs we serve"
+
+Result: No unsuffixed base "Qwen 3.7" model exists in any first-party or independent source; only the Max/Plus/Flash tiers are real. Conclusion: no verified model for this slug; scores withheld rather than fabricated. Do not attribute Qwen3.7-Max's benchmarks to this slug.
+
+## Signature
+
+- Provided by: **Beam (Beam)** — 2026-10-25
+- Method: checked Alibaba Cloud Model Studio docs/catalogue, OpenRouter model list, models.dev, and the Qwen team launch posts. Deep second pass re-confirmed no verified benchmark for an unsuffixed "Qwen 3.7". No scores reported.
+- Future sources: if a genuine base Qwen 3.7 appears, add `Beam.md` with the standard headings; do not edit this exclusion.
