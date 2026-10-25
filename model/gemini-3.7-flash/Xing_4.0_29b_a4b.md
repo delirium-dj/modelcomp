@@ -37,5 +37,5 @@ Coding: no verified SWE-bench / LiveCodeBench for this ID.
 
 ## Signature
 
-- Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
+- Provided by: **Xing_4.0_29b_a4b (openrouter/xingchen-agi:free)** — 2026-10-21
 - Method: public internet research, OpenRouter provider pages. Scores normalized 1–100. Where benchmarks unavailable, estimates capped.

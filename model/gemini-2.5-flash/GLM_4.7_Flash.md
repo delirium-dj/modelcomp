@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Gemini 2.5 Flash
-- **Short description:** Fast variant of Gemini 2.5 with excellent cost efficiency and multimodal
-- **Provider / access:** Google AI Studio (AI Studio), Google Cloud Vertex AI, chat completions endpoint
+- **Short description:** 2.5 generation Flash model from Google with enhanced multimodal capabilities
+- **Provider / access:** Google AI Studio, Google Cloud Vertex AI (cloud.google.com), chat completions endpoint
 - **Release / knowledge:** Gemini 2.5 Flash series; knowledge cutoff varies by deployment
 - **IDs:** `gemini-2.5-flash` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Flash tier pricing; excellent cost efficiency
-- **Architecture:** Google DeepMind transformer-based architecture
+- **Architecture:** Google's Transformer-based architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 67.2/100.** Moderate tool integration capabilities from average.md data
-- **Reasoning: 70.7/100.** Moderate complex reasoning abilities
-- **Context window: 93/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 86.2/100.** Strong multimodal capabilities with vision
-- **Coding: 68.3/100.** Moderate programming and code generation performance
-- **Cost efficiency: 92.9/100.** Excellent cost-to-performance ratio
-- **Overall Score: 77.2/100.** Moderate all-around performance with excellent cost efficiency and strong multimodal — excellent cost efficiency (92.9/100), moderate reasoning (70.7/100), moderate tool use (67.2/100), moderate coding (68.3/100), strong multimodal (86.2/100), excellent context window (93/100), making it a cost-effective production model for multimodal use cases
+- **Tool use: 68.4/100.** Moderate tool integration capabilities from average.md data
+- **Reasoning: 72/100.** Moderate complex reasoning abilities
+- **Context window: 91.7/100.** Good long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 86/100.** Strong multimodal capabilities with vision
+- **Coding: 69.9/100.** Moderate programming and code generation performance
+- **Cost efficiency: 92.2/100.** Excellent cost-to-performance ratio
+- **Overall Score: 77.7/100.** Moderate all-around performance with excellent cost efficiency and strong multimodal — moderate reasoning (72/100), moderate tool use (68.4/100), moderate coding (69.9/100), strong multimodal (86/100), good context window (91.7/100), excellent cost efficiency (92.2/100), making it a cost-effective production model for multimodal tasks
 
 ---
 

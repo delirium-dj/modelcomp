@@ -6,7 +6,7 @@
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
 
-- Source: Google AI, `gemini-3-flash` (gemini-3-flash)
+- Source: Google DeepMind, `gemini-3-flash` (gemini-3-flash)
 - Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Gemini 3 Flash
-- **Short description:** Third generation flash-optimized model from Google AI with strong multimodal and cost efficiency
-- **Provider / access:** Google AI (ai.google.dev), Gemini API platform, chat completions endpoint
-- **Release / knowledge:** Gemini 3 series generation; knowledge cutoff varies by deployment
+- **Short description:** Third generation Flash model from Google with enhanced multimodal capabilities
+- **Provider / access:** Google AI Studio, Google Cloud Vertex AI (cloud.google.com), chat completions endpoint
+- **Release / knowledge:** Gemini 3 Flash series; knowledge cutoff varies by deployment
 - **IDs:** `gemini-3-flash` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Flash tier pricing; excellent cost efficiency
-- **Architecture:** Google transformer-based architecture with flash optimization
+- **Architecture:** Google's Transformer-based architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 84.2/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 87/100.** Good complex reasoning abilities
-- **Context window: 93.4/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 90.1/100.** Excellent multimodal capabilities with strong vision
-- **Coding: 83.7/100.** Good programming and code generation performance
-- **Cost efficiency: 92.6/100.** Excellent cost-to-performance ratio
-- **Overall Score: 87.7/100.** Strong all-around performance with excellent cost efficiency — excellent multimodal (90.1/100), excellent cost efficiency (92.6/100), good reasoning (87/100), good tool use (84.2/100), good coding (83.7/100), excellent context window (93.4/100), making it a cost-effective production model with strong multimodal capabilities
+- **Tool use: 84.9/100.** Good tool integration capabilities from average.md data
+- **Reasoning: 87.2/100.** Excellent complex reasoning abilities
+- **Context window: 94/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 89.7/100.** Excellent multimodal capabilities with vision
+- **Coding: 84.4/100.** Good programming and code generation performance
+- **Cost efficiency: 91.1/100.** Excellent cost-to-performance ratio
+- **Overall Score: 88.1/100.** Excellent all-around performance with excellent cost efficiency — excellent reasoning (87.2/100), good coding (84.4/100), good tool use (84.9/100), excellent multimodal (89.7/100), excellent context window (94/100), excellent cost efficiency (91.1/100), making it a top-tier production model with balanced high performance and great value
 
 ---
 

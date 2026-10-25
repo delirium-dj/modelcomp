@@ -14,13 +14,13 @@
 ## Model card
 
 - **Name:** Union Alpha
-- **Short description:** Alpha variant of Union model with balanced capabilities
+- **Short description:** Alpha variant of Union model with enhanced reasoning and coding
 - **Provider / access:** Union AI platform (API), inference
-- **Release / knowledge:** Alpha series; knowledge cutoff varies by deployment
+- **Release / knowledge:** Union Alpha series; knowledge cutoff varies by deployment
 - **IDs:** `union-alpha` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** Alpha tier pricing; good cost efficiency
+- **Pricing (as of 2026-10-25):** Alpha tier pricing; moderate cost efficiency
 - **Architecture:** Union transformer-based architecture
 
 ## Raw benchmarks found
@@ -55,9 +55,9 @@ Long context:
 - **Reasoning: 83.1/100.** Good complex reasoning abilities
 - **Context window: 76.5/100.** Moderate long-context processing capability (128K tokens, industry-leading)
 - **Multimodal: 70.3/100.** Moderate multimodal capabilities with vision
-- **Coding: 83.2/100.** Good programming and code generation performance
-- **Cost efficiency: 77.2/100.** Good cost-to-performance ratio
-- **Overall Score: 78.4/100.** Moderate all-around performance with good cost efficiency — good reasoning (83.1/100), good tool use (78.7/100), good coding (83.2/100), moderate multimodal (70.3/100), moderate context window (76.5/100), good cost efficiency (77.2/100), making it a decent production model for general-purpose use
+- **Coding: 83.2/100.** Strong programming and code generation performance
+- **Cost efficiency: 77.2/100.** Moderate cost-to-performance ratio
+- **Overall Score: 78.4/100.** Moderate all-around performance with moderate cost efficiency — good reasoning (83.1/100), strong coding (83.2/100), moderate tool use (78.7/100), moderate multimodal (70.3/100), moderate context window (76.5/100), moderate cost efficiency (77.2/100), making it a solid production model for general-purpose use
 
 ---
 

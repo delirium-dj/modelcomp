@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Claude Sonnet 4.5
-- **Short description:** Fifth generation Sonnet model from Anthropic with balanced capabilities
+- **Short description:** Fourth generation Sonnet model from Anthropic with balanced capabilities
 - **Provider / access:** Anthropic API platform (anthropic.com), chat completions endpoint
 - **Release / knowledge:** Sonnet 4.5 series; knowledge cutoff varies by deployment
 - **IDs:** `claude-sonnet-4.5` (Anthropic API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Sonnet tier pricing; moderate cost efficiency
-- **Architecture:** Anthropic's proprietary architecture, MoE (Mixture of Experts)
+- **Architecture:** Anthropic's MoE (Mixture of Experts) architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 84/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 81.3/100.** Moderate complex reasoning abilities
-- **Context window: 83.6/100.** Moderate long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 70.9/100.** Moderate multimodal capabilities with vision
-- **Coding: 84.2/100.** Good programming and code generation performance
-- **Cost efficiency: 67.3/100.** Moderate cost-to-performance ratio
-- **Overall Score: 80.7/100.** Strong all-around performance with moderate cost efficiency — good tool use (84/100), moderate reasoning (81.3/100), good coding (84.2/100), moderate multimodal (70.9/100), moderate context window (83.6/100), moderate cost efficiency (67.3/100), making it a solid production model for general-purpose use
+- **Tool use: 83.3/100.** Good tool integration capabilities from average.md data
+- **Reasoning: 81.5/100.** Moderate complex reasoning abilities
+- **Context window: 84.4/100.** Moderate long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 71.6/100.** Moderate multimodal capabilities with vision
+- **Coding: 84/100.** Good programming and code generation performance
+- **Cost efficiency: 68.5/100.** Moderate cost-to-performance ratio
+- **Overall Score: 80.9/100.** Moderate all-around performance with moderate cost efficiency — moderate reasoning (81.5/100), good tool use (83.3/100), good coding (84/100), moderate multimodal (71.6/100), moderate context window (84.4/100), moderate cost efficiency (68.5/100), making it a solid production model for general-purpose use
 
 ---
 

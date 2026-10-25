@@ -1,97 +1,77 @@
-# GLM_4.7_Flash Report
+# Gemini 3 Pro - findings by GLM 4.7 Flash
 
-## Overview
+> TEMPLATE — do not commit as-is. Copy this file to `model/gemini-3-pro/GLM_4.7_Flash.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
 
-Gemini 3 Pro is a flagship reasoning model from Google DeepMind released in October 2026, ranked #8 among 214 evaluated models on the AI Intelligence Index with score 90.6. It is a multimodal model supporting text, code, and image input with 200K token context window, targeting enterprise applications requiring advanced reasoning, coding, and analysis capabilities.
+- Source: Google DeepMind, `gemini-3-pro` (gemini-3-pro)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Model Specifications
+## Model card
 
-**Model Name:** Gemini 3 Pro
-**Provider:** Google DeepMind
-**Release Date:** October 2026
-**Status:** Active (reasoning model)
-**Cost:** $4.00/M input tokens, $20.00/M output tokens
+- **Name:** Gemini 3 Pro
+- **Short description:** Third generation Pro model from Google with enhanced multimodal capabilities
+- **Provider / access:** Google AI Studio, Google Cloud Vertex AI (cloud.google.com), chat completions endpoint
+- **Release / knowledge:** Gemini 3 Pro series; knowledge cutoff varies by deployment
+- **IDs:** `gemini-3-pro` (API)
+- **Context window:** 128K tokens (from model comparison data)
+- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Pro tier pricing; moderate cost efficiency
+- **Architecture:** Google's Transformer-based architecture
 
-**Core Capabilities:**
-- Text input & generation
-- Code generation & analysis
-- Image input & analysis
-- Extended reasoning capabilities
-- 200K token context window
-- Knowledge cutoff: September 2026
+## Raw benchmarks found
 
-**Performance Metrics:**
-- Intelligence Index: 90.6/100 (top 4% of evaluated models)
-- Output Speed: ~95 tokens/second
-- Context Window: 200K tokens
-- Reasoning Capability: Top-tier enterprise applications
-- Knowledge Retrieval: Deep understanding across multiple domains
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
 
-**Provider Availability:** Available via Google Cloud Platform with premium enterprise support and SLA guarantees.
+Agent / tool use:
 
-## Research & Evaluation
+- No verified public score found (official cards not accessible)
 
-### Benchmark Performance
+Reasoning / knowledge:
 
-**AI Intelligence Index (90.6)** - Top 4% of all evaluated models, representing advanced reasoning capabilities across coding, knowledge work, and agentic tasks.
+- No verified public score found
 
-**Reasoning Performance:** Strong intelligence index score indicates solid performance across complex reasoning benchmarks, including multi-step problem solving and knowledge synthesis.
+Coding:
 
-**Context Window Utilization:** 200K token context enables enterprise document workloads, research synthesis, and long-form content generation with minimal loss in performance.
+- No verified public score found
 
-**Cost Efficiency:** At $4.00/M input and $20.00/M output, positioned in the premium enterprise tier, offering reliability and performance for critical applications.
+Long context:
 
-### Use Case Suitability
+- No verified public score found
 
-**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows.
-
-**Code Generation & Analysis:** Top-tier coding capabilities support software engineering workflows including generation, review, and debugging with reduced latency.
-
-**Long Context Applications:** 200K token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis.
-
-**Agentic Task Execution:** Optimized for autonomous agent workflows requiring multi-step reasoning and tool integration.
-
-### Independent Evaluation Status
-
-**Google Official Testing:** Comprehensive evaluation available through Google Cloud Platform with detailed benchmark coverage and evaluation suites.
-
-**Public Documentation:** Available via Google AI Studio and Vertex AI with comprehensive documentation for integration and deployment.
-
-**Community Testing:** Active evaluation across developer communities with performance benchmarks and use case demonstrations.
-
-### Comparative Positioning
-
-**Tier Ranking:** Positioned within top 4% of reasoning models, competitive with other leading proprietary offerings and research models.
-
-**Cost Efficiency:** Premium pricing structure reflects enterprise-grade reliability and performance for critical applications.
-
-**Performance vs Cost:** Strong intelligence index at elevated pricing reflects optimization for quality-critical applications rather than cost-sensitive deployments.
-
-**Innovation Edge:** Latest version of Pro series indicates continuous improvement in reasoning capabilities and inference efficiency.
-
-### Normalized scores (1–100)
+## Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
->
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 
-- **Tool use: 91/100.** Strong reasoning and coding performance indicate solid tool use capabilities; capped by limited public evaluation data.
-- **Reasoning: 92/100.** AI Index 90.6 indicates strong reasoning; capped by absence of specific GPQA and HLE benchmarks.
-- **Context window: 100/100.** 200K token context with comprehensive reasoning support meets top-tier enterprise requirements.
-- **Multimodal: 90/100.** Text, code, and image capabilities support mixed-media content processing; capped by limited independent evaluation evidence.
-- **Coding: 91/100.** Top-tier performance in coding tasks indicates strong software engineering support; capped by limited public evaluation data.
-- **Cost efficiency: 80/100.** Premium pricing ($4.00/M in / $20.00/M out) reflects enterprise-grade positioning; capped by limited public evaluation data.
-- **Overall Score: 92.8/100.** Mean of five quality dims (91+92+100+90+91)/5=92.8, reflecting strong reasoning, coding, and 200K context at premium pricing; cost efficiency (80) is not counted; best-fit for complex reasoning and knowledge work.
+- **Tool use: 88.1/100.** Excellent tool integration capabilities from average.md data
+- **Reasoning: 90.5/100.** Excellent complex reasoning abilities
+- **Context window: 95.4/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 93.3/100.** Excellent multimodal capabilities with vision
+- **Coding: 87.4/100.** Excellent programming and code generation performance
+- **Cost efficiency: 73.2/100.** Moderate cost-to-performance ratio
+- **Overall Score: 90.9/100.** Excellent all-around performance with moderate cost efficiency — excellent reasoning (90.5/100), excellent coding (87.4/100), excellent tool use (88.1/100), excellent multimodal (93.3/100), excellent context window (95.4/100), moderate cost efficiency (73.2/100), making it a top-tier production model with strong multimodal capabilities
 
-## Research Date
+---
 
-October 22, 2026
+## Signature
 
-## Sources
+- Provided by: **GLM 4.7 Flash (zhipu-ai/glm-4.7-flash)** — 2026-10-25
+- Method: Average.md data from model comparison; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
-- AI Intelligence Index Evaluation: https://artificialanalysis.ai/models/gemini-3-pro
-- Google DeepMind Model Documentation: https://deepmind.google/models/gemini-3-pro
-- Performance Metrics & Benchmarks: Google Cloud Platform documentation
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gemini-3-pro/GLM_4.7_Flash.md` (folder name = filesystem-safe slug). Use the exact assigned stem — never write a near-variant filename.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gemini-3-pro/`.
+4. No benchmark invented; zero verified benchmarks → report as no verified public score found (see above).

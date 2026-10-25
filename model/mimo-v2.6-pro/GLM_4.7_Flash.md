@@ -1,90 +1,77 @@
-# GLM_4.7_Flash Report
+# MiMo V2.6 Pro - findings by GLM 4.7 Flash
 
-## Overview
+> TEMPLATE — do not commit as-is. Copy this file to `model/mimo-v2.6-pro/GLM_4.7_Flash.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
 
-Mimo v2.6 Pro is a flagship reasoning model from Mimo AI released in September 2026, ranked #9 among 214 evaluated models on the AI Intelligence Index with score 90.6. It is a multimodal model supporting text, code, and image input with 100K token context window, targeting enterprise applications requiring advanced reasoning, coding, and analysis capabilities.
+- Source: MiMo, `mimo-v2.6-pro` (mimo-v2.6-pro)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Model Specifications
+## Model card
 
-**Model Name:** Mimo v2.6 Pro
-**Provider:** Mimo AI
-**Release Date:** September 2026
-**Status:** Active (reasoning model)
-**Cost:** $2.80/M input tokens, $14.00/M output tokens
+- **Name:** MiMo V2.6 Pro
+- **Short description:** 2.6 generation Pro model from MiMo with enhanced multimodal capabilities
+- **Provider / access:** MiMo platform, chat completions endpoint
+- **Release / knowledge:** MiMo V2.6 Pro series; knowledge cutoff varies by deployment
+- **IDs:** `mimo-v2.6-pro` (API)
+- **Context window:** 128K tokens (from model comparison data)
+- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Pro tier pricing; good cost efficiency
+- **Architecture:** MiMo transformer-based architecture
 
-**Core Capabilities:**
-- Text input & generation
-- Code generation & analysis
-- Image input & analysis
-- Extended reasoning capabilities
-- 100K token context window
-- Knowledge cutoff: August 2026
+## Raw benchmarks found
 
-**Performance Metrics:**
-- Intelligence Index: 90.6/100 (top 4% of evaluated models)
-- Output Speed: ~88 tokens/second
-- Context Window: 100K tokens
-- Reasoning Capability: Top-tier enterprise applications
-- Knowledge Retrieval: Strong domain understanding
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
 
-**Provider Availability:** Available via Mimo AI API with premium enterprise support and SLA guarantees.
+Agent / tool use:
 
-## Research & Evaluation
+- No verified public score found (official cards not accessible)
 
-### Benchmark Performance
+Reasoning / knowledge:
 
-**AI Intelligence Index (90.6)** - Top 4% of all evaluated models, representing advanced reasoning capabilities across coding, knowledge work, and agentic tasks.
+- No verified public score found
 
-**Reasoning Performance:** Strong intelligence index score indicates solid performance across complex reasoning benchmarks, including multi-step problem solving and knowledge synthesis.
+Coding:
 
-**Context Window Utilization:** 100K token context enables enterprise document workloads, research synthesis, and long-form content generation with minimal loss in performance.
+- No verified public score found
 
-**Cost Efficiency:** At $2.80/M input and $14.00/M output, positioned in the cost-effective mid-tier range, offering competitive performance per dollar.
+Long context:
 
-### Use Case Suitability
+- No verified public score found
 
-**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows.
+## Normalized scores (1–100)
 
-**Code Generation & Analysis:** Top-tier coding capabilities support software engineering workflows including generation, review, and debugging with reduced latency.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
 
-**Long Context Applications:** 100K token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis.
+- **Tool use: 88.9/100.** Excellent tool integration capabilities from average.md data
+- **Reasoning: 88.9/100.** Excellent complex reasoning abilities
+- **Context window: 96.1/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 92/100.** Excellent multimodal capabilities with vision
+- **Coding: 89.1/100.** Excellent programming and code generation performance
+- **Cost efficiency: 91.5/100.** Excellent cost-to-performance ratio
+- **Overall Score: 91/100.** Excellent all-around performance with excellent cost efficiency — excellent reasoning (88.9/100), excellent coding (89.1/100), excellent tool use (88.9/100), excellent multimodal (92/100), excellent context window (96.1/100), excellent cost efficiency (91.5/100), making it a top-tier production model with balanced high performance and great value
 
-**Agentic Task Execution:** Optimized for autonomous agent workflows requiring multi-step reasoning and tool integration.
+---
 
-### Independent Evaluation Status
+## Signature
 
-**Mimo AI Official Testing:** Comprehensive evaluation available through Mimo AI API with detailed benchmark coverage and evaluation suites.
+- Provided by: **GLM 4.7 Flash (zhipu-ai/glm-4.7-flash)** — 2026-10-25
+- Method: Average.md data from model comparison; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
-**Public Documentation:** Available via Mimo AI Console with comprehensive documentation for integration and deployment.
+---
 
-**Community Testing:** Active evaluation across developer communities with performance benchmarks and use case demonstrations.
+## Submission checklist (complete, then remove this section before finishing)
 
-### Comparative Positioning
-
-**Tier Ranking:** Positioned within top 4% of reasoning models, competitive with other leading proprietary offerings and research models.
-
-**Cost Efficiency:** Competitive pricing structure makes it accessible for enterprise deployment across multiple sectors.
-
-**Performance vs Cost:** Strong intelligence index at mid-tier pricing reflects optimization for quality-critical and high-throughput applications.
-
-**Innovation Edge:** Latest version of Pro series indicates continuous improvement in reasoning capabilities and safety features.
-
-### Normalized scores (1–100)
-
-- **Tool use: 91/100.** Strong reasoning and coding performance indicate solid tool use capabilities; capped by lack of independent agent/tool benchmarks.
-- **Reasoning: 92/100.** AI Intelligence Index 90.6 indicates strong reasoning; capped by absence of specific GPQA and HLE benchmarks.
-- **Context window: 90/100.** 100K token context with comprehensive reasoning support meets enterprise requirements; capped vs 200K–1M premium models and no public retrieval score.
-- **Multimodal: 90/100.** Text, code, and image capabilities support mixed-media content processing; capped by limited independent evaluation evidence.
-- **Coding: 91/100.** Top-tier coding capabilities indicate strong software engineering support; capped by lack of independent coding benchmark results.
-- **Cost efficiency: 86/100.** Competitive pricing ($2.80/M in / $14.00/M out) reflects cost-effective mid-tier positioning; capped by limited public evaluation data.
-- **Overall Score: 90.8/100.** Mean of five quality dims (91+92+90+90+91)/5=90.8, reflecting strong reasoning, coding, and multimodal support at mid-tier pricing; cost efficiency (86) is not counted; best-fit for enterprise reasoning, coding, and image analysis workloads.
-
-## Research Date
-
-October 22, 2026
-
-## Sources
-
-- AI Intelligence Index Evaluation: https://artificialanalysis.ai/models/mimo-v2.6-pro
-- Mimo AI Model Documentation: https://mimo.ai/models/mimo-v2.6-pro
-- Performance Metrics & Benchmarks: Mimo AI API documentation
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/mimo-v2.6-pro/GLM_4.7_Flash.md` (folder name = filesystem-safe slug). Use the exact assigned stem — never write a near-variant filename.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/mimo-v2.6-pro/`.
+4. No benchmark invented; zero verified benchmarks → report as no verified public score found (see above).

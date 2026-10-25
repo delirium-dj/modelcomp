@@ -14,7 +14,7 @@
 ## Model card
 
 - **Name:** Qwen 3.8 325B
-- **Short description:** 325B parameter dense variant of Qwen 3.8 series with balanced capabilities
+- **Short description:** 325B parameter dense model from Qwen 3.8 series with balanced capabilities
 - **Provider / access:** Alibaba Cloud (qwen.readthedocs.io, ModelScope), chat completions endpoint
 - **Release / knowledge:** Qwen 3.8 series generation; knowledge cutoff varies by deployment
 - **IDs:** `qwen-3.8-325b` (API)
@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 70/100.** Moderate multimodal capabilities with vision
 - **Coding: 83/100.** Good programming and code generation performance
 - **Cost efficiency: 90/100.** Excellent cost-to-performance ratio
-- **Overall Score: 78.5/100.** Strong all-around performance with excellent cost efficiency — excellent cost efficiency (90/100), good reasoning (85/100), good tool use (81/100), good coding (83/100), moderate multimodal (70/100), moderate context window (75.5/100), making it a cost-effective production model with strong coding capabilities
+- **Overall Score: 78.5/100.** Strong all-around performance with excellent cost efficiency — excellent cost efficiency (90/100), good reasoning (85/100), good tool use (81/100), good coding (83/100), moderate multimodal (70/100), moderate context window (75.5/100), making it a cost-effective production model with strong reasoning and coding capabilities
 
 ---
 

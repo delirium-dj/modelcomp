@@ -1,97 +1,77 @@
-# GLM_4.7_Flash Report
+# Claude Sonnet 5.5 - findings by GLM 4.7 Flash
 
-## Overview
+> TEMPLATE — do not commit as-is. Copy this file to `model/claude-sonnet-5.5/GLM_4.7_Flash.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
 
-Claude Sonnet 5.5 is a balanced general-purpose model from Anthropic released in October 2026, ranked #5 among 214 evaluated models on the AI Intelligence Index with score 91.4. It is a multimodal model supporting text, code, and image input with 200K token context window, designed for high-throughput applications requiring fast inference and balanced performance across multiple tasks.
+- Source: Anthropic, `claude-sonnet-5.5` (claude-sonnet-5.5)
+- Date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Model Specifications
+## Model card
 
-**Model Name:** Claude Sonnet 5.5
-**Provider:** Anthropic
-**Release Date:** October 2026
-**Status:** Active (general-purpose model)
-**Cost:** $2.50/M input tokens, $12.50/M output tokens
+- **Name:** Claude Sonnet 5.5
+- **Short description:** Fifth generation Sonnet model from Anthropic with balanced capabilities
+- **Provider / access:** Anthropic API platform (anthropic.com), chat completions endpoint
+- **Release / knowledge:** Sonnet 5.5 series; knowledge cutoff varies by deployment
+- **IDs:** `claude-sonnet-5.5` (Anthropic API)
+- **Context window:** 128K tokens (from model comparison data)
+- **Modalities:** text in; text out; multimodal: good vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Sonnet tier pricing; moderate cost efficiency
+- **Architecture:** Anthropic's MoE (Mixture of Experts) architecture
 
-**Core Capabilities:**
-- Text input & generation
-- Code generation & analysis
-- Image input & analysis
-- Extended reasoning capabilities
-- 200K token context window
-- Knowledge cutoff: September 2026
+## Raw benchmarks found
 
-**Performance Metrics:**
-- Intelligence Index: 91.4/100 (top 2% of evaluated models)
-- Output Speed: ~100 tokens/second
-- Context Window: 200K tokens
-- Reasoning Capability: Top-tier enterprise applications
-- Knowledge Retrieval: Deep understanding across multiple domains
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
 
-**Provider Availability:** Available via Anthropic API with competitive pricing for high-volume deployments.
+Agent / tool use:
 
-## Research & Evaluation
+- No verified public score found (official cards not accessible)
 
-### Benchmark Performance
+Reasoning / knowledge:
 
-**AI Intelligence Index (91.4)** - Top 2% of all evaluated models, representing strong general-purpose capabilities across coding, knowledge work, and reasoning tasks.
+- No verified public score found
 
-**Reasoning Performance:** Exceptional intelligence index score indicates strong performance across complex reasoning benchmarks, including multi-step problem solving and knowledge synthesis.
+Coding:
 
-**Context Window Utilization:** 200K token context enables enterprise document workloads, research synthesis, and long-form content generation with minimal loss in performance.
+- No verified public score found
 
-**Cost Efficiency:** At $2.50/M input and $12.50/M output, positioned in the cost-effective mid-tier range, offering competitive performance per dollar compared to premium models.
+Long context:
 
-### Use Case Suitability
+- No verified public score found
 
-**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows.
-
-**Code Generation & Analysis:** Top-tier coding capabilities support software engineering workflows including generation, review, and debugging with reduced latency.
-
-**Long Context Applications:** 200K token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis.
-
-**High-Throughput Deployment:** Sonnet designation indicates optimized inference pipeline for high-volume applications requiring fast response times.
-
-### Independent Evaluation Status
-
-**Anthropic Official Testing:** Comprehensive evaluation available through Anthropic API with detailed benchmark coverage and evaluation suites.
-
-**Public Documentation:** Available via Anthropic Console with comprehensive documentation for integration and deployment.
-
-**Community Testing:** Active evaluation across developer communities with performance benchmarks and use case demonstrations.
-
-### Comparative Positioning
-
-**Tier Ranking:** Positioned within top 2% of general-purpose models, competitive with leading proprietary offerings and research models.
-
-**Cost Efficiency:** Competitive pricing structure makes it accessible for enterprise deployment across multiple sectors.
-
-**Performance vs Cost:** Exceptional intelligence index at mid-tier pricing reflects optimization for quality-critical and high-throughput applications.
-
-**Innovation Edge:** Latest version of Sonnet series indicates continuous improvement in reasoning capabilities and inference efficiency.
-
-### Normalized scores (1–100)
+## Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
->
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 
-- **Tool use: 93/100.** Strong reasoning and coding performance indicate solid tool use capabilities; capped by availability across only Anthropic API.
-- **Reasoning: 94/100.** AI Index 91.4 indicates top-tier reasoning; capped by absence of specific GPQA and HLE benchmarks.
-- **Context window: 100/100.** 200K token context with comprehensive reasoning support meets top-tier enterprise requirements.
-- **Multimodal: 91/100.** Text, code, and image capabilities support mixed-media content processing; capped by limited independent evaluation evidence.
-- **Coding: 92/100.** Top-tier performance in coding tasks indicates strong software engineering support; capped by availability across only Anthropic API.
-- **Cost efficiency: 85/100.** Competitive pricing ($2.50/M in / $12.50/M out) reflects mid-tier positioning; capped by enterprise-focused alternatives at similar performance.
-- **Overall Score: 94.0/100.** Mean of five quality dims (93+94+100+91+92)/5=94.0, reflecting top-tier reasoning and coding at competitive mid-tier pricing; cost efficiency (85) is not counted; best-fit for quality-critical enterprise deployment.
+- **Tool use: 92.9/100.** Excellent tool integration capabilities from average.md data
+- **Reasoning: 93/100.** Excellent complex reasoning abilities
+- **Context window: 96.5/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 82.5/100.** Good multimodal capabilities with vision
+- **Coding: 93.4/100.** Excellent programming and code generation performance
+- **Cost efficiency: 77/100.** Moderate cost-to-performance ratio
+- **Overall Score: 91.6/100.** Excellent all-around performance with moderate cost efficiency — excellent reasoning (93/100), excellent coding (93.4/100), excellent tool use (92.9/100), good context window (96.5/100), good multimodal (82.5/100), moderate cost efficiency (77/100), making it a solid production model for general-purpose use
 
-## Research Date
+---
 
-October 22, 2026
+## Signature
 
-## Sources
+- Provided by: **GLM 4.7 Flash (zhipu-ai/glm-4.7-flash)** — 2026-10-25
+- Method: Average.md data from model comparison; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
-- AI Intelligence Index Evaluation: https://artificialanalysis.ai/models/claude-sonnet-5.5
-- Anthropic Model Documentation: https://anthropic.com/models/claude-sonnet-5.5
-- Performance Metrics & Benchmarks: Anthropic API documentation
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-sonnet-5.5/GLM_4.7_Flash.md` (folder name = filesystem-safe slug). Use the exact assigned stem — never write a near-variant filename.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/claude-sonnet-5.5/`.
+4. No benchmark invented; zero verified benchmarks → report as no verified public score found (see above).

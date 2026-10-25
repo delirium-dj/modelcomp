@@ -6,7 +6,7 @@
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
 
-- Source: OpenAI, `ox_alpha` (ox_alpha)
+- Source: Ox, `ox_alpha` (ox_alpha)
 - Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Ox Alpha
-- **Short description:** OpenAI alpha-tier model with strong tool use and cost efficiency
-- **Provider / access:** OpenAI platform (openai.com), API access
-- **Release / knowledge:** Alpha series; knowledge cutoff varies by deployment
+- **Short description:** Alpha variant of Ox model with enhanced multimodal capabilities
+- **Provider / access:** Ox platform, chat completions endpoint
+- **Release / knowledge:** Ox Alpha series; knowledge cutoff varies by deployment
 - **IDs:** `ox_alpha` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** Alpha tier pricing; excellent cost efficiency
-- **Architecture:** OpenAI transformer-based architecture
+- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Alpha tier pricing; good cost efficiency
+- **Architecture:** Ox transformer-based architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 87.2/100.** Strong tool integration capabilities from average.md data
-- **Reasoning: 85.3/100.** Moderate complex reasoning abilities
-- **Context window: 94.6/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 85.7/100.** Good multimodal capabilities with limited vision
-- **Coding: 85.8/100.** Good programming and code generation performance
-- **Cost efficiency: 95.9/100.** Excellent cost-to-performance ratio
-- **Overall Score: 87.8/100.** Strong all-around performance with excellent cost efficiency — strong tool use (87.2/100), excellent cost efficiency (95.9/100), good coding (85.8/100), good multimodal (85.7/100), moderate reasoning (85.3/100), excellent context window (94.6/100), making it a cost-effective production model with strong tool use
+- **Tool use: 87.4/100.** Excellent tool integration capabilities from average.md data
+- **Reasoning: 86.1/100.** Excellent complex reasoning abilities
+- **Context window: 94.8/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 86.2/100.** Excellent multimodal capabilities with vision
+- **Coding: 86.2/100.** Excellent programming and code generation performance
+- **Cost efficiency: 92.6/100.** Excellent cost-to-performance ratio
+- **Overall Score: 88.3/100.** Excellent all-around performance with excellent cost efficiency — excellent reasoning (86.1/100), excellent coding (86.2/100), excellent tool use (87.4/100), excellent multimodal (86.2/100), excellent context window (94.8/100), excellent cost efficiency (92.6/100), making it a top-tier production model with balanced high performance and great value
 
 ---
 

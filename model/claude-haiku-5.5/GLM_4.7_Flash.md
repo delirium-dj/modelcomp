@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Claude Haiku 5.5
-- **Short description:** Fifth generation Haiku model from Anthropic with good cost efficiency
+- **Short description:** Fifth generation Haiku model from Anthropic with excellent cost efficiency
 - **Provider / access:** Anthropic API platform (anthropic.com), chat completions endpoint
 - **Release / knowledge:** Haiku 5.5 series; knowledge cutoff varies by deployment
 - **IDs:** `claude-haiku-5.5` (Anthropic API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Haiku tier pricing; excellent cost efficiency
-- **Architecture:** Anthropic's proprietary architecture, MoE (Mixture of Experts)
+- **Architecture:** Anthropic's dense architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 82.3/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 84/100.** Moderate complex reasoning abilities
-- **Context window: 94.9/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 76.3/100.** Moderate multimodal capabilities with vision
+- **Tool use: 82.7/100.** Good tool integration capabilities from average.md data
+- **Reasoning: 84/100.** Good complex reasoning abilities
+- **Context window: 94/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 76.9/100.** Good multimodal capabilities with vision
 - **Coding: 80.3/100.** Good programming and code generation performance
-- **Cost efficiency: 96/100.** Excellent cost-to-performance ratio
-- **Overall Score: 83.5/100.** Strong all-around performance with excellent cost efficiency — excellent cost efficiency (96/100), good tool use (82.3/100), moderate reasoning (84/100), good coding (80.3/100), moderate multimodal (76.3/100), excellent context window (94.9/100), making it a cost-effective production model for general-purpose use
+- **Cost efficiency: 95.4/100.** Excellent cost-to-performance ratio
+- **Overall Score: 83.6/100.** Good all-around performance with excellent cost efficiency — good reasoning (84/100), good tool use (82.7/100), good coding (80.3/100), good multimodal (76.9/100), excellent context window (94/100), excellent cost efficiency (95.4/100), making it a cost-effective production model for general-purpose use
 
 ---
 

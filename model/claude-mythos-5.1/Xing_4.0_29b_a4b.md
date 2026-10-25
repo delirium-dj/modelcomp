@@ -35,5 +35,5 @@ No verified public benchmark scores found for this exact model ID via open web r
 ---
 
 ## Signature
-- Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
+- Provided by: **Xing_4.0_29b_a4b (openrouter/xingchen-agi:free)** — 2026-10-21
 - Method: public internet research. Scores normalized 1–100 based on official Anthropic docs, pricing pages, and architectural positioning; where benchmark scores were not publicly verifiable, architecture-capped estimates were used. Overall = mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5.

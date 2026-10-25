@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Claude Sonnet 5
-- **Short description:** Fifth generation Sonnet model from Anthropic with enhanced coding, reasoning, and tool use capabilities
+- **Short description:** Fifth generation Sonnet model from Anthropic with enhanced capabilities
 - **Provider / access:** Anthropic API platform (anthropic.com), chat completions endpoint
-- **Release / knowledge:** Latest Sonnet generation; knowledge cutoff varies by deployment
+- **Release / knowledge:** Sonnet 5 series; knowledge cutoff varies by deployment
 - **IDs:** `claude-sonnet-5` (Anthropic API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: vision understanding; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Sonnet tier pricing; moderate cost efficiency
-- **Architecture:** Anthropic's proprietary architecture, MoE (Mixture of Experts)
+- **Architecture:** Anthropic's MoE (Mixture of Experts) architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 86.5/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 88.7/100.** Good complex reasoning abilities
-- **Context window: 95.2/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 79.9/100.** Good multimodal capabilities with vision understanding
-- **Coding: 89.3/100.** Strong programming and code generation performance
+- **Tool use: 91.4/100.** Excellent tool integration capabilities from average.md data
+- **Reasoning: 90.8/100.** Excellent complex reasoning abilities
+- **Context window: 96.8/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 83.7/100.** Good multimodal capabilities with vision
+- **Coding: 91.6/100.** Excellent programming and code generation performance
 - **Cost efficiency: 75.3/100.** Moderate cost-to-performance ratio
-- **Overall Score: 87.9/100.** Strong all-around performance with moderate cost efficiency — good reasoning (88.7/100), strong coding (89.3/100), good tool use (86.5/100), good multimodal (79.9/100), excellent context window (95.2/100), moderate cost efficiency (75.3/100), making it a solid production model with strong coding capabilities
+- **Overall Score: 90.9/100.** Excellent all-around performance with moderate cost efficiency — excellent reasoning (90.8/100), excellent coding (91.6/100), excellent tool use (91.4/100), good context window (96.8/100), good multimodal (83.7/100), moderate cost efficiency (75.3/100), making it a top-tier production model with balanced high performance
 
 ---
 

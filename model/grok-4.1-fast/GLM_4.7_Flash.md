@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Grok 4.1 Fast
-- **Short description:** Fast variant of Grok 4.1 with good cost efficiency
+- **Short description:** First generation fast model from xAI with enhanced cost efficiency
 - **Provider / access:** xAI platform (api.x.ai), chat completions endpoint
 - **Release / knowledge:** Grok 4.1 Fast series; knowledge cutoff varies by deployment
 - **IDs:** `grok-4.1-fast` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Fast tier pricing; excellent cost efficiency
-- **Architecture:** xAI transformer-based architecture with flash optimization
+- **Architecture:** xAI transformer-based architecture
 
 ## Raw benchmarks found
 
@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 75.2/100.** Moderate multimodal capabilities with vision
 - **Coding: 71.4/100.** Moderate programming and code generation performance
 - **Cost efficiency: 93.3/100.** Excellent cost-to-performance ratio
-- **Overall Score: 80.5/100.** Moderate all-around performance with excellent cost efficiency — excellent cost efficiency (93.3/100), good tool use (84/100), moderate reasoning (77.6/100), moderate coding (71.4/100), moderate multimodal (75.2/100), excellent context window (94.6/100), making it a cost-effective production model for general-purpose use
+- **Overall Score: 80.5/100.** Strong all-around performance with excellent cost efficiency — excellent cost efficiency (93.3/100), good tool use (84/100), moderate reasoning (77.6/100), moderate coding (71.4/100), moderate multimodal (75.2/100), excellent context window (94.6/100), making it a cost-effective production model for general-purpose use
 
 ---
 

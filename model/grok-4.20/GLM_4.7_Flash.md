@@ -14,13 +14,13 @@
 ## Model card
 
 - **Name:** Grok 4.20
-- **Short description:** Fourth generation Grok 20 model from xAI with enhanced reasoning and cost efficiency
+- **Short description:** Version 2.0 of Grok 4 with enhanced multimodal and reasoning capabilities
 - **Provider / access:** xAI platform (api.x.ai), chat completions endpoint
 - **Release / knowledge:** Grok 4.20 series; knowledge cutoff varies by deployment
 - **IDs:** `grok-4.20` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** 4.20 tier pricing; good cost efficiency
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** xAI tier pricing; good cost efficiency
 - **Architecture:** xAI transformer-based architecture
 
 ## Raw benchmarks found
@@ -52,12 +52,12 @@ Long context:
 > and state what caps the score.
 
 - **Tool use: 74.3/100.** Moderate tool integration capabilities from average.md data
-- **Reasoning: 81.8/100.** Good complex reasoning abilities
+- **Reasoning: 81.8/100.** Moderate complex reasoning abilities
 - **Context window: 95.2/100.** Excellent long-context processing capability (128K tokens, industry-leading)
 - **Multimodal: 72.1/100.** Moderate multimodal capabilities with vision
-- **Coding: 76.3/100.** Moderate programming and code generation performance
+- **Coding: 76.3/100.** Good programming and code generation performance
 - **Cost efficiency: 84.2/100.** Good cost-to-performance ratio
-- **Overall Score: 79.9/100.** Moderate all-around performance with good cost efficiency — good reasoning (81.8/100), moderate tool use (74.3/100), moderate coding (76.3/100), moderate multimodal (72.1/100), excellent context window (95.2/100), good cost efficiency (84.2/100), making it a decent production model for general-purpose use
+- **Overall Score: 79.9/100.** Moderate all-around performance with good cost efficiency — moderate reasoning (81.8/100), moderate tool use (74.3/100), good coding (76.3/100), moderate multimodal (72.1/100), excellent context window (95.2/100), good cost efficiency (84.2/100), making it a solid production model for general-purpose use
 
 ---
 

@@ -14,13 +14,13 @@
 ## Model card
 
 - **Name:** MiniMax M3.1 Flash Preview
-- **Short description:** Fast preview variant of MiniMax M3.1 with balanced capabilities
-- **Provider / access:** MiniMax platform (api.minimax.cn), chat completions endpoint
-- **Release / knowledge:** M3.1 Flash Preview series; knowledge cutoff varies by deployment
+- **Short description:** Preview version of 3.1 generation MiniMax Flash model
+- **Provider / access:** MiniMax platform (api.minimax.chat), chat completions endpoint
+- **Release / knowledge:** MiniMax M3.1 Flash Preview series; knowledge cutoff varies by deployment
 - **IDs:** `minimax-m3.1-flash-preview` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** Flash Preview tier pricing; good cost efficiency
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Preview tier pricing; good cost efficiency
 - **Architecture:** MiniMax transformer-based architecture
 
 ## Raw benchmarks found
@@ -53,11 +53,11 @@ Long context:
 
 - **Tool use: 69.9/100.** Moderate tool integration capabilities from average.md data
 - **Reasoning: 72.1/100.** Moderate complex reasoning abilities
-- **Context window: 91.7/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Context window: 91.7/100.** Good long-context processing capability (128K tokens, industry-leading)
 - **Multimodal: 75.5/100.** Moderate multimodal capabilities with vision
 - **Coding: 73.5/100.** Moderate programming and code generation performance
 - **Cost efficiency: 85.5/100.** Good cost-to-performance ratio
-- **Overall Score: 76.6/100.** Moderate all-around performance with good cost efficiency — good cost efficiency (85.5/100), moderate reasoning (72.1/100), moderate tool use (69.9/100), moderate coding (73.5/100), moderate multimodal (75.5/100), excellent context window (91.7/100), making it a decent production model for general-purpose use
+- **Overall Score: 76.6/100.** Moderate all-around performance with good cost efficiency — moderate reasoning (72.1/100), moderate tool use (69.9/100), moderate coding (73.5/100), moderate multimodal (75.5/100), good context window (91.7/100), good cost efficiency (85.5/100), making it a solid production model for general-purpose use
 
 ---
 

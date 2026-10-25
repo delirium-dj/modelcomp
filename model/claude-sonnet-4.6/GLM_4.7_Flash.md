@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Claude Sonnet 4.6
-- **Short description:** Sixth generation Sonnet model from Anthropic with balanced reasoning and coding
+- **Short description:** Fourth generation Sonnet model from Anthropic with balanced capabilities
 - **Provider / access:** Anthropic API platform (anthropic.com), chat completions endpoint
 - **Release / knowledge:** Sonnet 4.6 series; knowledge cutoff varies by deployment
 - **IDs:** `claude-sonnet-4.6` (Anthropic API)
-- **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: vision understanding; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Context window:** 1M tokens (from official documentation)
+- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Sonnet tier pricing; moderate cost efficiency
-- **Architecture:** Anthropic's proprietary architecture, MoE (Mixture of Experts)
+- **Architecture:** Anthropic's MoE (Mixture of Experts) architecture
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 86.3/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 86/100.** Good complex reasoning abilities
-- **Context window: 92.2/100.** Good long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 80.1/100.** Good multimodal capabilities with vision understanding
-- **Coding: 86.9/100.** Strong programming and code generation performance
-- **Cost efficiency: 69.6/100.** Moderate cost-to-performance ratio
-- **Overall Score: 86.3/100.** Strong all-around performance with moderate cost efficiency — good reasoning (86/100), strong coding (86.9/100), good tool use (86.3/100), good multimodal (80.1/100), good context window (92.2/100), moderate cost efficiency (69.6/100), making it a solid production model with strong coding capabilities
+- **Tool use: 83.6/100.** Good tool integration capabilities from average.md data
+- **Reasoning: 79.1/100.** Moderate complex reasoning abilities
+- **Context window: 97.3/100.** Excellent long-context processing capability (1M tokens, industry-leading)
+- **Multimodal: 81.7/100.** Good multimodal capabilities with vision
+- **Coding: 80.8/100.** Good programming and code generation performance
+- **Cost efficiency: 69.2/100.** Moderate cost-to-performance ratio
+- **Overall Score: 84.5/100.** Good all-around performance with excellent context window — good reasoning (79.1/100), good tool use (83.6/100), good coding (80.8/100), good multimodal (81.7/100), excellent context window (97.3/100), moderate cost efficiency (69.2/100), making it a solid production model for long-context tasks
 
 ---
 

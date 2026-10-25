@@ -1,4 +1,4 @@
-# GPT-5.2 Pro - findings by GLM 4.7 Flash
+# GPT 5.2 Pro - findings by GLM 4.7 Flash
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/gpt-5.2-pro/GLM_4.7_Flash.md`,
 > replace every `<...>` placeholder with your own research, and strip this notice block.
@@ -13,14 +13,14 @@
 
 ## Model card
 
-- **Name:** GPT-5.2 Pro
-- **Short description:** Pro variant of GPT 5.2 with enhanced reasoning and coding capabilities
+- **Name:** GPT 5.2 Pro
+- **Short description:** Second generation Pro model from OpenAI with enhanced reasoning and coding
 - **Provider / access:** OpenAI API platform (openai.com/api), chat completions endpoint
 - **Release / knowledge:** GPT 5.2 Pro series; knowledge cutoff varies by deployment
 - **IDs:** `gpt-5.2-pro` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: vision understanding; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** Pro tier pricing; low cost efficiency
+- **Pricing (as of 2026-10-25):** Pro tier pricing; moderate cost efficiency
 - **Architecture:** OpenAI transformer-based architecture with specialized attention mechanisms
 
 ## Raw benchmarks found
@@ -56,8 +56,8 @@ Long context:
 - **Context window: 83/100.** Moderate long-context processing capability (128K tokens, industry-leading)
 - **Multimodal: 65/100.** Limited multimodal capabilities with vision understanding
 - **Coding: 83.3/100.** Strong programming and code generation performance
-- **Cost efficiency: 25.2/100.** Low cost-to-performance ratio
-- **Overall Score: 80.8/100.** Strong all-around performance with low cost efficiency — excellent reasoning (93.2/100), strong coding (83.3/100), moderate tool use (80/100), limited multimodal (65/100), moderate context window (83/100), low cost efficiency (25.2/100), making it a high-performance but expensive model for production use
+- **Cost efficiency: 25.2/100.** Poor cost-to-performance ratio
+- **Overall Score: 80.8/100.** Strong all-around performance with poor cost efficiency — excellent reasoning (93.2/100), strong coding (83.3/100), moderate tool use (80/100), limited multimodal (65/100), moderate context window (83/100), poor cost efficiency (25.2/100), making it a high-performance but expensive production model for coding tasks
 
 ---
 

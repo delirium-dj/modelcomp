@@ -14,13 +14,13 @@
 ## Model card
 
 - **Name:** GLM 5.3
-- **Short description:** Base variant of GLM 5.3 with strong coding and tool use
+- **Short description:** Third generation GLM model from Zhipu AI with strong coding and cost efficiency
 - **Provider / access:** Zhipu AI BigModel platform (api.bigmodel.cn), chat completions endpoint
-- **Release / knowledge:** Base 5.3 series; knowledge cutoff varies by deployment
+- **Release / knowledge:** GLM 5.3 series; knowledge cutoff varies by deployment
 - **IDs:** `glm-5.3` (BigModel API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** Base tier pricing; good cost efficiency
+- **Modalities:** text in; text out; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** Zhipu AI tier pricing; good cost efficiency
 - **Architecture:** Zhipu AI transformer-based architecture
 
 ## Raw benchmarks found
@@ -53,11 +53,11 @@ Long context:
 
 - **Tool use: 88.5/100.** Strong tool integration capabilities from average.md data
 - **Reasoning: 86.8/100.** Good complex reasoning abilities
-- **Context window: 92.9/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 35.2/100.** Limited multimodal capabilities with vision
+- **Context window: 92.9/100.** Good long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 35.2/100.** Limited multimodal capabilities with minimal vision
 - **Coding: 89/100.** Strong programming and code generation performance
 - **Cost efficiency: 84.8/100.** Good cost-to-performance ratio
-- **Overall Score: 78.6/100.** Strong all-around performance with good cost efficiency — strong tool use (88.5/100), good reasoning (86.8/100), strong coding (89/100), limited multimodal (35.2/100), good context window (92.9/100), good cost efficiency (84.8/100), making it a cost-effective production model with strong coding capabilities
+- **Overall Score: 78.6/100.** Strong all-around performance with good cost efficiency — strong tool use (88.5/100), strong coding (89/100), good reasoning (86.8/100), good context window (92.9/100), limited multimodal (35.2/100), good cost efficiency (84.8/100), making it a cost-effective production model for coding and tool-heavy tasks
 
 ---
 

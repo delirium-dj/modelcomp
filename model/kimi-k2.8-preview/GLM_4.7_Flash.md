@@ -14,12 +14,12 @@
 ## Model card
 
 - **Name:** Kimi K2.8 Preview
-- **Short description:** 2.8 preview variant of Kimi model from Moonshot AI with balanced capabilities
+- **Short description:** 2.8 generation Kimi preview model with balanced capabilities
 - **Provider / access:** Moonshot AI (kimi.com), chat completions endpoint
-- **Release / knowledge:** Kimi K2.8 preview series; knowledge cutoff varies by deployment
+- **Release / knowledge:** Kimi K2.8 Preview series; knowledge cutoff varies by deployment
 - **IDs:** `kimi-k2.8-preview` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Preview tier pricing; good cost efficiency
 - **Architecture:** Moonshot AI transformer-based architecture
 
@@ -53,11 +53,11 @@ Long context:
 
 - **Tool use: 76.2/100.** Moderate tool integration capabilities from average.md data
 - **Reasoning: 75.3/100.** Moderate complex reasoning abilities
-- **Context window: 91.7/100.** Excellent long-context processing capability (128K tokens, industry-leading)
+- **Context window: 91.7/100.** Good long-context processing capability (128K tokens, industry-leading)
 - **Multimodal: 72.9/100.** Moderate multimodal capabilities with vision
-- **Coding: 79.4/100.** Moderate programming and code generation performance
+- **Coding: 79.4/100.** Good programming and code generation performance
 - **Cost efficiency: 80.4/100.** Good cost-to-performance ratio
-- **Overall Score: 79.1/100.** Moderate all-around performance with good cost efficiency — good cost efficiency (80.4/100), moderate tool use (76.2/100), moderate reasoning (75.3/100), moderate coding (79.4/100), moderate multimodal (72.9/100), excellent context window (91.7/100), making it a decent production model for general-purpose use
+- **Overall Score: 79.1/100.** Moderate all-around performance with good cost efficiency — moderate reasoning (75.3/100), moderate tool use (76.2/100), good coding (79.4/100), moderate multimodal (72.9/100), good context window (91.7/100), good cost efficiency (80.4/100), making it a solid production model for general-purpose use
 
 ---
 

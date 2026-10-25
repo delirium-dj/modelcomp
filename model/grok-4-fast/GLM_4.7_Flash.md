@@ -14,14 +14,14 @@
 ## Model card
 
 - **Name:** Grok 4 Fast
-- **Short description:** Fast variant of Grok 4 with excellent cost efficiency
+- **Short description:** Fast variant of Grok 4 with enhanced cost efficiency
 - **Provider / access:** xAI platform (api.x.ai), chat completions endpoint
 - **Release / knowledge:** Grok 4 Fast series; knowledge cutoff varies by deployment
 - **IDs:** `grok-4-fast` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Fast tier pricing; excellent cost efficiency
-- **Architecture:** xAI transformer-based architecture with flash optimization
+- **Architecture:** xAI transformer-based architecture
 
 ## Raw benchmarks found
 

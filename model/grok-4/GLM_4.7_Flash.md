@@ -19,8 +19,8 @@
 - **Release / knowledge:** Grok 4 series; knowledge cutoff varies by deployment
 - **IDs:** `grok-4` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
-- **Pricing (as of 2026-10-25):** 4 tier pricing; moderate cost efficiency
+- **Modalities:** text in; text out; multimodal: moderate vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Pricing (as of 2026-10-25):** xAI tier pricing; moderate cost efficiency
 - **Architecture:** xAI transformer-based architecture
 
 ## Raw benchmarks found
@@ -57,7 +57,7 @@ Long context:
 - **Multimodal: 71.7/100.** Moderate multimodal capabilities with vision
 - **Coding: 80/100.** Moderate programming and code generation performance
 - **Cost efficiency: 63.9/100.** Moderate cost-to-performance ratio
-- **Overall Score: 79.8/100.** Moderate all-around performance with moderate cost efficiency — good reasoning (84.9/100), good tool use (80.9/100), moderate coding (80/100), moderate multimodal (71.7/100), moderate context window (81.1/100), moderate cost efficiency (63.9/100), making it a decent production model for general-purpose use
+- **Overall Score: 79.8/100.** Moderate all-around performance with moderate cost efficiency — good reasoning (84.9/100), good tool use (80.9/100), moderate coding (80/100), moderate multimodal (71.7/100), moderate context window (81.1/100), moderate cost efficiency (63.9/100), making it a solid production model for general-purpose use
 
 ---
 

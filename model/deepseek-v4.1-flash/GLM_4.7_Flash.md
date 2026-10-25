@@ -1,4 +1,4 @@
-# DeepSeek v4.1 Flash - findings by GLM 4.7 Flash
+# DeepSeek V4.1 Flash - findings by GLM 4.7 Flash
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/deepseek-v4.1-flash/GLM_4.7_Flash.md`,
 > replace every `<...>` placeholder with your own research, and strip this notice block.
@@ -6,22 +6,22 @@
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
 
-- Source: DeepSeek, `deepseek-v4.1-flash` (deepseek-v4.1-flash)
+- Source: DeepSeek AI, `deepseek-v4.1-flash` (deepseek-v4.1-flash)
 - Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek v4.1 Flash
-- **Short description:** Flash-optimized version of DeepSeek v4.1 with strong coding, tool use, and cost efficiency
-- **Provider / access:** DeepSeek platform (platform.deepseek.com), chat completions endpoint
-- **Release / knowledge:** DeepSeek v4.1 series generation; knowledge cutoff varies by deployment
+- **Name:** DeepSeek V4.1 Flash
+- **Short description:** 4.1 generation Flash model from DeepSeek with enhanced efficiency
+- **Provider / access:** DeepSeek Platform (platform.deepseek.com), chat completions endpoint
+- **Release / knowledge:** DeepSeek V4.1 Flash series; knowledge cutoff varies by deployment
 - **IDs:** `deepseek-v4.1-flash` (API)
 - **Context window:** 128K tokens (from model comparison data)
 - **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** Flash tier pricing; excellent cost efficiency
-- **Architecture:** DeepSeek transformer-based architecture with flash optimization
+- **Architecture:** DeepSeek transformer-based architecture with Multi-head Latent Attention (MLA)
 
 ## Raw benchmarks found
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 90/100.** Strong tool integration capabilities from average.md data
-- **Reasoning: 88.3/100.** Good complex reasoning abilities
-- **Context window: 95.3/100.** Excellent long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 76.5/100.** Limited multimodal capabilities with vision
-- **Coding: 90.9/100.** Superior programming and code generation performance
-- **Cost efficiency: 96.7/100.** Exceptional cost-to-performance ratio
-- **Overall Score: 88.4/100.** Strong all-around performance with excellent cost efficiency — outstanding coding (90.9/100), strong tool use (90/100), excellent cost efficiency (96.7/100), good reasoning (88.3/100), excellent context window (95.3/100), but limited multimodal (76.5/100), making it a highly cost-effective model for coding and tool-heavy tasks
+- **Tool use: 77.2/100.** Moderate tool integration capabilities from average.md data
+- **Reasoning: 76.8/100.** Moderate complex reasoning abilities
+- **Context window: 85.4/100.** Good long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 67.5/100.** Limited multimodal capabilities with vision
+- **Coding: 73.8/100.** Moderate programming and code generation performance
+- **Cost efficiency: 95.2/100.** Excellent cost-to-performance ratio
+- **Overall Score: 76.1/100.** Moderate all-around performance with excellent cost efficiency — moderate reasoning (76.8/100), moderate tool use (77.2/100), moderate coding (73.8/100), limited multimodal (67.5/100), good context window (85.4/100), excellent cost efficiency (95.2/100), making it a cost-effective production model for lightweight tasks
 
 ---
 

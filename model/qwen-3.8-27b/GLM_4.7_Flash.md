@@ -14,12 +14,12 @@
 ## Model card
 
 - **Name:** Qwen 3.8 27B
-- **Short description:** 27B parameter dense variant of Qwen 3.8 series with balanced capabilities
+- **Short description:** 27B parameter dense model from Qwen 3.8 series with balanced capabilities
 - **Provider / access:** Alibaba Cloud (qwen.readthedocs.io, ModelScope), chat completions endpoint
 - **Release / knowledge:** Qwen 3.8 series generation; knowledge cutoff varies by deployment
 - **IDs:** `qwen-3.8-27b` (API)
 - **Context window:** 128K tokens (from model comparison data)
-- **Modalities:** text in; text out; multimodal: strong vision; reasoning: yes; tool calls: yes; JSON mode: supported
+- **Modalities:** text in; text out; multimodal: limited vision; reasoning: yes; tool calls: yes; JSON mode: supported
 - **Pricing (as of 2026-10-25):** 27B tier pricing; good cost efficiency
 - **Architecture:** Qwen 3.8 series dense architecture (27B parameters)
 
@@ -51,13 +51,13 @@ Long context:
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
 
-- **Tool use: 84.6/100.** Good tool integration capabilities from average.md data
-- **Reasoning: 83.9/100.** Moderate complex reasoning abilities
-- **Context window: 89.8/100.** Good long-context processing capability (128K tokens, industry-leading)
-- **Multimodal: 86.6/100.** Strong multimodal capabilities with vision
-- **Coding: 85.6/100.** Good programming and code generation performance
-- **Cost efficiency: 92.6/100.** Excellent cost-to-performance ratio
-- **Overall Score: 86.1/100.** Strong all-around performance with excellent cost efficiency — strong multimodal (86.6/100), excellent cost efficiency (92.6/100), moderate reasoning (83.9/100), good tool use (84.6/100), good coding (85.6/100), good context window (89.8/100), making it a cost-effective production model with strong multimodal capabilities
+- **Tool use: 80.3/100.** Moderate tool integration capabilities from average.md data
+- **Reasoning: 84.2/100.** Good complex reasoning abilities
+- **Context window: 75.1/100.** Moderate long-context processing capability (128K tokens, industry-leading)
+- **Multimodal: 70.6/100.** Moderate multimodal capabilities with vision
+- **Coding: 82.1/100.** Good programming and code generation performance
+- **Cost efficiency: 88.3/100.** Good cost-to-performance ratio
+- **Overall Score: 78.5/100.** Moderate all-around performance with good cost efficiency — good reasoning (84.2/100), good tool use (80.3/100), good coding (82.1/100), moderate multimodal (70.6/100), moderate context window (75.1/100), good cost efficiency (88.3/100), making it a solid production model for general-purpose use
 
 ---
 

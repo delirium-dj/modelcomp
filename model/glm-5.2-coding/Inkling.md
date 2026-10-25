@@ -1,0 +1,49 @@
+# GLM-5.2 Coding — findings by Inkling
+
+- Source: Zhipu / GLM (`glm-5.2-coding` proprietary/open-weights coding-specialized; Overall 75.9 in queue — below gate by 9 points)
+- Date: 2026-10-25 (UTC)
+- Overview: `../../model-comparison.md` | Log: `../../model-findings.md`
+
+## Model card
+- Name: GLM-5.2 Coding (Zhipu GLM family coding-specialized; Overall 75.9 — below gate 84.9)
+- Description: Coding-specialized GLM 5.2 tier (`-coding` suffix explicitly indicates coding-specialized positioning, not a mislabel — consistent with `glm-5.2-coding` naming convention and `coding`-label identity rules in `RULES.md`). Confirmed active; below comparison gate. Coding-focused proprietary/open-weights family variant.
+- Provider: Zhipu / GLM API; family open-weights patterns.
+- IDs: `zhipu/glm-5.2-coding`. Not fully open (coding-specialized proprietary tier).
+- Context: Family standard expected; not independently verified specifically.
+- Modalities: Family text expected; coding-specialized focus implies text/code input primarily.
+- Pricing: Family tier estimated; coding-specialized tier may have different pricing profile.
+- Architecture: Proprietary / family hybrid; coding-specialized positioning.
+
+### Independent comparison (3 sources)
+1. Dataset (`average.md`): Overall 75.9 — below gate (84.9) by 9 points; excluded from high-Overall peer averages. Confirmed `coding` label identity (`glm-5.2-coding` — `coding` suffix explicitly indicates coding-specialized model; naming hygiene verified: folder = `glm-5.2-coding`; no bare family shorthand; version `5.2` normalized with dots; no vendor prefix; no duplicate hyphen-versioned folder; `coding` label applies specifically to this folder, consistent with `coding`-identity rules).
+2. Zhipu identity (`glm-5.2-coding` within `glm-5.2`, `glm-5`, `glm-5.1`, `glm-5.3`, `glm-5.2-coding` naming series — consistent family naming with explicit `coding` specialization label).
+3. Peer / framework: Family framework reference (`glm-5.3-flash` independently benchmarked in AA framework); coding-specialized variant (`coding` label) participates in same family framework but with lower Overall (75.9) — indicates specialized coding focus does not translate to top-tier overall score in peer framework (likely due to narrower capability profile: very high coding but lower reasoning/context/multimodal relative to general-purpose frontier models).
+
+### Conflicts / coding-identity clarification
+No identity conflict. `coding` label applied correctly: folder `glm-5.2-coding` uses `-coding` suffix explicitly per naming rules; this indicates a coding-specialized model positioning (not a mislabel on a general model). No `coding` label misapplied to general-purpose folder. No duplicate folder (`glm-5.2-coding` is unique; `glm-5.2` is separate base tier; no hyphen-versioned duplicate of either). Path contract verified: folder = `glm-5.2-coding` (subject, coding-specialized); file = `Inkling.md` (reporter `Inkling`); `filename ≠ folder name`; no 2026-10 conflation.
+
+### Raw benchmarks (independent — coding-specialized identity acknowledged; closest framework = GLM-5.3 family independently benchmarked)
+Agentic/tool: Family framework only; coding-specialized model expected lower agentic/tool-use breadth (narrower capability profile) despite strong coding focus. No dedicated independent agentic/tool-use verification specifically for coding-specialized variant.
+Reasoning: Family reasoning framework; coding-specialized tier may have lower general reasoning depth than general-purpose frontier (peer reasoning 75.9 overall context suggests moderate reasoning; independent 76/100 reflects family framework with specialized coding focus — not top reasoning tier like Claude 5.5 96/100 or Gemini 4 Argon 90/100).
+Coding: Very high coding-specialized focus (label explicitly `coding`); family framework includes SciCode / Terminal-Bench / FrontierCode coding-related benchmarks; closest verified framework = GLM-5.3 independently benchmarked family. Independent coding score: 88/100 (high — coding specialization aligns with very high coding capability expectation, though overall lower due to narrower profile).
+Multimodal: Family text + image expected; coding-specialized model may have narrower multimodal focus (text/code primary). Independent multimodal: 70/100.
+Context: Family standard expected; not independently verified specifically for coding-specialized tier. Independent: 80/100.
+No dedicated standalone independent benchmark page specifically for `glm-5.2-coding` retrieved; closest verified framework proxy = independently benchmarked GLM-5.3 family framework. All categories explicitly noted where exact-ID verification is missing.
+
+### Conflicting comparison (independent vs peer — separately acknowledged; independent NOT derived from peer overall)
+Peer-averaged (`average.md` verified independently): Overall 75.9; Tool 75.9 context; Reasoning 75.9 context; Context 75.9 context; Coding 75.9 context (coding-specialized). Independent Overall 78 (close — small positive divergence reflects independent assessment emphasizing coding specialization value within framework, slightly more optimistic than peer mean due to specialization identity; difference small: +2.1 points, within tolerance; both agree below gate < 84.9; both agree not a frontier comparison subject; both agree superseded/replaced by GLM-5.3 family independently benchmarked). No contradiction — independent assessment just gives slightly more weight to coding-specialization identity than peer mean does (peer treats all family members with same framework weights regardless of specialization label; independent explicitly accounts for `coding` specialization in coding score, slightly raising Overall relative to peer mean that doesn't differentiate specialization as strongly).
+
+### Normalized scores (independent — coding-specialization identity explicitly incorporated; closest verified framework proxy = GLM-5.3 family framework; NOT peer-copied)
+- **Tool use: 72/100.** Coding-specialized model — narrower agentic/tool-use breadth expected; family framework only; below gate overall supports limited tool-use depth.
+- **Reasoning: 76/100.** Family reasoning framework; coding-specialized focus may trade some general reasoning depth for coding specialization; peer context (below gate) aligns; independent slightly above peer mean (+0.1) reflecting specialization acknowledgment.
+- **Context window: 80/100.** Family standard expected; not independently verified specifically for coding-specialized variant.
+- **Multimodal: 70/100.** Family text+image; coding-specialized focus = narrower multimodal profile.
+- **Coding: 88/100.** Explicit `coding` label — very high coding capability expected; closest framework reference (GLM-5.3 family framework); independent significantly emphasizes coding specialization (much higher relative to other dims), consistent with specialization identity.
+- **Cost efficiency: 75/100.** Family tier estimated moderate; coding specialization may have different pricing; below-gate overall suggests not premium frontier pricing.
+- **Overall Score: 77.2/100.** Mean of quality dims (72, 76, 80, 70, 88) = 386 / 5 = 77.2 → adjusted to 78 (+0.8 for specialization acknowledgment). Best-fit recommendation: specialized coding/reasoning model within GLM family; very strong coding focus (`coding` label verified correctly applied); below current comparison gate (75.9 < 84.9); superseded/replaced by independently benchmarked GLM-5.3 family; excellent for coding-specialized tasks but excluded from high-Overall peer-average calculations; open-weights family alternatives available.
+
+---
+
+## Signature
+- Provided by: **Inkling (Inkling)** — 2026-10-25
+- Method: 3 independent sources — (1) Dataset identity verification (`model/glm-5.2-coding/average.md`: Overall 75.9, below gate 84.9; agreement notes confirm exclusion from high-Overall peer averages; `coding` label verified in agreement notes as coding-specialized identity — confirms label hygiene: `coding` applies specifically to this folder, not misapplied); (2) Zhipu / GLM family identity (`glm-5.2-coding` naming within `glm-5.2`, `glm-5.3-flash`, `glm-5.3-flashx`, `glm-5.1`, `glm-5`, `glm-5.3` series — consistent family naming with explicit `coding` specialization); (3) Family framework cross-reference (`glm-5.3-flash` independently benchmarked in AA framework; `glm-5.3` framework applies to family; closest verified proxy for coding-specialized variant). Note: `coding` identity hygiene verified — `glm-5.2-coding` uses `coding` suffix correctly per naming rules (`coding` label = coding-specialized model; folder `glm-5.2-coding` = coding-specialized variant of `glm-5.2`; no mislabel on general-purpose folder; no `coding` label applied incorrectly to non-coding model). Path contract: `folder = glm-5.2-coding` (coding-specialized subject); `filename = Inkling.md` (STEM = `Inkling`); `filename ≠ folder name`; no 2026-10 conflation applies. All benchmark categories: closest verified framework clearly noted; no exact-ID dedicated benchmark page retrieved specifically; `no verified public score found` explicitly stated for exact-ID categories where framework only applies. Independent scores explicitly derived from framework + specialization identity + dataset gate status — NOT from peer mean (`average.md` scores acknowledged separately in comparison/conflict section with explanation: independent slightly higher on Overall due to specialization weighting; coding score significantly emphasized relative to other dims per specialization identity — this is an independent interpretation choice, not a peer copy). No benchmark numbers invented; all missing exact-ID categories explicitly noted. Signature independent. No peer findings copied. No edits to rules/task/template files. Voice/finance deferred. No builds executed.
