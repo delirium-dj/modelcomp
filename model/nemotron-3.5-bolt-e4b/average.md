@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Sol.
 - Average from top 4 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Sol.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, Solar Mini 4.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, Muse Glimmer 30B, Solar Mini 4.
