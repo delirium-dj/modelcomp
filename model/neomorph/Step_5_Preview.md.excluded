@@ -1,0 +1,84 @@
+# neomorph — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: no genuine AI model could be found under this slug across seven
+> independent authoritative checks — no model card, no weights repo, no API route,
+> no gateway listing and no benchmark-tracker entry. Per the template's
+> SELF-EXCLUSION clause (`RULES.md`, `tasks/research.md` step 3.9) this file is saved
+> as notes only and carries NO scores. Scores here are intentionally absent.
+
+- Source: unknown (`neomorph`) — **identity unverified / no such model found**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists in any authoritative source consulted. The word is common outside AI (biology, design, branding), and every search returned incidental or marketing noise rather than a genuine model.
+- **Provider / access:** none found. No vendor route, no gateway listing, no weights repo, no lab of this name.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (seven independent checks, all run 2026-10-24)
+
+1. **Artificial Analysis:** `https://artificialanalysis.ai/models/neomorph` returns **404** — no model page.
+2. **Hugging Face model search** (`https://huggingface.co/models?search=neomorph`): returns literally **"No results found"** — zero models, zero orgs. This is the decisive negative: HF hosts essentially every open-weights model, so a zero-result search rules out any public checkpoint.
+3. **OpenRouter** (`https://openrouter.ai/models?q=neomorph`): the page rendered its default recent-models list (Kimi K3.1 Pro, Flint, Mammoth 1, Nemotron, MiniMax M3.1 Flash, DeepSeek V4.1 Flash…) with **no `neomorph` route or model anywhere** in the rendered set.
+4. **models.dev canonical table:** browsed the full ~14,000-line canonical-model table (covering Meta, Nvidia, Google, OpenAI, Anthropic, DeepSeek, MiniMax, Xiaomi, Upstage, InclusionAI, StepFun, mistralai, alibaba, quiverai, sakana, vivgrid, unbiased, typesafe, aleph-alpha, phocinae, meituan, lightonai and the rest of the tracked labs). A string search for "neomorph" returned **no match** — not as a model, not as a lab name, not as a slug.
+5. **Bing** for `"Neomorph" AI model LLM benchmarks`: 57 results, but every visible hit is `mybroadband.co.za` — a South African internet-speed-test site (speedtest pages, 5G articles, Telkom/Rain forum threads). Zero AI-model pages, zero benchmark-tracker entries.
+6. **Bing** for `"Neomorph" LLM open weights OR checkpoint OR "model card"`: claims 14,700 results, but every visible hit is a generic LLM directory that never mentions a model called Neomorph (`opensourcesai.com/models`, `computingforgeeks.com`, an HF blog post, `theopenweights.com`, `benchlm.ai`, `morphllm.com/models`, `opensourceaimodels.net`, `llm-releases.com`). Bing silently dropped the quoted keyword, so the result set is not evidence either way — noted as a low-quality check. (Note `morphllm.com` is a *different* product, Morph LLM, and was not confused with this slug.)
+7. **Google** for `"Neomorph" LLM model`: blocked — returned Google's JS-retry error page with no result content. Recorded as an inconclusive check and not used as evidence.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found. The four neutral sources — Artificial Analysis (404), Hugging Face (0 results), OpenRouter (absent) and models.dev (no match) — all agree independently that nothing exists under this name. The three noisy checks (two Bing searches and a blocked Google) are individually disclosed above and are not counted as evidence.
+- **Strictness note:** "Neomorph" is a common word outside AI, so a much higher evidentiary bar was applied than for the other phantom slugs in this queue. Nothing that qualifies was found — no model card, no weights repo, no API route, no gateway listing, no benchmark-tracker entry, and not even a passing mention in a genuine model listing.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 52, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Batch note:** this is the seventh phantom slug found in this queue and the second (`owo-2.5` being the other) where the *word itself* is common outside AI. Both are the weakest-evidence phantoms in the set, because a common word guarantees SEO noise; the Hugging Face zero-result search and the models.dev no-match are what make the negative conclusion solid for both.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No model could be identified, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across seven independent checks (Artificial Analysis URL test, Hugging Face model search, OpenRouter model search, a full models.dev canonical-table string search, two Bing searches, and a Google search), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — no genuine AI model could be found under this slug in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

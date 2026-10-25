@@ -1,0 +1,88 @@
+# glm-4.5-flash — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: the model is real (a canonical models.dev catalog entry with a
+> verified record), but ZERO verified public benchmark numbers exist for it across
+> seven independent sources. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores — every benchmark row below would read "no verified public
+> score found", and inventing a placeholder would drag the mean for every reader.
+
+- Source: Zhipu AI / Z.ai (`glm-4.5-flash`) — **real model, zero verified benchmarks**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.5-Flash
+- **Short description:** Zhipu AI's July 2025 Flash-tier model in the GLM-4.5 family — notable as the only 4.5-family member with **closed** weights, while GLM-4.5 and GLM-4.5-Air are open. No benchmark numbers have ever been published for it, and it is absent from every independent tracker and gateway checked.
+- **Provider / access:** **none found.** Not listed on OpenRouter (its direct page returns 404) and not in the OpenCode Console/Zen catalog. The weights are closed, so self-hosting is not an option either. At the time of research this model appears to have no reachable serving route at all.
+- **Release / knowledge:** released **2025-07-28** (models.dev, both release and updated dates).
+- **IDs:** `zhipuai/glm-4.5-flash` (models.dev). No live provider ID was found.
+- **Context window:** **131,072 tokens** total with **98,304 max output** (models.dev — the only source that carries specs for this model).
+- **Modalities:** **not verifiable.** models.dev's input-modality field renders as a non-text icon set and cannot be read as text, and the gated Hugging Face repo cannot be read to corroborate. Reasoning is flagged Yes, tool calling Yes, structured output Yes.
+- **Pricing (as of 2026-10-24):** **$0.00 / $0.00** per 1M (models.dev). This is models.dev's default for a model with no served paid route rather than a verified free tier, so it is **not** treated as a real price here.
+- **Architecture:** **closed weights** (models.dev) — the only closed-weights member of the GLM-4.5 family, its siblings GLM-4.5 and GLM-4.5-Air both being open. Parameter count, license name and architecture details are all unverifiable because the Hugging Face repo is gated.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- MMLU-Pro: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA's page returns 404, so no Index, rank, output speed, TTFT or cost-per-task figure exists.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (seven independent checks, all run 2026-10-24)
+
+1. **models.dev — Zhipu catalog** (`https://models.dev/api/zhipuai.json`): the canonical record reads verbatim — `GLM-4.5-Flash | zhipuai/glm-4.5-flash | Lab: Zhipu AI | Providers: 5 | Context: 131,072 | Output: 98,304 | Reasoning: Yes | Tool Call: Yes | Structured Output: Yes | Weights: CLOSED | Price: $0.00 / $0.00 | Release: 2025-07-28 | Updated: 2025-07-28`. **This confirms the model is real** — it is the one source in this pass that establishes identity, and it is the reason this file is a zero-benchmark self-exclusion rather than a phantom self-exclusion.
+2. **Artificial Analysis:** `https://artificialanalysis.ai/models/glm-4-5-flash` returns **404** — no page, and therefore no Intelligence Index, rank, speed, latency or cost-per-task data exists.
+3. **Hugging Face:** `https://huggingface.co/zai-org/GLM-4.5-Flash` returns **401** — the repo exists but is gated, so no model card, parameter count, license text or modality information is retrievable. (This is consistent with models.dev's "Weights: CLOSED" flag.)
+4. **OpenRouter:** `glm-4.5-flash` is **not listed** on the Z.ai author page (which shows glm-4.5, -4.5-air, -4.5v, -4.6, -4.7, -4.7-flash and the glm-5 family), and the direct page `https://openrouter.ai/z-ai/glm-4.5-flash` returns **404**.
+5. **Bing**, two phrasings (`"GLM-4.5-Flash" benchmarks SWE-bench AIME` and a variant): both returned only irrelevant results — no GLM-4.5-Flash content of any kind.
+6. **Z.ai's own blog** (`https://z.ai/blog`): returns **404** — no announcement or guide page for this model exists.
+7. **OpenCode Zen catalog** (`https://opencode.ai/docs/zen`): GLM entries listed are 5.3-Flash, 5.3, 5.2, 5.1, 5 and GLM-5.3-Flash Free — no GLM-4.5-Flash and no GLM-4.x entry at all.
+
+### Conflict / resolution notes
+
+- No conflicting sources were found, because only one source carries any data for this model and all the others are silent.
+- **Identity vs. evidence — the key distinction in this file.** Unlike the eight phantom slugs in this queue, `glm-4.5-flash` **is a real model**: models.dev carries a canonical record with a dated release and full capability flags. What is missing is not identity but **every benchmark**. The outcome differs accordingly: this folder gets a zero-benchmark self-exclusion (a real model with no measured data), not a phantom self-exclusion (a name with no model behind it).
+- **The weights asymmetry is the most interesting verified fact:** GLM-4.5 and GLM-4.5-Air are both open weights on the same models.dev page, while GLM-4.5-Flash is marked Closed. Together with the gated HF repo and the total absence from OpenRouter and Zen, this suggests a model that was catalogued but never broadly served or published — which would also explain why no benchmark exists for it.
+- **Pricing is not scored:** models.dev's `$0.00 / $0.00` is its default for an unserved model, not a verified free tier, so it must not be read as "free to use".
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 56.3, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug. This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Re-rate trigger:** if a benchmark for this model is ever published — or if the gated HF repo, a Z.ai model card, or a gateway listing becomes reachable — this file should be superseded by a scored `Step_5_Preview.md`. The specs block above already records everything that would be needed.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. Every benchmark row reads "no verified public score found", so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across seven independent source families (models.dev's Zhipu catalog — the only source carrying specs, Artificial Analysis, a gated Hugging Face repo, OpenRouter's Z.ai catalog and a direct route test, two Bing searches, Z.ai's blog, and the OpenCode Zen catalog), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion — **real model, zero verified public benchmarks**. Distinct from the phantom slugs in this queue, where no model exists at all.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 41/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 49.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 66.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 59/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 39.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 97.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 51.1/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 42.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 48.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 67/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 62/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 39.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 98/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 51.9/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
-- Average from top 4 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash, Step 5 Preview.
+- Average from top 5 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, Qwen 3.8 Flash, Step 5 Preview.
 - Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, GLM 5.3, GPT 5.6 Luna.

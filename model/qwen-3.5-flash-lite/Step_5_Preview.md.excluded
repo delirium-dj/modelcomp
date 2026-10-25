@@ -1,0 +1,83 @@
+# qwen-3.5-flash-lite — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: zero verified data was found for this exact model ID across seven
+> independent authoritative checks. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores. Scores here are intentionally absent.
+
+- Source: Alibaba (`qwen-3.5-flash-lite`) — **identity unverified / phantom**
+- Date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen3.5 Flash Lite (as named by the slug; no such vendor product was found)
+- **Short description:** No "Flash Lite" tier exists anywhere in Alibaba's Qwen lineup. The complete Qwen3.5 Alibaba slug set is 0.8b, 2b, 4b, 9b (plus 9b-base), 27b, 35b-a3b (plus base), 122b-a10b, 397b-a17b, flash, and plus — nothing else. Every "flash-lite" string in the entire models.dev database belongs to **Google Gemini**, which is the naming pattern this slug appears to have been transplanted from.
+- **Provider / access:** none found.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (seven independent checks, all run 2026-10-24)
+
+1. **models.dev — Alibaba catalog** (`https://models.dev/api/alibaba.json`): every Alibaba entry containing "flash" is `qwen3.5-flash`, `qwen-flash`, `qwen3-coder-flash`, `qwen3-vl-flash`, `qwen3.6-flash`, `qwen3.7-flash`, `qwen3.8-flash`, `qwen3.8-flash-next`, `qwen3.8-omni-flash`. **No `flash-lite` or `flashlite` variant.** Crucially, **every single "flash-lite" string in the entire models.dev database is a Google Gemini model** (`gemini-3.5-flash-lite`, `gemini-flash-lite-latest`, `gemini-3.1-flash-lite`, `gemini-2.5-flash-lite`, …) — so the suffix itself does not exist in Alibaba's naming scheme at all.
+2. **Hugging Face API search** (`https://huggingface.co/api/models?search=qwen3.5-flash-lite`): returns **`[]`** — an empty array. The author-scoped search `?author=Qwen&search=flash-lite` also returns **`[]`**, and `?author=Qwen&search=qwen3.5` returns only 0.8B/2B/4B/9B/27B/35B-A3B/122B-A10B/397B-A17B (plus Base/FP8/GPTQ-Int4/SAE variants) — no Flash models at all, consistent with Qwen3.5-Flash being closed-weights. A direct fetch of `huggingface.co/Qwen/Qwen3.5-Flash-Lite` returns 401.
+3. **OpenRouter:** the full Qwen author catalog lists `qwen3.5-122b-a10b`, `qwen3.5-27b`, `qwen3.5-35b-a3b`, `qwen3.5-397b-a17b`, `qwen3.5-9b`, `qwen3.5-flash-02-23`, `qwen3.5-plus-02-15`, `qwen3.5-plus-20260420`. **No flash-lite variant.** The direct probe `https://openrouter.ai/qwen/qwen3.5-flash-lite` returns **404**.
+4. **Artificial Analysis:** `https://artificialanalysis.ai/models/qwen3-5-flash-lite` returns **404**.
+5. **Qwen's own blog** (`https://qwen.ai/blog`): the HTML contains **0 occurrences of "flash lite"**. There is no announcement for this model.
+6. **Bing** for `"Qwen3.5 Flash Lite" OR "Qwen3-Flash-Lite"`: 50 results returned, but all irrelevant — Reddit gaming-nostalgia pages (Bing dropped the quoted terms). No Qwen result of any kind.
+7. **Cross-check of real Flash-tier Qwen models** (from models.dev, to establish what actually exists): `qwen3.5-flash` (1,000,000 / 65,536, Closed, $0.0282/$0.2822, 2026-02-23), `qwen3.8-flash` (1,000,000 / 131,072, Closed, 2026-08-26), `qwen3.7-flash` (1,000,000 / 131,072, Closed, $0.0282/$0.1128, 2026-07-15), `qwen3.6-flash` (1,000,000 / 65,536, Closed, 2026-04-27), `qwen-flash` (1,000,000 / 32,768, Closed, $0.022/$0.216, 2025-07-28), `qwen3.8-omni-flash` (1,000,000 / 131,072, Closed, $0.1126/$0.38, 2026-09-17), `qwen3.8-flash-next` (262,144 / 131,072, **Open**, 2026-08-27), `qwen3-coder-flash`, `qwen3-vl-flash`. **Not one of them is named "Flash Lite".**
+
+### Conflict / resolution notes
+
+- No conflicting sources were found — all seven agree independently that nothing exists under this name.
+- **The suffix-transplant pattern is explicit here:** every "flash-lite" in the ecosystem is Google Gemini, and Alibaba has never shipped a Lite tier under any name. `qwen-3.5-flash-lite` therefore looks like a Google naming convention applied to an Alibaba family that does not use it — the ninth such phantom in this queue, but the first where the borrowed suffix can be traced to a specific competitor's naming scheme.
+- Closest real substitute for anyone who needs a cheap small-footprint Qwen: **`qwen3.5-flash`** (the real Flash tier, 1M context, closed weights, $0.0282/$0.2822, already researched and scored separately in this pass) or, if a genuinely smaller model is wanted, **`qwen3.5-0.8b`** / **`qwen3.5-2b`** (both real, open weights, also researched in this pass). Neither should be silently merged into this folder's numbers.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 72.4, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public data exists for this exact model/ID, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
+- Method: public internet research across seven independent checks (models.dev's Alibaba catalog plus a database-wide search for the "flash-lite" suffix, three Hugging Face API searches and a direct repo test, OpenRouter's Qwen catalog plus a direct route probe, an Artificial Analysis URL test, Qwen's own blog, and a Bing search), cross-compared for conflicts; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
