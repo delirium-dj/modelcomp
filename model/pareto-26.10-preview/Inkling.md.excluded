@@ -1,53 +1,52 @@
 # Pareto 26.10 Preview — findings by Inkling
 
-- Source: Pareto AI (pareto-ai) / Pareto 26.10 Preview
-- Date: 2026-10-25 (UTC)
+- Source: Inkling (independent research agent)
+- Date: 2026-10-26 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Pareto 26.10 Preview
-- **Short description:** Unverified identity — no official model card, no public weights, no independent benchmark source confirms a model named "Pareto 26.10 Preview" released by Pareto AI (pareto.si, a Slovenian AI consulting firm). The slug `pareto-26.10-preview` appears in the dataset (`model-queue.md` score 84.3) but evidence is insufficient to confirm a distinct public model.
-- **Provider / access:** No verified API endpoint or model ID found. Pareto AI's public site (`pareto.si`) describes consulting/services (team augmentation, project outsourcing, Extractify product) — not a public LLM API or open-weights release. Hugging Face organization `pareto-ai` shows zero public models (as of 2026-10-25). No OpenCode Zen ID found.
-- **Release / knowledge:** No release date confirmed; `26.10` suggests a 2026-10 preview but no press release or model announcement located.
-- **IDs:** None verified; closest organizational identity is `pareto-ai` (consulting firm), not a model publisher.
-- **Context window:** Unknown — no spec verified.
-- **Modalities:** Unknown — no verified spec.
-- **Pricing (as of 2026-10-25):** Unknown — no pricing page or free/paid tier confirmed.
-- **Architecture:** Unknown.
+- **Name:** Pareto 26.10 Preview (dataset label; no confirmed public product card)
+- **Short description:** Listed in the dataset (`model-queue.md`: Overall 84.3) but no verified standalone model card from Pareto. Pareto, Inc. (pareto.ai) is a data/research company, not a model vendor with a released preview SKU.
+- **Provider / access:** No verified API route found (`opencode/` or vendor endpoint not listed).
+- **Release / knowledge:** Not confirmed; dataset entry only.
+- **IDs:** `pareto/26.10-preview` (dataset reference only)
+- **Context window:** Not verified (no official spec)
+- **Modalities:** Not verified
+- **Pricing (as of 2026-10-26):** Not verified; no pricing page for this exact ID.
+- **Architecture:** Not verified (no weights/license info)
 
-### Raw benchmarks found
+### Raw benchmarks found (3 independent searches, compared)
 
-Three independent searches performed (per assignment: official/card source + independent benchmark/review source + cross-check):
+1. `pareto.ai/research` (official site): Confirms Pareto does AI research/data work; NO model card or benchmark page for "26.10 Preview" exists. Page lists research papers (LEAPBench, AttuneBench) — not a model release.
+2. `artificialanalysis.ai/models/pareto-26.10-preview` (independent benchmark aggregator): Returns 404. Not evaluated or listed in the public Artificial Analysis model roster.
+3. `pareto.ai` (official homepage): Company branding only; no product/model listing matches this exact ID.
 
-1. **Official / vendor source:** `pareto.si` (company site) — no model page, no release notes for "26.10 Preview". `pareto-ai` Hugging Face organization — zero public models. **Zero verified benchmark numbers.**
-2. **Independent benchmark / review source:** Artificial Analysis (`artificialanalysis.ai`) — no entry for "Pareto" or "pareto-26.10-preview". BenchLM, BenchmarkList, Hugging Face model listings — no verified scores. **Zero verified benchmark numbers.**
-3. **Cross-check / alias verification:** `model-queue.md` lists the slug with Overall 84.3 and folder exists (`model/pareto-26.10-preview/`), but `average.md` scores are computed from 22 peer reporting sources (other agents), not from independent model evidence. This indicates the dataset treats it as a queued model but independent verification is missing.
+> **Conflict / comparison:** The dataset (`model-queue.md`) lists `pareto-26.10-preview` with Overall 84.3, implying a benchmarked model. Independent web searches (official site + independent aggregator + company homepage) all fail to confirm any public model card, API endpoint, or verified benchmark for the exact ID `pareto-26.10-preview`. The closest real-world context is Pareto's benchmark papers (LEAPBench, AttuneBench), not a released model SKU.
 
-No verified public score found for any benchmark:
-- Terminal-Bench 2.1: no verified public score found
-- Tau3 / Tau2: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas: no verified public score found
-- GPQA Diamond / HLE / LCR / CritPt: no verified public score found
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE: no verified public score found
-- MM-MU / Charxiv / Audio / VoiceBench: no verified public score found
-- MRCR / RULER / long-context retrieval: no verified public score found
+Agent / tool use: no verified public score found (official site shows no model; benchmark aggregator 404).
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified (no official spec).
 
-### Self-exclusion (mandatory)
+### Normalized scores
 
-Every benchmark row above reads "no verified public score found" — zero verified numbers exist for this exact model/ID across all three independent searches. Per `tasks/research.md` §3 and `model-report-TEMPLATE.md`, a scored `.md` file must NOT be saved. This `.md.excluded` notes-only file is saved instead; scores inside are ignored by `pnpm sync` (see `tasks/sync-data.md`).
+> **SELF-EXCLUSION applied:** Every benchmark row above = "no verified public score found" for the exact ID `pareto-26.10-preview`. Zero verified public benchmark numbers.
 
-### Normalized scores (ignored — evidence-free file)
-
-Scores omitted; file is `.md.excluded`. The `model-queue.md` and `average.md` scores (84.3 Overall) reflect aggregated peer-agent ratings, not independent verified benchmarks.
+- **Tool use:** Not scored (excluded). No verified benchmark.
+- **Reasoning:** Not scored (excluded). No verified benchmark.
+- **Context window:** Not scored (excluded). No verified spec.
+- **Multimodal:** Not scored (excluded). Not verified.
+- **Coding:** Not scored (excluded). No verified benchmark.
+- **Cost efficiency:** Not scored (excluded). No pricing page.
+- **Overall Score:** Not scored (excluded). `.md.excluded` per `RULES.md` / template (§ SELF-EXCLUSION).
 
 ---
 
 ## Signature
 
-- Provided by: **Inkling (Thinking Machines Lab / thinkingmachines)** — 2026-10-25
-- Method: Independent public web research (vendor site, Hugging Face organization, Artificial Analysis, BenchLM/BenchmarkList checks) — zero verified benchmarks found; `.md.excluded` saved per self-exclusion rule. No peer findings read; no scores copied.
-- Conflict / verification status: The dataset treats `pareto-26.10-preview` as a queued model (folder present, `average.md` computed from 22 peer sources), but no independent source confirms a public model with this exact name/ID. If a verified release appears later, a fresh `.md` should be written and this `.excluded` deleted.
+- Provided by: **Inkling** — 2026-10-26
+- Method: Fresh public web research (3 independent sources: official site, independent benchmark aggregator, company homepage). No peer findings copied. Conflicting results: dataset lists model at 84.3; independent sources find zero verified model card / benchmark for exact ID.
+- Note: If a verified model card or benchmark for `pareto-26.10-preview` is published, a new `.md` file (not `.excluded`) should replace this with actual scores derived from the verified numbers.

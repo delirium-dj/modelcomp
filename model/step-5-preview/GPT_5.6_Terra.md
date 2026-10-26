@@ -1,68 +1,62 @@
 # Step 5 Preview - findings by GPT 5.6 Terra
 
-- Source: OpenAI/gpt-5.6-terra
-- Date: 2026-10-18 (UTC)
+- Source: StepFun (`stepfun-ai/Step-5-Preview`)
+- Date: 2026-10-26 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Step 5 Preview
-- **Short description:** StepFun's open-weight, sparse-MoE reasoning model for software engineering and long-horizon agent work. The released checkpoint supports self-hosting and OpenAI-compatible serving.
-- **Provider / access:** Released as `stepfun-ai/Step-5-Preview`; the official card documents vLLM and SGLang OpenAI-compatible APIs. This target is curated as `opencode/step-5-preview`.
-- **Release / knowledge:** Released 2026-09-18 according to Artificial Analysis; no knowledge-cutoff date was found.
-- **IDs:** `stepfun-ai/Step-5-Preview`; `opencode/step-5-preview`
-- **Context window:** 1,000,000 tokens, confirmed by StepFun and Artificial Analysis. The local target record lists 64K output, while the released-weight card says up to 1M output; the provider-specific output cap is therefore not used as a quality claim.
-- **Modalities:** StepFun's overview describes text, image, and video inputs, but its specifications table and Artificial Analysis only confirm text/image input and text output. This report scores the confirmed text/image surface.
-- **Pricing (as of 2026-10-18):** $1.00 input and $2.70 output per 1M tokens, with a $0.10 cache hit rate, according to Artificial Analysis and the target record.
-- **Architecture:** Sparse MoE, 600B total and 27B active parameters; weights use the StepFun Model License 1.0 rather than an unrestricted open-source license.
+- **Short description:** StepFun's open-weight sparse-MoE preview for agentic software engineering and long-horizon knowledge work. The public checkpoint exposes OpenAI-compatible serving, reasoning parsing, and automatic tool-choice support.
+- **Provider / access:** StepFun checkpoint `stepfun-ai/Step-5-Preview`; self-hosted through vLLM or SGLang with an OpenAI-compatible Chat Completions interface. Hugging Face lists no hosted inference provider.
+- **Release / knowledge:** Public Hugging Face repository created 2026-09-20; knowledge cutoff not announced.
+- **IDs:** `stepfun-ai/Step-5-Preview`; local vLLM examples use served model name `step5`.
+- **Context window:** Up to 1,000,000 tokens total and up to 1,000,000 output, per the official model card; actual usable context depends on KV-cache allocation.
+- **Modalities:** Text and image input, text output, reasoning and tool-call parsers. The introduction also says video is accepted, but the model-specification table lists only text and image, so this report scores the narrower confirmed surface.
+- **Pricing (as of 2026-10-26):** No official hosted API rate found. Weights are published under the StepFun Model License 1.0; deployment requires substantial self-hosted hardware.
+- **Architecture:** Sparse MoE, 600B total / 27B active parameters; public FP8 and BF16 checkpoints.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **85.0%** (StepFun result, indexed by BenchLM).
-- Terminal-Bench 4.0: **33.3%** (StepFun result; independently listed by Artificial Analysis).
-- Toolathlon-Verified: **74.1%** (StepFun result, indexed by BenchLM).
-- MCP Atlas: **85.6%** (StepFun result, indexed by BenchLM).
-- AutomationBench: **44.0%** vendor result; **51.0%** on Artificial Analysis's AA AutomationBench harness (different harnesses).
+- [Terminal-Bench 4](https://huggingface.co/datasets/harborframework/terminal-bench): **33.3%** (Hugging Face evaluation result for `stepfun-ai/Step-5-Preview`).
+- [Agents' Last Exam CLI pass rate](https://huggingface.co/datasets/agents-last-exam/agents-last-exam): **29.5%** (Hugging Face evaluation result for the exact checkpoint).
+- [DeepSWE](https://huggingface.co/datasets/datacurve/deep-swe): **67.7%** (Hugging Face evaluation result; vendor documentation says the evaluation used SWE-agent at temperature 1.0 and top-p 0.95).
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (StepFun result, indexed by BenchLM).
-- HLE: **46.5%** (StepFun result; independently listed by Artificial Analysis).
-- AA-LCR: **88.3%** (StepFun result, indexed by BenchLM).
-- CritPt: **20.9%** (StepFun result, indexed by BenchLM).
-- Artificial Analysis Intelligence Index: **44** (independent composite evaluation).
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- GDPval-AA v2.1: the official card attributes a result to Artificial Analysis as of 2026-09-20, but the retrieved material does not expose a numerical value; no score is inferred.
 
 Coding:
 
-- DeepSWE v1.1: **67.7%** (StepFun result using SWE-agent, as documented in the official card).
-- SciCode: **58.9%** (StepFun result; independently listed by Artificial Analysis).
-- ProgramBench: **80.5%** (StepFun result, indexed by BenchLM).
+- [DeepSWE](https://huggingface.co/datasets/datacurve/deep-swe): **67.7%** (exact checkpoint evaluation result).
+- SWE-bench Verified: no verified public score found.
+- LiveCodeBench: no verified public score found.
 
-Long context and multimodal:
+Long context:
 
-- Context window: **1M tokens** (StepFun and Artificial Analysis).
-- MMMU-Pro: **76.0%** vendor result; **76.4%** on Artificial Analysis's evaluation.
+- No public long-context retrieval score found. The 1M-token limit is specified by the [official model card](https://huggingface.co/stepfun-ai/Step-5-Preview), not a retrieval benchmark.
 
-Evidence reconciliation: vendor-reported results are extensive, while Artificial Analysis independently corroborates the 44 Intelligence Index, 33.3% Terminal-Bench 4.0, 58.9% SciCode, and 76.4% MMMU-Pro. Terminal-Bench 2.1 and 4.0 are different benchmark generations, not competing results. StepFun's prose mentions video input, but its own specifications table and the independent profile only verify image input, so the lower-confidence video claim is not used for the multimodal score.
+The [official Hugging Face model card](https://huggingface.co/stepfun-ai/Step-5-Preview) and [StepFun GitHub repository](https://github.com/stepfun-ai/Step-5-Preview) agree on the 600B/27B MoE design, 1M context, and tool-capable serving. They conflict internally on video input: the narrative claims it while the specification table omits it; the narrower table is used. The independent Hugging Face evaluation records expose the three numerical results above, while the official documentation provides methodology but no additional raw scores.
 
 ### Normalized scores (1-100)
 
-- **Tool use: 83/100.** Terminal-Bench 2.1 85.0%, MCP Atlas 85.6%, and Toolathlon 74.1% are strong, but Terminal-Bench 4.0 33.3% and AutomationBench 44.0-51.0% cap the score.
-- **Reasoning: 85/100.** GPQA Diamond 93.5%, HLE 46.5%, and AA-LCR 88.3% are strong evidence, moderated by the independently measured Intelligence Index of 44 and CritPt 20.9%.
-- **Context window: 95/100.** The model's verified 1M-token context reaches the top tier, capped because no reproducible retrieval-at-length result was found.
-- **Multimodal: 76/100.** Independently corroborated text/image understanding and MMMU-Pro 76.4% support a solid multimodal score, but video support is inconsistently documented and output is text-only.
-- **Coding: 88/100.** DeepSWE 67.7%, SciCode 58.9%, ProgramBench 80.5%, and Terminal-Bench 2.1 85.0% support high coding performance while remaining below the highest demonstrated frontier tier.
-- **Cost efficiency: 90/100.** $1.00/$2.70 per 1M tokens is paid but near the methodology's strong-value reference range for capable models.
-- **Overall Score: 85/100.** Half-up mean of Tool, Reasoning, Context, Multimodal, and Coding: (83 + 85 + 95 + 76 + 88) / 5 = 85.4; best suited to long-context coding and agent work where its uneven tool harness performance is acceptable.
+- **Tool use: 72/100.** DeepSWE 67.7% indicates capable multi-step execution, but Terminal-Bench 4 at 33.3% and Agents' Last Exam CLI at 29.5% cap autonomous-tool confidence.
+- **Reasoning: 78/100.** The documented high-reasoning setting and strong agentic-coding result support an above-average interpretation, but no independently retrievable GPQA, HLE, or exact GDPval number supports a frontier score.
+- **Context window: 98/100.** The official 1M-token total/output limit is near the top context tier; lack of a published long-context retrieval measurement prevents a perfect score.
+- **Multimodal: 78/100.** Text and image input are explicitly specified. Video is described in the introduction but absent from the official specification table, so it is not credited.
+- **Coding: 80/100.** DeepSWE 67.7% is strong exact-model coding evidence, moderated because no exact SWE-bench Verified or LiveCodeBench result was found.
+- **Cost efficiency: 55/100.** Open weights avoid a mandatory per-token API price, but the official deployment examples require four to sixteen high-end GPUs and no verified API rate is available.
+- **Overall Score: 81/100.** Half-up mean of Tool 72 + Reasoning 78 + Context 98 + Multimodal 78 + Coding 80 = 406/5 = 81.2. Best fit: self-hosted long-context agentic work where its documented serving stack and strong DeepSWE result matter more than proven terminal reliability.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** - 2026-10-18
-- Method: Public internet research using StepFun's official model card, Artificial Analysis, BenchLM, and fresh web searches. Scores are normalized 1-100 interpretations, not official vendor scores.
-- Sources: https://huggingface.co/stepfun-ai/Step-5-Preview ; https://www.stepfun.com/step-5-preview ; https://artificialanalysis.ai/models/step-5 ; https://benchlm.ai/models/step-5-preview
+- Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-26
+- Method: fresh public internet research across StepFun's official Hugging Face model card and GitHub repository, then comparison with Hugging Face's public benchmark records; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

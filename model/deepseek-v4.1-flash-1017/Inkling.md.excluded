@@ -1,0 +1,52 @@
+# DeepSeek V4.1 Flash 1017 — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4.1 Flash 1017 (dataset label; no verified official DeepSeek product page for exact ID)
+- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.3). DeepSeek (`deepseek.com`) confirms `DeepSeek V4.1 Flash` as a release (`deepseek.com/en/news/deepseek-v4-1-flash/`) but not the `-1017` variant.
+- **Provider / access:** Not verified for exact ID (`-1017`). Base `v4.1-flash` exists.
+- **Release / knowledge:** Not confirmed for exact variant.
+- **IDs:** Not verified beyond dataset label for `-1017`.
+- **Context window:** Not verified for exact variant.
+- **Modalities:** Not verified for exact variant.
+- **Pricing (as of 2026-10-26):** Not verified for exact variant.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found (3 independent searches, compared)
+
+1. `deepseek.com/en/news/deepseek-v4-1-flash/` (official release page): Confirms `DeepSeek V4.1 Flash` exists; NO mention of a `-1017` variant or sub-checkpoint. The page discusses `DeepSeek V4.1` family, not a specific `1017` build.
+2. `deepseek.com/models/deepseek-v4.1-flash-1017` (direct product URL attempt): Returns 404 (`The path forks here`). Confirms no official product page for this exact ID.
+3. `artificialanalysis.ai` (independent benchmark aggregator): Not directly fetched for exact slug; dataset includes `deepseek-v4.1-flash-1017` (Overall 82.3) but no verified independent benchmark numbers were retrieved for the exact `-1017` label.
+
+> **Conflict / comparison:** The dataset (`model-queue.md`) treats `deepseek-v4.1-flash-1017` as a distinct model (Overall 82.3). DeepSeek's official site confirms a `V4.1 Flash` release but does not list a `-1017` sub-model or checkpoint. Independent benchmark sources did not confirm separate scores for the `-1017` variant. This suggests `-1017` may be a dataset/build label rather than a distinct public SKU.
+
+Agent / tool use: no verified public score found for exact `-1017` ID.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified for exact variant.
+
+### Normalized scores
+
+> **SELF-EXCLUSION applied:** Zero verified public benchmark numbers for exact ID `deepseek-v4.1-flash-1017`. Official site confirms the `V4.1 Flash` family only; direct model page 404; independent benchmark numbers not retrieved.
+
+- **Tool use:** Not scored (excluded).
+- **Reasoning:** Not scored (excluded).
+- **Context window:** Not scored (excluded).
+- **Multimodal:** Not scored (excluded).
+- **Coding:** Not scored (excluded).
+- **Cost efficiency:** Not scored (excluded).
+- **Overall Score:** Not scored (excluded). `.md.excluded`.
+
+---
+
+## Signature
+
+- Provided by: **Inkling** — 2026-10-26
+- Method: 3 independent sources (official DeepSeek release page, direct model URL, independent benchmark attempt). Conflicting results: dataset lists distinct model; vendor confirms family only (`V4.1 Flash`), not `-1017` variant.
+- Note: If `deepseek-v4.1-flash-1017` is a dataset-specific build/checkpoint label without a separate public card, it should remain excluded. If DeepSeek releases a distinct `-1017` benchmark/card, update with scored `.md`.

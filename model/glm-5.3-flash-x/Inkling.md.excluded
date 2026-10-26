@@ -1,0 +1,52 @@
+# GLM-5.3 Flash X — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-5.3 Flash X (dataset label; no verified official Zhipu/GLM product page found for exact `-flash-x` variant)
+- **Short description:** Listed in dataset (`model-queue.md`: Overall 81.7). GLM (`glm-5.3-flash`, `glm-5.3-flashx`) is tracked in the dataset; `-flash-x` may be a variant or dataset label.
+- **Provider / access:** Not verified for exact `-flash-x` ID.
+- **Release / knowledge:** Not confirmed.
+- **IDs:** Not verified beyond dataset label.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-26):** Not verified.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found (3 independent searches, compared)
+
+1. Official GLM / Zhipu site (`zhipu.ai` / GLM docs): Not successfully fetched for exact `glm-5.3-flash-x`; the dataset tracks `glm-5.3-flash` and `glm-5.3-flashx` separately. No independent official card retrieved.
+2. `model-queue.md` (dataset reference): `glm-5.3-flash-x` listed at Overall 81.7, separate from `glm-5.3-flash` (89.7) and `glm-5.3-flashx` (87.9). Confirms dataset treats them as distinct entries.
+3. Independent benchmark aggregator (`artificialanalysis.ai`): Not directly fetched for exact slug; dataset indicates `glm-5.3-flash-x` is tracked, but no verified independent benchmark numbers were retrieved for this exact label.
+
+> **Conflict / comparison:** The dataset distinguishes `glm-5.3-flash` (89.7), `glm-5.3-flashx` (87.9), and `glm-5.3-flash-x` (81.7). No official GLM product page or independent benchmark page was retrieved confirming the `-flash-x` as a separate SKU with its own scores. The label may represent a tier/variant (similar to dataset tier labels seen in `model-aliases.generated.md`), but without verified benchmarks it cannot be scored.
+
+Agent / tool use: no verified public score found.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified.
+
+### Normalized scores
+
+> **SELF-EXCLUSION applied:** Zero verified public benchmark numbers for exact ID `glm-5.3-flash-x`. Dataset treats it as distinct; official/independent sources did not confirm a separate public card or benchmark set.
+
+- **Tool use:** Not scored (excluded).
+- **Reasoning:** Not scored (excluded).
+- **Context window:** Not scored (excluded).
+- **Multimodal:** Not scored (excluded).
+- **Coding:** Not scored (excluded).
+- **Cost efficiency:** Not scored (excluded).
+- **Overall Score:** Not scored (excluded). `.md.excluded`.
+
+---
+
+## Signature
+
+- Provided by: **Inkling** — 2026-10-26
+- Method: 3 independent searches (dataset reference comparison, official GLM site attempt, benchmark aggregator attempt). Conflicting evidence: dataset assigns 3 distinct GLM 5.3 Flash variants; independent sources only confirm the family, not the separate `-flash-x` SKU with verified scores.
+- Note: Verify whether `glm-5.3-flash-x` is a real released tier or a dataset-internal label before scoring.

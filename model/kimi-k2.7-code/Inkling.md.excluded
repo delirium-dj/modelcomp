@@ -1,0 +1,52 @@
+# Kimi K2.7 Code — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.7 Code (dataset label; no verified official Moonshot AI product page for exact ID)
+- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.4). Moonshot AI (`moonshot.ai`, `kimi.ai`) promotes `Kimi K3` as the latest flagship; no official page for `kimi-k2.7-code` was located.
+- **Provider / access:** Not verified (no `moonshotai/kimi-k2.7-code` endpoint confirmed).
+- **Release / knowledge:** Not confirmed.
+- **IDs:** Not verified beyond dataset label.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-26):** Not verified.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found (3 independent searches, compared)
+
+1. `moonshot.ai/models/kimi-k2.7-code` (official site): Page exists as URL but content loads the general Moonshot AI homepage (`Kimi K3` featured); no specific `K2.7 Code` specs or benchmarks shown. Confirms the site is active but does not confirm this model SKU.
+2. `kimi.ai` / `kimi.ai/blog` (official): Features `Kimi K3` (2.8T params, 1M context); no mention of `K2.7 Code`.
+3. `artificialanalysis.ai` (independent benchmark aggregator): Not directly fetched for this exact slug; no verified benchmark page found in search attempts.
+
+> **Conflict / comparison:** Dataset assigns Overall 82.4. Official Moonshot AI site promotes `Kimi K3`, not `K2.7 Code`. The exact model ID `kimi-k2.7-code` has no verified official model card or benchmark numbers in independent sources. Conflicting evidence: dataset treats it as a real model; vendor site only confirms `Kimi K3`.
+
+Agent / tool use: no verified public score found.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified.
+
+### Normalized scores
+
+> **SELF-EXCLUSION applied:** Zero verified public benchmark numbers for exact ID `kimi-k2.7-code`. Official site does not list this SKU; independent benchmark source not confirmed.
+
+- **Tool use:** Not scored (excluded).
+- **Reasoning:** Not scored (excluded).
+- **Context window:** Not scored (excluded).
+- **Multimodal:** Not scored (excluded).
+- **Coding:** Not scored (excluded).
+- **Cost efficiency:** Not scored (excluded).
+- **Overall Score:** Not scored (excluded). `.md.excluded`.
+
+---
+
+## Signature
+
+- Provided by: **Inkling** — 2026-10-26
+- Method: 3 independent web searches (official Moonshot site, official blog, benchmark aggregator attempt). Conflicting results: dataset lists model; vendor site only shows `Kimi K3`. No benchmark numbers verified.
+- Note: Confirmed vendor identity = Moonshot AI (`kimi.ai` / `moonshot.ai`). If `kimi-k2.7-code` is a dataset-internal or unreleased label, it remains excluded until a public card/benchmark appears.
