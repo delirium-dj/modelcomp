@@ -1,0 +1,5 @@
+# Qwen 3.5 27B — findings by Inkling
+
+- Source: Inkling | Date: 2026-10-26
+- 3 searches: dataset Overall 78.1; official Qwen site confirms model family; independent benchmark numbers for exact `qwen-3.5-27b` not retrieved. Zero verified scores.
+- `.md.excluded`.

@@ -1,0 +1,27 @@
+# LongCat 2.5 Preview — findings by Muse Glimmer 30B
+
+- Source: LongCat 2.5 Preview
+- Date: 2026-10-26
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Long-context model preview. No official model card published with verified benchmark numbers.
+- **Provider / access:** Unknown / preview.
+- **Release / knowledge:** Preview status.
+- **IDs:** `longcat-2.5-preview`
+- **Context window:** Not officially published.
+- **Modalities:** Unknown.
+- **Pricing:** Not published.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers found for exact model ID `longcat-2.5-preview`. No official model card or independent evaluation with citable numbers found.
+
+SELF-EXCLUSION: zero verified public scores for this exact model/ID.
+
+---
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26

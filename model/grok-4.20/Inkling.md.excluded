@@ -1,0 +1,6 @@
+# Grok 4.20 — findings by Inkling
+
+- Source: Inkling
+- Date: 2026-10-26
+- Method: 3 independent searches (docs.x.ai mentions `grok-4.20` as alias/model but no separate official model card with benchmarks; independent aggregator page not retrieved; dataset Overall 79.9). Zero verified public scores for exact ID.
+- `.md.excluded`.

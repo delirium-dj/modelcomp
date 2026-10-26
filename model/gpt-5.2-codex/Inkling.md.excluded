@@ -1,0 +1,6 @@
+# GPT-5.2 Codex — findings by Inkling
+
+- Source: Inkling
+- Date: 2026-10-26
+- Method: 3 independent searches (official OpenAI site has no `gpt-5.2-codex` product page; independent benchmark aggregator 404; dataset Overall 79.7). Zero verified public benchmarks.
+- `.md.excluded`.

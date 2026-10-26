@@ -1,0 +1,7 @@
+# GPT-5.2 Pro — findings by Inkling
+
+- Source: Inkling
+- Date: 2026-10-26
+- Method: 3 independent searches (openai.com/index/gpt-5-2 → 404; artificialanalysis.ai/models/gpt-5.2-pro → 404; openai.com/index/gpt-5.2 → 404). Conflicting evidence: dataset Overall 80.7; official OpenAI site has no `gpt-5.2-pro` card; independent benchmark aggregator has no page.
+- Zero verified public benchmarks for exact ID `gpt-5.2-pro`.
+- `.md.excluded` per self-exclusion rule.

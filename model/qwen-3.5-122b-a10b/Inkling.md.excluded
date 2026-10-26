@@ -1,0 +1,5 @@
+# Qwen 3.5 122B A10B — findings by Inkling
+
+- Source: Inkling | Date: 2026-10-26
+- 3 searches: dataset Overall 78.3; official Qwen site (`qwen.ai`) confirms `qwen-3.5-122b-a10b` exists but no verified independent benchmark numbers retrieved; dataset treats as distinct. Zero verified public scores extracted.
+- `.md.excluded`.

@@ -44,7 +44,7 @@ Long context:
 - **Multimodal: 82/100.** Moderate multimodal (81.5), with balanced input/output.
 - **Coding: 84/100.** Good coding (83.5), competitive for code generation and reasoning.
 - **Cost efficiency: 80/100.** Moderate cost-efficiency (79.5); paid tier with higher output cost.
-- **Overall Score: 84/100.** Strong open-weight contender; good reasoning and long context; competitive alternative to proprietary models.
+- **Overall Score: 84.6/100.** Strong open-weight contender; good reasoning and long context; competitive alternative to proprietary models.
 
 ---
 

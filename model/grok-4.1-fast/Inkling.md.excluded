@@ -1,0 +1,6 @@
+# Grok 4.1 Fast — findings by Inkling
+
+- Source: Inkling
+- Date: 2026-10-26
+- Method: 3 searches (`docs.x.ai/models/grok-4.1-fast` shows family info but no benchmark numbers; no independent benchmark page retrieved for exact `grok-4.1-fast`; dataset lists 80.5). Zero verified public scores.
+- `.md.excluded`.
