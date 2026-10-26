@@ -1,6 +1,7 @@
 {
   "id": "opencode/glm-5.3-flash",
   "name": "GLM 5.3 Flash",
+  "aliases": ["Ox Alpha", "Ox-Alpha", "ox-alpha", "ox_alpha", "stealth/ox-alpha", "Ox Alpha Free"],
   "short": "Z.ai's 320B/18B-active Flash MoE (MIT, 1M) for ultra-fast agentic coding; TB 2.1 84.3%, previewed anonymously as Ox Alpha.",
   "contextWindow": "204K",
   "modalities": "Text in/out",
@@ -10,6 +11,6 @@
   "pricingLinks": [
     "https://opencode.ai/v2/docs/console/models/#free-models"
   ],
-  "standout": "Ultra-fast agentic coding from Z.ai’s Flash MoE — MIT weights, 1M context, and a track record of previewing anonymously at the top of blind coding arenas.",
+  "standout": "Ultra-fast agentic coding from Z.ai’s Flash MoE — MIT weights, 1M context, and a track record of previewing anonymously at the top of blind coding arenas (it shipped as the stealth model Ox Alpha from 2026-08-20 until Z.ai confirmed the identity on 2026-08-26).",
   "tradeoff": "As a Flash-class tuning it trades some peak reasoning for speed; the heaviest analysis is better left to Z.ai’s flagship lane."
 }

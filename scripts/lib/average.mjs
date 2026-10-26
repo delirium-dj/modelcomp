@@ -123,7 +123,16 @@ export function applyAverageToPrev(prev, modelName, body) {
  * checkpoints — live-existence audit: Anthropic's deprecation/overview docs
  * show an Opus lineage of 3 → 4 → 4.1 → 4.5 → 4.6/4.7/4.8 → 5.x with neither
  * a 3.7 nor a 4.4 Opus ever released (3.7 exists only as Sonnet) — user-ordered
- * park, never resurrect). The
+ * park, never resurrect);
+ * `qwen-3.8-325b` (2026-10-26, phantom checkpoint — live-existence audit: HF
+ * Qwen org, Alibaba Cloud Model Studio and models.dev list only Qwen3.8
+ * Max/27B/Flash/Flash-Next/Omni/2.4T-A95B, no 325B variant ever released —
+ * user-ordered park, never resurrect);
+ * `ox_alpha` (2026-10-26, user-ordered park that overrides the revealed-stealth
+ * merge rule below: Ox Alpha was the stealth/anonymous preview of
+ * `glm-5.3-flash` on OpenRouter (stealth/ox-alpha, ~1M ctx, free preview),
+ * confirmed by Z.ai on 2026-08-26; searches for the name resolve to the
+ * canonical model via its meta `aliases`). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Revealed stealth aliases are NOT parked anymore (user rule
@@ -134,7 +143,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * model/README.md ("Parking a model"). Never invent a third list — the two
  * mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "qwen-3.8-325b", "ox_alpha"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

@@ -436,6 +436,8 @@ export const CASE_LAW_NOTES = new Map([
   ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/"],
   ["claude-opus-4.4", "phantom checkpoint — live-existence audit: Anthropic deprecations/overview show Opus 4.1 → 4.5 → 4.6/4.7/4.8, no Opus 4.4 ever released; parked 2026-10-26 (user order, never resurrect)"],
   ["claude-opus-3.7", "phantom checkpoint — Anthropic lineage has no Opus 3.7 (3.7 exists only as Sonnet); parked 2026-10-26 (user order, never resurrect)"],
+  ["qwen-3.8-325b", "phantom checkpoint — live-existence audit: HF Qwen org, Alibaba Cloud Model Studio and models.dev list only Qwen3.8 Max/27B/Flash/Flash-Next/Omni/2.4T-A95B, no 325B variant ever released; parked 2026-10-26 (user order, never resurrect)"],
+  ["ox_alpha", "revealed stealth preview of glm-5.3-flash (OpenRouter stealth/ox-alpha, ~1M ctx, free; Z.ai confirmed 2026-08-26 and later released the weights) — user-ordered park 2026-10-26 overriding the revealed-stealth merge rule; search resolves to model/glm-5.3-flash/ via its meta aliases"],
   // Merged-and-deleted duplicate slugs
   ["google-gemini-2.5-flash-lite", "vendor-prefixed duplicate of gemini-2.5-flash-lite (same weights, Zen gateway route); merged + deleted 2026-10-06"],
   ["glm-5.1-coding", "the -coding suffix was a dataset label of glm-5.1, never a SKU (vendor lists exactly one glm-5.1 route); folder renamed, old slug merged + deleted 2026-10-12"],

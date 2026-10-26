@@ -328,13 +328,17 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * User-ordered permanent parks (2026-10-26): `claude-opus-4.4` and
  * `claude-opus-3.7` — phantom Anthropic checkpoints (existence audit: the
  * Opus lineage is 3 → 4 → 4.1 → 4.5 → 4.6/4.7/4.8 → 5.x; no Opus 3.7, no
- * Opus 4.4) — never resurrect, never re-scaffold.
+ * Opus 4.4) — never resurrect, never re-scaffold; `qwen-3.8-325b` — phantom
+ * checkpoint (no 325B variant in the Qwen3.8 lineup) — never resurrect;
+ * `ox_alpha` — user-ordered park overriding the revealed-stealth merge rule:
+ * stealth preview of `glm-5.3-flash` (Z.ai-confirmed 2026-08-26); searches
+ * for "Ox Alpha" resolve to the canonical model via its meta `aliases`.
  * Mirror list for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "qwen-3.8-325b", "ox_alpha"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

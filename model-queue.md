@@ -38,7 +38,6 @@
 88.5 mimo-v2.6-flash
 88.4 muse-spark-1.1
 88.3 gpt-6-sol
-88.3 ox_alpha
 88.1 gemini-3-flash
 87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
@@ -102,7 +101,6 @@
 78.4 union-alpha
 78.3 qwen-3.5-122b-a10b
 78.1 qwen-3.5-27b
-78 qwen-3.8-325b
 77.7 gemini-2.5-flash
 77 claude-sonnet-4
 76.9 gemini-3.1-flash-lite
@@ -110,6 +108,7 @@
 76.5 glm-5.2-coding
 76.2 claude-sonnet-3.7
 76.1 gemini-1.5-pro
+75.9 qwen-3.5-35b-a3b
 75.6 gpt-5.1-codex
 75.6 muse-glimmer-30b
 75.6 qwen-3.5-flash-lite
@@ -118,7 +117,6 @@
 75.1 gemini-2.0-flash
 74.9 mistral-medium-3.5
 74.7 ling-3.0-flash-vl
-74.7 qwen-3.5-35b-a3b
 74.3 deepseek-v4-flash
 74.2 glm-5.2
 73.8 mimo-v2.5-pro
@@ -155,6 +153,7 @@
 66.8 pixel_canary
 66.7 minimax-m2.5
 66.6 minimax-m2.7
+66.5 qwen-3.7-flash
 66.2 laguna-s-2.1
 66.1 gpt-5-nano
 65.9 claude-haiku-3.5
@@ -173,7 +172,6 @@
 62.5 gpt-5.1-codex-mini
 62.3 gemma-4-e4b
 61.9 mimo-v2.6-distill-qwen-9b
-61.7 qwen-3.7-flash
 61.5 glm-4.6-flash
 61 gpt-oss-120b
 60.7 mai-code-1-flash

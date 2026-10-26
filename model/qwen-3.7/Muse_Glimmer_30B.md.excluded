@@ -1,0 +1,29 @@
+# Qwen3.7 Plus — findings by Muse Glimmer 30B (excluded)
+
+- Source: Alibaba Cloud Model Studio `qwen3.7-plus`
+- Date: 2026-10-26
+- Overview and scoring methodology: `../../model-comparison.md`
+
+## Model card
+
+- **Name:** Qwen3.7 Plus
+- **Short description:** Alibaba commercial flagship agent-centric multimodal model. Text + image + video input, text output, 1M context, agent capabilities for coding, tool use, productivity.
+- **Provider / access:** Alibaba Cloud Model Studio API `qwen3.7-plus`, snapshots e.g. `qwen3.7-plus-2026-05-26`. Chat Completions API.
+- **Release / knowledge:** Snapshot 2026-05-26; page last updated 2026-10-11. Knowledge cutoff not published.
+- **IDs:** `qwen3.7-plus`
+- **Context window:** 1,000,000 tokens total; max input 991,808; max output 131,072; max input thinking 983,616; max CoT 262,144.
+- **Modalities:** Input Image/Text/Video; Output Text. Function calling, structured outputs, web search, prefix completion, context caching supported.
+- **Pricing (as of 2026-10-26):** China Beijing ≤256k input $0.276 /1M in, $1.101 /1M out; >256k $0.826 /1M in, $3.301 /1M out. Singapore $0.40 /1M in, $1.60 /1M out ≤256k; $1.20 /1M in, $4.80 /1M out >256k. Cache pricing applies.
+- **Architecture:** Parameter count undisclosed by vendor; proprietary MoE/dense architecture.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers found for the exact commercial model ID `qwen3.7-plus`. Alibaba Model Studio pages list capabilities, context, pricing but publish no benchmark tables for Tool use, GPQA Diamond, HLE, SWE-bench, LiveCodeBench, etc. Independent third-party reviews with citable numbers were not found in searches.
+
+SELF-EXCLUSION: zero verified public scores for this exact model/ID. Findings retained for record; scores omitted.
+
+---
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Method: public internet research; no verified benchmark numbers found.

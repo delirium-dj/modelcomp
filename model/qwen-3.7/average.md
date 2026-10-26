@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Inkling.
 - Average from top 1 by Overall Score: Inkling.
-- Ignored below-gate rater(s): GLM 4.7 Flash.
+- Ignored below-gate rater(s): Flint, GLM 4.7 Flash.
