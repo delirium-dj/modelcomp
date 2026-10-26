@@ -1,0 +1,26 @@
+{
+  "name": "Cloudflare AI Gateway",
+  "kind": "aggregator",
+  "short": "Free observability and routing control plane over your own provider keys, with request logging, caching, rate limiting, fallback routing, and DLP/PII scanning on Cloudflare's edge.",
+  "officialUrl": "https://developers.cloudflare.com/ai-gateway",
+  "hosts": ["developers.cloudflare.com", "cloudflare.com", "ai.cloudflare.com"],
+  "catalogUrl": "https://developers.cloudflare.com/ai-gateway/",
+  "plans": [
+    {
+      "name": "Free (core features)",
+      "price": "$0",
+      "notes": "Core features — request logging, caching, rate limiting, and fallback routing — are free on all plans with no markup when you bring your own provider keys. DLP and PII scanning available for prompt hygiene.",
+      "evidenceUrl": "https://developers.cloudflare.com/ai-gateway/"
+    },
+    {
+      "name": "Paid add-ons",
+      "price": "Usage-based",
+      "notes": "Advanced analytics, higher log retention, and enterprise features billed on Cloudflare's paid tiers; tokens are billed by the underlying provider at list price.",
+      "evidenceUrl": "https://developers.cloudflare.com/ai-gateway/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

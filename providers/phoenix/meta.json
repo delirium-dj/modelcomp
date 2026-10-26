@@ -1,0 +1,32 @@
+{
+  "name": "Phoenix",
+  "kind": "aggregator",
+  "short": "Arize's open-source, local-first platform for LLM tracing, evaluation, experimentation, and prompt iteration (Phoenix Cloud managed hosting available).",
+  "officialUrl": "https://phoenix.arize.com",
+  "hosts": ["phoenix.arize.com", "arize.com", "app.phoenix.arize.com"],
+  "catalogUrl": "https://arize.com/pricing/",
+  "plans": [
+    {
+      "name": "Free (Phoenix Cloud)",
+      "price": "$0/month",
+      "notes": "25,000 trace spans per month, 1 GB ingestion, 15-day retention, unlimited users and evals; community support.",
+      "evidenceUrl": "https://arize.com/pricing/"
+    },
+    {
+      "name": "Pro (Phoenix Cloud)",
+      "price": "$50/month",
+      "notes": "50,000 trace spans per month, 10 GB ingestion, 30-day retention, email support.",
+      "evidenceUrl": "https://arize.com/pricing/"
+    },
+    {
+      "name": "Self-hosted",
+      "price": "$0",
+      "notes": "Open-source Phoenix runs locally or on your own infra with full control over data location.",
+      "evidenceUrl": "https://arize.com/pricing/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

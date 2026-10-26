@@ -1,0 +1,26 @@
+{
+  "name": "LangSmith",
+  "kind": "aggregator",
+  "short": "LangChain's observability, evaluation, and deployment platform with a free Developer tier.",
+  "officialUrl": "https://www.langchain.com/langsmith",
+  "hosts": ["langchain.com", "www.langchain.com", "smith.langchain.com"],
+  "catalogUrl": "https://www.langchain.com/langsmith-pricing",
+  "plans": [
+    {
+      "name": "Developer (Free)",
+      "price": "$0/seat/month",
+      "notes": "Up to 5,000 base traces per month, 1 seat, community support. Pay-as-you-go beyond the included traces.",
+      "evidenceUrl": "https://www.langchain.com/langsmith-pricing"
+    },
+    {
+      "name": "Plus",
+      "price": "$39/seat/month",
+      "notes": "10,000 base traces per month, unlimited seats, deployment, engine, and more. Pay-as-you-go beyond included traces.",
+      "evidenceUrl": "https://www.langchain.com/langsmith-pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

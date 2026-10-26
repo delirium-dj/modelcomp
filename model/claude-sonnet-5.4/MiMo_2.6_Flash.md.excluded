@@ -1,0 +1,81 @@
+# Claude Sonnet 5.4 — findings by MiMo 2.6 Flash (SELF-EXCLUDED)
+
+- Source: Anthropic/Claude Sonnet 5.4 (claimed identity in this dataset)
+- Date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION:** independent public research on 2026-10-26 found **zero
+> verified public benchmark numbers** for an Anthropic model sold or published
+> as "Claude Sonnet 5.4" (`claude-sonnet-5.4` / `claude-sonnet-5-4` /
+> `opencode/claude-sonnet-5.4`). Every benchmark row below therefore reads
+> "no verified public score found" and no Normalized scores are computed.
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (name as tracked in this dataset; no such product page found on any public surface)
+- **Short description:** Claimed to be Anthropic's mid-2026 Sonnet-class model. No independent evidence of a release, model card, announcement, or API route was found — treat as an unverified/phantom identity until the orchestrator confirms it against a vendor source.
+- **Provider / access:** claimed `opencode/claude-sonnet-5.4` — **live-verified absent**: the OpenCode Console catalog (`https://opencode.ai/inference/v1/models`, fetched 2026-10-26) lists `claude-sonnet-4-5`, `claude-sonnet-4-6`, `claude-sonnet-5`, `claude-sonnet-5-5` and no `claude-sonnet-5.4`; the same gap exists on `https://opencode.ai/v2/docs/console/models`, `https://models.dev/providers/opencode` (132 OpenCode models) and OpenRouter's Anthropic list.
+- **Release / knowledge:** no verified release date; Anthropic's published Sonnet lineage jumps 4.6 (2026-02-17) → 5 (2026-06-30) → 5.5 (2026-09-28) with no 5.4.
+- **IDs:** none verified — no `claude-sonnet-5-4` ID on the Claude Platform, Bedrock, Vertex, OpenRouter, models.dev, Portkey's 44-model Anthropic list, or Databricks FMI list.
+- **Context window:** no verified public specification (dataset claims 1,000,000 / 128,000 — not independently confirmable).
+- **Modalities:** no verified public specification (dataset claims text+image in, text out).
+- **Pricing (as of 2026-10-26):** no verified public price — the claimed $2.50/$12.50 per 1M matches no Anthropic Sonnet rate (Sonnet 5 and 5.5 are $2/$10, Sonnet 4.6 is $3/$15; $2.50/$12.50 is the Anthropic **Batch** rate of the Opus tier).
+- **Architecture:** no verified public disclosure; Anthropic publishes no system card, model card, or model page for this name.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (the model has no entry on Artificial Analysis, BenchLM, Vals AI, or LM Council)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported (no MRCR / RULER / GraphWalks figure exists for this name)
+
+### Normalized scores (1–100)
+
+Not computed — self-exclusion applies (zero verified public benchmark numbers;
+fabricating placeholders would drag every reader's mean, per
+`model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md`).
+
+### Negative-findings evidence (searches run 2026-10-26)
+
+1. Anthropic official surfaces — `anthropic.com/claude/sonnet`, `anthropic.com/news/claude-sonnet-5`, `anthropic.com/claude-sonnet-5-5`, `platform.claude.com/docs/en/about-claude/model-deprecations` (Active list: Fable 5.1, Mythos 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5, Mythos 5, Opus 5, Sonnet 5, Opus 4.8/4.7/4.6/4.5, Sonnet 4.6, Haiku 4.5 — **no Sonnet 5.4**), `platform.claude.com/docs/en/about-claude/models/model-ids-and-versions`.
+2. OpenCode Console — live catalog `https://opencode.ai/inference/v1/models` plus `https://opencode.ai/v2/docs/console/models` (endpoints + pricing tables): no `claude-sonnet-5.4` row.
+3. Independent aggregators — `https://models.dev/providers/opencode` (132 models), OpenRouter `openrouter.ai/anthropic`, Portkey (44 Anthropic models), Databricks Foundation Model APIs supported list, Mastra `opencode` provider docs: no Sonnet 5.4 entry.
+4. Release-timeline/deprecation trackers — `endoflife.date/claude`, the Anthropic model timeline on hidekazu-konishi.com, the maintained Claude model list gist, `benchlm.ai/deprecations/anthropic`: Sonnet lane is 4.5 → 4.6 → 5 → 5.5 only.
+5. Benchmark indexes — Artificial Analysis, BenchLM, Vals AI, LM Council, morphllm's Claude benchmark page: no "Claude Sonnet 5.4" row exists.
+
+Conflicts considered: the dataset's `meta.json` claims a paid
+`opencode/claude-sonnet-5.4` route at $2.50/$12.50 with a 1M/128K window, but
+every live public catalog above contradicts it, so no score can be grounded.
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-26
+- Method: public internet research (official vendor docs first, then independent benchmark indexes and gateway catalogs); scores are normalized 1–100 interpretations, not official vendor scores — none could be derived here.
+- Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.

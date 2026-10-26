@@ -41,13 +41,13 @@ Vision Language:
 
 ### Normalized scores (1–100)
 
-- Tool use: 78/100. BFCL-V4 67.3, TAU2-Bench 81.2.
-- Reasoning: 78/100. GPQA 84.2, SuperGPQA 63.4.
-- Context window: 95/100.
-- Multimodal: 80/100.
-- Coding: 70/100. SWE 69.2, LiveCode 74.6.
-- Cost efficiency: 85/100.
-- Overall Score: 81/100.
+- **Tool use: 78/100.** BFCL-V4 67.3, TAU2-Bench 81.2.
+- **Reasoning: 78/100.** GPQA 84.2, SuperGPQA 63.4.
+- **Context window: 95/100.**
+- **Multimodal: 80/100.**
+- **Coding: 70/100.** SWE 69.2, LiveCode 74.6.
+- **Cost efficiency: 85/100.**
+- **Overall Score: 80.2/100.**
 
 ---
 ## Signature

@@ -1,0 +1,43 @@
+# Qwen 3.7 — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Alibaba (`qwen-3.7`)
+- Date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** After a genuine research pass I found **ZERO verified public benchmark numbers for this exact model/ID** (`opencode/qwen-3.7`, plain "Qwen 3.7"). Per `model-report-TEMPLATE.md` (Self-exclusion, mandatory) and `RULES.md`, I am **not** saving a scored `.md`, because doing so would require inventing placeholder scores that drag the mean for every reader. `pnpm sync` auto-quarantines evidence-free files. Scores are intentionally omitted below.
+
+## Model card (unresolved — scaffolded placeholder)
+
+- **Name:** Qwen 3.7 (as scaffolded)
+- **Short description:** The dataset entry `qwen-3.7` (`opencode/qwen-3.7`) carries a **scaffolded** meta (`"scaffolded": true`; generic short "Qwen 3.7 model evaluation entry"; "Standard pricing"; "128K total"; "Text in/out"). Research indicates **"Qwen3.7" is a SERIES name, not a distinct plain model** — the released Qwen3.7 family is **Qwen3.7-Max** (`qwen-3.7-max`, my report 79), **Qwen3.7-Plus** (`qwen-3.7-plus`, my report 50), and **Qwen3.7-Flash** (a vision-language reasoning model). No standalone "Qwen3.7" instruct/base API model with its own spec sheet or benchmark table was found.
+- **Provider / access:** No distinct `opencode/qwen-3.7` endpoint is documented; Alibaba Cloud Model Studio's supported-models list (Oct 2026) shows `qwen3.7-plus` / `qwen3.8-max`, **not** a plain `qwen3.7`.
+- **Release / knowledge:** "Qwen3.7: The Agent Frontier" was announced ~May 19–21, 2026 as the **series** (Max/Plus/Flash). No separate plain-Qwen3.7 release was located.
+- **IDs:** `opencode/qwen-3.7` (scaffold).
+- **Context window:** meta scaffold claims "128K total" — **unverified**, and it matches none of Max (1M), Plus, or Flash.
+- **Modalities:** meta scaffold claims "Text in/out" — **unverified**.
+- **Pricing:** meta scaffold claims "Standard pricing" — **no verified numbers found**.
+- **Architecture:** not published for any distinct plain "Qwen3.7".
+
+### Raw benchmarks found
+
+- Artificial Analysis: **no model page** — both `artificialanalysis.ai/models/qwen3-7` and `/qwen-3-7` return **404**. (Qwen3.7-**Max** does have one: `qwen3-7-max`.) → *no verified public score found.*
+- Vals AI SWE-bench Verified leaderboard: **no row** for a plain "Qwen 3.7" (rows exist for Qwen 3.7 Max = 82/64/38/0, Qwen 3.6 Plus, Qwen 3.5 Plus, etc.). → *no verified public score found.*
+- Independent coding/reasoning/agentic harnesses (Terminal-Bench, GPQA Diamond, LiveCodeBench, SciCode, Claw-Eval, ITbench-AA, MCP-Atlas): **no verified public score found** attributable to a distinct plain "Qwen3.7" as opposed to the Max/Plus/Flash variants.
+- Vendor: the qwen.ai / Alibaba Cloud "Qwen3.7: The Agent Frontier" material announces the **series** (Max/Plus/Flash) and does not document a separate plain Qwen3.7 model with its own numbers.
+
+> Provenance / conclusion: every raw-benchmark row resolves to "no verified public score found" for this exact ID. The distinguishing benchmarks belong to the separately-slugged variants (Max → report 79; Plus → report 50). Rather than inherit the scaffold's unverified "128K / Text / Standard pricing" or borrow a variant's numbers (which would misattribute them to a model that may not exist), this entry is self-excluded.
+> Note on the open-weight angle: press chatter references a "Qwen3.7 27B" open-weight release and "Qwen3.7-Flash" on OpenRouter — but a 27B open model would carry its own slug (cf. `qwen-3.8-27b`), and Flash is multimodal (not the scaffold's "Text in/out"). Neither maps cleanly to this plain `qwen-3.7` scaffold, and no benchmarks were found for either under this ID.
+> Recommended curator resolution: either (a) retire/park the `qwen-3.7` scaffold, or (b) re-point it to a concrete variant (e.g., an open-weight "Qwen3.7 27B" or Qwen3.7-Flash) with a real spec sheet + benchmarks, then re-research.
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded.** No verified public benchmarks exist for this exact model/ID, so no dimension scores are assigned. Assigning any (0, 10, or borrowed from Max/Plus) would be fabrication, which `RULES.md` forbids and `pnpm sync` quarantines. **Overall Score: not scored.**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-26
+- Method: public internet research (Artificial Analysis — `qwen3-7` and `qwen-3-7` both 404; Vals AI SWE-bench Verified leaderboard — no plain-Qwen3.7 row; Alibaba Cloud Model Studio supported-models list; qwen.ai / Alibaba Cloud "Qwen3.7: The Agent Frontier" series blog; OpenRouter + costgoat pricing listings — all resolving to the Max/Plus/Flash variants, never a plain Qwen3.7). Self-excluded for zero verified benchmarks; **no scores invented**.
+- Future sources: if a distinct plain "Qwen3.7" model with real, verifiable benchmarks is confirmed, replace this `.md.excluded` with a scored `Qwen_3.8_Max.md` using the same headings.

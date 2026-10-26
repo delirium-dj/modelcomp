@@ -1,0 +1,32 @@
+{
+  "name": "PromptLayer",
+  "kind": "aggregator",
+  "short": "Prompt management, observability, and evaluation platform with prompt versioning, playgrounds, datasets, and eval cells for AI teams.",
+  "officialUrl": "https://www.promptlayer.com",
+  "hosts": ["promptlayer.com", "www.promptlayer.com"],
+  "catalogUrl": "https://www.promptlayer.com/pricing",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "5 users, 2,500 requests/month, 1 workspace, 250 eval cell executions/month, 10 MB max per dataset; basic support.",
+      "evidenceUrl": "https://www.promptlayer.com/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$49/month",
+      "notes": "Unlimited playgrounds and workspaces, 150 MB max per dataset, pay-as-you-go overage at $0.003/txn.",
+      "evidenceUrl": "https://www.promptlayer.com/pricing"
+    },
+    {
+      "name": "Team",
+      "price": "$500/month",
+      "notes": "25 users, 100k+ requests/month, 7.5k+ eval cell executions/month, 1 GB max per dataset, webhooks.",
+      "evidenceUrl": "https://www.promptlayer.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

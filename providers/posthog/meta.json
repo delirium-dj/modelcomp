@@ -1,0 +1,26 @@
+{
+  "name": "PostHog",
+  "kind": "aggregator",
+  "short": "All-in-one developer platform with LLM/AI Observability capturing generations, traces, and costs alongside product analytics, session replay, and feature flags.",
+  "officialUrl": "https://posthog.com",
+  "hosts": ["posthog.com"],
+  "catalogUrl": "https://posthog.com/ai-observability",
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0/month",
+      "notes": "100,000 LLM observability events per month free (no credit card required); 30-day retention; captures generations, spans, and traces as regular PostHog events with no per-seat pricing.",
+      "evidenceUrl": "https://posthog.com/ai-observability/pricing"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "From $0.000350/event",
+      "notes": "Usage-based beyond the free tier with automatic volume discounts; no markup on tokens already paid to the model provider.",
+      "evidenceUrl": "https://posthog.com/ai-observability/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

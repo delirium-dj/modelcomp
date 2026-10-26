@@ -1,0 +1,26 @@
+{
+  "name": "Bifrost",
+  "kind": "aggregator",
+  "short": "High-performance open-source (Apache 2.0) Go AI gateway with drop-in OpenAI compatibility, virtual keys, budgets, rate limits, caching, fallbacks, and MCP gateway — self-hosted.",
+  "officialUrl": "https://www.getmaxim.ai/bifrost",
+  "hosts": ["getmaxim.ai", "www.getmaxim.ai"],
+  "catalogUrl": "https://www.getmaxim.ai/pricing",
+  "plans": [
+    {
+      "name": "OSS (Free Forever)",
+      "price": "$0",
+      "notes": "Self-hosted via Docker/K8s/Go binary: drop-in replacement, OTel-compatible, metrics and traces, budget management and rate limits with virtual keys, custom routing, caching, fallbacks, MCP gateway, prompt repository.",
+      "evidenceUrl": "https://www.getmaxim.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (14-day free trial)",
+      "notes": "Everything in OSS plus guardrails, cluster mode, adaptive load balancing, SSO/SAML/OIDC, Vault support, RBAC, audit logs, log exports, VPC/on-prem/air-gapped deployment, SLA-backed support.",
+      "evidenceUrl": "https://www.getmaxim.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

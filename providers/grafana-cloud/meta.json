@@ -1,0 +1,32 @@
+{
+  "name": "Grafana Cloud",
+  "kind": "aggregator",
+  "short": "Managed observability stack (metrics, logs, traces, profiles, dashboards) with adaptive telemetry and an AI assistant; perpetual free tier and Grafana OSS self-hosting.",
+  "officialUrl": "https://grafana.com",
+  "hosts": ["grafana.com", "grafana.net"],
+  "catalogUrl": "https://grafana.com/pricing/",
+  "plans": [
+    {
+      "name": "Free (Cloud)",
+      "price": "$0 (forever)",
+      "notes": "10,000 metric series, 50 GB logs, 50 GB traces, 14-day retention, 3 users; all Grafana Cloud services with limits; community support; no credit card.",
+      "evidenceUrl": "https://grafana.com/pricing/"
+    },
+    {
+      "name": "Pro",
+      "price": "From $19/month",
+      "notes": "Platform fee plus usage beyond free tier; 13-month metrics retention, 30-day logs/traces/profiles/k6 retention; 8x5 email support; usage rates: metrics from $6.50/1k series, logs from $0.05/GB ingest + $0.40/GB write + $0.10/GB retain.",
+      "evidenceUrl": "https://grafana.com/pricing/"
+    },
+    {
+      "name": "Enterprise",
+      "price": "From $25,000/year",
+      "notes": "Custom retention, premium support, deployment flexibility (public cloud, federal cloud, or BYOC), volume discounts and custom retention; for compliance/security requirements.",
+      "evidenceUrl": "https://grafana.com/pricing/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

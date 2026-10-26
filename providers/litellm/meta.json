@@ -1,0 +1,26 @@
+{
+  "name": "LiteLLM",
+  "kind": "aggregator",
+  "short": "Open-source (MIT) AI gateway and proxy: one OpenAI-compatible endpoint across 100+ providers, virtual keys, budgets, rate limits, spend tracking — self-hosted so your keys never leave your infra.",
+  "officialUrl": "https://www.litellm.ai",
+  "hosts": ["litellm.ai", "www.litellm.ai", "docs.litellm.ai"],
+  "catalogUrl": "https://www.litellm.ai/pricing",
+  "plans": [
+    {
+      "name": "Open Source",
+      "price": "$0 (free forever)",
+      "notes": "Self-hosted, no license fee: 100+ providers via one OpenAI API, virtual keys/users/teams, spend tracking, budgets + rate limits, fallbacks, request/response logging, Prometheus metrics.",
+      "evidenceUrl": "https://www.litellm.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Annual (sized to usage)",
+      "notes": "Everything in OSS plus SSO/SCIM, OIDC/JWT auth, audit logs, secret managers + key rotation, RBAC, multi-region control plane, 24/7 support/SLAs, air-gapped deployment.",
+      "evidenceUrl": "https://www.litellm.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

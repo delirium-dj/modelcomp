@@ -1,0 +1,15 @@
+{
+  "name": "Hetzner",
+  "kind": "aggregator",
+  "short": "Hetzner's experimental OpenAI-compatible inference API serving open-weight models, free while in beta.",
+  "officialUrl": "https://www.hetzner.com",
+  "hosts": ["hetzner.com", "inference.hetzner.com", "docs.hetzner.com"],
+  "plans": [
+    {
+      "name": "Free (experimental)",
+      "price": "$0",
+      "notes": "Free while the Inference API remains in experimental status; no billing or SLA.",
+      "evidenceUrl": "https://docs.hetzner.com/general/company-and-policy/experiments/inference/"
+    }
+  ]
+}

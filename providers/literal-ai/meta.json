@@ -1,0 +1,26 @@
+{
+  "name": "Literal AI",
+  "kind": "aggregator",
+  "short": "Prompt management, observability, and evaluation platform for conversational AI and agent products, with thread-level tracing.",
+  "officialUrl": "https://www.literal.ai",
+  "hosts": ["literal.ai", "www.literal.ai"],
+  "catalogUrl": "https://www.literal.ai/pricing",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "Free tier on signup (no credit card required) with prompt tracing, eval framework, and cost tracking.",
+      "evidenceUrl": "https://www.literal.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$49/month",
+      "notes": "Expanded limits and team features for heavier production use; Business and Enterprise tiers available.",
+      "evidenceUrl": "https://www.literal.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

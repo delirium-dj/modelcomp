@@ -1,0 +1,26 @@
+{
+  "name": "Promptfoo",
+  "kind": "aggregator",
+  "short": "Open-source LLM red-teaming, evaluation, and guardrail-testing framework (MIT) with products for red teaming, evals, guardrails, model security, code scanning, and MCP proxy; hosted/enterprise tiers available.",
+  "officialUrl": "https://www.promptfoo.dev",
+  "hosts": ["promptfoo.dev", "www.promptfoo.dev"],
+  "catalogUrl": "https://www.promptfoo.dev/docs/",
+  "plans": [
+    {
+      "name": "Open Source",
+      "price": "$0",
+      "notes": "MIT-licensed CLI and library for red-teaming, evals, prompt/model/RAG testing, guardrail checks, code scanning, and MCP proxy; run locally or in CI; 50+ vulnerability types; community threat intelligence.",
+      "evidenceUrl": "https://www.promptfoo.dev"
+    },
+    {
+      "name": "Hosted / Enterprise",
+      "price": "Custom",
+      "notes": "Managed hosting, SSO, continuous monitoring and remediation workflows, enterprise support; contact for pricing.",
+      "evidenceUrl": "https://www.promptfoo.dev"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

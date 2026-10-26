@@ -1,0 +1,38 @@
+{
+  "name": "New Relic",
+  "kind": "aggregator",
+  "short": "Full-stack observability platform (APM, logs, infrastructure, Kubernetes, synthetics, errors inbox, dashboards) with 100 GB/mo free ingest, unlimited basic users, and one full-platform user.",
+  "officialUrl": "https://newrelic.com",
+  "hosts": ["newrelic.com", "one.newrelic.com"],
+  "catalogUrl": "https://newrelic.com/pricing",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0 (perpetual)",
+      "notes": "100 GB data ingest per month (metrics, events, logs, traces from any source), one full-platform user with access to 50+ capabilities, unlimited basic users (query, dashboards, alerts), default logs obfuscation (CC/SSN), 8-day retention, 500 synthetic ping checks, no credit card.",
+      "evidenceUrl": "https://newrelic.com/pricing"
+    },
+    {
+      "name": "Standard",
+      "price": "Pay-as-you-go",
+      "notes": "Up to 5 full-platform users, ticketed support, SAML SSO; $0.40/GB beyond the free 100 GB; usage-based ingest.",
+      "evidenceUrl": "https://newrelic.com/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "Pay-as-you-go",
+      "notes": "Unlimited full-platform users, extended data retention, advanced admin capabilities, SAML SSO; for scaling teams.",
+      "evidenceUrl": "https://newrelic.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (annual)",
+      "notes": "Unlimited full-platform users, FedRAMP/HIPAA compliance, 24/7 dedicated support, Data Plus and advanced security.",
+      "evidenceUrl": "https://newrelic.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

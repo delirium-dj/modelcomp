@@ -1,0 +1,32 @@
+{
+  "name": "Opper",
+  "kind": "aggregator",
+  "short": "EU-hosted (Stockholm) LLM gateway and router exposing 700+ models from 50+ providers via one OpenAI-compatible API, with zero data retention by default, LLM checks, routing/fallbacks, and observability.",
+  "officialUrl": "https://opper.ai",
+  "hosts": ["opper.ai", "www.opper.ai"],
+  "catalogUrl": "https://opper.ai/pricing",
+  "plans": [
+    {
+      "name": "Gateway (pay-as-you-go)",
+      "price": "$0 (BYOK) / 3% fee on credits",
+      "notes": "Bring your own keys with no markup on inference; 3% platform fee on credit purchases; metadata-only logging (zero data retention) by default; high rate limits; management API; community support via Discord.",
+      "evidenceUrl": "https://opper.ai/pricing"
+    },
+    {
+      "name": "Control Plane (pay-as-you-go)",
+      "price": "5.5% fee on credits",
+      "notes": "Everything in Gateway plus full traces retained 1-30 days, org/project budgets and spend caps, model allowlists and per-role/user/key access, routing rules, SSO/SAML, audit logs; premium email support.",
+      "evidenceUrl": "https://opper.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom contract",
+      "notes": "Custom terms or keep data in your own cloud; dedicated Slack + SLA; custom hosting regions; tailored DPA; ZDR routes needing signed agreement (Azure OpenAI, Gemini Vertex); invoicing.",
+      "evidenceUrl": "https://opper.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Traceloop",
+  "kind": "aggregator",
+  "short": "LLM application observability built on open-source OpenLLMetry, with tracing, evals, prompt management, and CI/CD integration.",
+  "officialUrl": "https://www.traceloop.com",
+  "hosts": ["traceloop.com", "www.traceloop.com"],
+  "catalogUrl": "https://www.traceloop.com/pricing",
+  "plans": [
+    {
+      "name": "Free Forever",
+      "price": "$0/month",
+      "notes": "Up to 50,000 spans per month, up to 5 seats, 24-hour data retention, monitoring and evaluation dashboards, CI/CD integration, prompt management.",
+      "evidenceUrl": "https://www.traceloop.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Contact sales",
+      "notes": "More than 50,000 spans per month, unlimited seats, custom retention, SOC 2 compliance, on-prem deployment option, dedicated Slack support.",
+      "evidenceUrl": "https://www.traceloop.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

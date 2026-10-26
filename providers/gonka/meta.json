@@ -1,0 +1,15 @@
+{
+  "name": "Gonka",
+  "kind": "aggregator",
+  "short": "Decentralized inference network offering a free tier with OpenAI-compatible access to Kimi, MiniMax and Qwen models.",
+  "officialUrl": "https://gonkabroker.com",
+  "hosts": ["gonkabroker.com", "app.gonkabroker.com"],
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0",
+      "notes": "3M free tokens on registration; OpenAI-compatible API.",
+      "evidenceUrl": "https://gonkabroker.com/free-llm-api/"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Kong AI Gateway",
+  "kind": "aggregator",
+  "short": "LLM routing on the Kong API gateway with AI traffic management, PII sanitization, RBAC, analytics, and developer portal; self-hosted OSS core plus managed Konnect and Enterprise tiers.",
+  "officialUrl": "https://konghq.com/products/kong-ai-gateway",
+  "hosts": ["konghq.com", "konghq.com"],
+  "catalogUrl": "https://konghq.com/pricing",
+  "plans": [
+    {
+      "name": "Open Source core",
+      "price": "$0",
+      "notes": "Apache 2.0 self-hosted core; 300+ plugins; no analytics/RBAC/portal included; you run Postgres/Cassandra state and manage upgrades; PII sanitization and RBAC are paid-tier features.",
+      "evidenceUrl": "https://konghq.com/pricing"
+    },
+    {
+      "name": "Konnect Plus",
+      "price": "From $25/month per control plane",
+      "notes": "Serverless $25/mo, Hybrid $200/mo, or Dedicated Cloud $500/mo + $0.15/GB; 1M requests/month included, $200 per additional million, hard cap 10M/month; analytics, RBAC, developer portal; 30-day free trial.",
+      "evidenceUrl": "https://konghq.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (annual)",
+      "notes": "Self-hosted license, typically $3k-$15k per node per year (production setups $50k-$200k+/year); advanced RBAC, audit logging, secrets management, FIPS, professional support/SLA; volumes above 10M requests/month.",
+      "evidenceUrl": "https://konghq.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

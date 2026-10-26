@@ -1,0 +1,32 @@
+{
+  "name": "SigNoz",
+  "kind": "aggregator",
+  "short": "Open-source, OpenTelemetry-native observability platform (APM, distributed tracing, logs, metrics, dashboards, alerts) with a free self-hosted Community edition and usage-based SigNoz Cloud.",
+  "officialUrl": "https://signoz.io",
+  "hosts": ["signoz.io", "app.signoz.io"],
+  "catalogUrl": "https://signoz.io/pricing",
+  "plans": [
+    {
+      "name": "Self-hosted (Community)",
+      "price": "$0",
+      "notes": "Open-source, self-hosted; full APM, distributed tracing, logs, metrics, dashboards and alerts; you run and scale it; community support via Slack.",
+      "evidenceUrl": "https://signoz.io/pricing"
+    },
+    {
+      "name": "SigNoz Cloud (Teams)",
+      "price": "$49/month",
+      "notes": "$49/mo minimum including $49 of usage; then $0.30/GB logs & traces and $0.10/million metric samples; 15-day default retention (configurable up to 1 year); unlimited teammates and hosts; MCP server and Noz AI teammate; SOC2 Type II & HIPAA; chat/email/Slack support.",
+      "evidenceUrl": "https://signoz.io/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (from $4,000/mo)",
+      "notes": "Dedicated cloud, BYOC, or self-hosted enterprise support; volume discounts and annual contracts; SSO/SAML, audit logs, SLA, guided migration, training, and professional services.",
+      "evidenceUrl": "https://signoz.io/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "Helicone",
   "kind": "aggregator",
-  "retired": true,
+
   "short": "Open-source LLM observability platform and AI gateway with an included free monthly logging and proxy tier.",
   "officialUrl": "https://helicone.ai",
   "hosts": ["helicone.ai", "ai-gateway.helicone.ai"],
@@ -15,7 +15,7 @@
     },
     {
       "name": "Pro",
-      "price": "From $20/month",
+      "price": "From $79/month",
       "notes": "Higher request caps, custom property tagging, rate-limiting rules, team alerts, and extended analytics data retention.",
       "evidenceUrl": "https://helicone.ai/pricing"
     }

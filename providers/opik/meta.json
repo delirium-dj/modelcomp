@@ -1,0 +1,32 @@
+{
+  "name": "Opik",
+  "kind": "aggregator",
+  "short": "Comet's open-source LLM observability and evaluation platform for tracing, testing, and optimizing AI applications and agents.",
+  "officialUrl": "https://www.comet.com/opik",
+  "hosts": ["comet.com", "www.comet.com"],
+  "catalogUrl": "https://www.comet.com/site/pricing/",
+  "plans": [
+    {
+      "name": "Free Cloud",
+      "price": "$0/month",
+      "notes": "Up to 10 team members, 25,000 spans per month, 60-day data retention; full tracing, test suites, and agent playground included.",
+      "evidenceUrl": "https://www.comet.com/site/pricing/"
+    },
+    {
+      "name": "Pro Cloud",
+      "price": "$19/month",
+      "notes": "Up to 50 team members, 100,000 spans per month, 60-day retention, customizable span limits and retention periods.",
+      "evidenceUrl": "https://www.comet.com/site/pricing/"
+    },
+    {
+      "name": "Open Source",
+      "price": "$0",
+      "notes": "Self-hosted, same codebase as hosted; full feature set, you run and scale it.",
+      "evidenceUrl": "https://www.comet.com/site/pricing/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

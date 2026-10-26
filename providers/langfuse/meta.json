@@ -1,0 +1,26 @@
+{
+  "name": "Langfuse",
+  "kind": "aggregator",
+  "short": "Open-source LLM observability and tracing platform with a free Hobby cloud tier (no credit card required).",
+  "officialUrl": "https://langfuse.com",
+  "hosts": ["langfuse.com"],
+  "catalogUrl": "https://langfuse.com/pricing",
+  "plans": [
+    {
+      "name": "Hobby (Free)",
+      "price": "$0/month",
+      "notes": "50,000 units per month, 30 days data access, 2 users, no credit card required. All platform features with limits.",
+      "evidenceUrl": "https://langfuse.com/pricing"
+    },
+    {
+      "name": "Core",
+      "price": "$29/month",
+      "notes": "100,000 units per month (additional $8/100k), 90 days data access, unlimited users, in-app support.",
+      "evidenceUrl": "https://langfuse.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

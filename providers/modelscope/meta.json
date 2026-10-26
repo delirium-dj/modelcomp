@@ -1,0 +1,15 @@
+{
+  "name": "ModelScope",
+  "kind": "aggregator",
+  "short": "Alibaba-backed open-model hub offering free API-Inference for registered users across hundreds of open models (Qwen, DeepSeek, etc.).",
+  "officialUrl": "https://www.modelscope.ai",
+  "hosts": ["modelscope.ai", "www.modelscope.ai", "modelscope.cn", "www.modelscope.cn"],
+  "plans": [
+    {
+      "name": "Free API-Inference",
+      "price": "$0",
+      "notes": "Free API-Inference for registered users; Alibaba Cloud account binding and real-name verification required.",
+      "evidenceUrl": "https://www.modelscope.ai/docs/model-service/API-Inference/limits"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Agnes AI",
+  "kind": "aggregator",
+  "short": "AI gateway offering free API access to Agnes models with no subscription required.",
+  "officialUrl": "https://agnes-ai.com",
+  "hosts": ["agnes-ai.com", "platform.agnes-ai.com"],
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0",
+      "notes": "Free API access to Agnes models; no subscription needed.",
+      "evidenceUrl": "https://platform.agnes-ai.com/"
+    }
+  ]
+}

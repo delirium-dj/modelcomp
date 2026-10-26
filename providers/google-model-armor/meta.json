@@ -1,0 +1,38 @@
+{
+  "name": "Google Model Armor",
+  "kind": "aggregator",
+  "short": "Google Cloud runtime screen for prompt injection, jailbreaks, sensitive data (PII), malicious URLs, responsible-AI and CSAM filters; free 2M tokens/mo then $0.10 per 1M tokens.",
+  "officialUrl": "https://cloud.google.com/security/products/model-armor",
+  "hosts": ["cloud.google.com"],
+  "catalogUrl": "https://cloud.google.com/security/products/model-armor",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0 (2M tokens/mo)",
+      "notes": "2 million tokens per month free (standalone or SCC pay-as-you-go); prompt-injection/jailbreak (up to 65,536 tokens), responsible-AI/CSAM (up to 65,536 tokens), sensitive-data (up to 130,000 tokens), and malicious-URL (first 256 URLs) screening; 1,200 QPM per project; inspect-only or inspect-and-block; skipped/over-limit data is not charged.",
+      "evidenceUrl": "https://cloud.google.com/security/products/model-armor"
+    },
+    {
+      "name": "Standalone pay-as-you-go",
+      "price": "$0.10 / 1M tokens above 2M",
+      "notes": "Same filters and quotas beyond the free allowance; counts tokens in both prompts and responses (a token is ~4 characters); files/images up to 4 MB; inputs under 3 words return NO_MATCH_FOUND from the injection filter.",
+      "evidenceUrl": "https://cloud.google.com/security/products/model-armor"
+    },
+    {
+      "name": "SCC Premium / Enterprise",
+      "price": "$0 (3B tokens/mo included)",
+      "notes": "Security Command Center Premium and Enterprise subscriptions include 3 billion tokens per month at the same $0.10/1M overage; SCC pay-as-you-go entries use the 2M free tier.",
+      "evidenceUrl": "https://cloud.google.com/security/products/model-armor"
+    },
+    {
+      "name": "Gemini Enterprise",
+      "price": "Included",
+      "notes": "Model Armor is included with all Gemini Enterprise editions; confirm which integration traffic is covered and how usage appears in billing.",
+      "evidenceUrl": "https://cloud.google.com/security/products/model-armor"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

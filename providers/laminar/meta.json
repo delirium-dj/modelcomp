@@ -1,0 +1,32 @@
+{
+  "name": "Laminar",
+  "kind": "aggregator",
+  "short": "Open-source LLM and agent observability with OTLP trace ingestion, full-text search, evals, datasets, and an AI trace debugger (Signals).",
+  "officialUrl": "https://www.lmnr.ai",
+  "hosts": ["lmnr.ai", "www.lmnr.ai"],
+  "catalogUrl": "https://www.lmnr.ai/pricing",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "1 GB data included, 7-day data access, 1 project, 1 seat, community support; no overage charges (hard cap).",
+      "evidenceUrl": "https://www.lmnr.ai/pricing"
+    },
+    {
+      "name": "Starter",
+      "price": "$30/month",
+      "notes": "3 GB data included, then $2/GB; 30-day access, unlimited projects and seats, email support, $5 one-time Signals credit.",
+      "evidenceUrl": "https://www.lmnr.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$150/month",
+      "notes": "10 GB data included, then $1.50/GB; 6-month access, unlimited projects and seats, Slack support.",
+      "evidenceUrl": "https://www.lmnr.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

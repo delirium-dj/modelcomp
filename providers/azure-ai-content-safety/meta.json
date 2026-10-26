@@ -1,0 +1,26 @@
+{
+  "name": "Azure AI Content Safety",
+  "kind": "aggregator",
+  "short": "Azure service detecting harmful content, prompt injection (Prompt Shields), jailbreaks, and groundedness in LLM inputs/outputs; text and image analysis with a free F0 tier.",
+  "officialUrl": "https://azure.microsoft.com/products/ai-services/ai-content-safety",
+  "hosts": ["azure.microsoft.com", "ai.azure.com"],
+  "catalogUrl": "https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/",
+  "plans": [
+    {
+      "name": "Free (F0)",
+      "price": "$0/month",
+      "notes": "5,000 transactions per month free; prompt-injection detection, harmful-content categories, groundedness, and jailbreak detection; usage stops when the free limit is reached (no overage accrual); text records are billed in units of up to 1,000 Unicode code points.",
+      "evidenceUrl": "https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/"
+    },
+    {
+      "name": "Standard (S0)",
+      "price": "Pay-as-you-go",
+      "notes": "Higher throughput and enterprise features; per-1,000 text records and per-1,000 images beyond the free tier; supports Analyze Text and Analyze Image APIs.",
+      "evidenceUrl": "https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

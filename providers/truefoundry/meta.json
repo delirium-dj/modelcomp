@@ -1,0 +1,32 @@
+{
+  "name": "TrueFoundry",
+  "kind": "aggregator",
+  "short": "AI gateway and deployment platform with LLM/MCP/agent gateways, prompt management, guardrails, budget limiting, observability, and VPC/on-prem/air-gapped options.",
+  "officialUrl": "https://www.truefoundry.com",
+  "hosts": ["truefoundry.com", "www.truefoundry.com"],
+  "catalogUrl": "https://www.truefoundry.com/pricing",
+  "plans": [
+    {
+      "name": "Developer (Free)",
+      "price": "$0 (free forever)",
+      "notes": "Up to 3 users, 10,000 requests & tool calls per user per month, LLM & MCP gateway, prompts/skills/agent registry, 7-day log retention, community support (Discord).",
+      "evidenceUrl": "https://www.truefoundry.com/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$25/user/month",
+      "notes": "Unlimited users, 20,000 requests/user/month, built-in guardrails, budget limiting, 30-day log retention, SSO & custom roles, dedicated support; overage $20 per additional 100,000 requests.",
+      "evidenceUrl": "https://www.truefoundry.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (annual)",
+      "notes": "Custom retention & audit exports, external IdP, third-party/custom guardrails (Bedrock, Azure, OpenAI), advanced observability, VPC/on-prem/data residency, priority support; Agent Gateway/Agent Harness custom.",
+      "evidenceUrl": "https://www.truefoundry.com/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}

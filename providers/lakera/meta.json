@@ -1,0 +1,26 @@
+{
+  "name": "Lakera Guard",
+  "kind": "aggregator",
+  "short": "Runtime LLM guardrail for prompt injection, jailbreak, PII, and toxic-content detection (Lakera Red paid red-teaming).",
+  "officialUrl": "https://platform.lakera.ai",
+  "hosts": ["platform.lakera.ai", "lakera.ai"],
+  "catalogUrl": "https://platform.lakera.ai/pricing",
+  "plans": [
+    {
+      "name": "Community (Free)",
+      "price": "$0/month",
+      "notes": "10,000 API requests per month, 8K-token prompts, no credit card; prompt-injection, jailbreak, PII, and toxic-content detection.",
+      "evidenceUrl": "https://platform.lakera.ai/pricing"
+    },
+    {
+      "name": "Pro / Enterprise",
+      "price": "Quote only",
+      "notes": "Paid tiers quote-only; advanced features, higher limits, premium support, and SLA.",
+      "evidenceUrl": "https://platform.lakera.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4.1-flash",
+    "qwen-3.8-27b"
+  ]
+}
