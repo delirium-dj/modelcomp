@@ -118,7 +118,12 @@ export function applyAverageToPrev(prev, modelName, body) {
  * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
  * LongCat 2.5: the 2.5 generation exists only as the API-only LongCat-2.5-Preview
  * already tracked in `longcat-2.5-preview/`; the folder's own meta idNote records
- * that the id does not resolve — RULES.md family-shorthand identity). The
+ * that the id does not resolve — RULES.md family-shorthand identity);
+ * `claude-opus-4.4` and `claude-opus-3.7` (2026-10-26, phantom Anthropic
+ * checkpoints — live-existence audit: Anthropic's deprecation/overview docs
+ * show an Opus lineage of 3 → 4 → 4.1 → 4.5 → 4.6/4.7/4.8 → 5.x with neither
+ * a 3.7 nor a 4.4 Opus ever released (3.7 exists only as Sonnet) — user-ordered
+ * park, never resurrect). The
  * folder stays on disk and in git (permanence, RULES.md) and sync keeps
  * averaging it, but it is omitted from the research queue so agents never
  * research it. Revealed stealth aliases are NOT parked anymore (user rule
@@ -129,7 +134,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * model/README.md ("Parking a model"). Never invent a third list — the two
  * mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

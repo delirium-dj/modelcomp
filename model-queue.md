@@ -80,12 +80,12 @@
 83.5 qwen-3.7-max
 83.4 kimi-k2.5
 83.3 claude-opus-4.5
-82.8 nemotron-3.5-super-vl
+83 nemotron-3.5-super-vl
 82.7 gemini-3.5-flash-lite
-82.6 qwen-3.7
 82.4 kimi-k2.7-code
 82.3 deepseek-v4.1-flash-1017
 82 mimo-v2.5-free
+82 qwen-3.7
 81.7 glm-5.3-flash-x
 81.1 claude-sonnet-4.5
 80.7 gpt-5.2-pro
@@ -102,7 +102,6 @@
 78.4 union-alpha
 78.3 qwen-3.5-122b-a10b
 78.1 qwen-3.5-27b
-78 claude-opus-4.4
 78 qwen-3.8-325b
 77.7 gemini-2.5-flash
 77 claude-sonnet-4
@@ -133,6 +132,7 @@
 72.7 longcat-2.5-preview
 72.7 nemotron-3.5-bolt-74b-a9b
 72.6 mai-code-1.1-flash
+72.5 qwen-3.5-flash
 72.4 beam
 72.4 nemotron-3-nano-omni
 72.4 qwen-3.5-flash-lite
@@ -143,9 +143,7 @@
 71.4 hy3
 70.8 qwen3-max
 70.4 longcat-2.0
-70.2 claude-opus-3.7
 69.8 glm-5.1
-69.3 qwen-3.5-flash
 69.1 gpt-5-codex
 68.8 hy3-preview
 68.4 diffusiongemma-26b-a4b

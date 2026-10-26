@@ -325,12 +325,16 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * (`minimax-m3.1-flash-preview/` resp. `beam/`) and deleted — they live in
  * MERGED_MODEL_SLUGS (scripts/lib/validate.mjs), never here; searching
  * "Space Bunny" / "Cat Jam" resolves via the revealed models' meta `aliases`.
+ * User-ordered permanent parks (2026-10-26): `claude-opus-4.4` and
+ * `claude-opus-3.7` — phantom Anthropic checkpoints (existence audit: the
+ * Opus lineage is 3 → 4 → 4.1 → 4.5 → 4.6/4.7/4.8 → 5.x; no Opus 3.7, no
+ * Opus 4.4) — never resurrect, never re-scaffold.
  * Mirror list for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

@@ -15,6 +15,8 @@
 - `kimi-k2.7-code-highspeed` — serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20 — research belongs in model/kimi-k2.7-code/
 - `gemini-3.1-flash` — phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20 — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped
 - `longcat-2.5` — phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/
+- `claude-opus-4.4` — phantom checkpoint — live-existence audit: Anthropic deprecations/overview show Opus 4.1 → 4.5 → 4.6/4.7/4.8, no Opus 4.4 ever released; parked 2026-10-26 (user order, never resurrect)
+- `claude-opus-3.7` — phantom checkpoint — Anthropic lineage has no Opus 3.7 (3.7 exists only as Sonnet); parked 2026-10-26 (user order, never resurrect)
 
 ## Merged-and-deleted duplicate slugs — never recreate (not even from git history)
 

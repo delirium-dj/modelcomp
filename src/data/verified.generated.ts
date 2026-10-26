@@ -184,7 +184,7 @@ export const VERIFIED: Record<string, string> = {
   "qwen-3.5-397b": "2026-10-25",
   "qwen-3.5-4b": "2026-10-25",
   "qwen-3.5-9b": "2026-10-21",
-  "qwen-3.5-flash": "2026-10-24",
+  "qwen-3.5-flash": "2026-10-25",
   "qwen-3.5-flash-lite": "2026-10-23",
   "qwen-3.5-plus": "2026-10-25",
   "qwen-3.6-plus": "2026-10-25",
