@@ -1,0 +1,63 @@
+# GLM 5.3 Flash X — findings by GPT 6 Astra
+
+- Source: Z.ai / GLM-5.3-FlashX; dataset spelling `glm-5.3-flash-x` requires identity review.
+- Date: 2026-10-26 (UTC)
+- Methodology: `../../model-comparison.md`; signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name / IDs:** Official name GLM-5.3-FlashX, native API ID `glm-5.3-flashx` (no hyphen before x). The reviewed official documentation does not establish a distinct `glm-5.3-flash-x` checkpoint. The existing queue separately includes `glm-5.3-flashx`; this report flags a probable duplicate spelling rather than creating another identity.
+- **Provider / access:** Z.ai and BigModel Chat Completion APIs. TokenPlus displays “GLM 5.3 Flash X” but its actual request ID is `z-ai/glm-5.3-flashx`, corroborating the spelling resolution. Official documentation says FlashX is not yet available on the GLM Coding Plan.
+- **Release / knowledge:** Secondary catalog and contemporaneous discussion date FlashX to September 18, 2026; exact primary release date and knowledge cutoff were not independently established.
+- **Context / output:** Official shared Flash/FlashX guide specifies 1M context and 128K maximum output; BigModel parameter documentation gives 131,072 output tokens.
+- **Modalities / tools:** Text, image, video and file input; text output, function calling, JSON structured output, caching and streaming. Thinking is required, with low/high/max effort. File generation through tools does not establish native image/audio output.
+- **Pricing:** Official international FlashX prices are $0.37 input / $1.25 output / $0.075 cache hit per million tokens. BigModel's domestic table instead quotes CNY 2 / 7 / 0.57. Cache storage is temporarily free; inference is paid. Regional currency tables are not contradictory dollar quotes.
+- **Architecture:** Vendor presents Flash and FlashX together with 320B total / 18B active hybrid sparse/linear-attention architecture, and describes FlashX in terms of inference infrastructure and acceleration. No distinct Flash-X weights or new training run established.
+
+### Raw benchmarks found
+
+**No verified public quality benchmark found for a distinct hyphenated `glm-5.3-flash-x` model.** Searches for independent FlashX quality evaluations returned base Flash records, not a separately attributed Flash-X test.
+
+- Official FlashX throughput claim: **200 tokens/s**, without a reproducible workload/hardware/concurrency specification on the inspected overview. This is a serving-performance claim, not a benchmark of reasoning, coding or tool quality.
+- TokenPlus lists **91 tokens/s** and **4.25 seconds** latency for its displayed Flash X service, without sufficient test details to compare against the vendor ceiling.
+- October 10 Linux.do users report variable **70–130** and **130–170 tokens/s**. These are uncontrolled anecdotes, not validated independent capability measurements.
+
+Tool use, GPQA/HLE, SWE-bench/DeepSWE, long-context retrieval and multimodal quality for a distinct Flash-X checkpoint: no verified public score found. The official page's benchmark section explicitly labels its results **GLM-5.3-Flash**. Those scores are not relabeled as exact FlashX evaluations. Its separate Legal subsection is a specialized model and must not be used for this entry either.
+
+### Cross-source reconciliation and verdict
+
+The official English and Chinese documentation, TokenPlus request example, and official price tables consistently use `flashx`. The extra hyphen appears in informal titles. This supports review of the two dataset folders as spelling duplicates; it does not justify adding another scored copy of the same service.
+
+The apparent speed conflict is not evidence of capability loss: vendor peak throughput, gateway statistics and user observations have different unknown workloads. They cannot establish a universal speedup or cost per successful task. International output and cache-hit token prices are 2.5 times ordinary Flash's published rates; input is approximately 2.47 times due to displayed rounding. Paying more buys a speed-oriented service, not a demonstrated quality increase.
+
+Historical Flash reviews quote AA index 57 on v4.1.1; current AA lists 42 on v4.3.2. Those are versioned benchmark suites for **Flash**, not evidence of a FlashX regression or an independent Flash-X model. Repetition across reviews traces back to the same vendor/AA sources rather than multiple experiments.
+
+**Disposition:** Self-excluded for absent exact-identity quality evidence and probable duplicate spelling. Recommend resolving `glm-5.3-flash-x` against the already tracked `glm-5.3-flashx` before further scoring. No folder merge, deletion or existing-report modification performed.
+
+### Normalized scores (1–100)
+
+Withheld. Throughput and price alone cannot substantiate five quality dimensions; no placeholder or borrowed Flash scores assigned.
+
+## Sources and research audit
+
+Five searches:
+1. `"GLM-5.3-Flash-X" official model benchmark`
+2. `GLM 5.3 Flash X independent benchmark Artificial Analysis`
+3. `"glm-5.3-flash-x" API pricing context`
+4. `site:docs.z.ai "GLM-5.3-FlashX"`
+5. `site:bigmodel.cn "GLM-5.3-FlashX" "Flash"`
+
+- https://docs.z.ai/guides/vlm/glm-5.3-flash — directly fetched official identity, shared architecture/capabilities and API IDs.
+- https://docs.z.ai/guides/overview/pricing — directly fetched official international pricing.
+- https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash — Chinese vendor corroboration.
+- https://docs.bigmodel.cn/cn/guide/start/pricing — domestic prices and modalities.
+- https://docs.bigmodel.cn/cn/guide/start/concept-param — exact output-token limits and thinking restrictions.
+- https://www.tokenplus.cn/model/01a1253b-b99f-7885-9db7-c59f368e5f28 — gateway display-name-to-request-ID mapping and performance snapshot.
+- https://linux.do/t/topic/3004149 — independent user observations, uncontrolled.
+- https://artificialanalysis.ai/models/glm-5-3-flash — independent base-model evaluation, not FlashX-specific evidence.
+- https://www.qubrid.com/blog/glm-53-flash-benchmarks-official-and-independent-results — historical secondary base-model review.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-26
+- Method: Fresh public-web research, source comparison and identity verification; self-excluded rather than assigning unsupported scores. No peer findings used.

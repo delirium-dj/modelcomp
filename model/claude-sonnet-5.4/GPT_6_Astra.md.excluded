@@ -1,0 +1,51 @@
+# Claude Sonnet 5.4 — findings by GPT 6 Astra
+
+- Source: Claimed Anthropic / Claude Sonnet 5.4; exact identity unverified.
+- Date: 2026-10-26 (UTC)
+- Methodology: `../../model-comparison.md`; signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (requested dataset identity, not a verified vendor release).
+- **Provider / access / IDs:** No official `claude-sonnet-5-4` or `claude-sonnet-5.4` route established. Anthropic's current and legacy model overview lists Sonnet 5.5, Sonnet 5 and Sonnet 4.6, but no Sonnet 5.4.
+- **Release / knowledge:** No verified release date or cutoff.
+- **Context window / modalities / pricing / architecture:** Unverified for this exact identity. Specifications of Sonnet 5 and 5.5 cannot establish these fields for 5.4.
+
+### Raw benchmarks found
+
+Agent/tool use, Terminal-Bench, Tau2/Tau3, GDPval, Claw-Eval, reasoning/GPQA/HLE, coding/SWE-bench/SciCode and long-context retrieval: **no verified public score found for Claude Sonnet 5.4**.
+
+### Identity investigation and conflicting results
+
+Four searches tested the human-readable name, vendor-specific system cards, independent evaluation coverage and exact API spellings. Broad searches predominantly returned “Claude Sonnet 5 vs GPT-5.4” comparison pages. Those contain two separate model names; neither their titles nor their benchmark tables are evidence for a Sonnet 5.4 checkpoint.
+
+The official Sonnet 5.5 system-card search excerpt explicitly calls Sonnet 5 its predecessor. Direct inspection of Anthropic's historical system-card index shows Sonnet 5 in June and Sonnet 5.5 in September, without an intervening 5.4 entry. The directly fetched current model overview independently corroborates the absence from both current and legacy lists. GitHub Copilot's supported-model results also list 5 and 5.5, not 5.4, though a partner catalog alone would not prove nonexistence.
+
+Artificial Analysis and BenchLM results retrieved for this name actually compare Sonnet 5 with OpenAI GPT-5.4. Their differing composite scores reflect distinct evaluation methodologies and belong to those named models. No averaging, interpolation between Sonnet generations or renaming of GPT results is justified.
+
+**Conclusion:** Strong evidence of an unresolved or mistaken dataset label, but search absence is not proof that no private route ever existed. Retain this negative-evidence report and recommend identity review. A vendor announcement or documented exact endpoint plus an attributable benchmark is required before scoring. No peer reports or local scores informed this verdict.
+
+### Normalized scores (1–100)
+
+Withheld: zero exact-model verified benchmark results. This `.md.excluded` report intentionally contains no numeric capability scores.
+
+## Sources and research audit
+
+Queries:
+1. `Claude Sonnet 5.4 site:anthropic.com model system card`
+2. `Claude Sonnet 5.4 Artificial Analysis benchmark review`
+3. `Claude Sonnet 5.4 API context pricing Terminal Bench GPQA`
+4. `"claude-sonnet-5-4" OR "claude-sonnet-5.4" OR "Claude Sonnet 5.4"`
+
+Sources compared:
+- https://www.anthropic.com/system-cards — official historical index, directly fetched.
+- https://platform.claude.com/docs/en/about-claude/models/overview — official current/legacy IDs, directly fetched.
+- https://www.anthropic.com/news/claude-sonnet-5 — official release establishing the different Sonnet 5 identity.
+- https://artificialanalysis.ai/models/comparisons/claude-sonnet-5-vs-gpt-5-4 — independent evaluation; false-positive name combination.
+- https://benchlm.ai/compare/claude-sonnet-5-vs-gpt-5-4 — secondary benchmark comparison; same false-positive identity issue.
+- https://docs.github.com/en/copilot/reference/ai-models/supported-models?library=true — partner availability corroboration, not a complete vendor archive.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-26
+- Method: Fresh public-web identity and benchmark research; self-excluded for insufficient exact-model evidence.

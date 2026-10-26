@@ -1,0 +1,54 @@
+# Qwen 3.7 — findings by GPT 6 Astra
+
+- Source: Alibaba/Qwen generation name; third-party `qwen3.7` route found, underlying checkpoint unresolved.
+- Date: 2026-10-26 (UTC)
+- Methodology: `../../model-comparison.md`; signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 (bare identity).
+- **Provider / access:** Api.Airforce advertises `qwen3.7` at `https://api.airforce/v1/chat/completions`. This establishes a third-party route claim, not an independent Alibaba checkpoint or documented mapping to a particular suffix.
+- **Release / knowledge / architecture:** Not verified for this bare route.
+- **Context / modalities:** Gateway advertises reasoning; exact context, output ceiling and multimodal capabilities were not established. Do not combine text-only Max with multimodal Plus/Flash specifications.
+- **Pricing:** Gateway search result claims $3.87 input / $11.58 output per million tokens. Its accompanying statement that $3.87 is “below” an official $2.50 input price is arithmetically false; treat its descriptive copy cautiously. No authenticated inference or billing verification performed.
+
+### Raw benchmarks found
+
+No verified public score found for the exact bare `qwen3.7` route in agent/tool use, reasoning, coding, multimodal performance or long-context retrieval. Official benchmarks retrieved belong explicitly to `qwen3.7-max`; independent AA records distinguish Max and Plus. None is transferred to this entry.
+
+### Identity and evidence comparison
+
+1. The official article titled **Qwen3.7: The Agent Frontier** opens “Today we introduce Qwen3.7-Max.” Directly inspected API examples use `qwen3.7-max`, not `qwen3.7`. The shorter article title is a generation label, not proof of a separate base model.
+2. Alibaba's pricing documentation identifies distinct Max, Plus and Flash SKUs and dated snapshots. It maps `qwen3.7-max` to its May 20 snapshot. No corresponding mapping for the bare third-party route was found.
+3. Independent Artificial Analysis pages measure suffix-specific models. Reviews with “Qwen 3.7 Released” in the title explicitly discuss Max in their text. They cannot establish separate bare-model benchmark coverage.
+4. A targeted exact-ID search did locate the Api.Airforce route, so “no bare API name exists anywhere” would be too strong. However, gateway naming alone does not establish distinct weights or which official model is served.
+
+The apparent Max benchmark contradictions also have identifiable scope differences: Alibaba's Terminal-Bench 2.0 uses Harbor/Terminus-2 with a five-hour timeout, whereas AA reports newer terminal evaluations. Historical secondary AA index coverage explicitly names v4.1.1 and warns its original could not be rechecked; current AA comparison pages use the newer suite. These are not interchangeable scores, and all belong to Max rather than the unresolved bare entry.
+
+**Conclusion:** Likely family shorthand or gateway alias; exact checkpoint mapping remains unverified. Recommend identity review before a separate scored listing. This is not a claim that the advertised gateway endpoint cannot operate. Verification requires a documented upstream mapping and measurements attributable to that route/version.
+
+### Normalized scores (1–100)
+
+Withheld under the zero-exact-benchmark rule. No placeholder values, family averages or Max/Plus scores assigned.
+
+## Sources and research audit
+
+Queries:
+1. `Qwen 3.7 official model card qwen3.7 benchmark`
+2. `Qwen3.7 independent Artificial Analysis benchmark review base model`
+3. `Qwen 3.7 API model id context pricing Alibaba documentation`
+4. `"qwen3.7" "model id" -"qwen3.7-max" -"qwen3.7-plus" -"qwen3.7-flash"`
+
+- https://www.alibabacloud.com/blog/qwen3-7-the-agent-frontier_603154 — official release, directly fetched; all model-specific claims and examples name Max.
+- https://www.alibabacloud.com/help/en/model-studio/model-pricing — official SKU/snapshot pricing evidence.
+- https://docs.modelstudio.console.alibabacloud.com/en/model-studio/qwen3-7-flash — distinct multimodal Flash identity.
+- https://artificialanalysis.ai/models/comparisons/qwen3-7-max-vs-qwen3-6-max — independent suffix-specific evaluation.
+- https://artificialanalysis.ai/models/qwen3-7-plus — independent Plus record.
+- https://atomicbot.ai/blog/qwen-3-7-max — review headline shorthand resolved in body to Max.
+- https://api.airforce/models/qwen3.7/ — gateway exact-route claim; upstream mapping and benchmark identity unresolved.
+- https://go.tabbit.ai/model/qwen3-7-max/reviews/artificialanalysis-intelligence-index-cost-speed-benchmark — historical secondary record explicitly marked unverified.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-26
+- Method: Fresh independent web research; self-excluded because exact-model benchmark attribution could not be verified. No peer findings used.
