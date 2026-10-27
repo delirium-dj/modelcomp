@@ -1,0 +1,59 @@
+# Qoder Sonus — findings by Grok 4.6
+
+- Source: Qoder / Alibaba (`Sonus` built-in)
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Sonus (Qoder)
+- **Short description:** Qoder's built-in proprietary agent model (announced 2026-09-10) for long autonomous tasks, knowledge work, coding, and Computer Use inside the Qoder product family. Not a public API SKU; no independent weights or OpenRouter route found.
+- **Provider / access:** Qoder model picker only: Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, and Cloud Agents. Announced with Qoder Desktop 0.2.3 Computer Use. No OpenAI-compatible public model ID; no OpenCode Zen ID found.
+- **Release / knowledge:** Forum announcement 2026-09-10. Knowledge cutoff **not announced**.
+- **IDs:** Display name **Sonus** in Qoder. No `opencode/` or `provider/model` API ID published. Distinct from sibling built-in **Cantus**.
+- **Context window:** **no verified public token limit found** (marketing says long/marathon tasks and Qoder long-context/memory; no number on the announcement or credit-factor docs).
+- **Modalities:** Computer Use (screen, cursor, keyboard, desktop/pro software) plus coding/agent tool use inside Qoder. Native image/audio/video I/O for the model itself is **not specified** on the announcement. Text out via the Qoder agent UI.
+- **Pricing (as of 2026-10-28):** Credit-metered inside Qoder, not $/1M. Launch reference factor **3.2x** (2026-09-10); updated to **8x** at 00:00 Singapore 2026-09-21 (highest listed built-in factor). Individual plans: Free (limited); Lite $10/mo 1,000 credits; Pro $20/mo 2,000; Pro+ $60/mo 6,000; Ultra $200/mo 20,000. Credit packs $20 / 1,500 credits. Plan credits do not roll over. No per-token list price.
+- **Architecture:** Proprietary; parameter count, MoE vs dense, and license **not disclosed**. Third-party blogs that analogize it to GPT-6 Astra / GLM-5.3-Flash are not vendor IDs.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION: this exact ID has **zero** verified public benchmark numbers (no SWE-bench, GPQA, Terminal-Bench, OSWorld, AA Index, or other harness score published under Sonus / Qoder Sonus). Do not borrow Qwen3-Coder or other Qoder-hosted models' tables.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- OSWorld / Computer Use leaderboards: **no verified public score found** (Computer Use is the product claim only)
+- Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR / CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (AA has no Sonus page; search hits were Perplexity Sonar, not Qoder)
+- Omniscience: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench / SciCode / Vibe / DeepSWE: **no verified public score found**
+
+Long context:
+
+- **no verified public MRCR / RULER / GraphWalks or numeric context window found**
+
+### Normalized scores (1–100)
+
+Not scored. Zero verified public benchmarks for this ID → file saved as `.md.excluded` per `tasks/research.md` self-exclusion. Do not invent 0/10/15 placeholders.
+
+---
+
+## Signature
+
+- Provided by: **Grok 4.6 (xAI / grok-4.6)** — 2026-10-28
+- Method: public internet research (Qoder forum Sonus announcement, Qoder credit-factor notice, Qoder pricing docs); no public harness numbers found. Scores would be normalized 1–100 interpretations, not official vendor scores — none computed here.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,9 @@
 {
-  "id": "opencode/muse-wonder-full",
+  "id": "meta/muse-wonder-full-1.0",
   "name": "Muse Wonder Full",
-  "short": "Muse Wonder Full model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Most advanced Meta frontier model; built for long-running professional agents and ultra-long-horizon software engineering.",
+  "contextWindow": "1M total",
+  "modalities": "Text, images, audio, video in; Text out",
+  "pricingNote": "Muse Code subscription (Power/Maximum plans)",
+  "officialUrl": "https://dev.meta.ai/models/muse-wonder"
 }

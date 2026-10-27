@@ -1,9 +1,9 @@
 {
-  "id": "opencode/claude-opus-3.7",
+  "id": "anthropic/claude-opus-3.7",
   "name": "Claude Opus 3.7",
-  "short": "Claude Opus 3.7 model evaluation entry.",
-  "contextWindow": "128K total",
+  "short": "Previous-generation Opus; strong on long-horizon agentic work, knowledge work, vision, and memory.",
+  "contextWindow": "200K total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Standard Anthropic API pricing",
+  "officialUrl": "https://www.anthropic.com/claude"
 }

@@ -2493,8 +2493,10 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Vibe Code Bench", value: "83.09%", raters: ["MiMo_2.6_Flash", "Step_5_Preview"] },
   ],
   "muse-wonder-full": [
-    { benchmark: "Terminal-Bench", value: "57.1%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
+    { benchmark: "Terminal-Bench", value: "57.1%", raters: ["Gemini_3.8_Flash", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
+    { benchmark: "HLE", value: "53.6%", raters: ["Gemini_3.8_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
     { benchmark: "CritPt", value: "32.9%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
+    { benchmark: "DeepSWE", value: "79%", raters: ["Gemini_3.8_Flash", "Nemotron_3_Ultra_550B_A55B"] },
   ],
   "nemotron-3-nano-omni": [
     { benchmark: "HLE", value: "4.8%", raters: ["GLM_5.3_Flash", "MiniMax_M3.1_Flash"] },
@@ -2646,6 +2648,10 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "HLE", value: "49.9%", raters: ["Big_Pickle", "Claude_Opus_4.6", "GLM_5.3", "GPT_5.6_Sol", "GPT_5.6_Terra", "Gemini_3.6_Flash", "Kimi_K3", "Ling_3.1_Flash", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Qwen_3.8_Flash", "Step_5_Preview"] },
     { benchmark: "GPQA Diamond", value: "92.4%", raters: ["Beam", "Big_Pickle", "Claude_Opus_4.6", "DeepSeek_4.1_Flash", "Fledge_Alpha", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6.1_Sol", "Gemini_3.6_Flash", "Kimi_K3", "Laguna_S_2.1", "Ling_3.1_Flash", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B", "Qwen_3.8_Flash", "Step_5_Preview"] },
     { benchmark: "DeepSWE", value: "69.9%", raters: ["Beam", "Big_Pickle", "Claude_Opus_4.6", "Claude_Sonnet_4.6", "DeepSeek_4.1_Flash", "Fledge_Alpha", "Flint", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Sol", "GPT_5.6_Terra", "Gemini_3.6_Flash", "Kimi_K3", "Laguna_S_2.1", "Ling_3.1_Flash", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B", "Qwen_3.8_Flash", "Step_5_Preview"] },
+  ],
+  "qoder-sonus": [
+    { benchmark: "Terminal-Bench", value: "65%", raters: ["Gemini_3.5_Flash_Lite", "Gemini_3.8_Flash"] },
+    { benchmark: "SWE-bench Verified", value: "74.5%", raters: ["Gemini_3.5_Flash_Lite", "Gemini_3.8_Flash"] },
   ],
   "qwen-3.5": [
     { benchmark: "Terminal-Bench", value: "52.5%", raters: ["Claude_Opus_5", "GLM_5.3_Flash", "Kimi_K3", "Laguna_S_2.1", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },

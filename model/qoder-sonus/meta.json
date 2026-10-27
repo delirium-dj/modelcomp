@@ -1,9 +1,9 @@
 {
-  "id": "opencode/qoder-sonus",
+  "id": "qoder/sonus-1.0",
   "name": "Qoder Sonus",
-  "short": "Qoder Sonus model evaluation entry.",
+  "short": "Computer-operation specialized model; performs coding, financial modeling, and complex desktop/software tasks.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Qoder Credits (SOTA rate applies)",
+  "officialUrl": "https://qoder.com"
 }

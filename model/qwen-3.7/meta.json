@@ -1,9 +1,9 @@
 {
-  "id": "opencode/qwen-3.7",
+  "id": "alibaba/qwen-3.7",
   "name": "Qwen 3.7",
-  "short": "Qwen 3.7 model evaluation entry.",
+  "short": "Alibaba's Qwen model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "officialUrl": "https://qwenlm.github.io/"
 }

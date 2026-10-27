@@ -55,11 +55,11 @@
 86.8 gpt-5.2
 86.8 qwen-3.7-plus
 86.7 inkling-small
+86.5 muse-wonder-full
 86.5 qwen-3.8-27b
 86.2 qwen-3.6-plus
 86.1 grok-4.7
 86.1 kimi-k2.6
-86 muse-wonder-full
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
 85.8 grok-4.5
@@ -67,6 +67,7 @@
 85.6 qwen-3.8-flash-next
 85.5 qwen-3.5-plus
 85.4 seed-2.0-pro
+85.3 qwen-3.7
 85.2 deepseek-v4-pro
 85.2 gpt-5.6-luna
 84.5 mistral-large-4
@@ -75,7 +76,6 @@
 84.3 pareto-26.10-preview
 84.2 gpt-5
 84.2 qwen-3.5-397b
-84 qwen-3.7
 83.8 gpt-6-luna
 83.6 claude-haiku-5.5
 83.6 deepseek-v4.1-flash-1017
@@ -98,6 +98,7 @@
 79.5 kimi-k2.8-preview
 79.5 qwen-3.5-122b-a10b
 79.4 gpt-5.4-mini
+79 qoder-sonus
 78.9 glm-5.3
 78.9 grok-4.1
 78.9 qwen-3.5-27b
@@ -181,7 +182,6 @@
 59.5 ling-3.0-flash-sante
 59 flint
 58.3 glm-4.7-flash
-58.2 qoder-sonus
 57.9 solar-mini-4
 57.4 north_mini_code
 57.2 big-pickle
