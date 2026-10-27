@@ -1,0 +1,46 @@
+# Qwen 3.5 Flash Lite — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Alibaba / Qwen (`qwen-3.5-flash-lite`; scaffolded id `opencode/qwen-3.5-flash-lite`)
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** After a genuine research pass I found **no distinct shipped "Qwen3.5-Flash-Lite" model**. Every spec in the scaffolded meta resolves to **Qwen3.5-Flash** — Alibaba's hosted API tier — which Hugging Face explicitly states "**is the hosted version corresponding to Qwen3.5-35B-A3B with more production features, e.g., 1M context length by default.**" In other words, the meta's `~35B total / 3B active`, `1M context`, `~$0.10/$0.40`, and `text/image/video in → text out` are **Qwen3.5-Flash's / Qwen3.5-35B-A3B's** specs, not a separate "Lite" tier's. Alibaba's actual Qwen3.5 hosted tiers are **Flash** and **Plus** only. Per `model-report-TEMPLATE.md` (Self-exclusion, mandatory) and `RULES.md`, I am **not** saving a scored `.md`, because doing so would require **reattributing Qwen3.5-Flash's / 35B-A3B's specs and benchmarks to a non-existent separate SKU** (silently fabricating evidence) and would **double-count** both the `qwen-3.5-flash` entry (queue L123) and the already-scored `qwen-3.5-35b-a3b` entry (report 104). `pnpm sync` auto-quarantines evidence-free files. Scores are intentionally omitted below. **Readers should use [`../qwen-3.5-flash/`](../qwen-3.5-flash/) for the hosted Flash tier and [`../qwen-3.5-35b-a3b/`](../qwen-3.5-35b-a3b/) for the open-weight base.**
+
+## Model card (unresolved — no distinct SKU)
+
+- **Name:** Qwen 3.5 Flash Lite (as scaffolded)
+- **Short description:** The dataset entry `qwen-3.5-flash-lite` (`opencode/qwen-3.5-flash-lite`) is a **"Lite" reframing of Qwen3.5-Flash**, not a separate published model. The curated meta describes it as "Alibaba's MoE Qwen 3.5 Flash-Lite API tier (~35B total/3B active, 1M ctx) for high-volume multimodal work at ultra-low pricing" — but those exact figures (**~35B/3B MoE, 1M context, ~$0.10/$0.40, text+image+video**) are **Qwen3.5-Flash's**, which is the hosted production version of the open-weight **Qwen3.5-35B-A3B**. A genuine "Lite" tier would be *smaller and cheaper* than Flash (cf. Gemini's real flash-lite vs flash); this entry is instead **identical** to Flash, which is the signature of a conflation, not a distinct product.
+- **Provider / access:** No `qwen-3.5-flash-lite` endpoint appears in Alibaba Cloud Model Studio's "Supported Models" list, on OpenRouter, on orq.ai, or in the Qwen3.5 launch blog. The real hosted tiers are **Qwen3.5-Flash** and **Qwen3.5-Plus**; the real open-weight model is **Qwen3.5-35B-A3B** (Apache 2.0, Hugging Face).
+- **Release / knowledge:** Qwen3.5-Flash / Qwen3.5-35B-A3B released **February 2026** (Flash hosted tier; 35B-A3B open weights). No separate "Qwen3.5-Flash-Lite" release exists. (Both are now superseded by the Qwen3.6 / Qwen3.7 / Qwen3.8 Flash lines.)
+- **IDs:** `opencode/qwen-3.5-flash-lite` (scaffold) — not a confirmed published SKU. The genuine ids are `qwen/qwen3.5-35b-a3b` (HF/OpenRouter) and `qwen3.5-flash` / `qwen3.5-flash-02-23` (Model Studio / OpenRouter).
+- **Context window:** meta says **1,000,000 total / 65,536 out** (this is Qwen3.5-Flash's default 1M window; the open-weight 35B-A3B is 262K native → ~1M via YaRN).
+- **Modalities:** meta says **text, image, video in → text out** (Qwen3.5-Flash's native-VL modality).
+- **Pricing:** meta says **~$0.10/$0.40** per 1M (this is exactly Qwen3.5-Flash's Model Studio price, per benchlm.ai and spheron.network).
+- **Architecture:** Qwen3.5-Flash / 35B-A3B is a **~36B-total / 3B-active MoE** (Gated Delta Networks hybrid, Apache 2.0); no separate "Flash-Lite" architecture is published.
+
+### Raw benchmarks found
+
+> Every benchmark/spec located resolves to **Qwen3.5-Flash** (hosted) or **Qwen3.5-35B-A3B** (open-weight), not a distinct "Flash-Lite" SKU.
+
+- **Hugging Face `Qwen/Qwen3.5-35B-A3B`:** "**Qwen3.5-Flash is the hosted version corresponding to Qwen3.5-35B-A3B with more production features, e.g., 1M context length by default.**" → confirms Flash ≡ hosted 35B-A3B; there is no third "Lite" tier.
+- **benchlm.ai / spheron.network (Qwen API pricing):** "**$0.40/$2.40 for Qwen3.5 Plus (1M context), and $0.10/$0.40 for Qwen3.5 Flash**" → the meta's `~$0.10/$0.40` is **Qwen3.5-Flash's** price, and the only two Qwen3.5 hosted tiers are Flash and Plus.
+- **Alibaba Cloud Model Studio "Supported Models" / DashScope reference:** lists **Qwen3.5-Flash** (and later Qwen3.7/3.8 Flash) — **no "Flash-Lite"** entry.
+- **OpenRouter `qwen/qwen3.5-flash-02-23`** and **orq.ai `alibaba-qwen3.5-flash`:** the native-VL Flash model (hybrid linear + sparse attention, 1M context) — again, **no separate "Lite"** listing.
+- **Artificial Analysis:** the open-weight base is tracked as `qwen3-5-35b-a3b` (reasoning Index 19, 4/4 units, #12/141 — see report 104). No `qwen-3-5-flash-lite` page exists.
+- The open-weight sibling's verified numbers (AA Index 19 current / 37 prior-basket; vendor GPQA 84.2%, SWE-bench Verified 69.2%, LiveCodeBench v6 74.6%) are **already scored in [`../qwen-3.5-35b-a3b/`](../qwen-3.5-35b-a3b/) (report 104)** and must not be re-counted here.
+
+> Provenance / conclusion: there is **no first-party model card, no distinct published SKU, and no benchmark attributable to "Qwen3.5-Flash-Lite" as separate from Qwen3.5-Flash / Qwen3.5-35B-A3B**. The distinguishing specs (1M context, ~$0.10/$0.40, ~35B/3B MoE, text+image+video) all belong to **Qwen3.5-Flash**, the hosted tier of **Qwen3.5-35B-A3B**. Scoring this folder would (a) reattribute a sibling's specs/evidence to a phantom "Lite" SKU and (b) double-count both `qwen-3.5-flash` (L123) and `qwen-3.5-35b-a3b` (report 104) — both forbidden by the exclusion convention.
+> Recommended curator resolution: either (a) **retire/park the `qwen-3.5-flash-lite` scaffold** and fold it into `qwen-3.5-flash` (the hosted tier) / `qwen-3.5-35b-a3b` (the open-weight base), or (b) if Alibaba ever ships a genuine distinct Qwen3.5-Flash-Lite tier with its own model card + pricing + evaluations (i.e., *smaller/cheaper* than Flash, not identical to it), re-point this slug to it and re-research independently (do **not** reuse Flash's or 35B-A3B's numbers even though they share a family name).
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded.** No distinct model and no benchmarks attributable to a separate "Qwen3.5-Flash-Lite" SKU exist, so no dimension scores are assigned. Borrowing Qwen3.5-Flash's / Qwen3.5-35B-A3B's specs and benchmark numbers would be reattribution/double-counting, which `RULES.md` forbids and `pnpm sync` quarantines. **Overall Score: not scored.** See [`../qwen-3.5-flash/`](../qwen-3.5-flash/) and [`../qwen-3.5-35b-a3b/`](../qwen-3.5-35b-a3b/).
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-27
+- Method: public internet research (Hugging Face `Qwen/Qwen3.5-35B-A3B` card — "Qwen3.5-Flash is the hosted version corresponding to Qwen3.5-35B-A3B … 1M context by default"; benchlm.ai + spheron.network Qwen API pricing — "$0.10/$0.40 for Qwen3.5 Flash" and "$0.40/$2.40 for Qwen3.5 Plus" as the only two hosted tiers; Alibaba Cloud Model Studio "Supported Models" + DashScope API reference — no "Flash-Lite" entry; OpenRouter `qwen/qwen3.5-flash-02-23` + orq.ai `alibaba-qwen3.5-flash` — native-VL Flash, no separate Lite; Artificial Analysis `qwen3-5-35b-a3b` for the open-weight base's Index — and `qwen-3-5-flash-lite` returns no page). Self-excluded for **no distinct shipped artifact + sibling-owned specs/benchmarks**; **no scores invented, no lineage reattributed, no double-count**.
+- Future sources: if a genuine, separately-published Qwen3.5-Flash-Lite tier with its own verifiable model card, pricing, and benchmarks is confirmed, replace this `.md.excluded` with a scored `Qwen_3.8_Max.md` using the same headings — researched independently from Qwen3.5-Flash and Qwen3.5-35B-A3B.

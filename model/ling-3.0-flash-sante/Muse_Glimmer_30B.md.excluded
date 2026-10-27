@@ -1,0 +1,46 @@
+# Ling 3.0 Flash Sante — findings by Muse Glimmer 30B
+
+- Source: InclusionAI / ling-3.0-flash-sante
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+SELF-EXCLUSION: This model has no verified public benchmark scores.
+
+## Model card
+
+- **Name:** Ling 3.0 Flash Sante
+- **Short description:** InclusionAI's health-and-medicine specialization of Ling 3.0 Flash built for medical reasoning, professional healthcare tasks, deep research and evidence-based retrieval. Hosted-only API variant; no weights published.
+- **Provider / access:** Hosted APIs only — Novita AI, Vercel AI Gateway (`inclusionai/ling-3.0-flash-sante`). No OpenCode Zen free ID. No Hugging Face / ModelScope repository for the Sante fine-tune.
+- **Release / knowledge:** Released 2026-09-04 per models.dev; knowledge cutoff not published.
+- **IDs:** `inclusionai/ling-3.0-flash-sante`
+- **Context window:** 262,144 total / 32,768 max output per models.dev / Novita; Vercel lists 256,000 total / 32,000 max output.
+- **Modalities:** Text in / text out only; function calling supported per provider listings; no image/audio/video/attachment support.
+- **Pricing (as of 2026-10-27):** $0.075 / 1M input, $0.22 / 1M output (Vercel AI Gateway, Novita); $0.015 / 1M cached read. Launch promotion previously $0/$0 into early October 2026.
+- **Architecture:** MoE inherited from Ling 3.0 Flash backbone, 124B total / ~5.1B active per token — per meta.json; Sante fine-tune weights closed, no licence published.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers found.
+
+Sources checked:
+- models.dev model page for `inclusionai/ling-3.0-flash-sante` — metadata only, no benchmark table.
+- Vercel AI Gateway model listing — metadata, pricing, context, no benchmark numbers.
+- Novita AI provider listing — metadata, pricing, context, no benchmark numbers.
+- Web searches for official model card/docs and independent benchmarks: 2026-10-27 searches for `ling-3.0-flash-sante model card`, `ling-3.0-flash-sante benchmark scores`, `inclusionai ling 3.0 flash sante diagnosisarena medxpertqa` returned no verifiable independent benchmark pages; vendor-reported figures cited in peer findings files could not be located in public sources during this research pass.
+
+No Artificial Analysis page exists for `ling-3.0-flash-sante`; no BenchLM page exists; no Hugging Face model card with evaluation results.
+
+### Normalized scores (1–100)
+
+All scores zero — no verified benchmarks to derive from.
+
+- **Overall Score: 0/100.** Zero verified public benchmark numbers found; file excluded from scoring.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-27
+- Method: Public internet research via models.dev, Vercel AI Gateway, Novita AI listings, and ≥3 independent web searches for official model card/docs and independent benchmarks. Zero verified public benchmark numbers located; model card metadata confirmed but no independent evaluation results found. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Status: **Self-excluded** — no verified public benchmark numbers found.

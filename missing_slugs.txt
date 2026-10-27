@@ -1,0 +1,17 @@
+glm-4.7-flash
+laguna-xs-2.1
+ling-3.0-flash-sante
+mai-code-1-flash
+mai-experimental-test
+mercury-2.5
+muse-wonder-full
+owo-2.5
+qwen-3.5-0.8b
+qwen-3.5-2b
+qwen-3.5-9b
+qwen-3.5-flash
+qwen-3.5-flash-lite
+ring-2.6.1t
+solar-mini-4
+solar-open-2
+solar-pro-4

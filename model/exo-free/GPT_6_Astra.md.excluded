@@ -1,0 +1,27 @@
+# Exo Free — findings by GPT 6 Astra
+
+- Source: OpenCode-hosted anonymous `exo-free`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[models.dev's exact route record](https://raw.githubusercontent.com/anomalyco/models.dev/dev/providers/opencode/models/exo-free.toml) describes a closed-weight preview with text/image input, text output, tools and high reasoning effort; **1,048,576 context / 131,072 output**, **$0 input/output**, release date **October 6, 2026**, and status **deprecated**. Its reasoning setting is explicitly not re-verified on Zen. The [current Zen catalog](https://opencode.ai/zen/v1/models) does not list `exo-free`; an indexed Pi page now returns 404. Treat these as historical configuration facts, not confirmation of current callable service.
+
+Publisher, parameter count, training architecture and knowledge cutoff remain undisclosed. The model must not be confused with Exo Labs' distributed inference software or unrelated Exo products. The recorded API is OpenAI-compatible Chat Completions. Free-tier data retention/training claims in secondary reporting lack a verified exact-route primary policy in this review.
+
+### Raw benchmarks found
+
+[October 7 secondary hands-on reporting](https://freeaiapi.org/articles/opencode-exo-free-guide) claims **99.4%** fingerprint similarity to Claude Opus 5.5, successful Blender scenes and useful screenshot interpretation. The article itself explains that fingerprint confidence is relative to a closed reference set. It is neither a verified publisher identity nor a capability benchmark. Its claim of a live endpoint was historical and conflicts with current deprecation/catalog evidence.
+
+The Blender/pelican anecdotes provide no fixed task set, pass-rate protocol or reproducible numeric evaluation. No verified public exact-route GPQA/HLE, SWE/Terminal-Bench, Tau2/Tau3, GDPval-AA, vision or long-context retrieval score found in three fresh searches. Opus 5.5 scores cannot be imported from a statistical fingerprint.
+
+### Normalized scores (1–100)
+
+Self-excluded: historical endpoint identity is supported, but broad attributable performance evidence is absent. No placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three fresh web searches, registry and live-catalog checks, and critical review of community identity/performance claims.

@@ -1,0 +1,29 @@
+# GLM-4.5-Flash — findings by GPT 6 Astra
+
+- Source: Z.ai / `glm-4.5-flash`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Official GLM-4.5 documentation](https://docs.z.ai/guides/llm/glm-4.5) explicitly lists GLM-4.5-Flash as the free reasoning/coding/agent member. [Official pricing](https://docs.z.ai/guides/overview/pricing) verifies **free input, cached input, cache storage and output**. The family interface is text input/output with thinking, function calling and structured output through Chat Completions. No Zen Free ID verified.
+
+The family page advertises **128K context / 96K output**, but does not give a separate detailed Flash specification block. Treat that output limit as family-level documentation rather than an independently checked Flash endpoint limit. Exact Flash release date, cutoff and parameter count are unverified. The page's **355B/32B** and **106B/12B** counts explicitly describe GLM-4.5 and GLM-4.5-Air, respectively, and are not assigned to Flash. No exact-Flash open-weight license established.
+
+### Raw benchmarks found
+
+Three fresh searches returned substantial ordinary GLM-4.5 evidence but no sufficiently attributable Flash quality results. The official page's benchmark discussion is for GLM-4.5 and Air; neither family positioning nor free pricing verifies equal checkpoint performance.
+
+A [community benchmark repository](https://github.com/mupengi-bot/glm-benchmark) lists Flash among its intended targets and describes model-judged coding, reasoning, Korean and math tests. Its fetched README contains methodology and an **example result schema for GLM-5.1**, not measured Flash results. No example values are treated as data.
+
+No verified public exact-Flash GPQA, HLE, SWE-bench, Terminal-Bench, Tau2/Tau3, GDPval-AA, Claw-Eval or long-context retrieval score found. Native visual/audio capability is not claimed.
+
+### Normalized scores (1–100)
+
+Self-excluded pending exact-route benchmark evidence sufficient for quality scoring. Identity and free access are verified; missing evidence does not imply weak capability. No placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three fresh web searches, primary family/pricing documentation and inspection of a community evaluation repository.

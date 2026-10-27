@@ -1,0 +1,45 @@
+# GLM 5.2 Coding — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Z.ai / Zhipu (`glm-5.2-coding`; scaffolded id `opencode/glm-5.2-coding`)
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** After a genuine research pass I found **no distinct shipped "GLM-5.2-Coding" model** and **zero benchmarks attributable to it specifically** — every number in the scaffolded meta belongs to the **GLM-5.2 base** sibling. Per `model-report-TEMPLATE.md` (Self-exclusion, mandatory) and `RULES.md`, I am **not** saving a scored `.md`, because doing so would require **reattributing GLM-5.2's benchmarks to a non-existent separate SKU** (silently fabricating evidence and inflating its score) and would **double-count** the `glm-5.2` entry that carries this exact lineage. `pnpm sync` auto-quarantines evidence-free files. Scores are intentionally omitted below. **Readers should use [`../glm-5.2/`](../glm-5.2/) for the scored GLM-5.2 lineage.**
+
+## Model card (unresolved — no distinct SKU)
+
+- **Name:** GLM 5.2 Coding (as scaffolded)
+- **Short description:** The dataset entry `glm-5.2-coding` (`opencode/glm-5.2-coding`) is a **coding-positioned framing of GLM-5.2**, not a separate published model. The curated meta itself states "**no separate 'GLM-5.2-Coding' SKU is published on Z.ai, Zen, OpenRouter or models.dev**" and that "**the coding SKU itself is unverified: the published 'SWE-bench 78.7%' claim could not be found in any source.**" Z.ai's actual release is a single model — **"GLM-5.2: Built for Long-Horizon Tasks"** (June 16, 2026) — with high/max reasoning modes; there is no distinct "Coding" checkpoint, model card, or spec sheet.
+- **Provider / access:** No `glm-5.2-coding` endpoint is documented on Z.ai, OpenCode Zen, OpenRouter, or models.dev. GLM-5.2 (the real model) is served on Z.ai / Zhipu's API and hosts, MIT-licensed.
+- **Release / knowledge:** GLM-5.2 released **June 16, 2026** (superseded by GLM-5.3, Aug 14 2026). No separate "GLM-5.2-Coding" release exists.
+- **IDs:** `opencode/glm-5.2-coding` (scaffold) — not a confirmed published SKU.
+- **Context window:** meta says **1,000,000** (this is GLM-5.2's window, not a distinct coding SKU's).
+- **Modalities:** meta says **Text in/out** (GLM-5.2's modality).
+- **Pricing:** meta says **$1.40/$4.40** per 1M, $0.26 cached (GLM-5.2's pricing).
+- **Architecture:** GLM-5.2 is an MIT-licensed MoE; no separate "Coding" architecture is published.
+
+### Raw benchmarks found
+
+> Every benchmark located resolves to **GLM-5.2 (base)**, not a distinct coding SKU.
+
+- **Vals AI `zai_glm-5.2`:** "**#1 open-weight and #3 overall on SWE-bench Verified (82.80%)**, and **#1 open-weight on Terminal-Bench 2.1 (67.79%)**." → these are the meta's "SWE-bench 82.8% (Vals)" and "TB 2.1 67.8% (Vals)" — **GLM-5.2's** numbers.
+- **Z.ai GLM-5.2 blog:** "**81.0** vs 63.5 on **Terminal-Bench [2.1]**" (vendor) → the meta's "TB 2.1 81.0% (vendor)" — **GLM-5.2's**.
+- **AA tau2-bench 99.1%** → the meta's tool-orchestration claim — again **GLM-5.2's**, not a separate coding model's.
+- Artificial Analysis: **`glm-5-2-coding` returns 404** (no distinct page). GLM-5.2 base is tracked, not a "Coding" variant.
+- The meta's "**SWE-bench 78.7%**" claim: **could not be found in any source** (confirmed on my pass) — an unverifiable figure.
+
+> Provenance / conclusion: there is **no first-party model card, no distinct published SKU, and no benchmark attributable to "GLM-5.2-Coding" as separate from GLM-5.2**. The distinguishing numbers (Vals SWE-bench Verified 82.80% #1-open-weight/#3-overall, Terminal-Bench 2.1 67.79%/81.0%, AA tau2-bench 99.1%) all belong to the **`glm-5.2`** sibling, which is its own queue entry and will carry the scored lineage. Scoring this folder would (a) reattribute a sibling's evidence to a phantom SKU and (b) double-count GLM-5.2 — both forbidden by the exclusion convention.
+> Recommended curator resolution: either (a) **retire/park the `glm-5.2-coding` scaffold** and fold it into `glm-5.2`, or (b) if Z.ai ever ships a genuine distinct GLM-5.2-Coding checkpoint with its own model card + evaluations, re-point this slug to it and re-research independently (do **not** reuse GLM-5.2's numbers even though they share a family name).
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded.** No distinct model and no benchmarks attributable to a separate "GLM-5.2-Coding" SKU exist, so no dimension scores are assigned. Borrowing GLM-5.2's SWE-bench/tau2/Terminal-Bench numbers would be reattribution/double-counting, which `RULES.md` forbids and `pnpm sync` quarantines. **Overall Score: not scored.** See [`../glm-5.2/`](../glm-5.2/).
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-27
+- Method: public internet research (Vals AI `zai_glm-5.2` — SWE-bench Verified 82.80% #1-open-weight/#3-overall, Terminal-Bench 2.1 67.79%; Z.ai "GLM-5.2: Built for Long-Horizon Tasks" blog — Terminal-Bench 81.0, June 16 2026 single-model release; Z.ai GLM-5.3 blog confirming GLM-5.2 is one model line; Artificial Analysis `glm-5-2-coding` — 404, no distinct page; searches for a standalone "GLM-5.2-Coding" SKU on Z.ai/Zen/OpenRouter/models.dev — none found). Self-excluded for **no distinct shipped artifact + sibling-owned benchmarks**; **no scores invented, no lineage reattributed**.
+- Future sources: if a genuine, separately-published GLM-5.2-Coding checkpoint with its own verifiable benchmarks is confirmed, replace this `.md.excluded` with a scored `Qwen_3.8_Max.md` using the same headings — researched independently from GLM-5.2.

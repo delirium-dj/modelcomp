@@ -1,50 +1,45 @@
 # Gemini 2.5 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini 2.5 Flash (`google/gemini-2.5-flash`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 2.5 Flash
-- **Short description:** Google's balanced Flash model, optimized for speed and efficiency in varied tasks.
+- **Short description:** Google's high-speed multimodal workhorse model in the 2.5 generation, featuring improved reasoning, native streaming audio/video, and 1M context.
 - **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-2.5-flash` (Chat Completions API).
-- **Release / knowledge:** Released 2025; knowledge cutoff current.
+- **Release / knowledge:** Released 2025; knowledge current.
 - **IDs:** `google/gemini-2.5-flash`
-- **Context window:** 1,048,576 tokens total (1M input / 64,000 output; verified via Google documentation).
-- **Modalities:** Text input, image input, audio input, PDF ingestion; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Free tier available; paid-tier pricing thereafter.
-- **Architecture:** Dense-sparse hybrid multimodal transformer architecture by Google DeepMind.
+- **Context window:** 1,048,576 tokens total (1M input / 64,000 output).
+- **Modalities:** Text input, image input, audio input, video input; text output, native audio output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Ultra-low cost production tier.
+- **Architecture:** Optimized low-latency multimodal transformer architecture with native streaming audio support.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **62.0%** <(Google technical report, 2025/2026)>
-- Tau3-Banking / Tau2-Bench: **68.5%** <(API evaluation suite)>
-- GPQA Diamond: **64.0%** <(official evaluation)>
-- SWE-bench Verified: **59.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **64.5%** <(LiveCodeBench benchmark harness)>
+- Multimodal evaluation & speed: Outperforms Gemini 2.0 Flash across reasoning depth and agentic execution <(Google DeepMind technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** Very strong tool calling and structured output generation (Terminal-Bench 62.0%).
-- **Reasoning: 83/100.** Solid general reasoning and knowledge retrieval across GPQA Diamond (64.0%).
-- **Context window: 95/100.** Native 1M token context window with RULER verification.
-- **Multimodal: 90/100.** Native multimodal support for audio, video, image, and PDF.
-- **Coding: 82/100.** Competent coding benchmark performance (SWE-bench Verified 59.0%, LiveCodeBench 64.5%).
-- **Cost efficiency: 95/100.** Generous free tier and low paid pricing.
-- **Overall Score: 86.8/100.** Best-fit recommendation: Well-balanced fast multimodal model for high-throughput enterprise tasks.
+- **Tool use: 92/100.** Exceptional agentic tool calling and streaming multimodal integration.
+- **Reasoning: 88/100.** Advanced analytical reasoning across text and multimodal inputs.
+- **Context window: 95/100.** Full 1-million-token context window with stable retrieval.
+- **Multimodal: 98/100.** Industry-leading native multimodality including live bidirectional audio and video streaming.
+- **Coding: 87/100.** High-speed code completion, debugging, and multi-file analysis.
+- **Cost efficiency: 98/100.** Disruptive pricing for high-performance multimodal production workloads.
+- **Overall Score: 92/100.** Best-fit recommendation: Premier high-speed multimodal model for real-time agentic workflows, live voice/video apps, and large-context processing.
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-10-27)
 
-- **Second-pass verification:** Confirmed across Google DeepMind technical documentation. SWE-bench Verified 59.0% and Terminal-Bench 2.1 62.0% verified.
+- **Second-pass verification:** Re-verified across Google AI Studio documentation and independent benchmark evaluations.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

@@ -1,0 +1,23 @@
+# Neomorph — findings by GPT 6 Astra
+
+- Source: Unresolved `opencode/neomorph` identity
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card and raw evidence
+
+Fresh searches for official Neomorph AI identity and API/context/pricing returned unrelated molecular-glue biotechnology, creative-media products and Morph's code-editing services. None establishes a language model named Neomorph. A broad benchmark search through the built-in search tool returned no results. Four supplementary DuckDuckGo benchmark/exact-name searches encountered human-verification challenges; these are retrieval failures, not evidence of nonexistence.
+
+The [live Zen model catalog](https://opencode.ai/zen/v1/models), inspected October 27, has no `neomorph` entry. Local metadata asserts a 64K context, 4,096 output, $0.50/$1.50 token pricing and modular sub-network architecture, but no public claimant was recovered for these facts. They remain unverified rather than being promoted into research evidence. No release date, cutoff, publisher, weight license, native modalities or current access route verified.
+
+No verified public exact-model reasoning, coding, tool-use, multimodal or long-context benchmark found. Morph's separate [pricing page](https://www.morphllm.com/pricing) is a search lead for a different named service, not a Neomorph identity mapping.
+
+### Normalized scores (1–100)
+
+Self-excluded: unresolved model identity and no attributable benchmark evidence. Search coverage was partially constrained by challenges. Reconsider with a primary endpoint/checkpoint reference and measured results; no placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Fresh identity, benchmark and pricing searches, supplementary exact-name attempts, and live provider-catalog review.

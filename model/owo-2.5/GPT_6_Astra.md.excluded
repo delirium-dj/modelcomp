@@ -1,0 +1,25 @@
+# Owo 2.5 — findings by GPT 6 Astra
+
+- Source: Unresolved `opencode/owo-2.5` identity
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card and raw evidence
+
+Three completed fresh searches covering official identity, independent benchmarks and API/context/pricing did not establish an Owo 2.5 language model. Additional exact-name searches encountered human-verification challenges and supply no negative evidence.
+
+The discovered [OwO.AI website](https://owo.ai) describes Human World Models and a wearable human-behavior sensing platform, not a released `owo-2.5` text/image conversational checkpoint or token-priced API. Similar spelling alone cannot map this company to the requested model. Discord OwO Bot and other vendors' 2.5 models are unrelated leads.
+
+The [live Zen catalog](https://opencode.ai/zen/v1/models), retrieved October 27, has no `owo-2.5` route. Local metadata's September 2026 release, 1,048,576 context, 256,000 output and $0.40/$3.20 pricing remain unsupported by recovered public documentation. Publisher, cutoff, architecture, actual modalities, access and licensing are unresolved.
+
+No verified public exact-model reasoning, tool-use, coding, vision or long-context retrieval score found. No proxy model results imported.
+
+### Normalized scores (1–100)
+
+Self-excluded: no verified exact identity or attributable benchmarks. Reconsider with a primary model/API document and measured evaluation; no placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three completed fresh searches, three supplementary challenged searches, candidate publisher website and live catalog review.

@@ -1,0 +1,31 @@
+# Flint — findings by GPT 6 Astra
+
+- Source: Recursive / `RecursiveSI/flint`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Primary checkpoint card](https://huggingface.co/RecursiveSI/flint/raw/main/README.md): Apache-2.0, **39.8B total / approximately 2.5B active** MoE, 49 layers, text input/output, reasoning and multi-turn tool calls; June 2026 knowledge cutoff. The active count includes the output head; active body is approximately 2.2B. Designed for local coding agents, with separate BF16 and quantized releases.
+
+The card configures **262,144 shared prompt/output tokens**. The [launch page](https://recursive.com/updates/introducing-recursive-flint) advertises up to **512K** but recommends staying within **256K** for best results. These are different configuration/recommendation claims, not proof of measured 512K retrieval. Secondary reporting dates release October 21; fetched official page metadata is October 23, 2026. Exact first-public-availability date remains imperfectly reconciled.
+
+[OpenRouter](https://openrouter.ai/recursive/flint-v1.0:free) lists `recursive/flint-v1.0:free`; [Pi's Zen configuration](https://pi.dev/models/opencode/flint-40b-free) identifies `opencode/flint-40b-free`, text input, **262,144 context / 65,536 max output**. Hosted free pricing is distinct from self-hosting hardware costs and Apache licensing. Hosted privacy/data-use terms were not verified. Local SGLang serves OpenAI-compatible Chat Completions.
+
+### Raw benchmarks found
+
+Publisher card: **Terminal-Bench 2.1 54.9%**, **SWE-bench Pro v2 89.7%**, **SWE-bench Verified 74.2%**. The high SWE-Pro-v2 number is explicitly versioned; it must not be relabelled as the earlier SWE-Pro suite. Sampling: temperature 1, top-p .95, top-k 20; Terminus 2 for terminal tasks, mini-swe-agent for SWE, mean pass@1 over at least five attempts. Terminal retrieval-derived solutions count as unsuccessful; SWE uses no internet. Blog reports up to five-hour agent timeouts.
+
+[BenchLM](https://benchlm.ai/models/flint-40b-a2-5b) additionally transcribes **LiveCodeBench v6 80.3%**, **IFBench 89.2%**, **IFEval 95.1%** from Recursive; these are publisher-derived, not independent replications. BenchLM leaves this model unranked for limited coverage. The blog reports NVFP4 within **0.7 points** of BF16 across its benchmark aggregate, not identical per-task results. Claimed **125+ tokens/s on M4 Pro** and **150+ on RTX Spark** are optimized short-context throughput, not universal serving speed.
+
+No verified public exact-model GPQA, HLE, CritPt, broad reasoning index, MRCR/RULER, Tau3, GDPval-AA or Claw-Eval score found. Coding and instruction-following results are real but do not establish broad science/reasoning performance; native vision/audio are absent.
+
+### Normalized scores (1–100)
+
+Self-excluded from a complete Overall pending attributable broad reasoning evidence. Preserve the substantial coding/tool evidence without fabricating the missing quality dimension.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three fresh searches, primary checkpoint/launch documentation and benchmark-source reconciliation.

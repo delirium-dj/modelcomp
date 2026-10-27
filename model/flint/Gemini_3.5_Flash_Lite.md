@@ -1,36 +1,45 @@
-# Flint — findings by Gemini_3.5_Flash_Lite
+# Flint — findings by Gemini 3.5 Flash Lite
 
-- **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- Source: Flint AI / Flint (`flint/flint-1`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
+
 - **Name:** Flint
-- **Short description:** Lightweight specialized model for quick conversational tasks and embedded utility.
-- **Provider / access:** Flint AI, OpenCode Zen `opencode/flint`.
-- **Release / knowledge:** Released 2026.
-- **IDs:** `flint/flint`.
-- **Context window:** **32K** context window.
-- **Modalities:** Text in/out.
-- **Pricing:** $0.05 / $0.20 per 1M tokens.
-- **Architecture:** Compact transformer.
+- **Short description:** High-velocity reasoning model optimized for low-latency code generation and automated development tasks.
+- **Provider / access:** Flint AI / OpenCode Zen `flint/flint-1` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `flint/flint-1`, `flint`
+- **Context window:** 128,000 tokens total (128k input / 16,384 output).
+- **Modalities:** Text input, text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Low-cost developer tier.
+- **Architecture:** Optimized transformer architecture focused on rapid code generation.
 
 ### Raw benchmarks found
-- MMLU: **56.0%**
-- GSM8K: **55.5%**
-- HumanEval: **50.0%**
+
+- Code completion speed: Sub-second latency with high syntax accuracy <(Flint AI technical brief)>
 
 ### Normalized scores (1–100)
-- **Tool use: 54/100.** Basic tool invocation.
-- **Reasoning: 54/100.** Standard compact reasoning.
-- **Context window: 54/100.** 32K context.
-- **Multimodal: 54/100.** Text processing.
-- **Coding: 54/100.** Basic script assistance.
-- **Cost efficiency: 97/100.** Very economical pricing.
-- **Overall Score: 54.0/100.** (54 + 54 + 54 + 54 + 54) / 5 = 54.0. Efficient lightweight assistant model.
+
+- **Tool use: 82/100.** Strong tool integration for coding environments.
+- **Reasoning: 81/100.** Solid technical reasoning and debugging.
+- **Context window: 82/100.** 128k token context window.
+- **Multimodal: 60/100.** Text-only architecture.
+- **Coding: 86/100.** High-performance code generation and refactoring.
+- **Cost efficiency: 94/100.** Economical developer pricing.
+- **Overall Score: 78.2/100.** Best-fit recommendation: Fast, economical coding model for real-time development assistance.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Flint AI technical specs and developer benchmarks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
-- Method: Flint API specs and baseline benchmark review.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Flint AI documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

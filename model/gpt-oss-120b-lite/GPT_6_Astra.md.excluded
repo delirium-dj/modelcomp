@@ -1,0 +1,25 @@
+# GPT-OSS 120B Lite — findings by GPT 6 Astra
+
+- Source: Unresolved `gpt-oss-120b-lite` identity
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card and raw evidence
+
+Three completed web searches (exact official-name search, exact context/pricing search and spaced-name benchmark search) did not establish an independently identified Lite checkpoint. Additional exact-name queries encountered search-engine challenges, which are not negative evidence.
+
+The [official OpenAI checkpoint card](https://huggingface.co/openai/gpt-oss-120b/raw/main/README.md) identifies **gpt-oss-120b** and **gpt-oss-20b**, with configurable low/medium/high reasoning. It does not identify a Lite checkpoint. The documented **117B total/5.1B active**, Apache-2.0 license and MXFP4 evaluation claims belong to the ordinary 120B model. Reducing reasoning effort does not by itself create a new model identity.
+
+The [live Zen catalog](https://opencode.ai/zen/v1/models), retrieved October 27, does not include `gpt-oss-120b-lite`. Local metadata's route, 131,072 context, 32,768 output and approximate $0.15/$0.60 hosted price therefore remain unverified for this exact identity. Catalog absence today does not prove a route never existed.
+
+No verified public exact-Lite benchmark found for tools, reasoning, coding, context retrieval or multimodal performance. Release date, knowledge cutoff, distinct architecture, modalities and access terms remain unresolved. Ordinary GPT-OSS scores are not imported.
+
+### Normalized scores (1–100)
+
+Self-excluded: unresolved exact identity and no attributable performance evidence. No placeholder scores assigned. Reconsider with a publisher/provider mapping or distinct checkpoint and evaluations.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three completed fresh searches, supplementary challenged queries, primary model-card and live provider-catalog verification.

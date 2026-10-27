@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, Inkling, Qwen 3.8 Flash, Qwen 3.8 Max.
 - Average from top 5 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, Inkling, Qwen 3.8 Flash, Qwen 3.8 Max.
-- Ignored below-gate rater(s): Beam, Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.7 Flash, Muse Glimmer 30B.
+- Ignored below-gate rater(s): Beam, Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.7 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B.

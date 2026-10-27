@@ -19,4 +19,4 @@
 
 - Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
 - Average from top 6 by Overall Score: Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, Muse Glimmer 30B.
+- Ignored below-gate rater(s): Beam, Gemini 3.5 Flash Lite, Laguna XS 2.1, Muse Glimmer 30B.

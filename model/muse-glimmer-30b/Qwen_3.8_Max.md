@@ -1,0 +1,52 @@
+# Muse Glimmer 30B — findings by Qwen 3.8 Max
+
+- Source: Meta Superintelligence Labs (`muse-glimmer-30b`)
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Glimmer 30B
+- **Short description:** Meta Superintelligence Labs' **August-2026 open-weight, Apache-2.0 dense 29.6B on-device agentic model** — **distilled from Meta's frontier Muse Spark**, purpose-built to run **locally on a single consumer GPU** (32GB, ~4-bit quantized + speculative decoding). It integrates multi-step reasoning, reliable tool use, and failure recovery, and Meta claims **SOTA for its size class on agentic benchmarks** (vs Gemma 4 31B and Qwen3.6 27B). Self-reported **AIME 2026 94.7% / GPQA 83.5% / SWE-bench Verified 76.0% / OSWorld-Verified 65.9%**.
+- **Provider / access:** Open weights on **Hugging Face** (`meta-models/Muse-Glimmer-30B`, **Apache 2.0** — full-precision + 4-bit + DFlash speculation head); hosted on **OpenRouter ($0.30/$1.10)**, **Fireworks/Together/Vercel ($0.35/$1.50)**, **NVIDIA NIM ($0)**; self-host free. **Not on OpenCode Zen**; **no free hosted tier id** (`noFreeId: true`).
+- **Release / knowledge:** Announced **August 10, 2026** (last update Aug 29, 2026); the technical report (arXiv 2610.24628) is dated **October 9, 2026**. **Knowledge cutoff January 4, 2026**. Current (not deprecated).
+- **IDs:** `meta/muse-glimmer-30b`; HF `meta-models/Muse-Glimmer-30B`. ⚠ **Artificial Analysis has no page** (`muse-glimmer-30b` 404s) — **no independent AA Intelligence Index exists**.
+- **Context window:** **128K+ (131,072; 128K default per Meta docs)**. Uses hybrid **[Local, Local, Local, Global]** attention (sliding window 2048, RoPE θ=500k on local layers) for efficient long-context on-device inference; **Beam 128K 65.1%** (self-reported) confirms usable 128K behavior.
+- **Modalities:** **Text + image in → text out** (arXiv-confirmed: a dedicated **~1.8B perception encoder** accepts interleaved text+image tokens). No video/audio; text-only output. Trained on ~140 languages.
+- **Pricing (as of 2026-10-27):** **$0 self-host** (Apache 2.0 weights); hosted from **$0.30/$1.10** (OpenRouter) to **$0.35/$1.50** (Fireworks/Together/Vercel); **NVIDIA NIM $0**.
+- **Architecture:** **Dense causal transformer, ~29.6B total** (~25.16B LM across 52 layers, hidden 6656; ~1.34B untied token embed; ~1.34B untied output proj; ~1.8B perception encoder). GQA 32/2 (16:1), SwiGLU FFN (intermediate 19,968), gated attention, vocab 202,048. Distilled from Muse Spark; ships 4-bit quantized + DFlash speculative-decoding head.
+
+### Raw benchmarks found
+
+> ⚠ **Evidence caveat:** the **Artificial Analysis page 404s** and no **Vals / Epoch / swebench.com / Terminal-Bench** independent row was located for this SKU. Every benchmark below is **vendor/self-reported** (Meta's arXiv 2610.24628 technical report + developer-reported aggregators). The suite is broad and internally consistent, but **lacks neutral third-party verification**, so confidence is capped accordingly.
+
+Vendor / self-reported (Meta arXiv 2610.24628, "high reasoning"):
+
+- **Agentic (the core thesis):** **OSWorld-Verified 65.9%**, **MCP Atlas 75.5%** (public set), **Siren AgentDojo Utility 94.2%**, **Terminal-Bench 2.1 51.7%** (Terminus-2 harness), **GAIA2 43.3%**, **SkillsBench 44.3%**, **DeepSearchQA 74.6%**, **WildClawBench 47.6%**. Meta claims SOTA-for-size-class on tool use, multi-step planning, and task completion vs Gemma 4 31B / Qwen3.6 27B.
+- **Reasoning / knowledge:** **AIME 2026 94.7%**, **GPQA Diamond 83.5%** (AA evaluation split), **IFBench 77.0%**; but **Humanity's Last Exam 22.0%** (text-only, no tools) and **SciCode 43.6%** are modest — strong contest-math/graduate-science, weaker on the hardest open-ended reasoning.
+- **Coding:** **SWE-bench Verified 76.0%**, **SWE-bench Pro 51.2%**, **Terminal-Bench 2.1 51.7%**, **SciCode 43.6%**.
+- **Long context:** **AA-LCR 80.0%** (self-reported), **Beam 128K 65.1%**.
+- **Multimodal / vision:** **MMMU-Pro 74.0%**, **CharXiv-R 78.8%**, **OmniDocBench 1.5 75.8%**, **ScreenSpot Pro 75.4%**.
+- **Safety:** Siren AgentDojo **Attack Success Rate 71.6%** (lower-is-better — a notable weakness), CI Memories Violation Rate 73.6% (lower-is-better).
+
+> Provenance: **all figures are vendor/self-reported** (Meta's own technical report and developer-reported aggregators such as Traictory, which lists an "Average Score 65.1%"). No neutral harness (AA/Vals/Epoch/swebench/tbench) independently reproduces them, and AA has no page at all. Coding/agentic/reasoning are therefore graded as **plausible-but-unverified** — the breadth and specificity of the suite lend credibility, but the absence of any independent anchor is the defining limitation.
+> Meta verification: **mostly accurate** — Apache-2.0 29.6B dense ✓ (arXiv: ~29.6B), Meta Superintelligence Labs ✓, on-device single-consumer-GPU ✓ (arXiv: 32GB, 4-bit + speculative decoding), **text/image in → text out** ✓ (arXiv perception encoder), **131,072 / 128K** context ✓ (arXiv "128K+"), open weights + hosted $0.30/$1.10 + NVIDIA NIM $0 ✓, "not a frontier runner / 131K window and 30B ceiling" ✓. **Two flags:** (1) **AA-LCR** — meta says **83.3%**, Traictory says **80.0%**, and one tracker (sqmagazine) lists "**0.72**" — three conflicting self-reported values; unresolved (I cite 80.0% and note the spread). (2) meta's headline "**AA-LCR 83.3%**" as the *standout* metric is thin — the model's real distinction is its **broad agentic suite + on-device distillation from Muse Spark**, not a single long-context number, and none of it is independently verified.
+
+### Normalized scores (1–100)
+
+- **Tool use: 80/100.** The **defining strength** — purpose-built for autonomous agentic work (multi-step planning, sequential tool invocation, failure recovery), with a broad self-reported agentic suite (**OSWorld-Verified 65.9%, MCP Atlas 75.5%, AgentDojo Utility 94.2%, Terminal-Bench 2.1 51.7%, GAIA2 43.3%, DeepSearchQA 74.6%**) and a claimed SOTA-for-size-class result vs Gemma 4 31B / Qwen3.6 27B. Capped below independently-verified agentic leaders because **all evidence is self-reported** (no AA/Vals/tbench anchor) and the AgentDojo **attack-success rate of 71.6%** signals a robustness weakness.
+- **Reasoning: 77/100.** Strong self-reported contest-math/graduate-science (**AIME 2026 94.7%, GPQA Diamond 83.5%, IFBench 77.0%**) inherited from Muse Spark distillation, but **HLE 22.0%** and **SciCode 43.6%** are modest, and there is **no independent AA Intelligence Index** (page 404s). Plausible-but-unverified; tempered for the missing neutral anchor.
+- **Context window: 73/100.** **128K+ (131,072)** — below the 200K/256K/1M tiers its Qwen and GLM peers reach, and the hybrid local/global attention means the effective long-context behavior is efficiency-optimized rather than maximally deep (**Beam 128K 65.1%**). Adequate for on-device agentic work; a genuine ceiling vs frontier 1M models.
+- **Multimodal: 79/100.** **Text + image in → text out** via a dedicated **~1.8B perception encoder** (arXiv-confirmed), with a real vision suite (**MMMU-Pro 74.0%, CharXiv-R 78.8%, OmniDocBench 1.5 75.8%, ScreenSpot Pro 75.4%**). The verified image-input tier with above-average depth for a 30B on-device model; no video/audio, text-only output.
+- **Coding: 78/100.** Self-reported **SWE-bench Verified 76.0%** is strong for its class, but **SWE-bench Pro 51.2%**, **Terminal-Bench 2.1 51.7%**, and **SciCode 43.6%** are mid, and — critically — **no independent harness (swebench.com/tbench/Vals) corroborates any of it**. Vendor-only/high-vendor-claim band, discounted for zero third-party verification.
+- **Cost efficiency: 93/100.** **Apache 2.0, $0 self-host**, runs on a **single consumer GPU** (32GB, 4-bit + speculative decoding), **NVIDIA NIM $0**, hosted from **$0.30/$1.10** — exceptional on-device/local economics, the model's entire raison d'être. Not counted toward Overall.
+- **Overall Score: 77/100.** Mean of Tool 80 + Reasoning 77 + Context 73 + Multimodal 79 + Coding 78 = 387 / 5 = 77.4 → 77. Best fit: the **open-weight on-device agentic specialist** — a dense 29.6B Apache-2.0 model distilled from Muse Spark that runs on one consumer GPU and posts a broad, strong (but **entirely self-reported**) agentic/reasoning/coding suite, claimed SOTA for its size class. Ideal for **local, private, always-on agents** where frontier difficulty isn't required; pick **Gemma 4 31B (79, independently AA-verified) / Qwen3.6 27B** or a frontier model when you need neutral benchmark backing or deeper capability. **Divergence note:** curated queue 75.6 vs my 77 → **+1.4**. I credit the genuine agentic-design strength (Tool 80), the verified text+image perception encoder (79), and the exceptional open/on-device cost (93, though uncounted), which lift it modestly above the curated score; the **128K ceiling (73)** and — above all — the **total absence of independent verification** (AA page 404s; every number is Meta self-reported, with conflicting AA-LCR values 80.0/83.3/0.72) hold Reasoning/Coding back and keep the divergence small. Had an independent AA/Vals anchor confirmed the self-reported suite, this would likely score higher.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-27
+- Method: public internet research (Meta "Muse Glimmer 30B: An On-Device Agentic Model" arXiv 2610.24628, Oct 9 2026 — architecture ~29.6B dense + ~1.8B perception encoder, text+image, 128K+, Apache 2.0, distilled from Muse Spark, 4-bit + DFlash speculative decoding, hybrid local/global attention; Traictory spec sheet for the full self-reported benchmark suite — AIME 2026 94.7%, GPQA 83.5%, SWE-bench Verified 76.0%, SWE-bench Pro 51.2%, Terminal-Bench 2.1 51.7%, OSWorld-Verified 65.9%, MCP Atlas 75.5%, AgentDojo Utility 94.2%, AA-LCR 80.0%, HLE 22.0%, MMMU-Pro 74.0%, knowledge cutoff Jan 4 2026, announced Aug 10 2026; Hugging Face meta-models/Muse-Glimmer-30B + OpenRouter/Fireworks/NVIDIA NIM for Apache-2.0 weights and hosted pricing; latent.space AINews for the Aug-2026 open-weights release. **Artificial Analysis `muse-glimmer-30b` 404s — no independent Index**; all benchmarks are vendor/self-reported and flagged as such); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

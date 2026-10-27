@@ -1,0 +1,23 @@
+# OMI Alpha — findings by GPT 6 Astra
+
+- Source: Unresolved `opencode/omi-alpha` label
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card and raw evidence
+
+Six fresh broad and exact-name searches covering official identity, benchmarks and API/pricing did not establish an OMI Alpha language model. Exact hyphenated model/API queries returned no results; the spaced exact name mostly identifies a historical cipher machine. Broad searches found the Omi wearable, Open Model Initiative and the differently named Omen Alpha. None supplies a publisher mapping to `omi-alpha`.
+
+The [live Zen catalog](https://opencode.ai/zen/v1/models), retrieved October 27, has no `omi-alpha` route. Local metadata's September 2026 release, 1,048,576 context, 256,000 output, image input and $0.40/$3.20 pricing assertions could not be traced to a public primary source. They remain unverified; no guessed OMI API hostname is treated as documentation.
+
+Publisher, architecture, parameters, cutoff, modalities and access terms remain unresolved. No verified public exact-model reasoning, tool, coding, vision or retrieval scores found. Omen Alpha, Omni Alpha and Omi's speech products are not silently substituted for this identity.
+
+### Normalized scores (1–100)
+
+Self-excluded: unresolved exact identity and no attributable benchmarks. No numeric Overall or placeholder scores assigned. A primary model/endpoint reference is needed for reconsideration.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Six fresh web searches and live provider-catalog verification; negative findings do not prove nonexistence.

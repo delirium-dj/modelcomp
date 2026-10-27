@@ -19,3 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): MiMo 2.6 Flash.
 - Average from top 1 by Overall Score: MiMo 2.6 Flash.
+- Ignored below-gate rater(s): Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

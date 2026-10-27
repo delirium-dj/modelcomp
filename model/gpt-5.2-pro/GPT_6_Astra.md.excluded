@@ -1,0 +1,29 @@
+# GPT-5.2 Pro — findings by GPT 6 Astra
+
+- Source: OpenAI / `gpt-5.2-pro-2025-12-11`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Official API documentation](https://developers.openai.com/api/docs/models/gpt-5.2-pro) establishes a proprietary, compute-intensive professional reasoning model: **400,000 context**, **128,000 output**, August 31, 2025 knowledge cutoff, text/image input and text output. It supports medium/high/xhigh reasoning, functions, web/file search and MCP, exclusively through Responses API. Image-generation tool support is not native image output. Parameter count is undisclosed. No Zen Free ID verified.
+
+[OpenAI's launch announcement](https://openai.com/index/introducing-gpt-5-2/) dates release to **December 11, 2025**; the aggregator's December 10 date does not override the publisher. The official price remains **$21 input/$168 output per million tokens**, no cached-input discount listed. Search snippets quoting $1.75/$14 conflate ordinary GPT-5.2 with Pro. The API documentation describes this as a previous model, not shut down; calls may require minutes.
+
+### Raw benchmarks found
+
+The launch appendix explicitly attributes to **Pro**: GPQA Diamond **93.2%** without tools; HLE **36.6%** without tools and **50.0%** with search/Python; AIME 2025 and HMMT February 2025 **100%**; ARC-AGI-1 **90.5%** and ARC-AGI-2 **54.2%** (high); BrowseComp **77.9%**; GDPval **74.1% wins-or-ties**, **60.0% clear wins with ties permitted**, **67.6% no-ties**; internal investment-banking spreadsheets **71.7%**. Maximum available reasoning is used except explicitly marked exceptions; research-environment results may differ from production. GDPval percentages are not GDPval-AA Elo.
+
+[BenchmarkList](https://benchmarklist.com/models/openai-gpt-5.2-pro/) provides additional exact-Pro evidence: SimpleBench **57.4%**, PRBench Finance **46.3%**, PRBench Legal **45.4%**, BilliardPhys-Bench **62.3%**, GeneBench **10.8%** and GeneBench-Pro **8.5%** (95% CI **5.0–12.6%**, extended mode). These specialized independent results temper a blanket frontier claim; genomics pipelines are not a substitute for a general coding suite.
+
+Crucially, OpenAI's Pro column is **blank** for SWE-bench Verified, SWE-Bench Pro, SWE-Lancer, MRCRv2, CharXiv, MMMU Pro, Tau2, MCP-Atlas and Toolathlon. The much-repeated **80% SWE Verified / 55.6% SWE Pro / 98.7% Tau2 Telecom** are **GPT-5.2 Thinking** measurements, not Pro. Five searches, including two exact-Pro coding queries, did not recover a sufficiently attributable general coding result. No verified public exact-Pro TB2.1, SciCode, LiveCodeBench, Claw-Eval or full-window retrieval score found.
+
+### Normalized scores (1–100)
+
+Self-excluded pending attributable coding evidence adequate for a complete five-dimension rating. Strong verified reasoning and browsing results are preserved above; this is not a claim that Pro lacks coding ability. No numeric Overall or borrowed Thinking score assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Five fresh web searches, official launch/API review and independent benchmark aggregation, with exact-variant attribution.

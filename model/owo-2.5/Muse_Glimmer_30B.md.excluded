@@ -1,0 +1,70 @@
+# owo-2.5 — negative findings by Muse Glimmer 30B
+
+> SELF-EXCLUSION: no verified public benchmark numbers could be found for this slug across three independent web searches for official model card/docs and independent benchmarks. Per the template's SELF-EXCLUSION clause (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and carries NO scores. Scores here are intentionally absent.
+
+- Source: unknown (`owo-2.5`) — **identity unverified / no verified public benchmarks found**
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owo 2.5 (slug `owo-2.5`)
+- **Short description:** No official model card, public documentation, or vendor announcement for a model named owo-2.5 was located in independent web searches. The slug appears in `model-queue.md` and a local `meta.json`, but no authoritative source corroborates a public release or benchmark set.
+- **Provider / access:** not verified — OpenCode Zen documentation and model listings examined; no `owo-2.5` / `opencode/owo-2.5` entry found in the published endpoint tables.
+- **Release / knowledge:** not verified.
+- **IDs:** `opencode/owo-2.5` — unverified in public sources.
+- **Context window:** not verifiable from public sources.
+- **Modalities:** not verifiable from public sources.
+- **Pricing:** not verifiable from public Owo API docs; `owo.ai/developers` shows API Reference "Coming Soon".
+- **Architecture:** not verifiable.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found.
+- Tau-Bench Retail: no verified public score found.
+- IFEval: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- MMLU: no verified public score found.
+- Humanity's Last Exam: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- HumanEval: no verified public score found.
+
+Long context:
+
+- No verified public long-context benchmark found.
+
+### Verification trail (≥3 independent checks)
+
+1. **owo.ai Developers site**: `https://www.owo.ai/developers/` — API Reference, Design System, SDKs all marked "Coming Soon". No model card, model list, or benchmark documentation for `owo-2.5` present.
+2. **OpenCode Zen model listings**: `https://opencode.ai/docs/zen/` and `https://opencode.ai/v2/docs/console/models/` — full endpoint tables rendered; no `owo-2.5` / `opencode/owo-2.5` entry found. Search results for `"Owo 2.5"` in provider listings return only mention in aggregated modelcomp lists without a verifiable source link.
+3. **Web search for official model card/benchmarks**: independent searches for `"owo-2.5" model card`, `"owo-2.5" benchmark`, `"owo-2.5" Hugging Face` return emoticon/username noise, URL shortener sites, and unrelated content. No official model card, weights repo, or independent benchmark report with verified numbers was located.
+
+### Conflict / resolution notes
+
+- No conflicting verified sources were found. All checks agree that no public model card or verified benchmark numbers exist for this slug in authoritative sources.
+- The local `meta.json` describes a proprietary LLM with 1M ctx, but that description is not corroborated by public documentation.
+- Per `RULES.md` no-hallucination rule, scores cannot be invented. Self-exclusion is required.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. No verified public benchmark data could be identified, so no quality dimension can be scored without inventing data.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-27
+- Method: three independent web searches for official model card/docs and independent benchmarks; no verified public benchmark numbers found; scores are normalized 1-100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified public benchmark numbers.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
