@@ -1,0 +1,57 @@
+# Qwen 3.5 Flash — findings by Qwen 3.8 Max
+
+- Source: Alibaba Qwen (`qwen-3.5-flash`)
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 Flash (`qwen3.5-flash-02-23`)
+- **Short description:** Alibaba's **hosted, production-optimized API tier of the Qwen3.5-35B-A3B model** — "a **1M-context multimodal tier from 3B-active weights, priced like a small model**." **1M context by default** (vs the open weights' 262K-native/YaRN-1M), **text + image + video** input, built-in **tool/function calling**, at **~$0.07–0.10 / $0.26–0.40** per 1M. A **distinct hosted serving SKU** (`qwen3.5-flash-02-23`, Feb-23-2026 snapshot), not new weights — the tradeoff is that it is **weaker on agentic suites than the open 35B-A3B** (Vals **Terminal-Bench 2.0 24.7%**, **FrontierMath Tiers 1–3 18.2%**), though strong on competitive coding (**Vals LiveCodeBench 83.3%**, **GPQA 82.8%**). The underlying model's independent anchor is the open-weight sibling's **AA Intelligence Index 19** (report 104).
+- **Provider / access:** **Alibaba Model Studio** ($0.10/$0.40 intl; $0.029/$0.287 China region with context tiers) and **OpenRouter** (`qwen3.5-flash-02-23`, ~$0.065/$0.26); also served via gateways like Puter ($0.07/$0.26). **No free hosted tier id** (`noFreeId: true`). **Not new weights** — the open Qwen3.5-35B-A3B (Apache 2.0) is the downloadable counterpart (report 104).
+- **Release / knowledge:** Released **Feb 23–25, 2026** (the `02-23` suffix = the Feb-23-2026 snapshot; Puter lists Feb 25 2026). Part of the **Qwen3.5 generation, now succeeded by Qwen3.6 Flash**; the open-weight sibling is deprecated → Qwen3.6 35B A3B.
+- **IDs:** `qwen/qwen3.5-flash-02-23`; OpenRouter `qwen/qwen3.5-flash-02-23`; the open-weight counterpart is `qwen-3.5-35b-a3b` (report 104). **AA has no dedicated page for this hosted tier** — AA benchmarks the model as `qwen3-5-35b-a3b` (Index 19); a separate `qwen3-5-omni-flash` is a *different* (Omni) model.
+- **Context window:** **1,000,000 (1M) by default; 65,536 (66K) max output** — the hosted tier's headline advantage over the open weights' 262K-native default.
+- **Modalities:** **Text + image + video in → text out** (Puter + meta confirmed). ✅ **Video is confirmed for this hosted tier** — unlike the open-weight sibling (report 104), where I could only verify text + image and flagged video as unconfirmed. This is a genuine distinction between the two SKUs.
+- **Pricing (as of 2026-10-27):** **~$0.065–0.10 / $0.26–0.40** per 1M in/out (OpenRouter ~$0.065/$0.26; Model Studio $0.10/$0.40 intl, $0.029/$0.287 China). "Priced like a small model" for a 1M-context multimodal tier.
+- **Architecture:** **Sparse MoE, ~35B total / 3B active** (the Qwen3.5-35B-A3B weights), served as a **hosted production profile** with 1M-default context, tool/function calling, and low-latency agentic serving. Reasoning-capable. The 3B-active design gives small-model cost/latency; the hosted profile appears tuned for throughput/latency over peak agentic depth.
+
+### Raw benchmarks found
+
+> Independent anchor: the **open-weight sibling's AA Intelligence Index 19** (`qwen3-5-35b-a3b`, report 104 — full 4/4 units, #12/141, well above median 8) is the underlying-model anchor; **AA has no separate page for this hosted Flash tier**. The SKU-specific numbers are **Vals** (meta-cited): GPQA 82.8%, LiveCodeBench 83.3%, Terminal-Bench 2.0 24.7%, FrontierMath Tiers 1–3 18.2%. The Vals model page 404'd on direct fetch, so these are carried from the meta's Vals attribution rather than re-verified live.
+>
+> **Lineage note (closes the `qwen-3.5-flash-lite` self-exclusion):** the phantom slug `qwen-3.5-flash-lite` was **self-excluded** because no distinct "Flash-Lite" product exists — its scaffolded specs (~35B/3B-active, 1M context, ~$0.10/$0.40, text+image+video) are **this** Qwen3.5-Flash's. This report is where those specs are formally scored; nothing is reattributed to or double-counted against the excluded slug.
+
+Independent (Vals AI — meta-cited; + AA for the underlying model):
+
+- **Vals LiveCodeBench: 83.3%** — strong competitive-programming result (notably higher than the open-weight sibling's LiveCodeBench v6 74.6%, though possibly a different LCB cut).
+- **Vals GPQA: 82.8%** — solid graduate-level science reasoning/knowledge.
+- **Vals Terminal-Bench 2.0: 24.7%** — **weak** agentic/terminal coding; the meta flags that "the open 35B-A3B weights score higher on agentic suites."
+- **Vals FrontierMath Tiers 1–3: 18.2%** — **weak** frontier math (frontier models are 30%+).
+- **AA Intelligence Index (underlying model, `qwen3-5-35b-a3b`): 19** (full 4/4 units, #12/141, well above the open-weight Small-class median 8) — the neutral aggregate anchor for the shared 35B-A3B weights (see report 104). AA does not publish a separate Index for the hosted Flash serving profile.
+
+Vendor / hosting (Alibaba, Puter):
+
+- **1M context by default, 66K max output, text+image+video input, tool/function calling** — confirmed hosting specs for the `qwen3.5-flash-02-23` production tier.
+
+> Provenance: the AA Index 19 is a neutral anchor for the **shared underlying weights** (not a fresh measurement of the hosted profile). The Vals GPQA/LiveCodeBench/Terminal-Bench/FrontierMath figures are **independent-harness** but **meta-cited** (the Vals page was not re-fetchable this pass); they are internally consistent with the "strong coding, weak agentic/math" hosted-profile narrative. **AA Index baskets are version-specific and not convertible.**
+> Meta verification: **accurate** — **hosted production profile of the open 35B-A3B** ✓ (Puter: "production-optimized API version of the 35B-A3B model"), **1M by default / 65,536 max out** ✓ (Puter: 1M / 66K), **text+image+video in / text out** ✓ (Puter), **tool/function calling** ✓ (Puter), **~$0.065/$0.26 OpenRouter · $0.10/$0.40 Model Studio** ✓ (Puter $0.07/$0.26), **Feb-23-2026 snapshot / released Feb 25 2026** ✓ (Puter), **GPQA 82.8% / LiveCodeBench 83.3% (Vals)** ✓ (meta-attributed), **weak Terminal-Bench 2.0 24.7% / FrontierMath 18.2%** ✓ (meta tradeoff), **"hosted serving profile, not new weights"** ✓. No discrepancies; the meta is unusually candid about the profile's agentic weaknesses.
+
+### Normalized scores (1–100)
+
+- **Tool use: 73/100.** Built-in **tool/function calling** is confirmed and it is marketed for "low-latency agentic workflows," but the independent **Vals Terminal-Bench 2.0 is only 24.7%** and the meta explicitly notes "**the open 35B-A3B weights score higher on agentic suites**" — i.e. this hosted serving profile is *weaker* agentically than the downloadable weights (report 104, Tool 76). The 3B-active budget and latency-optimized serving cap agentic depth. Weak-agentic hosted-profile band; below the open-weight sibling.
+- **Reasoning: 77/100.** **Vals GPQA 82.8%** is a solid knowledge/reasoning signal and the underlying weights carry **AA Index 19 (#12/141, well above median)**, but **Vals FrontierMath Tiers 1–3 is only 18.2%** (weak frontier math). Net: essentially the shared 35B-A3B reasoning capability (report 104, Reasoning 78), nudged down a point for the weak FrontierMath showing. Above-median, small-active band.
+- **Context window: 84/100.** **1M tokens by default** (66K max output) — the hosted tier's headline advantage, a genuine step above the open weights' 262K-native/YaRN-1M (report 104, Context 78). Held below the 1M-proven tier (85–86) because a **3B-active** model has limited long-context retrieval headroom and **no long-context effectiveness benchmark** (MRCR/RULER/AA-LCR) was published for this profile.
+- **Multimodal: 82/100.** **Text + image + video in → text out**, and — importantly — **video is confirmed for this hosted tier** (Puter + meta), whereas the open-weight sibling's video was unverified (report 104, Multimodal 78). The native-video tier; a real distinction that lifts the hosted Flash above the open weights on this dimension. Text-only output; no audio.
+- **Coding: 76/100.** Mixed: **Vals LiveCodeBench 83.3%** is strong (competitive programming), but **Terminal-Bench 2.0 24.7%** is weak (agentic/repo-scale coding) and **no SWE-bench Verified** figure is published for this hosted profile. The strong LCB and weak TB2.0 roughly net to the open-weight sibling's coding (report 104, Coding 77), nudged down a point for the weak agentic-coding harness.
+- **Cost efficiency: 93/100.** **~$0.065–0.10 / $0.26–0.40** per 1M for a **1M-context, text+image+video, 3B-active** tier — "priced like a small model." Among the best value in the dataset for a 1M multimodal context. Not counted toward Overall.
+- **Overall Score: 78/100.** Mean of Tool 73 + Reasoning 77 + Context 84 + Multimodal 82 + Coding 76 = 392 / 5 = 78.4 → 78. Best fit: **the 1M-context multimodal budget tier** — a hosted production profile of the Qwen3.5-35B-A3B weights offering **1M context by default, confirmed text+image+video, tool calling, strong LiveCodeBench 83.3%, and small-model pricing** — but **weaker on agentic (Terminal-Bench 2.0 24.7%) and frontier math (18.2%) than the open weights**, since it is a latency/throughput-optimized serving profile, not new or higher-effort weights. Ideal for **cheap high-volume 1M-context multimodal + light-agent workloads**; **use the open Qwen3.5-35B-A3B (report 104, 77) for stronger agentic suites**, **Qwen3.6 Flash** for the current generation, or **Qwen3.5-122B-A10B (81)** for a higher VL ceiling. **Divergence note:** curated queue 74.1 vs my 78 → **+3.9**. The gap is because I credit the hosted tier's **1M-default context (84)** and **confirmed text+image+video multimodality (82)** — both *above* the open-weight sibling — plus the strong **LiveCodeBench 83.3%** and exceptional cost (93, uncounted); the curated score leans harder on the **weak Terminal-Bench 2.0 (24.7%)** and **FrontierMath (18.2%)**, which I reflect in Tool 73 / Reasoning 77 / Coding 76 but which don't outweigh the context+multimodal gains. Lands **one point above the open-weight Qwen3.5-35B-A3B (77)** — the hosted profile trades agentic strength for 1M-default context and confirmed video.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-27
+- Method: public internet research (Puter Developer `qwen/qwen3.5-flash-02-23` — "production-optimized API version of the 35B-A3B model," **1M context default**, **66K max output**, **text+image+video in → text out**, **tool/function calling Yes**, $0.07/$0.26, released **Feb 25 2026** ('02-23' = Feb-23 snapshot); Alibaba Model Studio + OpenRouter pricing ($0.10/$0.40 intl, ~$0.065/$0.26 OpenRouter); **Vals AI** (meta-cited) — **LiveCodeBench 83.3%, GPQA 82.8%, Terminal-Bench 2.0 24.7%, FrontierMath Tiers 1–3 18.2%** [Vals page not re-fetchable this pass]; underlying-model anchor **AA Intelligence Index 19** for the shared `qwen3-5-35b-a3b` weights (report 104) — AA has no separate hosted-Flash page. Formally carries the specs of the self-excluded `qwen-3.5-flash-lite` sibling — no reattribution or double-count. Distinct from, and cross-referenced against, the open-weight `qwen-3.5-35b-a3b` report rather than duplicating it); scores are normalized 1–100 interpretations, not official vendor scores. AA Index baskets are version-specific and not cross-converted.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

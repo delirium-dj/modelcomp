@@ -1,0 +1,54 @@
+# owo-2.5 — negative findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: none found
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** owo-2.5
+- **Short description:** No verified public model card or documentation found for an AI model named "owo-2.5". Web search results return only Qwen2.5 references and unrelated content — no LLM, VLM, or foundation model by this name exists in public sources.
+- **Provider / access:** None found. No API ID, no model card, no hosted endpoint.
+- **Release / knowledge:** Not applicable — no verified model exists.
+- **IDs:** None found.
+- **Context window:** Not applicable — no verified model exists.
+- **Modalities:** Not applicable — no verified model exists.
+- **Pricing (as of 2026-10-27):** Not applicable — no verified model exists.
+- **Architecture:** Not applicable — no verified model exists.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION (mandatory): ZERO verified public benchmark numbers found for this exact model/ID. Every row would read "no verified public score found."
+
+Agent / tool use:
+- no verified public score found
+
+Reasoning / knowledge:
+- no verified public score found
+
+Coding:
+- no verified public score found
+
+Long context:
+- no verified public score found
+
+### Normalized scores (1–100)
+
+No scored file saved per SELF-EXCLUSION rule — never invent placeholder scores.
+
+- **Tool use:** no verified data
+- **Reasoning:** no verified data
+- **Context window:** no verified data
+- **Multimodal:** no verified data
+- **Coding:** no verified data
+- **Cost efficiency:** no verified data
+- **Overall Score:** no verified data (self-excluded)
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-27
+- Method: public internet research (web search for official model card/docs; Hugging Face API model search returned empty `[]` for "owo-2.5"). No verified model or benchmarks exist for this ID.
+- Future sources: if a real model named owo-2.5 is later identified, add a scored `.md` file next to this one using the same headings.

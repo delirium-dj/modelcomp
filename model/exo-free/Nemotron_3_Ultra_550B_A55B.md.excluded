@@ -1,0 +1,53 @@
+# Exo Free — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This entry refers to EXO Labs' distributed inference framework, NOT an AI model. Zero verified public benchmarks exist for a model named "exo-free". This file is saved as `.md.excluded` per template rules.
+
+## Model card
+
+- **Name:** Exo Free (exo-free)
+- **Short description:** **NOT AN AI MODEL.** EXO (exo-explore/exo) is an open-source framework for distributed LLM inference across consumer devices (Mac, Linux, Windows). It splits models across devices to run larger models than fit on single hardware. The "exo-free" label appears in OpenCode usage data as a provider/framework identifier, not a model. Reddit post "Exo Free - Frontier level" refers to using EXO to run models (e.g., Llama), not a model itself.
+- **Provider / access:** EXO Labs (exolabs.net), GitHub (exo-explore/exo). Software framework, not a model.
+- **Release / knowledge:** EXO v1.0 released ~January 2026. "12 Days of EXO" blog series Dec 2024–Jan 2025. Not a model release.
+- **IDs:** No model ID. Framework: `exo` (pip/brew/dmg), `exo-explore/exo` (GitHub).
+- **Context window:** N/A (framework, not model).
+- **Modalities:** N/A (framework, not model).
+- **Pricing (as of 2026-10-27):** Free open-source software (MIT license). Runs user's own models.
+- **Architecture:** Distributed inference orchestration (model partitioning, device discovery, ChatGPT-compatible API). Supports LLaMA (MLX/tinygrad), Mistral, LLaVA, Qwen, DeepSeek, etc.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**NO MODEL BENCHMARKS EXIST.** EXO is a framework. Benchmarks on benchmarks.exolabs.net and blog.exolabs.net measure **throughput (tok/s) of other models** (Llama 3.1 8B, 70B; Qwen3-235B; DeepSeek-v3 671B) running ON EXO, not EXO itself.
+
+- Llama-3.1-8B on RTX 3080: 104.7 tok/s — EXO benchmarks
+- Llama-3.1-8B on RTX 4070 Ti: 112.4 tok/s — EXO benchmarks
+- Llama-3.1-8B on RTX 4080: 120.8 tok/s — EXO benchmarks
+- DeepSeek-v3 671B on 8× Mac Minis: **qualitative demo only** — EXO blog Day 2
+- No model quality benchmarks (MMLU, GPQA, coding, etc.) for "exo-free".
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+
+- **Tool use: N/A** — not a model
+- **Reasoning: N/A** — not a model
+- **Context window: N/A** — not a model
+- **Multimodal: N/A** — not a model
+- **Coding: N/A** — not a model
+- **Cost efficiency: N/A** — not a model
+- **Overall Score: N/A** — not a model
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (EXO Labs blog, benchmarks.exolabs.net, GitHub exo-explore/exo, Reddit r/opencode, Tom's Hardware, OpenCode model compare page); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "exo-free" is EXO Labs' distributed inference framework, not an AI model. No model card, no benchmarks, no model ID. Saved as `.excluded` per self-exclusion rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,57 @@
+# Claude Opus 3.7 — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This model does not exist in Anthropic's release history. Anthropic's Opus lineage: Opus 3 (Mar 2023) → Opus 4 (May 2025) → Opus 4.1 (Aug 2025) → Opus 4.5 (Nov 2025) → Opus 4.6 (Feb 2026) → Opus 4.7 (Apr 2026) → Opus 4.8 (Jul 2026) → Opus 5 (Jul 2026) → Opus 5.5 (Sep 2026). No "Opus 3.7" was ever released. This file is saved as `.md.excluded` per template rules.
+
+## Model card
+
+- **Name:** Claude Opus 3.7
+- **Short description:** **NON-EXISTENT MODEL.** Anthropic never released a "Claude Opus 3.7". The Claude 3 family had Opus, Sonnet, Haiku (Mar 2023). The 3.5 family had Sonnet (Jun 2024). The 4 family started with Opus 4 (May 2025). No Opus 3.5, 3.7, or any 3.x Opus after the original.
+- **Provider / access:** N/A (model does not exist).
+- **Release / knowledge:** N/A.
+- **IDs:** `opencode/claude-opus-3.7` (OpenCode scaffolded entry only).
+- **Context window:** N/A.
+- **Modalities:** N/A.
+- **Pricing (as of 2026-10-27):** N/A.
+- **Architecture:** N/A.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**NO BENCHMARKS EXIST.** Model does not exist. Anthropic release history (verified via Anthropic newsroom, release notes, Wikipedia, platform.claude.com docs):
+- Mar 2023: Claude 3 Opus, Sonnet, Haiku
+- Jun 2024: Claude 3.5 Sonnet
+- May 2025: Claude 4 Opus, Sonnet
+- Aug 2025: Claude 4.1 Opus
+- Nov 2025: Claude 4.5 Opus
+- Feb 2026: Claude 4.6 Opus, Sonnet
+- Apr 2026: Claude 4.7 Opus
+- Jul 2026: Claude 4.8 Opus, Opus 5
+- Sep 2026: Opus 5.5, Haiku 5.5, Sonnet 5.5
+- No "Opus 3.7" at any point.
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+
+- **Tool use: N/A** — model does not exist
+- **Reasoning: N/A** — model does not exist
+- **Context window: N/A** — model does not exist
+- **Multimodal: N/A** — model does not exist
+- **Coding: N/A** — model does not exist
+- **Cost efficiency: N/A** — model does not exist
+- **Overall Score: N/A** — model does not exist
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (Anthropic newsroom, release notes, platform.claude.com model docs, Wikipedia, ReleaseBot.io, scriptbyai.com timeline, hidekazu-konishi.com timeline); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "Claude Opus 3.7" is a fabricated/hypothetical model entry with no basis in Anthropic's release history. Saved as `.excluded` per self-exclusion rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

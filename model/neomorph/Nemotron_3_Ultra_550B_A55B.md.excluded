@@ -1,0 +1,53 @@
+# Neomorph — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This entry refers to Neomorph Inc., a clinical-stage biotechnology company developing molecular glue degraders, NOT an AI model. Zero verified public benchmarks exist for an AI model named "neomorph". This file is saved as `.md.excluded` per template rules.
+
+## Model card
+
+- **Name:** Neomorph (neomorph)
+- **Short description:** **NOT AN AI MODEL.** Neomorph Inc. (neomorph.com) is a biotechnology company founded in 2020, headquartered in San Diego, CA, pioneering molecular glue degraders for targeted protein degradation. $109M Series A (2020). Partnerships with AbbVie, Biogen, Novo Nordisk. Clinical-stage (NEO-811 in Phase 1/2 for ccRCC). No AI model product.
+- **Provider / access:** Neomorph Inc. (biotech company). Not an AI model provider.
+- **Release / knowledge:** Company founded 2020. No model release.
+- **IDs:** No model ID. Company website: neomorph.com.
+- **Context window:** N/A (not a model).
+- **Modalities:** N/A (not a model).
+- **Pricing (as of 2026-10-27):** N/A (not a model).
+- **Architecture:** N/A (not a model).
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**NO MODEL BENCHMARKS EXIST.** Neomorph is a biotech company. Search results return:
+- Neomorph platform/pipeline for molecular glue drug discovery
+- Clinical programs (NEO-811 ARNT/HIF-1β for ccRCC)
+- Partnerships (AbbVie, Biogen, Novo Nordisk)
+- AACR 2026 presentation on targeted protein degradation
+- $109M Series A financing (2020)
+- Zero AI model benchmarks, model cards, or model IDs.
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+
+- **Tool use: N/A** — not a model
+- **Reasoning: N/A** — not a model
+- **Context window: N/A** — not a model
+- **Multimodal: N/A** — not a model
+- **Coding: N/A** — not a model
+- **Cost efficiency: N/A** — not a model
+- **Overall Score: N/A** — not a model
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (Neomorph website, BioSpace press release, PR Newswire, LinkedIn, Neomorph press releases); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "neomorph" is a biotechnology company (molecular glue degraders), not an AI model. No model card, no benchmarks, no model ID. Saved as `.excluded` per self-exclusion rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

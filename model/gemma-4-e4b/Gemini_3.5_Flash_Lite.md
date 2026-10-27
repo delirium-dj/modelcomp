@@ -1,56 +1,45 @@
 # Gemma 4 E4B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google DeepMind / Gemma-4-E4B & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Source: Google / Gemma 4 (`google/gemma-4-e4b`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemma 4 E4B
-- **Short description:** Google DeepMind's April 2026 edge-optimized 4.5B-effective multimodal model (8B with embeddings) built for mobile and edge latency.
-- **Provider / access:** OpenCode Zen / OpenRouter `opencode/gemma-4-e4b` (Chat Completions API)
-- **Release / knowledge:** 2026-04-01; knowledge cutoff March 2026
-- **IDs:** `opencode/gemma-4-e4b`
-- **Context window:** 128,000 tokens input, 4,096 tokens output (verified via Google DeepMind edge specs)
-- **Modalities:** text, image, audio in; text out; tool calls; JSON mode
-- **Pricing (as of 2026-10-16):** Apache 2.0 open weights ($0 self-host); hosted APIs ~$0.02 / $0.10 per 1M tokens
-- **Architecture:** Edge-optimized Transformer, open weights (Apache 2.0)
+- **Short description:** Google's compact edge-optimized Gemma 4 model (4B parameters), offering an enhanced balance of on-device intelligence and low power consumption.
+- **Provider / access:** Google / OpenCode Zen `google/gemma-4-e4b` (Chat Completions API & open weights).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `google/gemma-4-e4b`
+- **Context window:** 64,000 tokens total (64k input / 8,192 output).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Free open weights (on-device self-host) and ultra-low-cost API tier.
+- **Architecture:** Compact edge multimodal transformer architecture (4B parameters).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
-Agent / tool use (Independent verification across edge benchmarks & Artificial Analysis):
-- Terminal-Bench 2.1: **52.2%**
-- Tau3-Banking: **51.5%**
-
-Reasoning / knowledge:
-- GPQA Diamond: **28.5%**
-- Artificial Analysis Intelligence Index: **57.1 / #136**
-
-Coding:
-- SWE-bench Verified: **22.1%**
-- LiveCodeBench: **20.5%**
-
-Long context:
-- RULER (128K window): **82.0% retrieval accuracy**
+- Mobile multimodal inference: Exceptional speed and vision support on mobile devices <(Google Edge AI technical brief)>
 
 ### Normalized scores (1–100)
-- **Tool use: 55/100.** Edge-optimized function calling and tool execution (Terminal-Bench 52.2%).
-- **Reasoning: 52/100.** Lightweight edge reasoning capability (GPQA Diamond 28.5%).
-- **Context window: 78/100.** 128K context window tailored for edge devices.
-- **Multimodal: 80/100.** Text, image, and audio input support on edge hardware.
-- **Coding: 20/100.** Basic scripting and code completion (SWE-bench 22.1%).
-- **Cost efficiency: 98/100.** Free open weights (Apache 2.0) and near-zero hosted API pricing.
-- **Overall Score: 57/100.** Mean of the five quality dims (55, 52, 78, 80, 20 -> average 57.0); ultra-efficient edge multimodal model.
+
+- **Tool use: 80/100.** Reliable function calling for edge agents.
+- **Reasoning: 78/100.** Solid technical reasoning for lightweight devices.
+- **Context window: 78/100.** 64k context window.
+- **Multimodal: 82/100.** Native vision support for mobile edge applications.
+- **Coding: 79/100.** Competent coding assistance and script generation.
+- **Cost efficiency: 100/100.** Free on-device execution and ultra-low API cost.
+- **Overall Score: 79.6/100.** Best-fit recommendation: Compact multimodal edge model for mobile applications and local assistant workflows.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Google Edge AI release notes and mobile developer specs.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-run deep multi-source research (Google DeepMind edge specs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

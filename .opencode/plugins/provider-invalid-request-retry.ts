@@ -6,6 +6,7 @@ import type { Plugin } from "@opencode-ai/plugin"
 // sometimes with
 //   "[Phala] The request was rejected as invalid"
 //   "Bad Request: Invalid request"
+//   "Invalid request" (bare form, no wrapper prefix)
 // — usually a FALSE positive: the model rejects the assembled payload (one
 // wrapper/turn the endpoint dislikes) but a plain "continue" turns the last
 // message back into a user turn and brings the session straight back to work.

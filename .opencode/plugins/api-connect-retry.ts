@@ -23,7 +23,13 @@ import type { Plugin } from "@opencode-ai/plugin"
 //                                        "Provider response headers timed out
 //                                        after 300000ms" (seen with DeepSeek) —
 //                                        human-phrased, so etimedout alone
-//                                        does NOT catch it
+//                                        does NOT catch it. The AI-side
+//                                        sibling "Timed out waiting for
+//                                        response headers" swaps the word
+//                                        order and is owned by
+//                                        provider-headers-timeout-retry;
+//                                        this fragment deliberately does
+//                                        not match it (one nudge, not two)
 //   socket hang up                       server dropped the socket mid-request
 //   fetch failed                         undici's catch-all for network-level failures
 //   network request failed               provider wrapper

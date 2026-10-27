@@ -1,0 +1,51 @@
+# Omi Alpha — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This entry refers to (1) Omi wearable device memory benchmarks (LoCoMo/LongMemEval) by BasedHardware, (2) Omi Health medical speech-to-text benchmarks, or (3) OMI Alpha WWII cipher machine — NOT an AI LLM model. Zero verified public benchmarks exist for an AI model named "omi-alpha". This file is saved as `.md.excluded` per template rules.
+
+## Model card
+
+- **Name:** Omi Alpha (omi-alpha)
+- **Short description:** **NOT AN AI LLM MODEL.** Search reveals three unrelated entities: (1) **BasedHardware Omi** — wearable AI device with long-term memory benchmarks (LoCoMo 86.6%, LongMemEval 83.3%, BEAM) on GitHub (BasedHardware/omi-memory-benchmarks). (2) **Omi Health** — medical speech-to-text APIs (M-WER 0.87%, drug-term error 0.23%, dosage match 93.62%). (3) **OMI Alpha** — WWII Italian electromechanical cipher machine (cryptomuseum.com). No LLM model card, no model ID, no parameter count, no architecture.
+- **Provider / access:** BasedHardware (wearable), Omi Health (medical STT API). Not an LLM model provider.
+- **Release / knowledge:** Omi wearable: 2024–2026. Omi Health: 2025–2026. OMI Alpha cipher: ~1939. No LLM release.
+- **IDs:** No LLM model ID. GitHub: BasedHardware/omi-memory-benchmarks, Omi-Health/medical-STT-eval.
+- **Context window:** N/A (not an LLM).
+- **Modalities:** Omi wearable: audio/text (memory). Omi Health: audio (medical STT). Not LLM modalities.
+- **Pricing (as of 2026-10-27):** Omi wearable: hardware device. Omi Health: API pricing (vs Google/AssemblyAI/Deepgram/etc.). Not LLM pricing.
+- **Architecture:** Omi wearable: memory system (LoCoMo eval). Omi Health: STT model (omi-med-stt-v1, 0.6B/3B). Not LLM architecture.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**NO LLM BENCHMARKS EXIST.** Found benchmarks are for different systems:
+- **Omi wearable memory:** LoCoMo 86.6% (1,540 questions), LongMemEval 83.3%, BEAM — BasedHardware/omi-memory-benchmarks (MIT license, open eval harness)
+- **Omi Health medical STT:** M-WER 0.87%, Drug-term error 0.23%, Dosage match 93.62%, Median latency 177ms — omi.health/benchmark (16 APIs tested)
+- **OMI Alpha cipher:** Historical WWII device — cryptomuseum.com
+- Zero LLM benchmarks (MMLU, GPQA, SWE-bench, coding, reasoning, etc.)
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+
+- **Tool use: N/A** — not an LLM
+- **Reasoning: N/A** — not an LLM
+- **Context window: N/A** — not an LLM
+- **Multimodal: N/A** — not an LLM
+- **Coding: N/A** — not an LLM
+- **Cost efficiency: N/A** — not an LLM
+- **Overall Score: N/A** — not an LLM
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (BasedHardware/omi-memory-benchmarks GitHub, Omi Health benchmark pages, Omi vs Google/ ElevenLabs comparisons, cryptomuseum.com OMI Alpha, phillipring.com mirror); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "omi-alpha" matches no LLM model — only a wearable device memory system, a medical STT API, and a WWII cipher machine. Saved as `.excluded` per self-exclusion rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

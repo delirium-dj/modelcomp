@@ -4,5 +4,6 @@
   "short": "Claude Opus 3.7 model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
 }

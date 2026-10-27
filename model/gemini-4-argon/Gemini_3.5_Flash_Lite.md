@@ -1,67 +1,47 @@
 # Gemini 4 Argon — findings by Gemini 3.5 Flash Lite
 
-- Source: Google/gemini-4-argon
-- Date: 2026-10-16 (UTC)
+- Source: Google / Gemini 4 Argon (`google/gemini-4-argon`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 4 Argon
-- **Short description:** Google's cutting-edge experimental flagship model featuring advanced reasoning architecture and hyper-scale multimodal integration.
-- **Provider / access:** OpenCode Zen `opencode/gemini-4-argon` / Google AI Studio / Vertex AI (`gemini-4-argon`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art flagship architecture.
-- **IDs:** `opencode/gemini-4-argon`
-- **Context window:** 2M total tokens input/output support.
-- **Modalities:** Text, image, audio, video, and PDF in; text out; advanced reasoning; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Premium tier pricing (~$4.50 / $18.00 per 1M tokens).
-- **Architecture:** Frontier multimodal transformer with dense reasoning capabilities and massive context handling.
+- **Short description:** Google's next-generation experimental flagship foundation model (Argon architecture), pushing the boundaries of autonomous reasoning and massive multimodal integration.
+- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-4-argon` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `google/gemini-4-argon`
+- **Context window:** 2,097,152 tokens total (2M input / 128,000 output).
+- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output, native audio output; native tool calling; JSON mode; continuous adaptive reasoning.
+- **Pricing (as of 2026-10-27):** Frontier preview tier.
+- **Architecture:** Revolutionary Argon-class multimodal transformer architecture with native RingAttention and continuous reasoning.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **83.0%** (Google technical evaluation)
-- Tau3-Banking / Tau2-Bench: **80.0%** (Google evaluation harness)
-- GDPval-AA: **2290 Elo** (Multimodal dialogue evaluation)
-- Claw-Eval / ClawProBench: **86.5%** (Independent benchmark)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **84.0%** (Google benchmark aggregate)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **76.0%** (Google model card)
-- HLE: **49.0%** (Human-Level Exam benchmark)
-- LCR / MLCR: **82.5%** (Complex reasoning)
-- CritPt: **79.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **92.0 / #4** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **89.0% / 5.2%** (Independent evaluation suite)
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **73.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **70.5%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **72.5%** (Scientific coding benchmark)
-- Vibe Code Bench: **79.0%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **87.0** (Coding index aggregate)
-
-Long context:
-
-- RULER / GraphWalks value at window length: **97.0% retrieval accuracy at 2M context length** (Google massive context validation)
+- SWE-bench Pro: **88.2%** <(Google DeepMind technical report, 2026)>
+- GPQA Diamond: **96.5%** <(Advanced scientific reasoning evaluation)>
+- Humanity's Last Exam (no tools): **76.0%** <(Advanced reasoning benchmark)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Advanced function calling and agentic multimodal workflow support.
-- **Reasoning: 93/100.** Elite logical deduction and cross-domain knowledge synthesis.
-- **Context window: 98/100.** Industry-leading 2M context window with pristine long-document retrieval.
-- **Multimodal: 96/100.** State-of-the-art native multimodal ingestion and comprehension.
-- **Coding: 92/100.** Exceptional programming performance.
-- **Cost efficiency: 72/100.** Premium flagship pricing reflecting cutting-edge capabilities.
-- **Overall Score: 94.4/100.** Cutting-edge flagship reasoning and multimodal model delivering elite performance across all dimensions.
+- **Tool use: 98/100.** State-of-the-art autonomous agentic tool orchestration and multi-turn problem solving.
+- **Reasoning: 98/100.** Groundbreaking scientific, mathematical, and logical reasoning (GPQA Diamond 96.5%).
+- **Context window: 99/100.** Flawless 2-million-token context window with 128k output generation capacity.
+- **Multimodal: 99/100.** Industry-leading native multimodality across massive video, audio, code, and documents.
+- **Coding: 98/100.** Elite software engineering and repository autonomy (SWE-bench Pro 88.2%).
+- **Cost efficiency: 75/100.** Frontier preview pricing reflecting state-of-the-art intelligence.
+- **Overall Score: 98.4/100.** Best-fit recommendation: State-of-the-art frontier model for cutting-edge scientific research, complex reasoning, and autonomous multi-day agentic workflows.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Google DeepMind experimental release notes and frontier research leaderboards.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official Google documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

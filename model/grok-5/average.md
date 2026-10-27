@@ -19,4 +19,4 @@
 
 - Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.7 Plus.
 - Average from top 6 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, Inkling, Qwen 3.7 Plus.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Laguna XS 2.1, Nemotron 3 Ultra 550B A55B.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Laguna XS 2.1.

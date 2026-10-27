@@ -59,10 +59,19 @@ reports, and the website stay consistent.
   rejects, any model), plus the `provider-*` family (any model) built on the
   full 3-shape pattern (payload error / silent `session.idle` / embedded in a
   generic error): `provider-content-filter-retry`,
-  `provider-headers-timeout-retry`, `provider-high-demand-retry`, and
+  `provider-headers-timeout-retry` (2026-10-27, also matches the AI-side
+  "Timed out waiting for response headers" — same never-got-headers failure,
+  different word order; api-connect-retry's gateway fragment deliberately
+  does not match it, so exactly one plugin nudges), `provider-high-demand-retry`, and
   `provider-invalid-request-retry` (2026-10-17, "[Vendor] The request was
   rejected as invalid", e.g. "[Phala] ..."; match is the stable tail only so
-  the vendor prefix varies freely).
+  the vendor prefix varies freely — plus the 2026-10-27 bare-form "Invalid
+  request" variant, which is a two-word phrase and still safe), and
+  `provider-returned-error-retry` (2026-10-27, generic provider wrapper
+  "Provider returned error" / "provider returned an error", e.g.
+  "[DeepSeek] provider returned an error"; whole sentence only, deliberately
+  NOT the bare prefix "provider returned" — research answers here discuss
+  provider behaviour and would trip a prefix match; 10s delay, `continue`).
 - Hardening conventions (established by the 2026-10-05 `bang-drop-retry`
   pass; apply to every plugin in the suite):
   - **Mark before await.** Check `pending`/`stopped`, then mark

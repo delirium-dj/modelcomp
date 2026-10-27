@@ -1,0 +1,82 @@
+# GPT OSS 120B Lite — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This entry refers to a tuning/branding variant of `gpt-oss-120b`, NOT a distinct model release. Zero verified public benchmarks exist for a separate model named "gpt-oss-120b-lite". All benchmarks are identical to gpt-oss-120b. This file is saved as `.md.excluded` per template rules (duplicate/alias).
+
+## Model card
+
+- **Name:** GPT OSS 120B Lite (gpt-oss-120b-lite)
+- **Short description:** **NOT A DISTINCT MODEL.** OpenAI's gpt-oss family (released August 5, 2025) contains only two models: `gpt-oss-120b` (117B total / 5.1B active MoE) and `gpt-oss-20b` (21B total / 3.6B active MoE). The "Lite" suffix appears to be an OpenCode provider branding for a concise-reasoning tuning of the base gpt-oss-120b, not a separate model release. No separate model card, weights, or benchmarks exist.
+- **Provider / access:** OpenCode provider (`opencode/gpt-oss-120b-lite`). Base model: Hugging Face (`openai/gpt-oss-120b`), OpenAI API, NVIDIA NGC, AWS Bedrock, Azure, GCP Vertex AI. Self-hosted (Apache-2.0).
+- **Release / knowledge:** Same as gpt-oss-120b: 2025-08-05; knowledge cutoff June 1, 2024.
+- **IDs:** `opencode/gpt-oss-120b-lite` (OpenCode provider alias). Base: `openai/gpt-oss-120b` (HF). Apache-2.0.
+- **Context window:** 131,072 tokens (same as base). Verified via OpenAI model card, HF, NVIDIA NGC.
+- **Modalities:** Text input; text output. **No native multimodal** (text-only). Reasoning: yes (configurable low/medium/high). Tool calls: yes (function calling, web search, Python). JSON mode: yes. Structured output: yes.
+- **Pricing (as of 2026-10-27):** Self-hosted: $0/M (Apache-2.0). Hosted: ~$0.15/M in, $0.60/M out (same as base gpt-oss-120b on OpenRouter/DeepInfra/Fireworks). No separate pricing.
+- **Architecture:** Same as gpt-oss-120b: 117B total / 5.1B active MoE (36 experts, top-4 routing). 48 layers, SwiGLU (clamped + residual). 128K context. MXFP4 quantization native. Apache-2.0.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**ALL BENCHMARKS IDENTICAL TO GPT-OSS-120B** — no separate evaluations exist for "Lite" variant.
+
+Agent / tool use (from gpt-oss-120b):
+
+- SWE-bench Verified: **48.8%** (high reasoning) — OpenAI model card / deployment safety hub
+- SWE-bench Verified: **52.0%** (OpenRouter Vals AI) — OpenRouter Vals AI
+- τ²-Bench Retail: **73.3%** (high reasoning) — OpenAI model card
+- τ²-Bench Airline: **75.5%** (high reasoning) — OpenAI model card
+- BFCL v3: **74.3%** (high reasoning) — OpenAI model card
+- BFCL v3: **78.5%** (high reasoning, tools) — llm-stats.com
+- MCP-Atlas / PinchBench / ClawEval / Toolathlon / AutomationBench: **no scores**
+
+Reasoning / knowledge (from gpt-oss-120b):
+
+- AIME 2024: **95.2%** (high, with tools) — OpenAI model card
+- AIME 2025: **98.7%** (high, with tools) / **96.6%** (high, no tools) — OpenAI model card / llm-stats.com
+- GPQA Diamond: **83.3%** (high, no tools) / **80.1%** (high, with tools) — OpenAI model card
+- HLE: **24.9%** (high, no tools) / **17.7%** (high, tools) — OpenAI model card / llm-stats.com
+- MMLU: **86.5%** (high, no tools) / **97.9%** (high, with tools) — OpenAI model card
+- Codeforces: **1879** Elo (high) — OpenAI model card
+
+Coding (from gpt-oss-120b):
+
+- SWE-bench Verified: **48.8–53.4%** — OpenAI model card / OpenRouter / llm-stats.com
+- Codeforces: **1879** Elo — OpenAI model card
+- LiveCodeBench: **56.2%** (high reasoning) — llm-stats.com
+- HumanEval / MBPP / SWE-bench Pro / Terminal-Bench: **no scores** in model card
+
+Long context:
+
+- Native 128K context verified
+- RULER / MRCR / GraphWalks / LongBench / LOFT: **no scores** in model card
+
+Multimodal:
+
+- **No native multimodal** (text-only per OpenAI model card, HF, all providers).
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: duplicate/alias of existing model (gpt-oss-120b). All scores would be identical to gpt-oss-120b findings. See `../gpt-oss-120b/Nemotron_3_Ultra_550B_A55B.md` for scored analysis.
+
+- **Tool use: N/A** — duplicate of gpt-oss-120b
+- **Reasoning: N/A** — duplicate of gpt-oss-120b
+- **Context window: N/A** — duplicate of gpt-oss-120b
+- **Multimodal: N/A** — duplicate of gpt-oss-120b
+- **Coding: N/A** — duplicate of gpt-oss-120b
+- **Cost efficiency: N/A** — duplicate of gpt-oss-120b
+- **Overall Score: N/A** — duplicate of gpt-oss-120b
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (OpenAI model card, HF, NVIDIA NGC, AWS Bedrock, OpenCode provider list); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "gpt-oss-120b-lite" is an OpenCode provider alias/tuning for gpt-oss-120b, not a distinct model. No separate benchmarks, weights, or model card. Saved as `.excluded` per self-exclusion rule (alias/duplicate).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,56 @@
+# Claude Opus 4.4 — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+>
+> **SELF-EXCLUSION NOTICE:** This model does not exist in Anthropic's release history. Anthropic's Opus 4.x lineage: Opus 4 (May 2025) → Opus 4.1 (Aug 2025) → Opus 4.5 (Nov 2025) → Opus 4.6 (Feb 2026) → Opus 4.7 (Apr 2026) → Opus 4.8 (Jul 2026). No "Opus 4.4" was ever released (skipped from 4.1 to 4.5). This file is saved as `.md.excluded` per template rules.
+
+## Model card
+
+- **Name:** Claude Opus 4.4
+- **Short description:** **NON-EXISTENT MODEL.** Anthropic's Opus 4.x releases skipped from 4.1 directly to 4.5 (Nov 2025). There was never an Opus 4.2, 4.3, or 4.4. The meta.json description ("late-2025 Opus", "$15/$75") matches Opus 4.1 (Aug 2025) or Opus 4.5 (Nov 2025) pricing, but version 4.4 does not exist.
+- **Provider / access:** N/A (model does not exist).
+- **Release / knowledge:** N/A.
+- **IDs:** `opencode/claude-opus-4.4` (OpenCode scaffolded entry only).
+- **Context window:** N/A.
+- **Modalities:** N/A.
+- **Pricing (as of 2026-10-27):** N/A.
+- **Architecture:** N/A.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+**NO BENCHMARKS EXIST.** Model does not exist. Anthropic Opus 4.x verified release history (Anthropic newsroom, platform.claude.com, release notes):
+- May 2025: Claude Opus 4 (claude-opus-4-20250514)
+- Aug 2025: Claude Opus 4.1 (claude-opus-4-1-20250805) — SWE-bench Verified 74.5%, $15/$75
+- Nov 2025: Claude Opus 4.5 (claude-opus-4-5-20251101) — $5/$25
+- Feb 2026: Claude Opus 4.6 (claude-opus-4-6-20260205) — SWE-bench Verified 80.8%
+- Apr 2026: Claude Opus 4.7 (claude-opus-4-7-20260416) — SWE-bench Verified 87.6%
+- Jul 2026: Claude Opus 4.8 (claude-opus-4-8-20260724) — Terminal-Bench 2.1 74.6%
+- Jul 2026: Claude Opus 5 (claude-opus-5-20260724)
+- Sep 2026: Claude Opus 5.5 (claude-opus-5-5-20260922)
+- No Opus 4.2, 4.3, or 4.4 at any point.
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+
+- **Tool use: N/A** — model does not exist
+- **Reasoning: N/A** — model does not exist
+- **Context window: N/A** — model does not exist
+- **Multimodal: N/A** — model does not exist
+- **Coding: N/A** — model does not exist
+- **Cost efficiency: N/A** — model does not exist
+- **Overall Score: N/A** — model does not exist
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (Anthropic newsroom, release notes, platform.claude.com model docs, Wikipedia, ReleaseBot.io, scriptbyai.com timeline, hidekazu-konishi.com timeline); scores normalized 1–100 per model-comparison.md methodology. **Conclusion:** "Claude Opus 4.4" is a fabricated/hypothetical model entry (version gap: 4.1 → 4.5). Saved as `.excluded` per self-exclusion rule.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

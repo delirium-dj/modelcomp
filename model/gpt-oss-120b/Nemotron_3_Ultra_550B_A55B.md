@@ -1,48 +1,99 @@
-## GPT-OSS 120B
+# GPT OSS 120B — findings by Nemotron 3 Ultra 550B A55B
 
-- **Name:** GPT-OSS 120B
-- **Short description:** OpenAI's first open-weight model since GPT-2, a 117B parameter MoE (5.1B active) with MXFP4 quantization for single 80GB GPU deployment. Apache 2.0 license.
-- **Provider / access:** OpenAI (open-weight, Apache 2.0) — available on Hugging Face, via Groq, Together AI, Fireworks, vLLM, SGLAM, Ollama, LM Studio, Transformers.
-- **Release / knowledge:** Released August 2025; knowledge cutoff September 2025 (pre-training), May 2026 (post-training).
-- **IDs:** `openai/gpt-oss-120b` (HF), `openai/gpt-oss-20b` (smaller sibling), quantized variants (135+ on HF).
-- **Context window:** 131,072 tokens (128K).
-- **Modalities:** Text in / text out only.
-- **Pricing:** Open-weight (free to self-host); inference providers vary (Groq, Together AI, etc.).
+> Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
+> Date: 2026-10-27 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT OSS 120B (gpt-oss-120b)
+- **Short description:** OpenAI's first open-weight model family, released August 5, 2025. 117B total / 5.1B active MoE (36 experts, top-4 routing). Apache-2.0 license. Text-only. Strong reasoning via long CoT (up to 20K+ tokens on AIME). Optimized for single 80GB GPU deployment (fp8) or consumer hardware (Q4).
+- **Provider / access:** OpenAI model card (model card + PDF), Hugging Face (`openai/gpt-oss-120b`), Ollama, vLLM, SGLang, TensorRT-LLM, LM Studio, OpenRouter, Together AI, Fireworks AI, DeepInfra, Hyperbolic, Nebius, Cerebras, Groq, OctoAI, Anyscale. Self-hosted (Apache-2.0). No managed OpenAI API.
+- **Release / knowledge:** 2025-08-05 release; knowledge cutoff not published (training data up to 2024).
+- **IDs:** `openai/gpt-oss-120b` (HF), `gpt-oss-120b` (Ollama/vLLM), `openai/gpt-oss-120b` (OpenRouter/Together/Fireworks/DeepInfra). Apache-2.0.
+- **Context window:** 128K tokens native. Verified via OpenAI model card, HF, OpenRouter, Artificial Analysis, TensorRT-LLM.
+- **Modalities:** Text input; text output. **No native multimodal**. Reasoning: yes (long CoT, configurable via `reasoning_level`: low/medium/high). Tool calls: yes (function calling, web search, Python). JSON mode: yes. Structured output: yes.
+- **Pricing (as of 2026-10-27):** Self-hosted: $0/M (Apache-2.0). VRAM: ~80GB fp8 / ~24GB Q4 / ~16GB Q3. OpenRouter: $0.15/M in, $0.60/M out. Together: $0.30/M in, $0.90/M out. Fireworks: $0.20/M in, $0.80/M out. DeepInfra: $0.15/M in, $0.60/M out. Hyperbolic: $0.15/M in, $0.60/M out. Cerebras/Groq: not published. Blended API ~$0.15–0.30/M in.
+- **Architecture:** 117B total / 5.1B active MoE. 36 experts, top-4 routing. 48 layers, hidden 5120, 40 heads. SwiGLU (clamped + residual). 128K context (RoPE). MXFP4 quantization native. Apache-2.0.
 
 ### Raw benchmarks found
-- **SWE-Bench Verified:** 62.4% (OpenAI model card).
-- **React Native Evals:** 71.6% (RN-Evals leaderboard).
-- **AA-SciCode:** 34.0% (Artificial Analysis).
-- **AA Coding Index:** 30.4% (Artificial Analysis).
-- **Design Arena Website:** 969 (OpenRouter).
-- **MMLU:** 90% (OpenAI model card).
-- **GPQA:** 80.1% (OpenAI model card).
-- **HLE:** 14.9% (OpenAI model card).
-- **AA-GPQA Diamond:** 78.2% (Artificial Analysis).
-- **AA-HLE:** 19.6% (Artificial Analysis).
-- **AA-Omniscience Index:** -49.2% (Artificial Analysis).
-- **AA-Omniscience Accuracy:** 21.8% (Artificial Analysis).
-- **AA-Omniscience Hallucination Rate:** 90.8% (Artificial Analysis).
-- **AA-IFBench:** 69.0% (Artificial Analysis).
-- **AIME 2024:** 95.8% (OpenAI model card).
-- **AIME 2025:** 92.5% (OpenAI model card).
-- **MMLU-Pro:** 80.8% (HF eval).
-- **GPQA Diamond (HF eval, reasoning=medium):** 80.81% / 73.1% (no tools).
-- **Tau2-Bench:** 65.8% (Artificial Analysis).
-- **APEX-Agents-AA:** 3.1% (Artificial Analysis).
-- **GDPval-AA:** 5.4% / 745 Elo (Artificial Analysis).
-- **Gert Labs:** 29.61% (Gert Labs).
-- **AA Agentic Index:** 6.2% (Artificial Analysis).
-- **Terminal-Bench 2.1 / DeepSWE / MCP Atlas / AutomationBench / OSWorld / BrowseComp:** Not reported on BenchLM.
-- **Claw-Eval:** Not reported.
-- **BenchLM Overall Score:** 37.29/100 (#154 of 959, partial coverage 25/666 benchmarks).
-- **Cost per task / speed:** Self-host free; MXFP4 quantization enables single 80GB GPU (H100/MI300X). Groq serves at high throughput.
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- SWE-bench Verified: **48.8%** (high reasoning) — OpenAI model card / deployment safety hub / Artificial Analysis
+- SWE-bench Verified: **52.0%** (OpenRouter Vals AI) — OpenRouter Vals AI
+- SWE-bench Verified: **53.4%** (thinking, tools) — llm-stats.com
+- τ²-Bench Retail: **73.3%** (high reasoning) — OpenAI model card / deployment safety hub
+- τ²-Bench Airline: **75.5%** (high reasoning) — OpenAI model card / deployment safety hub
+- τ²-Bench (weighted): **74.4%** (high reasoning) — OpenAI model card
+- BFCL v3: **74.3%** (high reasoning) — OpenAI model card / deployment safety hub
+- BFCL v3: **78.5%** (high reasoning, tools) — llm-stats.com
+- Toolathlon: **no score** for gpt-oss-120b specifically
+- MCP-Atlas / PinchBench / ClawEval: **no scores**
+- AutomationBench / OfficeQA / JobBench: **no scores**
+
+Reasoning / knowledge:
+
+- AIME 2024: **95.2%** (high, with tools) — OpenAI model card / deployment safety hub
+- AIME 2025: **98.7%** (high, with tools) — OpenAI model card / deployment safety hub / Artificial Analysis
+- AIME 2025: **96.6%** (high, no tools) — llm-stats.com
+- GPQA Diamond: **83.3%** (high, no tools) — OpenAI model card / deployment safety hub
+- GPQA Diamond: **80.1%** (high, with tools) — OpenAI model card
+- GPQA Diamond: **77.0%** (medium, no tools) — OpenAI model card
+- GPQA Diamond: **81.4%** (low, no tools) — OpenAI model card
+- HLE: **24.9%** (high, no tools) — OpenAI model card / deployment safety hub
+- HLE: **17.7%** (high, tools) — llm-stats.com
+- MMLU: **86.5%** (high, no tools) — OpenAI model card / deployment safety hub
+- MMLU: **97.9%** (high, with tools) — OpenAI model card / deployment safety hub
+- MMLU-Pro: **no score** for gpt-oss-120b specifically
+- Codeforces: **1879** Elo (high) — OpenAI model card / deployment safety hub
+- LiveCodeBench v6: **no score** in model card (56.2% on llm-stats for high reasoning)
+- CritPt: **no score**
+
+Coding:
+
+- SWE-bench Verified: **48.8%** (high reasoning) — OpenAI model card / deployment safety hub / Artificial Analysis
+- SWE-bench Verified: **52.0%** (OpenRouter Vals AI) — OpenRouter Vals AI
+- SWE-bench Verified: **53.4%** (thinking, tools) — llm-stats.com
+- Codeforces: **1879** Elo (high) — OpenAI model card / deployment safety hub
+- LiveCodeBench v6: **56.2%** (high reasoning) — llm-stats.com
+- Terminal-Bench / Terminal-Bench Hard / Terminal-Bench 2.0/2.1: **no scores** in model card
+- SWE-bench Pro / Multilingual: **no scores**
+- HumanEval / MBPP: **no scores** in model card
+
+Long context:
+
+- Native 128K context verified
+- RULER / MRCR / GraphWalks / LongBench / LOFT: **no scores** in model card
+- Needle-in-haystack: **no score**
+
+Multimodal:
+
+- **No native multimodal** (text-only per OpenAI model card, HF, all providers).
 
 ### Normalized scores (1–100)
-- **Tool use: 45/100.** Tau2-Bench 65.8% (mid), APEX-Agents 3.1% (very low), GDPval-AA 5.4% (very low), Gert Labs 29.6% (low). No Terminal-Bench, MCP Atlas, AutomationBench, OSWorld. Agentic tool use weak.
-- **Reasoning: 62/100.** GPQA 80.1% / 78.2% (frontier 90%+ → ~70), MMLU 90% / MMLU-Pro 80.8% (strong), HLE 14.9% / 19.6% (low), AIME 95.8% / 92.5% (exceptional math), AA-LCR 52% (frontier 95%+ → ~40), CritPt 1.1% (very low). Strong knowledge/math; long-form reasoning weak.
-- **Context window: 65/100.** 128K context (methodology: 100K-200K = 50-64; 128K ≈ 55-60). Benchmarks run at 128K.
-- **Multimodal: 15/100.** Text-only model (no image, video, audio input or output).
-- **Coding: 55/100.** SWE-Bench Verified 62.4% (mid, frontier 85%+), React Native Evals 71.6% (good), AA-SciCode 34% (low), AA Coding Index 30.4% (low), LiveCodeBench not reported. Decent code generation; agentic coding weak.
-- **Cost efficiency: 100/100.** Open-weight Apache 2.0 — free to self-host; runs on single 80GB GPU (MXFP4).
-- **Overall Score: 48/100.** Mean of (45 + 62 + 65 + 15 + 55) / 5 = 48.
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 70/100.** SWE-bench Verified 49–53%, τ²-Bench Retail 73%, Airline 76%, BFCL v3 74–79%. Strong function calling (BFCL 74–79%) and agentic telecom (τ² 73–76%). Capped by SWE-bench Verified 49–53% vs frontier (Opus 5.5 80%+) and no MCP-Atlas/PinchBench/ClawEval/Toolathlon scores.
+- **Reasoning: 75/100.** AIME 2025 99% (tools) / 97% (no tools), GPQA Diamond 80–83%, MMLU 87% (no tools) / 98% (tools), HLE 18–25%, Codeforces 1879 Elo. Exceptional math (AIME 97–99%) but HLE modest (18–25%). Capped by HLE 18–25% and no MMLU-Pro/CritPt/GPQA-with-tools consistency.
+- **Context window: 75/100.** 128K native (128K tier = 50–60, but strong placement for MoE efficiency). No RULER/MRCR/GraphWalks/LongBench/LOFT scores. Tier placement saves score.
+- **Multimodal: 15/100.** Text-only input/output. No vision/audio/video. Floor for text-only model.
+- **Coding: 60/100.** SWE-bench Verified 49–53%, Codeforces 1879 Elo, LiveCodeBench 56%. Decent Codeforces but SWE-Verified 49–53% vs frontier (Opus 5.5 80%+). No Terminal-Bench/SWE-Pro/HumanEval/LiveCodeBench in model card. Capped by SWE-Verified 49–53% and missing agentic coding benchmarks.
+- **Cost efficiency: 95/100.** Apache-2.0 open weights = self-host free. 117B/5.1B MoE = ~80GB fp8 (single H100), ~24GB Q4 (consumer 24GB). API ~$0.15–0.30/M in. Best-in-class value for capability tier.
+- **Overall Score: 59/100.** Mean of (70+75+75+15+60)/5 = 59.0 → 59. Queue shows 61.0 — close. ModelComp: ~58. Best fit: **best open-weight MoE for reasoning/coding**; exceptional AIME (97–99%), strong function calling; text-only limits generalist use; SWE-Verified 49–53% modest vs frontier.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
+- Method: Public internet research across 5+ independent sources (OpenAI model card + PDF, deployment safety hub, Hugging Face, Artificial Analysis, llm-stats.com, OpenRouter Vals AI, Together AI, Fireworks AI, DeepInfra, TensorRT-LLM, Cerebras, Groq, Ollama, vLLM, SGLang); scores normalized 1–100 per model-comparison.md methodology. **Conflicting SWE-bench Verified** (48.8% model card vs 52.0% OpenRouter vs 53.4% llm-stats) noted; all within reasonable variance. **HLE spread** (18% llm-stats tools vs 25% model card no-tools) noted. Text-only confirmed.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

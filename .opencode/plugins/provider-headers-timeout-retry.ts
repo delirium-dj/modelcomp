@@ -2,12 +2,20 @@
 // @ts-ignore - silences "Cannot find module '@opencode-ai/plugin'" in the editor.
 import type { Plugin } from "@opencode-ai/plugin"
 
-// What we catch: provider gateway timeouts where the endpoint never sends
-// response headers. DeepSeek 4.1 Flash drops this way sometimes with
-//   "Provider response headers timed out after 300000ms"
-// The millisecond count varies with the configured timeout, so we only match
-// the stable fragment before it. Any model/provider can send the same error,
-// so the plugin is deliberately global (no model filter).
+// What we catch: response-header timeouts — the request dies before the
+// endpoint ever sends response headers. Two phrasings of the same failure:
+//   - Gateway-side: DeepSeek 4.1 Flash drops this way sometimes with
+//     "Provider response headers timed out after 300000ms". The millisecond
+//     count varies with the configured timeout, so we only match the stable
+//     fragment before it.
+//   - AI-side (2026-10-27): the client runtime itself gives up waiting for
+//     the headers — server log shows `Failed to drain Session` with cause
+//     "AI.Error: Timed out waiting for response headers". V2 classifies
+//     Timeout as NOT retryable, so the turn just dies; word order differs
+//     from the gateway phrasing, which is why neither the fragment above
+//     nor api-connect-retry's "response headers timed out" matches it.
+// Any model/provider can produce these errors, so the plugin is deliberately
+// global (no model filter).
 //
 // Two arrival shapes (same lesson as bang-drop-retry.ts):
 //   1. as a `session.error` event (the common case), or
@@ -17,11 +25,14 @@ import type { Plugin } from "@opencode-ai/plugin"
 // `session.idle`, so shape 2 can not slip through.
 // Recovery is the same for both: wait DELAY, then send "continue".
 
-// Stable, lowercase fragments of the error text. Matching is
+// Stable, lowercase fragments of the error texts. Matching is
 // case-insensitive on the FULL text; any fragment here trips the plugin.
 // Deliberately exclude the "...after Nms" tail (it varies with config).
 // Add more fragments here if a sibling error shows up (e.g. body timeouts).
-const PATTERNS = ["provider response headers timed out"]
+const PATTERNS = [
+  "provider response headers timed out", // gateway-side phrasing (DeepSeek)
+  "timed out waiting for response headers", // AI-side phrasing (2026-10-27)
+]
 
 // How long to wait before saying "continue": 10 seconds = 10_000 milliseconds.
 // The endpoint already hung for minutes, so we only give it a short moment
