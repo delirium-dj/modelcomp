@@ -136,14 +136,16 @@ if [ -n "$alias_added" ]; then
 fi
 # Merged-and-deleted duplicate findings-file stems (RULES.md findings-stem
 # identity): Mimo_v2.6_Flash.md was folded into MiMo_2.6_Flash.md on user
-# order (same Xiaomi rater, 2026-10-09) — block any staged addition under the
-# variant spelling so the duplicate can never be re-cemented (sync also FAILs
-# it via MERGED_SOURCE_STEMS). Write MiMo_2.6_Flash.md instead.
-merged_stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model models_voice models_finance | tr '\0' '\n' | grep -E 'Mimo_v2\.6_Flash\.md(\.excluded)?$' || true)"
+# order (same Xiaomi rater, 2026-10-09); Space_Bunny -> MiniMax_M3.1_Flash,
+# Cat_Jam -> Beam and Ox_Alpha -> GLM_5.3_Flash followed on user order
+# 2026-10-26 (revealed-stealth rater merge) — block any staged addition under
+# a variant spelling so duplicates can never be re-cemented (sync also FAILs
+# them via MERGED_SOURCE_STEMS). Write the canonical stem instead.
+merged_stem_added="$(git diff --cached --name-only --diff-filter=A -z -- model models_voice models_finance | tr '\0' '\n' | grep -E '(Mimo_v2\.6_Flash|Space_Bunny|Cat_Jam|Ox_Alpha)\.md(\.excluded)?$' || true)"
 if [ -n "$merged_stem_added" ]; then
-  echo "BLOCKED by RULES.md: Mimo_v2.6_Flash.md is a merged duplicate of MiMo_2.6_Flash.md — never recreate it:" >&2
+  echo "BLOCKED by RULES.md: merged duplicate findings-file stems (MERGED_SOURCE_STEMS in scripts/lib/validate.mjs: Mimo_v2.6_Flash -> MiMo_2.6_Flash; Space_Bunny -> MiniMax_M3.1_Flash; Cat_Jam -> Beam; Ox_Alpha -> GLM_5.3_Flash) — never recreate them:" >&2
   printf '%s\n' "$merged_stem_added" >&2
-  echo "Write into MiMo_2.6_Flash.md instead," >&2
+  echo "Write into the canonical stem instead (e.g. MiniMax_M3.1_Flash.md, Beam.md, GLM_5.3_Flash.md, MiMo_2.6_Flash.md)," >&2
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi

@@ -141,7 +141,7 @@
 71.4 hy3
 70.8 qwen3-max
 70.4 longcat-2.0
-69.8 glm-5.1
+69.6 glm-5.1
 69.1 gpt-5-codex
 68.8 hy3-preview
 68.4 diffusiongemma-26b-a4b

@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Inkling, MiMo 2.6 Flash.
 - Average from top 2 by Overall Score: Inkling, MiMo 2.6 Flash.
-- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, GLM 4.7 Flash.
+- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, GLM 4.7 Flash, Laguna XS 2.1.

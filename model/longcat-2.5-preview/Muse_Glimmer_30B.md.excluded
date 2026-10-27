@@ -1,27 +1,41 @@
-# LongCat 2.5 Preview — findings by Muse Glimmer 30B
+# LongCat-2.5-Preview — findings by Muse Glimmer 30B
 
-- Source: LongCat 2.5 Preview
+- Source: Meituan LongCat / LongCat-2.5-Preview
 - Date: 2026-10-26
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.5 Preview
-- **Short description:** Long-context model preview. No official model card published with verified benchmark numbers.
-- **Provider / access:** Unknown / preview.
-- **Release / knowledge:** Preview status.
-- **IDs:** `longcat-2.5-preview`
-- **Context window:** Not officially published.
-- **Modalities:** Unknown.
-- **Pricing:** Not published.
-- **Architecture:** Unknown.
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan preview multimodal MoE model claimed for coding and agentic workflows with 1M token context; API-only preview released Sep 2026.
+- **Provider / access:** Meituan LongCat API Platform; OpenRouter/SiliconFlow via `meituan/longcat-2.5-preview`; Chat Completions API.
+- **Release / knowledge:** Released 2026-09-25; knowledge cutoff not published.
+- **IDs:** `meituan/longcat-2.5-preview`
+- **Context window:** 1,048,576 tokens reported by vendor; max output 131,072 tokens.
+- **Modalities:** Vendor claims text + image input, text output; tool calling supported; multimodal support not independently verified.
+- **Pricing (as of 2026-10-26):** $0.30 / 1M input, $1.20 / 1M output limited-time promotional.
+- **Architecture:** Claimed 1.6T total / ~48B active MoE; no official model card confirming parameters for Preview SKU; open weights not released.
 
 ### Raw benchmarks found
 
-No verified public benchmark numbers found for exact model ID `longcat-2.5-preview`. No official model card or independent evaluation with citable numbers found.
+SELF-EXCLUSION: Meituan published no verified benchmark numbers for LongCat-2.5-Preview. BenchmarkList records 0 score rows; OrcaRouter notes no independent evaluation confirmed at import. No official model card with measured scores.
 
-SELF-EXCLUSION: zero verified public scores for this exact model/ID.
+Agent / tool use:
+- No verified public score found
+
+Reasoning / knowledge:
+- No verified public score found
+
+Coding:
+- No verified public score found
+
+Long context:
+- No verified public score found
 
 ---
+
 ## Signature
 
 - Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Method: public internet research; zero verified benchmarks for this exact model/ID, file saved as .excluded per RULES.md self-exclusion.

@@ -97,13 +97,23 @@ export function retiredAliasMessage(slug, canonical) {
  * separator written as `_` — vs `Laguna_XS_2.1`) was folded into the canonical
  * file and the variant removed (2026-10-08). Same for the Xiaomi rater filed
  * as `Mimo_v2.6_Flash` (`_v2.6` + lowercase) vs `MiMo_2.6_Flash` (canonical,
- * merged 2026-10-09 across 141 + 6 excluded files). Variants never come back: a
- * resurrect would silently double-count the same rater, so sync FAILs the
- * stem and writes nothing for it (never registered, parsed, or averaged).
+ * merged 2026-10-09 across 141 + 6 excluded files). The 2026-10-26
+ * revealed-stealth rater merge folds each stealth-era rater stem into the
+ * revealed model's stem wherever both rated the same subject (newest report
+ * wins; the revealed-stem file was newer in every collision): `Space_Bunny` ->
+ * `MiniMax_M3.1_Flash` (159 + 6 excluded collisions, 10 renames where no twin
+ * existed), `Cat_Jam` -> `Beam` (75 + 14 excluded), `Ox_Alpha` ->
+ * `GLM_5.3_Flash` (2 + 2 excluded). Variants never come back: a resurrect
+ * would silently double-count the same rater (and fake 2-report evidence
+ * agreement), so sync FAILs the stem and writes nothing for it (never
+ * registered, parsed, or averaged).
  */
 export const MERGED_SOURCE_STEMS = new Map([
   ["Laguna_XS_2_1", "Laguna_XS_2.1"],
   ["Mimo_v2.6_Flash", "MiMo_2.6_Flash"],
+  ["Space_Bunny", "MiniMax_M3.1_Flash"],
+  ["Cat_Jam", "Beam"],
+  ["Ox_Alpha", "GLM_5.3_Flash"],
 ]);
 
 /** Exact FAIL text for a resurrected merged findings-file stem. */
@@ -339,6 +349,10 @@ export const SIGNATURE_STEM_EXCEPTIONS = new Map([
   ["Grok_4.5", ["Grok"]],
   // Subject-name spelling drift (Flint-convention rater, folder omi-alpha).
   ["Flint", ["Omni Alpha"]],
+  // Revealed-stealth rater renames (2026-10-26): Space_Bunny.md files with no
+  // revealed twin were renamed to MiniMax_M3.1_Flash.md; the frozen stealth-era
+  // signature inside stays as history — same model (revealed 2026-10-19).
+  ["MiniMax_M3.1_Flash", ["Space Bunny"]],
 ]);
 
 /** Signature-display candidates: raw, minus the trailing `(<id>)`, minus all parens. */
@@ -452,6 +466,9 @@ export const CASE_LAW_NOTES = new Map([
   // Merged-and-deleted duplicate findings-file stems
   ["Laguna_XS_2_1", "underscore-version spelling of Laguna_XS_2.1 (one rater, two spellings, silent double-count risk); merged + deleted 2026-10-08"],
   ["Mimo_v2.6_Flash", "spelling variant of MiMo_2.6_Flash (same Xiaomi rater, lowercase + _v2.6); merged + deleted 2026-10-09"],
+  ["Space_Bunny", "stealth-era rater stem of MiniMax M3.1 Flash (revealed 2026-10-19) — same model rated subjects under both stems, faking 2-report evidence agreement; merged into MiniMax_M3.1_Flash (newest report wins; 159 + 6 excluded collisions, 10 renames where no twin existed); merged + deleted 2026-10-26 (user order)"],
+  ["Cat_Jam", "stealth-era rater stem of Beam 1.0 (revealed 2026-10-24) — same model under both stems; merged into Beam (newest report wins; 75 + 14 excluded collisions); merged + deleted 2026-10-26 (user order)"],
+  ["Ox_Alpha", "stealth-era rater stem of GLM-5.3-Flash (Z.ai confirmed 2026-08-26) — both stems above the 84.9 gate, so collisions double-counted one model in qualifying cohorts; merged into GLM_5.3_Flash (newest report wins; 2 + 2 excluded collisions); merged + deleted 2026-10-26 (user order; the ox_alpha subject folder stays parked separately)"],
 ]);
 
 /**

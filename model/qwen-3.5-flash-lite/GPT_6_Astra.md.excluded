@@ -1,0 +1,25 @@
+# Qwen3.5 Flash Lite — findings by GPT 6 Astra
+
+- Source: Unresolved Qwen3.5 Flash Lite label
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+No primary-source model card, API ID or checkpoint for the exact Qwen3.5 Flash Lite identity was verified. Release, architecture, modalities, context, output limit and pricing remain unverified for this exact label. No Zen Free ID established.
+
+The [official Alibaba model roster](https://www.alibabacloud.com/help/en/model-studio/text-generation-model/) names `qwen3.5-flash`, `qwen3.5-plus` and explicit open-weight sizes; it does not establish a Flash Lite variant. The [Flash documentation](https://docs.modelstudio.console.alibabacloud.com/en/model-studio/qwen3-5-flash) maps ordinary Flash to `qwen3.5-flash-2026-02-23`, with 1M context and image/video input. These are neighboring-model facts, not verified specifications for Lite. The [official price list](https://www.alibabacloud.com/help/en/model-studio/model-pricing) similarly lists ordinary Flash and its dated snapshot, not a distinct Lite model.
+
+### Raw benchmarks found
+
+No verified public score found for the exact requested identity in tool use, reasoning, coding, multimodal understanding or retrieval. Three exact-name searches and a fourth official-domain identity search returned unrelated changelog material, a general evaluation kit, and this project's own deployed site. The project's site is circular evidence and was not used as independent verification. Ordinary Flash or 35B-A3B benchmark scores cannot be silently reassigned to an undocumented Lite variant.
+
+### Normalized scores (1–100)
+
+Excluded: exact identity and attributable benchmark evidence unresolved. No numerical placeholder scores assigned. Reconsider if a publisher/gateway provides an explicit identity mapping and attributable measurements.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Four public web searches spanning exact-name documentation, independent benchmarks, API pricing and the official model catalog; exclusion reflects missing evidence, not demonstrated low quality.

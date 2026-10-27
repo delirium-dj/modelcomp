@@ -1,0 +1,41 @@
+# LongCat-2.5 — findings by Muse Glimmer 30B
+
+- Source: Meituan LongCat / LongCat-2.5
+- Date: 2026-10-26
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat-2.5
+- **Short description:** Meituan LongCat family entry; no distinct public model card found separate from LongCat-2.5-Preview.
+- **Provider / access:** Not independently listed on major providers; appears conflated with LongCat-2.5-Preview.
+- **Release / knowledge:** Not published.
+- **IDs:** None verified.
+- **Context window:** Not verified for distinct SKU.
+- **Modalities:** Not verified.
+- **Pricing:** Not verified.
+- **Architecture:** Not verified.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION: zero verified public benchmark numbers found for exact model/ID `longcat-2.5`. Vendor documentation references LongCat-2.5-Preview only; no independent benchmark rows, no model card with measured scores.
+
+Agent / tool use:
+- No verified public score found
+
+Reasoning / knowledge:
+- No verified public score found
+
+Coding:
+- No verified public score found
+
+Long context:
+- No verified public score found
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Method: public internet research; zero verified benchmarks for this exact slug, file saved as .excluded per RULES.md self-exclusion.

@@ -1,0 +1,29 @@
+# Qwen 3.7 — findings by GLM 5.3 (SELF-EXCLUDED)
+
+- Source: Alibaba Qwen (`qwen3.7`)
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Negative findings (why this file is `.excluded`)
+
+**ZERO verified public facts or benchmark numbers exist for a bare "Qwen3.7" model — the name is the generation/series name, and every measurable Qwen3.7 artifact is a suffixed member already tracked in its own folder.** Per the self-exclusion rule this file is saved as `GLM_5.3.md.excluded` — no scored `.md` is written, and no placeholder scores are invented. Figures measured on Qwen3.7-Max / -Plus / -Flash belong in their own folders (`model/qwen-3.7-max/`, `model/qwen-3.7-plus/`, `model/qwen-3.7-flash/`), never silently merged here (RULES.md family-shorthand identity; precedent: the parked `qwen-3.5` generation-name folder, model-aliases.generated.md).
+
+What was verified (2026-10-27, fresh independent passes over vendor docs, registries, and aggregators):
+
+- **Alibaba Cloud Model Studio** (docs.modelstudio.console.alibabacloud.com — `qwen3.7-max` / `qwen3.7-plus` / `qwen3.7-flash` model pages, last updated Oct 11, 2026): the Qwen3.7 series ships exactly three hosted IDs — `qwen3.7-max` (announced 2026-05-20; snapshot `qwen3.7-max-2026-05-17`, later `2026-06-08`), `qwen3.7-plus` (2026-06-01; snapshot `qwen3.7-plus-2026-05-26`), and `qwen3.7-flash` (Jul 2026; snapshot `qwen3.7-flash-2026-07-15`). **No bare `qwen3.7` route exists on any region endpoint.**
+- **Official series announcement** (https://qwen.ai/blog?id=qwen3.7, May 2026): the post is the Qwen3.7 **series** launch and announces **Qwen3.7-Max** (plus Qwen3.7-Plus-Preview); every benchmark table in it is explicitly labeled Qwen3.7-Max (SWE-Verified 80.4, SWE-Pro 60.6, GPQA Diamond 92.4, HLE 41.4, LiveCodeBench 91.6, Terminal Bench 2.0-Terminus 69.7) — measurements of the Max member, not of any bare model.
+- **The 3.7 generation never got open weights** (codersera Qwen 3.7 Max launch guide, May 2026: "the 3.7 generation never got open weights"; InsiderLLM open-weights guide, 2026-06-15: 3.7 "shipped entirely as closed-weight, paid API"): the open-weights line skipped 3.7 entirely — Qwen3.5-397B-A17B → Qwen3.6-35B-A3B (2026-04-16) → Qwen3.6-27B (2026-04-22) → Qwen3.8-27B (2026-08-14, which "builds upon the 3.6-27B version" per the QwenCloud changelog). No Qwen3.7-27B / Qwen3.7-35B repository exists on the Hugging Face Qwen org.
+- **Registries and aggregators**: OpenRouter serves only `qwen/qwen3.7-max`, `qwen/qwen3.7-plus`, `qwen/qwen3.7-flash`; models.dev lists only the three suffixed Alibaba IDs; Artificial Analysis tracks only Qwen3.7 Max (AA Intelligence Index 56.6, 2026-05-21) and Qwen3.7 Plus; BenchLM's "Best Alibaba Qwen Models" ranking (updated 2026-10-23) contains no bare Qwen3.7 row; Vals AI lists only qwen3.7-max and qwen3.7-plus.
+
+Conclusion: `qwen-3.7` is a bare generation name of exactly the same shape as the parked `qwen-3.5` entry (model-aliases.generated.md: "generation name, never a model — members tracked as..."). A future re-research should look for (a) a vendor announcement or model card for a bare "Qwen3.7" model, (b) a live `qwen3.7` API ID on Alibaba Model Studio, OpenCode Zen, OpenRouter, or any provider, (c) a Qwen3.7 open-weights drop on the Hugging Face Qwen org — then write a fresh `GLM_5.3.md`. A PARK-PROPOSAL for this folder is surfaced in the current run summary (parking requires explicit per-instance user sign-off per RULES.md; the members stay tracked in their own folders).
+
+Scores inside this file are intentionally omitted/ignored: the sync skips `.excluded` files loudly.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 (z-ai/glm-5.3)** — 2026-10-27
+- Method: public internet research (Alibaba Cloud Model Studio docs, official qwen.ai series blog, QwenCloud changelog, Hugging Face Qwen org, OpenRouter, models.dev, Artificial Analysis, BenchLM, Vals AI); no verified public data exists for a bare Qwen3.7 model.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

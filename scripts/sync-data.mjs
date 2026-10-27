@@ -123,24 +123,19 @@ const SOURCE_OVERRIDES = {
   "Mimo v2.5 Free": { label: "MiMo v2.5 Free", slug: "mimo-v2.5-free" },
   "MiMo 2.6 Flash": { label: "MiMo 2.6 Flash", slug: "mimo-v2.6-free" },
   "big-pickle": { label: "Big Pickle", slug: "big-pickle" },
-  "Ox Alpha": { slug: "ox_alpha" },
   // Muse Spark 1.2/1.3 each have ONE model page: Contributor/Free/Standard/Max
   // are tiers of the same weights (cost + Meta data-use differ), never separate
   // folders — tier-suffixed names must not resolve to a "-free"/"-max" folder.
   "Muse Spark 1.3": { slug: "muse-spark-1.3" },
   "Muse Spark 1.2": { slug: "muse-spark-1.2" },
-  // Space Bunny = Space Bunny Alpha (OpenRouter stealth/space-bunny-alpha) =
-  // Space Bunny Free (OpenCode space-bunny-free): revealed 2026-10-19 as
-  // MiniMax M3.1 Flash (Free) — one model under four labels. The stealth
-  // folder was merged into the revealed model's canonical folder on user
-  // order 2026-10-24 (RULES.md revealed-stealth identity); the rater key
-  // deep-links to the revealed model's page. Never scaffold
-  // space-bunny / space-bunny-alpha / space-bunny-free folders.
-  "Space Bunny": { slug: "minimax-m3.1-flash-preview" },
-  // Cat Jam / Cat Jam Free (Zen cat-jam-free): revealed as Reflection Beam 1.0
-  // (opencode/beam-free); stealth folder merged into model/beam/ on user
-  // order 2026-10-24. Rater key deep-links to Beam 1.0's page.
-  "Cat Jam": { slug: "beam" },
+  // Revealed-stealth rater merge (user rule 2026-10-26): the stealth-era
+  // rater stems "Space Bunny" (= MiniMax M3.1 Flash Free, revealed 2026-10-19),
+  // "Cat Jam" (= Beam 1.0) and "Ox Alpha" (= GLM-5.3-Flash) no longer exist —
+  // every stealth-era report was merged into the revealed stem's report
+  // (MERGED_SOURCE_STEMS in scripts/lib/validate.mjs) or renamed to it, so
+  // their overrides were removed. The "MiniMax M3.1 Flash" entry above is the
+  // revealed rater's own key (kept); never scaffold
+  // space-bunny / space-bunny-alpha / space-bunny-free / cat-jam folders.
   // GPT display labels (official OpenAI style is hyphenated "GPT-5.x", never
   // "GPT 5.x" — openai.com/index/gpt-5-1/, openai.com/index/gpt-4, API IDs
   // like `gpt-5.4-2026-03-05`). Filename stems keep underscores

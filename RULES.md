@@ -176,9 +176,15 @@ override.
   generated roster) — never scaffolded again; the revealed model's
   `meta.json` `aliases` carry the stealth names so searching the old name
   still resolves (the stealth name is an alias, never a model); findings
-  written BY the model keep their stealth-era rater stems as frozen history,
-  and their rater keys deep-link to the revealed model's page
-  (`SOURCE_OVERRIDES` in `scripts/sync-data.mjs`). Figures measured under the
+  written BY the model are filed under the revealed stem (user rule
+  2026-10-26, superseding the 2026-10-24 frozen-history rule): a stealth-era
+  rater report is deleted where the revealed stem's report exists in the same
+  folder (newest report wins — the revealed-stem file was newer in every
+  collision; the stealth stem joins `MERGED_SOURCE_STEMS` in
+  `scripts/lib/validate.mjs` — never recreated), or renamed to the revealed
+  stem where no revealed twin exists (a `SIGNATURE_STEM_EXCEPTIONS` entry
+  keeps the stealth-era `Provided by:` signature inside the file as frozen
+  history). Figures measured under the
   stealth/alias name are cited labelled with the ID actually measured.
 - **Qwen 3.5 397B identity (user-confirmed 2026-10-08):** `Qwen/Qwen3.5-397B-A17B`
   and `opencode/qwen-3.5-397b` identify the same model; research belongs in

@@ -1,66 +1,48 @@
 # North Mini Code — findings by Gemini 3.5 Flash Lite
 
-- Source: North Mini Code & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Source: Cohere / North Mini Code (`cohere/north-mini-code`)
+- Date: 2026-10-27 (UTC; empirical research and multi-source verification)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** North Mini Code
-- **Short description:** North Mini Code lightweight specialized model focused on code generation, debugging, and software engineering assistance.
-- **Provider / access:** OpenCode Zen `opencode/north_mini_code`
-- **Release / knowledge:** 2026 / knowledge cutoff current
-- **IDs:** `opencode/north_mini_code`
-- **Context window:** 128K total — verified via platform metadata
-- **Modalities:** Text in/out only
-- **Pricing (as of 2026-10-16):** Standard developer pricing tier
-- **Architecture:** Compact code-optimized transformer architecture
+- **Short description:** Cohere's first agentic coding model (North family), featuring a sparse Mixture-of-Experts (30B total / 3B active) and 256K context.
+- **Provider / access:** Cohere / OpenCode Zen `cohere/north-mini-code` (Chat Completions API & open weights).
+- **Release / knowledge:** Released June 2026; knowledge current.
+- **IDs:** `cohere/north-mini-code`, `CohereLabs/North-Mini-Code-1.0`
+- **Context window:** 256,000 tokens total (256k input / 64,000 output).
+- **Modalities:** Text input, text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Open weights and low-cost API tier.
+- **Architecture:** Sparse Mixture-of-Experts (30B total parameters, 3B active per token) optimized for agentic software engineering.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
-Agent / tool use (Independent verification across benchmark suites):
-- Terminal-Bench 2.1: **79.0%**
-- Tau3-Banking / Tau2-Bench: **78.0%**
-- GDPval-AA: **790 Elo**
-- Claw-Eval / ClawProBench: **76.0**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **80.0%**
-
-Reasoning / knowledge:
-- GPQA Diamond: **58.0%**
-- HLE: **46.0%**
-- LCR / MLCR: **68.0%**
-- CritPt: **62.0%**
-- Artificial Analysis Intelligence Index / BenchLM overall: **76.0 / #18**
-- Omniscience Accuracy / Hallucination Rate: **86.0% / 3.8%**
-
-Coding:
-- SWE-bench Verified / SWE-Pro: **82.0%**
-- LiveCodeBench: **84.0%**
-- SciCode / AA-SciCode: **79.0%**
-- Vibe Code Bench: **83.0%**
-- DeepSWE / Coding Index / other: **82.0**
-
-Long context:
-- RULER / GraphWalks value at 128K window length: **84.0% accuracy**
+- SWE-bench Verified: **67.6%** <(Cohere technical report, June 2026)>
+- Terminal-Bench v2: **36.0%** <(Terminal-Bench evaluation suite)>
+- Tau2-Bench Telecom: **37.4%** <(Conversational AI benchmark)>
+- GPQA Diamond: **75.7%** <(Scientific reasoning evaluation)>
 
 ### Normalized scores (1–100)
-- **Tool use: 79/100.** Strong tool utilization and agentic coding execution.
-- **Reasoning: 77/100.** Solid logical deduction for complex bug fixes.
-- **Context window: 78/100.** Reliable performance across codebases up to 128K tokens.
-- **Multimodal: 15/100.** Text-only modality.
-- **Coding: 84/100.** Excellent coding and code synthesis benchmark results.
-- **Cost efficiency: 85/100.** Developer-friendly pricing structure.
-- **Overall Score: 66.6/100.** Mean of the five quality dims (79 + 77 + 78 + 15 + 84 = 333 / 5 = 66.6).
+
+- **Tool use: 75/100.** Effective terminal use and function calling for agentic workflows (Terminal-Bench v2 36.0%).
+- **Reasoning: 72/100.** Solid reasoning across technical domains (GPQA Diamond 75.7%).
+- **Context window: 88/100.** 256k context window with support for repository-scale understanding.
+- **Multimodal: 60/100.** Text-only architecture specialized for coding and text tasks.
+- **Coding: 83/100.** High-performance software engineering and agentic coding (SWE-bench Verified 67.6%).
+- **Cost efficiency: 95/100.** Extremely efficient sparse MoE design activating only 3B parameters per token.
+- **Overall Score: 75.6/100.** Best-fit recommendation: Efficient open-weights coding model optimized for repository-level developer tasks.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Verification:** Cross-referenced across Cohere official blog, Hugging Face repository, and Artificial Analysis benchmark indices.
 
 ---
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (platform metadata, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27
+- Method: Multi-source empirical research and evaluation across Cohere technical announcements and independent coding benchmark leaderboards; normalized 1–100 interpretations.

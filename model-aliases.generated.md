@@ -39,6 +39,9 @@
 
 - `Laguna_XS_2_1` -> `Laguna_XS_2.1` — underscore-version spelling of Laguna_XS_2.1 (one rater, two spellings, silent double-count risk); merged + deleted 2026-10-08
 - `Mimo_v2.6_Flash` -> `MiMo_2.6_Flash` — spelling variant of MiMo_2.6_Flash (same Xiaomi rater, lowercase + _v2.6); merged + deleted 2026-10-09
+- `Space_Bunny` -> `MiniMax_M3.1_Flash` — stealth-era rater stem of MiniMax M3.1 Flash (revealed 2026-10-19) — same model rated subjects under both stems, faking 2-report evidence agreement; merged into MiniMax_M3.1_Flash (newest report wins; 159 + 6 excluded collisions, 10 renames where no twin existed); merged + deleted 2026-10-26 (user order)
+- `Cat_Jam` -> `Beam` — stealth-era rater stem of Beam 1.0 (revealed 2026-10-24) — same model under both stems; merged into Beam (newest report wins; 75 + 14 excluded collisions); merged + deleted 2026-10-26 (user order)
+- `Ox_Alpha` -> `GLM_5.3_Flash` — stealth-era rater stem of GLM-5.3-Flash (Z.ai confirmed 2026-08-26) — both stems above the 84.9 gate, so collisions double-counted one model in qualifying cohorts; merged into GLM_5.3_Flash (newest report wins; 2 + 2 excluded collisions); merged + deleted 2026-10-26 (user order; the ox_alpha subject folder stays parked separately)
 
 ## Alias-family records (kept tracked) — research under the listed folder only
 

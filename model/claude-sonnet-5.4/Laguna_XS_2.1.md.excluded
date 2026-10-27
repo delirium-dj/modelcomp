@@ -1,0 +1,68 @@
+# Claude Sonnet 5.4 — findings by Laguna XS 2.1
+
+> Source: Anthropic (`claude-sonnet-5.4`)
+> Date: 2026-10-28 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** Anthropic Claude Sonnet model - NOTE: This model identifier appears to be a naming error in the model roster. Anthropic's published lineup includes Claude Sonnet 5 (June 30, 2026) and Claude Sonnet 5.5 (September 28, 2026), but NO official "Sonnet 5.4" variant exists.
+- **Provider / access:** Anthropic API (`claude-sonnet-5-4`). No verified API endpoint found for this identifier.
+- **Release / knowledge:** UNKNOWN - No official release announcement found for Sonnet 5.4.
+- **IDs:** `claude-sonnet-5-4` (claimed in roster only); no matching documentation in Anthropic docs or OpenRouter.
+- **Context window:** Estimated 1M tokens (inferred from Sonnet 5 family).
+- **Modalities:** Text + image in; text out; reasoning (adaptive, always on).
+- **Pricing (as of 2026-10-28):** Not available - model not found in pricing docs.
+- **Architecture:** Proprietary (Anthropic) - estimated based on similar models.
+
+### Raw benchmarks found
+
+**CRITICAL: No verified public benchmarks found for Claude Sonnet 5.4**
+
+- **Terminal-Bench:** no verified score found in public sources
+- **OSWorld:** no verified score found
+- **Vals Index:** no verified score found
+- **GSQ: No verified scores found for this specific model identifier**
+- **HLE:** no verified score found
+- **AI Intelligence Index:** no verified score found
+
+**Available data from related models (Sonnet 5 family for reference only):**
+- Claude Sonnet 5 (June 2026): Terminal-Bench ~80%, various coding benchmarks
+- Claude Sonnet 5.5 (September 2026): Terminal-Bench ~70%, improved agentic tasks
+
+### Normalized scores (1–100)
+
+**NO VERIFIED BENCHMARKS FOUND** — Score estimation would be speculative.
+
+- **Tool use: TBD** - No verified benchmark data
+- **Reasoning: TBD** - No verified benchmark data  
+- **Context window: TBD** - No official specifications
+- **Multimodal: TBD** - No verification possible
+- **Coding: TBD** - No verified benchmark data
+- **Cost efficiency: TBD** - No pricing found
+
+- **Overall Score: SELF-EXCLUDED** — This model requires further investigation to confirm its existence. The "5.4" suffix appears to be unverified and does not match Anthropic's published model release timeline.
+
+---
+
+## Notes and Next Steps
+
+**This model appears to be misnamed in the roster.** The average.md file shows scores that average other models' reports, suggesting this may be:
+1. A placeholder/wrongly named model
+2. A stealth/revealed model that should be mapped to a different slug
+3. A data entry error in the model queue
+
+**Recommended actions:**
+1. Verify with Anthropic's official documentation
+2. Check if this maps to Claude Sonnet 5 or Sonnet 5.5
+3. Investigate the model-aliases.generated.md for potential mappings
+
+---
+
+## Signature
+
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-28
+- Method: Research found NO verified documentation for Claude Sonnet 5.4; investigated Anthropic's official docs, OpenRouter, and benchmark sources.
+- NOTE: This finding indicates a potential error in the model roster that needs correction.
