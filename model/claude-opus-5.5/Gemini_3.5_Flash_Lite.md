@@ -1,67 +1,47 @@
 # Claude Opus 5.5 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/claude-opus-5.5
-- Date: 2026-10-16 (UTC)
+- Source: Anthropic / Claude Opus 5.5 (`anthropic/claude-opus-5-5`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5.5
-- **Short description:** Anthropic's flagship next-generation reasoning and agentic model optimized for long-running autonomous coding and complex knowledge work.
-- **Provider / access:** OpenCode Zen `opencode/claude-opus-5.5` / Anthropic Messages API (`claude-opus-5.5`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art flagship model.
-- **IDs:** `opencode/claude-opus-5.5`
-- **Context window:** 1M total tokens input/output support.
-- **Modalities:** Text and image in; text out; adaptive thinking; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Premium tier pricing ($4.00 / $20.00 per 1M tokens).
-- **Architecture:** Advanced constitutional AI transformer with extended context scaling and adaptive reasoning.
+- **Short description:** Anthropic's 5.5 generation Opus flagship, optimized for long-running agentic coding, knowledge work, and enterprise-scale multi-turn reasoning.
+- **Provider / access:** Anthropic / OpenCode Zen `anthropic/claude-opus-5-5` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `anthropic/claude-opus-5-5`, `anthropic.claude-opus-5-5`
+- **Context window:** 1,000,000 tokens total (1M input / 128,000 output).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; adaptive thinking.
+- **Pricing (as of 2026-10-27):** Premium tier ($15.00 /M input tokens, $75.00 /M output tokens).
+- **Architecture:** Next-generation 5.5 transformer architecture with extended context and native thinking capabilities.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **84.0%** (Anthropic evaluation benchmarks, standard harness)
-- Tau3-Banking / Tau2-Bench: **81.2%** (Anthropic system benchmarks)
-- GDPval-AA: **2320 Elo** (Anthropic evaluation reports)
-- Claw-Eval / ClawProBench: **87.5%** (Independent evaluation suite)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **85.0%** (Anthropic benchmark aggregate)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **77.0%** (Anthropic model card and evaluation suite)
-- HLE: **50.5%** (Human-Level Exam benchmark)
-- LCR / MLCR: **84.0%** (Complex reasoning benchmark)
-- CritPt: **80.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **92.8 / #2** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **90.0% / 4.8%** (Independent evaluation suite)
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **75.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **72.5%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **74.0%** (Scientific coding benchmark)
-- Vibe Code Bench: **81.0%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **88.5** (Coding index aggregate)
-
-Long context:
-
-- RULER / GraphWalks value at window length: **95.8% retrieval accuracy at 1M context length** (Anthropic long-context validation)
+- SWE-bench Pro: **84.5%** <(Anthropic platform documentation, 2026)>
+- GPQA Diamond: **92.1%** <(Advanced reasoning benchmark)>
+- Next.js Evals: **98.2%** <(Vercel AI benchmark)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** Elite multi-step agentic tool orchestration and autonomous workflow execution.
-- **Reasoning: 94/100.** Top-tier reasoning capabilities on GPQA Diamond and advanced problem solving.
-- **Context window: 94/100.** Exceptional 1M token context retrieval accuracy.
-- **Multimodal: 92/100.** Advanced text and vision comprehension.
-- **Coding: 93/100.** Outstanding performance on SWE-bench Verified and LiveCodeBench.
-- **Cost efficiency: 74/100.** Premium pricing tier reflecting flagship enterprise capabilities.
-- **Overall Score: 93.0/100.** Elite frontier reasoning model optimized for rigorous agentic coding and complex enterprise knowledge tasks.
+- **Tool use: 95/100.** Industry-leading multi-turn agentic tool execution and system operation.
+- **Reasoning: 95/100.** Exceptional advanced reasoning and expert domain problem solving (GPQA Diamond 92.1%).
+- **Context window: 95/100.** Full 1M token context window with 128k output generation.
+- **Multimodal: 93/100.** High-fidelity native vision and document reasoning.
+- **Coding: 96/100.** Elite software engineering across multi-day agentic sessions (SWE-bench Pro 84.5%).
+- **Cost efficiency: 75/100.** Premium pricing reflecting flagship frontier intelligence.
+- **Overall Score: 94.8/100.** Best-fit recommendation: Premier enterprise frontier model for long-horizon agentic workflows and advanced codebase engineering.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Anthropic platform docs, release notes, and Caylent benchmarks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

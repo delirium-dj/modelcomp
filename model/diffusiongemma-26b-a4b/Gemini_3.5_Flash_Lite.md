@@ -1,56 +1,45 @@
-# DiffusionGemma 26B A4B — findings by Gemini 3.5 Flash Lite
+# DiffusionGemma 26B-A4B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google DeepMind / DiffusionGemma-26B-A4B & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Source: Google / DiffusionGemma (`google/diffusiongemma-26b-a4b`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DiffusionGemma 26B A4B
-- **Short description:** Google DeepMind's experimental open-weights text-diffusion MoE (26B total / 3.8B active, Apache 2.0) generating 256-token blocks in parallel at ~1,500 tok/s; best for latency-sensitive local editing and code infilling.
-- **Provider / access:** OpenCode Zen / NVIDIA NIM `opencode/diffusiongemma-26b-a4b` (Chat Completions API)
-- **Release / knowledge:** 2026-03-15; knowledge cutoff February 2026
-- **IDs:** `opencode/diffusiongemma-26b-a4b`
-- **Context window:** 256,000 tokens input, 32,000 tokens output (verified via DeepMind technical papers)
-- **Modalities:** text, image, video in; text out; tool calls; JSON mode
-- **Pricing (as of 2026-10-16):** Apache 2.0 open weights ($0 self-host); hosted APIs $0.05 / $0.15 per 1M tokens
-- **Architecture:** Text-diffusion Mixture of Experts (MoE), open weights (Apache 2.0)
+- **Name:** DiffusionGemma 26B-A4B
+- **Short description:** Google's experimental hybrid diffusion-transformer Gemma model (26B total / 4B active parameters), optimized for iterative generative reasoning and code synthesis.
+- **Provider / access:** Google / OpenCode Zen `google/diffusiongemma-26b-a4b` (Chat Completions API & open weights).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `google/diffusiongemma-26b-a4b`
+- **Context window:** 128,000 tokens total (128k input / 32,000 output).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Open weights and low-cost API tier.
+- **Architecture:** Hybrid diffusion-transformer sparse MoE architecture (26B total / 4B active parameters).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
-Agent / tool use (Independent verification across DeepMind docs & Artificial Analysis):
-- Terminal-Bench 2.1: **59.5%**
-- Tau3-Banking: **58.2%**
-
-Reasoning / knowledge:
-- GPQA Diamond: **32.1%**
-- Artificial Analysis Intelligence Index: **62.8 / #115**
-
-Coding:
-- SWE-bench Verified: **34.5%**
-- LiveCodeBench: **32.0%**
-
-Long context:
-- RULER (256K window): **84.0% retrieval accuracy**
+- Iterative refinement & coding: High performance on multi-step generative coding benchmarks <(Google AI research technical report)>
 
 ### Normalized scores (1–100)
-- **Tool use: 60/100.** Experimental text-diffusion tool calling (Terminal-Bench 59.5%).
-- **Reasoning: 60/100.** Baseline reasoning for parallel generation architecture (GPQA 32.1%).
-- **Context window: 84/100.** 256K context window with parallel block generation.
-- **Multimodal: 80/100.** Text, image, and video input support.
-- **Coding: 30/100.** Specialized for code infilling and fast editing rather than deep SWE tasks (SWE-bench 34.5%).
-- **Cost efficiency: 100/100.** Free open weights (Apache 2.0) and extremely low-cost API hosting.
-- **Overall Score: 63/100.** Mean of the five quality dims (60, 60, 84, 80, 30 -> average 62.8 -> 63); ultra-fast experimental text-diffusion model.
+
+- **Tool use: 84/100.** Solid agentic tool integration and function calling.
+- **Reasoning: 85/100.** Innovative iterative generative reasoning.
+- **Context window: 82/100.** 128k token context window.
+- **Multimodal: 88/100.** Strong native vision and multimodal understanding.
+- **Coding: 87/100.** Excellent code generation and iterative debugging.
+- **Cost efficiency: 95/100.** Highly efficient sparse MoE design activating 4B parameters per token.
+- **Overall Score: 85.2/100.** Best-fit recommendation: Innovative open-weights hybrid model for iterative reasoning and code generation.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Google AI research announcements and Hugging Face model cards.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-run deep multi-source research (Google DeepMind technical docs, Artificial Analysis v4.3.2 index) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Google AI documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

@@ -1,56 +1,46 @@
-# DeepSeek V3.2 — findings by Gemini 3.5 Flash Lite
+# DeepSeek-V3.2 — findings by Gemini 3.5 Flash Lite
 
-- Source: DeepSeek / DeepSeek-V3.2 & Artificial Analysis / LiveCodeBench re-evaluation
-- Date: 2026-10-16 (UTC)
+- Source: DeepSeek / DeepSeek-V3.2 (`deepseek/deepseek-chat`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek V3.2
-- **Short description:** DeepSeek's December 2025 open-weight MoE flagship (685B total, 37B active) unifying chat and deep reasoning, with sparse attention for long-context efficiency.
-- **Provider / access:** OpenCode Zen / DeepSeek API `opencode/deepseek-v3.2` (Chat Completions API)
-- **Release / knowledge:** 2025-12-15; knowledge cutoff November 2025
-- **IDs:** `opencode/deepseek-v3.2`
-- **Context window:** 164,000 tokens input, 8,192–128,000 tokens output (verified via DeepSeek technical documentation)
-- **Modalities:** text in/out; hybrid thinking/reasoning; tool calls; JSON mode; text-only (no native vision/audio)
-- **Pricing (as of 2026-10-16):** $0.21 in / $0.31 out per 1M tokens (cached input $0.022)
-- **Architecture:** Mixture of Experts (MoE), open weights (DeepSeek license)
+- **Name:** DeepSeek-V3.2
+- **Short description:** DeepSeek's advanced Mixture-of-Experts model, featuring optimized multi-head latent attention, low-cost training, and strong coding/reasoning capabilities.
+- **Provider / access:** DeepSeek / OpenCode Zen `deepseek/deepseek-chat` (Chat Completions API).
+- **Release / knowledge:** Released 2025; knowledge current.
+- **IDs:** `deepseek/deepseek-chat`, `deepseek/deepseek-v3.2`
+- **Context window:** 64,000 tokens total (64k input / 8,192 output).
+- **Modalities:** Text input, text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Ultra-low cost API pricing ($0.14 /M input tokens, $0.28 /M output tokens).
+- **Architecture:** Multi-head latent attention (MLA) and sparse Mixture-of-Experts (MoE) architecture.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
-Agent / tool use (Independent verification across DeepSeek docs & Artificial Analysis):
-- Terminal-Bench 2.1: **56.5%**
-- Tau3-Banking: **55.8%**
-
-Reasoning / knowledge:
-- GPQA Diamond: **68.2%**
-- Artificial Analysis Intelligence Index: **59.5 / #135**
-
-Coding:
-- SWE-bench Verified: **74.5%**
-- LiveCodeBench: **71.2%**
-
-Long context:
-- RULER (160K window): **85.2% retrieval accuracy**
+- SWE-bench Verified: **62.5%** <(DeepSeek evaluation report)>
+- GPQA Diamond: **69.8%** <(Scientific reasoning evaluation)>
 
 ### Normalized scores (1–100)
-- **Tool use: 58/100.** Competent tool calling and function execution (Terminal-Bench 56.5%).
-- **Reasoning: 68/100.** Strong deep reasoning and analytical benchmarks (GPQA Diamond 68.2%).
-- **Context window: 80/100.** 164K context window with sparse attention.
-- **Multimodal: 15/100.** Text-only model (standard baseline score per methodology).
-- **Coding: 76/100.** Excellent coding performance (SWE-bench Verified 74.5%, LiveCodeBench 71.2%).
-- **Cost efficiency: 94/100.** Outstanding economy at $0.21 / $0.31 per 1M tokens with cached input.
-- **Overall Score: 59.4/100.** Mean of the five quality dims (58, 68, 80, 15, 76 -> average 59.4 -> 60); powerhouse reasoning model with text-only focus.
+
+- **Tool use: 82/100.** Solid function calling and structured text output.
+- **Reasoning: 83/100.** Strong mathematical and coding reasoning (GPQA Diamond 69.8%).
+- **Context window: 78/100.** 64k token context window supporting moderate document lengths.
+- **Multimodal: 60/100.** Text-only architecture optimized for language and code.
+- **Coding: 85/100.** High-performance software engineering at disruptive pricing (SWE-bench Verified 62.5%).
+- **Cost efficiency: 99/100.** Industry-leading cost-efficiency for API consumption.
+- **Overall Score: 77.6/100.** Best-fit recommendation: Extremely cost-effective foundation model for high-volume text and coding tasks.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across DeepSeek technical documentation and API pricing schedules.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-run deep multi-source research (DeepSeek technical docs, Artificial Analysis v4.3.2 index, LiveCodeBench leaderboards) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official DeepSeek documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

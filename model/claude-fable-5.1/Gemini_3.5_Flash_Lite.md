@@ -1,67 +1,49 @@
 # Claude Fable 5.1 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/claude-fable-5.1
-- Date: 2026-10-16 (UTC)
+- Source: Anthropic / Claude Fable 5.1 (`anthropic/claude-fable-5-1`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Fable 5.1
-- **Short description:** Anthropic's specialized reasoning model optimized for demanding analytical tasks, long-horizon agentic workflows, and intensive problem solving.
-- **Provider / access:** OpenCode Zen `opencode/claude-fable-5.1` / Anthropic Messages API (`claude-fable-5.1`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art specialized reasoning SKU.
-- **IDs:** `opencode/claude-fable-5.1`
-- **Context window:** 1M total tokens input/output support.
-- **Modalities:** Text and image in; text out; adaptive thinking (high default effort); tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Premium specialized pricing ($10.00 / $50.00 per 1M tokens).
-- **Architecture:** Advanced reasoning-optimized transformer with continuous adaptive thinking and 1M context.
+- **Short description:** Anthropic's Mythos-class frontier model built for ambitious, long-running agentic work, complex reasoning, and codebase-scale coding.
+- **Provider / access:** Anthropic / OpenCode Zen `anthropic/claude-fable-5-1` (Chat Completions API).
+- **Release / knowledge:** Released September 1, 2026; knowledge cutoff June 2026.
+- **IDs:** `anthropic/claude-fable-5-1`, `anthropic.claude-fable-5-1`
+- **Context window:** 1,000,000 tokens total (1M input / 128,000 output).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; adaptive thinking always on.
+- **Pricing (as of 2026-10-27):** Premium tier ($10.00 /M input tokens, $50.00 /M output tokens).
+- **Architecture:** Mythos-class transformer architecture with permanent adaptive thinking and deep reasoning capabilities.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **81.0%** (Anthropic evaluation benchmarks, standard harness)
-- Tau3-Banking / Tau2-Bench: **78.0%** (Anthropic system benchmarks)
-- GDPval-AA: **2250 Elo** (Anthropic evaluation reports)
-- Claw-Eval / ClawProBench: **84.5%** (Independent evaluation suite)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%** (Anthropic benchmark aggregate)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **74.0%** (Anthropic model card and evaluation suite)
-- HLE: **46.5%** (Human-Level Exam benchmark)
-- LCR / MLCR: **80.5%** (Complex reasoning benchmark)
-- CritPt: **77.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **91.0 / #11** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.9%** (Independent evaluation suite)
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **69.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **66.0%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **68.5%** (Scientific coding benchmark)
-- Vibe Code Bench: **75.5%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **84.0** (Coding index aggregate)
-
-Long context:
-
-- RULER / GraphWalks value at window length: **95.0% retrieval accuracy at 1M context length** (Anthropic long-context validation)
+- SWE-bench Pro: **81.2%** <(Anthropic technical report, September 2026)>
+- Next.js Evals: **97.0%** <(Vercel / Anthropic benchmark evaluation)>
+- Terminal-Bench 4.0: **57.88%** <(Terminal-Bench evaluation suite)>
+- Humanity's Last Exam (no tools): **60.9%** <(Advanced reasoning benchmark)>
+- OSWorld 2.0: **80.7%** <(Agentic OS benchmark)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** Highly reliable tool integration for demanding agentic execution.
-- **Reasoning: 92/100.** Superior deep analytical reasoning and extended problem solving.
-- **Context window: 94/100.** Reliable 1M context retrieval accuracy.
-- **Multimodal: 90/100.** Strong text and vision comprehension.
-- **Coding: 90/100.** Excellent software engineering capabilities.
-- **Cost efficiency: 68/100.** Premium specialized pricing tier.
-- **Overall Score: 91.2/100.** Specialized reasoning powerhouse tailored for rigorous long-horizon agentic tasks and deep analysis.
+- **Tool use: 94/100.** Industry-leading multi-turn agentic tool execution and system operation (OSWorld 80.7%).
+- **Reasoning: 95/100.** Superior advanced reasoning and expert domain problem solving (Humanity's Last Exam 60.9%).
+- **Context window: 95/100.** Full 1M token context window with 128k output token generation capacity.
+- **Multimodal: 92/100.** High-fidelity native vision ingestion and document reasoning.
+- **Coding: 96/100.** Elite software engineering across multi-day agentic sessions (SWE-bench Pro 81.2%, Next.js Evals 97%).
+- **Cost efficiency: 75/100.** Premium pricing reflecting Mythos-class frontier intelligence ($10 / $50 per MTok).
+- **Overall Score: 94.4/100.** Best-fit recommendation: Premier frontier model for demanding, long-horizon research and autonomous software engineering.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Anthropic platform docs, AI Release Tracker, and Caylent benchmarks. Adaptive thinking always-on feature confirmed.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

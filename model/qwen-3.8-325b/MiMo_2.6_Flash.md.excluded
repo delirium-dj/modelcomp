@@ -1,0 +1,52 @@
+# Qwen 3.8 325B — findings by MiMo 2.6 Flash
+
+- Source: Alibaba/Qwen `qwen-3.8-325b`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom model):** no AI model named "Qwen3.8-325B" / `qwen-3.8-325b` exists in any official or independent catalog. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** Qwen 3.8 325B (`qwen-3.8-325b`) — **no released Qwen model matches this name.** The Qwen 3.8 generation's actual members are:
+  - **Qwen3.8-Max** (2026-08-03) — 2.4T parameters, 95B active, 1M context; open-weights release Aug 2026 gated at $50M revenue (developersdigest, wealthengine, edgeX);
+  - **Qwen3.8-Max-0902** (upgrade, Alibaba Cloud Facebook);
+  - **Qwen3.8-27B** (17 GB open-weight, r/LocalLLaMA, MTPLX, openreview citations);
+  - **Qwen3.8-Flash-Next / Flash / Plus** (latent.space, BenchLM ledger).
+  No 325B member exists at any point in the lineup.
+- **Likely contamination source:** **Qwen2.5-Max (January 2025) was a 325B-parameter MoE** — the only "325B" figure ever attached to a Qwen model (thenewschannel substack, ESGenius table: "Qwen Qwen2.5-Max 22B† (MoE 325B)"). The slug appears to graft that 2025 param count onto the 2026 Qwen3.8 brand.
+- **Provider / access:** none — no Model Studio id, no OpenRouter id, no Hugging Face repo, no third-party host found under this name.
+- **Release / knowledge:** n/a — never released.
+- **IDs:** none found.
+- **Context window:** n/a.
+- **Modalities:** n/a.
+- **Pricing:** n/a.
+- **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Three web searches on 2026-10-27 (`"Qwen3.8-325B" OR "Qwen 3.8 325B" model release benchmarks open weights`; exact-phrase `"Qwen3.8-325B" OR "qwen-3.8-325b" OR "Qwen3.8 325B" huggingface OR openrouter OR model studio` → **zero results**; Qwen 3.8 lineup enumeration) surfaced no model, no weights, no provider listing, and no benchmark table under this name.
+2. Cross-checks confirm the Qwen 3.8 family composition (Max 2.4T / 27B / Flash-Next / Flash / Plus) with no 325B variant in any release announcement, HF org, or provider catalog; BenchLM's full Alibaba family ledger (25+ entries) contains no `qwen3.8-325b`.
+3. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder could not have come from a real `qwen-3.8-325b` evaluation and should be reviewed by the project owner — the intended identity may be **Qwen2.5-Max (325B MoE)**, which would need its own slug.
+4. Note: this folder is not in `model-queue.md` (no average.md participation in the current roster), so no scores are pending anyway.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom identity; zero verified public benchmark numbers for `qwen-3.8-325b`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research across general search, exact-phrase provider/HF queries, Qwen 3.8 release coverage (developersdigest, edgeX, wealthengine, latent.space, BenchLM family ledger), and Qwen2.5-Max param-count records; scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if Alibaba ever publishes a `qwen3.8-325b` (or the intended identity is clarified by the project owner), re-research and replace this file with a scored report.

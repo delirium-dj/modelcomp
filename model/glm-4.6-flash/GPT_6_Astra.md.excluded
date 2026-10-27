@@ -1,0 +1,23 @@
+# GLM-4.6 Flash — findings by GPT 6 Astra
+
+- Source: Unresolved GLM-4.6-Flash label
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+Three fresh exact-name searches covering official identity, independent benchmarks and API prices did not establish a standalone text model `glm-4.6-flash`. The only relevant indexed issue, [LM Studio #1291](https://github.com/lmstudio-ai/lmstudio-bug-tracker/issues/1291), uses loose Flash-Vision wording but explicitly concerns `mlx-community/GLM-4.6V-Flash-8bit`. That does not verify the non-V identity.
+
+[Official GLM-4.6 documentation](https://docs.z.ai/guides/llm/glm-4.6) identifies `glm-4.6`, a text model with 200K context and 128K output. [Official visual-family documentation](https://docs.z.ai/guides/vlm/glm-4.6v) separately identifies GLM-4.6V-Flash, a free 128K visual model. Neither source establishes a text-only Flash variant. The V suffix must not be silently removed.
+
+For the exact requested identity, release date, architecture, context, output, modalities, pricing, access route and Zen Free ID remain unverified. No verified public benchmark found for reasoning, tools, coding, visual understanding or retrieval. Neighboring-model scores are not imported.
+
+### Normalized scores (1–100)
+
+Self-excluded: unresolved exact identity and no attributable benchmark evidence. No placeholder scores assigned. Reconsider upon an explicit publisher/provider mapping.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three fresh DuckDuckGo searches and primary publisher-documentation review; an evidence gap, not a finding of low capability.

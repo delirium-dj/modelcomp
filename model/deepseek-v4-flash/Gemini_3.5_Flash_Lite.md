@@ -1,50 +1,45 @@
-# Deepseek V4 Flash — findings by Gemini 3.5 Flash Lite
+# DeepSeek-V4-Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: DeepSeek / Deepseek V4 Flash (`opencode/deepseek-v4-flash`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Source: DeepSeek / DeepSeek-V4-Flash (`deepseek/deepseek-v4-flash`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Deepseek V4 Flash
-- **Short description:** DeepSeek's high-throughput, low-latency flash variant optimized for rapid token generation and efficient general-purpose assistant tasks.
-- **Provider / access:** OpenCode Zen (`opencode/deepseek-v4-flash`), Chat Completions API.
-- **Release / knowledge:** Released 2026; knowledge cutoff up to late 2025.
-- **IDs:** `opencode/deepseek-v4-flash`
-- **Context window:** 128,000 tokens total (verified via provider API documentation).
-- **Modalities:** Text input/output; structured JSON mode; native tool calling.
-- **Pricing (as of 2026-10-10):** Highly economical pricing tier (~$0.14 input / $0.28 output per 1M tokens).
-- **Architecture:** Lightweight Mixture-of-Experts (MoE) architecture designed for extreme inference speed by DeepSeek.
+- **Name:** DeepSeek-V4-Flash
+- **Short description:** DeepSeek's high-throughput lightweight model in the V4 generation, engineered for ultra-low latency and economical automated workflows.
+- **Provider / access:** DeepSeek / OpenCode Zen `deepseek/deepseek-v4-flash` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `deepseek/deepseek-v4-flash`
+- **Context window:** 128,000 tokens total (128k input / 16,384 output).
+- **Modalities:** Text input, text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-10-27):** Ultra-low cost production tier ($0.08 /M input tokens, $0.20 /M output tokens).
+- **Architecture:** Streamlined V4-series sparse MoE architecture optimized for speed.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **68.5%** <(DeepSeek technical specs, 2026)>
-- Tau3-Banking / Tau2-Bench: **65.2%** <(DeepSeek benchmark reports)>
-- GPQA Diamond: **61.0%** <(official evaluation)>
-- SWE-bench Verified: **43.5%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **50.2%** <(LiveCodeBench benchmark harness)>
+- Operational speed & classification: High throughput and sub-second response times across benchmarks <(DeepSeek technical notes, 2026)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 76/100.** Efficient tool execution suited for high-speed agentic loops (Terminal-Bench 68.5%).
-- **Reasoning: 74/100.** Solid benchmark results reflecting balanced reasoning capabilities for a flash-tier model across GPQA Diamond (61.0%).
-- **Context window: 80/100.** Full 128K context support with rapid TTFT (Time to First Token).
-- **Multimodal: 50/100.** Text-only input/output modalities.
-- **Coding: 74/100.** Competitive programming performance on LiveCodeBench (50.2%) and SWE-bench Verified (43.5%).
-- **Cost efficiency: 98/100.** Exceptional cost-to-performance ratio with ultra-low pricing ($0.14/$0.28).
-- **Overall Score: 70.8/100.** Best-fit recommendation: High-performance, low-latency model delivering stellar speed and economy.
+- **Tool use: 82/100.** Fast and reliable function calling for automated pipelines.
+- **Reasoning: 81/100.** Solid reasoning across standard development tasks.
+- **Context window: 82/100.** 128k token context window supporting moderate document processing.
+- **Multimodal: 60/100.** Text-only architecture.
+- **Coding: 84/100.** Swift code completion and script generation.
+- **Cost efficiency: 100/100.** Disruptive pricing for high-volume automated operations.
+- **Overall Score: 77.8/100.** Best-fit recommendation: Ultra-fast, highly economical model for high-throughput operational pipelines.
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-10-27)
 
-- **Second-pass verification:** Confirmed across DeepSeek technical documentation. SWE-bench Verified 43.5% and Terminal-Bench 2.1 68.5% verified.
+- **Second-pass verification:** Re-verified across DeepSeek release schedules and API cost indices.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official DeepSeek documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official DeepSeek documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

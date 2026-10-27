@@ -1,0 +1,29 @@
+# Leanstral 1.5 — findings by GPT 6 Astra
+
+- Source: Mistral AI / Leanstral 1.5
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Official documentation](https://docs.mistral.ai/models/leanstral-1-5) identifies `labs-leanstral-1-5`, a Lean 4 proof-engineering model with 119B total/6.5B active parameters, Apache 2.0, 256K context/128K output, Chat Completions, function calling and structured outputs. Weights are `mistralai/Leanstral-1.5-119B-A6B`. Text proof/code use is established; native image/audio/video support and knowledge cutoff are not verified.
+
+The official model date is June 30, 2026; news reports place the announcement July 2. These can describe checkpoint versus announcement dates. Current documentation explicitly marks it **deprecated**, with September 29, 2026 deprecation date. [Requesty](https://www.requesty.ai/models/mistral/leanstral-1-5) and [Rundown](https://www.therundown.ai/tools/leanstral-1-5) list free Labs input/output (Rundown also cached input); this does not guarantee ongoing hosted availability after deprecation or free local compute. No distinct Zen Free ID verified.
+
+### Raw benchmarks and reconciliation
+
+Publisher results are summarized in [MarkTechPost](https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems/), [MLQ](https://mlq.ai/news/mistral-releases-leanstral-15-an-open-source-formal-verification-model-that-found-five-unknown-bugs/) and [Flowith](https://flowith.io/ai-models/leanstral-1-5/): **587/672 PutnamBench**, **100% miniF2F validation/test**. These are specialist proof-system results, not broad GPQA/HLE or general application coding. Secondary cost claims disagree ($1.68/problem versus approximately $4/solution); denominator, sampling and infrastructure differences were not established, so neither becomes an API tariff or cost score.
+
+The [independent MiaAI evaluation](https://github.com/MiaAI-Lab/Leanstral-1.5-119B-A6B_Review) used local vLLM, temperature 0.2, and 20 tests in two tiers. It records **10/10 API successes per tier**, mean latencies **7.2 seconds** and **32 seconds**, but explicitly **did not compile the generated proofs**. Its estimated 75–85% compile rate is not measured and is excluded as a benchmark. Server crashes required retries, and Mathlib was not pinned. Its letter grades therefore cannot establish verified theorem correctness or general agent reliability.
+
+No verified broad exact-model coding, general tool-use, multimodal or long-context retrieval benchmark recovered; no exact HLE/GPQA, SWE-bench, terminal, MCP-Atlas, Claw-Eval or Toolathon result established. [BenchLM](https://benchlm.ai/models/leanstral-1-5) likewise exposes no sourced benchmark rows, but that does not erase the specialist publisher evidence above.
+
+### Normalized scores (1–100)
+
+Self-excluded from a complete general-model score: specialist formal mathematics evidence is substantial, but translating it into broad coding, general-agent and general-reasoning dimensions would overstate evaluation coverage. No placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three targeted public web searches and direct official-model/independent-evaluation retrieval; distinguished API success from compiler-verified proof correctness.

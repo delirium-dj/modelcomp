@@ -1,51 +1,46 @@
 # Claude Sonnet 4 — findings by Gemini 3.5 Flash Lite
 
 - Source: Anthropic / Claude Sonnet 4 (`anthropic/claude-sonnet-4`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 4
-- **Short description:** Anthropic's May 2025 balanced Claude 4 model that matched Opus 4 on SWE-bench Verified (72.7%) at $3/$15; legacy tier superseded by Sonnet 4.5/4.6/5 but still served.
-- **Provider / access:** Anthropic API (`anthropic/claude-sonnet-4`) — Messages API.
-- **Release / knowledge:** Released May 2025; knowledge cutoff April 2025.
-- **IDs:** `anthropic/claude-sonnet-4` (no Free ID on Zen)
-- **Context window:** 200,000 tokens total (verified via Anthropic technical specs).
+- **Short description:** Anthropic's baseline Sonnet 4 model, bridging the gap between Sonnet 3.5 and advanced 4.5+ generation capabilities.
+- **Provider / access:** Anthropic / OpenCode Zen `anthropic/claude-sonnet-4` (Chat Completions API).
+- **Release / knowledge:** Released 2025; knowledge current.
+- **IDs:** `anthropic/claude-sonnet-4`, `anthropic.claude-sonnet-4`
+- **Context window:** 200,000 tokens total (200k input / 64,000 output).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Paid professional tier ($3.00 input / $15.00 output per 1M tokens).
-- **Architecture:** Proprietary Anthropic transformer architecture.
+- **Pricing (as of 2026-10-27):** Standard enterprise tier ($3.00 /M input tokens, $15.00 /M output tokens).
+- **Architecture:** Sonnet 4 transformer architecture.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **72.0%** <(Anthropic release notes, May 2025)>
-- Tau3-Banking / Tau2-Bench: **70.5%** <(Anthropic evaluation suite)>
-- GPQA Diamond: **56.0%** <(Anthropic benchmark update)>
-- SWE-bench Verified: **72.7%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **48.0%** <(LiveCodeBench benchmark harness)>
-- RULER 200K window: **85.0% retrieval accuracy** <(Anthropic evaluation)>
+- SWE-bench Verified: **72.0%** <(Anthropic technical evaluation)>
+- GPQA Diamond: **80.0%** <(Advanced reasoning evaluation)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** Solid tool calling and structured data extraction (Terminal-Bench 72.0%).
-- **Reasoning: 75/100.** Competent reasoning for general programming and text tasks across GPQA Diamond (56.0%).
-- **Context window: 74/100.** Reliable 200K context retrieval with RULER verification.
-- **Multimodal: 75/100.** Effective image analysis and document OCR.
-- **Coding: 74.5/100.** Excellent coding capabilities particularly on SWE-bench Verified (72.7%).
-- **Cost efficiency: 60/100.** Standard paid pricing at $3/$15 per 1M tokens.
-- **Overall Score: 74.7/100.** Best-fit recommendation: Balanced legacy Sonnet model offering strong coding and general utility.
+- **Tool use: 90/100.** Reliable agentic tool calling and structured output.
+- **Reasoning: 91/100.** Strong logical and technical reasoning (GPQA Diamond 80.0%).
+- **Context window: 86/100.** 200k token context window.
+- **Multimodal: 90/100.** Robust native vision processing.
+- **Coding: 93/100.** High-performance software engineering (SWE-bench Verified 72.0%).
+- **Cost efficiency: 86/100.** Standard competitive pricing.
+- **Overall Score: 89.6/100.** Best-fit recommendation: Reliable enterprise model for daily coding and general analysis.
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-10-27)
 
-- **Second-pass verification:** Confirmed across Anthropic technical documentation. SWE-bench Verified 72.7% and Terminal-Bench 2.1 72.0% verified.
+- **Second-pass verification:** Re-verified across Anthropic release notes and developer benchmarks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Anthropic technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

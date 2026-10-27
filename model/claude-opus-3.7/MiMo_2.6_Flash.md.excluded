@@ -1,0 +1,48 @@
+# Claude Opus 3.7 — findings by MiMo 2.6 Flash
+
+- Source: Anthropic `claude-opus-3-7` / "Claude Opus 3.7"
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom / nickname-conflation identity):** no Anthropic product named "Claude Opus 3.7" has ever been released. The name resolves to (a) a **user-community codename for the throttled/limited Opus 4.6** and (b) a **citation/conflation artifact** with Claude 3.7 Sonnet. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** Claude Opus 3.7 (`claude-opus-3.7`) — **does not exist as a released model.** Anthropic's Opus lineage runs 4 → 4.1 → **4.4 → 4.5 → 4.6 → 4.7 → 5 → 5.5**; its early-2025 "3.7" release was **Claude 3.7 Sonnet** (Feb 2025, hybrid reasoning) — never an Opus 3.7. No `claude-opus-3-7` API id appears on llm-stats, llm-registry, BenchLM, OpenRouter, or any provider catalog (searched 2026-10-27).
+- **What the name actually is — three documented noise sources:**
+  1. **Community codename for the "limited opus" (Apr 2026).** Verbatim from comment #7 by user `rurban` on the official `anthropics/claude-code` issue [#42796](https://github.com/anthropics/claude-code/issues/42796) (Apr 6, 2026, 👍15): *"Indeed, codex with gpt-5.4 bypassed opus-4.6 since about February in complex tasks. It's also cheaper and faster. **We gave the limited opus the codename opus—3.7**."* "We" = the commenter's team; the "limited opus" is Opus 4.6 served at reduced thinking/effort (the issue documents the Feb–Mar 2026 redaction/medium-effort rollout). The codename is a *mocking downgrade label* ("it now behaves like a hypothetical 3.7"), not a product.
+  2. **Erroneous academic citation predating the nickname.** Ravenea (arXiv 2505.14462, May 2025; ICLR 2026 proceedings) cites *"Claude Opus 3.7 (Anthropic, 2024)"* — wrong year and wrong product line in the same phrase; a generation-era citation hallucination.
+  3. **Speculation / SEO / reseller adopters of the slang.** Medium's Optimus Alpha deep-dive hedges *"perhaps Opus 3.7?"*; a content-farm pingback advertises "GPT 5.5 vs Claude Opus 3.7: Pricing & Comparison 2026"; a Threads reseller lists "8折claude opus 3.7"; a hand-maintained portfolio config (miasma, PRICING_LAST_UPDATED 2026-09-16) carries a `'claude-opus-3-7': 0.51` / `'opus-3-7': (6.0, 25.2)` entry matching no Anthropic rate card.
+- **Ambiguous references noted, not counted:** Roboflow X ("we ran [Claude Opus 3.7] through our eval" vs GPT-5.5) gives no model id or numbers — consistent with either the slang or a 3.7-Sonnet misname; HN/LinkedIn/biorxiv/YouTube usage mentions (incl. "Kimi k2.6 Nears Claude Opus 3.7") all postdate or echo the nickname era. None is a first-party release record.
+- **Provider / access:** none — no Model Studio/API id, no OpenRouter id, no system card, no pricing page, no Anthropic news post ever found.
+- **Release / knowledge:** n/a — never released. (A real "Opus 3.7" would predate Opus 4.0/May 2025, yet every reference is 2025-2026 conflation or nickname-era — the timeline is incoherent for a product.)
+- **IDs:** none found (`claude-opus-3-7` never observed in any catalog).
+- **Context window:** n/a. **Modalities:** n/a. **Pricing:** n/a (the lone `opus-3-7: (6.0, 25.2)` config row matches no official card). **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Six web searches on 2026-10-27 — `"Claude Opus 3.7" Anthropic model release`; `"Claude Opus 3.7" release date benchmarks SWE-bench pricing 2025`; `"Optimus Alpha" OpenRouter Anthropic "Opus 3.7" stealth model identified`; `"claude-opus-3-7" OR "claude opus 3.7" benchlm OR llm-stats OR openrouter model page price`; `"opus-3-7" OR "claude-opus-3.7" API models list OR pricing per million tokens Anthropic`; exact-phrase `"We gave the limited opus the codename"` — plus two fetches (issue #42796 and its timeline) confirming the rurban comment verbatim.
+2. The catalog sweep is decisive: no llm-stats / llm-registry / BenchLM / OpenRouter / provider page exists for the name, while every retrievable mention is one of the three noise sources above. No launch post, no pricing page, no system card, no benchmark table anywhere.
+3. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The `average.md` present in this folder could not have come from a real `claude-opus-3-7` evaluation and should be reviewed by the project owner — the intended identity is most likely **Claude 3.7 Sonnet** (a real Feb-2025 model), which would need its own slug; a secondary possibility is that the folder tracks the Opus-4.6 "limited" nickname, which is not a model.
+4. Note: this folder is not in `model-queue.md` (despite containing an `average.md`), so no scores are pending in the current roster.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom/nickname-conflation identity; zero verified public benchmark numbers for `claude-opus-3.7`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research — official sources attempted first (Anthropic news/lineage, llm-stats, llm-registry, BenchLM, OpenRouter catalogs — all negative), then the decisive first-party-adjacent artifact (`anthropics/claude-code` issue #42796 comment thread, fetched verbatim), plus independent corroboration: Ravenea arXiv/ICLR citation analysis, Medium Optimus Alpha hedge, Roboflow X mention, Threads reseller listing, miasma pricing config, SEO pingbacks, Arabic/Thai social mentions; conflicts and ambiguity are reported side by side. **No scores emitted — file is `.excluded`.**
+- Future sources: if Anthropic ever publishes a `claude-opus-3-7` API id (or the project owner confirms a different intended identity, e.g. Claude 3.7 Sonnet), re-research and replace this file with a scored report.

@@ -72,3 +72,17 @@ Long context:
 - Provided by: **GLM 5.2 Coding (zai-org/glm-5.2-coding)** — 2026-10-09
 - Method: independent public internet research (Anthropic launch post via Apidog full-table article, Claude Platform docs, BenchmarkList, Vellum, Emergent, VentureBeat, listify.cool, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+
+### Addendum 2026-10-09 (session 2) — cross-vendor launch-table rows
+
+> Filled from OpenAI GPT-6 Astra, Google Gemini 3.8 Flash, and xAI Grok 4.7 launch tables where Fable 5.1 appears as a competitor column. No score changes; rows close gaps flagged above.
+
+- DeepSWE v1.1: **70.0%** (xAI Grok 4.7 table, Max effort) vs Grok 4.7's 71.0%, Sol's 72.7%, Astra's 74.1% — mid frontier cluster (closes the "no verified DeepSWE" gap).
+- AA Intelligence Index **v4.1.1**: **65.7** (via Vellum's Astra writeup) — best in that table vs Opus 5's 63.1, Fable 5's 62.1, Astra's 61.2; corroborates the AA-index leadership the listify v4.3 "53 tie" row understated (different index version).
+- AA Coding Agent Index: **67.2** (Vellum) vs Fable 5's 68.1, Astra's 67.0 — three-way top tie.
+- AA-Briefcase v1.1: **1,678** (xAI table, Max) vs BenchmarkList's 1,694 — different revisions, both logged; best in the xAI table over Grok 4.7's 1,657.
+- BenchCAD: **84.3%** (OpenAI Astra table; Claude runs used modified eval settings) vs Astra's 95.9%, Sol's 83.3%.
+- Harvey Legal Agent: **6.7%** (Google 3.8 Flash table) — laggard vs Grok 4.7's 19.6%, 3.8 Flash's 10.0% (legal-agency weakness row, worth routing around).
+- FrontierCode 1.1 Main: **50.3%** (OpenAI Astra table) vs Astra's 53.3% (fills gap; Opus 5.5's 54.4% later topped both).
+- Terminal-Bench 4.0 cross-check: Fable 5.1 Max **57.9%** in xAI's table vs launch's 55.8% — effort-level difference (Max vs default), consistent with the effort-dial docs note.
+- Context/pricing re-verified via LLM Stats: $10/$50/$0.25 cached, 1M/128K, released 2026-09-01 — no changes to the file above.

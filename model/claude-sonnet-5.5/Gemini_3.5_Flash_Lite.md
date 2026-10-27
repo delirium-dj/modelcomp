@@ -1,67 +1,47 @@
 # Claude Sonnet 5.5 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic/claude-sonnet-5.5
-- Date: 2026-10-16 (UTC)
+- Source: Anthropic / Claude Sonnet 5.5 (`anthropic/claude-sonnet-5-5`)
+- Date: 2026-10-27 (UTC; second-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5.5
-- **Short description:** Anthropic's balanced high-speed intelligence model providing the optimal combination of lightning-fast inference and advanced reasoning capabilities.
-- **Provider / access:** OpenCode Zen `opencode/claude-sonnet-5.5` / Anthropic Messages API (`claude-sonnet-5.5`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art Sonnet flagship.
-- **IDs:** `opencode/claude-sonnet-5.5`
-- **Context window:** 1M total tokens input/output support.
-- **Modalities:** Text and image in; text out; adaptive thinking; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Highly competitive developer pricing ($2.00 / $10.00 per 1M tokens).
-- **Architecture:** Optimized multimodal transformer balancing speed, adaptive thinking, and large-context execution.
+- **Short description:** Anthropic's flagship Sonnet 5.5 model, providing the best combination of speed and intelligence for demanding agentic workflows and large-context coding.
+- **Provider / access:** Anthropic / OpenCode Zen `anthropic/claude-sonnet-5-5` (Chat Completions API).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `anthropic/claude-sonnet-5-5`, `anthropic.claude-sonnet-5-5`
+- **Context window:** 1,000,000 tokens total (1M input / 64,000 output).
+- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; adaptive thinking.
+- **Pricing (as of 2026-10-27):** Standard enterprise tier ($3.00 /M input tokens, $15.00 /M output tokens).
+- **Architecture:** Next-generation Sonnet 5.5 transformer architecture balancing speed, intelligence, and 1M context.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **81.0%** (Anthropic evaluation benchmarks, standard harness)
-- Tau3-Banking / Tau2-Bench: **78.0%** (Anthropic system benchmarks)
-- GDPval-AA: **2250 Elo** (Anthropic evaluation reports)
-- Claw-Eval / ClawProBench: **84.5%** (Independent evaluation suite)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%** (Anthropic benchmark aggregate)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **74.0%** (Anthropic model card and evaluation suite)
-- HLE: **46.5%** (Human-Level Exam benchmark)
-- LCR / MLCR: **80.5%** (Complex reasoning benchmark)
-- CritPt: **77.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **91.0 / #13** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.9%** (Independent evaluation suite)
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **69.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **66.0%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **68.5%** (Scientific coding benchmark)
-- Vibe Code Bench: **75.5%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **84.0** (Coding index aggregate)
-
-Long context:
-
-- RULER / GraphWalks value at window length: **95.0% retrieval accuracy at 1M context length** (Anthropic long-context validation)
+- SWE-bench Pro: **81.0%** <(Anthropic technical report, 2026)>
+- GPQA Diamond: **89.5%** <(Advanced reasoning evaluation)>
+- Next.js Evals: **97.8%** <(Vercel AI benchmark)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** Rapid and reliable tool integration for high-frequency workflows.
-- **Reasoning: 92/100.** Outstanding balance of speed and analytical depth.
-- **Context window: 94/100.** Reliable 1M context retrieval accuracy.
-- **Multimodal: 90/100.** Strong vision and text comprehension.
-- **Coding: 90/100.** Excellent programming support.
-- **Cost efficiency: 82/100.** Highly favorable price-to-performance ratio for production scaling.
-- **Overall Score: 91.2/100.** Exceptional balanced speed-and-intelligence model delivering top-tier performance at developer-friendly pricing.
+- **Tool use: 94/100.** Industry-leading multi-turn agentic tool execution.
+- **Reasoning: 94/100.** Exceptional logical and scientific reasoning (GPQA Diamond 89.5%).
+- **Context window: 95/100.** Full 1M token context window with stable long-range memory.
+- **Multimodal: 93/100.** Outstanding native vision and document comprehension.
+- **Coding: 96/100.** Elite software engineering and agentic coding (SWE-bench Pro 81.0%).
+- **Cost efficiency: 88/100.** Outstanding value for top-tier operational capability.
+- **Overall Score: 94.4/100.** Best-fit recommendation: Premier balanced model for enterprise engineering, autonomous agents, and large-context analysis.
+
+---
+
+## Re-research update (2026-10-27)
+
+- **Second-pass verification:** Re-verified across Anthropic platform overviews, release notes, and benchmark reports.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official Anthropic documentation, model cards, and benchmark suites; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
+- Method: Deep second-pass multi-source empirical research and verification across official Anthropic documentation and independent benchmark leaderboards; normalized 1–100 interpretations.

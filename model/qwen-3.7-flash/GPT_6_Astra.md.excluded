@@ -1,0 +1,30 @@
+# Qwen3.7 Flash — findings by GPT 6 Astra
+
+- Source: Alibaba / Qwen3.7 Flash
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+- **Identity / access:** Verified Alibaba Model Studio `qwen3.7-flash`, snapshot `qwen3.7-flash-2026-07-15`; OpenRouter `qwen/qwen3.7-flash`. July 27 gateway listing dates need not be the snapshot release date. Proprietary hosted vision-language model; parameter count and knowledge cutoff unverified. No Zen Free ID established.
+- **Specifications:** [Official documentation](https://help.aliyun.com/en/model-studio/qwen3-7-flash) states 1,000,000 context, 991,808 ordinary maximum input/983,616 thinking input, and **131,072 maximum output** in either mode. Its maximum chain-of-thought allowance is separately listed as 262,144; these maxima cannot all be added beyond the shared window.
+- **Modalities / features:** Text/image/video input, text output, thinking, function calling, structured output and caching. Managed search depends on region. No audio output established.
+- **Prices as of 2026-10-27:** Official Beijing CNY per million input/output: ¥0.2/¥0.8 through 32K input, ¥0.6/¥2.4 through 256K, ¥1.2/¥4.8 above. Explicit cache reads ¥0.02/¥0.06/¥0.12 respectively. [OpenRouter](https://openrouter.ai/qwen/qwen3.7-flash) headline USD $0.03/$0.13 is an entry-tier rate, not proof of flat 1M pricing. [AIHubMix](https://aihubmix.com/model/qwen3.7-flash) uses its own $0.0282/$0.1128, $0.0845/$0.338 and $0.169/$0.676 tiers.
+
+### Raw benchmarks and conflicting sources
+
+[Roboflow's evaluator search result](https://playground.roboflow.com/models/qwen/qwen3-7-flash) reports **52.4% average across five vision tasks**, strongest at Identification, approximately $0.0001/sample. Full-page retrieval returned HTTP 429, so sample composition and generation settings could not be audited. [Eesel's review](https://www.eesel.ai/blog/qwen-3-7-flash-review) instead preserves **61.7% overall**, **78.4% extraction**, and a 23-model cohort. These are different captures or task mixes; they are not averaged, and the secondary historical figure does not supersede the evaluator's current snippet.
+
+[BenchLM](https://benchlm.ai/models/qwen3-7-flash) explicitly lacks sufficient sourced coverage for a full profile. Its composite rating is not a primary measured general-intelligence score. Its 64K output listing conflicts with the current official 131,072 and is not used as the universal limit. The review reports no AA Flash listing; searches predominantly return **Max**, **Plus**, **Step 3.7 Flash**, or **Qwen3.8 Flash**, all distinct models. None of their benchmarks are transferred here. This project's mirrored comparison pages are circular evidence and were disregarded.
+
+No verified exact-model general reasoning, repository coding, terminal/tool evaluation or full-window retrieval score recovered. Qualitative publisher claims of improved agents and visual coding do not fill these gaps.
+
+### Normalized scores (1–100)
+
+Self-excluded: identity and narrow visual evidence are established, but broad reasoning, tool and coding evidence is insufficient for a defensible complete Overall score. No numerical placeholders assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-27 UTC
+- Method: Three targeted public web searches plus primary specification retrieval and attempted evaluator retrieval; explicitly preserved the evaluator access limitation and conflicting snapshots.
