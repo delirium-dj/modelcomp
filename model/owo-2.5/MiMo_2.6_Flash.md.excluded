@@ -1,0 +1,48 @@
+# OwO 2.5 — findings by MiMo 2.6 Flash
+
+- Source: unknown `owo-2.5`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom model):** no AI model named "OwO 2.5" / `owo-2.5` exists in any official or independent catalog. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** OwO 2.5 (`owo-2.5`) — **no released AI model matches this name.** Exhaustive search found only two tangentially related "OwO" projects, neither remotely a "2.5" model:
+  1. **SaisExperiments/OwOllama-v0.1** (Hugging Face, 2025-02-26) — a Llama-3.2-3B-Instruct fine-tune "trained on a dataset heavily infused with OwO/UwU-style language" — a novelty persona fine-tune, version v0.1, no benchmarks, no provider.
+  2. **OwO-Network/DLX** (GitHub) — a self-hosted translation API server, not a model.
+- **Provider / access:** none — no Hugging Face model at `owo-2.5`/`owo`, no OpenRouter id, no API platform, no leaderboard entry found.
+- **Release / knowledge:** n/a — never released.
+- **IDs:** none found.
+- **Context window:** n/a.
+- **Modalities:** n/a.
+- **Pricing:** n/a.
+- **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Three web searches on 2026-10-27 (`"OWO 2.5" OR "OWO-2.5" AI model LLM release benchmarks` — only a 1980 university yearbook OCR artifact; `"owo" language model huggingface openweights release 2026 lab` — only OwOllama-v0.1; `"OWO" OpenRouter anonymous codename / artificial analysis / vals` — nothing) surfaced **zero** model releases, weights, provider listings, or benchmark tables for an "OwO" model family, at any version.
+2. The name is internet onomatopoeia ("owo" face) — the only AI artifacts bearing it are novelty fine-tunes and meme-adjacent tooling, which is the likely roster-contamination source. There is no vendor, lab, or repository that has shipped a model line called OwO with a 2.x version.
+3. Anonymous OpenRouter codenames (e.g. "Hunter Alpha") exist in this era, but no codename "OWO" was ever indexed by OpenRouter-tracking outlets.
+4. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder could not have come from a real `owo-2.5` evaluation and should be reviewed by the project owner.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom identity; zero verified public benchmark numbers for `owo-2.5`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research across general search, Hugging Face, OpenRouter, GitHub, and benchmark indexes; scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if a model named "OwO 2.5" is ever released (or the intended identity is clarified by the project owner), re-research and replace this file with a scored report.

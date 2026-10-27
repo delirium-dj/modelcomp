@@ -1,0 +1,49 @@
+# Neomorph — findings by MiMo 2.6 Flash
+
+- Source: unknown `neomorph`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom model):** no AI model named "Neomorph" / `neomorph` exists in any official or independent catalog. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** Neomorph (`neomorph`) — **no released AI model matches this name.** Exhaustive search of the AI-model namespace found only three unrelated "Neomorph" entities:
+  1. **Neomorph Inc.** — a San Diego biotech (targeted protein degradation; funded startup listings, AACR 2026 coverage, a Novartis collaboration) — not an AI model vendor;
+  2. **`neomorph___`** — an Instagram comment handle that appears under AI-news reels (DeepSeek/NVIDIA/LTX posts) — a person, not a model;
+  3. **"Vlad-Neomorph"** — a UI theme name inside the Stable Diffusion web UI (sdnext changelog) — not a model.
+- **Provider / access:** none — no Hugging Face repo, no OpenRouter/Provider entry, no API platform, no GitHub release found.
+- **Release / knowledge:** n/a — never released.
+- **IDs:** none found.
+- **Context window:** n/a.
+- **Modalities:** n/a.
+- **Pricing:** n/a.
+- **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Two web searches on 2026-10-27 ("Neomorph AI model LLM release benchmarks"; `"neomorph" huggingface OR openrouter OR "open weights" language model provider`) returned **zero** AI-model matches: no vendor announcement, no model card, no leaderboard entry, no provider listing, no benchmark table anywhere.
+2. The name collisions found (biotech company, Instagram handle, SD UI theme) are the likely roster-contamination sources — the Instagram handle in particular comments on LLM-news posts, which can surface "neomorph" adjacent to model keywords in search indexes.
+3. If the roster intended a different identity, the closest real candidates by name shape are **Neo**-prefixed models (e.g. Nous "Hermes"-family derivatives) or **Morph**-adjacent tooling (morphllm) — none of which are plausibly a single model named "Neomorph"; no mapping could be made responsibly.
+4. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder could not have come from a real `neomorph` evaluation and should be reviewed by the project owner.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom identity; zero verified public benchmark numbers for `neomorph`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research across general search, Hugging Face, OpenRouter, provider catalogs, and startup/biotech registries; scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if a model named "Neomorph" is ever released (or the intended identity is clarified by the project owner), re-research and replace this file with a scored report.

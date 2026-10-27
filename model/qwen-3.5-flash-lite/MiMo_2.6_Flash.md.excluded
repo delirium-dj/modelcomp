@@ -1,0 +1,46 @@
+# Qwen 3.5 Flash Lite — findings by MiMo 2.6 Flash
+
+- Source: Alibaba/Qwen `qwen-3.5-flash-lite`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom model):** no model named "Qwen3.5-Flash-Lite" / `qwen3.5-flash-lite` exists in any official or independent catalog. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** Qwen 3.5 Flash Lite (`qwen-3.5-flash-lite`) — **not a released Qwen SKU.** The Qwen 3.5 Medium Model Series, announced by @Alibaba_Qwen on 2026-02-24/25, consists of exactly four members: **Qwen3.5-Flash, Qwen3.5-35B-A3B, Qwen3.5-122B-A10B, Qwen3.5-27B** ("More intelligence, less compute"). No Lite tier was announced, and none appears anywhere since.
+- **Provider / access:** none — no Model Studio id, no OpenRouter id, no Hugging Face/ModelScope repo, no third-party host found.
+- **Release / knowledge:** n/a — never released.
+- **IDs:** none found. The real hosted tier is `qwen3.5-flash` (Feb 25, 2026; snapshot `qwen3.5-flash-2026-02-23`; OpenRouter `qwen/qwen3.5-flash-02-23`; $0.065/$0.26 OpenRouter, $0.10/$0.40 Model Studio International, 1M context, hosted counterpart of the open Qwen3.5-35B-A3B).
+- **Context window:** n/a.
+- **Modalities:** n/a. (Real Qwen3.5-Flash: vision-language, text/image/video in per aggregators.)
+- **Pricing:** n/a.
+- **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Four web searches on 2026-10-27 (exact-phrase `qwen3.5-flash-lite` model studio pricing; `"Qwen3.5-Flash-Lite" OR "Qwen3.5 Flash Lite" benchmark OpenRouter`; Qwen 3.5 series lineup; Qwen flash-lite across 3.5/3.6/3.7 generations) surfaced **zero** occurrences of the exact model in: Alibaba Cloud Model Studio pricing and supported-models pages (updated 2026-10-11), the official @Alibaba_Qwen series announcement, BenchLM's Alibaba release timeline (36 confirmed releases — Plus and Flash exist, no Lite), OpenRouter, llm-stats, DFO, pricepertoken, aimlapi, orq.ai, Requesty, and eesel.
+2. **Likely slug-contamination source:** the "-Flash-Lite" naming in this era belongs to Google (`gemini-3.5-flash-lite`, released 2026-07-21, and `gemini-3.1-flash-lite`) — both separately tracked in this repo. Combined with the real `qwen3.5-flash` tier, the compound "Qwen3.5-Flash-Lite" appears to be a roster conflation, not a vendor product.
+3. The real Qwen budget tiers below Qwen3.5-Flash are its **open-weight siblings** (Qwen3.5-35B-A3B / 27B / 122B-A10B / 397B-A17B and the small dense 12B/4B/2B/0.8B line), not a hosted "Lite" API.
+4. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder (score 75.6) could not have come from a real `qwen3.5-flash-lite` evaluation and should be reviewed by the project owner.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom identity; zero verified public benchmark numbers for `qwen-3.5-flash-lite`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research (Alibaba Cloud Model Studio docs/pricing, @Alibaba_Qwen official announcement, BenchLM release timeline, OpenRouter, llm-stats, DFO, pricepertoken, aimlapi, orq.ai, Requesty, eesel, mysummit.school); scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if Alibaba ever publishes a `qwen3.5-flash-lite` (or generational equivalent), re-research and replace this file with a scored report.

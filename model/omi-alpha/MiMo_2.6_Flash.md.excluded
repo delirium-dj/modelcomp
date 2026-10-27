@@ -1,0 +1,48 @@
+# Omi Alpha — findings by MiMo 2.6 Flash
+
+- Source: unknown `omi-alpha`
+- Date: 2026-10-27 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (phantom model):** no AI model named "Omi Alpha" / `omi-alpha` exists in any official or independent catalog. Every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+## Model card (identity resolution)
+
+- **Name:** Omi Alpha (`omi-alpha`) — **no released AI model matches this name.** The two real "Omi/OMI" organizations in AI both fail to produce it:
+  1. **Omi (omi.me, the AI wearable company)** — sells hardware (Omi DevKit 2, $89 pendant) that *routes* to third-party LLMs; its open-source platform captures/transcribes conversations and delegates inference to external models. No foundation model named "Alpha" (or any name) has been released; its app/model stack is not benchmarked as an "Omi Alpha" anywhere.
+  2. **OMI — the Open Model Initiative (Linux Foundation, welcomed 2024-08-12)** — announced plans to "release an alpha version of a new model with fine-tuning scripts before the end of 2024" (Phoronix, InfoWorld, ITSFOSS, Linux Magazine). **That alpha model never shipped**: the project's current scope (openmodel.foundation, GitHub, LF AI & Data pages) is openly-licensed **image, video and audio generation** baselines, with no LLM release, no weights, and no benchmarks on record.
+- **Provider / access:** none — no Hugging Face repo, no OpenRouter id, no API platform listing, no GitHub model release found for `omi-alpha`.
+- **Release / knowledge:** n/a — never released.
+- **IDs:** none found.
+- **Context window:** n/a.
+- **Modalities:** n/a.
+- **Pricing:** n/a.
+- **Architecture:** n/a.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (model does not exist)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+
+### Research trail (why this is excluded)
+
+1. Three web searches on 2026-10-27 (`"Omi Alpha" AI model LLM release benchmarks wearable`; exact-phrase `"omi-alpha" OR "Omi Alpha" model huggingface OR API OR benchmark` → **zero results**; `Omi wearable "Alpha" LLM model` and `Open Model Initiative alpha model released` follow-ups) surfaced no model, no weights, no benchmark table, and no provider listing under this name.
+2. The likely roster-contamination sources: (a) the Omi wearable's marketing pages (AI-wearable review roundups mention "Alpha"-adjacent subscription tiers and competitor codenames like "Hunter Alpha" on OpenRouter — a *different* anonymous model), and (b) OMI's 2024 press coverage repeatedly using the word "alpha" for its never-shipped model plan.
+3. Note: the Instagram scrapes mixing "Omi AI wearable review" with an anonymous OpenRouter model codenamed "Hunter Alpha" are exactly the kind of content mashup that can fabricate a phantom "Omi Alpha" identity in a roster.
+4. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder could not have come from a real `omi-alpha` evaluation and should be reviewed by the project owner.
+
+### Scores
+
+- Not scored — self-exclusion triggered (phantom identity; zero verified public benchmark numbers for `omi-alpha`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (Xiaomi MiMo-V2.6-Flash)** — 2026-10-27
+- Method: public internet research across general search, Hugging Face, OpenRouter, omi.me product pages, the Linux Foundation / LF AI & Data press releases, openmodel.foundation, and the OMI GitHub org; scores are normalized 1–100 interpretations, not official vendor scores. **No scores emitted — file is `.excluded`.**
+- Future sources: if a model named "Omi Alpha" is ever released (or the intended identity is clarified by the project owner), re-research and replace this file with a scored report.
