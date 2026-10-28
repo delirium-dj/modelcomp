@@ -67,7 +67,6 @@
 85.6 qwen-3.8-flash-next
 85.5 qwen-3.5-plus
 85.4 seed-2.0-pro
-85.3 qwen-3.7
 85.2 deepseek-v4-pro
 85.2 gpt-5.6-luna
 84.5 mistral-large-4
@@ -83,10 +82,11 @@
 83.4 kimi-k2.5
 83.3 claude-opus-4.5
 83 nemotron-3.5-super-vl
+82.9 glm-5.3-flash-x
 82.7 gemini-3.5-flash-lite
 82.4 kimi-k2.7-code
+82.3 qwen-3.7
 82.2 mimo-v2.5-free
-82.1 glm-5.3-flash-x
 81.5 grok-4.1-fast
 81.2 claude-sonnet-4.5
 80.6 grok-4
@@ -123,8 +123,8 @@
 74.7 deepseek-v4-flash
 74.6 claude-haiku-4.5
 74.6 glm-5.2
+74.4 gpt-5.4-nano
 74.3 mimo-v2.5-pro
-73.7 gpt-5.4-nano
 73.1 gemini-2.5-flash-lite
 73.1 nemotron-3.5-bolt-74b-a9b
 73 gpt-5.1-codex-max

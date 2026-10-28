@@ -49,7 +49,7 @@
 
 - **Cost efficiency: 80/100.** Grok 4.1 frontier-tier API pricing (Grok 4.1 inherits $3/$15-ish frontier tier; Grok 4 Fast at $0.20/$0.50 was the efficiency variant).
 
-- **Overall Score: 72/100.** Mean of the five quality dims (Tool 65 + Reasoning 75 + Context 90 + Multimodal 65 + Coding 70) / 5 = 73; Cost efficiency excluded.
+- **Overall Score: 73/100.** Mean of the five quality dims (Tool 65 + Reasoning 75 + Context 90 + Multimodal 65 + Coding 70) / 5 = 73; Cost efficiency excluded.
 
 ## Signature
 

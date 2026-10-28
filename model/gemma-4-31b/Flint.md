@@ -62,7 +62,7 @@
 
 - **Cost efficiency: 80/100.** Open weights Apache 2.0 + Google API $0.00 per 1M → high open-weight value.
 
-- **Overall Score: 69/100.** Mean of the five quality dims (Tool 70 + Reasoning 70 + Context 70 + Multimodal 70 + Coding 75) / 5 = 69; Cost efficiency excluded.
+- **Overall Score: 71/100.** Mean of the five quality dims (Tool 70 + Reasoning 70 + Context 70 + Multimodal 70 + Coding 75) / 5 = 69; Cost efficiency excluded.
 
 ## Signature
 

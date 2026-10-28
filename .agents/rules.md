@@ -43,58 +43,93 @@ reports, and the website stay consistent.
 
 ## OpenCode plugin suite (`.opencode/plugins/`)
 
-- Runtime retry suite for OpenCode, auto-loaded at startup; NOT part of the
-  Qwik build or `pnpm` typecheck (each file carries `// @ts-nocheck`).
-  Each plugin catches transient `session.error` shapes (quota, pool-empty,
-  endpoint-down, bang/lock drops, DNS/network breaks, model-turn rejects),
-  waits, then sends a tiny nudge (`please continue` in newer plugins,
-  `continue` in older ones) on the same model; per-session
-  consecutive-failure brake; any `session.idle` success resets everything.
-  Current members: `budget-retry`, `deepseek-continue-retry`,
+- Runtime retry suite for **OpenCode Desktop 2.x**, auto-loaded at startup;
+  NOT part of the Qwik build or `pnpm` typecheck.
+- **V2 shape is mandatory.** Desktop 2.x rejects the old V1 named-export shape
+  (`export const X: Plugin = async ({ client }) => ...`) at load time:
+  `PluginModule.LoadError: Plugin must export a default definition with an id
+  and an effect or setup function. (cause: SchemaError(Missing key at
+  ["default"]))`. Every top-level file must be a **default export** built with
+  `Plugin.define({ id, setup })` from `@opencode/plugin` (provided by the
+  runtime, not installed in `.opencode/node_modules`). The original V1 files
+  are parked in `.opencode/plugins/v1/`; both loaders glob the top level only.
+  Verified on Desktop 2.2.0 on 2026-10-28: 14/14 top-level ports load, zero
+  failures.
+- **Shared engine.** The thin ports delegate to
+  `.opencode/lib/plugin-retry/engine.ts` (`defineRetryPlugin` + `RetrySpec`)
+  and `.opencode/lib/plugin-retry/match.ts` (storm/degenerate detectors). That
+  folder lives outside `plugins/` on purpose: OpenCode discovers every `.ts`
+  directly inside `plugins/` as a plugin, and a helper module without a default
+  export would be reported as a load failure. `gemini-quota-retry.ts` stays
+  standalone because it parses Google's own "retry in Ns" hint.
+- **V2 API differences:** events arrive from `ctx.event.subscribe()` and carry
+  `data` (V1 used `properties`); the nudge is
+  `ctx.session.prompt({ sessionID, text })` (V1 used
+  `client.session.prompt({ path, body })`); there is no `client.app.log` and no
+  toast surface, so diagnostics go to the server console. V2 emits
+  `session.error` and then still lets the session go idle, so a plain idle is
+  NOT proof of a healthy turn — the engine's `errorSeen` set preserves the
+  streak/brake across that idle.
+  Each plugin catches transient provider failures (quota, pool-empty,
+  endpoint-down, bang/lock drops, DNS/network breaks, model-turn rejects,
+  header timeouts, content-filter blocks, generic "provider returned error"
+  wrappers, rate limits), waits, then sends a tiny nudge (`continue` /
+  `please continue`) on the same model; per-session consecutive-failure brake;
+  a clean turn resets everything.
+  Current members (14): `budget-retry`, `deepseek-continue-retry`,
   `fledge-endpoint-retry`, `gpt-sol-budget-retry`, `bang-drop-retry`,
   `api-connect-retry` (2026-10-05, DNS/connection/provider-transport breaks
-  incl. gateway "response headers timed out" — match is on error text only,
-  `MODEL_FILTER` empty = ANY model),
+  incl. gateway "response headers timed out"; any model),
   `model-turn-retry` (2026-10-05, "requests ending with a model turn"
-  rejects, any model), plus the `provider-*` family (any model) built on the
-  full 3-shape pattern (payload error / silent `session.idle` / embedded in a
-  generic error): `provider-content-filter-retry`,
-  `provider-headers-timeout-retry` (2026-10-27, also matches the AI-side
-  "Timed out waiting for response headers" — same never-got-headers failure,
-  different word order; api-connect-retry's gateway fragment deliberately
-  does not match it, so exactly one plugin nudges), `provider-high-demand-retry`, and
+  rejects, any model), `gemini-quota-retry` (standalone V2, Gemini
+  `RESOURCE_EXHAUSTED` / quota 429 with `retry in Ns` hint parsing), plus the
+  `provider-*` family (any model) built on the full 3-shape pattern (payload
+  error / silent `session.idle` / embedded in a generic error):
+  `provider-content-filter-retry`, `provider-headers-timeout-retry`
+  (2026-10-27, both the gateway "provider response headers timed out" and the
+  AI-side "Timed out waiting for response headers" phrasings; api-connect
+  deliberately does not match the AI-side phrase, so exactly one plugin
+  nudges), `provider-high-demand-retry`,
   `provider-invalid-request-retry` (2026-10-17, "[Vendor] The request was
-  rejected as invalid", e.g. "[Phala] ..."; match is the stable tail only so
-  the vendor prefix varies freely — plus the 2026-10-27 bare-form "Invalid
-  request" variant, which is a two-word phrase and still safe), and
-  `provider-returned-error-retry` (2026-10-27, generic provider wrapper
-  "Provider returned error" / "provider returned an error", e.g.
-  "[DeepSeek] provider returned an error"; whole sentence only, deliberately
-  NOT the bare prefix "provider returned" — research answers here discuss
-  provider behaviour and would trip a prefix match; 10s delay, `continue`).
-- Hardening conventions (established by the 2026-10-05 `bang-drop-retry`
-  pass; apply to every plugin in the suite):
+  rejected as invalid", stable tail only), `provider-returned-error-retry`
+  (2026-10-27, generic wrapper "Provider returned error" / "provider returned
+  an error"; 2026-10-28 added "upstream provider returned an error" and
+  "upstream error from Phala"; whole sentence only, never the bare prefix
+  "provider returned" — research answers here discuss provider behaviour), and
+  `provider-rate-limit-retry` (2026-10-28, "rate limit exceeded" / "too many
+  requests" / "resource has been exhausted" / "requests per minute"; payload
+  only, no transcript scan, because research prose discusses rate limits).
+- Hardening conventions (implemented centrally in `engine.ts`; apply to any
+  standalone plugin such as `gemini-quota-retry`):
   - **Mark before await.** Check `pending`/`stopped`, then mark
     (`pending.add` + `consecutive.set`) synchronously — NO `await` between
     check and mark. The plugin is single-threaded: another event can only
     interleave at an `await`, so a check→mark window containing an `await`
     lets two back-to-back errors both pass the guard (duplicate timers,
     undercounted streak, delayed brake).
-  - **Unlock at timer fire, not after the prompt.** The sync
-    `client.session.prompt` awaits the WHOLE agent turn (minutes). Delete
-    the `pending` entry the moment the `setTimeout` fires — BEFORE the
-    prompt await. Holding it longer makes a failing nudge get ignored
-    (lock still up) and its late `catch` unlock kills the retry chain
-    silently. Accepted cost: a rare harmless duplicate nudge.
-  - **One shared `readSessionID(event)`** (tries `properties.sessionID` →
-    `properties.session.id` → `properties.sessionId`) on BOTH the
-    `session.idle` reset path and the error path, so they never drift apart
-    on the ID shape; an idle with no recognizable ID logs a
-    once-per-restart warning (trace exit).
+  - **Unlock at timer fire, not after the prompt.** `ctx.session.prompt`
+    awaits the WHOLE agent turn (minutes). Delete the `pending` entry the
+    moment the `setTimeout` fires — BEFORE the prompt await. Holding it longer
+    makes a failing nudge get ignored (lock still up) and its late `catch`
+    unlock kills the retry chain silently. Accepted cost: a rare harmless
+    duplicate nudge.
+  - **One shared session-ID reader** (`resolveSessionID` in the engine) on
+    BOTH the `session.idle` reset path and the error path, so they never drift
+    apart: `data.sessionID` → `data.session?.id` → `data.sessionId` →
+    `data.info?.sessionID` → `data.part?.sessionID`. Never use
+    `data.info.id` — that is a MESSAGE id. An idle with no recognizable ID
+    logs a once-per-restart warning (trace exit).
   - **Trace every silent exit**: when the trigger matched but the plugin
     stops anyway (missing sessionID, unrecognized event type), log it
     (once-bounded) so future event-shape changes surface in logs instead of
     hiding as dead sessions.
+  - **Load verification after every plugin edit**: the Desktop server log
+    (`~/.local/share/opencode/log/opencode.log`) must show
+    `msg="loading plugin"` for every `plugins/*.ts` and **no**
+    `message="failed to load plugin"`. Desktop hot-reloads the directory when
+    a file is written, so a shape mistake shows up immediately — and a plugin
+    that fails to load is silently absent, which is indistinguishable from
+    "the error text was not matched".
 
 ## Website data flow (single source of truth)
 

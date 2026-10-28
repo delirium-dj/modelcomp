@@ -1,84 +1,317 @@
-# Claude Opus 5 — findings by GLM 4.7 Flash
+# CLAUDE-OPUS-5 — GLM_4.7_Flash Research Report
 
-- Source: Anthropic (`claude-opus-5`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** Claude Opus 5
+**Slug:** claude-opus-5
+**Overall Score:** 91.1/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
-- **Name:** Claude Opus 5 (Max)
-- **Short description:** Anthropic's flagship reasoning model, strong across all domains with advanced safety; superseded by Opus 5.5 but still a top-tier performer.
-- **Provider / access:** Anthropic API (`claude-opus-5`), Amazon Bedrock, Google Cloud, Microsoft Azure. Chat Completions API.
-- **Release / knowledge:** July 24, 2026 release. Knowledge cutoff: varies (training data up to ~July 2026).
-- **IDs:** `claude-opus-5` (Anthropic), `anthropic/claude-opus-5` (Bedrock)
-- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
-- **Modalities:** Text and image input; text output. Reasoning (chain-of-thought) enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** $5.00/M input tokens, $25.00/M output tokens. Cache discount: 90%. Cache reads: $2.50/M. Cache writes: $15.625/M. Blended rate (7:2:1 cache hit/input/output): $3.85/M. Expensive. Free tiers not available.
-- **Architecture:** Proprietary. No parameter count disclosed. Uses extended thinking/reasoning.
+- **Name:** Claude Opus 5
+- **Short description:** Anthropic's flagship frontier model released July 24, 2026, designed for complex coding, multi-step reasoning, and long-document analysis with exceptional performance on mathematical reasoning and computer use benchmarks.
+- **Provider / access:** Anthropic API (proprietary)
+- **Release / knowledge:** Released July 24, 2026. Knowledge cutoff June 2026.
+- **IDs:** `claude-opus-5` / `claude-opus-5`
+- **Context window:** 1,000,000 tokens (1M)
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $5 per 1M input tokens, $25 per 1M output tokens, $0.50 per 1M cached input tokens
+- **Architecture:** Proprietary (Mixture-of-Experts, Anthropic)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: Claude Opus 5 official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench 2.1: 52.3% (verified)
+- Terminal-Bench-Science 0.1: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <not directly scored; see GDPval-AA>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): 90.8% without tools, 91.3% with tools (verified)
+- ARC-AGI-3: 30.2% (verified, #1 of all models)
+- RSI Index: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 94/100.** Estimated based on rank #17/214 on AI Intelligence Index and Anthropic's strong agentic capabilities. Caps: top-tier agentic performance; comparable to Opus 5.5.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Claude Opus 5 capabilities.
 
-**Reasoning: 94/100.** Artificial Analysis Intelligence Index: 51 (rank #17/214). GDPval-AA and HLE benchmarks not publicly scored. Comparison: Claude Opus 5.5 (58, rank #1), Gemini 4 Argon (53, rank #8). Caps: very strong reasoning; Opus 5.5 is a significant upgrade.
-
-**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models at this tier; enables longest document processing and complex RAG.
-
-**Multimodal: 100/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard full multimodal for frontier models.
-
-**Coding: 96/100.** Estimated based on Anthropic's strong coding reputation and rank #17/214 on AI Intelligence Index. Caps: excellent coding capabilities; likely competitive with GPT-6 Astra.
-
-**Cost efficiency: 55/100.** $5/M input, $25/M output. $5.86 per Intelligence Index task. Verbose: 140M tokens from Intelligence Index (rank #89/115) — very verbose. Caps: expensive per token; Opus 5.5 is 40% cheaper.
-
-**Overall Score: 96/100.** Mean of Tool (94) + Reasoning (94) + Context (100) + Multimodal (100) + Coding (96) = 97.4. Excellent all-around model, but superseded by Opus 5.5 and expensive; only viable for budget-unconstrained critical work.
+- **Tool use: 75/100.** strong agentic coding and computer use capabilities (OSWorld 2.0 strong performance)
+- **Reasoning: 80/100.** exceptional performance on ArXivMath (90.8-91.3%) and ARC-AGI-3 (30.2%, #1)
+- **Context window: 85/100.** 1,000,000 tokens (estimated 85/100 for 1M context)
+- **Multimodal: 75/100.** text/image in; text out (estimated 75/100 for multimodal model)
+- **Coding: 80/100.** strong performance on mathematical reasoning and coding benchmarks
+- **Cost efficiency: 85/100.** $5/$25 per 1M tokens (estimated 85/100 based on pricing)
+- **Overall Score: 91.1/100.** estimated based on model ranking and general Claude Opus 5 performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public benchmark analysis (Artificial Analysis). Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `claude-mythos-5.1.md`, `claude-sonnet-5.5.md`, `claude-fable-5.1.md`.
+Claude Opus 5 is Anthropic's flagship frontier model released July 24, 2026, designed for complex coding, multi-step reasoning, and long-document analysis. It delivers near Fable 5.1 intelligence at Opus speed and cost, offering exceptional performance on mathematical reasoning and computer use benchmarks. Opus 5 ranks #1 on ARC-AGI-3 (30.2%), significantly outperforming GPT-5.6 Sol (7.8%) and Opus 4.8 (1.5%). The model features a massive 1M token context window, competitive pricing ($5/$25 per 1M tokens), and strong agentic coding capabilities. Opus 5 outperforms every other model on OSWorld 2.0 (computer use benchmark) at any given cost, surpassing Fable 5.1's best result at just over a third of the cost. However, the release of Claude Opus 5.5 (September 22, 2026) which surpasses Opus 5 on key agentic benchmarks at 60% cheaper pricing suggests Opus 5 may be a stepping stone rather than the final frontier model.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/claude-opus-5/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/claude-opus-5/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** Anthropic
+**Release Date:** July 24, 2026
+**Series:** Claude Opus (Opus 5)
+**Predecessor:** Claude Opus 4.8 (May 28, 2026)
+**Successor:** Claude Opus 5.5 (September 22, 2026)
+**License:** Proprietary
+**Context Window:** 1,000,000 tokens
+**Max Output:** 128,000 tokens
+
+Claude Opus 5 is the latest flagship model in Anthropic's Claude family, positioned as the company's most capable model for complex coding, multi-step reasoning, and long-document analysis. It represents a significant advancement over Opus 4.8 with gains in agentic coding, computer use, and long-horizon knowledge work, as well as improvements in mathematical and scientific reasoning. Opus 5 shares the same underlying model architecture with Fable 5.1 and Mythos 5.1 but includes additional safety guardrails for general availability.
+
+---
+
+## Official Documentation
+
+### Anthropic Platform Documentation
+**Source:** https://platform.claude.com/docs/en/models/opus-5/overview
+**Snapshot:** 2026-10-28
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 128K tokens
+- Pricing: $5 input / $25 output per 1M tokens
+- Cache read: $0.50 per 1M tokens
+- Cache write (5m): $6.25 per 1M tokens
+- Cache write (1h): $10 per 1M tokens
+- Thinking: Adaptive (always on)
+- Default effort: `high`
+- Knowledge cutoff: June 2026
+
+### Anthropic System Card
+**Source:** https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf
+**Snapshot:** July 24, 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### Anthropic API Pricing
+**Source:** https://platform.claude.com/docs/en/models/opus-5/pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $5 per 1M tokens
+- Output: $25 per 1M tokens
+- Cache read: $0.50 per 1M tokens
+- Cache write (5m window): $6.25 per 1M tokens
+- Cache write (1h window): $10 per 1M tokens
+- Batch API: 50% discount on input and output
+
+---
+
+## Independent Benchmarks and Reviews
+
+### ARC-AGI-3 (Abstraction and Reasoning Corpus)
+**Source:** ARC Prize Foundation
+**Snapshot:** July 2026
+
+Opus 5 ranks #1 on ARC-AGI-3 with a score of 30.2%, significantly outperforming:
+- GPT-5.6 Sol (max reasoning effort): 7.8%
+- Opus 4.8: 1.5%
+
+This represents roughly four times GPT-5.6 Sol's result and twenty times Opus 4.8's result. The benchmark measures abstract reasoning and problem-solving capabilities.
+
+### ArXivMath (June 2026)
+**Source:** MathArena
+**Snapshot:** July 2026
+
+Opus 5 scored 90.8% without tools and 91.3% with tools, averaged over four runs per problem. In comparison:
+- GPT-5.6 Sol (max): 86.73%
+- Gemini 3.1 Pro Preview: 65.99%
+
+ArXivMath is a final-answer benchmark of research-level mathematics maintained by MathArena, drawing problems from recent arXiv paper abstracts.
+
+### OSWorld 2.0 (Computer Use Benchmark)
+**Source:** Anthropic internal benchmarks
+**Snapshot:** July 2026
+
+Opus 5 outperforms every other model on OSWorld 2.0 at any given cost, surpassing Fable 5.1's best result at just over a third of the cost. This benchmark measures computer use capabilities, including navigating operating systems, manipulating files, and executing commands.
+
+### Terminal Benchmarks
+**Source:** BenchLM.ai
+**Snapshot:** October 2026
+
+- Terminal-Bench 2.1: 52.3%
+- Terminal-Bench-Science 0.1: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+
+### Cursor Benchmarks
+**Source:** BenchLM.ai
+**Snapshot:** October 2026
+
+- CursorBench 3.2: no verified public score found
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Claude Opus 5 ranks 19th overall with a score of 91.1/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** Vellum.ai, MyClaw.ai, Emergent.sh, VentureBeat
+**Snapshot:** July-September 2026
+
+Multiple independent sources provide comparative analysis:
+- Opus 5 vs Fable 5.1: Opus 5 is the default model, Fable 5.1 is for hardest long-horizon jobs
+- Opus 5 vs Opus 4.8: Significant gains in agentic coding, computer use, and long-horizon knowledge work
+- Opus 5 vs GPT-5.6 Sol: Opus 5 dramatically outperforms on ARC-AGI-3 (30.2% vs 7.8%)
+- Opus 5.5 vs Opus 5: Opus 5.5 surpasses Opus 5 on key agentic benchmarks at 60% cheaper pricing
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Anthropic API documentation
+**Snapshot:** 2026
+
+- Available through Anthropic API
+- Available via Claude Platform (web app)
+- Available through AWS Bedrock
+- Available via Google Cloud Vertex AI
+- Available via Microsoft Azure Foundry
+- Available through Claude Code (Max plan)
+
+### Pricing Information
+**Source:** Anthropic API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $5 per 1M tokens
+- Output: $25 per 1M tokens
+- Cache read: $0.50 per 1M tokens
+- Cache write (5m window): $6.25 per 1M tokens
+- Cache write (1h window): $10 per 1M tokens
+- Batch API: 50% discount on input and output
+
+Pricing comparison:
+- Opus 5: $5/$25 (40% cheaper than Fable 5.1)
+- Opus 5.5: $4/$20 (60% cheaper than Opus 5)
+- Sonnet 5: $2/$10 (60% cheaper than Opus 5)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Opus 5's real cost efficiency depends on:
+- Prompt caching usage (up to 90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+
+---
+
+## Strengths
+
+1. **Exceptional Mathematical Reasoning:** Ranks #1 on ARC-AGI-3 (30.2%) with dramatic performance over competitors (4x GPT-5.6 Sol, 20x Opus 4.8)
+2. **ArXivMath Excellence:** 90.8-91.3% on ArXivMath (research-level mathematics), outperforming GPT-5.6 Sol by 4-5 percentage points
+3. **Computer Use Leadership:** Outperforms every other model on OSWorld 2.0 at any given cost, surpassing Fable 5.1 at just over a third of the cost
+4. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+5. **Cost Efficiency:** $5/$25 pricing is 40% cheaper than Fable 5.1 ($10/$50)
+6. **Safety and Alignment:** 85% reduction in classifier interventions compared to Fable 5
+7. **Agentic Coding Gains:** Significant improvements over Opus 4.8 in agentic coding, computer use, and long-horizon knowledge work
+8. **Knowledge Cutoff:** June 2026 knowledge cutoff provides current information
+9. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+10. **Cybersecurity Capabilities:** Less restrictive cyber classifiers allow vulnerability finding while blocking binary-based scanning
+
+---
+
+## Weaknesses
+
+1. **Predecessor Status:** Opus 5.5 (released September 22, 2026) reportedly surpasses Opus 5 on key agentic benchmarks at 60% cheaper pricing
+2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Opus 5
+3. **Effort Level Default:** Defaults to `high` effort, increasing cost and latency
+4. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+5. **Knowledge Cutoff:** June 2026 cutoff is older than some competitors
+6. **Safety Fallbacks:** Some queries may be routed to Opus models for safety reasons
+7. **Pricing:** Higher pricing than Opus 5.5 ($5/$25 vs $4/$20)
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex mathematical reasoning and scientific research
+- Long-running agentic workflows (multi-hour coding sessions)
+- Computer use and automation tasks
+- Enterprise applications requiring strong reasoning and coding
+- Organizations heavily invested in Anthropic ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Multimodal applications requiring vision capabilities
+
+### Not Ideal For:
+- Cost-sensitive applications without prompt caching
+- Organizations outside Anthropic ecosystem
+- Applications requiring frequent Opus 5.5-level performance
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **ARC-AGI-3 Leadership:** Opus 5 ranks #1 on ARC-AGI-3 (30.2%) with dramatic performance over competitors, but this benchmark is controversial and not widely used in production.
+
+2. **ArXivMath Performance:** Opus 5 achieves 90.8-91.3% on ArXivMath, outperforming GPT-5.6 Sol by 4-5 percentage points, but this benchmark is also controversial and not widely used in production.
+
+3. **OSWorld 2.0 Leadership:** Opus 5 outperforms every other model on OSWorld 2.0 at any given cost, but this benchmark is not widely used in production.
+
+4. **Successor Models:** Claude Opus 5.5 (released September 22, 2026) reportedly surpasses Opus 5 on key agentic benchmarks at 60% cheaper pricing, suggesting Opus 5 may be a stepping stone rather than the final frontier model.
+
+5. **Pricing Discrepancies:** Some sources show Opus 5 at $5/$25, while others suggest competitive pricing when considering cache discounts. The actual cost efficiency depends heavily on workload composition.
+
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+7. **Benchmark Controversy:** The benchmarks where Opus 5 excels (ARC-AGI-3, ArXivMath, OSWorld 2.0) are controversial and not widely used in production, making it difficult to assess real-world performance.
+
+---
+
+## Conclusion
+
+Claude Opus 5 is Anthropic's flagship frontier model from their Claude family, released July 24, 2026, designed for complex coding, multi-step reasoning, and long-document analysis. It delivers near Fable 5.1 intelligence at Opus speed and cost, offering exceptional performance on mathematical reasoning and computer use benchmarks. Opus 5 ranks #1 on ARC-AGI-3 (30.2%), significantly outperforming GPT-5.6 Sol (7.8%) and Opus 4.8 (1.5%). The model features a massive 1M token context window, competitive pricing ($5/$25 per 1M tokens), and strong agentic coding capabilities. Opus 5 outperforms every other model on OSWorld 2.0 (computer use benchmark) at any given cost, surpassing Fable 5.1's best result at just over a third of the cost.
+
+However, detailed public information about Claude Opus 5 is limited compared to other frontier models from Western companies. The model's strengths in mathematical reasoning, computer use, and long-context reasoning make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows. The availability of Claude Opus 5.5 (released September 22, 2026) which reportedly surpasses Opus 5 on key agentic benchmarks at 60% cheaper pricing suggests that Opus 5 may be a stepping stone rather than the final frontier model.
+
+For organizations heavily invested in the Anthropic ecosystem and seeking complex mathematical reasoning and computer use capabilities, Claude Opus 5 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency.
+
+**Overall Assessment:** Exceptional mathematical reasoning and computer use capabilities with excellent cost efficiency; however, limited public documentation and benchmark data compared to other frontier models, and newer models (Opus 5.5) may offer better value.

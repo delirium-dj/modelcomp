@@ -26,9 +26,23 @@ at all.
 ## The V2 replacements
 
 The same file names one level up (`.opencode/plugins/*.ts`) are the ports for
-Desktop 2.x. They share an engine in `.opencode/lib/plugin-retry/`, and the
-match fragments, delays, brakes and "continue" texts are unchanged from these
-originals — see the header comment in each port for the one-to-one mapping.
+Desktop 2.x. The thin ports share an engine in `.opencode/lib/plugin-retry/`
+(`engine.ts` + `match.ts`); the match fragments, delays, brakes and "continue"
+texts are unchanged from these originals — see the header comment in each port
+for the one-to-one mapping.
+
+`gemini-quota-retry.ts` is the exception: its top-level V2 port is standalone
+(it parses Google's own "retry in Ns" hint), and the V1 original is kept here.
+
+Both newer plugins are mirrored too: `provider-returned-error-retry.ts`
+(including the 2026-10-28 "upstream provider returned an error" / "upstream
+error from Phala" variants) and `provider-rate-limit-retry.ts` (429 /
+"too many requests" / "requests per minute"; payload-only in V2).
+
+Verified 2026-10-28 on Desktop 2.2.0: all 14 top-level ports load, and the
+server log shows zero `failed to load plugin` lines. If a future edit reverts
+one to the V1 shape, the log immediately shows the `PluginModule.LoadError`
+above and that plugin is silently absent from the running session.
 
 ## Still using a V1 CLI?
 
