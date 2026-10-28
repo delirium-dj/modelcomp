@@ -15,8 +15,8 @@
 
 ### Raw benchmarks found
 
-- Coding / agentic: Terminal-Bench 4.0: **55.8%**; OSWorld: **70.2%**; BrowseComp: **90.8%.
-- Reasoning: GPQA Diamond: **93.7%**; FrontierMath Tier 4: **87.8%.
+- Coding / agentic: Terminal-Bench 4.0: **55.8%**; OSWorld: **70.2%**; BrowseComp: **90.8%**.
+- Reasoning: GPQA Diamond: **93.7%**; FrontierMath Tier 4: **87.8%**.
 
 ### Cross-source comparison
 
@@ -24,11 +24,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** TB4.0 **55.8, OSWorld **70.2, BrowseComp **90.8 → agentic high.
-- **Reasoning: 80/100.** GPQA **93.7, FrontierMath **87.8 → reasoning high.
+- **Tool use: 75/100.** TB4.0 **55.8**, OSWorld **70.2**, BrowseComp **90.8%** → agentic high.
+- **Reasoning: 80/100.** GPQA **93.7%**, FrontierMath **87.8%** → reasoning high.
 - **Context window: 100/100.** Documented **1,048,576** (1M).
 - **Multimodal: 80/100.** Multimodal evals → strong.
-- **Coding: 75/100.** TB4.0 **55.8, OSWorld **70.2 → coding mid-high.
+- **Coding: 75/100.** TB4.0 **55.8%**, OSWorld **70.2%** → coding mid-high.
 - **Cost efficiency: 60/100.** $10/$50 → expensive.
 
 - **Overall Score: 82/100.** Mean of the five quality dims (Tool 75 + Reasoning 80 + Context 100 + Multimodal 80 + Coding 75) / 5 = 80; Cost efficiency excluded.

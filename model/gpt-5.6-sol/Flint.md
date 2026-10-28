@@ -15,8 +15,8 @@
 
 ### Raw benchmarks found
 
-- Coding / agentic: Terminal-Bench 4.0: **37.3%**; DeepSWE: **72.7%**; FrontierCode 1.1 Extended: **60.6%.
-- Reasoning: GPQA Diamond: **94.6%**; FrontierMath Tier 4: **83.0%`.
+- Coding / agentic: Terminal-Bench 4.0: **37.3%**; DeepSWE: **72.7%**; FrontierCode 1.1 Extended: **60.6%**.
+- Reasoning: GPQA Diamond: **94.6%**; FrontierMath Tier 4: **83.0%**.
 
 ### Cross-source comparison
 
@@ -24,11 +24,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** TB4.0 **37.3, DeepSWE **72.7 → agentic mid.
-- **Reasoning: 85/100.** GPQA **94.6, FrontierMath **83.0 → reasoning high.
+- **Tool use: 70/100.** TB4.0 **37.3**, DeepSWE **72.7** → agentic mid.
+- **Reasoning: 85/100.** GPQA **94.6**, FrontierMath **83.0** → reasoning high.
 - **Context window: 100/100.** Documented **1,048,576**.
 - **Multimodal: 80/100.** Multimodal evals → strong.
-- **Coding: 70/100.** DeepSWE **72.7, TB4.0 **37.3 → coding mid-high.
+- **Coding: 70/100.** DeepSWE **72.7**, TB4.0 **37.3** → coding mid-high.
 - **Cost efficiency: 60/100.** $5/$30 → expensive.
 
 - **Overall Score: 81/100.** Mean of the five quality dims (Tool 70 + Reasoning 85 + Context 100 + Multimodal 80 + Coding 70) / 5 = 80; Cost efficiency excluded.

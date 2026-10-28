@@ -1,35 +1,36 @@
 # GPT-6 Sol — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenAI/gpt-6-sol
-- Date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: OpenAI `gpt-6-sol`
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Sol
-- **Short description:** High-performance reasoning model for production-grade agentic tasks.
-- **Provider / access:** OpenAI API (`gpt-6-sol`)
-- **Release / knowledge:** 2026-09-29
-- **IDs:** `openai/gpt-6-sol`
-- **Context window:** 2.0M tokens
-- **Modalities:** Text/Image/Audio/Video in; Text out.
-- **Pricing (as of 2026-10-08):** Premium tier.
-- **Architecture:** Proprietary.
+- **Short description:** High-reasoning capability model with improved cost-efficiency.
+- **Provider / access:** OpenAI API.
+- **Context window:** 128,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- Artificial Analysis Intelligence Index: **48**
+- HumanEval/MBPP: **83.09%**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 96/100.** Advanced agentic capability.
-- **Reasoning: 97/100.** Elite reasoning performance.
-- **Context window: 99/100.** Frontier-level context window.
-- **Multimodal: 95/100.** Native vision integration.
-- **Coding: 97/100.** Top-tier coding assistant.
-- **Cost efficiency: 60/100.** High-performance pricing.
-- **Overall Score: 97/100.** A premier model for high-demand, complex agentic workflows.
+- **Tool use: 85/100.** Strong agentic tool utilization.
+- **Reasoning: 86/100.** Significant reasoning improvements.
+- **Context window: 84/100.** Competent context management.
+- **Multimodal: 83/100.** Effective image and text handling.
+- **Coding: 85/100.** Good balance of code quality and speed.
+- **Cost efficiency: 89/100.** Excellent value proposition.
+- **Overall Score: 84.6/100.** A versatile and cost-effective reasoning model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-28
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.

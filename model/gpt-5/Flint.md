@@ -29,7 +29,7 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** Aider Polyglot **88.0% -> strong.
+- **Tool use: 70/100.** Aider Polyglot **88.0%** -> strong.
 - **Reasoning: 75/100.** AIME **94.6%, SWE-bench Verified **74.9% -> high.
 - **Context window: 80/100.** 400K/128K -> high.
 - **Multimodal: 60/100.** Text, image, file in; text out -> mid.

@@ -1,0 +1,31 @@
+# Gemma 4 12B Unified — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Google DeepMind (`gemma-4-12b-unified`; stub id `opencode/gemma-4-12b-unified`)
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** This hyphen-spelled folder `gemma-4-12b-unified` is a **duplicate of the canonical dot-spelled folder `../gemma-4.12b-unified/`** — both are the **same Google DeepMind "Gemma 4 12B Unified"** model (11.95B encoder-free open-weight multimodal, Apache 2.0, ~256–262K context, text+image+audio in → text out, free open weights). The two are **separately queued** (`model-queue.md` L137 hyphen `72.5`, L117 dot `75.9`) but describe **one shipped artifact**; benchmarks measure the *weights*, not the host folder spelling. I already scored the canonical dot folder in **report 108** (`../gemma-4.12b-unified/Qwen_3.8_Max.md`, Overall 77). Scoring this stub too would **double-count the same model** and reattribute one artifact's numbers across two spellings, so per the research rules (**no reattribution / no double-count**) I self-exclude it and point to the dot folder. This is the identical pattern to the sibling `../gemma-4-26b-a4b/` (hyphen) vs `../gemma-4.26b-a4b/` (dot, report 109) pair I excluded earlier.
+
+## Model card (duplicate folder — resolved to canonical dot spelling)
+
+- **Name:** Gemma 4 12B Unified (both folders).
+- **Canonical folder:** `../gemma-4.12b-unified/` — id **`google/gemma-4-12B`**, HF `google/gemma-4-12B`, full curated meta (GPQA 78.8%, LiveCodeBench v6 72%, 16 GB VRAM, Apache 2.0). **Report 108** (Overall 77) lives there.
+- **This (excluded) folder:** `gemma-4-12b-unified` — id **`opencode/gemma-4-12b-unified`**, a **9-line stub** with **no benchmark rows**, no HF link, no `standout`/`tradeoff`, no pricing tiers. Same name, same 12B unified/encoder-free multimodal description, same 262K context, same "Text, image, audio in; text out" modalities, same "free open weights."
+- **Provider / access:** Google DeepMind; open weights (Apache 2.0), self-host or hosted (~$0.10/$0.25–0.30 per 1M).
+- **Modalities:** text, image, audio in → text out (encoder-free unified cross-modal projection).
+- **Architecture:** ~11.95B dense open-weight multimodal model, runs in ~16 GB VRAM.
+
+### Raw benchmarks found
+
+None **unique to this folder.** The stub `meta.json` carries **no benchmark rows**. All real Gemma 4 12B Unified numbers (AA Intelligence Index 14, 4/4 units, #20/141; GPQA 78.8%; LiveCodeBench v6 72%; encoder-free text+image+audio+**video** capability the meta omits) belong to the **same model** and are already documented in **report 108** at `../gemma-4.12b-unified/Qwen_3.8_Max.md`. Re-listing them here would be a reattribution/double-count.
+
+### Normalized scores (1–100)
+
+Omitted — self-excluded (duplicate folder; see `../gemma-4.12b-unified/` report 108 for the scored entry).
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-28
+- Method: compared `model/gemma-4-12b-unified/meta.json` (this hyphen stub, id `opencode/gemma-4-12b-unified`, 9 lines, zero benchmarks) against `model/gemma-4.12b-unified/meta.json` (canonical dot, id `google/gemma-4-12B`, full meta) and `model-queue.md` (both separately queued: L137 hyphen 72.5, L117 dot 75.9). Confirmed they are the **same Google DeepMind Gemma 4 12B Unified** artifact (identical name, 12B encoder-free multimodal, ~256–262K, text+image+audio in, Apache open weights). **No new web research performed** — exclusion is a dataset-hygiene decision, not a capability judgment. **Recommendation to curator:** de-duplicate the hyphen/dot Gemma folder pairs (`gemma-4-12b-unified`↔`gemma-4.12b-unified`, `gemma-4-26b-a4b`↔`gemma-4.26b-a4b`) so one model is not scored twice. **No numbers invented; no sibling reattributed.**
+- Future sources: N/A — scored entry is `../gemma-4.12b-unified/Qwen_3.8_Max.md` (report 108).

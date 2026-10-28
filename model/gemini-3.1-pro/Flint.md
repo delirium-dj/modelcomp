@@ -39,15 +39,15 @@ Long context / multimodal:
 
 ### Cross-source comparison
 
-- Google reports Gemini 3.1 Pro Thinking High: SWE-bench Verified **80.6%, TB2.0 **68.5%, MCP Atlas **69.2%, BrowseComp **85.9%, LiveCodeBench Pro Elo **2887, MRCR v2 **84.9%, MMMU-Pro **80.5%.
+- Google reports Gemini 3.1 Pro Thinking High: SWE-bench Verified **80.6%**, TB2.0 **68.5%**, MCP Atlas **69.2%**, BrowseComp **85.9%**, LiveCodeBench Pro Elo **2887**, MRCR v2 **84.9%**, MMMU-Pro **80.5%**.
 - LMArena: Gemini 3.1 Pro Arena Elo **1505** (Quality 96; tied with Claude Opus 4.7 / GPT-5.5 Pro at frontier band; top-10 with ~1500 barrier crossed).
-- Independent: llmbenchmark.ai — SWE-bench Verified (Vals) **78.8%, LMArena WebDev **1447, AA Intelligence **29.7, AA Coding **68.8; BenchGecko composite **79.4 / 92 in Coding category.
+- Independent: llmbenchmark.ai — SWE-bench Verified (Vals) **78.8%, LMArena WebDev **1447**, AA Intelligence **29.7**, AA Coding **68.8; BenchGecko composite **79.4%** / 92 in Coding category.
 
 ### Normalized scores (1–100)
 
 - **Tool use: 65/100.** SWE-bench Verified **80.6%, TB2.1 (Vals) **70.8%, MCP Atlas **69.2%, TB2.0 **68.5% → agentic coding mid-high.
-- **Reasoning: 75/100.** GPQA **94.1%, ARC-AGI-2 **77.1%, HLE **44.4% → reasoning high.
-- **Context window: 100/100.** Documented **1,048,576** (1M); MRCR v2 **84.9%.
+- **Reasoning: 75/100.** GPQA **94.1%, ARC-AGI-2 **77.1%, HLE **44.4%** → reasoning high.
+- **Context window: 100/100.** Documented **1,048,576** (1M); MRCR v2 **84.9%**.
 - **Multimodal: 82/100.** MMMU-Pro **80.5%, MMMLU **92.6% → multimodal strong.
 - **Coding: 80/100.** SWE-bench Verified **80.6%, TB2.1 (Vals) **70.8%, TB2.0 **68.5%, DeepSWE **62.7% → coding strong.
 - **Cost efficiency: 90/100.** $2/M in / $12/M out → mid-tier frontier pricing.

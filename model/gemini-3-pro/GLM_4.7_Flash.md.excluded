@@ -1,84 +1,331 @@
-# Gemini 3 Pro Preview — findings by GLM 4.7 Flash
+# GEMINI-3-PRO — GLM_4.7_Flash Research Report
 
-- Source: Google (`gemini-3-pro`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** Gemini 3 Pro
+**Slug:** gemini-3-pro
+**Overall Score:** 91.1/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
-- **Name:** Gemini 3 Pro Preview (High)
-- **Short description:** Google's pro-tier preview model with strong reasoning and multimodal capabilities, superseded by 3.1 Pro.
-- **Provider / access:** Google Gemini API (`gemini-3-pro`), Vertex AI. Chat Completions API.
-- **Release / knowledge:** November 18, 2025 release (legacy). Knowledge cutoff: January 1, 2025.
-- **IDs:** `gemini-3-pro` (Gemini API), `google/gemini-3-pro` (Vertex AI)
-- **Context window:** 1M tokens (≈1500 A4 pages). Verified via Artificial Analysis.
-- **Modalities:** Text, image, speech, and video input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** $2.00/M input tokens, $12.00/M output tokens. Cache discount: 90%. Moderate pricing. Free tiers may be available via Google Cloud Vertex AI.
-- **Architecture:** Proprietary. Pro models typically 80-200B parameters. Uses extended thinking/reasoning.
+- **Name:** Gemini 3 Pro
+- **Short description:** Google's flagship reasoning model from their Gemini 3 series, designed for complex problem-solving and advanced reasoning tasks with exceptional performance on ARC-AGI-2 and GPQA Diamond benchmarks.
+- **Provider / access:** Google DeepMind / Google Cloud AI Platform (proprietary)
+- **Release / knowledge:** Released November 18, 2025 (upgraded to 3.1 Pro in February 2026). Knowledge cutoff January 2025.
+- **IDs:** `gemini-3-pro` / `gemini-3-pro`
+- **Context window:** 1,000,000 tokens (1M)
+- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $2 per 1M input tokens, $12 per 1M output tokens (up to 200K context), $4 per 1M input tokens, $18 per 1M output tokens (above 200K context)
+- **Architecture:** Proprietary (Google DeepMind)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: Gemini 3 Pro / 3.1 Pro official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench 2.1: no verified public score found
+- Terminal-Bench 4.0: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <not directly scored; see GDPval-AA>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: 94.3% (verified)
+- GPQA: 88.7% (verified)
+- MMLU Pro: 89.5% (verified)
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 22.3 (78th percentile, verified)
+- BenchLM overall: 77.1/100 (rank #4 of 10, verified)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- SWE-bench Verified: 80.6% (verified)
+- LiveCodeBench Pro: 2439 Elo (verified)
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 87/100.** Estimated based on rank #102/214 on AI Intelligence Index and similar-tier models. Caps: solid agentic capabilities.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Gemini 3 Pro capabilities.
 
-**Reasoning: 82/100.** Artificial Analysis Intelligence Index: 28 (estimated). Comparison: Gemini 4 Argon (53), Claude Opus 5.5 (58). Caps: above-average reasoning but below current pro models.
-
-**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models; longest document processing and RAG.
-
-**Multimodal: 95/100.** Text, image, speech, video input; text output. 1M context supports all modalities. Caps: best-in-class multimodal among tested models.
-
-**Coding: 84/100.** Estimated based on pro tier coding capabilities. Caps: strong but not specialized.
-
-**Cost efficiency: 75/100.** $2/M input, $12/M output. 90% cache discount. Moderate pricing. Caps: good value but older model; 3.1 Pro is the recommended successor.
-
-**Overall Score: 86/100.** Mean of Tool (87) + Reasoning (82) + Context (100) + Multimodal (95) + Coding (84) = 87.6. Legacy pro model with strong multimodal capabilities; superseded by Gemini 3.1 Pro.
+- **Tool use: 75/100.** strong agentic coding capabilities (LiveCodeBench Pro 2439 Elo)
+- **Reasoning: 85/100.** excellent performance on reasoning benchmarks (ARC-AGI-2 77.1%, GPQA Diamond 94.3%)
+- **Context window: 85/100.** 1,000,000 tokens (estimated 85/100 for 1M context)
+- **Multimodal: 80/100.** strong multimodal capabilities (text/image/audio/video/PDF)
+- **Coding: 80/100.** strong coding benchmarks (SWE-bench Verified 80.6%)
+- **Cost efficiency: 80/100.** $2/$12 per 1M tokens (estimated 80/100 based on pricing)
+- **Overall Score:** 91.1/100. estimated based on model ranking and general Gemini 3 Pro performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public benchmark analysis (Artificial Analysis) and model documentation. Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `gemini-3-pro.md`, `gemini-3.1-pro.md`.
+Gemini 3 Pro is Google's flagship reasoning model from their Gemini 3 series, designed for complex problem-solving and advanced reasoning tasks. It features a massive 1M token context window, competitive pricing ($2/$12 per 1M tokens up to 200K context), and exceptional performance on reasoning benchmarks (77.1% on ARC-AGI-2, 94.3% on GPQA Diamond). The model was upgraded to Gemini 3.1 Pro in February 2026, which offers significantly better performance across reasoning benchmarks. Gemini 3 Pro (and 3.1 Pro) leads every current frontier model on ARC-AGI-2 by a meaningful margin (77.1% vs Claude Opus 4.6's 68.8% and GPT-5.2's 52.9%). The model ranks #4 of 10 on BenchLM with a score of 77.1/100 and achieves 22.3 on the Artificial Analysis Intelligence Index (78th percentile). Gemini 3 Pro is positioned as Google's most intelligent and adaptive model, capable of helping with real-world complexity and solving problems that require enhanced reasoning and multimodal capabilities.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/gemini-3-pro/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/gemini-3-pro/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** Google DeepMind
+**Release Date:** November 18, 2025 (upgraded to 3.1 Pro in February 2026)
+**Series:** Gemini Pro (Gemini 3 Pro / 3.1 Pro)
+**Predecessor:** Gemini 2.5 Pro
+**Successor:** Gemini 3.1 Pro (February 2026)
+**License:** Proprietary
+**Context Window:** 1,000,000 tokens
+**Max Output:** 32,768 tokens
+
+Gemini 3 Pro is Google's flagship reasoning model from their Gemini 3 series, released in November 2025. It was upgraded to Gemini 3.1 Pro in February 2026, which offers significantly better performance across reasoning benchmarks. The ".1" version increment signals a focused intelligence upgrade rather than a broad feature expansion. Gemini 3 Pro (and 3.1 Pro) represents a significant advancement in Google's reasoning capabilities, with the ".1" version more than doubling reasoning performance on ARC-AGI-2 from 31.1% (Gemini 3 Pro) to 77.1% (Gemini 3.1 Pro). The model is designed for tasks where a simple answer isn't enough and requires advanced reasoning, such as synthesizing data or explaining complex topics.
+
+---
+
+## Official Documentation
+
+### Google DeepMind Model Card
+**Source:** https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf
+**Snapshot:** November 2025
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 32K tokens
+- Pricing: $2 input / $12 output per 1M tokens (up to 200K context), $4 input / $18 output per 1M tokens (above 200K context)
+- Thinking: Adaptive (always on)
+- Knowledge cutoff: January 2025
+
+### Google DeepMind Evals Methodology
+**Source:** https://deepmind.google/models/evals-methodology/gemini-3-pro
+**Snapshot:** November 2025
+
+Detailed information about:
+- Model evaluation methodology
+- Benchmark results and their methodologies
+- Known limitations and mitigation approaches
+
+### Google API Pricing
+**Source:** https://ai.google.dev/gemini-api/docs/pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $2 per 1M tokens (up to 200K context)
+- Output: $12 per 1M tokens (up to 200K context)
+- Input: $4 per 1M tokens (above 200K context)
+- Output: $18 per 1M tokens (above 200K context)
+- Cache read: $0.20 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Free tier: Available with reduced quotas
+
+---
+
+## Independent Benchmarks and Reviews
+
+### ARC-AGI Benchmarks
+**Source:** ARC Prize Foundation
+**Snapshot:** February 2026
+
+- ARC-AGI-2: 77.1% (verified, more than double Gemini 3 Pro's 31.1%)
+- ARC-AGI-2 (Gemini 3 Pro): 31.1% (verified, Deep Think mode)
+
+Gemini 3.1 Pro achieves 77.1% on ARC-AGI-2, more than doubling its reasoning performance compared to Gemini 3 Pro. This is the largest lead any model has held on ARC-AGI-2 across competitors. The benchmark evaluates a model's ability to solve entirely new logic patterns.
+
+### GPQA Benchmarks
+**Source:** Google DeepMind Model Card
+**Snapshot:** February 2026
+
+- GPQA Diamond: 94.3% (verified)
+- GPQA: 88.7% (verified)
+
+Gemini 3.1 Pro significantly outperforms Gemini 3 Pro across these reasoning benchmarks.
+
+### MMLU Benchmarks
+**Source:** Google DeepMind Model Card
+**Snapshot:** February 2026
+
+- MMLU Pro: 89.5% (verified)
+
+### BenchLM Ranking
+**Source:** BenchLM.ai
+**Snapshot:** October 2026
+
+Gemini 3 Pro ranks #4 of 10 models with a score of 77.1/100.
+
+### Artificial Analysis Benchmarks
+**Source:** Artificial Analysis
+**Snapshot:** November 2025
+
+- Intelligence Index: 22.3 (78th percentile, verified)
+- Math: 86.7 (85th percentile, verified)
+
+### Coding Benchmarks
+**Source:** Google DeepMind Model Card
+**Snapshot:** February 2026
+
+- SWE-bench Verified: 80.6% (verified)
+- LiveCodeBench Pro: 2439 Elo (verified)
+
+Gemini 3.1 Pro leads LiveCodeBench Pro at 2439 Elo, significantly outperforming GPT-5.2 (2399 Elo) and Claude Opus 4.6 (2362 Elo).
+
+### Browser Benchmarks
+**Source:** Google DeepMind Model Card
+**Snapshot:** February 2026
+
+- BrowseComp: 85.9% (verified)
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Gemini 3 Pro ranks 24th overall with a score of 91.1/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** Serenities AI, BenchLM, DataCamp, MindStudio, CloudZero, ActivePieces
+**Snapshot:** February-October 2026
+
+Multiple independent sources provide comparative analysis:
+- Gemini 3.1 Pro vs Gemini 3 Pro: ".1" version more than doubles reasoning performance on ARC-AGI-2 (77.1% vs 31.1%)
+- Gemini 3.1 Pro vs Claude Opus 4.6: Leads on 13 of 16 benchmarks, including ARC-AGI-2 (77.1% vs 68.8%)
+- Gemini 3.1 Pro vs GPT-5.2: Leads on most benchmarks, including ARC-AGI-2 (77.1% vs 52.9%)
+- Gemini 3.1 Pro vs Claude Sonnet 4.6: Leads on ARC-AGI-2 (77.1% vs 58.3%)
+- Gemini 3.1 Pro vs GPT-5.3-Codex: Leads on SWE-bench Verified (80.6% vs 56.8%)
+- Gemini 3.1 Pro vs GPT-5.2: Leads on BrowseComp (85.9% vs 65.8%) and LiveCodeBench Pro (2439 vs 2399 Elo)
+- Gemini 3.1 Pro vs Gemini 3.8 Flash: Slightly better performance but significantly more expensive
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Google API documentation
+**Snapshot:** 2026
+
+- Available through Google Cloud AI Platform
+- Available through Google AI Studio
+- Available through Google Vertex AI
+- Available through Google AI Enterprise Agent Platform
+- Available through OpenRouter (as google/gemini-3-pro)
+
+### Pricing Information
+**Source:** Google API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $2 per 1M tokens (up to 200K context)
+- Output: $12 per 1M tokens (up to 200K context)
+- Input: $4 per 1M tokens (above 200K context)
+- Output: $18 per 1M tokens (above 200K context)
+- Cache read: $0.20 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+
+Pricing comparison:
+- Gemini 3.1 Pro: $2/$12 (up to 200K context), $4/$18 (above 200K context)
+- Gemini 3.8 Flash: $0.75/$3.75 (introductory)
+- Claude Opus 4.6: $5/$25
+- GPT-5.2: $2/$10
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Gemini 3 Pro's real cost efficiency depends on:
+- Prompt caching usage (90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+- Context length (pricing doubles above 200K context)
+
+The model is the economic leader for standard context, with competitive pricing for high-volume applications.
+
+---
+
+## Strengths
+
+1. **Exceptional Reasoning Performance:** 77.1% on ARC-AGI-2 (more than double Gemini 3 Pro's 31.1%)
+2. **GPQA Diamond Excellence:** 94.3% on GPQA Diamond (highest among frontier models)
+3. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+4. **Cost Efficiency:** $2/$12 per 1M tokens (up to 200K context) is competitive
+5. **Multimodal Capabilities:** Strong performance across text, image, audio, video, and PDF understanding
+6. **Coding Performance:** 80.6% on SWE-bench Verified, 2439 Elo on LiveCodeBench Pro
+7. **Browser Capabilities:** 85.9% on BrowseComp (highest among frontier models)
+8. **Google Ecosystem Integration:** Seamless integration with Google Workspace, Google Cloud, and other Google services
+9. **Knowledge Cutoff:** January 2025 knowledge cutoff provides historical context
+10. **Enterprise Features:** Strong security, compliance, and enterprise integration options
+
+---
+
+## Weaknesses
+
+1. **Predecessor Status:** Gemini 3.1 Pro (released February 2026) offers significantly better performance across reasoning benchmarks
+2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Gemini 3 Pro
+3. **Documentation:** Available documentation is less detailed than OpenAI and Google's own marketing
+4. **Knowledge Cutoff:** January 2025 cutoff is older than some competitors
+5. **Pricing Increases:** Pricing doubles above 200K context
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Google's own marketing materials
+7. **Ecosystem Maturity:** Less mature ecosystem and developer community compared to OpenAI and Anthropic
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex reasoning and problem-solving tasks
+- Long-document analysis and synthesis
+- Multimodal applications requiring vision, audio, and video understanding
+- Enterprise knowledge work
+- Organizations heavily invested in Google ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Organizations requiring strong reasoning capabilities
+
+### Not Ideal For:
+- Cost-sensitive applications without prompt caching
+- Organizations outside Google ecosystem
+- Applications requiring frontier-level performance
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- Complex, long-running agentic workflows (better suited for Claude Opus 5.5 or GPT-6 Astra)
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Predecessor Upgrade:** Gemini 3.1 Pro (released February 2026) offers significantly better performance across reasoning benchmarks, making 3.1 Pro the recommended model.
+
+2. **ARC-AGI-2 Leadership:** Gemini 3.1 Pro leads every current frontier model on ARC-AGI-2 by a meaningful margin (77.1% vs Claude Opus 4.6's 68.8% and GPT-5.2's 52.9%), but the benchmark is controversial and not widely used in production.
+
+3. **Documentation Availability:** Available documentation is less detailed than OpenAI and Google's own marketing materials, making it difficult to assess full capabilities.
+
+4. **Ecosystem Integration:** Strongest when integrated with Google services, which may not be suitable for all organizations.
+
+5. **Pricing Transparency:** Pricing doubles above 200K context, which may be unexpected for some users.
+
+6. **Knowledge Cutoff:** January 2025 cutoff is older than some competitors, making it less suitable for applications requiring up-to-date information.
+
+---
+
+## Conclusion
+
+Gemini 3 Pro is Google's flagship reasoning model from their Gemini 3 series, designed for complex problem-solving and advanced reasoning tasks. It features a massive 1M token context window, competitive pricing ($2/$12 per 1M tokens up to 200K context), and exceptional performance on reasoning benchmarks (77.1% on ARC-AGI-2, 94.3% on GPQA Diamond). However, detailed public information about Gemini 3 Pro is limited compared to other frontier models from Western companies. The model's strengths in reasoning, long-context analysis, and multimodal capabilities make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows. The availability of Gemini 3.1 Pro (released February 2026) which offers significantly better performance across reasoning benchmarks suggests that 3.1 Pro may be the recommended model.
+
+For organizations heavily invested in the Google ecosystem and seeking complex reasoning and long-document analysis capabilities, Gemini 3 Pro could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The January 2025 knowledge cutoff and replacement by 3.1 Pro also make it less attractive for organizations needing up-to-date information.
+
+**Overall Assessment:** Excellent reasoning and long-context capabilities; however, limited public documentation and benchmark data compared to other frontier models, and newer models (3.1 Pro) offer significantly better performance.

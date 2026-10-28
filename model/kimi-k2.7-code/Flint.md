@@ -28,11 +28,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** MCP Mark Verified **81.1, MCP Atlas **76.0, Kimi Code Bench **62.0 -> strong agentic coding.
+- **Tool use: 70/100.** MCP Mark Verified **81.1**, MCP Atlas **76.0**, Kimi Code Bench **62.0%** -> strong agentic coding.
 - **Reasoning: 65/100.** Coding-focused Kimi; reasoning supported.
 - **Context window: 60/100.** **262,144** total -> mid (long-horizon coding).
 - **Multimodal: 60/100.** Text, image, video in; text out -> mid.
-- **Coding: 78/100.** SWE-bench **78.2, MCP Mark **81.1, Kimi Code Bench **62.0 -> strong coding.
+- **Coding: 78/100.** SWE-bench **78.2**, MCP Mark **81.1**, Kimi Code Bench **62.0%** -> strong coding.
 - **Cost efficiency: 85/100.** Open weights; $0.95/$4.00 -> good value.
 
 - **Overall Score: 67/100.** Mean of the five quality dims (70 + 65 + 60 + 60 + 78) / 5 = 66.6 -> 67; Cost efficiency excluded.

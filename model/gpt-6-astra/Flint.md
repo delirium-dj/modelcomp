@@ -18,23 +18,23 @@
 
 - Coding: DeepSWE v1.1: **74.1%**; Terminal-Bench 4.0: **57.9%**; FrontierCode 1.1 Extended: **64.5%**.
 - Computer use: Agents' Last Exam: **59.3%**; OSWorld 2.0: **72.6%**; ScreenSpot-Pro (no tools): **92.7%**.
-- Academic: GPQA Diamond: **96.0%**; FrontierMath Tier 4: **97.6%**; ARC-AGI-2: **95.0%`; ARC-AGI-3: **99.9%**.
-- Cybersecurity: ExploitBench: **100.0%**; SRE-Bench: **88.0%`; SEC-Bench Pro: **85.4%.
-- Long context: OpenAI MRCR v2 8-needle 256K-512K: **100.0%**; 512K-1M: **96.3%.
+- Academic: GPQA Diamond: **96.0%**; FrontierMath Tier 4: **97.6%**; ARC-AGI-2: **95.0%**; ARC-AGI-3: **99.9%**.
+- Cybersecurity: ExploitBench: **100.0%**; SRE-Bench: **88.0%**; SEC-Bench Pro: **85.4%**.
+- Long context: OpenAI MRCR v2 8-needle 256K-512K: **100.0%**; 512K-1M: **96.3%**.
 
 ### Cross-source comparison
 
 - OpenAI reports SOTA across computer use, browsing, software engineering, cybersecurity, science, professional work.
-- Independent: Artificial Analysis Intelligence Index v4.1.1: **61.2** (highest); AA Coding Agent Index v1.4: **67.0`.
+- Independent: Artificial Analysis Intelligence Index v4.1.1: **61.2** (highest); AA Coding Agent Index v1.4: **67.0%**.
 - Independent: Vals AI / BenchLM / press corroborate coding, computer-use, science figures.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** DeepSWE **74.1%, TB4.0 **57.9%, AA Coding Agent **67.0, computer use **59.3% -> agentic coding high.
-- **Reasoning: 92/100.** GPQA **96.0, FrontierMath **97.6, ARC-AGI-2 **95.0, ARC-AGI-3 **99.9 -> reasoning frontier.
+- **Tool use: 72/100.** DeepSWE **74.1%**, TB4.0 **57.9%**, AA Coding Agent **67.0**, computer use **59.3%** -> agentic coding high.
+- **Reasoning: 92/100.** GPQA **96.0**, FrontierMath **97.6**, ARC-AGI-2 **95.0**, ARC-AGI-3 **99.9** -> reasoning frontier.
 - **Context window: 100/100.** MRCR v2 256K-512K **100.0%, 512K-1M **96.3 -> context top-tier.
-- **Multimodal: 85/100.** Computer use **59.3, browsing, science -> multimodal high.
-- **Coding: 75/100.** DeepSWE **74.1, TB4.0 **57.9, FrontierCode **64.5, AA Coding **67 -> coding strong.
+- **Multimodal: 85/100.** Computer use **59.3**, browsing, science -> multimodal high.
+- **Coding: 75/100.** DeepSWE **74.1**, TB4.0 **57.9**, FrontierCode **64.5**, AA Coding **67** -> coding strong.
 - **Cost efficiency: 40/100.** $10/$50 (Standard) -> expensive frontier.
 
 - **Overall Score: 85/100.** Mean of the five quality dims (Tool 72 + Reasoning 92 + Context 100 + Multimodal 85 + Coding 75) / 5 = 84.8 -> 85; Cost efficiency excluded.

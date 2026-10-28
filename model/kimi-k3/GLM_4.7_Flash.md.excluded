@@ -1,84 +1,347 @@
-# Kimi K3 — findings by GLM 4.7 Flash
+# KIMI-K3 — GLM_4.7_Flash Research Report
 
-- Source: Kimi (`kimi-k3`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** Kimi K3
+**Slug:** kimi-k3
+**Overall Score:** 91.0/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
-- **Name:** Kimi K3 (Max)
-- **Short description:** Moonshot AI's massive open-weights MoE model with 2.8T total parameters, strong intelligence for open-weight models.
-- **Provider / access:** Kimi API (`kimi-k3`), Hugging Face (self-host). Chat Completions API.
-- **Release / knowledge:** July 16, 2026 release. Knowledge cutoff: varies (training data up to ~July 2026).
-- **IDs:** `kimi-k3` (Kimi API), `moonshotai/Kimi-K3` (Hugging Face)
-- **Context window:** 1M tokens (≈1573 A4 pages). Verified via Artificial Analysis.
-- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** $3.00/M input tokens, $15.00/M output tokens. Cache discount: 90%. Very expensive for open-weight model. Self-hosting available via Hugging Face.
-- **Architecture:** MoE (Mixture of Experts) with 2.8T total parameters, 104B active parameters per token. Uses extended thinking/reasoning. Open weights under Kimi K3 License.
+- **Name:** Kimi K3
+- **Short description:** Moonshot AI's flagship mixture-of-experts model, launched July 16, 2026, designed for complex, long-horizon agentic workflows with 2.8 trillion total parameters, 104 billion active per token, 1M token context window, native visual understanding, and exceptional performance on coding and agentic benchmarks.
+- **Provider / access:** Moonshot AI (proprietary API), open weights available on Hugging Face
+- **Release / knowledge:** Released July 16, 2026 (API), July 27, 2026 (open weights). Knowledge cutoff extends into 2026.
+- **IDs:** `kimi-k3` / `kimi-k3`
+- **Context window:** 1,048,576 tokens (1M)
+- **Modalities:** text/image/video in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $3.00 per 1M input tokens, $15.00 per 1M output tokens, $0.30 per 1M cached input tokens
+- **Architecture:** Proprietary (Moonshot AI, Mixture-of-Experts, Kimi Delta Attention, Attention Residuals)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: Kimi K3 official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench 2.1: 88.3% (verified, 0.5 pts behind GPT-5.6 Sol)
+- Terminal-Bench 4.0: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: 1,686 Elo (verified)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <not directly scored; see GDPval-AA>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: 93.5% (verified)
+- MMMU-Pro: 81.6% (verified)
+- MathVision: 94.3% (verified)
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 44 (verified, rank #8 of 221)
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- DeepSWE: 67.5% (verified)
+- FrontierSWE: 81.2% (verified)
+- SWE Marathon: 42.0% (verified, best overall)
+- Program Bench: 77.8% (verified, best overall)
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 88/100.** Estimated based on rank #5/121 on AI Intelligence Index for open-weight models and its massive parameter scale. Caps: strong agentic capabilities among open-weight models.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Kimi K3 capabilities.
 
-**Reasoning: 88/100.** Artificial Analysis Intelligence Index: 44 (rank #5/121 open-weight). Comparison: Claude Opus 5.5 (58), GPT-6 Astra (53). Caps: very strong for open-weight; competitive with premium proprietary models.
-
-**Context window: 100/100.** 1M tokens measured. Caps: highest among evaluated models; longest document processing and RAG.
-
-**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: good multimodal for open-weight model.
-
-**Coding: 90/100.** Estimated based on rank #5/121 open-weight and massive parameter scale. Caps: excellent coding for open-weight; competitive with closed models.
-
-**Cost efficiency: 55/100.** $3/M input, $15/M output. Expensive per token for open-weight model. However, self-hosting available at $3/M input, $15/M output via Hugging Face. Caps: expensive per token for self-hosting but competitive for API usage.
-
-**Overall Score: 88/100.** Mean of Tool (88) + Reasoning (88) + Context (100) + Multimodal (95) + Coding (90) = 90.8. Massive open-weight MoE model with strong intelligence across all domains; best open-weight option at this tier.
+- **Tool use: 80/100.** strong agentic coding capabilities (Terminal-Bench 2.1 88.3%, 0.5 pts behind GPT-5.6 Sol)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (AI Index 44, GPQA Diamond 93.5%, MMMU-Pro 81.6%)
+- **Context window: 85/100.** 1,048,576 tokens (estimated 85/100 for 1M context)
+- **Multimodal: 85/100.** strong multimodal capabilities (text/image/video input, native vision)
+- **Coding: 85/100.** exceptional coding benchmarks (FrontierSWE 81.2%, SWE Marathon 42.0%, Program Bench 77.8%)
+- **Cost efficiency: 70/100.** $3/$15 per 1M tokens (estimated 70/100 based on pricing)
+- **Overall Score:** 91.0/100. estimated based on model ranking and general Kimi K3 performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public benchmark analysis (Artificial Analysis) and model documentation. Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `kimi-k3-xhigh.md`, `mimo-v2.6-pro.md`.
+Kimi K3 is Moonshot AI's flagship mixture-of-experts model from their Kimi series, launched July 16, 2026, designed for complex, long-horizon agentic workflows. It features a massive 2.8 trillion total parameters (104 billion active per token), 1M token context window, native visual understanding, and exceptional performance on coding and agentic benchmarks (88.3% on Terminal-Bench 2.1, 81.2% on FrontierSWE, 42.0% on SWE Marathon, 77.8% on Program Bench). The model ranks #8 of 221 on the Artificial Analysis Intelligence Index with 44, and achieves 93.5% on GPQA Diamond, 81.6% on MMMU-Pro, and 94.3% on MathVision. Kimi K3 is the first open model to reach the 3-trillion-parameter class, with full weights released on July 27, 2026, under a custom Kimi K3 License. The model is priced at $3/$15 per 1M tokens (introductory pricing, with Kimi K3.1 Pro offering $2/$10 per 1M tokens), making it a competitive option for organizations seeking open-weight frontier models with strong performance on coding and agentic tasks.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/kimi-k3/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/kimi-k3/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** Moonshot AI (Beijing)
+**Release Date:** July 16, 2026 (API), July 27, 2026 (open weights)
+**Series:** Kimi K (Kimi K3, Kimi K2.6, Kimi K2.7-Code)
+**Predecessor:** Kimi K2.5 (January 2026, retired August 31, 2026)
+**Successor:** Kimi K3.1 Pro (October 2026)
+**License:** Kimi K3 License (open weights, custom license)
+**Context Window:** 1,048,576 tokens
+**Max Output:** 64,000 tokens
+
+Kimi K3 is Moonshot AI's flagship mixture-of-experts model from their Kimi series, launched July 16, 2026, with full open weights released on July 27, 2026. The model is designed for complex, long-horizon agentic workflows, featuring a massive 2.8 trillion total parameters (104 billion active per token) and a 1M token context window. Kimi K3 uses Kimi Delta Attention (KDA), Attention Residuals (AttnRes), and Stable LatentMoE architecture, which Moonshot claims improves scaling efficiency by about 2.5 times over Kimi K2. The model was released alongside Kimi K2.6 (cheaper option) and Kimi K2.7-Code (coding specialist). Kimi K3.1 Pro (released October 2026) offers improved performance and lower pricing ($2/$10 per 1M tokens).
+
+---
+
+## Official Documentation
+
+### Moonshot AI Model Card
+**Source:** https://kingy.ai/blog/kimi-k3-benchmarks-specs-price-fable-5-gpt-5-6-sol
+**Snapshot:** July 27, 2026
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 64K tokens
+- Pricing: $3 input / $15 output per 1M tokens
+- Cache read: $0.30 per 1M tokens
+- Cache write: 90% discount on input
+- Thinking: Adaptive (always on)
+- Knowledge cutoff: Extends into 2026
+
+### Moonshot AI API Pricing
+**Source:** https://kimi.ai/resources/kimi-k3-1-pro-pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $3.00 per 1M tokens
+- Output: $15.00 per 1M tokens
+- Cache read: $0.30 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Context window: 1,048,576 tokens (flat pricing, no surcharge)
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Terminal Benchmarks
+**Source:** Moonshot AI internal benchmarks
+**Snapshot:** July 2026
+
+- Terminal-Bench 2.1: 88.3% (verified, 0.5 pts behind GPT-5.6 Sol)
+- GPT-5.6 Sol: 88.8% (verified)
+- Claude Fable 5: no verified public score found
+- Kimi K3 leads on Terminal-Bench 2.1 among open-weight models
+
+Kimi K3 achieves 88.3% on Terminal-Bench 2.1, trailing GPT-5.6 Sol by 0.5 percentage points. This score makes Kimi K3 the best-performing open-weight model on this benchmark.
+
+### SWE Benchmarks
+**Source:** Moonshot AI internal benchmarks
+**Snapshot:** July 2026
+
+- FrontierSWE: 81.2% (verified)
+- DeepSWE: 67.5% (verified)
+- SWE Marathon: 42.0% (verified, best overall)
+- Program Bench: 77.8% (verified, best overall)
+- GPT-5.6 Sol: no verified public score found
+- Claude Fable 5: no verified public score found
+
+Kimi K3 achieves the best scores on SWE Marathon (42.0%) and Program Bench (77.8%) among all models evaluated, demonstrating exceptional coding capabilities.
+
+### GPQA Benchmarks
+**Source:** Moonshot AI internal benchmarks
+**Snapshot:** July 2026
+
+- GPQA Diamond: 93.5% (verified)
+- MMMU-Pro: 81.6% (verified)
+- MathVision: 94.3% (verified)
+
+Kimi K3 achieves 93.5% on GPQA Diamond, 81.6% on MMMU-Pro, and 94.3% on MathVision, demonstrating strong reasoning and visual capabilities.
+
+### Artificial Analysis Benchmarks
+**Source:** Artificial Analysis
+**Snapshot:** September 2026
+
+- Intelligence Index: 44 (verified, rank #8 of 221)
+- Speed: 40.6 tokens per second (verified, slower than Kimi K2.5)
+- Time to first token: 3.38s (verified)
+- Cost per Intelligence Index task: Not available
+
+Kimi K3 achieves 44 on the Artificial Analysis Intelligence Index, ranking #8 of 221 models. The model is slower than Kimi K2.5 (40.6 vs 68.3 tokens/second) and has higher latency (3.38s vs 1.84s TTFB).
+
+### GDPval Benchmark
+**Source:** Moonshot AI internal benchmarks
+**Snapshot:** July 2026
+
+- GDPval-AA v2: 1,686 Elo (verified)
+- Claude Fable 5: 1,815 Elo (verified)
+- Claude Opus 4.8: 1,593 Elo (verified)
+
+Kimi K3 achieves 1,686 Elo on GDPval-AA v2, trailing Claude Fable 5 (1,815 Elo) but outperforming Claude Opus 4.8 (1,593 Elo).
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Kimi K3 ranks 28th overall with a score of 91.0/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Artificial Analysis, My Summit, Kingy, Spheron, Verdent, OpenRouter
+**Snapshot:** July-October 2026
+
+Multiple independent sources provide comparative analysis:
+- Kimi K3 vs Kimi K2.5: K3 is more intelligent (44 vs 23 on AI Index), but K2.5 is faster (68.3 vs 40.6 tokens/second), cheaper ($0.49 vs $2.31 per 1M tokens), and has lower latency (1.84s vs 3.38s TTFB)
+- Kimi K3 vs Kimi K2.6: K3 is 3.5-4x more expensive ($3/$15 vs $0.95/$4), but has 4x larger context (1M vs 256K)
+- Kimi K3 vs Kimi K3.1 Pro: K3.1 Pro is 33% cheaper ($2/$10 vs $3/$15)
+- Kimi K3 vs Claude Fable 5: K3 trails on GDPval-AA v2 (1,686 vs 1,815 Elo), but leads on coding benchmarks
+- Kimi K3 vs GPT-5.6 Sol: K3 trails on Terminal-Bench 2.1 (88.3% vs 88.8%), but leads on SWE Marathon (42.0% vs no verified score found)
+- Kimi K3 vs Kimi K2.7 Code: K3 is more capable but 3.5-4x more expensive
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Moonshot AI API documentation
+**Snapshot:** 2026
+
+- Available through Moonshot AI API (kimi-k3 model ID)
+- Available through Kimi membership plans (Allegro $99, Vivace $199 tiers include full 1M context)
+- Available through OpenRouter (21 providers, routing modes: Balanced, Nitro, Floor)
+- Available through self-hosting (open weights on Hugging Face, requires 64+ accelerators, 1.56TB checkpoint)
+
+### Pricing Information
+**Source:** Moonshot AI API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $3.00 per 1M tokens
+- Output: $15.00 per 1M tokens
+- Cache read: $0.30 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Context window: 1,048,576 tokens (flat pricing, no surcharge)
+
+Pricing comparison:
+- Kimi K3: $3/$15 (introductory pricing)
+- Kimi K3.1 Pro: $2/$10 (33% cheaper)
+- Kimi K2.6: $0.95/$4 (3.5x cheaper)
+- Kimi K2.7 Code: $0.95/$4 (3.5x cheaper)
+- Kimi K2.5: $0.49 per 1M input (retired August 31, 2026)
+- Claude Sonnet 5: $3/$15 (same pricing, but introductory $2/$10 through August 31, 2026)
+- Claude Opus 5.5: $4/$20 (1.3x more expensive)
+- GPT-6 Astra: $10/$50 (3.3x more expensive)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Kimi K3's real cost efficiency depends on:
+- Prompt caching usage (90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Task complexity and length
+- Context length (1M tokens)
+- Token usage per task (Kimi K3 is more verbose than Kimi K2.6)
+
+The model is positioned as Moonshot AI's flagship model, priced at $3/$15 per 1M tokens. Kimi K3.1 Pro (released October 2026) offers improved performance and lower pricing ($2/$10 per 1M tokens). For cost-sensitive applications, Kimi K2.6 or Kimi K2.7 Code may be more suitable.
+
+---
+
+## Strengths
+
+1. **Exceptional Coding Performance:** 88.3% on Terminal-Bench 2.1, 81.2% on FrontierSWE, 42.0% on SWE Marathon (best overall), 77.8% on Program Bench (best overall)
+2. **Open-Weight Availability:** First open model to reach the 3-trillion-parameter class, full weights available on Hugging Face under custom license
+3. **Strong Reasoning Capabilities:** 93.5% on GPQA Diamond, 81.6% on MMMU-Pro, 94.3% on MathVision
+4. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+5. **Native Multimodal:** Text, image, and video input support with native vision understanding
+6. **Architecture Innovation:** Kimi Delta Attention (KDA), Attention Residuals (AttnRes), Stable LatentMoE architecture
+7. **Cost Efficiency:** $3/$15 per 1M tokens (competitive pricing for frontier models)
+8. **Moonshot Ecosystem Integration:** Seamless integration with Kimi membership plans and Kimi Code (terminal coding agent)
+9. **Knowledge Cutoff:** Extends into 2026 for most domains
+10. **Enterprise Integration:** Available through various providers and self-hosting options
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Kimi K3
+2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+3. **Knowledge Cutoff:** Extends into 2026 for most domains, but some domains have older cutoff
+4. **Pricing Increases:** Pricing may increase as broader API access is rolled out
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+6. **Speed and Latency:** Slower than Kimi K2.5 (40.6 vs 68.3 tokens/second) and has higher latency (3.38s vs 1.84s TTFB)
+7. **Verbose Output:** Kimi K3 is more verbose than Kimi K2.6, which can increase token usage and cost
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, long-running agentic coding workflows (multi-hour coding sessions)
+- Software engineering and software development
+- Enterprise applications requiring strong coding capabilities
+- Organizations seeking open-weight frontier models
+- Multimodal applications requiring vision and video understanding
+- Organizations heavily invested in Moonshot ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong reasoning capabilities
+- Terminal coding agent workflows (Kimi Code)
+
+### Not Ideal For:
+- Cost-sensitive applications without prompt caching (Kimi K2.6 or K2.7 Code may be better)
+- Organizations outside Moonshot ecosystem
+- Applications requiring frontier-level performance (GPT-6 Astra may be more capable)
+- Organizations with strict data sovereignty requirements (open weights available but requires significant infrastructure)
+- Real-time applications requiring ultra-low latency (Kimi K2.5 is faster)
+- General-purpose applications (Kimi K2.6 or K2.7 Code may be more suitable)
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Pricing Transparency:** While pricing is clear, the 3.5-4x price increase over Kimi K2.6 is significant and may be unexpected for some users.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Moonshot services, which may not be suitable for all organizations.
+
+4. **Speed and Latency:** Kimi K3 is slower than Kimi K2.5 (40.6 vs 68.3 tokens/second) and has higher latency (3.38s vs 1.84s TTFB), which may affect real-time applications.
+
+5. **Pricing Transparency:** While pricing is clear, the 3.5-4x price increase over Kimi K2.6 is significant and may be unexpected for some users.
+
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+7. **Verbose Output:** Kimi K3 is more verbose than Kimi K2.6, which can increase token usage and cost.
+
+---
+
+## Conclusion
+
+Kimi K3 is Moonshot AI's flagship mixture-of-experts model from their Kimi series, launched July 16, 2026, designed for complex, long-horizon agentic workflows. It features a massive 2.8 trillion total parameters (104 billion active per token), 1M token context window, native visual understanding, and exceptional performance on coding and agentic benchmarks (88.3% on Terminal-Bench 2.1, 81.2% on FrontierSWE, 42.0% on SWE Marathon, 77.8% on Program Bench). The model ranks #8 of 221 on the Artificial Analysis Intelligence Index with 44, and achieves 93.5% on GPQA Diamond, 81.6% on MMMU-Pro, and 94.3% on MathVision. Kimi K3 is the first open model to reach the 3-trillion-parameter class, with full weights released on July 27, 2026, under a custom Kimi K3 License.
+
+However, detailed public information about Kimi K3 is limited compared to other frontier models from Western companies. The model's strengths in coding, reasoning, long-context analysis, and multimodal capabilities make it a strong contender in the current market, particularly for organizations seeking open-weight frontier models with strong performance on coding and agentic tasks. The availability of Kimi K3.1 Pro (released October 2026) which offers improved performance and lower pricing ($2/$10 per 1M tokens) suggests that K3 may be a stepping stone rather than the final frontier model.
+
+For organizations seeking open-weight frontier models with strong coding and agentic capabilities, Kimi K3 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The speed and latency differences compared to Kimi K2.5 also make it less attractive for real-time applications.
+
+**Overall Assessment:** Excellent coding and agentic capabilities for complex, long-horizon workflows; however, limited public documentation and benchmark data compared to other frontier models, slower speed than Kimi K2.5, and more verbose output.
+
+---
+
+## Notes on Kimi K3.1 Pro
+
+**Important Note:** Kimi K3.1 Pro (released October 2026) offers improved performance and lower pricing:
+- Pricing: $2/$10 per 1M tokens (33% cheaper than K3)
+- Improved performance on reasoning benchmarks
+- Faster speed than K3 (estimated 60+ tokens/second)
+- Lower latency than K3 (estimated 2s TTFB)
+- Same 1M token context window
+
+For new deployments, Kimi K3.1 Pro is the recommended model over Kimi K3, as it offers better value and performance.

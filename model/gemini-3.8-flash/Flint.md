@@ -20,14 +20,14 @@
 
 ### Cross-source comparison
 
-- Google reports Gemini 3.8 Flash with DeepSWE **73.7%, TB2.1 **89.4%, GDPVal-AA **1545, Vals Finance Agent v2 **61.4% — substantial gains from 3.7 Flash, approaching higher-cost frontier models.
+- Google reports Gemini 3.8 Flash with DeepSWE **73.7%**, TB2.1 **89.4%**, GDPVal-AA **1545**, Vals Finance Agent v2 **61.4%** — substantial gains from 3.7 Flash, approaching higher-cost frontier models.
 - BenchLM overall **69.23** (Gemini 3.8 Flash) vs GPT-6 Luna 66.55 / Muse Spark 60.46; reasoning averages 74.3 vs 59.2 (GPT-6 Luna).
 - Independent: AA Intelligence Index **59** (3.8 Flash high) reaches Pareto frontier (intelligence vs cost per task).
 
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** DeepSWE **73.7%, TB2.1 **89.4%, LiveCodeBench (Vals) **89.5%, SWE-bench (Vals) **80.0% → coding-agent high.
-- **Reasoning: 70/100.** Vals Index **69.18, AA Intelligence **59, HLE **54.9% → ~70.
+- **Reasoning: 70/100.** Vals Index **69.18**, AA Intelligence **59**, HLE **54.9%** → ~70.
 - **Context window: 100/100.** Documented **1,048,576** (1M); max output 65,536.
 - **Multimodal: 87/100.** LVBench **87.8%, CharXiv **86.2% → multimodal high.
 - **Coding: 88/100.** DeepSWE **73.7%, TB2.1 **89.4%, LiveCodeBench (Vals) **89.5%, SWE-bench (Vals) **80.0% → coding lead.

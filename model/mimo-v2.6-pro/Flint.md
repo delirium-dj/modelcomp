@@ -22,7 +22,7 @@
 
 - Coding / agentic:
   - DeepSWE: **71.9**, Terminal-Bench: **89.9** (v2.1), Toolathlon-Verified: **76.9**, GDPval-AA: **1673** Elo, OSWorld-Verified: **82**, AutomationBench: **53.1**, MiMo Code Bench: **63.2**.
-- Reasoning / intelligence: AA Intelligence Index **46.3`.
+- Reasoning / intelligence: AA Intelligence Index **46.3%**.
 
 ### Cross-source comparison
 
@@ -30,11 +30,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 75/100.** Terminal-Bench **89.9%, Toolathlon-Verified **76.9, DeepSWE **71.9 -> strong.
-- **Reasoning: 65/100.** AA Intelligence Index **46.3, GDPval-AA **1673 -> mid-high.
+- **Tool use: 75/100.** Terminal-Bench **89.9%**, Toolathlon-Verified **76.9%**, DeepSWE **71.9%** -> strong.
+- **Reasoning: 65/100.** AA Intelligence Index **46.3%**, GDPval-AA **1673** -> mid-high.
 - **Context window: 95/100.** **1,048,576** total -> top tier.
 - **Multimodal: 90/100.** Omni (text, image, audio, video) in; text out; MIT -> very high.
-- **Coding: 78/100.** DeepSWE **71.9, Terminal-Bench **89.9, Toolathlon **76.9 -> strong.
+- **Coding: 78/100.** DeepSWE **71.9**, Terminal-Bench **89.9**, Toolathlon **76.9%** -> strong.
 - **Cost efficiency: 95/100.** MIT open weights; $0.435/$0.87 -> excellent.
 
 - **Overall Score: 80.6/100.** Mean of the five quality dims (75 + 65 + 95 + 90 + 78) / 5 = 78.6 -> 79; Cost efficiency excluded.

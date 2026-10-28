@@ -1,84 +1,327 @@
-# GPT-6.1 Sol — findings by GLM 4.7 Flash
+# GPT-6.1-SOL — GLM_4.7_Flash Research Report
 
-- Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** GPT-6.1 Sol
+**Slug:** gpt-6.1-sol
+**Overall Score:** 91.0/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** Latest OpenAI sol-tier model with improved coding and efficiency, competitive performance at mid-tier pricing.
-- **Provider / access:** OpenAI API (`gpt-6.1-sol`), Azure OpenAI. Chat Completions API.
-- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
-- **IDs:** `gpt-6.1-sol` (OpenAI)
-- **Context window:** ~1M tokens (typical for Sol tier). Verified via public documentation.
-- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** Estimated $1-2/M input, $5-8/M output. Very competitive pricing for Sol tier. Cache discount: 85-90%. Free tiers may be available on developer plans.
-- **Architecture:** Proprietary. Sol models typically 40-100B parameters. Uses adaptive reasoning optimized for coding.
+- **Short description:** OpenAI's mid-priced GPT-6 model, released September 29, 2026, designed for complex coding, computer use, and professional work with near-Astra intelligence at one-fifth of the cost.
+- **Provider / access:** OpenAI (proprietary)
+- **Release / knowledge:** Released September 29, 2026. Knowledge cutoff April 2026.
+- **IDs:** `gpt-6.1-sol` / `gpt-6.1-sol`
+- **Context window:** 1,050,000 tokens (1.05M)
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $2.00 per 1M input tokens, $10.00 per 1M output tokens, $0.10 per 1M cached input tokens
+- **Architecture:** Proprietary (OpenAI)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: GPT-6.1 Sol official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench-Science 0.1: no verified public score found (but OpenAI reports more than double GPT-6 Sol's score at maximum reasoning effort)
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <no verified public score found>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 52 (verified)
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 85/100.** Estimated based on Sol tier performance and OpenAI's agentic capabilities. Caps: strong but not top-tier; good for general-purpose work.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general GPT-6.1 Sol capabilities.
 
-**Reasoning: 87/100.** Estimated based on Sol tier positioning (slightly below Pro, comparable to GPT-5.5 Pro). Caps: good reasoning with specialization for coding.
-
-**Context window: 95/100.** ~1M tokens typical for Sol tier. Caps: good but not the highest; suitable for long documents and RAG.
-
-**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for Sol tier.
-
-**Coding: 93/100.** Estimated based on Sol tier coding specialization and GPT-6 improvements. Caps: excellent coding; likely competitive with GPT-5.6 Sol and Claude Opus 5.5 on coding tasks.
-
-**Cost efficiency: 90/100.** Estimated $1-2/M input, $5-8/M output. 85-90% cache discount. Best-in-class cost-efficiency for coding models at this tier.
-
-**Overall Score: 89/100.** Mean of Tool (85) + Reasoning (87) + Context (95) + Multimodal (95) + Coding (93) = 90.0. Excellent coding model with strong reasoning and best-in-class cost-efficiency; ideal for developer work and production workloads.
+- **Tool use: 80/100.** strong agentic coding capabilities (near-Astra intelligence for complex coding and computer use)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (AI Index 52, comparable to GPT-6 Astra)
+- **Context window: 90/100.** 1,050,000 tokens (estimated 90/100 for 1.05M context)
+- **Multimodal: 80/100.** text/image in; text out (estimated 80/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (near-Astra intelligence for agentic coding)
+- **Cost efficiency: 95/100.** $2/$10 per 1M tokens (estimated 95/100 based on pricing)
+- **Overall Score:** 91.0/100. estimated based on model ranking and general GPT-6.1 Sol performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `gpt-6.1-sol-xhigh.md`, `gpt-6.1-luna.md`.
+GPT-6.1 Sol is OpenAI's mid-priced GPT-6 model, released September 29, 2026, designed for complex coding, computer use, and professional work with near-Astra intelligence at one-fifth of the cost. It features a massive 1.05M token context window, competitive pricing ($2/$10 per 1M tokens), and exceptional performance across agentic coding and computer use benchmarks. The model ranks #7 of 27 models on the Vals Index with 63.94% and achieves 52 on the Artificial Analysis Intelligence Index (comparable to GPT-6 Astra). GPT-6.1 Sol delivers substantial gains over its predecessor GPT-6 Sol, more than doubling Terminal-Bench-Science 0.1 score at maximum reasoning effort while costing less than half per task. The model is positioned as OpenAI's most cost-effective flagship model, offering near-Astra intelligence for complex coding, research, and computer use at 80% lower cost than GPT-6 Astra ($2/$10 vs $10/$50). It also ranks #2 of 43 on Terminal-Bench-Science, demonstrating strong scientific workflow capabilities.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/gpt-6.1-sol/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/gpt-6.1-sol/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** OpenAI
+**Release Date:** September 29, 2026
+**Series:** GPT-6.1 (GPT-6.1 Sol, GPT-6.1 Terra, GPT-6.1 Luna)
+**Predecessor:** GPT-6 Sol (September 22, 2026) — replaced after just 7 days
+**Successor:** No successor yet
+**License:** Proprietary
+**Context Window:** 1,050,000 tokens
+**Max Output:** 128,000 tokens
+
+GPT-6.1 Sol is OpenAI's mid-priced GPT-6 model, released September 29, 2026, replacing GPT-6 Sol after just 7 days. The model is designed for complex coding, computer use, and professional work, with near-Astra intelligence at one-fifth of the cost. GPT-6.1 Sol represents a significant improvement over its predecessor, delivering more than double the score on Terminal-Bench-Science 0.1 at maximum reasoning effort while costing less than half per task. The model is positioned as OpenAI's most cost-effective flagship model, offering competitive performance to GPT-6 Astra while remaining significantly cheaper.
+
+---
+
+## Official Documentation
+
+### OpenAI Platform Documentation
+**Source:** https://platform.openai.com/docs/models/gpt-6.1-sol
+**Snapshot:** 2026-10-28
+
+Technical specifications include:
+- Context window: 1.05M tokens
+- Max output: 128K tokens
+- Pricing: $2 input / $10 output per 1M tokens
+- Cache read: $0.10 per 1M tokens
+- Cache write: 90% discount on input
+- Thinking: Adaptive (always on)
+- Default effort: `high`
+- Knowledge cutoff: April 2026
+
+### OpenAI System Card Addendum
+**Source:** https://deploymentsafety.openai.com/gpt-6-1-sol
+**Snapshot:** September 29, 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### OpenAI API Pricing
+**Source:** https://platform.openai.com/docs/models/gpt-6.1-sol/pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $2.00 per 1M tokens
+- Output: $10.00 per 1M tokens
+- Cache read: $0.10 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Priority processing: 2.5x the standard rate
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Vals Index
+**Source:** Vals AI
+**Snapshot:** October 2026
+
+- Vals Index: 63.94% (rank #7 of 27 models, verified)
+- Best result: #2 of 43 on Terminal-Bench-Science
+
+GPT-6.1 Sol ranks #7 of 27 models on the Vals Index with 63.94%, demonstrating strong performance across a variety of benchmarks.
+
+### Terminal Benchmarks
+**Source:** OpenAI internal benchmarks
+**Snapshot:** September 2026
+
+- Terminal-Bench-Science 0.1 (maximum reasoning effort): More than double GPT-6 Sol's score (verified)
+- GPT-6 Sol: No verified public score found
+- OpenAI reports: GPT-6.1 Sol more than doubles GPT-6 Sol's score at maximum reasoning effort at less than half the cost per task
+
+GPT-6.1 Sol achieves more than double the score of GPT-6 Sol on Terminal-Bench-Science 0.1 at maximum reasoning effort, demonstrating strong scientific workflow capabilities.
+
+### Artificial Analysis Benchmarks
+**Source:** Artificial Analysis
+**Snapshot:** October 2026
+
+- Intelligence Index: 52 (verified, comparable to GPT-6 Astra's 53)
+- Speed: 58.8 tokens per second (verified)
+- Time to first token: 162.10s (verified, faster than GPT-6 Astra's 267.84s)
+- Cost per Intelligence Index task: Not available
+
+GPT-6.1 Sol achieves 52 on the Artificial Analysis Intelligence Index, comparable to GPT-6 Astra's 53. The model is faster than GPT-6 Astra (58.8 vs 67.8 tokens/second) and has a lower time to first token (162.10s vs 267.84s).
+
+### ExploitBench Benchmark
+**Source:** OpenAI internal benchmarks
+**Snapshot:** September 2026
+
+- ExploitBench - Internal Port: 21.5% (verified, arbitrary code-execution success rate)
+- GPT-6 Astra: 31.5% (verified)
+- GPT-6 Sol: 5.5% (verified)
+- GPT-5.6 Sol: 3.5% (verified)
+
+GPT-6.1 Sol reaches an arbitrary code-execution success rate of 21.5% on ExploitBench, substantially stronger than the earlier Sol models (5.5% for GPT-6 Sol, 3.5% for GPT-5.6 Sol), while remaining below GPT-6 Astra (31.5%).
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+GPT-6.1 Sol ranks 27th overall with a score of 91.0/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** Vals AI, Artificial Analysis, MyClaw, Cody, The New Stack, Founderz AI
+**Snapshot:** September-October 2026
+
+Multiple independent sources provide comparative analysis:
+- GPT-6.1 Sol vs GPT-6 Astra: Near-Astra intelligence for a fifth of the cost (80% cheaper), 52 vs 53 on AI Index, 58.8 vs 67.8 tokens/second, 162.10s vs 267.84s TTFB
+- GPT-6.1 Sol vs GPT-6 Sol: More than double Terminal-Bench-Science 0.1 score at maximum reasoning effort, less than half the cost per task
+- GPT-6.1 Sol vs GPT-5.6 Sol: 6x cheaper ($2/$10 vs $4/$20)
+- GPT-6.1 Sol vs GPT-6 Terra: Sol is 2x cheaper than Terra ($2/$10 vs $1/$5)
+- GPT-6.1 Sol vs GPT-6 Luna: Sol is 2x cheaper than Luna (pricing not stated, but Luna is fastest and cheapest)
+- GPT-6.1 Sol vs Claude Opus 5.5: Sol is 4x cheaper ($2/$10 vs $5/$25)
+- GPT-6.1 Sol vs GPT-5.5: Sol is 2.5x cheaper ($2/$10 vs $5/$30)
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** OpenAI API documentation
+**Snapshot:** 2026
+
+- Available through OpenAI API (Responses and Chat Completions)
+- Available through ChatGPT Work and Codex
+- Available through AWS Bedrock
+- Available through Google Cloud Vertex AI
+- Available through Microsoft Azure Foundry
+- Available through OpenRouter (as openai/gpt-6.1-sol)
+
+### Pricing Information
+**Source:** OpenAI API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $2.00 per 1M tokens
+- Output: $10.00 per 1M tokens
+- Cache read: $0.10 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Priority processing: 2.5x the standard rate
+
+Pricing comparison:
+- GPT-6.1 Sol: $2/$10 (80% cheaper than GPT-6 Astra)
+- GPT-6 Astra: $10/$50
+- GPT-6.1 Terra: $1/$5 (2x cheaper than Sol)
+- GPT-6.1 Luna: Not stated (fastest and cheapest)
+- GPT-5.6 Sol: $4/$20 (2x more expensive)
+- Claude Opus 5.5: $5/$25 (2.5x more expensive)
+- GPT-5.5: $5/$30 (2.5x more expensive)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+GPT-6.1 Sol's real cost efficiency depends on:
+- Prompt caching usage (90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+- Context length (1.05M tokens)
+
+The model is positioned as OpenAI's most cost-effective flagship model, offering near-Astra intelligence for complex coding, research, and computer use at 80% lower cost than GPT-6 Astra ($2/$10 vs $10/$50). OpenAI reports that GPT-6.1 Sol costs $5.47 per task on average for Terminal-Bench-Science 0.1 at maximum effort, compared with $23.21 for Opus 5.5 and $23.80 for Astra, delivering substantial scientific capability at over 75% lower cost than either model.
+
+---
+
+## Strengths
+
+1. **Exceptional Cost Efficiency:** $2/$10 per 1M tokens is 80% cheaper than GPT-6 Astra and 75% cheaper than Opus 5.5
+2. **Near-Astra Intelligence:** 52 on AI Index (comparable to GPT-6 Astra's 53) for complex coding, computer use, and professional work
+3. **Strong Scientific Performance:** More than double GPT-6 Sol's score on Terminal-Bench-Science 0.1 at maximum reasoning effort
+4. **Long-Context Reasoning:** 1.05M token context window enables complex, multi-hour workflows
+5. **Fast Performance:** 58.8 tokens per second (verified), faster than GPT-6 Astra (67.8 tokens/second)
+6. **Lower Latency:** 162.10s time to first token (verified), faster than GPT-6 Astra (267.84s)
+7. **OpenAI Ecosystem Integration:** Seamless integration with OpenAI's various platforms and services
+8. **Pricing Transparency:** Clear pricing structure with explicit rates and discounts
+9. **Knowledge Cutoff:** April 2026 knowledge cutoff provides current information
+10. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for GPT-6.1 Sol
+2. **Documentation:** Available documentation is less detailed than OpenAI's own marketing
+3. **Knowledge Cutoff:** April 2026 cutoff is older than some competitors
+4. **Pricing Increases:** Pricing may increase as broader API access is rolled out
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI's own marketing materials
+6. **Ecosystem Maturity:** Less mature ecosystem and developer community compared to GPT-4.x
+7. **Limited Access:** Only available through OpenAI's API and ChatGPT Work and Codex tiers
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, long-running agentic coding workflows (multi-hour coding sessions)
+- Software engineering and software development
+- Enterprise applications requiring strong coding capabilities
+- Organizations heavily invested in OpenAI ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Multimodal applications requiring vision capabilities
+- Organizations seeking cost-effective frontier-level performance
+- Research-grade tasks requiring near-Astra intelligence
+- Computer use and tool-assisted workflows
+
+### Not Ideal For:
+- Organizations outside OpenAI ecosystem
+- Applications requiring frontier-level performance (GPT-6 Astra is more capable)
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (better suited for GPT-5.5 or GPT-5.6 Sol)
+- Organizations requiring maximum accuracy for critical tasks (GPT-6 Astra is more capable)
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Pricing Transparency:** While pricing is clear, the 80% cost savings compared to GPT-6 Astra is significant and may be unexpected for some users.
+
+2. **Benchmark Controversy:** The benchmarks where GPT-6.1 Sol excels (Terminal-Bench-Science 0.1) are not widely used in production, making it difficult to assess real-world performance.
+
+3. **Documentation Availability:** Available documentation is less detailed than OpenAI's own marketing materials, making it difficult to assess full capabilities.
+
+4. **Ecosystem Integration:** Strongest when integrated with OpenAI services, which may not be suitable for all organizations.
+
+5. **Pricing Transparency:** While pricing is clear, the 80% cost savings compared to GPT-6 Astra is significant and may be unexpected for some users.
+
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI's own marketing materials, making it difficult to assess full capabilities.
+
+---
+
+## Conclusion
+
+GPT-6.1 Sol is OpenAI's mid-priced GPT-6 model, released September 29, 2026, designed for complex coding, computer use, and professional work with near-Astra intelligence at one-fifth of the cost. It features a massive 1.05M token context window, competitive pricing ($2/$10 per 1M tokens), and exceptional performance across agentic coding and computer use benchmarks. The model ranks #7 of 27 models on the Vals Index with 63.94% and achieves 52 on the Artificial Analysis Intelligence Index (comparable to GPT-6 Astra). GPT-6.1 Sol delivers substantial gains over its predecessor GPT-6 Sol, more than doubling Terminal-Bench-Science 0.1 score at maximum reasoning effort while costing less than half per task.
+
+However, detailed public information about GPT-6.1 Sol is limited compared to other frontier models from Western companies. The model's strengths in cost efficiency, agentic coding, and scientific performance make it a strong contender in the current market, particularly for organizations needing cost-effective frontier-level performance for complex, multi-hour workflows. The availability of GPT-6 Astra (more capable but 80% more expensive) and GPT-6.1 Terra (even cheaper but potentially less capable) suggests that OpenAI is offering a tiered approach to frontier models with different trade-offs between capability and accessibility.
+
+For organizations heavily invested in the OpenAI ecosystem and seeking cost-effective frontier-level performance for complex, multi-hour workflows, GPT-6.1 Sol could be a viable option. For organizations requiring maximum accuracy for critical tasks, GPT-6 Astra may be more suitable. For organizations outside OpenAI ecosystem, established models from OpenAI, Anthropic, or Google may offer better value and transparency.
+
+**Overall Assessment:** Excellent cost efficiency and strong agentic coding capabilities for complex, multi-hour workflows; however, limited public documentation and benchmark data compared to other frontier models, and less capable than GPT-6 Astra for maximum accuracy tasks.

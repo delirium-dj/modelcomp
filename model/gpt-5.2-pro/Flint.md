@@ -23,7 +23,7 @@
 ### Raw benchmarks found
 
 - Reasoning / knowledge:
-  - GPT-5.2: GDPval **74.1%**, SWE-bench Verified **80.0%**, GPQA Diamond **93.2%, τ2-bench Telecom **98.7%, BrowseComp **77.9%, AIME 100, ARC-AGI-1 90.5%, MRCRv2.
+  - GPT-5.2: GDPval **74.1%**, SWE-bench Verified **80.0%**, GPQA Diamond **93.2%**, τ2-bench Telecom **98.7%**, BrowseComp **77.9%**, AIME 100, ARC-AGI-1 90.5%, MRCRv2.
 
 - Coding / agentic:
   - GPT-5.2 Codex: agentic coding flagship, SOTA on SWE-bench Pro/TB2.0, context compaction, cybersecurity (OpenAI blog `gpt-5.2-codex`).
@@ -36,13 +36,13 @@
 
 - **Tool use: 75/100.** GPT-5.2 Codex agentic coding flagship (SOTA on SWE-bench Pro/TB2.0, cybersecurity, context compaction); GPT-5.2 Pro tool-use tier frontier-class → strong frontier tool band.
 
-- **Reasoning: 85/100.** GPT-5.2: GDPval **74.1%, GPQA Diamond **93.2%, τ2-bench Telecom **98.7% → frontier-class reasoning; ARC-AGI-2 **54%** / FrontierMath T1-3 **74%** → capped below absolute frontier ceilings.
+- **Reasoning: 85/100.** GPT-5.2: GDPval **74.1%, GPQA Diamond **93.2%, τ2-bench Telecom **98.7%** → frontier-class reasoning; ARC-AGI-2 **54%** / FrontierMath T1-3 **74%** → capped below absolute frontier ceilings.
 
 - **Context window: 75/100.** GPT-5.2 context handling / reasoning window per OpenAI docs.
 
 - **Multimodal: 70/100.** GPT-5.2 multimodal understanding (BrowseComp 77.9, etc.).
 
-- **Coding: 72/100.** GPT-5.2: SWE-bench Verified **80.0%, GPT-5.2 Codex SOTA on SWE-bench Pro/TB2.0, context compaction, cybersecurity → frontier-class coding.
+- **Coding: 72/100.** GPT-5.2: SWE-bench Verified **80.0%**, GPT-5.2 Codex SOTA on SWE-bench Pro/TB2.0, context compaction, cybersecurity → frontier-class coding.
 
 - **Cost efficiency: 45/100.** GPT-5.2 Pro $21/$168 per 1M (premium) → moderate-low cost-efficiency value.
 

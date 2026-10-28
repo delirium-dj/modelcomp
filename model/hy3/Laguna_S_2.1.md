@@ -26,7 +26,7 @@
 Agent / tool use:
 - AA Intelligence Index v4.3.2: **41.0** (#52/212; median 25; "well above average") (LLMPodium citing AA)
 - SWE-bench Verified: **78%** (LLMPodium, Tencent)
-- LiveCodeBench: **66.7%**; SWE-bench Pro: **57.9%; MCP Atlas: 79.1%; BrowseComp: 84.2%; Humanity's Last Exam: 31.6%; Apex Agents: 25.6%; Toolathlon: 48.5%** (LLMPodium)
+- LiveCodeBench: **66.7%**; SWE-bench Pro: **57.9%**; MCP Atlas: 79.1%; BrowseComp: 84.2%; Humanity's Last Exam: 31.6%; Apex Agents: 25.6%; Toolathlon: 48.5%** (LLMPodium)
 - Terminal-Bench 2.0/2.1/Hard / GDPval-AA Elo / Tau3-Banking / Claw-Eval / OSWorld: NOT FOUND as standalone figures on this page
 
 Reasoning / knowledge:

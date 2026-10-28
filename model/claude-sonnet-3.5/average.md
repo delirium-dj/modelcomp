@@ -5,19 +5,19 @@
 
 ## Averaged scores
 
-- **Tool use: 70.2/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Reasoning: 71.6/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Context window: 75.1/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Multimodal: 69.3/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Coding: 75.6/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Cost efficiency: 61.8/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 72.3/100.** Mean of top 10 of 23 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 70.9/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 72.6/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 75.7/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 70.1/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 77/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 61.6/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 73.2/100.** Mean of top 10 of 24 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
 ## Agreement notes
 
-- Based on 23 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6.1 Sol, Inkling, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash, Step 5 Preview.
-- Average from top 10 by Overall Score: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.7 Flash, GPT-5.5, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, MiMo 2.6 Flash, Muse Spark 1.3.
-- Excluded bottom 13: Claude Opus 4.8, Claude Opus 5, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6 Astra, GPT-6.1 Sol, Inkling, Kimi K3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash, Step 5 Preview.
+- Based on 24 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Opus 4.8, Claude Opus 5, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.7 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.5, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6.1 Sol, Inkling, Kimi K3, MiMo 2.6 Flash, Muse Spark 1.3, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
+- Average from top 10 by Overall Score: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.7 Flash, GPT-5.5, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, Muse Spark 1.3, Qwen 3.8 Max.
+- Excluded bottom 14: Claude Opus 4.8, Claude Opus 5, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6 Astra, GPT-6.1 Sol, Inkling, Kimi K3, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 27B, Qwen 3.8 Flash, Step 5 Preview.
 - Ignored below-gate rater(s): Beam, Big Pickle, DeepSeek 4 Flash, Fledge Alpha, Flint, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GLM 5.3, Laguna S 2.1, Laguna XS 2.1, Ling 3.1 Flash, LongCat 2.5 Preview, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, North Mini Code.

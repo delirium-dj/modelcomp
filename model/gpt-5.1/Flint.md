@@ -32,7 +32,7 @@
 - **Reasoning: 60/100.** No independent verified public reasoning number found in fetched sources.
 - **Context window: 80/100.** **400,000** total / **128,000** out -> high.
 - **Multimodal: 60/100.** Text, image in; text out -> mid.
-- **Coding: 65/100.** SWE-Verified **66.0% -> mid.
+- **Coding: 65/100.** SWE-Verified **66.0%** -> mid.
 - **Cost efficiency: 80/100.** OpenAI $1.25/$10 -> mid.
 
 - **Overall Score: 65/100.** Mean of the five quality dims (60 + 60 + 80 + 60 + 65) / 5 = 65; Cost efficiency excluded.

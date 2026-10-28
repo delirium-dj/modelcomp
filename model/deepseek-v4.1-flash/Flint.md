@@ -23,11 +23,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** SWE-bench Pro **62.5 → mid.
+- **Tool use: 55/100.** SWE-bench Pro **62.5%** → mid.
 - **Reasoning: 60/100.** Reasoning evals → mid-high.
 - **Context window: 100/100.** Documented **1,048,576** (1M).
 - **Multimodal: 70/100.** Multimodal evals → strong.
-- **Coding: 55/100.** SWE-bench Pro **62.5 → mid.
+- **Coding: 55/100.** SWE-bench Pro **62.5%** → mid.
 - **Cost efficiency: 90/100.** Open-weight release → cheap.
 
 - **Overall Score: 68/100.** Mean of the five quality dims (Tool 55 + Reasoning 60 + Context 100 + Multimodal 70 + Coding 55) / 5 = 68; Cost efficiency excluded.

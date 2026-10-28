@@ -33,7 +33,7 @@
 - **Reasoning: 55/100.** no verified public score found -> mid band; reasoning always-on.
 - **Context window: 75/100.** 262,144 -> 200K-500K tier, 200K=70 -> ~75; scaffolded meta placeholder 128K corrected.
 - **Multimodal: 15/100.** text-only.
-- **Coding: 70/100.** SWE Pro **89.7%, SWE Ver **74.2%, TB2.1 **54.9% -> vendor MoE<50B lead claim; vendor-reported only.
+- **Coding: 70/100.** SWE Pro **89.7%, SWE Ver **74.2%, TB2.1 **54.9%** -> vendor MoE<50B lead claim; vendor-reported only.
 - **Cost efficiency: 100/100.** Free.
 
 - **Overall Score: 54/100.** Mean of five quality dims: Tool 55 + Reasoning 55 + Context 75 + Multimodal 15 + Coding 70 = 270 /5 = 54; Cost excluded.

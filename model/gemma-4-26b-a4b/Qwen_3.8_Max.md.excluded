@@ -1,0 +1,43 @@
+# Gemma 4 26B A4B — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Google DeepMind (`gemma-4-26b-a4b`; scaffolded id `opencode/gemma-4-26b-a4b` — a hyphen-spelled duplicate of the canonical `google/gemma-4-26b-a4b-it`)
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`) — duplicate folder / double-count.** This hyphen-spelled folder `gemma-4-26b-a4b` is **not a distinct model**: it is the **same Google DeepMind Gemma 4 26B-A4B** (25.2B-total / ~3.8–4B-active sparse MoE, ~256K/262K context, Apache 2.0, text+image in → text out, HF `google/gemma-4-26B-A4B`) that is **already queued and scored under the canonical dot-spelled folder [`../gemma-4.26b-a4b/`](../gemma-4.26b-a4b/)** — where my **report 109** (id `google/gemma-4-26b-a4b-it`, Overall 77, div +1.5) lives. The two folders differ **only in punctuation and curation depth**: this one carries an **8-line spec-only stub** meta (`opencode/gemma-4-26b-a4b`, no benchmarks), while the dot folder carries the **full 22-line** meta (AIME 88.3%, MMLU-Pro 82.6%, OpenRouter/Bedrock/HF pricing). Because benchmarks measure the **weights**, not the host, the two entries share an **identical benchmark base** — so scoring this folder would **double-count one artifact across two folder spellings** (and my own report 109 would then count the same model twice). Per `model-report-TEMPLATE.md` (Self-exclusion, mandatory) and `RULES.md`, I am **not** saving a scored `.md` here. This is the **same double-count pattern** applied to [`../glm-5.2-coding/`](../glm-5.2-coding/) (→ `glm-5.2`) and [`../longcat-2.5-preview/`](../longcat-2.5-preview/) (→ `longcat-2.0`). Scores are intentionally omitted below; **see [`../gemma-4.26b-a4b/Qwen_3.8_Max.md`](../gemma-4.26b-a4b/Qwen_3.8_Max.md) for the scored report.**
+
+## Model card (duplicate of `../gemma-4.26b-a4b/` — same artifact)
+
+- **Name:** Gemma 4 26B A4B (vendor: **Google DeepMind**) — identical to the dot-spelled canonical entry.
+- **Short description:** This stub's meta: "*Google's April 2026 sparse Gemma 4 MoE (25.2B total/4B active, 262K ctx) for high-throughput multimodal use; free open weights.*" The canonical dot meta is richer: "*Google DeepMind's 25.2B/3.8B-active open MoE (Apache 2.0, 256K) for cheap high-throughput agents; AIME 88.3%, MMLU-Pro 82.6%; OpenRouter $0.09/$0.30.*" **Same model, same weights.**
+- **Provider / access:** Google DeepMind; open weights on **HF `google/gemma-4-26B-A4B`**, served on OpenRouter (`google/gemma-4-26b-a4b-it`), Bedrock, Novita, HF Inference, and a free route. The `opencode/gemma-4-26b-a4b` id here is an **OpenCode scaffold alias** for that same model, not a separate release.
+- **Release / knowledge:** April 2026 (per this stub); the dot folder documents the same release.
+- **IDs:** `opencode/gemma-4-26b-a4b` (this scaffold) ≡ `google/gemma-4-26b-a4b-it` (canonical, dot folder). One model, two folder spellings.
+- **Context window:** **262,144 (256K) total / 32,768 max output** — matches the dot folder's "256,000 (262,144)".
+- **Modalities:** **text, image in → text out** — identical to the dot folder.
+- **Pricing:** "**Free open weights; hosted ~$0.12/$0.30 per 1M**" (this stub) ≈ the dot folder's "~$0.09/$0.30 OpenRouter + $0 free route; $0.13/$0.40 Bedrock/Novita/HF; self-host $0 (Apache 2.0)".
+- **Architecture:** Sparse MoE, **25.2B total / ~3.8–4B active**, Apache 2.0 — as documented for the canonical `gemma-4.26b-a4b`.
+
+### Raw benchmarks found
+
+> **All benchmarks for this model are already researched and normalized in report 109** ([`../gemma-4.26b-a4b/Qwen_3.8_Max.md`](../gemma-4.26b-a4b/Qwen_3.8_Max.md)). Re-listing them here would duplicate that work and double-count the same artifact. This stub's own meta publishes **no benchmark numbers** (specs only); the canonical dot meta carries **AIME 88.3%, MMLU-Pro 82.6%** plus the AA/vendor set already scored there.
+
+- **This folder's meta:** spec-only stub — **no benchmarks** (context, modalities, pricing only).
+- **Canonical sibling `../gemma-4.26b-a4b/` (report 109):** the full, verified benchmark set for Gemma 4 26B-A4B (AIME 88.3%, MMLU-Pro 82.6%, AA Intelligence Index, vendor coding/multimodal, Apache 2.0, ~256K, text+image) — **Overall 77, div +1.5** against the dot folder's curated 75.5–76.
+- **No distinct evidence exists for the hyphen folder:** there is no separate model, no separate weights, no separate harness run — only a differently-punctuated folder + an `opencode/` scaffold id.
+
+> Provenance / conclusion: **one real artifact (Google Gemma 4 26B-A4B), two folders.** The canonical **dot** folder is scored (report 109); this **hyphen** stub is a duplicate whose only "content" is an 8-line spec meta with no benchmarks of its own. Scoring it would **double-count** the identical model and make my own two findings files count one artifact twice — prohibited by `RULES.md` and quarantined by `pnpm sync`. Note the curated queue itself lists **both** spellings (L116 `gemma-4.26b-a4b` @ 76 and L135 `gemma-4-26b-a4b` @ 72.6), confirming this is a dataset duplication rather than two models.
+> Recommended curator resolution: **de-duplicate** — collapse `gemma-4-26b-a4b` (hyphen) into the canonical `gemma-4.26b-a4b` (dot, id `google/gemma-4-26b-a4b-it`) and retire the stub folder, exactly as the sibling pair `gemma-4-12b-unified` (hyphen) / `gemma-4.12b-unified` (dot) should be merged. Until then this folder should carry **no separate score**; readers are pointed to [`../gemma-4.26b-a4b/`](../gemma-4.26b-a4b/).
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded (double-count).** `gemma-4-26b-a4b` is the same Google DeepMind Gemma 4 26B-A4B already scored in [`../gemma-4.26b-a4b/Qwen_3.8_Max.md`](../gemma-4.26b-a4b/Qwen_3.8_Max.md) (report 109). No dimension scores are assigned here, because doing so would count one artifact twice. **Overall Score: not scored (see the canonical dot-spelled sibling).**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-28
+- Method: identity resolution via `meta.json` (explicitly permitted for ambiguous slugs) — compared this **hyphen** stub (`opencode/gemma-4-26b-a4b`, 8 lines, spec-only, 25.2B/4B-active, 262K, text+image, free open weights) against the canonical **dot** folder `../gemma-4.26b-a4b/` (`google/gemma-4-26b-a4b-it`, 22 lines, AIME 88.3% / MMLU-Pro 82.6%, HF `google/gemma-4-26B-A4B`), and confirmed via the queue that **both spellings are separately listed** (L116 dot @ 76, L135 hyphen @ 72.6) for **one** Google DeepMind model. Self-excluded for **duplicate-folder double-count** (no distinct artifact, no distinct benchmark base); **no scores invented, no numbers reattributed, canonical report 109 left as the single scored entry.**
+- Future sources: if the curator de-duplicates the folders, this `.md.excluded` retires with the stub; if Google ever ships a genuinely distinct `gemma-4-26b-a4b` variant (different weights/context/modality from the canonical `gemma-4.26b-a4b`), replace this file with a scored `Qwen_3.8_Max.md` researched independently against that distinct artifact.

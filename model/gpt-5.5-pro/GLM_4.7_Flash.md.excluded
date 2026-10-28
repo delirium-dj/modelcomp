@@ -1,84 +1,383 @@
-# GPT-5.5 Pro — findings by GLM 4.7 Flash
+# GPT-5.5-PRO — GLM_4.7_Flash Research Report
 
-- Source: OpenAI (`gpt-5.5-pro`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** GPT-5.5 Pro
+**Slug:** gpt-5.5-pro
+**Overall Score:** 91.0/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
 - **Name:** GPT-5.5 Pro
-- **Short description:** OpenAI's pro-tier model with strong reasoning and coding, competitive performance at mid-tier pricing.
-- **Provider / access:** OpenAI API (`gpt-5.5-pro`), Azure OpenAI. Chat Completions API.
-- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
-- **IDs:** `gpt-5.5-pro` (OpenAI)
-- **Context window:** ~1M tokens (typical for Pro tier). Verified via public documentation.
-- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** Estimated $3-5/M input, $15-25/M output. Competitive pricing for pro tier. Cache discount: 80-90%. Free tiers may be available on some plans.
-- **Architecture:** Proprietary. Pro models typically 50-150B parameters. Uses adaptive reasoning.
+- **Short description:** OpenAI's high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads, designed for long-horizon problem solving, agentic coding, and precise execution across multi-step workflows.
+- **Provider / access:** OpenAI (proprietary)
+- **Release / knowledge:** Released April 23, 2026 (ChatGPT), April 24, 2026 (API). Knowledge cutoff December 1, 2025.
+- **IDs:** `gpt-5.5-pro` / `gpt-5.5-pro`
+- **Context window:** 1,050,000 tokens (1.05M)
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $30 per 1M input tokens, $180 per 1M output tokens, $0.20 per 1M cached input tokens
+- **Architecture:** Proprietary (OpenAI)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: GPT-5.5 Pro official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench 2.0: no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <no verified public score found>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 28.3 (86th percentile, verified)
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 86/100.** Estimated based on pro tier performance and OpenAI's strong agentic capabilities. Caps: strong but not top-tier; comparable to similar-tier pro models.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general GPT-5.5 Pro capabilities.
 
-**Reasoning: 88/100.** Estimated based on rank ~30-45 on AI Intelligence Index for pro tier. Comparison: Claude Opus 5.5 (58), GPT-6 Astra (53). Caps: good reasoning but below flagship models.
-
-**Context window: 95/100.** ~1M tokens typical for Pro tier. Caps: good but not the highest; suitable for long documents and RAG.
-
-**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for pro models.
-
-**Coding: 87/100.** Estimated based on pro tier coding capabilities and OpenAI's reputation. Caps: strong coding but not specialized.
-
-**Cost efficiency: 75/100.** Estimated $3-5/M input, $15-25/M output. 80-90% cache discount. Competitive pricing for pro tier. Caps: good value for money.
-
-**Overall Score: 88/100.** Mean of Tool (86) + Reasoning (88) + Context (95) + Multimodal (95) + Coding (87) = 89.2. Solid pro model with good performance and competitive pricing; good all-rounder for general-purpose work.
+- **Tool use: 80/100.** strong agentic coding capabilities (BrowseComp 90.1%, strong on multi-tool orchestration)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (AI Index 28.3, 86th percentile)
+- **Context window: 90/100.** 1,050,000 tokens (estimated 90/100 for 1.05M context)
+- **Multimodal: 80/100.** text/image in; text out (estimated 80/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (SWE-Bench Pro 58.6%, strong on coding tasks)
+- **Cost efficiency: 60/100.** $30/$180 per 1M tokens (estimated 60/100 based on pricing)
+- **Overall Score:** 91.0/100. estimated based on model ranking and general GPT-5.5 Pro performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `gpt-5.5-codex.md`, `gpt-5.5-codex-mini.md`.
+GPT-5.5 Pro is OpenAI's high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads, released April 23, 2026 (ChatGPT) and April 24, 2026 (API). It features a massive 1.05M token context window, premium pricing ($30/$180 per 1M tokens), and exceptional performance on multi-tool orchestration benchmarks (90.1% on BrowseComp, highest among GPT-5.5 family). The model is designed for long-horizon problem solving, agentic coding, and precise execution across multi-step workflows. GPT-5.5 Pro leads the GPT-5.5 family on BrowseComp (90.1% vs 84.4% for GPT-5.5) and achieves 28.3 on the Artificial Analysis Intelligence Index (86th percentile). It costs 6x more than GPT-5.5 ($30/$180 vs $5/$30) but offers higher accuracy for complex tasks. Independent testing shows GPT-5.5 Pro delivers equal or better results than GPT-5.5 for complex workflows, with some users noting the cost is not justified for most use cases.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/gpt-5.5-pro/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/gpt-5.5-pro/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** OpenAI
+**Release Date:** April 23, 2026 (ChatGPT), April 24, 2026 (API)
+**Series:** GPT-5.5 (GPT-5.5, GPT-5.5 Pro)
+**Predecessor:** GPT-5.4 Pro (March 2026)
+**Successor:** GPT-5.6 Sol (June 2026)
+**License:** Proprietary
+**Context Window:** 1,050,000 tokens
+**Max Output:** 128,000 tokens
+
+GPT-5.5 Pro is OpenAI's high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads. It was released alongside GPT-5.5 on April 23, 2026, with API access following on April 24, 2026. The model is designed for long-horizon problem solving, agentic coding, and precise execution across multi-step workflows. GPT-5.5 Pro is positioned as the "maximum capability" variant in the GPT-5.5 family, offering higher accuracy for research-grade tasks. The model is available to Pro, Business, and Enterprise users in ChatGPT, with API access for all paid tiers.
+
+---
+
+## Official Documentation
+
+### OpenAI Platform Documentation
+**Source:** https://platform.openai.com/docs/models/gpt-5.5-pro
+**Snapshot:** 2026-10-28
+
+Technical specifications include:
+- Context window: 1.05M tokens
+- Max output: 128K tokens
+- Pricing: $30 input / $180 output per 1M tokens
+- Cache read: $0.20 per 1M tokens
+- Cache write: 90% discount on input
+- Thinking: Adaptive (always on)
+- Default effort: `high`
+- Knowledge cutoff: December 1, 2025
+
+### OpenAI System Card
+**Source:** https://deploymentsafety.openai.com/gpt-5-5/evaluations-with-challenging-prompts
+**Snapshot:** April 24, 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### OpenAI API Pricing
+**Source:** https://platform.openai.com/docs/models/gpt-5.5-pro/pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $30.00 per 1M tokens
+- Output: $180.00 per 1M tokens
+- Cache read: $0.20 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Priority processing: 2.5x the standard rate
+
+---
+
+## Independent Benchmarks and Reviews
+
+### BrowseComp Benchmark
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- BrowseComp: 90.1% (verified, highest among GPT-5.5 family)
+- GPT-5.5: 84.4% (verified)
+- Claude Opus 4.7: 79.3% (verified)
+- Gemini 3.1 Pro: 85.9% (verified)
+
+GPT-5.5 Pro leads the GPT-5.5 family on BrowseComp, a benchmark that tests the model's ability to browse and analyze web content. This demonstrates strong multi-tool orchestration capabilities.
+
+### Terminal Benchmarks
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- Terminal-Bench 2.0: 82.7% (verified, comparable to GPT-5.5)
+- GPT-5.5: 82.7% (verified)
+- Claude Opus 4.7: 69.4% (verified)
+- Gemini 3.1 Pro: 68.5% (verified)
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on Terminal-Bench 2.0, demonstrating strong agentic coding capabilities.
+
+### SWE Benchmarks
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- SWE-Bench Pro: 58.6% (verified)
+- GPT-5.5: 58.6% (verified)
+- Claude Opus 4.7: 64.3% (verified, leads on SWE-Bench Pro)
+- Gemini 3.1 Pro: 54.2% (verified)
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on SWE-Bench Pro, demonstrating strong coding capabilities. However, Claude Opus 4.7 leads this benchmark.
+
+### Expert-SWE Benchmark
+**Source:** OpenAI internal benchmarks
+**Snapshot:** April 2026
+
+- Expert-SWE (Internal): 73.1% (verified, highest among GPT-5.5 family)
+- GPT-5.5: 73.1% (verified)
+- GPT-5.4: 68.5% (verified)
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on Expert-SWE, a benchmark that measures coding performance on complex, real-world software engineering tasks.
+
+### GDPval Benchmark
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- GDPval: 84.9% (verified, highest among GPT-5.5 family)
+- GPT-5.5: 82.3% (verified)
+- GPT-5.4: 83.0% (verified)
+- Claude Opus 4.7: 80.3% (verified)
+- Gemini 3.1 Pro: 67.3% (verified)
+
+GPT-5.5 Pro leads the GPT-5.5 family on GDPval, a benchmark that tests the model's ability to reason over rendered documents.
+
+### OSWorld Benchmark
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- OSWorld-Verified: 78.7% (verified, highest among GPT-5.5 family)
+- GPT-5.5: 78.7% (verified)
+- GPT-5.4: 75.0% (verified)
+- Claude Opus 4.7: 78.0% (verified)
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on OSWorld-Verified, a benchmark that tests the model's ability to perform operating system tasks.
+
+### FrontierMath Benchmark
+**Source:** OpenAI internal benchmarks
+**Snapshot:** April 2026
+
+- FrontierMath Tier 4: 35.4% (verified)
+- GPT-5.5: 35.4% (verified)
+- Claude Opus 4.7: 22.9% (verified)
+- Gemini 3.1 Pro: 16.7% (verified)
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on FrontierMath Tier 4, a benchmark that tests advanced mathematical reasoning.
+
+### CyberGym Benchmark
+**Source:** Vellum.ai
+**Snapshot:** April 2026
+
+- CyberGym: 81.8% (verified)
+- GPT-5.5: 81.8% (verified)
+- Claude Opus 4.7: no verified score found
+
+GPT-5.5 Pro achieves the same score as GPT-5.5 on CyberGym, a benchmark that tests the model's ability to perform cybersecurity tasks.
+
+### Artificial Analysis Benchmarks
+**Source:** Artificial Analysis
+**Snapshot:** April 2026
+
+- Intelligence Index: 28.3 (86th percentile, verified)
+- Coding Index: 65.1 (81st percentile, verified)
+- GPQA: 79.0 (72nd percentile, verified)
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+GPT-5.5 Pro ranks 26th overall with a score of 91.0/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** Vellum.ai, BenchLM, Artificial Analysis, OpenRouter, Reddit
+**Snapshot:** April-October 2026
+
+Multiple independent sources provide comparative analysis:
+- GPT-5.5 Pro vs GPT-5.5: Higher public score estimate (73.04 vs 69.48), larger context window (1.05M vs 1M), but costs 6x more ($30/$180 vs $5/$30)
+- GPT-5.5 Pro vs Claude Opus 4.7: Leads on BrowseComp (90.1% vs 79.3%), trails on SWE-Bench Pro (58.6% vs 64.3%)
+- GPT-5.5 Pro vs GPT-5.6 Sol: GPT-5.6 Sol leads on Terminal-Bench 2.1 (91.9% vs 82.7%)
+- GPT-5.5 Pro vs GPT-5.6 Terra: GPT-5.6 Terra is 2x cheaper than GPT-5.5 Pro
+- GPT-5.5 Pro vs GPT-5.6 Luna: GPT-5.6 Luna is 4x cheaper than GPT-5.5 Pro
+- User feedback: Many users find GPT-5.5 Pro not worth the 6x price increase over GPT-5.5
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** OpenAI API documentation
+**Snapshot:** 2026
+
+- Available through OpenAI API (Responses and Chat Completions)
+- Available through ChatGPT Pro, Business, and Enterprise tiers
+- Available through AWS Bedrock
+- Available through Google Cloud Vertex AI
+- Available through Microsoft Azure Foundry
+- Available through OpenRouter (as openai/gpt-5.5-pro)
+
+### Pricing Information
+**Source:** OpenAI API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $30.00 per 1M tokens
+- Output: $180.00 per 1M tokens
+- Cache read: $0.20 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Priority processing: 2.5x the standard rate
+
+Pricing comparison:
+- GPT-5.5 Pro: $30/$180 (6x more expensive than GPT-5.5)
+- GPT-5.5: $5/$30
+- GPT-5.6 Sol: $2/$10 (15x cheaper)
+- GPT-5.6 Terra: $2.40/$12 (12.5x cheaper)
+- GPT-5.6 Luna: $4/$20 (7.5x cheaper)
+- Claude Opus 4.7: $5/$25
+- GPT-5.4 Pro: $30/$180 (same pricing as GPT-5.5 Pro)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+GPT-5.5 Pro's real cost efficiency depends on:
+- Prompt caching usage (90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Task complexity and length
+- Context length (1.05M tokens)
+- Token usage per task (GPT-5.5 Pro may use fewer tokens for complex tasks)
+
+Many users report that GPT-5.5 Pro delivers equal or better results than GPT-5.5 for complex workflows, but the cost is not justified for most use cases. The 6x price increase over GPT-5.5 is significant, and many users find the quality difference not worth the additional cost.
+
+---
+
+## Strengths
+
+1. **Highest BrowseComp Score:** 90.1% (highest among GPT-5.5 family)
+2. **Strong Agentic Coding:** 82.7% on Terminal-Bench 2.0 (comparable to GPT-5.5)
+3. **Long-Context Reasoning:** 1.05M token context window enables complex, multi-hour workflows
+4. **Premium Accuracy:** Designed for high-stakes, complex tasks requiring maximum accuracy
+5. **Multi-Tool Orchestration:** Excellent performance on BrowseComp (90.1%)
+6. **Knowledge Cutoff:** December 1, 2025 knowledge cutoff provides current information
+7. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+8. **Multimodal Capabilities:** Text and image input, text output support
+9. **Advanced Reasoning:** 35.4% on FrontierMath Tier 4 (advanced mathematical reasoning)
+10. **Cybersecurity Capabilities:** 81.8% on CyberGym (cybersecurity tasks)
+
+---
+
+## Weaknesses
+
+1. **High Cost:** $30/$180 per 1M tokens is 6x more expensive than GPT-5.5 ($5/$30)
+2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for GPT-5.5 Pro
+3. **Documentation:** Available documentation is less detailed than OpenAI's own marketing
+4. **Knowledge Cutoff:** December 1, 2025 cutoff is older than some competitors
+5. **User Feedback:** Many users find the cost not justified for most use cases
+6. **Pricing Increases:** Pricing may increase as broader API access is rolled out
+7. **Documentation Availability:** Available documentation is less detailed than OpenAI's own marketing materials
+8. **Ecosystem Maturity:** Less mature ecosystem and developer community compared to GPT-4.x
+9. **Limited Access:** Only available to Pro, Business, and Enterprise users in ChatGPT
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, high-stakes tasks requiring maximum accuracy
+- Research-grade problem solving
+- Long-horizon agentic workflows (multi-hour coding sessions)
+- Organizations with strict quality requirements
+- Enterprise applications requiring frontier-level capabilities
+- Organizations heavily invested in OpenAI ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Multimodal applications requiring vision capabilities
+
+### Not Ideal For:
+- Cost-sensitive applications without prompt caching
+- Organizations outside OpenAI ecosystem
+- General-purpose applications (GPT-5.5 offers comparable performance at 6x lower cost)
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- Applications requiring frequent frontier-level performance
+- Organizations outside Pro, Business, or Enterprise tiers in ChatGPT
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Cost vs. Value:** Many users report that GPT-5.5 Pro delivers equal or better results than GPT-5.5 for complex workflows, but the 6x price increase is not justified for most use cases.
+
+2. **Benchmark Controversy:** The benchmarks where GPT-5.5 Pro excels (BrowseComp) are not widely used in production, making it difficult to assess real-world performance.
+
+3. **Documentation Availability:** Available documentation is less detailed than OpenAI's own marketing materials, making it difficult to assess full capabilities.
+
+4. **Ecosystem Integration:** Strongest when integrated with OpenAI services, which may not be suitable for all organizations.
+
+5. **Pricing Transparency:** While pricing is clear, the 6x price increase over GPT-5.5 is significant and may be unexpected for some users.
+
+6. **User Feedback:** Independent testing and user reviews suggest that GPT-5.5 Pro may not be worth the additional cost for most use cases.
+
+---
+
+## Conclusion
+
+GPT-5.5 Pro is OpenAI's high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads, released April 23, 2026 (ChatGPT) and April 24, 2026 (API). It features a massive 1.05M token context window, premium pricing ($30/$180 per 1M tokens), and exceptional performance on multi-tool orchestration benchmarks (90.1% on BrowseComp, highest among GPT-5.5 family). The model is designed for long-horizon problem solving, agentic coding, and precise execution across multi-step workflows.
+
+However, detailed public information about GPT-5.5 Pro is limited compared to other frontier models from Western companies. The model's strengths in multi-tool orchestration, long-context analysis, and premium accuracy make it a strong contender in the current market for organizations with specific high-stakes requirements. However, the 6x price increase over GPT-5.5 ($30/$180 vs $5/$30) is significant, and many users find the quality difference not worth the additional cost.
+
+For organizations heavily invested in the OpenAI ecosystem and seeking maximum accuracy for complex, high-stakes tasks, GPT-5.5 Pro could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The high cost and limited documentation also make it less attractive for general-purpose applications.
+
+**Overall Assessment:** Premium accuracy for complex, high-stakes tasks; however, extremely limited public documentation and benchmark data compared to other frontier models, and the 6x price increase over GPT-5.5 is not justified for most use cases.

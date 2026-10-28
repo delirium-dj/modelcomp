@@ -28,11 +28,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 65/100.** DeepSWE **77.0, NL2Repo **68.2, AutomationBench **60.5 -> strong agentic use.
-- **Reasoning: 60/100.** HLE **42.6/44.0, Agents' Last Exam **35.4, ZeroBench **51.0 -> mid.
+- **Tool use: 65/100.** DeepSWE **77.0**, NL2Repo **68.2**, AutomationBench **60.5%** -> strong agentic use.
+- **Reasoning: 60/100.** HLE **42.6/44.0**, Agents' Last Exam **35.4**, ZeroBench **51.0%** -> mid.
 - **Context window: 95/100.** **1,000,000** total -> top tier.
 - **Multimodal: 60/100.** Text, image in; text out -> mid.
-- **Coding: 70/100.** DeepSWE **77.0 -> strong coding.
+- **Coding: 70/100.** DeepSWE **77.0%** -> strong coding.
 - **Cost efficiency: 90/100.** Open weights; $0.30/$1.20 peak -> strong value.
 
 - **Overall Score: 70/100.** Mean of the five quality dims (65 + 60 + 95 + 60 + 70) / 5 = 69; Cost efficiency excluded.

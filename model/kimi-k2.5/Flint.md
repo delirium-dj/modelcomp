@@ -28,11 +28,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** SWE-Bench Verified **70.8%, SWE-Atlas suites -> strong agentic use.
-- **Reasoning: 75/100.** AIME **95.8%, reasoning supported, open MoE -> strong.
+- **Tool use: 70/100.** SWE-bench Verified **70.8%**, SWE-Atlas suites -> strong agentic use.
+- **Reasoning: 75/100.** AIME **95.8%**, reasoning supported, open MoE -> strong.
 - **Context window: 60/100.** **262,144** total -> mid (short by 1M-era standards).
 - **Multimodal: 75/100.** Text, image, video in; text out; no audio -> high.
-- **Coding: 70/100.** SWE-Bench Verified **70.8%, SWE-Atlas -> strong.
+- **Coding: 70/100.** SWE-bench Verified **70.8%**, SWE-Atlas -> strong.
 - **Cost efficiency: 100/100.** Open weights; Zen $0.60/$3.00 -> excellent.
 
 - **Overall Score: 70/100.** Mean of the five quality dims (70 + 75 + 60 + 75 + 70) / 5 = 70; Cost efficiency excluded.

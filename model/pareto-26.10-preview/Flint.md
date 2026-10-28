@@ -30,12 +30,12 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** Composite agentic design; DeepSWE **69.9% -> strong.
+- **Tool use: 70/100.** Composite agentic design; DeepSWE **69.9%** -> strong.
 - **Reasoning: 40/100.** Reasoning not supported by design -> low.
 - **Context window: 90/100.** 1M in / 131K out claimed (repo meta) vs 262K in (models.dev) -> high/conflicted.
 - **Multimodal: 85/100.** Text + image in -> high.
-- **Coding: 80/100.** DeepSWE **69.9% -> strong coding.
-- **Cost efficiency: 90/100.** DeepSWE **$0.24/task -> excellent value.
+- **Coding: 80/100.** DeepSWE **69.9%** -> strong coding.
+- **Cost efficiency: 90/100.** DeepSWE **$0.24/task** -> excellent value.
 
 - **Overall Score: 73/100.** Mean of the five quality dims (70 + 40 + 90 + 85 + 80) / 5 = 73; Cost efficiency excluded.
 

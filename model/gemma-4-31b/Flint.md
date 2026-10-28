@@ -56,7 +56,7 @@
 
 - **Context window: 70/100.** 256K tokens (Hugging Face / Artificial Analysis) → mid-high open-weights context band; smaller Gemma 4 models at 128K.
 
-- **Multimodal: 70/100.** Text + image (+ video) in, text out; MMMU Pro **76.9%, MATH-Vision **85.6%** → upper-mid multimodal band for open weights.
+- **Multimodal: 70/100.** Text + image (+ video) in, text out; MMMU Pro **76.9%**, MATH-Vision **85.6%** → upper-mid multimodal band for open weights.
 
 - **Coding: 75/100.** LiveCodeBench **80.0%, Codeforces ELO **2150, GPQA **84.3%** → mid-high coding band; strong open-weight performance.
 

@@ -24,11 +24,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** TB2.0 **56.9, SWE-bench Ver **76.2 → agentic mid.
-- **Reasoning: 70/100.** GPQA **91.9, HLE **37.5 → reasoning mid-high.
+- **Tool use: 60/100.** TB2.0 **56.9%**, SWE-bench Ver **76.2%** → agentic mid.
+- **Reasoning: 70/100.** GPQA **91.9%**, HLE **37.5%** → reasoning mid-high.
 - **Context window: 100/100.** Documented **1,048,576** (1M).
 - **Multimodal: 80/100.** Multimodal evals → strong.
-- **Coding: 65/100.** SWE-bench Ver **76.2, TB2.0 **56.9 → coding mid-high.
+- **Coding: 65/100.** SWE-bench Ver **76.2%**, TB2.0 **56.9%** → coding mid-high.
 - **Cost efficiency: 85/100.** $2/$12 → cheap frontier.
 
 - **Overall Score: 75/100.** Mean of the five quality dims (Tool 60 + Reasoning 70 + Context 100 + Multimodal 80 + Coding 65) / 5 = 70.8 → 71; Cost efficiency excluded.

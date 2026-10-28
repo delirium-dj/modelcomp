@@ -20,7 +20,7 @@
 ### Raw benchmarks found
 
 - Reasoning / knowledge (Gemma 4 family benchmark table, Google / Hugging Face):
-  - MMLU Pro: **77.2%**; AIME 2026 (no tools): **77.5%**; LiveCodeBench v6: **72.0%**; GPQA Diamond: **78.8%**; HLE no tools: **5.2%**; BigBench Extra Hard: **53.0%**; MMMLU: **83.4%.
+  - MMLU Pro: **77.2%**; AIME 2026 (no tools): **77.5%**; LiveCodeBench v6: **72.0%**; GPQA Diamond: **78.8%**; HLE no tools: **5.2%**; BigBench Extra Hard: **53.0%**; MMMLU: **83.4%**.
 
 - Coding / agentic:
   - LiveCodeBench v6: **72.0%**; Codeforces ELO: **1659**; Tau2 (average over 3): **69.0%**.
@@ -39,13 +39,13 @@
 
 - **Tool use: 65/100.** Tau2 (average over 3) **69.0%**; native function calling + encoder-free multimodal agent design; below frontier proprietary tool tiers → capped.
 
-- **Reasoning: 70/100.** MMLU Pro **77.2%, AIME 2026 **77.5%, LiveCodeBench v6 **72.0%, GPQA Diamond **78.8%** → strong open-weights reasoning band; HLE no tools **5.2%** limits top tier.
+- **Reasoning: 70/100.** MMLU Pro **77.2%**, AIME 2026 **77.5%**, LiveCodeBench v6 **72.0%**, GPQA Diamond **78.8%** → strong open-weights reasoning band; HLE no tools **5.2%** limits top tier.
 
 - **Context window: 75/100.** 256K tokens (Gemma 4 docs / medium models) → mid-high context band.
 
 - **Multimodal: 70/100.** Text + image (+ audio) in, text out; MMMU Pro **69.1%, MATH-Vision **79.7%, OmniDocBench **0.164** → mid multimodal band for unified 12B tier.
 
-- **Coding: 68/100.** LiveCodeBench v6 **72.0%, GPQA Diamond **78.8%, AIME 2026 **77.5%, Codeforces ELO **1659** → mid-high coding band for encoder-free unified model.
+- **Coding: 68/100.** LiveCodeBench v6 **72.0%**, GPQA Diamond **78.8%**, AIME 2026 **77.5%**, Codeforces ELO **1659** → mid-high coding band for encoder-free unified model.
 
 - **Cost efficiency: 80/100.** Open weights Apache 2.0 + low Gemma API pricing → high open-weight value.
 

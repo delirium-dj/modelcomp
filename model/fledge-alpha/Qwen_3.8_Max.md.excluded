@@ -1,0 +1,45 @@
+# Fledge Alpha — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: unidentified vendor (`fledge-alpha`; scaffolded id `opencode/fledge-alpha-free`, served on OpenCode Zen)
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** After a genuine research pass I found **no vendor, no model card, no specs, and zero published benchmarks** for `fledge-alpha`. It was an **unidentified-vendor free "stealth" preview on OpenCode Zen** — **listed 2026-10-01 and retired by 2026-10-08 (~one week)** — with **no lab attribution, no evaluation, and no successor**. OpenCode's own data/compare page lists the vendor slot as literally **`unknown`**. Independent write-ups concur: "**No lab, no specs, no benchmarks on the data page**" (it "went from 1 user to 1,818" during the free week), and "**a brand new stealth AI model that just appeared for free in OpenCode — no confirmed lab and official benchmarks.**" Unlike sibling stealth codenames that were later **revealed** (e.g. **Ox Alpha → confirmed by Z.ai as GLM-5.3-Flash**, which therefore *has* an artifact + benchmarks), **Fledge Alpha was never revealed and was discontinued with no successor.** Per `model-report-TEMPLATE.md` (Self-exclusion, mandatory) and `RULES.md`, I am **not** saving a scored `.md`, because doing so would require **inventing every benchmark number** for a model with no attributable evidence — explicitly forbidden — and there is **no distinct, verifiable shipped artifact** to normalize. `pnpm sync` auto-quarantines evidence-free files. Scores are intentionally omitted below.
+
+## Model card (unresolved — unidentified vendor, no evidence)
+
+- **Name:** Fledge Alpha (as scaffolded; no vendor-published name)
+- **Short description:** The dataset entry `fledge-alpha` (`opencode/fledge-alpha-free`) is an **anonymous free stealth preview** that appeared on **OpenCode Zen** for roughly a week. The curated meta itself states it is "**OpenCode Zen's unidentified-vendor free stealth preview (1M ctx, image in), listed 2026-10-01 and retired by 2026-10-08 — no public benchmarks, no successor**," and calls it "**the mystery-meat bargain: an unnamed vendor's 1M-context preview served free for about a week.**" There is **no first-party announcement, no technical report, no weights, and no evaluation** to research.
+- **Provider / access:** **Unknown / unidentified.** Served only via **OpenCode Zen** (`opencode/fledge-alpha-free`) during the preview window; **never listed in the Zen free-model notes**. OpenCode's compare page records the creator as **`unknown`**. No OpenRouter, Hugging Face, Artificial Analysis, or Vals page exists for it.
+- **Release / knowledge:** Appeared **2026-10-01**, **retired by 2026-10-08** (free during that window; **now discontinued, no successor**). No knowledge cutoff published.
+- **IDs:** `opencode/fledge-alpha-free` (scaffold / transient Zen id) — the only identifier that ever existed; not a confirmed published SKU from any lab.
+- **Context window:** meta says **1,048,576 (1M) total / 131,072 (128K) max output** — an OpenCode-listed figure with no vendor documentation behind it.
+- **Modalities:** meta says **text, image in → text out** — again OpenCode-listed, unverified by any vendor.
+- **Pricing:** **Free ($0/$0, including reasoning tokens)** during the 2026-10-01→2026-10-08 preview; **now retired** (`noFreeId: true` — no live id).
+- **Architecture:** **Undisclosed / unknown.** No parameter count, MoE-vs-dense, license, or training detail was ever published.
+
+### Raw benchmarks found
+
+> **None.** There is **no benchmark attributable to `fledge-alpha` from any source** — vendor, independent harness (AA / Vals / Epoch / METR / swebench.com / tbench.ai), leaderboard, or third-party. Every check returned the same finding: an anonymous, short-lived free preview with no published evaluation.
+
+- **Artificial Analysis:** no `fledge-alpha` page (it does not index unidentified/retired stealth previews).
+- **Vals AI:** no `fledge-alpha` entry.
+- **OpenCode data/compare page** (`…/unknown/fledge-alpha`): vendor **`unknown`**, and per contemporaneous reports **"no benchmarks on the data page."**
+- **Community/press:** a YouTube first-look ("**no confirmed lab and official benchmarks**") and social posts ("**No lab, no specs, no benchmarks**"; "1 user → 1,818" during the free week) — i.e., usage anecdotes only, **no capability measurements**.
+- **Contrast (why this is *not* scoreable):** the stealth codename **Ox Alpha** was **confirmed by Z.ai to be GLM-5.3-Flash** and so resolves to a real artifact with real benchmarks (see [`../glm-5.3-flash/`](../glm-5.3-flash/) lineage / report 83). **Fledge Alpha received no such reveal** — it stays `unknown`, so there is nothing to normalize and nothing to re-point it to.
+
+> Provenance / conclusion: **zero verified public benchmarks and no distinct, identifiable shipped artifact** (unknown vendor, ~1-week free preview, discontinued, no successor, never revealed). Both prongs of the self-exclusion rule are met. Scoring this folder would require **fabricating** specs and benchmark numbers, which `RULES.md` forbids and `pnpm sync` quarantines. This is **not** a reattribution/double-count case (there is no sibling) — it is a genuinely **evidence-free** entry.
+> Recommended curator resolution: **retire/park the `fledge-alpha` scaffold** (it is already discontinued with no successor). If the vendor is ever confirmed (as Ox Alpha was → GLM-5.3-Flash) **and** a real model card + published evaluations surface, re-point this slug to that identified model and re-research it **independently** — replacing this `.md.excluded` with a scored report. Absent that, it should not carry a score.
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded.** No vendor, no artifact, and no benchmarks exist for `fledge-alpha`, so no dimension scores are assigned. Inventing numbers for an unidentified, retired stealth preview is prohibited by `RULES.md` and quarantined by `pnpm sync`. **Overall Score: not scored.**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-28
+- Method: public internet research (**OpenCode Zen / data-compare page** — vendor recorded as **`unknown`**, "no benchmarks on the data page," free ~2026-10-01→2026-10-08 then retired; **community/press first-looks** — "brand new stealth AI model… no confirmed lab and official benchmarks," "No lab, no specs, no benchmarks," usage "1 → 1,818 users"; **Artificial Analysis** — no `fledge-alpha` page; **Vals AI** — no entry; contrast with **Ox Alpha → GLM-5.3-Flash** reveal per Z.ai/kingy.ai, which Fledge Alpha never received; meta — `opencode/fledge-alpha-free`, unidentified-vendor free stealth preview, 1M ctx / 128K out, text+image in, free then retired, no successor, no published evaluation). Self-excluded for **zero verified public benchmarks + no distinct identifiable shipped artifact**; **no scores invented, no lineage reattributed, no double-count.**
+- Future sources: if Fledge Alpha is ever confirmed to be a specific published model with its own verifiable model card and evaluations, replace this `.md.excluded` with a scored `Qwen_3.8_Max.md` using the same headings — researched independently against that identified model.

@@ -30,11 +30,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** SWE-Bench Verified **76.4% -> strong.
-- **Reasoning: 70/100.** AIME **91.3%, reasoning supported, open MoE -> strong.
+- **Tool use: 70/100.** SWE-Bench Verified **76.4%** -> strong.
+- **Reasoning: 70/100.** AIME **91.3%**, reasoning supported, open MoE -> strong.
 - **Context window: 70/100.** **262,144** native; ~1M hosted -> mid.
 - **Multimodal: 85/100.** Text, image, video in; text out; no audio -> high.
-- **Coding: 75/100.** SWE-Bench Verified **76.4% -> strong.
+- **Coding: 75/100.** SWE-Bench Verified **76.4%** -> strong.
 - **Cost efficiency: 100/100.** Apache 2.0 open weights (free self-host); AA $0.60/$3.60 per 1M.
 
 - **Overall Score: 74/100.** Mean of the five quality dims (70 + 70 + 70 + 85 + 75) / 5 = 72; Cost efficiency excluded.

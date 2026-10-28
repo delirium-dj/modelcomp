@@ -20,7 +20,7 @@
 
 ### Raw benchmarks found
 
-- Coding / agentic: SWE-Bench Pro: **54.2** resolve rate (DeepMind); Terminal-Bench: **54.0** (Terminus 2, v2.1); MLE-Bench: **39.2`.
+- Coding / agentic: SWE-Bench Pro: **54.2** resolve rate (DeepMind); Terminal-Bench: **54.0** (Terminus 2, v2.1); MLE-Bench: **39.2%**.
 - Reasoning: CharXiv Reasoning: **74.5** (no tools) / **76.5** (with tools); GDPval-AA: **1140** Elo; OSWorld-Verified: **74.0**.
 
 ### Cross-source comparison
@@ -29,11 +29,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 60/100.** SWE-Bench Pro **54.2, Terminal-Bench **54.0 -> mid.
-- **Reasoning: 55/100.** CharXiv **74.5-76.5, GPQA **83.8, GDPval-AA **1140 -> mid-high.
+- **Tool use: 60/100.** SWE-Bench Pro **54.2%**, Terminal-Bench: **54.0%** -> mid.
+- **Reasoning: 55/100.** CharXiv **74.5-76.5%**, GPQA **83.8%**, GDPval-AA **1140%** -> mid-high.
 - **Context window: 95/100.** **1,048,576** total -> top tier.
 - **Multimodal: 80/100.** Text, image, audio, PDF in; text out -> high.
-- **Coding: 55/100.** SWE-Bench Pro **54.2, Terminal-Bench **54.0 -> mid (lite tuning).
+- **Coding: 55/100.** SWE-Bench Pro **54.2%**, Terminal-Bench: **54.0%** -> mid (lite tuning).
 - **Cost efficiency: 100/100.** Free tier on AI Studio/Zen.
 
 - **Overall Score: 69/100.** Mean of the five quality dims (60 + 55 + 95 + 80 + 55) / 5 = 69; Cost efficiency excluded.

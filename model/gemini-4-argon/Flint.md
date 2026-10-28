@@ -25,11 +25,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** DeepSWE **77.9%, Vibe Code Bench **91.9%, TB4.0 **57.4% -> agentic coding high.
+- **Tool use: 85/100.** DeepSWE **77.9%, Vibe Code Bench **91.9%, TB4.0 **57.4%** -> agentic coding high.
 - **Reasoning: 70/100.** Vals Index **68.9%, AA Intelligence **53 -> ~70.
 - **Context window: 100/100.** Documented **1,048,576** (1M); long decode up to 1M.
 - **Multimodal: 75/100.** GraphWalks **84.2%, LVBench **91.7% -> multimodal strong.
-- **Coding: 85/100.** DeepSWE **77.9%, Vibe Code Bench **91.9%, TB4.0 **57.4% -> coding high.
+- **Coding: 85/100.** DeepSWE **77.9%, Vibe Code Bench **91.9%, TB4.0 **57.4%** -> coding high.
 - **Cost efficiency: 90/100.** Introductory $2/$10 (1M) -> mid-tier frontier pricing.
 
 - **Overall Score: 83/100.** Mean of the five quality dims (Tool 85 + Reasoning 70 + Context 100 + Multimodal 75 + Coding 85) / 5 = 83; Cost efficiency excluded.

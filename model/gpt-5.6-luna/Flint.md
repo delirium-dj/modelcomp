@@ -26,7 +26,7 @@
   - DeepSWE: **67.2** resolve rate (v1.1).
   - Toolathlon: **53.4** success rate.
 - Reasoning / knowledge:
-  - GPQA Diamond: **92.3%, FrontierMath: **78.6, BrowseComp: **83.3, Agents Last Exam: **50.3, OSWorld: **45.6, MMMU Pro: **78.4 (no tools), AA Intelligence Index: **51.2 (max, v4.1), AA Coding Agent Index: **74.6 (Codex harness, max, v1.1).
+  - GPQA Diamond: **92.3%**, FrontierMath: **78.6**, BrowseComp: **83.3**, Agents Last Exam: **50.3**, OSWorld: **45.6**, MMMU Pro: **78.4**, AA Intelligence Index: **51.2**, AA Coding Agent Index: **74.6** (Codex harness, max, v1.1).
 
 ### Cross-source comparison
 
@@ -34,11 +34,11 @@
 
 ### Normalized scores (1-100)
 
-- **Tool use: 70/100.** Terminal-Bench **84.7%, SWE-bench Pro **62.7, DeepSWE **67.2, Toolathlon **53.4 -> strong agentic tool use.
-- **Reasoning: 80/100.** GPQA **92.3%, FrontierMath **78.6, BrowseComp **83.3, AA Intelligence Index **51.2 (max) -> reasoning strong; AA index low-ish.
+- **Tool use: 70/100.** Terminal-Bench **84.7%**, SWE-bench Pro **62.7**, DeepSWE **67.2**, Toolathlon **53.4** -> strong agentic tool use.
+- **Reasoning: 80/100.** GPQA **92.3%**, FrontierMath **78.6**, BrowseComp **83.3**, AA Intelligence Index **51.2** (max) -> reasoning strong; AA index low-ish.
 - **Context window: 95/100.** 1,050,000 total / 128,000 out -> top tier.
 - **Multimodal: 60/100.** Image + PDF in, text out -> multimodal mid.
-- **Coding: 78/100.** AA Coding Agent Index **74.6** (Codex), Terminal-Bench **84.7, DeepSWE **67.2 -> coding strong.
+- **Coding: 78/100.** AA Coding Agent Index **74.6** (Codex), Terminal-Bench **84.7**, DeepSWE **67.2** -> coding strong.
 - **Cost efficiency: 85/100.** Luna $1/$6 per 1M, low-cost lane; per AA task cost $0.21 vs Sol $1.04.
 
 - **Overall Score: 76.6/100.** Mean of the five quality dims (70 + 80 + 95 + 60 + 78) / 5 = 80.6 -> 81; Cost efficiency excluded.

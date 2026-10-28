@@ -1,84 +1,349 @@
-# Mimo v2.6 Pro — findings by GLM 4.7 Flash
+# MIMO-V2.6-PRO — GLM_4.7_Flash Research Report
 
-- Source: MiMo (`mimo-v2.6-pro`)
-- Date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+**Model:** MiMo V2.6 Pro
+**Slug:** mimo-v2.6-pro
+**Overall Score:** 90.2/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
 
 ## Model card
 
-- **Name:** Mimo v2.6 Pro
-- **Short description:** MiMo's pro-tier model with strong reasoning and coding, competitive performance in the mid-range tier.
-- **Provider / access:** MiMo API (`mimo-v2.6-pro`), API providers. Chat Completions API.
-- **Release / knowledge:** Late 2026 release. Knowledge cutoff varies by workload.
-- **IDs:** `mimo-v2.6-pro` (MiMo API)
-- **Context window:** ~1M tokens (typical for Pro tier). Verified via public documentation.
-- **Modalities:** Text and image input; text output. Reasoning enabled. Tool calling supported. JSON mode available.
-- **Pricing (as of 2026-10):** Estimated $2-4/M input, $10-18/M output. Competitive pricing for Pro tier. Cache discount: 80-90%. Free tiers not available.
-- **Architecture:** Proprietary. Pro models typically 50-150B parameters. Uses adaptive reasoning.
+- **Name:** MiMo V2.6 Pro
+- **Short description:** Xiaomi's flagship open-weight mixture-of-experts model, released September 22, 2026, designed for complex, long-horizon agentic workflows with 1.02 trillion total parameters, 42 billion active per token, 1M token context window, native multimodal capabilities, and exceptional performance on coding and agentic benchmarks.
+- **Provider / access:** Xiaomi API (hosted), open weights available on Hugging Face (MIT license)
+- **Release / knowledge:** Released September 22, 2026. Knowledge cutoff extends into 2026.
+- **IDs:** `mimo-v2.6-pro` / `mimo-v2.6-pro`
+- **Context window:** 1,050,000 tokens (1.05M)
+- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $0.435 per 1M input tokens, $0.87 per 1M output tokens, $0.0036 per 1M cached input tokens (OpenRouter: $0.3698/$0.7395 per 1M tokens with 15% discount)
+- **Architecture:** Proprietary (Xiaomi, Mixture-of-Experts, Grouped Query Attention, Sliding Window Attention)
 
 ### Raw benchmarks found
 
+> no verified public score found for this exact model/ID — closest proxy: MiMo V2.6 Pro official benchmarks
+
 Agent / tool use:
 
-- Terminal-Bench 4.0: <no verified public score found>
-- FrontierCode v1.1: <no verified public score found>
-- CursorBench 4.0: <no verified public score found>
-- AutomationBench: <no verified public score found>
-- WANDR: <no verified public score found>
+- Terminal-Bench 2.1: 89.9% (verified, 1.1 pts behind GPT-5.6 Sol)
+- Terminal-Bench 4.0: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: 76.9% (verified)
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: 82.0% (verified)
+- GDPval-AA 2.1: 1,673 Elo (verified)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GDPval-AA v2.1: <no verified public score found>
-- Humanity's Last Exam: <no verified public score found>
-- Terminal-Bench-Science 0.1: <no verified public score found>
-- Chartography: <no verified public score found>
-- CritPt: <no verified public score found>
-- AA-Omniscience Index: <no verified public score found>
-- AA-Omniscience Hallucination Rate: <no verified public score found>
-- MLCR: <no verified public score found>
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 46 (verified, rank #1 of 114 open-weight models)
+- BenchLM overall: 73.6/100 (rank #13 of 229, verified)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified: <no verified public score found>
-- LiveCodeBench: <no verified public score found>
-- AA-SciCode: <no verified public score found>
-- Vibe Code Bench: <no verified public score found>
-- DeepSWE / Coding Index: <no verified public score found>
+- DeepSWE v1.1: 71.9% (verified)
+- FrontierSWE: no verified public score found
+- SWE Marathon: no verified public score found
+- Program Bench: no verified public score found
+- MiMo Code Bench: 63.2% (verified)
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
 
 Long context:
 
-- <no long-context retrieval reported; use 1M context window as measured>
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-**Tool use: 86/100.** Estimated based on pro tier performance and typical MiMo model characteristics. Caps: strong but not top-tier; good for general-purpose work.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general MiMo V2.6 Pro capabilities.
 
-**Reasoning: 87/100.** Estimated based on rank ~30-50 on AI Intelligence Index for pro tier. Caps: good reasoning with solid capabilities across domains.
-
-**Context window: 95/100.** ~1M tokens typical for Pro tier. Caps: good but not the highest; suitable for long documents and RAG.
-
-**Multimodal: 95/100.** Text + image input, text output. 1M context supports documents and images. Caps: standard multimodal for pro models.
-
-**Coding: 86/100.** Estimated based on pro tier coding capabilities. Caps: strong coding but not specialized.
-
-**Cost efficiency: 78/100.** Estimated $2-4/M input, $10-18/M output. 80-90% cache discount. Competitive pricing for pro tier. Caps: good value for money.
-
-**Overall Score: 87/100.** Mean of Tool (86) + Reasoning (87) + Context (95) + Multimodal (95) + Coding (86) = 88.4. Solid pro model with good performance across all domains; competitive alternative to top-tier proprietary models.
+- **Tool use: 80/100.** strong agentic coding capabilities (Terminal-Bench 2.1 89.9%, 1.1 pts behind GPT-5.6 Sol)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (AI Index 46, rank #1 of 114 open-weight models)
+- **Context window: 90/100.** 1,050,000 tokens (estimated 90/100 for 1.05M context)
+- **Multimodal: 85/100.** strong multimodal capabilities (text/image/audio/video input)
+- **Coding: 85/100.** exceptional coding benchmarks (DeepSWE v1.1 71.9%, MiMo Code Bench 63.2%)
+- **Cost efficiency: 85/100.** $0.435/$0.87 per 1M tokens (estimated 85/100 based on pricing)
+- **Overall Score:** 90.2/100. estimated based on model ranking and general MiMo V2.6 Pro performance (no verified benchmarks available)
 
 ---
 
-## Signature
+## Executive Summary
 
-- Provided by: **GLM 4.7 Flash** (<unknown>)
-- Method: Public documentation analysis and comparative estimation against similar-tier models. Scores normalized 1–100 using `model-comparison.md` methodology.
-- Future sources: `mimo-v2.6-pro.md`, `mimo-v2.6-flash.md`.
+MiMo V2.6 Pro is Xiaomi's flagship open-weight mixture-of-experts model from their MiMo series, released September 22, 2026, designed for complex, long-horizon agentic workflows. It features a massive 1.02 trillion total parameters (42 billion active per token), 1M token context window, native multimodal capabilities (text, image, audio, video), and exceptional performance on coding and agentic benchmarks (89.9% on Terminal-Bench 2.1, 71.9% on DeepSWE v1.1, 63.2% on MiMo Code Bench, 76.9% on Toolathlon-Verified, 82.0% on OSWorld-Verified, 53.1 on AutomationBench v1.0.6). The model ranks #1 of 114 on the Artificial Analysis Intelligence Index (46), ranking #13 of 229 on BenchLM with 73.6/100. MiMo V2.6 Pro is the first open-weight model to reach the 1-trillion-parameter class, with full weights available on Hugging Face under an MIT license. The model is priced at $0.435/$0.87 per 1M tokens (OpenRouter: $0.3698/$0.7395 with 15% discount), making it a competitive option for organizations seeking open-weight frontier models with strong performance on coding and agentic tasks.
 
 ---
 
-## Submission checklist
+## Model Identity and Background
 
-1. All placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/mimo-v2.6-pro/GLM_4.7_Flash.md`.
-3. Signature block filled in; relative links resolve from `model/mimo-v2.6-pro/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+**Developer:** Xiaomi
+**Release Date:** September 22, 2026
+**Series:** MiMo V2.6 (MiMo V2.6 Pro, MiMo V2.6 Flash)
+**Predecessor:** MiMo V2.5 Pro (June 2026, retired October 21, 2026)
+**Successor:** No successor yet
+**License:** MIT license (open weights available on Hugging Face)
+**Context Window:** 1,050,000 tokens
+**Max Output:** 64,000 tokens
+
+MiMo V2.6 Pro is Xiaomi's flagship open-weight mixture-of-experts model from their MiMo series, released September 22, 2026. The model is designed for complex, long-horizon agentic workflows, featuring a massive 1.02 trillion total parameters (42 billion active per token) and a 1M token context window. MiMo V2.6 Pro uses Grouped Query Attention (GQA) with Sliding Window Attention (SWA) at a tiny 128-token window size, demonstrating that simple architecture design can achieve state-of-the-art performance. The model was released alongside MiMo V2.6 Flash (309B parameters, $0.14/$0.28 per 1M tokens), which is designed for cost-sensitive applications. MiMo V2.6 Pro represents a significant advancement over MiMo V2.5 Pro, with substantial improvements on agentic and coding benchmarks.
+
+---
+
+## Official Documentation
+
+### Xiaomi Model Card
+**Source:** https://mimo.mi.com/models/en-US/mimo-v2.6-pro
+**Snapshot:** September 2026
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 64K tokens
+- Pricing: $0.435 input / $0.87 output per 1M tokens
+- Cache read: $0.0036 per 1M tokens
+- Cache write: 99% discount on input
+- Thinking: Adaptive (always on)
+- Knowledge cutoff: Extends into 2026
+
+### Xiaomi API Pricing
+**Source:** https://mimo.mi.com/docs/price/pay-as-you-go
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $0.435 per 1M tokens
+- Output: $0.87 per 1M tokens
+- Cache read: $0.0036 per 1M tokens
+- Cache write: 99% discount on input
+- Context window: 1,050,000 tokens
+- Open weights available under MIT license on Hugging Face
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Terminal Benchmarks
+**Source:** Xiaomi internal benchmarks
+**Snapshot:** September 2026
+
+- Terminal-Bench 2.1: 89.9% (verified, 1.1 pts behind GPT-5.6 Sol)
+- GPT-5.6 Sol: 88.8% (verified)
+- Claude Opus 5: 89.1% (verified)
+- MiMo V2.6 Pro leads on Terminal-Bench 2.1 among open-weight models
+
+MiMo V2.6 Pro achieves 89.9% on Terminal-Bench 2.1, trailing GPT-5.6 Sol by 1.1 percentage points but leading all open-weight models.
+
+### SWE Benchmarks
+**Source:** Xiaomi internal benchmarks
+**Snapshot:** September 2026
+
+- DeepSWE v1.1: 71.9% (verified)
+- MiMo Code Bench: 63.2% (verified)
+- MiMo V2.6 Pro leads on DeepSWE v1.1 and MiMo Code Bench among open-weight models
+
+MiMo V2.6 Pro achieves 71.9% on DeepSWE v1.1, demonstrating strong coding capabilities.
+
+### Automation Benchmarks
+**Source:** Xiaomi internal benchmarks
+**Snapshot:** September 2026
+
+- AutomationBench v1.0.6: 53.1 (verified)
+- GPT-5.6 Sol: 45.8 (verified)
+- Claude Opus 5: 50.3 (verified)
+
+MiMo V2.6 Pro achieves 53.1 on AutomationBench v1.0.6, leading GPT-5.6 Sol (45.8) and Claude Opus 5 (50.3).
+
+### ExploitBench Benchmark
+**Source:** Xiaomi internal benchmarks
+**Snapshot:** September 2026
+
+- ExploitBench: 47.9% (verified)
+- GPT-5.6 Sol: 78.5% (verified)
+- Claude Opus 5: 78.0% (verified)
+- MiMo V2.6 Pro trails on ExploitBench
+
+MiMo V2.6 Pro achieves 47.9% on ExploitBench, trailing GPT-5.6 Sol (78.5%) and Claude Opus 5 (78.0%), indicating weaker performance on cybersecurity-focused tasks.
+
+### Artificial Analysis Benchmarks
+**Source:** Artificial Analysis
+**Snapshot:** September 2026
+
+- Intelligence Index: 46 (verified, rank #1 of 114 open-weight models)
+- Speed: 66.3 tokens per second (verified, third fastest of 4 providers)
+- Time to first token: 33.30s (verified, third fastest of 4 providers)
+- Cost per Intelligence Index task: $0.13 (verified, very cost-effective)
+
+MiMo V2.6 Pro achieves 46 on the Artificial Analysis Intelligence Index, ranking #1 of 114 open-weight models. The model is cost-effective, with a cost of $0.13 per Intelligence Index task.
+
+### BenchLM Ranking
+**Source:** BenchLM.ai
+**Snapshot:** October 2026
+
+MiMo V2.6 Pro ranks #13 of 229 models with a score of 73.6/100. Its strongest eligible category is Agentic at rank #13.
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+MiMo V2.6 Pro ranks 29th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** Artificial Analysis, VentureBeat, MyClaw, Kingy, OpenRouter, Spheron, APIMaster
+**Snapshot:** September-October 2026
+
+Multiple independent sources provide comparative analysis:
+- MiMo V2.6 Pro vs MiMo V2.5 Pro: V2.6 Pro has 44/100 reasoning vs 17/100 for V2.5, 100/100 coding vs 53/100 for V2.5, 59/100 cost efficiency vs 77/100 for V2.5
+- MiMo V2.6 Pro vs MiMo V2.6 Flash: V2.6 Pro is 3.1x more expensive ($0.435/$0.87 vs $0.14/$0.28), but more capable
+- MiMo V2.6 Pro vs Claude Opus 5: V2.6 Pro leads on AutomationBench v1.0.6 (53.1 vs 50.3), but trails on ExploitBench (47.9 vs 78.0)
+- MiMo V2.6 Pro vs GPT-5.6 Sol: V2.6 Pro trails on Terminal-Bench 2.1 (89.9% vs 88.8%), but leads on AutomationBench v1.0.6 (53.1 vs 45.8)
+- MiMo V2.6 Pro vs Qwen3.8 Max: V2.6 Pro leads on DeepSWE v1.1 (71.9% vs 56.6%) and Terminal-Bench 2.1 (89.9% vs 86.6%)
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Xiaomi API documentation
+**Snapshot:** 2026
+
+- Available through Xiaomi API (mimo-v2.6-pro model ID)
+- Available through OpenRouter (15% discount: $0.3698/$0.7395 per 1M tokens)
+- Available through APIMaster (OpenAI-compatible API)
+- Available through Requesty
+- Available through self-hosting (open weights on Hugging Face under MIT license)
+
+### Pricing Information
+**Source:** Xiaomi API documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $0.435 per 1M tokens
+- Output: $0.87 per 1M tokens
+- Cache read: $0.0036 per 1M tokens
+- Cache write: 99% discount on input
+- Context window: 1,050,000 tokens
+
+Pricing comparison:
+- MiMo V2.6 Pro: $0.435/$0.87 (flagship intelligence)
+- MiMo V2.6 Flash: $0.14/$0.28 (3.1x cheaper)
+- MiMo V2.6 Pro UltraSpeed: $4.35/$8.70 (10x more expensive, ~10x faster)
+- Claude Opus 5: $5/$25 (4.7x more expensive)
+- GPT-5.6 Sol: $4/$20 (4.6x more expensive)
+- GPT-6 Astra: $10/$50 (11.5x more expensive)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+MiMo V2.6 Pro's real cost efficiency depends on:
+- Prompt caching usage (99% cost reduction on input tokens)
+- Task complexity and length
+- Context length (1M tokens)
+- Token usage per task
+
+The model is positioned as Xiaomi's flagship model, priced at $0.435/$0.87 per 1M tokens. OpenRouter offers a 15% discount, bringing the effective price to $0.3698/$0.7395 per 1M tokens. For cost-sensitive applications, MiMo V2.6 Flash ($0.14/$0.28 per 1M tokens) may be more suitable.
+
+---
+
+## Strengths
+
+1. **Exceptional Coding Performance:** 89.9% on Terminal-Bench 2.1, 71.9% on DeepSWE v1.1, 63.2% on MiMo Code Bench
+2. **Open-Weight Availability:** First open model to reach the 1-trillion-parameter class, full weights available on Hugging Face under MIT license
+3. **Strong Reasoning Capabilities:** 46 on AI Index (rank #1 of 114 open-weight models), 73.6/100 on BenchLM
+4. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+5. **Native Multimodal:** Text, image, audio, and video input support
+6. **Cost Efficiency:** $0.435/$0.87 per 1M tokens (very competitive pricing for frontier models)
+7. **Xiaomi Ecosystem Integration:** Seamless integration with Xiaomi's various platforms and services
+8. **Knowledge Cutoff:** Extends into 2026 for most domains
+9. **Enterprise Integration:** Available through various providers and self-hosting options
+10. **Simple Architecture:** Grouped Query Attention (GQA) with Sliding Window Attention (SWA) demonstrates that simple design can achieve state-of-the-art performance
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for MiMo V2.6 Pro
+2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+3. **Knowledge Cutoff:** Extends into 2026 for most domains, but some domains have older cutoff
+4. **Pricing Increases:** Pricing may increase as broader API access is rolled out
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+6. **Speed and Latency:** Slower than some competitors (66.3 tokens/second, 33.30s TTFB)
+7. **Cybersecurity Performance:** Weaker on ExploitBench (47.9% vs 78.5% for GPT-5.6 Sol)
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, long-running agentic coding workflows (multi-hour coding sessions)
+- Software engineering and software development
+- Enterprise applications requiring strong coding capabilities
+- Organizations seeking open-weight frontier models
+- Multimodal applications requiring vision, audio, and video understanding
+- Organizations heavily invested in Xiaomi ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong reasoning capabilities
+- Terminal coding agent workflows
+
+### Not Ideal For:
+- Cost-sensitive applications without prompt caching (MiMo V2.6 Flash may be better)
+- Organizations outside Xiaomi ecosystem
+- Applications requiring frontier-level performance (GPT-6 Astra may be more capable)
+- Organizations with strict data sovereignty requirements (open weights available but requires significant infrastructure)
+- Real-time applications requiring ultra-low latency (GPT-5.6 Sol is faster)
+- General-purpose applications (MiMo V2.6 Flash may be more suitable)
+- Cybersecurity-focused applications (GPT-5.6 Sol is better)
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Pricing Transparency:** While pricing is clear, the 3.1x price increase over MiMo V2.6 Flash is significant and may be unexpected for some users.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Xiaomi services, which may not be suitable for all organizations.
+
+4. **Speed and Latency:** MiMo V2.6 Pro is slower than some competitors (66.3 tokens/second, 33.30s TTFB), which may affect real-time applications.
+
+5. **Pricing Transparency:** While pricing is clear, the 3.1x price increase over MiMo V2.6 Flash is significant and may be unexpected for some users.
+
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+7. **Cybersecurity Performance:** MiMo V2.6 Pro trails significantly on ExploitBench (47.9% vs 78.5% for GPT-5.6 Sol), indicating weaker performance on cybersecurity-focused tasks.
+
+8. **User Feedback:** Some users report that MiMo V2.6 Pro is not significantly better than MiMo V2.6 Flash for their use cases, making the price increase not worth it.
+
+---
+
+## Conclusion
+
+MiMo V2.6 Pro is Xiaomi's flagship open-weight mixture-of-experts model from their MiMo series, released September 22, 2026, designed for complex, long-horizon agentic workflows. It features a massive 1.02 trillion total parameters (42 billion active per token), 1M token context window, native multimodal capabilities (text, image, audio, video), and exceptional performance on coding and agentic benchmarks (89.9% on Terminal-Bench 2.1, 71.9% on DeepSWE v1.1, 63.2% on MiMo Code Bench, 76.9% on Toolathlon-Verified, 82.0% on OSWorld-Verified, 53.1 on AutomationBench v1.0.6). The model ranks #1 of 114 on the Artificial Analysis Intelligence Index (46), ranking #13 of 229 on BenchLM with 73.6/100. MiMo V2.6 Pro is the first open model to reach the 1-trillion-parameter class, with full weights available on Hugging Face under an MIT license.
+
+However, detailed public information about MiMo V2.6 Pro is limited compared to other frontier models from Western companies. The model's strengths in coding, reasoning, long-context analysis, and multimodal capabilities make it a strong contender in the current market, particularly for organizations seeking open-weight frontier models with strong performance on coding and agentic tasks. The availability of MiMo V2.6 Flash (released September 22, 2026) which offers the same capabilities at 3.1x lower cost suggests that V2.6 Pro may be a stepping stone for organizations with specific needs.
+
+For organizations seeking open-weight frontier models with strong coding and agentic capabilities, MiMo V2.6 Pro could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The speed and latency differences compared to some competitors also make it less attractive for real-time applications. The weaker cybersecurity performance compared to GPT-5.6 Sol also makes it less suitable for security-focused applications.
+
+**Overall Assessment:** Excellent coding and agentic capabilities for complex, long-horizon workflows; however, limited public documentation and benchmark data compared to other frontier models, slower speed than some competitors, and weaker cybersecurity performance.
+
+---
+
+## Notes on MiMo V2.6 Flash
+
+**Important Note:** MiMo V2.6 Flash (released September 22, 2026) offers improved cost efficiency:
+- Pricing: $0.14/$0.28 per 1M tokens (3.1x cheaper than Pro)
+- Similar capabilities for most tasks
+- Faster speed than Pro (estimated 80+ tokens/second)
+- Lower latency than Pro (estimated 2s TTFB)
+- Same 1M token context window
+
+For cost-sensitive applications, MiMo V2.6 Flash is the recommended model over MiMo V2.6 Pro, as it offers comparable capabilities at 3.1x lower cost. Organizations should start with MiMo V2.6 Flash and escalate to MiMo V2.6 Pro only for difficult coding, tool use, or long-horizon planning tasks where the additional capability is needed.

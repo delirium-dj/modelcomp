@@ -26,11 +26,11 @@
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** TB2.1 **76.2, MCP Atlas **83.6, GDPval-AA **1656 → agentic high.
-- **Reasoning: 75/100.** GDPval-AA **1656, AA Intelligence frontier → reasoning high.
+- **Tool use: 80/100.** TB2.1 **76.2**, MCP Atlas **83.6**, GDPval-AA **1656%** → agentic high.
+- **Reasoning: 75/100.** GDPval-AA **1656**, AA Intelligence frontier → reasoning high.
 - **Context window: 100/100.** Documented **1,048,576** (1M).
-- **Multimodal: 82/100.** CharXiv **84.2 → multimodal strong.
-- **Coding: 80/100.** TB2.1 **76.2, MCP Atlas **83.6, GDPval-AA **1656 → coding high.
+- **Multimodal: 82/100.** CharXiv **84.2%** → multimodal strong.
+- **Coding: 80/100.** TB2.1 **76.2**, MCP Atlas **83.6**, GDPval-AA **1656%** → coding high.
 - **Cost efficiency: 100/100.** Flash tier → cheap.
 
 - **Overall Score: 83.4/100.** Mean of the five quality dims (Tool 80 + Reasoning 75 + Context 100 + Multimodal 82 + Coding 80) / 5 = 81.4 → 81; Cost efficiency excluded.

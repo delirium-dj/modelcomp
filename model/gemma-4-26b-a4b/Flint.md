@@ -41,13 +41,13 @@
 
 - **Tool use: 65/100.** Tau2 (average over 3) **68.2%**; native function calling + agentic coding design → mid agentic band for MoE size; capped below frontier proprietary tool tiers.
 
-- **Reasoning: 72/100.** MMLU Pro **82.6%, AIME 2026 **88.3%, LiveCodeBench v6 **77.1%, GPQA Diamond **82.3%** → strong open-weights reasoning band; HLE no tools **8.7%** pulls the absolute ceiling down → capped below proprietary frontier reasoning.
+- **Reasoning: 72/100.** MMLU Pro **82.6%**, AIME 2026 **88.3%**, LiveCodeBench v6 **77.1%**, GPQA Diamond **82.3%** → strong open-weights reasoning band; HLE no tools **8.7%** pulls the absolute ceiling down → capped below proprietary frontier reasoning.
 
 - **Context window: 85/100.** 256K tokens (Hugging Face Gemma 4 docs; Artificial Analysis) → mid-high context band (small Gemma 4 models at 128K; this MoE at 256K).
 
 - **Multimodal: 75/100.** Text + image (+ video) in, text out; MMMU Pro **73.8%, MATH-Vision **82.4%, OmniDocBench **0.149** → strong multimodal band for MoE tier.
 
-- **Coding: 70/100.** LiveCodeBench v6 **77.1%, GPQA Diamond **82.3%, AIME 2026 **88.3%, Codeforces ELO **1718** → mid-high coding band for open-weights MoE.
+- **Coding: 70/100.** LiveCodeBench v6 **77.1%**, GPQA Diamond **82.3%**, AIME 2026 **88.3%**, Codeforces ELO **1718** → mid-high coding band for open-weights MoE.
 
 - **Cost efficiency: 80/100.** Open weights Apache 2.0 + Gemma API from $0.10/$0.34 per 1M → high open-weight value.
 

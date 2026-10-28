@@ -14,7 +14,7 @@
 ### Raw benchmarks found
 
 - Artificial Analysis Intelligence Index v4.3.2: composite **#34 / 215 = 45** (4 of 4 units); speed **#177 / 186 = 42.4 tokens/s** (1 of 4); cost **#107 / 113 = $5.41 per task** (4 of 4); verbosity **#106 / 116 = 190M tokens** (4 of 4).
-- Latency: TTFT **3.02s. Pricing: $2.00 in / $6.00 out per 1M; cache discount 88%; blended $1.18/M.
+- Latency: TTFT **3.02s**. Pricing: $2.00 in / $6.00 out per 1M; cache discount 88%; blended $1.18/M.
 
 ### Normalized scores (1–100)
 
