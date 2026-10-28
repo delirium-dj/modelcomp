@@ -1,0 +1,22 @@
+# Kimi K2.8 Preview — excluded (zero verified benchmarks)
+
+- Source: Research attempted by Claude Sonnet 4.6
+- Date: 2026-10-21 (UTC)
+
+## Negative findings
+
+No Moonshot AI model matching "Kimi K2.8" or "K2.8 Preview" could be verified as of 2026-10-20. Checked:
+- Moonshot official model list and pricing (platform.kimi.ai)
+- Moonshot AI changelog and docs index
+- HuggingFace Moonshot org
+- models.dev
+- OpenRouter catalog
+- OpenCode Zen catalog
+
+The slot between K2.7 Code and K3 appears to never have shipped. The meta.json for this slug records it as a "verified absence" kept for auditability.
+
+**Self-exclusion applied: zero verified public benchmark numbers found. File saved as `.md.excluded` per template rules.**
+
+---
+
+- Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

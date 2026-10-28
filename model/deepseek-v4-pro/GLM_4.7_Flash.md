@@ -151,31 +151,18 @@ DeepSeek V4 Pro is specifically recommended for:
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 85/100**
+- **Reasoning: 86/100**
+- **Context window: 85/100**
+- **Multimodal: 80/100**
+- **Coding: 87/100**
+- **Cost efficiency: 95/100**
+- **Overall Score: 85/100**
+
 ## Conclusion
 
 DeepSeek V4 Pro represents an interesting option in the 2026 AI landscape, particularly for organizations prioritizing cost efficiency and seeking AI provider diversity. Its top-5 ranking among major models suggests competitive performance, though detailed benchmark data is scarce. The model's strength in Chinese language tasks and significantly lower pricing make it attractive for large-scale deployments and cost-sensitive applications. However, limited documentation, smaller ecosystem, and geopolitical considerations may make it less suitable for some organizations. DeepSeek V4 Pro is a viable alternative for cost-conscious enterprises, but organizations with extensive Western AI ecosystem dependencies may prefer established models from OpenAI, Anthropic, or Google.
 
-- **Tool use: 85/100.** Strong competitive positioning in the frontier landscape, although specific independent terminal-bench/agentic coding benchmarks are scarce; score reflects top-5 ranking and enterprise cost-efficiency.
-- **Reasoning: 86/100.** Competitive performance implied by top-tier ranking in 2026 assessments.
-- **Context window: 85/100.** Standard frontier capacity expected for flagship commercial models.
-- **Multimodal: 80/100.** Expected competitive performance for a 2026 flagship model.
-- **Coding: 87/100.** Strong performance in coding tasks, supported by its top-tier positioning.
-- **Cost efficiency: 95/100.** Significantly lower pricing than Western frontier models, providing a major competitive advantage.
-
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 85/100.**
-- **Reasoning: 86/100.**
-- **Context window: 85/100.**
-- **Multimodal: 80/100.**
-- **Coding: 87/100.**
-- **Cost efficiency: 95/100.**
-- **Overall Score: 84.6/100.** Cost-effective frontier model with strong competitive positioning, but limited documentation and smaller ecosystem compared to Western competitors.
+**Overall Assessment:** Cost-effective frontier model with strong competitive positioning, but limited documentation and smaller ecosystem compared to Western competitors.

@@ -1,0 +1,51 @@
+# Nemotron 3.5 Bolt E4B — findings by GPT 6 Astra
+
+- Source: NVIDIA / Nemotron 3.5 Bolt E4B
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Primary BF16 card](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16/raw/main/README.md) and [October 23 launch](https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/) establish a Gemma-4-E4B-it-derived, post-trained **8B total / 4B effective** text model under **OpenMDW-1.1**. Effective parameter count does not establish MoE routing. Post-training data cutoff is May 2026. Native **text in/text out**, tools, configurable thinking and concise conversational mode; voice/device use cases rely on adjacent speech/vision components and do not establish native audio/vision input.
+
+Official serving example sets **65,536 shared context tokens**. Card summaries say input/output “up to 64K”; they do not establish a simultaneously usable 128K combined window. The [AA profile](https://artificialanalysis.ai/models/nemotron-3-5-bolt-e4b-4gb) claims image input, 131K context and MoE, but provides no measured intelligence index; primary checkpoint documentation controls these conflicts.
+
+Access: `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16` for customization/evaluation; `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB` Q4_K_M for local inference; NVIDIA Build `nvidia/nemotron-3.5-bolt-e4b`; local OpenAI-compatible Chat Completions. No verified Zen Free ID or production per-token price found. Open weights are not zero-cost computation. The approximately 4GB footprint refers to quantized target workloads, not BF16 or arbitrary long-context concurrency.
+
+### Raw benchmarks found
+
+NVIDIA's NeMo Gym evaluations, **BF16 / Q4_K_M** respectively:
+
+| Benchmark | BF16 | Q4_K_M |
+|---|---:|---:|
+| BFCL-v3 | 68.51 | 67.31 |
+| Tau2-Bench | 55.10 | 52.32 |
+| ToolSandbox | 68.77 | 74.13 |
+| When2Call Multi-Turn | 63.36 | 60.50 |
+| RelyToolBench | 63.16 | 69.29 |
+| MultiChallenge | 53.10 | 55.60 |
+| IFBench | 63.79 | 64.00 |
+| IHEval | 84.79 | 82.40 |
+| AgentIF | 25.81 | 22.95 |
+| StructEval-T | 80.40 | 79.99 |
+| RULER 64K | 86.99 | 85.76 |
+| LongMemEval | 72.10 | 69.92 |
+| LongBench v2, 48K | 50.50 | 48.67 |
+| GaRAGe | 42.61 | 40.73 |
+| RAGTruth F1 | 77.59 | 77.88 |
+
+Reasoning is enabled except RoleBench, EQ-Bench v3 and RULER. BFCL-v3 is not v4; Tau2 aggregate is not Telecom-only or Tau3. When2Call and Brevity benchmarks were not yet publicly released per the launch, reducing reproducibility. [BenchLM's BF16 profile](https://benchlm.ai/models/nemotron-3-5-bolt-e4b-bf16) transcribes publisher results and remains unranked; it is not independent replication.
+
+Publisher Q4_K_M performance: RTX 5070 **3.5GB / 548ms TTFT / 133.4 tokens/s** at batch 1, no cache, 3K input/50 output; **4.3GB / 1,238ms / 106.2 tokens/s** with 32K cache, 2K input/256 output. Do not combine these runtime figures with BF16 quality as one measured deployment.
+
+No verified exact-model SWE-bench, LiveCodeBench, SciCode, Terminal-Bench, GPQA, HLE, CritPt, GDPval-AA or Claw-Eval result recovered. The AA profile's absent index is not a zero. Parent Gemma and larger Bolt 74B scores cannot fill these gaps.
+
+### Normalized scores (1–100)
+
+Self-excluded from a complete Overall: substantial conversational-agent and retrieval evidence exists, but coding and broad reasoning evidence is insufficient. No invented dimension scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-28 UTC
+- Method: Three fresh searches, primary launch/checkpoint review and independent-profile checks, separating precision, harness and deployment claims.

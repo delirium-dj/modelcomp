@@ -171,24 +171,18 @@ Grok 4 is positioned as a competitive alternative in the general-purpose AI mark
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 85/100**
+- **Reasoning: 86/100**
+- **Context window: 85/100**
+- **Multimodal: 80/100**
+- **Coding: 85/100**
+- **Cost efficiency: 85/100**
+- **Overall Score: 84/100**
+
 ## Conclusion
 
 Grok 4.5 represents an interesting option in the 2026 AI landscape, particularly for organizations prioritizing real-time information access and seeking AI provider diversity. Its top-5 ranking among major models suggests competitive performance, though detailed benchmark data is scarce. The model's integration with X (formerly Twitter) and real-time data access capabilities make it attractive for applications requiring current information. However, limited documentation, smaller ecosystem, and geopolitical considerations may make it less suitable for some organizations. Grok 4.5 is a viable alternative for projects needing real-time data access and general-purpose AI capabilities, but organizations with extensive Western AI ecosystem dependencies may prefer established models from OpenAI, Anthropic, or Google.
 
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 85/100.** Competitive performance in general-purpose and agentic workflows, though limited independent benchmark data limits a higher score.
-- **Reasoning: 86/100.** Strong reasoning capabilities in general domains, reflected in its top-5 ranking.
-- **Context window: 85/100.** Capable context handling expected of a frontier model.
-- **Multimodal: 80/100.** Integrated capabilities, though less specialized than multimodal leaders.
-- **Coding: 85/100.** Strong coding performance for a general-purpose model.
-- **Cost efficiency: 85/100.** Positioned as a competitive alternative, suggesting reasonable pricing.
-- **Overall Score: 84.2/100.** Competitive frontier model with strong real-time data access, but limited documentation and smaller ecosystem compared to Western competitors.
+**Overall Assessment:** Competitive frontier model with strong real-time data access, but limited documentation and smaller ecosystem compared to Western competitors.

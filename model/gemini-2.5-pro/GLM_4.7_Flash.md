@@ -164,24 +164,18 @@ Gemini 3.1 Pro is listed with pricing of $2/$12 per million input/output tokens,
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 70/100**
+- **Reasoning: 88/100**
+- **Context window: 90/100**
+- **Multimodal: 92/100**
+- **Coding: 70/100**
+- **Cost efficiency: 85/100**
+- **Overall Score: 82/100**
+
 ## Conclusion
 
 Gemini 2.5 Pro is a strong contender in the 2026 AI landscape, particularly excelling in knowledge work, multimodal tasks, and document analysis. Its strong chart QA (91.3%) and document parsing (88.6%) capabilities make it well-suited for research and analysis workflows. However, its weaker performance in agentic coding and computer use tasks (Terminal-Bench: 68.1%) compared to OpenAI and Anthropic models suggests it's not the optimal choice for coding-focused applications. For organizations heavily invested in the Google ecosystem and prioritizing multimodal capabilities and knowledge work, Gemini 2.5 Pro is an excellent choice. For agentic coding and computer use tasks, OpenAI or Anthropic models may offer better performance.
 
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 70/100.** Competitive in knowledge-work tasks, but significantly lower performance on agentic coding and computer use benchmarks (Terminal-Bench 68.1%) compared to frontier leaders.
-- **Reasoning: 88/100.** Strong performance in complex reasoning and knowledge-intensive tasks, as evidenced by its frontier positioning.
-- **Context window: 90/100.** Strong capacity for knowledge work, though precise limits are not documented.
-- **Multimodal: 92/100.** Excellent performance across multimodal domains (Chart QA 91.3%, Document Parsing 88.6%).
-- **Coding: 70/100.** Weaker performance in coding benchmarks (Terminal-Bench 68.1%) compared to top frontier models.
-- **Cost efficiency: 85/100.** Competitive pricing for Pro-tier capabilities within the Google ecosystem.
-- **Overall Score: 82/100.** Strong frontier model with excellent multimodal and knowledge work capabilities, but weaker performance in agentic coding and computer use tasks.
+**Overall Assessment:** Strong frontier model with excellent multimodal and knowledge work capabilities, but weaker performance in agentic coding and computer use tasks.

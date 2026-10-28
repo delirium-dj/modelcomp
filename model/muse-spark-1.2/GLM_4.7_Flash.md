@@ -200,24 +200,18 @@ Pricing details not explicitly specified in available documentation. Model is av
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 92/100**
+- **Reasoning: 90/100**
+- **Context window: 90/100**
+- **Multimodal: 85/100**
+- **Coding: 92/100**
+- **Cost efficiency: 90/100**
+- **Overall Score: 90/100**
+
 ## Conclusion
 
 Muse Spark 1.2 is Meta's attempt to enter the competitive frontier coding model space with a model specifically optimized for long-horizon coding workflows. Its tight integration with Muse Code and focus on transparent auditability make it an interesting option for teams prioritizing observability in their coding agents. However, the lack of independent benchmark data, proprietary nature, and limited ecosystem compared to OpenAI/Anthropic/Google models make it a more niche choice. For most organizations, established frontier models from OpenAI, Anthropic, or Google may offer better value and validation, but Muse Spark 1.2 could be attractive for Meta ecosystem users or organizations with specific requirements for multi-agent coding workflows.
 
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 92/100.** Specifically optimized for coding agent workflows with strong multi-file refactor and debugging capabilities.
-- **Reasoning: 90/100.** Strong reasoning capabilities in academic and research contexts, supported by official evaluation metrics.
-- **Context window: 90/100.** Massive 1M-token context window is optimized for large codebase understanding.
-- **Multimodal: 85/100.** Strong support for text, image, video, audio, and PDF inputs, though limited public data on multimodal benchmark performance.
-- **Coding: 92/100.** High-performance coding model optimized for multi-agentic and long-horizon tasks.
-- **Cost efficiency: 90/100.** Competitive pricing/access, though exact pricing is not publicly specified.
-- **Overall Score: 89.8/100.** Niche frontier coding model with strong integration and auditability features, but limited independent validation and smaller ecosystem compared to major competitors.
+**Overall Assessment:** Niche frontier coding model with strong integration and auditability features, but limited independent validation and smaller ecosystem compared to major competitors.

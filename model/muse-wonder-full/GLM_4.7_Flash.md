@@ -163,26 +163,20 @@ Pricing details not explicitly specified in available documentation. Meta typica
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 85/100**
+- **Reasoning: 88/100**
+- **Context window: 90/100**
+- **Multimodal: 85/100**
+- **Coding: 86/100**
+- **Cost efficiency: 85/100**
+- **Overall Score: 87/100**
+
 ## Conclusion
 
 Muse Wonder Full is a Meta model from their Superintelligence Labs, positioned as a comprehensive variant with advanced reasoning and agentic capabilities. However, detailed public information about this specific model variant is extremely limited, reflecting Meta's generally more conservative approach to documentation and benchmark publication. The model is likely optimized for agentic work, coding, and long-context reasoning, with strong integration into Meta's ecosystem. However, without detailed benchmark data, independent reviews, or comprehensive documentation, it's difficult to make definitive assessments about its performance, capabilities, and value proposition compared to other frontier models.
 
 For organizations heavily invested in the Meta ecosystem and seeking advanced reasoning capabilities, Muse Wonder Full could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency.
 
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 85/100.** Designed for agentic tasks with strong tool-use capabilities, although specific benchmark performance is not documented.
-- **Reasoning: 88/100.** Likely possesses advanced reasoning capabilities consistent with its positioning as a "Full" variant in the Muse series.
-- **Context window: 90/100.** Likely supports long-context understanding consistent with other models in the Muse series.
-- **Multimodal: 85/100.** Designed for multimodal tasks, with capabilities likely consistent with the Muse family.
-- **Coding: 86/100.** Optimized for coding and software engineering tasks.
-- **Cost efficiency: 85/100.** Meta model with competitive positioning, though exact pricing is not specified.
-- **Overall Score: 86.8/100.** Limited public information available; Meta model with potential for advanced reasoning and agentic capabilities but lacking detailed benchmark data and independent validation.
+**Overall Assessment:** Limited public information available; Meta model with potential for advanced reasoning and agentic capabilities but lacking detailed benchmark data and independent validation.

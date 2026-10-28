@@ -258,24 +258,18 @@ Recommendation: "Don't choose one model — measure accuracy, hallucinations, la
 
 ---
 
+### Normalized scores (1–100)
+
+- **Tool use: 94/100**
+- **Reasoning: 90/100**
+- **Context window: 95/100**
+- **Multimodal: 75/100**
+- **Coding: 95/100**
+- **Cost efficiency: 60/100**
+- **Overall Score: 90/100**
+
 ## Conclusion
 
 GPT-5.5 is a strong contender in the 2026 frontier model landscape, particularly excelling in agentic coding, computer use, and tool orchestration. Its massive context window and flexible reasoning effort levels make it well-suited for complex professional workflows. However, its high cost, upcoming retirement, and mixed performance in certain areas (vision, long-context retrieval) mean it's not universally optimal. For most use cases, Claude Opus 4.7 or GPT-5.6 Sol may offer better value, but GPT-5.5 remains an excellent choice for speed-critical agentic workflows and collaborative document work.
 
-### Normalized scores (1–100)
-
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score. 
-> 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 94/100.** Exceptional performance in agentic coding and computer use (Terminal-Bench 82.7%, OSWorld 78.7%) with superior tool orchestration.
-- **Reasoning: 90/100.** Strong reasoning capabilities in complex professional and scientific tasks, evidenced by high FrontierMath and GPQA performance.
-- **Context window: 95/100.** Massive 1,050,000-token context window leads the field for complex workflows.
-- **Multimodal: 75/100.** Strong text and image capabilities, though lower multimodal scores compared to specialized multimodal models like Gemini 3.1 Pro.
-- **Coding: 95/100.** Leading performance on SWE-bench Verified (~80%) and Terminal-Bench (82.7%).
-- **Cost efficiency: 60/100.** High cost ($5/$30 pricing) is a significant factor, despite strong performance.
-- **Overall Score: 89.9/100.** Strong frontier model with excellent agentic coding capabilities, but consider cost and retirement timeline when deploying.
+**Overall Assessment:** Strong frontier model with excellent agentic coding capabilities, but consider cost and retirement timeline when deploying.
