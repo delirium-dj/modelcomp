@@ -1,0 +1,29 @@
+# Qoder Sonus — findings by GPT 6 Astra
+
+- Source: Qoder / Sonus
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: [Methodology](../../model-comparison.md)
+- Cross-model signed log: [Findings](../../model-findings.md)
+
+## Model card
+
+[Official September 10, 2026 announcement](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408) verifies Sonus as Qoder's built-in model for long-running autonomous tasks, knowledge work, coding and computer use. It launched across Qoder, IDE, CLI, JetBrains, QoderWake and Cloud Agents; Desktop 0.2.3 supplies computer-use integration. The announcement gives a **3.2x credit multiplier**, not a dollar/token price. Later user comments question changing credit charges but are not an authoritative current tariff.
+
+No independently documented checkpoint, parameter count, architecture, cutoff, total context or output limit recovered. Platform computer use does not establish the full native modality contract. No public standalone Chat Completions/Responses route or Zen Free ID verified; Qoder integration and unofficial proxy projects are not proof of a supported public model API.
+
+[Official promotion terms](https://docs.qoder.com/events/sotafree) describe September 15–19 credit packs totaling **7,500**, followed by September 21–25 **4,000 daily / 20,000 total** credits, conditional on an active paid subscription. These expired, non-rollover promotions are not an ongoing free model tier. Earlier indexed totals reflect earlier offer revisions.
+
+### Raw benchmarks found
+
+Three fresh searches covering official release, independent benchmarks and pricing found no reproducible numeric Sonus quality benchmark. The official launch provides positioning and a demo, not SWE-bench, Terminal-Bench, OSWorld, GPQA, HLE, GDPval, Tau2/Tau3 or retrieval measurements. Forum anecdotes include both successful video-editing work and failed costly tasks; neither establishes a benchmark pass rate.
+
+No verified public reasoning, coding, tool-use, multimodal or long-context score found for this exact identity. Other Qoder tiers, Cantus, Qwen models and inferred upstream identities are not substituted.
+
+### Normalized scores (1–100)
+
+Self-excluded: identity is verified but attributable benchmark evidence is insufficient for a complete Overall. No placeholder scores assigned.
+
+## Signature
+
+- Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-28 UTC
+- Method: Three fresh web searches and primary launch/promotion documentation review, separating platform marketing and anecdotes from measured model performance.

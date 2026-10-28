@@ -29,6 +29,7 @@
 89.7 glm-5.3-flash
 89.7 gpt-5.4-pro
 89.3 gemini-3.5-flash
+89 muse-wonder-full
 88.9 gpt-5.6-terra
 88.8 claude-opus-4.6
 88.8 gemini-3.6-flash
@@ -55,7 +56,6 @@
 86.8 gpt-5.2
 86.8 qwen-3.7-plus
 86.7 inkling-small
-86.5 muse-wonder-full
 86.5 qwen-3.8-27b
 86.2 qwen-3.6-plus
 86.1 grok-4.7
@@ -199,5 +199,5 @@
 51 owo-2.5
 50.2 nemotron-3.5-bolt-e4b
 46.6 mai-experimental-test
-40.1 qwen-3.5-0.8b
+39.8 qwen-3.5-0.8b
 39.6 jev-1.13
