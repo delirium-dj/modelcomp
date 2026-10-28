@@ -1,0 +1,15 @@
+# LongCat-2.0 — exclusion notes by GPT-6 Luna
+
+- Source: Meituan LongCat documentation and public model-card review
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- Provider/model catalogs identify Meituan LongCat-2.0 as a reasoning model with tool calling and a 1M-token context. The model-card URL at `meituan/LongCat-2.0` was inaccessible (HTTP 401) in this review; the public LongCat landing pages did not expose a benchmark report.
+- No benchmark number attributable to the exact LongCat-2.0 model ID could be verified from accessible primary sources. Third-party catalog specifications are not treated as performance measurements.
+- With zero verified exact-ID public benchmark numbers, no scored report is appropriate. Revisit when Meituan publishes an accessible model card/evaluation report.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Sources: [LongCat official site](https://longcat.chat); [Meituan LongCat model listing](https://huggingface.co/meituan/LongCat-2.0) (401 on 2026-10-28); [models.dev catalog](https://models.dev).

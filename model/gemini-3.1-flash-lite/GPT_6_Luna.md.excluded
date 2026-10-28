@@ -1,0 +1,55 @@
+# Gemini 3.1 Flash Lite — findings by GPT-6 Luna
+
+- Source: Google/Gemini 3.1 Flash Lite
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash Lite
+- **Short description:** Google's Gemini 3.1 Flash Lite model. Three searches in this pass did not retrieve traceable exact-model benchmarks or official technical documentation; bare Gemini 3.1 Flash is not treated as a valid separate SKU.
+- **Provider / access:** Google; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked subject `gemini-3.1-flash-lite`; exact vendor API ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-model benchmark scores were found in three independent public searches. Results for Gemini 3.1 Pro or other Flash Lite versions are not transferred.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model benchmark verified.
+- **Reasoning: 15/100.** No exact-model benchmark verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

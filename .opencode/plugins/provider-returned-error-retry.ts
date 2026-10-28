@@ -51,6 +51,8 @@ import type { Plugin } from "@opencode-ai/plugin"
 const PATTERNS = [
   "provider returned error",
   "provider returned an error",
+  "upstream provider returned an error",
+  "upstream error from phala",
 ]
 
 // How long to wait before nudging: 10 seconds = 10_000 milliseconds.

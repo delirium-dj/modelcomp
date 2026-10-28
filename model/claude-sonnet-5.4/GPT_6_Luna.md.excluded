@@ -1,0 +1,55 @@
+# Claude Sonnet 5.4 — findings by GPT-6 Luna
+
+- Source: Anthropic/Claude Sonnet 5.4
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** The tracked subject is an Anthropic Claude Sonnet model. Three independent searches did not confirm official documentation or an exact API identifier for this version; other Sonnet releases are not treated as equivalent.
+- **Provider / access:** Anthropic; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Claude Sonnet 5.4`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; exact architecture details not verified.
+
+### Raw benchmarks found
+
+Three independent public searches yielded no traceable benchmark results for this exact identity.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No context/retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

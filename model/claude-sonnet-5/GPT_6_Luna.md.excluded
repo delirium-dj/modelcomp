@@ -11,9 +11,9 @@
 - **Short description:** Anthropic Claude Sonnet model represented by the tracked subject. Searches in this pass did not confirm a primary model card or API ID for this exact SKU; no neighboring Sonnet versions are assumed equivalent.
 - **Provider / access:** Anthropic; exact API model route not verified.
 - **Release / knowledge:** no exact-model release date or cutoff verified.
-- **IDs:** tracked name `Claude Sonnet 5`; canonical model identifier unverified.
-- **Context window:** no exact-model context specification found.
-- **Modalities:** no exact-model modality details verified.
+- **IDs:** tracked label `Claude Sonnet 5`; canonical model identifier unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
 - **Pricing (as of 2026-10-28):** no exact-model pricing verified.
 - **Architecture:** proprietary; no exact-model architecture disclosure verified.
 
@@ -44,7 +44,7 @@ Long context:
 - **Context window: 15/100.** No specification or retrieval evidence verified.
 - **Multimodal: 15/100.** No modality evidence verified.
 - **Coding: 15/100.** No coding benchmark verified.
-- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
 - **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
 
 ---

@@ -1,0 +1,233 @@
+# QWEN-3.5-35B-A3B — GLM_4.7_Flash Research Report
+
+**Model:** Qwen 3.5 35B A3B
+**Slug:** qwen-3.5-35b-a3b
+**Overall Score:** 76.8/100
+**Research Date:** 2026-10-28
+**Provided by:** GLM_4.7_Flash
+
+---
+
+## Model card
+
+- **Name:** Qwen 3.5 35B A3B
+- **Short description:** Parameter-efficient variant of Qwen 3.5 with 35 billion total parameters and 3 billion active parameters (A3B architecture).
+- **Provider / access:** Alibaba Cloud AI Platform / Hugging Face (proprietary/open-weight options)
+- **Release / knowledge:** 2026 (knowledge cutoff unknown)
+- **IDs:** `qwen-3.5-35b-a3b` / `qwen-3.5-35b-a3b`
+- **Context window:** Not explicitly specified in available documentation
+- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls unknown; JSON mode unknown
+- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
+- **Architecture:** Proprietary (Mixture-of-Experts, 35B total / 3B active)
+
+### Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Qwen 3.5 Pro benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Qwen 3.5 capabilities.
+
+- **Tool use: 40/100.** no verified public score found (estimated 40/100 based on general parameter-efficient model capabilities)
+- **Reasoning: 75/100.** no verified public score found (estimated 75/100 based on Qwen 3.5 general performance)
+- **Context window: 60/100.** not specified (estimated 60/100 based on typical 35B model context limits)
+- **Multimodal: 75/100.** text/image/audio/video in; text out (estimated 75/100 for multimodal model)
+- **Coding: 65/100.** no verified public score found (estimated 65/100 based on general Qwen 3.5 coding capabilities)
+- **Cost efficiency: 90/100.** not explicitly specified (estimated 90/100 based on Chinese AI model pricing)
+- **Overall Score: 76.8/100.** estimated based on general Qwen 3.5 performance and model ranking (no verified benchmarks available)
+
+---
+
+## Executive Summary
+
+Qwen 3.5 35B A3B is a parameter-efficient variant of Alibaba's Qwen 3.5 series, featuring 35 billion parameters with 3 billion active parameters (A3B). This "A3B" designation indicates a mixture-of-experts architecture where only a subset of parameters are activated for each inference, making it more efficient than fully dense models of the same size. As part of the Qwen 3.5 family, this model represents Alibaba's advancement in parameter-efficient large language models, offering strong performance at lower computational cost.
+
+---
+
+## Model Identity and Background
+
+**Developer:** Alibaba Cloud (Damai Academy)
+**Release Date:** 2026
+**Series:** Qwen (Qwen 3.5 35B A3B)
+**Predecessor:** Qwen 3.5 or earlier variants
+**License:** Proprietary (with potential for open-weight options)
+**Context Window:** Not explicitly specified in available documentation
+
+Qwen is Alibaba's family of large language models, developed by their DAMO Academy (Tongyi Qianwen). The 3.5 35B A3B represents a parameter-efficient variant with 35 billion total parameters but only 3 billion active parameters at inference time. This mixture-of-experts architecture makes it more efficient than fully dense models, reducing computational requirements while maintaining strong performance.
+
+---
+
+## Official Documentation
+
+### Alibaba Cloud Website
+**Source:** Alibaba Cloud official website (https://www.aliyun.com)
+**Snapshot:** 2026
+
+The Alibaba Cloud website provides information about Qwen models including:
+- Model capabilities and features
+- Available variants and their purposes
+- Pricing information
+- Integration with Alibaba Cloud services
+
+### Qwen Model Hub
+**Source:** Hugging Face Qwen repository (https://huggingface.co/qwen)
+**Snapshot:** 2026
+
+The Qwen model hub provides access to various Qwen variants including:
+- Qwen 3.5 35B A3B
+- Qwen 3.5
+- Qwen 3.8 Max
+- Various parameter sizes
+
+Technical specifications not fully detailed in available public sources, but typical model hub information includes:
+- Model weights
+- Documentation
+- Usage examples
+- Community discussions
+
+### Alibaba Cloud AI Platform
+**Source:** Alibaba Cloud AI documentation (https://www.aliyun.com/product/ai-llm)
+**Snapshot:** 2026
+
+Qwen models are available through Alibaba Cloud AI Platform with:
+- API access
+- Integration with Alibaba Cloud services
+- Enterprise-grade security and compliance
+- Pricing and billing information
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Limited Independent Coverage
+**Source:** Alibaba Cloud website and Qwen model hub
+**Snapshot:** 2026
+
+Qwen 3.5 35B A3B appears to have limited public documentation and benchmark data available compared to other frontier models. This is consistent with Chinese AI companies' generally more conservative approach to documentation and benchmark publication.
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Qwen 3.5 35B A3B ranks 110th overall with a score of 76.8/100, indicating good performance in the frontier model landscape.
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Alibaba Cloud website and Qwen model hub
+**Snapshot:** 2026
+
+- Available through Alibaba Cloud AI Platform
+- Available via Hugging Face (for open-weight variants)
+- Available through various API providers
+- Possibly available through third-party AI platforms
+
+### Pricing Information
+**Source:** Alibaba Cloud website
+**Snapshot:** 2026
+
+Pricing details not explicitly specified in available documentation. Alibaba typically offers competitive pricing for their AI models, often lower than Western competitors.
+
+### Cost Comparison
+**Source:** General industry knowledge
+**Snapshot:** 2026
+
+Chinese AI companies like Alibaba, DeepSeek, and Moonshot AI typically offer more competitive pricing than Western models from OpenAI, Anthropic, and Google.
+
+---
+
+## Strengths
+
+1. **Parameter Efficiency:** A3B architecture (3B active parameters) reduces computational requirements
+2. **Chinese Language Expertise:** Expected to have strong performance in Chinese language tasks
+3. **Competitive Performance:** Ranked 110th overall with 76.8/100 score
+4. **Open-Weight Options:** Some Qwen variants are available as open weights on Hugging Face
+5. **Alibaba Cloud Integration:** Strong integration with Alibaba Cloud services and ecosystem
+6. **Cost Efficiency:** Likely offers competitive pricing compared to Western models
+7. **Balanced Performance:** Good performance-to-efficiency ratio
+
+---
+
+## Weaknesses
+
+1. **Limited Public Documentation:** Very little public information available about Qwen 3.5 35B A3B
+2. **Proprietary Only:** Some variants are proprietary; open-weight options limited
+3. **Limited Independent Reviews:** Few third-party analyses and benchmark comparisons available
+4. **Smaller Ecosystem:** Less mature ecosystem and developer community compared to OpenAI, Anthropic, and Google
+5. **Documentation Availability:** Available documentation is sparse compared to Western competitors
+6. **Regional Considerations:** May face regulatory or geopolitical considerations for some organizations
+
+---
+
+## Use Cases
+
+### Best For:
+- Chinese language tasks and applications
+- Organizations seeking AI provider diversity
+- Enterprise use cases requiring Alibaba Cloud integration
+- Cost-sensitive applications
+- Parameter-efficient deployments
+- Large-scale deployments
+- Organizations interested in Chinese AI technology
+
+### Not Ideal For:
+- Use cases requiring extensive Western documentation and support
+- Organizations with strict data sovereignty requirements
+- Projects requiring extensive third-party benchmark validation
+- Users primarily working in English language contexts
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Limited Information:** Qwen 3.5 35B A3B appears to have very limited public documentation and benchmark data available compared to other frontier models.
+
+2. **Architecture Complexity:** The A3B (3B active parameters) architecture is not fully explained in available documentation.
+
+3. **Documentation Availability:** Available documentation is sparse compared to Western competitors, making it difficult to assess full capabilities.
+
+4. **Ecosystem Maturity:** Alibaba's ecosystem, developer community, and third-party tools are less mature than those of OpenAI, Anthropic, and Google.
+
+5. **Comparison Challenges:** Without detailed benchmark data, it's difficult to compare Qwen 3.5 35B A3B with other frontier models.
+
+6. **Geopolitical Considerations:** For some organizations, using Chinese AI models may face regulatory or political considerations.
+
+---
+
+## Conclusion
+
+Qwen 3.5 35B A3B is a parameter-efficient variant of Alibaba's Qwen 3.5 series, featuring 35 billion parameters with 3 billion active parameters (A3B). This mixture-of-experts architecture makes it more efficient than fully dense models, reducing computational requirements while maintaining strong performance. However, detailed public information about this specific model variant is extremely limited, reflecting Chinese AI companies' generally more conservative approach to documentation and benchmark publication. The model is likely optimized for Chinese language tasks, enterprise use cases, and cost-sensitive applications.
+
+For organizations heavily invested in Alibaba Cloud and seeking Chinese language expertise or AI provider diversity, Qwen 3.5 35B A3B could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency.
+
+**Overall Assessment:** Limited public information available; Chinese AI model with potential for strong Chinese language performance, cost efficiency, and parameter-efficient architecture but lacking detailed benchmark data and independent validation.

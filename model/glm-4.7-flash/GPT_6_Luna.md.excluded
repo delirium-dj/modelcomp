@@ -1,0 +1,55 @@
+# GLM 4.7 Flash — findings by GPT-6 Luna
+
+- Source: Z AI/GLM 4.7 Flash
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 4.7 Flash
+- **Short description:** Z AI GLM Flash model tracked under this exact version. Three searches did not retrieve an official exact-SKU model card or traceable benchmark reports; GLM 5.x results are not substituted.
+- **Provider / access:** Z AI; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `GLM 4.7 Flash`; canonical ID unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-model benchmark scores were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model benchmark verified.
+- **Reasoning: 15/100.** No exact-model benchmark verified.
+- **Context window: 15/100.** No context/retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

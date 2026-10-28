@@ -1,0 +1,9 @@
+# Qoder Sonus — Claude Sonnet 4.6 Research
+
+No verified numeric benchmark scores found for Qoder Sonus (qoder/sonus-1.0).
+Qoder's evaluations focus on proprietary agentic/computer-use harnesses and
+do not publish standardized third-party scores (SWE-bench, HumanEval, MMLU, etc.).
+
+Excluded per zero-verified-benchmark rule.
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

@@ -1,0 +1,55 @@
+# Qwen 3.8 Flash — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.8 Flash
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Flash
+- **Short description:** Alibaba Qwen Flash subject tracked under the 3.8 version. This pass's three searches did not verify exact-model official documentation or traceable benchmark results; Max, 27B, and Flash Next variants are not substituted.
+- **Provider / access:** Alibaba; exact model/API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Qwen 3.8 Flash`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** no exact-model architecture details verified.
+
+### Raw benchmarks found
+
+No traceable exact-Flash benchmark values were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-variant evidence verified.
+- **Reasoning: 15/100.** No exact-variant evidence verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No exact-variant coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-variant pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-variant evidence was not sufficiently traceable. Scores are not evidence-backed.

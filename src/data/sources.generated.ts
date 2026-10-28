@@ -103,7 +103,8 @@ export type SourceKey =
   | "Gemini 4 Argon"
   | "Xing 4.0 29b a4b.md"
   | "MiMo 2.6 Free"
-  | "Qoder Sonus";
+  | "Qoder Sonus"
+  | "GLM 4.6V Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -218,4 +219,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Xing 4.0 29b a4b.md", label: "Xing 4.0 29b a4b.md", file: "Xing_4.0_29b_a4b.md.md" },
   { key: "MiMo 2.6 Free", label: "MiMo 2.6 Free", file: "MiMo_2.6_Free.md" },
   { key: "Qoder Sonus", label: "Qoder Sonus", file: "Qoder_Sonus.md", slug: "qoder-sonus" },
+  { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md", slug: "glm-4.6v-flash" },
 ];

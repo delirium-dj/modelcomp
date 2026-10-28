@@ -1,0 +1,16 @@
+# Fledge Alpha — exclusion notes by GPT-6 Luna
+
+- Source: OpenCode model-catalog review
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- The catalog entry found is `fledge-alpha-free`, described as a free preview reasoning model. It has no vendor/model owner attribution or canonical upstream model ID in the catalog entry; no distinct paid `fledge-alpha` ID was verified.
+- The catalog marks the free entry deprecated. Its listed metadata is text/image input, tool use, 1,048,576 context, and 131,072 output, but these are catalog specifications, not verified model-card claims.
+- No exact-ID public benchmark score or vendor evaluation report was found. With zero verified benchmark numbers, no scored report is appropriate.
+- Do not infer the underlying model from the OpenAI-compatible route or its serving provider. Revisit if the vendor identity or model-specific evaluation becomes public.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Sources: [models.dev model catalog](https://models.dev); [OpenCode model page lookup](https://opencode.ai/models/fledge-alpha-free) (404 on 2026-10-28).

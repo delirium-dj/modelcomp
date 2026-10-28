@@ -1,0 +1,55 @@
+# Gemini 2.5 Flash Lite — findings by GPT-6 Luna
+
+- Source: Google/Gemini 2.5 Flash Lite
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.5 Flash Lite
+- **Short description:** Google's Gemini 2.5 Flash Lite subject. Three independent searches did not retrieve exact-model benchmarks with sufficient source traceability; Gemini 2.5 Flash and other Lite versions are not substituted.
+- **Provider / access:** Google; exact API ID/route not verified in this pass.
+- **Release / knowledge:** no exact-model date or cutoff verified.
+- **IDs:** tracked slug `gemini-2.5-flash-lite`; canonical API ID not independently verified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-Lite benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model benchmark verified.
+- **Reasoning: 15/100.** No exact-model benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

@@ -1,0 +1,55 @@
+# Mistral Large 4 — findings by GPT-6 Luna
+
+- Source: Mistral/Mistral Large 4
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mistral Large 4
+- **Short description:** Mistral AI Large model tracked under this exact generation. Three searches did not verify exact-model primary technical documentation or benchmark reports; Medium 3.5 and other Mistral entries are excluded.
+- **Provider / access:** Mistral AI; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Mistral Large 4`; canonical API model ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-model benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model benchmark verified.
+- **Reasoning: 15/100.** No exact-model benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

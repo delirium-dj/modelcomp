@@ -1,0 +1,55 @@
+# MAI Experimental Test — findings by GPT-6 Luna
+
+- Source: Microsoft/MAI Experimental Test
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI Experimental Test
+- **Short description:** Experimental/test model entry represented by the tracked subject. Three searches did not verify an official Microsoft model card or stable production model identity; no characteristics are inferred from the name.
+- **Provider / access:** Microsoft association indicated by subject context, but exact provider endpoint not verified.
+- **Release / knowledge:** no verified release date or cutoff.
+- **IDs:** tracked label `MAI Experimental Test`; canonical model ID unverified.
+- **Context window:** no specification verified.
+- **Modalities:** no modality evidence verified.
+- **Pricing (as of 2026-10-28):** no pricing verified.
+- **Architecture:** no architecture or weights evidence verified.
+
+### Raw benchmarks found
+
+No traceable exact-model benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact identity and benchmark evidence were not sufficiently traceable. Scores are not evidence-backed.

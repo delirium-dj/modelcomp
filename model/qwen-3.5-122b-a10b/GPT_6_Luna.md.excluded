@@ -1,0 +1,55 @@
+# Qwen 3.5 122B A10B — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.5 122B A10B
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 122B A10B
+- **Short description:** Alibaba Qwen model tracked with 122B total / 10B active designations. Three independent searches did not retrieve an authoritative exact-size card or benchmark report; the encoded parameter counts are not independently validated here.
+- **Provider / access:** Alibaba; exact upstream/API ID not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked slug `qwen-3.5-122b-a10b`; parameter sizes stay hyphenated in the slug.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** slug suggests 122B total/10B active, but architecture details were not verified from an authoritative source.
+
+### Raw benchmarks found
+
+No traceable exact-size benchmark scores were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-size benchmark verified.
+- **Reasoning: 15/100.** No exact-size benchmark verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-size modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-size pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact parameter variant evidence was not sufficiently traceable. Scores are not evidence-backed.

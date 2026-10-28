@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Claude Sonnet 4
-- **Short description:** Anthropic Claude Sonnet model represented by this exact tracked identity. The three searches in this pass did not recover sufficiently specific primary benchmark documentation; no results from other versions are transferred.
+- **Short description:** Anthropic Claude Sonnet model represented by this exact tracked identity. The three searches in this pass did not recover sufficiently specific primary benchmark documentation; no neighboring-version data is transferred.
 - **Provider / access:** Anthropic; exact API ID not verified in this pass.
 - **Release / knowledge:** no exact-model release/cutoff verified.
 - **IDs:** tracked name `Claude Sonnet 4`; canonical API identifier not verified.

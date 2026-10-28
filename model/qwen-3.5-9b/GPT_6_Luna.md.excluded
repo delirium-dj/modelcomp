@@ -1,0 +1,55 @@
+# Qwen 3.5 9B — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.5 9B
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 9B
+- **Short description:** Alibaba Qwen model tracked with a 9B parameter-size designation. The three searches in this pass did not verify an official exact-size model card or benchmark results; other Qwen 3.5 sizes are excluded.
+- **Provider / access:** Alibaba; exact API/weights ID not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked slug `qwen-3.5-9b`; 9B denotes parameter size, not a version.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** parameter designation in slug not independently verified; architecture unknown.
+
+### Raw benchmarks found
+
+No exact-9B benchmark results with reliable source traceability were found in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-size benchmark verified.
+- **Reasoning: 15/100.** No exact-size benchmark verified.
+- **Context window: 15/100.** No exact-size context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-size modality evidence verified.
+- **Coding: 15/100.** No exact-size coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-size pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-size evidence was not sufficiently traceable. Scores are not evidence-backed.

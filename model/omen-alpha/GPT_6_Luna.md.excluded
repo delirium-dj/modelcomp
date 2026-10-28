@@ -1,0 +1,17 @@
+# Omen Alpha — exclusion notes by GPT-6 Luna
+
+- Source: Omen Alpha identity and public-catalog review
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- The available third-party repository describes Omen Alpha as a model website presenting `ox alpha 2.0`; it explicitly says the possible relationship to GLM-5.3-Air is unverified. This is not an official provider/model card.
+- No canonical vendor, API model ID, open-weights repository, or independently attributable evaluation for the exact `omen-alpha` identity was verified in the public catalogs reviewed.
+- No public benchmark score attributable to this exact model ID was found. The suspected GLM relationship is not used to transfer GLM benchmark results.
+- With zero verified exact-ID benchmark numbers, this entry is excluded rather than assigned placeholder scores. Revisit if Omen or its actual model provider publishes an attributable model card/evaluation.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Public catalog and identity review. Unverified third-party claims are not treated as model specifications or benchmark evidence.
+- Sources: [Third-party Omen Alpha repository and its explicit disclaimer](https://github.com/laolujava/omenalpha); [models.dev catalog](https://models.dev).

@@ -1,0 +1,55 @@
+# Qwen 3.5 35B A3B — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.5 35B A3B
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 35B A3B
+- **Short description:** Alibaba Qwen 3.5 subject tracked with 35B total / 3B active parameter designations. These numbers are in the slug and were not verified from an official model card in this pass.
+- **Provider / access:** Alibaba; exact weights/API ID not verified.
+- **Release / knowledge:** no exact-model date or cutoff verified.
+- **IDs:** tracked slug `qwen-3.5-35b-a3b`.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** 35B/3B designations unverified; exact architecture not established.
+
+### Raw benchmarks found
+
+No traceable exact-size benchmark scores were found in three independent searches. Other Qwen 3.5 variants are not substituted.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-size evidence verified.
+- **Reasoning: 15/100.** No exact-size evidence verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-size modality evidence verified.
+- **Coding: 15/100.** No exact-size coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-size pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact parameter variant evidence was not sufficiently traceable. Scores are not evidence-backed.

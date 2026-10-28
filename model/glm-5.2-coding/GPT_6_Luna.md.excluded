@@ -1,0 +1,55 @@
+# GLM 5.2 Coding — findings by GPT-6 Luna
+
+- Source: Z AI/GLM 5.2 Coding
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.2 Coding
+- **Short description:** Z AI GLM coding-oriented subject represented by this slug. Three searches did not verify official documentation establishing the exact SKU or distinct model identity; the coding label is not assumed to imply distinct weights.
+- **Provider / access:** Z AI; exact API route not verified.
+- **Release / knowledge:** no exact-model date or cutoff verified.
+- **IDs:** tracked label `GLM 5.2 Coding`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no evidence verifying distinct coding-specific weights or architecture.
+
+### Raw benchmarks found
+
+No traceable exact-SKU benchmark results found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-SKU agent benchmark verified.
+- **Reasoning: 15/100.** No exact-SKU reasoning benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No exact-SKU coding benchmark verified.
+- **Cost efficiency: 15/100.** No price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact identity/evidence was not sufficiently traceable. Scores are not evidence-backed.

@@ -1,0 +1,55 @@
+# Leanstral 1.5 — findings by GPT-6 Luna
+
+- Source: Mistral/Leanstral 1.5
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Leanstral 1.5
+- **Short description:** Mistral coding-oriented model represented by this exact tracked identity. Three independent searches did not verify an official model card, canonical route, or benchmark report for this version.
+- **Provider / access:** Mistral; exact API model ID not verified.
+- **Release / knowledge:** no exact-model date or cutoff verified.
+- **IDs:** tracked label `Leanstral 1.5`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture or weights disclosure verified.
+
+### Raw benchmarks found
+
+No exact-version benchmark numbers with traceable source attribution were found in three public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version agent benchmark verified.
+- **Reasoning: 15/100.** No exact-version reasoning benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-version modality evidence verified.
+- **Coding: 15/100.** No exact-version coding benchmark verified despite coding positioning.
+- **Cost efficiency: 15/100.** No exact-version pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-version evidence was not sufficiently traceable. Scores are not evidence-backed.

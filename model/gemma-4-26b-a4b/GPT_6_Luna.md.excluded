@@ -1,0 +1,55 @@
+# Gemma 4 26B A4B — findings by GPT-6 Luna
+
+- Source: Google/Gemma 4 26B A4B
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemma 4 26B A4B
+- **Short description:** Google Gemma model tracked as 26B total / 4B active by its subject slug. This pass did not locate authoritative exact-model documentation or benchmarks; the parameter designation is not independently verified here.
+- **Provider / access:** Google; exact weights/API ID not verified.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** tracked slug `gemma-4-26b-a4b`.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** slug indicates 26B total and 4B active, but MoE/architecture details were not confirmed from a primary source in this pass.
+
+### Raw benchmarks found
+
+No traceable exact-variant benchmark values were located in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-variant benchmark verified.
+- **Reasoning: 15/100.** No exact-variant benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-variant modality evidence verified.
+- **Coding: 15/100.** No exact-variant coding result verified.
+- **Cost efficiency: 15/100.** No exact-variant pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-variant evidence not sufficiently traceable. Scores are not evidence-backed.

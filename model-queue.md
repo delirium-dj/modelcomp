@@ -31,9 +31,9 @@
 89.3 gemini-3.5-flash
 89 muse-wonder-full
 88.9 gpt-5.6-terra
+88.9 muse-wonder-1.0
 88.8 claude-opus-4.6
 88.8 gemini-3.6-flash
-88.7 muse-wonder-1.0
 88.6 deepseek-v4.1-flash
 88.6 qwen-3.8
 88.5 claude-sonnet-5
@@ -44,7 +44,6 @@
 87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
 87.8 qwen-3.8-flash
-87.3 claude-sonnet-5.4
 87.3 minimax-m3
 87.2 claude-sonnet-4.6
 87.2 gpt-5.4
@@ -57,6 +56,7 @@
 86.8 qwen-3.7-plus
 86.7 inkling-small
 86.5 qwen-3.8-27b
+86.4 claude-sonnet-5.4
 86.2 qwen-3.6-plus
 86.1 grok-4.7
 86.1 kimi-k2.6
@@ -76,9 +76,9 @@
 84.3 pareto-26.10-preview
 84.2 gpt-5
 84.2 qwen-3.5-397b
+84.1 deepseek-v4.1-flash-1017
 83.8 gpt-6-luna
 83.6 claude-haiku-5.5
-83.6 deepseek-v4.1-flash-1017
 83.5 qwen-3.7-max
 83.4 kimi-k2.5
 83.3 claude-opus-4.5
@@ -92,9 +92,9 @@
 80.6 grok-4
 80.4 gpt-5.2-codex
 80.3 gemma-4-31b
+80.3 gpt-5.2-pro
 80.3 grok-4-fast
 80.3 grok-4.20
-80.2 gpt-5.2-pro
 79.5 kimi-k2.8-preview
 79.5 qwen-3.5-122b-a10b
 79.4 gpt-5.4-mini
@@ -121,8 +121,8 @@
 75.1 gemini-2.0-flash
 74.9 mistral-medium-3.5
 74.7 deepseek-v4-flash
+74.6 claude-haiku-4.5
 74.6 glm-5.2
-74.4 claude-haiku-4.5
 74.3 mimo-v2.5-pro
 73.7 gpt-5.4-nano
 73.1 gemini-2.5-flash-lite
@@ -136,8 +136,8 @@
 72.6 mai-code-1.1-flash
 72.5 gemma-4-12b-unified
 72.4 nemotron-3-nano-omni
+72.3 claude-sonnet-3.5
 72 qwen-3.5-9b
-71.9 claude-sonnet-3.5
 71.6 nemotron-3-ultra-free
 71.5 grok-build-0.1
 71.4 hy3
@@ -155,10 +155,10 @@
 66.8 minimax-m2.5
 66.8 pixel_canary
 66.6 minimax-m2.7
+66.2 claude-haiku-3.5
 66.2 laguna-s-2.1
 66.1 gpt-5-nano
 66 omen-alpha
-65.9 claude-haiku-3.5
 65.9 deepseek-v3.2
 65.8 qwen-3.5-4b
 65.8 qwen-3.7-flash

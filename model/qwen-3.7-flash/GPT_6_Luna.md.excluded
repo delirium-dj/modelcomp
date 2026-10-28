@@ -1,0 +1,55 @@
+# Qwen 3.7 Flash — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.7 Flash
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 Flash
+- **Short description:** Alibaba Qwen Flash subject tracked under this exact version. Three independent searches did not verify an official exact-variant card or benchmark results; other Qwen 3.7 family variants are excluded.
+- **Provider / access:** Alibaba; exact API route/ID not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Qwen 3.7 Flash`; canonical identifier unverified.
+- **Context window:** no exact-variant context specification verified.
+- **Modalities:** no exact-variant modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-variant price verified.
+- **Architecture:** no exact-variant architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-Flash benchmark figures were found in the three searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-variant long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-variant benchmark verified.
+- **Reasoning: 15/100.** No exact-variant benchmark verified.
+- **Context window: 15/100.** No exact context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-variant modality evidence verified.
+- **Coding: 15/100.** No exact-variant coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-variant pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-variant evidence not sufficiently traceable. Scores are not evidence-backed.

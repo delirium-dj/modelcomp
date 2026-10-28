@@ -1,0 +1,55 @@
+# DeepSeek V4.1 Flash 1017 — findings by GPT-6 Luna
+
+- Source: DeepSeek/DeepSeek V4.1 Flash 1017
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4.1 Flash 1017
+- **Short description:** Dated DeepSeek V4.1 Flash snapshot tracked under the 1017 suffix. This pass did not verify a primary release card defining the snapshot or exact API identifier; it is not conflated with the undated V4.1 Flash folder.
+- **Provider / access:** DeepSeek; exact dated route not verified.
+- **Release / knowledge:** 1017 appears to denote a date-like snapshot in the tracked slug, but the exact date convention and knowledge cutoff were not independently verified.
+- **IDs:** tracked subject `deepseek-v4.1-flash-1017`; canonical ID unverified.
+- **Context window:** no exact snapshot context specification verified.
+- **Modalities:** no exact snapshot modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact snapshot pricing verified.
+- **Architecture:** no exact snapshot architecture details verified.
+
+### Raw benchmarks found
+
+No traceable exact-1017 benchmark results were found in three independent searches. General V4.1 Flash results are not assigned to this dated subject.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-snapshot long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-snapshot evidence verified.
+- **Reasoning: 15/100.** No exact-snapshot evidence verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No exact-snapshot coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-snapshot price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact dated snapshot evidence was not sufficiently traceable. Scores are not evidence-backed.

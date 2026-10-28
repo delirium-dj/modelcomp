@@ -1,0 +1,9 @@
+# LongCat 2.5 Preview — Claude Sonnet 4.6 Research
+
+No verified benchmarks: LongCat 2.5 Preview is Meituan's hosted API-only preview
+(Sep 2026) with no open weights and no published benchmark scores. The model's own
+folder findings are a self-exclusion per the meta.json.
+
+Excluded per zero-verified-benchmark rule.
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

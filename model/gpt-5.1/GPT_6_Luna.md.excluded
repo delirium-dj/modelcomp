@@ -1,0 +1,55 @@
+# GPT-5.1 — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.1
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1
+- **Short description:** OpenAI proprietary GPT-5.1 model. This pass's three independent searches did not retrieve exact-model primary benchmark data adequate for a reliable rating; Codex and Nano variants are not conflated.
+- **Provider / access:** OpenAI; exact API ID not verified in this pass.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked name `GPT-5.1`; canonical API route unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; parameters undisclosed.
+
+### Raw benchmarks found
+
+No traceable exact-GPT-5.1 benchmark results were found in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model tool benchmark verified.
+- **Reasoning: 15/100.** No exact-model reasoning benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

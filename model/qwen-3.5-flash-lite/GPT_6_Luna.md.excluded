@@ -1,0 +1,16 @@
+# Qwen 3.5 Flash Lite — exclusion notes by GPT-6 Luna
+
+- Source: Alibaba/QwenCloud documentation review
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- The current QwenCloud “Latest model” page documents Qwen3.8-Flash, not a Qwen3.5-Flash-Lite model ID.
+- An exact official model card/API ID for `qwen3.5-flash-lite` could not be verified from the public QwenCloud materials reviewed; the guessed Alibaba Cloud documentation path returned 404.
+- No verifiable public benchmark number attributable to this exact model ID was found. No capability or pricing claim is inferred from the later Qwen3.8-Flash model.
+- Per the research exclusion rule, this is excluded rather than assigned placeholder scores. Reconsider if an official model card or provider listing for the exact ID becomes available.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Sources: [QwenCloud latest model documentation](https://docs.qwencloud.com/developer-guides/getting-started/latest-model); [Alibaba Cloud documentation lookup](https://help.aliyun.com/en/model-studio/qwen3-5-flash-lite) (404 on 2026-10-28).

@@ -1,0 +1,55 @@
+# MiniMax M3 — findings by GPT-6 Luna
+
+- Source: MiniMax/M3
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiniMax M3
+- **Short description:** MiniMax model represented by the tracked M3 subject. Three searches did not verify an official model card or canonical exact-model API ID; M3.1 Flash and other MiniMax versions are excluded.
+- **Provider / access:** MiniMax; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `MiniMax M3`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-M3 benchmark scores were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

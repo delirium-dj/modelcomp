@@ -1,0 +1,16 @@
+# Qwen3 Max — exclusion notes by GPT-6 Luna
+
+- Source: Alibaba Cloud Model Studio documentation review
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- Alibaba's current recommended-model documentation no longer lists Qwen3 Max among available text-generation models; it highlights newer Qwen3.7/3.8 releases.
+- Public provider catalogs mark the legacy `qwen3-max` route deprecated, but no current official model card or exact-ID benchmark report was located in the accessible Alibaba documentation.
+- No exact-model public benchmark number was verified during this pass. Newer Qwen results are not transferred to Qwen3 Max.
+- With zero verified benchmark figures attributable to the exact model, the report is excluded rather than assigned placeholder scores.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Sources: [Alibaba Cloud Model Studio recommended models](https://help.aliyun.com/en/model-studio/getting-started/models); [models.dev catalog](https://models.dev).

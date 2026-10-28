@@ -1,0 +1,55 @@
+# LongCat 2.5 Preview — findings by GPT-6 Luna
+
+- Source: Meituan/LongCat 2.5 Preview
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan API-only LongCat preview model, tracked under the canonical preview slug. The searches in this pass did not verify an official technical card or exact API documentation, so no specs or performance are inferred.
+- **Provider / access:** Meituan; exact API route not verified.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** tracked subject `longcat-2.5-preview`; no bare LongCat 2.5 identity inferred.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+Three independent searches yielded no traceable exact-preview benchmark results.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-preview evidence verified.
+- **Reasoning: 15/100.** No exact-preview evidence verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-preview price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-preview evidence was not sufficiently traceable. Scores are not evidence-backed.

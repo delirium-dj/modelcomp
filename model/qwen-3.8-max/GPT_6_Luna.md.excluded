@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Qwen 3.8 Max
-- **Short description:** Alibaba Qwen model represented by the tracked Max slug. Three searches did not verify an official card for the exact 3.8 Max SKU; results for Qwen 3.8 base or other versions are excluded.
+- **Short description:** Alibaba Qwen model represented by the tracked Max slug. Three searches did not confirm an official card for the exact 3.8 Max SKU; results for Qwen 3.8 base or other versions are excluded.
 - **Provider / access:** Alibaba; exact API ID/route not verified.
 - **Release / knowledge:** no exact-model release date or cutoff verified.
 - **IDs:** tracked label `Qwen 3.8 Max`; canonical identifier unverified.
@@ -19,7 +19,7 @@
 
 ### Raw benchmarks found
 
-No traceable exact-Max benchmark results found in the three searches. Other Qwen 3.8 variants were not attributed to this SKU.
+No traceable exact-Max benchmark results found in three independent searches. Other Qwen 3.8 variants were not attributed to this SKU.
 
 Agent / tool use:
 

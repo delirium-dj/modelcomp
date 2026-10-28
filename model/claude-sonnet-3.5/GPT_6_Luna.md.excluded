@@ -1,0 +1,55 @@
+# Claude Sonnet 3.5 — findings by GPT-6 Luna
+
+- Source: Anthropic/Claude Sonnet 3.5
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 3.5
+- **Short description:** Anthropic Claude Sonnet 3.5 subject. The searches completed for this report did not recover exact-version primary benchmark evidence; no figures from other Sonnet versions are substituted.
+- **Provider / access:** Anthropic; exact API route not verified.
+- **Release / knowledge:** no exact-version release date or cutoff verified.
+- **IDs:** tracked label `Claude Sonnet 3.5`; canonical API ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** proprietary; details not verified.
+
+### Raw benchmarks found
+
+No exact-version benchmark scores were found with adequate source traceability in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version tool benchmark verified.
+- **Reasoning: 15/100.** No exact-version reasoning benchmark verified.
+- **Context window: 15/100.** No exact-version context or retrieval result verified.
+- **Multimodal: 15/100.** No exact-version modality evidence verified.
+- **Coding: 15/100.** No exact-version coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-version pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-version evidence was not sufficiently traceable. Scores are not evidence-backed.

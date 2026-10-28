@@ -1,0 +1,16 @@
+# Nemotron 3 Nano Omni — exclusion notes by GPT-6 Luna
+
+- Source: NVIDIA Nemotron 3 Nano Omni catalog and model-card lookup
+- Date: 2026-10-28 (UTC)
+
+## Negative findings
+
+- Public model-catalog records identify a model called Nemotron 3 Nano Omni and point to the NVIDIA checkpoint `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`.
+- The attempted Hugging Face model-card URL returned HTTP 401, and the guessed NVIDIA Build page was unavailable. No accessible official benchmark report or exact-ID public benchmark scores were verified in this pass.
+- Catalog metadata alone is not treated as measured performance. With zero verified benchmark numbers attributable to the exact model, this file is excluded rather than scored.
+- This is the canonical Nano Omni entry; no separate `-free` variant is implied.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Sources: [models.dev catalog](https://models.dev); [NVIDIA Hugging Face model lookup](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-Omni-30B-A3B-Reasoning) (401 on 2026-10-28).

@@ -1,0 +1,55 @@
+# Pareto 26.10 Preview — findings by GPT-6 Luna
+
+- Source: Pareto/26.10 Preview
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Pareto 26.10 Preview
+- **Short description:** Tracked Pareto 26.10 preview model. Three independent searches did not verify an official publisher model card, exact API route, or model-specific technical specifications. It is kept distinct from the Union Alpha/Pareto 26.9 composite identity.
+- **Provider / access:** no exact-model provider or route verified.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** tracked subject `pareto-26.10-preview`; canonical identifier unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+Three independent web searches produced no traceable exact-model public benchmark results. Results attributed to Pareto 26.9/Union Alpha are not transferred.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence not sufficiently traceable. Scores are not evidence-backed.

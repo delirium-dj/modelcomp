@@ -1,0 +1,55 @@
+# Nemotron 3.5 Super VL — findings by GPT-6 Luna
+
+- Source: NVIDIA/Nemotron 3.5 Super VL
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Super VL
+- **Short description:** NVIDIA Nemotron vision-language model tracked under this exact subject slug. Three independent searches did not verify an official exact-model card or benchmark suite; Bolt and Nano Omni results are not attributed here.
+- **Provider / access:** NVIDIA; exact endpoint and model identifier not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Nemotron 3.5 Super VL`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** VL label suggests vision-language, but exact supported input/output modalities were not verified from a primary source.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture or weights evidence verified.
+
+### Raw benchmarks found
+
+No traceable exact-Super-VL benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model benchmark verified.
+- **Reasoning: 15/100.** No exact-model benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** The VL label is not itself benchmark evidence; exact modalities unverified.
+- **Coding: 15/100.** No exact-model coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence not sufficiently traceable. Scores are not evidence-backed.

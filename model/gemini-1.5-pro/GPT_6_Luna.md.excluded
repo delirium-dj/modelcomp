@@ -1,0 +1,55 @@
+# Gemini 1.5 Pro — findings by GPT-6 Luna
+
+- Source: Google/Gemini 1.5 Pro
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 1.5 Pro
+- **Short description:** Google's Gemini 1.5 Pro model. This pass's three independent searches did not retrieve a sufficiently traceable exact-model benchmark suite or current primary technical card; no later Gemini generation results are substituted.
+- **Provider / access:** Google; exact API model route not verified here.
+- **Release / knowledge:** no exact-model date/cutoff verified in the searches completed.
+- **IDs:** tracked slug `gemini-1.5-pro`; canonical API ID not independently verified in this pass.
+- **Context window:** no exact-model specification verified here.
+- **Modalities:** no exact-model modalities verified here.
+- **Pricing (as of 2026-10-28):** no exact-model price verified here.
+- **Architecture:** no exact-model architecture details verified.
+
+### Raw benchmarks found
+
+No traceable exact-model benchmark numbers were found in three independent searches; results for Gemini 2.5/3.x models are excluded.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model retrieval benchmark found.
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No exact-model capacity or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.
