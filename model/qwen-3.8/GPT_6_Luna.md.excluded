@@ -1,0 +1,55 @@
+# Qwen 3.8 — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.8
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8
+- **Short description:** Alibaba Qwen 3.8 base subject as tracked by the repository. The searches in this pass did not verify an official source matching this bare exact ID; results for Max and Flash variants are excluded.
+- **Provider / access:** Alibaba; exact API model ID not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Qwen 3.8`; canonical vendor route unverified.
+- **Context window:** no exact-model context capacity verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+Three independent searches did not retrieve benchmark scores attributable to the bare Qwen 3.8 subject. Max/Flash/27B results are not transferred.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No exact-model specification or retrieval score verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding score verified.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact base ID evidence was not sufficiently traceable. Scores are not evidence-backed.

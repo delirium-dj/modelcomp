@@ -1,0 +1,55 @@
+# GPT-5.2 Codex — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.2-codex
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.2 Codex
+- **Short description:** OpenAI's coding-oriented GPT-5.2 variant. Three public searches did not retrieve exact-SKU benchmark documentation adequate for a source-backed report; base GPT-5.2 results are not treated as Codex results.
+- **Provider / access:** OpenAI; exact API ID/endpoint not verified in this pass.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `GPT-5.2 Codex`; canonical API ID unverified.
+- **Context window:** no exact-model context figure verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; no exact-model architecture disclosure.
+
+### Raw benchmarks found
+
+No traceable exact-Codex benchmark values were located in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-Codex agent benchmark verified.
+- **Reasoning: 15/100.** No exact-Codex reasoning benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-Codex modality evidence verified.
+- **Coding: 15/100.** No exact-Codex coding result verified despite coding positioning.
+- **Cost efficiency: 15/100.** No exact-Codex price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently traceable. Scores are not evidence-backed.

@@ -1,0 +1,55 @@
+# Grok 4.6 — findings by GPT-6 Luna
+
+- Source: xAI/Grok 4.6
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.6
+- **Short description:** xAI Grok model represented by the tracked 4.6 slug. Three independent searches did not establish official xAI documentation or benchmark results for this exact SKU; Grok 4.7 and earlier variants are not conflated with it.
+- **Provider / access:** xAI; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Grok 4.6`; canonical model ID unverified.
+- **Context window:** no exact-model specification found.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; no exact-model architecture disclosure found.
+
+### Raw benchmarks found
+
+No exact-version results with traceable source attribution were located in the searches completed.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-version long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version benchmark verified.
+- **Reasoning: 15/100.** No exact-version benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-version price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; no sufficiently traceable exact-version evidence found. Scores are not evidence-backed.

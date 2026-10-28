@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="currentColor"/><text x="12" y="14" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui, sans-serif" fill="#ffffff">LY</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -18.5 174 174" width="512" height="512">
+  <style>
+    .favicon-fill { fill: #000114; }
+    @media (prefers-color-scheme: dark) { .favicon-fill { fill: #F2F2F2; } }
+  </style>
+  <path class="favicon-fill" d="M0 0V47.8921H86.6007V137H134V96.3309L86.6167 47.8921L39.7761 0H0Z"/>
+  <path class="favicon-fill" d="M86.6007 0H134V47.8921H86.6007Z"/>
+</svg>

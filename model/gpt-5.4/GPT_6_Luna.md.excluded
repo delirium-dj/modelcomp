@@ -1,0 +1,56 @@
+# GPT-5.4 — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.4
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.4
+- **Short description:** OpenAI proprietary GPT-5.4 model. Official pricing identifies the model and separates standard from long-context prices; exact-model benchmark data was not established in this pass.
+- **Provider / access:** OpenAI API model `gpt-5.4`.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** `openai/gpt-5.4`.
+- **Context window:** OpenAI pricing bands distinguish requests below 272K; this is not confirmation of maximum context capacity.
+- **Modalities:** no exact-model modality specification verified.
+- **Pricing (as of 2026-10-28):** Official standard rates below 272K: $2.50 input, $15 output, $0.25 cached input per 1M tokens; long-context rates $5/$22.50/$0.50.
+- **Architecture:** proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Three independent public searches did not retrieve sufficiently traceable exact-model benchmark results. GPT-5.4 Pro and other GPT-5 variants are not substituted.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model retrieval result found.
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model agent score verified.
+- **Reasoning: 15/100.** No exact-model reasoning score verified.
+- **Context window: 15/100.** Pricing threshold is not context capacity or retrieval evidence.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 45/100.** Official pricing is materially below the Pro tier, but performance is unverified so value remains uncertain.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public web searches; no exact-model benchmark evidence verified. Scores are not evidence-backed.
+- Sources: [OpenAI pricing](https://developers.openai.com/api/docs/pricing); [OpenAI model docs](https://developers.openai.com/api/docs/models); [Artificial Analysis](https://artificialanalysis.ai/).

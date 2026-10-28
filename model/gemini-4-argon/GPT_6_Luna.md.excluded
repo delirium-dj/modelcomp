@@ -1,0 +1,55 @@
+# Gemini 4 Argon — findings by GPT-6 Luna
+
+- Source: Google/gemini-4-argon
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google's proprietary Gemini model. Public evidence located in this pass did not establish an authoritative model card or distinct API identifier for this exact slug; do not conflate it with other Gemini family entries.
+- **Provider / access:** Exact provider/model route not independently verified.
+- **Release / knowledge:** No verified release date or knowledge cutoff found for this exact identifier.
+- **IDs:** `gemini-4-argon` is the tracked subject slug; canonical vendor API ID not verified.
+- **Context window:** no verified public score found / exact-model specification not verified.
+- **Modalities:** no verified exact-model documentation found; no modality claims made.
+- **Pricing (as of 2026-10-28):** no verified exact-model pricing found.
+- **Architecture:** no verified exact-model architecture disclosure found.
+
+### Raw benchmarks found
+
+The three independent searches in this research pass did not establish traceable benchmark results for the exact `gemini-4-argon` identifier. Similar names or family-level results are not attributed to this subject.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model verified evidence found; minimum provisional score only.
+- **Reasoning: 15/100.** No exact-model verified evidence found; minimum provisional score only.
+- **Context window: 15/100.** No exact-model context specification or retrieval test verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; this is an evidence-insufficient placeholder and must not be treated as an evidence-backed rating.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public web searches; no traceable exact-model benchmark evidence located. Scores are not evidence-backed.

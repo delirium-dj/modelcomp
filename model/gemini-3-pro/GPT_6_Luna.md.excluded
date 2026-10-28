@@ -1,0 +1,55 @@
+# Gemini 3 Pro — findings by GPT-6 Luna
+
+- Source: Google/Gemini 3 Pro
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3 Pro
+- **Short description:** Google's Gemini Pro model represented by the tracked slug. Exact model-specific official documentation was not verified in this pass; details for other Gemini versions are not borrowed.
+- **Provider / access:** Google; exact API route not verified.
+- **Release / knowledge:** no verified exact-model release date or cutoff found.
+- **IDs:** tracked display label `Gemini 3 Pro`; canonical API model ID not verified.
+- **Context window:** no verified exact-model context specification found.
+- **Modalities:** no verified exact-model modality specification found.
+- **Pricing (as of 2026-10-28):** no verified exact-model pricing found.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+Three independent searches did not surface exact-model benchmark results with sufficient traceability. Similar Gemini names were excluded.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No verified exact-model evidence.
+- **Reasoning: 15/100.** No verified exact-model evidence.
+- **Context window: 15/100.** No specification or retrieval result verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder, not a reliable performance assessment.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; no exact-model verified benchmark evidence located. Scores are not evidence-backed.

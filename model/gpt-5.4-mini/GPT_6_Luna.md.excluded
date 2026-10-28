@@ -1,0 +1,56 @@
+# GPT-5.4 Mini — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.4-mini
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.4 Mini
+- **Short description:** OpenAI proprietary smaller GPT-5.4 variant. The official pricing table lists this SKU; exact-model benchmark and capability documentation were not retrieved in the searches completed.
+- **Provider / access:** OpenAI API model `gpt-5.4-mini`.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** `openai/gpt-5.4-mini`.
+- **Context window:** no exact-model context capacity verified.
+- **Modalities:** no exact-model modality specification verified.
+- **Pricing (as of 2026-10-28):** OpenAI pricing lists $0.75 input, $4.50 output, and $0.075 cached input per 1M tokens (standard); no long-context premium listed in the captured pricing table.
+- **Architecture:** proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Three independent public searches did not surface traceable exact-model benchmark figures; GPT-5.4 and Nano results are not substituted.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found.
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model agent benchmark verified.
+- **Reasoning: 15/100.** No exact-model reasoning result verified.
+- **Context window: 15/100.** No exact context specification or retrieval result verified.
+- **Multimodal: 15/100.** No exact modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 75/100.** Official rates are relatively low, but absent performance evidence limits confidence in value.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; no traceable exact-model benchmark evidence found. Scores are not evidence-backed.
+- Sources: [OpenAI pricing](https://developers.openai.com/api/docs/pricing); [OpenAI model docs](https://developers.openai.com/api/docs/models); [Artificial Analysis](https://artificialanalysis.ai/).

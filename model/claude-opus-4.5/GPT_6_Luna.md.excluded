@@ -1,0 +1,55 @@
+# Claude Opus 4.5 — findings by GPT-6 Luna
+
+- Source: Anthropic/Claude Opus 4.5
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.5
+- **Short description:** Anthropic Claude Opus model. Exact-version official documentation and benchmark cards were not retrieved in this research pass; data from Opus 5 or other 4.x versions is not substituted.
+- **Provider / access:** Anthropic; exact API identifier not verified.
+- **Release / knowledge:** no exact-version release date or cutoff verified.
+- **IDs:** tracked name `Claude Opus 4.5`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; exact-version details not verified.
+
+### Raw benchmarks found
+
+Three independent public searches did not locate sufficiently traceable exact-version benchmark scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-version long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version tool benchmark verified.
+- **Reasoning: 15/100.** No exact-version reasoning benchmark verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-version pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-version evidence was not sufficiently traceable. Scores are not evidence-backed.

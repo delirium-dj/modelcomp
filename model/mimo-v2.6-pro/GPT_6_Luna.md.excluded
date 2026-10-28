@@ -1,0 +1,55 @@
+# MiMo V2.6 Pro — findings by GPT-6 Luna
+
+- Source: Xiaomi/MiMo V2.6 Pro
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiMo V2.6 Pro
+- **Short description:** Xiaomi MiMo Pro model as represented by the tracked slug. Searches in this pass did not verify official documentation for the exact Pro SKU or distinguish its weights/serving profile from the base MiMo V2.6 identity.
+- **Provider / access:** Xiaomi; exact API model route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `MiMo V2.6 Pro`; exact canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality specification verified.
+- **Pricing (as of 2026-10-28):** no exact Pro SKU pricing verified.
+- **Architecture:** no exact Pro SKU architecture or weights disclosure verified.
+
+### Raw benchmarks found
+
+No exact-SKU performance results were traceable to a primary source in three independent searches. Base MiMo and other variants are not conflated with Pro.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact Pro SKU benchmark verified.
+- **Reasoning: 15/100.** No exact Pro SKU benchmark verified.
+- **Context window: 15/100.** No exact Pro specification or retrieval result verified.
+- **Multimodal: 15/100.** No exact Pro modality evidence verified.
+- **Coding: 15/100.** No exact Pro coding benchmark verified.
+- **Cost efficiency: 15/100.** Exact Pro SKU price not verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder, not an evidence-backed rating.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact Pro SKU evidence was not sufficiently verified. Scores are not evidence-backed.

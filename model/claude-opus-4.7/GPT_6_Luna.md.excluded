@@ -1,0 +1,55 @@
+# Claude Opus 4.7 — findings by GPT-6 Luna
+
+- Source: Anthropic/Claude Opus 4.7
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.7
+- **Short description:** Tracked Anthropic Claude Opus version. This pass did not verify an official Anthropic page or API model ID for the exact 4.7 SKU; no neighboring Opus version results are substituted.
+- **Provider / access:** Anthropic; exact API route not verified.
+- **Release / knowledge:** no exact release or cutoff verified.
+- **IDs:** tracked display name `Claude Opus 4.7`; canonical identifier unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; exact-model details not verified.
+
+### Raw benchmarks found
+
+Three independent public searches found no traceable benchmark results for this exact version.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version evidence verified.
+- **Reasoning: 15/100.** No exact-version evidence verified.
+- **Context window: 15/100.** No exact-version specification or retrieval result verified.
+- **Multimodal: 15/100.** No exact-version modality evidence verified.
+- **Coding: 15/100.** No exact-version benchmark verified.
+- **Cost efficiency: 15/100.** No exact-version price verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent web searches; exact-version benchmark evidence not verified. Scores are not evidence-backed.

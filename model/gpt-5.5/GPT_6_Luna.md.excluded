@@ -1,0 +1,56 @@
+# GPT-5.5 — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.5
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.5
+- **Short description:** OpenAI proprietary GPT-5.5 model. Official pricing documentation identifies an API model with a tiered long-context rate; exact benchmark data for the base SKU was not recovered in this pass.
+- **Provider / access:** OpenAI API `gpt-5.5`.
+- **Release / knowledge:** no exact-model release date or knowledge cutoff verified.
+- **IDs:** `openai/gpt-5.5`.
+- **Context window:** Official pricing distinguishes input lengths below 272K from long-context use, but the exact total capacity was not verified.
+- **Modalities:** no exact-model official modality specification verified.
+- **Pricing (as of 2026-10-28):** Standard below 272K: $5 input and $30 output per 1M tokens; long context $10/$45. Official pricing page does not list cached-input rates in that table.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Three independent public searches did not identify exact-SKU benchmark values with reliable provenance. GPT-5.5 Pro and GPT-5.6 results are not transferred to the base model.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model retrieval benchmark found.
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model agent benchmark verified.
+- **Reasoning: 15/100.** No exact-model reasoning benchmark verified.
+- **Context window: 15/100.** A pricing threshold alone does not verify context capacity or retrieval ability.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 35/100.** Official rates are premium-priced; performance data is insufficient to assess value.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder, not a substantive model rating.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public web searches; exact-model benchmark evidence was not sufficiently traceable. Scores are not evidence-backed.
+- Sources: [OpenAI pricing](https://developers.openai.com/api/docs/pricing); [OpenAI model docs](https://developers.openai.com/api/docs/models); [Artificial Analysis](https://artificialanalysis.ai/).

@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="currentColor"/><text x="12" y="14" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui, sans-serif" fill="#ffffff">LK</text></svg>
+<svg width="16" height="16" viewBox="3.5 3.5 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.0497 3.5H8.87888V5.07283H10.9138V7.11877H12.4996V3.94994C12.4996 3.70141 12.2982 3.5 12.0497 3.5Z" fill="black"/>
+<path d="M10.9142 10.9248H8.87927V12.4996H12.0501C12.2986 12.4996 12.5 12.2982 12.5 12.0497V8.87888H10.9142V10.9244V10.9248Z" fill="black"/>
+<path d="M5.08579 8.87927H3.5V12.0501C3.5 12.2986 3.70141 12.5 3.94994 12.5H7.11877V10.9252H5.08579V8.87966V8.87927Z" fill="black"/>
+<path d="M8.02515 6.77372L6.79916 7.9997L8.02515 9.22569L9.25113 7.9997L8.02515 6.77372Z" fill="black"/>
+<path d="M5.08579 5.07283H7.11877V3.5H3.94994C3.70141 3.5 3.5 3.70141 3.5 3.94994V7.11877H5.08579V5.07283Z" fill="black"/>
+</svg>

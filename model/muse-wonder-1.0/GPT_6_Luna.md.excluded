@@ -1,0 +1,55 @@
+# Muse Wonder 1.0 — findings by GPT-6 Luna
+
+- Source: Muse/Muse Wonder 1.0
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Wonder 1.0
+- **Short description:** Model represented by the tracked Muse Wonder 1.0 slug. Public searches did not confirm its publisher, exact product/API identity, or an official model card; no assumptions are made from similarly named Muse Spark variants.
+- **Provider / access:** no verified exact-model provider/API route found.
+- **Release / knowledge:** no verified exact-model release date or cutoff found.
+- **IDs:** tracked label `Muse Wonder 1.0`; canonical ID unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+Three independent public searches did not locate traceable exact-model benchmark results. Muse Spark is a separate tracked identity and its figures are not imported here.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-model evidence verified.
+- **Reasoning: 15/100.** No exact-model evidence verified.
+- **Context window: 15/100.** No exact-model specification or retrieval evidence found.
+- **Multimodal: 15/100.** No modality evidence found.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model identity and benchmark evidence remain unverified. Scores are not evidence-backed.

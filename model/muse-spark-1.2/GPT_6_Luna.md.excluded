@@ -1,0 +1,55 @@
+# Muse Spark 1.2 — findings by GPT-6 Luna
+
+- Source: Meta/Muse Spark 1.2
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.2
+- **Short description:** The tracked subject is a Muse Spark release. Three independent searches did not verify official publisher documentation for the exact 1.2 identity; no tier or alias assumptions are made.
+- **Provider / access:** Exact publisher/API provider not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Muse Spark 1.2`; canonical model ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No traceable exact-1.2 benchmark figures found. Other Muse Spark variants or tiers are not attributed to this subject.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version evidence verified.
+- **Reasoning: 15/100.** No exact-version evidence verified.
+- **Context window: 15/100.** No exact-version specification or retrieval result verified.
+- **Multimodal: 15/100.** No exact-version modality evidence verified.
+- **Coding: 15/100.** No exact-version coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-version pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public web searches; no exact-version evidence sufficiently traceable. Scores are not evidence-backed.

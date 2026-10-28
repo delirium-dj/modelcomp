@@ -1,0 +1,55 @@
+# Gemini 3.8 Flash Cyber — findings by GPT-6 Luna
+
+- Source: Google/Gemini 3.8 Flash Cyber
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Flash Cyber
+- **Short description:** Gemini Flash cyber-oriented subject tracked under this distinct slug. Public searches in this pass did not verify whether it is a separate model, serving profile, or product label, nor did they establish a canonical vendor ID.
+- **Provider / access:** Google; exact API model route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `Gemini 3.8 Flash Cyber`; canonical ID unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no verified architecture or distinct-weights evidence found.
+
+### Raw benchmarks found
+
+Three independent searches did not surface exact Cyber-variant public benchmarks with source traceability. Results for the base Gemini Flash model are not attributed to this entry.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact Cyber-variant evidence verified.
+- **Reasoning: 15/100.** No exact Cyber-variant evidence verified.
+- **Context window: 15/100.** No exact specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-variant modality evidence verified.
+- **Coding: 15/100.** No exact-variant coding result verified.
+- **Cost efficiency: 15/100.** No exact-variant pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-variant identity and performance evidence not verified. Scores are not evidence-backed.

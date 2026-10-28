@@ -1,0 +1,55 @@
+# GLM 5.3 Flash — findings by GPT-6 Luna
+
+- Source: Z AI/GLM 5.3 Flash
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 Flash
+- **Short description:** Z AI GLM Flash subject tracked by the exact 5.3 Flash slug. Searches in this pass did not confirm a primary model card or canonical route for this exact SKU.
+- **Provider / access:** Z AI; exact API identifier not verified.
+- **Release / knowledge:** no exact-model date or cutoff verified.
+- **IDs:** tracked name `GLM 5.3 Flash`; canonical model ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No benchmark result with adequate exact-SKU source traceability was found in three independent searches. Other GLM 5.3 variants are not treated as this Flash model.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-SKU evidence verified.
+- **Reasoning: 15/100.** No exact-SKU evidence verified.
+- **Context window: 15/100.** No exact-SKU specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No exact-SKU modality evidence verified.
+- **Coding: 15/100.** No exact-SKU coding benchmark found.
+- **Cost efficiency: 15/100.** No exact-SKU pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; no traceable exact-SKU benchmark found. Scores are not evidence-backed.

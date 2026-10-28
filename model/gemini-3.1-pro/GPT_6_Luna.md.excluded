@@ -1,0 +1,55 @@
+# Gemini 3.1 Pro — findings by GPT-6 Luna
+
+- Source: Google/gemini-3.1-pro
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Pro
+- **Short description:** Google Gemini Pro model identity indicated by the tracked slug. The searches completed for this report did not retrieve model-specific official documentation sufficient to verify the exact API SKU or specifications.
+- **Provider / access:** Google; exact API route and availability not verified in this pass.
+- **Release / knowledge:** no verified exact-model release date or knowledge cutoff found.
+- **IDs:** tracked subject `gemini-3.1-pro`; exact vendor API ID not verified.
+- **Context window:** no verified exact-model specification found.
+- **Modalities:** no verified exact-model modality specification found.
+- **Pricing (as of 2026-10-28):** no verified exact-model pricing found.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+### Raw benchmarks found
+
+No benchmark figures found in the three independent searches could be tied with sufficient source traceability to this exact identifier; family or similarly named results are not substituted.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No verified exact-model benchmark evidence located.
+- **Reasoning: 15/100.** No verified exact-model benchmark evidence located.
+- **Context window: 15/100.** No specification or retrieval result verified.
+- **Multimodal: 15/100.** No exact-model modality evidence verified.
+- **Coding: 15/100.** No exact-model coding benchmark verified.
+- **Cost efficiency: 15/100.** No exact-model pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder, not an evidence-backed model rating.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-model evidence was not sufficiently verified. Scores are not evidence-backed.

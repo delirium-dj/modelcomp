@@ -1,0 +1,55 @@
+# Gemini 3.6 Flash — findings by GPT-6 Luna
+
+- Source: Google/Gemini 3.6 Flash
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.6 Flash
+- **Short description:** Google Gemini Flash model as represented by the tracked 3.6 subject slug. Searches in this pass did not verify an official Google model card or exact API SKU for this version.
+- **Provider / access:** Google; exact route not verified.
+- **Release / knowledge:** no exact-version date or cutoff verified.
+- **IDs:** tracked label `Gemini 3.6 Flash`; canonical model ID unverified.
+- **Context window:** no exact-version context figure verified.
+- **Modalities:** no exact-version modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-version pricing found.
+- **Architecture:** no exact-version architecture disclosure found.
+
+### Raw benchmarks found
+
+Three independent public searches did not locate traceable results for this exact version. Similar Gemini Flash results are excluded.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-version long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-version evidence verified.
+- **Reasoning: 15/100.** No exact-version evidence verified.
+- **Context window: 15/100.** No context or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding result verified.
+- **Cost efficiency: 15/100.** No pricing verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact-version evidence not sufficiently traceable. Scores are not evidence-backed.

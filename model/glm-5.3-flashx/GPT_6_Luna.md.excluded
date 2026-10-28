@@ -1,0 +1,55 @@
+# GLM 5.3 FlashX — findings by GPT-6 Luna
+
+- Source: Z AI/GLM 5.3 FlashX
+- Date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z AI GLM model represented by the tracked FlashX slug. Three independent searches did not verify an official card or determine whether FlashX is a distinct checkpoint or serving/API profile; Flash and base results are excluded.
+- **Provider / access:** Z AI; exact route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `GLM 5.3 FlashX`; canonical API ID unverified.
+- **Context window:** no exact-model context specification found.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture or distinct-weight evidence found.
+
+### Raw benchmarks found
+
+No traceable exact-FlashX public benchmark results were located in the searches completed.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** No exact-FlashX evidence verified.
+- **Reasoning: 15/100.** No exact-FlashX evidence verified.
+- **Context window: 15/100.** No context specification or retrieval evidence verified.
+- **Multimodal: 15/100.** No modality evidence verified.
+- **Coding: 15/100.** No coding benchmark verified.
+- **Cost efficiency: 15/100.** No pricing evidence verified.
+- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
+- Method: Three independent public searches; exact variant evidence not sufficiently traceable. Scores are not evidence-backed.
