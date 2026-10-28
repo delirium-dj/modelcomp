@@ -26,7 +26,7 @@
 - **Multimodal: 88/100.** Reliable multimodal features.
 - **Coding: 90/100.** Surprisingly strong developer speed.
 - **Cost efficiency: 98/100.** Industry-leading price-to-performance.
-- **Overall Score: 92.5/100.** A high-value model for wide-ranging tasks.
+- **Overall Score: 91/100.** A high-value model for wide-ranging tasks.
 
 ---
 

@@ -25,7 +25,7 @@
 - **Multimodal: 92/100.** Versatile multimodal integration.
 - **Coding: 92/100.** High-performance coding and engineering.
 - **Cost efficiency: 88/100.** Excellent performance-to-cost ratio.
-- **Overall Score: 92.7/100.** A top-tier frontier model for diverse tasks.
+- **Overall Score: 93.8/100.** A top-tier frontier model for diverse tasks.
 
 ---
 

@@ -133,12 +133,12 @@
 73.2 claude-sonnet-3.5
 73.2 mai-code-1.1-flash
 73 beam
+73 qwen-3.5-9b
 72.8 fledge-alpha
 72.7 longcat-2.5-preview
 72.6 gemma-4-26b-a4b
 72.5 gemma-4-12b-unified
-72 qwen-3.5-9b
-71.6 nemotron-3-ultra-free
+71.8 nemotron-3-ultra-free
 71.5 grok-build-0.1
 71.4 hy3
 70.8 gpt-5-codex

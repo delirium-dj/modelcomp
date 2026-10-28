@@ -26,7 +26,7 @@
 - **Multimodal: 92/100.** Robust image processing.
 - **Coding: 94/100.** Strong engineering and bug-catching.
 - **Cost efficiency: 80/100.** Premium frontier pricing.
-- **Overall Score: 92.6/100.** OpenAI's most capable model for difficult tasks.
+- **Overall Score: 94.8/100.** OpenAI's most capable model for difficult tasks.
 
 ---
 

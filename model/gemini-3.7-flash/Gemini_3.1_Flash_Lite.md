@@ -25,7 +25,7 @@
 - **Multimodal: 88/100.** Reliable multimodal.
 - **Coding: 90/100.** Fast and highly capable for coding.
 - **Cost efficiency: 95/100.** Exceptional cost-to-performance ratio.
-- **Overall Score: 91.6/100.** An elite, high-utility budget model.
+- **Overall Score: 90.6/100.** An elite, high-utility budget model.
 
 ---
 

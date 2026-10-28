@@ -26,7 +26,7 @@
 - **Multimodal: 88/100.** Reliable multimodal.
 - **Coding: 93/100.** Very high developer speed and quality.
 - **Cost efficiency: 90/100.** Exceptional price-to-performance.
-- **Overall Score: 91.9/100.** A top-tier, efficient model.
+- **Overall Score: 90.6/100.** A top-tier, efficient model.
 
 ---
 
