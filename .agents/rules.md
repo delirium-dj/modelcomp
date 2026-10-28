@@ -66,11 +66,30 @@ reports, and the website stay consistent.
   `data` (V1 used `properties`); the nudge is
   `ctx.session.prompt({ sessionID, text })` (V1 used
   `client.session.prompt({ path, body })`); there is no `client.app.log` and no
-  toast surface, so diagnostics go to the server console. V2 emits
-  `session.error` and then still lets the session go idle, so a plain idle is
-  NOT proof of a healthy turn — the engine's `errorSeen` set preserves the
-  streak/brake across that idle.
-  Each plugin catches transient provider failures (quota, pool-empty,
+  toast surface, so diagnostics go to the server console.
+- **OpenCode 2.2 event names (verified against the `@opencode/plugin@2.2.0`
+  types):** a provider failure is `session.step.failed` or
+  `session.execution.failed`, with the text on `data.error.message`;
+  `session.retry.scheduled` means the runtime is retrying on its own (mark the
+  turn as failed, do NOT nudge); `session.status` retry carries a `message`.
+  **2.2 does not emit `session.error` at all** and has no
+  `message.updated` / `message.part.updated` — those names are legacy fallbacks
+  only. A plugin that listens only to `session.error` still loads and then does
+  nothing, which looks exactly like "the text was not matched".
+- **OpenCode 2.2 transcript shapes:** user messages carry `text` (no parts
+  array), assistant messages carry `content: [{ type: "text", text }]`, and
+  the terminal entry is `{ type: "idle", outcome: "succeeded" | "failed" |
+  "interrupted", error? }`. Provider failures are stored ON THE MESSAGE
+  (`assistant.error` / `idle.error`), not written as assistant text. The engine
+  reads that structured error first, then runs the spec's `scan` on assistant
+  prose only (generic fragments would false-positive in research answers). Read
+  the transcript with `ctx.session.context({ sessionID })`.
+- **Cross-plugin ownership:** two plugins matching the same text queue two
+  "continue" prompts. The Phala wrapper is split by tail: "upstream provider
+  returned an error" → `provider-returned-error-retry`, "the request was
+  rejected as invalid" → `provider-invalid-request-retry`. Never match the bare
+  "Upstream error from Phala:" prefix.
+- **Coverage & recovery.** Each plugin catches transient provider failures (quota, pool-empty,
   endpoint-down, bang/lock drops, DNS/network breaks, model-turn rejects,
   header timeouts, content-filter blocks, generic "provider returned error"
   wrappers, rate limits), waits, then sends a tiny nudge (`continue` /
@@ -82,7 +101,8 @@ reports, and the website stay consistent.
   incl. gateway "response headers timed out"; any model),
   `model-turn-retry` (2026-10-05, "requests ending with a model turn"
   rejects, any model), `gemini-quota-retry` (standalone V2, Gemini
-  `RESOURCE_EXHAUSTED` / quota 429 with `retry in Ns` hint parsing), plus the
+  `RESOURCE_EXHAUSTED` / quota 429 with `retry in Ns` hint parsing; listens to
+  the 2.2 failure events), plus the
   `provider-*` family (any model) built on the full 3-shape pattern (payload
   error / silent `session.idle` / embedded in a generic error):
   `provider-content-filter-retry`, `provider-headers-timeout-retry`
@@ -91,11 +111,15 @@ reports, and the website stay consistent.
   deliberately does not match the AI-side phrase, so exactly one plugin
   nudges), `provider-high-demand-retry`,
   `provider-invalid-request-retry` (2026-10-17, "[Vendor] The request was
-  rejected as invalid", stable tail only), `provider-returned-error-retry`
+  rejected as invalid", stable tail only; catches the 2026-10-28 Phala
+  "Upstream error from Phala: The request was rejected as invalid" via
+  `session.step.failed` / structured `message.error`), `provider-returned-error-retry`
   (2026-10-27, generic wrapper "Provider returned error" / "provider returned
-  an error"; 2026-10-28 added "upstream provider returned an error" and
-  "upstream error from Phala"; whole sentence only, never the bare prefix
-  "provider returned" — research answers here discuss provider behaviour), and
+  an error"; 2026-10-28 added "upstream provider returned an error"; the broad
+  "upstream error from Phala" prefix was removed because its invalid-request
+  tail belongs to `provider-invalid-request-retry` — matching both queues two
+  nudges; whole sentence only, never the bare prefix "provider returned" —
+  research answers here discuss provider behaviour), and
   `provider-rate-limit-retry` (2026-10-28, "rate limit exceeded" / "too many
   requests" / "resource has been exhausted" / "requests per minute"; payload
   only, no transcript scan, because research prose discusses rate limits).

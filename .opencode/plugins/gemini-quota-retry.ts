@@ -223,6 +223,30 @@ export default Plugin.define({
             const data = (raw.data ?? raw.properties ?? {}) as Record<string, any>
             const sessionID = String(data.sessionID ?? data.session?.id ?? data.sessionId ?? "")
 
+            if (raw.type === "session.step.failed" || raw.type === "session.execution.failed") {
+              // OpenCode 2.2 names for a provider failure; the text is on
+              // `data.error`. 2.0/2.1 used `session.error` (kept below).
+              onError(sessionID, (data.error ?? data) as Record<string, any>)
+              continue
+            }
+
+            if (raw.type === "session.retry.scheduled") {
+              // The runtime retries on its own; only remember that this turn
+              // died so the idle that follows cannot reset the streak.
+              const strings: string[] = []
+              collectStrings(data.error, strings)
+              const retryText = strings.join("\n").toLowerCase()
+              if (sessionID && MATCHES.some((fragment) => retryText.includes(fragment))) errorSeen.add(sessionID)
+              continue
+            }
+
+            if (raw.type === "session.status" && data.status?.type === "retry" && sessionID) {
+              // 2.2 also surfaces transient failures as a retry status.
+              const message = String(data.status.message ?? "").toLowerCase()
+              if (MATCHES.some((fragment) => message.includes(fragment))) errorSeen.add(sessionID)
+              continue
+            }
+
             if (raw.type === "session.error") {
               onError(sessionID, data)
               continue

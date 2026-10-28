@@ -11,11 +11,21 @@
 // V2 differences that shape this file:
 //   * Events arrive from `ctx.event.subscribe()` and carry `data` (V1 used
 //     `properties`), so everything below reads both.
+//   * OpenCode 2.2 event names: a provider failure arrives as
+//     `session.step.failed` / `session.execution.failed` with the error on
+//     `data.error`; `session.retry.scheduled` means the runtime is retrying on
+//     its own. 2.2 no longer emits `session.error` at all, so the legacy names
+//     are kept only as fallbacks.
+//   * 2.2 transcript shapes: user messages carry `text`, assistant messages
+//     carry `content: [{ type: "text", text }]`, and the terminal entry is an
+//     `idle` message with `outcome` + `error`. Provider failures are stored on
+//     the message (`assistant.error` / `idle.error`), NOT written as assistant
+//     text, which is why the silent scanner reads the structured error first.
 //   * There is no `ctx.app.log` and no toast API, so diagnostics go to console.
 //   * `ctx.session.prompt({ sessionID, text })` replaces
 //     `client.session.prompt({ path, body: { parts } })`.
-//   * Transcripts are `{ type, content: [...] }` (V1 used `{ info, parts }`),
-//     so message readers accept both shapes.
+//   * Transcripts are read with `ctx.session.context({ sessionID })`; the 1.x
+//     `messages` shape is still accepted where a build exposes it.
 
 import { Plugin } from "@opencode/plugin"
 
@@ -73,17 +83,40 @@ function collectStrings(value: unknown, out: string[]): void {
 
 const roleOf = (message: AnyRecord): string => String(message?.type ?? message?.role ?? "")
 
-/** V2 stores text in `content`, V1 in `parts`. Accept either. */
+/**
+ * Text of a transcript message. Three shapes coexist:
+ *   - 2.2 user messages:     `{ type: "user", text }` (no parts array)
+ *   - 2.2 assistant messages: `{ type: "assistant", content: [{ type: "text", text }] }`
+ *   - 1.x messages:           `{ role, parts: [...] }` (legacy fallback)
+ */
 function messageText(message: AnyRecord): string {
   const parts = Array.isArray(message?.content)
     ? message.content
     : Array.isArray(message?.parts)
       ? message.parts
       : []
-  return parts
+  const fromParts = parts
     .filter((part: AnyRecord) => part?.type === "text" && typeof part.text === "string")
     .map((part: AnyRecord) => part.text as string)
     .join("\n")
+  const ownText = typeof message?.text === "string" ? message.text : ""
+  return [fromParts, ownText].filter(Boolean).join("\n")
+}
+
+/**
+ * The provider's structured failure text. OpenCode 2.2 does NOT inject
+ * "Upstream error from Phala: ..." as an assistant text part - it stores the
+ * error on the message (`assistant.error`, `idle.error`) and leaves the content
+ * empty. Older builds also mirrored it under `retry.error`.
+ */
+function structuredErrorText(message: AnyRecord | undefined): string {
+  const pieces = [
+    message?.error?.message,
+    message?.error?.response?.body,
+    message?.retry?.error?.message,
+    message?.retry?.error?.response?.body,
+  ]
+  return pieces.filter((piece): piece is string => typeof piece === "string" && piece.trim() !== "").join("\n")
 }
 
 /** `ctx.session.list` is paginated; `ctx.session.get` may or may not be wrapped. */
@@ -189,17 +222,64 @@ export function defineRetryPlugin(spec: RetrySpec) {
         timers.set(sessionID, timer)
       }
 
-      const scanLastAssistant = async (sessionID: string): Promise<{ messageID: string; trigger: string } | null> => {
-        if (!spec.scan) return null
+      /** True when `spec.matches` (and every `requireAll` fragment) occurs in `text`. */
+      const matchesPatterns = (text: string): boolean => {
+        if (!text) return false
+        const lower = text.toLowerCase()
+        if (!(spec.requireAll ?? []).every((pattern) => lower.includes(pattern))) return false
+        return spec.matches.some((pattern) => lower.includes(pattern))
+      }
+
+      // Payload matcher shared by the error path and the retry-status marker.
+      const matchesPayload = (text: string): boolean =>
+        matchesPatterns(text) || Boolean(text && spec.scan?.(text))
+
+      type TurnOutcome = "succeeded" | "failed" | "interrupted" | "unknown"
+      interface TurnScan {
+        messageID: string
+        trigger: string | null
+        outcome: TurnOutcome
+      }
+
+      const scanLastTurn = async (sessionID: string): Promise<TurnScan | null> => {
         try {
           const messages = await readMessages(sessionID)
-          const last = [...messages].reverse().find((message) => roleOf(message) === "assistant")
-          if (!last) return null
-          const text = messageText(last)
-          if (!text) return null
-          const trigger = spec.scan(text)
-          if (!trigger) return null
-          return { messageID: String(last.id ?? ""), trigger }
+          if (messages.length === 0) return null
+          const last = messages[messages.length - 1]
+          const lastAssistant = [...messages].reverse().find((message) => roleOf(message) === "assistant")
+
+          const outcome: TurnOutcome =
+            roleOf(last) === "idle"
+              ? (String(last.outcome ?? "unknown") as TurnOutcome)
+              : last?.error
+                ? "failed"
+                : "unknown"
+
+          // OpenCode 2.2 stores provider failures ON THE MESSAGE
+          // (`assistant.error` / `idle.error`) instead of writing them as an
+          // assistant text part, so structured errors are checked FIRST. Both
+          // the terminal `idle` entry and the failed assistant message are
+          // candidates.
+          for (const message of [last, lastAssistant]) {
+            const structured = structuredErrorText(message)
+            if (!structured) continue
+            if (matchesPatterns(structured)) {
+              return { messageID: String(message?.id ?? ""), trigger: "error", outcome }
+            }
+            const scanned = spec.scan?.(structured)
+            if (scanned) return { messageID: String(message?.id ?? ""), trigger: scanned, outcome }
+          }
+
+          // Silent degradation still lives in assistant TEXT, and only the
+          // spec's own scanner may inspect prose: generic fragments such as
+          // "rate limit exceeded" would false-positive in this repo's research
+          // answers.
+          if (spec.scan && lastAssistant) {
+            const scanned = spec.scan(messageText(lastAssistant))
+            if (scanned) return { messageID: String(lastAssistant.id ?? ""), trigger: scanned, outcome }
+          }
+
+          return { messageID: String(last.id ?? ""), trigger: null, outcome }
         } catch {
           return null
         }
@@ -220,28 +300,53 @@ export function defineRetryPlugin(spec: RetrySpec) {
       const onIdle = async (sessionID: string): Promise<void> => {
         if (!sessionID) return
 
-        // The turn ended because of a provider error: keep the brake counter and
-        // the armed retry timer, drop only the "already handled" marker.
-        if (errorSeen.delete(sessionID)) {
-          handledMessage.delete(sessionID)
-          return
-        }
+        // A matching failure event already proved this turn is bad.
+        let failedTurn = errorSeen.delete(sessionID)
 
-        if (!spec.scan) {
-          resetSession(sessionID)
-          return
+        // No matching event reached this plugin (2.0/2.1 `session.error` is not
+        // emitted by 2.2 at all). Before paying for a transcript read, ask the
+        // session once whether the turn failed; 2.2 keeps the terminal outcome
+        // on the session itself.
+        if (!failedTurn && !spec.scan) {
+          let info: AnyRecord | undefined
+          try {
+            info = unwrap(await ctx.session.get({ sessionID }))
+          } catch {
+            info = undefined
+          }
+          if (info?.outcome !== "failed") {
+            resetSession(sessionID)
+            return
+          }
+          failedTurn = true
         }
 
         if (spec.settleMs) await sleep(spec.settleMs)
-        const hit = await scanLastAssistant(sessionID)
-        if (!hit) {
+        const scan = await scanLastTurn(sessionID)
+
+        // A clean end of turn proves the retry chain worked: clear the brake,
+        // even when an earlier failure event marked this turn.
+        if (scan?.outcome === "succeeded") {
           resetSession(sessionID)
           return
         }
-        if (handledMessage.get(sessionID) === hit.messageID) return
-        handledMessage.set(sessionID, hit.messageID)
-        log(spec.id, "warn", `silent ${hit.trigger} in assistant message ${hit.messageID}`)
-        await scheduleRetry(sessionID, hit.trigger)
+
+        if (scan?.trigger) {
+          if (handledMessage.get(sessionID) === scan.messageID) return
+          if (!(await sessionMatchesModel(sessionID))) return
+          handledMessage.set(sessionID, scan.messageID)
+          log(spec.id, "warn", `turn ended with ${scan.trigger} in message ${scan.messageID}`)
+          await scheduleRetry(sessionID, scan.trigger)
+          return
+        }
+
+        // No match. A failed turn keeps the streak and any armed retry;
+        // anything else is a clean turn and resets the brake.
+        if (failedTurn) {
+          handledMessage.delete(sessionID)
+          return
+        }
+        resetSession(sessionID)
       }
 
       const onError = async (sessionID: string, data: AnyRecord): Promise<void> => {
@@ -249,13 +354,12 @@ export function defineRetryPlugin(spec: RetrySpec) {
         collectStrings(data, strings)
         const raw = strings.join("\n")
         const text = raw.toLowerCase()
-        const hit = spec.matches.some((pattern) => text.includes(pattern))
-        const extraOk = (spec.requireAll ?? []).every((pattern) => text.includes(pattern))
+        const hit = matchesPatterns(raw)
         // A storm/refusal can also arrive in the payload itself rather than in
         // the transcript (V1 ran its scorer over `collectStrings(props)` too).
         const payloadTrigger = hit ? "" : (spec.scan?.(raw) ?? "")
 
-        if ((hit && extraOk) || payloadTrigger) {
+        if (hit || payloadTrigger) {
           if (!sessionID) {
             log(spec.id, "warn", `matched but the event carried no sessionID head=${text.slice(0, 200)}`)
             return
@@ -268,15 +372,15 @@ export function defineRetryPlugin(spec: RetrySpec) {
 
         // Embedded case: the provider text sits in the last assistant message
         // while the error payload only carries generic transport noise.
-        if (!spec.scan || !sessionID) return
+        if (!sessionID) return
         if (spec.settleMs) await sleep(spec.settleMs)
-        const embedded = await scanLastAssistant(sessionID)
-        if (!embedded) return
+        const embedded = await scanLastTurn(sessionID)
+        if (!embedded?.trigger) return
         if (handledMessage.get(sessionID) === embedded.messageID) return
         if (!(await sessionMatchesModel(sessionID))) return
         handledMessage.set(sessionID, embedded.messageID)
         errorSeen.add(sessionID)
-        log(spec.id, "warn", `embedded ${embedded.trigger} in assistant message ${embedded.messageID}`)
+        log(spec.id, "warn", `embedded ${embedded.trigger} in message ${embedded.messageID}`)
         await scheduleRetry(sessionID, `${embedded.trigger} (embedded)`)
       }
 
@@ -294,12 +398,11 @@ export function defineRetryPlugin(spec: RetrySpec) {
             "",
         )
 
-      // Payload matcher shared by the error path and the retry-status marker.
-      const matchesPayload = (text: string): boolean => {
-        if (!text) return false
-        const lower = text.toLowerCase()
-        const required = (spec.requireAll ?? []).every((pattern) => lower.includes(pattern))
-        return (spec.matches.some((pattern) => lower.includes(pattern)) && required) || Boolean(spec.scan?.(text))
+      /** Join every string inside a payload (`error.message`, `response.body`, ...). */
+      const stringsOf = (value: unknown): string => {
+        const out: string[] = []
+        collectStrings(value, out)
+        return out.join("\n")
       }
 
       void (async () => {
@@ -312,15 +415,23 @@ export function defineRetryPlugin(spec: RetrySpec) {
 
               if (raw.type === "session.idle") {
                 await onIdle(sessionID)
+              } else if (raw.type === "session.step.failed" || raw.type === "session.execution.failed") {
+                // OpenCode 2.2 names for a provider failure. The text lives on
+                // `data.error` ({ type, message, status?, response? }); 2.0/2.1
+                // used the now-absent `session.error`, kept as a fallback below.
+                await onError(sessionID, data.error ?? data)
+              } else if (raw.type === "session.retry.scheduled") {
+                // The runtime is retrying on its own. Remember the failure so
+                // the idle that follows cannot wipe the brake, but do NOT
+                // nudge - that would queue a second prompt mid-retry.
+                if (sessionID && matchesPayload(stringsOf(data.error))) errorSeen.add(sessionID)
               } else if (raw.type === "session.error") {
+                // Legacy 2.0/2.1 event name; harmless if it never fires.
                 await onError(sessionID, data)
               } else if (raw.type === "session.deleted") {
                 if (sessionID) resetSession(sessionID)
               } else if (raw.type === "session.status") {
-                // V2 models a transient provider failure as a retry status.
-                // While the built-in retry runs we do NOT nudge (that would
-                // double-send prompts), but we must remember that this turn
-                // died so the following `session.idle` cannot wipe the brake.
+                // 2.2 also reports a transient failure as a retry status.
                 const message = String(data.status?.message ?? "")
                 if (data.status?.type === "retry" && sessionID && matchesPayload(message)) {
                   errorSeen.add(sessionID)
@@ -346,6 +457,8 @@ export function defineRetryPlugin(spec: RetrySpec) {
           // aborted on unload
         }
       })()
+
+      log(spec.id, "info", "retry plugin ready (2.2 events: step.failed / execution.failed / idle)")
 
       return () => {
         controller.abort()

@@ -8,6 +8,12 @@
 // and the whole phrase is required (an assistant discussing validation errors
 // says "invalid" in prose all the time).
 //
+// The real-world case this must catch (Phala, 2026-10-28):
+//   session.step.failed data.error.message =
+//     "Upstream error from Phala: The request was rejected as invalid"
+// OpenCode 2.2 stores that message on the structured error; it is not assistant
+// text, so the engine reads `data.error` and the transcript's `message.error`.
+//
 // A genuinely malformed request re-rejects every time, so the 30-nudge brake
 // caps it instead of hammering.
 

@@ -20,12 +20,19 @@
 // kick off useless retries mid-answer. If a NEW suffix variant shows up, add
 // it to PATTERNS - that list is the intended extension point.
 //
+// The Phala wrapper is matched by its TAIL, not by the "Upstream error from
+// Phala:" prefix. That prefix also precedes errors another plugin owns (e.g.
+// "The request was rejected as invalid" -> provider-invalid-request-retry), and
+// matching it here would queue two "continue" prompts for one failure.
+//
 // Three arrival shapes are handled by the shared engine:
-//   1. the text rides a `session.error` payload (the common case),
+//   1. the text rides a provider failure event (`session.step.failed` /
+//      `session.execution.failed` in 2.2, `session.error` in older builds),
 //   2. SILENTLY: it lands in the transcript as a normal assistant message and
 //      the turn ends with `session.idle`,
 //   3. EMBEDDED: it sits in the last assistant message while the error payload
-//      carries generic transport noise.
+//      carries generic transport noise. 2.2 stores the text on the message's
+//      structured `error` field instead of a text part, which the engine reads.
 // Recovery is the same for all: wait DELAY, then send "continue".
 
 import { defineRetryPlugin } from "../lib/plugin-retry/engine"
@@ -35,7 +42,6 @@ const PATTERNS = [
   "provider returned error",
   "provider returned an error",
   "upstream provider returned an error",
-  "upstream error from phala",
 ]
 
 const DELAY = 10_000
