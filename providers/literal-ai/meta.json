@@ -1,6 +1,7 @@
 {
   "name": "Literal AI",
   "kind": "aggregator",
+  "retired": true,
   "short": "Prompt management, observability, and evaluation platform for conversational AI and agent products, with thread-level tracing.",
   "officialUrl": "https://www.literal.ai",
   "hosts": ["literal.ai", "www.literal.ai"],

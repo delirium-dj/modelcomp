@@ -1,0 +1,9 @@
+{
+  "id": "opencode/gpt-6.1-terra",
+  "name": "GPT-6.1 Terra",
+  "short": "GPT-6.1 Terra model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

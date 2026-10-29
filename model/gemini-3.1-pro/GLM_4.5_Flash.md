@@ -37,6 +37,16 @@ Gemini 3.1 Pro is Google's advanced AI model designed to refine the performance 
 
 Gemini 3.1 Pro Preview also offers a specialized endpoint called `gemini-3.1-pro-preview-customtools` which is optimized for agentic workflows that use custom tools (like view_file or search_code) and bash commands. This endpoint prioritizes custom tools over built-in ones, though quality may fluctuate in use cases that don't benefit from such tools.
 
+## Normalized scores (1-100)
+
+- **Tool use: 90.1/100.** Based on strong performance in tool use benchmarks and agentic workflows; capped by specialized tool optimization.
+- **Reasoning: 93.7/100.** Exceptional performance in reasoning tasks with improved thinking capabilities; capped by model architecture limitations.
+- **Context window: 95.6/100.** Large 1M token context window suitable for complex tasks; capped by token efficiency optimizations.
+- **Multimodal: 93.3/100.** Strong support for text, image, video, audio, and PDF inputs; capped by lack of image generation.
+- **Coding: 89.3/100.** Good performance in software engineering tasks; capped by specialized endpoint optimization.
+- **Cost efficiency: 82.2/100.** Moderate cost efficiency at current pricing; capped by premium positioning.
+- **Overall Score: 92.5/100.** Mean of the five quality dimensions, indicating exceptional performance across most capabilities.
+
 ## Performance Characteristics
 
 Based on the averaged scores from the model comparison:

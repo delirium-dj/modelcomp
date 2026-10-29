@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash, GPT-6 Astra, MiMo 2.6 Flash, Step 5 Preview.
 - Average from top 5 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash, GPT-6 Astra, MiMo 2.6 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Flint, Gemini 3.1 Flash Lite, GLM 4.7 Flash, GPT 6 Luna, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Beam, Flint, Gemini 3.1 Flash Lite, GLM 4.7 Flash, GPT 6 Luna, Laguna S 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

@@ -1,0 +1,71 @@
+# Ling 3.0 Tiny — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+
+> Source: inclusionAI (`ling-3.0-tiny`)
+> Date: 2026-10-29 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 3.0 Tiny
+- **Short description:** Purported small variant of inclusionAI's Ling 3.0 series. **No public model card, no HuggingFace repository, no benchmark publications found.** inclusionAI's known public models: Ling-1T, Ling-2.5-1T, Ling-2.6-1T, Ling-2.6-flash. No "Ling 3.0" generation publicly released as of search date.
+- **Provider / access:** Unknown (not on OpenRouter, HuggingFace, inclusionAI site, Novita AI, or ModelScope).
+- **Release / knowledge:** Unknown.
+- **IDs:** None discovered.
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing (as of 2026-10-29):** Unknown.
+- **Architecture:** Unknown (presumed MoE like other Ling models).
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION TRIGGERED:** ZERO verified public benchmark numbers found — model not publicly released/documented.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **not listed**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER / GraphWalks: **no long-context retrieval reported**
+
+### Normalized scores (1–100)
+
+> **NOT SCORED — EXCLUDED.** Per `model-report-TEMPLATE.md` self-exclusion rule: zero verified benchmarks (model not publicly released) → save as `.md.excluded`.
+
+- Tool use: **N/A (excluded)**
+- Reasoning: **N/A (excluded)**
+- Context window: **N/A (excluded)**
+- Multimodal: **N/A (excluded)**
+- Coding: **N/A (excluded)**
+- Cost efficiency: **N/A (excluded)**
+- Overall Score: **N/A (excluded)**
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-29
+- Method: public internet research (web search across multiple queries: "ling-3.0-tiny", "ling 3.0 tiny inclusionAI", "inclusionAI ling 3.0", HuggingFace inclusionAI org, ModelScope, OpenRouter, Novita AI); **confirmed: inclusionAI's public models stop at Ling-2.6 generation; no Ling 3.0 family exists publicly**. Queue score 52.6 appears to be placeholder for an unreleased/internal model.
+- Future sources: add a new file next to this one, e.g. `Ling_3.0_Tiny.md`, using the same headings — **only when inclusionAI publicly releases Ling 3.0 Tiny with verifiable benchmarks**.

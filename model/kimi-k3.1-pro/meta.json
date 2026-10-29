@@ -1,0 +1,9 @@
+{
+  "id": "opencode/kimi-k3.1-pro",
+  "name": "Kimi K3.1 Pro",
+  "short": "Kimi K3.1 Pro model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

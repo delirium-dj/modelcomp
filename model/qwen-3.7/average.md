@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash, Step 5 Preview.
 - Average from top 4 by Overall Score: Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Flint, GLM 4.7 Flash, Laguna XS 2.1, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Flint, GLM 4.7 Flash, Laguna S 2.1, Laguna XS 2.1, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
