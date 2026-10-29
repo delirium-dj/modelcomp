@@ -126,8 +126,11 @@ reports, and the website stay consistent.
   nudges), `provider-high-demand-retry`,
   `provider-invalid-request-retry` (2026-10-17, "[Vendor] The request was
   rejected as invalid", stable tail only; catches the 2026-10-28 Phala
-  "Upstream error from Phala: The request was rejected as invalid" via
-  `session.step.failed` / structured `message.error`), `provider-returned-error-retry`
+  "Upstream error from Phala: The request was rejected as invalid" and the
+  2026-10-29 bare runtime "AI.Error: Invalid request" via `session.step.failed`
+  / structured `message.error`; payload matching is deliberately broad, while
+  assistant prose only takes the full phrases or a short standalone message),
+  `provider-returned-error-retry`
   (2026-10-27, generic wrapper "Provider returned error" / "provider returned
   an error"; 2026-10-28 added "upstream provider returned an error"; the broad
   "upstream error from Phala" prefix was removed because its invalid-request

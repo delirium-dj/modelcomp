@@ -1,5 +1,14 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-29 — bare "Invalid request" still ignored (pattern coverage, not events)
+
+1. **Symptom.** A live turn died at `11:30:31` with `Failed to drain Session cause="AI.Error: Invalid request"` and no `continue` prompt, even though `provider-invalid-request-retry` was loaded and the 2.2 event path was in place.
+2. **Root cause.** Pattern coverage, not the event API. The plugin only listed `"the request was rejected as invalid"` and `"bad request: invalid request"`. The runtime can emit the bare message `Invalid request` (no vendor prefix, no `Bad Request:` prefix), so neither fragment matched. This is the same class as the 2026-10-28 Phala case but a shorter wrapper.
+3. **Fix.** `provider-invalid-request-retry` now matches `invalid request` in provider payloads / structured errors (`data.error`, `message.error`). Assistant **prose** stays narrow: only the full phrases, plus a short-message allowance (<= 300 chars) so a silent drop that lands as a standalone "Invalid request" line is still retried. A long research answer that merely discusses invalid requests does not nudge.
+4. **Verification (offline harness, real plugin files + current engine).** `session.step.failed` with `{ message: "Invalid request" }` -> one `continue` after 8 s; transcript-only `message.error: "Invalid request"` -> one; short assistant text "Invalid request" -> one; a ~600-char answer mentioning "invalid request" -> none; the Phala invalid/upstream-tail and Gemini quota tests still pass.
+5. **Docs.** `.agents/rules.md` coverage bullet and `.antigravity/history/project-map.md` updated.
+6. Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`).
+
 ## 2026-10-28 (2) — Phala "The request was rejected as invalid" still ignored: OpenCode 2.2 event names
 
 1. **Symptom.** After the V1→V2 load fix, a live Phala failure at `20:30:30` still produced no `continue`: the server log shows `Failed to drain Session cause="AI.Error: Upstream error from Phala: The request was rejected as invalid"` and no retry. `provider-invalid-request-retry` already contained the exact tail `the request was rejected as invalid`, so matching was not the problem.
