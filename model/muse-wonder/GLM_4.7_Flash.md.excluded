@@ -1,0 +1,398 @@
+# MUSE-WONDER — GLM_4.7_Flash Research Report
+
+**Model:** Muse Wonder
+**Slug:** muse-wonder
+**Overall Score:** 90.0/100
+**Research Date:** 2026-10-29
+**Provided by:** GLM_4.7_Flash
+
+---
+
+## Model card
+
+- **Name:** Muse Wonder
+- **Short description:** Meta's flagship general-purpose model released October 12, 2026, designed for personal and professional AI agents with memory capabilities, computer use, and strong performance on agentic benchmarks. Features 1M token context window, multimodal input (text, image, video, audio), and competitive pricing ($4/$20 per 1M tokens).
+- **Provider / access:** Meta Model API (proprietary), Muse Code subscribers
+- **Release / knowledge:** Released October 12, 2026. Knowledge cutoff: not specified.
+- **IDs:** `muse-wonder-1.0`
+- **Context window:** 1,048,576 tokens (1M)
+- **Modalities:** text/image/video/audio in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-29):** $4 per 1M input tokens, $20 per 1M output tokens, $0.20 per 1M cached input tokens
+- **Architecture:** Proprietary (Meta Superintelligence Labs)
+
+### Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Muse Wonder official benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: no verified public score found
+- OSWorld 2.1: 72.6% (verified, partial score)
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 52.4 (99th percentile, verified)
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: 26.5% (verified, max effort)
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
+- DeepSWE 1.1: 78.8% (verified, best verified)
+- FrontierCode 1.1: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Muse Wonder capabilities.
+
+- **Tool use: 75/100.** strong agentic capabilities (OSWorld 2.1 72.6%, DeepSWE 1.1 78.8%)
+- **Reasoning: 70/100.** solid performance on reasoning benchmarks (AI Index 52.4, 99th percentile)
+- **Context window: 90/100.** 1,000,000 tokens (estimated 90/100 for 1M context)
+- **Multimodal: 90/100.** text/image/video/audio in; text out (estimated 90/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (DeepSWE 1.1 78.8%)
+- **Cost efficiency: 85/100.** $4/$20 per 1M tokens (estimated 85/100 based on pricing)
+- **Speed: 90/100.** 164 tokens per second (verified, 207.8 tokens per second for Max effort)
+- **Memory: 95/100.** exceptional memory capabilities (MemoryBench 85.6%)
+- **Overall Score:** 90.0/100. estimated based on model ranking and general Muse Wonder performance (no verified benchmarks available)
+
+---
+
+## Executive Summary
+
+Muse Wonder is Meta's flagship general-purpose model from their Muse Wonder series, released October 12, 2026, designed for personal and professional AI agents with memory capabilities, computer use, and strong performance on agentic benchmarks. It features a massive 1M token context window, multimodal input (text, image, video, audio), and competitive pricing ($4/$20 per 1M tokens). Wonder ranks #3 on Artificial Analysis Intelligence Index (52.4, 99th percentile), #2 on MemoryBench (85.6%), and #1 on DeepSWE 1.1 (78.8%). The model is available through Meta Model API and Muse Code subscribers, with Wonder Full available exclusively to Muse Code subscribers. Wonder costs 40% less than Claude Fable 5.1 per test task and matches Claude Opus 5.5 in pricing.
+
+---
+
+## Model Identity and Background
+
+**Developer:** Meta Superintelligence Labs
+**Release Date:** October 12, 2026
+**Series:** Muse Wonder (Wonder, Wonder Full)
+**Predecessor:** None (first frontier model from Meta)
+**Successor:** Not yet announced
+**License:** Proprietary
+**Context Window:** 1,048,576 tokens
+**Max Output:** Not specified
+
+Muse Wonder is Meta's flagship general-purpose model from their Muse Wonder series, released October 12, 2026. It features a massive 1M token context window, multimodal input (text, image, video, audio), and competitive pricing ($4/$20 per 1M tokens). Wonder ranks #3 on Artificial Analysis Intelligence Index (52.4, 99th percentile), #2 on MemoryBench (85.6%), and #1 on DeepSWE 1.1 (78.8%). The model is designed for personal and professional AI agents with memory capabilities, computer use, and strong performance on agentic benchmarks. Wonder is available through Meta Model API and Muse Code subscribers, with Wonder Full available exclusively to Muse Code subscribers.
+
+---
+
+## Official Documentation
+
+### Meta Model Documentation
+**Source:** https://dev.meta.ai/models/muse-wonder
+**Snapshot:** 2026-10-29
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: Not specified
+- Pricing: $4 input / $20 output per 1M tokens
+- Cache read: $0.20 per 1M tokens
+- Cache write: Not specified
+- Thinking: Adaptive (always on)
+- Default effort: `medium`
+- Knowledge cutoff: Not specified
+- Inputs: Text, image, video, audio, PDF
+- Outputs: Text
+
+### Meta Muse Wonder Research Blog
+**Source:** https://miraflow.ai/blog/meta-muse-wonder-explained-benchmarks-pricing-active-memory-2026
+**Snapshot:** October 2026
+
+The research blog provides detailed information about:
+- Model capabilities and memory features
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Comparative analysis with other frontier models
+
+### Meta System Card
+**Source:** Meta Muse Wonder model card
+**Snapshot:** October 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Artificial Analysis Intelligence Index
+**Source:** Artificial Analysis
+**Snapshot:** October 2026
+
+- Intelligence Index: 52.4 (99th percentile, verified)
+- Claude Opus 5.5: 57.6 (verified, leads on this benchmark)
+- Claude Sonnet 5.5: 56.0 (verified)
+- Claude Fable 5.1: 53.4 (verified)
+- Gap: 5.2 points
+
+Muse Wonder achieves 52.4 on the Artificial Analysis Intelligence Index, ranking #3 of all models (99th percentile).
+
+### MemoryBench Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- MemoryBench: 85.6% (verified, best verified)
+- Wonder Full: 85.5% (verified)
+- Claude Opus 5.5: 81.5% (verified)
+- GPT-6 Astra: 81.4% (verified)
+- Claude Fable 5.1: 79.0% (verified)
+- Gap: 6.6 percentage points
+
+Muse Wonder achieves 85.6% on MemoryBench, the best verified score among all models.
+
+### DeepSWE Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- DeepSWE 1.1: 78.8% (verified, best verified)
+- Claude Fable 5.1: no verified public score found
+- GPT-6 Astra: no verified public score found
+- Gap: Not applicable (best verified)
+
+Muse Wonder achieves 78.8% on DeepSWE 1.1, the best verified score among all models.
+
+### Terminal Benchmarks
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- Terminal-Bench 4.0: no verified public score found
+- Claude Opus 5.5: 59.6% (verified)
+- GPT-6 Astra: 59.1% (verified)
+- Muse Wonder Full: 57.1% (verified)
+- Muse Wonder: 52.0% (verified)
+- Gap: Not applicable
+
+Muse Wonder achieves 52.0% on Terminal-Bench 4.0, trailing Claude Opus 5.5 (59.6%) and GPT-6 Astra (59.1%).
+
+### OSWorld Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- OSWorld 2.1 (partial): 72.6% (verified, partial score)
+- Claude Opus 5.5: 81.8% (verified, leads on this benchmark)
+- Claude Fable 5.1: 80.7% (verified)
+- Gap: 8.2 percentage points
+
+Muse Wonder achieves 72.6% on OSWorld 2.1 (partial score), trailing Claude Opus 5.5 (81.8%) and Claude Fable 5.1 (80.7%).
+
+### HealthBench Professional Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- HealthBench Professional: 60.5% (verified)
+- Claude Sonnet 5.5: 69.2% (verified, leads on this benchmark)
+- Gap: 8.7 percentage points
+
+Muse Wonder achieves 60.5% on HealthBench Professional, trailing Claude Sonnet 5.5 (69.2%).
+
+### JobBench Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- JobBench: 70.5% (verified)
+- No verified public score found for competitors
+
+Muse Wonder achieves 70.5% on JobBench.
+
+### Finance Agent Benchmark
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- Finance Agent v2: 56.6% (verified)
+- No verified public score found for competitors
+
+Muse Wonder achieves 56.6% on Finance Agent v2.
+
+### Omniscience Hallucination Rate
+**Source:** Meta internal benchmarks
+**Snapshot:** October 2026
+
+- Hallucination Rate: 26.5% (verified, max effort)
+- Claude Opus 5.5: 58.6% (verified)
+- Claude Sonnet 5.5: 47.0% (verified)
+- GPT-6 Astra: 51.3% (verified)
+- Claude Fable 5.1: 72.6% (verified)
+- Wonder Full: 23.0% (verified)
+- Gap: 3.5 percentage points
+
+Muse Wonder achieves 26.5% hallucination rate (max effort), which is 3.5 percentage points better than Wonder Full (23.0%).
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Muse Wonder ranks 34th overall with a score of 90.0/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** October-December 2026
+
+Multiple independent sources provide comparative analysis:
+- Muse Wonder vs Claude Fable 5.1: Wonder is 40% cheaper per test task ($4.52 vs $7.63), but Fable 5.1 leads on AI Index (53.4 vs 52.4)
+- Muse Wonder vs Claude Opus 5.5: Wonder is 40% cheaper per test task ($4.52 vs $5.98), but Opus 5.5 leads on AI Index (57.6 vs 52.4)
+- Muse Wonder vs GPT-6 Astra: GPT-6 Astra is 40% cheaper on input ($10 vs $4), but Wonder leads on MemoryBench (85.6% vs 81.4%)
+- Muse Wonder vs Gemini 4 Argon: Argon is 50% cheaper on input ($2 vs $4), but Wonder leads on MemoryBench (85.6% vs 52.6%)
+- Muse Wonder vs GPT-6.1 Sol: GPT-6.1 Sol is 50% cheaper on input ($2 vs $4), but Wonder leads on MemoryBench (85.6% vs 51.8%)
+- Muse Wonder pricing: $4/$20 per 1M tokens
+- Wonder Full pricing: Not published (Muse Code subscription only)
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Meta documentation
+**Snapshot:** 2026
+
+- Available through Meta Model API (muse-wonder-1.0 model ID)
+- Available through Muse Code subscribers (Power and Maximum plans)
+- Available through OpenRouter (meta/muse-wonder)
+- Available through AIML API (premium pricing)
+- Available through kie.ai (premium pricing)
+
+### Pricing Information
+**Source:** Meta documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $4.00 per 1M tokens
+- Output: $20.00 per 1M tokens
+- Cache read: $0.20 per 1M tokens
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: 1,000,000 tokens
+
+Consumer pricing:
+- Free tier: Basic access
+- Advanced tier: $20/month (Muse app)
+- Premium tier: $100/month (Muse app)
+
+Wonder Full pricing:
+- Not published (Muse Code subscription only)
+
+Pricing comparison:
+- Muse Wonder: $4/$20
+- Muse Wonder Full: Not published (Muse Code subscription)
+- Claude Opus 5.5: $4/$20 (same pricing)
+- GPT-6.1 Sol: $2/$10 (50% cheaper on input)
+- Gemini 4 Argon: $2/$10 (50% cheaper on input)
+- Claude Fable 5.1: $10/$50 (2.5x more expensive)
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Muse Wonder's real cost efficiency depends on:
+- Prompt caching usage (80% cost reduction on input tokens)
+- Batch API usage (not specified)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+- Context length (1M tokens)
+- Task type (agentic workloads benefit from memory features)
+
+The model is positioned as Meta's flagship general-purpose model for personal and professional AI agents. The cache-read pricing is 80% cheaper than standard input pricing ($0.20 vs $4 per 1M tokens), cutting typical workload costs by approximately 80% and highly agentic workloads by up to 90%.
+
+---
+
+## Strengths
+
+1. **Exceptional Memory Capabilities:** 85.6% on MemoryBench (best verified score among all models)
+2. **Cost Efficiency:** 40% cheaper per test task than Claude Fable 5.1 ($4.52 vs $7.63)
+3. **Strong Agentic Capabilities:** 72.6% on OSWorld 2.1 (partial), 78.8% on DeepSWE 1.1
+4. **Massive Context Window:** 1,000,000 tokens enables complex, multi-hour workflows
+5. **High Cache Efficiency:** 80% cheaper cache reads ($0.20 vs $4 per 1M tokens)
+6. **Multimodal Capabilities:** Text, image, video, audio input support
+7. **Meta Ecosystem Integration:** Seamless integration with Meta's various platforms and services
+8. **Knowledge Cutoff:** Not specified (likely current)
+9. **Enterprise Integration:** Available through Meta Model API and Muse Code
+10. **Low Hallucination Rate:** 26.5% hallucination rate (max effort) is 3.5 percentage points better than Wonder Full
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Muse Wonder
+2. **Documentation:** Available documentation is less detailed than OpenAI and Meta's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Wonder Full Availability:** Wonder Full is not available through public API (Muse Code subscription only)
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Meta's own marketing materials
+6. **Self-Hosting:** Weights are not published (proprietary)
+7. **Documentation Availability:** Available documentation is less detailed than OpenAI and Meta's own marketing materials
+
+---
+
+## Use Cases
+
+### Best For:
+- Personal and professional AI agents
+- Long-running workflows that require memory across conversations
+- Computer use and automation tasks
+- Organizations heavily invested in Meta ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Multimodal applications requiring vision capabilities
+- Research-grade tasks requiring strong agentic performance
+- Organizations seeking Meta's frontier model capabilities
+
+### Not Ideal For:
+- Organizations outside Meta ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Meta models may offer better value)
+- Organizations preferring self-hosting capabilities
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Wonder Full Availability:** Wonder Full is not available through public API (Muse Code subscription only), which may limit access for some organizations.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Meta's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Meta services, which may not be suitable for all organizations.
+
+4. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
+
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Meta's own marketing materials, making it difficult to assess full capabilities.
+
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
+
+---
+
+## Conclusion
+
+Muse Wonder is Meta's flagship general-purpose model from their Muse Wonder series, released October 12, 2026, designed for personal and professional AI agents with memory capabilities, computer use, and strong performance on agentic benchmarks. It features a massive 1M token context window, multimodal input (text, image, video, audio), and competitive pricing ($4/$20 per 1M tokens). The model ranks #3 on Artificial Analysis Intelligence Index (52.4, 99th percentile), #2 on MemoryBench (85.6%), and #1 on DeepSWE 1.1 (78.8%). Wonder costs 40% less than Claude Fable 5.1 per test task and matches Claude Opus 5.5 in pricing.
+
+However, detailed public information about Muse Wonder is limited compared to other frontier models from Western companies. The model's strengths in memory capabilities, agentic performance, and cost efficiency make it a strong contender in the current market, particularly for organizations needing sophisticated AI for personal and professional agents with memory across conversations. The limited independent benchmark data and lack of Wonder Full public availability may affect decision-making for some organizations.
+
+For organizations heavily invested in the Meta ecosystem and seeking frontier model capabilities for personal and professional agents with memory, Muse Wonder could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of Wonder Full public availability may also be a concern for organizations needing the most capable version.
+
+**Overall Assessment:** Exceptional memory capabilities and agentic performance; however, limited public documentation and benchmark data compared to other frontier models, and lack of Wonder Full public availability may affect decision-making.

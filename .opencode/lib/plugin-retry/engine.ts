@@ -71,6 +71,43 @@ function log(id: string, level: "info" | "warn" | "error", message: string): voi
   else console.log(line)
 }
 
+/**
+ * Cross-plugin nudge guard.
+ *
+ * Every plugin in the suite imports THIS module, so module-level state is shared
+ * between them. That matters because one failure can match two plugins at once:
+ * a transport-flavoured drop carries both the provider text and undici noise,
+ * e.g. `AI.Error.Transport: Timed out waiting for response headers` plus
+ * `fetch failed` - which trips `provider-headers-timeout-retry` ("continue") AND
+ * `api-connect-retry` ("please continue"). Live evidence (2026-10-29, session
+ * ses_e860688beffeBzqsuEF2iDHyG2): two prompts landed 2 ms apart
+ * (00:21:46.420 "continue", 00:21:46.422 "please continue"), so the model
+ * resumed twice. The first plugin to schedule a nudge wins; the others stand
+ * down for NUDGE_WINDOW_MS. The window must outlast the plugins' DELAY (10s) so
+ * a second plugin that reacts to the same failure keeps quiet even when it
+ * detects it a moment later.
+ */
+const NUDGE_WINDOW_MS = 15_000
+const lastNudge = new Map<string, { at: number; id: string }>()
+
+function claimNudge(sessionID: string, id: string): { ok: true } | { ok: false; by: string; elapsed: number } {
+  const now = Date.now()
+  const previous = lastNudge.get(sessionID)
+  // Only a DIFFERENT plugin is told to stand down. A plugin that already owns
+  // this session's retry chain keeps it, so a fast-failing provider (turn dies
+  // in a few seconds, well inside the window) is still nudged again instead of
+  // stalling until the next unrelated event.
+  if (previous && previous.id !== id && now - previous.at < NUDGE_WINDOW_MS) {
+    return { ok: false, by: previous.id, elapsed: now - previous.at }
+  }
+  lastNudge.set(sessionID, { at: now, id })
+  return { ok: true }
+}
+
+function releaseNudge(sessionID: string): void {
+  lastNudge.delete(sessionID)
+}
+
 function collectStrings(value: unknown, out: string[]): void {
   if (typeof value === "string") {
     out.push(value)
@@ -208,6 +245,18 @@ export function defineRetryPlugin(spec: RetrySpec) {
           return
         }
 
+        // Cross-plugin guard (see claimNudge): another plugin in the suite may
+        // match the same failure. Only the first one nudges.
+        const claim = claimNudge(sessionID, spec.id)
+        if (!claim.ok) {
+          log(
+            spec.id,
+            "info",
+            `standing down: ${claim.by} already nudged this session ${claim.elapsed}ms ago (one nudge per failure)`,
+          )
+          return
+        }
+
         pending.add(sessionID)
         consecutive.set(sessionID, used + 1)
         log(spec.id, "info", spec.announce(trigger, used + 1, max))
@@ -295,6 +344,9 @@ export function defineRetryPlugin(spec: RetrySpec) {
         pending.delete(sessionID)
         consecutive.delete(sessionID)
         stopped.delete(sessionID)
+        // A clean turn clears the cross-plugin guard, so the next failure can
+        // be claimed by whichever plugin matches it first.
+        releaseNudge(sessionID)
       }
 
       const onIdle = async (sessionID: string): Promise<void> => {

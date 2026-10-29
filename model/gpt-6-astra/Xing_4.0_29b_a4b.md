@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Xing_4.0_29b_a4b
 
 > Source: OpenAI (`OpenAI/GPT-6-Astra`)
-> Date: 2026-10-25 (UTC)
+> Date: 2026-10-27 (UTC)
 > Overview + scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 

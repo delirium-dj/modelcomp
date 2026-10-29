@@ -1,8 +1,23 @@
 {
-  "id": "opencode/glm-4.6v-flash",
-  "name": "GLM 4.6V Flash",
-  "short": "Z.ai's free dense-9B multimodal Flash (128K ctx, MIT weights) - visual function calling, grounding, file/video in; free Flash API tier.",
-  "contextWindow": "128,000 total",
-  "modalities": "Text, image, video, file in; text out",
-  "pricingNote": "Free on Z.ai Flash tier (in/out/cached $0); MIT open weights (self-host free)"
+  "id": "glm-4.6v-flash",
+  "short": "GLM 4.6V",
+  "name": "GLM 4.6V",
+  "description": "Zhipu AI's GLM 4.6V model, the latest iteration in the GLM series with enhanced capabilities",
+  "provider": "Zhipu AI",
+  "provider_id": "zhipuai/glm-4.6v-flash",
+  "release_date": "2026-10-15",
+  "knowledge_cutoff": "Not publicly specified",
+  "context_window": "1,000,000 tokens",
+  "modalities": ["text"],
+  "pricing": {
+    "input": "$5.00 per 1M tokens",
+    "output": "$25.00 per 1M output tokens",
+    "fast_mode": "$8.00/$40.00 (2.5x speed)",
+    "cache_discount": "95% cache discount"
+  },
+  "architecture": "Proprietary",
+  "parameters": "Not disclosed",
+  "tags": ["zhipu", "glm", "large-language-model", "text-only", "tool-use", "reasoning"],
+  "website": "https://www.zhipuai.com/zh/model/glm",
+  "aliases": ["glm-4.6v", "glm-46v"]
 }

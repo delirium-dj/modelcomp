@@ -1,6 +1,11 @@
-// OpenCode 2.x plugin (Desktop 2.x). Self-contained on purpose: it imports
-// nothing but `@opencode/plugin`, so it keeps working even if the other retry
-// plugins are reorganised.
+// V2 port of `.opencode/plugins/v1/gemini-quota-retry.ts` (OpenCode 2.x).
+//
+// Self-contained on purpose: it imports nothing but `@opencode/plugin`, so it
+// keeps working even if the shared engine in `lib/` is reorganised again. (The
+// generic 429s - "rate limit exceeded", "too many requests", bare
+// "resource exhausted" - are owned by `provider-rate-limit-retry.ts`; this file
+// only handles the Gemini quota error, which is the one that tells us exactly
+// how long to wait.)
 //
 // What we catch: the provider 429 that says the project's quota is used up.
 // The exact text we saw from Gemini (free tier):

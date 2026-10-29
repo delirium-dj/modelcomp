@@ -20,4 +20,4 @@
 - Based on 14 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, MiMo 2.6 Flash, Qwen 3.7 Plus, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
 - Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
 - Excluded bottom 4: Claude Opus 4.6, GPT-6.1 Sol, MiMo 2.6 Flash, Qwen 3.7 Plus.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, LongCat 2.5 Preview, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, LongCat 2.5 Preview, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

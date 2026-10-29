@@ -1,7 +1,7 @@
 # Gemma 4 26B A4B — findings by Flint
 
 - Source: Google DeepMind / Gemma 4 26B A4B
-- Date: 2026-10-28 (UTC)
+- Date: 2026-10-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 256K tokens (Hugging Face model card / Gemma 4 docs; Artificial Analysis reported 260K across providers).
 - **Modalities:** Text, image, and video input, text output; reasoning yes (thinking mode via `<|think|>`); tool use yes (native function calling, agentic coding); audio not supported on this variant.
 
-- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; Gemma API pricing from $0.10 per 1M input / $0.34 per 1M output (Artificial Analysis; blended ≈ $0.09 per 1M with cache); hosted median ~$0.12 input / $0.30 output.
+- **Pricing (as of 2026-10-29):** Open weights Apache 2.0; Gemma API pricing from $0.10 per 1M input / $0.34 per 1M output (Artificial Analysis; blended ≈ $0.09 per 1M with cache); hosted median ~$0.12 input / $0.30 output.
 
 - **Architecture:** Open-weight Mixture-of-Experts (MoE); 25.2B total / 3.8B active parameters; 30 layers; sliding window 1024; hybrid local sliding-window + global attention; expert count 8 active / 128 total + 1 shared; vision encoder ~550M params.
 
@@ -55,6 +55,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** — 2026-10-29
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Hugging Face `google/gemma-4-26B-A4B-it` + ai.google.dev Gemma 4 docs) plus independent benchmarks/reviews (Artificial Analysis) — official-first with independent benchmark comparison.
-- Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
+- Future sources: add a new file next to this one, e.g. `Gemma_4_26B_A4B.md`, using the same headings.

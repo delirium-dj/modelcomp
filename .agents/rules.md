@@ -89,6 +89,20 @@ reports, and the website stay consistent.
   returned an error" → `provider-returned-error-retry`, "the request was
   rejected as invalid" → `provider-invalid-request-retry`. Never match the bare
   "Upstream error from Phala:" prefix.
+- **One nudge per failure, enforced in the engine** (2026-10-29): payload
+  overlap cannot be avoided by pattern hygiene alone — one transport-flavoured
+  drop carries both the provider sentence and undici noise, so the same failure
+  trips `provider-headers-timeout-retry` ("continue") *and* `api-connect-retry`
+  ("please continue"). Live evidence (session `ses_e860688beffeBzqsuEF2iDHyG2`,
+  00:21:46): two prompts landed 2 ms apart and the model resumed twice. The
+  engine therefore keeps a module-level `lastNudge` map (shared by all plugins,
+  since they import the same module): `claimNudge()` lets the first scheduling
+  plugin through and logs `standing down: …` for the rest inside
+  `NUDGE_WINDOW_MS` (15s, deliberately > the 10s `DELAY`); a clean
+  `session.idle` calls `releaseNudge()`. Only a DIFFERENT plugin stands down —
+  the plugin that already owns the session's retry chain keeps nudging, so a
+  provider that fails in a few seconds is not stalled inside the window. Keep new plugins cheap to claim — the
+  guard, not the pattern list, is the anti-duplicate layer.
 - **Coverage & recovery.** Each plugin catches transient provider failures (quota, pool-empty,
   endpoint-down, bang/lock drops, DNS/network breaks, model-turn rejects,
   header timeouts, content-filter blocks, generic "provider returned error"

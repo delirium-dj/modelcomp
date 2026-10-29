@@ -22,6 +22,11 @@ const PATTERNS = [
 const DELAY = 10_000
 const MAX_CONSECUTIVE = 30
 
+// Note: a transport drop like the AI-side timeout can ALSO carry undici noise
+// ("fetch failed"), which api-connect-retry matches. The engine's cross-plugin
+// nudge guard (claimNudge) keeps that to one "continue" per failure - nothing to
+// do here.
+
 export default defineRetryPlugin({
   id: "modelcomp.provider-headers-timeout-retry",
   matches: PATTERNS,

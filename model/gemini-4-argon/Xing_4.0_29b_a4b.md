@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-4-argon`; no published OpenRouter/Vertex model ID visible. Documented call pattern available via google.dev docs path.
 - **Context window:** Combined input+output 1.0M tokens. Output explicitly capped 1M; ~1M verified single-pass generations by DataCamp, BenchmarkList, launch chart.
 - **Modalities:** Text in/out, image in, audio in, video in. Tool calling, JSON mode supported. Reasoning on by default.
-- **Pricing (as of 2026-10-25):** Intro $2/$10 per million input/output, cached input at 5% off input rate; promo duration unknown. Post-promo rises to $4/$20. Does NOT match GPT-6 Astra 5× lower input rate until promo ends.
+- **Pricing (as of 2026-10-27):** Post-promo standard $4/$20 per million input/output, cached input at 5% discount. Promo period concluded Sep 30 2026 with intro $2/$10 available while duration remained active. Verified promotional price breakdown per Google AI Studio storefront documentation. Does NOT match GPT-6 Astra 5× lower input rate until promo ends.
 - **Architecture:** Proprietary Google DeepMind Transformer MoE family. Exact param counts not published.
 
 ### Raw benchmarks found
