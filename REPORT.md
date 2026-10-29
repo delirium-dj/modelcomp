@@ -1,5 +1,14 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-10-29 (2) — "OpenAI Chat tool call delta is missing id or name" had no retry plugin
+
+1. **Symptom.** Live turns at `21:23:25` and `21:25:14` UTC died with `cause="AI.Error: OpenAI Chat tool call delta is missing id or name"` and stayed idle; earlier occurrences (`2026-10-28 20:16`, `2026-10-29 11:51`) behaved the same. No plugin in the suite contained "tool call" / "delta", so the failure matched nothing.
+2. **Root cause.** Coverage gap, not events: the suite covered transport, quota, rate-limit, invalid-request and generic provider wrappers, but not the AI SDK's malformed streaming tool-call error. The message is a thrown `AI.Error`, so it arrives as `session.step.failed` / `execution.failed` with the text on `data.error.message` (and on `message.error` in the transcript), which the engine already handles.
+3. **Fix.** New `.opencode/plugins/provider-tool-delta-retry.ts` (`modelcomp.provider-tool-delta-retry`): matches `"tool call delta is missing id or name"` / `"tool call delta is missing"`, waits 10 s, sends `continue`, 30-nudge brake. Payload-only on purpose: research answers may quote the sentence, so there is no prose scanner; the engine's structured-error path still covers transcript-only failures.
+4. **Verification (offline harness, real plugin + current engine).** `session.step.failed` with the exact message -> one `continue` after 10 s; transcript-only `message.error` -> one; prose quoting the sentence -> none; clean idle -> none; all 17 plugin/engine files parse. The live Desktop reload at `21:26:45Z` loaded 15/15 project plugins (including the new one) with zero failures.
+5. **Docs.** `.agents/rules.md` member list (now 15), `.antigravity/history/project-map.md`, `.opencode/plugins/v1/README.md` (V2-only note).
+6. Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`).
+
 ## 2026-10-29 — bare "Invalid request" still ignored (pattern coverage, not events)
 
 1. **Symptom.** A live turn died at `11:30:31` with `Failed to drain Session cause="AI.Error: Invalid request"` and no `continue` prompt, even though `provider-invalid-request-retry` was loaded and the 2.2 event path was in place.

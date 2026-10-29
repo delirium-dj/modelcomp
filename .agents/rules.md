@@ -54,7 +54,8 @@ reports, and the website stay consistent.
   runtime, not installed in `.opencode/node_modules`). The original V1 files
   are parked in `.opencode/plugins/v1/`; both loaders glob the top level only.
   Verified on Desktop 2.2.0 on 2026-10-28: 14/14 top-level ports load, zero
-  failures.
+  failures. 2026-10-29: 15/15 top-level plugins load (the V2-only
+  `provider-tool-delta-retry` included).
 - **Shared engine.** The thin ports delegate to
   `.opencode/lib/plugin-retry/engine.ts` (`defineRetryPlugin` + `RetrySpec`)
   and `.opencode/lib/plugin-retry/match.ts` (storm/degenerate detectors). That
@@ -109,7 +110,7 @@ reports, and the website stay consistent.
   wrappers, rate limits), waits, then sends a tiny nudge (`continue` /
   `please continue`) on the same model; per-session consecutive-failure brake;
   a clean turn resets everything.
-  Current members (14): `budget-retry`, `deepseek-continue-retry`,
+  Current members (15): `budget-retry`, `deepseek-continue-retry`,
   `fledge-endpoint-retry`, `gpt-sol-budget-retry`, `bang-drop-retry`,
   `api-connect-retry` (2026-10-05, DNS/connection/provider-transport breaks
   incl. gateway "response headers timed out"; any model),
@@ -136,7 +137,11 @@ reports, and the website stay consistent.
   "upstream error from Phala" prefix was removed because its invalid-request
   tail belongs to `provider-invalid-request-retry` — matching both queues two
   nudges; whole sentence only, never the bare prefix "provider returned" —
-  research answers here discuss provider behaviour), and
+  research answers here discuss provider behaviour),
+  `provider-tool-delta-retry` (2026-10-29, V2-only — no V1 original; OpenAI
+  Chat streaming "tool call delta is missing id or name" malformed chunks;
+  payload-only, no transcript scan, because research prose quotes provider
+  failures), and
   `provider-rate-limit-retry` (2026-10-28, "rate limit exceeded" / "too many
   requests" / "resource has been exhausted" / "requests per minute"; payload
   only, no transcript scan, because research prose discusses rate limits).

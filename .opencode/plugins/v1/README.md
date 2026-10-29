@@ -39,8 +39,13 @@ Both newer plugins are mirrored too: `provider-returned-error-retry.ts`
 error from Phala" variants) and `provider-rate-limit-retry.ts` (429 /
 "too many requests" / "requests per minute"; payload-only in V2).
 
+`provider-tool-delta-retry.ts` (2026-10-29, "OpenAI Chat tool call delta is
+missing id or name") is **V2-only**: it was written after the V1 runtime was
+retired, so there is no V1 original to mirror here.
+
 Verified 2026-10-28 on Desktop 2.2.0: all 14 top-level ports load, and the
-server log shows zero `failed to load plugin` lines. If a future edit reverts
+server log shows zero `failed to load plugin` lines. 2026-10-29: 15/15
+top-level plugins load (the V2-only `provider-tool-delta-retry` included). If a future edit reverts
 one to the V1 shape, the log immediately shows the `PluginModule.LoadError`
 above and that plugin is silently absent from the running session.
 
