@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 84/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 88.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 92.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 60.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 84.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 77/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 82.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 78.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 83/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 89.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 51.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 81.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 81.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 76.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash, Step 5 Preview.
-- Average from top 4 by Overall Score: Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash, Step 5 Preview.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, GPT-5.6 Luna, Inkling, MiMo 2.6 Flash, Step 5 Preview.
+- Average from top 5 by Overall Score: Gemini 3.8 Flash, GPT-5.6 Luna, Inkling, MiMo 2.6 Flash, Step 5 Preview.
 - Ignored below-gate rater(s): Flint, GLM 4.5 Flash, GLM 4.7 Flash, Laguna S 2.1, Laguna XS 2.1, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

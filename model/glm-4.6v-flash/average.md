@@ -94,18 +94,18 @@ Long context:
 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/glm-4.6v-flash/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).## Averaged scores
 
-- **Tool use: 57/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 61.9/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 64.9/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 76.1/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 56.3/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 95.7/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 63.3/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 58.5/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 62.3/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 64.2/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 76.7/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 56.5/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 96.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 63.7/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 9 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Step 5 Preview.
-- Average from top 9 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.6V Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash.
+- Based on 10 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
+- Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.6V Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

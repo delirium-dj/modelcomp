@@ -11,5 +11,5 @@
     "https://www.anthropic.com/pricing"
   ],
   "standout": "The hybrid-reasoning pioneer: the Sonnet that introduced choose-your-depth thinking to the family.",
-  "tradeoff": "Shut down entirely and replaced by Sonnet 4.6+; historical significance only."
+  "tradeoff": "Retired from Anthropic-operated APIs on 2026-02-19; Bedrock and Google-managed Vertex AI set separate lifecycle schedules, and current partner availability is unverified."
 }
