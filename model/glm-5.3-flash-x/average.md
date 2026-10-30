@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
 - Average from top 4 by Overall Score: Gemini 3.8 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, GLM 4.7 Flash, GPT 6 Luna, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Xing 4.0 29b a4b.
+- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, GPT 6 Luna, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Xing 4.0 29b a4b.

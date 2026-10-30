@@ -28,7 +28,6 @@
 89.7 claude-opus-4.7
 89.7 glm-5.3-flash
 89.7 gpt-5.4-pro
-89.7 kimi-k3.1-pro
 89.7 muse-wonder-full
 89.3 gemini-3.5-flash
 89.1 muse-wonder-1.0
@@ -38,6 +37,7 @@
 88.6 deepseek-v4.1-flash
 88.6 qwen-3.8
 88.5 claude-sonnet-5
+88.5 kimi-k3.1-pro
 88.5 mimo-v2.6-flash
 88.4 muse-spark-1.1
 88.3 gpt-6-sol
@@ -80,8 +80,8 @@
 84.3 pareto-26.10-preview
 84.2 gpt-5
 84.2 qwen-3.5-397b
-84 gpt-6.1-terra
 83.8 gpt-6-luna
+83.8 gpt-6.1-terra
 83.6 claude-haiku-5.5
 83.5 qwen-3.7-max
 83.4 kimi-k2.5
