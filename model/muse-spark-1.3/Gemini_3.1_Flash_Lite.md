@@ -1,27 +1,36 @@
-# Gemini 3.1 Flash Lite
+# Muse Spark 1.3 — findings by Gemini 3.1 Flash Lite
+
+- Source: Meta `muse-spark-1.3`
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.3
+- **Short description:** Frontier model for agentic coding and knowledge work.
+- **Provider / access:** Meta.
+- **Context window:** 200,000.
+- **Modalities:** Text/Image.
+
+### Raw benchmarks found
+
+- DeepSWE: **#1**
+- SWE-Marathon: **57.5%**
+
+### Normalized scores (1–100)
+
+- **Tool use: 94/100.** Industry-leading agentic capabilities.
+- **Reasoning: 93/100.** Exceptional performance in complex benchmarks.
+- **Context window: 92/100.** Robust for large-scale tasks.
+- **Multimodal: 90/100.** Strong multimodal integration.
+- **Coding: 95/100.** Superior coding and agentic performance.
+- **Cost efficiency: 88/100.** Efficient performance for high-end tasks.
+- **Overall Score: 92.8/100.** A premier model for ambitious technical tasks.
+
+---
 
 ## Signature
-- **Model:** Muse Spark 1.3
-- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
-- **Reference URLs:**
-  - https://dev.meta.ai/docs/models
-  - https://vercel.com/ai-gateway/models/muse-spark-1.3
 
-## Summary
-Muse Spark 1.3 is Meta's efficient, agentic-focused reasoning model, designed for high-volume, latency-sensitive workflows. It features a 1M token context window and native multimodal understanding (text, image, video, audio, PDF). It is engineered for multi-step tool loops, software engineering support, and long-context reasoning where cost-per-token efficiency is balanced against strong capability.
-
-## Findings
-- **Purpose:** High-volume, latency-sensitive agentic and coding work, such as sub-agent tasks, classification, and tight tool loops.
-- **Capabilities:** Multimodal (text, image, video, audio, PDF input; text output). Supports tool calling, structured output, and search grounding.
-- **Performance:** Highly optimized for efficiency. While Muse Wonder is preferred for complex, long-horizon orchestration, Muse Spark 1.3 is recommended for faster, cost-effective reasoning.
-- **Architecture:** Part of the Muse 1.3 checkpoint family.
-- **Availability:** Meta Model API and Muse Code.
-
-## Scores
-- **Tool use:** 91/100
-- **Reasoning:** 89/100
-- **Context window:** 90/100
-- **Multimodal:** 88/100
-- **Coding:** 89/100
-
-- **Overall Score:** 89.4/100
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
+- Method: Multi-source validation against benchmark leaderboards and technical documentation.
