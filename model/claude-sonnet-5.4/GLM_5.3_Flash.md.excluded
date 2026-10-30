@@ -1,0 +1,69 @@
+# Claude Sonnet 5.4 — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified data)
+
+- Source: none found — Anthropic (`claude-sonnet-5-4` not found to exist)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact
+> model/ID, because no evidence was found that the model exists at all. Per the
+> template's mandatory self-exclusion rule this file is saved as `.md.excluded`
+> (notes only; any scores inside are ignored) instead of a scored `.md`.
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (UNVERIFIED — suspected phantom checkpoint)
+- **Short description:** No verified evidence that Anthropic ever released a Sonnet 5.4. Recorded here as a negative-findings existence audit; this entry may be a phantom checkpoint like `claude-opus-4.4` (parked 2026-10-26, never resurrect).
+- **Provider / access:** none found
+- **Release / knowledge:** none found
+- **IDs:** no `claude-sonnet-5-4` model ID found in any registry, pricing table, deprecation notice, or SDK listing
+- **Context window:** no verified data
+- **Modalities:** no verified data
+- **Pricing:** no verified data
+- **Architecture:** no verified data
+
+### Existence audit (2026-10-29, five independent searches)
+
+- **Anthropic lineage pages show no 5.4:** the Sonnet line documented on anthropic.com and release timelines is Sonnet 4.5 → 4.6 (2026-02-17) → Sonnet 5 (2026-06-30) → Sonnet 5.5 (2026-09-28) — sources state Sonnet 5 "was the most capable Sonnet-tier model until Claude Sonnet 5.5 succeeded it on September 28, 2026", with no 5.4 in between.
+- **Model-ID registry absence:** Anthropic's ID-format docs (`claude-{name}-{major}[-{minor}]`) and the anthropics/skills registry list Sonnet IDs 4.5, 4.6, 5, 5.5 only; the deprecations page recommends `claude-sonnet-5-5` as the migration target.
+- **Pricing-table absence:** Portkey's Anthropic model/pricing coverage and other gateway tables list no `claude-sonnet-5-4` row.
+- **Lineup statement:** coverage of Anthropic's current catalog reports the lineup as four models — Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5 — with no 5.4-tier member.
+- **Search trail:** exact-phrase `"Claude Sonnet 5.4" Anthropic`, ID-format `"claude-sonnet-5-4"`, and leaderboard queries return only GPT-5.4-vs-Claude-Sonnet-5 comparison pages (a name-collision false positive: GPT-5.4 is an OpenAI model, unrelated) and Sonnet 5 / 5.5 pages.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (all benchmarks)
+
+Reasoning / knowledge:
+
+- no verified public score found (all benchmarks)
+
+Coding:
+
+- no verified public score found (all benchmarks)
+
+Long context:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — self-excluded. A scored file with placeholder numbers is forbidden
+(`RULES.md`; template self-exclusion rule). If the orchestrator later verifies a
+real Sonnet 5.4 (model ID, docs, or measured leaderboard row), re-research and
+replace this file with a scored `GLM_5.3_Flash.md`.
+
+**Suggested follow-up for the orchestrator (requires user sign-off, not agent action):**
+if this remains a phantom, `claude-sonnet-5.4` is a candidate for the parked-slugs
+list alongside `claude-opus-4.4` / `claude-opus-3.7` (per-instance user decision;
+the roster is `model-aliases.generated.md`).
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-29
+- Method: public internet research — five independent searches (Anthropic announcement/model-card, benchmarks, exact-phrase name, API model ID, leaderboards) plus lineage/deprecation/registry pages; no model card, ID, pricing row, or measured benchmark found. Scores: none (self-excluded).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

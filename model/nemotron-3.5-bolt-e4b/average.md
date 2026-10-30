@@ -19,4 +19,4 @@
 
 - Based on 6 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Sol, GPT-5.6 Terra, Step 5 Preview.
 - Average from top 6 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Sol, GPT-5.6 Terra, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Solar Mini 4.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 5.3, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Solar Mini 4.

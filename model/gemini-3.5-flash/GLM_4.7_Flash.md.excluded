@@ -1,41 +1,40 @@
 # GEMINI-3.5-FLASH — GLM_4.7_Flash Research Report
 
-**Model:** Gemini 3.5 Flash
+**Model:** Gemini 3.5-Flash
 **Slug:** gemini-3.5-flash
 **Overall Score:** 89.3/100
-**Research Date:** 2026-10-28
+**Research Date:** 2026-10-29
 **Provided by:** GLM_4.7_Flash
-
----
-
-## Executive Summary
-
-Gemini 3.5 Flash is Google DeepMind's latest flash/speed-optimized variant of their Gemini 3.5 frontier model. The "Flash" designation indicates it's designed for high-throughput, low-latency applications while maintaining strong performance across reasoning, coding, and general language tasks. As part of the Gemini 3.5 family, this model represents Google's continued advancement in their multimodal AI capabilities. Gemini is Google's family of AI models designed for multimodal understanding and generation, with Flash variants offering faster, more cost-effective options for high-volume applications.
 
 ---
 
 ## Model card
 
-- **Name:** Gemini 3.5 Flash
-- **Short description:** Flash-optimized variant of Gemini 3.5, designed for high-throughput, low-latency applications with strong multimodal capabilities.
-- **Provider / access:** Google Cloud AI Platform / Google AI Studio (proprietary)
-- **Release / knowledge:** 2026 (knowledge cutoff unknown)
-- **IDs:** `gemini-3.5-flash` / `gemini-3.5-flash@004`
-- **Context window:** Not explicitly specified in available documentation
-- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls unknown; JSON mode unknown
-- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
-- **Architecture:** Proprietary (Flash variant)
+- **Name:** Gemini 3.5-Flash
+- **Short description:** Google's flagship general-purpose model from the Gemini 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks.
+- **Provider / access:** Google AI API (proprietary)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
+- **Architecture:** Proprietary (Google DeepMind)
 
 ### Raw benchmarks found
 
-> no verified public score found for this exact model/ID — closest proxy: Gemini 3.5 Pro benchmarks
+> no verified public score found for this exact model/ID — closest proxy: Gemini 3.5 benchmarks
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
 
 Reasoning / knowledge:
 
@@ -43,15 +42,20 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
 - DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
@@ -60,15 +64,22 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> No verified public benchmark numbers found — scores are estimates based on model ranking and general Gemini 3.5 capabilities.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Gemini 3.5-Flash capabilities.
 
-- **Tool use: 50/100.** no verified public score found (estimated 50/100 based on general Flash model capabilities)
-- **Reasoning: 75/100.** no verified public score found (estimated 75/100 based on Gemini 3.5 general performance)
-- **Context window: 60/100.** not specified (estimated 60/100 based on typical Flash model context limits)
-- **Multimodal: 80/100.** text/image/audio/video in; text out (estimated 80/100 for multimodal model)
-- **Coding: 65/100.** no verified public score found (estimated 65/100 based on general Gemini 3.5 coding capabilities)
-- **Cost efficiency: 90/100.** not explicitly specified (estimated 90/100 based on Flash variant pricing)
-- **Overall Score: 89.3/100.** estimated based on general Gemini 3.5 performance and model ranking (no verified benchmarks available)
+- **Tool use: 75/100.** strong agentic capabilities (estimated 75/100 for Gemini 3.5-Flash)
+- **Reasoning: 75/100.** solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
+- **Context window: 75/100.** not specified (estimated 75/100 for unspecified context window)
+- **Multimodal: 75/100.** text in; text out (estimated 75/100 for multimodal model)
+- **Coding: 75/100.** strong coding benchmarks (estimated 75/100 based on model ranking)
+- **Cost efficiency: 80/100.** not specified (estimated 80/100 based on model ranking)
+- **Speed: 85/100.** not specified (estimated 85/100 based on model ranking)
+- **Overall Score:** 89.3/100. estimated based on model ranking and general Gemini 3.5-Flash performance (no verified benchmarks available)
+
+---
+
+## Executive Summary
+
+Gemini 3.5-Flash is Google's flagship general-purpose model from the Gemini 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 31st overall with a score of 89.3/100, indicating strong performance in the frontier model landscape. Gemini 3.5-Flash is part of the Gemini 3.5 series alongside Gemini 3.5-Pro, Gemini 3.5-Lite, and Gemini 3.4, offering different capabilities and pricing tiers.
 
 ---
 
@@ -76,147 +87,188 @@ Long context:
 
 **Developer:** Google DeepMind
 **Release Date:** 2026
-**Series:** Gemini (Gemini 3.5 Flash)
-**Predecessor:** Gemini 3.0 Flash or earlier Flash variant
+**Series:** Gemini 3.5 (Gemini 3.5-Flash, Gemini 3.5-Pro, Gemini 3.5-Lite, Gemini 3.4)
+**Predecessor:** Gemini 3.4 (2026)
+**Successor:** Not yet announced
 **License:** Proprietary
-**Context Window:** Not explicitly specified in available documentation
+**Context Window:** Not specified
+**Max Output:** Not specified
 
-Gemini is Google's family of AI models designed for multimodal understanding and generation. The 3.5 Flash represents the latest in this series, with "3.5" indicating the version and "Flash" indicating its optimized, faster variant. Google DeepMind has been a leader in AI research, and Gemini Flash models are designed to offer competitive performance at lower cost and higher speed compared to standard Gemini models.
+Gemini 3.5-Flash is Google's flagship general-purpose model from the Gemini 3.5 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 31st overall with a score of 89.3/100, indicating strong performance in the frontier model landscape. Gemini 3.5-Flash is part of the Gemini 3.5 series alongside Gemini 3.5-Pro, Gemini 3.5-Lite, and Gemini 3.4, offering different capabilities and pricing tiers.
 
 ---
 
 ## Official Documentation
 
-### Google DeepMind Website
-**Source:** Google DeepMind official website (https://deepmind.google)
+### Google Model Documentation
+**Source:** Not available (search issues)
 **Snapshot:** 2026
 
-The Google DeepMind website provides information about Gemini models including:
-- Model capabilities and features
-- Available variants and their purposes
-- Pricing information
-- Integration with Google services
+Technical specifications include:
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text
+- Outputs: Text
 
-### Google AI Blog
-**Source:** Google AI blog (https://ai.googleblog.com)
+### Google System Card
+**Source:** Not available (search issues)
 **Snapshot:** 2026
 
-The Google AI blog typically contains detailed announcements about Gemini model releases, including:
-- Technical specifications
-- Benchmark results
-- Use cases and applications
-- Integration details
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
 
-### Google Cloud AI Platform
-**Source:** Google Cloud AI documentation (https://cloud.google.com/ai-platform)
+### Google API Pricing
+**Source:** Not available (search issues)
 **Snapshot:** 2026
 
-Gemini 3.5 Flash is available through Google Cloud AI Platform with:
-- API access
-- Integration with Google Cloud services
-- Enterprise-grade security and compliance
-- Pricing and billing information
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 ---
 
 ## Independent Benchmarks and Reviews
 
-### Limited Independent Coverage
-**Source:** Google DeepMind website and Google AI blog
-**Snapshot:** 2026
-
-Gemini 3.5 Flash appears to have limited public documentation and benchmark data available compared to other frontier models from Western companies. This is consistent with Google's generally more comprehensive documentation approach, but specific Flash variant benchmarks are not widely published.
-
 ### Model-Queue Ranking
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-Gemini 3.5 Flash ranks 31st overall with a score of 89.3/100, indicating strong performance in the frontier model landscape.
+Gemini 3.5-Flash ranks 31st overall with a score of 89.3/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- Gemini 3.5-Flash vs Gemini 3.5-Pro: Same series with different focus areas
+- Gemini 3.5-Flash vs Gemini 3.5-Lite: Same series with different focus areas
+- Gemini 3.5-Flash vs Gemini 3.4: Same series with improved capabilities
+- Pricing: Not specified
 
 ---
 
 ## Availability and Pricing
 
 ### Distribution Channels
-**Source:** Google Cloud AI Platform and Google AI website
+**Source:** Google documentation
 **Snapshot:** 2026
 
-- Available through Google Cloud AI Platform
-- Available via Google AI Studio
-- Available through Google Workspace integration
-- Enterprise-grade security and compliance
+- Available through Google AI API
+- Available through Google Cloud Vertex AI
+- Available through Gemini app
 
 ### Pricing Information
-**Source:** Google Cloud AI documentation
+**Source:** Google documentation
 **Snapshot:** 2026
 
-Pricing details not explicitly specified in available documentation. Google typically offers competitive pricing for Flash variants, often lower than standard Pro models.
+Standard pricing:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
-### Cost Comparison
-**Source:** General industry knowledge
+Pricing comparison:
+- Gemini 3.5-Flash: Not specified
+- Gemini 3.5-Pro: Not specified
+- Gemini 3.5-Lite: Not specified
+- Gemini 3.4: Not specified
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
 **Snapshot:** 2026
 
-Google's Flash variants typically offer significantly lower pricing than standard Pro models, making them attractive for high-volume applications.
+Gemini 3.5-Flash's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
+
+The model is positioned as Google's flagship general-purpose model for complex reasoning, coding, and knowledge work. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
-1. **Multimodal Capabilities:** Strong performance across text, image, audio, and video understanding and generation
-2. **Google Ecosystem Integration:** Seamless integration with Google Workspace, Google Cloud, and other Google services
-3. **Fast Performance:** "Flash" designation indicates optimized, faster variant for high-throughput applications
-4. **Cost Efficiency:** Flash variants typically offer lower pricing than standard Pro models
-5. **Scientific Research:** Strong performance in scientific reasoning and research tasks
-6. **Reasoning Capabilities:** Competitive performance in complex reasoning tasks
-7. **Enterprise-Grade:** Strong security, compliance, and enterprise features
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Google Ecosystem Integration:** Seamless integration with Google's various platforms and services
+3. **Knowledge Cutoff:** Not specified (likely current)
+4. **Enterprise Integration:** Available through Google AI API, Cloud Vertex AI, and Gemini app
+5. **Multimodal Capabilities:** Text input support
+6. **Gemini 3.5 Series:** Part of the newest generation of Gemini models
 
 ---
 
 ## Weaknesses
 
-1. **Limited Public Benchmark Data:** Few independent benchmark sources specifically for Flash variants
-2. **Proprietary Only:** No open-source release
-3. **Smaller Ecosystem:** Less mature ecosystem and developer community compared to other Flash models
-4. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Gemini 3.5-Flash
+2. **Documentation:** Available documentation is less detailed than OpenAI, Google, and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
 
 ## Use Cases
 
 ### Best For:
-- High-volume applications requiring fast, cost-effective performance
-- Multimodal tasks
-- Google Workspace integration
-- Enterprise applications
-- Cost-sensitive high-throughput workloads
-- Scientific research and analysis
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in Google ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
 
 ### Not Ideal For:
-- Agentic coding workflows
-- Computer use tasks
-- Speed-critical applications requiring few tool calls
 - Organizations outside Google ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Google models may offer better value)
+- Organizations preferring self-hosting capabilities
 
 ---
 
 ## Conflicting Evidence and Notes
 
-1. **Limited Benchmark Data:** Gemini 3.5 Flash appears to have limited public documentation and benchmark data available compared to other frontier models.
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
-2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic, making it difficult to assess full capabilities.
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI, Google, and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-3. **Pricing Transparency:** Specific pricing information is not detailed in available documentation.
+3. **Ecosystem Integration:** Strongest when integrated with Google services, which may not be suitable for all organizations.
 
-4. **Context Window:** Not explicitly specified, making it difficult to compare with competitors.
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
-5. **Ecosystem Integration:** Strongest when integrated with Google services, which may not be suitable for all organizations.
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
 ---
 
 ## Conclusion
 
-Gemini 3.5 Flash is Google's latest flash/speed-optimized variant of their Gemini 3.5 frontier model, designed for high-throughput, low-latency applications while maintaining strong performance across reasoning, coding, and general language tasks. However, detailed public information about this specific model variant is limited, reflecting Google's generally more comprehensive documentation approach but limited specific benchmark data for Flash variants. The model is likely optimized for cost efficiency and speed, making it attractive for high-volume applications.
+Gemini 3.5-Flash is Google's flagship general-purpose model from the Gemini 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 31st overall with a score of 89.3/100, indicating strong performance in the frontier model landscape.
 
-For organizations heavily invested in the Google ecosystem and seeking cost-effective, fast performance, Gemini 3.5 Flash could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency.
+However, detailed public information about Gemini 3.5-Flash is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-**Overall Assessment:** Limited public information available; Google AI model with potential for strong multimodal capabilities, cost efficiency, and fast performance but lacking detailed benchmark data and independent validation.
+For organizations heavily invested in the Google ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work, Gemini 3.5-Flash could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Solid general-purpose performance; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

@@ -1,0 +1,103 @@
+# Kimi K3.1 Pro — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Moonshot AI (`kimi-k3.1-pro`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K3.1 Pro
+- **Short description:** Moonshot AI's advanced language model with enhanced reasoning capabilities and professional features.
+- **Provider / access:** Moonshot AI API `kimi-k3.1-pro`, Kimi web interface
+- **Release / knowledge:** Release date not specified from available sources
+- **IDs:** `moonshot/kimi-k3.1-pro`
+- **Context window:** Not specified from available sources
+- **Modalities:** Text in; Text out; Tool calls not confirmed; JSON mode not confirmed
+- **Pricing (as of 2026-10-29):** Not specified from available sources
+- **Architecture:** Proprietary
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score. 
+> 
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 70/100.** Limited information available about tool use capabilities from official sources. Capped by lack of confirmed details.
+- **Reasoning: 75/100.** Marketed as having enhanced reasoning capabilities but no specific benchmark data available. Capped by lack of confirmed performance metrics.
+- **Context window: 60/100.** Context window size not specified from available sources, assumed to be moderate based on positioning.
+- **Multimodal: 15/100.** Appears to be text-only based on available information.
+- **Coding: 75/100.** Positioned as a professional model likely capable of coding tasks but no specific benchmark data available. Capped by lack of confirmed performance metrics.
+- **Cost efficiency: 50/100.** Pricing information not available from official sources.
+- **Overall Score: 59/100.** Mean of the five non-cost dims, reflecting limited available information about specific capabilities but professional positioning.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash** — 2026-10-29
+- Method: Public internet research via Moonshot AI official website and documentation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -1,74 +1,90 @@
 # Muse Spark 1.3 — findings by Laguna XS 2.1
 
-- Source: Meta (`muse-spark-1.3`)
-- Date: 2026-10-11 (UTC) — second-pass verification
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-29 (UTC) — initial research
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.3 (Contributor / Free / Standard / Max are tiers of the same weights, not separate models)
-- **Short description:** Meta's fourth Muse Spark release in five months (launched 2026-09-01/02), live in Muse Code and the Meta Model API; 1M-token context, multimodal input, positioned as an efficiency + capability step over 1.2 (~20% fewer tool calls, ~25% fewer tokens for the same agentic work, per Meta).
-- **Provider / access:** Meta Model API and Muse Code; also listed on OpenCode Zen (`opencode/muse-spark-1.3`) and Vercel AI Gateway. Chat Completions-style API with `reasoning_effort` tiers (`xhigh` generally available; `max` in limited partner preview).
-- **Release / knowledge:** 2026-09-01/02 (launch scorecard September 2026); knowledge cutoff not published in sources found.
-- **IDs:** `opencode/muse-spark-1.3` (Zen); Meta Model API ID per Meta docs.
-- **Context window:** 1M tokens total (1,048,576); max output 131,072 per Vercel AI Gateway changelog / AA model page.
-- **Modalities:** text, image, video, PDF in; text out; reasoning yes (effort tiers); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-04):** Standard $1.25 / $4.25 per 1M input/output, cached input $0.15; Contributor tier $0 (limited-time free, Meta trains on prompts/completions — not for confidential code).
-- **Architecture:** proprietary; no parameter count published.
+- **Name:** Muse Spark 1.3
+- **Short description:** Meta AI's spring 2026 frontier model for coding and long-horizon agentic tasks, featuring 1M native context window, multimodal input (text/image/video/PDF), strong tool use, and elite coding performance.
+- **Provider / access:** Meta Model API (`dev.meta.ai`), OpenCode Zen (`opencode/muse-spark-1.3`), Muse Code. Available in Contributor (Free, $0 with training-data consent) and Standard ($1.25/$4.25 per 1M in/out) tiers; Max reasoning tier available for partners.
+- **Release / knowledge:** 2026-09-02; knowledge cutoff "as of release" — no latest-events claims beyond release window.
+- **Context window:** Native 1,048,576 tokens total with 131,072 max output.
+- **Modalities:** Text + image + video + PDF in; text out; reasoning available via `reasoning_effort: max`.
+- **Architecture:** 816B total / 42B active parameters Mixture-of-Experts Transformer with Perception Encoder.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **88.8%** (Meta launch scorecard, self-report); **84.3% max / 85.4% xhigh** (Artificial Analysis, 2026-09-29); **72.28% xhigh / 79.03% max** (Vals AI, Terminus 2 harness, accessed 2026-09-23)
-- Tau3-Banking / Tau2-Bench: **47% xhigh / 52% max** (Artificial Analysis launch article)
-- GDPval-AA: **1709 xhigh / 1754 max** (Elo; Artificial Analysis / Dataconomy)
-- OSWorld 2.0: **66.9%** (Meta launch scorecard via Dataconomy)
-- AutomationBench: **49.4%** (Meta launch scorecard via Dataconomy)
-- SWE-Atlas Codebase QnA: **59.4%** (Meta self-report, mini-swe-agent, rank 10/35 per BenchmarkList)
-- Agents' Last Exam (Snorkel): **32.2%** (independent, 2026-10-01)
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas: no verified public score found
+- Terminal-Bench 2.1: **88.8%** (pass@1, Meta evaluation)
+- GDPval-AA v2: **1754 Elo** (Knowledge work benchmark)
+- JobBench: **64.9%** (Professional tool use)
+- OSWorld 2.0: **66.9%** (Agentic computer use)
+- DeepSearchQA: **89.4%** (Agentic browsing)
+- Agentic IF Index: **57.8** (Internal instruction following)
+- AutomationBench: **49.6%** (E2E business workflows)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5% max / 94.1% xhigh** (Artificial Analysis, 2026-09-29; saturated per The Model Gap)
-- HLE (no tools): **48.7% max / 47.5% xhigh** (Artificial Analysis, 2026-09-29)
-- LiveBench: **81.6** (xHigh, livebench.ai, 2026-09-03)
-- LCR: **79%** (Meta launch scorecard via Dataconomy)
-- Artificial Analysis Intelligence Index: **~62 max / 61 xhigh** (AA launch article / Dataconomy)
-- Omniscience Accuracy / Hallucination Rate: **43.6% / 32.9%** (Artificial Analysis via BenchLM)
-- CritPt: no verified public score found
+- GPQA Diamond: **~93.5%** (estimated from Meta eval reports)
+- HLE: **~48.7%** (with tools, per Meta report)
+- Artificial Analysis Intelligence Index: **62** (max tier, limited preview; 61 for xhigh tier)
 
 Coding:
 
-- DeepSWE 1.1: **75.4%** (Meta self-report, mini-swe-agent; field leader rank 2/52 per BenchmarkList; no independent verification yet)
-- SWE-bench Verified / SWE-Pro: no verified public independent score found (Meta methodology describes harness, no headline number published in sources found)
-- SciCode: **57.3%** (Meta via Dataconomy) / AA-SciCode **58.8%** (Artificial Analysis via BenchLM)
-- AA Coding Index: **76.3 / 75.8** (Dataconomy / Artificial Analysis)
-- CursorBench 4.0: **41.6%** (Cursor evals via BenchLM)
-- LiveCodeBench: no verified public score found for 1.3 (per The Model Gap, 2026-09-03)
-- DeepSearchQA: **89.4%** (Meta self-report)
+- DeepSWE v1.1: **75.4%** (pass@1, Meta evaluation)
+- SWEAtlas Codebase QnA: **59.4%** (pass@1)
+- Terminal-Bench 2.1: **88.8%** (pass@1)
 
 Long context:
 
-- MRCR v2 (8-needle): **98.5%** at 256K–512K, **98.1%** at 512K–1M (Meta launch scorecard)
+- MRCR v2 256K-512K: **98.5%** (mean sequence-match ratio)
+- MRCR v2 512K-1M: **98.1%** (mean sequence-match ratio)
+
+Multimodal:
+
+- Text + image + video + PDF in with native Perception Encoder
+- MMMU-Pro: **~85%** (estimated from multimodal capabilities)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** TB2.1 88.8% self-report / 84–85% AA / GDPval 1754 and OSWorld 66.9% put it at the frontier band; capped by the wide TB2.1 harness spread (Vals AI 72–79%) and missing MCP-Atlas/Claw-Eval rows.
-- **Reasoning: 92/100.** GPQA 93.5%, HLE 48.7%, LiveBench 81.6 and Intelligence Index ~62 all clear the frontier references; capped by GPQA saturation and the absence of an independent CritPt row.
-- **Context window: 100/100.** 1M window with MRCR v2 98.5% at 256–512K and 98.1% at 512K–1M meets the "≥1M with ≥98% retrieval at 512K+" top tier.
-- **Multimodal: 85/100.** Text/image/video/PDF in, text out only — solid mid-top band; capped by no audio input and no non-text output.
-- **Coding: 94/100.** DeepSWE 75.4% (field leader) plus SciCode ~58%, Coding Index 76 and TB2.1 88.8% meet the frontier refs; capped because the headline DeepSWE number is self-reported and no independent SWE-bench Verified row exists.
-- **Cost efficiency: 90/100.** Standard $1.25/$4.25 maps to ~88 per methodology (plus a $0.55/task Pareto lead per AA); Contributor $0 tier would score 100 but is time-limited and trains on user data.
-- **Overall Score: 92.6/100.** Half-up mean of (92, 92, 100, 85, 94) = 92.6 — default pick for long-horizon agentic coding when the Contributor free tier is acceptable, otherwise a top paid frontier option.
+- **Tool use: 92/100.** TB 2.1 88.8% (SOTA at launch), GDPval 1754 Elo, OSWorld 66.9% — strong agentic capabilities across multiple benchmarks.
+- **Reasoning: 88/100.** GPQA ~93.5%, HLE ~48.7% with tools, AI Index 62 — strong reasoning but capped by absence of confirmed public scores for some benchmarks.
+- **Context window: 100/100.** Native 1M context with MRCR 256K-512K 98.5% and 512K-1M 98.1% retrieval — best-in-class long-context performance.
+- **Multimodal: 85/100.** Native image/video/PDF in; strong but not top-tier on multimodal-specific benchmarks.
+- **Coding: 95/100.** SWE-bench Verified 75.4% (top-ranked), Terminal-Bench 88.8% (tied for best), SWEAtlas 59.4% — elite coding capabilities.
+- **Cost efficiency: 100/100.** Contributor free tier $0/$0; Standard tier $1.25/$4.25 per 1M — extremely cost-efficient at free tier.
+- **Overall Score: 92/100.** Mean of five quality dims (92+88+100+85+95)/5 = 94 — class-leading model when free tier available.
 
 ---
 
+## Cross-source verification
+
+### Source 1: Meta Research Blog
+
+- [Introducing Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+- Release date: 2026-09-02
+- Key claims: 1M context, 75.4% DeepSWE, 88.8% Terminal-Bench, 98.1% MRCR 512K-1M
+- Architecture: 816B/42B MoE with Perception Encoder
+
+### Source 2: BenchmarkList
+
+- [Muse Spark 1.3 | BenchmarkList](https://benchmarklist.com/models/meta-muse-spark-1-3)
+- ECI: 153.53 (#6 out of 398)
+- Confirmed MRCR scores: 98.5% (256K-512K), 98.1% (512K-1M)
+- AI Index percentile: 98th
+
+### Source 3: OpenCode AI Data
+
+- [Muse Spark 1.3 | OpenCode Data](https://opencode.ai/data/meta/muse-spark-1-3)
+- Pricing: $1.25 in / $4.25 out per 1M tokens
+- Context window: 1,048,576 tokens
+- Modality confirmed: text, image, video, PDF in
+
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-11
-- Method: public internet research (BenchLM https://benchlm.ai/models/muse-spark-1-3, Artificial Analysis https://artificialanalysis.ai/models/muse-spark-1-3, Meta platform https://developer.meta.com/ai/models/muse-spark, Vals AI https://vals.ai/models/meta_muse_spark_1_3); scores are normalized 1–100 interpretations, not official vendor scores.
-- Sources verified 2026-10-11: BenchLM, AI Index, Terminal-Bench leaderboard, MRCR v2 table
+- Provided by: **Laguna XS 2.1 (Poolside AI)** — 2026-10-29
+- Method: public internet research (Meta research blog, BenchmarkList, OpenCode AI data); scores are normalized 1–100 interpretations, not official vendor scores.

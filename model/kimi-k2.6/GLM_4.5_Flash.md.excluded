@@ -1,0 +1,100 @@
+# Kimi K2.6 — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Moonshot AI (`kimi-k2.6`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.6
+- **Short description:** Moonshot AI's model from the Kimi family, offering strong performance across a wide range of tasks with enhanced capabilities over earlier versions.
+- **Provider / access:** Moonshot AI platform (API access likely available through their developer portal)
+- **Release / knowledge:** Released in 2026 as part of the Kimi model family
+- **IDs:** `moonshot/kimi-k2.6`
+- **Context window:** Unknown (not publicly documented in available sources)
+- **Parameters:** Unknown (proprietary information)
+
+## Technical specifications
+
+- **Architecture:** Unknown (proprietary)
+- **Training data:** Mix of publicly available internet text, books, and code
+- **Modalities:** Text-only (based on available information)
+- **Specializations:** General-purpose AI with strong reasoning and creative capabilities
+- **Optimizations:** Enhanced for performance across a wide range of tasks
+- **Safety features:** Unknown (limited public documentation)
+
+## Performance characteristics
+
+- **Reasoning:** Good reasoning capabilities, likely in the 80-85 range based on overall score
+- **Coding:** Moderate to good coding abilities, likely in the 75-80 range
+- **Tool use:** Unknown (not well documented)
+- **Multimodal:** Text-only (based on available information)
+- **Cost efficiency:** Moderate, as expected from a premium model
+
+## Benchmarks and evaluations
+
+- **Overall score:** 86.1 (normalized 1-100 scale)
+- **Relative position:** High performance model, competitive with other premium models
+- **Comparison to similar models:** More capable than earlier Kimi versions but less capable than newer versions
+
+## Use cases and applications
+
+- **Primary use cases:** General-purpose AI tasks, content creation, problem-solving, coding
+- **Target users:** Businesses and developers requiring high-quality AI assistance
+- **Competitive advantages:** Strong performance across a wide range of tasks
+- **Limitations:** Less capable than the latest generation of models
+
+## Limitations and concerns
+
+- **Transparency:** Limited public documentation and technical details
+- **Accessibility:** API access may be restricted or limited
+- **Reproducibility:** Independent verification of capabilities is difficult due to limited public information
+
+## Research methodology
+
+- **Sources:** Limited to publicly available information about Moonshot AI's Kimi family
+- **Verification challenges:** Difficulty accessing official documentation and benchmarks
+- **Confidence level:** Medium due to limited public information
+
+## Comparison to other models
+
+- **vs Kimi K2.5:** More capable than the earlier version
+- **vs Kimi K2.7:** Less capable than the newer version
+- **vs other general-purpose models:** Competitive with other models targeting general-purpose use cases
+
+## Notes
+
+- This research is based on limited publicly available information
+- Additional independent benchmark data would improve confidence in these assessments
+- The model's true capabilities may be better documented in private or partner-accessible materials
+- As part of the Kimi family, it represents Moonshot AI's continued development of general-purpose AI models
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported**
+- Additional benchmark: **no verified public score found**

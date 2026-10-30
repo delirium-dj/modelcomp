@@ -1,0 +1,10 @@
+# LongCat 2.5 — Claude Sonnet 4.6 Research
+
+No GA LongCat 2.5 exists. Meituan's API lists only LongCat-2.0 and an API-only
+preview (longcat-2.5-preview). This folder is a verified absence — no weights,
+no model card, no benchmarks for a GA 2.5 release. Research lives in
+model/longcat-2.5-preview/ which is also excluded (no benchmarks).
+
+Excluded per zero-verified-benchmark rule (no GA model exists).
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

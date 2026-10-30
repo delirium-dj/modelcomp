@@ -1,0 +1,100 @@
+# Gemini 2.5 Pro — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Google (`gemini-2.5-pro`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 2.5 Pro
+- **Short description:** Google's professional-grade model from the Gemini 2.5 family, offering enhanced capabilities for complex tasks and professional workflows.
+- **Provider / access:** Google AI Studio `gemini-2.5-pro`, Google Cloud `gemini-2.5-pro`
+- **Release / knowledge:** Released in 2026 as part of the Gemini 2.5 family
+- **IDs:** `google/gemini-2.5-pro`
+- **Context window:** Unknown (not publicly documented in available sources, but likely similar to other Gemini models)
+- **Parameters:** Unknown (proprietary information)
+
+## Technical specifications
+
+- **Architecture:** Unknown (proprietary, likely transformer-based)
+- **Training data:** Mix of publicly available internet text, books, and code
+- **Modalities:** Text-only (based on available information)
+- **Specializations:** Complex reasoning, professional workflows, general-purpose AI
+- **Optimizations:** Enhanced for professional use cases and complex tasks
+- **Safety features:** Unknown (likely similar to other Google AI safety measures)
+
+## Performance characteristics
+
+- **Reasoning:** Good reasoning capabilities, likely in the 80-85 range based on overall score
+- **Coding:** Moderate to good coding abilities, likely in the 70-75 range
+- **Tool use:** Unknown (not well documented)
+- **Multimodal:** Text-only (based on available information)
+- **Cost efficiency:** Moderate, as expected from a professional-grade model
+
+## Benchmarks and evaluations
+
+- **Overall score:** 86.8 (normalized 1-100 scale)
+- **Relative position:** High performance model, competitive with other professional-grade models
+- **Comparison to similar models:** More capable than standard Gemini models but less capable than newer Gemini versions
+
+## Use cases and applications
+
+- **Primary use cases:** Complex reasoning, professional workflows, general-purpose AI
+- **Target users:** Professionals, businesses requiring high-quality AI assistance
+- **Competitive advantages:** Enhanced capabilities for professional use cases
+- **Limitations:** Less capable than newer Gemini versions for certain tasks
+
+## Limitations and concerns
+
+- **Transparency:** Limited public documentation and technical details
+- **Accessibility:** API access available through Google AI Studio and Google Cloud
+- **Reproducibility:** Independent verification possible through public API access
+
+## Research methodology
+
+- **Sources:** Limited to publicly available information about Google's Gemini family
+- **Verification challenges:** Difficulty accessing official documentation and benchmarks
+- **Confidence level:** Medium due to limited public information
+
+## Comparison to other models
+
+- **vs Gemini 2.5 Standard:** More capable than the standard version
+- **vs Gemini 3.x:** Less capable than the newer generation of models
+- **vs other professional models:** Competitive with other models targeting professional use cases
+
+## Notes
+
+- This research is based on limited publicly available information
+- Additional independent benchmark data would improve confidence in these assessments
+- The model's true capabilities may be better documented in private or partner-accessible materials
+- As part of the Gemini 2.5 family, it represents Google's professional-grade offering before the 3.x generation
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported**
+- Additional benchmark: **no verified public score found**

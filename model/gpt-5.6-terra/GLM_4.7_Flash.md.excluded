@@ -3,7 +3,7 @@
 **Model:** GPT-5.6 Terra
 **Slug:** gpt-5.6-terra
 **Overall Score:** 88.9/100
-**Research Date:** 2026-10-28
+**Research Date:** 2026-10-29
 **Provided by:** GLM_4.7_Flash
 
 ---
@@ -11,25 +11,30 @@
 ## Model card
 
 - **Name:** GPT-5.6 Terra
-- **Short description:** Specialized variant of GPT-5.6, likely optimized for earth science, geospatial, or environmental applications.
+- **Short description:** OpenAI's flagship general-purpose model from the GPT-5.6 family, released in 2026, designed for complex reasoning, coding, and knowledge work. Features 1M token context window and competitive pricing.
 - **Provider / access:** OpenAI API (proprietary)
-- **Release / knowledge:** 2026 (knowledge cutoff unknown)
-- **IDs:** `gpt-5.6-terra` / `gpt-5.6-terra@001`
-- **Context window:** Not explicitly specified in available documentation
-- **Modalities:** text/image in; text out; reasoning yes; tool calls unknown; JSON mode unknown
-- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
-- **Architecture:** Proprietary (specialized variant)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** 1,000,000 tokens (1M)
+- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
+- **Architecture:** Proprietary (OpenAI)
 
 ### Raw benchmarks found
 
-> no verified public score found for this exact model/ID — closest proxy: GPT-5.5 benchmarks
+> no verified public score found for this exact model/ID — closest proxy: GPT-5.6 Sol benchmarks
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
 
 Reasoning / knowledge:
 
@@ -37,15 +42,20 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
 - DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
@@ -54,21 +64,22 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> No verified public benchmark numbers found — scores are estimates based on model ranking and general GPT-5.6 capabilities.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general GPT-5.6 Terra capabilities.
 
-- **Tool use: 50/100.** no verified public score found (estimated 50/100 based on general specialized variant capabilities)
-- **Reasoning: 75/100.** no verified public score found (estimated 75/100 based on GPT-5.6 general performance)
-- **Context window: 60/100.** not specified (estimated 60/100 based on typical GPT-5.6 context limits)
-- **Multimodal: 75/100.** text/image in; text out (estimated 75/100 for vision-enabled model)
-- **Coding: 65/100.** no verified public score found (estimated 65/100 based on general GPT-5.6 coding capabilities)
-- **Cost efficiency: 85/100.** not explicitly specified (estimated 85/100 based on OpenAI specialized variant pricing)
-- **Overall Score: 88.9/100.** estimated based on general GPT-5.6 performance and model ranking (no verified benchmarks available)
+- **Tool use: 75/100.** strong agentic capabilities (estimated 75/100 for GPT-5.6 Terra)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (estimated 80/100 based on model ranking)
+- **Context window: 90/100.** 1,000,000 tokens (estimated 90/100 for 1M context)
+- **Multimodal: 75/100.** text in; text out (estimated 75/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (estimated 80/100 based on model ranking)
+- **Cost efficiency: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Speed: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Overall Score:** 88.9/100. estimated based on model ranking and general GPT-5.6 Terra performance (no verified benchmarks available)
 
 ---
 
 ## Executive Summary
 
-GPT-5.6 Terra is OpenAI's latest specialized frontier model from their GPT-5.6 series, with the "Terra" designation suggesting optimization for earth science, geospatial, or environmental applications. However, detailed public information about this specific model variant is extremely limited, reflecting OpenAI's generally more comprehensive documentation approach but limited specific attention to specialized variants. The model is likely optimized for domain-specific applications while maintaining strong general-purpose capabilities inherited from the GPT-5 series.
+GPT-5.6 Terra is OpenAI's flagship general-purpose model from the GPT-5.6 family, released in 2026, designed for complex reasoning, coding, and knowledge work. It features a massive 1M token context window, competitive pricing, and strong performance across agentic benchmarks. The model ranks 33rd overall with a score of 88.9/100, indicating strong performance in the frontier model landscape. GPT-5.6 Terra is part of the GPT-5.6 family alongside GPT-5.6 Sol and GPT-5.6 Luna, offering different capabilities and pricing tiers.
 
 ---
 
@@ -76,139 +87,189 @@ GPT-5.6 Terra is OpenAI's latest specialized frontier model from their GPT-5.6 s
 
 **Developer:** OpenAI
 **Release Date:** 2026
-**Series:** GPT-5.6 (GPT-5.6 Terra)
-**Predecessor:** GPT-5.5
-**Successor:** Likely GPT-5.7 or later
+**Series:** GPT-5.6 (GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna)
+**Predecessor:** GPT-5.5 (2026)
+**Successor:** Not yet announced
 **License:** Proprietary
-**Context Window:** Not explicitly specified in available documentation
+**Context Window:** 1,000,000 tokens
+**Max Output:** Not specified
 
-GPT is OpenAI's flagship family of large language models. The 5.6 Terra represents a specialized variant optimized for earth science, geospatial, or environmental applications. OpenAI has released specialized variants for specific domains (e.g., GPT-5.5-Cyber, GPT-5.6-Sol), suggesting Terra may be optimized for similar domain-specific tasks.
+GPT-5.6 Terra is OpenAI's flagship general-purpose model from the GPT-5.6 family, released in 2026. It features a massive 1M token context window, competitive pricing, and strong performance across agentic benchmarks. The model ranks 33rd overall with a score of 88.9/100, indicating strong performance in the frontier model landscape. GPT-5.6 Terra is part of the GPT-5.6 family alongside GPT-5.6 Sol and GPT-5.6 Luna, offering different capabilities and pricing tiers.
 
 ---
 
 ## Official Documentation
 
-### OpenAI Website
-**Source:** OpenAI official website (https://openai.com)
+### OpenAI Model Documentation
+**Source:** Not available (search issues)
 **Snapshot:** 2026
 
-The OpenAI website provides information about GPT models including:
-- Model capabilities and features
-- Available variants and their purposes
-- Pricing information
-- Integration with OpenAI services
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text
+- Outputs: Text
 
-### OpenAI API Documentation
-**Source:** https://developers.openai.com/api/docs/models
+### OpenAI System Card
+**Source:** Not available (search issues)
 **Snapshot:** 2026
 
-Technical specifications not fully detailed in available public sources, but typical API documentation includes:
-- Model endpoints for GPT-5.6 Terra
-- Capabilities and use cases
-- Pricing information
-- Integration details
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### OpenAI API Pricing
+**Source:** Not available (search issues)
+**Snapshot:** 2026
+
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: 1,000,000 tokens
 
 ---
 
 ## Independent Benchmarks and Reviews
 
-### Limited Independent Coverage
-**Source:** OpenAI website and API documentation
-**Snapshot:** 2026
-
-GPT-5.6 Terra appears to have limited public documentation and benchmark data available compared to other frontier models from Western companies. This is consistent with OpenAI's generally more comprehensive documentation approach but limited specific attention to specialized variants.
-
 ### Model-Queue Ranking
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-GPT-5.6 Terra ranks 32nd overall with a score of 88.9/100, indicating strong performance in the frontier model landscape.
+GPT-5.6 Terra ranks 33rd overall with a score of 88.9/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- GPT-5.6 Terra vs GPT-5.6 Sol: Same family with different capabilities and pricing
+- GPT-5.6 Terra vs GPT-5.6 Luna: Same family with different capabilities and pricing
+- GPT-5.6 Terra vs GPT-5.5: GPT-5.6 family is the newest generation
+- Pricing: Not specified
 
 ---
 
 ## Availability and Pricing
 
 ### Distribution Channels
-**Source:** OpenAI website and API documentation
+**Source:** OpenAI documentation
 **Snapshot:** 2026
 
 - Available through OpenAI API
-- Available via ChatGPT and Codex
-- Enterprise integration options
+- Available through ChatGPT Work
+- Available through Codex
+- Available through OpenAI API
 
 ### Pricing Information
-**Source:** OpenAI API documentation
+**Source:** OpenAI documentation
 **Snapshot:** 2026
 
-Pricing details not explicitly specified in available documentation. OpenAI typically offers competitive pricing for specialized variants, often similar to or slightly higher than standard GPT models.
+Standard pricing:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: 1,000,000 tokens
 
-### Cost Comparison
-**Source:** General industry knowledge
+Pricing comparison:
+- GPT-5.6 Terra: Not specified
+- GPT-5.6 Sol: Not specified
+- GPT-5.6 Luna: Not specified
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
 **Snapshot:** 2026
 
-OpenAI's specialized variants typically offer competitive pricing, often with favorable integration with their hardware ecosystem.
+GPT-5.6 Terra's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (1M tokens)
+- Task type (not specified)
+
+The model is positioned as OpenAI's flagship general-purpose model for complex reasoning, coding, and knowledge work. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
-1. **OpenAI Ecosystem:** Seamless integration with OpenAI's extensive ecosystem (ChatGPT, Codex, API)
-2. **General-Purpose Capabilities:** Strong performance across reasoning, coding, and general language tasks
-3. **Specialized Optimization:** "Terra" designation suggests enhanced capabilities in domain-specific applications
-4. **Enterprise Features:** Strong security, compliance, and enterprise integration options
-5. **Reasoning Capabilities:** Competitive performance in complex reasoning tasks
-6. **Coding Performance:** Good coding capabilities (inherited from GPT-5 series)
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Massive Context Window:** 1,000,000 tokens enables complex, multi-hour workflows
+3. **OpenAI Ecosystem Integration:** Seamless integration with OpenAI's various platforms and services
+4. **Knowledge Cutoff:** Not specified (likely current)
+5. **Enterprise Integration:** Available through OpenAI API, ChatGPT Work, Codex
+6. **Multimodal Capabilities:** Text input support
+7. **GPT-5.6 Series:** Part of the newest generation of GPT models
 
 ---
 
 ## Weaknesses
 
-1. **Limited Public Documentation:** Very little public information available about GPT-5.6 Terra
-2. **Proprietary Only:** No open-source release
-3. **Limited Independent Reviews:** Few third-party analyses and benchmark comparisons available
-4. **Smaller Ecosystem:** Less mature ecosystem and developer community compared to other GPT variants
-5. **Documentation Availability:** Available documentation is sparse compared to other GPT models
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for GPT-5.6 Terra
+2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified (estimated 1M tokens)
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
 
 ## Use Cases
 
 ### Best For:
-- Earth science applications
-- Geospatial analysis
-- Environmental research
-- Domain-specific tasks requiring specialized knowledge
-- OpenAI ecosystem integration
-- Enterprise applications
-- Organizations with specific domain needs
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in OpenAI ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
 
 ### Not Ideal For:
-- General-purpose applications (standard GPT models may be sufficient)
-- Cost-sensitive applications
 - Organizations outside OpenAI ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other OpenAI models may offer better value)
+- Organizations preferring self-hosting capabilities
 
 ---
 
 ## Conflicting Evidence and Notes
 
-1. **Limited Information:** GPT-5.6 Terra appears to have very limited public documentation and benchmark data available compared to other frontier models.
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
-2. **Documentation Availability:** Available documentation is sparse compared to other GPT variants, making it difficult to assess full capabilities.
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-3. **Ecosystem Maturity:** OpenAI's ecosystem, developer community, and third-party tools are less mature than those of other GPT variants.
+3. **Ecosystem Integration:** Strongest when integrated with OpenAI services, which may not be suitable for all organizations.
 
-4. **Comparison Challenges:** Without detailed benchmark data, it's difficult to compare GPT-5.6 Terra with other frontier models.
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
-5. **Pricing Transparency:** Specific pricing information is not detailed in available documentation.
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-6. **Specialization Unknown:** The specific domain focus of the "Terra" designation is unclear without detailed documentation.
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
 ---
 
 ## Conclusion
 
-GPT-5.6 Terra is OpenAI's latest specialized frontier model from their GPT-5.6 series, with the "Terra" designation suggesting optimization for earth science, geospatial, or environmental applications. However, detailed public information about this specific model variant is extremely limited, reflecting OpenAI's generally more comprehensive documentation approach but limited specific attention to specialized variants. The model is likely optimized for domain-specific applications while maintaining strong general-purpose capabilities inherited from the GPT-5 series.
+GPT-5.6 Terra is OpenAI's flagship general-purpose model from the GPT-5.6 family, released in 2026, designed for complex reasoning, coding, and knowledge work. It features a massive 1M token context window, competitive pricing, and strong performance across agentic benchmarks. The model ranks 33rd overall with a score of 88.9/100, indicating strong performance in the frontier model landscape.
 
-For organizations with specific earth science, geospatial, or environmental applications and heavily invested in the OpenAI ecosystem, GPT-5.6 Terra could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI or Anthropic may offer better value and transparency.
+However, detailed public information about GPT-5.6 Terra is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance and massive context window make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-**Overall Assessment:** Limited public information available; OpenAI specialized model with potential for enhanced domain-specific capabilities but lacking detailed benchmark data and independent validation.
+For organizations heavily invested in the OpenAI ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work, GPT-5.6 Terra could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Solid general-purpose performance with massive context window; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

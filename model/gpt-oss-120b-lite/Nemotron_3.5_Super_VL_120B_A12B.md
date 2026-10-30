@@ -42,7 +42,7 @@ Conflicts noted: arxiv independent evaluation (2508.12461) found gpt-oss-20B out
 - **Multimodal: 15/100.** Text in/out only — no image, audio, or video input or output.
 - **Coding: 70/100.** SWE-bench Verified 62.4%, Codeforces Elo 2463, HumanEval 87% (independent); strong coding but below top coding specialists; capped by lack of LiveCodeBench/DeepSWE figures.
 - **Cost efficiency: 99/100.** Free Apache 2.0 open weights, self-host on single 80GB GPU; hosted ~$0.15/$0.60 per 1M; among the most cost-efficient.
-- **Overall Score: 57/100.** Mean of (67+75+75+15+70)/5 = 60.4 → but modelcomp's aggregated Overall is 56.6 from 5 agent reports; using 57 to align with multi-agent consensus; best-fit recommendation: cost-efficient open-weight reasoning model for local deployment; strong math/reasoning, text-only, no multimodal.
+- **Overall Score: 60.4/100.** Mean of (67+75+75+15+70)/5 = 60.4 → but modelcomp's aggregated Overall is 56.6 from 5 agent reports; using 57 to align with multi-agent consensus; best-fit recommendation: cost-efficient open-weight reasoning model for local deployment; strong math/reasoning, text-only, no multimodal.
 
 ---
 

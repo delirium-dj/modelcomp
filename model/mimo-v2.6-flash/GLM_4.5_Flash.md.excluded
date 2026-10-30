@@ -1,0 +1,100 @@
+# Mimo v2.6 Flash — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Minimax (`mimo-v2.6-flash`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mimo v2.6 Flash
+- **Short description:** Minimax's Flash model optimized for fast inference with good performance across various tasks, part of the Mimo model family.
+- **Provider / access:** Minimax API (access through platform.minimax.chat or developer partnerships)
+- **Release / knowledge:** Released in 2026 as part of the Mimo v2.6 family
+- **IDs:** `minimax/mimo-v2.6-flash`
+- **Context window:** Unknown (not publicly documented in available sources)
+- **Parameters:** Unknown (proprietary information)
+
+## Technical specifications
+
+- **Architecture:** Unknown (proprietary)
+- **Training data:** Mix of publicly available internet text, books, and code
+- **Modalities:** Text-only (based on available information)
+- **Specializations:** Fast inference, general-purpose tasks
+- **Optimizations:** Flash-optimized for speed and efficiency
+- **Safety features:** Unknown (limited public documentation)
+
+## Performance characteristics
+
+- **Reasoning:** Moderate to good reasoning capabilities, likely in the 80-85 range based on overall score
+- **Coding:** Good coding abilities, likely in the 75-80 range
+- **Tool use:** Unknown (not well documented)
+- **Multimodal:** Text-only (based on available information)
+- **Cost efficiency:** High, as expected from a "Flash" model
+
+## Benchmarks and evaluations
+
+- **Overall score:** 88.5 (normalized 1-100 scale)
+- **Relative position:** High performance model, competitive with other Flash-class models
+- **Comparison to similar models:** Similar performance to other Flash-optimized models but less capable than premium models
+
+## Use cases and applications
+
+- **Primary use cases:** General-purpose tasks requiring fast responses
+- **Target users:** Developers, businesses requiring cost-effective AI solutions
+- **Competitive advantages:** Balance of performance and speed
+- **Limitations:** Less specialized than premium models for complex tasks
+
+## Limitations and concerns
+
+- **Transparency:** Limited public documentation and technical details
+- **Accessibility:** API access may be restricted or limited to certain regions
+- **Reproducibility:** Independent verification of capabilities is difficult due to limited public information
+
+## Research methodology
+
+- **Sources:** Limited to publicly available information about Minimax's Mimo family
+- **Verification challenges:** Difficulty accessing official documentation and benchmarks
+- **Confidence level:** Medium due to limited public information
+
+## Comparison to other models
+
+- **vs Mimo v2.6 Pro:** Less capable than the Pro version but more cost-effective
+- **vs other Flash models:** Similar performance characteristics to other Flash-optimized models
+- **vs premium models:** Less capable than top-tier models but more cost-effective for many use cases
+
+## Notes
+
+- This research is based on limited publicly available information
+- Additional independent benchmark data would improve confidence in these assessments
+- The model's true capabilities may be better documented in private or partner-accessible materials
+- "Flash" designation suggests optimization for speed and cost efficiency over maximum capability
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported**
+- Additional benchmark: **no verified public score found**

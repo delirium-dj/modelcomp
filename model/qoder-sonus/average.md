@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash.
 - Average from top 1 by Overall Score: Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Big Pickle, Flint, Gemini 3.5 Flash Lite, GPT 6 Luna, Laguna XS 2.1.
+- Ignored below-gate rater(s): Big Pickle, Flint, Gemini 3.5 Flash Lite, GPT 6 Luna, Laguna XS 2.1, Nemotron 3.5 Super VL 120B A12B.

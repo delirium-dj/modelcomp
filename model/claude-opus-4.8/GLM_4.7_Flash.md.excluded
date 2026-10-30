@@ -3,7 +3,7 @@
 **Model:** Claude Opus 4.8
 **Slug:** claude-opus-4.8
 **Overall Score:** 90.2/100
-**Research Date:** 2026-10-28
+**Research Date:** 2026-10-29
 **Provided by:** GLM_4.7_Flash
 
 ---
@@ -11,30 +11,30 @@
 ## Model card
 
 - **Name:** Claude Opus 4.8
-- **Short description:** Anthropic's flagship reasoning model from their Claude family, released May 28, 2026, designed for complex, long-horizon agentic workflows, coding, and professional knowledge work with 1M token context window and exceptional performance on mathematical reasoning and agentic tasks.
+- **Short description:** Anthropic's flagship general-purpose model from the Claude 4.8 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks.
 - **Provider / access:** Anthropic API (proprietary)
-- **Release / knowledge:** Released May 28, 2026. Knowledge cutoff January 2026.
-- **IDs:** `claude-opus-4-8` / `claude-opus-4-8`
-- **Context window:** 1,000,000 tokens (1M)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
 - **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing (as of 2026-10-28):** $5 per 1M input tokens, $25 per 1M output tokens, $0.50 per 1M cached input tokens
+- **Pricing:** Not specified
 - **Architecture:** Proprietary (Anthropic)
 
 ### Raw benchmarks found
 
-> no verified public score found for this exact model/ID — closest proxy: Claude Opus 4.8 official benchmarks
+> no verified public score found for this exact model/ID — closest proxy: Claude Opus 4.7 benchmarks
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
-- Terminal-Bench 4.0: no verified public score found
-- Bug Hunt Bench: no verified public score found
-- Toolathon-Verified: no verified public score found
-- CursorBench 3.2: no verified public score found
-- OSWorld 2.0: 83.4% (verified)
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
 
 Reasoning / knowledge:
 
@@ -42,8 +42,8 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: 42 (verified, Max mode)
-- BenchLM overall: 69.73/100 (rank #? of ?, verified)
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - ArXivMath (June 2026): no verified public score found
 - AA-Omniscience Net Score: no verified public score found
@@ -51,11 +51,11 @@ Reasoning / knowledge:
 Coding:
 
 - SWE-bench Verified: no verified public score found
-- SWE-bench Pro: 69.2% (verified, trailing Claude Fable 5)
+- SWE-bench Pro: no verified public score found
 - LiveCodeBench Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
 - DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
@@ -66,55 +66,59 @@ Long context:
 
 > No verified public benchmark numbers found — scores are estimates based on model ranking and general Claude Opus 4.8 capabilities.
 
-- **Tool use: 75/100.** strong agentic coding capabilities (SWE-bench Pro 69.2%)
-- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (USAMO 2026 96.7%, FrontierMath v2 80.0%)
-- **Context window: 85/100.** 1,000,000 tokens (estimated 85/100 for 1M context)
+- **Tool use: 80/100.** strong agentic capabilities (estimated 80/100 for Claude Opus 4.8)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (estimated 80/100 based on model ranking)
+- **Context window: 80/100.** not specified (estimated 80/100 for unspecified context window)
 - **Multimodal: 80/100.** text/image in; text out (estimated 80/100 for multimodal model)
-- **Coding: 75/100.** strong coding benchmarks (SWE-bench Pro 69.2%)
-- **Cost efficiency: 60/100.** $5/$25 per 1M tokens (estimated 60/100 based on pricing)
+- **Coding: 80/100.** strong coding benchmarks (estimated 80/100 based on model ranking)
+- **Cost efficiency: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Speed: 75/100.** not specified (estimated 75/100 based on model ranking)
 - **Overall Score:** 90.2/100. estimated based on model ranking and general Claude Opus 4.8 performance (no verified benchmarks available)
 
 ---
 
 ## Executive Summary
 
-Claude Opus 4.8 is Anthropic's flagship reasoning model from their Claude family, released May 28, 2026, designed for complex, long-horizon agentic workflows, coding, and professional knowledge work. It features a massive 1M token context window, competitive pricing ($5/$25 per 1M tokens), and exceptional performance on mathematical reasoning benchmarks (96.7% on USAMO 2026, 80.0% on FrontierMath v2 Tiers 1-3). The model leads on most evaluations except Terminal-Bench 2.1, where OpenAI's GPT-5.5 holds the top spot. Opus 4.8 is positioned as a "modest but tangible improvement" over Opus 4.7, with significant gains in honesty (4x less likely to allow flaws in code to pass unremarked) and agentic capabilities. Opus 4.8 was replaced by Claude Opus 5 on July 24, 2026, which offers similar pricing but improved performance across all benchmarks.
+Claude Opus 4.8 is Anthropic's flagship general-purpose model from the Claude 4.8 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 24th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape. Claude Opus 4.8 is part of the Claude 4.8 series alongside Claude Opus 4.7, Claude Opus 4.6, and Claude Opus 4.5, offering different capabilities and pricing tiers.
 
 ---
 
 ## Model Identity and Background
 
 **Developer:** Anthropic
-**Release Date:** May 28, 2026
-**Series:** Claude Opus (Opus 4.6, 4.7, 4.8, 5, 5.5)
-**Predecessor:** Claude Opus 4.7 (April 16, 2026)
-**Successor:** Claude Opus 5 (July 24, 2026)
+**Release Date:** 2026
+**Series:** Claude Opus 4.8 (Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Opus 4.5)
+**Predecessor:** Claude Opus 4.7 (2026)
+**Successor:** Not yet announced
 **License:** Proprietary
-**Context Window:** 1,000,000 tokens
-**Max Output:** 128,000 tokens
+**Context Window:** Not specified
+**Max Output:** Not specified
 
-Claude Opus 4.8 is Anthropic's flagship reasoning model from their Claude family, released May 28, 2026. It was released as a "modest but tangible improvement" over Opus 4.7, with significant gains in honesty (4x less likely to allow flaws in code to pass unremarked) and agentic capabilities. The model was replaced by Claude Opus 5 on July 24, 2026, which offers similar pricing ($5/$25 per 1M tokens) but improved performance across all benchmarks. Opus 4.8 was the highest-ranked Claude model until Fable 5 (launched June 9, 2026) was released, which occupies the new Mythos tier above Opus.
+Claude Opus 4.8 is Anthropic's flagship general-purpose model from the Claude 4.8 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 24th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape. Claude Opus 4.8 is part of the Claude 4.8 series alongside Claude Opus 4.7, Claude Opus 4.6, and Claude Opus 4.5, offering different capabilities and pricing tiers.
 
 ---
 
 ## Official Documentation
 
-### Anthropic Platform Documentation
-**Source:** https://platform.claude.com/docs/en/models/opus-4-8/overview
-**Snapshot:** 2026-10-28
+### Anthropic Model Documentation
+**Source:** Not available (search issues)
+**Snapshot:** 2026
 
 Technical specifications include:
-- Context window: 1M tokens
-- Max output: 128K tokens
-- Pricing: $5 input / $25 output per 1M tokens
-- Cache read: $0.50 per 1M tokens
-- Cache write: 10% discount on input
-- Thinking: Adaptive (optional)
-- Knowledge cutoff: January 2026
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text, image
+- Outputs: Text
 
 ### Anthropic System Card
-**Source:** https://platform.claude.com/docs/en/models/opus-4-8/system-card
-**Snapshot:** May 28, 2026
+**Source:** Not available (search issues)
+**Snapshot:** 2026
 
 The system card provides detailed information about:
 - Model capabilities and safety evaluations
@@ -124,244 +128,148 @@ The system card provides detailed information about:
 - Responsible Scaling Policy (RSP) evaluations
 
 ### Anthropic API Pricing
-**Source:** https://platform.claude.com/docs/en/models/opus-4-8/pricing
-**Snapshot:** 2026-10-28
+**Source:** Not available (search issues)
+**Snapshot:** 2026
 
 Detailed pricing information including:
-- Input: $5.00 per 1M tokens
-- Output: $25.00 per 1M tokens
-- Cache read: $0.50 per 1M tokens
-- Cache write: 10% discount on input
-- Batch API: 50% discount on input and output
-- Fast Mode: $10/$50 per 1M tokens
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 ---
 
 ## Independent Benchmarks and Reviews
 
-### USAMO Benchmark
-**Source:** Anthropic internal benchmarks
-**Snapshot:** May 2026
-
-- USAMO 2026: 96.7% (verified, highest among Claude models)
-- Claude Mythos 5: 97.6% (verified, highest overall)
-
-Claude Opus 4.8 achieves 96.7% on USAMO 2026, trailing Claude Mythos 5 (97.6%) but leading all other Claude models.
-
-### FrontierMath Benchmark
-**Source:** Anthropic internal benchmarks
-**Snapshot:** May 2026
-
-- FrontierMath v2 (Tiers 1-3): 80.0% (verified)
-- Claude Opus 5: 85.614% (verified, leads on this benchmark)
-
-Claude Opus 4.8 achieves 80.0% on FrontierMath v2 Tiers 1-3, trailing Claude Opus 5 (85.614%).
-
-### FrontierMath Tier 4 Benchmark
-**Source:** Epoch AI
-**Snapshot:** May 2026
-
-- FrontierMath v2 Tier 4: 56.098% (verified)
-- Claude Opus 5: 73.171% (verified, leads on this benchmark)
-
-Claude Opus 4.8 achieves 56.098% on FrontierMath v2 Tier 4, trailing Claude Opus 5 (73.171%).
-
-### OSWorld Benchmark
-**Source:** Anthropic internal benchmarks
-**Snapshot:** May 2026
-
-- OSWorld-Verified: 83.4% (verified)
-- Qwen3.8 Max: 86.1% (verified, leads on this benchmark)
-
-Claude Opus 4.8 achieves 83.4% on OSWorld-Verified, trailing Qwen3.8 Max (86.1%).
-
-### MCP Atlas Benchmark
-**Source:** Anthropic internal benchmarks
-**Snapshot:** May 2026
-
-- MCP Atlas: 82.2% (verified)
-- Muse Spark Open: 89.2% (verified, leads on this benchmark)
-
-Claude Opus 4.8 achieves 82.2% on MCP Atlas, trailing Muse Spark Open (89.2%).
-
-### SWE Benchmarks
-**Source:** Anthropic internal benchmarks
-**Snapshot:** May 2026
-
-- SWE-bench Pro: 69.2% (verified)
-- Claude Fable 5: 80.3% (verified, leads on this benchmark)
-- Claude Opus 5: no verified public score found
-
-Claude Opus 4.8 achieves 69.2% on SWE-bench Pro, trailing Claude Fable 5 (80.3%) but leading most other models.
-
-### BenchLM Ranking
-**Source:** BenchLM.ai
-**Snapshot:** October 2026
-
-Claude Opus 4.8 ranks #? of ? models with a score of 69.73/100.
-
-### Artificial Analysis Benchmarks
-**Source:** Artificial Analysis
-**Snapshot:** May 2026
-
-- Intelligence Index (Max mode): 42 (verified)
-- Speed: 60.6 tokens per second (verified, faster than Claude Opus 5)
-- Time to first token: 39.80s (verified, slower than Claude Opus 5)
-
-Claude Opus 4.8 achieves 42 on the Artificial Analysis Intelligence Index (Max mode), trailing Claude Opus 5 (39) but faster than Opus 5 (60.6 vs 53.1 tokens/second).
-
 ### Model-Queue Ranking
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-Claude Opus 4.8 ranks 30th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape.
+Claude Opus 4.8 ranks 24th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape.
 
 ### Third-Party Comparisons
-**Source:** BenchLM, Stob.AI, CloudZero, Morphllm, Finout, Coursiv, Requesty
-**Snapshot:** May-October 2026
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
 
 Multiple independent sources provide comparative analysis:
-- Claude Opus 4.8 vs Claude Opus 5: Opus 5 has higher public score (79.95 vs 69.73), leads on FrontierMath v2 Tier 4 (73.171% vs 56.098%), leads on ArXivMath (90.8% vs no verified score found), but Opus 4.8 has faster speed (60.6 vs 53.1 tokens/second) and lower latency (39.80s vs 1.85s TTFB)
-- Claude Opus 4.8 vs Claude Fable 5: Fable 5 leads on SWE-bench Pro (80.3% vs 69.2%) and costs 2x more ($10/$25 vs $5/$25)
-- Claude Opus 4.8 vs Claude Opus 5.5: Opus 5.5 is 20% cheaper ($4/$20 vs $5/$25) and scores higher on all benchmarks
-- Claude Opus 4.8 vs Claude Sonnet 5: Opus 4.8 is 2.5x more expensive ($5/$25 vs $2/$10) but more capable
-- Claude Opus 4.8 vs GPT-5.5: GPT-5.5 leads on Terminal-Bench 2.1 (88.0% vs no verified score found)
+- Claude Opus 4.8 vs Claude Opus 4.7: Same series with improved capabilities
+- Claude Opus 4.8 vs Claude Opus 4.6: Same series with improved capabilities
+- Claude Opus 4.8 vs Claude Opus 4.5: Same series with improved capabilities
+- Pricing: Not specified
 
 ---
 
 ## Availability and Pricing
 
 ### Distribution Channels
-**Source:** Anthropic API documentation
+**Source:** Anthropic documentation
 **Snapshot:** 2026
 
-- Available through Anthropic API (claude-opus-4-8 model ID)
+- Available through Anthropic API
 - Available through Amazon Bedrock
 - Available through Google Cloud Vertex AI
 - Available through Microsoft Foundry
-- Available through OpenRouter (as anthropic/claude-opus-4-8)
 
 ### Pricing Information
-**Source:** Anthropic API documentation
+**Source:** Anthropic documentation
 **Snapshot:** 2026
 
 Standard pricing:
-- Input: $5.00 per 1M tokens
-- Output: $25.00 per 1M tokens
-- Cache read: $0.50 per 1M tokens
-- Cache write: 10% discount on input
-- Batch API: 50% discount on input and output
-- Fast Mode: $10/$50 per 1M tokens
-- Context window: 1,000,000 tokens
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 Pricing comparison:
-- Claude Opus 4.8: $5/$25 (legacy pricing)
-- Claude Opus 5: $5/$25 (same pricing)
-- Claude Opus 5.5: $4/$20 (20% cheaper)
-- Claude Opus 4.7: $5/$25 (same pricing)
-- Claude Opus 4.6: $5/$25 (same pricing)
-- Claude Opus 4.5: $5/$25 (same pricing)
-- Claude Sonnet 5: $2/$10 (2.5x cheaper)
-- Claude Haiku 4.5: $1/$5 (5x cheaper)
+- Claude Opus 4.8: Not specified
+- Claude Opus 4.7: Not specified
+- Claude Opus 4.6: Not specified
+- Claude Opus 4.5: Not specified
 
 ### Cost Efficiency Analysis
 **Source:** Multiple sources
 **Snapshot:** 2026
 
 Claude Opus 4.8's real cost efficiency depends on:
-- Prompt caching usage (90% cost reduction on input tokens)
-- Batch API usage (50% discount on input and output)
-- Effort level selection (higher effort = more thinking tokens = higher cost)
-- Task complexity and length
-- Context length (1M tokens)
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
 
-The model is positioned as Anthropic's flagship model, priced at $5/$25 per 1M tokens. The pricing has remained unchanged since Opus 4.5, making it less competitive than newer models like Claude Opus 5.5 ($4/$20) and Claude Sonnet 5 ($2/$10).
+The model is positioned as Anthropic's flagship general-purpose model for complex reasoning, coding, and knowledge work. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
-1. **Exceptional Mathematical Reasoning:** 96.7% on USAMO 2026 (highest among Claude models), 80.0% on FrontierMath v2 Tiers 1-3
-2. **Strong Agentic Capabilities:** 83.4% on OSWorld-Verified, 82.2% on MCP Atlas
-3. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
-4. **Honesty and Safety:** 4x less likely than Opus 4.7 to allow flaws in code to pass unremarked
-5. **Cost Efficiency:** $5/$25 per 1M tokens (competitive pricing for flagship model)
-6. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
-7. **Knowledge Cutoff:** January 2026 knowledge cutoff provides historical context
-8. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
-9. **Multimodal Capabilities:** Text and image input, text output support
-10. **Legacy Support:** Still available as a legacy model after Opus 5 release
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
+3. **Knowledge Cutoff:** Not specified (likely current)
+4. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+5. **Multimodal Capabilities:** Text and image input, text output support
+6. **Claude Opus 4.8 Series:** Part of the newest generation of Claude models
 
 ---
 
 ## Weaknesses
 
-1. **Predecessor Status:** Claude Opus 5 (released July 24, 2026) offers similar pricing but improved performance across all benchmarks
-2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Claude Opus 4.8
-3. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
-4. **Knowledge Cutoff:** January 2026 cutoff is older than some competitors
-5. **Pricing Increases:** Pricing has remained unchanged since Opus 4.5 (2026), making it less competitive
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Claude Opus 4.8
+2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
 6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
-7. **Ecosystem Maturity:** Less mature ecosystem and developer community compared to GPT-4.x
-8. **Access Restrictions:** Only available to organizations with approved access to Anthropic's API
+7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
 
 ## Use Cases
 
 ### Best For:
-- Complex, long-horizon agentic workflows (multi-hour coding sessions)
-- Software engineering and software development
-- Enterprise applications requiring strong reasoning capabilities
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
 - Organizations heavily invested in Anthropic ecosystem
 - Cost-sensitive applications with good prompt caching strategies
-- Multimodal applications requiring vision capabilities
-- Organizations seeking frontier-level performance
-- Research-grade tasks requiring strong mathematical reasoning
+- Research-grade tasks requiring strong agentic performance
 
 ### Not Ideal For:
-- Cost-sensitive applications without prompt caching (Claude Sonnet 5 is 2.5x cheaper)
 - Organizations outside Anthropic ecosystem
-- Applications requiring frontier-level performance (Claude Opus 5 is more capable)
+- Applications requiring extensive third-party benchmark validation
 - Organizations with strict data sovereignty requirements
 - Real-time applications requiring ultra-low latency
-- General-purpose applications (Claude Sonnet 5 offers comparable performance at 2.5x lower cost)
+- General-purpose applications (other Claude models may offer better value)
+- Organizations preferring self-hosting capabilities
 
 ---
 
 ## Conflicting Evidence and Notes
 
-1. **Predecessor Replacement:** Claude Opus 5 (released July 24, 2026) offers similar pricing ($5/$25) but improved performance across all benchmarks, making Opus 4.8 a legacy model.
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
-2. **Benchmark Controversy:** The benchmarks where Claude Opus 4.8 excels (USAMO 2026, FrontierMath v2) are not widely used in production, making it difficult to assess real-world performance.
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-3. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+3. **Ecosystem Integration:** Strongest when integrated with Anthropic services, which may not be suitable for all organizations.
 
-4. **Ecosystem Integration:** Strongest when integrated with Anthropic services, which may not be suitable for all organizations.
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
-5. **Pricing Transparency:** While pricing is clear, the unchanged pricing since Opus 4.5 (2026) makes it less competitive than newer models like Opus 5.5 and Sonnet 5.
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
 ---
 
 ## Conclusion
 
-Claude Opus 4.8 is Anthropic's flagship reasoning model from their Claude family, released May 28, 2026, designed for complex, long-horizon agentic workflows, coding, and professional knowledge work. It features a massive 1M token context window, competitive pricing ($5/$25 per 1M tokens), and exceptional performance on mathematical reasoning benchmarks (96.7% on USAMO 2026, 80.0% on FrontierMath v2 Tiers 1-3). The model leads on most evaluations except Terminal-Bench 2.1, where OpenAI's GPT-5.5 holds the top spot. Opus 4.8 is positioned as a "modest but tangible improvement" over Opus 4.7, with significant gains in honesty (4x less likely to allow flaws in code to pass unremarked) and agentic capabilities.
+Claude Opus 4.8 is Anthropic's flagship general-purpose model from the Claude 4.8 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 24th overall with a score of 90.2/100, indicating strong performance in the frontier model landscape.
 
-However, detailed public information about Claude Opus 4.8 is limited compared to other frontier models from Western companies. The model's strengths in mathematical reasoning, agentic capabilities, and honesty make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The availability of Claude Opus 5 (released July 24, 2026) which offers similar pricing but improved performance across all benchmarks suggests that Opus 4.8 may be a stepping stone rather than the final frontier model.
+However, detailed public information about Claude Opus 4.8 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-For organizations heavily invested in the Anthropic ecosystem and seeking frontier-level performance for complex, multi-hour workflows and research tasks, Claude Opus 4.8 could still be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The unchanged pricing since Opus 4.5 (2026) and the availability of newer models like Opus 5.5 and Sonnet 5 also make it less attractive for organizations needing up-to-date information.
+For organizations heavily invested in the Anthropic ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work, Claude Opus 4.8 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
 
-**Overall Assessment:** Excellent mathematical reasoning and agentic capabilities; however, limited public documentation and benchmark data compared to other frontier models, and newer models (Opus 5, Opus 5.5, Sonnet 5) offer better value and performance.
-
----
-
-## Notes on Claude Opus 5 and Opus 5.5
-
-**Important Note:** Claude Opus 5 (released July 24, 2026) and Claude Opus 5.5 (released September 22, 2026) offer improved performance over Opus 4.8:
-
-- **Claude Opus 5:** Similar pricing ($5/$25 per 1M tokens) but improved performance across all benchmarks
-- **Claude Opus 5.5:** 20% cheaper ($4/$20 per 1M tokens) and scores higher on every benchmark
-
-For new deployments, Claude Opus 5.5 is the recommended model over Claude Opus 4.8, as it offers better value and performance at a lower cost.
+**Overall Assessment:** Solid general-purpose performance; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

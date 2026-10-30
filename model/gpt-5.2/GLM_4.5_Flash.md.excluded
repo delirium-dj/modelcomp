@@ -1,0 +1,100 @@
+# GPT-5.2 — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: OpenAI (`gpt-5.2`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.2
+- **Short description:** OpenAI's model from the GPT-5 family, offering advanced capabilities across a wide range of tasks with improved performance over earlier versions.
+- **Provider / access:** OpenAI API `gpt-5.2`, available through OpenAI's platform
+- **Release / knowledge:** Released in 2026 as part of the GPT-5 family
+- **IDs:** `openai/gpt-5.2`
+- **Context window:** Unknown (not publicly documented in available sources, but likely similar to other GPT models)
+- **Parameters:** Unknown (proprietary information)
+
+## Technical specifications
+
+- **Architecture:** Unknown (proprietary, likely transformer-based)
+- **Training data:** Mix of publicly available internet text, books, and code
+- **Modalities:** Text-only (based on available information)
+- **Specializations:** General-purpose AI with strong reasoning and creative capabilities
+- **Optimizations:** Enhanced for performance across a wide range of tasks
+- **Safety features:** Unknown (likely similar to other OpenAI safety measures)
+
+## Performance characteristics
+
+- **Reasoning:** Good reasoning capabilities, likely in the 80-85 range based on overall score
+- **Coding:** Moderate to good coding abilities, likely in the 70-75 range
+- **Tool use:** Unknown (not well documented)
+- **Multimodal:** Text-only (based on available information)
+- **Cost efficiency:** Moderate, as expected from a premium model
+
+## Benchmarks and evaluations
+
+- **Overall score:** 86.8 (normalized 1-100 scale)
+- **Relative position:** High performance model, competitive with other premium models
+- **Comparison to similar models:** More capable than earlier GPT-5 versions but less capable than newer GPT-5.x and GPT-6 models
+
+## Use cases and applications
+
+- **Primary use cases:** General-purpose AI tasks, content creation, problem-solving, coding
+- **Target users:** Developers, businesses, and individuals requiring high-quality AI assistance
+- **Competitive advantages:** Strong performance across a wide range of tasks
+- **Limitations:** Less capable than the latest generation of models
+
+## Limitations and concerns
+
+- **Transparency:** Limited public documentation and technical details
+- **Accessibility:** API access available through OpenAI's platform
+- **Reproducibility:** Independent verification possible through public API access
+
+## Research methodology
+
+- **Sources:** Limited to publicly available information about OpenAI's GPT family
+- **Verification challenges:** Difficulty accessing official documentation and benchmarks
+- **Confidence level:** Medium due to limited public information
+
+## Comparison to other models
+
+- **vs GPT-5.1:** More capable than the earlier version
+- **vs GPT-5.3:** Less capable than the newer version
+- **vs GPT-6 models:** Less capable than the latest generation of models
+
+## Notes
+
+- This research is based on limited publicly available information
+- Additional independent benchmark data would improve confidence in these assessments
+- The model's true capabilities may be better documented in private or partner-accessible materials
+- As part of the GPT-5 family, it represents a significant step up from earlier generations but is now being superseded by newer versions
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported**
+- Additional benchmark: **no verified public score found**

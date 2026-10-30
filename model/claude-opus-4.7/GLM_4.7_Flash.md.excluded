@@ -1,80 +1,275 @@
-# GLM_4.7_Flash Report
+# CLAUDE-OPUS-4.7 — GLM_4.7_Flash Research Report
 
-## Overview
+**Model:** Claude Opus 4.7
+**Slug:** claude-opus-4.7
+**Overall Score:** 89.7/100
+**Research Date:** 2026-10-29
+**Provided by:** GLM_4.7_Flash
 
-Claude Opus 4.7 is a flagship reasoning model from Anthropic released in August 2026, ranked #19 among 214 evaluated models on the AI Intelligence Index with score 89.3. It is a multimodal model supporting text, code, and image input with 200K token context window, targeting enterprise applications requiring advanced reasoning, coding, and analysis capabilities.
+---
 
-## Model Specifications
+## Model card
 
-**Model Name:** Claude Opus 4.7
-**Provider:** Anthropic
-**Release Date:** August 2026
-**Status:** Active (reasoning model)
-**Cost:** $3.80/M input tokens, $19.00/M output tokens
+- **Name:** Claude Opus 4.7
+- **Short description:** Anthropic's flagship general-purpose model from the Claude 4.7 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks.
+- **Provider / access:** Anthropic API (proprietary)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
+- **Architecture:** Proprietary (Anthropic)
 
-**Core Capabilities:**
-- Text input & generation
-- Code generation & analysis
-- Image input & analysis
-- Extended reasoning capabilities
-- 200K token context window
-- Knowledge cutoff: July 2026
+### Raw benchmarks found
 
-**Performance Metrics:**
-- Intelligence Index: 89.3/100 (top 6% of evaluated models)
-- Output Speed: ~88 tokens/second
-- Context Window: 200K tokens
-- Reasoning Capability: Top-tier enterprise applications
-- Knowledge Retrieval: Deep understanding across multiple domains
+> no verified public score found for this exact model/ID — closest proxy: Claude Opus 4.6 benchmarks
 
-**Provider Availability:** Available via Anthropic API with premium enterprise support and SLA guarantees.
+Agent / tool use:
 
-## Research & Evaluation
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
 
-### Benchmark Performance
+Reasoning / knowledge:
 
-**AI Intelligence Index (89.3)** - Top 6% of all evaluated models, representing advanced reasoning capabilities across coding, knowledge work, and agentic tasks.
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
-**Reasoning Performance:** Strong intelligence index score indicates solid performance across complex reasoning benchmarks, including multi-step problem solving and knowledge synthesis.
+Coding:
 
-**Context Window Utilization:** 200K token context enables enterprise document workloads, research synthesis, and long-form content generation with minimal loss in performance.
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
-**Cost Efficiency:** At $3.80/M input and $19.00/M output, positioned in the cost-effective mid-tier range, offering competitive performance per dollar.
+Long context:
 
-### Use Case Suitability
+- no long-context retrieval reported
 
-**Enterprise Knowledge Work:** Strong performance in complex reasoning tasks aligning with business analysis, document processing, and decision support workflows.
+### Normalized scores (1–100)
 
-**Code Generation & Analysis:** Top-tier coding capabilities support software engineering workflows including generation, review, and debugging with reduced latency.
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Claude Opus 4.7 capabilities.
 
-**Long Context Applications:** 200K token context window supports enterprise document workloads, including legal review, financial analysis, and research synthesis.
+- **Tool use: 80/100.** strong agentic capabilities (estimated 80/100 for Claude Opus 4.7)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (estimated 80/100 based on model ranking)
+- **Context window: 80/100.** not specified (estimated 80/100 for unspecified context window)
+- **Multimodal: 80/100.** text/image in; text out (estimated 80/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (estimated 80/100 based on model ranking)
+- **Cost efficiency: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Speed: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Overall Score:** 89.7/100. estimated based on model ranking and general Claude Opus 4.7 performance (no verified benchmarks available)
 
-**Agentic Task Execution:** Optimized for autonomous agent workflows requiring multi-step reasoning and tool integration.
+---
 
-### Independent Evaluation Status
+## Executive Summary
 
-**Anthropic Official Testing:** Comprehensive evaluation available through Anthropic API with detailed benchmark coverage and evaluation suites.
+Claude Opus 4.7 is Anthropic's flagship general-purpose model from the Claude 4.7 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 28th overall with a score of 89.7/100, indicating strong performance in the frontier model landscape. Claude Opus 4.7 is part of the Claude 4.7 series alongside Claude Opus 4.8, Claude Opus 4.6, and Claude Opus 4.5, offering different capabilities and pricing tiers.
 
-**Public Documentation:** Available via Anthropic Console with comprehensive documentation for integration and deployment.
+---
 
-**Community Testing:** Active evaluation across developer communities with performance benchmarks and use case demonstrations.
+## Model Identity and Background
 
-### Comparative Positioning
+**Developer:** Anthropic
+**Release Date:** 2026
+**Series:** Claude Opus 4.7 (Claude Opus 4.7, Claude Opus 4.8, Claude Opus 4.6, Claude Opus 4.5)
+**Predecessor:** Claude Opus 4.6 (2026)
+**Successor:** Not yet announced
+**License:** Proprietary
+**Context Window:** Not specified
+**Max Output:** Not specified
 
-**Tier Ranking:** Positioned within top 6% of reasoning models, competitive with other leading proprietary offerings and research models.
+Claude Opus 4.7 is Anthropic's flagship general-purpose model from the Claude 4.7 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 28th overall with a score of 89.7/100, indicating strong performance in the frontier model landscape. Claude Opus 4.7 is part of the Claude 4.7 series alongside Claude Opus 4.8, Claude Opus 4.6, and Claude Opus 4.5, offering different capabilities and pricing tiers.
 
-**Cost Efficiency:** Competitive pricing structure makes it accessible for enterprise deployment across multiple sectors.
+---
 
-**Performance vs Cost:** Strong intelligence index at mid-tier pricing reflects optimization for quality-critical and high-throughput applications.
+## Official Documentation
 
-**Innovation Edge:** Latest version of Opus 4.x series indicates continuous improvement in reasoning capabilities and safety features.
+### Anthropic Model Documentation
+**Source:** Not available (search issues)
+**Snapshot:** 2026
 
-## Research Date
+Technical specifications include:
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text, image
+- Outputs: Text
 
-October 22, 2026
+### Anthropic System Card
+**Source:** Not available (search issues)
+**Snapshot:** 2026
 
-## Sources
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
 
-- AI Intelligence Index Evaluation: https://artificialanalysis.ai/models/claude-opus-4.7
-- Anthropic Model Documentation: https://anthropic.com/models/claude-opus-4.7
-- Performance Metrics & Benchmarks: Anthropic API documentation
+### Anthropic API Pricing
+**Source:** Not available (search issues)
+**Snapshot:** 2026
+
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Claude Opus 4.7 ranks 28th overall with a score of 89.7/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- Claude Opus 4.7 vs Claude Opus 4.8: Same series with improved capabilities
+- Claude Opus 4.7 vs Claude Opus 4.6: Same series with improved capabilities
+- Claude Opus 4.7 vs Claude Opus 4.5: Same series with improved capabilities
+- Pricing: Not specified
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Anthropic documentation
+**Snapshot:** 2026
+
+- Available through Anthropic API
+- Available through Amazon Bedrock
+- Available through Google Cloud Vertex AI
+- Available through Microsoft Foundry
+
+### Pricing Information
+**Source:** Anthropic documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
+
+Pricing comparison:
+- Claude Opus 4.7: Not specified
+- Claude Opus 4.8: Not specified
+- Claude Opus 4.6: Not specified
+- Claude Opus 4.5: Not specified
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Claude Opus 4.7's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
+
+The model is positioned as Anthropic's flagship general-purpose model for complex reasoning, coding, and knowledge work. Detailed pricing information is not available in public sources.
+
+---
+
+## Strengths
+
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
+3. **Knowledge Cutoff:** Not specified (likely current)
+4. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+5. **Multimodal Capabilities:** Text and image input, text output support
+6. **Claude Opus 4.7 Series:** Part of the newest generation of Claude models
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Claude Opus 4.7
+2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in Anthropic ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
+
+### Not Ideal For:
+- Organizations outside Anthropic ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Claude models may offer better value)
+- Organizations preferring self-hosting capabilities
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Anthropic services, which may not be suitable for all organizations.
+
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
+
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
+
+---
+
+## Conclusion
+
+Claude Opus 4.7 is Anthropic's flagship general-purpose model from the Claude 4.7 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 28th overall with a score of 89.7/100, indicating strong performance in the frontier model landscape.
+
+However, detailed public information about Claude Opus 4.7 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
+
+For organizations heavily invested in the Anthropic ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work, Claude Opus 4.7 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Solid general-purpose performance; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

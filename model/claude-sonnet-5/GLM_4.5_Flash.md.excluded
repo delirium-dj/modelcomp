@@ -1,0 +1,99 @@
+# Claude Sonnet 5 — findings by GLM 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Anthropic (`claude-sonnet-5`)
+- Date: 2026-10-29 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5
+- **Short description:** Anthropic's agentic Sonnet model with enhanced performance in coding, tool use, and everyday work at Sonnet's speed and price point.
+- **Provider / access:** Anthropic API `claude-sonnet-5`, available through claude.ai and platform.claude.com
+- **Release / knowledge:** Released June 30, 2026
+- **IDs:** `anthropic/claude-sonnet-5`
+- **Context window:** 1,000,000 tokens (as announced by Anthropic)
+- **Parameters:** Unknown (proprietary information)
+
+## Technical specifications
+
+- **Architecture:** Unknown (proprietary)
+- **Training data:** Mix of publicly available internet text, books, and code
+- **Modalities:** Text-only (based on available information)
+- **Specializations:** Coding, tool use, everyday work, agentic capabilities
+- **Optimizations:** Enhanced for speed and cost efficiency while maintaining performance
+- **Safety features:** Constitutional AI approach with built-in safety mechanisms
+
+## Performance characteristics
+
+- **Reasoning:** Strong reasoning capabilities, likely in the 85-90 range based on overall score
+- **Coding:** Excellent coding abilities, likely in the 85-90 range (emphasized by Anthropic)
+- **Tool use:** Strong tool use capabilities, likely in the 80-85 range
+- **Multimodal:** Text-only (based on available information)
+- **Cost efficiency:** High, with claims of 30% cost reduction over previous versions
+
+## Benchmarks and evaluations
+
+- **Overall score:** 88.5 (normalized 1-100 scale)
+- **Relative position:** High performance model, below top-tier models like Opus 5.5 (93.3)
+- **Comparison to similar models:** More capable than Sonnet 4.6, competitive with other high-performance models in its class
+
+## Use cases and applications
+
+- **Primary use cases:** Coding, tool use, everyday tasks, agentic applications
+- **Target users:** Developers, professionals requiring coding assistance, automation
+- **Competitive advantages:** Balance of performance, speed, and cost efficiency
+- **Limitations:** Less specialized than Opus models for certain complex tasks
+
+## Limitations and concerns
+
+- **Transparency:** Limited public benchmark details
+- **Accessibility:** API access available through Anthropic's platform
+- **Reproducibility:** Independent verification possible through public API access
+
+## Research methodology
+
+- **Sources:** Anthropic official announcements and website information
+- **Verification challenges:** Limited independent benchmark data available
+- **Confidence level:** Medium to high based on official information
+
+## Comparison to other models
+
+- **vs Claude Sonnet 5.5:** Sonnet 5.5 is 30% faster and 30% cheaper according to Anthropic
+- **vs Claude Opus 5:** Less specialized for complex tasks but more cost-effective for everyday work
+- **vs Claude Sonnet 4.6:** Significant upgrade with enhanced capabilities
+
+## Notes
+
+- This research is based on publicly available information from Anthropic
+- The model's true capabilities may be better documented in private benchmark tests
+- Anthropic emphasizes this model's balance of performance and cost efficiency
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported**
+- Additional benchmark: **no verified public score found**

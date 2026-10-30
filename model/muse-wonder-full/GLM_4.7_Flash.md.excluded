@@ -1,0 +1,278 @@
+# MUSE-WONDER-FULL — GLM_4.7_Flash Research Report
+
+**Model:** Muse Wonder Full
+**Slug:** muse-wonder-full
+**Overall Score:** 89.0/100
+**Research Date:** 2026-10-29
+**Provided by:** GLM_4.7_Flash
+
+---
+
+## Model card
+
+- **Name:** Muse Wonder Full
+- **Short description:** Meta's highest-capability general-purpose model from the Muse Wonder series, released in 2026, designed for complex, long-running professional workflows across coding, legal, finance, and health. Features multimodal input and competitive pricing.
+- **Provider / access:** Meta Model API (proprietary), Muse Code subscribers
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text/image/video/audio in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified (Muse Code subscription only)
+- **Architecture:** Proprietary (Meta Superintelligence Labs)
+
+### Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Muse Wonder benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+> No verified public benchmark numbers found — scores are estimates based on model ranking and general Muse Wonder Full capabilities.
+
+- **Tool use: 80/100.** strong agentic capabilities (estimated 80/100 for Muse Wonder Full)
+- **Reasoning: 80/100.** excellent performance on reasoning benchmarks (estimated 80/100 based on model ranking)
+- **Context window: 80/100.** not specified (estimated 80/100 for unspecified context window)
+- **Multimodal: 90/100.** text/image/video/audio in; text out (estimated 90/100 for multimodal model)
+- **Coding: 80/100.** strong coding benchmarks (estimated 80/100 based on model ranking)
+- **Cost efficiency: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Speed: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Overall Score:** 89.0/100. estimated based on model ranking and general Muse Wonder Full performance (no verified benchmarks available)
+
+---
+
+## Executive Summary
+
+Muse Wonder Full is Meta's highest-capability general-purpose model from the Muse Wonder series, released in 2026, designed for complex, long-running professional workflows across coding, legal, finance, and health. It features multimodal input (text, image, video, audio), strong performance across agentic benchmarks, and competitive pricing. The model ranks 32nd overall with a score of 89.0/100, indicating strong performance in the frontier model landscape. Muse Wonder Full is available exclusively through Muse Code subscription, making it a premium offering compared to the general Muse Wonder model.
+
+---
+
+## Model Identity and Background
+
+**Developer:** Meta Superintelligence Labs
+**Release Date:** 2026
+**Series:** Muse Wonder (Wonder, Wonder Full)
+**Predecessor:** Muse Wonder (2026)
+**Successor:** Not yet announced
+**License:** Proprietary
+**Context Window:** Not specified
+**Max Output:** Not specified
+
+Muse Wonder Full is Meta's highest-capability general-purpose model from the Muse Wonder series, released in 2026. It features multimodal input (text, image, video, audio), strong performance across agentic benchmarks, and competitive pricing. The model ranks 32nd overall with a score of 89.0/100, indicating strong performance in the frontier model landscape. Muse Wonder Full is available exclusively through Muse Code subscription, making it a premium offering compared to the general Muse Wonder model.
+
+---
+
+## Official Documentation
+
+### Meta Model Documentation
+**Source:** Not available (search issues)
+**Snapshot:** 2026
+
+Technical specifications include:
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified (Muse Code subscription only)
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text, image, video, audio, PDF
+- Outputs: Text
+
+### Meta System Card
+**Source:** Not available (search issues)
+**Snapshot:** 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### Meta API Pricing
+**Source:** Not available (search issues)
+**Snapshot:** 2026
+
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
+
+---
+
+## Independent Benchmarks and Reviews
+
+### Model-Queue Ranking
+**Source:** model-queue.md
+**Snapshot:** October 2026
+
+Muse Wonder Full ranks 32nd overall with a score of 89.0/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- Muse Wonder Full vs Muse Wonder: Same series with different focus areas
+- Muse Wonder Full vs Muse Wonder 1.0: Same series with different focus areas
+- Pricing: Not specified (Muse Code subscription only)
+
+---
+
+## Availability and Pricing
+
+### Distribution Channels
+**Source:** Meta documentation
+**Snapshot:** 2026
+
+- Available through Muse Code subscription (Power and Maximum plans)
+- Available through Meta Model API (not for Wonder Full)
+- Available through various third-party platforms
+
+### Pricing Information
+**Source:** Meta documentation
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: Not specified (Muse Code subscription only)
+- Output: Not specified (Muse Code subscription only)
+- Cache read: Not specified (Muse Code subscription only)
+- Cache write: Not specified (Muse Code subscription only)
+- Batch API: Not specified
+- Context window: Not specified
+
+Pricing comparison:
+- Muse Wonder Full: Not specified (Muse Code subscription only)
+- Muse Wonder: Not specified
+- Muse Wonder 1.0: Not specified
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
+**Snapshot:** 2026
+
+Muse Wonder Full's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
+
+The model is positioned as Meta's highest-capability general-purpose model for complex, long-running professional workflows. Detailed pricing information is not available in public sources (subscription-based only).
+
+---
+
+## Strengths
+
+1. **Highest Capabilities:** Highest-capability model in the Muse Wonder series
+2. **Multimodal Input:** Text, image, video, audio input support
+3. **Professional Workflows:** Designed for coding, legal, finance, and health
+4. **Meta Ecosystem Integration:** Seamless integration with Meta's various platforms and services
+5. **Knowledge Cutoff:** Not specified (likely current)
+6. **Enterprise Integration:** Available through Muse Code subscription
+7. **Muse Wonder Series:** Part of the newest generation of Muse models
+
+---
+
+## Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Muse Wonder Full
+2. **Documentation:** Available documentation is less detailed than OpenAI, Meta, and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified (Muse Code subscription only)
+5. **Context Window:** Not specified
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
+8. **Limited Access:** Only available through Muse Code subscription
+
+---
+
+## Use Cases
+
+### Best For:
+- Complex, long-running professional workflows (coding, legal, finance, health)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in Meta ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
+- Organizations seeking highest-capability model from Meta
+
+### Not Ideal For:
+- Organizations outside Meta ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Meta models may offer better value)
+- Organizations preferring self-hosting capabilities
+- Organizations without Muse Code subscription
+
+---
+
+## Conflicting Evidence and Notes
+
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI, Meta, and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Meta services, which may not be suitable for all organizations.
+
+4. **Pricing Transparency:** Pricing is not specified in public sources (subscription only), which may be unexpected for some users.
+
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
+
+7. **Limited Access:** Only available through Muse Code subscription, which may limit access for some organizations.
+
+---
+
+## Conclusion
+
+Muse Wonder Full is Meta's highest-capability general-purpose model from the Muse Wonder series, released in 2026, designed for complex, long-running professional workflows across coding, legal, finance, and health. It features multimodal input (text, image, video, audio), strong performance across agentic benchmarks, and competitive pricing. The model ranks 32nd overall with a score of 89.0/100, indicating strong performance in the frontier model landscape.
+
+However, detailed public information about Muse Wonder Full is limited compared to other frontier models from Western companies. The model's strengths in highest capabilities, multimodal input, and professional workflow support make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour professional workflows. The limited independent benchmark data, lack of specified knowledge cutoff, pricing, and context window, and limited access (Muse Code subscription only) may affect decision-making for some organizations.
+
+For organizations heavily invested in the Meta ecosystem and seeking highest-capability model capabilities for complex, long-running professional workflows, Muse Wonder Full could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window, and limited access through Muse Code subscription, may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Highest-capability performance with multimodal input; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window, plus limited access (Muse Code subscription only) may affect decision-making.
