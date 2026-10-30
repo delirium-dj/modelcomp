@@ -6,8 +6,10 @@
 // The "models offered" list is derived, never curated: a model matches a
 // provider when its id starts with one of the provider's `idPrefixes`, or one
 // of its claimant URLs (officialUrl / pricingLinks) lives on one of the
-// provider's `hosts`. Every price on the Providers page traces to an
-// evidenceUrl, mirroring the claim culture of model metas (RULES.md).
+// provider's `hosts`. The free-tier flag is derived the same way from the
+// curated plans (name says free / price is $0) — never a separate hand flag.
+// Every price on the Providers page traces to an evidenceUrl, mirroring the
+// claim culture of model metas (RULES.md).
 
 import { MODELS, type AiModel } from "./models";
 
@@ -44,6 +46,10 @@ export interface Provider extends ProviderMeta {
   kind: ProviderKind;
   /** Covered models (derived from MODELS), best Overall first. */
   models: AiModel[];
+  /** Plans that read as a free tier (name says free / price is $0). */
+  freePlans: ProviderPlan[];
+  /** True when at least one plan is free — `freePlans.length > 0`. */
+  freeTier: boolean;
 }
 
 const REQUIRED = ["name", "short", "plans"] as const;
@@ -69,6 +75,18 @@ function hostOf(url: string): string | undefined {
   } catch {
     return undefined;
   }
+}
+
+/**
+ * Free-tier marker for one plan: the name says "free" (a "no free …" clause
+ * does not count) or the price is `$0`. Cached prices like `$0.10` must not
+ * read as free — same evidence-first idea as `hasFreeTier()` for models.
+ */
+const FREE_PRICE = /^\$\s?0(?:\.0+)?\s*(?:$|[^.\d])/;
+
+export function isFreePlan(plan: ProviderPlan): boolean {
+  if (/\bfree\b/i.test(plan.name.replace(/\bno\s+free\b/gi, ""))) return true;
+  return FREE_PRICE.test(plan.price);
 }
 
 function matchModels(meta: ProviderMeta): AiModel[] {
@@ -130,18 +148,34 @@ export const PROVIDERS: Provider[] = (() => {
     if (!valid) continue;
     raw.push({ slug, meta: meta as ProviderMeta });
   }
-  const providers = raw.map(({ slug, meta }) => ({
-    ...meta,
-    slug,
-    kind: meta.kind === "aggregator" ? ("aggregator" as const) : ("vendor" as ProviderKind),
-    plans: meta.plans,
-    models: matchModels(meta),
-  }));
+  const providers = raw.map(({ slug, meta }) => {
+    const freePlans = meta.plans.filter(isFreePlan);
+    return {
+      ...meta,
+      slug,
+      kind: meta.kind === "aggregator" ? ("aggregator" as const) : ("vendor" as ProviderKind),
+      plans: meta.plans,
+      freePlans,
+      freeTier: freePlans.length > 0,
+      models: matchModels(meta),
+    };
+  });
+  // Page reading order: free-tier providers first, then most covered models
+  // first (the Providers page renders exactly these two groups).
   providers.sort(
-    (a, b) => b.models.length - a.models.length || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0),
+    (a, b) =>
+      Number(b.freeTier) - Number(a.freeTier) ||
+      b.models.length - a.models.length ||
+      (a.name < b.name ? -1 : a.name > b.name ? 1 : 0),
   );
   return providers;
 })();
+
+/** Free-tier providers, most covered models first (upper group on the page). */
+export const FREE_TIER_PROVIDERS = PROVIDERS.filter((p) => p.freeTier);
+
+/** No free plan, most covered models first (lower group on the page). */
+export const PAID_ONLY_PROVIDERS = PROVIDERS.filter((p) => !p.freeTier);
 
 export function getProvider(slug: string): Provider | undefined {
   return PROVIDERS.find((p) => p.slug === slug);

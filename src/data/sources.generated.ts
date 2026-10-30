@@ -105,7 +105,9 @@ export type SourceKey =
   | "MiMo 2.6 Free"
   | "Qoder Sonus"
   | "GLM 4.6V Flash"
-  | "GLM 4.6V";
+  | "GLM 4.6V"
+  | "qwen3.8"
+  | "Browser";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -182,7 +184,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3 Flash", label: "Gemini 3 Flash", file: "Gemini_3_Flash.md", slug: "gemini-3-flash" },
   { key: "DeepSeek 4 Flash", label: "DeepSeek V4 Flash", file: "DeepSeek_4_Flash.md", slug: "deepseek-v4-flash" },
   { key: "Claude Sonnet 3.7", label: "Claude Sonnet 3.7", file: "Claude_Sonnet_3.7.md", slug: "claude-sonnet-3.7" },
-  { key: "Qwen 3.8 Flash", label: "Qwen 3.8 Flash", file: "Qwen_3.8_Flash.md", slug: "qwen-3.8-flash" },
+  { key: "Qwen 3.8 Flash", label: "Qwen 3.8 Flash", file: "Qwen_3.8_Flash.md", slug: "qwen3.8-flash" },
   { key: "Fledge Alpha", label: "Fledge Alpha", file: "Fledge_Alpha.md", slug: "fledge-alpha" },
   { key: "North Mini Code", label: "North Mini Code", file: "North_Mini_Code.md", slug: "north_mini_code" },
   { key: "Ling 3.1 Flash", label: "Ling 3.1 Flash", file: "Ling_3.1_Flash.md", slug: "ling-3.1-flash" },
@@ -193,7 +195,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Claude Haiku 5.5", label: "Claude Haiku 5.5", file: "Claude_Haiku_5.5.md", slug: "claude-haiku-5.5" },
   { key: "Qwen 3.8", label: "Qwen 3.8", file: "Qwen_3.8.md", slug: "qwen3.8" },
   { key: "Solar Mini 4", label: "Solar Mini 4", file: "Solar_Mini_4.md", slug: "solar-mini-4" },
-  { key: "Qwen 3.7 Plus", label: "Qwen 3.7 Plus", file: "Qwen_3.7_Plus.md", slug: "qwen-3.7-plus" },
+  { key: "Qwen 3.7 Plus", label: "Qwen 3.7 Plus", file: "Qwen_3.7_Plus.md", slug: "qwen3.7-plus" },
   { key: "Cat Jam", label: "Cat Jam", file: "Cat_Jam.md" },
   { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
   { key: "Cat Jam probe2", label: "Cat Jam probe2", file: "Cat_Jam_probe2.md" },
@@ -222,4 +224,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Qoder Sonus", label: "Qoder Sonus", file: "Qoder_Sonus.md", slug: "qoder-sonus" },
   { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md" },
   { key: "GLM 4.6V", label: "GLM 4.6V", file: "GLM_4.6V.md", slug: "glm-4.6v-flash" },
+  { key: "qwen3.8", label: "qwen3.8", file: "qwen3.8.md", slug: "qwen3.8" },
+  { key: "Browser", label: "Browser", file: "Browser.md" },
 ];

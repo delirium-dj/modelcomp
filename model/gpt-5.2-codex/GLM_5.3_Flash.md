@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 65/100.** Text + image (screenshot/diagram) input, text output; no audio/video/PDF input documented.
 - **Coding: 78/100.** SWE-Bench Pro 56.4–56.8% and SWE-bench Verified ~80% were frontier-class at the 2025-12 launch and the model was purpose-built for large agentic diffs; capped by the absence of LiveCodeBench/SciCode rows and by successor models having moved the frontier.
 - **Cost efficiency: 72/100.** $1.75/$14 sits between the ~$1.25/$4.25 (≈88) and $3/$15 (≈60) reference bands, closer to the premium end per output token; no cached-input discount listed.
-- **Overall Score: 70.8/100.** Mean of the five quality dims (70+66+75+65+78)/5 = 70.8 → 71. Best fit today: none for new work — the SKU is deprecated; it remains a legacy comparison point for 2025-era agentic coding baselines.
+- **Overall Score: 71/100.** Mean of the five quality dims (70+66+75+65+78)/5 = 70.8 → 71. Best fit today: none for new work — the SKU is deprecated; it remains a legacy comparison point for 2025-era agentic coding baselines.
 
 ---
 

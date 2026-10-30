@@ -47,6 +47,16 @@ cites it (common for IDEs and resale consoles), list those model slugs in
 name real `model/<slug>/` folders and are deduped against derived matches.
 Adding a new provider folder is enough — coverage updates on the next build.
 
+## Free tier (derived, never a hand flag)
+
+A plan reads as a free tier when its `name` says "free" (a "no free …" clause
+does not count) or its `price` is `$0` — cached prices like `$0.10` do not
+match. `src/data/providers.ts` marks those plans `free`, sets
+`Provider.freeTier`, and orders the page **free-tier providers first, then by
+covered-model count** (the `Paid only` group follows). Wording the flag into
+`short` or `notes` is not needed: keep the free lane as its own plan with its
+`evidenceUrl`.
+
 ## Editing rules
 
 - Same claim culture as model metas: every plan `price` must trace to

@@ -1,0 +1,66 @@
+# Qwen 3.5 Flash Lite — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified vendor ID or benchmarks)
+
+- Source: Alibaba Qwen team — no `qwen3.5-flash-lite` vendor route found in the surfaces checked
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model/ID, and no vendor route carrying the "Flash-Lite" name was
+> verified. Per the template's mandatory self-exclusion rule this file is saved
+> as `.md.excluded` (notes only; any scores inside are ignored) instead of a
+> scored `.md`.
+
+## Model card
+
+- **Name:** Qwen 3.5 Flash Lite (UNVERIFIED — no vendor route found for the exact ID)
+- **Short description:** No evidence found that Alibaba ships a Qwen3.5-Flash-Lite SKU. The Qwen3.5 generation's documented members are Qwen3.5-397B-A17B, Qwen3.5-122B-A10B, Qwen3.5-35B-A3B, Qwen3.5-27B, Qwen3.5-9B, Qwen3.5-Flash (dated snapshot `qwen3.5-flash-02-23` on OpenRouter), and Qwen3.5-Plus (dated snapshots) — no Flash-Lite tier appears in the verified catalogs. A "Flash-Lite" name would pattern-match Google's Gemini Flash-Lite tier family, but no Qwen equivalent was found.
+- **Provider / access:** none found for the exact ID. OpenRouter's complete Qwen catalog (fetched 2026-10-30) lists the members above — no flash-lite entry. Alibaba Cloud Model Studio's current recommended-models page (updated 2026-10-28) has moved to the Qwen3.7/Qwen3.8 generation and lists no qwen3.5-flash-lite; the full Model Plaza catalog could not be programmatically verified (console-only).
+- **Release / knowledge:** no release record found
+- **IDs:** none found — no Free ID exists on Zen
+- **Context window / modalities / pricing / architecture:** no verified data
+
+### Identity findings (2026-10-30, searches + catalog fetches; web search intermittently returned HTTP 403 late in the pass)
+
+- **OpenRouter full Qwen catalog** (https://openrouter.ai/qwen, fetched): Qwen3.5 members are `qwen3.5-397b-a17b`, `qwen3.5-122b-a10b`, `qwen3.5-35b-a3b`, `qwen3.5-27b`, `qwen3.5-9b`, `qwen3.5-flash-02-23`, `qwen3.5-plus-02-15`, `qwen3.5-plus-20260420` — **no flash-lite**. The 3.6/3.7/3.8 generations likewise list Flash but no Flash-Lite (`qwen3.6-flash`, `qwen3.7-flash`, `qwen3.8-flash`).
+- **Alibaba Cloud Model Studio docs** (fetched): current text-generation recommendations are qwen3.8-max / qwen3.7-plus / qwen3.8-flash; no qwen3.5-flash-lite.
+- **Benchmark locators:** no SWE-bench/GPQA/pricing row for a "Qwen3.5-Flash-Lite" surfaced in any search; the closest measured relatives are Qwen3.5-35B-A3B (SWE-bench Verified 67.0% full-set / 37.8% Hard per community run) and Qwen3.5-27B — different IDs, lineage data only.
+- **Possibility left open:** "Flash-Lite" may be (or have been) a Model Studio serving-tier label pointing at the Qwen3.5-Flash weights, or a regional/console-only SKU — neither verifiable from public sources in this pass. If the orchestrator finds such a route, re-research against it.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no vendor route verified for this exact ID)
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — self-excluded. A "Flash-Lite" score borrowed from Qwen3.5-Flash or
+the 35B-A3B open model would be fabrication by alias. If a real
+qwen3.5-flash-lite vendor route with its own published results emerges,
+re-research and replace this file with a scored `GLM_5.3_Flash.md`.
+
+**Suggested follow-up for the orchestrator (requires user sign-off, not agent action):**
+`qwen-3.5-flash-lite` is a candidate for the parked/alias list (e.g. as a tier
+label of `qwen-3.5-flash`) if the Model Plaza catalog confirms no distinct SKU —
+per-instance user decision; roster: `model-aliases.generated.md`.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-30
+- Method: public internet research — OpenRouter full Qwen catalog (fetched), Alibaba Cloud Model Studio docs (fetched), benchmark-locator searches; two late-pass web searches were blocked (HTTP 403) and are noted; no vendor ID or measured benchmark found for the exact ID. Scores: none (self-excluded).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

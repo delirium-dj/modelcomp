@@ -1,0 +1,59 @@
+# Qoder Sonus — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified success-path benchmarks)
+
+- Source: Alibaba/Qoder Sonus (`qoder-sonus`)
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Qoder Sonus is a real built-in model (Alibaba's Qoder agent
+> platform, launched 2026-09-10) but it is subscription/credit-only with **no
+> public API, no open weights, no published architecture, and no published
+> benchmark table**. No independent harness (Artificial Analysis, Vals, BenchLM,
+> LLM-Stats, SWE-bench leaderboards) carries a Sonus row. Only launch coverage and
+> credit-promotion posts exist, plus community complaints about runaway credit
+> consumption. Zero verified benchmark numbers → no scored file.
+
+## Model card (verified facts only)
+
+- **Name:** Qoder Sonus
+- **Short description:** Alibaba Qoder's in-house built-in agent model (Sept 2026) for marathon-length autonomous tasks and computer use, driving desktop apps and pro software directly (coding, financial modeling, research, spreadsheets). Not a separately purchasable API model.
+- **Provider / access:** Qoder (Alibaba) — built into Qoder, Qoder IDE, Qoder CLI, the JetBrains plugin, QoderWake, and Cloud Agents. Credit multiplier 3.2x; gated to Qoder subscriptions. No model API ID published; no OpenCode Zen ID.
+- **Release / knowledge:** 2026-09-10. Knowledge cutoff not disclosed.
+- **IDs:** none published (internal Qoder model picker entry only).
+- **Context window:** Not announced (undisclosed).
+- **Modalities:** Not officially itemised; Qoder Computer Use Agent implies screen (image) understanding + text; text out claimed.
+- **Pricing (as of 2026-10-30):** No per-token price. Consumed via Qoder credits (3.2x multiplier); promotional daily credit packs (500 → 1,000 → 4,000/day) ran Sep 2026 and ended 2026-09-26.
+- **Architecture:** Undisclosed (Qoder, no parameter count, no weights). Sibling built-in model: Cantus (also 3.2x).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no OSWorld/AutomationBench/BrowseComp/Terminal-Bench row exists for Sonus)
+
+Reasoning / knowledge:
+
+- no verified public score found (no GPQA/HLE/AA Index row)
+
+Coding:
+
+- no verified public score found (no SWE-bench/LiveCodeBench/DeepSWE row)
+
+Long context:
+
+- no long-context retrieval reported
+
+### Why the file is excluded (evidence trail)
+
+- Official Qoder Forum launch post (2026-09-10) and Qoder X account describe capability only — no benchmark table.
+- BenchLM, LLM-Stats, Artificial Analysis, Vals AI and SWE-bench leaderboards have no `sonus`/`qoder-sonus` row.
+- Coverage found is launch wire news (bit.fan, AGI Hunt, MyTokenCap, lookonchain) plus credit-promotion pages; community posts report runaway credit burn, not scores.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified benchmarks → self-exclusion; no placeholder score invented.
+- Re-research trigger: a vendor or independent benchmark row for Qoder Sonus → write a scored file and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-30
+- Method: public internet research (Qoder Forum, Qoder X, docs.qoder.com, bit.fan/AGI Hunt/ai-bio launch coverage, BenchLM/LLM-Stats lookups). Negative-result file: **zero verified public benchmarks — self-excluded**.

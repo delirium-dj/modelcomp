@@ -1,0 +1,61 @@
+# Qwen 3.7 — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, generation shorthand, no distinct model)
+
+- Source: Alibaba/Qwen 3.7 (bare, `qwen-3.7`)
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** `qwen-3.7` is a bare generation name, not a vendor model ID.
+> Alibaba ships the Qwen3.7 generation as suffixed members — Qwen3.7-Max
+> (`qwen3.7-max`, closed API flagship), Qwen3.7-Plus (`qwen3.7-plus`, multimodal
+> agent) and Qwen3.7-Flash (`qwen3.7-flash`) — none of which is a bare
+> "Qwen 3.7". No `qwen3.7` model page exists on OpenRouter or LLM-Stats, and the
+> folder's `meta.json` is a generic scaffold (`128K total`, `Text in/out`,
+> `Standard pricing`), not provider evidence. Scoring this ID would mislabel a
+> member's numbers.
+
+## Model card (verified facts only)
+
+- **Name:** Qwen 3.7 (claimed bare name)
+- **Short description:** No distinct product. The real Qwen3.7 generation members are Qwen3.7-Max (May 2026 closed flagship), Qwen3.7-Plus (multimodal agent) and Qwen3.7-Flash; a bare "Qwen 3.7" SKU is not shipped.
+- **Provider / access:** Not listed as `qwen3.7` by Alibaba Cloud Model Studio, OpenRouter or LLM-Stats.
+- **Release / knowledge:** Not published for a bare ID.
+- **IDs:** `qwen-3.7` is not a vendor model ID in the sources reviewed; the scaffold `meta.json` carries `alibaba/qwen-3.7`.
+- **Context window:** Not published for this ID (scaffold says 128K, unsourced).
+- **Modalities:** Not published for this ID.
+- **Pricing (as of 2026-10-30):** Not published.
+- **Architecture:** Not published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the bare `qwen-3.7` ID
+
+Reasoning / knowledge:
+
+- no verified public score found for the bare `qwen-3.7` ID
+
+Coding:
+
+- no verified public score found for the bare `qwen-3.7` ID
+
+Long context:
+
+- no verified public score found for the bare `qwen-3.7` ID
+
+### Why the file is excluded (evidence trail)
+
+- LLM-Stats has `qwen3.7-max` and `qwen3.7-plus` pages but returns 404 for a bare `qwen3.7`.
+- OpenRouter has `qwen/qwen3.7-max`; `qwen/qwen3.7` returns 404.
+- The folder's `meta.json` is a scaffold (`Alibaba's Qwen model evaluation entry.`, `128K total`, `Standard pricing`) — `RULES.md` treats generic scaffold defaults as non-evidence.
+- `RULES.md` family-shorthand identity: a bare generation/base name whose members are tracked is never a separate model — same disposition as the parked `qwen-3.5`. Research belongs in the member folder for the ID actually cited.
+- Suggest parking `qwen-3.7` (both `RETIRED_SLUGS` lists) like `qwen-3.5`, pending user sign-off.
+- Re-research trigger: a vendor route or benchmark row for an exact `qwen3.7` ID → write a scored file and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-30
+- Method: public internet research (LLM-Stats, OpenRouter, The AI Rankings / Alibaba materials, folder `meta.json`). Negative-result file: **no distinct model for the bare ID — self-excluded**; no score invented.

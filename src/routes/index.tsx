@@ -320,9 +320,12 @@ export default component$(() => {
   // NOTE: must be a QRL ($(...)) — a plain closure cannot be serialized into
   // the onChange$ handlers that reference it.
   const handleSourceChange$ = $((v: string) => {
-    source.value = v as ResultsView;
+    const next = v as ResultsView;
+    // SOURCES only contains views with data, but never let a stale/manual value
+    // put the page into the zero-model state (no way back without a refresh).
+    source.value = SOURCES.some((s) => s.key === next) ? next : "average";
     displayCount.value = PAGE_SIZE;
-    const [a, b, c] = top3Ids(v as ResultsView);
+    const [a, b, c] = top3Ids(source.value);
     cmpA.value = a;
     cmpB.value = b;
     cmpC.value = c;

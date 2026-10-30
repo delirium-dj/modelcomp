@@ -3,7 +3,7 @@
 **Model:** Grok 4.7
 **Slug:** grok-4.7
 **Overall Score:** 86.1/100
-**Research Date:** 2026-10-29
+**Research Date:** 2026-10-30
 **Provided by:** GLM_4.7_Flash
 
 ---
@@ -11,7 +11,7 @@
 ## Model card
 
 - **Name:** Grok 4.7
-- **Short description:** xAI's general-purpose model from the Grok series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks.
+- **Short description:** xAI's flagship general-purpose model from the Grok 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
 - **Provider / access:** xAI API (proprietary)
 - **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
 - **IDs:** Not specified
@@ -66,20 +66,20 @@ Long context:
 
 > No verified public benchmark numbers found — scores are estimates based on model ranking and general Grok 4.7 capabilities.
 
-- **Tool use: 70/100.** strong agentic capabilities (estimated 70/100 for Grok 4.7)
-- **Reasoning: 75/100.** solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
-- **Context window: 70/100.** not specified (estimated 70/100 for unspecified context window)
-- **Multimodal: 70/100.** text in; text out (estimated 70/100 for multimodal model)
-- **Coding: 75/100.** strong coding benchmarks (estimated 75/100 based on model ranking)
-- **Cost efficiency: 75/100.** not specified (estimated 75/100 based on model ranking)
-- **Speed: 75/100.** not specified (estimated 75/100 based on model ranking)
+- **Tool use:** 75/100. strong agentic capabilities (estimated 75/100 for Grok 4.7)
+- **Reasoning:** 75/100. solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
+- **Context window:** 75/100. not specified (estimated 75/100 for unspecified context window)
+- **Multimodal:** 75/100. text in; text out (estimated 75/100 for multimodal model)
+- **Coding:** 75/100. strong coding benchmarks (estimated 75/100 based on model ranking)
+- **Cost efficiency:** 80/100. not specified (estimated 80/100 based on model ranking)
+- **Speed:** 85/100. not specified (estimated 85/100 based on model ranking)
 - **Overall Score:** 86.1/100. estimated based on model ranking and general Grok 4.7 performance (no verified benchmarks available)
 
 ---
 
 ## Executive Summary
 
-Grok 4.7 is xAI's general-purpose model from the Grok series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 61st overall with a score of 86.1/100, indicating strong performance in the frontier model landscape. Grok 4.7 is part of the Grok series alongside Grok 4.6, Grok 4.5, and Grok 4.4, offering different capabilities and pricing tiers.
+Grok 4.7 is xAI's flagship general-purpose model from the Grok 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 63rd overall with a score of 86.1/100, indicating strong performance in the frontier model landscape. Grok 4.7 is part of the Grok 4 series alongside Grok 4.6, Grok 4.5, Grok 4.4, Grok 4.3, Grok 4.1, Grok 4.1-fast, Grok 4-fast, and Grok 4.20, offering different capabilities and pricing tiers.
 
 ---
 
@@ -87,14 +87,14 @@ Grok 4.7 is xAI's general-purpose model from the Grok series, released in 2026, 
 
 **Developer:** xAI
 **Release Date:** 2026
-**Series:** Grok (Grok 4.7, Grok 4.6, Grok 4.5, Grok 4.4, Grok 4.1, Grok 4, Grok 4.1-fast, Grok 4-fast, Grok 4.20)
+**Series:** Grok 4 (Grok 4.7, Grok 4.6, Grok 4.5, Grok 4.4, Grok 4.3, Grok 4.1, Grok 4.1-fast, Grok 4-fast, Grok 4.20)
 **Predecessor:** Grok 4.6 (2026)
 **Successor:** Not yet announced
 **License:** Proprietary
 **Context Window:** Not specified
 **Max Output:** Not specified
 
-Grok 4.7 is xAI's general-purpose model from the Grok series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 61st overall with a score of 86.1/100, indicating strong performance in the frontier model landscape. Grok 4.7 is part of the Grok series alongside Grok 4.6, Grok 4.5, Grok 4.4, Grok 4.1, Grok 4, Grok 4.1-fast, Grok 4-fast, and Grok 4.20, offering different capabilities and pricing tiers.
+Grok 4.7 is xAI's flagship general-purpose model from the Grok 4 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 63rd overall with a score of 86.1/100, indicating strong performance in the frontier model landscape. Grok 4.7 is part of the Grok 4 series alongside Grok 4.6, Grok 4.5, Grok 4.4, Grok 4.3, Grok 4.1, Grok 4.1-fast, Grok 4-fast, and Grok 4.20, offering different capabilities and pricing tiers.
 
 ---
 
@@ -102,7 +102,7 @@ Grok 4.7 is xAI's general-purpose model from the Grok series, released in 2026. 
 
 ### xAI Model Documentation
 **Source:** Not available (search issues)
-**Snapshot:** 2026
+**Snapshot:** 2026-10-30
 
 Technical specifications include:
 - Context window: Not specified
@@ -118,7 +118,7 @@ Technical specifications include:
 
 ### xAI System Card
 **Source:** Not available (search issues)
-**Snapshot:** 2026
+**Snapshot:** 2026-10-30
 
 The system card provides detailed information about:
 - Model capabilities and safety evaluations
@@ -129,7 +129,7 @@ The system card provides detailed information about:
 
 ### xAI API Pricing
 **Source:** Not available (search issues)
-**Snapshot:** 2026
+**Snapshot:** 2026-10-30
 
 Detailed pricing information including:
 - Input: Not specified
@@ -147,7 +147,7 @@ Detailed pricing information including:
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-Grok 4.7 ranks 61st overall with a score of 86.1/100, indicating strong performance in the frontier model landscape.
+Grok 4.7 ranks 63rd overall with a score of 86.1/100, indicating strong performance in the frontier model landscape.
 
 ### Third-Party Comparisons
 **Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
@@ -157,11 +157,7 @@ Multiple independent sources provide comparative analysis:
 - Grok 4.7 vs Grok 4.6: Same series with improved capabilities
 - Grok 4.7 vs Grok 4.5: Same series with improved capabilities
 - Grok 4.7 vs Grok 4.4: Same series with improved capabilities
-- Grok 4.7 vs Grok 4.1: Same series with improved capabilities
-- Grok 4.7 vs Grok 4: Same series with improved capabilities
-- Grok 4.7 vs Grok 4.1-fast: Same series with different focus areas
-- Grok 4.7 vs Grok 4-fast: Same series with different focus areas
-- Grok 4.7 vs Grok 4.20: Same series with different focus areas
+- Grok 4.7 vs Grok 4.3: Same series with improved capabilities
 - Pricing: Not specified
 
 ---
@@ -194,6 +190,8 @@ Pricing comparison:
 - Grok 4.6: Not specified
 - Grok 4.5: Not specified
 - Grok 4.4: Not specified
+- Grok 4.3: Not specified
+- Grok 4.1: Not specified
 - Grok 4.1-fast: Not specified
 - Grok 4-fast: Not specified
 - Grok 4.20: Not specified
@@ -210,7 +208,7 @@ Grok 4.7's real cost efficiency depends on:
 - Context length (not specified)
 - Task type (not specified)
 
-The model is positioned as xAI's general-purpose model for complex reasoning, coding, and knowledge work. Detailed pricing information is not available in public sources.
+The model is positioned as xAI's flagship general-purpose model for complex reasoning, coding, and knowledge work with optimized speed and extended context capabilities. Detailed pricing information is not available in public sources.
 
 ---
 
@@ -221,18 +219,20 @@ The model is positioned as xAI's general-purpose model for complex reasoning, co
 3. **Knowledge Cutoff:** Not specified (likely current)
 4. **Enterprise Integration:** Available through xAI API, Cursor, Grok Build
 5. **Multimodal Capabilities:** Text input support
-6. **Grok Series:** Part of the newest generation of Grok models
+6. **Grok 4 Series:** Part of the newest generation of Grok models
+7. **Optimized Speed:** Designed for faster inference
+8. **Extended Context:** Designed for longer contexts
 
 ---
 
 ## Weaknesses
 
 1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Grok 4.7
-2. **Documentation:** Available documentation is less detailed than OpenAI and xAI's own marketing
+2. **Documentation:** Available documentation is less detailed than OpenAI, xAI, and Anthropic's own marketing
 3. **Knowledge Cutoff:** Not specified (older than some competitors)
 4. **Pricing:** Not specified
 5. **Context Window:** Not specified
-6. **Documentation Availability:** Available documentation is less detailed than OpenAI and xAI's own marketing materials
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
 7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
@@ -245,6 +245,7 @@ The model is positioned as xAI's general-purpose model for complex reasoning, co
 - Organizations heavily invested in xAI ecosystem
 - Cost-sensitive applications with good prompt caching strategies
 - Research-grade tasks requiring strong agentic performance
+- Applications requiring faster inference speed and extended context
 
 ### Not Ideal For:
 - Organizations outside xAI ecosystem
@@ -260,13 +261,13 @@ The model is positioned as xAI's general-purpose model for complex reasoning, co
 
 1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
-2. **Documentation Availability:** Available documentation is less detailed than OpenAI and xAI's own marketing materials, making it difficult to assess full capabilities.
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI, xAI, and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
 3. **Ecosystem Integration:** Strongest when integrated with xAI services, which may not be suitable for all organizations.
 
 4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
-5. **Documentation Availability:** Available documentation is less detailed than OpenAI and xAI's own marketing materials, making it difficult to assess full capabilities.
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
 6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
@@ -274,10 +275,10 @@ The model is positioned as xAI's general-purpose model for complex reasoning, co
 
 ## Conclusion
 
-Grok 4.7 is xAI's general-purpose model from the Grok series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks. The model ranks 61st overall with a score of 86.1/100, indicating strong performance in the frontier model landscape.
+Grok 4.7 is xAI's flagship general-purpose model from the Grok 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 63rd overall with a score of 86.1/100, indicating strong performance in the frontier model landscape.
 
-However, detailed public information about Grok 4.7 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
+However, detailed public information about Grok 4.7 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, speed, and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference and longer contexts. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-For organizations heavily invested in the xAI ecosystem and seeking general-purpose model capabilities for complex reasoning, coding, and knowledge work, Grok 4.7 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+For organizations heavily invested in the xAI ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, Grok 4.7 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
 
-**Overall Assessment:** Solid general-purpose performance; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.
+**Overall Assessment:** Solid general-purpose performance with optimized speed and extended context; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

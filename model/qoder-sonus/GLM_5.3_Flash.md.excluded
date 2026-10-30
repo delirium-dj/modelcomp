@@ -1,0 +1,59 @@
+# Qoder Sonus — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified public benchmarks)
+
+- Source: Qoder (built-in model; no public API ID found)
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> model — Qoder published no benchmark table with the launch announcement and no
+> independent harness (AA, Vals, BenchLM, SWE-bench, Terminal-Bench) carries a
+> Sonus row in the sources found. Per the template's mandatory self-exclusion
+> rule this file is saved as `.md.excluded` (notes only; any scores inside are
+> ignored) instead of a scored `.md`.
+
+## Model card
+
+- **Name:** Sonus (Qoder built-in model)
+- **Short description:** Qoder's first-party built-in model for marathon-length autonomous tasks, hard knowledge work, and serious coding, with a declared specialty in **Computer Use**: paired with Qoder Desktop 0.2.3 it drives the machine and pro software directly (code, financial models, research, spreadsheets). Available across Qoder, Qoder IDE, Qoder CLI, the JetBrains plugin, QoderWake, and Cloud Agents.
+- **Provider / access:** Qoder subscription surfaces only — no public per-token API found. Credit-multiplier billing: **3.2×** on personal and enterprise accounts. Community reports of aggressive credit consumption (a user reports 2,000 free credits burned on a stalled task that kept charging after stop/shutdown; others report the same; a "what's the 8x, it's too expensive" reply suggests a higher-multiplier configuration exists) — unresolved complaints on the official forum thread as of the research date.
+- **Release / knowledge:** 2026-09-10 (official Qoder forum announcement, 07:45 UTC).
+- **IDs:** no public API ID (built-in model picker only) — no Free ID exists on Zen
+- **Context window:** not published — no verified data
+- **Modalities:** computer use (desktop control), coding, knowledge work per the announcement; a user video-editing task succeeded — but no official modality spec is published: no verified data
+- **Pricing (as of 2026-10-30):** subscription credits with a 3.2× multiplier; no per-token price published
+- **Architecture:** not disclosed. Underlying lineage (Qwen vs in-house vs multi-model router) is not stated by Qoder — its generic statement is that Qoder surfaces "the world's latest and most advanced models." No lineage claim is made here.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no published or independently measured rows)
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — self-excluded. The model demonstrably exists and is actively used,
+but with zero published or independently measured benchmark numbers, any score
+line would be fabrication (`RULES.md`; template self-exclusion rule). If Qoder
+or an independent harness later publishes Sonus numbers, re-research and replace
+this file with a scored `GLM_5.3_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-30
+- Method: public internet research — official Qoder forum announcement (fetched in full), Qoder product site, Qoder X/Instagram launch posts, Alibaba Cloud social coverage, plus benchmark-locator searches (SWE-bench, BenchLM, swebench.com) that returned no Sonus rows. Scores: none (self-excluded, no verified benchmarks).
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

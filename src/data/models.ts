@@ -424,6 +424,16 @@ function sourceRankOverall(key: SourceKey): number {
   return max;
 }
 
+/**
+ * A registered reporting agent is only selectable when at least one tracked
+ * generative model actually carries its report. Stale registry entries (no live
+ * findings anywhere — e.g. a merged/parked rater or a report that was
+ * quarantined) would otherwise render an empty leaderboard and no compare slots.
+ */
+function sourceHasScores(key: SourceKey): boolean {
+  return MODELS.some((m) => !isDecisionModel(m) && m.sources[key] !== undefined);
+}
+
 /** Inline slug lookup for any results view (reporting agents only). */
 export function slugForSource(source: ResultsView): string | undefined {
   return SOURCES.find((s) => s.key === source)?.slug;
@@ -436,10 +446,13 @@ export function slugForSource(source: ResultsView): string | undefined {
  * by design; every other source is a reporting agent ranked by its own average
  * Overall -- the All-models number (see sourceRankOverall; stable sort, so
  * ties keep registry order).
- * A newly registered source slots itself in automatically -- never hand-sort.
+ * Every source with at least one live report slots itself in automatically --
+ * never hand-sort.
  *
  * Display note: the `average` key keeps its stable key/file (`average.md`,
  * `?source=average`) but is labeled "Overall" in the UI.
+ * Sources with no scores in any tracked model are omitted: selecting one would
+ * leave the page with zero rows (and previously stranded the whole UI).
  */
 export const SOURCES: { key: ResultsView; label: string; file: string; slug?: string }[] = (() => {
   const averageRaw = SOURCE_DEFS.find((s) => s.key === "average");
@@ -448,7 +461,7 @@ export const SOURCES: { key: ResultsView; label: string; file: string; slug?: st
   // Virtual views mirror average scores; they are built here, never registered
   // in SOURCE_DEFS (Phase 3).
   const virtualDefs = VIRTUAL_VIEWS.map((v) => ({ key: v.key as ResultsView, label: v.label, file: "average.md" }));
-  const rest = SOURCE_DEFS.filter((s) => s.key !== "average").sort(
+  const rest = SOURCE_DEFS.filter((s) => s.key !== "average" && sourceHasScores(s.key)).sort(
     (a, b) => sourceRankOverall(b.key) - sourceRankOverall(a.key),
   );
   return [averageDef, ...virtualDefs, ...rest];

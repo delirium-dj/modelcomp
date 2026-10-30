@@ -54,7 +54,9 @@ Site origin for prerendered canonical URLs + sitemap is `SITE_ORIGIN`
     bars, best-first reporting table. Per-model `<title>`/description via a `DocumentHead`.
   - `providers/index.tsx`: Providers page (`/providers/`, v2 canvas) — per-provider billing plans
     (each price links its claimant page) and covered models (derived from `idPrefixes`/`hosts`),
-    sourced from `src/data/providers.ts` (data curated in `providers/<slug>/meta.json`).
+    sourced from `src/data/providers.ts` (data curated in `providers/<slug>/meta.json`). Cards are
+    grouped **Free tier first, then Paid only**, each group ordered by covered-model count; free
+    plans are derived from plan name/price (`isFreePlan`), never a separate flag.
   - `contact/index.tsx`: Contact page (unconfigured inbox — see audit B12) — the only page using
     the shared layout chrome.
   - `design-6sol/`: standalone design-study canvas (own CSS, own theme toggle).
