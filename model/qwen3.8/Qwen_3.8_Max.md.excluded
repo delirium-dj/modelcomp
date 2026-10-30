@@ -1,0 +1,28 @@
+# Qwen 3.8 (`qwen3.8`) — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Alibaba (`qwen3.8`; id `opencode/qwen3.8`) — compact-spelling duplicate folder
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** This folder is a **`"scaffolded": true` compact-spelling duplicate of the canonical `qwen-3.8` entry** (queue L38, curated 88.6) — the **same Alibaba Qwen 3.8 artifact** that I have **already researched and scored** in `model/qwen-3.8/Qwen_3.8_Max.md` (63 lines). Writing a second findings file here would **double-count one model across two folder spellings** (the same trap as `qwen3.8-max` vs `qwen-3.8-max`, and `gemma-4-26b-a4b` vs `gemma-4.26b-a4b`). The scaffold stub carries no distinct shipped artifact, no distinct id (both are Qwen 3.8), and no benchmarks of its own. Excluded to prevent reattribution/double-count.
+
+## Model card (duplicate — unresolved as a distinct SKU)
+
+- **Name:** "Qwen3.8" — identical to the canonical `qwen-3.8` (Alibaba Qwen 3.8).
+- **Folder id:** `opencode/qwen3.8` (OpenCode Zen **scaffold** namespace) vs the canonical `qwen-3.8`.
+- **Scaffold meta (thin, unverified):** `"short": "Qwen3.8 model evaluation entry."`, `"contextWindow": "128K total"`, `"modalities": "Text in/out"`, `"pricingNote": "Standard pricing"`, `"scaffolded": true` — a placeholder, **contradicted** by the real entry's verified specs already documented in the canonical `qwen-3.8` report.
+- **Canonical entry:** `model/qwen-3.8/` — already holds my findings (`Qwen_3.8_Max.md`, 63 lines) plus peer findings and `average.md`. Distinct from the whole scored Qwen 3.8 family (`qwen-3.8-27b`, `qwen-3.8-flash`, `qwen-3.8-flash-next`, `qwen-3.8-max`), none of which this stub separately denotes.
+
+### Raw benchmarks found
+
+None attributable to this folder as a **distinct** model. Any Qwen 3.8 benchmark belongs to the canonical `qwen-3.8` artifact and is already recorded there. Re-listing it here would duplicate/reattribute the same numbers.
+
+### Normalized scores (1–100)
+
+Omitted — self-excluded (duplicate of `qwen-3.8`; scoring here would double-count one artifact across two spellings).
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-30
+- Method: identity resolution via `meta.json` (`opencode/qwen3.8`, `"scaffolded": true`) cross-checked against `model-queue.md` (both `qwen3.8` L69 and `qwen-3.8` L38 present) and the existing canonical findings file. Confirmed the two folders denote the **same** Alibaba Qwen 3.8; excluded the compact-spelling scaffold to avoid double-count. **No sibling reattributed; no numbers invented.**

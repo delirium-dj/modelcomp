@@ -108,4 +108,4 @@ Long context:
 
 - Based on 9 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Step 5 Preview.
 - Average from top 9 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.6V Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.6V Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash.

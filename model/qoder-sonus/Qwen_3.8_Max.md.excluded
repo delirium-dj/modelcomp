@@ -1,0 +1,33 @@
+# Qoder Sonus (`qoder-sonus`) — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Qoder (`qoder-sonus`; id `qoder/sonus-1.0`; official `qoder.com`)
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** Qoder Sonus is a **real, distinct, currently-shipping artifact** — Qoder's own built-in model, announced **2026-09-10** across the whole Qoder family (Qoder, Qoder IDE, Qoder CLI, the JetBrains plugin, QoderWake, Cloud Agents), with a clearly-defined specialty (**Computer Use / desktop-and-pro-software automation, marathon-length autonomous tasks, coding, financial modelling**). **However, it has ZERO verified public capability benchmarks** — no independent measurement (Artificial Analysis has **no page for it — 404**; no Vals, OSWorld, SWE-bench, Terminal-Bench or LMArena figure exists), and **no vendor-published numbers** either: Qoder's own announcement and X post are **entirely qualitative** ("built for marathon-length autonomous tasks, the hardest knowledge work, and serious coding … at its best when using your computer"), and the only quantities in circulation are **pricing/usage** (a **3.2x→8x Qoder-Credits multiplier**, "4,000 daily credits" promo, users reporting runaway credit burn), **not capability**. Scoring Reasoning / Coding / Tool-use would therefore require **inventing benchmark numbers**, which the research rules forbid. This is the same basis on which I self-excluded **longcat-2.5-preview** ("real API-only artifact but zero verified benchmarks of its own") and **fledge-alpha**. Excluded — unscorable without fabrication, not because the model is fake.
+
+## Model card (real artifact — zero verified benchmarks)
+
+- **Name:** Qoder Sonus (/ˈsoʊnəs/) — vendor **Qoder** (the AI-coding IDE family); its **own built-in model**, not a re-hosted third-party SKU.
+- **Short description (vendor):** "built for marathon-length autonomous tasks, the hardest knowledge work, and serious coding — and it's at its best when using your computer." Paired with **Computer Use** (Qoder Desktop 0.2.3), it "drives your machine and pro software directly: writing code, building financial models, running research, producing spreadsheets."
+- **Provider / access:** Built into the Qoder family (IDE / CLI / JetBrains plugin / QoderWake / Cloud Agents). **Priced in Qoder Credits**, multiplier **3.2x at launch** (personal + enterprise), later reported at **8x**; a "Limited-Time SOTA" promo granted 4,000 daily credits (Sept 21–25). **No per-token API price** — so no AA cost/speed measurement is possible.
+- **Release / knowledge:** **2026-09-10** (Qoder forum announcement + Qoder on X). **Current.**
+- **IDs:** `qoder/sonus-1.0`; official `qoder.com` / `forum.qoder.com` / `docs.qoder.com`.
+- **Context window:** **Not published** for Sonus (the Qoder Model Selector exposes an adjustable Context parameter, but no fixed figure is stated).
+- **Modalities:** Curated meta says **"Text in/out,"** but the **Computer Use** specialty means **page/window/screenshot content enters the Agent context** (per `docs.qoder.com/qoder/computer-use`) — i.e. it is effectively **screen/vision-driven for GUI control**. Unverified which modalities are native to Sonus itself.
+- **Architecture:** **Undisclosed.** Qoder does not publish parameters, training, or whether Sonus is trained in-house or a fine-tune/route of another frontier model.
+
+### Raw benchmarks found
+
+**None.** No independent harness lists Qoder Sonus (AA 404; absent from Vals, OSWorld/OSWorld-2.0, SWE-bench, Terminal-Bench, LMArena). No vendor benchmark table exists — Qoder's announcement, X post and docs give **only qualitative capability claims and credit-multiplier pricing**. Third-party mentions (relayhall.com "Harness Atlas," unifuncs ZCode-vs-Qoder comparison, Reddit r/ClaudeAI) describe Sonus as a **computer-use harness/native model** but cite **no scores**. The curated meta's "SOTA rate applies" refers to the **credit rate**, not a benchmark.
+
+### Normalized scores (1–100)
+
+Omitted — self-excluded (real distinct artifact, but **zero verified public capability benchmarks**; assigning Tool-use / Reasoning / Coding scores would require inventing numbers).
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-30
+- Method: public internet research — **Qoder forum** announcement `sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use` (2026-09-10: built-in model, marathon autonomous tasks / hardest knowledge work / serious coding / best at Computer Use; drives machine + pro software — code, financial models, research, spreadsheets; across Qoder/IDE/CLI/JetBrains/QoderWake/Cloud Agents; **3.2x credit multiplier**; user replies report **8x** and runaway credit burn) + **Qoder on X** ("Its specialty: Computer Use … drives your computer and pro software like a power user — coding, financial …") + **docs.qoder.com** (Computer Use on Mac 2026-05-21 / Windows 2026-06-18; Model Selector with adjustable Context + Thinking Effort; Computer-Use page — screenshot/window content enters Agent context) + targeted benchmark hunts (**AA `qoder-sonus` = 404**; no OSWorld/SWE-bench/Terminal-Bench/Vals/LMArena figure; relayhall "Harness Atlas" lists it as a native harness with **no scores**); meta — `qoder/sonus-1.0`, "Computer-operation specialized model; performs coding, financial modeling, and complex desktop/software tasks," 128K, Text in/out, "Qoder Credits (SOTA rate applies)." Confirmed a **real distinct shipping artifact** but **zero verified capability benchmarks** → self-excluded to avoid fabricating scores. **No sibling reattributed; no numbers invented.**
+- Future sources: revisit if Qoder publishes a **Sonus benchmark table** (OSWorld / OSWorld-2.0 computer-use %, SWE-bench Verified, Terminal-Bench, an internal Index), if **Artificial Analysis or Vals** lists it, or if Qoder discloses **architecture / context window / whether Sonus is in-house** — any of which would make it scoreable.

@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Inkling.
 - Average from top 5 by Overall Score: Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Inkling.
-- Ignored below-gate rater(s): Beam, GPT 6 Luna, Laguna XS 2.1, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Beam, GLM 4.5 Flash, GPT 6 Luna, Laguna XS 2.1, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash, Qwen 3.8 Max.

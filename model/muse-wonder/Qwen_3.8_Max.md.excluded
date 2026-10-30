@@ -1,0 +1,28 @@
+# Muse Wonder (`muse-wonder`) — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: Meta (`muse-wonder`; id `opencode/muse-wonder`) — scaffold duplicate folder
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** This folder is a **`"scaffolded": true` duplicate of the canonical `muse-wonder-1.0` entry** (queue L33, curated 89.0, id `opencode/muse-wonder-1.0`) — the **same Meta "plain" Muse Wonder** ($4/$20 Meta Model API model) that I have **already researched and scored** in `model/muse-wonder-1.0/Qwen_3.8_Max.md`. It is likewise **distinct from `muse-wonder-full`** (queue L30, id `meta/muse-wonder-full-1.0`, the subscription-only largest sibling — scored separately as report 129). Writing a second findings file here would **double-count one artifact across two folder spellings**. The scaffold stub carries no distinct shipped artifact and no benchmarks of its own. Excluded to prevent reattribution/double-count.
+
+## Model card (duplicate — unresolved as a distinct SKU)
+
+- **Name:** "Muse Wonder" — identical to the canonical `muse-wonder-1.0` (Meta's plain Muse Wonder, $4/$20 API, 1M context, released 2026-10-12).
+- **Folder id:** `opencode/muse-wonder` (OpenCode Zen **scaffold** namespace) vs the real `opencode/muse-wonder-1.0`.
+- **Scaffold meta (thin, unverified):** `"short": "Muse Wonder model evaluation entry."`, `"contextWindow": "128K total"`, `"modalities": "Text in/out"`, `"pricingNote": "Standard pricing"`, `"scaffolded": true` — a placeholder, **contradicted** by the verified plain-Muse-Wonder specs (1M context; text+image+audio+video+PDF in → text out; $4/$20) already documented in the canonical report and CellCog's price/access table.
+- **Two real Muse Wonder artifacts already scored:** `muse-wonder-1.0` (plain, $4/$20) and `muse-wonder-full` (subscription-only Max, report 129). This `muse-wonder` stub is a third folder for the first of those.
+
+### Raw benchmarks found
+
+None attributable to this folder as a **distinct** model. Meta's 14-row max-effort launch table (Wonder Full | **Wonder** | Opus 5.5 | GPT-6 Astra | Fable 5.1) belongs to the plain Muse Wonder already scored at `muse-wonder-1.0`; re-listing it here would duplicate/reattribute the same numbers.
+
+### Normalized scores (1–100)
+
+Omitted — self-excluded (duplicate of `muse-wonder-1.0`; scoring here would double-count one artifact across two spellings).
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-30
+- Method: identity resolution via `meta.json` (`opencode/muse-wonder`, `"scaffolded": true`) cross-checked against `model-queue.md` (`muse-wonder` L68, `muse-wonder-1.0` L33, `muse-wonder-full` L30 all present) and the existing canonical findings files. Confirmed this stub denotes the **same** plain Meta Muse Wonder already scored at `muse-wonder-1.0` (and distinct from `muse-wonder-full`); excluded to avoid double-count. **No sibling reattributed; no numbers invented.**

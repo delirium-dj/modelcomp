@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash.
 - Average from top 2 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash, Xing 4.0 29b a4b.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash, Xing 4.0 29b a4b.

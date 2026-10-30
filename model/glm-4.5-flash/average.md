@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash.
 - Average from top 3 by Overall Score: Gemini 3.8 Flash, Inkling, MiMo 2.6 Flash.
-- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash.
+- Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Qwen 3.8 Flash.

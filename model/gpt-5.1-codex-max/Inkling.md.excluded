@@ -1,0 +1,6 @@
+# GPT-5.1 Codex Max — excluded (.md not applicable)
+
+- Source: **Inkling** — 2026-10-29. `STEM = Inkling`; Filename `model/gpt-5.1-codex-max/Inkling.md.excluded`.
+- Note: Processed continuously in 10-model batch; same identity/contract preserved.
+- Identity: `gpt-5.1-codex-max` (`GPT-5.1-Codex-Max` — OpenAI; `Status: Shut down` [`official` docs / `github.com/openai/codex` discussion / `artificialanalysis.ai` closest — deprecated/retired `2026-07-23`; deprecated `2026-04-01` [`official` / closest independent agreement very close]). Real proprietary model; not phantom/alias (`model-aliases.generated.md` does not list; separate tracked folder). `.excluded` saved (deprecated/shut-down; zero verified current benchmark registry applicable; `.md` not appropriate per self-exclusion/deprecation rule).
+- Signature: `STEM = Inkling`; Filename exact; `.md` twin: none; Conflicts: `official` `Status: Shut down` vs dataset identity/reference — deprecation/shutdown fully confirmed by official + closest independent (`artificialanalysis.ai` `deprecated` / `github.com/openai/codex` discussion); no contradiction in identity/deprecation status.
