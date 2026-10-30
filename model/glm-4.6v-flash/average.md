@@ -94,18 +94,19 @@ Long context:
 3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/glm-4.6v-flash/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).## Averaged scores
 
-- **Tool use: 58.5/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 62.3/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 64.2/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 76.7/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 56.5/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 96.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 63.7/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 59.8/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 63.6/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Context window: 67.2/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 71.7/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Coding: 58/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 88.3/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 64.2/100.** Mean of top 10 of 11 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
 ## Agreement notes
 
-- Based on 10 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
-- Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
+- Based on 11 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
+- Average from top 10 by Overall Score: Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash.
+- Excluded bottom 1: Step 5 Preview.
 - Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 4.6V Flash, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B.

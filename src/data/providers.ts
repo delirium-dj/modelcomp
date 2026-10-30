@@ -40,6 +40,15 @@ export interface ProviderMeta {
   plans: ProviderPlan[];
 }
 
+export type ProviderCategory =
+  | "coding-moe"
+  | "gpu"
+  | "audio-speech"
+  | "video"
+  | "search"
+  | "observability-security"
+  | "everything-else";
+
 export interface Provider extends ProviderMeta {
   /** Folder name under providers/ — the canonical key. */
   slug: string;
@@ -50,6 +59,126 @@ export interface Provider extends ProviderMeta {
   freePlans: ProviderPlan[];
   /** True when at least one plan is free — `freePlans.length > 0`. */
   freeTier: boolean;
+  /** Functional category: coding-moe, gpu, audio-speech, video, search, observability-security, or everything-else. */
+  category: ProviderCategory;
+}
+
+const GPU_PROVIDER_SLUGS = new Set([
+  "runpod",
+  "lambda",
+  "hyperbolic",
+  "modal",
+  "baseten",
+  "deepinfra",
+  "novita-ai",
+  "scaleway",
+  "together-ai",
+  "nebius-builder",
+  "replicate",
+  "chutes",
+  "anyscale",
+  "lepton",
+  "hetzner",
+]);
+
+export function getProviderCategory(
+  meta: ProviderMeta,
+  slug: string,
+): ProviderCategory {
+  const text = `${meta.short} ${meta.name} ${slug}`.toLowerCase();
+  const fullText = `${text} ${JSON.stringify(meta.plans || [])}`.toLowerCase();
+
+  // Category 3: Audio / speech
+  if (
+    ["deepgram", "elevenlabs", "gladia"].includes(slug) ||
+    /speech-to-text|text-to-speech|\baudio intelligence\b|\bstt\b|\btts\b|\btranscription\b/i.test(
+      text,
+    )
+  ) {
+    return "audio-speech";
+  }
+
+  // Category 4: Video
+  if (
+    ["fal", "atlas-cloud"].includes(slug) ||
+    /\bvideo generation\b|\bvideo model\b|\btext-to-video\b|\bgenerative video\b/i.test(
+      text,
+    )
+  ) {
+    return "video";
+  }
+
+  // Category 5: Web grounding search (e.g. Exa, Tavily, Brave Search)
+  if (
+    ["exa", "tavily", "brave-search", "firecrawl"].includes(slug) ||
+    /search api|web search|grounding search|web index/i.test(text)
+  ) {
+    return "search";
+  }
+
+  // Category 6: LLM observability/security tooling
+  if (
+    [
+      "promptfoo",
+      "langfuse",
+      "langsmith",
+      "braintrust",
+      "literal-ai",
+      "opik",
+      "phoenix",
+      "signoz",
+      "grafana-cloud",
+      "posthog",
+      "promptlayer",
+      "helicone",
+      "portkey",
+      "traceloop",
+      "lakera",
+      "azure-ai-content-safety",
+      "google-model-armor",
+      "new-relic",
+      "laminar",
+    ].includes(slug) ||
+    /observability|tracing|evaluation|llm security|guardrail|armor|safety|prompt injection|jailbreak|red teaming/i.test(
+      text,
+    )
+  ) {
+    return "observability-security";
+  }
+
+  // Category 2: On-demand GPU
+  if (
+    GPU_PROVIDER_SLUGS.has(slug) ||
+    /on-demand gpu|gpu cluster|bare-metal|rent.*gpu|serverless gpu|gpu instance|gpu cloud|gpu infrastructure|per gpu-hour/i.test(
+      fullText,
+    )
+  ) {
+    return "gpu";
+  }
+
+  // Category 7: Everything else (e.g. neural translation like DeepL, embeddings like Voyage, Jina, RAG tooling like Mixedbread)
+  if (
+    [
+      "deepl",
+      "voyage",
+      "jina",
+      "mixedbread",
+      "stepfun",
+      "ai21",
+      "cohere",
+      "friendliai",
+      "glama",
+      "inference-net",
+      "opper",
+      "truefoundry",
+    ].includes(slug) ||
+    /translation|neural translation|embedding|rerank/i.test(text)
+  ) {
+    return "everything-else";
+  }
+
+  // Category 1: Providers offering models with coding & MoE abilities (Frontier LLM labs, coding engines & multi-model gateways)
+  return "coding-moe";
 }
 
 const REQUIRED = ["name", "short", "plans"] as const;
@@ -157,6 +286,7 @@ export const PROVIDERS: Provider[] = (() => {
       plans: meta.plans,
       freePlans,
       freeTier: freePlans.length > 0,
+      category: getProviderCategory(meta, slug),
       models: matchModels(meta),
     };
   });
@@ -171,12 +301,47 @@ export const PROVIDERS: Provider[] = (() => {
   return providers;
 })();
 
-/** Free-tier providers, most covered models first (upper group on the page). */
+/** Free-tier providers, most covered models first. */
 export const FREE_TIER_PROVIDERS = PROVIDERS.filter((p) => p.freeTier);
 
-/** No free plan, most covered models first (lower group on the page). */
+/** No free plan, most covered models first. */
 export const PAID_ONLY_PROVIDERS = PROVIDERS.filter((p) => !p.freeTier);
+
+/** Category 1: Providers offering models with coding and MoE ability (frontier foundation models & coding engines). */
+export const CODING_MOE_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "coding-moe",
+);
+
+/** Category 2: On-demand GPU and compute clouds. */
+export const GPU_PROVIDERS = PROVIDERS.filter((p) => p.category === "gpu");
+
+/** Category 3: Audio / Speech. */
+export const AUDIO_SPEECH_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "audio-speech",
+);
+
+/** Category 4: Video. */
+export const VIDEO_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "video",
+);
+
+/** Category 5: Web grounding search (e.g. Exa, Tavily, Brave Search). */
+export const SEARCH_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "search",
+);
+
+/** Category 6: LLM observability/security tooling. */
+export const OBSERVABILITY_SECURITY_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "observability-security",
+);
+
+/** Category 7: Everything else (e.g. neural translation, embeddings, RAG tools). */
+export const EVERYTHING_ELSE_PROVIDERS = PROVIDERS.filter(
+  (p) => p.category === "everything-else",
+);
 
 export function getProvider(slug: string): Provider | undefined {
   return PROVIDERS.find((p) => p.slug === slug);
 }
+
+
