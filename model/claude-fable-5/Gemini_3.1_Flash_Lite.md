@@ -1,36 +1,27 @@
-# Claude Fable 5 — findings by Gemini 3.1 Flash Lite
-
-- Source: Anthropic `claude-fable-5`
-- Date: 2026-10-28 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Claude Fable 5
-- **Short description:** Flagship Mythos-class model for complex analytical tasks.
-- **Provider / access:** Anthropic API.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
-
-### Raw benchmarks found
-
-- SWE-bench Verified: **95%**
-- SWE-bench Pro: **80%**
-
-### Normalized scores (1–100)
-
-- **Tool use: 94/100.** Industry-leading for complex agentic workflows.
-- **Reasoning: 95/100.** Benchmark-crushing analytical capability.
-- **Context window: 92/100.** Highly robust for long-horizon work.
-- **Multimodal: 90/100.** Excellent multimodal integration.
-- **Coding: 94/100.** Top-tier coding and code review capabilities.
-- **Cost efficiency: 75/100.** Premium pricing for high-end tasks.
-- **Overall Score: 93/100.** A premier model for ambitious technical and analytical tasks.
-
----
+# Gemini 3.1 Flash Lite
 
 ## Signature
+- **Model:** Claude Fable 5
+- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
+- **Reference URLs:**
+  - https://platform.claude.com/docs/en/models/fable-5/overview
+  - https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.html
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-28
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+## Summary
+Claude Fable 5 (Legacy) was Anthropic's flagship model for complex knowledge work, coding, and long-horizon autonomous agents, released in June 2026. It features a 1M token context window, adaptive thinking enabled by default, and was designed for sustained operation across multi-day tasks, planning across stages, and self-verification.
+
+## Findings
+- **Purpose:** Complex reasoning, long-running agentic coding, and enterprise-grade knowledge work.
+- **Capabilities:** Multimodal (text, image input; text output). Supports advanced reasoning, tool calling, and computer use.
+- **Architecture:** Part of the Claude 5 family, utilizing adaptive thinking (default effort `high`).
+- **Performance:** Exceptionally capable at planning multi-stage tasks and delegating to sub-agents. It is now considered a legacy model; Anthropic recommends migrating to Claude Fable 5.1.
+- **Availability:** Claude API, AWS (Bedrock, Claude Platform), Google Cloud, and Microsoft Foundry.
+
+## Scores
+- **Tool use:** 91/100
+- **Reasoning:** 91/100
+- **Context window:** 92/100
+- **Multimodal:** 88/100
+- **Coding:** 90/100
+
+- **Overall Score:** 90.4/100

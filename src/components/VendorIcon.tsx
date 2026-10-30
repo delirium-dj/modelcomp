@@ -195,6 +195,8 @@ const VENDORS: VendorMatch[] = [
   { match: "truefoundry", icon: "truefoundry", label: "TrueFoundry" },
   { match: "stepfun", icon: "stepfun", label: "StepFun", adaptive: true },
   { match: "unbiased", icon: "unbiased", label: "Unbiased", adaptive: true },
+  { match: "deepl", icon: "deepl", label: "DeepL", adaptive: true },
+  { match: "voyage", icon: "voyage", label: "Voyage AI", adaptive: true },
   // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
   // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
   // pick up the OpenCode mark below; originals omen / owl have no brand SVG —

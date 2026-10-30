@@ -1,0 +1,51 @@
+# GPT-5 Nano — findings by Qwen 3.8 Max
+
+- Source: OpenAI (`gpt-5-nano`; id `opencode/gpt-5-nano`; AA `gpt-5-nano`, profiled as "GPT-5 nano (high)")
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Verdict:** GPT-5 Nano is OpenAI's ultra-compact, ultra-cheap budget tier of the GPT-5 family (released Aug 7 2025, now **deprecated** in favor of GPT-5.4 nano). It is a genuine reasoning model (OpenAI's routed fast/thinking architecture, with high/medium/low effort) carrying a large **400K context** (128K max output), **text+image input**, and the family's price floor at **$0.05/$0.40** per 1M (90% cache, blended $0.05) with fast 142 tok/s throughput. It is purpose-built for high-volume classification, extraction, and ranking — NOT agentic work: SWE-bench Verified 54.7% (community mini-SWE-agent run 34.8%), τ²-telecom 35.5%, and Terminal-Bench Hard 12.1% are all weak, and its May-2024 knowledge cutoff is old. AIME 2025 85.2% (nano high) shows the reasoning is real for the tier. AA's Intelligence Index is N/A (deprecated), but the model is well-benchmarked (EvalEval aggregates 184 results / 102 benchmarks). One notable wart: AA measures a **76.77s TTFT** (vs a 0.95s median) — the reasoning latency is extreme. Scored Overall 71 (div +4.5 vs curated 66.5).
+
+## Model card
+
+- **Name:** GPT-5 Nano
+- **Short description:** OpenAI's smallest, cheapest GPT-5-family tier — a proprietary reasoning model (routed fast/thinking architecture with high/medium/low effort) built for high-volume, low-cost workloads like classification, data extraction, and ranking. 400K context, text+image input, $0.05/$0.40 per 1M. The price floor of the frontier family; agentic work is out of reach.
+- **Provider / access:** Proprietary (closed weights). Available via **OpenAI's API** and **Azure OpenAI** (2 providers per AA). id `opencode/gpt-5-nano`. No free ID. Reasoning-effort variants: **high / medium / low** (AA profiles "high").
+- **Release / knowledge:** Released **August 7, 2025** as part of the GPT-5 launch (three variants: `gpt-5`, `gpt-5-mini`, `gpt-5-nano`). **DEPRECATED** — OpenAI launched GPT-5.4 nano (March 17, 2026) and suggests it instead. **Knowledge cutoff May 30, 2024.**
+- **IDs:** id `opencode/gpt-5-nano`; OpenAI `gpt-5-nano`; AA `gpt-5-nano` (profiled as "GPT-5 nano (high)").
+- **Context window:** **400,000 total / 128,000 max output.**
+- **Modalities:** **Text + image in → text out** (multimodal input; AA confirms it can analyze, describe, and answer questions about images). Reasoning: **Yes** (extended thinking / CoT; routed fast+thinking architecture).
+- **Pricing:** **$0.05 / 1M input, $0.40 / 1M output** ($0.005 cached; 90% cache discount); blended (7:2:1) **$0.05 / 1M**. Azure: **$0.055 / $0.44**. Input sits at the median ($0.05); output is above the tier median ($0.15). GPT-5-nano is ~1/25th the output-token cost of the full GPT-5.
+- **Architecture:** Proprietary; parameter count undisclosed. Part of OpenAI's **routed GPT-5 system** (a fast `gpt-5-main` plus a deliberative `gpt-5-thinking` model, with a router trading speed for depth); nano is the smallest/cheapest variant with adjustable reasoning effort (high/medium/low).
+
+### Raw benchmarks found
+
+> **Provenance:** MIXED — OpenAI-vendor (the GPT-5 announcement tables) plus substantial third-party aggregation (EvalEval reports **184 results across 102 benchmarks** from 13 organizations) and community leaderboards (SWE-bench). AA's **Intelligence Index is N/A** (deprecated; not v5.0-scored), but AA measures Speed / Cost / TTFT. Nano-specific numbers are a subset of the GPT-5 family tables — the flagship GPT-5 scores higher (SWE-bench Verified 74.9%, AIME 2025 94.6%) and those are **NOT** credited to nano.
+
+- **Agent / tool use:** Weak — **τ²-bench telecom 35.5%**, **Terminal-Bench Hard 12.1%** (agentic work is explicitly "out of reach" for this tier). Function calling / tool use is supported (GPT-5 family), and the successor GPT-5.4 nano is "optimized for tool use," but nano's own agentic benchmarks are poor.
+- **Reasoning / knowledge:** **AIME 2025 85.2%** (nano high; OpenAI vendor) — solid for the smallest tier (the flagship GPT-5 scored 94.6%). A genuine reasoning model (routed thinking, adjustable effort). OpenAI reports a LongFact-Concepts hallucination rate for nano(high). Knowledge cutoff May 2024 is old.
+- **Coding:** **SWE-bench Verified 54.7%** (OpenAI GPT-5 family table: gpt-5 74.9% / gpt-5-mini 71.0% / **gpt-5-nano 54.7%**) — mid-low. Community SWE-bench leaderboard (mini-SWE-agent scaffold, "medium" effort): **34.80% at $0.04**. Coding is not this tier's purpose.
+- **Multimodal:** Text + image input confirmed (AA: analyzes/describes/answers questions about images); part of a well-benchmarked family, but nano-tier vision is secondary and no nano-specific flagship vision score was isolated in this research.
+- **Long context:** 400K window / 128K max output — large; no nano-specific RULER / MRCR long-context benchmark was isolated.
+- **Speed / cost:** AA-measured — **142.3 tok/s (#16/33, 3 of 4 units**, faster than average 141); **TTFT 76.77s** (extreme; median 0.95s for the price tier — reasoning latency dominates). **$0.05/$0.40**, blended **$0.05**, 90% cache. ~14.5× cheaper per token than peers like Muse Spark 1.1 (which outperforms it on most benchmarks).
+
+> **Meta-verification:** meta.json independently checked, not inherited. CONFIRMED: id `opencode/gpt-5-nano`; 400K/128K-out; text+image in → text out; $0.05/$0.40 ($0.005 cached), Azure $0.055/$0.44; **AIME 2025 85.2%** and **SWE-bench Verified 54.7%** (independently corroborated — the GPT-5 family table shows nano at 54.7% vs mini 71.0% / gpt-5 74.9%); superseded by GPT-5.4 nano (AA deprecation + OpenAI's March 17 2026 GPT-5.4 mini/nano launch); weak agentic (τ²-telecom 35.5%, TB Hard 12.1%); "price floor of the frontier family." FLAGGED: (1) AA Intelligence Index N/A (deprecated) — no v5.0 score, though the model is well-benchmarked (EvalEval: 184 results / 102 benchmarks). (2) AA profiles the **"high"** reasoning-effort variant; nano also ships medium/low (the community SWE-bench 34.80% is a "medium" mini-SWE-agent run — a different scaffold/config than OpenAI's 54.7%). (3) **TTFT 76.77s** is extreme (reasoning latency) — a real usability wart AA surfaces. (4) Knowledge cutoff May 2024 is old. (5) Flagship GPT-5 / GPT-5-mini numbers (AIME 94.6%, SWE-Verified 74.9% / 71.0%, Aider 88%) are **NOT** nano's — kept distinct. Kept DISTINCT from gpt-5, gpt-5-mini, gpt-5.1, gpt-5.4-nano (the successor), and the other gpt-5-nano siblings in the queue.
+
+### Normalized scores (1–100)
+
+- **Tool use: 61/100.** Function calling / tool use exists (GPT-5 family) and the successor is tool-optimized, but nano's own agentic benchmarks are weak — τ²-telecom 35.5% and Terminal-Bench Hard 12.1% — and agentic work is explicitly out of reach for this tier.
+- **Reasoning: 73/100.** A genuine reasoning model (routed thinking, adjustable high/medium/low effort) with a solid AIME 2025 85.2% (nano high) for the smallest tier, but it is the budget variant (flagship 94.6%), deprecated, and hampered by an old May-2024 knowledge cutoff; AA Intelligence Index is N/A.
+- **Context window: 81/100.** A large 400,000-token window with a generous 128,000 max output — well above the 262K class and near the 512K tier; no nano-specific long-context retrieval benchmark was isolated.
+- **Multimodal: 76/100.** Text + image input → text out (AA confirms it analyzes/describes/answers questions about images), on OpenAI's strong multimodal lineage and a well-benchmarked family — but nano-tier vision is secondary and no flagship nano-specific vision score was isolated (above unbenchmarked image-in, below verified image specialists).
+- **Coding: 65/100.** SWE-bench Verified 54.7% (OpenAI table) is mid-low and the community mini-SWE-agent run is 34.80%; coding is not this tier's purpose (it is built for classification/extraction), so it sits above unmeasured but well below the coding-focused models.
+- **Cost efficiency: 88/100.** The price floor of the frontier family — $0.05/$0.40 (blended $0.05, 90% cache, $0.005 cached input), ~1/25th the full GPT-5's output cost and ~14.5× cheaper per token than peers — with fast 142 tok/s; tempered by the $0.40 output being above the tier median ($0.15), proprietary access, and the extreme 76.77s TTFT. (Scored but NOT counted toward Overall.)
+- **Overall Score: 71/100.** Half-up mean of the five quality dims (61+73+81+76+65)/5 = 71.2 → 71. Divergence **+4.5** vs the curated queue value 66.5 — driven by the large 400K context, confirmed image input, and solid nano-tier reasoning (AIME 85.2%), against the curated heavier discount for weak agentic/coding (TB Hard 12.1%, SWE-Verified 54.7%), deprecated status, old knowledge cutoff, and the extreme TTFT. Cost efficiency excluded from the mean per methodology.
+
+---
+
+## Signature
+
+- **Provided by:** Qwen 3.8 Max (`qwen/qwen-3.8-max`)
+- **Method:** Fresh independent public web research on 2026-10-30 — the Artificial Analysis GPT-5 nano (high) page (deprecated status, Intelligence N/A, Speed #16/33 142.3 tok/s, Cost $0.05/$0.40 blended $0.05, TTFT 76.77s, 400k ctx, text+image in, knowledge cutoff May 2024, 2 providers, proprietary), OpenAI's *Introducing GPT-5* / *Introducing GPT-5 for developers* pages and the GPT-5 family benchmark tables (nano SWE-bench Verified 54.7%, AIME 2025 85.2%), OpenAI's *Introducing GPT-5.4 mini and nano* (the March 2026 successor), the community SWE-bench leaderboard (nano medium 34.80% via mini-SWE-agent), EvalEval (184 results / 102 benchmarks), and GPT-5 architecture / system-card coverage (the routed fast+thinking duo); ≥3 independent searches/fetches. meta.json verified against primary sources, not inherited — the nano-vs-flagship benchmark attribution, the reasoning-effort variants, and the TTFT were confirmed/flagged. No peer findings files read (zero-influence rule).
+- **Future sources:** an Artificial Analysis Intelligence Index score (currently N/A); nano-specific GPQA / MMMU / long-context (RULER, MRCR) numbers; a Terminal-Bench 4.0 (AA v5.0-basket) result; independent re-runs isolating the high/medium/low effort variants; the GPT-5.4 nano head-to-head.

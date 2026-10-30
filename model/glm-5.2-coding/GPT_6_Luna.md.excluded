@@ -1,25 +1,22 @@
-# GLM 5.2 Coding — findings by GPT-6 Luna
+# GLM 5.2 Coding — excluded (.md not applicable)
 
-- Source: Z AI/GLM 5.2 Coding
-- Date: 2026-10-28 (UTC)
+- Source: **GPT-6 Luna** — 2026-10-30. This file remains excluded because the distinct `GLM-5.2-Coding` identity is not verified; do not transfer the canonical GLM-5.2 results into this separate queue entry.
+- Date: 2026-10-30 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.2 Coding
-- **Short description:** Z AI GLM coding-oriented subject represented by this slug. Three searches did not verify official documentation establishing the exact SKU or distinct model identity; the coding label is not assumed to imply distinct weights.
-- **Provider / access:** Z AI; exact API route not verified.
-- **Release / knowledge:** no exact-model date or cutoff verified.
-- **IDs:** tracked label `GLM 5.2 Coding`; canonical ID unverified.
-- **Context window:** no exact-model context specification verified.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
-- **Architecture:** no evidence verifying distinct coding-specific weights or architecture.
+- **Short description:** The tracked label suggests a coding-positioned GLM-5.2 SKU, but no vendor-published evidence distinguishes it from GLM-5.2. Z.ai's GLM-5.2 docs position the canonical model for coding/long-horizon engineering; that does not establish a separate `Coding` model.
+- **Provider / access:** Z.ai's official guide documents the API route `glm-5.2` at `https://api.z.ai/api/paas/v4/chat/completions`. The current OpenCode Zen catalog exposes `glm-5.2` with canonical ID `zhipuai/glm-5.2`, not `glm-5.2-coding`.
+- **Release / knowledge:** No release date or cutoff verified for a distinct `GLM-5.2-Coding` SKU. The canonical GLM-5.2's separate lifecycle data is not assigned to this entry.
+- **IDs:** The tracked label is `GLM 5.2 Coding`; `opencode/glm-5.2-coding` is not present as a separate model in the current Zen API catalog. OpenRouter's exact-name API search returns no model for `glm-5.2-coding`; the broader query returns `z-ai/glm-5.2` only.
+- **Context window / modalities / pricing / architecture:** No separate `Coding` SKU specification was found. Official GLM-5.2 specs, the 1M context, text-only modalities, MIT weights, and $1.40/$4.40 pricing all belong to the canonical GLM-5.2 record and are not copied here.
 
 ### Raw benchmarks found
 
-No traceable exact-SKU benchmark results found in three independent public searches.
+No traceable exact-`GLM-5.2-Coding` benchmark results were found. Z.ai's official GLM-5.2 guide and model card, OpenRouter's model API, OpenCode Zen's live model catalog, and third-party score tables identify the results as **GLM-5.2**, without the Coding suffix. In particular, BenchLM attributes SWE-bench Pro 62.1%, Terminal-Bench 2.1 81.0%, Vals SWE-bench 82.8%, and τ²-bench 99.1% to GLM-5.2. These figures are not evidence for a distinct `GLM-5.2-Coding` subject and must not be duplicated here.
 
 Agent / tool use:
 
@@ -51,5 +48,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
-- Method: Three independent public searches; exact identity/evidence was not sufficiently traceable. Scores are not evidence-backed.
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-30
+- Method: Compared the exact Z.ai GLM-5.2 documentation/API example and official pricing, the OpenRouter API model search, OpenCode Zen's current model catalog, Artificial Analysis, and BenchLM's linked benchmark table. Evidence confirms the canonical GLM-5.2 product but does not establish a distinct GLM-5.2-Coding API model or benchmark suite. The adjacent `GLM-5.2` model identity remains separate; no sibling scores are attributed here.
+- Sources: [Z.ai GLM-5.2 documentation](https://docs.z.ai/guides/llm/glm-5.2); [Z.ai pricing](https://docs.z.ai/guides/overview/pricing); [OpenRouter GLM-5.2 API search](https://openrouter.ai/api/v1/models?q=glm-5.2); [OpenCode Zen model catalog](https://opencode.ai/zen/v1/models); [BenchLM GLM-5.2 source-linked score table](https://benchlm.ai/models/glm-5-2); [Artificial Analysis GLM-5.2](https://artificialanalysis.ai/models/glm-5-2).

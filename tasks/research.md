@@ -46,7 +46,7 @@ Do not hardcode any model name in this file.
    (`RULES.md` routing rule) go under `models_voice/<slug>/`, finance models
    (e.g. `ling-3.0-flash-fin`) under `models_finance/<slug>/`. Never write
    any other filename.
-4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Date = run day in UTC, never a future date. Use your own canonical ID as you know it (your publisher — the subject model's vendor never belongs here); do not invent a publisher.
+4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Date = run day in UTC, never a future date. Use your own canonical ID as you know it (your publisher — the subject model's vendor never belongs here); do not invent a publisher. Signature must also include mandatory `- Reference URLs:` listing markdown links to primary official docs, benchmark leaderboards, and evaluation sources.
 
 ---
 
@@ -176,6 +176,7 @@ For each queued slug, in order:
     - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
     - Strip all template notice blocks (`> TEMPLATE...`) and submission checklist blocks before saving.
     - Score contract & syntax: include all 7 score lines (`Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`, `Cost efficiency`, `Overall Score`). Score lines MUST strictly match `- **<Label>: <N>/100.**` (no colons inside bold tags, no spaces around `/`). `Overall Score` = half-up mean of the 5 non-cost quality dims (`RULES.md`).
+    - Signature contract: include `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`, `Method:`, and mandatory `- Reference URLs:` listing markdown links to primary sources.
     - **Pre-write self-check (STEM/slug conflation guard, every file):** the
       filename you are about to type must equal YOUR resolved stem; the folder
       is the subject. If the filename matches the folder's own name and you

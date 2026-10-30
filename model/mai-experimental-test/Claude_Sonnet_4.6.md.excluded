@@ -1,0 +1,9 @@
+# Mai Experimental Test — Claude Sonnet 4.6 Research
+
+No verified benchmarks: mai-experimental-test is an OpenCode experimental Microsoft MAI
+sandbox slot with no public model ID, endpoint, weights, price, or benchmarks.
+It is a placeholder, not a real model. Microsoft's MAI catalogue does not include it.
+
+Excluded per zero-verified-benchmark rule (no model exists to evaluate).
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

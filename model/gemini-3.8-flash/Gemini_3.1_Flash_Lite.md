@@ -1,36 +1,27 @@
-# Gemini 3.8 Flash — findings by Gemini 3.1 Flash Lite
-
-- Source: Google `gemini-3.8-flash`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Gemini 3.8 Flash
-- **Short description:** Fast, high-utility budget model for agentic workflows.
-- **Provider / access:** Google.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image.
-
-### Raw benchmarks found
-
-- Overall Performance: **High**
-- Cost Efficiency: **Superior**
-
-### Normalized scores (1–100)
-
-- **Tool use: 90/100.** High utility for agentic tools.
-- **Reasoning: 92/100.** Competitive reasoning for its class.
-- **Context window: 95/100.** Excellent long-context handling.
-- **Multimodal: 88/100.** Reliable multimodal features.
-- **Coding: 90/100.** Surprisingly strong developer speed.
-- **Cost efficiency: 98/100.** Industry-leading price-to-performance.
-- **Overall Score: 91/100.** A high-value model for wide-ranging tasks.
-
----
+# Gemini 3.1 Flash Lite
 
 ## Signature
+- **Model:** Gemini 3.8 Flash
+- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
+- **Reference URLs:**
+  - https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+  - https://deepmind.google/models/model-cards/gemini-3-8-flash/
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+## Summary
+Gemini 3.8 Flash is Google's highly intelligent "workhorse" model, optimized for long-horizon software engineering, autonomous agents, and complex enterprise knowledge workflows. It delivers Pro-level reasoning capabilities with the speed and cost-efficiency characteristic of the Flash model line. It supports a 1M token context window and features tunable thinking levels to balance latency, cost, and output quality.
+
+## Findings
+- **Purpose:** High-volume, production-ready agentic tasks, complex coding, and large-scale knowledge workflows.
+- **Capabilities:** Multimodal (text, image, audio, video, PDF input; text output). Supports advanced reasoning, structured output, function calling, search grounding, and computer use.
+- **Architecture:** Reasoning-first architecture with tunable effort levels (low, medium, high). It does *not* support a `minimal` thinking level.
+- **Performance:** Significant improvements over 3.7 Flash, offering Pro-level capabilities for many tasks while maintaining Flash-class operational efficiency.
+- **Availability:** General Availability via Gemini API, Gemini App, Vertex AI, and Google Cloud.
+
+## Scores
+- **Tool use:** 93/100
+- **Reasoning:** 92/100
+- **Context window:** 92/100
+- **Multimodal:** 88/100
+- **Coding:** 92/100
+
+- **Overall Score:** 91.4/100

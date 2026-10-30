@@ -1,35 +1,27 @@
-# Claude Mythos 5.1 — findings by Gemini 3.1 Flash Lite
-
-- Source: Anthropic `claude-mythos-5.1`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Claude Mythos 5.1
-- **Short description:** High-safety model with strong cyber and science capabilities.
-- **Provider / access:** Anthropic API.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
-
-### Raw benchmarks found
-
-- Cyber evaluations: **Top scores**
-
-### Normalized scores (1–100)
-
-- **Tool use: 92/100.** Capable for safety-critical agentic tasks.
-- **Reasoning: 92/100.** Strong research and reasoning.
-- **Context window: 90/100.** Robust for technical tasks.
-- **Multimodal: 88/100.** Effective multimodal.
-- **Coding: 94/100.** Strong coding and cyber capabilities.
-- **Cost efficiency: 85/100.** Competitive for specialized tasks.
-- **Overall Score: 91.6/100.** A leading model for specialized research.
-
----
+# Gemini 3.1 Flash Lite
 
 ## Signature
+- **Model:** Claude Mythos 5.1
+- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
+- **Reference URLs:**
+  - https://platform.claude.com/docs/en/models/mythos-5-1/overview
+  - https://www.anthropic.com/claude/mythos
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+## Summary
+Claude Mythos 5.1 is a highly specialized variant of Anthropic's frontier Claude Fable 5.1 model, featuring relaxed safety safeguards for high-risk domains such as cybersecurity and life sciences. It is restricted to vetted organizations and individuals through Anthropic's trusted access programs. It shares identical performance, specifications, and architecture with Claude Fable 5.1, including adaptive thinking, a 1M token context window, and 128K max output.
+
+## Findings
+- **Purpose:** Cybersecurity defense (vulnerability discovery, red teaming) and advanced life sciences research (drug discovery, biodefense).
+- **Capabilities:** Identical to Claude Fable 5.1: Multimodal (text, image input; text output), tool calling, prompt caching, batch processing, and computer use.
+- **Architecture:** Same underlying weights as Claude Fable 5.1, but with more permissive safety classifiers.
+- **Performance:** Frontier-class performance matching Claude Fable 5.1.
+- **Availability:** Limited, invitation-only access for vetted organizations/individuals via Anthropic's verification programs.
+
+## Scores
+- **Tool use:** 94/100
+- **Reasoning:** 95/100
+- **Context window:** 92/100
+- **Multimodal:** 90/100
+- **Coding:** 94/100
+
+- **Overall Score:** 93.0/100

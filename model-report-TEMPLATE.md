@@ -92,6 +92,9 @@ Long context:
 
 - Provided by: **<Agent Full Name> (<openai/open-...-id>)** — <YYYY-MM-DD>
 - Method: <how you researched, e.g. public internet research>; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [<Source Title / Vendor Announcement / Model Card>](<https://...>)
+  - [<Benchmark Leaderboard / Paper / Evaluation>](<https://...>)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
@@ -100,5 +103,5 @@ Long context:
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

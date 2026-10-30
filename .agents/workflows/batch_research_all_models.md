@@ -9,7 +9,7 @@ description: Research all models under model directory
 4. **Process each folder** – for each folder in the ordered queue:
    - Derive the report filename from the resolved STEM (e.g., `Grok_4.6` -> `Grok_4.6.md`).
    - Perform independent web research for the model (benchmarks, pricing, specs).
-   - Draft a full report using `model-report-TEMPLATE.md`.
+   - Draft a full report using `model-report-TEMPLATE.md` (including mandatory `- Reference URLs:` in the `## Signature` block).
    - Write the report to `model/<slug>/<ReportFile>.md` (or `.md.excluded` if no verified benchmarks).
    - Advance to the next folder.
 5. **Completion** – when the queue is empty, the workflow ends. The orchestrator will later run `pnpm sync && pnpm build.types && pnpm build` (Windows: `pnpm sync && pnpm build.types:direct && pnpm build:direct` — bare shims can exceed cmd.exe's line limit).

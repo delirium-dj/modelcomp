@@ -1,0 +1,26 @@
+{
+  "name": "Voyage AI",
+  "kind": "vendor",
+  "short": "State-of-the-art text, multimodal, and code embedding models with rerankers; generous 200M free tokens on sign-up.",
+  "officialUrl": "https://www.voyageai.com",
+  "hosts": [
+    "voyageai.com",
+    "dash.voyageai.com",
+    "docs.voyageai.com"
+  ],
+  "catalogUrl": "https://docs.voyageai.com/docs/pricing",
+  "plans": [
+    {
+      "name": "Free Tier",
+      "price": "$0 (200M tokens)",
+      "notes": "Instant API key upon account registration (no credit card required). Includes 200 million free tokens for general and code embeddings (voyage-4, voyage-4-lite, voyage-4-large, voyage-code-3) and 150 billion pixels for multimodal models; 300 RPM rate limit.",
+      "evidenceUrl": "https://docs.voyageai.com/docs/pricing"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Volume billing beyond free allowance: voyage-4-lite at $0.02/1M tokens, voyage-4 at $0.06/1M tokens, voyage-4-large at $0.12/1M tokens, rerankers at $0.05/1k searches.",
+      "evidenceUrl": "https://docs.voyageai.com/docs/pricing"
+    }
+  ]
+}

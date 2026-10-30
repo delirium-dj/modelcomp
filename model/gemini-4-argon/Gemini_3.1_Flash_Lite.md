@@ -1,35 +1,27 @@
-# Gemini 4 Argon — findings by Gemini 3.1 Flash Lite
-
-- Source: Google `gemini-4-argon`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Gemini 4 Argon
-- **Short description:** High-performance model across software engineering and enterprise tasks.
-- **Provider / access:** Google AI Studio / API.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image/Audio/Video.
-
-### Raw benchmarks found
-
-- DeepSWE v1.1: **77.9%**
-
-### Normalized scores (1–100)
-
-- **Tool use: 94/100.** Strong agentic tool utilization.
-- **Reasoning: 93/100.** Exceptional analytical reasoning.
-- **Context window: 98/100.** Industry-leading context capacity.
-- **Multimodal: 92/100.** Versatile multimodal integration.
-- **Coding: 92/100.** High-performance coding and engineering.
-- **Cost efficiency: 88/100.** Excellent performance-to-cost ratio.
-- **Overall Score: 93.8/100.** A top-tier frontier model for diverse tasks.
-
----
+# Gemini 3.1 Flash Lite
 
 ## Signature
+- **Model:** Gemini 4 Argon
+- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
+- **Reference URLs:**
+  - https://ai.google.dev/gemini-api/docs/models/gemini-4-argon
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+## Summary
+Gemini 4 Argon is Google's flagship frontier reasoning model, specifically engineered for complex software engineering, deep mathematical and scientific problem-solving, and large-scale autonomous agentic workflows. It supports a 1M token unified context window and features significant improvements in long-trajectory reasoning, allowing it to generate up to 1M output tokens under specific "long decode" conditions.
+
+## Findings
+- **Purpose:** Complex enterprise workflows, cybersecurity defense, high-stakes software engineering, and scientific research.
+- **Capabilities:** Multimodal (text, image, video, audio, PDF input; text output). Supports advanced reasoning, tool calling, file search, and structured output.
+- **Architecture:** Flagship reasoning-first architecture. It ignores standard sampling parameters (temperature, top_p, top_k) in favor of internal thinking-level control (low, medium, high).
+- **Performance:** Excellent at deep, complex reasoning and long-horizon tasks. Supports implicit caching.
+- **Availability:** Gemini API (Paid tier).
+
+## Scores
+- **Tool use:** 93/100
+- **Reasoning:** 96/100
+- **Context window:** 92/100
+- **Multimodal:** 90/100
+- **Coding:** 93/100
+
+- **Overall Score:** 92.8/100

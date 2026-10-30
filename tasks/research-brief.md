@@ -82,7 +82,8 @@ every inline list you may have seen quoted in older docs.
 2. Draft fully per `model-report-TEMPLATE.md` (read it once): model card →
    raw benchmarks → normalized scores → signature
    `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`
-   — YOUR name in the signature, never the subject's.
+   — YOUR name in the signature, never the subject's, plus mandatory
+   `- Reference URLs:` linking primary sources/leaderboards.
 3. Score contract: exactly 7 lines `- **<Label>: <N>/100.**` with labels
    `Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`,
    `Cost efficiency`, `Overall Score`. `Overall Score` = half-up mean of the

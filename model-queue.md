@@ -3,7 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
-93.9 muse-spark-1.3
+93.8 muse-spark-1.3
 93.6 claude-opus-5.5
 92.7 gemini-4-argon
 92.6 gpt-6-astra
@@ -116,12 +116,12 @@
 76.6 gemini-1.5-pro
 76.5 glm-5.2-coding
 76.2 gemma-4.26b-a4b
+75.9 gemini-2.0-flash
 75.9 gemma-4.12b-unified
 75.6 qwen-3.5-flash
 75.6 qwen-3.5-flash-lite
 75.5 mistral-medium-3.5
 75.4 ling-3.0-flash-vl
-75.1 gemini-2.0-flash
 75.1 gpt-5.1-codex-max
 74.7 deepseek-v4-flash
 74.7 gpt-5.4-nano
@@ -142,25 +142,25 @@
 73 qwen-3.5-9b
 72.8 fledge-alpha
 72.7 longcat-2.5-preview
+72.3 hy3
 72.3 qwen3-max
 71.8 nemotron-3-ultra-free
-71.6 hy3
-70.4 longcat-2.0
-69.6 glm-5.1
-69.5 hy3-preview
+70.9 longcat-2.0
+70.2 glm-5.1
+69.9 hy3-preview
+69.1 diffusiongemma-26b-a4b
+69 solar-open-2
+68.8 solar-pro-4
 68.7 qoder-sonus
-68.4 diffusiongemma-26b-a4b
-68.2 solar-open-2
-68.1 ling-3.1-flash
-68 solar-pro-4
-67.4 ring-2.6.1t
-67.1 mai-thinking-1
-66.8 minimax-m2.5
-66.8 pixel_canary
-66.7 qwen-3.7-flash
-66.6 minimax-m2.7
-66.5 gpt-5-nano
-66.2 claude-haiku-3.5
+68.5 ling-3.1-flash
+68.2 ring-2.6.1t
+67.7 pixel_canary
+67.6 mai-thinking-1
+67.5 minimax-m2.5
+67.4 minimax-m2.7
+67.3 gpt-5-nano
+67 qwen-3.7-flash
+66.8 claude-haiku-3.5
 66.2 laguna-s-2.1
 66.1 deepseek-v3.2
 66 omen-alpha

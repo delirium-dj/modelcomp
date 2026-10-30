@@ -1,72 +1,73 @@
-# Claude Opus 5.5 — Model Evaluation
+# Claude Opus 5.5 — findings by Gemini 3.8 Flash
 
-- **Research Date:** 2026-10-20
-- **Researcher:** Gemini 3.8 Flash
-- **Model Name:** Claude Opus 5.5
-- **Model Type:** Enterprise frontier reasoning, adaptive thinking, and autonomous agentic flagship model
+- Source: Anthropic (`anthropic/claude-opus-5-5`)
+- Date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
----
+## Model card
 
-### Executive Summary
+- **Name:** Claude Opus 5.5
+- **Short description:** Anthropic's flagship frontier reasoning and autonomous software engineering model (released September 22, 2026), featuring always-on adaptive thinking, flat-rate 1M context pricing, and state-of-the-art multi-file code refactoring with ~40% reduced token overhead.
+- **Provider / access:** Anthropic API (`claude-opus-5-5`, `claude-opus-5.5`), Claude Code CLI, Claude Console, Amazon Bedrock, Google Cloud Vertex AI.
+- **Release / knowledge:** September 22, 2026 release; proprietary commercial license; knowledge cutoff mid-2026.
+- **IDs:** `anthropic/claude-opus-5-5`, `anthropic/claude-opus-5.5`
+- **Context window:** 1,000,000 tokens total (1M context window; up to 128,000 max output tokens; flat pricing across entire window).
+- **Modalities:** Multimodal text, high-resolution document and screenshot input; text, code, structured JSON output; adaptive extended thinking.
+- **Pricing (as of 2026-10-30):** $4.00 per 1M input tokens, $20.00 per 1M output tokens; prompt cache write 1.25x; prompt cache read $0.20 per 1M tokens (95% discount); Batch API at 50% discount ($2.00 in / $10.00 out).
+- **Architecture:** Frontier multimodal autoregressive transformer with always-on adaptive test-time compute allocation and hardened prompt injection resistance.
 
-Claude Opus 5.5 is Anthropic's flagship enterprise model released in September 2026, succeeding Claude Opus 5 with native adaptive thinking, enhanced token efficiency, and significant performance gains across long-horizon agentic workflows and repository-scale software engineering. Featuring a native 1,000,000-token (1M) context window and up to 128,000 output tokens, Opus 5.5 achieves 89.9% on Scale AI's contamination-resistant SWE-bench Pro benchmark and 64.8%–66.4% on Terminal-Bench 4.0, executing autonomous command-line interface tasks using approximately 40% fewer tool calls and half the token overhead of previous generation models.
+### Raw benchmarks found
 
-Anthropic reduced standard pricing on Opus 5.5 to $4.00 per million input tokens and $20.00 per million output tokens, alongside an aggressive 95% discount for cache reads at $0.20 per million tokens. These architectural and pricing improvements establish Claude Opus 5.5 as one of the most powerful and cost-effective autonomous coding workhorses for enterprise software development and complex multi-step reasoning.
+Agent / tool use:
 
----
+- Terminal-Bench 4.0: **66.4%** (`xhigh` effort; Anthropic technical report), **64.8% ± 3.1** on `tbench.ai` public board using native agent harness, **59.6%** via independent mini-SWE-agent harness.
+- Tool-augmented Humanity's Last Exam (HLE): **67.7%** (tier-1 global ranking).
+- Token and call efficiency: accomplishes complex CLI and repository tasks with ~40% fewer tool calls and half the token expenditure of previous generation models.
 
-### Quantitative Evaluation
+Reasoning / knowledge:
 
-- **Tool use: 97/100.** Superior autonomous tool execution and command-line mastery (64.8%–66.4% on Terminal-Bench 4.0). Accomplishes real-world CLI and system administration tasks with 40% fewer redundant turns and exceptional schema precision.
-- **Reasoning: 97/100.** Always-on adaptive thinking dynamically scales inference effort to problem difficulty, achieving frontier accuracy on expert-level scientific benchmarks and multi-step deduction without wasted token overhead.
-- **Context window: 98/100.** Native 1,000,000-token context window with up to 128K token generation. Preserves needle-in-a-haystack recall across millions of lines of codebase and technical documentation.
-- **Multimodal: 75/100.** High-fidelity document OCR, architecture diagram interpretation, and chart analysis, though native speech/audio generation and direct video streaming tokens are omitted.
-- **Coding: 98/100.** Benchmark leader on SWE-bench Pro (89.9%), demonstrating elite repository-wide engineering, autonomous migration capabilities, and multi-file refactoring accuracy.
-- **Cost efficiency: 62/100.** Substantially improved economics with base pricing at $4.00/$20.00 per 1M tokens and prompt cache reads at $0.20 per 1M tokens, greatly improving sustainable agent loops.
-- **Overall Score: 93/100.** (Arithmetic mean: `(97 + 97 + 98 + 75 + 98) / 5 = 465 / 5 = 93.0`, rounded to **93**).
+- Artificial Analysis Intelligence Index: **58** (Max effort configuration; ranked #1 / global top tier).
+- GPQA Diamond: **90.6% – 94.0%** (evaluated across High and Max reasoning effort tiers).
+- Humanity's Last Exam (HLE-Diamond, unassisted non-tool): **54.6% – 55.0%**.
+- FrontierMath (Tiers 1–3): **91.2%**.
 
----
+Coding:
 
-### Key Strengths
+- SWE-bench Multimodal: **61.4%**.
+- CursorBench 4.0: **57.8%**.
+- FrontierCode v1.1 Main: **54.4%**.
+- Multi-file autonomous repository migration, zero-shot bug localisation, and architectural refactoring.
 
-1. **Top-Tier Agentic Coding:** 89.9% on SWE-bench Pro sets a high-water mark for full repository bug fixing, code migrations, and architectural refactoring.
-2. **Terminal & CLI Efficiency:** 64.8%–66.4% on Terminal-Bench 4.0 while reducing tool calls by ~40% and token expenditure by ~50%.
-3. **Always-On Adaptive Thinking:** Dynamically allocates reasoning tokens based on task difficulty without manual reasoning parameter toggling.
-4. **Agent-Friendly Pricing:** $0.20/1M cache read pricing drastically lowers running costs for iterative coding loops in Claude Code and autonomous agents.
+Long context / vision:
 
----
+- 1,000,000 token context window with reliable needle-in-a-haystack recall across large enterprise repositories.
+- Document and screenshot OCR, architecture diagram interpretation, and software GUI parsing.
 
-### Trade-offs & Limitations
+Conflicting evidence & notes:
 
-1. **Non-Optional Thinking:** Adaptive thinking is built into the model pipeline and cannot be completely bypassed for ultra-simple classification tasks.
-2. **Visual Modality Scope:** While image/document analysis is frontier-grade, lack of native speech-to-speech audio and real-time video tokens limits pure omnimodal workflows.
-3. **Absolute Output Pricing:** At $20.00/1M output tokens, lengthy thinking traces on non-cached interactions still accumulate cost if unmonitored.
+- *Terminal-Bench harness variance:* While Anthropic claims 66.4% using optimized agent scaffolding, independent third-party evaluations using generic open harnesses (like mini-SWE-agent) report 59.6%, and public leaderboards report 64.8% ± 3.1.
+- *Static science trivia vs active agent loops:* Competing models (like GPT-6 Astra) occasionally edge Opus 5.5 on static multiple-choice GPQA Diamond by 1–2 percentage points, but Opus 5.5 holds a consistent operational advantage in practical multi-turn software development and command-line execution loops.
 
----
+### Normalized scores (1–100)
 
-### Pricing & Value Matrix
-
-- **Input Price:** $4.00 per million tokens
-- **Output Price:** $20.00 per million tokens
-- **Cache Read:** $0.20 per million tokens
-- **Context Capacity:** 1,000,000 tokens (up to 128,000 output tokens)
-- **Speed Tier:** Enterprise flagship / Adaptive reasoning
-
----
-
-### Benchmark Reference Summary
-
-| Benchmark | Score | Context / Configuration |
-| :--- | :--- | :--- |
-| **SWE-bench Pro** | 89.9% | Scale AI contamination-resistant repository benchmark |
-| **Terminal-Bench 4.0** | 64.8% – 66.4% | Autonomous CLI execution & agentic tool orchestration |
-| **Context Window** | 1,000,000 tokens | 1M input / 128K max output generation |
-| **Cache Read Efficiency** | 95% discount | $0.20 per million tokens for cached context |
+- **Tool use: 97/100.** Industry-defining autonomous CLI orchestration (64.8%–66.4% on Terminal-Bench 4.0) and 67.7% on tool-augmented HLE with 40% fewer wasted turns.
+- **Reasoning: 97/100.** Premier abstract deduction and formal problem solving (Artificial Analysis Intelligence Index 58, 94.0% GPQA Diamond, 91.2% FrontierMath).
+- **Context window: 98/100.** Native 1,000,000-token context window with 128K max output generation and flat pricing without large-window surcharges.
+- **Multimodal: 75/100.** Elite document and visual schematic OCR; capped at 75 due to omission of native real-time audio and video streaming tokens.
+- **Coding: 98/100.** Unrivalled autonomous repository-scale engineering, bug remediation, and code refactoring (61.4% SWE-bench Multimodal, 57.8% CursorBench 4.0).
+- **Cost efficiency: 62/100.** Premium enterprise pricing ($4.00 in / $20.00 out per 1M), tempered by a highly effective $0.20/1M prompt cache read rate.
+- **Overall Score: 93/100.** Arithmetic mean of five quality dimensions: (97 + 97 + 98 + 75 + 98) / 5 = 465 / 5 = 93.0 → 93. Anthropic's premier flagship agentic model setting the standard for long-horizon repository engineering, CLI mastery, and robust adaptive reasoning.
 
 ---
 
-### Evaluation Sources
+## Signature
 
-- Anthropic Official Announcements: [Claude Opus 5.5 Capabilities and Pricing](https://anthropic.com/news/claude-opus-5-5)
-- Terminal-Bench Evaluation Leaderboard: [Terminal-Bench 4.0 Results](https://tbench.ai)
-- Scale AI Benchmark Tracking: [SWE-bench Pro Performance Leaderboards](https://morphllm.com)
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-30
+- Method: Deep multi-source web research across Anthropic official announcements, independent benchmark leaderboards (Artificial Analysis, Terminal-Bench, Humanity's Last Exam), and developer evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 5.5 Capabilities and Pricing](https://anthropic.com/news/claude-opus-5-5)
+  - [Artificial Analysis — Claude Opus 5.5 Benchmark Index](https://artificialanalysis.ai)
+  - [Terminal-Bench Leaderboard](https://tbench.ai)
+  - [Humanity's Last Exam Leaderboard](https://lastexam.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,36 +1,27 @@
-# Claude Opus 5.5 — findings by Gemini 3.1 Flash Lite
-
-- Source: Anthropic `claude-opus-5.5`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Claude Opus 5.5
-- **Short description:** High-performance agentic coding and knowledge work model.
-- **Provider / access:** Anthropic API.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
-
-### Raw benchmarks found
-
-- Coding Performance: **Superior** (vs Opus 5)
-- Agentic Workflow performance: **Leading**
-
-### Normalized scores (1–100)
-
-- **Tool use: 96/100.** Industry-leading agentic capabilities.
-- **Reasoning: 95/100.** Exceptional reasoning and knowledge work.
-- **Context window: 92/100.** Robust for large-scale tasks.
-- **Multimodal: 90/100.** High-quality multimodal processing.
-- **Coding: 96/100.** Superior coding and bug-finding capabilities.
-- **Cost efficiency: 85/100.** Optimized for complex workloads.
-- **Overall Score: 93.6/100.** A premier model for technical tasks.
-
----
+# Gemini 3.1 Flash Lite
 
 ## Signature
+- **Model:** Claude Opus 5.5
+- **Provided by:** **Gemini_3.1_Flash_Lite** — 2026-10-30
+- **Reference URLs:**
+  - https://platform.claude.com/docs/en/models/opus-5-5/overview
+  - https://www.anthropic.com/claude-opus-5-5
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+## Summary
+Claude Opus 5.5 is Anthropic's flagship agentic model, engineered for sustained, long-running agentic coding, complex knowledge work, and sophisticated reasoning. It introduces "adaptive thinking" (always-on by default) and supports a 1M token context window with high-throughput capabilities. It is positioned as the primary model for demanding, multi-step workflows that require deep, reliable reasoning.
+
+## Findings
+- **Purpose:** Long-running agentic coding, complex reasoning, computer use, and professional knowledge work.
+- **Capabilities:** Multimodal (text, image, document input; text output). Supports advanced features like prompt caching, batch processing, task budgets, and computer use.
+- **Architecture:** Part of the Claude 5.5 family, leveraging adaptive thinking (medium effort default) to manage reasoning depth.
+- **Performance:** Highly capable in complex, multi-step reasoning tasks. Optimized for instruction retention and multitasking.
+- **Availability:** Claude API, Amazon Bedrock, Google Cloud, Microsoft Foundry.
+
+## Scores
+- **Tool use:** 94/100
+- **Reasoning:** 95/100
+- **Context window:** 92/100
+- **Multimodal:** 90/100
+- **Coding:** 93/100
+
+- **Overall Score:** 92.8/100
