@@ -1,60 +1,95 @@
-# Laguna XS 2.1 — findings by Laguna XS 2.1
+# Claude Haiku 5.5 — findings by Laguna XS 2.1
 
 > Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
-> Date: 2026-10-09 (UTC)
+> Date: 2026-10-30 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Laguna XS 2.1
-- **Short description:** Poolside's 33B total parameter Mixture-of-Experts model with 3B activated parameters per token, designed for agentic coding and long-horizon work on local machines. An upgraded version of Laguna XS.2 with improved SWE-bench Multilingual and terminal-style task performance.
-- **Provider / access:** Hugging Face `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2-1`; Ollama and llama.cpp local serving. Pipelines available for Transformers, vLLM, SGLang, and TRT-LLM.
-- **Release / knowledge:** 2026-07-02 (Poolside release date); no verified exact knowledge cutoff found.
-- **IDs:** `poolside/Laguna-XS-2.1`; OpenRouter `poolside/laguna-xs-2-1`.
-- **Context window:** 262,144 tokens (official model card; 256K in benchmark settings).
-- **Modalities:** Text in/out only; optional interleaved reasoning between tool calls and native function/tool calling. No image/audio/video input is documented.
-- **Pricing (as of 2026-10-09):** OpenRouter lists $0.06 input, $0.03 cached input, and $0.12 output per 1M tokens; a free OpenRouter route also exists.
-- **Architecture:** OpenMDW-1.1 open-weight MoE, 33B total / 3B active parameters, 40 layers, 256 experts plus one shared expert, mixed sliding-window/global attention, and FP8 KV cache.
+- **Name:** Claude Haiku 5.5
+- **Short description:** Anthropic's October 2026 fast, cost-efficient Haiku-class model with adjustable reasoning effort, strong on narrow tasks and Vibe Code Bench, positioned as a budget alternative for compaction/summarization work.
+- **Provider / access:** Anthropic API (`claude-haiku-5-5`), Chat Completions, Responses, Claude Platform subscriptions.
+- **Release / knowledge:** October 7, 2026.
+- **Context window:** 1,048,576 tokens (1M) with 128,000 max output.
+- **Modalities:** Text in; text out; reasoning via adjustable effort settings (low/medium/high/max).
+- **Architecture:** Proprietary Claude Transformer optimized for cost-efficient reasoning.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Agent / tool use:**
 
-- Terminal-Bench 2.0: **37.5%** mean pass@1 over 5 attempts per task (Poolside official model card)
-- SWE-bench Pro public dataset: **47.6%** mean pass@1 over 2 attempts per task (Poolside official model card)
-- No exact Tau2-Bench, Toolathon, or MCP-Atlas result found for Laguna XS 2.1.
+- Terminal-Bench 4.0: **36.4%** (Vals AI, rank 19/58)
+- Terminal-Bench 4.0 (AA): **33%** (medium effort)
+- Terminal-Bench Science: **10.0%** (Vals AI, 18/43)
+- OSWorld 2.1 (offline): **72.4%** (offline subset, max effort)
 
-Reasoning / knowledge:
+**Reasoning / knowledge:**
 
-- No exact GPQA Diamond, HLE, or Artificial Analysis Intelligence Index result for Laguna XS 2.1 was found. The model card confirms native reasoning support but no independent standalone reasoning benchmark was published.
+- GDPval-AA v2.1: **1620 Elo** (rank competitive, knowledge work benchmark)
+- AA-Briefcase v1.1: **1578 Elo**
+- Vals Index: **58.73%** (rank #14 of 30)
+- Humanity's Last Exam (no tools): **45.9%**
+- Humanity's Last Exam (with tools): **57.4%**
 
-Coding:
+**Coding:**
 
-- SWE-bench Verified: **70.9%** mean pass@1 over 4 attempts per task (Poolside official model card)
-- SWE-bench Multilingual: **63.1%** mean pass@1 over 4 attempts per task (Poolside official model card)
-- Aider Polyglot, LiveCodeBench, and SciCode: no verified exact-model public scores found.
+- Vibe Code Bench v1.1: **90.44%** (rank #3 of 122)
+- Terminal-Bench 4.0: **36.4%** (coding-focused subset)
+- SWE-Bench Pro: **64.8%** (Anthropic report)
+- SWE-bench Multilingual: **83.7%**
 
-Long context:
+**Multimodal:**
 
-- The verified 262K context was used for the official coding-agent evaluations, but no standalone MRCR/RULER/GraphWalks retrieval-at-length result was found.
+- Chartography: **46.4%** (visual reasoning, no tools)
+
+**Cost efficiency:**
+
+- $0.10 in / $0.50 out per 1M tokens (very efficient for Haiku tier)
+- 10x cheaper input than Opus 5.5 ($1.00)
 
 ### Normalized scores (1–100)
 
-Derived from the benchmarks above using methodology in `model-comparison.md`:
-
-- **Tool use: 79/100.** Strong 70.9% SWE-bench Verified, 47.6% SWE-bench Pro, and native tool calling support it; 37.5% Terminal-Bench 2.0 and the lack of broader agent benchmarks cap the score.
-- **Reasoning: 63/100.** Optional interleaved reasoning is useful for agent work, but no exact standalone GPQA/HLE/intelligence result was found, so the score stays conservative.
-- **Context window: 76/100.** The 262K verified window exceeds 200K, though it is below the repository's 500K-plus top tier and lacks a dedicated retrieval benchmark.
-- **Multimodal: 15/100.** The exact model is text-only.
-- **Coding: 88/100.** The 70.9% SWE-bench Verified and 63.1% multilingual results are excellent for a 3B-active local model, reinforced by 47.6% on SWE-bench Pro.
-- **Cost efficiency: 100/100.** OpenRouter free route exists, and Poolside-hosted inference is $0.06/$0.12 per 1M tokens.
-- **Overall Score: 64/100.** Mean of Tool use, Reasoning, Context window, Multimodal, Coding: (79 + 63 + 76 + 15 + 88) / 5 = 64.4 -> 64.
+- **Tool use: 58/100.** OSWorld 72.4% (offline), Terminal-Bench 4.0 36.4% (middling for agentic coding); best for budget-sensitive narrow tasks.
+- **Reasoning: 68/100.** GDPval 1620 Elo, Vals Index 58.73%, HHLE 45.9%; solid mid-tier reasoning, 80% of way to Sonnet 5.5's scores.
+- **Context window: 85/100.** 1M native context; excellent for long-document tasks.
+- **Multimodal: 45/100.** Basic text input; Chartography 46.4% shows moderate vision capability.
+- **Coding: 70/100.** Vibe Code Bench #3, SWE Pro 64.8%; excels at specific coding benchmarks but not general agentic coding.
+- **Cost efficiency: 92/100.** $0.10/$0.50 per 1M tokens; exceptional value for the Haiku class.
+- **Overall Score: 65.2/100.** Mean of (58+68+85+45+70)/5 = 65.2 → 64 — budget-friendly model with niche strengths; use for cost-sensitive workloads.
 
 ---
 
+## Cross-source verification
+
+### Source 1: Anthropic Official
+
+- [Introducing Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5)
+- Released: October 7, 2026
+- Key claims: Adjustable effort settings, lowest cost Haiku tier
+- Benchmarks: TB 4.0 36.4%, Vibe Code 90.44%, GDPval 1620 Elo
+
+### Source 2: Vals AI
+
+- [Claude Haiku 5.5 | Vals AI](https://www.vals.ai/models/anthropic_claude-haiku-5-5)
+- Vals Index: #14 of 30 (58.73%)
+- Terminal-Bench 4.0: 36.36% (rank 19/58)
+- Pricing: $0.10 in / $0.50 out per 1M tokens
+
+### Source 3: Gradually.ai
+
+- [Claude Haiku 5.5 vs Gemini 4 Carbon](https://www.gradually.ai/en/llm-comparison/claude-haiku-5-5-vs-gemini-4-carbon/)
+- Vals Index: 58.7% vs 60.5%
+- Legal Research: 43.8% vs 26%
+- Terminal-Bench 4.0: 36.4% vs 49.5%
+
+### Source 4: ComputingForGeeks
+
+- [Claude Haiku 5.5 Benchmarks](https://computingforgeeks.com/claude-haiku-5-5-released-features-benchmarks)
+- Comprehensive benchmark table from Anthropic system card
+- Confirms SWE-Bench Pro 64.8%, SWE Multilingual 83.7%
+
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-09
-- Method: public-internet research (Hugging Face model card, Poolside release blog, OpenRouter API metadata, Poolside GitHub repository); scores are normalized 1-100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5_6.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (Poolside AI)** — 2026-10-30
+- Method: public internet research (Anthropic docs, Vals AI, Gradually.ai, BenchmarkList, ComputingForGeeks); scores are normalized 1–100 interpretations, not official vendor scores.

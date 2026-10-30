@@ -200,7 +200,7 @@
 52 neomorph
 52 omi-alpha
 51 owo-2.5
-50.3 nemotron-3.5-bolt-e4b
+49.3 nemotron-3.5-bolt-e4b
 46.6 mai-experimental-test
 39.8 qwen-3.5-0.8b
 39.6 jev-1.13

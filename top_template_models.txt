@@ -1,0 +1,7 @@
+91.1 gemini-3-pro
+91.1 gpt-5.6-sol
+91 gpt-5.5-pro
+91 gpt-6.1-sol
+91 kimi-k3
+91 mimo-v2.6-pro
+90.2 claude-opus-4.8

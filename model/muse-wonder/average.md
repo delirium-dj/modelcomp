@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, GPT-5.6 Luna.
 - Average from top 2 by Overall Score: Claude Sonnet 4.6, GPT-5.6 Luna.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 4.5 Flash, MiniMax M3.1 Flash, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, MiniMax M3.1 Flash, Nemotron 3.5 Super VL 120B A12B.

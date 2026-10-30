@@ -1,0 +1,110 @@
+# GPT-5.5 Pro — findings by GLM 4.5 Flash
+
+- Source: OpenAI (gpt-5.5-pro)
+- Date: 2026-10-30
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.5 Pro
+- **Short description:** OpenAI's premium large language model designed for professional applications requiring advanced reasoning, coding capabilities, and multimodal understanding. Released in April 2026 as a significant upgrade over previous generations with enhanced reasoning capabilities and tool integration.
+- **Provider / access:** OpenAI API (proprietary, `gpt-5.5-pro`)
+- **Release / knowledge:** Released April 23, 2026; knowledge cutoff extends to December 1, 2025 with continuous learning capabilities
+- **IDs:** `openai/gpt-5.5-pro` (proprietary API)
+- **Context window:** 1,050,000 tokens (input); 128,000 tokens (max output)
+- **Modalities:** Text and image input; text output; reasoning yes; tool calls supported; JSON mode supported; multimodal capabilities
+- **Pricing (as of 2026):** $30/1M input tokens; $180/1M output tokens; enterprise volume discounts available
+- **Architecture:** Proprietary transformer-based architecture; estimated 1-2+ trillion parameters; mixture-of-experts (MoE) design with reasoning capabilities
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Terminal-Bench 2.0: 82.7% (Tech Insider, performance-focused mode)
+- Tau3-Banking / Tau2-Bench: 98.0% (OpenAI: Introducing GPT-5.5, telecom customer service workflows)
+- GDPval-AA: 84.9% (OpenAI: Introducing GPT-5.5, knowledge work across 44 occupations)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: 75.3% (Tech Insider, tool coordination benchmark)
+- BrowseComp: 90.1% (BenchLM, agentic browsing capabilities)
+- OSWorld-Verified: 78.7% (Tech Insider, autonomous desktop computer use)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: 57.2% (BenchLM, Humanity's Last Exam)
+- LCR / MLCR: no verified public score found
+- CritPt: 30.6% (BenchLM, software refactoring accuracy)
+- ARC-AGI-1: 95.00% (BenchLM, ARC Prize official leaderboard)
+- ARC-AGI-2: 84.2% (BenchLM, ARC Prize official leaderboard)
+- FrontierMath v2 (Tiers 1-3): 87.719% (Epoch AI, advanced mathematical reasoning)
+- FrontierMath v2 (Tier 4): 78.049% (Epoch AI, advanced mathematical reasoning)
+- Artificial Analysis Intelligence Index / BenchLM overall: 72.76/100 (BenchLM, overall ranking #14/1004)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: 58.6% (Tech Insider, software engineering tasks)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR v2: 74.0% at 512K-1M (OpenAI: Introducing GPT-5.5, long context retrieval)
+- ExtractBench (LlamaIndex): 93.57% (ExtractBench leaderboard, October 28, 2026 snapshot)
+- ParseBench: 66.63% (ParseBench leaderboard, October 28, 2026 snapshot)
+- MMMU-Pro: 81.2% (OpenAI: Introducing GPT-5.5, multimodal understanding)
+- MMLU-Pro (Vals): 88.1% (Vals AI: MMLU Pro leaderboard)
+
+### Additional benchmark data from independent sources:
+
+- **GDPval-MM:** 82.3% (LLM Stats, knowledge work evaluation)
+- **GeneBench:** 33.2% (LLM Stats, bioinformatics and data analysis)
+- **FinanceAgent:** 60.0% (OpenAI: Introducing GPT-5.5, financial agent tasks)
+- **Internal investment-banking modeling tasks:** 88.5% (OpenAI: Introducing GPT-5.5)
+- **OfficeQA Pro:** 54.1% (OpenAI: Introducing GPT-5.5, office tasks)
+- **BixBench:** Leading performance among models with published scores (OpenAI: Introducing GPT-5.5, bioinformatics and data analysis)
+- **Epoch Capabilities Index:** 159 (Epoch AI, statistical tool combining multiple benchmarks)
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps it.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 94/100.** Exceptional tool use capabilities evidenced by 90.1% on BrowseComp, 98.0% on Tau2-Bench telecom workflows, and 75.3% on MCP Atlas tool coordination; demonstrates advanced agent capabilities and complex task execution.
+- **Reasoning: 89/100.** Strong reasoning performance with 95.00% on ARC-AGI-1, 84.2% on ARC-AGI-2, and 87.719% on FrontierMath v2 Tiers 1-3; shows sophisticated logical reasoning across diverse domains.
+- **Context window: 95/100.** Excellent 1,050,000 token context window supporting extensive document processing; maintains strong 74.0% performance at 512K-1M context for long-form reasoning tasks.
+- **Multimodal: 85/100.** Strong multimodal capabilities with 93.57% on ExtractBench, 81.2% on MMMU-Pro, and 88.1% on MMLU-Pro; excels at extracting information from various modalities and formats.
+- **Coding: 82/100.** Good coding capabilities with 58.6% on SWE-bench Pro, 88.5% on internal investment-banking modeling tasks, and strong performance on bioinformatics benchmarks; particularly strong in complex financial and data science applications.
+- **Cost efficiency: 65/100.** Premium pricing at $30-$180/1M tokens reflects high performance but positions it as costly for large-scale deployments compared to more economical alternatives.
+- **Overall Score: 89/100.** Exceptional performance across all dimensions, particularly strong in tool use and multimodal capabilities; best suited for professional applications requiring advanced reasoning, complex task execution, and long context processing.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
+- Method: Independent research from multiple benchmark sources including academic papers, technical evaluations, and official documentation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
+
+---

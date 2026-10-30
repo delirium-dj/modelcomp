@@ -3,7 +3,7 @@
 Purpose: per-model research findings with explicit attribution (signature = model that provided the findings).
 Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost / Overall) live in `model-comparison.md`. This file is the audit trail: what was found, what is missing, and who reported it.
 
-- Last updated: 2026-10-02 (UTC)
+- Last updated: 2026-10-21 (UTC)
 - Score scale reminder: all scores 1–100, higher is better. See `model-comparison.md` → `Scoring methodology`.
 - Free-tier note: `$0` = OpenCode Zen limited-time free tier. Free data may be used for training (Big Pickle, MiMo, Ling) or trial-logged (Nemotron NVIDIA endpoints) — no confidential code on free tiers.
 
@@ -440,3 +440,20 @@ Full normalized scores (Tool / Reasoning / Context / Multimodal / Coding / Cost 
 ### c) Signature
 
 - Provided by: **Ling 3.1 Flash (`opencode/ling-3.1-flash-free`)** — 2026-10-08
+
+---
+
+## a) Model name: MiMo V2.6 Pro
+
+### b) Findings
+
+- Xiaomi's flagship open-weight model, 1.02T total/42B active parameters, Mixture of Experts architecture, released September 21, 2026.
+- Specs: 1M-1.1M tokens context with 128K maximum output, text/image/video/audio input with text output, reasoning yes, tool calls supported, streaming, web search, structured output, context caching supported, paid only (no free tier).
+- Pricing: $0.435-$0.43 per 1M tokens input (cache miss), $0.87 per 1M tokens output, $0.0036 per 1M tokens cache hit.
+- Benchmarks: Artificial Analysis Intelligence Index 46.3 (ranked #1 among open weights models), Sophon benchmarks show HLE 49.4%, SciCode 60.9%, Vibe Code Bench 85.2%, Terminal-Bench 2.1 89.9%, MedScribe 88.3%, Finance Agent 57.3%, ProofBench 70%, Creative Story-Writing 73%, SAGE 45.1%.
+- Scores: Tool 88 / Reasoning 88 / Context 96 / Multimodal 93 / Coding 89 / Cost 96 → Overall **91**.
+- Fit: best-in-class open-weight model with exceptional multimodal capabilities, large context window, and strong performance across multiple domains; highest-scoring open weights model in the comparison.
+
+### c) Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21

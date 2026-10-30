@@ -12,7 +12,7 @@
 - **Provider / access:** Anthropic Claude Platform `claude-opus-4-8` (Messages API); AWS/GCP/Azure. No Zen Free ID.
 - **Release / knowledge:** Claude Opus 4.x generation (2026); knowledge cutoff not published.
 - **IDs:** `anthropic/claude-opus-4.8` (no Free ID).
-- **Context window:** curated `meta.json` lists 200K; BenchLM reports 1M and AA-LCR runs long — **meta.json "200K" is understated; orchestrator should verify.**
+- **Context window:** 1M tokens with 128K maximum output (300K with Batch API)
 - **Modalities:** text, image in; text out; reasoning yes; tool calls yes.
 - **Pricing (as of 2026-10-03):** paid Opus tier; no exact per-token price verified for 4.8. Scored provisionally.
 - **Architecture:** proprietary.

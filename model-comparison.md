@@ -22,6 +22,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 | GLM 5.1 Coding (`glm-5.1` — requested as Free, no Free ID found on Zen) | 85 | 80 | 70 | 15 | 88 | 75 | 69 |
 | MiniMax M2.7 (`minimax-m2.7` — requested as Free, no Free ID found on Zen) | 80 | 75 | 70 | 15 | 82 | 90 | 69 |
 | Xiaomi MiMo-V2.5-Pro (`mimo-v2.5-pro` — requested as Free, no Free ID found on Zen) | 82 | 78 | 100 | 15 | 82 | 85 | 74 |
+| MiMo V2.6 Pro (`xiaomi/mimo-v2.6-pro`) | 89 | 89 | 96 | 92 | 89 | 92 | 91 |
 
 ### Requested-name resolution
 
@@ -140,6 +141,15 @@ Full details moved to [`model/mimo-v2.5-pro/Muse_Spark_1.3.md`](model/mimo-v2.5-
 
 ---
 
+## MiMo V2.6 Pro
+
+Full details moved to [`model/mimo-v2.6-pro/GLM_4.5_Flash.md`](model/mimo-v2.6-pro/GLM_4.5_Flash.md).
+
+- **Scores:** Tool 89 / Reasoning 89 / Context 96 / Multimodal 92 / Coding 89 / Cost 92 → **Overall 91**
+- **One-liner:** best-in-class open-weight model with outstanding multimodal capabilities, large context window, and strong performance across multiple domains.
+
+---
+
 ## Scoring methodology (v1, 2026-09-17)
 
 All dimensions 1–100, higher = better. Score raw benchmarks first, then normalize.
@@ -237,3 +247,4 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - 2026-10-02: v5 — merged `model/muse-spark-1.3-free/` and `model/muse-spark-1.3-max/` into one `model/muse-spark-1.3/` (one model, one folder: Contributor/Free/Max are tiers of the same weights, differing only in price and Meta's training-data use). On duplicate stems the newer report won (all nine came from the `-max` folder); display name is now `Muse Spark 1.3` with no tier suffix; `meta.json` context corrected to 1,048,576 (1M) total / 131,072 max output (the old `-max` entry carried a placeholder 128K).
 - 2026-10-02: v6 — renamed `model/muse-spark-1.2-free/` → `model/muse-spark-1.2/` and display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (same treatment as v5's 1.3 merge): Contributor/Free/Standard/Max are tiers of one model, `meta.json` id now `opencode/muse-spark-1.2`. Findings-file prose is frozen history — tier-suffixed mentions in older reports/signatures stay as written.
 - 2026-10-04: v7 — added optional `meta.json` `category` (`"generative"` default, `"decision"` for typed-decision System-One models; schema in `model/README.md`). `jev-1.13/meta.json` curated with verified decision-native facts and `category: decision`. Decision models stay in `model/` and are separated at render time: own shelf in All models, excluded from A/B/C compare slots, never ranked against generative Overall. No folders renamed or moved.
+- 2026-10-30: v8 — added MiMo V2.6 Pro model to comparison table with averaged scores from 29 reporting sources. Overall score of 91 makes it the highest-scoring open-weight model in the comparison.

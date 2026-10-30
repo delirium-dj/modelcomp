@@ -1,0 +1,6 @@
+89.8 muse-spark-1.2
+89.8 qwen-3.8-max
+89.7 glm-5.3-flash
+89.7 muse-wonder-full
+89.3 gemini-3.5-flash
+88.8 claude-opus-4.6

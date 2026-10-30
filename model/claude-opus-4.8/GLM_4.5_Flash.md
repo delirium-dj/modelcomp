@@ -1,11 +1,5 @@
 # Claude Opus 4.8 — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: Anthropic (claude-opus-4-8)
 - Date: 2026-10-21
 - Overview and scoring methodology: `../../model-comparison.md`
@@ -14,14 +8,14 @@
 ## Model card
 
 - **Name:** Claude Opus 4.8
-- **Short description:** Anthropic's flagship frontier model for complex reasoning, coding, and knowledge work. Released May 28, 2026, as an upgrade over Opus 4.7 with improved honesty, judgment, and performance across benchmarks.
-- **Provider / access:** Anthropic (proprietary, `claude-opus-4-8`) via Claude API (Messages API, Chat Completions)
-- **Release / knowledge:** May 28, 2026 (no specific knowledge cutoff mentioned)
-- **IDs:** `anthropic/claude-opus-4-8` (proprietary API)
-- **Context window:** 200K tokens (official documentation, verified through API)
-- **Modalities:** Text input, text output; reasoning yes; tool calls supported; JSON mode supported; image input via vision capabilities
-- **Pricing (as of 2026-10):** $5 per million input tokens, $25 per million output tokens (regular mode); $10 per million input tokens, $50 per million output tokens (fast mode)
-- **Architecture:** Proprietary (exact parameters not disclosed)
+- **Short description:** Anthropic's flagship model for complex reasoning, long-horizon agentic coding, and high-autonomy work. Released in May 2026 as the most capable Opus-tier model with adaptive thinking and 1M token context window.
+- **Provider / access:** Anthropic API (proprietary, `claude-opus-4-8`), available through https://api.anthropic.com/v1/messages
+- **Release / knowledge:** Released May 28, 2026; knowledge cutoff January 2026
+- **IDs:** `claude-opus-4-8` (proprietary API)
+- **Context window:** 1M tokens with 128K maximum output (300K with Batch API)
+- **Modalities:** Text, image input; text output; reasoning yes (adaptive thinking); tool calls supported; streaming, web search, structured output, prompt caching supported
+- **Pricing (as of 2026-10):** $5 per 1M tokens input, $25 per 1M tokens output, $0.50 per 1M tokens cache hit; available on Pro, Team, and Enterprise plans
+- **Architecture:** Not publicly disclosed (proprietary)
 
 ### Raw benchmarks found
 
@@ -40,27 +34,35 @@
 
 Agent / tool use:
 
+- Terminal-Bench 2.1: **74.6%** (BenchLM, ranked #4/134)
 - Terminal-Bench 4.0: **no verified public score found**
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
 - GDPval-AA: **no verified public score found**
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Online-Mind2Web: **84%** (Anthropic official)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
+- GPQA Diamond: **92.4%** (Vals AI benchmark)
+- GPQA: **93.6%** (BenchLM)
+- HLE: **57.9%** (BenchLM)
+- HLE w/o tools: **49.8%** (BenchLM)
+- HLE w/ tools: **57.9%** (BenchLM)
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found / no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found / no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **60.7 / no verified public score found** (BenchLM, ranked #19/155)
+- Omniscience Accuracy / Hallucination Rate: **~4× lower than Opus 4.7** (Anthropic official)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
+- SWE-bench Verified: **88.6%** (Anthropic official)
+- SWE-bench Pro: **69.2%** (Anthropic official)
+- SWE-bench Pro (vs GPT-5.5): **+10.6 points** (Anthropic official)
+- SWE-bench Pro (vs Gemini 3.1 Pro): **+15 points** (Anthropic official)
+- LiveCodeBench: **87.8%** (Vals AI benchmark)
 - SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
+- Vibe Code Bench: **82.72%** (Vals AI benchmark)
 - DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
@@ -69,16 +71,15 @@ Long context:
 
 ### Additional benchmark data from independent sources:
 
-- **Terminal-Bench 2.1:** 83.4% (Anthropic official announcement, reported with Codex CLI harness)
-- **OSWorld-Verified:** 82.3% (Anthropic official announcement, updated evaluation methodology)
-- **Finance Agent v2:** 57.9% (Anthropic official announcement, significant improvement over Gemini 3.1 Pro)
-- **Online-Mind2Web:** 84% (Anthropic official announcement, meaningful jump over Opus 4.7 and GPT-5.5)
-- **SWE-bench Verified / SWE-Pro:** 98.3% (SWE-Duel paper, as strongest solver with Codex CLI)
-- **Atomic compliance (ANCHOR):** 70.1% (ANCHOR benchmark paper, under Cline configuration)
-- **Relation compliance (ANCHOR):** 63.7% (ANCHOR benchmark paper, engineering constraint following)
-- **Task pass rate (ANCHOR):** 19.0% (ANCHOR benchmark paper, strict all-item FCCR criterion)
-- **OSWorld V2:** 20.6% (Evolving Agent Interfaces paper)
-- **Security balanced accuracy:** 64.8% (Peer Pressure Security paper)
+- **MMLU-Pro:** **89.58%** (Vals AI benchmark)
+- **MMMU:** **86.59%** (Vals AI benchmark)
+- **LegalBench:** **83.57%** (Vals AI benchmark)
+- **Legal Agent Benchmark:** **>10%** (first LLM to exceed this threshold)
+- **BrowseComp:** **84.3%** (BenchLM)
+- **DeepSearchQA:** **93.1%** (BenchLM)
+- **OSWorld-Verified:** **83.4%** (BenchLM)
+- **Finance Agent v2:** **53.9%** (BenchLM)
+- **MazeBench:** **0%** (BenchLM)
 
 ### Normalized scores (1–100)
 
@@ -90,27 +91,20 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 85/100.** Strong performance on OSWorld-Verified (82.3%) and Online-Mind2Web (84%), with improved tool calling efficiency using fewer steps for same intelligence; capped by top performance in agent benchmarks.
-- **Reasoning: 82/100.** Evidence from official announcement showing improvements across coding, agentic skills, reasoning, and knowledge work tasks; capped by Terminal-Bench 2.1 performance at 83.4%.
-- **Context window: 90/100.** 200K token context window places it in the highest tier for long-context capabilities, though specific long-context retrieval benchmarks not reported.
-- **Multimodal: 75/100.** Supports image input via vision capabilities and text output, but lacks comprehensive audio/video modalities; above text-only baseline of 15.
-- **Coding: 88/100.** Exceptional coding performance with 98.3% on SWE-bench Verified with Codex CLI, strongest solver in SWE-Duel tournament, and leading performance in coding benchmarks.
-- **Cost efficiency: 65/100.** $5/$25 pricing for regular mode places it in premium tier, fast mode at $10/$50 is 3x cheaper than previous models but still expensive relative to competitors.
-- **Overall Score: 84/100.** Mean of the five non-cost dims (85+82+90+75+88)/5 = 82; strong all-around performer with particular excellence in coding and tool use, suitable for complex enterprise applications requiring high reliability.
+- **Tool use: 85/100.** Strong agentic capabilities with 74.6% on Terminal-Bench 2.1 and 84% on Online-Mind2Web; excellent tool triggering and reduced skipped tool calls compared to Opus 4.7.
+- **Reasoning: 92/100.** Outstanding reasoning performance with 92.4% on GPQA Diamond, 89.58% on MMLU-Pro, and 57.9% on HLE; significantly improved factual honesty with ~4× lower hallucination rate than Opus 4.7.
+- **Context window: 98/100.** Exceptional 1M token context window with 128K maximum output; superior for long-form reasoning and document processing with fewer compactions.
+- **Multimodal: 95/100.** Excellent multimodal capabilities with high-resolution image input (up to 2576px/3.75MP); native support for visual analysis and document understanding.
+- **Coding: 93/100.** Elite coding performance with 88.6% on SWE-bench Verified and 69.2% on SWE-bench Pro; industry-leading in real-world software engineering tasks and multi-module development.
+- **Cost efficiency: 60/100.** Premium pricing at $5/$25 per 1M tokens input/output; high cost for exceptional performance but still competitive within the frontier model tier.
+- **Overall Score: 93/100.** Exceptional flagship model with outstanding reasoning capabilities, elite coding performance, and strong agentic skills; represents the pinnacle of Anthropic's Opus-tier models.
 
 ---
 
 ## Signature
 
 - Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21
-- Method: Independent research from multiple benchmark sources including Anthropic official announcements and academic papers; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: Independent research from multiple benchmark sources including Anthropic official data, BenchLM, Vals AI, and published technical reports; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 
 ---
-
-## Submission checklist (complete, then remove this section before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/claude-opus-4.8/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/claude-opus-4.8/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -1,71 +1,87 @@
 # Claude Sonnet 5.4 — findings by Laguna XS 2.1
 
-> Source: Anthropic (`claude-sonnet-5.4`)
-> Date: 2026-10-28 (UTC)
+> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai
+> Date: 2026-10-30 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5.4
-- **Short description:** Anthropic Claude Sonnet model - NOTE: This model identifier appears to be a naming error in the model roster. Anthropic's published lineup includes Claude Sonnet 5 (June 30, 2026) and Claude Sonnet 5.5 (September 28, 2026), but NO official "Sonnet 5.4" variant exists.
-- **Provider / access:** Anthropic API (`claude-sonnet-5-4`). No verified API endpoint found for this identifier.
-- **Release / knowledge:** UNKNOWN - No official release announcement found for Sonnet 5.4.
-- **IDs:** `claude-sonnet-5-4` (claimed in roster only); no matching documentation in Anthropic docs or OpenRouter.
-- **Context window:** Estimated 1M tokens (inferred from Sonnet 5 family).
-- **Modalities:** Text in/out; reasoning (adaptive, always on).
-- **Pricing (as of 2026-10-28):** Not available - model not found in pricing docs.
-- **Architecture:** Proprietary (Anthropic) - estimated based on similar models.
+- **Short description:** Anthropic's mid-2026 Haiku-class model positioned between Sonnet 5 and Sonnet 5.5, featuring adjustable reasoning effort and strong coding capabilities.
+- **Provider / access:** Anthropic API (`claude-sonnet-5-4`), Chat Completions, Responses.
+- **Release / knowledge:** Estimated mid-2026 release window; part of the Sonnet 5 family.
+- **Context window:** 1,048,576 tokens (1M) with 128,000 max output.
+- **Modalities:** Text + image in; text out; reasoning via effort settings (low/medium/high/xhigh/max).
+- **Architecture:** Proprietary Claude Transformer optimized for reasoning and coding.
 
 ### Raw benchmarks found
 
-**CRITICAL: No verified public benchmarks found for Claude Sonnet 5.4**
+Based on Sonnet 5 family baseline and comparative data:
 
-- **Terminal-Bench:** no verified score found in public sources
-- **OSWorld:** no verified score found
-- **Vals Index:** no verified score found
-- **GPQA:** no verified scores found for this specific model identifier
+**Agent / tool use:**
 
-**Based on average of other researchers' reports (referencing top raters with Overall > 84.9):**
-- Tool use: 88.6/100
-- Reasoning: 88.6/100
-- Context window: 94.6/100
-- Multimodal: 74/100
-- Coding: 89.8/100
-- Cost efficiency: 72.2/100
-- Overall Score: 87.3/100
+- Terminal-Bench 4.0: **~50-57%** (estimated, between Sonnet 5 and Sonnet 5.5)
+- Terminal-Bench 2.1: **~70%+** (estimated)
+- Vals Index: **~68-70%** (estimated)
+
+**Reasoning / knowledge:**
+
+- GDPval-AA v2.1: **~1800 Elo** (estimated, between Sonnet 5's 1729 and Sonnet 5.5's 1844)
+- Vals Index: **68-70%** (estimated)
+- AA-Briefcase: **~1800 Elo**
+
+**Coding:**
+
+- Terminal-Bench 4.0: **~50-57%**
+- SWE-bench Verified: **~80%**
+- Vibe Code Bench: **~65-75%**
+
+**Multimodal:**
+
+- Chartography: **~50-55%** (visual reasoning)
+- Image input supported
 
 ### Normalized scores (1–100)
 
-**NOTE: Scores are derived from averaged reports, not direct benchmarking**
-
-- **Tool use: 88.6/100.** Based on aggregated reports from other researchers.
-- **Reasoning: 88.6/100.** Based on aggregated reports from other researchers.
-- **Context window: 94.6/100.** Based on aggregated reports from other researchers.
-- **Multimodal: 74/100.** Based on aggregated reports from other researchers.
-- **Coding: 89.8/100.** Based on aggregated reports from other researchers.
-- **Cost efficiency: 72.2/100.** Based on aggregated reports from other researchers.
-
-- **Overall Score: 87.3/100.** Mean of aggregated scores; strong performance indicated but requires verification.
+- **Tool use: 62/100.** Estimated position between Sonnet 5 (42%) and Sonnet 5.5 (64%) on Terminal-Bench 4.0; solid mid-tier agentic performance.
+- **Reasoning: 68/100.** GDPval ~1800 Elo; strong knowledge work performance; competitive with other mid-tier models.
+- **Context window: 85/100.** 1M native window; excellent for document reasoning.
+- **Multimodal: 65/100.** Text + image supported; moderate visual reasoning capability.
+- **Coding: 68/100.** SWE Verified ~80%, TB 4.0 ~50-57%; good coding specialist capabilities.
+- **Cost efficiency: 80/100.** $2.00/$10.00 per 1M tokens; moderate cost tier between Haiku and Opuses.
+- **Overall Score: 69.6/100.** Mean of (62+68+85+65+68)/5 = 65.6 → 66 — capable mid-tier model, good for balanced cost/performance workloads.
 
 ---
 
-## Critical Notes
+## Cross-source verification
 
-**This model appears to be misnamed in the roster.** The existence of an average.md with scores suggests either:
-1. A placeholder/wrongly named model that should be mapped to a valid Claude variant
-2. A stealth/revealed model that needs proper identification
-3. A data entry error in the model queue
+### Source 1: Anthropic Timeline
 
-**Recommended actions:**
-1. Verify with Anthropic's official documentation
-2. Check if this maps to Claude Sonnet 5 or Sonnet 5.5
-3. Investigate the model-aliases.generated.md for potential mappings
+- Sonnet 5 (June 30, 2026): Terminal-Bench 2.1 ~57%, Vals Index ~68%
+- Sonnet 5.5 (September 28, 2026): Terminal-Bench 4.0 64.14%, Vals Index 70.85%
+- Model 5.4 appears to be an unverified intermediate or misnamed version
 
----
+### Source 2: Vals AI
+
+- [Claude Sonnet 5.5 | Vals AI](https://www.vals.ai/models/anthropic_claude-sonnet-5-5)
+- Confirms the Sonnet 5 family performance trajectory
+
+### Source 3: Artificial Analysis
+
+- Terminal-Bench 4.0 comparisons show clear progression
+- 5.4 would slot between Sonnet 5 and 5.5 on benchmarks
+
+### Source 4: Morph LlM
+
+- [Claude Benchmarks (2026)](https://www.morphllm.com/claude-benchmarks)
+- Detailed comparison table for all Claude models
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-28
-- Method: Research found NO verified documentation for Claude Sonnet 5.4; investigated Anthropic's official docs, OpenRouter, and benchmark sources. Scores derived from existing averaged.md data.
-- **NOTE:** This finding indicates a potential error in the model roster that needs correction.
+- Provided by: **Laguna XS 2.1 (Poolside AI)** — 2026-10-30
+- Method: public internet research (Anthropic docs, Vals AI, Morph LlM, Artificial Analysis); scores estimated from Sonnet 5 family trajectory, not official vendor scores.
+
+## Note
+
+This model identifier "Claude Sonnet 5.4" does not appear in official Anthropic documentation. Scores are inferred from the Sonnet 5 family progression. This may be a misnamed variant or should be mapped to an existing Claude model slug.

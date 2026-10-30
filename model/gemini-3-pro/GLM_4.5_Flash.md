@@ -1,26 +1,20 @@
 # Gemini 3 Pro — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: Google (gemini-3-pro)
-- Date: 2026-10-21
+- Date: 2026-10-30
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** Google's flagship multimodal AI model with advanced reasoning capabilities, excelling in complex tasks across multiple domains including coding, scientific analysis, and multimodal understanding.
+- **Short description:** Google DeepMind's frontier Pro (1M, Deep Think) for agents/research; GPQA 91.9% and HLE 37.5% at $2/$12.
 - **Provider / access:** Google AI (gemini-3-pro), available through Google AI Studio, Gemini API, and Google Cloud Platform
 - **Release / knowledge:** Released in 2024; knowledge cutoff continuously updated
 - **IDs:** `google/gemini-3-pro` (proprietary API)
-- **Context window:** 1 million tokens input, 1 million tokens output
-- **Modalities:** Text, image, audio, video input; text output; reasoning yes; tool calls supported; JSON mode supported
-- **Pricing (as of 2026-10):** $2.00 per million tokens input, $4.00 per million tokens output
+- **Context window:** 1 million tokens input, 65 thousand tokens output
+- **Modalities:** Text, image, audio, video, PDF in; text out
+- **Pricing (as of 2026-10):** $2.00 per million tokens input, $12.00 per million tokens output
 - **Architecture:** Proprietary multimodal transformer architecture with >3 trillion parameters
 
 ### Raw benchmarks found
@@ -98,14 +92,14 @@ Long context:
 - **Context window: 95/100.** Outstanding long-context performance maintaining 99.7% accuracy at 128k tokens and 84.2% at 256k-1M tokens on GraphWalks; minimal context rot even with extremely long inputs.
 - **Multimodal: 90/100.** Excellent multimodal capabilities with support for text, image, audio, and video input; strong performance in visual understanding and multimodal integration tasks.
 - **Coding: 88/100.** Excellent coding capabilities with 91.9% on LiveCodeBench, 85.3% on SciCode, and 74.1% on DeepSWE; strong performance in code generation, debugging, and program analysis.
-- **Cost efficiency: 75/100.** $2.00/$4.00 pricing offers competitive value for the performance tier, though higher than some open-source alternatives; reasonable for premium AI capabilities.
+- **Cost efficiency: 75/100.** $2.00/$12.00 pricing offers competitive value for the performance tier, though higher than some open-source alternatives; reasonable for premium AI capabilities.
 - **Overall Score: 90/100.** Exceptional performance across all dimensions, particularly strong in reasoning and long-context capabilities, making it ideal for complex knowledge work and scientific applications.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
 - Method: Independent research from multiple benchmark sources including academic papers and technical publications; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 

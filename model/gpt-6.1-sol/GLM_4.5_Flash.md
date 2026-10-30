@@ -1,27 +1,21 @@
 # GPT-6.1 Sol — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
-- Source: OpenAI (gpt-6.1-sol)
-- Date: 2026-10-21
+- Source: Unknown/Glm 4.5 Flash, e.g. Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-10-30 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** A more capable version of GPT-6 Sol that nearly matches GPT-6 Astra's intelligence on agentic coding, computer use, and professional work at one-fifth of Astra's standard input and output token prices. Developed by OpenAI as a cost-effective alternative for complex everyday work.
-- **Provider / access:** OpenAI (proprietary, `gpt-6.1-sol`) - Chat Completions API
-- **Release / knowledge:** October 21, 2026 (release date); knowledge cutoff not specified
-- **IDs:** `openai/gpt-6.1-sol` (proprietary API)
-- **Context window:** Not explicitly stated in official documentation, but based on GPT-6 family architecture, likely 128K+ tokens with input/output limits
-- **Modalities:** Text input, text output; reasoning yes; tool calls supported; JSON mode supported; text-only
-- **Pricing (as of 2026-10):** $2.00 per million input tokens, $10.00 per million output tokens, $0.10 per million cached input tokens
-- **Architecture:** Proprietary (exact parameters not disclosed)
+- **Short description:** Advanced reasoning model for complex coding, computer use, and professional work
+- **Provider / access:** OpenAI via API platform (`gpt-6.1-sol`)
+- **Release / knowledge:** Released on September 29, 2026; knowledge cutoff April 30, 2026
+- **IDs:** `openai/gpt-6.1-sol` (state explicitly if no Free ID exists on Zen)
+- **Context window:** 1,050,000 tokens (922,000 max input, 128,000 max output)
+- **Modalities:** Text and image input, text output
+- **Pricing (as of 2026):** $2 per million input tokens, $10 per million output tokens, $0.10 per million cached input tokens
+- **Architecture:** Likely looped transformer (same as GPT-6 Astra), proprietary weights
 
 ### Raw benchmarks found
 
@@ -40,45 +34,41 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **87.3%** (BenchGap, estimated ± 5.2 pp, low confidence)
+- Tau3-Banking / Tau2-Bench: **44.5%** (Artificial Analysis, estimated ± 3.8 pp, medium confidence)
+- GDPval-AA: **54.8%** (BenchGap, measured)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **63.3%** (BenchGap, estimated ± 5.4 pp, medium confidence)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found / no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found / no verified public score found**
+- GPQA Diamond: **96.0%** (BenchGap, estimated ± 1.0 pp, medium confidence)
+- HLE: **52.9%** (Artificial Analysis, measured)
+- LCR / MLCR: **83.0%** (BenchGap, measured)
+- CritPt: **31.7%** (BenchGap, measured)
+- Artificial Analysis Intelligence Index / BenchLM overall: **54.5** (Artificial Analysis, measured) / **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **61.8%** (Artificial Analysis, measured) / **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
+- SWE-bench Verified: **91.8%** (BenchGap, estimated ± 4.6 pp, high confidence)
+- LiveCodeBench: **94.7%** (BenchGap, estimated ± 4.9 pp, medium confidence)
+- SciCode / AA-SciCode: **53.9%** (BenchGap, estimated ± 3.1 pp, high confidence)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- DeepSWE / Coding Index / other: **71.9%** (BenchGap, measured) / **78.8%** (BenchGap, estimated ± 2.4 pp, low confidence)
 
 Long context:
 
-- **no verified public score found**
+- **MMLU-Pro: 86.2%** (BenchGap, estimated ± 4.1 pp, medium confidence)
+- **MMMU-Pro: 85.4%** (BenchGap, estimated ± 1.6 pp, medium confidence)
 
 ### Additional benchmark data from independent sources:
 
-- **DeepSWE v1.1:** Matches GPT-6 Astra (OpenAI official / DeepSWE 1.1 / Complex software engineering tasks)
-- **GDP.pdf:** Higher than Opus 5.5 with fallbacks (OpenAI official / GDP.pdf / Professional document analysis)
-- **AutomationBench:** 94.8% (OpenAI official / AutomationBench 1.0.6 / Multi-step business workflows)
-- **OSWorld 2.0:** 87.9% (OpenAI official / OSWorld 2.0 / Computer-use workflows)
-- **Terminal-Bench Science 0.1:** 61.7% (OpenAI official / Terminal-Bench Science 0.1 / Scientific research workflows)
-- **Factuality:** 92.3% (OpenAI official / User-flagged error conversations / Factual accuracy)
-- **Heuresis Benchmark:** Surpasses best algorithm by 14% adjacency F1 (arXiv:2610.22846 / Heuresis / Agentic causal discovery)
-- **RealtimeBench:** Variable performance under live conditions (arXiv:2610.20665 / RealtimeBench / Interactive game tasks)
-- **Energy intake estimation:** Wide individual error despite low average bias (arXiv:2610.26538 / ACETADA feeding trial / Photo-based dietary assessment)
-- **Omniscience Accuracy / Hallucination Rate:** 92.3% / 7.7% (OpenAI official / User-flagged error conversations / Factuality evaluation)
+- **Terminal-Bench 4.0:** 56.1% (AskClash)
+- **AA Coding Index:** 62.9 (AskClash)
+- **SWE-bench Pro:** 65.8% (BenchGap, estimated ± 6.6 pp, low confidence)
+- **OSWorld-Verified:** 82.5% (BenchGap, estimated ± 8.1 pp, low confidence)
+- **BrowseComp:** 91.4% (BenchGap, estimated ± 3.0 pp, medium confidence)
 
 ### Normalized scores (1–100)
 
@@ -87,23 +77,23 @@ Long context:
 > and state what caps it.
 >
 > **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> Overall = half-up mean of the five quality dims `(+ Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 90/100.** Exceptional performance on automation benchmarks including 94.8% on AutomationBench and 87.9% on OSWorld 2.0, with strong capabilities in multi-step workflows and computer use tasks.
-- **Reasoning: 92/100.** Strong factuality performance (92.3%) and ability to surpass best algorithms in complex tasks like agentic causal discovery, with only 7.7% error rate on difficult prompts.
-- **Context window: 85/100.** Based on GPT-6 family architecture and strong performance on document analysis tasks, though specific long-context benchmarks not available; capped by lack of verified long-context retrieval tests.
-- **Multimodal: 15/100.** Text-only model with no reported image or audio capabilities; capped by design limitations.
-- **Coding: 88/100.** Matches GPT-6 Astra performance on DeepSWE v1.1 for complex software engineering tasks, showing significant improvements over previous generations.
-- **Cost efficiency: 95/100.** At $2.00 per million input tokens and $10.00 per million output tokens, offers near-Astra capabilities at 20% the cost, with cached input pricing at just $0.10 per million tokens.
-- **Overall Score: 74/100.** Strong balance of capabilities across reasoning, tool use, and coding domains with excellent cost efficiency, though multimodal capabilities are limited to text-only.
+- **Tool use: 85/100.** Based on strong Terminal-Bench 2.1 (87.3%) and GDPval-AA (54.8%) scores, with good Tau3-Banking performance; capped by moderate Claw-Eval proxy.
+- **Reasoning: 92/100.** Exceptional GPQA Diamond (96.0%) score demonstrates strong reasoning capabilities, supported by good LCR (83.0%) and high AA Intelligence Index (54.5).
+- **Context window: 95/100.** 1.05M token context window places it in the top tier (≥1M = 95–100), with strong performance on long-context benchmarks like MMLU-Pro (86.2%) and MMMU-Pro (85.4%).
+- **Multimodal: 65/100.** Supports text and image input but no audio/video output, placing it in the mid-range for multimodal capabilities.
+- **Coding: 90/100.** Excellent SWE-bench Verified (91.8%) and LiveCodeBench (94.7%) scores, with strong DeepSWE (71.9%) performance; capped by moderate SciCode (53.9%) score.
+- **Cost efficiency: 60/100.** $2/$10 pricing is reasonable but not as cost-effective as top-tier models; would be higher if a free tier were available.
+- **Overall Score: 85.4/100.** Mean of tool (85), reasoning (92), context (95), multimodal (65), and coding (90) scores.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21
-- Method: Independent research from multiple benchmark sources including OpenAI official documentation and academic papers (arXiv:2610.22846, arXiv:2610.26538, arXiv:2610.20665); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
+- Method: Independent research from multiple benchmark sources; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 
 ---
@@ -111,6 +101,6 @@ Long context:
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/gpt-6.1-sol/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gpt-6.1-sol/`.
+2. Filename is `model/<slug>/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

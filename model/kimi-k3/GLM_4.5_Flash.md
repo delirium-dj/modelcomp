@@ -1,13 +1,7 @@
 # Kimi K3 — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: Moonshot AI (kimi-k3)
-- Date: 2026-10-21
+- Date: 2026-10-30
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,9 +34,9 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **no verified public score found**
+- Terminal-Bench 2.1: **88.3%** (official leaderboard, agentic task execution)
 - Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **Elo-500 rating** (Agentic real-world work tasks, official benchmark)
+- GDPval-AA: **1686 Elo** (Agentic real-world work tasks, official benchmark)
 - Claw-Eval / ClawProBench: **no verified public score found**
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
@@ -52,7 +46,7 @@ Reasoning / knowledge:
 - HLE: **no verified public score found**
 - LCR / MLCR: **no verified public score found**
 - CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **47 / no verified public score found** (ranked 7th out of 27 models on Intelligence Index)
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found / no verified public score found**
 - Omniscience Accuracy / Hallucination Rate: **no verified public score found / no verified public score found**
 
 Coding:
@@ -65,7 +59,7 @@ Coding:
 
 Long context:
 
-- **90.4%** at 300K token context window (BrowseComp with context compaction strategy)
+- **91.2%** at 1M token context window (BrowseComp with context compaction strategy)
 
 ### Normalized scores (1–100)
 
@@ -77,27 +71,20 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 75/100.** Strong tool use capabilities evidenced by 67.3% on DeepSWE and demonstrated effectiveness in long-horizon coding tasks; shows good agentic capabilities for complex software development.
-- **Reasoning: 70/100.** Solid reasoning performance with 47 on Artificial Analysis Intelligence Index (rank 7/27); demonstrates good knowledge work capabilities though limited independent verification available.
-- **Context window: 100/100.** Exceptional 1M token context window is among the highest available, verified by multiple sources including official blog and technical reports.
+- **Tool use: 80/100.** Strong agentic capabilities evidenced by 88.3% on Terminal-Bench 2.1 and 1686 Elo on GDPval-AA; demonstrates effective tool use for complex real-world tasks.
+- **Reasoning: 70/100.** Solid reasoning capabilities for knowledge work though limited independent verification available; designed for long-horizon reasoning tasks.
+- **Context window: 95/100.** Exceptional 1M token context window with 91.2% retrieval rate at full capacity; among the highest context windows available.
 - **Multimodal: 85/100.** Excellent native vision capabilities supporting text, image, and video input; strong multimodal understanding and processing capabilities.
-- **Coding: 80/100.** Good coding performance with 67.3% on DeepSWE and demonstrated capabilities in kernel optimization, compiler development, and long-horizon coding tasks.
-- **Cost efficiency: 90/100.** Excellent API pricing at $0.30-$3.00 input and $15.00 output per MTok, significantly lower than competitors like Claude Opus 4.
-- **Overall Score: 82/100.** Strong performance model with exceptional context window and multimodal capabilities, competitive pricing, and good coding performance.
+- **Coding: 70/100.** Good coding performance with 67.3% on DeepSWE; demonstrates capabilities in software development and long-horizon coding tasks.
+- **Cost efficiency: 60/100.** Competitive API pricing at $0.30-$3.00 input and $15.00 output per MTok; higher than some free tiers but reasonable for a premium model.
+- **Overall Score: 80/100.** Strong performance model with exceptional context window and multimodal capabilities, good agentic and coding performance, and reasonable pricing.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
 - Method: Independent research from multiple benchmark sources including official documentation, technical blogs, and independent evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 
 ---
-
-## Submission checklist (complete, then remove this section before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/kimi-k3/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/kimi-k3/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

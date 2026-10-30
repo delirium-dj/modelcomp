@@ -1,11 +1,5 @@
 # MiMo V2.6 Pro — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: Xiaomi (mimo-v2.6-pro)
 - Date: 2026-10-21
 - Overview and scoring methodology: `../../model-comparison.md`
@@ -104,9 +98,3 @@ Long context:
 
 ---
 
-## Submission checklist (complete, then remove this section before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/mimo-v2.6-pro/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/mimo-v2.6-pro/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

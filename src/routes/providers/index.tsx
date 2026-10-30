@@ -19,8 +19,10 @@ import { V2Footer } from "../../components/v2/V2Footer";
 import "../../components/v2/v2.css";
 
 const KIND_BADGE: Record<string, string> = {
-  vendor: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
-  aggregator: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300",
+  vendor:
+    "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+  aggregator:
+    "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300",
 };
 
 const FREE_BADGE =
@@ -48,7 +50,9 @@ function ProviderCard(provider: Provider) {
         <VendorIcon id={provider.slug} name={provider.name} size="lg" />
         <div class="min-w-0 flex-1">
           <div class="flex flex-wrap items-center gap-2">
-            <h3 class="text-base font-semibold text-slate-900 dark:text-white">{provider.name}</h3>
+            <h3 class="text-base font-semibold text-slate-900 dark:text-white">
+              {provider.name}
+            </h3>
             <span
               class={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${KIND_BADGE[provider.kind]}`}
             >
@@ -61,12 +65,24 @@ function ProviderCard(provider: Provider) {
             )}
           </div>
           <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            {provider.models.length} tracked model{provider.models.length === 1 ? "" : "s"}
-            {provider.freeTier && <> · {provider.freePlans.length} free plan{provider.freePlans.length === 1 ? "" : "s"}</>}
+            {provider.models.length} tracked model
+            {provider.models.length === 1 ? "" : "s"}
+            {provider.freeTier && (
+              <>
+                {" "}
+                · {provider.freePlans.length} free plan
+                {provider.freePlans.length === 1 ? "" : "s"}
+              </>
+            )}
             {provider.officialUrl && (
               <>
                 {" · "}
-                <a href={provider.officialUrl} target="_blank" rel="noopener noreferrer" class={linkClass}>
+                <a
+                  href={provider.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={linkClass}
+                >
                   Website ↗
                 </a>
               </>
@@ -75,15 +91,23 @@ function ProviderCard(provider: Provider) {
         </div>
       </div>
 
-      <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">{provider.short}</p>
+      <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+        {provider.short}
+      </p>
 
       <div class="mt-4 overflow-x-auto">
         <table class="w-full min-w-[430px] border-collapse text-left text-xs">
           <thead>
             <tr class="text-[10px] uppercase tracking-wide text-slate-400 dark:text-slate-500">
-              <th class="border-b border-slate-200 pb-1.5 pr-3 font-medium dark:border-slate-700">Plan</th>
-              <th class="border-b border-slate-200 pb-1.5 pr-3 font-medium dark:border-slate-700">Price</th>
-              <th class="border-b border-slate-200 pb-1.5 font-medium dark:border-slate-700">Source</th>
+              <th class="border-b border-slate-200 pb-1.5 pr-3 font-medium dark:border-slate-700">
+                Plan
+              </th>
+              <th class="border-b border-slate-200 pb-1.5 pr-3 font-medium dark:border-slate-700">
+                Price
+              </th>
+              <th class="border-b border-slate-200 pb-1.5 font-medium dark:border-slate-700">
+                Source
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -106,7 +130,9 @@ function ProviderCard(provider: Provider) {
                   >
                     <span class="block">{plan.price}</span>
                     {plan.notes && (
-                      <span class="mt-0.5 block text-[11px] text-slate-400 dark:text-slate-500">{plan.notes}</span>
+                      <span class="mt-0.5 block text-[11px] text-slate-400 dark:text-slate-500">
+                        {plan.notes}
+                      </span>
                     )}
                   </td>
                   <td class="border-b border-slate-100 py-2.5 dark:border-slate-800">
@@ -151,7 +177,12 @@ function ProviderCard(provider: Provider) {
           </p>
           <div class="flex flex-wrap gap-1.5">
             {provider.models.map((m) => (
-              <a key={m.slug} href={`/model/${m.slug}/`} class={chipClass} title={m.short}>
+              <a
+                key={m.slug}
+                href={`/model/${m.slug}/`}
+                class={chipClass}
+                title={m.short}
+              >
                 {m.name}
               </a>
             ))}
@@ -219,184 +250,204 @@ export default component$(() => {
     >
       <V2Header theme={theme} navBase="/" />
       <div class="flex-1">
-      <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4 py-10">
-      <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Providers</h1>
-      <p class="mt-2 max-w-3xl text-sm text-slate-600 dark:text-slate-400">
-        Every tracked model reaches you through a provider — the console, gateway or API you actually
-        pay. This page collects what each provider offers: its billing plans, what each plan costs
-        (with the page claiming the price), and which of our covered models you can access through
-        it.
-      </p>
+        <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4 py-10">
+          <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Providers
+          </h1>
+          <p class="mt-2 max-w-full text-sm text-slate-600 dark:text-slate-400">
+            Every tracked model reaches you through a provider — the console,
+            gateway or API you actually pay. This page collects what each
+            provider offers: its billing plans, what each plan costs (with the
+            page claiming the price), and which of our covered models you can
+            access through it.
+          </p>
 
-      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span class={FREE_BADGE}>Free tier</span>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          <strong class="font-semibold text-slate-700 dark:text-slate-200">
-            {FREE_TIER_PROVIDERS.length} of {PROVIDERS.length}
-          </strong>{" "}
-          providers offer a free lane ($0 plan, free quota, or free model endpoints). Free-tier
-          providers are highlighted with badges in every category.
-        </p>
-      </div>
-
-      {/* Category 1: Providers offering models with coding and MoE ability */}
-      <section class="mt-8">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              Coding &amp; MoE Models
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {CODING_MOE_PROVIDERS.length} providers · Frontier labs, coding engines &amp; multi-model gateways
-            </span>
+          <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <span class={FREE_BADGE}>Free tier</span>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              <strong class="font-semibold text-slate-700 dark:text-slate-200">
+                {FREE_TIER_PROVIDERS.length} of {PROVIDERS.length}
+              </strong>{" "}
+              providers offer a free lane ($0 plan, free quota, or free model
+              endpoints). Free-tier providers are highlighted with badges in
+              every category.
+            </p>
           </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Providers delivering foundation models with dedicated code generation, reasoning, and Mixture-of-Experts (MoE) architectures.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {CODING_MOE_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
 
-      {/* Neutral divider between Category 1 and Category 2 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 1: Providers offering models with coding and MoE ability */}
+          <section class="mt-8">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  Coding &amp; MoE Models
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {CODING_MOE_PROVIDERS.length} providers · Frontier labs,
+                  coding engines &amp; multi-model gateways
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Providers delivering foundation models with dedicated code
+              generation, reasoning, and Mixture-of-Experts (MoE) architectures.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {CODING_MOE_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 2: On-demand GPU */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              On-Demand GPU
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {GPU_PROVIDERS.length} providers · Serverless clusters, GPU instances &amp; bare-metal
-            </span>
-          </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Infrastructure clouds offering on-demand GPU capacity, custom model container hosting, and dedicated hardware instances.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {GPU_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
+          {/* Neutral divider between Category 1 and Category 2 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
 
-      {/* Neutral divider between Category 2 and Category 3 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 2: On-demand GPU */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  On-Demand GPU
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {GPU_PROVIDERS.length} providers · Serverless clusters, GPU
+                  instances &amp; bare-metal
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Infrastructure clouds offering on-demand GPU capacity, custom
+              model container hosting, and dedicated hardware instances.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {GPU_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 3: Audio / Speech */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              Audio / Speech
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {AUDIO_SPEECH_PROVIDERS.length} providers · Speech-to-text, voice cloning &amp; audio intelligence
-            </span>
-          </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Specialized audio models and speech APIs for transcription, voice synthesis, and real-time audio intelligence.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {AUDIO_SPEECH_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
+          {/* Neutral divider between Category 2 and Category 3 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
 
-      {/* Neutral divider between Category 3 and Category 4 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 3: Audio / Speech */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  Audio / Speech
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {AUDIO_SPEECH_PROVIDERS.length} providers · Speech-to-text,
+                  voice cloning &amp; audio intelligence
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Specialized audio models and speech APIs for transcription, voice
+              synthesis, and real-time audio intelligence.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {AUDIO_SPEECH_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 4: Video */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              Video
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {VIDEO_PROVIDERS.length} providers · Generative video &amp; media pipelines
-            </span>
-          </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          High-throughput generative media platforms and APIs specialized in video generation and multi-modal media processing.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {VIDEO_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
+          {/* Neutral divider between Category 3 and Category 4 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
 
-      {/* Neutral divider between Category 4 and Category 5 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 4: Video */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  Video
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {VIDEO_PROVIDERS.length} providers · Generative video &amp;
+                  media pipelines
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              High-throughput generative media platforms and APIs specialized in
+              video generation and multi-modal media processing.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {VIDEO_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 5: Web grounding search */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              Web Grounding Search
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {SEARCH_PROVIDERS.length} providers · Exa, Tavily, Brave Search &amp; web indexing
-            </span>
-          </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Search APIs and web retrieval indices built specifically for AI agents, RAG pipelines, and grounded real-time context.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {SEARCH_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
+          {/* Neutral divider between Category 4 and Category 5 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
 
-      {/* Neutral divider between Category 5 and Category 6 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 5: Web grounding search */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  Web Grounding Search
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {SEARCH_PROVIDERS.length} providers · Exa, Tavily, Brave
+                  Search &amp; web indexing
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Search APIs and web retrieval indices built specifically for AI
+              agents, RAG pipelines, and grounded real-time context.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {SEARCH_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 6: LLM observability/security tooling */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              LLM Observability &amp; Security Tooling
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {OBSERVABILITY_SECURITY_PROVIDERS.length} providers · Tracing, evaluation, prompt shields &amp; guardrails
-            </span>
-          </div>
-        </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Frameworks and gateways for tracing LLM execution, monitoring token spend, evaluation, red teaming, and prompt-injection safety guardrails.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {OBSERVABILITY_SECURITY_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
+          {/* Neutral divider between Category 5 and Category 6 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
 
-      {/* Neutral divider between Category 6 and Category 7 */}
-      <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+          {/* Category 6: LLM observability/security tooling */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  LLM Observability &amp; Security Tooling
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {OBSERVABILITY_SECURITY_PROVIDERS.length} providers · Tracing,
+                  evaluation, prompt shields &amp; guardrails
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Frameworks and gateways for tracing LLM execution, monitoring
+              token spend, evaluation, red teaming, and prompt-injection safety
+              guardrails.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {OBSERVABILITY_SECURITY_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
 
-      {/* Category 7: Everything else */}
-      <section>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-              Other Specialized Services
-            </h2>
-            <span class="text-xs text-slate-500 dark:text-slate-400">
-              {EVERYTHING_ELSE_PROVIDERS.length} providers · Neural translation, embeddings &amp; RAG tools
-            </span>
-          </div>
+          {/* Neutral divider between Category 6 and Category 7 */}
+          <hr class="my-12 border-0 border-t border-slate-200 dark:border-slate-700" />
+
+          {/* Category 7: Everything else */}
+          <section>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-slate-200 pb-2 dark:border-slate-700">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
+                  Other Specialized Services
+                </h2>
+                <span class="text-xs text-slate-500 dark:text-slate-400">
+                  {EVERYTHING_ELSE_PROVIDERS.length} providers · Neural
+                  translation, embeddings &amp; RAG tools
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
+              Specialized neural machine translation (e.g. DeepL), vector
+              embedding models &amp; rerankers (e.g. Voyage AI, Jina AI), and
+              domain AI platforms.
+            </p>
+            <div class="mt-5 gap-6 md:columns-2">
+              {EVERYTHING_ELSE_PROVIDERS.map(ProviderCard)}
+            </div>
+          </section>
         </div>
-        <p class="mt-2 max-w-3xl text-xs text-slate-500 dark:text-slate-400">
-          Specialized neural machine translation (e.g. DeepL), vector embedding models &amp; rerankers (e.g. Voyage AI, Jina AI), and domain AI platforms.
-        </p>
-        <div class="mt-5 gap-6 md:columns-2">
-          {EVERYTHING_ELSE_PROVIDERS.map(ProviderCard)}
-        </div>
-      </section>
-      </div>
       </div>
       <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4">
         <V2Footer />

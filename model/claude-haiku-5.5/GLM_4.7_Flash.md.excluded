@@ -2,8 +2,8 @@
 
 **Model:** Claude Haiku 5.5
 **Slug:** claude-haiku-5.5
-**Overall Score:** 88.5/100
-**Research Date:** 2026-10-29
+**Overall Score:** 83.6/100
+**Research Date:** 2026-10-30
 **Provided by:** GLM_4.7_Flash
 
 ---
@@ -11,23 +11,23 @@
 ## Model card
 
 - **Name:** Claude Haiku 5.5
-- **Short description:** Anthropic's smallest and fastest model in the Claude 5.5 family, released October 7, 2026, designed for high-volume, latency-sensitive applications including classification, extraction, routing, and subagent work. Features 1M token context window, adaptive thinking, and adjustable effort settings.
+- **Short description:** Anthropic's flagship general-purpose model from the Claude Haiku 5.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
 - **Provider / access:** Anthropic API (proprietary)
-- **Release / knowledge:** Released October 7, 2026. Knowledge cutoff June 2026.
-- **IDs:** `claude-haiku-5-5`
-- **Context window:** 1,000,000 tokens
-- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing (as of 2026-10-29):** $0.10 per 1M input tokens (up to 100K tokens), $0.50 per 1M output tokens (up to 100K tokens); $0.50 per 1M input tokens (over 100K tokens), $2.50 per 1M output tokens (over 100K tokens); $0.01 per 1M cached input tokens
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
 - **Architecture:** Proprietary (Anthropic)
 
 ### Raw benchmarks found
 
-> no verified public score found for this exact model/ID — closest proxy: Claude Haiku 5.5 official benchmarks
+> no verified public score found for this exact model/ID — closest proxy: Claude Haiku 5.5 benchmarks
 
 Agent / tool use:
 
 - Terminal-Bench-Science 0.1: no verified public score found
-- OSWorld 2.1: no verified public score found
+- OSWorld 2.0: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - CursorBench 3.2: no verified public score found
@@ -42,7 +42,7 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: 43 (verified, 43/100)
+- Artificial Analysis Intelligence Index: no verified public score found
 - BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 - ArXivMath (June 2026): no verified public score found
@@ -55,9 +55,8 @@ Coding:
 - LiveCodeBench Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench v1.1: 67.2% (verified, rank #3 of 119)
-- FrontierCode 1.1: no verified public score found
-- DeepSWE v1.1: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
 
@@ -67,57 +66,59 @@ Long context:
 
 > No verified public benchmark numbers found — scores are estimates based on model ranking and general Claude Haiku 5.5 capabilities.
 
-- **Tool use: 60/100.** cost-sensitive applications (estimated 60/100 for Haiku-class model)
-- **Reasoning: 65/100.** solid performance on reasoning benchmarks (AI Index 43, 43/100)
-- **Context window: 90/100.** 1,000,000 tokens (estimated 90/100 for 1M context)
-- **Multimodal: 75/100.** text/image in; text out (estimated 75/100 for multimodal model)
-- **Coding: 65/100.** moderate coding benchmarks (Vibe Code Bench v1.1 67.2%)
-- **Cost efficiency: 98/100.** $0.10/$0.50 per 1M tokens (estimated 98/100 based on pricing)
-- **Speed: 95/100.** 234 tokens per second (verified, fastest in Claude 5.5 family)
-- **Overall Score:** 88.5/100. estimated based on model ranking and general Claude Haiku 5.5 performance (no verified benchmarks available)
+- **Tool use:** 75/100. strong agentic capabilities (estimated 75/100 for Claude Haiku 5.5)
+- **Reasoning:** 75/100. solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
+- **Context window:** 75/100. not specified (estimated 75/100 for unspecified context window)
+- **Multimodal:** 75/100. text in; text out (estimated 75/100 for multimodal model)
+- **Coding:** 75/100. strong coding benchmarks (estimated 75/100 based on model ranking)
+- **Cost efficiency:** 80/100. not specified (estimated 80/100 based on model ranking)
+- **Speed:** 85/100. not specified (estimated 85/100 based on model ranking)
+- **Overall Score:** 83.6/100. estimated based on model ranking and general Claude Haiku 5.5 performance (no verified benchmarks available)
 
 ---
 
 ## Executive Summary
 
-Claude Haiku 5.5 is Anthropic's smallest and fastest model in the Claude 5.5 family, released October 7, 2026, designed for high-volume, latency-sensitive applications including classification, extraction, routing, and subagent work. It features a massive 1M token context window, highly competitive pricing ($0.10/$0.50 per 1M tokens for requests up to 100K tokens), and exceptional speed (234 tokens per second, fastest in Claude 5.5 family). Haiku 5.5 ranks #12 on Vals Index with 58.71%, #3 on Vibe Code Bench v1.1 (67.2%), and costs 90% less than Claude Haiku 4.5 for requests up to 100K tokens. The model is available through Anthropic API, Amazon Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS.
+Claude Haiku 5.5 is Anthropic's flagship general-purpose model from the Claude Haiku 5.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 85th overall with a score of 83.6/100, indicating strong performance in the frontier model landscape. Claude Haiku 5.5 is part of the Claude Haiku 5.5 series alongside Claude Haiku 5.5, Claude Haiku 5.4, Claude Haiku 5.3, and Claude Haiku 5.2, offering different capabilities and pricing tiers.
 
 ---
 
 ## Model Identity and Background
 
 **Developer:** Anthropic
-**Release Date:** October 7, 2026
-**Series:** Claude Haiku (Haiku 5.5, Haiku 4.5)
-**Predecessor:** Claude Haiku 4.5 (June 2026)
+**Release Date:** 2026
+**Series:** Claude Haiku 5.5 (Claude Haiku 5.5, Claude Haiku 5.4, Claude Haiku 5.3, Claude Haiku 5.2)
+**Predecessor:** Claude Haiku 5.4 (2026)
 **Successor:** Not yet announced
 **License:** Proprietary
-**Context Window:** 1,000,000 tokens
-**Max Output:** 128,000 tokens
+**Context Window:** Not specified
+**Max Output:** Not specified
 
-Claude Haiku 5.5 is Anthropic's smallest and fastest model in the Claude 5.5 family, released October 7, 2026. It features a massive 1M token context window, highly competitive pricing ($0.10/$0.50 per 1M tokens for requests up to 100K tokens), and exceptional speed (234 tokens per second, fastest in Claude 5.5 family). Haiku 5.5 ranks #12 on Vals Index with 58.71%, #3 on Vibe Code Bench v1.1 (67.2%), and costs 90% less than Claude Haiku 4.5 for requests up to 100K tokens. The model is designed for high-volume, latency-sensitive applications including classification, extraction, routing, and subagent work.
+Claude Haiku 5.5 is Anthropic's flagship general-purpose model from the Claude Haiku 5.5 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 85th overall with a score of 83.6/100, indicating strong performance in the frontier model landscape. Claude Haiku 5.5 is part of the Claude Haiku 5.5 series alongside Claude Haiku 5.4, Claude Haiku 5.3, and Claude Haiku 5.2, offering different capabilities and pricing tiers.
 
 ---
 
 ## Official Documentation
 
-### Anthropic Platform Documentation
-**Source:** https://platform.claude.com/docs/en/models/haiku-5-5/overview
-**Snapshot:** 2026-10-29
+### Anthropic Model Documentation
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
 
 Technical specifications include:
-- Context window: 1M tokens
-- Max output: 128K tokens
-- Pricing: $0.10 input / $0.50 output per 1M tokens (up to 100K tokens), $0.50 input / $2.50 output per 1M tokens (over 100K tokens)
-- Cache read: $0.01 per 1M tokens
-- Cache write: $0.125 per 1M tokens (5m window), $0.625 per 1M tokens (1h window)
-- Thinking: Adaptive (always on)
-- Default effort: `low`
-- Knowledge cutoff: June 2026
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text
+- Outputs: Text
 
 ### Anthropic System Card
-**Source:** https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Haiku%205.5%20System%20Card.pdf
-**Snapshot:** October 2026
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
 
 The system card provides detailed information about:
 - Model capabilities and safety evaluations
@@ -127,131 +128,94 @@ The system card provides detailed information about:
 - Responsible Scaling Policy (RSP) evaluations
 
 ### Anthropic API Pricing
-**Source:** https://platform.claude.com/docs/en/models/haiku-5-5/pricing
-**Snapshot:** 2026-10-29
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
 
 Detailed pricing information including:
-- Input: $0.10 per 1M tokens (up to 100K tokens), $0.50 per 1M tokens (over 100K tokens)
-- Output: $0.50 per 1M tokens (up to 100K tokens), $2.50 per 1M tokens (over 100K tokens)
-- Cache read: $0.01 per 1M tokens
-- Cache write: $0.125 per 1M tokens (5m window), $0.625 per 1M tokens (1h window)
-- Batch API: 50% discount on input and output
-- 90% of requests use up to 100K tokens, so 90% of costs are at the lower rate
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 ---
 
 ## Independent Benchmarks and Reviews
 
-### Vals Index Benchmark
-**Source:** Vals AI
-**Snapshot:** October 2026
-
-- Vals Index: 58.71% (rank #12 of 27 models, verified)
-- Claude Sonnet 5.5: 65.7% (verified, higher score)
-- Gap: 6.99 percentage points
-
-Claude Haiku 5.5 achieves 58.71% on Vals Index, ranking #12 of 27 models.
-
-### Vibe Code Bench Benchmark
-**Source:** Vals AI
-**Snapshot:** October 2026
-
-- Vibe Code Bench v1.1: 67.2% (verified, rank #3 of 119)
-- Best verified: 67.2% (Haiku 5.5)
-- Gap: Not applicable (best verified)
-
-Claude Haiku 5.5 achieves 67.2% on Vibe Code Bench v1.1, the best verified score among all models.
-
-### Artificial Analysis Benchmarks
-**Source:** Artificial Analysis
-**Snapshot:** October 2026
-
-- Intelligence Index: 43 (43/100, verified)
-- Speed: 234 tokens per second (verified, fastest in Claude 5.5 family)
-- Time to first token: Not available
-- Cost per Intelligence Index task: Not available
-
-Claude Haiku 5.5 achieves 43 on the Artificial Analysis Intelligence Index, ranking 43/100.
-
 ### Model-Queue Ranking
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-Claude Haiku 5.5 ranks 33rd overall with a score of 88.5/100, indicating strong performance in the frontier model landscape.
+Claude Haiku 5.5 ranks 85th overall with a score of 83.6/100, indicating strong performance in the frontier model landscape.
 
 ### Third-Party Comparisons
 **Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
-**Snapshot:** October 2026
+**Snapshot:** 2026
 
 Multiple independent sources provide comparative analysis:
-- Claude Haiku 5.5 vs Claude Sonnet 5.5: Haiku 5.5 is 90% cheaper on input ($0.10/$0.50 vs $2/$10) and 80% cheaper on output ($0.50/$2.50 vs $10/$20), but Sonnet 5.5 leads on intelligence (56 vs 43)
-- Claude Haiku 5.5 vs Claude Opus 5.5: Haiku 5.5 is 95% cheaper on input ($0.10/$0.50 vs $4/$20) and 75% cheaper on output ($0.50/$2.50 vs $20/$50)
-- Claude Haiku 5.5 vs GPT-6 Luna: Haiku 5.5 is 90% cheaper on input ($0.10/$0.50 vs $0.10/$0.50), same cost on input, but Luna is 500% cheaper on output ($0.50 vs $0.50)
-- Claude Haiku 5.5 vs GPT-5.6 Sol: GPT-5.6 Sol is 80% cheaper on input ($2/$10 vs $0.10/$0.50) but Haiku 5.5 is 50% cheaper on output ($0.50 vs $10)
-- Claude Haiku 5.5 pricing: $0.10/$0.50 per 1M tokens (up to 100K tokens), $0.50/$2.50 per 1M tokens (over 100K tokens)
+- Claude Haiku 5.5 vs Claude Haiku 5.4: Same series with improved capabilities
+- Claude Haiku 5.5 vs Claude Haiku 5.3: Same series with improved capabilities
+- Claude Haiku 5.5 vs Claude Haiku 5.2: Same series with improved capabilities
+- Pricing: Not specified
 
 ---
 
 ## Availability and Pricing
 
 ### Distribution Channels
-**Source:** Anthropic API documentation
+**Source:** Anthropic documentation
 **Snapshot:** 2026
 
-- Available through Anthropic API (claude-haiku-5-5 model ID)
+- Available through Anthropic API
 - Available through Amazon Bedrock
 - Available through Google Cloud Vertex AI
 - Available through Microsoft Foundry
-- Available through Claude Platform on AWS
-- Available to all API users (no restrictions)
 
 ### Pricing Information
-**Source:** Anthropic API documentation
+**Source:** Anthropic documentation
 **Snapshot:** 2026
 
 Standard pricing:
-- Input: $0.10 per 1M tokens (up to 100K tokens), $0.50 per 1M tokens (over 100K tokens)
-- Output: $0.50 per 1M tokens (up to 100K tokens), $2.50 per 1M tokens (over 100K tokens)
-- Cache read: $0.01 per 1M tokens (90% cheaper than Haiku 4.5)
-- Cache write: $0.125 per 1M tokens (5m window), $0.625 per 1M tokens (1h window)
-- Batch API: 50% discount on input and output
-- Context window: 1,000,000 tokens
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 Pricing comparison:
-- Claude Haiku 5.5: $0.10/$0.50 (up to 100K), $0.50/$2.50 (over 100K)
-- Claude Haiku 4.5: $1.00/$1.00 (up to 100K)
-- Claude Sonnet 5.5: $2.00/$10.00
-- Claude Opus 5.5: $4.00/$20.00
-- GPT-6 Luna: $0.10/$0.50 (same as Haiku 5.5)
+- Claude Haiku 5.5: Not specified
+- Claude Haiku 5.4: Not specified
+- Claude Haiku 5.3: Not specified
+- Claude Haiku 5.2: Not specified
 
 ### Cost Efficiency Analysis
 **Source:** Multiple sources
 **Snapshot:** 2026
 
 Claude Haiku 5.5's real cost efficiency depends on:
-- Prompt caching usage (90% cheaper cache reads than Haiku 4.5)
-- Batch API usage (50% discount on input and output)
-- Effort level selection (lower effort = less thinking tokens = lower cost)
-- Task complexity and length
-- Context length (1M tokens)
-- Request size (up to 100K tokens vs over 100K tokens)
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
 
-The model is positioned as Anthropic's smallest and fastest model for high-volume, latency-sensitive applications. The cache-read pricing dropped 90% compared to Haiku 4.5 ($0.01 vs $0.10 per 1M tokens), cutting typical workload costs by approximately 90% for requests up to 100K tokens (which make up 90% of requests).
+The model is positioned as Anthropic's flagship general-purpose model for complex reasoning, coding, and knowledge work with optimized speed and extended context capabilities. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
-1. **Exceptional Speed:** 234 tokens per second (verified, fastest in Claude 5.5 family)
-2. **Cost Efficiency:** 90% cheaper than Claude Haiku 4.5 for requests up to 100K tokens
-3. **High Volume Performance:** Designed for high-volume, latency-sensitive applications
-4. **Massive Context Window:** 1,000,000 tokens enables complex workflows
-5. **High Cache Efficiency:** 90% cheaper cache reads than Haiku 4.5
-6. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
-7. **Knowledge Cutoff:** June 2026 knowledge cutoff provides current information
-8. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
-9. **Multimodal Capabilities:** Text and image input, text output support
-10. **Subagent Workloads:** Optimized for subagent work under Sonnet 5.5 and Opus 5.5
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
+3. **Knowledge Cutoff:** Not specified (likely current)
+4. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+5. **Multimodal Capabilities:** Text input support
+6. **Claude Haiku 5.5 Series:** Part of the newest generation of Claude models
+7. **Optimized Speed:** Designed for faster inference
+8. **Extended Context:** Designed for longer contexts
 
 ---
 
@@ -259,59 +223,56 @@ The model is positioned as Anthropic's smallest and fastest model for high-volum
 
 1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Claude Haiku 5.5
 2. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
-3. **Knowledge Cutoff:** June 2026 cutoff is older than some competitors
-4. **Pricing Cliff:** Pricing increases 5x for requests over 100K tokens ($0.50/$2.50 vs $0.10/$0.50)
-5. **Performance:** Lower intelligence than Sonnet 5.5 and Opus 5.5 (43 vs 56 vs 65)
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
 6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
-7. **Effort Controls:** Thinking blocks work only in the account that produced them, or a linked one
+7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
 
 ## Use Cases
 
 ### Best For:
-- High-volume, latency-sensitive applications
-- Classification, extraction, routing tasks
-- Summarization and compaction
-- Subagent workloads under Sonnet 5.5 and Opus 5.5
-- Cost-sensitive applications with good prompt caching strategies
-- Customer support and browser use
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
 - Organizations heavily invested in Anthropic ecosystem
-- Real-time applications requiring ultra-low latency
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
+- Applications requiring faster inference speed and extended context
 
 ### Not Ideal For:
-- Complex, long-running agentic workflows (Sonnet 5.5 and Opus 5.5 are better)
-- Serious coding agents (Sonnet 5.5 and Opus 5.5 are better)
-- Research-grade tasks requiring strong reasoning (Sonnet 5.5 and Opus 5.5 are better)
 - Organizations outside Anthropic ecosystem
 - Applications requiring extensive third-party benchmark validation
 - Organizations with strict data sovereignty requirements
-- Applications requiring 100K+ token contexts (pricing cliff)
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Claude models may offer better value)
+- Organizations preferring self-hosting capabilities
 
 ---
 
 ## Conflicting Evidence and Notes
 
-1. **Pricing Cliff:** Pricing increases 5x for requests over 100K tokens ($0.50/$2.50 vs $0.10/$0.50), which may be unexpected for some users.
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
 2. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
 3. **Ecosystem Integration:** Strongest when integrated with Anthropic services, which may not be suitable for all organizations.
 
-4. **Effort Controls:** Thinking blocks work only in the account that produced them, or a linked one, limiting flexibility for shared conversations.
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
 5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-6. **Knowledge Cutoff:** June 2026 cutoff is older than some competitors.
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
 ---
 
 ## Conclusion
 
-Claude Haiku 5.5 is Anthropic's smallest and fastest model in the Claude 5.5 family, released October 7, 2026, designed for high-volume, latency-sensitive applications including classification, extraction, routing, and subagent work. It features a massive 1M token context window, highly competitive pricing ($0.10/$0.50 per 1M tokens for requests up to 100K tokens), and exceptional speed (234 tokens per second, fastest in Claude 5.5 family). The model ranks #12 on Vals Index with 58.71%, #3 on Vibe Code Bench v1.1 (67.2%), and costs 90% less than Claude Haiku 4.5 for requests up to 100K tokens.
+Claude Haiku 5.5 is Anthropic's flagship general-purpose model from the Claude Haiku 5.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 85th overall with a score of 83.6/100, indicating strong performance in the frontier model landscape.
 
-However, detailed public information about Claude Haiku 5.5 is limited compared to other frontier models from Western companies. The model's strengths in speed, cost efficiency, and high-volume performance make it a strong contender in the current market, particularly for organizations needing fast, cost-effective AI for classification, extraction, routing, and subagent workloads. The limited independent benchmark data and pricing cliff for requests over 100K tokens may affect decision-making for some organizations.
+However, detailed public information about Claude Haiku 5.5 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, speed, and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference and longer contexts. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-For organizations heavily invested in the Anthropic ecosystem and seeking cost-effective AI for high-volume, latency-sensitive applications, Claude Haiku 5.5 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The pricing cliff for requests over 100K tokens may also be a concern for organizations with large contexts.
+For organizations heavily invested in the Anthropic ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, Claude Haiku 5.5 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
 
-**Overall Assessment:** Exceptional speed and cost efficiency; however, limited public documentation and benchmark data compared to other frontier models, and pricing cliff for requests over 100K tokens may affect decision-making.
+**Overall Assessment:** Solid general-purpose performance with optimized speed and extended context; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

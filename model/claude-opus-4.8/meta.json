@@ -2,7 +2,7 @@
   "id": "anthropic/claude-opus-4.8",
   "name": "Claude Opus 4.8",
   "short": "Anthropic's Opus (200K, $5/$25) for multi-step coding; SWE-Verified 88.6%.",
-  "contextWindow": "200K",
+  "contextWindow": "1M",
   "modalities": "Text, image in; text out",
   "pricingNote": "Paid-tier pricing",
   "noFreeId": true,
@@ -10,6 +10,6 @@
   "pricingLinks": [
     "https://www.anthropic.com/pricing"
   ],
-  "standout": "The proven multi-step coding Opus: rock-solid at chained edits and refactors on Anthropic’s then-standard 200K context.",
-  "tradeoff": "The 200K window and $5/$25 card are both outclassed by later 1M Opus generations at the same price, making it a legacy-pinning choice."
+  "standout": "The proven multi-step coding Opus: rock-solid at chained edits and refactors on Anthropic's 1M context window.",
+  "tradeoff": "The $5/$25 pricing is outclassed by later Opus generations at the same price, making it a legacy-pinning choice."
 }
