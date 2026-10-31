@@ -41,10 +41,10 @@
 88.5 mimo-v2.6-flash
 88.4 muse-spark-1.1
 88.3 gpt-6-sol
+88.3 kimi-k3.1-pro
 88.1 gemini-3-flash
 87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
-87.9 kimi-k3.1-pro
 87.8 qwen-3.8-flash
 87.3 minimax-m3
 87.2 claude-sonnet-4.6
@@ -59,12 +59,12 @@
 86.7 inkling-small
 86.5 qwen-3.8-27b
 86.4 claude-sonnet-5.4
+86.2 kimi-k2.6
 86.2 qwen-3.6-plus
 86.1 grok-4.7
-86.1 kimi-k2.6
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
-85.8 grok-4.5
+85.9 grok-4.5
 85.6 gpt-5.3-codex
 85.6 qwen-3.8-flash-next
 85.5 qwen-3.5-plus

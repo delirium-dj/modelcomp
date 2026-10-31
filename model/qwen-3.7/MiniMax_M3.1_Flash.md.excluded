@@ -1,0 +1,74 @@
+# Qwen 3.7 — findings by MiniMax M3.1 Flash
+
+- Source: Alibaba Cloud (no exact public model ID verified — `Qwen3.7` is a generation name)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 — the dataset entry is the Qwen3.7 *generation* name. Alibaba publishes three named members of that generation — Qwen3.7-Max (flagship), Qwen3.7-Plus (balanced) and Qwen3.7-Flash (fast, native vision-language) — and has never shipped a bare "Qwen3.7" checkpoint.
+- **Short description:** Not a shippable model. The Qwen3.7 generation was announced 2026-05-19 with Qwen3.7-Max; Qwen3.7-Plus followed 2026-05-31 and Qwen3.7-Flash 2026-07-15. Scoring this slug would double-count members that already have their own folders (`qwen-3.7-max`, `qwen-3.7-plus`, `qwen-3.7-flash`).
+- **Provider / access:** No route exists for a bare `qwen3.7`. Live catalogues expose only the members: OpenRouter `qwen/qwen3.7-max`, `qwen/qwen3.7-plus`, `qwen/qwen3.7-flash`, `qwen/qwen3.7-plus:batch`; models.dev `alibaba/qwen3.7-max`, `alibaba/qwen3.7-plus`, `alibaba/qwen3.7-flash`, `bailian/qwen3.7-max`, `bailian/qwen3.7-plus`; Alibaba Cloud Model Studio SKUs `qwen3.7-max`, `qwen3.7-plus`, `qwen3.7-flash`, `qwen3.7-text-embedding`; OpenCode Zen lists **no** Qwen3.7 route (its Qwen ids are `qwen3.5-plus`, `qwen3.6-plus`, `qwen3.8-flash`, `qwen3.8-max`).
+- **Release / knowledge:** Generation announced 2026-05-19; member dates Max 2026-05-20 (snapshot `qwen3.7-max-2026-05-20`, later `qwen3.7-max-2026-06-08`), Plus 2026-05-31, Flash 2026-07-15. Knowledge cutoff not published for the generation.
+- **IDs:** no exact public ID for a bare "Qwen3.7" — the project slug `qwen-3.7` is a generation label, not a vendor ID. Member IDs are listed above.
+- **Context window:** 1,000,000 tokens for each member (Qwen3.7-Max and Qwen3.7-Plus both 1M on Artificial Analysis; Qwen3.7-Flash 1M) — these are member figures and cannot be attributed to the generation entry.
+- **Modalities:** Qwen3.7-Max text in/out; Qwen3.7-Plus text **and image** in with text out; Qwen3.7-Flash native vision-language (text/image/video understanding with text out). Reasoning/thinking mode is on by default for `qwen3.7-plus`.
+- **Pricing (as of 2026-10-31):** member prices only — Qwen3.7-Max $1.475 in / $4.425 out per 1M on OpenRouter (Alibaba Model Studio lists ¥12 / ¥36 per 1M for `qwen3.7-max-2026-06-08`); Qwen3.7-Plus $0.32 / $1.28; Qwen3.7-Flash cheaper again, Batch at 50% off. No "Qwen3.7" list price exists.
+- **Architecture:** proprietary and API-only across the whole generation — Qwen3.7 has **no open-weights checkpoint** (the Hugging Face Qwen organisation API returns an empty result list for `Qwen3.7` on 2026-10-31; Qwen moved on to shipping open weights for Qwen3.8-27B instead). Parameter counts for the generation are therefore undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.0: no verified public score found for a standalone "Qwen3.7" — the published rows belong to Qwen3.7-Max / Qwen3.7-Plus / Qwen3.7-Flash
+- Tau3-Banking / Tau2-Bench: no verified public score found for a standalone "Qwen3.7"
+- GDPval-AA: no verified public score found for a standalone "Qwen3.7"
+- Agents' Last Exam / AutomationBench-AA: no verified public score found for a standalone "Qwen3.7"
+- Claw-Eval / ClawProBench: no verified public score found for a standalone "Qwen3.7"
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for a standalone "Qwen3.7"
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for a standalone "Qwen3.7"
+- HLE: no verified public score found for a standalone "Qwen3.7"
+- LCR / MLCR: no verified public score found for a standalone "Qwen3.7"
+- CritPt: no verified public score found for a standalone "Qwen3.7"
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found for a standalone "Qwen3.7" (AA tracks the members separately: Qwen3.7 Max, Qwen3.7 Plus)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found for a standalone "Qwen3.7"
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found for a standalone "Qwen3.7"
+- LiveCodeBench: no verified public score found for a standalone "Qwen3.7"
+- SciCode / AA-SciCode: no verified public score found for a standalone "Qwen3.7"
+- Vibe Code Bench: no verified public score found for a standalone "Qwen3.7"
+- DeepSWE / Coding Index / other: no verified public score found for a standalone "Qwen3.7"
+
+Long context:
+
+- No long-context retrieval result (MRCR / RULER / GraphWalks) exists for a standalone "Qwen3.7"; the members' 1M windows are documented but unattributable to the generation label.
+
+Provisional family context (member figures — **not** scores for this slug, and each member has its own folder and its own findings files):
+
+- Qwen3.7-Max — 1M context, API-only, ~¥12/¥36 per 1M tokens; the Qwen3.8 blog credits it as the previous flagship generation and reports a 152% improvement over it in the successor's coding/cowork benchmarks.
+- Qwen3.7-Plus — 397B total / 17B activated MoE, 1M context, text+image in, $0.32/$1.28 per 1M on OpenRouter; Qwen's own Qwen3.8-Flash-Next card compares against it as the balanced baseline.
+- Qwen3.7-Flash — native vision-language tier released 2026-07-15, 1M context, API-only.
+- Reddit/LocalLLaMA discussion of Qwen3.7 (open weights expected but never shipped) and a "Qwen3.7 Max Is API-Only" write-up both confirm the generation has no downloadable checkpoint.
+
+### Independent-source comparison and identity resolution
+
+- Alibaba's own Qwen blog covers the generation under the member name: "Qwen3.7: The Agent Frontier" (2026-05-19) is explicitly about **Qwen3.7-Max** ("What sets Qwen3.7-Max apart is the breadth and depth of its agent capabilities") — the generation never appears as a standalone model ([Qwen blog](https://qwen.ai/blog?id=qwen3.7)).
+- Alibaba Cloud Model Studio's supported-models overview lists the Qwen3.7 entries as `qwen3.7-plus` (balanced performance, speed and cost — also listed for visual understanding) and `qwen3.7-max`, with `qwen3.7-flash` and `qwen3.7-text-embedding` elsewhere on the same page; no bare `qwen3.7` text SKU ([Model Studio models](https://www.alibabacloud.com/help/en/model-studio/models), [DashScope API reference](https://help.aliyun.com/zh/model-studio/api-reference)).
+- Live independent catalogues agree: OpenRouter's model API exposes only `qwen3.7-flash`, `qwen3.7-max`, `qwen3.7-plus` and `qwen3.7-plus:batch` ([OpenRouter models API](https://openrouter.ai/api/v1/models)); models.dev carries the same three members across the `alibaba`, `bailian`, `cline-pass` and `novita` providers and no bare entry ([models.dev API](https://models.dev/api.json)); OpenCode Zen's live catalogue has no Qwen3.7 route at all ([OpenCode Zen models](https://opencode.ai/zen/v1/models)).
+- No open-weights Qwen3.7 exists: the Hugging Face Qwen organisation model API returns `[]` for the search term `Qwen3.7` on 2026-10-31, and independent write-ups state plainly that Qwen3.7 Max is API-only with no open weights ([HF Qwen org API](https://huggingface.co/api/models?author=Qwen&search=Qwen3.7), [Spheron — Qwen3.7 Max is API-only](https://www.spheron.network/blog/deploy-qwen3-7-max-gpu-cloud/)). Qwen instead shipped open weights for Qwen3.8-27B, whose card compares itself against Qwen3.7-Plus.
+- This is the same identity class as two entries already parked in this project: `qwen-3.5` ("generation name, never a model — members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b") and `gemini-2.5` ("family shorthand for gemini-2.5-pro"). The roster `model-aliases.generated.md` does not yet list `qwen-3.7`, but the rule it encodes applies: a generation name is not a model, and research belongs in the member folder for the ID actually cited.
+- Because no exact model exists, no member measurement was merged into this record and no normalized score is defensible. **Recommendation:** park `qwen-3.7` as a generation name and keep the evidence in `model/qwen-3.7-max/`, `model/qwen-3.7-plus/` and `model/qwen-3.7-flash/`. This folder already carries 12 peer findings files (current average 82.3), so the parking decision is a dataset-level change that needs explicit user sign-off — it was not applied here.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax-m3.1-flash-preview)** — 2026-10-31
+- Method: Independent public-web research across Alibaba's Qwen blog, Alibaba Cloud Model Studio model list and DashScope references, the live OpenRouter model API, the live models.dev provider catalogue, the live Hugging Face Qwen organisation API, the live OpenCode Zen catalogue, and multiple exact-name and family-lineup searches. Self-excluded because zero verified public benchmark numbers exist for the exact claimed identity (no standalone model); scores are intentionally omitted.
+- Future sources: add a new file next to this one, using the same headings.

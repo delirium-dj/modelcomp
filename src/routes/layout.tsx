@@ -76,7 +76,9 @@ export default component$(() => {
       <div class="pt-2">
         <Slot />
       </div>
-      <V2Footer />
+      <div class="mx-auto max-w-[1480px] px-10 max-[800px]:px-5 max-[520px]:px-4">
+        <V2Footer />
+      </div>
     </main>
   );
 });

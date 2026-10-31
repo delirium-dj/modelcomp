@@ -1,0 +1,52 @@
+# DeepSeek V4 Vision Exp — negative findings by GPT 6 Sol
+
+- Source: Claimed DeepSeek (`deepseek-v4-vision-exp` not verified)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4 Vision Exp (unverified shortened identity)
+- **Short description:** The folder name omits **Flash** from DeepSeek's actual experimental vision model name. There is no evidence that a non-Flash V4 Vision Exp checkpoint was released. Do not score the Flash checkpoint as a different model merely to fill this folder.
+- **Provider / access:** No verified first-party `deepseek-v4-vision-exp` API ID. DeepSeek's [August 21 change log](https://api-docs.deepseek.com/updates) explicitly names `deepseek-v4-flash-vision-exp`; its [vision guide](https://api-docs.deepseek.com/guides/vision) and [current pricing page](https://api-docs.deepseek.com/quick_start/pricing) use the same full ID. OpenRouter also lists the [full Flash ID](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp), not this shortened name.
+- **Release / knowledge:** No distinct release date or knowledge cutoff for the shortened name. The full **Flash** experiment launched 2026-08-21 and was retired 2026-09-10 ([DeepSeek change log](https://api-docs.deepseek.com/updates)).
+- **IDs:** `deepseek-v4-vision-exp` unverified. The historical `deepseek-v4-flash-vision-exp` is a *different spelling* which DeepSeek says now routes to `deepseek-v4.1-flash-1017` rather than the retired checkpoint. API calls today cannot test the historical vision experiment ([pricing and alias note](https://api-docs.deepseek.com/quick_start/pricing)).
+- **Context window:** No verified context specifically for this shortened ID. [OpenRouter's historical Flash Vision profile](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp) lists 1,048,576 input-context / up to 262,144 completion tokens for the **full** ID; this cannot establish a separate non-Flash model.
+- **Modalities:** Not independently verified for this shortened ID; the documented **Flash** experiment supported text and image input, text output.
+- **Pricing (as of 2026-10-31):** No verified price for a distinct shortened-ID checkpoint. DeepSeek's [current Flash price](https://api-docs.deepseek.com/quick_start/pricing) applies to the **successor** serving the retired Flash Vision alias, not necessarily to August's historical experimental weights.
+- **Architecture:** No distinct public checkpoint, parameter count or license verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- **No verified public score found for `deepseek-v4-vision-exp`.** For identity diagnosis only, the vendor reports Terminal-Bench 2.1 **83.9%**, NL2Repo **57.7%**, AutomationBench Public **25.7%**, ApexBench pass@1 **36.5%** and Agents' Last Exam **27.3%** for the **different, full** `deepseek-v4-flash-vision-exp` checkpoint ([August change log](https://api-docs.deepseek.com/updates)). None is attributed to the shortened folder name or the successor alias target.
+
+Reasoning / knowledge:
+
+- **No verified public score found** for the exact shortened identity. DeepSeek's prose says the *Flash* experiment matched V4-Flash on pure-text reasoning, but provides no matched-protocol exact-ID score for a separate V4 Vision model ([change log](https://api-docs.deepseek.com/updates)).
+
+Coding:
+
+- **No verified public score found** for the shortened identity. The same change log gives **DeepSWE 59.3%** and **DSBench-Hard 63.6%** for the historical **Flash Vision** experiment only.
+
+Long context:
+
+- **No verified public retrieval score** for the shortened identity or at the near-limit window of the full Flash experiment.
+
+### Normalized scores (1–100)
+
+- **Self-excluded:** No benchmark is traceable to a separately identified `deepseek-v4-vision-exp` checkpoint, so no dimensions or Overall are assigned. The project retains this folder pending user-approved identity reconciliation; it is not appropriate to relabel or delete the existing model folder without per-instance permission.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-31
+- Method: Exact-ID web searches and comparison of first-party release/alias records against independent OpenRouter model identification; historical full-ID scores are explicitly separated from the unverified shortened subject.
+- Reference URLs:
+  - [DeepSeek release and retirement change log](https://api-docs.deepseek.com/updates)
+  - [DeepSeek vision API guide](https://api-docs.deepseek.com/guides/vision)
+  - [DeepSeek current pricing and alias routing](https://api-docs.deepseek.com/quick_start/pricing)
+  - [OpenRouter full Flash Vision experimental ID](https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp)
