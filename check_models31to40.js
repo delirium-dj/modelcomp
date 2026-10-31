@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Read model-queue.md
-const queueContent = fs.readFileSync('E:\\\\qwik\\\\modelcomp\\\\model-queue.md', 'utf8');
+const queueContent = fs.readFileSync('E:\\qwik\\modelcomp\\model-queue.md', 'utf8');
 const lines = queueContent.split('\n').filter(line => line.trim() && !line.startsWith('#'));
 
 // Extract models from position 31-40 from queue
@@ -28,7 +28,7 @@ const templateModels = [];
 const completeModels = [];
 
 models31to40.forEach(model => {
-  const filePath = `E:\\\\qwik\\\\modelcomp\\\\model\\\\${model.slug}\\\\GLM_4.5_Flash.md`;
+  const filePath = `E:\\qwik\\modelcomp\\model\\${model.slug}\\GLM_4.5_Flash.md`;
   
   if (fs.existsSync(filePath)) {
     const content = fs.readFileSync(filePath, 'utf8');

@@ -1,0 +1,52 @@
+# Claude Sonnet 5.4 — negative findings by GPT 6 Sol
+
+- Source: Claimed Anthropic model (`claude-sonnet-5-4` unverified)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4 (identity unverified)
+- **Short description:** A purported intermediate Sonnet version; this exact model cannot be confirmed in Anthropic's published API roster.
+- **Provider / access:** No first-party API model ID or independently verifiable route found. [Anthropic's model overview](https://platform.claude.com/docs/en/models/overview) lists Sonnet 5 and 5.5 but not 5.4; the [full deprecation/status table](https://platform.claude.com/docs/en/about-claude/model-deprecations) also omits it. The expected [5.4 overview URL](https://platform.claude.com/docs/en/models/sonnet-5-4/overview) does not resolve.
+- **Release / knowledge:** No verified release date or knowledge cutoff for this exact name.
+- **IDs:** `claude-sonnet-5-4` is unverified; do not treat results from `claude-sonnet-5` or `claude-sonnet-5-5` as its measurements.
+- **Context window:** No verified value for this exact ID.
+- **Modalities:** No verified model-specific capability profile.
+- **Pricing (as of 2026-10-31):** No verified rate for this exact ID; do not copy Sonnet 5 or 5.5 pricing.
+- **Architecture:** No verified model card or public weights.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found for this exact ID. The independent [Artificial Analysis](https://artificialanalysis.ai/models/claude-sonnet-5-4) and [Vals](https://www.vals.ai/models/anthropic_claude-sonnet-5-4) exact-ID profile URLs do not resolve.
+
+Reasoning / knowledge:
+
+- No verified public score found for this exact ID.
+
+Coding:
+
+- No verified public score found for this exact ID.
+
+Long context:
+
+- No verified public retrieval measurement found for this exact ID.
+
+### Normalized scores (1–100)
+
+- **Self-excluded:** Zero verified benchmark values for the named model; no score or Overall is assigned. This note does not establish that a separately tracked checkpoint exists. Identity reconciliation/parking requires explicit user approval under `RULES.md`.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-31
+- Method: Exact-name searches and primary vendor model/status documentation, cross-checked against independent model-profile URLs; no numbers transferred from adjacent Sonnet releases.
+- Reference URLs:
+  - [Anthropic model overview](https://platform.claude.com/docs/en/models/overview)
+  - [Anthropic lifecycle and deprecation roster](https://platform.claude.com/docs/en/about-claude/model-deprecations)
+  - [Artificial Analysis exact-ID profile (not found)](https://artificialanalysis.ai/models/claude-sonnet-5-4)
+  - [Vals exact-ID profile (not found)](https://www.vals.ai/models/anthropic_claude-sonnet-5-4)

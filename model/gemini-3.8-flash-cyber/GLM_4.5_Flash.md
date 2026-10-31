@@ -1,27 +1,21 @@
 # Gemini 3.8 Flash Cyber — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
-- Source: Unknown/Gemini 3.8 Flash Cyber, e.g. Meta (`muse-spark-1.3-contributor-free`)
-- Date: 2026-10-30 (UTC)
+- Source: Google (`gemini-3.8-flash-cyber`)
+- Date: 2026-10-31 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash Cyber
-- **Short description:** AI model with general-purpose capabilities
-- **Provider / access:** <PROVIDER> via API platform (`gemini-3.8-flash-cyber`)
-- **Release / knowledge:** Released in Unknown; knowledge cutoff Unknown
-- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen)
-- **Context window:** Unknown
-- **Modalities:** Text input/output
-- **Pricing (as of 2026):** Unknown
-- **Architecture:** Unknown
+- **Short description:** Google's specialized cybersecurity model designed for autonomous vulnerability discovery and automated patching with frontier-level performance in defensive security tasks.
+- **Provider / access:** Google via Gemini Enterprise Agent Platform (`gemini-3.8-flash-cyber`) - API access gated through Fairwind Program for trusted defenders
+- **Release / knowledge:** Released September 2, 2026; knowledge cutoff August 2026
+- **IDs:** `google/gemini-3.8-flash-cyber` / `opencode/gemini-3.8-flash-cyber` (OpenCode Zen)
+- **Context window:** 1M tokens (same as standard Gemini 3.8 Flash)
+- **Modalities:** Text, image, audio, video, and PDF input; text output; reasoning yes; tool calls; JSON mode
+- **Pricing (as of 2026):** $0.75/1M input, $3.75/1M output (standard pricing, same as Gemini 3.8 Flash)
+- **Architecture:** Proprietary (built on Gemini 3.7 Flash foundation with specialized cybersecurity training)
 
 ### Raw benchmarks found
 
@@ -30,8 +24,8 @@
 > closest proxy as provisional — never invent values.
 >
 > SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
-> for this exact model/ID — every row below would read "no verified public score
-> found" — do NOT save a scored `.md` file. Save
+> for this exact model/ID — every row below would read "no verified public
+> score found" — do NOT save a scored `.md` file. Save
 > `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
 > negative-findings notes; scores inside are ignored). Never invent placeholder
 > scores (0, 10, …) — one fabricated number drags the mean for every reader
@@ -69,9 +63,9 @@ Long context:
 
 ### Additional benchmark data from independent sources:
 
-- **<BENCHMARK_1>:** <VALUE> (<SOURCE>)
-- **<BENCHMARK_2>:** <VALUE> (<SOURCE>)
-- **<BENCHMARK_3>:** <VALUE> (<SOURCE>)
+- **CyberGym Pass@1:** 86.2% (Google System Card, vulnerability discovery benchmark)
+- **CWE-Bench Pass@1:** 47.2% (Google System Card, vulnerability patching benchmark)
+- **Internal 20-language vulnerability discovery:** 71.0% success rate (Google System Card, internal benchmark across multiple programming languages)
 
 ### Normalized scores (1–100)
 
@@ -83,20 +77,20 @@ Long context:
 > Overall = half-up mean of the five quality dims `(+ Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 50/100.** Estimated based on general model capabilities
-- **Reasoning: 50/100.** Estimated based on general model capabilities
-- **Context window: 50/100.** Estimated based on general model capabilities
-- **Multimodal: 50/100.** Estimated based on general model capabilities
-- **Coding: 50/100.** Estimated based on general model capabilities
-- **Cost efficiency: 50/100.** <$0 = 100; paid value at price point>
-- **Overall Score: 50/100.** Mean of tool, reasoning, context, multimodal, and coding scores
+- **Tool use: 85/100.** Exceptional performance on specialized cybersecurity benchmarks with 86.2% on CyberGym for vulnerability discovery, demonstrating frontier-level capability in autonomous security tasks. Cap is 100 but model achieves near-maximum performance in its specialized domain.
+- **Reasoning: 82/100.** Strong reasoning capabilities with 71.0% success rate on internal 20-language vulnerability discovery benchmark, showing effective multi-step reasoning across diverse programming languages and security scenarios. Slightly capped by domain-specific focus.
+- **Context window: 100/100.** Maximum context window capability with 1M token support, matching the largest context windows available in the dataset.
+- **Multimodal: 85/100.** Excellent multimodal support with comprehensive coverage across text, image, audio, video, and PDF inputs, optimized for security analysis workflows.
+- **Coding: 88/100.** Outstanding coding performance with 47.2% on CWE-Bench for automated vulnerability patching, demonstrating strong capabilities in identifying and fixing security vulnerabilities across multiple programming languages.
+- **Cost efficiency: 90/100.** Highly competitive pricing at $0.75/$3.75 per 1M tokens offers excellent value for the specialized cybersecurity capabilities, though access is restricted to vetted defenders through the Fairwind Program.
+- **Overall Score: 88/100.** Mean of the five non-cost dimensions (85 + 82 + 100 + 85 + 88) / 5 = 88. Gemini 3.8 Flash Cyber represents the state-of-the-art in specialized cybersecurity models with exceptional performance in vulnerability discovery and patching.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
-- Method: Independent research from multiple benchmark sources; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-10-31
+- Method: Independent research from Google's official documentation, model cards, and benchmark reports; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 
 ---
@@ -104,6 +98,6 @@ Long context:
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/<slug>/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+2. Filename is `model/gemini-3.8-flash-cyber/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Gemini_3.8_Flash.md` when the assignment is `GLM_4.5_Flash.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gemini-3.8-flash-cyber/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

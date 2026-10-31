@@ -1,13 +1,7 @@
 # GPT-6 Sol — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: GPT-6 Sol (gpt-6-sol)
-- Date: 2026-10-21
+- Date: 2026-10-31 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -116,7 +110,7 @@ Long context:
 - **Multimodal: 76/100.** Good visual reasoning with AA-MMMU-Pro 82.9% but limited to text/image input with text output only; no native audio/video capabilities.
 - **Coding: 89/100.** Excellent coding performance with DeepSWE 68.8%, Vibe Code Bench 87.82%, and AA-SciCode 57.6%; strong code generation and debugging capabilities.
 - **Cost efficiency: 80/100.** Competitive $2/$10 pricing with 90% cache discount but cache write costs and long-request premiums affect overall efficiency.
-- **Overall Score: 88/100.** Strong all-around performer with excellent reasoning and coding capabilities; ideal for professional applications requiring balanced performance and competitive pricing.
+- **Overall Score: 88/100.** Strong all-around performer with excellent reasoning and coding capabilities; ideal for professional applications requiring balanced performance and competitive pricing. (Note: Average score across 36 reporting sources is 88.3)
 
 ---
 

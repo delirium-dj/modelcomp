@@ -70,3 +70,9 @@ Safety (OpenAI Sept 2026 evals):
 - Provided by: **GLM 5.2 Coding (zai-org/glm-5.2-coding)** — 2026-10-09
 - Method: independent public internet research (OpenAI launch data via AlphaCorp full-table article, ARMES docs, OpenAI model documentation references); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+
+### Addendum 2026-10-09 (session 2) — LLM Stats cross-read
+
+- Spec/pricing re-verified via LLM Stats: $2.00/$10.00/$0.10 cached, 1.1M in / 128K out, knowledge cutoff **April 2026** (slightly more precise than the April-30 note above — consistent), released 2026-09-29. No changes.
+- Live latency (trailing 7 days, LLM Stats): TTFT p95 **2.60s**, output p5 **46 c/s** — the fastest-start of any >$2-input model tracked this session (vs Opus 5.5's 16.10s/16, Sol 5.6's 5.76s/26); pairs well with the file's cost-efficiency placement (fast + cheap + 1.05M context = production-agent profile).
+- Most-compared set (LLM Stats): Ember-1, GPT-6 Astra, Muse Spark 1.3, Claude Opus 5.5, Claude Sonnet 5.5, GPT-5.5 — consistent with mid-tier-flagship positioning. No score changes.
