@@ -1,4 +1,0 @@
-glm-4.7-flash
-qwen-3.5-9b
-qwen-3.5-flash-lite
-solar-mini-4

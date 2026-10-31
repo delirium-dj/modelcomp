@@ -15,8 +15,10 @@ interface VendorMatch {
   slug?: string;
   icon: keyof typeof VENDOR_ICON_SVGS | string;
   label: string;
-  /** Brand color applied via `color` for monochrome (`currentColor`) marks. */
+  /** Brand color applied via `color` for monochrome (`currentColor`) marks (light theme). */
   color?: string;
+  /** Brand color applied on dark theme (overrides `color` when paired with it). */
+  colorDark?: string;
   /** Monochrome mark with no brand color — follow the theme instead. */
   adaptive?: boolean;
   /** White mark on transparent bg — invert in light theme, keep in dark. */
@@ -59,6 +61,9 @@ const VENDORS: VendorMatch[] = [
   { match: "nvidia", icon: "nvidia", label: "NVIDIA" },
   { match: "nemotron", icon: "nvidia", label: "NVIDIA" },
   { match: "mistral", icon: "mistral", label: "Mistral" },
+  // "Leanstral" carries no "mistral" token, so its `opencode/leanstral-1.5`
+  // id would otherwise fall through to the OpenCode catch-all below.
+  { match: "leanstral", icon: "mistral", label: "Mistral" },
   { match: "microsoft", icon: "microsoft", label: "Microsoft" },
   { match: "mai", icon: "microsoft", label: "Microsoft" },
   { match: "amazon", icon: "aws", label: "AWS", adaptive: true },
@@ -100,7 +105,7 @@ const VENDORS: VendorMatch[] = [
   { match: "llm7", icon: "llm7", label: "LLM7.io", adaptive: true, invertDark: true },
   { match: "ovh", icon: "ovhcloud", label: "OVHcloud", adaptive: true, invertDark: true },
   { match: "cerebras", icon: "cerebras", label: "Cerebras", adaptive: true },
-  { match: "siliconflow", icon: "siliconflow", label: "SiliconFlow", adaptive: true },
+  { match: "siliconflow", icon: "siliconflow", label: "SiliconFlow" },
   { match: "kilocode", icon: "kilocode", label: "Kilo Code", adaptive: true },
   { match: "nebius", icon: "nebius", label: "Nebius", adaptive: true },
   { match: "wandb", icon: "wandb", label: "Weights & Biases", adaptive: true, invertDark: true },
@@ -149,25 +154,25 @@ const VENDORS: VendorMatch[] = [
   { match: "perplexity", icon: "perplexity", label: "Perplexity", adaptive: true, invertDark: true },
   { match: "pollinations", icon: "pollinations", label: "Pollinations", adaptive: true },
   { match: "replicate", icon: "replicate", label: "Replicate", adaptive: true, invertDark: true },
-  { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI", adaptive: true },
+  { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI", color: "#3248AF" },
   { slug: "atlas-cloud", icon: "atlas-cloud", label: "Atlas Cloud" },
   { slug: "azure-ai-content-safety", icon: "azure-ai-content-safety", label: "Azure AI Content Safety" },
   { match: "bifrost", icon: "bifrost", label: "Bifrost" },
   { match: "braintrust", icon: "braintrust", label: "Braintrust" },
-  { match: "brave", icon: "brave", label: "Brave", adaptive: true },
-  { match: "brave-search", icon: "brave", label: "Brave", adaptive: true },
-  { match: "exa", icon: "exa", label: "Exa" },
-  { match: "firecrawl", icon: "firecrawl", label: "Firecrawl", adaptive: true },
+  { match: "brave", icon: "brave", label: "Brave", color: "#FB542B" },
+  { match: "brave-search", icon: "brave", label: "Brave", color: "#FB542B" },
+  { match: "exa", icon: "exa", label: "Exa", color: "#0B3FD0", colorDark: "#60A5FA" },
+  { match: "firecrawl", icon: "firecrawl", label: "Firecrawl", adaptive: true, color: "#FA5D19" },
   { match: "gladia", icon: "gladia", label: "Gladia" },
   { match: "glhf", icon: "glhf", label: "GLHF" },
   { match: "gonka", icon: "gonka", label: "Gonka" },
   { match: "grafana", icon: "grafana", label: "Grafana", adaptive: true },
-  { match: "grafana-cloud", icon: "grafana", label: "Grafana", adaptive: true, invertDark: true },
+  { match: "grafana-cloud", icon: "grafana", label: "Grafana Cloud", adaptive: true, invertDark: true, color: "#F46800" },
   { match: "hetzner", icon: "hetzner", label: "Hetzner", adaptive: true, invertDark: true },
   { slug: "ibm-watsonx", icon: "ibm-watsonx", label: "IBM watsonx" },
   { match: "inclusionai", icon: "inclusionai", label: "InclusionAI" },
-  { match: "kong", icon: "kong", label: "Kong", adaptive: true, color: "#00A67D" },
-  { match: "kong-ai-gateway", icon: "kong", label: "Kong", adaptive: true, color: "#00A67D" },
+  { match: "kong", icon: "kong", label: "Kong", color: "#00A67D" },
+  { match: "kong-ai-gateway", icon: "kong", label: "Kong", color: "#00A67D" },
   { match: "lakera", icon: "lakera", label: "Lakera", invertDark: true },
   { match: "lambda", icon: "lambda", label: "Lambda Labs" },
   { match: "laminar", icon: "laminar", label: "Laminar", adaptive: true },
@@ -177,9 +182,9 @@ const VENDORS: VendorMatch[] = [
   { slug: "literal-ai", icon: "literal-ai", label: "Literal AI" },
   { match: "lyceum", icon: "lyceum", label: "Lyceum", invertLight: true },
   { match: "melious", icon: "melious", label: "Melious", adaptive: true },
-  { match: "mixedbread", icon: "mixedbread", label: "Mixedbread", adaptive: true },
-  { match: "modal", icon: "modal", label: "Modal", adaptive: true },
-  { match: "modelscope", icon: "modelscope", label: "ModelScope", adaptive: true },
+  { match: "mixedbread", icon: "mixedbread", label: "Mixedbread" },
+  { match: "modal", icon: "modal", label: "Modal" },
+  { match: "modelscope", icon: "modelscope", label: "ModelScope" },
   { slug: "new-relic", icon: "newrelic", label: "New Relic", adaptive: true, invertDark: true },
   { slug: "nous-portal", icon: "nous-portal", label: "Nous Portal" },
   { match: "opik", icon: "opik", label: "Opik" },
@@ -192,7 +197,7 @@ const VENDORS: VendorMatch[] = [
   { match: "signoz", icon: "signoz", label: "SigNoz" },
   { match: "tavily", icon: "tavily", label: "Tavily", invertDark: true },
   { match: "traceloop", icon: "traceloop", label: "Traceloop" },
-  { match: "truefoundry", icon: "truefoundry", label: "TrueFoundry", adaptive: true },
+  { match: "truefoundry", icon: "truefoundry", label: "TrueFoundry" },
   { match: "stepfun", icon: "stepfun", label: "StepFun", adaptive: true },
   { match: "unbiased", icon: "unbiased", label: "Unbiased", adaptive: true },
   { match: "deepl", icon: "deepl", label: "DeepL", adaptive: true },
@@ -269,12 +274,12 @@ export const VendorIcon = component$((props: VendorIconProps) => {
     <svg
       viewBox={entry.viewBox}
       fill={entry.fill ?? undefined}
-      style={vendor.color ? { color: vendor.color } : undefined}
+      style={vendor.color && !vendor.colorDark ? { color: vendor.color } : undefined}
       width={dim}
       height={dim}
       role="img"
       aria-label={vendor.label}
-      class={`${boxCls}${vendor.adaptive ? " text-slate-700 dark:text-slate-200" : ""}${vendor.invertLight ? " invert dark:invert-0" : ""}${vendor.invertDark ? " dark:invert" : ""}`}
+      class={`${boxCls}${vendor.colorDark ? ` text-[${vendor.color}] dark:text-[${vendor.colorDark}]` : ""}${vendor.adaptive && !vendor.colorDark ? " text-slate-700 dark:text-slate-200" : ""}${vendor.invertLight ? " invert dark:invert-0" : ""}${vendor.invertDark ? " dark:invert" : ""}`}
       dangerouslySetInnerHTML={html}
     />
   );

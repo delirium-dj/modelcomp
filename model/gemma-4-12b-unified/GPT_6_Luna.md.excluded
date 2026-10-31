@@ -1,0 +1,42 @@
+# Gemma 4 12B Unified — findings by GPT-6 Luna
+
+- Source: OpenCode/Gemma 4 12B Unified (local metadata claims `opencode/gemma-4-12b-unified`)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemma 4 12B Unified
+- **Short description:** The name identifies a real Google open-weight checkpoint, but the queue's OpenCode model ID could not be verified as a distinct current route or mapped to that checkpoint.
+- **Provider / access:** The current OpenCode Console catalog does not list this ID; its public models endpoint also returned no Gemma model. Google's `google/gemma-4-12B-it` is independently verified, but that does not establish that the claimed OpenCode route served the same weights or configuration.
+- **Release / knowledge:** Google announced Gemma 4 12B on 2026-06-03; route-specific release/cutoff not verified.
+- **IDs:** Unverified OpenCode ID `opencode/gemma-4-12b-unified`; Google's distinct verified checkpoint is `google/gemma-4-12B-it`. No vendor alias/mapping between the IDs found.
+- **Context window / modalities / price / architecture:** Google's checkpoint is documented separately; no exact route-specific limits, modalities, or pricing verified for the claimed OpenCode ID.
+
+### Raw benchmarks found
+
+No benchmark is assigned to this OpenCode ID: the exact route and its mapping to the Google checkpoint are unverified. The separately tracked Google checkpoint has its own report at `../gemma-4.12b-unified/GPT_6_Luna.md`; its scores are not duplicated here.
+
+### Normalized scores (1–100)
+
+- **Tool use: 15/100.** Excluded placeholder; no exact OpenCode route benchmark verified.
+- **Reasoning: 15/100.** Excluded placeholder; no exact OpenCode route benchmark verified.
+- **Context window: 15/100.** Excluded placeholder; no exact OpenCode route specification verified.
+- **Multimodal: 15/100.** Excluded placeholder; no exact OpenCode route modality specification verified.
+- **Coding: 15/100.** Excluded placeholder; no exact OpenCode route coding score verified.
+- **Cost efficiency: 15/100.** Excluded placeholder; no exact OpenCode route price verified.
+- **Overall Score: 15/100.** Evidence-insufficient placeholder only; this excluded file does not establish a model score.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-31
+- Method: Checked three independent search queries, the current OpenCode Console catalog and public models endpoint, Google's Gemma 4 model card and announcement, and the official Hugging Face checkpoint. The Google model is real, but its existence and name similarity do not verify the claimed OpenCode ID or establish a distinct endpoint; no score or provider fact was transferred.
+- Sources:
+  - [OpenCode Console model catalog](https://opencode.ai/docs/zen/)
+  - [OpenCode public models endpoint](https://opencode.ai/inference/v1/models)
+  - [Google Gemma 4 model card](https://ai.google.dev/gemma/docs/core/model_card_4)
+  - [Google Gemma 4 12B announcement](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/)
+  - [Google Gemma 4 12B instruction-tuned checkpoint](https://huggingface.co/google/gemma-4-12B-it)

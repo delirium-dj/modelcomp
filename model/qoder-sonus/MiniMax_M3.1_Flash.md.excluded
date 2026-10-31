@@ -1,0 +1,64 @@
+# Qoder Sonus — findings by MiniMax M3.1 Flash
+
+> SELF-EXCLUDED REPORT — no scored findings file is provided for this model.
+> Sonus is a real, shipped built-in model of Alibaba's Qoder product (announced
+> **2026-09-10**), but **zero verified public benchmark numbers** exist for it:
+> no model card, no technical report, no tracker row, and the one independent
+> harness survey that checked the release marks it *"Benchmark unverified"*.
+> Per the project template (`model-report-TEMPLATE.md`, "SELF-EXCLUSION") this
+> file is saved as `MiniMax_M3.1_Flash.md.excluded`: it is skipped by `pnpm sync`
+> (never parsed, averaged or registered) and contains only the negative findings.
+
+- Source: Alibaba / Qoder (built-in model, no public model card) — in-product name `Sonus`
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Sonus — Qoder's built-in long-horizon / computer-use model
+- **Short description:** Alibaba's Qoder shipped Sonus on **2026-09-10** as a built-in model for "marathon-length autonomous tasks, the hardest knowledge work, and serious coding", with **Computer Use** (operating the desktop, professional software and the browser) as its specialty. It is bundled with **Qoder Desktop 0.2.3** and available across Qoder, Qoder IDE, Qoder CLI, the Qoder JetBrains plugin, QoderWake and Qoder Cloud Agents. **No capability numbers were published with it** — the announcement is qualitative only.
+- **Provider / access:** Qoder product surface only (desktop app / IDE / CLI / JetBrains plugin / QoderWake / Cloud Agents). There is **no public API route**: no OpenRouter id, no models.dev entry, no OpenCode Zen route, no Hugging Face weights, and no vendor model card. The only identifier in circulation is the in-product name; this folder's scaffolded `meta.json` id `qoder/sonus-1.0` is a project-internal label, not a vendor ID.
+- **Release / knowledge:** **2026-09-10** (Qoder forum announcement and the same-day Alibaba Cloud developer-community repost). Knowledge cutoff not published; the model is closed and undocumented.
+- **IDs:** none public. `sonus` does not appear in the live OpenRouter model API, the models.dev catalogue, the OpenCode Zen catalogue, Artificial Analysis, BenchLM or llm-stats.
+- **Context window:** **not published.** Qoder's own CLI model documentation lists the selectable models with explicit 200K / 400K / 1M windows and **Sonus is not among them**; the project scaffold's `meta.json` claims 128K total, which no public source confirms. Forum answers only state that large-context runs are supported without giving a figure.
+- **Modalities:** text is certain. Screen/image understanding is implied by the Computer Use feature (Qoder Desktop 0.2.3 "can read the screen, move the cursor, click, type"), but **Qoder does not disclose whether a separate vision component or the model itself consumes screenshots**, so no image/video input path can be asserted. No published modality table exists.
+- **Pricing (as of 2026-10-31):** not sold per token — metered in **Qoder credits at a 3.2× multiplier** ("倍率 3.2x"), which is the highest of any Qoder model. Qoder plans: Free $0, Lite $10 (1,000 base credits/month), Pro $20 (2,000), Pro+ $60 (6,000), Ultra $200 (20,000), Credit Pack $20 / 1,500 credits, QoderWake Cloud Computer $10–15 per unit/month; a 30-day check-in grants 3,000 credits. Sonus-only "SOTA Credits" promos ran through October (1,024 + 2,048 + 3,072 + 4,096 = up to 10,240 credits).
+- **Architecture:** undisclosed — no parameters, no context length, no modality map, no weights.
+
+### Raw benchmarks found
+
+> No benchmark row exists for Sonus on any source. The checks below are listed so the
+> absence is auditable rather than assumed.
+
+- **RelayHall — "Harness Atlas" (reviewed 2026-10-02, three independent reviewers):** the Qoder entry reads verbatim — "Sonus — **Not disclosed in checked release. Benchmark unverified.** Model information below; score not inferred." The Terminal-Bench 2.1 88.3% / OSWorld-Verified 84.8% figures on that page belong to *other* harnesses in the same survey, not to Sonus; the review's coverage note lists "Qoder Sonus and the ZCode native harness" among the models it *added*, i.e. it was reviewed as a gap, not as a measured model.
+- **Artificial Analysis:** no model page — `https://artificialanalysis.ai/models/qoder-sonus` → **404** (verified 2026-10-31). Sonus does not appear in the Artificial Analysis Coding Agent Index v2.0 (released 2026-10-23, 290 tasks across FrontierCode v1.1 / terminal / codebase-QnA), where the leader is Claude Code + Claude Opus 5.5 (max) at 61.7.
+- **BenchLM:** no model page — `https://benchlm.ai/models/sonus` and `https://benchlm.ai/models/qoder-sonus` → **404** (verified 2026-10-31).
+- **llm-stats:** `https://llm-stats.com/models/sonus` returns the shell title "Sonus Benchmarks & Pricing" but the page body fails with "Error fetching model data" — i.e. a slug with no record behind it (verified 2026-10-31).
+- **Live catalogues:** no `sonus` id in the models.dev provider catalogue, the OpenRouter model API, or the OpenCode Zen live model list (all checked 2026-10-31).
+- **Vendor announcement (Qoder forum, 2026-09-10) and the Alibaba Cloud developer repost (2026-09-10):** claims are qualitative — "全球领先的大模型" ("a globally leading large model"), "业界最顶尖的 SOTA 模型" — with **no score of any kind**; the only quantitative figure is the 3.2× credit multiplier. Note: the "macOS 综合分提升 39.1分" line that appears next to Sonus coverage on the developer-community page belongs to a *different* article (Qoder IDE performance optimisation, `article/1770097`) and is a sidebar artefact, not a Sonus measurement.
+- **Qoder's own model documentation (English model-tier selector and CLI model pages, 2026-10-31):** lists Qwen3.8-Max (0.5×), Qwen3.8-Flash (0.1×), Qwen3.7-Max (0.5×), Qwen3.7-Plus (0.1×), Kimi-K3 (0.8×), Kimi-K2.7-Code (0.3×), GLM-5.3 (0.6×), GLM-5.2 (0.6×), DeepSeek-V4-Pro (0.8×), DeepSeek-V4-Flash (0.3×), MiniMax-M3 (0.2×) — **no Sonus and no Cantus**, so even the context-window and effort tables do not cover this model.
+- **Terminal-Bench / Tau2 / Tau3 / GDPval / GPQA / HLE / LCR / MRCR / SWE-bench / LiveCodeBench / DeepSWE / FrontierCode / MMMU-Pro:** **no verified public score found**.
+- **Only non-benchmark evidence:** user reports on the Qoder forum and r/Qoder ("Sonus beats any other model in a comparative test"; "3,000 credits gone in one breath, 5,000 in two") — subjective, unquantified and not reproducible, so not usable as evidence.
+
+### Negative findings summary
+
+- No verifiable benchmark exists anywhere for Sonus. The vendor position is "globally leading / top-tier SOTA" without a single number, and the only independent survey that examined the release explicitly marks the benchmark **unverified** and refuses to infer a score.
+- The model is not reachable as an API, is absent from every public gateway and tracker, has no weights, no disclosed architecture and no parameter count.
+- Context window, maximum output and the modality path (who consumes the screen pixels) are all undocumented; the only figure available inside the project (128K in the scaffolded `meta.json`) has no public source.
+- Cost cannot be expressed per million tokens the way the rest of this dataset is priced — Sonus is metered in Qoder credits at 3.2×, and users report that long-context runs burn thousands of credits quickly, which makes it the *least* credit-efficient model on the platform despite the marketing label.
+- Orientation-only neighbours, **not** used as proxies: Qoder's earlier built-in model **Cantus** (also 3.2×, "ultra-long autonomous tasks") and the Qoder tier table above.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax-m3.1-flash-preview)** — 2026-10-31
+- Method: public internet research (Qoder forum announcement and credit threads, Qoder documentation model-selector and CLI model pages, qoder.com pricing page, Alibaba Cloud developer-community repost, RelayHall "Harness Atlas" 2026-10-02 survey and its coverage review, Artificial Analysis / BenchLM / llm-stats page checks, live models.dev, OpenRouter and OpenCode Zen catalogues, Chinese-language tech-daily aggregations for release tracking). Self-excluded because zero verified public benchmark numbers exist for this model; scores are intentionally omitted.
+- Reference URLs:
+  - [Qoder forum — Sonus announcement (2026-09-10)](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
+  - [Alibaba Cloud developer community — Qoder 上线 Sonus 模型 (2026-09-10)](https://developer.aliyun.com/article/1762195)
+  - [RelayHall — Harness Atlas (2026-10-02)](https://relayhall.com/reports/harness-atlas/)
+  - [Qoder — model selector / credit multipliers](https://docs.qoder.com/user-guide/chat/model-tier-selector)
+  - [Qoder — pricing plans](https://qoder.com/pricing)
+- Future sources: add a new file next to this one, e.g. `Qoder_Cantus.md`, using the same headings.
