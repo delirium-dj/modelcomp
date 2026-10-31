@@ -47,6 +47,14 @@ const colNames: Record<DimensionKey, string> = {
   cost: "Cost",
 };
 
+const LEADER_DIMS: { key: "overall" | DimensionKey; label: string }[] = [
+  { key: "overall", label: "Leader overall (Overall)" },
+  { key: "tool", label: "Leader in tool use (Tool)" },
+  { key: "reasoning", label: "Leader in reasoning (Reason)" },
+  { key: "context", label: "Leader in context (Context)" },
+  { key: "coding", label: "Leader in coding (Code)" },
+  { key: "multimodal", label: "Leader in multimodal (Multi)" },
+];
 const HEX_CX = 200;
 const HEX_CY = 200;
 const HEX_MAX_R = 130;
@@ -142,6 +150,8 @@ export default component$(() => {
   // Hero animation spotlight: cycles through the top-12 models, one at a
   // time. Skipped entirely under prefers-reduced-motion (static hexagon).
   const heroActive = useSignal(0);
+  // Rotating "leader" spotlight: cycles through each score dimension every 5s.
+  const leaderIdx = useSignal(0);
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
@@ -223,7 +233,12 @@ export default component$(() => {
   const generative = rankBase.filter((m) => !isDecisionModel(m));
   const decisions = rankBase.filter((m) => isDecisionModel(m));
   const q = query.value.trim().toLowerCase();
-  const matchesQuery = (m: { name: string; id: string; short: string; aliases?: string[] }) =>
+  const matchesQuery = (m: {
+    name: string;
+    id: string;
+    short: string;
+    aliases?: string[];
+  }) =>
     q === "" ||
     m.name.toLowerCase().includes(q) ||
     m.id.toLowerCase().includes(q) ||
@@ -232,6 +247,15 @@ export default component$(() => {
   const filtered = generative.filter(matchesQuery);
   const decisionFiltered = decisions.filter(matchesQuery);
   const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
+  const leaderDim = LEADER_DIMS[leaderIdx.value % LEADER_DIMS.length];
+  const leaderKey = leaderDim.key;
+  const leaderModel =
+    [...generative].sort(
+      (a, b) =>
+        b.scores[leaderKey] - a.scores[leaderKey] ||
+        b.scores.overall - a.scores.overall ||
+        a.name.localeCompare(b.name),
+    )[0] ?? top;
   const visibleModels = filtered.slice(0, displayCount.value);
   // Hero animation cast: top 12 of the current source ranking, spotlighted
   // in random order (see interval task below).
@@ -252,6 +276,15 @@ export default component$(() => {
       }
       heroActive.value = n;
     }, 2600);
+    cleanup(() => window.clearInterval(t));
+  });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = window.setInterval(() => {
+      leaderIdx.value = (leaderIdx.value + 1) % LEADER_DIMS.length;
+    }, 5000);
     cleanup(() => window.clearInterval(t));
   });
 
@@ -504,16 +537,27 @@ export default component$(() => {
               Models tracked
             </span>
             <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
-              Independent — {generative.length} models · {SOURCES.length}{" "}
-              results sources
+              <span class="relative inline-block">
+                Independent — {generative.length} models · {SOURCES.length}{" "}
+                results sources
+                <span
+                  aria-hidden="true"
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-current animate-pulse [animation-duration:3s] motion-reduce:animate-none"
+                />
+              </span>
             </strong>
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
             <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">
-              Leader overall ({activeSourceLabel})
+              {leaderDim.label}
             </span>
             <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
-              {top.name} — {top.scores.overall}
+              <span class="inline-flex items-center gap-2 leading-none whitespace-nowrap">
+                <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                  <VendorIcon key={leaderModel.id} id={leaderModel.id} name={leaderModel.name} />
+                </span>
+                <span class="tabular-nums">{leaderModel.name} — {leaderModel.scores[leaderKey]}</span>
+              </span>
             </strong>
           </div>
           <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">

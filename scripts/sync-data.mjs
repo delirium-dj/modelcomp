@@ -154,6 +154,11 @@ const SOURCE_OVERRIDES = {
   "GPT 5.5": { label: "GPT-5.5", slug: "gpt-5.5" },
   "GPT 6 Luna": { label: "GPT-6 Luna", slug: "gpt-6-luna" },
   "LongCat 2.5 Preview": { slug: "longcat_2.5_preview" },
+  // Beam's rater name ("Beam") doesn't norm-match its model page name
+  // ("Beam 1.0"), so it would otherwise fall back to max-awarded and
+  // rank far above its own 73.1 overall. Pin the slug so it ranks by its
+  // own score like every other tracked rater.
+  "Beam": { slug: "beam" },
 };
 
 // Virtual sort-view keys live in src/data/models.ts (VIRTUAL_VIEWS).

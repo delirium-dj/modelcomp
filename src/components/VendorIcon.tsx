@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useTask$ } from "@builder.io/qwik";
 import { VENDOR_ICON_SVGS } from "../data/vendorIcons.generated";
 
 interface VendorIconProps {
@@ -100,7 +100,7 @@ const VENDORS: VendorMatch[] = [
   { match: "llm7", icon: "llm7", label: "LLM7.io", adaptive: true, invertDark: true },
   { match: "ovh", icon: "ovhcloud", label: "OVHcloud", adaptive: true, invertDark: true },
   { match: "cerebras", icon: "cerebras", label: "Cerebras", adaptive: true },
-  { match: "siliconflow", icon: "siliconflow", label: "SiliconFlow", adaptive: true, invertDark: true },
+  { match: "siliconflow", icon: "siliconflow", label: "SiliconFlow", adaptive: true },
   { match: "kilocode", icon: "kilocode", label: "Kilo Code", adaptive: true },
   { match: "nebius", icon: "nebius", label: "Nebius", adaptive: true },
   { match: "wandb", icon: "wandb", label: "Weights & Biases", adaptive: true, invertDark: true },
@@ -149,15 +149,15 @@ const VENDORS: VendorMatch[] = [
   { match: "perplexity", icon: "perplexity", label: "Perplexity", adaptive: true, invertDark: true },
   { match: "pollinations", icon: "pollinations", label: "Pollinations", adaptive: true },
   { match: "replicate", icon: "replicate", label: "Replicate", adaptive: true, invertDark: true },
-  { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI" },
+  { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI", adaptive: true },
   { slug: "atlas-cloud", icon: "atlas-cloud", label: "Atlas Cloud" },
   { slug: "azure-ai-content-safety", icon: "azure-ai-content-safety", label: "Azure AI Content Safety" },
   { match: "bifrost", icon: "bifrost", label: "Bifrost" },
   { match: "braintrust", icon: "braintrust", label: "Braintrust" },
-  { match: "brave", icon: "brave", label: "Brave", adaptive: true, invertDark: true },
-  { match: "brave-search", icon: "brave", label: "Brave", adaptive: true, invertDark: true },
+  { match: "brave", icon: "brave", label: "Brave", adaptive: true },
+  { match: "brave-search", icon: "brave", label: "Brave", adaptive: true },
   { match: "exa", icon: "exa", label: "Exa" },
-  { match: "firecrawl", icon: "firecrawl", label: "Firecrawl" },
+  { match: "firecrawl", icon: "firecrawl", label: "Firecrawl", adaptive: true },
   { match: "gladia", icon: "gladia", label: "Gladia" },
   { match: "glhf", icon: "glhf", label: "GLHF" },
   { match: "gonka", icon: "gonka", label: "Gonka" },
@@ -166,8 +166,8 @@ const VENDORS: VendorMatch[] = [
   { match: "hetzner", icon: "hetzner", label: "Hetzner", adaptive: true, invertDark: true },
   { slug: "ibm-watsonx", icon: "ibm-watsonx", label: "IBM watsonx" },
   { match: "inclusionai", icon: "inclusionai", label: "InclusionAI" },
-  { match: "kong", icon: "kong", label: "Kong", invertDark: true },
-  { match: "kong-ai-gateway", icon: "kong", label: "Kong", invertDark: true },
+  { match: "kong", icon: "kong", label: "Kong", adaptive: true, color: "#00A67D" },
+  { match: "kong-ai-gateway", icon: "kong", label: "Kong", adaptive: true, color: "#00A67D" },
   { match: "lakera", icon: "lakera", label: "Lakera", invertDark: true },
   { match: "lambda", icon: "lambda", label: "Lambda Labs" },
   { match: "laminar", icon: "laminar", label: "Laminar", adaptive: true },
@@ -177,7 +177,7 @@ const VENDORS: VendorMatch[] = [
   { slug: "literal-ai", icon: "literal-ai", label: "Literal AI" },
   { match: "lyceum", icon: "lyceum", label: "Lyceum", invertLight: true },
   { match: "melious", icon: "melious", label: "Melious", adaptive: true },
-  { match: "mixedbread", icon: "mixedbread", label: "Mixedbread" },
+  { match: "mixedbread", icon: "mixedbread", label: "Mixedbread", adaptive: true },
   { match: "modal", icon: "modal", label: "Modal", adaptive: true },
   { match: "modelscope", icon: "modelscope", label: "ModelScope", adaptive: true },
   { slug: "new-relic", icon: "newrelic", label: "New Relic", adaptive: true, invertDark: true },
@@ -192,7 +192,7 @@ const VENDORS: VendorMatch[] = [
   { match: "signoz", icon: "signoz", label: "SigNoz" },
   { match: "tavily", icon: "tavily", label: "Tavily", invertDark: true },
   { match: "traceloop", icon: "traceloop", label: "Traceloop" },
-  { match: "truefoundry", icon: "truefoundry", label: "TrueFoundry" },
+  { match: "truefoundry", icon: "truefoundry", label: "TrueFoundry", adaptive: true },
   { match: "stepfun", icon: "stepfun", label: "StepFun", adaptive: true },
   { match: "unbiased", icon: "unbiased", label: "Unbiased", adaptive: true },
   { match: "deepl", icon: "deepl", label: "DeepL", adaptive: true },
@@ -212,14 +212,32 @@ function vendorFor(id: string, name: string): VendorMatch | undefined {
   );
 }
 
-export const VendorIcon = component$<VendorIconProps>(({ id, name, size = "sm" }) => {
+export const VendorIcon = component$((props: VendorIconProps) => {
+  const size = props.size ?? "sm";
   const large = size === "lg";
   const boxCls = large ? "h-8 w-8 shrink-0 md:h-9 md:w-9" : "h-5 w-5 shrink-0";
   const dim = large ? 36 : 20;
-  const vendor = vendorFor(id, name);
-  const entry = vendor ? VENDOR_ICON_SVGS[vendor.icon] : undefined;
+
+  const vendorSig = useSignal<VendorMatch | undefined>(vendorFor(props.id, props.name));
+  const entrySig = useSignal<any>(
+    vendorSig.value ? VENDOR_ICON_SVGS[vendorSig.value.icon as keyof typeof VENDOR_ICON_SVGS] : undefined,
+  );
+
+  useTask$(({ track }) => {
+    track(() => props.id);
+    track(() => props.name);
+    const v = vendorFor(props.id, props.name);
+    vendorSig.value = v;
+    entrySig.value = v
+      ? VENDOR_ICON_SVGS[v.icon as keyof typeof VENDOR_ICON_SVGS]
+      : undefined;
+  });
+
+  const vendor = vendorSig.value;
+  const entry = entrySig.value;
+  const glyph = (props.name || "?").charAt(0).toUpperCase();
+
   if (!vendor || !entry) {
-    const glyph = name.charAt(0).toUpperCase();
     return (
       <svg viewBox="0 0 20 20" width={dim} height={dim} role="img" aria-label="Unknown vendor" class={boxCls}>
         <title>Unknown vendor</title>
@@ -232,17 +250,16 @@ export const VendorIcon = component$<VendorIconProps>(({ id, name, size = "sm" }
   }
   const html = `<title>${vendor.label}</title>${entry.body}`;
   if (vendor.chip) {
-    const chipDim = large ? 26 : 14;
     return (
       <span class={`flex shrink-0 items-center justify-center rounded bg-slate-900 ${large ? "h-8 w-8 md:h-9 md:w-9" : "h-5 w-5"}`} title={vendor.label}>
         <svg
           viewBox={entry.viewBox}
           fill={entry.fill ?? undefined}
-          width={chipDim}
-          height={chipDim}
+          width={dim}
+          height={dim}
           role="img"
           aria-label={vendor.label}
-          class={large ? "h-6 w-6 md:h-7 md:w-7" : "h-3.5 w-3.5"}
+          class={large ? "h-8 w-8 md:h-9 md:w-9" : "h-5 w-5"}
           dangerouslySetInnerHTML={html}
         />
       </span>

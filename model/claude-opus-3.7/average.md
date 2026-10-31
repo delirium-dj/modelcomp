@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Inkling.
 - Average from top 2 by Overall Score: Claude Sonnet 4.6, Inkling.
-- Ignored below-gate rater(s): GLM 4.5 Flash.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, GLM 4.5 Flash.
