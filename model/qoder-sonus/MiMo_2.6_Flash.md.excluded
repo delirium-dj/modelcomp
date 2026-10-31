@@ -1,0 +1,56 @@
+# Qoder Sonus — findings by MiMo 2.6 Flash
+
+- Source: Alibaba / Qoder (`qoder-sonus`, built-in model of Qoder international)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion (real model, zero verified public benchmarks):** Sonus is a genuinely released model (Alibaba Qoder, 2026-09-10), but across seven independent searches no official or third-party benchmark score for it was found — every capability row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages. No number is invented.
+
+## Model card (identity resolution)
+
+- **Name:** Sonus (`/ˈsoʊnəs/`, folder slug `qoder-sonus`) — Alibaba Qoder team's in-house built-in model, launched 2026-09-10 alongside Qoder Desktop 0.2.3's Computer Use upgrade. Built for marathon-length autonomous tasks, hard knowledge work and serious coding, "at its best when using your computer". Not an alias; sibling built-in model is **Cantus** (also 3.2× credit multiplier, ultra-long autonomous tasks) — never merged.
+- **Provider / access:** Qoder international only — model picker in Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake and Cloud Agents. **No standalone API, no OpenCode Zen entry, no OpenRouter id, no Hugging Face weights** (checked live lists 2026-10-30/31). Closed weights, not open-sourced.
+- **Release / knowledge:** 2026-09-10 (Qoder forum announcement, bit.fan, developer.aliyun.com, ai-bio.cn — all agree). Knowledge cutoff: not published.
+- **IDs:** `Sonus` in the Qoder model picker; no public API id found. (Chinese-community speculation on linux.do that Sonus is a rebranded GPT-6 is **unverified rumor**, explicitly not used.)
+- **Context window:** not published — Qoder markets "long context and cross-session memory" without a number.
+- **Modalities:** text in/out implied; computer use (screen reading, cursor/keyboard control, cross-app workflows) via the Qoder Computer Use Agent — the agent layer, not a published model modality. Audio/video/image input: not published.
+- **Pricing:** bundled with Qoder international subscription plans; **credit multiplier 3.2×** (Qoder forum + bit.fan) — no per-token price published. Community complaints (forum thread replies 2026-09-17/22) report rapid credit burn on long tasks. No free tier beyond promotional credits.
+- **Architecture:** officially undisclosed (ai-bio.cn: "模型架构 官方未披露"); Qoder multi-model architecture's built-in model.
+
+### Raw benchmarks found
+
+- Agent / tool use: no verified public score found (no OSWorld, Tau2/Tau3, GDPval, AA-Briefcase or Terminal-Bench entry for Sonus in any catalog)
+- Reasoning / knowledge: no verified public score found (no AA Intelligence Index, GPQA, HLE or MMLU-Pro row)
+- Coding: no verified public score found (absent from BenchLM — 404 — and from SWE-bench / LiveCodeBench / Terminal-Bench leaderboards)
+- Multimodal: no verified public score found
+- Long context: no verified public score found
+- Qualitative-only evidence: CSDN/juejin user demos (Tesla Roadster web replica in 20 min), linux.do anecdotal comparisons, Qoder's own "3.2× efficiency" marketing claim — none is a benchmark score.
+
+### Research trail (why this is excluded)
+
+1. `"qoder-sonus" OR "Qoder Sonus" model benchmarks` (DuckDuckGo Lite, 2026-10-30) → **zero results** for the exact slug.
+2. `Qoder Sonus Alibaba coding model` (2026-10-30) → launch coverage only: bit.fan news (2026-09-10), Qoder forum announcement, qoder.com — **no benchmark table in any of them**.
+3. `Qoder+Sonus model SWE-bench OR Terminal-Bench OR OSWorld benchmark score` (2026-10-31) → only generic benchmark-guide articles; **no Sonus row anywhere**.
+4. `Sonus Qoder "3.2x" OR "credit multiplier" OR "model card" evaluation` (2026-10-31) → **zero results**.
+5. `Sonus 模型 Qoder 评测 benchmark 分数` (Chinese, 2026-10-31) → launch articles and user demos only; notably a CSDN post on the sibling Cantus is titled "零跑分、零论文" ("zero benchmark runs, zero papers") and applies equally to Sonus; linux.do threads carry only unverified "Sonus is GPT-6" routing rumors.
+6. Direct catalog checks: BenchLM `/models/qoder-sonus` → **404**; Hugging Face API `search=sonus` → only unrelated TTS/personal repos; OpenRouter and OpenCode Zen live model lists (2026-10-30) → **no sonus entry**; Artificial Analysis has no model page (only generic Qoder coverage).
+7. First-party sources (Qoder forum announcement, developer.aliyun.com article 1762195, ai-bio.cn profile) describe capabilities, the 3.2× multiplier and the computer-use agent but publish **no evaluation numbers** — consistent with a product-bundled model whose performance is intentionally not benchmarked publicly.
+8. Per contract: zero verified public benchmark numbers → `.md.excluded`, never invented numbers. The pre-existing `average.md` in this folder derives from other stems' research and is unaffected by this exclusion.
+
+### Scores
+
+- Not scored — self-exclusion triggered (real but unpublished-benchmark model; zero verified public benchmark numbers for `qoder-sonus`).
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-31
+- Method: public internet research across DuckDuckGo Lite (5 queries, EN + ZH), Qoder's official forum and launch coverage, developer.aliyun.com, bit.fan, ai-bio.cn, BenchLM, Hugging Face, OpenRouter and the live OpenCode Zen model list (2026-10-30/31). **No scores emitted — file is `.excluded`.**
+- Reference URLs:
+  - [Qoder forum — Sonus is here (official announcement, 2026-09-10)](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
+  - [Bit.Fan — Alibaba-backed Qoder launches Sonus with a focus on computer use (2026-09-10)](https://www.bit.fan/en/news/list/qoder-launches-sonus-for-computer-use-6678dc86-en-keyName-525a11d1)
+  - [阿里云开发者社区 — Qoder 上线 Sonus 模型，Computer Use 能力全面增强](https://developer.aliyun.com/article/1762195)
+  - [ai-bio.cn — Sonus 模型档案（架构未披露、随订阅提供）](https://ai-bio.cn/sonus/)
+- Future sources: if Qoder ever publishes a model card, benchmark table, API endpoint, or the model appears on BenchLM/AA/OpenRouter/Zen, re-research and replace this file with a scored report.

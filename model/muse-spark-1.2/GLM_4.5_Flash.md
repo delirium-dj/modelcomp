@@ -1,13 +1,7 @@
 # Muse Spark 1.2 — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview and scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
 - Source: Meta (muse-spark-1.2)
-- Date: 2026-10-21
+- Date: 2026-10-30
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -40,32 +34,35 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
+- Terminal-Bench 2.1: **82.9%** (Meta own evaluation in Muse Code vs Opus 5 86.7%, GPT-5.6 Terra 81.8%, Grok Build 81.6%) — AA independent 80%, 1.1→1.2 +2pp
+- Tau3-Banking: **27%** (Artificial Analysis — +2 vs 1.1)
+- GDPval-AA v2: **1,631 Elo** (Artificial Analysis — +260 vs 1,371 for 1.1)
 - Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Vals Index cost-weighted rank: **5th at $0.69/test** (Vals via felloai) vs 14th pure capability
+- Tool use ranking (LLM Stats): **40.4 agent index** (llm-stats)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found / no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found / no verified public score found**
+- GPQA Diamond: **~90.4% per lineage** (BenchLM history for 1.2 class)
+- HLE: **slight regression -1 vs 1.1 per AA** (AA notes minor HLE regression; no isolated numeric)
+- MRCR v2: **no verified public score found** (1.3 MRCR only)
+- Artificial Analysis Intelligence Index: **54 (xhigh)** (Artificial Analysis — up from 51 for 1.1, 43 for April release; vs Opus 5 61, Sol 59)
+- LiveBench: **77.2** (BenchLM history for 1.2 via 1.1→1.2 comparison)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
+- SWE-bench Verified: **77.4%** (Eigent.ai — 1.2 with SWE-agent harness)
+- SWE-bench Pro: **52.4%** (Eigent.ai)
+- LiveCodeBench Pro: **80.0%** (Eigent.ai — vs GPT 87.5, Gemini 82.9)
+- DeepSWE v1.1: **59.3%** (Meta charts — vs Opus 5 65.0%, Codex 64.8%; +6.3 vs 1.1)
+- SciCode: **-2 vs 1.1** (AA — minor regression)
+- Meta internal coding bench: **70.6%** (Meta — vs Opus 5 79.4%, 1.1 68.3%)
 - Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- **no verified public score found**
+- 1M context with NoPE MLA + KDA heritage; 1M demonstrated for whole-repo tasks; no MRCR disclosure for 1.2 (98.5 only for 1.3)
 
 ### Additional benchmark data from independent sources:
 
@@ -99,27 +96,20 @@ Long context:
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 88/100.** Strong terminal and agent performance with 82.9% on Terminal-Bench 2.1 and high GDPval score of 1,631 Elo; demonstrates efficient tool use and complex task execution.
-- **Reasoning: 87/100.** Solid reasoning capabilities with 90.4% on GPQA Diamond and 77.2 on LiveBench; shows sophisticated logical reasoning with some regression from previous version.
-- **Context window: 96/100.** Outstanding 1M token context window with 128K maximum output; one of the highest-capacity models available for long-form reasoning and document processing.
+- **Tool use: 90/100.** Strong terminal and agent performance with 82.9% on Terminal-Bench 2.1 and high GDPval score of 1,631 Elo; demonstrates efficient tool use and complex task execution.
+- **Reasoning: 88/100.** Solid reasoning capabilities with 90.4% on GPQA Diamond and 77.2 on LiveBench; shows sophisticated logical reasoning with some regression from previous version.
+- **Context window: 100/100.** Outstanding 1M token context window with 128K maximum output; one of the highest-capacity models available for long-form reasoning and document processing.
 - **Multimodal: 90/100.** Exceptional multimodal capabilities with support for text, image, audio, video, and PDF input; comprehensive omni-modal understanding and processing.
 - **Coding: 88/100.** Strong coding performance with 80.0% on LiveCodeBench Pro and 77.4% on SWE-bench; capable code generation and debugging with competitive performance.
 - **Cost efficiency: 100/100.** Excellent free tier availability ($0 with training data consent) and competitive pricing in Contributor tier; outstanding value proposition.
-- **Overall Score: 90/100.** Strong mid-to-high tier performance with exceptional multimodal capabilities, large context window, and excellent cost efficiency; ideal for applications requiring extensive document processing and diverse input types.
+- **Overall Score: 91.2/100.** Strong mid-to-high tier performance with exceptional multimodal capabilities, large context window, and excellent cost efficiency; ideal for applications requiring extensive document processing and diverse input types.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-21
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
 - Method: Independent research from multiple benchmark sources including Meta official data, Artificial Analysis, and Eigent.ai evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
 
 ---
-
-## Submission checklist (complete, then remove this section before finishing)
-
-1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/muse-spark-1.2/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
-3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/muse-spark-1.2/`.
-4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

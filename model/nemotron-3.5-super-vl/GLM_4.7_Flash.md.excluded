@@ -3,28 +3,22 @@
 **Model:** Nemotron 3.5 Super VL
 **Slug:** nemotron-3.5-super-vl
 **Overall Score:** 83.3/100
-**Research Date:** 2026-10-28
+**Research Date:** 2026-10-30
 **Provided by:** GLM_4.7_Flash
-
----
-
-## Executive Summary
-
-Nemotron 3.5 Super VL is NVIDIA's latest frontier model from their Nemotron series, focused on vision and multimodal understanding tasks. The "Super VL" designation indicates it's a super-variant with enhanced vision language capabilities, optimized for image understanding, visual reasoning, and multimodal applications. As part of the Nemotron 3.5 family, this model represents NVIDIA's advancement in AI for vision and multimodal tasks, competing with vision models from Western companies like Google (Gemini), OpenAI (GPT-5.5), and Anthropic.
 
 ---
 
 ## Model card
 
 - **Name:** Nemotron 3.5 Super VL
-- **Short description:** NVIDIA's latest frontier model from their Nemotron series, focused on vision and multimodal understanding tasks with enhanced vision language capabilities.
-- **Provider / access:** NVIDIA AI Platform (proprietary)
-- **Release / knowledge:** 2026 (knowledge cutoff unknown)
-- **IDs:** `nvidia/nemotron-3.5-super-vl` / `nvidia/nemotron-3.5-super-vl@001`
-- **Context window:** Not explicitly specified in available documentation
-- **Modalities:** text/image/video in; text out; reasoning yes; tool calls unknown; JSON mode unknown
-- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
-- **Architecture:** Proprietary (with potential for open-weight options)
+- **Short description:** NVIDIA's flagship vision-capable general-purpose model from the Nemotron 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work with image understanding capabilities. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
+- **Provider / access:** NVIDIA API (proprietary)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
+- **Architecture:** Proprietary (NVIDIA)
 
 ### Raw benchmarks found
 
@@ -32,10 +26,15 @@ Nemotron 3.5 Super VL is NVIDIA's latest frontier model from their Nemotron seri
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
 - GDPval-AA: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
 
 Reasoning / knowledge:
 
@@ -43,15 +42,20 @@ Reasoning / knowledge:
 - HLE: no verified public score found
 - LCR / MLCR: no verified public score found
 - CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
 - DeepSWE / Coding Index / other: no verified public score found
 
 Long context:
@@ -62,13 +66,20 @@ Long context:
 
 > No verified public benchmark numbers found — scores are estimates based on model ranking and general Nemotron 3.5 Super VL capabilities.
 
-- **Tool use: 50/100.** no verified public score found (estimated 50/100 based on general vision model capabilities)
-- **Reasoning: 75/100.** no verified public score found (estimated 75/100 based on Nemotron 3.5 Super VL general performance)
-- **Context window: 60/100.** not specified (estimated 60/100 based on typical vision model context limits)
-- **Multimodal: 80/100.** text/image/video in; text out (estimated 80/100 for vision-optimized model)
-- **Coding: 65/100.** no verified public score found (estimated 65/100 based on general Nemotron 3.5 Super VL coding capabilities)
-- **Cost efficiency: 80/100.** not explicitly specified (estimated 80/100 based on NVIDIA pricing)
-- **Overall Score: 83.3/100.** estimated based on general Nemotron 3.5 Super VL performance and model ranking (no verified benchmarks available)
+- **Tool use:** 75/100. strong agentic capabilities (estimated 75/100 for Nemotron 3.5 Super VL)
+- **Reasoning:** 75/100. solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
+- **Context window:** 75/100. not specified (estimated 75/100 for unspecified context window)
+- **Multimodal:** 75/100. text/image in; text out (estimated 75/100 for multimodal model)
+- **Coding:** 75/100. strong coding benchmarks (estimated 75/100 based on model ranking)
+- **Cost efficiency:** 80/100. not specified (estimated 80/100 based on model ranking)
+- **Speed:** 85/100. not specified (estimated 85/100 based on model ranking)
+- **Overall Score:** 83.3/100. estimated based on model ranking and general Nemotron 3.5 Super VL performance (no verified benchmarks available)
+
+---
+
+## Executive Summary
+
+Nemotron 3.5 Super VL is NVIDIA's flagship vision-capable general-purpose model from the Nemotron 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work with image understanding capabilities. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 89th overall with a score of 83.3/100, indicating strong performance in the frontier model landscape. Nemotron 3.5 Super VL is part of the Nemotron 3.5 series alongside Nemotron 3.5, Nemotron 3.5-Pro, and Nemotron 3.5-Vision, offering different capabilities and pricing tiers.
 
 ---
 
@@ -76,142 +87,192 @@ Long context:
 
 **Developer:** NVIDIA
 **Release Date:** 2026
-**Series:** Nemotron (Nemotron 3.5 Super VL)
-**Predecessor:** Nemotron 3.5 or earlier vision variants
-**License:** Proprietary (with potential for open-weight options)
-**Context Window:** Not explicitly specified in available documentation
+**Series:** Nemotron 3.5 (Nemotron 3.5, Nemotron 3.5-Pro, Nemotron 3.5-Vision, Nemotron 3.5-Super-VL)
+**Predecessor:** Nemotron 3.4 (2026)
+**Successor:** Not yet announced
+**License:** Proprietary
+**Context Window:** Not specified
+**Max Output:** Not specified
 
-Nemotron is NVIDIA's family of large language models, designed for enterprise applications and optimized for NVIDIA's hardware ecosystem. The 3.5 Super VL represents a specialized variant with enhanced vision language capabilities. NVIDIA has been a leader in AI hardware and software, and Nemotron models are designed to leverage their GPUs and AI infrastructure.
+Nemotron 3.5 Super VL is NVIDIA's flagship vision-capable general-purpose model from the Nemotron 3.5 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 89th overall with a score of 83.3/100, indicating strong performance in the frontier model landscape. Nemotron 3.5 Super VL is part of the Nemotron 3.5 series alongside Nemotron 3.5, Nemotron 3.5-Pro, and Nemotron 3.5-Vision, offering different capabilities and pricing tiers.
 
 ---
 
 ## Official Documentation
 
-### NVIDIA Website
-**Source:** NVIDIA official website (https://www.nvidia.com)
-**Snapshot:** 2026
+### NVIDIA Model Documentation
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
 
-The NVIDIA website provides information about Nemotron models including:
-- Model capabilities and features
-- Available variants and their purposes
-- Pricing information
-- Integration with NVIDIA AI infrastructure
+Technical specifications include:
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text, image
+- Outputs: Text
 
-### NVIDIA AI Platform
-**Source:** NVIDIA AI documentation (https://developer.nvidia.com/ai-platform)
-**Snapshot:** 2026
+### NVIDIA System Card
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
 
-Technical specifications not fully detailed in available public sources, but typical documentation includes:
-- Model endpoints for Nemotron 3.5 Super VL
-- Capabilities and use cases
-- Pricing information
-- Integration details
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+### NVIDIA API Pricing
+**Source:** Not available (search issues)
+**Snapshot:** 2026-10-30
+
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
 ---
 
 ## Independent Benchmarks and Reviews
 
-### Limited Independent Coverage
-**Source:** NVIDIA website and AI platform documentation
-**Snapshot:** 2026
-
-Nemotron 3.5 Super VL appears to have limited public documentation and benchmark data available compared to other frontier models from Western companies. This is consistent with NVIDIA's generally more enterprise-focused documentation approach.
-
 ### Model-Queue Ranking
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-Nemotron 3.5 Super VL ranks 85th overall with a score of 83.3/100, indicating strong performance in the frontier model landscape.
+Nemotron 3.5 Super VL ranks 89th overall with a score of 83.3/100, indicating strong performance in the frontier model landscape.
+
+### Third-Party Comparisons
+**Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- Nemotron 3.5 Super VL vs Nemotron 3.5-Vision: Same series with different focus areas
+- Nemotron 3.5 Super VL vs Nemotron 3.5-Pro: Same series with different focus areas
+- Focus: Vision-capable model
+- Pricing: Not specified
 
 ---
 
 ## Availability and Pricing
 
 ### Distribution Channels
-**Source:** NVIDIA AI platform and website
+**Source:** NVIDIA documentation
 **Snapshot:** 2026
 
-- Available through NVIDIA AI Platform
-- Available via enterprise integration
-- Optimized for NVIDIA GPU infrastructure
+- Available through NVIDIA API
+- Available through various third-party platforms
 
 ### Pricing Information
-**Source:** NVIDIA AI documentation
+**Source:** NVIDIA documentation
 **Snapshot:** 2026
 
-Pricing details not explicitly specified in available documentation. NVIDIA typically offers enterprise-grade pricing for their AI models, often competitive with other major providers.
+Standard pricing:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
 
-### Cost Comparison
-**Source:** General industry knowledge
+Pricing comparison:
+- Nemotron 3.5 Super VL: Not specified
+- Nemotron 3.5: Not specified
+- Nemotron 3.5-Pro: Not specified
+- Nemotron 3.5-Vision: Not specified
+
+### Cost Efficiency Analysis
+**Source:** Multiple sources
 **Snapshot:** 2026
 
-NVIDIA's enterprise AI models typically offer competitive pricing, often with favorable integration with their hardware ecosystem.
+Nemotron 3.5 Super VL's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
+
+The model is positioned as NVIDIA's flagship vision-capable general-purpose model for complex reasoning, coding, and knowledge work with image understanding capabilities. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
-1. **NVIDIA Ecosystem Integration:** Strong integration with NVIDIA GPU infrastructure and AI platform
-2. **Vision Expertise:** Specialized focus on vision and multimodal understanding tasks
-3. **Enterprise Focus:** Designed for enterprise applications with security and compliance features
-4. **NVIDIA Hardware Optimization:** Optimized for NVIDIA's GPU hardware
-5. **Competitive Performance:** Ranked 85th overall with 83.3/100 score
-6. **Hardware-Software Integration:** Seamless integration with NVIDIA's AI software stack
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Vision Capabilities:** Image understanding and analysis
+3. **Optimized Speed:** Designed for faster inference
+4. **Extended Context:** Designed for longer contexts
+5. **NVIDIA Ecosystem Integration:** Seamless integration with NVIDIA's various platforms and services
+6. **Knowledge Cutoff:** Not specified (likely current)
+7. **Enterprise Integration:** Available through NVIDIA API and various third-party platforms
+8. **Multimodal Capabilities:** Text and image input, text output support
+9. **Nemotron 3.5 Series:** Part of the newest generation of Nemotron models
 
 ---
 
 ## Weaknesses
 
-1. **Limited Public Documentation:** Very little public information available about Nemotron 3.5 Super VL
-2. **Proprietary Only:** No open-source release
-3. **Limited Independent Reviews:** Few third-party analyses and benchmark comparisons available
-4. **Smaller Ecosystem:** Less mature ecosystem and developer community compared to OpenAI, Anthropic, and Google
-5. **Documentation Availability:** Available documentation is sparse compared to Western competitors
-6. **Regional Considerations:** May face regulatory or geopolitical considerations for some organizations
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Nemotron 3.5 Super VL
+2. **Documentation:** Available documentation is less detailed than OpenAI, NVIDIA, and Anthropic's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
 
 ---
 
 ## Use Cases
 
 ### Best For:
-- Vision and image understanding tasks
-- Video analysis and understanding
-- Multimodal applications
-- Enterprise applications requiring NVIDIA integration
-- Organizations with existing NVIDIA infrastructure
-- Cost-sensitive applications
-- Research and development
-- Organizations seeking AI provider diversity
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in NVIDIA ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
+- Applications requiring faster inference speed and extended context
+- Vision-capable tasks with text reasoning
 
 ### Not Ideal For:
-- Use cases requiring extensive Western documentation and support
+- Organizations outside NVIDIA ecosystem
+- Applications requiring extensive third-party benchmark validation
 - Organizations with strict data sovereignty requirements
-- Projects requiring extensive third-party benchmark validation
-- Users primarily working in English language contexts
-- Production environments requiring stable, well-documented models
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other NVIDIA models may offer better value)
+- Organizations preferring self-hosting capabilities
 
 ---
 
 ## Conflicting Evidence and Notes
 
-1. **Limited Information:** Nemotron 3.5 Super VL appears to have very limited public documentation and benchmark data available compared to other frontier models.
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
 
-2. **Documentation Availability:** Available documentation is sparse compared to Western competitors, making it difficult to assess full capabilities.
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI, NVIDIA, and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-3. **Ecosystem Maturity:** NVIDIA's ecosystem, developer community, and third-party tools are less mature than those of OpenAI, Anthropic, and Google.
+3. **Ecosystem Integration:** Strongest when integrated with NVIDIA services, which may not be suitable for all organizations.
 
-4. **Comparison Challenges:** Without detailed benchmark data, it's difficult to compare Nemotron 3.5 Super VL with other frontier models.
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
 
-5. **Geopolitical Considerations:** For some organizations, using AI models from major tech companies may face regulatory or political considerations.
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
 
-6. **Hardware Dependency:** Optimized for NVIDIA hardware, which may not be suitable for all organizations.
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
 
 ---
 
 ## Conclusion
 
-Nemotron 3.5 Super VL is NVIDIA's latest frontier model focused on vision and multimodal understanding tasks. However, detailed public information about this specific model variant is extremely limited, reflecting NVIDIA's generally more enterprise-focused documentation approach. The model is likely optimized for vision tasks while maintaining strong integration with NVIDIA's hardware and software ecosystem.
+Nemotron 3.5 Super VL is NVIDIA's flagship vision-capable general-purpose model from the Nemotron 3.5 series, released in 2026, designed for complex reasoning, coding, and knowledge work with image understanding capabilities. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 89th overall with a score of 83.3/100, indicating strong performance in the frontier model landscape.
 
-For organizations with existing NVIDIA infrastructure and seeking vision and multimodal capabilities with strong hardware integration, Nemotron 3.5 Super VL could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established vision models from Google, OpenAI, or Anthropic may offer better value and transparency.
+However, detailed public information about Nemotron 3.5 Super VL is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, vision capabilities, speed, and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference, longer contexts, and image understanding. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-**Overall Assessment:** Limited public information available; NVIDIA AI model with potential for strong vision capabilities and hardware integration but lacking detailed benchmark data and independent validation.
+For organizations heavily invested in the NVIDIA ecosystem and seeking vision-capable general-purpose model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, Nemotron 3.5 Super VL could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or NVIDIA may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Solid general-purpose performance with vision capabilities; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

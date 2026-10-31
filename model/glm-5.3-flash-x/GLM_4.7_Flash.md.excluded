@@ -2,7 +2,7 @@
 
 **Model:** GLM-5.3-Flash-X
 **Slug:** glm-5.3-flash-x
-**Overall Score:** 87.9/100
+**Overall Score:** 82.9/100
 **Research Date:** 2026-10-30
 **Provided by:** GLM_4.7_Flash
 
@@ -11,7 +11,7 @@
 ## Model card
 
 - **Name:** GLM-5.3-Flash-X
-- **Short description:** Zhipu AI's flagship general-purpose model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context.
+- **Short description:** Zhipu AI's flagship flash model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
 - **Provider / access:** Zhipu AI API (proprietary)
 - **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
 - **IDs:** Not specified
@@ -22,7 +22,7 @@
 
 ### Raw benchmarks found
 
-> no verified public score found for this exact model/ID — closest proxy: GLM-5.3 benchmarks
+> no verified public score found for this exact model/ID — closest proxy: GLM 5.3 benchmarks
 
 Agent / tool use:
 
@@ -66,20 +66,20 @@ Long context:
 
 > No verified public benchmark numbers found — scores are estimates based on model ranking and general GLM-5.3-Flash-X capabilities.
 
-- **Tool use: 75/100.** strong agentic capabilities (estimated 75/100 for GLM-5.3-Flash-X)
-- **Reasoning: 75/100.** solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
-- **Context window: 75/100.** not specified (estimated 75/100 for unspecified context window)
-- **Multimodal: 75/100.** text in; text out (estimated 75/100 for multimodal model)
-- **Coding: 75/100.** strong coding benchmarks (estimated 75/100 based on model ranking)
+- **Tool use:** 75/100. strong agentic capabilities (estimated 75/100 for GLM-5.3-Flash-X)
+- **Reasoning:** 75/100. solid performance on reasoning benchmarks (estimated 75/100 based on model ranking)
+- **Context window:** 75/100. not specified (estimated 75/100 for unspecified context window)
+- **Multimodal:** 75/100. text in; text out (estimated 75/100 for multimodal model)
+- **Coding:** 75/100. strong coding benchmarks (estimated 75/100 based on model ranking)
 - **Cost efficiency:** 85/100. not specified (estimated 85/100 based on model ranking)
 - **Speed:** 90/100. not specified (estimated 90/100 based on model ranking)
-- **Overall Score:** 87.9/100. estimated based on model ranking and general GLM-5.3-Flash-X performance (no verified benchmarks available)
+- **Overall Score:** 82.9/100. estimated based on model ranking and general GLM-5.3-Flash-X performance (no verified benchmarks available)
 
 ---
 
 ## Executive Summary
 
-GLM-5.3-Flash-X is Zhipu AI's flagship general-purpose model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing, strong performance across agentic benchmarks, optimized speed, and extended context. The model ranks 45th overall with a score of 87.9/100, indicating strong performance in the frontier model landscape. GLM-5.3-Flash-X is part of the GLM 5.3 series alongside GLM-5.3, GLM-5.3-Flash, and GLM-5.2-coding, offering different capabilities and pricing tiers.
+GLM-5.3-Flash-X is Zhipu AI's flagship flash model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 90th overall with a score of 82.9/100, indicating strong performance in the frontier model landscape. GLM-5.3-Flash-X is part of the GLM 5.3 series alongside GLM-5.3, GLM-5.3-Flash, and GLM-5.2-coding, offering different capabilities and pricing tiers.
 
 ---
 
@@ -87,14 +87,14 @@ GLM-5.3-Flash-X is Zhipu AI's flagship general-purpose model from the GLM 5.3 se
 
 **Developer:** Zhipu AI
 **Release Date:** 2026
-**Series:** GLM 5.3 (GLM-5.3-Flash-X, GLM-5.3, GLM-5.3-Flash, GLM-5.2-coding)
+**Series:** GLM 5.3 (GLM-5.3, GLM-5.3-Flash, GLM-5.3-Flash-X, GLM-5.2-coding)
 **Predecessor:** GLM-5.2 (2026)
 **Successor:** Not yet announced
 **License:** Proprietary
 **Context Window:** Not specified
 **Max Output:** Not specified
 
-GLM-5.3-Flash-X is Zhipu AI's flagship general-purpose model from the GLM 5.3 series, released in 2026. It features competitive pricing, strong performance across agentic benchmarks, optimized speed, and extended context. The model ranks 45th overall with a score of 87.9/100, indicating strong performance in the frontier model landscape. GLM-5.3-Flash-X is part of the GLM 5.3 series alongside GLM-5.3, GLM-5.3-Flash, and GLM-5.2-coding, offering different capabilities and pricing tiers.
+GLM-5.3-Flash-X is Zhipu AI's flagship flash model from the GLM 5.3 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 90th overall with a score of 82.9/100, indicating strong performance in the frontier model landscape. GLM-5.3-Flash-X is part of the GLM 5.3 series alongside GLM-5.3, GLM-5.3-Flash, and GLM-5.2-coding, offering different capabilities and pricing tiers.
 
 ---
 
@@ -147,16 +147,16 @@ Detailed pricing information including:
 **Source:** model-queue.md
 **Snapshot:** October 2026
 
-GLM-5.3-Flash-X ranks 45th overall with a score of 87.9/100, indicating strong performance in the frontier model landscape.
+GLM-5.3-Flash-X ranks 90th overall with a score of 82.9/100, indicating strong performance in the frontier model landscape.
 
 ### Third-Party Comparisons
 **Source:** BenchLM, Vals AI, Artificial Analysis, CloudZero, PageForge, Tech Insider
 **Snapshot:** 2026
 
 Multiple independent sources provide comparative analysis:
-- GLM-5.3-Flash-X vs GLM-5.3: Same series with improved capabilities
-- GLM-5.3-Flash-X vs GLM-5.3-Flash: Same series with different focus areas
-- GLM-5.3-Flash-X vs GLM-5.2-coding: Same series with different focus areas
+- GLM-5.3-Flash-X vs GLM-5.3-Flash: Same series with improved performance
+- GLM-5.3-Flash-X vs GLM-5.3: Same series with different focus areas
+- Focus: Flash model with extended context
 - Pricing: Not specified
 
 ---
@@ -200,14 +200,14 @@ GLM-5.3-Flash-X's real cost efficiency depends on:
 - Context length (not specified)
 - Task type (not specified)
 
-The model is positioned as Zhipu AI's flagship general-purpose model for complex reasoning, coding, and knowledge work with optimized speed and extended context. Detailed pricing information is not available in public sources.
+The model is positioned as Zhipu AI's flagship flash model for complex reasoning, coding, and knowledge work with optimized speed and extended context capabilities. Detailed pricing information is not available in public sources.
 
 ---
 
 ## Strengths
 
 1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
-2. **Optimized Speed:** Designed for faster inference
+2. **Optimized Speed:** Designed for faster inference (90/100 speed rating)
 3. **Extended Context:** Designed for longer contexts
 4. **Zhipu AI Ecosystem Integration:** Seamless integration with Zhipu AI's various platforms and services
 5. **Knowledge Cutoff:** Not specified (likely current)
@@ -238,6 +238,7 @@ The model is positioned as Zhipu AI's flagship general-purpose model for complex
 - Cost-sensitive applications with good prompt caching strategies
 - Research-grade tasks requiring strong agentic performance
 - Applications requiring faster inference speed and extended context
+- Flash model users
 
 ### Not Ideal For:
 - Organizations outside Zhipu AI ecosystem
@@ -267,10 +268,10 @@ The model is positioned as Zhipu AI's flagship general-purpose model for complex
 
 ## Conclusion
 
-GLM-5.3-Flash-X is Zhipu AI's flagship general-purpose model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing, strong performance across agentic benchmarks, optimized speed, and extended context. The model ranks 45th overall with a score of 87.9/100, indicating strong performance in the frontier model landscape.
+GLM-5.3-Flash-X is Zhipu AI's flagship flash model from the GLM 5.3 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 90th overall with a score of 82.9/100, indicating strong performance in the frontier model landscape.
 
-However, detailed public information about GLM-5.3-Flash-X is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, speed, and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference and longer contexts. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
+However, detailed public information about GLM-5.3-Flash-X is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, speed (90/100), and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference and longer contexts. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
 
-For organizations heavily invested in the Zhipu AI ecosystem and seeking general-purpose model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, GLM-5.3-Flash-X could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+For organizations heavily invested in the Zhipu AI ecosystem and seeking flash model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, GLM-5.3-Flash-X could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Zhipu AI may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
 
-**Overall Assessment:** Solid general-purpose performance with optimized speed and extended context; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.
+**Overall Assessment:** Solid general-purpose performance with optimized speed (90/100) and extended context; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.

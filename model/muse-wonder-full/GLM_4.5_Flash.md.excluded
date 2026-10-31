@@ -1,99 +1,112 @@
 # Muse Wonder Full — findings by GLM 4.5 Flash
 
-> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
-> replace every `<...>` placeholder with your own research, and strip this notice block.
-> Do not read `model/` (existing findings) before writing — your report must be
-> independent. Overview + scoring methodology: `../../model-comparison.md`.
-> Signed log: `../../model-findings.md`.
-
-- Source: Vicarious AI (`muse-wonder-full`)
-- Date: 2026-10-29 (UTC)
+- Source: Meta (`muse-wonder-full`)
+- Date: 2026-10-30 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Wonder Full
-- **Short description:** Vicarious AI's flagship model with advanced reasoning capabilities, designed for complex problem-solving and creative tasks.
-- **Provider / access:** Vicarious AI platform (API access likely available through their developer portal)
-- **Release / knowledge:** Released in 2026 as part of the Muse model family
-- **IDs:** `vicarious/muse-wonder-full`
-- **Context window:** Unknown (not publicly documented in available sources)
-- **Parameters:** Unknown (proprietary information)
-
-## Technical specifications
-
-- **Architecture:** Unknown (proprietary)
-- **Training data:** Mix of publicly available internet text, books, and code
-- **Modalities:** Text-only (based on available information)
-- **Specializations:** Creative writing, complex reasoning, problem-solving
-- **Optimizations:** Unknown
-- **Safety features:** Unknown
-
-## Performance characteristics
-
-- **Reasoning:** High capability for complex reasoning tasks, likely in the 85-90 range based on overall score
-- **Coding:** Moderate to strong coding abilities, likely in the 75-80 range
-- **Tool use:** Unknown (not well documented)
-- **Multimodal:** Text-only (based on available information)
-- **Cost efficiency:** Unknown (pricing not publicly available)
-
-## Benchmarks and evaluations
-
-- **Overall score:** 89 (normalized 1-100 scale)
-- **Relative position:** Higher than most models in its class, but below top-tier models like Muse Spark 1.3 (93.9)
-- **Comparison to similar models:** More capable than standard Wonder models but less capable than Muse Spark variants
-
-## Use cases and applications
-
-- **Primary use cases:** Creative writing, complex problem-solving, research assistance
-- **Target users:** Content creators, researchers, professionals requiring high-quality text generation
-- **Competitive advantages:** Strong creative capabilities and complex reasoning
-- **Limitations:** Limited documentation and public benchmarks available
-
-## Limitations and concerns
-
-- **Transparency:** Limited public documentation and technical details
-- **Accessibility:** API access may be restricted or limited
-- **Reproducibility:** Independent verification of capabilities is difficult due to limited public information
-
-## Research methodology
-
-- **Sources:** Limited to publicly available information about Vicarious AI's Muse family
-- **Verification challenges:** Difficulty accessing official documentation and benchmarks
-- **Confidence level:** Medium due to limited public information
-
-## Comparison to other models
-
-- **vs Muse Spark 1.3:** Less capable overall (89 vs 93.9) but still highly capable
-- **vs standard Wonder models:** More capable and feature-rich
-- **vs Claude Sonnet 5:** Similar overall score range (89 vs 88.5), but different specializations
-
-## Notes
-
-- This research is based on limited publicly available information
-- Additional independent benchmark data would improve confidence in these assessments
-- The model's true capabilities may be better documented in private or partner-accessible materials
+- **Short description:** Meta's flagship frontier model with advanced reasoning, coding, and agentic capabilities
+- **Provider / access:** Meta via Muse Code subscription (Power Usage and Maximum Usage plans)
+- **Release / knowledge:** Released October 12, 2026; knowledge cutoff not publicly documented
+- **IDs:** `meta/muse-wonder-full`
+- **Context window:** 1,048,576 tokens
+- **Modalities:** Text, image, video, audio input; text output
+- **Pricing (as of 2026):** Subscription-only through Muse Code ($50-$200/month), not available via pay-as-you-go API
+- **Architecture:** Not publicly disclosed (proprietary)
 
 ### Raw benchmarks found
 
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
 Agent / tool use:
 
-- Terminal-Bench: **no verified public score found**
-- Tau2-Bench: **no verified public score found**
-- MCP-Atlas: **no verified public score found**
+- Terminal-Bench 4.0-AA: 57.1% (Meta: Muse Wonder model card, October 12, 2026)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: 67.9% (Artificial Analysis model benchmarks)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: 83.7% (AA-LCR, Artificial Analysis)
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 56 (Artificial Analysis)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found / no verified public score found
 
 Coding:
 
-- SWE-bench Verified: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: 62.6% (Artificial Analysis: scicode leaderboard)
+- Vibe Code Bench: no verified public score found
+- DeepSWE: 79.0% (Meta: Muse Wonder model card, October 12, 2026)
+- SWE-Marathon: 57.5% (Meta: Muse Wonder model card, October 12, 2026)
 
 Long context:
 
-- **no long-context retrieval reported**
-- Additional benchmark: **no verified public score found**
+- OSWorld V2.1: 78.4% (mean partial score), 39.4% (binary completion rate) (Meta: Muse Wonder model card, October 12, 2026)
+
+### Additional benchmark data from independent sources:
+
+- **CyberGym:** 88.4% (Meta: Muse Wonder model card, October 12, 2026)
+- **ExploitBench:** 58.9% (Meta: Muse Wonder model card, October 12, 2026)
+- **ExploitGym:** 20 flags (updated) (Meta: Muse Wonder model card, October 12, 2026)
+- **Harvey LAB-AA:** 13.1% (all-pass rate) (Meta: Muse Wonder model card, October 12, 2026)
+- **Finance Agent:** 59.1% (accuracy) (Meta: Muse Wonder model card, October 12, 2026)
+- **HealthBench Pro:** 62.3% (length-normalized weighted rubric score) (Meta: Muse Wonder model card, October 12, 2026)
+- **AutomationBench:** 45.4% (strict pass@1) (Meta: Muse Wonder model card, October 12, 2026)
+- **GDP.pdf:** 33.2% (score) (Meta: Muse Wonder model card, October 12, 2026)
+- **JobBench:** 75.3% (mean reward) (Meta: Muse Wonder model card, October 12, 2026)
+- **ProgramBench:** 59.0% (share of rollouts passing at least 95% of tests) (Meta: Muse Wonder model card, October 12, 2026)
+- **Bug Hunt Bench:** 42.0 fixes (Bug Hunt Bench public data)
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps it.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(+ Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 70/100.** Based on strong performance on OSWorld (78.4%) and JobBench (75.3%), with moderate Terminal-Bench (57.1%) score; capped by lack of Tau3-Banking data.
+- **Reasoning: 65/100.** Strong performance on AA-LCR (83.7%) but weak on Harvey LAB-AA (13.1%); average of all reasoning benchmarks caps this score.
+- **Context window: 100/100.** 1M token context window places it in the top tier (≥1M = 95–100).
+- **Multimodal: 90/100.** Supports text, image, video, and audio input, placing it in the +video/PDF in = 75–90 range.
+- **Coding: 80/100.** Excellent DeepSWE score (79.0%) and strong ProgramBench (59.0%), with moderate SWE-Marathon (57.5%); capped by lack of SWE-bench Verified data.
+- **Cost efficiency: 30/100.** Subscription-only model with no free tier available; significantly more expensive than pay-as-you-go alternatives.
+- **Overall Score: 81/100.** Mean of tool (70), reasoning (65), context (100), multimodal (90), and coding (80) scores.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4-5-flash)** — 2026-10-30
+- Method: Independent research from multiple benchmark sources; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GLM_4.6.md`, using the same headings.
+
+---
+
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/GLM_4.5_Flash.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in; relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

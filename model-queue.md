@@ -31,6 +31,7 @@
 89.7 muse-wonder-full
 89.3 gemini-3.5-flash
 89.3 muse-wonder-1.0
+89.2 muse-wonder
 88.9 gpt-5.6-terra
 88.8 claude-opus-4.6
 88.8 gemini-3.6-flash
@@ -41,11 +42,10 @@
 88.4 muse-spark-1.1
 88.3 gpt-6-sol
 88.1 gemini-3-flash
-88 muse-wonder
 87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
 87.8 qwen-3.8-flash
-87.4 kimi-k3.1-pro
+87.6 kimi-k3.1-pro
 87.3 minimax-m3
 87.2 claude-sonnet-4.6
 87.2 gpt-5.4
@@ -86,7 +86,7 @@
 83 nemotron-3.5-super-vl
 82.9 glm-5.3-flash-x
 82.7 gemini-3.5-flash-lite
-82.6 gpt-6.1-terra
+82.7 gpt-6.1-terra
 82.4 kimi-k2.7-code
 82.2 mimo-v2.5-free
 81.5 grok-4.1-fast

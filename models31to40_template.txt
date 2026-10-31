@@ -1,0 +1,7 @@
+88.5 claude-sonnet-5
+88.5 mimo-v2.6-flash
+88.4 muse-spark-1.1
+88.3 gpt-6-sol
+88.1 gemini-3-flash
+88 muse-wonder
+87.9 gemini-3.8-flash-cyber
