@@ -93,7 +93,8 @@ export type SourceKey =
   | "Qoder Sonus"
   | "GLM 4.6V Flash"
   | "Browser"
-  | "Leanstral 1.5";
+  | "Leanstral 1.5"
+  | "GPT 6.1 Terra";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -198,4 +199,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md" },
   { key: "Browser", label: "Browser", file: "Browser.md" },
   { key: "Leanstral 1.5", label: "Leanstral 1.5", file: "Leanstral_1.5.md", slug: "leanstral-1.5" },
+  { key: "GPT 6.1 Terra", label: "GPT-6.1 Terra", file: "GPT_6.1_Terra.md", slug: "gpt-6.1-terra" },
 ];

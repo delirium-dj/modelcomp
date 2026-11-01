@@ -135,11 +135,11 @@
 73.6 gemini-2.5-flash-lite
 73.6 gemma-4-12b-unified
 73.5 grok-build-0.1
+73.4 claude-sonnet-3.5
 73.4 hy4
 73.3 nemotron-3-nano-omni
-73.2 claude-sonnet-3.5
+73.2 qwen-3.5-9b
 73.1 beam
-73 qwen-3.5-9b
 72.8 fledge-alpha
 72.7 longcat-2.5-preview
 72.3 hy3
