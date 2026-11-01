@@ -62,7 +62,7 @@ Conflict summary: Context window and modality are disputed between API meta 128K
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-01
 - Method: public internet research; three independent web searches performed on Z.ai research hub, Zhipu AI official site, and third-party listings / llm-stats / OpenRouter for GLM-4.6 family. Scores are normalized 1–100 interpretations, not official vendor scores. No Flash-specific verified benchmarks were located; scores rely on family-lineage inference with heavy evidence-vacuum discount.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

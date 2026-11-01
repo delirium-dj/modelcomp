@@ -26,8 +26,6 @@ const fieldClass =
   "w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-3 py-2 text-sm text-[color:var(--color-ink)] placeholder:text-[#577184] focus:border-[color:var(--color-primary)] focus:outline-none focus:ring-1 focus:ring-[color:var(--color-primary)] dark:border-[#274757] dark:placeholder:text-[#93adbe]";
 const labelClass = "mb-1.5 block text-sm font-semibold";
 
-
-
 export default component$(() => {
   const status = useSignal("");
 

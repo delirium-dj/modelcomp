@@ -250,7 +250,7 @@ describe("meta validation gates", () => {
   });
 });
 
-describe("scaffolded stub stamp (GLM53F_IMP #9)", () => {
+describe("scaffolded stub stamp", () => {
   it("buildScaffoldMeta stamps scaffolded: true with a slug-guess name", () => {
     const meta = buildScaffoldMeta("ox_alpha");
     assert.equal(meta.scaffolded, true);

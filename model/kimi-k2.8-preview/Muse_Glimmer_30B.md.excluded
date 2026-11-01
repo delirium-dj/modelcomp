@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Muse Glimmer 30B
 
 - Source: Moonshot AI Kimi K2.8 Preview
-- Date: 2026-10-26
+- Date: 2026-11-01
 - Overview and scoring methodology: `../../model-comparison.md`
 
 ## Model card
@@ -9,7 +9,7 @@
 - **Name:** Kimi K2.8 Preview
 - **Short description:** Moonshot AI preview model in Kimi K2 series. Preview release prior to stable K2 family; multimodal capabilities, long context.
 - **Provider / access:** Moonshot AI API platform.kimi.ai. No public open-weight checkpoint confirmed for this exact preview ID.
-- **Release / knowledge:** Preview status; no definitive release date published in public sources as of 2026-10-26. Knowledge cutoff not published.
+- **Release / knowledge:** Preview status; no definitive release date published in public sources as of 2026-11-01. Knowledge cutoff not published.
 - **IDs:** `kimi-k2.8-preview`
 - **Context window:** Not officially published for preview ID; Kimi K2 family advertises 1M token context.
 - **Modalities:** Likely text input/output; Kimi K2 series supports multimodal. Preview specifics undisclosed.
@@ -25,5 +25,5 @@ SELF-EXCLUSION: zero verified public scores for this exact model/ID.
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-01
 - Method: public internet research; no verified benchmark numbers found.

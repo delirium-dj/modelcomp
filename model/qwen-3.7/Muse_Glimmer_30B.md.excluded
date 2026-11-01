@@ -6,8 +6,8 @@
 
 ## Model card
 
-- **Name:** Qwen3.7 Plus
-- **Short description:** Alibaba commercial flagship agent-centric multimodal model. Text + image + video input, text output, 1M context, agent capabilities for coding, tool use, productivity.
+- **Name:** Qwen 3.7
+- **Short description:** Alibaba Qwen 3.7 model entry. No distinct public model card or benchmark table found for the exact `qwen-3.7` slug; related tiers are Qwen3.7-Max/Plus/Flash with separate IDs.
 - **Provider / access:** Alibaba Cloud Model Studio API `qwen3.7-plus`, snapshots e.g. `qwen3.7-plus-2026-05-26`. Chat Completions API.
 - **Release / knowledge:** Snapshot 2026-05-26; page last updated 2026-10-11. Knowledge cutoff not published.
 - **IDs:** `qwen3.7-plus`
@@ -25,5 +25,5 @@ SELF-EXCLUSION: zero verified public scores for this exact model/ID. Findings re
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-01
 - Method: public internet research; no verified benchmark numbers found.

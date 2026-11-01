@@ -291,7 +291,8 @@ export const PROVIDERS: Provider[] = (() => {
     };
   });
   // Page reading order: free-tier providers first, then most covered models
-  // first (the Providers page renders exactly these two groups).
+  // first. The Providers page groups by category (its own SECTIONS array);
+  // this ordering is the base order within each group.
   providers.sort(
     (a, b) =>
       Number(b.freeTier) - Number(a.freeTier) ||
@@ -303,9 +304,6 @@ export const PROVIDERS: Provider[] = (() => {
 
 /** Free-tier providers, most covered models first. */
 export const FREE_TIER_PROVIDERS = PROVIDERS.filter((p) => p.freeTier);
-
-/** No free plan, most covered models first. */
-export const PAID_ONLY_PROVIDERS = PROVIDERS.filter((p) => !p.freeTier);
 
 /** Category 1: Providers offering models with coding and MoE ability (frontier foundation models & coding engines). */
 export const CODING_MOE_PROVIDERS = PROVIDERS.filter(
@@ -339,9 +337,5 @@ export const OBSERVABILITY_SECURITY_PROVIDERS = PROVIDERS.filter(
 export const EVERYTHING_ELSE_PROVIDERS = PROVIDERS.filter(
   (p) => p.category === "everything-else",
 );
-
-export function getProvider(slug: string): Provider | undefined {
-  return PROVIDERS.find((p) => p.slug === slug);
-}
 
 

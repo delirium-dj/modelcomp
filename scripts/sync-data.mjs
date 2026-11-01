@@ -1,30 +1,23 @@
 // Deterministic data sync for modelcomp. Run: pnpm sync
 //
-// What it does (see tasks/sync-data.md for the human workflow around it):
+// Full step list, invariants and the human workflow live in tasks/sync-data.md.
+// In short:
 //   1. Scans every model/<slug>/ folder for findings files (*.md, excluding
-//      average.md and README.md; any filename containing ".excluded" is a
-//      self-excluded no-data report — skipped loudly, never counted).
-//      Unknown/hygiene-violating filenames fail loudly.
-//   2. Parses the seven normalized 1-100 scores from each findings file, and
-//      validates each file's Overall equals the half-up mean of its five
-//      non-cost dims (Cost excluded from Overall since v4; drift fails loudly
-//      and blocks that folder's average rewrite).
-//   3. Recomputes every model/<slug>/average.md as arithmetic means (standard
-//      half-up rounding to 1 decimal) over the TOP-10 cohort: the ten source
-//      files with the highest Overall Score in that folder (or all sources
-//      when the folder holds <= 10). All seven numbers come from that same
-//      cohort; Overall = mean of the cohort's Overall scores, NOT re-derived
-//      from averaged dimensions) and rewrites files that drift.
-//   4. Registers any new reporting-agent filename in src/data/models.ts
-//      (SourceKey union + SOURCE_DEFS entry; dropdown order is derived at build
-//      time, so registry position does not matter for the UI)
-//      stable). Per-model wiring needs NO edits: scores are pre-parsed into
-//      src/data/scores.generated.ts (numbers only) at sync time, which
-//      src/data/models.ts imports instead of the raw markdown (keeps ~1.7 MB
-//      of report prose out of the client bundle).
-//   5. Validates every model/<slug>/meta.json parses and has all required
-//      fields; a missing file is auto-scaffolded with `scaffolded: true` and
-//      re-logged as SCAF every run until a human curates it (GLM53F_IMP #9).
+//      average.md and README.md; ".excluded" = self-excluded, skipped loudly).
+//      Hygiene-violating filenames fail loudly; forbidden duplicate roots,
+//      slugs and stems (validate.mjs) fail with zero writes for them.
+//   2. Parses the seven 1-100 scores, auto-corrects a drifted Overall (five-dim
+//      quality mean), extracts benchmark rows, runs the signature-vs-stem
+//      tripwire, and auto-quarantines evidence-free files (QUAR rename).
+//   3. Recomputes every average.md over the top-10 qualifying cohort (rater
+//      gate; crown-rule fallback when no rater clears it).
+//   4. Registers new reporting agents in src/data/sources.generated.ts and
+//      reconciles labels/slugs; stale registry keys are pruned on clean runs.
+//   5. Validates/scaffolds every model/<slug>/meta.json (SCAF until curated).
+//   6. Emits generated build inputs — scores.generated.ts,
+//      verified.generated.ts, evidence.generated.ts, model-queue.md,
+//      public/robots.txt, model-aliases.generated.md — all through
+//      writeIfChanged, only on a zero-failure run.
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).
@@ -177,6 +170,21 @@ let failures = 0;
 const fail = (msg) => {
   failures++;
   console.error(`  FAIL  ${msg}`);
+};
+// Deterministic generated-file write: read → compare → write only on change,
+// logging a WRITE line. Every codegen emitter goes through this so they all
+// share one freshness contract. Returns true when the file was (re)written.
+const writeIfChanged = (path, text, label) => {
+  let prev = null;
+  try {
+    prev = readFileSync(path, "utf8");
+  } catch {
+    // created below
+  }
+  if (prev === text) return false;
+  writeFileSync(path, text);
+  log(`  WRITE ${label}${prev === null ? " (created)" : ""}`);
+  return true;
 };
 const parseScores = (md, where) => {
   const r = parseScoresPure(md);
@@ -344,7 +352,7 @@ for (const slug of slugs) {
 }
 
 const updatedAverages = [];
-// meta.json stubs still carrying sync's `scaffolded: true` stamp (GLM53F_IMP #9).
+// meta.json stubs still carrying sync's `scaffolded: true` stamp.
 const scaffoldStubs = [];
 const presentStems = new Set(); // findings filenames (without .md) seen anywhere
 // Compact score index for client codegen: slug -> file -> short-keyed scores.
@@ -523,14 +531,14 @@ for (const slug of slugs) {
     // placeholder facts) before the entry is trustworthy; the "_" check
     // below fails loudly on the worst derivation artifacts.
     // buildScaffoldMeta (naming.mjs, tested) also stamps `scaffolded: true`
-    // so the stub stays visible on every run until curated (GLM53F_IMP #9).
+    // so the stub stays visible on every run until curated.
     meta = buildScaffoldMeta(slug);
     scaffoldedNow = true;
     writeFileSync(metaPath, JSON.stringify(meta, null, 2));
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
     log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${meta.name}") — set the official vendor display name and verified facts`);
   }
-  // Scaffolded-stub tracker (GLM53F_IMP #9): while `scaffolded: true` is
+  // Scaffolded-stub tracker: while `scaffolded: true` is
   // present and `name` is still the slug guess, re-log the stub every run
   // (fresh scaffolds already WARNed above) and count it in the run summary.
   // Once `name` differs from the guess a human curated the entry — drop the
@@ -735,15 +743,21 @@ if (pending.length > 0) {
   }
 }
 
-// Reconcile labels + inline slugs for all registered entries (idempotent).
-// Grandfathered virtual-view entries (file average.md, key != average) are
-// pruned — virtual views live in models.ts, not the registry.
+// Reconcile labels + inline slugs for all registered entries (idempotent),
+// prune grandfathered virtual-view entries, and — on a zero-failure run —
+// prune stale keys (registered with no live findings file anywhere; they
+// re-register automatically if the file returns). A failing run passes no
+// live-stem set so registry changes are never cemented alongside failures.
 {
-  const reconciled = reconcileRegistry(sourcesTs, entryForStem);
+  const reconciled = reconcileRegistry(
+    sourcesTs,
+    entryForStem,
+    failures === 0 ? presentStems : undefined,
+  );
   if (reconciled !== sourcesTs) {
     sourcesTs = reconciled;
     writeFileSync(sourcesTsPath, sourcesTs);
-    log("  WRITE src/data/sources.generated.ts (labels/slugs reconciled, virtual views pruned)");
+    log("  WRITE src/data/sources.generated.ts (labels/slugs reconciled, stale keys pruned)");
   }
 }
 
@@ -772,101 +786,49 @@ for (const { key, file } of parseRegistryEntries(sourcesTs)) {
 // prose. Emitting them here keeps model/*.md out of the Vite bundle (the old
 // eager ?raw glob inlined ~1.7 MB of markdown into one ~1.8 MB client chunk).
 // Keys are sorted so output is deterministic across runs.
-const genPath = join(root, "src", "data", "scores.generated.ts");
+// Every emitter below runs through writeIfChanged (read → compare → write),
+// so they share one freshness contract. All are regenerable build inputs and
+// are rewritten only on a zero-failure run.
 if (failures === 0) {
-  // Serializer lives in scripts/lib/codegen.mjs (tested, deterministic).
-  const next = renderScoresFile(scoreIndex);
-  let prevGen = null;
-  try {
-    prevGen = readFileSync(genPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevGen !== next) {
-    writeFileSync(genPath, next);
-    log(
-      `  WRITE src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)${prevGen === null ? " (created)" : ""}`,
-    );
-  }
-  // Last-verified dates for the site (ModelCards, per-model pages): newest
-  // live findings-file date per slug. Same freshness contract as scores —
-  // only on zero failures, committed.
-  const verifiedPath = join(root, "src", "data", "verified.generated.ts");
-  const verifiedNext = renderVerifiedFile(verifiedIndex);
-  let prevVerified = null;
-  try {
-    prevVerified = readFileSync(verifiedPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevVerified !== verifiedNext) {
-    writeFileSync(verifiedPath, verifiedNext);
-    log(`  WRITE src/data/verified.generated.ts (${Object.keys(verifiedIndex).length} slugs)${prevVerified === null ? " (created)" : ""}`);
-  }
-  // Agreed benchmark figures for the model pages (same figure cited by 2+
-  // independent files). Same freshness contract — only on zero failures.
-  const evidencePath = join(root, "src", "data", "evidence.generated.ts");
-  const evidenceNext = renderEvidenceFile(evidenceIndex);
-  let prevEvidence = null;
-  try {
-    prevEvidence = readFileSync(evidencePath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevEvidence !== evidenceNext) {
-    writeFileSync(evidencePath, evidenceNext);
-    log(`  WRITE src/data/evidence.generated.ts (${Object.keys(evidenceIndex).length} slugs)${prevEvidence === null ? " (created)" : ""}`);
-  }
-  // Research queue for AI agents (model-queue.md): pre-sorted `<Overall> <slug>`
-  // lines so agents stop scanning every average.md themselves. Same freshness
-  // contract as scores.generated.ts — only on zero failures, committed.
-  const queuePath = join(root, "model-queue.md");
-  const queueNext = buildQueueFile(scoreIndex);
-  let prevQueue = null;
-  try {
-    prevQueue = readFileSync(queuePath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevQueue !== queueNext) {
-    writeFileSync(queuePath, queueNext);
-    log(
-      `  WRITE model-queue.md (${Object.keys(scoreIndex).length} models, Overall desc)${prevQueue === null ? " (created)" : ""}`,
-    );
-  }
+  // Numbers-only scores for the client bundle (serializer in codegen.mjs).
+  writeIfChanged(
+    join(root, "src", "data", "scores.generated.ts"),
+    renderScoresFile(scoreIndex),
+    `src/data/scores.generated.ts (${Object.keys(scoreIndex).length} slugs, ${Object.values(scoreIndex).reduce((a, f) => a + Object.keys(f).length, 0)} files)`,
+  );
+  // Last-verified dates for the site: newest live findings-file date per slug.
+  writeIfChanged(
+    join(root, "src", "data", "verified.generated.ts"),
+    renderVerifiedFile(verifiedIndex),
+    `src/data/verified.generated.ts (${Object.keys(verifiedIndex).length} slugs)`,
+  );
+  // Agreed benchmark figures (same figure cited by 2+ independent files).
+  writeIfChanged(
+    join(root, "src", "data", "evidence.generated.ts"),
+    renderEvidenceFile(evidenceIndex),
+    `src/data/evidence.generated.ts (${Object.keys(evidenceIndex).length} slugs)`,
+  );
+  // Research queue for AI agents: pre-sorted `<Overall> <slug>` lines.
+  writeIfChanged(
+    join(root, "model-queue.md"),
+    buildQueueFile(scoreIndex),
+    `model-queue.md (${Object.keys(scoreIndex).length} models, Overall desc)`,
+  );
   // robots.txt Sitemap must be absolute: same SITE_ORIGIN knob as the
-  // static-adapter origin (adapters/static/vite.config.ts). Written here
-  // (not hand-maintained) so the two can never disagree.
-  const robotsPath = join(root, "public", "robots.txt");
-  const robotsNext = renderRobotsTxt(process.env.SITE_ORIGIN ?? "http://localhost:4173");
-  let prevRobots = null;
-  try {
-    prevRobots = readFileSync(robotsPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevRobots !== robotsNext) {
-    writeFileSync(robotsPath, robotsNext);
-    log(`  WRITE public/robots.txt (Sitemap: ${process.env.SITE_ORIGIN ?? "http://localhost:4173"}/sitemap.xml)`);
-  }
-  // Forbidden/redirected identity roster for research agents
-  // (model-aliases.generated.md): parked slugs, merged duplicate slugs,
-  // retired vendor aliases, merged duplicate stems, tracked alias families.
-  // The single generated copy the prose rule files point at — restating the
-  // roster in prose is how the lists drifted (longcat-2.5 incident).
-  // Same freshness contract as model-queue.md — only on zero failures.
-  const aliasesPath = join(root, "model-aliases.generated.md");
+  // static-adapter origin (adapters/static/vite.config.ts).
+  const origin = process.env.SITE_ORIGIN ?? "http://localhost:4173";
+  writeIfChanged(
+    join(root, "public", "robots.txt"),
+    renderRobotsTxt(origin),
+    `public/robots.txt (Sitemap: ${origin}/sitemap.xml)`,
+  );
+  // Forbidden/redirected identity roster for research agents.
   const aliasesNext = buildAliasesFile();
-  let prevAliases = null;
-  try {
-    prevAliases = readFileSync(aliasesPath, "utf8");
-  } catch {
-    // created below
-  }
-  if (prevAliases !== aliasesNext) {
-    writeFileSync(aliasesPath, aliasesNext);
-    log(`  WRITE model-aliases.generated.md (identity roster: ${aliasesNext.split("\n").filter((l) => l.startsWith("- `")).length} entries)${prevAliases === null ? " (created)" : ""}`);
-  }
+  writeIfChanged(
+    join(root, "model-aliases.generated.md"),
+    aliasesNext,
+    `model-aliases.generated.md (identity roster: ${aliasesNext.split("\n").filter((l) => l.startsWith("- \`")).length} entries)`,
+  );
 } else {
   log("  SKIP  src/data/scores.generated.ts not rewritten (failures present — fix and re-run)");
 }

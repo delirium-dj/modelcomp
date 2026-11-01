@@ -2188,9 +2188,9 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "AA-HLE", value: "23.7%", raters: ["Laguna_S_2.1", "Nemotron_3.5_Super_VL_120B_A12B"] },
   ],
   "ling-3.0-flash-sante": [
-    { benchmark: "HLE", value: "53.2%", raters: ["GPT_5.6_Sol", "Kimi_K3"] },
+    { benchmark: "HLE", value: "57.1%", raters: ["Muse_Glimmer_30B", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
+    { benchmark: "AA-LCR", value: "70.5%", raters: ["Muse_Glimmer_30B", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
     { benchmark: "BrowseComp", value: "73.9%", raters: ["GPT_5.6_Sol", "GPT_5.6_Terra", "Kimi_K3"] },
-    { benchmark: "AA-LCR", value: "70.5%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
   ],
   "ling-3.0-flash-vl": [
     { benchmark: "Terminal-Bench", value: "64.4%", raters: ["GPT_6_Luna", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3", "Step_5_Preview"] },
@@ -2553,12 +2553,13 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
   ],
   "muse-wonder": [
     { benchmark: "Terminal-Bench", value: "52%", raters: ["Big_Pickle", "GLM_4.5_Flash", "GPT_5.6_Luna", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Step_5_Preview"] },
-    { benchmark: "HLE", value: "50.1%", raters: ["GLM_4.5_Flash", "MiMo_2.6_Flash"] },
+    { benchmark: "HLE", value: "50.1%", raters: ["GLM_4.5_Flash", "GLM_5.3_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "GDPval", value: "63.5%", raters: ["GLM_4.5_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
-    { benchmark: "DeepSWE", value: "78.8%", raters: ["Big_Pickle", "GLM_4.5_Flash", "Gemini_3.5_Flash_Lite", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash"] },
-    { benchmark: "AA-LCR", value: "80.7%", raters: ["Big_Pickle", "GLM_4.5_Flash", "MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
-    { benchmark: "CritPt", value: "28.3%", raters: ["Big_Pickle", "GLM_4.5_Flash", "MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
-    { benchmark: "OSWorld", value: "72.6%", raters: ["GLM_4.5_Flash", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
+    { benchmark: "DeepSWE", value: "78.8%", raters: ["Big_Pickle", "GLM_4.5_Flash", "GLM_5.3_Flash", "Gemini_3.5_Flash_Lite", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash"] },
+    { benchmark: "AA-LCR", value: "80.7%", raters: ["Big_Pickle", "GLM_4.5_Flash", "GLM_5.3_Flash", "MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
+    { benchmark: "CritPt", value: "28.3%", raters: ["Big_Pickle", "GLM_4.5_Flash", "GLM_5.3_Flash", "MiMo_2.6_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
+    { benchmark: "OSWorld", value: "72.6%", raters: ["GLM_4.5_Flash", "GLM_5.3_Flash", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
+    { benchmark: "MMLU-Pro", value: "86.2%", raters: ["GLM_5.3_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
     { benchmark: "SciCode", value: "60.3%", raters: ["Big_Pickle", "GLM_4.5_Flash"] },
   ],
   "muse-wonder-1.0": [

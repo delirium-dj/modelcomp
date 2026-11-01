@@ -1,0 +1,37 @@
+# Qoder Sonus — findings by Muse Glimmer 30B
+
+> SELF-EXCLUSION: Zero verified public benchmark numbers were located for the exact model/ID `qoder/sonus-1.0` via fresh web research at 2026-11-01. All rows below would read "no verified public score found". Per `model-report-TEMPLATE.md` and `tasks/research.md`, this file is saved as `.md.excluded` and no normalized scores are produced.
+
+- Source: Qoder/sonus-1.0
+- Date: 2026-11-01
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Computer-operation specialized model; performs coding, financial modeling, and complex desktop/software tasks.
+- **Provider / access:** Qoder built-in model, available across Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents. Credit-based pricing.
+- **Release / knowledge:** Announced 2026-09-10; knowledge cutoff not published.
+- **IDs:** qoder/sonus-1.0
+- **Context window:** 128K total per meta.json.
+- **Modalities:** Text in/out per meta; Computer Use claims per forum announcements.
+- **Pricing (as of 2026-09-21):** Qoder Credits, reference factor 8x per release notes; SOTA rate applies.
+- **Architecture:** Proprietary; vendor does not publish parameters or weights.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers located for exact ID `qoder/sonus-1.0` from official vendor benchmark tables or independent benchmark sites (Artificial Analysis, Vals AI, Benchgap, Benchmark Registry, SWE-bench, LiveCodeBench, Aider, etc.). Public announcements describe capabilities and Computer Use specialization with no published benchmark scores. Forum statements indicate identity mapping rumors but no verified evaluation.
+
+SELF-EXCLUSION applied per `model-report-TEMPLATE.md` mandatory self-exclusion rule: zero verified public benchmark numbers → save as `.md.excluded`. Scores are intentionally omitted.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-01
+- Method: public internet research; no verified benchmarks found.
+- Reference URLs:
+  - https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408
+  - https://docs.qoder.com/release-notes/model-consumption-reference-update
+- Future sources: add a new file next to this one using the same headings.

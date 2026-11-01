@@ -1,0 +1,98 @@
+# qoder-sonus — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: the model is REAL and verified to exist, but zero verified
+> public benchmark numbers were found for it across six independent source
+> families, because it is a closed, subscription-only built-in model that no
+> independent evaluator has scored. Per the template's SELF-EXCLUSION clause
+> (`RULES.md`, `tasks/research.md` step 3.9) this file is saved as notes only and
+> carries NO scores — a fabricated number would drag the mean for every reader.
+> Scores here are intentionally absent.
+
+- Source: Alibaba (`qoder-sonus`) — **identity VERIFIED; capability data not published**
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Sonus (Qoder built-in model)
+- **Short description:** Alibaba's closed built-in flagship for the Qoder agentic-coding platform, launched 2026-09-10 and shipped across Qoder, Qoder IDE, Qoder CLI, the JetBrains plugin, QoderWake and Cloud Agents. It is positioned for marathon-length autonomous tasks, the hardest knowledge work and serious coding, with Computer Use as its stated specialty — it drives the desktop and professional software directly (coding, financial modelling, research, spreadsheets). It is billed only in Qoder Credits and carries the highest consumption multiplier in the lineup (8x), so it is not available as an independently-callable per-token API model.
+- **Provider / access:** Alibaba (Qoder platform; the Qoder product footer names the operator "BRIGHT ZENITH PRIVATE LIMITED" and "Powered by Real Knowledge Buddy"). Access requires a paid Qoder subscription — the Lite plan explicitly does **not** include Sonus (Pro/Pro+/Ultimate or an approved Free-tier application only). Free access existed only as time-boxed credit promotions: the SOTA promotion 2026-09-15 → 09-25 (500–4,000 Credits/day) and the 1024 Community Boost 2026-10-22 → 10-30 (up to 10,240 Credits). No public per-token API route, no OpenRouter/Bedrock listing, no weights release.
+- **Release / knowledge:** launched **2026-09-10** (Qoder Desktop 0.2.3 shipped the paired Computer Use improvements). Knowledge cutoff, architecture and parameter count are not published.
+- **IDs:** `Sonus` (display name in the Qoder model picker); internal key `smodel` per third-party reverse-engineering of the Qoder model list. No vendor-published API model ID.
+- **Context window:** **not published by the vendor.** Qoder's Credits documentation only states qualitatively that "a request with a 200K context window consumes more than one with a 50K context window", and the product surface offers reference values at 50K / 200K. A third-party reverse-engineering report (qoder2api) claims selectable 200K / 400K / 1M tiers; that is *not* a vendor source and is recorded here as unverified. Max output likewise unpublished.
+- **Modalities:** **not formally published.** The published capability claims are coding, long-context work, desktop automation (Computer Use), research and spreadsheet analysis — i.e. a text/code agentic model. Qoder's product surface separately offers voice *interaction* ("reach Qoder naturally through voice"), which is a client feature of the platform, not a modality of this model. No vendor statement of image/video input support was found.
+- **Pricing:** no per-token pricing exists. Billing is subscription Credits only: Credit Pack $20 USD / 1,500 Credits (1-month validity), plans Free / Lite $10 / Pro $20 / Pro+ $60 / Ultra $200 per month. Sonus's consumption multiplier was **3.2x at launch and was recalibrated to 8x on 2026-09-21** — the highest in the lineup, above Cantus (4x) and Ultimate tier (2x). Qoder states the multipliers are *relative estimates*, not billing constants.
+- **Architecture:** proprietary, closed. Alibaba has not published the base architecture, parameter count, or whether Sonus is a Qwen-family checkpoint. (Contrast: Qoder's *other* built-in, Qwen-Coder-Qoder, is publicly documented as Qwen-Coder fine-tuned with large-scale RL for Qoder's agent architecture.)
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.0 / 2.1 / 3.0 / 4.0: no verified public score found. Qoder's own launch post cites no terminal-bench number, and Sonus does not appear on the public Terminal-Bench boards (tbench.ai, Vals AI's Terminal-Bench 4.0 leaderboard of 45+ ranked rows, AnotherWrapper's 2.0/3.0 indices).
+- OSWorld / OSWorld-Verified: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench / ToolAthlon / MCP-Atlas: no verified public score found.
+- Qoder Bench (the vendor's own harness): no verified public score found — the only Qoder Bench results published are for Qwen-Coder-Qoder, a different model.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — no Sonus page exists on Artificial Analysis.
+- Vals Index / Vals AI suite: no verified public score found — Vals evaluates dozens of models but has no Sonus entry.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- Vibe Code Bench / CursorBench / FrontierCode: no verified public score found.
+- SciCode: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Verification trail (six independent source families, all consulted 2026-11-01)
+
+1. **Qoder official forum announcement** (`https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408`, 2026-09-10): confirms existence, release date, product coverage, positioning and the 3.2x launch multiplier. Publishes **no benchmark number of any kind** — only qualitative claims.
+2. **Alibaba Cloud developer community** (`https://developer.aliyun.com/article/1762195`, 2026-09-10) and Qoder's official X account: same launch claims restated ("全球领先", "SOTA"), again with no scores.
+3. **Qoder official docs — Model Usage Reference Factor Adjustment Notice** (`https://docs.qoder.com/release-notes/model-consumption-reference-update`): Sonus 3.2x → 8x effective 2026-09-21. Confirms Sonus is an actively consumed model but publishes no capability data.
+4. **Qoder official docs — Credits / Pricing** (`https://docs.qoder.com/Credits`, `https://docs.qoder.com/account/pricing`): billing model, plan tiers, Credit Pack price, and the statement that multipliers are relative estimates rather than billing constants.
+5. **Public leaderboards** — Terminal-Bench (tbench.ai 2.0/4.0 boards and Vals AI's Terminal-Bench 4.0 table), SWE-bench (swebench.com), Vals Index (`https://www.vals.ai/benchmarks/vals_index`), and Artificial Analysis: **Sonus is absent from every one.** This is the decisive negative: an independently-measured model of any consequence would appear on at least one.
+6. **General coverage** (AOYII coding-CLI roundup, developer-community posts, reverse-engineering notes): discusses Sonus only as a *product* feature and a billing line — never with a measured score.
+
+### Conflict / resolution notes
+
+- **This is a different negative from the phantom-slug cases.** `claude-sonnet-5.4` and `qwen-3.5-flash-lite` are slugs with **no vendor product behind them**. `qoder-sonus` is the opposite: the model is unambiguously real, shipped, actively billed, and has a vendor changelog entry. What is missing is *measured capability data*, because Alibaba routes it through a closed subscription surface and no independent evaluator has published a score for it.
+- **No conflicting sources were found** — every source that mentions Sonus agrees on its existence and on the absence of published benchmarks. There is simply nothing to reconcile.
+- **What would be needed to score this folder:** any one of (a) a vendor-published benchmark table for Sonus (Alibaba published one for Qwen-Coder-Qoder, so the practice exists), (b) an independent evaluation on Terminal-Bench / SWE-bench / Vals Index / Artificial Analysis, or (c) a reproducible third-party harness run with a stated methodology. Until then every dimension would be an invention.
+- **Substitution is forbidden:** Sonus must not be scored from Qwen-Coder-Qoder (a *different* Qoder built-in, for which Qoder Bench results do exist) or from any Qwen3.x tier — only the ID actually measured may be cited (`RULES.md` no-hallucination and lineage rules).
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug. This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops. Unlike the two phantom slugs, however, the correct resolution here is *not* parking: the model is real, and the gap is a data gap that future research can close.
+- **Routing note:** despite the musical name, Sonus is **not** a voice/speech model — Qoder's voice features are client-side interaction with whatever model is selected. No `models_voice/` routing applies.
+
+### Normalized scores (1–100)
+
+Not applicable — self-excluded. The model exists but has zero verified public benchmark numbers, so no quality dimension can be scored without inventing data (`RULES.md` no-hallucination rule; template SELF-EXCLUSION).
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-01
+- Method: public internet research across six independent source families (Qoder's own forum, Alibaba's developer community, Qoder's official docs, Qoder's official pricing/Credits pages, four independent public benchmark leaderboards, and general coverage), cross-compared for conflicts; scores are normalized 1–100 interpretations, not official vendor scores.
+- Verdict: self-exclusion for zero verified benchmark data — the model is verified real, but no source publishes a measured score for it.
+- Reference URLs:
+  - [Qoder forum — "Sonus is here — our new built-in model, with a special talent for Computer Use"](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
+  - [Alibaba Cloud Developer Community — Qoder 上线 Sonus 模型](https://developer.aliyun.com/article/1762195)
+  - [Qoder Docs — Model Usage Reference Factor Adjustment Notice](https://docs.qoder.com/release-notes/model-consumption-reference-update)
+  - [Qoder Docs — Credits](https://docs.qoder.com/Credits)
+  - [Qoder Docs — Pricing](https://docs.qoder.com/account/pricing)
+  - [Qoder Docs — SOTA Models Limited-Time Free Experience](https://docs.qoder.com/events/sotafree)
+  - [Terminal-Bench](https://www.tbench.ai/)
+  - [Vals AI — Terminal-Bench 4.0 leaderboard](https://www.vals.ai/benchmarks/terminal-bench-4)
+  - [Vals AI — Vals Index](https://www.vals.ai/benchmarks/vals_index)
+  - [SWE-bench](https://www.swebench.com/)
+  - [Artificial Analysis — Intelligence Benchmarking methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

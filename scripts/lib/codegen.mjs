@@ -85,17 +85,45 @@ export function appendPendingSources(sourcesTs, pending, buildEntry) {
 
 /**
  * Reconcile labels + inline slugs for every registered entry (idempotent
- * after the first SIMPLIFY backfill) and prune grandfathered virtual-view
- * entries (file average.md, key != average) plus their union lines. Virtual
- * views live in models.ts, never in the registry.
+ * after the first SIMPLIFY backfill) and prune:
+ *   1. grandfathered virtual-view entries (file average.md, key != average)
+ *      plus their union lines — virtual views live in models.ts;
+ *   2. stale keys — registered entries with no live findings file anywhere.
+ * `liveStems` is the set of on-disk findings-file stems (without `.md`) the
+ * caller found. Pass it ONLY on a zero-failure run (a failing run must not
+ * cement registry changes); `undefined` disables stale-key pruning and leaves
+ * the union untouched. The `average` entry (file average.md) is always kept.
+ * A pruned key re-registers automatically if its file returns.
  */
-export function reconcileRegistry(sourcesTs, buildEntry) {
+export function reconcileRegistry(sourcesTs, buildEntry, liveStems) {
   let text = sourcesTs;
   text = text.replace(
     /\n  \{ key: "(?:tool|reason|context|cost|code|multi)", label: "[^"]+", file: "average\.md"(?:, slug: "[^"]+")? \},/g,
     "",
   );
   text = text.replace(/\n  \| "(?:tool|reason|context|cost|code|multi)"/g, "");
+  if (liveStems) {
+    const kept = [];
+    let pruned = false;
+    for (const e of parseRegistryEntries(text)) {
+      if (e.file === "average.md" || liveStems.has(e.file.replace(/\.md$/, ""))) {
+        kept.push(e);
+      } else {
+        // Drop the whole line (entry + trailing comma) so pruning never leaves
+        // a dangling comma that would parse as an `undefined` array element.
+        const nl = String.fromCharCode(10);
+        text = text.split(nl).filter((line) => !line.includes(e.full)).join(nl);
+        pruned = true;
+      }
+    }
+    if (pruned) {
+      const unionRe = /export type SourceKey =[\s\S]*?;/;
+      const union = `export type SourceKey =${kept
+        .map((e) => `\n  | ${JSON.stringify(e.key)}`)
+        .join("")};`;
+      text = text.replace(unionRe, union);
+    }
+  }
   for (const { full, key, file } of parseRegistryEntries(text)) {
     if (file === "average.md") continue;
     const expected = buildEntry(key, file.replace(/\.md$/, ""));

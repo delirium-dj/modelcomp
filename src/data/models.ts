@@ -387,18 +387,6 @@ export function virtualDimFor(source: ResultsView): DimensionKey | undefined {
 }
 
 /**
- * Global results-source key that ranks views by a dimension column.
- * `overall` maps to the Overall average view (`average` key); every other
- * dimension maps to its virtual sort view. All-models list headers use this
- * so a header click runs the exact same logic as the Results-source dropdown.
- */
-export function sortSourceFor(dim: DimensionKey | "overall"): ResultsView {
-  if (dim === "overall") return "average";
-  return VIRTUAL_VIEWS.find((v) => v.dim === dim)?.key ?? "average";
-}
-
-
-/**
  * Dropdown ranking metric for a reporting agent: its own average Overall --
  * the same number the All-models cards show. Raters rank by proven quality,
  * never by the highest score they hand out (a weak rater's inflated award
@@ -466,10 +454,6 @@ export const SOURCES: { key: ResultsView; label: string; file: string; slug?: st
   );
   return [averageDef, ...virtualDefs, ...rest];
 })();
-
-export function getModel(id: string): AiModel | undefined {
-  return MODELS.find((m) => m.id === id);
-}
 
 /** Dev check: every source's overall must sit within rounding distance of its
  * quality-dim mean (each source overall is a rounded mean of the five quality

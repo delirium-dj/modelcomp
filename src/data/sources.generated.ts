@@ -12,7 +12,6 @@ export type SourceKey =
   | "Gemini 3.5 Flash Lite"
   | "Gemini 3.6 Flash"
   | "GLM 5.3 Flash"
-  | "Ox Alpha"
   | "Claude Sonnet 4.6"
   | "DeepSeek 4.1 Flash"
   | "Solar Pro 4"
@@ -25,8 +24,6 @@ export type SourceKey =
   | "Gemini 3.7 Flash"
   | "Laguna S 2.1"
   | "GLM 5.2 Coding"
-  | "Mimo v2.6 Flash"
-  | "Mimo v2.5 Free"
   | "Muse Spark 1.2"
   | "Claude Sonnet 4.5"
   | "Claude Sonnet 5"
@@ -34,7 +31,6 @@ export type SourceKey =
   | "GPT 6 Sol"
   | "Gemini 1.5 Pro"
   | "Grok 4"
-  | "Space Bunny"
   | "Qwen 3.8 27B"
   | "GLM 5.3"
   | "Kimi K3"
@@ -78,9 +74,7 @@ export type SourceKey =
   | "Qwen 3.8"
   | "Solar Mini 4"
   | "Qwen 3.7 Plus"
-  | "Cat Jam"
   | "GPT 6.1 Sol"
-  | "Cat Jam probe2"
   | "Nemotron 3.5 Super VL 120B A12B"
   | "Beam"
   | "Xing 4.0.29B A4B"
@@ -90,23 +84,15 @@ export type SourceKey =
   | "Muse Glimmer 30B"
   | "LongCat 2.0"
   | "GLM 4.5 Flash"
-  | "GLM 4.6 Flash"
   | "GLM 4.7 Flash"
   | "Xing 4.0 29b a4b"
-  | "Anthropic Official"
-  | "Comprehensive Summary"
-  | "Independent Benchmark Research"
-  | "Independent AI Research"
   | "Flint"
   | "Inkling"
   | "Xing 4.0 29B A4B"
-  | "Gemini 4 Argon"
   | "Xing 4.0 29b a4b.md"
   | "MiMo 2.6 Free"
   | "Qoder Sonus"
   | "GLM 4.6V Flash"
-  | "GLM 4.6V"
-  | "qwen3.8"
   | "Browser"
   | "Leanstral 1.5";
 
@@ -131,7 +117,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3.5 Flash Lite", label: "Gemini 3.5 Flash Lite", file: "Gemini_3.5_Flash_Lite.md", slug: "gemini-3.5-flash-lite" },
   { key: "Gemini 3.6 Flash", label: "Gemini 3.6 Flash", file: "Gemini_3.6_Flash.md", slug: "gemini-3.6-flash" },
   { key: "GLM 5.3 Flash", label: "GLM 5.3 Flash", file: "GLM_5.3_Flash.md", slug: "glm-5.3-flash" },
-  { key: "Ox Alpha", label: "Ox Alpha", file: "Ox_Alpha.md", slug: "ox_alpha" },
   { key: "Claude Sonnet 4.6", label: "Claude Sonnet 4.6", file: "Claude_Sonnet_4.6.md", slug: "claude-sonnet-4.6" },
   { key: "DeepSeek 4.1 Flash", label: "DeepSeek v4.1 Flash", file: "DeepSeek_4.1_Flash.md", slug: "deepseek-v4.1-flash" },
   { key: "Solar Pro 4", label: "Solar Pro 4", file: "Solar_Pro_4.md", slug: "solar-pro-4" },
@@ -144,8 +129,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 3.7 Flash", label: "Gemini 3.7 Flash", file: "Gemini_3.7_Flash.md", slug: "gemini-3.7-flash" },
   { key: "Laguna S 2.1", label: "Laguna S 2.1", file: "Laguna_S_2.1.md", slug: "laguna-s-2.1" },
   { key: "GLM 5.2 Coding", label: "GLM 5.2 Coding", file: "GLM_5.2_Coding.md", slug: "glm-5.2-coding" },
-  { key: "Mimo v2.6 Flash", label: "Mimo v2.6 Flash", file: "Mimo_v2.6_Flash.md", slug: "mimo-v2.6-flash" },
-  { key: "Mimo v2.5 Free", label: "MiMo v2.5 Free", file: "Mimo_v2.5_Free.md", slug: "mimo-v2.5-free" },
   { key: "Muse Spark 1.2", label: "Muse Spark 1.2", file: "Muse_Spark_1.2.md", slug: "muse-spark-1.2" },
   { key: "Claude Sonnet 4.5", label: "Claude Sonnet 4.5", file: "Claude_Sonnet_4.5.md", slug: "claude-sonnet-4.5" },
   { key: "Claude Sonnet 5", label: "Claude Sonnet 5", file: "Claude_Sonnet_5.md", slug: "claude-sonnet-5" },
@@ -153,7 +136,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 6 Sol", label: "GPT-6 Sol", file: "GPT_6_Sol.md", slug: "gpt-6-sol" },
   { key: "Gemini 1.5 Pro", label: "Gemini 1.5 Pro", file: "Gemini_1.5_Pro.md", slug: "gemini-1.5-pro" },
   { key: "Grok 4", label: "Grok 4", file: "Grok_4.md", slug: "grok-4" },
-  { key: "Space Bunny", label: "Space Bunny", file: "Space_Bunny.md" },
   { key: "Qwen 3.8 27B", label: "Qwen 3.8 27B", file: "Qwen_3.8_27B.md", slug: "qwen-3.8-27b" },
   { key: "GLM 5.3", label: "GLM 5.3", file: "GLM_5.3.md", slug: "glm-5.3" },
   { key: "Kimi K3", label: "Kimi K3", file: "Kimi_K3.md", slug: "kimi-k3" },
@@ -197,9 +179,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Qwen 3.8", label: "Qwen 3.8", file: "Qwen_3.8.md", slug: "qwen-3.8" },
   { key: "Solar Mini 4", label: "Solar Mini 4", file: "Solar_Mini_4.md", slug: "solar-mini-4" },
   { key: "Qwen 3.7 Plus", label: "Qwen 3.7 Plus", file: "Qwen_3.7_Plus.md", slug: "qwen-3.7-plus" },
-  { key: "Cat Jam", label: "Cat Jam", file: "Cat_Jam.md" },
   { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
-  { key: "Cat Jam probe2", label: "Cat Jam probe2", file: "Cat_Jam_probe2.md" },
   { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md", slug: "nemotron-3.5-super-vl" },
   { key: "Beam", label: "Beam", file: "Beam.md", slug: "beam" },
   { key: "Xing 4.0.29B A4B", label: "Xing 4.0.29B A4B", file: "Xing_4.0.29B_A4B.md", slug: "xing_4.0_29b_a4b" },
@@ -209,23 +189,15 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md", slug: "muse-glimmer-30b" },
   { key: "LongCat 2.0", label: "LongCat 2.0", file: "LongCat_2.0.md", slug: "longcat-2.0" },
   { key: "GLM 4.5 Flash", label: "GLM 4.5 Flash", file: "GLM_4.5_Flash.md", slug: "glm-4.5-flash" },
-  { key: "GLM 4.6 Flash", label: "GLM 4.6 Flash", file: "GLM_4.6_Flash.md", slug: "glm-4.6-flash" },
   { key: "GLM 4.7 Flash", label: "GLM 4.7 Flash", file: "GLM_4.7_Flash.md", slug: "glm-4.7-flash" },
   { key: "Xing 4.0 29b a4b", label: "Xing 4.0 29b a4b", file: "Xing_4.0_29b_a4b.md", slug: "xing_4.0_29b_a4b" },
-  { key: "Anthropic Official", label: "Anthropic Official", file: "Anthropic_Official.md" },
-  { key: "Comprehensive Summary", label: "Comprehensive Summary", file: "Comprehensive_Summary.md" },
-  { key: "Independent Benchmark Research", label: "Independent Benchmark Research", file: "Independent_Benchmark_Research.md" },
-  { key: "Independent AI Research", label: "Independent AI Research", file: "Independent_AI_Research.md" },
   { key: "Flint", label: "Flint", file: "Flint.md" },
   { key: "Inkling", label: "Inkling", file: "Inkling.md", slug: "Inkling" },
   { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
-  { key: "Gemini 4 Argon", label: "Gemini 4 Argon", file: "Gemini_4_Argon.md", slug: "gemini-4-argon" },
   { key: "Xing 4.0 29b a4b.md", label: "Xing 4.0 29b a4b.md", file: "Xing_4.0_29b_a4b.md.md" },
   { key: "MiMo 2.6 Free", label: "MiMo 2.6 Free", file: "MiMo_2.6_Free.md" },
   { key: "Qoder Sonus", label: "Qoder Sonus", file: "Qoder_Sonus.md", slug: "qoder-sonus" },
   { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md" },
-  { key: "GLM 4.6V", label: "GLM 4.6V", file: "GLM_4.6V.md", slug: "glm-4.6v-flash" },
-  { key: "qwen3.8", label: "qwen3.8", file: "qwen3.8.md", slug: "qwen-3.8" },
   { key: "Browser", label: "Browser", file: "Browser.md" },
   { key: "Leanstral 1.5", label: "Leanstral 1.5", file: "Leanstral_1.5.md", slug: "leanstral-1.5" },
 ];

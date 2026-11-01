@@ -167,7 +167,7 @@ export function formatSlugGuess(slug) {
 }
 
 /**
- * Auto-scaffold stamp (GLM53F_IMP #9): sync writes `scaffolded: true` into a
+ * Auto-scaffold stamp: sync writes `scaffolded: true` into a
  * meta.json it creates itself; the stamp marks the file as an uncurated
  * slug-guess stub until a human sets the official vendor name.
  */
