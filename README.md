@@ -110,7 +110,6 @@ tasks/sync-data.md      the (short) human workflow around the script
 tasks/research-assign.md the single research delegator (agent resolves its own STEM; paste & go)
 tasks/research.md       the research workflow every assigned agent follows
 .agents/                tech-stack, repo rules, rate-limit notes for AI agents
-PRD/prd.md              product requirements (incl. tooltip behavior)
 public/                 PWA manifest (brand SVG install icon) + tab favicon (Vercel avatar PNG)
 dist/ + server/         build output — never hand-edit
 REPORT.md               running accomplishment log

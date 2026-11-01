@@ -27,8 +27,8 @@ export const TABLE_KEYS: DimensionKey[] = [
 ];
 
 /**
- * Rich per-dot tooltip. Cost/context/multimodal show the raw curated value
- * (PRD §7); tool/reasoning/coding show the score. A free-tier note is appended
+ * Rich per-dot tooltip. Cost/context/multimodal show the raw curated value;
+ * tool/reasoning/coding show the score. A free-tier note is appended
  * when the model carries one.
  */
 export function dimensionTooltip(m: AiModel, key: DimensionKey): string {

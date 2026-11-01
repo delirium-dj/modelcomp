@@ -54,6 +54,4 @@ Precedence order: `RULES.md` first — on any conflict, it wins.
   (`The input line is too long`, exit 255) — use `pnpm build.types:direct`,
   `pnpm build:direct`, `pnpm dev:direct` (same steps via `node <bin>`)
 
-## Product spec
 
-- `PRD/prd.md` — requirements for the site (§7 covers tooltip behavior).

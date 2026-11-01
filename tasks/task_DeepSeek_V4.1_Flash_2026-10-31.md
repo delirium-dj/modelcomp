@@ -91,6 +91,12 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
   `../../README.md#methodology` instead of the frozen `model-comparison.md`.
   Only newly created `average.md` heads are affected; existing ones are preserved
   by `applyAverageToPrev`. See `REPORT.md` 2026-11-01 item 18.
+- **C3** — `PRD/` references removed from active docs. `AGENTS.md` "Product spec"
+  section removed; `.agents/rules.md` repo-layout entry and tooltip `(see PRD §7)`
+  citation removed; `README.md` project-layout `PRD/prd.md` line removed;
+  `src/components/v2/modelView.ts` `(PRD §7)` comment removed. `PRD/` stays
+  gitignored (`.gitignore:13`); the webshop spec `PRD/webshop-prd.md` (item A8)
+  remains untracked and unused. See `REPORT.md` 2026-11-01 item 19.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3 756 lines).
   V1 shape cannot load on Desktop 2.x (`PluginModule.LoadError: missing key "default"`);
   both loaders glob top level only; V2 ports at `.opencode/plugins/*.ts` all load
@@ -106,7 +112,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 **Not applied (left for you)**
 
 - **A8** `PRD/webshop-prd.md`.
-- Part C/B items outside the execution list (**C3/C5**) and **D11–D12, D14–D18**, **E1/E2**.
+- Part C/B items outside the execution list (**C5**) and **D11–D12, D14–D18**, **E1/E2**.
 
 ---
 
