@@ -16,7 +16,7 @@
 - **Modalities:** Text + image input (trained-from-scratch vision encoder); video not supported; file input not supported.
 - **Pricing (as of 2026-11-01):** Open weights (Modified MIT); hosted input $1.50 / output $7.50 per 1M tokens (Vals AI tracker); self-host free.
 
-- **Architecture:** Unified instruct/reasoning/coding in one model; reasoning effort configurable per request (top-p 0.95 at `reasoning_effort="high`); no separate reasoning backbone.
+- **Architecture:** Unified instruct/reasoning/coding in one model; reasoning effort configurable per request (top-p 0.95 at `reasoning_effort="high"`); no separate reasoning backbone.
 
 ### Raw benchmarks found
 

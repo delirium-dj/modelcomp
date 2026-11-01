@@ -27,7 +27,7 @@ Official (Alibaba / Qwen / Tongyi Lab / HF / GIGAZINE / DeepLearning.ai):
 Independent (Artificial Analysis / BenchLM / Vals AI / Bloomberg / VentureBeat / GIGAZINE / RITS / DeepLearning.ai):
 
 - Vals AI (Qwen 3.5 Flash): Accuracy **69.46%**; GPQA Diamond **82.83%** ±1.90; LiveCodeBench **83.28%** ±1.04; SWE-bench **64.40%** ±2.14; MMLU Pro **84.06%** ±0.36; MMMU Pro **81.91%** ±0.93; Terminal-Bench 2.0 **24.72%** ±4.60; Context 1M; MaxOut 66k; $0.10/$0.40; Vals Index **#22 overall (49.6% acc), #7 among open-weight**; SWE-bench Verified **54.9%**; Finance Agent **46.7%**.
-- BenchmarkList (Qwen3.5-Flash): SWE-bench Verified **64.4%**; SWT-Bench **38.3%**; Commit0 **12.5%**; GAIA **49.7%**; Arena ELO **1238.05**; ALE-Bench **265.93`.
+- BenchmarkList (Qwen3.5-Flash): SWE-bench Verified **64.4%**; SWT-Bench **38.3%**; Commit0 **12.5%**; GAIA **49.7%**; Arena ELO **1238.05**; ALE-Bench **265.93**.
 - Small series (Qwen3.5-9B, same family): GPQA Diamond **81.7**, MMMU-Pro **70.1**, Video-MME **84.5**, HMMT Feb 2025 **83.2**, OmniDocBench v1.5 **87.7**; vs gpt-oss-120B **80.1** (GPQA).
 
 ### Cross-source comparison

@@ -1,0 +1,38 @@
+# Qwen 3.8 Flash — findings by GPT-6.1 Terra
+
+- Source: Alibaba `qwen3.8-flash`
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Flash
+- **Short description:** Alibaba's hosted low-cost Qwen text-generation model; not assumed identical to the separately named Flash-Next weights.
+- **Provider / access:** Alibaba Model Studio `qwen3.8-flash`; OpenRouter Chat Completions `qwen/qwen3.8-flash`.
+- **Release / knowledge:** No verified exact release date or knowledge cutoff found.
+- **IDs:** Alibaba `qwen3.8-flash`, OpenRouter `qwen/qwen3.8-flash`.
+- **Context window:** Alibaba lists 1M context; maximum output not independently verified here.
+- **Modalities:** Alibaba's cited page confirms text generation and tool/structured-output support; exact other modalities were not independently established.
+- **Pricing (2026-11-01):** OpenCode lists $0.15 input / $0.47 output / $0.016 cached read per million; provider rates can differ.
+- **Architecture:** Exact parameters and weight availability for this hosted ID not independently verified.
+
+### Raw benchmarks found
+
+Agent / tool use, reasoning / knowledge, coding and long context: **no verified public benchmark number found for the exact `qwen3.8-flash` ID** in the accessible sources. The separately named `Qwen3.8-Flash-Next` is not assumed to be the same checkpoint.
+
+### Normalized scores (1–100)
+
+Excluded: no verified exact-model benchmark was found, so numerical scores are not assigned.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-01
+- Method: Public vendor catalog and provider-route research; no proxy benchmark scores were attributed to this model.
+- Reference URLs:
+  - [Alibaba text-generation catalog](https://www.alibabacloud.com/help/en/model-studio/text-generation-model)
+  - [OpenRouter model route](https://openrouter.ai/qwen/qwen3.8-flash)
+  - [OpenCode pricing and model catalog](https://opencode.ai/docs/zen/)
+- Future sources: add a separate signed findings file when exact-model benchmark evidence is verified.

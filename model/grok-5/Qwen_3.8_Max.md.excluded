@@ -1,0 +1,43 @@
+# Grok 5 — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: xAI (`opencode/grok-5`; scaffolded id does **not** resolve) — **no first-party artifact exists**
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION (`.md.excluded`).** "Grok 5" is **not a shipped model.** As of **2026-11-01**, xAI's own live developer documentation lists a complete Text-API roster — **grok-4.7, grok-4.6, grok-4.5, grok-4.3, grok-4.20-0309 (reasoning / non-reasoning / multi-agent), grok-build-0.1** — and states plainly: *"For everything else, including code, use **Grok 4.7. It is the most capable model we've built.**"* **There is no `grok-5` model id, no model card, no context window, no modalities, no per-token price, and no benchmark** on any official xAI surface. The scaffolded id `opencode/grok-5` does not resolve to a callable endpoint. After a genuine research pass, the **only** page asserting a Grok 5 "launch" is a **single 2026-10-31 content-farm article (allthings-elon.com)** that contains **zero primary specifications** — no price figures, no context length, no model id, no benchmark table, no xAI-docs model-card link — and whose claim ("*Grok 5's debut… API now live*") is **directly contradicted by xAI's live model list, which still names 4.7 as flagship.** That is the same unattributable-marketing pattern rejected for [`../longcat-2.5-preview/`](../longcat-2.5-preview/). Scoring this folder would require **inventing numbers for an unreleased product**, which `RULES.md` and `model-report-TEMPLATE.md` forbid; `pnpm sync` auto-quarantines evidence-free files. **No scores assigned; nothing invented.**
+
+## Model card (documented absence — no first-party artifact to score)
+
+- **Name:** Grok 5 (a.k.a. `opencode/grok-5` — non-resolving placeholder id)
+- **Short description:** xAI's **announced-in-principle but unreleased** next flagship. As of 2026-11-01 it exists only as **roadmap speculation** (Musk has cited ~6T parameters and shifting Q1-2026 → mid/late-2026 target dates that all slipped), not as a documented product. The curated meta states it accurately: "**xAI's next flagship is unreleased and unannounced: no model id, price, context, modalities or benchmarks exist on any xAI surface**," with the id note "**xAI has never published a 'Grok 5' as a model, id or preview. The current flagship is Grok 4.7.**"
+- **Provider / access:** **None.** `docs.x.ai/developers/models` (fetched this pass, 2026-11-01) contains **no grok-5 row, no grok-5 model page.** No Artificial Analysis page, no OpenRouter listing, no HF repo exists for "Grok 5."
+- **Release / knowledge:** **Unreleased.** xAI's most recent flagship is **Grok 4.7** (released 2026-09-21; 500K ctx; $2/$6 per 1M; May-2026 knowledge cutoff). Grok 5 has no release date, no knowledge cutoff.
+- **IDs:** **None published.** `opencode/grok-5` is a dataset placeholder that does not resolve.
+- **Context window:** **Not announced** (no vendor figure).
+- **Modalities:** **Not announced.**
+- **Pricing:** **Not announced** — no API, no hosted route. (Third-party "estimates" exist on SEO blogs; none is a vendor price.)
+- **Architecture:** **Undisclosed.** Rumored ~6T-parameter / Colossus-2-trained flagship; no xAI tech report or model card to verify.
+
+### Raw benchmarks found
+
+> **None.** No vendor benchmark, no Artificial Analysis Intelligence Index / Speed / Cost measurement, and no neutral harness (Vals / Epoch / swebench.com / tbench.ai / LMArena) has any "Grok 5" result — because the model does not exist as a callable or documented artifact.
+
+- **Primary evidence (official):** **xAI docs `developers/models`, fetched 2026-11-01** — full Text-API pricing table lists only grok-4.7 / 4.6 / 4.5 / 4.3 / 4.20-* / build-0.1; **no grok-5.** Selection guide: *"Code: Grok 4.7 · Chat: Grok 4.7"*; note: *"Grok 4.7 … is the most capable model we've built."* → the flagship slot Grok 5 would occupy is **still held by 4.7.**
+- **Corroborating independent evidence:** **ZBuild status tracker** (2026-10-11 update): "As of October 11, 2026, Grok 5 is **not in SpaceXAI's API model list, pricing page or release notes**, and there is no announcement on x.ai. The current flagship is Grok 4.7." **presenc.ai lineage survey**: "The current Grok model is Grok 4.7, released on September 21, 2026." Multiple trackers (lumichats, geotoolbox, computeunion) uniformly report Grok 5 as **in-training / unreleased with speculative, non-official pricing.**
+- **The lone contradicting page is rejected:** **allthings-elon.com** (2026-10-31, "xAI Opens Grok 5 to Developers") — a generic prose piece with **no model id, no numbers, no card link**, whose "API now live / debut" framing is **flatly contradicted by xAI's own live model list** (still 4.7, no grok-5) fetched the same day. Treated as an SEO/content-farm artifact, **not** a first-party reveal; **no specs can be extracted from it to score.**
+
+> Provenance / conclusion: **a documented absence, not a phantom SKU and not a distinct artifact.** All prongs of the self-exclusion rule are met: no first-party model card, no id, no weights, no endpoint, and **zero independently verifiable benchmarks.** The curated meta's own tradeoff concurs verbatim: "*Nothing to evaluate — the folder's findings are a self-exclusion until xAI publishes.*" Scoring would require inventing numbers or importing **Grok 4.7's** specs (a reattribution of a *different, separately-queued* model — see the live grok-4.7 folder).
+> Recommended curator resolution: **keep `grok-5` parked / unscored.** **Only when** xAI publishes a real `grok-5` model id / card on docs.x.ai (or a neutral harness evaluates a grok-5 endpoint with first-party numbers) should this `.md.excluded` be replaced by a scored `Qwen_3.8_Max.md` researched independently against that release — and even then it must **not** borrow Grok 4.7's benchmarks.
+
+### Normalized scores (1–100)
+
+- **Omitted — self-excluded.** Grok 5 is an **unreleased, unannounced** xAI flagship with **no model id, no model card, no context/modality/price spec, and no verifiable benchmarks** on any first-party surface (docs.x.ai still names **Grok 4.7** as the most capable model, confirmed this pass). No dimension scores are assigned, because scoring would require **fabricating numbers or reattributing Grok 4.7's** — both prohibited by `RULES.md` and quarantined by `pnpm sync`. **Overall Score: not scored.**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-11-01
+- Method: public internet research (**xAI official docs `docs.x.ai/developers/models`, fetched 2026-11-01** — complete Text-API model roster **grok-4.7 / 4.6 / 4.5 / 4.3 / 4.20-0309 (reasoning, non-reasoning, multi-agent) / grok-build-0.1**; **no `grok-5`**; selection guide names **Grok 4.7** for code+chat as "the most capable model we've built," knowledge cutoff May-2026, 500K ctx, $2/$6 per 1M — i.e. the flagship slot is still 4.7; **ZBuild** tracker (2026-10-11 update): "Grok 5 is not in the API model list, pricing page or release notes … current flagship is Grok 4.7"; **presenc.ai** Grok-lineage survey: "current Grok model is Grok 4.7 (2026-09-21)"; **lumichats / geotoolbox / computeunion / mindstudio** release trackers: Grok 5 consistently **unreleased, in-training, only speculative pricing**; the sole **allthings-elon.com** (2026-10-31) "Grok 5 opens to developers" article — rejected as an SEO/content-farm page with **no primary specs** and contradicted by xAI's live docs). Self-excluded for **documented absence: no shipped artifact + zero verified public benchmarks**; **no scores invented, no Grok 4.7 specs reattributed.**
+- Future sources: when xAI publishes a real `grok-5` model id / model card / tech report on docs.x.ai, or a neutral harness (AA / Vals / swebench.com / LMArena) evaluates a live grok-5 endpoint with first-party numbers, replace this `.md.excluded` with a scored `Qwen_3.8_Max.md` using the same headings — researched independently against that release and **without** borrowing Grok 4.7's benchmark table.

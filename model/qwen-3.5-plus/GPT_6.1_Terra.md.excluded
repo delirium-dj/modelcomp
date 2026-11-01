@@ -1,0 +1,37 @@
+# Qwen 3.5 Plus — findings by GPT-6.1 Terra
+
+- Source: Alibaba `qwen3.5-plus`
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 Plus
+- **Short description:** Alibaba's hosted Qwen3.5 offering, now listed as legacy.
+- **Provider / access:** Alibaba Model Studio `qwen3.5-plus`, with function calling and built-in tools.
+- **Release / knowledge:** Exact release and knowledge cutoff not verified.
+- **IDs:** `qwen3.5-plus`.
+- **Context window:** Alibaba documents 1M tokens for the hosted route.
+- **Modalities:** Alibaba's cited text-generation catalog does not establish all hosted input modalities.
+- **Pricing (2026-11-01):** Exact current route pricing not independently verified.
+- **Architecture:** Qwen calls Plus the hosted version corresponding to Qwen3.5-397B-A17B, with production features; the card does not establish identical deployment weights or benchmark settings.
+
+### Raw benchmarks found
+
+No verified public benchmark explicitly measured on the exact hosted `qwen3.5-plus` route was located. Qwen's weights card reports results for the related `Qwen3.5-397B-A17B` checkpoint, including GPQA **88.4%** and SWE-bench Verified **76.4%**; these are not presented as exact hosted-route results.
+
+### Normalized scores (1–100)
+
+Excluded: exact-deployment benchmark evidence was insufficient to calculate an Overall score.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-01
+- Method: Alibaba hosted catalog and Qwen weights card; adjacent-checkpoint results are explicitly identified and not silently transferred.
+- Reference URLs:
+  - [Alibaba model catalog](https://www.alibabacloud.com/help/en/model-studio/text-generation-model)
+  - [Qwen corresponding weights card](https://huggingface.co/Qwen/Qwen3.5-397B-A17B)
+- Future sources: add a separate signed findings file if exact hosted-deployment evidence is verified.

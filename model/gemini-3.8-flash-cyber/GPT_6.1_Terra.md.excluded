@@ -1,0 +1,37 @@
+# Gemini 3.8 Flash Cyber — findings by GPT-6.1 Terra
+
+- Source: Google, claimed `gemini-3-8-flash-cyber`
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Flash Cyber
+- **Short description:** A purported security-specialized Google model; a distinct checkpoint or public API ID was not independently verified during this search.
+- **Provider / access:** No verified exact-model provider endpoint found. The cited Google documentation is for the base `gemini-3.8-flash`, not an independently confirmed Cyber model.
+- **Release / knowledge:** No verified release date or knowledge cutoff found.
+- **IDs:** The folder's claimed `google/gemini-3-8-flash-cyber` could not be verified from accessible public sources.
+- **Context window:** No verified exact-model limit found.
+- **Modalities:** No verified exact-model modalities found.
+- **Pricing (2026-11-01):** No verified public exact-model price found.
+- **Architecture:** No verified exact-model architecture found.
+
+### Raw benchmarks found
+
+Agent / tool use, reasoning / knowledge, coding and long context: **no verified public score found for this exact purported model or ID**. Base-model results cannot establish the specialized checkpoint's performance. Searches of the exact-model Google documentation, Vals and OpenRouter paths did not yield an exact match.
+
+### Normalized scores (1–100)
+
+Excluded: no verified exact-model benchmark was found, so numerical scores are not assigned.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-01
+- Method: Public documentation and evaluator lookup; exact-model identity and benchmark evidence were insufficient for scoring.
+- Reference URLs:
+  - [Google Gemini 3.8 Flash base model documentation](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash)
+  - [Google model catalog](https://ai.google.dev/gemini-api/docs/models)
+- Future sources: add a separate signed findings file when exact-model evidence is verified.

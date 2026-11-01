@@ -1,5 +1,26 @@
 # GPT-5.5 — findings by Solar_Mini_4
 
+- Source: OpenAI (`openai/gpt-5.5`)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.5
+- **Short description:** OpenAI's fully retrained base model (released 2026-04-23) for real work: agentic coding, complex knowledge tasks, computer use, scientific research. First fully retrained base since GPT-4.5. Premium pricing but strong per-task efficiency gains.
+- **Provider / access:** OpenAI API `gpt-5.5` (ChatGPT Plus/Pro/Business/Enterprise; API GA 2026-04-24), Codex, Azure. Paid.
+- **Release / knowledge:** Released 2026-04-23 (version `gpt-5.5-2026-04-23`); knowledge cutoff December 1, 2025 (vendor API docs).
+- **IDs:** `openai/gpt-5.5`, `gpt-5.5-2026-04-23`.
+- **Context window:** 1,050,000 tokens (vendor API docs); marketing shorthand "1M". Max output 128,000.
+- **Modalities:** Text in and out; image input only; audio/video unsupported. Reasoning: up to 5 effort levels (none/low/medium default/high/xhigh). Tooling: web search, file search, image generation, code interpreter, hosted shell, skills, computer use, MCP.
+- **Pricing (as of 2026-09-01):** $5.00 input / $0.50 cached input / $30.00 output per 1M tokens (batch prices); GPT-5.4 was $2.50/$15 (doubled). GPT-5.5 Pro: $30/$180 per 1M. >272K input tokens priced 2× input / 1.5× output; regional endpoints +10%.
+- **Architecture:** proprietary; params undisclosed; fully retrained base (first since GPT-4.5); parallel test-time compute for GPT-5.5 Pro.
+
+### Raw benchmarks found
+
+# GPT-5.5 — findings by Solar_Mini_4
+
 > Template → replaced with model-specific research; no placeholders remain.
 > Source of truth methodology: `../../model-comparison.md`.
 

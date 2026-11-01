@@ -1,5 +1,26 @@
 # Solar Pro 4 — findings by Solar_Mini_4
 
+- Source: Upstage (Upstage Console API `solar-pro4`)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Pro 4
+- **Short description:** Upstage's closed commercial flagship — agent-first, built to carry long multi-step work to the finish (terminal tasks, multi-turn tool use, long-document reasoning) with an explicit refusal-to-fabricate posture (stops and says so when evidence runs out). Text-only.
+- **Provider / access:** Upstage Console API (OpenAI-compatible, `solar-pro4`), OpenRouter, Hermes Agent, Upstage Studio, dedicated/on-prem by contract. Paid.
+- **Release / knowledge:** Released 2026-08-06 (announcement 2026-08-11/20); training data cutoff February 2026.
+- **IDs:** `solar-pro4` (Upstage API), `opencode/solar-pro-4` (curated).
+- **Context window:** 524,288 tokens total / 131,072 max output (vendor docs + HokAI); Artificial Analysis lists 384K input / 256K output (conflicting — see research report).
+- **Modalities:** Text in → text out; reasoning ON by default with configurable `reasoning_effort` (high/low); tool calling, structured/JSON outputs, streaming.
+- **Pricing (as of 2026-09-10 promo end):** $0.30 input / $0.06 cached input / $1.20 output per 1M tokens (Upstage list); 90% launch promo through Sep 10, 2026 (Console + OpenRouter); OpenRouter list $0.15/$0.60 (Upstage blog); HokAI reads OpenRouter promo $0.09/$0.36.
+- **Architecture:** proprietary, parameter count undisclosed; reasoning on by default; SOC 2 + ISO 27001 certified operations.
+
+### Raw benchmarks found
+
+# Solar Pro 4 — findings by Solar_Mini_4
+
 > Template → replaced with model-specific research; no placeholders remain.
 > Source of truth methodology: `../../model-comparison.md`.
 

@@ -1,0 +1,33 @@
+# Ling 3.0 Flash Sante — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: InclusionAI / Ant Group (`inclusionai/ling-3.0-flash-sante`; gateway-only id on Vercel AI Gateway / Novita / OpenRouter; **no AA page**)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Verdict — SELF-EXCLUDED.** **Ling 3.0 Flash Sante** is a **hosted-only, health/medicine specialization of the base Ling 3.0 Flash** (124B-total / ~5.1B-active MoE, ~256K context), reachable **only through third-party gateways** (Vercel AI Gateway, Novita; listed on OpenRouter). It has **no downloadable weights, no model repository, no model card, and no published license**, and — decisively — **no independently verifiable benchmark of its own**. Scoring it would either (a) **re-credit the base Ling 3.0 Flash's evidence under a new slug** (every architectural/spec figure — 124B/5.1B/256K/`$0.075/$0.22`/`$0.015` cached — is *identical* to that model, already scored separately as `ling-3.0-flash`), which is a **double-count**, or (b) rest on a **single unverifiable vendor number**. Both are disallowed by the research-permanence and no-invented-numbers rules, so this entry is excluded rather than scored.
+
+## Why this is a self-exclusion (not a scored model)
+
+- **No shipped artifact of its own.** There is **no Sante repository, no HF weights, no model card, no license** — the curated meta's `idNote` states plainly: *"A gateway id for a hosted-only specialization: there is no Sante repository, model card or licence."* It is a **route label**, not an independently distributed model.
+- **Specs are 100% inherited from an already-scored base.** Total params **124B**, active **~5.1B/token**, context **256K (Vercel) / 262,144 (Novita)**, max output **32,768**, price **$0.075 / $0.22 / $0.015 cached** — every one matches the base **`ling-3.0-flash`** (separate queue entry, scored on its own GPQA/BFCL/AA-LCR/agent evidence). Any quality score here would **duplicate that model's data**, violating the single-point-of-evidence rule.
+- **The variant-specific medical numbers are unverifiable / vendor-only.** The only claims attributed to *Sante itself* — **DiagnosisArena-MCQ 83.8** and **MedXpertQA-Text 53.9** — are **Ant self-reported**, then **echoed solely by SEO content-farm mirrors** (`jobopportunity.info`, `cldnavi.com`), with **no neutral reproduction**. The curated meta flags the flagship figure directly: *"the folder's 'DiagnosisArena-MCQ 83.8%' could not be verified in any source."*
+- **An independent academic run FAILED to execute it.** The one genuinely third-party clinical evaluation that attempted Sante — **arXiv 2610.18605 (Oct 2026), "From Hindsight to Foresight: Dissecting Clinical Evidence Acquisition in LLMs"** — reports that **"Ling 3.0 Flash Sante … failed infrastructure gates"** (i.e., could not be reliably invoked), so **no independent measurement exists** — corroborating the "API-only, no independent re-run" reality.
+- **No Artificial Analysis page** → **no Intelligence Index / Speed / Cost** composite; **no LMArena / Vals / swebench** coverage specific to Sante.
+- **Reviews decline to score it.** `designforonline` (a gateway-models review) notes it *"supplies no performance benchmark results for this particular variant… difficult to judge"* — the absence of a medical-eval artifact is a documented consensus, not a research gap on our side.
+
+## What we did establish (documented, not scored)
+
+- **Identity:** Ant Group / InclusionAI **health & medicine fine-tune of Ling 3.0 Flash**, announced alongside Ling-3.1-Flash (Reddit r/LocalLLaMA "Ant Ling just announced a second model today… healthcare-focused"); MoE, **124B total / ~5.1B active**, **256K** context, **text in/out** (per OpenRouter/zenmux/surfmind descriptions).
+- **Access & price (hosted only):** Vercel AI Gateway / Novita **$0.075/M in, $0.22/M out, $0.015/M cached**; OpenRouter carries a `(free)` listing whose record "labels it free but supplies no benchmark results."
+- **Vendor capability claim (unverified):** "excels in medical knowledge," positioned as beating much larger closed models on DiagnosisArena-MCQ (83.8) — **not reproducible**; the same source admits a **53.9 MedXpertQA-Text** (mid, physician-level hard QA), and the arXiv study could not run it at all.
+
+> **Cross-check for consistency:** the base **`ling-3.0-flash`** is separately scored on its *own* verified evidence (GPQA-Diamond 85.5, BFCL-V4 73.0, AA-LCR 73.0, weak agentic ceiling); **none of that general-capability data is transferred to Sante**, and **no Sante-specific dimension scores are invented**. This mirrors the treatment of `owl-alpha` (stealth alias → base already scored) and `grok-5` (documented absence / no artifact).
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-11-01
+- Method: public internet research (**curated meta `idNote` + tradeoff** — "no Sante repository, model card or licence"; "DiagnosisArena-MCQ 83.8% could not be verified in any source; the findings are a self-exclusion"; **arXiv 2610.18605** (Oct 2026) — independent clinical-Evidence study where **"Ling 3.0 Flash Sante … failed infrastructure gates"** (could not be run → no third-party measurement); **OpenRouter `inclusionai/ling-3.0-flash-sante`** + **zenmux** + **surfmind** — "health/medicine-focused MoE built on Ling 3.0 Flash, 124B total / 5.1B active, 256K context, text-only" (specs identical to base); **designforonline review** — "supplies no performance benchmark results for this particular variant"; **jobopportunity.info / cldnavi** — SEO mirrors of Ant's *vendor* 83.8 DiagnosisArena-MCQ / 53.9 MedXpertQA-Text (no neutral reproduction); **Reddit r/LocalLLaMA** — "healthcare-focused, built on Ling-3.0-flash, 124B/5.1B, 256K"). **AA page: none.**
+- Future sources: this becomes scoreable **only if** (a) Ant publishes a **Sante model card + license + verifiable medical benchmarks** independent of the base, **and** (b) a **neutral host reproduces** a variant-specific clinical score (the arXiv team must actually get it to run). Until then the medical specialization has **no measurable artifact of its own**, and the correct action is documented self-exclusion. **Guard against** (a) importing the base `ling-3.0-flash`'s verified scores (GPQA 85.5 / BFCL 73.0 / agent ceiling) as if they were Sante's, and (b) treating the **unverified vendor DiagnosisArena 83.8 / MedXpertQA 53.9** (SEO-echoed, independent-run failed) as established facts. **No dimension scores are assigned.**

@@ -1,5 +1,26 @@
 # Gemini 4 Argon — findings by Solar_Mini_4
 
+- Source: Google DeepMind (`google/gemini-4-argon`)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google DeepMind's frontier reasoning model (announced Sep 30, 2026) built for deep multi-step professional work — software engineering, cybersecurity defense, enterprise knowledge work — with an industry-leading 1M-token unified input/output limit via the Gemini API.
+- **Provider / access:** Google AI Studio / Vertex AI paid API, Gemini app (Pro/Ultra), Google Antigravity, Gemini for business. Paid; no free tier. Cyber defenders can join the Fairwind Program (unrestricted cyber guardrails). Restricted access.
+- **Release / knowledge:** Announced 2026-09-30; generally available 2026-10-13. Knowledge cutoff not publicly confirmed.
+- **IDs:** `google/gemini-4-argon` (API model id), `gemini-4-argon` (curated).
+- **Context window:** 1M tokens unified input/output (continuation protocol); max output 65,536 default, up to 1M with long decode.
+- **Modalities:** Text, image, video, audio, PDF input; text output; reasoning (low/medium/high); tool calling; computer use (preview); code execution; search grounding; structured output.
+- **Pricing (as of 2026-10-13):** introductory $2.00 input / $10.00 output per 1M tokens, cached $0.10 (through Nov 30, 2026); standard $4.00/$20.00, cached $0.20 from Dec 1, 2026; batch 50% off ($1.00/$5.00) via OpenRouter.
+- **Architecture:** proprietary; parameter count undisclosed; specialised cybersecurity defensive training; automated misalignment monitor + Gray Swan IPI defenses (0.7% attack success across 15 adaptive attempts).
+
+### Raw benchmarks found
+
+# Gemini 4 Argon — findings by Solar_Mini_4
+
 > Template → replaced with model-specific research; no placeholders remain.
 > Source of truth methodology: `../../model-comparison.md`.
 

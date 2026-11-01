@@ -1,0 +1,30 @@
+# GPT-OSS 120B Lite — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: OpenCode (`opencode/gpt-oss-120b-lite`; presented as an OpenAI "Lite" tier of gpt-oss-120b; **no AA page (404) / no OpenAI "lite" release / not in the OpenCode Zen catalog**)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Verdict — SELF-EXCLUDED.** **GPT-OSS 120B Lite** is **not a distinct, independently-measured artifact** — it is a **"Lite" label layered on the exact model already scored as `gpt-oss-120b`**. The curated `meta` describes it in those words: *"OpenAI's Apache-2.0 open-weight **117B/5.1B-active MoE** … **128K** ctx … Free Apache 2.0 open weights; hosted ~$0.15/$0.60"* — **identical parameter count, context window, license and price to gpt-oss-120b** (scored separately), differing only by the un-substantiated gloss *"tuned for concise, high-density reasoning."* Scoring it is impossible under the no-double-count and no-invented-numbers rules because **(a) OpenAI ships only two gpt-oss weights — `gpt-oss-120b` and `gpt-oss-20b`; there is no official "120b-lite" checkpoint**; **(b) it has zero independent measurement — Artificial Analysis returns 404, no provider route, no leaderboard cell**; and **(c) the ONLY web page that names "GPT-OSS 120B Lite" is this project's own site (`modelcomp.vercel.app`) — a circular self-reference, not evidence of an external artifact.** Any score would be a **re-credit of `gpt-oss-120b`'s measurements** onto a cosmetic label — so the entry is excluded, not scored.
+
+## Why this is a self-exclusion (not a scored model)
+
+- **OpenAI never released a "Lite" checkpoint.** OpenAI's **`introducing-gpt-oss`** announcement and the **`openai/gpt-oss-120b` Hugging Face card** / **arXiv 2508.10925 model card** document exactly **two** open-weight models: **gpt-oss-120b** (116.8B total / **5.1B active**) and **gpt-oss-20b** (20.9B / 3.6B active). There is **no "gpt-oss-120b-lite"** among OpenAI's shipped weights — the "Lite" tag corresponds to no published checkpoint.
+- **The curated spec is byte-identical to gpt-oss-120b (already scored).** meta: **117B / 5.1B-active MoE, 131,072 ctx, text in/out, Apache-2.0, ~$0.15/$0.60** — every one of those is the **`gpt-oss-120b`** profile (see that entry's report). The only differentiator is the phrase *"tuned for concise, high-density reasoning,"* which is **not tied to any benchmark, eval delta, or config** in any source. Scoring the "Lite" would therefore be **double-counting gpt-oss-120b** under a second name.
+- **No independent tracker coverage.** **`artificialanalysis.ai/models/gpt-oss-120b-lite` → 404** (no Intelligence Index / Speed / Cost). No OpenRouter, DeepInfra, Groq, Together or Fireworks "lite" route was found; the model does not appear in the **current OpenCode Zen catalog** table (fetched 2026-11-01), which lists no `gpt-oss-*` "lite" entry.
+- **The sole external mention is circular.** A targeted search for **"gpt-oss-120b-lite"** returns **only `modelcomp.vercel.app/model/gpt-oss-120b-lite/`** — i.e. **this comparison site's own page rendering the corpus entry**, not an upstream vendor, tracker or independent review. A name that exists only inside the dataset that lists it is **not evidence of a real distinct artifact**.
+
+## What we did establish (documented, not scored)
+
+- **Underlying real model:** **gpt-oss-120b** — OpenAI's **Apache-2.0 open-weight sparse-MoE (117B total / 5.1B active, MXFP4)**, **text-only**, **131,072 ctx**, **~$0.15/$0.60 hosted / free to self-host** — which is **scored on its own merits in the separate `gpt-oss-120b` entry**; none of that evidence is re-credited here.
+- **"Lite" is at most a serving/prompting flavour** (concise-output behaviour), **not** a separately trained or separately benchmarked checkpoint, and **nothing published quantifies a difference**.
+
+> **Consistency check:** this is the **duplicate-label / no-distinct-artifact** pattern — the same reasoning used to exclude **`owl-alpha`** (a real name whose only data belonged to a base already scored, so re-crediting would double-count) and **`ling-3.0-flash-sante`** (variant with 100%-inherited specs). It is **not** like `gpt-5.3-codex-spark`, which IS excluded from that family's numbers because independent sources document a **distinct pruned checkpoint** with its own benchmarks — here there is **no distinct checkpoint and no benchmark at all**, only a label. **No dimension scores are assigned.**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-11-01
+- Method: public internet research (**OpenAI `introducing-gpt-oss`** + **`openai/gpt-oss-120b` HF card** + **arXiv 2508.10925 "gpt-oss-120b & gpt-oss-20b Model Card"** — OpenAI ships **only two** weights: **gpt-oss-120b (116.8B/5.1B-active)** and **gpt-oss-20b (20.9B/3.6B)**; **no "120b-lite" checkpoint**; **Artificial Analysis `gpt-oss-120b-lite` → 404** (no independent measurement); **OpenCode Zen live catalog** — no `gpt-oss-*` "lite" route; **targeted web search for "gpt-oss-120b-lite"** returns **only this project's own `modelcomp.vercel.app` page** (circular, rejected as evidence). **Curated `meta`** — spec identical to the already-scored `gpt-oss-120b` (117B/5.1B MoE, 131,072 ctx, Apache-2.0, ~$0.15/$0.60), differing only by an unbenchmarked "concise reasoning" gloss.)
+- Future sources: this becomes scoreable **only if** a **named, dated "gpt-oss-120b-lite" checkpoint** is published (OpenAI or a tracker) **with its own evaluation** demonstrably different from `gpt-oss-120b`. **Guards applied:** (1) do **NOT** transfer any **`gpt-oss-120b`** benchmark (AIME / SWE-bench Verified / GPQA / LiveCodeBench / MMLU-Pro / the 90.8% self-admitted hallucination) onto this label — that model is scored separately; (2) do **NOT** treat *"tuned for concise, high-density reasoning"* as a measured capability — no benchmark supports it; (3) reject the **self-referential modelcomp page** as independent corroboration; (4) **gpt-oss-20b** is also a different model, not this one. **No dimension scores are assigned.**

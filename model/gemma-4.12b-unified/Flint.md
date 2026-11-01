@@ -31,7 +31,7 @@ Official (Google DeepMind / Google / Hugging Face / arXiv):
 
 Independent (Artificial Analysis / BenchLM / community):
 
-- Artificial Analysis Intelligence Index: **14** (estimated, Reasoning) — ranked ~28 of 719 models on the index; AA Coding Index **31.0**; AA-IFBench **73.5`.
+- Artificial Analysis Intelligence Index: **14** (estimated, Reasoning) — ranked ~28 of 719 models on the index; AA Coding Index **31.0**; AA-IFBench **73.5**.
 - BenchLM: **35.48/100** overall, rank **#163/1004**, context 256K, reasoning-typed, open weight — with note that only 22 of 724 benchmarks covered (partial coverage → conservative score).
 
 ### Cross-source comparison

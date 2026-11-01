@@ -1,0 +1,38 @@
+# GLM 5.3 FlashX — findings by GPT-6.1 Terra
+
+- Source: Z.ai `glm-5.3-flashx`
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX
+- **Short description:** Z.ai documents FlashX as a faster Flash-family offering; the vendor describes 200 tokens/s but does not explicitly establish identical weights in the accessible documentation. The separately tracked `glm-5.3-flash-x` appears to describe the same API ID, so identity resolution needs review.
+- **Provider / access:** Z.ai API `glm-5.3-flashx` and OpenRouter `z-ai/glm-5.3-flashx`.
+- **Release / knowledge:** No verified exact release date or knowledge cutoff found.
+- **IDs:** `glm-5.3-flashx`; distinct from the separately named legal-domain model `glm-5.3-flashx-legal`.
+- **Context window:** Z.ai's shared Flash/FlashX documentation lists 1M context and 128K maximum output.
+- **Modalities:** Shared documentation lists text, image, video and files in, text out; function calling and thinking supported.
+- **Pricing (2026-11-01):** Z.ai lists $0.37 input / $1.25 output / $0.075 cached input per million.
+- **Architecture:** Z.ai documents Flash as 320B total / 18B active; the exact FlashX weight identity is not independently confirmed.
+
+### Raw benchmarks found
+
+Agent / tool use, reasoning / knowledge, coding and long context: **no verified public benchmark number found explicitly measured on the FlashX deployment**. Z.ai reports DeepSWE 1.1 **63.4%** and AutomationBench **48.8%** for `GLM-5.3-Flash`, not explicitly FlashX; they are neighboring-model evidence, not exact-model scores.
+
+### Normalized scores (1–100)
+
+Excluded: exact-deployment benchmark and checkpoint identity are insufficiently verified, so numerical scores are not assigned.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-01
+- Method: Vendor API, pricing and provider-route research; base Flash scores are not silently attributed to FlashX.
+- Reference URLs:
+  - [Z.ai Flash and FlashX documentation](https://docs.z.ai/guides/llm/glm-5.3-flash)
+  - [Z.ai pricing](https://docs.z.ai/guides/overview/pricing)
+  - [OpenRouter FlashX route](https://openrouter.ai/z-ai/glm-5.3-flashx)
+- Future sources: add a separate signed findings file when exact-deployment benchmark evidence is verified.
