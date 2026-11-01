@@ -1,0 +1,35 @@
+# GPT-OSS 120B Lite — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified data for this exact ID)
+
+- Source: OpenAI? (`gpt-oss-120b-lite` — identity unverified)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model ID. Per the template's mandatory self-exclusion rule this file is
+> saved as `.md.excluded` (notes only; any scores inside are ignored) instead of
+> a scored `.md`.
+
+## Model card
+
+- **Name:** "GPT-OSS 120B Lite" (UNVERIFIED as a distinct OpenAI release)
+- **Short description:** No evidence found that OpenAI ships a distinct `gpt-oss-120b-lite` weights release. OpenAI's own catalog, launch materials (2025-08-05), model card and `openai.com/open-models` ship exactly two gpt-oss releases — `gpt-oss-120b` (117B total/5.1B active) and `gpt-oss-20b` — with no Lite variant. Where a `gpt-oss-120b-lite`-style ID does appear (hosting gateways), the "Lite" is a **billing plan tier** (e.g. a cheap "Lite plan" row for the original model), not a different model.
+- **Provider / access:** The folder's curated ID is `opencode/gpt-oss-120b-lite` (Zen); no vendor-side model ID was found to resolve it. The curated meta's own specs (117B/5.1B-active, 128K, Apache 2.0) are byte-for-byte the original `gpt-oss-120b` specs.
+- **Release / knowledge:** The original gpt-oss-120b launched 2025-08-05; no Lite release date found anywhere (nothing to date).
+- **IDs:** no verified `gpt-oss-120b-lite` vendor ID found. The original: `openai/gpt-oss-120b` (HF), `gpt-oss-120b` (OpenRouter, $0.03/$0.15).
+- **Context window:** unverified for a Lite variant; the original is 131,072 total (128K) / 128K native (card).
+- **Modalities:** text in/out (original is text-only).
+- **Pricing:** free Apache 2.0 weights for self-host (original); hosted ~$0.15/$0.60 per 1M matches the original's typical rates.
+- **Architecture:** original gpt-oss-120b: MoE transformer, 36 layers, 116.8B total / 5.1B active, MXFP4-native MoE weights, harmony chat format.
+
+## Notes for future research (existence checklist)
+
+1. Search for a distinct OpenAI announcement, model-card page, or HF repo named `gpt-oss-120b-lite` — none found as of 2026-11-01.
+2. If Zen serves a `gpt-oss-120b-lite` route, obtain its catalog identity: is it a serving variant/alias of the original, or a genuine derivative? Serving-variant research should reference the original's benchmark suite; a serving-profile claim needs user sign-off.
+3. Original's verified benchmark suite (for reference IF identity resolves to it): GPQA-Diamond 80.1 no-tools, AIME 2025 97.9 with tools, HLE 19.0, MMLU 90.0, SWE-V 62.4, τ-Retail 67.8, Codeforces 2622 — all OpenAI model-card figures; none transfer to this folder's ID until identity resolves.
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-01
+- Method: Public internet research (OpenAI catalog + model card, HF, gateway indexes); no scoring performed — negative findings only. The parking/redirect question (alias of `gpt-oss-120b`?) awaits user sign-off, never self-decided.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

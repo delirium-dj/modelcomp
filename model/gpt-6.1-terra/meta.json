@@ -1,9 +1,22 @@
 {
   "id": "opencode/gpt-6.1-terra",
   "name": "GPT-6.1 Terra",
-  "short": "GPT-6.1 Terra model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenAI's October 2026 fast visual-reasoning and computer-use model (1.05M ctx, $1/$5 per M) for high-volume professional work, screen interaction, image understanding and writing.",
+  "contextWindow": "1,050,000 combined (922,000 max input / 128,000 max output)",
+  "modalities": "Text/image in, text out",
+  "pricingNote": "Standard $1 input / $5 output per M; cached input $0.05; prompts over 272K input charged 2x input / 1.5x output",
+  "pricingTiers": [
+    "Standard: $1 input / $0.05 cached / $5 output per M",
+    "Prompts over 272K input: 2x input/cache, 1.5x output for the entire request",
+    "Batch/Flex half of Standard; Fast mode 2x"
+  ],
+  "officialUrl": "https://openai.com/index/introducing-gpt-6-1-terra/",
+  "pricingLinks": [
+    "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+    "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+    "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+  ],
+  "standout": "Low $1/$5 pricing with strong image-driven professional workflows and computer-use tooling via the Responses API.",
+  "tradeoff": "Max-effort latency/token use, extra tool fees and >272K prompt repricing reduce task-level value; no verified Zen free route.",
+  "noFreeId": true
 }

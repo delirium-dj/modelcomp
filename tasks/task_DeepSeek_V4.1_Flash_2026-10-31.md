@@ -26,6 +26,49 @@ files (Part A1).
 
 ---
 
+## Status — applied 2026-11-01
+
+Items implemented this session (see `REPORT.md` 2026-11-01 for the file-level log).
+Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
+`pnpm build:direct` **205 SSG pages** with no errors.
+
+**Done**
+
+- **A1** — 11 tracked scratch files `git rm`'d + untracked `temp_slugs.txt` deleted.
+- **A2** — `modeljev-1.13/` removed (byte-identical duplicate; per-file sign-off given).
+- **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
+- **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
+- **B2** — stale `SourceKey` prune added to `reconcileRegistry` (`scripts/lib/codegen.mjs`),
+  wired in `scripts/sync-data.mjs` with `presentStems` (zero-failure runs only; new
+  `codegen.test.mjs` cases). The dead keys remove themselves on the next clean `pnpm sync`.
+- **C1** — `.agents/rules.md`, `.antigravity/history/project-map.md`, `tasks/sync-data.md`
+  updated to the v2 component/helper reality.
+- **C4 / C6** — dangling `GLM53F_IMP` comment references rewritten; sync header step list corrected.
+- **D1** — shared `src/components/v2/theme.ts` (`usePageTheme` + `applyPageTheme`); the four
+  theme-init copies and the `V2Header` toggle now share one writer.
+- **D2** — shared `src/components/v2/hex.ts`; all three radar renderings (homepage hero,
+  homepage compare, model profile, design study) use it.
+- **D3** — dimension label maps derived from `DIMENSIONS` (`src/components/v2/modelView.ts`).
+- **D4** — best/worst cell highlighting shared (`buildHlStats` / `hlClass` / `hlTitle`).
+- **D5** — `MODEL_COLORS` now live (used by the compare chart); `SERIES_COLORS` dropped.
+- **D6** — `tooltipFor` → shared `dimensionTooltip`.
+- **D7** — dead exports removed (`sortSourceFor`, `getModel`, `PAID_ONLY_PROVIDERS`,
+  `getProvider`, `FREE_ZEN_MODELS_URL` export, `HELPS`).
+- **D8** — providers page data-driven (`SECTIONS` array in `routes/providers/index.tsx`).
+- **D9** — homepage split: `routes/index.tsx` now composes `v2/HeroSection`, `FactsStrip`,
+  `CompareSection`, `MethodologySection`, `ModelsSection`, `DecisionShelf`.
+- **D10** — `writeIfChanged` helper in `scripts/sync-data.mjs`.
+
+**Not applied (left for you)**
+
+- **A3** `findings/` orphan tree — awaits your call on the two ad-hoc research notes.
+- **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md` ·
+  **A10** `design-6sol` deletion (kept; only de-duplicated).
+- **B1** restore `model-report-TEMPLATE.md` (not in this request).
+- Part C/B items outside the execution list (**B3–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
+
+---
+
 ## 0. Executive summary
 
 | Part | Theme | Items | Risk |

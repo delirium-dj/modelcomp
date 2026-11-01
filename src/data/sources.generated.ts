@@ -89,7 +89,6 @@ export type SourceKey =
   | "Flint"
   | "Inkling"
   | "Xing 4.0 29B A4B"
-  | "Xing 4.0 29b a4b.md"
   | "MiMo 2.6 Free"
   | "Qoder Sonus"
   | "GLM 4.6V Flash"
@@ -194,7 +193,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Flint", label: "Flint", file: "Flint.md" },
   { key: "Inkling", label: "Inkling", file: "Inkling.md", slug: "Inkling" },
   { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
-  { key: "Xing 4.0 29b a4b.md", label: "Xing 4.0 29b a4b.md", file: "Xing_4.0_29b_a4b.md.md" },
   { key: "MiMo 2.6 Free", label: "MiMo 2.6 Free", file: "MiMo_2.6_Free.md" },
   { key: "Qoder Sonus", label: "Qoder Sonus", file: "Qoder_Sonus.md", slug: "qoder-sonus" },
   { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md" },

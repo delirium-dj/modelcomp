@@ -130,8 +130,8 @@ Exit code `0` = in sync. Non-zero = human action required (read the `FAIL` lines
   exactly `Tool use`, `Reasoning`, `Context window`, `Multimodal`, `Coding`,
   `Cost efficiency`, `Overall Score`. Keep Agreement notes free of
   `- **X: N/100` patterns.
-- Model A/B/C dropdowns stay A–Z by display name (`CompareSection.tsx`).
-- Homepage defaults stay dynamic (`top3ByOverall()` in `src/routes/index.tsx`);
+- Model A/B/C dropdowns stay A–Z by display name (`src/components/v2/CompareSection.tsx`).
+- Homepage defaults stay dynamic (`top3Ids()` in `src/routes/index.tsx`);
   never hardcode model ids as defaults.
 - Results-source dropdown order is derived, not curated: Average stays first and
   default, the virtual sort views follow in canonical DIMENSIONS order, and

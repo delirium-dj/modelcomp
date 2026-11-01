@@ -129,6 +129,31 @@ describe("reconcileRegistry (labels/slugs + virtual prune)", () => {
   });
 });
 
+describe("reconcileRegistry (stale-key prune)", () => {
+  const withStale = SOURCES_TS.replace(
+    '  { key: "Alpha", label: "Alpha", file: "Alpha.md", slug: "alpha" },',
+    '  { key: "Alpha", label: "Alpha", file: "Alpha.md", slug: "alpha" },\n  { key: "Ghost", label: "Ghost", file: "Ghost.md" },',
+  ).replace('| "Alpha";', '| "Alpha"\n  | "Ghost";');
+
+  it("prunes a registered key with no live file and rebuilds the union", () => {
+    const text = reconcileRegistry(withStale, (k, s) => buildRegistryEntry(k, s, resolve), new Set(["Alpha"]));
+    assert.doesNotMatch(text, /"Ghost"/);
+    assert.match(text, /\{ key: "Alpha"/);
+    assert.match(text, /\{ key: "average", label: "Average", file: "average\.md" \}/);
+    assert.match(text, /export type SourceKey =\n  \| "average"\n  \| "Alpha";/);
+  });
+
+  it("does not prune when no live-stem set is supplied (failing runs)", () => {
+    const text = reconcileRegistry(withStale, (k, s) => buildRegistryEntry(k, s, resolve));
+    assert.match(text, /"Ghost"/);
+  });
+
+  it("keeps a key whose file is live", () => {
+    const text = reconcileRegistry(withStale, (k, s) => buildRegistryEntry(k, s, resolve), new Set(["Alpha", "Ghost"]));
+    assert.match(text, /\{ key: "Ghost"/);
+  });
+});
+
 describe("renderScoresFile (deterministic tuple emit)", () => {
   it("sorts slugs + files, emits positional tuples in SCORE_FIELDS order", () => {
     const text = renderScoresFile({

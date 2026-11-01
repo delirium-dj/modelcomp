@@ -1,9 +1,20 @@
 {
   "id": "opencode/muse-wonder",
   "name": "Muse Wonder",
-  "short": "Muse Wonder model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Meta Superintelligence Labs' preview multimodal model (1M ctx, $4/$20 per M) for agentic and coding work; API model muse-wonder-1.0, not Muse Wonder Full.",
+  "contextWindow": "1,048,576 input (131,072 max output)",
+  "modalities": "Text/image/video/audio/PDF in, text out",
+  "pricingNote": "$4 input / $20 output per M; cached input $0.20 per M; web search $2.50 per 1,000 queries",
+  "pricingTiers": [
+    "Standard: $4 input / $20 output / $0.20 cached input per M",
+    "Web search: $2.50 per 1,000 queries"
+  ],
+  "officialUrl": "https://research.meta.ai/blog/muse-wonder",
+  "pricingLinks": [
+    "https://dev.meta.ai/docs/pricing-rate-limits",
+    "https://opencode.ai/docs/zen"
+  ],
+  "standout": "Strong coding (DeepSWE/SWE-Marathon) and multimodal input support with a 1M-token context.",
+  "tradeoff": "Expensive $4/$20 rate and preview status; no published retrieval result validating the full 1M context.",
+  "noFreeId": true
 }

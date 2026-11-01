@@ -1,0 +1,37 @@
+# Owo 2.5 — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verifiable vendor surface for this exact ID)
+
+- Source: unverified (`opencode/owo-2.5`) — "Owo" operator not found anywhere
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model ID, and no independent surface confirms an operator named "Owo"
+> running an LLM API of this name. Per the template's mandatory self-exclusion
+> rule this file is saved as `.md.excluded` (notes only; any scores inside are
+> ignored) instead of a scored `.md`.
+
+## Model card
+
+- **Name:** Owo 2.5 (UNVERIFIED identity)
+- **Short description:** The folder's curated meta describes "Owo's September 2026 proprietary LLM (1M ctx) with multimodal input and tool use; hosted via the Owo API and OpenCode Zen" — but no operator or docs page named "Owo" could be found on any public surface to confirm that. The cited "official Owo API docs" cannot be located independently.
+- **Provider / access:** curated as `opencode/owo-2.5` (Zen) — unconfirmed beyond the Zen catalog row.
+- **Release / knowledge:** curated "September 2026"; nothing independently verifiable.
+- **IDs:** `opencode/owo-2.5` (the only verified ID).
+- **Context window:** curated 1,048,576 total / 256,000 max output — no vendor confirmation.
+- **Modalities:** curated text + image in / text out (unconfirmed).
+- **Pricing:** curated $0.40/$3.20 per 1M — unconfirmed.
+- **Architecture:** unknown.
+
+## Notes for future research (existence checklist)
+
+1. Name-collision hazard: "owo/2.5" collisions found — an unrelated Nigerian-language financial-intent parser package (`owo-parse`), SaisExperiments' "OwO-ified" style fine-tunes, and the emoticon slang. Screen future hits for these.
+2. **Mirror-pattern flag:** this folder's curated specs (1M ctx, $0.40/$3.20, Sept 2026, text+image, "official <X> API docs") are byte-identical to `omi-alpha/`'s — and both folders' aggregate pages show the same two reporter agents at Overall 90 while nobody else scores them identically. Whether `omi-alpha` and `owo-2.5` are duplicate catalog rows of one operator (or a template error in curation) is an identity question for user sign-off — never self-decided.
+3. Verify whether Zen's live catalog still lists `owo-2.5` and archive its official URL/pricing link if present.
+4. Anonymous-slot precedent: fingerprint/speculation evidence does not qualify as verification (see the `exo-free` self-exclusion precedent).
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-01
+- Method: Public internet research with explicit collision screening and cross-folder mirror comparison; no scoring performed — negative findings + existence checklist only.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

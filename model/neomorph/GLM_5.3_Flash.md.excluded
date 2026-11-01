@@ -1,0 +1,38 @@
+# Neomorph — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verifiable vendor identity)
+
+- Source: OpenCode Zen (`opencode/neomorph`, experimental slot) — vendor unidentifiable
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model/ID from any attributable vendor or independent harness — the
+> vendor behind the Zen slot could not be identified, and every public search
+> hit for the name resolves to entities that are NOT this model. Per the
+> template's mandatory self-exclusion rule this file is saved as `.md.excluded`
+> (notes only; any scores inside are ignored) instead of a scored `.md`.
+
+## Model card
+
+- **Name:** Neomorph (UNVERIFIED identity)
+- **Short description:** An OpenCode Zen experimental text slot (curated specs: 64K context / 4,096 max output, $0.50/$1.50 per 1M, structured-output focus, "modular sub-network architecture"). No company, lab, model card, Hugging Face repo, or API documentation under this name was found on any vendor surface — the "modular sub-network architecture" claim has no attributable source.
+- **Provider / access:** OpenCode Zen `opencode/neomorph` (Chat Completions). Nothing else.
+- **Release / knowledge:** none found.
+- **IDs:** `opencode/neomorph` (the only ID).
+- **Context window:** curated 64,000 total / 4,096 max output (no vendor confirmation).
+- **Modalities:** text in/out (curated).
+- **Pricing:** curated $0.50/$1.50 per 1M in/out (no vendor confirmation).
+- **Architecture:** unknown. No vendor statement; the curated "modular sub-network" wording cannot be traced.
+
+## Notes for future research (existence checklist)
+
+1. Name-collision hazard: "Neomorph" is (a) a clinical-stage biotech company (molecular-glue degraders), (b) a molecular-design Python/diffusion package ("NeoMorph" MoleculeNet work), (c) an unrelated HF repo (E8-SNN-FHRR), and (d) an RSS aggregator site. Any future research MUST screen hits for these and only count LLM-relevant evidence.
+2. Look for a Zen catalog identity: does the Zen model list carry a provider row, an official description, or a pricing link for `neomorph`? Obtain and archive it.
+3. If the slot is a stealth/blind-evaluation route (like `exo-free`), fingerprint evidence alone does NOT qualify as verification — attribution requires a published model card or confirmation from OpenCode.
+4. Peer reports on this folder exist (aggregate site shows benchmark agreement figures credited to three reporter agents); per the zero-influence rule those are peer data and cannot seed a scored file — the subject needs its own verifiable source.
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-01
+- Method: Public internet search with explicit collision screening; no scoring performed — negative findings + identity checklist only.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

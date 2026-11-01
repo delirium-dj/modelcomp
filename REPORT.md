@@ -1,5 +1,42 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-01 — Purification & simplification pass (from task_DeepSeek_V4.1_Flash_2026-10-31.md)
+
+1. **Scratch removal.** `git rm` of 11 tracked one-off files (`_t10.txt`, `_test_ascii.txt`,
+   `.missing-list.txt`, `.tmp-queue.cjs`, `batch_write.cjs`, `check_parse.js`, `queue_slugs.txt`,
+   `scan_missing.py`, `update_research.mjs`, `scripts/tmp-dates.cjs`, `scripts/tmp-missing.cjs`),
+   plus the stray `modeljev-1.13/MiniMax_M3.1_Flash.md` (SHA-256-identical to the canonical
+   `model/jev-1.13/MiniMax_M3.1_Flash.md`; per-file sign-off given) and untracked `temp_slugs.txt`.
+2. **Theme de-duplication.** New `src/components/v2/theme.ts` (`usePageTheme` + `applyPageTheme`)
+   replaces the ~40-line init block copy-pasted in `routes/index.tsx`,
+   `routes/model/[slug]/index.tsx`, `routes/layout.tsx` and `routes/providers/index.tsx`;
+   `v2/V2Header.tsx` toggles through the same single writer.
+3. **Radar / labels / highlight de-duplication.** New `src/components/v2/hex.ts` (radar geometry,
+   `barWidth`) and `src/components/v2/modelView.ts` (DIMENSIONS-derived labels, per-dot tooltip,
+   search predicate, best/worst highlighting); the homepage and the model profile share them.
+   `SERIES_COLORS` dropped in favour of `MODEL_COLORS` (now live).
+4. **Homepage split.** `routes/index.tsx` (was 1 478 lines) now owns only shared state and composes
+   six section components: `v2/HeroSection`, `FactsStrip`, `CompareSection`, `MethodologySection`,
+   `ModelsSection`, `DecisionShelf`.
+5. **Dead code removed.** `sortSourceFor` + `getModel` (`src/data/models.ts`),
+   `PAID_ONLY_PROVIDERS` + `getProvider` (`src/data/providers.ts`), the `FREE_ZEN_MODELS_URL`
+   export (`freeZenLink.tsx`), the `HELPS` constant (`routes/contact/index.tsx`), and the
+   never-matching `src/components/v2/v2.css` (`.v2` was never applied) plus its three imports.
+6. **Providers page.** Seven hand-written category `<section>`s collapsed to one data-driven
+   `SECTIONS` array (`routes/providers/index.tsx`).
+7. **`scripts/sync-data.mjs`.** Six repeated read/compare/write emit blocks collapsed to one
+   `writeIfChanged` helper; stale step-list header corrected.
+8. **Stale SourceKeys.** `reconcileRegistry` (`scripts/lib/codegen.mjs`) now prunes registered keys
+   with no live findings file (zero-failure runs only; the `average` entry is kept; the `SourceKey`
+   union is rebuilt). Wired in sync with `presentStems`; new `codegen.test.mjs` cases. The stale
+   keys (`Space Bunny`, `Ox Alpha`, `Mimo v2.5 Free`) are removed on the next clean `pnpm sync`.
+9. **Docs.** `.agents/rules.md`, `.antigravity/history/project-map.md` and `tasks/sync-data.md`
+   updated to the v2 component/helper reality; dangling `GLM53F_IMP` comment references rewritten.
+
+Validation this pass: `pnpm test` 561/561 green; `pnpm build.types:direct` clean; `pnpm build:direct`
+succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
+Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`) — the sync applies the stale-key prune.
+
 ## 2026-10-29 — bare "Invalid request" still ignored (pattern coverage, not events)
 
 1. **Symptom.** A live turn died at `11:30:31` with `Failed to drain Session cause="AI.Error: Invalid request"` and no `continue` prompt, even though `provider-invalid-request-retry` was loaded and the 2.2 event path was in place.
