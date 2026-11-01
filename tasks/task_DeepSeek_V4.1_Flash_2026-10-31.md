@@ -29,7 +29,7 @@ files (Part A1).
 ## Status — applied 2026-11-01
 
 Items implemented this session (see `REPORT.md` 2026-11-01 for the file-level log).
-Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
+Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
 `pnpm build:direct` **205 SSG pages** with no errors.
 
 **Done**
@@ -48,6 +48,10 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
 - **B2** — stale `SourceKey` prune added to `reconcileRegistry` (`scripts/lib/codegen.mjs`),
   wired in `scripts/sync-data.mjs` with `presentStems` (zero-failure runs only; new
   `codegen.test.mjs` cases). The dead keys remove themselves on the next clean `pnpm sync`.
+- **B3** — `src/data/providers.ts` comment already describes the seven-category render
+  ("groups by category (its own SECTIONS array)"); `PAID_ONLY_PROVIDERS` and `getProvider`
+  do not exist in the file (dead code already removed, tracked as D7 done). No further
+  action needed — Path A complete. See `REPORT.md` 2026-11-01 item 12.
 - **C1** — `.agents/rules.md`, `.antigravity/history/project-map.md`, `tasks/sync-data.md`
   updated to the v2 component/helper reality.
 - **C4 / C6** — dangling `GLM53F_IMP` comment references rewritten; sync header step list corrected.
@@ -70,7 +74,7 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
 
 - **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
 - **B1** restore `model-report-TEMPLATE.md` (not in this request).
-- Part C/B items outside the execution list (**B3–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
+- Part C/B items outside the execution list (**B4–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
 ---
 

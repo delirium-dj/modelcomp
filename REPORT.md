@@ -42,8 +42,13 @@
     `layout.tsx:19` since the route no longer exists. The v2 design language survives in
     `src/routes/index.tsx` and `src/routes/model/[slug]/index.tsx`. `docs/v2-promotion-rollback.md:15`
     updated to note the folder is gone.
+12. **Providers page comment corrected (B3, Path A).** `src/data/providers.ts` header comment
+    (lines 293–295) already describes the seven-category render ("groups by category
+    (its own SECTIONS array)"); `PAID_ONLY_PROVIDERS` and `getProvider` do not exist in the
+    file (dead code already removed, tracked as item 5/D7 done). Verified via grep across
+    `src/` — zero matches for either identifier. No code change needed; Path A complete.
 
-Validation this pass: `pnpm test` 561/561 green; `pnpm build.types:direct` clean; `pnpm build:direct`
+Validation this pass: `pnpm test` 562/562 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
 Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`) — the sync applies the stale-key prune.
 
