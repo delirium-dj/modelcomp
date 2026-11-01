@@ -74,10 +74,16 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
 - **D9** — homepage split: `routes/index.tsx` now composes `v2/HeroSection`, `FactsStrip`,
   `CompareSection`, `MethodologySection`, `ModelsSection`, `DecisionShelf`.
 - **D10** — `writeIfChanged` helper in `scripts/sync-data.mjs`.
+- **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3 756 lines).
+  V1 shape cannot load on Desktop 2.x (`PluginModule.LoadError: missing key "default"`);
+  both loaders glob top level only; V2 ports at `.opencode/plugins/*.ts` all load
+  (14/14, zero failures). V1 originals remain recoverable from git history.
+  Dropped the "V1 originals parked" paragraph from `.agents/rules.md`. See
+  `REPORT.md` 2026-11-01 item 14.
 
 **Not applied (left for you)**
 
-- **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
+- **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
 - Part C/B items outside the execution list (**B4–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
 ---

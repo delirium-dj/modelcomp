@@ -51,8 +51,8 @@ reports, and the website stay consistent.
   and an effect or setup function. (cause: SchemaError(Missing key at
   ["default"]))`. Every top-level file must be a **default export** built with
   `Plugin.define({ id, setup })` from `@opencode/plugin` (provided by the
-  runtime, not installed in `.opencode/node_modules`). The original V1 files
-  are parked in `.opencode/plugins/v1/`; both loaders glob the top level only.
+  runtime, not installed in `.opencode/node_modules`). Both loaders glob the
+  top level only.
   Verified on Desktop 2.2.0 on 2026-10-28: 14/14 top-level ports load, zero
   failures.
 - **Shared engine.** The thin ports delegate to

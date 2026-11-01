@@ -53,6 +53,12 @@
     submission checklist. ~13 live references (`.agents/rules.md`, `tasks/research.md`,
     `tasks/research-assign.md`, `model/README.md`, `README.md`, script comments) now point
     at an existing file again, closing a format-drift vector for research agents.
+14. **Parked V1 plugins removed (A6).** `git rm -r .opencode/plugins/v1` — 14 V1 plugin
+    files (3 756 lines) deleted. V1 shape cannot load on Desktop 2.x
+    (`PluginModule.LoadError: missing key "default"`); both loaders glob top level only;
+    V2 ports at `.opencode/plugins/*.ts` all load (14/14, zero failures). V1 originals
+    remain recoverable from git history. Dropped the "V1 originals parked" paragraph
+    from `.agents/rules.md`.
 
 Validation this pass: `pnpm test` 562/562 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
