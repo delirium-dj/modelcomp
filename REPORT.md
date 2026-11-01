@@ -90,6 +90,10 @@
 20. **`src/data/models.ts` header trimmed (C5).** Stale present-tense description of old
     `?raw` bundle (~1.7 MB → ~1.8 MB chunk) removed from lines 1–11; replaced with a
     one-line "why" pointing to `README.md`/`REPORT.md` for the old bundle-size history.
+21. **Sync header comment simplified (C6, Option A).** `scripts/sync-data.mjs` header:
+    removed the redundant, out-of-date numbered step list (6 steps vs. actual 8); kept
+    only the pointer to `tasks/sync-data.md` (the single source of truth). Restated lists
+    drift — same lesson as the identity-roster compaction.
 
 Validation this pass: `pnpm test` 563/563 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.

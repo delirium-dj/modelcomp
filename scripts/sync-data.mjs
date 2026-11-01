@@ -1,23 +1,6 @@
 // Deterministic data sync for modelcomp. Run: pnpm sync
 //
 // Full step list, invariants and the human workflow live in tasks/sync-data.md.
-// In short:
-//   1. Scans every model/<slug>/ folder for findings files (*.md, excluding
-//      average.md and README.md; ".excluded" = self-excluded, skipped loudly).
-//      Hygiene-violating filenames fail loudly; forbidden duplicate roots,
-//      slugs and stems (validate.mjs) fail with zero writes for them.
-//   2. Parses the seven 1-100 scores, auto-corrects a drifted Overall (five-dim
-//      quality mean), extracts benchmark rows, runs the signature-vs-stem
-//      tripwire, and auto-quarantines evidence-free files (QUAR rename).
-//   3. Recomputes every average.md over the top-10 qualifying cohort (rater
-//      gate; crown-rule fallback when no rater clears it).
-//   4. Registers new reporting agents in src/data/sources.generated.ts and
-//      reconciles labels/slugs; stale registry keys are pruned on clean runs.
-//   5. Validates/scaffolds every model/<slug>/meta.json (SCAF until curated).
-//   6. Emits generated build inputs — scores.generated.ts,
-//      verified.generated.ts, evidence.generated.ts, model-queue.md,
-//      public/robots.txt, model-aliases.generated.md — all through
-//      writeIfChanged, only on a zero-failure run.
 //
 // Exit code: 0 = in sync (averages rewritten as needed, reported below).
 // Non-zero = human action required (see error lines).

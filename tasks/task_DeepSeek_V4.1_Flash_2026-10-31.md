@@ -111,6 +111,10 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **C5** — `src/data/models.ts` header trimmed to one-line "why"; stale present-tense
   description of old `?raw` bundle removed (~1.7 MB → ~1.8 MB chunk numbers moved to
   `README.md`/`REPORT.md`). See `REPORT.md` 2026-11-01 item 20.
+- **C6** — `scripts/sync-data.mjs` header comment: removed the redundant, out-of-date
+  numbered step list; kept only the pointer to `tasks/sync-data.md` (the single source
+  of truth). Restated lists drift — same lesson as the identity-roster compaction.
+  See `REPORT.md` 2026-11-01 item 21.
 
 **Not applied (left for you)**
 
