@@ -52,6 +52,11 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
   ("groups by category (its own SECTIONS array)"); `PAID_ONLY_PROVIDERS` and `getProvider`
   do not exist in the file (dead code already removed, tracked as D7 done). No further
   action needed — Path A complete. See `REPORT.md` 2026-11-01 item 12.
+- **B1** — `model-report-TEMPLATE.md` restored from `b666acf2^` (107-line template:
+  model card, raw benchmarks, normalized scores 1–100, signature block, submission
+  checklist). ~13 live references (`.agents/rules.md`, `tasks/research.md`,
+  `tasks/research-assign.md`, `model/README.md`, `README.md`, script comments, etc.)
+  now point at an existing file again. See `REPORT.md` 2026-11-01 item 13.
 - **C1** — `.agents/rules.md`, `.antigravity/history/project-map.md`, `tasks/sync-data.md`
   updated to the v2 component/helper reality.
 - **C4 / C6** — dangling `GLM53F_IMP` comment references rewritten; sync header step list corrected.
@@ -73,7 +78,6 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
 **Not applied (left for you)**
 
 - **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
-- **B1** restore `model-report-TEMPLATE.md` (not in this request).
 - Part C/B items outside the execution list (**B4–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
 ---

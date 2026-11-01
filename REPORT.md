@@ -47,6 +47,12 @@
     (its own SECTIONS array)"); `PAID_ONLY_PROVIDERS` and `getProvider` do not exist in the
     file (dead code already removed, tracked as item 5/D7 done). Verified via grep across
     `src/` — zero matches for either identifier. No code change needed; Path A complete.
+13. **`model-report-TEMPLATE.md` restored (B1).** The 107-line research-report template was
+    restored from `b666acf2^` (`git restore --source=b666acf2^ -- model-report-TEMPLATE.md`).
+    It covers model card, raw benchmarks, normalized scores 1–100, signature block, and
+    submission checklist. ~13 live references (`.agents/rules.md`, `tasks/research.md`,
+    `tasks/research-assign.md`, `model/README.md`, `README.md`, script comments) now point
+    at an existing file again, closing a format-drift vector for research agents.
 
 Validation this pass: `pnpm test` 562/562 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
