@@ -108,11 +108,14 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
   still live (`public/favicon.svg`, `public/manifest.json`, `src/components/router-head.tsx`);
   nothing references the backup folder. V1 originals remain recoverable from git history.
   See `REPORT.md` 2026-11-01 item 15.
+- **C5** — `src/data/models.ts` header trimmed to one-line "why"; stale present-tense
+  description of old `?raw` bundle removed (~1.7 MB → ~1.8 MB chunk numbers moved to
+  `README.md`/`REPORT.md`). See `REPORT.md` 2026-11-01 item 20.
 
 **Not applied (left for you)**
 
 - **A8** `PRD/webshop-prd.md`.
-- Part C/B items outside the execution list (**C5**) and **D11–D12, D14–D18**, **E1/E2**.
+- Part C/B items outside the execution list (**D11–D12, D14–D18**, **E1/E2**).
 
 ---
 

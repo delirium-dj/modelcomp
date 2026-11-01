@@ -87,6 +87,9 @@
     removed; `README.md` project-layout `PRD/prd.md` line removed;
     `src/components/v2/modelView.ts` `(PRD §7)` comment removed. `PRD/` stays gitignored
     (`.gitignore:13`); the unrelated `PRD/webshop-prd.md` remains untracked and unused.
+20. **`src/data/models.ts` header trimmed (C5).** Stale present-tense description of old
+    `?raw` bundle (~1.7 MB → ~1.8 MB chunk) removed from lines 1–11; replaced with a
+    one-line "why" pointing to `README.md`/`REPORT.md` for the old bundle-size history.
 
 Validation this pass: `pnpm test` 563/563 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.

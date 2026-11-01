@@ -1,14 +1,6 @@
-// Scores are pre-parsed by `pnpm sync` (scripts/sync-data.mjs) from
-// model/<slug>/ findings files (one per reporting agent) plus
-// model/<slug>/average.md into src/data/scores.generated.ts (numbers only).
-// Reporting agent registry is emitted into src/data/sources.generated.ts.
-// Importing that instead of the raw markdown keeps full report prose out of
-// the client bundle (the old eager ?raw glob inlined ~1.7 MB of markdown into
-// a single ~1.8 MB chunk). Adding a new findings .md file needs NO code
-// changes: re-run `pnpm sync` and its scores appear in that model's `sources`
-// (hexagon, table, legend, cards) automatically on the next build. Meta
-// (names, blurbs, context/pricing notes)
-// stays curated in model/<slug>/meta.json files.
+// Scores are pre-parsed by `pnpm sync` into generated files (numbers only),
+// keeping report prose out of the client bundle. See README.md / REPORT.md
+// for the old bundle-size history.
 
 import { GENERATED_SCORES } from "./scores.generated";
 import { VERIFIED } from "./verified.generated";
