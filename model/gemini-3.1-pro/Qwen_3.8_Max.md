@@ -1,9 +1,12 @@
 # Gemini 3.1 Pro — findings by Qwen 3.8 Max
 
-- Source: Google DeepMind (`gemini-3.1-pro-preview`)
+- Source: Google DeepMind (`gemini-3.1-pro-preview`); independent: Artificial Analysis (`gemini-3-1-pro-preview`), BenchLM.ai aggregator (2026-10-29) routing to Vals AI, ARC Prize, LlamaIndex ParseBench, PostTrainBench, React Native Evals, Gert Labs, Claw-Eval, MazeBench and OpenRouter; Meta's Muse Spark comparison chart (competitor-run, labelled)
 - Date: 2026-10-20 (UTC)
+- Re-researched: 2026-11-01 (UTC) — enrichment pass; original findings preserved below and marked where superseded
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Verdict (2026-11-01):** this is a **February 2026 model judged in a November 2026 field**, and the independent pass is mostly about where time went. Two of the draft's headline numbers **survive double replication**: GPQA Diamond 94.3% now reads **94.1% (AA) and 95.5% (Vals AI)**, and SWE-bench Verified 80.6% is met by **78.8% (Vals AI)** — genuinely durable claims. The **modality claim is fully vindicated**: AA lists input as **text, image, speech and video**, the only model in this batch whose broad-modality description the tracker confirms outright, and AA-MMMP-Pro **82.4%** beats the draft's 75.8%. What breaks is the **agentic half**: AA's own measurements put it at **Agentic Index 10.3%** and **GDPval-AA 904 Elo / 14.6% all-pass** against the vendor's 1317 Elo, **terminalBenchHard 53.8%**, **MazeBench 1%**, and **ARC-AGI-3 0.4%** on ARC Prize's independent board where Gemini 4 Argon reaches 46.3% — the draft's celebrated ARC-AGI-2 77.1% did not generalise forward. **AA has withdrawn its current Intelligence Index, Cost-per-task and Verbosity cells for this id** (Speed and specs remain), so the draft's open "AA Index" gap **cannot be closed** — the model is out of the current Index set. **Overall 92 → 91**, with the composition shifting from agentic to reasoning/multimodal.
 
 ## Model card
 
@@ -16,6 +19,7 @@
 - **Modalities:** natively multimodal — text + image (+ audio/video per Gemini line) in, text out; reasoning yes (configurable Low/Medium/High thinking levels); tool calls yes; notable animated-SVG generation.
 - **Pricing (as of 2026-10-20):** $2.00 / 1M input and $12.00 / 1M output up to 200K context; $4.00 / $18.00 over 200K; context-cache hit $0.50 input. ~7.5x cheaper than Claude Opus 4.6 on input.
 - **Architecture:** proprietary (closed weights); more token-efficient reasoning than Gemini 3 Pro.
+- **Independently measured (Artificial Analysis, `gemini-3-1-pro-preview`, added 2026-11-01):** **Intelligence Index — N/A** (as are Cost-per-task and Verbosity: the model is **no longer in AA's current Index set**, superseded within the Gemini line — so this gap is *un-closeable*, not merely unfilled; at launch AA reported it **leading the Index, ~4 points ahead of Claude**, which is history on an older basket and not comparable to today's v5.0 numbers) · Speed **134.1 tok/s, #38 of 196** ("notably fast", median 81) · **$2.00 in / $12.00 out per 1M with a 90% cache discount** · **input modality text, image, speech and video**, output text, reasoning Yes, **context 1M** — every one of these spec claims matches the draft.
 
 ### Raw benchmarks found
 
@@ -24,44 +28,53 @@ Agent / tool use:
 - APEX-Agents: **33.5%** (leads Claude Opus 4.6 29.8%, GPT-5.2 23.0%)
 - Terminal-Bench 2.0: **68.5%** (behind GPT-5.3-Codex 77.3%)
 - GDPval-AA (expert task preference): **1317 Elo** (behind Claude Opus 4.6 1606)
-- Tau-Bench / Toolathon: no verified public score found
+- Tau-Bench / Toolathon: **τ²-bench 95.6%** and **DeepSearchQA 69.7%** — **added 2026-11-01, but sourced to Meta's Muse Spark comparison chart**, i.e. a **competitor's run of this model, published to position a rival**. Treated as third-party-adversarial rather than neutral, and never averaged with vendor rows. **Toolathon: still no verified public score found.**
+- **Independent agentic measurements (Artificial Analysis, via BenchLM 2026-10-29) — materially adverse:** **AA Agentic Index 10.3%**, **GDPval-AA 904 Elo / 14.6% all-pass** (the draft's 1317 Elo is Google's figure — the two are not the same instrument, and AA's is the measured one), **APEX-Agents-AA 32.0%** (close to the vendor's APEX-Agents 33.5%, so that row does reproduce), **terminalBenchHard 53.8%**, **AA EnterpriseOps-Gym 42.2%**, **AA-AnalystAgent 41.3%**, **Claw-Eval 57.8%**, **Gert Labs 56.87%**, **ResearchClawBench 13.3%** and **MazeBench 1%** (ASCII, tools enabled). Against that, **Vals AI's Terminal-Bench 2.1 run gives 70.8%**, slightly *above* the vendor's 68.5% on 2.0 — terminal work is not the weak spot; long-horizon business/agentic-work is.
+- **Provenance note (2026-11-01):** BenchLM's **context window: 1M** and the delisted-AA state above; no OSWorld/Computer-use row exists for this id on any board checked.
 
 Reasoning / knowledge:
 
 - ARC-AGI-2: **77.1%** (dominant — up from Gemini 3 Pro's 31.1%; Claude Opus 4.6 37.6%, GPT-5.2 54.2%)
 - GPQA Diamond: **94.3%** (leads Opus 4.6 91.3%, GPT-5.2 92.4%)
 - Humanity's Last Exam: **44.4%** no tools / **51.4%** with tools (Opus 4.6 41.2% / 53.1% — Opus edges it with tools)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: **AA returns N/A for this id** — the model is no longer in AA's current Index set (superseded by Gemini 4 Argon/Carbon), so **the gap the draft left open cannot be closed**. Launch-vintage context: AA reported it **leading the Index by ~4 points over Claude** in February 2026 — a different basket, not comparable to v5.0 and not used for scoring. **BenchLM (2026-10-29) ranks it #34 of 1004 at 64.41/100** (its own coverage caveat: 48 of 724 benchmarks, "score is conservative") — an independent aggregate placing it well below the current frontier (Gemini 4 Carbon 88.38, Opus 5.5 86.29, Astra 86.07, Argon 82.28).
+- **New independent reasoning rows (2026-11-01):** **GPQA Diamond 94.1% (AA) and 95.5% (Vals AI)** — the vendor's 94.3% is now doubly replicated; **AA-HLE 47.0%** (vs Google's 44.4% no-tools / 51.4% with tools — inside the vendor spread); **MMLU-Pro 91.0% (Vals)**; **AA Global-MMLU-Lite 93.2%**; **CritPt 17.7% (AA)**; **AA-LCR 82.0% (AA)**; **AA-IFBench 77.1%**; **HealthBench Hard 20.6%** and **MedXpertQA 71.5% text / 81.3% multimodal** (Meta-run chart, labelled as such).
+- **ARC-AGI-3: 0.4%** (ARC Prize published results, added 2026-11-01) — **the most important adverse finding for this report.** The draft's Reasoning 95 rested on **ARC-AGI-2 77.1%**, which ARC Prize's own board confirms as Google's figure, but on ARC's *next* generation of puzzles this model scores **0.4%** where Gemini 4 Argon reaches **46.3%**. Abstract-reasoning leadership here was a one-generation artifact.
 
 Coding:
 
-- SWE-bench Verified: **80.6%** (top-tier — beats Opus 4.6 72.6%, GPT-5.3-Codex 76.2%)
+- SWE-bench Verified: **80.6%** (top-tier — beats Opus 4.6 72.6%, GPT-5.3-Codex 76.2%) — **independently replicated at 78.8% by Vals AI** (2026-11-01); one of this report's two best-preserved vendor claims
+- **Independent coding rows added 2026-11-01:** **AA Coding Index 68.8%**, **AA-SciCode 58.7%**, **LiveCodeBench 88.5% (Vals AI)**, **PostTrainBench v1.1 22.0%** (public leaderboard), **Vibe Code Bench v1.1 32.03% (Vals AI)**, **React Native Evals 78.9%** and **ParseBench 69.14% (LlamaIndex)**. LiveCodeBench Pro **82.9%** comes from Meta's competitor chart (labelled, not used as primary). Net reading: strong on algorithmic/competition coding and repo repair, weak on newer open-ended build tasks.
 - LiveCodeBench Pro: **2887 Elo**
 - SWE-bench Pro (Public): **54.2%** (behind GPT-5.3-Codex 56.8%)
 - Terminal-Bench 2.0: **68.5%** (see tool use)
 
 Multimodal:
 
-- MMMU-Pro: **75.8%**
+- MMMU-Pro: **75.8%** — **raised by independent measurement (2026-11-01): AA's own MMMU-Pro board gives 82.4%.** Additional vision rows from Meta's competitor chart (labelled, adversarial-provenance): **CharXiv 80.2%, ScreenSpot Pro 84.4%, ERQA 69.4%, SimpleVQA 72.4%, ZeroBench 29.0%, MedXpertQA-MM 81.3%**.
+- **Modality confirmation (2026-11-01):** Artificial Analysis's spec table lists input as **text, image, speech and video** — the draft's parenthetical "(+ audio/video per Gemini line)" is **confirmed, not assumed**, making this the only model in this batch whose full modality breadth survives independent checking.
 
 Long context:
 
 - Long-Context MRCR v2 (128k): **84.9%** (ties Claude Opus 4.6 within the shared range).
+- **Independent long-context corroboration (2026-11-01):** **AA-LCR 82.0%** (Artificial Analysis) — close to the vendor's MRCR band and measured independently; the 1M window itself is now **AA-confirmed**. The binding constraint remains the **64K max-output cap**, which no tracker disputes.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Leads APEX-Agents 33.5% and is competitive on agentic work; capped by Terminal-Bench 2.0 68.5% trailing GPT-5.3-Codex's 77.3% and GDPval-AA expert preference behind Opus 4.6.
-- **Reasoning: 95/100.** ARC-AGI-2 77.1% (more than double any prior Gemini) and GPQA Diamond 94.3% (best in table) are exceptional; a touch below 100 as HLE-with-tools still trails Opus 4.6.
-- **Context window: 97/100.** Largest production window at 1M input tokens with MRCR v2 84.9% at 128k; held just short by the 64K output cap.
-- **Multimodal: 90/100.** MMMU-Pro 75.8% and native text/image/audio/video input with strong SVG generation; capped as it is a single vision benchmark (no video/audio-specific score reported).
-- **Coding: 91/100.** SWE-bench Verified 80.6% (leads the compared set) and LiveCodeBench Pro 2887 Elo; held below the ceiling by Terminal-Bench 2.0 and SWE-bench Pro trailing GPT-5.3-Codex.
-- **Cost efficiency: 95/100.** $2/$12 with a free rate-limited AI Studio tier, up to 75% context-cache savings, and 7.5x cheaper input than Opus 4.6 — best price-performance in the frontier class; not 100 because >200K context doubles the rate.
-- **Overall Score: 92/100.** Mean of Tool 88 + Reasoning 95 + Context 97 + Multimodal 90 + Coding 91 = 92.2 → 92. Best fit: budget-friendly frontier reasoning, long-context (>200K) document/codebase analysis and production SWE-bench-class coding where value-per-dollar matters most.
+- **Tool use: 82/100.** *(88 → 82 — the largest revision here.)* The draft scored agentic work off Google's APEX-Agents 33.5% lead and a 1317 Elo GDPval figure. **AA's independent measurements of the same territory are far harsher: Agentic Index 10.3%, GDPval-AA 904 Elo / 14.6% all-pass, terminalBenchHard 53.8%, EnterpriseOps-Gym 42.2%, AnalystAgent 41.3%, ResearchClawBench 13.3%, MazeBench 1%.** APEX does reproduce (32.0% on AA's version) and **Vals AI puts Terminal-Bench 2.1 at 70.8%, above the vendor's own 68.5%** — so it is a competent *terminal* agent and a weak *long-horizon business* agent, which the single 88 conflated.
+- **Reasoning: 92/100.** *(95 → 92.)* Elevated because this is now one of the **most independently replicated reasoning profiles in the corpus**: GPQA Diamond **94.1% (AA) / 95.5% (Vals)** against Google's 94.3%, HLE 47.0% (AA) inside the vendor's 44.4–51.4% spread, MMLU-Pro 91.0%, Global-MMLU-Lite 93.2%, AA-LCR 82.0%. Cut because **ARC-AGI-3 is 0.4%** (ARC Prize) where the successor Argon scores 46.3% — the draft's "ARC-AGI-2 77.1%, more than double any prior Gemini" turned out not to generalise — and **CritPt 17.7%** and **HealthBench Hard 20.6%** are weak in absolute terms.
+- **Context window: 97/100.** *Unchanged, and now better supported.* 1M window **confirmed by AA** and retention corroborated independently (**AA-LCR 82.0%**) next to the vendor's MRCR 84.9% at 128k. The cap stays the **64K output limit**, which is a hard product constraint rather than a measurement question.
+- **Multimodal: 93/100.** *(90 → 93 — the one clean raise.)* The draft's cap was "a single vision benchmark, no video/audio-specific score". **AA confirms text + image + speech + video input** (unlike GPT-6 Astra and Gemini 4 Argon, whose breadth the tracker does not carry), and the vision profile is now multi-source: **AA-MMMP-Pro 82.4%** (above the draft's 75.8%), plus CharXiv 80.2%, ScreenSpot Pro 84.4%, MedXpertQA-MM 81.3%, SimpleVQA 72.4%, ERQA 69.4% — though those specific rows come from **Meta's competitor chart**, so they are corroborating in direction, not authoritative in magnitude. Still no audio- or video-specific score anywhere.
+- **Coding: 90/100.** *(91 → 90.)* **SWE-bench Verified 80.6% replicated at 78.8% by Vals AI** and LiveCodeBench 88.5% (Vals) make this a genuinely verified coder — the strongest part of the profile after reasoning. Trimmed for the newer, harder independent tasks: **Vibe Code Bench v1.1 32.03%**, **PostTrainBench v1.1 22.0%**, **AA-SciCode 58.7%**, **AA Coding Index 68.8%**, and the draft's own SWE-bench Pro 54.2% / Terminal-Bench trailing GPT-5.3-Codex. Competition-grade algorithmic skill, weaker open-ended build skill.
+- **Cost efficiency: 92/100.** *(95 → 92.)* AA still lists **$2 / $12 with a 90% cache discount** and a free rate-limited AI Studio tier — outstanding value, and it remains cheaper per input than every Claude flagship in this batch. Trimmed because the field moved: **Gemini 4 Argon launched at $2/$10 (now $4/$20 from 2026-12-01) and BenchLM lists 2 of 111 price-published models as cheaper-and-better at Argon's rates**, while the >200K-context tier still doubles this model's rate. **Not counted in the Overall mean.**
+- **Overall Score: 91/100.** *(92 → 91.)* Mean of Tool 82 + Reasoning 92 + Context 97 + Multimodal 93 + Coding 90 = 90.8 → 91. A **February-2026 frontier model that has aged asymmetrically**: its knowledge, vision and long-context results replicate almost exactly five quarters later, while its agentic profile collapses under measurement that did not exist at launch — which is precisely the axis the 2026 field now ranks on. BenchLM's independent aggregate (**#34 of 1004, 64.41**) sits far below this report's 91 because it weights that agentic half heavily; both are recorded, neither is averaged. Best fit: **long-context document and codebase analysis, multimodal understanding, competition-style coding and research at the cheapest frontier input price**. Not the pick for **long-horizon autonomous agents**, and not current-gen: two newer Gemini releases now occupy its tier.
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20
-- Method: public internet research (NxCode's Gemini 3.1 Pro complete guide compiling Google's launch benchmarks; llm-stats.com and DeepMind model card for specs/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20, re-researched 2026-11-01 (enrichment pass)
+- Method: public internet research (NxCode's Gemini 3.1 Pro complete guide compiling Google's launch benchmarks; llm-stats.com and DeepMind model card for specs/pricing); the 2026-11-01 pass adds **Artificial Analysis** (`gemini-3-1-pro-preview` — note the exact slug; the non-preview slug 404s) and the **BenchLM.ai** aggregator (updated 2026-10-29), which carries **Vals AI**, **ARC Prize**, **LlamaIndex ParseBench**, **PostTrainBench**, **React Native Evals**, **Gert Labs**, **Claw-Eval**, **MazeBench** and **OpenRouter** rows, plus **Meta's Muse Spark comparison chart** as competitor-run evidence. Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Conflict handling (explicit, not averaged):** (1) *GDPval-AA 1317 Elo (Google) vs AA's 904 Elo / 14.6%* → different instruments; **AA's measured cell drives the score**, both recorded. (2) *ARC-AGI-2 77.1% vs ARC-AGI-3 0.4%* → **not contradictory, sequential** — both are real ARC-Prize-board results on different generations; the second is what limits the dim. (3) *MMMU-Pro 75.8% (vendor) vs 82.4% (AA board)* → the higher independent figure is used, the vendor row kept. (4) *Aggregators disagree wildly on level* (this report 91 vs BenchLM 64.41 / #34 of 1004) → recorded as a **weighting difference, not a data conflict**: BenchLM loads agentic benchmarks, which is where this model lost ground. (5) *Meta-chart rows* (τ²-bench 95.6%, LiveCodeBench Pro 82.9%, CharXiv, ScreenSpot, MedXpertQA) → admitted as **direction only**, never as primary evidence, and never blended with vendor or AA cells.
+- Guards applied: (a) **no Index backfill** — AA's current Intelligence Index is **N/A** for this id; the February 2026 "Index leader" claim is kept as non-comparable history and contributes nothing to the score; (b) **era discipline** — comparisons to Opus 4.6 / GPT-5.2 / GPT-5.3-Codex are the draft's original launch-window peers and are labelled as such, not against today's flagships; (c) **sibling quarantine** — no Gemini 3 Pro, 3 Flash, Deep Think, 3.5/3.6/3.7/3.8 or 4 Argon/Carbon figure is used as evidence for this model (Argon's ARC-AGI-3 46.3% appears only as an explicit comparator); (d) **preview-status** caveat retained: the id is `…-preview`; the shipped model may differ; (e) **Speed (#38/196, 134.1 tok/s) and Cost efficiency are excluded from the Overall mean**; (f) never read peer raters' findings files in either pass (zero-influence).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

@@ -2,6 +2,8 @@ import { component$, useSignal, type QRL, type Signal } from "@builder.io/qwik";
 import { SOURCES } from "../../data/models";
 import type { AiModel, DimensionKey, ResultsView } from "../../data/models";
 import { VendorIcon } from "../VendorIcon";
+import { PricingBadge } from "./PricingBadge";
+import { PricingTiers } from "./PricingTiers";
 import {
   DIMENSION_SHORT,
   TABLE_KEYS,
@@ -168,21 +170,7 @@ export const ModelsSection = component$<ModelsSectionProps>(
                             <a href={`/model/${m.slug}/`}>{m.name}</a>
                           </h3>
                           <p class="mt-0 text-xs font-bold">
-                            {m.hasFreeTier ? (
-                              <span
-                                class="text-[#1c7a4d] dark:text-[#7fd6a4]"
-                                title={m.meta.freeTierNote ?? m.meta.pricingNote}
-                              >
-                                Free tier
-                              </span>
-                            ) : (
-                              <span
-                                class="text-[#9a5c15] dark:text-[#e8b47e]"
-                                title="Cost is scored on paid pricing"
-                              >
-                                Paid
-                              </span>
-                            )}
+                                                      <PricingBadge model={m} variant="card" />
                           </p>
                         </div>
                       </div>
@@ -216,7 +204,7 @@ export const ModelsSection = component$<ModelsSectionProps>(
                     <div class="flex flex-nowrap gap-x-2.5 gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
                       <dt class="shrink-0 whitespace-nowrap font-bold">Pricing</dt>
                       <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">
-                        {m.meta.pricingNote}
+                        <PricingTiers model={m} />
                       </dd>
                     </div>
                     <div

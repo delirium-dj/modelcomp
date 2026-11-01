@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 66.1/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 56.6/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 55/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 20.4/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 45.9/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 93.1/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 48.8/100.** Mean of 9 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 66.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 56.9/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 55.3/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 23.4/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 46.1/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 92.8/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 49.5/100.** Mean of 10 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 9 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, MiMo 2.6 Flash, Step 5 Preview.
-- Average from top 9 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, MiMo 2.6 Flash, Step 5 Preview.
+- Based on 10 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, MiMo 2.6 Flash, Qwen 3.8 Max, Step 5 Preview.
+- Average from top 10 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, MiMo 2.6 Flash, Qwen 3.8 Max, Step 5 Preview.
 - Ignored below-gate rater(s): Beam, Big Pickle, Gemini 3.5 Flash Lite, GLM 4.5 Flash, GLM 5.3, GPT 6 Luna, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Solar Mini 4.

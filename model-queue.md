@@ -5,11 +5,11 @@
 # Retired (parked) slugs are omitted — never researched (model/README.md).
 93.8 claude-opus-5.5
 93.8 muse-spark-1.3
-93.3 gpt-6-astra
+93.2 gpt-6-astra
 93.1 gemini-4-argon
-92.8 gemini-3.1-pro
+92.7 gemini-3.1-pro
 92.5 gemini-3.8-flash
-92.2 claude-fable-5.1
+92.3 claude-fable-5.1
 92.1 claude-opus-5
 91.9 claude-sonnet-5.5
 91.6 claude-fable-5
@@ -199,7 +199,7 @@
 52 neomorph
 52 omi-alpha
 51 owo-2.5
-48.8 nemotron-3.5-bolt-e4b
+49.5 nemotron-3.5-bolt-e4b
 46.6 mai-experimental-test
-39.6 jev-1.13
-39.2 qwen-3.5-0.8b
+40.8 jev-1.13
+40.7 qwen-3.5-0.8b

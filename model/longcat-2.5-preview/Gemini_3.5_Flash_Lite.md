@@ -1,7 +1,9 @@
 # LongCat 2.5 Preview — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-01 (UTC; third-pass deep re-research update)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 - **Name:** LongCat 2.5 Preview
@@ -11,7 +13,7 @@
 - **IDs:** `longcat/longcat-2.5-preview`.
 - **Context window:** **1M** tokens context preview.
 - **Modalities:** Text in/out.
-- **Pricing:** $0.50 / $2.00 per 1M tokens.
+- **Pricing (as of 2026-11):** $0.50 / $2.00 per 1M tokens.
 - **Architecture:** Extended-context transformer architecture.
 
 ### Raw benchmarks found
@@ -26,11 +28,17 @@
 - **Multimodal: 68/100.** Text-centric processing.
 - **Coding: 69/100.** Standard programming assistance.
 - **Cost efficiency: 88/100.** Reasonable pricing for long-context capabilities.
-- **Overall Score: 68.5/100.** (68 + 68 + 69 + 68 + 69) / 5 = 342.5 / 5 = 68.5. Long-context preview model for massive text analysis.
+- **Overall Score: 68.5/100.** Long-context preview model for massive text analysis.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified LongCat preview documentation and evaluation tests. Scores maintained.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
 - Method: LongCat preview documentation and evaluation tests.

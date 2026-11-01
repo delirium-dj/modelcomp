@@ -1,9 +1,12 @@
 # Muse Spark 1.3 — findings by Qwen 3.8 Max
 
-- Source: Meta Superintelligence Labs (`muse-spark-1.3`)
+- Source: Meta Superintelligence Labs (`muse-spark-1.3`); independent: Artificial Analysis (model page `muse-spark-1-3` max + release page + launch article, 2026-09-02), OpenRouter (AA-sourced metric table), MindStudio hands-on evaluation (2026-09-05)
 - Date: 2026-10-20 (UTC)
+- Re-researched: 2026-11-01 (UTC) — enrichment pass; original findings preserved below and marked where superseded
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Verdict (2026-11-01):** the 2026-10-20 read was built almost entirely on **Meta's own comparison table**, and the independent pass materially weakens it. Artificial Analysis now measures Muse Spark 1.3 (max) at **36 on the Intelligence Index v5.0 — #30 of 58, below the class median of 37** — not the frontier tier the vendor table implied (AA's own launch reporting had put it at 62 max / 61 xhigh on the older v4.x basis, and **Index v5 was rebasketed on 2026-10-27**, so the two numbers are not comparable and the current one governs). Two headline vendor claims fail independent checks: the **DeepSWE 1.1 75.4% "best of tracked" figure does not appear on the public DeepSWE leaderboard at all** (only 1.2 is listed), and MindStudio's hands-on coding test ranked its actual output **below models the vendor table shows it beating**. Against that, three gaps close on real data (GPQA Diamond **94%**, Tau3-Bench Banking **52% — #1 among all models**, AA **Coding Index 75.8**), AA confirms a wider **text + image + video** input than the draft recorded, and cost efficiency is *better* than claimed (**$2.39 per Index task, #28 of 57**). **Overall 91 → 89.**
 
 ## Model card
 
@@ -16,6 +19,8 @@
 - **Modalities:** text + image in, text out; reasoning yes (max-reasoning mode gated behind extra safety testing); tool calls yes; strong instruction fidelity across long agent runs.
 - **Pricing (as of 2026-10-20):** $1.25 / 1M input, $0.15 / 1M cached input, $4.25 / 1M output (llm-stats.com). ~20% fewer tool calls and ~25% fewer tokens than 1.2 on the same engineering workflows ("thought compression" token efficiency).
 - **Architecture:** proprietary (closed weights); multimodal reasoning model from MSL, Hyperion-anchored stack.
+- **Independently measured (Artificial Analysis, `muse-spark-1-3`, Max variant, added 2026-11-01):** Intelligence Index v5.0 **36 — #30 of 58** (class median 37; "below average in intelligence") · Speed **167.8 tok/s, #19 of 196** ("notably fast"; the release page's fastest variant is **Xhigh at 307 t/s**, with the release's lowest time-to-first-token **23.51 s**) · **Cost per Index task $2.39 — #28 of 57** at **$1.25 in / $4.25 out with an 88% cache discount** · Verbosity **120 M tokens — #45 of 57** (median 70 M) · AA confirms **text, image AND video in → text out**, reasoning **Yes**, context **1M**. **AA characterises the model as "below average in intelligence, but well priced … notably fast, however very verbose."**
+- **Tracking status (added 2026-11-01):** AA marks this model **deprecated** — *"We only continue performance benchmarking for the default 10k input token workload. Results for other workloads are historical and no longer updated. Meta has launched a newer release, Muse Wonder."* Long-workload and non-default figures for 1.3 therefore age out from here; the 1M-window rows below are 2026-09/10 vintage.
 
 ### Raw benchmarks found
 
@@ -27,42 +32,63 @@ Agent / tool use:
 - AutomationBench: **49.4%** (Meta vendor table; behind Claude Opus 5)
 - Agentic IF Index: **57.8%** (instruction fidelity across long agent runs; trails both rivals)
 - GDPval-AA v2: **1754 Elo** (economically valuable knowledge work; behind Claude Opus 5)
-- Toolathon / MCP-Atlas: no verified public score found
+- Toolathon / MCP-Atlas: **still no verified public score found** (re-checked 2026-11-01 — AA's independent agentic set covers this ground via AutomationBench-AA and Tau3-Bench Banking instead, both recorded below; no Toolathon/MCP-Atlas cell is published for this id)
+- Tau3-Bench Banking: **52%** for the max variant / **47%** for xhigh (Artificial Analysis independent runs, 2026-09-02) — AA states the max score is **"#1 among all models"** on this evaluation, and that the variant's index gain is driven largely by it. The strongest independent corroboration the vendor agentic table has.
+- Terminal-Bench 2.1: AA's own runs give **85% (xhigh) / 86% (max)**, i.e. **2–4 points below the vendor's 88.8% "tied best"** claim on the same instrument — directionally strong, but the vendor table's top placement is not reproduced independently.
+- GDPval-AA v2: AA reports **1,754 Elo (max) / 1,709 (xhigh)** — **independently confirms** the vendor's 1,754 figure exactly.
+- AutomationBench-AA: no standalone published cell (it is one of the nine evals inside AA's v5.0 Index basket, whose composite result for this model is **36, #30/58** — see Reasoning below).
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: **50.2%** (lineage — multi-agent "Contemplating" mode figure reported for the Muse line, not a 1.3-specific standalone number; treat as provisional)
-- DeepSearchQA: **89.4%** (multi-source web research and synthesis; trails both rivals)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found for 1.3 (original Muse Spark scored 52 on AA Index v4.0 in April 2026)
+- GPQA Diamond: **94%** (Artificial Analysis independent evaluation, launch reporting 2026-09-02 — xhigh, up 4 points from Muse Spark 1.2's 90%; the max variant "ties on GPQA Diamond"). **Added 2026-11-01 — this gap is now closed with an independent (not vendor) number.**
+- CritPt (physics reasoning): **26%** for xhigh (up 8 points from 1.2); max roughly **25%** (AA reports it "loses a point on CritPt" vs xhigh) — high absolute difficulty tier, improved but still low in raw terms.
+- Humanity's Last Exam: **47%** (xhigh) / **49%** (max, "+2 points" per AA) — **independent figures that supersede the 50.2% multi-agent "Contemplating" lineage number in the 2026-10-20 draft**, and sit far below Claude Opus 5.5's independently reported 67.7%.
+- DeepSearchQA: **89.4%** (Meta vendor table; multi-source web research and synthesis; trails both rivals — no independent replication found, re-checked 2026-11-01)
+- AA-Omniscience (Accuracy): **42%** xhigh / **44%** max, **down 3 and 1 points** from 1.2 — AA attributes the drop to a **higher abstention rate** (not answering when unsure), which also lowered the hallucination rate. One of only two regressions AA found.
+- AA-LCR (long-context reasoning): **79%**, **down 4 points from Muse Spark 1.2's 83%** — the other regression, and directly relevant to the long-context claim below.
+- SciCode: **59%** (up 2–3 points from 1.2; Artificial Analysis).
+- Artificial Analysis Intelligence Index / BenchLM overall: **36 — #30 of 58 on Index v5.0** (class median 37), measured for the **max** variant; the release page states "the top model of Muse Spark 1.3 is Muse Spark 1.3 (Max) at 36". **This closes the gap the 2026-10-20 draft left open.** Historical context, not comparable: at launch AA scored **62 (max) / 61 (xhigh) on the v4.x-vintage Index**, "behind only Claude Fable 5.1 and Claude Opus 5" — **Index v5 (announced 2026-10-27) rebuilt the basket around private datasets plus Terminal-Bench 4.0, FrontierCode 2.0, AutomationBench-AA, GDP.pdf, CritPt v2 Hard and Terminal-Bench-Science 0.1**, so the fall from 62 to 36 is a change of ruler as well as of standing. Per-evaluation AA cells sit behind an interactive chart and were not transcribable; only the composite is recorded.
 
 Coding:
 
-- DeepSWE 1.1: **75.4%** (best of tracked models; end-to-end agentic software engineering)
-- SWEAtlas CodeBase QnA: **59.4%** (ahead of every rival on Meta's table; unfamiliar-codebase comprehension)
-- SWE-bench Verified: no verified public score found for 1.3 (original Muse Spark posted 52.4% in April 2026 — lineage only)
-- LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
+- DeepSWE 1.1: **75.4%** (Meta vendor table; claimed best of tracked) — **INDEPENDENCE CHECK FAILED (2026-11-01):** MindStudio verified the **public DeepSWE leaderboard carries no Muse Spark 1.3 entry** (only 1.2, listed further down), so the chart-topping number "appears disconnected from the leaderboard it's supposedly dominating" and is **not independently verifiable**. Retained as attributed vendor data, discounted accordingly.
+- Artificial Analysis Coding Index: **75.8** for the max variant (AA figure surfaced via OpenRouter's model metric table, 2026-11-01) — the one **independent** coding measurement available for this id, and it does place the model high on AA's coding scale (note: a different scale from DeepSWE's, so not directly comparable to the vendor's 75.4%).
+- SWEAtlas CodeBase QnA: **59.4%** (Meta vendor table; ahead of every rival on Meta's table — vendor-run only, unchanged)
+- SciCode: **59%** (Artificial Analysis — independent; solid but not frontier-leading)
+- SWE-bench Verified: **still no verified public score found for 1.3** (re-checked 2026-11-01; original Muse Spark's 52.4% in April 2026 remains lineage only and must not be transferred)
+- LiveCodeBench / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- MRCR: **98.5%** at 256k–512k and **98.1%** at 512k–1M (up from 66.3% / 55.5% on 1.2) — best-in-class long-context retrieval.
+- MRCR: **98.5%** at 256k–512k and **98.1%** at 512k–1M (up from 66.3% / 55.5% on 1.2) — best-in-class long-context retrieval. **Vendor-run only; still no independent MRCR/RULER replication (2026-11-01).**
+- AA-LCR (Artificial Analysis long-context reasoning, independent): **79%** — a **4-point regression vs Muse Spark 1.2 (83%)**, and one of only two regressions AA reported for the release. Long-context *capacity* (1M, AA-confirmed) is therefore not matched by an independent improvement in long-context *performance*.
+- Context-window caveat (2026-11-01): AA has deprecated this model id and now benchmarks **only the default 10k-input workload**, so the 256k–512k / 512k–1M retrieval bands will not be independently refreshed — they stay vendor claims permanently.
 
-> Caveat: the comparison table ran 1.3 at max reasoning vs 1.2 at xhigh, and rival figures are Meta's own runs (not OpenAI/Anthropic published numbers). Treat vendor-table rows as marketing until independent trackers verify.
+Additional independent evidence gathered 2026-11-01 (contradicting and corroborating):
+
+- **Hands-on coding contradiction (MindStudio, 2026-09-05):** in a standardised "build a Megabomb-style arcade clone" test, Muse Spark 1.3 — the model that tops Meta's DeepSWE table and placed third on AA's then-current Index — **"produced a cube shooting at other cubes. No distinct characters, no real visual design"**, while Gemini 3.8 Flash, GPT-6 and Claude Fable 5.1 (all ranked below it on the same benchmarks) produced playable, visually complete games. MindStudio flags benchmark overfitting/contamination and composite-weighting as candidate explanations, without asserting either as fact.
+- **Beauty Bench (AI-judged SVG generation, i.e. code that draws an image):** Muse Spark 1.3 ranked **20th overall** — MindStudio calls this "far more consistent with its practical performance than its other benchmark placements".
+- **Access and cost (independent):** free to use through **OpenRouter** at test time with an API-equivalent **~$0.55 per task**; AA measured **xhigh at $0.55 per Intelligence Index task**, "the lowest cost per task for any model at 59+ on the Index", on the Intelligence-vs-Cost Pareto frontier, with peers GPT-5.6 Sol (max) $0.95 and Grok 4.6 (high) $0.94. AA's current max-variant measurement is **$2.39 per task (#28/57)** — still roughly 4× cheaper than Claude Opus 5.5's $10.04.
+- **Reason for the max-vs-xhigh gap (AA, mechanistic):** the max variant reaches its higher agentic scores "by using more turns and total reasoning tokens, reasoning 62% more on GDPval-AA v2 and 28% more on Tau3-Bench Banking" than xhigh — i.e. the headline agentic numbers are bought with compute, which is why AA publishes cost per task alongside them.
+
+> Caveat: the comparison table ran 1.3 at max reasoning vs 1.2 at xhigh, and rival figures are Meta's own runs (not OpenAI/Anthropic published numbers). Treat vendor-table rows as marketing until independent trackers verify. **(Status after 2026-11-01: partially verified — GDPval-AA 1,754 Elo and Tau3-Bench Banking confirmed independently, Terminal-Bench 2.1 came in 2–4 points lower than claimed, and the DeepSWE headline could not be verified on the public leaderboard at all.)**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Terminal-Bench 2.1 88.8% (tied best) plus solid JobBench 64.9% / OSWorld 66.9%; capped by AutomationBench 49.4% and Agentic IF 57.8% trailing Claude Opus 5.
-- **Reasoning: 91/100.** DeepSearchQA 89.4%, GDPval-AA 1754 Elo and inherited HLE strength; capped because knowledge-work rows sit behind Claude Opus 5 and lack independent verification.
-- **Context window: 99/100.** 1M-token window with 98.5%/98.1% MRCR retrieval — best tracked; a hair off 100 pending third-party confirmation.
-- **Multimodal: 78/100.** Vendor describes a multimodal reasoning model (text + image in), but no vision-specific benchmark (MMMU-Pro, etc.) was published for 1.3, so the score stays mid-high.
-- **Coding: 95/100.** DeepSWE 1.1 75.4% (best of tracked) and SWEAtlas 59.4% (ahead of all rivals); capped only by the vendor-table provenance and absent SWE-bench Verified number.
-- **Cost efficiency: 82/100.** $1.25/$4.25 with ~25% token-efficiency advantage makes it cheap-to-run for a frontier model, but it is still a paid tier (not $0).
-- **Overall Score: 91/100.** Mean of Tool 92 + Reasoning 91 + Context 99 + Multimodal 78 + Coding 95 = 91. Best fit: long-horizon agentic coding, whole-codebase comprehension and 1M-context document work where token efficiency matters.
+- **Tool use: 90/100.** *(92 → 90 on 2026-11-01.)* Held up independently by **Tau3-Bench Banking 52% — #1 among all models** (AA) and an exactly confirmed **GDPval-AA v2 1,754 Elo**; revised down because AA's own runs put **Terminal-Bench 2.1 at 85–86%, not the vendor's 88.8% tied-best**, and because **AA's v5.0 basket — which weights AutomationBench-AA and Terminal-Bench 4.0 heavily — lands this model below its class median**, which is hard to reconcile with a top-tier agentic standing. Still well above the corpus median for sustained multi-step tool work.
+- **Reasoning: 90/100.** *(91 → 90 on 2026-11-01.)* Now supported by genuinely independent data at both ends: **GPQA Diamond 94%** (elite, AA) and CritPt 26% / SciCode 59% (improved but modest), against **HLE 47–49%** where Claude Opus 5.5 posts 67.7%, and **AA-Omniscience accuracy 42–44% (regressed)**. The 2026-10-20 score was vendor-table inference; the measured standing is "below average" on the current Index (36 vs median 37), so a small cut is warranted — no single dim should carry more of a cross-cutting composite signal than the evidence supports.
+- **Context window: 97/100.** *(99 → 97.)* 1M-token window **independently confirmed by AA**, and the MRCR 98.5%/98.1% retrieval bands stand as claimed — but they are **permanently vendor-only** (AA has deprecated the id and benchmarks only the 10k-input default workload), and AA's independent **AA-LCR fell 83% → 79%** for this release. Nominal capacity verified; effective long-range performance slightly down on independent measurement.
+- **Multimodal: 80/100.** *(78 → 80 — the one evidence-supported raise.)* The draft capped this dim because it recorded **text + image** input with no vision benchmark. **AA independently confirms input is text, image AND video**, which is a real broadening of the input surface (and matches Meta's own multimodal-reasoning framing). Still capped well below the frontier because **no vision-input benchmark (MMMU-Pro or equivalent) is published for 1.3**, AA reports no image/video eval cells for the id, and MindStudio's image-generation-side **Beauty Bench result (20th)** is adverse — though that measures output, not input understanding.
+- **Coding: 90/100.** *(95 → 90 — the largest revision.)* The draft leaned on **DeepSWE 1.1 75.4% "best of tracked"**, which an independent check found **absent from the public DeepSWE leaderboard entirely**, plus a hands-on test where its real output ranked **below models it supposedly outperforms**, and a 20th-place Beauty Bench result. Offsetting that, AA gives an independent **Coding Index of 75.8** and **SciCode 59%** — genuine independent evidence that it is a strong-but-not-unique coding model. Scored as a solid upper-tier coding model whose headline claim is unverifiable, rather than as the tracked leader.
+- **Cost efficiency: 88/100.** *(82 → 88.)* **Independent AA data is better than the vendor framing suggested: $2.39 per Intelligence Index task, #28 of 57**, with the xhigh variant measured at **$0.55 per task — the cheapest of any model at Index 59+** and on the Pareto frontier, at an 88% cache discount; and it was **free to use via OpenRouter** during third-party testing. Cheapness is real; the trade-off is that the max variant buys its agentic scores with ~62% more reasoning tokens, so per-task cost climbs with effort. **Not counted in the Overall mean.**
+- **Overall Score: 89/100.** *(91 → 89.)* Mean of Tool 90 + Reasoning 90 + Context 97 + Multimodal 80 + Coding 90 = 89.4 → 89. **This is the batch's first downward revision**: the 2026-10-20 draft sat on a vendor table that independent measurement only partly confirms. Best fit remains **high-volume agentic and coding work where cost per task dominates the decision** (its genuinely elite, independently verified ground: Tau3-Bench Banking #1, cheapest-at-its-tier per task, 1M window, very fast output at 168–307 t/s). It is **not** supportable as a frontier-quality pick: on AA's current Index it is a below-median model, and its two headline quality claims (DeepSWE leadership, 88.8% Terminal-Bench tie) did not survive independent checking. Ignore its Speed rank in any quality judgement — speed is not a scored dimension here.
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20
-- Method: public internet research (Flowtivity release analysis of Meta AI Research's announcement, llm-stats.com pricing/specs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20, re-researched 2026-11-01 (enrichment pass)
+- Method: public internet research (Flowtivity release analysis of Meta AI Research's announcement, llm-stats.com pricing/specs); 2026-11-01 pass adds four independent sources — **Artificial Analysis** model page (`muse-spark-1-3`, max variant, current v5.0 metrics), AA **release comparison page** (variant-level max vs xhigh), AA **launch article** "Muse Spark 1.3: Meta reaches the frontier" (2026-09-02, per-evaluation independent runs), **OpenRouter** AA-sourced metric table, and a **MindStudio** hands-on evaluation (2026-09-05). Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Conflict handling (explicit, not averaged):** three vendor-vs-independent conflicts were adjudicated rather than blended. (1) *DeepSWE 1.1 75.4% "best of tracked"* vs MindStudio's finding that **1.3 is absent from the public leaderboard** → the vendor claim is retained as attributed but treated as unverifiable, which is what drove Coding 95 → 90. (2) *Terminal-Bench 2.1 88.8% tied-best* vs AA's independent **85–86%** → AA's measurement wins on the same instrument. (3) *AA 62/61 at launch* vs *AA 36 today* — an intra-source conflict resolved by the **Index v5.0 rebasketing (2026-10-27)**: the current figure governs, the launch figure is kept as non-comparable history. Where AA confirmed a vendor number exactly (GDPval-AA v2 1,754 Elo), the vendor row is upgraded to verified instead of re-scored.
+- Guards applied: (a) **lineage data never transferred** — the original Muse Spark's 52.4% SWE-bench Verified and 52 Index score, and the 1.2 rows, stay labelled lineage; (b) **max vs xhigh variants kept distinct** everywhere (AA profiles max; the $0.55/task, 307 t/s and 23.51 s TTFT figures belong to xhigh and are attributed as such); (c) **v4.x-vintage Index numbers are not comparable to v5.0** and were not averaged with them; (d) **Cost efficiency and Speed are excluded from the Overall mean** (mean of the five quality dims only); (e) the model id is **deprecated in AA's tracker in favour of Muse Wonder** — a newer Meta artifact that must not be conflated with 1.3 in any future pass. Per-evaluation AA cells behind interactive charts were not transcribable; only machine-readable cells are recorded.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

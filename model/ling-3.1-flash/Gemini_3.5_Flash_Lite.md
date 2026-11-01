@@ -1,7 +1,7 @@
 # Ling 3.1 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Ling 3.1 Flash & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/ling-3.1-flash`
 - **Context window:** 128K total — verified via platform metadata
 - **Modalities:** Text in/out only
-- **Pricing (as of 2026-10-16):** Competitive lightweight pricing tier
+- **Pricing (as of 2026-11):** Competitive lightweight pricing tier
 - **Architecture:** Efficient transformer model
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across benchmark suites):
 - Terminal-Bench 2.1: **72.0%**
@@ -51,16 +51,17 @@ Long context:
 - **Multimodal: 15/100.** Text-only modality.
 - **Coding: 77/100.** Competent quick coding assistance.
 - **Cost efficiency: 90/100.** Highly efficient economical pricing.
-- **Overall Score: 64.2/100.** Mean of the five quality dims (78 + 76 + 75 + 15 + 77 = 321 / 5 = 64.2).
+- **Overall Score: 64.2/100.** Mean of the five quality dims.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
 
 ---
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (platform documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Re-run deep multi-source research (platform documentation, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

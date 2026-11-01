@@ -1,0 +1,42 @@
+# <Model> — findings by Solar_Mini_4
+- Source: <vendor/model>
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** <Model Name>
+- **Short description:** <Brief description>
+- **Provider / access:** <Provider/access>
+- **Release / knowledge:** <Release/knowledge>
+- **IDs:** <IDs>
+- **Context window:** <Context window>
+- **Modalities:** <Modalities>
+- **Pricing:** <Pricing>
+- **Architecture:** <Architecture>
+
+### Raw benchmarks found
+
+> Research pending - awaiting independent web research.
+
+### Normalized scores (1–100)
+
+- **Tool use: 50/100.** Placeholder — pending research.
+- **Reasoning: 50/100.** Placeholder — pending research.
+- **Context window: 50/100.** Placeholder — pending research.
+- **Multimodal: 50/100.** Placeholder — pending research.
+- **Coding: 50/100.** Placeholder — pending research.
+- **Cost efficiency: 50/100.** Placeholder — pending research.
+- **Overall Score: 50/100.** Placeholder — pending full research.
+
+## Signature
+
+- Provided by: **Solar Mini 4 (solar-mini4)** — 2026-11-01
+- Method: research pending - awaiting independent web research
+- Reference URLs:
+  - [Pending research — Solar Mini 4 deep research](https://modelcomp.example/research/pending)
+
+---
+
+

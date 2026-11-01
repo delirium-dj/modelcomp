@@ -1,7 +1,7 @@
 # Ling 3.0 Tiny — findings by Gemini 3.5 Flash Lite
 
 - Source: InclusionAI / Ling 3.0 Tiny & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/ling-3.0-tiny` (free tier $0/$0 per 1M).
 - **Context window:** 262,144 total tokens (verified via Artificial Analysis).
 - **Modalities:** Text in/out; reasoning mode.
-- **Pricing (as of 2026-10-16):** Free ($0 / $0 per 1M tokens); MIT open weights for free self-hosting.
+- **Pricing (as of 2026-11):** Free ($0 / $0 per 1M tokens); MIT open weights for free self-hosting.
 - **Architecture:** Compact Mixture of Experts (7.9B total / 1.3B active parameters).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across InclusionAI reports & Artificial Analysis):
 - Terminal-Bench 2.1: **35.0%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

@@ -4,11 +4,13 @@
  * (tooltips can't render markup) — call this wherever they are displayed so
  * the phrase uniformly links to the free-models docs.
  */
+import type { JSXOutput } from "@builder.io/qwik";
+
 const FREE_ZEN_MODELS_URL = "https://opencode.ai/v2/docs/console/models/#free-models";
 
 const PHRASE = "Free OpenCode Zen tier";
 
-export function withFreeZenLink(text: string): any[] {
+export function withFreeZenLink(text: string): JSXOutput[] {
   const parts = text.split(PHRASE);
   if (parts.length === 1) return [text];
   const out: any[] = [];

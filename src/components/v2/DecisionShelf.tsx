@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { AiModel } from "../../data/models";
 import { VendorIcon } from "../VendorIcon";
+import { PricingTiers } from "./PricingTiers";
 
 interface DecisionShelfProps {
   models: AiModel[];
@@ -63,7 +64,7 @@ export const DecisionShelf = component$<DecisionShelfProps>(({ models }) => {
               <div class="flex flex-nowrap gap-x-2.5 gap-y-1 border-t border-t-[#ccdae2] py-2 dark:border-t-[#274757]">
                 <dt class="shrink-0 whitespace-nowrap font-bold">Pricing</dt>
                 <dd class="m-0 min-w-0 flex-1 break-words text-[#577184] dark:text-[#93adbe]">
-                  {m.meta.pricingNote}
+                  <PricingTiers model={m} />
                 </dd>
               </div>
             </dl>

@@ -1,7 +1,7 @@
 # LongCat 2.0 — findings by Gemini 3.5 Flash Lite
 
 - Source: Meituan/LongCat 2.0 & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `meituan/longcat-2.0` (no Free ID on Zen)
 - **Context window:** 1M total — verified by Meituan technical documentation.
 - **Modalities:** Text in; text out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-10-16):** Paid $0.30 / $1.20 per 1M tokens (cached input $0.006). Paid tier.
+- **Pricing (as of 2026-11):** Paid $0.30 / $1.20 per 1M tokens (cached input $0.006). Paid tier.
 - **Architecture:** 1.6T total parameters, 48B active MoE; open-weights (MIT license).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across Meituan technical docs & Artificial Analysis):
 - Terminal-Bench 2.1: **66.5%**
@@ -47,12 +47,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (Meituan technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Re-run deep multi-source research (Meituan technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

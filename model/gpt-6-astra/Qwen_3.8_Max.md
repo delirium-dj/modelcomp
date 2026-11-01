@@ -1,9 +1,12 @@
 # GPT-6 Astra — findings by Qwen 3.8 Max
 
-- Source: OpenAI (`gpt-6-astra`)
+- Source: OpenAI (`gpt-6-astra`); independent: Artificial Analysis (model page `gpt-6-astra` max + launch article "Benchmarking GPT-6 Astra", 2026-09-09), OpenAI model docs (`developers.openai.com/api/docs/models`), Elser.ai / Wiro.ai capability pages, OpenRouter / CodeToDeploy pricing
 - Date: 2026-10-20 (UTC)
+- Re-researched: 2026-11-01 (UTC) — enrichment pass; original findings preserved below and marked where superseded
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Verdict (2026-11-01):** the quality half of the 2026-10-20 read is **independently confirmed and slightly raised** — Artificial Analysis now scores GPT-6 Astra (max) at **57 on the Intelligence Index v5.0, #4 of 58** (median 37), and its **Coding Agent Index 62 ties Claude Fable 5.1 for first place, ahead of Claude Opus 5 (60) and Muse Spark 1.3 (54)**, with AA-run leads on Terminal-Bench 4.0, AutomationBench-AA and GDP.pdf. Two claims do **not** survive checking: the **audio input** in the modality line is contradicted by OpenAI's own model docs, AA's spec table and two third-party capability pages (all list **text + image in, text out**; audio/video appear only in OpenAI's *training-content* disclosure, which is not an inference capability), and the **"largest window at 1.05M"** differentiator is recorded by AA as **1M — the same as its Claude rivals**. Cost is *better* than the draft assumed: at **$6.24 per Index task (#45/57)** it undercuts Opus 5.5's $10.04 despite a 2.5× list price, because it is **fairly concise (54 M tokens, #23/57 vs Opus 5.5's 220 M)**. AA also supplies the previously unpublished **knowledge cutoff: Apr 30, 2026**. **Overall 92 → 90.**
 
 ## Model card
 
@@ -13,9 +16,11 @@
 - **Release / knowledge:** Shipped 2026-09-03; knowledge cutoff not published.
 - **IDs:** `openai/gpt-6-astra` (no free Zen ID — Astra is the paid flagship; Luna is the free GPT-6 tier).
 - **Context window:** 1,050,000 tokens (largest of the frontier trio); a surcharge applies above 272,000 tokens (input rebilled at ~2x past that point, per CodeToDeploy). Max output 128,000 tokens (per Anthropic/NeuralTrust comparison tables).
-- **Modalities:** text + image + audio in, text out; reasoning yes; tool calls yes; state-of-the-art computer use (OpenAI).
+- **Modalities:** text + image + audio in, text out; reasoning yes; tool calls yes; state-of-the-art computer use (OpenAI). **(Superseded 2026-11-01 — audio input is NOT supported; see the modality correction below. Retained here as the original 2026-10-20 reading.)**
 - **Pricing (as of 2026-10-20):** $10 / 1M input, $50 / 1M output (VentureBeat / OpenRouter); batch route $5 / $25. Above-272K-token surcharge effectively doubles long-context input cost.
 - **Architecture:** proprietary (closed weights).
+- **Independently measured (Artificial Analysis, `gpt-6-astra`, Max variant, added 2026-11-01):** Intelligence Index v5.0 **57 — #4 of 58** (class median 37; "well above average") · Speed **78.2 tok/s, #108 of 196** (AA: "slower than average", 81) · **Cost per Index task $6.24 — #45 of 57** at **$10.00 in / $50.00 out per 1M with a 90% cache discount** · Verbosity **54 M tokens — #23 of 57** (median 70 M; "fairly concise") · **knowledge cutoff Apr 30, 2026** (previously unpublished) · context **1M** · **input modality text and image only**, output text, reasoning **Yes**. AA's characterisation: *"amongst the leading models in intelligence, but particularly expensive … slower than average, however fairly concise."*
+- **Modality correction (2026-11-01):** the draft's *"text + image + audio in"* is **not supported by the official API docs** — OpenAI's model page states all latest models support **text and image input, text output** with vision; Elser.ai records that Astra's official model page **"lists audio and video as unsupported"**, Wiro.ai that **"audio input and output aren't supported"**, and AA's spec table shows **text and image** only. Audio/video are inputs to **training data** (OpenAI's EU AI Act training-content summary), which is a different fact from inference capability — the likely origin of the error.
 
 ### Raw benchmarks found
 
@@ -24,16 +29,21 @@ Agent / tool use:
 - Terminal-Bench 4.0: **58.2%** (OpenAI-reported, per Anthropic's Opus 5.5 table at high effort; behind Opus 5.5 66.4%)
 - AutomationBench (Zapier): **41.4%** (leads Opus 5.5 40.0% in Anthropic's table)
 - Terminal-Bench-Science 0.1: **64.6%** (leads — Opus 5.5 58.7%, Fable 5.1 52.6%)
-- OSWorld 2.1 (computer use): OpenAI claims state-of-the-art; no verified public % found in accessible sources
+- OSWorld 2.1 (computer use): OpenAI claims state-of-the-art; **still no verified public % found** (re-checked 2026-11-01 — AA does not publish an OSWorld cell for this id, so the SOTA claim remains vendor-only)
 - GDPval-AA v2.1: **1542 Elo** (behind Opus 5.5 1846, Fable 5.1 1735)
+- Terminal-Bench v4.0 (Artificial Analysis independent run, added 2026-11-01): **59%** — **leads Claude Fable 5.1 (52%) by 7 points and sits 19 points ahead of GPT-5.6 Sol (40%)**. Confirms the vendor-adjacent 58.2% reading within noise.
+- AutomationBench-AA (AA's implementation of Zapier's business-workflow benchmark, added 2026-11-01): **69% — the lead**, ahead of Grok 4.6 (67%), GLM-5.3 (62%) and GPT-5.6 Sol (60%). **Note the instrument distinction:** the 41.4% row above is Zapier's own AutomationBench evaluation; the 69% is AA's harder-adapted AutomationBench-AA. The two are different tests, not conflicting measurements of one test.
+- GDP.pdf (professional-document reasoning, all-pass rate, added 2026-11-01): **31%**, ahead of GPT-5.6 Sol's 27% — an AA-measured lead on document-grounded agentic work.
+- AA-Briefcase (frontier long-horizon knowledge work, Elo, added 2026-11-01): **~+90 Elo vs GPT-5.6 Sol**, with gains in rubric scores and Analytical Quality, but AA records a **reduction in Presentation Quality Elo**, where Sol still leads all models — i.e. the agentic gain is analytical, not presentational.
+- GDPval-AA v2 turn behaviour (AA, added 2026-11-01): Astra takes **24 turns per task at max effort against Sol's 45 and Fable 5.1 / Opus 5's 60**, and AA observed a **~45 Elo drop vs GPT-5.6 Sol** on that benchmark — the concise-agent design trades knowledge-work breadth for cost and speed per task.
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **52.7** (≈ Argon 52.6; behind Opus 5.5 57.6)
-- Humanity's Last Exam: **57.2%** with tools (OpenAI-reported, Anthropic table); AA independent **54.7%**
+- Artificial Analysis Intelligence Index: **57 — #4 of 58 on Index v5.0** (class median 37), measured for the max variant. **Added 2026-11-01; supersedes the 2026-10-20 "52.7" reading**, which was on the pre-v5 vintage — AA's own launch reporting (2026-09-09) had Astra **(max) at 53, tying Claude Fable 5.1 for first place** and +6 on GPT-5.6 Sol. **Index v5 was rebasketed 2026-10-27** (majority private datasets; adds Terminal-Bench 4.0, FrontierCode 2.0, AutomationBench-AA, GDP.pdf, HLE-Diamond, CritPt v2 Hard, Terminal-Bench-Science 0.1), so 53 and 57 are not directly comparable; the current figure governs. Per-evaluation AA cells sit behind an interactive chart and were not transcribable — only machine-readable cells and AA's article figures are recorded.
+- Humanity's Last Exam: **57.2%** with tools (OpenAI-reported, Anthropic table); AA independent **54.7%** — vendor-vs-independent spread of ~2.5 points, both recorded, not merged
 - Vals Index: **63.1%** (behind Argon 68.9%, Opus 5.5 67.0%)
-- Hallucination rate **51%** / factual accuracy **63%** (The Decoder — high accuracy but the highest hallucination rate of the trio)
-- GPQA Diamond: no verified public score found
+- Hallucination rate **51%** / factual accuracy **63%** (The Decoder) — **independently corroborated 2026-11-01**: AA's launch article reports exactly this, a **drop in hallucination from 92% (GPT-5.6 Sol) to 51% at max effort**, "driven by a significant decrease in hallucination rate … [and] Astra increased accuracy by 4 points at the same time". Still the highest hallucination rate of the frontier trio, but the direction is now double-sourced.
+- GPQA Diamond: **still no verified public score found** (re-checked 2026-11-01 — neither OpenAI's materials nor AA's transcribable cells publish a GPQA-Diamond figure for this id; HLE-Diamond inside the v5 basket covers adjacent ground but is not a GPQA number)
 
 Coding:
 
@@ -41,28 +51,35 @@ Coding:
 - DeepSWE v1.1: **74.1%** (behind Argon 77.9%, ≈ Opus 5.5 74.2%)
 - FrontierCode v1.1 (Main): **53.3%** (top score in Anthropic's table before Opus 5.5's default-effort 54.6%)
 - CWE-bench v1 (patching): **68.0%** (ties Argon)
-- SWE-bench Verified / LiveCodeBench: no verified public score found in accessible sources
+- SWE-bench Verified / LiveCodeBench: **still no verified public score found** in accessible sources (re-checked 2026-11-01)
+- Artificial Analysis Coding Agent Index: **62 — ties Claude Fable 5.1 (in Claude Code) for first place**, ahead of **Claude Opus 5 (60), GPT-5.6 Sol (55) and Muse Spark 1.3 (54 in Muse Code)**; the 7-point gain over Sol comes from Terminal-Bench v4.0 (**56%** in Codex vs Sol 37%) and SWE-Atlas-QnA (**62%** vs 54%), "partly offset by a lower score on DeepSWE (68% vs 72%)". **Added 2026-11-01 — the strongest independent coding evidence available for this id.**
+- DeepSWE — **conflict recorded (2026-11-01):** the vendor-adjacent 74.1% above vs **AA's independent run of 68%** in the Coding Agent Index. Kept separate rather than averaged; the AA figure is the one used for scoring, so Astra ranks *below* GPT-5.6 Sol (72%) on the independent instrument while still tying for the composite Index lead.
+- Cost of the coding lead (AA, 2026-11-01): **$7.09 per Coding-Agent-Index task at max effort** — ~15% more than GPT-5.6 Sol (max) for a 7-point higher score, and **~40% cheaper than Claude Fable 5.1 (max with fallback) for the same score**, driven by using about **one third of Sol's output tokens per task**.
 
 Long context:
 
 - 1.05M-token window; GraphWalks (256K–1M): **71.8%** (behind Argon 84.2%, ahead of Opus 5.5 66.8% — per NeuralTrust/Google table).
+- **Window size check (2026-11-01):** AA's spec table records **1M tokens**, the same value it lists for Claude Opus 5.5 and Muse Spark 1.3 — so the draft's "largest of the frontier trio" differentiator is **not independently reproduced** (the 1.05M figure comes from vendor/adjacent tables). GraphWalks remains a **vendor-affiliated (Google/NeuralTrust) row with no AA replication**.
+- **Knowledge cutoff (new, AA):** **Apr 30, 2026** — previously recorded as "not published"; relevant to the cybersecurity/patching strengths, which depend on recent CVE knowledge.
 
-> Provenance: OpenAI's own page was inaccessible (403); figures are cross-referenced from Anthropic's Opus 5.5 launch table, NeuralTrust's Argon analysis (compiling Google/DataCamp/Artificial Analysis/Vals/The Decoder) and OpenRouter/CodeToDeploy. Vendor- vs independent-run rows are labelled; not silently merged.
+> Provenance: OpenAI's own page was inaccessible (403) in the 2026-10-20 pass; figures were cross-referenced from Anthropic's Opus 5.5 launch table, NeuralTrust's Argon analysis (compiling Google/DataCamp/Artificial Analysis/Vals/The Decoder) and OpenRouter/CodeToDeploy. **The 2026-11-01 pass adds Artificial Analysis as a direct primary independent source** (model page + launch article), which upgrades several rows from vendor-table inference to measured. Vendor- vs independent-run rows are labelled; not silently merged.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Terminal-Bench-Science 64.6% (leads), AutomationBench 41.4% (leads) and claimed SOTA computer use; capped by Terminal-Bench 4.0 58.2% trailing Opus 5.5's 66.4% and no verified OSWorld percentage.
-- **Reasoning: 89/100.** HLE 57.2% with tools and AA Index 52.7 are solid, factual accuracy is the trio's best (63%), but a 51% hallucination rate and Vals/GDPval behind rivals hold it down.
-- **Context window: 96/100.** Largest window at 1.05M tokens; discounted for the >272K-token surcharge that doubles effective long-context input cost and GraphWalks 71.8% behind Argon.
-- **Multimodal: 90/100.** Text/image/audio input with state-of-the-art computer use; capped by the absence of a verified vision benchmark (MMMU-Pro / Chartography) in accessible sources.
-- **Coding: 93/100.** FrontierSWE v2 65.5% (best), DeepSWE 74.1%, FrontierCode 53.3% and CWE-bench 68.0% — frontier coding across the board; held just below the top by vendor-run provenance.
-- **Cost efficiency: 55/100.** $10/$50 is the most expensive of the frontier trio (2.5x Opus 5.5 input, 2.5x output) plus a long-context surcharge; batch mode ($5/$25) helps but it remains a premium priced model.
-- **Overall Score: 92/100.** Mean of Tool 92 + Reasoning 89 + Context 96 + Multimodal 90 + Coding 93 = 92.0. Best fit: demanding end-to-end coding, computer-use and cybersecurity agents where raw capability matters more than price; cost-sensitive pipelines favor Opus 5.5 or Argon.
+- **Tool use: 93/100.** *(92 → 93 on 2026-11-01 corroboration.)* Terminal-Bench-Science 64.6% and AutomationBench 41.4% (leads) now sit alongside AA's independent leads on **Terminal-Bench v4.0 (59%, +7 on Fable 5.1)**, **AutomationBench-AA (69%, best of the tracked field)** and **GDP.pdf (31% all-pass)** — three separately measured agentic wins, which lift the provenance discount. Still capped by no verified OSWorld percentage for the "SOTA computer use" claim, AA's observed **Presentation-Quality regression** in AA-Briefcase, and the **~45 Elo GDPval-AA drop vs GPT-5.6 Sol** that comes with a 24-turn concise agent.
+- **Reasoning: 90/100.** *(89 → 90.)* **AA's Index 57 (#4 of 58, v5.0)** independently places Astra in the top four of the field, the hallucination drop (92% → 51%) is now double-sourced with accuracy *up* 4 points, and AA-Briefcase is +90 Elo on its predecessor. Held at the low 90s by the still-high 51% hallucination rate (worst of the trio), the **unpublished GPQA Diamond row**, and HLE 54.7% (AA) against Opus 5.5's independently reported 67.7%.
+- **Context window: 95/100.** *(96 → 95.)* 1M window **confirmed by AA**, but two discounts: the **"largest of the trio" claim is not reproduced** (AA lists 1M for Astra, Opus 5.5 and Muse Spark 1.3 alike), and **GraphWalks 71.8% remains a vendor-affiliated row with no independent replication** while trailing Argon's 84.2%. The >272K-token surcharge (≈2× input rebill) still doubles effective long-context cost.
+- **Multimodal: 82/100.** *(90 → 82 — the material adverse finding.)* The 90 rested partly on **audio input, which does not exist for this model**: OpenAI's own API model docs list **text and image input / text output**, Elser.ai and Wiro.ai record audio and video as **unsupported**, and AA's spec table matches. Vision remains real (image input plus computer-use UI work), but **no vision benchmark (MMMU-Pro / Chartography) is published for Astra** by any source checked, so it is scored as a text+image frontier model with unverified vision depth — not as an omni-modal one.
+- **Coding: 92/100.** *(93 → 92.)* Raised by evidence, cut by provenance: AA's **Coding Agent Index 62 ties Claude Fable 5.1 for first place and beats Opus 5 (60)** — the strongest independent coding signal in this batch — but AA's own **DeepSWE run (68%) is 6 points below the vendor-adjacent 74.1%** and puts Astra *behind* GPT-5.6 Sol (72%) on that instrument. Net: an upper-tier agentic coder whose composite lead is verified and whose specific headline percentage is not.
+- **Cost efficiency: 64/100.** *(55 → 64.)* The draft scored this off list price alone ($10/$50, "2.5× Opus 5.5"). **AA's per-task measurement changes the picture: $6.24 per Intelligence Index task (#45/57) — cheaper per task than Claude Opus 5.5's $10.04 (#55/57) despite 2.5× the token price**, because Astra is *concise* (54 M tokens, #23/57, vs Opus 5.5's 220 M). AA's launch reporting put **every reasoning effort on the Intelligence-vs-Cost Pareto frontier** (low $0.82 → max $3.26 per task on the then-current basket) and the coding lead at **~40% cheaper than Fable 5.1 for the same score**. Still expensive in absolute terms, with a long-context surcharge and a 90% cache discount that only helps steady prefixes. **Not counted in the Overall mean.**
+- **Overall Score: 90/100.** *(92 → 90.)* Mean of Tool 93 + Reasoning 90 + Context 95 + Multimodal 82 + Coding 92 = 90.4 → 90. The quality dims were **verified upward** by AA (#4 in intelligence, tied #1 in agentic coding); the drop comes almost entirely from the **multimodal overstatement being corrected** and the window-size differentiator not reproducing. Best fit remains **demanding end-to-end coding, terminal/automation agents and cybersecurity patching where per-task cost matters** — and AA's data now supports that more strongly than the vendor table did: it ties the coding lead at ~40% of Fable 5.1's cost. It is **not** the pick for audio/omni-modal pipelines (unsupported) or for long-context-heavy work at scale (surcharge).
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20
-- Method: public internet research (cross-referenced from Anthropic's Opus 5.5 launch table, NeuralTrust's Gemini 4 Argon analysis, OpenRouter and CodeToDeploy; OpenAI's own page returned 403); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20, re-researched 2026-11-01 (enrichment pass)
+- Method: public internet research (cross-referenced from Anthropic's Opus 5.5 launch table, NeuralTrust's Gemini 4 Argon analysis, OpenRouter and CodeToDeploy; OpenAI's own page returned 403); the 2026-11-01 pass adds **Artificial Analysis as a direct primary source** — model page (`gpt-6-astra`, max, v5.0 metrics) and launch article *"Benchmarking GPT-6 Astra"* (2026-09-09) — plus **OpenAI's API model docs**, **Elser.ai** and **Wiro.ai** capability pages for the modality check. Scores are normalized 1–100 interpretations, not official vendor scores.
+- **Conflict handling (explicit, not averaged):** (1) *Audio input* — vendor-adjacent description vs OpenAI's own docs, AA, Elser and Wiro all listing text+image only → **the independent and first-party documentation wins**; the original claim is kept in place, marked superseded. (2) *DeepSWE 74.1% vs AA's 68%* → both recorded; AA's run drives the score. (3) *1.05M vs AA's 1M* → recorded as an unreproduced differentiator rather than deleting the vendor figure. (4) *Zapier AutomationBench 41.4% vs AA AutomationBench-AA 69%* → **treated as two different instruments, not a conflict**, since AA states it is its own implementation. (5) *Intelligence Index 52.7 (pre-v5) vs 57 (v5.0)* → **non-comparable across the 2026-10-27 rebasketing**; current governs, launch value kept as history.
+- Guards applied: (a) **variant discipline** — all AA cells quoted are for **GPT-6 Astra (max)**; other effort levels (low…xhigh) are measured separately by AA and are not mixed in; (b) **no sibling transfer** — GPT-6 Sol / Luna / GPT-5.6 figures appear only as explicit comparators, never as Astra evidence; (c) **lineage** — GPT-5.6 Sol's 40%/60%/72% rows are its own, used for deltas only; (d) **Speed (#108/196, 78.2 tok/s) is excluded from the Overall mean** — Astra is *slower* than average and that is not a quality dim; (e) **Cost efficiency excluded from the mean**; (f) AA per-evaluation cells behind interactive charts were not transcribable — only machine-readable summary cells and AA's published article numbers are recorded. Never read peer raters' findings files in either pass (zero-influence).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

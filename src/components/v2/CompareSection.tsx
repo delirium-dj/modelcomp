@@ -5,6 +5,7 @@ import { RATER_GATE } from "../../data/sources.generated";
 import { VendorIcon } from "../VendorIcon";
 import { hexPoint, hexPolygon, type HexGeometry } from "./hex";
 import { DIMENSION_LABELS, TABLE_KEYS, dimensionTooltip } from "./modelView";
+import { PricingBadge } from "./PricingBadge";
 
 const HEX_GEO: HexGeometry = { cx: 200, cy: 200, maxR: 130, labelR: 168 };
 
@@ -252,11 +253,7 @@ export const CompareSection = component$<CompareSectionProps>(
                       <VendorIcon id={m.id} name={m.name} /> {m.name}
                     </a>
                     <span>Overall {m.scores.overall}</span>
-                    {m.hasFreeTier ? (
-                      <span title={m.meta.freeTierNote ?? m.meta.pricingNote}>· Free</span>
-                    ) : (
-                      <span>· Paid</span>
-                    )}
+                    <PricingBadge model={m} variant="inline" />
                   </li>
                 ))}
               </ul>
