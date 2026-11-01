@@ -105,7 +105,7 @@ describe("applyAverageToPrev (header preservation)", () => {
     const { next, created } = applyAverageToPrev(null, "Demo Model", "BODY");
     assert.equal(created, true);
     assert.match(next, /^# Demo Model — Averaged findings/);
-    assert.match(next, /model-comparison\.md/);
+    assert.match(next, /README\.md#methodology/);
     assert.match(next, /BODY$/);
   });
 

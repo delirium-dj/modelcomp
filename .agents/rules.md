@@ -36,7 +36,7 @@ reports, and the website stay consistent.
   `pnpm sync`); the single point of reference for the model list + overall
   scores (RULES.md § Model roster & Overall scores) — agents read this one
   file instead of scanning every `average.md` or any findings file.
-- `model-comparison.md` — overview table + methodology (per-model details live in `model/`).
+- `model-comparison.md` — frozen v1–v3 history (per-model details live in `model/`); current scoring contract lives in `README.md` § Methodology and `RULES.md` § Scoring.
 - `model-findings.md` — signed cross-model log.
 - `model-report-TEMPLATE.md` — blank template for new reporting agents.
 - `dist/` + `server/` — build output, never hand-edit.

@@ -68,6 +68,20 @@
     routes its overall-mismatch warning through `warnOnce()` instead of raw
     `console.warn()`, matching the module's own warn-once policy (lines 30–35).
     No more repeated warning spam (3-4x per build) in dev mode.
+17. **Pricing renders unified via shared components (D13 + B5).** New
+    `src/components/v2/PricingBadge.tsx` (`card`/`inline`/`legend` variants) fixes
+    inconsistent Free/Paid labels across model card (`Paid`), compare legend (`· Paid`),
+    and model profile (no badge at all). New `src/components/v2/PricingTiers.tsx` wraps
+    `withFreeZenLink` for consistent pricing-tier rendering with source links across
+    `CompareSection.tsx`, `ModelsSection.tsx`, and `DecisionShelf.tsx`.
+    `withFreeZenLink` return type changed from `any[]` to `JSXOutput[]` for strict type
+    safety.
+18. **`model-comparison.md` declared frozen (C2).** `.agents/rules.md:39` updated to
+    describe it as "frozen v1–v3 history" with readers pointed at `README.md` § Methodology
+    and `RULES.md` § Scoring. `scripts/lib/average.mjs:94` header stamp now points new
+    `average.md` files at `../../README.md#methodology` instead of the frozen
+    `model-comparison.md`. Only newly created `average.md` heads are affected; existing
+    ones are preserved by `applyAverageToPrev`.
 
 Validation this pass: `pnpm test` 563/563 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.

@@ -78,6 +78,19 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **D9** — homepage split: `routes/index.tsx` now composes `v2/HeroSection`, `FactsStrip`,
   `CompareSection`, `MethodologySection`, `ModelsSection`, `DecisionShelf`.
 - **D10** — `writeIfChanged` helper in `scripts/sync-data.mjs`.
+- **D13** — Pricing renders unified via shared components. New `src/components/v2/PricingBadge.tsx`
+  (`card`/`inline`/`legend` variants) fixes inconsistent Free/Paid labels (B5); new
+  `src/components/v2/PricingTiers.tsx` wraps `withFreeZenLink` for consistent pricing-tier
+  rendering across model profile, model card, and compare legend. `withFreeZenLink` return
+  type changed from `any[]` to `JSXOutput[]` for strict type safety. Used in
+  `CompareSection.tsx`, `ModelsSection.tsx`, and `DecisionShelf.tsx`. See `REPORT.md`
+  2026-11-01 item 17.
+- **C2** — `model-comparison.md` declared frozen v1–v3 history. `.agents/rules.md:39`
+  updated to point readers at `README.md` § Methodology + `RULES.md` § Scoring;
+  `scripts/lib/average.mjs:94` header stamp now points new `average.md` files at
+  `../../README.md#methodology` instead of the frozen `model-comparison.md`.
+  Only newly created `average.md` heads are affected; existing ones are preserved
+  by `applyAverageToPrev`. See `REPORT.md` 2026-11-01 item 18.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3 756 lines).
   V1 shape cannot load on Desktop 2.x (`PluginModule.LoadError: missing key "default"`);
   both loaders glob top level only; V2 ports at `.opencode/plugins/*.ts` all load
@@ -93,7 +106,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 **Not applied (left for you)**
 
 - **A8** `PRD/webshop-prd.md`.
-- Part C/B items outside the execution list (**B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
+- Part C/B items outside the execution list (**C3/C5**) and **D11–D12, D14–D18**, **E1/E2**.
 
 ---
 

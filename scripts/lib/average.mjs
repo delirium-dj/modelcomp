@@ -91,7 +91,7 @@ export function applyAverageToPrev(prev, modelName, body) {
       created: true,
       next:
         `# ${modelName} — Averaged findings\n\n` +
-        `- Overview and scoring methodology: \`../../model-comparison.md\`\n` +
+        `- Overview and scoring methodology: \`../../README.md#methodology\`\n` +
         `- Cross-model signed log: \`../../model-findings.md\`\n\n` +
         body,
     };
