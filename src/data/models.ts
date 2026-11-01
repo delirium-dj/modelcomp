@@ -466,7 +466,7 @@ export function checkOverallScores(): void {
       if (!s) return;
       const mean = (s.tool + s.reasoning + s.context + s.multimodal + s.coding) / 5;
       if (Math.abs(mean - s.overall) > 0.51) {
-        console.warn(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
+        warnOnce(`[models] overall mismatch for ${m.id} (${key}): file=${s.overall} dim-mean=${mean.toFixed(2)}`);
       }
     });
   }

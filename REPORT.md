@@ -64,8 +64,12 @@
     All backed-up assets are still live (`public/favicon.svg`, `public/manifest.json`,
     `src/components/router-head.tsx`); nothing references the backup folder. Remains
     recoverable from git history.
+16. **`checkOverallScores()` uses `warnOnce` (B4).** `src/data/models.ts:469` now
+    routes its overall-mismatch warning through `warnOnce()` instead of raw
+    `console.warn()`, matching the module's own warn-once policy (lines 30–35).
+    No more repeated warning spam (3-4x per build) in dev mode.
 
-Validation this pass: `pnpm test` 562/562 green; `pnpm build.types:direct` clean; `pnpm build:direct`
+Validation this pass: `pnpm test` 563/563 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
 Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`) — the sync applies the stale-key prune.
 

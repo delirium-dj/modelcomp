@@ -29,7 +29,7 @@ files (Part A1).
 ## Status — applied 2026-11-01
 
 Items implemented this session (see `REPORT.md` 2026-11-01 for the file-level log).
-Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
+Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 `pnpm build:direct` **205 SSG pages** with no errors.
 
 **Done**
@@ -52,6 +52,10 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
   ("groups by category (its own SECTIONS array)"); `PAID_ONLY_PROVIDERS` and `getProvider`
   do not exist in the file (dead code already removed, tracked as D7 done). No further
   action needed — Path A complete. See `REPORT.md` 2026-11-01 item 12.
+- **B4** — `checkOverallScores()` in `src/data/models.ts` now routes its mismatch
+  message through `warnOnce()` instead of raw `console.warn()`, matching the module's
+  own warn-once policy. No more repeated warning spam in dev. See `REPORT.md`
+  2026-11-01 item 16.
 - **B1** — `model-report-TEMPLATE.md` restored from `b666acf2^` (107-line template:
   model card, raw benchmarks, normalized scores 1–100, signature block, submission
   checklist). ~13 live references (`.agents/rules.md`, `tasks/research.md`,
@@ -89,7 +93,7 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
 **Not applied (left for you)**
 
 - **A8** `PRD/webshop-prd.md`.
-- Part C/B items outside the execution list (**B4–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
+- Part C/B items outside the execution list (**B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
 ---
 
