@@ -80,10 +80,15 @@ Validation: `pnpm test` **562/562** green, `pnpm build.types:direct` clean,
   (14/14, zero failures). V1 originals remain recoverable from git history.
   Dropped the "V1 originals parked" paragraph from `.agents/rules.md`. See
   `REPORT.md` 2026-11-01 item 14.
+- **A7** — `assets/avatar-backup-2026-10-05/` removed (4 tracked files: README.txt,
+  favicon.svg, manifest.json, router-head.tsx). Stale backup of assets that are all
+  still live (`public/favicon.svg`, `public/manifest.json`, `src/components/router-head.tsx`);
+  nothing references the backup folder. V1 originals remain recoverable from git history.
+  See `REPORT.md` 2026-11-01 item 15.
 
 **Not applied (left for you)**
 
-- **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
+- **A8** `PRD/webshop-prd.md`.
 - Part C/B items outside the execution list (**B4–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
 ---

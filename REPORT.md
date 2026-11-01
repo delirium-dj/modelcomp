@@ -59,6 +59,11 @@
     V2 ports at `.opencode/plugins/*.ts` all load (14/14, zero failures). V1 originals
     remain recoverable from git history. Dropped the "V1 originals parked" paragraph
     from `.agents/rules.md`.
+15. **Stale avatar backup removed (A7).** `git rm -r assets/avatar-backup-2026-10-05/`
+    — 4 tracked files (README.txt, favicon.svg, manifest.json, router-head.tsx).
+    All backed-up assets are still live (`public/favicon.svg`, `public/manifest.json`,
+    `src/components/router-head.tsx`); nothing references the backup folder. Remains
+    recoverable from git history.
 
 Validation this pass: `pnpm test` 562/562 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.
