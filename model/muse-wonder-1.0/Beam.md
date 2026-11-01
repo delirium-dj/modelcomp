@@ -1,75 +1,72 @@
-# Muse Wonder 1.0 — findings by Beam
+# Muse Wonder — findings by Beam
 
-- Source: Meta (`meta/muse-wonder`)
-- Date: 2026-10-22 (UTC)
+- Source: Meta / Muse Wonder (`muse-wonder-1.0`, Meta Model API)
+- Date: 2026-11-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Wonder 1.0
-- **Short description:** Meta Superintelligence Labs' frontier multimodal reasoning model for personal and professional agentic tasks, built on Muse Spark. Released 2026-10-12 with a material jump in intelligence over Muse Spark 1.3 (AA Index 48 → 52).
-- **Provider / access:** Meta Model API (`meta/muse-wonder`); OpenAI-compatible. Chat Completions.
-- **Release / knowledge:** 2026-10-12 release (Meta). Knowledge cutoff not publicly disclosed.
-- **IDs:** `meta/muse-wonder` (paid; no Free ID on Zen).
-- **Context window:** 1,048,576 tokens total; 944,000 max output (Puter / LLM Stats).
-- **Modalities:** Text, image, video, audio, PDF input; text output. Tool calls yes; structured output yes; configurable reasoning effort.
-- **Pricing (as of 2026-10-22):** $4.00 / 1M input, $0.20 / 1M cached input, $20.00 / 1M output. Paid only.
-- **Architecture:** Proprietary (Meta Superintelligence Labs; Muse Spark lineage; MoE details not publicly disclosed for Wonder).
+- **Name:** Muse Wonder (Meta Muse Wonder series; standard tier; distinct from Muse Wonder Full)
+- **Short description:** Meta's frontier model for personal and professional agentic tasks, combining Active Memory and Active Focus to carry important context across conversations and work diligently toward user goals. Released 2026-10-12 alongside Muse Wonder Full, a material jump over Muse Spark 1.3.
+- **Provider / access:** Meta Model API (OpenAI-compatible) and Muse Code; Muse Wonder Full is Muse Code subscription-only.
+- **Release / knowledge:** Released 2026-10-12. Knowledge cutoff not stated.
+- **IDs:** `muse-wonder-1.0` (Meta Model API). No Zen Free ID confirmed.
+- **Context window:** 1,000,000 tokens total (1M), unchanged from Muse Spark 1.3.
+- **Modalities:** Input text, image, video, audio; output text. Reasoning effort scaling (max) supported; tool calls.
+- **Pricing (as of 2026-11-01):** $4.00 / 1M input, $0.20 / 1M cached input, $20.00 / 1M output. Muse Wonder Full not priced per token.
+- **Architecture:** Proprietary; trained at Meta Prometheus data center; larger/stronger base than Muse Spark 1.3. Params not disclosed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Intelligence Index: **52.4** (AA, measured, max effort)
-- Terminal-Bench 4.0: **52%** (AA, measured, Muse Wonder max)
-- JobBench: **70.5%** (benchgap, measured)
-- AA AutomationBench: **39.1%** (benchgap, measured)
-- AA Tau3 Banking: **51.1%** (benchgap, estimated ±3.7pp)
-- Toolathlon / MCP-Atlas: MCP-Atlas **84.5%** (benchgap, estimated ±4.7pp)
-- GDPval-AA v2.1: no verified public score found for Muse Wonder (Muse Wonder Full variant: 1,857 Elo)
-- Claw-Eval / ClawProBench: no verified public score found
+- Terminal-Bench 4.0 (AA): **52.0%** (Muse Wonder max) vs Muse Spark 1.3 max 33% (+19 pts).
+- AutomationBench-AA: **68%** vs Spark 1.3 58%.
+- OSWorld V2.1: **39.1%** partial / 34.3% binary.
+- JobBench: **70.5%**.
+- MemoryBench: **34.3%** binary.
+- Claw-Eval / Toolathon / MCP-Atlas: no verified public score found.
 
 Reasoning / knowledge:
 
-- AA-HLE (Humanity's Last Exam): **50.1%** (AA, measured)
-- HLE (w/o tools): **43.8%** (benchgap, estimated ±9.3pp)
-- HLE (w/ tools): **55.7%** (benchgap, estimated ±4.8pp)
-- GPQA Diamond: **94.6%** (benchgap, estimated ±1.0pp)
-- AA-SciCode: **60.3%** (AA, measured)
-- CritPt: **28.3%** (benchgap, measured)
-- AA-Omniscience Accuracy: **41.1%** (benchgap, measured)
-- AA-LCR (long-context reasoning): **80.7%** (AA, measured)
-- MMLU-Pro: **83.4%** (benchgap, estimated ±6.3pp)
+- AA Intelligence Index v4.3: **52** (max) vs Spark 1.3 max 48; Full 56.
+- AA-Omniscience: **25** accuracy, hallucination **27%** (third-lowest among high scorers).
+- GPQA Diamond / HLE: no verified public score found.
+- CritPt / SciCode: only Full published (33% / 63%).
 
 Coding:
 
-- DeepSWE: **78.8%** (benchgap, measured)
-- SWE-Marathon: **53.1%** (benchgap, measured)
-- SWE-bench Verified: **96.7%** (benchgap, estimated ±4.6pp)
-- SWE-bench Pro: **75.3%** (benchgap, estimated ±6.6pp)
-- LiveCodeBench v6: **100.0%** (benchgap, estimated ±4.9pp)
-- SciCode: **59.8%** (benchgap, estimated ±3.1pp)
-- Vibe Code Bench: no verified public score found
+- DeepSWE 1.1: **78.8%**.
+- SWE-Marathon: **53.1%**.
+- ProgramBench: **50.0%**.
+- AA Coding Agents Index: **63** vs Spark 1.3 54; Full 68.
+- SWE-bench Verified / LiveCodeBench: no verified public score found.
 
 Long context:
 
-- 1,048,576 token context window; AA-LCR 80.7% (measured) — strong but below the 98% retrieval bar for top-tier context score.
+- No dedicated MRCR/RULER/GraphWalks value; 1M window supported.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Strong agentic performance (Terminal-Bench 4.0 52%, JobBench 70.5%, DeepSWE 78.8%, MCP-Atlas 84.5% estimated). Capped by mid-tier TB 4.0 score and no verified GDPval-AA Elo for this variant.
-- **Reasoning: 86/100.** Strong graduate reasoning (AA-HLE 50.1%, AA-SciCode 60.3%, GPQA Diamond 94.6% estimated, CritPt 28.3%). Capped by Knowledge remaining a relative weakness (Omniscience 41.1) and hallucination rate.
-- **Context window: 90/100.** 1M window with 80.7% LCR — top tier by size, scored below 100 because retrieval is not ≥98% at 512K+.
-- **Multimodal: 90/100.** Text + image + video + audio + PDF in, text out — full multimodal input coverage. Capped at text-out only.
-- **Coding: 88/100.** Strong coding (DeepSWE 78.8%, SWE-Marathon 53.1%, SWE-bench Pro 75.3% estimated, SciCode 60.3%). Capped by estimated (not measured) SWE-bench figures.
-- **Cost efficiency: 60/100.** Premium pricing ($4 / $20 per 1M) with high input token use; AA cost per task $4.52. Paid only.
-- **Overall Score: 87/100.** Mean of five non-cost dims (82 + 86 + 90 + 90 + 88) / 5 = 87.2 → 87. Best fit for multimodal agentic work and long-context document tasks where input coverage matters.
+- **Tool use: 92/100.** Agentic gains (Terminal-Bench 33%→52%, AutomationBench 58%→68%, JobBench 70.5%, Coding Agents 63); capped by incomplete GDPval/OSWorld and no Toolathon/MCP-Atlas.
+- **Reasoning: 92/100.** AA Intelligence Index 52 (up from 48) and low hallucination (27%); capped by unpublished GPQA/HLE and knowledge a relative weakness (Omniscience 25).
+- **Context window: 100/100.** 1M-token window; top tier.
+- **Multimodal: 88/100.** Text/image/video/audio input, text output; capped by text-only output and limited vision evals.
+- **Coding: 92/100.** DeepSWE 78.8%, SWE-Marathon 53.1%, Coding Agents 63; capped by no SWE-bench Verified/LiveCodeBench.
+- **Cost efficiency: 60/100.** Paid $4/$20 per 1M, $4.52 per AA task (2.8x Spark 1.3's $1.60) due to high input token use (7.69M/task).
+- **Overall Score: 93/100.** (92 + 92 + 100 + 88 + 92) / 5 = 92.8 → 93. Best-fit for long-horizon agentic work and computer use; escalate to Muse Wonder Full for max coding.
 
 ---
 
 ## Signature
 
-- Provided by: **Beam (opencode/beam-free)** — 2026-10-22
-- Method: public internet research (Meta/AA Muse Wonder article 2026-10-12, Puter model card, LLM Stats, benchgap measured/estimated scores); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Beam (Beam)** — 2026-11-01
+- Method: public internet research (official Meta model page + dev docs + Artificial Analysis independent review); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Muse Wonder — Meta AI Research blog](https://research.meta.ai/blog/muse-wonder)
+  - [Muse Wonder — Meta Developer docs](https://dev.meta.ai/models/muse-wonder)
+  - [Muse Wonder & Muse Wonder Full — Artificial Analysis](https://artificialanalysis.ai/articles/muse-wonder)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---

@@ -1,86 +1,76 @@
-# Muse Wonder 1.0 — findings by Step 5 Preview
+# Muse Wonder — findings by Step 5 Preview
 
-- Source: Meta (`muse-wonder-1.0`)
-- Date: 2026-10-24 (UTC)
+- Source: Meta/Muse Wonder
+- Date: 2026-10-31 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Wonder 1.0
-- **Short description:** Meta Superintelligence Labs' first frontier model for personal/professional agentic work (coding, long-horizon agents, computer use), with "Active Memory" cross-conversation context and "Active Focus" goal persistence; the sibling Muse Wonder Full (more capable, subscription-only) is a separate model.
-- **Provider / access:** Meta Model API (`https://dev.meta.ai`), OpenAI-SDK compatible (single `base_url` change), and Muse Code at all plans; `muse-wonder-1.0` is the API model ID. Chat Completions-style OpenAI-compatible endpoint.
-- **Release / knowledge:** released 2026-10-12; knowledge cutoff not disclosed by Meta.
-- **IDs:** `muse-wonder-1.0` on the Meta Model API. No free/$0 lane exists — every access path is per-token paid or subscription.
-- **Context window:** 1,048,576 tokens (1M) total; 131,072 max output (per Intelligent Living's access table; AA also lists a 1M window). No separate output cap was published by Meta directly.
-- **Modalities:** text, image, audio and video in; text out. Reasoning model (extended thinking); supports tool/function calling and strict JSON output (both confirmed on the Meta gateway and LLM Gateway).
-- **Pricing (as of 2026-10-24):** $4.00 per 1M input, $0.20 per 1M cached input, $20.00 per 1M output. No free tier; consumer app access is tied to $20/$100 monthly Muse subscriptions, and Muse Code plans run $5/$15/$50/$200 per month.
-- **Architecture:** proprietary — Meta has not disclosed parameter count or MoE layout. Trained at Meta's gigawatt-scale Prometheus data center.
+- **Name:** Muse Wonder (Artificial Analysis labels the max-reasoning-effort configuration "Muse Wonder (Max)"; it is the same model — Muse Wonder Full is the separate, larger sibling)
+- **Short description:** Meta Superintelligence Labs' first frontier-class model, released 2026-10-12 together with Muse Wonder Full; built for personal and professional agentic tasks (Active Memory, Active Focus), with the stronger Full variant reserved for Muse Code subscribers.
+- **Provider / access:** Meta Model API (`dev.meta.ai`) and Muse Code; on OpenCode Zen as `opencode/muse-wonder-1.0` via the Responses API (`https://opencode.ai/inference/openai/v1/responses`).
+- **Release / knowledge:** 2026-10-12; knowledge cutoff not published.
+- **IDs:** `opencode/muse-wonder-1.0` (Zen, Responses API); Meta first-party API model ID not published in the sources reviewed.
+- **Context window:** 1,000,000 tokens total (Artificial Analysis model page and multiple launch reports agree; max output tokens not published).
+- **Modalities:** in — text, image, audio/speech, video, documents/PDF; out — text. Reasoning model (extended thinking); tool use + computer/browser use demonstrated; JSON mode not documented in sources reviewed.
+- **Pricing (as of 2026-10-31):** $4.00 per 1M input / $0.20 per 1M cached input (95% cache discount) / $20.00 per 1M output on Meta's API — identical on OpenCode Zen. Artificial Analysis measures $4.52 per Intelligence Index task (v4.3 harness) / $6.95 (v5 page), 2.8x its predecessor Muse Spark 1.3.
+- **Architecture:** proprietary; parameter count not disclosed. Trained at Meta's gigawatt-scale Prometheus data center.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Artificial Analysis Coding Agents Index (max effort, in Muse Code): **63** (Artificial Analysis; leading rival Claude Code + Sonnet 5.5 = 68; predecessor Muse Spark 1.3 = 54)
-- Terminal-Bench 4.0 (agentic coding & terminal use): **52.0%** (Artificial Analysis, max effort) — conflicting independent measure: **49.49%** (vals.ai). Both well below the frontier band (Claude Sonnet 5.5 63.6%).
-- AutomationBench-AA (agentic SaaS workflows): **68%** (Artificial Analysis; leader Gemini 4 Argon 78%)
-- AA-Briefcase v1.1 (agentic knowledge work): **57.95% / 1659 Elo** (Artificial Analysis; leader Claude Sonnet 5.5 66.15% / 1823 Elo)
-- GDPval-AA v2.1 (real-world work tasks): **63.50% / 1770 Elo** (Artificial Analysis; leader Claude Opus 5.5 1866 Elo — Muse Wonder is within ~100 Elo of the leader)
-- CyberBench v1.1 (security): **80.36%** (vals.ai — tops the entire vals.ai field; Muse Wonder Full 73.63%)
-- Code Migration: **62.55%** (vals.ai)
-- IOI (competitive programming): **66.94%** (vals.ai)
-- Tau3-Banking / Tau2-Bench: no verified public score found for this model.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Harvey's Legal Agent Benchmark: **17.08%** (vals.ai; a known weak spot — legal agentic work)
-- SWE-Marathon (Meta's own long-running-software eval): Meta claims SOTA over GPT-6 Astra and Claude Opus 5.5, but no public number was published — vendor claim only.
+- Terminal-Bench 4.0: **52%** (max reasoning effort) (Artificial Analysis launch article; up from Muse Spark 1.3 max at 33%)
+- AutomationBench-AA: **68%** (max) (Artificial Analysis launch article; Muse Spark 1.3 max: 58%)
+- AA Coding Agents Index (run inside Muse Code): **63** (max) (Artificial Analysis launch article; Full: 68, Claude Code + Sonnet 5.5 max: 68)
+- GDPval-AA v2.1: no verified public score found for standard Wonder (Muse Wonder Full: 1857 Elo, #2)
+- AA-Briefcase v1.1: no verified public score found for standard Wonder (Full: 1729 Elo, #3)
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Meta self-reported suite (Harvey Legal Agent Benchmark, Vals Finance Agent V2, MemoryBench, FocusBench, SWE-Marathon, DeepSWE): named in Meta's blog/model card, but numeric results are published only inside image tables — no verified text values extracted
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index v4.3: **52** at max reasoning effort (Artificial Analysis; ranked #10 of 215 in its comparison class and 27 of 709 models with any published API). Muse Spark 1.3 (max) = 48, Muse Wonder Full (max) = 56, Claude Opus 5.5 = 58.
-- Humanity's Last Exam: **50.1%** (Artificial Analysis; leader Claude Opus 5.5 61.4%) — already above the project's 40% frontier reference.
-- AA-LCR v1.1 (long-context reasoning): **80.7%** (Artificial Analysis; leader Kimi K3 88.7%)
-- CritPt (physics reasoning): **28.3%** (Artificial Analysis; leader GPT-5.6 Sol 32.3%) — weakest Index component.
-- AA-Omniscience accuracy: **25** per the Artificial Analysis article, but **41%** per the per-evaluation table reproduced by Intelligent Living. These two transcriptions of the same AA dataset conflict; both are listed and neither is used alone to cap a score. Knowledge is an acknowledged weakness: Claude Opus 5.5 = 46, GPT-6 Astra = 43, Gemini 4 Argon = 42.
-- AA-Omniscience hallucination rate: **27%** (Artificial Analysis; third-lowest of any model scoring 45+ on the Index, behind Gemini 4 Argon at 15%). Low hallucination partly offsets low raw knowledge.
-- GPQA Diamond: no verified public score found.
-- LCR / MLCR: AA-LCR v1.1 80.7% above; no separate MLCR figure found.
+- Artificial Analysis Intelligence Index: **52** (v4.3, max effort) vs **43** (v5.0, rank 28 of 719 overall; #23 of 58 in the >$1/1M price class) — the two figures come from different index versions, not a contradiction (v5 launched 2026-10-27 and re-weighted the suite)
+- AA-Omniscience v1.1: **25** (max); hallucination rate **27%** — third-lowest among models scoring 45+ on the Index (behind only Gemini 4 Argon 15% and Muse Wonder Full 23%)
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- CritPt v2: no verified public score found for standard Wonder (Full: 33%, #1)
+- Output speed 143.1 tokens/s, TTFT 30.09s (high end vs 3.71s median); ~54k output tokens per Index task (v4.3) (Artificial Analysis)
 
 Coding:
 
-- SciCode: **60.3%** (Artificial Analysis; leader Claude Opus 5.5 66.9%) — above the project's 55% frontier reference.
-- Vibe Code Bench v1.1: **83.09%** (vals.ai)
-- ProgramBench: **0.50%** (vals.ai — an outlier low score, flagged as harness-specific)
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- DeepSWE: no verified public score found for Muse Wonder (Meta's Wonder-Full claims and Muse Spark 1.3's ~75.4% figure are not this model's numbers).
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found for standard Wonder (Full: 63%, #3)
+- AA Coding Agents Index: **63** (max) — see Agent/tool use above
+- FrontierCode 2.0 / Terminal-Bench-Science: included in the v5 index composite but per-benchmark values not published for this model
 
 Long context:
 
-- AA-LCR v1.1 at the full 1M window: **80.7%** (Artificial Analysis)
-- MRCR / RULER / GraphWalks at 512K+: no verified public retrieval score found. The 1M window is documented by all sources; retrieval durability is not.
-
-Speed / cost (context for cost scoring):
-
-- Output speed: **145.2 tokens/s** (Artificial Analysis model page, Meta's own API) vs **85.4 tokens/s** (Intelligent Living citing Artificial Analysis) — conflicting figures from different crawl dates; the AA model page figure is the newer, so it is used.
-- Time to first token: **26.53 s** (AA model page) vs **37.4 s** (Intelligent Living) — same conflict.
-- Cost per Artificial Analysis Intelligence Index task: **$4.52** (AA article) vs **$4.54** (AA model page) — same figure to rounding.
-- Output tokens per task ≈ 54k, ~10% fewer than Muse Spark 1.3 (60k); 7.69M input tokens per task (input is 76% of task cost).
+- 1M-token window confirmed by multiple sources; no MRCR/RULER/GraphWalks retrieval curve published — long-context retrieval quality unverified
 
 ### Normalized scores (1–100)
 
-- **Tool use: 79/100.** GDPval-AA 1770 Elo is above the project's 1750 frontier reference and AutomationBench-AA 68% is solid, but Terminal-Bench 4.0 52.0% (AA) / 49.49% (vals.ai) sits mid-table and the Coding Agents Index 63 trails the leading 68. Capped below 85 by the terminal/agentic-coding gap; lifted by genuine knowledge-work strength (CyberBench 80.36%, field-leading).
-- **Reasoning: 82/100.** HLE 50.1% clears the 40% frontier reference and the Intelligence Index 52 is top-ten-in-class, but knowledge is the explicit weak spot (Omniscience 25 vs 41 depending on transcription; leader 46) and CritPt 28.3% drags. A 27% hallucination rate (third-lowest overall) keeps this in the strong-but-not-frontier band. GPQA unknown, so the score is not pushed higher.
-- **Context window: 97/100.** 1,048,576-token window with 131,072 max output lands in the ≥1M tier (95–100). Not 100 because no MRCR/RULER retrieval number at 512K+ was published — AA-LCR v1.1 80.7% is long-context reasoning, not pure needle retrieval.
-- **Multimodal: 88/100.** Text, image, audio and video input with text-only output — broader input coverage than Muse Spark 1.3 (85) but no non-text output, which is what holds this under the 90–100 band.
-- **Coding: 84/100.** SciCode 60.3% beats the 55% frontier reference and Vibe Code Bench 83.09% is strong, but no SWE-bench/LiveCodeBench figure was published and the Coding Agents Index 63 sits below the leading 68. ProgramBench 0.50% is treated as a harness outlier, not evidence.
-- **Cost efficiency: 58/100.** $4.00/$20.00 per 1M with a $4.52 measured cost per Intelligence Index task — slightly worse than the project's $3/$15 ≈ 60 reference point, and far more expensive per task than GPT-6.1 Sol ($0.72) or GPT-6 Astra ($3.26). The $0.20 cached-input rate (20x discount, no cache-write fee) is a genuine partial offset for long agentic sessions.
-- **Overall Score: 86/100.** Mean of the five quality dims (79 + 82 + 97 + 88 + 84 = 430 ÷ 5 = 86.0). Best fit: a 1M-context agentic/knowledge-work model at Claude Opus 5.5 pricing — reach for it on long-horizon, multimodal, document-heavy agent tasks, and for CyberBench-strength security work; skip it when per-task cost or terminal-agent throughput matters most.
+- **Tool use: 84/100.** Terminal-Bench 4.0 52% + AutomationBench-AA 68% + Coding Agents Index 63 show strong agentic execution, clearly above the mid band; capped below the frontier band because Muse Wonder Full posts 57%/71%/68, and no GDPval-AA, AA-Briefcase, or Tau3 numbers are public for the standard model.
+- **Reasoning: 78/100.** Intelligence Index 52 (v4.3) / 43 (v5.0) sits between mid and frontier; knowledge is the weak leg (Omniscience 25, well below Opus 5.5's 46) even though hallucination is low (27%); GPQA/HLE/CritPt values unpublished.
+- **Context window: 95/100.** 1M tokens lands in the top tier (≥1M = 95–100); no published retrieval rate at 512K+ that would justify 100.
+- **Multimodal: 88/100.** Text + image + audio + video/document input, text output — per methodology that input coverage with text-only output sits in the 85–95 band.
+- **Coding: 82/100.** Coding Agents Index 63 and TB4.0 52% are solidly above mid-tier; capped because SWE-bench/LiveCodeBench/SciCode are unpublished for the standard model and the Full sibling leads at 68.
+- **Cost efficiency: 58/100.** $4/$20 per 1M with $4.52 per Index task — premium tier (~$3/$15 ≈ 60 in the methodology) and 2.8x Muse Spark 1.3's cost per task.
+- **Overall Score: 85/100.** Mean of (84 + 78 + 95 + 88 + 82)/5 = 85.4 → 85. Best fit: premium-priced frontier agentic model — choose it for long-horizon agent/browser work when Muse Code-style persistence matters; Muse Wonder Full (Muse Code only) or cheaper frontier routes (GPT-6.1 Sol, Gemini 4 Argon) beat it on cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research (Meta's official launch blog + model-card link, Artificial Analysis article and model page, vals.ai tables via Intelligent Living's independent reproduction, Unite.AI coverage, LLM Gateway catalog, and two DuckDuckGo discovery searches); scores are normalized 1–100 interpretations, not official vendor scores.
-- Research note: three source families were compared (Meta official, Artificial Analysis, vals.ai) and conflicts are recorded inline rather than resolved silently — Terminal-Bench 4.0 (52.0% AA vs 49.49% vals.ai), AA-Omniscience (25 article vs 41 table), and speed (145.2 vs 85.4 tok/s).
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-31
+- Method: public internet research across five independent sources (Meta's own research blog, Artificial Analysis model page + launch article, Unite.AI, Kompozy, OpenCode Zen docs); conflicting figures reconciled by index version (AA v4.3 vs v5.0); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta research blog — Muse Wonder: A Frontier Model For Personal & Professional AI Agents](https://research.meta.ai/blog/muse-wonder)
+  - [Artificial Analysis — Muse Wonder model page (Intelligence Index v5, pricing, speed, specs)](https://artificialanalysis.ai/models/muse-wonder)
+  - [Artificial Analysis — Muse Wonder and Muse Wonder Full launch article (v4.3 benchmark details)](https://artificialanalysis.ai/articles/muse-wonder)
+  - [Unite.AI — Meta Unveils Muse Wonder Series, Its Most Capable AI Models Yet](https://www.unite.ai/meta-unveils-muse-wonder-series-its-most-capable-ai-models-yet/)
+  - [Kompozy — Meta Launches Muse Wonder and Muse Wonder Full](https://kompozy.io/news/meta-muse-wonder-frontier-model-launch)
+  - [OpenCode Zen docs — model list and pricing](https://opencode.ai/docs/zen)

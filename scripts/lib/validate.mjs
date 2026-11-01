@@ -58,6 +58,17 @@ export const MERGED_MODEL_SLUGS = new Map([
   // name still resolves (RULES.md § Revealed-stealth identity).
   ["space-bunny", "minimax-m3.1-flash-preview"],
   ["cat-jam", "beam"],
+  // Muse Wonder product-name duplicate (RULES.md family-shorthand identity,
+  // user-ordered merge 2026-11-01): "Muse Wonder" is Meta's product name; the
+  // only vendor ID is the API SKU `muse-wonder-1.0` (dev.meta.ai's Muse Wonder
+  // page lists exactly one pay-as-you-go SKU — muse-wonder-1.0; OpenRouter
+  // serves the same model as meta/muse-wonder; same 1M window, same $4/$20).
+  // The genuinely distinct Muse Wonder Full (muse-wonder-full-1.0,
+  // subscription-only, never on the API) keeps its own folder
+  // model/muse-wonder-full/. Colliding findings folded newest-report-wins
+  // into model/muse-wonder-1.0/ and the duplicate folder deleted on user
+  // order; searching "Muse Wonder" resolves via the canonical meta aliases.
+  ["muse-wonder", "muse-wonder-1.0"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -463,6 +474,7 @@ export const CASE_LAW_NOTES = new Map([
   ["longcat_2.5_preview", "underscore-spelling duplicate of longcat-2.5-preview (both declared id opencode/longcat-2.5-preview-free — one model); merged + deleted 2026-10-23"],
   ["space-bunny", "revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; folder merged into model/minimax-m3.1-flash-preview/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/minimax-m3.1-flash-preview/"],
   ["cat-jam", "revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/"],
+  ["muse-wonder", "vendor product-name duplicate of muse-wonder-1.0 — Meta ships the Muse Wonder product only as API SKU muse-wonder-1.0 (dev.meta.ai model page + OpenRouter meta/muse-wonder; same 1M window, same $4/$20; the distinct Muse Wonder Full is muse-wonder-full-1.0, subscription-only); one rater had already self-excluded the folder as a scaffolded stub of the same model; merged + deleted 2026-11-01 (user order) — research belongs in model/muse-wonder-1.0/"],
   // Retired vendor aliases
   ["grok-code-fast-1", "docs.x.ai alias of grok-build-0.1 — never a folder; alias-measured figures are lineage data, cited only labelled with the measured ID"],
   // Merged-and-deleted duplicate findings-file stems

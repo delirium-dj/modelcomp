@@ -106,6 +106,21 @@ if [ -n "$longcat_underscore_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Merged duplicate slug (RULES.md family-shorthand identity): model/muse-wonder/
+# was folded into model/muse-wonder-1.0/ and deleted on user order (2026-11-01;
+# "Muse Wonder" is Meta's product name — the only vendor ID is the API SKU
+# muse-wonder-1.0, one model; Muse Wonder Full is the separate
+# muse-wonder-full-1.0) — block any staged addition under the product-name
+# slug (trailing slash keeps model/muse-wonder-1.0/ and model/muse-wonder-full/
+# unaffected). Research/report under model/muse-wonder-1.0/ instead.
+muse_wonder_added="$(git diff --cached --name-only --diff-filter=A -z -- model/muse-wonder/ | tr '\0' '\n' | grep -E '.' || true)"
+if [ -n "$muse_wonder_added" ]; then
+  echo "BLOCKED by RULES.md: model/muse-wonder/ is a merged duplicate of model/muse-wonder-1.0/ — never recreate it:" >&2
+  printf '%s\n' "$muse_wonder_added" >&2
+  echo "Write into model/muse-wonder-1.0/ instead," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Merged revealed-stealth slugs (RULES.md revealed-stealth identity, user
 # rule 2026-10-24): model/space-bunny/ was merged into
 # model/minimax-m3.1-flash-preview/ (stealth slot revealed 2026-10-19 as

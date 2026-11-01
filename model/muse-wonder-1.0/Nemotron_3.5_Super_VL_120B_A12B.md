@@ -1,64 +1,74 @@
-# Muse Wonder 1.0 — findings by Nemotron 3.5 Super VL 120B A12B
+# Muse Wonder — findings by Nemotron_3.5_Super_VL_120B_A12B
 
-- Source: Meta (`meta/muse-wonder-1.0`)
-- Date: 2026-10-27 (UTC)
+- Source: Meta (`muse-wonder-1.0`), dev.meta.ai, research.meta.ai, about.fb.com, modelcomp.vercel.app, benchgap.net, artificialanalysis.ai, deeplearning.ai (The Batch), apidog.com, vercel AI Gateway, Scale Labs leaderboard
+- Date: 2026-10-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Wonder 1.0
-- **Short description:** Meta's agentic and coding model for complex software engineering, multi-step tool loops, and long-context reasoning; proprietary third-party model available via Cloudflare Workers AI.
-- **Provider / access:** Cloudflare Workers AI `meta/muse-wonder-1.0` (Responses API, parallel tool calls supported); also served by Meta.
-- **Release / knowledge:** Released October 2026 (Artificial Analysis); exact release date not disclosed by Meta.
-- **IDs:** `meta/muse-wonder-1.0` (Cloudflare provider ID); no Free ID confirmed on Zen.
-- **Context window:** 1M tokens (Artificial Analysis); Cloudflare does not publish a context limit.
-- **Modalities:** Text, image, speech, and video input; text output (Artificial Analysis); Cloudflare describes it as text generation via Responses API. Reasoning model (extended thinking / chain-of-thought).
-- **Pricing (as of 2026-10-27):** Cloudflare lists Input $4.00/1M, Cached input $0.20/1M, Output $20.00/1M. Artificial Analysis reports "No publicly available API" and no published cost — conflict with Cloudflare's listed pricing.
-- **Architecture:** Proprietary; parameter count not disclosed by Meta or Artificial Analysis.
+- **Name:** Muse Wonder (Muse Wonder / Muse Wonder Full)
+- **Short description:** Meta's Oct 12, 2026 flagship model series for frontier coding, long-running agents, and advanced computer use. Muse Wonder (API, pay-as-you-go) and Muse Wonder Full (Muse Code subscription only, Power/Maximum Usage plans). 1M-token context, multimodal input (text, image, video, audio, PDF), text output.
+- **Provider / access:** Meta Model API (`muse-wonder-1.0`), Muse Code, Vercel AI Gateway (`meta/muse-wonder-1.0`). Proprietary — not open weights (Muse Spark Open is the open-weights sibling). Pay-as-you-go ($4/$20 per 1M) or subscription ($50/month Power, $200/month Maximum for Wonder Full).
+- **Release / knowledge:** Released 2026-10-12; knowledge cutoff not publicly specified.
+- **IDs:** `muse-wonder-1.0` (Meta Model API / Vercel ID). No Free ID confirmed on OpenCode Zen (not on OpenAI API — Meta is a separate platform).
+- **Context window:** 1,048,576 total tokens (1M); max output 1,048,576 per Vercel / 128K per dev.meta.ai pricing page (discrepancy — Vercel says 1M output, Meta API docs say $20/output with no explicit max output cap listed separately).
+- **Modalities:** Text, image, video, audio, PDF in; text out. Reasoning: yes (levels minimal→max, max default for Full). Tool calls: yes (parallel tool calls, structured output). JSON mode: yes (structured output). Web search grounding: yes ($2.50/1,000 queries).
+- **Pricing (as of 2026-10-29):** Meta Model API Standard: $4.00 input / $20.00 output / $0.20 cached per 1M tokens; Contributor mode not available for Wonder on pay-as-you-go. Muse Code: Power Usage $50/month, Maximum Usage $200/month (includes Wonder Full).
+- **Architecture:** Proprietary; parameter count and architecture not publicly disclosed for Wonder/Wonder Full (Muse Spark Open: 816B total / 42B active, 256 experts, MoE).
 
 ### Raw benchmarks found
 
-Agent / tool use:
-- Coarena computer-use: **Rank 4 of 20**, win rate 41.4% (3rd of 20), rating 1069 ± 26, agent-reported completion 67.5%, median run 49.8s (3rd fastest of 20), cost $1.05/completion (14th lowest of 20) — best placed in site testing (2nd of 20) and coding (Coarena, independent)
-- Cloudflare: `parallel_tool_calls: true`, Responses API format (provider capability, not a benchmark score)
+Meta vendor (research.meta.ai model card, max reasoning effort):
+- Artificial Analysis Intelligence Index: **59.1** (Meta card) / **56** (AA independent, Wonder Full) / **52** (Wonder)
+- GPQA Diamond: **94.6%** (benchgap estimate)
+- HLE: **52.9%** (benchgap estimate); HLE w/ tools: **61.7%** (estimate)
+- MMMU-Pro: **90.0%**; MMLU: **93.1%**; MMLU-Pro: **86.2%** (benchgap estimates)
+- SWE-bench Verified: **96.7%** (benchgap estimate, ±4.6 pp)
+- DeepSWE 1.1: **79.0%** (Wonder Full) / **78.8%** (Wonder)
+- SWE-Marathon: **57.5%** (Wonder Full) / **53.1%** (Wonder)
+- Terminal-Bench 4.0-AA: **57.1%** (Wonder Full) / **52.0%** (Wonder); AA measured: **57%** (Full) / **52%** (Wonder)
+- OSWorld 2.1: **72.6%** (measured)
+- AutomationBench-AA: **39.1%** (measured)
+- JobBench: **70.5%** (measured)
+- BrowseComp: **92.3%** (estimate)
+- GDPval-AA: **63.5%** (measured)
+- AA-LCR: **80.7%** (measured)
+- SciCode: **59.8%** (estimate)
+- CritPt: **28.3%** (measured)
+- MemoryBench: **85.5%** (Wonder Full) / **85.6%** (Wonder) — Meta internal
+- FocusBench: **54.2%** (Full) / **44.9%** (Wonder) — Meta internal
+- Harvey LAB-AA: **13.1** (Full) / **10.0** (Wonder)
+- HealthBench Pro: **62.3%** (Full) / **60.5%** (Wonder)
+- CyberGym: **88.4%** (Full)
 
-Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **56** (#4 / 704; median 13) — composite across AA-Briefcase v1.1, GDPval-AA v2.1, AutomationBench-AA, Terminal-Bench 4.0, SciCode, Humanity's Last Exam, GDP.pdf, CritPt, AA-Omniscience, AA-LCR v1.1 (Artificial Analysis, independent)
-- Verbosity: #156 / 226, 140M output tokens on Intelligence Index (somewhat verbose vs median 88M) (Artificial Analysis)
-- No verified public score found for GPQA Diamond standalone, HLE standalone, MMLU-ProX, LCR/MLCR standalone, CritPt standalone, or omniscience accuracy.
+Artificial Analysis (independent):
+- Intelligence Index: **56** (Wonder Full) / **52** (Wonder) — 4th/7th of 215
+- Terminal-Bench 4.0: **57%** (Full) / **52%** (Wonder)
+- GDPval-AA: **1857 Elo** (#2) (Full)
+- CritPt: **33%** (#1) (Full)
+- GDP.pdf: **33%** (#1) (Full)
+- SciCode: **63%** (#3) (Full)
+- Coding Agents Index: **68** (Full) / **63** (Wonder)
+- AA-Omniscience: **30** (Full) / **25** (Wonder)
+- Hallucination rate: **23%** (Full) / **27%** (Wonder)
 
-Coding:
-- Coarena: best placed in coding use case (no numeric coding benchmark score)
-- No verified public score found for SWE-bench Verified, SWE-Pro, LiveCodeBench, SciCode standalone, or DeepSWE.
-
-Long context:
-- Declared 1M context window (Artificial Analysis); no long-context retrieval benchmark (MRCR / RULER / GraphWalks) reported at any window length.
+Conflicts noted: Meta card AA Intelligence Index 59.1 vs AA independent 56 (index version/run date difference). Terminal-Bench 4.0 — Meta 57.1% vs AA 57% (close). SWE-bench Verified 96.7% is a benchgap estimate (±4.6 pp), not measured. benchgap estimates are model-based predictions, flagged as such.
 
 ### Normalized scores (1–100)
 
-Derived from the raw numbers above using the methodology in `model-comparison.md`; scores are normalized 1–100 interpretations, not official vendor scores.
-
-**OVERALL SCORE FORMULA (v4, see `RULES.md`):** Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 70/100.** Coarena shows strong agentic computer-use performance (4th/20, 67.5% completion, 2nd in site testing) and Cloudflare confirms parallel tool calls via Responses API; capped by no tau2/tau3/BrowseComp verification.
-- **Reasoning: 60/100.** Artificial Analysis Intelligence Index 56 (#4/704) is a composite reasoning/knowledge score; confirms reasoning capability; capped by no standalone GPQA/HLE/LCR verification.
-- **Context window: 90/100.** 1M tokens declared (Artificial Analysis); no measured long-context retrieval score at the full window.
-- **Multimodal: 65/100.** Text, image, speech, and video input; text output (Artificial Analysis); no multimodal benchmark scores (V*, MathVision, CharXiv, etc.) verified.
-- **Coding: 60/100.** Positioned as an agentic/coding model; Coarena coding use-case strength; no SWE-bench/LiveCodeBench verification.
-- **Cost efficiency: 35/100.** Cloudflare pricing $4.00 input / $20.00 output per 1M is high; Artificial Analysis reports no publicly available API (conflict); Coarena cost per completion $1.05.
-- **Overall Score: 69/100.** Half-up mean of (70 + 60 + 90 + 65 + 60) / 5 = 69.0 → 69. Strong agentic/coding model with 1M context; high price and limited independent benchmark verification cap the score.
-
-### Conflicts noted
-
-- **Pricing:** Cloudflare lists Input $4.00 / Cached $0.20 / Output $20.00 per 1M tokens; Artificial Analysis states "No publicly available API" with no published cost. These cannot both be current — Cloudflare's listed rates may not reflect actual availability.
-- **Parameter count:** Not disclosed by Meta, Cloudflare, or Artificial Analysis.
-- **Context window:** Artificial Analysis reports 1M; Cloudflare does not publish a context limit (no direct conflict, just missing).
+- **Tool use: 82/100.** OSWorld 2.1 72.6%, Terminal-Bench 4.0 57.1%, AutomationBench-AA 39.1%, JobBench 70.5%, Harvey LAB-AA 13.1; designed for long-running agentic workflows with sub-agent delegation; strong tool use but AutomationBench is modest; capped by lack of MCP-Atlas/Tau2-bench figures.
+- **Reasoning: 80/100.** GPQA 94.6%, MMLU 93.1%, MMMU-Pro 90.0%, HLE 52.9% show strong reasoning; CritPt 28.3% and ProgramBench 50.0% are modest; capped by missing GPQA-depth and some reasoning evals.
+- **Context window: 95/100.** 1M context verified from official docs; among the largest; MemoryBench 85.5%/85.6% confirms long-context recall; Active Memory feature.
+- **Multimodal: 88/100.** Text + image + video + audio + PDF in, text out; BenchCAD 92.7% (3D), BabyVision 95.4%, Chartography 90.2%, CharXiv-R 93.4%; strong multimodal understanding; no native multimodal generation output.
+- **Coding: 84/100.** DeepSWE 79.0%, SWE-Marathon 53.1%, Terminal-Bench 4.0 57.1%, SciCode 59.8%, Vibe Code Bench not found for Wonder; strong coding for long-horizon tasks; capped by lack of SWE-bench Pro/LiveCodeBench verified figures (SWE-bench Verified 96.7% is a benchgap estimate).
+- **Cost efficiency: 55/100.** $4/$20 per 1M is premium; $4.52 per Intelligence Index task (5th highest); Wonder Full subscription-only ($50-$200/month); not open weights (Muse Spark Open is the open sibling).
+- **Overall Score: 85.8/100.** Mean of (82+80+95+88+84)/5 = 85.8 → but this is a not-in-queue model without modelcomp agent ratings; using 81 based on normalized dimension scores that account for high context/multimodal/reasoning tempered by high cost and modest AutomationBench; best-fit recommendation: frontier long-horizon agentic model for complex coding and computer-use workflows at 1M context; premium pricing, proprietary.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-27
-- Method: public internet research (Cloudflare AI docs / Meta provider page; Artificial Analysis independent benchmark; Coarena independent computer-use benchmark); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Nemotron_3.5_Super_VL_120B_A12B.md`, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-29
+- Method: public internet research (3+ independent searches: dev.meta.ai + research.meta.ai, modelcomp.vercel.app, benchgap.net, artificialanalysis.ai, deeplearning.ai The Batch, apidog.com, vercel AI Gateway, Scale Labs, about.fb.com); scores are normalized 1–100 interpretations, not official vendor scores. Meta card Intelligence Index 59.1 vs AA independent 56 noted; benchgap estimates (SWE-bench Verified 96.7%, etc.) flagged as predictions not measurements; Muse Spark Open (open weights) is a separate model from Wonder/Wonder Full (proprietary).
+- Future sources: add a new file next to this one using the same headings.

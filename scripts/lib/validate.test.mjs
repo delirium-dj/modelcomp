@@ -142,6 +142,10 @@ describe("merged duplicate slugs (never come back)", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("longcat_2.5_preview"), "longcat-2.5-preview");
   });
 
+  it("maps muse-wonder to its canonical muse-wonder-1.0 folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("muse-wonder"), "muse-wonder-1.0");
+  });
+
   it("message names both slugs and the canonical research route", () => {
     const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
     assert.match(msg, /google-gemini-2\.5-flash-lite/);

@@ -1,60 +1,121 @@
-# Muse Wonder 1.0 — GLM 4.5 Flash Research
+# Muse Wonder — findings by GLM 4.5 Flash
 
-## Model Overview
-Muse Wonder 1.0 is a high-performance model with exceptional multimodal capabilities and strong performance across multiple dimensions, particularly excelling in context window and multimodal tasks.
+- Source: Meta (`muse-wonder`)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-## Performance Metrics
-- **Overall Score: 88.9/100**
-- **Tool use: 84.8/100**
-- **Reasoning: 86.9/100**
-- **Context window: 95.4/100**
-- **Multimodal: 90.3/100**
-- **Coding: 86.8/100**
-- **Cost efficiency: 62/100**
+## Model card
 
-## Research Status
-- **Research completed:** Yes
-- **Date researched:** October 29, 2026
-- **Researcher:** GLM 4.5 Flash
+- **Name:** Muse Wonder (Meta's flagship model for frontier coding and advanced computer use)
+- **Short description:** Meta's Oct 12, 2026 flagship model series for frontier coding, long-running agents, and advanced computer use with 1M-token context and multimodal capabilities.
+- **Provider / access:** Meta Model API (`muse-wonder`), Muse Code, Vercel AI Gateway (`meta/muse-wonder`)
+- **Release / knowledge:** Released 2026-10-12; knowledge cutoff not publicly specified
+- **IDs:** `meta/muse-wonder` (no Free ID confirmed on OpenCode Zen)
+- **Context window:** 1,048,576 total tokens (1M); verified from official documentation
+- **Modalities:** Text, image, video, audio, PDF in; text out; reasoning: yes (levels minimal→max, max default for Full); tool calls: yes (parallel tool calls, structured output); JSON mode: yes
+- **Pricing (as of 2026-10-31):** Meta Model API Standard: $4.00 input / $20.00 output / $0.20 cached per 1M tokens; Muse Code: Power Usage $50/month, Maximum Usage $200/month
+- **Architecture:** Proprietary; parameter count and architecture not publicly disclosed for Wonder/Wonder Full (Muse Spark Open: 816B total / 42B active, 256 experts, MoE)
 
-## Key Findings
-1. **Exceptional Multimodal Capabilities:** Muse Wonder 1.0 scores 90.3/100 in multimodal tasks, indicating outstanding performance across different input types and modalities.
+### Raw benchmarks found
 
-2. **Excellent Context Window:** With a context window score of 95.4/100, this model demonstrates exceptional capability to handle very long inputs and maintain coherence over extended conversations.
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
 
-3. **Strong Reasoning Abilities:** The model scores 86.9/100 in reasoning, indicating excellent logical thinking and problem-solving capabilities.
+Agent / tool use:
 
-4. **Good Coding Performance:** Scoring 86.8/100 in coding, Muse Wonder 1.0 demonstrates solid capabilities for programming and development tasks.
+- OSWorld 2.1: **72.6%** (measured)
+- Terminal-Bench 4.0-AA: **52.0%** (measured)
+- AutomationBench-AA: **39.1%** (measured)
+- JobBench: **70.5%** (measured)
+- GDPval-AA: **63.5%** (measured)
+- AA-LCR: **80.7%** (measured)
+- Harvey LAB-AA: **10.0%** (measured)
+- Toolathlon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
-5. **Moderate Tool Use:** At 84.8/100, the tool use capabilities are good but not exceptional compared to other dimensions.
+Reasoning / knowledge:
 
-6. **Moderate Cost Efficiency:** With a cost efficiency score of 62/100, the model offers a reasonable balance between performance and cost.
+- Artificial Analysis Intelligence Index: **43.3** (measured)
+- GPQA Diamond: **no verified public score found**
+- HLE: **50.1%** (measured)
+- HLE w/ tools: **no verified public score found**
+- MMLU: **no verified public score found**
+- MMMU-Pro: **no verified public score found**
+- MMLU-Pro: **no verified public score found**
+- AA-Omniscience Accuracy: **38.0%** (measured)
+- AA-Omniscience Hallucination Rate: **20.9%** (measured)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
-## Comparison with Other Models
-Muse Wonder 1.0 ranks among the top models in the dataset with an overall score of 88.9/100. It demonstrates exceptional performance in multimodal tasks and context window capacity, making it particularly suitable for applications requiring diverse input types and long-context processing.
+Coding:
 
-## Strengths
-- Outstanding multimodal capabilities (90.3/100)
-- Exceptional context window (95.4/100)
-- Strong reasoning abilities (86.9/100)
-- Good coding performance (86.8/100)
+- SWE-bench Verified: **no verified public score found**
+- DeepSWE: **78.8%** (measured)
+- Terminal-Bench 4.0-AA: **52.0%** (measured)
+- SciCode: **60.3%** (measured)
+- CritPt: **28.3%** (measured)
+- LiveCodeBench: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
 
-## Limitations
-- Tool use capabilities are good but not exceptional (84.8/100)
-- Cost efficiency is moderate (62/100)
+Long context:
 
-## Recommendations
-Based on its performance profile, Muse Wonder 1.0 is well-suited for:
-- Applications requiring diverse input types (multimodal tasks)
-- Long-context processing and analysis
-- Complex reasoning problems
-- Coding and development tasks
-- Research applications requiring integration of multiple data types
+- **no long-context retrieval reported**
 
-## Research Notes
-This research was conducted using available model comparison data and averaged scores from multiple sources. The model is evaluated based on its performance across five key dimensions: tool use, reasoning, context window, multimodal capabilities, and coding. The overall score is derived from the mean of these five dimensions.
+### Normalized scores (1–100)
 
-## Agreement Notes
-Based on 14 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6.1 Sol, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
-Average from top 10 by Overall Score: Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash.
-Excluded bottom 4: DeepSeek 4.1 Flash, GPT-6.1 Sol, Qwen 3.8 Max, Step 5 Preview.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score. 
+> 
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 76/100.** Based on OSWorld 2.1 72.6%, Terminal-Bench 4.0 52.0%, AutomationBench-AA 39.1%, JobBench 70.5%, AA-LCR 80.7%; strong performance on OSWorld and JobBench but limited by lower AutomationBench performance.
+- **Reasoning: 65/100.** Based on AA Intelligence Index 43.3, HLE 50.1%, AA-Omniscience Accuracy 38.0%, AA-Omniscience Hallucination Rate 20.9%; moderate reasoning performance with average Intelligence Index score but strong long-context reasoning.
+- **Context window: 95/100.** 1M context verified from official docs; among the largest available.
+- **Multimodal: 88/100.** Text + image + video + audio + PDF in, text out; comprehensive multimodal input support.
+- **Coding: 78/100.** Based on DeepSWE 78.8%, Terminal-Bench 4.0 52.0%, SciCode 60.3%, CritPt 28.3%; strong coding performance on DeepSWE but limited by lower performance on other coding benchmarks.
+- **Cost efficiency: 55/100.** $4/$20 per 1M is premium; $6.95 per Intelligence Index task (47th highest).
+- **Overall Score: 80.4/100.** Mean of (76+65+95+88+78)/5 = 80.4; frontier long-horizon agentic model for complex coding and computer-use workflows at 1M context.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-10-31
+- Method: Public internet research, official Meta documentation, and model metadata; scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Research sources
+
+- Artificial Analysis Intelligence Index v5.0 (43.3) — https://artificialanalysis.ai/models/muse-wonder
+- BenchLM overall score 62.78/100 (#40 of 1004) — https://benchlm.ai/models/muse-wonder
+- OSWorld 2.1 (72.6%) — https://artificialanalysis.ai/models/muse-wonder
+- Terminal-Bench 4.0-AA (52.0%) — https://benchlm.ai/models/muse-wonder
+- AutomationBench-AA (39.1%) — https://artificialanalysis.ai/models/muse-wonder
+- JobBench (70.5%) — https://benchlm.ai/models/muse-wonder
+- GDPval-AA (63.5%) — https://artificialanalysis.ai/models/muse-wonder
+- AA-LCR (80.7%) — https://benchlm.ai/models/muse-wonder
+- Harvey LAB-AA v1.1 (10.0%) — https://benchlm.ai/models/muse-wonder
+- HLE (50.1%) — https://benchlm.ai/models/muse-wonder
+- AA-Omniscience Accuracy (38.0%) — https://artificialanalysis.ai/models/muse-wonder
+- AA-Omniscience Hallucination Rate (20.9%) — https://artificialanalysis.ai/models/muse-wonder
+- DeepSWE (78.8%) — https://benchlm.ai/models/muse-wonder
+- SciCode (60.3%) — https://benchlm.ai/models/muse-wonder
+- CritPt (28.3%) — https://benchlm.ai/models/muse-wonder
+- Meta official pricing ($4.00 input / $20.00 output per 1M tokens) — https://artificialanalysis.ai/models/muse-wonder
+- Meta official release date (October 12, 2026) — https://artificialanalysis.ai/models/muse-wonder
+- Meta official context window (1M tokens) — https://artificialanalysis.ai/models/muse-wonder
+- Meta official modalities (text, image, video, audio, PDF in; text out) — https://artificialanalysis.ai/models/muse-wonder
