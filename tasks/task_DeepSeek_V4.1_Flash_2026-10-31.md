@@ -40,6 +40,11 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
   notes for `claude-sonnet-5.4` (Overall 85.6) and `qwen-3.7` (Overall 77.3). Both note-models
   already have proper `model/<slug>/` folders registered in `model-queue.md`, so the orphan
   notes were redundant; nothing under `model/` touched. See `REPORT.md` 2026-11-01 item 10.
+- **A10** — `src/routes/design-6sol/` **kept** as the v2 design reference; de-duplicated via
+  D2/D3 (now imports shared `src/components/v2/hex.ts` geometry and
+  `src/components/v2/modelView.ts` label maps instead of its own copies). `layout.tsx:19`
+  keeps its `path === "/design-6sol"` special case since the route is still live locally.
+  Gitignored + untracked; not deployed, not built. See `REPORT.md` 2026-11-01 item 11.
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
 - **B2** — stale `SourceKey` prune added to `reconcileRegistry` (`scripts/lib/codegen.mjs`),
@@ -65,8 +70,7 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
 
 **Not applied (left for you)**
 
-- **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md` ·
-  **A10** `design-6sol` deletion (kept; only de-duplicated).
+- **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md`.
 - **B1** restore `model-report-TEMPLATE.md` (not in this request).
 - Part C/B items outside the execution list (**B3–B5**, **C2/C3/C5**) and **D11–D18**, **E1/E2**.
 
