@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 65/100.** Official text/image input qualifies for the image tier; there is no verified video, audio input, or non-text output capability.
 - **Coding: 89/100.** SWE-bench Verified reaches 87.6% in one published record and LiveCodeBench 85.1%; SWE-Pro 64.3%, DeepSWE 54%, SciCode 54.5%, and inconsistent Terminal-Bench records prevent a higher score.
 - **Cost efficiency: 50/100.** $5/$25 per MTok is premium pricing between the methodology's $3/$15 and $10/$50 reference points; cache reads and Batch discounts help but do not make it a low-cost model.
-- **Overall Score: 85.8/100.** Half-up mean of the five quality dimensions: (88 + 92 + 95 + 65 + 89) / 5 = 87.8. Best suited to high-stakes coding and tool-assisted professional work where quality is worth the premium; do not assume reliable retrieval across the full 1M-token window.
+- **Overall Score: 86/100.** Half-up mean of the five quality dimensions: (88 + 92 + 95 + 65 + 89) / 5 = 85.8, rounded to 86. Best suited to high-stakes coding and tool-assisted professional work where quality is worth the premium; do not assume reliable retrieval across the full 1M-token window.
 
 ---
 

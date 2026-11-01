@@ -1,55 +1,38 @@
-# MAI Experimental Test — findings by GPT-6 Luna
+# MAI Experimental Test — exclusion by GPT-6 Luna
 
-- Source: Microsoft/MAI Experimental Test
-- Date: 2026-10-28 (UTC)
+- Source: Claimed OpenCode Console identity `opencode/mai-experimental-test` (not independently verified in current public sources)
+- Date: 2026-11-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** MAI Experimental Test
-- **Short description:** Experimental/test model entry represented by the tracked subject. Three searches did not verify an official Microsoft model card or stable production model identity; no characteristics are inferred from the name.
-- **Provider / access:** Microsoft association indicated by subject context, but exact provider endpoint not verified.
-- **Release / knowledge:** no verified release date or cutoff.
-- **IDs:** tracked label `MAI Experimental Test`; canonical model ID unverified.
-- **Context window:** no specification verified.
-- **Modalities:** no modality evidence verified.
-- **Pricing (as of 2026-10-28):** no pricing verified.
-- **Architecture:** no architecture or weights evidence verified.
+- **Name:** MAI Experimental Test (exact model identity unverified)
+- **Provider / access:** No official Microsoft model card or API for this exact name was found. Microsoft's public MAI catalog does not list it, and OpenCode's current Console model documentation and live public model endpoint do not list `mai-experimental-test`.
+- **Release / knowledge:** No independently verified release date or knowledge-cutoff information found.
+- **IDs:** `opencode/mai-experimental-test` appears in the repository's existing curated metadata only; no matching public Microsoft, OpenCode, OpenRouter, Hugging Face, or GitHub model record was verified.
+- **Context / modalities / pricing / architecture:** No independently verified specifications found for this exact model identity.
 
 ### Raw benchmarks found
 
-No traceable exact-model benchmark results were found in three independent public searches.
+No verified public benchmark numbers found for an exact MAI Experimental Test model or `opencode/mai-experimental-test` ID. No Microsoft MAI sibling-model results were transferred.
 
-Agent / tool use:
+### Exclusion rationale
 
-- no verified public score found
-
-Reasoning / knowledge:
-
-- no verified public score found
-
-Coding:
-
-- no verified public score found
-
-Long context:
-
-- no verified exact-model long-context result found
-
-### Normalized scores (1–100)
-
-- **Tool use: 15/100.** No exact-model evidence verified.
-- **Reasoning: 15/100.** No exact-model evidence verified.
-- **Context window: 15/100.** No context or retrieval evidence verified.
-- **Multimodal: 15/100.** No modality evidence verified.
-- **Coding: 15/100.** No coding benchmark verified.
-- **Cost efficiency: 15/100.** No pricing verified.
-- **Overall Score: 15/100.** Half-up mean of quality dimensions; evidence-insufficient placeholder only.
+This file is self-excluded because no exact-model benchmark evidence could be verified, so an Overall score cannot be computed. Four independent exact-name web searches returned no relevant results. Microsoft's public MAI catalog, OpenCode's official Console documentation and live `/inference/v1/models` endpoint, the OpenRouter API, Hugging Face model search, and GitHub repository search were checked; none returned this exact model identity. Existing local curated metadata is not treated as public evidence and cannot establish the model identity, specifications, or performance.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
-- Method: Three independent public searches; exact identity and benchmark evidence were not sufficiently traceable. Scores are not evidence-backed.
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-01
+- Method: Independent exact-name searches followed by direct checks of Microsoft's public model catalog, OpenCode's official Console docs and public model list, OpenRouter model search, Hugging Face model search, and GitHub repository search. No Microsoft sibling results used. Excluded for lack of verified public benchmarks; no normalized scores assigned.
+- Reference URLs:
+  - [Microsoft public models catalog](https://microsoft.ai/models/)
+  - [OpenCode Console model documentation](https://opencode.ai/docs/zen)
+  - [OpenCode public model catalog](https://opencode.ai/inference/v1/models)
+  - [OpenRouter model search](https://openrouter.ai/api/v1/models?search=mai-experimental-test)
+  - [Hugging Face model search](https://huggingface.co/models?search=MAI-Experimental-Test)
+  - [GitHub repository search](https://api.github.com/search/repositories?q=%22MAI+Experimental+Test%22+AI+model)
+
+---

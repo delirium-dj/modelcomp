@@ -61,7 +61,7 @@ Multimodal:
 - **Multimodal: 40/100.** Text-only.
 - **Coding: 68/100.** LiveCodeBench 87.7%, SWE-bench 73.5%, SWE-bench Pro 52.8%, Terminal-Bench 2.0 46.0%; caps at Terminal-Bench 2.0 46.0%.
 - **Cost efficiency: 75/100.** Azure PTU (no published per-token price).
-- **Overall Score: 60.8/100.** Half-up mean of the five non-cost quality dimensions: (62 + 70 + 64 + 40 + 68) / 5 = 60.8. Cost efficiency is excluded. best-fit for enterprise reasoning at mid cost. Preferred over Sonnet 4.6 in human evals.
+- **Overall Score: 61/100.** Half-up mean of the five non-cost quality dimensions: (62 + 70 + 64 + 40 + 68) / 5 = 60.8, rounded to 61. Cost efficiency is excluded. best-fit for enterprise reasoning at mid cost. Preferred over Sonnet 4.6 in human evals.
 
 ---
 

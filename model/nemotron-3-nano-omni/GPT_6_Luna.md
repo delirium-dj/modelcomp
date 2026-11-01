@@ -35,7 +35,7 @@ NVIDIA's exact-model technical report (arXiv:2604.24954v2, dated 2026-05-11) rep
 - **Multimodal: 92/100.** Native image, video, and audio understanding is supported by document, GUI, video, ASR, and audio benchmark results; output is text-only. [1][2][3]
 - **Coding: 69/100.** LiveCodeBench v5 63.2 and SciCode 32.0 indicate competent but not leading coding performance. [2]
 - **Cost efficiency: 72/100.** Open weights, 3B active parameters, and quantized checkpoints enable lower-cost deployment options, but the tracked hosted route is $0.50/$0.90 per million input/output tokens and self-hosting requires substantial hardware. [1][2][5]
-- **Overall Score: 81.8/100.** Half-up mean of the five quality dimensions: (72 + 82 + 94 + 92 + 69) / 5 = 81.8; cost efficiency is excluded.
+- **Overall Score: 82/100.** Half-up mean of the five quality dimensions: (72 + 82 + 94 + 92 + 69) / 5 = 81.8, rounded to 82; cost efficiency is excluded.
 
 ---
 

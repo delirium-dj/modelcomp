@@ -76,7 +76,7 @@ Multimodal:
 - **Multimodal: 40/100.** Text-only.
 - **Coding: 66/100.** SWE-bench Pro 58.4%, LiveCodeBench 81.4%, Vibe Code 31.46%, SWE-Rebench 62.7%, NL2Repo 42.7%, coding lane #50/150 (47.2); caps at Vibe Code 31.46%.
 - **Cost efficiency: 86/100.** $1.40/$4.40 per 1M.
-- **Overall Score: 61.6/100.** Half-up mean of the five non-cost quality dimensions: (68 + 70 + 64 + 40 + 66) / 5 = 61.6. Cost efficiency is excluded. best-fit for open-weight coding + reasoning at mid cost.
+- **Overall Score: 62/100.** Half-up mean of the five non-cost quality dimensions: (68 + 70 + 64 + 40 + 66) / 5 = 61.6, rounded to 62. Cost efficiency is excluded. best-fit for open-weight coding + reasoning at mid cost.
 
 ---
 

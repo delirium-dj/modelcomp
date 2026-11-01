@@ -58,7 +58,7 @@ Long context:
 - **Multimodal: 95/100.** Official docs verify audio and video as well as image input, with text output; no audio or image generation is documented for this model.
 - **Coding: 87/100.** SWE-bench Verified 78.8%, LiveCodeBench 87.6%, and SWE-bench Pro 55.1% indicate strong coding, but Terminal-Bench 2.1 remains below the methodology's 85% frontier reference, SciCode is below 55%, and Vibe Code Bench is 48.7%.
 - **Cost efficiency: 83/100.** Historical exact-model API pricing of $1.50/$9 per MTok is moderate rather than low; free-tier availability and present-day alias routing complicate any current-price comparison.
-- **Overall Score: 90.6/100.** Half-up mean of the five quality dimensions: (87 + 89 + 95 + 95 + 87) / 5 = 90.6. A fast, capable multimodal agent for coding and tool workflows, but the 1M-token MRCR result and deprecated API ID merit caution for new integrations.
+- **Overall Score: 91/100.** Half-up mean of the five quality dimensions: (87 + 89 + 95 + 95 + 87) / 5 = 90.6, rounded to 91. A fast, capable multimodal agent for coding and tool workflows, but the 1M-token MRCR result and deprecated API ID merit caution for new integrations.
 
 ---
 

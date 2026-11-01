@@ -48,7 +48,7 @@ Multimodal:
 - **Multimodal: 76/100.** Image/video input and 74.97% MMMU-Pro place it in the strong multimodal band; text-only output and no audio result cap it.
 - **Coding: 66/100.** SWE-bench 72.0% is useful, but Terminal-Bench 49.4% and SciCode 39.70% keep general coding below the frontier.
 - **Cost efficiency: 85/100.** Hosted prices are moderate and self-hosting is free under Apache 2.0, but the 122B stack is expensive to operate locally.
-- **Overall Score: 69.6/100.** Mean of the five non-cost quality dimensions: (62 + 72 + 72 + 76 + 66) / 5 = 69.6. Cost efficiency is excluded. Best for multimodal open-weight agents with enough memory for a large MoE.
+- **Overall Score: 70/100.** Mean of the five non-cost quality dimensions: (62 + 72 + 72 + 76 + 66) / 5 = 69.6, rounded to 70. Cost efficiency is excluded. Best for multimodal open-weight agents with enough memory for a large MoE.
 
 ---
 

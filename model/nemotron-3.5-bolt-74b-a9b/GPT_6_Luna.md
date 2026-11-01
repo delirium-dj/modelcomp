@@ -63,7 +63,7 @@ Multimodal:
 - **Multimodal: 60/100.** Text/image/video in; caps at no verified multimodal benchmarks.
 - **Coding: 56/100.** Terminal-Bench 2.1 51.0%, GDPval-AA-V2 28.47%; caps at no published SWE-bench/LiveCodeBench.
 - **Cost efficiency: 100/100.** Free (open weights, runs in 24GB).
-- **Overall Score: 61.6/100.** Half-up mean of the five non-cost quality dimensions: (62 + 66 + 64 + 60 + 56) / 5 = 61.6. Cost efficiency is excluded. best-fit for local agentic at zero cost. #1 open model in its class on PinchBench.
+- **Overall Score: 62/100.** Half-up mean of the five non-cost quality dimensions: (62 + 66 + 64 + 60 + 56) / 5 = 61.6, rounded to 62. Cost efficiency is excluded. best-fit for local agentic at zero cost. #1 open model in its class on PinchBench.
 
 ---
 

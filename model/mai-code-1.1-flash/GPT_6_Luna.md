@@ -56,7 +56,7 @@ Multimodal:
 - **Multimodal: 65/100.** Image input is documented, but no exact multimodal benchmark was verified.
 - **Coding: 66/100.** SWE-bench 72.6%, Terminal-Bench 2.1 62.9%; caps at no published LiveCodeBench/SWE-bench Pro.
 - **Cost efficiency: 86/100.** Current curated hosted route is $0.20/$1.20 per 1M; no zero-price inference guarantee was verified.
-- **Overall Score: 62.6/100.** Half-up mean of the five non-cost quality dimensions: (60 + 56 + 66 + 65 + 66) / 5 = 62.6. Cost efficiency is excluded. Best fit is image-aware on-device coding, with only two exact benchmark rows.
+- **Overall Score: 63/100.** Half-up mean of the five non-cost quality dimensions: (60 + 56 + 66 + 65 + 66) / 5 = 62.6, rounded to 63. Cost efficiency is excluded. Best fit is image-aware on-device coding, with only two exact benchmark rows.
 
 ---
 

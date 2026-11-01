@@ -74,7 +74,7 @@ Multimodal:
 - **Multimodal: 76/100.** Text/image/video in; MMMU 85.0%, MMMU-Pro 79%, RealWorldQA 83.9%; caps at no published CharXiv.
 - **Coding: 68/100.** SWE-bench 76.2%, LiveCodeBench 83.6%, SWE-bench Pro 50.9%, SWE Multilingual 69.3%, NL2Repo 32.2%, Terminal-Bench 2.0 52.5%; caps at NL2Repo 32.2%.
 - **Cost efficiency: 88/100.** $0.60/$3.60 per 1M.
-- **Overall Score: 71.2/100.** Half-up mean of the five non-cost quality dimensions: (66 + 74 + 72 + 76 + 68) / 5 = 71.2. Cost efficiency is excluded. Best fit is open-weight multimodal reasoning with a large memory footprint.
+- **Overall Score: 71/100.** Half-up mean of the five non-cost quality dimensions: (66 + 74 + 72 + 76 + 68) / 5 = 71.2, rounded to 71. Cost efficiency is excluded. Best fit is open-weight multimodal reasoning with a large memory footprint.
 
 ---
 

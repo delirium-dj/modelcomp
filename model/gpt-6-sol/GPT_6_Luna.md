@@ -42,7 +42,7 @@ Long context:
 - **Multimodal: 75/100.** Text/image input is documented, and models.dev additionally lists PDF input; text output only, with no audio/video input or non-text output verified. The OpenAI API page itself lists text and image as input modalities. 
 - **Coding: 82/100.** DeepSWE v1.1 is **68.8%** at max effort and AA SciCode is **58%**; SciCode reaches the supplied frontier marker, but DeepSWE is below 74%, Terminal-Bench 2.1 is unverified, and no SWE-bench Verified or LiveCodeBench score was found. 
 - **Cost efficiency: 70/100.** Paid at **$2/$10** per 1M input/output tokens at standard short context, with higher rates above 272K input tokens; this is an interpretation of the supplied price anchors and is not counted in Overall. 
-- **Overall Score: 79.6/100.** \((65 + 81 + 95 + 75 + 82) / 5 = 79.6\); cost efficiency excluded. Best fit: paid, long-context coding and agentic work with text/image or PDF inputs; compare against GPT-6.1 Sol if choosing the current Sol model. 
+- **Overall Score: 80/100.** \((65 + 81 + 95 + 75 + 82) / 5 = 79.6\), rounded to 80; cost efficiency excluded. Best fit: paid, long-context coding and agentic work with text/image or PDF inputs; compare against GPT-6.1 Sol if choosing the current Sol model.
 ---
 ## Signature
 - Provided by: **GPT 6 Luna (OpenAI/gpt-6-luna)** — 2026-10-03

@@ -1,0 +1,37 @@
+# GLM-4.5-Flash — findings by GPT-6 Luna
+
+- Source: Z.ai / Zhipu AI (`glm-4.5-flash`)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion — insufficient benchmark evidence
+
+Z.ai's official API documentation identifies `glm-4.5-flash` as a free, text-only API model with a 128K context window and up to 96K output tokens. It supports configurable thinking mode, function calling, structured output, and MCP/tool use. The official page does not provide a traceable benchmark table, model-card weights, parameter count, or exact checkpoint identifier beyond the API model name.
+
+The official documentation now warns that GLM-4.5-Flash was scheduled to be retired on January 30, 2026, and that subsequent requests would automatically route to GLM-4.7-Flash. That later fallback is a different model; no GLM-4.7-Flash benchmarks or capabilities are transferred here.
+
+Three independent exact-name searches found no attributable exact-model public benchmark leaderboard or evaluation. The only surfaced numeric claim was a third-party directory's approximate “SWE-bench ~59.2%” with no benchmark version, harness, run details, or primary source. It is not independently traceable and is not treated as verified evidence. Z.ai's qualitative claims about reasoning, coding, and agent use are not numeric benchmark results. No verified exact-model reasoning, coding, tool-use, or long-context retrieval score was found.
+
+Therefore there are zero verified exact-model public benchmark numbers and no defensible Overall score. This report is self-excluded under the zero-verified-benchmark rule. The official API specifications are recorded as access metadata only; no GLM-4.5, GLM-4.5-Air, or GLM-4.7 result is substituted.
+
+### Research record
+
+- [Official Z.ai API model documentation](https://docs.bigmodel.cn/cn/guide/models/free/glm-4.5-flash) identifies the model, API ID, input/output modalities, 128K context, 96K output limit, free availability, and deprecation notice, but contains no numerical benchmark results.
+- [Official Z.ai documentation index](https://docs.bigmodel.cn/llms.txt) currently lists GLM-5.3 and later model documentation but no benchmark card for GLM-4.5-Flash.
+- [Independent search result, AY Automate](https://www.ayautomate.com/free-models/zai-zai-glm-4-5-flash) repeats an approximate SWE-bench figure without a source, version, or harness; it does not satisfy verification requirements.
+- Searches for the exact API name in public model-card and benchmark sources did not find an official checkpoint or benchmark leaderboard. Hugging Face's exact repository endpoint did not resolve to a public official checkpoint.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-01
+- Method: Three independent exact-name searches; cross-checked the official Z.ai model/API page and documentation index, then evaluated the provenance of the only surfaced third-party numeric claim. The unsupported SWE-bench figure is not scored, and results for GLM-4.5, GLM-4.5-Air, and the automatic GLM-4.7-Flash fallback are not transferred.
+- Reference URLs:
+  - [Official Z.ai GLM-4.5-Flash API documentation](https://docs.bigmodel.cn/cn/guide/models/free/glm-4.5-flash)
+  - [Official Z.ai documentation index](https://docs.bigmodel.cn/llms.txt)
+  - [Third-party directory with an unverified benchmark claim](https://www.ayautomate.com/free-models/zai-zai-glm-4-5-flash)
+  - [Hugging Face exact model search](https://huggingface.co/models?search=GLM-4.5-Flash)
+
+---

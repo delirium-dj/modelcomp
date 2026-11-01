@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - **Multimodal: 72/100.** Text/image in; caps at no published MMMU.
 - **Coding: 62/100.** SWE-bench Pro 49.0%, Terminal-Bench 2.0 46.1% and Vibe Code Bench 22.2% cap coding.
 - **Cost efficiency: 88/100.** Cheap $0.25/$2.
-- **Overall Score: 69.2/100.** Half-up mean of the five non-cost quality dimensions: (60 + 76 + 76 + 72 + 62) / 5 = 69.2. Cost efficiency is excluded. Best fit is budget coding assistance, not a frontier Codex orchestrator.
+- **Overall Score: 69/100.** Half-up mean of the five non-cost quality dimensions: (60 + 76 + 76 + 72 + 62) / 5 = 69.2, rounded to 69. Cost efficiency is excluded. Best fit is budget coding assistance, not a frontier Codex orchestrator.
 
 ---
 

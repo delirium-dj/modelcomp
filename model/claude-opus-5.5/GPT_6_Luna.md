@@ -50,7 +50,7 @@ Agent / tool use:
 - **Multimodal: 65/100.** Text and image input with text output fits the rubric’s image-input tier; the model specification does not list audio/video input or non-text output.
 - **Coding: 91/100.** AA SciCode is 66.9%, above the rubric’s 55% frontier marker; AA also reports 59.6% on Terminal-Bench 4.0. The 92.8% SWE-bench Pro subset result is Anthropic-internal and explicitly not comparable with the public leaderboard; no verified public SWE-bench Verified, DeepSWE, LiveCodeBench, or Terminal-Bench 2.1 score was found.
 - **Cost efficiency: 56/100.** Paid at $4/$20 per 1M input/output tokens, slightly above the rubric’s ~$3/$15 ≈60 point; cached reads are $0.20 per 1M. Cost is scored independently and is not included in Overall.
-- **Overall Score: 87.4/100.** (92 + 94 + 95 + 65 + 91) / 5 = 87.4; cost excluded. Best fit: long-running agentic coding and knowledge-work tasks where capability matters more than minimizing token cost.
+- **Overall Score: 87/100.** (92 + 94 + 95 + 65 + 91) / 5 = 87.4, rounded to 87; cost excluded. Best fit: long-running agentic coding and knowledge-work tasks where capability matters more than minimizing token cost.
 
 ---
 

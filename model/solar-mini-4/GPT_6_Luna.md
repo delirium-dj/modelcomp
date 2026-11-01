@@ -56,7 +56,7 @@ Multimodal:
 - **Multimodal: 40/100.** Text-only.
 - **Coding: 58/100.** SciCode 47.6%, Plotly 49%; caps at no published SWE-bench/LiveCodeBench.
 - **Cost efficiency: 96/100.** Very cheap $0.10/$0.40 per 1M.
-- **Overall Score: 58.8/100.** Half-up mean of the five non-cost quality dimensions: (62 + 62 + 72 + 40 + 58) / 5 = 58.8. Cost efficiency is excluded. best-fit for high-volume agent tasks at ultra-low cost.
+- **Overall Score: 59/100.** Half-up mean of the five non-cost quality dimensions: (62 + 62 + 72 + 40 + 58) / 5 = 58.8, rounded to 59. Cost efficiency is excluded. best-fit for high-volume agent tasks at ultra-low cost.
 
 ---
 

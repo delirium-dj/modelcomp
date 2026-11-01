@@ -75,7 +75,7 @@ Multimodal:
 - **Multimodal: 40/100.** V4 Flash text-only; V4.1-Flash adds native multimodal but no verified benchmarks.
 - **Coding: 72/100.** SWE-bench 79.0%, LiveCodeBench 91.6%, Terminal-Bench 2.0 56.9%, Codeforces 3052; caps at vendor-reported Terminal-Bench 2.1.
 - **Cost efficiency: 96/100.** Very cheap $0.14/$0.28 per 1M (peak).
-- **Overall Score: 66.4/100.** Half-up mean of the five non-cost quality dimensions: (70 + 74 + 76 + 40 + 72) / 5 = 66.4. Cost efficiency is excluded. best-fit for cheap agentic coding at ultra-low cost.
+- **Overall Score: 66/100.** Half-up mean of the five non-cost quality dimensions: (70 + 74 + 76 + 40 + 72) / 5 = 66.4, rounded to 66. Cost efficiency is excluded. best-fit for cheap agentic coding at ultra-low cost.
 
 ---
 

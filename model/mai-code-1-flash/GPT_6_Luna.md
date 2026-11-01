@@ -63,7 +63,7 @@ Multimodal:
 - **Multimodal: 40/100.** Text-only.
 - **Coding: 66/100.** SWE-Bench 71.6%, SWE-Bench Pro 51.2%, SWE-Bench Multilingual 65.5%, Terminal-Bench 2 54.8%, ArtifactsBench 36.4%; caps at ArtifactsBench 36.4%.
 - **Cost efficiency: 86/100.** Current curated route pricing is $0.75/$4.50 per 1M; that is still below premium frontier pricing but not the earlier $0.20/$1.20 snapshot.
-- **Overall Score: 60.4/100.** Half-up mean of the five non-cost quality dimensions: (62 + 68 + 66 + 40 + 66) / 5 = 60.4. Cost efficiency is excluded. best-fit for cheap coding at low cost. (Superseded by MAI-Code-1.1-Flash.)
+- **Overall Score: 60/100.** Half-up mean of the five non-cost quality dimensions: (62 + 68 + 66 + 40 + 66) / 5 = 60.4, rounded to 60. Cost efficiency is excluded. best-fit for cheap coding at low cost. (Superseded by MAI-Code-1.1-Flash.)
 
 ---
 

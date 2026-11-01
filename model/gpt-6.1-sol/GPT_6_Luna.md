@@ -48,7 +48,7 @@ Long context:
 - **Multimodal: 50/100.** Exact modalities were not verified.
 - **Coding: 86/100.** SciCode is consistently strong across listed efforts; no confirmed SWE-bench result.
 - **Cost efficiency: 82/100.** $2/$10 per million standard short-context rates are moderate for these reported capabilities; long-context and Fast pricing increase cost.
-- **Overall Score: 72.6/100.** Half-up mean of the five quality dimensions; best fit is capable general/tool work where cost is below the GPT-6 Astra tier.
+- **Overall Score: 73/100.** Half-up mean of the five quality dimensions (72.6, rounded to 73); best fit is capable general/tool work where cost is below the GPT-6 Astra tier.
 
 ---
 

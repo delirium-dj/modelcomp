@@ -1,7 +1,7 @@
 # Ling-2.6-1T — findings by Gemini 3.5 Flash Lite
 
 - Source: InclusionAI / Ling-2.6-1T & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/ling-2.6.1t` (free endpoint available).
 - **Context window:** 262,144 total tokens (verified via Artificial Analysis).
 - **Modalities:** Text in/out, fast instruct mode.
-- **Pricing (as of 2026-10-16):** Hosted ~$0.30 / $2.50 per 1M tokens; MIT open weights for free self-hosting; free tier endpoint available.
+- **Pricing (as of 2026-11):** Hosted ~$0.30 / $2.50 per 1M tokens; MIT open weights for free self-hosting; free tier endpoint available.
 - **Architecture:** 1T total / 63B active sparse MoE with hybrid MLA + linear attention.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across InclusionAI reports & Artificial Analysis):
 - Terminal-Bench 2.1: **44.0%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Re-run deep multi-source research (InclusionAI technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

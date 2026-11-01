@@ -65,7 +65,7 @@ Multimodal:
 - **Multimodal: 66/100.** Text/image in; MMMUPro 66.1%, MMMUPro w/ Python 69.5%; caps at OmniDocBench 0.2419.
 - **Coding: 64/100.** SWE-bench Pro 52.4%, AA Coding 56.1%, SciCode 47.2%, Terminal-Bench 2.0 46.3%; caps at SciCode 47.2%.
 - **Cost efficiency: 96/100.** Very cheap $0.20/$1.25 per 1M.
-- **Overall Score: 65.2/100.** Half-up mean of the five non-cost quality dimensions: (62 + 66 + 68 + 66 + 64) / 5 = 65.2. Cost efficiency is excluded. best-fit for ultra-cheap subagent tasks at low cost.
+- **Overall Score: 65/100.** Half-up mean of the five non-cost quality dimensions: (62 + 66 + 68 + 66 + 64) / 5 = 65.2, rounded to 65. Cost efficiency is excluded. best-fit for ultra-cheap subagent tasks at low cost.
 
 ---
 

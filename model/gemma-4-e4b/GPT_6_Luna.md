@@ -65,7 +65,7 @@ Multimodal:
 - **Multimodal: 60/100.** Text/image/audio/video in; MMMU Pro 52.6%, MATH-Vision 59.5%, MedXPertQA 28.7%; caps at MMMU Pro 52.6%.
 - **Coding: 52/100.** LiveCodeBench 52.0%, AA Coding 9.4%, AA-SciCode 24.4%, Codeforces 940; caps at AA-SciCode 24.4%.
 - **Cost efficiency: 100/100.** Free (open weights).
-- **Overall Score: 54.8/100.** Half-up mean of the five non-cost quality dimensions: (50 + 56 + 56 + 60 + 52) / 5 = 54.8. Cost efficiency is excluded. best-fit for edge multimodal at zero cost.
+- **Overall Score: 55/100.** Half-up mean of the five non-cost quality dimensions: (50 + 56 + 56 + 60 + 52) / 5 = 54.8, rounded to 55. Cost efficiency is excluded. best-fit for edge multimodal at zero cost.
 
 ---
 

@@ -1,15 +1,15 @@
 {
   "id": "opencode/grok-4.5",
   "name": "Grok 4.5",
-  "short": "xAI's 500K-context (450K out) flagship co-developed with Cursor for token-efficient agentic coding; SWE-bench 86.6%, GPQA 93.1%.",
-  "contextWindow": "500,000 (500K; up to 450K out)",
-  "modalities": "Text, image, file in; text out",
-  "pricingNote": "Paid $2.00/$6.00 per 1M; $0.30 cached",
+  "short": "SpaceXSI's Cursor-co-trained reasoning model for coding, agentic tasks, and knowledge work; 500K context with text/image input. Grok 4.7 is now xAI's newest flagship.",
+  "contextWindow": "500,000 context (500K; OpenCode catalog lists up to 500K output)",
+  "modalities": "Text and image in; text out",
+  "pricingNote": "$2/$6 per 1M input/output below 200K prompt; $4/$12 at 200K+; cached input $0.30/$0.60",
   "noFreeId": true,
-  "officialUrl": "https://x.ai/blog/grok-4.5",
+  "officialUrl": "https://x.ai/news/grok-4-5",
   "pricingLinks": [
-    "https://x.ai/api"
+    "https://docs.x.ai/developers/models/grok-4.5"
   ],
-  "standout": "Token-efficiency is the speciality: co-developed with Cursor for agentic coding that spends fewer tokens on the same work, backed by an unusually deep output window.",
-  "tradeoff": "Adoption flows through Cursor/Build surfaces rather than a broad first-party API, which narrows who can use it comfortably."
+  "standout": "Co-trained with Cursor; the vendor model card reports 15,954 average output tokens per SWE-Bench Pro task versus 67,020 for Opus 4.8 Max (4.2× fewer in that run).",
+  "tradeoff": "Paid API; prompts at or above 200K incur doubled token rates. Text/image input only, and Grok 4.7 is now the recommended flagship."
 }

@@ -1,0 +1,37 @@
+# Neomorph — exclusion by GPT-6 Luna
+
+- Source: OpenCode Console model identity `opencode/neomorph` (not independently verified in the current public catalog)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph (identity and current availability unverified)
+- **Provider / access:** A current OpenCode Console model ID or endpoint for this name could not be verified. The official Console model documentation and live public model catalog do not list it.
+- **Release / knowledge:** No verifiable release date or knowledge-cutoff information found.
+- **IDs:** `opencode/neomorph` appears in the repository's existing curated metadata, but independent public confirmation was not found; that local metadata is not treated as evidence.
+- **Context / modalities / pricing / architecture:** No independently verified public specifications found for this exact model identity.
+
+### Raw benchmarks found
+
+No verified public benchmark numbers found for an exact Neomorph model or `opencode/neomorph` ID. No sibling-model or provider-agnostic results were transferred.
+
+### Exclusion rationale
+
+This file is self-excluded because no exact-model benchmark evidence could be verified, so a defensible Overall score cannot be computed. Four independent exact-name searches returned no relevant model or benchmark results; Hugging Face's model search and GitHub's repository search returned no matching model, and the OpenRouter API search returned no catalog entry. OpenCode's documentation and live catalog were also checked: its Console docs describe the current model list, and the public `/inference/v1/models` endpoint returned HTTP 200 without a Neomorph entry. The public evidence therefore does not corroborate the identity/API route implied by the local curated metadata.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-01
+- Method: Independent web searches and direct checks of OpenCode's official Console docs and public model endpoint, OpenRouter's model search endpoint, Hugging Face model search, and GitHub repository search. No data from any other OpenCode model was used. Excluded for lack of verified public benchmarks; no normalized scores assigned.
+- Reference URLs:
+  - [OpenCode Console model documentation](https://opencode.ai/docs/zen)
+  - [OpenCode public model catalog](https://opencode.ai/inference/v1/models)
+  - [OpenRouter model search](https://openrouter.ai/models?q=neomorph)
+  - [Hugging Face model search](https://huggingface.co/models?search=Neomorph)
+  - [GitHub repository search](https://api.github.com/search/repositories?q=Neomorph+AI+model)
+
+---

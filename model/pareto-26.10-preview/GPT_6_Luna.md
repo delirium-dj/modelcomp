@@ -49,7 +49,7 @@ Multimodal and long context:
 - **Multimodal: 65/100.** Text and image input fit the methodology's image-input range, but no exact-product vision result or video/audio/non-text output was verified.
 - **Coding: 84/100.** DeepSWE v1.1 at 69.9% is strong and close to the rubric's frontier range; there is no second exact-product coding benchmark, and Unbiased marks the preview run/methodology preliminary.
 - **Cost efficiency: 93/100.** Published API rates of $0.80/$3.20 per million input/output tokens plus $0.03 cached input are low relative to many frontier APIs; its claimed task costs are attractive but remain preliminary and methodologically unconfirmed.
-- **Overall Score: 82.8/100.** Half-up mean of the five quality dimensions (81, 89, 95, 65, 84 = 82.8), excluding cost; promising 1M-context composite for reasoning and coding, with image input, but its changing routes and preliminary vendor-run scores limit reproducibility.
+- **Overall Score: 83/100.** Half-up mean of the five quality dimensions (81 + 89 + 95 + 65 + 84) / 5 = 82.8, rounded to 83; cost excluded. Promising 1M-context composite for reasoning and coding, with image input, but its changing routes and preliminary vendor-run scores limit reproducibility.
 
 ---
 

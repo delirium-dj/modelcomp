@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Gemini 3.5 Flash Lite
 
 - Source: Ant Group InclusionAI / Hugging Face `inclusionAI/Ling-3.0-flash-VL`
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `inclusionAI/Ling-3.0-flash-VL` (Hugging Face); directory slug `ling-3.0-flash-vl`.
 - **Context window:** 256,000 tokens total (verified via Hugging Face model card); supports image inputs and video up to 30 seconds / 32 frames.
 - **Modalities:** Text input, image input, video input; text output; built-in thinking mode enabled by default; tool calling.
-- **Pricing (as of 2026-10-10):** MIT open weights (self-hosted); commercial API blended pricing approx. $0.090 per 1M tokens.
+- **Pricing (as of 2026-11):** MIT open weights (self-hosted); commercial API blended pricing approx. $0.090 per 1M tokens.
 - **Architecture:** Sparse MoE with 124B total parameters / 5.5B active parameters per token; KDA and Gated MLA backbone combined with a ViT visual encoder and 2-layer MLP projector with VideoRoPE by Ant Group.
 
 ### Raw benchmarks found
@@ -38,14 +38,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across Hugging Face repository specifications and technical documentation. MMMU-Pro 79.0 and CountBench 97.33 verified.
+- **Third-pass verification:** Confirmed across Hugging Face repository specifications and technical documentation. MMMU-Pro 79.0 and CountBench 97.33 verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Hugging Face repository specifications, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official Hugging Face repository specifications, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

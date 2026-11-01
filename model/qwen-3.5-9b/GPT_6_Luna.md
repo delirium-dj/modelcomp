@@ -66,7 +66,7 @@ Multimodal:
 - **Multimodal: 76/100.** Text/image/video in; MMMU-Pro 70.1%, MathVision 78.9%, MathVista 85.7%, VideoMME 84.5%; caps at no published AA-MMMU-Pro.
 - **Coding: 60/100.** AA Coding 28.7%, llm-bench.io code 51.5; caps at no published LiveCodeBench/SWE-bench.
 - **Cost efficiency: 98/100.** Current hosted pricing is about $0.10/$0.15 per 1M; self-hosting remains free under Apache 2.0.
-- **Overall Score: 68.4/100.** Half-up mean of the five non-cost quality dimensions: (66 + 72 + 68 + 76 + 60) / 5 = 68.4. Cost efficiency is excluded. best-fit for local multimodal reasoning at ultra-low cost.
+- **Overall Score: 68/100.** Half-up mean of the five non-cost quality dimensions: (66 + 72 + 68 + 76 + 60) / 5 = 68.4, rounded to 68. Cost efficiency is excluded. best-fit for local multimodal reasoning at ultra-low cost.
 
 ---
 
