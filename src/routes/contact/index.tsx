@@ -26,25 +26,7 @@ const fieldClass =
   "w-full rounded-lg border border-[#ccdae2] bg-[color:var(--color-page)] px-3 py-2 text-sm text-[color:var(--color-ink)] placeholder:text-[#577184] focus:border-[color:var(--color-primary)] focus:outline-none focus:ring-1 focus:ring-[color:var(--color-primary)] dark:border-[#274757] dark:placeholder:text-[#93adbe]";
 const labelClass = "mb-1.5 block text-sm font-semibold";
 
-// "What helps most" rows — footer-tier-row treatment (label + muted detail).
-const HELPS = [
-  {
-    label: "Score correction",
-    detail: "Link the public benchmark you are seeing",
-  },
-  {
-    label: "New model suggestion",
-    detail: "Official pricing + context window help",
-  },
-  {
-    label: "Research question",
-    detail: "Any public source is fair game",
-  },
-  {
-    label: "Sponsorship",
-    detail: "Tiers live in the footer below",
-  },
-];
+
 
 export default component$(() => {
   const status = useSignal("");

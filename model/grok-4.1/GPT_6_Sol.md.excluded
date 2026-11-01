@@ -1,0 +1,37 @@
+# Grok 4.1 — negative findings by GPT 6 Sol
+
+- Source: xAI (November 2025 consumer Grok 4.1 Thinking; no pinned public API ID)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.1
+- **Identity:** A real, separately released **consumer** model. [xAI's launch](https://x.ai/news/grok-4-1) explicitly distinguishes its Thinking (`quasarflux`) and Non-Thinking (`tensor`) configurations, available in Grok.com/X/mobile on November 17, 2025; its [model card](https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf) describes those configurations. The November 19 [Grok 4.1 **Fast** developer launch](https://x.ai/news/grok-4-1-fast) is a separate agent-oriented API offering; its benchmark numbers and 2M window must **not** be imported here.
+- **Provider / access:** Consumer picker; no independently documented **pinned Grok 4.1 (non-Fast)** developer API checkpoint or token tariff in [xAI's model roster](https://docs.x.ai/developers/models). Do not claim `grok-4-1-fast-reasoning` evaluates this product, or that current Grok Auto mode still serves this 2025 checkpoint.
+- **Context, modalities, pricing:** Exact independently verified original window and output limit unavailable in first-party consumer launch/card; consumer UI supports text and images, but hosted media generation and X/web search are separate tools/services. Subscription access only; no standalone API token tariff for this exact consumer checkpoint. Parameter count and knowledge cutoff undisclosed.
+
+### Raw benchmarks found
+
+- **Independent preference / conversational quality:** [xAI's November launch](https://x.ai/news/grok-4-1) quotes external historical [LMArena Text Arena](https://lmarena.ai/leaderboard/text) **1483 Elo for Thinking** (`quasarflux`) and **1465 for Non-Thinking** (`tensor`), with the caveat that a time-varying Elo is not a coding or reasoning accuracy percentage. xAI's silent consumer A/B showed **64.78%** preference against its previous production model (vendor-run, not controlled independent task evaluation).
+- **Reasoning and safety:** [xAI's consumer-specific model card](https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf) reports Thinking **WMDP Bio 0.87 accuracy**, WMDP Cyber **0.84**, **VCT 0.61**, **FigQA 0.34**, **CyBench unguided 0.39** and AgentDojo prompt-injection attack success **0.05**. These measure narrow scientific/security domains or attack resistance, **not** general code repair, context retrieval or productive multi-tool agency. That card notes its prior multilingual refusal comparison used different evaluation settings; do not compare refusal percentages across cards as if identical.
+- **Missing coverage:** No reproducible **consumer 4.1 Thinking** SWE-bench, Terminal-Bench, GPQA, long-context recall, MMMU or actual API cost measurement established from the official launch/card and independent benchmark coverage checked. [EQ-Bench 3](https://eqbench.com/eqbench3.html) and [Creative Writing v3](https://eqbench.com/creative_writing.html) provide independently stewarded conversational/writing methodologies, but their dynamically rendered leaderboards did not yield a checkable exact-version figure in this research pass.
+
+### Normalized scores (1–100)
+
+- **Self-excluded:** The evidence confirms a distinct historical consumer model and supports narrow conversational/safety observations, but does not justify five comparable scores for tool use, general reasoning, context, multimodal and coding. In particular, transferring **Fast** API specifications or benchmarks would silently score a different model. No Overall assigned pending exact-checkpoint independent capability evidence.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-11-01
+- Method: Multiple search attempts across native, Bing and DuckDuckGo (native search was returning no results); verified xAI's consumer announcement and full PDF model card against separate Fast API identity and independently stewarded leaderboards. No invented scores.
+- Reference URLs:
+  - [xAI Grok 4.1 consumer launch](https://x.ai/news/grok-4-1)
+  - [xAI Grok 4.1 model card PDF](https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf)
+  - [xAI separate Grok 4.1 Fast API launch](https://x.ai/news/grok-4-1-fast)
+  - [LMArena Text Arena methodology and live rankings](https://lmarena.ai/leaderboard/text)
+  - [xAI developer model roster](https://docs.x.ai/developers/models)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

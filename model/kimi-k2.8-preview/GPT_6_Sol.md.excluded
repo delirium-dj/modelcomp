@@ -1,0 +1,41 @@
+# Kimi K2.8 Preview — negative findings by GPT 6 Sol
+
+- Source: Moonshot AI (`kimi-for-coding`, rolling Kimi Code route)
+- Date: 2026-10-31 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Distinct September 2026 Kimi Code coding/agent preview replacing K2.7 Code at the unchanged `kimi-for-coding` service ID; Moonshot claims K3-adjacent capability and more efficient thinking, without a numeric evaluation table ([Moonshot release notes](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html#k2-8-preview-september-11-2026)).
+- **Provider / access:** Kimi Code membership's `kimi-for-coding` route, not a pinned `kimi-k2.8-preview` first-party API ID. Third-party gateways may name the same version `kimi-k2.8-preview`; verify serving identity before comparison. Membership access and protocol URLs in [Moonshot model configuration](https://www.kimi.com/code/docs/en/kimi-code/models.html). This is a newer model, not merely the Highspeed serving tier of K2.7 Code.
+- **Release / knowledge:** September 11, 2026; precise training cutoff not published.
+- **Context window:** Up to **1,048,576** tokens on Kimi Code; no published near-cap retrieval measurement. Context and quota can differ by plan ([Moonshot docs](https://www.kimi.com/code/docs/en/kimi-code/models.html)).
+- **Modalities:** Text, image and video input; text/tool-call output. `low`/`high`/`max` thinking (`max` default); disabling reasoning routes requests to K2.8 Preview without thinking ([Moonshot docs](https://www.kimi.com/code/docs/en/kimi-code/models.html)).
+- **Pricing:** Paid Kimi Code membership/quota, no first-party **K2.8-specific per-token list price** published in reviewed Kimi docs. Gateway prices, e.g. [Tencent TokenHub $1/$4](https://models.litellm.ai/models/kimi-k2.8-preview), are provider-specific, not Moonshot's official pricing.
+- **Architecture:** Weights, parameter count and model card unpublished for K2.8; do not transfer K2.7's or K3's architecture by inference.
+
+### Raw benchmarks found
+
+- **Tool use:** No verified reproducible *K2.8 checkpoint* agent-tool benchmark in [Moonshot's release notes](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html#k2-8-preview-september-11-2026) or [BenchmarkList's exact-model coverage](https://benchmarklist.com/models/moonshotai-kimi-k2.8-preview/).
+- **Reasoning:** No exact-checkpoint GPQA/HLE/ARC score verified; K3 figures belong to K3. A [ModelDial three-axis score summarized here](https://www.gradually.ai/en/ai-models/kimi-k2.8-preview/) purports to test the **mutable** `kimi-for-coding` route at high effort but does not expose a sample count or immutable checkpoint. Its 64.2 and disputed five-axis 63.55 are not transferable validated category benchmarks.
+- **Coding:** No exact-checkpoint SWE-bench/Terminal-Bench or independent version-locked coding result established; Moonshot's qualitative improvement claim is not a raw score.
+- **Long context / multimodal:** Documented 1M and image/video support, but no exact-checkpoint recall or vision score was located.
+
+### Normalized scores (1–100)
+
+- **Self-excluded:** Insufficient verified, reproducible checkpoint-specific quality measurements for five-axis normalization and Overall. Do not turn K3 claims, a mutable service-route experiment or a provider's tariff into fabricated scores; this file preserves the distinct identity and the evidence gap.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-10-31
+- Method: At least three exact-model web searches, Moonshot's release and official model table, independent leaderboard coverage and a disputed mutable-route test. No benchmark score or Overall assigned.
+- Reference URLs:
+  - [Moonshot K2.8 rollout](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html#k2-8-preview-september-11-2026)
+  - [Moonshot model IDs and routing rules](https://www.kimi.com/code/docs/en/kimi-code/models.html)
+  - [BenchmarkList exact-model coverage](https://benchmarklist.com/models/moonshotai-kimi-k2.8-preview/)
+  - [ModelDial attribution caveat summarized with sources](https://www.gradually.ai/en/ai-models/kimi-k2.8-preview/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

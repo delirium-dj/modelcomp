@@ -6,6 +6,17 @@ import { getEvidence } from "../../../data/evidence";
 import { V2Header } from "../../../components/v2/V2Header";
 import { V2Footer } from "../../../components/v2/V2Footer";
 import { withFreeZenLink } from "../../../components/freeZenLink";
+import { usePageTheme } from "../../../components/v2/theme";
+import { barWidth, hexPoint, hexPolygon, type HexGeometry } from "../../../components/v2/hex";
+import {
+  DIMENSION_LABELS,
+  DIMENSION_SHORT,
+  TABLE_KEYS,
+  buildHlStats,
+  dimensionTooltip,
+  hlClass,
+  hlTitle,
+} from "../../../components/v2/modelView";
 
 /**
  * /model/[slug]/ — model profile pages in the v2 design language.
@@ -17,57 +28,20 @@ export const onStaticGenerate: StaticGenerateHandler = () => {
   return { params: MODELS.map((m) => ({ slug: m.slug })) };
 };
 
+// Shared axis labels/order (derived from DIMENSIONS in modelView.ts).
+const names = DIMENSION_LABELS;
+const colNames = DIMENSION_SHORT;
+const tableKeys = TABLE_KEYS;
+// Bar-chart order (separate from the table order).
 const qualityKeys: DimensionKey[] = ["context", "coding", "reasoning", "tool", "multimodal"];
-const tableKeys: DimensionKey[] = ["tool", "reasoning", "context", "coding", "multimodal", "cost"];
-const names: Record<DimensionKey, string> = {
-  tool: "Tool use",
-  reasoning: "Reasoning",
-  context: "Context window",
-  coding: "Coding",
-  multimodal: "Multimodal",
-  cost: "Cost efficiency",
-};
-const colNames: Record<DimensionKey, string> = {
-  tool: "Tool",
-  reasoning: "Reason",
-  context: "Context",
-  coding: "Code",
-  multimodal: "Multi",
-  cost: "Cost",
-};
-
+// Hexagon axis order.
 const hexKeys: DimensionKey[] = ["tool", "reasoning", "context", "cost", "coding", "multimodal"];
-const HEX_CX = 200;
-const HEX_CY = 172;
-const HEX_MAX_R = 108;
-const HEX_LABEL_R = 148;
-// Same non-linear radial emphasis as the homepage hexagon: 0–75 occupies the
-// inner half of each axis, 75–100 the outer half. r = (v/100)^GAMMA with
-// (75/100)^GAMMA = 0.5 → GAMMA ≈ 2.41.
-const HEX_GAMMA = Math.LN2 / Math.log(100 / 75);
-function barWidth(value: number): string {
-  const clamped = Math.max(0, Math.min(100, value));
-  return `${(Math.pow(clamped / 100, HEX_GAMMA) * 100).toFixed(1)}%`;
-}
-function hexPoint(value: number, index: number, maxR = HEX_MAX_R): { x: number; y: number } {
-  const angle = ((-90 + index * 60) * Math.PI) / 180;
-  const clamped = Math.max(0, Math.min(100, value));
-  const r = Math.pow(clamped / 100, HEX_GAMMA) * maxR;
-  return { x: HEX_CX + r * Math.cos(angle), y: HEX_CY + r * Math.sin(angle) };
-}
-function hexPolygon(value: number): string {
-  const pts: string[] = [];
-  for (let i = 0; i < 6; i++) {
-    const p = hexPoint(value, i);
-    pts.push(`${p.x.toFixed(1)},${p.y.toFixed(1)}`);
-  }
-  return pts.join(" ");
-}
+const HEX_GEO: HexGeometry = { cx: 200, cy: 172, maxR: 108, labelR: 148 };
 
 export default component$(() => {
   const slug = useLocation().params.slug ?? "";
   const model = MODELS.find((m) => m.slug === slug);
-  const theme = useSignal<"light" | "dark">("light");
+  const theme = usePageTheme();
   const sortKey = useSignal<DimensionKey | "overall" | "agent">("overall");
   const sortDirection = useSignal<1 | -1>(-1);
   const profileView = useSignal<"bars" | "hex">("hex");
@@ -85,49 +59,7 @@ export default component$(() => {
     cleanup(() => mq.removeEventListener("change", update));
   });
 
-  // Theme init mirrors the homepage: explicit choice → inherited html.dark
-  // (v1 global toggle) → OS preference, always writing back all three so
-  // Tailwind's dark: utilities never leak across themes.
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ cleanup }) => {
-    const root = document.documentElement;
-    const apply = (v: "light" | "dark") => {
-      theme.value = v;
-      root.classList.toggle("dark", v === "dark");
-      try {
-        localStorage.setItem("v2-theme", v);
-        localStorage.setItem("theme", v);
-      } catch {
-        /* storage unavailable — theme just doesn't persist */
-      }
-    };
-    const sys = window.matchMedia("(prefers-color-scheme: dark)");
-    let stored: string | null = null;
-    try {
-      stored = localStorage.getItem("v2-theme");
-    } catch {
-      stored = null;
-    }
-    if (stored === "light" || stored === "dark") {
-      apply(stored);
-      return;
-    }
-    if (root.classList.contains("dark")) {
-      apply("dark");
-      return;
-    }
-    apply(sys.matches ? "dark" : "light");
-    const follow = (e: MediaQueryListEvent) => {
-      try {
-        if (localStorage.getItem("v2-theme")) return;
-      } catch {
-        /* storage unavailable — keep following */
-      }
-      apply(e.matches ? "dark" : "light");
-    };
-    sys.addEventListener("change", follow);
-    cleanup(() => sys.removeEventListener("change", follow));
-  });
+  // Theme init lives in the shared `usePageTheme` hook (src/components/v2/theme.ts).
 
   if (!model) {
     return (
@@ -174,29 +106,12 @@ export default component$(() => {
     activeDim && isNarrow.value
       ? ["overall", activeDim, ...tableKeys.filter((k) => k !== activeDim)]
       : ["overall", ...tableKeys];
-  const colBestWorst = (get: (s: ModelScores) => number): { best: number | null; worst: number | null } => {
-    if (ratings.length === 0) return { best: null, worst: null };
-    const vals = ratings.map((r) => Math.round(get(r.scores)));
-    return { best: Math.max(...vals), worst: Math.min(...vals) };
-  };
-  const hlStats = new Map<string, { best: number | null; worst: number | null }>([
-    ["overall", colBestWorst((s) => s.overall)],
-    ...tableKeys.map((k) => [k, colBestWorst((s) => s[k])] as const),
-  ]);
-  const hlClass = (col: string, value: number): string => {
-    const st = hlStats.get(col);
-    if (!st || st.best === null || st.worst === null) return "";
-    if (value === st.best) return " bg-[#d3ead9] font-bold text-[#14532d] dark:bg-[#1d4a2f] dark:text-[#bbf7d0]";
-    if (value === st.worst) return " bg-[#f7d9d4] text-[#7f1d1d] dark:bg-[#5a2320] dark:text-[#fecaca]";
-    return "";
-  };
-  const hlTitle = (col: string, value: number, label: string): string | undefined => {
-    const st = hlStats.get(col);
-    if (!st || st.best === null || st.worst === null) return undefined;
-    if (value === st.best) return `Highest ${label} grade for this model`;
-    if (value === st.worst) return `Lowest ${label} grade for this model`;
-    return undefined;
-  };
+  // Profile highlight compares ROUNDED values (the profile displays rounded).
+  const hlStats = buildHlStats(
+    ratings.map((r) => r.scores),
+    ["overall", ...TABLE_KEYS],
+    true,
+  );
   // Benchmark evidence loads from its own module (NOT via models.ts) so list
   // pages never bundle it — see src/data/evidence.ts.
   const evidence = getEvidence(slug);
@@ -316,15 +231,15 @@ export default component$(() => {
                 <>
                   <svg viewBox="0 0 400 344" role="img" class="mt-2 h-auto w-full" aria-label={`Hexagon chart of average scores: ${hexKeys.map((k) => `${names[k]} ${model.scores[k]}`).join(", ")}`}>
                     {[25, 50, 75, 100].map((ring) => (
-                      <polygon key={ring} points={hexPolygon(ring)} fill="none" class="stroke-[#ccdae2] dark:stroke-[#274757]" stroke-width={ring === 100 ? 1.5 : 1} />
+                      <polygon key={ring} points={hexPolygon(ring, HEX_GEO)} fill="none" class="stroke-[#ccdae2] dark:stroke-[#274757]" stroke-width={ring === 100 ? 1.5 : 1} />
                     ))}
                     {hexKeys.map((key, i) => {
-                      const end = hexPoint(100, i);
-                      return <line key={key} x1={HEX_CX} y1={HEX_CY} x2={end.x} y2={end.y} class="stroke-[#ccdae2] dark:stroke-[#274757]" stroke-width="1" />;
+                      const end = hexPoint(100, i, HEX_GEO);
+                      return <line key={key} x1={HEX_GEO.cx} y1={HEX_GEO.cy} x2={end.x} y2={end.y} class="stroke-[#ccdae2] dark:stroke-[#274757]" stroke-width="1" />;
                     })}
                     <polygon
                       points={hexKeys.map((key, i) => {
-                        const p = hexPoint(model.scores[key], i);
+                        const p = hexPoint(model.scores[key], i, HEX_GEO);
                         return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
                       }).join(" ")}
                       fill="#557ddd"
@@ -336,15 +251,15 @@ export default component$(() => {
                       <title>{`Overall ${model.scores.overall}`}</title>
                     </polygon>
                     {hexKeys.map((key, i) => {
-                      const p = hexPoint(model.scores[key], i);
+                      const p = hexPoint(model.scores[key], i, HEX_GEO);
                       return (
                         <circle key={key} cx={p.x} cy={p.y} r={5} fill="#557ddd" stroke="#eff5f8" stroke-width={1.5} class="dark:stroke-[#132a3b]">
-                          <title>{`${names[key]}: ${model.scores[key]}`}</title>
+                          <title>{dimensionTooltip(model, key)}</title>
                         </circle>
                       );
                     })}
                     {hexKeys.map((key, i) => {
-                      const p = hexPoint(100, i, HEX_LABEL_R);
+                      const p = hexPoint(100, i, HEX_GEO, HEX_GEO.labelR);
                       return (
                         <text key={key} x={p.x} y={p.y} text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight={600} class="fill-[#577184] dark:fill-[#93adbe]">
                           {names[key]} · {model.scores[key]}
@@ -579,8 +494,8 @@ export default component$(() => {
                         return (
                           <td
                             key={key}
-                            title={hlTitle(key, value, label)}
-                            class={`break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[#19384d] dark:border-b-[#274757] dark:text-[#e8f1f6]${key === "overall" ? " font-bold text-[#275bad] dark:text-[#9dbdf5]" : ""}${hlClass(key, value)}`}
+                            title={hlTitle(hlStats, key, value, label)}
+                            class={`break-words border-b border-b-[#d4e0e6] px-2 py-3.5 text-center text-[#19384d] dark:border-b-[#274757] dark:text-[#e8f1f6]${key === "overall" ? " font-bold text-[#275bad] dark:text-[#9dbdf5]" : ""}${hlClass(hlStats, key, value)}`}
                           >
                             {value}
                           </td>

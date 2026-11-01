@@ -1,5 +1,6 @@
 import { component$, useSignal, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 import type { Signal } from "@builder.io/qwik";
+import { applyPageTheme } from "./theme";
 
 /**
  * V2Header — shared header for the whole v2 tree, in the v1 Tailwind dialect.
@@ -72,17 +73,8 @@ export const V2Header = component$<V2HeaderProps>(({ theme, navBase }) => {
               aria-label={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               title={theme.value === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               onClick$={() => {
-                const next = theme.value === "dark" ? "light" : "dark";
-                theme.value = next;
-                // Keep <html>.dark in sync (see init task in routes/index.tsx):
-                // a stale ancestor .dark would leak dark: utilities into light mode.
-                document.documentElement.classList.toggle("dark", next === "dark");
-                try {
-                  localStorage.setItem("v2-theme", next);
-                  localStorage.setItem("theme", next);
-                } catch {
-                  /* private mode — theme just doesn't persist */
-                }
+                // Single writer (shared hook): signal + <html>.dark + storage.
+                applyPageTheme(theme, theme.value === "dark" ? "light" : "dark");
               }}
             >
               <span aria-hidden="true">
