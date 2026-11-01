@@ -22,8 +22,8 @@
 91 kimi-k3
 91 mimo-v2.6-pro
 90.2 claude-opus-4.8
+90.2 muse-wonder-full
 89.9 gpt-5.5
-89.9 muse-wonder-full
 89.8 claude-opus-4.7
 89.8 muse-spark-1.2
 89.8 qwen-3.8-max

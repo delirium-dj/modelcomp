@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Gemini 3 Pro
-- **Short description:** Google's flagship "most intelligent model" opening the Gemini 3 era, released 2026-11-18 → corrected: 2025-11-18 (LLM Stats) in preview; "best model in the world for multimodal understanding" and "most powerful agentic and vibe coding model yet." LMArena 1501 Elo breakthrough; HLE 37.5% no-tools; GPQA Diamond 91.9%; Deep Think mode adds HLE 41.0% / GPQA 93.8% / ARC-AGI-2 45.1% (code execution, verified). Shipped day-one into Search AI Mode, Gemini app, AI Studio, Vertex, and launched Google Antigravity (agent-first IDE) alongside.
+- **Short description:** Google's flagship "most intelligent model" opening the Gemini 3 era, released 2025-11-18 (LLM Stats) in preview; "best model in the world for multimodal understanding" and "most powerful agentic and vibe coding model yet." LMArena 1501 Elo breakthrough; HLE 37.5% no-tools; GPQA Diamond 91.9%; Deep Think mode adds HLE 41.0% / GPQA 93.8% / ARC-AGI-2 45.1% (code execution, verified). Shipped day-one into Search AI Mode, Gemini app, AI Studio, Vertex, and launched Google Antigravity (agent-first IDE) alongside.
 - **Provider / access:** Google Gemini API / AI Studio / Vertex AI / Gemini Enterprise; Gemini CLI; Google Antigravity; third-party: Cursor, GitHub, JetBrains, Manus, Replit. Consumer: Gemini app (+ Gemini Agent for AI Ultra), AI Mode in Search. Deep Think: safety testers first, then AI Ultra.
 - **Release / knowledge:** 2025-11-18; knowledge cutoff January 2025 (LLM Stats) — 10 months stale by Oct 2026.
 - **IDs:** `google/gemini-3-pro-preview` (LLM Stats slug) → `gemini-3-pro` docs. Family: Gemini 3 Flash, 3.1 Pro, 3.5/3.6/3.7/3.8 Flash cadence through 2026; Gemini 4 Argon (2026-09-30) is the current frontier.

@@ -1,7 +1,6 @@
 {
   "name": "GLHF",
   "kind": "aggregator",
-  "retired": true,
   "short": "Community and developer inference gateway providing free testing routes for popular open-weight models via an OpenAI-compatible API.",
   "officialUrl": "https://glhf.chat",
   "hosts": ["glhf.chat"],

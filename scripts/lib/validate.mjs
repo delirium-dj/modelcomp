@@ -152,12 +152,14 @@ export function isRegenerablePath(posix) {
  * - mergedSource: it is a merged duplicate stem whose canonical sibling exists
  *   (user-ordered source merge, 2026-10-08);
  * - twinRetired: its fresh <.md> sibling exists (own-twin re-research);
+ * - quarantined: its <.md.excluded> sibling exists (quarantined / renamed);
  * - mirror: name of the sanctioned mirror tree holding the same path (if any).
- * Returns "merged-source" | "twin-retired" | "relocated" | "deleted" (=> FAIL).
+ * Returns "merged-source" | "twin-retired" | "quarantined" | "relocated" | "deleted" (=> FAIL).
  */
-export function classifyMissingTracked({ twinRetired, mirror, mergedSource }) {
+export function classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource }) {
   if (mergedSource) return "merged-source";
   if (twinRetired) return "twin-retired";
+  if (quarantined) return "quarantined";
   if (mirror !== undefined) return "relocated";
   return "deleted";
 }

@@ -1,7 +1,6 @@
 {
   "name": "Lepton AI",
   "kind": "aggregator",
-  "retired": true,
   "short": "High-efficiency serverless AI cloud providing OpenAI-compatible endpoints with complimentary starter credits for developers.",
   "officialUrl": "https://lepton.ai",
   "hosts": ["lepton.ai"],

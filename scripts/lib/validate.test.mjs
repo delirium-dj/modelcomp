@@ -51,6 +51,10 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
     assert.equal(classifyMissingTracked({ twinRetired: true, mirror: "models_voice" }), "twin-retired");
   });
 
+  it("quarantine / renaming to .md.excluded is INFO, never FAIL", () => {
+    assert.equal(classifyMissingTracked({ twinRetired: false, quarantined: true, mirror: undefined }), "quarantined");
+  });
+
   it("mirror relocation is INFO, never FAIL", () => {
     assert.equal(classifyMissingTracked({ twinRetired: false, mirror: "models_voice" }), "relocated");
   });

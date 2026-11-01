@@ -250,6 +250,8 @@ try {
     if (existsSync(diskPath)) continue;
     const twinRetired =
       posix.includes(".md.excluded") && existsSync(diskPath.replace(/\.md\.excluded$/, ".md"));
+    const quarantined =
+      posix.endsWith(".md") && existsSync(`${diskPath}.excluded`);
     const parts = posix.split("/");
     const mirror = findMirror(parts, MIRROR_ROOTS, (m, rest) => existsSync(join(root, m, ...rest)));
     // Merged duplicate stem (user-ordered source merge, 2026-10-08 Laguna,
@@ -263,13 +265,17 @@ try {
       canonicalStem !== undefined &&
       (existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`)) ||
         existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md.excluded`)));
-    const verdict = classifyMissingTracked({ twinRetired, mirror, mergedSource });
+    const verdict = classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource });
     if (verdict === "merged-source") {
       log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
       continue;
     }
     if (verdict === "twin-retired") {
       log(`  INFO  ${posix}: twin retired after re-research (${posix.replace(/\.md\.excluded$/, ".md")} present)`);
+      continue;
+    }
+    if (verdict === "quarantined") {
+      log(`  INFO  ${posix}: quarantined to ${posix}.excluded (${posix.replace(/\.md$/, ".md.excluded")} present)`);
       continue;
     }
     if (verdict === "relocated") {
