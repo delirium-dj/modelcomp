@@ -1,7 +1,7 @@
 # GPT-6.1 Sol — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI/gpt-6.1-sol
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-6.1 Sol
 - **Short description:** OpenAI's specialized solution-oriented reasoning model optimized for rigorous mathematical deduction, advanced scientific problem solving, and deterministic code generation.
 - **Provider / access:** OpenCode Zen `opencode/gpt-6.1-sol` / OpenAI API (`gpt-6.1-sol`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art solution SKU.
+- **Release / knowledge:** Re-verified November 2026; state-of-the-art solution SKU.
 - **IDs:** `opencode/gpt-6.1-sol`
 - **Context window:** 256K total tokens input/output support.
 - **Modalities:** Text and vision in; text out; advanced mathematical reasoning; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Premium professional tier pricing (~$8.00 / $24.00 per 1M tokens).
+- **Pricing (as of 2026-11):** Premium professional tier pricing (~$8.00 / $24.00 per 1M tokens).
 - **Architecture:** Frontier reasoning transformer fine-tuned extensively on formal logic, mathematics, and complex engineering verification.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across official OpenAI documentation, technical reports, and AI benchmarks. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Third-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations.

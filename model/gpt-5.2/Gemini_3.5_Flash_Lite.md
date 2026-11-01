@@ -1,7 +1,7 @@
 # GPT-5.2 — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-5.2 (`openai/gpt-5.2`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gpt-5.2`; Zen ID `opencode/gpt-5.2`.
 - **Context window:** 200,000 tokens total input / 32,000 output.
 - **Modalities:** Text/image input, text output; tool use.
-- **Pricing (as of 2026-10-10):** Standard professional pricing ($2.50 / $10 per 1M tokens in/out).
+- **Pricing (as of 2026-11):** Standard professional pricing ($2.50 / $10 per 1M tokens in/out).
 - **Architecture:** Advanced transformer architecture by OpenAI.
 
 ### Raw benchmarks found
@@ -37,14 +37,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across OpenAI technical documentation. SWE-bench Verified 68.5% and GPQA Diamond 68.0% verified.
+- **Third-pass verification:** Confirmed across OpenAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

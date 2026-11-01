@@ -3,7 +3,24 @@
   "kind": "aggregator",
   "short": "NVIDIA NIM inference microservices — free hosted endpoints for prototyping NVIDIA and partner models, then self-host or buy AI Enterprise.",
   "officialUrl": "https://build.nvidia.com",
+  "catalogUrl": "https://build.nvidia.com/models",
   "hosts": ["build.nvidia.com", "docs.nvidia.com"],
+  "covers": [
+    "glm-5.3-flash",
+    "deepseek-v4.1-flash",
+    "step-5-preview",
+    "mistral-large-4",
+    "nemotron-3.5-super-vl",
+    "gemma-4-31b",
+    "minimax-m3.1-flash-preview",
+    "muse-glimmer-30b",
+    "nemotron-3-nano-omni",
+    "nemotron-3-ultra-free",
+    "diffusiongemma-26b-a4b",
+    "laguna-xs-2.1",
+    "nemotron-3.5-lightning-free",
+    "nemotron-3.5-bolt-e4b"
+  ],
   "plans": [
     {
       "name": "Free hosted endpoints",

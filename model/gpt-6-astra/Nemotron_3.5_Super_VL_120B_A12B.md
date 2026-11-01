@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: OpenAI (`developers.openai.com/api/docs/models/gpt-6-astra`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gpt-6-astra`), ARC Prize, Epoch AI, OpenAI system card (`deploymentsafety.openai.com/gpt-6-astra`)
-- Date: 2026-10-16 (UTC)
+- Source: OpenAI (`developers.openai.com/api/docs/models/gpt-6-astra`), benchgap.net (`benchgap.net/model/gpt-6-astra`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gpt-6-astra`), ARC Prize, Epoch AI, OpenAI system card (`deploymentsafety.openai.com/gpt-6-astra`)
+- Date: 2026-11-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -32,6 +32,7 @@ Agent / tool use:
 - AA Briefcase Elo: **1570** (Artificial Analysis)
 - AA Agentic Index: **51.5%** (Artificial Analysis)
 - Terminal-Bench 2.1: **87.3%** (Vals AI); **88.4%** (AA)
+- DeepSearchQA: **93.6%** estimated ± 4.5 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -44,6 +45,10 @@ Reasoning / knowledge:
 - AA-LCR (long-context reasoning): **80.7%** (Artificial Analysis)
 - MLCR-AA: **35.0%** (Artificial Analysis)
 - AA-Omniscience Index **43.4%**; Accuracy **62.6%**; Hallucination rate **51.3%** (AA)
+- GPQA Diamond: **96.0%** measured (benchgap.net)
+- HLE: **67.4%** estimated ± 6.4 pp (benchgap.net)
+- MMLU: **88.1%** estimated ± 4.3 pp (benchgap.net)
+- MMLU-Pro: **86.2%** estimated / AA MMLU-Pro **90.5%** estimated (benchgap.net)
 
 Coding:
 
@@ -52,6 +57,10 @@ Coding:
 - FrontierSWE v2: **65.5%** (Proximal)
 - AA-SciCode: **56.5%** (Artificial Analysis)
 - AA Coding Index: **76.9%** (Artificial Analysis)
+- SWE-bench Verified: **95.3%** estimated ± 0.8 pp (benchgap.net)
+- SWE-bench Pro: **86.7%** estimated ± 5.1 pp (benchgap.net)
+- LiveCodeBench v6: **88.9%** estimated ± 4.6 pp (benchgap.net)
+- ProgramBench: **90.9%** estimated ± 4.8 pp (benchgap.net)
 
 Multimodal & grounded:
 

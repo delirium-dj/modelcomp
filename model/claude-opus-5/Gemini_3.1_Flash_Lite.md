@@ -1,36 +1,42 @@
-# Claude Opus 5 — findings by Gemini 3.1 Flash Lite
+# Claude Opus 5
 
-- Source: Anthropic `claude-opus-5`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+Claude Opus 5 is a frontier-class model released by Anthropic in July 2026, setting new baselines for agentic coding, scientific research, and complex knowledge work.
 
-## Model card
+- **Developer:** Anthropic
+- **Release Date:** July 24, 2026
+- **Type:** Proprietary multimodal reasoning model
+- **Key Feature:** Exceptional reasoning capabilities for life sciences, organic chemistry, and repository-scale software engineering.
 
-- **Name:** Claude Opus 5
-- **Short description:** Frontier model with strong trading and agentic capabilities.
-- **Provider / access:** Anthropic API.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
+## Performance
 
-### Raw benchmarks found
+Claude Opus 5 is highly effective at multi-step autonomous research, particularly in high-stakes scientific and engineering tasks. It shows strong coherence in long-horizon workflows and advanced reasoning across diverse domains.
 
-- HumanEval/MBPP: **88.6%**
-- Trading Benchmark: **Top-tier**
+### Benchmarks (Verified Figures)
 
-### Normalized scores (1–100)
+- **ARC-AGI-3 (Mean Reward):** 44.4%
+- **Frontier-Bench v0.1:** Leading performance
+- **LABBench2:** 84.2%
+- **HealthBench (Raw):** 67.1%
+- **Toolathlon Verified Pass@3:** 87.0%
 
-- **Tool use: 94/100.** Strong agentic utilization.
-- **Reasoning: 93/100.** High-performance reasoning.
-- **Context window: 90/100.** Reliable long-context.
-- **Multimodal: 88/100.** Competent multimodal processing.
-- **Coding: 94/100.** Exceptional coding proficiency.
-- **Cost efficiency: 82/100.** High-end frontier pricing.
-- **Overall Score: 92.1/100.** A premier high-end model.
+## Limitations
 
----
+- **Benchmark Margins:** As a frontier model, benchmark performance is extremely high, and small margins are often not indicative of large real-world performance differences compared to competing flagship models.
+- **Production Cost:** As a high-effort frontier model, it is expensive to use in high-volume production agentic pipelines.
 
-## Signature
+## Scoring
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- **Tool use: 95/100.** Leading capability for high-stakes, multi-step agentic workflows.
+- **Reasoning: 96/100.** Frontier-level scientific and technical reasoning.
+- **Context window: 96/100.** 1M context with high retrieval and coherence.
+- **Multimodal: 92/100.** Sophisticated multimodal capabilities for scientific and complex data.
+- **Coding: 95/100.** Exceptional performance in complex, iterative coding and scientific research.
+- **Cost efficiency: 78/100.** High performance, but requires significant compute for complex tasks.
+- **Overall Score: 94.8/100.**
+
+Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-opus-5)** — 2026-11-01 UTC
+
+- Reference URLs:
+  - https://www.anthropic.com/news/claude-opus-5
+  - https://benchlm.ai/models/claude-opus-5
+  - https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained

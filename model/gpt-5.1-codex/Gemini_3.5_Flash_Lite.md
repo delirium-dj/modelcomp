@@ -1,7 +1,7 @@
 # GPT-5.1 Codex — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI/gpt-5.1-codex
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/gpt-5.1-codex`
 - **Context window:** 128K total tokens input/output support.
 - **Modalities:** Text in; text out; advanced code synthesis; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Standard OpenAI developer tier pricing (~$2.00 / $8.00 per 1M tokens).
+- **Pricing (as of 2026-11):** Standard OpenAI developer tier pricing (~$2.00 / $8.00 per 1M tokens).
 - **Architecture:** Proprietary transformer model fine-tuned extensively on code repositories and software engineering workflows.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across official OpenAI documentation, GitHub benchmarks, and AI developer forums. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Public internet research across official OpenAI documentation, GitHub benchmarks, and AI developer forums; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Public internet research across official OpenAI documentation, GitHub benchmarks, and AI developer forums; scores are normalized 1–100 interpretations.

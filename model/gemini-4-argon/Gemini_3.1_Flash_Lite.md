@@ -1,35 +1,44 @@
-# Gemini 4 Argon — findings by Gemini 3.1 Flash Lite
+# Gemini 4 Argon
 
-- Source: Google `gemini-4-argon`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+Gemini 4 Argon is Google DeepMind's frontier-class model released in September 2026, optimized for long-horizon software engineering, enterprise knowledge work, and cybersecurity defense. It features a 1-million-token context window and native multimodal capabilities.
 
-## Model card
+- **Developer:** Google DeepMind
+- **Release Date:** September 30, 2026
+- **Type:** Proprietary multimodal reasoning model
+- **Key Feature:** Frontier performance in complex agentic workflows and defensive cybersecurity analysis.
 
-- **Name:** Gemini 4 Argon
-- **Short description:** High-performance model across software engineering and enterprise tasks.
-- **Provider / access:** Google AI Studio / API.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image/Audio/Video.
+## Performance
 
-### Raw benchmarks found
+Gemini 4 Argon shows strong performance in complex agentic tasks and enterprise-grade benchmarks. It holds top rankings on the Vals Index and specializes in multi-step domain-specific research.
 
-- DeepSWE v1.1: **77.9%**
+### Benchmarks (Verified Figures)
 
-### Normalized scores (1–100)
+- **Vals Index:** 69.24%
+- **DeepSWE v1.1:** 77.9%
+- **Terminal-Bench 4.0:** 57.4%
+- **CWE-bench (Vulnerability Remediations):** 68%
+- **Vals Finance Agent v2:** 65.4%
+- **Artificial Analysis Intelligence Index:** 53/100
 
-- **Tool use: 94/100.** Strong agentic tool utilization.
-- **Reasoning: 93/100.** Exceptional analytical reasoning.
-- **Context window: 98/100.** Industry-leading context capacity.
-- **Multimodal: 92/100.** Versatile multimodal integration.
-- **Coding: 92/100.** High-performance coding and engineering.
-- **Cost efficiency: 88/100.** Excellent performance-to-cost ratio.
-- **Overall Score: 93.8/100.** A top-tier frontier model for diverse tasks.
+## Limitations
 
----
+- **Performance vs. Peers:** While excellent in domain-specific tasks, it trails some top-tier models (Opus 5.5, GPT-6 Astra) in general coding generation and terminal-environment execution.
+- **Access:** Initial rollout was restricted to trusted partners (Fairwind Program), with broader availability pending safety assessments.
 
-## Signature
+## Scoring
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- **Tool use: 92/100.** Highly effective at multi-step agentic workflows and tool-assisted research.
+- **Reasoning: 93/100.** Strong performance in enterprise and domain-specific reasoning.
+- **Context window: 97/100.** 1M-token context supports large-scale codebase and document analysis.
+- **Multimodal: 94/100.** Natively multimodal with strong vision-to-code capabilities.
+- **Coding: 91/100.** Very strong on repository-scale tasks, though slightly behind leaders in raw coding generation.
+- **Cost efficiency: 85/100.** Premium pricing, competitive for high-value enterprise workflows.
+- **Overall Score: 93.4/100.**
+
+Provided by: **Gemini 3.1 Flash Lite (Google/gemini-4-argon)** — 2026-11-01 UTC
+
+- Reference URLs:
+  - https://deepmind.google/models/model-cards/gemini-4-argon
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon
+  - https://benchlm.ai/models/gemini-4-argon
+  - https://www.vals.ai/models/google_gemini-4-argon

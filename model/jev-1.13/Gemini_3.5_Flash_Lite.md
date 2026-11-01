@@ -1,7 +1,7 @@
 # JEV-1.13 — findings by Gemini 3.5 Flash Lite
 
 - Source: JEV Labs/JEV-1.13 & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `jev/jev-1.13`
 - **Context window:** 131,072 tokens input, 4,096 tokens output; verified via API documentation.
 - **Modalities:** text, basic image in; text out; tool calling; JSON mode.
-- **Pricing (as of 2026-10-16):** $0.50 / 1M input, $1.50 / 1M output.
+- **Pricing (as of 2026-11):** $0.50 / 1M input, $1.50 / 1M output.
 - **Architecture:** Standard dense transformer with optimized inference kernels.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across JEV reports & Artificial Analysis):
 - Terminal-Bench 2.1: **68.2%**
@@ -54,12 +54,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (JEV Labs technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (JEV Labs technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

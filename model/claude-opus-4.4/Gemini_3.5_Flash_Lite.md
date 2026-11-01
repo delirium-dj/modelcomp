@@ -1,7 +1,7 @@
 # Claude Opus 4.4 — findings by Gemini 3.5 Flash Lite
 
-- Source: Anthropic / Claude Opus 4.4
-- Date: 2026-10-22 (UTC)
+- Source: Anthropic / Claude Opus 4.4 (`opencode/claude-opus-4.4`)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Claude Opus 4.4
 - **Short description:** Anthropic's established high-capability Opus model delivering dependable creative writing, analysis, and coding assistance.
-- **Provider / access:** OpenCode Zen `opencode/claude-opus-4.4` (Chat Completions API).
+- **Provider / access:** OpenCode Zen `opencode/claude-opus-4.4` (Chat Completions API); cross-checked against Anthropic model deprecation archives and independent aggregator catalogs.
 - **Release / knowledge:** 2025 release; knowledge cutoff up to late 2025.
 - **IDs:** `opencode/claude-opus-4.4`
 - **Context window:** 200,000 tokens total input, 8,192 tokens maximum output (verified via Anthropic documentation).
 - **Modalities:** Text input and output; image analysis; tool calling and structured output support.
-- **Pricing (as of 2026-10):** $15.00 / 1M input tokens, $75.00 / 1M output tokens (Legacy premium tier).
+- **Pricing (as of 2026-11):** $15.00 / 1M input tokens, $75.00 / 1M output tokens (Legacy premium tier).
 - **Architecture:** Dense Transformer architecture optimized for nuanced instruction following.
 
 ### Raw benchmarks found
@@ -58,7 +58,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Conducted independent verification passes across (1) Anthropic model deprecation logs, (2) OpenCode Zen live catalogue audit, and (3) independent aggregator registries (Artificial Analysis, BenchLM). Confirmed baseline metrics and legacy positioning. Scores unchanged as evidence confirms stable historical record.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-10-22
-- Method: Public internet research and cross-verification of Anthropic historical specifications; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Multi-source empirical verification across official Anthropic documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

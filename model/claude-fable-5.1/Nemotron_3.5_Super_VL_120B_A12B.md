@@ -30,6 +30,12 @@ Agent / tool use:
 - AA Briefcase: not found for 5.1
 - AA Agentic Index: **51.0%** (Artificial Analysis)
 - AA-AnalystAgent: **48.8%** (Artificial Analysis)
+- SWE-bench Verified: **98.1%** estimated ± 3.7 pp (benchgap.net)
+- LiveCodeBench v6: **91.7%** estimated ± 2.4 pp (benchgap.net)
+- JobBench: **61.7%** estimated ± 4.9 pp (benchgap.net)
+- Vibe Code Bench: **100.0%** estimated ± 10.3 pp (benchgap.net)
+- DeepSearchQA: **94.3%** estimated ± 4.5 pp (benchgap.net)
+- OSWorld-Verified: **82.9%** estimated ± 8.1 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -42,6 +48,12 @@ Reasoning / knowledge:
 - AA-LCR (long-context reasoning): **82.3%** (Artificial Analysis)
 - CritPt: **28.6%** (Artificial Analysis)
 - AA-Omniscience Index **43.3%**; Accuracy **65.4%**; Hallucination rate **63.6%** (AA)
+- GPQA Diamond: **94.8%** estimated ± 1.5 pp (benchgap.net)
+- HLE: **65.0%** measured (benchgap.net)
+- MMLU-Pro: **86.0%** estimated ± 2.5 pp / AA MMLU-Pro **91.6%** estimated (benchgap.net)
+- Artificial Analysis Intelligence Index: **49.0%** measured (benchgap.net)
+- AA Coding Index: **81.6%** measured (benchgap.net)
+- BrowseComp: **83.0%** estimated ± 1.9 pp (benchgap.net)
 
 Coding:
 
@@ -54,6 +66,8 @@ Coding:
 - AA Coding Index: **76.5%** (Artificial Analysis)
 - FrontierSWE v2: **47.0%** (Proximal)
 - VulcanBench v3: **89.5%** (VulcanBench frontier results)
+- SWE-bench Pro: **81.2%** measured (benchgap.net)
+- ProgramBench: **87.6%** measured (benchgap.net)
 
 Multimodal & grounded:
 
@@ -73,18 +87,22 @@ Derived from the raw numbers above using the methodology in `model-comparison.md
 Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 86/100.** Leading GDPval-AA (1747 Elo), Terminal-Bench 2.1 (84.3%), OSWorld-Verified (85%), τ²-bench (98.5%); capped by weak Terminal-Bench 4.0 (25.8% per AA). Premier agentic tool-use model.
+- **Tool use: 87/100.** Leading GDPval-AA (1747 Elo), Terminal-Bench 2.1 (84.3%), OSWorld-Verified (85%), τ²-bench (98.5%); capped by weak Terminal-Bench 4.0 (25.8% per AA). benchgap.net adds Vibe Code Bench 100.0% estimated and DeepSearchQA 94.3% estimated. Premier agentic tool-use model.
 - **Reasoning: 83/100.** AA Intelligence Index 53 (#5 of 217), ARC-AGI-1 (98.50%), ARC-AGI-2 (89.2%), GPQA (92.6%), HLE (55.5%); capped by CritPt (28.6%), AA-Omniscience accuracy (65.4%). Elite knowledge/reasoning profile.
 - **Context window: 88/100.** Verified 1M tokens (platform docs) with 128K max output; capped because no public full-depth retrieval score at 1M beyond AA-LCR (82.3%).
 - **Multimodal: 75/100.** Text+images→text; Blueprint-Bench 2 (38.6%), OfficeQA Pro (57.9%); capped by text-only output and thin multimodal benchmark coverage.
-- **Coding: 85/100.** SWE-bench Verified (95%), LiveCodeBench Vals (89.8%), SWE-bench (Vals) (95.0%), FrontierCode 1.1 Main (53.5%); capped by FrontierSWE v2 (47.0%). Elite verified SWE coding.
+- **Coding: 87/100.** SWE-bench Verified (95% / 98.1% estimated benchgap.net), LiveCodeBench Vals (89.8%) / v6 91.7% estimated (benchgap.net), SWE-bench (Vals) (95.0%), FrontierCode 1.1 Main (53.5%); benchgap.net adds SWE-bench Pro 81.2% measured and ProgramBench 87.6% measured — elite verified SWE coding confirmed. Capped by FrontierSWE v2 (47.0%).
 - **Cost efficiency: 35/100.** $10/$50 is premium pricing with 98% cache discount; not counted toward Overall.
-- **Overall Score: 83/100.** Half-up mean of (86 + 83 + 88 + 75 + 85) / 5 = 82.8 → 83. Best-fit recommendation: premium agentic reasoning model for long-horizon coding and complex knowledge work; premium price ($10/$50) justified only for the most demanding tasks where Opus 5.5 falls short.
+- **Overall Score: 84/100.** Half-up mean of (87 + 83 + 88 + 75 + 87) / 5 = 84.0 → 84. Best-fit recommendation: premium agentic reasoning model for long-horizon coding and complex knowledge work; premium price ($10/$50) justified only for the most demanding tasks where Opus 5.5 falls short.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Anthropic platform docs + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Anthropic platform docs + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Fable 5.1 (official platform docs)](https://platform.claude.com/docs/en/models/fable-5-1/overview)
+  - [benchgap.net — Claude Fable 5.1 benchmark scores](https://benchgap.net/model/claude-fable-5-1) (data as of 2026-10-29)
+  - [Artificial Analysis — Claude Fable 5.1](https://artificialanalysis.ai/models/claude-fable-5-1)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

@@ -3,10 +3,20 @@
   "kind": "vendor",
   "short": "Meta Muse models via the self-serve Meta Model API and Muse Code coding agent; standard $1.25/$4.25 per 1M, contributor tier $0.10/$0.20 per 1M, Muse Code plans $5–$200/mo.",
   "officialUrl": "https://dev.meta.ai",
+  "catalogUrl": "https://dev.meta.ai/models",
   "hosts": [
     "dev.meta.ai",
     "meta.com",
     "research.meta.ai"
+  ],
+  "covers": [
+    "muse-spark-1.3",
+    "muse-wonder-full",
+    "muse-spark-1.2",
+    "muse-wonder-1.0",
+    "muse-spark-1.1",
+    "muse-wonder",
+    "muse-glimmer-30b"
   ],
   "plans": [
     {

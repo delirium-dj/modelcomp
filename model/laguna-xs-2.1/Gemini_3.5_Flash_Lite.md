@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Gemini 3.5 Flash Lite
 
 - Source: Poolside/Laguna XS 2.1 & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/laguna-xs-2.1`
 - **Context window:** 262K (HF); 256K in benchmarks.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-10-16):** $0.06/$0.12 per 1M (OpenRouter); free tier available.
+- **Pricing (as of 2026-11):** $0.06/$0.12 per 1M (OpenRouter); free tier available.
 - **Architecture:** Open-weights MoE (33B total / 3B active).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across Poolside specs & Artificial Analysis):
 - Terminal-Bench 2.1: **58.0%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (Poolside technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (Poolside technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

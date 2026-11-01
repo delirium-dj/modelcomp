@@ -33,6 +33,13 @@ Agent / tool use:
 - AA Briefcase Elo: **1720** (Anthropic system card)
 - Terminal-Bench 2.1: **84.6%** (Vals AI)
 - AA Agentic Index: **56.2%** (Artificial Analysis)
+- SWE-bench Verified: **96.0%** measured (benchgap.net)
+- LiveCodeBench v6: **90.8%** estimated ± 2.4 pp (benchgap.net)
+- JobBench: **65.8%** estimated ± 4.9 pp (benchgap.net)
+- GDPval-AA: **61.1%** measured (benchgap.net)
+- DeepSearchQA: **95.0%** measured (benchgap.net)
+- OSWorld-Verified: **86.4%** estimated ± 1.9 pp (benchgap.net)
+- BrowseComp: **90.8%** measured (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -58,6 +65,18 @@ Coding:
 - AA-SciCode: **56.4%** (Artificial Analysis)
 - AA Coding Index: **78.0%** (Artificial Analysis)
 - FrontierSWE v2: **52.0%** (Proximal)
+- SWE-bench Pro: **79.2%** measured (benchgap.net)
+- DeepSWE: **68.8%** (Anthropic system card)
+- FrontierCode 1.1 Main: **53.4%**; Extended: **63.6%** (Anthropic system card)
+- ProgramBench: **93.0%** (episode 1: 83.0%) (Anthropic system card)
+- LiveCodeBench (Vals): **89.0%** (Vals AI)
+- CursorBench 3.2: **70.0%**; CursorBench 4.0: **46.6%** (Cursor evals)
+- AA-SciCode: **56.4%** (Artificial Analysis)
+- AA Coding Index: **78.0%** measured (benchgap.net)
+- OSWorld 2.1: **74.0%** measured (benchgap.net)
+- Toolathlon-Verified: **80.6%** measured (benchgap.net)
+- Vibe Code Bench: **80.9%** estimated ± 5.6 pp (benchgap.net)
+- ProgramBench: **93.0%** measured (benchgap.net)
 
 Multimodal & grounded:
 
@@ -84,14 +103,18 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 - **Reasoning: 82/100.** ARC-AGI-1 97.50%, ARC-AGI-2 90.4%, GPQA 93.2%, IMO 2026 42/42, FrontierMath T1-3 85.6%; capped by CritPt (29.1), ARC-AGI-3 (30.2), AA-Omniscience accuracy (60.9%). Strong math/knowledge reasoning.
 - **Context window: 88/100.** Verified 1M tokens (platform docs) with 128K max output; capped because no public full-depth retrieval score at 1M for Opus 5 specifically.
 - **Multimodal: 74/100.** Text+images→text; strong Chartography tools (83.0), GDP.pdf tools (85.5), MMMU-Pro (84.7); capped by very weak no-tools Chartography (29.6) and BenchCAD no-tools (0.366) — heavy tool dependence for vision.
-- **Coding: 88/100.** SWE-bench Verified 96% / Vals 97.0%, ProgramBench 93.0%, LiveCodeBench Vals 89.0%, SWE Multilingual 89.5%; capped by FrontierCode Main (53.4), FrontierSWE v2 (52.0), CursorBench 4.0 (46.6). Elite verified SWE, weaker on extended agentic coding suites.
+- **Coding: 89/100.** SWE-bench Verified 96% / Vals 97.0%, ProgramBench 93.0%, LiveCodeBench Vals 89.0% / v6 90.8% estimated (benchgap.net), SWE Multilingual 89.5%; benchgap.net adds SWE-bench Pro 79.2% measured, DeepSWE 68.8%, Toolathlon-Verified 80.6% measured, ProgramBench 93.0% measured — elite verified SWE coding confirmed at scale. Capped by FrontierCode Main (53.4), FrontierSWE v2 (52.0), CursorBench 4.0 (46.6).
 - **Cost efficiency: 55/100.** $5/$25 with 50% batch discount; not counted toward Overall.
-- **Overall Score: 84/100.** Half-up mean of (86 + 82 + 88 + 74 + 88) / 5 = 83.6 → 84. Best-fit recommendation: top-tier agentic coding and tool-use model; superseded by Opus 5.5 ($4/$20, higher scores) — prefer Opus 5.5 for new work unless legacy pinning is required.
+- **Overall Score: 84/100.** Half-up mean of (86 + 82 + 88 + 74 + 89) / 5 = 83.8 → 84. Best-fit recommendation: top-tier agentic coding and tool-use model; superseded by Opus 5.5 ($4/$20, higher scores) — prefer Opus 5.5 for new work unless legacy pinning is required.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Anthropic platform docs + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Anthropic platform docs + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 5 (official platform docs)](https://platform.claude.com/docs/en/models/opus-5/overview)
+  - [benchgap.net — Claude Opus 5 benchmark scores](https://benchgap.net/model/claude-opus-5) (data as of 2026-10-29)
+  - [Artificial Analysis — Claude Opus 5](https://artificialanalysis.ai/models/claude-opus-5)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

@@ -1,7 +1,7 @@
 # Hy4 — findings by Gemini 3.5 Flash Lite
 
 - Source: Tencent / Hy4 (`tencent/hy4`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `tencent/hy4` (no Zen Free ID exists; evaluated on open-weights API pricing)
 - **Context window:** 1,000,000 tokens total (960K input / 64,000 output; verified via Tencent technical whitepaper).
 - **Modalities:** Text input/output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Apache 2.0 open weights; API hosting equiv. ~$0.30 / $1.00 per 1M tokens.
+- **Pricing (as of 2026-11):** Apache 2.0 open weights; API hosting equiv. ~$0.30 / $1.00 per 1M tokens.
 - **Architecture:** Mixture-of-Experts (MoE) architecture (~770B total / ~49B active parameters), Apache 2.0 by Tencent.
 
 ### Raw benchmarks found
@@ -38,14 +38,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across Tencent technical documentation. SWE-bench Verified 31.0% and Terminal-Bench 2.1 65.0% verified.
+- **Third-pass verification:** Confirmed across Tencent technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Tencent technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official Tencent technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

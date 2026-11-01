@@ -1,0 +1,23 @@
+# Grok 5 — excluded by GPT-6 Luna
+
+- Source: xAI/Grok 5 (unverified roster label)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+
+## Exclusion rationale
+
+Three exact-label searches did not identify a first-party Grok 5 announcement, model card, API ID, release, or benchmark. xAI's current developer documentation instead identifies Grok 4.7 as its latest flagship and lists Grok 4.6/4.5 as available API models. The current OpenRouter registry has no `xai/grok-5` entry; a direct lookup returns 404. No evidence supports the queued label as a released model.
+
+No benchmark result or normalized score is assigned. Do not use Grok 4.5/4.7, a similarly named third-party listing, or another sibling as a proxy. The current xAI model catalog is the source of truth for available IDs.
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-01
+- Method: Three exact-name web searches; cross-checked xAI's official API/model pages and the current OpenRouter registry. This is an exclusion for absent model identity, not a scored report.
+- Reference URLs:
+  - [xAI developer model documentation](https://docs.x.ai/developers/models)
+  - [xAI official API overview](https://x.ai/api)
+  - [xAI official model/pricing documentation](https://docs.x.ai/developers/pricing)
+  - [OpenRouter current model registry](https://openrouter.ai/api/v1/models)
+
+---

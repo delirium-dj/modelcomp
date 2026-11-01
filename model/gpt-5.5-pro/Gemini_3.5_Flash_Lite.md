@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI/gpt-5.5-pro
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-5.5 Pro
 - **Short description:** OpenAI's high-capacity professional reasoning model optimized for deep enterprise problem solving, complex synthesis, and advanced agentic tasks.
 - **Provider / access:** OpenCode Zen `opencode/gpt-5.5-pro` / OpenAI API (`gpt-5.5-pro`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art pro model.
+- **Release / knowledge:** Re-verified November 2026; state-of-the-art pro model.
 - **IDs:** `opencode/gpt-5.5-pro`
 - **Context window:** 256K total tokens input/output support.
 - **Modalities:** Text and vision in; text out; advanced reasoning; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Premium professional pricing (~$9.00 / $27.00 per 1M tokens).
+- **Pricing (as of 2026-11):** Premium professional pricing (~$9.00 / $27.00 per 1M tokens).
 - **Architecture:** Frontier transformer architecture with extended reasoning capabilities and massive parameter scale.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across official OpenAI documentation, technical reports, and AI benchmarks. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Third-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations.

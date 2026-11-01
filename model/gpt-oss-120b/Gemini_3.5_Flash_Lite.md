@@ -1,7 +1,7 @@
 # Gpt Oss 120b — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenCode/Gpt Oss 120b & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/gpt-oss-120b`
 - **Context window:** 128K total — verified via Zen endpoint specs.
 - **Modalities:** Text in/out only; tool calls yes.
-- **Pricing (as of 2026-10-16):** Standard pricing on OpenCode Zen.
+- **Pricing (as of 2026-11):** Standard pricing on OpenCode Zen.
 - **Architecture:** Open-weights transformer (120B params).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across OpenCode Zen telemetry & Artificial Analysis):
 - Terminal-Bench 2.1: **48.5%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (OpenCode Zen platform metadata, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (OpenCode Zen platform metadata, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

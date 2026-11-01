@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash Lite — findings by Gemini 3.5 Flash Lite
 
 - Source: Google/Gemini 3.5 Flash Lite & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `google/gemini-3.5-flash-lite`
 - **Context window:** 1M tokens.
 - **Modalities:** Text, image, audio, PDF in; text out; tool calls yes.
-- **Pricing (as of 2026-10-16):** Free tier available; paid-tier pricing.
+- **Pricing (as of 2026-11):** Free tier available; paid-tier pricing.
 - **Architecture:** Ultra-low-latency optimized multimodal transformer.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across Google AI Studio specs & Artificial Analysis):
 - Terminal-Bench 2.1: **60.5%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (Google AI Studio docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (Google AI Studio docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

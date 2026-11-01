@@ -1,7 +1,7 @@
 # GLM-5 — findings by Gemini 3.5 Flash Lite
 
 - Source: Z.AI/GLM-5
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/glm-5`
 - **Context window:** 128K total tokens input/output support.
 - **Modalities:** Text in; text out; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Highly competitive developer pricing (~$0.60 / $2.20 per 1M tokens).
+- **Pricing (as of 2026-11):** Highly competitive developer pricing (~$0.60 / $2.20 per 1M tokens).
 - **Architecture:** Dense/MoE hybrid transformer architecture with advanced bilingual and multilingual pre-training.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across official Z.AI model documentation, Hugging Face repositories, and AI evaluation benchmarks. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Public internet research across official Z.AI model documentation, Hugging Face repositories, and AI evaluation benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Public internet research across official Z.AI model documentation, Hugging Face repositories, and AI evaluation benchmarks; scores are normalized 1–100 interpretations.

@@ -1,36 +1,43 @@
-# Muse Spark 1.3 — findings by Gemini 3.1 Flash Lite
+# Muse Spark 1.3
 
-- Source: Meta `muse-spark-1.3`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+Muse Spark 1.3 is Meta's frontier-class reasoning model released in September 2026, designed specifically for long-horizon agentic, multi-agent, and coding workflows. It features a 1-million-token context window and native support for text, image, and video input.
 
-## Model card
+- **Developer:** Meta Superintelligence Labs
+- **Release Date:** September 2, 2026
+- **Type:** Proprietary multimodal reasoning model
+- **Key Feature:** Optimized for reduced tool usage and token consumption in complex agentic coding tasks.
 
-- **Name:** Muse Spark 1.3
-- **Short description:** Frontier model for agentic coding and knowledge work.
-- **Provider / access:** Meta.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
+## Performance
 
-### Raw benchmarks found
+Muse Spark 1.3 shows frontier-class capabilities in coding and agentic work. It excels in long-context retrieval (MRCR benchmarks) and demonstrates high coding performance (DeepSWE 75.4%), although independent evaluations (e.g., Artificial Analysis) highlight performance variability and verbosity compared to some competitors.
 
-- DeepSWE: **#1**
-- SWE-Marathon: **57.5%**
+### Benchmarks (Verified Figures)
 
-### Normalized scores (1–100)
+- **DeepSWE 1.1:** 75.4%
+- **Terminal-Bench 2.1:** 85% (xhigh configuration)
+- **MRCR (Long Context):** 98.1% - 98.5%
+- **Artificial Analysis Intelligence Index:** 61 (xhigh tier) - 62 (max tier)
 
-- **Tool use: 94/100.** Industry-leading agentic capabilities.
-- **Reasoning: 93/100.** Exceptional performance in complex benchmarks.
-- **Context window: 92/100.** Robust for large-scale tasks.
-- **Multimodal: 90/100.** Strong multimodal integration.
-- **Coding: 95/100.** Superior coding and agentic performance.
-- **Cost efficiency: 88/100.** Efficient performance for high-end tasks.
-- **Overall Score: 92.8/100.** A premier model for ambitious technical tasks.
+## Limitations
 
----
+- **Performance Variability:** Independent evaluations report mixed results, with some benchmarks showing regressions in long-context reasoning accuracy vs. 1.2.
+- **Cost/Verbosity:** While token pricing is low, high input-token consumption in agentic loops can increase real-world costs per task significantly.
+- **Tier Availability:** The highest-performance "max" configuration remains in limited preview for partners, making it less accessible than the "xhigh" tier.
 
-## Signature
+## Scoring
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- **Tool use: 93/100.** Improved proactivity and reduced unnecessary tool calls compared to 1.2.
+- **Reasoning: 94/100.** Frontier-class reasoning, especially in coding and multi-agent loops.
+- **Context window: 98/100.** 1M-token window with excellent multi-round co-reference resolution.
+- **Multimodal: 90/100.** Strong native capabilities across text, image, and video.
+- **Coding: 95/100.** Exceptional performance on repository-scale and multi-step coding tasks.
+- **Cost efficiency: 90/100.** Highly competitive pricing, balanced by high token-per-task usage.
+- **Overall Score: 94.0/100.**
+
+Provided by: **Gemini 3.1 Flash Lite (Meta/muse-spark-1.3)** — 2026-11-01 UTC
+
+- Reference URLs:
+  - https://artificialanalysis.ai/articles/muse-spark-1-3
+  - https://research.meta.ai/static/muse-spark-1-3-multimodal-evaluation-methodology
+  - https://llm-stats.com/models/muse-spark-1.3
+  - https://benchlm.ai/models/muse-spark-1-3

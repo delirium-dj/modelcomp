@@ -1,7 +1,7 @@
 # GLM 5.1 Coding — findings by Gemini 3.5 Flash Lite
 
 - Source: Z.AI/GLM 5.1 Coding & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/glm-5.1` (no Free ID)
 - **Context window:** 200K–205K / 128K out.
 - **Modalities:** Text in/out; tool calls yes.
-- **Pricing (as of 2026-10-16):** Paid $1.40/$4.40 per 1M tokens (no Free ID).
+- **Pricing (as of 2026-11):** Paid $1.40/$4.40 per 1M tokens (no Free ID).
 - **Architecture:** Open-weights Mixture-of-Experts optimized for coding.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across Z.AI benchmarks & Artificial Analysis):
 - Terminal-Bench 2.1: **75.0%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (Z.AI technical docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (Z.AI technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

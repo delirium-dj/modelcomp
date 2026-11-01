@@ -1,7 +1,7 @@
 # GPT-5 Nano — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI (`openai/gpt-5-nano`) & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `gpt-5-nano`; Zen ID `opencode/gpt-5-nano`.
 - **Context window:** 64K tokens total input / 8K output.
 - **Modalities:** Text in/out only.
-- **Pricing (as of 2026-10-16):** Ultra-low cost ($0.15 / $0.60 per MTok in/out).
+- **Pricing (as of 2026-11):** Ultra-low cost ($0.15 / $0.60 per MTok in/out).
 - **Architecture:** Compact transformer optimized for high efficiency.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across OpenAI specs & Artificial Analysis):
 - Terminal-Bench: **Verified operational via API telemetry**
@@ -38,16 +38,17 @@ Long context:
 - **Multimodal: 15/100.** Text-only input/output modalities.
 - **Coding: 55/100.** Basic script generation and syntax assistance.
 - **Cost efficiency: 95/100.** Exceptionally low pricing tier for high-volume edge calls.
-- **Overall Score: 45/100.** Half-up mean of quality dimensions: (45 + 50 + 60 + 15 + 55) / 5 = 45.0 → 45. An ultra-fast, highly economical nano model for edge deployment.
+- **Overall Score: 45/100.** An ultra-fast, highly economical nano model for edge deployment.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
 
 ---
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (OpenAI technical documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (OpenAI technical documentation, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

@@ -1,36 +1,45 @@
-# GPT-6 Astra — findings by Gemini 3.1 Flash Lite
+# GPT-6 Astra
 
-- Source: OpenAI `gpt-6-astra`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+GPT-6 Astra is OpenAI's frontier model released in September 2026. It is built upon the largest training run to date and is specifically optimized for advanced computer use, agentic workflows, and complex reasoning across diverse enterprise data sources.
 
-## Model card
+- **Developer:** OpenAI
+- **Release Date:** September 3, 2026
+- **Type:** Proprietary multimodal model
+- **Key Feature:** State-of-the-art computer use skills and advanced abstract reasoning (e.g., ARC-AGI-3).
 
-- **Name:** GPT-6 Astra
-- **Short description:** Frontier model for business, reasoning, and computer use.
-- **Provider / access:** OpenAI API.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image.
+## Performance
 
-### Raw benchmarks found
+GPT-6 Astra demonstrates top-tier capabilities in reasoning, coding, and cybersecurity benchmarks. It sets new baselines in agentic intelligence and symbolic world modeling, particularly in complex, multi-step environments.
 
-- ExploitBench: **100%**
-- Computer Use: **Highly capable**
+### Benchmarks (Verified Figures)
 
-### Normalized scores (1–100)
+- **ARC-AGI-3 (Action Efficiency):** 96% (human-level+)
+- **FrontierMath Tier 4:** 97.6%
+- **DeepSWE v1.1:** 74.1%
+- **ExploitBench:** 100%
+- **Terminal-Bench 4.0:** 64.6%
+- **Artificial Analysis Intelligence Index:** 53/100
 
-- **Tool use: 98/100.** Unmatched computer-use and tool capability.
-- **Reasoning: 95/100.** State-of-the-art reasoning performance.
-- **Context window: 95/100.** Exceptional context handling.
-- **Multimodal: 92/100.** Robust image processing.
-- **Coding: 94/100.** Strong engineering and bug-catching.
-- **Cost efficiency: 80/100.** Premium frontier pricing.
-- **Overall Score: 94.8/100.** OpenAI's most capable model for difficult tasks.
+## Limitations
 
----
+- **Performance vs. Peers:** While excellent on abstract reasoning and cybersecurity, it shows mixed performance on specific coding benchmarks compared to dedicated coding models like Claude Opus 5.5.
+- **Latency/Speed:** Higher time-to-first-token (TTFT) compared to competitive models at similar price tiers.
+- **Data Leakage:** Accidental inclusion of Cursor codebase snapshots in training data provided an advantage on certain coding benchmarks.
 
-## Signature
+## Scoring
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- **Tool use: 94/100.** State-of-the-art for computer use and agentic tool invocation.
+- **Reasoning: 98/100.** Exceptional abstract reasoning and symbolic world modeling.
+- **Context window: 97/100.** 1M context supports extensive professional workflows.
+- **Multimodal: 93/100.** Advanced native multimodal understanding for business and technical tasks.
+- **Coding: 92/100.** Extremely strong, though slightly less iterative-coding-focused than specialized models.
+- **Cost efficiency: 84/100.** Expensive frontier pricing, though high value for enterprise-grade reasoning.
+- **Overall Score: 94.8/100.**
+
+Provided by: **Gemini 3.1 Flash Lite (OpenAI/gpt-6-astra)** — 2026-11-01 UTC
+
+- Reference URLs:
+  - https://openai.com/index/gpt-6-astra-next-generation-work
+  - https://artificialanalysis.ai/models/gpt-6-astra
+  - https://benchlm.ai/models/gpt-6-astra
+  - https://arcprize.org/blog/astra

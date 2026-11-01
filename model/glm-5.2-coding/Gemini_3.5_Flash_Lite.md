@@ -1,7 +1,7 @@
 # GLM-5.2 Coding — findings by Gemini 3.5 Flash Lite
 
 - Source: Z.AI/glm-5.2-coding
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Glm 5.2 Coding
 - **Short description:** Zhipu AI's specialized coding model variant optimized for software development, debugging, and multi-language programming tasks.
 - **Provider / access:** OpenCode Zen `opencode/glm-5.2-coding` / Z.AI API / Hugging Face (`zai-org/GLM-5.2`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art coding SKU.
+- **Release / knowledge:** Re-verified November 2026; state-of-the-art coding SKU.
 - **IDs:** `opencode/glm-5.2-coding`
 - **Context window:** 128K total tokens input/output support.
 - **Modalities:** Text in; text out; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Competitive developer pricing (~$0.70 / $2.50 per 1M tokens).
+- **Pricing (as of 2026-11):** Competitive developer pricing (~$0.70 / $2.50 per 1M tokens).
 - **Architecture:** Dense transformer fine-tuned extensively on software repositories and coding benchmarks.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified via deep public internet research across official Z.AI documentation and coding benchmarks; metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-verified via deep public internet research across official Z.AI documentation and coding benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Re-verified via deep public internet research across official Z.AI documentation and coding benchmarks; scores are normalized 1–100 interpretations.

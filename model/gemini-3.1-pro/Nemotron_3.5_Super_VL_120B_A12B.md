@@ -30,6 +30,11 @@ Agent / tool use:
 - APEX-Agents: **33.5%** (DeepMind model card); APEX-Agents-AA **32.0%** (Artificial Analysis)
 - AA Agentic Index: **10.3%** (Artificial Analysis)
 - GDPval-AA Elo: **1317** (DeepMind model card); normalized **14.6%** / **904** (Artificial Analysis)
+- SWE-bench Verified: **79.2%** estimated ± 3.6 pp (benchgap.net)
+- LiveCodeBench v6: **90.6%** estimated ± 2.4 pp (benchgap.net)
+- JobBench: **39.9%** estimated ± 8.2 pp (benchgap.net)
+- OSWorld-Verified: **67.9%** estimated ± 3.8 pp (benchgap.net)
+- Terminal-Bench 2.1: **81.7%** estimated ± 5.9 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -43,6 +48,13 @@ Reasoning / knowledge:
 - AA-LCR (long-context reasoning): **82.0%** (Artificial Analysis)
 - FrontierMath v2 Tiers 1-3: **59.649%**; Tier 4: **26.829%** (Epoch AI)
 - MMMLU: **92.6%** (DeepMind model card)
+- HLE: **55.8%** estimated ± 5.4 pp (benchgap.net)
+- ARC-AGI-1: **94.0%** estimated ± 1.8 pp (benchgap.net)
+- CursorBench 3.1: **65.5%** estimated ± 3.4 pp (benchgap.net)
+- CursorBench 3.2: **55.8%** estimated ± 4.4 pp (benchgap.net)
+- FrontierCode 1.1 Main: **40.7%** estimated ± 2.8 pp (benchgap.net)
+- OSWorld 2.1 Offline: **48.5%** estimated ± 9.2 pp (benchgap.net)
+- Toolathlon-Verified: **75.9%** estimated ± 2.1 pp (benchgap.net)
 
 Coding:
 
@@ -77,17 +89,21 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 **NEVER include Cost efficiency** — scored independently.
 
 - **Tool use: 85/100.** Exceptional tau2-bench (Retail 90.8, Telecom 99.3), strong BrowseComp (85.9), MCP Atlas (69.2), Terminal-Bench 2.0 (68.5); capped by weak APEX-Agents (33.5) and AA Agentic Index (10.3). Best-in-class tool/calling reliability.
-- **Reasoning: 72/100.** Strong GPQA (94.3), ARC-AGI-2 (77.1), MMMLU (92.6), FrontierMath T1-3 (59.6); capped by weak HLE (44.4–47.0), CritPt (17.7), AA Intelligence Index (29.7), ARC-AGI-3 (0.4). Strong knowledge, brittle on hardest open-ended reasoning.
+- **Reasoning: 73/100.** Strong GPQA (94.3), ARC-AGI-2 (77.1), MMMLU (92.6), FrontierMath T1-3 (59.6); capped by weak HLE (44.4–47.0; benchgap.net HLE 55.8% estimated), CritPt (17.7), AA Intelligence Index (29.7), ARC-AGI-3 (0.4). Strong knowledge, brittle on hardest open-ended reasoning. benchgap.net adds ARC-AGI-1 94.0% estimated.
 - **Context window: 75/100.** Verified 1M tokens (DeepMind + benchlm), strong 128k MRCR (84.9%) and AA-LCR (82.0%); capped by severe 1M pointwise recall collapse (26.3%) — does not hold retrieval at the full window.
 - **Multimodal: 82/100.** Text + images + audio + video in, text out; MMMU-Pro 80.5–83.9, CharXiv 80.2, ScreenSpot Pro 84.4, MedXpertQA MM 81.3; capped by text-only output and weak ZeroBench (29.0).
-- **Coding: 80/100.** SWE-Bench Verified 80.6%, LiveCodeBench Elo 2887 / Vals 88.5%, SWE-bench Vals 78.8%, SciCode 59%; capped by weak Vibe Code Bench (32.0), PostTrainBench (22.0), SWE-Bench Pro (54.2). Strong verified coding, weaker agentic SWE-Pro.
+- **Coding: 82/100.** SWE-Bench Verified 80.6% (DeepMind) / 79.2% estimated (benchgap.net), LiveCodeBench Elo 2887 / Vals 88.5% / v6 90.6% estimated (benchgap.net), SWE-bench Vals 78.8%, SciCode 59%; benchgap.net adds LiveCodeBench v6 90.6% estimated and SWE-bench Verified 79.2% estimated. Capped by weak Vibe Code Bench (32.0), PostTrainBench (22.0), SWE-Bench Pro (54.2). Strong verified coding, weaker agentic SWE-Pro.
 - **Cost efficiency: 60/100.** $2/$12 moderate-to-high pricing; not counted toward Overall.
-- **Overall Score: 79/100.** Half-up mean of (85 + 72 + 75 + 82 + 80) / 5 = 78.8 → 79. Best-fit recommendation: strong tool-use and verified-coding workhorse with native multimodal input, but verify full-context (1M) retrieval before relying on it for longest documents.
+- **Overall Score: 79/100.** Half-up mean of (85 + 73 + 75 + 82 + 82) / 5 = 79.4 → 79. Best-fit recommendation: strong tool-use and verified-coding workhorse with native multimodal input, but verify full-context (1M) retrieval before relying on it for longest documents.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Google DeepMind model card + benchlm.ai + Artificial Analysis + Vals AI + ARC Prize + Epoch AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Google DeepMind model card + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis + Vals AI + ARC Prize + Epoch AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind — Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/)
+  - [benchgap.net — Gemini 3.1 Pro benchmark scores](https://benchgap.net/model/gemini-3-1-pro) (data as of 2026-10-29)
+  - [Artificial Analysis — Gemini 3.1 Pro](https://artificialanalysis.ai/models/gemini-3-1-pro-preview)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

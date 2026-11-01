@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: Google DeepMind (`deepmind.google/models/model-cards/gemini-4-argon/`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gemini-4-argon`), blog.google announcement
-- Date: 2026-10-16 (UTC)
+- Source: Google DeepMind (`deepmind.google/models/model-cards/gemini-4-argon/`), benchgap.net (`benchgap.net/model/gemini-4-argon`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gemini-4-argon`), blog.google announcement
+- Date: 2026-11-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -29,6 +29,8 @@ Agent / tool use:
 - OSWorld-2.0 offline partial: **69.2%** (DeepMind; Opus 5.5 leads 72.6%)
 - AA AutomationBench: **77.5%** (Artificial Analysis)
 - AA Briefcase Elo: **1488** (Artificial Analysis)
+- OSWorld-Verified: **82.6%** estimated ± 8.1 pp (benchgap.net)
+- DeepSearchQA: **89.6%** estimated ± 9.6 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -39,6 +41,12 @@ Reasoning / knowledge:
 - CritPt: **27.1%** (Artificial Analysis)
 - AA-Omniscience Index **42.4%**; Accuracy **49.9%**; Hallucination rate **15.1%** (AA)
 - LABBench 2: **88.8%** (DeepMind)
+- GPQA Diamond: **94.9%** estimated ± 1.5 pp (benchgap.net)
+- MMLU: **94.9%** estimated ± 1.0 pp (benchgap.net)
+- MMLU-Pro: **86.2%** estimated ± 4.1 pp / AA MMLU-Pro **88.4%** estimated (benchgap.net)
+- LiveCodeBench v6: **100.0%** estimated ± 4.9 pp (benchgap.net)
+- SWE-bench Pro: **81.5%** estimated ± 5.1 pp (benchgap.net)
+- BrowseComp: **91.7%** estimated ± 1.9 pp (benchgap.net)
 
 Coding:
 
@@ -48,6 +56,10 @@ Coding:
 - Terminal-bench 4.0: **57.4%** (DeepMind; Opus 5.5 leads 66.4)
 - PostTrainBench: **45.3%** (DeepMind)
 - AA-SciCode: **61.8%** (Artificial Analysis)
+- SWE-bench Verified: **89.0%** estimated ± 4.4 pp (benchgap.net)
+- ProgramBench: **90.9%** estimated ± 4.8 pp (benchgap.net)
+- Toolathlon-Verified: **79.8%** estimated ± 1.0 pp (benchgap.net)
+- AA Coding Index: **77.5%** estimated ± 2.4 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -73,14 +85,18 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 - **Reasoning: 76/100.** AA Intelligence Index 53 (#8/217), FrontierMath T1-3 85.965%, RiemannBench 76.0, HLE 57.1%; capped by CritPt (27.1), AA-Omniscience accuracy (49.9%), AA-Omniscience Index (42.4). Solid but not dominant on hard reasoning.
 - **Context window: 90/100.** Verified 1M combined input-output context (DeepMind + benchlm), GraphWalks 99.7% at ≤128k and 84.2% at 256k–1M; capped because no full-depth needle recall at 1M beyond GraphWalks.
 - **Multimodal: 82/100.** Text + images + audio + video in (DeepMind claim), text out; Chartography 71.6%, LVBench 91.7%; capped by text-only output and AA's narrower text+image modality listing.
-- **Coding: 76/100.** DeepSWE 77.9%, Vibe Code Bench 91.9%, AA-SciCode 61.8%; capped by FrontierSWE v2 (55.0%), PostTrainBench (45.3%), Terminal-bench 4.0 (57.4%). Leads on DeepSWE/Vibe Code Bench, trails on agentic terminal coding.
+- **Coding: 79/100.** DeepSWE 77.9%, Vibe Code Bench 91.9%, AA-SciCode 61.8%; benchgap.net adds SWE-bench Verified 89.0% estimated, LiveCodeBench v6 100.0% estimated, ProgramBench 90.9% estimated — notable upward revision from prior report. Capped by FrontierSWE v2 (55.0%), PostTrainBench (45.3%), Terminal-bench 4.0 (57.4%). Leads on DeepSWE/Vibe Code Bench, trails on agentic terminal coding.
 - **Cost efficiency: 70/100.** $2/$10 moderate pricing with 95% cache discount; not counted toward Overall.
-- **Overall Score: 79/100.** Half-up mean of (72 + 76 + 90 + 82 + 76) / 5 = 79.2 → 79. Best-fit recommendation: strong enterprise knowledge-work and cybersecurity-adjacent frontier model; leads DeepSWE/Vibe Code Bench but trails Opus 5.5 on Terminal-Bench 4.0 and GPT-6 Astra on FrontierSWE/Science.
+- **Overall Score: 80/100.** Half-up mean of (72 + 76 + 90 + 82 + 79) / 5 = 79.8 → 80. Best-fit recommendation: strong enterprise knowledge-work and cybersecurity-adjacent frontier model; leads DeepSWE/Vibe Code Bench but trails Opus 5.5 on Terminal-Bench 4.0 and GPT-6 Astra on FrontierSWE/Science.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Google DeepMind model card + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Google DeepMind model card + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind — Gemini 4 Argon model card](https://deepmind.google/models/model-cards/gemini-4-argon/)
+  - [benchgap.net — Gemini 4 Argon benchmark scores](https://benchgap.net/model/gemini-4-argon) (data as of 2026-10-29)
+  - [Artificial Analysis — Gemini 4 Argon](https://artificialanalysis.ai/models/gemini-4-argon)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

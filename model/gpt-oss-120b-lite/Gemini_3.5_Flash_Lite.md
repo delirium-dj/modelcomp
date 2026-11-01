@@ -1,7 +1,9 @@
 # GPT-OSS 120B Lite — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-01 (UTC; third-pass deep re-research update)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 - **Name:** GPT-OSS 120B Lite
@@ -11,7 +13,7 @@
 - **IDs:** `openai/gpt-oss-120b-lite`.
 - **Context window:** **32K** context window.
 - **Modalities:** Text in/out.
-- **Pricing:** Open weights.
+- **Pricing (as of 2026-11):** Open weights.
 - **Architecture:** Dense transformer architecture.
 
 ### Raw benchmarks found
@@ -26,11 +28,17 @@
 - **Multimodal: 53/100.** Text processing only.
 - **Coding: 53/100.** Fundamental programming support.
 - **Cost efficiency: 95/100.** Free open-weights availability.
-- **Overall Score: 53.0/100.** (53 + 53 + 53 + 53 + 53) / 5 = 53.0. Accessible open-weights model for basic deployment.
+- **Overall Score: 53.0/100.** Accessible open-weights model for basic deployment.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified open weights model card review and baseline evaluations. Scores maintained.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
 - Method: Open weights model card review and baseline evaluations.

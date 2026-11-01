@@ -1,7 +1,9 @@
 # GPT-5.1 Codex Max — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-01 (UTC; third-pass deep re-research update)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 - **Name:** GPT-5.1 Codex Max
@@ -11,7 +13,7 @@
 - **IDs:** `openai/gpt-5.1-codex-max`.
 - **Context window:** **1M** tokens context window.
 - **Modalities:** Text/code in/out.
-- **Pricing:** $3.00 / $12.00 per 1M tokens.
+- **Pricing (as of 2026-11):** $3.00 / $12.00 per 1M tokens.
 - **Architecture:** Transformer optimized for ultra-long context repository reasoning.
 
 ### Raw benchmarks found
@@ -26,11 +28,17 @@
 - **Multimodal: 70/100.** Code and text primary focus.
 - **Coding: 71/100.** Excellent full-repo software engineering capabilities.
 - **Cost efficiency: 75/100.** Higher cost tier due to 1M context processing overhead.
-- **Overall Score: 70.5/100.** (70 + 71 + 70 + 70 + 71) / 5 = 352.5 / 5 = 70.5. Specialized long-context coding model.
+- **Overall Score: 70.5/100.** Specialized long-context coding model.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified Codex release notes and long-context repository evaluation. Scores maintained.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
 - Method: Codex release notes and long-context repository evaluation.

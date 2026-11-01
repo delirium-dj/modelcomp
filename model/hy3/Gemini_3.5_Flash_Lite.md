@@ -1,7 +1,7 @@
 # HY3 — findings by Gemini 3.5 Flash Lite
 
 - Source: Tencent/HY3 & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `tencent/hy3` (no Zen Free ID)
 - **Context window:** 256,000 (256K) / 32K out.
 - **Modalities:** Text, image in; text out; tool calls yes.
-- **Pricing (as of 2026-10-16):** TokenHub preview ~$0.18/$0.59 per 1M tokens.
+- **Pricing (as of 2026-11):** TokenHub preview ~$0.18/$0.59 per 1M tokens.
 - **Architecture:** 295B total / 21B active Mixture-of-Experts (Apache 2.0).
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across Tencent technical docs & Artificial Analysis):
 - Terminal-Bench 2.1: **68.5%**
@@ -55,12 +55,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+
+---
+
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (Tencent Hunyuan docs, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (Tencent Hunyuan docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

@@ -1,0 +1,36 @@
+# Exo Free — findings by GPT-6 Luna
+
+- Source: OpenCode / Exo Free route
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Self-exclusion — insufficient benchmark evidence
+
+The tracked `exo-free` subject resolves to an OpenCode free preview route, not to a verified upstream checkpoint. The OpenCode/models.dev catalog record previously exposed the route as `exo-free` / `opencode/exo-free`, with text-and-image input, text output, reasoning and tool-call support, a 1,048,576-token context limit, 131,072 maximum output, zero listed price, and a deprecated status. These are route-catalog claims, not proof of the model's provider, weights, or underlying identity. OpenCode's current public Console model documentation no longer lists Exo Free among its available or deprecated models. The present source trail therefore does not establish a stable, independently identifiable model.
+
+Three independent exact-name searches (OpenCode/model-route, provider/API identity, and benchmarks) returned no attributable benchmark card or evaluation. Checks of the current OpenCode documentation, the models.dev model directory, GitHub's OpenCode issue search, and Hugging Face's public model search did not identify a canonical upstream checkpoint or exact-model benchmark. The known third-party claim that Exo Free fingerprints as Claude Opus 5.5 is not a primary evaluation and does not prove identity; no Claude result is transferred.
+
+No verifiable exact-model public benchmark was found for reasoning, coding, tool use, multimodal tasks, or long-context retrieval. Therefore there is insufficient evidence to calculate a defensible Overall score, and this report is self-excluded under the zero-verified-benchmark rule. The route's catalog-listed capabilities are recorded only as unverified access metadata and are not scored.
+
+### Research record
+
+- OpenCode's current [Console model documentation](https://opencode.ai/docs/zen/) explains model IDs, endpoint formats, prices, and the current free/deprecated model lists; Exo Free is absent from those lists.
+- The historical route record was exposed through the [models.dev catalog](https://models.dev), which describes the catalog as a model database. It did not name a verifiable upstream publisher/checkpoint for this route.
+- [OpenCode repository issue search](https://api.github.com/search/issues?q=repo%3Aanomalyco%2Fopencode+%22exo-free%22) did not yield a traceable model-identification or benchmark source.
+- [Hugging Face model search](https://huggingface.co/models?search=Exo%20Free) did not identify an official Exo Free checkpoint.
+- Broad exact-name web searches did not surface a primary model card, benchmark leaderboard, or provider API specification beyond the route metadata.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-01
+- Method: Three independent exact-name searches followed by checks of OpenCode's official documentation, the catalog record, GitHub issue search, and Hugging Face. No benchmark score is inferred from route capabilities, and no Claude Opus result is transferred from the unverified fingerprint claim.
+- Reference URLs:
+  - [OpenCode Console model documentation](https://opencode.ai/docs/zen/)
+  - [models.dev catalog](https://models.dev)
+  - [OpenCode GitHub issue search](https://api.github.com/search/issues?q=repo%3Aanomalyco%2Fopencode+%22exo-free%22)
+  - [Hugging Face model search](https://huggingface.co/models?search=Exo%20Free)
+
+---

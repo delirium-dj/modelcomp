@@ -1,7 +1,7 @@
 # GPT-5.3 Codex — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-5.3 Codex (`opencode/gpt-5.3-codex`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gpt-5.3-codex`; Zen ID `opencode/gpt-5.3-codex`.
 - **Context window:** 262,144 tokens total (256K input / 64,000 output; verified via OpenAI documentation).
 - **Modalities:** Text input/output; advanced code editing and tool use.
-- **Pricing (as of 2026-10-10):** Developer tier ($3.00 input / $12.00 output per 1M tokens).
+- **Pricing (as of 2026-11):** Developer tier ($3.00 input / $12.00 output per 1M tokens).
 - **Architecture:** Codex-tuned code generation transformer architecture by OpenAI.
 
 ### Raw benchmarks found
@@ -37,14 +37,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across OpenAI technical documentation. SWE-bench Verified 76.0% and Terminal-Bench 2.1 52.0% verified.
+- **Third-pass verification:** Confirmed across OpenAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

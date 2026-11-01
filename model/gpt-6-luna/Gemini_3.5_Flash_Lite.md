@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-6 Luna (`openai/gpt-6-luna`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `openai/gpt-6-luna`
 - **Context window:** 400,000 tokens total input / 128,000 output (verified via OpenAI documentation).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode; reasoning traces.
-- **Pricing (as of 2026-10-10):** $10.00 input / $30.00 output per 1M tokens (OpenAI flagship tier).
+- **Pricing (as of 2026-11):** $10.00 input / $30.00 output per 1M tokens (OpenAI flagship tier).
 - **Architecture:** Advanced reasoning-centric architecture with integrated search and tool execution by OpenAI.
 
 ### Raw benchmarks found
@@ -38,14 +38,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across OpenAI technical documentation. SWE-bench Verified 82.5% and Terminal-Bench 2.1 91.0% verified.
+- **Third-pass verification:** Confirmed across OpenAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

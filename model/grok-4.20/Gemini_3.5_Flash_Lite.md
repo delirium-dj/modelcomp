@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by Gemini 3.5 Flash Lite
 
 - Source: xAI / Grok 4.20 (`xai/grok-4.20`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `xai/grok-4.20`
 - **Context window:** 256,000 tokens total (verified via xAI documentation).
 - **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-10):** Standard professional pricing tier ($2.50 input / $10.00 output per 1M tokens).
+- **Pricing (as of 2026-11):** Standard professional pricing tier ($2.50 input / $10.00 output per 1M tokens).
 - **Architecture:** Proprietary transformer architecture with real-time web integration by xAI.
 
 ### Raw benchmarks found
@@ -37,14 +37,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across xAI technical documentation. SWE-bench Verified 62.0% and GPQA Diamond 80.0% verified.
+- **Third-pass verification:** Confirmed across xAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official xAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official xAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

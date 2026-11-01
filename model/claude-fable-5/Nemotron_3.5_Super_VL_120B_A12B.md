@@ -28,6 +28,13 @@ Agent / tool use:
 - AA Briefcase: not found for Fable 5 specifically
 - AA Agentic Index: **51.0%** (Artificial Analysis)
 - AA-AnalystAgent: **48.8%** (Artificial Analysis)
+- SWE-bench Verified: **95.0%** measured (benchgap.net)
+- LiveCodeBench v6: **91.3%** estimated ± 2.4 pp (benchgap.net)
+- JobBench: **60.2%** estimated ± 8.7 pp (benchgap.net)
+- Vibe Code Bench: **81.0%** estimated ± 5.6 pp (benchgap.net)
+- DeepSearchQA: **93.5%** estimated ± 4.5 pp (benchgap.net)
+- OSWorld-Verified: **85.0%** measured (benchgap.net)
+- BrowseComp: **91.2%** estimated ± 2.8 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -52,6 +59,8 @@ Coding:
 - AA Coding Index: **76.5%** (Artificial Analysis)
 - FrontierSWE v2: **47.0%** (Proximal)
 - VulcanBench v3: **89.5%** (VulcanBench frontier results)
+- SWE-bench Pro: **80.0%** measured (benchgap.net)
+- ProgramBench: **89.1%** estimated ± 6.0 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -75,14 +84,18 @@ Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + M
 - **Reasoning: 83/100.** AA Intelligence Index 53 (#5 of 217), ARC-AGI-1 (98.50%), ARC-AGI-2 (89.2%), GPQA (92.6%), HLE (55.5%); capped by CritPt (28.6%), AA-Omniscience accuracy (65.4%).
 - **Context window: 88/100.** Verified 1M tokens (platform docs) with 128K max output; capped because no public full-depth retrieval score at 1M beyond AA-LCR (82.3%).
 - **Multimodal: 75/100.** Text+images→text; Blueprint-Bench 2 (38.6%), OfficeQA Pro (57.9%); capped by text-only output and thin multimodal benchmark coverage.
-- **Coding: 85/100.** SWE-bench Verified (95%), LiveCodeBench Vals (89.8%), SWE-bench Vals (95.0%), FrontierCode 1.1 Main (53.5%); capped by FrontierSWE v2 (47.0%). Elite verified SWE coding.
+- **Coding: 86/100.** SWE-bench Verified (95%), LiveCodeBench Vals (89.8%) / v6 91.3% estimated (benchgap.net), SWE-bench (Vals) (95.0%), FrontierCode 1.1 Main (53.5%); benchgap.net adds SWE-bench Pro 80.0% measured and ProgramBench 89.1% estimated — elite verified SWE coding confirmed. Capped by FrontierSWE v2 (47.0%).
 - **Cost efficiency: 35/100.** $10/$50 is premium pricing with 90% cache discount; not counted toward Overall.
-- **Overall Score: 83/100.** Half-up mean of (86 + 83 + 88 + 75 + 85) / 5 = 82.8 → 83. Best-fit recommendation: premium agentic reasoning model for long-horizon coding and complex knowledge work; superseded by Fable 5.1 — prefer the newer model for new work unless legacy pinning required.
+- **Overall Score: 84/100.** Half-up mean of (86 + 83 + 88 + 75 + 86) / 5 = 83.6 → 84. Best-fit recommendation: premium agentic reasoning model for long-horizon coding and complex knowledge work; superseded by Fable 5.1 — prefer the newer model for new work unless legacy pinning required.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Anthropic platform docs + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Anthropic platform docs + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Fable 5 (official platform docs)](https://platform.claude.com/docs/en/models/fable-5/overview)
+  - [benchgap.net — Claude Fable 5 benchmark scores](https://benchgap.net/model/claude-fable) (data as of 2026-10-29)
+  - [Artificial Analysis — Claude Fable 5](https://artificialanalysis.ai/models/claude-fable-5)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

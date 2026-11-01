@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: Google DeepMind (`deepmind.google/models/model-cards/gemini-3-5-flash/`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gemini-3-5-flash`), ARC Prize, Epoch AI, Vals AI
-- Date: 2026-10-16 (UTC)
+- Source: Google DeepMind (`deepmind.google/models/model-cards/gemini-3-5-flash/`), benchgap.net (`benchgap.net/model/gemini-3-5-flash`), benchlm.ai, Artificial Analysis (`artificialanalysis.ai/models/gemini-3-5-flash`), ARC Prize, Epoch AI, Vals AI
+- Date: 2026-11-01 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -30,6 +30,11 @@ Agent / tool use:
 - APEX-Agents-AA: **47.1%** (Artificial Analysis)
 - AA Agentic Index: **27.3%** (Artificial Analysis)
 - AA EnterpriseOps-Gym: **50.1%** (Artificial Analysis)
+- SWE-bench Verified: **76.9%** estimated ± 3.7 pp (benchgap.net)
+- LiveCodeBench v6: **90.0%** estimated ± 2.4 pp (benchgap.net)
+- DeepSWE: **55.8%** estimated ± 6.4 pp (benchgap.net)
+- DeepSearchQA: **88.1%** estimated ± 4.5 pp (benchgap.net)
+- OSWorld-Verified: **78.4%** measured (benchgap.net; confirms 78.4% from DeepMind)
 
 Reasoning / knowledge:
 
@@ -43,6 +48,9 @@ Reasoning / knowledge:
 - AA-Omniscience Index **21.2%**; Accuracy **51.9%**; Hallucination rate **60.7%** (AA)
 - IFBench: **76.3%** (Artificial Analysis)
 - FrontierMath v2 Tiers 1-3: **62.807%**; Tier 4: **26.829%** (Epoch AI)
+- GPQA Diamond: **92.7%** measured (benchgap.net; confirms 92.7% from Vals AI)
+- HLE: **40.2%** measured (benchgap.net; confirms 40.2% from DeepMind)
+- MMLU-Pro: **86.2%** estimated ± 4.1 pp (benchgap.net)
 
 Coding:
 
@@ -52,6 +60,13 @@ Coding:
 - Vibe Code Bench: **48.68%** (Vals AI)
 - CursorBench 3.1: **49.8%**; CursorBench 3.2: **48.8%** (Cursor evals)
 - AA Coding Index: **70.1%** (Artificial Analysis)
+- SWE-bench Pro: **55.1%** measured (DeepMind launch screenshots); benchgap.net **55.1%** measured
+- SWE-bench Verified: **76.9%** estimated ± 3.7 pp (benchgap.net)
+- LiveCodeBench (Vals): **87.6%** (Vals AI); benchgap.net v6 **90.0%** estimated
+- SciCode: **53.1%** measured (benchgap.net); AA-SciCode **53.9%** (Artificial Analysis)
+- Vibe Code Bench: **48.68%** (Vals AI)
+- CursorBench 3.1: **49.8%**; CursorBench 3.2: **48.8%** (Cursor evals)
+- DeepSWE: **55.8%** estimated ± 6.4 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -74,18 +89,22 @@ Derived from the raw numbers above using the methodology in `model-comparison.md
 Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 78/100.** Strong MCP Atlas (83.6), OSWorld-Verified (78.4), GDPval-AA Elo (1656); capped by weak Toolathlon (56.5), Finance Agent v2 (57.9), AA Agentic Index (27.3). Solid tool use, weaker on broad agent-eval suites.
-- **Reasoning: 75/100.** ARC-AGI-1 92.50%, GPQA 92.2%, ARC-AGI-2 72.1%, FrontierMath T1-3 62.8%; capped by weak HLE (40.2–42.7), CritPt (13.1), AA-Omniscience accuracy (51.9%). Strong puzzle/knowledge reasoning, weakest on HLE-style open-ended reasoning.
+- **Tool use: 80/100.** Strong MCP Atlas (83.6), OSWorld-Verified (78.4), GDPval-AA Elo (1656); benchgap.net confirms OSWorld-Verified 78.4% measured and adds DeepSearchQA 88.1% estimated. Capped by weak Toolathlon (56.5), Finance Agent v2 (57.9), AA Agentic Index (27.3). Solid tool use, weaker on broad agent-eval suites.
+- **Reasoning: 75/100.** ARC-AGI-1 92.50%, GPQA 92.2%, ARC-AGI-2 72.1%, FrontierMath T1-3 62.8%; capped by weak HLE (40.2–42.7), CritPt (13.1), AA-Omniscience accuracy (51.9%). Strong puzzle/knowledge reasoning, weakest on HLE-style open-ended reasoning. benchgap.net confirms GPQA Diamond 92.7% measured, HLE 40.2% measured.
 - **Context window: 75/100.** Verified 1M tokens (DeepMind + benchlm), strong 128k MRCR (77.3%); capped by severe 1M pointwise recall collapse (26.6%) — does not hold retrieval at the full window.
 - **Multimodal: 82/100.** Text + images + audio + video in, text out; CharXiv 84.2%, MMMU-Pro 83.6–84.3%; capped by text-only output and weak Blueprint-Bench 2 (33.6%).
-- **Coding: 75/100.** LiveCodeBench Vals 87.6%, SWE-bench Vals 78.8%, Terminal-Bench 2.1 76.2%; capped by weak SWE-Bench Pro (55.1), CursorBench 3.2 (48.8), Vibe Code Bench (48.68). Strong competitive coding, weaker agentic SWE-Pro.
+- **Coding: 77/100.** LiveCodeBench Vals 87.6% / v6 90.0% estimated (benchgap.net), SWE-bench Vals 78.8%, Terminal-Bench 2.1 76.2%; benchgap.net adds SWE-bench Verified 76.9% estimated and DeepSWE 55.8% estimated. Capped by weak SWE-Bench Pro (55.1), CursorBench 3.2 (48.8), Vibe Code Bench (48.68). Strong competitive coding, weaker agentic SWE-Pro.
 - **Cost efficiency: 70/100.** $1.50/$9 moderate Flash-tier pricing; not counted toward Overall.
-- **Overall Score: 77/100.** Half-up mean of (78 + 75 + 75 + 82 + 75) / 5 = 77.0 → 77. Best-fit recommendation: capable, natively multimodal Flash workhorse for coding and agent tasks; verify full-context (1M) retrieval before relying on it for longest documents. Deprecated generation — prefer 3.7/3.8 Flash for new work.
+- **Overall Score: 78/100.** Half-up mean of (80 + 75 + 75 + 82 + 77) / 5 = 77.8 → 78. Best-fit recommendation: capable, natively multimodal Flash workhorse for coding and agent tasks; verify full-context (1M) retrieval before relying on it for longest documents. Deprecated generation — prefer 3.7/3.8 Flash for new work.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Google DeepMind model card + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Google DeepMind model card + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind — Gemini 3.5 Flash model card](https://deepmind.google/models/model-cards/gemini-3-5-flash/)
+  - [benchgap.net — Gemini 3.5 Flash benchmark scores](https://benchgap.net/model/gemini-3-5-flash) (data as of 2026-10-29)
+  - [Artificial Analysis — Gemini 3.5 Flash](https://artificialanalysis.ai/models/gemini-3-5-flash)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

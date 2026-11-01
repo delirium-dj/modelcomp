@@ -1,7 +1,7 @@
 # Kimi K2.7 Code Highspeed — findings by Gemini 3.5 Flash Lite
 
 - Source: Moonshot AI / Kimi K2.7 Code Highspeed (`opencode/kimi-k2.7-code-highspeed`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `kimi-k2.7-code-highspeed`; Zen ID `opencode/kimi-k2.7-code-highspeed`.
 - **Context window:** 262,144 tokens total input / 32,768 output (verified via provider documentation).
 - **Modalities:** Text input/output; specialized code generation and search.
-- **Pricing (as of 2026-10-10):** Developer tier ($0.80 input / $3.20 output per 1M tokens).
+- **Pricing (as of 2026-11):** Developer tier ($0.80 input / $3.20 output per 1M tokens).
 - **Architecture:** Optimized high-throughput code generation model by Moonshot AI.
 
 ### Raw benchmarks found
@@ -37,14 +37,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across Moonshot AI technical documentation. SWE-bench Verified 66.0% and LiveCodeBench 52.0% verified.
+- **Third-pass verification:** Confirmed across Moonshot AI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Moonshot AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official Moonshot AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

@@ -1,36 +1,42 @@
-# Gemini 3 Pro — findings by Gemini 3.1 Flash Lite
+# Gemini 3 Pro
 
-- Source: Google `gemini-3-pro`
-- Date: 2026-10-29 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
+Gemini 3 Pro is Google DeepMind's flagship general-purpose reasoning model released in November 2025. It introduced Deep Think capabilities, significantly advancing reasoning, strategic planning, and agentic autonomy.
 
-## Model card
+- **Developer:** Google DeepMind
+- **Release Date:** November 18, 2025
+- **Type:** Proprietary multimodal reasoning model
+- **Key Feature:** Breakthrough reasoning performance and deep strategic planning, setting new standards at the time of its release.
 
-- **Name:** Gemini 3 Pro
-- **Short description:** High-reasoning model for complex technical and analytical tasks.
-- **Provider / access:** Google.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image.
+## Performance
 
-### Raw benchmarks found
+Gemini 3 Pro demonstrated substantial improvements over 2.5 Pro across all major AI benchmarks. It excels at complex, multi-turn reasoning and planning tasks, making it a powerful foundation for autonomous agent development.
 
-- AIME 2025: **100%** (with code execution)
-- Vending-Bench: **Competitive**
+### Benchmarks (Verified Figures)
 
-### Normalized scores (1–100)
+- **Humanity's Last Exam:** 37.5%
+- **GPQA Diamond:** 91.9%
+- **LiveCodeBench Pro (Elo):** 2439
+- **Terminal-Bench 2.0:** 54.2%
+- **ARC-AGI-2:** 31.1%
 
-- **Tool use: 90/100.** Strong agentic tool usage.
-- **Reasoning: 93/100.** High-performance reasoning across benchmarks.
-- **Context window: 95/100.** Excellent long-context capabilities.
-- **Multimodal: 90/100.** Reliable multimodal integration.
-- **Coding: 92/100.** Superior coding and analysis capabilities.
-- **Cost efficiency: 88/100.** Solid value for high-end reasoning.
-- **Overall Score: 92/100.** A premier model for complex scientific and technical tasks.
+## Limitations
 
----
+- **Superseded:** Now considered a legacy model in the rapidly evolving Gemini 3 family (superseded by later versions like 3.1 Pro and 3.8 Flash).
+- **Benchmark Saturation:** As a model from late 2025, its benchmark scores have been surpassed by newer models in 2026.
 
-## Signature
+## Scoring
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- **Tool use: 87/100.** Strong foundational capabilities for agentic tasks.
+- **Reasoning: 90/100.** Highly capable for complex strategic and logical planning.
+- **Context window: 90/100.** Excellent long-context coherence.
+- **Multimodal: 88/100.** Very capable native multimodal understanding.
+- **Coding: 89/100.** Strong coding performance for its generation.
+- **Cost efficiency: 80/100.** High cost compared to newer, more efficient flash models.
+- **Overall Score: 88.8/100.**
+
+Provided by: **Gemini 3.1 Flash Lite (Google/gemini-3-pro)** — 2026-11-01 UTC
+
+- Reference URLs:
+  - https://blog.google/products-and-platforms/products/gemini/gemini-3/
+  - https://llm-pantheon.org/mirror/papers/google-gemini-3-pro-model-card.pdf
+  - https://benchgap.net/model/gemini-3-pro

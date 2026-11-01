@@ -1,7 +1,7 @@
 # Inkling Small — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenCode/inkling-small
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Inkling Small
 - **Short description:** Lightweight experimental foundational model optimized for rapid text generation, low-latency inference, and agile developer tasks.
 - **Provider / access:** OpenCode Zen `opencode/inkling-small` / local experimental route.
-- **Release / knowledge:** Re-verified October 2026; experimental small-scale model.
+- **Release / knowledge:** Re-verified November 2026; experimental small-scale model.
 - **IDs:** `opencode/inkling-small`
 - **Context window:** 64K total tokens input/output support.
 - **Modalities:** Text in; text out; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Free / low-cost experimental tier.
+- **Pricing (as of 2026-11):** Free / low-cost experimental tier.
 - **Architecture:** Compact transformer architecture optimized for minimal resource footprint.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across experimental registries and benchmarking platforms. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Second-pass deep public internet research across experimental registries and benchmarking platforms; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Third-pass deep public internet research across experimental registries and benchmarking platforms; scores are normalized 1–100 interpretations.

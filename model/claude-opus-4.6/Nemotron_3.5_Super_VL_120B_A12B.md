@@ -32,6 +32,11 @@ Agent / tool use:
 - JobBench: **36.7%** (paper)
 - ResearchClawBench: **19.9%** (leaderboard)
 - ApprenticeBench: **5%** (NeoCognition)
+- SWE-bench Verified: **80.8%** measured (benchgap.net; confirms 80.8% from Anthropic system card)
+- LiveCodeBench v6: **87.0%** estimated ± 2.7 pp (benchgap.net)
+- DeepSWE: **46.3%** estimated ± 12.7 pp (benchgap.net)
+- OSWorld-Verified: **72.7%** measured (benchgap.net; confirms 72.7% from Anthropic system card)
+- BrowseComp: **83.7%** measured (benchgap.net; confirms 83.7%)
 
 Reasoning / knowledge:
 
@@ -46,11 +51,14 @@ Reasoning / knowledge:
 - CritPt: **2.8%** (Artificial Analysis)
 - AA-Omniscience Index **2.4%**; Accuracy **45.8%**; Hallucination rate **80.1%** (AA)
 - IFBench: **44.6%** (Artificial Analysis)
+- GPQA Diamond: **89.2%** measured (benchgap.net; confirms 89.2% from Arcee)
+- HLE: **53.0%** measured (benchgap.net; confirms 53% from Anthropic system card)
+- MMLU-Pro: **82.0%** measured (benchgap.net)
 
 Coding:
 
-- SWE-bench Verified: **80.8%** (Anthropic system card); **75.6%** (Arcee comparison)
-- SWE-bench Pro: **53.4%** (Meta AI Muse Spark chart)
+- SWE-bench Verified: **80.8%** (Anthropic system card); **75.6%** (Arcee comparison); benchgap.net **80.8%** measured
+- SWE-bench Pro: **53.4%** (Meta AI Muse Spark chart); benchgap.net **53.4%** measured
 - SWE-Rebench: **65.3%** (leaderboard)
 - LiveCodeBench Pro: **70.7%** (Meta AI Muse Spark chart)
 - React Native Evals: **84.1%** (leaderboard)
@@ -58,6 +66,8 @@ Coding:
 - Vibe Code Bench: **57.57%** (Vals AI)
 - FrontierCode 1.1 Main: **26.9%** (Cognition)
 - PostTrainBench v1.1: not found for this variant
+- LiveCodeBench v6: **87.0%** estimated ± 2.7 pp (benchgap.net)
+- DeepSWE: **46.3%** estimated ± 12.7 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -77,18 +87,22 @@ Derived from the raw numbers above using the methodology in `model-comparison.md
 Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 70/100.** Strong τ²-bench (84.8), BrowseComp (83.7), OSWorld-Verified (72.7), Claw-Eval (70.4), DeepSearchQA (73.7); capped by weak JobBench (36.7), ResearchClawBench (19.9%), ApprenticeBench (5%), no MCP/Toolathlon numbers found for this model.
-- **Reasoning: 66/100.** GPQA 91.3%, MMLU-Pro 89.1%, AIME25 99.8%, FrontierMath T1-3 66.0%, AA-LCR 67.0%; capped by CritPt (2.8), HLE (40–53%), AA-Omniscience accuracy (45.8%), Intelligence Index (26.4). Strong math knowledge, weakest on HLE-style open-ended reasoning.
+- **Tool use: 72/100.** Strong τ²-bench (84.8), BrowseComp (83.7; benchgap.net confirms 83.7% measured), OSWorld-Verified (72.7; benchgap.net confirms measured), Claw-Eval (70.4), DeepSearchQA (73.7); capped by weak JobBench (36.7), ResearchClawBench (19.9%), ApprenticeBench (5%), no MCP/Toolathlon numbers found for this model.
+- **Reasoning: 66/100.** GPQA 91.3%, MMLU-Pro 89.1% / 82.0% measured (benchgap.net), AIME25 99.8%, FrontierMath T1-3 66.0%, AA-LCR 67.0%; capped by CritPt (2.8), HLE (40–53%; benchgap.net HLE 53.0% measured), AA-Omniscience accuracy (45.8%), Intelligence Index (26.4). Strong math knowledge, weakest on HLE-style open-ended reasoning.
 - **Context window: 88/100.** Verified 1M tokens (platform docs) with 128K max output; capped because no public full-depth retrieval score at 1M beyond AA-LCR.
 - **Multimodal: 72/100.** Text+images→text; MMMU-Pro 77.3%, ScreenSpot Pro 83.1%, ERQA 51.6%; capped by text-only output and thin vision coverage.
-- **Coding: 68/100.** SWE-bench Verified 80.8%, React Native Evals 84.1%, LiveCodeBench Pro 70.7%; capped by FrontierCode Main (26.9), SWE-bench Pro (53.4), Vibe Code Bench (57.57). Strong evals coding, weaker frontier coding suites.
+- **Coding: 70/100.** SWE-bench Verified 80.8% (benchgap.net confirms measured), React Native Evals 84.1%, LiveCodeBench Pro 70.7%; benchgap.net adds LiveCodeBench v6 87.0% estimated and DeepSWE 46.3% estimated. Capped by FrontierCode Main (26.9), SWE-bench Pro (53.4), Vibe Code Bench (57.57). Strong evals coding, weaker frontier coding suites.
 - **Cost efficiency: 55/100.** $5/$25 with 50% batch discount; not counted toward Overall.
-- **Overall Score: 73/100.** Half-up mean of (70 + 66 + 88 + 72 + 68) / 5 = 72.8 → 73. Best-fit recommendation: legacy Opus model strong on τ²-bench and evals coding; superseded by Opus 5/5.5 — prefer newer Opus for new work unless legacy pinning required.
+- **Overall Score: 74/100.** Half-up mean of (72 + 66 + 88 + 72 + 70) / 5 = 73.6 → 74. Best-fit recommendation: legacy Opus model strong on τ²-bench and evals coding; superseded by Opus 5/5.5 — prefer newer Opus for new work unless legacy pinning required.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Anthropic platform docs + benchlm.ai + Artificial Analysis + Vals AI + Epoch AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Anthropic platform docs + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis + Vals AI + Epoch AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 4.6 platform docs](https://platform.claude.com/docs/en/models/opus-4-6/overview)
+  - [benchgap.net — Claude Opus 4.6 benchmark scores](https://benchgap.net/model/claude-opus-4-6) (data as of 2026-10-29)
+  - [Artificial Analysis — Claude Opus 4.6](https://artificialanalysis.ai/models/claude-opus-4-6)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

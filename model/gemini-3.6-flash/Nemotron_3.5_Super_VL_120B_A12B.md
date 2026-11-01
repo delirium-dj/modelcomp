@@ -27,6 +27,10 @@ Agent / tool use:
 - OSWorld-Verified: **83.0%** (DeepMind model card)
 - MLE-Bench: **63.9%** (DeepMind model card)
 - AA Agentic Index: **30.1%** (Artificial Analysis)
+- SWE-bench Verified: **89.6%** estimated ± 4.4 pp (benchgap.net)
+- LiveCodeBench v6: **90.3%** estimated ± 2.4 pp (benchgap.net)
+- DeepSearchQA: **89.2%** estimated ± 4.5 pp (benchgap.net)
+- OSWorld-Verified: **83.0%** measured (benchgap.net; confirms 83.0% from DeepMind)
 
 Reasoning / knowledge:
 
@@ -39,16 +43,20 @@ Reasoning / knowledge:
 - CritPt: **10.6%** (Artificial Analysis)
 - AA-Omniscience Index **22.1%**; Accuracy **50.0%**; Hallucination rate **55.6%** (AA)
 - FrontierMath v2 Tiers 1-3: **58.947%**; Tier 4: **21.951%** (Epoch AI)
+- GPQA Diamond: **92.8%** measured (benchgap.net); **93.4%** measured (Vals AI)
+- HLE: **46.0%** estimated ± 6.4 pp (benchgap.net)
+- MMLU-Pro: **86.2%** estimated ± 4.1 pp (benchgap.net)
 
 Coding:
 
 - DeepSWE v1.1: **49.0%** (DeepMind model card)
 - SWE-Bench Pro: **58.7%** (DeepMind model card)
-- LiveCodeBench (Vals): **88.1%** (Vals AI)
+- LiveCodeBench (Vals): **88.1%** (Vals AI); benchgap.net v6 **90.3%** estimated
 - SWE-bench (Vals): **79.6%** (Vals AI)
 - CursorBench 3.2: **53.5%** (Cursor evals)
 - AA-SciCode: **53.4%** (Artificial Analysis)
 - AA Coding Index: **69.2%** (Artificial Analysis)
+- SWE-bench Verified: **89.6%** estimated ± 4.4 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -70,18 +78,22 @@ Derived from the raw numbers above using the methodology in `model-comparison.md
 Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 77/100.** Strong OSWorld-Verified (83.0), Terminal-Bench 2.1 (78.0), GDPVal-AA Elo (1421), MLE-Bench (63.9%); capped by weak AA Agentic Index (30.1). Solid terminal coding and OS agent use.
-- **Reasoning: 75/100.** ARC-AGI-1 91.20%, ARC-AGI-2 60.4%, GPQA 92.8%, FrontierMath T1-3 58.9%; capped by CritPt (10.6), AA-Omniscience accuracy (50.0%), HLE (40.8%), Intelligence Index (34.0%). Strong knowledge, brittle on hardest open-ended problems.
+- **Tool use: 79/100.** Strong OSWorld-Verified (83.0; benchgap.net confirms measured), Terminal-Bench 2.1 (78.0), GDPVal-AA Elo (1421), MLE-Bench (63.9%); benchgap.net adds DeepSearchQA 89.2% estimated. Capped by weak AA Agentic Index (30.1). Solid terminal coding and OS agent use.
+- **Reasoning: 75/100.** ARC-AGI-1 91.20%, ARC-AGI-2 60.4%, GPQA 92.8% / 93.4% measured (benchgap.net), FrontierMath T1-3 58.9%; capped by CritPt (10.6), AA-Omniscience accuracy (50.0%), HLE (40.8–46.0%; benchgap.net HLE 46.0% estimated), Intelligence Index (34.0%). Strong knowledge, brittle on hardest open-ended problems.
 - **Context window: 75/100.** Verified 1M tokens (DeepMind + benchlm), excellent 128k MRCR (91.8%); capped by severe 1M pointwise recall collapse (54.0%) — does not hold retrieval at the full window.
 - **Multimodal: 84/100.** Text + images + audio + video in, text out; CharXiv 85.2–89.4, MMMU-Pro 83.2%; capped by text-only output.
-- **Coding: 72/100.** LiveCodeBench Vals 88.1%, SWE-bench Vals 79.6%, SWE-Bench Pro 58.7%, DeepSWE 49.0%; capped by weak DeepSWE (49.0) and CursorBench 3.2 (53.5). Strong competitive coding, weaker long-horizon SWE.
+- **Coding: 75/100.** LiveCodeBench Vals 88.1% / v6 90.3% estimated (benchgap.net), SWE-bench Vals 79.6%, SWE-Bench Pro 58.7%, DeepSWE 49.0%; benchgap.net adds SWE-bench Verified 89.6% estimated — significant upward revision. Capped by weak DeepSWE (49.0) and CursorBench 3.2 (53.5). Strong competitive coding, weaker long-horizon SWE.
 - **Cost efficiency: 75/100.** $1.50/$7.50 moderate Flash pricing; not counted toward Overall.
-- **Overall Score: 77/100.** Half-up mean of (77 + 75 + 75 + 84 + 72) / 5 = 76.6 → 77. Best-fit recommendation: cost-effective multimodal Flash workhorse for coding and agent tasks; verify full-context (1M) retrieval before relying on it for longest documents.
+- **Overall Score: 78/100.** Half-up mean of (79 + 75 + 75 + 84 + 75) / 5 = 77.6 → 78. Best-fit recommendation: cost-effective multimodal Flash workhorse for coding and agent tasks; verify full-context (1M) retrieval before relying on it for longest documents.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Google DeepMind model card + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Google DeepMind model card + benchgap.net independent benchmark aggregation + benchlm.ai + Artificial Analysis + ARC Prize + Epoch AI + Vals AI independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind — Gemini 3.6 Flash model card](https://deepmind.google/models/model-cards/gemini-3-6-flash/)
+  - [benchgap.net — Gemini 3.6 Flash benchmark scores](https://benchgap.net/model/gemini-3-6-flash) (data as of 2026-10-29)
+  - [Artificial Analysis — Gemini 3.6 Flash](https://artificialanalysis.ai/models/gemini-3-6-flash)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)

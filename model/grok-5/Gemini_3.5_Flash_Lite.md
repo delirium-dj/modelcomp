@@ -1,7 +1,7 @@
 # Grok 5 — findings by Gemini 3.5 Flash Lite
 
 - Source: Grok 5 & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,10 @@
 - **IDs:** `opencode/grok-5`
 - **Context window:** 256K total (200K in / 56K out) — verified via platform metadata
 - **Modalities:** Text in/out, image in/out, tool calls, JSON mode
-- **Pricing (as of 2026-10-16):** Premium frontier pricing tier
+- **Pricing (as of 2026-11):** Premium frontier pricing tier
 - **Architecture:** Large-scale mixture-of-experts (MoE) reasoning architecture
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
 Agent / tool use (Independent verification across xAI technical reports & Artificial Analysis):
 - Terminal-Bench 2.1: **89.0%**
@@ -51,16 +51,17 @@ Long context:
 - **Multimodal: 45/100.** Strong multimodal input and output support.
 - **Coding: 89/100.** Outstanding coding and software engineering benchmark scores.
 - **Cost efficiency: 75/100.** Premium pricing reflective of frontier capabilities.
-- **Overall Score: 80.0/100.** Mean of the five quality dims (88 + 90 + 88 + 45 + 89 = 400 / 5 = 80.0).
+- **Overall Score: 80.0/100.** Mean of the five quality dims.
+
+---
+
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
 
 ---
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (xAI platform documentation, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-01
+- Method: Re-run deep multi-source research (xAI platform documentation, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.

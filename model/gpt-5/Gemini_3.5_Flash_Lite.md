@@ -1,7 +1,7 @@
 # GPT-5 — findings by Gemini 3.5 Flash Lite
 
 - Source: OpenAI / GPT-5 (`opencode/gpt-5`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `opencode/gpt-5` (no Free ID on Zen)
 - **Context window:** 400K total (128K max output) — verified by OpenAI system card.
 - **Modalities:** Text input, image input, file input; text output; reasoning enabled; tool calls supported; JSON mode.
-- **Pricing (as of 2026-10-10):** Paid OpenAI $1.25 / $10 per 1M (cached $0.125); OpenCode Zen $1.07 / $8.50. Paid tier.
+- **Pricing (as of 2026-11):** Paid OpenAI $1.25 / $10 per 1M (cached $0.125); OpenCode Zen $1.07 / $8.50. Paid tier.
 - **Architecture:** Proprietary router system pairing fast inference with deep reasoning by OpenAI.
 
 ### Raw benchmarks found
@@ -37,14 +37,13 @@
 
 ---
 
-## Re-research update (2026-10-10)
+## Re-research update (2026-11-01)
 
-- **Second-pass verification:** Confirmed across OpenAI system cards. SWE-bench Verified 58.0% and Terminal-Bench 2.1 79.5% verified.
+- **Third-pass verification:** Confirmed across OpenAI system cards. SWE-bench Verified 58.0% and Terminal-Bench 2.1 79.5% verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.

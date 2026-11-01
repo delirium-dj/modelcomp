@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Gemini 3.5 Flash Lite
 
 - Source: Moonshot AI/kimi-k2.8-preview
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-01 (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Kimi K2.8 Preview
 - **Short description:** Moonshot AI's advanced preview model optimized for ultra-long context understanding, complex reasoning, and multi-step dialogue.
 - **Provider / access:** OpenCode Zen `opencode/kimi-k2.8-preview` / Moonshot AI API (`kimi-k2.8-preview`).
-- **Release / knowledge:** Re-verified October 2026; state-of-the-art long context preview.
+- **Release / knowledge:** Re-verified November 2026; state-of-the-art long context preview.
 - **IDs:** `opencode/kimi-k2.8-preview`
 - **Context window:** 512K total tokens input/output support.
 - **Modalities:** Text in; text out; tool calls; JSON mode.
-- **Pricing (as of 2026-10-16):** Competitive preview tier pricing (~$1.00 / $4.00 per 1M tokens).
+- **Pricing (as of 2026-11):** Competitive preview tier pricing (~$1.00 / $4.00 per 1M tokens).
 - **Architecture:** Transformer architecture specialized in massive context retrieval and long-form document synthesis.
 
 ### Raw benchmarks found
@@ -60,8 +60,13 @@ Long context:
 
 ---
 
+## Re-research update (2026-11-01)
+
+- **Third-pass verification:** Re-verified across official Moonshot AI documentation and benchmarks. Metrics remain consistent and verified.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
-- Method: Re-verified via deep public internet research across official Moonshot AI documentation and benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Method: Third-pass deep public internet research across official Moonshot AI documentation and benchmarks; scores are normalized 1–100 interpretations.

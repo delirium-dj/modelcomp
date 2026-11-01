@@ -29,6 +29,10 @@ Agent / tool use:
 - OSWorld-2.0 (partial, batch tool enabled): **59.0%** (DeepMind model card)
 - AA AutomationBench: **59.9%** (Artificial Analysis)
 - AA Briefcase Elo: **1203** (Artificial Analysis)
+- SWE-bench Verified: **95.8%** estimated ± 4.4 pp (benchgap.net)
+- OSWorld-Verified: **81.3%** estimated ± 1.9 pp (benchgap.net)
+- DeepSearchQA: **91.9%** estimated ± 4.5 pp (benchgap.net)
+- OSWorld 2.1: **79.5%** estimated ± 2.8 pp (benchgap.net)
 
 Reasoning / knowledge:
 
@@ -43,6 +47,10 @@ Reasoning / knowledge:
 - ARC-AGI-1: **98.50%**; ARC-AGI-2: **89.2%**; ARC-AGI-3: **10.4%** (ARC Prize, verified)
 - LABBench2: **86.2%** (DeepMind model card)
 - BioMysteryBench human-solvable: **88.8%**; human-difficult **56.5%** (DeepMind model card)
+- HLE: **59.8%** estimated ± 5.4 pp (benchgap.net)
+- BrowseComp: **91.6%** estimated ± 1.9 pp (benchgap.net)
+- JobBench: **64.6%** estimated ± 4.9 pp (benchgap.net)
+- SWE-bench Pro: **67.4%** estimated ± 4.3 pp (benchgap.net)
 
 Coding:
 
@@ -53,6 +61,10 @@ Coding:
 - AA-SciCode: **56.6%** (Artificial Analysis)
 - AA Coding Index: **76.3%** (Artificial Analysis)
 - FrontierSWE v2: **19.6%** (Proximal)
+- LiveCodeBench v6: **91.1%** estimated ± 2.4 pp (benchgap.net)
+- CursorBench 3.1: **60.3%** estimated ± 3.4 pp (benchgap.net)
+- FrontierCode 1.1 Main: **52.8%** estimated ± 1.6 pp (benchgap.net)
+- ProgramBench: **88.0%** estimated ± 6.0 pp (benchgap.net)
 
 Multimodal & grounded:
 
@@ -73,18 +85,22 @@ Derived from the raw numbers above using the methodology in `model-comparison.md
 Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 80/100.** Strong Terminal-Bench 2.1 (89.4%), Finance Agent v2 (61.4%), GDPVal-AA Elo (1545); capped by weak Terminal-Bench 4.0 (19.1%), OSWorld-2.0 (59.0%), Harvey Legal all-pass (10.0%). Excellent terminal coding, uneven general agent use.
+- **Tool use: 82/100.** Strong Terminal-Bench 2.1 (89.4%), Finance Agent v2 (61.4%), GDPVal-AA Elo (1545); capped by weak Terminal-Bench 4.0 (19.1%), OSWorld-2.0 (59.0%), Harvey Legal all-pass (10.0%). benchgap.net adds OSWorld-Verified 81.3% estimated and DeepSearchQA 91.9% estimated.
 - **Reasoning: 78/100.** ARC-AGI-1 98.50%, ARC-AGI-2 89.2%, GPQA Diamond 95.3%, HLE-Verified 54.9%; capped by CritPt (18.3%), MLCR-AA (21.7%), ARC-AGI-3 (10.4%), AA-Omniscience accuracy (54.6%). Strong knowledge/reasoning but brittle on hard open-ended problems.
 - **Context window: 90/100.** Verified 1M tokens (DeepMind card + benchlm), 64K output, strong long-video LVBench (87.1–87.8%); capped because no full-depth text needle-recall score at the full 1M window.
 - **Multimodal: 85/100.** Text + images + audio + video in, text out; CharXiv 86.2%, MMMU-Pro 85.6%, LVBench 87.1%; capped by text-only output.
-- **Coding: 76/100.** LiveCodeBench (Vals) 89.5%, SWE-bench (Vals) 80.0%, DeepSWE 73.7%, CursorBench 3.2 69.2%; capped by weak FrontierSWE v2 (19.6%) and CursorBench 4.0 (39.6%). Strong competitive coding, weaker full agentic SWE.
+- **Coding: 79/100.** LiveCodeBench (Vals) 89.5% / v6 91.1% estimated (benchgap.net), SWE-bench (Vals) 80.0% / Verified 95.8% estimated (benchgap.net), DeepSWE 73.7%, CursorBench 3.2 69.2%; benchgap.net adds CursorBench 3.1 60.3% estimated and FrontierCode 1.1 Main 52.8% estimated — notable upward revision from prior report. Capped by weak FrontierSWE v2 (19.6%) and CursorBench 4.0 (39.6%). Strong competitive coding, weaker full agentic SWE.
 - **Cost efficiency: 90/100.** Introductory $0.75/$3.75 per 1M is among the cheapest frontier models; not counted toward Overall.
-- **Overall Score: 82/100.** Half-up mean of (80 + 78 + 90 + 85 + 76) / 5 = 81.8 → 82. Best-fit recommendation: cost-effective, multimodal-capable Flash workhorse for long-context software engineering and agent tasks; verify on Terminal-Bench 4.0-class general agent work before production.
+- **Overall Score: 83/100.** Half-up mean of (82 + 78 + 90 + 85 + 79) / 5 = 82.8 → 83. Best-fit recommendation: cost-effective, multimodal-capable Flash workhorse for long-context software engineering and agent tasks; verify on Terminal-Bench 4.0-class general agent work before production.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-16
-- Method: public internet research (official Google DeepMind model card + benchlm.ai + Vals AI + ARC Prize + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-01
+- Method: public internet research (official Google DeepMind model card + benchgap.net independent benchmark aggregation + benchlm.ai + Vals AI + ARC Prize + Artificial Analysis independent analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind — Gemini 3.8 Flash model card](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
+  - [benchgap.net — Gemini 3.8 Flash benchmark scores](https://benchgap.net/model/gemini-3-8-flash) (data as of 2026-10-29)
+  - [Artificial Analysis — Gemini 3.8 Flash](https://artificialanalysis.ai/models/gemini-3-8-flash)
+  - [benchlm.ai — SWE-bench Pro leaderboard](https://benchlm.ai/benchmarks/swe-bench-pro)
