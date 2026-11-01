@@ -37,13 +37,11 @@
     (Overall 85.6) and `qwen-3.7` (Overall 77.3). Both note-models already have proper
     `model/<slug>/` folders registered in `model-queue.md`, so the orphan notes are redundant;
     nothing under `model/` was touched.
-11. **`design-6sol` kept + de-duplicated (A10).** `src/routes/design-6sol/` remains on disk
-    (untracked, gitignored via `.gitignore:15`; not deployed, not built) as the v2 design
-    reference, hardcoded to `claude-opus-5.5`. It now imports shared
-    `src/components/v2/hex.ts` (`hexPoint`, `hexPolygon`, `barWidth`) and
-    `src/components/v2/modelView.ts` (`DIMENSION_LABELS`, `DIMENSION_SHORT`, `TABLE_KEYS`)
-    instead of its own copies (de-duplicated via D2/D3). `layout.tsx:19` keeps its
-    `path === "/design-6sol"` special case since the route is still live locally.
+11. **`design-6sol` removed (A10).** `src/routes/design-6sol/` deleted from disk (untracked, gitignored via
+    `.gitignore:15`; not deployed, not built). The dead `path === "/design-6sol"` branch was dropped from
+    `layout.tsx:19` since the route no longer exists. The v2 design language survives in
+    `src/routes/index.tsx` and `src/routes/model/[slug]/index.tsx`. `docs/v2-promotion-rollback.md:15`
+    updated to note the folder is gone.
 
 Validation this pass: `pnpm test` 561/561 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.

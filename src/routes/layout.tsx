@@ -15,8 +15,7 @@ export default component$(() => {
     path === "" ||
     path === "/" ||
     path.startsWith("/model/") ||
-    path.startsWith("/providers") ||
-    path === "/design-6sol"
+    path.startsWith("/providers")
   ) {
     return <Slot />;
   }

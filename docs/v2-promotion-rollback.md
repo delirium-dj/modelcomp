@@ -12,7 +12,7 @@ only in git history (tag `v1-final`) — no v1 routes remain live.
 |---|---|---|
 | `/` | v2 homepage (primary) | `src/routes/index.tsx` (+ `src/components/v2/*`) |
 | `/model/[slug]/` | v2 model profiles (primary), same design language | `src/routes/model/[slug]/index.tsx` |
-| `/design-6sol/` etc. | Original design studies, local-only (gitignored), untouched | `src/routes/design-*/` |
+| `/design-6sol/` etc. | Original design studies, removed from the project (folder deleted) | — |
 
 Section anchors on `/` kept their v1 contracts: `#compare`, `#methodology`,
 `#models` (All-models section). Old bookmarks and deep links keep working.
