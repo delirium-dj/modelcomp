@@ -32,6 +32,11 @@
    keys (`Space Bunny`, `Ox Alpha`, `Mimo v2.5 Free`) are removed on the next clean `pnpm sync`.
 9. **Docs.** `.agents/rules.md`, `.antigravity/history/project-map.md` and `tasks/sync-data.md`
    updated to the v2 component/helper reality; dangling `GLM53F_IMP` comment references rewritten.
+10. **Orphan `findings/` tree removed (A3).** `git rm -r findings/` — two 0-byte stubs
+    (`jev-1.13.md`, `jev-1.13_temp.md`) plus two ad-hoc research notes for `claude-sonnet-5.4`
+    (Overall 85.6) and `qwen-3.7` (Overall 77.3). Both note-models already have proper
+    `model/<slug>/` folders registered in `model-queue.md`, so the orphan notes are redundant;
+    nothing under `model/` was touched.
 
 Validation this pass: `pnpm test` 561/561 green; `pnpm build.types:direct` clean; `pnpm build:direct`
 succeeded (205 SSG pages); homepage / model profile / providers content spot-checked in `dist/`.

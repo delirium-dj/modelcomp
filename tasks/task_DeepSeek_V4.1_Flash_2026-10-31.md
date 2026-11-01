@@ -36,6 +36,10 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
 
 - **A1** — 11 tracked scratch files `git rm`'d + untracked `temp_slugs.txt` deleted.
 - **A2** — `modeljev-1.13/` removed (byte-identical duplicate; per-file sign-off given).
+- **A3** — `findings/` orphan research tree `git rm -r`'d: two 0-byte stubs plus two ad-hoc
+  notes for `claude-sonnet-5.4` (Overall 85.6) and `qwen-3.7` (Overall 77.3). Both note-models
+  already have proper `model/<slug>/` folders registered in `model-queue.md`, so the orphan
+  notes were redundant; nothing under `model/` touched. See `REPORT.md` 2026-11-01 item 10.
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
 - **B2** — stale `SourceKey` prune added to `reconcileRegistry` (`scripts/lib/codegen.mjs`),
@@ -61,7 +65,6 @@ Validation: `pnpm test` **561/561** green, `pnpm build.types:direct` clean,
 
 **Not applied (left for you)**
 
-- **A3** `findings/` orphan tree — awaits your call on the two ad-hoc research notes.
 - **A6** parked V1 plugins · **A7** avatar backup · **A8** `PRD/webshop-prd.md` ·
   **A10** `design-6sol` deletion (kept; only de-duplicated).
 - **B1** restore `model-report-TEMPLATE.md` (not in this request).
