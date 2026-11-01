@@ -1,3 +1,51 @@
+**Agent / tool use (Google launch table, 19 rows):**
+- Vals Index: **68.9%** — vs Opus 5.5 67.0%, GPT-6 Astra 63.1%, Claude Fable 5.1 65.8%.
+- AutomationBench: **51.3%** — vs Opus 5.5 42.5%, GPT-6 Astra 41.4%, Fable 5.1 31.4% (#1).
+- Finance Agent v2: **65.4%**; Harvey Legal Agent: **19.6%** (Vals AI).
+- DeepSWE v1.1: **77.9%** — leads Opus 5.5 74.2%, Astra 74.1% (Google-run).
+- CursorBench (third-party): **52.8%** — "on par with Opus 5.5" (Apidog).
+- Scale AI HSS (third-party): **55.4%** — vs Astra 53.6% (Apidog).
+- Terminal-Bench 4.0: **57.4%** — vs Opus 5.5 66.4% (Google-run; loses).
+- FrontierSWE v2: **55.0%** — vs Astra 65.5%, Opus 5.5 62.3% (loses).
+- Terminal-Bench Science 0.1: **57.6%** — vs Astra 68.1% (loses).
+- PostTrainBench: **45.3%** — vs Opus 5.5 49.3% (loses).
+- OSWorld-2.0 (offline): **69.2%** — vs Astra 72.6% (loses).
+- CWE-bench v1: **68.0%** — tied with GPT-6 Astra (Grok 4.7 also 68%, three-way).
+- GraphWalks 256K–1M: **84.2%** — vs Opus 5.5 66.8% (leads); BFS ≤128K: **99.7%** (loses only to Astra 71.8%).
+- Agents' Last Exam: **39.5%**; LabBench 2: **88.8%**; RiemannBench: **76.0%**; LVBench: **91.7%**.
+
+**Artificial Analysis (Oct 2026):**
+- Intelligence Index (v5.0, high): **50** (#13/58) — vs Opus 5.5 52, GPT-6 Astra 55 (AA model page FAQ). R&D World (Oct 1, v4.3.2 high) reported **53** — version conflict (see research report).
+- Token economy: 110M output tokens per index task (vs median 70M); cost $1.99/task at intro price, $3.98 standard, $7.68 on v5.0 list (AA/DEV).
+- Prompt-cache reuse: 48% of repeated context served from cache (AA) — weak vs GPT-6 Luna max 99%.
+
+### Normalized scores (1–100)
+
+- **Tool use: 88/100.** AutomationBench #1 (51.3%), DeepSWE v1.1 77.9% (leads), GraphWalks 84.2%, Vals Index 68.9%, CWE-bench 68.0% tie; caps at Agents' Last Exam 39.5% and Terminal-Bench 4.0/ FrontierSWE v2 losses.
+- **Reasoning: 86/100.** GraphWalks 84.2–99.7% (very long context reasoning), LVBench 91.7%; hard reasoning (GPQA/HLE/ARC) not published for this exact ID — a verification gap.
+- **Context window: 92/100.** 1M unified input/output with long-decode up to 1M; GraphWalks 84.2% on 256K–1M; nearest rival FrontierSWE 55.0% trails.
+- **Multimodal: 88/100.** Text, image, video, audio, PDF input; text output; LVBench 91.7% (SOTA long-video).
+- **Coding: 86/100.** DeepSWE v1.1 77.9% (leads), Vibe Code Bench 91.9%, coding public lane 72.3 (#6/150); caps at Terminal-Bench 4.0 57.4%, FrontierSWE v2 55.0%, Terminal-Bench Science 57.6%.
+- **Overall Score: 88/100.** (88+86+92+88+86)/5 = 88.0. Best fit: long-horizon agentic coding, very-long-context knowledge work, and cybersecurity defense at intro pricing — third-party terminal benchmarks trail Opus 5.5.
+
+## Signature
+
+- Provided by: **Solar Mini 4 (solar-mini4)** — 2026-11-01
+- Method: public internet research (Google blog, DeepMind model card, Artificial Analysis model page + launch article, DEV Community, AI Weekly, Apidog, Szymon Paluch, FuturPulse, Emergent, Lindy); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google blog — Gemini 4 Argon: Built to solve your hardest problems](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)
+  - [DeepMind model card — Gemini 4 Argon](https://deepmind.google/models/model-cards/gemini-4-argon/)
+  - [Artificial Analysis — Gemini 4 Argon model page](https://artificialanalysis.ai/models/gemini-4-argon)
+  - [DEV Community — Gemini 4 Argon 18 days after GA (Oct 31, 2026)](https://dev.to/gabrielanhaia/gemini-4-argon-18-days-after-ga-50-on-the-independent-index-110m-tokens-to-get-there-2cf6)
+  - [Apidog — Gemini 4 Argon benchmarks: all 19 rows (Oct 15, 2026)](https://apidog.com/blog/gemini-4-argon-benchmarks/)
+  - [AI Weekly — Gemini 4 Argon ties GPT-6 Astra at 53 (Oct 1, 2026)](https://aiweekly.co/alerts/gemini-4-argon-ties-gpt-6-astra-at-53-with-15-hallucination-rate)
+  - [Szymon Paluch — Gemini 4 Argon API pricing (Oct 23, 2026)](https://szymonpaluch.com/blog/posts/gemini-4-api-pricing)
+  - [FuturPulse — Gemini 4 Argon API pricing (Oct 14, 2026)](https://futurpulse.com/gemini-4-argon-api-pricing-batch-cache-and-1m-context-costs/)
+  - [Emergent — Gemini 4 Argon benchmarks (Oct 1, 2026)](https://emergent.sh/learn/gemini-4-argon-benchmarks)
+  - [Lindy — Gemini 4 Argon: who can use it (Oct 14, 2026)](https://www.lindy.ai/blog/gemini-4-argon)
+
+---
+
 # Gemini 4 Argon — findings by Solar_Mini_4
 
 - Source: Google DeepMind (`google/gemini-4-argon`)

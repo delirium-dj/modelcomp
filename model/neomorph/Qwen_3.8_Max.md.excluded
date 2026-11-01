@@ -1,0 +1,30 @@
+# Neomorph — findings by Qwen 3.8 Max (SELF-EXCLUDED)
+
+- Source: OpenCode Zen (`opencode/neomorph`; **no AA page — `artificialanalysis.ai/models/neomorph` → 404; `openrouter.ai/inception/neomorph` → 404; no vendor ever named; no benchmark-aggregator cell; sole web mention is modelcomp's OWN rendered page (circular)**)
+- Date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Verdict — SELF-EXCLUDED.** **Neomorph** is an **OpenCode Zen "experimental" model label** with a catalog shell — **64K context / 4,096 max output, text in/out, $0.50 / $1.50 per M**, and a purely qualitative gloss (*"modular sub-network architecture and structured-output focus"*) — but **there is no measurable model behind the name.** **Artificial Analysis 404s** (no Intelligence Index / Speed / Cost), **OpenRouter 404s**, **no vendor is ever identified**, and **not a single benchmark number** (SWE-bench / Terminal-Bench / GPQA / LiveCodeBench / τ / MMLU / anything) is published anywhere under `neomorph`. The **only place the word "Neomorph" surfaces on the public web is modelcomp's own auto-generated comparison page** — a **circular** reference, not third-party evidence. The curated `meta` itself supplies **no benchmark and no standout metric**, only architecture marketing prose. Scoring would require **inventing numbers** or **reattributing another model's results onto an unattributed experimental slot**. The entry is therefore **excluded, not scored** — the same reasoning that excluded **`exo-free`**, **`big-pickle`**, and **`gpt-oss-120b-lite`**.
+
+## Why this is a self-exclusion (not a scored model)
+
+- **No vendor identity.** Neomorph is listed under the `opencode/` namespace (OpenCode Zen's curated gateway of *third-party* models). Zen's **anonymous / experimental slots** (see `exo-free`, `big-pickle`, `owl-alpha`, `ox-alpha`) routinely carry a display name with **no disclosed underlying model**. Nothing in any source names who trains or serves Neomorph; the "modular sub-network architecture" line is an **unverifiable descriptor**, not a published paper, model card, or repo.
+- **No independent tracker measures it.** **`artificialanalysis.ai/models/neomorph` → 404** — no Intelligence Index, Speed, Cost, Verbosity, or any AA evaluation cell. **`openrouter.ai/inception/neomorph` → 404** — not served under that id. No Vals / benchlm / LMArena / hands-on leader entry exists under the `neomorph` name.
+- **Zero benchmarks.** There is **no published score of any kind** — not from a vendor (no model card surfaces numbers), not from an aggregator (404), not from a hands-on eval. Unlike the *scored* low-evidence cases (**`omen-alpha`** had an OpenCode coding snapshot **23.14/40** + third-party hands-on; **`pixel_canary`** had Vercel Next.js/React-Native evals; **`mercury-2.5`** had a τ³ 96.0 % self-report), **Neomorph has *no* quantitative data point anywhere** — the defining trait of the `exo-free` / `big-pickle` / `gpt-oss-120b-lite` exclusions.
+- **The sole "corroboration" is circular.** A web search for "Neomorph" returns **modelcomp's own `modelcomp.vercel.app` page** (which merely re-renders this dataset's own roster) plus irrelevant biotech / API-pricing noise. That is the site quoting itself, **not** external evidence.
+
+## What we did establish (documented, not scored)
+
+- **Catalog structure only:** an OpenCode Zen **experimental** slot `opencode/neomorph`, **64,000 total context / 4,096 max output**, **text in → text out**, priced **$0.50 in / $1.50 out per 1M tokens** (per provider documentation), described qualitatively as having a **"modular sub-network architecture"** and a **"structured-output focus."**
+- **Nothing else is verifiable:** no parameter count, no training vendor, no license, no release date, no reasoning/tool-use confirmation, and **no benchmark** of any kind.
+
+> **Consistency check:** this is the **anonymous-experimental-slot-with-zero-measurement** pattern — the same reasoning used to exclude **`exo-free`** (OpenCode Zen stealth, no vendor/card/benchmark, HTTP 410), **`big-pickle`** (rotating Zen slot, "ground truth may never arrive"), and **`gpt-oss-120b-lite`** (label whose only web mention is modelcomp's own page). It is **not** like **`omen-alpha`**, **`pixel_canary`**, or **`mercury-2.5`**, which *are* scored because each carries **at least one quantitative signal** under its own id. **No dimension scores are assigned**, and **no other model's benchmarks are transferred onto this label.**
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-11-01
+- Method: public internet research (**`artificialanalysis.ai/models/neomorph` → 404** — no index/speed/cost/eval cell; **`openrouter.ai/inception/neomorph` → 404** — not served; **`opencode.ai/zen`** — curated gateway, JS-rendered, **no Neomorph catalog entry surfaced**; **web search for "Neomorph"** returns **only modelcomp's own `modelcomp.vercel.app` roster page (circular)** plus irrelevant biotech/pricing hits — **no vendor, no model card, no repo, no benchmark anywhere**; **`meta`** — `opencode/neomorph`, "OpenCode Zen experimental model … modular sub-network architecture and structured-output focus," 64K/4,096-out, text in/out, **$0.50/$1.50**, **no benchmark and no standout metric**.)
+- Future sources: this becomes scoreable **only if** a vendor **publishes a Neomorph-branded model card with benchmarks**, or an **independent tracker** (AA / OpenRouter listing / Vals / benchlm / a hands-on leader) measures an artifact **under the `neomorph` id**. **Guards applied:** (1) do **NOT** reattribute any OpenCode Zen sibling's scores (e.g. `ox-alpha`, `omen-alpha`, `exo-free`, `big-pickle`, `flint`) onto Neomorph — unattributed experimental slots must not inherit another model's evidence; (2) reject the **circular** modelcomp-page mention as corroboration; (3) the "modular sub-network / structured-output" gloss is **marketing, not measurement** — no capability is credited from it; (4) **no numbers invented.** **No dimension scores are assigned.**
