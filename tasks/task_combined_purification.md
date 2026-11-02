@@ -45,6 +45,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3,756 lines).
 - **B6** — `src/components/freeZenLink.tsx` internal array typed as `any[]` → `JSXOutput[]` (strict type safety). ✅ Done 2026-11-02.
+- **B1** — `voicemodels/` tripwire can never fire due to variable shadowing in `scripts/sync-data.mjs`. Fixed by refactoring to `findForbiddenRoot(root, FORBIDDEN_ROOTS, (r, f) => existsSync(join(r, f)))` in `scripts/lib/validate.mjs:194-196`, which correctly passes `root` (repo root) and `f` (forbidden name) to the join. Comment at `validate.mjs:190-192` documents the fix. ✅ Done 2026-11-02.
 - **A7** — `assets/avatar-backup-2026-10-05/` removed (4 tracked files).
 - **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
 - **A10** — `src/routes/design-6sol/` removed: folder deleted from disk (untracked, gitignored),
@@ -272,18 +273,15 @@ Homepage/model-profile Paid badges render `"Paid"`; compare legend says `· Paid
 `Paid`. **Guidance:** shared `PricingBadge` extraction (D13) — one label per variant.
 ✅ Done via D13.
 
-### B6 (Kimi K3 / Claude Opus / Muse Spark). `voicemodels/` tripwire can never fire ⏳ PENDING
+### B1 (Kimi K3 / Claude Opus / Muse Spark). `voicemodels/` tripwire can never fire ✅ DONE
 
-`scripts/sync-data.mjs:150–154` loop variable `root` shadows repo root `root`, so
-`join(root, root)` evaluates to `"voicemodels/voicemodels"` which can never exist.
-`RULES.md:48` guarantees sync FAILs loudly while `voicemodels/` exists — it does not.
-**Guidance:** rename loop variable to `forbidden`:
-```js
-for (const forbidden of FORBIDDEN_ROOTS) {
-  if (existsSync(join(root, forbidden))) fail(forbiddenRootMessage(forbidden));
-}
-```
-Add sync-level regression test (create temp `voicemodels/`, assert non-zero exit).
+`scripts/sync-data.mjs:150–154` loop variable `root` shadowed repo root `root`, so
+`join(root, root)` evaluated to `"voicemodels/voicemodels"` which could never exist.
+`RULES.md:48` guarantees sync FAILs loudly while `voicemodels/` exists — it did not.
+Fixed by refactoring to `findForbiddenRoot(root, FORBIDDEN_ROOTS, (r, f) => existsSync(join(r, f)))` in
+`scripts/lib/validate.mjs:194-196`, which correctly passes `root` (repo root) and `f`
+(forbidden name) to the join. Comment at `validate.mjs:190-192` documents the fix.
+✅ Done 2026-11-02.
 
 ### B7 (Kimi K3). Canonical URLs + sitemap point at `localhost:4173` ⏳ PENDING
 
@@ -591,7 +589,7 @@ Verify: `pnpm test` green, `pnpm build.types:direct` clean.
 
 **Step 2 — correctness / latent bugs**
 
-B6 `voicemodels/` tripwire fix · B7 `SITE_ORIGIN` env var · B8 manifest dedup · B9 per-model
+B7 `SITE_ORIGIN` env var · B8 manifest dedup · B9 per-model
 title resolver · B10 contact email · B11 donate chips · B12 contact in desktop nav · B13 duplicate
 slug · B14 sync-data.md contradiction.
 Verify: `pnpm test` green, `pnpm build.types:direct` clean.
