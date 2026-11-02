@@ -6,11 +6,25 @@ import { component$ } from "@builder.io/qwik";
  * research backers, fine print, bottom bar).
  */
 
-const SPONSOR_URL = "https://github.com/sponsors/delirium-dj";
 const TIERS = [
-  { label: "$5 Coffee", detail: "one-time thanks", primary: true },
-  { label: "$19/mo Supporter", detail: "name in README", primary: false },
-  { label: "$99/mo Research backer", detail: "logo in footer", primary: false },
+  {
+    label: "$5 Coffee",
+    detail: "one-time thanks",
+    href: "https://ko-fi.com/djordjedjordjevic",
+    primary: true,
+  },
+  {
+    label: "$19/mo Supporter",
+    detail: "name in README",
+    href: "https://www.patreon.com/DjordjeDjordjevic/gift",
+    primary: false,
+  },
+  {
+    label: "$99/mo Research backer",
+    detail: "logo in footer",
+    href: "https://www.patreon.com/DjordjeDjordjevic/gift",
+    primary: false,
+  },
 ];
 const RESEARCH_BACKERS = [
   {
@@ -26,6 +40,10 @@ const EXTRA_DONATE_LINKS = [
   { label: "Ko-fi", href: "https://ko-fi.com/djordjedjordjevic" },
   { label: "Patreon", href: "https://patreon.com/DjordjeDjordjevic" },
   { label: "PayPal", href: "https://paypal.me/djdjordjevic" },
+  {
+    label: "PayPal (monthly)",
+    href: "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-3J3210109R726894LNLUPHDI",
+  },
   { label: "Paddle", href: "" },
   { label: "Lemon Squeezy", href: "" },
 ];
@@ -54,7 +72,7 @@ export const V2Footer = component$(() => {
             {TIERS.map((tier) => (
               <a
                 key={tier.label}
-                href={SPONSOR_URL}
+                href={tier.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 title={tier.detail}

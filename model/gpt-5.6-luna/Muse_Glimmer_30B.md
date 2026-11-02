@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Muse Glimmer 30B
 
 - Source: OpenAI/gpt-5.6-luna
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research using OpenAI developers documentation and GPT-5.6 launch page; scores are normalized 1–100 interpretations, not official vendor scores.
 - Sources: https://developers.openai.com/api/docs/models/gpt-5.6-luna ; https://openai.com/index/gpt-5-6/

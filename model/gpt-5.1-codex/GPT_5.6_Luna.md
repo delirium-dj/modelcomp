@@ -1,7 +1,7 @@
 # GPT-5.1-Codex - findings by GPT 5.6 Luna
 
 - Source: OpenAI / GPT-5.1-Codex
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,13 +9,18 @@
 
 - **Name:** GPT-5.1-Codex
 - **Short description:** OpenAI's GPT-5.1 variant optimized for agentic coding in Codex-like environments. It is distinct from the general GPT-5.1 model and from the separately identified Codex Mini, Codex-Max, and GPT-5.2-Codex variants.
-- **Provider / access:** OpenAI API model ID `gpt-5.1-codex`, Responses API only. OpenRouter also exposes `openai/gpt-5.1-codex` through its compatibility API, but that wrapper does not change the native endpoint contract. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex) · [OpenRouter model route](https://openrouter.ai/openai/gpt-5.1-codex)
+- **Provider / access:** OpenAI native model ID `gpt-5.1-codex`, Responses API only; OpenAI currently marks the exact model **Shut down**. OpenRouter historically exposed `openai/gpt-5.1-codex` through a compatibility API, but that wrapper does not revive the native endpoint or change the identity. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex) · [OpenRouter model route](https://openrouter.ai/openai/gpt-5.1-codex)
 - **Release / knowledge:** Released November 13, 2025; knowledge cutoff September 30, 2024. [BenchmarkList model record](https://benchmarklist.com/models/openai-gpt-5.1-codex) · [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
 - **IDs:** `openai/gpt-5.1-codex` and native `gpt-5.1-codex`; no OpenCode Zen Free ID was verified.
 - **Context window:** 400,000 total tokens; maximum output 128,000. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
 - **Modalities:** Text and image input; text output; reasoning tokens; function calling and web search in the Responses API; structured outputs and streaming. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
-- **Pricing (as of 2026-10-23):** $1.25 per 1M input tokens, $0.125 cached input, and $10 per 1M output tokens. Paid model; no verified free lane. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
+- **Pricing (historical native listing):** $1.25 per 1M input tokens, $0.125 cached input, and $10 per 1M output tokens. This was a paid model with no verified free lane; because the exact route is shut down, these prices are provenance rather than a current purchase offer. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
 - **Architecture:** Proprietary OpenAI model; parameter count and architecture are undisclosed. [Artificial Analysis model record](https://artificialanalysis.ai/models/gpt-5-1-codex)
+
+### Current status and identity boundary (2026-11-02)
+
+- OpenAI's current model page reports **Status: Shut down** for `gpt-5.1-codex`. The original model identity and its historical benchmark evidence are retained for the dataset; requests must not be silently rerouted to GPT-5.1-Codex-Max, GPT-5.2-Codex, or another replacement.
+- The shutdown status affects present availability, not the historical capability measurements below. The cost score is therefore a historical price/value score, not a recommendation to deploy the unavailable route.
 
 ### Exact-model versus nearby variants
 
@@ -70,13 +75,16 @@ Long context:
 - **Context window: 82/100.** The verified 400K total context is near the top of the methodology's 200K-500K tier, but there is no exact-model retrieval result showing near-perfect performance at the maximum window and output is capped at 128K.
 - **Multimodal: 65/100.** Official documentation verifies image input and text output, which earns the image-input band; no exact-model audio, video, or non-text-output capability was verified.
 - **Coding: 77/100.** Exact-model SWE-bench Verified is 73.7%, SWE-Lancer IC SWE 66.3%, Terminal-Bench 2.0 52.8%, and LiveCodeBench 85.5%; SciCode 40.2%, APEX-SWE 37.7%, and Vibe Code Bench 13.1% show meaningful weaknesses in broader or frontend-oriented coding tasks.
-- **Cost efficiency: 76/100.** Native pricing is reasonable at $1.25/M input but output is expensive at $10/M, with no verified free tier; the output price and paid-only access cap efficiency.
+- **Cost efficiency: 76/100.** Historical native pricing was $1.25/M input and $10/M output with no verified free tier; the paid-only access and current shutdown make this a historical score, not current availability.
 - **Overall Score: 75/100.** Half-up mean of the five quality dimensions: (70 + 79 + 82 + 65 + 77) / 5 = 74.6, rounded to 75. Best fit is repo-scale agentic coding where strong exact-model coding results matter more than broad multimodal or long-horizon retrieval coverage.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
-- Method: Seven independent fresh web-search queries plus direct fetches of official OpenAI documentation/release material and independent benchmark records; exact GPT-5.1-Codex results were separated from GPT-5.1, GPT-5.1-Codex-Max, GPT-5.1-Codex-Mini, and GPT-5.2-Codex. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-11-02
+- Method: Fresh official OpenAI status/documentation checks plus independent benchmark records; exact GPT-5.1-Codex results were separated from GPT-5.1, GPT-5.1-Codex-Max, GPT-5.1-Codex-Mini, and GPT-5.2-Codex, and the shutdown was not treated as a reroute. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI GPT-5.1-Codex model documentation](https://developers.openai.com/api/docs/models/gpt-5.1-codex)
+  - [OpenAI GPT-5.1-Codex-Max evaluation comparison](https://openai.com/index/gpt-5-1-codex-max/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

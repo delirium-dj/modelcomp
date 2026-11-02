@@ -1,7 +1,7 @@
 # GPT-5.5 — findings by Muse Glimmer 30B
 
 - Source: OpenAI/gpt-5.5
-- Date: 2026-10-20
+- Date: 2026-11-02
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

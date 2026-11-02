@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by GPT-5.6 Luna
 
 - Source: Alibaba / Qwen 3.7
-- Date: 2026-10-30 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,10 +58,18 @@ Long context:
 - **Cost efficiency: 100/100.** Goldie Bench describes open weights/free individual access; this is a price-access score and does not pretend local hardware is free.
 - **Overall Score: 55/100.** `(55 + 60 + 78 + 15 + 68) / 5 = 55.2`, half-up to **55**. Best fit: exploratory multilingual/open-weight prototyping where the team can validate outputs; do not substitute Max, Plus, or Flash benchmark claims for this exact entry.
 
+### Current-evidence addendum (2026-11-02)
+
+- Qwen's official Qwen3.7 launch page publishes detailed Terminal-Bench 2.0, SWE, and other tables for **Qwen3.7-Max**, with explicit harness and context notes. Those rows remain sibling-tier evidence and are not copied into this unqualified `Qwen 3.7` entry.
+- The exact base entry still has the Goldie Bench 7.00/10 one-shot result and 256K listing as its only directly attributable public capability score; no new exact-base GPQA, SWE, or tool-harness result was verified.
+
 ---
 
 ## Signature
 
-- Provided by: **GPT-5.6 Luna (`openai/gpt-5.6-luna`)** — 2026-10-30
+- Provided by: **GPT-5.6 Luna (`openai/gpt-5.6-luna`)** — 2026-11-02
 - Method: Three independent web searches for the exact model, followed by exact-model benchmark/review pages and separate sibling-tier checks. Conflicting identity, context, and benchmark claims were kept separate; scores are conservative normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qwen3.7 official launch page](https://qwen.ai/blog?id=qwen3.7)
+  - [Goldie Bench exact Qwen 3.7 page](https://goldiebench.com/models/qwen)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.4 Nano — findings by Muse Glimmer 30B
 
 - Source: OpenAI official announcement, LLM Reference, meta JSON curated data
-- Date: 2026-10-25
+- Date: 2026-11-02
 - Model slug: gpt-5.4-nano
 - Researcher: Muse Glimmer 30B
 - Method: Independent web search with official model card prioritized; benchmarks normalized per `model-comparison.md` v4 methodology.
@@ -62,4 +62,4 @@ Long context:
 
 - Provided by: **Muse Glimmer 30B, STEM Muse_Glimmer_30B**
 - Method: Direct inspection of official model card and OpenAI announcement, normalized per `model-comparison.md` scoring methodology.
-- Date: 2026-10-25
+- Date: 2026-11-02

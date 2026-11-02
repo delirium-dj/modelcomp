@@ -79,13 +79,18 @@ components + routes             hexagon, tables, cards, per-model pages (SSG pre
 
 Independent, no paid promotions — donations fund compute and research time, never rankings.
 
-- **Tiers** (buttons in `V2Footer`, all linking to `https://github.com/sponsors/delirium-dj`):
-  `$5 Coffee` (one-time thanks) · `$19/mo Supporter` (name in README) ·
-  `$99/mo Research backer` (logo in footer).
+- **Tiers** (buttons in `V2Footer`, each tier with its own `href`): `$5 Coffee` →
+  [ko-fi.com/djordjedjordjevic](https://ko-fi.com/djordjedjordjevic) (one-time thanks) ·
+  `$19/mo Supporter` and `$99/mo Research backer` →
+  [patreon.com/DjordjeDjordjevic/gift](https://www.patreon.com/DjordjeDjordjevic/gift)
+  (name in README / logo in footer). GitHub Sponsors was removed — GitHub pays
+  out via Stripe, unavailable for us.
 - **Also via** (entries in `EXTRA_DONATE_LINKS`, `src/components/v2/V2Footer.tsx`):
   `Ko-fi` — [ko-fi.com/djordjedjordjevic](https://ko-fi.com/djordjedjordjevic) ·
   `Patreon` — [patreon.com/DjordjeDjordjevic](https://patreon.com/DjordjeDjordjevic) ·
-  `PayPal` — [paypal.me/djdjordjevic](https://paypal.me/djdjordjevic).
+  `PayPal` — [paypal.me/djdjordjevic](https://paypal.me/djdjordjevic) ·
+  `PayPal (monthly)` — [subscription plan P-3J3210109R726894LNLUPHDI](https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-3J3210109R726894LNLUPHDI)
+  (hosted subscribe page, no JS SDK embed).
   Still placeholders: `Paddle` / `Lemon Squeezy` — only entries with a
   non-empty `href` render as links, the rest show as "soon".
   (`Buy Me a Coffee` was removed — Stripe-only payouts don't work for us.)

@@ -1,14 +1,14 @@
 # Qwen3.5-35B-A3B - findings by GPT 5.6 Luna
 
 - Source: Qwen (`Qwen/Qwen3.5-35B-A3B`)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.5-35B-A3B
-- **Short description:** An open-weight multimodal Qwen3.5 mixture-of-experts model for reasoning, coding, visual understanding, and agentic tool use.
+- **Short description:** An open-weight multimodal Qwen3.5 mixture-of-experts model for reasoning, coding, visual understanding, and agentic tool use. It is the exact `Qwen3.5-35B-A3B` checkpoint, not the separately hosted Qwen3.5-Flash service.
 - **Provider / access:** Hugging Face weights; the official card documents Transformers, vLLM, SGLang, KTransformers, Qwen-Agent, Qwen Code, and Alibaba Cloud Model Studio access.
 - **Release / knowledge:** The exact release date and knowledge cutoff were not stated in the verified card.
 - **IDs:** `Qwen/Qwen3.5-35B-A3B`
@@ -71,9 +71,17 @@ Multimodal:
 - **Cost efficiency: 100/100.** Apache-2.0 open weights and local deployment make the model highly cost-efficient, although hardware cost was not quantified.
 - **Overall Score: 79/100.** A strong open multimodal model for reasoning, code, and tool-assisted workflows where local deployment is preferred.
 
+### Current-evidence addendum (2026-11-02)
+
+- The official Hugging Face card continues to identify the checkpoint as `Qwen/Qwen3.5-35B-A3B`, with the 262,144-token native context, YaRN extension, Apache-2.0 license, and the benchmark rows above.
+- Hosted `Qwen3.5-Flash` pricing, aliases, and serving limits are not transferred to this open-weight 35B-A3B checkpoint. The two entries remain separate identities even when a provider exposes both through a compatible API.
+
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-10-23
-- Method: Official Qwen Hugging Face model card and exact-name web checks; scores are normalized interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** - 2026-11-02
+- Method: Fresh official Qwen Hugging Face model-card and exact-name checks; the 35B-A3B checkpoint was kept separate from hosted Qwen3.5-Flash and other Qwen3.5 sizes. Scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qwen3.5-35B-A3B official Hugging Face card](https://huggingface.co/Qwen/Qwen3.5-35B-A3B)
+  - [Qwen3.5 official launch page](https://qwen.ai/blog?id=qwen3.5)

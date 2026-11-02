@@ -1,7 +1,6 @@
-# Sponsor button for the repo. `github:` needs a GitHub Sponsors profile.
-# Fill in your platform usernames/links below (uncomment when ready).
+# Sponsor button for the repo.
+# (GitHub Sponsors key removed — GitHub pays out via Stripe, unavailable for us.)
 # PayPal has no dedicated key — it goes under `custom:` (max 4 URLs).
-github: delirium-dj
 ko_fi: djordjedjordjevic
 patreon: DjordjeDjordjevic
-custom: ["https://paypal.me/djdjordjevic"]
+custom: ["https://paypal.me/djdjordjevic", "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-3J3210109R726894LNLUPHDI"]

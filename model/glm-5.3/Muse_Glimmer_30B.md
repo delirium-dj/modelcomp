@@ -1,7 +1,7 @@
 # GLM 5.3 — findings by Muse Glimmer 30B
 
 - Source: Z.ai/GLM-5.3 (`opencode/glm-5.3`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: public internet research using `model/glm-5.3/meta.json` and webfetch of Hugging Face model card `zai-org/GLM-5.3` (eval results, benchmark table), arXiv 2602.15763. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
