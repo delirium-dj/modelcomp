@@ -1,17 +1,24 @@
 # Omen Alpha — exclusion notes by GPT-6 Luna
 
-- Source: Omen Alpha identity and public-catalog review
-- Date: 2026-10-28 (UTC)
+- Source: Omen Alpha exact-ID benchmark and public-catalog review
+- Date: 2026-11-02 (UTC)
 
-## Negative findings
+## Findings and exclusion rationale
 
-- The available third-party repository describes Omen Alpha as a model website presenting `ox alpha 2.0`; it explicitly says the possible relationship to GLM-5.3-Air is unverified. This is not an official provider/model card.
-- No canonical vendor, API model ID, open-weights repository, or independently attributable evaluation for the exact `omen-alpha` identity was verified in the public catalogs reviewed.
-- No public benchmark score attributable to this exact model ID was found. The suspected GLM relationship is not used to transfer GLM benchmark results.
-- With zero verified exact-ID benchmark numbers, this entry is excluded rather than assigned placeholder scores. Revisit if Omen or its actual model provider publishes an attributable model card/evaluation.
+- OpenCode announced Omen Alpha as a stealth model for Go subscribers on 2026-09-04. A separate evaluator reports testing the exact `omen-alpha` ID through `https://opencode.ai/zen/go/v1`; this establishes a model-specific route at evaluation time, but not the underlying developer or lineage.
+- The evaluator reports a custom `llmbench` coding run on 2026-09-04: 60 tasks × 5 trials, Resolved 95.0% (57/60), average success 95.7%, Quality 84.5, Combined 88.3; on a separate 16-task L7 set × 3 trials, 13/16 resolved (81.2%). The public MIT harness is available for inspection.
+- Treat these as exact-ID, self-reported coding results, not as an official vendor benchmark or an independently replicated leaderboard score. The suite is evaluator-authored and non-standard; the author notes the 60-task set saturates on 40 easy-through-frontier tasks, and flags two L7 items (t103/t105) as likely benchmark-specification defects. No independent rerun was found. The separate `omenalpha.io` 23.14/40 claim is not corroborated and is not used.
+- The results support a qualitative conclusion that this route performed well on that coding suite, but do not provide a defensible normalized score under the project's listed coding benchmarks. More importantly, no exact-model evidence was found for Tool use, general Reasoning, Context window, or Multimodal capability. The current OpenCode Data record (2026-10-29) lists lab as unknown, no model specifications, and `benchmarks: []`; current OpenCode Go documentation does not list Omen Alpha. No current exact-model token pricing was verified. Assigning the required full scorecard would therefore require unsupported values for most dimensions.
+- No normalized scores are assigned and no GLM/Ox Alpha results are transferred. Retain this entry as excluded pending attributable evidence sufficient for a complete scorecard (or a documented project policy for coding-only ratings); this is no longer a zero-benchmark exclusion.
 
 ## Signature
 
-- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
-- Method: Public catalog and identity review. Unverified third-party claims are not treated as model specifications or benchmark evidence.
-- Sources: [Third-party Omen Alpha repository and its explicit disclaimer](https://github.com/laolujava/omenalpha); [models.dev catalog](https://models.dev).
+- Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-11-02
+- Method: 14 successful Omen Alpha searches plus source-level review of the exact-ID evaluation, its public harness, the official OpenCode announcement/catalog, and current Go documentation. Custom benchmark results are reported with their limitations; no sibling-model inference is used.
+- Reference URLs:
+  - [OpenCode announcement](https://x.com/opencode/status/2095746098522452093)
+  - [Exact-ID llmbench evaluation](https://note.com/zephel01/n/nd2412f935144?hl=en)
+  - [Public MIT evaluation harness](https://github.com/zephel01/swe-bench)
+  - [OpenCode Data record](https://opencode.ai/data/unknown/omen-alpha.json)
+  - [OpenCode Go documentation](https://opencode.ai/docs/go/)
+  - [Uncorroborated Omen Alpha benchmark page—not used](https://omenalpha.io/benchmarks.html)

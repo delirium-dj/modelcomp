@@ -21,8 +21,8 @@
 
 Agent / tool use:
 
-- SWE-bench Verified (agentic coding): **61.0%** — Anthropic official (Feb 24, 2025).
-- TAU-bench (Telecom): **49%** pass^1 — evals.report.
+- SWE-bench Verified (agentic coding): **62.3%** (Anthropic official, standard) / **70.3%** (high-compute with rejection sampling) — Anthropic official (Feb 24, 2025); evals.report harness reports 61.0%.
+- TAU-bench (Telecom): **49%** pass^1 — evals.report; Anthropic chart estimate ~81.2% (TAU-bench, domain unspecified, estimated from image, low confidence).
 - GAIA: **43.9%** accuracy — evals.report.
 - GDPval: **1048** Elo — evals.report.
 - WebArena: **52.0%** task success — evals.report.
@@ -33,7 +33,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **78.5%** accuracy — Anthropic official (Feb 24, 2025).
+- GPQA Diamond: **78.5%** accuracy — Anthropic official (Feb 24, 2025); Anthropic chart estimates ~78.2% (64K extended thinking) / ~84.8% (no extended thinking) (estimated from image, low confidence).
 - MMLU-Pro: **83.7%** accuracy — evals.report.
 - AIME (OTIS Mock): **57.8%** accuracy — evals.report.
 - FrontierMath: **4.14%** accuracy — evals.report.
@@ -62,7 +62,8 @@ Long context:
 
 Multimodal:
 
-- MMMU: **75.0%** accuracy — evals.report.
+- MMMU (validation): **75.0%** accuracy — evals.report; Anthropic chart estimates ~75% (64K extended thinking) (estimated from image, low confidence).
+- MMMLU: Anthropic chart estimates ~86.1% (64K extended thinking) / ~83.2% (no extended thinking) / ~82.1% (3.5 new) (estimated from image, low confidence).
 - MMMU-Pro / MMMU not separately beyond above.
 - ZeroBench: **1.0%** (pass@1) — evals.report.
 - Text/image/PDF in.
@@ -93,4 +94,5 @@ Chat / preference:
 - Reference URLs:
   - [Claude 3.7 Sonnet system card / announcement — Anthropic](https://www.anthropic.com/news/claude-3-7-sonnet)
   - [Claude 3.7 Sonnet benchmark scores — evals.report](https://evals.report/models/anthropic-claude-3-7-sonnet)
+  - [Claude 3.7 Sonnet benchmarks (56 data points) — ViralChart (estimated from Anthropic chart)](https://viral-chart.com/data/75be1f405c8a/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

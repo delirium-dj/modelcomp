@@ -1,79 +1,86 @@
-# Muse Spark 1.3 — findings by GPT 5.6 Luna
+# Muse Spark 1.3 — findings by GPT-5.6 Luna
 
-- Source: Meta/Muse Spark 1.3
-- Date: 2026-10-04 (UTC)
+- Source: Meta / Muse Spark 1.3
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.3
-- **Short description:** Meta's flagship agentic and coding model, designed for long-horizon tool use, software engineering, and long-context work. Contributor/standard/max are access or reasoning tiers of the same model, not separate weights.
-- **Provider / access:** Meta Model API and Muse Code; exact API route is documented as `meta/muse-spark-1.3` by independent model listings. Chat-completions-compatible access is reported; endpoint-specific Responses support was not verified.
-- **Release / knowledge:** 2026-09-02 release; knowledge cutoff not publicly verified.
-- **IDs:** `meta/muse-spark-1.3` (no verified Zen Free ID).
-- **Context window:** 1,000,000 tokens; reported by DataCamp's launch analysis and Meta pricing comparison.
-- **Modalities:** Text in/out, reasoning modes, tool calls, and JSON-oriented developer access are reported. Image/audio/video support was not verified in the sources reviewed; multimodal score is therefore capped.
-- **Pricing (as of 2026-10-04):** Contributor $0.10 input / $0.20 output per 1M tokens, cached $0.002 input; Standard xhigh $1.25 input / $4.25 output, cached $0.15. Contributor prompts and completions may be used to improve Meta products; Standard is described as privacy-preserving. Max pricing was not verified.
-- **Architecture:** Proprietary closed model; parameter count and MoE details were not publicly verified.
+- **Short description:** Meta Superintelligence Labs' proprietary multimodal reasoning model for long-horizon agentic workflows, coding, computer use, and multi-agent orchestration. The 1.3 release is a distinct version of Muse Spark, not an access-tier alias; the Contributor ID is a data-use/pricing tier of the same model family.
+- **Provider / access:** Meta Model API (`muse-spark-1.3` and `muse-spark-1.3-contributor`); Muse Code; OpenRouter (`meta/muse-spark-1.3`, Chat Completions). Meta's developer page documents an OpenAI-compatible client, and OpenRouter documents the Chat Completions route.
+- **Release / knowledge:** 2026-09-02 release; knowledge cutoff not publicly stated.
+- **IDs:** `meta/muse-spark-1.3`; Contributor variant `meta/muse-spark-1.3-contributor`. I did not verify a separate OpenCode Zen Free ID.
+- **Context window:** 1,048,576 tokens (1M), verified on Meta's model page and independently on Artificial Analysis. Meta reports MRCR retrieval of 98.5% at 256K–512K and 98.1% at 512K–1M. Maximum output was not stated in the reviewed official material.
+- **Modalities:** Text, image, video, and document input; text output; reasoning; tool calls and multi-agent orchestration. Meta's model page explicitly advertises video, images, and documents. Audio support was not confirmed by the official page; an independent deployment review says audio is not fully supported in 1.3, so it is not credited here.
+- **Pricing (as of 2026-11-02):** Standard `muse-spark-1.3`: $1.25 input / $0.15 cached input / $4.25 output per 1M tokens. Contributor `muse-spark-1.3-contributor`: $0.10 input / $0.002 cached input / $0.20 output, but Meta says that tier may use prompts and completions to improve its products. Prices and the tier distinction are from Meta's developer page.
+- **Architecture:** Proprietary, closed-weight API model; parameter count and active/total architecture were not disclosed. Meta describes it as natively multimodal and trained for agentic workflows; an open-weights release is only described as future roadmap material.
 
-## Raw benchmarks found
+### Raw benchmarks found
+
+> The primary 1.3 scorecard is Meta's own comparison at stated reasoning settings (Muse Spark 1.3 max, Muse Spark 1.2 xhigh, GPT-5.6 Sol max, Opus 5 max). I retain the harness and caveats rather than treating vendor comparisons as independent leaderboard results.
 
 Agent / tool use:
 
-- GDPval-AA v2: **1754 Elo** (DataCamp table reporting Meta's comparison; max tier).
-- JobBench: **64.9%** (DataCamp; max tier).
-- OSWorld 2.0: **66.9%** (DataCamp; max tier).
-- AutomationBench: **49.4%** (DataCamp; max tier).
-- Agentic IF Index: **57.8%** (DataCamp; max tier).
-- Tau3-Bench Banking: **52%** (Artificial Analysis comparison summarized by Awaited; max tier).
+- GDPval-AA v2: **1754 Elo** (Meta 1.3 scorecard; professional knowledge work).
+- JobBench: **64.9%** (Meta scorecard; multi-step workplace tasks).
+- OSWorld 2.0: **66.9% partial / 32.0% binary** (Meta scorecard; computer-use evaluation).
+- DeepSearchQA: **90.3%** (Meta scorecard; agentic browsing and research).
+- Agentic IF Index: **57.8** (Meta internal instruction-following index).
+- AutomationBench: **49.6%** (Meta scorecard; end-to-end business workflows).
+- Terminal-Bench 2.1: **88.8%** (Meta scorecard; agentic terminal coding).
+- MRCR: **98.5% at 256K–512K** and **98.1% at 512K–1M** (Meta scorecard; long-context retrieval).
+- Independent conflict: Flowtivity reproduces most of Meta's scorecard but reports DeepSearchQA **89.4%** and AutomationBench **49.4%**, rather than Meta's rendered-table values of 90.3% and 49.6%. I retain the official values and flag the small transcription/harness discrepancy instead of averaging them.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (The Model Gap, Artificial Analysis max-tier tracking; comparison marked saturated/tainted).
-- Humanity's Last Exam: **48.7%** (The Model Gap, Artificial Analysis max-tier tracking).
-- Artificial Analysis Intelligence Index: **61 xhigh / 62 max** (DataCamp; max was initially limited preview and xhigh was the generally callable tier).
-- DeepSearchQA: **89.4%** (DataCamp; max tier).
+- Artificial Analysis Intelligence Index: **36** on its Muse Spark 1.3 release page (independent tracker; current release view; page also lists 1M context and reasoning support).
+- GPQA Diamond, HLE, LCR/MLCR, and CritPt: **no directly attributable 1.3 result verified in Meta's 1.3 scorecard**.
+- BenchLM's family/base page reports GPQA-D **89.5%**, HLE **50.4%**, AA-LCR **78.0%**, and an AA Intelligence Index **31.3**, but the same page labels the covered model “Muse Spark” and lists a 262K context window. Those figures conflict with the 1.3-specific 1M-context release page and are treated as family/legacy or mixed-provider proxies, not as exact 1.3 scores.
 
 Coding:
 
-- DeepSWE v1.1: **75.4%** (DataCamp, Meta-reported comparison harness; independent confirmation unavailable).
-- SWEAtlas CodeBase QnA: **59.4%** (DataCamp, Meta-reported comparison harness).
-- Terminal-Bench 2.1: **88.8%** (DataCamp, Meta comparison); an independent Vals AI run reported **72.28%**, showing substantial harness sensitivity.
-- LiveBench: **81.6%** (The Model Gap, independent tracking, xHigh effort).
+- DeepSWE v1.1: **75.4%** (Meta scorecard; long-horizon agentic software engineering).
+- SWEAtlas CodeBase QnA: **59.4%** (Meta scorecard; codebase understanding).
+- Terminal-Bench 2.1: **88.8%** (Meta scorecard; also relevant to tool use).
+- LiveCodeBench, SciCode, SWE-bench Verified, and Vibe Code Bench: **no directly attributable 1.3 result verified in the reviewed primary scorecard**.
+- Meta additionally reports roughly **20% fewer tool calls** and **25% fewer tokens** than Muse Spark 1.2 on its internal coding comparisons; this is an efficiency claim, not a public benchmark score.
 
 Long context:
 
-- MRCR 256K–512K: **98.5%** (DataCamp, Meta comparison; max tier).
-- MRCR 512K–1M: **98.1%** (DataCamp, Meta comparison; max tier).
+- MRCR **98.5% at 256K–512K** and **98.1% at 512K–1M** (Meta scorecard). This is the strongest exact-model evidence found and supports the 1M context claim.
 
-## Normalized scores (1–100)
+Multimodal:
 
-- **Tool use: 86/100.** Strong GDPval, JobBench, OSWorld, and automation results support high agent capability, but the mixed harness provenance and middling Agentic IF score cap confidence.
-- **Reasoning: 86/100.** GPQA 93.5%, HLE 48.7%, and Intelligence Index 61–62 indicate frontier-level reasoning, while HLE is not dominant and the max/xhigh comparison is not uniform.
-- **Context window: 99/100.** The 1M-token window and MRCR scores of 98.5% and 98.1% at 512K–1M are unusually strong; the score is capped below 100 because independent retrieval coverage is limited.
-- **Multimodal: 70/100.** Text reasoning and tool workflows are verified, but broad image/audio/video input-output support was not verified publicly.
-- **Coding: 90/100.** DeepSWE 75.4, SWEAtlas 59.4, and Meta's Terminal-Bench 88.8 are excellent, though the independent Terminal-Bench result of 72.28 and lack of independent DeepSWE confirmation cap the score.
-- **Cost efficiency: 96/100.** Contributor pricing is exceptionally low and Standard remains far below comparable frontier output pricing, with a privacy/data-use tradeoff on Contributor.
-- **Overall Score: 86.2/100.** Best fit: high-volume coding and long-context agents where low cost and retrieval reliability matter; validate performance on the target harness before relying on Meta's best-case coding figures.
+- Meta's model page verifies native perception of **images, video, and documents**, with text output. No exact 1.3 MMMU/vision score was found in the official 1.3 scorecard.
+- BenchLM's family page lists MMMU-Pro **80.4%**, CharXiv **86.4%**, and ScreenSpot Pro **84.1%**, but its 262K “Muse Spark” identity makes these provisional proxies only; they are not used as exact 1.3 measurements.
 
-### Deep-research addendum (2026-10-09)
+### Normalized scores (1–100)
 
-- Meta’s launch material confirms Muse Spark 1.3 is an update focused on coding and agentic tasks and is available through Muse Code and Meta’s API.
-- The project’s tier rule applies: Contributor/Free/Max are access or effort tiers of the same model, not separate checkpoints.
-- Source: https://research.meta.ai/blog/introducing-muse-spark-1-3
+- **Tool use: 94/100.** GDPval-AA 1754, Terminal-Bench 2.1 at 88.8%, DeepSearchQA at 90.3%, and strong long-horizon workflow claims justify a frontier score; OSWorld partial 66.9%, AutomationBench 49.6%, and vendor-only comparisons cap it below the very top.
+- **Reasoning: 90/100.** The 98%+ MRCR retrieval results and Artificial Analysis index of 36 support strong reasoning, while the absence of a clean 1.3 GPQA/HLE set and the conflicting family-level BenchLM index prevent a higher score.
+- **Context window: 100/100.** The verified 1,048,576-token window plus 98.5%/98.1% MRCR retrieval at both long spans meets the methodology's ≥1M and ≥98% retrieval ceiling.
+- **Multimodal: 85/100.** Official documentation verifies image, video, and document input with text output, matching the high video/PDF tier; unverified audio and no exact official multimodal score cap the rating.
+- **Coding: 95/100.** DeepSWE 75.4%, Terminal-Bench 88.8%, and SWEAtlas 59.4% are frontier agent-coding results, with Meta also reporting lower tool/token use; the lack of independently reproduced 1.3 coding scores caps it.
+- **Cost efficiency: 88/100.** Standard pricing is $1.25/$4.25 per 1M input/output tokens, approximately the methodology's ~$1.25/$4.25 band. Contributor is much cheaper but carries an explicit training-data trade-off and is a separate tier, so it is not silently scored as free.
+- **Overall Score: 93/100.** Half-up mean of the five quality dimensions `(94 + 90 + 100 + 85 + 95) / 5 = 92.8`; best fit is long-context agentic coding and terminal work, not a universal substitute for independently validated general knowledge work.
 
-### Multi-source deep-research addendum (2026-10-09)
-
-- Meta’s official release identifies Muse Spark 1.3 as a coding/agent update available through Muse Code and Meta’s API.
-- Meta-reported scores, echoed by multiple secondary analyses, include DeepSWE v1.1 **75.4%**, Terminal-Bench 2.1 **88.8%** (tied with GPT-5.6 Sol), and AutomationBench **49.4%**. These are vendor-harness results and should not be conflated with independent harnesses.
-- Independent reporting is materially lower on some setups: Vals AI Terminal-Bench 2.1 is reported at **72.28%**, while Artificial Analysis tracks a result around **85.4%**. The spread is likely harness/effort dependent.
-- An independent ToneBench placement puts the thinking configuration at **#83/181**, a reminder that coding/agent strength does not imply writing-leaderboard leadership.
-- **Assessment:** retain the strong coding/tool profile but cap confidence in the overall score because the benchmark spread is large and most headline numbers originate from Meta’s own evaluation stack.
-- Sources: https://research.meta.ai/blog/introducing-muse-spark-1-3 ; https://www.datacamp.com/blog/muse-spark-1-3 ; https://awaited.dev/benchmarks/muse-spark-1-3-benchmarks/ ; https://benchmark.towardsai.com/models/muse-spark-1-3-thinking-or.html
+---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04
-- Method: fresh public web research using Meta/benchmark reporting and independent benchmark trackers; scores are normalized interpretations, not official vendor scores.
+- Provided by: **GPT-5.6 Luna (openai/gpt-5.6-luna-fast)** — 2026-11-02
+- Method: Three independent web searches plus official Meta documentation/release material and independent Artificial Analysis, BenchLM, Flowtivity, TrueFoundry, and OpenRouter pages were compared. Scores are normalized 1–100 interpretations, not official vendor scores; conflicting family-level or vendor-only figures are explicitly marked rather than merged.
+- Reference URLs:
+  - [Meta developer model card and pricing](https://dev.meta.ai/models/muse-spark)
+  - [Meta AI Research: Introducing Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+  - [Meta evaluation methodology link](https://ai.meta.com/static-resource/muse-spark-eval-methodology)
+  - [Artificial Analysis: Muse Spark 1.3 release intelligence](https://artificialanalysis.ai/models/releases/muse-spark-1-3)
+  - [BenchLM: Muse Spark benchmark aggregation](https://benchlm.ai/models/muse-spark)
+  - [Flowtivity: independent Muse Spark 1.3 benchmark analysis](https://flowtivity.ai/blog/meta-muse-spark-1-3-benchmarks-ai-agents/)
+  - [TrueFoundry: independent deployment and pricing review](https://www.truefoundry.com/blog/muse-spark-1-3)
+  - [OpenRouter: Meta Muse Spark 1.3 API documentation](https://openrouter.ai/meta/muse-spark-1.3)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---

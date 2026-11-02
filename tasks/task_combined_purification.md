@@ -85,28 +85,22 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 
 **Priority 1 — pure deletions (no behaviour change):**
 
-- **A4** — `state/` empty directory deleted locally ✅ DONE.
 - **A8** — `PRD/webshop-prd.md` — 223 KB webshop spec with no connection to this project.
   `PRD/` stays gitignored (`.gitignore:13`); delete only `webshop-prd.md`. Per user instruction,
   do NOT un-ignore `PRD/` or remove `PRD/prd.md` references beyond what C3 already did.
-- **B6** — `src/components/FreeZenLink.tsx` `any[]` → `JSXOutput[]` (strict type safety) ✅ DONE.
 
 **Priority 2 — correctness / latent bugs:**
 
-- **B1 (from Kimi K3 / Claude Opus / Muse Spark)** — `voicemodels/` tripwire can never fire
-  (variable shadowing: loop var `root` shadows repo root `root`, so `join(root, root)` evaluates
-  to `"voicemodels/voicemodels"`). `RULES.md:48` guarantees sync FAILs loudly while `voicemodels/`
-  exists — it does not. Fix: rename loop variable to `forbidden`.
-- **B2** — canonical URLs + sitemap point at `localhost:4173` (`adapters/static/vite.config.ts` hardcodes
+- **B7** — canonical URLs + sitemap point at `localhost:4173` (`adapters/static/vite.config.ts` hardcodes
   `origin`). Fix: `origin: process.env.SITE_ORIGIN ?? "http://localhost:4173"`.
-- **B3** — `<link rel="manifest">` emitted twice on every page (`root.tsx:40-45` + `router-head.tsx:15`).
-- **B4** — all model pages share one static `<title>`; make `head` a resolver keyed off `params.slug`.
-- **B5** — contact form can never submit (`CONTACT_EMAIL = ""`).
-- **B6** — five permanent "· soon" donate placeholders (`EXTRA_DONATE_LINKS` all have `href: ""`).
-- **B7** — contact unreachable from desktop header (fixed by **D8** below).
-- **B8 (from GLM)** — duplicate target slug in `SOURCE_DEFS` ("Laguna XS 2.1" and "Laguna XS 2 1"
+- **B8** — `<link rel="manifest">` emitted twice on every page (`root.tsx:40-45` + `router-head.tsx:15`).
+- **B9** — all model pages share one static `<title>`; make `head` a resolver keyed off `params.slug`.
+- **B10** — contact form can never submit (`CONTACT_EMAIL = ""`).
+- **B11** — five permanent "· soon" donate placeholders (`EXTRA_DONATE_LINKS` all have `href: ""`).
+- **B12** — contact unreachable from desktop header (fixed by **D8** below).
+- **B13 (from GLM)** — duplicate target slug in `SOURCE_DEFS` ("Laguna XS 2.1" and "Laguna XS 2 1"
   both map to `slug: "laguna-xs-2.1"`).
-- **B9** — `tasks/sync-data.md` contradicts itself on curated vs. derived SOURCES order.
+- **B14** — `tasks/sync-data.md` contradicts itself on curated vs. derived SOURCES order.
 
 **Priority 3 — documentation drift:**
 

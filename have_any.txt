@@ -66,7 +66,6 @@ glm-5.2
 glm-5.2-coding
 glm-5.3
 glm-5.3-flash
-glm-5.3-flash-x
 glm-5.3-flashx
 glm-5.3-free
 gpt-5

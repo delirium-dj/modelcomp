@@ -1,7 +1,7 @@
 # DeepSeek-V3.2 — findings by Muse Glimmer 30B
 
 - Source: DeepSeek / DeepSeek-V3.2
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -67,7 +67,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

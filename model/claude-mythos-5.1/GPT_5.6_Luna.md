@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by ChatGPT 5.6 Luna
 
 - Source: Anthropic/Claude Mythos 5.1
-- Date: 2026-10-01 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-mythos-5-1`; API IDs `claude-mythos-5-1` / `anthropic.claude-mythos-5-1` on Bedrock. No verified OpenCode Zen Free ID found.
 - **Context window:** 1M tokens; max output 128K. Verified directly in Anthropic Claude Platform Docs.
 - **Modalities:** text + image in; text out; adaptive reasoning/thinking always on; tool calls supported; structured outputs supported. No verified public audio/video input or non-text output. Forced `tool_choice: any` / `tool` is not supported on Mythos 5.1; use automatic tool choice with strict tool use or structured outputs. Source: Anthropic Claude Platform Docs.
-- **Pricing (as of 2026-10-01):** $10 / 1M input tokens; $50 / 1M output tokens; 5m cache write $12.50 / 1M; 1h cache write $20 / 1M; cache read $0.25 / 1M; Batch API 50% discount on input/output. Invite-only, no verified free tier. Anthropic states Mythos 5.1 uses a 30-day data-retention policy by default for safety monitoring.
+- **Pricing (as of 2026-11-02):** $10 / 1M input tokens; $50 / 1M output tokens; 5m cache write $12.50 / 1M; 1h cache write $20 / 1M; cache read $0.25 / 1M; Batch API 50% discount on input/output. Invite-only, no verified free tier. Anthropic states Mythos 5.1 uses a 30-day data-retention policy by default for safety monitoring.
 - **Architecture:** Proprietary closed model; no public parameter count, active-parameter count, MoE disclosure, or open-weights license verified. Anthropic states Mythos 5.1 and Fable 5.1 are the same underlying model with different safeguards.
 
 ### Raw benchmarks found
@@ -66,8 +66,18 @@ Agent / tool use:
 - Recalculation: **retained 75.0/100**. The new evidence clarifies model identity and safeguards but does not fill the missing exact-model tool, reasoning, or multimodal evaluations.
 - Sources: https://platform.claude.com/docs/en/models/mythos-5-1/overview ; https://www.anthropic.com/claude/mythos ; https://www.anthropic.com/claude-fable-and-mythos-5-1
 
+### Current refresh (2026-11-02)
+
+- Anthropic's current platform reference confirms that Mythos 5.1 is the same underlying model as Fable 5.1 with different safeguards, but is verification-gated and priced at $10/$50 with 1M context and 128K output. The October 29 BenchLM page exposes only one exact-model row, Terminal-Bench 4.0 at **60.90%**, and assigns no overall score; no new public exact-model aggregate from Artificial Analysis or Vals was verified.
+- Recalculation: **retained 75.0/100**. The new coverage check does not justify transferring Fable 5.1 results to Mythos 5.1, so the existing conservative exact-model score remains.
+- Sources: https://platform.claude.com/docs/en/models/mythos-5-1/overview ; https://benchlm.ai/models/claude-mythos-5-1 ; https://www.anthropic.com/claude-fable-and-mythos-5-1
+
 ## Signature
 
-- Provided by: **ChatGPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-01
-- Method: public internet research limited to verifiable first-party Anthropic documentation and permitted benchmark directories; exact-model results were kept separate from Fable 5.1 results even where Anthropic states the underlying model is shared. Scores are normalized 1-100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-11-02
+- Method: refreshed public internet research limited to verifiable first-party Anthropic documentation and permitted benchmark directories; exact-model results were kept separate from Fable 5.1 results even where Anthropic states the underlying model is shared. Scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Claude Mythos 5.1 platform reference](https://platform.claude.com/docs/en/models/mythos-5-1/overview)
+  - [Anthropic Fable 5.1 and Mythos 5.1 announcement](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+  - [BenchLM Claude Mythos 5.1 benchmarks](https://benchlm.ai/models/claude-mythos-5-1)
+  - [Claude Fable 5.1 and Claude Mythos 5.1 system card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20%26%20Claude%20Mythos%205.1%20System%20Card.pdf)

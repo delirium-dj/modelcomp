@@ -1,7 +1,7 @@
 # Llama 3.2 Vision Instruct — findings by Gemini 3.5 Flash Lite
 
 - Source: Meta / Llama 3.2 Vision (`meta/llama-3.2-11b-vision-instruct` / `meta/llama-3.2-90b-vision-instruct`)
-- Date: 2026-10-26 (UTC; empirical research and multi-source verification)
+- Date: 2026-11-02 (UTC; empirical research and multi-source verification)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,5 +43,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-26
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Multi-source empirical research and evaluation across official Meta Llama model cards and independent multimodal benchmark datasets; normalized 1–100 interpretations.

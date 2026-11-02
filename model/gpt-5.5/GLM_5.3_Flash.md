@@ -1,87 +1,74 @@
 # GPT-5.5 — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.5 (deprecated flagship — superseded by GPT-5.6 Sol; no Free-tier wording)
-- **Short description:** OpenAI's fully retrained agentic model released April 23, 2026, optimized for agentic coding, computer use, knowledge work and early scientific research. Now deprecated: Artificial Analysis flags it historical and points users to GPT-5.6 Sol (xhigh).
-- **Provider / access:** OpenAI API (`gpt-5.5`); also OpenRouter, Vercel AI Gateway, AWS Bedrock ($5.50/$33), and 16+ routers/gateways. Not on OpenCode Zen (no Zen Free ID).
-- **Release / knowledge:** Released April 23, 2026; deprecated after GPT-5.6 Sol's launch (AA continues benchmarking only the 10K-input workload). Knowledge cutoff December 2025.
-- **IDs:** `gpt-5.5` (plus `gpt-5.5-pro` listed as a sibling in comparison indexes).
-- **Context window:** 1,050,000 tokens (1.05M) / 128,000 max output (LLMReference; BenchLeader 1.1M); Artificial Analysis measures 922K on the xhigh endpoint. Long-context surcharge above 272K input tokens.
-- **Modalities:** Text + image in; text out. Reasoning: yes — effort levels none/low/medium/high/xhigh (full effort sweep measured by BenchLeader/AA).
-- **Pricing (as of 2026-10-09):** $5.00 in / $30.00 out per 1M (blended $11.25/M, BenchLeader); cache reads $0.50; Batch $2.50/$15.00. AA cost per full Intelligence Index run $2.63; output speed 88 tok/s (AA-measured, faster than most), first token 2.87s.
-- **Architecture:** Proprietary, closed weights; parameters undisclosed. Decoder-only.
+- **Name:** GPT-5.5
+- **Short description:** OpenAI's April-2026 flagship for complex professional work — strongest agentic coder of its generation with a 1M context window; now superseded in practice by the GPT-5.6 family and GPT-6.x routes at the same or lower prices.
+- **Provider / access:** OpenAI API `gpt-5.5` (Responses + Chat Completions; structured outputs, function calling, extended prompt caching, built-in computer use, hosted shell, apply_patch, Skills, MCP, web search, Batch); Codex (400K context there); ChatGPT (Thinking). Third-party resellers from $0.19/$1.13 (UnoRouter).
+- **Release / knowledge:** Released 2026-04-23; knowledge cutoff December 1, 2025. Not on OpenAI's official deprecation list as of the October 2026 check, but third-party registries mark it deprecated and OpenAI recommends the GPT-5.6 tiers as replacements; it has been removed from ChatGPT-signed-in Codex sessions.
+- **IDs:** `gpt-5.5` (API); `gpt-5.5-pro` ($30/$180) is the separate Pro tier. No Free ID exists on Zen — paid only.
+- **Context window:** 1M tokens (1,050,000 per OpenAI model pages) / 128K max output — verified via the API changelog and launch docs; Codex caps at 400K.
+- **Modalities:** Text and image in; text out. Reasoning (effort defaults to `medium`, xhigh available); tool calls; JSON/structured output; extended prompt caching only (no in-memory caching).
+- **Pricing (as of 2026-11-02):** $5 in / $30 out per 1M tokens short-context (≤272K input); long-context (≥272K) bills the whole request at $10 in / $45 out; cached input $0.50 ($1.00 long); Batch/Flex 50% off; Fast mode 2.5x ($12.50/$75). Same list price as GPT-5.6 Sol at launch, which now runs a $4/$20 promotion.
+- **Architecture:** Proprietary closed weights; reasoning model with persisted reasoning absent (arrived with 5.6).
 
 ### Raw benchmarks found
 
-> xhigh effort unless noted; effort sweep via BenchLeader/AA (data as of 2026-10-09).
-
 Agent / tool use:
 
-- Terminal-Bench: **84.7%** #1 (tbench.ai leaderboard via Epoch AI Benchmarking Hub/BenchLeader); Terminal-Bench 2.1 (AA): **84.3%** #30 at xhigh (sweep 61.0→84.3); TB2.1 (Vals): 76.4%; TB2.0 (Vals): **73.2%** #1
-- Terminal-Bench Hard (AA): **60.6%** #7 at xhigh (sweep 49.2→60.6); Terminal-Bench 4.0 (AA): 14.7% #66 (recalibrated, weak)
-- Tau2-Bench Telecom (AA): **93.9%** #39 at xhigh (sweep 69.3→93.9); Tau3-Banking (AA): **39.0%** #34
-- MCP Atlas (Scale AI SEAL): **75.3%** #18 (fills the previously-missing MCP row)
-- APEX-Agents: **55.1%** #19 (Mercor); APEX-Agents-AA: **37.7%** #6
-- GDPval-AA v2.1: **42.7%** #84 (AA-normalized); old snapshot: Elo 1494 / 84.9% wins-ties (OpenAI-reported)
-- OSWorld-Verified 2.0: 13.0% #9 at xhigh (weak) — CONFLICT: OSWorld-Verified (v1) reads **78.7%** (OpenAI official, added 2026-10-16); Remote Labor Index: **6.3%** #5; HiL-Bench: **39.7%** #7
-- Added 2026-10-16 (OpenAI/BenchLM): CyberGym **81.8%**; BrowseComp **84.4%**; Toolathlon **55.6%**; τ²-Bench **98%**; Gert Labs **72.93%**; JobBench **42.7%**; GDPval-AA **Elo 1396**; ApprenticeBench **20%**; MazeBench ASCII **0%**; AA Coding Index **74.9%**; React Native Evals **84.7%**; AA Intelligence Index **38.4**
-- ITBench SRE (AA): **45.8%** #13; SkillsBench (Vals): **62.2%** #5; Finance Agent v2 (Vals): 51.8%; Tax Agent (Vals): **60.5%**; Legal Research (Vals): 40.4%; Harvey (Vals): 3.8%
-- ExploitBench: **47.4%** #2; GBAEval: **53.2%** #6; Vending-Bench 2: 7523.8 #13; Analyst Agent (AA): **50.0%** #7 at xhigh
-- Claw-Eval / ClawProBench: no verified public score found
+- Terminal-Bench 2.0: **82.7%** (vendor, SOTA at launch); Terminal-Bench 2.1: **76.4%** (benchlm) / **78.2%** (Terminus-2) / **84.1%** (Codex xhigh, AA)
+- τ²-bench Telecom: **98.0%** (vendor/leaderboard #1 of 10 at reading)
+- BrowseComp: **84.4%** (vendor); OSWorld-Verified: **78.7%** (vendor)
+- MCP-Atlas: **75.3%** (vendor); Toolathlon: **55.6%** (vendor)
+- GDPval-MM: **84.9%** (vendor, wins-or-ties framing); CyberGym: **81.8%** (vendor)
+- Terminal-Bench Hard (AA): **60.6%** (AA)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** #14 (AA, xhigh; sweep 77.3→93.5); Vals: 93.2% #10; earlier LLMReference card: 93.6%
-- HLE: **45.8%** #45 (AA, xhigh; sweep 13.7→42.4→45.8 — fills the previously-missing HLE); OpenAI official **52.2%** with tools / **41.4%** without (added 2026-10-16 — strongest reading)
-- ARC-AGI-2 (verified): **85.0%** #28 at xhigh (sweep 33.3→70.4→83.3→85.0; ARC Prize); ARC-AGI-1: **95.0%** #33; ARC-AGI-3: 0.4% #38 (high)
-- FrontierMath Tier 1–3: **85.3%** #12 (Epoch v2); Tier 4: **72.5%** #18 — big updates over the April-announcement-era numbers
-- AIME 2026: **100.0%** #1 (MathArena); HMMT February 2026: **98.5%** #1; MathArena Apex: **80.2%** #2; OTIS Mock AIME: 84.4% (low)
-- SimpleBench: **69.0%** #15; CritPt: **27.1%** #31 (AA, xhigh); LMCA: **54.3%** #33; DTBench: **96.0%** #22
-- LiveBench Reasoning: **89.7%** #14; LiveBench Math: **95.9%** #13; MMLU-Pro (Vals): **88.1%** #21
-- AA-Omniscience: Index 20.5 #63, accuracy **58.0%** #28, non-hallucination **11.0%** #388 at xhigh (severe hallucination regression at high effort)
-- Artificial Analysis Intelligence Index: composite now represented by BenchLeader Index **65.9 ±3.5** (#35 of 760, xhigh best; Reasoning 76, Coding 61, Agents & tools 62, Maths 70, Knowledge 65, Long context 68) — the older "38 (#42/200)" snapshot predates the index recalibration
+- GPQA Diamond: **93.6%** (vendor; leaderboard #8/263)
+- ARC-AGI-2: **85.0%** (llmboard #2/19); ARC-AGI-1: **95.0%**
+- HLE: **41.4%** no tools / **52.2%** with tools (vendor)
+- FrontierMath: Tiers 1–3 **51.7%**, Tier 4 **35.4%** (vendor)
+- AA CritPt: **27.14%**; AA LCR v1.1: **84.33%**; AA Omniscience: **57.95%**; SciCode: **56.1%** (AA)
+- Artificial Analysis Intelligence Index: **54.8** (aggregator reading, #5/17 at capture)
 
 Coding:
 
-- SWE-bench Verified: **82.6%** #19 (Vals.ai independent harness)
-- SWE-bench Pro: **58.6%** (LLMReference card)
-- DeepSWE v1.1: **67.0%** #22 at xhigh (Epoch; sweep 27.0→54.0→64.4→67.0 — fills the previously-missing DeepSWE)
-- SciCode: **56.1%** #37 at xhigh (SciCode via Epoch; AA 55.8% — fills the previously-missing SciCode)
-- LiveCodeBench: **85.3%** #33 (Vals); Vibe Code Bench v1.1: 69.8% #33 (Vals)
-- SWE Atlas: Codebase QnA **45.4%** #8, Refactoring **44.8%** #6, Test Writing **42.6%** #9 (Scale AI SEAL)
-- Terminal-Bench 2.1 (coding harness): 84.3% (above); TB2.0 (Codex CLI scaffold): 82.7%
-- WeirdML: **84.9%** #14 at xhigh; Surface Evolver Bench: **88.1%** #5; ALE-Bench: **1943.0** #9; GSO-Bench: 40.2% #9; FrontierCode: 43.0% #16; Code Migration: 45.2% #15; MirrorCode: 10.0% #8
-- LMArena Coding: 1511 (#58); LMArena WebDev: 1513 (#52); LMArena Hard Prompts: 1499 (#34)
+- SWE-bench Pro (public): **58.6%** (vendor); AA hard-aa re-runs: **30.9%** (Codex xhigh) / **26.2%** (medium) — large harness sensitivity
+- SWE-bench Verified: **88.7%** (aggregator-cited launch figure; treat as provisional)
+- Terminal-Bench 2.0/2.1: see above; FrontierSWE: **73.0%** (llmboard)
+- LiveBench: **80.71%** (llmboard); LiveCodeBench: no verified public score found
 
 Long context:
 
-- 1.05M window with a long-context surcharge above 272K input; LMCA **54.3%** #33 (Epoch)
-- Added 2026-10-16 (OpenAI official): MRCR v2 **83.1%** (64K–128K) / **87.5%** (128K–256K) — first verified retrieval-at-depth rows; AA-LCR **84.3%** (AA current)
-
-Multimodal / vision:
-
-- OpenAI official MMMU-Pro **81.2%** / **83.2%** with Python; AA-MMMU-Pro **79.9%** (added 2026-10-16); OfficeQA Pro **54.1%**; BenchLeader Multimodal 63
+- MRCR v2 (8-needle, 512K–1M): **74.0%** (vendor; vs GPT-5.4 36.6% and Opus 4.6 32.2%) — best-in-class at release; 128–256K **87.5%**, 256–512K **81.5%**
+- GraphWalks parents >128K: **58.5%**; BFS >128K: **45.4%** (llmboard, competitor-compiled)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Terminal-Bench 84.7% (#1 on tbench.ai), TB2.1 84.3% (AA) and TB2.0 73.2% #1 (Vals) clear the TB ~88%-band edge across three harnesses; Tau2 Telecom 93.9% (#39) and MCP Atlas 75.3% (#18) fill previously-missing rows; APEX 55.1%; the weak TB4.0 14.7% (recalibrated) and OSWorld-2.0 13.0% cap it at the band floor.
-- **Reasoning: 89/100.** CHANGED from 88 — GPQA 93.5% (#14; official 93.6%), the newly surfaced official HLE 52.2% with tools (up from AA's 45.8%), ARC-AGI-2 85.0% verified (#28), FrontierMath 85.3%/72.5% and AIME 2026 100% #1 are frontier-band; the severe AA-Omniscience non-hallucination 11.0% (#388 — ~89% hallucination rate at xhigh) and CritPt 27.1% cap it below 90.
-- **Context window: 95/100.** CHANGED from 92 — 1.05M window (95–100 tier) with 128K output; the newly verified MRCR v2 83.1%/87.5% retrieval-at-depth rows resolve the old "no retrieval verified" gap; AA-LCR 84.3%; the >272K surcharge remains the caveat.
-- **Multimodal: 68/100.** CHANGED from 65 — text+image in / text out, now with measured official MMMU-Pro 81.2%/83.2% (top of the 60–70 image-in band; BenchLeader Multimodal 63).
-- **Coding: 86/100.** SWE-bench Verified 82.6% (Vals #19), DeepSWE 67.0% #22 (fills the previously-missing row, below the 74%+ frontier threshold), SciCode 56.1% (clears the 55%+ mark), LiveCodeBench 85.3% and TB2.1 84.3% — strongly corroborated, mid-frontier.
-- **Cost efficiency: 45/100.** $5/$30 per 1M (blended $11.25/M) interpolates between the $3/$15→60 and $10/$50→30 anchors; $2.63 per Index run and Batch at 50% soften it slightly. No free tier.
-- **Overall Score: 86/100.** CHANGED from 84 — mean of the five quality dims (90 + 89 + 95 + 68 + 86) / 5 = 428/5 = 85.6 → 86. Best fit: a deprecated-but-verified April 2026 flagship — strong terminal/telecom agent work and verified math/coding at premium prices, but GPT-5.6 Sol or GPT-6 Astra supersede it for new work.
+- **Tool use: 86/100.** Launch-era SOTA Terminal-Bench 2.0 82.7 with τ²-Telecom 98 and BrowseComp 84.4; capped by Toolathlon 55.6, MCP-Atlas 75.3 and the weak AA Terminal-Bench Hard 60.6 against newer models.
+- **Reasoning: 89/100.** GPQA 93.6, ARC-AGI-2 85 and FrontierMath T4 35.4 led the April field; capped by HLE 41.4 (no tools) and CritPt 27.1 against the 2026 H2 frontier.
+- **Context window: 93/100.** Verified 1M-token window with a then-best MRCR v2 74.0 at 512K–1M; capped by the 2x long-context surcharge and weaker GraphWalks BFS 45.4.
+- **Multimodal: 70/100.** Text+image in with MMMU-Pro 83.2; capped by text-only output and no audio/video input.
+- **Coding: 84/100.** Terminal-Bench 2.0 82.7 and FrontierSWE 73.0 hold up; capped by SWE-bench Pro 58.6 (and only ~31 on AA's hard-aa re-run), no verified LiveCodeBench, and successor models now dominating the same boards.
+- **Cost efficiency: 45/100.** $5/$30 list is unchanged while GPT-5.6 Sol runs $4/$20 promotional and GPT-6.1 Sol costs $2/$10 at similar or better intelligence — poor current value despite batch 50% and $0.50 cache reads.
+- **Overall Score: 84/100.** (86+89+93+70+84)/5 = 422/5 = 84.4 → 84. Best fit: incumbent Codex/ChatGPT workflows with prompt investments and batch economics; new OpenAI work should route to GPT-5.6 Sol/6.1 Sol.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Artificial Analysis AA rows, LLMReference, Vals AI cross-checked; re-researched 2026-10-16: official HLE 52.2%, MRCR v2 83.1/87.5%, OSWorld conflict 78.7-vs-13.0 cited — Context 92→95, Reasoning 88→89, Multimodal 65→68, Overall 84→86); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured HLE 45.8%, ARC-AGI-2 85.0%, DeepSWE 67.0%, SciCode 56.1%, TB 84.7% #1, Tau2 93.9%, MCP Atlas 75.3%, FrontierMath Epoch v2, AIME 2026 100%, AA-Omniscience hallucination 11% — Tool 76→90, Reasoning 72→88, Coding 82→86, Overall 77→84.
-- Future sources: add a new file next to this one, e.g. `GPT_5.6.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-02 (re-research pass; prior 2026-10-16)
+- Method: public internet research (approved re-research pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — Introducing GPT-5.5](https://openai.com/index/introducing-gpt-5-5/)
+  - [OpenAI API changelog — GPT-5.5 release entry](https://developers.openai.com/api/docs/changelog)
+  - [OpenAI API pricing (short/long-context tables)](https://developers.openai.com/api/docs/pricing.md?v=20261005c)
+  - [Vellum — Everything You Need to Know About GPT-5.5](https://www.vellum.ai/blog/everything-you-need-to-know-about-gpt-5-5)
+  - [OminiGate — GPT-5.5 AA benchmark runs](https://ominigate.ai/en/models/openai/gpt-5.5/benchmarks)
+  - [llmboard — GPT-5.5 benchmark table](https://www.llmboard.ai/models/gpt-5-5)

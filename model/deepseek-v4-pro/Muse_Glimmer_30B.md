@@ -1,7 +1,7 @@
 # DeepSeek V4 Pro — findings by Muse_Glimmer_30B
 
 - Source: DeepSeek (opencode/deepseek-v4-pro)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: public internet research using meta.json `model/deepseek-v4-pro/meta.json` and webfetch of https://api-docs.deepseek.com/quick_start/pricing, https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -31,6 +31,7 @@
 - `space-bunny` -> `minimax-m3.1-flash-preview` — revealed stealth alias of MiniMax M3.1 Flash (Free) — one model, three stealth names; folder merged into model/minimax-m3.1-flash-preview/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/minimax-m3.1-flash-preview/
 - `cat-jam` -> `beam` — revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/
 - `muse-wonder` -> `muse-wonder-1.0` — vendor product-name duplicate of muse-wonder-1.0 — Meta ships the Muse Wonder product only as API SKU muse-wonder-1.0 (dev.meta.ai model page + OpenRouter meta/muse-wonder; same 1M window, same $4/$20; the distinct Muse Wonder Full is muse-wonder-full-1.0, subscription-only); one rater had already self-excluded the folder as a scaffolded stub of the same model; merged + deleted 2026-11-01 (user order) — research belongs in model/muse-wonder-1.0/
+- `glm-5.3-flash-x` -> `glm-5.3-flashx` — serving-profile spelling duplicate of GLM-5.3-FlashX — same 320B/18B MIT MoE weights, same 1M ctx, same $0.37/$1.25 pricing, same 2026-09-18 launch; Z.ai's canonical API code is `glm-5.3-flashx` (docs.z.ai "GLM-5.3-Flash/FlashX", OpenRouter `z-ai/glm-5.3-flashx`), the hyphenated form exists only as an OpenCode Zen route spelling. User-ordered merge 2026-11-02 — research belongs in model/glm-5.3-flashx/; searching `glm-5.3-flash-x` resolves via canonical meta aliases.
 
 ## Retired vendor aliases — never a folder
 
@@ -38,6 +39,7 @@
 
 ## Merged-and-deleted duplicate findings-file stems — never recreate
 
+- `Xing_4.0_29b_a4b` -> `Xing_4.0.29B_A4B` — (no case note recorded)
 - `Laguna_XS_2_1` -> `Laguna_XS_2.1` — underscore-version spelling of Laguna_XS_2.1 (one rater, two spellings, silent double-count risk); merged + deleted 2026-10-08
 - `Mimo_v2.6_Flash` -> `MiMo_2.6_Flash` — spelling variant of MiMo_2.6_Flash (same Xiaomi rater, lowercase + _v2.6); merged + deleted 2026-10-09
 - `Space_Bunny` -> `MiniMax_M3.1_Flash` — stealth-era rater stem of MiniMax M3.1 Flash (revealed 2026-10-19) — same model rated subjects under both stems, faking 2-report evidence agreement; merged into MiniMax_M3.1_Flash (newest report wins; 159 + 6 excluded collisions, 10 renames where no twin existed); merged + deleted 2026-10-26 (user order)

@@ -1,7 +1,7 @@
 # Beam — findings by Muse Glimmer 30B
 
 - Source: Reflection / Beam 1.0 501B-A23B
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -34,18 +34,23 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **90.6%** (BF16) — Reflection model card / BenchLM
+- AIME 2026: **97.7%** (BF16) — Reflection model card 2026-10-16
 - HLE no tools: **36.0%** — Reflection model card
 - HLE with tools: **51.1%** — Reflection model card
 - LCR / AA-LCR v1.1: **78.2%** — Reflection model card
 - CritPt / CriPT AA: **16.3%** — Reflection model card
 - Artificial Analysis Intelligence Index v4.3.2: **30** — Artificial Analysis model page, #20/121 open-weight class
 - AA-Omniscience Accuracy: **33.1%** — Artificial Analysis model page; Hallucination Rate 47.2%
+- AA Omniscience (index) - public split only: **10.8** (BF16) — Reflection model card 2026-10-16
+- IFBench: **79.6%** (BF16) — Reflection model card 2026-10-16
 
 Coding:
 
 - SWE-bench Verified: **81.6%** — Reflection model card / BenchLM
 - SWE-bench Pro v1: **66.1%** — Reflection model card
+- SWE-bench Pro v2-Hard: **76.5%** (BF16) — Reflection model card 2026-10-16
 - SWE-bench Multilingual: **78.3%** — Reflection model card
+- SWE Atlas Codebase QnA: **31.8%** (BF16) — Reflection model card 2026-10-16
 - DeepSWE v1.1: **43.3%** — Reflection model card / BenchLM
 - SciCode: **49.2%** — Reflection model card
 - LiveCodeBench: **88.3%** — Reflection model card
@@ -55,6 +60,11 @@ Long context:
 
 - AA-LCR v1.1 78.2% at 1M window; LongBench v2 67.5% — Reflection model card
 - Context window reported 1M, 128K max output
+
+Safety (Iris Safety Evaluations):
+
+- Harmful Requests: Refusal/Pivot Rate: **88.9%** (BF16) — Reflection model card 2026-10-16
+- Harmless Requests: Compliance Rate: **81.5%** (BF16) — Reflection model card 2026-10-16
 
 ### Normalized scores (1–100)
 
@@ -70,7 +80,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

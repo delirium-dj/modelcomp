@@ -80,7 +80,6 @@ kimi-k2.5
 claude-opus-4.5
 gpt-6.1-terra
 nemotron-3.5-super-vl
-glm-5.3-flash-x
 gemini-3.5-flash-lite
 kimi-k2.7-code
 mimo-v2.5-free

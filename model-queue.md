@@ -13,8 +13,8 @@
 91.9 claude-fable-5
 91.9 claude-opus-5
 91.9 claude-sonnet-5.5
-91.7 claude-mythos-5.1
 91.6 gemini-3.7-flash
+91.5 claude-mythos-5.1
 91.2 gpt-5.6-sol
 91.2 gpt-6.1-sol
 91.1 gemini-3-pro
@@ -41,7 +41,7 @@
 88.5 mimo-v2.6-flash
 88.4 muse-spark-1.1
 88.3 gpt-6-sol
-88.1 gemini-3-flash
+88 gemini-3-flash
 87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
 87.8 qwen-3.8-flash
@@ -85,14 +85,13 @@
 83.3 gpt-6.1-terra
 83 nemotron-3.5-super-vl
 82.7 gemini-3.5-flash-lite
-82.7 glm-5.3-flash-x
 82.4 kimi-k2.7-code
 82.2 mimo-v2.5-free
-81.5 grok-4.1-fast
+81.8 grok-4.1-fast
 81.2 claude-sonnet-4.5
 81.1 gpt-5.2-codex
 81 gemma-4-31b
-80.8 gpt-5.2-pro
+80.9 gpt-5.2-pro
 80.6 grok-4
 80.3 grok-4-fast
 80.3 grok-4.20
@@ -155,8 +154,8 @@
 68.2 ring-2.6.1t
 67.7 mai-thinking-1
 67.7 minimax-m2.5
+67.7 omen-alpha
 67.7 pixel_canary
-67.6 omen-alpha
 67.4 minimax-m2.7
 67.3 gpt-5-nano
 67.1 laguna-s-2.1

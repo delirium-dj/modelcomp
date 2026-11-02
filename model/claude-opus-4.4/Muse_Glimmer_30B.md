@@ -1,7 +1,7 @@
 # Claude Opus 4.4 — findings by Muse Glimmer 30B
 
 - Source: Anthropic / opencode/claude-opus-4.4
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -70,8 +70,8 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
-- Method: public internet research; three independent web searches performed (Anthropic newsroom 2026-10-25, Artificial Analysis model index 2026-10-25, Bing “claude opus 4.4 benchmark terminal-bench”). No official Anthropic system card for 4.4 was found in web search; model card details and raw benchmarks are synthesized from meta.json and independent rater submissions with conflicting results compared and noted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
+- Method: public internet research; three independent web searches performed (Anthropic newsroom 2026-10-25, Artificial Analysis model index 2026-10-25, Bing "claude opus 4.4 benchmark terminal-bench"). No official Anthropic system card for 4.4 was found in web search; model card details and raw benchmarks are synthesized from meta.json and independent rater submissions with conflicting results compared and noted. Scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---

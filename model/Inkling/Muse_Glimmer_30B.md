@@ -1,7 +1,7 @@
 # Inkling — findings by Muse Glimmer 30B
 
 - Source: Thinking Machines Lab/Inkling (`opencode/Inkling`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,29 @@ Long context:
 
 - MRCR / RULER / GraphWalks: no verified public score found (1M window verified via model card; no published retrieval curve)
 
+Vision:
+
+- MMMU Pro (Standard 10): **73.5%** (official model card, 2026-07-14)
+- Charxiv RQ: **78.1%** (official model card)
+- Charxiv RQ (with python): **82.0%** (official model card)
+
+Audio:
+
+- Audio MC: **56.6%** (official model card)
+- MMAU: **77.2%** (official model card)
+- VoiceBench: **91.4%** (official model card)
+
+Safety:
+
+- FORTRESS (Adversarial): **78.0%** (official model card)
+- FORTRESS (Benign): **95.9%** (official model card)
+- StrongREJECT: **98.6%** (official model card)
+
+Factuality:
+
+- SimpleQA Verified: **43.9%** (official model card)
+- AA Omniscience index: **1.0%** (official model card, public split)
+
 ### Normalized scores (1–100)
 
 - **Tool use: 68/100.** TB 2.1 63.8 + MCP Atlas 74.1% + BrowseComp 77.1% show solid agentic capability; capped by Tau3 Banking 23.7% and GDPVal 1233 Elo below frontier 1750+.
@@ -70,6 +93,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: public internet research (Hugging Face model card thinkingmachines/Inkling, Artificial Analysis model page, NVIDIA NIM card, official evaluation table 2026-07-14); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

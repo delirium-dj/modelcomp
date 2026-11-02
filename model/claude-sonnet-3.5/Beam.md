@@ -29,7 +29,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond (Vals AI): **59.34%** (Vals AI, original June release).
+- GPQA Diamond (Vals AI): **59.34%** (Vals AI, original June release); Anthropic chart estimates ~65% (3.5 new) (estimated from image, low confidence).
 - MMLU Pro: **77.2%** accuracy — evals.report.
 - SuperGPQA: **48.16%** — evals.report.
 - FACTS Grounding: **79.4%** — evals.report.

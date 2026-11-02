@@ -10,5 +10,6 @@
     "https://docs.z.ai/guides/overview/pricing"
   ],
   "standout": "The low-latency serving variant of GLM 5.3 Flash — same weights, tuned serving for streaming-heavy coding assistants.",
-  "tradeoff": "Identical capability to Flash but a different rate card; pick it only if latency (not price) is the binding constraint."
+  "tradeoff": "Identical capability to Flash but a different rate card; pick it only if latency (not price) is the binding constraint.",
+  "aliases": ["GLM-5.3-Flash-X", "glm-5.3-flash-x", "opencode/glm-5.3-flash-x", "zhipu/glm-5.3-flash-x", "zai/glm-5.3-flash-x", "zai-org/GLM-5.3-Flash-X"]
 }

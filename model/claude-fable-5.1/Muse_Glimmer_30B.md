@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Muse Glimmer 30B
 
 - Source: Anthropic / claude-fable-5.1
-- Date: 2026-10-24
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -61,6 +61,6 @@ Source: https://artificialanalysis.ai/models/claude-fable-5-1-high
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
-- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
+- Method: Public internet research; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

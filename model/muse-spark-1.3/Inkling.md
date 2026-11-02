@@ -1,7 +1,10 @@
-# Muse Spark 1.3 — findings by Inkling
+# Muse Spark 1.3 — findings by Inkling (re-researched 2026-11-02)
 
-- Source: Meta / Muse Spark (`muse-spark-1.3` open-weights API / HuggingFace `meta-models/Muse-Spark-Open-816B-A42B`)
-- Date: 2026-10-25 (UTC)
+> **Re-research note (2026-11-02):** Deeper independent verification completed (`Meta` official evaluation report `Oct 23 2026`, `Artificial Analysis` `Sep 2 2026`, `Leanzero` identity/performance gap `Oct 22 2026`, `Kingy.ai` pricing/review). Key new conflicts verified: hosted `1.3` (`0.2968` `Forge 2.0`) vs open `Muse Spark Open` (`0.091`) — identity/performance gap; `max` reasoning (`partner preview` only); dataset `average.md` `85.6` aligns closely with independent profile (`Intelligence Index` `62` `max` / `61` `xhigh`, agentic/reasoning benchmarks [`GDPval-AA` 1754, `Agentic IF Index` 57.8, `DeepSWE` 75.4, `Terminal-Bench` 88.8] confirm frontier-cluster status but below `Anthropic` top tier [`Fable 5.1` 66, `Opus 5` 63]); pricing ` $1.25`/` $4.25` confirmed; active/deployed; identity (`hosted` `1.3` ≠ `open` `Open`) verified by `Leanzero`. No phantom/alias issue. Previous `.md` supersedes no `.excluded` twin (none exists).
+
+- Source: Meta / Muse Spark (`muse-spark-1.3` proprietary hosted API; separate SKU: `Muse Spark Open` open-weights `816B/42B`, released `Oct 15 2026`)
+- Date: 2026-10-25 (UTC) — original
+- **Re-research: 2026-11-02 UTC** (`supersedes 2026-10-25`; deeper verification: `Meta` evaluation report [`Oct 23 2026`], `Artificial Analysis` [`Sep 2 2026`], `Leanzero` identity gap [`Oct 22 2026`], `Kingy.ai` pricing/review; conflicts cited; identity [`hosted` 1.3 ≠ `open` Open] verified; scores derived independently; no phantom; no `.md.excluded` twin; no build/sync executed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

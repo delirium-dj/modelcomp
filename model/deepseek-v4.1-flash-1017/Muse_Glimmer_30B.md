@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash 1017 — findings by Muse Glimmer 30B
 
 - Source: DeepSeek / deepseek-v4.1-flash-1017
-- Date: 2026-10-24
+- Date: 2026-11-02
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -72,6 +72,6 @@ Sources: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash ; https://www.de
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

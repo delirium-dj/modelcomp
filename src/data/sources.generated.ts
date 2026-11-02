@@ -85,17 +85,16 @@ export type SourceKey =
   | "LongCat 2.0"
   | "GLM 4.5 Flash"
   | "GLM 4.7 Flash"
-  | "Xing 4.0 29b a4b"
   | "Flint"
   | "Inkling"
-  | "Xing 4.0 29B A4B"
   | "MiMo 2.6 Free"
   | "Qoder Sonus"
   | "GLM 4.6V Flash"
   | "Browser"
   | "Leanstral 1.5"
   | "GPT 6.1 Terra"
-  | "Kimi K3.1 Pro";
+  | "Kimi K3.1 Pro"
+  | "Xing 4.0 29B A4B";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -191,10 +190,8 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "LongCat 2.0", label: "LongCat 2.0", file: "LongCat_2.0.md", slug: "longcat-2.0" },
   { key: "GLM 4.5 Flash", label: "GLM 4.5 Flash", file: "GLM_4.5_Flash.md", slug: "glm-4.5-flash" },
   { key: "GLM 4.7 Flash", label: "GLM 4.7 Flash", file: "GLM_4.7_Flash.md", slug: "glm-4.7-flash" },
-  { key: "Xing 4.0 29b a4b", label: "Xing 4.0 29b a4b", file: "Xing_4.0_29b_a4b.md", slug: "xing_4.0_29b_a4b" },
   { key: "Flint", label: "Flint", file: "Flint.md" },
   { key: "Inkling", label: "Inkling", file: "Inkling.md", slug: "Inkling" },
-  { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
   { key: "MiMo 2.6 Free", label: "MiMo 2.6 Free", file: "MiMo_2.6_Free.md" },
   { key: "Qoder Sonus", label: "Qoder Sonus", file: "Qoder_Sonus.md", slug: "qoder-sonus" },
   { key: "GLM 4.6V Flash", label: "GLM 4.6V Flash", file: "GLM_4.6V_Flash.md" },
@@ -202,4 +199,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Leanstral 1.5", label: "Leanstral 1.5", file: "Leanstral_1.5.md", slug: "leanstral-1.5" },
   { key: "GPT 6.1 Terra", label: "GPT-6.1 Terra", file: "GPT_6.1_Terra.md", slug: "gpt-6.1-terra" },
   { key: "Kimi K3.1 Pro", label: "Kimi K3.1 Pro", file: "Kimi_K3.1_Pro.md", slug: "kimi-k3.1-pro" },
+  { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
 ];

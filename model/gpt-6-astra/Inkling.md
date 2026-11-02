@@ -1,7 +1,10 @@
-# GPT-6 Astra — findings by Inkling
+# GPT-6 Astra — findings by Inkling (re-researched 2026-11-02)
 
-- Source: OpenAI / GPT-6 Astra (`gpt-6-astra` proprietary API)
-- Date: 2026-10-25 (UTC)
+> **Re-research note (2026-11-02):** Deeper independent verification completed (`OpenAI` official `Sep 3 2026`, `Artificial Analysis` `Sep 9 2026`, `Signals` `Sep 12 2026`, `The Decoder` `Sep 6 2026`, `Epoch AI` family tracking, `Anthropic` comparison `Sep 22 2026`, `SecureBio` `Aug 25 2026`). Key new conflicts verified: `ARC-AGI-3` `99.9%` (`Provider Adapter`, `high` reasoning) vs `62.7%` (`standard harness`, `max` reasoning) — `37.2`-pt harness gap (`The Decoder` `Sep 6`); `AutomationBench` `41.4%` official (`Zapier`) vs `65%` `AA` (`AutomationBench-AA`) — `23.6`-pt harness/composite gap; `HLE` `67.7%` official (`with tools`) vs `61.4%` `AA` (`max`, `±6.4` pp error); `Intelligence Index` `53` (`AA`) vs `Epoch ECI` `169` (`first` of `267`) — opposite conclusions from different benchmark compositions; `Coding Agent Index` `67` (`AA`) — near-tie with `Anthropic` `68.1`; `DeepSWE` `74.1%` (`Signals`) confirmed; `Cybersecurity` `ExploitBench` `100%` (`Signals`/official) vs `Anthropic` family/reference `CyberGym` `84.4%` — different benchmarks; `Status` active/deployed; `No phantom` (`opencode/gpt-6-astra` confirmed); `No retirement/deprecation` (`OpenAI` `Oct 1 2026` deprecation page does not list `gpt-6-astra`; closest family reference: `GPT-5.3-Codex` `2027-04-01` — `GPT-6` generation newer, active).
+
+- Source: OpenAI / GPT-6 Astra (`gpt-6-astra` proprietary API; `opencode/gpt-6-astra` gateway; `Amazon Bedrock` family reference; `Anthropic` comparison `Sep 22 2026`)
+- Date: 2026-10-25 (UTC) — original research
+- **Re-research: 2026-11-02 UTC** (`supersedes 2026-10-25`; new evidence: `OpenAI` official `Sep 3 2026`, `Artificial Analysis` benchmark comparison `Sep 9 2026`, `Signals` independent review `Sep 12 2026`, `The Decoder` harness-conflict analysis `Sep 6 2026`, `Epoch AI` family tracking `Feb 2026`, `Anthropic` comparison `Sep 22 2026`, `BenchGap` family reference, `SecureBio` pre-release bio-assessment `Aug 25 2026`; conflicts [`ARC-AGI-3` harness gap `37.2` pts, `AutomationBench` gap `23.6` pts, `HLE` gap `5.7` pts (`±6.4` pp], `Intelligence Index` `53` vs `Epoch ECI` `169` — opposite conclusions from different compositions, both valid with harness/composition notes]; `Coding Agent Index` `67` (`AA`) near-tie `Anthropic` `68.1`; `DeepSWE` `74.1%` confirmed; no `.md.excluded` twin; identity confirmed; no phantom; no build/sync executed)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -1,7 +1,8 @@
 # Claude Opus 5.5 — findings by Inkling
 
 - Source: Anthropic / Claude Opus (`claude-opus-5.5` proprietary API)
-- Date: 2026-10-25 (UTC)
+- Date: 2026-10-25 (UTC) — original research
+- **Re-research date:** 2026-11-02 UTC (supersedes 2026-10-25; deeper independent searches: official Anthropic benchmarks [`Sep 22 2026`], independent `Artificial Analysis` [`Sep 2 2026`], `Signals` review [`Sep 12 2026`], `VentureBeat` [`Sep 22 2026`], `The Decoder` [`Sep 6 2026` — harness conflict analysis], `CodingFleet` [`Sep 22 2026` — benchmark comparison/review]; conflicts explicitly cited: `Terminal-Bench 4.0` 66.4% official vs 59.6% `Artificial Analysis` [`±5.2` pp error]; `HLE` 67.7% official vs 61.4% `AA` [`±6.4` pp error]; `GDPval-AA` 1846 official vs 68.3% `AA` [`different harness/composite`]; `Intelligence Index` 58 [`AA`] confirms frontier-cluster status but below `Anthropic` self-reported relative ranking; pricing drop [`$4`/`$20` `Max` vs previous `Opus 5` ` $25` output] confirmed; no retirement/deprecation announced; status active/deployed [`Amazon Bedrock`, `Anthropic` API, `Google Cloud`, `Azure`])
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

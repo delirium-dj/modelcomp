@@ -1,7 +1,7 @@
 # Qwen 3.7 Flash — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-02 (UTC)
 
 ## Model card
 - **Name:** Qwen 3.7 Flash
@@ -32,5 +32,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Flash tier speed benchmarks and vendor pricing analysis.

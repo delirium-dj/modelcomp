@@ -1,7 +1,7 @@
 # Big Pickle — findings by Muse Glimmer 30B
 
 - Source: OpenCode / opencode/big-pickle
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
-- Method: public internet research; OpenCode Zen docs, models.dev metadata, GitHub community SWE Atlas reproduction, meta.json. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
+- Method: public internet research; OpenCode Zen docs, models.dev metadata, GitHub community SWE Atlas reproduction, meta.json. Scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
