@@ -45,7 +45,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3,756 lines).
 - **B6** — `src/components/freeZenLink.tsx` internal array typed as `any[]` → `JSXOutput[]` (strict type safety). ✅ Done 2026-11-02.
-- **B1** — `voicemodels/` tripwire can never fire due to variable shadowing in `scripts/sync-data.mjs`. Fixed by refactoring to `findForbiddenRoot(root, FORBIDDEN_ROOTS, (r, f) => existsSync(join(r, f)))` in `scripts/lib/validate.mjs:194-196`, which correctly passes `root` (repo root) and `f` (forbidden name) to the join. Comment at `validate.mjs:190-192` documents the fix. ✅ Done 2026-11-02.
+- **B1 (voicemodels)** — `voicemodels/` tripwire can never fire due to variable shadowing in `scripts/sync-data.mjs`. Fixed by refactoring to `findForbiddenRoot(root, FORBIDDEN_ROOTS, (r, f) => existsSync(join(r, f)))` in `scripts/lib/validate.mjs:194-196`, which correctly passes `root` (repo root) and `f` (forbidden name) to the join. Comment at `validate.mjs:190-192` documents the fix. ✅ Done 2026-11-02.
 - **A7** — `assets/avatar-backup-2026-10-05/` removed (4 tracked files).
 - **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
 - **A10** — `src/routes/design-6sol/` removed: folder deleted from disk (untracked, gitignored),
