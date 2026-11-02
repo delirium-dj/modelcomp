@@ -41,6 +41,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **A2** — `modeljev-1.13/` removed (byte-identical duplicate; per-file sign-off given).
 - **A3** — `findings/` orphan research tree `git rm -r`'d: two 0-byte stubs plus two ad-hoc
   notes for `claude-sonnet-5.4` (Overall 85.6) and `qwen-3.7` (Overall 77.3).
+- **A4** — `state/` empty directory deleted locally (untracked, no git impact).
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3,756 lines).
 - **A7** — `assets/avatar-backup-2026-10-05/` removed (4 tracked files).
@@ -185,9 +186,9 @@ A tracked directory outside `model/`, not scanned by sync, superseded by the `mo
 **Guidance:** remove the empty stubs outright; both research-note models already have proper
 `model/<slug>/` folders, so the orphan notes are redundant; `git rm -r findings`. ✅ Done 2026-11-01.
 
-### A4. `state/` — empty directory ⏳ PENDING
+### A4. `state/` — empty directory ✅ DONE
 
-`state/` exists on disk with zero entries and is not tracked. **Guidance:** delete (`Remove-Item -Recurse state`).
+`state/` existed on disk with zero entries and was not tracked. Removed locally (`Remove-Item -Recurse state`). No git impact — git cannot track empty directories. ✅ Done 2026-11-02.
 
 ### A5. `src/components/v2/v2.css` — dead CSS ✅ DONE
 
@@ -585,7 +586,7 @@ stubs. Then get sign-off for remaining items.
 
 **Step 1 — pure deletions (zero behaviour change)**
 
-A4 `state/` · A8 `PRD/webshop-prd.md` · B6 `freeZenLink.tsx` any[] type fix.
+A8 `PRD/webshop-prd.md` · B6 `freeZenLink.tsx` any[] type fix.
 Verify: `pnpm test` green, `pnpm build.types:direct` clean.
 
 **Step 2 — correctness / latent bugs**
