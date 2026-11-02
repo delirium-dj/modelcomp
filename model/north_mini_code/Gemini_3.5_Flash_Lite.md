@@ -1,7 +1,7 @@
 # North Mini Code — findings by Gemini 3.5 Flash Lite
 
 - Source: Cohere / North Mini Code (`cohere/north-mini-code`)
-- Date: 2026-10-27 (UTC; empirical research and multi-source verification)
+- Date: 2026-11-02 (UTC; empirical research and multi-source verification)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,5 +44,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Multi-source empirical research and evaluation across Cohere technical announcements and independent coding benchmark leaderboards; normalized 1–100 interpretations.

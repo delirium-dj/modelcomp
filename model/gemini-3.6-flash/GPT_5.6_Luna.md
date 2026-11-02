@@ -1,45 +1,51 @@
 # Gemini 3.6 Flash — findings by GPT 5.6 Luna
 
 - Source: Google/Gemini 3.6 Flash
-- Date: 2026-10-04 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.6 Flash
-- **Short description:** Google's fast Flash-tier model for multimodal production tasks, coding, and agents.
-- **Provider / access:** Gemini API, AI Studio, Vertex AI, and OpenRouter; API ID `gemini-3.6-flash`.
-- **Release / knowledge:** 2026-07 release; cutoff not verified.
-- **IDs:** `google/gemini-3.6-flash`.
+- **Short description:** Google's fast reasoning Flash model for multimodal production tasks, coding, long-context work, and agents.
+- **Provider / access:** Gemini API, Google AI Studio, Vertex AI, OpenRouter, and downstream providers; API ID `gemini-3.6-flash`.
+- **Release / knowledge:** General availability July 21, 2026; current model-card/catalogue references report a March 2026 knowledge cutoff.
+- **IDs:** `gemini-3.6-flash` / `google/gemini-3.6-flash`.
 - **Context window:** 1,048,576 tokens.
-- **Modalities:** Text and image input verified; broader audio/video support not reverified.
-- **Pricing (as of 2026-10-04):** Introductory $0.75/$3.75 per 1M input/output tokens; cached input pricing is lower.
-- **Architecture:** Proprietary; undisclosed.
+- **Modalities:** Text and image input verified; current product listings support multimodal document/visual workflows, while broad audio/video support was not independently confirmed for every endpoint.
+- **Pricing (as of 2026-11-02):** Approximately $0.75 input / $3.75 output per 1M tokens on the direct API; cache and regional/provider rates vary.
+- **Architecture:** Proprietary; Google does not disclose parameter count or internal architecture.
 
 ## Raw benchmarks found
 
-- Aggregate benchmark score: **65.16** (ModelScale listing).
-- Context window: **1,048,576 tokens** (OpenRouter listing).
-- No additional benchmark was independently rechecked in this run.
+- BenchLM current profile: **62.41/100, #44 of 1,004**, with 29 of 724 benchmark rows covered.
+- Terminal-Bench 2.1 (Vals): **73.8%**; GDPval-AA: **39.2%**; Artificial Analysis Agentic Index: **30.1%**.
+- DeepSWE: **49.0%**; CursorBench 3.2: **53.5%**; LiveCodeBench: **88.1%**; SWE-bench: **79.6%**; AA Coding Index: **69.2%**.
+- ParseBench: **69.38%**; AA-MMMU-Pro: **83.2%**; Design Arena Website: **1299**.
+- AA-LCR: **80.0%**; AA-GPQA Diamond: **92.8%**; AA-HLE: **40.8%**; MMLU-Pro (Vals): **89.3%**.
+- FrontierMath v2 tiers 1–3: **58.947%** and tier 4: **21.951%**.
+- Artificial Analysis Intelligence Index: **34.0%**; AA-Omniscience Accuracy: **50.0%** and hallucination rate: **55.6%**.
+- Context window: **1M tokens** (Google/catalogue documentation).
 
 ## Normalized scores (1–100)
 
-- **Tool use: 76/100.** Flash-tier agent positioning is credible, but fresh tool benchmark evidence is limited.
-- **Reasoning: 78/100.** Aggregate benchmark evidence is solid for a Flash model, below current Pro/frontier tiers.
-- **Context window: 94/100.** 1M context is a major strength.
-- **Multimodal: 82/100.** Image input is documented; audio/video support was not reverified.
-- **Coding: 77/100.** Coding is a target use case, but no fresh coding score was verified.
-- **Cost efficiency: 99/100.** $0.75/$3.75 introductory pricing is excellent for scale.
-- **Overall Score: 81.4/100.** Best fit: inexpensive high-throughput multimodal and long-context workloads.
+- **Tool use: 82/100.** Terminal-Bench 73.8%, OSWorld-related rows, and tool support establish useful agent performance, while the AA agentic index and MazeBench 0% show unevenness.
+- **Reasoning: 85/100.** GPQA 92.8%, AA-LCR 80%, and FrontierMath support strong reasoning for Flash, but HLE and the composite index are more moderate.
+- **Context window: 95/100.** The 1M-token window is a major strength; no independent full-window retrieval curve was verified.
+- **Multimodal: 90/100.** AA-MMMU-Pro 83.2% and Google visual/document support provide solid evidence, though endpoint-level audio/video coverage remains unclear.
+- **Coding: 87/100.** SWE-bench 79.6%, LiveCodeBench 88.1%, and AA Coding Index 69.2% indicate a capable coding model with meaningful suite variance.
+- **Cost efficiency: 95/100.** $0.75/$3.75 is excellent for a 1M-context multimodal model.
+- **Overall Score: 87.8/100.** Mean of the five quality dimensions `(82 + 85 + 95 + 90 + 87) / 5 = 87.8`; best fit is inexpensive high-throughput multimodal and long-context workloads.
 
-### Multi-source deep-research addendum (2026-10-09)
-
-- Google’s card and API documentation report stronger agentic/multimodal performance than 3.5 Flash, 1M context, and lower output pricing. Independent catalogues record an Artificial Analysis composite around 50 but no stable per-benchmark independent table; real-world comparison found GPT-5.6 Sol stronger on messy knowledge-work tasks.
-- Recalculation: retained existing score; the improvement claims are plausible but independent evidence is not yet sufficient for a dimension change.
-- Sources: https://deepmind.google/models/model-cards/gemini-3-6-flash/ ; https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6 ; https://www.techradar.com/ai-platforms-assistants/i-gave-gemini-3-6-flash-and-gpt-5-6-access-to-my-entire-digital-life-heres-which-one-actually-helped-me-more
+---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (OpenAI/gpt-5.6-luna)** — 2026-10-04
-- Method: fresh public web research; scores are normalized interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-11-02
+- Method: current Google model/API documentation, BenchLM's October 29 profile, Artificial Analysis rows, Vals results, and current price listings; benchmark variance was retained, and scores are normalized interpretations rather than official vendor scores.
+- Reference URLs:
+  - [Google Gemini 3.6 Flash model card](https://deepmind.google/models/model-cards/gemini-3-6-flash/)
+  - [Gemini API model catalog](https://ai.google.dev/gemini-api/docs/models)
+  - [BenchLM Gemini 3.6 Flash profile](https://benchlm.ai/models/gemini-3-6-flash)
+  - [Gradually Gemini 3.6 Flash price/spec snapshot](https://www.gradually.ai/en/ai-models/gemini-3.6-flash/)

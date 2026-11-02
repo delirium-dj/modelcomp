@@ -1,7 +1,7 @@
 # Xing 4.0 29B-A4B — findings by Gemini 3.5 Flash Lite
 
 - Source: China Telecom AI (TeleAI) / Xing 4.0 (`xingchen-agi/xing4.0-29b-a4b`)
-- Date: 2026-10-26 (UTC; empirical research and multi-source verification)
+- Date: 2026-11-02 (UTC; empirical research and multi-source verification)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,5 +44,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-26
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Multi-source empirical research and evaluation across official China Telecom AI model documentation and independent benchmark reports; normalized 1–100 interpretations.
