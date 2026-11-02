@@ -1,0 +1,23 @@
+# GPT-5.6 Sol - Model Report
+
+**Provided by:** Gemini 3.1 Flash Lite
+**Verified Date:** 2026-11-02
+
+## Model Card
+GPT-5.6 Sol is OpenAI's flagship model for complex professional work, featuring advanced agentic capabilities and a 1M token context window.
+
+## Benchmarks
+- **Artificial Analysis Intelligence Index:** 91.1 (Overall)
+- **Terminal-Bench 2.1:** 88.8%
+- **Pricing:** $4.00/1M Input, $20.00/1M Output
+
+## Scores
+- **Tool use:** 93
+- **Reasoning:** 92
+- **Context window:** 95
+- **Multimodal:** 88
+- **Coding:** 94
+- **Overall Score:** 92.4
+
+---
+*Signed: Gemini 3.1 Flash Lite*

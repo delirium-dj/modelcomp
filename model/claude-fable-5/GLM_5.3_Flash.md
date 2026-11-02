@@ -1,82 +1,85 @@
 # Claude Fable 5 — findings by GLM 5.3 Flash
 
 - Source: Anthropic (`claude-fable-5`)
-- Date: 2026-10-19 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Fable 5
-- **Short description:** Anthropic's June 2026 Mythos-class flagship for long-running, complex and asynchronous knowledge work and coding — the first Fable generation, now legacy to Fable 5.1 (released 2026-09-01; AA marks Fable 5 deprecated for non-default workloads). It shares its underlying weights with the access-restricted Claude Mythos 5, and routes a small slice of risk-flagged prompts to Opus 4.8 (fallback).
-- **Provider / access:** Anthropic Claude API `claude-fable-5` (Messages API, adaptive thinking always on); also Amazon Bedrock (`anthropic.claude-fable-5`), Google Cloud, Microsoft Foundry, Claude Platform on AWS (7 API providers on AA). OpenCode Zen lists `opencode/claude-fable-5` (standard pricing). AA formally marks the model **deprecated** as of 2026-10-19 — "we only continue performance benchmarking for the default 10k input token workload" — directing users to Fable 5.1.
-- **Release / knowledge:** Released 2026-06-09 (AA confirms Jun 9, 2026); reliable knowledge cutoff Jan 2026 (verified via platform.claude.com model overview on the 2026-10-08 pass; the current models-overview table lists Fable 5 among legacy models still available).
-- **IDs:** `claude-fable-5` (Claude API); Zen `opencode/claude-fable-5` (no Free ID confirmed — standard pricing).
-- **Context window:** 1M tokens total; 128K max output (sync Messages API) — verified via platform.claude.com/docs/en/models/fable-5/overview and AA (re-checked 2026-10-11).
-- **Modalities:** Text and images in → text out (docs + AA agree); reasoning yes (adaptive, always on, default effort `high`); tool calls yes; JSON/structured output supported via API features.
-- **Pricing (as of 2026-10-19):** $10 / MTok in, $50 / MTok out (AA confirms, blended $7.70); cache write $12.50 (5m) / $20 (1h); cache read $1 / MTok (10% — not the 2.5% Fable-5.1 rate); Batch API 50% off both directions. AA measures $8.75 per Intelligence Index task (most expensive measured in this repo, $114/114 on cost); speed re-measured 2026-10-19: 67.9 tok/s, TTFT 74.7s, 130M index tokens. Paid only.
-- **Architecture:** Proprietary, closed weights; Mythos-class — same weights as Claude Mythos 5 (verification-program-only), with classifier routing of cyber/bio/chem/distillation-flagged prompts to Opus 4.8 (~2% of tasks per Artificial Analysis, <5% per session per Anthropic).
+- **Short description:** Anthropic's first generally available "Mythos-class" model (a capability tier above Opus): the same weights as the restricted Claude Mythos 5, wrapped in production safeguard classifiers that fall back to Claude Opus 4.8 on cybersecurity, biology/chemistry, and distillation requests. Top use case: long-horizon agentic coding, knowledge work, and research; now a legacy model superseded by Claude Fable 5.1 (September 1, 2026).
+- **Provider / access:** Anthropic Claude API `claude-fable-5` (Messages API — not Chat Completions; adaptive thinking always on, default effort `high`). Also Amazon Bedrock (`anthropic.claude-fable-5`), Claude Models on Google Cloud (Google-managed and Anthropic-managed, `claude-fable-5`), Microsoft Foundry (`claude-fable-5`), and Claude Platform on AWS (`claude-fable-5`); Artificial Analysis lists 7 API providers. Note: on the Messages API the safeguard default is to block flagged requests unless the developer opts into the Opus 4.8 fallback; Claude apps fall back transparently.
+- **Release / knowledge:** Released 2026-06-09; access suspended 2026-06-12 under US export controls, redeployed 2026-07-01 after controls were lifted, and made a standard subscription feature from 2026-07-20. Reliable knowledge cutoff Jan 2026 (training data cutoff Jan 2026), per the official model page.
+- **IDs:** `anthropic/claude-fable-5` (Claude API `claude-fable-5`; Bedrock `anthropic.claude-fable-5`). No OpenCode Zen Free ID was verified in this pass.
+- **Context window:** 1M tokens total; 128K max output (sync Messages API) — verified via the official model page (platform.claude.com/docs/en/models/fable-5/overview), Artificial Analysis, and Vals AI (all re-checked 2026-11-02). Anthropic prices the full 1M window at the standard rate (no long-context surcharge, unlike OpenAI's 272K threshold).
+- **Modalities:** Text + image in → text out (official capabilities table and AA agree). No audio or video input, no image/video output. Reasoning: yes — adaptive thinking, always on. Tool calls: yes (incl. server-side web search/code execution per the family docs; MCP Atlas and Toolathlon results below). JSON/structured-output mode: not re-verified this pass. PDF input is not documented on this model's capabilities table.
+- **Pricing (as of 2026-11-02):** $10 / MTok input, $50 / MTok output (paid only; no free tier). Cache: write $12.50 (5m) / $20 (1h), read $1 / MTok (10% of input — the cheaper 2.5% read rate is Fable 5.1-only). Batch API 50% off both directions; blended AA rate $7.70 / MTok (7:2:1). US-only inference reportedly billed at 1.1× (MyClaw). Caveats: mandatory 30-day data retention on business traffic for Mythos-class models (no training use), and always-on high-effort thinking inflates output-token cost.
+- **Architecture:** Proprietary, closed weights; parameter count undisclosed (AA FAQ confirms). Mythos-class tier above Opus; identical weights to Claude Mythos 5 (differences are only the safeguard classifiers and access tier). Available to Pro/Max/Team/Enterprise subscribers at up to 50% of plan capacity.
 
 ### Raw benchmarks found
 
+> Numbers below were re-verified by fresh web research on 2026-11-02. "Self-reported" = Anthropic launch announcement / system card as compiled by LLM Stats; "Vals" = Vals AI independent harness (max effort, temp 1.0, Opus 4.8 fallback on refusals).
+
 Agent / tool use:
 
-- GDPval-AA: **1747** (Anthropic Fable 5 & Mythos 5 system card via benchlm.ai, updated 2026-10-10) — **conflicts with the launch-day AA-composite reading of 1932 (#1)** the 2026-10-08 pass cited; AA-normalized: **55.6%**
-- Terminal-Bench 2.1: **84.3%** (system card; Vals independent: **80.5%**) — fills the gap the 2026-10-08 pass marked missing
-- τ²-bench: **98.5%** (AA, independent) — fills the Tau2 gap
-- OSWorld-Verified: **85%** (system card)
-- AA Harvey LAB-AA v1.0: **93.6%** (AA, independent — best measured in this repo)
-- terminalBenchHard: **62.9%** (AA); AA EnterpriseOps-Gym-AA: **51.1%**; AA Agentic Index: **51.0%**; AA-AnalystAgent: **48.8%**
-- Terminal-Bench 3.0: **34.0%** (frontierbench.ai)
-- ApprenticeBench (GUI): **34%** (NeoCognition, independent)
-- Toolathon / MCP-Atlas / Claw-Eval: no verified public score found
+- GDPval-AA: **1932 Elo** (self-reported launch figure, #1 at launch — LLM Stats system-card compilation); on the newer GDPval-AA v2: **1759.6 Elo** (OpenAI GPT-5.6 launch table via CodingFleet)
+- Terminal-Bench 2.1: **84.3%** effective Fable 5 with 20.9% of trials hitting safeguard fallback (Mythos 5 twin: 88.0%) — self-reported/system card via LLM Stats; Vals independent: **80.52%**; AA harness: **83.1%**
+- Terminal-Bench 4.0: **41.41%** (Vals; later Anthropic models score far higher — Opus 5.5: 66.4%)
+- Terminal-Bench-Science 0.1: **15.71%** (Vals)
+- MCP-Atlas: **83.3%** (Anthropic system-card configuration, via CodingFleet)
+- Toolathlon: **61.7%** (CodingFleet)
+- AutomationBench: **17.4%** (self-reported; #1 at launch on this deliberately hard long-horizon suite)
+- OSWorld-Verified (computer use): **85.0%** (self-reported; OSWorld 2.0: 54.8% per OpenAI's table)
+- Tau2-Bench / Tau3-Bench: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.6%** (AA; Vals 93.2%)
-- ARC-AGI-1: **98.5%**; ARC-AGI-2: **89.2%** (ARC Prize verified results, arcprize.org/results/anthropic-claude-fable-5 — fills the ARC gap)
-- AA-HLE: **55.5%** (AA leaderboard, updated — the 2026-10-08 ">7 pts ahead at 53.3%" framing was launch-window and no longer holds on the current board)
-- Artificial Analysis Intelligence Index v4.3.2: **50, #19/227** (AA model page, 2026-10-11; BenchLM normalized 49.6%) — the v4.1-era "60 / #1" is historical and not comparable; index recompositions moved it down the board
-- MMLU-Pro: **91.5%** (Vals, independent)
-- AA-LCR v1.1: **82.3%**; MLCR-AA: **64.4%**; CritPt: **28.6%** (AA — fill the LCR/MLCR/CritPt gaps the 2026-10-08 pass marked missing)
-- FrontierMath v2: Tiers 1–3 **87.0%**, Tier 4 **90.2%** (Epoch AI leaderboard — added 2026-10-16 from the 2026-10-17 refresh, previously unmeasured; Tier 4 90.2% is elite)
-- MazeBench ASCII: **11%** (added 2026-10-16)
-- AA-Omniscience: **65.4% accuracy / 63.6% non-hallucination row / 43.3 index** (AA)
-- AA-IFBench: **63.5%** (instruction following)
+- GPQA Diamond: **93.18%** (Vals independent) / **92.6%** (OpenAI GPT-5.6 launch table via CodingFleet)
+- HLE (with tools): **64.5%** is the Mythos 5 (safeguard-lifted twin) figure; Fable 5's effective score falls back to ≈ Opus 4.8 (**~57.9%**) because bio/chem queries trigger fallback — self-reported via LLM Stats. HLE-Diamond (AA v5.0): no verified public score found (AA page deprecated the model)
+- MMLU Pro: **91.50%** (Vals, #3/138); MMMU Pro: **89.31%** (Vals, #3/93)
+- FrontierMath: Tier 1–3 **87.0%**, Tier 4 **87.8%** (OpenAI GPT-5.6 launch table via CodingFleet)
+- ARC-AGI: no verified public score found
+- LCR / MLCR: no verified public score found in this pass
+- CritPt: no verified public score found in this pass
+- BrowseComp: **84.3%**; Agents' Last Exam: **40.5%**; HealthBench Professional: **60.9%** (OpenAI GPT-5.6 launch table via CodingFleet)
+- Artificial Analysis Intelligence Index: **59.9 on v4.1** (edge over GPT-5.6 Sol's 58.9; AA commentary placed Fable ≈60 vs Sol 59 at high effort — via CodingFleet). The current AA model page shows **N/A** because the model is deprecated on AA (benchmarking limited to 10k-input workloads); v4.1 is the last published index value found this pass
 
 Coding:
 
-- SWE-bench Verified: **95%** (Anthropic Fable 5 & Mythos 5 system card via benchlm.ai — upgrades the "~95% secondary aggregator, provisional" row the 2026-10-08 pass cited to vendor-verified; Vals SWE-bench: **95.0%**)
-- SWE-bench Pro: **80%** (system card; the 2026-10-08 pass read 80.3% from launch materials — consistent)
-- LiveCodeBench: **89.8%** (Vals, independent — fills the LiveCodeBench gap)
-- AA Coding Index: **76.5%** (AA); AA-SciCode: **61.0%** (AA)
-- FrontierSWE v2: **47.0%** (Proximal); FrontierCode 1.1 Main: **53.5%** (Cognition)
-- CursorBench 3.1: **70.6%**; CursorBench 3.2: **70.5%**; VulcanBench v3: **89.5%**
-- Terminal-Bench 2.1: **84.3%** / **80.5%** (as above)
+- SWE-bench Verified: **95.0%** (self-reported; Vals independent confirms **95.00%**, ±0.98)
+- SWE-bench Pro: **80.0%** (self-reported; +15.4 pts over GPT-5.6 Sol's published 64.6%)
+- LiveCodeBench: **89.78%** (Vals, #2/143)
+- FrontierCode (Cognition): Diamond **29.3%** (#1, vs Opus 4.8 13.4%), Main **46.3%**; #1 among frontier models even at medium effort (self-reported)
+- Vibe Code Bench: **90.35%** (Vals, #1 — leads the best non-Anthropic model by >20 points)
+- IOI v1: **72.25%** (Vals)
+- DeepSWE v1.1: **69.7%** (OpenAI GPT-5.6 launch table via CodingFleet; behind Sol's 72.7%)
+- SciCode / AA-SciCode: no verified public score found
 
 Long context:
 
-- AA-LCR v1.1: **82.3%** (AA, independent — first measured long-context number; fills the 2026-10-08 gap)
-- MRCR/RULER/GraphWalks at window length: no verified public score found
-
-Multimodal:
-
-- Blueprint-Bench 2: **38.6%**; OfficeQA Pro: **57.9%** (system card); Design Arena Website: **1302** (OpenRouter)
+- 1M-token window confirmed by docs/AA/Vals, priced without surcharge across the full window; however, **no MRCR / RULER / GraphWalks public score at window length was found in this pass** — only qualitative memory evidence (launch post: file-based memory improved Slay-the-Spire performance 3× more than for Opus 4.8)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** The second pass replaces the single-benchmark story with a broad independent package: TB2.1 84.3/80.5, τ²-bench 98.5%, OSWorld-Verified 85%, AA Harvey 93.6% (best measured), terminalBenchHard 62.9% — but GDPval drops from the launch-day 1932 #1 to the system card's 1747 (AA-normalized 55.6%), and ApprenticeBench 34% keeps it under 95.
-- **Reasoning: 92/100.** CHANGED from 91 — the v4.1-era "#1 with HLE >7 pts clear" framing has aged: on the current board AA Index is 50 (#19/227), AA-HLE 55.5%, GPQA 92.6% (still trailing rivals), ARC-AGI-2 89.2% verified — but the newly measured FrontierMath v2 87.0%/90.2% (Epoch, elite Tier 4) adds a decisive math pillar, lifting the band; still a step below Opus 5.5 (94).
-- **Context window: 95/100.** Documented 1M tokens (tier ≥1M = 95–100); AA-LCR 82.3% is the first measured long-context number (strong); no MRCR/RULER retrieval at length keeps it off the maximum.
-- **Multimodal: 65/100.** Text and image input with text output (docs + AA agree) maps to the +image-in 60–70 band; no video/PDF/audio input documented.
-- **Coding: 92/100.** SWE-bench Verified 95% is now system-card-verified (not aggregator-provisional) and Vals corroborates at 95.0, with LiveCodeBench 89.8% and SWE Pro 80%; FrontierSWE v2 47.0% and the Anthropic-harness caveat on SWE Pro keep it under 95.
-- **Cost efficiency: 30/100.** $10/$50 per 1M — methodology maps $10/$50 ≈ 30; AA re-confirms the worst value in the cohort: $8.75/task (priciest measured), 65.5 tok/s, 132s TTFT; the 10% cache-read rate ($1) is weaker than Fable 5.1's 2.5%.
-- **Overall Score: 87/100.** (Was 87.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (93 + 92 + 95 + 65 + 92) / 5 = 437/5 = 87.4 → 87 — the 2026-10-11 pass lowered Reasoning (94→91) as the v4.1-era claims aged out; the 2026-10-16 FrontierMath elite rows lift it back to 92. Best fit: long-horizon agentic knowledge work (legal, research, multi-step engineering) where the Harvey/Tau2/OSWorld rows matter — at $10/$50 it is a premium tool, not a volume workhorse, and Fable 5.1 supersedes it at the same price.
+- **Tool use: 94/100.** Launch-best agentic profile — GDPval-AA 1932 Elo (#1), MCP-Atlas 83.3%, Toolathlon 61.7%, Terminal-Bench 2.1 84.3% effective (Vals 80.5%) — capped by the safeguard layer (20.9% of Terminal-Bench trials fell back to Opus 4.8), a modest 41.4% on Terminal-Bench 4.0, and successors (Opus 5.5) now leading current harnesses.
+- **Reasoning: 95/100.** GPQA Diamond 93.2% (Vals), MMLU Pro 91.5%, FrontierMath Tier 4 87.8%, and AA Intelligence Index v4.1 59.9 (above GPT-5.6 Sol) mark elite reasoning — capped by the fallback-suppressed effective HLE (~57.9% vs the twin's 64.5%) and the absence of any ARC-AGI or current AA v5.0 index score.
+- **Context window: 92/100.** 1M-token window with 128K output at standard pricing (no long-context surcharge) sits in the top tier of the dataset — capped by the lack of any verified MRCR/RULER/GraphWalks retrieval score at window length, leaving only qualitative memory claims.
+- **Multimodal: 85/100.** Text+image input with state-of-the-art vision claims at launch — MMMU Pro 89.3%, OSWorld-Verified 85.0%, Vals Multimodal Index #1 (74.15%) — capped by no audio/video input, no image/video output, and no documented PDF path on the model page.
+- **Coding: 97/100.** SWE-bench Verified 95.0% (vendor + Vals agree), SWE-bench Pro 80.0%, LiveCodeBench 89.8%, Vibe Code Bench 90.35% (#1, >20-pt lead), and FrontierCode Diamond 29.3% (#1) — capped by DeepSWE 69.7% (behind GPT-5.6 Sol) and Terminal-Bench 4.0 41.4% (behind Opus 5.5's 66.4%).
+- **Cost efficiency: 50/100.** $10/$50 per MTok is ~5× the era's median input price with no free tier, always-on high-effort thinking inflating output tokens, slow delivery (65.4 tok/s, 78.9 s TTFT per AA), and a mandatory 30-day retention on business traffic — the 90%-discounted $1 cache reads and 50% batch pricing soften this, but successor models (Opus 5.5 at $4/$20, Fable 5.1 at the same price with cheaper cache reads) now beat it on current agentic boards, so value at the price point is poor as of 2026-11-02.
+- **Overall Score: 93/100.** Mean of the five quality dims (94 + 95 + 92 + 85 + 97) / 5 = 92.6 → 93 (Cost efficiency excluded). Best fit: the hardest long-horizon engineering, research, and knowledge-work jobs where its launch-era #1 agentic and coding results still pay off — not everyday traffic, where cheaper Opus/Sonnet-class models now match or beat it.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research, enrichment re-check 2026-10-19 (AA model page fetched live — confirms Index 50 #20/217, $10/$50, $8.75/task, 1M context, text+image in; adds the AA deprecation banner with benchmarking limited to 10k-input workloads and re-measured speed 67.9 tok/s / TTFT 74.7s; Bing web search found no new independent MCP-Atlas/Claw-Eval/MRCR rows). No evidence supports a score change — all seven scores carried unchanged from the 2026-10-16 pass, which drew on AA, the Anthropic system card via benchlm.ai, ARC Prize verified results, Vals/Cursor/Proximal/Cognition/NeoCognition leaderboards and Epoch AI. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-02 (re-research pass; prior 2026-10-19)
+- Method: public internet research (approved re-research pass); all rows re-verified from primary sources (Anthropic model page, launch announcement, redeployment notice) and independent leaderboards (Vals AI, Artificial Analysis, LLM Stats launch-table compilation, CodingFleet comparative tables) fetched 2026-11-02; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Fable 5 and Claude Mythos 5 (launch announcement, Jun 9 2026)](https://www.anthropic.com/news/claude-fable-5-mythos-5)
+  - [Anthropic Docs — Claude Fable 5 model page (IDs, context, pricing, capabilities)](https://platform.claude.com/docs/en/models/fable-5/overview)
+  - [Anthropic — Redeploying Claude Fable 5 (export-control timeline)](https://www.anthropic.com/news/redeploying-fable-5)
+  - [Vals AI — Claude Fable 5 independent benchmark suite](https://www.vals.ai/models/anthropic_claude-fable-5)
+  - [LLM Stats — Claude Fable 5: Review, Benchmarks and Pricing (system-card tables)](https://llm-stats.com/blog/research/claude-fable-5-review)
+  - [Artificial Analysis — Claude Fable 5 (Max, Opus 4.8 Fallback) model page](https://artificialanalysis.ai/models/claude-fable-5)

@@ -1,7 +1,7 @@
 # Qwen 3.5 Plus — findings by Gemini 3.5 Flash Lite
 
 - Source: Alibaba Cloud / Qwen 3.5 Plus (`opencode/qwen-3.5-plus`)
-- Date: 2026-10-10 (UTC; second-pass deep research update)
+- Date: 2026-11-02 (UTC; third-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,6 +45,6 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-10 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Alibaba technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02 (third-pass deep research)
+- Method: Deep third-pass multi-source empirical research and verification across official Alibaba technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

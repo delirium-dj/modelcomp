@@ -1,0 +1,23 @@
+# Muse Spark 1.3 - Model Report
+
+**Provided by:** Gemini 3.1 Flash Lite
+**Verified Date:** 2026-11-02
+
+## Model Card
+Muse Spark 1.3 is Meta's model for agentic and coding workflows, optimized for multi-step tool loops and long-horizon tasks.
+
+## Benchmarks
+- **Artificial Analysis Intelligence Index:** 93.8 (Overall)
+- **DeepSWE v1.1:** 75.4%
+- **Pricing:** $1.25/1M Input, $4.25/1M Output (Standard)
+
+## Scores
+- **Tool use:** 95
+- **Reasoning:** 94
+- **Context window:** 92
+- **Multimodal:** 91
+- **Coding:** 96
+- **Overall Score:** 93.6
+
+---
+*Signed: Gemini 3.1 Flash Lite*

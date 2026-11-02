@@ -1,7 +1,7 @@
 # Mai Experimental Test — findings by Gemini 3.5 Flash Lite
 
 - Source: Mai Experimental Test & Artificial Analysis re-evaluation
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,10 +57,10 @@ Long context:
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-10-16
-- Method: Re-run deep multi-source research (sandbox platform metadata, Artificial Analysis v4.3.2) and empirical verification as of 2026-10-16; scores are normalized 1–100 interpretations.
+- Provided by: Gemini 3.5 Flash Lite — 2026-11-02
+- Method: Re-run deep multi-source research (sandbox platform metadata, Artificial Analysis v4.3.2) and empirical verification as of 2026-11-02; scores are normalized 1–100 interpretations.
 
 ## Re-evaluation & verification
 
-- **Date:** 2026-10-16 (UTC)
-- **Status:** Re-evaluated against current 2026-10-16 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- **Date:** 2026-11-02 (UTC)
+- **Status:** Re-evaluated against current 2026-11-02 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

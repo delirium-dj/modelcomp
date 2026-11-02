@@ -1,0 +1,42 @@
+# Qoder Sonus — findings by GPT 6 Sol (self-excluded)
+
+- Source: Qoder (Sonus built-in selector)
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus.
+- **Short description:** A Qoder-branded built-in model for long-horizon computer-use and coding tasks. Qoder calls it a model distinct from its named Qwen/GLM selector options, but has not published underlying weights or a public checkpoint ID ([Qoder launch announcement](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408), [model multiplier notice](https://docs.qoder.com/release-notes/model-consumption-reference-update)).
+- **Provider / access:** Selected inside Qoder Desktop, IDE, CLI, JetBrains plugin, QoderWake or Cloud Agents; no independently callable Sonus API/weights verified ([launch](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)).
+- **Release / knowledge:** Qoder launch **2026-09-10**; knowledge cutoff not disclosed ([launch](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)).
+- **IDs:** `Sonus` in Qoder selector; no verified standalone provider ID or Zen Free route.
+- **Context window:** Not publicly specified for Sonus; “marathon-length” is a qualitative positioning, not a token limit.
+- **Modalities:** Qoder Desktop's computer-use harness can interact with a screen and applications. Underlying model-native image processing and generated-output modality not separately documented; do not conflate the harness with native model I/O.
+- **Pricing (as of 2026-11-02):** Qoder credit consumption factor increased from **3.2× to 8× on 2026-09-21**. Credits are a product-specific unit, not a documented per-million-token API tariff. Short-lived September/October promotional credits are not a standing free tier ([official multiplier update](https://docs.qoder.com/release-notes/model-consumption-reference-update), [promotion terms](https://docs.qoder.com/zh/events/communityboost)).
+- **Architecture:** Undisclosed, proprietary built-in offering; underlying weights and serving architecture unverified.
+
+### Raw benchmarks found
+
+- **Agent / tool use:** No verified public exact-Sonus OSWorld, Terminal-Bench, τ³ or computer-use success rate found. Qoder launch promises are not measured results ([launch](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408), [OSWorld leaderboard](https://www.swebench.com/)).
+- **Reasoning / knowledge:** No verified public exact-Sonus GPQA, HLE or independent intelligence score found.
+- **Coding:** No verified public exact-Sonus SWE-bench Verified or LiveCodeBench score found; Qoder CLI results using **Qwen3.8-Max-0902** are for a different selected model, not Sonus ([Qoder comparison](https://developer.aliyun.com/article/1761372)).
+- **Long context:** No exact-Sonus measured retrieval score or published context size.
+
+### Normalized scores (1–100)
+
+No scores assigned: zero verified public numeric benchmarks for this exact model. This `.md.excluded` is a research note only and must not contribute placeholder numbers to averages.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Sol (openai/gpt-6-sol)** — 2026-11-02 UTC
+- Method: Three successful official launch, benchmark-coverage and credit-model searches; no exact-model benchmark substantiated, so self-excluded.
+- Reference URLs:
+  - [Qoder Sonus launch](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
+  - [Qoder consumption reference update](https://docs.qoder.com/release-notes/model-consumption-reference-update)
+  - [Qoder Sonus promotional credits](https://docs.qoder.com/zh/events/communityboost)
+  - [SWE-bench official leaderboards](https://www.swebench.com/)
+- Future sources: add a new file next to this one if exact-model results become public.

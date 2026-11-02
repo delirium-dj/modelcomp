@@ -54,22 +54,29 @@ Long context:
 - 1M-token window; no MRCR/RULER figure published — "no long-context retrieval reported".
 - **Status 2026-11-01:** window **confirmed at 1M by AA** (spec table; BenchLM still shows "coming soon" there — AA governs). Independent long-context evidence: **AA-LCR 79.3%** (mid-batch: vs Fable 5.1 85.3, Flash 81.3); no MRCR/RULER published. **BenchCAD Vision2Code 0.366 no-tools / 0.821 tools** (system card) shows extreme tool-dependence at long-document scale.
 
+Multimodal (added 2026-11-01 — the draft had no image-in benchmark and folded Chartography into Coding):
+
+- **AA-MMMP-Pro 84.7% (Artificial Analysis, independent)** — the image-in benchmark the draft said was missing, closing the 'no MMMU-Pro' gap directly.
+- **GDP.pdf 83.4% no-tools / 85.5% tools**, **OfficeQA 78.1% / OfficeQA Pro 66.9%**, **SpatialBench Verified 72.5%** (system card, vendor); **Design Arena Website 1309** (OpenRouter).
+- **Modality set confirmed by AA: text + image in → text out** — no audio/video, matching the draft.
+
 > Provenance: exact percentages are from Anthropic's Opus 5.5 launch comparison table (which reran Opus 5) plus the Opus 5 launch post's qualitative SOTA claims (several figures are chart-only images with no text value). Labelled accordingly; not silently merged.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** SOTA at release on OSWorld 2.0 computer use and AutomationBench (~1.5x next-best) plus ARC-AGI 3 ~3x; capped by Terminal-Bench 4.0 52.3% and Terminal-Bench-Science 29.0% that Opus 5.5 later far exceeded.
-- **Reasoning: 93/100.** GDPval-AA SOTA (1708 Elo), HLE 63.6% with tools and 3x-next-best ARC-AGI 3; held below the ceiling because Opus 5.5/Fable 5.1 now lead these rows and GPQA is unreported.
-- **Context window: 98/100.** 1M-token input with 128K output; near the top, a touch below perfect absent a published long-context retrieval benchmark.
-- **Multimodal: 86/100.** Chartography 83.4% with tools, OSWorld computer use and strong visual/artifact generation; capped by no MMMU-Pro / broad image-in benchmark.
-- **Coding: 93/100.** Frontier-Bench SOTA (2x+ Opus 4.8) and CursorBench 46.6% within 0.5% of Fable 5 at half the cost; capped by FrontierCode 48.0% and Terminal-Bench rows that Opus 5.5 surpassed.
-- **Cost efficiency: 68/100.** $5/$25 is half Fable 5's price and delivers near-Fable intelligence, but it is still a premium paid tier (2x Opus 5.5's later $4/$20, no free lane).
-- **Overall Score: 93/100.** Mean of Tool 93 + Reasoning 93 + Context 98 + Multimodal 86 + Coding 93 = 92.6 → 93. Best fit: daily-driver frontier coding, computer use and knowledge work where near-Fable quality at half the cost matters; Opus 5.5 now edges it on most rows at a lower price.
+- **Tool use: 93/100.** SOTA at release on OSWorld 2.0 computer use and AutomationBench (~1.5x next-best) plus ARC-AGI 3 ~3x (now **30.2% independent**); capped by Terminal-Bench 4.0 52.3% and Terminal-Bench-Science 29.0% that Opus 5.5 later far exceeded. Independent battery added 2026-11-01 (**aaTerminalBench21 89.1% / 84.6% Vals**, **AA Agentic Index 56.2%**, **MCP Atlas 85.8%**, **Harvey LAB 93.5%**) holds the ceiling; **ApprenticeBench 36%**, **MazeBench 12%** keep it off a higher mark.
+- **Reasoning: 94/100.** *(93 → 94 — the draft's 'GPQA unreported' discount is now closed, twice.)* **GPQA Diamond 93.2% (AA) / 93.4% (Vals)** double independent replication at the frontier ceiling; GDPval-AA SOTA (1862 card / 1708 table / 61.1% AA-live), **HLE 63.6–64.7% with tools**, **ARC-AGI 97.5/90.4/30.2 (ARC Prize)**, **FrontierMath Tier 4 73.2% (Epoch)**. Held below 100 by **AA-Omniscience hallucination 60.8%** and Opus 5.5/Fable 5.1 now leading these rows.
+- **Context window: 98/100.** 1M-token input (AA-confirmed) with 128K output; **AA-LCR 79.3%** is mid-batch; near the top, a touch below perfect absent a published MRCR/RULER retrieval benchmark.
+- **Multimodal: 88/100.** *(86 → 88 — the 'no image-in benchmark' gap is closed.)* **AA-MMMP-Pro 84.7% (independent)** plus Chartography 83.0% tools and OSWorld computer use; capped because Chartography collapses to 29.6% without tools (extreme tool-dependence) and there is no video/audio modality (AA confirms text+image only).
+- **Coding: 93/100.** Frontier-Bench SOTA (2x+ Opus 4.8) and **CursorBench 46.6% now confirmed by Cursor's own leaderboard**; **SWE-bench 97.0% (Vals) / 96.0% (card)** and **LiveCodeBench 89.0% (Vals)** and **AA Coding Index 78.0%** lift the previously vendor-only picture. Capped by **FrontierCode 2.0 26.7% (Cognition)** and Terminal-Bench-Science 29.0% on the current generation, both surpassed by Opus 5.5.
+- **Cost efficiency: 68/100.** $5/$25 is half Fable 5's price and delivers near-Fable intelligence, but it is still a premium paid tier (2x Opus 5.5's later $4/$20, no free lane); AA no longer publishes a per-task cost (deprecated), and Speed is **notably slow at 51.7 tok/s (#167/196)** — recorded, though Speed is not scored.
+- **Overall Score: 93/100.** Mean of Tool 93 + Reasoning 94 + Context 98 + Multimodal 88 + Coding 93 = 466 → 93.2 → 93. Best fit: daily-driver frontier coding, computer use and knowledge work where near-Fable quality at half the cost matters; Opus 5.5 now edges it on most rows at a lower price.
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20
-- Method: public internet research (Anthropic's "Introducing Claude Opus 5" launch post and the Claude Opus 5.5 comparison table; Claude Platform docs for context/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20; re-researched 2026-11-01 (enrichment pass)
+- Method: public internet research (Anthropic's "Introducing Claude Opus 5" launch post and the Claude Opus 5.5 comparison table; Claude Platform docs for context/pricing); 2026-11-01 pass adds ≥3 independent sources — Artificial Analysis model page (DEPRECATED: Index/cost/verbosity N/A, Speed 51.7 #167, modality confirmed), BenchLM.ai aggregator (2026-10-29) routing to Vals AI, ARC Prize, Epoch AI, Proximal, Cursor, Cognition, NeoCognition, PostTrainBench, OpenRouter, VulcanBench; AA's Sept 1 Fable 5.1 launch article (Opus 5 max 63 / $2.34 launch-vintage reference); scores are normalized 1–100 interpretations, not official vendor scores.
+- Conflict handling (2026-11-01): the draft's dismissed unattributed "SWE-bench 97%" is now **attributable and independent (Vals AI 97.0%)**, so it is counted for the first time — a rare case where an earlier exclusion is reversed by new evidence. Where launch-table and system-card values differ for the same benchmark (FrontierCode 48.0 vs 53.4 Main; GDPval 1708 vs 1862; Chartography 83.4 vs 83.0), both are recorded and the difference is noted as an effort/harness variant, never averaged. **Opus 5 is deprecated on AA** — no current Index composite exists to close that gap, and the launch-vintage 63 (pre-v5 basket) is explicitly not comparable. Google-published rows about Opus 5 (Gemini 3.8 Flash card HLE-Verified 54.4 / LABBench2 84.2; Argon-chart Gray Swan 4.6%) are competitor-run: quarantined, direction-only, never primary. Opus 5 ≠ Opus 5.5 — no row transferred from the successor; OSWorld 2.0 vs 2.1 and Terminal-Bench 2.x/3.0/4.0 kept strictly separated by harness generation.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.

@@ -1,0 +1,34 @@
+# Kimi K2.8 Preview — findings by GPT-6.1 Terra
+
+- Source: Moonshot AI `kimi-k2.8-preview`
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot preview model positioned for coding and agents.
+- **Provider / access:** APIMaster lists `kimi-k2.8-preview`; vendor Kimi Code also documents access.
+- **Release / knowledge:** OpenCode Data lists 2026-09-11; knowledge cutoff not verified.
+- **Context window:** OpenCode Data lists 1M; APIMaster reports 1,048,576 for Kimi Code.
+- **Modalities:** Text, image and video input; text output and tools, per OpenCode Data.
+- **Pricing:** OpenCode Data lists $1 input / $4 output per million; actual route pricing may vary.
+- **Architecture:** Proprietary; parameter count not verified.
+
+### Raw benchmarks found
+
+- No verified numerical public benchmark for this exact preview found. APIMaster explicitly notes that the Moonshot announcement supplies no new numerical benchmark scores; K3 and K2.7 scores are not substituted.
+
+### Normalized scores (1–100)
+
+- Excluded: insufficient verified benchmark evidence to calculate an Overall score.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Public catalog and vendor-announcement coverage; no unsupported numerical benchmark assumptions.
+- Reference URLs:
+  - [OpenCode Data model comparison](https://opencode.ai/data/compare/moonshotai/kimi-k2-8-preview/openai/gpt-6-1-terra)
+  - [APIMaster preview overview](https://apimaster.ai/blog/kimi-k2-8)
+  - [Kimi Code model documentation](https://www.kimi.com/code/docs/kimi-code/models.html)

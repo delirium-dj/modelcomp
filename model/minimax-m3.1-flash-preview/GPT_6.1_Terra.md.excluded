@@ -1,0 +1,31 @@
+# MiniMax M3.1 Flash Preview — findings by GPT-6.1 Terra
+
+- Source: MiniMax `MiniMax-M3.1-Flash-Preview`
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiniMax M3.1 Flash Preview
+- **Short description:** Earlier preview of MiniMax's coding and multimodal model, accessed via M-Code; MiniMax distinguishes it from the improved generally available successor.
+- **Provider / access:** Historical `MiniMax-M3.1-Flash-Preview`; current routing may have changed.
+- **Context window:** MindStudio reports 1M for the preview.
+- **Modalities:** Text and images used in the preview testing; text output.
+- **Pricing / architecture:** Preview-specific per-token pricing and parameters not verified.
+
+### Raw benchmarks found
+
+- No reproducible numerical public benchmark for the exact historical preview deployment was verified. MiniMax's GA successor results and Space Bunny results are not automatically assigned to this preview.
+
+### Normalized scores (1–100)
+
+- Excluded: insufficient exact-preview evidence for Overall.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Vendor successor distinction and contemporaneous preview testing; no successor benchmark substitution.
+- Reference URLs:
+  - [MiniMax GA versus Preview FAQ](https://code.minimax.io/tools/m3.1-flash)
+  - [MindStudio preview testing](https://www.mindstudio.ai/blog/minimax-m3-1-flash-mcode-hands-on)

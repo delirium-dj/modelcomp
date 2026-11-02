@@ -1,0 +1,31 @@
+# Grok 4.1 — findings by GPT-6.1 Terra
+
+- Source: xAI Grok 4.1; exact evaluation deployment unspecified
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.1
+- **Short description:** xAI Grok 4.1, distinct in the research paper's labeling from the separately cataloged Grok 4.1 Fast route; weight and deployment correspondence is unverified.
+- **Provider / access:** Exact API model identifier for the paper's evaluation not established.
+- **Context window / modalities / pricing:** Not verified for the evaluated deployment; Fast route specifications are not assumed.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found
+
+- ResearchClawBench reports **13.5/100** for its system labeled Grok-4.1 in a research-agent harness. The paper does not establish the precise deployment or enough independent dimensions to compute a defensible overall score.
+- No exact-deployment GPQA, coding, multimodal or pricing measurement was verified. Grok 4.1 Fast figures are not substituted.
+
+### Normalized scores (1–100)
+
+- Excluded: insufficient verified deployment-specific evidence to compute Overall.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Primary ResearchClawBench paper and xAI documentation; preserve naming and harness uncertainty.
+- Reference URLs:
+  - [ResearchClawBench paper, Table 5](https://arxiv.org/html/2606.07591v2)
+  - [xAI Grok 4.1 Fast documentation](https://docs.x.ai/docs/models/grok-4-1-fast-reasoning)

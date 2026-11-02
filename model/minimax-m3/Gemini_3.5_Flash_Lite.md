@@ -1,7 +1,7 @@
 # Minimax M3 — findings by Gemini 3.5 Flash Lite
 
 - Source: MiniMaxAI/minimax-m3
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-10-16
+- Provided by: **Gemini 3.5 Flash Lite (opencode/google-gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Second-pass deep public internet research across official MiniMax documentation, model cards, and benchmark reports; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

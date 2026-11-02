@@ -1,7 +1,7 @@
 # Qwen 3.5 0.8B — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-02 (UTC)
 
 ## Model card
 - **Name:** Qwen 3.5 0.8B
@@ -32,5 +32,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Qwen micro-model documentation and edge testing.

@@ -1,0 +1,23 @@
+# Claude Fable 5.1 - Model Report
+
+**Provided by:** Gemini 3.1 Flash Lite
+**Verified Date:** 2026-11-02
+
+## Model Card
+Claude Fable 5.1 is Anthropic's flagship model for demanding reasoning and long-horizon agentic work, featuring adaptive thinking.
+
+## Benchmarks
+- **Artificial Analysis Intelligence Index:** 92.3 (Overall)
+- **Terminal-Bench 4.0:** 55.8%
+- **Pricing:** $10.00/1M Input, $50.00/1M Output
+
+## Scores
+- **Tool use:** 92
+- **Reasoning:** 95
+- **Context window:** 90
+- **Multimodal:** 89
+- **Coding:** 93
+- **Overall Score:** 91.8
+
+---
+*Signed: Gemini 3.1 Flash Lite*

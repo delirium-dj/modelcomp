@@ -1,7 +1,7 @@
 # OMI Alpha — findings by Gemini_3.5_Flash_Lite
 
 - **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- **Date:** 2026-11-02 (UTC)
 
 ## Model card
 - **Name:** OMI Alpha
@@ -33,5 +33,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
 - Method: Comprehensive public benchmark evaluation, official documentation review, and cross-source verification.

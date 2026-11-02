@@ -1,9 +1,12 @@
 # Claude Sonnet 5.5 — findings by Qwen 3.8 Max
 
-- Source: Anthropic (`claude-sonnet-5-5`)
+- Source: Anthropic (`claude-sonnet-5-5`); independent: Artificial Analysis (`claude-sonnet-5-5`, Max with Default Fallback), Vals AI full evaluation write-up (Sep 28, 2026), BenchLM.ai aggregator (2026-10-29) routing to Cursor, Proximal, Cognition, Epoch AI, Nous Research, LlamaIndex, NeoCognition, MazeBench and OpenRouter; Anthropic Claude Sonnet 5.5 system card (vendor, via BenchLM)
 - Date: 2026-10-20 (UTC)
+- Re-researched: 2026-11-01 (UTC) — enrichment pass; original findings preserved below and marked where superseded
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Verdict (2026-11-01):** the draft was a faithful copy of **Anthropic's own launch table** — strong relative claims everywhere, blanks where the vendor had no number (GPQA, AA Index, SWE-bench Verified). The pass **closes the AA-Index gap with a top-tier independent composite: Intelligence Index v5.0 54 — #8 of 58, "well above average"** — and adds Vals AI's full eval (**Vals Index #2 of 66 at 69.22%, 0.47 points behind Opus 5.5 at under two-thirds of Vals's per-test cost**). But three findings cut against the draft's framing. **(1) The value story inverts on measurement:** list price really is $2/$10, yet **AA measures $10.02 per Index task — #53 of 57 — statistically identical to Opus 5.5's $10.04**, because Sonnet 5.5 is **the most verbose model in this entire batch (340 M Index tokens, #57 of 57, 4.9× the median)**; cheap tokens ≠ cheap tasks (same mechanism as Gemini 3.8 Flash, extreme case). **(2) The headline agent row shrinks under independent reruns:** **Terminal-Bench 4.0 is 70.6% in Anthropic's table but 63.6% on AA's board and 53.03% on Vals** — and Vals shows the **Sonnet 5 refusal-fallback** (built in for safety-flagged requests) manufactures part of that gap: counting fallback assists as failures drops TB 2.1 to 80.52%, TB 4.0 to 50.51%, and **CyberBench from 59.58% to 41.97%**. **(3)** The multimodal gap stays open — **GPQA still has no public number** — so it remains discounted. Offsetting positives, all independent: **MLCR-AA 41.7% — the best multi-document retrieval measured in this batch** (Fable 15.6, Flash 10.6), **FrontierCode 2.0 41.0% (Cognition) — the best current-gen code on this instrument in the batch** (Argon 26.3, Opus 5 26.7, Fable 5.1 32.4), **AA AutomationBench 71.8%**, **Omniscience hallucination 43.3% — the mildest in the Anthropic group**. Tool 93→92, Reasoning 92→93, Context 98→99, Cost 92→78; Multimodal and Coding unchanged. **Overall stays 92 — the shape changes, the mean doesn't.**
 
 ## Model card
 
@@ -16,51 +19,58 @@
 - **Modalities:** text + image in → text out; reasoning yes (Adaptive thinking; default effort `high`, faster than Opus 5.5); tool calls yes (batches tool calls more than Sonnet 5); computer use (OSWorld) and image understanding — first Sonnet to beat Pokémon Red from screenshots alone.
 - **Pricing (as of 2026-10-20):** $2 / 1M input, $10 / 1M output (same as Sonnet 5); cache reads $0.10 (half of Sonnet 5's $0.20); up to 30% less per task and 30%+ faster than Sonnet 5.
 - **Architecture:** proprietary (closed weights); cyber safeguards comparable to Opus 5 (first Sonnet with cyber safeguards + fallbacks).
+- **Independently measured (Artificial Analysis, `claude-sonnet-5-5`, Max with Default Fallback, added 2026-11-01):** Intelligence Index v5.0 **54 — #8 of 58** (class median 37; AA: *"amongst the leading models in intelligence… reasonably priced when comparing to other models of similar price"*) · Speed **139.3 tok/s, #36 of 196** ("notably fast", median 81) · **Cost per Index task $10.02 — #53 of 57** at **$2.00 in / $10.00 out per 1M with a 95% cache discount** — effectively tied with Opus 5.5's $10.04 · Verbosity **340 M tokens — #57 of 57, the most verbose model AA costed in this class** (median 70 M) · **input modality text and image**, output text, reasoning Yes, **context 1M**. Vals AI (Sep 28): **Vals Index 69.22% — #2 of 66**, $20.80 per test vs Opus 5.5's $32.77; evaluated with **Claude Sonnet 5 as server-side refusal fallback** (fallback effects detailed in the Agent section).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **70.6%** (agentic coding — **leads Opus 5.5's 66.4%**; a huge jump from Sonnet 5's 10.3%)
-- OSWorld 2.1 (computer use): **80.1%** partial (just behind Opus 5.5 81.8%; Sonnet 5 was 57.0%)
-- GDPval-AA v2.1: **1844 Elo** (two points below Opus 5.5's 1846; Sonnet 5 was 1449)
-- AA-Briefcase v1.1 (long-horizon knowledge work): **1811 Elo** (Opus 5.5 1822; Sonnet 5 1359)
+- Terminal-Bench 4.0: **70.6%** (agentic coding — **leads Opus 5.5's 66.4%**; a huge jump from Sonnet 5's 10.3%) → **independent reruns disagree downward: 63.6% on AA's Terminal-Bench 4.0 board, 53.03% on Vals AI** (3rd of 37). Vals notes counting the **Sonnet 5 refusal-fallback** assists as failures drops it further to **50.51%** (7 of 198). All recorded; the AA/Vals live numbers govern the score, never averaged with the vendor's 70.6%.
+- OSWorld 2.1 (computer use): **80.1%** partial (just behind Opus 5.5 81.8%; Sonnet 5 was 57.0%) — system-card vendor row. **Quarantined: an "OSWorld 2.1 Offline 83.9%" row on the aggregator is sourced from the Claude Haiku 5.5 system card, not Sonnet 5.5** — a sibling-card comparison row, not this model's own result; recorded here only as a note, never merged.
+- GDPval-AA v2.1: **1844 Elo** (two points below Opus 5.5's 1846; Sonnet 5 was 1449) — **AA live 66.9% normalized**; corroborated.
+- AA-Briefcase v1.1 (long-horizon knowledge work): **1811 Elo** (Opus 5.5 1822; Sonnet 5 1359) — system-card vendor row.
+- **New independent agent rows (2026-11-01):** **AA AutomationBench 71.8%** (AA; vs the Zapier-1.0.6 system-card 44.7%) — strong; **Terminal-Bench 2.1 83.15% (Vals, tied #6 of 75; 80.52% when fallback assists are counted as failures)**; **Vals Terminal-Bench-Science 38.57% (#3 of 33)** and system-card **Terminal-Bench-Science 0.1 59.9%** (harness difference, both recorded); **DRACO 87.0%** (system card); **Toolathlon-Verified 77.8% / pass@3 85.2% / Pass³ 68.5%, avg 31.6 turns** (system card, vendor); **AA Harvey LAB v1.0 93.1%** but **Harvey's own Legal Agent Benchmark only 2.92% on Vals (tied #35 of 70)** — a stark split between the two legal-agent instruments; **Hermes Index 53.1% / Hermes Bench 73.5%** (Nous Research); **MazeBench 8%**; **GDP.pdf 25.8% (AA)**; **CyberBench 59.58% on Vals, falling to 41.97% when the Sonnet 5 fallback is disallowed** — the refusal-safety mechanism is load-bearing on security work.
 
 Reasoning / knowledge:
 
-- Humanity's Last Exam: **64.5%** with tools (behind Opus 5.5 67.7%; up from Sonnet 5's 54.9%)
-- GPQA Diamond: no verified public score found
-- Artificial Analysis Intelligence Index: no verified public score found
+- Humanity's Last Exam: **64.5%** with tools (behind Opus 5.5 67.7%; up from Sonnet 5's 54.9%) — **AA's independent HLE reads 55.0%; system card HLE w/o tools 56.9%**.
+- GPQA Diamond: no verified public score found → **still no public number on re-check (2026-11-01)** — not in AA's cells, Vals's suite, or the system card surfaced by the aggregator. Remains an open gap; the draft's discount stands.
+- Artificial Analysis Intelligence Index: no verified public score found → **gap closed: Index v5.0 54 — #8 of 58** (AA model page; BenchLM records the same cell as 54.2%), "well above average" (class median 37). Launch-vintage comparables in this batch confirm the flagship ordering: **Opus 5.5 58 (#2) > Sonnet 5.5 54 (#8) > Fable 5.1 49 (#17)** — a genuinely elite measured composite.
+- **New independent reasoning rows (2026-11-01):** **FrontierMath v2 Tiers 1–3 88.8% / Tier 4 80.5% (Epoch AI)** — elite, second only to Fable 5.1 in this batch; **ProofBench v1.1 100.00% (Vals)**, matching Opus 5.5/Fable 5.1; **IOI 83.06% (Vals, #7 of 36)**; **AA-Omniscience hallucination 43.3% / accuracy 51.5% (Index 30.5%)** — the mildest honesty profile in the Anthropic group (vs Fable 70.0, Opus 5 60.8); **CritPt 31.4% (AA)**; **MLCR-AA 41.7%** (see long context).
 
 Coding:
 
-- FrontierCode 1.1 (Main): **46.2%** at Max / **52.1%** at Xhigh (Opus 5.5 54.4%; +10 pts over Sonnet 5 at High effort for ~1/15 the cost)
-- CursorBench 4.0: **55.5%** (within ~2 pts of Opus 5.5's 57.8%; Sonnet 5 was 34.1%)
-- SWE-bench Verified / LiveCodeBench: no verified public score found in the launch post
+- FrontierCode 1.1 (Main): **46.2%** at Max / **52.1%** at Xhigh (Opus 5.5 54.4%; +10 pts over Sonnet 5 at High effort for ~1/15 the cost) — system card **46.2% Main / 59.1% Extended**; **current-gen FrontierCode 2.0 reads 41.0% (Cognition) — the best value on that instrument in this batch** (Argon 26.3, Opus 5 26.7, Fable 5.1 32.4).
+- CursorBench 4.0: **55.5%** (within ~2 pts of Opus 5.5's 57.8%; Sonnet 5 was 34.1%) — **independently confirmed by Cursor's own leaderboard at 55.5%**.
+- SWE-bench Verified / LiveCodeBench: no verified public score found in the launch post → **still no canonical SWE-bench Verified / LiveCodeBench row on re-check (2026-11-01).** Independent proxies that now exist: **FrontierSWE v2 61.9% (Proximal)**, **AA-SciCode 61.0%**, **Bug Hunt Bench 51.3 fixes**, **Code Migration 69.83% (Vals, #1)**, **Vibe Code Bench 92.39% (Vals, #1)**; vendor system-card rows: **SWE-bench Pro 81.3%, SWE Multilingual 90.3%, SWE Multimodal 54.3%, DeepSWE 71.0%, ProgramBench 79.7%**.
 
 Multimodal:
 
-- Chartography (visual chart recognition): **61.6%** no tools (Opus 5.5 64.4%; Sonnet 5 was 15.6%)
-- Image understanding: first Sonnet to beat Pokémon Red working only from screenshots
+- Chartography (visual chart recognition): **61.6%** no tools (Opus 5.5 64.4%; Sonnet 5 was 15.6%) → **system card's with-tools row 90.2%** (the model's chart ability is heavily tool-mediated; both recorded).
+- Image understanding: first Sonnet to beat Pokémon Red working only from screenshots — qualitative vendor claim, no public benchmark number found on re-check.
+- **New independent multimodal rows (2026-11-01):** **ExtractBench 94.68% (LlamaIndex, independent)** — elite document-grounded extraction; **ExtractBench Pro 32%**, **ParseBench 69.26% (LlamaIndex)**, **BenchCAD Vision2Code 0.747 no-tools / 0.963 tools** and **Biomedical image analysis 72.2%** (system card, vendor), **Design Arena Website 1323** (OpenRouter). **No AA-MMMP-Pro-style image-reasoning rerun found for this SKU**, so the draft's "lacks a broad vision benchmark" caveat still holds.
+- **Modality confirmed by AA: text + image in → text out** — no audio/video; **1M context confirmed.**
 
 Long context:
 
 - 1M-token window; no MRCR/RULER figure published — "no long-context retrieval reported".
+- **Status 2026-11-01:** window **confirmed at 1M by AA**. The retrieval gap is now closed with the batch's **best** multi-document result: **MLCR-AA 41.7%** (vs Fable 5.1 15.6, Flash 10.6, Opus 5 n/a) and **AA-LCR 82.7%** (strong). No MRCR/RULER published by Anthropic for this SKU.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Terminal-Bench 4.0 70.6% actually leads Opus 5.5, with OSWorld 2.1 80.1% and GDPval-AA 1844 near the flagship; capped only by AA-Briefcase/OSWorld sitting a hair under Opus 5.5.
-- **Reasoning: 92/100.** GDPval-AA 1844 (within 2 Elo of Opus 5.5) and HLE 64.5% with tools are near-frontier; held below the ceiling by HLE trailing Opus 5.5's 67.7% and no GPQA figure.
-- **Context window: 98/100.** 1M-token input with 128K output; near the top, a touch below perfect absent a published long-context retrieval benchmark.
-- **Multimodal: 83/100.** Chartography 61.6% (no tools) is a massive jump over Sonnet 5's 15.6% and screenshot-only Pokémon Red shows real image understanding; capped as it still trails Opus 5.5's 64.4% and lacks a broad vision benchmark.
-- **Coding: 93/100.** Terminal-Bench 4.0 70.6% (best in the compared set), CursorBench 55.5% within ~2 pts of Opus 5.5 and FrontierCode 52.1% at Xhigh; capped by FrontierCode/CursorBench still trailing Opus 5.5 at the top effort.
-- **Cost efficiency: 92/100.** $2/$10 with $0.10 cache reads, 30%+ faster and up to 30% cheaper per task than Sonnet 5 while approaching Opus 5.5 — outstanding value; not 100 because it is a paid tier (no $0 lane).
-- **Overall Score: 92/100.** Mean of Tool 93 + Reasoning 92 + Context 98 + Multimodal 83 + Coding 93 = 91.8 → 92. Best fit: high-volume everyday agentic coding, bug fixing and document/design work where near-Opus quality at a fifth of the cost matters; Opus 5.5 remains the pick for complex open-ended judgment.
+- **Tool use: 92/100.** *(93 → 92 — the row that justified the 93 shrank under independent reruns.)* The draft's case was "Terminal-Bench 4.0 70.6% actually leads Opus 5.5" — **AA measures 63.6% and Vals 53.03% (50.51% with fallback assists scored as failures)**, so the flagship-lead claim doesn't survive independent harnesses. Still strong: **OSWorld 2.1 80.1**, **GDPval-AA 1844** (AA live 66.9%), **AA-Briefcase 1811**, **AA AutomationBench 71.8%**, **aaTerminalBench21 83.15% (Vals)**, **DRACO 87.0%** — but the **Sonnet 5 refusal-fallback** (Vals: disallowing it drops CyberBench 59.58→41.97) and **Harvey's own LAB 2.92% vs AA Harvey LAB 93.1%** caution against autonomous high-stakes use.
+- **Reasoning: 93/100.** *(92 → 93 — the AA-composite gap closed at the elite end.)* **Index v5.0 54 — #8 of 58** and **Vals Index #2 of 66 (69.22%)**, with **FrontierMath v2 Tier 4 80.5% (Epoch)** and **ProofBench 100.00% (Vals)** as independent standouts and **hallucination 43.3% — mildest in the Anthropic group**. GPQA still unreported (draft's discount stands on that row), and HLE 64.5% trails Opus 5.5's 67.7%.
+- **Context window: 99/100.** *(98 → 99 — the draft withheld the last point 'absent a published long-context retrieval benchmark'; now published, and it is the batch's best.)* **MLCR-AA 41.7%** (next best measured here: Fable 5.1 15.6, Flash 10.6), **AA-LCR 82.7%**, 1M window AA-confirmed.
+- **Multimodal: 83/100.** *(unchanged — re-verified 2026-11-01.)* Chartography 61.6% no-tools / 90.2% tools (vendor) and screenshot-only Pokémon Red remain the core evidence; **ExtractBench 94.68% (LlamaIndex, independent)** is an elite document-grounding result but not image *reasoning*, and **no AA-MMMP-Pro-style independent vision rerun exists for this SKU**, so no discount lift is justified.
+- **Coding: 93/100.** *(unchanged, now independently corroborated.)* **CursorBench 4.0 55.5% confirmed by Cursor**; **FrontierCode 2.0 41.0% (Cognition) is the best current-generation score on that instrument in this batch** (Argon 26.3, Opus 5 26.7, Fable 5.1 32.4); **FrontierSWE v2 61.9% (Proximal)**, **Code Migration 69.83% / Vibe Code Bench 92.39% (both Vals #1)**. Held at 93, not raised: the flagship rows (Terminal-Bench 4.0 downward-rerun; SWE-bench Verified still unpopulated) and Opus 5.5's lead at the top effort still cap the dimension.
+- **Cost efficiency: 78/100.** *(92 → 78 — the draft scored list price; AA measures tasks.)* $2/$10 with $0.10 cache reads is genuinely cheap per token — yet **AA's costed cell is $10.02 per Index task, #53 of 57**, statistically identical to Opus 5.5's $10.04, because this is **the most verbose model in the batch: 340 M Index tokens, #57 of 57, 4.9× the median**. On Vals's own per-test accounting it looks better ($20.80 vs Opus 5.5's $32.77) — workload-dependent, as always; the AA per-Index-task cell governs here. Still far below Fable 5.1's $12.99 and above Astra's $6.24.
+- **Overall Score: 92/100.** Mean of Tool 92 + Reasoning 93 + Context 99 + Multimodal 83 + Coding 93 = 92.0 → 92. *(92 → 92 unchanged in the mean, but the shape moved materially: +1 Reasoning, +1 Context, −1 Tool, and Cost 92 → 78 outside the mean.)* Best fit: high-volume everyday agentic coding, bug fixing and document/design work where near-Opus quality matters — but buyers chasing the $2/$10 list price should check AA's per-task cell first: at max effort this model buys its intelligence with 4.9× median output tokens.
 
 ---
 
 ## Signature
 
-- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20
-- Method: public internet research (Anthropic's "Introducing Claude Sonnet 5.5" launch post benchmark table; Claude Platform docs for context/pricing specs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-10-20; re-researched 2026-11-01 (enrichment pass)
+- Method: public internet research (Anthropic's "Introducing Claude Sonnet 5.5" launch post benchmark table; Claude Platform docs for context/pricing specs); 2026-11-01 pass adds ≥3 independent sources — Artificial Analysis model page (Index v5.0 54 #8/58, $10.02/task #53/57, verbosity 340M #57/57, modality confirmed), Vals AI full evaluation write-up (Sep 28, 2026 — Vals Index #2/66, refusal-fallback deltas), BenchLM.ai aggregator (2026-10-29) routing to Cursor, Proximal, Cognition, Epoch AI, Nous Research, LlamaIndex, NeoCognition, MazeBench, OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
+- Conflict handling (2026-11-01): Terminal-Bench 4.0 has three live values (vendor 70.6 / AA 63.6 / Vals 53.03, plus Vals's 50.51 fallback-adjusted); all recorded, the independent trackers govern the score, never averaged. The **Sonnet 5 server-side refusal-fallback** (confirmed by Vals) means vendor agent numbers include fallback-assisted solves — flagged wherever material (TB, CyberBench, SRE Bench). **Quarantined: "OSWorld 2.1 Offline 83.9%" sourced from the Claude Haiku 5.5 system card** — a sibling's comparison row, never merged into this model's evidence. Sonnet 5 ≠ Sonnet 5.5 and Opus 5.5 numbers never transferred. Launch table vs system-card differences for the same instrument (AutomationBench 44.7 vs AA 71.8; Terminal-Bench-Science 59.9 card vs 38.57 Vals) recorded as harness/scaffold variants with the independent value governing. GPQA and canonical SWE-bench Verified: **honest still-open gaps**, not omissions.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.
