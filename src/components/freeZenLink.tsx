@@ -13,7 +13,7 @@ const PHRASE = "Free OpenCode Zen tier";
 export function withFreeZenLink(text: string): JSXOutput[] {
   const parts = text.split(PHRASE);
   if (parts.length === 1) return [text];
-  const out: any[] = [];
+  const out: JSXOutput[] = [];
   parts.forEach((part, i) => {
     if (part) out.push(part);
     if (i < parts.length - 1) {

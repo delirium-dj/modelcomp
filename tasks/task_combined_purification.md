@@ -44,6 +44,7 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 - **A4** — `state/` empty directory deleted locally (untracked, no git impact).
 - **A5** — `src/components/v2/v2.css` deleted + its three imports removed.
 - **A6** — `.opencode/plugins/v1/` removed (14 parked V1 plugin files, 3,756 lines).
+- **B6** — `src/components/freeZenLink.tsx` internal array typed as `any[]` → `JSXOutput[]` (strict type safety). ✅ Done 2026-11-02.
 - **A7** — `assets/avatar-backup-2026-10-05/` removed (4 tracked files).
 - **A9** — dead `HELPS` constant removed from `routes/contact/index.tsx`.
 - **A10** — `src/routes/design-6sol/` removed: folder deleted from disk (untracked, gitignored),
@@ -586,7 +587,7 @@ stubs. Then get sign-off for remaining items.
 
 **Step 1 — pure deletions (zero behaviour change)**
 
-A8 `PRD/webshop-prd.md` · B6 `freeZenLink.tsx` any[] type fix.
+A8 `PRD/webshop-prd.md`.
 Verify: `pnpm test` green, `pnpm build.types:direct` clean.
 
 **Step 2 — correctness / latent bugs**
