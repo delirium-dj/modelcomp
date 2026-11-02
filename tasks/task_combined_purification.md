@@ -84,12 +84,11 @@ Validation: `pnpm test` **563/563** green, `pnpm build.types:direct` clean,
 
 **Priority 1 — pure deletions (no behaviour change):**
 
-- **A4** — `state/` empty directory (untracked, remove locally).
+- **A4** — `state/` empty directory deleted locally ✅ DONE.
 - **A8** — `PRD/webshop-prd.md` — 223 KB webshop spec with no connection to this project.
   `PRD/` stays gitignored (`.gitignore:13`); delete only `webshop-prd.md`. Per user instruction,
   do NOT un-ignore `PRD/` or remove `PRD/prd.md` references beyond what C3 already did.
-- **B6** — `src/components/FreeZenLink.tsx` `any[]` return type → `JSXOutput[]` (done as part of D13
-  but file-level type fix may still be needed).
+- **B6** — `src/components/FreeZenLink.tsx` `any[]` → `JSXOutput[]` (strict type safety) ✅ DONE.
 
 **Priority 2 — correctness / latent bugs:**
 
