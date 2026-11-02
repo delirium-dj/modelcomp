@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash 1017 — findings by GPT 5.6 Luna
 
 - Source: DeepSeek / `DeepSeek-V4.1-Flash-1017`
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4.1-flash-1017` for the snapshot; official API route `deepseek-flash`.
 - **Context window:** 1M tokens, with the official model card recommending `max_tokens` of at least 256K; Models.dev lists a 384K output limit. Exact hosted output limits vary by provider.
 - **Modalities:** Text and image input, text output, native visual understanding, reasoning/thinking mode, tool calls, and structured output on most gateways. No audio or video input/output was verified for this snapshot.
-- **Pricing (as of 2026-10-23):** DeepSeek's official announcement uses peak/off-peak pricing and an image-rendered table; Models.dev lists common hosted pricing around $0.30 input / $1.20 output per 1M tokens, while OpenRouter lists $0.019 / $0.60 for its route. Prices are provider and time-window dependent; open weights are MIT licensed.
+- **Pricing (as of 2026-11-02):** DeepSeek's official announcement uses peak/off-peak pricing and an image-rendered table; Models.dev lists common hosted pricing around $0.30 input / $1.20 output per 1M tokens, while OpenRouter lists $0.019 / $0.60 for its route. Prices are provider and time-window dependent; open weights are MIT licensed.
 - **Architecture:** Open-weight 552B-parameter sparse MoE using DeepSeek's Causal Encoder-Decoder architecture, with 8B active parameters on input and 16B on output. Native visual and text embeddings are jointly trained; compressed KV caching uses roughly one-quarter the HBM of the previous generation. License: MIT.
 
 ### Raw benchmarks found
@@ -24,27 +24,24 @@
 Agent / tool use:
 
 - Terminal-Bench 4.0: **42.3%** (exact 1017 Hugging Face model card; Claude Code harness).
-- Automation-Bench v1.0.6: **60.5%** (exact 1017 model card).
-- Agents' Last Exam: **35.4%** (exact 1017 model card).
-- Apex Bench v1.1: **72.1%** (exact 1017 model card).
+- Automation-Bench v1.0.6: **60.5%**; Agents' Last Exam **35.4%**; Apex Bench v1.1 **72.1%** (exact 1017 model card).
 - Artificial Analysis AutomationBench: **68.9%** (BenchLM, family/provider measurement).
+- BenchLM's October 29 snapshot reports **65.22/100**, rank **#30/1004**, with 51/724 benchmarks covered. This is a partial external composite, not a replacement for the exact-snapshot rows.
 - DeepSeek's official announcement says tests by multiple parties placed V4.1 Flash ahead of V4 Pro on performance, cost, speed, and total runtime; this is a directional vendor claim, not a standalone score.
 
 Reasoning / knowledge:
 
 - HLE without tools: **42.6%**; text-only subset **44.0%** (exact 1017 model card).
-- Agents' Last Exam: **35.4%** (exact 1017 model card).
-- Artificial Analysis Intelligence Index: **45** (Artificial Analysis, max/reasoning route); BenchLM reports **39.5%** on a family/provider presentation. These are different scales and were not averaged.
+- Artificial Analysis Intelligence Index: **45** (max/reasoning route); BenchLM reports **39.5%** on a family/provider presentation. These are different scales and were not averaged.
 - AA-LCR: **84.0%**; CritPt **14.3%** (BenchLM, family/provider measurements).
 - AA-Omniscience accuracy / hallucination rate / index: **46.4% / 96.5% / -5.3** (BenchLM, family/provider measurements). The poor hallucination result is a material reliability counterweight to the strong task scores.
-- GPQA-Diamond: **90.9%** (BenchLM, inherited from the V4.1 Flash model card rather than explicitly re-run on the 1017 card; treated as lineage evidence, not exact-snapshot evidence).
+- GPQA-Diamond: **90.9%** (BenchLM, inherited from the earlier V4.1 Flash model card rather than explicitly re-run on the 1017 card; lineage evidence only).
 
 Coding:
 
 - DeepSWE v1.1: **77.0%** (exact 1017 model card; Mini-SWE-V2 harness).
 - ProgramBench: **29.1%**; NL2Repo-Bench **68.2%** (exact 1017 model card).
-- Terminal-Bench 4.0: **42.3%** (exact 1017 model card).
-- OpenRouter/BenchLM family entry reports Terminal-Bench 2.1 **90.6%** for the earlier V4.1 Flash model card; this is not treated as an exact 1017 result because the dated card reports a different Terminal-Bench 4.0 evaluation.
+- The exact 1017 Terminal-Bench result is **42.3%**. The earlier V4.1 Flash card reports Terminal-Bench 2.1 **90.6%** and terminalBench3 **30%**; those benchmark versions and the earlier model identity remain separate.
 
 Multimodal:
 
@@ -63,12 +60,21 @@ Long context:
 - **Multimodal: 87/100.** Native image understanding plus BabyVision 92.5%, Chartography 83.0%, and MMMU-Pro 77.0% establish strong visual capability; ZeroBench 51.0% and no verified audio/video support cap it.
 - **Coding: 88/100.** DeepSWE 77.0%, NL2Repo 68.2%, and strong family coding results show excellent coding potential, while ProgramBench 29.1% and Terminal-Bench 4.0 42.3% show uneven agentic execution.
 - **Cost efficiency: 97/100.** Open weights under MIT and very low hosted pricing, including OpenRouter's $0.019/$0.60 route, are unusually attractive; provider variance and the high compute requirement of 552B total weights prevent 100.
-- **Overall Score: 89/100.** Half-up mean of the five quality dimensions: (86 + 88 + 95 + 87 + 88) / 5 = 88.8. Best fit is high-throughput multimodal coding and long-context agents where price, speed, and open deployment matter, with extra verification for factual reliability.
+- **Overall Score: 88.8/100.** Mean of the five quality dimensions `(86 + 88 + 95 + 87 + 88) / 5 = 88.8`; best fit is high-throughput multimodal coding and long-context agents where price, speed, and open deployment matter, with extra verification for factual reliability.
+
+## Evidence notes
+
+- The dated `1017` snapshot is not merged with the earlier `DeepSeek-V4.1-Flash` identity. The official card's Terminal-Bench 4.0 / Claude Code and DeepSWE v1.1 / Mini-SWE-V2 harness labels are retained exactly.
+- BenchLM's October 29 profile is partial family/provider coverage; it is corroboration, not an exact-snapshot replacement for the Hugging Face table.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-10-23
-- Method: Four independent web searches plus direct comparison of DeepSeek's official announcement, the exact DeepSeek Hugging Face model card, Artificial Analysis, BenchLM, Models.dev, OpenRouter, and Bing search results. Family-level and exact-1017 measurements were separated, and the Terminal-Bench 2.1/4.0 conflict was not conflated; scores are normalized interpretations, not official vendor scores.
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-11-02
+- Method: current official DeepSeek documentation and exact Hugging Face model card, plus BenchLM's October 29 profile, Artificial Analysis, Models.dev, and OpenRouter. Family-level and exact-1017 measurements were separated, and the Terminal-Bench 2.1/3/4.0 conflict was not conflated; scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek V4.1 Flash 1017 release](https://api-docs.deepseek.com/news/news261017)
+  - [DeepSeek V4.1 Flash 1017 model card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+  - [BenchLM DeepSeek V4.1 Flash 1017 profile](https://benchlm.ai/models/deepseek-v4-1-flash-1017)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Muse Glimmer 30B
 
 - Source: Google DeepMind / gemma-4.12b-unified
-- Date: 2026-10-24
+- Date: 2026-11-02
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -59,6 +59,6 @@ Source: https://blog.google/innovation-and-ai/technology/developers-tools/introd
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

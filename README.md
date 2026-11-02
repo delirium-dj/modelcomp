@@ -82,9 +82,13 @@ Independent, no paid promotions — donations fund compute and research time, ne
 - **Tiers** (buttons in `V2Footer`, all linking to `https://github.com/sponsors/delirium-dj`):
   `$5 Coffee` (one-time thanks) · `$19/mo Supporter` (name in README) ·
   `$99/mo Research backer` (logo in footer).
-- **Also via:** `Ko-fi` / `Patreon` / `Buy Me a Coffee` / `PayPal` / `Stripe` —
-  placeholders in `EXTRA_DONATE_LINKS` (`src/components/v2/V2Footer.tsx`); only entries
-  with a non-empty `href` render as links, the rest show as "soon".
+- **Also via** (entries in `EXTRA_DONATE_LINKS`, `src/components/v2/V2Footer.tsx`):
+  `Ko-fi` — [ko-fi.com/djordjedjordjevic](https://ko-fi.com/djordjedjordjevic) ·
+  `Patreon` — [patreon.com/DjordjeDjordjevic](https://patreon.com/DjordjeDjordjevic) ·
+  `PayPal` — [paypal.me/djdjordjevic](https://paypal.me/djdjordjevic).
+  Still placeholders: `Paddle` / `Lemon Squeezy` — only entries with a
+  non-empty `href` render as links, the rest show as "soon".
+  (`Buy Me a Coffee` was removed — Stripe-only payouts don't work for us.)
 - **Research backers:** [ExtraWebSite](https://extraweb.site) (website design &
   development) — first `$99/mo` backer. Logo vendored at
   `public/backers/extrawebsite.png` (transparent 255×255 RGBA, never hotlinked)

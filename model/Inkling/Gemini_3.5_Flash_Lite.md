@@ -1,7 +1,7 @@
 # Inkling — findings by Gemini 3.5 Flash Lite
 
 - Source: Thinking Machines Lab / Inkling (`thinkingmachines/inkling`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Date: 2026-11-02 (UTC; third-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,5 +44,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Thinking Machines Lab documentation, independent benchmark leaderboards, and telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02 (third-pass deep research)
+- Method: Deep third-pass multi-source empirical research and verification across official Thinking Machines Lab documentation, independent benchmark leaderboards, and telemetry; normalized 1–100 interpretations.

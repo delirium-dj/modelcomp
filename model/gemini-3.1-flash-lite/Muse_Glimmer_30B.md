@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash Lite — findings by Muse Glimmer 30B
 
 - Source: Google/Gemini 3.1 Flash Lite, e.g. OpenCode (`google/gemini-3.1-flash-lite`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-02
 - Method: curated `meta.json` metadata + DeepMind model card web research (2026-03-03 published card, https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

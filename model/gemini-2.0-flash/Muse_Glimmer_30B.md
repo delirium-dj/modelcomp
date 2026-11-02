@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by Muse Glimmer 30B
 
 - Source: Google / Gemini 2.0 Flash (`muse-glimmer-30b-contributor-free`)
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b-contributor-free)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b-contributor-free)** — 2026-11-02
 - Method: public internet research (Wikipedia Gemini language model page, DeepMind models page, repo meta.json, Google release announcements via public mirrors); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

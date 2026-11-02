@@ -23,11 +23,11 @@ const RESEARCH_BACKERS = [
 // Extra platforms — fill in your own URLs; entries with an empty href render
 // as dashed "soon" placeholders, exactly like the v1 footer.
 const EXTRA_DONATE_LINKS = [
-  { label: "Ko-fi", href: "" },
-  { label: "Patreon", href: "" },
-  { label: "Buy Me a Coffee", href: "" },
-  { label: "PayPal", href: "" },
-  { label: "Stripe", href: "" },
+  { label: "Ko-fi", href: "https://ko-fi.com/djordjedjordjevic" },
+  { label: "Patreon", href: "https://patreon.com/DjordjeDjordjevic" },
+  { label: "PayPal", href: "https://paypal.me/djdjordjevic" },
+  { label: "Paddle", href: "" },
+  { label: "Lemon Squeezy", href: "" },
 ];
 
 export const V2Footer = component$(() => {

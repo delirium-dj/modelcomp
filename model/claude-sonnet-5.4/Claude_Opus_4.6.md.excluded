@@ -1,0 +1,67 @@
+# Claude Sonnet 5.4 — findings by Claude Opus 4.6
+
+- Source: Anthropic (`opencode/claude-sonnet-5.4`)
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5.4
+- **Short description:** Anthropic's mid-2026 Sonnet-tier model with adaptive thinking, sub-turn checkpointing, and computer use capabilities. Positioned between the earlier Sonnet 4.6 and later Sonnet 5 in capability progression. Paid access only.
+- **Provider / access:** OpenCode Zen (`opencode/claude-sonnet-5.4`), Anthropic API. Chat Completions / Messages API.
+- **Release / knowledge:** Mid-2026; knowledge cutoff not publicly disclosed
+- **IDs:** `opencode/claude-sonnet-5.4` (no free Zen ID exists)
+- **Context window:** 1,000,000 tokens total; 128,000 max output — verified via model metadata
+- **Modalities:** Text, image in; text out; reasoning yes (adaptive thinking); tool calls yes; computer use yes
+- **Pricing (as of 2026-11):** $2.50 / $12.50 per 1M input/output tokens; $0.25 cached read per 1M. Paid only.
+- **Architecture:** Proprietary closed-weight model; details undisclosed
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found specific to Sonnet 5.4 (Sonnet 5 generation scores ~80.4% on Terminal-Bench 2.1)
+- OSWorld-Verified: no verified public score found specific to Sonnet 5.4 (Sonnet 5 generation scores ~81.2%)
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found specific to Sonnet 5.4 (Sonnet 5 generation scores ~78–89% depending on configuration)
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found specific to Sonnet 5.4 (Sonnet 5 generation scores ~85.2%)
+- SWE-bench Pro: no verified public score found specific to Sonnet 5.4 (Sonnet 5 generation scores ~63.2%)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+
+Long context:
+
+- 1M token context window verified; no MRCR/RULER/GraphWalks retrieval benchmarks found
+
+### Normalized scores (1–100)
+
+- **Tool use: 84/100.** Supports computer use and sub-turn checkpointing. Based on the Sonnet 5 generation's strong Terminal-Bench (~80.4%) and OSWorld (~81.2%) results, the 5.4 checkpoint likely performs in a similar range. Capped by lack of Sonnet 5.4-specific tool-use benchmark verification.
+- **Reasoning: 86/100.** Adaptive thinking enabled by default enhances multi-step reasoning. Sonnet 5 generation achieves 78–89% on GPQA Diamond. As a mid-generation checkpoint, likely performs between Sonnet 4.6 and Sonnet 5 peaks. Capped by lack of specific benchmark numbers.
+- **Context window: 88/100.** 1M native context window with 128K max output is among the best. No independent long-context retrieval benchmarks found, preventing a higher score.
+- **Multimodal: 40/100.** Text and image input only; text output. No audio, video, or PDF input support noted. No vision-specific benchmarks found. Score reflects limited modality coverage.
+- **Coding: 85/100.** Sonnet 5 generation's SWE-bench Verified ~85.2% and Pro ~63.2% suggest strong coding capability. As a mid-generation variant, Sonnet 5.4 likely falls close to these figures. Sub-turn checkpointing aids long coding sessions.
+- **Cost efficiency: 52/100.** $2.50/$12.50 per 1M tokens is moderate for a Sonnet-tier model — slightly more expensive than Sonnet 5's $2/$10 but significantly cheaper than Opus-tier models. Paid only with no free tier.
+- **Overall Score: 77/100.** Mean of (84 + 86 + 88 + 40 + 85) / 5 = 76.6, rounded to 77. A capable mid-tier model with strong reasoning and coding, held back by limited multimodal support and lack of published Sonnet 5.4-specific benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-02
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic Claude Model Documentation](https://anthropic.com)
+  - [Anthropic Pricing](https://claude.com)
+  - [Claude Sonnet 5 Release Blog](https://anthropic.com)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
