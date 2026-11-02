@@ -1,0 +1,34 @@
+# Fledge Alpha — excluded findings by GPT-6.1 Terra
+
+- Source: Historical OpenCode `opencode/fledge-alpha-free` preview
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Fledge Alpha
+- **Short description:** Discontinued stealth preview; developer and underlying model identity remain unconfirmed. Independent observations suggest possible routing, not a verified reveal.
+- **Provider / access:** Historical free OpenCode route; preview reportedly ended in October 2026.
+- **IDs:** `opencode/fledge-alpha-free`.
+- **Context window:** Historical catalog listed 1,048,576 context and 131,072 maximum output; effective model and retrieval reliability unverified.
+- **Modalities:** Historical catalog lists text and image input, text output and tool calling.
+- **Pricing:** Historical free preview; current access unverified.
+- **Architecture:** Undisclosed; routing hypothesis is not established identity.
+
+### Raw benchmarks found
+
+- Stealth Models reports StealthMark **35.8/100** and creative SVG task scores for the named route. Its tests primarily judge visual artifacts, with uncertain repeatability and possible router changes; these do not establish general tool use, reasoning and coding measurements for a stable exact checkpoint.
+- No verified public exact-checkpoint agent, reasoning, coding or long-context benchmark set found sufficient to score the model. Anecdotal short tests and inferred backend scores are not substituted.
+
+### Normalized scores (1–100)
+
+- Excluded: insufficient verified model-identity and capability evidence for a defensible overall score.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Historical operator catalog and independent preview observations; exclusion reflects uncertain routing and incomplete coverage.
+- Reference URLs:
+  - [Models.dev historical catalog](https://github.com/anomalyco/models.dev/blob/dev/providers/opencode/models/fledge-alpha-free.toml)
+  - [Stealth Models evaluation](https://stealthmodels.com/benchmarks/models/fledge-alpha)

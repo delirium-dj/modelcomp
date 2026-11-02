@@ -1,0 +1,34 @@
+# LongCat-2.5-Preview — excluded findings by GPT-6.1 Terra
+
+- Source: Meituan `meituan/longcat-2.5-preview`
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan's proprietary multimodal preview, distinct from its earlier LongCat-2.0 weights.
+- **Provider / access:** Meituan API and OpenCode route `meituan/longcat-2.5-preview`.
+- **Release / knowledge:** 2026-09-25; knowledge cutoff unverified.
+- **IDs:** `meituan/longcat-2.5-preview`.
+- **Context window:** OpenCode lists 1M and 131K maximum output.
+- **Modalities:** OpenCode lists text and image input, text output, reasoning and tool calling.
+- **Pricing:** OpenCode lists $0.75 input / $2.95 output per million; other routes and free previews may differ.
+- **Architecture:** Vendor reports 1.6T total / approximately 48B active; weights not publicly available per OpenCode.
+
+### Raw benchmarks found
+
+- No verified public benchmark number for this exact 2.5 preview was found in the consulted text sources. The vendor launch graphic was not reliably transcribed; LongCat-2.0 numbers do not establish preview performance.
+
+### Normalized scores (1–100)
+
+- Excluded: insufficient verified exact-model benchmark evidence to calculate an overall score.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Vendor launch and OpenCode route catalog; no earlier-version benchmark substituted.
+- Reference URLs:
+  - [Meituan launch](https://x.com/Meituan_LongCat/status/2103488918788411728)
+  - [OpenCode route](https://opencode.ai/data/meituan/longcat-2-5-preview)

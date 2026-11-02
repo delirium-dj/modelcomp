@@ -63,7 +63,7 @@ Multimodal:
 - **Multimodal: 95/100.** Native text/image/audio/video input plus strong MMMU-Pro, MMMLU, and chart/screen results is unusually broad; text-only output caps it.
 - **Coding: 91/100.** SWE-Bench Verified 80.6%, LiveCodeBench Pro 2887, and Terminal-Bench 68.5% are excellent, while SWE-Pro 54.2%, Vibe Code 32.03%, and harness spread limit the ceiling.
 - **Cost efficiency: 84/100.** $2/$12 with a substantial cache discount and a limited free route is competitive for frontier multimodal reasoning, though output is pricier than Flash tiers.
-- **Overall Score: 94/100.** Half-up mean of `(94 + 95 + 92 + 95 + 91) / 5 = 93.4`; best fit is multimodal research, coding, and tool-using workflows that can avoid relying on perfect 1M retrieval.
+- **Overall Score: 93.4/100.** Half-up mean of `(94 + 95 + 92 + 95 + 91) / 5 = 93.4`; best fit is multimodal research, coding, and tool-using workflows that can avoid relying on perfect 1M retrieval.
 
 ### Deep-research addendum (2026-10-09)
 

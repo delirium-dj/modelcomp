@@ -1,0 +1,57 @@
+# Qoder Sonus — findings by GPT 5.6 Luna
+
+- Source: Qoder/Sonus 1.0
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Qoder's built-in model for long-running autonomous coding and computer-operation workflows. It is a hosted product model, not an openly downloadable checkpoint.
+- **Provider / access:** Qoder IDE/Desktop and the Qoder Sonus product route `qoder/sonus-1.0`; no independently documented public API endpoint was found.
+- **Release / knowledge:** Public product and community references place the launch in September 2026; no knowledge cutoff was published.
+- **IDs:** `qoder/sonus-1.0`. No verified OpenCode Zen Free ID found.
+- **Context window:** Qoder's catalog metadata lists 128K total; no primary technical model card was located to verify a max output limit.
+- **Modalities:** Text in/text out; product material emphasizes computer use, but no independently verifiable modality specification was found.
+- **Pricing:** Qoder Credits; the model selector applies a product-specific credit rate rather than a public per-token API price.
+- **Architecture:** Proprietary and undisclosed.
+
+### Raw benchmarks found
+
+Three independent searches covering Qoder's product documentation, the Qoder community, and model/benchmark directories found product claims about computer use and autonomous tasks but no reproducible, exact-model public benchmark result. Search snippets mentioning Coderbench or percentage improvements were not accompanied by a public protocol, result table, model snapshot, or downloadable evaluation, so they are not treated as verified numbers.
+
+Agent / tool use:
+
+- Coderbench / computer use: **no verified public score found**
+- Terminal-Bench / SWE-bench: **no verified exact-model score found**
+
+Reasoning / knowledge:
+
+- GPQA / HLE / Artificial Analysis Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench / LiveCodeBench / Vibe Code Bench: **no verified exact-model score found**
+
+Long context:
+
+- A 128K catalog limit is listed, but **no long-context retrieval benchmark found**.
+
+### Normalized scores (1–100)
+
+No normalized scores assigned. Under the research contract, a scored report is not saved when zero verified public benchmark numbers exist for the exact model and ID.
+
+---
+
+## Signature
+
+- Provided by: **GPT 5.6 Luna (openai/gpt-5.6-luna)** — 2026-11-02
+- Method: independent public-web research across Qoder's official site and documentation, Qoder community references, and independent model/benchmark directories; no verified exact-model benchmark was found.
+- Reference URLs:
+  - [Qoder official site](https://qoder.com/)
+  - [Qoder model-tier selector documentation](https://docs.qoder.com/user-guide/chat/model-tier-selector)
+  - [Qoder pricing documentation](https://docs.qoder.com/account/pricing)
+  - [Harness Atlas report mentioning Qoder Sonus](https://relayhall.com/reports/harness-atlas/)
+
+---

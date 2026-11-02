@@ -1,0 +1,33 @@
+# Nemotron 3 Ultra — findings by GPT-6.1 Terra
+
+- Source: NVIDIA `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16`
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3 Ultra Free
+- **Short description:** NVIDIA's open-weight Nemotron 3 Ultra; Free is an access tier, not a different model.
+- **Provider / access:** Open weights and NVIDIA hosted access; free route availability and policies vary.
+- **IDs:** `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16`.
+- **Context window:** NVIDIA advertises up to 1M tokens; actual deployment limits vary.
+- **Modalities:** Text input and output; agentic tool use.
+- **Pricing (as of 2026-11-02):** Free preview routes and downloadable weights may be available; infrastructure and paid hosted routes cost extra.
+- **Architecture:** 550B total / 55B active hybrid MoE; open weights under NVIDIA's applicable license.
+
+### Raw benchmarks found
+
+- NVIDIA's IQ2 Bolt model card reports the *different* Bolt model's results, so those are not transferred here. The exact Ultra primary model card was not retrieved during this short pass.
+- No reliable exact Ultra benchmark number verified in the consulted sources; this draft cannot support normalized scoring.
+
+### Normalized scores (1–100)
+
+- Excluded pending exact-model benchmark verification.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Identity and access-tier investigation; no Bolt results substituted.
+- Reference URLs:
+  - [NVIDIA Nemotron collection](https://huggingface.co/collections/nvidia/nvidia-nemotron-v3)

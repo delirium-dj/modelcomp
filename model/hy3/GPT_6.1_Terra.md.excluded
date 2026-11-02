@@ -1,0 +1,31 @@
+# Hy3 — excluded findings by GPT-6.1 Terra
+
+- Source: Tencent Hy3 identity investigation
+- Date: 2026-11-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Hy3
+- **Short description:** The independently documented Tencent release is Hy3 Preview, `tencent/Hy3-preview`; a separate stable unsuffixed Hy3 checkpoint was not verified.
+- **Provider / access:** Tencent publishes `tencent/Hy3-preview` weights and a preview serving route; no separate unsuffixed ID confirmed.
+- **Context window:** The preview documents 256K; not assigned to an unverified distinct model.
+- **Modalities / architecture / pricing:** Preview is text-only 295B-A21B MoE under the Tencent Hy Community License; distinct Hy3 specs and price not established.
+
+### Raw benchmarks found
+
+- Tencent's 295B preview has public results, but no verified benchmarks for a distinct unsuffixed stable Hy3 were identified. Assigning preview figures to this separate record would conflate identities.
+- `hy3-preview` is also tracked separately; resolve this likely shorthand with user approval rather than merging silently.
+
+### Normalized scores (1–100)
+
+- Excluded: no independently verified distinct unsuffixed model or exact-model benchmark supports an overall score.
+
+## Signature
+
+- Provided by: **GPT 6.1 Terra (openai/gpt-6.1-terra)** — 2026-11-02
+- Method: Tencent official weights and model documentation; preview numbers not transferred to an unverified separate model.
+- Reference URLs:
+  - [Tencent Hy3 Preview](https://huggingface.co/tencent/Hy3-preview)
+  - [Tencent Hy3 Preview repository](https://github.com/Tencent-Hunyuan/Hy3-preview)
