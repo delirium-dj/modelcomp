@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by Qwen 3.8 Flash
 
 - Source: Alibaba / Qwen3.8-27B (`Qwen/Qwen3.8-27B`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — release date pinned (2026-08-14 open weights, 262K native); **hosted lane confirmed "1M context length by default, official built-in tools"** (ModelScope) — native 262K scoring kept, hosted lane logged; $0 route + $0.50/$3.00 retail verified (Cost 92); "Qwen 4 27B" announced-not-released — quarantined; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,26 @@ Reasoning / knowledge:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Release/context lanes — https://huggingface.co/Qwen/Qwen3.8-27B (**"This repository contains model weights and configuration files for the post-trained model in the Hugging Face Transformers format"**) and https://datanorth.ai/news/alibaba-releases-qwen3-8-27b (**"Alibaba released Qwen3.8-27B on 14 August 2026: a 27B dense multimodal model under Apache 2.0 with a 262144 token context window"**) and https://www.modelscope.cn/models/Qwen/Qwen3.8-27B (**"Qwen3.8-27B will be available as a hosted version with more production features, e.g., 1M context length by default, official built-in tools"**) · pricing — https://openrouter.ai/qwen/qwen3.8-27b:free (**"The pricing shown on this page for Qwen3.8 27B is zero, so you are not charged for prompt or completion tokens"**) and https://saygm.com/blog/qwen-pricing (2026-10-20: **"against a $0.50 and $3.00 retail rate"**) and https://openrouter.ai/qwen/qwen3.8-27b/api (**"$0.008 per million input tokens, $0.445 per million output tokens"** — cheapest aggregation lane) and https://pricepertoken.com/pricing-page/model/qwen-qwen3.8-27b (verified 2026-11-01: **"$0.035 per million input tokens and $0.900 per million output … context window of 1,000,000 tokens"** [hosted-lane context quoted] — both readings logged) · lineage guard — https://www.yottalabs.ai/post/qwen-4-27b-release-date-specs-hardware-what-is-known-2026 (**"Qwen 4 27B is announced, not released"**) — no rows, no queue entry for that slug · family context — https://qwen.ai/blog?id=qwen3.8-flash-next (Qwen3.8-Flash-Next **"upgrades the model systematically along four aspects"** — different artifact/folder, not merged here) and https://dev.to/mayu2008/qwen38-27b-a-deep-dive-into-qwens-newest-vision-language-powerhouse-2e7 (community deep-dive; no new measured rows).
+
+**What moved and how it was resolved:**
+
+1. **Context-window split is now vendor-documented:** native open-weights artifact = **262,144** (datanorth + HF card, matching BenchLM), while the **hosted** version ships **"1M context length by default"** (ModelScope) plus official built-in tools. Pass 1 scored the native 262K (Context 78) — that stays correct for the self-host artifact this folder IDs; the hosted 1M lane is logged (pricepertoken already quotes 1M). No band move this pass: the ≥1M tier would still need a retrieval demonstration on the hosted lane, which no source provides yet. Flagged for the next pass.
+2. **Cost 92 verified, multiple lanes:** Apache-2.0 self-host floor unchanged; NEW facts are an OpenRouter **$0 route** and $0.50/$3.00 retail, with sub-$1 aggregation lanes ($0.008–$0.035 in) recorded un-averaged as reseller noise. 92 stands.
+3. **"Qwen 4 27B" is announced, not released** — per the house rule on unshipped slugs it gets no rows, no scores, and no merge into this folder. Revisit if it ships.
+4. **No new capability rows:** no AA/Vals re-run dated after 2026-10-02 touched GPQA 90.5/HLE 33.9/CharXiv 90.2 or the GDPval/TB-4.0 weak spots — Tool 74, Reasoning 72, Multimodal 85, Coding 78 all stand.
+
+**Scores changed by this pass:** none. Tool 74, Reasoning 72, Context 78, Multimodal 85, Coding 78 → mean 77.4 → **Overall 77 unchanged**; Cost 92 verified.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Qwen3.8-27B model card, plus Artificial Analysis, Vals AI and VulcanBench); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (HF, ModelScope, datanorth, OpenRouter free + api lanes, saygm, pricepertoken, yottalabs lineage guard); native-262K vs hosted-1M lane split documented and conservatively scored; announced-only "Qwen 4 27B" quarantined — **no dimension changed and Overall remains 77**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_27B.md`, using the same headings.

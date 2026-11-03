@@ -1,7 +1,7 @@
 # Ember-1 — findings by Qwen 3.8 Flash
 
 - Source: Fireworks AI / Ember-1 (`fireworks/ember-1`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — first independent replications landed (Vals finance/legal: K3-near-quality at ~22% fewer reasoning tokens; thenewstack: 3.4× faster, $2.48 vs K3); $3/$15 reconfirmed live 2026-10-28; a lone "retired after 6 Oct / 410" claim contradicted by later listings — declined as an unconfirmed preview-length forecast; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,9 +54,27 @@ Long context: ~1M window (inherited); MRCR / RULER / GraphWalks: **no retrieval 
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted. Pass 1's stated revisit trigger was "if AA/BenchLM/Epoch add audited rows" — partial fulfillment arrived via **Vals AI**, evaluated below.
+
+**Sources:** Independent replication — https://x.com/ValsAI/status/2105101748876849657 (**"Fireworks' Ember-1 is now on Vals. We tested it on our finance and legal benchmarks, and it performs close to Kimi K3 while using less reasoning"**) and https://www.linkedin.com/posts/vals-ai_fireworks-ember-1-is-now-on-vals (**"Ember-1 used 11% to 32% fewer reasoning tokens per turn than Kimi K3, about 22% fewer on average"**) and https://thenewstack.io/ember1-kimik3-speed-comparison/ (**"Ember-1 vs. Kimi K3: Nearly identical results at 3.4 times" [the speed of] … "In total, it cost $2.48"** with **"23% fewer reasoning tokens"** — independent-harness confirmation of the vendor's token-efficiency thesis) · pricing/status — https://openrouter.ai/fireworks/ember-1 (**"$3 per million input tokens, $15 per million output tokens"**), https://enterprisedna.co/directories/models/fireworks-ember-1/ (**"Price on fireworks: $15.00 per million output tokens: Checked 28 Oct 2026 … Latest version: fireworks/ember-1-20260923"** — still live after pass 1's capture), https://ai.ml/models/fireworks/ember-1 (routing markup **"from $3.150 / $15.75 per million tokens"**, 2026-10-05 — reseller, not the list) and https://www.linkedin.com/posts/isathishkumar_fireworks-ai-releases-ember-1 (launch framing: **"available now as an API-only Research Preview at Kimi K3 pricing"**) · lifecycle counter-claim (declined) — https://llmtr.com/en/blog/ember-1-arastirma-onizlemesi-degerlendirme (**"After 6 October 2026, requests to fireworks/ember-1 return 410 model_retired"**) — contradicted by the 2026-10-28 and current OpenRouter/Fireworks listings; treated as an unconfirmed extrapolation of the "two-week serverless preview" window (https://www.samcodeman.com/writing/fireworks-ember-1-kimi-k3-tokens-no-weights-no-price) and logged, not acted on.
+
+**What moved and how it was resolved:**
+
+1. **First independent (non-vendor) evidence exists** — Vals AI ran Ember-1 on its finance/legal suites: quality "close to Kimi K3" with 11–32% (avg ~22%) fewer reasoning tokens per turn; thenewstack's A/B measured near-identical accuracy at 3.4× speed and $2.48 total cost. This partially retires pass 1's caveat "every capability row is vendor-run" — the *token-efficiency claim* (Ember-1's core value proposition) is now independently corroborated, though no audited GPQA/HLE/Omniscience/Index number exists yet. Reasoning 85 stays: corroboration is of efficiency, not of a new measured capability level.
+2. **Lifecycle anomaly resolved conservatively:** the llmtr.com "410 model_retired after 6 Oct" claim is contradicted by three later sources still selling the model (checked 2026-10-28, and the live OpenRouter page). The dated snapshot id `fireworks/ember-1-20260923` suggests Fireworks manages the preview via snapshot pinning rather than deletion. **Revisit trigger retained:** if the id actually retires or GA replaces the preview, re-verify before the next pass.
+3. **Cost 66 unchanged and now triple-verified:** $3/$15 = K3 list (vendor + OpenRouter + directory), with blended ~40% fewer tokens/task independently supported (Vals ~22% reasoning-token reduction is smaller than the vendor's headline 40% on longer agentic suites — both readings kept, un-averaged; the 66 band absorbed both from the start).
+4. **No new AA/BenchLM/Epoch capability rows found** for the variant — pass 1's scores were built on vendor A/B tables; nothing arrived that would move any quality band.
+
+**Scores changed by this pass:** none. Tool 84, Reasoning 85, Context 92, Multimodal 65, Coding 91 → **Overall 83 unchanged** (pass 1's adjudicated band); Cost 66 verified.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Fireworks "Introducing Ember-1" blog 2026-09-23 head-to-head table vs Kimi K3 effort tiers; cross-checked against the qualifying `Kimi_K3.md` and `Muse_Spark_1.3.md` sibling reports and third-party registries lmmarketcap/llmreference for the ~1M window, 2.78T MoE size and $3/$15 rate; themodelbeat confirms no independent Epoch/AA rows yet). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged that (a) every capability row is vendor-run against a K3 baseline with no independent replication, (b) Ember-1 is a fine-tuned specialization OF open-weight Kimi K3 rather than a distinct base model (do not double-count K3 evidence), and (c) the curated `meta.json` (128K/text-only) understates the verified ~1M text+image serving model.
 - Revisit trigger: if Artificial Analysis / BenchLM / Epoch add audited rows for `fireworks/ember-1` (GPQA, HLE, Omniscience, GDPval-AA, MRCR), or the vendor publishes variant-specific reasoning/factuality numbers, research deeper and write a fresh report; keep this file as history.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Vals AI, thenewstack, OpenRouter, enterprisedna, ai.ml, samcodeman, llmtr); first independent replications of the token-efficiency thesis logged; a lone retirement claim contradicted by later listings and declined; **Overall remains 83**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

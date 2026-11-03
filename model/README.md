@@ -179,6 +179,22 @@ restore). Never invent a third list — the two mirror each other. Do not use
 parking for live models you merely dislike: below-gate and out-of-top-10
 reports stay visible by design (`RULES.md` crown rule).
 
+## Deleting a parked phantom (user-ordered 2026-11-03)
+
+A parked folder may be deleted on explicit per-instance user order when the
+name is a pure phantom or a duplicate whose research is fully covered by its
+canonical folder. Deletion means: the folder is removed from disk and git
+(recoverable only from history, never restored), the slug moves into
+`DELETED_PHANTOM_SLUGS` in `../scripts/lib/validate.mjs`, and the generated
+roster's "Deleted phantom model folders" section carries the case note.
+`pnpm sync` FAILs any resurrection — exact, spelling variant (`-`/`_`, case,
+leading vendor prefix) or suffixed derivative of a phantom checkpoint family
+— and the deletion tripwire treats the missing tracked files as sanctioned,
+so the removal itself never FAILs. Real sibling SKUs are exempt
+(`gemini-3.1-flash-lite`, `longcat-2.5-preview`, `qwen-3.5-*`,
+`gemini-2.5-*`, `glm-5.3-flash`). Never restore a deleted phantom from git
+history and never re-scaffold a variant of it.
+
 ## Adding a new model
 
 1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then

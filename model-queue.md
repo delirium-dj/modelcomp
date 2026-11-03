@@ -3,6 +3,7 @@
 # One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).
 # Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.
 # Retired (parked) slugs are omitted — never researched (model/README.md).
+# Deleted phantom model folders are omitted too — never recreated or restored.
 94.1 claude-opus-5.5
 93.8 muse-spark-1.3
 93.4 gemini-4-argon
@@ -62,7 +63,6 @@
 86 grok-4.5
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
-85.6 claude-sonnet-5.4
 85.6 qwen-3.8-flash-next
 85.5 qwen-3.5-plus
 85.4 seed-2.0-pro
@@ -194,7 +194,6 @@
 54.4 gemma-4-e2b
 53.3 ling-3.0-tiny
 52 neomorph
-52 omi-alpha
 51 owo-2.5
 50 mercury-3
 49.5 nemotron-3.5-bolt-e4b

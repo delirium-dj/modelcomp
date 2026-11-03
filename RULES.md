@@ -71,6 +71,26 @@ override.
   `scripts/lib/average.mjs`). Rationale: every parked folder is a duplicate
   alias or phantom entry already resolved — researching one burns agent
   tokens with zero dataset value.
+- **Deleted phantom folders are never recreated or restored (absolute,
+  user-ordered 2026-11-03):** the twelve parked phantom/duplicate folders
+  (`gemini-2.5`, `qwen-3.5`, `glm-5.3-free`, `kimi-k2.7-code-highspeed`,
+  `gemini-3.1-flash`, `longcat-2.5`, `claude-opus-4.4`, `claude-opus-3.7`,
+  `claude-sonnet-5.4`, `qwen-3.8-325b`, `ox_alpha`, `omi-alpha`) were removed
+  from disk and git on explicit user order. Their names live in
+  `DELETED_PHANTOM_SLUGS` (`scripts/lib/validate.mjs`, rendered in the
+  "Deleted phantom model folders" section of `model-aliases.generated.md`).
+  Never restore them from git history, never re-scaffold them, and never
+  create a spelling or suffix variant: `pnpm sync` normalizes every on-disk
+  slug (case, leading vendor prefix, `-`/`_` version separators) and FAILs
+  any match, including family patterns for the phantom checkpoint lineages
+  (`claude-sonnet-5.4*`, `claude-opus-4.4*`, `claude-opus-3.7*`,
+  `qwen-3.8-325b*`). Real sibling SKUs (`gemini-3.1-flash-lite`,
+  `longcat-2.5-preview`, `qwen-3.5-*`, `gemini-2.5-*`, `glm-5.3-flash`)
+  never match. The pre-commit hook blocks staged additions, and the deletion
+  tripwire treats the missing tracked files of the removal itself as
+  sanctioned (INFO), so deleting them never FAILs sync. Research belongs in
+  the canonical folder named by the roster entry, or nowhere when the name
+  is a pure phantom.
 - **Voice/speech routing (absolute):** a model whose core capability is voice
   or speech (realtime voice API, TTS/STT-first, voice-assistant I/O — name or
   modalities say so) lives under `models_voice/<slug>/`, never under

@@ -7,7 +7,13 @@
 // does the fs/git calls and logging, these functions lock the *decisions*.
 
 import { FILENAME_RE, META_REQUIRED } from "./parse.mjs";
-import { missingMetaFields, metaNameHasUnderscore, normName } from "./naming.mjs";
+import {
+  missingMetaFields,
+  metaNameHasUnderscore,
+  normName,
+  normalizeSlug,
+  VENDOR_PREFIXES,
+} from "./naming.mjs";
 import { RETIRED_SLUGS } from "./average.mjs";
 
 /** Sanctioned mirror trees for user-directed relocations (e.g. voice models). */
@@ -111,6 +117,104 @@ export function retiredAliasMessage(slug, canonical) {
 }
 
 /**
+ * Deleted phantom model folders (user-ordered 2026-11-03). These eleven
+ * folders had been parked as phantom/duplicate identities; on explicit user
+ * order they were removed from disk and git (git history keeps the bytes, but
+ * they must NEVER be restored or re-scaffolded). Values are the canonical
+ * folder for names that resolve to a real model; undefined for pure phantoms
+ * with no canonical home.
+ */
+export const DELETED_PHANTOM_SLUGS = new Map([
+  ["glm-5.3-free", "glm-5.3"],
+  ["gemini-2.5", "gemini-2.5-pro"],
+  ["qwen-3.5", undefined],
+  ["kimi-k2.7-code-highspeed", "kimi-k2.7-code"],
+  ["gemini-3.1-flash", "gemini-3.1-flash-lite"],
+  ["longcat-2.5", "longcat-2.5-preview"],
+  ["claude-opus-4.4", undefined],
+  ["claude-opus-3.7", undefined],
+  ["claude-sonnet-5.4", undefined],
+  ["qwen-3.8-325b", undefined],
+  ["ox_alpha", "glm-5.3-flash"],
+  ["omi-alpha", undefined],
+]);
+
+/**
+ * Normalized comparison key for deleted-phantom slugs: lowercase, whitespace/
+ * underscore -> hyphen, leading vendor prefix stripped, version hyphens folded
+ * to dots (param sizes stay hyphenated via normalizeSlug). Catches
+ * `claude-sonnet-5-4`, `Claude_Sonnet_5.4`, `anthropic-claude-sonnet-5.4`, ...
+ */
+export function phantomSlugKey(slug) {
+  let s = slug.trim().toLowerCase().replace(/[\s_]+/g, "-");
+  for (const vendor of VENDOR_PREFIXES) {
+    if (s.startsWith(`${vendor}-`)) {
+      s = s.slice(vendor.length + 1);
+      break;
+    }
+  }
+  return normalizeSlug(s);
+}
+
+/** Precomputed normalized keys -> original slug + canonical target. */
+const DELETED_PHANTOM_KEYS = new Map(
+  [...DELETED_PHANTOM_SLUGS].map(([slug, canonical]) => [phantomSlugKey(slug), { slug, canonical }]),
+);
+
+/**
+ * Phantom checkpoint families where ANY suffix is also forbidden (e.g.
+ * `claude-sonnet-5.4-mini`). Only families with no real sibling whose name
+ * begins with the phantom base belong here — `gemini-3.1-flash` is exact-only
+ * because `gemini-3.1-flash-lite` is real, and `qwen-3.5` / `longcat-2.5` /
+ * `gemini-2.5` are exact-only because their member SKUs are real.
+ */
+export const PHANTOM_SLUG_FAMILIES = [
+  {
+    pattern: /^claude-sonnet-5\.4(?:-|$)/,
+    note: "Anthropic Sonnet lineage is 3.5/3.7/4/4.5/4.6/5/5.5 — no Sonnet 5.4 checkpoint ever existed",
+  },
+  {
+    pattern: /^claude-opus-4\.4(?:-|$)/,
+    note: "Anthropic Opus lineage has no 4.4 checkpoint",
+  },
+  {
+    pattern: /^claude-opus-3\.7(?:-|$)/,
+    note: "Anthropic Opus lineage has no 3.7 checkpoint (3.7 exists only as Sonnet)",
+  },
+  {
+    pattern: /^qwen-3\.8-325b(?:-|$)/,
+    note: "Qwen3.8 ships no 325B variant",
+  },
+];
+
+/**
+ * Deleted-phantom violation for one on-disk slug. Returns
+ * `{ slug, canonical, family? }` when the slug is (a normalized spelling of)
+ * a deleted phantom, or a suffixed derivative of a phantom checkpoint family.
+ * Returns null for a legitimate model — real sibling SKUs such as
+ * gemini-3.1-flash-lite / longcat-2.5-preview / qwen-3.5-plus never match.
+ */
+export function deletedPhantomViolation(slug) {
+  const key = phantomSlugKey(slug);
+  const exact = DELETED_PHANTOM_KEYS.get(key);
+  if (exact !== undefined) return { ...exact };
+  for (const fam of PHANTOM_SLUG_FAMILIES) {
+    if (fam.pattern.test(key)) return { slug: key, canonical: undefined, family: fam.note };
+  }
+  return null;
+}
+
+/** Exact FAIL text for a resurrected deleted-phantom slug. */
+export function deletedPhantomMessage(slug, canonical, family, root = "model") {
+  const target = canonical ? ` — research belongs in model/${canonical}/` : "";
+  const why = family ? ` (${family})` : "";
+  return (
+    `${root}/${slug}/: deleted phantom model identity${why} — removed from disk and git on user order 2026-11-03, ` +
+    `never recreate or restore it${target}; canonical roster: model-aliases.generated.md`
+  );
+}
+
+/**
  * Merged-and-deleted duplicate findings-file stems (user-ordered merges).
  * One rater filed under two filename spellings (`Laguna_XS_2_1` — version
  * separator written as `_` — vs `Laguna_XS_2.1`) was folded into the canonical
@@ -176,10 +280,15 @@ export function isRegenerablePath(posix) {
  *   (user-ordered source merge, 2026-10-08);
  * - twinRetired: its fresh <.md> sibling exists (own-twin re-research);
  * - quarantined: its <.md.excluded> sibling exists (quarantined / renamed);
- * - mirror: name of the sanctioned mirror tree holding the same path (if any).
- * Returns "merged-source" | "twin-retired" | "quarantined" | "relocated" | "deleted" (=> FAIL).
+ * - mirror: name of the sanctioned mirror tree holding the same path (if any);
+ * - deletedPhantom: the path lived under a deleted phantom folder
+ *   (DELETED_PHANTOM_SLUGS, user-ordered removal 2026-11-03) whose removal is
+ *   sanctioned — the folder must stay gone, and a resurrect FAILs elsewhere.
+ * Returns "merged-source" | "twin-retired" | "quarantined" | "relocated" |
+ * "deleted-phantom" | "deleted" (=> FAIL).
  */
-export function classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource }) {
+export function classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource, deletedPhantom }) {
+  if (deletedPhantom) return "deleted-phantom";
   if (mergedSource) return "merged-source";
   if (twinRetired) return "twin-retired";
   if (quarantined) return "quarantined";
@@ -466,17 +575,19 @@ export function checkSignatureStem({
  * previously duplicated across RULES.md and model/README.md.
  */
 export const CASE_LAW_NOTES = new Map([
-  // Parked (retired) slugs
-  ["glm-5.3-free", "fictional Zen route — live-verified absent from the catalog; parked 2026-10-10"],
-  ["gemini-2.5", "family shorthand for gemini-2.5-pro (every cited ID resolves to the Pro flagship); parked 2026-10-12 — research belongs in model/gemini-2.5-pro/"],
-  ["qwen-3.5", "generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20 — research belongs in the member folder for the ID actually cited"],
-  ["kimi-k2.7-code-highspeed", "serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20 — research belongs in model/kimi-k2.7-code/"],
-  ["gemini-3.1-flash", "phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20 — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped"],
-  ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22 — research belongs in model/longcat-2.5-preview/"],
-  ["claude-opus-4.4", "phantom checkpoint — live-existence audit: Anthropic deprecations/overview show Opus 4.1 → 4.5 → 4.6/4.7/4.8, no Opus 4.4 ever released; parked 2026-10-26 (user order, never resurrect)"],
-  ["claude-opus-3.7", "phantom checkpoint — Anthropic lineage has no Opus 3.7 (3.7 exists only as Sonnet); parked 2026-10-26 (user order, never resurrect)"],
-  ["qwen-3.8-325b", "phantom checkpoint — live-existence audit: HF Qwen org, Alibaba Cloud Model Studio and models.dev list only Qwen3.8 Max/27B/Flash/Flash-Next/Omni/2.4T-A95B, no 325B variant ever released; parked 2026-10-26 (user order, never resurrect)"],
-  ["ox_alpha", "revealed stealth preview of glm-5.3-flash (OpenRouter stealth/ox-alpha, ~1M ctx, free; Z.ai confirmed 2026-08-26 and later released the weights) — user-ordered park 2026-10-26 overriding the revealed-stealth merge rule; search resolves to model/glm-5.3-flash/ via its meta aliases"],
+  // Deleted phantom folders (previously parked; user-ordered deletion 2026-11-03)
+  ["glm-5.3-free", "fictional Zen route — live-verified absent from the catalog; parked 2026-10-10, folder deleted 2026-11-03 (user order, never resurrect)"],
+  ["gemini-2.5", "family shorthand for gemini-2.5-pro (every cited ID resolves to the Pro flagship); parked 2026-10-12, folder deleted 2026-11-03 (user order) — research belongs in model/gemini-2.5-pro/"],
+  ["qwen-3.5", "generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in the member folder for the ID actually cited"],
+  ["kimi-k2.7-code-highspeed", "serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in model/kimi-k2.7-code/"],
+  ["gemini-3.1-flash", "phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped"],
+  ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22, folder deleted 2026-11-03 (user order) — research belongs in model/longcat-2.5-preview/"],
+  ["claude-opus-4.4", "phantom checkpoint — live-existence audit: Anthropic deprecations/overview show Opus 4.1 → 4.5 → 4.6/4.7/4.8, no Opus 4.4 ever released; parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
+  ["claude-opus-3.7", "phantom checkpoint — Anthropic lineage has no Opus 3.7 (3.7 exists only as Sonnet); parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
+  ["claude-sonnet-5.4", "phantom checkpoint — Anthropic's Sonnet lineage runs 4 → 4.5 → 4.6 → 5 → 5.5, no Sonnet 5.4 ever released; live-verified absent from Anthropic's announcements, deprecation docs and system cards; parked 2026-11-02, folder deleted 2026-11-03 (user order, never resurrect)"],
+  ["qwen-3.8-325b", "phantom checkpoint — live-existence audit: HF Qwen org, Alibaba Cloud Model Studio and models.dev list only Qwen3.8 Max/27B/Flash/Flash-Next/Omni/2.4T-A95B, no 325B variant ever released; parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
+  ["ox_alpha", "revealed stealth preview of glm-5.3-flash (OpenRouter stealth/ox-alpha, ~1M ctx, free; Z.ai confirmed 2026-08-26 and later released the weights) — user-ordered park 2026-10-26 overriding the revealed-stealth merge rule; folder deleted 2026-11-03 (user order) — research belongs in model/glm-5.3-flash/"],
+  ["omi-alpha", "phantom identity — no independent OMI LLM exists outside this project; all external references resolve to a WWII-era OMI Alpha cipher machine (Ottico Meccanica Italiana), not an LLM vendor; vendor-prefixed id `opencode/omi-alpha` and pricing/access claims are unverifiable; deleted 2026-11-03 (user order, never resurrect)"],
   // Merged-and-deleted duplicate slugs
   ["google-gemini-2.5-flash-lite", "vendor-prefixed duplicate of gemini-2.5-flash-lite (same weights, Zen gateway route); merged + deleted 2026-10-06"],
   ["glm-5.1-coding", "the -coding suffix was a dataset label of glm-5.1, never a SKU (vendor lists exactly one glm-5.1 route); folder renamed, old slug merged + deleted 2026-10-12"],
@@ -549,7 +660,7 @@ function aliasEntry(key, value, notes) {
  * instead of the retired/merged/alias rosters previously restated in
  * RULES.md, model/README.md and the task files.
  */
-export function buildAliasesFile(retired = RETIRED_SLUGS) {
+export function buildAliasesFile(retired = RETIRED_SLUGS, deleted = DELETED_PHANTOM_SLUGS) {
   const lines = [
     "# model-aliases — AUTO-GENERATED by `pnpm sync`, do not hand-edit.",
     "#",
@@ -563,7 +674,16 @@ export function buildAliasesFile(retired = RETIRED_SLUGS) {
     "## Parked (retired) slugs — folders stay on disk and in git; never researched",
     "",
   ];
-  for (const slug of retired) lines.push(aliasEntry(slug, undefined, CASE_LAW_NOTES));
+  for (const slug of retired) {
+    if (deleted.has(slug)) continue; // rendered in the deleted section below
+    lines.push(aliasEntry(slug, undefined, CASE_LAW_NOTES));
+  }
+  lines.push(
+    "",
+    "## Deleted phantom model folders — removed from disk + git 2026-11-03; never recreate or restore",
+    "",
+  );
+  for (const [slug, canonical] of deleted) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
   lines.push("", "## Merged-and-deleted duplicate slugs — never recreate (not even from git history)", "");
   for (const [slug, canonical] of MERGED_MODEL_SLUGS) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
   lines.push("", "## Retired vendor aliases — never a folder", "");

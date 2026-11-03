@@ -32,9 +32,12 @@ import {
   MERGED_MODEL_SLUGS,
   MERGED_SOURCE_STEMS,
   RETIRED_ALIAS_SLUGS,
+  DELETED_PHANTOM_SLUGS,
   mergedSlugMessage,
   mergedStemMessage,
   retiredAliasMessage,
+  deletedPhantomViolation,
+  deletedPhantomMessage,
   forbiddenRootMessage,
   isResearchPath,
   isRegenerablePath,
@@ -249,7 +252,16 @@ try {
       canonicalStem !== undefined &&
       (existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md`)) ||
         existsSync(join(root, ...parts.slice(0, -1), `${canonicalStem}.md.excluded`)));
-    const verdict = classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource });
+    // Deleted phantom folder (user-ordered removal 2026-11-03,
+    // DELETED_PHANTOM_SLUGS): the whole folder is gone by design; its missing
+    // tracked files are sanctioned INFO. A resurrected folder FAILs the slug
+    // guard below, never this tripwire.
+    const deletedPhantom = parts[0] === "model" && DELETED_PHANTOM_SLUGS.has(parts[1]);
+    const verdict = classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource, deletedPhantom });
+    if (verdict === "deleted-phantom") {
+      log(`  INFO  ${posix}: deleted phantom folder (model/${parts[1]}/) — sanctioned user-ordered removal 2026-11-03`);
+      continue;
+    }
     if (verdict === "merged-source") {
       log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
       continue;
@@ -326,6 +338,37 @@ for (const slug of slugs) {
   }
 }
 
+// Deleted phantom model folders (user-ordered 2026-11-03, DELETED_PHANTOM_SLUGS
+// in validate.mjs): previously parked phantom/duplicate identities whose
+// folders were removed from disk and git. Any resurrection — exact slug,
+// spelling variant (case, leading vendor prefix, `-` vs `_` version
+// separators) or a suffixed derivative of a phantom checkpoint family — is a
+// loud FAIL and sync cements nothing for it. Real sibling SKUs
+// (gemini-3.1-flash-lite, longcat-2.5-preview, qwen-3.5-plus, glm-5.3-flash,
+// gemini-2.5-pro) never match. All five model trees are scanned so the guard
+// cannot be dodged by scaffolding the name outside model/. The deletion
+// tripwire above sanctions the missing tracked files of the removal itself.
+const deletedPhantomSlugs = new Set();
+const phantomGuardRoots = [
+  modelDir,
+  join(root, "models_voice"),
+  join(root, "models_finance"),
+  join(root, "models_cybersecurity"),
+  join(root, "models_health"),
+];
+for (const guardRoot of phantomGuardRoots) {
+  if (!existsSync(guardRoot)) continue;
+  for (const slug of readdirSync(guardRoot)) {
+    if (!statSync(join(guardRoot, slug)).isDirectory()) continue;
+    const hit = deletedPhantomViolation(slug);
+    if (hit !== null) {
+      deletedPhantomSlugs.add(slug);
+      const rootName = guardRoot.replace(/\\/g, "/").split("/").pop();
+      fail(deletedPhantomMessage(slug, hit.canonical, hit.family, rootName));
+    }
+  }
+}
+
 // Retired vendor aliases (RULES.md retired-alias identity,
 // RETIRED_ALIAS_SLUGS in scripts/lib/validate.mjs): a slug the vendor lists
 // as an alias of a tracked model is never a folder — fail loudly with the
@@ -373,6 +416,7 @@ for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   if (mergedSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   if (retiredAliasSlugs.has(slug)) continue; // retired alias — never a rater
+  if (deletedPhantomSlugs.has(slug)) continue; // deleted phantom — never a rater
   try {
     const s = parseScores(readFileSync(join(modelDir, slug, "average.md"), "utf8"), `model/${slug}/average.md`);
     if (s) raterOwn.set(slug, s["Overall Score"]);
@@ -390,6 +434,7 @@ for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_fin
     if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry
     if (MERGED_MODEL_SLUGS.has(d)) continue; // forbidden duplicate — never the catalog entry
     if (RETIRED_ALIAS_SLUGS.has(d)) continue; // retired alias — never the catalog entry
+    if (deletedPhantomViolation(d) !== null) continue; // deleted phantom — never the catalog entry
     if (vendorPrefixViolation(d, slugs) !== null) continue; // forbidden duplicate — never the catalog entry
     const mPath = join(rDir, d, "meta.json");
     if (!existsSync(mPath)) continue;
@@ -423,6 +468,10 @@ for (const slug of slugs) {
   }
   if (mergedSlugs.has(slug)) {
     log(`  SKIP  model/${slug}/ (merged/vendor-prefixed duplicate — merge into the canonical folder first; no files written)`);
+    continue;
+  }
+  if (deletedPhantomSlugs.has(slug)) {
+    log(`  SKIP  model/${slug}/ (deleted phantom identity — never recreate; see model-aliases.generated.md)`);
     continue;
   }
   const dir = join(modelDir, slug);

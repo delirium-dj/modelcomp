@@ -72,7 +72,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 1. Audit with TWO calls, not a directory walk — production scope, models_voice/ deferred.
    (a) Read `model-queue.md` (repo root: roster + Overall scores + processing order, already highest-first — never re-sort, never verify against `average.md` files).
    (b) ONE wildcard listing for `model/*/<YOUR_STEM>.md*` (every folder already holding your file, `.md.excluded` twins included).
-2. Your queue = `model-queue.md` slugs minus folders holding model/<subject>/<YOUR_STEM>.md, in file order (missing average.md = unlisted = last, A-Z; twin-only folders stay queued for the Step 3.3 twin procedure at write time; retired slugs are covered by `model-aliases.generated.md` and already absent from the queue). If `model-queue.md` is missing or older
+2. Your queue = `model-queue.md` slugs minus folders holding model/<subject>/<YOUR_STEM>.md, in file order (missing average.md = unlisted = last, A-Z; twin-only folders stay queued for the Step 3.3 twin procedure at write time; retired/deleted slugs are covered by `model-aliases.generated.md` and already absent from the queue). If `model-queue.md` is missing or older
    than the latest findings, fall back to the "- **Overall Score:" line of each
    model/<slug>/average.md descending. Newly discovered slugs append at end
    (voice/speech, finance, cybersecurity `-cyber` suffix, and health
@@ -82,7 +82,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    model-report-TEMPLATE.md, write model/<subject>/<YOUR_STEM>.md immediately,
    then advance. Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
-4. Retired/parked/merged/alias identities are NEVER queued, researched, or
+4. Retired/parked/deleted/merged/alias identities are NEVER queued, researched, or
    written — their one roster is `model-aliases.generated.md` (repo root, auto-generated):
    drop any listed slug or stem even when the audit finds the folder on disk missing your file,
    and surface it in your final summary.
@@ -100,11 +100,11 @@ With 160+ folders on disk, auditing folder-by-folder costs more requests than mo
 
 1. Read `model-queue.md` (repo root, one read) — roster, Overall scores, and processing order in one file. File order IS the order: never re-sort, never verify it against `average.md` files.
 2. ONE wildcard listing for `model/*/<Your_Filename>*` (glob, or shell: `Get-ChildItem -Path "model/*/<Your_Filename>*"` on Windows PowerShell) — every folder already holding your file, `.md.excluded` twins included. No per-folder listings, no per-folder existence checks up front.
-3. Missing-set = queue-file slugs minus folders holding `<Your_Filename>`, in file order. Slugs absent from the queue file (no `average.md` yet) go last, A-Z. Twin-only folders stay queued (Step 3.3 twin procedure runs at write time). Retired/parked/merged/alias identities (`model-aliases.generated.md`, repo root) are dropped entirely.
+3. Missing-set = queue-file slugs minus folders holding `<Your_Filename>`, in file order. Slugs absent from the queue file (no `average.md` yet) go last, A-Z. Twin-only folders stay queued (Step 3.3 twin procedure runs at write time). Retired/parked/deleted/merged/alias identities (`model-aliases.generated.md`, repo root) are dropped entirely.
 4. Fallback only (queue file missing/stale): parse ONLY the `- **Overall Score: <N>/100` line from each `model/<slug>/average.md`, sort descending.
 
 After that, check existence only for the folder you are currently writing (one cheap check at write time) — never pre-verify the whole queue.
-- Retired/parked/merged/alias identities are dropped from the missing-set entirely — never queued, researched, written into, or scaffolded, even when the audit finds the folder on disk missing your file (one roster: `model-aliases.generated.md`; the queue file already omits parked slugs, this rule covers the audit path).
+- Retired/parked/deleted/merged/alias identities are dropped from the missing-set entirely — never queued, researched, written into, or scaffolded, even when the audit finds the folder on disk missing your file (one roster: `model-aliases.generated.md`; the queue file already omits parked slugs, this rule covers the audit path).
 - Allowed carve-out: reading `model-queue.md` (or, in fallback, that single Overall line) for ordering is fine
   (see rate-limit Rule 2) — it is also the single point of reference for the
   roster and overall scores ("which models exist / what did X score" → that
@@ -133,8 +133,8 @@ After that, check existence only for the folder you are currently writing (one c
          blocks staging them, so an unnormalized slug wastes the whole pass.
       c. **Forbidden-identity lookup (one read):** check
          `model-aliases.generated.md` (repo root, auto-generated) — every
-         parked slug, merged/renamed duplicate slug, retired vendor alias,
-         merged duplicate findings stem, and alias-family record lives in
+         parked slug, deleted phantom folder, merged/renamed duplicate slug,
+         retired vendor alias, merged duplicate findings stem, and alias-family record lives in
          that ONE roster with its canonical target. Anything listed there is
          never scaffolded, queued, or written: write into the canonical
          folder the entry names instead. The general rules behind the roster:

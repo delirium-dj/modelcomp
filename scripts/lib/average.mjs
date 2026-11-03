@@ -132,18 +132,26 @@ export function applyAverageToPrev(prev, modelName, body) {
  * merge rule below: Ox Alpha was the stealth/anonymous preview of
  * `glm-5.3-flash` on OpenRouter (stealth/ox-alpha, ~1M ctx, free preview),
  * confirmed by Z.ai on 2026-08-26; searches for the name resolve to the
- * canonical model via its meta `aliases`). The
- * folder stays on disk and in git (permanence, RULES.md) and sync keeps
- * averaging it, but it is omitted from the research queue so agents never
- * research it. Revealed stealth aliases are NOT parked anymore (user rule
+ * canonical model via its meta `aliases`).
+ *
+ * All eleven slugs above were deleted from disk and git on explicit user
+ * order 2026-11-03 (phantom/duplicate identities — deleting them stops
+ * research agents burning tokens on names that never existed). They now live
+ * in DELETED_PHANTOM_SLUGS (scripts/lib/validate.mjs), which FAILs any
+ * resurrection — exact, spelling variant, or phantom-family suffix. This set
+ * stays as the hidden-slug mirror (site + queue defense); it is omitted from
+ * the generated Parked section and rendered in the Deleted section. Never
+ * restore a deleted phantom from git history.
+ *
+ * Revealed stealth aliases are NOT parked anymore (user rule
  * 2026-10-24): `space-bunny` and `cat-jam` were merged into their revealed
  * models' canonical folders and deleted — they live in MERGED_MODEL_SLUGS
  * (scripts/lib/validate.mjs), never here. Mirror list for the site:
  * RETIRED_SLUGS in src/data/models.ts; convention documented in
- * model/README.md ("Parking a model"). Never invent a third list — the two
- * mirror each other.
+ * model/README.md ("Parking a model" / "Deleting a parked phantom"). Never
+ * invent a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "qwen-3.8-325b", "ox_alpha"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,
@@ -165,6 +173,7 @@ export function buildQueueFile(scoreIndex, retired = RETIRED_SLUGS) {
     "# One line per model: `<Overall> <slug>`, highest Overall first (ties A-Z).",
     "# Research queue order: process missing folders top-down; slugs absent here (= no average.md yet) go last, A-Z.",
     "# Retired (parked) slugs are omitted — never researched (model/README.md).",
+    "# Deleted phantom model folders are omitted too — never recreated or restored.",
   ];
   for (const r of rows) lines.push(`${r.overall} ${r.slug}`);
   return lines.join("\n") + "\n";

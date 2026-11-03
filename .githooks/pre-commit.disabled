@@ -149,6 +149,21 @@ if [ -n "$alias_added" ]; then
   echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
   if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
 fi
+# Deleted phantom model folders (RULES.md § deleted phantoms, user order
+# 2026-11-03): eleven previously parked phantom/duplicate folders were
+# removed from disk and git. Block any staged addition under a deleted slug,
+# its spelling variants, or a suffixed derivative of the phantom checkpoint
+# families. Sync also FAILs these via DELETED_PHANTOM_SLUGS in
+# scripts/lib/validate.mjs. Real sibling SKUs (gemini-3.1-flash-lite,
+# longcat-2.5-preview, qwen-3.5-*, gemini-2.5-*, glm-5.3-flash) never match.
+deleted_phantom_added="$(git diff --cached --name-only --diff-filter=A -z -- model | tr '\0' '\n' | grep -Ei '^model/([a-z0-9]+[._-])*(claude[._-]sonnet[._-]5[._-]4|claude[._-]opus[._-]4[._-]4|claude[._-]opus[._-]3[._-]7|qwen[._-]3[._-]8[._-]325b|omi[._-]alpha)([._/-]|$)|^model/([a-z0-9]+[._-])*(glm[._-]5[._-]3[._-]free|gemini[._-]3[._-]1[._-]flash|longcat[._-]2[._-]5|qwen[._-]3[._-]5|gemini[._-]2[._-]5|kimi[._-]k2[._-]7[._-]code[._-]highspeed|ox[._-]alpha)(/|$)' || true)"
+if [ -n "$deleted_phantom_added" ]; then
+  echo "BLOCKED by RULES.md: deleted phantom model folder — never recreate or restore:" >&2
+  printf '%s\n' "$deleted_phantom_added" >&2
+  echo "See model-aliases.generated.md (Deleted phantom model folders) for the canonical target," >&2
+  echo "or get explicit user sign-off, then retry with ALLOW_MODEL_DELETE=1." >&2
+  if [ "${ALLOW_MODEL_DELETE:-0}" != "1" ]; then exit 1; fi
+fi
 # Merged-and-deleted duplicate findings-file stems (RULES.md findings-stem
 # identity): Mimo_v2.6_Flash.md was folded into MiMo_2.6_Flash.md on user
 # order (same Xiaomi rater, 2026-10-09); Space_Bunny -> MiniMax_M3.1_Flash,

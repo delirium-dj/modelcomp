@@ -308,9 +308,11 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
  * LongCat 2.5; the 2.5 generation exists only as the API-only LongCat-2.5-Preview
  * tracked in `longcat-2.5-preview/`, and the folder's own meta idNote records the
- * id does not resolve — RULES.md family-shorthand identity). The folder
- * stays on disk and in git (permanence, RULES.md) and `pnpm sync` keeps
- * scanning it, but it is hidden from the site: excluded from MODELS, so no
+ * id does not resolve — RULES.md family-shorthand identity). The folders were
+ * removed from disk and git on explicit user order 2026-11-03 (deleted
+ * phantoms, `DELETED_PHANTOM_SLUGS` in scripts/lib/validate.mjs); this mirror
+ * list stays as defense-in-depth so a restored folder is still hidden.
+ * Excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Revealed
  * stealth aliases are NOT parked anymore (user rule 2026-10-24): `space-bunny`
  * and `cat-jam` were merged into their revealed models' canonical folders
@@ -330,7 +332,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "qwen-3.8-325b", "ox_alpha"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

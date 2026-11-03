@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Qwen 3.8 Flash
 
 - Source: Xiaomi MiMo / MiMo-V2.6-Flash Free on OpenCode Zen (`opencode/mimo-v2-6-free`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — free tier still live (2026-10-23/11-03 listings, no end date posted); AA current-build scale reads Flash at 27 vs launch-era 37.9 — logged un-averaged as scale drift; arms.ai's "46.32 for Flash" identified as the Pro row, declined; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Free-tier status — https://opencode.ai/v2/docs/console/models/ (**"MiMo-V2.6-Flash Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model"** — still the standing wording) and https://sharkly.ai/blog/opencode-free-models/ (free-model list **fetched 2026-10-23** still includes **"Exo Free, MiMo-V2.6-Flash Free"**) and https://usagebox.com/articles/opencode-zen-go-pricing-2026 (2026-10-23: free lineup **"…Exo Free, MiMo-V2.6-Flash Free, MiMo-V2.5 Free, three Nemotron free endpoints"**) and https://planlimits.aiw3b.com/tool/opencode/ (**"OpenCode plans, limits & pricing (verified 2026-11-03)"** — free lane incl. MiMo-V2.6-Flash Free current today) and https://github.com/precis1onz/tokenation (**"mimo-v2.6-flash-free … 37.9, 未公布截止日"** — "no deadline published", index column matching pass 1) · index scale drift — https://artificialanalysis.ai/models/comparisons/mimo-v2-6-flash-vs-step-5 (**"Step 5 Preview scores 29, compared with MiMo-V2.6-Flash at 27 on the Artificial Analysis Intelligence Index"**) vs pass 1's 37.9 (BenchLM fetch 2026-10-02) — NOT averaged · family attribution guard — https://mimo.xiaomi.com/mimo-v2-6 (**"MiMo-V2.6-Pro scores 46.32 … surpassing Kimi K3 and Qwen3.8 Max"**) and https://x.com/ArtificialAnlys/status/2102128560962187701 (**"MiMo-V2.6-Pro debuts as the top open weights model … (46). At $0.13 per Intelligence Index task"**) vs https://armes.ai/docs/models/xiaomi/mimo-v2.6-flash (misattributes **"It scored 46.32 on the AA Intelligence Index"** to Flash — a Pro row in a Flash page; declined per exact-ID rule) and https://cellcog.ai/blog/mimo-v2-6/ (family-level **"1.02T MoE, 42B active … 46 on the AA Intelligence Index"** — the Pro-tier framing) · paid-sibling pricing — qualifying report `mimo-v2.6-flash` (2026-11-03 pass: OpenRouter input cut **$0.14→$0.10/$0.28**, official cached $0.0028) — $0 tier untouched.
+
+**What moved and how it was resolved:**
+
+1. **The "free for a next week" promo (2026-09-21) has outlived its promise:** four independent listings dated 2026-10-23 through today (2026-11-03) still show the $0 tier live, and tokenation records "no deadline published". Cost 100 stands, with the standing caveat (data may be used for training during the free period).
+2. **AA Intelligence Index cascade logged, no band move:** 37.9 (pass-1 fetch) → **27** on AA's current comparison pages (same v5.0-scale rebuild pattern as GLM-5.3-Flash's 57→42→28 and this report's sibling rows — the newer index adds Terminal-Bench 4.0/FrontierCode 2.0 etc. and resets the scale). Reasoning 68 rests on HLE 35.1% (under the 40 bar), CritPt 12.0 and the **-12.7 Omniscience** profile — none of which depend on the index number.
+3. **Attribution guard applied:** arms.ai's "46.32" belongs to MiMo-V2.6-**Pro** (vendor + AA's own debut post both pin 46.32/46 to Pro); it is NOT merged into this Flash-tier report per the exact-ID rule. The Pro sibling's stronger reasoning is already noted in the "escalate to Pro" guidance.
+4. **200K Zen cap reconfirmed** (no change to the scored serving tier; native 1M remains the paid-route fact). No new independent Flash-row measurements (SWE-bench Verified etc.) appeared for the family since 2026-10-02.
+
+**Scores changed by this pass:** none. Tool 90, Reasoning 68, Context 70, Multimodal 90, Coding 80 → mean 79.6 → **Overall 80 unchanged**; Cost 100 verified.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (OpenCode Zen docs confirming "MiMo-V2.6-Flash Free" $0 tier — fetched 2026-10-02; mastra.ai + pi.dev trackers for the 200K Zen cap; mimo.xiaomi.com V2.6 series page; BenchLM rows citing the Xiaomi MiMo-V2.6 technical report and Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores. Flagged the curated meta.json placeholder (128K/text-only/"standard pricing") against the verified 200K omni-modal $0 free tier; benchmark rows are vendor-run unless marked AA/BenchLM.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (OpenCode docs, sharkly/usagebox/planlimits/tokenation free-tier snapshots dated through today, AA comparison pages, vendor + AA-Pro debut post); Index 37.9→27 scale drift logged un-averaged; a misattributed Pro score declined per exact-ID rule — **no dimension changed and Overall remains 80**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

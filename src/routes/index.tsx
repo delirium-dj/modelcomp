@@ -65,8 +65,6 @@ export default component$(() => {
   // Hero animation spotlight: cycles through the top-12 models, one at a
   // time. Skipped entirely under prefers-reduced-motion (static hexagon).
   const heroActive = useSignal(0);
-  // Rotating "leader" spotlight: cycles through each score dimension every 5s.
-  const leaderIdx = useSignal(0);
 
   // The header's "Models" link lands on #models — put the caret straight into
   // the search field so typing can begin without a second click.
@@ -104,15 +102,20 @@ export default component$(() => {
   const q = query.value.trim().toLowerCase();
   const decisionFiltered = decisions.filter((m) => modelMatchesQuery(m, q));
   const top = rankBase.find((m) => !isDecisionModel(m)) ?? rankBase[0];
-  const leaderDim = LEADER_DIMS[leaderIdx.value % LEADER_DIMS.length];
-  const leaderKey = leaderDim.key;
-  const leaderModel =
-    [...generative].sort(
-      (a, b) =>
-        b.scores[leaderKey] - a.scores[leaderKey] ||
-        b.scores.overall - a.scores.overall ||
-        a.name.localeCompare(b.name),
-    )[0] ?? top;
+  // Leader spotlight: one entry per score dimension. The cycle itself is pure
+  // CSS (see FactsStrip + global.css) so it never depends on a client timer
+  // starting after hydration — the old interval left the label frozen on
+  // "Leader overall (Overall)".
+  const leaderFacts = LEADER_DIMS.map(({ key, label }) => {
+    const model =
+      [...generative].sort(
+        (a, b) =>
+          b.scores[key] - a.scores[key] ||
+          b.scores.overall - a.scores.overall ||
+          a.name.localeCompare(b.name),
+      )[0] ?? top;
+    return { key, label, model, value: model.scores[key] };
+  });
   // Hero animation cast: top 12 of the current source ranking, spotlighted
   // in random order (see interval task below).
   const heroTop12 = generative.slice(0, HERO_CAST);
@@ -131,15 +134,6 @@ export default component$(() => {
       }
       heroActive.value = n;
     }, 2600);
-    cleanup(() => window.clearInterval(t));
-  });
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ cleanup }) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setInterval(() => {
-      leaderIdx.value = (leaderIdx.value + 1) % LEADER_DIMS.length;
-    }, 5000);
     cleanup(() => window.clearInterval(t));
   });
 
@@ -194,9 +188,7 @@ export default component$(() => {
         <FactsStrip
           modelCount={generative.length}
           sourceCount={SOURCES.length}
-          leaderDimLabel={leaderDim.label}
-          leaderModel={leaderModel}
-          leaderValue={leaderModel.scores[leaderKey]}
+          leaders={leaderFacts}
         />
         <CompareSection
           source={source}

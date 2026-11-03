@@ -54,4 +54,47 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/*
+ * FactsStrip leader spotlight (homepage "Dataset facts" strip).
+ * Six dimension leaders, 5s each = 30s loop. Pure CSS so it runs before
+ * hydration / with JS disabled — the old client setInterval lived in a
+ * useVisibleTask$ and left the label frozen on the Overall leader on the
+ * deployed build.
+ */
+@keyframes leader-slide-cycle {
+  0% {
+    opacity: 0;
+  }
+  1.5% {
+    opacity: 1;
+  }
+  16.5% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.leader-slide {
+  opacity: 0;
+  animation: leader-slide-cycle 30s linear infinite;
+}
+
+/* No animation support / blocked animations: keep the Overall leader readable
+   instead of leaving an empty slot. During the animation the keyframes win. */
+.leader-slide:first-child {
+  opacity: 1;
+}
+
+/* Reduced motion: no cycling — show the Overall leader (first slide) only. */
+@media (prefers-reduced-motion: reduce) {
+  .leader-slide {
+    animation: none;
+  }
+}
+
 

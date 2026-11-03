@@ -5,14 +5,19 @@ import { VendorIcon } from "../VendorIcon";
 interface FactsStripProps {
   modelCount: number;
   sourceCount: number;
-  leaderDimLabel: string;
-  leaderModel: AiModel;
-  leaderValue: number;
+  leaders: LeaderFact[];
+}
+
+export interface LeaderFact {
+  key: string;
+  label: string;
+  model: AiModel;
+  value: number;
 }
 
 /** Homepage "Dataset facts" strip: tracked models, rotating leader, scoring rule. */
 export const FactsStrip = component$<FactsStripProps>(
-  ({ modelCount, sourceCount, leaderDimLabel, leaderModel, leaderValue }) => {
+  ({ modelCount, sourceCount, leaders }) => {
     return (
       <section
         class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-2 max-[520px]:block dark:border-b-[#274757]"
@@ -31,17 +36,33 @@ export const FactsStrip = component$<FactsStripProps>(
           </strong>
         </div>
         <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
-          <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">{leaderDimLabel}</span>
-          <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
-            <span class="inline-flex items-center gap-2 leading-none whitespace-nowrap">
-              <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center">
-                <VendorIcon key={leaderModel.id} id={leaderModel.id} name={leaderModel.name} />
-              </span>
-              <span class="tabular-nums">
-                {leaderModel.name} — {leaderValue}
-              </span>
-            </span>
-          </strong>
+          {/* All six dimension leaders are rendered; the 30s keyframe in
+              global.css fades each one in for 5s (6 × 5s cycle). Pure CSS on
+              purpose: the old client timer never advanced on the deployed
+              build, which left this label frozen on "Leader overall" (and
+              rotation shouldn't depend on hydration at all). */}
+          <div class="relative h-[52px]">
+            {leaders.map((leader, i) => (
+              <div
+                key={leader.key}
+                class="leader-slide absolute inset-0"
+                style={{ animationDelay: `${i * 5}s` }}
+                aria-hidden={i === 0 ? undefined : "true"}
+              >
+                <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">{leader.label}</span>
+                <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
+                  <span class="inline-flex items-center gap-2 leading-none whitespace-nowrap">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center">
+                      <VendorIcon id={leader.model.id} name={leader.model.name} />
+                    </span>
+                    <span class="tabular-nums">
+                      {leader.model.name} — {leader.value}
+                    </span>
+                  </span>
+                </strong>
+              </div>
+            ))}
+          </div>
         </div>
         <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Scoring</span>

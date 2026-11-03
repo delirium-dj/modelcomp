@@ -1,7 +1,7 @@
 # Inkling Small — findings by Qwen 3.8 Flash
 
 - Source: Thinking Machines Lab / Inkling-Small (curated id `opencode/inkling-small`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 (UTC); second pass 2026-11-03 (UTC) — vendor launch pricing verified ($0.30 in / $1.20 out Tinker serverless; Inkling sibling $1.00/$4.05); `:free` route still live but now explicitly **agentic-harness-only**; AA Index cascade 40→25.7→13 logged un-averaged (v5.0 rebuild); no successor announced; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,8 +62,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-04); three independent sources consulted.
+
+**Sources:** Pricing — https://thinkingmachines.ai/news/inkling-small/ (**"Inkling output pricing is $4.05 / 1M tokens and Inkling-Small output pricing"** [paired with the $1.20 figure] … **"free architecture as Inkling. Audio is represented as dMel"**) and https://www.developersdigest.tech/blog/inkling-small-open-weights-2026 (**"Tinker serverless pricing starts at $0.30 per million input tokens and $1.20 per million output, against Inkling's $1.00 / $4.05"**) — pass 1's aggregator quote ($0.50/$1.20) vs vendor list $0.30/$1.20, both recorded · free route — https://openrouter.ai/thinkingmachines/inkling-small:free (**"The free Inkling Small endpoint is only available for use with agentic harnesses. Do not upload any confidential information or personal data"** — still live, usage now narrowed) · index cascade — https://artificialanalysis.ai/articles/inkling-small-lands-within-a-point-of-inkling (launch: **"Inkling Small scores 40 … within a point of its flagship sibling … with less than a third of the parameters"**, 2026-07-30) and https://x.com/ArtificialAnlys/status/2082894822180819057 (**"Inkling Small averaged ~24K output tokens per … Index task"**) vs https://artificialanalysis.ai/models/inkling-small (current page: **"Inkling Small achieves a score of 13 on the Artificial Analysis Intelligence Index"**) vs pass 1's 25.7 on the tracked non-max v4.3.2 card — 40 (v4.1 launch scale) → 25.7 (v4.3.2) → **13** (v5.0 build, which per https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index **"incorporates 9 evaluations: AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0"**) — NOT averaged · family/lifecycle — https://thinkingmachines.ai/news/introducing-inkling/ (flagship positioning: **"Inkling is available for fine-tuning on Tinker today"**) and https://simonwillison.net/2026/Jul/16/inkling/ (**"intended as a strong base model for fine-tuning"**) — no Inkling-Small successor or retirement found as of 2026-11-03.
+
+**What moved and how it was resolved:**
+
+1. **AA Index cascade (40 → 25.7 → 13) is a scale rebuild, not a capability event.** v5.0 swaps in harder components (Terminal-Bench 4.0, FrontierCode 2.0, AA-Briefcase v1.1) and deflates everyone (same pattern as glm-5.3-flash's 57→42→28 and this batch's step-5-preview 43.7→29). No raw capability row moved, so no band moves: Reasoning 84 rests on GPQA 89.5/ARC-AGI-2 40.1/HLE profile; Tool 72 on MCP Atlas 79.6/TB 64.7; Coding 82 on SWE 80.2/82.2.
+2. **Cost 96 holds, with a pricing-provenance note:** the vendor's own launch post + developersdigest confirm Tinker serverless **$0.30/$1.20** (cheaper input than pass 1's $0.50 aggregator quote); cached $0.10 and the $0 `:free` lane stand. Both readings logged, un-averaged — the band was already near the cheap anchor, so the difference is immaterial.
+3. **`:free` route now carries an explicit scope restriction** ("only available for use with agentic harnesses" + no-confidential-data warning). Pass 1 already flagged time-limited/monitoring caveats; this sharpens them (self-host/fine-tune lanes unaffected — open weights + Tinker). Kept off 100 for the same reasons.
+4. **No successor, no retirement:** nothing dated after 2026-10-04 changes Inkling-Small's status in the family (flagship Inkling remains the fine-tuning base; Small remains the efficient sibling).
+
+**Scores changed by this pass:** none. Tool 72, Reasoning 84, Context 92, Multimodal 88, Coding 82 → mean 83.6 → **Overall 84 unchanged**; Cost 96 verified.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-04
 - Method: fresh public internet research (Thinking Machines launch post and model card, Hugging Face, BenchLM, Artificial Analysis, Vals AI, OpenRouter/Together listings); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Thinking Machines launch posts, developersdigest pricing, OpenRouter free-route terms, AA article/post/current page); Index 40→25.7→13 v5.0 cascade logged un-averaged; vendor-vs-aggregator input-price readings both recorded; free-route scope restriction noted — **no dimension changed and Overall remains 84**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

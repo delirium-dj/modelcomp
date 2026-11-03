@@ -94,10 +94,12 @@ exit code contract is unchanged (non-zero = read the `FAIL` lines).
     per model, highest Overall first (ties A-Z) — the pre-sorted research
     queue for `tasks/research-assign.md`, so agents stop scanning every
     `average.md` themselves. Same freshness contract as step 6 (zero failures
-    only, rewritten when drifted). Retired (parked) slugs (`RETIRED_SLUGS` in
-    `scripts/lib/average.mjs`) are omitted — never researched.
+    only, rewritten when drifted). Retired (parked) and deleted phantom slugs
+    (`RETIRED_SLUGS` in `scripts/lib/average.mjs` + `DELETED_PHANTOM_SLUGS`
+    in `scripts/lib/validate.mjs`) are omitted — never researched.
   8. Emits `model-aliases.generated.md` (repo root, committed): the single
-    identity roster for research agents — parked slugs, merged duplicate
+    identity roster for research agents — parked slugs, deleted phantom
+    model folders (removed from disk + git, never restored), merged duplicate
     slugs, retired vendor aliases, merged duplicate stems, alias-family
     records, each with its canonical target and one-line case note
     (`buildAliasesFile` in `scripts/lib/validate.mjs`; data: the code lists

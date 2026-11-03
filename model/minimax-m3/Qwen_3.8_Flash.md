@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Qwen 3.8 Flash
 
 - Source: MiniMax / MiniMax M3 (`minimax-ai/minimax-m3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — list price $0.30/$1.20 reverified (2026-10-26) with OpenRouter aggregate dipping to $0.23/$0.96; successor **M3.1 Flash shipped 2026-10-19** (own folder per exact-ID rule); launch-era AA "55" vs current-scale 29 logged un-averaged; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,8 +58,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Pricing — https://www.activepieces.com/blog/minimax-api-pricing-in-2026-and-what-each-model-costs (2026-10-26: **"MiniMax M3 costs $0.30 per million input tokens and $1.20 per million output tokens for requests below"** [the long-prompt step]) and https://openrouter.ai/minimax/minimax-m3 (**"$0.23 per million input tokens, $0.96 per million output tokens. Higher uptime with 12 providers"** — aggregate discount, not the list) and https://crazyrouter.com/en/pricing/minimax-m3 (**"MiniMax charges $0.30 per 1M input tokens and $1.20 per 1M output tokens"**) and https://apimaster.ai/blog/minimax-m3-1-api (base tier **"From $0.30 / $1.20"**) · successor — https://www.minimax.io/blog/minimax-m31f (**"M3.1 Flash is now available through the MiniMax API, M Plan, and MiniMax Code. Model weights will be released later"**, 2026-10-19) and https://llm-stats.com/models/minimax-m3.1-flash (**"released Oct 19, 2026; $0.150/M input, $0.015/M cached input, $0.600/M output; 1M-token context"**) and https://minimax-ai.chat/models/minimax-m3-1-flash-preview/ (**"5 effort levels"**) and https://aireiter.com/blog/minimax-m3-1-release-api (2026-08-18 pre-release state: **"announced at WAIC 2026 but has no API pricing, model ID, or weights yet"** — shipped since) · index readings kept side by side — https://x.com/ArtificialAnlys/status/2064066303863005254 (**"MiniMax-M3 scores 55 on the Artificial Analysis Intelligence Index"** — launch-era scale) vs https://artificialanalysis.ai/zh/models/comparisons/minimax-m3-vs-glm-5-non-reasoning (current pages: **"MiniMax-M3 的得分为29，而GLM-5 (Non-reasoning) 的得分为22"**) vs pass 1's 29.2 — the current-scale reading MATCHES pass 1; NOT averaged with 55.
+
+**What moved and how it was resolved:**
+
+1. **Successor M3.1 Flash (2026-10-19) logged, not merged:** a low-cost reasoning sibling ($0.15/$0.60, 1M ctx, 5 effort levels, weights "later") — its rows (incl. AA's front-page M3.1-Flash entries) belong to its own folder per the exact-ID rule. This report scores the base **non-reasoning M3**; the successor being a *reasoning* variant actually reinforces pass 1's closing guidance ("reach for the reasoning/thinking variant for those"). No dim moved.
+2. **Cost 96 holds:** list $0.30/$1.20 triple-verified (activepieces 2026-10-26, crazyrouter, apimaster); OpenRouter's $0.23/$0.96 aggregate reflects reseller competition — both readings recorded, band unchanged (already near the free anchor).
+3. **AA Index: pass 1's 29.2 is confirmed as the current-scale reading** (AA comparison pages show 29); the launch-era "55" post reflects the older index build — recorded un-averaged per house rule. Reasoning 70 was never index-driven (it rests on HLE 39.0 under the bar, CritPt 3.7, and the 16.7%/18.4% abstention profile — all unrebutted).
+4. **No new independent rows** (Vals/AA re-runs) changed the hard-autonomy cluster (OSWorld 2.0 4.6%, TB 4.0 2.0%) or the coding profile.
+
+**Scores changed by this pass:** none. Tool 72, Reasoning 70, Context 94, Multimodal 85, Coding 72 → mean 78.6 → **Overall 79 unchanged**; Cost 96 verified.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the MiniMax M3 blog and HF model card, plus Artificial Analysis, Vals AI, OSWorld 2.0, OpenHarmony Bench and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (activepieces, OpenRouter, crazyrouter, apimaster, MiniMax blog, llm-stats, AA posts/pages); M3.1 Flash successor kept in its own lane per exact-ID rule; launch-era 55 vs current-29 index readings logged un-averaged (pass 1 matched the current scale) — **no dimension changed and Overall remains 79**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Nemotron 3.5 Bolt E4B — findings by Muse Glimmer 30B
 
 - Source: NVIDIA / nemotron-3.5-bolt-e4b
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -82,7 +82,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; official NVIDIA Hugging Face model cards for NVIDIA-Nemotron-3.5-Bolt-E4B-4GB and -BF16, build.nvidia.com model card for nemotron-3.5-bolt-e4b, BenchLM tracking page 2026-10-25. Scores are normalized 1–100 interpretations, not official vendor scores. Conflicting figures across NVIDIA's own surfaces are listed side by side.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
