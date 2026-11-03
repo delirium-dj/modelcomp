@@ -1,15 +1,28 @@
 {
   "name": "Inception",
   "kind": "vendor",
-  "short": "Inception Labs' diffusion-LLM API (Mercury family) with pay-per-token pricing, cached input discounts and a free-tier-less developer access model.",
+  "short": "Inception Labs' ultra-fast diffusion-LLM API (Mercury family) featuring 100M free developer tokens upon signup, OpenAI compatibility, and low-latency inference.",
   "officialUrl": "https://inceptionlabs.ai",
-  "hosts": ["inceptionlabs.ai", "api.inceptionlabs.ai", "docs.inceptionlabs.ai"],
-  "idPrefixes": ["inception"],
+  "hosts": [
+    "inceptionlabs.ai",
+    "api.inceptionlabs.ai",
+    "platform.inceptionlabs.ai",
+    "docs.inceptionlabs.ai"
+  ],
+  "idPrefixes": [
+    "inception"
+  ],
   "plans": [
+    {
+      "name": "Free Developer Trial",
+      "price": "$0 (100M free tokens)",
+      "notes": "100 million free API tokens credited upon account registration (no credit card required) to test Mercury 3 and family via OpenAI-compatible endpoints.",
+      "evidenceUrl": "https://platform.inceptionlabs.ai"
+    },
     {
       "name": "Pay-as-you-go",
       "price": "Usage-based (per token)",
-      "notes": "Mercury 2.5 $0.20 in / $0.75 out per 1M ($0.02 cached in). Mercury 3 launch promo $0.10 / $0.35 per 1M.",
+      "notes": "Mercury 2.5 $0.20 in / $0.75 out per 1M ($0.02 cached in). Mercury 3 launch rate $0.10 in / $0.35 out per 1M.",
       "evidenceUrl": "https://docs.inceptionlabs.ai/get-started/models"
     }
   ]

@@ -1,0 +1,23 @@
+{
+  "name": "StreamLake",
+  "kind": "aggregator",
+  "short": "Enterprise AI infrastructure platform by Kuaishou hosting DeepSeek and foundation coding models with high-availability SLAs.",
+  "officialUrl": "https://streamlake.ai",
+  "hosts": [
+    "streamlake.ai"
+  ],
+  "catalogUrl": "https://streamlake.ai",
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Production serverless inference for DeepSeek-V4.1-Flash with off-peak rates and context caching discounts.",
+      "evidenceUrl": "https://streamlake.ai"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "deepseek-v4.1-flash",
+    "deepseek-v4-pro"
+  ]
+}

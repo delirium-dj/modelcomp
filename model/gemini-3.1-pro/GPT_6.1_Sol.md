@@ -1,88 +1,73 @@
-# Gemini 3.1 Pro — findings by GPT 6.1 Sol
+# Gemini 3.1 Pro — findings by GPT-6.1 Sol
 
 - Source: Google DeepMind / `gemini-3.1-pro-preview`
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.1 Pro
-- **Short description:** Google's multimodal Pro reasoning model released in February 2026. The current official Cloud page still identifies the public-preview API route; this report does not infer a GA replacement from secondary headlines.
-- **Provider / access:** Gemini API, Google Cloud Gemini Enterprise Agent Platform (formerly Vertex AI), AI Studio and integrations; GenerateContent, Interactions preview, and compatible Chat Completions [S1,S2].
-- **Release / knowledge:** February 19, 2026 [S1,S2]; exact knowledge cutoff not verified in inspected primary text.
-- **IDs:** `gemini-3.1-pro-preview`. Additional `gemini-3.1-pro-preview-customtools`, released February 23, prioritizes custom tools and may behave differently; its results are not silently merged here [S1]. Replicate route `google/gemini-3.1-pro` [S6]. No Zen Free ID verified.
-- **Context window:** Official 1,048,576 tokens, 65,536 maximum output [S1]. Replicate documents up to 65,535 for its own request parameter [S6].
-- **Modalities:** Text/image/audio/video/PDF input, text output; low/medium/high thinking, default high on Replicate. Function calling, execution, JSON/structured output, grounding and implicit/explicit caching supported. Official Cloud spec explicitly does not support computer use, agentic video understanding, or Live API [S1,S3,S6].
-- **Pricing (as of 2026-10-16):** ≤200K context: $2 input / $12 output per million tokens; >200K: $4/$18 [S3,S6]. AA's current cache discount is 90%, implying $0.20 cached input at its listed $2 input tier [S4]. Paid route scored; no zero-cost production assumption.
-- **Architecture:** Proprietary; parameter counts undisclosed [S4].
+- **Short description:** Multimodal reasoning model based on Gemini 3 Pro. This report measures the documented February Preview route, not an assumed newer GA checkpoint or Deep Think service.
+- **Provider / access:** Google Gemini API and AI Studio; Vertex AI, Antigravity and Gemini products are listed distribution channels. Native GenerateContent API; not assumed identical to an OpenAI-compatible gateway.
+- **Release / knowledge:** February 19, 2026; knowledge cutoff not independently established from the retrieved exact-model documentation.
+- **IDs:** `gemini-3.1-pro-preview`, publisher-qualified `google/gemini-3.1-pro-preview`. Google also documents a distinct `gemini-3.1-pro-preview-customtools` endpoint; its preferential custom-tool behavior is not silently attributed to the standard endpoint.
+- **Context window:** Official input limit 1,048,576; output limit 65,536. Model card describes up to 1M context and 64K output.
+- **Modalities:** Text, image, audio, video and PDF input; text output. Thinking, function calling, structured output, code execution, search grounding, caching and file search supported; no native image/audio generation or Live API.
+- **Pricing (as of 2026-11-03):** Vals lists $2 input / $12 output per million tokens. Official model page links a tiered price table; higher-context and cache rates were not directly retrieved, so these are not asserted as universal rates. A Google developer-forum result confirms a 200K pricing threshold. Free API/Zen availability not verified.
+- **Architecture:** Proprietary, based on Gemini 3 Pro; parameter counts not disclosed in this source set.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench **2.0**: **67.4%**, Vals February 19 launch update [S5]. This is neither 2.1 nor 4.0.
-- Terminal-Bench **Hard**: **54%**, independent AA launch evaluation [S3].
-- Terminal-Bench **4.0**: **2.52% ±0.51**, current Vals high-effort table [S5]. Older-suite success does not establish modern long-horizon success.
-- GDPval-AA: **1316 Elo**, AA launch evaluation [S3]; dataset/calibration predates later v2.1 figures and is not directly comparable to them.
-- Finance Agent v2 **42.98% ±1.21**; Legal Research **20.67% ±2.81**; SRE Bench **0.00%**; Tax Agent Bench **9.29% ±2.09**, current Vals [S5].
-- BFCL v3 **71.2%** is claimed by LayerLens [S7], but insufficient harness details and other inconsistencies make it supplementary rather than a primary scoring anchor.
-- Terminal-Bench 2.1 / Tau3-Banking / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / SWE Atlas QnA: no verified public score found in inspected sources.
+- Google high thinking: Terminal-Bench 2.0 **68.5%**, Terminus-2; MCP Atlas **69.2%**; tau2 retail **90.8%**, telecom **99.3%**; BrowseComp with search/Python/browser **85.9%**; APEX-Agents **33.5%**; GDPval-AA **1317 Elo**.
+- Vals February 19 run: Terminal-Bench 2.0 **67.4%**, high thinking, official API. Current table lists Terminal-Bench 4.0 **2.52% ±0.51**, SRE Bench **0.00%**, Finance Agent v2 **42.98% ±1.21** and Legal Research Bench **20.67% ±2.81**. Versions and long-horizon task difficulty differ sharply; these are not interchangeable terminal success rates.
+- Claw, Toolathon and Tau3: no verified public score found in retrieved sources.
 
 Reasoning / knowledge:
 
-- ARC-AGI-2 **77.1%**, verified result reported in Google's launch post [S2].
-- GPQA Diamond **95.45% ±1.05**, **#1/138**; MMLU Pro **90.99% ±0.28**, independent Vals high effort [S5].
-- CritPt **18%**, independent AA launch evaluation [S3].
-- AA-Omniscience accuracy **53%**, hallucination rate **50%** at launch [S3]. The latter is the evaluator's defined hallucination metric, not “half of all responses are false.”
-- Artificial Analysis Intelligence Index: launch article reports first place and a four-point lead over Opus 4.6, without an exact index value in fetched prose [S3]. Current page: **30**, **#97/217**, v4.3.2 [S4]. No numeric launch value inferred from image-only plots.
-- Vals Index **33.44% ±1.13**, **#44/48** in current suite; ProofBench v1.1 **26.00% ±4.41** [S5].
-- HLE / LCR / MLCR: no verified numeric score found in inspected primary or stronger independent prose.
+- Google: GPQA Diamond **94.3%**, HLE **44.4% no tools / 51.4% search and code**, ARC Prize verified ARC-AGI-2 **77.1%**.
+- Vals current GPQA **95.45% ±1.05**, MMLU Pro **90.99% ±0.28**, ProofBench v1.1 **26.00% ±4.41**, MysteryMechanism **20.72% ±2.73**. High short-answer science performance does not establish equally strong autonomous scientific work.
+- LayerLens reports ARC AGI 2 **92.3%**, BFCL v3 **71.2%**, IF-Evals **78.4%** and BIRD-CRITIC **32.5%**, but its article does not establish the ARC split/harness equivalence and incorrectly claims a 2M context window. These are source-reported, lower-confidence supplementary results, not replacements for official limits or ARC's verified result.
+- Current AA index, CritPt and hallucination rate: no verified public score found in the directly retrieved sources.
 
 Coding:
 
-- SciCode **59%**, independent AA launch evaluation [S3].
-- LiveCodeBench **88.48% ±0.93**, Vibe Code Bench v1.1 **32.03% ±4.34**, Code Migration **17.31% ±3.93**, ProgramBench **0.00%**, current independent Vals [S5].
-- SWE-bench Verified **69.6%**, explicitly labeled in Vals' dated February update; current table's SWE-bench row **78.80% ±1.83** [S5]. Retain separate snapshots rather than silently replacing one with the other.
-- LayerLens reports LiveCodeBench **61.0%** and SWE Bench Lite **48.7%** [S7], with insufficient configuration details for clean comparison. Lite and Verified are different suites.
-- SWE-Pro / DeepSWE: no verified public score found in inspected sources.
+- Google: SWE-bench Verified **80.6%**, single attempt; SWE-bench Pro public **54.2%**; LiveCodeBench Pro **2887 Elo**; SciCode **59%**.
+- Vals dated February updates: SWE-bench Verified **69.6%**; current table's linked SWE-bench row **78.80% ±1.83**. Preserve the dates rather than silently selecting the highest result.
+- Vals current LiveCodeBench **88.48% ±0.93**, Code Migration **17.31% ±3.93**, Vibe Code Bench v1.1 **32.03% ±4.34**, ProgramBench **0.00%**, IOI **51.83% ±2.59**.
+- LayerLens reports LiveCodeBench **61.0%**, SWE Bench Lite **48.7%**; its missing split details and editorial inconsistencies limit comparability. Lite is not Verified, and LiveCodeBench percentage is not Pro Elo.
 
-Long context and multimodal:
+Long context / multimodal:
 
-- No verified full-window MRCR/RULER retrieval percentage found; official capacity is 1M, not 2M [S1].
-- MMMU Pro **88.21% ±0.78**, independent Vals [S5]; AA also reported launch leadership on this suite without an exact figure in fetched prose [S3].
+- Google MRCR v2 eight-needle **84.9%** averaged at 128K, **26.3%** pointwise at 1M. The documented million-token capacity materially exceeds demonstrated retrieval reliability at its edge.
+- Google MMMU-Pro **80.5%**; Vals current MMMU Pro **88.21% ±0.78**. Different evaluation configurations/snapshots are retained separately.
 
-### Evidence comparison and research trail
+### Conflicting evidence and limitations
 
-Three distinct DuckDuckGo searches: `"Gemini 3.1 Pro" official Google model documentation`; `"Gemini 3.1 Pro" independent Artificial Analysis benchmark`; `"Gemini 3.1 Pro" review benchmark conflicts pricing`. Read the current official Cloud model specification, Google's launch and Cloud announcement, AA's launch analysis and current profile, Vals, Replicate and LayerLens directly.
-
-The primary Cloud page (updated October 15) says public preview; some search-result headlines claim GA. This report retains the primary endpoint status [S1]. LayerLens claims 2M context and ARC-AGI-2 92.3%, conflicting with official 1M and 77.1%; it also has a search snippet about 22 benchmarks while its fetched body describes six, and some figures contain unclear benchmark labels [S1,S2,S7]. Those claims are documented but not adopted as verified superiority or capacity. Its LiveCodeBench 61.0% versus Vals 88.48% cannot be resolved without dates, splits and effort details; averaging them would conceal the disagreement. Vals' historical SWE 69.6% versus current 78.8% likewise needs snapshot/harness information, not a fabricated causal explanation. AA's February leadership and current Index 30 use different evaluation snapshots and benchmark composition; this is not evidence that the same weights lost a stated number of points on an unchanged test [S3–S5]. Academic GPQA/LiveCodeBench leadership coexists with very weak newer agent suites, which materially limits agent recommendations.
+Independent Vals terminal 2.0 broadly corroborates Google's 68.5%, while later 4.0 and long-running engineering scores reveal a much lower ceiling on harder work. Google's SWE Verified result is above Vals' dated launch run; harnesses, budgets and snapshots are not controlled here, so no causal explanation is claimed. LayerLens' 2M-context assertion conflicts with official 1M documentation and its 92.3 ARC score lacks the verified split information; it cannot justify raising the model's capacity or reasoning score. Preview/customtools/Deep Think identities must remain distinct when reproducing results. Long-context capacity is not long-context competence.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** Older terminal results and GDPval 1316 show useful tool capability, but TB4 2.52%, poor SRE/legal-agent results and unsupported native computer use prevent a frontier-agent score [S1,S3,S5].
-- **Reasoning: 88/100.** GPQA 95.45%, ARC-AGI-2 77.1% and CritPt 18% demonstrate strong knowledge/reasoning, capped by present-suite results and nontrivial hallucination [S2–S5].
-- **Context window: 95/100.** Primary 1M capacity qualifies for the top tier, without verified ≥98% retrieval or evidence for LayerLens' 2M claim [S1,S7].
-- **Multimodal: 95/100.** Official audio/video/image/PDF input and MMMU Pro 88.21% show broad competence; output stays text and newer interactive-video features are absent [S1,S5].
-- **Coding: 86/100.** SciCode 59%, LiveCodeBench 88.48% and useful SWE evidence support strong coding; weak migration/Vibe/modern terminal results cap production-agent confidence [S3,S5].
-- **Cost efficiency: 73/100.** $2/$12 is moderate-to-premium and long-context $4/$18 erodes savings; independent current task cost is $1.30 on AA's specific suite [S4,S6].
-- **Overall Score: 88/100.** (75 + 88 + 95 + 95 + 86) / 5 = 87.8 → 88; best fit is multimodal scientific/document reasoning with supervised coding rather than assuming universal long-agent strength. Cost excluded.
+Evidence-weighted interpretations, not official percentages:
 
-### Sources
-
-- [S1] https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro — primary route status, dates, capabilities and limits.
-- [S2] https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/ — original February 19 launch and ARC-AGI-2.
-- [S3] https://artificialanalysis.ai/articles/gemini-3-1-pro-preview-new-leader-in-ai — independent launch evaluations, coding, physics, hallucination and GDPval.
-- [S4] https://artificialanalysis.ai/models/gemini-3-1-pro-preview — current independent Index v4.3.2 and pricing.
-- [S5] https://www.vals.ai/models/google_gemini-3.1-pro-preview — independent current suite, settings, uncertainty and dated historical updates.
-- [S6] https://replicate.com/google/gemini-3.1-pro/readme — hosted request limits, thinking settings and both context-price tiers.
-- [S7] https://layerlens.ai/blog/gemini-3-1-pro-benchmark-review — conflicting independent-operator claims retained with methodological reservations.
-- Additional primary access corroboration: https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-pro-on-gemini-cli-gemini-enterprise-and-vertex-ai — February 20 Cloud announcement; distinct publication date from February 19 model launch.
-
----
+- **Tool use: 83/100.** Strong MCP/tau and corroborated older terminal results, capped by weaker later operational and agentic evaluations.
+- **Reasoning: 91/100.** High independently supported science/knowledge results and verified ARC performance; weaker proof/mechanism tasks prevent universal frontier claims.
+- **Context window: 87/100.** Million-token capacity is useful, but 26.3% edge-window MRCR materially reduces effective-context confidence.
+- **Multimodal: 93/100.** Broad native perception and measured visual reasoning, limited by text-only output and unquantified audio/video quality here.
+- **Coding: 85/100.** Strong Verified/Pro and competitive coding, but substantial independent migration and long-horizon failures.
+- **Cost efficiency: 82/100.** Competitive listed $2/$12 rates, with unresolved long-context tier totals and repeated-attempt costs limiting certainty.
+- **Overall Score: 88/100.** Half-up mean of 83, 91, 87, 93 and 85 is 87.8; best for multimodal reasoning and bounded coding with external verification.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
-- Method: Independent public-web research with three separate searches, primary documentation and multiple independent operators; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new independently signed file next to this one using the same headings.
+- Provided by: **GPT-6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03 UTC
+- Method: Five successful distinct searches plus direct official card/API documentation, independent Vals and LayerLens comparison. No peer findings read; normalized scores are judgments.
+- Search queries: `Gemini 3.1 Pro official model card benchmarks Google`; `site:blog.google "Gemini 3.1 Pro" "77.1"`; `"Gemini 3.1 Pro" Artificial Analysis pricing context benchmark review`; `site:artificialanalysis.ai "Gemini 3.1 Pro" "57" "51%" pricing`; `site:ai.google.dev "gemini-3.1-pro-preview" "$2.00" "$12.00" "200k"`.
+- Reference URLs:
+  - [Google official model card and evaluation table](https://deepmind.google/models/model-cards/gemini-3-1-pro/)
+  - [Official API limits and customtools distinction](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
+  - [Vals independent results and dated updates](https://www.vals.ai/models/google_gemini-3.1-pro-preview)
+  - [LayerLens independent report, with caveats above](https://layerlens.ai/blog/gemini-3-1-pro-benchmark-review)
+  - [Google developer forum pricing-threshold discussion](https://discuss.ai.google.dev/t/why-price-difference-with-the-same-pro-model/143627)

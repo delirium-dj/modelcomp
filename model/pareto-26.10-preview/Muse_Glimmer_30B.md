@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by Muse Glimmer 30B
 
 - Source: Unbiased (unbiased/pareto-26.10-preview)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context / multimodal:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: meta.json curated metadata + Unbiased model card webfetch (https://unbiased.ai/model-card/ 2026-10-20); scores are normalized 1–100 interpretations, not official vendor scores. All raw figures are provisional vendor self-reports.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

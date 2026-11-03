@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by Muse Glimmer 30B
 
 - Source: Xiaomi MiMo / mimo-v2.5-free
-- Date: 2026-10-24
+- Date: 2026-11-03
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 

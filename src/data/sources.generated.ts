@@ -94,7 +94,8 @@ export type SourceKey =
   | "Leanstral 1.5"
   | "GPT 6.1 Terra"
   | "Kimi K3.1 Pro"
-  | "Xing 4.0 29B A4B";
+  | "Xing 4.0 29B A4B"
+  | "Mercury 3";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -200,4 +201,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 6.1 Terra", label: "GPT-6.1 Terra", file: "GPT_6.1_Terra.md", slug: "gpt-6.1-terra" },
   { key: "Kimi K3.1 Pro", label: "Kimi K3.1 Pro", file: "Kimi_K3.1_Pro.md", slug: "kimi-k3.1-pro" },
   { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
+  { key: "Mercury 3", label: "Mercury 3", file: "Mercury_3.md", slug: "mercury-3" },
 ];

@@ -1,7 +1,7 @@
 # Qwen3-Max — findings by Muse Glimmer 30B
 
 - Source: Alibaba Qwen / Qwen3-Max
-- Date: 2026-10-26
+- Date: 2026-11-03
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,5 +57,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.

@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Muse Glimmer 30B
 
 - Source: xAI Grok 4.3, API model `grok-4.3` / `grok-4.3-latest` (`opencode/grok-4.3`); no Zen Free ID
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research; meta.json for model basics, pricing, modalities, context window; Artificial Analysis for release date, pricing, context, modalities, Intelligence Index, IFBench score. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

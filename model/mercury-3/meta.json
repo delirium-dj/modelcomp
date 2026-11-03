@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mercury-3",
+  "name": "Mercury 3",
+  "short": "Mercury 3 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

@@ -1,0 +1,30 @@
+{
+  "name": "ZenMux",
+  "kind": "aggregator",
+  "short": "Unified enterprise AI model gateway providing access to 100+ frontier coding, reasoning, and MoE models through a single API key.",
+  "officialUrl": "https://zenmux.ai",
+  "hosts": [
+    "zenmux.ai"
+  ],
+  "catalogUrl": "https://zenmux.ai/pricing",
+  "plans": [
+    {
+      "name": "Starter Plan",
+      "price": "$20/month",
+      "notes": "Developer tier with personal API key and multi-hour quota covering standard and rotating premium coding/MoE models.",
+      "evidenceUrl": "https://zenmux.ai/pricing"
+    },
+    {
+      "name": "Pay-as-you-go API",
+      "price": "Usage-based",
+      "notes": "Per-1M token consumption across Anthropic Claude, OpenAI, DeepSeek, and Qwen models with prompt caching support.",
+      "evidenceUrl": "https://zenmux.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "qwen-3.8-27b",
+    "claude-sonnet-4.5",
+    "gpt-5.4"
+  ]
+}

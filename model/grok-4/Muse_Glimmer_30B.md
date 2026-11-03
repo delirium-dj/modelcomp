@@ -1,7 +1,7 @@
 # Grok 4 — findings by Muse Glimmer 30B
 
 - Source: xAI / grok-4
-- Date: 2026-10-24
+- Date: 2026-11-03
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -49,6 +49,6 @@ Source: https://docs.x.ai/developers/models ; https://docs.x.ai/developers/prici
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

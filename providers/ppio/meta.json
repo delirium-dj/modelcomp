@@ -1,0 +1,31 @@
+{
+  "name": "PPIO",
+  "kind": "aggregator",
+  "short": "Distributed serverless AI inference platform (ppinfra.com) serving DeepSeek, Qwen reasoning, and coding models with developer sign-up credits.",
+  "officialUrl": "https://ppinfra.com",
+  "hosts": [
+    "ppinfra.com",
+    "ppio.com",
+    "api.ppinfra.com"
+  ],
+  "catalogUrl": "https://ppinfra.com/model-api",
+  "plans": [
+    {
+      "name": "Developer Voucher",
+      "price": "$0 (Free credits)",
+      "notes": "Promotional registration credits (~5M tokens) upon signup to test serverless DeepSeek and Qwen endpoints.",
+      "evidenceUrl": "https://ppinfra.com/model-api"
+    },
+    {
+      "name": "Serverless Pay-as-you-go",
+      "price": "Per 1M tokens",
+      "notes": "Low-cost OpenAI-compatible endpoints for DeepSeek-V4, Qwen reasoning, and open-weights coding models.",
+      "evidenceUrl": "https://ppinfra.com/model-api"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "qwen-3.8-27b"
+  ]
+}

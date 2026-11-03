@@ -1,7 +1,7 @@
 # Grok 4.1 — findings by Muse Glimmer 30B
 
 - Source: xAI Grok 4.1 consumer flagship (`xai/grok-4.1`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research; meta.json for model basics, pricing, modalities, context window; x.ai news launch post for release date, preference, LMArena Elo, hallucination and FActScore reductions. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

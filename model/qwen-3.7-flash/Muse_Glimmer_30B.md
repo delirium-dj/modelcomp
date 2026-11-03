@@ -1,7 +1,7 @@
 # Qwen 3.7 Flash — findings by Muse Glimmer 30B
 
 - Source: Alibaba/Qwen 3.7 Flash
-- Date: 2026-10-20
+- Date: 2026-11-03
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -41,6 +41,6 @@ Other:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

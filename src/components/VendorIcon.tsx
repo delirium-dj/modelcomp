@@ -202,6 +202,11 @@ const VENDORS: VendorMatch[] = [
   { match: "unbiased", icon: "unbiased", label: "Unbiased", adaptive: true },
   { match: "deepl", icon: "deepl", label: "DeepL", adaptive: true },
   { match: "voyage", icon: "voyage", label: "Voyage AI", adaptive: true },
+  { match: "crusoe", icon: "crusoe", label: "Crusoe Cloud", adaptive: true },
+  { match: "gmicloud", icon: "gmicloud", label: "GMI Cloud", adaptive: true },
+  { match: "streamlake", icon: "streamlake", label: "StreamLake", adaptive: true },
+  { match: "ppio", icon: "ppio", label: "PPIO", adaptive: true },
+  { match: "zenmux", icon: "zenmux", label: "ZenMux", adaptive: true },
   // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
   // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
   // pick up the OpenCode mark below; originals omen / owl have no brand SVG —

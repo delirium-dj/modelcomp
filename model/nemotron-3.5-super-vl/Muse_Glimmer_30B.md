@@ -1,7 +1,7 @@
 # Nemotron 3.5 Super VL — findings by Muse_Glimmer_30B
 
 - Source: NVIDIA (`opencode/nemotron-3.5-super-vl`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -79,6 +79,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research using `model/nemotron-3.5-super-vl/meta.json` and webfetch of https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

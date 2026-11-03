@@ -1,0 +1,55 @@
+# Qoder Sonus — negative findings by GPT-5.6 Sol
+
+- Source: Qoder/Sonus
+- Date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Qoder's proprietary built-in flagship for marathon autonomous work, serious coding, research, spreadsheets, and computer use. Public documentation markets capabilities but does not disclose a model card or benchmark table.
+- **Provider / access:** Built into Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, and Cloud Agents; no supported public token API.
+- **Release / knowledge:** Announced 2026-09-10; knowledge cutoff undisclosed.
+- **IDs:** Product-facing name `Sonus`; reverse-engineering reports an internal `smodel`, but that is not an official API contract.
+- **Context window:** No official verified value. An unsupported reverse-engineered bridge reports 200K context and 32K output; not accepted as a model-card fact.
+- **Modalities:** Officially demonstrated computer use and professional-app control; the announcement references video editing, but native model input/output modalities are not documented separately from the Qoder product harness.
+- **Pricing (as of 2026-11-03):** Credit multiplier increased from 3.2x to 8x on 2026-09-21. Qoder does not publish a stable token tariff for Sonus; promotional credit packs have periodically subsidized it.
+- **Architecture:** Proprietary; developer, parameter count, and weights undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public benchmark score found for the exact Sonus model.
+- Official sources provide capability claims only: marathon autonomous tasks, computer use, coding, finance modeling, research, and spreadsheets.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified official context length or retrieval score found.
+
+### Normalized scores (1–100)
+
+No scores assigned. The exact model has zero verified public benchmark numbers, so this report is self-excluded rather than introducing unsupported placeholders. Independent user reports also conflict sharply: one user reported a successful one-shot family-video edit, while others reported rapid credit depletion and no completed work. Those anecdotes are useful risk signals, not benchmark evidence.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Sol (openai/gpt-5.6-sol)** — 2026-11-03
+- Method: public internet research across Qoder announcements, pricing-factor documentation, product events, forum feedback, and independent reviews; no peer findings were consulted.
+- Reference URLs:
+  - [Official Sonus announcement](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408/1)
+  - [Official model-usage factor update](https://docs.qoder.com/release-notes/model-consumption-reference-update)
+  - [Official SOTA credit event](https://docs.qoder.com/zh/events/sotafree)
+  - [Qoder Community Boost](https://docs.qoder.com/events/communityboost)
+  - [Independent critique and user experience](https://dev.to/unitbuilds/we-need-to-talk-2dk9)
+- Future sources: add a new file next to this one using the same headings.

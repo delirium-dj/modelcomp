@@ -1,83 +1,70 @@
-# Gemini 3.8 Flash — findings by GPT 6.1 Sol
+# Gemini 3.8 Flash — findings by GPT-6.1 Sol
 
 - Source: Google DeepMind / `gemini-3.8-flash`
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash
-- **Short description:** Google's general-purpose Flash model for reasoning-intensive agents, software engineering and mixed-media analysis. This report evaluates standard Flash, not the separately identified Cyber or Live models.
-- **Provider / access:** Gemini API and Google Cloud Gemini Enterprise Agent Platform, native generateContent/streaming surfaces; Cursor also hosts it [S1,S5].
-- **Release / knowledge:** September 2, 2026 [S2,S3]. March 2026 knowledge cutoff, with some domains earlier, is reported by secondary review [S6], not independently confirmed from parsed primary model-card text.
-- **IDs:** `gemini-3.8-flash`, GA [S1]. No Zen Free ID verified.
-- **Context window:** 1,048,576 tokens, maximum output 65,536 [S1]. No proof of perfect million-token retrieval follows from those limits.
-- **Modalities:** Text/image/audio/video input, text output; document/PDF use corroborated by independent Vals and review. Low/medium/high thinking; Google Cloud default medium versus Cursor default high [S1,S4,S5]. Function/tool workflows and structured output are supported; native image/audio generation belongs to other models [S6].
-- **Pricing (as of 2026-10-16):** Introductory $0.75 input / $0.075 cached input / $3.75 output per million tokens through end-2026; published standard fallback $1.50/$0.15/$7.50 [S3,S5,S6]. Thinking tokens count toward output charges. No verified zero-cost production tier scored.
-- **Architecture:** Proprietary; parameter counts not disclosed [S2].
+- **Short description:** General-purpose multimodal reasoning workhorse built on 3.7 Flash, trained for more diligent long-running agents. Cyber and TTS are separately named routes; their specialized results are not credited here.
+- **Provider / access:** Gemini API, AI Studio, Antigravity and Gemini Enterprise; consumer app access via Google AI Pro/Ultra per launch. Native Gemini API, with gateway Chat Completions available through OpenRouter.
+- **Release / knowledge:** September 2, 2026; March 2026 cutoff, but Google warns some domains remain at January 2025 knowledge.
+- **IDs:** `gemini-3.8-flash`; OpenRouter `google/gemini-3.8-flash`. Current Zen Free route not verified.
+- **Context window:** Official up to 1M context, 64K text output; OpenRouter search listing specifies 1,048,576 and 65,536 respectively.
+- **Modalities:** Text/image/audio/video/document perception, text output; reasoning, tool use, search and computer-use workflows. No native generated speech/image/video attributed to the standard ID.
+- **Pricing (as of 2026-11-03):** Official introductory $0.75 input / $3.75 output per million through December 31, 2026; $1.50/$7.50 from January 1, 2027. Reasoning uses billable tokens. eesel describes a quota-limited free lane and $0.075 cache reads, but these additional rates/terms were not directly checked against the current price table; not treated as universal free access.
+- **Architecture:** Proprietary; based on 3.7 Flash, undisclosed parameter counts.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.8%** in official Cloud guide [S1], versus **89.4%** in the Google chart transcribed by Kingy [S6]; not averaged because configurations differ.
-- Terminal-Bench 4.0: **19.70% ±2.31** independent Vals high-effort run [S4]. The secondary Google chart transcription is **19.1%** [S6]. These are not contradictory to ~90% on the older 2.1 suite.
-- Tau3-Banking: **38.1%** official guide [S1] versus **45% high** in AA's independent launch evaluation [S3].
-- GDPval-AA v2: **1545 Elo**, Google chart via secondary transcription [S6], not independently reproduced here.
-- Finance Agent v2: **61.44% ±0.13**, **#2/78** on Vals [S4]. CUA-bench **4.17%**, **#9/9**, and SRE Bench **11.07% ±1.94** show important weaknesses [S4].
-- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: no verified public score found.
+- Google model card: Terminal-Bench 2.1 **89.4%**, Terminal-Bench 4.0 **19.1%**, GDPVal-AA v2 **1545 Elo**, Vals Finance Agent v2 **61.4%**, Harvey Legal Agent all-pass **10.0%**, OSWorld 2.0 partial with batch tool **59.0%**.
+- Vals current independent measurements: Terminal-Bench 4.0 **19.70% ±2.31**, Finance Agent v2.1 **65.76% ±2.04**, HLAB-Vals-1.1 **12.08% ±2.58**, SRE Bench **11.07% ±1.94**, CUA-bench **4.17%**. Different legal/finance versions cannot be interpreted as simple repeat measurements.
+- Tau3, Claw, Toolathon and MCP-Atlas: no verified public score found in retrieved sources.
 
 Reasoning / knowledge:
 
-- GPQA Diamond **94.44% ±1.48**, MMLU Pro **90.22% ±0.29**, independent Vals high reasoning [S4].
-- HLE **45.4%** official guide [S1]; HLE-Verified **54.9%** in secondary chart transcription [S6]. Different benchmark subsets; never merged.
-- Artificial Analysis Intelligence Index: **59 high / 57 medium / 52 low** at launch [S3]; current **41 high**, **#51/217**, v4.3.2 [S2]. Historical v4.1.1 labeling is supplied by the review [S6].
-- Vals Index **54.89% ±1.02**, **#17/48** [S4].
-- CritPt / AA-LCR / MLCR / Omniscience hallucination rate: no verified public score found in inspected text.
+- Google HLE-Verified **54.9%**, LABBench2 **86.2%**, BioMysteryBench **88.8% human-solvable / 56.5% human-difficult**.
+- Vals GPQA Diamond **94.44% ±1.48**, MMLU Pro **90.22% ±0.29**, ProofBench v1.1 **48.00% ±5.02**, MysteryMechanism **36.49% ±3.24**, Terminal-Bench-Science **8.57% ±3.37**. BioMysteryBench aggregate **62.22% ±1.70** is not either Google subset score.
+- Vals Index **55.95% ±1.14**, rank **18/32**, cost **$5.026/test**. eesel's launch article quotes AA Index **59** and **$0.58/task**, a historical secondary report; the current AA search result says **31**. Index revision/snapshot differences are unresolved here and neither figure is used as a universal current intelligence percentage.
+- CritPt and exact hallucination rate: no verified public score found.
 
 Coding:
 
-- SWE-Bench Pro **61.6%**, SWE-Atlas **51.9%**, official guide [S1].
-- LiveCodeBench **89.48% ±0.90**; Vibe Code Bench v1.1 **78.65% ±3.88**; Code Migration **36.55% ±4.18**; ProgramBench **1.00% ±0.70**, independent Vals [S4].
-- Vals labels its SWE row simply SWE-bench: **80.00% ±1.79**; not relabeled Verified without inspecting that suite's methodology [S4].
-- DeepSWE v1.1 **74% ±1% high**, independent leaderboard snapshot quoted by Kingy; Google chart transcription **73.7%** [S6]. Secondary evidence, not a leaderboard rerun by this reporter.
-- SciCode: no verified public score found.
+- Google DeepSWE v1.1 **73.7%**, slightly below its Opus 5 comparator **74.0%**.
+- Vals LiveCodeBench **89.48% ±0.90**, SWE-bench linked row **80.00% ±1.79**, Code Migration v1.1 **38.65% ±3.65**, Vibe Code Bench v1.1 **78.65% ±3.88**, ProgramBench **1.00% ±0.70** fully resolved; SWE-bench Multimodal **40.83% ±2.25**. No verified SWE-Pro score found.
 
-Long context and multimodal:
+Long context / multimodal:
 
-- No verified exact-model MRCR/RULER full-window retrieval score found.
-- MMMU Pro **89.08% ±0.75**, independent Vals [S4]; CharXiv **86.2%** and GDP.pdf **35.0%**, official guide [S1].
+- Google GDP.PDF all-pass **35.0%**, CharXiv reasoning **86.2%**, LVBench **87.8% agentic / 87.1% static**; Vals MMMU Pro **89.08% ±0.75**. No verified MRCR/RULER edge-window score found in retrieved sources; document comprehension is not proof of lossless million-token retrieval.
 
-### Evidence comparison and research trail
+### Comparison, conflicts and practical limits
 
-Three distinct DuckDuckGo searches: `"Gemini 3.8 Flash" Google official model card`; `"Gemini 3.8 Flash" Artificial Analysis benchmarks`; `"Gemini 3.8 Flash" review pricing context limitations`. Read official Cloud documentation, AA's launch article and current model page, Vals, Cursor, and Kingy's source-labeled review. The official PDF fetch returned binary PDF content rather than readable text, so no claim is attributed to reading its body.
+Official and independent Terminal-Bench 4.0 agree near 19–20%; the 89.4% older 2.1 score must never replace it. eesel's table labels DeepSWE a top spot with Opus lower, but the official numeric table actually places 73.7 below 74.0; prefer primary numbers. Its high throughput/slow-first-token discussion is useful historical reporting, not a fresh latency measurement. The same article quotes promotional/free pricing, so its phrase “free to switch” must not imply every API call is free.
 
-Pricing differs because Vals lists the $1.50/$7.50 standard rates while current AA and Cursor list the $0.75/$3.75 promotion [S2–S5]. Both are recorded with their pricing period. AA launch $0.58/task and current $1.24/task belong to different evaluation snapshots [S2,S3]; neither is a universal workload cost. The guide's default medium and Cursor's default high are surface-specific, not evidence of distinct weights. Tau3 and terminal figures vary by evaluator; exact harness and effort are retained. Strong GPQA/LiveCodeBench results coexist with weak ProgramBench/CUA results, so headline academic scores do not justify an unconditional frontier-agent rating. The review's six-call smoke check lacks retained raw artifacts and is not used as quantitative benchmark evidence [S6].
+Google explicitly says gains use more thinking and iterative tool calls and recommends retaining 3.7 for efficiency-first workloads. A fixed token rate does not imply a fixed cost per completed task. The model card acknowledges hallucinations, slowness/timeouts and weaker multilingual safety than 3.7. Cyber-specific recall/patching scores are for the restricted Cyber route, not the generally available model. Near-leading legal all-pass is still only 10%, not production-ready legal autonomy.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 87/100.** Strong old-suite terminal, finance-agent and Tau3 results are tempered by TB4 19.7%, CUA 4.17% and uneven production workflows [S1,S3,S4].
-- **Reasoning: 90/100.** GPQA 94.44%, HLE 45.4% and broad independent evidence support high reasoning; current index placement and uneven difficult tasks cap it [S1,S2,S4].
-- **Context window: 95/100.** Official 1M capacity meets the top tier without independently verified ≥98% retrieval [S1].
-- **Multimodal: 95/100.** Audio, image, video and document input plus MMMU Pro 89.08% support broad coverage; output remains text [S1,S4].
-- **Coding: 90/100.** SWE-Pro 61.6%, LiveCodeBench 89.48% and strong DeepSWE evidence are offset by Code Migration and ProgramBench weaknesses [S1,S4,S6].
-- **Cost efficiency: 90/100.** Promotional $0.75/$3.75 is attractive, but paid thinking and the documented increase in per-task work constrain savings [S2,S3,S5].
-- **Overall Score: 91/100.** (87 + 90 + 95 + 95 + 90) / 5 = 91.4 → 91; a broad multimodal coding workhorse with task-dependent agent reliability. Cost excluded.
-
-### Sources
-
-- [S1] https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-flash — primary specs, default effort and benchmark table.
-- [S2] https://artificialanalysis.ai/models/gemini-3-8-flash — current independent high-effort profile, Index v4.3.2.
-- [S3] https://artificialanalysis.ai/articles/gemini-3-8-flash — independent launch measurements and promotional pricing period.
-- [S4] https://www.vals.ai/models/google_gemini-3.8-flash — independent results, uncertainties and high-effort configuration.
-- [S5] https://cursor.com/docs/models/gemini-3-8-flash — provider pricing and surface-specific default.
-- [S6] https://kingy.ai/blog/gemini-3-8-flash-review-benchmarks-specs-pricing/ — secondary review with labeled primary transcriptions and test limitations.
-
----
+- **Tool use: 84/100.** Good finance and older terminal evidence, capped by independent hard-terminal, SRE and CUA failures.
+- **Reasoning: 87/100.** Strong GPQA and HLE-Verified, but weaker proof and autonomous-science evidence limits broad claims.
+- **Context window: 94/100.** Million-token capacity plus document tests; missing edge-window retrieval verification prevents higher confidence.
+- **Multimodal: 94/100.** Broad perception and strong measured chart/video/visual reasoning; output remains text.
+- **Coding: 86/100.** Strong DeepSWE and competitive programming; migration and fully resolved long-horizon results expose practical limits.
+- **Cost efficiency: 91/100.** Low promotional prices, tempered by token-heavy reasoning, fees and scheduled doubling.
+- **Overall Score: 89/100.** Half-up mean of 84, 87, 94, 94 and 86 is 89; best for economical supervised multimodal workflows rather than unrestricted autonomous engineering.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
-- Method: Independent public-web research; three separate searches and direct official/independent/secondary comparisons. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new independently signed file next to this one using the same headings.
+- Provided by: **GPT-6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03 UTC
+- Method: Three successful distinct searches plus official model card and launch, independent Vals measurements and a separate review. No peer findings read; normalized scores are interpretations.
+- Search queries: `"Gemini 3.8 Flash" Google official benchmarks`; `"Gemini 3.8 Flash" independent Artificial Analysis Vals review`; `"Gemini 3.8 Flash" pricing context output limitations`.
+- Reference URLs:
+  - [Official model card and full benchmark table](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
+  - [Official launch, promotional expiry and Cyber distinction](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)
+  - [Vals independent measurements](https://www.vals.ai/models/google_gemini-3.8-flash)
+  - [eesel historical independent review](https://www.eesel.ai/blog/gemini-3-8-flash)
+  - [AA current search-discovered model record](https://artificialanalysis.ai/models/gemini-3-8-flash)

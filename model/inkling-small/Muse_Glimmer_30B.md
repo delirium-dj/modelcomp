@@ -1,7 +1,7 @@
 # Inkling Small — findings by Muse Glimmer 30B
 
 - Source: Thinking Machines Lab (`thinkingmachines/Inkling-Small`; OpenCode Zen `opencode/inkling-small`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -79,6 +79,6 @@ Multimodal vendor-reported:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; vendor model card on Hugging Face `thinkingmachines/Inkling-Small`, Thinking Machines news 2026-07-30, meta.json for basics, OpenCode Zen pricing/context. Scores are normalized 1–100 interpretations per `../../model-comparison.md`, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

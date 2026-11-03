@@ -1,7 +1,7 @@
 # Qwen3.8 Flash — findings by Muse Glimmer 30B
 
 - Source: Qwen / Qwen3.8 Flash, e.g. Qwen Cloud `qwen3.8-flash`, open weights `Qwen/Qwen3.8-Flash-Next`
-- Date: 2026-10-26
+- Date: 2026-11-03
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Multimodal / vision:
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # MiMo-V2.6-Distill-Qwen-9B — findings by Muse Glimmer 30B
 
 - Source: Xiaomi MiMo / XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -68,7 +68,7 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-25
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; three independent sources: Hugging Face model card XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B, Hugging Face collection MiMo-V2.6, Qwen/Qwen3.5-9B base model card for context/modality inheritance. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g., `Muse_Glimmer_30B.md`, using the same headings.
 

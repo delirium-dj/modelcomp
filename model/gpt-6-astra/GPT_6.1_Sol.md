@@ -1,85 +1,77 @@
-# GPT-6 Astra — findings by GPT 6.1 Sol
+# GPT-6 Astra — findings by GPT-6.1 Sol
 
 - Source: OpenAI / `gpt-6-astra`
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Astra
-- **Short description:** OpenAI's proprietary frontier reasoning model for difficult coding, scientific work and computer-using agents. Production-access measurements are distinguished from unrestricted research cyber evaluations.
-- **Provider / access:** OpenAI Responses and Chat Completions APIs; additional Microsoft/AWS access advertised by OpenAI [S1,S2].
-- **Release / knowledge:** September 3, 2026, staged rollout; knowledge cutoff April 30, 2026 [S1,S3,S5]. Search results saying September 4 or 10 are not substituted for the dated system-card publication.
-- **IDs:** `gpt-6-astra`; no separately dated API snapshot listed in inspected docs. No Zen Free ID verified [S1].
-- **Context window:** 1,050,000 total; maximum input 922,000; maximum output 128,000 [S1].
-- **Modalities:** Text/image input, text output; structured output, function calls, search, hosted shell, execution, MCP, tool search and computer use. Image-generation tool availability does not mean native image output [S1].
-- **Pricing (as of 2026-10-16):** $10 input / $1 cached read / $12.50 cache write / $50 output per million tokens. Above 272K input, full-request input/cache rates double and output is 1.5×. Batch/Flex half price; Fast 2× applicable rates [S1].
-- **Architecture:** Proprietary, undisclosed parameter count; recurrent-depth reports remain unconfirmed, not a verified model specification [S4,S7].
+- **Short description:** Proprietary frontier reasoning and computer-use model for difficult engineering, research and professional workflows. Cybersecurity evaluation results without production safeguards are not guarantees of generally available API behavior.
+- **Provider / access:** OpenAI Responses and Chat Completions APIs; ChatGPT and Codex; Azure and Bedrock announced. Responses supports hosted shell, computer use, MCP, tool search, code interpreter, search and apply_patch.
+- **Release / knowledge:** September 3, 2026; April 30, 2026 knowledge cutoff per API model page.
+- **IDs:** Native `gpt-6-astra`; publisher-qualified `openai/gpt-6-astra`. Astra Pro is not silently substituted for this ID. No verified Zen Free ID found.
+- **Context window:** Official 1,050,000 total, maximum input 922,000, maximum output 128,000. The total window must not be presented as an independently usable 1.05M input allowance.
+- **Modalities:** Text/image input, text output; structured outputs, function calling and reasoning efforts low/medium/high/xhigh/max. Image-generation tool support is orchestration, not native image output from this checkpoint. Audio, realtime and video generation endpoints unsupported.
+- **Pricing (as of 2026-11-03):** $10 input / $50 output / $1 cached input / $12.50 cache write per million. Above 272K input, the full request is charged 2x input/cache and 1.5x output. Batch/Flex 50% of Standard; Fast 2x applicable rates. Tools can add charges; eligible customers can use zero data retention.
+- **Architecture:** Proprietary; parameter counts and architecture not publicly disclosed in retrieved sources.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: vendor **57.9%**, highest-scoring setting [S2]; independent Vals **59.60% ±4.40** at max [S5]; AA Intelligence harness **59%**, versus **56%** in Codex Coding Agent harness [S6].
-- AutomationBench **41.4%**, vendor table [S2]; AutomationBench-AA **69%**, separate independent implementation [S6].
-- Agents' Last Exam **59.3%**, OSWorld 2.0 offline partial **72.6%**, ScreenSpot-Pro no tools **92.7%**, vendor-reported [S2].
-- CUA-bench **19.17%, #1/9**; Finance Agent v2 **53.54% ±2.08**; Harvey Legal Agent **5.42% ±1.17**, independent Vals [S5].
-- GDPval-AA v2: AA reports about **45 Elo points below** GPT-5.6 Sol, without an exact Astra Elo in the fetched article prose [S6]; no exact score invented.
-- Tau3-Banking / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: no verified public score found.
+- OpenAI launch: Agents' Last Exam **59.3%**, OSWorld 2.0 offline partial **72.6%**, ScreenSpot-Pro no tools **92.7%**, BrowseComp **91.5%**, AutomationBench **41.4%**. Scores are maxima over efforts, not a single default configuration.
+- AA September 9 independent article: Terminal-Bench 4.0 **59%** in its Intelligence evaluation; AutomationBench-AA **69%**; GDP.pdf all-criteria pass **31%**. AutomationBench-AA is AA's implementation, not the vendor's 41.4% harness.
+- Vals current: CUA-bench **19.17%**, rank **1/9**; SRE Bench **56.87% ±3.07**, rank **1/35**; Finance Agent v2.1 **60.43% ±2.12**; HLAB-Vals-1.1 **7.08% ±1.90**. First in a difficult cohort still leaves most CUA tasks unsolved.
+- Tau3, Claw and MCP-Atlas: no verified public score found in retrieved sources.
 
 Reasoning / knowledge:
 
-- GPQA Diamond **96.0%**, HLE **57.2% with tools**, FrontierMath Tier 4 v2 **97.6%**, vendor maximum-over-efforts results [S2].
-- ARC-AGI-3 Semi-Private: **62.7% max, Standard harness** versus **99.9% high, Provider Adapter**; at matched max effort the adapter scores **98.6%** [S8]. These are harness-specific results, not one interchangeable score.
-- AA Intelligence Index **53, #7/217**, current v4.3.2 [S4]; launch vendor table **61.2**, explicitly v4.1.1 [S2].
-- AA-Omniscience hallucination rate **51%** at max [S6]; not a claim about the fraction of all normal user responses that are false.
-- Vals Index **63.13% ±1.19, #7/48**; ProofBench v1.1 **99.00% ±1.00**; MysteryMechanism **53.15% ±3.36** [S5].
-- CritPt / LCR / MLCR: no verified numeric score found in inspected prose.
+- OpenAI: GPQA Diamond **96.0%**, HLE with tools **57.2%**, FrontierMath Tier 4 v2 **97.6%**, Terminal-Bench Science 0.1 **64.6%**.
+- AA September 9: Intelligence Index **53**, tied with Fable 5.1 in that dated index; **27K** output tokens and **$3.26** per weighted task at max. AA-Omniscience hallucination rate **51%**, down from 92% for GPT-5.6 Sol, under that benchmark's definition. It is not a 51% error rate across all answers.
+- Vals: Index **65.02% ±1.10**, rank **6/32**; Science Index **65.09% ±2.26**, rank **1/23**; MysteryMechanism **53.15% ±3.36**, ProofBench v1.1 **99.00% ±1.00**, Terminal-Bench-Science **62.86% ±5.82**.
+- OpenAI ARC-AGI-3 **99.9%** uses its Responses harness with retained reasoning and compaction. DeepLearning.AI reports ARC's Standard-harness max score **62.7%**, versus Provider Adapter high **99.9%**; this is a harness distinction, not two interchangeable generic reasoning scores.
 
 Coding:
 
-- DeepSWE v1.1 **74.1%**, FrontierCode 1.1 Extended **64.5%**, Main **53.3%**, vendor research/harness results [S2].
-- AA Coding Agent Index **62** in Codex; DeepSWE **68%**, SWE-Atlas-QnA **62%**, independent agent-harness runs [S6].
-- Vals Code Migration **67.74% ±4.22**; Vibe Code Bench v1.1 **89.59% ±2.17**; ProgramBench **5.50% ±1.62** [S5].
-- Terminal-Bench Science **64.6%** vendor [S2], **62.86% ±5.82** Vals [S5].
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: no verified exact score found in inspected sources.
+- OpenAI: Terminal-Bench 4.0 **57.9%**, DeepSWE v1.1 **74.1%**, FrontierCode 1.1 Extended **64.5**, Main **53.3**, internal database migration **63.9%**.
+- AA agent evaluation in Codex: Coding Agent Index **62**, DeepSWE **68%**, Terminal-Bench 4.0 **56%**, SWE-Atlas-QnA **62%**, **$7.09/task** at max effort. Distinct from its raw-model terminal result and OpenAI's research harness.
+- Vals: Code Migration v1.1 **80.58% ±2.34**, Vibe Code Bench v1.1 **89.59% ±2.17**, IOI **100.00%**, ProgramBench **5.50% ±1.62** fully resolved, SWE-bench Multimodal **43.33% ±2.26**, Terminal-Bench 4.0 **59.60% ±4.40**.
+- SWE-bench Verified / SWE-Pro and LiveCodeBench: no verified public score found in retrieved sources.
 
 Long context:
 
-- MRCR v2 eight-needle: **100.0% at 256K–512K**, **96.3% at 512K–1M**, vendor [S2]. Near-full-window retrieval is excellent but does not meet ≥98% in the longest bracket.
+- OpenAI MRCR v2 eight-needle **100.0%** at 256K–512K and **96.3%** at 512K–1M. Vendor retrieval test, not independent verification that all million-token engineering jobs retain full accuracy.
 
-### Evidence comparison and research trail
+### Conflicts and practical limitations
 
-Three distinct DuckDuckGo searches: `"GPT-6 Astra" official OpenAI model`; `"GPT-6 Astra" Artificial Analysis benchmarks`; `"GPT-6 Astra" review pricing limitations`. Directly read official API docs, launch scorecard and system-card opening, independent AA and Vals, ARC Prize's own evaluation, and Ofox's review. No peer repository findings consulted.
+OpenAI's launch table quotes AA Intelligence Index v4.1.1 at 61.2 and Coding Agent Index v1.4 at 67.0; AA's September 9 article gives 53 and 62 after benchmark changes. DeepLearning.AI explicitly distinguishes Intelligence v4.2 (55) from v4.3 (53). Preserve versions rather than infer a model regression or rescale all figures onto one metric. The current Vals aggregate and migration v1.1 figures likewise differ from its older launch snapshot quoted in reporting.
 
-The ARC Prize original confirms Ofox's central caveat: opaque reasoning preservation and compaction change the ARC-AGI-3 result dramatically [S7,S8]. Comparing 99.9% against a predecessor on a different harness is not controlled evidence. OpenAI's max-over-effort results, AA's generic inference harness and its Codex agent harness are separately labeled; DeepSWE 74.1% versus 68% is retained rather than averaged [S2,S6]. Vals' CyberBench **41.07%** [S5] does not contradict unrestricted ExploitBench **100%** [S2]: the latter disables production safeguards, uses a different dataset and is not a promised standard-endpoint capability. OpenAI's reverse-engineering **SRE-Bench 88.0%** is also a different named benchmark from Vals' site-reliability **SRE Bench 56.87%** [S2,S5]. AA's current index supersedes historical ranking claims, not historical benchmark scales. Provider reviews provide interpretation and attributed impressions, not additional independent reruns.
+DeepSWE 74.1% vendor versus 68% AA Codex is substantive evidence of harness sensitivity. Strong cyber benchmarks without safeguards coexist with Vals CyberBench 41.07%; refusal policy, task mix and harness differ, so unfiltered research scores should not be sold as deployable cyber utility. OpenAI's reverse-engineering **SRE-Bench 88.0%** refers to a binary reverse-engineering paper; Vals' **SRE Bench 56.87%** is a separately linked operational benchmark. Name similarity is not score agreement.
+
+Token efficiency offsets the high list price in AA's launch comparisons, but long-input surcharges apply to the entire request and can dominate budgets. Safety classifiers can pause or stop legitimate tool work; OpenAI also reports reduced written-reasoning monitorability. Neither alignment claims nor benchmark leadership remove the need for least-privilege tools and human review.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 95/100.** Strong independent terminal/CUA results and broad native tooling support frontier agents; weak legal-agent performance and harness variance cap confidence [S1,S5,S6].
-- **Reasoning: 96/100.** GPQA 96%, strong mathematical evidence and independent ARC results justify frontier reasoning, capped by harness dependency and hallucination [S2,S6,S8].
-- **Context window: 98/100.** Million-token capacity with strong measured retrieval earns near-ceiling credit; longest-bracket MRCR is 96.3%, not perfect [S1,S2].
-- **Multimodal: 80/100.** Image/document and computer-screen workflows are extensive, but the base model exposes neither audio/video input nor native media output [S1,S5].
-- **Coding: 95/100.** Cross-source terminal, migration, scientific coding and DeepSWE evidence is strong, with differences between agent harnesses and weak ProgramBench limiting a ceiling score [S2,S5,S6].
-- **Cost efficiency: 35/100.** Premium $10/$50 rates and long-context surcharge dominate despite token efficiency and $3.26/task on AA's specific suite [S1,S4,S6].
-- **Overall Score: 93/100.** (95 + 96 + 98 + 80 + 95) / 5 = 92.8 → 93; best fit is hard computer-assisted technical work with sufficient budget. Cost excluded.
+Evidence-weighted interpretations, not direct rescalings of composite indices:
 
-### Sources
-
-- [S1] https://developers.openai.com/api/docs/models/gpt-6-astra — official API limits, modalities, pricing and tools.
-- [S2] https://openai.com/index/gpt-6-astra/ — vendor scorecard and evaluation footnotes.
-- [S3] https://deploymentsafety.openai.com/gpt-6-astra — dated system card; opening/training/change-log sections inspected, not every linked evaluation.
-- [S4] https://artificialanalysis.ai/models/gpt-6-astra — current independent index and economics.
-- [S5] https://www.vals.ai/models/openai_gpt-6-astra — independent max-effort suite and uncertainties.
-- [S6] https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra — September 9 independent inference/agent-harness comparison.
-- [S7] https://ofox.ai/blog/gpt-6-astra-review-2026/ — secondary review, explicitly not its own benchmark execution.
-- [S8] https://arcprize.org/blog/astra — benchmark operator's direct Standard/Adapter measurements.
-
----
+- **Tool use: 95/100.** Broad native tools and strong independent CUA/SRE evidence; low absolute CUA completion and safety stops prevent full credit.
+- **Reasoning: 95/100.** Strong GPQA, advanced mathematics and independent scientific tests; specialist legal weaknesses, hallucination and harness-sensitive ARC results cap the score.
+- **Context window: 97/100.** Large documented window and strong MRCR retrieval; 922K input ceiling, vendor-only retrieval verification and expensive long requests limit practical breadth.
+- **Multimodal: 87/100.** Strong image perception and computer use, but no native audio/video input or generated audiovisual output verified for this API ID.
+- **Coding: 94/100.** Independent migration, terminal and science leadership support complex engineering; agent harness variance and low full ProgramBench completion remain.
+- **Cost efficiency: 65/100.** Launch token efficiency is meaningful, but $10/$50 pricing, tool fees and full-request long-context surcharges are expensive.
+- **Overall Score: 94/100.** Half-up mean of 95, 95, 97, 87 and 94 is 93.6; best fit is high-value scientific and engineering agents where completion quality justifies cost.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
-- Method: Independent public-web research, three distinct searches, direct primary and multiple independent evaluator comparisons. Scores are normalized interpretations, not official vendor scores.
-- Future sources: add an independently signed file next to this one using the same headings.
+- Provided by: **GPT-6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03 UTC
+- Method: Three successful separate searches followed by official launch/API documentation, independent AA and Vals measurements and DeepLearning.AI reporting. No peer reports read. Scores are normalized interpretations, not official scores.
+- Search queries: `"GPT-6 Astra" site:openai.com benchmarks model`; `"GPT-6 Astra" independent Artificial Analysis Vals benchmark review`; `"GPT-6 Astra" pricing context limitations tools reasoning`.
+- Reference URLs:
+  - [Official launch, tables and evaluation footnotes](https://openai.com/index/gpt-6-astra/)
+  - [Official API specifications and surcharge rules](https://developers.openai.com/api/docs/models/gpt-6-astra)
+  - [AA independent evaluation](https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra)
+  - [Vals current independent evaluation](https://www.vals.ai/models/openai_gpt-6-astra)
+  - [DeepLearning.AI benchmark-version and ARC-harness analysis](https://www.deeplearning.ai/the-batch/gpt-6-astra-is-a-star)

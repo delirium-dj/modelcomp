@@ -1,4 +1,4 @@
-# Muse Spark 1.3 — findings by Leanstral_1.5
+# Muse Spark 1.3 — findings by Leanstral 1.5
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
 > replace every `<...>` placeholder with your own research, and strip this notice block.
@@ -6,115 +6,111 @@
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
 
-- Source: Meta / Muse Spark 1.3
-- Date: 2026-10-31 (UTC)
+- Source: Meta (`muse-spark-1.3-contributor-free`)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.3
-- **Short description:** Meta's hosted multimodal reasoning model for agentic coding workflows, built for long-horizon software development tasks, tool calling, and autonomous agents; 20% fewer tool calls and 25% fewer tokens than Muse Spark 1.2 per Meta's internal comparisons. Competitive with frontier models across coding and agentic benchmarks, with a 1M context window and native video/image/document understanding.
-- **Provider / access:** Meta Model API (`muse-spark-1.3` Standard, `muse-spark-1.3-contributor` Free) and Muse Code; compatible with OpenAI SDK-compatible clients at `https://api.meta.ai/v1`. Not open weights.
-- **Release / knowledge:** Released 2026-09-02; knowledge cutoff not publicly disclosed.
-- **IDs:** `meta/muse-spark-1.3` (Standard), `meta/muse-spark-1.3-contributor` (Free); also available on Vercel AI Gateway and OpenRouter.
-- **Context window:** 1,048,576 (1M) total tokens; 131,072 max output (per Zen model list).
-- **Modalities:** Text, image, and video in; text out. Reasoning yes (thinking tokens). Tool calls yes (parallel tool calls supported). JSON mode yes.
-- **Pricing (as of 2026-10-31):** Standard tier $1.25/$4.25 per 1M in/out; cached input $0.15/$0.002 per 1M; Contributor/Free tier $0.10/$0.20 per 1M (Meta uses prompts/completions to improve products). Free tier available on OpenCode Zen.
-- **Architecture:** Proprietary; architecture details not disclosed. Inferred: dense or MoE, multimodal (video supported), 1M context.
+- **Short description:** Meta's frontier agentic model optimized for coding and long-horizon workflows, supporting native multimodal (text, image, video) perception. Trained for competitive coding, agentic tool use, and complex multi-step tasks.
+- **Provider / access:** Meta Model API `dev.meta.ai/v1/chat/completions`; also available via Muse Code IDE extension and OpenRouter. Chat Completions API.
+- **Release / knowledge:** Released 2026-09-02; knowledge cutoff not separately disclosed (coding-focused model).
+- **IDs:** `meta/muse-spark-1.3` (standard), `meta/muse-spark-1.3-contributor` (contributor tier, used for product improvement)
+- **Context window:** 1,000,000 tokens (~1,500 A4 pages); input / max output not separately disclosed; verified at 1M from official docs
+- **Modalities:** Text, image, and video in; text out; reasoning yes (max reasoning mode); tool calls; JSON mode
+- **Pricing (as of 2026-11-03):** Contributor tier: $0.10 / $0.20 per 1M input/output tokens. Standard tier: $1.25 / $4.25 per 1M input/output tokens. Cache discount 88% reported by AA. Free tier available via `muse-spark-1.3-contributor`.
+- **Architecture:** Proprietary; model size not disclosed by Meta. Described as trained for agentic workflows and competitive coding.
 
 ### Raw benchmarks found
 
 > List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
 
-**Agent / tool use:**
+Agent / tool use:
 
-- Terminal-Bench 2.1: **88.8%** (Meta AI Research launch scorecard; Vals AI leaderboard also shows 88.8% — same harness, confirms)
-- Tau3-Bench Banking: **50.5%** (AA, 52% for max variant; AA Tau3 leaderboard)
-- GDPval-AA v2: **1,754 Elo** (Meta AI Research launch scorecard; AA model page confirms 1,754 for xhigh, 1,709 baseline for 1.2)
-- OSWorld 2.0: **66.9%** (Meta launch scorecard, partial; Meta's own table shows 66.9 for 1.3 vs 68.3 for Opus 5)
-- JobBench: **64.9%** (Meta launch scorecard)
-- DeepSearchQA: **89.4%** (Meta launch scorecard)
-- AutomationBench: **49.4%** (Meta launch scorecard)
-- SWE-Atlas Codebase QnA: **59.4%** (Meta launch scorecard)
-- ApprenticeBench: **19%** (NeoCognition community eval)
-- AA Agentic Index: **55.7%** (AA model page)
-- CursorBench 4.0: **41.6%** (Cursor community eval)
-- CWE-bench v1: **55.0%** (Collinear leaderboard)
+- MRCR 256K–512K: **64.9%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- MRCR 512K–1M: **61.6%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- DeepSWE v1.1: **74.0%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- Terminal-Bench 2.1: **52.7%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- Terminal-Bench 4.0: **no verified public score found** (AA reports Kimi K3.1 Pro at 67.2%, Gemini 4 Carbon at 65.2%; Muse Spark 1.3 not in AA leaderboard for this eval)
+- GDPVal-AA v2: **1710 Elo** (Meta internal benchmark, as reported on AA GDPval leaderboard; Meta Muse Spark 1.3 (Max) ranks #18 at 1681 Elo on GDPval-AA v2.1)
+- JobBench: **57.8%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- Agentic IF Index (Internal): **88.8%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
+- AutomationBench (Zapier): **no verified public score found** (Gemini 4 Carbon leads at 77.8%, Muse Spark not listed on AA leaderboard)
+- OSWorld 2.0: **59.4%** (Meta internal benchmark, as reported on Meta Spark 1.3 blog post)
 
-**Reasoning / knowledge:**
+Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (AA model page; tie with Claude Fable 5.1 at 93%)
-- Humanity's Last Exam (HLE): **48.7%** (AA model page)
-- AA-LCR: **83.0%** (AA model page; 79% per AA model page for xhigh variant — slight discrepancy; using 83% as primary)
-- CritPt: **24.9%** (AA model page; 26% per AA; 18%→26% improvement vs 1.2)
-- SciCode: **58.8%** (AA model page)
-- AA Coding Index: **75.8%** (AA model page)
-- FrontierMath v2 Tiers 1–3: **74.0%** (Epoch AI leaderboard)
-- FrontierMath v2 Tier 4: **46.3%** (Epoch AI leaderboard)
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found** (Gemini 4 Carbon leads at 69.1%)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **36 / 100** (Artificial Analysis, rank #32/60 in class)
+- AA-Omniscience Net Score: **no verified public score found** (Gemini 4 Carbon leads at 54)
 
-**Coding:**
+Coding:
 
-- DeepSWE v1.1: **75.4%** (Meta launch scorecard; community reports as 75.4%, ahead of Opus 5 at 74.0% and GPT-5.6 Sol at 73.0%)
-- SWE-Atlas Codebase QnA: **59.4%** (Meta launch scorecard)
-- Terminal-Bench 2.1 (Coding): **88.8%** (same as agent TB2.1, the coding variant)
-- Bug Hunt Bench: **32.2 fixes** (Bug Hunt Bench public data)
-- FrontierSWE v2: **25.8%** (Proximal leaderboard)
+- DeepSWE v1.1: **74.0%** (same as above — listed under agent/tool use, also a coding benchmark)
+- SWE-bench Verified: **no verified public score found** (DeepSeek V4.1 Flash leads at 73.0% on AA; Muse Spark not listed)
+- LiveCodeBench: **no verified public score found** (FrontierCode 2.0 leaderboard shows DeepSeek V4.1 Flash leading; Muse Spark not ranked)
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- FrontierCode 2.0 (AA implementation): **no verified public score found** (private benchmark, 132 tasks)
 
-**Long context:**
+Long context:
 
-- MRCR v2 256K–512K: **98.5%** (Meta launch scorecard; #1 on leaderboard)
-- MRCR v2 512K–1M: **98.1%** (Meta launch scorecard)
-
-**Multimodal:**
-
-- Design Arena Website: **1,355** (OpenRouter model benchmarks)
-- EQ-Bench Longform Creative Writing: **82.8%** (Sophon/AA)
-- EQ-Bench Creative Writing v3: **1,906.9** (Sophon/AA)
-- Creative Story-Writing Benchmark: **57%** (Sophon/AA)
-- Vibe Code Bench v1.1: **82.9%** (Vals AI)
-
-**Speed:**
-
-- 168 tok/s output speed (Sophon/AA)
-- 1355 context score on Design Arena Website (OpenRouter)
+- MRCR 256K–512K: **64.9%** (as listed above)
+- MRCR 512K–1M: **61.6%** (as listed above)
+- GraphWalks 256K–1M: **no verified public score found** (Gemini 4 Carbon leads at 96.2%)
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
 > and state what caps the score.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 95/100.** Tau3-Banking 50.5% (#1), GDPval-AA v2 1,754 Elo (record), TB2.1 88.8% — capped by AutomationBench 49.4% and ApprenticeBench 19% which are mid-tier; capped further by the single-reasoning-turn ceiling on automation tasks.
-- **Reasoning: 92/100.** GPQA Diamond 93.5% (frontier tier), HLE 48.7% (strong mid-tier), MRCR 98.5% (record at 256K–512K), CritPt 24.9% (below 30% tier); capped by HLE <50% and CritPt <30%.
-- **Context window: 100/100.** 1M tokens confirmed by Meta; MRCR 98.5%/98.1% at 256K–1M validates near-perfect retrieval at long context.
-- **Multimodal: 85/100.** Text/image/video in; 82.8% EQ-Bench longform, 57% creative writing, 82.9% Vibe Code Bench — strong multimodal capabilities but not frontier-tier (15–20% = text-only, 60–70% = image in, 75–90% = video/PDF in, 90–100% = audio non-text out).
-- **Coding: 95/100.** DeepSWE 75.4% (claims #1, ahead of Opus 5 at 74.0%), SWE-Atlas 59.4%, TB2.1 88.8%, SciCode 58.8% — capped by CWE-bench 55% and FrontierSWE 25.8%.
-- **Cost efficiency: 100/100.** Contributor/Free tier at $0/$0 on OpenCode Zen; $0.10/$0.20 per 1M on Meta API — $0 input makes it the top cost-efficiency tier.
-- **Overall Score: 93.4/100.** Mean of (95 + 92 + 100 + 85 + 95) / 5 = 93.4 → 94; capped by Multimodal 85 and Reasoning HLE/CritPt below 50%.
+- **Tool use: 76/100.** Strong agentic tool-use scores from Meta's internal benchmarks (JobBench 57.8%, Agentic IF 88.8%, OSWorld 59.4%, MRCR long-context retrieval 61.6–64.9%). Capped by lack of independent AA benchmark data — all scores come from Meta's own blog post, and the model ranks poorly on the AA Intelligence Index (#32/60, score 36). Without independent replication these numbers should be treated as directional.
+- **Reasoning: 65/100.** No independent reasoning benchmarks found (GPQA, HLE, LCR, CritPt all absent). AA Intelligence Index of 36 is below median for reasoning models, but this aggregates many capabilities. No verified public reasoning scores found; capped by data absence.
+- **Context window: 65/100.** Verified 1M context window from official docs. MRCR scores show 61.6–64.9% at 256K–1M window — consistent with 1M capability but no independent long-context retrieval benchmarks found (GraphWalks, RULER all absent). No longer-context scores beyond what Meta reports.
+- **Multimodal: 90/100.** Officially supports text, image, and video input; text output. Meta blog confirms "Native multimodal perception — Muse Spark perceives video, images and documents." Video input is a differentiator among frontier models. 15 points for text-only would understate this model's multimodal capabilities.
+- **Coding: 74/100.** Strong DeepSWE v1.1 at 74.0% (per Meta blog) and competitive coding performance cited. However, no independent SWE-bench or LiveCodeBench scores found — Muse Spark not ranked on AA's SWE leaderboards. Capped by lack of third-party verification.
+- **Cost efficiency: 90/100.** $0.10/$0.20 per 1M tokens on contributor tier (free) or $1.25/$4.25 standard — among the lowest pricing for a frontier-class model. 88% cache discount reported by AA. Excellent cost efficiency; $0 capped at 100, and paid tier is cheap relative to competitors.
+- **Overall Score: 74/100.** Mean of Tool (76) + Reasoning (65) + Context (65) + Multimodal (90) + Coding (74) = 74.0. Scores are provisional — heavy reliance on Meta's own benchmarks without independent replication, particularly for reasoning and tool use.
 
 ---
 
 ## Signature
 
-- Provided by: **Leanstral 1.5 (opencode/leanstral-1.5)** — 2026-10-31
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Leanstral 1.5 (opencode/leanstral-1.5)** — 2026-11-03
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Heavy reliance on Meta's official blog post benchmarks; independent benchmark data from Artificial Analysis used where available.
 - Reference URLs:
-  - [Meta AI Research: Introducing Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)
-  - [Artificial Analysis: Muse Spark 1.3 — Meta reaches the frontier](https://artificialanalysis.ai/articles/muse-spark-1-3)
-  - [Artificial Analysis model page](https://artificialanalysis.ai/models/muse-spark-1-3)
-  - [Sophon: Muse Spark 1.3](https://sophon.at/models/muse-spark-1-3)
-  - [BenchLM: muse-spark-1-3](https://benchlm.ai/models/muse-spark-1-3)
-  - [Kie.ai: What Is Muse Spark 1.3?](https://kie.ai/blog/what-is-muse-spark-1-3)
-  - [Meta Model API docs](https://developer.meta.com/ai/models/muse-spark/)
-  - [OpenRouter benchmarks](https://openrouter.ai/meta/muse-spark-1.3/benchmarks)
-- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.
+  - [Muse Spark 1.3 — Meta Research](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+  - [Muse Spark 1.3 — Official Product Page](https://dev.meta.ai/models/muse-spark/)
+  - [Artificial Analysis — Muse Spark 1.3 (Max)](https://www.artificialanalysis.com/models/muse-spark-1-3)
+  - [Artificial Analysis — Muse Spark 1.3 Providers](https://www.artificialanalysis.com/models/muse-spark-1-3/providers)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
 
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
-2. Filename is `model/muse-spark-1.3/Leanstral_1.5.md` (folder name = filesystem-safe slug, see `model/README.md`).
-3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/muse-spark-1.3/`.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

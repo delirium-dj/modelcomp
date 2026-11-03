@@ -1,0 +1,31 @@
+{
+  "name": "Crusoe Cloud",
+  "kind": "aggregator",
+  "short": "Serverless inference and AI cloud with MemoryAlloy cluster-wide KV caching, serving open-weights and MoE models.",
+  "officialUrl": "https://crusoe.ai",
+  "hosts": [
+    "crusoe.ai",
+    "cloud.crusoe.ai"
+  ],
+  "catalogUrl": "https://crusoe.ai/cloud/pricing",
+  "plans": [
+    {
+      "name": "Serverless Inference",
+      "price": "Per 1M tokens",
+      "notes": "Pay-per-token inference for open models (gpt-oss-120b $0.05/$0.20, GLM-5.3-Flash $0.15/$0.50, Gemma 4 31B $0.14/$0.40) with context caching discounts.",
+      "evidenceUrl": "https://crusoe.ai/cloud/pricing"
+    },
+    {
+      "name": "Dedicated Cloud GPUs",
+      "price": "Per GPU-hour",
+      "notes": "On-demand dedicated GPU instances for custom vLLM and TensorRT-LLM deployments.",
+      "evidenceUrl": "https://crusoe.ai/cloud/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-oss-120b",
+    "gemma-4-31b",
+    "glm-5.3-flash",
+    "qwen-3.8-27b"
+  ]
+}

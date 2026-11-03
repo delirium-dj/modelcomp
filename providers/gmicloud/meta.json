@@ -1,0 +1,25 @@
+{
+  "name": "GMI Cloud",
+  "kind": "aggregator",
+  "short": "High-throughput serverless inference cloud serving DeepSeek and Qwen foundation models via an OpenAI-compatible API.",
+  "officialUrl": "https://gmicloud.ai",
+  "hosts": [
+    "gmicloud.ai",
+    "api.gmi-serving.com"
+  ],
+  "catalogUrl": "https://gmicloud.ai/pricing",
+  "plans": [
+    {
+      "name": "Serverless Inference",
+      "price": "Per 1M tokens",
+      "notes": "OpenAI-compatible endpoints for DeepSeek-V4-Flash ($0.112/$0.224 per 1M) and Qwen models ($0.16–$2.00 per 1M).",
+      "evidenceUrl": "https://gmicloud.ai/pricing"
+    }
+  ],
+  "covers": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "qwen-3.8-27b",
+    "qwen-3.8-flash"
+  ]
+}

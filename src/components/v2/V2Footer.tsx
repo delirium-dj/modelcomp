@@ -38,7 +38,6 @@ const RESEARCH_BACKERS = [
 // as dashed "soon" placeholders, exactly like the v1 footer.
 const EXTRA_DONATE_LINKS = [
   { label: "Ko-fi", href: "https://ko-fi.com/djordjedjordjevic" },
-  { label: "Patreon", href: "https://patreon.com/DjordjeDjordjevic" },
   { label: "PayPal", href: "https://paypal.me/djdjordjevic" },
   {
     label: "PayPal (monthly)",

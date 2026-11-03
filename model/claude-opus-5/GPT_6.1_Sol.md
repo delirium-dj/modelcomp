@@ -1,84 +1,70 @@
-# Claude Opus 5 — findings by GPT 6.1 Sol
+# Claude Opus 5 — findings by GPT-6.1 Sol
 
 - Source: Anthropic / `claude-opus-5`
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5
-- **Short description:** Anthropic's July Opus release for careful agentic coding and professional work. Still active as a legacy model; current official recommendation is Opus 5.5, not a rename of these weights [S1].
-- **Provider / access:** Claude Messages API, Bedrock, Google Cloud, Microsoft Foundry and Claude Platform on AWS [S1].
-- **Release / knowledge:** July 24, 2026; May 2026 reliable/training cutoff [S1,S2]. Vals' July 22 date and July 23 evaluation update are preserved as evaluator metadata, not the official public release [S4].
-- **IDs:** `claude-opus-5`, Bedrock `anthropic.claude-opus-5`; Cursor Fast mode `claude-opus-5-fast` [S1,S5]. No Zen Free ID verified.
-- **Context window:** 1M tokens, 128K synchronous output; 300K on Message Batches with extended-output beta [S1].
-- **Modalities:** Text/image input and text output, file/document workflows, adaptive thinking and tool/computer-use workflows; no verified native audio/video input or media output [S1,S4,S5].
-- **Pricing (as of 2026-10-16):** $5 input / $25 output per million tokens; $0.50 cached read, $6.25 five-minute write, $10 one-hour write. Batch half price; Fast $10/$50. No long-context multiplier in Cursor; zero-data-retention compatible [S1,S2,S5].
-- **Architecture:** Proprietary; undisclosed parameter count [S3].
+- **Short description:** Proprietary reasoning and agentic coding model, now an active legacy model superseded by Opus 5.5. Research concerns this exact route, not the newer release.
+- **Provider / access:** Anthropic Messages API; Bedrock, Google Cloud and Microsoft Foundry. Consumer Claude and Claude Code availability was documented at launch; current subscription entitlements can change.
+- **Release / knowledge:** Official July 24, 2026 release, May 2026 reliable/training cutoff. Vals records July 22 and a July 23 update, apparently an earlier evaluation record; official availability date takes precedence.
+- **IDs:** `claude-opus-5`; Bedrock `anthropic.claude-opus-5`; publisher-qualified `anthropic/claude-opus-5`. No Zen Free route verified.
+- **Context window:** 1M tokens; 128K synchronous output, 300K on Message Batches with the documented output beta header. Larger batch output is not the default synchronous limit.
+- **Modalities:** Text/image input, text output; adaptive reasoning, high API effort default, tool use and computer-use workflows. No native audio/video output established.
+- **Pricing (as of 2026-11-03):** Official $5 input / $25 output / $0.50 cache read per million; five-minute cache write $6.25, one-hour $10; batch input/output half price. Launch Fast mode is twice base price. No data-retention requirement for general access per launch; provider contracts still apply.
+- **Architecture:** Proprietary; parameter count and detailed architecture undisclosed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.64% high**, Vals launch; **81.27%** with fallback-assisted tasks counted as failures [S4].
-- Terminal-Bench 4.0: **53.53% ±1.34**, Vals current max-effort table [S4]. Not interchangeable with 2.1.
-- Finance Agent v2 **58.63% ±0.08**; Legal Research **55.29% ±3.46**, **#2/78**; Tax Agent **45.55% ±3.59**, Vals [S4].
-- CUA-bench **9.00%**; SRE Bench **12.21% ±2.03**; Harvey Legal Agent **6.67% ±1.65**, Vals [S4]. Broad legal knowledge does not imply strong legal-agent all-pass performance.
-- GDPval-AA: official launch claims leadership, but figures are image-only in fetched text [S2]; no exact Elo inferred.
-- Tau3-Banking / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: no verified public score found in inspected text.
+- Vals independent current: Terminal-Bench 4.0 **53.53% ±1.34**, CUA-bench **9.00%**, SRE Bench **12.21% ±2.03**, Finance Agent v2 **58.63% ±0.08**, Legal Research Bench **55.29% ±3.46**, SkillsBench **60.44% ±4.58**.
+- Vals July snapshot: Terminal-Bench 2.1 **84.64%**, or **81.27%** when fallback-assisted tasks count as failures. Most runs max effort, terminal 2.1 high, temperature 1 where configurable; Opus 4.8 serves as fallback.
+- Anthropic launch's numerical aggregate charts are embedded images; no values were inferred from chart positions. Its customer account-health example at 100% is a selected workflow, not the AutomationBench aggregate.
+- Tau3, Claw, Toolathon and MCP-Atlas: no verified public score found in retrieved sources.
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index **51, #17/217**, v4.3.2; **$5.86/task** in max setting [S3].
-- GPQA Diamond **93.43% ±1.24**, MMLU Pro **91.59% ±0.28**, Vals [S4].
-- Vals Index **63.67% ±0.96, #6/48**, current table. Historical update says **67.21%** and separately uses **74.82% → 74.47%** for fallback sensitivity; the page does not reconcile these index values [S4].
-- ProofBench v1.1 **99.00% ±1.00** current, versus historical ProofBench **78.00%**; different versions/snapshots retained [S4].
-- HLE / CritPt / AA-LCR / MLCR / Omniscience accuracy and hallucination rate: no verified exact numeric score found in inspected primary/current independent prose.
+- Vals GPQA **93.43% ±1.24**, MMLU Pro **91.59% ±0.28**, ProofBench v1.1 **99.00% ±1.00**, MysteryMechanism **37.39% ±3.25**, Terminal-Bench-Science **27.14% ±5.35**, BioMysteryBench **79.26% ±2.06**.
+- Vals launch Vals Index **67.21%**; the same update's fallback paragraph instead says **74.82% / 74.47%**. This within-page aggregate inconsistency is unresolved, so the contradictory totals are not averaged or used to anchor normalization. Current header accuracy **62.09%** is not assigned a version it does not name.
+- HLE, CritPt and exact hallucination rate: no verified public score found in this model's directly retrieved source set.
 
 Coding:
 
-- SWE-bench Verified **97.00%** explicitly identified in Vals' historical update; current row **97.00% ±0.76** [S4]. This is a particular evaluator setup, not a guaranteed universal solve rate.
-- LiveCodeBench **89.03% ±0.91**, Vibe Code Bench v1.1 **88.40% ±3.00**, Code Migration **57.47% ±4.37**, ProgramBench **3.00% ±1.21** [S4].
-- Terminal-Bench Science **27.14% ±5.35** [S4].
-- Frontier-Bench v0.1: vendor claims state-of-the-art but plots are image-only; disclosed mini-SWE-agent/GKE, mean reward over five attempts, Opus 4.8 fallback [S2]. No number invented.
-- CursorBench: provider confirms near-Fable-5 performance and recommends high thinking, without exact numeric score [S5].
-- SWE-Pro / DeepSWE / SciCode: no verified numeric result found in inspected sources.
+- Vals SWE-bench Verified, identified in its launch update: **97.00% ±0.76**; LiveCodeBench **89.03% ±0.91**, Code Migration **57.47% ±4.37**, Vibe Code Bench v1.1 **88.40% ±3.00**, IOI current **84.33% ±9.96**, ProgramBench **3.00% ±1.21** fully resolved.
+- Vals launch IOI v1 **91.67%** is a different version from the current IOI row. ProofBench launch **78.00%** is not v1.1's current 99.00%.
+- No verified SWE-Pro score retrieved. A near-saturated Verified result does not imply near-perfect harder engineering or ProgramBench completion.
 
-Long context and multimodal:
+Long context / multimodal:
 
-- 1M capacity verified; no exact-model MRCR/RULER/full-window retrieval percentage verified [S1].
-- MMMU Pro **89.88% ±0.72**, **#2/93**, independent Vals [S4].
+- Official 1M capacity; no exact-model MRCR/RULER result verified in this source set. Vals MMMU Pro **89.88% ±0.72**, launch Vals Multimodal Index **73.90%**, or **73.58%** without fallback credit.
 
-### Evidence comparison and research trail
+### Conflicts and limitations
 
-Three distinct DuckDuckGo queries: `"Claude Opus 5" official Anthropic model docs`; `"Claude Opus 5" Artificial Analysis independent benchmarks`; `"Claude Opus 5" review pricing context limitations`. Read Anthropic's current API specification and launch post, AA's current profile, Vals, Cursor, and AI for Anything's independent-testing review. An attempted AA article URL returned 404 and supplies no evidence.
+Official documentation and launch agree on July 24 and the $5/$25 price, while Vals dates the evaluation earlier. The current official overview recommends migration to cheaper Opus 5.5; launch-era “state of the art” language is historical. The Deep View's July report broadly supports the efficiency positioning but contains a sentence naming Fable as more aligned than itself; this editorial error is not evidence about Opus alignment. Prefer Anthropic's actual text, which names Opus 5 as its best-tested model at that time.
 
-AA calls the model deprecated for its performance-benchmarking policy, while Anthropic calls it active legacy with retirement not before July 24, 2027 [S1,S3]; evaluator labeling is not vendor retirement. Vals' launch/current index and fallback examples contain unreconciled values, so only the current table is used for present ranking, and no delta is calculated between them [S4]. Fallback assistance is real: vendor Frontier-Bench and Vals terminal measurements can include Opus 4.8. The signed scores characterize the reported production system, with a cap for isolated-model uncertainty [S2,S4]. The secondary review cites Epoch ECI 159 and CodeRabbit precision 39.3% with increased nitpicks, but does not provide usable primary result links for those claims; they are qualitative leads rather than adopted verified score anchors [S6]. Cursor's current view also qualifies launch enthusiasm: Opus 5.5 now performs better on its coding benchmark at lower prices [S5].
+Independent Vals confirms strong coding and medical/legal knowledge but exposes much lower long-horizon operational completion. Fallback-assisted scores describe a routed product, not exclusively Opus 5 weights. Anthropic states consumer cyber refusals fall back by default; API fallback can be enabled, not assumed. Its Frontier-Bench chart uses mini-SWE-agent, five attempts and Opus 4.8 fallback. Neither chart claims nor anecdotes should be silently compared to single-attempt independent scores. Current privacy/access contracts and safeguards still govern real deployments.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** Strong terminal and professional-agent results support high capability, capped by CUA/SRE weaknesses and fallback effects [S2,S4].
-- **Reasoning: 92/100.** GPQA 93.43%, MMLU Pro 91.59% and current AA index support strong reasoning; conflicting aggregate snapshots and unavailable key subscores constrain certainty [S3,S4].
-- **Context window: 95/100.** Official 1M capacity qualifies for the top tier without verified ≥98% retrieval [S1].
-- **Multimodal: 80/100.** Strong image/document performance and MMMU Pro 89.88%; text-only output and no native audio/video evidence cap coverage [S1,S4].
-- **Coding: 93/100.** Cross-suite SWE/LiveCodeBench/Vibe performance is strong; low ProgramBench and uneven scientific-terminal results prevent universal superiority claims [S4,S5].
-- **Cost efficiency: 48/100.** $5/$25 and $5.86/task at max are premium economics, especially beside the newer lower-priced Opus release [S1,S3,S5].
-- **Overall Score: 90/100.** (91 + 92 + 95 + 80 + 93) / 5 = 90.2 → 90; effective for established careful coding/document workflows. Cost excluded.
-
-### Sources
-
-- [S1] https://platform.claude.com/docs/en/models/opus-5/overview — official current lifecycle, API specs, dates and pricing.
-- [S2] https://www.anthropic.com/research/claude-opus-5 — original launch, qualitative benchmark claims and harness/fallback footnote.
-- [S3] https://artificialanalysis.ai/models/claude-opus-5 — current independent max-effort profile, v4.3.2 and economics.
-- [S4] https://www.vals.ai/models/anthropic_claude-opus-5 — current independent suite, uncertainty and historical fallback disclosures.
-- [S5] https://cursor.com/docs/models/claude-opus-5 — integration experience, pricing and current successor comparison.
-- [S6] https://www.aiforanything.io/blog/claude-opus-5-benchmarks-independent-tests-2026 — secondary review; unlinked external numeric claims not treated as independently verified.
-
----
+- **Tool use: 90/100.** Strong terminal and professional agents, capped by low CUA/SRE completion and fallback dependence.
+- **Reasoning: 92/100.** Strong independent GPQA and proof evidence; weaker mechanism and scientific-terminal performance limit generality.
+- **Context window: 95/100.** Documented 1M capacity and long output, but no verified edge-window retrieval measure retrieved.
+- **Multimodal: 87/100.** Strong visual understanding, limited to text/image input and text output.
+- **Coding: 93/100.** Strong independent Verified, migration and LiveCodeBench, with saturation and low full ProgramBench resolution preventing higher confidence.
+- **Cost efficiency: 70/100.** Better launch value than Fable, but substantial output/cache costs and a cheaper recommended successor weaken current value.
+- **Overall Score: 91/100.** Half-up mean of 90, 92, 95, 87 and 93 is 91.4; best fit is validated legacy coding workflows with explicit evaluation before migration.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
-- Method: Independent public-web research with three distinct searches and official/independent/provider/review comparisons. Scores are normalized interpretations, not official vendor scores.
-- Future sources: add an independently signed file next to this one using the same headings.
+- Provided by: **GPT-6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03 UTC
+- Method: Three successful independent search queries; official model reference and corrected launch URL compared with independent Vals and The Deep View. Initial guessed announcement URL returned 404 and was not evidence. No peer reports read; normalized scores are interpretations.
+- Search queries: `"Claude Opus 5" Anthropic launch benchmarks official`; `"Claude Opus 5" independent benchmarks Snorkel Vals Artificial Analysis`; `"Claude Opus 5" pricing context output limitations model`.
+- Reference URLs:
+  - [Official launch and safeguard notes](https://www.anthropic.com/news/claude-opus-5)
+  - [Official current legacy specifications](https://platform.claude.com/docs/en/models/opus-5/overview)
+  - [Vals independent results, historical updates and fallback caveats](https://www.vals.ai/models/anthropic_claude-opus-5)
+  - [The Deep View independent launch reporting](https://www.thedeepview.com/newsletter/claude-gets-more-frugal-and-confusing-with-opus-5)

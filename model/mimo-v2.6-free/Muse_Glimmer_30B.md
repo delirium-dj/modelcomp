@@ -1,7 +1,7 @@
 # MiMo V2.6 Free — findings by Muse Glimmer 30B
 
 - Source: Xiaomi MiMo / OpenCode Zen `opencode/mimo-v2.6-flash-free` (repo id `opencode/mimo-v2-6-free`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; meta.json for basics; webfetch of OpenCode console docs and Xiaomi MiMo-V2.6-Flash model page for verified specs/pricing. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

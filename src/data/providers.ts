@@ -146,6 +146,19 @@ export function getProviderCategory(
     return "observability-security";
   }
 
+  // Category 1: Explicit Coding & MoE inference providers (frontier labs & multi-model inference gateways)
+  if (
+    [
+      "crusoe",
+      "gmicloud",
+      "streamlake",
+      "ppio",
+      "zenmux",
+    ].includes(slug)
+  ) {
+    return "coding-moe";
+  }
+
   // Category 2: On-demand GPU
   if (
     GPU_PROVIDER_SLUGS.has(slug) ||

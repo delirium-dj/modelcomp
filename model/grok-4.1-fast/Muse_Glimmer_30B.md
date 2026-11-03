@@ -1,7 +1,7 @@
 # Grok 4.1 Fast — findings by Muse Glimmer 30B
 
 - Source: xAI Grok 4.1 Fast, API model `grok-4-1-fast` / `grok-4-1-fast-reasoning` alias; not on OpenCode Zen per meta.json
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research; meta.json for model basics, pricing, modalities, context window; x.ai launch news for release date, pricing, Berkeley Function Calling v4 and Agent Tools API benchmarks; Artificial Analysis for Intelligence Index and technical specs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Grok 4 Fast — findings by Muse Glimmer 30B
 
 - Source: xAI / SpaceXAI Grok 4 Fast, tracked via Azure
-- Date: 2026-10-26
+- Date: 2026-11-03
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,6 +45,6 @@ Scores derived from composite Intelligence Index and specs; specific benchmark n
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized interpretations, not official vendor scores. Specific per-benchmark numbers are not published by vendor.
 - Future sources: add a new file next to this one.

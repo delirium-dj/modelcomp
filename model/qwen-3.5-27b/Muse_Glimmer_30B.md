@@ -1,7 +1,7 @@
 # Qwen3.5 27B — findings by Muse Glimmer 30B
 
 - Source: Qwen / Qwen3.5-27B
-- Date: 2026-10-26
+- Date: 2026-11-03
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,6 @@ Vision Language:
 ---
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-10-26
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized interpretations.
 - Future sources: add a new file next to this one.

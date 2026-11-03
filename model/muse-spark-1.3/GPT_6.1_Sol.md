@@ -1,80 +1,75 @@
-# Muse Spark 1.3 — findings by GPT 6.1 Sol
+# Muse Spark 1.3 — findings by GPT-6.1 Sol
 
-- Source: Meta / `muse-spark-1.3`
-- Date: 2026-10-16 (UTC)
+- Source: Meta / Muse Spark 1.3
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.3
-- **Short description:** Meta's proprietary multimodal reasoning model for sustained coding, tool use, and knowledge work. Contributor pricing and max/xhigh reasoning settings belong to this same model, not separate model entries.
-- **Provider / access:** Meta Model API, base `https://api.meta.ai/v1`; Responses, Chat Completions, and Anthropic-compatible Messages surfaces [S1].
-- **Release / knowledge:** Released September 2, 2026 [S2]; knowledge cutoff not verified.
-- **IDs:** `muse-spark-1.3`, `muse-spark-1.3-contributor` [S1]. A current Zen Free route was not independently established in this research.
-- **Context window:** 1,048,576 tokens [S1]. Exact first-party maximum output not verified; the approximately 944K output field on LLM Stats [S5] is not accepted as a verified output guarantee.
-- **Modalities:** Text, image, video/document perception and text output; reasoning, parallel tool calls, and structured output [S1,S3,S4]. LLM Stats also labels audio input, but the sources inspected do not resolve standalone audio support for this exact hosted model; no audio bonus awarded.
-- **Pricing (as of 2026-10-16):** Standard $1.25 input / $0.15 cached input / $4.25 output per million tokens. Contributor $0.10 / $0.002 / $0.20, with prompts/completions used to improve Meta products [S3,S5]. Contributor is discounted, not inherently free.
-- **Architecture:** Proprietary; parameter count undisclosed [S4]. Do not transfer Muse Spark Open's parameter count to 1.3.
+- **Short description:** Proprietary multimodal reasoning model for coding and long-horizon agents. Contributor, Standard and max-effort labels belong to this single model record, not separate checkpoints; results below retain their measured effort labels.
+- **Provider / access:** Meta Model API and Muse Code; OpenRouter Chat Completions at `https://openrouter.ai/api/v1/chat/completions`.
+- **Release / knowledge:** September 2, 2026 launch; Vals dates its Max evaluation entry September 5. Knowledge cutoff not verified.
+- **IDs:** Native `muse-spark-1.3`, `muse-spark-1.3-contributor`; OpenRouter `meta/muse-spark-1.3`. Current Zen Free route not independently verified.
+- **Context window:** Official 1M tokens; Vals lists approximately 131K maximum output. OpenRouter search listing specifies 1,048,576 total tokens.
+- **Modalities:** Text, image, document and video perception; text output; reasoning and tool calls. OpenRouter advertises response-format and tool-choice parameters; this does not establish flawless schema adherence.
+- **Pricing (as of 2026-11-03):** Official Standard $1.25 input / $4.25 output / $0.15 cached input per million tokens, not used to improve Meta products. Contributor $0.10/$0.20/$0.002, used to improve products. A discounted paid contributor endpoint is not itself free access. No universal free quota established here.
+- **Architecture:** Proprietary, closed weights; parameter counts not disclosed. Muse Spark Open is a separately named release, not evidence that these weights are open.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Agent / tool use — Meta official scorecard, max effort:
 
-- Terminal-Bench 2.1: **88.8%** vendor max setting [S3], versus approximately **86% max / 85% xhigh** independently reported at launch by Artificial Analysis [S6]. Separate harnesses, not averaged.
-- Tau3-Bench Banking: **52% max / 47% xhigh** [S6].
-- GDPval-AA v2: **1754 Elo max / 1709 xhigh** [S6]; vendor scorecard also reports 1754 [S3].
-- JobBench **64.9%**, OSWorld 2.0 **66.9% partial / 32.0% binary**, DeepSearchQA **90.3%**, AutomationBench **49.6%**: vendor max-setting measurements [S3].
-- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas: no verified public score found.
+- GDPVal-AA v2 **1754 Elo**; JobBench **64.9**; OSWorld 2.0 **66.9 partial / 32.0 binary**; DeepSearchQA **90.3**; Agentic IF internal index **57.8**; AutomationBench **49.6**.
+- Vals Max: Finance Agent v2 **59.96% ±2.06**, Legal Research Bench **55.29% ±3.46**, SRE Bench **3.82% ±1.19**, CUA-bench **5.83%**. Strong legal research does not imply equally strong operational agents.
+- Tau, Claw and MCP-Atlas: no verified public score found in retrieved sources.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: approximately **94%**, max and xhigh [S6].
-- HLE: approximately **47% xhigh**, max about two points higher [S6]; this is the article's rounding, not an exact decimal measurement.
-- CritPt: **26% xhigh**, max one point lower [S6].
-- AA-LCR: **79%** both settings [S6].
-- Artificial Analysis Intelligence Index: **62 max / 61 xhigh at launch** [S6]; current model page **48**, rank **24/217**, explicitly using Index **v4.3.2** [S4]. These are different index snapshots; 48 is not a percentage or directly comparable to the historical 62.
-- AA-Omniscience accuracy: **44% max / 42% xhigh** [S6]; exact hallucination percentage not verified.
+- Artificial Analysis current model page: Intelligence Index **36**, explicitly **v5.0**, rank **32/60** in its summary cohort; approximately **120M** output tokens across the index, **$2.39** weighted cost per task. These are benchmark-specific aggregate figures, not a price for every user request.
+- Vals Max ProofBench v1.1 **58.00% ±4.96**; MysteryMechanism **36.04% ±3.23**. Non-Max ProofBench **55.00% ±5.00**.
+- HLE, GPQA, CritPt and hallucination-rate figures: no verified public score found in retrieved pages.
 
 Coding:
 
-- DeepSWE v1.1: **75.4%**; SWEAtlas CodeBase QnA: **59.4%**, vendor max setting [S3].
-- SciCode: approximately **59% xhigh** in independent launch coverage [S6].
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / Vibe Code Bench: no verified public score found in inspected sources.
+- Meta max: DeepSWE v1.1 **75.4**, SWEAtlas CodeBase QnA **59.4**, Terminal-Bench 2.1 **88.8**.
+- Vals Max: Code Migration **47.41% ±4.26**, Vibe Code Bench v1.1 **85.86% ±2.51**, IOI **56.56% ±2.52**, ProgramBench **2.50% ±1.11**, SWE-bench Multimodal **43.13% ±2.26**, Terminal-Bench 4.0 **24.75% ±0.51**.
+- Vals non-Max: Code Migration **27.58% ±4.07**, ProgramBench **0.50% ±0.50**, Terminal-Bench 4.0 **10.61% ±1.75**. Vals' non-Max page does not expose an effort label in the retrieved text; it is not silently relabelled xhigh here.
+- SWE-bench Verified / SWE-Pro and LiveCodeBench: no verified public score found.
 
 Long context:
 
-- Vendor MRCR: **98.5% at 256K–512K**, **98.1% at 512K–1M** [S3]. This supports near-full-window retrieval, whereas AA-LCR 79% measures harder reasoning rather than simple retrieval [S6].
+- Meta MRCR **98.5** at 256K–512K and **98.1** at 512K–1M, max effort. These retrieval tasks support useful long context but do not prove equally strong reasoning across arbitrary million-token inputs.
 
-### Evidence comparison and research trail
+### Conflicting evidence and interpretation
 
-Three separate successful searches on DuckDuckGo: `"Muse Spark 1.3"`; `Muse Spark 1.3 official model API documentation`; `Muse Spark 1.3 independent benchmark review MRCR`. Google returned a JavaScript interstitial, Brave returned 429, and Bing produced irrelevant results; none was treated as evidence. Official docs, the vendor scorecard, independent AA measurements, and a separate aggregator were read directly.
+The current official scorecard has DeepSearchQA 90.3 and AutomationBench 49.6; eesel's September 3 review transcribes 89.4 and 49.4. Prefer the directly retrieved current official values and preserve the historical discrepancy rather than average them. The same review reports launch AA Index 62/max and 61/xhigh; today's AA page says 36 on v5.0. A revised index is not a demonstrated 26-point capability regression. AA now flags the record deprecated and includes inconsistent availability wording (no public API in chart sections but an API-provider FAQ); the live Meta and OpenRouter pages establish listed access, not a successful authenticated call.
 
-The AA launch article described max as limited preview with unannounced pricing, while the official release page says max is available on Model API [S2,S6]. This is an availability snapshot discrepancy: use the current official access statement, retain the launch article's exact effort labels for its measurements. AA's current index and launch index are kept separate because methodology changed. Vendor terminal results exceed AA by roughly three points; this is harness-dependent evidence, not proof of a regression. LLM Stats repeats official pricing and is corroboration, not an independent rerun of the vendor benchmark suite.
+Max availability was initially safety-gated according to launch reporting, while the current Meta announcement says it is available. Treat launch reviews as historical. Meta's 20% fewer tool calls and 25% fewer tokens compare internal coding work against 1.2, whereas AA's high index token usage describes a different workload. These claims can coexist. The modest independent migration/terminal/full-resolution results cap the interpretation of Meta's strong DeepSWE score; benchmark versions and harnesses differ, and Terminal-Bench 2.1 is not 4.0.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 95/100.** Independent Tau3 52%, GDPval 1754 and terminal performance support frontier agent quality; differing harness results and missing Claw evidence cap certainty [S3,S6].
-- **Reasoning: 92/100.** GPQA about 94%, HLE about 47–49% and strong scientific performance support the score, capped by AA-LCR 79% and incomplete knowledge accuracy [S6].
-- **Context window: 100/100.** Official 1M context plus vendor retrieval above 98% beyond 512K meets the repository's top tier; retrieval remains vendor-measured [S1,S3].
-- **Multimodal: 85/100.** Verified image/video/document input earns the visual multimodal tier; no verified non-text output or standalone audio guarantee [S1,S3,S4].
-- **Coding: 95/100.** DeepSWE 75.4%, terminal 86–88.8% and SciCode about 59% meet frontier anchors; several other coding suites remain unverified [S3,S6].
-- **Cost efficiency: 98/100.** Scored on the published $0.10/$0.20 Contributor tier, conditional on data-use consent; Standard pricing is materially higher [S3].
-- **Overall Score: 93/100.** Half-up mean: (95 + 92 + 100 + 85 + 95) / 5 = 93.4 → 93; strong fit for long-horizon visual coding agents. Cost excluded.
+Evidence-weighted judgments across the documented effort settings, not official percentages:
 
-### Sources
-
-- [S1] https://dev.meta.ai/docs/overview — official API protocols, IDs, context, tool capabilities.
-- [S2] https://research.meta.ai/blog/introducing-muse-spark-1-3 — official launch and availability.
-- [S3] https://dev.meta.ai/models/muse-spark — official benchmark scorecard and pricing.
-- [S4] https://artificialanalysis.ai/models/muse-spark-1-3 — current independent model profile and methodology version.
-- [S5] https://llm-stats.com/models/muse-spark-1.3 — separate pricing/spec aggregator, not independent benchmark execution.
-- [S6] https://artificialanalysis.ai/articles/muse-spark-1-3 — independent launch measurements and effort comparison.
-
----
+- **Tool use: 84/100.** Strong official tool/workflow evidence and independent legal research, capped by weak SRE and CUA results and effort-sensitive availability.
+- **Reasoning: 81/100.** Useful independent proof and mechanism results, but current v5 index and uneven specialist performance do not support blanket frontier leadership.
+- **Context window: 97/100.** Official million-token capacity plus strong MRCR retrieval; vendor-only retrieval and limited general long-context reasoning verification cap confidence.
+- **Multimodal: 90/100.** Document, image and video perception with independent multimodal coding evidence; text-only output and missing audio evaluation limit breadth.
+- **Coding: 85/100.** Strong DeepSWE and Vibe Code results, moderated by independent migration, Terminal-Bench 4.0 and low fully resolved ProgramBench performance.
+- **Cost efficiency: 94/100.** Very low Contributor prices and competitive Standard pricing, but data-use concessions and verbose max reasoning are material tradeoffs.
+- **Overall Score: 87/100.** Half-up mean of 84, 81, 97, 90 and 85 is 87.4; best suited to cost-sensitive multimodal coding agents with workload-specific testing.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-10-16
-- Method: Independent public-web research; three distinct successful searches, direct official and independent source comparison. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new independently signed file next to this one using the same headings.
+- Provided by: **GPT-6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03 UTC
+- Method: Three successful distinct web searches followed by official model/launch pages, OpenRouter, Artificial Analysis, two Vals effort records and a historical independent review. VentureBeat direct retrieval returned 429 and was not treated as read evidence. No peer reports read; normalized scores are interpretations.
+- Search queries: `"Muse Spark 1.3" Meta official benchmarks model card`; `"Muse Spark 1.3" Artificial Analysis independent review benchmarks`; `"Muse Spark 1.3" pricing context max contributor limitations`.
+- Reference URLs:
+  - [Meta current model card, benchmarks and pricing](https://dev.meta.ai/models/muse-spark)
+  - [Meta launch](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+  - [AA current v5 evaluation](https://artificialanalysis.ai/models/muse-spark-1-3)
+  - [Vals non-Max evaluation](https://www.vals.ai/models/meta_muse_spark_1_3)
+  - [Vals Max evaluation](https://www.vals.ai/models/meta_muse_spark_1_3_max)
+  - [Historical eesel review](https://www.eesel.ai/blog/muse-spark-1-3)
+  - [OpenRouter serving interface](https://openrouter.ai/meta/muse-spark-1.3)

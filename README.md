@@ -87,13 +87,13 @@ Independent, no paid promotions — donations fund compute and research time, ne
   out via Stripe, unavailable for us.
 - **Also via** (entries in `EXTRA_DONATE_LINKS`, `src/components/v2/V2Footer.tsx`):
   `Ko-fi` — [ko-fi.com/djordjedjordjevic](https://ko-fi.com/djordjedjordjevic) ·
-  `Patreon` — [patreon.com/DjordjeDjordjevic](https://patreon.com/DjordjeDjordjevic) ·
   `PayPal` — [paypal.me/djdjordjevic](https://paypal.me/djdjordjevic) ·
   `PayPal (monthly)` — [subscription plan P-3J3210109R726894LNLUPHDI](https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-3J3210109R726894LNLUPHDI)
   (hosted subscribe page, no JS SDK embed).
   Still placeholders: `Paddle` / `Lemon Squeezy` — only entries with a
   non-empty `href` render as links, the rest show as "soon".
-  (`Buy Me a Coffee` was removed — Stripe-only payouts don't work for us.)
+  (`Buy Me a Coffee` was removed — Stripe-only payouts don't work for us;
+  `Patreon` is intentionally not repeated here — the tier buttons above cover it.)
 - **Research backers:** [ExtraWebSite](https://extraweb.site) (website design &
   development) — first `$99/mo` backer. Logo vendored at
   `public/backers/extrawebsite.png` (transparent 255×255 RGBA, never hotlinked)
