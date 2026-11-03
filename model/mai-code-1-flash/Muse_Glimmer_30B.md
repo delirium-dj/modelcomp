@@ -1,7 +1,7 @@
 # MAI-Code-1-Flash — findings by Muse_Glimmer_30B
 
 - Source: Microsoft MAI (`microsoft/mai-code-1-flash`)
-- Date: 2026-10-27 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ No independent third-party benchmark numbers found via public search. Models.dev
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-27
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research via Microsoft AI news post, models.dev metadata and meta.json; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

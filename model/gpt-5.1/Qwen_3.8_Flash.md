@@ -1,7 +1,7 @@
 # GPT 5.1 — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-5.1 (`opencode/gpt-5.1`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — Cost 72 provisional→**70 verified** ($1.25 in / $10.00 out per 1M — cheap input but expensive $10 output); **legacy-with-date**: GPT-5.1 retired in ChatGPT 2026-03-11 but **still served on the OpenAI API** with a scheduled **2027-04-01** shutdown (replacement gpt-6-sol), so it stays ranked; quality bands unchanged, Overall remains 62
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,8 +49,22 @@ Multimodal / long context:
 - **Context window: 64/100.** A 200K window sits at the top of the 100–200K (50–64) band; AA-LCR 80.0 supports it and no ≥98% MRCR is demonstrated (curated meta conflicts at 128K), so an upper-band placement.
 - **Multimodal: 64/100.** Text+image in with modest vision reads (AA-MMMU-Pro 75.5, Design Arena 1195) — a +image band (60–70); no audio/video/document rows and curated meta says text-only, so no higher-tier credit.
 - **Coding: 52/100.** AA Coding Index 49.4% (under the 70 bar) and Vibe Code 24.61% are weak, with no SWE-bench/LiveCodeBench coverage — an evidence-limited floor for a model that BenchLM places below its siblings on code.
-- **Cost efficiency: 72/100.** OpenAI GPT-5.x "standard pricing" is mid; exact per-1M rate not published in curated meta, so provisional. Cost is excluded from Overall.
+- **Cost efficiency: 70/100.** (Revised by the 2026-11-03 second pass from 72/100: the exact rate is now verified — **"GPT-5.1 costs $1.25 per 1M input tokens and $10.00 per 1M output tokens"** (aipricing.guru, last verified 2026-11-02; chatlyai concurs **"$1.25 … and $10 …"**). The $1.25 input sits on the methodology's cheap $1.25 anchor, but the $10.00 output is ~2.4× the $4.25 mid anchor, so a blended placement just under the provisional 72. Cost is excluded from Overall.) OpenAI GPT-5.x "standard pricing" is mid; exact per-1M rate not published in curated meta, so provisional. Cost is excluded from Overall.
 - **Overall Score: 62/100.** Mean of Tool 66, Reasoning 62, Context 64, Multimodal 64, Coding 52 = 61.6 → 62. Best fit: a general 2025-era assistant for standard chat, moderate tool use and image questions at low cost; it is clearly superseded by GPT-5.2/5.4/5.5 and the Pro tiers on reasoning, coding and agentic work, so don't pick it for frontier autonomy or hard code/reasoning tasks.
+
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); four-plus independent sources. Two things were open on this folder: a provisional Cost band (no published rate) and a lifecycle question (pass-1 already noted it is "superseded on every axis"). Both are now resolved; the measured capability figures are unrebutted.
+
+**Sources:** pricing — https://www.aipricing.guru/models/gpt-5-1/ (**"GPT-5.1 costs $1.25 per 1M input tokens and $10.00 per 1M output tokens … last verified on 2026-11-02"**) and https://chatlyai.app/blog/gpt-5-1-pricing-explained (**"GPT-5.1 API costs $1.25 per million input tokens and $10 per million output tokens"**) · lifecycle — https://help.openai.com/en/articles/20001051-retiring-gpt-4o-and-other-chatgpt-models (**"GPT-5.1 models were retired on March 11, 2026 across both normal chats and GPTs. They will continue to be available through the OpenAI API"**) and https://www.developersdigest.tech/blog/migrating-off-retired-gpt-models-2026 (**"OpenAI's deprecations page added an April 1, 2027 shutdown for gpt-5.1 … (replacement gpt-6-sol)"**) and https://developers.openai.com/api/docs/deprecations.
+
+**What moved and how it was resolved:**
+
+1. **Cost 72 → 70 (provisional → verified).** The real lane is **$1.25 in / $10.00 out**. Cheap input but an expensive $10 output (≈2.4× the $4.25 mid anchor) puts it a hair under pass-1's provisional midpoint. Excluded from Overall, so the composite is unchanged.
+2. **Lifecycle → legacy-with-date.** GPT-5.1 was retired in ChatGPT on **2026-03-11** but remains on the API with a **scheduled** (not yet executed) **2027-04-01** shutdown; per the repo convention a future, unexecuted API shutdown keeps the id ranked with a legacy flag. `gpt-6-sol` is its announced replacement (own folder). The Oct 23 2026 OpenAI shutdown batch was for *older* models and does **not** include gpt-5.1.
+3. **Quality bands — unrebutted.** No post-2026-10-02 independent re-run of GPQA 87.3 / HLE 28.5 / Intelligence Index 24.7 / Coding Index 49.4 / τ² 81.9 / GDPval-AA 930 surfaced; pass-1's evidence-limited conservative scores stand.
+
+**Scores changed by this pass:** Cost 72→70 (verified); Tool 66, Reasoning 62, Context 64, Multimodal 64, Coding 52 all hold → **Overall remains 62**.
 
 ---
 
@@ -58,4 +72,5 @@ Multimodal / long context:
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing Artificial Analysis, Epoch AI, Gert Labs, Vals AI and OpenRouter); partial coverage (19/618), Coding/Tool scored conservatively from the evidence present. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (aipricing.guru + chatlyai for the verified $1.25/$10.00 rate; OpenAI help + deprecations page + developersdigest for the ChatGPT-retired-but-API-live legacy-with-date status and the 2027-04-01 scheduled shutdown). Firmly cost-verified and lifecycle-flagged, declined to move any quality band absent a fresh independent re-run — **no quality dimension changed and Overall remains 62** (Cost 72→70 excluded). Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

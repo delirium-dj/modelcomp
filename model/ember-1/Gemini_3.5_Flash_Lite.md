@@ -1,7 +1,7 @@
 # Ember 1 — findings by Gemini 3.5 Flash Lite
 
 - Source: Ember AI / Ember 1 (`ember/ember-1`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Date: 2026-11-03 (UTC; third-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

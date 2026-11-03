@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Qwen 3.8 Flash
 
 - Source: xAI / Grok 4.3 (`xai/grok-4.3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — pricing reconfirmed **$1.25 / $2.50** (cached $0.20, 1M ctx) on requesty/orq/xAI docs; AA Intelligence Index re-read at **24.9 on the v5.0 scale** (vs 53 on v4.0) logged as a **leaderboard rebuild / scale drift, not a downgrade**; successors **Grok 4.5 / 4.6 / 4.7** (4.6 SWE-bench 95.6%) are separate ids in their own folders — their absolutes are not merged here; still **no 4.3-specific** SWE-bench/GPQA/HLE row so Tool/Coding caps hold — **bands unchanged, Overall remains 74**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,26 @@ Multimodal / long context:
 - **Cost efficiency: 90/100.** $1.25 / $2.50 per 1M (cached $0.20) — cheap on output for its capability class; the >200K 2× cliff is the one economic caveat. Cost is excluded from Overall.
 - **Overall Score: 74/100.** Mean of Tool 66, Reasoning 70, Context 95, Multimodal 78, Coding 62 = 74.2 → 74. Best fit: high-volume, cost-sensitive production (classification, extraction, summarization, fast agentic loops) where an ~8-point intelligence gap vs Opus/GPT/Gemini leaders doesn't change the outcome; the verified coverage is thin on coding and deep agent tasks, so re-measure those on your own workload before committing.
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three-plus independent sources consulted. This is a **confirmation pass** — the pass-1 figure set holds, with one scale-drift caveat and a sharpened successor boundary.
+
+**Sources:** pricing + index — https://www.requesty.ai/models/xai/grok-4.3 (**"grok-4.3 API pricing: $1.25/1M input, $2.50/1M output, 1M context … Intelligence Index 24.9"**) and https://orq.ai/models/xai-grok-4.3 (**"1M context, reasoning and tool calling. Pricing from $1.25/M input tokens"**) · launch economics — https://artificialanalysis.ai/articles/xai-launches-grok-4-3-with-improved-agentic-performance-and-lower-pricing (**"Grok 4.3 … Intelligence Index while costing less to run the full benchmark suite. Grok 4.3 costs $395 to run the Artificial Analysis Intelligence Index"**) and https://www.frankx.ai/blog/grok-4-3-analysis-2026 (**"scores 53 on the Artificial Analysis Intelligence Index, lifts GDPval-AA to 1500 Elo, ships a 1M context window with always-on"** reasoning — exact match to pass 1) · lifecycle/successors — https://docs.x.ai/developers/migration/may-15-retirement (**"you will be billed at grok-4.3 pricing"** for deprecated slugs → 4.3 is the still-listed baseline, not retired) and https://www.ai-toolbox.co/grok-models/grok-models-explained-2026 (**"xAI's newest Grok model is Grok 4.7, released September 21, 2026"**) and https://unifically.com/blogs/grok-4.6 (**"Grok 4.6 scores 95.6% on SWE-bench Verified"**) — 4.5/4.6/4.7 are distinct ids scored in their own folders.
+
+**What was checked and how it resolved:**
+
+1. **Pricing — reconfirmed unchanged.** $1.25 / $2.50 per 1M with $0.20 cached and a 1M window is corroborated across three independent listings; Cost 90 stands (the >200 K 2× billing cliff remains the one caveat).
+2. **AA Intelligence Index "drop" is scale drift, not a downgrade.** The 24.9 now shown on requesty is the **v5.0** leaderboard rebuild; pass-1's 53 was **v4.0**. Same model, different scale — the v5.0 deflation cascade does not, by itself, move a band. Reasoning 70 held; the pass-1 honesty note (no broken-out GPQA/HLE row for the ID) still applies.
+3. **Successor boundary sharpened.** Grok 4.5 / 4.6 / 4.7 (4.6's 95.6 % SWE-bench Verified, 4.7's Sept-2026 500K launch) are **newer distinct ids**; per the exact-ID rule their absolutes are **not** merged into this folder. This is why `model/grok-4.3` keeps its own thin coding/agent coverage.
+4. **Thin verified coverage persists.** Still no independently published 4.3-specific SWE-bench Verified / LiveCodeBench / τ² / Terminal-Bench row, so the Tool 66 and Coding 62 provisional caps are unchanged — the revisit trigger (a measured 4.3 coding/agent absolute) has **not** fired.
+
+**Scores changed by this pass:** none — Tool 66, Reasoning 70, Context 95, Multimodal 78, Coding 62, Cost 90 all hold → **Overall remains 74** (5-quality-dim mean unchanged).
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Artificial Analysis Intelligence Index v4.0 via FrankX analysis, llm-stats comparison, OpenRouter/requesty listings, xAI launch materials; all fetched 2026-10-02); scores are normalized 1–100 interpretations, not official vendor scores. Left SWE-bench/GPQA/ARC-AGI-2 blank rather than reuse older-Grok numbers.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (requesty + orq + xAI docs for the unchanged $1.25/$2.50/1M price; Artificial Analysis launch article + FrankX for Index/GDPval; xAI retirement-migration doc + ai-toolbox/unifically for the 4.5/4.6/4.7 successor boundary). Logged the AA v5.0 re-read (24.9) as leaderboard scale drift rather than a capability change, and declined to merge successor-model absolutes into this id per the exact-ID rule — **no dimension changed and Overall remains 74**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

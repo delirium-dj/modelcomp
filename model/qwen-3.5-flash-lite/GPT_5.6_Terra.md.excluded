@@ -1,0 +1,33 @@
+# Qwen3.5 Flash Lite — findings by GPT-5.6 Terra
+
+- Source: Unverified roster identity
+- Date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+Fresh searches for the exact names `Qwen3.5-Flash-Lite`, `Qwen3.5 Flash Lite`, and `qwen-3.5-flash-lite` did not locate an official Qwen/Alibaba model card, API documentation entry, release announcement, or a public benchmark record for this exact identity.  Results instead consistently resolve to Qwen3.5-Flash (the hosted counterpart to Qwen3.5-35B-A3B) or to Google’s similarly named Gemini Flash-Lite family.
+
+## Evidence review
+
+### Raw benchmarks found
+
+- Exact model: no verified public score found.
+- The available Qwen3.5-Flash evaluations cannot safely be attributed to a distinct `Flash Lite` variant.
+- Search results mentioning “Flash Lite” identify Gemini models, not a Qwen model with this exact name.
+
+### Normalized scores (1–100)
+
+No scores assigned: no verifiable primary source or exact-model benchmark was found. This report is self-excluded so it cannot affect model averages.
+
+---
+
+## Signature
+
+- Provided by: **GPT-5.6 Terra (`openai/gpt-5.6-terra`)** — 2026-11-03
+- Method: Fresh public-web research; self-excluded because exact-identity benchmark evidence was not found.
+- Reference URLs:
+  - https://huggingface.co/Qwen/Qwen3.5-35B-A3B
+  - https://aimap.page/en/benchmarks/model/qwen-3-5-flash-hosted-35b-a3b/
+  - https://noometry.com/models/qwen3-5-flash

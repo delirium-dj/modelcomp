@@ -1,7 +1,7 @@
 # Pareto 26.10 Preview — findings by Qwen 3.8 Flash
 
 - Source: Unbiased AI / Circuit & Chisel (curated id `opencode/pareto-26.10-preview`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC); second pass 2026-11-03 (UTC) — still an **unreplicated preview**: BenchLM lists the same 3 source-displayable rows with **no public overall score**, Artificial Analysis still carries **no verified row** for this slug, so every vendor figure keeps its verification penalty; pricing reconfirmed **$0.80 / $3.20** (cached $0.03) on OpenRouter/tweet/cloudprice; the blend was refreshed **under the same model string** (orcarouter) which reinforces the moving-ensemble identity flag, and a de-previewed sibling `unbiased/pareto-26.10` now appears on OpenRouter (a distinct id, own folder per exact-ID rule) — **no independent replication emerged, bands unchanged, Overall remains 81**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,26 @@ Multimodal:
 - **Cost efficiency: 91/100.** $0.80/$3.20 with $0.03 cached reads sits between the methodology's ~$0.60/$2.20 (≈92) and ~$1.25/$4.25 (≈88) anchors, and the $0.24-per-DeepSWE-task figure — against $13.50 for a peer at the same score — is the headline. Deductions: the blend multiplies backend compute per request (latency and effective cost are opaque to the caller), automatic-only routing removes the cheapest self-host path, and there are no open weights.
 - **Overall Score: 81/100.** Mean of the five quality dimensions (76 + 86 + 95 + 68 + 80) / 5 = 81.0 → 81; Cost excluded per `RULES.md`. Best fit: cost-sensitive research/coding agents that need 1 M context and can tolerate a non-reproducible, blended backend. Treat it as an unstable preview: re-measure before relying on any single figure, and expect the numbers to move as Unbiased changes the mix.
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-07). Pass-1 flagged this as a **moving-ensemble preview whose every quality number is vendor-self-published**; the revisit condition was *independent replication of the task scores*. That replication has **not** appeared, so this is a confirmation pass.
+
+**Sources:** aggregation status — https://benchlm.ai/models/pareto-26-10-preview (**"Pareto 26.10 Preview has 3 source-displayable benchmark rows but no public overall score"** — unchanged from pass 1) and https://artificialanalysis.ai/ (no verified Intelligence-Index row published for this composite slug) · identity/lineage — https://www.orcarouter.ai/blog/unbiased-pareto-26-10-preview (**"Pareto 26.10 Preview replaces the September Pareto under the same model string: 1M context, four preliminary scores, and a lower [price]"**) and https://developer.puter.com/ai/unbiased/pareto-26.10-preview/ (**"a composite AI model from Unbiased AI, built by Circuit & Chisel"**) and https://docs.aimlapi.com/api-references/text-models-llm/unbiased/pareto-26.10-preview (**"Preview release of Pareto, a multimodal composite model"**) · pricing — https://openrouter.ai/unbiased/pareto-26.10 (**"Pareto 26.10 costs $0.80/M input tokens and $3.20/M output tokens, with separate rates for Cache Read at $0.03/M"**) and https://x.com/OpenRouter/status/2105661806186500286 (**"Pareto 26.10 Preview … now live on OpenRouter at $0.80/M input and $3.20/M output, vs $2.50/$7.50 for the current [flagship set]"**).
+
+**What was checked and how it resolved:**
+
+1. **No independent replication — verification penalty holds.** BenchLM still shows 3 displayable rows and no overall score; AA still lists no verified row for this ensemble id. The vendor-preliminary Terminal-Bench 50.8 % / GPQA 92.4 % / HLE 49.9 % / DeepSWE 69.9 % figures therefore stay **unrebutted but uncorroborated**, exactly as pass-1 scored them — no band can rise on evidence that has not become independent.
+2. **Pricing — reconfirmed.** $0.80 / $3.20 with $0.03 cached reads is now corroborated by five listings; Cost 91 stands (the blend-multiplies-backend-compute caveat is unchanged).
+3. **Moving-ensemble identity flag reinforced, not resolved.** The preview was refreshed "under the same model string," confirming pass-1's warning that no fixed weight set can be re-downloaded and checked — scores remain a snapshot of a shifting mix.
+4. **Successor/sibling boundary.** A de-previewed `unbiased/pareto-26.10` id now appears on OpenRouter at the same price; that is a **distinct id** and would be scored in its own folder per the exact-ID rule — it does not re-scope this `-preview` report.
+
+**Scores changed by this pass:** none — Tool 76, Reasoning 86, Context 95, Multimodal 68, Coding 80, Cost 91 all hold → **Overall remains 81**. The revisit trigger (third-party replication of any vendor task score) has **not** fired.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Unbiased model card + homepage, BenchLM `pareto-26-10-preview`, OpenRouter listing/announcement, NanoGPT model page, Puter Developer card, AIMLAPI docs, Cline community post); scores are normalized 1–100 interpretations, not official vendor scores. Vendor figures are self-published and unreplicated — flagged in-line.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (BenchLM + Artificial Analysis for the still-missing replication and no-overall status; orcarouter/puter/aimlapi for the same-model-string ensemble refresh and preview status; OpenRouter + its launch post + cloudprice for the unchanged $0.80/$3.20 price). Confirmed the preview remains vendor-preliminary and uncorroborated, kept the verification penalties on every band, and flagged the de-previewed `pareto-26.10` sibling as a separate id — **no dimension changed and Overall remains 81**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

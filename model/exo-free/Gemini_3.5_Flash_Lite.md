@@ -1,7 +1,7 @@
 # Exo Free — findings by Gemini 3.5 Flash Lite
 
 - Source: Exo / Exo Free (`exo/exo-free`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Date: 2026-11-03 (UTC; third-pass deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

@@ -1,7 +1,7 @@
 # Muse Wonder Full — findings by Muse Glimmer 30B
 
 - Source: Meta `muse-wonder-full` (model id `muse-wonder-full-1.0`)
-- Date: 2026-10-27 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,5 +53,5 @@ Artificial Analysis Intelligence Index: 56 vs 52 vs 53 vs 53 vs 58
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-27
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research — official sources first (research.meta.ai blog 2026-10-12, dev.meta.ai models/muse-wonder page with full 14-row benchmark table and Muse Code subscription pricing), then independent source (Artificial Analysis model page for Muse Wonder Full with Intelligence Index 56 #4/704, specs, no-API status). Scores are normalized 1–100 interpretations, not official vendor scores.

@@ -1,7 +1,7 @@
 # GPT-5 — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-5 (`opencode/gpt-5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — pricing reconfirmed **$1.25 / $10** (cached $0.125, runbear/OpenAI launch — no move from pass 1); **lifecycle → retired/historical**: OpenAI retired **GPT-5 (Instant and Thinking)** on the ChatGPT lane **2026-02-13**, so this Aug-2025 flagship is kept as a superseded historical artifact with a curation flag; still **no verified coding/agent absolute for the `gpt-5` medium slice** (the swebench 56.20 row is `GPT-5 mini`, a distinct id, not merged) — bands unchanged, Overall remains 62
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,25 @@ Multimodal / long context:
 - **Cost efficiency: 80/100.** $1.25 / $10 per 1M (cached $0.125; Zen $1.07/$8.50) is well under the $3/$15≈60 anchor. Cost is excluded from Overall.
 - **Overall Score: 62/100.** Mean of Tool 60, Reasoning 55, Context 72, Multimodal 65, Coding 58 = 62.0 → 62. Best fit: a 2025-era general/reasoning default for math-adjacent and file/image tasks at low cost, where outputs are grounded and checked; but this medium slice is evidence-thin and superseded on every axis by GPT-5.1→5.5 and the high/Pro reasoning tiers — do not treat these scores as the peak GPT-5 result.
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); this folder's open items were the GPT-5 lifecycle and whether any independent coding/agent coverage had appeared. Both resolved without moving a band.
+
+**Sources:** lifecycle — https://openai.com/index/retiring-gpt-4o-and-older-models/ (**"On February 13, 2026, alongside the previously announced retirement of GPT-5 (Instant and Thinking), we will retire GPT-4o, GPT-4.1 …"**) · specs/price (reconfirm) — https://runbear.io/posts/gpt-5-explained (**"GPT-5 launched August 7, 2025 with a 400,000-token context window and API pricing of $1.25 per million input tokens and $10 per million output"**) and https://openai.com/gpt-5/ (**"Our most advanced model for coding and agentic tasks at its August 2025 launch"**) · adjacent-id boundary — https://www.swebench.com/ (leaderboard row **"GPT 5 mini … 56.20"** is `GPT-5-mini`, a different reasoning slice/id, **not** merged into this medium-slice report) and https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ (vendor dropped SWE-bench Verified as contaminated — explains the continued absence of a published coding row).
+
+**What was checked and how it resolved:**
+
+1. **Lifecycle → retired historical artifact.** OpenAI retired the GPT-5 (Instant/Thinking) consumer lane on **2026-02-13**. Consistent with the repo's treatment of executed origin-vendor retirements, the id is kept as a **superseded historical artifact** with a curation flag rather than deleted; pass-1 already framed it as "superseded on every axis."
+2. **Pricing — unchanged.** $1.25 / $10 (cached $0.125) reconfirmed at the launch rate; Cost 80 holds. Excluded from Overall.
+3. **No coding/agent absolute for this slice.** The only newly visible row (SWE-bench 56.20) belongs to **GPT-5 mini**, not the medium slice scored here — per the exact-ID rule it is not merged. Tool 60 (τ²-only) and Coding 58 (evidence-limited floor) therefore stand.
+
+**Scores changed by this pass:** none — Tool 60, Reasoning 55, Context 72, Multimodal 65, Coding 58, Cost 80 all hold → **Overall remains 62**.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `gpt-5-medium` rows citing Artificial Analysis and OpenRouter); very partial coverage (13/618), Tool/Coding scored conservatively from the evidence present. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (OpenAI's model-retirement page for the executed GPT-5 Instant/Thinking retirement; runbear + openai.com/gpt-5 for the unchanged $1.25/$10 launch rate and 400K window; swebench.com + OpenAI's SWE-bench-dropped note for the coding-coverage boundary). Flagged the consumer-lane retirement as a historical-artifact curation note and declined to merge the `GPT-5-mini` leaderboard row into this medium slice — **no dimension changed and Overall remains 62**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

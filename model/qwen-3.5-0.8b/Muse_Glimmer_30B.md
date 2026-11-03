@@ -1,7 +1,7 @@
 # Qwen 3.5 0.8B — findings by Muse Glimmer 30B
 
 - Source: Alibaba Qwen `Qwen/Qwen3.5-0.8B`
-- Date: 2026-10-27 (UTC)
+- Date: 2026-11-03 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -76,6 +76,6 @@ Coding:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-27
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; official sources first (Hugging Face `Qwen/Qwen3.5-0.8B` model card with official language/vision tables, NVIDIA Megatron Bridge Qwen 3.5 docs, Vultr Docs Qwen3.5 0.8B); independent aggregations (BenchmarkList, BenchGecko, oMLX). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
