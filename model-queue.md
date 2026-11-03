@@ -16,13 +16,13 @@
 91.6 gemini-3.7-flash
 91.6 gpt-5.6-sol
 91.5 claude-mythos-5.1
+91.3 muse-wonder-full
 91.1 gemini-3-pro
 91 gpt-5.5-pro
 91 gpt-6.1-sol
 91 mimo-v2.6-pro
-91 muse-wonder-full
 90.9 kimi-k3
-90.3 kimi-k3.1-pro
+90.4 kimi-k3.1-pro
 89.9 claude-opus-4.8
 89.9 muse-wonder-1.0
 89.8 claude-opus-4.7

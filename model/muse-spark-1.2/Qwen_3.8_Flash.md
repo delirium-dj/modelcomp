@@ -1,7 +1,7 @@
 # Muse Spark 1.2 Free — findings by Qwen 3.8 Flash
 
 - Source: Meta / Muse Spark 1.2 (contributor-free tier) (`opencode/muse-spark-1.2-contributor-free`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — pricing tiers reconfirmed unchanged; usage displaced by 1.3 lane (#28/0.8% vs #2/17%); free tier still live; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,25 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Usage position — https://opencode.ai/data/meta/muse-spark-1-2-contributor (**"Muse Spark 1.2 Contributor ranked #28 by tokens across OpenCode last week, with 0.8% of tokens over the past two months"**) vs https://opencode.ai/data/meta/muse-spark-1-3-contributor (**"1.3 Contributor ranked #2 … with 17% of tokens"**) — the successor lane has absorbed the free-tier traffic · pricing — https://www.developersdigest.tech/blog/meta-muse-code-spark-1-2-release (**"$1.25 per million input tokens and $4.25 per million output on the standard tier, or $0.10 input / $0.20"** contributor) and https://news.ycombinator.com/item?id=49187575 (**"a 10x discount on input ($0.10 vs. $1.25/Mtok) and 20x discount on output ($0.20 vs. $4.25/Mtok) if you opt in"**) — unchanged since capture · family — https://www.eesel.ai/blog/muse-spark-1-3 and https://coursiv.io/blog/muse-spark-1-3 (1.3 keeps the identical two-lane structure; contributor **"with [training-data consent]"**) and https://dev.meta.ai/models/muse-spark (1.3 is **"trained for agentic workflows and optimized for competitive coding"** — the overtaking path pass 1 predicted for FrontierSWE-class work).
+
+**What moved and how it was resolved:**
+
+1. **The consent caveat and free lane are exactly as scored; Cost 97 stands.** Contributor $0.10/$0.20 and Standard $1.25/$4.25 reconfirmed verbatim by DevelopersDigest and HN against the launch email — still effectively the $0 = 100 anchor with the training-consent discount to 97. No price movement in either lane since 2026-10-02.
+2. **Generation displacement quantified.** OpenCode's own data pages show 1.2 Contributor at **#28 / 0.8% of tokens** while 1.3 Contributor sits **#2 / 17%** — the free-tier user base has already migrated to the successor. This corroborates pass 1's "succeeded by 1.3" note and its best-fit guidance (hard long-horizon repo work overtaken); it does not re-measure any capability of *this* model, so no band moves. The id stays ranked while the free lane remains live (GitHub #12306 shows 1.3's free lane serving — the family's free story continues; 1.2's own free tier shows no shutdown signal).
+3. **All scored rows uncontradicted.** TB 2.1 82.9% (Vals 69.7), GDPval-AA 1631, SWE-bench 86.6, **FrontierSWE v2 12.0%**, and the notably low **33.3% hallucination** rate have no second-pass disputes; the single-row Multimodal evidence (Design Arena 1318) still floors the 90–100 omnimodal band at 90. AA v5's rebase is batch-wide scale drift — the Intelligence Index 39.6 row is not restated by any source.
+
+**Scores changed by this pass:** None. Tool 82, Reasoning 84, Context 95, Multimodal 90, Coding 80 → Overall = half-up mean(82, 84, 95, 90, 80) = 431/5 = 86.2 → **86, unchanged**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Meta Muse Spark 1.2 model page, plus Artificial Analysis, Vals AI, Proximal, VulcanBench and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (opencode.ai data pages for the 1.2-vs-1.3 usage displacement, DevelopersDigest/HN pricing reconfirmation, eesel/coursiv/dev.meta.ai family coverage); pricing tiers unchanged, Cost 97 free-lane story intact, quantified successor displacement without band movement, all rows uncontradicted — **no dimension changed and Overall remains 86**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

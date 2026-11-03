@@ -1,65 +1,68 @@
 # Kimi K3.1 Pro — findings by GPT 6.1 Sol
 
-- Source: Moonshot AI / Kimi (`kimi-k3.1-pro`)
+- Source: Moonshot AI / `kimi-k3.1-pro`
 - Date: 2026-11-03 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
+- Overview and scoring methodology: `../../model-comparison.md`; current contract: `../../README.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Kimi K3.1 Pro
-- **Short description:** Moonshot's large reasoning model for coding agents, long-context research, vision and 3D work. The Highspeed route is a faster serving variant of the same model, not separate weights.
-- **Provider / access:** Kimi API at `https://api.moonshot.ai/v1` supports Chat Completions, Responses and Messages-compatible calls; first-party API requires a minimum $1 top-up for this flagship.
-- **Release / knowledge:** Artificial Analysis dates release 2026-10-23; no verified knowledge cutoff found.
-- **IDs:** `kimi-k3.1-pro` (vendor); `kimi-k3.1-pro-highspeed` is 2–3× faster serving, not a distinct model.
-- **Context window:** Vendor states 1,048,576 combined tokens (1M); maximum completion tokens up to 1,048,576 is a configurable ceiling, not a proven usable retrieval length.
-- **Modalities:** Text, image and video input per vendor; text/JSON output, thinking and tool calling. Independent AA summary lists text/image only; video support was not independently tested there.
-- **Pricing (as of 2026-11-03):** AA independently lists $2.00 input / $10.00 output per million on Kimi API, cache hits discounted 90%; vendor pricing page text extraction does not expose its pricing table. No free flagship API tier established.
-- **Architecture:** Vendor calls it a 3T-class open-weight post-trained K3 model; AA calls it proprietary and says 2.8T parameters. Neither accessible source here identifies a public K3.1 Pro weights repository; treat open-weight status as **disputed**, not confirmed by the vendor adjective alone.
+- **Short description:** Substantially post-trained Kimi K3 successor for sustained coding and knowledge-work agents, with native visual understanding. A general-purpose model despite finance examples; not a finance-only SKU.
+- **Provider / access:** Kimi API, `https://api.moonshot.ai/v1`; official quickstart documents Chat Completions, Responses and Anthropic-compatible Messages APIs. A successful minimum $1 top-up unlocks the flagship.
+- **Release / knowledge:** 2026-10-23 according to independent launch coverage; cutoff not verified.
+- **IDs:** `kimi-k3.1-pro`; `kimi-k3.1-pro-highspeed` is an official same-capability serving variant at approximately 2–3× speed, not a separate researched checkpoint. No verified Zen Free ID.
+- **Context window:** Official pricing specifies 1,048,576 tokens for K3 series. Guide says `max_completion_tokens` defaults to 131,072 and accepts up to 1,048,576; this is a request-parameter ceiling, not evidence of that much output plus a full input window simultaneously.
+- **Modalities:** Text/image/video input, text output; always-on thinking, low/high/max reasoning effort, default max. Strict JSON Schema and tool calling supported. Official guide warns public image URLs are unsupported: use base64 or uploaded file IDs.
+- **Pricing (as of 2026-11-03):** Independent Artificial Analysis lists $2 input / $10 output per 1M tokens, 90% cache discount (implied $0.20 cache-hit input). Official pricing confirms pay-as-you-go, separately billed cache writes with 5m/1h TTL, and batch at 60% of standard price. Cache-write rates not recovered from the rendered table; do not treat cache-hit price as all-in cache cost.
+- **Architecture:** Officially “3T-class,” post-trained from K3. Exact 2.8T/104B counts appeared in secondary/search summaries but were not verified from the inspected primary guide, so not adopted as established facts. Vendor calls it open-weight; AA still labels it proprietary. A downloadable checkpoint/license was not verified during this run; do not equate an announced release with available weights.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Direct official guide, publisher-reported and not independently rerun:
 
-- Terminal-Bench 4.0: **65.7%** (Moonshot first-party comparison, harness details on vendor page; independent same-harness replication not found).
-- BenchCAD with tools: **92.7%** (Moonshot; 3D CAD generation, not interchangeable with general tool success).
-- OfficeQA Pro v2: **64.4** (Moonshot, financial documents; domain benchmark, not generic reasoning).
-- AutomationBench-AA / AA-Briefcase: no verified public score found in the accessible AA text, though both are listed as components of the index.
+| Evaluation | Result | Conditions / caveats |
+|---|---:|---|
+| Terminal-Bench 4.0 | 65.7% | Resource-constrained terminal tasks with task-specific tests |
+| Kimi Code Bench 3.0 Long-horizon | 61.2% | Internal benchmark; predecessor K3 55.95%, same publisher comparison |
+| BenchCAD | 92.7% | **With tools**, multiview reconstruction through CAD code |
+| OfficeQA Pro v2 | 64.4 | Financial documents, cross-document retrieval and numerical reasoning |
+| Kimi Hallu Bench Hard | 8.3% claim-level hallucination | Internal adversarial stress test; NOT an everyday error rate; K3 23.4% |
 
-Reasoning / knowledge:
+Independent Artificial Analysis direct page:
 
-- Artificial Analysis Intelligence Index v5.0: **46**, rank **#23 / 60** shown in AA summary (nine mixed evaluations; independent composite rather than a percent-correct score).
-- Kimi Hallu Bench Hard: **8.3%** claim-level hallucination rate (vendor internal stress test; cannot compare directly to AA-Omniscience).
-- HLE-Diamond / AA-Omniscience v1.1: no verified exact-model subscore found in accessible AA text.
+- Intelligence Index **v5.0: 46**, displayed rank **23/60** in its comparison cohort; cohort size is not the entire catalogue.
+- **31.6 output tokens/second**, **$3.68 per Intelligence Index task**, **110M generated evaluation tokens**. These describe AA's tested route/workload, not every provider or Highspeed.
+- AA lists a 1M window and text/image inputs; official guide additionally demonstrates video input. Treat AA's shorter modality list as incomplete, not a vendor contradiction.
+- GPQA Diamond, exact-model HLE, DeepSWE, SWE-Marathon, LiveCodeBench, Tau2/Tau3 and full-window MRCR/RULER: no verified public score found in the directly inspected material. Search AI-overview numbers were not admitted as measurements.
 
-Coding:
+### Source comparison and research record
 
-- Terminal-Bench 4.0: **65.7%** (vendor; overlaps the tool-use evidence above, not an additional independent trial).
-- Kimi Code Bench 3.0 Long-horizon: **61.2%** (vendor internal; K3 baseline 55.95% under its own setup).
-- SWE-bench Verified / FrontierCode 2.0: no verified exact-model percentage found in accessible public text.
+Three successful independent browser searches: `Kimi K3.1 Pro official benchmarks`; `site:moonshot.ai K3.1 Pro OR site:kimi.com K3.1`; `Kimi K3.1 Pro independent review Artificial Analysis pricing`. Directly read the official quickstart, model guide, pricing page and independent AA evaluation. Compared Eigent, LLM Stats, AtomicAgent and review search summaries for disagreements rather than copying consensus claims.
 
-Long context:
-
-- Advertised **1,048,576-token** context (Moonshot docs and AA specification); no verified public MRCR/RULER long-range retrieval score for this exact ID found.
+Search results circulate AA values of 55.1/57 and $2.11/task; the current direct evaluator explicitly uses v5.0 and gives 46/$3.68, so older or different-setting figures are not mixed into it. BenchLM marks its aggregate Estimated and is excluded from measured evidence. Vendor terminal results substantiate strong engineering, but do not prove parity across independent tasks. Official web-search tooling is currently “not recommended” for production; that integration limitation matters despite broad agentic positioning. Open-weight availability remains unresolved rather than asserted from promotional descriptions.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Vendor Terminal-Bench 4.0 65.7% and BenchCAD 92.7% show strong execution; lack of independently replicated tool-agent pass rates caps confidence.
-- **Reasoning: 88/100.** Independent AA Intelligence Index 46 and vendor OfficeQA 64.4 support strong general/domain work; AA rank and internal hallucination metric differ in scope, so neither implies frontier-best reasoning.
-- **Context window: 95/100.** Vendor and AA agree on the 1M advertised capacity; no exact-model 1M retrieval test, so nominal capacity is not treated as proven retention.
-- **Multimodal: 75/100.** Vendor documents image and video input with text output, while independent AA confirms only image; no independently verified audio/video evaluation.
-- **Coding: 92/100.** Vendor Terminal-Bench 4.0 65.7% and internal long-horizon 61.2% indicate strong agent coding; absence of matched independent terminal/coding subscores caps it.
-- **Cost efficiency: 69/100.** AA lists $2/$10 per million, 90% cache-hit discount, and $3.68 per Intelligence Index task; paid and relatively slow (31.6 output tokens/s).
-- **Overall Score: 88/100.** Half-up mean of 89, 88, 95, 75 and 92 = 87.8; good fit for long-context code and visual-agent work when vendor benchmark limitations are acceptable.
+Editorial interpretations, not benchmark percentages.
 
----
+- **Tool use: 89/100.** Terminal-Bench 65.7 and documented tool/structured-output workflows support strong agents; internal-only long-horizon evidence and web-search integration caveat cap it.
+- **Reasoning: 86/100.** Independent AA v5.0 46 plus OfficeQA 64.4 support substantial reasoning; hallucination stress tests and missing broad subscore verification limit confidence.
+- **Context window: 95/100.** Official 1,048,576-token context, without verified full-window retrieval accuracy.
+- **Multimodal: 85/100.** Native image/video understanding and with-tools CAD 92.7; no verified native audio or nontext generation.
+- **Coding: 91/100.** Strong official terminal and long-horizon coding results, tempered by limited independent exact-task replication.
+- **Cost efficiency: 74/100.** $2/$10 and caching/batch help, but AA's $3.68/task, verbosity and slow standard-route throughput limit practical value.
+- **Overall Score: 89/100.** Half-up mean of 89, 86, 95, 85 and 91 = 89.2; strong API-accessible sustained coding/visual-agent option.
 
 ## Signature
 
-- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-11-03
-- Method: Independent searches for exact API ID, technical report and vendor model plus direct comparison of vendor documentation with Artificial Analysis. Vendor-reported numbers are labeled as such; AA's composite is not conflated with vendor percent-correct results. Normalized scores are interpretations, not official ratings.
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol-ultrafast)** — 2026-11-03
+- Method: Independent public research, three successful distinct searches plus direct official/evaluator reads; normalized scores are interpretations, not vendor scores. No peer findings read.
 - Reference URLs:
-  - [Moonshot Kimi K3.1 Pro model guide and benchmark disclosures](https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart.md)
-  - [Moonshot API quickstart and exact model routes](https://platform.moonshot.ai/docs/guide/models)
-  - [Moonshot model pricing and cache terms](https://platform.kimi.ai/docs/pricing/chat.md)
-  - [Artificial Analysis Kimi K3.1 Pro independent overview](https://artificialanalysis.ai/models/kimi-k3-1-pro)
+  - https://platform.kimi.ai/docs/get-your-api-key
+  - https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart
+  - https://platform.kimi.ai/docs/pricing/chat
+  - https://artificialanalysis.ai/models/kimi-k3-1-pro
+  - https://www.google.com/search?hl=en&q=Kimi+K3.1+Pro+official+benchmarks
+  - https://www.google.com/search?hl=en&q=site%3Amoonshot.ai+K3.1+Pro+OR+site%3Akimi.com+K3.1
+  - https://www.google.com/search?hl=en&q=Kimi+K3.1+Pro+independent+review+Artificial+Analysis+pricing

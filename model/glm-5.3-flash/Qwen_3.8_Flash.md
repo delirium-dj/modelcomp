@@ -1,7 +1,7 @@
 # GLM 5.3 Flash — findings by Qwen 3.8 Flash
 
 - Source: Z.AI / GLM-5.3-Flash (`opencode/glm-5.3-flash`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — window conflict resolved tier-dependent (paid 1M/131K, free tier shorter), pricing/zai rows reconfirmed, AA v5 drift, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Z.AI official — https://z.ai/blog/glm-5.3-flash (2026-08-26 launch: **"Frontier Intelligence, Flash Cost … scoring 57 at just $0.045 per task (discounted)"**; "outperforms GLM-5.2 … 63.4 vs 46.2 on DeepSWE v1.1" — the 63.4 matches this report's DeepSWE row) · pricing/profile — https://artificialanalysis.ai/models/glm-5-3-flash (**"Pricing for GLM-5.3-Flash is $0.15 per 1M input tokens … $0.50 per 1M output"**) and https://deepinfra.com/blog/glm-5-3-flash-pricing-providers-cost (**"Standard pricing is $0.15 input / $0.50"**) and https://openrouter.ai/z-ai/glm-5.3-flash (budget provider route $0.0313/$0.0846; **"native multimodal model"** — confirms the image-in reading over stale curated "Text in/out") · window conflict — https://zhuanlan.zhihu.com/p/2094531152723945247 (2026-10-16: **"GLM-5.3 Flash 付费版：1M 上下文，最多131k 输出"** — paid variant 1M/131K, i.e. the conflict is **tier-dependent**) and https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash (320B total / sparse active, Flash+FlashX pair) · status — https://opencode.ai/data/zhipuai/glm-5-3-flash (**"GLM-5.3-Flash (formerly ox-alpha) ranked #3 by tokens across OpenCode last week, with 2.8% of tokens"**) and https://www.reddit.com/r/opencode/comments/1x799zh/glm_53_flash_is_free_in_opencode/ (free Zen tier live) · weights caveat — https://felloai.com/glm-5-3/ and https://www.reddit.com/r/LocalLLaMA/comments/1vny9zs/glm_53_released/ (**"We will release the weights in two weeks after launch, once safety evaluation … complete"** — the family's weight drop was deliberately delayed over emergent cyber capabilities).
+
+**What moved and how it was resolved:**
+
+1. **The 1M-vs-204K conflict resolved as tier-dependent.** Chinese launch coverage (2026-10-16) documents the **paid** GLM-5.3-Flash at 1M context / 131K output, while the curated 204K matches the constrained free route this id (`opencode/glm-5.3-flash`, Zen free tier) actually serves. Context 84 — pass 1's deliberately between-the-two score — remains the right placement for the free-tier serving surface, now with the conflict explained rather than unresolved; the band is unchanged.
+2. **Pricing and cost position reconfirmed.** List $0.15/$0.50 (AA, DeepInfra) with sub-cent OpenRouter routes; the Zen free tier is not only live but **the #3 model by OpenCode tokens** (formerly "ox-alpha"). Cost stays 95 (free + open-weight promise + dirt-cheap paid).
+3. **Vendor rows corroborate, scale drift aside.** Z.AI's own launch table restates DeepSWE 63.4 — matching the captured row — and claims an Index-class 57 at $0.045/task vs this report's 41.8 BenchLM capture; the delta is the same v4.x-vs-v5 / vendor-vs-independent pattern seen batch-wide (recorded side by side, not averaged, no band moved; the low Omniscience 7.5 flag is untouched by these claims). OpenRouter's "native multimodal" label further validates Multimodal 74 over the stale curated text-only field.
+4. **Open-weights promise delayed, not cancelled.** Family coverage shows Z.AI held GLM-5.3 weights back ~2 weeks post-launch pending safety hardening (emergent cyber capabilities) — pass 1's "open weights (self-host free)" framing gets a timing/availability caveat; the free hosted tier is what the score actually rests on.
+
+**Scores changed by this pass:** None. Tool 85, Reasoning 78, Context 84, Multimodal 74, Coding 85 → Overall = half-up mean(85, 78, 84, 74, 85) = 406/5 = 81.2 → **81, unchanged**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Z.AI GLM-5.3-Flash launch post, plus Artificial Analysis, Vals AI, OpenHarmony and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Z.AI blog, Artificial Analysis, DeepInfra, OpenRouter, bigmodel.cn docs, zhihu/opencode/reddit coverage, felloai); window conflict resolved tier-dependent (paid 1M vs free 204K), $0.15/$0.50 list reconfirmed, free tier thriving at #3 OpenCode usage, weights-delay caveat recorded, vendor 57-vs-41.8 index delta un-averaged as scale drift — **no dimension changed and Overall remains 81**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GLM_5.md`, using the same headings.

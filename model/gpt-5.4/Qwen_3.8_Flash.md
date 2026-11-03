@@ -1,7 +1,7 @@
 # GPT 5.4 — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-5.4 (`opencode/gpt-5.4`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — Cost revised 72→62 (verified $2.50/$15 plus the >272K 2×/1.5× long-context premium; pass-1 provisional was high), base id shows no deprecation entry (cyber variant removed 2026-10-01); quality bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -50,8 +50,25 @@ Multimodal / long context:
 - **Context window: 92/100.** The 1.05M window is in the ≥1M (95–100) band; AA-LCR 82.0 is supportive, but no ≥98% MRCR retrieval at 512K+ is demonstrated and the curated meta conflicts at 128K, so a high-but-not-perfect placement.
 - **Multimodal: 78/100.** A rich image+document profile (ScreenSpot Pro 85.4, CharXiv 82.8, MMMU-Pro 81.2, MedXpertQA-MM 77.1) — upper +image/PDF tier (75–90); no audio/video rows and text-only output, so no non-text-output credit.
 - **Coding: 76/100.** LiveCodeBench Pro 87.5% and Coding Index 71.0% (clears 70) are solid, but SWE-bench Pro 57.7%, Vibe Code 67.42% and PostTrainBench 19.0% keep repo-scale/agentic code mid; no SWE-bench Verified read.
-- **Cost efficiency: 72/100.** OpenAI flagship-class "standard pricing" is mid; exact per-1M rate not published in curated meta, so provisional. Cost is excluded from Overall.
+- **Cost efficiency: 62/100.** (Revised by the 2026-11-03 second pass from 72/100, a stub-based provisional: the base lane is verified at **$2.50 / $15 per 1M** — essentially on the $3/$15 ≈ 60 anchor — and OpenAI's model page adds **"prompts with >272K input tokens are priced at 2x input and 1.5x output for the full session"**, a real surcharge for exactly the long-context work this model is picked for. No free tier.) Cost is excluded from Overall.
 - **Overall Score: 81/100.** Mean of Tool 79, Reasoning 78, Context 92, Multimodal 78, Coding 76 = 80.6 → 81. Best fit: very long-context image/document analysis and tool-calling (τ², BrowseComp, 1.05M window) where breadth matters; treat every factual output as unverified given the 91.7% hallucination rate, and don't lean on it for sustained office-work autonomy (GDPval/JobBench weak).
+
+---
+
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Pricing — https://openrouter.ai/openai/gpt-5.4 (**"$2.50 per million input tokens, $15 per million output tokens"**, "unifying the Codex and GPT lines") and https://inworld.ai/models/openai-gpt-5-4 (**"Priced at $2.5 per million input tokens and $15 per million output tokens"**, **"1.1M token context window with up to 128K tokens of output"**) and https://pricepertoken.com/pricing-page/model/openai-gpt-5.4 (**"$2.50 per million input … $15.00 per million output … context window of up to 1.1M"**) · long-context premium + window — https://developers.openai.com/api/docs/models/gpt-5.4 (**"For models with a 1.05M context window (GPT-5.4 and GPT-5.4 Pro), prompts with >272K input tokens are priced at 2x input and 1.5x output for the full session"**) · lifecycle — https://developers.openai.com/api/docs/deprecations (**"The gpt-5.4-cyber model is deprecated and will be removed from the API on October 1, 2026"** — variant-level only; **no entry for base `gpt-5.4`**) and https://www.layer3labs.io/guides/openai-deprecated-models (Oct 14 consumer-surface retirement covers GPT-5.5; base 5.4 absent) · external standing — https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf (**"GPT-5.4 High, the top model, reached 50.6%"** on the report's reasoning figure, March 2026) and https://news.ycombinator.com/item?id=48196570 (AA effort-tier chatter).
+
+**What moved and how it was resolved:**
+
+1. **Cost 72→62 — the provisional was too generous.** Three independent price pages fix the base lane at **$2.50/$15**, sitting essentially on the methodology's $3/$15 ≈ 60 anchor, and OpenAI's own model page documents a **2× input / 1.5× output surcharge above 272K input tokens** for the whole session — precisely the long-context usage class Context 92 advertises. Subtracting the premium risk from the anchor placement lands 62; the pass-1 72 (a "standard pricing" guess) is superseded. Cost is excluded from Overall.
+2. **Lifecycle: base id clean; the cyber sibling was removed 2026-10-01.** OpenAI's deprecations page lists **gpt-5.4-cyber** for removal but carries **no entry for base gpt-5.4**, and the October consumer-surface retirements (GPT-5.5, 2026-10-14) did not touch it — unlike the sibling Pro variant (legacy, Foundry retirement 2027-09-07, per today's gpt-5.4-pro pass). The base stays fully served; variant-specific retirement does not cascade per the exact-ID rule.
+3. **Every scored row stands; the hallucination flag is unrebutted.** No second-pass source contradicts the **91.7% hallucination / Omniscience 5.8** profile, GDPval-AA 1307 / 36.6%, or JobBench 38.9% — Reasoning 78 and Tool 79 caps intact. Stanford HAI's 2026 Index Report independently lists **GPT-5.4 High as the top model at 50.6%** on its tracked reasoning eval (March 2026), corroborating the GPQA/HLE/ARC-AGI-2 74.0% strength side. Effort-tier chatter ("GPT-5.4 low" on AA) concerns other configs, not the base reading; the batch-wide index rebase remains scale drift.
+4. **Window bookkeeping:** OpenAI says **1.05M** (pricing doc), third parties say **1.1M** — same artifact, rounding; pass 1's resolved 1.05M and its Context 92 (no ≥98% MRCR proof) are unaffected.
+
+**Scores changed by this pass:** Cost 72→62 (outside Overall). Tool 79, Reasoning 78, Context 92, Multimodal 78, Coding 76 → Overall = half-up mean(79, 78, 92, 78, 76) = 403/5 = 80.6 → **81, unchanged**.
 
 ---
 
@@ -59,4 +76,5 @@ Multimodal / long context:
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the OpenAI GPT-5.4/GPT-5.5 launch posts, plus Artificial Analysis, Meta, ARC Prize, Epoch AI, Vals AI, Gert Labs and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (OpenRouter/Inworld/PricePertoken pricing triangulation, OpenAI model page for the >272K premium and 1.05M window, OpenAI deprecations + layer3labs lifecycle cross-check, Stanford HAI report for external standing); Cost re-anchored 72→62 on the verified $2.50/$15 + long-context surcharge, base id confirmed clean while the cyber variant's removal is logged as variant-only, hallucination cap and all rows uncontradicted — **only Cost moved; Overall remains 81**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

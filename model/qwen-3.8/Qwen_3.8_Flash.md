@@ -1,7 +1,7 @@
 # Qwen 3.8 — findings by Qwen 3.8 Flash
 
 - Source: Alibaba / Qwen (curated id `opencode/qwen-3.8`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 (UTC); second pass 2026-11-03 (UTC) — AA v4.3 reindexes this artifact at 40 (matches), $2/$6 pricing reconfirmed, 262K-vs-1M window conflict stands as scored, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,8 +65,26 @@ Speed: 37.8–38 output tokens/s (Artificial Analysis) — notably slow for the 
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-04); three independent sources consulted.
+
+**Sources:** Index placement — https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3 (**"GLM-5.3 and Kimi K3 continue to lead open weights … GLM-5.3 Flash (42) is the third strongest open weights model, followed by Qwen3.8 2.4T [A95B]"**) and https://x.com/ArtificialAnlys/status/2097025638695940590 (v4.3 announcement: **"Qwen3.8 2.4T A95B (40) and DeepSeek V4 Pro 0813 (max, 36)"**; 4 labs on the Intelligence-vs-Cost-per-Task Pareto frontier) — the 40 matches this report's row exactly · pricing — https://finance.yahoo.com/technology/ai/articles/qwen3-8-max-capability-war-162320284.html (**"API pricing at $2 per million input tokens and $6 per million output tokens on the OpenRouter aggregator"**) and https://www.developersdigest.tech/blog/qwen-3-8-max-release-2026 (**"$2/$6 per MTok … the first Max-class model Alibaba has ever open-[released]"**) · context-window conflict — https://www.mindstudio.ai/blog/qwen3-8-2-4t-a95b-release (**"adds vision input, non-thinking mode, a 1M token default context window"** — via Alibaba's Qwen Cloud service) and https://datanorth.ai/news/alibaba-releases-qwen3-8-max (hosted Max: **"2.4T parameter MoE model with 95B active, 1M token context and open weights due next week"**) vs https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b (tracked artifact still at the verified 262 K) · family — https://www.together.ai/models/qwen3-8-27b (the compact dense sibling is a separate artifact with its own registry folder) and https://www.reddit.com/r/LocalLLaMA/comments/1vrwn1f/ (community self-host runs on rented B200 clusters — open-weights path live).
+
+**What moved and how it was resolved:**
+
+1. **The Intelligence Index 40 is reconfirmed on AA's v4.3 build** — this artifact sits just behind GLM-5.3 Flash (42) in the open-weights class, exactly the ordering pass 1 captured (#6/118 in class). Reasoning 90's evidence (GPQA 92.6–93.7, HLE 43.6/56.2-with-tools) is uncontradicted; the middling index remains the stated cap, and the later v5 rebase (2026-10-27) is batch-wide scale drift — no band move.
+2. **The 262 K-vs-1 M window conflict resolved the same way again: the vendor/hosted 1 M claim is real for the QwenCloud endpoint, not for this self-hosted artifact.** MindStudio and Datanorth both repeat Alibaba's 1 M marketing figure for the hosted service; Artificial Analysis's tracked `qwen3-8-2-4t-a95b` page still does not reproduce it. Pass 1's decision — score the verified 262 K (Context 80, upper 200–500 K band), treat 1 M as unverified for this id — survives intact; the report already directs 1 M needs to `qwen-3.8-max`.
+3. **Cost 70 reverified.** $2/$6 per 1M confirmed by three independent write-ups (Yahoo/DevelopersDigest/Datanorth lineage) with the 88 % cached discount; the $2.16-per-task figure matches AA's Pareto note. No free hosted tier for this id; band unchanged, and Cost stays outside Overall.
+4. **Family bookkeeping:** Together's `Qwen3.8 27B` (dedicated endpoints, AA xhigh rows) is the compact dense sibling and belongs to `model/qwen-3.8-27b/` — its rows (and the as-yet-unindexed sibling chatter) were not merged here per the exact-ID rule. All scored agent/coding/multimodal rows (TB 2.1 86.6/67.4-Vals, SWE-bench 85.6, Video-MME 90.4, MRCR 92.9) stand uncontradicted; the AutomationBench-AA 27.3 % / OSWorld 2.0 19.4 % caps still bound Tool 88.
+
+**Scores changed by this pass:** None. Tool 88, Reasoning 90, Context 80, Multimodal 80, Coding 86 → Overall = half-up mean(88, 90, 80, 80, 86) = 424/5 = 84.8 → **85, unchanged**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-04
 - Method: fresh public internet research (Qwen release blog, Hugging Face model card, Artificial Analysis model page, BenchLM, Together AI, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Artificial Analysis v4.3 article + X announcement, Yahoo/DevelopersDigest/Datanorth pricing, MindStudio vs AA window-conflict adjudication, Together family page); index 40 reconfirmed, $2/$6 reverified, the hosted-1M claim again declined for this self-hosted artifact (Context 80 stands), sibling rows kept in their own ids — **no dimension changed and Overall remains 85**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

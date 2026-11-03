@@ -1,7 +1,7 @@
 # GPT 6 Sol — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-6 Sol (`opencode/gpt-6-sol`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — pricing verified at $2/$10 (Cost 65 provisional→verified) + 7-day replacement / 2027-04-01 shutdown window documented, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Pricing — https://benchlm.ai/blog/posts/gpt-6-models-compared (**"GPT-6.1 Sol and GPT-6 Sol cost $2/$10"** per 1M input/output) and https://www.getapipulse.com/model-deprecations.html (**"GPT-6 Sol. Input: $2.00 / 1M tokens … Output: $10.00 / 1M tokens … Still callable until scheduled shutdown 2027-04-01"**) and https://kie.ai/blog/what-is-gpt-6-1-sol (Sol's cached input **$0.20**, 90% discount, halved to $0.10 on the successor) · launch/lineage — https://artificialanalysis.ai/articles/gpt-6-sol-and-luna-push-the-cost-efficiency-frontier (**"GPT-6 Sol (max) gains 2 points in the AA Coding Agent Index at half the Cost per Task of its predecessor"**, article dated **2026-09-22**) and https://openai.com/index/introducing-gpt-6-1-sol/ (**"Cached input costs just $0.10 per million tokens—95% less"**; "substantial improvements over GPT-6 Sol in our alignment [evals]") · replacement speed — https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence (**"GPT-6.1 Sol replaces GPT-6 Sol after just 7 days"**, 2026-09-29) · still profiled — https://artificialanalysis.ai/models/comparisons/gpt-6-sol-vs-gpt-5-6-sol (exact id live on AA); https://developers.openai.com/api/docs/deprecations (deprecated models **"removed from the API on April 1, 2027, with six months' notice"**).
+
+**What moved and how it was resolved:**
+
+1. **Cost 65 provisional→verified — no numeric move.** Pass 1 wrote 65 on a "standard GPT-6-class pricing" guess with the exact rate unpublished. Three sources now fix it at **$2/$10 per 1M** (cached $0.20 at a 90% discount) — one bracket below the $3/$15 ≈ 60 anchor, consistent with the 65 already recorded. Provisional flag lifted.
+2. **Lifecycle pinned: a 7-day flagship shelf, then a 2027-04-01 shutdown window.** GPT-6 Sol launched 2026-09-22 and was replaced by GPT-6.1 Sol **after just 7 days** (AA); APIpulse places the exact id as *deprecated but still callable* until the **April 1, 2027** removal OpenAI's deprecations page announces with six months' notice. Registry-critical: this id is a legacy listing with a hard date — mirror of the gemini-3-pro watch-flag, but five months out rather than imminent; kept ranked.
+3. **Every scored row stands.** AA's launch analysis restates the pattern this report measured — +2 Coding-Index points at **half the Cost per Task of GPT-5.6 Sol** (consistent with the deep-but-narrow profile: Tool 86/Coding 78 on thin coverage). BenchLM's 30-row coverage note and the MLCR-AA 16.1% long-context weakness are uncontradicted by any second-pass source; conservative placements held per evidence limits.
+4. **AA v5 (2026-10-27) — batch-wide scale drift only.** Successor readings (6.1 Sol at 52 on v4.1; "1 point below GPT-6 Astra" on the current build) belong to `gpt-6-1-sol`'s own report per the exact-ID rule; no change to this base id's bands. The hidekazu lifecycle note (6-month/45-day Legacy periods for post-2026-09-07 launches) frames the 2027-04-01 date; no early shutdown announced.
+
+**Scores changed by this pass:** None. Cost 65 converted provisional→verified at the same value (outside Overall). Tool 86, Reasoning 82, Context 92, Multimodal 66, Coding 78 → Overall = half-up mean(86, 82, 92, 66, 78) = 404/5 = 80.8 → **81, unchanged**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the OpenAI GPT-6 Sol/Luna launch post and Astra system card, plus Artificial Analysis, Collinear and Google charts); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (BenchLM/APIpulse/Kie pricing triangulation, OpenAI 6.1-Sol post, Artificial Analysis launch + replacement articles, OpenAI deprecations page); $2/$10 verified lifting Cost 65's provisional flag, 7-day-replacement + 2027-04-01 shutdown documented as a legacy-with-date listing, all measured rows and evidence caps uncontradicted, successor numbers kept in their own id per exact-ID rule — **no dimension changed and Overall remains 81**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
