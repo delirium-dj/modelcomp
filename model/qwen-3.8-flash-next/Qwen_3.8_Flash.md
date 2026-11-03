@@ -1,7 +1,7 @@
 # Qwen 3.8 Flash Next — findings by Qwen 3.8 Flash
 
 - Source: Alibaba / Qwen (curated id `opencode/qwen-3.8-flash-next`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 (UTC); second pass 2026-11-03 (UTC) — AA v5.0 rebuild drops this id's Index 40→**32** (scale drift, no band move); AA independently confirms **180B/6B** weights (press "125B" trimmed) and the $0.15/$0.47 list with $0.016 cache; TB 2.1/SWE-V gaps persist (codingfleet: "no published TB 2.1 score yet"); localaimaster's "SWE-bench Verified 62.5" declined as Pro-row misattribution; bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,24 @@ Multimodal / long context:
 - **Context window: 78/100.** A 256/262 K window falls in the methodology's 200–500 K tier (65–84); AA-LCR 79.7 % at that length earns the upper part, and the absence of an MRCR/RULER retrieval figure plus undisclosed max output keeps it from the 85+ band.
 - **Multimodal: 82/100.** Image + video input with strong measured results (RealWorldQA 88.5 %, CharXiv 90.6 %, LVBench 76.6 %) maps to the "video/PDF in" band of 75–90; capped by text-only output and no audio input.
 - **Coding: 79/100.** SWE-bench Multilingual 81 %, LiveCodeBench v6 91.9 % and AA Coding Index 73.0 % are strong, but DeepSWE 58.7 % and SWE-Pro 62.5 % fall short of the methodology's frontier references (DeepSWE 74 %+), and no SWE-bench Verified row exists for the ID.
-- **Cost efficiency: 97/100.** $0.15 in / $0.47 out with an 89 % cache discount and $0.37 per Index task is one of the cheapest near-frontier routes, plus open weights for self-hosting; the 55 tok/s throughput and 1.7× median verbosity are the only deductions.
+- **Cost efficiency: 97/100.** $0.15 in / $0.47 out with an 89 % cache discount and $0.37 per Index task is one of the cheapest near-frontier routes, plus open weights for self-hosting; the 55 tok/s throughput and 1.7× median verbosity are the only deductions. (2026-11-03 second pass: Artificial Analysis independently re-publishes **"Input Price per 1M Tokens | $0.15 … Output Price per 1M Tokens | $0.47 … Cache Hit Price per 1M Tokens | $0.016"** and blended **"Price per 1M Tokens $0.0882"** — provisional→verified, band stands.)
 - **Overall Score: 82/100.** Mean of the five quality dimensions (85 + 85 + 78 + 82 + 79) / 5 = 82.2 → 82; Cost excluded per `RULES.md`. Best fit: high-volume agentic cowork and multimodal document/video reading at a fraction of flagship cost, provided you can verify its factual output.
+
+---
+
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-04); three independent sources consulted.
+
+**Sources:** Specs/pricing — https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-glm-5-3 (fetched 2026-11-03: **"Intelligence Index | 32"** on the v5.0 scale (**"AA Intelligence Index v5.0 incorporates 9 evaluations: AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0"**), v5.0 rows **"AA-Briefcase v1.1 1575 … Terminal-Bench 4.0 25%"**, **"Total parameters 180B / Active parameters 6B"**, **"Context Window 256k"**, **"Output Speed 54 tokens/s"**, price lines above) and https://www.modelscope.cn/models/Qwen/Qwen3.8-Flash-Next (**"This experimental preview of the architecture that will underpin Qwen4 is built around a fundamental rethinking"** — still labeled experimental preview; 125B-press-vs-180B artifact conflict now leans 180B per AA's own spec sheet) · benchmark gaps — https://codingfleet.com/blog/terminal-bench-leaderboard-2026/ (**"Qwen3.8-Flash-Next (125B/6B) has no published TB 2.1 score yet but reports 62.5% SWE-bench Pro and 58.7% DeepSWE 1.1"**) and https://www.morphllm.com/swe-bench-pro (**"Qwen3.8-Flash-Next leads open weights at 62.5%, just past GLM-5.2 at 62.1%"**) and https://atlabyte.com/en/ai (GPQA **91.7%**, HLE **35.9%**, OSWorld-class **19.4** echoed; Verified column empty) · declined row — https://localaimaster.com/models/swe-bench-explained-ai-benchmarks lists **"Qwen3.8-Flash-Next, 62.5%"** on a SWE-bench *Verified* page, but its own source note says **"llm-stats SWE-bench Pro aggregator, October 14, 2026"** — Pro row misattributed to Verified, declined per exact-ID rule · scale context — https://www.orcarouter.ai/blog/qwen-3-8-next-vs-qwen-3-8-max (launch-era **"Intelligence Index of 58 and a Coding Index of 71.8"** — pre-rebuild scale, logged un-averaged against today's 32).
+
+**What moved and how it was resolved:**
+
+1. **Index 40→32 = v5.0 rebuild cascade, not a capability event:** the same cascade recorded for inkling-small (40→25.7→13) and step-5-preview (43.7→29) in batch 5. Pass 1's bands were built from per-benchmark rows, so no dimension moves. Launch-era "58" (orcarouter) sits on the old scale — logged side by side.
+2. **Spec conflict resolved toward 180B:** AA's spec sheet independently reads 180B/6B against the same HF artifact; press's "125B" note stays logged. Context 78 (256K confirmed by AA), Tool 85 (GDPval 1648; TB 2.1 gap persists per codingfleet), Reasoning 85 (GPQA/HLE echoed by atlabyte), Multimodal 82, Coding 79 (Pro 62.5 verified as the *Pro* row; Verified still unpublished) unchanged. 85+85+78+82+79 = 409/5 = 82.2 → **Overall 82**.
+3. **Cost 97 provisional→verified:** AA re-publishes the exact $0.15/$0.47 + $0.016 cache + $0.0882 blended figures — band stands untouched; 54 tok/s confirms pass 1's 55.2 serving note.
+
+**Scores changed by this pass:** none (Cost converted provisional→verified at the same 97). **Overall remains 82.**
 
 ---
 
@@ -64,4 +80,5 @@ Multimodal / long context:
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-04
 - Method: fresh public internet research (Qwen HF model card reference via BenchLM/Artificial Analysis, Artificial Analysis technical specs, launch press coverage); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Artificial Analysis comparison page fetched directly, ModelScope, codingfleet, morphllm, atlabyte, orcarouter; localaimaster misattribution declined); 180B/6B resolved, Index 32 logged as v5.0 scale drift, Cost verified — **no dimension changed and Overall remains 82**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by Muse Glimmer 30B
 
 - Source: MiniMax / minimax-m3.1-flash-preview
-- Date: 2026-10-24
+- Date: 2026-11-03
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -63,6 +63,6 @@ Source: https://www.marktechpost.com/2026/10/19/minimax-m3-1-flash-release/
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-24
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

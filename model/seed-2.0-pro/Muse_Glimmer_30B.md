@@ -1,7 +1,7 @@
 # Seed 2.0 Pro — findings by Muse Glimmer 30B
 
 - Source: ByteDance Seed 2.0 Pro
-- Date: 2026-10-20
+- Date: 2026-11-03
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-10-20
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-03
 - Method: Public internet research using `meta.json` for specs/pricing; benchmarks from llm-stats, ByteDance Seed listings, ModelArk. Scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

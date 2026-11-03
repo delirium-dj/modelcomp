@@ -1648,7 +1648,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "MMMU-Pro", value: "86%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Step_5_Preview"] },
   ],
   "gpt-6.1-terra": [
-    { benchmark: "Terminal-Bench", value: "50.3%", raters: ["Big_Pickle", "Claude_Opus_4.6", "DeepSeek_4.1_Flash", "Flint", "GLM_5.3_Flash", "GPT_5.6_Luna", "GPT_5.6_Sol", "GPT_6_Astra", "GPT_6_Luna", "Gemini_3.5_Flash_Lite", "Gemini_3.8_Flash", "Laguna_XS_2.1", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B", "Step_5_Preview"] },
+    { benchmark: "Terminal-Bench", value: "50.3%", raters: ["Big_Pickle", "Claude_Opus_4.6", "DeepSeek_4.1_Flash", "Flint", "GLM_5.3_Flash", "GPT_5.6_Luna", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6_Astra", "GPT_6_Luna", "Gemini_3.5_Flash_Lite", "Gemini_3.8_Flash", "Laguna_XS_2.1", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B", "Step_5_Preview"] },
     { benchmark: "HLE", value: "46.2%", raters: ["Big_Pickle", "GPT_6_Luna", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
     { benchmark: "GDPval", value: "1476 Elo", raters: ["GPT_5.6_Luna", "Laguna_XS_2.1", "Mercury_3", "MiMo_2.6_Flash", "Step_5_Preview"] },
     { benchmark: "OSWorld", value: "74.2%", raters: ["Big_Pickle", "GPT_5.6_Luna", "GPT_6_Luna", "Gemini_3.8_Flash", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Nemotron_3.5_Super_VL_120B_A12B", "Step_5_Preview"] },
