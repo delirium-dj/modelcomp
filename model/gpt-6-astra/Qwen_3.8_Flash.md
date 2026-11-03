@@ -1,7 +1,7 @@
 # GPT-6 Astra — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-6 Astra (`openai/gpt-6-astra`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — AA Index v5 drift + GPT-6.1 Sol successorship noted, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,7 +85,20 @@ Long context:
 
 **New rows this pass (absent from the 2026-10-02 report):** BenchLM composite **84.94/100, #2/889** · **ExploitGym 42.4%** · **Agents' Last Exam 59.3%** · **GDP.pdf (AA) 31.0%** · **AA-AnalystAgent 51.2%** · **AA TB 4.0 59.1%** · **Bug Hunt Bench 45.0 fixes** (best in this batch) · **GeneBench-Pro 37.8%** · **MLCR-AA 35.0%** · **AA-Omniscience Index 43.4** · system-card **HealthBench 56.9 / 57.8→58.3 / 64.7 / 68.2 / Hard 36.6** · full official spec (922K input cap, 128K out, Apr 30 2026 cutoff, cache-write and >272K pricing steps, Fast-mode multiplier, endpoint matrix) · measured AA economics ($3.26/task, 47.3 tok/s, 60 M tokens).
 
-**Scores changed by this pass:** **Context 98 → 97** (922K input cap + the 2×/1.5× long-context price step) and **Cost 30 → 35** (cache at 90% off, concise output and a measured $3.26/task that beats Opus 5's $5.86, offset by cache-write/Fast-mode/long-context surcharges and 47 tok/s). **Tool use 90, Reasoning 96, Multimodal 70 and Coding 93 re-confirmed unchanged** — all feeding rows reproduced exactly, and the new agentic rows (ExploitGym 42.4, Agents' Last Exam 59.3, GDP.pdf 31.0, AnalystAgent 51.2) sit inside the bands already priced in. **Overall stays 89/100** (90 + 96 + 97 + 70 + 93 = 446 / 5 = 89.2 → 89). Curated queue Overall for this slug is 90.9, i.e. above the evidence-supported 89 — the gap is driven by the Multimodal ceiling (text+image in / text out), which the curated sheet does not penalize.
+**Scores changed by this pass (2026-10-09):** **Context 98 → 97** (922K input cap + the 2×/1.5× long-context price step) and **Cost 30 → 35** (cache at 90% off, concise output and a measured $3.26/task that beats Opus 5's $5.86, offset by cache-write/Fast-mode/long-context surcharges and 47 tok/s). **Tool use 90, Reasoning 96, Multimodal 70 and Coding 93 re-confirmed unchanged** — all feeding rows reproduced exactly, and the new agentic rows (ExploitGym 42.4, Agents' Last Exam 59.3, GDP.pdf 31.0, AnalystAgent 51.2) sit inside the bands already priced in. **Overall stays 89/100** (90 + 96 + 97 + 70 + 93 = 446 / 5 = 89.2 → 89). Curated queue Overall for this slug is 90.9, i.e. above the evidence-supported 89 — the gap is driven by the Multimodal ceiling (text+image in / text out), which the curated sheet does not penalize.
+
+---
+
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources. Two new facts, neither of which moves a band; **Overall stays 89**.
+
+1. **AA Intelligence Index v5 (published 2026-10-27) — version drift + category split.** On the recalibrated v5 scale GPT-6 Astra is reported **at/near the top (72 at high effort in AA's v5 launch article; 64 in a competing v5 readout)**, versus the **53 (#7/226) on v4** recorded above — the same jump seen across the field (Opus 5.5 58→68), so it is scale reweighting, not a new capability row. Coverage also **conflicts**: AA's v5 article headlines Astra leading the high-effort composite while another pass keeps Opus 5.5 top on knowledge-work. Because **Reasoning is already pinned at 96 by the record exact-ID absolutes** (GPQA 96.0/96.1, ARC-AGI-3 62.7, FrontierMath v2 Tier-4 97.6) rather than the composite, and Omniscience accuracy 62.6% / MLCR-AA 35% still cap it short of 100, **Reasoning holds at 96**.
+2. **GPT-6.1 Sol is now OpenAI's newer flagship** (openai.com/index/introducing-gpt-6-1-sol), so Astra is the immediately-prior generation rather than "top-ranked general model." The Sol launch discloses **per-task cost $5.47 (Sol) vs $23.80 (Astra)** — reinforcing Astra's premium economics already reflected in **Cost 35**. Astra's own spec/pricing ($10/$50, cached $1, 922K input cap, >272K surcharge), 1.05M window and MRCR 100/96.3 all reproduce exactly.
+
+**Net:** being superseded by Sol and the v5 index reweighting change Astra's *relative* standing in prose, but every exact-ID measurement feeding Tool 90 / Reasoning 96 / Context 97 / Multimodal 70 / Coding 93 reproduced, so **no dimension changes and Overall remains 89**.
+
+**Sources:** https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (2026-10-27) · https://openai.com/index/introducing-gpt-6-1-sol/ · https://openrouter.ai/openai/gpt-6-astra · https://www.datacamp.com/blog/gpt-6-astra · https://www.vellum.ai/blog/gpt-6-astra-benchmarks-explained
 
 ---
 
@@ -94,4 +107,5 @@ Long context:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the OpenAI GPT-6 Astra post and system card, plus Artificial Analysis, ARC Prize, Epoch AI, Vals AI and Collinear); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: OpenAI's own model card (spec + full price table + endpoint matrix) + OpenAI system card rows via BenchLM + Artificial Analysis live "(max)" page + BenchLM's October 9 snapshot + ARC Prize verification + four independent launch write-ups; ≥3 independent sources, conflicts compared rather than averaged. **Context (98 → 97)** and **Cost (30 → 35)** changed on newly disclosed official facts (922K input cap, 2×/1.5× long-context pricing, cache rates, measured $3.26/task and 60 M verbosity); every benchmark row behind Tool 90 / Reasoning 96 / Multimodal 70 / Coding 93 reproduced unchanged, so **Overall holds at 89**. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched Artificial Analysis' Intelligence Index **v5** article (2026-10-27), OpenAI's GPT-6.1 Sol launch post, OpenRouter/DataCamp/Vellum; ≥3 independent sources, v4-vs-v5 index conflict reported as version drift rather than averaged. **GPT-6 Astra is now superseded by GPT-6.1 Sol** and reads higher on the v5 scale, but every exact-ID row reproduced, so **no dimension changed and Overall remains 89**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

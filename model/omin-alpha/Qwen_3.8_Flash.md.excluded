@@ -1,0 +1,51 @@
+# Omin Alpha — findings by Qwen 3.8 Flash (self-excluded: no first-party model card and zero verified public benchmarks for this exact ID)
+
+- Source: curated id `opencode/omin-alpha` (`omin-alpha`)
+- Date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because, as of 2026-11-03, **no verifiable AI model named "Omin Alpha" with a first-party model card or published benchmarks could be found.** The folder contains **only a `meta.json`** (no `average.md`, no peer rater reports) and **`omin-alpha` does not appear in `model-queue.md`**, i.e. it is not an active ranked dataset entry. Web searches for "Omin Alpha" return only unrelated results (a Vietnamese audio-equipment brand and personal social posts) — an **evidence vacuum**. The nearest genuine artifact is a *different* name, **"Ox Alpha"**, which is described by its own coverage as an anonymous, **time-limited "stealth" free route on OpenCode Zen / OpenRouter** with a rumored lineage (e.g. "Hunter alpha was an early preview of V2-Pro") and **no first-party model card or independent benchmark row**. Per `RULES.md`, an anonymous / time-limited router route with no first-party card and zero verified benchmarks is self-excluded rather than scored, and re-attributing "Ox Alpha" specs to the distinct `omin-alpha` slug would risk double-counting a different artifact. No scores are asserted.
+
+## Model card (verified facts only)
+
+- **Name:** Omin Alpha
+- **Status:** **NOT VERIFIED as a distinct benchmarked model.** No first-party model card, vendor announcement, Artificial Analysis / BenchLM / OpenRouter model page, or reproducible benchmark table was found for the exact `opencode/omin-alpha` id.
+- **Provider / access / IDs:** curated id `opencode/omin-alpha` only; no upstream vendor endpoint or model page confirmed.
+- **Release / knowledge:** no verified release date or knowledge cutoff for this exact ID.
+- **Context window:** curated `meta.json` says "128K total" — scaffolded placeholder template; not corroborated by any first-party source.
+- **Modalities:** curated `meta.json` says "Text in/out" — placeholder template; unverified.
+- **Pricing:** curated `meta.json` "Standard pricing" — placeholder; no first-party price schedule exists.
+- **Architecture:** no verified architecture/parameter disclosure found for this exact entry.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found for this exact `omin-alpha` ID** — no first-party model card and no independent reproduction exist; the folder holds only a scaffolded `meta.json` and no `average.md`.
+
+Agent / tool use:
+
+- τ-bench / Terminal-Bench / MCP-Atlas / GDPval: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AA Intelligence Index / BenchLM: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- **No scores asserted.** This entry is self-excluded for zero verified benchmarks and no first-party model card on the exact ID; scoring it would require fabricating a capability profile or re-attributing the distinct "Ox Alpha" stealth-route specs, both prohibited by `RULES.md`. If a genuine "Omin Alpha" model card with first-party (or Artificial Analysis / BenchLM / OpenRouter) benchmark rows appears, replace this `.excluded` file with a scored `Qwen_3.8_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03
+- Method: public internet research — repeated WebSearches for `"Omin Alpha" AI model` and `opencode "omin-alpha"` returned only non-AI results (an audio brand named "OMIN Alpha" and unrelated social posts) plus, under a different spelling, coverage of **"Ox Alpha"** as an anonymous time-limited OpenCode Zen / OpenRouter "stealth" free route (codesy.tech, Reddit r/opencode, YouTube setup guides) with no first-party model card or benchmark row. The `model/omin-alpha/` folder was verified on-disk to contain only `meta.json` (no `average.md`, no peer reports), and `omin-alpha` is absent from `model-queue.md`. No benchmark values were invented or re-attributed. Self-excluded per `RULES.md` (zero verified benchmarks / no first-party card for the exact ID).
+- Revisit trigger: a first-party "Omin Alpha" model card with published benchmarks, or a vendor/AA/OpenRouter row under the exact `opencode/omin-alpha` id distinct from "Ox Alpha".
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one using the same headings.

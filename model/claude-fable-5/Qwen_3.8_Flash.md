@@ -1,7 +1,7 @@
 # Claude Fable 5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (curated id `opencode/claude-fable-5`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC); second pass 2026-11-03 (UTC) — AA Index v5 + successor/legacy re-check, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,27 @@ Missing for this ID (printed rather than invented):
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-07); three independent sources consulted. No peer report in this folder was opened (zero-influence rule).
+
+**Sources:** Artificial Analysis — **Intelligence Index v5** announcement https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (published **2026-10-27/28**; 2 new benchmarks + 3 upgrades, majority private data) and https://x.com/ArtificialAnlys/status/2094881171066978525 (**"Fable 5.1 tops the AA Index but costs 20% more per task than Fable 5 despite a 75% cache-read price cut"**) · Anthropic — https://www.anthropic.com/claude-fable-and-mythos-5-1 ("On tasks where these safeguards intervened, Fable 5.1 and Fable 5 scored a zero on OSWorld 2.0, and Fable 5 scored a zero on AutomationBench") and https://www.anthropic.com/claude/fable (Fable 5.1 at $10/$50, "matched or edged out Fable 5 at a lower cost") · Claude Platform docs — https://platform.claude.com/docs/en/models/fable-5/overview ("Although Claude Fable 5 is still available, you should consider migrating to Claude Fable 5.1", **Legacy models**) · independent benchmark rows — https://ofox.ai/blog/claude-fable-5-vs-opus-4-8-vs-gpt-5-5-swe-bench-2026/ (**SWE-bench Verified 95.0%**, SWE-bench Pro 80.3%), https://x.com/claudeai/status/2094848581425377479 (**Terminal-Bench 4.0: Fable 5 42.0% vs Fable 5.1 55.8%**), https://askclash.ai/ai-leaderboard/claude-fable-5.
+
+**What moved and how it was resolved:**
+
+1. **AA Intelligence Index v5 (2026-10-27).** The v5 re-cut puts **Fable 5.1 / Opus 5.5 at the top**; the "Fable 5 #1" and "Index 60 (v4.1)" readings are pre-v5 artifacts, and AA's frozen deprecated-ID page still carries the pass-1 Index ~50. **Index-version scale drift + a legacy confirmation**, not a capability change to the model — **Reasoning stays 84** on its unchanged rows (GPQA 92.6/93.2, ARC-AGI-2 89.2, Omniscience 63.6% hallucination).
+2. **New Terminal-Bench 4.0 row (42.0%) for Fable 5** (vendor comparison table vs Fable 5.1 55.8%) — a hard new-generation harness the first pass had only as TB 3.0 34.0% / ApprenticeBench 34%. TB 4.0 42.0% is *better* than those, so it neither helps nor hurts the existing **Tool 88**, which already carries the "hard new-gen harnesses still bite" + missing-τ³/Toolathlon/Claw-Eval penalty. Recorded, band unchanged.
+3. **Cost.** $10/$50 list unchanged; AA now notes the successor Fable 5.1 costs **~20% *more* per task** than Fable 5 despite identical list price (Fable 5 is the more concise caller). That softens the "dominated by successor" narrative but the model is still the most expensive rate in the lineup at $8.75/task (#110/225) with 130M verbosity — **Cost efficiency stays 28**.
+4. **Safeguard-zero caveat.** Anthropic states Fable 5 scored **zero on OSWorld 2.0 and AutomationBench on the safeguard-intervened subset** (fallback to Opus 4.8). Conditional (only the refused subset), so noted as a caveat under the existing missing-harness penalty, not a band change.
+5. **Lifecycle.** Vendor docs + AA deprecation banner still direct migration to Fable 5.1; SWE-bench Verified 95.0% reproduced (ofox). Nothing that raises a quality band.
+
+**Scores changed by this pass:** **None.** Tool 88, Reasoning 84, Context 96, Multimodal 70, Coding 92, Cost 28 all re-confirmed; **Overall stays 86/100** (88 + 84 + 96 + 70 + 92 = 430 / 5 = 86.0 → 86, Cost excluded).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Anthropic platform docs `models/fable-5/overview` — full spec tables for lifecycle/IDs/pricing/capabilities/cutoffs/availability, plus the lineup-comparison table and the models-overview page that lists Fable 5 under **Legacy models**; Artificial Analysis `models/claude-fable-5` — deprecation banner, measured configuration "Max, Opus 4.8 Fallback", Index 50, $8.75/task, 64.6 tok/s, 130M verbosity with class medians; BenchLM `models/claude-fable` — 42-row coverage with per-row source attribution to AA, Vals AI, ARC Prize, Cognition, Proximal, Cursor, NeoCognition and the Anthropic system card; the Fable 5 / Mythos 5.1 announcement snippet for the legacy-vs-Opus-5 datapoint), plus the curated `model/claude-fable-5/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule (the folder's existing `GLM_5.3_Flash.md`, `MiMo_2.6_Flash.md` and `average.md` were deliberately left unread). Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** unusually strong and dual-sourced — most headline rows exist in both a vendor and an independent version (SWE-bench Verified agrees exactly at 95, Terminal-Bench 2.1 differs by 3.8 pt and was scored on the lower) — but the ID is **deprecated** (AA freezes non-default workloads), BenchLM covers only **42 of 623** tracks, τ³/Toolathlon/Claw-Eval/AutomationBench/MRCR have no row, and AA's numbers describe a **fallback configuration** rather than a bare model call.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (AA Index v5 announcement/model page, Anthropic Fable & Fable 5.1 pages, Claude Platform legacy docs, ofox/claudeai/askclash benchmark rows); AA v5 treated as scale drift + legacy confirmation, new TB 4.0 42.0% recorded within the existing Tool-88 hard-harness penalty, $10/$50 unchanged (successor ~20% costlier per task per AA), safeguard-zero caveat noted; **no dimension changed and Overall remains 86**. Prior pass retained verbatim per `RULES.md`.

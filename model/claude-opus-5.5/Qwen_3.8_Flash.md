@@ -1,7 +1,7 @@
 # Claude Opus 5.5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Opus 5.5 (`anthropic/claude-opus-5-5`)
-- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; official launch-post table and Artificial Analysis re-fetched, scores re-checked
+- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; official launch-post table and Artificial Analysis re-fetched, scores re-checked — **third pass 2026-11-03 (UTC)**; Artificial Analysis Intelligence Index v5 (published 2026-10-27) incorporated, bands re-confirmed unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,9 +85,22 @@ Deep re-research across official + independent + third-party sources; scores abo
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Re-research triggered by the one-week staleness rule (prior pass 2026-10-09). Three independent sources re-checked; the only material change is a methodology event, not a capability event, so **no band moves and Overall stays 90**.
+
+1. **Artificial Analysis Intelligence Index v5 published 2026-10-27.** Claude Opus 5.5 (max) **leads the new v5 composite at 68**, ahead of GPT-6 Astra (max) 64 and Claude Fable 5.1 (max) 60; GPQA Diamond was removed from the Index in the v5 reweight. This is a **scale recalibration, not a jump in this model's measured ability** — Opus 5.5 was already **#1/226 on v4 at 58** (the figure recorded above). Because v4 and v5 are not directly comparable, the earlier "v4 Index ≥60 would lift Reasoning" gate is re-stated against v5 only as corroboration that the model still **leads the field**: **Reasoning stays 94**, **Overall stays 90**.
+2. **Confirmed unchanged on fresh coverage:** GDPval-AA **1846** Elo, Terminal-Bench 4.0 **66.4% (xhigh; AA 59.6)**, OSWorld 2.1 81.8 partial, pricing **$4/$20 / $0.20 cache / Fast $8/$40**, and the "40% cheaper than Opus 5" claim all reproduce (askclash ranks Opus 5.5 **#1 overall 78.1 with Terminal-Bench 59.6**; kingy.ai and the 2026-09-22 Anthropic launch post agree).
+3. **Tighter field noted, not penalized:** AA's Sonnet 5.5 note scores Sonnet 5.5 at **56 (v4), 2 behind Opus 5**, and trackers report **Kimi K3.1 Pro** edging Opus 5.5 on some shared rows (e.g. Terminal-Bench 4 65.7 vs 59.6) — but Opus 5.5 remains the top Opus/agentic flagship on the v5 composite, so no dimension is lowered.
+
+**Sources:** https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (2026-10-27) · https://artificialanalysis.ai/articles/claude-opus-5-5 · https://www.anthropic.com/claude-opus-5-5 · https://askclash.ai/ai-leaderboard/claude-opus-5-5 · https://kingy.ai/blog/claude-opus-5-5-specs-benchmarks-pricing-comparison/
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Anthropic launch post and Claude Opus 5.5 System Card, plus Artificial Analysis and ARC Prize leaderboards); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: official Anthropic launch post (benchmark + pricing tables, effort/safeguard footnotes), Artificial Analysis "(Max, Default Fallback)" page, Anthropic fallback help article, System-Card commentary and four independent reviews; conflicts compared rather than averaged. Changes made where evidence supported them: **Tool use 94→96** (OSWorld 2.1 81.8 replaces the OSWorld 2.0 48.7 cap; AutomationBench 40.0 explained as a no-fallback protocol artifact against AA's 69.5), **Cost 55→58** (verified $4/$20/$0.20-cache and $8/$40 Fast mode), **pricing/effort/safeguard caveats added to the model card**; Reasoning, Context, Multimodal and Coding re-confirmed unchanged and **Overall remains 90**. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched Artificial Analysis (Intelligence Index **v5**, published 2026-10-27, where Opus 5.5 leads at 68 on the recalibrated scale), the 2026-09-22 Anthropic launch post, and two independent leaderboard/review pages; conflicts (v4 58 vs v5 68) reported as index-version drift rather than averaged. **No dimension changed — Overall remains 90**; second-pass findings retained verbatim above per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

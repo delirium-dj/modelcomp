@@ -1,7 +1,7 @@
 # Claude Opus 5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Opus 5 (`anthropic/claude-opus-5`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — AA Index v5 + successor economics re-check, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -87,9 +87,27 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources consulted.
+
+**Sources:** Artificial Analysis — **Intelligence Index v5** announcement https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (published **2026-10-27**; 2 new benchmarks + 3 upgrades, majority private test data) and https://cellcog.ai/blog/artificial-analysis-intelligence-index-v5/ (**Opus 5.5 at max effort leads v5 at 58**) · Anthropic — https://www.anthropic.com/claude-opus-5-5 (**"Opus 5.5 … costs 40% less to run than Opus 5 on typical workloads"**) and Claude Platform release notes https://platform.claude.com/docs/en/release-notes/overview (Opus 5.5 1M / 128K / always-on adaptive thinking at **$4 / $20**, "Claude Opus 5 is $5 / $25") · independent spec/price confirmations — https://kingy.ai/blog/claude-opus-5-specs-benchmarks-pricing/ (**$5/$25 standard; $10/$50 API-only Fast mode**), https://www.cosmicjs.com/blog/claude-opus-5-5-vs-opus-5, https://www.layer3labs.io/guides/claude-opus-5-explained · SWE-bench — https://www.vals.ai/benchmarks/swebench (**Opus 5 (Mini-SWE-agent) ranks first on SWE-bench Verified** as of 2026-09-01).
+
+**What moved and how it was resolved:**
+
+1. **AA Intelligence Index v5 (2026-10-27).** The v5 re-cut (2 new benchmarks + 3 upgrades, majority-private data) puts **Opus 5.5 at #1 (58)**; the launch-era "Opus 5 is narrowly the most intelligent" framing (X/BenchLM Index 50.8→51) predates v5. This is **index-version scale drift plus a lifecycle confirmation** (Opus 5 is Active (legacy)), not a capability decline of the model itself — **Reasoning stays 95** on its unchanged system-card rows (ARC-AGI-2 90.4%, IMO 42/42, GPQA 93.2%, HLE 64.7%).
+2. **Successor economics sharpened.** Anthropic now states Opus 5.5 "costs **40% less to run** than Opus 5 on typical workloads" (list price $4/$20 = 20% lower; the 40% is their run-cost framing). Combined with Opus 5's own $5/$25, cache-write premium above input, AA's $5.86/task bottom-half rank and 140 M verbosity, **Cost efficiency stays 48** — the legacy id is now more clearly dominated on cost by its successor, but no new fact moves the band further.
+3. **Coding corroborated.** Opus 5's **SWE-bench Verified #1** (Vals, Mini-SWE-agent, 2026-09-01) independently supports the record-class **Coding 96** already anchored by SWE-bench Verified 96 / VulcanBench CII 96.4 / AA Coding Index 78.
+4. **Fast mode price.** $10/$50 API-only Fast mode recorded as an additional cost caveat (does not change the standard-tier Cost score).
+
+**Scores changed by this pass:** **None.** Tool 95, Reasoning 95, Context 96, Multimodal 78, Coding 96, Cost 48 all re-confirmed; **Overall stays 92/100** (95 + 95 + 96 + 78 + 96 = 460 / 5 = 92.0 → 92, Cost excluded).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Anthropic Claude Opus 5 post and System Card, plus Artificial Analysis, Vals AI, Epoch, Cursor and VulcanBench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Anthropic's own Opus 5 model page + models overview + launch post + System Card, cross-checked against Artificial Analysis (live "(max)" page) and BenchLM's October 9 snapshot, plus Anthropic PDF-support/Files docs and three independent pricing/context write-ups; ≥3 independent sources, conflicts compared rather than averaged. Only **Cost efficiency** changed (50 → 48) — the price table, cache-write premium, per-task cost, verbosity and legacy status are now measured, while every capability row behind Tool 95 / Reasoning 95 / Context 96 / Multimodal 78 / Coding 96 reproduced unchanged, so **Overall holds at 92**. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (AA Index v5 announcement/model pages, Anthropic Opus 5.5 page + release notes, kingy/cosmic/layer3 pricing write-ups, Vals SWE-bench); AA v5 (#1 Opus 5.5 at 58) treated as scale drift + legacy confirmation, successor 40%-cheaper-to-run framing reinforces Cost 48, SWE-bench Verified #1 corroborates Coding 96; **no dimension changed and Overall remains 92**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

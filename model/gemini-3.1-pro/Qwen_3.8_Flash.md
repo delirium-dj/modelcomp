@@ -1,7 +1,7 @@
 # Gemini 3.1 Pro — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 3.1 Pro (`google/gemini-3.1-pro`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — still preview, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,9 +85,23 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources. **No band moves; Overall stays 85.**
+
+1. **Still preview, not GA.** `gemini-3.1-pro-preview` remains the live id on OpenRouter, Google Cloud Model Garden and Artificial Analysis (release date still Feb 19, 2026); the second pass's "before we make it generally available soon" has not converted to GA, so the agentic preview-harness caveat that caps **Tool use at 72** is still live.
+2. **Superseded within the Gemini line.** The launch-window claim that 3.1 Pro "leads the AA Intelligence Index / is the new leader" (Feb 2026) has been overtaken by Gemini 3.5 Flash, 3.8 Flash and the Gemini 4 (Argon/Carbon) generation; its Index stays ~30 (#95/226, v4) and GDPval-AA normalized remains far below the current ~68% leaders (Opus 5.5 / Muse Wonder Full / Kimi K3.1 Pro) — no reasoning or tool gain.
+3. **Coding corroborated:** third-party write-ups put SWE-bench Verified at **80.6%** and LiveCodeBench Pro at ~2887 Elo (report used Vals SWE-bench 78.8 / LCB 88.5) — a small upward restatement that stays inside the **Coding 85** band (AA Coding Index 68.8 and Vibe 32% still cap it).
+4. **Pricing reproduces:** $2.00/$12.00 (≤200K), $4.00/$24.00 above; no free tier on the preview id → **Cost 70** and **Context 93** unchanged.
+
+**Sources:** https://openrouter.ai/google/gemini-3.1-pro-preview · https://cloud.google.com/model-garden/pricing · https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro · https://benchlm.ai/benchmarks/gdpvalaanormalized · https://www.stack-junkie.com/blog/gemini-3-1-pro-coding-benchmarks
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Google Gemini 3.1 Pro post, Meta Muse Spark comparison charts, Artificial Analysis, Vals AI, Epoch AI, Claw-Eval); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Google official model page + Google Developer pricing tables + Google launch post, cross-checked against Artificial Analysis (live model page) and BenchLM's October 9 snapshot, plus llm-stats/Vals/Epoch/ARC attributions; ≥3 independent sources, conflicts compared rather than averaged. Only **Context (95 → 93)** and **Cost (85 → 70)** changed, because only the structural facts changed (verified 1,048,576-token limit, verified tiered rate card, no free tier); every benchmark row feeding Tool 72 / Reasoning 82 / Multimodal 92 / Coding 85 reproduced unchanged, so **Overall holds at 85**. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched OpenRouter, Google Cloud Model Garden pricing, Google Cloud model docs, BenchLM GDPval leaderboard and coding-benchmark write-ups; ≥3 independent sources. Confirmed **still preview** (no GA/pricing change), superseded within the Gemini line, and SWE-bench Verified 80.6% corroborates the existing Coding band — **no dimension changed and Overall remains 85**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

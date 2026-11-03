@@ -1,7 +1,7 @@
 # Gemini 3.8 Flash — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 3.8 Flash (`google/gemini-3.8-flash`)
-- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; DeepMind card rows, Artificial Analysis, BenchLM composite, Vals and press coverage re-checked
+- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; **third pass 2026-11-03 (UTC)** — DeepMind card rows, Artificial Analysis, BenchLM composite, Vals and press coverage re-checked; third pass: AA Index v5 + knowledge-cutoff/intro-price confirmations, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,9 +85,27 @@ Long context / multimodal:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources consulted.
+
+**Sources:** Google DeepMind model card — https://deepmind.google/models/model-cards/gemini-3-8-flash/ (**knowledge cutoff now disclosed: March 2026** — first pass recorded it as "not disclosed") · Google AI Studio "What's new in Gemini 3.8 Flash" — https://aistudio.google.com/docs/whats-new-gemini-3-8 (**introductory $0.75/1M in / $3.75/1M out valid through December 31, 2026**) · Google deprecations page — https://ai.google.dev/gemini-api/docs/deprecations (gemini-3.8-flash released 2026-09-02, **no shutdown date announced**; supersedes 3.7-flash) · Artificial Analysis — https://artificialanalysis.ai/ and https://artificialanalysis.ai/models/comparisons/gemini-3-8-flash-vs-glm-5-3-flash (**Intelligence Index v5.0** = 9 evals: AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, …; new v5 #1 is **Gemini 4 Carbon**) · launch/price coverage — https://blog.google/…/3-8-flash-and-3-8-flash-cyber/, https://emergent.sh/learn/gemini-3-8-flash-benchmarks, https://openrouter.ai/google/gemini-3.8-flash.
+
+**What moved and how it was resolved:**
+
+1. **AA Intelligence Index v5 (2026-10).** The v5 re-cut (9-eval basket, Terminal-Bench → 4.0, FrontierCode 2.0 added) lifts **Gemini 4 Carbon** to #1; Gemini 3.8 Flash's live "High" reading stays ~41 (the widely-circulated launch-week "59" remains an older-index artifact already refuted in the second pass). This is **index-version scale drift, not a capability change** to this id — **Reasoning holds at 88**.
+2. **Knowledge cutoff.** The card now states **March 2026**; folded into the model card as a corrected fact. No score impact (Reasoning is anchored on benchmark rows, not the cutoff).
+3. **Pricing is *introductory*.** Confirmed $0.75/$3.75 **through 2026-12-31** — the second pass already scored the measured economics (AA $1.24/task High, Pareto-frontier, tempered by 170 M verbosity and the ~40% real-world cost rise vs 3.7 Flash). The expiry means the list rate can step up after 2026-12-31; **Cost efficiency stays 92** on today's verified price, flagged for re-check at the intro window's close.
+4. **Successor / GA check.** 3.8 Flash is current GA (no shutdown announced); the newer 4-series (Argon, Carbon) are a different tier already tracked in their own folders. Nothing to fold into this id.
+
+**Scores changed by this pass:** **None.** Tool 85, Reasoning 88, Context 96, Multimodal 90, Coding 88, Cost 92 all re-confirmed; **Overall stays 89/100** (85 + 88 + 96 + 90 + 88 = 447 / 5 = 89.4 → 89, Cost excluded).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Google DeepMind model card, plus Artificial Analysis, Vals AI, ARC Prize, Cursor and DeepSWE leaderboards); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: DeepMind model card + Artificial Analysis live pages + BenchLM (Oct 9 snapshot) + Vals/ARC/DeepSWE/Cursor leaderboards + four independent write-ups; ≥3 independent sources, conflicts compared rather than averaged. Only **Cost efficiency** changed (88 → 92) because only the economics evidence changed (verified rate card, cache discount, AA per-task cost and Pareto position, plus the verbosity caveat); the widely-circulated "AA Index 59" is refuted by AA's own current pages (41/40.9) so Reasoning holds at 88. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (DeepMind card, AI Studio what's-new, deprecations page, Artificial Analysis v5, launch/price coverage); AA Index v5 (#1 now Gemini 4 Carbon) treated as scale drift, knowledge cutoff corrected to March 2026, $0.75/$3.75 confirmed *introductory* through 2026-12-31 (cost re-check flagged); **no dimension changed and Overall remains 89**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

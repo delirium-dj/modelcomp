@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 4 Argon (`opencode/gemini-4-argon`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — GA/access caveat resolved, capability bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,9 +85,24 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources. The one structural fact that moved is the model's **availability**, which was the second pass's explicitly named *binding constraint* — it is now resolved, but **no capability row changed, so all five quality bands and Overall (89) are held**.
+
+1. **Gemini 4 Argon reached General Availability on 2026-10-13** — API GA worldwide plus a gradual Gemini-app rollout for Ultra/Pro (SmartScope, techpilot, cellcog), and it now ships on **Google Cloud Vertex** (cloud.google.com blog) and **OpenRouter `google/gemini-4-argon`** with an official AI-Studio developer guide. The pass-2 caveats "Fairwind-only, no GA date, no published API model ID, not on OpenRouter/Vertex" are **obsolete**; "1 API provider" on Artificial Analysis has broadened to the normal multi-provider footprint.
+2. **Pricing confirmed, not placeholder:** **$2.00 in / $10.00 out (intro through 2026-11-30), standard $4.00/$20.00, cached input 95% off ($0.10/M)** (OpenRouter + Google Cloud). The prior "end date unconfirmed" gap is closed — the discount expires **Nov 30, 2026** — but since the intro rate is still in force at research time, **Cost holds at 65** (same intro/standard blend).
+3. **Capability rows reproduce:** AA **Intelligence Index still 53** ("equals GPT-6 Astra … at 60% of the cost per task" — AA on X), **DeepSWE v1.1 77.9%** and **Vals Index #1** reaffirmed by DataCamp; AA's new **v5** composite is led by a different model (Gemini 4 Carbon), which does not move Argon's standing. With GA + OpenRouter/Vertex listing, the "no third-party reproduction of Google's table" caveat is fading, but no independent higher row has landed yet, so **Tool 90 / Reasoning 90 / Coding 88 stay**.
+
+**Net effect:** the reason this report sat below the curated queue score (90.4) — restricted pre-GA access — no longer applies; it is now a generally available flagship. Because the dimension evidence is unchanged, **Overall remains 89**; a future pass may revisit the ceiling if GA-era third-party reproductions push GDPval past the 1750 reference or add an ≥98%-at-512K retrieval row.
+
+**Sources:** https://smartscope.blog/en/blog/gemini-4-argon-access-introductory-pricing-2026/ · https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud · https://openrouter.ai/google/gemini-4-argon · https://aistudio.google.com/learn/gemini-4-argon-developer-guide · https://x.com/ArtificialAnlys/status/2105392625788637299 · https://www.datacamp.com/blog/gemini-4-argon
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing Google's Gemini 4 Argon evals methodology and launch chart, plus Artificial Analysis, Collinear and Proximal); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Google's official launch post and DeepMind evals-methodology attribution, cross-checked against Artificial Analysis' live model page **and** its launch analysis (which disagree with each other on modality), BenchLM's October 9 snapshot, and NeuralTrust's independent review compiling DataCamp / MarkTechPost / VentureBeat / Trending Topics / Vals AI / The Decoder; 5 sources fetched, ≥3 independent searches, conflicts compared rather than averaged. Only **Context (88 → 92)** and **Cost (60 → 65)** changed, because only the structural facts changed (verified 1M window + 1M-output continuation, verified intro/standard rate card, 95% cache discount); every benchmark row feeding Tool 90 / Reasoning 90 / Multimodal 85 / Coding 88 reproduced within rounding, so **Overall moves 88 → 89** on the re-derived mean. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched Google Cloud/Vertex GA announcement, OpenRouter model page, AI-Studio developer guide, DataCamp and Artificial Analysis; ≥3 independent sources, conflicts compared not averaged. **Access caveat resolved (GA 2026-10-13; intro pricing confirmed through 2026-11-30)** but every capability row (Index 53, TB 57.4, DeepSWE 77.9, 1M ctx, $2/$10→$4/$20) reproduced, so **no dimension changed and Overall remains 89**; the pre-GA discount rationale is retired. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

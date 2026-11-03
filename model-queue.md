@@ -120,9 +120,9 @@
 75.6 mistral-medium-3.5
 75.6 qwen-3.5-flash-lite
 75.4 gpt-5.1-codex-max
+75.1 qwen-3.7
 75 deepseek-v4-flash
 74.9 gpt-5.4-nano
-74.9 qwen-3.7
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
 74.6 glm-5.2
@@ -198,7 +198,9 @@
 52 neomorph
 52 omi-alpha
 51 owo-2.5
+50 mercury-3
 49.5 nemotron-3.5-bolt-e4b
 46.6 mai-experimental-test
 40.8 jev-1.13
 40.7 qwen-3.5-0.8b
+32.4 mercury-2

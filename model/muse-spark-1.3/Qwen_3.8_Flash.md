@@ -1,7 +1,7 @@
 # Muse Spark 1.3 Max — findings by Qwen 3.8 Flash
 
 - Source: Meta Superintelligence Labs / Muse Spark 1.3 Max (`meta/muse-spark-1.3`, reasoning effort `max`)
-- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; scores recalculated there, original findings preserved
+- Date: 2026-10-02 (UTC) — **deep second pass 2026-10-09 (UTC)**; scores recalculated there, original findings preserved — **third pass 2026-11-03 (UTC)**; AA Intelligence Index v5 (2026-10-28) + fresh leaderboard rows re-checked, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,10 +69,24 @@ Deep re-research (official model card + two independent aggregators + third-part
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources re-checked. Rows refined, **no band moves, Overall stays 90**.
+
+1. **AA Intelligence Index v5 published 2026-10-28** (adds FrontierCode 2.0 / AA-Omniscience v1.1 / GDP.pdf, upgrades Terminal-Bench to 4.0). Artificial Analysis had not surfaced a fresh single-number v5 Index for `muse-spark-1.3 (max)` at research time (the v5 launch article headlines the Meta line via Muse Wonder 52/56 on v4.3), so **Reasoning stays anchored on the recorded v4 Index 48 (#23/226)** and is not moved on a scale change alone. GPQA **#5/324** and HLE **#18/341** on OpenRouter corroborate the existing 89.
+2. **τ³-Banking up to 52%, #1** (AA/X launch note) vs the 50.5 recorded — a genuine strength bump, but Tool use was already capped by terminal/computer-use, so it does not lift the band.
+3. **Terminal-execution cap reinforced:** tbench.ai now lists **Muse Spark 1.3 (xhigh) 14.5% ±2.9 on Terminal-Bench 4.0** (below the 24.75/33.3 already in the card), confirming the harness-version weakness that keeps **Tool use at 90** and **Coding at 88**.
+4. **Unchanged economics/spec:** pricing still **$1.25/$4.25** (contributor SKU 12.5× cheaper), **1M context**, text+image+video in / text out — no change to Cost 90 / Context 98 / Multimodal 85. askclash ranks Muse Spark 1.3 #12 vs Qwen3.8 Max #13 (wins 7/10 shared), consistent with the frontier-generalist read.
+
+**Sources:** https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (2026-10-28) · https://artificialanalysis.ai/articles/muse-spark-1-3 · https://www.tbench.ai/ · https://openrouter.ai/meta/muse-spark-1.3 · https://askclash.ai/ai-leaderboard/qwen3-8-max-vs-muse-spark-1-3
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Vals AI independent model page + benchmark tables for `meta/muse_spark_1_3_max` max-effort rows; Meta dev docs for the modality/pricing/1M-131K spec; BenchLM `muse-spark-1-3` **standard-lane** rows explicitly quarantined). Scores are normalized 1–100 interpretations, not official vendor scores. Key finding recorded for the cohort: the rater disagreement (Kimi K3 75 vs Muse Spark 1.3 self-report 94) is a **lane-mixing artifact** — GPQA 93.5 / TB 2.1 88.8 / MRCR 98.5 / DeepSWE 75.4 are measured on the base 1.3, not the Max variant, while Max's own Vals rows (TB 4.0 24.75, CUA 5.83, ProofBench 58, Vibe 85.86) tell a knowledge-work-strong / execution-weak story. Also flagged that the curated `meta.json` (128K/text-only) understates the verified 1M text+image+video+file model.
 - Revisit trigger: if Meta or Artificial Analysis publish audited Max-variant GPQA/HLE/SWE-Verified/Omniscience rows (rather than the base-tier proxies), research deeper and re-score; keep this file as history.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: official Meta model card + Meta research launch post + Artificial Analysis "(max)" page + BenchLM page (Oct 9 snapshot) + OpenRouter/Vals/mindstudio cross-checks; ≥3 independent sources, conflicts compared rather than averaged. Scores raised (Tool 82→90, Reasoning 84→89, Coding 78→88, Cost 88→90, Overall 85→90) **only** because the primary sources reclassify the frontier rows as Max-variant measurements; Context 98 and Multimodal 85 re-confirmed unchanged. The 2026-10-02 findings and the superseded lane-split reasoning are left verbatim above as history, per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched Artificial Analysis (Intelligence Index **v5**, 2026-10-28, plus the Muse Spark 1.3 article), tbench.ai, OpenRouter and askclash; conflicts compared, not averaged. τ³-Banking rose to 52 (#1) and Terminal-Bench 4.0 (xhigh) confirms a 14.5 terminal cap — both land inside existing bands, so **no dimension changed; Overall remains 90**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

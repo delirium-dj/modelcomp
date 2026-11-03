@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Fable 5.1 (`anthropic/claude-fable-5.1`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — AA Index v5 + successor check, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -83,9 +83,22 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); independent sources re-checked. **No band moves; Overall stays 90, Cost stays 30.**
+
+1. **AA Intelligence Index v5 (2026-10-27):** Fable 5.1 (max) reads **60** on the recalibrated scale, versus **53 (#5/226) on v4** recorded above — behind Claude Opus 5.5 (68) and GPT-6 Astra (64), i.e. the **same relative order as v4**, just a higher absolute from the reweighting. Because Reasoning (93) is anchored on exact-ID absolutes (HLE 65, GPQA-Diamond 93.7, ARC-AGI 97.5/90, MLCR-AA 71.1) and capped by CritPt 29.7 / Omniscience hallucination 72.6% — none of which changed — **Reasoning holds at 93**.
+2. **No successor:** Fable 5.1 remains Anthropic's **current Fable** model (Fable 5 is now flagged legacy); no "Fable 5.2" exists at research time, so this entry is not superseded.
+3. **Economics reproduce:** $10/$50 list, **$0.25 cache read (deepest discount in Anthropic's lineup)**, and AA's measured **$7.63/task on 190 M tokens** all stand; OpenRouter adds a **Fable 5.1 (Medium, fallback) Terminal-Bench 4.0 44.9%** effort-tier row consistent with the max-effort 55.8% already used. Cost stays **30** (measured per-task cost is still the driver, not the cache discount).
+
+**Sources:** https://artificialanalysis.ai/models/claude-fable-5-1 · https://openrouter.ai/anthropic/claude-fable-5.1 · https://neuraltrust.ai/blog/claude-fable-5-1-vs-gpt-6-astra-benchmark · https://platform.claude.com/docs/en/models/fable-5/overview · https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Anthropic Fable 5.1/Mythos 5.1 system card, plus Artificial Analysis, Vals AI, Cursor, NeoCognition and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Anthropic's own Fable 5.1 model page + models overview + announcement + System Card, cross-checked against Artificial Analysis (live "(max, default fallback)" page) and BenchLM's October 9 snapshot, plus five independent write-ups; ≥3 independent sources, conflicts compared rather than averaged. **No score changed** — the single moving benchmark row (GDPval-AA 1735 → 1758) and the newly verified economics (cache reads $0.25 against a measured $7.63/task on 190 M tokens) both land inside bands already priced in, so **Overall holds at 90** and **Cost holds at 30**. New structural facts recorded: Sep 1 2026 release, Jun 2026 cutoffs, hard 128K output (no batch 300K beta), Mythos 5.1 spec/price equivalence, and Anthropic's own "start with Opus 5.5" guidance. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: re-fetched Artificial Analysis model page + Intelligence Index v5 article, OpenRouter, NeuralTrust and the Anthropic platform overview; ≥3 independent sources. **AA v5 reads 60 (v4 53) — index-version drift, same relative standing**; Fable 5.1 confirmed current (no successor) and all cost/spec rows reproduced, so **no dimension changed and Overall remains 90 / Cost 30**. Prior passes retained verbatim per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
