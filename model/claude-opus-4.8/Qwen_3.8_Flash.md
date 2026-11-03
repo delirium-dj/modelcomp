@@ -1,7 +1,7 @@
 # Claude Opus 4.8 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Opus 4.8 (`anthropic/claude-opus-4.8`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — pricing verified at $5/$25 (historic $15/$75 assumption corrected) + legacy-not-deprecated status + AA v5 succession, Cost 25→45, Overall unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,8 +54,25 @@ Multimodal / long context:
 - **Context window: 95/100.** Scored on BenchLM's confirmed 1M field (curated meta's 200K flagged as conflicting); AA-LCR 77.7 is supportive and no ≥98% retrieval metric is published, so the band floor. If the true window is 200K this dim would drop to the 50–64 band — verify before relying on it.
 - **Multimodal: 70/100.** Text+image in / text out — capped at the +image-in band despite genuinely strong visual rows (CharXiv 89.9, ScreenSpot Pro 87.9); no audio/video in and no non-text output.
 - **Coding: 84/100.** SWE-bench Verified 88.6%, LiveCodeBench 87.8% and SWE Multilingual 84.4% are strong; SWE-bench Pro 69.2%, TB 74.6%, SciCode 54.4% (under ref), no DeepSWE row and SWE Multimodal 38.4% keep it below the 90 band.
-- **Cost efficiency: 25/100.** Opus-class paid pricing (~$15/$75 historic band — above the $10/$50 ≈ 30 anchor); no free tier; exact rate unverified. Cost is excluded from Overall.
+- **Cost efficiency: 45/100.** (Revised by the 2026-11-03 second pass from 25/100: the "historic Opus band ≈ $15/$75" assumption was wrong — Opus 4.8 shipped and is still served at **$5/$25 per 1M**, the same price as Opus 4.5–4.7, per Morph and Anthropic-docs-sourced writeups.) $5/$25 sits midway between the $3/$15 ≈ 60 and $10/$50 ≈ 30 anchors; no free tier. Cost is excluded from Overall.
 - **Overall Score: 83/100.** Mean of Tool 82, Reasoning 86, Context 95, Multimodal 70, Coding 84 = 83.4 → 83. Best fit: research/browse-heavy assistants and repo-level code comprehension where Anthropic's low-hallucination profile matters; for frontier terminal agency or cheapest-per-quality today, Sonnet 5.5 or Opus 5.x supersede it.
+
+---
+
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Pricing/spec — https://www.morphllm.com/opus-4-8 (**"Claude Opus 4.8 shipped May 28, 2026 at $5/M input and $25/M output, the same price as Opus 4.5, 4.6, and 4.7. It has a 1M-token context"**) and https://sagnikbhattacharya.com/blog/claude-opus-4-8-explained (**"a legacy model but not deprecated: claude-opus-4-8 is still served at $5 / $25, with retirement not sooner than 28 May 2027"**) · Anthropic — https://www.anthropic.com/news/claude-opus-5 (Opus 5, 2026-07-24: "greatly improved performance for the same cost as its predecessor, Opus 4.8"), https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5 (Opus 5.5 at **$4/$20**, below Opus 5's $5/$25) and https://platform.claude.com/docs/en/about-claude/model-deprecations (Opus 4.1 retired 2026-08-05; **4.8 not on the retiree list**) · Index — https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (v5 published 2026-10-27; **Opus 5.5 max leads at 58**) and https://benchlm.ai/benchmarks/artificialanalysis (2026-10-29: Opus 4.8 **41.8%** — matches this report's captured row) · launch record — https://artificialanalysis.ai/articles/claude-opus-4-8-analysis-and-benchmarks (was #1 at 61.4 on the pre-v5 scale on 2026-05-28).
+
+**What moved and how it was resolved:**
+
+1. **Pricing corrected (the one real change).** Pass 1 scored Cost 25 from an unverified "historic Opus band ≈ $15/$75" guess. Two independent sources confirm the actual served price is **$5/$25 per 1M** (unchanged since launch, same as Opus 4.5–4.7). Cost re-anchored to 45 (midway between the $3/$15 ≈ 60 and $10/$50 ≈ 30 references). Because Cost is excluded from Overall, the Overall is unaffected.
+2. **Context-window conflict resolved in favor of 1M.** Morph confirms the 1M-token context that BenchLM listed, so the pass-1 caveat ("if the true window is 200K this dim would drop") is retired; Context stays 95 with higher confidence.
+3. **Lifecycle: legacy, not deprecated.** Opus 4.8 was #1 at launch (May 28) but Opus 5 (Jul 24) and Opus 5.5 (now $4/$20) superseded it within months; Anthropic's deprecations page retires Opus 4.1 (Aug 5) while 4.8 remains served with retirement no sooner than 2027-05-28. No routing/shutdown event like the `gemini-3-pro-preview` case — curation flag: keep ranked, mark as previous generation (pass-1 text already says so).
+4. **AA Index v5 (2026-10-27) — scale drift, bands unchanged.** The current 41.8 reading matches the row pass 1 already captured (BenchLM 2026-10-29), so nothing moved to re-score; the 61.4 launch figure was the older index scale. v5's 9-eval basket (Terminal-Bench 4.0 etc.) re-anchors the leaderboard around Opus 5.5 at 58 — a methodology change, not an Opus 4.8 capability change; no quality dimension band adjusted. τ²-bench 94.4%, SWE-bench Verified 88.6%, LiveCodeBench 87.8%, GPQA-D 93.6% rows stand uncontradicted.
+
+**Scores changed by this pass:** Cost efficiency **25 → 45** (verified $5/$25 pricing replacing the wrong $15/$75 assumption). All five quality dims unchanged: Tool 82, Reasoning 86, Context 95, Multimodal 70, Coding 84. Overall = half-up mean(82, 86, 95, 70, 84) = 417/5 = 83.4 → **83, unchanged** (Cost is excluded by methodology).
 
 ---
 
@@ -63,4 +80,5 @@ Multimodal / long context:
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Anthropic Opus 4.8 system card, plus Artificial Analysis, Vals AI, ARC Prize, Cursor, Cognition and Gert Labs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Morph, Anthropic news/docs, Artificial Analysis, BenchLM, launch-record writeups); pricing corrected to verified $5/$25 (**Cost 25→45**), 1M window conflict resolved, AA v5 treated as scale drift — **no quality dimension changed and Overall remains 83**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

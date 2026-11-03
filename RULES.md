@@ -51,7 +51,8 @@ override.
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing
   from disk — except sanctioned survivals (own-twin retirement with a fresh
   sibling present; user-directed relocation with the same path alive under
-  `models_voice/` or `models_finance/`, logged as INFO pending commit). The
+  a sanctioned mirror tree (`models_voice/`, `models_finance/`,
+  `models_cybersecurity/`, `models_health/`), logged as INFO pending commit). The
   committed pre-commit hook (`.githooks/pre-commit`, activate with
   `git config core.hooksPath .githooks`) rejects commits that delete them.
 - `model/<slug>/` folders are permanent too: never moved out of the tree or
@@ -84,6 +85,18 @@ override.
   finance or financial tasks (e.g. `ling-3.0-flash-fin`, ending in `-fin`)
   lives under `models_finance/<slug>/`, never under `model/<slug>/`. Same
   permanence and file conventions (sync/site wiring pending like
+  `models_voice/`).
+- **Cybersecurity domain routing (absolute):** a model whose slug ends in the
+  `-cyber` suffix (a dedicated cybersecurity specialist, e.g.
+  `gemini-3.8-flash-cyber`, `gpt-5.6-cyber`) lives under
+  `models_cybersecurity/<slug>/`, never under `model/<slug>/`. Trigger is the
+  `-cyber` suffix only (for now) — a general cyber-capable model without that
+  suffix stays under `model/`. Same permanence and file conventions
+  (sync/site wiring pending like `models_voice/`).
+- **Health domain routing (absolute):** a model designed specifically for
+  health / life-sciences tasks (e.g. `ling-3.0-flash-sante`, ending in
+  `-sante`) lives under `models_health/<slug>/`, never under `model/<slug>/`.
+  Same permanence and file conventions (sync/site wiring pending like
   `models_voice/`).
 
 ## Identity rules (general — every specific case lives in the generated roster)
@@ -251,6 +264,7 @@ override.
 - An agent never deletes, overwrites, renames, or moves any
   `model/**/*.md(.excluded)`, `models_voice/**/*.md(.excluded)`,
   `models_finance/**/*.md(.excluded)`, `models_health/**/*.md(.excluded)`,
+  `models_cybersecurity/**/*.md(.excluded)`,
   or any `meta.json` / `average.md` — via `bash` (`rm`, `Remove-Item`,
   `del`, `git rm`, `git clean`, `git restore`, `git checkout --`), via
   `edit`/`write`, or any equivalent — without prior user permission via a
@@ -264,3 +278,19 @@ override.
   interaction.
 - A sanction (twin rule, relocation, merge list) only makes a `Yes`
   possible, never automatic.
+
+## Agent temporary-files rule (absolute)
+
+- Every temporary artifact an agent creates — scratch script (`.ps1`, `.cjs`,
+  `.mjs`, `.py`, …), throwaway listing, data dump, intermediate output, draft
+  — goes ONLY inside the repo-root `temp/` folder (`temp/<file>`). Creating a
+  temporary file in the repo root, in `scripts/`, or anywhere else outside
+  `temp/` is forbidden.
+- `temp/` is git-ignored (`.gitignore` entry `temp/`): its contents are
+  disposable by definition, never part of the repository, and exempt from the
+  file-deletion approval rule above — agents may create, overwrite, and delete
+  files inside `temp/` freely (their own and retired ones).
+- Ad-hoc variants are forbidden duplicates: never create `.temp/`, `tmp/`, or
+  root-level scratch files (`*.txt` scan lists, one-off `*.ps1`/`*.cjs`
+  scripts). The 2026-11-03 purification removed the historical ones — they
+  must not come back outside `temp/`.

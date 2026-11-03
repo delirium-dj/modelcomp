@@ -44,7 +44,10 @@ Do not hardcode any model name in this file.
    matches the folder's own name and you are not literally that model, stop
    and re-resolve your identity. Voice/speech models
    (`RULES.md` routing rule) go under `models_voice/<slug>/`, finance models
-   (e.g. `ling-3.0-flash-fin`) under `models_finance/<slug>/`. Never write
+   (e.g. `ling-3.0-flash-fin`) under `models_finance/<slug>/`, cybersecurity
+   models (`-cyber` suffix, e.g. `gemini-3.8-flash-cyber`) under
+   `models_cybersecurity/<slug>/`, health models (e.g. `ling-3.0-flash-sante`)
+   under `models_health/<slug>/`. Never write
    any other filename.
 4. Template: `model-report-TEMPLATE.md`. Signature first line: `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`. Date = run day in UTC, never a future date. Use your own canonical ID as you know it (your publisher — the subject model's vendor never belongs here); do not invent a publisher. Signature must also include mandatory `- Reference URLs:` listing markdown links to primary official docs, benchmark leaderboards, and evaluation sources.
 
@@ -72,7 +75,9 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 2. Your queue = `model-queue.md` slugs minus folders holding model/<subject>/<YOUR_STEM>.md, in file order (missing average.md = unlisted = last, A-Z; twin-only folders stay queued for the Step 3.3 twin procedure at write time; retired slugs are covered by `model-aliases.generated.md` and already absent from the queue). If `model-queue.md` is missing or older
    than the latest findings, fall back to the "- **Overall Score:" line of each
    model/<slug>/average.md descending. Newly discovered slugs append at end
-   (voice/speech and finance discoveries are parked or placed under models_voice/ / models_finance/, never placed under model/ per RULES.md). When you reach a folder, check that one folder only — never pre-verify the whole queue.
+   (voice/speech, finance, cybersecurity `-cyber` suffix, and health
+   discoveries are parked or placed under models_voice/ / models_finance/ /
+   models_cybersecurity/ / models_health/, never placed under model/ per RULES.md). When you reach a folder, check that one folder only — never pre-verify the whole queue.
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<subject>/<YOUR_STEM>.md immediately,
    then advance. Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
@@ -89,7 +94,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 
 ### Step 1: Directory audit + ordering (2 calls — never a directory walk)
 
-> Production scope (user-directed, 2026-09-30): `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. Full mode (when re-enabled) covers `model/` and `models_voice/`.
+> Production scope (user-directed, 2026-09-30): `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. The same absolute carve-out and park-instead-of-research behaviour applies to the `models_finance/`, `models_cybersecurity/` (`-cyber` suffix), and `models_health/` trees — none of them is scanned by `pnpm sync` or queued for research. Full mode (when re-enabled) covers `model/` and the mirror trees.
 
 With 160+ folders on disk, auditing folder-by-folder costs more requests than most runtimes allow per minute. Do this instead — exactly two calls, then start writing:
 
@@ -161,6 +166,14 @@ After that, check existence only for the folder you are currently writing (one c
      Never create `voicemodels/` (retired pre-2026-09-28 name, forbidden
      duplicate of `models_voice/`); if you find one on disk, report it and
      leave it for the orchestrator's merge pass.
+  2b. Domain-specialist check (`RULES.md`, absolute): if the slug ends in the
+     `-cyber` suffix (cybersecurity specialist), it belongs under
+     `models_cybersecurity/<slug>/`; a health / life-sciences SKU (e.g.
+     ending `-sante`) belongs under `models_health/<slug>/`; a finance SKU
+     (e.g. ending `-fin`) under `models_finance/<slug>/`. Never place any of
+     these under `model/`. Production scope: park the discovery (note it in
+     your final summary, do not create or research it now); check the mirror
+     tree for an existing folder first.
   3. Create `model/<slug>/` (full mode: `<parent>/<slug>/`; empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   4. Append `model/<slug>` (full mode: `<parent>/<slug>`) to the END of your queue (after all ranked folders), in discovery order.
 

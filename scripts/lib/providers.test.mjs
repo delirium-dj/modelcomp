@@ -6,6 +6,7 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { MIRROR_ROOTS } from "./validate.mjs";
 
 const root = process.cwd();
 const dirs = readdirSync(join(root, "providers")).filter(
@@ -58,9 +59,13 @@ describe("providers/<slug>/meta.json", () => {
         assert.ok(Array.isArray(meta.covers) && meta.covers.length > 0, "covers must be a non-empty array");
         assert.equal(new Set(meta.covers).size, meta.covers.length, "covers slugs must be unique");
         assert.ok(meta.catalogUrl, "covers requires catalogUrl (claim culture)");
+        const roots = ["model", ...MIRROR_ROOTS];
         for (const slug of meta.covers) {
           assert.ok(typeof slug === "string" && slug.length > 0, "covers entries are strings");
-          assert.ok(existsSync(join(root, "model", slug, "meta.json")), `covers slug has no model folder: ${slug}`);
+          assert.ok(
+            roots.some((r) => existsSync(join(root, r, slug, "meta.json"))),
+            `covers slug has no model folder: ${slug}`,
+          );
         }
       }
     });

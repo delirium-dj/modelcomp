@@ -11,7 +11,7 @@ import { missingMetaFields, metaNameHasUnderscore, normName } from "./naming.mjs
 import { RETIRED_SLUGS } from "./average.mjs";
 
 /** Sanctioned mirror trees for user-directed relocations (e.g. voice models). */
-export const MIRROR_ROOTS = ["models_voice", "models_finance"];
+export const MIRROR_ROOTS = ["models_voice", "models_finance", "models_cybersecurity", "models_health"];
 
 /**
  * Forbidden duplicate roots: retired names that must never be recreated

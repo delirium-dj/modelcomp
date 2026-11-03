@@ -1,7 +1,7 @@
 # Muse Wonder 1.0 — findings by Qwen 3.8 Flash
 
 - Source: Meta (`muse-wonder-1.0`; curated id `opencode/muse-wonder-1.0`; OpenRouter `meta/muse-wonder`), cross-checked against Artificial Analysis (Intelligence Index), Meta's `dev.meta.ai/models/muse-wonder`, OpenRouter and independent launch coverage (kingy.ai, dev.to, r/singularity)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC); second pass 2026-11-03 (UTC) — AA v5 rescale + pricing reconfirmed + Full-sibling DeepSWE row, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -46,9 +46,27 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-23); three independent sources consulted.
+
+**Sources:** Meta official — https://about.fb.com/news/2026/10/introducing-muse-wonder-models/ and https://research.meta.ai/blog/muse-wonder (launch framing unchanged since 2026-10-12) · pricing — https://www.devx.com/artificial-intelligence-ai/meta-muse-wonder-pricing-benchmarks-developers/ and https://futurumgroup.com/insights/meta-muse-wonder-reaches-the-frontier-can-meta-sell-it/ (both: base **Wonder at $4/$20 per 1M** on the Meta Model API) and https://ai-tldr.dev/releases/meta-muse-wonder/ (**$4.00 in / $0.20 cached / $20.00 out** — matches pass 1 exactly) · index — https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index (**Index v5: Gemini 4 Carbon (High) 59 leads**) and https://collectivebrain.de/en/ai-leaderboard/ (2026-11-03: **Meta Muse Wonder Full holds #4** at 53.6) and https://slash-digital.io/en/insights/ai-models-2026/ ("Muse Wonder (API, $4/$20) and Muse Wonder Full (Muse Code only), which scores **50 on the Artificial Analysis index v5.0**") · sibling row — https://www.marktechpost.com/2026/10/13/meta-muse-wonder-muse-wonder-full-release/ (**"Wonder Full tops DeepSWE at 79.0 percent"**) · promo flag — https://www.etuki.com/compare/google-lyria-3-pro-preview-vs-meta-muse-wonder ("Q4 promotion… ephemeral prefix caching… down to $2/1M").
+
+**What moved and how it was resolved:**
+
+1. **AA Index v5 (2026-10-27) — scale drift, placement holds.** The family's Full variant moves from **56 on v4.3.2** (pass 1's anchor) to **~50–53.6 on v5**, yet **keeps the #4 leaderboard spot** (collectivebrain, 2026-11-03). Same absolute rescale seen batch-wide (9-eval basket, majority-private data, Terminal-Bench 4.0 in place of 2.1) — a methodology change, not a capability change, so no dimension band moves; the two readings are recorded side by side here rather than averaged.
+2. **Pricing reconfirmed, unchanged.** $4/$20 with $0.20 cached is independently restated by DevX, Futurum, AI/TLDR and thenewstack — no edit. The etuki "Q4 promo down to $2/1M via ephemeral prefix caching" is a single secondary source describing a caching/routing tactic, not a list-price change; per conflict policy it is **noted but not averaged into Cost** (stays 58, verbosity penalty still applies).
+3. **New hard number exists only for the Full sibling.** Marktechpost transcribes **DeepSWE 79.0% for Wonder Full** — first concrete absolute behind Meta's "tops DeepSWE" claim, but it belongs to `muse-wonder-full` (own folder, already fresh as of 2026-10-30), not to the served `muse-wonder` endpoint this report scores. Pass 1's caveat (Meta claims are vendor-framed for the base variant) therefore stands; no Coding re-anchor on a sibling's row.
+4. **No successor, no retirement, no new base-variant absolutes.** Three weeks post-launch the lineup is stable (Wonder on API, Wonder Full Muse Code-only; Spark 1.3/Glimmer 30b are siblings, not successors — overchat 2026-10-24 comparison). The pass-1 revisit trigger (per-suite absolutes for the non-Full endpoint) has **not** fired.
+
+**Scores changed by this pass:** None. v5 rescale is drift (rank #4 preserved); pricing verified identical; the only new absolute (DeepSWE 79.0%) belongs to the Full sibling. Tool 89, Reasoning 92, Context 88, Multimodal 82, Coding 89 → Overall = half-up mean(89, 92, 88, 82, 89) = 440/5 = **88, unchanged**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **Artificial Analysis** (Muse Wonder Full Max: Intelligence Index **56**, **#4/697**, v4.3.2 10-eval composite, 140M output-token verbosity — the independent backbone of this entry), `dev.meta.ai/models/muse-wonder` (DeepSWE / SWE-Marathon third-party leads, "most advanced model yet"), OpenRouter `meta/muse-wonder` (frontier reasoning model, text+image+video+audio input), and independent launch coverage (kingy.ai $4/$20 pricing, dev.to's Opus-5.5 comparison "loses 9 of Meta's own 14 benchmarks," r/singularity on the Wonder vs Wonder-Full split). Curated `meta.json` (not scaffolded) matches first-party specs (1,048,576/131,072, $4/$20/$0.20, four-input multimodal, reasoning on). Scores are normalized 1–100 interpretations; Meta's per-suite "tops" claims are flagged as vendor-framed and read against the harder AA #4 placement, and no per-benchmark absolute was fabricated.
 - Revisit trigger: individual AA sub-scores (GPQA/HLE/Terminal-Bench 4.0) exposed for the served `muse-wonder` (non-Full) endpoint, or an independent SWE-bench Verified absolute reconciling Meta's DeepSWE/SWE-Marathon claims.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Meta official, DevX, Futurum, AI/TLDR, Artificial Analysis/BenchLM-adjacent leaderboards, Marktechpost); AA v5 treated as scale drift with #4 placement held, pricing reconfirmed at $4/$20/$0.20, sibling DeepSWE row declined for the base variant — **no dimension changed and Overall remains 88**. Prior pass retained verbatim per RULES.md.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

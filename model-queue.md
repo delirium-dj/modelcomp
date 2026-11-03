@@ -22,7 +22,7 @@
 91 mimo-v2.6-pro
 91 muse-wonder-full
 90.9 kimi-k3
-90.2 kimi-k3.1-pro
+90.3 kimi-k3.1-pro
 89.9 claude-opus-4.8
 89.9 muse-wonder-1.0
 89.8 claude-opus-4.7
@@ -42,7 +42,6 @@
 88.6 mimo-v2.6-flash
 88.6 muse-spark-1.1
 87.9 gemini-3-flash
-87.9 gemini-3.8-flash-cyber
 87.9 glm-5.3-flashx
 87.8 qwen-3.8-flash
 87.2 gpt-5.4
@@ -180,7 +179,6 @@
 60.7 laguna-xs-2.1
 59.9 glm-4.7-flash
 59.8 llama_3.2_vision_instruct
-59.5 ling-3.0-flash-sante
 59.4 flint
 58.9 solar-mini-4
 58 north_mini_code

@@ -17,6 +17,12 @@ models_voice/<slug>/               Same conventions for voice/speech models (RUL
 models_finance/<slug>/             Same conventions for finance models (.agents/rules.md routing
                                     rule; user-directed relocation e.g. ling-3.0-flash-fin;
                                     NOT scanned by pnpm sync — model/ only; wiring pending)
+models_cybersecurity/<slug>/       Same conventions for cybersecurity specialists (RULES.md routing
+                                    rule; slug ends in `-cyber` e.g. gemini-3.8-flash-cyber,
+                                    gpt-5.6-cyber; NOT scanned by pnpm sync — model/ only; wiring pending)
+models_health/<slug>/              Same conventions for health/life-sciences models (RULES.md routing
+                                    rule; e.g. ling-3.0-flash-sante; NOT scanned by pnpm sync —
+                                    model/ only; wiring pending)
            │
             ▼ pnpm sync (scripts/sync-data.mjs)
 src/data/scores.generated.ts      Pre-parsed numbers-only scores bundle

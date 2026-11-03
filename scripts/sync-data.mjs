@@ -214,7 +214,8 @@ log(`sync-data: ${slugs.length} model folders`);
 //   - twin retirement: <.md.excluded> gone but its fresh <.md> sibling exists
 //     (tasks/research.md Step 3.3);
 //   - relocation: the same relative path exists under a sanctioned mirror tree
-//     (user-directed moves, e.g. models_voice/, models_finance/) — content
+//     (user-directed moves, e.g. models_voice/, models_finance/,
+//     models_cybersecurity/, models_health/) — content
 //     preserved, pending commit.
 const ALLOW_MODEL_DELETE = process.env.ALLOW_MODEL_DELETE === "1" || process.env.ALLOW_MODEL_DELETE === "true";
 try {
@@ -383,7 +384,7 @@ for (const slug of slugs) {
 // trees. Single lookup behind both the rater gate and SOURCE_DEFS slug
 // emission (slug lives inline in SourceDef).
 const catalogNames = new Map(); // normalized name -> slug
-for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance")]) {
+for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance"), join(root, "models_cybersecurity"), join(root, "models_health")]) {
   if (!existsSync(rDir)) continue;
   for (const d of readdirSync(rDir)) {
     if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry

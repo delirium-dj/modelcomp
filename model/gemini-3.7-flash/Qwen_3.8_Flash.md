@@ -1,7 +1,7 @@
 # Gemini 3.7 Flash — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 3.7 Flash (`google/gemini-3.7-flash`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — AA Index v5 + official deprecation confirmation, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -85,9 +85,27 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources consulted.
+
+**Sources:** Google AI Studio release notes — https://aistudio.google.com/docs/changelog and the Gemini API "What's new in Gemini 3.7 Flash" — https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7 (**"Caution: Deprecated: Gemini 3.7 Flash (gemini-3.7-flash) is deprecated and has been replaced by Gemini 3.8 Flash"**, dated 2026-10-13) · Artificial Analysis — https://artificialanalysis.ai/ (**Intelligence Index v5 #1 is now Gemini 4 Carbon**) and https://artificialanalysis.ai/models/releases/gemini-3-7-flash · ARC Prize — https://arcprize.org/results/google-gemini-3-7-flash (**ARC-AGI-1 95.5% / ARC-AGI-2 84.6% at high effort**, $0.12 / $0.25 per task) · pricing/lifecycle coverage — https://bizflowai.io/blog/gemini-37-flash-half-price-promo-already-deprecated (**"50% price cut was a temporary promo ending Dec 31, 2026 … Google has already deprecated the model ID"**), https://evolink.ai/blog/gemini-3-8-flash-vs-gemini-3-7-flash (standard rates **$1.50/$7.50 from Jan 1, 2027**), https://emergent.sh/learn/gemini-3-7-flash.
+
+**What moved and how it was resolved:**
+
+1. **Deprecation upgraded from inference to official statement.** The second pass read AA's banner ("this model is deprecated"); Google's own API docs now state on 2026-10-13 that **gemini-3.7-flash is deprecated and replaced by gemini-3.8-flash**. This confirms the migration caveat already recorded but changes no capability row — bands unchanged.
+2. **AA Intelligence Index v5 (2026-10-27).** The v5 re-cut puts **Gemini 4 Carbon** at #1; 3.7 Flash's live Index stays ~39 and future agentic rows accrue to 3.8 Flash (deprecated ids are frozen). **Index-version scale drift, not a capability change** — **Reasoning holds 87** on unchanged rows (GPQA 94.5, ARC-AGI-2 84.6 — now re-confirmed on the ARC Prize page, Omniscience hallucination 64.5%).
+3. **Cost caveats confirmed verbatim.** Intro $0.75/$3.75 ends **Dec 31, 2026**, doubling to $1.50/$7.50 on Jan 1, 2027, four weeks before the Jan 28, 2027 retirement — exactly as the second pass scored. **Cost efficiency stays 90**.
+4. **No new benchmark row** for this id moved a band (AA freezes non-default workloads on deprecated ids; the only fresh figures are per-task ARC prices, which corroborate existing rows).
+
+**Scores changed by this pass:** **None.** Tool 83, Reasoning 87, Context 94, Multimodal 90, Coding 82, Cost 90 all re-confirmed; **Overall stays 87/100** (83 + 87 + 94 + 90 + 82 = 436 / 5 = 87.2 → 87, Cost excluded). The `gemini-3.8-flash` replacement is tracked in its own folder.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Google DeepMind model card, plus Artificial Analysis, Vals AI, ARC Prize and OpenRouter); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Google's official API model page, Developer-API rate card, launch post, Enterprise lifecycle table and DeepMind model card, each cross-checked against Artificial Analysis' live page and BenchLM's October 9 snapshot; 3 independent searches plus 5 source fetches, conflicts compared rather than averaged. Only **Context (95 → 94)** and **Cost (92 → 90)** changed, because the benchmark rows themselves all reproduced — the movement came from structural facts pass 1 had not had (a 65,536 output ceiling, a verified two-stage price card, a March 2026 cutoff, and a fixed January 28, 2027 retirement), and **Overall therefore holds 87** on the re-derived mean. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Google AI Studio changelog + Gemini API what's-new docs, Artificial Analysis v5, ARC Prize results, bizflow/evolink/emergent pricing-lifecycle coverage); official deprecation (→ 3.8-flash, 2026-10-13) confirmed, AA v5 (#1 Gemini 4 Carbon) treated as scale drift, ARC-AGI rows re-corroborated, intro-price/retirement caveats unchanged; **no dimension changed and Overall remains 87**. Prior passes retained verbatim per `RULES.md`.

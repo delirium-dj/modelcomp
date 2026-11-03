@@ -1,7 +1,7 @@
 # MiMo V2.6 Pro — findings by Qwen 3.8 Flash
 
 - Source: Xiaomi / MiMo V2.6 Pro (`xiaomi/mimo-v2.6-pro`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — AA Index v4.3-vs-v5 open-weights penalty + pricing/report confirmation, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Xiaomi official — https://mimo.xiaomi.com/mimo-v2-6 (**"MiMo-V2.6-Pro scores 46.32 on the Artificial Analysis Intelligence Index … the strongest open-source model"** on **Index v4.3, September 2026**) and https://mimo.mi.com/docs/en-US/news (**"The MiMo-V2.6 series adopts the same API pricing as the V2.5 series … price remains unchanged"**) · Artificial Analysis — https://x.com/ArtificialAnlys/status/2102128560962187701 (**"top open weights model … (46). At $0.13 per Intelligence Index task"**) and the v5 comparison https://artificialanalysis.ai/models/comparisons/claude-haiku-5-5-medium-vs-mimo-v2-6-pro (**MiMo-V2.6-Pro scores 30 on Index v5** vs Haiku 5.5 Medium 25) · technical record — https://arxiv.org/html/2610.11959v1 (**MiMo-V2.6 tech report**, Oct 8, 2026) and https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL (weights live, 1T) · analysis — https://cellcog.ai/blog/mimo-v2-6/ ("close to Claude Opus 5 and GPT-5.6 Sol, clearly behind on the hardest terminal and exploit rows"), https://www.trendingtopics.eu/artificial-analysis-index-v5-open-weight-models/ (**"Open A.I. models lose up to 16 points"** on v5's private test data).
+
+**What moved and how it was resolved:**
+
+1. **AA Intelligence Index v4.3 (46) vs v5 (30).** On the Sept v4.3 scale MiMo-V2.6-Pro is the **#1 open-weights model at 46.32**; on the **v5 scale (2026-10-27)** the same model reads **30**. Multiple sources attribute the −16 to **v5's shift to majority-private test data, which systematically lowers open-weights scores** (a contamination-resistance methodology artifact), not a capability regression. Consistent with the batch-wide handling of v5, this is **index-version scale drift** — **Reasoning holds 84**, still capped by the genuinely weak factuality trio (Omniscience accuracy 34.8% / hallucination 40.6% / index 8.4), CritPt 26.6% and the absence of a GPQA row. Both v4.3 and v5 readings recorded.
+2. **Pricing confirmed unchanged.** Xiaomi states V2.6 keeps V2.5 pricing; **$0.435 / $0.87 per 1M**, cached **$0.0036**, AA **$0.13 per Index task**, MIT self-hosting. **Cost efficiency stays 90** (verified; excluded from Overall).
+3. **Capability anchors reproduced.** Terminal-Bench 2.1 89.9%, GDPval-AA 1673, Toolathlon-Verified 76.9%, OSWorld-Verified 82%, DeepSWE 71.9% and the tech report (arXiv 2610.11959) all stand — cellcog's independent read ("close to Opus 5 / GPT-5.6 Sol, behind on hardest terminal/exploit") matches the **Tool 91 / Coding 83** placement exactly.
+4. **No successor.** MiMo-V2.6-Pro (open-sourced Sept 21, 2026; Pro/Flash/9B-distill weights on HF) is the current flagship; nothing newer to fold in.
+
+**Scores changed by this pass:** **None.** Tool 91, Reasoning 84, Context 95, Multimodal 90, Coding 83, Cost 90 all re-confirmed; **Overall stays 89/100** (91 + 84 + 95 + 90 + 83 = 443 / 5 = 88.6 → 89, Cost excluded).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Xiaomi MiMo-V2.6 technical report and Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Xiaomi MiMo-V2.6 pages, Artificial Analysis X-post + v4/v5 comparison, arXiv tech report + HF weights, cellcog/trendingtopics analysis); AA v4.3=46 vs v5=30 recorded as the documented open-weights private-data penalty (scale drift, not capability), pricing confirmed unchanged, capability rows and no-successor verified; **no dimension changed and Overall remains 89**. Prior pass retained verbatim per `RULES.md`.

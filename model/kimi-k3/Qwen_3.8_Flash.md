@@ -1,7 +1,7 @@
 # Kimi K3 — findings by Qwen 3.8 Flash
 
 - Source: Moonshot AI / Kimi K3 (`moonshotai/kimi-k3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — successor K3.1 Pro + open-weights release + AA v5, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,8 +60,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Moonshot / Kimi — https://www.kimi.com/blog/kimi-k3 (**"the first open model to reach 2.8 trillion parameters"**; full weights **released by July 27, 2026**) · https://www.morphllm.com/kimi-k3 (2.8T MoE, **104B active**, launched July 16, 2026, 1M context, Kimi Delta Attention, native vision) · Artificial Analysis — https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (**"the open weights gap widens from 3 points to 12: Kimi K3.1 Pro … is the top open weights model at 46"**) and https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks · successor — https://www.yottalabs.ai/post/kimi-k3-specs-benchmarks-how-to-access-2026 (**"On October 23, 2026, Moonshot released Kimi K3.1 Pro, a post-trained K3 with the same architecture, at $2 / $0.20 / $10, a third less"**), https://openrouter.ai/moonshotai/kimi-k3.1-pro, https://www.kimi.ai/blog/kimi-k3-1-pro · K3-specific corroboration — https://artificialanalysis.ai/evaluations/terminalbench-4-0 and https://wan27.org/blog/kimi-k3-benchmarks (**K3 TB 4.0 weakness; successor jumps to 67.2**).
+
+**What moved and how it was resolved:**
+
+1. **Kimi K3.1 Pro is a confirmed successor (Oct 23, 2026).** Moonshot shipped **K3.1 Pro** — the same 2.8T/104B architecture, post-trained further, at **$2/$10 (a third cheaper than K3's $3/$15)**, reaching **top open-weights on AA Index v5 (46)** and **TB 4.0 67.2%** — precisely the harness where **K3 itself collapsed (12.6%)**. This validates K3's Tool cap (TB 4.0 12.6 was a real weakness, since fixed in the successor) and is a lifecycle/successorship note — **K3's own bands are unchanged**.
+2. **Open-weights flag closed.** The first pass logged "open-weights status pending/unverified." Moonshot **released full K3 weights on July 27, 2026** (2.8T, 104B active) — now confirmed; no score effect (self-hostability is already reflected in the architecture card).
+3. **AA Intelligence Index v5 (2026-10-27).** v5 widened the proprietary-vs-open gap to 12 points; on v5 the top open-weights slot belongs to **K3.1 Pro (46)**, not K3. K3's recorded **v4.3-era Index 43.6** (below MiMo-V2.6-Pro's 46) stands as this id's reading — **scale/methodology drift, Reasoning holds 88** (GPQA 93.5%, ARC-AGI-1 94.5%, AA-LCR 88.7%, MathVision 94.3%; capped by ARC-AGI-2 60.4%, MLCR 38.3%, Omniscience 47.6 acc / 53.2 halluc).
+4. **Cost unchanged.** K3 remains **$3/$15** (cached $0.30) — the $3/$15 ≈ 60 anchor; the successor's $2/$10 does not reprice K3 itself. **Cost efficiency stays 60** (excluded from Overall). Tool 88, Context 97, Multimodal 78, Coding 88 all reproduce.
+
+**Scores changed by this pass:** **None.** Tool 88, Reasoning 88, Context 97, Multimodal 78, Coding 88, Cost 60 all re-confirmed; **Overall stays 88/100** (88 + 88 + 97 + 78 + 88 = 439 / 5 = 87.8 → 88, Cost excluded). K3 is now a superseded-but-live flagship; **Kimi K3.1 Pro is tracked in its own folder**.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Moonshot AI Kimi K3 launch blog, plus Artificial Analysis, Vals AI, ARC Prize, Cursor and OpenHarmony leaderboards); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Kimi/Moonshot K3 + K3.1 Pro blogs, Artificial Analysis Index-v5 + K3.1 Pro launch + TB 4.0 board, morphllm/yottalabs/openrouter specs); confirmed K3.1 Pro successor (Oct 23, 2026, $2/$10, top open-weights 46 on v5, TB 4.0 67.2), K3 full weights released July 27 2026, AA v5 open-weights gap 3→12 as drift; **no dimension changed and Overall remains 88** (K3's own rows preserved; successor lives in its own folder). Prior pass retained verbatim per `RULES.md`.

@@ -2,6 +2,7 @@ node_modules/
 dist/
 server/
 .qwik/
+temp/
 tmp/
 tmp_*/
 tmp_*

@@ -1,7 +1,7 @@
 # GPT-5.6 Sol — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-5.6 Sol (`openai/gpt-5.6-sol`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — AA Index v5 + GPT-6 successorship + pricing-conflict check, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,8 +60,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Artificial Analysis — https://artificialanalysis.ai/models/gpt-5-6-sol (**GPT-5.6 Sol (max)**: 130.2 tok/s, above-average speed) and https://benchlm.ai/benchmarks/artificialanalysis (**Intelligence Index v5 leaderboard, 2026-10-29: GPT-5.6 Sol 58.9%, behind only Gemini 4 Carbon 59.4%**) · Terminal-Bench — https://www.tbench.ai/?version=3.0 (**GPT-5.6 Sol (max, Codex) 34.6% ± 3.1%, #2 on TB 3.0**) · OpenAI — https://openai.com/index/gpt-5-6/ (**"Update on August 21, 2026: OpenAI dropped the API and credit pricing of GPT-5.6 Sol by over 20% for the next 3 months"**) and https://deploymentsafety.openai.com/gpt-6-october (**"GPT-6 Sol … will replace GPT-5.6 Sol …"**, global ChatGPT rollout **2026-10-07**) · pricing/successor coverage — https://codingfleet.com/blog/gpt-6-sol-vs-gpt-5-6-sol/ (**"GPT-5.6 Sol's $4/$20 rate is promotional only, guaranteed at least through November 21, 2026. Its list price is $5/$30"**), https://www.contextstudios.ai/comparisons/gpt-5-6-sol-vs-grok-4-5 (OpenRouter **$2/$10**), https://teamorouter.com/blogs/gpt-6-astra-vs-gpt-5-6.
+
+**What moved and how it was resolved:**
+
+1. **AA Intelligence Index v5 (leaderboard 2026-10-29).** GPT-5.6 Sol reads **58.9%**, essentially unchanged from the pass-1 58.9 and still within ~0.5 pt of the v5 leader (Gemini 4 Carbon 59.4%) — so the v5 re-cut left this id's standing intact. **Reasoning holds 90** (GPQA 94.6%, ARC-AGI-2 92.5%, FrontierMath 83–89%; capped by the 92.2% Omniscience hallucination flag and ARC-AGI-3 7.8%).
+2. **Terminal-Bench 3.0 34.6% independently confirmed** on the tbench.ai leaderboard (max/Codex, #2) — corroborates the existing **Tool 92** cap; no change.
+3. **Successorship (lifecycle, not capability).** OpenAI began rolling out **GPT-6 globally on 2026-10-07**, stating GPT-6 Sol/Luna **replace** GPT-5.6 Sol/Luna in ChatGPT. This is a lineup fact, not a decline in the tracked id — recorded as a planning caveat, no band moves.
+4. **Pricing conflict (deliberately not averaged).** The pass-1 figure was **$1.25 / $10** (Cost 75). Newer sources disagree: OpenAI's own 2026-08-21 note is a **temporary >20% promo (3 months)**; codingfleet reports a **$4/$20 promotional** rate ("at least through Nov 21, 2026") with a **$5/$30 list**; contextstudios saw **$2/$10 on OpenRouter**. These are promotional-vs-list snapshots at different dates, and none is a first-party current rate card for this exact id. Per the no-averaging / preserve-until-supported rule, **Cost efficiency is held at 75** (pass-1 verified rate) rather than re-scored on contradictory promo figures — but the **non-durability** of the cheap rate (expiring promo + GPT-6 succession + a reported $5/$30 list) is flagged for a firmer re-check against OpenAI's live price table.
+
+**Scores changed by this pass:** **None.** Tool 92, Reasoning 90, Context 96, Multimodal 70, Coding 90, Cost 75 all re-confirmed; **Overall stays 88/100** (92 + 90 + 96 + 70 + 90 = 438 / 5 = 87.6 → 88, Cost excluded).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing OpenAI GPT-5.6 and its system card, plus Artificial Analysis, Vals AI, ARC Prize, Epoch, Cognition/Devin, Cursor and VulcanBench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Artificial Analysis v5 model page + Index leaderboard, tbench.ai TB 3.0 board, OpenAI GPT-5.6 / GPT-6-october pages, codingfleet/contextstudios/teamorouter pricing coverage); AA v5 (58.9, near #1) and TB 3.0 34.6% reproduced, GPT-6 succession recorded, pricing conflict (promo $2/$10–$4/$20 vs list $5/$30) noted but not averaged and Cost held at 75 pending a first-party rate card; **no dimension changed and Overall remains 88**. Prior pass retained verbatim per `RULES.md`.

@@ -54,7 +54,7 @@ Multimodal:
 - **Multimodal: 84/100.** High-resolution image input (2,576px) is a genuine step up — above the standard image band; no video/audio input.
 - **Coding: 86/100.** Vibe Code 71%, SWE-bench 82%, React Native 82.8%, CursorBench 70%; capped by FrontierCode main 38.5% and no SWE-Pro figure.
 - **Cost efficiency: 62/100.** $5/$25 with 90% cache discount; slower (52.7 t/s) and higher token multiplier.
-- **Overall Score: 85/100.** Mean of (84+84+90+84+86)/5 = 85.6 → 86. A capable mid-2026 Opus; the 4.8/5/5.5 successors are clearer upgrades.
+- **Overall Score: 85.6/100.** Mean of (84+84+90+84+86)/5 = 85.6 → 86. A capable mid-2026 Opus; the 4.8/5/5.5 successors are clearer upgrades.
 
 ---
 

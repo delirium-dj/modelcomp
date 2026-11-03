@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Mythos 5.1 (`anthropic/claude-mythos-5.1`)
-- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC)
+- Date: 2026-10-02 (UTC); deep second pass 2026-10-09 (UTC); third pass 2026-11-03 (UTC) — access-program expansion + independent-coverage re-check, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -81,9 +81,27 @@ Multimodal / long context:
 
 ---
 
+## Third-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-09); three independent sources consulted.
+
+**Sources:** Anthropic Cyber Verification Program expansion — reported 2026-10-06/07 (**"adds a third access tier and opens advanced Claude models to a broader range of security teams"**; the tier list names **"Claude Opus 5.5, Claude Sonnet 5.5, Claude Mythos 5.1, and new models"**) · independent Mythos-line benchmark coverage — https://apidog.com/blog/claude-fable-5-1-benchmarks/ (**"Anthropic also published one Mythos 5.1 number: 60.9% on Terminal-Bench 4.0"** — still the only id-specific row), https://www.vellum.ai/blog/claude-fable-5-1-mythos-5-1-benchmarks-explained, https://venturebeat.com/…/claude-fable-5-1-and-mythos-5-1 … (**"the two names refer to the same underlying model"**) · **Claude Opus 5.5 System Card** — https://www-cdn.anthropic.com/…/Claude%20Opus%205.5%20System%20Card.pdf ("Claude Opus 5.5 **meets or exceeds the performance of Claude Mythos 5.1** and Claude Opus 5 on all cyber [evals]") · twin status — https://platform.claude.com/docs/en/models/mythos-5-1/overview.
+
+**What moved and how it was resolved:**
+
+1. **Independent-harness coverage is still absent.** Artificial Analysis continues to have **no page** for `claude-mythos-5-1` (404 — the restricted config is not third-party measured), and **Terminal-Bench 4.0 60.9% is still the only Mythos-specific published number** (apidog). No **AA Intelligence Index v5** figure exists for this id, so the v5 recalibration (which moved the GA twin Fable 5.1 to 60) cannot be applied here. **No band is raised on vendor-only evidence** — Tool 93 / Reasoning 92 / Coding 85 hold.
+2. **Access caveat relaxes (lifecycle, not capability).** The second pass recorded "currently US organizations only." Anthropic's **2026-10-06/07 CVP expansion** adds a third tier and "opens advanced Claude models … to a broader range of security teams," and the Life Sciences Verification Program is enrolling. This softens the access-scarcity narrative in the Overall but is not a capability change — **no dimension moves**.
+3. **Lineage context.** The Opus 5.5 system card claims Opus 5.5 meets or exceeds Mythos 5.1 on cyber work; that is a statement about Opus 5.5, not a re-measurement of this id, so it is recorded as context only.
+4. **Twin currency.** The shared-weight twin (Fable 5.1) was confirmed the current generation with no successor in its own folder's 2026-11-03 pass; Mythos 5.1 (released Sep 1, 2026, retirement ≥ Sep 1, 2027) remains the restricted configuration of that same model.
+
+**Scores changed by this pass:** **None.** Tool 93, Reasoning 92, Context 95, Multimodal 65, Coding 85, Cost 32 all re-confirmed; **Overall stays 86/100** (93 + 92 + 95 + 65 + 85 = 430 / 5 = 86.0, Cost excluded). The curated queue value (91.5) is still well above what a 1-of-625 / no-AA-page evidence base supports — a coverage gap, not a contradiction.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchmarkList and BenchLM rows citing the Anthropic Fable 5.1 & Mythos 5.1 system card; pricing/window from LLM Stats); scores are normalized 1–100 interpretations, not official vendor scores.
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-09. Method: Anthropic's official Mythos 5.1 product page and launch announcement, cross-checked against BenchLM's October 9 snapshot (1/625, unranked), the absence of an Artificial Analysis page (404), Vellum's independent benchmark walkthrough and a long-form third-party technical analysis; 6 sources fetched, ≥3 independent searches, conflicts compared rather than averaged. Only **Cost (30 → 32)** changed, because only the *pricing* evidence improved (official rate card, 2.5% cache reads, Batch 50%, documented effective savings); the headline Terminal-Bench 4.0 60.9% reproduced exactly but was re-interpreted (Anthropic's own safeguard footnote), and the strong SWE-bench/GPQA/GraphWalks figures in circulation were found to belong to **Mythos Preview**, not this configuration — so **Tool 93 / Reasoning 92 / Context 95 / Multimodal 65 / Coding 85 hold and Overall stays 86**. Original 2026-10-02 findings retained verbatim above per `RULES.md`.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Third-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Anthropic CVP-expansion reporting, apidog/vellum/venturebeat Mythos-line coverage, Opus 5.5 System Card); AA still absent (404) so Index v5 cannot be applied, TB 4.0 60.9% still the only id-specific row, CVP third-tier/non-US expansion recorded as an access (not capability) change, Opus 5.5 cyber claim noted as lineage; **no dimension changed and Overall remains 86**. Prior passes retained verbatim per `RULES.md`.

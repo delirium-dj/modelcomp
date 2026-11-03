@@ -1,0 +1,52 @@
+# Muse Wonder Full — findings by GPT 6.1 Sol
+
+- Source: Meta (`muse-wonder-full-1.0`), Muse Code subscription model
+- Date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Wonder Full
+- **Short description:** Meta's distinct Muse Wonder Full subscription model for coding and long-running agents; the full variant is explicitly separate from API-priced `muse-wonder-1.0`.
+- **Provider / access:** Muse Code Power/Maximum subscriptions only, not the Meta Model API; no public per-token price. Meta lists `muse-wonder-full-1.0` separately from `muse-wonder-1.0`.
+- **Release / knowledge:** Artificial Analysis lists 2026-10-12; no verified knowledge cutoff.
+- **IDs:** `muse-wonder-full-1.0` (Meta subscription); not interchangeable with the priced `muse-wonder-1.0` route.
+- **Context window:** 1M tokens (Meta model page and AA); no independently verified long-context retrieval rate.
+- **Modalities:** AA lists text, image, speech and video inputs, text output; reasoning enabled. Meta page does not publish per-modality scores for Full.
+- **Pricing (as of 2026-11-03):** Power $50/month, Maximum $200/month, both include Full. Meta's $4/$20 per million is **Muse Wonder**, not Full; AA displays no Full token price.
+- **Architecture:** Proprietary; no disclosed parameter count or public weights.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Meta publishes a side-by-side table covering Personal Superintelligence Index, Harvey LAB-AA, Vals Finance Agent V2, HealthBench Pro, AutomationBench-AA, GDP.pdf, OSWorld V2.1 and coding benchmarks. Its accessible text extraction loses reliable row/column alignment; no raw task number is attributed to Full or used for scoring without visual verification.
+
+Reasoning / knowledge:
+
+- **50** Artificial Analysis Intelligence Index v5.0 (independent nine-evaluation composite; AA lists #17/94 in its displayed group); index is not 50% accuracy. Meta's own table ends with an Artificial Analysis Index column and a different figure, reflecting a different evaluation snapshot/version or harness; do not equate them.
+
+Coding:
+
+- Meta claims Full leads DeepSWE and SWE-Marathon third-party runs, but its accessible table loses reliable row/column alignment; no exact percentage used from it. No independently verified exact-model coding percentage found in accessible text.
+
+Long context:
+
+- Advertised **1M** context by Meta and AA; no exact-model MRCR/RULER retrieval score located.
+
+### Normalized scores (1–100)
+
+Self-excluded conservatively because AA's index is an independently measured composite and the locally parsed Meta benchmark table cannot safely attribute raw task numbers to Full without visual verification. Avoid unsupported dimension-by-dimension scoring; the exact model **does exist**, unlike an unverified family shorthand.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (openai/gpt-6.1-sol)** — 2026-11-03
+- Method: Fresh exact-name, benchmark and publisher searches initially failed to surface the model due to search-index noise; direct Meta model documentation and AA's exact `/muse-wonder-full` page establish it. Text extraction of Meta's benchmark table was insufficient for unambiguous per-task attribution. No peer findings consulted.
+- Reference URLs:
+  - [Meta Muse Wonder / Full model page, routes, benchmark table and subscriptions](https://dev.meta.ai/models/muse-wonder/)
+  - [Meta developer models landing page](https://dev.meta.ai/)
+  - [Artificial Analysis Muse Wonder Full exact-model assessment](https://artificialanalysis.ai/models/muse-wonder-full)
+  - [Artificial Analysis distinct Muse Wonder API model](https://artificialanalysis.ai/models/muse-wonder)

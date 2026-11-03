@@ -1,7 +1,7 @@
 # Gemini 3 Pro — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 3 Pro (`google/gemini-3-pro`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — full-retirement lifecycle flag + AA v5 non-indexing, bands unchanged
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,8 +58,26 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-03 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02); three independent sources consulted.
+
+**Sources:** Google Gemini API deprecations table — https://ai.google.dev/gemini-api/docs/deprecations (**`gemini-3-pro-preview`: released November 18, 2025, retired March 9, 2026, replacement `gemini-3.1-pro`**) · migration guides — https://evolink.ai/blog/gemini-3-pro-deprecation-migrate-to-3-1-pro (**"Gemini 3 Pro Preview will be fully retired on March 9, 2026"**), https://theaicemetery.com/gemini-3-pro-preview/ (**"shut down on March 9, 2026"**), https://www.layer3labs.io/guides/gemini-model-deprecations · original launch record — https://blog.google/products-and-platforms/products/gemini/gemini-3/ (Nov 18, 2025; base-variant reasoning/multimodal/coding rows; **45.1% ARC-AGI-2 is the Deep-Think figure**) · successor lineage — https://artificialanalysis.ai/articles/gemini-3-1-pro-preview-new-leader-in-ai and https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (**Index v5, 2026-10-27**).
+
+**What moved and how it was resolved:**
+
+1. **The tracked id is fully retired, not merely "legacy."** Google's deprecations table and three independent guides confirm **`gemini-3-pro-preview` was shut down on March 9, 2026** and replaced by `gemini-3.1-pro` (which doubled ARC-AGI-2 31% → 77% and leads the 3.x line). The first pass described the endpoint as live; this is corrected. Retirement is a **lifecycle fact, not a capability change** — the exact-id benchmark rows (the base, non-Deep-Think variant) were valid when it ran, so no score is rewritten, but the entry now needs maintainer curation (the folder is still ranked despite the endpoint being gone).
+2. **AA Intelligence Index v5 (2026-10-27) does not carry a retired preview id.** The launch-era "Gemini 3 Pro is the new leader" framing (and the Intelligence Index **28.0** in this report) are pre-v5 artifacts for the base variant. No new independent row was published for the id after its March shutdown, so **Reasoning stays 68** (GPQA 90.8% clears the bar, but HLE 39.7% misses the 40 reference, ARC-AGI-2 31.1%, Index 28, and the severe 91.5% Omniscience hallucination flag cap it).
+3. **No capability row moved.** τ²-bench 87.1% (only real tool row), LiveCodeBench 91.7%, the strong multimodal set (VideoMMMU 87.6, V* 88.0, MathVision 86.6) and thin agentic/coding coverage all stand; **Tool 75 / Context 95 / Multimodal 92 / Coding 72** re-confirmed.
+4. **Cost.** With the endpoint retired there is no current first-party rate card to verify; the pass-1 ≈$2/$12 Pro-class estimate is retained as an approximation, **Cost 60 unchanged** (excluded from Overall).
+
+**Scores changed by this pass:** **None.** Tool 75, Reasoning 68, Context 95, Multimodal 92, Coding 72, Cost 60 all re-confirmed; **Overall stays 80/100** (75 + 68 + 95 + 92 + 72 = 402 / 5 = 80.4 → 80, Cost excluded). Curated queue value (91.1) is far above this evidence — and now sits on a **retired** id, a curation concern flagged for `pnpm sync`.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing Google's Gemini 3 launch, DeepMind model pages, Artificial Analysis, Vals AI, Epoch AI and Gert Labs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-03. Method: ≥3 independent sources (Google Gemini API deprecations table, three migration/shutdown guides, Google's Gemini 3 launch blog, Artificial Analysis successor + Index v5 notes); confirmed `gemini-3-pro-preview` **fully retired 2026-03-09 → replaced by 3.1-pro** (recorded as lifecycle, not capability), AA v5 does not index the retired preview, all base-variant rows stand; **no dimension changed and Overall remains 80**; curation concern raised for the still-ranked retired id. Prior pass retained verbatim per `RULES.md`.
