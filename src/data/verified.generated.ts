@@ -170,7 +170,7 @@ export const VERIFIED: Record<string, string> = {
   "owo-2.5": "2026-10-30",
   "pareto-26.10-preview": "2026-11-03",
   "pixel_canary": "2026-11-03",
-  "qoder-sonus": "2026-11-03",
+  "qoder-sonus": "2026-11-04",
   "qwen-3.5-0.8b": "2026-11-04",
   "qwen-3.5-122b-a10b": "2026-11-04",
   "qwen-3.5-27b": "2026-11-04",

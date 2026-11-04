@@ -154,7 +154,6 @@
 69.5 solar-pro-4
 69.1 omen-alpha
 68.7 ling-3.1-flash
-68.7 qoder-sonus
 68.4 pixel_canary
 68.4 ring-2.6.1t
 67.7 mai-thinking-1
@@ -171,6 +170,7 @@
 65.2 ling-3.0-flash
 65 glm-4.6v-flash
 65 ling-2.6.1t
+64.5 qoder-sonus
 64.5 xing_4.0_29b_a4b
 64.2 leanstral-1.5
 64.1 mimo-v2.6-distill-qwen-9b
