@@ -1,7 +1,7 @@
 # DiffusionGemma 26B A4B — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma (curated id `opencode/diffusiongemma-26b-a4b`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,10 +56,20 @@ Multimodal / long context:
 - **Cost efficiency: 98/100.** Apache 2.0 weights that self-host for $0 on a single accelerator, community NIM/free endpoints at $0/$0, third-party routes at $0.05–0.50 per 1M, and claimed **>1,100 tokens/s** decode make this one of the cheapest high-throughput generation paths in the registry; the only reason it is not 100 is that the free/hosted tiers are provider-experimental and AA lists no durable API price.
 - **Overall Score: 63/100.** Mean of the five quality dimensions (55 + 56 + 66 + 76 + 62) / 5 = 63.0 → 63; Cost excluded per `RULES.md`. Best fit: latency-bound local generation — draft/repair loops, code infill and editing, fast structured extraction, captioning over frames — where 256 K context and parallel denoising matter more than peak accuracy. If you can afford the latency budget, the AR base (`model/gemma-4.26b-a4b/`) is the stronger model on every published capability row.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** independent harness scores / AA measured run for this ID. **NOT FIRED.**
+
+- **AA Index v5.0.1 rescale:** Pass-1's AA Intelligence Index 10 (#45 of 142, median 8) was under v4 methodology. Under v5, all absolutes dropped; the page may not yet be updated or the model may not meet v5's measurement bar (experimental diffusion architecture, minimal hosted availability). Index moot.
+- **No independent harness published:** Searched for BenchLM/TB/SWE-Verified/τ/Toolathlon rows — none found for `diffusiongemma-26b-a4b` specifically. The model remains vendor-only evidence. (Pass-1: "no BenchLM page for the slug" — confirmed still true.)
+- **Modality inconsistency unchanged:** AA states text+image+video in; HF card spec table says "Text, Image" only (inherited from AR base). Pass-1's decision to trust AA's "video" claim (yielding band 75-90 entered at floor 76) stands — no new evidence to resolve either direction.
+- **Overall 63 held.** No new independent data, no vendor re-release, no benchmark update.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (HF `google/diffusiongemma-26B-A4B-it` model card README, Artificial Analysis `models/diffusiongemma-26b-a4b`, NVIDIA NIM reference, Google launch blog and DiffusionGemma technical report (arXiv 2608.00146) listings, ModelScope mirror, community release coverage); scores are normalized 1–100 interpretations, not official vendor scores. All capability rows are vendor-run — no independent harness scores exist for this ID yet, which is flagged in each dimension.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA v5 rescale (Index 10 moot); no independent harness appeared; modality inconsistency unchanged. Bands held; Overall 63 unchanged.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

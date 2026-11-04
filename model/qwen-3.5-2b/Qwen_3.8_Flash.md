@@ -1,7 +1,7 @@
 # Qwen 3.5 2b — findings by Qwen 3.8 Flash
 
 - Source: Alibaba **Qwen3.5-2B** (curated id `opencode/qwen-3.5-2b`), cross-checked against **Artificial Analysis** ("Qwen3.5 small models", 2026-03-05), the HF `Qwen/Qwen3.5-2B` card, and qwen.ai's Qwen3.5 release
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,13 @@
 - **Cost efficiency: 100/100.** The headline virtue: **free Apache-2.0 weights under 2 GB at 4-bit**, runnable on a phone/laptop — near-zero cost, fully private, no API bill.
 - **Overall Score: 52.4/100.** Half-up mean of the five quality dims (48+52+62+52+48)/5 = 52.4. Best fit: **private, offline, on-device assist** — phone-class chat/extraction, simple tool glue, and basic image understanding with a surprisingly large 262K window — where a 2B free model "punching at 7-9B" is enough. The score leans on a **solid independent AA anchor (16)** (rare for these scaffolded small entries), but is capped by the small reasoner/coder headroom, AA-noted **overthinking (~390M tokens)** and **hallucination** weaknesses, and the fact it's local-only (no hosted API at eval time). Multimodal is **above the floor** because native vision is confirmed.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **AA v5 impact:** Intelligence Index now shows **N/A** (“Unknown out of 4 units for Intelligence”) under v5.0.1. Access/coverage gap (no publicly available API for this tiny model) — not a capability regression. Pass-1’s independent anchor (Index 16 from v4, published March 2026) remains a valid measurement; the v5 suite simply hasn’t re-evaluated it.
+- **Trigger partially addressed:** AA did not re-score (N/A ≠ new measurement). No individual MMMU-Pro/SWE/GPQA row published for the 2B. No hosted-API listing appeared. Specs remain confirmed: 2.3B, 262K, text+image+video input, Apache 2.0, HF weights.
+- **Model active.** Open weights on HF (`Qwen/Qwen3.5-2B`, post-trained Mar 9 2026). No deprecation.
+- **Score:** Overall **52.4 held**. No new independent evidence to shift the anchor.
+
 ---
 
 ## Signature
@@ -46,4 +53,5 @@
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **Artificial Analysis "Qwen3.5 small models" (2026-03-05)**: **Intelligence Index 16 (Reasoning)** for the 2B, family-wide **Apache 2.0 / 262K context / native vision / unified thinking**, the **~390M-token** Intelligence-Index cost and **AA-Omniscience hallucination** caveats, and MMMU-Pro family figures; **HF `Qwen/Qwen3.5-2B`** checkpoint (post-trained, 2026-03-09); qwen.ai Qwen3.5 release and small-model coverage (0.8B/2B phone-class, <2 GB at 4-bit). The curated `meta.json` is **scaffolded** (generic 128K/text/"Standard pricing") and is **overridden** by AA/Alibaba evidence (262K, native vision, free local). Scores are normalized 1–100 interpretations, **anchored to the independent AA Intelligence Index (16)** rather than vendor self-report — the strongest grounding among these small scaffolded entries — while still discounting for the model's absolute small-size headroom, overthinking, and factuality weakness. **Multimodal scored above the text-only floor** because native vision is confirmed. Kept distinct from sibling folders `qwen-3.5-0.8b` (AA 9), `qwen-3.5-4b` and `qwen-3.5-9b`.
 - Revisit trigger: publication of an individual **MMMU-Pro / SWE-bench / GPQA** row for the 2B specifically, a hosted-API listing (adding real pricing), or an AA index re-score under a new Intelligence Index version.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA v5 Index N/A (access gap). v4 Index 16 remains valid. No new eval rows, no hosted API. Model active. Held 52.4.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

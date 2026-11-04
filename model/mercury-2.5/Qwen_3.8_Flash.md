@@ -1,7 +1,7 @@
 # Mercury 2.5 — findings by Qwen 3.8 Flash
 
 - Source: Inception Labs (`inception/mercury-2.5`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,6 +55,13 @@ Multimodal:
 - **Cost efficiency: 98/100.** $0.04 / $0.15 per MTok + 1,107 tok/s throughput is genuinely the cheapest speed‑first option measured. Cost excluded from Overall.
 - **Overall Score: 44/100.** Mean of Tool 50, Reasoning 42, Context 68, Multimodal 12, Coding 48 = 220/5 = 44.0 → **44**. Best fit: **ultra‑high‑throughput, latency‑critical text pipelines** — real‑time agents, structured extraction at scale, high‑fanout tool loops — where frontier reasoning is unnecessary. **Not** for serious reasoning, repo‑scale coding, or knowledge work. Kimi 46 (near match); cohort 51.5 (inflated by the diffusion / speed novelty). The throughput story is legitimate, but the evidence base for actual capability is very thin — AA Index 12.3 alone tells a stark story.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger FIRED.** Vals AI independently measured Mercury 2.5 on **Terminal-Bench 2.1: 34.5%** (source: vals.ai/models/inception_mercury-2.5, via BenchLM Nov 4). Artificial Analysis added: **AA-HLE 11.8%**, **CritPt 0.0%**, **GDPval-AA 0.0%**, **AA-SciCode 38.5%**. BenchLM composite: **33.41/#170/1008** (13/739 coverage). Vendor launch-chart data: GPQA-D 79.0%, τ³ 96.0%, IFBench 77%.
+- **Recalculation justified:** Pass-1’s Coding 48 was speculative (no evidence). Independent AA-SciCode 38.5 + Vals TB 34.5 pull Coding down to **44**. Tool held at 50 (TB is coding-focused, not tool-use focused; no independent tool-use measurement). Other dims confirmed: Reasoning 42 (HLE 11.8, CritPt 0, GDPval 0), Context 68, Multimodal 12.
+- **New Overall: (50+42+68+12+44)/5 = 216/5 = 43.2 → 43** (was 44, −1).
+- **Lifecycle: `superseded`.** llm-releases (Oct 26): “Mercury 2.5 deprecated in favor of Mercury 3.” BenchLM lists Mercury 3 (not computed). Migration deadline: Nov 15, 2026 (per BenchLM comparison page).
+
 ---
 
 ## Signature
@@ -62,4 +69,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` public research (ARMES model docs, Vals AI registry, BenchLM value ranking). Curated `meta.json` is a placeholder template — corrected 128K → **260K** per ARMES docs. Flagged: (a) **speed and cost‑value are not Overall dims under v4** — >1,100 tok/s and BenchLM #2 cost‑adjusted coding placement inform Cost, not the quality mean; (b) **AA Intelligence Index 12.3 is the only external standardized quality measurement** — everything else is vendor‑internal or unpublished; (c) confidence on Tool / Coding is low because Inception has not published external evals. This is an honest provisional scoring against an evidence vacuum.
 - Revisit trigger: when Inception publishes an external eval card (GPQA / SWE‑V / TB / GDPval), or when Vals AI adds Mercury 2.5 to their public suite.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Trigger fired (Vals AI TB 34.5, AA-SciCode 38.5, AA-HLE 11.8). BenchLM 33.41/#170/1008. `superseded` (→Mercury 3, Nov 15). Coding recalculated 48→44. New Overall **43**.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

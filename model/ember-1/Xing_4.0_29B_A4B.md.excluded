@@ -1,0 +1,22 @@
+# Ember 1 — findings by Xing_4.0_29B_A4B (SELF-EXCLUDED)
+
+No verified public benchmarks located for the exact model ID `ember-1`. Three independent search strategies (vendor-released primary sources, independent aggregator rankings, community benchmark registries) returned no attributable primary source. Websearches after multiple query variations yielded no benchmark card, no independent ranking entry, and no HF/ModelScope checkpoint. The model cannot be scored; every benchmark row reads "no verified public score found." All recorded specs/pricing/modalities are unverified access metadata only. Per `tasks/research.md` Step 3.9 / `model-report-TEMPLATE.md`: zero verified benchmarks → save `<Source>.md.excluded`.
+
+**Verified Benchmarks:** 0
+**Recommendation:** Save `.md.excluded`.
+
+### Research record
+
+- Exact-name searches: no primary benchmark page, vendor release announcement, or independent evaluation dataset found for `ember-1`.
+- Aggregator checks: Artificial Analysis, Benchmark Registry, SWE-bench project, LiveBench, Aider — no attributable entry.
+- Identity search: no confirmed upstream publisher or checkpoint identified.
+- Peer findings not consulted (zero-influence rule).
+
+---
+
+## Signature
+
+- Provided by: **Xing_4.0_29B_A4B (independent research)** — 2026-11-04
+- Method: Public internet research only — extensive websearches targeting multiple search variations; attempted direct fetches to candidate model cards, vendor announcement pages, and independent benchmark aggregator profiles; no attributable primary source found.
+- Reference URLs: [None.]
+- Exclusion reason: Insufficient verified benchmarks. [→ save `.md.excluded`]

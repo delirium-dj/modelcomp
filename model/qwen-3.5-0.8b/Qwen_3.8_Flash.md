@@ -1,7 +1,7 @@
 # Qwen 3.5 0.8b — findings by Qwen 3.8 Flash
 
 - Source: Alibaba **Qwen3.5-0.8B** (curated id `opencode/qwen-3.5-0.8b`), cross-checked against **Artificial Analysis** ("Qwen3.5 small models", 2026-03-05), **llm-stats** `qwen3.5-0.8b`, and the HF `Qwen` organization release
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,13 @@
 - **Cost efficiency: 100/100.** The defining virtue: **free Apache-2.0 weights under 2 GB at 4-bit**, fully on-device / smartphone-runnable — near-zero cost and private.
 - **Overall Score: 44.8/100.** Half-up mean of the five quality dims (40+44+58+42+40)/5 = 44.8. Best fit: **ultra-cheap, private, on-device micro-tasks** — classification, extraction, short rewrites, tiny-model autocomplete, and basic image tagging — where a free sub-1B model is sufficient and latency/footprint matter more than capability. The score leans on a **legitimate independent AA anchor (9)** and confirmed native vision (so Multimodal is above the floor), but is firmly **bottom-of-family**: absolute reasoning, coding and tool depth are all very limited, and AA flags overthinking and hallucination. This is an efficiency/footprint play, not a capability tier.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **AA v5 impact:** Intelligence Index N/A under v5.0.1 (same pattern as qwen-3.5-2b — tiny models lack public API for v5’s harder eval suite). Pass-1’s anchor (Index 9 from v4, published March 2026) remains a valid measurement.
+- **Model active.** Open weights on HF (`Qwen/Qwen3.5-0.8B`, Apache 2.0). DeepInfra hosting available (since Apr 2026). No deprecation, no supersession.
+- **Trigger NOT fired.** No individual GPQA/SWE/AIME row for 0.8B specifically. No new hosted-API listing beyond DeepInfra. AA v5 did not re-score (N/A ≠ new measurement).
+- **Score:** Overall **44.8 held**. No new independent evidence.
+
 ---
 
 ## Signature
@@ -46,4 +53,5 @@
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **Artificial Analysis "Qwen3.5 small models" (2026-03-05)**: **Intelligence Index 9 (Reasoning)** for the 0.8B (+2.5 over Qwen3 0.6B), **MMMU-Pro 25.8%** ("notable for a sub-1B model"), the **~230M-token** Intelligence-Index cost and family **hallucination** caveats, and series-wide **Apache 2.0 / 262K context / native vision / unified thinking / <2 GB at 4-bit**; corroborated by **llm-stats `qwen3.5-0.8b`** and the HF `Qwen` small-series release. The curated `meta.json` is **scaffolded** (generic 128K/text/"Standard pricing") and is **overridden** by AA/Alibaba evidence (262K, native vision, free local). Scores are normalized 1–100 interpretations, **anchored to the independent AA Intelligence Index (9)** while clearly reflecting a **bottom-of-family, footprint-only** tier; **Multimodal scored above the text-only floor** due to confirmed native vision. Kept distinct from sibling folders `qwen-3.5-2b` (AA 16), `qwen-3.5-4b`, `qwen-3.5-9b`, and `qwen-3.5-397b`.
 - Revisit trigger: an individual **GPQA / SWE-bench / AIME** row for the 0.8B, a hosted-API listing (adding real pricing), or an AA re-score under a new Intelligence Index version.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA v5 Index N/A (access gap). v4 Index 9 valid. DeepInfra hosting active. No new evals. Held 44.8.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

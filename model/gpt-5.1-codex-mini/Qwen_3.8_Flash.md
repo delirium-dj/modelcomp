@@ -1,7 +1,7 @@
 # GPT-5.1 Codex Mini — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5.1-codex-mini`; curated id `opencode/gpt-5.1-codex-mini`), cross-checked against the SWE-bench Verified leaderboard, OpenAI Developers' GPT-5.1-for-developers announcement, and independent price/spec trackers (llm-stats, pricepertoken, developer.puter, opencode.ai/data)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,15 @@ Long context / multimodal:
 - **Cost efficiency: 88/100.** $0.25/$2.00 per 1M with a deliberately low thinking-token budget is the whole point of the Mini lane — high-volume agentic coding at a fraction of Codex-Max's cost.
 - **Overall Score: 60.6/100.** Half-up mean of the five quality dims (66+62+82+15+78)/5 = 60.6. Best fit: **high-volume, cost-sensitive agentic coding** — routine repo edits, scaffolding and tool-driven software tasks where Codex-Max's ceiling isn't worth the price — with the frontier ceiling, deep reasoning and multimodality left to its bigger siblings.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "AA / independent reasoning-index for codex-mini, or supersession by a later Codex-Mini generation." **NOT FIRED (no independent data); supersession via lifecycle.**
+
+- **Lifecycle: DEPRECATED.** OpenAI deprecations page confirms `gpt-5.1` family (including Codex variants) **deprecated 2026-10-01**, shutdown scheduled **2027-04-01** (per APIpulse). Microsoft Foundry shows `gpt-5-nano` retirement Feb 9, 2027 on Azure — Codex variants follow the Apr 2027 general timeline. Still functional today. → `legacy-with-date` flag. Replacement: later Codex generations (gpt-5.3-codex / gpt-5.4-codex / gpt-6.x).
+- **No independent reasoning-index or GPQA/AIME appeared:** Trigger NOT fired for Reasoning re-score. Vendor claims + SWE-V 66.0 leaderboard remain the only data.
+- **Evidence unchanged:** SWE-V 66.0 (swebench.com logged Nov 20, 2025), $0.25/$2.00 pricing, 400K context — all pass-1 facts still valid.
+- **Overall 60.6 held.** Evidence state unchanged; lifecycle context added.
+
 ---
 
 ## Signature
@@ -55,4 +64,5 @@ Long context / multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — OpenAI Developers "Introducing GPT-5.1 for developers" (release 2025-11-13, faster adaptive reasoning, extended prompt caching), the SWE-bench Verified leaderboard (66.0% via mini-SWE-agent, 2025-11-20), OpenAI Developers' efficiency claim (medium reasoning beats GPT-5.1-Codex at ~30% fewer thinking tokens), and independent spec/price trackers llm-stats / pricepertoken / developer.puter / opencode.ai/data ($0.25/$2.00 per 1M, 400K context). openai.com/index returned 403 to fetch, so specs were triangulated across those mirrors. Scores are normalized 1–100 interpretations, not official vendor scores; missing GPQA/AIME/tool-bench absolutes are flagged as gaps, not filled from the Codex-Max sibling. Curated `meta.json` is scaffolded ("128K / Text in-out / Standard pricing") and was overridden by first-party/tracker evidence (400K context; $0.25/$2.00; text-only retained).
 - Revisit trigger: an Artificial Analysis / independent reasoning-index number for the codex-mini endpoint, or published GPQA/AIME/τ² absolutes; supersession by a later Codex-Mini generation.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. **`legacy-with-date`** flag: GPT-5.1 family deprecated Oct 1, 2026, shutdown Apr 1, 2027; still functional. Reasoning trigger NOT fired (no independent data). Bands held; Overall 60.6 unchanged.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.5_Flash.md`, using the same headings.

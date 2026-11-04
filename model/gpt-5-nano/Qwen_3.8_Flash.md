@@ -1,7 +1,7 @@
 # GPT-5 Nano — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5-nano`; API Responses + Chat Completions)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,15 @@ Multimodal:
 - **Cost efficiency: 97/100.** $0.05/$0.40 per MTok is among the cheapest reasoning-model endpoints with image+video input. Caching and Batch push it lower. Cost excluded from Overall.
 - **Overall Score: 62/100.** Mean of Tool 58, Reasoning 58, Context 66, Multimodal 72, Coding 58 = 312/5 = 62.4 → **62**. Best fit: **ultra-cheap high-volume reasoning, classification, extraction, and lightweight multimodal pipelines** — the $0.05/$0.40 with video/image support is a unique price/capability point. Not a frontier reasoner (HLE 8.7%), not a strong agent (τ² airline 41%), not a long-context tool (MRCR 43%). Between Kimi's 65 and the cohort's 61.5; superseded by GPT-5.4 nano in production.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "none planned — superseded." **NOT APPLICABLE.**
+
+- **Lifecycle: DEPRECATED, shutdown scheduled.** OpenAI deprecations page: `gpt-5-nano` / `gpt-5-nano-2025-08-07` **deprecated 2026-06-11**, **shutdown 2026-12-11**. Replacement: `gpt-5.6-luna`. Still functional today (Nov 4); requests will fail Dec 11, 2026. → `legacy-with-date` flag.
+- **Pass-1 trigger noted it was superseded** by GPT-5.4 nano / GPT-5.6 / 6.x family — that context is now operationalized as a formal retirement date.
+- **Evidence unchanged:** No new independent benchmarks or vendor re-release for this ID (it’s heading toward shutdown, not improvement). Bands held.
+- **Overall 62 held.** Historical model with confirmed shutdown date; pass-1 evidence (GPQA 71.2, HLE 8.7, SWE-V 54.7, MRCR 43.2, VideoMMMU 66.8) remains the final record.
+
 ---
 
 ## Signature
@@ -70,4 +79,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (OpenAI official launch table, full panel). Curated `meta.json` placeholder corrected (128K → 400K total; text-only → text+image+video). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) the model is **from August 2025** — superseded by GPT-5.4/5.6/6.x lines, (b) MRCR 43% confirms the 400K window is nominal not effective, (c) low hallucination rates (LongFact 1–2.8%) are genuinely notable at this price tier.
 - Revisit trigger: none planned — historical model superseded by GPT-5.4 nano and the 5.6/6.x family.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. **`legacy-with-date`** flag: OpenAI deprecated `gpt-5-nano` Jun 11, shutdown Dec 11, 2026 (replacement gpt-5.6-luna). Still functional. Evidence unchanged; Overall 62 held.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

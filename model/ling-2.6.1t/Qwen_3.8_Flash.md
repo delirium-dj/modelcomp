@@ -1,7 +1,7 @@
 # Ling 2.6 1T — findings by Qwen 3.8 Flash
 
 - Source: InclusionAI / Ant Group (curated id `opencode/ling-2.6.1t`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-08 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,10 +53,21 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 90/100.** **MIT open weights** plus a **free OpenRouter endpoint** (`:free`) makes evaluation $0, the hybrid MLA + linear-attention design and MTP/EAGLE speculative decoding target exactly the latency/VRAM costs that make trillion-parameter models expensive, and "Fast Thinking" explicitly suppresses CoT token bloat (~16 M output tokens cited for the AA Index run). Against that, AA calls the hosted output price "somewhat expensive" ($2.50 vs class median $0.91 — 2.7×, which matters for a chatty instruct model), **no cost-per-task figure exists**, and self-hosting still needs an 8-GPU TP8 node.
 - **Overall Score: 50/100.** Mean of the five quality dimensions (56 + 50 + 76 + 15 + 55) / 5 = 252 / 5 = 50.4 → 50; Cost excluded per `RULES.md`. Best fit: **teams that must own and self-host a permissively-licensed trillion-parameter instruct model** for agentic coding and multi-step tool workflows on an SGLang/vLLM stack, where the 262 K window, token-efficiency design and MIT licence outweigh leaderboard position — and where the model can be re-benchmarked internally (the vendor's own harness charts are not machine-readable, so verification is on you). It is **not** the pick for factual Q&A (**~92 % hallucination on AA-Omniscience**), not the pick for multimodal work, and not a first choice for a *new* build: AA marks it **deprecated** and points to **Ling 3.0 Flash**, which this registry tracks separately.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "model lifecycle; new evidence; AA v5 re-measurement."
+
+- **AA deprecated banner persists:** "This model is deprecated … InclusionAI has launched a newer release, Ling 3.0 Flash. We suggest considering it instead." Ling 3.0 Flash is itself deprecated (→ Ling 3.1 Flash). Double-supersession: Ling-2.6-1T → 3.0 Flash → 3.1 Flash. Lifecycle: **`superseded`**.
+- **AA Intelligence Index N/A under v5.0.1:** AA page now shows "No publicly available API" for Intelligence Index (was 17 estimated under v4). Same data-availability gap as sibling Ling models; not a regression. Omniscience −51 / 92% hallucination was a measured result from v4-era and remains the only faithfulness data for this ID.
+- **BenchLM 404 persists:** No page for `ling-2-6-1t`. Confirms the evidence void pass-1 documented (vendor charts in images, no machine-readable independent data).
+- **No new evidence appeared:** No technical-report tables released in text form; no third-party harness (Vals, Terminal-Bench, etc.) added rows for this ID. Vendor SOTA claims remain unverifiable.
+- **Overall 50 held.** Evidence state unchanged; `superseded` lifecycle formally recorded.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-08
 - Method: fresh public internet research (the `inclusionAI/Ling-2.6-1T` Hugging Face README in raw form — architecture claims, Fast Thinking reward, SOTA harness list, SGLang/vLLM deployment recipes with `--context-length 262144`, MIT licence, OpenRouter `:free` endpoint, arXiv pointer; Artificial Analysis `models/ling-2-6-1t` — deprecation banner naming Ling 3.0 Flash, Index 17 *estimated* with #14/46 and class median 12, non-reasoning-variant note, 262k context, text-only modalities, 1.0 T/63 B spec block, $0.30/$2.50 with class medians, N/A speed/cost/verbosity; arXiv 2606.15079 listing for the joint **Ling and Ring 2.6** technical report (submitted 2026-06-13); Artificial Analysis' published launch analysis of this model's AA-Omniscience result), plus negative results that are themselves findings: **BenchLM 404** for this ID and unrendered llm-stats/OpenRouter tables; plus the curated `model/ling-2.6.1t/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule (the folder's other agents' files and `average.md` were deliberately left unread). Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** positioning-rich, numbers-poor — the vendor names τ², BFCL-V4, IFBench, AIME26, SWE-bench Verified, Claw-Eval, PinchBench and MRCR but publishes values only inside chart images; the single independent composite is an **estimate**; the vendor's own "AA Index 34" is contradicted by AA's live **17**; and the hallucination measurement is independent and severe.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. AA deprecated/N-A Index; BenchLM 404 persists; evidence void unchanged. Double-superseded (3.0 Flash → 3.1 Flash). Overall 50 held. `superseded` flag recorded.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

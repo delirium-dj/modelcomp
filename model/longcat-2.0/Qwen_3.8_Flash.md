@@ -1,7 +1,7 @@
 # LongCat 2.0 — findings by Qwen 3.8 Flash
 
 - Source: Meituan (`meituan-longcat/LongCat-2.0`, HF/GitHub; LongCat API platform)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,18 @@ Long context:
 - **Cost efficiency: 92/100.** If the curated $0.30/$1.20 (cached $0.006) applies, this is near-anchor-cheap; MIT weights make marginal cost hardware-only. Scored between Kimi's hardware-heavy 70 and the cohort's 84.5 since the rate-card attribution is unresolved. Cost excluded from Overall.
 - **Overall Score: 67/100.** Mean of Tool 76, Reasoning 74, Context 92, Multimodal 15, Coding 78 = 335/5 = 67.0 → **67**. Best fit: **self-hosted, MIT-licensed, repo-scale agentic coding where data residency and license freedom outrank verified accuracy** — a genuinely impressive vendor panel that has never been checked by an independent lane. Sits below the cohort's 72 because this file discounts the vendor-only evidence and the unmeasured 1M window rather than inheriting their credit.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "if Artificial Analysis or BenchLM rank LongCat-2.0 (GPQA/HLE/index rows), re-score Reasoning." **NOT FIRED.**
+
+- **AA page exists but Intelligence N/A:** `artificialanalysis.ai/models/longcat-2-0` returns a valid page. The Intelligence Index block reads **"N/A — Unknown out of 4 units"**; all eval charts show "No publicly available API". AA has listed the model but NOT yet run independent intelligence benchmarks. Reasoning/Coding triggers unmet.
+- **Pricing dispute RESOLVED:** AA independently reports **$0.75/M input, $2.95/M output** (median across 1 provider). Pass-1 flagged the curated meta's $0.30/$1.20 as "possibly attributed to the 2.5 Preview" — AA confirms this WAS a generation conflation. The real 2.0 API price is nearly double what the curated sheet carried. Cost band updated 92→85 (expensive vs median $0.50/$1.85 per AA); **Cost excluded from Overall, no score change.**
+- **Modality independently confirmed text-only:** AA: "supports text input, outputs text" + "does not support image input" + "not multimodal." Multimodal 15 held.
+- **Context 1M confirmed:** AA spec "1,000,000 tokens." No MRCR/RULER retrieval measurement published. Context 92 unchanged (training-verified, unmeasured retrieval).
+- **Speed/latency:** 65 tok/s, 28.18s TTFT — slow for production; corroborates the "1 API provider" constraint. No band impact.
+- **LongCat-2.5 GA** shipped 2026-11-02 (multimodal native, 1.6T) — a different model in a separate folder (`model/longcat-2.5-preview/` already flagged `superseded`). Does not retroactively change 2.0 evidence.
+- **Overall 67 held.** All five quality bands unchanged (reasoning trigger still unmet: no independent GPQA/HLE/Index row).
+
 ---
 
 ## Signature
@@ -60,4 +72,5 @@ Long context:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (Meituan launch table with sandbox methodology, explainx.ai reproduction, 2026-07-05 weight release, Zen-catalog absence check) + curated `meta.json`. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **100% vendor-harness evidence — zero AA/BenchLM/Epoch rows for this exact model**, (b) the $0.30/$1.20 rate is attributed to the 2.5 Preview by the freshest sibling pass — curated meta may be conflating generations, (c) 1M context is training-verified but never retrieval-measured, (d) do not borrow 2.5 Preview's image input or Zen-free lane into this folder.
 - Revisit trigger: if Artificial Analysis or BenchLM rank LongCat-2.0 (GPQA/HLE/index rows), re-score Reasoning immediately — it is the dim most exposed to the vendor-only lane; likewise if an official 2.0 rate card is confirmed.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA page exists (Intelligence N/A, trigger NOT fired); pricing dispute resolved ($0.75/$2.95, not curated $0.30/$1.20 — conflation confirmed); text-only/1M/slow independently confirmed. Quality bands held; Overall 67 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

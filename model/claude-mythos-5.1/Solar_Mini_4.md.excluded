@@ -1,52 +1,55 @@
 # Claude Mythos 5.1 — findings by Solar_Mini_4
 
-> Template → replaced with model-specific research; no placeholders remain.
-> Source of truth methodology: `../../model-comparison.md`.
-
-- **Source:** Anthropic Claude Mythos 5.1
-- **Date:** 2026-10-17 (UTC)
+- Source: Anthropic (restricted `anthropic/claude-mythos-5.1`)
+- Date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
+
 - **Name:** Claude Mythos 5.1
-- **Short description:** Anthropic Claude Mythos 5.1 flagship model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** Anthropic Claude API, Anthropic Console; OpenCode Zen `opencode/claude-mythos-5.1`; GitHub `anthropic/claude-mythos-5.1`.
-- **Release / knowledge:** Released 2026-09-18; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `anthropic/claude-mythos-5.1` (Hugging Face registry slug); GitHub `anthropic/claude-mythos-5.1`.
-- **Context window:** **1M** total, **256K** max output (official Anthropic API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official Anthropic API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary Anthropic Claude Mythos 5.1; not open weights.
+- **Short description:** Anthropic's restricted Mythos-class variant, same weights as Fable 5.1 but with vetted-access controls for cyber/bio research and analysis. A safety-restricted tier, so very few public benchmark numbers exist.
+- **Provider / access:** Anthropic Claude API (`claude-mythos-5.1`), Anthropic Console; restricted access tier — only vetted organizations may use it (cyber/bio verification programs). Not on public model marketplaces (OpenRouter 404, API docs list `mythos` as a model line but with restricted availability).
+- **Release / knowledge:** Same weights and release cycle as Fable 5.1 (released 2026-09-01); restricted availability only.
+- **IDs:** `anthropic/claude-mythos-5.1` (internal); `mythos` is the model line in the Anthropic API.
+- **Context window:** **1M** total, **128K** max output (meta.json / Anthropic Platform docs).
+- **Modalities:** text + image in; text out (no audio/video/PDF).
+- **Pricing (as of 2026-11-03):** $10 / $50 per 1M input/output (premium Mythos tier; same as Fable 5.1). No public free tier (paid-only access).
+- **Architecture:** Proprietary (closed weights), Anthropic's Mythos family. Weights identical to Fable 5.1 (pre-release); the only difference is access control and safety-vetted lanes.
 
 ### Raw benchmarks found
 
 > List measured numbers with (source, rank/percentile, harness) for traceability.
 
-- Artificial Analysis Intelligence Index: **48 / 100** (AA rank #26/217, 2026-09-22)
-- Speed: **119.1 tokens/s** (OpenAI API)
-- Speed rank: **#48/186** (above average)
-- Output tokens (AA Intelligence Index): **77M** (concise vs median 85M)
-- Cost per task: **$1.04**
-- Context window: **1M**
-- Parameters: Not disclosed (proprietary)
-- Multimodal: Text + image in/out; text out
+Tool use:
+- Terminal-Bench 2.1 (Vals AI): **89.0%** (Benchgap, estimated ± 5.4 pp, low confidence)
+- Terminal-Bench 4.0: **60.9%** (Benchgap, measured) / **60.2%** (estimated ± 6.0 pp, medium)
+
+Reasoning / knowledge / coding:
+- No verified public benchmark numbers found (GPQA, MMLU, SWE-bench, HLE, etc. are not publicly reported for the restricted Mythos tier). The only public evidence is Terminal-Bench 2.1/4.0.
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key
+> evidence and state what caps the score.
 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):** Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. NEVER include Cost efficiency — scored independently.
-
-- **Tool use: 88/100.** Tool calling + structured outputs are supported and functional for agentic use, but compact 3B-active design and verbose reasoning-token output (72k/intel task) cap autonomous reliability; strong enough for bounded workflows, not for complex multi-step agentic tasks.
-- **Reasoning: 87/100.** AA Intelligence Index 48 is a relative strength among models with 3B active parameters (outperforms Qwen3.6 35B A3B at 18 and nemotron-3.5-lightning-free), backed by 83% AA-LCR and 1072 Elo GDPval-AA; but low 18% AA-Omniscience knowledge accuracy caps the ceiling.
-- **Context window: 95/100.** 512K–1M context with 83% AA-LCR long-context retrieval is among its best dimensions; 128K max output supports long agentic runs but verbose decoding (88k output/intel task) limits real task throughput.
-- **Multimodal: 92/100.** Text-only input/output; no image/video/audio → floor assigned.
-- **Coding: 88/100.** 48% SciCode is a scientific-coding strength, but agentic coding is a weak spot (1% Terminal-Bench 4.0, 22% AutomationBench-AA), so autonomous coding reliability is capped.
-- **Cost efficiency: 95/100.** Paid pricing ($0.10/$0.40 per 1M, with 50% launch discount effective ~$0.05/$0.20) and heavy reasoning-token use (88k output/intel task) mean it is ~5x the cost per task of GPT-6 Luna (max) despite similar per-token prices; mid-range cost efficiency, capped by verbose outputs.
-- **Overall Score: 90/100.** (88 + 87 + 95 + 92 + 88) / 5 = 90.0. Best-fit: a compact agentic model that beats the 3B-active-parameter class on reasoning and long context but is held back by verbose outputs, low knowledge accuracy, and weak agentic coding.
+- **Tool use: 88/100.** Terminal-Bench 2.1 89.0% is at the frontier (~88%→90–100), with Terminal-Bench 4.0 60.9% (measured) as the more conservative counterpoint; the restricted tier's tool execution is strong on agentic terminals.
+- **Reasoning: N/A.** No verified public GPQA/HLE/MMLU-style benchmark numbers were found for the restricted Mythos tier; only Terminal-Bench (tool-use) data is public.
+- **Context window: 95/100.** 1M total context is top-tier (≥1M→95–100).
+- **Multimodal: 65/100.** Text + image in (60–70 band → 65); no video/audio/PDF input, text-only output.
+- **Coding: N/A.** No verified public SWE-bench/LiveCodeBench/SciCode numbers for the restricted tier; only Terminal-Bench (tool-use) data is public.
+- **Cost efficiency: 45/100.** $10/$50 per 1M is a premium flagship tier (methodology anchor $3/$15→~60, $10/$50→~30); paid-only access means no free-tier offset.
+- **Overall Score: 83/100.** Partial score from the 3 available dimensions — (88 + 95 + 65) / 3 = 82.7 → 83 — computed only because Reasoning and Coding have no verified public benchmark data (score reflects Tool + Context + Multimodal only).
 
 ---
 
 ## Signature
 
-- Provided by: **Solar Mini 4 (opencode/solar-mini-4)** — 2026-10-17
-- Method: public internet research across official Anthropic docs, Hugging Face, Artificial Analysis, GitHub, X/Anthropic, and independent benchmark aggregators; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Solar Mini 4 (solar-mini4)** — 2026-11-03
+- Method: public internet research (Benchgap benchmark leaderboard, Anthropic Platform docs & official pricing page, Anthropic metadata repo). Scores are normalized 1–100 interpretations, not official vendor scores. Note: the official announcement URL (anthropic.com/news/claude-mythos-5.1) returns HTTP 404 — the model is only reachable via vetted channels, so public benchmark data is extremely sparse.
+- Reference URLs:
+  - [Benchgap — Claude Mythos 5.1 benchmark scores](https://benchgap.net/model/claude-mythos-5-1)
+  - [Anthropic Platform Docs — Models overview](https://platform.claude.com/docs/en/models)
+  - [Anthropic pricing](https://www.anthropic.com/pricing)
+  - [Anthropic metadata (official, code-sourced)](https://github.com/anthropics/anthropic-quickstarts/raw/main/modelcomp/model/claude-mythos-5.1/meta.json)

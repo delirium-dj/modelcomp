@@ -1,7 +1,7 @@
 # Solar Pro 4 — findings by Qwen 3.8 Flash
 
 - Source: Upstage AI (`upstageai/solar-pro-4`; API `upstage/solar-pro4`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -68,6 +68,16 @@ Multimodal:
 - **Cost efficiency: 82/100.** $0.30/$1.20 first-party is mid-range for a 500K-context proprietary model (the AA anchor puts $3/$15 at 60, so $0.30/$1.20 ≈ ~85); OpenRouter $0.09/$0.36 budget routes are genuinely cheap; no free tier. Cost excluded from Overall.
 - **Overall Score: 64/100.** Mean of Tool 68, Reasoning 72, Context 85, Multimodal 15, Coding 78 = 318/5 = 63.6 → **64**. Best fit: **Korean/English/Japanese enterprise document workflows and competitive-math-heavy coding tasks** where text-only modality is acceptable and LiveCodeBench-tier code generation at 512K matters. The model's AIME 95.3 and LCB 87.8 are genuinely frontier-adjacent; the sub-40% HLE and CritPt floor confirm it's a specialist, not a generalist reasoner. Kimi K3's 67 is inflated by a multimodal scoring error; Muse's 69 leans on the vendor AA Index claim.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "if HLE settles independently above 35%, or Upstage ships a vision-capable Pro-variant; AA Index lane war resolution." **NOT FIRED.**
+
+- **No vision variant:** BenchLM/Upstage blog/OpenRouter all confirm Solar Pro 4 is still text-in/text-out. No Pro-variant VL announcement found since pass-1. Multimodal 15 held.
+- **AA Index lane war (28.1 BenchLM vs 42 vendor):** Upstage's Aug 20 PR claims "Scoring 42 on Artificial Analysis Index." AA's own article (Aug 12) references 42 in its text; but AA's page under v5.0.1 methodology (launched Oct 27) has rebased — absolute 42 is a v4-era number. BenchLM's 28.1 was also v4-era. Under v5, both would be lower. The lane war persists (no BenchLM full-coverage re-rating yet); **trigger not fired.** Pass-1's conservative choice of 28.1 (lower lane) remains the defensible scoring basis.
+- **HLE 29.2 unchanged:** No independent re-measurement found showing HLE settling above 35%. Reasoning 72 held.
+- **AA Index v5.0.1 rescale:** Both 28.1 and 42 are pre-v5. Under v5, absolute numbers dropped cohort-wide; relative positioning and band placement are unchanged. No band revision.
+- **Overall 64 held.** All quality evidence states confirmed; trigger conditions remain unmet.
+
 ---
 
 ## Signature
@@ -75,4 +85,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM/AA panel + `Muse_Spark_1.3.md` (official Upstage blog table, CrucibleMark, Seoul Economic Daily, provider catalogs) + AA article confirming pricing. Curated `meta.json` is entirely "Unknown" placeholders — resolved via catalog evidence. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **Kimi K3's Multimodal 50** is a methodology misapplication — Design Arena is text→code, not vision input; (b) **AA Index 42 vendor claim vs 28.1 BenchLM measurement** — 14-point lane gap scored at the independent figure; (c) Omniscience 18.9% accuracy is low but the 24.4% hallucination rate is at least honest (contrasts hy3's 73%).
 - Revisit trigger: if HLE settles independently above 35% (confirming vendor PR reasoning claims), or if Upstage ships a vision-capable Pro-variant; the AA Index lane war (28.1 vs 42) would benefit from a BenchLM full-coverage re-rating.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Trigger NOT fired (no vision, HLE unresolved, lane war persists); AA v5 rescale (both Index numbers pre-v5, relative placement unchanged). Bands held; Overall 64 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

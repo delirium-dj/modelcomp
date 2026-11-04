@@ -1,7 +1,7 @@
 # GLM 4.6V Flash — findings by Qwen 3.8 Flash
 
 - Source: Z.ai / Zhipu (`zai-org/GLM-4.6V-Flash`; curated id `opencode/glm-4.6v-flash`), cross-checked against the GLM-V paper (arXiv 2507.01006), the HF model card, Z.ai's GLM-4.6V launch blog, LM Studio's model page, and r/LocalLLaMA / community comparisons
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,15 @@ Reasoning / coding / agents (feature-level, not benchmarked for Flash):
 - **Cost efficiency: 100/100.** Literally the best achievable: a **$0 free Flash API tier plus MIT open weights for free self-host** — zero-cost multimodal agenting is its defining economic advantage.
 - **Overall Score: 67.2/100.** Half-up mean of the five quality dims (72+66+58+82+58)/5 = 67.2. Best fit: **free / local, latency-sensitive visual agents** — GUI automation, grounding, OCR/chart/document and video understanding — where an MIT 9B that calls tools from vision and costs nothing is the whole point. Held below larger multimodal flagships by its **9B ceiling on reasoning/coding and the 128K context limit**, and because its headline visual numbers are **vendor-claimed at-scale rather than independently point-measured** on the Flash checkpoint.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "An independent (AA / OpenBMB / third-party) benchmark row published specifically for GLM-4.6V-Flash (MMMU, MathVista, OCRBench, a visual τ²/agent eval)."
+
+- **Trigger NOT FIRED:** AA has no page for `glm-4.6v-flash` (the 9B checkpoint). Their VLM coverage targets the flagship `glm-4-6v` (106B-A12B). BenchLM has no `glm-4.6v-flash` page either. The pass-1 finding that "BenchAlign's #142/39.97 'Estimated' is the *text* GLM-4.6 and was not used for this VLM" remains accurate. No independent point-measurement for the Flash checkpoint exists.
+- **GLM-5V-Turbo successor shipped:** Z.ai's multimodal line has advanced to `GLM-5V-Turbo` (GLM-5 family vision SKU). GLM-4.6V-Flash (Dec 2025) is **`superseded`** within the VLM family, though the free Z.ai Flash tier and MIT weights remain accessible.
+- **Vendor-only evidence persists:** The family card, paper (arXiv 2507.01006), and community reports (“beats Qwen3-VL-8B overall”) are still the sole basis for the 9B-Flash scoring. No new harness data changed the landscape.
+- **Overall 67.2 held.** Bands unchanged; `superseded` lifecycle recorded (by GLM-5V-Turbo).
+
 ---
 
 ## Signature
@@ -46,4 +55,5 @@ Reasoning / coding / agents (feature-level, not benchmarked for Flash):
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **GLM-V paper (arXiv 2507.01006)** architecture + Table 2 (confirming `GLM-4.6V-Flash` = dense 9B on GLM-4-9B-0414 + AIMv2-Huge encoder, and that the published benchmark columns are the 9B *GLM-4.1V* and the 106B-A12B *GLM-4.6V*, not a Flash-specific row), the **HF `zai-org/GLM-4.6V-Flash`** card (MIT, 128K, "SoTA visual understanding among models of similar scale"), **Z.ai GLM-4.6V blog** (visual function calling, grounding, video, tool-output protocol), **LM Studio** (9B, 128K, local/low-latency), and community/X comparisons ("GLM-4.6V-Flash 9B beats Qwen3-VL-8B overall"). BenchAlign's #142 / 39.97 "Estimated" is the *text* GLM-4.6 and was **not** used for this VLM. Curated `meta.json` supplies MIT/free/128K and the 4-input modality list. Scores are normalized 1–100 interpretations; because **no independent 9B-Flash benchmark row exists**, multimodal/reasoning/coding are **anchored on the family size-class lineage and discounted as vendor-claimed**, while the free-MIT cost and native visual-tool-use features score on solid evidence.
 - Revisit trigger: an independent (Artificial Analysis / OpenBMB / third-party) benchmark row published specifically for `GLM-4.6V-Flash` (MMMU, MathVista, OCRBench, a visual τ²/agent eval), converting the lineage-inferred visual scores into point-exact figures.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Trigger not fired: no independent benchmark for this exact checkpoint. GLM-5V-Turbo successor confirmed; `superseded` lifecycle recorded. Overall 67.2 held.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

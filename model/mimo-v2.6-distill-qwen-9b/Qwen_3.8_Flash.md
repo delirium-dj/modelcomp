@@ -1,7 +1,7 @@
 # MiMo V2.6 Distill Qwen 9B — findings by Qwen 3.8 Flash
 
 - Source: Xiaomi / MiMo‑V2.6‑Distill‑Qwen‑9B (HF `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,6 +55,15 @@ Multimodal:
 - **Cost efficiency: 100/100.** Free MIT weights on consumer GPU / Apple Silicon (Q4 GGUF / MLX 4‑bit) — effectively $0 at laptop scale. Cost excluded from Overall.
 - **Overall Score: 52/100.** Mean of Tool 42, Reasoning 40, Context 65, Multimodal 65, Coding 50 = 262/5 = 52.4 → **52**. Best fit: **research baseline for agentic RL experiments and offline / local tinkering on laptop‑class hardware** — explicitly not positioned by Xiaomi as a production flagship. Kimi 37 (under‑credits the curated 262K / image+video config); cohort 52.5 (near match). Honest middle: the 9B size class + vendor‑only evidence keep this at 52 despite the notable TB and SWE‑Pro size‑class lifts.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "Xiaomi publishes an independent eval card (GPQA / SWE-V / AA Omniscience) for this checkpoint, or a hosted API route appears."
+
+- **Trigger NOT FIRED:** No AA page for `mimo-v2.6-distill-qwen-9b`. No BenchLM page. No hosted API on OpenRouter (Flash/Pro have routes at `xiaomi/mimo-v2.6-flash` and `xiaomi/mimo-v2.6-pro`; the 9B Distill does not). Xiaomi's HF repo (updated Oct 19) and activepieces blog (Oct 16) describe the model but add no new benchmark numbers.
+- **HF repo activity:** MTP support discussion merged (Sep 22); weights remain MIT. Community quantizations (bartowski GGUF, MLX) persist. No new vendor eval card published.
+- **Evidence state unchanged:** All capability numbers (TB 2.1 37.1, SWE-Pro 44.6%) remain vendor-internal harness; no independent replication. Curated `config.json` specs (262K context, image+video encoders) unchanged.
+- **Overall 52 held.** No evidence to revise bands.
+
 ---
 
 ## Signature
@@ -62,4 +71,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` public research (Codersera guide, HF community quant listings) **plus curated `meta.json` config.json inspection** — the latter overrides Kimi's secondary‑source spec claims on 262K window and image+video input. Flagged: (a) **zero independent reasoning benchmarks** — the reasoning score is a genuine evidence vacuum, not a reputation inheritance from the MiMo‑V2.6 family; (b) **all coding/agent numbers are vendor‑harness**, which caps the credit per methodology; (c) curated `meta.json` correctly reflects `config.json` for window and modalities where Kimi's public research did not. Cross‑reference: the sibling MiMo V2.6 Flash / Pro models score materially higher (this is explicitly the small research‑distill of the family, not a production variant).
 - Revisit trigger: if Xiaomi publishes an independent eval card (GPQA / SWE‑V / AA Omniscience) for this checkpoint, or if a hosted API route appears.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Trigger not fired: no independent benchmarks, no hosted API for this exact ID. Evidence void persists. Overall 52 held.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

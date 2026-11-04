@@ -1,7 +1,7 @@
 # GLM 4.5 Flash — findings by Qwen 3.8 Flash
 
 - Source: Z.ai / Zhipu **GLM-4.5-Flash** (curated id `opencode/glm-4.5-flash`), cross-checked against the **GLM-4.5 tech report** (arXiv 2508.06471, Tables 3–5 for GLM-4.5-Air), z.ai's GLM-4.5 announcement, and Z.ai/OpenRouter pricing listings
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,6 +45,12 @@ Coding (Air):
 - **Cost efficiency: 100/100.** The defining virtue: **free** (Zen $0.00/$0.00) with MIT open Air weights — a strong mid-size MoE at essentially zero cost.
 - **Overall Score: 59/100.** Half-up mean of the five quality dims (76+78+64+15+62)/5 = 59. Best fit: **free agentic/tool-calling work, long-output generation, and light coding** where Air-grade reasoning (AIME ~89 / GPQA ~75) and top-tier function-calling deliver most of the flagship's ARC utility at no cost. The score is anchored to the **GLM-4.5-Air first-party columns** (the weights Flash serves), and is structurally **dragged by the text-only 15** and the mid **128K window**; treat "Flash" as the zero-cost Air tier, not a capability upgrade over the 355B flagship.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** No Flash-specific independent benchmark appeared. No AA page for GLM-4.5-Flash (AA covers GLM-4.5 flagship and GLM-4.7-Flash, not this endpoint specifically). No BenchLM page found for `glm-4.5-flash` as a distinct identity from GLM-4.5-Air.
+- **Supersession confirmed.** GitHub zai-org/GLM-4.5: “We also provide the lightweight 30B-A3B model GLM-4.7-Flash” — GLM-4.7-Flash replaces the Air/Flash tier. GLM-5.3-Flash (Aug 26, 2026): “Compared with the GLM-4.5 series, GLM-5.3-Flash is specifically designed for ultra-low-cost inference.” Lifecycle: `superseded` (→GLM-4.7-Flash→GLM-5.3-Flash).
+- **Score:** Overall **59 held**. Pass-1’s evidence (GLM-4.5-Air first-party benchmarks serving Flash) unchanged; no independent data to recalculate.
+
 ---
 
 ## Signature
@@ -52,4 +58,5 @@ Coding (Air):
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **GLM-4.5 tech report (arXiv 2508.06471)** Tables 3–5 (**GLM-4.5-Air column**: AIME24 89.4, GPQA 75.0, MMLU-Pro 81.4, MATH-500 98.1, HLE 10.6, SciCode 37.3, τ-Retail 77.9 / τ-Airline 60.8, BFCL v3 76.4, SWE-bench Verified 57.6, LCB 70.7, Terminal-Bench 30.0; 106B total / 12B active, MIT, hybrid thinking modes), z.ai's **GLM-4.5 announcement**, and Z.ai/OpenRouter/Big-AGI pricing listings confirming the **free Flash = Air-serving** lane. Curated `meta.json` supplies 128K / text-only / "Free on Zen" and the Air-distillation tradeoff note. Scores are normalized 1–100 interpretations, applied to the **Air weights that Flash actually serves** (never the flattering 355B flagship column); the **text-only 15** is the structural floor and the free cost tier is why Cost = 100. **glm-simple-evals** reports a SWE-bench reproduction gap on Air, so coding is read with mild harness caution. Scored as a real, first-party-benchmarked free variant — not excluded, and not conflated with the separate `glm-4.5` flagship folder.
 - Revisit trigger: publication of an **Air-agnostic, Flash-specific** benchmark row (or an Artificial Analysis Intelligence Index row for the exact Flash endpoint), an independent SWE-bench/Terminal-Bench reproduction of the Air figures, or any added multimodal lane.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. No AA/BenchLM page for GLM-4.5-Flash. `superseded` (→GLM-4.7-Flash→GLM-5.3-Flash). Trigger NOT fired. Held 59.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

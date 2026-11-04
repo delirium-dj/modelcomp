@@ -4,16 +4,14 @@
   "short": "Meta's frontier coding and long-horizon agentic model, 1M context / 131K output. Contributor/Free and Max are the same weights — only price and training-data consent differ.",
   "contextWindow": "1,048,576 (1M) total; 131,072 max output",
   "modalities": "Text, image, video, PDF in; text out",
-  "pricingNote": "Free OpenCode Zen tier; Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M",
-  "freeTierNote": "Free OpenCode Zen tier (Contributor) in exchange for training-data consent — same weights as paid Standard; Max reasoning effort is Standard-tier only",
+  "pricingNote": "Contributor $0.10/$0.20; Standard & Max effort $1.25/$4.25 per 1M",
+  "noFreeId": true,
   "pricingTiers": [
-    "Free OpenCode Zen tier",
     "Contributor $0.10/$0.20",
     "Standard & Max effort $1.25/$4.25"
   ],
   "officialUrl": "https://huggingface.co/models?search=muse-spark-1.3",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://research.meta.ai/blog/introducing-muse-spark-1-3",
     "https://research.meta.ai/blog/introducing-muse-spark-1-3"
   ],

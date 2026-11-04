@@ -4,12 +4,18 @@
   "short": "Anthropic's Opus with adaptive thinking (1M/128K) for agentic coding; SWE-Verified 80.8%.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid-tier pricing",
+  "pricingNote": "Paid-tier pricing; trial quotas on Antigravity / Code Assist",
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-opus-4.6",
   "pricingLinks": [
-    "https://www.anthropic.com/pricing"
+    "https://www.anthropic.com/pricing",
+    "https://antigravity.google/"
   ],
   "standout": "The Opus that introduced adaptive thinking — it decides how long to deliberate, keeping agentic coding sessions efficient.",
-  "tradeoff": "Later Opus generations match its judgment with bigger context and better scores at the same price, so it is now a legacy choice."
+  "tradeoff": "Later Opus generations match its judgment with bigger context and better scores at the same price, so it is now a legacy choice.",
+  "freeTierNote": "Available via trial/included developer quotas on Google Antigravity / Code Assist; Anthropic API is paid-tier only",
+  "pricingTiers": [
+    "Paid-tier pricing (Anthropic API)",
+    "Included quota on Google Antigravity / Code Assist"
+  ]
 }

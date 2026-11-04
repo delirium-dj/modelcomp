@@ -1,7 +1,7 @@
 # GLM-5 — findings by Qwen 3.8 Flash
 
 - Source: Zhipu AI / Z.ai (`z-ai/glm-5`), cross-checked against official swebench.com leaderboard, NxCode deep-dive, OpenRouter, Artificial Analysis (cited)
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-17 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,10 +51,21 @@ Long context:
 - **Cost efficiency: 90/100.** MIT open weights, free chat.z.ai tier, and $1/$3.20 API pricing give exceptional price-performance (~15% of frontier cost for ~95% of capability).
 - **Overall Score: 58.4/100.** Half-up mean of the five quality dims (68+70+64+15+75)/5 = 58.4. The text-only modality is the single largest drag; best fit is cheap, low-hallucination open-weight coding + research agents where multimodality isn't required.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "model lifecycle; AA re-measurement."
+
+- **AA deprecated banner:** Artificial Analysis marks GLM-5 as deprecated: "Z AI has launched a newer release, GLM-5.1. We suggest considering it instead." GLM-5.1 is itself superseded by GLM-5.2 (June 2026, AA Index 51 — new leading open-weight) and GLM-5.3 (Aug 2026). Triple-supersession: 5.1 → 5.2 → 5.3. Endpoint still served on Z.ai API and OpenRouter (`z-ai/glm-5`); MIT weights self-host. Lifecycle: **`superseded`**.
+- **AA Intelligence Index N/A:** Pass-1 cited no AA Index for GLM-5 (evidence was vendor tables + swebench.com). Under AA v5.0.1 the page now reads "No publicly available API" — AA cannot access the Z.ai endpoint for standardized benchmarking. Not a regression; a data-availability gap.
+- **Active-params discrepancy:** AA spec block reports 40 B active (pass-1 from NxCode stated 44 B). Minor inconsistency (rounding or expert-routing definition); no evidence that the capability profile changed. Pass-1 bands are anchored on measured SWE-V (72.8/77.8) and BrowseComp (75.9), not on param count.
+- **Evidence state unchanged:** No new independent benchmark rows (Terminal-Bench, τ², GPQA, LCB) for GLM-5 have appeared since pass-1. Vendor table numbers (from NxCode's Feb 2026 deep-dive) remain the sole source for most rows. SWE-bench.com leaderboard row (72.8%) unchanged.
+- **Overall 58.4 held.** No evidence to revise bands. `superseded` lifecycle flag formally recorded.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
 - Method: public internet research — official SWE-bench leaderboard, NxCode GLM-5 deep-dive (vendor table + spec/architecture), OpenRouter model/vision-SKU listings, Z.ai site; scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Verified AA deprecation banner, Intelligence Index N/A (v5.0.1, no public API), spec-block 40 B/744 B. No new independent benchmarks found. Lifecycle: `superseded` by GLM-5.1/5.2/5.3 line; endpoint and MIT weights remain accessible.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

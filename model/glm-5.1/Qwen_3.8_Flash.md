@@ -1,7 +1,7 @@
 # GLM 5.1 Coding — findings by Qwen 3.8 Flash
 
 - Source: Z.AI / GLM 5.1 (Coding deployment) (`glm-5.1-coding`; base `zai-org/GLM-5.1` family)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,14 @@ Multimodal:
 - **Cost efficiency: 78/100.** $1.40 / $4.40 per 1M is aggressive for a paid coding model, but no Free ID is available. Cost excluded from Overall.
 - **Overall Score: 62/100.** Mean of Tool 78, Reasoning 77, Context 70, Multimodal 12, Coding 72 = 309/5 = 61.8 → **62**. Best fit: **math‑heavy text agents and structured coding tasks on Z.AI's coding plan** — the τ² and AIME/HMMT numbers remain legitimately impressive. Not for multimodal work. Cross‑reference: my GLM‑5.3 report in this repo scores 73 — the 11‑point delta honestly reflects the 5.1→5.3 evolution rather than reputation inflation. Sits between Kimi's 61 and the 68.5 cohort.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "none — superseded by GLM 5.2 / 5.3." **NOT APPLICABLE** (no trigger defined).
+
+- **AA Index v5.0.1 rescale (Oct 27):** Pass-1's AA Intelligence Index 26.1 was pre-v5. v5 (9 harder evals) lowered all absolute Index scores cohort-wide. This is a methodology rebasing, not a model regression. Quality bands are evidence-driven (τ²/GPQA/HLE/AIME are raw evals unchanged by the Index rebase). No band revision.
+- **Supersession context:** GLM 5.2 (repo Overall 73) and 5.3 are both available. The `glm-5.1-coding` endpoint is still served by Z.AI (no retirement notice on their platform changelog); it remains functionally active. Lifecycle: **active but superseded**, no `legacy` flag warranted.
+- **Overall 62 held.** Snapshot evidence unchanged; supersession correctly reflected in the score gap to GLM 5.3 (62 vs 73).
+
 ---
 
 ## Signature
@@ -72,4 +80,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` benchlm.ai full panel. Curated `meta.json` correctly flags 200K–205K / text‑in‑out / paid (no Free ID). Flagged: (a) cohort Multimodal 24.2 is a Design Arena→vision mis‑crediting artifact (methodology error); (b) cohort Coding 83.7 heavily over‑rates a snapshot that has been superseded by GLM 5.3; (c) **HLE w/ tools 52.3% crosses the frontier bar** — a genuine strength Kimi's 76 undersells.
 - Revisit trigger: none — superseded by GLM 5.2 / 5.3 in the same family.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. No trigger defined (superseded model); AA v5 rescale noted (scale-only); GLM 5.1-coding endpoint still served (no `legacy`). Bands held; Overall 62 unchanged.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

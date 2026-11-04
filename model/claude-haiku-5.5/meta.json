@@ -10,5 +10,6 @@
     "https://www.anthropic.com/pricing"
   ],
   "standout": "The subagent engine: very fast, very cheap, full 1M context — Anthropic’s pick for fleets of small worker calls.",
-  "tradeoff": "A small-model reasoning ceiling: it executes and drafts while Opus/Sonnet decide."
+  "tradeoff": "A small-model reasoning ceiling: it executes and drafts while Opus/Sonnet decide.",
+  "noFreeId": true
 }

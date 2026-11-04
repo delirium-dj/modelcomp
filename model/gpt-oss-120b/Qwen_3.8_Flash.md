@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`openai/gpt-oss-120b`; Apache 2.0 open weights)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,16 @@ Multimodal:
 - **Cost efficiency: 92/100.** Apache 2.0 open weights at 120B run on quantized single-GPU setups; free self-host. Cost excluded from Overall.
 - **Overall Score: 44/100.** Mean of Tool 55, Reasoning 50, Context 52, Multimodal 15, Coding 50 = 222/5 = 44.4 → **44**. Best fit: **fine-tuning substrate and offline self-hosted baseline** — historically important as OpenAI's first Apache 2.0 release, but the 90.8% hallucination rate, AA Index 11.6, and APEX 3.1% confirm this is no longer a viable production model in late 2026. Superseded by GLM/Qwen/Mimo open models at similar cost. Between Kimi's 48 and honest discount for the hallucination crisis.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "none — legacy model superseded by the open-source ecosystem; historical baseline reference only."
+
+- **Hosted routes progressively retiring:** Lig.ht serverless API retired `gpt-oss-120b` on **Sep 15, 2026**. Google AI Studio removal date shifted from Nov 2 → **Nov 18, 2026** (per discuss.ai.google.dev, Nov 3). Multiple hosted platforms are dropping it. OpenRouter and HF Inference likely still carry it. Apache 2.0 weights self-host permanently.
+- **BenchLM updated:** Now reports 40.74/100, #140 of 216 (was 37.76/#121/507 in pass-1 — cohort pruned from 507 to 216 models under new methodology). Score up marginally; rank context changed.
+- **AA Intelligence Index:** AA comparison pages still exist for gpt-oss-120b (vs GPT-5.5 Instant), confirming AA retains data. Pass-1's Index 11.6 was v4-era; v5.0.1 rescale applies to the composite only. Raw evals (GPQA 78.2, Omniscience hallucination 90.8%, Agentic Index 6.2%) are independent measurements unaffected by rebase.
+- **Evidence state unchanged:** Omniscience 90.8% hallucination persists as the defining negative signal. No new independent measurements or capability upgrades exist. Model confirmed as a historical reference, superseded by GLM/Qwen/Mimo open models at similar cost.
+- **Lifecycle: `superseded`** (already stated pass-1; now reinforced by platform retirements). Overall **44 held.**
+
 ---
 
 ## Signature
@@ -69,4 +79,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM full panel. Curated `meta.json` is a placeholder template (correct on 128K/text-only). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **Omniscience 90.8% hallucination** is the worst measured in this batch of queue reports, (b) AA Index 11.6 and Agentic Index 6.2% confirm bottom-tier general capability, (c) Design Arena 979 is text→code, not vision — Kimi's 30 for multimodal was generous.
 - Revisit trigger: none — legacy model superseded by the open-source ecosystem; historical baseline reference only.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lig.ht retired Sep 15; Google AI Studio removal Nov 18. BenchLM 40.74/#140/216. Evidence unchanged (Omniscience 90.8% persists). `superseded` lifecycle reinforced. Overall 44 held.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

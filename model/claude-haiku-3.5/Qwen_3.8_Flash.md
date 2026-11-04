@@ -1,7 +1,7 @@
 # Claude 3.5 Haiku — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (`anthropic/claude-3-5-haiku-20241022`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,15 @@ Long context:
 - **Cost efficiency: 78/100.** $0.80/$4.00 was mid in 2024 but is poor value in 2026 next to modern cheap fast models; speed is excellent but not a scored dim.
 - **Overall Score: 50.6/100.** (46+40+70+55+42)/5 — a fast, cheap 2024 workhorse whose real value today is latency + tool-calling on simple tasks, not frontier quality. Best fit: high-volume extraction/classification/simple chat where speed and 200K context matter more than reasoning depth.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "re-measurement on current 2026 agentic/coding suites; model is legacy and unlikely to be re-benchmarked." **NOT FIRED; lifecycle RESOLVED.**
+
+- **Formally RETIRED — `legacy` flag:** Anthropic deprecated `claude-3-5-haiku-20241022` on **Dec 19, 2025**; retired on **Feb 19, 2026** (requests fail). Replacement: `claude-haiku-4-5-20251001`. Google Cloud Vertex shutdown: **Jul 5, 2026**. Multiple independent sources confirm (Layer3Labs, GitHub issue #1721, endoflife.date, TheRouter).
+- **Evidence frozen:** A retired model will never receive new benchmark runs. Pass-1’s evidence (GPQA 35.0, MMLU-Pro 60.0, SWE-V 22.0/40.6, LCB 28.0, 200K context) is the final record.
+- **Pass-1 already treated it as legacy:** Scored “on this 2024 model’s own measured numbers, not Claude’s 2026 flagship reputation.” Bands were evidence-accurate. No revision needed.
+- **Overall 50.6 held.** Final historical baseline; `legacy` lifecycle flag formally recorded.
+
 ---
 
 ## Signature
@@ -60,4 +69,5 @@ Long context:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen3.8-flash)** — 2026-10-04
 - Method: fresh public web research (independent aggregator benchmark rollup with ranks, swebench.com harness split, OpenRouter spec/pricing); scores are normalized 1–100 interpretations, not official vendor scores.
 - Revisit trigger: a re-measurement on current 2026 agentic/coding suites (τ², Terminal-Bench, SWE-bench 2026) would firm Tool/Coding; the model is legacy and unlikely to be re-benchmarked.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. **`legacy`** flag: `claude-3-5-haiku-20241022` retired Feb 19, 2026 (Anthropic), Vertex Jul 5, 2026. Replacement claude-haiku-4-5. Evidence frozen; Overall 50.6 held.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # MAI-Code-1-Flash — findings by Qwen 3.8 Flash
 
 - Source: Microsoft AI (curated id `opencode/mai-code-1-flash`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,10 +54,21 @@ Multimodal / long context:
 - **Cost efficiency: 87/100.** $0.75/$4.50 with cached input at $0.075 is close to the methodology's $1.25/$4.25 ≈ 88 anchor and, on a blended 3:1 basis (≈$1.69/1M), slightly *better* than the peer median (≈$1.86) — plus Copilot's premium-request system effectively bundles it into existing subscriptions. Deductions: the $4.50 output rate is high for a "flash" tier, this model uses ~25 % more tokens per solve than its successor, there is no free hosted tier (`noFreeId`), and closed weights mean no self-hosted escape hatch.
 - **Overall Score: 54/100.** Mean of the five quality dimensions (62 + 52 + 72 + 12 + 72) / 5 = 270 / 5 = 54.0 → 54; Cost excluded per `RULES.md`. Best fit: teams already paying for GitHub Copilot who want a fast, cheap model inside its CLI/IDE surfaces for single-pass edits, repo Q&A and refactors — a specialised tool whose vendor coding numbers are strong but whose reasoning, agentic and multimodal profile is either unmeasured (by anyone) or absent (by design). Anyone needing vision, deep reasoning, self-hosting, or independent verification should look at `model/mai-code-1.1-flash/` or an open-weight coding model instead.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "model lifecycle; independent coverage; AA/BenchLM page availability."
+
+- **REMOVED from GitHub Copilot Sep 10, 2026 — `legacy` flag:** killedbyai.net documents: "MAI-Code-1-Flash (GitHub Copilot) — Born June 2, Died September 10, Lifespan 3m 10d, Cause: Model Upgrade." GitHub changelog (Aug 11) announced deprecation on the same day MAI-Code-1.1-Flash (with vision) shipped. Model removed from all Copilot surfaces Sep 10. Whether Microsoft Foundry still serves the June model is unclear; primary distribution channel killed.
+- **No independent coverage appeared:** BenchLM has no page for `mai-code-1-flash` (confirmed 404 in pass-1 and in this re-check). Artificial Analysis has no page for this ID. Evidence state remains vendor-only.
+- **Supersession confirmed:** MAI-Code-1.1-Flash (Aug 11, with vision, SWE-V 72.6%, TB 2.1 62.9%, 73% cheaper, 25% fewer tokens/solve) is the direct successor. A local version for offline development was announced on Oct 7 (commandline.microsoft.com). Lifecycle: **`legacy`** (removed from Copilot; Foundry status unverified).
+- **Evidence state unchanged:** All pass-1 numbers (SWE-V 71.6%, SWE-Pro 51.2%, derived TB ~51.6%) remain vendor-only. No independent re-run appeared.
+- **Overall 54 held.** Bands unchanged; `legacy` lifecycle flag formally recorded.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Microsoft AI **MAI-Code-1-Flash model card PDF** (microsoft.ai, dated 2026-06-02), Microsoft AI's launch posts and Build announcement coverage, GitHub Copilot / Microsoft Foundry billing details as summarised by HokAI's model review (pricing, window, vision gap versus 1.1), APIMart and Aiinity catalogue listings, third-party hands-on reviews); scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** this is a vendor-only-evidence model — BenchLM and Artificial Analysis have no page for this ID (both 404), so every capability number is Microsoft-reported or derived from a vendor statement, and the derived Terminal-Bench figure is labelled as such. That lack of independent coverage is why each dimension names its missing harnesses explicitly.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. MAI-Code-1-Flash removed from Copilot Sep 10 (killedbyai.net + GitHub changelog). No AA/BenchLM pages. Superseded by 1.1-Flash; `legacy` flag recorded. Overall 54 held.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

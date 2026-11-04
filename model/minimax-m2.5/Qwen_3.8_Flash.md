@@ -1,7 +1,7 @@
 # MiniMax M2.5 — findings by Qwen 3.8 Flash
 
 - Source: MiniMax (`minimax/MiniMax-M2.5`), cross-checked against Vals AI, SemiAnalysis InferenceX, DeepInfra, Hacker News/Reddit
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-17 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,23 @@ Long context:
 - **Cost efficiency: 97/100.** Among the cheapest frontier-adjacent options ($0.15–$0.30 in / $1.20–$2.40 out, caching, ~$1/hour continuous) at 2× the throughput of other frontier models.
 - **Overall Score: 60.8/100.** Half-up mean of the five quality dims (77+69+60+15+83)/5 = 60.8. The text-only modality is the dominant drag; best fit is high-volume, cost-sensitive agentic coding and search where multimodal and deep legal/finance reasoning aren't required.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "no published GPQA/HLE; independent reasoning data appearing." **NOT FIRED.**
+
+- **AA Intelligence Index N/A:** Page exists (`models/minimax-m2-5`) but reads "N/A — Unknown out of 4 units." AA has NOT run v5 intelligence evals for this model. Reasoning trigger NOT fired.
+- **AA explicitly marks model DEPRECATED:** Banner on AA page: "This model is deprecated. We still benchmark its performance, but less often: every 18 hours instead of every 6. **MiniMax has launched a newer release, MiniMax-M2.7. We suggest considering it instead.**" → Lifecycle: **`superseded`** (by M2.7, then by M3 in registry). No `legacy` (endpoint still functional, benchmarked at reduced cadence).
+- **Context 205K (AA) vs 192K (SemiAnalysis in pass-1):** Both are 200K-class; band unchanged (60).
+- **AA spec confirms:** text-only (input+output), MIT, 230B/10B, reasoning=Yes. All pass-1 facts validated.
+- **Pricing:** AA reports $0.30/$1.20 standard (pass-1 noted M2.5 at $0.15/$1.20 and M2.5-Lightning at $0.30/$2.40; AA may show blended median). Consistent range. Cost excluded.
+- **AA v5 rescale:** Index N/A means no v4-to-v5 comparison available; moot.
+- **Overall 60.8 held.** Vendor+Vals evidence unchanged; now flagged `superseded`.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
 - Method: public internet research — MiniMax official M2.5 launch post, Vals AI independent benchmark notes, SemiAnalysis InferenceX + DeepInfra spec/latency pages, Hacker News/Reddit threads; scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA marks M2.5 **deprecated** (superseded by M2.7); Intelligence N/A (trigger NOT fired); text-only/205K/MIT confirmed. `superseded` lifecycle flag added. Bands held; Overall 60.8 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

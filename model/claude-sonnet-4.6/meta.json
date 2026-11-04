@@ -4,12 +4,18 @@
   "short": "Anthropic's Sonnet with adaptive thinking (1M GA, $3/$15) for cost-conscious coding; SWE-Verified 79.6%.",
   "contextWindow": "200K",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid-tier pricing",
+  "pricingNote": "Paid $3/$15 per 1M; trial quotas on Antigravity / Code Assist",
   "noFreeId": true,
   "officialUrl": "https://www.anthropic.com/news/claude-sonnet-4.6",
   "pricingLinks": [
-    "https://www.anthropic.com/pricing"
+    "https://www.anthropic.com/pricing",
+    "https://antigravity.google/"
   ],
   "standout": "The cost-conscious coding Sonnet with adaptive thinking — the tier that made disciplined agentic coding affordable at the time.",
-  "tradeoff": "Later Sonnets and the cheaper tiers around it have overtaken it on price-per-capability; it survives as a compatibility choice."
+  "tradeoff": "Later Sonnets and the cheaper tiers around it have overtaken it on price-per-capability; it survives as a compatibility choice.",
+  "freeTierNote": "Available via trial/included developer quotas on Google Antigravity / Code Assist; Anthropic API is paid $3/$15",
+  "pricingTiers": [
+    "Paid $3/$15 per 1M (Anthropic API)",
+    "Included quota on Google Antigravity / Code Assist"
+  ]
 }

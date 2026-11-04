@@ -1,7 +1,7 @@
 # MiniMax M2.7 — findings by Qwen 3.8 Flash
 
 - Source: MiniMax (`MiniMax-M2.7`; `opencode/minimax-m2.7`; open weights)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,15 @@ Multimodal:
 - **Cost efficiency: 86/100.** $0.30/$1.20 is competitive paid mid-range; open weights enable self-host. No free tier. Cost excluded from Overall.
 - **Overall Score: 60/100.** Mean of Tool 70, Reasoning 68, Context 72, Multimodal 12, Coding 76 = 298/5 = 59.6 → **60**. Best fit: **budget agentic tool-calling and mid-difficulty coding at 200K context** — τ² 84.8 and SWE-V 75.4 are genuinely useful for structured coding agents; the CritPt 0.6% and text-only modality disqualify it from creative or multimodal workloads. The cohort's 65.9 is inflated by raters giving multimodal credit for Design Arena (which is not multimodal input). Succeeded by M3 — prefer M3 where available.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "superseded by M3." **CONFIRMED** — already documented in pass-1.
+
+- **AA v5.0.1 rescale (Oct 27):** Pass-1's AA Intelligence Index 22.8 was v4. Under v5, all absolutes dropped. Scale change, no band revision (raw evals: GPQA 87, HLE 29.6, τ² 84.8 are independent measurements unaffected by the Index rebase).
+- **M3 evidence confirmed:** M2.7 remains in registry as a historical baseline; M3 scores higher (already in dataset). No further evidence change for M2.7 specifically.
+- **Lifecycle:** AA page for M2.5 shows "deprecated" banner pointing to M2.7 as newer. By extension, M2.7 is now the deprecated generation (M3 is current). M2.7 remains functionally served (endpoint active, no shutdown notice). `superseded` flag already captured in pass-1 text.
+- **Overall 60 held.** Historical baseline; supersession path M2.5→M2.7→M3 documented.
+
 ---
 
 ## Signature
@@ -73,4 +82,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` full BenchLM panel (τ²/TB/GDPval/GPQA/HLE/CritPt/AIME/SWE-V/SWE-Pro/LCB/Multilingual/NL2Repo/SciCode/AA Index/Omniscience/IFBench) + `Muse_Spark_1.3.md` (MiniMax official page claims, Groq docs architecture, LLMRef pricing) + curated `meta.json` (honest: text-only, 200K class, $0.30/$1.20). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **GDPval vendor-vs-independent gap** (1495 claimed vs 1087 measured — 408 Elo inflation), (b) **CritPt 0.6% is effectively zero** — creative/physics reasoning is this model's weakest point across the entire queue, (c) Kimi K3's Multimodal 55 repeats the same Design Arena methodology error flagged in solar-pro-4.
 - Revisit trigger: superseded by M3 (already scored separately in this dataset at a higher Overall); this file is a historical baseline for the M2.7→M3 progression.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA v5 rescale (scale-only); M3 supersession confirmed; endpoint functional. Bands held; Overall 60 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -4,5 +4,6 @@
   "short": "OpenAI's GPT-5.2 Codex (400K/128K, $1.75/$14) - agentic coding model with native context compaction; Responses API, paid only.",
   "contextWindow": "400,000 total; 272,000 max input; 128,000 max output",
   "modalities": "Text, image in; text out",
-  "pricingNote": "$1.75/$14.00 per 1M in/out; $0.175 cached read; no free lane"
+  "pricingNote": "$1.75/$14.00 per 1M in/out; $0.175 cached read; no free lane",
+  "noFreeId": true
 }

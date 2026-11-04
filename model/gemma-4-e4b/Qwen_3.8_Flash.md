@@ -1,7 +1,7 @@
 # Gemma 4 E4B — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma (curated id `opencode/gemma-4-e4b`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,10 +62,21 @@ Multimodal / audio / long context:
 - **Cost efficiency: 98/100.** $0.02/$0.10 per 1M on AA is cheaper than the ~$0.10/$0.20 tier that the methodology already scores 97–99, and Apache 2.0 weights run for effectively $0 on-device or a single small GPU. Not 100 only because the 27 tokens/s measured decode rate makes real-world cost-per-task worse than the sticker price suggests.
 - **Overall Score: 55/100.** Mean of the five quality dimensions (45 + 48 + 52 + 88 + 40) / 5 = 54.6 → 55; Cost excluded per `RULES.md`. Best fit: on-device and edge deployments that need **audio + image + text in one small Apache-2.0 model** — offline transcription of short clips, photo-plus-voice assistant features, keyword/classification extraction on phones and Jetson boards — where its modality breadth is the reason to pick it and its reasoning ceiling is accepted. Do not pick it for agentic loops, repository coding or long-context retrieval.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "AA v5 re-measurement; independent coverage changes; model lifecycle."
+
+- **AA Intelligence Index now N/A:** Under v5.0.1 (launched Oct 27), the AA page for `gemma-4-e4b` (Reasoning) shows "No publicly available API" across Intelligence/Cost/Verbosity sections. Pass-1 cited Index 8.9 (estimated, from BenchLM sourcing AA v4.2). The N/A is an access/coverage gap (no standard API endpoint for AA’s pipeline), not a capability regression. Raw evals from pass-1 (GPQA 57.6, HLE 3.8, Omniscience −19.7) were v4-era measurements and remain the record.
+- **AA speed data updated:** Current AA page shows 45 tok/s (up from 27.2 reported in pass-1; likely reflects different serving configs) with TTFT 30.61s. Pricing confirmed $0.02/$0.10. Context 128K, Apache 2.0, 8B/4.5B active — all unchanged.
+- **Model active, no deprecation:** No AA deprecation banner. Gemma 4 family still supported by Google (model card updated Jul 30, deepmind.google/models/gemma). Not superseded.
+- **Evidence state otherwise unchanged:** BenchLM coverage still partial (17 tracks previously); no new independent harness rows for this exact checkpoint. Vendor family card numbers remain the primary source for most rows.
+- **Overall 55 held.** Bands unchanged; model active and supported.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Gemma 4 family model card README on Hugging Face, Google `blog/gemma4` announcement as cited by BenchLM's upstream rows, Artificial Analysis `models/gemma-4-e4b` reasoning page, BenchLM `gemma-4-e4b` score page); scores are normalized 1–100 interpretations, not official vendor scores. Coverage is partial (17 of 623 BenchLM tracks; AA Index marked *estimated*), so each dimension names the missing harnesses rather than inferring values for them.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. AA Index N/A (v5.0.1 access gap, not regression); speed updated to 45 tok/s; model active, no deprecation. Overall 55 held.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

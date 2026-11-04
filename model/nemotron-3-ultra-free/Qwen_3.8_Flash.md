@@ -1,7 +1,7 @@
 # Nemotron 3 Ultra (Free) — findings by Qwen 3.8 Flash
 
 - Source: NVIDIA / Nemotron 3 Ultra (`opencode/nemotron-3-ultra-free`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,16 @@ Multimodal:
 - **Cost efficiency: 100/100.** $0 on Zen/NVIDIA trial + open weights + Openness Index 83.3. Cost excluded from Overall.
 - **Overall Score: 63/100.** Mean of Tool 74, Reasoning 70, Context 85, Multimodal 12, Coding 74 = 315/5 = 63.0 → **63**. Best fit: **free long‑horizon text agents and structured‑output workloads** (IFBench / τ³ class) where low hallucination matters. Not for multimodal. Sits above Kimi's 60 (Kimi under‑credits the native 1M band) and below the 69.7 cohort (which over‑credits Design Arena as vision). Honest position: a genuinely strong free text agent that isn't multimodal.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "if NVIDIA exposes the full 1M on Zen default, or ships a Nemotron 3 multimodal variant." **NOT FIRED.**
+
+- **Architecture confirmed:** 550B total / 55B active MoE (HF `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16`, weights 2026-10-20). Resolves pass-1's "parameter counts not independently verified." No band impact — architecture was already correctly inferred.
+- **No Ultra-tier multimodal variant:** Nemotron 3 **Nano Omni** (30B, Apr 2026) is the multimodal entry; Nemotron **3.5 Super VL** (vLLM blog Jun 2026) is a next-gen VL variant. Neither is a "Nemotron 3 Ultra multimodal" release. Ultra remains text-only → Multimodal 12 held.
+- **AA Index v5.0.1 rescale (Oct 27):** Pass-1's AA Intelligence Index 22.9 was under the pre-v5 methodology. Under v5 (9 harder evals incl. private datasets), all absolutes dropped cohort-wide — scale change, NOT regression. Bands are evidence-driven (PinchBench/τ/GPQA are raw evals unchanged), unaffected by the rescale.
+- **Zen serving context:** No public source confirms full 1M exposure on Zen default; OpenRouter lists the model at 1M but Zen-specific config is unverifiable externally. Context 85 (discounting for 262K default-serve assumption) held.
+- **Overall 63 held.**
+
 ---
 
 ## Signature
@@ -71,4 +81,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` benchlm.ai full panel. Curated `meta.json` correctly flags 1M/262K + "beyond‑text unverified". Flagged: (a) **AA‑Omniscience hallucination 29.7% is genuinely low** for this tier — the standout virtue; (b) Design Arena 1149 is text→code, not vision input — cohort 27.4 Multimodal reflects the recurring methodology error; (c) 1M native vs 262K default serve is a real dual constraint respected in Context scoring.
 - Revisit trigger: if NVIDIA exposes the full 1M on Zen default, or ships a Nemotron 3 multimodal variant.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Confirmed 550B/55B params (HF); trigger NOT fired (no Ultra multimodal variant, no Zen 1M disclosure); AA v5 rescale noted (scale-only, no band impact). All five quality bands held; Overall 63 unchanged.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

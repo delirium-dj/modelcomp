@@ -1,7 +1,7 @@
 # Solar Open 2 — findings by Qwen 3.8 Flash
 
 - Source: Upstage (curated id `opencode/solar-open-2`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-08 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,10 +53,21 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 93/100.** The strongest cost story of any folder researched in this pass: **weights are free and commercially usable**, the 15B-active MoE means "**large-model capacity at small-model inference cost**", the deployment floor is **2× H200 quantized / 4× H200 BF16** — an order of magnitude friendlier than the trillion-parameter 8-way-TP jobs in the neighbouring `ling-2.6.1t`/`ring-2.6.1t` folders — official INT4/NVFP4 quants exist, linear attention caps long-context memory at ~¼ (context tokens are the dominant agent cost), and the Korean tokenizer alone cuts Korean input to **50–80 %** of the usual token count. Deductions: **no per-token price and no AA cost-per-task figure exist**, so hosted economics are simply unknown; **self-hosting is the only route**, which shifts cost to GPUs and ops; and the **Upstage Solar License** imposes branding obligations ("Solar" prefix, "Built with Solar" attribution, licence copy) on derivatives — free but not frictionless, unlike MIT.
 - **Overall Score: 62/100.** Mean of the five quality dimensions (60 + 65 + 90 + 15 + 78) / 5 = 308 / 5 = 61.6 → 62; Cost excluded per `RULES.md`. Best fit: **enterprises that must run long-horizon agents on their own infrastructure** — especially Korean-language office/document work, where it is measured (by its own lab) as the strongest model in its class and beats fast-tier closed APIs outright — with Claude Code or Hermes Agent pointed at a local vLLM endpoint on 2–4 H200s. It is **not** the pick for multimodal work (text-only), not for teams needing a hosted API with a price sheet and SLA (none exists for this ID), and not a verified leaderboard story: **BenchLM is Unranked and every one of its 15 rows traces back to the vendor's model card, and AA's Index 25 is an estimate with no measured speed, cost or verbosity.** The score is credible but provisional — it should be re-verified the moment Artificial Analysis runs the endpoint or an independent harness publishes. **Two concrete curation fixes before the next sync:** correct `contextWindow` to **1M (131K reasoning / 256K recommended output budget)** and replace the placeholder pricing note with "open weights, self-host only; no hosted API price published".
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "should be re-verified the moment Artificial Analysis runs the endpoint or an independent harness publishes." **NOT FIRED.**
+
+- **AA Intelligence Index now N/A (was "25 estimated"):** Fetched `artificialanalysis.ai/models/solar-open2-250b` — the page exists but the Intelligence block reads **"N/A — Unknown out of 4 units"**; all eval charts show "No publicly available API." Pass-1's "Index 25 (estimated)" has been **withdrawn or lost under the v5.0.1 methodology transition** (which requires measured runs). The model still has NO independent intelligence measurement.
+- **OrcaRouter confirms:** Blog (Aug 2026) title: "Solar Open 2 250B: Frontier Scores, **Nowhere to Run It**" — stock vLLM still cannot serve it without Upstage's fork. No third-party hosted endpoint found.
+- **Technical specs unchanged:** AA confirms 1M context, text-only, 250B/15B, Feb 1 2026 cutoff, Upstage Solar License. All modalities/specs pass-1 recorded hold.
+- **AA Index v5.0.1 rescale:** Moot for this model (no Index at all now — even the estimate was dropped).
+- **Overall 62 held.** Evidence state unchanged: vendor-reported benchmarks only, no independent reproduction, no hosted endpoint for AA to measure.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-08
 - Method: fresh public internet research (the `upstage/Solar-Open2-250B` Hugging Face README in raw form — full spec table, English + Korean benchmark matrices, Selective Weight Transfer, vLLM/Transformers launch commands, reasoning-effort and `max_tokens` guidance, tool-calling and Claude Code / Hermes Agent integration, Nota AI quants, Upstage Solar License derivative terms; **Artificial Analysis** `models/solar-open2-250b` — Index 25 *estimated* with rank #29/117 and class median 18, "well above average"/"well priced" verdict, 1M context, Feb 1 2026 cutoff, text-only modality block, Upstage Solar License, and the N/A speed/cost/verbosity units; **BenchLM** `models/solar-open-2` — Unranked, 15/625 rows all attributed to the model card, family/variant metadata; the Upstage launch blog "Solar Open 2: Korea's Sovereign Foundation Model"; **arXiv 2607.20062** v1/v2 abstract for architecture, MOPD, data-curation and leading-harness claims), plus negative results that are themselves findings: **AA 404** for `solar-open-2` (correct id is `solar-open2-250b`), **OpenRouter 404** for `upstage/solar-open-2-250b`, empty Phaseo pricing page, and third-party confirmation that "**nobody hosts**" it yet; plus the curated `model/solar-open-2/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule. Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** one independent *estimated* composite plus a complete, unusually well-documented vendor benchmark suite with **zero independent reproductions**.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA Index now N/A (estimate withdrawn under v5 transition); trigger NOT fired (no measured run); OrcaRouter "nowhere to run it" persists. All quality bands held; Overall 62 unchanged.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

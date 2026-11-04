@@ -1,7 +1,7 @@
 # DeepSeek V3.2 — findings by Qwen 3.8 Flash
 
 - Source: DeepSeek-AI (curated id `opencode/deepseek-v3.2`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,10 +58,20 @@ Coding:
 - **Cost efficiency: 95/100.** MIT weights self-host for $0 and third-party routes run $0.26–$0.56 in / $0.38–$1.68 out with 50 % cache-hit discounts — the cheapest serious open-weight frontier-adjacent tier. Held back from 97–99 by the `noFreeId` flag (no free hosted tier) and by the fact that DeepSeek's own price sheet no longer covers this ID, so the durable API path is reseller-dependent.
 - **Overall Score: 53/100.** Mean of the five quality dimensions (66 + 58 + 56 + 15 + 68) / 5 = 52.6 → 53; Cost excluded per `RULES.md`. Best fit: high-volume, budget-constrained text-only agentic and coding pipelines that self-host or route through cheap third parties and can tolerate text-only modality; not the choice for deep research-grade reasoning, multimodal work, or long-context-critical retrieval where the verified numbers are thin.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** “Evidence state; model lifecycle.”
+
+- **Official API retired:** DeepSeek’s live “Models & Pricing” page no longer lists `deepseek-v3.2` (pass-1 confirmed this on Oct 7). The current official catalogue carries `deepseek-flash` (V4.1-Flash) and `deepseek-v4-pro`. The ID is **vendor-removed from first-party hosting** but remains available via **third-party routes** (DeepInfra $0.26/$0.38, Novita $0.27/$0.40, Fireworks $0.56/$1.68) and **MIT open-weights self-host**. Lifecycle: **`superseded`** (by DeepSeek V4.1-Flash / V4-Pro line). Not `legacy` (endpoint accessible via resellers + self-host).
+- **AA v5.0.1 rescale:** Pass-1’s AA Intelligence Index 16.0 was v4-era. Under v5, all absolutes dropped; scale change. Quality bands evidence-driven (τ² 78.9, GPQA 75.1, Omniscience hallucination 93.3% are independent measurements unaffected by rebase). No band revision.
+- **Omniscience 93.3% hallucination unchanged:** The worst faithfulness profile in the queue persists; DeepSeek did not release a remedied V3.2 checkpoint.
+- **Overall 53 held.** Evidence state unchanged; `superseded` lifecycle flag formally recorded.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (BenchLM `deepseek-v3-2` and `deepseek-v3-2-thinking` model pages, llm-stats `deepseek-v3.2`, Artificial Analysis reasoning rows surfaced via BenchLM, Epoch AI Omniscience/FrontierMath listings, Vals AI, DeepSeek API docs pricing page, Hugging Face `deepseek-ai/DeepSeek-V3.2` card + arXiv 2512.02556 abstract); scores are normalized 1–100 interpretations, not official vendor scores. Coverage is thin for this ID (18 of 623 BenchLM tracks, thinking page unranked), so every dimension above names the missing harnesses rather than inferring values for them.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. **`superseded`** flag: official API retired V3.2 (now V4.1-Flash/V4-Pro); third-party routes + MIT self-host persist. AA v5 rescale (scale-only). Omniscience 93.3% unchanged. Bands held; Overall 53 unchanged.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

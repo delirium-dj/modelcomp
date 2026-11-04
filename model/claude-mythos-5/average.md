@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash, MiMo 2.6 Flash, Qwen 3.8 Flash.
 - Average from top 4 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash, MiMo 2.6 Flash, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Nemotron 3.5 Lightning 30B A3B, Xing 4.0 29B A4B.
+- Ignored below-gate rater(s): Muse Glimmer 30B, Nemotron 3.5 Lightning 30B A3B, Xing 4.0 29B A4B.

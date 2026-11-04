@@ -14,6 +14,7 @@
 92.5 claude-sonnet-5.5
 92.5 gemini-3.8-flash
 92.4 claude-opus-5
+92.4 gemini-4-carbon
 92.3 claude-fable-5
 92.1 gpt-5.6-sol
 92.1 muse-wonder-full
@@ -177,8 +178,8 @@
 62.7 grok-5
 62.4 gemma-4-e4b
 61.4 gpt-oss-120b
+61.1 mercury-3
 60.7 laguna-xs-2.1
-60.5 mercury-3
 59.9 glm-4.7-flash
 59.8 llama_3.2_vision_instruct
 59.4 flint
@@ -197,8 +198,8 @@
 53.3 ling-3.0-tiny
 52 neomorph
 51 owo-2.5
-49.5 nemotron-3.5-bolt-e4b
-47.5 mercury-2
+50 nemotron-3.5-bolt-e4b
+47.1 mercury-2
 46.6 mai-experimental-test
 40.8 jev-1.13
 40.7 qwen-3.5-0.8b

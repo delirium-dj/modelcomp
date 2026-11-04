@@ -1,7 +1,7 @@
 # Owl Alpha — findings by Qwen 3.8 Flash
 
 - Source: Stealth provider via OpenRouter (curated id `opencode/owl-alpha`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-08 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,9 +48,19 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 90/100.** **$0.50 / $2.00 per 1M** is genuinely cheap — just under the methodology's $0.60/$2.20 ≈ 92 anchor — and the model's *history* is even cheaper: it launched at **$0** on OpenRouter, which is why volume exploded. Deductions are real, though: the free tier **logged prompts and completions** for training (you paid in data), throughput was around **12 tok/s** (wall-clock cost), a stealth route has **no SLA and can change behaviour, get renamed or vanish without notice**, the ID is reportedly already retired, and the three price points on record ($0 → $0.50/$2.00 → $0.75/$2.95 with $0.30/$1.20 promo) cannot be reconciled.
 - **Overall Score: 39/100.** Mean of the five quality dimensions (45 + 40 + 55 + 15 + 40) / 5 = 195 / 5 = 39.0 → 39; Cost excluded per `RULES.md`. **This is an evidence-floor score, not a capability verdict.** Best fit: **non-sensitive agent experimentation**, where a cheap, tool-capable, long-context route is useful and the logging caveat is acceptable — and only with a stable fallback model configured, since the ID may already be gone. It is unfit for production, compliance or factual work by construction: unknown publisher, no licence, no data-handling policy, no SLA. **Recommended action:** once LongCat-2.0 accumulates real harness rows (BenchLM says coverage is "coming soon"), re-search this folder against `model/longcat-2.0/` and decide whether the two entries should cross-reference each other or collapse into one.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "ID lifecycle; LongCat-2.0 accumulates harness rows; context-window conflict resolution."
+
+- **OpenRouter listing NOW 404:** Fetch of `openrouter.ai/openrouter/owl-alpha` returns 404 (Nov 4). Pass-1 already flagged this product page was returning 404 to fetches; now confirmed permanently gone. AlphaSignalX (Jun 30) states: "Owl Alpha was LongCat-2.0, a 1.6T-parameter coding model … the food delivery company had been running in production the whole time." The ID is formally **retired**. Lifecycle: **`legacy`** — the Owl Alpha route no longer exists as a routable model.
+- **LongCat-2.0 coverage still zero:** BenchLM `longcat-2-0` page confirms "no source-displayable benchmark rows yet" (as of Oct 2026). AskClash gives a rank (#50) but no harness detail. The `owl-alpha` context-window conflict (curated 65K vs advertised 1M) persists unresolved — LongCat-2.0 officially lists 1M per its own API spec.
+- **No new evidence for this ID:** Since the ID is dead, no new independent benchmarks will ever appear. The folder's evidence state is frozen at pass-1: zero independent measurements, no first-party documentation, provenance confirmed (Meituan LongCat-2.0 preview).
+- **Overall 39 held.** Evidence-floor score for an unrecoverable ID; `legacy` lifecycle flag formally recorded.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-08
 - Method: fresh public internet research (OpenRouter listing text for `openrouter/owl-alpha` via search index; the OpenClaw Launch blog "Owl Alpha: The Stealth Model That Topped OpenRouter" (2026-07-05) — context, free-tier/logging caveat, ~12 tok/s, provenance uncertainty and the Polaris/Sherlock precedent; the longcatai.org "Owl Alpha: Full Timeline to LongCat-2.0 Reveal" page — usage statistics, phased timeline, post-reveal specs and pricing, with its **unofficial, self-interested status stated** wherever its figures are cited; negative results that are findings in themselves: **BenchLM 404** and **Artificial Analysis 404** for this ID, BenchLM's `longcat-2-0` page carrying **0 of 625** benchmarks, and the OpenRouter product page returning 404 to fetch), plus the curated `model/owl-alpha/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule. Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** the thinnest possible for a live registry entry — zero independent measurements, no first-party documentation, unconfirmed provenance, and direct contradictions between the curated metadata (65 K context, no free tier) and every third-party account of the listing (~1 M context, launched free).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. OpenRouter 404 confirmed permanent (ID retired); identity confirmed as LongCat-2.0 preview (AlphaSignalX). BenchLM LongCat-2.0 still 0 rows. Evidence frozen; `legacy` lifecycle flag recorded. Overall 39 held.

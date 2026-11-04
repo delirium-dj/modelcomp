@@ -4,12 +4,18 @@
   "short": "OpenAI's budget tier (1.1M, $0.20/$1.20) for high-volume coding and math; SWE-Verified 93.0% #9, FrontierMath T4 61.0%.",
   "contextWindow": "1,050,000 / 128K out",
   "modalities": "Text, image in; text out",
-  "pricingNote": "Paid $0.20/$1.20 per 1M",
+  "pricingNote": "Paid $0.20/$1.20 per 1M; monthly quota in Codex",
   "noFreeId": true,
   "officialUrl": "https://openai.com/index/gpt-5.6-luna/",
   "pricingLinks": [
-    "https://openai.com/api/pricing/"
+    "https://openai.com/api/pricing/",
+    "https://openai.com/index/gpt-5.6-luna/"
   ],
   "standout": "The budget overachiever: OpenAI’s cheap tier that still clears verified software-engineering bars most premium models would envy.",
-  "tradeoff": "Budget-class depth — the hardest reasoning still routes to Terra, Sol or Astra."
+  "tradeoff": "Budget-class depth — the hardest reasoning still routes to Terra, Sol or Astra.",
+  "freeTierNote": "Available in OpenAI Codex free tiers under monthly usage quotas; API is paid $0.20/$1.20",
+  "pricingTiers": [
+    "Paid $0.20/$1.20 per 1M (OpenAI API)",
+    "Included monthly quota on Codex"
+  ]
 }

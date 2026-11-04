@@ -1,7 +1,7 @@
 # Jev 1.13 — findings by Qwen 3.8 Flash
 
 - Source: TypeSafe AI (`jev-1.13.0`; API `POST /v1/systemone`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,12 @@ Multimodal:
 - **Cost efficiency: 98/100.** $0.042/M input + free output at 192 ms median is about as cheap and fast as an evaluative call gets; only the non‑zero input price keeps it from 100. Cost excluded from Overall.
 - **Overall Score: 30/100.** Mean of Tool 25, Reasoning 55, Context 35, Multimodal 12, Coding 22 = 149/5 = 29.8 → **30**. Best fit: **high‑volume routing, classification, and scoring decisions inside agent pipelines** — a **System One fast‑path for LLM stacks**, not a general LLM and never a primary reasoner or coder. Kimi 32 (near match); cohort 39.5 (inflated by placeholder‑meta raters who scored it against a general LLM rubric). Honest floor: this is a legitimate distinct product but scores low on the v4 LLM rubric because it isn't an LLM.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** TypeSafe did NOT ship a System Two reasoning companion under the Jev brand. However, **Jev 1.14** released Oct 14, 2026 (typesafe.ai/blog/jev-1-14). TypeSafe states: “jev-1.13.0 will be available for a while. We intend to give 60 days warning before jev-1.13.0 is formally deprecated” — formal deprecation by ~Dec 13, 2026.
+- **Lifecycle: `superseded` (→Jev 1.14).** Still accessible (OpenRouter lists both). No new GPQA/HLE rows for the decision primitive.
+- **Score:** Overall **30 held**. Evidence base unchanged; the purpose-built System One decision model is still measured against the same criteria.
+
 ---
 
 ## Signature
@@ -67,4 +73,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` public research (typesafe.ai docs, OpenRouter listing, **Praveenrajus/jev‑bench independent baseline** on Hugging Face 22,773‑record run, defapi.org, cloudprice.net). Curated `meta.json` is a placeholder template — corrected 128K → **64K total / 32K per‑question** and "Standard pricing" → **$0.042/M in / $0/M out**. Flagged: (a) **the v4 methodology fits a decision model poorly** — scores are honest low marks for a purpose‑built non‑generative product, not a fair LLM ranking; (b) crisp‑task numbers are genuinely frontier‑class (ARC 97.9, MMLU 92.3) but they don't measure reasoning depth; (c) **documented System‑Two gap and math/calibration weaknesses** confirm this is fast/shallow by design, not by failure.
 - Revisit trigger: TypeSafe ships a System Two reasoning companion under the Jev brand, or publishes GPQA / HLE rows for the decision primitive.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Jev 1.14 released Oct 14; 60-day deprecation for 1.13. Still accessible. `superseded` (→Jev 1.14). No new eval rows. Trigger NOT fired. Held 30.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

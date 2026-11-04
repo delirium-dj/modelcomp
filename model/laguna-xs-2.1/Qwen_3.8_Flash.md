@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Qwen 3.8 Flash
 
 - Source: Poolside AI (`poolside/laguna-xs-2.1`; HF `poolside/Laguna-XS-2.1`; open weights)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,12 @@ Multimodal:
 - **Cost efficiency: 92/100.** Open weights, very small hosting footprint (presumably sub-10B active). Cost excluded from Overall.
 - **Overall Score: 51/100.** Mean of Tool 50, Reasoning 50, Context 70, Multimodal 12, Coding 72 = 254/5 = 50.8 → **51**. Best fit: **minimal-footprint self-hosted SWE coding agents** — SWE-V 70.9% at open-weights small-class is a remarkable value point. **Do not deploy for knowledge-critical, creative-reasoning, or multimodal work** — those capabilities are unmeasured and potentially absent. Between Kimi's 47 (too harsh on the SWE-V evidence) and the cohort's 60.2 (too generous on unmeasured reasoning).
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Lifecycle: `legacy`.** All hosted endpoints retired Oct 31, 2026: OpenRouter free + paid routes removed (confirmed by teamday.ai Nov 2026 listing and usagepricing.com "pages no longer list a provider or a price"); kilo.ai retired same date; Poolside Platform vendor-announced shutdown 2026-10-31 (github awesome-free-ai-coding Nov 2). Open weights remain on HuggingFace (`poolside/Laguna-XS-2.1`) for self-host.
+- **Trigger check:** AA page 404 (no Intelligence Index for this model). BenchLM page exists (5/739 coverage, **no overall score computed — unranked**). All BenchLM rows sourced from the vendor HF model card (SWE-V 70.9%, SWE-Multilingual 63.1%, SWE-Pro 47.6%, TB 2.0 37.5%). No independent third-party evaluation appeared. Trigger NOT fired.
+- **Score:** Overall **51 held**. No new evidence to recalculate. The vendor-only numbers confirm pass-1's evidence base unchanged.
+
 ---
 
 ## Signature
@@ -64,4 +70,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM scorecard (TB/SWE-V/SWE-Multilingual/SWE-Pro). Curated `meta.json` is a placeholder template. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **4-of-483 benchmark coverage** — this model is essentially untracked, (b) SWE-V 70.9% is the sole high-quality evidence, (c) zero reasoning/honesty/knowledge measurements.
 - Revisit trigger: mandatory when AA/BenchLM adds GPQA/HLE/SWE-Pro absolute rows or when Poolside publishes a model card with parameters and training details.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Checked AA (404), BenchLM (vendor-sourced, unranked), OpenRouter (routes removed Oct 31), kilo.ai (retired). Lifecycle `legacy`. No independent benchmarks. Held 51.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

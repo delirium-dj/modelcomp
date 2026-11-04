@@ -1,7 +1,7 @@
 # Omen Alpha — findings by Qwen 3.8 Flash
 
 - Source: OpenCode stealth model (`opencode/omen-alpha`; vendor unconfirmed, suspected Zhipu/GLM)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,16 @@ Multimodal:
 - **Cost efficiency: 95/100.** $0.20/$0.66 cached $0.04 is genuinely cheap; $0.03/prompt observed confirms real economy; $10/mo OpenCode Go bundling. Cost excluded from Overall.
 - **Overall Score: 46/100.** Mean of Tool 52, Reasoning 52, Context 55, Multimodal 12, Coding 58 = 229/5 = 45.8 → **46**. Best fit: **cheap subscription-tier coding agent for small projects in OpenCode Go** — the $0.03/prompt and 1:51/prompt economics are attractive. Not a frontier contender on any dimension, and the **complete evidence vacuum on reasoning/knowledge/honesty is a deployment risk**. The cohort's 63 is a reputation-inflation artifact from the unconfirmed GLM speculation; Kimi's 48 is the closest honest read. If Zhipu confirms this is GLM-5.3-Flash under a different name, re-score using the full GLM-5.3-Flash evidence base immediately.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "mandatory if Zhipu/OpenCode confirms the model identity; also if AA/BenchLM/SWE-V/LCB rows appear." **NOT FIRED.**
+
+- **Identity CONTINUES UNCONFIRMED:** OpenCode's own data listing shows `unknown/omen-alpha` — no vendor attribution in their catalog. Community fingerprinting (kie.ai Sep 5, Reddit "GLM-5 family") suggests Zhipu/GLM; BUT a Nov-2026 X post (@MaxForAI, Chinese-language) explicitly CONTRADICTS this: "不是来自于智谱" (NOT from Zhipu). Conflicting unofficial signals; no vendor card, no official announcement. Exact-ID rule: identity remains unresolved.
+- **AA/BenchLM/SWE rows:** None appeared for `omen-alpha` specifically. Trigger NOT fired.
+- **Usage persists:** OpenCode data shows 654B tokens processed (Sep 10 – Nov 4, 2026), 48K users, 322K sessions — still a heavily-used production endpoint. No retirement notice.
+- **Evidence void unchanged:** Still zero GPQA/HLE/CritPt/AA Index/SWE-V/LCB for this exact ID. One non-standard coding eval (~58%) remains the only measured benchmark. Bands held.
+- **Overall 46 held.** Evidence state unchanged; identity contested; no new measurable data.
+
 ---
 
 ## Signature
@@ -63,4 +73,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (omenalpha.io benchmark page, OpenCode leaderboard, AI Coding Daily, startupfortune coverage — 2026-09-27). Curated `meta.json` is a template placeholder ("Standard pricing", "Omen Alpha model evaluation entry"). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **near-total evidence vacuum** — one non-standard eval is insufficient for general scoring, (b) suspected GLM-5.3-Flash rebrand (zhipu namespace in backend URL) is **unconfirmed and not adopted**, (c) if confirmed as GLM-5.3-Flash, context should be 1M not 128K and modalities should include image input — both contradicted by the current listing.
 - Revisit trigger: **mandatory if Zhipu/OpenCode confirms the model identity** (enabling full GLM-5.3-Flash panel scoring); also if AA/BenchLM/SWE-V/LCB rows appear for this ID.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Trigger NOT fired (identity unconfirmed — community signals conflict; @MaxForAI explicitly denies Zhipu). No AA/BenchLM rows. Evidence void unchanged. Bands held; Overall 46 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

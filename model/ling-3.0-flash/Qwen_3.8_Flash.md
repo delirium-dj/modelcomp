@@ -1,7 +1,7 @@
 # Ling 3.0 Flash — findings by Qwen 3.8 Flash
 
 - Source: InclusionAI / Ant Group (curated id `opencode/ling-3.0-flash`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-08 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,21 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 95/100.** The best price-performance story in this family: **$0.075 / $0.22 per 1M** sitting exactly on its class medians, an **80 % cache discount** (agents re-send context, so this is the discount that matters), **333.6 tok/s — fastest of 65 class peers**, MIT weights, a **4-GPU** deployment floor instead of a multi-node trillion-parameter job, **TTFT cut 60–80 %** by the built-in hierarchical cache, MTP/NEXTN speculative decoding supported out of the box, and a **`:free` OpenRouter endpoint** for evaluation. Two real deductions: **verbosity 260 M vs 100 M median ("very verbose")** — cheap tokens, expensive tasks, and AA publishes **no cost-per-task figure** because the ID is deprecated; and the deprecation itself means hosted pricing/routes may thin out as traffic moves to 3.1 Flash.
 - **Overall Score: 60/100.** Mean of the five quality dimensions (70 + 65 + 78 + 15 + 70) / 5 = 298 / 5 = 59.6 → 60; Cost excluded per `RULES.md`. Best fit: **teams shipping agent loops that must be fast and cheap per call** — tool-heavy coding/research agents on SGLang or vLLM with HiCache, a Claude-Code-class harness, and long (≈256 K) trajectories, where **333 tok/s, $0.075/$0.22, 80 % cache pricing and 5.1 B active parameters** dominate the decision calculus. Unfit by construction for **multimodal** work (use `ling-3.0-flash-vl`), weak for **factual open-domain Q&A** (**AA-Omniscience −17.9, 44.1 % hallucination**), and a questionable choice for a *new* build given AA's explicit "**deprecated … consider Ling 3.1 Flash**" banner (BenchLM: 45.18 here vs 61.94 for 3.1 Flash). **Curation fixes before sync:** set `contextWindow` to **262,144 (256 K)**, replace "Standard pricing" with **$0.075 / $0.22 per 1M, 80 % cache read discount**, name the VL sibling in `short`, and add a "superseded by Ling 3.1 Flash" note.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "model lifecycle; AA re-measurement under v5.0.1."
+
+- **AA deprecation banner persists:** "This model is deprecated … InclusionAI has launched a newer release, Ling 3.1 Flash. We suggest considering it instead." Pass-1 already recorded this. Ling 3.1 Flash is now the active successor (context upgraded 262K→1M in a separate batch update). Lifecycle: **`superseded`**.
+- **AA Intelligence Index still N/A under v5.0.1:** The AA page now reads "No publicly available API" for Intelligence Index. Pass-1 cited AA Index 20 (v4-era, #3 of 65 class). Under v5 the Index composite was rebased (9 evals incl. private datasets) and N/A reflects the endpoint-access gap, not a capability regression. Raw evals (GPQA 85.5, AA-LCR 73.0, τ² 78.9 etc.) are independent measurements unaffected by rebase.
+- **BenchLM status updated:** Now reports 45.33/100, #120 of 216 (cohort pruned from 888 to 216 post-v5); 24 source-displayable rows, "Estimated" evidence. Previously 45.18, #116/888, 38 tracks. Score marginally up, coverage marginally down.
+- **Evidence state otherwise unchanged:** No new independent harness (Vals, Terminal-Bench 3.0, Toolathlon, τ³) rows for Ling-3.0-flash appeared. Vals' TB 50.2 / LCB 84.0 / SWE 65.2 / GPQA 84.8 / MMLU-Pro 82.0 remain the sole third-party measurements. Omniscience −17.9 / 44.1% hallucination persists.
+- **Overall 60 held.** Deprecation and supersession already captured in pass-1 narrative. `superseded` lifecycle confirmed; bands unchanged.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-08
 - Method: fresh public internet research (the `inclusionAI/Ling-3.0-flash` Hugging Face README in raw form — 124 B/5.1 B hybrid KDA:MLA 5:1 architecture table, 512+1 experts top-8, 8 K→32 K→256 K context curriculum, MIT licence, SGLang `dev-Ling-3.0-flash` image and `--context-length 262144` / NEXTN recipe, vLLM `--mamba-cache-mode align` + MTP speculative config, `ling3` reasoning/tool parsers, thinking-on-by-default sampling params, the full evaluation-protocol footnotes naming harnesses and judges (OpenHands, Terminus 2 under AA protocol, kilo-code, Stirrup, Gemini-2.5-Pro, GPT-4.1, Claude Opus 4.6), HiCache + Mooncake TTFT claims, 10,000+ interactive environments, named agent frameworks and the TDS transparency PDF; **Artificial Analysis** `models/ling-3-0-flash` — Index 20 with #3/65 rank and class median 8, 333.6 tok/s, $0.075/$0.22, 80 % cache discount, 260 M verbosity, N/A cost-per-task, 124 B/5.1 B, MIT, text-only modality block and the **deprecation banner pointing to Ling 3.1 Flash**; **BenchLM** `models/ling-3-0-flash` — Overall 45.18, #116/888, 38/625 coverage, family/sibling graph and the per-row source attribution separating vendor, AA and **Vals AI** runs, including Vals' independent TB 50.2 / LCB 84.0 / SWE 65.2 / GPQA 84.8 / MMLU-Pro 82.0), plus negative results that are themselves findings: **no knowledge-cutoff row** on the AA spec table and **no technical report** for the 3.0 line; plus the curated `model/ling-3.0-flash/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule. Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** the best-corroborated folder in this batch — one measured AA composite plus a genuine third-party harness run (Vals AI) agreeing with vendor numbers within ~1–5 points on GPQA, LiveCodeBench and Terminal-Bench.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. AA deprecation + N/A Index (v5.0.1), BenchLM 45.33/#120/216, evidence unchanged. `superseded` by Ling 3.1 Flash confirmed. Overall 60 held.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -4,16 +4,14 @@
   "short": "Meta's agent model co-trained with Muse Code for terminal coding; 1M/131K, SWE 86.6%, GPQA 90.4%, Standard $1.25/$4.25.",
   "contextWindow": "1,048,576 (1M)",
   "modalities": "Text, image, audio, video, PDF in; text out",
-  "pricingNote": "Free Zen tier; Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
-  "freeTierNote": "Free Contributor-tier access in exchange for training-data consent agreement on OpenCode Zen",
+  "pricingNote": "Contributor $0.10/$0.20; Standard $1.25/$4.25 per 1M",
+  "noFreeId": true,
   "pricingTiers": [
-    "Free Zen tier",
     "Contributor $0.10/$0.20",
     "Standard $1.25/$4.25"
   ],
   "officialUrl": "https://huggingface.co/models?search=muse-spark-1.2",
   "pricingLinks": [
-    "https://opencode.ai/v2/docs/console/models/#free-models",
     "https://dev.meta.ai/models/muse-spark-1-2",
     "https://dev.meta.ai/models/muse-spark-1-2"
   ],

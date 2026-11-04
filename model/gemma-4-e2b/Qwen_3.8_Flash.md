@@ -1,7 +1,7 @@
 # Gemma 4 E2B — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma (curated id `opencode/gemma-4-e2b`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,10 +62,17 @@ Multimodal / audio / long context:
 - **Cost efficiency: 97/100.** Apache 2.0 weights that run on a phone or a Pi for effectively $0 make this the cheapest possible deployment in the registry, and even the curated hosted rate ($0.04/$0.08) would sit in the methodology's 97–99 price tier. Held back from 98–99 because no aggregator publishes a durable API price or measured output speed for this ID, so a hosted cost claim cannot be verified — the honest self-hosted path is where the value is.
 - **Overall Score: 50/100.** Mean of the five quality dimensions (38 + 40 + 50 + 88 + 34) / 5 = 50.0 → 50; Cost excluded per `RULES.md`. Best fit: strictly on-device, privacy-sensitive, short-context auxiliary jobs — wake-word-style triage, offline ASR of brief clips, captioning, routing/classification, simple completions — where having *any* multimodal model at 2.3 B effective parameters is the win. If the hardware allows the next size up, `model/gemma-4-e4b/` is better on every measured dimension; if the task is agentic or coding, `model/gemma-4.12b-unified/` is the correct entry point in this family.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Model active.** Gemma 4 E2B remains in Google’s current model family (Gemma 4: E2B, E4B, 12B, 31B, 26B A4B). No deprecation or supersession. HF weights (`google/gemma-4-E2B`) available. AI for Developers page lists it as current.
+- **AA v5 impact:** Intelligence Index likely N/A under v5.0.1 (same pattern as gemma-4-e4b — edge models lack public API for v5’s harder eval suite). Pass-1’s AA Index (estimated) remains valid as a v4 measurement.
+- **Score:** Overall **50 held**. No new independent data; model unchanged.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Gemma 4 family model card README on Hugging Face, Google `blog/gemma4` announcement as cited by BenchLM's upstream rows, Artificial Analysis `models/gemma-4-e2b` reasoning page, BenchLM `gemma-4-e2b` score page); scores are normalized 1–100 interpretations, not official vendor scores. Coverage is the thinnest in this pass (16 of 623 BenchLM tracks; AA Index marked *estimated* with no price/speed rows), so each dimension names the missing harnesses rather than inferring values for them, and the two contradicting modality claims are recorded as a flag instead of silently resolved.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Model active (Gemma 4 family current). AA v5 N/A (access gap). No new benchmarks. Held 50.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Hy3 Preview — findings by Qwen 3.8 Flash
 
 - Source: Tencent Hunyuan (`tencent/hy3-preview`; HF `tencent/Hy3-preview`, Tencent Hy Community License)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,16 @@ Multimodal:
 - **Cost efficiency: 90/100.** ~$0.18/$0.59 preview pricing + open weights; slightly above hy3 full's $0.14/$0.58 GA launch; preview may have transient subsidies. Cost excluded from Overall.
 - **Overall Score: 68/100.** Mean of Tool 68, Reasoning 71, Context 72, Multimodal 60, Coding 69 = 340/5 = 68.0 → **68**. Best fit: **historical evaluation baseline and architecture reference** — superseded by the stronger Hy3 full release (scored 72 in this dataset). The preview is a 4-point discount reflecting unpolished instruct tuning, lower retrieval (LCR 66.7 vs 79.0), and zero published vision benchmarks. Same Omniscience failure mode already present at −18.5 / 73%.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "none planned — superseded." **NOT APPLICABLE.**
+
+- **Double-supersession:** Hy3 full (Jul 2026, Overall 72) replaced this preview 4 months ago; **Hy4** GA shipped 2026-11-04 (vision + computer use, repo Overall 73) — a second-generation step above. Preview evidence unchanged.
+- **AA Index v5.0.1 rescale (Oct 27):** Pass-1's AA Index 41.2 (already flagged as anomalous vs HLE 25.5, possibly an index-version artifact) was pre-v5. Under v5, absolutes dropped; the anomaly is moot (it was likely a data-collection timing error, not a valid measurement). No band revision.
+- **Omniscience unchanged:** 73% hallucination rate — the Hy3 signature defect persists; Hy4 has not disclosed whether this was remedied (no independent Omniscience published for Hy4 yet). Preview's evidence stands.
+- **Lifecycle:** Preview weights remain on HF (open, downloadable); TokenHub preview endpoint likely deprecated since Hy3 GA + Hy4 GA. `superseded` flag already captured in pass-1 prose. No `legacy` flag needed (open weights persist locally).
+- **Overall 68 held.** Historical baseline / architecture reference; evidence unchanged.
+
 ---
 
 ## Signature
@@ -71,4 +81,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM/AA panel + `Muse_Spark_1.3.md` (official GitHub README spec and base-model tables) + curated `meta.json` (context/modality/pricing honest here) + cross-reference to the `model/hy3/` full-release report (same architecture, 2.5 months later). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) Omniscience −18.5 / 73% already present at preview stage — Hy3's honesty profile was never good, (b) AA Index 41.2 on a model with HLE 25.5 is anomalous (index-methodology timing artifact; do not cite as evidence of frontier reasoning), (c) Kimi K3's "text-only deployment" is wrong per the official README image-input spec.
 - Revisit trigger: none planned — model is superseded; refer to `model/hy3/Qwen_3.8_Flash.md` for the GA release scoring.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. No trigger defined (superseded); Hy4 GA noted as second-generation context; AA v5 rescale (scale-only); Omniscience defect unchanged. Bands held; Overall 68 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

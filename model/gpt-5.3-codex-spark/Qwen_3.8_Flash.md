@@ -1,7 +1,7 @@
 # GPT-5.3 Codex Spark — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5.3-codex-spark`; served on Cerebras WSE-3)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,16 @@ Multimodal:
 - **Cost efficiency: 60/100 (provisional).** No per-token price; ChatGPT Pro subscription-gated; design-partner API only. Access is bundled but not independently metered — can't confirm value-per-dollar. Cost excluded from Overall.
 - **Overall Score: 52/100.** Mean of Tool 65, Reasoning 55, Context 58, Multimodal 15, Coding 68 = 261/5 = 52.2 → **52**. Best fit: **ultra-low-latency interactive coding companion** (inline edits, quick refactors, boilerplate) paired with full GPT-5.3-Codex for verification — OpenAI's own positioning. Not a standalone agentic coder, not a reasoning model, and the **preview-status evidence vacuum means most capability claims remain unverified**. The cohort's 62.8 likely inherits from full Codex reputation. Kimi (51) and Muse (55) bracket this read honestly.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "OpenAI publishes official numeric SWE-Pro/GPQA benchmarks or the model exits research preview with public API pricing; Cerebras publishes WSE-3 performance data."
+
+- **Trigger NOT FIRED:** GPT-5.3-Codex-Spark remains a **research preview** inside ChatGPT Pro / Codex app / CLI / VS Code. No public per-token API pricing appears on OpenAI's live pricing page (only `gpt-5.3-codex` full model is listed at $1.75/$14 standard). OpenRouter returns 404 for Spark. No numeric benchmark release. No Cerebras WSE-3 LLM performance paper.
+- **BenchLM page exists but vacuous:** 1 of 739 benchmarks covered (MazeBench 0% ASCII mode); **Unranked, Overall not computed.** Confirms the near-placeholder evidence state persists.
+- **Context-window discrepancy flagged:** BenchLM reports 256 K for Spark; the official OpenAI launch post and typingmind both state **128 K**. Likely conflation with the full `gpt-5.3-codex` (which does carry 256 K). Pass-1's 128 K scoring retained per exact-ID and vendor-primary-source rules.
+- **Evidence state unchanged:** The only numeric benchmark in existence remains the third-party estimate TB 2.0 ~58.4% (from the-decoder reporting OpenAI figures). No independent GPQA/HLE/SWE-V/LCB rows have appeared. Score philosophy from pass-1 stands.
+- **Overall 52 held.** Evidence vacuum unchanged; preview status persists.
+
 ---
 
 ## Signature
@@ -64,4 +74,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (OpenAI launch post, Cerebras blog, CometAPI analysis) + `Muse_Spark_1.3.md` (the-decoder, siliconangle, ai-tldr, aireleasetracker). Curated `meta.json` is a placeholder template. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **only one numeric benchmark exists** (TB 58.4%, provisional/third-party), (b) OpenAI's own performance chart is image-only/unextractable, (c) the distillation trade-off means reasoning depth is vendor-acknowledged as reduced, (d) research preview status = expect churn and unpublished numbers.
 - Revisit trigger: when OpenAI publishes official numeric SWE-Pro/GPQA benchmarks or the model exits research preview with public API pricing; if Cerebras publishes performance data for WSE-3-deployed LLMs.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmed research-preview status (OpenAI pricing page has no Spark row, OpenRouter 404, BenchLM 1/739 unranked). Context discrepancy noted (BenchLM 256K vs official 128K). Evidence state unchanged. Overall 52 held.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

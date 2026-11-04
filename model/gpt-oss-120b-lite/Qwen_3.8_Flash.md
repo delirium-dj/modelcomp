@@ -1,7 +1,7 @@
 # GPT-OSS 120B Lite — findings by Qwen 3.8 Flash
 
 - Source: OpenAI gpt-oss (`gpt-oss-120b` weights; curated id `opencode/gpt-oss-120b-lite`), cross-checked against the **gpt-oss-120b/20b Model Card** (arXiv 2508.10925), OpenAI's gpt-oss announcement, and the HF `openai/gpt-oss-120b` card
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,6 +44,13 @@ Health / long-ctx: HealthBench 53.0→57.6 (near-o3 at high); no MRCR/RULER long
 - **Cost efficiency: 100/100.** The headline virtue: **free Apache-2.0 weights** running on one 80 GB GPU (or quantized consumer cards) plus ~$0.15/$0.60 hosted — near-zero cost for a 120B-class reasoner.
 - **Overall Score: 54.2/100.** Half-up mean of the five quality dims (68+66+58+15+64)/5 = 54.2. Best fit: **cheap, fast, agentic text work** — tool-driven assistants, summarization/extraction, moderate coding — where strong-instruction-following 120B weights deliver most of o4-mini's utility with concise reasoning at essentially free cost. The score is anchored to the **"Lite" = low/medium-effort** reading of the effort table (a full high-effort run would lift reasoning/coding toward the ~78–80/62 marks), and is structurally **dragged by the text-only 15 and the modest 128K window**; treat "Lite" as a value/efficiency tier of `gpt-oss-120b`, not a capability upgrade.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **OpenRouter free route removed.** `openai/gpt-oss-120b:free` now returns 404 (confirmed by ayautomate Nov 3, 2026 — “OpenRouter no longer serves openai/gpt-oss-120b:free for free. Requests return a 404”). Paid route remains available. Since “Lite” was never a distinct product but a low/medium-effort reading of identical weights, this lifecycle event applies to the parent.
+- **Parent gpt-oss-120b** already flagged `superseded` (batch 18: Lig.ht retired Sep 15, Google AI Studio removes Nov 18). The free-route removal reinforces this.
+- **Trigger NOT fired.** No distinct “gpt-oss-120b-lite” product announcement. No independent benchmark specific to Lite.
+- **Score:** Overall **54.2 held**. Same-weights variant scored identically; no capability change.
+
 ---
 
 ## Signature
@@ -51,4 +58,5 @@ Health / long-ctx: HealthBench 53.0→57.6 (near-o3 at high); no MRCR/RULER long
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **gpt-oss-120b/20b Model Card (arXiv 2508.10925)** Table 3 (GPQA-D 67.1/73.1/80.1, MMLU 85.9/88.0/90.0, HLE 5.2/8.6/14.9, AIME-25 50.4/80.0/92.5, SWE-bench Verified 47.9/52.6/62.4, τ-bench retail 49.4/62.0/67.8, Aider 24/34.2/44.4, Codeforces 1595/2205/2463 across low/med/high effort; 116.8B/5.13B-active, text-only, Apache 2.0, adjustable reasoning effort, near-o4-mini, Preparedness below High), OpenAI's **introducing-gpt-oss** announcement, and the HF `openai/gpt-oss-120b` card. Curated `meta.json` supplies 128K/32K and ~$0.15/$0.60. Scores are normalized 1–100 interpretations: **"Lite" is read as the low/medium reasoning-effort (concise) tier of the identical weights**, so capability dims use those columns rather than the flattering high-effort peak; the **text-only 15** (model-card-confirmed) is the structural floor. A web sweep found **no distinct "120B Lite" product** (only a niche CPU reseller), so it is scored as a same-weights variant, not a separate benchmarked model — and never conflated with the separate `gpt-oss-120b` folder report.
 - Revisit trigger: any official announcement or benchmark row for a genuinely distinct "gpt-oss-120b-lite" (its own weights, or a documented low-effort quality figure), or clarification of which reasoning-effort column the "Lite" tier targets.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. OpenRouter free route removed Nov 3 (404). Paid persists. `superseded` inherited from parent. No distinct product. Held 54.2.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

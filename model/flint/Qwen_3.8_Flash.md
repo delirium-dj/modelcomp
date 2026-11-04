@@ -1,7 +1,7 @@
 # Flint — findings by Qwen 3.8 Flash
 
 - Source: **Recursive "Flint"** (curated id `opencode/flint`), cross-checked against the Recursive Intelligence launch coverage, the HF `RecursiveSI/flint` model card, and the OpenRouter "Recursive: Flint (free)" listing
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,6 +41,12 @@ Self-reported (Recursive, 2026-10-21):
 - **Cost efficiency: 100/100.** The clearest verified virtue: **free Apache-2.0 weights running on a laptop** (131 tok/s on M4 Pro), a free OpenRouter lane, and NVFP4 quantization close to BF16 quality — near-zero cost.
 - **Overall Score: 58.2/100.** Half-up mean of the five quality dims (66+60+82+15+68)/5 = 58.2. Best fit: **cheap, local, text-only coding/terminal agenting** where a free ~40B-A2.5B model with a 262K window and a strong *self-reported* SWE number can offload routine engineering work to a laptop. The score is **provisional**: it rests almost entirely on **first-party benchmarks on a same-week release with zero independent evaluation**, an **unexplained SWE-bench Pro/Verified inversion**, and Recursive's own caveat that the model "may need more guidance." Treat the coding/tool figures as optimistic until an independent row lands; the **text-only 15** is the structural floor and the large-but-unproven context is the main upside.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** AA page 404 (no Intelligence Index for Flint). BenchLM page exists (5/739, **unranked — no overall score computed**), all rows from Recursive’s HF model card: Terminal-Bench 2.1 54.9%, SWE-V 74.2%, **LiveCodeBench v6 80.3%**, **IFBench 89.2%**, **IFEval 95.1%**. New vendor datapoints (LCB, IFBench, IFEval) strengthen the instruction-following picture but remain self-reported. No independent lab or third-party harness result published as of Nov 4.
+- **OpenRouter status:** Active free route `recursive/flint-v1.0:free` (listed in Nov 2026 free-model roundups). Context 262K confirmed. Model accessible.
+- **Score:** Overall **58.2 held**. Provisional (vendor-only discount applies). The new LCB 80.3 supports coding 68; no reason to move either direction without an independent evaluation row.
+
 ---
 
 ## Signature
@@ -48,4 +54,5 @@ Self-reported (Recursive, 2026-10-21):
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — Recursive Intelligence's **Flint launch** (release 2026-10-21; ~40B total / ~2.5B active MoE, Apache-2.0, HF `RecursiveSI/flint`, free OpenRouter lane, built by the "Eureka Machine" in <4 months, NVFP4 within ~0.7 pts of BF16, ~131 tok/s on M4 Pro, SGLang server ~80 GB BF16), and the model-card **self-reported** benchmarks (**Terminal-Bench 2.1 54.9%, SWE-bench Verified 74.2%, SWE-bench Pro v2 89.7%**). The curated `meta.json` was **scaffolded** (generic 128K/"Standard pricing") and is **overridden** by first-party/press evidence (262K documented context, free, text-only). Scores are normalized 1–100 interpretations, applied under a **heavy vendor-only discount**: **no independent benchmark of Flint existed as of 2026-10-22**, so capability dims rest on unaudited self-reports. The **SWE-bench Pro (89.7) > Verified (74.2) inversion** is explicitly flagged as unexplained and is why coding is capped at a discounted 68 rather than a literal reading. **Multimodal = 15** (text-only). Flint is a **real, verifiable, freshly-shipped model** (existence/maker/weights/license confirmed), so it is **scored, not excluded** — and never conflated with any sibling folder.
 - Revisit trigger: an **independent** Flint evaluation (Artificial Analysis Intelligence Index row, LMArena Elo, third-party SWE-bench/Terminal-Bench runs), resolution of the SWE-bench Pro-vs-Verified inversion, or an official multimodal/long-context retrieval disclosure.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA 404. BenchLM vendor-only (unranked, 5/739). New vendor LCB 80.3, IFBench 89.2, IFEval 95.1. OpenRouter free route active. No independent eval. Held 58.2.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

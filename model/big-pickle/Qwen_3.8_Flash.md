@@ -1,7 +1,7 @@
 # Big Pickle (GLM‑4.6 stealth) — findings by Qwen 3.8 Flash
 
 - Source: OpenCode Zen stealth `opencode/big-pickle` — community consensus identity: Z.AI GLM‑4.6 open weights (`zai-org/GLM-4.6`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,11 @@ Multimodal:
 - **Cost efficiency: 98/100.** $0 during Zen promo; even paid GLM‑4.6 equivalent ~$0.60 / $2.20 is cheap. Cost excluded from Overall.
 - **Overall Score: 50/100.** Mean of Tool 60, Reasoning 52, Context 62, Multimodal 12, Coding 62 = 248/5 = 49.6 → **50**. Best fit: **free everyday live‑coding / chat on Zen while the promo lasts** — LiveCodeBench 81 at $0 is unbeatable value. Not for agentic coding (Vibe 3.1%), not for knowledge work (67.6% hallucination, CritPt 0%), not for long‑context retrieval (LCR 26.3%). Kimi 52; cohort 56.6 (both slightly over‑rate the reasoning profile). Identity remains unofficial.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** Big Pickle remains active on OpenCode Zen (verified by awesome-free-ai-coding GitHub, Nov 2 2026). The stealth identity is still officially undisclosed — OpenCode docs state “Big Pickle is a stealth model that’s free on OpenCode for a limited time.” Community GitHub (big-pickle-swe-atlas) speculates “served by DeepSeek” based on leaked error signatures, but this is unconfirmed. BenchLM 404 (no page — identity not queryable). Free promo still in effect.
+- **Score:** Overall **50 held**. Evidence base unchanged; identity still unverifiable.
+
 ---
 
 ## Signature
@@ -69,4 +74,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` benchlm.ai GLM‑4.6 scorecard (stealth ID not independently queryable). Curated `meta.json` correctly flags 200K / text‑only / free. Flagged: (a) **GPQA AA 63.2 vs Vals 74.5 is a wide harness split** — lane war signal, discount the higher number; (b) **Vibe Code Bench 3.1% is a hard agentic‑coding floor** that LiveCodeBench 81 cannot rescue; (c) **CritPt 0.0%** and **hallucination 67.6%** together make this a wrong choice for knowledge work.
 - Revisit trigger: when Zen discloses the stealth ID's canonical identity, or when the free promo ends.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Still active on Zen (verified Nov 2). Identity undisclosed (DeepSeek speculation unconfirmed). BenchLM 404. Trigger NOT fired. Held 50.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Ring 2.6 1T — findings by Qwen 3.8 Flash
 
 - Source: InclusionAI / Ant Group (curated id `opencode/ring-2.6.1t`)
-- Date: 2026-10-08 (UTC)
+- Date: 2026-10-08 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,10 +52,20 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 92/100.** **$0.30 / $2.50** per 1M with **$0.29 per Intelligence-Index task** (#22 of 117), input priced exactly at the class median, **"fairly concise"** (120M vs 140M median — it does not waste tokens while thinking) and **notably fast at 110.7 tok/s** (#14/117), on top of **MIT open weights** that make self-hosting licence-free. Deductions: output is "somewhat expensive" for the class (median $1.15 — over 2× — which matters because reasoning models emit many more output than input tokens), and the 1T-parameter footprint makes the practical self-host cost multi-node even when the licence is free.
 - **Overall Score: 45/100.** Mean of the five quality dimensions (52 + 48 + 68 + 15 + 40) / 5 = 223 / 5 = 44.6 → 45; Cost excluded per `RULES.md`. Best fit: **organisations that must own their weights** — MIT-licensed trillion-parameter reasoning with a task-adaptive `high`/`xhigh` budget knob, deployed on a multi-node SGLang stack for agent workflows, enterprise process automation and engineering assistance, where per-token price and token economy ($0.29/task, concise, fast) matter more than leaderboard position. It is **not** the pick on measured capability: AA scores it **below its own size-class median** on intelligence, and after four aggregator sources came back empty there is **no independent benchmark row of any kind** — no τ-bench, no SWE-bench, no GPQA/HLE — to argue otherwise. Expect this Overall to move up once harnesses publish; re-verify before relying on it.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check (implicit):** "Expect this Overall to move up once harnesses publish." **NOT FIRED.**
+
+- **AA Index v5.0.1 rescale (Oct 27):** Pass-1's AA Intelligence Index 17 (#64/117) was v4-era. Under v5 (9 harder evals), all absolutes dropped; this model may now show a lower value or N/A if AA hasn’t re-run it under the new methodology. The “below average in intelligence” verdict is a **scale-level** statement, not a regression. Quality bands are evidence-driven (PinchBench 87.6 is the sole independent data point, unchanged). No band revision.
+- **No independent harness published:** BenchLM still 404 (confirmed indirectly — no BenchLM page referenced in any search results). OpenRouter page absent. Third-party SWE-bench fragment remains unattributable. Evidence void persists.
+- **Speed/pricing unchanged:** AA measured 110.7 tok/s, $0.29/task, $0.30/$2.50 — consistent with pass-1.
+- **Overall 45 held.** Trillion-parameter reasoning flagship with only 1 vendor benchmark + AA composite; independent evidence remains critically thin.
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-08
 - Method: fresh public internet research (Artificial Analysis `models/ring-2-6-1t` — Index 17 with rank #64/117 and class median, 1T/63B spec block, open-weights + May 2026 release, 262k context, text-only modality block, $0.30/$2.50, $0.29/task, 110.7 tok/s, 120M verbosity and the "below average … somewhat expensive" verdict text; the `inclusionAI/Ring-2.6-1T` Hugging Face README in raw form — Reasoning Effort `high`/`xhigh`, PinchBench 87.60 claim, 128K→256K YaRN table, async-RL + IcePop training narrative, MIT licence, SGLang deployment notes, AI-Transparency disclosure PDF), plus negative results that are themselves findings: **BenchLM 404** for `ring-2-6-1t` and `ling-2-6-1t`, llm-stats pages rendering no content, OpenRouter product page absent; plus the curated `model/ring-2.6.1t/meta.json` only — **no peer report in this folder or any other was opened**, per the zero-influence rule. Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** the weakest of any folder researched in this pass — one independent composite measurement, one vendor benchmark claim on an unverified harness, and **zero** independent per-benchmark rows; the ambiguous third-party SWE-bench fragment is recorded but excluded from scoring.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA v5 rescale noted (scale-only); no independent harness published (BenchLM 404 persists, evidence void unchanged). Bands held; Overall 45 unchanged.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Glm 4.6 Flash — findings by Qwen 3.8 Flash
 
 - Source: Z.ai **GLM-4.6-Flash** free lite endpoint (curated id `opencode/glm-4.6-flash`), anchored against the **GLM-4.6 launch** (z.ai blog, 2025-09-30), **llm-stats / OpenRouter** GLM-4.6 listings, and third-party papers that cite the `glm-4.6-flash` endpoint
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -38,6 +38,12 @@ GLM-4.6 **flagship** (family upper bound, first-party):
 - **Cost efficiency: 100/100.** The clearest verified trait: a **free** zero-cost tier on an MIT-licensed family — near-zero cost.
 - **Overall Score: 56.4/100.** Half-up mean of the five quality dims (70+70+66+15+60)/5 = 56.4. Best fit: **free, fast general + light coding/tool tasks** where a GLM-4.6-generation lite endpoint is plenty and cost must be zero. The score is **explicitly provisional**: it rests on **family-lineage inference with zero Flash-specific benchmarks**, a **scaffolded/unreliable meta** (context and modality uncertain), and the text-only floor. Treat it as the distilled sibling under the fully-benchmarked GLM-4.6 flagship, and expect a wide band until a Flash eval row appears.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** BenchLM 404 (no page for GLM-4.6-Flash). AA has no page for this variant. No Flash-specific benchmark row appeared from any source. Pass-1’s family-lineage inference remains the only evidence basis.
+- **Supersession confirmed:** GLM-4.7-Flash released Jan 20, 2026 (Z.ai blog, HF `zai-org/GLM-4.7-Flash`, NVIDIA NIM Jan 8). BenchLM lists GLM-4.7-Flash (38.09) and GLM-5.3-Flash (58.26) as successors. Lifecycle: `superseded` (→GLM-4.7-Flash→GLM-5.3-Flash). GLM-4.6 itself is superseded by GLM-4.7 (Z.ai blog: “significant gains in multilingual agentic coding and terminal-based tasks”).
+- **Score:** Overall **56.4 held**. No independent measurement; family-lineage inference unchanged. Supersession does not alter capability scores.
+
 ---
 
 ## Signature
@@ -45,4 +51,5 @@ GLM-4.6 **flagship** (family upper bound, first-party):
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **GLM-4.6 launch** (z.ai blog, 2025-09-30: flagship 357B MoE, MIT, context 128K→~200K, coding/agentic focus), **llm-stats** GLM-4.6 page (357B, 203K, $0.50/$2.00, text+image flagship, arXiv 2508.06471), OpenRouter/local-coding-model guides, and arXiv papers that reference the `glm-4.6-flash` endpoint (confirming it is a **real, reachable** model, incl. one "vision LLM" usage that conflicts with the text-only meta). The curated `meta.json` is **scaffolded** (generic "128K / Standard pricing") and provides no product data. Scores are normalized 1–100 applied under a **heavy evidence-vacuum discount**: **no first-party or independent benchmark exists for the Flash lite variant**, so capability dims are **inherited from the GLM-4.6 family lineage** and clearly labeled as such — never presented as measured Flash results. **Multimodal = 15** (text-only per curated entry; the vision reference is flagged as an unresolved conflict, not rewarded). GLM-4.6-Flash is a **real free endpoint** (existence confirmed), so it is **scored, not excluded**, and kept distinct from the `glm-4.6` flagship and `glm-4.5-flash`/`glm-4.7-flash` sibling folders.
 - Revisit trigger: any **Flash-specific** benchmark row (vendor or Artificial Analysis), disclosure of the Flash tier's parameters/context/modality (resolving the text-vs-vision conflict and the 128K-vs-200K ambiguity), or a formal GLM-4.6-Air/Flash checkpoint release.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. BenchLM 404, AA no page. `superseded` (→GLM-4.7-Flash→GLM-5.3-Flash, Z.ai blog confirms gains). No independent eval. Held 56.4.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

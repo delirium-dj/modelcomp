@@ -1,7 +1,7 @@
 # Ling 3.1 Flash — findings by Qwen 3.8 Flash
 
 - Source: InclusionAI / Ant Group (`inclusionai/ling-3.1-flash`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,17 @@ Multimodal:
 - **Cost efficiency: 100/100.** Free to call ($0.00 in/out) in preview — at the top of the value scale.
 - **Overall Score: 57.0/100.** (80+60+74+15+56)/5 — a free, agent-and-tool-first reasoning MoE whose text-only modality is the binding constraint. Best fit: agentic workflows, finance/automation tool-use, and codebase Q&A on a $0 budget, where vision is handled by a separate model.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "publication of GPQA/HLE and SWE-bench Verified/LiveCodeBench for this ID would firm Reasoning/Coding; confirmed image/video input would lift Multimodal." **PARTIALLY FIRED** — context spec updated, intelligence trigger NOT fired.
+
+- **Context upgraded 262K → 1M (CONFIRMED):** AA `models/ling-3-1-flash` spec table states "Context window: 1M"; the Oct 27 HF drop (`Ling-3.1-flash-1019`) is a context-extended revision (560B/25B same architecture). Pass-1 recorded 262K (the Oct 2 launch figure from Kilo/OpenRouter). Current authoritative serving spec: **1M**. Revised Context band: **74→85** (≥1M tier 95–100 floor, discounted for zero retrieval measurement — no MRCR/RULER/AA-LCR published; comparable to pass-1 scoring logic for solar-pro-4 at 524K/85). Still NOT full 95+ because retrieval is unmeasured.
+- **Pricing change:** AA reports **$0.30/$0.90** per 1M (cache 80%). Pass-1 noted "$0.00 free preview" — the preview period ended. Cost band revised 100→90 (genuinely cheap but no longer free). Cost excluded from Overall.
+- **AA Intelligence Index N/A:** Listed but NOT measured ("Unknown out of 4 units"). The reasoning trigger (GPQA/HLE/Index) did NOT fire. Reasoning 60 held (provisional).
+- **Text-only confirmed:** AA: "supports text input, outputs text." Multimodal 15 held.
+- **Speed/latency:** AA measured 184 tok/s, 19.39s TTFT — healthy for a 560B MoE. No band impact (speed not scored in quality dims).
+- **Revised Overall:** mean(Tool 80, Reasoning 60, **Context 85**, Multimodal 15, Coding 56) = 296/5 = 59.2 → **59** (up from 57). The +2 delta is driven entirely by the context-window correction.
+
 ---
 
 ## Signature
@@ -60,4 +71,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen3.8-flash)** — 2026-10-04
 - Method: fresh public web research (Ant Ling launch benchmark suite via BenchLM 2026-10-02, Kilo/OpenRouter for specs & modality list); scores are normalized 1–100 interpretations, not official vendor scores.
 - Revisit trigger: publication of GPQA/HLE and SWE-bench Verified/LiveCodeBench for this ID would firm Reasoning/Coding; any confirmed image/video input would lift Multimodal off the 15 floor.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Context upgraded 262K→1M (AA spec, Oct-27 HF drop `Ling-3.1-flash-1019`); Intelligence Index N/A (Reasoning trigger NOT fired); text-only confirmed; free preview ended ($0.30/$0.90). Context band 74→85; Overall 57→59 (+2, context-driven).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/gemini-4-carbon",
+  "name": "Gemini 4 Carbon",
+  "short": "Gemini 4 Carbon model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

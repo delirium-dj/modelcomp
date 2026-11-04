@@ -1,7 +1,7 @@
 # Qwen 3.7 Flash — findings by Qwen 3.8 Flash
 
 - Source: Alibaba Qwen (`qwen/qwen3.7-flash`; curated id `opencode/qwen-3.7-flash`), cross-checked against OrcaRouter's detailed first-look explainer (2026-07), the OpenRouter listing, and Artificial Analysis's (empty) coverage
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,6 +39,16 @@ Long context / multimodal:
 - **Cost efficiency: 99/100.** The whole product and its best-documented attribute: **$0.03/$0.13 (cached $0.006)**, with 60–80% caching discounts on agent loops — among the cheapest vision-capable models anywhere (~$99 per million vision-agent calls). Elite.
 - **Overall Score: 71.2/100.** Half-up mean of the five quality dims (68+66+88+70+64)/5 = 71.2. Best fit: **very-high-volume multimodal agent / visual-coding / screenshot-UI traffic** where a 1M window and near-free per-call cost dominate and raw reasoning depth is secondary. **The capability score is provisional by construction:** no independent evaluator (Artificial Analysis included) has published a single number for this model, and Alibaba discloses no architecture, parameter count, or output ceiling — so its ranking rests on the verified 1M window + verified pricing and *family reputation*, and a first real benchmark could move it materially either way.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "Artificial Analysis / Vals / any independent benchmark row for `qwen3.7-flash`." **NOT FIRED.**
+
+- **AA 404 confirmed:** Direct fetch of `artificialanalysis.ai/models/qwen3-7-flash` returned HTTP 404 (Nov 4, 2026). No AA Intelligence Index, no GPQA/HLE/SWE rows for this ID. The capability evidence remains a **total independent-data void** — 12 days post-pass-1, still nothing.
+- **Qwen3.7-Max** (the same-wave flagship, May 19 launch) DOES have a full benchmark table (yottalabs reports GPQA 92.4, SWE-V 80.4, TB 69.7). But these are a DIFFERENT exact model — not transferable to 3.7-Flash per exact-ID rule.
+- **Family positioning unchanged:** No new OrcaRouter/press analysis found since pass-1's Jul-2026 first-look. The model remains "a cheap closed API listing with zero published absolutes."
+- **AA Index v5.0.1 rescale:** Moot (model has no AA page at all).
+- **Overall 71.2 held.** Spec/family-inferred provisional score stands unchanged; first real benchmark could move it materially.
+
 ---
 
 ## Signature
@@ -46,4 +56,5 @@ Long context / multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **OrcaRouter first-look explainer** (2026-07-27 listing, vision-language, 1M context, $0.03/$0.13 / cached-$0.006 with 60–80% caching savings, named use cases, and the explicit statement that *"No independent benchmark suite — including Artificial Analysis — has scored it yet,"* plus "distinct from Qwen 3.8 and Qwen 3.7 Max," undisclosed architecture/params/max-output), the OpenRouter/AA leaderboard (which carries Qwen 3.8 peers but **no Qwen 3.7 Flash row**), and Alibaba's positioning language. Curated `meta.json` supplies the 1M/131K, text+image+video and $0.03/$0.13 (the 131K output and video-input are flagged as curator inference against sources that say output-ceiling is undisclosed and confirm only image+text). Scores are normalized 1–100 interpretations; because **no third-party benchmark exists for the exact ID**, all capability dims are **spec/family-inferred and heavily discounted**, with only the 1M window and ultra-low cost scored on solid evidence.
 - Revisit trigger: Artificial Analysis / Vals / any independent benchmark row for `qwen3.7-flash` (intelligence index, vision eval, SWE-bench), and a first-party disclosure of architecture, parameter count, and max-output length.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. AA 404 directly confirmed; trigger NOT fired; independent-data void persists. All five quality bands held; Overall 71.2 unchanged.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

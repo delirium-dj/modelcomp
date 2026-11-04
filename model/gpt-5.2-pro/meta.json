@@ -4,5 +4,6 @@
   "short": "OpenAI's high-compute GPT-5.2 Pro (400K ctx, $21/$168) - frontier multi-step reasoning for research-grade problems; ChatGPT Pro / API, paid only.",
   "contextWindow": "400,000 total; 128,000 max output",
   "modalities": "Text, image in; text out",
-  "pricingNote": "$21.00/$168.00 per 1M in/out; $2.10 cached read"
+  "pricingNote": "$21.00/$168.00 per 1M in/out; $2.10 cached read",
+  "noFreeId": true
 }

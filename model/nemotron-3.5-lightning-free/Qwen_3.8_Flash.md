@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning (Free) — findings by Qwen 3.8 Flash
 
 - Source: NVIDIA / Nemotron 3.5 Lightning 30B‑A3B (NVFP4) (`opencode/nemotron-3.5-lightning-free`; HF `nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,11 @@ Multimodal:
 - **Cost efficiency: 99/100.** $0 Zen + open weights at 3B active = near‑minimal serving cost. Cost excluded from Overall.
 - **Overall Score: 44/100.** Mean of Tool 48, Reasoning 52, Context 62, Multimodal 12, Coding 48 = 222/5 = 44.4 → **44**. Best fit: **the worker arm of a two‑model planner** — high‑volume, low‑latency execution where the frontier planner handles reasoning and Nemotron 3.5 Lightning handles structured tool calls / bulk extraction at $0. **Not** a standalone reasoning, agentic, or coding model. Kimi 46; cohort 55.9 (inflated by raters scoring native 1M and miscrediting Design Arena as vision). Honest floor: 44 for a genuinely cheap and fast worker that the field's hardest benchmarks expose as shallow.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger NOT fired.** Model remains fully active on OpenRouter (both `:free` and paid, 6 providers as of Nov 2026 — confirmed by the awesome-free-ai-coding GitHub verified Nov 2). No Nemotron 3.5 Lightning v2 announced. No full 1M exposed on Zen (still 262K). AA/BenchLM status unchanged from pass-1.
+- **Score:** Overall **44 held**. No new evidence to warrant recalculation. Model continues serving as a fast-shallow worker.
+
 ---
 
 ## Signature
@@ -70,4 +75,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` benchlm.ai full panel + HF card architecture reference. Curated `meta.json` correctly flags 262K Zen serve / text‑only / free. Flagged: (a) cohort Context 75.6 reflects the **native 1M spec**, but the **Zen serve caps at 262K** — scored on the 262K reality; (b) cohort Multimodal 25 is a Design Arena mis‑crediting artifact; (c) **CritPt 0.0% + AA Index 12.9 + AA Agentic 6.1%** together confirm this is a fast‑shallow worker, not a reasoning model — the model card's own "pair with a frontier planner" framing is honest about this. Cross‑reference: sibling Nemotron 3 Ultra (free) scores 63 in this repo — the Ultra/worker tier gap of 19 points reflects genuine architectural scale difference.
 - Revisit trigger: if NVIDIA exposes the full 1M on Zen, or ships a Nemotron 3.5 Lightning v2 with agentic benchmarks.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Confirmed active (OpenRouter free + paid, 6 providers). No v2, no 1M on Zen, no new benchmarks. Trigger NOT fired. Held 44.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

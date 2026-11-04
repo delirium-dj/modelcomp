@@ -1,7 +1,7 @@
 # Laguna S 2.1 — findings by Qwen 3.8 Flash
 
 - Source: Poolside AI (`poolside/laguna-s-2.1`; OpenMDW-1.1 open weights)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,16 @@ Multimodal:
 - **Cost efficiency: 96/100.** ~$0.10/$0.20 per 1M + open weights (OpenMDW-1.1) is among the cheapest agentic-coding options available. Self-hosting 118B/8B is feasible on a single GPU. Cost excluded from Overall.
 - **Overall Score: 59/100.** Mean of Tool 70, Reasoning 55, Context 85, Multimodal 12, Coding 72 = 294/5 = 58.8 → **59**. Best fit: **cheap self-hosted agentic coding** — TB 70.2 and SWE-Multilingual 78.5 at 8B-active with ~$0.10/$0.20 pricing is an outstanding value proposition for terminal and coding tasks. **Do not deploy for knowledge-critical or creative reasoning workloads** without independent validation — the zero-evidence state on those dimensions is a genuine deployment risk, not a scoring artifact.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Trigger check:** "mandatory when any GPQA/HLE/SWE-V/AA Index/Omniscience row appears." **NOT FIRED.**
+
+- **BenchLM coverage unchanged:** Still 6-of-483 tracks; no GPQA, HLE, AA Index, Omniscience, or SWE-V row appeared in the 33 days since pass-1. Poolside remains essentially untracked by the evaluation ecosystem.
+- **AA page:** No `artificialanalysis.ai/models/laguna-s-2-1` page found. AA does not index this model (no hosted endpoint AA can reach). Intelligence void persists.
+- **AA v5 rescale:** Moot (no AA page/index for this model).
+- **Vendor status:** OpenMDW-1.1 weights still on Hugging Face; Poolside API functional. No deprecation notice found. Model active but niche.
+- **Overall 59 held.** Reasoning remains inferred from coding-task performance; no new measurement evidence.
+
 ---
 
 ## Signature
@@ -65,4 +75,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM scorecard (the only public data source with verified numbers — TB/Toolathlon/SWE-Multilingual/SWE-Pro/DeepSWE); curated `meta.json` (honest on specs: 1M/256K, text-only, OpenMDW-1.1, ~$0.10/$0.20). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **zero reasoning benchmarks in any tracked panel** — Reasoning is inferred from coding task performance, not measured directly; (b) the 1M window is API-only with no retrieval evidence (local builds = 256K); (c) 6-of-483 BenchLM coverage means this model is essentially untracked by the evaluation ecosystem despite existing on the market.
 - Revisit trigger: **mandatory when any GPQA/HLE/SWE-V/AA Index/Omniscience row appears** — the Reasoning dimension has maximum upside from uncertainty (could be 40 or 80, we simply don't know). AA or Vals adding this model to their panels would immediately justify re-scoring.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. Trigger NOT fired (no GPQA/HLE/AA Index appeared); BenchLM 6-of-483 coverage unchanged; AA no page. Evidence void persists. Bands held; Overall 59 unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

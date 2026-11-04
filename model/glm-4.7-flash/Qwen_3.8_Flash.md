@@ -1,7 +1,7 @@
 # GLM 4.7 Flash — findings by Qwen 3.8 Flash
 
 - Source: Z.ai / Zhipu (`zai-org/GLM-4.7-Flash`; curated id `opencode/glm-4.7-flash`), cross-checked against **llm-stats' launch review**, the GLM-4.7 launch blog, OpenRouter, the HF model card and HN deployment notes
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,6 +44,13 @@ Reasoning / knowledge:
 - **Cost efficiency: 88/100.** $0.60/$2.20 (70–80% under comparable proprietary tiers) with **free MIT self-host** on consumer GPUs — excellent value, nudged below the pure-$0 open tiers by the $2.20 output rate.
 - **Overall Score: 56.6/100.** Half-up mean of the five quality dims (72+64+56+15+76)/5 = 56.6. Best fit: **cost-constrained, self-hostable agentic coding** — CI/CD automation, repo-scale edits, multilingual and frontend work, terminal scripting — where a dense 30B that rivals 5×-cost closed coders and runs on a 3090/4090 is the win. Its **text-only modality (15) and 128K window** are the structural drags on an otherwise strong value story; general reasoning is deliberately efficiency-first, not frontier.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- **Trigger PARTIALLY fired.** BenchLM now has a page for GLM-4.7-Flash (38.09, #151/1008, 4/739 coverage, last updated Nov 4). First exact vendor-reported numbers appeared: **SWE-bench Verified 59.2%**, **GPQA 75.2%**, **LiveCodeBench v6 64.0%**, **AIME 2025 91.6%** — all sourced from the HF model card (zai-org/GLM-4.7-Flash). These confirm pass-1's qualitative assessment (coding “punching above weight” ≈ SWE-V 59.2 for 30B dense; reasoning efficiency-first ≈ GPQA 75.2). However, all numbers are **vendor-only** — AA has no page for GLM-4.7-Flash (404), no independent lab measurement.
+- **Context discrepancy flagged:** BenchLM/HF card reports **200K** context; pass-1 used **128K** corroborated by llm-stats and the Z.ai launch blog. Not reconciled here — pass-1’s multi-source basis (llm-stats 128K) retained; 200K noted for future resolution.
+- **Supersession:** BenchLM family listing shows GLM-5.3-Flash at 58.26 — the successor to GLM-4.7-Flash. Lifecycle: `superseded` (by GLM-5.3-Flash, and by the intermediate GLM-4.7 flagship at 48.27).
+- **Score:** Overall **56.6 held**. Vendor numbers align with the qualitative scoring; no independent evidence to warrant recalculation.
+
 ---
 
 ## Signature
@@ -51,4 +58,5 @@ Reasoning / knowledge:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — **llm-stats GLM-4.7-Flash launch review** (dense 30B, 128K, MIT, ~$0.60/$2.20, SWE-bench-Verified "above weight," τ²-Bench, multilingual, terminal, Thinking/preserved thinking, 15–20 GB 4-bit / ~60 GB BF16), the **GLM-4.7 blog** (Dec 2025, coding focus), **OpenRouter** ("30B-class SOTA"), **HF `zai-org/GLM-4.7-Flash`** ("strongest 30B class"), and HN deployment notes (62 GB footprint). Curated `meta.json` supplies MIT/30B-class/free-Zen but its **"A3B MoE" and "1M context" claims were overridden** by the corroborated dense-30B/128K evidence and flagged. Scores are normalized 1–100 interpretations: **no exact benchmark percentage could be located**, so coding/tool-use are scored on strongly corroborated qualitative evidence (discounted for the missing number), reasoning reflects the "efficiency-not-frontier" tradeoff, and the **text-only** modality sets the 15 floor.
 - Revisit trigger: an exact SWE-bench Verified / GPQA / τ² numeric absolute for `GLM-4.7-Flash`; a first-party confirmation or correction of the architecture (dense vs MoE) and context (128K vs 1M) conflict; or any multimodal capability disclosure.
+- Second-pass signature: **Qwen 3.8 Flash** — 2026-11-04. BenchLM appeared (38.09, #151/1008). Vendor numbers: SWE-V 59.2, GPQA 75.2, LCB 64.0, AIME 91.6. AA 404. Context discrepancy (200K vs 128K). `superseded` (→GLM-5.3-Flash). Held 56.6.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.
