@@ -25,7 +25,7 @@
 91 mimo-v2.6-pro
 90.9 kimi-k3
 90.4 kimi-k3.1-pro
-89.9 claude-mythos-5
+90.1 claude-mythos-5
 89.9 claude-opus-4.8
 89.9 muse-wonder-1.0
 89.9 qwen-3.8-max

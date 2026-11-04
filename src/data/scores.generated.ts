@@ -402,6 +402,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "claude-mythos-5": {
     "Beam.md": [93, 93, 94, 80, 96, 36, 91],
     "Claude_Sonnet_4.6.md": [90, 95, 92, 60, 95, 20, 86.4],
+    "GLM_5.3_Flash.md": [93, 94, 96, 78, 95, 30, 91],
+    "Gemini_3.5_Flash_Lite.md": [90, 90, 90, 90, 90, 88, 90],
     "Gemini_3.8_Flash.md": [94, 95, 95, 82, 96, 45, 92],
     "MiMo_2.6_Flash.md": [94, 93, 96, 80, 97, 40, 92],
     "Muse_Glimmer_30B.md": [90, 92, 95, 70, 92, 55, 88],
@@ -409,7 +411,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [93, 89, 95, 65, 97, 50, 88],
     "Qwen_3.8_Max.md": [93, 93, 94, 78, 96, 38, 91],
     "Xing_4.0_29B_A4B.md": [85, 95, 94, 70, 94, 65, 87.6],
-    "average.md": [92.8, 93, 94.4, 73, 96.2, 38.6, 89.9],
+    "average.md": [92.8, 93.2, 94.7, 73.8, 96, 37.2, 90.1],
   },
   "claude-mythos-5.1": {
     "Beam.md": [90, 92, 90, 92, 88, 62, 90],
@@ -2528,10 +2530,12 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "gemini-4-carbon": {
     "Beam.md": [82, 87, 95, 86, 78, 42, 86],
+    "GLM_5.3_Flash.md": [90, 93, 97, 92, 90, 56, 92],
+    "Gemini_3.5_Flash_Lite.md": [92, 92, 92, 92, 92, 90, 92],
     "Muse_Glimmer_30B.md": [78, 88, 96, 85, 75, 65, 84.4],
     "Qwen_3.8_Max.md": [92, 94, 96, 86, 90, 58, 92],
     "Xing_4.0_29B_A4B.md": [92, 92, 96, 90, 92, 80, 92.4],
-    "average.md": [92, 94, 96, 86, 90, 58, 92],
+    "average.md": [91, 93.5, 96.5, 89, 90, 57, 92],
   },
   "gemma-4-12b-unified": {
     "Beam.md": [55, 78, 74, 80, 74, 95, 72],
@@ -6181,6 +6185,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "mercury-2": {
     "GPT_5.6_Luna.md": [65, 60, 78, 15, 55, 88, 54.6],
+    "Gemini_3.5_Flash_Lite.md": [55, 55, 55, 55, 55, 92, 55],
     "Gemini_3.8_Flash.md": [47, 52, 55, 45, 38, 86, 47],
     "MiMo_2.6_Flash.md": [60, 58, 45, 15, 50, 78, 45.6],
     "Muse_Glimmer_30B.md": [45, 60, 70, 15, 45, 78, 47],
@@ -6229,9 +6234,11 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [62.3, 61.8, 74.1, 18.5, 57.4, 93.8, 54.7],
   },
   "mercury-3": {
+    "Beam.md": [70, 78, 92, 15, 68, 92, 65],
     "DeepSeek_4.1_Flash.md": [60, 65, 95, 15, 55, 90, 58],
     "GLM_5.3_Flash.md": [72, 84, 93, 15, 70, 96, 67],
     "GPT_5.6_Luna.md": [76, 89, 95, 15, 70, 96, 69],
+    "Gemini_3.5_Flash_Lite.md": [61, 61, 61, 61, 61, 90, 61],
     "Gemini_3.8_Flash.md": [59, 66, 86, 15, 54, 95, 56],
     "MiMo_2.6_Flash.md": [72, 78, 88, 15, 70, 90, 64.6],
     "Muse_Glimmer_30B.md": [62, 85, 95, 15, 55, 92, 62.4],
@@ -7046,6 +7053,8 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [95.2, 93, 99.8, 86.3, 95.2, 93.8, 93.8],
   },
   "muse-spark-open": {
+    "Beam.md": [86, 76, 85, 88, 74, 80, 82],
+    "Gemini_3.5_Flash_Lite.md": [88, 88, 88, 88, 88, 95, 88],
     "Gemini_3.8_Flash.md": [85, 88, 98, 90, 84, 95, 89],
     "average.md": [85, 88, 98, 90, 84, 95, 89],
   },

@@ -138,8 +138,9 @@ const VENDORS: VendorMatch[] = [
   { match: "mercury", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
   { match: "xing", icon: "teleai", label: "TeleAI" },
   // Newer curated providers — exact slug match (so no model token can steal it).
-  // Real CC0 marks or brand-colored tiles live in vendorIcons.extra.ts (and, for
-  // teleai/byteplus/thinking-machines, in the base generated set already).
+  // Real CC0 marks or brand-colored tiles live in vendorIcons.extra.ts; byteplus
+  // and thinking-machines reuse base marks, and teleai uses an improved tile
+  // there that shadows its base icon.
   { slug: "teleai", icon: "teleai", label: "TeleAI" },
   { slug: "byteplus", icon: "bytedance", label: "BytePlus" },
   { slug: "vultr", icon: "vultr", label: "Vultr" },

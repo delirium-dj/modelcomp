@@ -46,9 +46,18 @@ Scores omitted due to self-exclusion; no verified raw benchmark data.
 - Method: public internet research; zero verified independent benchmarks found for this exact model ID, so file saved as .md.excluded per RULES.md.
 - Reference URLs:
   - [Sonus is here — Qoder forum announcement](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
-  - [Qoder model selector docs](http://docs.qoder.com/qoder/model-selector)
+  - [Qoder model selector docs](https://docs.qoder.com/qoder/model-selector)
   - [Qoder CLI model docs](https://docs.qoder.com/cli/model)
   - [Qoder pricing](https://qoder.com/pricing)
-  - [LinkedIn Apsara update on Sonus](https://www.linkedin.com/posts/shivomsharma03_ai-qwen-alibaba-activity-7508737253406584833-7nji)
+  - [Qoder X announcement Sep 10 2026](https://x.com/qoder_ai_ide/status/2097932963753443736)
+  - [Qoder release notes model consumption reference update](https://docs.qoder.com/release-notes/model-consumption-reference-update)
+  - [Alibaba Cloud Developer Community Qoder Sonus launch](https://developer.aliyun.com/article/1762195)
+  - [AI-bio Sonus profile](https://ai-bio.cn/sonus)
+  - [Bit.Fan Qoder launches Sonus](https://www.bit.fan/en/news/list/qoder-launches-sonus-for-computer-use-6678dc86-en-keyName-525a11d1)
+  - [DEV Community Sonus credit discussion](https://dev.to/unitbuilds/we-need-to-talk-2dk9)
+  - [qoder2api README Sonus specs](https://raw.githubusercontent.com/Zhengyuuuui/qoder2api/main/README.md)
+  - [SWE-bench leaderboard](https://www.swebench.com/)
+  - [LiveCodeBench leaderboard](https://livecodebench.github.io/leaderboard.html)
+  - [Terminal-Bench leaderboard](https://www.tbench.ai/)
 
 ---
