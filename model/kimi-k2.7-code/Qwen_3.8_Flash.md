@@ -1,7 +1,7 @@
 # Kimi K2.7 Code — findings by Qwen 3.8 Flash
 
 - Source: Moonshot AI / Kimi K2.7 Code (`moonshotai/kimi-k2.7-code`; OpenRouter / Zen `opencode/kimi-k2.7-code`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **price multi-confirmed, lifecycle tightening**: **$0.95 / $4.00 per 1M, cache hit $0.19** reproduced verbatim by Fireworks, commandcode, Vals, DevOps and BenchLM (effective ~$0.42/M input in cache-heavy agent loops); **new user access closed**: "K2.6 and K2.7 Code both cost $0.95/$4.00 **until Moonshot retires the K2 series, which closes to new users on October 31, 2026**" — the closure has now passed (existing access continues, retirement pending); already replaced as the `kimi-for-coding` route by K2.8 Preview (2026-09-11); Vals lists max output 256K (anomalously near-full-window — recorded side-note, not asserted); no new independent benchmark absolutes → **bands unchanged, Overall remains 73**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,23 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass on the evidence base plus one material lifecycle development.
+
+**Sources:** pricing — https://fireworks.ai/blog/kimi-k2-7-code-agentic-coding (**"$0.95 per 1M input … $4.00 per 1M output … $0.19 per 1M on cache hits"** — matches Moonshot public rates), https://commandcode.ai/models/kimi-k2-7-code (same trio; "in an agent loop most input is cache-read, so the effective input rate is about **$0.42/M**"), https://www.vals.ai/models/kimi_kimi-k2.7-code (release **Jun 12, 2026**; context **262k**; token costs $0.95/4.00; its "Max Output Tokens 256k" cell is anomalous vs the 262K window — printed side-by-side, not adopted) and https://devops.com/moonshot-ais-kimi-k2-7-code-targets-token-efficiency-in-agentic-coding — five lanes, zero variance from pass-1's ≈$0.95/$4.00 · lifecycle — https://benchlm.ai/moonshot/api-pricing (Nov-2026: **"Kimi K2.6 and Kimi K2.7 Code both cost $0.95/$4.00 until Moonshot retires the K2 series, which closes to new users on October 31, 2026"** — closure date now passed; retirement window open) plus https://hokai.io/hub/models/kimi-k2.8-preview (K2.7 Code was replaced **in-place at the `kimi-for-coding` ID** by K2.8 Preview on 2026-09-11; Moonshot's Open Platform page still lists the K2.7 line as orderable for existing users) · benchmarks — no new AA/Vals absolutes for this id surfaced (K2.8 Preview has **no published benchmarks at all** per its own Oct-2026 review, and K3 rows belong to other ids — exact-ID; the pass-1 AA/Vals set remains the operative evidence base).
+
+**What moved and how it was resolved:**
+
+- **Nothing scored.** All bands rest on the same AA-independent + Vals-harness rows, reproduced without variance; Overall remains (72+72+78+63+80)/5 = 73.
+- **Cost 90 confirmed with cache nuance.** $0.19 cache-hit pricing and the ~$0.42 effective agent-loop input rate strengthen the value case; band unchanged, excluded from Overall.
+- **Lifecycle watch-item escalated but not flagged:** the new-user closure executed on **2026-10-31**, and the route role was taken by K2.8 Preview — yet the ID remains orderable for existing users on Moonshot + third-party open-weight lanes (Modified MIT weights on HF), so it is *superseded-and-closing*, not yet executed-retired. No legacy flag this pass; if Moonshot announces the K2-series retirement date next time, convert to legacy-with-date per convention.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `kimi-k2-7-code` rows citing Artificial Analysis, Vals AI, Cursor, OpenHarmony, Moonshot HF model card, OpenRouter — fetched 2026-10-02; aitoolsreview + OpenRouter catalog for the $0.95/$4.00 pricing, 1T/32B MoE architecture and June-2026 release); scores are normalized 1–100 interpretations, not official vendor scores. Flagged that many card numbers (Kimi Code Bench, MCP suites, Claw) are vendor/in-house while GPQA/HLE/LCR/Omniscience/GDPval are AA-independent and SWE/LiveCode are Vals-harness; curated meta (128K/text-only) understates the verified 256K text+image model.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Price five-lane confirmed ($0.95/$4.00, cache $0.19, ~$0.42 effective); **K2 series closed to new users 2026-10-31** (retirement pending, existing lanes live; `kimi-for-coding` handed to K2.8 Preview in Sep-2026) — watch-item, no flag yet; no new absolutes; Overall remains 73. Pass-1 text preserved verbatim above.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

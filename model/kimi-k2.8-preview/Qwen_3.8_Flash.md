@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Qwen 3.8 Flash
 
 - Source: Moonshot AI (`moonshotai/kimi-k2.8-preview`), cross-checked against ZenMux, OpenCode Data, llm-stats, kie.ai
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-17 (UTC); second pass 2026-11-04 (UTC) — **confirmation, trigger tested/unfired**: hokai.io, kie.ai, and theresanaiforthat all confirm “Moonshot has published no benchmark scores for Kimi K2.8 Preview” and “no formal benchmark numbers” (revisited Oct-2026); context pinned 1,048,576 (OpenCode Data); gateway $1/$4 persists; membership-only billing at Kimi origin; K2.7 Code replaced in-place by K2.8 at `kimi-for-coding` ID; no AA page; **bands unchanged, Overall remains 78**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,25 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-17). Confirmation pass: trigger tested, unfired.
+
+**Sources:** benchmarks — https://hokai.io/hub/models/kimi-k2.8-preview (“Moonshot has published no benchmark scores for Kimi K2.8 Preview, released September 11, 2026; it claims K3-close coding with a 1M-token…”) · https://kie.ai/blog/what-is-kimi-k2-8 (“Multiple third-party accounts reported that Kimi K2.8 Preview was appearing in Kimi Code on September 11, 2026. However, the reporting so far…”) · https://theresanaiforthat.com/model/kimi-k2-8-preview/ (“As a preview release, Moonshot has not published formal benchmark numbers for K2.”) — **no published AA Index, no SWE-V, no GPQA, no TB, no MRCR** · lifecycle — https://juliangoldie.com/kimi-k2-8-preview-review/ (“Moonshot AI released Kimi K2.8 Preview on 11 September 2026, and the single biggest change is that it brings vision understanding to the Kimi line”) · https://benchlm.ai/moonshot/api-pricing (from i7: “K2 series closes to new users Oct 31, 2026” — applies to K2.6/K2.7 Code, not K2.8 Preview which IS the new routing target) · pass-1’s ZenMux pricing ($1/$4) persists as gateway rate; Moonshot origin subscription is membership-only (Kimi Code/Premium). Context pinned at 1,048,576 (OpenCode Data + ZenMux “1.05M”).
+
+**Trigger resolution:** no formal revisit trigger defined in pass-1 (all scores are provisional pending benchmark publication). The implicit trigger was “independent standardized benchmark rows published for this exact Preview.” As of Nov 4, 2026, three independent sources confirm **no benchmark scores published**. Trigger **UNFIRED**.
+
+**What held:** release 2026-09-11; 1M context; text+image+video in; $1/$4 gateway; near-K3 positioning; `kimi-for-coding` route serves K2.8 Preview (confirmed from i7 kimi-k2.7-code second pass: “replaced in-place at the kimi-for-coding ID by K2.8 Preview”). Vision understanding now confirmed (juliangoldie “brings vision understanding to the Kimi line”) — corroborates pass-1’s text+image+video multimodal scoring.
+
+**Bands unchanged:** Tool 77, Reasoning 74, Context 86, Multimodal 72, Coding 81 — all provisional but no contradicting evidence; awaiting first independent benchmark.
+
+**Overall Score: 78/100** — unchanged; half-up mean (77+74+86+72+81)/5 = 390/5 = 78.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
 - Method: public internet research — ZenMux live provider/benchmark panel, OpenCode Data comparison, llm-stats model page, kie.ai hands-on roundup; scores are normalized 1–100 interpretations, not official vendor scores. Coding/reasoning rows are provisional (Preview, no reproduced absolute benchmarks yet).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Three-way confirmation: no benchmarks published; trigger unfired; bands and Overall 78 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

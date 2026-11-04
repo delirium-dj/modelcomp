@@ -1,7 +1,7 @@
 # Union Alpha — findings by Qwen 3.8 Flash
 
 - Source: Circuit & Chisel / Unbiased — "Union Alpha" stealth = **Pareto 26.9** (`unbiased/pareto`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,16 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: developer.puter.com/ai/models (lists “Unbiased: Pareto 26.9 — blended AI model” confirming service live); cellcog.ai/blog/what-is-crouton-alpha (Nov 3, 2026 — references Union Alpha/Pareto as prior stealth model in the OpenRouter pattern, confirms $2.50/$7.50 rate; no new Pareto benchmarks); llm-releases.com (“served as a proprietary, hosted-only model (no open weights) through Unbiased’s own endpoint (and via OpenRouter as unbiased/pareto)”); BenchLM still “unranked (4 of 645)” per existing data.
+- Trigger evaluated (no explicit Revisit trigger; standing rule: material change): none fired. (a) No new independent benchmark rows for Pareto 26.9 (BenchLM still unranked; no AA page; no GPQA/TB/SWE from third parties). (b) No lifecycle risk — product is ~7 weeks old, listed on OpenRouter and Puter. (c) Superseded by “Pareto 26.10 Preview” sibling (pass-1 already noted this); 26.9 itself remains available. (d) Pricing unchanged ($2.50/$7.50 cached $0.25).
+- Bands unchanged: Tool 60 / Reasoning 85 / Context 74 / Multimodal 66 / Coding 82. Overall recomputes to the same **73/100**.
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Model is a recent blend with limited third-party benchmark coverage; no new data available since pass-1.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `pareto-26-9` page fetched 2026-10-02 — 4 vendor-card rows, unranked; OpenRouter/Unbiased catalog + Reddit/36kr/kingy/explainx coverage of the 2026-09-16 stealth launch and 09-18 reveal; unbiased.ai model card as the common source). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: curated `meta.json` is a stealth-era placeholder (128K/text-only); "Union Alpha" is not a distinct foundation model — do not double-count its rows against component models' own averages; Pareto 26.10 Preview is a separate product and must get its own folder/report.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation pass; puter/cellcog/llm-releases confirm product live; no new benchmarks, no lifecycle risk, no band change; Overall 73 holds; trigger UNFIRED).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

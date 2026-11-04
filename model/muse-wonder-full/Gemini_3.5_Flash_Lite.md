@@ -1,7 +1,7 @@
 # Muse Wonder Full — findings by Gemini 3.5 Flash Lite
 
 - Source: Meta Platforms / Muse Wonder Full (`meta/muse-wonder-full`)
-- Date: 2026-10-30 (UTC; deep research update)
+- Date: 2026-11-03 (UTC; deep research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,5 +44,5 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-30 (deep research)
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-03 (deep research)
 - Method: Deep multi-source empirical research across official Meta documentation, Artificial Analysis leaderboards, and independent benchmark evaluations; normalized 1–100 interpretations.

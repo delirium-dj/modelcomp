@@ -1,7 +1,7 @@
 # GPT-5.2 Pro — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5.2-pro`; curated id `opencode/gpt-5.2-pro`), cross-checked against OpenAI's "Introducing GPT-5.2" launch, deeplearning.ai's The Batch, llm-stats, swebench.com/vals and introl's infrastructure analysis
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 (UTC); second pass 2026-11-04 (UTC) — **confirmation, trigger tested/unfired**: no Pro-specific SWE-V / Terminal-Bench absolute or AA Intelligence-Index row under the exact `gpt-5.2-pro` id surfaced; OpenAI's launch table shows SWE-Bench Pro 55.6 / SWE-V 80.0 / SWE-Lancer 74.6 in the *GPT-5.2 Thinking* column with the Pro column as "-" (confirming these are family-tier, not Pro-specific); Vellum reproduces ARC-AGI-2 54.2% (pass-1 match); nexos.ai reports "GPT-5.2-pro-xhigh 31.3%" but harness unattributable (403); bands unchanged, Overall remains 80.8
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,9 +48,24 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-23). Confirmation pass: the revisit trigger was explicitly tested against fresh web evidence and **did NOT fire**.
+
+**Sources:** openai.com/index/introducing-gpt-5-2/ (403 WebFetch blocked; snippet via WebSearch — table row: "GPT-5.2 Pro, GPT-5.1 Thinking. SWE-Bench Pro, Public, 55.6%, **‑**, 50.8%. SWE-bench Verified, 80.0%, **‑**, 76.3%. SWE-Lancer, IC Diamond*, 74.6%" — the Pro column is "-" indicating no separate Pro-row SWE absolutes published) · Vellum AI model page (search snippet: "GPT-5.2 Pro: 54.2%" ARC-AGI-2, matches pass-1 deeplearning.ai figure) · nexos.ai/blog/gpt-5-benchmarks/ (403 WebFetch blocked; WebSearch snippet: "GPT-5.2-pro-xhigh 31.3%" — harness name not extractable from snippet, cannot be attributed to SWE-V, TB, or any specific benchmark; excluded from scoring per evidence-hygiene rule) · introl.com infrastructure analysis (403 WebFetch blocked; no snippet surfaced new Pro-specific absolutes) · rdworldonline mentions "GPT-5.2 Pro … GPQA Diamond" and "Opus 4.5 holds top SWE-V at 80.9%" (Opus row belongs to another id, exact-ID rule).
+
+**Trigger resolution:** the pass-1 revisit trigger required "a published GPT-5.2-Pro-specific SWE-bench Verified / Terminal-Bench absolute, or an Artificial Analysis Intelligence-Index row under this exact Pro id." None of the gathered evidence provides any of those three under the `gpt-5.2-pro` ID: the SWE figures (55.6/80.0/74.6) belong to the GPT-5.2 **Thinking** tier (Pro column "-"); the nexos 31.3% cannot be attributed to a named harness; no AA Intelligence-Index row for this exact id was located. Trigger **unfired**.
+
+**What held:** release 2025-12-11 confirmed; $21/$168/cached $2.10 reproduced across snippets; 400K/128K window stable; ARC-AGI-2 54.2% reproduced (Vellum); GPQA-D 93.2 Pro (family mention consistent); first >90% ARC-AGI-1 (no correction found). All five quality bands unchanged.
+
+**Overall Score: 80.8/100** — unchanged; half-up mean (82+94+82+62+84)/5 = 404/5 = 80.8.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — OpenAI "Introducing GPT-5.2" (ARC-AGI-1 first >90%, GPQA-D 93.2 Pro / 92.4 Thinking), deeplearning.ai The Batch (ARC-AGI-2 54.2% pass@2, $15.72/task), introl (AIME 100%, GDPval 70.9%, 400K ctx), swebench.com / vals (GPT 5.2 family ~69% SWE-V mini-SWE-agent), and llm-stats ($21/$168, cached $2.10, 400K/128K, text+image, 30 s TTFT, release 2025-12-11). Curated `meta.json` (not scaffolded) agrees with first-party specs (400K/128K, $21/$168, text+image). Scores are normalized 1–100 interpretations; the SWE-bench figure is the family non-Pro row and flagged as such — Pro-specific coding absolutes were not published and are not fabricated.
 - Revisit trigger: a published GPT-5.2-Pro-specific SWE-bench Verified / Terminal-Bench absolute, or an Artificial Analysis Intelligence-Index row under this exact Pro id (later superseded by 5.3+/5.4/5.5 Pro).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Trigger tested against four web sources (three 403-blocked, snippets extracted via WebSearch); no Pro-specific SWE/TB absolute or AA Index row confirmed; bands and Overall 80.8 stand.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

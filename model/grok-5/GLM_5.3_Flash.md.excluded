@@ -1,86 +1,57 @@
-# Grok 5 — findings by GLM 5.3 Flash
+# Grok 5 — negative findings by GLM 5.3 Flash
 
-- Source: xAI / SpaceXAI (`grok-5`, unreleased)
-- Date: 2026-10-10 (UTC)
+- Source: xAI (`grok-5` — announced, in training; NOT released as of 2026-11-04)
+- Date: 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
-
-> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
-> zero verified public benchmark numbers exist for this exact model — Grok 5
-> has not shipped. This file is saved as `.md.excluded` with notes only; no
-> scores are claimed and none of the figures below are averages or estimates
-> dressed as scores.
 
 ## Model card
 
 - **Name:** Grok 5
-- **Short description:** xAI's (SpaceXAI since the February 2026 SpaceX acquisition) next flagship LLM, in training on the Colossus 2 supercluster and positioned by Elon Musk as the company's AGI candidate. It has never shipped and has no public results.
-- **Provider / access:** none available — not listed in xAI's model docs (`docs.x.ai/docs/models`, fetched 2026-10-10), which top out at `grok-4.7`; no OpenCode Zen route (`opencode/grok-5` in this dataset is a curated placeholder, absent from the live Zen model roster). No model card or system card exists.
-- **Release / knowledge:** not released as of 2026-10-10. Late-2025, Q1 2026 and Q2 2026 targets all passed with no launch; xAI shipped Grok 4.5 (2026-07-08), Grok 4.6 (2026-08-12) and Grok 4.7 (2026-09-21) instead, and Musk's 2026-09-14 roadmap places Grok 4.8 and 4.9 ahead of Grok 5.
-- **IDs:** `grok-5` exists as a name only — no public API ID, no Free ID on Zen.
-- **Context window:** no official number. ~1.5M tokens circulates as an estimate (unofficial); the shipping Grok 4.7 is 500K, Grok 4.3 was 1M.
-- **Modalities:** expected text + image (+ likely video/audio later), consistent with Grok's direction, but nothing is specified for Grok 5 — not verified.
-- **Pricing (as of 2026-10-10):** unannounced; any specific figure is projection. Reference points: Grok 4.7 API $2/$6 per 1M (2x above 200K prompts).
-- **Architecture:** rumored 6T–10T total parameters, Mixture-of-Experts, trained on Colossus 2 (1 GW, Memphis). The only *confirmed* fact is xAI's one-line January 2026 funding announcement that the model exists and is in training; every parameter figure is disputed reporting (xAI trains several models at different sizes in parallel).
+- **Short description:** xAI's announced next flagship model. Confirmed in training in xAI's January 2026 funding announcement and repeatedly teased by Elon Musk (6–10T-parameter rumors, native multimodality, "10% chance of AGI"). It has NOT shipped: as of early November 2026 there is no model card, no API identifier, no pricing, no launch post, and no official benchmark. xAI's current flagship is Grok 4.7 (released 2026-09-21, $2/$6 per 1M, 500K context).
+- **Provider / access:** none — not available via API or consumer apps. docs.x.ai model list (fetched 2026-10-13 by the ZBuild tracker) shows `grok-4.7` and no `grok-5` entry. Musk's September 14, 2026 roadmap places Grok 4.8 and Grok 4.9 ahead of Grok 5, with no date; the last public window is "before end of 2026" (Musk, August 2026).
+- **Release / knowledge:** unreleased. Timeline slipped repeatedly: "before end of 2025" → Q1 2026 → mid-2026 → 4.8/4.9 first → "before year-end 2026" (undated). An xAI preview of Grok 5 (memory/reasoning-speed claims) was given 2026-10-14 with no release date.
+- **IDs:** none. No `grok-5` API model ID exists.
+- **Context window:** no official figure. Rumors/estimates range 1.5M–2M; the shipped Grok 4.7 is 500K, Grok 4.3 is 1M. Unverified.
+- **Modalities:** unverified. Native multimodality (text/image/voice/video) is "expected" per commentary but specified by no one at xAI.
+- **Pricing:** unannounced.
+- **Architecture:** unconfirmed. Parameter counts circulating (1.5T "V9-Medium" per a Musk X post; 6T–15T in various leaks) are explicitly unattributed rumor — no primary xAI document states any Grok 5 parameter count.
 
 ### Raw benchmarks found
 
+> SELF-EXCLUSION: zero verified public benchmark numbers exist for a released Grok 5. The only numbers ever attached to the name are May 2026 pre-announcement claims (GPQA Diamond 89% / 94% "Heavy", HLE 18%, AIME 2026 96%, SWE-bench Verified 78%, vs GPT-5.5) from a Musk X post — never substantiated by a shipped model, an official model card, or independent reproduction, and contradicting xAI's own catalog (which still tops out at 4.7). Several trackers explicitly state "no official Grok 5 benchmark results have been released." Saved as `.md.excluded` per template rule — not scored.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench (any version): no verified public score found (Grok 4.7 measured 37.6% on TB 4.0 — different model)
+- OSWorld / GDPval-AA / Tau-family: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (model absent from leaderboards; nearest rated sibling is Grok 4.6, 21st of 199 on AA's Index, 2026-09-16 — a different model)
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- GPQA Diamond / HLE / AIME: only the unverified May 2026 pre-announcement claims listed above; no independent or post-release verification
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found (third-party "expected range" tables, e.g. SWE-bench 82–88%, are explicitly labeled informed estimates by their own authors — not evidence)
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
-- DeepSWE / Coding Index / other: no verified public score found
+- SWE-bench Verified: only the unverified 78% pre-announcement claim; no shipped-model score
 
 Long context:
 
-- no long-context retrieval reported (model unreleased)
+- no long-context retrieval reported
 
-### Negative-findings notes
+### Normalized scores (1–100)
 
-- Verified status chain (all fetched 2026-10-10): xAI's January 2026 funding
-  announcement (existence + training only); geotoolbox.ai Grok 5 tracker
-  (updated 2026-09-29 — "still in training," no model card, no benchmark);
-  zbuild.io Grok 5 guide (2026-03-27 — zero public benchmarks, missed Q1
-  target, Polymarket ~33% for a June-2026 ship that then failed); xAI's own
-  model docs list no `grok-5` entry; Polymarket repriced a launch by
-  2026-12-31 at roughly a coin flip in September 2026.
-- Musk's AGI framing ("10% and rising," Oct 2025; "That will be Grok 5,"
-  2026-09-14) is a self-stated prediction, not a measurement — no definition,
-  no benchmark, no date.
-- Every spec in circulation (6T–10T params, 1.5M context, "Reality Engine,"
-  native multimodality) is rumor, estimate, or blog coinage; no official
-  source confirms any of them.
-- With zero verified benchmark numbers, scoring is impossible without
-  fabrication, so this report is self-excluded. When Grok 5 ships and xAI (or
-  an independent harness) publishes real numbers, a new signed file should
-  supersede these notes.
+Not scored — the model does not exist as a shipping product; every benchmark row is an unverified pre-announcement claim (self-exclusion rule). Conflict note: one review site lists Grok 5 as "Released 2026-06-02" and another as an X-Premium-bundled June ship; both are contradicted by the primary record (docs.x.ai model list lacking `grok-5` through at least 2026-10-13, xAI's news index listing no Grok 5 release through 2026-10-21, and Musk's 2026-09-14 roadmap putting 4.8/4.9 first). Primary record wins.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-10
-- Method: public internet research (xAI model docs, dated tracker articles,
-  prediction-market coverage); scores are normalized 1–100 interpretations,
-  not official vendor scores — none are issued here because the model is
-  unreleased with zero verified public benchmarks.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-04
+- Method: public internet research (4 web searches: pre-announcement coverage, independent leaderboards, release-status trackers, official-catalog checks); zero verified public benchmarks for a released model → self-excluded, notes only, no scores.
+- Reference URLs:
+  - [Elonosphere — Grok 5 previewed, no release date; docs.x.ai shows no grok-5 (ZBuild tracker)](https://elonosphere.com/Articles/2937/grok-5-previewed-with-expanded-memory-and-faster-reasoning-no-release-date-given)
+  - [GeoToolbox — Grok 5: what's confirmed vs rumor (November 2026)](https://geotoolbox.ai/blog/grok-5)
+  - [Skalablog — How to judge Grok 5 claims before release](https://skalablog.com/p/how-to-judge-grok-5-claims-before-release/)
+  - [GrokAI.org — Grok 5 explained: not officially released, no official benchmarks](https://grokai.org/grok-5/)
+  - [recatools — May 2026 pre-announcement claims (unverified vendor numbers)](https://recatools.com/news/xai-grok-5-preview-may-2026/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

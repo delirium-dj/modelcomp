@@ -1,7 +1,7 @@
 # Grok Build 0.1 — findings by Qwen 3.8 Flash
 
 - Source: SpaceXAI (formerly xAI) / Grok Build 0.1 (`grok-build-0.1`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,9 +61,20 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: docs.x.ai/developers/migration/may-15-retirement (May 15, 2026 retirement targeted grok-4-1-fast-reasoning and grok-4-1-fast-non-reasoning, NOT grok-build-0.1 — the successor); x.ai/news/grok-build-0-1 (product page live, public beta since May 29); releasebot.io/updates/xai/grok-build (Oct 2026 updates: “Grok Build improves worktree reliability and session continuity” — product actively maintained); developersdigest.tech (Oct 17 — confirms grok-code-fast-1 retired May 15, replaced by grok-build-0.1 which remains live); No new GPQA/SWE-V/τ² rows found for this ID.
+- Trigger evaluated: “if SpaceXAI publishes GPQA / SWE‑V / τ² rows for this ID, or ships Grok Build 0.2” → **UNFIRED**. No new benchmark rows. No Grok Build 0.2 announced. Grok 4.3 retirement tracked (github a5c-ai issue) but separate model.
+- Lifecycle: active public beta, launched May 29, 2026 (5 months). Grok Build product receiving updates Oct 2026. No retirement risk. The May 15 retirement was for its predecessor (grok-code-fast-1).
+- Bands unchanged: Tool 62 / Reasoning 65 / Context 72 / Multimodal 63 / Coding 55. Overall remains **63/100**.
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Active product, no lifecycle risk.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` full evidence (official x.ai launch post, docs.x.ai model page, BenchmarkList aggregation). Curated `meta.json` is a placeholder template — corrected 128K → **256K** and "Text in/out" → **text+image in** per official docs. Flagged: (a) cohort Coding 71 and Reasoning 73.8 reflect the "agentic coding model" branding, but **Vibe 13.3% / KernelBench Hard 0.0% / LiveBench rank 35/43** do not support that reputation — scored on evidence; (b) ObviousBench 99.3% pass³ is real reliability, but reliability ≠ frontier capability; (c) 100+ tok/s speed is a legitimate value proposition for tight dev loops at $1/$2.
 - Revisit trigger: if SpaceXAI publishes GPQA / SWE‑V / τ² rows for this ID, or ships Grok Build 0.2.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation. Active product, no lifecycle risk. Trigger UNFIRED.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

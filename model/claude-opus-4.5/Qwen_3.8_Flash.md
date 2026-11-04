@@ -1,7 +1,7 @@
 # Claude Opus 4.5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Opus 4.5 (`anthropic/claude-opus-4.5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **lifecycle watch-item, not a flag**: tracker of Anthropic's deprecation page lists `claude-opus-4-5-20251101` as **"Active status, tentative retirement not sooner than November 24, 2026"** — an availability *floor*, with **no announced retirement date** (contrast Sonnet 4.5's notified Nov-30; Haiku 4.5's Oct-15 floor passed while remaining Active, so floors ≠ evictions); $5/$25 (cached $0.20) reconfirmed; BenchLM SWE-V **80.9%** row reproduced verbatim on the Oct-29 leaderboard (#12); no new independent absolutes for this id (GDPval gap still open) → **bands unchanged, Overall remains 67**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,8 +59,23 @@ Instruction / math:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass: the evidence base reproduced; the new information is lifecycle-adjacent.
+
+**Sources:** lifecycle — https://www.layer3labs.io/guides/anthropic-model-deprecations (2026-10-15 fetch: **"claude-opus-4-5-20251101 (Claude Opus 4.5): Active status, tentative retirement not sooner than November 24, 2026"**; explicit caveat "Each date is only the earliest day Anthropic could retire that model. Anthropic has not announced a retirement date for either one" — Haiku 4.5's earlier floor (Oct 15) elapsed with the model still Active; family pattern for context: Sonnet 4.5 formally deprecated Sep 30 → retires Nov 30; Opus 4/4.1 already executed retirements in the June/Aug 2026 batches) · pricing — $5 in / $25 out per 1M reconfirmed unchanged across launch-era reporting (cache reads cut 60% to **$0.20** at the Nov-2025 launch — consistent with pass-1's premium placement); successor framing per https://hokai.io/hub/models/claude-4.6-opus (4.6 GA since Mar 2026 at standard pricing with **MRCR v2 76%** and 1M context — rows belong to 4.6's own id, exact-ID; 4.5 stays 200K) · benchmarks — https://benchlm.ai/benchmarks/swe-bench-verified (2026-10-29 leaderboard: **Claude Opus 4.5 80.9%, #12 of 112** — reproduces pass-1's figure exactly; no new independent GPQA/HLE/TB/GDPval rows for `claude-opus-4-5` surfaced this pass — the v5.0.1-era deflation cascade applies to index readings, not to re-measured absolutes for this id).
+
+**What moved and how it was resolved:**
+
+- **Nothing scored.** No new measured absolutes for this id; the reproduced SWE-V 80.9% and unchanged $5/$25 support every pass-1 band as printed. Successor rows (4.6's MRCR 76%, 1M context) were explicitly **not** borrowed.
+- **Lifecycle recorded:** Nov-24 is a floor date, not a scheduled retirement — no legacy-with-date flag (that convention applies when the vendor has announced a date, as with Sonnet 4.5). Model remains Active/available; if Anthropic executes on or after Nov 24, the next pass converts this to a legacy-with-date or historical-artifact flag per the established convention.
+- **Overall remains 67.** (70+55+64+68+78)/5 = 67.0.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the Anthropic system card, Artificial Analysis, Qwen3.6-Plus comparison tables, Epoch AI, Vals AI, OpenRouter and VITA/JobBench papers); partial coverage (58/618, Non-Reasoning). Reasoning/Tool scored with the noted hallucination and planning drags. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation pass: SWE-V 80.9% reproduced (Oct-29 BenchLM board), $5/$25 (cached $0.20) unchanged, status **Active with an availability floor of 2026-11-24 — no announced retirement** (watch-item logged, no flag); no new independent absolutes; Overall remains 67. Pass-1 text preserved verbatim above.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

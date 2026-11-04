@@ -1,7 +1,7 @@
 # GPT-5.1 Codex — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`openai/gpt-5.1-codex`), cross-checked against SWE-bench leaderboard, Artificial Analysis, Vals AI, OpenAI launch notes
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-17 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,8 +51,17 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: developers.openai.com/api/docs/deprecations (official OpenAI deprecation table: “gpt-5.1-codex-max, gpt-5.6-sol. July 23, 2026”); developersdigest.tech migration guide (confirms “gpt-5.1-codex-max, gpt-5.2-codex, Apr 22, 2026, Jul 23”); benchlm.ai/blog/posts/openai-codex-deprecation (Aug 27, 2026: “Four of [codex variants] From the 22 April 2026 announcement to the 23 July 2026 shutdown”); projectcozy.me (Oct 16, 2026: “Is GPT-5.1-Codex-Max still available? Not on OpenAI’s own API.”).
+- **Lifecycle: `legacy` — API shut down July 23, 2026** (deprecated Apr 22; requests return errors; replacement: gpt-5.6-sol / gpt-5.6-terra). Same retirement wave as gpt-5.2-codex (flagged in batch 11) and gpt-5.1-codex-max. The OpenAI Codex family (gpt-5-codex, gpt-5.1-codex, gpt-5.1-codex-max, gpt-5.2-codex) was ALL retired Jul 23, 2026.
+- No new benchmarks (model is dead; no future data possible). Pass-1 Oct 17 data is preserved as historical reference.
+- Bands unchanged: Tool 75 / Reasoning 72 / Context 72 / Multimodal 50 / Coding 82. Overall remains **70/100**.
+- Verdict: lifecycle flag added. Pass-1 missed the retirement (despite being dated 3 months after shutdown). Scores preserved for historical comparison.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
 - Method: public internet research — official SWE-bench leaderboard, Artificial Analysis cost/comparison pages, OpenAI GPT-5.1-Codex-Max launch note, Vals AI comparison (via Medium), benchlm/pricepertoken spec listings; scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (lifecycle `legacy` — API shut down Jul 23, 2026, confirmed by OpenAI deprecations page + 3 secondary sources; replacement gpt-5.6-sol; no band change; Overall 70 holds; historical entry).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

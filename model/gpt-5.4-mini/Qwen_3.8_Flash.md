@@ -1,7 +1,7 @@
 # GPT-5.4 mini — findings by Qwen 3.8 Flash
 
 - Source: OpenAI / GPT-5.4 mini (`opencode/gpt-5.4-mini`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **confirmation**: pricing resolved at **$0.75 / $4.50** per 1M (cached $0.075), reproduced across four sources (OpenAI docs, pricepertoken, Morph, aipricing.guru); AA Index 24.1 and Coding Index 56.1 unchanged from pass-1 BenchLM; no new independent benchmarks → **bands unchanged, Overall remains 69**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,23 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass; pricing gap resolved.
+
+**Sources:** pricing — https://developers.openai.com/api/docs/models/gpt-5.4-mini (“GPT-5.4 Mini $0.75” per 1M input) · https://pricepertoken.com/pricing-page/model/openai-gpt-5.4-mini (“$0.750 per million input tokens and $4.50 per million output tokens; context window 400,000 tokens”) · https://www.morphllm.com/openai-api-pricing (“gpt-5.4-mini costs $0.75/1M input, $0.075/1M cached input, and $4.50/1M output”) · https://www.aipricing.guru/models/gpt-5-4-mini/ (“$0.75 per 1M input tokens and $4.50 per 1M output tokens. These rates were last verified on 2026-11-02”) — four lanes, zero variance · https://www.cloudzero.com/blog/openai-pricing/ (“GPT-5.4 Mini, $0.75, $4.50, Legacy efficient”) — labels it “Legacy” (superseded by GPT-5.6 Luna $0.20/$1.20) · no new AA BenchLM or Vals benchmark absolutes surfaced for this exact id; pass-1’s 37/618-row evidence base (τ² 93.4, GPQA 87.5, AA Index 24.1, Coding Index 56.1) remains operative.
+
+**What moved:** pricing only — pass-1 had the curated “Standard pricing” stub; now confirmed at $0.75/$4.50 (cached $0.075). This aligns with Cost 82’s placement (between the $0.20/$0.50 and $1.25/$10 anchors). Lifecycle note: cloudzero labels it “Legacy efficient” — superseded by GPT-5.6 Luna but still API-active (no retirement date found).
+
+**Bands unchanged:** Tool 72, Reasoning 55, Context 78, Multimodal 68, Coding 70. Cost updated from provisional to confirmed (still excluded from Overall).
+
+**Overall Score: 69/100** — unchanged; half-up mean (72+55+78+68+70)/5 = 343/5 = 68.6 → 69.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing the OpenAI "Introducing GPT-5.4 mini and nano" post, Artificial Analysis, Vals AI, ARC Prize, Cognition and Epoch AI); partial coverage (37/618, Reasoning). Scored on the mini variant's own rows (no sibling borrowing). Curated `meta.json` stub (128K/text) corrected to verified 400K/image. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Pricing $0.75/$4.50 confirmed (four lanes); bands and Overall 69 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

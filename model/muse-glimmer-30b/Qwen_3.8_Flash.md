@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Qwen 3.8 Flash
 
 - Source: Meta Superintelligence Labs / Muse Glimmer 30B (`meta/muse-glimmer-30b`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,16 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: benchlm.ai/benchmarks/aaagenticindex (6 days ago — “Muse Glimmer 30B Meta. 10.5%. Not reported, Open.” — AA Agentic Index 10.5% unchanged); orcarouter.ai/blog/muse-glimmer-explained (Aug 10 — “Artificial Analysis has now scored the model” — confirms AA independent panel exists); arxiv.org/pdf/2610.24628 (Oct 2026 technical report “Muse Glimmer 30B: An On-Device Agentic Model” — no new benchmark scores, just methodology); kingy.ai / o-mega.ai blog coverage (Oct 15/19 — reference pass-1 AA data, no new scores); LinkedIn/AA (Muse Wonder ≠ Muse Glimmer — different model, Index 52/56 belongs to a different folder).
+- Trigger evaluated (no explicit Revisit trigger; standing rule: material change): none fired. (a) No new independent benchmark scores published for this model (AA Agentic Index 10.5% confirmed unchanged; AA Intelligence Index 17.5 still in place). (b) No lifecycle risk — open weights, Apache 2.0, Aug 2026, 3 months old. (c) The arxiv technical report is a methodology paper; no new capability data. (d) Multimodal unchanged (text+image, no audio/video).
+- Bands unchanged: Tool 62 / Reasoning 62 / Context 62 / Multimodal 70 / Coding 72. Overall recomputes to the same **66/100**.
+- Verdict: pass-1 holds on every band. Confirmation pass — trigger UNFIRED.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `muse-glimmer-30b` rows citing the Meta AI Research launch post + Artificial Analysis independent leaderboards — fetched 2026-10-02; HF `meta-models/Muse-Glimmer-30B` card; Raschka architecture note; Meta/OpenRouter pricing); scores are normalized 1–100 interpretations, not official vendor scores. Explicitly flagged the vendor(Meta)-vs-independent(AA) gap on agentic/reasoning and the -32.8 Omniscience factuality floor; curated meta (131K, text+image, Apache-2.0 pricing) matched verified data.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; benchlm AA Agentic 10.5% unchanged, arxiv tech report no new data, no lifecycle risk; Overall 66 holds; trigger UNFIRED).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

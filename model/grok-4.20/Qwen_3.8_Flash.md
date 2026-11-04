@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by Qwen 3.8 Flash
 
 - Source: xAI / Grok 4.20 (`xai/grok-4.20`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **confirmation: still active, not retired** (not on xAI’s May 15 batch retirement list; OpenRouter still lists Grok 4.20; superseded in-line by Grok 4.3/4.5+ but serving persists); pricing unresolved (pass-1 noted); no new independent benchmarks → **bands unchanged, Overall remains 76**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,21 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass: model not retired, specs hold.
+
+**Sources:** lifecycle — teqengine.ai retirement table for xAI models May 15, 2026 explicitly lists “grok-4-1-fast-reasoning, grok-4-1-fast-non-reasoning, grok-4-fast-reasoning, grok-4-fast-non-reasoning, grok-4-0709 and grok-3” — **grok-4.20 is NOT on the retirement list** (it post-dates them); OpenRouter still lists “Grok 4.20” as a reasoning model with text+image and 2M ctx; teqengine’s change history notes “grok-4.20 and newer models silently ignore logprobs and top_logprobs” (implying 4.20+ remain live) · https://artificialanalysis.ai/articles/benchmarking-grok-4-7 (Sep 2026: “Grok 4.7 scores +2 points over Grok 4.6 on the Intelligence Index”) — confirms the 4.20→4.3→4.5→4.6→4.7 progression; 4.20 is superseded but still served · https://openrouter.ai/x-ai/grok-4.20 snippet (search result: “industry-leading speed and agentic tool calling capabilities” — still live listing).
+
+**What held:** release ~2026-02/03 (endpoint dated 0309); 2M ctx; text+image; proprietary; GPQA-Diamond 88.5%; ARC-AGI-2 53.3%; SWE-V 76.7%; TB 2.0 47.1%; LCB 84.3%. Pricing still unresolved (pass-1 flagged: “no independently confirmed GA rate card retrieved”). No new independent benchmarks surfaced.
+
+**Overall Score: 76/100** — unchanged; half-up mean (60+78+96+68+78)/5 = 380/5 = 76.0 → 76.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing Meta Muse Spark chart, Vals AI, OpenRouter and ARC Prize; fetched 2026-10-02); scores are normalized 1–100 interpretations, not official vendor scores. Flagged that the curated meta.json (128K/text-only) is a placeholder contradicted by the verified 2M multimodal data; pricing left provisional (no confirmed rate card found).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Not on retirement list; still active/superseded; bands and Overall 76 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

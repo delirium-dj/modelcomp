@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Qwen 3.8 Flash
 
 - Source: InclusionAI / Ant Group (`inclusionAI/Ling-3.0-flash-VL`)
-- Date: 2026-10-04 (UTC)
+- Date: 2026-10-04 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,9 +57,19 @@ Multimodal / grounded:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: huggingface.co/inclusionAI/Ling-3.0-flash-VL (updated Oct 27, 2026 — “inherits language, reasoning, and long-context capabilities of Ling-3.0-flash, while extending them with native image” — no new numeric benchmark rows for the VL ID); openrouter.ai/compare/google/gemini-3.6-flash/inclusionai/ling-3.0-flash-vl (7 days ago — listed, no new benchmark absolutes); anotherwrapper.com (Oct 6 — pricing: $0.02/$0.06 per 1M confirms very cheap); opper.ai (lists **Ling 3.1 Flash** as successor from InclusionAI, Oct 1, 2026 — VL variant remains a separate ID); benchlm.ai/models/ling-3-0-flash (base family page, not VL variant).
+- Trigger evaluated: “published τ²/Terminal-Bench and SWE-bench/LiveCodeBench results for this exact VL ID would firm Tool and Coding; a video/PDF-native modality confirmation would raise Multimodal” → **UNFIRED**. No τ²/TB/SWE/LCB benchmarks published for the VL variant. Ling 3.1 Flash (non-VL) exists as successor; VL variant not updated. No video/PDF-native confirmation found.
+- Lifecycle: open weights, Sep 10, 2026 (2 months), no retirement risk. Ling 3.1 Flash is a text-tier successor; the VL variant remains a distinct serving for multimodal workloads.
+- Pricing note: $0.02/$0.06 per 1M (anotherwrapper.com, Oct 6) — even cheaper than pass-1’s “~$0 preview pricing” estimate. Cost excluded from Overall.
+- Bands unchanged: Tool 55 / Reasoning 73 / Context 74 / Multimodal 78 / Coding 58. Overall remains **68/100** (67.6 half-up → 68).
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen3.8-flash)** — 2026-10-04
 - Method: fresh public web research (Artificial-Analysis numbers via BenchLM 2026-10-02, OpenRouter/HF for specs, family context from the VL-vs-Flash comparison); scores are normalized 1–100 interpretations, not official vendor scores.
 - Revisit trigger: published τ²/Terminal-Bench and SWE-bench/LiveCodeBench results for this exact VL ID would firm Tool and Coding; a video/PDF-native modality confirmation would raise Multimodal.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; trigger UNFIRED — no τ²/TB/SWE for VL ID, no video/PDF confirmation; open weights active, no lifecycle risk; Ling 3.1 Flash text successor exists; Overall 68 holds).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

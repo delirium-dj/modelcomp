@@ -1,7 +1,7 @@
 # Grok 4 Fast — findings by Qwen 3.8 Flash
 
 - Source: xAI (`grok-4-fast-reasoning` / `grok-4-fast-non-reasoning`; this folder tracks the Zen listing `opencode/grok-4-fast`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **lifecycle: origin-retired 2026-05-15** (xAI batch retirement includes grok-4-fast-reasoning/non-reasoning; slugs redirect to Grok 4.3) · **revisit trigger tested/unfired** (no new TB/SWE/GDPval/MRCR row surfaced; Zen cap unchanged) → **bands unchanged, Overall remains 72**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,9 +54,26 @@ Long context: 2M native window (xAI); AA-LCR 73.7% exists but no MRCR/RULER at �
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Lifecycle finding: origin retired; trigger tested, unfired.
+
+**Sources:** lifecycle — teqengine.ai/model-change-index/models/xai-grok-4-1-fast-reasoning (change history: “xAI retired grok-4-1-fast-reasoning, grok-4-1-fast-non-reasoning, **grok-4-fast-reasoning**, **grok-4-fast-non-reasoning**, grok-4-0709 and grok-3” on May 15, 2026; replacement Grok 4.3; “The slugs still resolve: requests are served by grok-4.3 with low reasoning effort and billed at grok-4.3 rates”) · https://docs.x.ai/developers/migration/may-15-retirement (official retirement notice) · https://www.reddit.com/r/grok/comments/1t64nu1/ confirms batch retirement · trigger — searched for new Terminal-Bench / SWE-bench / GDPval / MRCR rows for `grok-4-fast`: none found; Zen 128K cap unchanged; AA Index 17.9 remains (from pass-1 BenchLM); no new independent data to re-score.
+
+**Lifecycle flag:** `legacy` — xAI API batch retirement May 15, 2026. Slug redirects to Grok 4.3 (behavior/pricing = 4.3 not original Fast model). The OpenCode Zen listing (`opencode/grok-4-fast`) would also redirect through the xAI upstream; effectively the original grok-4-fast serving is gone.
+
+**Trigger resolution:** pass-1 required “once AA/BenchLM add a Terminal-Bench / SWE-bench / GDPval / MRCR row for grok-4-fast, or if the Zen listing raises its cap to the native 2M.” None of these conditions met. Trigger **UNFIRED**.
+
+**Bands unchanged:** Tool 72, Reasoning 76, Context 88, Multimodal 55, Coding 66 — pass-1’s evidence base (AA τ² 65.8%, GPQA 84.7–85.7, Search Arena 1163, LCR 73.7, LCB 80.0) remains the operative set; no new data.
+
+**Overall Score: 72/100** — unchanged (pass-1 reconciled from 71.4 due to context/multimodal serving-cap discount logic; same reconciliation holds).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (xAI Sep-2025 newsroom launch post + benchmark tables for GPQA/AIME/HMMT/HLE/BrowseComp/SimpleQA/LiveCodeBench and 2M/pricing; BenchLM `grok-4-fast` AA rows τ²/GPQA/HLE/LCR/Omniscience/Index + Search-Arena placement, 42.43 / #108 with 12/486 coverage; cross-checked against the qualifying `Kimi_K3.md` report and the sibling `../grok-4/` assessment). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged (a) the **native-2M-vision vs 128K-text-only-Zen-ID** discrepancy as the main reason context/multimodal are trimmed, (b) Vibe 0.00% as anomalous harness noise (not capability), and (c) a 68.3% Omniscience hallucination penalty.
 - Revisit trigger: once AA/BenchLM add a Terminal-Bench / SWE-bench / GDPval / MRCR row for `grok-4-fast`, or if the Zen listing raises its cap to the native 2M, re-score context and coding; keep this file as history.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Origin retired May 15 2026; trigger unfired (no new TB/SWE/GDPval/MRCR/Zen-cap data); bands and Overall 72 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

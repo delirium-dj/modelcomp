@@ -1,7 +1,7 @@
 # Gemma 4 26B A4B — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma (curated id `opencode/gemma-4.26b-a4b`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,8 +61,16 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: BenchLM `gemma-4-26b-a4b` (overall 46/100, #115 — unchanged from pass-1 capture); AA Intelligence Index 17 (still in line); HF `google/gemma-4-26B-A4B-it` model card (live, Apache 2.0, open weights available — no lifecycle risk); Google AI Studio changelog (Apr 2, 2026: “Released gemma-4-26b-a4b” — original release event only, no retirement notice).
+- No explicit Revisit trigger (no material change): (a) No new independent benchmarks published since Oct 7 pass. (b) No lifecycle risk — open weights (Apache 2.0), Apr 2026, 7 months old. (c) Pricing unchanged ($0.07–0.13 / $0.30–0.40). (d) AA Omniscience −50.8 / 86.4% hallucination confirmed as the model’s key weakness; no fix shipped.
+- Bands unchanged: Tool 56 / Reasoning 66 / Context 72 / Multimodal 70 / Coding 68. Overall recomputes to the same **66/100**.
+- Verdict: pass-1 holds. Confirmation pass.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Hugging Face `google/gemma-4-26B-A4B-it` model card README, Artificial Analysis model page, BenchLM `gemma-4-26b-a4b`, OpenRouter/llm-stats/DeepInfra/GCP listings for pricing and release date); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; open weights active, no new benchmarks, no lifecycle risk; Overall 66 holds).
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

@@ -95,7 +95,8 @@ export type SourceKey =
   | "GPT 6.1 Terra"
   | "Kimi K3.1 Pro"
   | "Xing 4.0 29B A4B"
-  | "Mercury 3";
+  | "Mercury 3"
+  | "Nemotron 3.5 Lightning 30B A3B";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -202,4 +203,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Kimi K3.1 Pro", label: "Kimi K3.1 Pro", file: "Kimi_K3.1_Pro.md", slug: "kimi-k3.1-pro" },
   { key: "Xing 4.0 29B A4B", label: "Xing 4.0 29B A4B", file: "Xing_4.0_29B_A4B.md", slug: "xing_4.0_29b_a4b" },
   { key: "Mercury 3", label: "Mercury 3", file: "Mercury_3.md", slug: "mercury-3" },
+  { key: "Nemotron 3.5 Lightning 30B A3B", label: "Nemotron 3.5 Lightning 30B A3B", file: "Nemotron_3.5_Lightning_30B_A3B.md", slug: "nemotron-3.5-lightning-free" },
 ];

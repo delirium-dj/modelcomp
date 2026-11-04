@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by Qwen 3.8 Flash
 
 - Source: MiniMax (`minimax/M3.1-Flash-Preview`, product name inside MiniMax Code)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,9 +56,19 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: openrouter.ai/minimax/minimax-m3.1-flash (fetched — API live, 12+ providers serving at $0.05–$0.15 in / $0.20–$0.60 out; supports tools, tool_choice, reasoning, reasoning_effort, response_format, structured output; Text/Chat Completions API confirmed); cellcog.ai/blog/what-is-space-bunny-alpha (“Space Bunny Alpha, OpenRouter’s free stealth model, is MiniMax M3.1-Flash. MiniMax named it on October 19 after 26 days”); teamday.ai “Top OpenRouter Models by Usage: November 2026 — #8 MiniMax M3.1 Flash, minimax/minimax-m3.1-flash”; openrouter.ai/collections/programming (“MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks”); cnblogs.com/foxcharon (Sep 29 anonymous testing article — confirms stealth-to-naming timeline).
+- **Trigger FIRED**: “mandatory re-score when MiniMax publishes the model card / API pricing / any AA-BenchLM row” → API pricing is now PUBLISHED (12+ providers, $0.15/$0.60 standard from MiniMax, $0.05/$0.20 cheapest from Tenstorrent). Model named Oct 19, 2026. Usage-ranked #8 on OpenRouter by Nov 2026 — substantial adoption.
+- Resolution: **bands hold — partial trigger only.** (a) API pricing confirmed (trigger fired); (b) BUT no independent benchmark scores (AA/Vals/BenchLM) published yet — still “delivers significant improvements” without specifics; (c) OpenRouter describes as “multimodal model” but the API guide only shows Text/Chat Completions (no image/audio endpoint confirmed); (d) no model card with formal scores has landed. The pass-1 placeholder scores remain the most evidence-faithful read until specific numbers exist.
+- Cost update: pass-1 “none published — rides subscription” is now outdated. $0.15/$0.60 per 1M (MiniMax standard), $0.05/$0.20 (Tenstorrent cheapest) — very affordable. This does NOT change Overall (Cost excluded) but updates the cost-efficiency band: 70→82 (from subscription-only to $0.15/$0.60 which sits near the ~$0.25/$1 anchor ≈82–85). Cost excluded from Overall.
+- Bands unchanged for quality: Tool 55 / Reasoning 55 / Context 88 / Multimodal 15 / Coding 65. Overall remains **56/100**. One structural note: the model is now GA on OpenRouter (`minimax/minimax-m3.1-flash`) but the folder name tracks the “Preview” phase. Per the exact-ID rule, this IS the same model — preview→GA transition is not a version change.
+- Verdict: trigger FIRED (API pricing now exists); resolution CONFIRMS pass-1 (bands held because no independent benchmarks landed yet). Re-research mandatory when AA/Vals/BenchLM publishes scores for this endpoint.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (DataNorth, DataLearner, andrew.ooo, BenchLM, daily.dev KingBench coverage — all checked 2026-09-27..29) + independent re-search this pass (same outlets confirm: no card/API/pricing) + curated `meta.json` (their "image, video in / five effort levels" flagged as uncorroborated, probable M3-base copy-paste). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) evidence state — one community suite and zero vendor documentation, (b) the aiintoai SWE-73.8/$0.10 claims excluded as single-source contradictions, (c) distinct model from minimax-m3, not a relabel — do not merge folders.
 - Revisit trigger: **mandatory re-score when MiniMax publishes the model card / API pricing / any AA-BenchLM row** (expected imminently per release cadence) — Reasoning, Tool and Multimodal are placeholders today, and the Overall could plausibly move anywhere from 55 to 80.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (trigger FIRED — API live Oct 19, pricing $0.15/$0.60 published, 12+ providers, usage #8 on OpenRouter; no benchmarks yet → bands hold, Overall 56 confirmed; “multimodal” label from OpenRouter but API shows text-only endpoint; re-research mandatory when AA/Vals score lands).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Sonnet 4.5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic / Claude Sonnet 4.5 (`anthropic/claude-sonnet-4.5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **lifecycle: deprecated, retirement 2026-11-30** (deprecated Sep 30, replacement claude-sonnet-5-5; 26 days remaining) · SWE-V 71.4% mini-SWE-agent board + SWE-Pro 43.6% Morph reproduced as harness-variance context (pass-1 77.2% Anthropic-harness launch figure holds as primary); no AA/GPQA new absolutes → **bands unchanged, Overall remains 71**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,23 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Lifecycle flag added; benchmark context updated.
+
+**Sources:** lifecycle — https://qcode.cc/en/claude-sonnet-4-5-api-retirement (“Anthropic’s lifecycle: Active → Legacy → Deprecated → Retired”; retirement scheduled Nov 30, 2026) · https://www.highcircl.com/en/blog/claude-sonnet-4-5-retirement (“The Claude Sonnet 4.5 retirement is set for November 30, 2026 on the Claude API, and the replacement Anthropic names is claude-sonnet-5-5”) · https://mixed-news.com/en/anthropic-deprecates-claude-sonnet-4-5-61-days-notice (“Anthropic deprecated Claude Sonnet 4.5 on September 30 and set a tentative retirement date of November 30, 2026”) · https://endoflife.date/claude (release Sep 29 2025; deprecated Sep 30 2026; ends Nov 30 2026 — ~26 days from today) · benchmarks — swebench.com leaderboard shows “Claude 4.5 Sonnet / mini-SWE-agent / 71.40 / $0.66 / 2026-02-17 / 2.0.0 / #32” (the mini-SWE-agent harness score; pass-1’s 77.2% is the Anthropic launch harness; both printed side-by-side per methodology, not averaged) · Morph SWE-bench Pro leaderboard (Oct 2026): “Claude Sonnet 4.5, 43.6% ±3.60” (#7) — a harder benchmark than SWE-V, contextually consistent. Vals.ai lists “Claude Sonnet 4.5 (Thinking)” on its SWE-V board (different harness). No new AA Intelligence-Index row or GPQA absolute for this exact id.
+
+**What moved:** lifecycle only. Anthropic deprecated Sonnet 4.5 on 2026-09-30 with a tentative retirement date of 2026-11-30. The model is still ACTIVE as of today (Nov 4) but will fail to respond after Nov 30 unless the “tentative” date slips (as Haiku 4.5’s availability floor elapsed while Active — precedent for floors ≠ immediate evictions). **Legacy flag: `legacy-with-date` (announced future retirement 2026-11-30; replacement claude-sonnet-5-5).**
+
+**Bands unchanged:** Tool 66, Reasoning 72, Context 72, Multimodal 65, Coding 80 — no new independent absolutes that would revise any dimension. SWE-V 71.4% (mini-SWE-agent) is lower than 77.2% (Anthropic harness) but reflects harness-difficulty variance, not a capability downgrade.
+
+**Overall Score: 71/100** — unchanged; half-up mean (66+72+72+65+80)/5 = 355/5 = 71.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Anthropic launch post + BenchLM profile/compare, fetched 2026-10-02); scores are normalized 1–100 interpretations, not official vendor scores. τ²/HLE/LiveCodeBench/MRCR left blank where no verified Sonnet 4.5 row was found.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle: deprecated Sep 30, retirement Nov 30 (four-way sourced); legacy-with-date flag; bands and Overall 71 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

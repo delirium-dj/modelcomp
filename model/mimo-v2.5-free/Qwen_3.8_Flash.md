@@ -1,7 +1,7 @@
 # MiMo V2.5 Free — findings by Qwen 3.8 Flash
 
 - Source: Xiaomi MiMo / MiMo-V2.5 Free on OpenCode Zen (`opencode/mimo-v2.5-free`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **lifecycle: origin-and-platform-retired, legacy flag** (Xiaomi native API retired MiMo-V2.5 Oct 21, 2026; OpenCode Zen free tier removed ~Oct 11–17; usage zero by Oct 29); successor MiMo-V2.6-Flash Free live on Zen; no new independent benchmark data → **bands unchanged, Overall remains 74**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,25 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Lifecycle finding: both serving paths (native API and OpenCode Zen free tier) have been retired.
+
+**Sources:** lifecycle — https://platform.xiaomimimo.com (“Xiaomi MiMo-V2.5-Pro and MiMo-V2.5 were retired on **Oct 21, 2026**, at 10:00 (UTC+8), and their model IDs no longer work. Please update your integrations to [V2.6].”) · https://mimo.mi.com/docs/en-US/updates/model (same retirement notice on official docs) · GitHub https://github.com/diegosouzapw/OmniRoute/issues/16328 (Oct 11, 2026: “Measured today: **5 of the 6 ids in our current OPENCODE\_FREE\_MODELS set are absent from the live list — deepseek-v4-flash-free, mimo-v2.5-free**”) · GitHub https://github.com/anomalyco/opencode/issues/56541 (“docs(www): remove retired Exo and MiMo V2.5 free models #55943: Exo and MiMo V2.5 free models were retired”) · https://opencode.ai/data/xiaomi/mimo-v2-5 (usage zeroed on Oct 29–30; last non-zero day Oct 28 at 60B tokens, down from 1.7T on Sep 10 — **−64%** over 2 months; paid-tier listing $0.40/$2.00 persists but is non-functional post-retirement) · successor — https://kingy.ai/blog/mimo-v2-6-pro-free-access-pricing-setup (Sept 2026: “OpenCode currently lists MiMo-V2.6-Flash Free in Zen as a limited-time free model”; codex-router changelog: “mimo-v2.6-flash-free is curatable on the anonymous OpenCode routes”) · benchmarks — https://benchlm.ai/models/mimo-v2-5 (15 source-displayable rows, no public overall score, unchanged from pass-1); OpenCode data benchmarks table (vendor HF-card rows: SWE-Bench Pro 56.1, Terminal-Bench 65.8, Claw-Eval 62.3 — source = HuggingFace model card, consistent with pass-1’s independent rows at different harnesses). No new independent benchmark absolutes (AA/Vals) published for this model post-retirement.
+
+**Trigger resolution:** no formal revisit trigger defined in pass-1 (model scored from benchmarklist + prior BenchLM audit). The OpenCode data page confirms specs unchanged (1M ctx native, 200K Zen cap, text/image/audio/video in, reasoning+tool calls). Vendor benchmark rows (from HF model card) match pass-1’s cited values at different harness cuts. No AA/Vals new data for the exact id → **no band movement**.
+
+**Lifecycle flag:** `legacy` — native Xiaomi API retired 2026-10-21; OpenCode Zen free tier removed ~2026-10-11–17 (GitHub evidence); opencode.ai/data shows zero usage since Oct 29; paid listing ($0.40/$2.00) persists but is a non-functional artifact. Successor on OpenCode Zen: MiMo-V2.6-Flash Free.
+
+**Bands unchanged:** Tool 66, Reasoning 72, Context 70, Multimodal 88, Coding 74. No new independent evidence for any dimension; all pass-1 sources (benchmarklist, Context Arena, Gert Labs, prior BenchLM audit) remain the operative evidence base.
+
+**Overall Score: 74/100** — unchanged; half-up mean (66+72+70+88+74)/5 = 370/5 = 74.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (benchmarklist `xiaomi-mimo-v2.5` independent harness rows incl. embedded verified labels + Context Arena MRCRv2, fetched 2026-10-02; OpenCode Zen docs for the $0 tier; prior BenchLM audit rows 2026-09-28 as corroboration); scores are normalized 1–100 interpretations, not official vendor scores. Flagged GPQA source variance (81.6 vs 84.9), the Tau2-vs-Tau3 domain collapse, and that benchmark rows belong to the native model, measured against the 200K/32K free-tier caps.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Origin API + free platform tier both retired; lifecycle confirmed from Xiaomi official + GitHub issues + OpenCode data (zero usage); successor MiMo-V2.6-Flash Free identified; no band changes; Overall 74 stands.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

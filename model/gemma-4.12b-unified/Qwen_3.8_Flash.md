@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma (curated id `opencode/gemma-4.12b-unified`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,8 +59,16 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: HF `google/gemma-4-12B-it` (model card live, Apache 2.0, open weights — no lifecycle risk); Google AI Studio changelog (2026 release event for gemma-4 family, Apr 2 / announced Jun 3 — confirmed live); BenchLM `gemma-4-12b` (overall 31.9/100, #163 — same as pass-1 capture; AA Index 14); no new independent benchmark rows since Oct 7.
+- No explicit Revisit trigger (no material change): (a) No new independent scores. (b) Open weights, 7 months old, no lifecycle risk. (c) Pricing unchanged ($0.10/$0.30 AA). (d) −52.7 Omniscience / 81% hallucination unchanged.
+- Bands unchanged: Tool 50 / Reasoning 62 / Context 70 / Multimodal 90 / Coding 60. Overall recomputes to the same **66/100**.
+- Verdict: pass-1 holds. Confirmation pass. Open-weight, Apache 2.0, no lifecycle risk.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Google blog "Introducing Gemma 4 12B", Hugging Face Gemma 4 model-card README, Artificial Analysis `models/gemma-4-12b`, BenchLM `gemma-4-12b`, HF `google/gemma-4-12B-it`); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; open weights active, no new benchmarks, no lifecycle risk; Overall 66 holds).
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

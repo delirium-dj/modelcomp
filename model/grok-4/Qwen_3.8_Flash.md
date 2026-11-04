@@ -1,7 +1,7 @@
 # Grok 4 — findings by Qwen 3.8 Flash
 
 - Source: xAI / Grok 4 (`xai/grok-4`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **lifecycle: origin-retired 2026-05-15** (xAI API batch retirement including grok-4-0709; slugs redirect to Grok 4.3 or fail); benchmarks confirmed from pass-1 set; no new independent absolutes surfaced → **bands unchanged, Overall remains 68**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,23 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Lifecycle finding: origin (xAI API) retired.
+
+**Sources:** lifecycle — teqengine.ai/model-change-index/models/xai-grok-4-1-fast-reasoning (change history, May 15, 2026: “xAI retired grok-4-1-fast-reasoning, grok-4-1-fast-non-reasoning, grok-4-fast-reasoning, grok-4-fast-non-reasoning, **grok-4-0709** and grok-3” — grok-4-0709 = Grok 4, released Jul 9 2025; batch retirement, replacement Grok 4.3; “The slugs still resolve: requests are served by grok-4.3 instead of returning an error”) · https://docs.x.ai/developers/migration/may-15-retirement (“Effective May 15, 2026 at 12:00 PM PT, the following models will be retired from the xAI API”) · https://www.reddit.com/r/grok/comments/1t64nu1/ confirms the batch retirement including Grok 4 · benchmarks — AA Intelligence Index 34.1 (pass-1, still operative); swebench.com shows mini-SWE-agent rows for newer models but no updated grok-4 entry; no new independent GPQA/HLE/SWE-TB absolutes surfaced for this exact id.
+
+**Lifecycle flag:** `legacy` — xAI API batch retirement May 15, 2026. The `grok-4-0709` slug is now served by Grok 4.3 (with behavior/pricing of 4.3, not the original model); functionally a historical artifact.
+
+**Bands unchanged:** Tool 58, Reasoning 78, Context 75, Multimodal 63, Coding 68 — pass-1’s independent benchmarklist rows (SWE-V 57.8%, GPQA 87.7–88.1, TB 28.1, AA Index 34.1) remain the operative evidence base; no new data to revise any dimension.
+
+**Overall Score: 68/100** — unchanged; half-up mean (58+78+75+63+68)/5 = 342/5 = 68.4 → 68.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (xAI Grok 4 announcement fetched 2026-10-02; benchmarklist `x-ai-grok-4` independent 2026 harness rows incl. embedded BenchLM aggregate — fetched 2026-10-02); scores are normalized 1–100 interpretations, not official vendor scores. Flagged the vendor-vs-independent gap on SWE-bench Verified (79.5% claimed vs 57.8% indep.) and HLE (50.7% Heavy-with-tools vs 26.7% indep. no-tool); curated meta (256K, $3/$15, text/image/PDF) matched the verified data.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Origin retired May 15 2026 (batch xAI API retirement, four-way sourced); bands and Overall 68 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

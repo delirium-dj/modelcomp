@@ -1,7 +1,7 @@
 # Kimi K2.5 — findings by Qwen 3.8 Flash
 
 - Source: Moonshot AI (curated id `opencode/kimi-k2.5`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC); second pass 2026-11-04 (UTC) — **origin-sunset executed; third-party serving survives**: Moonshot's platform retired `kimi-k2.5` on **2026-08-31** (Model List banner; OpenRouter route carried the same `expiration_date` in `/api/v1/models`), yet the ID remains live via open-weight hosts — Oct-20 tracker recheck has the OpenRouter listing up, Cloudflare "Deprecated (May 30) **but still answers**" at $0.60/$3.00, Azure holds to **2027-01-26**, NVIDIA endpoint fully shut 2026-05-20, Chutes off 2026-07-31 — five platforms, five dates; release pinned exactly **2026-01-27**; BenchLM SWE-V **76.8%** reproduced verbatim (Oct-29 board, #37/38 both variants, $0.6/$3); no new independent absolutes → **legacy flag recorded (origin-retired, third-party-served), bands unchanged, Overall remains 76**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -67,8 +67,23 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-07). Pass-1 noted AA's deprecation banner; the vendor sunset has since executed on the origin platform while the open weights keep the ID servable elsewhere.
+
+**Sources:** lifecycle grid — https://zentor.ai/blog/kimi-k2-5-deprecated (published late Aug, updated 2026-10-20: **"Moonshot's own platform sunsets kimi-k2.5 on 31 August 2026, per the banner on its Model List page. OpenRouter's route … carries the same expiration_date in its public API"**; platform table: Cloudflare Workers AI "Marked Deprecated, still serving" since 2026-05-30 at **$0.60/$3.00, 256K**; NVIDIA build.nvidia.com "Full API shutdown, completed" 2026-05-20 after a k2.5→k2.6 gateway redirect; **Azure AI Foundry "Preview, retirement scheduled 26 January 2027"** — outliving its own vendor by five months; Chutes removed 2026-07-31; "ten OpenRouter providers were still online and healthy as of 25 August 2026 … Input pricing ranged from $0.45 to $0.60" — DeepInfra, SiliconFlow, AtlasCloud, DigitalOcean, Venice, StreamLake, Novita, Bedrock, Moonshot, Phala) and https://finance.biggo.com/news/87dc9670-9bba-43d7-83ef-6b3aff4af97c (2026-08-23: **"Kimi K2.5 to Retire End of August; 2.8 Trillion-Parameter K3 Takes Over"**) · still listed — https://openrouter.ai/moonshotai/kimi-k2.5 and its /providers subpage remain live at the Nov-2026 fetch (open-weight economics: third parties keep serving regardless of the origin sunset) · benchmarks — https://benchlm.ai/benchmarks/swe-bench-verified (Oct-29 board: **"Kimi K2.5 (Reasoning) 76.8% / Kimi K2.5 76.8%"** #37–38 of 112 — reproduces pass-1's 76.8 vendor row exactly; no new GPQA/HLE/TB rows for the id; K2.6/K3/K3.1-Pro rows belong to their own ids — exact-ID) · lineage — release pinned **2026-01-27** (zentor OpenRouter screenshot caption); "two generations back now: K2.6 landed in April, K2.7-Code in June, and K3 after that" (+ K3.1 Pro, 1M ctx, per OpenRouter) — this folder's tracked ID is three-plus generations behind the vendor frontier.
+
+**What moved and how it was resolved:**
+
+- **Nothing scored.** No new measured absolutes for `kimi-k2.5`; the SWE-V row reproduced identically and every band's evidence base stands. Overall remains (76+70+75+84+76)/5 = 76.2 → 76.
+- **Flag: origin-retired, third-party-served.** Per the established convention this is the executed-sunset case for the *origin vendor* (Moonshot platform + its OpenRouter first-party lane, 2026-08-31) — but unlike the grok-4 historical-artifact case, the open weights mean the ID is genuinely still orderable on ≥9 third-party lanes (Cloudflare explicitly still answering, Azure to Jan-2027). Recorded as a legacy flag with serving-survival notes rather than a historical-artifact freeze; the $0.45–$0.60 provider spread and Cloudflare's $0.60/$3.00 sit side-by-side with pass-1's AA $0.60/$2.75 (Cost 90 unchanged, excluded from Overall).
+- **Context 75 nuance:** the 65,536 max-output "not independently re-verified" caveat persists — no source in this pass published an output cap; band unchanged.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (BenchLM `kimi-k2-5` score page, Artificial Analysis `models/kimi-k2-5` reasoning page including its deprecation notice, the `moonshotai/Kimi-K2.5` Hugging Face model card and kimi.com launch post as cited by BenchLM's upstream rows, Epoch AI FrontierMath v2 leaderboard, SWE-Rebench / Claw-Eval / React Native Evals / OpenRouter leaderboard listings); scores are normalized 1–100 interpretations, not official vendor scores. Rows sourced from competitor blogs (Qwen3.6-Plus, Arcee Trinity) are attributed as such in the list above and treated as third-party, not neutral. Where vendor and AA rows both exist (GPQA, HLE, MMMU-Pro, SWE-bench Verified), both are printed and the lower value informs the score.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Legacy flag: Moonshot origin sunset **executed 2026-08-31** (five platforms, five dates — Cloudflare still serving, Azure to 2027-01-26, NVIDIA shut 2026-05-20); open-weight lanes keep the ID live on OpenRouter (10 providers at last full check); release pinned 2026-01-27; SWE-V 76.8% reproduced. No band moves; Overall remains 76. Pass-1 text preserved verbatim above.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

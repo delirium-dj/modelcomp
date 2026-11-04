@@ -1,7 +1,7 @@
 # Claude Sonnet 4 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (`anthropic/claude-sonnet-4`, snapshot `claude-sonnet-4-20250514`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,17 @@ Long context: 200K class; AA-LCR 44.0% middling for its window; no MRCR/RULER re
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: killedbyai.net/dead/claude-sonnet-4-opus-4 (fetched — “Claude Sonnet 4 & Opus 4 was shut down on June 15, 2026 after 1 year; Deprecation announced April 14, 2026; calls to claude-sonnet-4-20250514 and claude-opus-4-20250514 have returned errors since June 15. Anthropic points users to claude-sonnet-4-6 and claude-opus-4-8. Amazon Bedrock kept Sonnet 4 running for another 121 days, until its end of life on October 14, 2026.”); platform.claude.com/docs/en/about-claude/model-deprecations (source cited by killedbyai); layer3labs.io anthropic-model-deprecations (Oct 15 — “Models retired during 2026 include several Claude 4 models. Claude Opus 4.1 was deprecated on June 5, 2026, and retired on August 5, 2026”); blocksize.hr “In the Anthropic API, Claude 3 models lived 16 to 25 months from their snapshot date to retirement. Claude 4 models (Sonnet 4, Opus 4, Opus 4.1, ...)”
+- **Lifecycle: `legacy` — API SHUT DOWN June 15, 2026** (deprecation announced Apr 14, 2026; requests to `claude-sonnet-4-20250514` return errors since Jun 15; Amazon Bedrock EOL Oct 14, 2026 — also passed; replacement: `claude-sonnet-4-6` / `claude-sonnet-5`). Same pattern as gpt-5.2-codex (Jul 23) and grok-4.1-fast (May 15) — API endpoint is dead.
+- Trigger evaluated (no explicit Revisit trigger; standing rule: material change): lifecycle is the material change. No new benchmarks (model is dead — no future rows expected). Pass-1 already noted it as “a legacy tier, superseded”; now confirmed shut down.
+- Bands unchanged: Tool 66 / Reasoning 68 / Context 70 / Multimodal 65 / Coding 78. Overall remains **69/100**. (Scores preserved for historical comparison; the model cannot serve new requests.)
+- Verdict: lifecycle flag added — model retired June 15, 2026, Bedrock EOL Oct 14, 2026. Pass-1 scores hold. Trigger N/A (model no longer live to generate new data).
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `claude-sonnet-4` rows citing Artificial Analysis — GPQA/HLE/LCR/CritPt/Omniscience/Index/Tau², overall 36.08 with 15/486 coverage; Anthropic "Introducing Claude 4" launch appendix for SWE-V 72.7/80.2, MMMU/MMMLU/AIME (no-thinking) and the loophole-reduction note; cross-checked against the qualifying `Kimi_K3.md` report). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged AA-independent vs vendor-launch lanes, thin BenchLM coverage (aggregate understates the model), and that this is a superseded legacy tier scored against 2026 bars.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (lifecycle `legacy` — API shut down Jun 15, 2026, Bedrock EOL Oct 14, 2026; killedbyai/anthropic-deprecations/layer3labs confirm; no band change; Overall 69 holds; historical entry).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

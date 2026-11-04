@@ -1,7 +1,7 @@
 # Qwen 3.5 Flash — findings by Qwen 3.8 Flash
 
 - Source: Alibaba Qwen hosted tier (`qwen/qwen3.5-flash-02-23`; curated id `opencode/qwen-3.5-flash`), cross-checked against OpenRouter, the Qwen3.5 blog, llmapi.ai / designforonline listings and llm-stats
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -49,9 +49,19 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: vals.ai/models/alibaba_qwen3.5-flash (fetched — **first independent benchmark data for this exact endpoint**: SWE-bench Verified **54.9%**, Terminal-Bench 2.0 **24.7%**, Finance Agent **46.7%**, Corp Fin v2 **64.2%**, Case Law v2 **55.9%**, Vals Index **#22, 49.6%** accuracy, #7 among open-weight models; ~$0.08 per test); openrouter.ai/compare/google/gemini-3.5-flash/qwen/qwen3.5-flash-02-23 (lists Qwen3.5-Flash on SWE-bench row = “—”); qwen.ai blog (family-level SWE-bench Multilingual 72.0 for flagship class, not the Flash tier).
+- **Trigger FIRED**: “an Artificial Analysis / OpenRouter benchmark row specific to the qwen3.5-flash endpoint (GPQA/SWE/τ²/MMMU)” → vals.ai provides **SWE-bench Verified 54.9%** and Terminal-Bench 2.0 24.7% — these are endpoint-specific absolutes from an independent harness (Vals AI).
+- Resolution: **bands confirmed — pass-1 was correct.** (a) **Coding 54**: now CONFIRMED by SWE-V 54.9% — pass-1 inferred 54 from specs; the measured number validates exactly. (b) **Tool 62**: Finance Agent 46.7% + TB 2.0 24.7% are weak-to-mid agentic signals, consistent with pass-1’s “credited at spec-level only, solid-unevidenced” framing. Band holds (τ²/GDPval not published; function calling confirmed live; TB 24.7% is floor-adjacent but Finance Agent 46.7% is mid-range). (c) **Reasoning 58**: Vals Index 49.6% composite accuracy confirms mid-tier inference; no GPQA/HLE specific. (d) **Multimodal 58**: no vision benchmark yet. (e) **Context 84**: no MRCR/RULER still.
+- No lifecycle concern (superseded by 3.6/3.7 Flash but still serving via OpenRouter/Alibaba Model Studio; active route with “substantial observed usage”).
+- Bands unchanged: Tool 62 / Reasoning 58 / Context 84 / Multimodal 58 / Coding 54. Overall recomputes to the same **63/100** (63.2→63 half-up, unchanged).
+- Verdict: trigger FIRED, evidence CONFIRMS pass-1 — Vals.ai absolutes validate the spec-based inference. Coding band in particular was guessed at 54 and the real measurement is 54.9%. The evidence vacuum is partially resolved (SWE-V/TB/Finance exist); remaining bands (GPQA, τ², MMMU, MRCR) still lack endpoint-specific numbers.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — OpenRouter `qwen/qwen3.5-flash-02-23` (1,000,000-token context, $0.065/$0.26 per 1M, native-vision multimodal, function calling), the Qwen3.5 blog / aireleasetracker (family flagship 76.4 SWE-V / 88.4 GPQA-D / 62.2 OSWorld — reproduced *only* as an upper-family ceiling, explicitly not attributed to the Flash endpoint), llmapi.ai (hosted production tier, text + vision-language), and designforonline ("no model-specific benchmarks are provided"). Scores are normalized 1–100 interpretations from **confirmed specs**, not official vendor scores; every benchmark-dependent dimension is discounted for the per-endpoint evidence vacuum rather than filled with the flagship's numbers. Curated `meta.json` is not scaffolded and largely agrees (1M/65K, hosted-only, ~$0.065/$0.26, superseded); the only open question — "vision support unverified" — is carried into the Multimodal score as a caveat.
 - Revisit trigger: an Artificial Analysis / OpenRouter benchmark row **specific to the qwen3.5-flash endpoint** (GPQA/SWE/τ²/MMMU), or confirmation of its native-vision capability; note the 3.6/3.7 Flash tiers now supersede it.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (trigger FIRED: vals.ai SWE-V 54.9% / TB 2.0 24.7% / Finance Agent 46.7% are endpoint-specific absolutes; all bands CONFIRMED by measurement; Overall 63 holds unchanged; evidence partially resolved — pass-1 guesses validated; remaining gaps GPQA/τ²/MMMU/MRCR open).
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.

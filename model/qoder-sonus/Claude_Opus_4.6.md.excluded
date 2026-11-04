@@ -1,0 +1,66 @@
+# Qoder Sonus — findings by Claude Opus 4.6
+
+- Source: Qoder / Bright Zenith (`qoder/sonus`)
+- Date: 2026-11-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Qoder's native SOTA-tier AI model designed for marathon-length autonomous agent workflows, heavy software engineering, and computer use. Deeply integrated with the Qoder ecosystem (Desktop IDE, CLI, JetBrains plugins, Cloud Agents) for end-to-end agentic engineering.
+- **Provider / access:** Qoder platform (Desktop, CLI, QoderWake, Cloud Agents). Not available as a standalone public API. Credit-based billing.
+- **Release / knowledge:** 2026; knowledge cutoff not publicly disclosed
+- **IDs:** `qoder/sonus` (Qoder ecosystem only)
+- **Context window:** Not publicly disclosed — designed for marathon multi-step execution
+- **Modalities:** Text, image in (via computer use / desktop interaction); text out; tool calls yes; computer use yes (native desktop operation)
+- **Pricing (as of 2026-11):** 3.2x credit multiplier within Qoder's paid tiers (Pro, Pro Plus plans with monthly credits). No standalone per-token pricing.
+- **Architecture:** Proprietary closed-weight model; architecture details not publicly disclosed
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- Computer Use: described as "deep capabilities" in direct computer operation (spreadsheets, financial models, research, code environments) (source: qoder.com / lookonchain.com)
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- Positioned as "SOTA tier" within Qoder platform (source: qoder.com)
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- Described as end-to-end PR handling, testing loops, code standards checking (source: qoder.com)
+
+Long context:
+
+- Marathon-length multi-step execution supported; specific token limits not publicly disclosed
+
+### Normalized scores (1–100)
+
+- **Tool use: 72/100.** Strong computer use integration with native desktop operation capabilities. Designed for 1000+ step autonomous workflows. No specific benchmark scores found, but computer-use focus is a differentiator. Capped by lack of verified benchmarks.
+- **Reasoning: 62/100.** Positioned as SOTA-tier within Qoder but no independent benchmark scores available. Marathon execution suggests sustained reasoning capability. Heavily capped by lack of any verified reasoning benchmarks.
+- **Context window: 60/100.** Designed for marathon-length multi-step execution but no specific context window size disclosed. Score reflects uncertainty about actual limits.
+- **Multimodal: 45/100.** Text and image input via computer use (reading screenshots, UIs). Text output. No audio or video input. Computer-use visual capabilities are functional but limited to desktop interaction scenarios.
+- **Coding: 72/100.** Purpose-built for end-to-end software engineering — PR handling, testing loops, code standards checking. Strong coding focus but no SWE-bench or LiveCodeBench scores available. Ecosystem integration with IDE/CLI is a strength.
+- **Cost efficiency: 45/100.** 3.2x credit multiplier places it in the expensive tier within Qoder's billing system. Requires Qoder paid subscription. No standalone API access limits flexibility.
+- **Overall Score: 62/100.** Mean of (72 + 62 + 60 + 45 + 72) / 5 = 62.2, rounded to 62. An ecosystem-integrated agentic coding model with strong computer-use focus, heavily limited in evaluation by lack of published benchmarks and closed ecosystem access.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-04
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qoder Sonus Platform Documentation](https://qoder.com)
+  - [Qoder Agentic Engineering Overview](https://qoder.com)
+  - [LookOnChain Qoder Sonus Analysis](https://lookonchain.com)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

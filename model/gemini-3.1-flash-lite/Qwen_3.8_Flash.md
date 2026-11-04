@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash Lite — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind (`google/gemini-3.1-flash-lite`, preview launched 2026-03-03)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,9 +56,18 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: openrouter.ai/google/gemini-3.1-flash-lite-preview (fetched — API live, text/chat only, 3 pricing tiers: $0.125/$0.75, $0.25/$1.50, $0.45/$2.70 per 1M; supports tools/reasoning/structured output; still “Preview” ID); openrouter.ai search snippet (“Gemini 3.1 Flash Lite Preview SWE-bench, 62.8%. Vals AI” — confirms Vals data already in pass-1); artificialanalysis.ai/models/comparisons/gemini-3-1-flash-lite-preview-vs-gemini-3-flash-reasoning (AA comparison exists but page behind paywall/js-rendered, snippet confirms it’s indexed); llm-stats.com/models/gemini-3-1-flash-lite-preview (indexed, specs match).
+- Trigger evaluated: “if AA or BenchLM publish full GPQA/HLE/SWE-bench/MRCR panels under the settled (non-preview) gemini-3.1-flash-lite ID resolving the 58↔86.9 GPQA lane war” → **UNFIRED**. (a) Still listed as `-preview` on OpenRouter (not “settled/non-preview”). (b) The GPQA lane war remains unresolved (58–86.9 range persists). (c) No new independent benchmark panels published. (d) Vals SWE-V 62.8% was already captured in pass-1 via Kimi_K3. (e) AA comparison page exists but doesn’t add new data beyond Index 26 already in the report.
+- Pricing update: OpenRouter now shows 3 tiers ($0.125/$0.75, $0.25/$1.50, $0.45/$2.70) — the $0.25/$1.50 middle tier matches pass-1 exactly; the cheapest tier suggests a lite-speed variant at lower cost (cost excluded from Overall anyway).
+- Bands unchanged: Tool 60 / Reasoning 62 / Context 95 / Multimodal 90 / Coding 50. Overall remains **71/100**.
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Model is superseded by 3.5/3.6 Flash-Lite but still API-active (Preview status unchanged). No lifecycle risk.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Google launch blog 2026-03-03 fetched for GPQA 86.9 / MMMU-Pro 76.8 / Elo 1432 / $0.25/$1.50 / speed claims; AA model-comparison snippet for intelligence index 26; datastudios for GPQA 82.2 / coding index 34.7; DeepMind flash-lite page + HokAI for the 3.5-successor 86.9 re-attribution; llm-stats/pricepertoken/ai-toolbox pricing confirmation) cross-checked against qualifying in-folder reports (Kimi_K3 BenchLM/Vals rows, Gemini_3.6_Flash independent-style rows) and curated `meta.json`. Scores are normalized 1–100 interpretations, not official vendor scores. Distinctness confirmed (BenchLM-ranked, live API ID) — unlike the self-excluded base `gemini-3.1-flash`.
 - Revisit trigger: if Artificial Analysis or BenchLM publish full GPQA/HLE/SWE-bench/MRCR panels under the settled (non-preview) `gemini-3.1-flash-lite` ID resolving the 58↔86.9 GPQA lane war, re-score — Reasoning is the dim most sensitive to that unresolved conflict.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; trigger UNFIRED — still Preview, GPQA lane war unresolved; OpenRouter pricing confirms $0.25/$1.50 tier; Overall 71 holds; no lifecycle risk).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

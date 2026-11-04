@@ -1,7 +1,7 @@
 # Gemma 4 31B — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemma 4 31B IT (`google/gemma-4-31b-it`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **confirmation**: open weights (Apache 2.0) persist; AA GPQA 85.7% reproduced (latent.space blog, Apr 2026); MMLU-Pro 85.2% stable; no new independent benchmarks, no lifecycle event, no 3rd-party AA Index change from 19.0 → **bands unchanged, Overall remains 63**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -55,8 +55,21 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass; open-weights model, no lifecycle risk.
+
+**Sources:** https://latent.space/p/ainews-gemma-4-the-best-small-multimodal/ (Apr 2026: “Scientific reasoning: Artificial Analysis reports GPQA Diamond 85.7% for Gemma 4 31B (Reasoning) and emphasizes token efficiency (~1.2M…”) — matches pass-1 BenchLM/AA 85.7 · https://www.linkedin.com/pulse/why-gemma-4-could-turning-point-open-source-ai-alphasignal-hfg1c (“GPQA Diamond: Gemma 4 31B lands at 84.3%” — BenchLM lower row, side-by-side, pass-1 already flagged this spread) · https://llm-stats.com/models/gemma-4-31b-it (released April 2026, multimodal input, 262K ctx, pricing from $0.090 — confirms specs) · https://dev.to/aniruddhaadak/gemma-4-complete-guide-2026 (“Gemma 4 31B is in the same neighbourhood as Qwen 3.5 27B on knowledge and reasoning”) · no new AA Index published (pass-1’s 19.0 is the operative figure); no Terminal-Bench / SWE-V / MRCR rows surfaced beyond pass-1’s set.
+
+**What held:** release 2026-03-31 (announced Apr 2); 31B dense, Apache 2.0; 256K (262,144) ctx; text+image; open weights free; AA Index 19.0; GPQA 84.3–85.7% (harness spread); MMLU-Pro 85.2; τ² 59.9; SWE-Rebench 41.6; Omniscience −47.9 / 85% hallucination. No band movement.
+
+**Overall Score: 63/100** — unchanged; half-up mean (44+70+78+66+55)/5 = 313/5 = 62.6 → 63.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `gemma-4-31b` rows citing Artificial Analysis + Google model card, fetched 2026-10-02; cross-checked against the sibling `Qwen_3.8_27B.md` evaluation and blog.google / model_card_4 launch coverage for the Apache-2.0 licence, 256K window, five-size family and Jan-2025 cutoff). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged that the curated `meta.json` (128K / "Text in/out only") understates the verified 256K native-multimodal model, and that GPQA/MMLU-Pro headline strengths are offset by a sparse-coverage (24/645) BenchLM aggregate and a severe AA-Omniscience factuality failure.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Open-weights confirmation; specs and GPQA reproduced; no new data; bands and Overall 63 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

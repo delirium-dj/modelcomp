@@ -1,7 +1,7 @@
 # Gemini 1.5 Pro — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind (`google/gemini-1.5-pro`; Gemini API / Vertex AI)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,9 +56,18 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: ai.google.dev/gemini-api/docs/deprecations (fetched — gemini-1.5-pro NOT listed anywhere on the current deprecation table; the page tracks models “deprecated” and “upcoming shutdown” from Oct 2026 onward; 1.5-pro has been fully removed from the list, meaning shutdown is completed); layer3labs.io gemini deprecations guide (Oct 15, 2026 — covers Oct 2026–May 2028 shutdowns; no 1.5 entry = already dead); zentor.ai (batch 12 research — 2.5 retired Oct 20, 2026; pass-1 already noted 1.5 Flash shut down).
+- **Trigger FIRED**: “only if Google deprecates the endpoint outright” → **CONFIRMED RETIRED**. The model is no longer listed on Google’s own deprecations page (not “upcoming shutdown” but fully removed = past the end-of-service horizon). gemini-1.5 Flash was explicitly retired; 1.5 Pro follows the same path (older generation, 2.0 retired Jun 2026, 2.5 retired Oct 2026; 1.5 is two generations prior). Flag: `legacy`.
+- No new benchmarks (model is dead; no future rows). No band changes warranted — scores are historical.
+- Bands unchanged: Tool 42 / Reasoning 44 / Context 92 / Multimodal 78 / Coding 36. Overall remains **58/100**.
+- Verdict: lifecycle confirmation — retired. Pass-1 said “Pro’s serving status should be treated as sunsetting”; now confirmed past sunset. Historical scores preserved.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM scorecard (GPQA 58.9 / HLE 4.6 / AA Index 7.9 / BenchLM 27.93 #171 / Coding Index 23.6 / MMMU-Pro 55.0) + curated `meta.json` (2M, modalities, ~$1.25/$5) + launch-era historical record for context. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) 2024-harness numbers (SWE-bench Lite, MMLU 85+) were deliberately **not** normalized into 2026 bands, (b) serving status of the 1.5 line is sunsetting — check before any migration target, (c) the 20-point cohort gap is a legacy-reputation artifact.
 - Revisit trigger: only if Google deprecates the endpoint outright (update status notes) or if a modern panel starts ranking `gemini-1.5-pro` with TB/SWE rows (would firm up Tool/Coding rather than change the picture).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (trigger FIRED — endpoint retired outright, removed from Google deprecations page; `legacy` flag; no band change; Overall 58 holds; historical entry).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

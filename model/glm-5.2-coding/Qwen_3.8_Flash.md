@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Qwen 3.8 Flash
 
 - Source: Z.AI (Zhipu) / GLM 5.2 Coding (`opencode/glm-5.2-coding`; base weights `zai-org/GLM-5.2`, MIT)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,16 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: zentor.ai/blog/what-is-glm-5-3 (Oct 21, fetched in batch 12 — confirms GLM-5.3 “uses the same base model as GLM-5.2, every gain comes from post-training”; GLM-5.2 remains on the GLM Coding Plan); huggingface.co/zai-org/GLM-5 (search snippet: “GLM-5.3 state-of-the-art on SWE-Bench Pro” — this is 5.3 successor, not a new 5.2 score); pass-1’s benchleader.com aggregate (AA τ²-Telecom 99.1% #1, TB 2.1 77.9%, GPQA 91.9% — unchanged, model is 5 months old with stable numbers).
+- No explicit Revisit trigger (no material change): (a) Open weights (MIT), released Jun 2026, no lifecycle risk. (b) GLM-5.3 is the successor base but GLM-5.2 Coding remains a distinct serving on Zen coding plan. (c) No new independent benchmarks for this exact Zen endpoint since pass-1. (d) 128K Zen endpoint cap unchanged.
+- Bands unchanged: Tool 84 / Reasoning 79 / Context 82 / Multimodal 15 / Coding 83. Overall remains **69/100**.
+- Verdict: pass-1 holds. Confirmation pass. Open-weight, MIT, no lifecycle risk.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (benchleader.com provider/benchmark tables aggregating Artificial Analysis / Epoch / Vals / LiveBench / Scale SEAL / MathArena / LMArena; HF hub metadata for the MIT `zai-org/GLM-5.2` weights; cross-checked against the qualifying `Kimi_K3.md` report and curated `meta.json`). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged (a) this is the coding **serving** of GLM 5.2, distinct from `glm-5.2` / `glm-5.3` base entries (do not double-count), (b) the native 1M vs Zen-coding 128K context gap, and (c) the text-only modality floor as the dominant Overall limiter.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; open-weight MIT active, GLM-5.3 successor exists but 5.2 Coding serving persists, no new benchmarks; Overall 69 holds).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by Qwen 3.8 Flash
 
 - Source: Z.AI / Zhipu (`opencode/glm-5.2`; weights `zai-org/GLM-5.2`, MIT)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,9 +57,20 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: z.ai/blog/glm-5.2 (GLM-5.2 launch blog still live, confirmed model active); github.com/zai-org/GLM-5 (“GLM-5.3 is the most capable open-weights model for coding, with a 50% improvement over GLM-5.2” — successor exists, 5.2 persists as distinct ID); huggingface.co/zai-org (GLM-5.2 weights listed, MIT license, open); z.ai homepage (“powered by GLM-5.3-Flash” — current consumer app uses 5.3, but 5.2 API remains available on ~30 OpenRouter providers). No new independent benchmark rows for this exact ID since pass-1 capture.
+- Trigger evaluated: “if MRCR-1M or τ³ rows appear for zai-org/GLM-5.2, re-check Context/Tool; if the Zen free lane is retired, Cost notes go stale” → **UNFIRED**. No MRCR-1M or τ³ rows published. Zen free tier status unchanged.
+- Lifecycle: open weights (MIT), released Jun 13, 2026 (5 months). GLM-5.3/5.3-Flash successors exist but 5.2 remains available for serving. No retirement risk.
+- Bands unchanged: Tool 82 / Reasoning 81 / Context 88 / Multimodal 15 / Coding 82. Overall remains **70/100**.
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Open-weight, no lifecycle risk.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLeader aggregate (AA/Epoch/Vals/LiveBench/LMArena/Scale SEAL rows, 2026-09-24) + my own `model/glm-5.2-coding/Qwen_3.8_Flash.md` cross-reference + curated `meta.json` (204K Zen listing, free tier). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) the τ²-Telecom-99.1-vs-Banking-34.6 bimodality, (b) TB 4.0 1.0% as the autonomy ceiling, (c) 1M-native vs 204/262K served spread, (d) no MRCR row.
 - Revisit trigger: if MRCR-1M or τ³ rows appear for `zai-org/GLM-5.2`, re-check Context/Tool; if the Zen free lane is retired, Cost notes here go stale (Overall unaffected).
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation. Open-weight, GLM-5.3 successor exists but 5.2 persists. Trigger UNFIRED.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

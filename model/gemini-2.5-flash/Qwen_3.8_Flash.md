@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash — findings by Qwen 3.8 Flash
 
 - Source: Google / Gemini 2.5 Flash (`gemini-2.5-flash`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,9 +65,18 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: zentor.ai/blog/gemini-2-5-pro-shutdown-date (Sep 20, 2026, fetched — full lifecycle article: “Google Cloud lists October 20, 2026 as its retirement date” for gemini-2.5-flash; “OpenRouter has already committed: its /api/v1/models response carries expiration_date: 2026-10-20 on all three”; “New Google Cloud projects have been locked out of 2.5 since late July with a 404”; “Gemini API deprecations page says No shutdown date announced”); medium.com/@shtse8 “Google retires them on October 20, 2026” (gemini-2.5-pro/flash/flash-lite); GitHub dimagi/open-chat-studio #4509 “Google is retiring the 2.5 models on the Gemini Enterprise Agent Platform: they enter Extended Lifecycle Access on 2026-10-20”; layer3labs.io gemini deprecations guide (Oct 15, 2026).
+- Lifecycle: **MAJOR — retirement date Oct 20, 2026, has now PASSED** (today is Nov 4). Vertex AI / Google Cloud: gemini-2.5-flash retired Oct 20, 2026 (replacement: Gemini 3.5 Flash / 3.1 Flash-Lite). OpenRouter: expiration_date 2026-10-20 — delisted. Gemini API (ai.google.dev): technically “No shutdown date announced” — serves to legacy projects with prior usage history only; new projects blocked since July 2026. Flag: `legacy` — effectively retired on all major platforms as of Oct 20, 2026; residual availability via legacy Gemini API projects only.
+- Trigger: “none — legacy model superseded by the Gemini 3.x Flash line” → confirmed. No new benchmarks expected; no capability change; lifecycle flag is the material update.
+- Bands unchanged: Tool 45 / Reasoning 40 / Context 82 / Multimodal 78 / Coding 48. Overall remains **59/100**.
+- Verdict: lifecycle confirmation — retired as of Oct 20. Pass-1 scores hold. The model was already superseded and flagged “kept for legacy compatibility”; the Oct 20 date simply confirms what pass-1 anticipated.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` benchlm.ai full panel is the evidence base. `Muse_Spark_1.3.md` reports zero raw benchmarks and scores purely on 2025‑era Flash reputation — its 79 Overall is rejected. Curated `meta.json` correctly flags 1M and text/image/audio/PDF input. Flagged: (a) **Omniscience hallucination 93%** — the second‑worst in this queue after gpt‑oss‑120b (90.8%); (b) Design Arena 1126 is text→code, not vision input — Kimi's multimodal 66 already discounts this correctly; (c) 1M window is a hard structural fact, so full Context band credit applies with an LCR‑measured penalty, not a floor collapse.
 - Revisit trigger: none — legacy model superseded by the Gemini 3.x Flash line.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (lifecycle `legacy` — Oct 20, 2026 retirement date PASSED on Vertex AI + OpenRouter; Gemini API ambiguous but new projects blocked since July; zentor.ai fetched (full article), medium.com + GitHub + layer3labs confirm; no band change; Overall 59 holds).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

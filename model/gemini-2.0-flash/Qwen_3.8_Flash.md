@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind (`google/gemini-2.0-flash`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,8 +54,16 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: pass-1 already documents full retirement (“Deprecated and shut down 2026-06-01”); layer3labs.io gemini-model-deprecations (tracked; confirms 2.0 Flash retired; no entry in the Oct 2026–May 2028 upcoming-shutdown section because already done); ai.google.dev/gemini-api/docs/deprecations (fetched — gemini-2.0-flash NOT on current table = fully past service).
+- Model has been dead since Jun 1, 2026. Pass-1 fully documented lifecycle. No new data possible.
+- Bands unchanged: Tool 58 / Reasoning 50 / Context 90 / Multimodal 92 / Coding 48. Overall remains **68/100**.
+- Verdict: pure confirmation — historical entry, model retired Jun 1. Trigger N/A.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (serenitiesai benchmark aggregation with per-score sources for GPQA/MMLU-Pro/MATH/SWE-V/LCB/RULER/MathVista/Arena; ucstrategies 2026 retrospective on the shutdown; Google 2.0 launch-era docs; cross-checked against the qualifying `Kimi_K3.md` report and curated `meta.json`). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged that (a) the model is retired and unscored on any modern agentic suite, (b) its low GPQA/SWE numbers are honest 2026-placement penalties rather than missing data, and (c) the rater-gated cohort 73.3 overstates it relative to the measured independent rows.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (pure confirmation; retired Jun 1, 2026, pass-1 fully documented; no new data; Overall 68 holds; historical entry).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

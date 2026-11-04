@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash Lite — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind / Gemini 3.5 Flash Lite (`google/gemini-3-5-flash-lite`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC); second pass 2026-11-04 (UTC) — **confirmation pass**: launch day pinned — blog.google announced it **2026-07-21** alongside 3.6 Flash and 3.5 Flash Cyber (pass-1's "exact day not independently confirmed" gap closed); pricing reproduced exactly — OpenRouter **$0.30 in / $2.50 out, cache read $0.03** (cache write $0.0833 added); vendor absolutes corroborated (TB 2.1 **54%**, GDPval-AA v2 **1140** vs pass-1's 1139 — snapshot drift, same reading); speed profile quantified — DeepMind page claims **350 t/s** per AA, AA's provider roster shows **402 t/s** on AI Studio (fastest-class); no new independent rows move any band → **bands unchanged, Overall remains 75**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,8 +57,23 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-02). Confirmation pass — the evidence base reproduced; card ambiguities closed.
+
+**Sources:** release — https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/ (dated **2026-07-21**: "we're also releasing Gemini 3.5 Flash-Lite, designed for both low-latency tasks and tasks where high throughput is critical") · pricing — https://openrouter.ai/google/gemini-3.5-flash-lite (**"$0.30/M input … $2.50/M output … Cache Read at $0.03/M … Cache Write at $0.08333/M"**) and https://aistudio.google.com/docs/pricing (first-party rate card carries the 3.5 Flash-Lite lane) — exactly pass-1's figures · benchmarks — https://www.tryfriday.ai/blog/gemini-3-6-flash-3-5-flash-lite-benchmarks-pricing (Google reports **Terminal-Bench 2.1: 54%** vs 31% for 3.1 Flash-Lite; **GDPval-AA v2: 1140** vs 642 — reproduces pass-1's 54.0/1139 within snapshot drift) · speed/openness — https://deepmind.google/models/gemini/flash-lite/ (**"our fastest, most cost-effective 3.5-class model, delivering 350 output tokens per second according to the Artificial Analysis Index"**) vs https://artificialanalysis.ai/providers/google (measured **402 t/s** on AI Studio — 2nd-fastest Google lane) — side-by-side, both above pass-1's implicit assumptions; neither changes a scored band · ecosystem note — https://www.reddit.com/r/singularity/comments/1thvfxo/ (community framing "3.5 Flash-Lite is sufficient, you may not need 3.8 Flash" for high-volume lanes — anecdotal, not scored).
+
+**What moved and how it was resolved:**
+
+- **Nothing scored.** GPQA 83.8 / HLE 18.8 / Index 22.2 / SWE-Pro 54.2 / MMMU-Pro 79.0 all stand; no new independent absolutes for this id surfaced (3.6/3.8-era rows belong to their own ids — exact-ID; the v5.0.1 index deflation cascade is scale drift, not a band move).
+- **Card enrichments:** release day **2026-07-21** confirmed; cache-write $0.0833 recorded; measured speed 350–402 t/s supports the cost-efficiency placement (Cost 90, excluded from Overall).
+- **Overall remains 75.** (62+60+95+85+72)/5 = 74.8 → 75.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM rows citing Google launch blog, Artificial Analysis and Vals AI; OpenRouter pricing; fetched 2026-10-02); scores are normalized 1–100 interpretations, not official vendor scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation pass: launch pinned 2026-07-21 (blog.google), pricing/speed/benchmarks reproduced (TB 2.1 54, GDPval 1140, $0.30/$2.50, 350–402 t/s); no band moves, Overall remains 75. Pass-1 text preserved verbatim above.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

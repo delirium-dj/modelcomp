@@ -1,7 +1,7 @@
 # GLM-5.3 — findings by Qwen 3.8 Flash
 
 - Source: Z.AI / GLM-5.3 (`zai/glm-5.3`; open weights `zai-org/GLM-5.3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,8 +53,17 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: zentor.ai/blog/what-is-glm-5-3 (Oct 21, 2026, fetched — full specs article: 1M context, 128K max output, text-only, three reasoning levels, same base as GLM-5.2 with post-training gains only); felloai.com (GLM 5.3 launch article — DeepSWE 66.9, Agents' Last Exam 28.5, CyberGym 84.5%, matching pass-1); morphllm.com best-ai-model-for-coding (Oct 2026: "Z.ai reports GLM-5.3 at 88.2% on 2.1 and 28.3% on 3.0, with no 4.0 score"); edenai.co comparison (GLM-5.3 vs GPT-5.6 Sol, Agents' Last Exam 23.8, CyberGym 77.2); huggingface.co/zai-org/GLM-5.3 (weights now published — confirmed live, open-source SOTA on TB 3.0 and Agents' Last Exam).
+- Trigger evaluated (no Revisit trigger line; standing rule: material change): none fired. (a) **Lifecycle: no risk** — released Aug 14, 2026, 3 months ago; weights published on HF (`zai-org/GLM-5.3`); no retirement or deprecation announced. (b) **New independent benchmarks?** No. The zentor article (Oct 21) confirms the pass-1 data set without adding new third-party verified scores. One minor addition: **Agents' Last Exam 28.5** (GLM-5.2→5.3 from 23.8 to 28.5) — consistent with TB 3.0 at 28.3 already in the report; no separate band impact (the Tool/Context bands already account for TB3 performance). (c) **Multimodal**: zentor explicitly confirms “Text in, text out; no vision or audio in this release” — pass-1 multimodal floor of 15/100 stands. (d) **Meta.json conflict (`noFreeId: true` vs `glm-5.3-free` Zen entry)**: unresolved; no change to capability scoring.
+- Cost line update: zentor confirms “$1.40 and $4.40 per million tokens” in its specs graphic (Oct 21) — matches the pass-1 `meta.json`-derived pricing exactly.
+- Bands unchanged: Tool 88 / Reasoning 82 / Context 92 / Multimodal 15 / Coding 86. Overall recomputes to the same **73/100**.
+- Verdict: pass-1 holds on every band. Confirmation pass — trigger UNFIRED. No lifecycle concern (model is 3 months old with open weights published). No new independent evidence to move bands.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (BenchLM `glm-5.3` scorecard, overall 65.55 / #26 of 507, citing AA/Vals/CyberGym/Toolathlon; benchleader.com family index; cross-checked against the qualifying `Kimi_K3.md` report and the curated `meta.json`). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged (a) the Design Arena row is generation-only and must not be read as visual understanding (hence text-only multimodal floor), (b) the `meta.json` `noFreeId: true` conflicts with the live `glm-5.3-free` $0 Zen lane (204K cap), and (c) GPQA/HLE/LCR/Omniscience/GDPval are AA-independent while SWE/LCB/MMLU-Pro are Vals-harness.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation pass; zentor.ai Oct 21 fetched + felloai/morphllm/edenai/HF snippets; no new benchmarks, text-only confirmed, weights published, no lifecycle risk; bands and Overall 73 unchanged; trigger UNFIRED).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

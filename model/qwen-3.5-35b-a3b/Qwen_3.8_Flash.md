@@ -1,7 +1,7 @@
 # Qwen 3.5 35B-A3B — findings by Qwen 3.8 Flash
 
 - Source: Alibaba Qwen (`Qwen/Qwen3.5-35B-A3B`; curated id `opencode/qwen-3.5-35b-a3b`), cross-checked against the Qwen3.5 blog, Artificial Analysis (Intelligence Index, τ²-bench, Terminal-Bench), llm-stats / benchmarklist / ModelScope listings and the Hugging Face model card
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,9 +52,17 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: reddit r/LocalLLaMA SWE-rebench leaderboard thread (Feb 2026 — mentions Qwen 3.5-35B-A3B “officially on the public Terminal-Bench 2.0 leaderboard” — confirms the AA TB 2.0 40.8% already in pass-1); qwen.ai/blog (family page — SWE-bench Multilingual 72.0 for flagship, not 35B-A3B checkpoint); openrouter.ai/compare (lists qwen-3.5-35b-a3b — no new absolute beyond pass-1); vals.ai (lists Qwen models but no specific 35B-A3B entry found).
+- Trigger evaluated: “a Qwen3.6-35B-A3B AA single-number delta, or a co-measured (non-family) SWE-bench Verified absolute for this exact checkpoint” → **UNFIRED**. No Qwen3.6-35B-A3B AA comparison found; the ≈69.4% SWE-V in pass-1 remains family/vendor-measured (not independently co-measured). The TB 2.0 leaderboard confirmation is exactly what pass-1 already captured via AA.
+- Bands unchanged: Tool 80 / Reasoning 68 / Context 74 / Multimodal 74 / Coding 66. Overall recomputes to the same **72/100** (72.4 half-up → 72).
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Open-weight, no lifecycle risk.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — Qwen3.5 launch blog (native multimodal agents, MoE family), **Artificial Analysis** (Intelligence Index 29.26 / GPQA-D 84.5 / HLE 19.7 / AA-LCR 62.7 / τ²-bench Telecom 89.2 / Terminal-Bench 2.1 40.8 & Hard 26.5 — the independent backbone of this entry), the HF/ModelScope model card (AIME 93.3, MMLU-Redux 93.3, VideoMMMU 80.4, MathVision 83.9, SWE-bench-V family table), and llm-stats/benchmarklist provider + spec data (Apache-2.0, 2026-02-24, 262K, $0.14/$1.00 DeepInfra). Scores are normalized 1–100 interpretations, not official vendor scores; the SWE-bench cell is flagged as family/vendor-measured and the ~1M YaRN extension as unproven. Curated `meta.json` here is *not* scaffolded — it agrees with first-party evidence (262K native, text/image/video, Apache-2.0).
 - Revisit trigger: a Qwen3.6-35B-A3B AA single-number delta, or a co-measured (non-family) SWE-bench Verified absolute for this exact checkpoint.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (confirmation; trigger UNFIRED, no Qwen3.6-AA-delta or independent SWE-V; all bands hold; Overall 72.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.

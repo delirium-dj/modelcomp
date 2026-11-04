@@ -1,7 +1,7 @@
 # Claude Sonnet 3.7 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (`anthropic/claude-3-7-sonnet`, snapshot `claude-3-7-sonnet-20250219`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,8 +51,16 @@ Long context: 200K window; no MRCR/RULER/GraphWalks retrieval benchmark reported
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: pass-1 already documents full retirement (deprecated 2025-10-28, retired 2026-02-19); layer3labs.io anthropic-model-deprecations (Oct 15 — confirms “Claude 3 models lived 16 to 25 months” lifecycle pattern); platform.claude.com model-deprecations page (pass-1 already cited this as source; no new information added since Feb retirement).
+- Model is long-retired (since Feb 19, 2026 — 8.5 months). Pass-1 fully documented the lifecycle; no new data possible.
+- Bands unchanged: Tool 63 / Reasoning 60 / Context 70 / Multimodal 63 / Coding 72. Overall remains **66/100**.
+- Verdict: pure confirmation — historical entry, model dead. Trigger N/A.
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (Anthropic 2025-02-24 "Claude 3.7 Sonnet" announcement + published scaffolding appendix; official model-deprecations/retirement page confirming the 2026-02-19 retirement; cross-checked against the qualifying `Kimi_K3.md` report). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged that (a) GPQA/AIME headline numbers were published only as an unreadable chart image and were NOT invented here, (b) several reasoning/agentic rows are unverifiable, and (c) the curated `meta.json` (128K/text-only) confuses the extended-thinking output budget with the 200K context window and omits image input.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04 (pure confirmation; retired Feb 19, 2026, pass-1 fully documented; no new data; Overall 66 holds; historical entry).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

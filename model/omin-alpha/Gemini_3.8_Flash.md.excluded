@@ -1,0 +1,63 @@
+# Omin Alpha — findings by Gemini 3.8 Flash (self-excluded: no first-party model card and zero verified public benchmarks)
+
+- Source: curated id `opencode/omin-alpha` (`omin-alpha`)
+- Date: 2026-11-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** Written as `.md.excluded` per `RULES.md` and `tasks/research.md` Step 3.3 because **zero verified public benchmark numbers exist for this exact ID / model**. Comprehensive web searches across multiple independent sources confirm that no official model card, vendor release post, or verified leaderboard rows (Artificial Analysis, BenchLM, LMSYS, etc.) exist for `opencode/omin-alpha`. The identifier is either a typo/conflation of `omen-alpha` / `ox-alpha` or an unverified scaffolded entry with no independent benchmark evidence. Fabricating scores is strictly prohibited.
+
+## Model card (unverified entry)
+
+- **Name:** Omin Alpha
+- **Short description:** Unverified model entry on OpenCode without a published vendor model card or official technical documentation.
+- **Provider / access:** `opencode/omin-alpha` (OpenCode curated ID).
+- **Release / knowledge:** No verified release date or knowledge cutoff found.
+- **IDs:** `opencode/omin-alpha`
+- **Context window:** Scaffolded placeholder in meta.json states 128K; no independent benchmark confirmation.
+- **Modalities:** Unverified (claimed text in/out).
+- **Pricing:** Unverified / undocumented.
+- **Architecture:** Unknown proprietary or re-routed model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- Humanity's Last Exam (HLE): **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER: **no verified public score found**
+
+### Normalized scores (1–100)
+
+- **Tool use: excluded.** Zero verified benchmarks found.
+- **Reasoning: excluded.** Zero verified benchmarks found.
+- **Context window: excluded.** Zero verified benchmarks found.
+- **Multimodal: excluded.** Zero verified benchmarks found.
+- **Coding: excluded.** Zero verified benchmarks found.
+- **Cost efficiency: excluded.** Zero verified pricing data.
+- **Overall Score: excluded.** Self-excluded per `RULES.md` and `model-report-TEMPLATE.md` due to zero verified benchmark records.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (gemini/gemini-3.8-flash)** — 2026-11-04
+- Method: Multi-source web verification confirming complete absence of first-party model cards, benchmark evaluations, and independent index rows for `opencode/omin-alpha`.
+- Reference URLs:
+  - [OpenCode Platform](https://opencode.ai)
+  - [Artificial Analysis Directory](https://artificialanalysis.ai)
+  - [OpenRouter Model Directory](https://openrouter.ai)

@@ -1,7 +1,7 @@
 # Qwen 3.5 122B A10B — findings by Qwen 3.8 Flash
 
 - Source: Alibaba Qwen (`Qwen/Qwen3.5-122B-A10B`; curated id `opencode/qwen-3.5-122b-a10b`), cross-checked against the Qwen3.5 blog, Hugging Face model card, DeepInfra/apXML benchmark pages and the open-weight tracker
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 (UTC); second pass 2026-11-04 (UTC) — **confirmation, trigger tested/unfired**: AA page exists for this checkpoint but **Intelligence Index = N/A** (No publicly available API); no 1M retrieval score published; specs confirmed (262K ctx, text+image, 125B/10B active, Apache 2.0, reasoning yes); AA hosted price $0.40/$3.20 (provider lane, not self-host $0) → **bands unchanged, Overall remains 71.4**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,9 +51,24 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+Staleness-triggered re-research (prior pass 2026-10-20). Confirmation pass: revisit trigger tested, unfired.
+
+**Sources:** https://artificialanalysis.ai/models/qwen3-5-122b-a10b (Reasoning page: **Intelligence Index N/A**, “No publicly available API”; released Feb 2026; open weights, Apache 2.0; text+image input; 262k context; 125B total / 10B active params; speed #12/261 127.4 t/s; hosted price $0.40/$3.20) · no new independent benchmark data (GPQA, SWE, MRCR/RULER at 1M) surfaced for this exact id in web searches.
+
+**Trigger resolution:** the pass-1 revisit trigger required “an Artificial Analysis single-number Intelligence-Index row for this checkpoint, or published 1M long-context retrieval scores.” AA lists the model on their site but Index is N/A (no numeric composite; “No publicly available API” means AA cannot run it through their own harness at the time of indexing). No 1M retrieval score published. Trigger **UNFIRED**.
+
+**What held:** release 2026-02-15 (AA “February 2026”); 262K native; text+image (early-fusion vision); Apache 2.0; 125B/10B architecture; self-host economics. All five quality bands unchanged.
+
+**Overall Score: 71.4/100** — unchanged; half-up mean (66+73+76+72+70)/5 = 357/5 = 71.4.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — Qwen3.5 launch blog ("Towards Native Multimodal Agents", 2026-02-15), Hugging Face `Qwen/Qwen3.5-122B-A10B` model card (early-fusion vision, 262K→1M+), DeepInfra API-benchmark page and apXML spec page (MMLU-Pro 86.1, GPQA 85.5, SWE-V 72.0–72.4, Terminal-Bench 41.6–49.4), and the xigh open-weight tracker. Scores are normalized 1–100 interpretations, not official vendor scores; where two sources disagree (Terminal-Bench), both are cited. Curated `meta.json` is scaffolded ("128K / Text in-out") and was overridden by first-party evidence (262K native, native image+video multimodal).
 - Revisit trigger: an Artificial Analysis single-number Intelligence-Index row for this checkpoint, or published 1M long-context retrieval scores.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. AA page found but Index N/A, trigger unfired; specs and bands unchanged; Overall 71.4 stands.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.
