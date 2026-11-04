@@ -110,7 +110,6 @@ const VENDORS: VendorMatch[] = [
   { match: "nebius", icon: "nebius", label: "Nebius", adaptive: true },
   { match: "wandb", icon: "wandb", label: "Weights & Biases", adaptive: true, invertDark: true },
   { match: "weightsandbiases", icon: "wandb", label: "Weights & Biases", adaptive: true, invertDark: true },
-  { match: "coreweave", icon: "wandb", label: "Weights & Biases", adaptive: true, invertDark: true },
   { match: "agentrouter", icon: "agentrouter", label: "AgentRouter", adaptive: true },
   { match: "reflection", icon: "reflection", label: "Reflection AI", adaptive: true },
   { match: "puter", icon: "puter", label: "Puter", invertLight: true },

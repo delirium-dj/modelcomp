@@ -1,0 +1,15 @@
+{
+  "name": "io.net",
+  "kind": "vendor",
+  "short": "Decentralized GPU network aggregating 30,000+ consumer and datacenter GPUs, priced dynamically by supply and demand at up to ~70% below hyperscalers.",
+  "officialUrl": "https://io.net",
+  "hosts": ["io.net"],
+  "plans": [
+    {
+      "name": "IO Compute (on-demand)",
+      "price": "Marketplace, per GPU-hour",
+      "notes": "Dynamic supply/demand pricing settled on Solana.",
+      "evidenceUrl": "https://io.net/"
+    }
+  ]
+}

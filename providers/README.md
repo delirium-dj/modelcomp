@@ -6,10 +6,13 @@ marketplaces/aggregators (`opencode-zen`, `openrouter`, `nanogpt`,
 `deepinfra`, `huggingface`, `fireworks-ai`, `cloudflare-workers-ai`,
 `amazon-bedrock`, `microsoft`, `together-ai`, `novita-ai`, `baseten`, `ollama`,
 `scaleway`, `sambanova`, `groq`, `llm7`, `ovhcloud`, `siliconflow`, `cerebras`,
-`kilocode`, `wandb`, `agentrouter`) and vendor-direct
+`kilocode`, `wandb`, `agentrouter`, `digitalocean`, `snowflake-cortex`, `oracle`) and vendor-direct
 APIs (`anthropic`, `openai`, `google`, `deepseek`, `xai`, `zai`, `moonshot`,
 `xiaomi`, `minimax`, `alibaba`, `mistral`, `upstage`, `meta`, `longcat`,
-`nebius`, `reflection`, `inception`, `stepfun`, `unbiased`, `callstack`, `tencent`, `poolside`, `inclusionai`).
+`nebius`, `reflection`, `inception`, `stepfun`, `unbiased`, `callstack`, `tencent`, `poolside`, `inclusionai`, `reka`, `morph`, `assemblyai`, `pinecone`, `qdrant`, `serpapi`),
+GPU-infrastructure clouds (`runpod`, `lambda`, `hyperbolic`, `modal`, `chutes`, `vast-ai`,
+`coreweave`, `verda`, `vultr`, `io-net`, `spheron`, `lightning-ai`) and eval/observability tooling (`braintrust`, `promptfoo`, `patronus-ai`,
+`galileo`, `langwatch`).
 
 This folder is **not** scanned by `pnpm sync` (which covers `model/` only) —
 it is loaded directly by the website build via `import.meta.glob`

@@ -1,0 +1,21 @@
+{
+  "name": "SerpApi",
+  "kind": "vendor",
+  "short": "Google and multi-engine Search API that returns structured SERP JSON for AI agents, RAG grounding and web search, with a free monthly quota.",
+  "officialUrl": "https://serpapi.com",
+  "hosts": ["serpapi.com"],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "~250 searches per month for testing.",
+      "evidenceUrl": "https://serpapi.com/pricing"
+    },
+    {
+      "name": "Developer / monthly plans",
+      "price": "Per-plan, searches/month",
+      "notes": "Paid plans scale search volume; enterprise custom.",
+      "evidenceUrl": "https://serpapi.com/pricing"
+    }
+  ]
+}

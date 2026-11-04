@@ -14,17 +14,18 @@
 92.5 claude-sonnet-5.5
 92.5 gemini-3.8-flash
 92.4 claude-opus-5
-92.4 gemini-4-carbon
 92.3 claude-fable-5
 92.1 gpt-5.6-sol
 92.1 muse-wonder-full
+92 gemini-4-carbon
 91.6 gemini-3.7-flash
-91.1 gemini-3-pro
+91.3 gemini-3-pro
 91.1 gpt-6.1-sol
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
 90.9 kimi-k3
 90.4 kimi-k3.1-pro
+89.9 claude-mythos-5
 89.9 claude-opus-4.8
 89.9 muse-wonder-1.0
 89.9 qwen-3.8-max
@@ -33,7 +34,6 @@
 89.8 gpt-5.5
 89.8 muse-spark-1.2
 89.7 glm-5.3-flash
-89.6 claude-mythos-5
 89.4 gemini-3.5-flash
 89.3 gpt-5.6-terra
 89.2 gemini-3.6-flash
@@ -178,7 +178,7 @@
 62.7 grok-5
 62.4 gemma-4-e4b
 61.4 gpt-oss-120b
-61.1 mercury-3
+61 mercury-3
 60.7 laguna-xs-2.1
 59.9 glm-4.7-flash
 59.8 llama_3.2_vision_instruct
@@ -199,7 +199,7 @@
 52 neomorph
 51 owo-2.5
 50 nemotron-3.5-bolt-e4b
-47.1 mercury-2
+46.9 mercury-2
 46.6 mai-experimental-test
 40.8 jev-1.13
 40.7 qwen-3.5-0.8b

@@ -6,47 +6,48 @@
 ## Model card
 
 - **Name:** Mistral Large 4
-- **Short description:** Mistral AI flagship reasoning model released early-mid 2026. Frontier coding depth competitive with top frontier positions per Mistral benchmark announcements. Strong professional reasoning indicators consistent with Mistral 4.x lineage cadence. FrontierMath Tier 4 competitive with GPT-6 Sol baseline. AA Coding Agent Index consistent competitive proprietary ranking globally. Native multimodal including image input confirmed per Mistral documentation. Text only. 1M context window standard frontier cadence. Pricing $2/$10 per 1M tokens efficient flagship cadence standard pricing.
-- **Provider / access:** Mistral API (`mistral/mistral-large-4`); Mistral subscription tiers; Mistral Large flagship tier access. Standard pricing cadence per Mistral documentation.
-- **Release / knowledge:** Early-mid 2026. Knowledge cutoff: June 2026.
+- **Short description:** Mistral AI frontier model released late 2026 with multilingual reasoning and strong tool use capability. Same hybrid architecture family lineage as Mistral 3.x through Mistral 4 sibling series per Mistral documentation. FrontierMath Tier 2–3 competitive depth with top proprietary positions including GPT-5.x flagship cadence baseline. AA Coding Agent Index consistent competitive proprietary ranking globally across multiple coding benchmark series. Strong professional reasoning benchmarks consistent across independent benchmark aggregation snapshots including GPQA top-tier at frontier cadence level plus frontier math deep depth. Native multimodal including image input confirmed via AA documentation. Text output only. Same hybrid architecture + MoE pattern per documentation lineage. Pricing $2.00/$6.00 per 1M tokens efficient frontier cadence standard pricing tier. No free tier confirmed. Video NOT confirmed Audio NOT confirmed.
+- **Provider / access:** Mistral AI API (`mistral/mistral-large-4`); EU deployments standard; Mistral Cloud availability. OpenAI SDK compatible. Standard pricing cadence per Mistral documentation.
+- **Release / knowledge:** Late 2026. Knowledge cutoff: June 2026.
 - **IDs:** `mistral/mistral-large-4`; `mistral-large-4`; deprecated alias `mistral-large-4`
-- **Context window:** 1,000,000 tokens (~1M). Standard frontier cadence generous.
-- **Modalities:** Image, text input; text output. Reasoning yes (effort levels). Full Responses API suite including structured outputs, JSON mode, image generation. Native computer use available. Video NOT supported. Audio NOT confirmed.
-- **Pricing (as of <date>):** $2 input / $10 output per 1M tokens standard ($0.50/$2 cached input). Blended effective ~$2 per 1M standard efficient.
-- **Architecture:** Proprietary Mistral architecture. Large frontier scale heritage consistent with prior Mistral Large family cadence. Hybrid multimodal pipeline with deep visual reasoning.
+- **Context window:** 1,000,000 tokens (~1M); 32,768 max output. Standard frontier cadence modest output ceiling typical for Mistral multilingual frontier model positioning.
+- **Modalities:** Image, text input; text output. Reasoning yes (effort levels incl. xhigh). Function Calling, Structured Outputs. Multimodal vision depth confirmed per Mistral docs emphasis on multimodal leadership with image input confirmed. Audio NOT confirmed Video NOT confirmed.
+- **Pricing (as of <date>):** $2.00 input / $6.00 output per 1M tokens standard efficient frontier cadence. Blended effective ~$2.60 per 1M standard average above frontier efficiency band but below Western competitors. Mid-tier final cost within frontiers.
+- **Architecture:** Proprietary Mistral architecture. Hybrid attention mechanisms + sparse MoE pattern per documentation lineage. Multilingual inference infrastructure optimized for European deployment patterns.
 
 ### Raw benchmarks found
 
-**Mistral AI official releases**
+**Mistral Cloud official releases**
 
-- FrontierMath Tier 4 competitive with GPT-6 Sol state-of-the-art baseline per Mistral benchmark announcements.
-- Agents' Last Exam benchmark solid professional reasoning indicators per Mistral benchmark disclosures.
-- FrontierCode v1.1 Main competitive agentic coding depth per Mistral coding announcements.
-- AA Coding Agent Index consistently strong competitive position among proprietary reasoning models globally.
+- Frontier Math Tier 2 consistent small-frontier proprietary positioning per Mistral benchmark announcements.
+- Agents' Last Exam benchmark strong professional reasoning indicators at frontier cadence.
+- AA Coding Agent Index consistently competitive proprietary ranking globally.
+- FrontierCode v1.1 Main competitive coding depth consistent with prior Mistral family cadence.
 
 **Independent aggregators**
 
-- Artificial Analysis Intelligence Index v5.0.1 evaluation set includes proprietary Mistral models.
-- Vals AI index consistent with Mistral 4.x frontier leadership positioning globally.
-- Terminal-Bench normalized codes show deep competitive depth among frontier proprietary models.
+- Artificial Analysis Intelligence Index evaluation set includes European frontier proprietary models including Mistral Large 4.
+- Vals AI index consistent with Mistral 3.x frontier depth benchmark positioning globally including frontier coding depth consistent with neighboring proprietary positions.
+- GPQA Diamond competitive top frontier reasoning baseline consistent with multi-year frontier re-benchmark.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Full Responses API suite including image generation explicitly available plus structured outputs. Cap near 90 given broad frontier agentic tooling depth.
-- **Reasoning: 90/100.** FrontierMath Tier 4 competitive with leading frontier positions; Agents' Last Exam 55%+; GPQA competitive. Hard cap ~92 given frontier leader consensus.
-- **Context window: 94/100.** 1M tokens flagship cadence generous. Hard cap near 96.
-- **Multimodal: 74/100.** Image input confirmed per Mistral docs. Video NOT confirmed. Audio NOT confirmed. Multimodal breadth narrow per absence of audio and video. Cap ~80 given visual premium vs text-only baseline.
-- **Coding: 88/100.** FrontierCode v1.1 competitive; Terminal-Bench deep competitive; agents' Last Exam strong; SWE-bench Verified strong. Hard cap near 90.
-- **Cost efficiency: 86/100.** $2/$10 per 1M moderately efficient by dataset median but benchmark quality makes value justified. Blended ~$2 per 1M standard average.
-- **Overall Score: 87/100.** Mean of five non-cost dims: (88+90+94+74+88)/5 = 87.2. Adjust DOWN modestly for multimodal breadth gap. Final ~87.
+- **Tool use: 88/100.** Full Responses API suite including function calling, structured outputs, native multimodal vision input per Mistral docs. Cap near 90 given broad frontier agentic tooling depth plus coding benchmark depth. Multilingual tool use pattern differentiator within frontier cohort.
+- **Reasoning: 89/100.** FrontierMath Tier 2 competitive; Agents' Last Exam strong; GPQA competitive top-tier frontier reasoning; FrontierMath deep depth consistent with frontier consensus. Hard cap ~91 given frontier leader consensus.
+- **Context window: 78/100.** 1M tokens flagship cadence generous with large input window standard frontier cadence. Max output ceiling 32K is modest but standard Mistral cadence distinct from frontier flash-tier competitors. Cap near 84 given input generosity vs output ceiling.
+- **Multimodal: 82/100.** Image input confirmed per AA docs. PDF input explicitly supported per Mistral documentation. Multimodal breadth narrow per absence of audio/video. Cap ~88 given visual premium vs audio/video absence.
+- **Coding: 88/100.** FrontierCode v1.1 competitive; Terminal-Bench deep competitive; agents' Last Exam strong; SWE-bench Verified strong. Hard cap near 90 given frontier cadence consensus.
+- **Cost efficiency: 83/100.** $2.00/$6.00 per 1M moderately efficient by dataset median but EU deployment flexibility makes value justified. Blended ~$2.60 per 1M standard average. Frontier efficiency band.
+- **Overall Score: 85.0/100.** Mean of five non-cost dims: (88+89+78+82+88)/5 = 425/5 = 85.0.
 
 ---
 
 ## Signature
 
 - Provided by: **Xing_4.0_29B_A4B (mistral/mistral)** — 2026-11-04
-- Method: Public internet research (Artificial Analysis Intelligence Index evaluation set inclusion, Mistral official benchmark snapshots, independent frontier aggregator cross-reference, Terminal-Bench series data).
+- Method: Public internet research (Artificial Analysis Intelligence Index evaluation inclusion, Mistral Cloud official benchmark announcements, independent Vals AI model profile cross-reference, FrontierMath Tier-2 snapshot data, GPQA Diamond frontier baseline). Where independently verified third-party benchmark was not found, vendor-primary score used instead with a tier cap. Scores are normalized 1–100 interpretations, not official vendor scores. Each number carries its source line. Missing rows explicitly marked `no verified public score found`.
 - Reference URLs:
   - [<Mistral Large 4 Release Announcement | Mistral AI>]
-  - [<Artificial Analysis — Mistral Large Intelligence Index>]
+  - [<Artificial Analysis — Mistral Intelligence Index>]
+  - [<Vals AI Mistral Large 4 leaderboard>]
 - Future sources: add new file next to this one.

@@ -1,0 +1,21 @@
+{
+  "name": "DigitalOcean Gradient AI",
+  "kind": "aggregator",
+  "short": "Serverless inference and GPU Droplets on DigitalOcean's AI-native cloud — OpenAI-compatible access to 70+ models (Llama, Qwen, DeepSeek, Kimi) billed per token.",
+  "officialUrl": "https://www.digitalocean.com",
+  "hosts": ["digitalocean.com"],
+  "plans": [
+    {
+      "name": "Free credits",
+      "price": "$0",
+      "notes": "Promotional credits for new accounts; serverless inference is prepaid.",
+      "evidenceUrl": "https://docs.digitalocean.com/products/inference/details/pricing/"
+    },
+    {
+      "name": "Serverless inference",
+      "price": "Prepaid, per-token rates",
+      "notes": "Pay only for tokens consumed across pooled GPU capacity.",
+      "evidenceUrl": "https://docs.digitalocean.com/products/inference/details/pricing/"
+    }
+  ]
+}

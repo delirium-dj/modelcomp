@@ -1,0 +1,21 @@
+{
+  "name": "Vultr",
+  "kind": "vendor",
+  "short": "Global cloud offering on-demand Cloud GPU instances (NVIDIA H100, A100, GH200, AMD MI300X) billed per hour across its datacenter regions.",
+  "officialUrl": "https://www.vultr.com",
+  "hosts": ["vultr.com"],
+  "plans": [
+    {
+      "name": "Cloud GPU (on-demand)",
+      "price": "Per GPU-hour",
+      "notes": "Public rate card by GPU model (H100, A100, L40S, GH200).",
+      "evidenceUrl": "https://www.vultr.com/pricing/"
+    },
+    {
+      "name": "Bare Metal GPU",
+      "price": "Starting-from per GPU-hour",
+      "notes": "Pre-paid contract terms; contact sales for on-demand.",
+      "evidenceUrl": "https://www.vultr.com/pricing/"
+    }
+  ]
+}

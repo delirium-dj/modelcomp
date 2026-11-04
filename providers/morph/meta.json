@@ -1,0 +1,15 @@
+{
+  "name": "Morph",
+  "kind": "vendor",
+  "short": "Inference engine built for coding agents — fast code-focused models (e.g. Morph V3 Fast for apply/edit) served per token.",
+  "officialUrl": "https://www.morphllm.com",
+  "hosts": ["morphllm.com"],
+  "plans": [
+    {
+      "name": "API (pay-as-you-go)",
+      "price": "Per-token, per-model rates",
+      "notes": "Fast code-edit models billed per token; priced on more tokens per GPU-hour.",
+      "evidenceUrl": "https://www.morphllm.com/"
+    }
+  ]
+}

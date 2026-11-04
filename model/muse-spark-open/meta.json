@@ -1,0 +1,9 @@
+{
+  "id": "opencode/muse-spark-open",
+  "name": "Muse Spark Open",
+  "short": "Muse Spark Open model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

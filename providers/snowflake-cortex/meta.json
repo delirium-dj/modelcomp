@@ -1,0 +1,15 @@
+{
+  "name": "Snowflake Cortex",
+  "kind": "aggregator",
+  "short": "Managed LLM inference and AI Functions inside Snowflake, serving frontier open and proprietary models billed in AI Credits per million tokens.",
+  "officialUrl": "https://www.snowflake.com",
+  "hosts": ["snowflake.com"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "AI Credits, per million tokens",
+      "notes": "Per-model rates; prompt-cache reads billed at a reduced rate.",
+      "evidenceUrl": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing"
+    }
+  ]
+}

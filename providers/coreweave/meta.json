@@ -1,0 +1,21 @@
+{
+  "name": "CoreWeave",
+  "kind": "vendor",
+  "short": "High-performance GPU cloud for large-scale AI training and inference, billed per GPU-hour on on-demand and reserved instances.",
+  "officialUrl": "https://www.coreweave.com",
+  "hosts": ["coreweave.com"],
+  "plans": [
+    {
+      "name": "On-demand",
+      "price": "Per GPU-hour, per instance type",
+      "notes": "Live pricing by GPU model (e.g. H100, GB200/GB300 NVL72).",
+      "evidenceUrl": "https://www.coreweave.com/pricing"
+    },
+    {
+      "name": "Reserved",
+      "price": "Committed rate, per GPU-hour",
+      "notes": "Multi-year contracts at discounted rates.",
+      "evidenceUrl": "https://www.coreweave.com/pricing"
+    }
+  ]
+}

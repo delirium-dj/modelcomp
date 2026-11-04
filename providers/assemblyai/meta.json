@@ -1,0 +1,21 @@
+{
+  "name": "AssemblyAI",
+  "kind": "vendor",
+  "short": "Production speech-to-text, transcription and speech-understanding API (with agent APIs) billed per audio-hour, with free starter credits.",
+  "officialUrl": "https://www.assemblyai.com",
+  "hosts": ["assemblyai.com"],
+  "plans": [
+    {
+      "name": "Free credits",
+      "price": "$0",
+      "notes": "$50 in free credits (~185 hrs pre-recorded transcription).",
+      "evidenceUrl": "https://www.assemblyai.com/pricing"
+    },
+    {
+      "name": "Usage-based",
+      "price": "Per audio-hour, per capability",
+      "notes": "STT, real-time streaming, speech understanding and TTS metered.",
+      "evidenceUrl": "https://www.assemblyai.com/pricing"
+    }
+  ]
+}

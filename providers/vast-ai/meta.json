@@ -1,0 +1,21 @@
+{
+  "name": "Vast.ai",
+  "kind": "vendor",
+  "short": "Decentralized GPU marketplace where hosts set live per-GPU-hour rates for on-demand, interruptible and reserved compute.",
+  "officialUrl": "https://vast.ai",
+  "hosts": ["vast.ai"],
+  "plans": [
+    {
+      "name": "On-demand",
+      "price": "Marketplace rate, per GPU-hour",
+      "notes": "Host-set live pricing across 40+ data centers.",
+      "evidenceUrl": "https://vast.ai/pricing"
+    },
+    {
+      "name": "Interruptible (spot)",
+      "price": "Discounted per GPU-hour",
+      "notes": "Cheapest lane; instances can be reclaimed.",
+      "evidenceUrl": "https://vast.ai/pricing"
+    }
+  ]
+}

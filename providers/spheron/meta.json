@@ -1,0 +1,21 @@
+{
+  "name": "Spheron",
+  "kind": "vendor",
+  "short": "Decentralized GPU rental network with per-minute on-demand and spot pricing for NVIDIA H100/H200/B200 and AMD MI300X, no long-term contracts.",
+  "officialUrl": "https://www.spheron.network",
+  "hosts": ["spheron.network"],
+  "plans": [
+    {
+      "name": "On-demand",
+      "price": "Per GPU-hour, per-minute billing",
+      "notes": "Live rate card by GPU (H100, A100, B200, MI300X).",
+      "evidenceUrl": "https://www.spheron.network/pricing/"
+    },
+    {
+      "name": "Spot",
+      "price": "Discounted per GPU-hour",
+      "notes": "Interruptible capacity below on-demand rates.",
+      "evidenceUrl": "https://www.spheron.network/pricing/"
+    }
+  ]
+}

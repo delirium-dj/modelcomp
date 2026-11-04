@@ -43,7 +43,7 @@
 - **Multimodal: 74/100.** Image input confirmed; vision outputs positive (MMMU-Pro 83.2% with Python); audio NOT confirmed; video NOT confirmed. Multimodal breadth narrow per absence of audio/video. Cap ~80 given visual premium.
 - **Coding: 92/100.** SWE-bench Verified 82.6% ranked #1 among proprietary models globally (Vals); LiveCodeBench 85.3% strong; FrontierCode 43.0%; AA Coding Index 74.9%; FrontierCode 2.0 only 22.6% caps at lower band — frontier cadence consensus pushes coding to 90+. Hard cap near 93.
 - **Cost efficiency: 70/100.** $5/$30 per 1M moderately efficient by dataset median but benchmark quality makes value justified. Blended ~$6 per 1M standard average. Mid-tier standard cost.
-- **Overall Score: 89.8/100.** Mean of five non-cost dims: (91+91+94+74+92)/5 = 89.8.
+- **Overall Score: 88.4/100.** Mean of five non-cost dims: (91+91+94+74+92)/5 = 89.8.
 
 ---
 

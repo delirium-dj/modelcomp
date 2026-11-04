@@ -1,9 +1,22 @@
 {
   "id": "opencode/gemini-4-carbon",
   "name": "Gemini 4 Carbon",
-  "short": "Gemini 4 Carbon model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Google DeepMind's strongest model for cybersecurity and long-horizon agentic coding; leads HLE-Diamond 69.1%, SEC-bench Pro 88.2%, AA Intelligence Index 60 (#1/66); gated launch to cyber defenders.",
+  "contextWindow": "1M / 1M out",
+  "modalities": "Text, image, speech, video in; text out",
+  "pricingNote": "Intro $2/$10 per 1M; standard $4/$20 per 1M; cached input $0.20 per 1M (95% off)",
+  "pricingTiers": [
+    "Introductory $2.00/M in, $10.00/M out",
+    "Standard $4.00/M in, $20.00/M out",
+    "Cached input $0.20/M (95% discount)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://deepmind.google/technologies/gemini/",
+  "pricingLinks": [
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ],
+  "standout": "Leads HLE-Diamond (69.1%) and SEC-bench Pro (88.2%); #1 on the Artificial Analysis Intelligence Index (60) — frontier cybersecurity + long-horizon agentic coding.",
+  "tradeoff": "Premium $4/$20 pricing and a gated launch (cyber defenders first, general access pending) — availability and rate limits, not the price card, decide usability."
 }

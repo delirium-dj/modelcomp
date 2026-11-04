@@ -1,0 +1,21 @@
+{
+  "name": "LangWatch",
+  "kind": "vendor",
+  "short": "OpenTelemetry-native LLM observability and evaluation platform for tracing, testing and monitoring agents, free to start and self-hostable.",
+  "officialUrl": "https://langwatch.ai",
+  "hosts": ["langwatch.ai"],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Unlimited users; pay only for events sent.",
+      "evidenceUrl": "https://langwatch.ai/pricing"
+    },
+    {
+      "name": "Paid",
+      "price": "Per events + per-seat",
+      "notes": "Add core-seats and event / extended-retention charges; self-host free.",
+      "evidenceUrl": "https://langwatch.ai/pricing"
+    }
+  ]
+}

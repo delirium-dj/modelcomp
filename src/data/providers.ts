@@ -79,6 +79,13 @@ const GPU_PROVIDER_SLUGS = new Set([
   "anyscale",
   "lepton",
   "hetzner",
+  "vast-ai",
+  "coreweave",
+  "verda",
+  "vultr",
+  "io-net",
+  "spheron",
+  "lightning-ai",
 ]);
 
 export function getProviderCategory(

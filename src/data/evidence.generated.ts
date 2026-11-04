@@ -165,12 +165,14 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Tau2-bench", value: "98.1%", raters: ["Beam", "GPT_6_Luna"] },
   ],
   "claude-mythos-5": [
-    { benchmark: "Terminal-Bench", value: "88%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "HLE", value: "64.5%", raters: ["MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "GPQA Diamond", value: "94.1%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "SWE-bench Verified", value: "95.5%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "OSWorld", value: "85%", raters: ["MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "SWE-bench Pro", value: "80.3%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
+    { benchmark: "Terminal-Bench", value: "88%", raters: ["Beam", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "HLE", value: "64.5%", raters: ["MiMo_2.6_Flash", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "GPQA Diamond", value: "94.1%", raters: ["Beam", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "SWE-bench Verified", value: "95.5%", raters: ["Beam", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "OSWorld", value: "85%", raters: ["Beam", "MiMo_2.6_Flash", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "SWE-bench Pro", value: "80.3%", raters: ["Beam", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "BrowseComp", value: "88%", raters: ["Beam", "MiMo_2.6_Flash", "Qwen_3.8_Max"] },
+    { benchmark: "CritPt", value: "28.6%", raters: ["Beam", "MiMo_2.6_Flash"] },
   ],
   "claude-mythos-5.1": [
     { benchmark: "Terminal-Bench", value: "60.9%", raters: ["Beam", "Big_Pickle", "Claude_Opus_4.6", "Claude_Sonnet_3.5", "Claude_Sonnet_4.5", "Claude_Sonnet_5", "DeepSeek_4.1_Flash", "DeepSeek_4_Flash", "Fledge_Alpha", "GLM_5.3", "GLM_5.3_Flash", "GPT_5", "GPT_5.5", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6_Luna", "Gemini_3.6_Flash", "Gemini_3.8_Flash", "Gemini_3_Flash", "Grok_4.6", "Kimi_K3", "Laguna_S_2.1", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Spark_1.2", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B", "Pixel_Canary", "Qwen_3.7_Plus", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
@@ -721,7 +723,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Tau3-bench", value: "68.4%", raters: ["Gemini_3.6_Flash", "Gemini_3.7_Flash"] },
   ],
   "gemini-3-pro": [
-    { benchmark: "Terminal-Bench", value: "54.2%", raters: ["Fledge_Alpha", "GLM_5.2_Coding", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Sol", "Grok_4.6", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "MiniMax_M3", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3"] },
+    { benchmark: "Terminal-Bench", value: "54.2%", raters: ["Fledge_Alpha", "GLM_5.2_Coding", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Sol", "Grok_4.6", "Kimi_K3.1_Pro", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "MiniMax_M3", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3"] },
     { benchmark: "HLE", value: "37.5%", raters: ["Claude_Opus_5", "Fledge_Alpha", "GLM_5.2_Coding", "GLM_5.3_Flash", "Gemini_3.6_Flash", "Grok_4.6", "Kimi_K3", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "MiniMax_M3", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "North_Mini_Code", "Qwen_3.8_Max", "Step_5_Preview"] },
     { benchmark: "GPQA Diamond", value: "91.9%", raters: ["Claude_Opus_4.6", "Claude_Opus_5", "Fledge_Alpha", "Flint", "GLM_5.2_Coding", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6.1_Sol", "Gemini_3.6_Flash", "Grok_4.6", "Kimi_K3", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "MiniMax_M3", "MiniMax_M3.1_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.2", "North_Mini_Code", "Qwen_3.8_Max", "Step_5_Preview"] },
     { benchmark: "GDPval", value: "1195 Elo", raters: ["GLM_5.3_Flash", "Kimi_K3", "Laguna_XS_2.1", "MiniMax_M3.1_Flash", "Muse_Spark_1.2"] },
@@ -912,6 +914,10 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "SciCode", value: "61.8%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Qoder_Sonus"] },
     { benchmark: "AA Coding Index", value: "77.5%", raters: ["GLM_5.3_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
     { benchmark: "FrontierMath", value: "85.965%", raters: ["Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B"] },
+  ],
+  "gemini-4-carbon": [
+    { benchmark: "OSWorld", value: "81.5%", raters: ["Beam", "Muse_Glimmer_30B", "Qwen_3.8_Max"] },
+    { benchmark: "AA-LCR", value: "79.3%", raters: ["Beam", "Qwen_3.8_Max"] },
   ],
   "gemma-4-12b-unified": [
     { benchmark: "HLE", value: "5.2%", raters: ["DeepSeek_4.1_Flash", "Flint", "GLM_5.3_Flash", "GPT_5.6_Luna", "GPT_5.6_Sol", "Muse_Glimmer_30B", "Nemotron_3_Ultra_550B_A55B"] },
@@ -2243,8 +2249,8 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "GPQA Diamond", value: "89.23%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Step_5_Preview"] },
     { benchmark: "DeepSWE", value: "46.31%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Gemini_3.8_Flash", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Step_5_Preview"] },
     { benchmark: "AA-LCR", value: "77.67%", raters: ["DeepSeek_4.1_Flash", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Step_5_Preview"] },
+    { benchmark: "BrowseComp", value: "55.18%", raters: ["DeepSeek_4.1_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Max", "Step_5_Preview"] },
     { benchmark: "Tau3-bench", value: "30.24%", raters: ["DeepSeek_4.1_Flash", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Step_5_Preview"] },
-    { benchmark: "BrowseComp", value: "55.18%", raters: ["DeepSeek_4.1_Flash", "MiMo_2.6_Flash", "Step_5_Preview"] },
   ],
   "mimo-v2.5-free": [
     { benchmark: "Terminal-Bench", value: "65.8%", raters: ["Big_Pickle", "Claude_Opus_5", "DeepSeek_4.1_Flash", "GLM_5.2_Coding", "GLM_5.3_Flash", "GPT_5.6_Luna", "GPT_5.6_Terra", "GPT_6_Luna", "Kimi_K3", "Ling_3.1_Flash", "LongCat_2.5_Preview", "Muse_Spark_1.2", "Qwen_3.8_27B"] },

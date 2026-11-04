@@ -1,0 +1,21 @@
+{
+  "name": "Pinecone",
+  "kind": "vendor",
+  "short": "Managed vector database for embeddings, retrieval and RAG, with a free Starter plan and plan-based plus on-demand usage tiers.",
+  "officialUrl": "https://www.pinecone.io",
+  "hosts": ["pinecone.io"],
+  "plans": [
+    {
+      "name": "Starter (free)",
+      "price": "$0",
+      "notes": "Free plan for small apps and testing; one index.",
+      "evidenceUrl": "https://www.pinecone.io/pricing/"
+    },
+    {
+      "name": "Dedicated / pay-as-you-go",
+      "price": "Monthly plan minimum + on-demand usage",
+      "notes": "Builder, Standard and Enterprise tiers billed by capacity and traffic.",
+      "evidenceUrl": "https://www.pinecone.io/pricing/"
+    }
+  ]
+}

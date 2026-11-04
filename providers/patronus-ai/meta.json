@@ -1,0 +1,27 @@
+{
+  "name": "Patronus AI",
+  "kind": "vendor",
+  "short": "LLM evaluation, observability and AI-safety platform with pre-built and custom evaluators (Lynx, Exonerate) for red teaming and hallucination detection.",
+  "officialUrl": "https://www.patronus.ai",
+  "hosts": ["patronus.ai"],
+  "plans": [
+    {
+      "name": "Developer (free)",
+      "price": "$0",
+      "notes": "Free tier with starter API credits.",
+      "evidenceUrl": "https://www.patronus.ai/pricing"
+    },
+    {
+      "name": "Usage-based API",
+      "price": "Per evaluator call",
+      "notes": "Pay-as-you-go for the evaluation API.",
+      "evidenceUrl": "https://www.patronus.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Quoted tier for scale and SOC2/procurement needs.",
+      "evidenceUrl": "https://www.patronus.ai/pricing"
+    }
+  ]
+}

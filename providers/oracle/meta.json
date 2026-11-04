@@ -1,0 +1,21 @@
+{
+  "name": "Oracle Cloud (OCI Generative AI)",
+  "kind": "aggregator",
+  "short": "Managed generative AI service on Oracle Cloud, serving Cohere, Meta Llama and xLAM models with an Always Free tier and per-unit / per-token inferencing.",
+  "officialUrl": "https://www.oracle.com",
+  "hosts": ["oracle.com"],
+  "plans": [
+    {
+      "name": "Always Free",
+      "price": "$0",
+      "notes": "Free-tier AI units plus $300 trial cloud credits.",
+      "evidenceUrl": "https://www.oracle.com/cloud/free/"
+    },
+    {
+      "name": "On-demand inferencing",
+      "price": "Per unit / per million tokens",
+      "notes": "Billed by model (e.g. Cohere Chat unit price, on-demand endpoints).",
+      "evidenceUrl": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/pay-on-demand.htm"
+    }
+  ]
+}

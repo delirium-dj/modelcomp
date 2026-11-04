@@ -1,0 +1,21 @@
+{
+  "name": "Qdrant Cloud",
+  "kind": "vendor",
+  "short": "Managed vector similarity search and embeddings store for RAG, with a permanent free cluster tier and usage-based cloud scaling.",
+  "officialUrl": "https://qdrant.tech",
+  "hosts": ["qdrant.tech"],
+  "plans": [
+    {
+      "name": "Free tier",
+      "price": "$0",
+      "notes": "Single-node cluster: 0.5 vCPU, 1 GB RAM, 4 GB disk; no credit card.",
+      "evidenceUrl": "https://qdrant.tech/pricing/"
+    },
+    {
+      "name": "Cloud (pay-as-you-go)",
+      "price": "Per cluster resources",
+      "notes": "Billed by vCPU/RAM/disk; premium and enterprise add SLAs.",
+      "evidenceUrl": "https://qdrant.tech/pricing/"
+    }
+  ]
+}

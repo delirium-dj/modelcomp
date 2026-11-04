@@ -1,0 +1,15 @@
+{
+  "name": "Reka",
+  "kind": "vendor",
+  "short": "Frontier multimodal model lab (Reka Edge, Flash and Core) with per-token API pricing published directly and no platform fee.",
+  "officialUrl": "https://reka.ai",
+  "hosts": ["reka.ai", "developer.reka.ai"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-token, per-model rates",
+      "notes": "Published per-model rates for Reka Edge / Flash / Core per 1M tokens.",
+      "evidenceUrl": "https://docs.reka.ai/pricing"
+    }
+  ]
+}

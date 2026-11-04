@@ -1,0 +1,27 @@
+{
+  "name": "Galileo",
+  "kind": "vendor",
+  "short": "AI observability and evaluation platform with Luna-2 evaluation models for real-time guardrailing, monitoring and GenAI quality at scale.",
+  "officialUrl": "https://galileo.ai",
+  "hosts": ["galileo.ai"],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "5,000 traces/mo, unlimited users and custom evals.",
+      "evidenceUrl": "https://galileo.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "From $100/mo",
+      "notes": "50K traces included; adds real-time guardrails.",
+      "evidenceUrl": "https://galileo.ai/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom",
+      "notes": "Volume, SLAs and private deployment.",
+      "evidenceUrl": "https://galileo.ai/pricing"
+    }
+  ]
+}

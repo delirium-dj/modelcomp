@@ -1,0 +1,21 @@
+{
+  "name": "Verda",
+  "kind": "vendor",
+  "short": "Full-stack European GPU cloud (formerly DataCrunch) with a transparent per-GPU-hour rate card and instant training clusters.",
+  "officialUrl": "https://verda.com",
+  "hosts": ["verda.com"],
+  "plans": [
+    {
+      "name": "On-demand",
+      "price": "Per GPU-hour",
+      "notes": "Transparent rate card by GPU (H100 SXM5, H200, A100, L40S).",
+      "evidenceUrl": "https://verda.com/pricing"
+    },
+    {
+      "name": "Reserved",
+      "price": "Committed per GPU-hour",
+      "notes": "Discounted rates for committed capacity.",
+      "evidenceUrl": "https://verda.com/pricing"
+    }
+  ]
+}

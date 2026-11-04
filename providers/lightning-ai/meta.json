@@ -1,0 +1,21 @@
+{
+  "name": "Lightning AI",
+  "kind": "vendor",
+  "short": "Full-stack AI workspace and GPU cloud (absorbed Voltage Park), offering contract-free on-demand H100 instances and reserved clusters.",
+  "officialUrl": "https://lightning.ai",
+  "hosts": ["lightning.ai"],
+  "plans": [
+    {
+      "name": "On-demand GPU",
+      "price": "Per GPU-hour",
+      "notes": "H100 SXM on-demand with no contract (formerly Voltage Park rates).",
+      "evidenceUrl": "https://lightning.ai/pricing"
+    },
+    {
+      "name": "Reserved / Studio",
+      "price": "Committed per GPU-hour",
+      "notes": "Discounted multi-GPU clusters for committed capacity.",
+      "evidenceUrl": "https://lightning.ai/pricing"
+    }
+  ]
+}
