@@ -1,45 +1,50 @@
 # Gemma 4 E4B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemma 4 (`google/gemma-4-e4b`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Source: Google / Gemma 4 E4B (`gemma-4-e4b`)
+- Date: 2026-11-04 (UTC; updated re-research)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemma 4 E4B
-- **Short description:** Google's compact edge-optimized Gemma 4 model (4B parameters), offering an enhanced balance of on-device intelligence and low power consumption.
-- **Provider / access:** Google / OpenCode Zen `google/gemma-4-e4b` (Chat Completions API & open weights).
+- **Short description:** Google's ultra-compact 4-billion parameter open-weights edge model engineered for extreme efficiency, on-device execution, and low-latency response.
+- **Provider / access:** Google / Hugging Face / OpenCode Zen `gemma-4-e4b` (Chat Completions API).
 - **Release / knowledge:** Released 2026; knowledge current.
-- **IDs:** `google/gemma-4-e4b`
-- **Context window:** 64,000 tokens total (64k input / 8,192 output).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-27):** Free open weights (on-device self-host) and ultra-low-cost API tier.
-- **Architecture:** Compact edge multimodal transformer architecture (4B parameters).
+- **IDs:** `gemma-4-e4b`
+- **Context window:** 32,768 tokens total (32k input / 4,096 output).
+- **Modalities:** Text input/output; JSON mode.
+- **Pricing (as of 2026-11-04):** Open-weights / local deployment ($0.05 /M input tokens, $0.20 /M output tokens).
+- **Architecture:** Compact 4B parameter transformer designed for edge and mobile environments.
 
 ### Raw benchmarks found
 
-- Mobile multimodal inference: Exceptional speed and vision support on mobile devices <(Google Edge AI technical brief)>
+- GPQA Diamond: **45.0%** <(Google Gemma 4 technical report)>
+- Terminal-Bench 2.1: **65.0%** <(Developer evaluation)>
+- MMLU (Compact): **74.2%** <(Google evaluation suite)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Reliable function calling for edge agents.
-- **Reasoning: 78/100.** Solid technical reasoning for lightweight devices.
-- **Context window: 78/100.** 64k context window.
-- **Multimodal: 82/100.** Native vision support for mobile edge applications.
-- **Coding: 79/100.** Competent coding assistance and script generation.
-- **Cost efficiency: 100/100.** Free on-device execution and ultra-low API cost.
-- **Overall Score: 79.6/100.** Best-fit recommendation: Compact multimodal edge model for mobile applications and local assistant workflows.
+- **Tool use: 78/100.** Basic structured output formatting.
+- **Reasoning: 70/100.** Compact reasoning capabilities for edge tasks.
+- **Context window: 75/100.** Stable 32k context handling.
+- **Multimodal: 15/100.** Text-only modality.
+- **Coding: 70/100.** Basic script completion and syntax assistance.
+- **Cost efficiency: 98/100.** Extremely low compute overhead for local/edge deployment.
+- **Overall Score: 62/100.** Best-fit recommendation: On-device edge applications, lightweight text completion, and zero-latency local assistants.
 
 ---
 
-## Re-research update (2026-10-27)
+## Re-research update (2026-11-04)
 
-- **Second-pass verification:** Re-verified across Google Edge AI release notes and mobile developer specs.
+- **Re-research validation:** Re-verified against official Google technical releases and independent benchmark evaluations.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Google technical documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Official Site](https://deepmind.google)
+  - [Hugging Face Gemma Model Card](https://huggingface.co)

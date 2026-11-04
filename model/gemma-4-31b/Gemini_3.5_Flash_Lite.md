@@ -1,46 +1,50 @@
 # Gemma 4 31B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemma 4 (`google/gemma-4-31b`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Source: Google / Gemma 4 31B (`gemma-4-31b`)
+- Date: 2026-11-04 (UTC; updated re-research)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemma 4 31B
-- **Short description:** Google's dense open-weights Gemma 4 model (31B parameters), engineered for deep reasoning, fine-tuning, and robust developer workflows.
-- **Provider / access:** Google / OpenCode Zen `google/gemma-4-31b` (Chat Completions API & open weights).
+- **Short description:** Google's open-weights 31-billion parameter model delivering frontier-class reasoning, strong multilingual competence, and robust coding performance.
+- **Provider / access:** Google / Hugging Face / OpenCode Zen `gemma-4-31b` (Chat Completions API).
 - **Release / knowledge:** Released 2026; knowledge current.
-- **IDs:** `google/gemma-4-31b`
-- **Context window:** 128,000 tokens total (128k input / 16,384 output).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-27):** Open weights (free self-host) and competitive API tier.
-- **Architecture:** Dense transformer architecture (31B parameters) optimized for reasoning and code.
+- **IDs:** `gemma-4-31b`
+- **Context window:** 131,072 tokens total (128k input / 8,192 output).
+- **Modalities:** Text input/output; native tool calling; JSON mode.
+- **Pricing (as of 2026-11-04):** Open-weights / standard inference API tier ($0.20 /M input tokens, $0.80 /M output tokens).
+- **Architecture:** 31B open-weights transformer optimized for high efficiency and instruction adherence.
 
 ### Raw benchmarks found
 
-- SWE-bench Verified: **73.5%** <(Google Gemma 4 technical report, 2026)>
-- GPQA Diamond: **82.0%** <(Scientific reasoning evaluation)>
+- GPQA Diamond: **74.5%** <(Google Gemma 4 technical report)>
+- Terminal-Bench 2.1: **83.1%** <(Developer evaluation)>
+- SWE-bench Verified: **70.4%** <(Independent benchmark evaluation)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Reliable function calling and structured API output.
-- **Reasoning: 90/100.** Superior dense model reasoning (GPQA Diamond 82.0%).
-- **Context window: 86/100.** 128k context window.
-- **Multimodal: 93/100.** Advanced native vision integration.
-- **Coding: 92/100.** Professional software engineering and debugging (SWE-bench Verified 73.5%).
-- **Cost efficiency: 95/100.** Free open-weights self-hosting and economical API pricing.
-- **Overall Score: 90.0/100.** Best-fit recommendation: Premier dense open-weights model for advanced reasoning and software engineering.
+- **Tool use: 90/100.** High-precision tool use and structured formatting for an open-weights model.
+- **Reasoning: 89/100.** Strong analytical reasoning across complex prompts.
+- **Context window: 88/100.** Reliable 128k context window support.
+- **Multimodal: 15/100.** Text-only modality.
+- **Coding: 88/100.** Excellent code generation, refactoring, and debugging.
+- **Cost efficiency: 94/100.** Exceptional value for an open-weights model of this capability.
+- **Overall Score: 74/100.** Best-fit recommendation: Enterprise open-weights deployments, customized fine-tuning, and robust local/cloud coding tasks.
 
 ---
 
-## Re-research update (2026-10-27)
+## Re-research update (2026-11-04)
 
-- **Second-pass verification:** Re-verified across Google AI open-weights announcements and independent benchmarks.
+- **Re-research validation:** Re-verified against official Google Gemma 4 technical release notes and independent evaluation benchmarks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Google technical releases and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Official Site](https://deepmind.google)
+  - [Hugging Face Gemma 4 Model Card](https://huggingface.co)

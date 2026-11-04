@@ -1,62 +1,55 @@
 # Pareto 26.10 Preview — findings by Step 5 Preview
 
-- Source: Unbiased / Pareto 26.10 Preview (`opencode/pareto-26.10-preview`)
-- Date: 2026-10-21 (UTC)
+- Source: Unbiased (`pareto-26.10-preview`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Pareto 26.10 Preview
-- **Short description:** Unbiased's composite/router model (Circuit & Chisel) — runs a mix of frontier and open-source models per request and keeps the best answer; the 26.10 preview raised the window to 1M and cut prices 68% versus 26.9 ($0.80/$3.20), posting preliminary GPQA-D 92.4%, HLE 49.9%, DeepSWE 69.9% and Terminal-Bench 4.0 50.8% at $0.004–$0.48 per task. Now GA since 2026-10-15.
-- **Provider / access:** Unbiased API (`pareto-26.10-preview`), OpenRouter (`unbiased/pareto-26.10-preview`), OpenCode Zen (`opencode/pareto-26.10-preview`), Cloudflare AI Gateway; subscription plans from $10/month (Personal 50M tokens/week; Personal Max 600M for $100); zero-data-retention tier on designated API traffic (Chat excluded).
-- **Release / knowledge:** preview launched 2026-10-01 (Unbiased blog); declared GA 2026-10-15/16 (blog update + ARMES Docs); knowledge cutoff inherits the underlying routed models (not published).
-- **IDs:** `pareto-26.10-preview` (Unbiased API), `unbiased/pareto-26.10-preview` (OpenRouter), `opencode/pareto-26.10-preview` (Zen).
-- **Context window:** 1,048,576 (1M) — four times the 262,144 of the September 26.9 release (aimlapi); 131,072 max output (folder meta).
-- **Modalities:** text and image in; text out (agentbreaking, folder meta); reasoning; tool/agentic use.
-- **Pricing (as of 2026-10-21):** $0.80/$3.20 per 1M in/out, $0.03 cached (Unbiased blog); per-task costs $0.004 (GPQA-D) to $0.48 (TB 4.0) on its preliminary runs.
-- **Architecture:** proprietary composite — no single set of weights; routes requests across frontier and open-source models and returns the best result (aimlapi); this is a router product, not a checkpoint.
+- **Name:** Pareto 26.10 Preview. Distinct from **Pareto 26.9** (the previous release, tracked separately in `model/pareto-26-9/`); the roster note for `union-alpha` confirms 26.9 and 26.10 are separate products, not one composite record.
+- **Short description:** **Not a checkpoint — a composite router.** Unbiased's model card is explicit: "Pareto is Unbiased's blended AI model: it selects frontier and open models for each request and blends their outputs into one answer." Scores therefore measure a routing-and-blending policy, not a set of weights, and will drift whenever the underlying model pool changes.
+- **Provider / access:** Unbiased API; model identifier is simply **`pareto`** (not `pareto-26.10-preview`). Also tracked by SurfMind, CloudPrice, token.app, modelcompare.dev, runfreetools and lmmarketcap. No OpenCode Zen route found.
+- **Release / knowledge:** released **2026-10-01** (Unbiased's preliminary benchmark runs are dated October 1, 2026). The model card's release notes state **"Pareto 26.10 is out of preview"** — i.e. the `-preview` folder name is now historical; the GA product is Pareto 26.10. Knowledge cutoff not disclosed.
+- **IDs:** `pareto` (Unbiased API). No Free ID found.
+- **Context window:** **1M tokens** — reported consistently by SurfMind, CloudPrice, token.app, modelcompare.dev and runfreetools, but **not stated by Unbiased's own model card**, and BenchLM records it as "N/A". Max output **128K** (SurfMind). Treat the 1M figure as third-party reporting.
+- **Modalities:** text and image in; text out (Unbiased card + SurfMind agree). SurfMind additionally lists reasoning, tool calling and structured outputs. **No multimodal, audio or video input** — and no multimodal benchmark exists for it at all.
+- **Pricing (as of 2026-11-05):** **$0.80 input / $0.03 cached input / $3.20 output per 1M** (Unbiased model card; corroborated by CloudPrice, token.app, lmmarketcap and modelcompare.dev). **Cost per task** is the headline: DeepSWE **$0.24**, Terminal-Bench 4.0 **$0.48**, HLE text-only **$0.008**.
+- **Architecture:** proprietary; a router/blend over frontier and open models, so no parameter count applies.
 
 ### Raw benchmarks found
 
-Unbiased official blog (2026-10-01 preliminary runs) + BenchLM + lmmarketcap:
+**Only four benchmarks exist publicly for this model**, and all four are Unbiased's own preliminary runs. This is the thinnest evidence base of any model researched in this series, and it caps every score below. Unbiased states the caveats itself, verbatim: results "are from October 1, 2026 runs and may change before final publication"; comparator results are "transcribed from a September 21, 2026 comparison and are not independently validated"; "denominators and cost methodology require confirmation"; competitor points "use their own task sets and harnesses, so they are not directly comparable with our runs."
 
-Agent / tool use:
-
-- Terminal-Bench 4.0: **50.8%** ($0.48/task) (Unbiased preliminary run via BenchLM)
-- DeepSWE v1.1: **69.9%** ($0.24/task) (Unbiased preliminary run; comparators from Unbiased's chart: Fable 5 70.0% at $13.50, Pareto 26.9 70.0% at $0.29 — both on a 30-task slice, not the full set)
-- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / MCP-Atlas / OSWorld / Toolathlon: no verified public score found
-- lmmarketcap composite: Coding category rank **#196**, composite **40/100** (lmmarketcap.com)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **92.4%** ($0.004/task) (Unbiased preliminary run via BenchLM)
-- Humanity's Last Exam (text-only): **49.9%** ($0.008/task) (Unbiased preliminary run)
-- LCR / CritPt / MMLU-Pro / Omniscience / AA Intelligence Index: no verified public score found
-
-Coding:
-
-- DeepSWE v1.1: **69.9%** (listed above — 30-task slice, preliminary)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench / Terminal-Bench 2.1: no verified public score found
-
-Long context:
-
-- 1M window native; no MRCR / RULER / GraphWalks / LCR retrieval-at-length figure published.
+- Terminal-Bench 4.0 (agentic terminal use): **50.8%** at **$0.48/task**. Unbiased's own comparison table: Claude Sonnet 5.5 70.6% @ $12.54 · GPT-6 Astra 59.6% @ $5.86 · GPT-6.1 Sol 56.1% @ $1.82 · Fable 5.1 55.1% @ $15.78 · DeepSeek V4.1 Flash 26.8% @ $1.16 · GPT-6 Luna 12.6% @ $0.24. Pareto sits on the cost frontier, 4th of 7 on score.
+- DeepSWE v1.1 (agentic coding): **69.9%** at **$0.24/task**. Comparators: GPT-6.1 Sol 75.2% @ $0.65 · GPT-6 Astra 74.0% @ $4.43 · GPT-6 Luna 66.6% @ $0.22 · Fable 5 70.0% @ $13.50 (30-task slice) · Pareto 26.9 70.0% @ $0.29 (30-task slice). Pareto is on the cost frontier but **below** GPT-6.1 Sol, GPT-6 Astra, Fable 5 and its own predecessor on score.
+- HLE, text-only (expert reasoning): **49.9%** at **$0.008/task**. Comparators: Fable 5.1 59.1% @ $1.59 · Claude Sonnet 5.5 55.0% @ $0.54 · GPT-6 Astra 54.7% @ $0.38 · GPT-6.1 Sol 52.9% @ $0.078 · DeepSeek V4.1 Flash 39.2% @ $0.042 · GPT-6 Luna 38.5% @ $0.012. Pareto leads on cost by a wide margin but sits 5th of 7 on score.
+- GPQA-Diamond: **92.4%** (BenchLM, from Unbiased's preliminary results). Deliberately **excluded from Unbiased's own cost chart** because "no other model in that table has a published cost per task for it" — so it cannot be placed against the field.
+- **No verified public score found** for: τ³-Banking, GDPval-AA, OSWorld, MCP-Atlas, BrowseComp, Claw-Eval, SWE-bench Verified, SciCode, LiveCodeBench, Vibe Code Bench, CritPt, MRCR, AA-LCR, MMMU-Pro, and any Artificial Analysis Intelligence Index or composite measurement. Artificial Analysis does not list this model at all, and BenchLM assigns **no overall score** ("unranked") from just 3 source-displayable rows.
+- **Caveat on the DeepSWE figure:** the 26.9 and Fable 5 comparators use a 30-task slice rather than the full DeepSWE v1.1 set, and Pareto 26.9's HLE number was reported "without a text-only qualifier" — so the 69.9% is measured on a fuller set than some of the numbers beside it, which flatters the comparison.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 4.0 50.8% is well above every frontier model measured on that harness (GPT-5.6 Luna 33–38%, Claude Fable 5.1 57.9% excepted) and DeepSWE 69.9% sits near the frontier pack; capped by the preliminary, vendor-run, 30-task-slice provenance and zero Tau/GDPval/Claw/OSWorld numbers.
-- **Reasoning: 92/100.** GPQA Diamond 92.4% and HLE text-only 49.9% both clear the frontier reference bands (90%+/40%+) on Unbiased's own October 1 runs; capped by no independent replication, no LCR/CritPt/Omniscience data, and the composite architecture (scores inherit the routed models).
-- **Context window: 95/100.** 1,048,576 window (4x the 26.9 release) lands in the ≥1M tier; no ≥98% retrieval-at-512K evidence and no published retrieval benchmark, so 95.
-- **Multimodal: 68/100.** Text + image input with text out (image-in tier 60–70); no MMMU-class score published and no video/audio input or non-text output.
-- **Coding: 86/100.** DeepSWE 69.9% is within a point of Fable 5's 70.0% at ~1/56th the per-task cost ($0.24 vs $13.50) and Terminal-Bench 4.0 50.8% leads the newest harness; capped by the preliminary single-slice measurement and no SWE-bench Verified/Pro or LiveCodeBench numbers.
-- **Cost efficiency: 88/100.** $0.80/$3.20 with $0.03 cached matches the ~$0.60/$2.20 ≈ 92 band on the slightly expensive side for output; measured $0.004–$0.48 per task is the standout — frontier answers at open-source task prices.
-- **Overall Score: 85/100.** Mean of (86 + 92 + 95 + 68 + 86) / 5 = 85.4 → 85. Best fit: research/coding/agent workloads that want frontier answers at open-source task prices — with the caveat that every published number is the vendor's own preliminary run on small slices.
+- **Tool use: 62/100.** One measurement, and a mid-tier one: Terminal-Bench 4.0 50.8% trails Claude Sonnet 5.5 (70.6%), GPT-6 Astra (59.6%), GPT-6.1 Sol (56.1%) and Fable 5.1 (55.1%) while leading only DeepSeek V4.1 Flash (26.8%) and GPT-6 Luna (12.6%). The 62 reflects that placement plus the model's genuinely exceptional efficiency — it is the best score reachable at $0.48/task on Unbiased's own frontier chart. Capped hard by the complete absence of τ³-Banking, GDPval-AA, OSWorld, MCP-Atlas and Claw-Eval, which are where tool-use breadth is actually decided.
+- **Reasoning: 75/100.** GPQA-Diamond 92.4% and HLE text-only 49.9% both clear the methodology's frontier references (GPQA 90%+, HLE 40%+), which is why this is not scored in the mid band. Capped because those are the *only* two reasoning data points, both self-run, with no composite index, no CritPt, no MRCR and no third-party replication — and because HLE 49.9% is 5th of 7 in Unbiased's own comparison despite a 200x cost advantage.
+- **Context window: 95/100.** 1M-token tier per five independent trackers, with a 128K max output. Held at the tier floor for two reasons: Unbiased's own model card does not state a context window (BenchLM records it as "N/A"), and no retrieval measurement of any kind — MRCR, RULER, GraphWalks, AA-LCR — exists, so the ≥98%-retrieval condition for a 100 is unverified.
+- **Multimodal: 62/100.** Text and image in, text out places it in the methodology's "+image in" 60–70 band. Scored at the low end because there is **zero** multimodal evidence — no MMMU-Pro, no Chartography, no document or perception benchmark — and the modality list is confirmed only by Unbiased's card and SurfMind, with no video or audio support to lift it into the 75–90 tier.
+- **Coding: 78/100.** DeepSWE v1.1 69.9% is close to but below the 74%+ frontier reference, and it is measured on the fuller task set than the 30-task-slice comparators shown beside it. It earns its place on the cost frontier — 69.9% at $0.24/task against GPT-6.1 Sol's 75.2% at $0.65 and GPT-6 Astra's 74.0% at $4.43 — which is the entire product thesis. Capped by no SWE-bench Verified, no SciCode, no LiveCodeBench, no Coding Index, and by the fact that it is 4th of 7 on Terminal-Bench 4.0.
+- **Cost efficiency: 94/100.** $0.80/$3.20 per 1M with $0.03 cached reads is between the methodology's ~$0.60/$2.20 (≈92) and ~$1.25/$4.25 (≈88) anchors, and the measured cost per task is the decisive factor: it is on the Pareto frontier for **all three** benchmarks where a cost exists, at $0.24 (DeepSWE), $0.48 (TB4.0) and $0.008 (HLE) per task — the last being roughly 50x cheaper than the nearest competitor. That is a verified, independently charted efficiency lead, so the Pareto bonus applies fully.
+- **Overall Score: 74/100.** (62 + 75 + 95 + 62 + 78) / 5 = 74.4 → 74. Recommendation: an outstanding **cost-efficiency pick** for agentic coding and terminal work — if the measured $0.24–$0.48 per task holds on your own workload, nothing else here competes on price per solved task, and it is the only product in this series whose entire benchmark set is published as a cost-frontier argument. Do not treat it as a capability leader: on Unbiased's own numbers GPT-6.1 Sol, GPT-6 Astra, Claude Sonnet 5.5 and Fable 5.1 all beat it on at least one of the three scored benchmarks, and with only four self-run measurements there is no independent evidence to anchor it. Also note the folder name is now historical — the product shipped out of preview in October 2026 under the identifier `pareto`.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
-- Method: public internet research (Unbiased official preview blog + model card, BenchLM, aimlapi, agentbreaking, lmmarketcap, ARMES Docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: public internet research using Unbiased's official model card and preliminary-results page as the primary source (which publishes score *and* cost-per-task for three benchmarks, plus a competitor table), cross-checked against BenchLM (which records it as unranked with only 3 source-displayable rows and no overall score), SurfMind's archived model profile, and five further trackers (CloudPrice, token.app, modelcompare.dev, runfreetools, lmmarketcap) for the context window, pricing and modality agreement. Unbiased's own caveats about preliminary status, non-independent comparators, 30-task slices and non-comparable harnesses are quoted rather than paraphrased, because they materially limit every score above. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Unbiased — Pareto 26.10 model card (benchmarks, cost per task, pricing, release notes)](https://unbiased.ai/model-card/)
+  - [Unbiased — Pareto 26.10 preliminary results and trade-off frontier charts](https://unbiased.ai/)
+  - [BenchLM — Pareto 26.10 Preview (3 source-displayable rows, unranked)](https://benchlm.ai/models/pareto-26-10-preview)
+  - [SurfMind — Pareto 26.10 Preview pricing, context & benchmarks (archived)](https://surfmind.ai/models/unbiased/pareto-26.10-preview)
+  - [CloudPrice — Pareto 26.10 Preview pricing & specs](https://cloudprice.net/models/unbiased-pareto-26-10-preview)
+  - [token.app — Pareto 26.10 pricing, context & benchmarks](https://token.app/model/pareto-26.10-preview)
+  - [Benchable.ai — Pareto 26.10 Preview model details & benchmarks](https://www.benchable.ai/models/unbiased/pareto-26.10-preview-20260929)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

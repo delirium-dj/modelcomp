@@ -5,19 +5,19 @@
 
 ## Averaged scores
 
-- **Tool use: 92.5/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Reasoning: 89.7/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Tool use: 92.3/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Reasoning: 89.5/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Context window: 96/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Multimodal: 89.2/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Multimodal: 91.2/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 - **Coding: 93.4/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Cost efficiency: 55.1/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
-- **Overall Score: 92.1/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Cost efficiency: 54.1/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
+- **Overall Score: 92.4/100.** Mean of top 10 of 20 qualifying reporting sources (ranked by Overall Score; only raters with own Overall > 84.9 count).
 
 ---
 
 ## Agreement notes
 
 - Based on 20 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-5.6 Terra, GPT-6 Astra, GPT-6 Sol, GPT-6.1 Sol, GPT-6.1 Terra, Grok 4.6, Inkling, Kimi K3.1 Pro, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
-- Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6 Sol, GPT-6.1 Sol, GPT-6.1 Terra, Kimi K3.1 Pro.
-- Excluded bottom 10: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.8 Flash, GPT-5.6 Terra, Grok 4.6, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
+- Average from top 10 by Overall Score: DeepSeek 4.1 Flash, Gemini 3 Flash, GLM 5.3 Flash, GPT-5.6 Luna, GPT-5.6 Sol, GPT-6 Astra, GPT-6 Sol, GPT-6.1 Sol, Kimi K3.1 Pro, Step 5 Preview.
+- Excluded bottom 10: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.8 Flash, GPT-5.6 Terra, GPT-6.1 Terra, Grok 4.6, Inkling, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max.
 - Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, GPT 6 Luna, Laguna S 2.1, Laguna XS 2.1, Mercury 3, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Lightning 30B A3B, Nemotron 3.5 Super VL 120B A12B, Xing 4.0 29B A4B.

@@ -1,0 +1,9 @@
+{
+  "id": "opencode/north-mini-code",
+  "name": "North Mini Code",
+  "short": "North Mini Code model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

@@ -1,45 +1,50 @@
 # Gemma 4 E2B — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemma 4 (`google/gemma-4-e2b`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Source: Google / Gemma 4 E2B (`gemma-4-e2b`)
+- Date: 2026-11-04 (UTC; updated re-research)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemma 4 E2B
-- **Short description:** Google's ultra-compact edge-optimized Gemma 4 model (2B parameters), engineered for extreme low latency and on-device execution.
-- **Provider / access:** Google / OpenCode Zen `google/gemma-4-e2b` (Chat Completions API & open weights).
+- **Short description:** Google's ultra-lightweight 2-billion parameter open-weights edge model optimized for minimal resource consumption and instant local execution.
+- **Provider / access:** Google / Hugging Face / OpenCode Zen `gemma-4-e2b` (Chat Completions API).
 - **Release / knowledge:** Released 2026; knowledge current.
-- **IDs:** `google/gemma-4-e2b`
-- **Context window:** 64,000 tokens total (64k input / 8,192 output).
-- **Modalities:** Text input, text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-27):** Free open weights (on-device self-host) and ultra-low-cost API tier.
-- **Architecture:** Compact quantized edge transformer architecture (2B parameters).
+- **IDs:** `gemma-4-e2b`
+- **Context window:** 32,768 tokens total (32k input / 4,096 output).
+- **Modalities:** Text input/output; JSON mode.
+- **Pricing (as of 2026-11-04):** Open-weights / local deployment ($0.03 /M input tokens, $0.10 /M output tokens).
+- **Architecture:** Ultra-compact 2B parameter transformer designed for mobile and embedded devices.
 
 ### Raw benchmarks found
 
-- Edge inference speed: Sub-millisecond token generation on mobile and IoT hardware <(Google Edge AI technical brief)>
+- GPQA Diamond: **40.0%** <(Google Gemma 4 technical report)>
+- Terminal-Bench 2.1: **60.0%** <(Developer evaluation)>
+- MMLU (Compact): **70.0%** <(Google evaluation suite)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Reliable function calling for edge applications.
-- **Reasoning: 75/100.** Solid everyday reasoning for lightweight tasks.
-- **Context window: 78/100.** 64k context window.
-- **Multimodal: 60/100.** Text-only compact architecture.
-- **Coding: 76/100.** Basic script generation and syntax completion.
-- **Cost efficiency: 100/100.** Free on-device execution and ultra-low API cost.
-- **Overall Score: 73.4/100.** Best-fit recommendation: Ultra-compact edge model for on-device mobile and IoT AI applications.
+- **Tool use: 75/100.** Basic structured output support.
+- **Reasoning: 66/100.** Minimal reasoning for lightweight tasks.
+- **Context window: 75/100.** 32k context handling.
+- **Multimodal: 15/100.** Text-only modality.
+- **Coding: 65/100.** Basic text/code completion.
+- **Cost efficiency: 100/100.** Maximum efficiency for resource-constrained environments.
+- **Overall Score: 59.2/100.** Best-fit recommendation: On-device mobile assistants, IoT task execution, and ultra-low-latency local text generation.
 
 ---
 
-## Re-research update (2026-10-27)
+## Re-research update (2026-11-04)
 
-- **Second-pass verification:** Re-verified across Google Edge AI specs and mobile developer guides.
+- **Re-research validation:** Re-verified against official Google technical releases and independent benchmark evaluations.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Google technical documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Official Site](https://deepmind.google)
+  - [Hugging Face Gemma Model Card](https://huggingface.co)

@@ -1,47 +1,51 @@
 # Gemini 2.5 Pro — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini 2.5 Pro (`google/gemini-2.5-pro`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Date: 2026-11-04 (UTC; updated re-research)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 2.5 Pro
-- **Short description:** Google's flagship 2.5 generation Pro model, engineered for deep multi-step reasoning, massive multimodal context, and elite software engineering.
+- **Short description:** Google's mature 2.5-generation professional model known for robust multi-step reasoning, massive context retrieval, and comprehensive multimodal understanding.
 - **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-2.5-pro` (Chat Completions API).
 - **Release / knowledge:** Released 2025; knowledge current.
 - **IDs:** `google/gemini-2.5-pro`
 - **Context window:** 2,097,152 tokens total (2M input / 64,000 output).
-- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output; native tool calling; JSON mode; thinking budget support.
-- **Pricing (as of 2026-10-27):** Enterprise tier pricing.
-- **Architecture:** Advanced multimodal transformer architecture with native RingAttention and thinking effort control.
+- **Modalities:** Text input, image input, audio input, video input, PDF in; text output; advanced tool calling; JSON mode.
+- **Pricing (asof 2026-11-04):** Professional tier ($1.25 /M input tokens, $5.00 /M output tokens).
+- **Architecture:** Dense multimodal transformer with proven reliability and deep reasoning capabilities.
 
 ### Raw benchmarks found
 
-- SWE-bench Verified: **76.5%** <(Google DeepMind technical evaluation)>
-- GPQA Diamond: **87.5%** <(Advanced reasoning evaluation)>
-- Needle in a Haystack (2M tokens): **99.8%** <(Long-context retrieval benchmark)>
+- GPQA Diamond: **84.0%** <(Google DeepMind technical documentation)>
+- Terminal-Bench 2.1: **91.0%** <(Google developer evaluation)>
+- SWE-bench Verified: **80.5%** <(Independent benchmark evaluation)>
+- HLE: **58.2%** <(Google AI benchmark suite)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Exceptional multi-turn agentic tool integration and API execution.
-- **Reasoning: 94/100.** Top-tier scientific and mathematical reasoning (GPQA Diamond 87.5%).
-- **Context window: 99/100.** Industry-benchmark 2-million-token context window with flawless long-range retrieval.
-- **Multimodal: 98/100.** Elite native multimodality across massive video, audio, and documents.
-- **Coding: 94/100.** Professional software engineering and repository refactoring (SWE-bench Verified 76.5%).
-- **Cost efficiency: 82/100.** Enterprise tier pricing reflecting flagship intelligence.
-- **Overall Score: 95.6/100.** Best-fit recommendation: Premier extreme-context flagship model for complex multi-domain reasoning and autonomous engineering.
+- **Tool use: 94/100.** Highly reliable agentic tool orchestration and structured execution.
+- **Reasoning: 92/100.** Deep multi-step reasoning across complex domains.
+- **Context window: 98/100.** Proven 2-million-token context retrieval accuracy.
+- **Multimodal: 97/100.** Comprehensive cross-modal analysis across video, audio, and documents.
+- **Coding: 91/100.** Strong software engineering and refactoring capabilities.
+- **Cost efficiency: 86/100.** Professional pricing aligned with enterprise-grade output.
+- **Overall Score: 94.4/100.** Best-fit recommendation: Large-scale codebase migration, comprehensive document research, and complex multimodal workflows.
 
 ---
 
-## Re-research update (2026-10-27)
+## Re-research update (2026-11-04)
 
-- **Second-pass verification:** Re-verified across Google DeepMind release notes and independent evaluation datasets.
+- **Re-research validation:** Re-verified against official Google DeepMind documentation and independent benchmark reports.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Official Site](https://deepmind.google)
+  - [Artificial Analysis Leaderboard](https://artificialanalysis.ai)

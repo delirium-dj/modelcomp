@@ -49,10 +49,12 @@ override.
 - Below-gate and out-of-top-10 reports stay on disk, in git, and on the site;
   the rater gate only filters `average.md` means. Enforcement is automatic:
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing
-  from disk — except sanctioned survivals (own-twin retirement with a fresh
-  sibling present; user-directed relocation with the same path alive under
-  a sanctioned mirror tree (`models_voice/`, `models_finance/`,
-  `models_cybersecurity/`, `models_health/`), logged as INFO pending commit). The
+  from disk — except sanctioned survivals, all logged as INFO pending
+  commit: own-twin retirement with a fresh sibling present; user-directed
+  relocation with the same path alive under a sanctioned mirror tree
+  (`models_voice/`, `models_finance/`, `models_cybersecurity/`,
+  `models_health/`); and exact user-ordered deletions recorded in
+  `SANCTIONED_DELETIONS` (`scripts/lib/validate.mjs`). The
   committed pre-commit hook (`.githooks/pre-commit`, activate with
   `git config core.hooksPath .githooks`) rejects commits that delete them.
 - `model/<slug>/` folders are permanent too: never moved out of the tree or

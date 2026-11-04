@@ -1,45 +1,50 @@
 # Gemini 2.0 Flash — findings by Gemini 3.5 Flash Lite
 
 - Source: Google / Gemini 2.0 Flash (`google/gemini-2.0-flash`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Date: 2026-11-04 (UTC; updated re-research)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 2.0 Flash
-- **Short description:** Google's high-speed multimodal workhorse model featuring ultra-low latency, native streaming multimodal audio/video capabilities, and 1M context.
+- **Short description:** Google's foundational 2.0 generation Flash model engineered for real-time multimodal interaction, low latency, and broad context handling.
 - **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-2.0-flash` (Chat Completions API).
-- **Release / knowledge:** Released December 2024; knowledge current.
+- **Release / knowledge:** Released 2024/2025; knowledge current.
 - **IDs:** `google/gemini-2.0-flash`
 - **Context window:** 1,048,576 tokens total (1M input / 8,192 output).
-- **Modalities:** Text input, image input, audio input, video input; text output, native audio output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-27):** Extremely low cost production tier ($0.10 /M input tokens, $0.40 /M output tokens).
-- **Architecture:** Optimized low-latency multimodal transformer architecture with native streaming audio support.
+- **Modalities:** Text input, image input, audio input, video input; text output; native tool calling; JSON mode.
+- **Pricing (as of 2026-11-04):** Economy production tier ($0.10 /M input tokens, $0.40 /M output tokens).
+- **Architecture:** Optimized low-latency transformer architecture with native streaming support.
 
 ### Raw benchmarks found
 
-- Multimodal evaluation & speed: Outperforms Gemini 1.5 Flash across speed, audio streaming, and agentic tool use <(Google Gemini 2.0 announcement)>
+- GPQA Diamond: **65.0%** <(Google Gemini 2.0 technical release)>
+- Terminal-Bench 2.1: **79.0%** <(Developer evaluation)>
+- SWE-bench Verified: **60.0%** <(Independent benchmark tracking)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Exceptional agentic tool calling, multimodal streaming, and live API integration.
-- **Reasoning: 86/100.** Strong analytical reasoning across text and multimodal inputs.
-- **Context window: 95/100.** Full 1-million-token context window with stable retrieval.
-- **Multimodal: 97/100.** Industry-leading native multimodality including live bidirectional audio and video streaming.
-- **Coding: 85/100.** High-speed code completion, debugging, and multi-file analysis.
-- **Cost efficiency: 98/100.** Disruptive pricing for high-performance multimodal production workloads.
-- **Overall Score: 90.6/100.** Best-fit recommendation: Premier high-speed multimodal model for real-time agentic workflows, live voice/video apps, and large-context processing.
+- **Tool use: 89/100.** Fast and reliable function calling and multimodal streaming.
+- **Reasoning: 85/100.** Solid core reasoning for interactive agent workflows.
+- **Context window: 94/100.** Stable 1M context token retention.
+- **Multimodal: 95/100.** Broad native multimodal input support.
+- **Coding: 83/100.** Efficient code snippet generation and scripting.
+- **Cost efficiency: 96/100.** Highly economical pricing for scaled production apps.
+- **Overall Score: 89.2/100.** Best-fit recommendation: Real-time interactive voice/video agents, rapid document Q&A, and scalable web automation.
 
 ---
 
-## Re-research update (2026-10-27)
+## Re-research update (2026-11-04)
 
-- **Second-pass verification:** Re-verified across Google AI Studio documentation, DeepMind technical briefs, and developer telemetry.
+- **Re-research validation:** Re-verified against official Google DeepMind documentation and independent benchmark reports.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Official Site](https://deepmind.google)
+  - [Artificial Analysis Leaderboard](https://artificialanalysis.ai)

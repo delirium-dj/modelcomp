@@ -33,6 +33,7 @@ import {
   MERGED_SOURCE_STEMS,
   RETIRED_ALIAS_SLUGS,
   DELETED_PHANTOM_SLUGS,
+  SANCTIONED_DELETIONS,
   mergedSlugMessage,
   mergedStemMessage,
   retiredAliasMessage,
@@ -219,7 +220,10 @@ log(`sync-data: ${slugs.length} model folders`);
 //   - relocation: the same relative path exists under a sanctioned mirror tree
 //     (user-directed moves, e.g. models_voice/, models_finance/,
 //     models_cybersecurity/, models_health/) — content
-//     preserved, pending commit.
+//     preserved, pending commit;
+//   - sanctioned deletion: the exact path is recorded in
+//     validate.mjs SANCTIONED_DELETIONS (explicit per-instance user sign-off)
+//     and stays deleted.
 const ALLOW_MODEL_DELETE = process.env.ALLOW_MODEL_DELETE === "1" || process.env.ALLOW_MODEL_DELETE === "true";
 try {
   if (ALLOW_MODEL_DELETE) {
@@ -257,7 +261,19 @@ try {
     // tracked files are sanctioned INFO. A resurrected folder FAILs the slug
     // guard below, never this tripwire.
     const deletedPhantom = parts[0] === "model" && DELETED_PHANTOM_SLUGS.has(parts[1]);
-    const verdict = classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource, deletedPhantom });
+    const sanctionedDeletion = SANCTIONED_DELETIONS.has(posix);
+    const verdict = classifyMissingTracked({
+      twinRetired,
+      quarantined,
+      mirror,
+      mergedSource,
+      deletedPhantom,
+      sanctionedDeletion,
+    });
+    if (verdict === "sanctioned-deletion") {
+      log(`  INFO  ${posix}: ${SANCTIONED_DELETIONS.get(posix)}`);
+      continue;
+    }
     if (verdict === "deleted-phantom") {
       log(`  INFO  ${posix}: deleted phantom folder (model/${parts[1]}/) — sanctioned user-ordered removal 2026-11-03`);
       continue;

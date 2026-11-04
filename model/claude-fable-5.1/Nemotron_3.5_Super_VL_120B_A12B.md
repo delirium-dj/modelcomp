@@ -1,7 +1,7 @@
 # Claude Fable 5.1 — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: Anthropic (`platform.claude.com/docs/en/models/fable-5-1/overview`), benchlm.ai (`claude-fable` family page), Artificial Analysis (`artificialanalysis.ai/models/claude-fable-5-1`)
-- Date: 2026-10-16 (UTC)
+- Source: Anthropic (`platform.claude.com/docs/en/models/fable-5-1/overview`), Anthropic announcement (`www.anthropic.com/claude-fable-and-mythos-5-1`), Artificial Analysis (`artificialanalysis.ai/articles/claude-fable-5-1`), BenchGap (`benchgap.net/model/claude-fable-5-1`)
+- Date: 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -19,55 +19,74 @@
 
 ### Raw benchmarks found
 
-The official benchmarks below come from Anthropic's Claude Fable 5 / Claude Fable 5.1 system card and platform docs. benchlm.ai reports Claude Fable 5 (the predecessor), not 5.1 specifically — figures are cited as such. Artificial Analysis provides independent composite Intelligence Index data for Claude Fable 5.1.
+Official Anthropic platform docs + Anthropic announcement (Sep 1, 2026 release); Artificial Analysis Intelligence Index v5 independent analysis; BenchGap independent benchmark aggregation (data as of 2026-11-03).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **84.3%** (Claude Fable 5 system card; Vals AI 80.5%)
-- OSWorld-Verified: **85%** (Claude Fable 5 system card)
-- GDPval-AA: **1747 Elo** (Claude Fable 5 system card; AA normalized 55.5%)
-- τ²-bench results: **98.5%** (Artificial Analysis)
-- AA Briefcase: not found for 5.1
-- AA Agentic Index: **51.0%** (Artificial Analysis)
-- AA-AnalystAgent: **48.8%** (Artificial Analysis)
-- SWE-bench Verified: **98.1%** estimated ± 3.7 pp (benchgap.net)
-- LiveCodeBench v6: **91.7%** estimated ± 2.4 pp (benchgap.net)
-- JobBench: **61.7%** estimated ± 4.9 pp (benchgap.net)
-- Vibe Code Bench: **100.0%** estimated ± 10.3 pp (benchgap.net)
-- DeepSearchQA: **94.3%** estimated ± 4.5 pp (benchgap.net)
-- OSWorld-Verified: **82.9%** estimated ± 8.1 pp (benchgap.net)
+- Terminal-Bench 2.1: **91.4%** measured (AA) / **87.8%** estimated (BenchGap) / **85.0%** measured (Vals AI)
+- OSWorld-Verified: **80.7%** measured (BenchGap) / **85%** (Claude Fable 5 system card)
+- GDPval-AA v2: **1,853 Elo** measured (AA) vs **1,747 Elo** (Claude Fable 5 system card)
+- τ²-bench results: **98.5%** estimated (BenchGap) / **98.5%** (Artificial Analysis)
+- AA Briefcase: **1,694 Elo** (Artificial Analysis)
+- AA Agentic Index: **58.0%** measured (BenchGap)
+- AA-AnalystAgent: **57.5%** measured (BenchGap)
+- SWE-bench Verified: **98.1%** estimated ± 3.7 pp (BenchGap)
+- LiveCodeBench v6: **91.7%** estimated ± 2.4 pp (BenchGap)
+- JobBench: **61.7%** estimated ± 4.9 pp (BenchGap)
+- Vibe Code Bench: **100.0%** estimated ± 10.3 pp (BenchGap)
+- DeepSearchQA: **94.3%** estimated ± 4.5 pp (BenchGap)
+- OSWorld-Verified: **82.9%** estimated ± 8.1 pp (BenchGap)
+- AutomationBench: **31.4%** measured / **59.4%** measured AA AutomationBench (BenchGap)
+- BFCL v4: **77.4%** estimated (BenchGap)
+- CyberGym: **84.1%** estimated (BenchGap)
+- WideResearch: **85.6%** estimated (BenchGap)
+- AA-Cyber Index: **25.0%** measured (BenchGap)
+- Fallback routing: ~4% of output tokens routed to Claude Opus 4.8/5 (Artificial Analysis)
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **53** (#5 of 217; median 27) (Artificial Analysis)
-- HLE: **55.5%** (AA-HLE)
-- GPQA Diamond: **92.6%** (Artificial Analysis); **93.2%** (Vals AI)
-- MMLU-Pro: **91.5%** (Vals AI)
+- Artificial Analysis Intelligence Index v5: **66** (max) / **65** (xhigh) — highest measured, up from v4.3.2 score of 53; ahead of Claude Opus 5 (max, 63), Claude Fable 5 (max, 62), GPT-5.6 Sol (max, 61) and Grok 4.6 (high, 61)
+- HLE: **59.1%** measured (AA-HLE) vs **55.5%** (AA-HLE previous) / **65.0%** measured (BenchGap)
+- GPQA Diamond: **94.8%** estimated ± 1.5 pp / **93.7%** measured / **93.6%** estimated (BenchGap); **92.6%** (Artificial Analysis)
+- MMLU-Pro: **86.0%** estimated ± 2.5 pp / **91.6%** AA estimated (BenchGap)
 - ARC-AGI-1: **98.50%** (ARC Prize verified)
 - ARC-AGI-2: **89.2%** (ARC Prize verified)
-- AA-LCR (long-context reasoning): **82.3%** (Artificial Analysis)
-- CritPt: **28.6%** (Artificial Analysis)
-- AA-Omniscience Index **43.3%**; Accuracy **65.4%**; Hallucination rate **63.6%** (AA)
-- GPQA Diamond: **94.8%** estimated ± 1.5 pp (benchgap.net)
-- HLE: **65.0%** measured (benchgap.net)
-- MMLU-Pro: **86.0%** estimated ± 2.5 pp / AA MMLU-Pro **91.6%** estimated (benchgap.net)
-- Artificial Analysis Intelligence Index: **49.0%** measured (benchgap.net)
-- AA Coding Index: **81.6%** measured (benchgap.net)
-- BrowseComp: **83.0%** estimated ± 1.9 pp (benchgap.net)
+- AA-LCR (long-context reasoning): **85.3%** measured (BenchGap)
+- CritPt: **29.7%** measured (BenchGap)
+- AA-Omniscience Accuracy: **68.4%** measured (BenchGap)
+- MMLU: **88.2%** estimated ± 8.3 pp (BenchGap)
+- AA MMLU-Pro: **91.6%** estimated (BenchGap)
+- AA Coding Index: **81.6%** measured (BenchGap)
+- BrowseComp: **83.0%** estimated ± 1.9 pp (BenchGap)
+- AA-Harvey LAB v1.0: **93.0%** measured (BenchGap)
+- AA-Tau3 Banking: **47.2%** measured (BenchGap)
+- AA-Terminal-Bench 2.1: **91.4%** measured (BenchGap)
+- AA-Terminal-Bench 4.0: **52.0%** measured (BenchGap)
+- Vals GPQA Diamond: **93.4%** measured (BenchGap)
+- Vals MMLU-Pro: **92.4%** measured (BenchGap)
+- HLE-Verified: **54.6%** estimated (BenchGap)
+- Agents' Last Exam: **46.8%** estimated (BenchGap)
 
 Coding:
 
-- SWE-bench Verified: **95%** (Claude Fable 5 system card)
-- SWE-bench Pro: **80%** (Claude Fable 5 system card)
-- LiveCodeBench (Vals): **89.8%** (Vals AI)
+- SWE-bench Verified: **98.1%** estimated ± 3.7 pp (BenchGap)
+- SWE-bench Pro: **81.2%** measured (BenchGap)
+- LiveCodeBench v6: **91.7%** estimated ± 2.4 pp (BenchGap)
+- Vals LiveCodeBench: **90.5%** measured (BenchGap)
+- Vals SWE-bench: **100.0%** estimated ± 4.5 pp (BenchGap)
 - SWE-bench (Vals): **95.0%** (Vals AI)
 - CursorBench 3.1: **70.6%**; CursorBench 3.2: **70.5%** (Cursor evals)
 - AA-SciCode: **61.0%** (Artificial Analysis)
-- AA Coding Index: **76.5%** (Artificial Analysis)
+- SciCode: **57.8%** estimated ± 2.9 pp (BenchGap)
+- AA Coding Index: **81.6%** measured (BenchGap)
 - FrontierSWE v2: **47.0%** (Proximal)
 - VulcanBench v3: **89.5%** (VulcanBench frontier results)
-- SWE-bench Pro: **81.2%** measured (benchgap.net)
-- ProgramBench: **87.6%** measured (benchgap.net)
+- DeepSWE: **67.4%** measured (BenchGap)
+- FrontierCode 2.0: **32.4%** measured (BenchGap)
+- ProgramBench: **87.6%** measured (BenchGap)
+- SWE Multilingual: **89.1%** measured (BenchGap)
+- SWE-bench Multimodal: **54.7%** measured (BenchGap)
+- CWE-Bench-AA: **50.8%** measured (BenchGap)
 
 Multimodal & grounded:
 

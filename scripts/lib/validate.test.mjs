@@ -9,6 +9,7 @@ import {
   MERGED_SOURCE_STEMS,
   RETIRED_ALIAS_SLUGS,
   DELETED_PHANTOM_SLUGS,
+  SANCTIONED_DELETIONS,
   PHANTOM_SLUG_FAMILIES,
   phantomSlugKey,
   deletedPhantomViolation,
@@ -77,6 +78,20 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
     );
   });
 
+  it("explicit user-ordered deletion is INFO, never FAIL", () => {
+    assert.equal(
+      classifyMissingTracked({
+        twinRetired: false,
+        quarantined: false,
+        mirror: undefined,
+        mergedSource: false,
+        deletedPhantom: false,
+        sanctionedDeletion: true,
+      }),
+      "sanctioned-deletion",
+    );
+  });
+
   it("anything else is a forbidden deletion", () => {
     assert.equal(classifyMissingTracked({ twinRetired: false, mirror: undefined }), "deleted");
   });
@@ -88,6 +103,15 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
   it("merged-source wins over twin retirement and mirror relocation", () => {
     assert.equal(classifyMissingTracked({ twinRetired: true, mirror: undefined, mergedSource: true }), "merged-source");
     assert.equal(classifyMissingTracked({ twinRetired: false, mirror: "models_voice", mergedSource: true }), "merged-source");
+  });
+});
+
+describe("sanctioned deletions (user-ordered, kept deleted)", () => {
+  it("records exactly the two Muse Spark 1.3 Xing paths", () => {
+    assert.deepEqual([...SANCTIONED_DELETIONS.keys()], [
+      "model/muse-spark-1.3/Xing_4.0.29B_A4B.md",
+      "model/muse-spark-1.3/Xing_4.0.29B_A4B.md.excluded",
+    ]);
   });
 });
 

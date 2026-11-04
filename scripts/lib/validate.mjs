@@ -243,6 +243,25 @@ export const MERGED_SOURCE_STEMS = new Map([
   ["Xing_4.0_29b_a4b", "Xing_4.0.29B_A4B"],
 ]);
 
+/**
+ * Exact research paths deleted on explicit user order (per-instance sign-off,
+ * same mechanism as MERGED_SOURCE_STEMS / DELETED_PHANTOM_SLUGS). They are
+ * still tracked in HEAD until the deletion commit lands; the permanence
+ * tripwire compares worktree against HEAD, so without this list every sync run
+ * during testing would FAIL. Once committed they leave HEAD and the entries
+ * become inert — they remain as the recorded sign-off.
+ */
+export const SANCTIONED_DELETIONS = new Map([
+  [
+    "model/muse-spark-1.3/Xing_4.0.29B_A4B.md",
+    "user-ordered deletion 2026-11-05 — keep deleted, never restore",
+  ],
+  [
+    "model/muse-spark-1.3/Xing_4.0.29B_A4B.md.excluded",
+    "user-ordered deletion 2026-11-05 — keep deleted, never restore",
+  ],
+]);
+
 /** Exact FAIL text for a resurrected merged findings-file stem. */
 export function mergedStemMessage(stem, canonical) {
   return (
@@ -283,11 +302,21 @@ export function isRegenerablePath(posix) {
  * - mirror: name of the sanctioned mirror tree holding the same path (if any);
  * - deletedPhantom: the path lived under a deleted phantom folder
  *   (DELETED_PHANTOM_SLUGS, user-ordered removal 2026-11-03) whose removal is
- *   sanctioned — the folder must stay gone, and a resurrect FAILs elsewhere.
+ *   sanctioned — the folder must stay gone, and a resurrect FAILs elsewhere;
+ * - sanctionedDeletion: exact path recorded in SANCTIONED_DELETIONS (explicit
+ *   per-instance user sign-off, kept deleted).
  * Returns "merged-source" | "twin-retired" | "quarantined" | "relocated" |
- * "deleted-phantom" | "deleted" (=> FAIL).
+ * "deleted-phantom" | "sanctioned-deletion" | "deleted" (=> FAIL).
  */
-export function classifyMissingTracked({ twinRetired, quarantined, mirror, mergedSource, deletedPhantom }) {
+export function classifyMissingTracked({
+  twinRetired,
+  quarantined,
+  mirror,
+  mergedSource,
+  deletedPhantom,
+  sanctionedDeletion,
+}) {
+  if (sanctionedDeletion) return "sanctioned-deletion";
   if (deletedPhantom) return "deleted-phantom";
   if (mergedSource) return "merged-source";
   if (twinRetired) return "twin-retired";

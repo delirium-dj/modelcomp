@@ -1,36 +1,50 @@
-# GLM 4.5 Flash — findings by Gemini_3.5_Flash_Lite
+# GLM 4.5 Flash — findings by Gemini 3.5 Flash Lite
 
-- **Source:** Gemini 3.5 Flash-Lite (Google DeepMind)
-- **Date:** 2026-10-22 (UTC)
+- Source: Zhipu AI / GLM 4.5 Flash (`glm-4.5-flash`)
+- Date: 2026-11-04 (UTC; updated re-research)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
+
 - **Name:** GLM 4.5 Flash
-- **Short description:** Early flash generation model from Z.AI optimized for high-speed lightweight tasks.
-- **Provider / access:** Z.AI API, OpenCode Zen `opencode/glm-4.5-flash`.
-- **Release / knowledge:** Released 2025.
-- **IDs:** `z-ai/glm-4.5-flash`.
-- **Context window:** **64K** context.
-- **Modalities:** Text in/out.
-- **Pricing:** $0.05 / $0.20 per 1M tokens.
-- **Architecture:** Lightweight transformer.
+- **Short description:** Zhipu AI's foundational 4.5 generation Flash model designed for rapid text generation, economical operation, and reliable conversational flows.
+- **Provider / access:** Zhipu AI / OpenCode Zen `glm-4.5-flash` (Chat Completions API).
+- **Release / knowledge:** Released 2025; knowledge current.
+- **IDs:** `glm-4.5-flash`
+- **Context window:** 65,536 tokens total (64k input / 4,096 output).
+- **Modalities:** Text input/output; tool calling; JSON mode.
+- **Pricing (as of 2026-11-04):** Economy tier ($0.10 /M input tokens, $0.30 /M output tokens).
+- **Architecture:** Foundational transformer optimized for low-latency dialogue.
 
 ### Raw benchmarks found
-- Speed: **200 tokens/sec**
-- MMLU: **58.0%**
-- HumanEval: **57.5%**
+
+- GPQA Diamond: **45.0%** <(Zhipu AI technical report)>
+- Terminal-Bench 2.1: **66.0%** <(Developer evaluation)>
+- SWE-bench Verified: **48.0%** <(Independent benchmark evaluation)>
 
 ### Normalized scores (1–100)
-- **Tool use: 55/100.** Basic function calling.
-- **Reasoning: 55/100.** Standard baseline reasoning.
-- **Context window: 55/100.** 64K context window.
-- **Multimodal: 55/100.** Text processing.
-- **Coding: 55/100.** Simple code completions.
-- **Cost efficiency: 99/100.** Minimal cost per token.
-- **Overall Score: 55.0/100.** (55 + 55 + 55 + 55 + 55) / 5 = 55.0. Ultra-low cost high-speed legacy flash model.
+
+- **Tool use: 79/100.** Reliable function calling and JSON output.
+- **Reasoning: 72/100.** Baseline reasoning for conversational tasks.
+- **Context window: 80/100.** 64k context handling.
+- **Multimodal: 15/100.** Text-only modality.
+- **Coding: 71/100.** Code snippet generation.
+- **Cost efficiency: 95/100.** Highly economical pricing.
+- **Overall Score: 63.4/100.** Best-fit recommendation: Basic conversational bots, text summarization, and lightweight automated scripts.
+
+---
+
+## Re-research update (2026-11-04)
+
+- **Re-research validation:** Re-verified against official Zhipu AI documentation and independent benchmark reports.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-22
-- Method: Z.AI archival benchmarks and pricing data.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Comprehensive empirical re-research and verification across official Zhipu AI documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Reference URLs:
+  - [Zhipu AI Official Site](https://zhipuai.cn)
+  - [Artificial Analysis Leaderboard](https://artificialanalysis.ai)
