@@ -1,7 +1,7 @@
 # Beam — findings by Qwen 3.8 Flash
 
 - Source: Reflection AI (`reflection/Beam-1.0-501B-A23B`; curated id `opencode/beam`), cross-checked against Artificial Analysis, Hugging Face, eesel/datacamp/latent.space launch coverage and Reflection's own benchmark table
-- Date: 2026-10-17 (UTC)
+- Date: 2026-10-17 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,22 @@ Long context:
 - **Cost efficiency: 88/100.** Apache-2.0 open weights, 23B-active-per-token compute, and a free OpenCode/Command Code tier make it cheap to run — docked only because no first-party API rate is published yet and 501B total still needs heavy hosting memory.
 - **Overall Score: 62.2/100.** Half-up mean of the five quality dims (73+68+78+15+77)/5 = 62.2. Best fit: teams needing a **US-built, sovereign, coding/agentic open-weight model** at GLM-5.2-class quality with far less inference compute; the text-only modality is the dominant drag, and independent (non-vendor) confirmation of the headline coding rows is still pending.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: active open-weight model — AA Index rescaled to v5.0.1 and a listed API price now exists; bands held, Overall remains 62/100.**
+
+Two material record-changes since pass-1 (2026-10-17), neither of which moves a band:
+
+1. **Artificial Analysis launched Intelligence Index v5 on 2026-10-27** — a harder, largely-private-dataset rebase (v5.0.1 = AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, CritPt v2 Hard, Terminal-Bench-Science 0.1). On this **new scale Beam 1.0 now shows 18** (AA *Reflection Models* page, fetched 2026-11-04). Pass-1's headline **30 was the pre-v5 number** — the 30→18 drop is a **methodology rescale that lowered every model's score**, *not* a capability regression, and must not be read as Beam getting worse. Its relative standing (top-tier US open-weight) is unaffected by the rescale; the v5 figure is simply the new absolute coordinate.
+2. **A hosted rate now exists.** The AA Reflection table lists Beam 1.0 at **~$0.2/M blended input, $0.28 per Index task, 281 tok/s, 1M context, open weights (🤗), +2 providers** — pass-1's "no published per-token API rate" note is resolved. Cost is excluded from Overall, so this updates the Cost description only.
+
+**Band decisions — hold all five, Overall 62 unchanged.**
+
+- The v5 rescale is a *scale change*, not evidence about Beam specifically, so it triggers no revision (re-basing the whole cohort is the user-facing `pnpm sync` concern, not this file's band logic).
+- **Revisit trigger PARTIALLY fired:** first-party/AA API price is now published (yes), but **AA/Sierra did not add a same-harness SWE-bench Verified or τ³ reproduction** against GLM-5.2 / Qwen3.8-Max (no) — so the coding/tool confidences stay vendor-capped: Coding 77, Tool 73 held. Reasoning 68 (AA-confirmed top-US-open-weight reasoner, modest HLE), Context 78 (256K served vs 1M listed; AA page now shows "1M" context — but the served-beta caveat and no MRCR proof keep it at 78), Multimodal 15 (AA still lists text-in/text-out; no vision added) all unchanged.
+
+Sources (this pass): Artificial Analysis *Reflection Models* page (fetched 2026-11-04 — v5.0.1 Index 18, ~$0.2/M + $0.28/task, 281 tok/s, 1M, open weights, +2 providers); AA *Announcing Intelligence Index v5* note (2026-10-27 methodology change); pass-1 base (AA `reflection-beam` page, Reflection "Introducing Beam" launch post + vendor table, HF `reflection/Beam-1.0-501B-A23B`, eesel/DataCamp/latent.space write-ups).
+
 ---
 
 ## Signature
@@ -60,4 +76,5 @@ Long context:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-17
 - Method: public internet research — Artificial Analysis "Reflection has released Beam" article + `reflection-beam` model page (Index 30, 1M ctx, text-only), Reflection AI "Introducing Beam" launch post and its self-published benchmark table, Hugging Face `reflection/Beam-1.0-501B-A23B` model card, and independent write-ups (eesel, DataCamp, latent.space, OpenCode/Command Code listings). Scores are normalized 1–100 interpretations, not official vendor scores; vendor-vs-independent provenance is flagged inline. `meta.json` (scaffolded "128K total / Text in-out / Standard pricing") was overridden by first-party evidence (served 256K/128K, text-only, open-weight + unpublished API price).
 - Revisit trigger: Reflection publishes the FP8/NVFP4 weights + a first-party API price, and Artificial Analysis / Sierra add same-harness SWE-bench Verified & τ³ rows against GLM-5.2 / Qwen3.8-Max.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation pass. Two record-changes, zero band moves: (a) AA **Intelligence Index v5.0.1** (launched 2026-10-27) rebases Beam from pass-1's **30 (v4)** to **18 (v5)** — a whole-cohort scale change, not a regression; (b) an AA-listed **API price** (~$0.2/M, $0.28/task, 281 tok/s) now exists, resolving the "no rate published" note. Trigger partially fired (price yes / same-harness SWE·τ³ reproduction no). **Overall held at 62.**
 - Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

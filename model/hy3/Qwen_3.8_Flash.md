@@ -1,7 +1,7 @@
 # Hy3 — findings by Qwen 3.8 Flash
 
 - Source: Tencent Hunyuan (`tencent/hy3`; HF `tencent/Hy3`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,21 @@ Long context:
 - **Cost efficiency: 96/100.** $0.14/$0.58 per 1M (falling to $0.083/$0.330) with Apache 2.0 self-hosting — top-tier economics, near the methodology's $0.10–0.20 anchor. Cost excluded from Overall.
 - **Overall Score: 72/100.** Mean of Tool 72, Reasoning 74, Context 78, Multimodal 62, Coding 72 = 358/5 = 71.6 → **72**. Best fit: **self-hosted, cost-sensitive agentic coding and structured reasoning under human verification** — an Apache-licensed 21B-active model with flagship-coded GPQA/SWE numbers at fractions-of-a-cent prices. Do **not** use it as an unsupervised knowledge oracle (74.1% hallucination). Lands almost exactly on the cohort's 72.5, split between Kimi K3's missing-rows cautious 64 and the vendor-leaning 80s.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: active open-weights flagship — revisit trigger NOT fired; AA Index rebased to v5 (scale change only); Overall held at 72/100.**
+
+Two external changes since pass-1 (2026-10-02), neither of which alters Hy3's own measured bands:
+
+1. **Artificial Analysis Intelligence Index v5 launched 2026-10-27/28** — a harder, largely-private-dataset rebase (v5.0.1 = AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, CritPt v2 Hard, Terminal-Bench-Science 0.1). Pass-1 recorded Hy3's AA Index as **25.3 on the pre-v5 scale**; v5 rebases that absolute number downward cohort-wide. This is a **scale change, not a capability regression** for Hy3, so it earns no band revision (the same reasoning recorded on `beam`).
+2. **Tencent shipped Hy4 (GA 2026-11-04, vision + computer use).** Hy3 is now two generations behind the Hunyuan line's newest model — but Hy3 remains fully open-weights (Apache 2.0, HF `tencent/Hy3`) and served, so it is **not** retired/legacy; a newer sibling existing is not evidence about Hy3's own scores.
+
+**Trigger check — NOT fired.** The revisit condition was *"AA publishes HLE/MRCR/SWE rows settling the vendor-vs-BenchLM HLE gap (33.5↔53.2), or Tencent ships a Hy3 refresh addressing the Omniscience profile."* Neither materialized: no AA MRCR/HLE-settling/SWE reproduction for Hy3 surfaced, and the Omniscience failure (**32.0% accuracy / 74.1% hallucination**, BenchLM) stands unremedied — Hy3 remains unsuitable as an unsupervised knowledge oracle. Reasoning 74 and Context 78 therefore held on the same lanes pass-1 scored.
+
+**Bands held:** Tool 72 · Reasoning 74 · Context 78 · Multimodal 62 · Coding 72 = 358/5 = **71.6 → 72**. No new Hy3-specific measurement to move any dimension.
+
+Sources (this pass): Artificial Analysis *Intelligence Index v5* announcement + evaluations page (2026-10-27/28 rescale); AA `Hy3-preview` Index reference (X); BenchLM AA-Omniscience leaderboard (standing 74.1% hallucination); Hy4 GA launch (newer-generation context, 2026-11-04); pass-1 base (launch coverage, HF `tencent/Hy3` card, in-folder Kimi_K3/Muse_Spark/GPT_5.6_Terra lanes, r/LocalLLaMA drift).
+
 ---
 
 ## Signature
@@ -63,4 +78,5 @@ Long context:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (launch coverage 2026-07-06 via kie.ai/innfactory/ai-tldr for 295B/21B, 256K, Apache 2.0, $0.14/$0.58; HF `tencent/Hy3` card rows via sibling reports; r/LocalLLaMA hands-on long-context drift) cross-checked against qualifying in-folder reports (Kimi_K3 BenchLM/AA lane, Muse_Spark_1.3 vendor panel, GPT_5.6_Terra HF-card rows) and curated `meta.json`. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) Gemini 3.8 Flash's TB 90.4 as a GPQA mis-slot (true TB is 71.7), (b) the Omniscience 32.0/74.1 honesty failure vs GPQA 90.4, (c) community-reported effective-context degradation vs the nominal 256K.
 - Revisit trigger: if Artificial Analysis publishes HLE/MRCR/SWE rows settling the vendor-vs-BenchLM HLE gap (33.5↔53.2), or if Tencent ships a Hy3 refresh addressing the Omniscience profile, re-score Reasoning/Context.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation pass. Trigger NOT fired: no AA HLE/MRCR/SWE rows settling the 33.5↔53.2 gap, no Hy3 refresh fixing the 74.1% hallucination. Two external changes logged without band impact: AA **Index v5.0.1** rebase (25.3 was pre-v5; scale change) and **Hy4 GA** (newer gen, Hy3 still open/served, not retired). **Overall held at 72.**
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

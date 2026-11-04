@@ -1,7 +1,7 @@
 # Hy4 — findings by Qwen 3.8 Flash
 
 - Source: Tencent Hunyuan (`tencent/hy4`; HF `tencent/Hy4-preview`, Apache 2.0)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,24 @@ Multimodal:
 - **Cost efficiency: 88/100.** Apache 2.0 free weights; self-hosting a 770B/49B is datacenter money but marginal per-token is hardware-only. Matches the qualifying read. Cost excluded from Overall.
 - **Overall Score: 67.6/100.** Mean of Tool 80, Reasoning 78, Context 88, Multimodal 16, Coding 76 = 338/5 = 67.6 → **68**. Best fit: **self-hosted long-horizon text agents and multilingual repo work where Apache licensing is the requirement** — GDPval-top-2 open weights with a frontier-rare unfurnished HLE pass, held back by preview-status unknowns (no honesty panel) and harness-dependent execution. Sits exactly on the Kimi K3/67–cohort/68.7 band: this is one of the rare folders where the measurement and the reputation agree.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: preview promoted to GA on 2026-11-04 with vision + computer use — Multimodal band corrected; other bands held; Overall 68 → 73.**
+
+Tencent shipped **Hy4 GA on 4 November 2026**. Two independent sources confirm the headline change: Tencent's own **@TencentHunyuan** post ("Hy4 is here, **new with vision**. Firmly among the leading open models") and the OrcaRouter GA analysis (*Tencent Hy4 GA: Vision, Computer Use at Same Price*, fetched 2026-11-04). GA adds **image input** and **computer use** (mouse/keyboard + CLI+GUI, sandbox on Tencent Cloud Agent Runtime) — this is the **first Hy model that reads an image and drives a desktop**, so pass-1's "text in / text out" model card is now superseded.
+
+What GA did **not** ship is the evidence the trigger asked for. OrcaRouter is explicit: **no Terminal-Bench row, no SWE-bench row, no model card, no independent evaluation** — the only GA numbers are Tencent's own non-standard task suites (GameDev +19.1%, GameLogic +9.8%, a 213-expert finance panel averaging 3.04 vs Kimi K3.1 Pro 2.68 / GLM-5.3 2.68, a claimed hallucination drop 15.76%→5.45%, IRAB research +12.03, BioExperimentBench 30.4/100). The August preview table (TB 2.1 85.4, SWE-Pro 65.7, DeepSWE 64.3, Toolathlon 74.1, ALE 22.8) remains the *only* comparable benchmark set, and Tencent did **not** update it. The **revisit trigger's specific condition ("GA with an AA panel — Index/LCR/Omniscience + hosted rate card") PARTIALLY fired**: a hosted rate card is now confirmed ($0.834 in / $2.501 out / $0.042 cache on the Singapore endpoint, unchanged from preview; mainland ¥6/¥18/¥0.3), but there is still **no independent evaluation** of the GA build. GA weights are also **not yet released** — the Apache-2.0 HF repo holds only the preview (FP8 checkpoint >700 GB); GA is currently **API-only**, with open weights and a system card "planned, undated."
+
+**Band decisions:**
+
+- **Multimodal: 16 → 45 (REVISED).** Image input is now a confirmed modality fact (two sources), so the model leaves the 10–20 text-only floor and enters the v4 +image band. Entered at the band's **discounted floor** — not the mid-band — because there is **zero published visual benchmark** for the GA build (OrcaRouter: "treat the demo as a vendor illustration; there is no published visual benchmark attached"), the vision encoder is undescribed, and the build is not yet self-hostable. Deeper discount than `claude-sonnet-3.5` (55) and `claude-mythos-5` (65), whose image input is at least a shipping, established modality.
+- **Tool / Reasoning / Context / Coding: HELD** (80 / 78 / 88 / 76). Computer-use, vision-reasoning, and shorter-CoT are GA capability *claims* with no measured row; per methodology (recalc only on evidence) they earn no band credit until an AA panel or system-card table appears. Context stays 88 (1,048,576-token total window confirmed, still zero MRCR/RULER retrieval measurement). The preview's GA-proxy numbers are unchanged from pass-1.
+- **Cost note (excluded from Overall):** hosted rate now published (previously "no verified hosted rate"); cached-input $0.042/M beats Hy3's $0.059 — a genuine long-context agent-loop advantage. Apache-2.0 openness is now preview-only (GA API-only pending weights).
+
+**New Overall:** Tool 80 + Reasoning 78 + Context 88 + Multimodal **45** + Coding 76 = 367/5 = **73.4 → 73** (was 68). The +5 is a **modality-band correction, not a quality credit** — it reflects confirmed image input at the unmeasured floor, and reverses toward ~68 if the vision claim is later shown weak, or rises into the 60–70 band once a visual benchmark is published.
+
+Sources (this pass): Tencent **@TencentHunyuan** GA announcement (vision); OrcaRouter *Tencent Hy4 GA: Vision, Computer Use at Same Price* (fetched 2026-11-04 — GA date, rate card, missing-benchmark audit, weights status); pass-1 base (`Kimi_K3.md` BenchLM scorecard, HF `tencent/Hy4-preview`, SCMP, tencent.com release).
+
 ---
 
 ## Signature
@@ -65,4 +83,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` BenchLM scorecard (GDPval/TB-lanes/MCP/WideResearch/GPQA/HLE/SWE-Pro/DeepSWE/marathon rows) + catalog context split (960K/64K) + curated `meta.json` (honest here). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) the **85.4↔55.1 TB harness split** — reroute cautiously, (b) zero Omniscience/AA-Index rows on a preview: honesty unknown, not assumed, (c) 960K usable input is band-adjacent to, not inside, the ≥1M tier.
 - Revisit trigger: when Tencent promotes Hy4-preview to GA with an AA panel (Index/LCR/Omniscience) and a hosted rate card — Context and Reasoning both have headroom once measured.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. GA-ship pass: preview promoted to GA 2026-11-04 with **vision + computer use** (Tencent @TencentHunyuan + OrcaRouter). Corrected **Multimodal 16→45** (confirmed image input, discounted to band floor for zero measured visual quality + not-yet-routable). All other bands held — GA published **no independent benchmark** (only vendor task suites) and **no released weights** (API-only). Trigger partially fired (rate card yes / AA panel no). **Overall 68→73**, flagged as a modality-band correction rather than a capability credit.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

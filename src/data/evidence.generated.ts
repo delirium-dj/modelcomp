@@ -165,9 +165,12 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Tau2-bench", value: "98.1%", raters: ["Beam", "GPT_6_Luna"] },
   ],
   "claude-mythos-5": [
-    { benchmark: "Terminal-Bench", value: "88%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "GPQA Diamond", value: "94.1%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
-    { benchmark: "SWE-bench Verified", value: "95.5%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "Terminal-Bench", value: "88%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "HLE", value: "64.5%", raters: ["MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "GPQA Diamond", value: "94.1%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "SWE-bench Verified", value: "95.5%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "OSWorld", value: "85%", raters: ["MiMo_2.6_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "SWE-bench Pro", value: "80.3%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },
   ],
   "claude-mythos-5.1": [
     { benchmark: "Terminal-Bench", value: "60.9%", raters: ["Beam", "Big_Pickle", "Claude_Opus_4.6", "Claude_Sonnet_3.5", "Claude_Sonnet_4.5", "Claude_Sonnet_5", "DeepSeek_4.1_Flash", "DeepSeek_4_Flash", "Fledge_Alpha", "GLM_5.3", "GLM_5.3_Flash", "GPT_5", "GPT_5.5", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6_Luna", "Gemini_3.6_Flash", "Gemini_3.8_Flash", "Gemini_3_Flash", "Grok_4.6", "Kimi_K3", "Laguna_S_2.1", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Spark_1.2", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B", "Pixel_Canary", "Qwen_3.7_Plus", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
@@ -2223,9 +2226,11 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Vibe Code Bench", value: "3.68%", raters: ["Beam", "DeepSeek_4.1_Flash", "GPT_5.6_Terra"] },
   ],
   "mercury-3": [
-    { benchmark: "GPQA Diamond", value: "89.23%", raters: ["GLM_5.3_Flash", "Gemini_3.8_Flash", "Step_5_Preview"] },
-    { benchmark: "DeepSWE", value: "46.31%", raters: ["GLM_5.3_Flash", "Gemini_3.8_Flash", "Step_5_Preview"] },
-    { benchmark: "Tau3-bench", value: "30.2%", raters: ["GLM_5.3_Flash", "GPT_5.6_Luna"] },
+    { benchmark: "GPQA Diamond", value: "89.23%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Gemini_3.8_Flash", "Step_5_Preview"] },
+    { benchmark: "DeepSWE", value: "46.31%", raters: ["DeepSeek_4.1_Flash", "GLM_5.3_Flash", "Gemini_3.8_Flash", "Step_5_Preview"] },
+    { benchmark: "AA-LCR", value: "77.67%", raters: ["DeepSeek_4.1_Flash", "Step_5_Preview"] },
+    { benchmark: "BrowseComp", value: "55.18%", raters: ["DeepSeek_4.1_Flash", "Step_5_Preview"] },
+    { benchmark: "Tau3-bench", value: "30.24%", raters: ["DeepSeek_4.1_Flash", "Step_5_Preview"] },
   ],
   "mimo-v2.5-free": [
     { benchmark: "Terminal-Bench", value: "65.8%", raters: ["Big_Pickle", "Claude_Opus_5", "DeepSeek_4.1_Flash", "GLM_5.2_Coding", "GLM_5.3_Flash", "GPT_5.6_Luna", "GPT_5.6_Terra", "GPT_6_Luna", "Kimi_K3", "Ling_3.1_Flash", "LongCat_2.5_Preview", "Muse_Spark_1.2", "Qwen_3.8_27B"] },
@@ -2501,7 +2506,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Vibe Code Bench", value: "86%", raters: ["Gemini_3_Flash", "Nemotron_3.5_Super_VL_120B_A12B"] },
   ],
   "nemotron-3-nano-omni": [
-    { benchmark: "HLE", value: "4.8%", raters: ["GLM_5.3_Flash", "MiniMax_M3.1_Flash"] },
+    { benchmark: "HLE", value: "4.8%", raters: ["GLM_5.3_Flash", "MiniMax_M3.1_Flash", "Qwen_3.8_Flash"] },
     { benchmark: "GPQA Diamond", value: "72.2%", raters: ["Beam", "Claude_Opus_5", "GLM_5.3_Flash", "Gemini_3.8_Flash", "Kimi_K3", "Laguna_S_2.1", "Ling_3.1_Flash", "MiMo_2.6_Flash"] },
     { benchmark: "GDPval", value: "416 Elo", raters: ["Claude_Opus_5", "Gemini_3.8_Flash", "Kimi_K3"] },
     { benchmark: "OSWorld", value: "47.4%", raters: ["Beam", "Claude_Opus_5", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Terra", "Gemini_3.5_Flash_Lite", "Gemini_3.8_Flash", "Kimi_K3", "Ling_3.1_Flash", "MiMo_2.6_Flash", "Muse_Spark_1.3"] },

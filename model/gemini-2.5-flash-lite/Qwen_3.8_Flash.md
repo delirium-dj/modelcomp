@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash Lite — findings by Qwen 3.8 Flash
 
 - Source: Google DeepMind via OpenCode Zen listing (`opencode/google-gemini-2.5-flash-lite`; native model `gemini-2.5-flash-lite`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,18 @@ Multimodal:
 - **Cost efficiency: 97/100.** $0.10 / $0.40 + $0.01 cached + 70 ms TTFT + 240 tok/s is the model's genuine raison d'être — bulk cheap-fast. Cost excluded from Overall.
 - **Overall Score: 43/100.** Mean of Tool 52, Reasoning 55, Context 55, Multimodal 12, Coding 42 = 216/5 = 43.2 → **43**. Best fit: **ultra-cheap, ultra-fast bulk classification, translation, and summarization on the Zen listing** — not a reasoning or coding choice.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: `legacy` — lifecycle change confirmed; bands held, Overall remains 43/100.**
+
+Google has **retired the native `gemini-2.5-flash-lite` endpoint on October 20, 2026** (release 2025-07-22). Authoritative source: Google Cloud *Model versions and lifecycle* table lists `gemini-2.5-flash-lite` → retirement **October 20, 2026**, recommended replacement `gemini-3.8-flash` / `gemini-3.5-flash-lite`. Corroborated by three independent write-ups (Zentor blog, @shtse8 Medium "Gemini 2.5 on Vertex AI Retires October 20", and the Google AI Studio changelog for the related `gemini-2.5-flash-lite-preview-09-2025` → 2026-03-31 shutdown that preceded the stable-model retirement). This report scores the **OpenCode Zen listing** (`opencode/google-gemini-2.5-flash-lite`) which proxies that native endpoint; with the underlying Google model retired, the Zen listing ID is now `legacy` — calls route to a decommissioned backend.
+
+- **Revisit trigger — RESOLVED (moot).** The pass-1 trigger ("if OpenCode Zen exposes the native 1M/omni endpoint under this listing ID") is superseded by the endpoint retirement: there is no longer a live native endpoint for Zen to expose. The Zen listing's narrow 128K / text-only profile is now frozen by retirement rather than by listing policy.
+- **No new benchmark evidence.** No independent re-measurement of the retired model was published in this window; the pass-1 figures (τ² 47.3%, GPQA 55.0%, SWE-V 22.0%, 128K cap, text-only, $0.10/$0.40) stand unchanged as the last measured profile.
+- **Bands held:** Tool 52, Reasoning 55, Context 55, Multimodal 12, Coding 42 → **Overall 43** (216/5). Lifecycle change does not alter measured capability; only operational status moves from active to `legacy`.
+
+Sources (this pass): Google Cloud *Model versions and lifecycle* (fetched 2026-11-04, retirement table); Zentor blog *Gemini 2.5 Pro Shutdown Date*; @shtse8 Medium *Gemini 2.5 on Vertex AI Retires October 20*; Google AI Studio release-notes/changelog (preview-model predecessor).
+
 ---
 
 ## Signature
@@ -71,4 +83,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` serenitiesai / benchleader / llmboard / whichllmmodel aggregation. Curated `meta.json` is a placeholder template — but its "128K total / Text in/out" happens to correctly describe this **Zen listing** (not the native model).
 - Revisit trigger: if OpenCode Zen exposes the native 1M/omni endpoint under this listing ID.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle confirmation pass: flagged `legacy` (native `gemini-2.5-flash-lite` endpoint retired 2026-10-20 by Google; Zen listing proxies a retired backend). No new capability data; Overall 43 held. The endpoint retirement supersedes the pass-1 revisit trigger (now moot).
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

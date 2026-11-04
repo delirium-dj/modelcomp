@@ -1,7 +1,7 @@
 # Qwen 3.5 9B — findings by Qwen 3.8 Flash
 
 - Source: Alibaba / Qwen Team (`Qwen/Qwen3.5-9B`, Apache-2.0 open weights)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,24 @@ Multimodal (the headline):
 - **Cost efficiency: 94/100.** Apache-2.0 in ~6 GB at 4-bit is effectively free at the edge; capped below 100 by thinking-token burn per answer. Cost excluded from Overall.
 - **Overall Score: 68/100.** Mean of Tool 66, Reasoning 70, Context 72, Multimodal 75, Coding 58 = 341/5 = 68.2 → **68**. Best fit: **on-device multimodal assistant and agent prototyping** — vision+video understanding, strong tool-call parsing and competition-grade math in a 6 GB laptop footprint is a genuinely unique point in the design space; not a coding engine and not a long-horizon agent. Lands between Kimi K3's 66.6 and the cohort's 70.1 (the cohort under-credits nothing here except by ignoring that every number is vendor-harness).
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: active open-weights model — revisit trigger FIRED (independent AA panel now exists); independent signals offset, bands held, Overall remains 68/100.**
+
+The pass-1 caveat was that the entire evidence base was **Qwen Team self-reported harness** with AA only corroborating the sub-10B leadership *qualitatively*. That gap is now closed: Artificial Analysis publishes a dedicated **`Qwen3.5 9B (Reasoning)` model page** and a launch analysis (both fetched 2026-11-04) with independently measured rows drawn from Intelligence Index **v5.0.1** — which incorporates **AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, MLCR-AA** — i.e. the exact HLE/Omniscience/agentic-coding-class rows the trigger asked for.
+
+New independent data (side-by-side with vendor, never averaged):
+
+- **AA Intelligence Index: 32** — the most intelligent model under 10B params, ~2× the next-closest sub-10B (Falcon-H1R-7B 16, NVIDIA Nemotron Nano 9B V2 15). Confirms the vendor headline numbers reflect *real* capability, not harness inflation of the ranking.
+- **AA-Omniscience v1.1: −56** (82% hallucination, 14.7% accuracy) — an independent weakness *not visible in any vendor table*. Pass-1 could not price this; it offsets the strong Intelligence Index.
+- **MMMU-Pro (AA-measured): 69.2%** vs vendor 70.1% — independent corroboration of the multimodal band.
+- **Token burn confirmed independently:** ~260M output tokens to run the Index (vs 86–98M for far larger Qwen3.5 siblings) — pass-1's "heavy-budget vendor runs overstate edge deployment" concern is now AA-verified.
+- Context 262K, Apache-2.0, native vision — all confirmed; AA lists **no first/third-party serverless API** at publish time (hosted pricing unconfirmed, Cost note unchanged).
+
+**Band decision — hold at Overall 68.** The two new independent signals point in opposite directions and roughly cancel: the Intelligence Index (32, best-in-class) validates Tool/Reasoning/Coding strength, while AA-Omniscience (−56 / 82% hallucination) exposes a reliability weakness pass-1 had not measured. Neither is large enough to move a band on its own, and per methodology conflicting evidence is recorded side-by-side rather than averaged away. Tool 66 · Reasoning 70 · Context 72 · Multimodal 75 · Coding 58 → 341/5 = 68.2 → **68** unchanged.
+
+Sources (this pass): Artificial Analysis *Qwen3.5 small models* analysis (2026-03-05, Intelligence Index 32, Omniscience −56, MMMU-Pro 69.2, token counts); Artificial Analysis `Qwen3.5 9B (Reasoning)` model page (fetched 2026-11-04; v5.0.1 eval list incl. HLE-Diamond/TB 4.0/FrontierCode 2.0/AutomationBench-AA; pricing $0.135/$0.20, 262K, 29-of-723 charts).
+
 ---
 
 ## Signature
@@ -64,4 +82,5 @@ Multimodal (the headline):
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: qualifying `Kimi_K3.md` (HF model card full vendor tables, llm-releases.com, qwen.ai blog, theopenweights.com — 2026-10-01) + curated `meta.json` (both "128K" and "Text in/out" flagged as placeholders contradicted by the 262K-native VLM card). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) vendor-harness-only evidence base — AA's sub-10B leadership claim is the sole external corroboration, (b) thinking-token budgets make headline numbers deployment-unrealistic at edge settings, (c) no HLE/SWE rows exist at this size class in the tracked panels.
 - Revisit trigger: if Artificial Analysis publishes a full sub-10B panel with HLE/Omniscience/SWE-Verified-class rows for `Qwen3.5-9B`, re-score Reasoning/Coding; a hosted price publication would firm up Cost notes only.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Independent-verification pass: pass-1 revisit trigger FIRED — Artificial Analysis now publishes a full `Qwen3.5 9B (Reasoning)` panel (Intelligence Index v5.0.1 with HLE-Diamond/TB 4.0/FrontierCode 2.0/AutomationBench-AA/Omniscience rows). Independent signals offset (Index 32 best-in-class vs Omniscience −56 / 82% hallucination); bands held, Overall 68 unchanged. The evidence base is no longer vendor-only.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

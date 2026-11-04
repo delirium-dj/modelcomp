@@ -1,7 +1,7 @@
 # Claude 3.5 Sonnet — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (`claude-3-5-sonnet-20240620` / upgraded `claude-3-5-sonnet-20241022`)
-- Date: 2026‑10‑02 (UTC)
+- Date: 2026‑10‑02 (UTC) / second pass 2026‑11‑04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,22 @@ Multimodal:
 - **Cost efficiency: 35/100.** $3 / $15 per 1M was mid‑tier 2024 pricing; by 2026 standards it's expensive per unit of capability. Cost excluded from Overall.
 - **Overall Score: 52/100.** Mean of Tool 48, Reasoning 42, Context 65, Multimodal 55, Coding 50 = 260/5 = 52.0 → **52**. Best fit: **historical reference / regression anchor only** — no new deployments. The Sonnet 4.x / 5.x line replaces it several times over. Kimi 44 (over‑harsh on 200K and image input); cohort 68.2 (reputation‑inflated for a pioneering but thoroughly superseded model). Honest middle: **52** respects the real 200K spec and real image input while applying the 2026 field discount. Cross‑reference: Llama 3.2 Vision (Sept 2024) scores 42 in this repo — Claude 3.5 Sonnet earns 10 more for its clearly superior reasoning, coding, and tool surface in the same era.
 
+## Second-pass update — 2026‑11‑04 (UTC)
+
+**Status: `legacy` — formally RETIRED; bands held, Overall remains 52/100.**
+
+Anthropic's **model-deprecations page** (platform.claude.com, authoritative for Claude lifecycle) confirms both scored IDs were **retired on October 28, 2025** — developers were notified 2025‑08‑13, and per Anthropic's own definition a *Retired* model "is no longer available for use. Requests to retired models fail":
+
+- `claude-3-5-sonnet-20240620` → retired **2025‑10‑28** → replacement `claude-sonnet-5-5`
+- `claude-3-5-sonnet-20241022` → retired **2025‑10‑28** → replacement `claude-sonnet-5-5`
+
+The pass‑1 read already called this a "legacy reference point roughly 18–24 months behind the frontier" but stopped short of the hard `legacy` flag — the formal API retirement (a full year before pass‑1 was written) is now confirmed. This is a lifecycle/status addition only.
+
+- **Revisit trigger:** pass‑1 recorded "none — 2024 legacy model, historical reference only." Nothing to re‑score: a retired 2024 model receives no new benchmark measurement. No independent data appeared in this window.
+- **Bands held:** Tool 48 · Reasoning 42 · Context 65 · Multimodal 55 · Coding 50 → **Overall 52** (260/5). Retirement changes availability, not measured capability; the 2026‑field discount that produced these bands is unchanged.
+
+Sources (this pass): Anthropic *Model deprecations* (platform.claude.com, fetched 2026‑11‑04 — retirement table + status definitions); pass‑1 base (Anthropic launch cards, benchlm.ai retrospective, aireleasetracker, metr.org, llm-stats, chatforest, winzheng).
+
 ---
 
 ## Signature
@@ -69,4 +85,5 @@ Multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑10‑02
 - Method: qualifying `Kimi_K3.md` public research across Anthropic launch cards + benchlm.ai retrospective. Flagged: (a) cohort Multimodal 66.4 is roughly correct in band but the 2024 vision discount is missing — I score 55; (b) cohort Coding 73.2 and Reasoning 64.8 are pure reputation — no 2026‑scale benchmark supports them; (c) **computer use pioneer credit** is historically important but does not translate into a 2026 Tool‑use score. Curated `meta.json` correctly flags 200K / text+image / paid only.
 - Revisit trigger: none — 2024 legacy model, historical reference only.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑11‑04. Lifecycle confirmation pass: flagged `legacy` — both `claude-3-5-sonnet-20240620` and `claude-3-5-sonnet-20241022` were formally RETIRED 2025‑10‑28 (Anthropic deprecations page; requests now fail; replacement `claude-sonnet-5-5`). No new capability data; Overall 52 held.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

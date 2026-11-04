@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni — findings by Qwen 3.8 Flash
 
 - Source: NVIDIA (curated id `opencode/nemotron-3-nano-omni`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,10 +57,29 @@ Reasoning / knowledge / coding (text-side):
 - **Cost efficiency: 99/100.** $0 through the free NVIDIA Build endpoint plus openly downloadable checkpoints that fit a single consumer GPU (NVFP4 at 20.9 GB, also validated on DGX Spark and Jetson Thor), with FP8/NVFP4 costing under a point of accuracy — this is the cheapest credible omni-modal path in the registry. One point withheld because the free endpoint is a rate-limited developer tier with no SLA and no published commercial rate card, and the NVIDIA Open Model License is custom rather than Apache 2.0.
 - **Overall Score: 61/100.** Mean of the five quality dimensions (55 + 50 + 72 + 93 + 35) / 5 = 305 / 5 = 61.0 → 61; Cost excluded per `RULES.md`. Best fit: **multimodal agent pipelines on NVIDIA hardware** — long-document and chart extraction, meeting/lecture video+audio Q&A, ASR with downstream reasoning, GUI/computer-use automation, and edge or on-prem deployments where 3 B active parameters plus a $0 licence matter more than raw reasoning depth. It is explicitly not the pick for software engineering or frontier text reasoning, and its capability claims on the text side are unverified by any third party.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: active open-weights omni model — pass-1 "no independent measurement" caveat RESOLVED (AA now indexes this ID); measured signals are consistent with the bands → Overall held at 61/100.**
+
+The dominant pass-1 caveat was that **"BenchLM returns 404 … no Artificial Analysis page … no independent intelligence, coding or agentic measurement anywhere."** That is now closed: **Artificial Analysis publishes a dedicated `Nemotron 3 Nano Omni 30B A3B Reasoning` page** (fetched 2026-11-04), and the model is live on OpenRouter with AA-sourced rows. AA confirms the core model card: **text + image + speech + video in / text out**, **256K context**, open weights under the **NVIDIA Open Model License**, 30B total / 3B active, reasoning model.
+
+New independent signals (side-by-side with the vendor suite, never averaged):
+
+- **HLE (AA, via OpenRouter): 4.8%** — a genuinely *weak* text-reasoning row, and exactly the frontier-bar test pass-1 could not run. It confirms rather than contradicts the mid-low Reasoning placement: a 3B-active omni model is a perception engine, not a reasoning powerhouse.
+- **IFBench (AA): 63.2%** — mid-tier instruction-following; supports the same 50 Reasoning read.
+- **Hosted pricing now published: $0.50 / $0.90 per 1M (in/out), 80% cache discount** (AA, 1 provider). Pass-1 said "$0 free endpoint, no commercial rate card" — the free NVIDIA Build developer tier still exists, but a paid rate is now on the record. Cost is excluded from Overall, so this updates the Cost *description* only.
+- Speed: AA median **177 tok/s** output, **4.90s** TTFT (reasoning variant). Openness ranked **13 of 343** on AA's Openness Index.
+- The AA Intelligence Index headline number renders client-side and was not extractable from the static page; the underlying v5.0.1 evals (HLE-Diamond, Terminal-Bench 4.0, CritPt v2, MMMU-Pro) are now applied to this ID even though isolated coding/agentic sub-rows were not published in this window.
+
+**Band decisions — hold all five, Overall 61 unchanged.** Pass-1 scored Reasoning 50 *"explicitly because the number is missing, not because a measured result is weak"*; the number is now present (HLE 4.8%, IFBench 63.2%) and lands right where the floor-of-mid judgement anticipated — so 50 is now evidence-based rather than precautionary. Tool 55 / Context 72 / Multimodal 93 are AA-confirmed (omni modalities + 256K). Coding stays 35: AA's Index touches agentic coding via Terminal-Bench 4.0, but no isolated SWE/LCB row is published. The vendor-only *scores* remain vendor-only; only the *absence of any external harness* was resolved.
+
+Sources (this pass): Artificial Analysis `nemotron-3-nano-omni-30b-a3b` model page (fetched 2026-11-04 — modalities, 256K, $0.50/$0.90, 177 tok/s, NVIDIA Open Model License, Openness 13/343); OpenRouter `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning` AA benchmark rows (HLE 4.8%, IFBench 63.2%); pass-1 base (NVIDIA HF blog, model card README, arXiv 2604.24954, NVIDIA Build card).
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (NVIDIA's Hugging Face launch blog "Introducing NVIDIA Nemotron 3 Nano Omni", the `nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16` model card README (full architecture, licence, training-data, evaluation-set and sampling-parameter sections), the NVIDIA Build model card, arXiv 2604.24954 listings, community quantisation notes); scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** vendor-only and modality-skewed — BenchLM and Artificial Analysis have no page for this ID, so every published number comes from NVIDIA and covers perception rather than text reasoning or coding; the missing-harness list is therefore printed in full in each dimension.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Independent-coverage pass: Artificial Analysis now indexes this ID (page + OpenRouter AA rows) — the pass-1 "BenchLM 404 / no AA page / no independent measurement" caveat is RESOLVED. New measured signals (HLE 4.8% weak, IFBench 63.2% mid, pricing $0.50/$0.90, 177 tok/s) confirm the existing bands rather than move them; **Overall held at 61**. Reasoning 50 is now evidence-based (was precautionary).
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

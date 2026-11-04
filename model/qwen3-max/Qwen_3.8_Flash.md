@@ -1,7 +1,7 @@
 # Qwen3 Max — findings by Qwen 3.8 Flash
 
 - Source: Alibaba / Qwen (curated id `opencode/qwen3-max`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,10 +54,27 @@ Missing for this ID (printed rather than invented):
 - **Cost efficiency: 83/100.** **$1.20 / $6.00** per 1M in/out, verified against the curated sheet, is cheaper than its class medians ($1.75 / $9.00) but lands just under the methodology's $1.25/$4.25 ≈ 88 anchor because output is pricier, and the blended figure AA computes is **$1.68 per 1M**. Withheld further: **no** cache-hit price, cost-per-Intelligence-Index-task or verbosity figure is published ("Unknown out of 4 units"), so the real-workload price is unmeasured; serving is slow (**59.4 tok/s**, TTFT **2.16 s**), which raises wall-clock cost per task; Alibaba tiers the price upward above 32 K/128 K prompts; and `noFreeId` means no zero-cost evaluation path.
 - **Overall Score: 51/100.** Mean of the five quality dimensions (60 + 55 + 72 + 15 + 52) / 5 = 254 / 5 = 50.8 → 51; Cost excluded per `RULES.md`. Best fit: legacy **general-purpose text completions and light tool loops** where an existing `qwen3-max` integration must keep running, and single-pass Q&A over ~200 K-token text — with the explicit caveats that it is **deprecated and superseded** (AA recommends Qwen3 Max Thinking; four later Max generations exist in this registry), **slow**, **text-only**, **hallucination-prone on factual recall (89.9 %)**, and **not a coding-agent choice** at 3.51 % on Vibe Code Bench. For anything new, a current Max or a dedicated coding model is the correct pick.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: `legacy` — hosted endpoint formally retired 2026-10-10; bands held, Overall remains 51/100.**
+
+Pass-1 recorded Artificial Analysis's **deprecation banner** on this ID but the endpoint was still being served ("2 measured providers", AA frozen to the 10 K-input workload). That ambiguity is now resolved by Alibaba's own ledger: `qwen3-max` appears in the **Model Studio October 10, 2026 retirement notice** — the batch of **33 Qwen-branded hosted Model IDs** cut off at **2026-10-10 00:00 Beijing time (UTC+8)**, which has passed. Per the retirement policy, "**calls to the retired Model ID fail**" and new fine-tune/deploy operations cannot be started:
+
+- `qwen3-max` (Qwen-Max mainline) → retired **2026-10-10** → official replacement **`qwen3.7-max`**
+- `qwen3-max-2025-09-23` (this model's launch snapshot) → retired the same day → `qwen3.7-max`
+
+The registry's own supersession chain is confirmed as terminal: Qwen3-Max (Sep 2025) → 3.5/3.6-Max → **3.7-Max** (the assigned replacement) → 3.8-Max all post-date and replace it. Caveats preserved from the source: the review did not independently ping every endpoint after cutoff, and third-party routers (OpenRouter et al.) may still proxy the ID for a window; qwen3-max is proprietary with **no open weights**, so unlike an open-weight retirement there is no self-host fallback — once Alibaba's hosted route is gone, the ID is effectively dead.
+
+- **Revisit trigger / evidence:** none material — the AA workloads for this ID are frozen, its Intelligence Index remains an **estimate**, and no independent harness added rows in this window. Retirement changes availability, not measured capability.
+- **Bands held:** Tool 60 · Reasoning 55 · Context 72 · Multimodal 15 · Coding 52 = 254/5 = 50.8 → **Overall 51**. (For anything new the correct pick is `qwen-3.7-max` / `qwen-3.8-max`, already tracked separately.)
+
+Sources (this pass): Qwen *Model Deprecations 2026–2027* ledger (fetched 2026-11-04 — the 33-ID October 10 retirement list, `qwen3-max` + `qwen3-max-2025-09-23` rows mapped to `qwen3.7-max`); Alibaba Cloud Model Studio decommissioning policy + postponed-retirement notice (2026-10-10 cutoff); pass-1 base (AA `models/qwen3-max` page incl. deprecation banner, BenchLM row set, Qwen3-Max launch blog quote, curated `meta.json`).
+
 ---
 
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Artificial Analysis `models/qwen3-max` page — full read, including the deprecation banner, technical-spec block, class-median comparisons, speed/latency/cost FAQ and the "estimated Index" note; BenchLM `models/qwen3-max` — full row set with source attribution to AA, Vals AI, Gert Labs and OpenRouter; the Qwen3-Max launch blog via search quotation; current Alibaba/peer SWE-bench context), plus the curated `model/qwen3-max/meta.json` only — no peer report in this folder or any other was opened, per the zero-influence rule. Scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** thin and decaying — AA has frozen non-default workloads for a deprecated ID, its Intelligence Index for this ID is an **estimate**, the only coding headline is a **vendor figure that could not be independently confirmed**, and the harness list is missing Terminal-Bench/τ³/Claw-Eval/GDPval/LiveCodeBench entirely; all absences are printed per dimension.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle confirmation pass: upgraded the AA deprecation-banner note to a hard **`legacy`** flag — `qwen3-max` (and `qwen3-max-2025-09-23`) were in Alibaba Model Studio's **2026-10-10** 33-ID retirement batch (replacement `qwen3.7-max`; retired-ID calls fail; proprietary → no self-host fallback). No new capability data; **Overall held at 51**.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

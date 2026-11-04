@@ -1,7 +1,7 @@
 # LongCat 2.5 Preview — findings by Qwen 3.8 Flash
 
 - Source: Meituan LongCat (`meituan/longcat-2.5-preview`; curated id `opencode/longcat-2.5-preview`), cross-checked against the LongCat model card / API docs, explainx.ai's LongCat-2.5 launch breakdown, ahmetbalaman.com's benchmark-and-pricing report, Vercel AI Gateway and OpenRouter listings
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 (UTC) / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,6 +51,24 @@ Long context / multimodal:
 - **Cost efficiency: 82/100.** $0.30/$1.20 promo ($0.006 cached) is very cheap for a 1M-context agentic model, undercutting closed flagships by an economic class on the pricing scenarios — but the discount is limited-time and there are **no weights to self-host** yet, so the open-weight cost advantage that defines the LongCat line doesn't apply to this Preview.
 - **Overall Score: 70.8/100.** Half-up mean of the five quality dims (74+64+85+55+76)/5 = 70.8. Best fit: **long-horizon, cost-sensitive agent workflows over very large contexts** (1M window + tool-first training + aggressive promo pricing). Held well short of the frontier by unverified vendor-only provenance, a weak foundational-reasoning flank, preview instability and unpublished weights — treat every number as directional until independent reproduction lands.
 
+## Second-pass update — 2026-11-04 (UTC)
+
+**Status: `superseded` — finalized LongCat-2.5 shipped 2026-11-02; the scored Preview ID's own evidence is unchanged → bands held, Overall remains 71/100.**
+
+The pass-1 revisit trigger — *"the finalized `longcat-2.5` release replacing the preview"* — **FIRED**. Meituan launched **LongCat-2.5 (GA) on 2026-11-02**: a **native multimodal**, 1.6T-parameter agent model "designed for extended coding tasks," superseding the 2.5-Preview. Confirmed by four independent outlets in this window (af.net *Meituan Launches 1.6T-Parameter LongCat-2.5 Multimodal Model*, 2026-11-02; tldr.tech's launch brief; longcatai.org's lineage note "Superseded by LongCat-2.5 (November 2026)"; explainx.ai's 2.5 coverage).
+
+**Why the bands do NOT move on this file:** this report scores the **`longcat-2.5-preview`** checkpoint, and pass-1 already treated the finalized 2.5 as *"a separate registry line."* A new GA artifact is not new evidence about the preview's measured profile, and the three things that capped the preview bands are all still true of the preview itself:
+
+- **Still no independent reproduction.** No Artificial Analysis / Vals number for the `2.5-preview` ID surfaced; the in-house table (TB 2.1 70.8, SWE-Pro 59.5, FORTE 73.2, GPQA-diamond 88.9, IFEval 90.0) remains vendor-measured with competitor cells quoted, not co-measured. So Tool 74 / Reasoning 64 / Coding 76 keep their vendor-harness discount.
+- **Still no preview weights.** GA is a different checkpoint; the 2.5-*Preview* safetensors were never published, so the open-weight cost advantage (Cost 82) is unchanged for this ID.
+- **Context 85 / Multimodal 55 held** — the preview's own 1M window is still retrieval-unverified, and its image input is still benchmark-less. (The GA model's *native multimodality* is a property of `longcat-2.5`, not this preview line.)
+
+**Action for the registry:** `longcat-2.5` (GA, Nov 2) warrants its **own** findings file — a distinct checkpoint with a modality and capability jump. Do **not** fold GA numbers into this preview entry. The preview itself is now `superseded` (GA routes around it); if Meituan deprecates the preview endpoint it would move to `legacy-with-date`.
+
+**Overall held at 70.8 → 71** (unchanged): Tool 74 · Reasoning 64 · Context 85 · Multimodal 55 · Coding 76.
+
+Sources (this pass): af.net (LongCat-2.5 GA launch, 2026-11-02); tldr.tech launch brief; longcatai.org lineage ("Superseded by LongCat-2.5, November 2026"); explainx.ai 2.5 coverage; pass-1 base (LongCat model card / API docs, ahmetbalaman.com spec/price/transparency report, Vercel AI Gateway / OpenRouter listings).
+
 ---
 
 ## Signature
@@ -58,4 +76,5 @@ Long context / multimodal:
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — LongCat model card / API docs (Terminal-Bench 2.1 70.8, SWE-bench Pro 59.5, FORTE 73.2, GPQA-diamond 88.9, IFEval 90.0; in-house harness, competitor cells quoted), explainx.ai's LongCat-2.5 launch breakdown (1.6T/48B-active MoE, LSA + N-gram Embedding, MOPD, agent repositioning, $0.30/$0.006/$1.20 promo vs $0.75/$0.015/$2.95 list), and ahmetbalaman.com's spec/price/transparency report (1,048,576 ctx / 131,072 out, text+image, optional thinking, **no published 2.5-Preview weights**). Scores are normalized 1–100 interpretations, not official vendor scores; the all-in-house provenance and inherited-from-2.0 benchmark table are explicitly discounted rather than taken at face value. Curated `meta.json` is scaffolded ("128K / Text in-out / Standard pricing") and was overridden by first-party evidence (1M context; text + image; promo pricing).
 - Revisit trigger: independent (Artificial Analysis / Vals) reproduction of a 2.5-Preview number, publication of 2.5-Preview MIT weights, or the finalized `longcat-2.5` release replacing the preview.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Supersession pass: revisit trigger FIRED — Meituan shipped **LongCat-2.5 GA 2026-11-02** (native multimodal, 1.6T, coding-focused; 4 sources). The scored `2.5-preview` checkpoint's evidence is unchanged (still vendor-only, no AA reproduction, no preview weights) → **bands held, Overall 71**. Flagged: `longcat-2.5` (GA) needs its OWN file; preview is `superseded`, potentially `legacy-with-date` once the preview endpoint is deprecated.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.
