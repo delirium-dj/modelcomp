@@ -68,3 +68,15 @@ Long context:
 - Provided by: **GLM 5.2 Coding (zai-org/GLM-5.2-Coding)** — 2026-09-22
 - Method: public internet research (BenchLM model record + HF model card) on 2026-09-22; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+### Addendum 2026-10-09 (session 2) — ZAI docs + LLM Stats cross-read (pricing, architecture, identity)
+
+- **Pricing resolved** (was "not published" above): **$0.15 in / $0.50 out / $0.03 cached** per 1M — identical across DeepInfra, FriendliAI, Novita, ZAI (LLM Stats, 4 providers). Upgrades the provisional 90 cost score's evidence base; no score change needed.
+- **Release date:** 2026-08-26 (LLM Stats). **Identity:** pre-release-tested anonymously as **ox-alpha** on OpenCode/OpenRouter — most popular model of the week; repo-root roster's `ox_alpha` folder maps to these weights.
+- **Architecture published** (docs.z.ai): 320B total / **18B active** MoE, 45 layers; **first open-source frontier model combining sparse + linear attention** (IndexPool compresses 4 indexer key vectors → 1); mHC hyper-connections; **3.01x lower attention compute, 4.44x smaller KV cache** vs GLM-5.3 (355B/32B/92L). Trained on 30T multimodal tokens.
+- **Output-window nuance:** 1M in / **131.1K out** on ZAI/FriendliAI/Novita; DeepInfra lists 1M/1M. Latency: TTFT p95 4.55s (FriendliAI) / 9.66s (ZAI); output p5 31 / 12 c/s.
+- **New benchmark rows** (ZAI launch content): AA Intelligence Index **v4.1.1: 57 at $0.045/task** — Pareto-frontier claim ("intelligence previously only at ~10x cost"); note version mismatch with BenchLM's 41.8 above (different index revisions — both logged). Z.ai Code Bench v1.0 (Claude Code 2.1.207): max-effort **29.0 vs Opus 4.8's 29.5**. AutomationBench 48.8 confirmed vendor-side (matches BenchLM row).
+- **Variants documented:** `glm-5.3-flashx` (**200 tok/s** serving tier) and `glm-5.3-flashx-legal` — Harvey LAB **19.2%** all-criteria pass (+12.5 pts over base, SOTA open-source legal agents); GLM Coding Plan: 3x GLM-5.3 quota, off-peak/weekends 50% points.
+- **Multimodal confirmed broader:** native text + image + **video + files** in; visual-coding loop (render→observe→refine), BUA/CUA operation — supports raising nothing (75 stands) but the input breadth now documented rather than inferred.
+- **Infrastructure note:** served at scale on Chinese AI chips with EPD disaggregation, ReplaySSM, W8A8/hybrid cache quantization — 3x serving-efficiency gain to NVIDIA-comparable per-token cost; a GLM-5.3 infra agent co-optimized the kernels.
+- Self-research disclosure (this addendum's researching model is itself a ZAI GLM): all rows above are cited from ZAI docs / LLM Stats, not self-assessed. No normalized-score changes.

@@ -1,9 +1,12 @@
 {
   "id": "opencode/muse-spark-open",
   "name": "Muse Spark Open",
-  "short": "Muse Spark Open model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Meta's open-weight MoE foundation model (816B total / ~42B active, released Oct 2026 by Meta Superintelligence Labs) for agentic coding, developer workflows, and long-horizon repository tasks.",
+  "contextWindow": "1,048,576 tokens (1M); up to 131,072 max output",
+  "modalities": "Text, code, image, video, audio in; text, JSON out",
+  "pricingNote": "Free open-weight checkpoint (BF16/NVFP4); hosted serving via OpenCode Zen or self-hosted compute",
+  "freeTierNote": "Free open-weight weights on Hugging Face (`meta-models/Muse-Spark-Open-816B-A42B`); self-host at $0 license cost.",
+  "standout": "Premier self-hosting autonomy: a frontier-grade open-weight MoE with a full 1M context window and verified long-context retrieval.",
+  "tradeoff": "Open-weight serving still trails closed-frontier flagships on the top agentic/coding leaderboards.",
+  "officialUrl": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B"
 }

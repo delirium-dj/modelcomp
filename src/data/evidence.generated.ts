@@ -759,6 +759,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "LiveCodeBench", value: "72%", raters: ["DeepSeek_4.1_Flash", "Fledge_Alpha", "Flint", "GLM_5.3_Flash", "GPT_5.6_Terra", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.2", "Muse_Spark_1.3", "Nemotron_3_Ultra_550B_A55B", "Step_5_Preview"] },
     { benchmark: "MMLU-Pro", value: "86.2%", raters: ["Beam", "Claude_Opus_5", "DeepSeek_4.1_Flash", "DeepSeek_4_Flash", "GLM_5.3_Flash", "Kimi_K3", "Ling_3.1_Flash", "Nemotron_3_Ultra_550B_A55B", "Pixel_Canary", "Qwen_3.8_27B", "Step_5_Preview"] },
     { benchmark: "SWE-bench Pro", value: "38.3%", raters: ["Flint", "GPT_6_Luna", "MiMo_2.6_Flash"] },
+    { benchmark: "DeepSWE", value: "38%", raters: ["Gemini_3.6_Flash", "Nemotron_3.5_Lightning_30B_A3B"] },
     { benchmark: "OSWorld", value: "54.3%", raters: ["GPT_6_Luna", "MiMo_2.6_Flash"] },
   ],
   "gemini-3.1-pro": [

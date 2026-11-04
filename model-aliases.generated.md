@@ -9,6 +9,7 @@
 
 ## Parked (retired) slugs — folders stay on disk and in git; never researched
 
+- `omin-alpha` — misspelled phantom duplicate of omen-alpha (Omen Alpha) — the folder's only two reports are self-excluded (`*.md.excluded`, zero verified benchmarks; the report itself flags it as a typo/conflation of `omen-alpha`/`ox-alpha`); no usable average.md is possible; parked 2026-11-04 (non-destructive — folder kept on disk per permanence rule) — research belongs in model/omen-alpha/
 
 ## Deleted phantom model folders — removed from disk + git 2026-11-03; never recreate or restore
 

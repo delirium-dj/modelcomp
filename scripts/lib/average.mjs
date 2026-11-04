@@ -151,7 +151,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * model/README.md ("Parking a model" / "Deleting a parked phantom"). Never
  * invent a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

@@ -49,10 +49,12 @@ Scores omitted due to self-exclusion; no verified raw benchmark data.
 - Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-04
 - Method: public internet research; zero verified independent benchmarks found for this exact model ID, so file saved as .md.excluded per RULES.md.
 - Reference URLs:
-  - [Kimi K2.8 Preview APIMaster pricing](https://apimaster.ai/blog/kimi-k2-8)
   - [Kimi K2.8 Preview LLM Stats page](https://llm-stats.com/models/kimi-k2.8)
   - [Kimi Code What's New K2.8 Preview Sep 11 2026](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)
-  - [Kimi Code Model Configuration](https://www.kimi.com/en/help/kimi-code/models)
+  - [Kimi Code Model Configuration](https://www.kimi.com/code/docs/en/kimi-code/models.html)
+  - [Kimi K2.8 Preview APIMaster pricing](https://apimaster.ai/blog/kimi-k2-8)
   - [Moonshot AI launches Kimi K2.8 Preview](https://emergent.sh/news/moonshot-ai-launches-kimi-k2-8-preview)
+  - [Kimi K2.8 Preview ZenMux](https://zenmux.ai/moonshotai/kimi-k2.8-preview)
+  - [Kimi K2.8 Preview MixRoute specs](https://mixroute.ai/models/kimi-k2-8-preview)
 
 ---

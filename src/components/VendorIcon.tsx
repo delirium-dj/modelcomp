@@ -1,5 +1,14 @@
 import { component$, useSignal, useTask$ } from "@builder.io/qwik";
 import { VENDOR_ICON_SVGS } from "../data/vendorIcons.generated";
+import { VENDOR_ICON_SVGS_EXTRA } from "../data/vendorIcons.extra";
+
+// Merged icon lookup: base generated set + additive marks for newer providers.
+// The spread leaves the 196 KB generated module byte-for-byte untouched, so no
+// existing brand icon can be compromised.
+const ICONS: Record<string, { viewBox: string; body: string; fill?: string | null }> = {
+  ...VENDOR_ICON_SVGS,
+  ...VENDOR_ICON_SVGS_EXTRA,
+};
 
 interface VendorIconProps {
   id: string;
@@ -128,6 +137,32 @@ const VENDORS: VendorMatch[] = [
   { match: "inception", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
   { match: "mercury", icon: "inceptionlabs", label: "Inception Labs", adaptive: true },
   { match: "xing", icon: "teleai", label: "TeleAI" },
+  // Newer curated providers — exact slug match (so no model token can steal it).
+  // Real CC0 marks or brand-colored tiles live in vendorIcons.extra.ts (and, for
+  // teleai/byteplus/thinking-machines, in the base generated set already).
+  { slug: "teleai", icon: "teleai", label: "TeleAI" },
+  { slug: "byteplus", icon: "bytedance", label: "BytePlus" },
+  { slug: "vultr", icon: "vultr", label: "Vultr" },
+  { slug: "digitalocean", icon: "digitalocean", label: "DigitalOcean" },
+  { slug: "qdrant", icon: "qdrant", label: "Qdrant" },
+  { slug: "snowflake-cortex", icon: "snowflake", label: "Snowflake Cortex" },
+  { slug: "windsurf", icon: "windsurf", label: "Windsurf", invertDark: true },
+  { slug: "vast-ai", icon: "vast-ai", label: "Vast.ai" },
+  { slug: "coreweave", icon: "coreweave", label: "CoreWeave" },
+  { slug: "patronus-ai", icon: "patronus-ai", label: "Patronus AI" },
+  { slug: "galileo", icon: "galileo", label: "Galileo" },
+  { slug: "oracle", icon: "oracle", label: "Oracle" },
+  { slug: "verda", icon: "verda", label: "Verda" },
+  { slug: "io-net", icon: "io-net", label: "io.net" },
+  { slug: "reka", icon: "reka", label: "Reka" },
+  { slug: "morph", icon: "morph", label: "Morph" },
+  { slug: "assemblyai", icon: "assemblyai", label: "AssemblyAI" },
+  { slug: "pinecone", icon: "pinecone", label: "Pinecone" },
+  { slug: "langwatch", icon: "langwatch", label: "LangWatch" },
+  { slug: "serpapi", icon: "serpapi", label: "SerpAPI" },
+  { slug: "spheron", icon: "spheron", label: "Spheron" },
+  { slug: "lightning-ai", icon: "lightning-ai", label: "Lightning AI" },
+  { slug: "01-ai", icon: "01-ai", label: "01.AI" },
   // Providers / hosts without their own entry above.
   { match: "ai21", icon: "ai21", label: "AI21 Labs", adaptive: true },
   { match: "aimlapi", icon: "aimlapi", label: "AI/ML API", adaptive: true },
@@ -230,7 +265,7 @@ export const VendorIcon = component$((props: VendorIconProps) => {
 
   const vendorSig = useSignal<VendorMatch | undefined>(vendorFor(props.id, props.name));
   const entrySig = useSignal<any>(
-    vendorSig.value ? VENDOR_ICON_SVGS[vendorSig.value.icon as keyof typeof VENDOR_ICON_SVGS] : undefined,
+    vendorSig.value ? ICONS[vendorSig.value.icon] : undefined,
   );
 
   useTask$(({ track }) => {
@@ -238,9 +273,7 @@ export const VendorIcon = component$((props: VendorIconProps) => {
     track(() => props.name);
     const v = vendorFor(props.id, props.name);
     vendorSig.value = v;
-    entrySig.value = v
-      ? VENDOR_ICON_SVGS[v.icon as keyof typeof VENDOR_ICON_SVGS]
-      : undefined;
+    entrySig.value = v ? ICONS[v.icon] : undefined;
   });
 
   const vendor = vendorSig.value;

@@ -19,4 +19,4 @@
 
 - Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Inkling, Qwen 3.8 Flash.
 - Average from top 7 by Overall Score: Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, Inkling, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Super VL 120B A12B, Xing 4.0 29B A4B.
+- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, MiniMax M3.1 Flash, Muse Glimmer 30B, Nemotron 3 Ultra 550B A55B, Nemotron 3.5 Lightning 30B A3B, Nemotron 3.5 Super VL 120B A12B, Xing 4.0 29B A4B.
