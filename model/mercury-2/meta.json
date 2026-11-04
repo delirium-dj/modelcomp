@@ -1,9 +1,18 @@
 {
-  "id": "opencode/mercury-2",
+  "id": "inception/mercury-2",
   "name": "Mercury 2",
-  "short": "Mercury 2 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Inception Labs' Feb 2026 diffusion LLM (dLLM): parallel block refinement hits 500-1,000 tok/s, 128K/50K at $0.25/$0.75 — but SWE-bench 24.8% keeps it to light coding.",
+  "contextWindow": "128K / 50K out",
+  "modalities": "Text, vision in; text out",
+  "pricingNote": "Paid $0.25/$0.75 per 1M ($0.025 cached input)",
+  "pricingTiers": [
+    "Inception list $0.25/M in, $0.75/M out, $0.025/M cached input"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://inceptionlabs.ai",
+  "pricingLinks": [
+    "https://openrouter.ai/inception/mercury-2"
+  ],
+  "standout": "Pioneer diffusion decoder: 500-1,000 tok/s makes it ideal for real-time voice agents and short sub-agent loops.",
+  "tradeoff": "Early dLLM coherence variance — weak repository-scale coding (SWE-bench 24.8%) and modest tool-use reliability vs autoregressive peers."
 }

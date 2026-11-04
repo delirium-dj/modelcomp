@@ -1,9 +1,18 @@
 {
-  "id": "opencode/claude-mythos-5",
+  "id": "anthropic/claude-mythos-5",
   "name": "Claude Mythos 5",
-  "short": "Claude Mythos 5 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Anthropic's cyber-defense flagship (June 2026, Project Glasswing / CVP): Claude Fable 5 weights without security refusals, 1M/128K at $10/$50 — SWE-bench Verified 95.5%, GPQA 94.1%.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $10/$50 per 1M ($1.00 cache read); vetted CVP access only",
+  "pricingTiers": [
+    "Paid $10/M in, $50/M out, $1.00/M cache read"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://www.anthropic.com/news/claude-mythos-5",
+  "pricingLinks": [
+    "https://www.anthropic.com/pricing"
+  ],
+  "standout": "Fable 5-class capability with cybersecurity refusals lifted for verified defenders — top scores across SWE-bench, GPQA, and 1M-token retrieval.",
+  "tradeoff": "Premium $10/$50 pricing and access restricted to the Cyber Verification Program / Project Glasswing — not a general-public model."
 }

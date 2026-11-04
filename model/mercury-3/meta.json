@@ -1,9 +1,18 @@
 {
-  "id": "opencode/mercury-3",
+  "id": "inception/mercury-3",
   "name": "Mercury 3",
-  "short": "Mercury 3 model evaluation entry.",
-  "contextWindow": "128K total",
+  "short": "Inception Labs' Oct 2026 flagship dLLM: non-autoregressive parallel decoding at >1,000 tok/s, 1M/128K at $0.10/$0.35 — GPQA 89.2%, MRCR 75.5%; text-only with tool/function calling and JSON mode.",
+  "contextWindow": "1M / 128K out",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Paid $0.10/$0.35 per 1M; prompt caching on host platforms",
+  "pricingTiers": [
+    "Inception list $0.10/M in, $0.35/M out"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://inceptionlabs.ai",
+  "pricingLinks": [
+    "https://openrouter.ai/inception/mercury-3"
+  ],
+  "standout": "Latency-critical agentic work: >1,000 tok/s with a verified 1M-token window at near-budget pricing.",
+  "tradeoff": "Text-only and mid-tier on quality — diffusion drift shows up in deeply nested agent loops and coding sits below frontier models (SWE-bench 38.5%)."
 }

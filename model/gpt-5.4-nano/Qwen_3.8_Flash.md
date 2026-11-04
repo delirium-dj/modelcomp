@@ -1,7 +1,7 @@
 # GPT-5.4 Nano — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5.4-nano`; `opencode/gpt-5.4-nano`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -73,9 +73,20 @@ Multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: developers.openai.com/api/docs/deprecations (Oct 1, 2026 announcement — “gpt-5.4-nano | gpt-5.4-nano-2026-03-17” shutdown Apr 1, 2027, replacement gpt-6-luna); layer3labs.io (OpenAI deprecated models list, Oct 26 — confirms Apr 2027 date); endoflife.date/openai-api-models (GPT-5.4 nano still listed as active with deprecation flag). No new independent benchmark measurements found for this ID since pass-1.
+- **Lifecycle: `legacy-with-date` — officially deprecated Oct 1, 2026, API shutdown Apr 1, 2027** (6-month notice period). Requests still succeed until Apr 2027. Replacement: `gpt-6-luna`. Pass-1 noted “deprecated on Artificial Analysis” — now confirmed by the official OpenAI deprecations page with an explicit shutdown date.
+- Trigger evaluated: “only relevant if a successor nano-tier model (GPT-5.6 Terra nano equivalent) inherits the price point” → GPT-5.6 Terra/Luna/Sol exist (Jul 9, 2026) but there is no “nano” variant yet within the 5.6 or 6.0 families at the $0.20/$1.25 price point. GPT-6-luna is the designated successor (Apr 2027). UNFIRED for scoring purposes.
+- Bands unchanged: Tool 62 / Reasoning 60 / Context 68 / Multimodal 62 / Coding 60. Overall remains **62/100**.
+- Verdict: lifecycle flag formalized — `legacy-with-date` (shutdown Apr 1, 2027). Pass-1 scores hold as current evidence. The model is still functional; no band revision warranted.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: Big Pickle's detailed multi-source report (OpenAI launch page full tables, AA model pages, BenchLM, opper.ai, Easy Benchmarks, OpenRouter) adopted as primary evidence base; corrected Gemini 3.7 Flash's qualifying report which used wrong specs (64K/$0.05-0.15/text-only — all contradicted by official OpenAI docs: 400K/$0.20-1.25/image+text). Web-verified context window and pricing via developers.openai.com. Curated `meta.json` flagged as placeholder (wrong on context and modalities). Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **extreme reasoning-effort dependency** — GPQA drops from 82.8% to 55.8% between xhigh and no-reasoning, (b) **Omniscience 25.7%/25.8% non-hallucination** is among the worst in the dataset, (c) 400K window is nominal — MRCR shows poor effective retrieval.
 - Revisit trigger: deprecated on AA; only relevant if a successor nano-tier model (GPT-5.6 Terra nano equivalent) inherits the price point. The existing evidence base is complete for this model.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle formalized: `legacy-with-date` (Apr 1, 2027 shutdown, replacement gpt-6-luna). Bands unchanged. Trigger UNFIRED.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # MiMo V2.5 Pro — findings by Qwen 3.8 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.5-pro`; official page mimo.xiaomi.com/mimo-v2-5-pro)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,9 +58,20 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: mimo.mi.com/docs/welcome (official — “Xiaomi MiMo-V2.5-Pro and MiMo-V2.5 were retired on Oct 21, 2026, at 10:00 (UTC+8), and their model IDs no longer work”); mimo.mi.com/docs/en-US/updates/deprecate (from Oct 14 requests auto-routed to v2.6-pro/flash; Oct 21 full retirement); ithome.com (Chinese tech press — confirmed Oct 21 retirement day); huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL (Oct 19 — successor weights released); mimo.xiaomi.com/mimo-v2-6 (MiMo-V2.6-Pro AA Intelligence Index 46.32 — “strongest open-source” surpassing Kimi K3 and Qwen3.8 Max).
+- **Lifecycle: `legacy` — API retired October 21, 2026** (announced ~Oct 14 with 7-day transition; IDs no longer work). Pass-1 noted “Superseded by MiMo V2.6” but did not flag the hard retirement date. OpenRouter may still list it as a cached third-party route; Xiaomi's own API no longer serves it. Replacement: MiMo-V2.6-Pro.
+- Trigger evaluated: “if Xiaomi or AA settle the AA Intelligence Index for mimo-v2.5-pro, or BenchLM publishes MRCR/vision rows under this exact ID” → **UNFIRED**. Model retired, no future measurements expected for this ID. The V2.6-Pro carries forward (AA Index 46.32 confirmed by Xiaomi blog).
+- Bands unchanged: Tool 75 / Reasoning 72 / Context 92 / Multimodal 18 / Coding 74. Overall remains **66/100**. Scores preserved for historical comparison.
+- Verdict: lifecycle flag added — `legacy` (retired Oct 21, 2026). Pass-1 bands hold as historical record. Successor MiMo-V2.6-Pro is the forward-looking target.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: public internet research (official Xiaomi model page 2026-04-27 for 1.02T/42B MoE, hybrid attention, 1M, MIT, SWE-bench Pro 57.2; OpenRouter for text-only capability set and ~$0.41/$0.83 pricing; OminiGate for the conflicting AA index 53.8; spheron/atomic.chat for self-host cost context) cross-checked against the qualifying `Kimi_K3.md` BenchLM scorecard and curated `meta.json`. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) the AA Intelligence Index 26↔53.8 lane war, (b) the cohort's multimodal inflation via family-heritage borrowing, (c) CritPt 4.0 and APEX 2.4 as honest floors.
 - Revisit trigger: if Xiaomi or Artificial Analysis settle the AA Intelligence Index for `mimo-v2.5-pro`, or BenchLM publishes MRCR/vision rows under this exact ID, re-score Reasoning/Multimodal. Otherwise the V2.6 series is the forward-looking target.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle flag added: `legacy` (API retired Oct 21, 2026, confirmed on Xiaomi's own docs). Pass-1 noted supersession but missed hard retirement. Bands unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

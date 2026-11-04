@@ -1,6 +1,5 @@
-gemma-4-26b-a4b|2026-10-23
 gemma-4-12b-unified|2026-10-23
-mai-code-1.1-flash|2026-10-07
+gemma-4-26b-a4b|2026-10-23
 gemini-2.5-flash-lite|2026-10-02
 qwen-3.5-9b|2026-10-02
 claude-sonnet-3.5|2026-10-02
@@ -49,12 +48,12 @@ solar-mini-4|2026-10-08
 nemotron-3.5-lightning-free|2026-10-02
 big-pickle|2026-10-02
 glm-4.6-flash|2026-10-23
-glm-4.5-flash|2026-10-23
 ling-2.6-flash|2026-10-08
 gpt-oss-120b-lite|2026-10-23
 exo-free|MISSING
 qwen-3.5-2b|2026-10-23
 mercury-2.5|2026-10-02
+glm-4.5-flash|2026-10-23
 gemma-4-e2b|2026-10-07
 ling-3.0-tiny|2026-10-08
 neomorph|MISSING

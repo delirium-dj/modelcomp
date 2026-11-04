@@ -1,7 +1,7 @@
 # MAI-Code-1.1-Flash — findings by Qwen 3.8 Flash
 
 - Source: Microsoft AI (curated id `opencode/mai-code-1.1-flash`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-10-07 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,8 +56,20 @@ Multimodal / long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: benchlm.ai/models/mai-code-1-1-flash (Oct 29 — still “3 source-displayable benchmark rows but no public overall score”; same 3 rows as pass-1: TB 2.1 62.9%, SWE-V 72.6%, + .NET improvement); commandline.microsoft.com (Oct 7 — “Introducing MAI Code 1.1 Flash for local coding” — a LOCAL version announced, but no new benchmark absolutes published); ai.azure.com/catalog (model listed, text-to-text and image-to-text, confirmed active); github.com/microsoft/MAI-Code README (confirms pricing/efficiency unchanged); Artificial Analysis: **still no page** for either MAI-Code model ID. No independent measurements found.
+- Trigger evaluated: none explicitly set in pass-1 (vendor-only evidence, AA has no page). Checking for new data: no GPQA/HLE/AA Index/SWE-V independent row appeared. **UNFIRED**.
+- Lifecycle: closed-weights proprietary, released Aug 11, 2026 (3 months). Active on Copilot + Foundry + OpenRouter. No retirement risk.
+- Note: commandline.microsoft.com (Oct 7) announced a **local version** for sandboxed tool use in Windows/VS Code — same model weights, different deployment surface. This doesn’t change the scored API-serving model’s capability profile. The local variant is a serving option, not a new model ID.
+- Bands unchanged: Tool 68 / Reasoning 52 / Context 72 / Multimodal 70 / Coding 74. Overall remains **67/100**.
+- Verdict: pass-1 holds. Confirmation pass — no independent data appeared (AA still has no page). Vendor-only evidence status unchanged. Active model, no lifecycle risk.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-07
 - Method: fresh public internet research (Microsoft AI **MAI-Code-1.1-Flash model card PDF** as cited by BenchLM, BenchLM `mai-code-1-1-flash` page (3 of 623 tracks, unranked), HokAI's model review for pricing/ranks/limits and the DeepSeek-V4-Flash comparison, Azure AI Foundry catalog entries for the MAI family, Microsoft AI launch coverage); scores are normalized 1–100 interpretations, not official vendor scores. **Evidence status:** vendor-only — Artificial Analysis has no page for this ID and BenchLM assigns no overall score, so every capability row traces to Microsoft, with independent context limited to third-party rank/median calculations and one competitor's published terminal score. That is why each dimension states its missing harnesses instead of inferring them.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation. AA still has no page; BenchLM unchanged (3 rows). Local-coding variant announced Oct 7 (same weights, different surface). Trigger UNFIRED. Bands unchanged.
 - Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.

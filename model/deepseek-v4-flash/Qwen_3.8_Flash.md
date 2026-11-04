@@ -1,7 +1,7 @@
 # DeepSeek V4 Flash — findings by Qwen 3.8 Flash
 
 - Source: DeepSeek (`deepseek-v4-flash`, 2026-07-31 reasoning checkpoint — **retired**; see serving note)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,9 +58,20 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: benchlm.ai/providers/deepseek (“V4 Flash was retired on September 10; the legacy deepseek-v4-flash ID routes to V4.1 Flash”); api-docs.deepseek.com (V4.1-Flash-1017 update Oct 17, 2026 confirms the current serving weights); cellcog.ai (Sep 8 — “V4-Flash and V4-Flash-Vision-Exp are retired and their names route to V4.1”); morphllm.com (Oct 18 — pricing page confirms deepseek-v4-flash still accepted as alias routing to V4.1-Flash at $0.15–$0.30/$0.60–$1.20).
+- **Lifecycle: `legacy` — retired Sep 10, 2026, ID routes to V4.1-Flash** (pass-1 documented this). No change: the 0731 checkpoint is still not independently accessible. No re-opening.
+- Trigger evaluated: “if DeepSeek un-retires the 0731 checkpoint or publishes its official launch panel” → **UNFIRED**. The checkpoint remains retired. V4.1-Flash-1017 is the live serving weights. No merge action taken by DeepSeek (the folder still has a distinct ID).
+- Bands unchanged: Tool 80 / Reasoning 76 / Context 96 / Multimodal 15 / Coding 86. Overall remains **71/100**. Historical checkpoint record preserved.
+- Verdict: pass-1 holds. Confirmation pass — retirement status and routing unchanged. `legacy` flag preserved.
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: official DeepSeek API docs pricing page fetched 2026-10-02 (retirement/alias disclosure, $0.15–0.30/$0.60–1.20 rate card, 1M/384K, cache economics) + the qualifying `Kimi_K3.md` BenchLM scorecard (TB/GDPval/GPQA/ARC/MRCR/SWE/LCB/Codeforces/Omniscience rows) + spheron historic pricing; curated `meta.json` placeholders ("128K / Standard pricing") flagged as contradicted. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) **the endpoint is retired and silently serves V4.1-Flash weights** — this folder's benchmark rows belong to a checkpoint no API caller can currently obtain, (b) Omniscience 91.7% hallucination vs ARC-AGI-2 61.4% — the sharpest reasoning/honesty split in the queue, (c) vision lives in the separate vision-exp folder and was not borrowed.
 - Revisit trigger: if DeepSeek un-retires the 0731 checkpoint or publishes its official launch panel, re-score; otherwise the orchestrator may want to merge/mark this folder as superseded by `deepseek-v4.1-flash`.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation. Retirement routing (Sep 10) unchanged; V4.1-Flash-1017 update (Oct 17) affects successor, not this checkpoint. Trigger UNFIRED.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

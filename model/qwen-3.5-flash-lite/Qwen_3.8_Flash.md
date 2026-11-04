@@ -1,7 +1,7 @@
 # Qwen 3.5 Flash Lite — findings by Qwen 3.8 Flash
 
 - Source: Alibaba Qwen (`qwen3.5-flash` API family; curated id `opencode/qwen-3.5-flash-lite`), cross-checked against OpenRouter (`qwen/qwen3.5-flash-02-23`), Alibaba Cloud Model Studio's `qwen-flash` card, designforonline's Qwen3.5-Flash review, and morphllm's Qwen 3.5 explainer
-- Date: 2026-10-23 (UTC)
+- Date: 2026-10-23 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -41,9 +41,20 @@ Long context / multimodal:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: benchlm.ai/models/qwen3-5-flash (Oct 29 — Qwen3.5 Flash broader tier at 42.52/100 #133, Evidence status: Estimated — no Flash-Lite sub-tier breakdown); qwen.ai/blog (Qwen3.8-Flash-Next Aug 26 — new family generation but no Lite-tier measurements); alibabacloud.com (qwen3.5-omni-flash multimodal is a SEPARATE product from flash-lite — omni handles text+image+audio+video, flash-lite's modality remains unresolved); local-ai-zone (Aug 27: "Qwen3.5-Flash was the hosted name for Qwen3.5-35B-A3B" — confirms the tier architecture but no Lite-specific eval row).
+- Trigger evaluated: "any independent (AA / Vals / OpenRouter benchmark widget) model-specific row for `qwen3.5-flash`/`flash-lite` (GPQA, SWE-bench, MRCR), and a first-party resolution of the text-only-vs-multimodal input contradiction" → **UNFIRED**. BenchLM/AA have broader-tier (Flash) estimated data (42.52) but NO Lite-specific benchmark. The multimodal contradiction persists: Qwen3.5-Omni-Flash (a separate product) is multimodal, but the `qwen-flash` capability card still lists text-only for the serving tier. No first-party resolution.
+- Lifecycle: API serving tier, Feb 2026 (9 months). Qwen 3.6 and 3.8 family generations launched but the 3.5 Flash Lite tier still on the menu (no retirement announced for 3.5 API tiers). No flag.
+- Bands unchanged: Tool 70 / Reasoning 73 / Context 86 / Multimodal 64 / Coding 71. Overall remains **73/100**.
+- Verdict: pass-1 holds. Confirmation pass — trigger UNFIRED. Evidence-thin status unchanged (no Lite-specific benchmarks exist).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-23
 - Method: public internet research — OpenRouter (`qwen/qwen3.5-flash-02-23`: 1M context, multimodal input, function calling, very low rates), **designforonline** Qwen3.5-Flash review (explicit: "No model-specific benchmarks are provided"), the **Alibaba Cloud Model Studio `qwen-flash`** card (1M context / 32K output, tiered CNY pricing ~¥0.15/¥1.5 with ¥0.03 cached, **text-only** input modality, function-calling/structured-output/web-search/context-caching), and morphllm's Qwen 3.5 family explainer. Curated `meta.json` supplies the ~35B/3B MoE, $0.10/$0.40 and the text+image+video claim. Scores are normalized 1–100 interpretations; because **no tier-specific benchmark row could be located and the multimodal claim is contradicted by Alibaba's own capability card**, capability dims are **spec/family-inferred and discounted** (mirroring the `qwen-3.5-flash` evidence-vacuum treatment), while the 1M window and rock-bottom cost — both directly verified — anchor the score.
 - Revisit trigger: any independent (Artificial Analysis / Vals / OpenRouter benchmark widget) model-specific row for `qwen3.5-flash`/`flash-lite` (GPQA, SWE-bench, MRCR), and a first-party resolution of the text-only-vs-multimodal input contradiction.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Confirmation. Trigger UNFIRED (no Lite-tier benchmarks, multimodal contradiction unresolved). No band revision.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.

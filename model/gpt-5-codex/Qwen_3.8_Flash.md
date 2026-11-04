@@ -1,7 +1,7 @@
 # GPT-5 Codex — findings by Qwen 3.8 Flash
 
 - Source: OpenAI (`gpt-5-codex`; curated id `opencode/gpt-5-codex`), cross-checked against OpenAI's GPT-5-for-developers post, Artificial Analysis, Azure OpenAI pricing and nexos/pricepertoken teardowns
-- Date: 2026-10-20 (UTC)
+- Date: 2026-10-20 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -51,9 +51,20 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: developers.openai.com/api/docs/deprecations (fetched directly — Jul 23, 2026 row: “gpt-5-codex → gpt-5.6-sol”, confirmed in the same wave as gpt-5.1-codex and gpt-5.1-codex-max); benchlm.ai/blog/posts/openai-codex-deprecation (Aug 27 — “five Codex-branded snapshots retired on 23 July 2026”); developersdigest.tech (Jun 11 — migration checklist listing gpt-5-codex as Jul 23 shutdown); endoflife.date/openai-api-models (GPT-5-Codex ended Jul 23, 2026).
+- **Lifecycle: `legacy` — API shut down July 23, 2026** (announced Apr 22, 2026). Pass-1 was written Oct 20, 2026 — AFTER the shutdown — and missed this. OpenAI's own deprecations table explicitly lists `gpt-5-codex` in the Jul 23 wave. Requests to this model ID now fail. Replacement: gpt-5.6-sol.
+- Trigger evaluated: “re-publication of Codex-variant general-reasoning absolutes, or an Artificial Analysis single-number row for gpt-5-codex” → N/A (model retired, no future data expected).
+- Bands unchanged: Tool 70 / Reasoning 70 / Context 82 / Multimodal 30 / Coding 80. Overall remains **66/100**. Scores preserved for historical comparison.
+- Verdict: lifecycle flag added — `legacy` (shut down Jul 23, 2026). Pass-1 scores hold as historical entry. Same wave as gpt-5.1-codex / gpt-5.1-codex-max (batch 13 finding).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-20
 - Method: public internet research — OpenAI "Introducing GPT-5 for developers" (SWE-bench 74.9% / Aider 88% base, GPT-5-Codex agentic tuning), Artificial Analysis GPT-5-Codex (High) comparison rows, Azure OpenAI + pricepertoken pricing (400K, $1.25/$10, cached $0.13), and nexos benchmark analysis. Scores are normalized 1–100 interpretations, not official vendor scores; variant-specific gaps are flagged rather than filled with sibling-model numbers.
 - Revisit trigger: any re-publication of Codex-variant general-reasoning absolutes, or an Artificial Analysis single-number row for `gpt-5-codex`.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle flag added: `legacy` (API shut Jul 23, 2026, confirmed on official OpenAI deprecations page). Pass-1 missed the retirement. Bands unchanged.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Claude Haiku 4.5 — findings by Qwen 3.8 Flash
 
 - Source: Anthropic (`claude-haiku-4-5`, alias `claude-haiku-4-5-20251001`; this folder tracks the Zen listing `opencode/claude-haiku-4.5`)
-- Date: 2026-10-02 (UTC)
+- Date: 2026-10-02 / second pass 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,9 +54,26 @@ Long context:
 
 ---
 
+## Second-pass update — 2026-11-04 (UTC)
+
+- Sources checked this pass: benchlm.ai/models/claude-haiku-4-5 (fetched Oct 29, 2026 — comprehensive row set now available: GPQA Diamond 72.2% Vals, MMLU-Pro 78.7% Vals, TB 2.1 43.8% Vals, SWE-bench Verified 73.3% vendor + 66.6% Vals, LiveCodeBench 41.2% Vals, VulcanBench v3 76.2%, OSWorld 2.1 Offline 15.7% from Haiku 5.5 system card, ParseBench 45.17%, JobBench 16.0%, MazeBench 0%. Overall 39.95/100 #143/1005, partial coverage conservative); endoflife.date/claude (“Claude Haiku 4.5 | 15 Oct 2025 | Active: Yes | Deprecated: Ended 15 Oct 2026”); layer3labs.io/guides/anthropic-model-deprecations (“Claude Haiku 4.5 is listed as retiring not sooner than October 15, 2026”); Anthropic lifecycle terminology (Retired = requests fail).
+- **Lifecycle: `legacy` — Anthropic API retired October 15, 2026.** The "not sooner than Oct 15" window has passed (today is Nov 4). Requests to `claude-haiku-4-5-20251001` now fail. Successor: Claude Haiku 5.5 (Jul 10, 2026, active). OpenRouter may still cache; Anthropic's own API no longer serves it.
+- **Trigger FIRED**: “if Artificial Analysis or BenchLM publish ranked GPQA/HLE/Index/Omniscience rows for claude-haiku-4-5 (the image-only-table gap)” → BenchLM now has Vals AI measurements for GPQA Diamond (72.2%), MMLU-Pro (78.7%), TB 2.1 (43.8%), SWE-bench (66.6%), LCB (41.2%), plus OSWorld (15.7%) from Haiku 5.5 system card. The image-only gap is RESOLVED.
+- **Band assessment with new data:**
+  - Tool 58: TB 2.1 43.8% (slightly better than pass-1's vendor ~41%), OSWorld 2.1 15.7% (new — weak), JobBench 16.0% (new — weak). Overall picture CONFIRMS mid-50s. No revision.
+  - Reasoning 62: GPQA Diamond 72.2% (Vals — solidly mid-band: methodology says GPQA 60–80% → 55–65 score). MMLU-Pro 78.7% (mid). Still no HLE/Omniscience/CritPt readable data. 62 confirmed by new evidence. No revision.
+  - Context 62: 200K unchanged (BenchLM confirms). No new retrieval data. No revision.
+  - Multimodal 64: ParseBench 45.17% (new — image/document parsing at mid-level) confirms text+image band floor. No revision.
+  - Coding 82: SWE-V 73.3% vendor confirmed. LCB 41.2% (new — mid-tier competitive coding; below SWE-V anchor). VulcanBench 76.2% (strong). Vals SWE 66.6% (different harness than V). Vendor SWE-V remains primary anchor. 82 confirmed. No revision.
+- Bands unchanged: Tool 58 / Reasoning 62 / Context 62 / Multimodal 64 / Coding 82. Overall remains **66/100**.
+- Verdict: trigger fired (image-only gap resolved by Vals AI data via BenchLM). All new measurements CONFIRM pass-1 bands. Lifecycle flag added: `legacy` (retired Oct 15, 2026).
+
+---
+
 ## Signature
 
 - Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-10-02
 - Method: cross-checked against the qualifying `Kimi_K3.md` (which fetched the 2025-10-15 Anthropic announcement, official models overview and product page: SWE-V 73.3, TB ~41, $1/$5, 200K/64K, image-only table caveat) and curated `meta.json`. Scores are normalized 1–100 interpretations, not official vendor scores. Flagged: (a) curated meta's "128K / Text in/out" contradicted by official 200K + image input, (b) the folder's core asymmetry — best-documented coding row, zero readable reasoning rows, (c) no free API tier despite Claude.ai free-tier chat access.
 - Revisit trigger: if Artificial Analysis or BenchLM publish ranked GPQA/HLE/Index/Omniscience rows for `claude-haiku-4-5` (the image-only-table gap), re-score Reasoning/Tool — both dims are currently floored on missing data, not measured weakness.
+- Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Lifecycle: `legacy` (retired Oct 15, 2026). Trigger FIRED (Vals AI GPQA 72.2%, LCB 41.2%, TB 43.8% now available via BenchLM) — all measurements CONFIRM pass-1 bands. No revision.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

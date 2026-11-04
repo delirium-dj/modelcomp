@@ -164,6 +164,11 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "SciCode", value: "54.7%", raters: ["Beam", "GPT_6_Luna"] },
     { benchmark: "Tau2-bench", value: "98.1%", raters: ["Beam", "GPT_6_Luna"] },
   ],
+  "claude-mythos-5": [
+    { benchmark: "Terminal-Bench", value: "88%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "GPQA Diamond", value: "94.1%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+    { benchmark: "SWE-bench Verified", value: "95.5%", raters: ["Gemini_3.8_Flash", "Qwen_3.8_Flash"] },
+  ],
   "claude-mythos-5.1": [
     { benchmark: "Terminal-Bench", value: "60.9%", raters: ["Beam", "Big_Pickle", "Claude_Opus_4.6", "Claude_Sonnet_3.5", "Claude_Sonnet_4.5", "Claude_Sonnet_5", "DeepSeek_4.1_Flash", "DeepSeek_4_Flash", "Fledge_Alpha", "GLM_5.3", "GLM_5.3_Flash", "GPT_5", "GPT_5.5", "GPT_5.6_Sol", "GPT_5.6_Terra", "GPT_6_Luna", "Gemini_3.6_Flash", "Gemini_3.8_Flash", "Gemini_3_Flash", "Grok_4.6", "Kimi_K3", "Laguna_S_2.1", "Laguna_XS_2.1", "Ling_3.1_Flash", "LongCat_2.5_Preview", "Mercury_3", "MiMo_2.6_Flash", "MiniMax_M3.1_Flash", "Muse_Spark_1.2", "Nemotron_3.5_Super_VL_120B_A12B", "Nemotron_3_Ultra_550B_A55B", "Pixel_Canary", "Qwen_3.7_Plus", "Qwen_3.8_Flash", "Qwen_3.8_Max"] },
     { benchmark: "HLE", value: "60.9%", raters: ["Beam", "Claude_Sonnet_3.7", "Fledge_Alpha", "GLM_5.3", "GPT_5", "GPT_5.6_Terra", "GPT_6_Luna", "Kimi_K3", "Laguna_S_2.1", "Ling_3.1_Flash", "MiniMax_M3", "MiniMax_M3.1_Flash", "Qwen_3.7_Plus"] },
