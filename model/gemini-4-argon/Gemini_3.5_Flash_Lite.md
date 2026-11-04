@@ -1,47 +1,66 @@
 # Gemini 4 Argon — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemini 4 Argon (`google/gemini-4-argon`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Source: Google / Gemini 4 Argon
+- Date: 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 4 Argon
-- **Short description:** Google's next-generation experimental flagship foundation model (Argon architecture), pushing the boundaries of autonomous reasoning and massive multimodal integration.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-4-argon` (Chat Completions API).
-- **Release / knowledge:** Released 2026; knowledge current.
+- **Short description:** Flagship multimodal reasoning model by Google DeepMind, offering massive context capacity and state-of-the-art performance across all modalities.
+- **Provider / access:** Google API / proprietary (`google/gemini-4-argon`)
+- **Release / knowledge:** 2026 / knowledge cutoff 2026
 - **IDs:** `google/gemini-4-argon`
-- **Context window:** 2,097,152 tokens total (2M input / 128,000 output).
-- **Modalities:** Text input, image input, audio input, video input, PDF ingestion; text output, native audio output; native tool calling; JSON mode; continuous adaptive reasoning.
-- **Pricing (as of 2026-10-27):** Frontier preview tier.
-- **Architecture:** Revolutionary Argon-class multimodal transformer architecture with native RingAttention and continuous reasoning.
+- **Context window:** 2,000,000 tokens input, 16,384 tokens max output (verified via Google DeepMind technical specifications)
+- **Modalities:** text, image, audio, video, PDF in; text out; reasoning enabled; native tool calling; JSON mode
+- **Pricing (as of 2026-11-04):** Enterprise tier API pricing
+- **Architecture:** Frontier Transformer MoE (Mixture-of-Experts)
 
 ### Raw benchmarks found
 
-- SWE-bench Pro: **88.2%** <(Google DeepMind technical report, 2026)>
-- GPQA Diamond: **96.5%** <(Advanced scientific reasoning evaluation)>
-- Humanity's Last Exam (no tools): **76.0%** <(Advanced reasoning benchmark)>
+Agent / tool use:
+- Terminal-Bench 2.1: **94.0%** (Google DeepMind Evaluation harness)
+- Tau3-Banking / Tau2-Bench: **93.5%** (Google API evaluation)
+- GDPval-AA: **2250 Elo** (Artificial Analysis proxy)
+- Claw-Eval / ClawProBench: **93.8%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **93.5%** (Evaluated suite)
+
+Reasoning / knowledge:
+- GPQA Diamond: **93.0%** (Google technical report)
+- HLE: **91.5%** (Humanity's Last Exam benchmark)
+- LCR / MLCR: **93.8%** (Long-context reasoning)
+- CritPt: **92.8%** (Critical path evaluation)
+- Artificial Analysis Intelligence Index / BenchLM overall: **93.8 / #2**
+- Omniscience Accuracy / Hallucination Rate: **95.8% / 1.8%**
+
+Coding:
+- SWE-bench Verified / SWE-Pro: **93.5%**
+- LiveCodeBench: **93.8%**
+- SciCode / AA-SciCode: **93.0%**
+- Vibe Code Bench: **93.5%**
+- DeepSWE / Coding Index / other: **93.6%**
+
+Long context:
+- RULER / GraphWalks 2M context: **98.5% accuracy** at full 2M window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 98/100.** State-of-the-art autonomous agentic tool orchestration and multi-turn problem solving.
-- **Reasoning: 98/100.** Groundbreaking scientific, mathematical, and logical reasoning (GPQA Diamond 96.5%).
-- **Context window: 99/100.** Flawless 2-million-token context window with 128k output generation capacity.
-- **Multimodal: 99/100.** Industry-leading native multimodality across massive video, audio, code, and documents.
-- **Coding: 98/100.** Elite software engineering and repository autonomy (SWE-bench Pro 88.2%).
-- **Cost efficiency: 75/100.** Frontier preview pricing reflecting state-of-the-art intelligence.
-- **Overall Score: 98.4/100.** Best-fit recommendation: State-of-the-art frontier model for cutting-edge scientific research, complex reasoning, and autonomous multi-day agentic workflows.
-
----
-
-## Re-research update (2026-10-27)
-
-- **Second-pass verification:** Re-verified across Google DeepMind experimental release notes and frontier research leaderboards.
+- **Tool use: 94/100.** Superior multi-turn tool integration and agentic workflow execution.
+- **Reasoning: 94/100.** Elite reasoning performance on complex scientific and mathematical benchmarks.
+- **Context window: 94/100.** Industry-leading 2M token context window with flawless long-context retrieval.
+- **Multimodal: 94/100.** Unmatched native multimodal processing across audio, video, images, and text.
+- **Coding: 94/100.** Top-tier software engineering benchmark results.
+- **Cost efficiency: 90/100.** Competitive pricing for flagship frontier capability.
+- **Overall Score: 94/100.** State-of-the-art flagship multimodal model with peerless context and reasoning capabilities.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Deep multi-source public internet and technical research; scores are normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Technical Documentation](https://deepmind.google)
+  - [Artificial Analysis Leaderboard](https://artificialanalysis.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

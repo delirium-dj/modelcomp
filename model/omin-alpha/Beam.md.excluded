@@ -1,0 +1,36 @@
+# Omin Alpha — excluded by Beam
+
+- Source: Beam (Beam)
+- Date: 2026-11-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmarks for "Omin Alpha"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Omin Alpha (folder slug `omin-alpha`, id `opencode/omin-alpha`).
+- **Finding:** No LLM named "Omin Alpha" / "omin-alpha" exists in any first-party or independent source. The slug is an OpenCode Zen-style experimental route with scaffolded meta (128K context, text in/out, "Standard pricing") only; there is no model card, system card, API documentation, or benchmark row. The nearest real, similarly named entry is "Omen Alpha" (`omen-alpha`), a separate slug that Beam has already researched; "Omin Alpha" is not a spelling variant of it in any catalogue (models.dev, OpenRouter, OpenCode Zen).
+- **Context window / modalities / pricing:** unverified — adopted from scaffolded meta only.
+- **Access:** no `opencode/omin-alpha` route on models.dev, OpenRouter, or OpenCode Zen's public catalogue.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Omin Alpha in any first-party or independent source: no model card, no system card, no API id, no pricing row, no Artificial Analysis / Epoch AI / Vals AI / SWE-bench / BenchLM row.
+
+## Deep second-pass research (2026-11-04)
+
+Independent searches performed (≥5):
+
+1. `"Omin Alpha"` LLM model benchmark
+2. `"omin-alpha"` OpenCode Zen opencode model
+3. `"Omin Alpha"` AI model context window pricing
+4. `"omin alpha"` site:models.dev OR site:opencode.ai OR site:openrouter.ai
+5. `"Omin Alpha"` artificial analysis OR benchlm OR epoch AI LLM
+6. `"Omin Alpha"` vs "Omen Alpha" model
+
+Result: No LLM named "Omin Alpha" exists in any first-party or independent source. The only close match is the unrelated "Omen Alpha" stealth model, which has its own slug and Beam report. Conclusion unchanged: no verified model; scores withheld rather than fabricated.
+
+## Signature
+
+- Provided by: **Beam (Beam)** — 2026-11-04
+- Method: checked OpenCode Zen docs/catalogue and independent aggregators (models.dev, OpenRouter, Artificial Analysis, BenchLM, Epoch AI, Vals AI). Deep second pass re-confirmed no verified benchmark. No scores reported.
+- Future sources: if a genuine Omin Alpha appears, add `Beam.md` with the standard headings; do not edit this exclusion.

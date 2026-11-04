@@ -77,7 +77,6 @@ export type SourceKey =
   | "GPT 6.1 Sol"
   | "Nemotron 3.5 Super VL 120B A12B"
   | "Beam"
-  | "Xing 4.0.29B A4B"
   | "Nemotron 3 Ultra 550B A55B"
   | "MiniMax M3.1 Flash"
   | "Qwen 3.8 Max"
@@ -185,7 +184,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "GPT 6.1 Sol", label: "GPT-6.1 Sol", file: "GPT_6.1_Sol.md", slug: "gpt-6.1-sol" },
   { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md", slug: "nemotron-3.5-super-vl" },
   { key: "Beam", label: "Beam", file: "Beam.md", slug: "beam" },
-  { key: "Xing 4.0.29B A4B", label: "Xing 4.0.29B A4B", file: "Xing_4.0.29B_A4B.md", slug: "xing_4.0_29b_a4b" },
   { key: "Nemotron 3 Ultra 550B A55B", label: "Nemotron 3 Ultra 550B A55B", file: "Nemotron_3_Ultra_550B_A55B.md", slug: "nemotron-3-ultra-free" },
   { key: "MiniMax M3.1 Flash", label: "MiniMax M3.1 Flash", file: "MiniMax_M3.1_Flash.md", slug: "minimax-m3.1-flash-preview" },
   { key: "Qwen 3.8 Max", label: "Qwen 3.8 Max", file: "Qwen_3.8_Max.md", slug: "qwen-3.8-max" },

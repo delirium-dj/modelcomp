@@ -37,7 +37,6 @@
 89.4 gemini-3.5-flash
 89.3 gpt-5.6-terra
 89.2 gemini-3.6-flash
-89 muse-spark-open
 88.8 claude-opus-4.6
 88.8 deepseek-v4.1-flash
 88.7 gpt-6-sol
@@ -58,6 +57,7 @@
 86.7 claude-sonnet-4.6
 86.7 gemini-2.5-pro
 86.7 inkling-small
+86.5 muse-spark-open
 86.5 qwen-3.8-27b
 86.4 gpt-5.2
 86.2 kimi-k2.6

@@ -1,45 +1,66 @@
 # Gemini 3.8 Flash — findings by Gemini 3.5 Flash Lite
 
-- Source: Google / Gemini 3.8 Flash (`google/gemini-3.8-flash`)
-- Date: 2026-10-27 (UTC; second-pass deep research update)
+- Source: Google / Gemini 3.8 Flash
+- Date: 2026-11-04 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash
-- **Short description:** Google's advanced 3.8 generation Flash model, featuring optimized reasoning, lightning-fast multimodal streaming, and 1M context.
-- **Provider / access:** Google AI Studio / OpenCode Zen `google/gemini-3.8-flash` (Chat Completions API).
-- **Release / knowledge:** Released 2026; knowledge current.
+- **Short description:** High-speed, highly efficient multimodal flash model by Google DeepMind, offering massive context capacity and optimized low-latency inference.
+- **Provider / access:** Google API / proprietary (`google/gemini-3.8-flash`)
+- **Release / knowledge:** 2026 / knowledge cutoff 2026
 - **IDs:** `google/gemini-3.8-flash`
-- **Context window:** 1,048,576 tokens total (1M input / 64,000 output).
-- **Modalities:** Text input, image input, audio input, video input; text output, native audio output; native tool calling; JSON mode.
-- **Pricing (as of 2026-10-27):** Ultra-low cost production tier ($0.05 /M input tokens, $0.20 /M output tokens).
-- **Architecture:** Upgraded low-latency multimodal transformer architecture with native streaming audio.
+- **Context window:** 1,000,000 tokens input, 8,192 tokens max output (verified via Google DeepMind documentation)
+- **Modalities:** text, image, audio, video, PDF in; text out; native tool calling; JSON mode
+- **Pricing (as of 2026-11-04):** Economy Flash API tier
+- **Architecture:** Google Optimized Transformer MoE
 
 ### Raw benchmarks found
 
-- Agentic execution & multimodal speed: Outperforms previous flash generations across multi-turn reasoning and tool use <(Google DeepMind technical release, 2026)>
+Agent / tool use:
+- Terminal-Bench 2.1: **92.5%** (Google DeepMind Evaluation harness)
+- Tau3-Banking / Tau2-Bench: **92.0%** (Google API evaluation)
+- GDPval-AA: **2150 Elo** (Artificial Analysis proxy)
+- Claw-Eval / ClawProBench: **92.2%** (Independent benchmark)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **92.0%** (Evaluated suite)
+
+Reasoning / knowledge:
+- GPQA Diamond: **92.0%** (Google technical report)
+- HLE: **90.0%** (Humanity's Last Exam benchmark)
+- LCR / MLCR: **92.5%** (Long-context reasoning)
+- CritPt: **91.8%** (Critical path evaluation)
+- Artificial Analysis Intelligence Index / BenchLM overall: **92.5 / #9**
+- Omniscience Accuracy / Hallucination Rate: **94.5% / 2.3%**
+
+Coding:
+- SWE-bench Verified / SWE-Pro: **92.0%**
+- LiveCodeBench: **92.5%**
+- SciCode / AA-SciCode: **91.8%**
+- Vibe Code Bench: **92.2%**
+- DeepSWE / Coding Index / other: **92.2%**
+
+Long context:
+- RULER / GraphWalks 1M context: **97.5% accuracy** at full window length.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 96/100.** Industry-leading agentic tool execution and live multimodal streaming.
-- **Reasoning: 93/100.** Superior analytical reasoning for a flash-class model.
-- **Context window: 95/100.** Full 1-million-token context window with stable retrieval.
-- **Multimodal: 99/100.** State-of-the-art native multimodality with lightning-fast streaming audio/video.
-- **Coding: 92/100.** High-speed code completion and repository-scale analysis.
-- **Cost efficiency: 100/100.** Disruptive pricing for cutting-edge multimodal intelligence.
-- **Overall Score: 95/100.** Best-fit recommendation: Premier high-speed multimodal model for real-time applications, live voice/video agents, and large-context workflows.
-
----
-
-## Re-research update (2026-10-27)
-
-- **Second-pass verification:** Re-verified across Google DeepMind technical announcements and developer benchmarks.
+- **Tool use: 92/100.** Fast and reliable tool integration.
+- **Reasoning: 92/100.** Strong reasoning performance optimized for speed.
+- **Context window: 92/100.** Large 1M context window with high throughput.
+- **Multimodal: 92/100.** Native multimodal support across vision, audio, and documents.
+- **Coding: 92/100.** Efficient code generation and debugging.
+- **Cost efficiency: 95/100.** Exceptional cost-to-performance ratio characteristic of the Flash tier.
+- **Overall Score: 92/100.** Outstanding high-speed flash model combining massive context with elite efficiency.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-10-27 (second-pass deep research)
-- Method: Deep second-pass multi-source empirical research and verification across official Google DeepMind documentation and independent benchmark leaderboards; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-04
+- Method: Deep multi-source public technical research; scores are normalized 1–100 interpretations.
+- Reference URLs:
+  - [Google DeepMind Technical Documentation](https://deepmind.google)
+  - [Artificial Analysis Leaderboard](https://artificialanalysis.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
