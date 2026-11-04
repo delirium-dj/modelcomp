@@ -4,12 +4,17 @@
   "short": "Z.ai's coding-positioned GLM-5.2 entry (MIT, 1M) - no separate 'GLM-5.2-Coding' SKU is published on Z.ai, Zen, OpenRouter or models.dev; SWE-bench 82.8% (Vals), tau2-bench 99.1% (AA), TB 2.1 81.0% (vendor) / 67.8% (Vals).",
   "contextWindow": "1,000,000 (128K is not this model's window)",
   "modalities": "Text in/out",
-  "pricingNote": "$1.40/$4.40 per 1M in/out; $0.26 cached input",
-  "noFreeId": true,
+  "pricingNote": "$1.40/$4.40 per 1M (Z.ai API); Free tier route via AIHubMix",
   "officialUrl": "https://open.zhipuai.cn/",
   "pricingLinks": [
+    "https://aihubmix.com/",
     "https://docs.z.ai/guides/overview/pricing"
   ],
   "standout": "Near-perfect tool orchestration (tau2-bench 99.1%) on MIT-licensed MoE weights you can self-host.",
-  "tradeoff": "The coding focus narrows general breadth — and the coding SKU itself is unverified: the published 'SWE-bench 78.7%' claim could not be found in any source."
+  "tradeoff": "The coding focus narrows general breadth — and the coding SKU itself is unverified: the published 'SWE-bench 78.7%' claim could not be found in any source.",
+  "freeTierNote": "Available as a free coding tier route (coding-glm-5.2-free) via AIHubMix; native Zhipu/Z.ai API is paid $1.40/$4.40",
+  "pricingTiers": [
+    "Free via AIHubMix (coding-glm-5.2-free)",
+    "Paid $1.40/$4.40 per 1M in/out (Z.ai API)"
+  ]
 }

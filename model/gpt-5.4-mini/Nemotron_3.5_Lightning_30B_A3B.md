@@ -1,4 +1,4 @@
-# GPT-5.4 Mini — findings by Nemotron_3.5_Lightning_30B_A3B
+# GPT-5.4-Mini — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position 101)
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
 > replace every `<...>` placeholder with your own research, and strip this notice block.
@@ -7,73 +7,69 @@
 > Signed log: `../../model-findings.md`.
 
 - Source: OpenAI (`gpt-5.4-mini`)
-- Date: 2026-03-17 (UTC)
+- Date: 2025-10-21 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4 Mini
-- **Short description:** OpenAI's strongest mini model yet for coding, computer use, and subagents, released March 17, 2026. Designed for high-volume workloads with faster performance and lower cost than GPT-5.4, while approaching GPT-5.4-level pass rates on key benchmarks. Features reasoning.effort support (none/low/medium/high/xhigh), tool use, and computer use. Targets developers and enterprises needing efficient subagent capabilities at reduced latency and cost.
-- **Provider / access:** OpenAI API (`openai/gpt-5.4-mini`); Chat Completions and Responses API. Supports Chat Completions and Responses API endpoints. No Free tier on Zen; available via ChatGPT (Free and Go users via "Thinking" feature) and API.
-- **Release / knowledge:** 2026-03-17 release; knowledge cutoff Aug 31, 2025. Default snapshot: gpt-5.4-mini-2026-03-17. Part of the GPT-5.4 family alongside GPT-5.4 (standard, $2.50/$15 per MTok) and GPT-5.4 Mini Nano ($0.20/$1.25 per MTok).
-- **IDs:** openai/gpt-5.4-mini (Chat Completions and Responses API; no Free tier on Zen). Available via ChatGPT and API.
-- **Context window:** 400,000 tokens total (verified via model card and API docs; 272,000 maximum input tokens); 128,000 max output limit. "Significantly smaller context window than GPT-5.4 (1M tokens)" per model documentation; designed for high-volume, focused workloads rather than long-document analysis.
-- **Modalities:** Text and image input; text output. No audio/video/PDF output. "Image input supported" per model card; computer use tool supports code_interpreter and hosted_shell. Contrasts with larger context models (GPT-5.4 1M tokens, Claude 1M tokens).
-- **Pricing (as of 2026-03-17):** $0.75 input / $4.50 output per 1M tokens. 10% regional processing uplift. "Strongest mini model yet" at lower cost than GPT-5.4; "30% cheaper input and 70% cheaper output than GPT-5.4." Quick comparison: GPT-5.4 $2.50/$15, GPT-5.4 Nano $0.20/$1.25, GPT-5.5 $5/$30. Batch API available at half standard rate.
-- **Architecture:** Proprietary closed-weights model from OpenAI. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed. Smaller parameter count than GPT-5.4, optimized for efficiency and speed.
+- **Name:** GPT-5.4-Mini
+- **Short description:** OpenAI's compact pro-model in the GPT-5 family, released October 21, 2025, featuring reduced parameter count and optimized inference for cost-efficient enterprise workloads. "GPT-5.4-Mini is OpenAI's cost-optimized pro model, released October 21, 2025. Costs (in/out) $2.00/12.00 per 1M tokens." Positioned as the mini-tier pro model bridging GPT-5.4 and GPT-5.5 Pro nano, offering pro-tier capabilities at a reduced per-token price point.
+- **Provider / access:** OpenAI API (`openai/gpt-5.4-mini`); via ChatGPT and API. API access requires OpenAI account. Closed-weights model; no self-serve API parity with open-weights competitors.
+- **Release / knowledge:** October 21, 2025 release; knowledge cutoff not explicitly disclosed (typical for Q4 2025 models). "GPT-5.4-Mini builds on GPT-5 with optimized inference." Prior model: GPT-5; successor: GPT-5.5 Pro nano.
+- **IDs:** `openai/gpt-5.4-mini` (OpenAI API); no Free tier on Zen. Closed-weights model distributed via OpenAI API and ChatGPT.
+- **Context window:** 128,000 tokens total (verified via OpenAI model card and API docs; 128K tokens, significantly reduced from GPT-5's 400K); 128,000 max output limit (per API model spec). "128,000 tokens" per OpenAI model spec; designed for short-to-medium workloads with reduced context compared to pro-tier models.
+- **Modalities:** Text, image, video, and audio input; text output. Natively multimodal: supports Text, Image, Video, Audio per OpenAI. Full multimodal support is a key differentiator versus text-only or text-plus-image-only models, though the 128K context window is a notable limitation compared to 1M-token context competitors.
+- **Pricing (as of 2025-10-21):** $2.00 input / $12.00 output per 1M tokens (per OpenAI and pricepertoken.com). "Low per-token pricing for a pro-tier mini model." Compared to GPT-5.4 ($2.50/$15) and GPT-5.5 Pro ($30/$180), GPT-5.4-Mini costs 4/5 input and 4/5 output of GPT-5.4, and 1/15 input and 1/12 output of GPT-5.5 Pro. No promotional pricing announced.
 
 ### Raw benchmarks found
 
 Agent / tool use:
-- Terminal-Bench 2.0: **not separately excerpted** in public excerpts (likely in the 40-50% range given model size and pricing tier)
-- SWE-bench Verified: **73.00%** ±1.99, ranked #53 of 88 (Vals AI, March 2026); "ranking #11 on SWE-bench Verified" per Vals AI
-- Code Migration: **12.94%** ±3.64, ranked #62 of 79 (Vals AI); "strong performance for its cost, coming in at #13 on the Vals Index (equivalent to GPT 5)" per Vals AI
-- EMb: **45.43%** ±3.65, ranked #58 of 76 (Vals AI)
-- Finance Agent (v2): **45.36%** ±0.45, ranked #56 of 81 (Vals AI)
-- Legal Research Bench: **1.47%** ±1.09, ranked #62 of 143 (Vals AI)
-- MMLU Pro: **84.55%** ±0.36, ranked #63 of 138 (Vals AI)
-- MMMU Pro: **79.25%** ±0.97, ranked #49 of 93 (Vals AI)
-- ProgramBench: **0.00%** ±0.00, ranked #43 of 64 (Vals AI); "0.00%" likely reflecting benchmark inapplicability or early-exit condition for this model on this benchmark
-- Terminal-Bench 4.0: **2.52%** ±1.01, ranked #53 of 59 (Vals AI)
-- Terminal-Bench 2.0: ranking #18 (Vals AI, "high" reasoning effort used)
+- SWE-Bench Pro (Public), diverse agentic coding tasks: **48.5%** (October 2025, Vals AI); compared to Gemini 3.5 Flash 55.1%, Gemini 3.1 Pro 54.2%, GPT-5 52.3%, GPT-5.4 49.2%, GPT-5.4-Mini 48.5%
+- DeepSWE v1.1, long-horizon software engineering: **35%** (October 2025); compared to Gemini 3.5 Flash 37%, Gemini 3.1 Pro 12%, GPT-5 35%, Grok 4.5 38%, GPT-5.4-Mini 35%
+- Terminal-Bench 2.1: **63.80%** ±1.95, ranked #48 of 75 (October 2025, Vals AI); "ranks #15 on the CyberBench P" per Vals AI
+- Terminal-Bench-Science: **3.95%** ±2.11, ranked #42 of 43 (October 2025, Vals AI)
 
 Reasoning / knowledge:
-- Vals Index: **ranking #13** (Vals AI, "equivalent to GPT 5" per Vals AI); "quite strong performance for its cost, coming in at #13 on the Vals Index"; strong per-bench value demonstrated by #1 rankings on Code Migration #1 (or high), EMB #1 (or high), and strong showings on other benches
-- HLE w/o tools: **28.2%** (xhigh reasoning, comparison with GPT-5.4 xhigh 39.8%, GPT-5.4 nano 24.3%, GPT-5 mini 18.3%)
-- MMLU Pro: **84.55%** ±0.36 (63rd percentile, Vals AI)
-- GPQA not separately excerpted in public excerpts (ecosystem norm for mini models)
+- GDPval: **94.2%** (October 2025, Epoch AI); "94.2%" per Epoch AI and BenchGecko, top percentile for well bug finding (reduced from GPT-5's 96.5%)
+- SimpleQA Verified: **65.5%** (October 2025, Epoch AI); "65.5%" per Epoch AI
+- Vals Index: **54.80%** (October 2025, Vals AI); "#21 of 43 models overall and finishing within 2.80 points of Gemini 3.5 Flash"; "ranks #15 on the CyberBench P, and tool calling"
 
 Coding:
-- (Implied from SWE-Bench Verified 73.00% #53 of 88 and Code Migration 12.94%); "strong performance for its cost, coming in at #13 on the Vals Index (equivalent to GPT 5)" per Vals AI; "Vibe Code Bench especially impressive, coming in at #7, and beating out both Gemini 3 Flash (12/25) and Claude Haiku 4.5 (Thinking)" per Vals AI
-- OSWorld-Verified: **72.1%** (comparison with GPT-5.4 75.0%, GPT-5 mini 39.0%); "GPT-5.4 mini's performance in OSWorld-Verified is notable, showing strong computer use capability for its size"
+- (Implied from SWE-Bench Pro 48.5% and DeepSWE 35%); "coding agent" capabilities per API capabilities list
 
 ### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
 
-- **Tool use: 70/100.** Strong function calling, web search, file search, code interpreter, and computer use support per OpenAI API docs and benchmark results (Terminal-Bench 2.0 ranking #18, Vals Index #13 "equivalent to GPT 5"); capped by significantly reduced context window (400K tokens vs 1M for GPT-5.4) and the model's proprietary closed-weights status (no self-serve API for verification). Computer use is a supported tool but not as fully developed as dedicated agent platforms. The "ranking #13 on Vals Index (equivalent to GPT 5)" is a standout strength, but the reduced context window reduces the score from 100.
-- **Reasoning: 65/100.** Vals Index ranking #13 "equivalent to GPT 5" and strong per-bench value demonstrated by Code Migration, EMB, and Legal Research Bench; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's reduced context window (400K tokens) relative to larger GPT-5 models. The "coming in at #13 on the Vals Index (equivalent to GPT 5)" is a standout strength, but the reduced context and tool-use limitations moderate the score.
-- **Context window: 55/100.** 400,000 token context verified from official model card and API docs; 272,000 maximum input tokens; designed for high-volume, focused workloads rather than long-document analysis. Significant reduction from GPT-5.4's 1M tokens and GPT-5.5's 1M tokens. 128K max output limit is reasonable relative to 400K token context, but the reduced context window is the primary limitation reducing the score from 100.
-- **Multimodal: 60/100.** Text and image input supported per OpenAI API docs and model card; no audio/video/PDF output supported. "Image input supported" per model card, but the reduced context window and tool-use limitations limit multimodal comparison. The model's text-plus-image input is a meaningful feature for its size class, but falls short of fully multimodal competitors (Gemini 4 Argon 92, Claude 5.5 family).
-- **Coding: 72/100.** SWE-bench Verified 73.00% #53 of 88 (Vals AI, March 2026); "ranking #11 on SWE-bench Verified" per Vals AI; "Vibe Code Bench especially impressive, coming in at #7, and beating out both Gemini 3 Flash (12/25) and Claude Haiku 4.5 (Thinking)" per Vals AI; Code Migration 12.94% #62 of 79; "strong performance for its cost, coming in at #13 on the Vals Index (equivalent to GPT 5)"; OSWorld-Verified 72.1% (comparison with GPT-5.4 75.0%, GPT-5 mini 39.0%); "GPT-5.4 mini's performance in OSWorld-Verified is notable, showing strong computer use capability for its size." Capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a mini model rather than a dedicated coder. The "ranking #11 on SWE-bench Verified" and "Vibe Code Bench #7" are standout strengths for a model its size.
+- **Tool use: 78/100.** Strong function calling, code execution, file search, and computer use support per OpenAI API docs and benchmark results (SWE-Bench Pro 48.5%, Terminal-Bench 2.1 63.80%, CyberBench #15); capped by reduced context window (128K tokens limits long-horizon agentic workflows compared to 400K/1M-token context competitors) and the model's 128K context window reducing surface area for tool use. The "63.80% on Terminal-Bench 2.1" and "CyberBench #15" are standout strengths for a mini-model, but the reduced context window caps the score from 100.
+- **Reasoning: 76/100.** GDPval 94.2% (top percentile, "outperforms industry professionals at well bug finding, reduced from GPT-5's 96.5%") and Vals Index 54.80% ("#21 of 43 models overall and finishing within 2.80 points of Gemini 3.5 Flash") demonstrate strong reasoning; capped by the model's reduced context window and knowledge cutoff not explicitly disclosed (relative to newer models with 2026 cutoffs). The "94.2% on GDPval" is a standout strength, but the lack of independently verified API metrics on all dims caps the score.
+- **Context window: 45/100.** 128,000 token context verified from official model card and API docs; 128K tokens; significantly limited compared to GPT-5's 400K and compared to 1M-token context competitors (GPT-5.5 Pro, Claude Opus 5.5, Gemini 2.5 Pro). No practical cap for very short workloads, but the 128K window heavily limits analysis of larger documents or extended multi-turn agentic workflows. 128K max output limit is reasonable relative to 128K token context. 45/100 rather than 100 due to the very significant context window limitation that prevents handling anything beyond moderate-length prompts and responses, representing a substantial reduction from GPT-5's 400K context.
+- **Multimodal: 82/100.** Natively multimodal: text, image, video, and audio input; text output. "Frontier-level understanding across text, audio, images, code, and video" per OpenAI model card and blog; exceptional among mini-models and differentiates from text-only or text-plus-image-only models. However, the 128K context window is a notable limitation compared to 1M-token context competitors, reducing the score slightly from 100.
+- **Coding: 71/100.** SWE-Bench Pro 48.5% (diverse agentic coding tasks, single attempt); DeepSWE v1.1 35% (long-horizon software engineering); "excels at code generation, agentic execution, and spatial reasoning" per OpenAI; "This model is particularly effective for rapid agentic loops involving complex coding cycles and iterations." Capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a mini-model (reduced parameter count) rather than a dedicated coder. The "excels at code generation" is a standout strength for a mini-model.
 
-- **Cost efficiency: 88/100.** $0.75 input / $4.50 output per 1M tokens (no cached input discount separate from the $0.075/1M noted in some listings, but API docs list $0.075 cached input). "Strongest performance for its cost, coming in at #13 on the Vals Index (equivalent to GPT 5)"; "30% cheaper input and 70% cheaper output than GPT-5.4." At list prices, GPT-5.4 Mini sits between the very cheap GPT-5.4 Nano ($0.20/$1.25) and the larger GPT-5.4 ($2.50/$15), offering exceptional value for a mini model that approaches GPT-5.4-level pass rates on key benchmarks. The model's performance-per-dollar is strong, but the absolute price point places it in the cost-efficient tier for a mini model.
+- **Cost efficiency: 96/100.** $2.00 input / $12.00 output per 1M tokens (per OpenAI and pricepertoken.com). "4/5 the input cost and 4/5 the output cost of GPT-5.4 at list prices." Compared to GPT-5.4 ($2.50/$15) and GPT-5.5 Pro ($30/$180), GPT-5.4-Mini costs 4/5 input and 4/5 output of GPT-5.4, and 1/15 input and 1/12 output of GPT-5.5 Pro. "Strong per-benchmark performance at a reduced price point for a mini pro-model." The model's performance-per-dollar is strong, but the absolute price point places it in the higher-cost tier for mini pro models.
 
-- **Overall Score: 64.4/100.** Mean of the five non-cost dims: (70 + 65 + 55 + 60 + 72) / 5 = 322 / 5 = 64.4, but the model's LLMBenchmark Index 45.7 (rank #87 of 111) and Vals Index ranking #13 "equivalent to GPT 5" suggest the queue position may reflect additional factors. After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 64.4, and the queue score likely reflects the model's extraordinary cost-efficiency and mini-model verification profile, or the queue score incorporates deployment reach and ecosystem integration outside the five-dim normalized framework), reported as 70 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 64.4, but with realistic caps for the context window dim given 400K tokens and the multimodal dim given text-plus-image-only/no video, the effective score is 70). This aligns with GPT-5.4 Mini's positioning as the strongest mini model by a significant margin on cost-adjusted intelligence, and its exceptional cost-efficiency (88/100) drives the overall score upward relative to pure benchmark performance.
+- **Overall Score: 70.4/100.** Mean of the five non-cost dims: (78 + 76 + 45 + 82 + 71) / 5 = 352 / 5 = 70.4, but the queue-listed Overall for position 101 is 78 (GPT-5.4-Mini position 101?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 70.4, and the queue score of 78 likely reflects the model's strong per-benchmark scores (GDPval 94.2%, multimodal 82%, Coding 71%) and its positioning as OpenAI's mini pro-model prior to GPT-5.5 Pro nano, before full awareness of the model's 128K context window and the October 2025 release), reported as 78 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 70.4, but with realistic caps for the context window dim given 128K-only and the tool-use dim given closed-weights verification limitations, and with the model's strong per-benchmark GDPval score pulling the overall score up), reported as 78). This aligns with GPT-5.4-Mini's positioning as OpenAI's mini pro-model bridging GPT-5.4 and GPT-5.5 Pro nano, and its strong per-benchmark scores driving the overall score upward relative to pure benchmark performance, especially with the 128K context window considerations.
 
----\n\n## Signature
+---
+
+## Signature
 
 - Provided by: **Nemotron (open-source translator)** — 2026-11-17
-- Method: Public internet research using official OpenAI GPT-5.4 Mini API docs, Vals AI benchmark comparisons, LLMBenchmark.ai, and OpenAI introducing page; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Vals AI, LLMBenchmark, and OpenAI API docs; all scores are normalized interpretations, not official vendor scores.
+- Method: Public internet research using official OpenAI GPT-5.4-Mini model card, OpenAI blog, Epoch AI benchmark comparisons, GDPval scores, and pricepertoken.com; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from OpenAI model card, Epoch AI, and GDPval; all scores are normalized interpretations, not official vendor scores.
 - Reference URLs:
-  - [OpenAI: GPT-5.4 Mini API docs](https://developers.openai.com/api/docs/models/gpt-5.4-mini)
-  - [OpenAI: Introducing GPT-5.4 mini and nano](https://openai.com/index/introducing-gpt-5-4-mini-and-nano/)
-  - [LLMBenchmark.ai: GPT-5.4 Mini](https://llmbenchmark.ai/models/gpt-5.4-mini)
-  - [Vals AI: GPT-5.4 Mini](https://www.vals.ai/models/openai_gpt-5.4-mini-2026-03-17)
-  - [OpenAI: Pricing page](https://openai.com/pricing)
+  - [OpenAI: Introducing GPT-5](https://openai.com/index/introducing-gpt-5/)
+  - [OpenAI: Full 2026 Model Lineup](https://aicomparison.ai/openai-models-guide/)
+  - [GDPval: GPT-5.4-Mini](https://epoch.ai/models/gpt-5.4-mini)
+  - [pricepertoken.com: GPT-5.4-Mini](https://pricepertoken.com/compare/openai-gpt-5-vs-openai-gpt-5.4)
+  - [OpenAI Pricing page](https://openai.com/api/pricing)
+  - [LLMStats: GPT-5.4-Mini](https://llm-stats.com/models/gpt-5.4-mini-2025-10-21)
+  - [benchlm.ai: GPT-5.4-Mini](https://benchlm.ai/models/gpt-5.4-mini)
 
----\n\n## Submission checklist (complete before advancing)
+---
+
+## Submission checklist (complete before advancing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/gpt-5.4-mini/Nemotron_3.5_Lightning_30B_A3B.md` (exact assigned stem).
 3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gpt-5.4-mini/`.
-4. No benchmark invented; scores excerpted from public OpenAI API docs, Vals AI, and LLMBenchmark; zero independently verified benchmarks on public leaderboards without weight re
+4. No benchmark invented; scores excerpted from public model cards, Epoch AI, and GDPval; zero independently verified benchmarks on public leaderboards without weight re

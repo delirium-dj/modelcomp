@@ -1,0 +1,25 @@
+{
+  "name": "BytePlus ModelArk",
+  "kind": "vendor",
+  "short": "ByteDance's enterprise AI model service — first-party Seed plus hosted DeepSeek, Qwen, Kimi and GLM open-weight MoE coding models, billed per million tokens.",
+  "officialUrl": "https://www.byteplus.com",
+  "hosts": ["byteplus.com"],
+  "catalogUrl": "https://docs.byteplus.com/en/docs/ModelArk/model-list",
+  "covers": [
+    "deepseek-v4.1-flash"
+  ],
+  "plans": [
+    {
+      "name": "Free trial quota",
+      "price": "$0",
+      "notes": "New-user free inference trial quota (per-model token allowance); register a BytePlus account to claim.",
+      "evidenceUrl": "https://docs.byteplus.com/en/docs/modelark/free-inference-quota"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "USD per million tokens",
+      "notes": "Per-model cached/non-cached input and output rates on the live rate card.",
+      "evidenceUrl": "https://docs.byteplus.com/en/docs/ModelArk/model-pricing"
+    }
+  ]
+}

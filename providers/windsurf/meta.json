@@ -1,0 +1,46 @@
+{
+  "name": "Windsurf",
+  "kind": "aggregator",
+  "short": "Windsurf, the AI-first code editor (now Devin Desktop by Cognition). Its Cascade agent runs in-editor and routes each prompt to a model you pick from a dropdown: Cognition's in-house SWE family plus third-party frontier and open-source models (Claude, GPT, Gemini, Kimi). Usage draws down your plan quota and extra usage bills at API pricing.",
+  "officialUrl": "https://windsurf.com",
+  "hosts": ["windsurf.com", "codeium.com", "devin.ai", "docs.devin.ai"],
+  "catalogUrl": "https://docs.windsurf.com/windsurf/models",
+  "covers": [
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "gemini-4-argon",
+    "kimi-k2.5"
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "Light daily/weekly quota; model availability limited to the in-house SWE-1.6; unlimited inline edits and unlimited Tab completions.",
+      "evidenceUrl": "https://windsurf.com/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$20/month",
+      "notes": "Increased quota plus full model availability (frontier OpenAI, Anthropic, Google + leading open-source). SWE-2 free on self-serve through Nov 30, 2026; beyond quota you buy extra usage at API pricing.",
+      "evidenceUrl": "https://windsurf.com/pricing"
+    },
+    {
+      "name": "Max",
+      "price": "$200/month",
+      "notes": "Everything in Pro with significantly higher quotas, for heavy agent use.",
+      "evidenceUrl": "https://windsurf.com/pricing"
+    },
+    {
+      "name": "Teams",
+      "price": "$80/month + $40/mo per full dev seat",
+      "notes": "Up to 200 users, shared collaboration, admin dashboard, centralized billing.",
+      "evidenceUrl": "https://windsurf.com/pricing"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom (ACU-based)",
+      "notes": "VPC deployment, SAML/OIDC SSO, centralized admin controls, dedicated account team; billed in Agent Compute Units.",
+      "evidenceUrl": "https://windsurf.com/pricing"
+    }
+  ]
+}

@@ -4,16 +4,16 @@
   "short": "Google's 30.7B dense open-weight (Apache 2.0, 256K) model for local reasoning and coding; AIME 89.2% and Codeforces 2150 Elo, MMMU-Pro 76.9%.",
   "contextWindow": "128K context",
   "modalities": "Text in/out only",
-  "pricingNote": "Free open weights / standard hosting",
+  "pricingNote": "Free open weights (Apache 2.0); Free on NVIDIA NIM / Build",
   "pricingTiers": [
-    "Free open weights",
-    "Standard API hosting"
+    "Free open weights (Apache 2.0 self-host)",
+    "Free on NVIDIA NIM / Build ($0)"
   ],
-  "freeTierNote": "Open weights available for local deployment and community hosting",
+  "freeTierNote": "Free prototyping endpoint on NVIDIA NIM (build.nvidia.com); Apache 2.0 open weights for self-hosting",
   "officialUrl": "https://ai.google.dev/gemma/docs/gemma-4-31b",
   "pricingLinks": [
     "https://huggingface.co/google/gemma-4-31B-it",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://build.nvidia.com/google/gemma-4-31b-it"
   ],
   "standout": "Google’s laptop-class open weights: dense 31B with olympiad-math strength and competitive Codeforces play on a single accelerator.",
   "tradeoff": "No hosted frontier sibling for the heavy stuff — the 256K window and 31B depth cap the hardest agentic runs."

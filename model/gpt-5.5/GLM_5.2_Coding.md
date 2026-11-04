@@ -70,3 +70,15 @@ Long context:
 - Provided by: **GLM 5.2 Coding (zai-org/GLM-5.2-Coding)** — 2026-09-22
 - Method: public internet research (BenchLM model record + OpenAI pricing table) on 2026-09-22; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+### Addendum 2026-10-09 (session 2) — OpenAI docs cross-read (spec precision + context rows)
+
+> Filled from developers.openai.com GPT-5.5 model page + LLM Stats page. No score changes; precision upgrades and two attribution-clean capability rows.
+
+- Release date verified: **2026-04-23** (snapshot `gpt-5.5-2026-04-23`; LLM Stats same); knowledge cutoff **Dec 01, 2025** (docs — precise date, matches file's "December 2025" family note).
+- Context precise: **1,050,000 in / 128,000 out** (docs) — file's "1M" rounded. Long-context pricing: >272K input → **2x input, 1.5x output** full-session (standard/batch/flex); regional processing +10%. Rate limits: Build 5K RPM / 1M TPM; Grow 15K RPM / 40M TPM; Free tier not supported.
+- Reasoning effort: **none / low / medium (default) / high / xhigh** (docs) — the none+low options matter for cost-tuning; Kimi K3's footnotes confirm GPT-5.5 ran KCB 2.0 at "xhigh" while others ran max.
+- Tool surface (Responses API): web search, file search, image generation, code interpreter, hosted shell, apply patch, skills, computer use, MCP, tool search — one of the widest documented tool lists of any session model.
+- Modality table explicit: audio/video **not supported** (text+image in only) — refines this file's multimodal note.
+- Cross-vendor rows (session tables): GDPval-AA v2 **1,710 Elo** (Google 3.8 Flash table) vs Opus 5's 1,824; OSWorld 2.0 **75.5% partial / 45.0% strict** (Apidog Fable 5.1 table) — both consistent with the BenchLM OSWorld-Verified 78.7% tier. Kimi K3's kernel study (2026-07-16) lists GPT-5.5 among models "substantially outperformed" by K3 — mid-field by July, as expected for an April flagship.
+- Sibling note: GPT-5.5 **Pro** ($30/$180, Responses-only, effort medium/high/xhigh, multi-minute deliberations) is tracked in its own file this session.

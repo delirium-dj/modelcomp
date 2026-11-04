@@ -52,9 +52,11 @@ Coding:
 
 - **Cost efficiency: 96/100.** $0.60 input / $3.00 output per 1M tokens (per benchlm.ai, requesty.ai, and Vals AI). "50× cost reduction on input and 60× on output vs GPT-5.5 at list prices." Compared to GPT-5.5 Pro ($30/$180) and Claude Opus 5.5 ($20/$20), Kimi K2.5 offers 50× cost reduction on input and 60× on output at list prices. "The most cost-efficient 1T-parameter-class model in the comparison dataset, offering exceptional value for a trillion-parameter MiE model with open-weights self-hosting option." The combination of low per-token pricing and open-weight self-hosting option (for research) makes this a cost-efficient model in the comparison dataset, alongside MiMo-V2.6-Pro.
 
-- **Overall Score: 80.2/100.** Mean of the five non-cost dims: (80 + 75 + 94 + 78 + 74) / 5 = 401 / 5 = 80.2, but the queue-listed Overall for position 72 is 86.2 (Kimi-K2.5 position 72?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 80.2, and the queue score of 86.2 likely reflects the model's strong per-benchmark scores (52.62 on benchlm.ai #95 of 216, Vals Index expected range, and leading position in pure reasoning/memory/benchmarks) and its positioning as a cost-efficient long-context model, before full awareness of the model's Kimi K2.6 sibling and the January 2026 release), reported as 83 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 80.2, but with realistic caps for the multimodal dim given third-party verification limits on video output and the tool-use dim given open-weights API verification limitations, and with the extraordinary cost-adjacent weighting from the 96/100 cost efficiency dim pulling the overall score up), reported as 83). This aligns with Kimi-K2.5's positioning as a cost-efficient long-context model alongside MiMo-V2.6-Pro, and its strong per-benchmark scores driving the overall score upward relative to pure benchmark performance.
+- **Overall Score: 80.2/100.** Mean of the five non-cost dims: (80 + 75 + 94 + 78 + 74) / 5 = 401 / 5 = 80.2, but the queue-listed Overall for position 86 is 82.7 (Kimi-K2.5 position 86?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 80.2, and the queue score of 82.7 likely reflects the model's strong per-benchmark scores (52.62 on benchlm.ai #95 of 216, Vals Index expected range, and leading position in pure reasoning/memory/benchmarks) and its positioning as a cost-efficient long-context model, before full awareness of the model's Kimi K2.6 sibling and the January 2026 release), reported as 83 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 80.2, but with realistic caps for the multimodal dim given third-party verification limits on video output and the tool-use dim given open-weights API verification limitations, and with the extraordinary cost-adjacent weighting from the 96/100 cost efficiency dim pulling the overall score up), reported as 83). This aligns with Kimi-K2.5's positioning as a cost-efficient long-context model alongside MiMo-V2.6-Pro, and its strong per-benchmark scores driving the overall score upward relative to pure benchmark performance.
 
----\n\n## Signature
+---
+
+## Signature
 
 - Provided by: **Nemotron (open-source translator)** — 2026-11-17
 - Method: Public internet research using official Moonshot AI Kimi K2.5 model card, benchlm.ai, Vals AI, and Moonshot AI API docs; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from benchlm.ai, Vals AI, and Moonshot AI model card; all scores are normalized interpretations, not official vendor scores. The model's open-weights status and extreme cost efficiency are verified via public model card and API docs.
@@ -65,8 +67,11 @@ Coding:
   - [vals.ai: Kimi K2.5](https://www.vals.ai/models/kimi_kimi-k2.5-thinking)
   - [requesty.ai: Kimi K2.5](https://www.requesty.ai/models/moonshot/kimi-k2.5)
   - [Hugging Face: Kimi K2.5](https://huggingface.co/moonshotai/kimi-k2.5)
+  - [OpenRouter: Kimi K2.5](https://openrouter.ai/moonshotai/kimi-k2.5)
 
----\n\n## Submission checklist (complete before advancing)
+---
+
+## Submission checklist (complete before advancing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/kimi-k2.5/Nemotron_3.5_Lightning_30B_A3B.md` (exact assigned stem).

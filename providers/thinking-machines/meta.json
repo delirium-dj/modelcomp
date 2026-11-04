@@ -1,0 +1,26 @@
+{
+  "name": "Thinking Machines",
+  "kind": "vendor",
+  "short": "Thinking Machines Lab, the frontier lab behind Inkling — an Apache-2.0 multimodal MoE you fine-tune and playground-test on its Tinker API (inference also runs on third-party hosts).",
+  "officialUrl": "https://thinkingmachines.ai",
+  "hosts": ["thinkingmachines.ai"],
+  "catalogUrl": "https://thinkingmachines.ai/news/introducing-inkling/",
+  "covers": [
+    "Inkling",
+    "inkling-small"
+  ],
+  "plans": [
+    {
+      "name": "Open weights",
+      "price": "$0",
+      "notes": "Apache-2.0 Inkling weights are free to download and self-host.",
+      "evidenceUrl": "https://huggingface.co/thinkingmachines/inkling"
+    },
+    {
+      "name": "Tinker (fine-tuning + playground)",
+      "price": "Usage-based, per compute",
+      "notes": "Tinker meters training/inference compute for fine-tuning and testing Inkling; hosted inference also available via third-party providers.",
+      "evidenceUrl": "https://thinkingmachines.ai/tinker/"
+    }
+  ]
+}

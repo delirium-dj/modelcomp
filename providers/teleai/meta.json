@@ -1,0 +1,28 @@
+{
+  "name": "TeleAI (China Telecom)",
+  "kind": "vendor",
+  "short": "China Telecom's AI institute and open platform, publishing the Xingchen (XingChen) agentic MoE coding models as Apache-2.0 weights and hosted inference.",
+  "officialUrl": "https://www.teleai.com.cn",
+  "hosts": ["teleai.com.cn"],
+  "idPrefixes": ["XingChen-AGI"],
+  "plans": [
+    {
+      "name": "Open weights",
+      "price": "$0",
+      "notes": "Apache-2.0 XingChen weights are free to self-host.",
+      "evidenceUrl": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B"
+    },
+    {
+      "name": "Free trial quota",
+      "price": "$0",
+      "notes": "0-yuan trial / free applied quota on the Tianyi (TeleAI) open platform; periodic limited-time offers.",
+      "evidenceUrl": "https://www.teleai.com.cn/"
+    },
+    {
+      "name": "Hosted API",
+      "price": "Usage-based",
+      "notes": "Xingchen inference served through the TeleAI open platform.",
+      "evidenceUrl": "https://www.teleai.com.cn/product/AboutTeleAI_en"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "01.AI",
+  "kind": "vendor",
+  "short": "Frontier lab behind the Yi series of bilingual MoE and coding models, offered through a first-party API platform billed per token.",
+  "officialUrl": "https://www.01.ai",
+  "hosts": ["01.ai", "platform.01.ai"],
+  "idPrefixes": ["01-ai"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-token, per-model rates",
+      "notes": "Yi models (e.g. Yi-Large) billed per million tokens via the 01.AI platform.",
+      "evidenceUrl": "https://platform.01.ai/"
+    }
+  ]
+}

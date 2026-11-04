@@ -4,16 +4,19 @@
   "short": "Alibaba's Qwen3.8 Flash sparse MoE (6B active, 1M hosted) for cheap high-volume coding/agents; LiveCodeBench 91.9%, GPQA 91.7% at $0.15/$0.47 per 1M.",
   "contextWindow": "1M API (262K native; 131K output)",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "~$0.15/$0.47 per 1M; $0 self-host",
+  "pricingNote": "~$0.15/$0.47 per 1M; Free via Qoder app (ratio 0.0); $0 self-host",
   "pricingTiers": [
+    "Free via Qoder app (ratio 0.0)",
     "API ~$0.15/$0.47 per 1M in/out",
     "Self-hosted $0 (open weights)"
   ],
   "officialUrl": "https://qwenlm.github.io/blog/qwen-3.8-flash/",
   "pricingLinks": [
+    "https://qoder.alibaba.com/",
     "https://www.alibabacloud.com/help/en/model-studio/models",
     "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
   ],
   "standout": "Sparse-MoE economics for high-volume automation — coding agent sweeps and batch pipelines at a price that makes volume practical.",
-  "tradeoff": "Speed-first sparse tuning gives up some frontier depth; the heaviest reasoning is better delegated to the Plus/Max lanes."
+  "tradeoff": "Speed-first sparse tuning gives up some frontier depth; the heaviest reasoning is better delegated to the Plus/Max lanes.",
+  "freeTierNote": "Available free (multiplier ratio 0.0) in Alibaba Qoder app/IDE for individuals; open weights self-host $0"
 }

@@ -116,6 +116,7 @@ const VENDORS: VendorMatch[] = [
   { match: "synthetic", icon: "synthetic", label: "Synthetic", adaptive: true },
   // OpenCode originals with their own brand marks.
   { match: "inkling", icon: "thinkingmachines", label: "Thinking Machines" },
+  { slug: "thinking-machines", icon: "thinkingmachines", label: "Thinking Machines" },
   { match: "jev", icon: "typesafe", label: "Typesafe", adaptive: true },
   { match: "pareto", icon: "unbiased", label: "Unbiased", chip: true },
   { match: "union", icon: "unbiased", label: "Unbiased", chip: true },

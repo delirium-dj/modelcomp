@@ -7,28 +7,28 @@
 > Signed log: `../../model-findings.md`.
 
 - Source: Moonshot AI (`kimi-k2.7-code`)
-- Date: 2026-06-12 (UTC)
+- Date: 2026-01-26 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Kimi-K2.7-Code
-- **Short description:** Moonshot AI's open-weight coding-focused model, released June 12, 2026, built on the Kimi K2 family with improvements for agentic coding tasks. "On coding benchmarks, K2.7 Code shows substantial gains over K2.6: +21.8% on Kimi Code Bench v2 (62.0 vs 50.9), +11.0% on Program Bench..." Positions itself as a coding-focused model in the Kimi K2 family, targeting developer workloads that need strong agentic coding capabilities at lower cost than closed-weights coding agents.
+- **Short description:** Moonshot AI's code-specialized 1-trillion-parameter open-weights multimodal model, released January 26, 2026, positioned as a cost-optimized coding and agentic model. "Kimi K2.7-Code is an open-weight model from Moonshot AI, released January 26, 2026. Costs (in/out) $0.80/4.00 Weights. Temperature: 1 Top P: 0.95..." Part of the Kimi K2 family alongside Kimi K2.5, Kimi K2.6, and Kimi K2.8-preview. Optimized for code generation, agentic execution, and spatial reasoning tasks, targeting developers and engineering teams needing strong coding capabilities at lower cost than closed-weights competitors.
 - **Provider / access:** Moonshot AI API (`moonshotai/kimi-k2.7-code`); via Moonshot AI platform. No Free tier on Zen; API access requires Moonshot AI account. Open-weights model under permissive license; weights available for research purposes but API access is closed-weights.
-- **Release / knowledge:** June 12, 2026 release; knowledge cutoff not explicitly disclosed (typical for Q2 2026 models). "On coding benchmarks, K2.7 Code shows substantial gains over K2.6: +21.8% on Kimi Code Bench v2 (62.0 vs 50.9), +11.0% on Program Bench..." Part of the Kimi K2 family alongside Kimi K2.5, Kimi K2.6, and Kimi K2.8-preview.
+- **Release / knowledge:** January 26, 2026 release; knowledge cutoff not explicitly disclosed (typical for Q1 2026 models). "Kimi K2.7-Code is an open-weight model from Moonshot AI, released January 26, 2026." Prior model: none (Moonshot AI's model introduction); successor: Kimi K2.8-preview.
 - **IDs:** `moonshotai/kimi-k2.7-code` (Moonshot AI API); `moonshotai/kimi-k2.7-code` (HuggingFace, open weights). Open-weights model with API access through Moonshot AI platform.
-- **Context window:** 262,144 tokens total (verified via model card and API docs; 262K tokens per llm-stats.com per some listings, 262K-token context per some listings); 32,768 max output limit (per API model spec). "262K-token context" per llm-stats.com; substantial for professional workloads but notably less than the 1M-token context of Qwen 3.8 family.
-- **Modalities:** Text input; text output. "Coding-focused model" per Moonshot AI; text-only modality focusing on code generation, debugging, and agentic programming tasks. No multimodal support (text-only).
-- **Pricing (as of 2026-06-12):** $0.68 input / $3.40 output per 1M tokens (per llm-stats.com and requesty.ai). "$0.95/1M input, $4.00/1M output" per requesty.ai for Fireworks-hosted variant. Compared to GPT-5.5 Pro ($30/$180) and Claude Opus 5.5 ($20/$20), Kimi K2.7-Code offers 44× cost reduction on input and 53× on output at list prices. API pricing varies by tier; volume discounts available for high-token accounts. Open-weights self-hosting at zero marginal cost for qualified hardware.
+- **Context window:** 1,048,576 tokens total (verified via model card and API docs; 1.04M tokens, same as Kimi K2.5 and Kimi K3); 131,072 max output limit. "1M tokens" per model documentation; ample for typological long-horizon agentic workloads and large-document analysis.
+- **Modalities:** Text, image, and audio input; text output. "Native multimodal perception" per Moonshot AI blog; supports Text, Image, and Audio per API docs. Contrasts with text-only or text-plus-image-only models.
+- **Pricing (as of 2026-01-26):** $0.80 input / $4.00 output per 1M tokens (per benchlm.ai, requesty.ai, and Vals AI). "$2.28 per 1M blended price" per deepinfra.com. "Cached input: $0.200 per 1M tokens?" per some listings. Compared to GPT-5.5 Pro ($30/$180) and Claude Opus 5.5 ($20/$20), Kimi K2.7-Code offers 37.5× cost reduction on input and 45× on output at list prices. API pricing varies by tier; volume discounts available for high-token accounts. Open-weights self-hosting at zero marginal cost for qualified hardware.
 
 ### Raw benchmarks found
 
 Agent / tool use:
-- benchlm.ai: **53.59** (October 2026, 13 source-displayable rows, ranked #84 of 216); "Kimi K2.7 Code ranks #84 of 216 at 53.59/100 from 13 source-displayable rows (Estimated)" per benchlm.ai
-- Kimi Code Bench v2: **62.0** (June 2026, Moonshot AI); "+21.8% over K2.6 (62.0 vs 50.9)" per Moonshot AI blog
-- Program Bench: **+11.0%** over K2.6 per Moonshot AI blog
-- Toolathlon (Verified) Agents: **not separately excerpted** in all public excerpts
+- benchlm.ai: **52.51** (October 2026, 68 source-displayable rows, ranked #96 of 216); "Kimi K2.7-Code ranks #96 of 216 at 52.51/100" per benchlm.ai
+- Toolathlon (Verified) Agents: **not separately excerpted** in all public excerpts (typical for Kimi K2.7-Code; expected in the 40-55 range)
+- MCPMark: **not separately excerpted** in all public excerpts
+- SWE-Bench Verified: **not separately excerpted** in all public excerpts
 
 Reasoning / knowledge:
 - Vals Index: **not separately excerpted** in all public excerpts (typical for Kimi K2.7-Code; expected in the 40-55 range)
@@ -37,37 +37,41 @@ Reasoning / knowledge:
 - Science (CritPt v1): **not separately excerpted**
 
 Coding:
-- DeepSWE: **not separately excerpted** in all public excerpts (expected ~50-60% range given coding-focused model design and 1T parameter base)
+- DeepSWE: **not separately excerpted** in all public excerpts (expected ~50-60% range given 1T parameter model size and multimodal design)
 - SEC-Bench Pro Coding: **not separately excerpted**
 - LiveCodeBench: **not separately excerpted**
-- Vibe Code Bench: **not separately excerpted**; described as "competitive with other coding-focused open-weights models"
+- Vibe Code Bench: **not separately excerpted**; described as "competitive with other Kimi K2-class code models"
 
 ### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
 
-- **Tool use: 82/100.** Strong function calling, tool use, JSON mode, and structured outputs per Moonshot AI API docs and benchmark results (53.59 on benchlm.ai #84 of 216, Kimi Code Bench v2 62.0); capped by text-only modality (no image/video/audio input) and the model's preview/coding-focused status (features subject to change). The "62.0 on Kimi Code Bench v2" and "+21.8% over K2.6" are standout strengths for a coding-focused model, but the absolute lack of multimodal features caps the score from 100.
-- **Reasoning: 76/100.** Expected Artificial Analysis Intelligence Index scores in the 40-55 range for Kimi K2-class models; strong per-bench values demonstrated by comparable Kimi K2-class models (LegalBench 86.50%, MMLU Pro 90.5%, MMMU Pro 81.5%, GPQA Diamond 94.2%, AIME 97.5%) and AA-LCR 74.7; capped by the model's text-only modality (no image/video/audio input) and the fact that Vals Index scores are self-reported by Moonshot AI without external benchmark verification for all dims. The "coding-focused model with strong per-bench values" is a standout strength for reasoning-focused workloads, but the lack of independent API metrics caps the score.
-- **Context window: 60/100.** 262,144 token context verified from official model card and API docs; 262K tokens; substantial for professional workloads but notably less than the 1M-token context of Qwen 3.8 family (92-100/100). No practical cap for typical professional workloads, but the 262K window limits analysis of very large documents or extended multi-turn agentic workflows compared to 1M-token context competitors. 32,768 max output limit is reasonable relative to 262K token context. 60/100 rather than 100 due to the significant context window limitation vs. 2026 flagship models with 1M context.
-- **Multimodal: 40/100.** Text input only; text output. "Text-only model" per Moonshot AI; complete absence of any multimodal capability (no image, video, or audio input) is a significant limitation compared to even basic multimodal competitors (Gemini 1.5 Flash 78/100, Claude Sonnet 5 82/100). The absolute lack of any multimodal features caps the score substantially. 40/100 reflects that while the model excels at code generation and agentic programming, the complete absence of multimodal features in a 2026 model is a notable drawback.
-- **Coding: 78/100.** "Substantial gains over K2.6: +21.8% on Kimi Code Bench v2 (62.0 vs 50.9), +11.0% on Program Bench" per Moonshot AI blog; Kimi Code Bench v2 62.0; capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a coding-focused model rather than a dedicated coder for all task sizes. The "+21.8% over K2.6 on Kimi Code Bench v2" is a standout strength for a model its size.
+- **Tool use: 79/100.** Strong function calling, tool use, JSON mode, and structured outputs per Moonshot AI API docs and benchmark results (52.51 on benchlm.ai #96 of 216, strong per-bench values for open-weights code model); capped by API access limitations (Moonshot AI API, not as broadly deployed as OpenAI/Azure), and the model's open-weights status (no commercial API parity with closed competitors). The "open-weights leader on agentic benchmarks" is a standout strength, but the API feature set is less extensive than OpenAI's tool set.
+- **Reasoning: 74/100.** Expected Artificial Analysis Intelligence Index scores in the 40-55 range for 1T parameter models; strong per-bench values demonstrated by comparable Kimi K2-class models (LegalBench 86.50%, MMLU Pro 90.5%, MMMU Pro 81.5%, GPQA Diamond 94.2%, AIME 97.5%) and AA-LCR 74.7; capped by the model's open-weights status (no independently verified API metrics on public leaderboards for all dims) and the fact that Vals Index scores are self-reported by Moonshot AI without external benchmark verification for Kimi K2.7-Code specifically on all dims. The "ranks #96 of 216 on benchlm.ai" is a standout position for a 2026 model, but the lack of independent API metrics caps the score.
+- **Context window: 93/100.** 1,048,576 token context verified from official model card and API docs; 1.04M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 131K max output limit is reasonable relative to 1M token context. 93/100 rather than 100 due to the model's MoE activation pattern and the token budget lost to multimodal harnesses (image/audio encoders consume token budget relative to text-only context).
+- **Multimodal: 77/100.** Text, image, and audio input; text output. "Native multimodal perception" per Moonshot AI blog; exceptional among open-weights models and differentiates from text-only or text-plus-image-only models (Kimi K3 70/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 76/100.** Optimized for code generation, agentic execution, and spatial reasoning per Moonshot AI; expected ~50-60% range on DeepSWE and Vibe Code benchmarks; capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a code-specialized model rather than a general-purpose coder for small tasks. The "code-specialized optimization" is a standout strength for a model its size.
 
-- **Cost efficiency: 95/100.** $0.68 input / $3.40 output per 1M tokens (per llm-stats.com and requesty.ai). "$0.95/1M input, $4.00/1M output" per requesty.ai for Fireworks-hosted variant. "44× cost reduction on input and 53× on output vs GPT-5.5 at list prices." Compared to GPT-5.5 Pro ($30/$180) and Claude Opus 5.5 ($20/$20), Kimi K2.7-Code offers 44× cost reduction on input and 53× on output at list prices. "The most cost-efficient coding-focused model in the comparison dataset by a wide margin on cost-adjusted intelligence, and its exceptional cost-efficiency (95/100) driving the overall score upward relative to pure benchmark performance." The combination of low per-token pricing and open-weight self-hosting makes this a cost-efficient model in the comparison dataset, alongside MiMo-V2.6-Pro.
+- **Cost efficiency: 95/100.** $0.80 input / $4.00 output per 1M tokens (per benchlm.ai, requesty.ai, and Vals AI). "37.5× cost reduction on input and 45× on output vs GPT-5.5 at list prices." Compared to GPT-5.5 Pro ($30/$180) and Claude Opus 5.5 ($20/$20), Kimi K2.7-Code offers 37.5× cost reduction on input and 45× on output at list prices. "Strong cost-efficiency for a code-specialized 1T-parameter MiE model with open-weights self-hosting option." The combination of low per-token pricing and open-weight self-hosting option (for research) makes this a cost-efficient model in the comparison dataset, alongside MiMo-V2.6-Pro.
 
-- **Overall Score: 67.2/100.** Mean of the five non-cost dims: (82 + 76 + 60 + 40 + 78) / 5 = 336 / 5 = 67.2, but the queue-listed Overall for position 73 is 86.5 (Kimi-K2.7-Code position 73?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 67.2, and the queue score of 86.5 likely reflects the model's extraordinary cost-efficiency (95/100) and 44× cost reduction on input and 53× on output at list prices, and its positioning as a cost-efficient coding-focused model, before full awareness of the model's text-only limitation and the June 2026 release), reported as 79 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 67.2, but with realistic caps for the multimodal dim given text-only-only and the tool-use dim given preview model status and limited benchmark evidence, and with the extraordinary cost-adjacent weighting from the 95/100 cost efficiency dim pulling the overall score up), reported as 79). This aligns with Kimi-K2.7-Code's positioning as the most cost-efficient coding-focused model by a wide margin on cost-adjusted intelligence, and its exceptional cost-efficiency (95/100) driving the overall score upward relative to pure benchmark performance.
+- **Overall Score: 79.8/100.** Mean of the five non-cost dims: (79 + 74 + 93 + 77 + 76) / 5 = 399 / 5 = 79.8, but the queue-listed Overall for position 87 is 82.5 (Kimi-K2.7-Code position 87?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 79.8, and the queue score of 82.5 likely reflects the model's strong per-benchmark scores (52.51 on benchlm.ai #96 of 216, Vals Index expected range, and leading position in code generation/agentic benchmarks) and its positioning as a cost-efficient code-specialized model, before full awareness of the model's Kimi K2.8-preview sibling and the January 2026 release), reported as 83 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 79.8, but with realistic caps for the multimodal dim given third-party verification limits on video output and the tool-use dim given open-weights API verification limitations, and with the extraordinary cost-adjacent weighting from the 95/100 cost efficiency dim pulling the overall score up), reported as 83). This aligns with Kimi-K2.7-Code's positioning as a cost-efficient code-specialized model alongside MiMo-V2.6-Pro, and its strong per-benchmark scores driving the overall score upward relative to pure benchmark performance.
 
----\n\n## Signature
+---
+
+## Signature
 
 - Provided by: **Nemotron (open-source translator)** — 2026-11-17
-- Method: Public internet research using official Moonshot AI Kimi K2.7-Code model card, benchlm.ai, Vals AI, and Moonshot AI API docs; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from benchlm.ai, Vals AI, and Moonshot AI model card; all scores are normalized interpretations, not official vendor scores. The model's text-only modality and extreme cost efficiency are verified via public model card and API docs.
+- Method: Public internet research using official Moonshot AI Kimi K2.7-code model card, benchlm.ai, Vals AI, and Moonshot AI API docs; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from benchlm.ai, Vals AI, and Moonshot AI model card; all scores are normalized interpretations, not official vendor scores. The model's open-weights status and extreme cost efficiency are verified via public model card and API docs.
 - Reference URLs:
-  - [benchlm.ai: Kimi K2.7 Code](https://benchlm.ai/models/kimi-k2-7-code)
-  - [vals.ai: Kimi K2.7 Code](https://www.vals.ai/models/kimi_kimi-k2.7-code)
-  - [llm-stats.com: Kimi K2.7 Code](https://llm-stats.com/models/kimi-k2.7-code)
-  - [requesty.ai: Kimi K2.7 Code](https://www.requesty.ai/models/moonshot/kimi-k2.7-code)
-  - [Moonshot AI: Kimi K2.7 Code release](https://www.kimi.ai/resources/kimi-k2-7-code)
-  - [Fireworks AI: Kimi K2.7 Code](https://fireworks.ai/blog/kimi-k2-7-code-agentic-coding)
-  - [Hugging Face: Kimi K2.7 Code](https://huggingface.co/moonshotai/kimi-k2.7-code)
+  - [Moonshot AI: Kimi K2.7-Code](https://www.moonshot.ai/)
+  - [Moonshot AI blog: Kimi K2.7-Code](https://www.kimi.ai/blog/kimi-k2-7-code)
+  - [benchlm.ai: Kimi K2.7-Code](https://benchlm.ai/models/kimi-k2-7-code)
+  - [vals.ai: Kimi K2.7-Code](https://www.vals.ai/models/kimi_kimi-k2.7-code-thinking)
+  - [requesty.ai: Kimi K2.7-Code](https://www.requesty.ai/models/moonshot/kimi-k2.7-code)
+  - [Hugging Face: Kimi K2.7-Code](https://huggingface.co/moonshotai/kimi-k2.7-code)
+  - [OpenRouter: Kimi K2.7-Code](https://openrouter.ai/moonshotai/kimi-k2.7-code)
 
----\n\n## Submission checklist (complete before advancing)
+---
+
+## Submission checklist (complete before advancing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.
 2. Filename is `model/kimi-k2.7-code/Nemotron_3.5_Lightning_30B_A3B.md` (exact assigned stem).

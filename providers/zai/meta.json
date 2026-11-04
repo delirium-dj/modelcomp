@@ -3,7 +3,7 @@
   "kind": "vendor",
   "short": "GLM models on Z.AI's open platform (open.zhipuai.cn / docs.z.ai) and in ZCode, its official GLM-tuned IDE. Free API tier: GLM-4.7-Flash, GLM-4.5-Flash and GLM-4.6V-Flash; full paid lineup spans GLM-4.5 through GLM-5.3 (text, vision, image, video, audio).",
   "officialUrl": "https://docs.z.ai",
-  "hosts": ["open.zhipuai.cn", "docs.z.ai", "z.ai", "zcode.z.ai", "api.z.ai"],
+  "hosts": ["open.zhipuai.cn", "docs.z.ai", "z.ai", "zcode.z.ai", "api.z.ai", "zhipuai.com"],
   "catalogUrl": "https://docs.z.ai/guides/overview/pricing",
   "plans": [
     {
