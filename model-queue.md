@@ -48,8 +48,8 @@
 87.8 qwen-3.8-flash
 87.7 qwen-3.8
 87.2 gpt-5.4
-87.1 grok-4.6
 87 ember-1
+87 grok-4.6
 87 mimo-v2.6-free
 87 minimax-m3
 86.9 step-5-preview
@@ -166,9 +166,7 @@
 66.8 claude-haiku-3.5
 66.8 deepseek-v3.2
 66.4 glm-5
-66 llama-3.2-vision-instruct
 65.6 gpt-5.3-codex-spark
-65.4 north-mini-code
 65.2 ling-3.0-flash
 65 glm-4.6v-flash
 65 ling-2.6.1t
@@ -186,7 +184,9 @@
 59.9 glm-4.7-flash
 59.8 llama_3.2_vision_instruct
 59.4 flint
+59 llama-3.2-vision-instruct
 58.9 solar-mini-4
+58.3 north-mini-code
 58 north_mini_code
 57.5 nemotron-3.5-lightning-free
 57.2 big-pickle

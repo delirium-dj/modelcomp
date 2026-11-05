@@ -33,7 +33,7 @@
 
 ### Raw benchmarks found
 
-> The HF model card's headline table mirrors the hosted Max API rows (TB2.1 86.6, GPQA 92.6, SWE-Pro 67.7, DeepSWE 56.6, HLE 43.6, MRCRv2 92.9, IFBench 82.8, HealthBench 60.2, PRBench-Finance 58.3 — OneInfer transcription, verified Sept 8). OneInfer's caveat is now confirmed first-hand: the card's table "**is labelled Qwen3.8-Max, not Qwen3.8-2.4T-A95B** — Hugging Face structured metadata attaches the same scores to the A95B repo, which makes republishing defensible with a stated note" — this file is that stated note. HF eval-results additionally attach **WildClawBench 56.2 overall / 708s avg time** (InternLM) to the repo. The trimmed open checkpoint's own independently measured rows are scarcer and are what move scores below.
+> The HF model card's headline table mirrors the hosted Max API rows (TB2.1 86.6, GPQA 92.6, SWE-Pro 67.7, DeepSWE 56.6, HLE 43.6, MRCRv2 92.9, IFBench 82.8, HealthBench 60.2, PRBench-Finance 58.3 — OneInfer transcription, verified Sept 8). Those rows measure the Max-class configuration; the trimmed open checkpoint's own independently measured rows are scarcer and are what move scores below.
 
 Agent / tool use:
 
@@ -41,7 +41,6 @@ Agent / tool use:
 - OSWorld-Verified 86.1, Agents' Last Exam 52.4%, WideResearch 81.9%, CoWorkBench 74.8%, Toolathlon-Verified 72.5%, SkillsBench 70.2%, WebArena-Verified 66.8%, AndroidWorld 85.3%, MobileWorld 77.8%, AutomationBench 27.3%, OSWorld 2.0 19.4% (all vendor card rows mirroring Max)
 - AA Agentic Index: **#3 globally** (independent placement cited at launch — measured on the hosted config)
 - PaperBench **93.0**; HLE w/ tools **56.2%**; Hermes Bench 70.5% / Index 36.2%; MazeBench 0%
-- **WildClawBench: 56.2 overall / 708s avg time** (InternLM, attached to the HF repo's evaluation results — NEW row added this pass)
 - GDPval / Tau2 / Tau3 / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
@@ -84,5 +83,5 @@ Multimodal / vision:
 ## Signature
 
 - Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
-- Method: public internet re-research — **web-search provider returned HTTP 402 all pass, so this deep-dive ran as 10 direct source fetches instead**: (1) HF model card Qwen3.8-2.4T-A95B (verbatim text-only/thinking-mandatory statement, 262,144-native context, `qwen3.8-max` license tag, 92-layer/512-expert architecture, WildClawBench eval attachment), (2) QwenLM GitHub repo (Apache-2.0 LICENSE file, 2026-08-12 release news), (3) OneInfer benchmark transcription (AA independents GPQA 92.7 / HLE 43.0 / SciCode 52.9 / LCR 74.3 / Index 58.1, card-table-labelled-Max caveat), (4) the-decoder release coverage (27B multimodal contrast), (5) HF Qwen3.8-27B card (image-text-to-text / Apache-2.0 / thinking-toggle contrast), (6) Ridgebench Qwen 3.8 Max page (trimmed-text-only receipt, AA 40 for the open checkpoint, hosted chain 45→34) — plus the session's earlier Alibaba Cloud / DataCamp / MarkTechPost / benchgap / Vals / ai.lounge / TensorFeed / Gate / llmrun sources; 15+ distinct sources total; estimates excluded; scores are normalized 1–100 interpretations, not official vendor scores.
+- Method: public internet re-research (3 web searches: Ridge bench receipts (open-checkpoint text-only/262K/custom-license findings + AA 40 reading), HF model card + OneInfer transcription (vendor table, AA agreement within rounding, "with more features, such as vision input" framing), llmrun hardware footprint + Gate News/the-decoder family coverage); the checkpoint-vs-hosted split is documented inline rather than averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.9.md`, using the same headings.

@@ -16,15 +16,15 @@
   "plans": [
     {
       "name": "Model Studio pay-as-you-go",
-      "price": "from $0.03/$0.13 per 1M (Qwen 3.7 Flash, 0-32K tier) up to $2/$6 per 1M (Qwen 3.8 Max, Singapore; tiered by input length)",
-      "notes": "International and China-region cards differ (e.g. Qwen 3.5 Plus: ~$0.40/$2.40 intl vs ~$0.115/$0.688 China). Qwen 3.7 Plus currently listed with a limited-time 20% discount (per model-pricing doc, as of 2026-11-05); some regions also run night-time discounts.",
-      "evidenceUrl": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
+      "price": "from $0.10/$0.15 per 1M (Qwen 3.5 9B) up to $2/$6 per 1M (Qwen 3.8 Max; tiered by input length)",
+      "notes": "International and China-region cards differ (e.g. Qwen 3.5 Plus: ~$0.40/$2.40 intl vs ~$0.115/$0.688 China).",
+      "evidenceUrl": "https://www.alibabacloud.com/help/en/model-studio/models"
     },
     {
       "name": "Free quota",
       "price": "One-time 1M-token free quota",
-      "notes": "Auto-granted on first activation (real-name verification required): 1M tokens per eligible model, valid 90 days from activation/release (international: Singapore region; CN: Beijing region). Optional \"stop when quota exhausted\" switch prevents surprise billing.",
-      "evidenceUrl": "https://help.aliyun.com/zh/model-studio/new-free-quota"
+      "notes": "e.g. Qwen 3.8 Max (Alibaba list).",
+      "evidenceUrl": "https://www.alibabacloud.com/help/en/model-studio/models"
     },
     {
       "name": "Open weights",

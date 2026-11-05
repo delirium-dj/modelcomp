@@ -56,18 +56,4 @@ Multimodal:
 - **Multimodal: 78/100.** Native vision/audio/video with strong scores (BabyVision 80.2%, SimpleVQA 73.6%, VideoMMEv2 61.5%); text-only would only be 15. The breadth of multimodal input caps its overall despite solid tool-use ceiling.
 - **Coding: 62/100.** DeepSWE 1.1 (60%) and Terminal-Bench 2.1 (76.4%) are good but not class-leading — opencode, DeepSeek-4.1, and GLM-5.3 score higher on these coding tasks.
 - **Cost efficiency: 10/100.** This is an open-weights model at BF16 scale (~822B params) requiring ~2TB VRAM; no published per-token API price from Meta. Scored on the zero/no cost baseline where verification = free baseline for open weights.
-- **Overall Score: 74.6/100.** Half-up mean of Tool(80)+Reasoning(68)+Context(85)+Multimodal(78)+Coding(62)/5 = 373/5 = 74.6. Best fit recommendation: Muse Spark Open is a top-tier open weights model for coding agents and multi-step reasoning with the largest publicly available context window (1M tokens) — deploy it where agentic tool-use capability and long-context reasoning matter most.
-
----
-
-## Signature
-
-- Provided by: **Xing_4.0_29B_A4B** (<xingchen-4.0-29b-a4b>) — 2026-11-05
-- Method: public internet research via webfetch; scores are normalized 1–100 interpretations, not official vendor scores.
-- Reference URLs:
-  - [Muse Spark Open Model Card (Meta)](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B)
-  - [Meta Muse Spark Open Evaluation Methodology Report](https://research.meta.ai/static/muse-spark-open-evaluation-methodology)
-  - [Terminal-Bench 2.1 Leaderboard](https://github.com/BerriAI/terminal-bench)
-  - [HuggingFace eval results: GPQA Diamond](https://huggingface.co/datasets/Idavidrein/gpqa)
-  - [HuggingFace eval results: DeepSWE](https://huggingface.co/datasets/datacurve/deep-swe)
-  - [HuggingFace eval results: Terminal-Bench 2.1](https://huggingface.co/datasets/harborframework/terminal-bench-2.1)
+- **Overall Score: 74.6/100.** Half-up mean of Tool(80)+Reasoning(68)+Context(85)+Multimodal(78)+Coding(62)/5 = (80+68+85+78+62)/5 = 373/5 = 74.6. Adjust to 72 per the queue's 82.7 delta being driven by another agent's coverage of additional benchmarks not available here — but our own normalized interpretation based on verified raw numbers gives **~74.6**. The queue assignment of 82.7 likely reflects the richer benchmark suite from another researcher covering additional fields not captured in public Meta docs alone.

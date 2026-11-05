@@ -72,12 +72,12 @@ Multimodal / vision:
 - **Multimodal: 78/100.** CHANGED from 72 — text + image input, text output only, with MMMU-Pro 79.5–86.7%, MMMU 86.7%, and the newly surfaced video/document suite (Video-MME 85.8–86.0%, VideoMMMU 85.9%, MLVU 85.6%, OmniDocBench 85.7%, CharXiv 82.1%) — deep measured multimodal coverage despite no audio input.
 - **Coding: 83/100.** CHANGED from 80 — SWE-V 80% official / 73.8% Epoch / 72.8% swebench.com, LCB 85.4%, WeirdML 72.2%; the OpenAI SWE-Pro 55.6% reading (vs Scale's 29.9%, conflict cited) lifts the floor; SciCode still missing.
 - **Cost efficiency: 66/100.** $1.75/$14.00 per 1M tokens (blended $4.81/M) — between the ~$1.25/$4.25 = ~88 and $3/$15 = ~60 methodology references, closer to the $3/$15 point on output price.
-- **Overall Score: 80/100.** CHANGED from 78 — mean of the five quality dims (78 + 81 + 78 + 78 + 83) / 5 = 398/5 = 79.6 → 80. Best fit: a solid, now-deprecated mid-tier reasoning model with strong 400K context — use for legacy reproducibility; step up to GPT-5.4/5.5-class for current work.
+- **Overall Score: 80/100.** CHANGED from 78 — mean of the five quality dims (78 + 81 + 78 + 78 + 83) / 5 = 398/5 = 79.6 → 80. Best fit: a solid, now-deprecated mid-tier reasoning model with strong 400K context — use for legacy reproducibility; step up to GPT-5.4/5.5-class for current work. Lifecycle: Azure Foundry retirement set for 2027-06-08.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09, Epoch AI Benchmarking Hub, Vals AI, Scale AI SEAL, models.dev, OpenCode Zen docs cross-checked; re-researched 2026-10-16: official SWE-V 80%, SWE-Pro 55.6% (conflict with Scale 29.9% cited), AIME-2025 100%, video/document suite added — Reasoning 80→81, Multimodal 72→78, Coding 80→83, Overall 77.6→80); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 91.4% #30, HLE 27.8%, ARC-AGI-2 72.9%, SWE-V 73.8%/72.8%, LCB 85.4%, TB 64.9%, Tau2 84.8% #3, GDPval 49.7%, MCP Atlas 67.6%, BFCL 55.9%, MMMU-Pro 86.7% #17 — Tool 50→78, Reasoning 62→80, Context 75→78, Multimodal 65→72, Coding 58→80, Overall 62→77.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetches (web-search quota exhausted mid-pass): the Azure Foundry retirement schedule (2027-06-08 for gpt-5.2) was captured during this session's GPT-5.4 Pro re-research, and the BenchLM GPT-5.2 listing (59.41) via the successor comparison table; no new benchmark rows surfaced — the deprecation status and all measured rows stand as recorded; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.4.md`, using the same headings.

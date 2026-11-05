@@ -1,7 +1,7 @@
 {
   "name": "Baidu Cloud",
   "kind": "vendor",
-  "short": "ERNIE foundation models (current flagship ERNIE 5.1), multimodal APIs, and Qianfan enterprise AI platform services direct from Baidu; volumetric tier-based per-token pricing and a new-user free quota.",
+  "short": "ERNIE foundation models, multimodal APIs, and Qianfan enterprise AI platform services direct from Baidu; volumetric per-1M-token pricing (ERNIE 4.0 Turbo/Speed).",
   "officialUrl": "https://cloud.baidu.com",
   "hosts": [
     "cloud.baidu.com",
@@ -10,15 +10,9 @@
   "plans": [
     {
       "name": "API Pay-as-you-go",
-      "price": "Per 1M tokens (CNY)",
-      "notes": "Volumetric tier-based pricing, e.g. ERNIE 5.1: input ≤32K = ¥4/1M in / ¥18/1M out; 32K–128K = ¥6/¥22 per 1M. DeepSeek-V3.1 is hosted at ¥4/¥12 per 1M; batch inference discounted.",
-      "evidenceUrl": "https://cloud.baidu.com/doc/qianfan-docs/s/Jm8r1826a"
-    },
-    {
-      "name": "New-user free quota",
-      "price": "One-time 1M tokens per eligible model",
-      "notes": "Auto-granted on first activation of Qianfan: free tokens for online inference of preset models (ERNIE series, DeepSeek V3.x, Kimi K2, etc. - ~17 models), valid 3 months. ERNIE-Speed/Lite/Tiny postpaid service is also free (since 2025-05-21).",
-      "evidenceUrl": "https://cloud.baidu.com/doc/qianfan/s/Imi2rpirg"
+      "price": "Per 1M tokens",
+      "notes": "ERNIE 4.0 Turbo and ERNIE Speed volumetric tier-based pricing.",
+      "evidenceUrl": "https://cloud.baidu.com/product/wenxinworkshop"
     }
   ]
 }

@@ -28,6 +28,8 @@ Agent / tool use:
 Bug Hunt Bench: **15.0 fixes**; BabyVision w/ Python: **85.6%**; MathVision w/ Python: **94.6%** (all added 2026-10-16); AA Terminal-Bench 4.0: **5.6%** (AA — very weak on the 2026 harness); AA GDP.pdf: **16.6%** (2026-10-17 refresh reads 16.4% — minor drift)
 - Harvey legal-agent adapted run: **67%** on 250 legal tasks (Harvey/Engram study, Alibaba-stated; model trained on the test corpus first — provisional for stock weights)
 - Claw-Eval: no verified public score found; a Perplexity decision-panel (12 typed-decision rows, mean 74.76%) now maps the pplx-decider-v1-27b fine-tune — outside general rankings
+- NEW (Vals, fetched 2026-11-05): Vals Index **53.54%** (accuracy; latency 53 min); Code Migration **14.16%**, Vibe Code Bench v1.1 **64.85%**, CyberBench 67.80%, ProofBench 16.00%, TB-Science **0.00%** (floor), ProgramBench 0.00%, SWE-bench **86.00% ±1.55** (#15/88), GPQA-D **88.89%**, LCB **84.00%**, MMLU-Pro 84.34%, MMMU-Pro 83.93%, TaxEval 70.85%, MedScribe 83.85%
+- NEW (BenchmarkList/AA): SWE-Multilingual **73.8%** (#26/55); LMArena WebDev Arena **1597.46** (#13/105); Vision2Web 62.9% (#5/9); AA Cyber Index **12.7%** (weak)
 
 Reasoning / knowledge:
 
@@ -71,6 +73,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.8-27B HF model card, Artificial Analysis independent boards (GDPval/Briefcase/Tau3/LCR/SciCode/Omniscience/MMMU-Pro) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-08 passes; 2026-10-16 re-check: BenchLM 68-row refresh corroborates all rows (Bug Hunt 15.0, BabyVision-Py 85.6%, Perplexity decision panel added; GDPval 1423 → 1420, GDP.pdf 16.6% → 16.4% drift; rank → #57/954 59.61) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research — web-search quota exhausted mid-pass, so fresh evidence came from the Vals AI Qwen 3.8 27B page and BenchmarkList rows fetched during this session's Qwen deep-dive, plus the Simon Willison Nov 3 weight-interpretation demo (a capability anecdote, not a benchmark); all prior rows re-confirmed on the BenchLM 27B listing (composite 54.26); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

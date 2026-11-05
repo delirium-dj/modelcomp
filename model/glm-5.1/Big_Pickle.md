@@ -80,10 +80,56 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** a strong report that needed almost no walking-back. The single placeholder gap is filled with a top-tier number, every other score held, and the previously unmeasured weakness (throughput) is now documented. What genuinely changes the recommendation is lifecycle: with Z.AI steering users to GLM-5.2, the honest framing shifts from "top paid open long-horizon coding" to "still-strong, MIT-licensed and cheap to self-host, but deprecated upstream and slow — prefer GLM-5.2 for new work."
 
+## Re-verification — 2026-11-05 (49 days after original)
+
+Second re-run requested by the user (the first was 2026-10-01). Original and first-pass findings above are preserved; this section records what changed on 2026-11-05.
+
+| Dimension | 2026-09-17 | 2026-10-01 | 2026-11-05 | Change |
+| --- | --- | --- | --- | --- |
+| Tool use | 80 | 80 | 80 | — |
+| Reasoning | 78 | 78 | 78 | — |
+| Context window | 70 | 70 | 70 | — |
+| Multimodal | 15 | 15 | 15 | — |
+| Coding | 85 | 86 | 85 | **−1** |
+| Cost efficiency | 70 | 70 | 70 | — |
+| **Overall** | **66** | **66** | **66** | **—** |
+
+**Newly measured (absent from both earlier passes):**
+
+- **BenchLM composite: 56.09/100, #65 of 1014** — the first third-party overall for this model in this file, built from 44 of 739 benchmark rows (BenchLM flags the coverage as partial/conservative).
+- Agentic: **τ²-bench 97.7%** (AA), **AA Agentic Index 25.2%**, **GDPval-AA 1181 Elo**, **AA ITBench 40.3%**, **Gert Labs 60.11%**, **ResearchClawBench 18.2%**. τ² is high but narrow; GDPval-AA 1181 and ResearchClawBench 18.2 are the honest ceiling markers.
+- Reasoning/knowledge: **AA-LCR 73.7%** (up from 68.0), **CritPt 4.6%**, **AA-HLE 30.1%**, **AA-GPQA 86.8%**, **AA-IFBench 76.3%**, **AA-Omniscience 23.7% accuracy / 29.9% hallucination / 0.9% index**, **FrontierMath v2 (Tiers 1–3) 36.842%**, **HMMT Nov 2025 94.0 / Feb 2026 82.6**.
+- Vals verticals, measured here for the first time: **Vals Index accuracy 56.33%**, Code Migration **25.77%** (48/79), Finance Agent v2 **44.79%** (58/81), Legal Research **27.89%** (60/90), MedCode **41.60%** (52/107), MedScribe **72.27%** (89/109), Public Benefits v1.1 **61.84%** (29/50), TaxEval v2 **71.19%** (82/145), LegalBench **84.39%** (33/151), **ProgramBench 0.00%** (47/64), MMLU-Pro **86.90%** (37/138), GPQA **84.52%** (52/138).
+- Other: Design Arena Website **1290** (OpenRouter); AA-SciCode **44.8%** (was 43.8).
+
+**Why Coding moved 86 → 85.** The 77.8% SWE-bench Verified figure that justified the October bump still stands (Vals re-confirms **76.40%** on its own harness), but two new hard-task results land well below it: **ProgramBench 0.00% ±0.00 (47/64)** — a from-scratch synthesis benchmark the model fails outright — and **Code Migration 25.77% (48/79)**. Vibe Code Bench is unchanged at 31.46% (81/124). The model is strong at in-repo edits and weak at greenfield construction, so 85 is the honest band; the Overall is unaffected.
+
+**Corrections and stale figures.**
+
+- **Claw-Eval 62.3 is corroborated, not revised.** BenchLM now sources the figure from the Claw-Eval leaderboard directly rather than as a secondary aggregation, so the original 62.3 stands.
+- **The AA Intelligence Index is now a legacy figure.** AA's live page for this model reports **N/A** — deprecated models are re-benchmarked every 18 hours instead of every 6, and the page exposes "No publicly available API" for the index. BenchLM still surfaces **26.1** from AA. Treat 26.1 as the last v4.x reading, not a live v5.0.1 score: v5.0.1 uses a different nine-eval composition (AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, CritPt v2 Hard, Terminal-Bench-Science 0.1).
+- **Speed/latency readings are not comparable across passes.** AA now reports **27.06 s to first answer token** and **91 tok/s** (Performance v3, median across 5 providers, 5-day average); October's 1.71 s / 44 tok/s used a different metric and provider mix. Neither direction of change should be read as a regression or an improvement.
+
+**Pricing.** AA provider median **$1.19 in / $3.74 out**, 78% cache discount, blended $0.79/M; Vals bills **$1.00/$3.20** on its harness; Zen list is unchanged at **$1.40/$4.40 with $0.26 cached**. Cost stays 70: cheaper than the October median, but there is still no free tier and the line is deprecated.
+
+**Lifecycle.** Deprecated upstream (AA banner points to GLM-5.2) but **still served on Zen**: `glm-5.1` is present in the live `/v1/models` response and absent from Zen's deprecation table, at the same $1.40/$4.40. AA now counts **5 serving providers** (the original pass said 6). The successor ladder widened since October — BenchLM scores **GLM-5.2 at 60.23** and **GLM-5.3 at 61.28**, both on Zen at identical pricing — so GLM-5.1 is now the third-best GLM on its own vendor's shelf.
+
+**Still missing.** No GraphWalks, MRCRv2 or RULER curve is published; long-context evidence remains AA-LCR (73.7%) only. Tool-Decathlon 40.7 and Vending Bench 2 ($5,634.41) from the original pass were not re-published and remain 2026-09 figures.
+
+**Net assessment.** Same conclusion, sharper edges: a still-good, MIT-licensed agentic-edit specialist that is now clearly superseded on its own vendor's shelf, with a newly documented weakness at greenfield program synthesis and a knowledge profile (23.7% accuracy / 29.9% hallucination) that argues against using it as a factual oracle.
+
 ---
 
 ## Signature
 
 - Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-17
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-10-01, 2026-11-05
 - Method: public web research (Z.AI/HF model card, Z.AI docs, Artificial Analysis, Vals, BenchLM, Gate News, The Batch); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Reference URLs:
+  - [Z.AI — GLM-5.1: Towards Long-Horizon Tasks](https://z.ai/blog/glm-5.1)
+  - [Hugging Face — zai-org/GLM-5.1](https://huggingface.co/zai-org/GLM-5.1)
+  - [Artificial Analysis — GLM-5.1](https://artificialanalysis.ai/models/glm-5-1)
+  - [Vals AI — GLM 5.1](https://www.vals.ai/models/zai_glm-5.1)
+  - [BenchLM — GLM-5.1](https://benchlm.ai/models/glm-5-1)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GLM_5.1_2.md`, using the same headings.

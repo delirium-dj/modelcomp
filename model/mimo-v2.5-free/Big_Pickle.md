@@ -90,10 +90,54 @@ Original research date 2026-09-17. Re-run requested by the user to compare prior
 
 **Net assessment:** the original report was directionally right and its weakest number was the one that moved. The one caveat worth carrying forward is lifecycle, not capability — this is now a deprecated model line, so it belongs in a buyer's shortlist only where the $0 Zen tier and the 4-channel input coverage still matter more than a supported release train.
 
+## Re-verification — 2026-11-05 (49 days after original)
+
+Second re-run requested by the user (the first was 2026-10-01). Original and first-pass findings above are preserved; this section records what changed on 2026-11-05.
+
+| Dimension | 2026-09-17 | 2026-10-01 | 2026-11-05 | Change |
+| --- | --- | --- | --- | --- |
+| Tool use | 75 | 77 | 77 | — |
+| Reasoning | 70 | 70 | 70 | — |
+| Context window | 70 | 70 | 70 | — (Zen cap; see rescope note) |
+| Multimodal | 95 | 95 | 95 | — |
+| Coding | 72 | 72 | 72 | — |
+| Cost efficiency | 100 | 100 | 100 | — (historical; see rescope note) |
+| **Overall** | **76** | **77** | **77** | **—** |
+
+**The entry is retired at the gateway.** `opencode/mimo-v2.5-free` is no longer in Zen's published model catalog and does not appear in the live `https://opencode.ai/inference/v1/models` response — the free MiMo lane is now `mimo-v2.6-flash-free`. It has no row in Zen's deprecation table, so it was removed without a dated notice. Artificial Analysis has also removed its MiMo-V2.5 page (404). The open weights are unaffected: the HF repo is live, MIT-licensed, and shows ~110k downloads in the last month. Note: the October line "Xiaomi's own site states the MiMo-V2 series was deprecated 2026-06-30" is not supported by the current vendor page, which is still live with the open-weight release; treat that as an AA-driven recommendation, not a vendor statement.
+
+**Rescope note (not applied).** The dimension scores above are pinned to the Zen free configuration this slug describes — 200K/32K cap and a $0 meter. If the project rescopes the slug to the native model instead, the tier map gives **Context 95** (1M window) and **Cost ~90** ($0.14/$0.28 native, MIT weights), which would move Overall to **82**. That is a dataset decision (and a candidate for parking or merging under the retired-identity rule), not something this report should silently apply.
+
+**Newly measured:**
+
+- **Vals Index: 52.94% accuracy, $0.14/$0.28, 8m52s latency** — first Vals Index entry for this model.
+- Vals verticals: Code Migration **14.23%** (58/79), EMB **55.09%** (50/76), Finance Agent v2 **36.73%** (69/81), Legal Research **9.13%** (82/90), MedCode **31.89%** (92/107), MedScribe **72.15%** (90/109), MortgageTax **59.26%** (68/98), **ProofBench v1.1 16.00%** (45/52), **Tax Agent Bench 7.77%** (70/81), TaxEval v2 **71.83%** (73/145), LegalBench **78.89%** (103/151), MMMU-Pro **80.00%** (45/93), Vibe Code Bench **42.17%** (75/124), SWE-bench **71.00%** (60/88), LiveCodeBench **81.51%** (61/143), Terminal-Bench 2.1 **60.67%** (40/75), GPQA **81.57%** (65/138), MMLU-Pro **82.93%** (77/138).
+- BenchLM now carries 16 rows (still unranked, no composite): Claw-Eval **62.3%**, Design Arena Website **1265**, alongside the previously known TB2.0 65.8, SWE-Pro 56.1, LiveCodeBench 81.5, Video-MME 87.7, CharXiv 81, MMMU-Pro 77.9.
+- HF eval-results now include **OmniCompass-VL 25.5** and **OmniCompass-AV 24.6** (third-party, imported), and the long-context **GraphWalks chart is published as an image** — values are not machine-readable, so the metric stays unverified.
+
+**Correction.** Claw-Eval general subset is **62.3**, not 62.1: Xiaomi's launch page and the Claw-Eval leaderboard both read 62.3, while the 62.1 came from an HF eval-results table row. The 63.2 multi-turn / 23.8 multimodal split from October is unchanged.
+
+**What held up.** 310B/15B MoE, 1M native window (256K base), MIT license, four-channel input (text/image/video/audio), TB2.0 65.8, TB2.1 60.7 (Vals), SWE-bench 71.0, LiveCodeBench 81.5, Vibe Code Bench 42.2, GPQA ~81.6, MMLU-Pro 82.9, CharXiv 81, Video-MME 87.7. Multimodal 95 stands — nothing new contradicts the four-channel claim.
+
+**Aggregator label to distrust.** BenchLM lists MiMo-V2.5 as "Proprietary"; the HF card is **MIT** with weights and tokenizer published. Trust the vendor/HF license over the aggregator classification.
+
+**New weak spots.** The vertical suites are uniformly weak-to-poor: ProofBench 16.0%, Tax Agent Bench 7.77%, Legal Research 9.13%, Code Migration 14.2%, MedCode 31.9%. It is a generalist omni model, not a domain specialist — worth stating explicitly because the 4-channel input makes it look broader than it is.
+
+**Successors.** MiMo-V2.6-Pro (BenchLM 57.27), MiMo-V2.5-Pro (55.55), MiMo-V2.6-Flash (55.27); the free lane is now `mimo-v2.6-flash-free`.
+
+**Net assessment.** Capability holds; availability does not. The model is still a strong four-channel generalist with cheap MIT weights, but this slug no longer resolves to a live endpoint — keep it as a historical record or park it, and point new work at MiMo-V2.6.
+
 ---
 
 ## Signature
 
 - Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-17
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-10-01, 2026-11-05
 - Method: public web research (Xiaomi launch/open-source pages, HF model card, models.dev, Artificial Analysis, BenchmarkList, evals.report); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Reference URLs:
+  - [Xiaomi — MiMo-V2.5 launch page](https://mimo.xiaomi.com/mimo-v2-5)
+  - [Hugging Face — XiaomiMiMo/MiMo-V2.5](https://huggingface.co/XiaomiMiMo/MiMo-V2.5)
+  - [Vals AI — MiMo V2.5](https://www.vals.ai/models/xiaomi_mimo-v2.5)
+  - [BenchLM — MiMo-V2.5](https://benchlm.ai/models/mimo-v2-5)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `MiMo_V2.5_Free_2.md`, using the same headings.

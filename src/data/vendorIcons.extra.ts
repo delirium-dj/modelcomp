@@ -11,40 +11,6 @@
 //     with no free SVG source in the Simple Icons / thesvg / LobeHub corpora.
 //     These are placeholder tiles, not official marks; swap for a real SVG as
 //     soon as a licensed source is available.
-import teleaiBadgeRaw from "../../assets/vendor-icons/teleai-badge.svg?raw";
-import nousPortalRaw from "../../assets/vendor-icons/nous-portal.svg?raw";
-import crusoeRaw from "../../assets/vendor-icons/crusoe.svg?raw";
-import inceptionRaw from "../../assets/vendor-icons/inceptionlabs.svg?raw";
-import inclusionaiRaw from "../../assets/vendor-icons/inclusionai.svg?raw";
-import huaweiCloudRaw from "../../assets/vendor-icons/huawei-cloud.svg?raw";
-import reflectionRaw from "../../assets/vendor-icons/reflection.svg?raw";
-import ai01Raw from "../../assets/vendor-icons/01-ai.svg?raw";
-import rekaRaw from "../../assets/vendor-icons/reka.svg?raw";
-
-// Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
-// file stays the single point of truth (edit it, not this module). `vite/client`
-// types (tsconfig) declare `*.svg?raw` as a string. This strips the XML prolog and
-// the outer <svg> wrapper; VendorIcon re-wraps the inner markup with the viewBox.
-function svgRawEntry(raw: string): { viewBox: string; body: string } {
-  const viewBox = /viewBox="([^"]+)"/.exec(raw)?.[1] ?? "0 0 24 24";
-  const body = raw
-    .replace(/<\?xml[\s\S]*?\?>/, "")
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/<title>[\s\S]*?<\/title>/g, "")
-    .replace(/^[\s\S]*?<svg[^>]*>/, "")
-    .replace(/<\/svg>[\s\S]*$/, "");
-  return { viewBox, body };
-}
-const teleaiBadge = svgRawEntry(teleaiBadgeRaw);
-const nousPortal = svgRawEntry(nousPortalRaw);
-const crusoe = svgRawEntry(crusoeRaw);
-const inception = svgRawEntry(inceptionRaw);
-const inclusionai = svgRawEntry(inclusionaiRaw);
-const huaweiCloud = svgRawEntry(huaweiCloudRaw);
-const reflection = svgRawEntry(reflectionRaw);
-const ai01 = svgRawEntry(ai01Raw);
-const reka = svgRawEntry(rekaRaw);
-
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
   vultr: {
@@ -76,71 +42,16 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   },
 
   // --- Override: replace an existing base icon (key collision → this wins) ---
-  // TeleAI (China Telecom) official shield badge, supplied by the maintainer. The
-  // real source SVG lives at assets/vendor-icons/teleai-badge.svg and is inlined
-  // above via Vite `?raw` (single point of truth — edit that file, not this one).
-  // It is a portrait lockup (~524x606), so VendorIcon letterboxes it in the square
-  // tile (preserveAspectRatio meet). Shadows the base `teleai` key only (also used
-  // by the `xing` model) — no other icon is affected.
+  // TeleAI (China Telecom) central badge, trimmed from assets/vendor-icons/logo-teleai.svg:
+  // the outer orbit ring, the two side circles and all surrounding text (the whole
+  // `#02489d` layer) are dropped; only the blue shield/badge + "AI" emblem remain
+  // (layers `#4e95d9`/`#ffffff`/`#022d62`/`#9b9c9d`), cropped to a square viewBox so
+  // it fills the icon tile with no letterboxing. Shadows the base `teleai` key only
+  // (also used by the `xing` model) — no other icon is affected. Provenance mirror:
+  // assets/vendor-icons/teleai.svg.
   teleai: {
-    viewBox: teleaiBadge.viewBox,
-    body: teleaiBadge.body,
-  },
-
-  // Nous Portal figure mark, supplied by the maintainer. Source at
-  // assets/vendor-icons/nous-portal.svg, inlined via `?raw` (edit that file). Square
-  // 600x600 monochrome mark (currentColor / color:#000). Shadows the base
-  // `nous-portal` key only — no other icon is affected.
-  "nous-portal": {
-    viewBox: nousPortal.viewBox,
-    body: nousPortal.body,
-  },
-
-  // Crusoe Cloud mandala/starburst mark, supplied by the maintainer. Source at
-  // assets/vendor-icons/crusoe.svg, inlined via `?raw` (edit that file). Monochrome
-  // currentColor mark; the asset viewBox ("88 -2 34 34") frames the content so it
-  // fills the square tile. Shadows the base `crusoe` diamond placeholder key only.
-  crusoe: {
-    viewBox: crusoe.viewBox,
-    body: crusoe.body,
-  },
-
-  // Inception Labs emblem, supplied by the maintainer. Source at
-  // assets/vendor-icons/inceptionlabs.svg, inlined via `?raw` (edit that file). The
-  // path is currentColor (was hardcoded white) so the existing `adaptive` VENDORS
-  // mapping themes it. Shadows the base `inceptionlabs` key only (also used by the
-  // `mercury` model) — no other icon is affected.
-  "inceptionlabs": {
-    viewBox: inception.viewBox,
-    body: inception.body,
-  },
-
-  // InclusionAI logo (Ant Group's AGI initiative), supplied by the maintainer.
-  // Source at assets/vendor-icons/inclusionai.svg, inlined via `?raw` (edit that
-  // file). Single-color brand blue (#0175fe) on a transparent canvas — the opaque
-  // white background plate was stripped so it sits cleanly on any theme. Square
-  // 388x388. Shadows the base `inclusionai` monogram-tile key only.
-  "inclusionai": {
-    viewBox: inclusionai.viewBox,
-    body: inclusionai.body,
-  },
-
-  // Huawei Cloud official logo (red flower/petal mark) from devicon. Source at
-  // assets/vendor-icons/huawei-cloud.svg, inlined via `?raw`. 600x600 with 8 radial
-  // gradients (brand red). New key — no base icon shadowed.
-  "huawei-cloud": {
-    viewBox: huaweiCloud.viewBox,
-    body: huaweiCloud.body,
-  },
-
-  // Reflection AI brand mark (two ring outlines), supplied by the maintainer.
-  // Source at assets/vendor-icons/reflection.svg, inlined via `?raw`. Monochrome
-  // currentColor fill; the existing `adaptive` VENDORS mapping themes it.
-  // Shadows the base `reflection` favicon-tile key only.
-  "reflection": {
-    viewBox: reflection.viewBox,
-    body: reflection.body,
-    fill: "currentColor",
+    viewBox: "197 259 700 700",
+    body: '<defs><linearGradient id="teleBlue" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0054A6"/><stop offset="100%" stop-color="#00A0E9"/></linearGradient></defs><g transform="translate(20, 25)"><path d="M 40 50 C 40 20, 90 20, 90 50 C 90 80, 40 80, 40 50 Z" fill="none" stroke="url(#teleBlue)" stroke-width="12" stroke-linecap="round"/><path d="M 70 50 C 70 25, 115 25, 115 50 C 115 75, 70 75, 70 50 Z" fill="none" stroke="#00A0E9" stroke-width="8" stroke-dasharray="2 3" opacity="0.8"/><circle cx="90" cy="50" r="7" fill="#0054A6"/><circle cx="40" cy="50" r="5" fill="#00A0E9"/></g>',
   },
 
   // --- Brand-colored monogram tiles (no free SVG source in the vendored corpora) ---
@@ -150,11 +61,10 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "coreweave":     { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#F97316"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">C</text>' },
   "patronus-ai":   { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#4F46E5"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">P</text>' },
   "galileo":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0EA5E9"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">G</text>' },
-  // Real Oracle Cloud mark (maintainer-supplied) — replaces the placeholder tile.
-  "oracle":        { viewBox: "0 0 32 20", body: '<path fill="none" stroke="#C74634" stroke-width="4" d="M10 2a8 8 0 1 0 0 16h12a8 8 0 1 0 0-16z"/>' },
+  "oracle":        { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#C74634"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">O</text>' },
   "verda":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#22C55E"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">V</text>' },
   "io-net":        { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#7C3AED"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">i</text>' },
-  "reka":          { viewBox: reka.viewBox, body: reka.body },
+  "reka":          { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0891B2"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">R</text>' },
   "morph":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#6366F1"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">M</text>' },
   "assemblyai":    { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#059669"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">A</text>' },
   "pinecone":      { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0080FE"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">P</text>' },
@@ -162,5 +72,5 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "serpapi":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#F59E0B"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">S</text>' },
   "spheron":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#A855F7"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">S</text>' },
   "lightning-ai":  { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#FBBF24"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#0B100F">L</text>' },
-  "01-ai":         { viewBox: ai01.viewBox, body: ai01.body },
+  "01-ai":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#2563EB"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">0</text>' },
 };
