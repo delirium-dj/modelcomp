@@ -41,10 +41,10 @@
 88.8 deepseek-v4.1-flash
 88.7 gpt-6-sol
 88.7 muse-spark-1.1
-88.7 qwen-3.8
-88.6 claude-sonnet-5
 88.6 mimo-v2.6-flash
+88.5 claude-sonnet-5
 88.1 gemini-3-flash
+88 qwen-3.8
 87.9 glm-5.3-flashx
 87.8 qwen-3.8-flash
 87.2 gpt-5.4

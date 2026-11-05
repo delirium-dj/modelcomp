@@ -1,97 +1,83 @@
 # Gemini 3.1 Pro — findings by Step 5 Preview
 
-- Source: Google (DeepMind) `gemini-3.1-pro`
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Google DeepMind (`gemini-3-1-pro`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.1 Pro (`gemini-3.1-pro-preview`; thinking-high default)
-- **Short description:** Google DeepMind's flagship reasoning model (top of the Gemini lineup, above 3.1 Flash/Flash-Lite), built for agentic coding, long-context analysis, and scientific problem-solving. Currently preview-tier.
-- **Provider / access:** Gemini API, Google AI Studio, Vertex AI, Gemini Enterprise. Function calling + structured output + search-as-tool + code execution. No programmatic free tier (free only inside AI Studio web UI).
-- **Release / knowledge:** Released 2026-02-19. Knowledge cutoff 2025-01-31 (per llmboard). First Gemini line to use a `.1` increment.
-- **IDs:** `gemini-3.1-pro-preview` (also `gemini-3.1-pro-preview (high)`). No free/contributor ID.
-- **Context window:** 1,048,576 (1M) input; 65,536 (~64K) max output (default `maxOutputTokens` is only 8,192 — must be raised).
-- **Modalities:** Text, image, video, audio, PDF in; text out (some model-card icons suggest image/audio out but the LLM output is text). Reasoning yes (thinking-high); tool calls yes; JSON/structured yes.
-- **Pricing (as of 2026-10-08):** $2.00/M in · $12.00/M out (≤200K input); reprices to $4.00/$18.00 above 200K input. Cache $0.20/M. Batch half rate. No free API tier.
-- **Architecture:** Sparse Mixture-of-Experts Transformer (builds on Gemini 3 Pro); parameter count undisclosed (proprietary).
+- **Name:** Gemini 3.1 Pro. Google's 3.1-generation flagship Pro SKU, positioned between the Gemini 4 family (Argon, Carbon) and the Flash/Lite tiers. Note that Artificial Analysis and Vals track it under the identifier **`gemini-3.1-pro-preview`**, so benchmark rows sourced from them describe that ID.
+- **Short description:** Google's multimodal reasoning flagship for the 3.1 generation — strong on scientific knowledge and multilingual understanding, mid-tier on agentic execution. BenchLM scores it 64.41/100, **#34 of 1009**, which is a striking 18 places behind Gemini 4 Argon (82.28) and 6 behind Gemini 3.7 Flash (66.53) — the weakest quality/rank ratio in the Gemini 3.x lineup.
+- **Provider / access:** Gemini API and OpenCode Zen (`opencode/gemini-3-1-pro-preview` at $2/$12/$0.20 with a >200K-token tier at $4/$18/$0.40); also `google/gemini-3.1-pro-preview` on OpenRouter. Zen lists it on the **paid** tier.
+- **Release / knowledge:** the Gemini 4 Argon comparison table (Oct 2026) lists Gemini 3.1 Pro among Google's current lineup; Anthropic- and Meta-referenced benchmark charts already treat it as the established comparator, placing release around mid-2026. **Knowledge cutoff not disclosed.**
+- **IDs:** `gemini-3.1-pro` / `gemini-3.1-pro-preview`; `google/gemini-3.1-pro-preview`.
+- **Context window:** **1M tokens** — stated by Google's lineup comparison and confirmed by BenchLM and Artificial Analysis. Zen's rate card confirms the 1M window via its >200K pricing tier. Max output not published by Google.
+- **Modalities:** **text, image, video and audio in; text out** (per Anthropic's lineup statement that all current models share this modality set, and confirmed by Google's own comparison table). Reasoning model.
+- **Pricing (as of 2026-11-05):** Zen sells it at **$2 input / $0.20 cached read / $12 output per 1M**, with a **>200K-token tier at $4 / $0.40 / $18** — the "Premium" pricing tier in Zen's model list. Notably it is priced *above* Gemini 4 Argon's introductory $2/$10 despite ranking 18 places lower on BenchLM.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-> Cross-referenced Google's official DeepMind benchmark table, llmboard.ai (47 benchmarks), hokai.io, and vectorwire.ai (215 results, 30 independent). Official Google table is the primary source; independent runs noted where available.
+BenchLM's 49-row catalog is the index. The majority of the strongest numbers come from **Meta's Muse Spark comparison chart** (an independent third-party evaluation set) plus Artificial Analysis, Vals AI, ARC Prize and Epoch AI; where Meta and AA measure the same benchmark, both are shown.
 
-- BenchLM composite (2026-10-19): **64.74/100** overall, #38 of 956 models, 48 of 644 benchmarks covered (partial coverage — conservative)
-- Artificial Analysis today (2026-10-19): Intelligence Index **30** (#98/217, v4.3.2 scale), 132.0 tok/s (#38/186), TTFT 20.22s, 67M Index output tokens (concise vs 85M median), $1.30 per Index task, $2/$12 with 90% cache discount (blended $1.74/M), 1M context, 3 providers — model NOT deprecated on AA
+Agent / tool use — the weakest dimension, and the story of this model:
 
-Agent / tool use:
+- **Claw-Eval: 57.8%** (Claw-Eval leaderboard) — the one genuinely respectable agentic figure
+- τ²-bench: **95.6%**; DeepSearchQA: **69.7%**; Gert Labs: 56.87% (all from Meta's Muse Spark chart)
+- **GDPval-AA: 14.6% normalized / 904 Elo** (AA) — catastrophically below the 1,750+ frontier reference
+- **AA Agentic Index: 10.3%** — the single worst agentic figure in this entire research series
+- **MazeBench: 1%**; **ResearchClawBench: 13.3%**; APEX-Agents-AA: 32.0%
+- Terminal-Bench 2.1 (Vals): 70.8%; Terminal-Bench Hard: 53.8%; AA-EnterpriseOps-Gym: 42.2%; AA-AnalystAgent: 41.3%
 
-- τ2-bench Retail: **90.8%** (Google; rank #1 on llmboard) / **99.3%** Telecom
-- MCP Atlas (multi-step MCP workflows): **69.2%** (Google)
-- BrowseComp (agentic search): **85.9%** (Google; rank #11/67) / **75.6%** (Mercor web-research agent, independent — reported 2026-10-07)
-- Terminal-Bench 2.0 (Terminus-2 harness): **68.5%** (Google; ahead of Opus 4.6 65.4%)
-- APEX-Agents (long-horizon professional): **33.5%** (Google; rank #6/11, only 50th pct) / **35.3%** (Mercor, independent — reported 2026-10-07) — the weak agentic signal
-- AutomationBench 1.0.6: **4.6–8.7%** (low→high, Zapier, independent — reported 2026-10-07) — very weak real-world automation
-- Chartography Oct 2026: **26.1%** (Surge AI, independent — reported 2026-10-07)
-- Vals Index 2.1: **33.4%** (Vals AI, independent — reported 2026-10-06)
-- Terminal-Bench 4.0: no verified public score found for 3.1 Pro
-- AA agentic suite (2026-10-19): AA Agentic Index **10.3%**, APEX-Agents-AA **32.0%**, Gert Labs **56.87%**, ResearchClawBench **13.3%**, Claw-Eval **57.8%**, DeepSearchQA **69.7%**, MazeBench **1.0%** — the independent agentic reads reinforce the weak real-world agentic signal
-- GDPval-AA conflict noted (2026-10-19): Google claims Elo **1,317**; Artificial Analysis' independent measurement is **904 Elo** (14.6% normalized) — a large vendor-vs-independent gap
+Coding — better than agentic, still mid-pack:
 
-Reasoning / knowledge:
+- LiveCodeBench Pro: **82.9%** (Meta); LiveCodeBench (Vals): **88.5%**; SWE-bench (Vals): **78.8%**
+- React Native Evals: 78.9%; AA Coding Index: 68.8% (just under the 70% reference)
+- AA-SciCode: **58.7%** (clears the 55% reference)
+- **Vibe Code Bench: 32.03%**; ScarfBench: 37.6%; **PostTrainBench v1.1: 22.0%**
+- DeepSWE: **no verified public score found**
 
-- GPQA Diamond: **94.3%** no tools (Google; highest publicly verified frontier result, rank #4/250 on llmboard)
-- ARC-AGI-2: **77.1%** (ARC Prize verified; >2× Gemini 3 Pro's 31.1%, rank #3/19)
-- Humanity's Last Exam: **44.4%** no tools / **51.4%** search+code (Google; AA HLE Text no-tools 47.03%)
-- MMLU-Pro: **90.99%** (highest reported at launch per hokai); MMMLU (multilingual) **92.6%**
-- LiveBench: **79.9%** (rank #4/38)
-- AA Omniscience Accuracy: **54.85%** (rank #9/201)
-- Math: Vector Wire rates Math **"Limited"** (−40.0% vs leader, 5/5) — a clear reasoning blind spot; FrontierMath v2 (Epoch AI, independent, 2026-10-19): Tiers 1–3 **59.649%**, Tier 4 **26.829%** — a mid-band read that partially offsets the "Limited" rating
-- AIME 2025: no verified public score found for 3.1 Pro
-- AA suite (2026-10-19): GPQA Diamond **94.1%**, HLE **47.0%**, MMLU-Pro **89.8%** (MMLU-Pro Vals **91.0%**), Global-MMLU-Lite **93.2%**, AA-Omniscience accuracy **54.9%** / index **31.9%** / hallucination-rate metric **50.9%**, AA-IFBench **77.1%** — independent corroboration of the near-ceiling GPQA
-- ARC-AGI-3: **0.4%** (ARC Prize semi-private, 2026-10-19) — near-zero on the newest ARC task; ARC-AGI-2 77.1% (Google) unchanged
-- HealthBench Hard **20.6%**; MedXpertQA Text **71.5%** / MM **81.3%** (Meta Muse Spark comparison, 2026-10-19)
+Reasoning / knowledge — the strongest dimension:
 
-Coding:
+- **GPQA Diamond: 94.3%** (Meta) / **94.1%** (AA) / **95.5%** (Vals) — three agreement within 1.4 points
+- AA-HLE: **47.0%**; HLE without tools: **45.4%**; MMLU-Pro (Vals): **91.0%**
+- **AA Global-MMLU-Lite: 93.2%**; MedXpertQA (Text): 71.5%; AA-IFBench: 77.1%
+- ARC-AGI-2: **77.1%** (Google); **ARC-AGI-3: 0.4%** — essentially zero on the newest abstract-reasoning benchmark
+- AA-LCR: **82.0%**; **CritPt: 17.7%**
+- FrontierMath v2 Tiers 1–3: **59.6%**; **Tier 4: 26.8%** (Epoch AI) — far behind Gemini 4 Argon's 78.0%
+- **MRCR: no verified public score found**; no Artificial Analysis Intelligence Index figure published for this ID
 
-- SWE-bench Verified: **80.6%** single attempt (Google; rank #10/117, 92nd pct) — mid-frontier (Opus 4.6 80.8%, Codex 80.0%)
-- LiveCodeBench Pro: **Elo 2887** (rank #1/5, 100th pct) — best-in-class competitive coding
-- SWE-bench Pro (Public): **54.2%** (Google) — mid-tier on the harder diverse-agentic suite
-- SciCode: **59.0%** (rank #3/26)
-- GDPval-AA (Elo): **1317** (Google) — below the ~1750 frontier threshold; Vector Wire "Coding Capable" (−20.4%)
-- Vibe Code Bench 1.1 (OpenHands): **32.0%** (Vals AI, independent — reported 2026-10-06) — weak real-world app-building
-- Vals Index 2.1: **33.4%** (Vals AI, independent — see tool use) — weak cross-industry coding composite
-- DeepSWE: no verified public 3.1-Pro row surfaced live
-- Terminal-Bench 2.0 (agentic coding): **68.5%** (see tool use)
-- Independent coding corroboration (2026-10-19): SWE-bench (Vals) **78.8%**, LiveCodeBench (Vals) **88.5%**, LiveCodeBench Pro **82.9%** (Meta Muse Spark chart — the pass-rate form of Google's Elo 2887), React Native Evals **78.9%**, AA Coding Index **68.8%**, AA-SciCode **58.7%** (matches Google's 59.0%); PostTrainBench v1.1 **22.0%** — weak on the newest agentic post-training suite
+Multimodal — strong, and the second-best dimension:
 
-Multimodal:
+- MMMU-Pro: **83.9%** (Meta) / **82.4%** (AA); CharXiv: **80.2%**; ScreenSpot Pro: **84.4%**; SimpleVQA 72.4%; ERQA 69.4%; MedXpertQA (MM) 81.3%
+- **ZeroBench: 29.0%** — the weak spot; ParseBench: 69.14%; Design Arena (website): 1,251 Elo
 
-- MMMU-Pro: **80.5%** no tools (rank #4 on llmboard); MMMU **82%**
-- VideoMME: **87.2%** (hokai; ~8-pt lead over Claude Opus 4.5)
-- Vector Wire: Multimodal **"Strong"** (−8.6% vs leader, 4/6)
-- Independent multimodal corroboration (2026-10-19): MMMU-Pro **83.9%** (Meta Muse Spark chart) / AA-MMMU-Pro **82.4%**, ScreenSpot Pro **84.4%**, CharXiv **80.2%**, ERQA **69.4%**, SimpleVQA **72.4%**, MedXpertQA MM **81.3%**; soft spot ZeroBench **29.0%**; Design Arena Website **1254** (OpenRouter)
+Safety: no Gray Swan IPI or equivalent prompt-injection figure found.
 
-Long context:
+### Normalized scores (1–100)
 
-- MRCR v2 8-needle 128k average: **84.9%**; **1M pointwise: 26.3%** (Google) — retrieval collapses at the top of the window
-- Vector Wire: Long Context **"Capable"** (−13.5% vs leader, 2/3)
-- AA-LCR: **82.0%** (Artificial Analysis long-context reasoning, 2026-10-19) — consistent with the mid-window strength / top-end collapse pattern
-- **Tool use: 85/100.** Strong on structured/vendor tool evals — τ2-bench Retail 90.8% (#1), Telecom 99.3%, MCP Atlas 69.2%, TB2.0 68.5%, BrowseComp 85.9% (vendor) / 75.6% (independent). But independent real-world agentic runs are weak: AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, APEX-Agents 35.3% — the structured-tool strength does not carry to open-ended automation. Trimmed from 88 on the 2026-10-07 independent AutomationBench/Chartography/Vals evidence (previously unavailable).
-- **Reasoning: 92/100.** GPQA Diamond 94.3% (highest publicly verified) and ARC-AGI-2 77.1% are firmly frontier; HLE 44.4%/51.4% clears the 40% bar. Capped by Vector Wire's Math "Limited" (−40.0%) and no verified AIME row — math is a blind spot that keeps it below the very top.
-- **Context window: 88/100.** 1M input puts it in the ≥1M tier, but MRCR retrieval collapses from 84.9% at 128K to 26.3% at 1M, and Vector Wire rates Long Context only "Capable" (−13.5%); the 64K output cap is a further caveat. A nominal 1M window with weak 1M retrieval does not earn the top tier.
-- **Multimodal: 92/100.** Full input coverage (text/image/video/audio/PDF) with MMMU-Pro 80.5% and VideoMME 87.2% (8-pt lead over Opus 4.5); Vector Wire rates Multimodal "Strong" (−8.6%). Just under the ceiling because output is text-only.
-- **Coding: 80/100.** SWE-bench Verified 80.6% and LiveCodeBench Pro Elo 2887 (#1, best-in-class competitive coding) are strong, but SWE-bench Pro 54.2%, GDPval-AA 1317 Elo (below the 1750 frontier threshold), and the now-measured independent real-world coding — Vibe Code Bench 32.0% and Vals Index 33.4% — confirm competitive-coding strength does not carry to real-world agentic coding. Trimmed from 82 on the 2026-10-06 independent Vibe Code / Vals Index evidence (previously "not surfaced live").
-- **Cost efficiency: 78/100.** Paid-only at $2/$12 per 1M (with a 2× repricing above 200K input); no free tier. Sits between the ~$1.25/$4.25=88 and ~$3/$15=60 anchors, weighted toward the cheaper end.
-- **Overall Score: 87/100.** Mean of the five non-cost dims (85+92+88+92+80)/5 = 87.4. Best fit for scientific reasoning, competitive coding, and multimodal long-context analysis; not the top pick for the hardest long-horizon agentic coding, math, or open-ended automation — independent real-world agentic/coding runs (AutomationBench ~8%, Vibe Code 32%, Vals Index 33%) are the soft spots.
+- **Tool use: 48/100.** The decisive finding: this model is a knowledge engine wrapped in a weak agent. Claw-Eval 57.8% and τ²-bench 95.6% are respectable, and DeepSearchQA 69.7% is solid, but GDPval-AA 14.6%/904 Elo, AA Agentic Index 10.3%, MazeBench 1% and ResearchClawBench 13.3% are all near the floor, and Terminal-Bench 2.1 is only 70.8% (Vals). It meets **none** of the three tool-use frontier references (no TB2.1 88%+, no τ³-Banking, no GDPval 1,750+). Scored in the mid band, not lower, purely because τ²-bench and Claw-Eval show the tool-calling substrate is present — the failure is in long-horizon agentic execution, not in the ability to emit a tool call.
+- **Reasoning: 78/100.** Genuinely strong on scientific and multilingual knowledge: GPQA Diamond 94.1–95.5% (three harnesses agree), MMLU-Pro 91.0%, Global-MMLU-Lite 93.2%, MedXpertQA 71.5%, AA-LCR 82.0%. Capped by AA-HLE 47.0% and HLE 45.4% (well below the 60%+ frontier models), FrontierMath Tier 4 26.8% (a third of Gemini 4 Argon's 78.0% and a quarter of GPT-6 Astra's 97.6%), CritPt 17.7%, ARC-AGI-3 0.4% and ARC-AGI-2 only 77.1%. Scored above the methodology's mid band on the strength of GPQA and the multilingual suite; no composite index exists for this ID to anchor it either way.
+- **Context window: 95/100.** 1M-token tier as required, confirmed by Google's lineup comparison, BenchLM and AA, and corroborated structurally by Zen's >200K pricing tier. AA-LCR 82.0% is respectable long-context reasoning. Held at the tier floor because no MRCR retrieval figure exists and no max-output limit is published by Google.
+- **Multimodal: 90/100.** Text + image + video + **audio** input places it in the methodology's 90–100 "audio in" tier, and the depth supports the lower part of it: MMMU-Pro 83.9%/82.4%, ScreenSpot Pro 84.4%, CharXiv 80.2%, MedXpertQA (MM) 81.3%. Held below the Gemini 4 models (92) by ZeroBench 29.0%, ParseBench 69.14%, a 1,251-Elo Design Arena result, and text-only output.
+- **Coding: 68/100.** Right at the boundary of the methodology's mid band. LiveCodeBench 88.5% (Vals) and SWE-bench 78.8% (Vals) are strong, and AA-SciCode 58.7% clears the 55% reference, but AA Coding Index 68.8% is just *under* the 70% frontier reference, Vibe Code Bench is 32.03%, ScarfBench 37.6%, PostTrainBench v1.1 22.0% and no DeepSWE figure exists. A model that writes good isolated functions but cannot sustain an engineering task — consistent with its 10.3% agentic index.
+- **Cost efficiency: 74/100.** $2/$12 per 1M with a >200K tier at $4/$18 sits between the methodology's ~$1.25/$4.25 (≈88) and ~$3/$15 (≈60) anchors. Drawn down from the pure rate-card reading because it is priced *above* Gemini 4 Argon's introductory $2/$10 while ranking 18 places lower on BenchLM — i.e. it is dominated on both price and quality by a same-family model — and because Zen applies a surcharge rather than a discount to it. The $0.20 cache-read price and the absence of any free tier are the neutral factors.
+- **Overall Score: 76/100.** (48 + 78 + 95 + 90 + 68) / 5 = 75.8 → 76. Recommendation: a poor default choice in its own family. If you are already paying Zen prices, **Gemini 4 Argon at $2/$10 introductory beats it on every quality dimension** (BenchLM #5 vs #34) at a lower rate card — and Gemini 3.7 Flash (66.53) also outranks it. The one genuine reason to select Gemini 3.1 Pro is its scientific/multilingual knowledge profile (GPQA 94.1–95.5%, Global-MMLU-Lite 93.2%, MedXpertQA) combined with full audio/video input, for retrieval-heavy or document-VQA workloads where the 1M window and MMMU-Pro 83.9% matter and agentic execution does not.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis and BenchLM: AA Index 30 (#98/217, v4.3.2 scale), 132 tok/s, TTFT 20.22s, not deprecated; BenchLM composite 64.74/100 (#38/956, 48/644 benchmarks) adding the AA agentic suite (Agentic Index 10.3%, APEX-AA 32.0%, Gert Labs 56.9%, ResearchClawBench 13.3%, MazeBench 1.0%), the GDPval-AA conflict (Google 1,317 vs AA 904 Elo), AA GPQA 94.1%/HLE 47.0%, Epoch FrontierMath v2 T1–3 59.6%/T4 26.8%, ARC-AGI-3 0.4%, Vals SWE 78.8%/LCB 88.5%, PostTrainBench 22.0% and an independent multimodal corroboration table (MMMU-Pro 82.4–83.9%, ScreenSpot Pro 84.4%, ZeroBench 29.0%) — all consistent with the existing scores, no change warranted. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (51 primary-source results, updated 2026-10-07 — independent Mercor/Vals AI/Zapier/Surge runs), which surfaced real-world agentic/coding numbers (AutomationBench 4.6–8.7%, Chartography 26.1%, Vals Index 33.4%, Vibe Code 32.0%) that were not available in the first pass and trimmed Tool use 88→85 and Coding 82→80. Prior pass (2026-10-08) used Google's official DeepMind benchmark table, llmboard.ai, hokai.io, and vectorwire.ai.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Google's own lineup comparison and the Gemini 3.1 Pro launch material as the primary source for specs, cross-checked against BenchLM's 49-row catalog (which attributes each number to Meta's Muse Spark chart, Artificial Analysis, Vals AI, ARC Prize, Epoch AI, Claw-Eval, Gert Labs, ResearchClawBench, Kaggle, LlamaIndex, OpenRouter or a public leaderboard), plus OpenCode Zen's pricing table for the rate card and tier structure. Conflicting figures are listed side by side — GPQA Diamond 94.3% / 94.1% / 95.5% across three harnesses, MMMU-Pro 83.9% / 82.4% — rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini 3.1 Pro (launch material, ARC-AGI-2 figure)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/)
+  - [BenchLM — Gemini 3.1 Pro benchmark scores (49 rows, 64.41/100, #34/1009)](https://benchlm.ai/models/gemini-3-1-pro)
+  - [Artificial Analysis — Gemini 3.1 Pro (tracked as gemini-3.1-pro-preview)](https://artificialanalysis.ai/models/gemini-3-1-pro-preview)
+  - [Meta AI — Muse Spark comparison chart (source of the MMMU-Pro, GPQA-D, τ²-bench, LiveCodeBench Pro figures)](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+  - [Vals AI — Gemini 3.1 Pro leaderboard results](https://www.vals.ai/models/google_gemini-3.1-pro-preview)
+  - [ARC Prize — leaderboard](https://arcprize.org/leaderboard)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
-
-### Normalized scores (1–100)
