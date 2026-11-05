@@ -25,7 +25,7 @@ Agent / tool use:
 - GDPval-AA: **1582** (OpenAI launch table — fills the gap); AA-normalized: **48.2%**
 - BrowseComp: **83.3%**; CyberGym: **77.9%**; OSWorld 2.0: **45.6%**; Toolathlon: **53.4%**; ExploitGym: **12.4%** (OpenAI)
 - AA Agentic Index: **42.7%**; APEX-Agents-AA: **35.8%** (AA); ApprenticeBench (GUI): **7%** (NeoCognition — weak); Terminal-Bench 3.0: **14.3%** (weak)
-- MazeBench ASCII: **0%** (added 2026-10-16); GDP.pdf: **21.0%** (AA)
+- MazeBench ASCII: **0%** (added 2026-10-16); GDP.pdf: **21.0%** (AA); **AA EnterpriseOps-Gym: 40.8%, AA ITBench: 40.3%** (NEW, BenchLM Nov 5 refresh — weak-mid); **AA TB2.1: 80.9%** (NEW — third independent reading, corroborating the 79.0 (Vals) / 84.7 (OpenAI) pair)
 - AA GDP.pdf / MazeBench added 2026-10-16; all other rows corroborated by the 48-row BenchLM refresh
 - Tau / Claw-Eval: no individual public rows surfaced for Luna
 
@@ -56,7 +56,7 @@ Long context:
 
 Multimodal:
 
-- MMMU-Pro: **78.4%** / **79.5%** with Python (OpenAI); AA-MMMU-Pro: **78.6%** (AA) — measured vision backs the image-input claim
+- MMMU-Pro: **78.4%** / **79.5%** with Python (OpenAI); AA-MMMU-Pro: **78.6%** (AA) — measured vision backs the image-input claim; **ExtractBench 91.16% / ParseBench 66.86%** (NEW, LlamaIndex leaderboards, Nov 5 snapshots)
 
 ### Normalized scores (1–100)
 
@@ -72,6 +72,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results, Cursor/Cognition/NeoCognition via benchlm.ai, Cursor/Cognition/NeoCognition via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 48-row refresh corroborates all rows (MazeBench 0%, GDP.pdf 21.0% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-5.6-Luna page fetched 2026-11-05 (Nov 5 data, 54 rows) — all prior rows re-confirmed; AA TB2.1 80.9% (third reading), AA EnterpriseOps 40.8%, AA ITBench 40.3%, ExtractBench 91.16% and ParseBench 66.86% added, GDPval normalized 48.2→48.0% drift; composite 63.94 #37/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

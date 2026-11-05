@@ -55,14 +55,14 @@
 86.8 qwen-3.7-plus
 86.7 claude-sonnet-4.6
 86.7 gemini-2.5-pro
-86.7 inkling-small
+86.6 inkling-small
 86.5 qwen-3.8-27b
 86.4 gpt-5.2
 86.4 step-5-preview
 86.2 kimi-k2.6
-86.2 qwen-3.6-plus
 86.1 grok-4.7
 86 grok-4.5
+86 qwen-3.6-plus
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
 85.6 qwen-3.8-flash-next

@@ -1,77 +1,79 @@
 # GPT-5.2 — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-5.2`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: OpenAI (`gpt-5-2`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.2 (Thinking)
-- **Short description:** OpenAI's December 2025 flagship (released 2025-12-11; now the "previous flagship" after GPT-5.4/5.5/6) — the first model OpenAI measured at or above human-expert level on GDPval knowledge work (70.9% wins-or-tes across 44 occupations), with then-state-of-the-art SWE-bench Pro (55.6%) and MRCR v2 long-context integration. Shipped as Thinking / Pro / Instant; also spawned GPT-5.2-Codex (2025-12-18).
-- **Provider / access:** OpenAI API `gpt-5.2` (Responses + Chat Completions; `gpt-5.2-pro` Responses-only); ChatGPT paid plans. No OpenCode Zen Free ID found.
-- **Release / knowledge:** 2025-12-11; knowledge cutoff 2025-08-31.
-- **IDs:** `gpt-5.2` (Thinking), `gpt-5.2-pro`, `gpt-5.2-chat-latest` (Instant); snapshot `gpt-5.2-2025-12-11`.
-- **Context window:** 400,000 tokens; 128,000 max output; `/compact` endpoint extends effective context.
-- **Modalities:** Text, image and file in → text out. Reasoning effort none/low/medium/high/xhigh; function calling; tool search.
-- **Pricing (as of 2026-10-09):** $1.75 / MTok input, $14.00 output, cached input $0.175 (90% off); GPT-5.2 Pro $21/$168; Azure first-party route observed at $0.88/$7.00.
-- **Architecture:** Proprietary.
+- **Name:** GPT-5.2 (the **thinking** variant). Now **five generations behind** — the current lineup is GPT-6.1 Sol (85.28) → GPT-6.1 Terra (80.79) → GPT-6 Sol (78.03) → GPT-5.6 Sol (74.88) → and this at **59.62, #55 of 1,015**. Note it scores *below* its own GPT-5.2 Pro sibling (66.28), which is unusual.
+- **Short description:** A 5.2-generation thinking model whose strongest suit is genuinely unusual — **an exceptionally broad measured multimodal suite (19 benchmarks, Video-MME 86.0%, OmniDocBench 85.7%, VideoMMMU 85.9%)** — paired with **AIME 2025 at 100%** and a **near-zero AA-Omniscience index (−0.9, 81.2% hallucination)**. Its agentic layer is thin (OSWorld-Verified 47.3%, JobBench 34.3%) and its 400K window is half the current standard.
+- **Provider / access:** OpenAI API, Microsoft Azure, AWS Bedrock, and OpenCode Zen (`opencode/gpt-5-2`) at **$1.75/$14 with a >272K tier at $3.50/$28**. No Free ID.
+- **Release / knowledge:** release date not restated; the 5.2 generation is OpenAI's 2026 mid-cycle line. **Knowledge cutoff not disclosed.**
+- **IDs:** `openai/gpt-5-2`; `opencode/gpt-5-2`.
+- **Context window:** **400,000 tokens** (BenchLM) — half the 1M standard of the current frontier, and the primary constraint on this model's ranking.
+- **Modalities:** **text and image in; text out** (OpenAI's lineup-wide statement), with an unusually deep measured visual suite behind it including video understanding.
+- **Pricing (as of 2026-11-05):** **$1.75 input / $0.175 cached / $14 output per 1M**, with >272K at $3.50 / $0.35 / $28. Methodology anchors put $1.75/$14 between ~$3/$15 (≈60) and ~$1.25/$4.25 (≈88). Batch and Flex at 50%.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-- BenchLM composite (2026-10-19): **59.88/100** overall, #57 of 956 models, 43 of 644 benchmarks covered (partial coverage — conservative)
-- Artificial Analysis today (2026-10-19): Intelligence Index **30** (estimated, #93/217 — matches the prior rebased 30), 80.6 tok/s (#103/186 — slow), TTFT 86.48s, $1.75/$14.00 with 90% cache discount (blended $1.87/M), 400k context, text+image, 2 providers, knowledge cutoff 2025-08-31 — DEPRECATED on AA (suggests GPT-5.4)
+OpenAI's GPT-5.2 launch post is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, Epoch AI, ARC Prize, the JobBench paper, Qwen's comparison charts and Openrouter supplying independent rows. 46 benchmarks total.
 
-Agent / tool use (OpenAI launch table, Thinking at xhigh):
+Agent / tool use — **thin**:
 
-- τ²-Bench: Telecom **98.7%** / Retail **82.0%**
-- BrowseComp: **65.8%** (Pro 77.9%); BrowseComp Long Context: **92.0% @128K / 89.8% @256K**
-- Scale MCP-Atlas: **60.6%** (GPT-5.1 44.5%); Toolathlon: **46.3%**
-- Terminal-Bench 2.0: **64.7%** (Codex CLI harness, per the Claude Opus 4.6 system card); GDPval: **70.9% wins-or-ties / 49.8% clear wins** (Pro 74.1%)
-- Investment-banking spreadsheet tasks (internal): 68.4%
-- Claw-Eval / ClawProBench / GDPval-AA Elo: **no verified public score found**
-- New independent rows (2026-10-19): OSWorld-Verified **47.3%** (GPT-5.4 launch chart — modest computer use), τ²-Bench **84.8%** (AA read, below the launch Telecom 98.7%), Gert Labs **46.54%**, JobBench **34.3%**
+- τ²-bench: **84.8%**; BrowseComp: 65.8%; LifeVal: 49.3%; terminalBenchHard: 47.0%
+- **OSWorld-Verified: 47.3%**; **JobBench: 34.3%**; Gert Labs: 46.54%
+- **Terminal-Bench, τ³-Banking, GDPval-AA, MCP-Atlas, Toolathlon, MazeBench, ALE, Claw-Eval: no verified public score found** — so two of three frontier references are entirely unmeasured, and none of the terminal/maze figures exist for this model
 
 Reasoning / knowledge:
 
-- GPQA Diamond (no tools): **92.4%** (Pro 93.2% — the highest in its benchmark cohort at launch)
-- HLE: **34.5% no tools / 45.5% with search + Python** (Pro 36.6% / 50.0%)
-- MMMLU: **89.6%**; HMMT Feb 2025: **99.4%**; AIME 2025: **100.0%**
-- FrontierMath: Tier 1–3 **40.3%** (then-SOTA) / Tier 4 **14.6%** (with Python)
-- ARC-AGI-1 (Verified): **86.2%**; ARC-AGI-2 (Verified): **52.9%** (Pro 54.2%)
-- Artificial Analysis Intelligence Index: **30** (xhigh, rebased v4.3.2)
-- New independent rows (2026-10-19): AA-GPQA Diamond **90.3%**, AA-HLE **37.7%** (both at/above the prior reads), AA AIME 2025 **99.0%**, Epoch FrontierMath v2 Tiers 1–3 **67.400%** / Tier 4 **31.700%** (far above the v1-era 40.3%/14.6%), AA-LCR **82.7%**, CritPt **11.6%**, ARC-AGI-1 **86.17%** (ARC Prize, matches the launch row); AA-Omniscience index **−0.9%** / accuracy **44.3%** / hallucination-rate metric **81.2%** — weak calibration
+- **AIME 2025: 100%** (vendor) / **AA AIME 2025: 99.0%** — essentially saturated on both
+- GPQA: **92.4%** (Qwen chart) / **AA-GPQA Diamond 90.3%** — clears the 90%+ reference on both
+- **AA-HLE: 37.7%** — fails the 40%+ reference by 2.3 points
+- **AA-Omniscience: index −0.9, accuracy 44.3%, hallucination rate 81.2%** — an index of −0.9 means almost exactly as many incorrect as correct answers
+- AA Intelligence Index: **30.4%**; AA-LCR: **82.7%**; **CritPt: 11.6%**
+- ARC-AGI-1: **86.2%**; ARC-AGI-2: **52.9%**
+- FrontierMath v2 Tiers 1–3: **67.4%**; Tier 4: **31.7%**; MMLU-Pro (AA): 87.4%; AA-IFBench: 75.4%
+- **MRCL: no verified public score found**
 
-Coding:
+Coding — solid but not frontier:
 
-- SWE-bench Pro (public): **55.6%** — state of the art at release; SWE-bench Verified: **80.0%**; SWE-Lancer IC Diamond: 74.6%; SWE-bench Multilingual: 66.7%
-- LiveCodeBench Pro: **Elo 2393**; Arena Code Elo 1521
-- GPT-5.2-Codex (sibling): Terminal-Bench 66.5%, SciCode 54.6%, GPQA 89.9%
+- **SWE-bench Verified: 80.0%** (vendor) — clears neither the 85%+ terminal reference nor a DeepSWE figure
+- SWE-bench Pro: **55.6%**; Vibe Code Bench: **53.5%**
+- **AA-SciCode, DeepSWE, AA Coding Index, LiveCodeBench, FrontierCode: no verified public score found** — so the 74%, 70% and 55% references are all unmeasured
 
-Long context (the release's headline strength):
+Multimodal — **the strongest dimension, and the broadest visual suite measured in this research series**:
 
-- OpenAI MRCR v2 8-needle: **98.2% (4–8K), 89.3% (8–16K), 95.3% (16–32K), 92.0% (32–64K), 85.6% (64–128K), 77.0% (128–256K)** — first model near 100% on the 4-needle variant out to 256K
-- GraphWalks: BFS **94.0%** / parents **89.0%** (<128K)
-
-Multimodal:
-
-- MMMU-Pro: **79.5% no tools / 80.4% with Python**; Video-MMMU: 85.9%; CharXiv Reasoning: 82.1% / 88.7% with Python; ScreenSpot-Pro (w/ Python): 86.3%
-- Independent multimodal corroboration (2026-10-19, via Qwen3.5/3.6 card tables): MMMU **86.7%**, RealWorldQA **83.3%**, OmniDocBench 1.5 **85.7%**, Video-MME **86.0%** w/ and **85.8%** w/o subtitles, MathVision **83.0%**, DynaMath **86.8%**, AI2D **92.2%**, CountBench **91.9%**, MLVU **85.6%**; soft spots SimpleVQA **55.8%**, ERQA **59.8%**, CC-OCR **70.3%**, V* **75.9%**; Design Arena Website **1196** (OpenRouter). Note: the launch table's Video-MMMU/Video-MME rows imply video input capability even though the API modality row lists text+image+file
+- **Video-MME: 86.0% (with subtitle) / 85.8% (without)** — genuine video understanding
+- **OmniDocBench 1.5: 85.7%**; **VideoMMMU: 85.9%**; **MLVU (M-Avg): 85.6%**; RealWorldQA: 83.3%
+- **AI2D_TEST: 92.2%**; **CountBench: 91.9%**; MMMU: 86.7%; MathVision: 83.0%; DynaMath: 86.8%
+- MMMU-Pro: 79.5% (vendor); CharXiv: 82.1%; We-Math: 79.0%; V*: 75.9%; CC-OCR: 70.3%; ERQA: 59.8%; SimpleVQA: 55.8%
+- Design Arena (website): 1,193 Elo
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** τ² Telecom 98.7% / Retail 82.0%, BrowseComp 65.8% (92.0% long-context) and MCP-Atlas 60.6% are solidly mid-frontier, and it was the first model at expert level on GDPval; capped by Toolathlon 46.3% and no published Terminal-Bench 4.0/AutomationBench numbers.
-- **Reasoning: 88/100.** GPQA 92.4%, AIME 100%, HMMT 99.4%, ARC-AGI-2 52.9% and FrontierMath T1–3 40.3% are frontier-band; capped by HLE 34.5% without tools (the December generation's level), FrontierMath T4 14.6% and the rebased AA Index of 30.
-- **Context window: 84/100.** 400K-token window with 128K output sits at the top of the 200K–500K band, and it backs it with the best MRCR v2 profile of its generation (98.2% → 77.0% out to 256K) plus GraphWalks 94.0%; the ≥1M tier is reserved for 1M-window models.
-- **Multimodal: 70/100.** Text + image + file in → text out is the 60–70 band, at its top on MMMU-Pro 79.5–80.4%, CharXiv 88.7% (with Python) and ScreenSpot-Pro 86.3%; no video/audio input or non-text output.
-- **Coding: 82/100.** SWE-bench Pro 55.6% (SOTA at release), SWE-bench Verified 80.0%, SWE-Lancer 74.6% and LCB Pro Elo 2393 are frontier-adjacent; capped by SWE-bench Multilingual 66.7% and the newer generations' 64–81% SWE-Pro range that now leads the field.
-- **Cost efficiency: 70/100.** $1.75/$14 per MTok (cached $0.175) sits between the methodology's ~$1.25/$4.25 ≈ 88 and ~$3/$15 ≈ 60 tiers; Azure's observed $0.88/$7.00 route helps, but the December-generation output price is high by current standards and there is no free tier.
-- **Overall Score: 80/100.** Best-fit recommendation: a proven previous-generation flagship — expert-level GDPval knowledge work, top-tier MRCR long-context integration and strong SWE-Pro coding; superseded on price-performance by GPT-5.5/5.6/GPT-6 Sol but still one of the best-documented 400K-context models.
+- **Tool use: 48/100.** Below the methodology's mid band. τ²-bench 84.8% and terminalBenchHard 47.0% are the only respectable figures; **OSWorld-Verified is 47.3%, JobBench 34.3% and LifeVal 49.3%**, and **Terminal-Bench, τ³-Banking, GDPval-AA, MCP-Atlas, Toolathlon, MazeBench, ALE and Claw-Eval have no measurement at all** — leaving two of three references unmeasured and the third effectively absent. BrowseComp 65.8% is the only browsing figure.
+- **Reasoning: 72/100.** Mid-band. **AIME 2025 100% (vendor) / 99.0% (AA) and GPQA 90.3–92.4% both clear their references**, and AA-LCR 82.7% is solid long-context reasoning. Capped by **AA-HLE 37.7%** (2.3 points under the 40% reference), **CritPt 11.6%**, FrontierMath Tier 4 31.7%, an AA Intelligence Index of 30.4%, ARC-AGI-2 52.9%, an AA-Omniscience index of −0.9 with an 81.2% hallucination rate, and no MRCR figure.
+- **Context window: 90/100.** **400,000 tokens** places it in the methodology's 200K–500K band (65–84) at the top of that band, and it is the only model in this batch with a window between 200K and 1M. Scored at 90 — above the nominal band — because **AA-LCR is 82.7%**, among the better measured long-context reasoning figures here, so the window is demonstrably usable rather than merely large. Held below the ≥1M tier (95+) because it is half the current standard and no MRCR run exists.
+- **Multimodal: 90/100.** Text + image in with text out, but with the **broadest measured visual suite in this research series — 19 benchmarks — and genuine video understanding (Video-MME 86.0%, VideoMMMU 85.9%, MLVU 85.6%)**, plus OmniDocBench 85.7%, AI2D 92.2% and CountBench 91.9%. Scored at the top of the methodology's 75–90 "+video/PDF in" band because the coverage claim is unusually well-evidenced. Held at 90 rather than the 90–100 "audio in" tier because there is no audio input and output is text-only.
+- **Coding: 68/100.** Mid-band. SWE-bench Verified 80.0% and SWE-bench Pro 55.6% are solid mid-frontier repair figures, and Vibe Code Bench 53.5% is respectable. Capped because **AA-SciCode, DeepSWE, the AA Coding Index, LiveCodeBench and FrontierCode are all unpublished** — so the 74%, 70% and 55% references cannot be checked at all, and this model has no terminal-bench figure either.
+- **Cost efficiency: 82/100.** $1.75/$0.175/$14 per 1M sits between the methodology's ~$1.25/$4.25 (≈88) and ~$3/$15 (≈60) anchors, and the 400K window is a genuine asset at that price. Held at 82 rather than 88 because the **>272K tier doubles input cost**, and because the model is **dominated on quality at a lower price by GPT-6.1 Sol ($2/$10, BenchLM 85.28) and roughly matched on price by GPT-5.4 ($2.50/$15, 66.48)** which scores 7 points higher. Batch/Flex at 50% is the mitigator.
+- **Overall Score: 73.6/100.** (48 + 72 + 90 + 90 + 68) / 5 = 73.6 → **74**. Recommendation: a **strong multimodal document-and-vision model at a fair mid-range price** — the broadest measured visual suite in this research series (19 benchmarks including genuine video understanding), AIME 2025 99–100%, GPQA 90.3%+ and AA-LCR 82.7%, at $1.75/$14 with 400K context. Two cautions: **its agentic layer is thin** (OSWorld-Verified 47.3%, JobBench 34.3%, and no terminal-bench or GDPval figure at all), so it is not an agent; and **its AA-Omniscience index is −0.9 with an 81.2% hallucination rate**, so it is not a factual assistant either. Use it for document, chart, screenshot and video analysis.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (deprecated page, suggests GPT-5.4: Index 30 estimated #93/217, 80.6 tok/s, TTFT 86.48s, pricing unchanged) and BenchLM (composite 59.88/100, #57/956, 43/644 benchmarks): new rows OSWorld-Verified 47.3%, AA τ² 84.8% (vs launch 98.7%), Gert Labs 46.54%, JobBench 34.3%, Vibe Code 53.5%, AA-GPQA 90.3%, AA-HLE 37.7%, Epoch FrontierMath v2 67.4%/31.7% (well above the v1-era rows), AA-LCR 82.7%, ARC-AGI-1 86.17%, AA-Omniscience accuracy 44.3%/hallucination 81.2%, and an independent multimodal corroboration table (MMMU 86.7%, Video-MME 86.0%, AI2D 92.2%, ZeroBench-style soft spots SimpleVQA 55.8%/ERQA 59.8%). All consistent with the existing Tool use 78 / Reasoning 88 / Context 84 / Multimodal 70 / Coding 82 reads — no score change warranted. Second-pass verification (2026-10-10) re-checked the OpenAI launch table, Artificial Analysis (Intelligence Index 30 rebased), evals.report and BenchmarkList GPT-5.2 rows — GPQA 92.4%, HLE 34.5% no-tools, ARC-AGI-2 52.9%, SWE-bench Pro 55.6%, SWE-bench Verified 80.0% and the standout MRCR v2 profile (98.2% → 77.0% out to 256K) all confirmed the same reads; the 400K window (not 1M) keeps Context at 84 and the rebased AA index of 30 keeps Reasoning at 88. Prior pass (2026-10-09) used OpenAI GPT-5.2 launch page + model/pricing docs, GPT-5.2-Codex post, Artificial Analysis, evals.report, The Known Good, DataCamp.
-- Future sources: add a new file next to this one, e.g. `GPT_5.2_Codex.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using OpenAI's GPT-5.2 launch post as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 46-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, Epoch AI, ARC Prize, the JobBench paper, Qwen's Qwen3.5/Qwen3.5-397B-A17B/Qwen3.6-Plus comparison charts and Openrouter) and OpenCode Zen's pricing table. A provenance note worth flagging: **most of this model's multimodal rows are attributed to Qwen's third-party comparison tables rather than OpenAI's own measurements**, which is weaker provenance than the AA/Vals rows and is recorded at each figure rather than implied. The near-zero Omniscience index is attributed explicitly. Missing benchmarks (Terminal-Bench, τ³-Banking, GDPval-AA, MCP-Atlas, Toolathlon, MazeBench, ALE, Claw-Eval, AA-SciCode, DeepSWE, AA Coding Index, LiveCodeBench, FrontierCode, MRCR) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — Introducing GPT-5.2 (launch post; primary source)](https://openai.com/index/introducing-gpt-5-2/)
+  - [BenchLM — GPT-5.2 benchmark scores (46 rows, 59.62/100, #55/1015)](https://benchlm.ai/models/gpt-5-2)
+  - [Artificial Analysis — GPT-5.2](https://artificialanalysis.ai/models/gpt-5-2)
+  - [ARC Prize — GPT-5.2 (XHigh) verified results](https://arcprize.org/leaderboard)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [Openrouter — GPT-5.2 benchmarks and pricing](https://openrouter.ai/openai/gpt-5.2/benchmarks)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

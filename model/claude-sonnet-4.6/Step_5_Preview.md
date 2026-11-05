@@ -1,74 +1,78 @@
 # Claude Sonnet 4.6 — findings by Step 5 Preview
 
-- Source: Anthropic (`claude-sonnet-4-6`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Anthropic (`anthropic/claude-sonnet-4.6`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Sonnet 4.6
-- **Short description:** Anthropic's February 2026 mid-tier model (released 2026-02-17) — the first Sonnet with a 1M-token context window (beta at launch, GA 2026-03-13 at standard pricing) and the first Sonnet preferred over its Opus predecessor (59% vs Opus 4.5). Near-Opus computer use (72.5% OSWorld vs 72.7%) and coding (79.6% vs 80.8% SWE-bench Verified) at $3/$15; notably the family's best GraphWalks 1M structured long-context reasoning. Legacy status now (Sonnet 5/5.5 succeeded it).
-- **Provider / access:** Claude API `claude-sonnet-4-6`; Amazon Bedrock, Google Cloud, Microsoft Foundry; was the default model on claude.ai Free/Pro at launch; Claude Code. No OpenCode Zen Free ID found.
-- **Release / knowledge:** 2026-02-17; reliable knowledge cutoff Aug 2025, training data cutoff Jan 2026.
-- **IDs:** `claude-sonnet-4-6` (Claude API alias and clouds).
-- **Context window:** 1,000,000 tokens (GA, no beta header, standard pricing); 128K max output (300K with the Batch beta header).
-- **Modalities:** Text and images in → text out. Adaptive thinking + extended thinking (effort levels); context compaction (beta); tool use.
-- **Pricing (as of 2026-10-09):** $3.00 / MTok input, $15.00 output; cache reads $0.30; 5m cache write $3.75 / 1h $6; Batch API $1.50 / $7.50 (50% off).
-- **Architecture:** Proprietary (pre-4.7 tokenizer — ~30% fewer tokens than the newer Claude tokenizer for the same text).
+- **Name:** Claude Sonnet 4.6. Now **four generations behind** — the current lineup is Sonnet 5.5 (BenchLM 81.89, #6), preceded by Sonnet 5 (64.45) and then this. BenchLM scores it **55.66/100, #71 of 1,015**, and **classifies it Non-Reasoning** — the fourth such model in this corpus after Gemini 3 Pro, Gemini 3 Flash and Claude Opus 4.6.
+- **Short description:** A legacy Sonnet whose most notable figures are **Claw-Eval 67.8%** (one of only three measured figures in this research series, and the *best* of them) and **CritPt 0.9%** — the lowest scientific-reasoning score measured anywhere in this research series. Its coding record is mid-pack (SWE-bench Verified 79.6%) and its reliability profile is poor (**AA-Omniscience index −3.5, 68.5% hallucination**).
+- **Provider / access:** Anthropic API, Amazon Bedrock, and Google **Antigravity / Code Assist** with an included trial quota (per the repo's meta.json — one of the few non-Zen free-ish routes to a Claude model). Also on OpenRouter. **No Zen route** appears in Zen's current model list.
+- **Release / knowledge:** release date not restated for this legacy SKU; Anthropic's models overview lists it under "Legacy models (still available)". **Knowledge cutoff not restated by Anthropic.**
+- **IDs:** `anthropic/claude-sonnet-4.6` (Claude API, Bedrock); `anthropic/claude-sonnet-4.6` (Openrouter).
+- **Context window:** **200,000 tokens** (BenchLM and the repo's meta.json agree) — one-tenth of the current lineup's 1M, and the primary reason this model cannot rank in the top context tier.
+- **Modalities:** **text and image in; text out** (repo meta.json). Non-Reasoning per BenchLM.
+- **Pricing (as of 2026-11-05):** **$3 input / $15 output per 1M** (repo meta.json), with a free-ish trial quota on Antigravity / Code Assist. Methodology anchors put $3/$15 at ≈60 — and note **Sonnet 5.5 costs $2/$10**, less than half, for a BenchLM score 26 points higher.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Anthropic's Sonnet 4.6 system card is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, ARC Prize, Cognition, Cursor, Kaggle, LlamaIndex, Qwen's comparison chart, and the OSWorld-Verified, Claw-Eval, CyberGym, JobBench, SWE-Rebench and React Native Evals leaderboards supplying independent rows. 40 benchmarks total.
 
-- Terminal-Bench 2.0: **59.1%** (system card, no thinking budget); Terminal-Bench 2.1: **71.2%** (AA, max) / **57.3%** (Vals Terminus-2)
-- Terminal-Bench 4.0: **3%** (AA, max — the Feb-generation models fall off the new hard suite)
-- MCP-Atlas: **61.3%** (system card); one release tracker lists the MCP-Atlas leaderboard at 69.5%
-- OSWorld-Verified: **72.5%** (system card; leaderboard 72.1%) — within 0.2 pts of Opus 4.6; **independent BenchmarkList run: 81.5% (#14/70, 81st pct — 2026-10-07, notably higher than the system card)**; **OSWorld 2.0: 8.3%** (paper)
-- GDPval-AA: **Elo 1633** (system card; another tracker lists 1676) — best-in-class office Elo at launch; **the AA leaderboard re-measured at Elo 1232 (#116/298, 2026-10-19)** — a re-anchoring of the board (all legacy models' Elo shifted as new models joined), not a capability change, so the stable OSWorld/τ²/Claw-Eval rows continue to anchor the Tool use score
-- τ²-bench: Retail **91.7%** / Telecom **97.9%** (system card)
-- Claw-Eval: **67.8%** (leaderboard); **ClawProBench 60.5 (#11/48, independent — BenchmarkList 2026-10-07)**; Finance Agent: **63.3%** (system card; Vals 51.0%); **Tau3-Banking 34.4% (#30/176, independent)**; CyberGym 65.2%; JobBench 36.9%
-- Vending-Bench Arena: **~$5,700** simulated profit (beats GPT-5.2; below Opus 4.6's ~$7,400)
+Agent / tool use — **weak**:
+
+- **Claw-Eval: 67.8%** — one of only three measured ClawEval figures in this research series, and **the best of the three** (ahead of Claude Opus 4.6's 70.4% is false — in fact second to it; ahead of GPT-5.4's 60.3%)
+- **OSWorld-Verified: 72.1%**; τ²-bench: 79.5%; Gert Labs: 62.92%; CyberGym: 65.2%
+- **Terminal-Bench 2.0: 59.1%** (vendor) / **Terminal-Bench 2.1 (Vals): 57.3%** — the only terminal figures, both far under the 88%+ reference, and note both are the *older* harnesses
+- JobBench: 36.9%; **OSWorld 2.0: 8.3%**; **ApprenticeBench: 2%**; **MazeBench: 0%**
+- **Terminal-Bench 4.0, τ³-Banking, GDPval-AA, MCP-Atlas, BrowseComp, Toolathlon, ALE: no verified public score found** — so two of three frontier references are entirely unmeasured
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.9%** (system card, 10 trials, max effort); Vals 85.6%; AA 79.9%
-- HLE: **33.2% no tools / 49.0% with tools** (system card); AA 33.6%
-- ARC-AGI-2: **58.3%** verified (60.4% at high effort — a 4.3x jump over Sonnet 4.5's 13.6%); independent BenchmarkList ARC-AGI-2 60.4% (#28/99)
-- MMMLU: **89.3%**; MMLU-Pro 87.3% (Vals); AIME 92.29% (Vals); MATH-500 97.8%
-- AA Intelligence Index: **24.7** (rebased scale); CritPt: **3.1%** (AA, max)
-- AA-Omniscience: index −3.5, accuracy 38.6%, hallucination rate 68.5%
+- **GPQA: 89.9%** (vendor) / GPQA Diamond 85.6% (Vals) — fails the 90%+ reference on both
+- HLE: **49.0%** (vendor) / **AA-HLE 13.3%** — a **35.7-point vendor-vs-independent gap**, the largest in this batch
+- **AA-Omniscience: index −3.5, accuracy 38.6%, hallucination rate 68.5%** — a negative index, meaning more incorrect than correct answers
+- AA Intelligence Index: **24.7%**; AA-LCR: **68.3%**; **CritPt: 0.9%** — the lowest CritPt measured anywhere in this research series
+- ARC-AGI-1: **86.0%**; ARC-AGI-2: **58.3%**; SuperGPQA: 95%; MMLU-Pro (Vals): 87.3%; AA-IFBench: 41.2%
+- **FrontierMath, MRCR: no verified public score found**
 
-Coding:
+Coding — the least-bad dimension:
 
-- SWE-bench Verified: **79.6%** (system card, 10 trials; 80.2% with a prompt modification); Vals 77.4%; SWE-bench Multilingual 75.9%
-- DeepSWE v1.1: **~30%** (29.93% with tools per DataLearner)
-- CursorBench 3.1: **48.8%**; Vibe Code Bench v1.1: **51.48%** (Vals) / 55.77% (Claude Code per publicai)
-- LiveCodeBench: **82.1%** (Vals); FrontierCode 1.1 Main: **24.3%**; Code Migration 39.89% (Vals)
-- LMArena Elo: text ~1459–1472, code 1521
+- **SWE-bench Verified: 79.6%** (vendor) / **77.4%** (Vals) — a 2.2-point gap, both respectable
+- LiveCodeBench (Vals): **82.1%**; React Native Evals: **80.6%**; SWE-Rebench: 60.7%; Vibe Code Bench: **51.5%**
+- cursorBench 3.1: 48.8%; **FrontierCode 1.1 Main: 24.3%**
+- **AA-SciCode, DeepSWE, AA Coding Index, SWE-bench Pro: no verified public score found** — so the 55%, 74% and 70% references are unmeasured
 
-Multimodal:
+Multimodal (image-in):
 
-- MMMU-Pro: **74.5% no tools / 75.6% with tools** (system card); Vals 83.6%; CharXiv Reasoning 72.4%; LAB-Bench FigQA and WebArena-Verified reported in the system card
-
-Long context:
-
-- 1M-token window at standard pricing; **MRCR v2 8-needle 128K average: 84.9%**; **GraphWalks BFS 1M: F1 68.4 (64k) / 73.8 (max)** — stronger than Opus 4.6's 41.2/38.7 on the same eval; AA-LCR: 80.0% (AA, max)
+- **CharXiv: 77.4%** (vendor); **AA-MMMU-Pro: 70.6%**; Design Arena (website): **1,283 Elo**
+- **MMMU-Pro from the vendor, ExtractBench, ParseBench, BabyVision, ZeroBench: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 72/100.** OSWorld-Verified 72.5%, GDPval-AA Elo 1633 (best-in-class at launch), τ² Telecom 97.9% and Claw-Eval 67.8% are solidly mid-band; capped by Terminal-Bench 2.1 at 57.3–71.2% depending on harness, Terminal-Bench 4.0 at 3%, OSWorld 2.0 at 8.3% and Finance Agent 51.0% on Vals.
-- **Reasoning: 76/100.** GPQA 89.9% (system card) / 85.6% (Vals), ARC-AGI-2 58.3% and MMMLU 89.3% are strong; capped by HLE 33.2% without tools, CritPt 3.1%, the AA Index at 24.7 (rebased) and an Aug-2025 knowledge cutoff — the oldest in this comparison.
-- **Context window: 95/100.** 1M tokens GA at standard pricing with 128K output (300K batch) is the ≥1M tier, and it backs it with the best measured structured long-context reasoning in the Claude family (GraphWalks 1M F1 73.8) plus MRCR 128K 84.9%; only the unverified ≥98%-at-512K top tier keeps it off 100.
-- **Multimodal: 70/100.** Text + image in → text out is the 60–70 band, at its top on MMMU-Pro 74.5–83.6% (Vals) and CharXiv 72.4%; no video/audio input or non-text output.
-- **Coding: 74/100.** SWE-bench Verified 79.6% (80.2% prompted) and LiveCodeBench 82.1% are frontier-adjacent for a mid-tier model; capped by DeepSWE ~30%, CursorBench 3.1 48.8%, FrontierCode 24.3% and Vibe Code Bench 51.5% — the long-horizon and end-to-end agentic-coding gap that Sonnet 5 later closed.
-- **Cost efficiency: 60/100.** $3/$15 per MTok maps to the methodology's ~$3/$15 ≈ 60 tier, with $0.30 cache reads and 50%-off batch softening it; superseded on price by Sonnet 5's $2/$10 with no free tier.
-- **Overall Score: 77/100.** Best-fit recommendation: a proven legacy value model — near-Opus computer use, best-in-family 1M structured long-context reasoning and office Elo at Sonnet pricing; pick Sonnet 5/5.5 or a current frontier model for new agentic-coding deployments.
+- **Tool use: 48/100.** The weakest dimension and near the bottom of the methodology's mid band. **Claw-Eval 67.8% is the second-best ClawEval figure in this research series**, OSWorld-Verified 72.1% and τ²-bench 79.5% are respectable, but **Terminal-Bench is only on the 2.0 harness (59.1%) with Vals measuring 57.3% on 2.1** — roughly 30 points under the reference — and **GDPval-AA, τ³-Banking, MCP-Atlas, BrowseComp and Toolathlon are entirely absent**. OSWorld 2.0 8.3%, ApprenticeBench 2% and MazeBench 0% confirm the execution layer is not competitive.
+- **Reasoning: 45/100.** Below the methodology's mid band, and the weakest dimension after tool use. **GPQA Diamond 85.6% (Vals) fails the 90% reference, AA-HLE 13.3% fails the 40% reference by 26.7 points, CritPt 0.9% is the lowest measured in this research series, and the AA-Omniscience index is −3.5 with a 68.5% hallucination rate.** The 35.7-point vendor-vs-AA gap on HLE (49.0% vs 13.3%) is the largest in this batch and is resolved in favour of the independent measurement. ARC-AGI-1 86.0% and SuperGPQA 95% are the only respectable figures.
+- **Context window: 70/100.** **200,000 tokens** places it exactly on the methodology's 200K tier boundary (200K–500K = 65–84; "200K = 70"), and it is the only model in this batch without a ≥500K window. Held at the 70 floor rather than mid-tier because AA-LCR is 68.3% (the second-weakest here), no MRCR figure exists, and no max-output limit is published.
+- **Multimodal: 74/100.** Text + image in with text out, scoring in the methodology's 60–70 band and marginally above it on the strength of **CharXiv 77.4%** and a **1,283-Elo Design Arena** result. Held at 74 because AA-MMMU-Pro is 70.6%, the visual suite is three benchmarks, and there is no video or audio input.
+- **Coding: 74/100.** The least-bad dimension and right at the mid-band boundary. SWE-bench Verified 77.4–79.6% and LiveCodeBench 82.1% are solid repair-coding figures, and React Native Evals 80.6% corroborates. Capped by Vibe Code Bench 51.5%, cursorBench 3.1 48.8%, **FrontierCode 1.1 Main 24.3%**, and the absence of AA-SciCode, DeepSWE, SWE-bench Pro and the AA Coding Index, so the 55%, 74% and 70% references are all unmeasurable.
+- **Cost efficiency: 60/100.** $3/$15 per 1M maps directly onto the methodology's ≈60 anchor. Held at exactly 60 rather than lower because the **Antigravity / Code Assist trial quota** provides a limited no-cost route, and because 200K context keeps prompt costs down. Drawn down from any bonus because **Sonnet 5.5 costs $2/$10** — a third less for 26 more BenchLM points — so this SKU is strictly dominated on price-per-capability within its own family. No free tier on the Anthropic API itself.
+- **Overall Score: 62.2/100.** (48 + 45 + 70 + 74 + 74) / 5 = 62.2 → **62**. Recommendation: a legacy Sonnet with one genuinely useful artefact (**the second-best ClawEval figure in this research series, 67.8%**) and little else to recommend it. It is dominated three times over — by **Sonnet 5 (64.45)**, by **Sonnet 5.5 (81.89 at $2/$10)**, and on price by its own successor at less than half the rate card. Its 200K window is one-tenth of the current lineup. Migrate unless pinned to `anthropic/claude-sonnet-4.6` for compatibility; the Antigravity trial quota is the only reason to run it at all.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Anthropic's official models overview + deprecations table re-confirm Sonnet 4.6 Active (retirement not sooner than 2027-02-17), 1M/128K at standard pricing ($3/$15), 300K batch-output beta support, extended thinking deprecated in favour of adaptive effort, and the pre-4.7 tokenizer note; the AA GDPval-AA v2.1 leaderboard re-measures the model at Elo 1232 (#116/298) vs the 1633 launch-era system-card figure (board re-anchoring, recorded above); BenchLM's aggregate stands at 55.91. No score change warranted — the stable computer-use (OSWorld 72.5%/81.5%) and long-context (GraphWalks 1M F1 73.8, MRCR 128K 84.9%) evidence is unchanged. Prior pass (2026-10-10) used benchmarklist.com (200 primary-source results); the first pass used Anthropic's Sonnet 4.6 model page/pricing/launch post + system card, Vals AI, AA, BenchLM, DigitalApplied, ZBuild, ShawnHack and publicai.
-- Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Anthropic's Claude Sonnet 4.6 system card as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 40-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, ARC Prize, Cognition, Cursor, Kaggle, LlamaIndex, Qwen's comparison chart, and the OSWorld-Verified, Claw-Eval, CyberGym, JobBench, SWE-Rebench and React Native Evals leaderboards) and the repo's own `meta.json` for the 200K window, modality set and $3/$15 rate card. The 35.7-point HLE vendor-vs-independent gap (49.0% vs 13.3%) is recorded as the batch's largest and resolved in favour of the independent run, and the series-lowest CritPt (0.9%) is attributed rather than presented bare. Missing benchmarks (Terminal-Bench 4.0, τ³-Banking, GDPval-AA, MCP-Atlas, BrowseComp, Toolathlon, ALE, FrontierMath, MRCR, AA-SciCode, DeepSWE, AA Coding Index, SWE-bench Pro, and most multimodal benchmarks) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Sonnet 4.6 system card (primary benchmark source)](https://www.anthropic.com/claude-sonnet-4.6-system-card)
+  - [Anthropic — Models overview (legacy status, lineup modality statement)](https://platform.claude.com/docs/en/about-claude/models/overview)
+  - [BenchLM — Claude Sonnet 4.6 benchmark scores (40 rows, 55.66/100, #71/1015)](https://benchlm.ai/models/claude-sonnet-4-6)
+  - [Artificial Analysis — Claude Sonnet 4.6](https://artificialanalysis.ai/models/claude-sonnet-4-6)
+  - [Vals AI — Claude Sonnet 4.6 leaderboard results](https://www.vals.ai/models/anthropic_claude-sonnet-4.6)
+  - [ARC Prize — Claude Sonnet 4.6 (Max) verified results](https://arcprize.org/leaderboard)
+  - [Claw-Eval leaderboard (source of the 67.8% figure)](https://claw-eval.github.io/)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
