@@ -260,6 +260,14 @@ export const SANCTIONED_DELETIONS = new Map([
     "model/muse-spark-1.3/Xing_4.0.29B_A4B.md.excluded",
     "user-ordered deletion 2026-11-05 — keep deleted, never restore",
   ],
+  [
+    "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md",
+    "user-ordered deletion 2026-11-05 — invalid/irrelevant rater report, keep deleted, never restore",
+  ],
+  [
+    "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md.excluded",
+    "user-ordered deletion 2026-11-05 — invalid/irrelevant rater report, keep deleted, never restore",
+  ],
 ]);
 
 /** Exact FAIL text for a resurrected merged findings-file stem. */

@@ -1,80 +1,80 @@
 # Ember-1 — findings by GLM 5.3 Flash
 
 - Source: Fireworks (`fireworks/ember-1`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-researched 2026-11-05 (prior passes 2026-10-10, 2026-10-16): Vals' Ember-1 page has
+> grown from ~7 rows to 16 — adding SAGE 86.38% (#12/28), EMB 63.37%, BioMysteryBench 67.04%,
+> Finance Agent v2 51.85%, Legal Research 44.71%, Tax Agent 31.08%, Public Benefits 66.17%,
+> MysteryMechanism 22.52%, TB-Science 5.71% and an updated TB4.0 20.71% (#33/60); Vals Index
+> drifts 50.81%→49.03%. Still zero GPQA/HLE/LCR/Index anywhere and still unranked on BenchLM
+> (Nov 4: 5 vendor rows). Reasoning 64→66; Overall 77→78.
 
 ## Model card
 
 - **Name:** Ember-1 (Research Preview)
-- **Short description:** Specialized reasoning model from Fireworks Research, fine-tuned from Kimi K3 to "think less": it cuts unnecessary reasoning traces (~40% fewer tokens) while matching K3 quality. Top use case: agentic coding and long-horizon tool workloads where reasoning tokens dominate cost. It is a fine-tune of Kimi K3, not a smaller or different architecture — flag as a K3 variant.
-- **Provider / access:** Fireworks Serverless (Research Preview, two-week serverless research release); OpenRouter hosts it as `fireworks/ember-1` (Chat Completions API).
-- **Release / knowledge:** Released 2026-09-24 (launch post published 2026-09-23; Fireworks model-page metadata says created 2026-09-22, OpenRouter epoch ≈ 09-24 — minor conflict). Knowledge cutoff not disclosed (OpenRouter field `null`). **Research-Preview status: still LIVE as of 2026-10-16** — the nominal two-week serverless window lapsed ~Oct 7–8 with no removal: Fireworks model page "State: Ready" with serverless pricing active ($3.00/$0.30/$15.00 per 1M re-verified 2026-10-16), and the page now confirms the K3 lineage at **2.78T parameters, MoE**.
-- **IDs:** `fireworks/ember-1` (no Free ID on OpenCode Zen found — served via Fireworks/OpenRouter, paid)
-- **Context window:** 1,048,576 tokens total (1040k per the Fireworks page); max completion 943,718 — verified via the OpenRouter models API (2026-10-10); Vals lists 1M.
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes (tools, tool_choice, reasoning_effort advertised on OpenRouter); JSON mode via response_format.
-- **Pricing (as of 2026-10-02):** $3.00 / $15.00 per 1M (cached input $0.30/1M; blended 3:1 $6.00/1M) per RunFreeTools API pricing — same numbers as public Kimi K3 API pricing used in the launch post's cost analysis. Paid; proprietary research preview, no free tier.
-- **Architecture:** Fine-tune of Kimi K3 on Fireworks Serverless Training (50+ training experiments, 200+ evaluations, new algorithms for shorter reasoning); proprietary weights, base variant.
+- **Short description:** Specialized reasoning model from Fireworks Research, fine-tuned from Kimi K3 to "think less": it cuts unnecessary reasoning traces (~40% fewer tokens) while matching K3 quality. Top use case: agentic coding and long-horizon tool workloads where reasoning tokens dominate cost. A fine-tune of Kimi K3, not a smaller or different architecture — flag as a K3 variant.
+- **Provider / access:** Fireworks Serverless (Research Preview); OpenRouter `fireworks/ember-1` (Chat Completions API).
+- **Release / knowledge:** Released 2026-09-22/24 (minor date conflict across sources). Knowledge cutoff not disclosed. **Research-Preview status: still LIVE** past the nominal two-week window (re-verified Nov 4–5: BenchLM and Vals both still track it).
+- **IDs:** `fireworks/ember-1`. No Free ID on OpenCode Zen.
+- **Context window:** 1,048,576 tokens; max completion **943,718** per OpenRouter — CONFLICT: Vals lists max output 131k (their serving config). Flag both.
+- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode.
+- **Pricing (as of 2026-11-05):** $3.00 / $15.00 per 1M (cached $0.30; blended $6.00) — unchanged.
+- **Architecture:** Fine-tune of Kimi K3 on Fireworks Serverless Training; proprietary weights.
 
 ### Raw benchmarks found
 
+> Vendor rows (launch post) + Vals independent suite (16 rows as of Nov 5). BenchLM (Nov 4): still unranked, 5 vendor rows only; AA still has no Ember-1 page at any slug.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1 (N=189): **82.0%** (Fireworks launch post, https://fireworks.ai/blog/ember-1 — vs K3-max 80.9%)
-- τ²-Bench Airline (N=50): **66.0%** (Fireworks launch post — vs K3-max 64%)
-- SWE-Interact (N=75): **20.0%** (Fireworks launch post — vs K3-max 21.3%)
-- Terminal-Bench 4.0 (Vals independent, Mini-SWE-agent): **19.70%** (#23/45; $0.50-class cost/test $9.578 across suites; page current 2026-10-10) — the TB4.0-generation independent read sits far below the vendor's TB2.1 82.0%
-- Vals Index: **50.81% ±1.28, #27/45** (Vals, 2026-10-10)
-- Bedside Bench (Doximity, 500 clinical cases, Specialized Intelligence Index): **new Pareto frontier for cost/task** across open and closed models incl. GPT-5.6 Sol, GPT-6 Astra, Claude Opus 5 — no raw pass-rate number published
-- Claw-Eval: no verified public score found
-- GDPval-AA: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench 2.1 (vendor, N=189): **82.0%** (vs K3-max 80.9%)
+- Terminal-Bench 4.0 (Vals, Mini-SWE-agent): **20.71% ±3.64** (#33/60 — updated from 19.70%); Terminal-Bench-Science (Vals): **5.71%** (NEW, weak)
+- τ²-Bench Airline (vendor, N=50): **66.0%**; SWE-Interact (vendor): 20.0%
+- Vals Index: **49.03%** (was 50.81% #27/45 at the Oct 10 read — drift flagged)
+- CyberBench v1.1 (Vals): **69.52%**; Harvey LAB (Vals): 9.17%
+- SAGE (Vals): **86.38% ±1.89** (#12/28 — NEW, strong); Public Benefits 66.17%; MysteryMechanism 22.52%
+- Bedside Bench (Doximity): Pareto-frontier lead on cost/task — no absolute score published
+- Claw-Eval / GDPval-AA / Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found — **AA has no Ember-1 page at any slug (all 404, checked 2026-10-10)**; BenchLM lists Ember-1 as unranked, 5 benchmark rows, no overall
-- ProofBench v1.1 (Vals): **61.0%**; IOI (Vals): **46.33%**; CyberBench v1.1 (Vals): **69.52%**; Harvey LAB (Vals): **9.17%**
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
-- Bedside Bench (SII, physician-validated): Pareto-frontier lead on cost/task — quality claimed at K3 level; no absolute score published
+- GPQA Diamond / HLE / LCR / MLCR / CritPt / AA Index / Omniscience: **no verified public score found** (AA has no Ember-1 page — re-checked via BenchLM Nov 4)
+- ProofBench v1.1 (Vals): **61.00%**; IOI (Vals): **46.33%** — unchanged
+- **EMB (Vals): 63.37%** (NEW); **BioMysteryBench (Vals): 67.04% ±3.03** (NEW); **MysteryMechanism 22.52%** (NEW)
+- Bedside Bench (SII): Pareto-frontier cost/task lead; quality claimed at K3 level
 
 Coding:
 
-- SWE-bench Verified (N=500): **92.2%** (Fireworks launch post — vs K3-max 93.2%)
-- DeepSWE 1.1 (N=1135): **75.2%** (Fireworks launch post — vs K3-max 66.4%)
-- LiveCodeBench: no verified public score found
-- Vibe Code Bench v1.1 (Vals independent): **83.87%** (#16/110) — first independent coding corroboration
-- SciCode / AA-SciCode: no verified public score found
-- Vibe Code Bench: no verified public score found
+- SWE-bench Verified (vendor, N=500): **92.2%** (vs K3-max 93.2%); DeepSWE 1.1 (vendor): **75.2%** (+8.8 over K3-max)
+- Vibe Code Bench v1.1 (Vals): **83.87% ±3.15** (#21/124 — rank slipped from #16/110, score unchanged)
+- LiveCodeBench / SciCode: no verified public score found
 
 Long context:
 
-- no long-context retrieval reported (1.0M window advertised; no MRCR/RULER/GraphWalks numbers found)
+- 1.0M window; no MRCR/RULER/GraphWalks retrieval numbers found
 
-Token efficiency (the model's core claim):
+Token efficiency (core claim):
 
-- Live A/B (2 customers, production coding): **71.3% reasoning-token reduction, 39% total-token reduction at equal quality** (score 0.75 in both arms; Fireworks launch post)
-- Cost/task vs K3-max: Terminal-Bench **-51.9% / -23.1 USD**, SWE-bench Verified **-15.5% / -68.1 USD**, SWE-Interact **-32.5% / -60.8 USD**, DeepSWE **-23.7% / -126.9 USD**, τ²-Airline **-5.9% / -0.3 USD** (K3 public pricing: $3/$0.30/$15 per 1M)
-- Internal rollout: developers on Fireworks' own coding/cowork traffic did not notice the switch while consuming substantially fewer tokens
+- Live A/B: **71.3% reasoning-token reduction, 39% total-token reduction at equal quality**; cost/task vs K3-max: TB −51.9%, SWE-V −15.5%, DeepSWE −23.7%
+- Vals latency: **61 min 58 s** average — the token savings do not translate to wall-clock speed on Vals' harness
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** Vendor TB2.1 82.0% and τ²-Airline 66% remain unverified by any overlapping harness; the first independent reads — Vals TB4.0 19.70% (#23/45) and Vals Index #27/45 — show the agentic numbers do not carry to the current harness generation, so the score drops from 80.
-- **Reasoning: 64/100.** Still zero verified headline reasoning benchmarks (GPQA/HLE/LCR/Index all absent; AA has no page at all); the first independent reads — Vals ProofBench 61.0% and IOI 46.33% — are mid-band, so quality-at-K3-level rests on the equal-score A/B and Bedside Bench Pareto claims.
-- **Context window: 95/100.** 1,048,576-token context window with 943,718 max completion, verified via the OpenRouter models API (2026-10-10) — ≥1M tier = 95–100; no measured ≥98% retrieval at 512K+ to justify 100.
-- **Multimodal: 65/100.** Text + image input, text output only (RunFreeTools modality `text+image`) — the +image-in band (60–70); no video/PDF/audio input advertised.
-- **Coding: 88/100.** Vendor DeepSWE 75.2% (+8.8 over K3-max) and SWE-bench Verified 92.2% are strong but unverified; Vals' independent Vibe Code Bench 83.87% (#16/110) corroborates frontier-adjacent coding quality, while TB2.1 82.0% misses the 85%+ ref and LiveCodeBench/SciCode are unmeasured.
-- **Cost efficiency: 68/100.** List pricing $3/$15 per 1M maps to ~60 on the inverse-pricing rubric, adjusted upward for the model's defining Pareto-frontier token-efficiency lead (-51.9% cost/task on Terminal-Bench, -23.7% on DeepSWE, 39% fewer total tokens at equal quality vs K3-max).
-- **Overall Score: 77/100.** Mean of the five quality dims (75+64+95+65+88)/5 = 387/5 = 77.4 → 77. Best fit: high-volume agentic coding and tool pipelines where reasoning-token cost dominates — frontier-adjacent coding quality at a fraction of the token bill; not the pick when raw reasoning or multimodal breadth is the bottleneck.
+- **Tool use: 75/100.** Unchanged — vendor TB2.1 82.0% still unverified by any overlapping harness; the TB4.0-generation independent reads (20.71% #33/60, TB-Science 5.71%) keep the agentic story generation-bound.
+- **Reasoning: 66/100.** CHANGED from 64 — the new Vals rows add measured mid-band strength (SAGE 86.4% #12, EMB 63.4%, BioMystery 67.0%) on top of ProofBench 61.0%/IOI 46.3%; still zero GPQA/HLE/LCR/Index and still unranked on BenchLM.
+- **Context window: 95/100.** Unchanged — 1,048,576 context verified; the 943,718-vs-131K max-output conflict is noted, not resolved.
+- **Multimodal: 65/100.** Unchanged — text + image in, text out.
+- **Coding: 88/100.** Unchanged — vendor DeepSWE 75.2%/SWE-V 92.2% strong-but-unverified; Vals Vibe 83.87% corroborates frontier-adjacent coding.
+- **Cost efficiency: 68/100.** Unchanged — $3/$15 list with the defining Pareto token-efficiency lead; the 62-minute Vals latency is the new offset.
+- **Overall Score: 78/100.** CHANGED from 77 — (75 + 66 + 95 + 65 + 88) / 5 = 389/5 = 77.8 → 78. Best-fit: high-volume agentic coding where reasoning-token cost dominates — with the caveat that its quality claims remain mostly vendor-side and its Vals Index slipped below 50.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (second pass 2026-10-10: Fireworks blog + model page + changelog, OpenRouter models API, Vals AI model page — first independent benchmark data, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetches (web-search quota exhausted): BenchLM Ember-1 page (Nov 4, still unranked/5 vendor rows) + Vals AI model page fetched 2026-11-05 (16-row suite — 9 new rows since the last pass, Vals Index drift 50.81→49.03, TB4.0 19.70→20.71); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

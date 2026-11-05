@@ -1,15 +1,22 @@
 {
   "name": "Reka",
   "kind": "vendor",
-  "short": "Frontier multimodal model lab (Reka Edge, Flash and Core) with per-token API pricing published directly and no platform fee.",
+  "short": "Multimodal AI lab offering proprietary models (Reka Edge 2603 for vision/embodied AI, Reka Flash 3 for reasoning) plus curated open-weight models (GLM, DeepSeek, Qwen) on an OpenAI-compatible API, and a separate Vision API for video/image analysis with a free tier.",
   "officialUrl": "https://reka.ai",
-  "hosts": ["reka.ai", "developer.reka.ai"],
+  "hosts": ["reka.ai", "developer.reka.ai", "api.reka.ai", "docs.reka.ai"],
+  "idPrefixes": ["reka"],
   "plans": [
     {
-      "name": "Pay-as-you-go",
-      "price": "Per-token, per-model rates",
-      "notes": "Published per-model rates for Reka Edge / Flash / Core per 1M tokens.",
-      "evidenceUrl": "https://docs.reka.ai/pricing"
+      "name": "Chat API pay-as-you-go",
+      "price": "Per-token, per-model (USD per 1M)",
+      "notes": "Reka Edge 2603: $0.10 in / $0.10 out (16K ctx, text+image+video). Reka Flash 3: $0.10 in / $0.20 out (64K ctx, reasoning). Hosted open models: GLM 5.3 $1.17/$3.96 (1M ctx), DeepSeek V4 Flash $0.11/$0.66 (262K), Qwen 3.8 27B $0.20/$2.50, and others. Prompt caching at reduced rate on select models. No platform fee or markup.",
+      "evidenceUrl": "https://developer.reka.ai/models"
+    },
+    {
+      "name": "Vision API free tier",
+      "price": "$0 (first 180 min indexed video)",
+      "notes": "Free 3 hours (180 min) of video indexing, search and QA for evaluation. Beyond: $0.05/min video indexing, $0.005/search, $2 per 1M output tokens for QA/tagging, $0.04/min clip generation. Storage free (auto-delete after 30 days). Enterprise tier removes rate limits.",
+      "evidenceUrl": "https://docs.reka.ai/vision/pricing"
     }
   ]
 }

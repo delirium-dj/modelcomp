@@ -14,6 +14,12 @@
 import teleaiBadgeRaw from "../../assets/vendor-icons/teleai-badge.svg?raw";
 import nousPortalRaw from "../../assets/vendor-icons/nous-portal.svg?raw";
 import crusoeRaw from "../../assets/vendor-icons/crusoe.svg?raw";
+import inceptionRaw from "../../assets/vendor-icons/inceptionlabs.svg?raw";
+import inclusionaiRaw from "../../assets/vendor-icons/inclusionai.svg?raw";
+import huaweiCloudRaw from "../../assets/vendor-icons/huawei-cloud.svg?raw";
+import reflectionRaw from "../../assets/vendor-icons/reflection.svg?raw";
+import ai01Raw from "../../assets/vendor-icons/01-ai.svg?raw";
+import rekaRaw from "../../assets/vendor-icons/reka.svg?raw";
 
 // Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
 // file stays the single point of truth (edit it, not this module). `vite/client`
@@ -32,6 +38,12 @@ function svgRawEntry(raw: string): { viewBox: string; body: string } {
 const teleaiBadge = svgRawEntry(teleaiBadgeRaw);
 const nousPortal = svgRawEntry(nousPortalRaw);
 const crusoe = svgRawEntry(crusoeRaw);
+const inception = svgRawEntry(inceptionRaw);
+const inclusionai = svgRawEntry(inclusionaiRaw);
+const huaweiCloud = svgRawEntry(huaweiCloudRaw);
+const reflection = svgRawEntry(reflectionRaw);
+const ai01 = svgRawEntry(ai01Raw);
+const reka = svgRawEntry(rekaRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
@@ -93,6 +105,44 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
     body: crusoe.body,
   },
 
+  // Inception Labs emblem, supplied by the maintainer. Source at
+  // assets/vendor-icons/inceptionlabs.svg, inlined via `?raw` (edit that file). The
+  // path is currentColor (was hardcoded white) so the existing `adaptive` VENDORS
+  // mapping themes it. Shadows the base `inceptionlabs` key only (also used by the
+  // `mercury` model) — no other icon is affected.
+  "inceptionlabs": {
+    viewBox: inception.viewBox,
+    body: inception.body,
+  },
+
+  // InclusionAI logo (Ant Group's AGI initiative), supplied by the maintainer.
+  // Source at assets/vendor-icons/inclusionai.svg, inlined via `?raw` (edit that
+  // file). Single-color brand blue (#0175fe) on a transparent canvas — the opaque
+  // white background plate was stripped so it sits cleanly on any theme. Square
+  // 388x388. Shadows the base `inclusionai` monogram-tile key only.
+  "inclusionai": {
+    viewBox: inclusionai.viewBox,
+    body: inclusionai.body,
+  },
+
+  // Huawei Cloud official logo (red flower/petal mark) from devicon. Source at
+  // assets/vendor-icons/huawei-cloud.svg, inlined via `?raw`. 600x600 with 8 radial
+  // gradients (brand red). New key — no base icon shadowed.
+  "huawei-cloud": {
+    viewBox: huaweiCloud.viewBox,
+    body: huaweiCloud.body,
+  },
+
+  // Reflection AI brand mark (two ring outlines), supplied by the maintainer.
+  // Source at assets/vendor-icons/reflection.svg, inlined via `?raw`. Monochrome
+  // currentColor fill; the existing `adaptive` VENDORS mapping themes it.
+  // Shadows the base `reflection` favicon-tile key only.
+  "reflection": {
+    viewBox: reflection.viewBox,
+    body: reflection.body,
+    fill: "currentColor",
+  },
+
   // --- Brand-colored monogram tiles (no free SVG source in the vendored corpora) ---
   // Rounded 5-unit tile at 24x24 with a bold white initial. Placeholder art —
   // swap for a real brand SVG as soon as a licensed source is available.
@@ -104,7 +154,7 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "oracle":        { viewBox: "0 0 32 20", body: '<path fill="none" stroke="#C74634" stroke-width="4" d="M10 2a8 8 0 1 0 0 16h12a8 8 0 1 0 0-16z"/>' },
   "verda":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#22C55E"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">V</text>' },
   "io-net":        { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#7C3AED"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">i</text>' },
-  "reka":          { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0891B2"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">R</text>' },
+  "reka":          { viewBox: reka.viewBox, body: reka.body },
   "morph":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#6366F1"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">M</text>' },
   "assemblyai":    { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#059669"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">A</text>' },
   "pinecone":      { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0080FE"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">P</text>' },
@@ -112,5 +162,5 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "serpapi":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#F59E0B"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">S</text>' },
   "spheron":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#A855F7"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">S</text>' },
   "lightning-ai":  { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#FBBF24"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#0B100F">L</text>' },
-  "01-ai":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#2563EB"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">0</text>' },
+  "01-ai":         { viewBox: ai01.viewBox, body: ai01.body },
 };

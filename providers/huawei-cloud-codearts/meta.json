@@ -1,0 +1,35 @@
+{
+  "name": "Huawei Cloud CodeArts Agent",
+  "kind": "aggregator",
+  "short": "Huawei Cloud's AI coding agent (AI IDE, VS Code & JetBrains extensions, CLI/TUI) built around Z.ai's GLM-5.2 (1M-token context). Free Edition is auto-activated on login with a monthly token quota and limited core capabilities; paid tiers scale the quota and add enterprise management.",
+  "officialUrl": "https://codearts.huaweicloud.com/",
+  "hosts": [
+    "codearts.huaweicloud.com",
+    "huaweicloud.com"
+  ],
+  "catalogUrl": "https://www.huaweicloud.com/intl/en-us/product/codearts/pricing.html",
+  "covers": [
+    "glm-5.2",
+    "glm-5.2-coding"
+  ],
+  "plans": [
+    {
+      "name": "Free Edition",
+      "price": "$0/month",
+      "notes": "5M tokens/month; 5,000 codebase-index files; 500 MB knowledge space; limited access to core agent capabilities (Q&A / Coding / MCP / Rules / Skills); built-in GLM models (flagship GLM-5.2). Auto-activated on login (no order needed); up to 50 seats.",
+      "evidenceUrl": "https://www.huaweicloud.com/intl/en-us/product/codearts/pricing.html"
+    },
+    {
+      "name": "Basic Edition",
+      "price": "$20 USD/seat/month",
+      "notes": "40M tokens/seat/month; 50,000 codebase-index files; 5 GB knowledge space; all Free features plus agent center and skill/rule center.",
+      "evidenceUrl": "https://www.huaweicloud.com/intl/en-us/product/codearts/pricing.html"
+    },
+    {
+      "name": "Professional Edition",
+      "price": "$60 USD/seat/month",
+      "notes": "150M tokens/seat/month; 100,000 codebase-index files; 20 GB knowledge space; all Basic features plus operation logs, model management, enterprise custom models, usage management and SSO.",
+      "evidenceUrl": "https://www.huaweicloud.com/intl/en-us/product/codearts/pricing.html"
+    }
+  ]
+}

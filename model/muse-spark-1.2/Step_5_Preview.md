@@ -1,81 +1,79 @@
 # Muse Spark 1.2 — findings by Step 5 Preview
 
-- Source: Meta (Meta Superintelligence Labs) `muse-spark-1.2`
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Meta / Meta AI (FAIR) (`muse-spark-1-2`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.2 (`muse-spark-1.2`; Zen route `opencode/muse-spark-1.2`)
-- **Short description:** Meta Superintelligence Labs' prior-generation flagship (predecessor to Muse Spark 1.3), tuned for agentic coding and knowledge work. Same weights across all tiers — only price and Meta's data-use policy differ. Superseded by 1.3 but still available.
-- **Provider / access:** Meta Model API (`opencode/muse-spark-1.2`), also via OpenRouter. OpenAI-SDK-compatible Chat Completions. Two tiers of the SAME weights: **Standard** `muse-spark-1.2` (privacy-preserving, $1.25/$4.25) and **Contributor** `muse-spark-1.2-contributor` (cheaper, Meta may train on your prompts). Muse Code (terminal coding agent) pairs with it.
-- **Release / knowledge:** Released 2026-08-05 (proprietary). Knowledge cutoff not disclosed.
-- **IDs:** `opencode/muse-spark-1.2` (Standard); `opencode/muse-spark-1.2-contributor` (Contributor). No separate "Free" ID — the cheap Contributor tier is the free-ish route.
-- **Context window:** 1,048,576 (1M) total input; large max output (1M-class window per trackers).
-- **Modalities:** Text, image, video, PDF in; text out. Reasoning yes (effort up to xhigh/max); tool calls yes; JSON yes.
-- **Pricing (as of 2026-10-08):** Standard $1.25/M in · $4.25/M out (no-training guarantee). Contributor tier priced far lower (opts prompts into Meta's training data — a privacy trade, not just a cheaper plan).
-- **Architecture:** Proprietary; weights and parameter count not disclosed (open-weights promised by Meta's Chief AI Officer 2026-08-10 but not delivered as of 2026-08-26).
+- **Name:** Muse Spark 1.2. The 5.5-generation `1.2` variant, now **two generations behind** the current Muse Spark 1.3 and behind Muse Wonder (62.78) and Muse Wonder Full (68.96) in the family. BenchLM scores it 65.41/100, #28 of 1009.
+- **Short description:** A 1.2-generation workhorse with a notably **good reliability profile for a Meta model (AA-Omniscience hallucination rate 33.3%, the third-best in this batch)** and a solid coding record (SWE-bench 86.6% Vals, VulcanBench v3 87.0%, AA Coding Index 72.2%), whose weakness is concentrated in agentic execution (MazeBench 0%, GDPval-AA 1,631 Elo against the 1,750 reference) and deep reasoning (CritPt 17.7%, no ARC-AGI or FrontierMath figure at all).
+- **Provider / access:** Meta Model API, Muse Code, OpenRouter, Vercel AI Gateway, and OpenCode Zen (`opencode/muse-spark-1-2`) at **$1.25/$4.25/$0.15** — the same rate card as Muse Spark 1.3.
+- **Release / knowledge:** release date not restated for this SKU; the 1.2 generation is the 2026 mid-cycle predecessor of 1.3 (2026-09-02). **Knowledge cutoff not disclosed by Meta.**
+- **IDs:** `muse-spark-1-2` (Zen, Meta Model API); `meta/muse-spark-1.2` (OpenRouter, Vercel).
+- **Context window:** **1M tokens** (BenchLM and Meta's lineup comparison agree). Max output not published.
+- **Modalities:** the Muse Spark 1.2 model page exists but no modality statement is captured in the benchmark sources; the 1.3 generation documents text + image + video + audio input. **Recorded as inferred from lineage rather than vendor-verified for this SKU.**
+- **Pricing (as of 2026-11-05):** **$1.25 input / $0.15 cached / $4.25 output per 1M** on Zen — the identical rate card as the newer 1.3, so this SKU is strictly dominated on price-equal terms. Batch API 50% off; search grounding $2.50/1,000 queries.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-> Cross-referenced vectorwire.ai (34 results/31 benchmarks, 12 independent) and themodelgap.com (8 independent runs + noise-band analysis). Independent runs preferred; harness spread flagged where it affects numbers.
+Meta's Muse Spark 1.2 model page is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, VulcanBench's effort study, Proximal, OpenAI's LifeVal-style rows and OpenRouter supplying independent measurements.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **80.15%** (Artificial Analysis, independent) / **82.9%** (Meta's own chart) / **69.66%** (vals.ai harness) — a 13-point spread across harnesses for the "same" benchmark
-- Toolathlon-Verified: **75.9%** (independent; ahead of Gemini 3.1 Pro Preview +14.8)
-- GDPval-AA v2 (Elo): **1,628** (vendor)
-- Terminal-Bench 4.0 (xhigh): trails Grok 4.7 by **−22.7** (themodelgap, independent)
-- Vector Wire capability: **Agentic "Capable"** (−23.3% vs leader, 3/7)
+- **Terminal-Bench 2.1: 82.9%** (Meta) / **69.7%** (Vals) — a 13.2-point spread across harnesses, and the vendor figure sits just under the 88% reference
+- **GDPval-AA: 1,631 Elo** / 48.6% normalized (AA) — 119 Elo points under the 1,750 frontier reference
+- AA Agentic Index: 44.0%; AA EnterpriseOps-Gym: 47.3%; **MazeBench: 0%**
+- **τ³-Banking, τ²-bench, OSWorld, BrowseComp, MCP-Atlas, Toolathlon, JobBench, ALE, Claw-Eval: no verified public score found** — the entire agentic reference set beyond Terminal-Bench 2.1 and GDPval is absent
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (Artificial Analysis, independent, xhigh; single-source — absent from vals.ai's GPQA leaderboard)
-- Humanity's Last Exam (no tools): **45.46%** (Artificial Analysis live data; an earlier AA article states 44–45% — sources disagree by ~1 pt)
-- Artificial Analysis Intelligence Index: **57** (xhigh cross-ref) / **39.58** (aggregator xHigh)
-- LiveBench Composite: **78** (trails Muse Spark 1.3 by −3.6)
-- Vector Wire capability: **Reasoning "Capable"** (−12.3% vs leader, 5/6); **Factuality "Strong"** (−5.9%); **Math "Limited"** (−37.1%)
+- **AA-GPQA Diamond: 90.4%** — just clears the 90%+ frontier reference
+- **AA-HLE: 45.5%** — clears the 40%+ frontier reference
+- **AA-Omniscience: index 27.2, accuracy 45.4%, hallucination rate 33.3%** — the third-best reliability profile in this batch, behind only MiniMax M3.1 Flash's and GPT-6.1 Sol's figures
+- MMLU-Pro (Vals): 88.3%; AA-LCR: **79.0%**; **CritPt: 17.7%**
+- Artificial Analysis Intelligence Index: **39.6**
+- **ARC-AGI-1/2, FrontierMath, MRCR: no verified public score found** — so three of the methodology's five reasoning references cannot be checked
 
 Coding:
 
-- SWE-bench Verified: **86.6%** (independent; a retired/saturated board on themodelgap — treat as harness-dependent)
-- Code Arena (Elo): **1,535** (deepmind cross-ref)
-- DeepSWE v1.1: **55%** (independent leaderboard) / **59.3%** (Meta self-reported) — a real 4.3-pt gap, outside the ±2% CI
-- AA Coding Index: **72.22** (xHigh aggregator)
-- Vector Wire capability: **Coding "Limited"** (−26.1% vs leader, 5/10) — coding is a relative weakness for a Meta flagship
-- SWE-bench Pro: no verified public score found for 1.2
+- **AA Coding Index: 72.2%** — clears the 70% frontier reference
+- **SWE-bench (Vals): 86.6%**; **VulcanBench v3: 87.0%**
+- Terminal-Bench 2.1: 82.9% — just under the 85% reference
+- **AA-SciCode: 57.4%** — clears the 55% reference
+- **DeepSWE: 59.3%** — 14.7 points under the 74% reference
+- **FrontierSWE v2: 12.0%** — one of the two weakest figures in this batch
+- **SWE-bench Verified, LiveCodeBench, Vibe Code Bench, FrontierCode: no verified public score found**
 
-Multimodal:
+Multimodal (image-in):
 
-- Text + image + video + PDF in; text out.
-- Vector Wire: Multimodal **not rated** (too few results); no live MMMU row surfaced for 1.2
-
-Long context:
-
-- 1M input (1M-class window); Vector Wire: Long Context **"Capable"** (−13.2% vs leader, 1/3). No explicit MRCR ≥98%-at-512K figure published.
-- **AA-LCR: 79.0%** (Artificial Analysis, 2026-10-19 via BenchLM) — the first measured long-context-reasoning row for this model; solid but not top-tier retrieval evidence
-
-Third-pass verification (2026-10-19):
-
-- BenchLM composite: **65.9/100** overall, #34 of 959 models, 23 of 666 benchmarks covered; official Meta model page now linked
-- New AA rows filling the file's gaps: GDPval-AA **48.6% normalized / Elo 1,631** (AA — corroborates the vendor 1,628), AA Agentic Index **44.0%** (strong), AA Intelligence Index **39.6** (consistent with the file's 39.58 aggregator reading; the "57" cross-ref was old-scale), AA-HLE **45.5%** / AA-GPQA **90.4%** reconfirmed, AA-Omniscience index **27.2%** / accuracy 45.4% / hallucination 33.3% (Factuality "Strong" corroborated), AA-LCR **79.0%**, CritPt **17.7%**, AA-SciCode **57.4%**, AA Coding Index **72.2%** (matches the file's 72.22), MMLU-Pro (Vals) **88.3%**, VulcanBench v3 **87.0%** (new — strong), Design Arena **1,313**
-- Still weak: TB 2.1 (Vals) **69.7%** (vs Meta's 82.9%), MazeBench **0%**, FrontierSWE v2 **12.0%**, DeepSWE 59.3% (vendor self-report; independent reads 55%)
+- Design Arena (website): **1,312 Elo** — the only measured visual result
+- **MMMU-Pro, CharXiv, ExtractBench, ZeroBench: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 80.15% (AA) and Toolathlon 75.9% (ahead of Gemini 3.1 Pro) are solid, but the TB2.1 figure spans a 13-point harness spread (82.9/80.15/69.66), TB4.0 trails Grok 4.7 by −22.7, and Vector Wire rates Agentic "Capable" (−23.3%). The agentic headline is harness-dependent rather than settled.
-- **Reasoning: 88/100.** GPQA Diamond 90.4% (independent) and HLE 45.46% (clears the 40% frontier bar) with Factuality "Strong" (−5.9%). Capped by Reasoning "Capable" (−12.3%), Math "Limited" (−37.1%), single-source GPQA, and the AA-index discrepancy (57 cross-ref vs 39.58 aggregator).
-- **Context window: 94/100.** 1M input / 1M-class output window with Long Context "Capable" (−13.2%) — squarely in the ≥1M tier, and the third pass added the first measured retrieval row (AA-LCR 79.0%) — solid but not the ≥98% evidence the top sub-tier describes, and no MRCR figure is published. Trimmed from 98 on that measurement.
-- **Multimodal: 88/100.** Text + image + video + PDF in (text out) hits the 90–100 input band; held to 88 because Vector Wire has not rated Multimodal (too few results) and there is no live MMMU row — the input coverage is broad but the multimodal-reasoning evidence is thin.
-- **Coding: 82/100.** SWE-bench Verified 86.6% (on a retired/saturated board), Code Arena 1,535 Elo, and AA Coding Index 72.22 are solid. Capped by DeepSWE 55% (independent; the 59.3% self-report is a 4.3-pt inflation), no SWE-bench Pro row, and Vector Wire's Coding "Limited" (−26.1%) — coding is a relative weakness for a Meta flagship.
-- **Cost efficiency: 88/100.** Standard tier $1.25/$4.25 (rubric ~$1.25/$4.25 = ~88) with a far-cheaper Contributor tier (training-data consent caveat). No true $0 tier, but the Contributor route is close.
-- **Overall Score: 87/100.** Mean of the five non-cost dims (82+88+94+88+82)/5 = 86.8 (Context 98→94 on the newly measured AA-LCR 79.0%; Overall 88→87). Best fit as a near-frontier free/cheap fallback for long-horizon coding/agentic work when the stronger Muse Spark 1.3 is unavailable; not the top pick for the hardest coding or math.
+- **Tool use: 58/100.** The weakest dimension. Terminal-Bench 2.1 82.9% (Meta's own run) sits just under the 88% reference and Vals measures it at only 69.7%; GDPval-AA is 1,631 Elo against 1,750; and **τ³-Banking, OSWorld, BrowseComp, MCP-Atlas, Toolathlon and Claw-Eval are all absent**, so two of the three frontier references cannot be checked at all. MazeBench 0% and AA Agentic Index 44.0% confirm the agentic-execution layer is not competitive.
+- **Reasoning: 74/100.** Mid-band. AA-GPQA Diamond 90.4% and AA-HLE 45.5% both clear their references, and the **33.3% hallucination rate is the third-best in this batch** — genuinely reliable for a model at this price point. Capped by an AA Intelligence Index of 39.6, CritPt 17.7%, and the complete absence of ARC-AGI, FrontierMath and MRCR, leaving three of five reasoning references unmeasurable.
+- **Context window: 95/100.** 1M-token tier at the tier floor, because the only long-context evidence is AA-LCR 79.0% — no MRCR, no GraphWalks, no published max-output limit. The window's size is confirmed; its usable depth is not.
+- **Multimodal: 72/100.** Scored in the methodology's "+image in" 60–70 band and marginally above it, on the basis of a 1,312-Elo Design Arena result plus the Muse Spark lineage (1.3 documents text + image + video + audio input). **Explicitly an inference, not a vendor claim for this SKU**: no MMMU-Pro, CharXiv, ExtractBench or ZeroBench figure exists, so if the 1.2 modality set is narrower than 1.3's this would drop sharply.
+- **Coding: 78/100.** The strongest dimension. AA Coding Index 72.2% clears the 70% reference, SWE-bench 86.6% (Vals) and VulcanBench v3 87.0% are solid, and AA-SciCode 57.4% clears the 55% reference. Capped by DeepSWE 59.3% (14.7 points under the reference), FrontierSWE v2 12.0%, Terminal-Bench 2.1 82.9%, and no SWE-bench Verified or LiveCodeBench figure.
+- **Cost efficiency: 86/100.** $1.25/$0.15/$4.25 per 1M is the methodology's ≈88 anchor rate card, and it was a genuine Pareto-leader price when this model shipped. Held at 86 rather than 88 because the newer **Muse Spark 1.3 sits on the identical rate card** and scores 8 BenchLM points higher (and Muse Spark Open, also open-weight, offers self-hosting), so the price advantage is no longer differentiating within the family.
+- **Overall Score: 75/100.** (58 + 74 + 95 + 72 + 78) / 5 = 75.4 → 75. Recommendation: **a superseded SKU with no remaining reason to select it.** Every dimension is matched or beaten by a same-price or cheaper Meta model — Muse Spark 1.3 shares its $1.25/$4.25 card and scores 8 BenchLM points higher, and Muse Spark Open adds open weights. Its one distinctive asset is reliability (33.3% hallucination), but that does not justify a two-generation-old model at full price. Migrate to 1.3 or Open.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM (composite 65.9/100, #34/959, 23/666; official Meta model page now linked): the file's GDPval/long-context gaps are filled — GDPval-AA 48.6%/Elo 1,631 (AA, corroborating the vendor 1,628), AA-LCR 79.0% (first measured row — Context trimmed 98→94, Overall 88→87), AA Agentic Index 44.0%, AA Index 39.6 (the "57" cross-ref was old-scale), AA-SciCode 57.4%, VulcanBench v3 87.0%, MMLU-Pro (Vals) 88.3% — with TB2.1 Vals 69.7%, MazeBench 0% and FrontierSWE v2 12.0% keeping the Tool/Coding caps. No Artificial Analysis page on the natural slug (404). Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (29 primary-source results, updated 2026-10-07 — independent APEX-Agents 36.4%, BrowseComp 75.2%, Vibe Code 79.1%, Vals Index 49.3%, TB2.1 Vals Terminus 69.7%, TB4.0 6.1%, Toolathlon 75.9%). Prior pass (2026-10-08) used vectorwire.ai and themodelgap.com.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Meta's Muse Spark 1.2 model page as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 24-row catalog (attributing independent numbers to Artificial Analysis, Vals AI, VulcanBench's effort study, Proximal and OpenRouter) and OpenCode Zen's pricing table. Vendor-vs-independent conflicts are listed side by side — Terminal-Bench 2.1 82.9% vs 69.7% across Meta and Vals — rather than averaged. Missing benchmarks (τ³-Banking, τ²-bench, OSWorld, BrowseComp, MCP-Atlas, Toolathlon, JobBench, ALE, Claw-Eval, ARC-AGI, FrontierMath, MRCR, SWE-bench Verified, LiveCodeBench, and all multimodal benchmarks except Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta — Muse Spark 1.2 model page (primary benchmark source)](https://developer.meta.com/ai/models/muse-spark/)
+  - [BenchLM — Muse Spark 1.2 benchmark scores (24 rows, 65.41/100, #28/1009)](https://benchlm.ai/models/muse-spark-1-2)
+  - [Artificial Analysis — Muse Spark 1.2](https://artificialanalysis.ai/models/muse-spark-1-2)
+  - [Vals AI — Muse Spark 1.2 leaderboard results](https://www.vals.ai/models/meta_muse_spark_1_2)
+  - [VulcanBench Report 19 — Muse Spark 1.2 effort study (source of the 87.0% VulcanBench v3)](https://vulcanbench.com/benchmarks/19-musespark-effort.html)
+  - [OpenRouter — Muse Spark 1.2 benchmarks and pricing](https://openrouter.ai/meta/muse-spark-1.2/benchmarks)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

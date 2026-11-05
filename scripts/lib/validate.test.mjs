@@ -107,10 +107,12 @@ describe("classifyMissingTracked (sanctioned survivals vs FAIL)", () => {
 });
 
 describe("sanctioned deletions (user-ordered, kept deleted)", () => {
-  it("records exactly the two Muse Spark 1.3 Xing paths", () => {
+  it("records exactly the signed-off Muse Spark 1.3 + claude-sonnet-5.5 Xing paths", () => {
     assert.deepEqual([...SANCTIONED_DELETIONS.keys()], [
       "model/muse-spark-1.3/Xing_4.0.29B_A4B.md",
       "model/muse-spark-1.3/Xing_4.0.29B_A4B.md.excluded",
+      "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md",
+      "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md.excluded",
     ]);
   });
 });

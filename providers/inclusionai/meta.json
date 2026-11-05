@@ -1,8 +1,8 @@
 {
   "name": "InclusionAI",
   "kind": "vendor",
-  "short": "Ant Intelligence's Ling model family via the Ant Ling developer platform — pay-as-you-go (CNY) with daily free quota and OpenAI/Anthropic-compatible APIs.",
-  "officialUrl": "https://developer.ant-ling.com",
+  "short": "InclusionAI (Ant Group's AGI initiative) serves its Ling (general-text) and Ming (multimodal) model families through the Ant Ling developer platform — pay-as-you-go in CNY with a daily free quota, OpenAI/Anthropic-compatible APIs, and discounted access via OpenRouter/ZenMux.",
+  "officialUrl": "https://www.inclusion-ai.org/",
   "hosts": ["developer.ant-ling.com", "ant-ling.com"],
   "idPrefixes": ["inclusionAI", "inclusionai"],
   "plans": [
@@ -15,7 +15,7 @@
     {
       "name": "Pay-as-you-go",
       "price": "Usage-based (CNY per token)",
-      "notes": "Ling-3.1-flash ¥2.00 in / ¥6.00 out per 1M (75% promo); Ling-3.0-flash ¥0.50 in / ¥1.50 out per 1M (72% promo).",
+      "notes": "Per 1M tokens (CNY), list price then current promo price: Ling-3.1-flash ¥2.00→¥0.50 in / ¥6.00→¥1.50 out (75% off); Ling-3.0-flash ¥0.50→¥0.14 in / ¥1.50→¥0.42 out (72% off). Promos are time-limited and original prices will resume.",
       "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
     }
   ]

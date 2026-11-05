@@ -1,14 +1,21 @@
 {
   "name": "Snowflake Cortex",
   "kind": "aggregator",
-  "short": "Managed LLM inference and AI Functions inside Snowflake, serving frontier open and proprietary models billed in AI Credits per million tokens.",
+  "short": "Managed LLM inference and AI toolset embedded in the Snowflake data platform, serving 50+ models from 14 providers (Anthropic, OpenAI, Meta, DeepSeek, Google, Mistral, xAI, Alibaba/Qwen, Moonshot, Z.ai/GLM, NVIDIA, Microsoft, Voyage, Snowflake Arctic) via SQL AI Functions, REST API, Agents, Search and Code — billed in AI Credits ($2.00–$2.20 each) per million tokens.",
   "officialUrl": "https://www.snowflake.com",
-  "hosts": ["snowflake.com"],
+  "hosts": ["snowflake.com", "snowflakecomputing.com"],
+  "idPrefixes": ["snowflake"],
   "plans": [
     {
-      "name": "Pay-as-you-go",
-      "price": "AI Credits, per million tokens",
-      "notes": "Per-model rates; prompt-cache reads billed at a reduced rate.",
+      "name": "AI Credits (pay-as-you-go)",
+      "price": "$2.00/credit (global routing) or $2.20/credit (regional)",
+      "notes": "Per-model token rates in AI Credits per 1M; frontier models cost significantly more than open-weight (59x spread observed at Summit 2026). Prompt-cache reads at a reduced rate. ACV-based volume discounts apply automatically. No per-seat fee. Model rates in Table 6 of the Snowflake Service Consumption Table.",
+      "evidenceUrl": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing"
+    },
+    {
+      "name": "Platform requirement",
+      "price": "Requires a Snowflake subscription (no standalone LLM signup)",
+      "notes": "AI features are available to Snowflake accounts on any edition (Standard–VPS). 30-day platform trial available. Cortex Fine-tuning and Cortex Analyst (legacy API) bill in Platform Credits rather than AI Credits.",
       "evidenceUrl": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing"
     }
   ]

@@ -1,83 +1,80 @@
 # Claude Opus 4.7 — findings by Step 5 Preview
 
-- Source: Anthropic/Claude Opus 4.7 (`claude-opus-4-7`)
-- Date: 2026-10-19 (UTC)
+- Source: Anthropic (`claude-opus-4-7`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 4.7
-- **Short description:** Anthropic's April 2026 frontier Opus model, positioned for long-running agentic coding and knowledge work; now a legacy model superseded by Opus 4.8 and Opus 5.5. First model to carry Anthropic's real-world cyber safeguards (Project Glasswing follow-up).
-- **Provider / access:** Claude API (`claude-opus-4-7`, Messages API); also Amazon Bedrock (`anthropic.claude-opus-4-7`), Google Cloud Vertex AI (`claude-opus-4-7`), Microsoft Foundry (`claude-opus-4-7`), Claude Platform on AWS. OpenCode Zen lists a paid route `opencode/claude-opus-4-7`; no `claude-opus-4-7-free` ID exists on Zen (checked 2026-10-19).
-- **Release / knowledge:** Released 2026-04-16 (GA); reliable knowledge cutoff Jan 2026; training data cutoff Jan 2026 (official model page).
-- **IDs:** `claude-opus-4-7` (Claude API) · `anthropic.claude-opus-4-7` (Bedrock) · `claude-opus-4-7` (Vertex, Foundry, Claude Platform on AWS) · `opencode/claude-opus-4-7` (OpenCode Zen, paid).
-- **Context window:** 1,048,576 tokens (1M) total, 128K max output synchronous; 300K max output on Message Batches with the `output-300k-2026-03-24` beta header. Verified on the official model page; Anthropic notes the 1M tokenizer itself was introduced with Opus 4.7 (same text maps to roughly 1.0–1.35× more tokens than on 4.6).
-- **Modalities:** Text and image input → text output (official capabilities row); adaptive thinking with effort levels including the new `xhigh` (default `high`); tool use; batch API; prompt caching (5m/1h write, read).
-- **Pricing (as of 2026-10-19):** $5 / 1M input, $25 / 1M output; 5m cache write $6.25, 1h cache write $10, cache read $0.50; Batch API 50% off. No free tier found on any listed route.
-- **Architecture:** Proprietary; parameter count not disclosed by Anthropic.
+- **Name:** Claude Opus 4.7. The figures below describe the **"Adaptive" reasoning variant** (BenchLM 68.11, #21 of 1009), which is the model people actually use; the non-adaptive `Claude Opus 4.7` sibling scores 65.18 (#31). Now **three generations behind** the current lineup: Opus 5.5 (86.29) → Opus 5 (79.68) → Opus 4.8 (69.63) → Opus 4.7 (68.11). Anthropic's models overview lists it under "Legacy models (still available)".
+- **Short description:** The 4.7-generation Opus flagship, and the first model to ship Anthropic's **1M-token tokenizer and the 300K Batch extended-output beta** — so despite being a legacy SKU it retains the largest output allowance in the Anthropic lineup. It also holds a genuine distinction: **the generation that introduced adaptive thinking**. Its scores have aged predictably (Terminal-Bench 2.0 69.4%, ARC-AGI-3 0.2%, CritPt 12.0%).
+- **Provider / access:** Claude API, Amazon Bedrock, Claude Models on Google Cloud (Google managed and Anthropic managed), Microsoft Foundry, Claude Platform on AWS, and OpenCode Zen (`opencode/claude-opus-4-8`) — note Zen's route uses the `claude-opus-4-8` ID at **$5/$25/$0.50**, and no separate 4.7 route appears in the current Zen model list.
+- **Release / knowledge:** release date not restated for this legacy SKU. **Knowledge cutoff not restated by Anthropic** — the models-overview cutoff row covers only the current lineup (Jun 2026), and 4.7 predates the cutoff transparency policy.
+- **IDs:** `claude-opus-4-7` (all platforms use the same dateless pinned ID).
+- **Context window:** **1M tokens** — and this is the generation that introduced the 1M tokenizer, so the window is genuine rather than retrofitted. **Max output 128K synchronous and up to 300K on the Message Batches API** with the `output-300k-2026-03-24` beta header; Anthropic's footnote explicitly lists Claude Opus 4.7 among the models supporting it.
+- **Modalities:** **text and images in → text out** (Anthropic's lineup-wide statement). Reasoning model with **adaptive thinking** — the generation that introduced it — steerable via the `effort` parameter.
+- **Pricing (as of 2026-11-05):** no dedicated rate card is published for this SKU in the sources checked; Zen's nearest route is the Opus 4-series card at **$5 / $0.50 / $25 per 1M**. Batch API 50% off.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-> Two independent harness families were found and conflict on the aggregate: BenchLM separates a non-reasoning "base" entry (65.48, #36/956) from an "Adaptive" sibling (68.69), while Artificial Analysis benchmarks a reasoning "(Max)" variant (Intelligence Index 41, estimated) — the official model ships adaptive thinking, so the reasoning/adaptive figures are the representative ones. Both listed.
+Anthropic's Opus 4.7 announcement chart is the primary source (so most rows are **vendor-run**), with Artificial Analysis, ARC Prize, the JobBench and OSWorld 2.0 papers, and OpenAI's GPT-5.5 comparison table supplying independent rows.
 
-Agent / tool use:
+Agent / tool use — clearly a previous generation:
 
-- Terminal-Bench 2.1: **68.5%** (Vals AI harness, via BenchLM; Anthropic's own charts used the Terminus-2 harness with thinking disabled)
-- τ²-bench: **74%** (Artificial Analysis, via BenchLM)
-- GDPval-AA v2.1: **Elo 1352** (#89 of 298; Artificial Analysis leaderboard, anchored to DeepSeek V4.1 Flash (max) at 1600) — Anthropic's launch announcement reported Opus 4.7 as state-of-the-art on GDPval-AA at release (2026-04); the rank has since slipped as newer models re-anchored the board
-- ResearchClawBench: **20.7%** (leaderboard, via BenchLM); Claw-Eval proper: no verified public score found
-- OSWorld 2.0: **13.9%** (paper, via BenchLM) — weak computer-use score
-- Gert Labs agentic: **65.59%**; ApprenticeBench: **7%** (via BenchLM)
-- MCP-Atlas / SWE Atlas Codebase QnA / Toolathlon: no verified public score found (Anthropic's announcement charts measured MCP-Atlas but published no text figure)
+- **Terminal-Bench 2.0: 69.4%** (note: the 2.0 harness, not 2.1 — no TB2.1 figure exists for this model)
+- BrowseComp: 79.3%; **MCP Atlas: 77.3%**; OSWorld-Verified: 78%; τ²-bench: 88.6%; CyberGym: 73.1%
+- **GDPval-AA: 1,396 Elo** / 42.6% normalized — far under the 1,750 frontier reference
+- JobBench: 45.9%; AA ITBench: 46.7%; AA-AnalystAgent: 43.8%; AA Agentic Index: 39.5%; aaTerminalBench21: 83.1% (AA's own 2.1 run)
+- **OSWorld 2.0: 18.2%** — the second-worst figure in this batch
+- **τ³-Banking, Claw-Eval, MazeBench, Toolathlon, AutomationBench, ALE: no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **88.5%** (Artificial Analysis) / **90.2%** (Vals AI) — both frontier-level
-- HLE: **33.3%** (Artificial Analysis) — just below the 40%+ frontier reference
-- AA-LCR (long-context reasoning): **75.7%** (Artificial Analysis)
-- CritPt: **5.1%**; ARC-AGI-3: **0.2%** (semi-private published results) — near-floor on the newest hard evals
-- Artificial Analysis Intelligence Index: **41** (estimated, Max variant; AA lists it as deprecated for full benchmarking, 10k-input workload only); **30.9%** for the non-reasoning variant (BenchLM)
-- AA-Omniscience: Index **14.8**, Accuracy **44.7%**, Hallucination Rate **54.1%** — high hallucination rate on knowledge probing
-- FrontierMath v2 (Tiers 1–3): **70.175%**; Tier 4: **31.707%** (Epoch AI)
-- MMLU-Pro (Vals AI): **89.9%**
+- **GPQA: 94.2%** (system card) / **91.4%** (AA) — clears the 90%+ frontier reference on both
+- **HLE: 54.7%** (system card) / 46.9% without tools / AA-HLE 42.3% — clears the 40%+ reference
+- **AA-LCR: 78.7%**; **MRCR v2 128K–256K: 59.2%** — a measured retrieval figure, and one of the few in this batch, though well below the ≥98% threshold
+- ARC-AGI-2: 75.8%; **ARC-AGI-3: 0.2%**; CritPt: **12.0%**
+- FrontierMath (legacy): 43.8%; Artificial Analysis Intelligence Index: **40.7**
+- **AA-Omniscience: index 27.3, accuracy 48.9%, hallucination rate 42.3%** — a mid-tier reliability profile
+- MMLU-Pro: **no verified public score found**; AA-IFBench: 58.6%
 
 Coding:
 
-- SWE-bench (Vals AI harness): **82.0%**; SWE-bench Verified/Pro/Multilingual via Anthropic's announcement charts: numbers published only as images, no text values found
-- LiveCodeBench (Vals): **85.1%**
-- Vibe Code Bench v1.1: **71.0%** (Vals AI)
-- FrontierCode 1.1 Main: **38.5%** (Cognition)
-- React Native Evals: **82.8%**; PostTrainBench v1.1: **28.6%**
-- CursorBench: **70%** vs Opus 4.6's 58% (Anthropic announcement, customer eval); Rakuten-SWE-Bench: "3× more production tasks resolved than Opus 4.6" (relative claim, no absolute value published)
-- SciCode / DeepSWE / Coding Index: no verified public score found
+- **SWE-bench Verified: 87.6%** — solidly frontier for a legacy SKU
+- **AA Coding Index: 73.6%** — clears the 70% frontier reference
+- SWE-bench Pro: 64.3%; Terminal-Bench 2.0: 69.4%
+- **AA-SciCode, DeepSWE, LiveCodeBench, Vibe Code Bench, FrontierCode: no verified public score found** — most of the coding reference set is absent
 
-Multimodal:
+Multimodal (image-in) — better than its generation suggests:
 
-- AA-MMMU-Pro: **76.4%** (Artificial Analysis, via BenchLM)
-- XBOW visual-acuity benchmark: **98.5%** vs Opus 4.6's 54.5% (Anthropic announcement, customer eval); image input resolution raised to 2,576 px on the long edge (~3.75 MP, 3× prior Claude models)
-- OfficeQA Pro: 21% fewer errors than Opus 4.6 (Databricks, via announcement); BigLaw Bench: 90.9% at high effort (Harvey, via announcement)
-
-Long context:
-
-- 1M context confirmed; AA-LCR 75.7% is the closest independent long-context number; no MRCR / RULER / GraphWalks retrieval-at-window figure with a verified pass rate was found — retrieval quality at 512K+ is therefore capped provisionally.
-
-Speed / latency (Artificial Analysis, Max variant): 54.1 output tokens/s; time-to-first-token 20.92 s — slow end, consistent with a high-effort reasoning Opus.
+- **CharXiv: 91.0%** (82.1% without tools); **AA-MMMU-Pro: 78.8%**; OfficeQA Pro: 43.6%
+- No ParseBench, ExtractBench, ScreenSpot or Design Arena figure.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Terminal-Bench 2.1 68.5% and τ²-bench 74% sit above the mid band and near the frontier reference, and GDPval-AA Elo 1352 (was SOTA at release) supports strong agentic value; capped by OSWorld 2.0 at 13.9%, ResearchClawBench 20.7%, and no verified MCP-Atlas/Toolathlon figure. Third-party agent programs (Notion +14% task success, Factory +10–15%) are directional only.
-- **Reasoning: 85/100.** GPQA Diamond 88.5–90.2% and AA-LCR 75.7% are frontier-level, but HLE 33.3% misses the 40% frontier reference, the Intelligence Index (41 est./30.9% base) trails the 60+ frontier tier, and CritPt 5.1% / ARC-AGI-3 0.2% / 54.1% hallucination rate cap the score hard.
-- **Context window: 95/100.** 1M-token window verified on the official page with 128K output (300K batch beta); the 100 tier requires ≥98% retrieval at 512K+, and no independent retrieval figure was found, so AA-LCR 75.7% supports 95, not 100.
-- **Multimodal: 68/100.** Text + image in, text out with a genuine vision jump (2,576 px inputs, MMMU-Pro 76.4%, XBOW visual acuity 98.5%); no video/audio input and no non-text output, which is what separates 68 from the 75+ band.
-- **Coding: 85/100.** SWE-bench 82.0%, LiveCodeBench 85.1%, Vibe Code Bench 71.0% and React Native 82.8% clear the mid band by a wide margin (Vibe 71% vs the <10% mid-tier caveat), but FrontierCode 38.5%, PostTrainBench 28.6% and missing DeepSWE/SciCode verification keep it out of the 90+ frontier tier; CursorBench 70% (from 58% on 4.6) corroborates the jump.
-- **Cost efficiency: 50/100.** Paid-only model at $5/$25 per MTok (Anthropic first-party; no Zen Free ID exists); sits between the $3/$15 (~60) and $10/$50 (~30) methodology anchors.
-- **Overall Score: 84/100.** Mean of 85/85/95/68/85 = 83.6 → 84. Best fit: a still-strong, near-frontier agentic-coding and vision-heavy Opus, but six months legacy — superseded by Opus 4.8/5.5 and mid-pack on the newest hard reasoning evals; pick it for long-horizon coding/agentic runs on paid tiers where its instruction-following and high-resolution vision matter more than raw frontier scores.
+- **Tool use: 66/100.** The weakest agentic profile in this batch apart from the two Gemini 3 models. BrowseComp 79.3%, MCP Atlas 77.3%, OSWorld-Verified 78%, τ²-bench 88.6% and CyberGym 73.1% are respectable but all below the current frontier, GDPval-AA is 1,396 Elo against the 1,750 reference, **OSWorld 2.0 is 18.2%**, and **τ³-Banking, Claw-Eval, Toolathlon and AutomationBench are entirely missing**. Note that the only terminal figure is Terminal-Bench 2.0 at 69.4% — the 2.0 harness, not the 2.1 the rest of this batch is measured on.
+- **Reasoning: 78/100.** GPQA Diamond 91.4–94.2% and HLE 42.3–54.7% both clear their references, and AA-LCR 78.7% is solid. Capped by no composite intelligence index credit (40.7), CritPt 12.0%, ARC-AGI-3 0.2%, ARC-AGI-2 only 75.8%, FrontierMath legacy 43.8%, a 42.3% hallucination rate, and MRCR v2 at just 59.2% (128K–256K) — the weakest measured retrieval in this batch.
+- **Context window: 97/100.** 1M-token tier, introduced by this very generation, with **300K Batch extended output** — one of only two Anthropic SKUs (with Opus 5) that carry it — plus the batch's few measured retrieval figures at MRCR v2 59.2%. Held under 100 because 59.2% is far below the ≥98% threshold and AA-LCR at 78.7% is mid-tier.
+- **Multimodal: 74/100.** Text + image in with text out. Scored at the top of the methodology's "+image in" 60–70 band because the measured depth is real: **CharXiv 91.0%** is the best document/chart figure in this batch and AA-MMMU-Pro 78.8% supports it. Held at 74 rather than the 75–90 video tier because there is no video or audio input, and OfficeQA Pro 43.6% is weak.
+- **Coding: 80/100.** SWE-bench Verified 87.6% and AA Coding Index 73.6% (clears the 70% reference) keep it respectable, with SWE-bench Pro 64.3% mid-pack. Capped by Terminal-Bench 2.0 69.4% (the older harness), and by the complete absence of AA-SciCode, DeepSWE, LiveCodeBench, Vibe Code Bench and FrontierCode — so the model's position on the current coding references is unknown.
+- **Cost efficiency: 45/100.** No dedicated 4.7 rate card is published; Zen's nearest route is the Opus 4-series **$5 / $0.50 / $25 per 1M**, which sits between the methodology's ~$3/$15 (≈60) and ~$10/$50 (≈30) anchors. Drawn down from a pure rate-card reading because that same card buys **Opus 4.8 (69.63) or Opus 5 (79.68)**, both of which score higher, so the 4.7 is strictly dominated at equal price. Batch at 50% is the only mitigator. No free tier.
+- **Overall Score: 79/100.** (66 + 78 + 97 + 74 + 80) / 5 = 78.6 → 79. Recommendation: **a legacy SKU with one genuine remaining asset** — the 300K Batch extended-output path paired with the 1M window it introduced — plus SWE-bench Verified 87.6% and the batch's best CharXiv (91.0%). That is enough for very-long-output document work already pinned to `claude-opus-4-7`. For anything else it is dominated twice over: Opus 4.8 ranks 1.5 BenchLM points higher at the same $5/$25, and Opus 5 ranks 11.6 points higher at the same price again. Migrate unless you need the 300K output specifically.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research — official Anthropic docs (models overview, Opus 4.7 model page, launch announcement) cross-checked against independent trackers (Artificial Analysis model page + GDPval-AA v2.1 leaderboard, BenchLM aggregate of Vals AI / AA / Epoch AI / Cognition results) plus the OpenCode Zen model list for access IDs; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Step_5_Preview_v2.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Anthropic's Claude Opus 4.7 announcement chart as the primary source (so most rows are vendor-run and labelled as such), cross-checked against BenchLM's 39-row catalog for the Adaptive variant (attributing independent numbers to Artificial Analysis, ARC Prize, the JobBench and OSWorld 2.0 papers, and OpenAI's GPT-5.5 comparison table), Anthropic's models-overview page for the 1M tokenizer lineage and the 300K Batch listing, and OpenCode Zen's pricing table. The Adaptive/non-Adaptive distinction is recorded explicitly (68.11 vs 65.18 on BenchLM) and the Adaptive figures are used throughout. Missing benchmarks (τ³-Banking, Claw-Eval, Toolathlon, AutomationBench, ALE, AA-SciCode, DeepSWE, LiveCodeBench, Vibe Code Bench, FrontierCode, MMLU-Pro) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 4.7 announcement chart (primary benchmark source)](https://www.anthropic.com/news/claude-opus-4-7)
+  - [Anthropic — Models overview (1M tokenizer lineage, 300K Batch listing, legacy status)](https://platform.claude.com/docs/en/about-claude/models/overview)
+  - [BenchLM — Claude Opus 4.7 (Adaptive) benchmark scores (39 rows, 68.11/100, #21/1009)](https://benchlm.ai/models/claude-opus-4-7-adaptive)
+  - [Artificial Analysis — Claude Opus 4.7](https://artificialanalysis.ai/models/claude-opus-4-7)
+  - [ARC Prize — official leaderboard data (ARC-AGI-2 75.8%, ARC-AGI-3 0.2%)](https://arcprize.org/leaderboard)
+  - [JobBench paper (source of the 45.9% JobBench figure)](https://arxiv.org/abs/2605.26329)
+  - [OSWorld 2.0 paper (source of the 18.2% OSWorld 2.0 figure)](https://arxiv.org/abs/2606.29537)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -20,7 +20,7 @@
 92.1 gpt-5.6-sol
 91.6 gemini-3.7-flash
 91.3 gemini-3-pro
-91.1 gpt-6.1-sol
+91.2 gpt-6.1-sol
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
 90.9 kimi-k3
