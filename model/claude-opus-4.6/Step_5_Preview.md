@@ -1,76 +1,81 @@
 # Claude Opus 4.6 — findings by Step 5 Preview
 
 - Source: Anthropic (`claude-opus-4-6`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Opus 4.6
-- **Short description:** Anthropic's February 2026 flagship (released 2026-02-05) — improved agentic coding, longer-horizon agency, better self-checking, and the first Opus-class 1M-token context window (beta at launch, GA 2026-03-13 at standard pricing). Set release-time records on Terminal-Bench 2.0, HLE, GDPval-AA and BrowseComp. Now legacy (succeeded by Opus 4.7/4.8/5) but still active, retirement not before 2027-02-05.
-- **Provider / access:** Claude API (Messages API) `claude-opus-4-6`; Amazon Bedrock, Google Cloud Vertex, Microsoft Foundry, Claude Platform on AWS; Claude Code (agent teams), Claude in Excel/PowerPoint. No OpenCode Zen Free ID found — paid API only.
-- **Release / knowledge:** 2026-02-05; reliable knowledge cutoff May 2025, training data cutoff Aug 2025.
-- **IDs:** `claude-opus-4-6` (Claude API alias); Bedrock/Vertex equivalents.
-- **Context window:** 1,000,000 tokens (GA since 2026-03-13, no beta header, no long-context premium — a 900K-token request bills at standard rates); 128K max output (300K in Batch API beta); up to 600 images/PDF pages per request.
-- **Modalities:** Text and images in → text out. Adaptive thinking with effort low/medium/high/max (default `high`; extended thinking deprecated); context compaction (beta); tool use.
-- **Pricing (as of 2026-10-09):** $5.00 / MTok input, $25.00 output; 5m cache write $6.25 / 1h $10; cache read $0.50; Batch API $2.50 / $12.50 (50% off); US-only inference 1.1x. (The >200K premium pricing of $10/$37.50 was removed at 1M GA.)
-- **Architecture:** Proprietary.
+- **Name:** Claude Opus 4.6. Now **four generations behind** the current lineup: Opus 5.5 (86.29) → Opus 5 (79.68) → Opus 4.8 (69.63) → Opus 4.7 (68.11) → Opus 4.6 (61.82). Anthropic's models overview lists it under "Legacy models (still available)", and **BenchLM classifies it as Non-Reasoning** — the second such model in this batch after Gemini 3 Pro. A separate sibling, **Claude Opus 4.6 (Adaptive)**, is tracked as its own folder; the figures below describe the base variant.
+- **Short description:** A 4.6-generation legacy model whose most interesting feature is a **provenance problem**: its BrowseComp row (83.7%) is sourced from the **Claude Mythos Preview system card** — a *different, later* model — so its best agentic number is not actually its own. Strip that out and the agentic record is thin. It also holds the **worst CritPt score measured anywhere in this research series (2.8%)** and an **AA-HLE of 19.1% against Anthropic's own HLE of 53%**, a 33.9-point vendor-vs-independent gap.
+- **Provider / access:** Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry, Claude Platform on AWS. **No rate card is published for this SKU in the sources checked, and it is absent from Zen's current model list** — consistent with its legacy status.
+- **Release / knowledge:** release date not restated for this legacy SKU; the 4.6 generation is the 2026 mid-cycle predecessor of 4.7/4.8/5. **Knowledge cutoff not restated by Anthropic.**
+- **IDs:** `claude-opus-4-6` (all platforms use the same dateless pinned ID).
+- **Context window:** **1M tokens** (BenchLM). Max output not restated for this SKU, and it is **not** in the 300K Batch extended-output list, so output is capped at 128K.
+- **Modalities:** **text and images in → text out** (Anthropic's lineup-wide statement). BenchLM classifies it Non-Reasoning.
+- **Pricing (as of 2026-11-05):** **not published in the sources checked.** Anthropic's current pricing page covers only the current lineup; Zen's model list omits 4.6 entirely. Cost efficiency is therefore scored conservatively and flagged as unverified rather than assumed from sibling SKUs.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
+Anthropic's Opus 4.6 system card is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, ARC Prize, Epoch AI, the Claw-Eval and CyberGym leaderboards, Cognition, Cursor, Kaggle, LlamaIndex, the JobBench paper, Meta's Muse Spark chart, Arcee's Trinity-Large-Thinking table, Qwen's comparison charts and OpenRouter supplying independent rows.
+
 Agent / tool use:
 
-- Terminal-Bench 2.0: **65.4%** (Anthropic system card, Terminus-2, max effort, 1,335 trials — highest at release; Opus 4.5 59.8%, GPT-5.2 64.7% via Codex CLI)
-- τ²-bench: **Retail 91.9% / Telecom 99.3%** (system card)
-- MCP-Atlas: **59.5%** (system card)
-- OSWorld-Verified: **72.7%** (system card)
-- GDPval-AA: **Elo 1606** (system card — +144 over GPT-5.2's 1462, +190 over Opus 4.5's 1416)
-- BrowseComp: **84.0%** (system card; 86.8% with a multi-agent harness); independent RankLLMs run 83.7%
-- Claw-Eval: **70.4%** (Claw-Eval leaderboard via BenchLM)
-- CyberGym: **66.6%** (leaderboard); DeepSearchQA **73.7%** (Meta comparison chart); ResearchClawBench 19.9%; JobBench 36.7%; ApprenticeBench 5%
-- Finance Agent: **60.7%**; OpenRCA 34.9%
+- **Claw-Eval: 70.4%** — one of only two models in this entire research series with a published Claw-Eval figure (the other is GPT-6 Astra's absence; Kimi K3, Muse Spark 1.2, GLM-5.3-Flash and Claude Mythos 5 are all missing)
+- **BrowseComp: 83.7%** — **provenance caveat: sourced from the Claude Mythos Preview system card, a different and later model**, so this number is lineage-adjacent rather than a direct 4.6 measurement
+- OSWorld-Verified: 72.7%; τ²-bench: 84.8%; DeepSearchQA: 73.7%; CyberGym: 66.6%; AndroidWorld: 62.0%
+- **Terminal-Bench 2.0: 65.4%** — note the 2.0 harness, not 2.1; no TB2.1 or TB4.0 figure exists for this model
+- terminalBenchHard: 48.5%; JobBench: 36.7%; **ApprenticeBench: 5%**; ResearchClawBench: 19.9%; Gert Labs: 61.85%
+- **τ³-Banking, GDPval-AA, OSWorld 2.x, MCP-Atlas, Toolathlon, AutomationBench, MazeBench, Agents' Last Exam: no verified public score found**
 
 Reasoning / knowledge:
 
-- HLE: **53.0% with tools** (system card, restated 2026-02-23 after an improved cheating-detection pipeline; led all frontier models at release); ~40% without tools
-- GPQA Diamond: **91.3%** (system card, 5 trials, max effort); Arcee comparison table lists 89.2%
-- ARC-AGI-2 (verified): **68.8%** (system card; Opus 4.5 37.6%)
-- MMMLU: **91.1%**
-- Artificial Analysis Intelligence Index: **26.4** (rebased scale; AA's own GPQA/HLE runs sit lower at 84.0%/19.1% — configuration-dependent)
+- **GPQA: 91.3%** (system card) / **GPQA-D 89.2%** (Arcee) / **AA-GPQA Diamond 84.0%** — clears the 90% reference only on Anthropic's own run
+- **HLE: 53%** (system card) / HLE without tools 40% / **AA-HLE 19.1%** — a **33.9-point vendor-vs-independent gap**, the largest measured in this batch
+- SuperGPQA: **95%**; MMLU-Pro: 82% (Qwen) / **89.1%** (Arcee); AIME25 (Arcee): **99.8%**
+- **AA Intelligence Index: 26.4**; **AA-LCR: 67.0%** — the weakest AA-LCR in this batch
+- **CritPt: 2.8%** — the worst scientific-reasoning score measured anywhere in this research series
+- FrontierMath v2 Tiers 1–3: **66.0%**; Tier 4: **26.8%**; ARC-AGI-3: 0.5%
+- **AA-Omniscience: index 2.4, accuracy 45.8%, hallucination rate 80.1%**; HealthBench Hard: 14.8%; MedXpertQA (Text): 52.1%; AA-IFBench: 44.6%
+- **MRCR: no verified public score found**
 
 Coding:
 
-- SWE-bench Verified: **80.8%** (80.84% avg over 25 trials, max effort; 81.42% with a prompt modification; Arcee's table lists 75.6%)
-- SWE-bench Multilingual: **77.8%**
-- SWE-bench Pro: **53.4%** (Meta Muse Spark comparison chart)
-- LiveCodeBench Pro: **70.7%**; **LiveCodeBench 88.8%** (independent, RankLLMs); SWE-Rebench 65.3%; React Native Evals 84.1%
-- Vibe Code Bench v1.1: **57.57%** (Vals AI); FrontierCode 1.1 Main: **26.9%** (Cognition)
-- LMArena Arena Elo: text 1504, code 1543 (release-time)
+- **SWE-bench Verified: 80.8%** (system card) / **75.6%*** (Arcee) — a 5.2-point vendor-vs-independent gap
+- React Native Evals: **84.1%**; LiveCodeBench Pro: 70.7%; Vibe Code Bench: 57.57%
+- SWE-bench Pro: 53.4%; SWE-Rebench: 65.3%; **FrontierCode 1.1 Main: 26.9%**; Terminal-Bench 2.0: 65.4%
+- **DeepSWE, AA Coding Index, AA-SciCode: no verified public score found** — so the 74%, 70% and 55% references are all unmeasured
 
-Long context:
+Multimodal (image-in):
 
-- MRCR v2 8-needle: **93.0% at 256K / 78.3% at 1M** (Anthropic; highest published frontier figure at 1M at the time — Sonnet 4.5 was 18.5%); independent RankLLMs reports **MRCR 1M 92.9%** and CorpusQA 1M 71.7% (its #1 long-context standing)
-- GraphWalks BFS 1M (F1): **41.2** (64k) / 38.7 (max)
-
-Multimodal:
-
-- MMMU-Pro: **73.9% no tools / 77.3% with tools** (system card)
+- MMMU-Pro: **77.3%** (system card) / AA-MMMU-Pro **72.5%**; ScreenSpot Pro: **83.1%**; MedXpertQA (MM): 64.8%; ERQA: 51.6%; ParseBench: 54.07%; Design Arena: 1,290 Elo
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** GDPval-AA Elo 1606, BrowseComp 84.0%, τ² Telecom 99.3% and Claw-Eval 70.4% are strong, but this is a February-generation model measured on the older suites — Terminal-Bench 2.0 65.4% is mid-band against the current TB4.0 frontier (50–63%), and there is no TB4.0/AutomationBench reading; capped by MCP-Atlas 59.5% and ResearchClawBench 19.9%.
-- **Reasoning: 87/100.** GPQA 91.3%, HLE 53.0% with tools and ARC-AGI-2 68.8% sit in the frontier band and led the field at release; capped by the knowledge cutoff (May 2025 — the oldest in this comparison), the low AA re-based index (26.4), and SuperGPQA/MMMLU-Pro readings below the newest flagships.
-- **Context window: 95/100.** 1M tokens GA at standard pricing with 128K output, and the best published 1M retrieval of its generation (MRCR v2 93.0% at 256K / 78.3% at 1M) — missing only the 100 tier's ≥98% retrieval-at-512K bar; GraphWalks 1M F1 38.7–41.2 shows structured long-context reasoning still lags retrieval.
-- **Multimodal: 70/100.** Text + image in → text out is the 60–70 band, at its top on MMMU-Pro 77.3% (with tools); no video/audio input or non-text output.
-- **Coding: 80/100.** SWE-bench Verified 80.8% and LiveCodeBench Pro 70.7% are solidly frontier-adjacent, but SWE-bench Pro 53.4%, FrontierCode 26.9% and Vibe Code Bench 57.57% show the long-horizon agentic-coding gap that Opus 4.8/Sonnet 5 closed months later.
-- **Cost efficiency: 45/100.** $5/$25 per MTok sits between the methodology's $3/$15 ≈ 60 and $10/$50 ≈ 30 tiers; $0.50 cache reads and 50%-off batch help, and 1M context now bills at standard rates, but it is 2.5x Sonnet 5's price with no free tier.
-- **Overall Score: 82/100.** Best-fit recommendation: a proven previous-generation flagship — strong long-context knowledge work and coding at mid-frontier pricing; superseded by Opus 4.8/5 and Sonnet 5 for new deployments, but still one of the best-documented 1M-context models.
+- **Tool use: 62/100.** Weak, and weaker than the headline suggests. **Claw-Eval 70.4% is a genuinely valuable data point** — one of only two such figures in this research series — and BrowseComp 83.7%, τ²-bench 84.8% and OSWorld-Verified 72.7% are respectable. But the BrowseComp figure is *provenance-compromised* (Mythos Preview system card, not 4.6), **Terminal-Bench is only at the 2.0 harness (65.4%)**, and ApprenticeBench 5%, JobBench 36.7% and terminalBenchHard 48.5% show the execution layer is not competitive. GDPval-AA, τ³-Banking, OSWorld 2.x, MCP-Atlas, Toolathlon and MazeBench are all missing.
+- **Reasoning: 58/100.** The weakest dimension. GPQA 91.3% (Anthropic) and HLE 53% (Anthropic) appear to clear their references, but **AA measures GPQA at 84.0% and HLE at 19.1%** — a 33.9-point gap on the same model — and independently this is what the model actually does. On the AA evidence it fails both references. Compounding that: **CritPt 2.8% is the worst score measured anywhere in this research series**, AA Intelligence Index 26.4, AA-LCR 67.0% (weakest in batch), FrontierMath Tier 4 26.8%, ARC-AGI-3 0.5%, hallucination rate 80.1% and no MRCR. Scored on the independent measurements, not the vendor's.
+- **Context window: 88/100.** 1M-token tier, but at the low end because **AA-LCR is 67.0% — the weakest long-context reasoning in this batch** — there is no MRCR or GraphWalks measurement, output is capped at 128K (no 300K Batch beta), and no max-output limit is published. A large window with the least-measured usable depth.
+- **Multimodal: 76/100.** Text + image in with text out. Scored at the top of the methodology's "+image in" 60–70 band because the measured depth is real — **ScreenSpot Pro 83.1%, MMMU-Pro 77.3%** — with ERQA 51.6% and MedXpertQA (MM) 64.8% middling. Held at 76 because there is no video or audio input, ParseBench is 54.07%, and AA measures MMMU-Pro 4.8 points lower than the system card.
+- **Coding: 68/100.** SWE-bench Verified 80.8% (Anthropic) / 75.6% (Arcee) and React Native Evals 84.1% are the strengths, with LiveCodeBench Pro 70.7% acceptable. Capped by SWE-bench Pro 53.4%, SWE-Rebench 65.3%, **FrontierCode 1.1 Main 26.9%**, Terminal-Bench 2.0 65.4%, and the complete absence of DeepSWE, the AA Coding Index and AA-SciCode — so all three of the methodology's coding references are unmeasured for this SKU.
+- **Cost efficiency: 55/100.** **No rate card is published for this SKU in any source checked** — Anthropic's pricing page covers only the current lineup and Zen's model list omits 4.6 entirely. Scored conservatively at 55, between the methodology's ~$3/$15 (≈60) and ~$10/$50 (≈30) anchors, on the assumption that a four-generation-legacy Anthropic flagship would sit in that band if a route existed. **Explicitly an estimate, not a measurement** — verify against Anthropic's or Bedrock's current pricing before relying on it.
+- **Overall Score: 70/100.** (62 + 58 + 88 + 76 + 68) / 5 = 70.4 → 70. Recommendation: **a legacy SKU with nothing to recommend it over its successors.** On BenchLM it scores 61.82 against Opus 4.7's 65.18, Opus 4.8's 69.63 and Opus 5's 79.68, and its independent HLE (19.1%) and CritPt (2.8%) are the worst measured here. Its two genuinely useful artefacts are the **Claw-Eval 70.4% figure** (one of only two in this series) and the **BrowseComp provenance lesson** — that Google/Meta-style comparison tables can attribute a *later* model's system-card number to an earlier one, which is exactly the kind of error this whole research corpus is structured to catch. Migrate unless pinned to `claude-opus-4-6`.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): the Artificial Analysis deprecated page re-confirms Intelligence Index 26 (#4/56 in its class), 40.8 tok/s, $5/$25 (blended $3.85) and the 1M window; Anthropic's official page/deprecations table re-confirms Active status (retirement not sooner than 2027-02-05), 300K batch-output beta support, and that extended thinking is deprecated in favour of adaptive effort on this generation — all consistent with the existing Context 95 / Reasoning 87 / Coding 80 reads. No score change warranted. Prior pass (2026-10-10) used rankllms.com independent verified runs (MRCR 1M 92.9% = its #1 long-context standing); the first pass used Anthropic's launch post, model page, pricing page, system card PDF, 1M-context GA blog, BenchLM, Traictory, AI Release Tracker, DataCamp and DigitalApplied.
-- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Anthropic's Claude Opus 4.6 system card as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 51-row catalog (attributing independent numbers to Artificial Analysis, Vals AI, ARC Prize, Epoch AI, the Claw-Eval and CyberGym leaderboards, Cognition, Cursor, Kaggle, LlamaIndex, the JobBench paper, Meta's Muse Spark chart, Arcee's Trinity-Large-Thinking table, Qwen's comparison charts and Openrouter) and Anthropic's models-overview page for legacy status and Batch-output eligibility. Two provenance problems are recorded explicitly rather than smoothed over: the **BrowseComp 83.7% row is sourced from the Claude Mythos Preview system card, a different and later model**, and the **33.9-point vendor-vs-AA gap on HLE (53% vs 19.1%)** is resolved in favour of the independent measurement. Missing benchmarks (τ³-Banking, GDPval-AA, OSWorld 2.x, MCP-Atlas, Toolathlon, AutomationBench, MazeBench, Agents' Last Exam, DeepSWE, AA Coding Index, AA-SciCode, MRCR) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 4.6 system card (primary benchmark source)](https://www.anthropic.com/claude-opus-4-6-system-card)
+  - [Anthropic — Models overview (legacy status, 300K Batch listing, lineup modality statement)](https://platform.claude.com/docs/en/about-claude/models/overview)
+  - [BenchLM — Claude Opus 4.6 benchmark scores (51 rows, 61.82/100, #47/1009)](https://benchlm.ai/models/claude-opus-4-6)
+  - [Artificial Analysis — Claude Opus 4.6](https://artificialanalysis.ai/models/claude-opus-4-6)
+  - [Claw-Eval leaderboard (source of the 70.4% figure)](https://claw-eval.github.io/)
+  - [Arcee — Trinity-Large-Thinking comparison table (source of the SWE-bench Verified* 75.6% and AIME25 rows)](https://www.arcee.ai/blog/trinity-large-thinking)
+  - [Meta AI — Muse Spark comparison chart (source of several independent rows)](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

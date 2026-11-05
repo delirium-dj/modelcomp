@@ -1,7 +1,7 @@
 {
   "name": "Anthropic",
   "kind": "vendor",
-  "short": "Claude models direct from Anthropic's API; pay-as-you-go from $0.10/$0.50 per 1M (Haiku 5.5) up to $10/$50 per 1M (Opus / Fable class), with a 50% Batch API discount.",
+  "short": "Claude models direct from Anthropic's API; pay-as-you-go from $0.10/$0.50 per 1M (Haiku 5.5, prompts ≤100K) up to $10/$50 per 1M (Fable class), with a 50% Batch API discount and a free consumer tier (Claude app).",
   "officialUrl": "https://www.anthropic.com",
   "hosts": [
     "anthropic.com",
@@ -12,8 +12,14 @@
   ],
   "plans": [
     {
+      "name": "Free (Claude app)",
+      "price": "$0",
+      "notes": "Consumer web/mobile/desktop app, free for everyone - limited usage every 5 hours and per week (no API access). API is pay-as-you-go.",
+      "evidenceUrl": "https://www.anthropic.com/pricing"
+    },
+    {
       "name": "Claude API pay-as-you-go",
-      "price": "from $0.10/$0.50 per 1M (Claude Haiku 5.5, prompts ≤100K) up to $10/$50 per 1M (Opus / Fable class)",
+      "price": "from $0.10/$0.50 per 1M (Claude Haiku 5.5, prompts ≤100K) up to $10/$50 per 1M (Fable class)",
       "evidenceUrl": "https://www.anthropic.com/pricing"
     },
     {

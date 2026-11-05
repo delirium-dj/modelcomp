@@ -47,7 +47,7 @@
     {
       "name": "Copilot Free",
       "price": "$0/month",
-      "notes": "Limited IDE chat and code agent usage; 2,000 completions and 50 chat requests per month.",
+      "notes": "Limited IDE chat and code agent usage; 2,000 completions per month; access to Haiku 4.5, GPT-5 mini, and more; no credit card required.",
       "evidenceUrl": "https://github.com/features/copilot/plans"
     },
     {

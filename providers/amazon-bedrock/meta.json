@@ -1,7 +1,7 @@
 {
   "name": "Amazon Bedrock",
   "kind": "aggregator",
-  "short": "Managed access to frontier and open models on AWS, with on-demand, batch, priority, flex, and provisioned-throughput billing.",
+  "short": "Managed access on AWS to frontier and open models - Anthropic Claude, Meta Llama, Mistral, DeepSeek, Google Gemma, OpenAI gpt-oss, xAI Grok, Z.ai GLM, Qwen, and more - with on-demand, batch (50% off), priority (75% premium), flex (50% off), and provisioned-throughput billing. Per-region prices vary.",
   "officialUrl": "https://aws.amazon.com/bedrock/",
   "hosts": ["aws.amazon.com"],
   "plans": [
@@ -20,7 +20,7 @@
     {
       "name": "Priority & Flex tiers",
       "price": "Priority premium / Flex discount",
-      "notes": "Priority favors latency-sensitive workloads; Flex trades latency for lower per-token rates.",
+      "notes": "Priority tier = 75% premium over Standard (latency-sensitive workloads); Flex tier = 50% discount (trades latency for lower per-token rates).",
       "evidenceUrl": "https://aws.amazon.com/bedrock/pricing/"
     },
     {

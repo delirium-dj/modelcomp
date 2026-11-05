@@ -201,7 +201,7 @@ const VENDORS: VendorMatch[] = [
   { match: "firecrawl", icon: "firecrawl", label: "Firecrawl", adaptive: true, color: "#FA5D19" },
   { match: "gladia", icon: "gladia", label: "Gladia" },
   { match: "glhf", icon: "glhf", label: "GLHF" },
-  { match: "gonka", icon: "gonka", label: "Gonka" },
+  { match: "gonka", icon: "gonka", label: "Gonka", invertLight: true },
   { match: "grafana", icon: "grafana", label: "Grafana", adaptive: true },
   { match: "grafana-cloud", icon: "grafana", label: "Grafana Cloud", adaptive: true, invertDark: true, color: "#F46800" },
   { match: "hetzner", icon: "hetzner", label: "Hetzner", adaptive: true, invertDark: true },

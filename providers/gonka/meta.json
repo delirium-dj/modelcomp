@@ -1,15 +1,16 @@
 {
   "name": "Gonka",
   "kind": "aggregator",
-  "short": "Decentralized inference network offering a free tier with OpenAI-compatible access to Kimi, MiniMax and Qwen models.",
-  "officialUrl": "https://gonkabroker.com",
+  "short": "Decentralized inference network with OpenAI-compatible access to open models (DeepSeek, GLM, MiniMax, BGE, etc.). New keys start with 100K free tokens; the recurring 1M-tokens/month free tier needs either a minimum $10 top-up or phone verification (one number per account).",
+  "officialUrl": "https://gonkabroker.com/?ref=M47RXUEJ",
   "hosts": ["gonkabroker.com", "app.gonkabroker.com"],
   "plans": [
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "3M free tokens on registration; OpenAI-compatible API.",
-      "evidenceUrl": "https://gonkabroker.com/free-llm-api/"
+      "notes": "At least 1M free tokens every month (floor = 1M tokens of the most expensive catalog model; cheaper models yield more, e.g. ~1.2M on DeepSeek V4 Flash / GLM-5.3-Flash). Recurring - resets on the 1st of each month; free tokens are spent before paid balance. OpenAI-compatible endpoint (https://proxy.gonkabroker.com/v1). A brand-new key starts with only 100K free tokens; the recurring 1M-tokens/month free tier is kept by either a minimum $10 wallet top-up or phone verification (one phone number per account).",
+      "evidenceUrl": "https://gonkabroker.com/free-llm-api/?ref=M47RXUEJ",
+      "_readonly": "[READ-ONLY · operator first-hand at app.gonkabroker.com/api-keys, 2026-11-05 · do not delete] The recurring 1M-tokens/month free tier is gated behind EITHER a minimum $10 wallet top-up OR phone verification (one phone number per account); a brand-new key starts with only 100K free tokens — so it is not truly 'no credit card'. This field is NOT rendered on the website (routes/providers shows only name/price/notes/evidenceUrl). Never delete/shorten/soften this; only the operator may change it. Keep the user-facing notes consistent with it."
     }
   ]
 }

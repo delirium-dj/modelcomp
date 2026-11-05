@@ -1,7 +1,7 @@
 {
   "name": "DeepSeek",
   "kind": "vendor",
-  "short": "DeepSeek V3.2/V4 family on the official API; pay-as-you-go from $0.21/$0.31 per 1M up to $1.32/$3.96 peak, with off-peak lanes and cached input.",
+  "short": "DeepSeek V4 family on the official API; pay-as-you-go from $0.30/$1.20 per 1M (deepseek-flash, peak) up to $1.32/$3.96 peak (V4 Pro), with off-peak lanes at half price and cached input.",
   "officialUrl": "https://deepseek.com",
   "hosts": [
     "deepseek.com",
@@ -13,14 +13,14 @@
   "plans": [
     {
       "name": "DeepSeek API pay-as-you-go",
-      "price": "from $0.21/$0.31 per 1M (DeepSeek V3.2) up to $1.32/$3.96 peak (DeepSeek V4 Pro)",
-      "notes": "Cached input on DeepSeek V3.2 $0.022 per 1M.",
+      "price": "from $0.30/$1.20 per 1M (deepseek-flash = V4.1 Flash, peak) up to $1.32/$3.96 peak (DeepSeek V4 Pro)",
+      "notes": "Cache-hit input from $0.006 per 1M (Flash, peak) / $0.022 (V4 Pro, off-peak). Legacy deepseek-v4-flash names are retired and served by V4.1 Flash at Flash prices.",
       "evidenceUrl": "https://api-docs.deepseek.com/quick_start/pricing"
     },
     {
       "name": "Off-peak lanes",
-      "price": "$0.66/$1.98 per 1M (DeepSeek V4 Pro, off-peak)",
-      "notes": "Third-party rates from ~$0.435/$0.87 per 1M exist.",
+      "price": "Half of peak rates (V4 Pro off-peak $0.66/$1.98 per 1M)",
+      "notes": "Peak hours are Mon-Fri 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays; all other hours are off-peak.",
       "evidenceUrl": "https://api-docs.deepseek.com/quick_start/pricing"
     }
   ]

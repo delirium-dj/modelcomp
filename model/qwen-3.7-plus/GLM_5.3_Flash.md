@@ -29,6 +29,7 @@ Agent / tool use:
 - AA Agentic Index: **19.7%**; APEX-Agents-AA: **22.4%** (AA); Vals TB2.1: **52.8%** (Vals, independent — wide gaps vs the launch-table rows)
 - CoWorkBench: **65.1** / JobBench: **27.6** (vendor comparison table, prior pass)
 - VITA-Bench: **45.6%** (launch table); QwenWebBench: **1536**; MAXIFE: **88.8%**; NOVA-63: **58.8%** (launch table, added 2026-10-16)
+- NEW (BenchLM Nov 4 refresh): Terminal-Bench Hard (AA) **47%**; AA EnterpriseOps-Gym **40.6%**; **FrontierMath v2 Tiers 1–3: 34.4%** (Epoch — first FrontierMath row for this model, weak-mid)
 
 Reasoning / knowledge:
 
@@ -63,12 +64,12 @@ Multimodal (video understanding now measured):
 ### Normalized scores (1–100)
 
 - **Tool use: 74/100.** (Was 65 on the prior pass.) The launch table + AA transform the picture: MCP Atlas 73.2%, OSWorld-Verified 73.3%, AndroidWorld 81.0%, BFCL v4 72.9% and τ²-bench 93% (independent) replace the thin CoWorkBench/JobBench-only base — but GDPval 886, AA Agentic Index 19.7% and Vals TB2.1 52.8% keep it mid-band.
-- **Reasoning: 76/100.** GPQA 90.0–90.3% (two sources) and the HMMT 92.9%/MMLU-Redux 94.5% math/knowledge rows are solid, HLE 34.7–35.6% stays under the 40% bar and the corroborated AA Index of 25.2 plus the near-zero Omniscience index hold the score.
+- **Reasoning: 76/100.** GPQA 90.0–90.3% (two sources) and the HMMT 92.9%/MMLU-Redux 94.5% math/knowledge rows are solid, HLE 34.7–35.6% stays under the 40% bar and the corroborated AA Index of 25.2 plus the near-zero Omniscience index hold the score; the new FrontierMath T1–3 34.4% row (Epoch) is weak-mid and consistent with the band.
 - **Context window: 95/100.** 1M tokens maps to the ≥1M tier; MRCR v2 91.7% is the first measured retrieval evidence (strong at its measured depth); no ≥98% retrieval at 512K+ keeps it off the maximum.
 - **Multimodal: 78/100.** (Was 65 on the prior pass.) Video understanding is now measured, not just claimed (Video-MME 88.0, VideoMMMU 85.4, MLVU 87.4) alongside strong document/vision rows (OmniDocBench 91.4, CharXiv 85.9) — the +video band (75–90); no audio input and text-only output.
 - **Coding: 80/100.** SWE-bench Verified 77.7% and LiveCodeBench 89.6% fill the gaps and SWE Multilingual 75.8% is solid — but DeepSWE 16.5%, AA Coding Index 55.9% and NL2Repo 41.1% trail the family's 3.8 tier badly.
 - **Cost efficiency: 95/100.** $0.32/$1.28 per 1M (Together) sits between the ~$0.10/$0.20 = 97–99 and ~$0.60/$2.20 = ~92 methodology references, landed at 95.
-- **Overall Score: 80.6/100.** (Was 76.2 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (74 + 76 + 95 + 78 + 80) / 5 = 403/5 = 80.6 — raised on the 2026-10-11 second pass because the Alibaba Cloud launch table and AA boards convert the tool-use and multimodal gaps into measured evidence. Best-fit: a cheap multimodal agent foundation for vision/video-plus-language productivity workflows; superseded by Qwen 3.8 models at similar cost with much stronger agentic coding.
+- **Overall Score: 81/100.** (Was 80.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (74 + 76 + 95 + 78 + 80) / 5 = 403/5 = 80.6 → 81 — raised on the 2026-10-11 second pass because the Alibaba Cloud launch table and AA boards convert the tool-use and multimodal gaps into measured evidence; the Nov 4 refresh adds FrontierMath/TB-Hard/EnterpriseOps rows without moving the band. Best-fit: a cheap multimodal agent foundation for vision/video-plus-language productivity workflows; superseded by Qwen 3.8 models at similar cost with much stronger agentic coding.
 
 ---
 

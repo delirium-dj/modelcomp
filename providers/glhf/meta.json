@@ -9,7 +9,7 @@
     {
       "name": "Free Testing Tier",
       "price": "$0",
-      "notes": "Instant OpenAI-compatible API key for your local environment (no credit card required). Designed for CLI coding tools (Aider, Cline) and developers experimenting with open weights (Llama, Qwen, DeepSeek).",
+      "notes": "Instant OpenAI-compatible API key for your local environment (no credit card required). Designed for CLI coding tools (Aider, Cline) and developers experimenting with open weights (Llama, Qwen, DeepSeek). Note: glhf.chat was unreachable (Cloudflare 522) as of 2026-11-05 - service status unconfirmed.",
       "evidenceUrl": "https://glhf.chat"
     }
   ],

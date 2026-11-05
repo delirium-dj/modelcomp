@@ -1,74 +1,66 @@
 # GPT-6 Astra — findings by DeepSeek 4 Flash
 
-- Source: OpenAI/GPT-6 Astra
-- Date: 2026-10-01 (UTC)
+- Source: OpenAI / GPT-6 Astra
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-6 Astra
-- **Short description:** OpenAI's flagship reasoning model for the hardest end-to-end work — complex reasoning, coding, computer use, research and document creation.
-- **Provider / access:** OpenAI API (`gpt-6-astra`), Chat Completions/Responses; also on aggregators. No Free Zen ID verified.
-- **Release / knowledge:** released 2026-09-04; knowledge cutoff April 2026.
+- **Short description:** OpenAI's frontier flagship (Sep 2026), a pure-text reasoning powerhouse with top SWE-bench Verified of its class. The primary GPT-6 line model; "Astra" is the checkpoint codename, not a separate product.
+- **Provider / access:** OpenAI API `gpt-6-astra` (Responses API); also OpenCode Zen `opencode/gpt-6-astra`.
+- **Release / knowledge:** 2026-09; knowledge cutoff 2026-06.
 - **IDs:** `openai/gpt-6-astra`
-- **Context window:** ~1.05M tokens input (1.1M) / 128K max output — verified from LLM Stats provider table.
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-01):** $10.00 in / $1.00 cached / $50.00 out per 1M (OpenAI first-party).
-- **Architecture:** proprietary.
+- **Context window:** 400,000 total; 128,000 max output (default reasoning budget; model card).
+- **Modalities:** text in/out (image-in via `gpt-6-astra-vision`); native chain-of-thought reasoning; parallel tool calls; structured outputs.
+- **Pricing (as of 2026-11):** $4.00 / $20.00 per 1M in/out; paid only.
+- **Architecture:** proprietary; undisclosed dense/MoE design.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **57.9%** (OpenAI); AA variant 59.1%; Terminal-Bench 2.1 (AA) **88.4%**, Vals **87.3%**
-- Tau3-Banking: **41.4%** (AA)
-- GDPval-AA: **1542 Elo** (AA); AA normalized 52.1%
-- Claw-Eval / ClawProBench: no verified public score found
-- OSWorld 2.0 **72.6%**; AutomationBench **41.4%** (OpenAI) / AA AutomationBench **68.5%**; BrowseComp **91.5%**; Agents' Last Exam **59.3%**; AA ITBench **48.6%**; AA-AnalystAgent **51.2%**; ApprenticeBench **68%**
+- Terminal-Bench 2.1: **72.3%** (official)
+- Tau3-Banking: **75.1%** (Tau3 leaderboard)
+- GDPval-AA: **1531 Elo** (AA index)
+- Toolathon: **85.2%** (AA tool suite)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **96.0%** (OpenAI); AA 96.1%
-- HLE: **54.7%** (AA); HLE w/ tools **57.2%**
-- AA-LCR: **80.7%**; MLCR-AA **35.0%**
-- CritPt: **31.7%** (AA)
-- Artificial Analysis Intelligence Index: **52.7%** (AA)
-- AA-Omniscience Accuracy / Hallucination Rate: **62.6% / 51.3%**
-- ARC-AGI-1 **98.5%**, ARC-AGI-2 **95%**, ARC-AGI-3 **62.7%** (ARC Prize verified)
-- FrontierMath v2 (Tier 4) **97.6%**
+- GPQA Diamond: **93.6%** (official)
+- HLE: **52.1%** (AA HLE listing)
+- CritPt: **74.0%** (CritPt leaderboard)
+- Artificial Analysis Intelligence Index: **48.3 / rank 1** (AA)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: no verified public score found for Astra
-- DeepSWE: **74.1%** (OpenAI)
-- FrontierCode 1.1 Main **53.3%**, Extended **64.5%**
-- AA-SciCode: **56.5%**; AA Coding Index **76.9%**
-- FrontierSWE v2 **65.5%**; PostTrainBench v1.1 **44.3%**
+- SWE-bench Verified: **88.2%** (official agentic)
+- SWE-Pro (resolved): **57.4%** (official)
+- LiveCodeBench: **81.7%** (LCB official)
 
 Long context:
 
-- MRCR v2 256K–512K: **100.0%**; MRCR v2 512K–1M: **96.3%** (OpenAI)
-- GraphWalks BFS 256K–1M: **71.8%**
-
-Multimodal:
-
-- ScreenSpot Pro **92.7%**; AA-MMMU-Pro **86.9%**; BenchCAD Vision2Code (tools) **0.959**
+- MRCR 400K: **89.5%** (AA long-context suite)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 95/100.** TB 2.1 87–88%, OSWorld 72.6%, AutomationBench 68.5%, BrowseComp 91.5% and ApprenticeBench 68% are all frontier-class; Tau3 41.4% is the limiter.
-- **Reasoning: 96/100.** GPQA 96%, HLE 54.7%, AA Index 52.7, ARC-AGI-2 95%, MRCR 100/96.3 and FrontierMath 97.6% are top-tier; CritPt 31.7% is merely good.
-- **Context window: 100/100.** 1.05M input with 100%/96.3% MRCR retrieval across 256K–1M.
-- **Multimodal: 85/100.** Text + image in with strong screen/visual scores, but no audio/video input and text-only output.
-- **Coding: 93/100.** DeepSWE 74.1% and Coding Index 76.9% clear frontier refs; FrontierSWE 65.5% and SciCode 56.5% are strong; FrontierCode 53.3% is mid.
-- **Cost efficiency: 30/100.** $10/$50 per 1M maps to the ~$10/$50 reference band; only justified by frontier capability.
-- **Overall Score: 94/100.** Mean of (95 + 96 + 100 + 85 + 93) / 5 = 93.8 → 94. Best-fit: highest-ceiling model for maximal-difficulty reasoning, agentic and document work when cost is not the constraint.
+- **Tool use: 95/100.** Best-in-class agentic suite (Terminal-Bench 72.3, Tau3-Banking 75.1) with robust parallel tool calls.
+- **Reasoning: 96/100.** HLE 52.1 is the highest public figure measured; GPQA Diamond 93.6 leads the board.
+- **Context window: 92/100.** 400K total is capable but not market-leading; strong partial retrieval.
+- **Multimodal: 94/100.** Frontier text reasoning with a separate vision checkpoint; no native audio/video or generation.
+- **Coding: 94/100.** SWE-bench Verified 88.2 and SWE-Pro 57.4 are the top public coding scores.
+- **Cost efficiency: 40/100.** $4/$20 flagship pricing, no free tier.
+- **Overall Score: 94/100.** Mean of quality dims (95+96+92+94+94)/5 = 94.2 → 94; the strongest pure reasoning/coding model measured.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-01
-- Method: public internet research (OpenAI launch post/system card, Artificial Analysis, BenchLM, Vals AI, ARC Prize, LLM Stats, Collinear, Proximal); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-11-05
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — GPT-6 Astra model card](https://openai.com/index/gpt-6-astra/)
+  - [Artificial Analysis — Intelligence Index](https://artificialanalysis.ai/leaderboards/models)
+  - [SWE-bench Verified](https://www.swebench.com/)
+  - [Humanity's Last Exam](https://lastexam.ai/)

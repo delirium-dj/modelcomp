@@ -12,8 +12,8 @@
     {
       "name": "Serverless Inference",
       "price": "Per 1M tokens",
-      "notes": "OpenAI-compatible endpoints for DeepSeek-V4-Flash ($0.112/$0.224 per 1M) and Qwen models ($0.16–$2.00 per 1M).",
-      "evidenceUrl": "https://gmicloud.ai/pricing"
+      "notes": "OpenAI-compatible endpoints for DeepSeek-V4-Flash ($0.112/$0.224 per 1M) and Qwen models ($0.16–$2.00 per 1M) per GMI's MaaS rate card - confirm current rates in the console model library (not published on the site).",
+      "evidenceUrl": "https://gmicloud.ai/en/models/maas"
     }
   ],
   "covers": [

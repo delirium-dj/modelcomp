@@ -248,6 +248,19 @@ the start/end date, and the evidence URL.**
   `node -e "JSON.parse(require('fs').readFileSync('providers/<slug>/meta.json','utf8'))"`.
 - **Temp files:** any scratch script goes ONLY in `temp/<file>.cjs`; never write
   scratch files into the repo root or `providers/`.
+- **Read-only facts are permanent (RULES.md § Provider read-only facts).** Operator
+  first-hand facts live in a plan's `_readonly` field — NOT in `notes`/`short`
+  (those render to users on `/providers/`). `_readonly` is frozen verbatim: NEVER
+  delete, shorten, soften, or reword it; keep `notes` consistent with it but never
+  put `[READ-ONLY]` tags, provenance, dates, or agent notes into `notes`/`short`.
+  A live source that seems to contradict it → surface it in your status, do not
+  overwrite it.
+- **Operator-mandated links are read-only.** A `officialUrl` / `evidenceUrl` that
+  carries a required referral / tracking param must keep it — NEVER normalize to a
+  canonical URL or strip the query when "tidying" a link (e.g. every Gonka link
+  must stay `https://gonkabroker.com/?ref=M47RXUEJ`). Adding a new link for such a
+  provider? Use the referral form. Only the operator may change these (RULES.md §
+  Provider read-only facts).
 
 ## 7. Status report (emit after EACH provider, for that provider only)
 

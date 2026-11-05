@@ -17,12 +17,13 @@
     {
       "name": "AI Studio free tier",
       "price": "$0",
-      "notes": "Free tier on selected Gemini Flash / Flash-Lite / Pro models.",
+      "notes": "Free tier on selected Gemini Flash / Flash-Lite models (Gemini 3.8 Flash, 3.6 Flash, 3.5 Flash-Lite, 3.1 Flash-Lite, live models); not on Pro / Argon models.",
       "evidenceUrl": "https://ai.google.dev/gemini-api/docs/pricing"
     },
     {
       "name": "Gemini API pay-as-you-go",
-      "price": "from $0.10/$0.40 per 1M (Gemini 2.0 Flash, historical) up to $2.50/$15.00 per 1M (Gemini 2.5 Pro, prompts >200K)",
+      "price": "from $0.25/$1.50 per 1M (Gemini 3.1 Flash-Lite) up to $4/$20 per 1M (Gemini 4 Argon, standard, from 2026-12-01)",
+      "notes": "Intro pricing through 2026-11-30: Gemini 4 Argon $2/$10 and Gemini 3.8 Flash $0.75/$3.75 (through 2026-12-31). Batch/Flex = 50% of standard; Priority ≈ 1.8x.",
       "evidenceUrl": "https://ai.google.dev/gemini-api/docs/pricing"
     },
     {

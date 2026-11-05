@@ -97,7 +97,8 @@ export type SourceKey =
   | "Mercury 3"
   | "Nemotron 3.5 Lightning 30B A3B"
   | "Gemma 4 31B"
-  | "Xing 4.0.29B A4B";
+  | "Xing 4.0.29B A4B"
+  | "MiniMax M2.7";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -206,4 +207,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Nemotron 3.5 Lightning 30B A3B", label: "Nemotron 3.5 Lightning 30B A3B", file: "Nemotron_3.5_Lightning_30B_A3B.md", slug: "nemotron-3.5-lightning-free" },
   { key: "Gemma 4 31B", label: "Gemma 4 31B", file: "Gemma_4_31B.md", slug: "gemma-4-31b" },
   { key: "Xing 4.0.29B A4B", label: "Xing 4.0.29B A4B", file: "Xing_4.0.29B_A4B.md", slug: "xing_4.0_29b_a4b" },
+  { key: "MiniMax M2.7", label: "MiniMax M2.7", file: "MiniMax_M2.7.md", slug: "minimax-m2.7" },
 ];

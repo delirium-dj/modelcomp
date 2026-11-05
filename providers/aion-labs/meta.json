@@ -9,7 +9,7 @@
     {
       "name": "Free Tier",
       "price": "$0",
-      "notes": "Instant OpenAI-compatible API key on signup (no credit card required — verbatim on pricing page). Free tier gives a daily credit allowance for agent jobs, API calls, and browser chat. Provider publishes no specific RPM or tokens/day figure.",
+      "notes": "Instant OpenAI-compatible API key on signup (no credit card required — verbatim on pricing page). Free tier gives a daily credit allowance for agent jobs, API calls, and browser chat. Published rate limits (rate-limits doc): 15 RPM, 20,000 tokens/min, 20,000-token daily cap; higher tiers via lifetime credit top-ups (e.g. $100 → 100 RPM / 2M tokens/min).",
       "evidenceUrl": "https://www.aionlabs.ai/pricing/"
     },
     {

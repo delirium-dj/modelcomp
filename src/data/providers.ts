@@ -18,6 +18,11 @@ export interface ProviderPlan {
   price: string;
   notes?: string;
   evidenceUrl?: string;
+  // Internal, AGENT-FACING provenance / read-only instructions. The website
+  // (routes/providers) renders only name/price/notes/evidenceUrl, so this field
+  // never leaks to users on /providers/. Operator first-hand facts and "do not
+  // delete" notes belong HERE, never in the user-facing `notes`/`short`.
+  _readonly?: string;
 }
 
 /** Provider kind: `vendor` sells its own models, `aggregator` bills others'. */

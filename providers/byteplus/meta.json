@@ -12,7 +12,7 @@
     {
       "name": "Free trial quota",
       "price": "$0",
-      "notes": "New-user free inference trial quota (per-model token allowance); register a BytePlus account to claim.",
+      "notes": "New-user free inference trial: 500K-token free quota in the platform's \"Free Tokens Only\" mode (online inference only; service suspends when the quota is approached). Register a BytePlus account to claim.",
       "evidenceUrl": "https://docs.byteplus.com/en/docs/modelark/free-inference-quota"
     },
     {

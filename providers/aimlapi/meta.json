@@ -1,21 +1,21 @@
 {
   "name": "AI/ML API",
   "kind": "aggregator",
-  "short": "Single-key gateway to 10,000+ models from every major lab, with volume discounts, a free playground tier, and OpenAI-compatible endpoints. Zero markup on any request.",
+  "short": "Single-key gateway to 10,000+ AI models and agentic tools (500+ AI models from 70+ providers), with volume discounts and OpenAI-compatible endpoints. Zero markup on any request - pay the same price as going direct. The free tier is currently paused: the help-center FAQ says \"We do not offer free models at the moment\" (2026-03-25), though the pricing page header still advertises a \"free playground tier\".",
   "officialUrl": "https://aimlapi.com",
   "hosts": ["aimlapi.com", "docs.aimlapi.com"],
   "catalogUrl": "https://aimlapi.com/ai-ml-api-pricing",
   "plans": [
     {
-      "name": "Free playground tier",
-      "price": "$0",
-      "notes": "Registered users can try models in the playground for free before paying. Access to Playground included at no cost.",
-      "evidenceUrl": "https://aimlapi.com/ai-ml-api-pricing"
+      "name": "No free tier (paused)",
+      "price": "n/a",
+      "notes": "Help-center FAQ (updated 2026-03-25): \"We do not offer free models at the moment.\" The pricing page header still advertises a \"free playground tier\", but the playground requires a paid top-up (from $20; card/PayPal/crypto); top-up credits never expire. No published rate limits.",
+      "evidenceUrl": "https://help.aimlapi.com/article/38-what-models-can-i-work-with-for-free"
     },
     {
       "name": "Pay-as-you-go",
       "price": "Per 1M tokens",
-      "notes": "One billing key for every provider; zero markup — pay the same price as going direct to the provider. Per-model rates vary; see the pricing page for current per-1M-token input/output prices (e.g. Beam 1.0 501B A23B $0.2645/$1.058, GLM-5.3 $0.075/$1.25 per the live table).",
+      "notes": "One billing key for every provider; zero markup — pay the same price as going direct to the provider. Per-model rates vary; see the pricing page for current per-1M-token input/output prices (e.g. Beam 1.0 501B A23B $0.2645/$1.058, GLM-5.3 $1.4/$4.4 per the live table).",
       "evidenceUrl": "https://aimlapi.com/ai-ml-api-pricing"
     }
   ],

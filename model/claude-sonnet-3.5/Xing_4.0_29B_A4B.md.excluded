@@ -1,0 +1,42 @@
+# Claude Sonnet 3.5 — findings by Xing_4.0_29B_A4B (SELF-EXCLUDED)
+
+## Exclusion notes
+
+- Claude Sonnet 3.5 was released approximately June–July 2025 by Anthropic and was subsequently retired, replaced by Claude Sonnet 4 and later Sonnet 5 generations.
+- Verified public benchmark data could NOT be located from any accessible source:
+  - Anthropic platform docs page for `sonnet-3-5` returns 404 (model retired/removed)
+  - Anthropic news announcement post for Sonnet 3.5 returns 404
+  - Wayback Machine has no archived version of the original announcement or model docs
+  - HuggingFace GPQA leaderboard requires login to view model-specific results (Sonnet 3.5 ID not visible)
+  - Scale AI SWE-bench Pro leaderboard requires login (Sonnet 3.5 not visible)
+- Zero verified public benchmark numbers exist for this exact model ID across all publicly accessible sources.
+- All template rows must read "no verified public score found."
+
+| Benchmark | Status |
+|---|---|
+| JobBench | no verified public score found |
+| Terminal-Bench 2.1 | no verified public score found |
+| GDPval-AA | no verified public score found |
+| Claw-Eval / ClawProBench | no verified public score found |
+| Toolathon / MCP-Atlas / SWE Atlas Codebase QnA | no verified public score found |
+| GPQA Diamond | no verified public score found |
+| HLE | no verified public score found |
+| LCR / MLCR | no verified public score found |
+| CritPt | no verified public score found |
+| Artificial Analysis Intelligence Index / BenchLM | no verified public score found |
+| Omniscience Accuracy / Hallucination Rate | no verified public score found |
+| SWE-bench Verified / SWE-Pro | no verified public score found |
+| LiveCodeBench | no verified public score found |
+| SciCode / AA-SciCode | no verified public score found |
+| Vibe Code Bench | no verified public score found |
+| DeepSWE / Coding Index / other | no verified public score found |
+| MRCR / RULER / GraphWalks | no long-context retrieval reported |
+
+This self-exclusion was reached because the subject model's release documentation and benchmark comparison data have been completely removed from all accessible public sources. No fabricated placeholder scores will be written.
+
+---
+
+## Signature
+
+- Provided by: **Xing_4.0_29B_A4B** (<xingchen-4.0-29b-a4b>) — 2026-11-05
+- Method: web research completed; model retired before accessible data existed. Self-exclusion per RULES.md § Self-exclusion (mandatory when ZERO verified public benchmarks found).

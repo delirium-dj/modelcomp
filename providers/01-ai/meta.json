@@ -1,7 +1,7 @@
 {
   "name": "01.AI",
   "kind": "vendor",
-  "short": "Frontier lab behind the Yi series of bilingual MoE and coding models (Yi-Large, Yi-Large-Turbo, Yi-Large-FC, Yi-Vision), offered through a first-party API platform billed per token. API services temporarily unavailable from August 25th due to business adjustments; users directed to platform.lingyiwanwu.com.",
+  "short": "Frontier lab behind the Yi series of bilingual MoE and coding models (Yi-Large, Yi-Large-Turbo, Yi-Large-FC, Yi-Vision), formerly offered through a first-party API platform billed per token. The open platform is being shut down: 01.AI announced 2026-08-10 it is winding down online experience, API calls, and top-ups to focus on enterprise AI; API service and model experience ended 2026-09-03, with account-balance refunds available through 2026-12-03 (platform notice).",
   "officialUrl": "https://www.01.ai",
   "hosts": ["01.ai", "platform.01.ai"],
   "idPrefixes": ["01-ai"],
@@ -9,14 +9,14 @@
     {
       "name": "Free",
       "price": "$0",
-      "notes": "Free tier: $0 per 1M tokens, TPM 4, spending limit 32,000 tokens per the pricing table. API service temporarily unavailable from August 25th per platform notice.",
-      "evidenceUrl": "https://platform.01.ai/docs"
+      "notes": "Historical free tier of the open platform: $0 per 1M tokens, TPM 4, spending limit 32,000 tokens per the old pricing table. No longer live - the open platform terminated online experience and API service on 2026-09-03; new signups and top-ups stopped 2026-08-10; account-balance refunds open through 2026-12-03.",
+      "evidenceUrl": "https://platform.lingyiwanwu.com"
     },
     {
       "name": "Pay-as-you-go",
-      "price": "Per-token, per-model rates",
-      "notes": "Yi models billed per million tokens via the 01.AI platform: yi-large $3/$3 per 1M input/output, yi-large-turbo $0.19/$0.19 per 1M input/output, yi-large-fc $3/$3 per 1M input/output, yi-vision $3/$3 per 1M input/output. API service temporarily unavailable from August 25th per platform notice.",
-      "evidenceUrl": "https://platform.01.ai/docs"
+      "price": "Per-token, per-model rates (discontinued)",
+      "notes": "Historical Yi model rates billed per million tokens via the 01.AI platform: yi-large $3/$3 per 1M input/output, yi-large-turbo $0.19/$0.19 per 1M input/output, yi-large-fc $3/$3 per 1M input/output, yi-vision $3/$3 per 1M input/output. Service discontinued 2026-09-03; balances refundable through 2026-12-03.",
+      "evidenceUrl": "https://platform.lingyiwanwu.com"
     }
   ]
 }

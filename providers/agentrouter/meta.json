@@ -1,7 +1,7 @@
 {
   "name": "AgentRouter",
   "kind": "aggregator",
-  "short": "Chinese-language multi-model gateway (Claude Opus / GPT-5.5 / GLM) sold below official list price; pay-as-you-go only — no free tier on the official site.",
+  "short": "Chinese-language multi-model gateway reselling Claude Opus 4.6-4.8, GPT-5.5 and GLM 5.2 through one API key at ~27% of official list price; pay-as-you-go only - no public free tier (enterprise trial quotas by sales request).",
   "officialUrl": "https://co.agentrouter.org",
   "hosts": ["agentrouter.org", "co.agentrouter.org"],
   "catalogUrl": "https://co.agentrouter.org/portal/models",
@@ -15,7 +15,7 @@
     {
       "name": "Enterprise seats",
       "price": "Custom",
-      "notes": "Monthly seat quotas without weekly limits, SSO/RBAC, usage audit; contact sales.",
+      "notes": "Monthly seat quotas without weekly limits, SSO/RBAC, usage audit; contact sales. Enterprise trial-quota pilots offered via sales (homepage \"大额快速试用\").",
       "evidenceUrl": "https://co.agentrouter.org/portal/pricing"
     }
   ],

@@ -316,3 +316,28 @@ override.
   root-level scratch files (`*.txt` scan lists, one-off `*.ps1`/`*.cjs`
   scripts). The 2026-11-03 purification removed the historical ones — they
   must not come back outside `temp/`.
+
+## Provider read-only facts (absolute)
+
+- Operator first-hand facts live in a plan's **`_readonly` field** in
+  `providers/<slug>/meta.json` — NOT in `notes`/`short`. `_readonly` is never
+  rendered by the website (`routes/providers` shows only name/price/notes/evidenceUrl),
+  so agent-facing text does not leak to users on `/providers/`. Example: Gonka's
+  100K starter tokens + the two ways to keep the recurring 1M/month free tier
+  (a minimum $10 top-up OR phone verification, one number per account).
+- **Never write agent instructions into user-facing fields.** `notes` and `short`
+  are shown to users — do NOT put `[READ-ONLY ...]` tags, provenance, dates, or
+  "do not delete" notes there; they belong only in `_readonly`.
+- Provider-audit / re-research agents MUST NEVER delete, shorten, soften, or
+  reword a plan's `_readonly` value — it is frozen verbatim. Keep `notes`
+  consistent with it (reword freely, but never contradict or drop a recorded
+  fact). This holds even during a legitimate `meta.json` edit.
+- If a live source appears to contradict a `_readonly` fact, do NOT overwrite it
+  — record the discrepancy in your status report and let the operator decide.
+  Only the operator may add, change, or remove a `_readonly` fact.
+- **Operator-mandated links are read-only too.** Some providers' link fields
+  (`officialUrl` / `evidenceUrl`) must always carry a referral / tracking
+  parameter and are NEVER to be normalized to a canonical URL or stripped. The
+  Gonka links must be exactly `https://gonkabroker.com/?ref=M47RXUEJ` (and
+  `https://gonkabroker.com/free-llm-api/?ref=M47RXUEJ`) — keep the `?ref=M47RXUEJ`
+  suffix on any Gonka link you add or edit. Only the operator may change these.

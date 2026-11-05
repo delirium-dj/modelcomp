@@ -105,6 +105,13 @@ for the operator before the next pair.
 - **Temp files** go ONLY in `temp/<file>.cjs`; never write scratch elsewhere.
 - Never run `pnpm sync` / `build` / `build.types` / `dev` — hand them over.
 - Never edit `tasks/`, `RULES.md`, `.agents/`, or this brief while auditing.
+- Read-only first-hand facts live in a plan's `_readonly` field (never in the
+  user-facing `notes`/`short`, which render on `/providers/`). `_readonly` is frozen
+  — never delete/shorten/soften it (RULES.md § Provider read-only facts). Keep
+  `notes` consistent with it but put no `[READ-ONLY]` tags/dates/agent notes there;
+  a contradicting source → report it, don't overwrite.
+- Never strip a required referral/tracking param from a link — Gonka links must
+  stay `https://gonkabroker.com/?ref=M47RXUEJ`; new Gonka links use that form.
 - Never stop early: the sweep ends only when the scope is exhausted or the
   operator revokes it.
 

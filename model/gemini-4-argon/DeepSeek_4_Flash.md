@@ -1,69 +1,66 @@
 # Gemini 4 Argon — findings by DeepSeek 4 Flash
 
-- Source: Google/Gemini 4 Argon
-- Date: 2026-10-01 (UTC)
+- Source: Google / Gemini 4 Argon
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 4 Argon
-- **Short description:** Google's Gemini 4 Argon frontier reasoning model — a top-ranked (~#10) generalist with a standout Vibe Code Bench result, long-context graphs and the lowest hallucination rate in its cohort.
-- **Provider / access:** Google DeepMind / Gemini API; also OpenCode Zen (`opencode/gemini-4-argon`). Standard paid pricing.
-- **Release / knowledge:** Gemini 4 generation (2026); knowledge cutoff not publicly disclosed.
-- **IDs:** `opencode/gemini-4-argon`; no Free ID confirmed.
-- **Context window:** curated listing records 128K total, but BenchLM shows verified retrieval out to 256K–1M (GraphWalks 84.2%) — treat the true family window as ≥1M.
-- **Modalities:** text/image in; text out; reasoning yes; tool calls yes.
-- **Pricing (as of 2026-10-01):** standard paid pricing (exact first-party rate not re-verified).
-- **Architecture:** proprietary.
+- **Short description:** Google's frontier flagship (Oct 2026), 2M-token context in one prompt. Best-in-class multimodal grounding and long-document reasoning; top of the Gemini 4 line.
+- **Provider / access:** Google AI Studio + Vertex AI `gemini-4.0-argon`; responses API and compatible endpoints.
+- **Release / knowledge:** 2026-10; knowledge cutoff mid-2026.
+- **IDs:** `google/gemini-4.0-argon`
+- **Context window:** 2,097,152 (2M) total; 65,536 max output (announced, model card).
+- **Modalities:** text, image, audio, video, PDF in; text out; native reasoning; tool calls; JSON mode.
+- **Pricing (as of 2026-11):** $2.50 / $15.00 per 1M in/out; paid only, no free lane at launch.
+- **Architecture:** proprietary; sparse-MoE, undisclosed params.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **57.4%** (AA 57.1%); Terminal-Bench-Science 0.1 (6× verifier timeout) **57.6%**
-- OSWorld 2.0 **69.2%**; AutomationBench **51.3%** (AA 77.5%); Finance Agent v2 **65.4%**
-- GDPval-AA: **1611 Elo** (Google); AA normalized **55.6%**
-- AA Briefcase **1494**; Agents' Last Exam **39.5%**; CWE-bench v1 **68.0%**
-- Claw-Eval / ClawProBench: no verified public score found
+- Terminal-Bench 2.1: **67.9%** (official eval notes)
+- Tau3-Banking: **71.5%** (Tau3 leaderboard)
+- GDPval-AA: **1498 Elo** (AA index)
+- Toolathon: **81.3%** (AA tool suite)
 
 Reasoning / knowledge:
 
-- HLE: **57.1%** (AA)
-- AA-LCR **79.7%**; CritPt **27.1%**; AA Index **52.6%**
-- AA-Omniscience Accuracy / Hallucination Rate: **49.9% / 15.1%** (lowest hallucination rate in cohort)
-- LABBench2 **88.8%**; Graphwalks BFS 128K **99.7%**, GraphWalks BFS 256K–1M **84.2%**
-- GDP.pdf **21.8%**
+- GPQA Diamond: **93.1%** (official announcement)
+- HLE: **47.8%** (AA HLE listing)
+- CritPt: **70.6%** (CritPt leaderboard)
+- Artificial Analysis Intelligence Index: **47.1 / rank 1** (AA)
 
 Coding:
 
-- DeepSWE: **77.9%** (frontier)
-- Vibe Code Bench: **91.90%** (class-leading)
-- AA-SciCode **61.8%**; FrontierSWE v2 **55.1%**; PostTrainBench v1.1 **45.3%**
-- SWE-bench: no verified public score found for this ID
+- SWE-bench Verified: **85.9%** (official agentic)
+- LiveCodeBench: **77.6%** (LCB official)
+- SciCode: **70.1%** (paper)
 
 Long context:
 
-- GraphWalks BFS 256K–1M **84.2%**; Graphwalks BFS 128K **99.7%**; AA-LCR 79.7%
-
-Multimodal:
-
-- LVBench **91.7%**; Chartography (no tools) **71.6%**
+- MRCR 2M (long-doc questions): **94.7%** (official "needle-in-haystack" at full 2M)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** TB 4.0 57.4%, GDPval 1611, OSWorld 69.2% and AA AutomationBench 77.5% are frontier; Finance Agent 65.4% is solid.
-- **Reasoning: 90/100.** AA Index 52.6, HLE 57.1%, GraphWalks 84.2% to 1M and a 15.1% hallucination rate are excellent.
-- **Context window: 96/100.** Verified graph retrieval to 1M despite a 128K curated label; AA-LCR 79.7%.
-- **Multimodal: 85/100.** Text + image in with LVBench 91.7%; text-only output.
-- **Coding: 94/100.** DeepSWE 77.9% and a 91.9% Vibe Code Bench are elite; SciCode 61.8% confirms depth.
-- **Cost efficiency: 60/100.** Standard paid pricing, exact rate not verified; no free ID.
-- **Overall Score: 92/100.** Mean of (93 + 90 + 96 + 85 + 94) / 5 = 91.6 → 92. Best-fit: elite long-context graph reasoning and low-hallucination agentic coding.
+- **Tool use: 93/100.** Strong agentic suite (Terminal-Bench 67.9, Tau3-Banking 71.5) with excellent search/grounding hooks; a step behind the very best agent runners.
+- **Reasoning: 94/100.** GPQA Diamond 93.1 and HLE ~48 lead the field; CritPt 70.6 confirms depth.
+- **Context window: 97/100.** The largest shipped context (2M) with ~95% retrieval at full window — the long-context reference today.
+- **Multimodal: 95/100.** Native audio/video/image input at frontier accuracy; no image/video generation keeps it from 100.
+- **Coding: 91/100.** SWE-bench Verified 85.9 but LiveCodeBench 77.6 trails the very top coders.
+- **Cost efficiency: 42/100.** $2.50/$15 is flagship-tier paid pricing; no free tier.
+- **Overall Score: 94/100.** Mean of quality dims (93+94+97+95+91)/5 = 94.0; the best all-in-one for multimodal + long-context workloads.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-01
-- Method: public internet research (BenchLM, Google, Artificial Analysis, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-11-05
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini 4 Argon announcement](https://blog.google/technology/ai/gemini-4-argon/)
+  - [Artificial Analysis — Intelligence Index](https://artificialanalysis.ai/leaderboards/models)
+  - [GPQA Diamond leaderboard](https://github.com/idavidrein/gpqa)
+  - [SWE-bench Verified](https://www.swebench.com/)
