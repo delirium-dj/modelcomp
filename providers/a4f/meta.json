@@ -9,14 +9,14 @@
     {
       "name": "Free Tier",
       "price": "$0",
-      "notes": "Instant OpenAI-compatible API key upon sign-up (no credit card required). Grants access to explore and query a broad catalog of open and hosted models locally via api.a4f.co/v1.",
-      "evidenceUrl": "https://a4f.co"
+      "notes": "Instant OpenAI-compatible API key upon sign-up (no credit card required to begin — verbatim on homepage). Free plan: Limited AI Models, 5 RPM rate limit, 300 RPD request limit. Free forever.",
+      "evidenceUrl": "https://www.a4f.co/pricing"
     },
     {
       "name": "Pro / Credit Pack",
-      "price": "Usage-based",
-      "notes": "Higher request concurrency, priority routing, failovers, and expanded access to premium frontier model pipelines.",
-      "evidenceUrl": "https://a4f.co"
+      "price": "$40/month (promo; $45/month regular)",
+      "notes": "Higher request concurrency, priority routing, failovers, and expanded access to premium frontier model pipelines. Introductory price $40/month; increases to $45/month (announcement 2025-11-20). Yearly $336/year.",
+      "evidenceUrl": "https://www.a4f.co/pricing"
     }
   ],
   "covers": [

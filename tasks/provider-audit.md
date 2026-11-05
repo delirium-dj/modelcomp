@@ -1,21 +1,44 @@
-# Task — Provider fact-audit (one provider at a time)
+# Task — Provider fact-audit (by category band, two per batch)
 
 **Kickoff line (copy when forwarding):** `PROVIDER-AUDIT: start at the first
-provider, process alphabetically, one at a time.`
+category band (Coding & MoE Models), sweep providers in category order, two per
+batch then break and prompt.`
 
-You may also be given a specific provider to start/limit to (e.g.
-`PROVIDER-AUDIT: mistral` or `PROVIDER-AUDIT: from mistral`). If none is given,
-start at the top of the list and keep going until told to stop.
+You may also be given a specific provider or category to start/limit to (e.g.
+`PROVIDER-AUDIT: mistral`, `PROVIDER-AUDIT: band=gpu`, or `PROVIDER-AUDIT: from
+mistral`). If none is given, start at the first band and keep going until told
+to stop.
 
 ---
 
 ## 1. Goal
 
-Go **one-by-one** through every provider folder under `providers/` and verify
-**every factual claim** stored in its `meta.json` against **live, official
-sources**. Correct what is wrong, confirm what holds, note what cannot be
-verified. After **each provider**, emit a short **status report for that one
-provider only** (see §7), then continue to the next.
+Go through every provider folder under `providers/` and verify **every factual
+claim** stored in its `meta.json` against **live, official sources**. Correct
+what is wrong, confirm what holds, note what cannot be verified. Three cadence
+rules govern the sweep:
+
+- **Traverse by category band** — do all **"Coding & MoE Models"** providers
+  first, then the next band, following the Providers-page order (§2). Within a
+  band, alphabetical.
+- **Persist immediately** — the moment one provider's research is done, WRITE
+  the verified findings to its `meta.json` (incremental, interrupt-safe) before
+  starting the next; never hold edits to flush at the end.
+- **Two per batch, then break** — after every **2** providers, STOP, report both
+  status blocks (§7), and prompt the operator to continue. Await their answer.
+
+**Primary focus — offered models + free tier.** The two things the operator
+cares most about on every card are: (1) **which models the provider actually
+offers** (first-party and hosted third-party), and (2) **whether there is a
+free tier and under exactly what conditions** — is a **credit card required** to
+get a key, what are the **rate limits** (requests/min, requests/day, tokens/day,
+or a monthly quota/credit), and does any free credit **expire**. Every free-tier
+card must end up stating these concretely, or explicitly noting the provider
+publishes no such figure. See §5 step 6 and the status template in §7.
+
+A standing sub-check on top of that: scan for **active promotions** running today
+(discounts, bonus credits, limited-time free offers) — see §5A — and report them
+in the status with an as-of date.
 
 This mirrors the audit done for InclusionAI, Huawei Cloud CodeArts, Snowflake
 Cortex, Reka and Mistral AI: read the card, chase every claim to the provider's
@@ -27,8 +50,28 @@ own docs/pricing page, fix inaccuracies in place, and report.
   folder list IS the roster (unlike model research, you MAY scan `providers/`).
 - Skip folders without a `meta.json`. Treat a `retired: true` meta as parked —
   verify lightly (it is hidden from the site) and move on.
-- Process in alphabetical order by folder name. Do one provider fully, report,
-  then start the next.
+- **Traversal order = category bands, NOT global alphabetical.** Start with the
+  **"Coding & MoE Models"** band, then continue through the other bands in the
+  exact order the Providers page renders them: 1 **Coding & MoE Models** → 2
+  **On-Demand GPU** → 3 **Audio / Speech** → 4 **Video** → 5 **Web Grounding
+  Search** → 6 **LLM Observability & Security Tooling** → 7 **Other Specialized
+  Services**. A provider's band is decided by `getProviderCategory()` in
+  `src/data/providers.ts` — build the whole ordered queue with a `temp/` script
+  that mirrors it (note: it DEFAULTS any unmatched provider to `coding-moe`, so
+  band 1 is the largest). Within each band, go alphabetical by folder name.
+- **Persist immediately (incremental save).** As soon as one provider's research
+  is complete, WRITE the verified changes to its `providers/<slug>/meta.json`
+  and validate the JSON (§6) — before starting the next provider. Never
+  accumulate edits to flush at the end (interrupt-safe).
+- **Batch = 2, then break and prompt.** Verify two providers fully (each:
+  research → write → status), then STOP, report both status blocks together, and
+  ask the operator "Continue with the next 2?" — await the answer before the next
+  pair. Do not cross a batch boundary silently.
+- **Optional scope filter — free-tier sweep.** If told to prioritize free tiers,
+  within the current band restrict to providers whose plans trip the site's
+  `isFreePlan` predicate (`name` contains `free` but not `no free`, OR `price`
+  matches `/^\$\s?0(?:\.0+)?\s*(?:$|[^.\d])/`). `grep` caps ~25, so scan every
+  `meta.json` with that predicate via a `temp/` script to get the full list.
 
 ## 3. The data you are auditing — `providers/<slug>/meta.json`
 
@@ -88,7 +131,8 @@ interface ProviderPlan {
 
 ## 5. Per-provider checklist
 
-Work through the folder in this order:
+Work through the folder in this order, then persist immediately (§5 → §5A →
+write the verified findings to `meta.json` → emit the §7 status):
 
 1. **Read `providers/<slug>/meta.json`.** Note every factual claim in `short`,
    `kind`, each plan's `notes`, and each `evidenceUrl`.
@@ -107,9 +151,32 @@ Work through the folder in this order:
 5. **Verify plan-level numbers** (price, credits, quotas). (Found this session:
    Mistral's Pro card said "$15/month in API credits" — that $15 is the
    *Education* tier; standard Pro is **$25.5/month**. Misattributed tier = fix.)
-6. **Verify free-tier wording** is exactly what the provider says. (Confirmed
-   this session: Mistral "API keys with no credit card required" is verbatim in
-   their own docs quickstart.)
+6. **Free tier — verify and state the conditions (HIGHEST priority).** Open the
+   provider's pricing / docs / FAQ / rate-limits page and answer each of these
+   concretely; a free-tier card that omits any is incomplete:
+   - **Exists & live today?** Confirm the free tier/trial actually runs now.
+     (Gotcha this session: AI/ML API's own FAQ reads *"The Free Tier is
+     currently paused"* — a card claiming a free tier would be wrong. Always
+     check for "paused / discontinued / retired" wording before trusting a claim.)
+   - **Credit card required?** yes/no, quoted from the source (e.g. Mistral "no
+     credit card required" verbatim; Aion Labs pricing "No card required").
+   - **Rate limits** — capture the exact numbers AND their window: requests/min
+     (RPM), requests/day (RPD), tokens/day (TPD), and/or a monthly quota. (e.g.
+     Aion Labs free = 15 RPM / 20,000 tokens/day per its rate-limits doc;
+     SambaNova = 20 RPM, 20 RPD, 200K TPD per model.)
+   - **Credits & expiry** — if the free offer is a credit grant, record the
+     amount and validity (e.g. AI21 "$10 credit good for three months" per
+     docs.ai21.com — trust the provider's own docs over third-party sites that
+     said "7 days").
+   - **Offered models** — list which models the free tier actually serves and
+     confirm they are CURRENT. (Gotcha this session: a card listed "Jamba 1.5
+     Mini & Large" while the live catalog now offers Jamba **1.7** — version
+     drift is common.) Name first-party + hosted third-party families.
+   Fold these points into the plan `notes`, each backed by the `evidenceUrl`. If
+   the provider publishes no rate/credit figure, write "no published limit" —
+   never guess a number. Also re-check `kind` here: a "gateway" that serves the
+   lab's OWN models is a `vendor` (e.g. Agnes AI is Sapiens AI's own omni-modal
+   text/image/video lab, not a reseller).
 7. **Broaden `short` to name the hosted THIRD-PARTY lineup.** If the provider
    resells models it did not build (a common, high-value fact), say so — name
    both first-party and third-party families. (Done this session for Mistral:
@@ -129,6 +196,41 @@ Work through the folder in this order:
     colourful brand logo → no flag (renders as-is); fixed dark mark → may need
     `invertLight`. Do not redesign icons unless asked; only fix an obviously
     wrong/missing mapping.
+
+## 5A. Active-promotion sweep (per provider — standing sub-task)
+
+For each provider, ALSO check whether **any promotion is live right now**, and
+record it. Look for:
+
+- **Time-limited price discounts** on API/model rates (a vendor running "X% off"
+  list prices — e.g. InclusionAI / Ant Ling ran 75% and 72% token promos).
+- **Free credit / bonus-top-up / signup vouchers** (e.g. PPIO ~5M-token
+  registration voucher, DigitalOcean free credits, W&B "credits included for a
+  limited time").
+- **Limited-time free inference / "stealth" free windows** (e.g. Vercel AI
+  Gateway stealth drops, Poolside "free for a limited time").
+- **Campaign / seasonal / student / startup deals** (e.g. Mistral student Pro
+  $5.99, provider "campaign" pages, hackathon credits).
+
+**How:** `WebSearch` `"<provider>" promo | discount | free credits | deal 2026`
+and read the provider's OWN pricing page, changelog / what's-new, and any
+campaign/promo page. Prefer official sources; treat third-party coupon sites as
+leads only. Capture for each promo: **what it is, the discount/credit amount,
+the start/end date, and the evidence URL.**
+
+**Rules (promotions are ephemeral — the site cards are permanent research):**
+
+- Always stamp the **as-of date** you checked (promos expire). Phrase it "as of
+  <date>".
+- If a promo IS the price a user pays today, still record BOTH the list price
+  and the promo price and mark it explicitly **time-limited** with its end date
+  (see §4 list-vs-actual). Never freeze a flash sale into a permanent figure.
+- Add a promo to `meta.json` notes **only** when the provider presents it as an
+  ongoing, documented offer — and then label it "(promo, ends <date>)" with an
+  `evidenceUrl`. One-off / expired campaigns belong in the **status report**,
+  not the card.
+- If nothing is found, report **"no active promotion found (as-of <date>)"** —
+  that is a valid result; do NOT invent a deal.
 
 ## 6. Fix rules
 
@@ -154,6 +256,10 @@ Keep it tight. Format:
 ```
 ## <Provider Name>  (providers/<slug>)
 
+Free tier: <exists-live | paused | none>  |  credit card: <required | not required | unknown>  |  limits: <RPM/RPD/TPD or monthly quota, else "no published limit">  |  credits/expiry: <e.g. "$10 / 3 months", else "—">
+Offered models: <first-party + hosted third-party, current versions>
+Active promotions: <what | discount/amount | valid until <date> | URL>  OR  "none found (as-of <date>)"
+
 Checked:
 - <claim> → CONFIRMED (source: <page/URL>)
 - <claim> → CONFIRMED (verbatim: "<quote>")
@@ -161,6 +267,7 @@ Checked:
 Changed:
 - <what was wrong> → <what you fixed> (source: <URL>)
 - e.g. "Pro plan said $15/mo API credits; standard Pro is $25.5/mo — corrected."
+- e.g. "Free tier claimed live; provider FAQ says 'currently paused' — corrected + added credit-card & rate-limit conditions."
 
 Could not verify:
 - <claim>, if any (reason: e.g. page 404 / no official figure)
@@ -169,9 +276,14 @@ Files touched: providers/<slug>/meta.json [<+ any icon/extra.ts/VendorIcon.tsx>]
 JSON valid: yes
 ```
 
-Then immediately proceed to the next provider (unless the operator asked for a
-pause between providers). Report progress as "provider N done" so the human can
-track the sweep.
+**Persist before you move on:** writing the verified findings to
+`providers/<slug>/meta.json` and validating the JSON is the LAST action for that
+provider — never defer writes to the end of the sweep. Then emit this status.
+
+**After every 2 providers, STOP and prompt:** present the two status blocks
+together and ask the operator whether to continue ("Continue with the next 2?");
+wait for the answer before starting the next pair. Track progress as
+"band <name> · provider N done" so the human follows the category sweep.
 
 ## 8. Boundaries (repo conventions)
 
@@ -206,6 +318,18 @@ track the sweep.
   cache confirmed; Pro API-credits misattribution fixed; third-party lineup added.
 - **Reka** — retired "Core" removed; Vision free tier + per-model $ rates added.
 - **Snowflake Cortex** — 14-provider / 50+-model catalog + AI-Credit rates added.
+- **AI/ML API** — card flags a free tier, but the provider's own FAQ says *"The
+  Free Tier is currently paused"* → always check free tiers for paused/discontinued.
+- **AI21 Labs** — card listed "Jamba 1.5 Mini & Large"; live catalog is **Jamba
+  1.7** → classic model-version drift; verify the current lineup.
+- **Aion Labs** — free tier 15 RPM / 20,000 tokens/day, no card → GOOD example:
+  the card already states the exact rate + credit-card condition. Aim for this.
+- **Agnes AI** — set as `aggregator` but is Sapiens AI's own omni-modal lab
+  (text/image/video) → re-check `kind` and offered modalities on close inspection.
+- **Promotions are a moving target** — InclusionAI/Ant Ling 75%/72% token promos,
+  Vercel "stealth" free drops, W&B limited-time credits, PPIO signup voucher.
+  Always note the as-of date and list-vs-promo price (§5A); never freeze a flash
+  sale into the card as a permanent rate.
 
 Use these as examples of the *kind* of drift to look for — do not assume the
 same issues exist in a given provider without checking it.

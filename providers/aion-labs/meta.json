@@ -1,26 +1,22 @@
 {
   "name": "Aion Labs",
-  "kind": "aggregator",
-  "short": "OpenAI-compatible serverless inference cloud specializing in creative storytelling, reasoning, and autonomous agents with a free developer tier.",
+  "kind": "vendor",
+  "short": "Aion Labs' own serverless inference cloud offering Aion-series models (aion-2.0, aion-3.0, aion-3.5, aion-rp-llama-3.1-8b) via an OpenAI-compatible API, with a free developer tier.",
   "officialUrl": "https://aionlabs.ai",
   "hosts": ["aionlabs.ai", "api.aionlabs.ai"],
-  "catalogUrl": "https://aionlabs.ai",
+  "catalogUrl": "https://api.aionlabs.ai/v1/models",
   "plans": [
     {
       "name": "Free Tier",
       "price": "$0",
-      "notes": "Instant OpenAI-compatible API key on signup (no credit card required). Standard rate limits around 15 RPM and 20,000 tokens/day for local application testing via https://api.aionlabs.ai/v1.",
-      "evidenceUrl": "https://aionlabs.ai"
+      "notes": "Instant OpenAI-compatible API key on signup (no credit card required — verbatim on pricing page). Free tier gives a daily credit allowance for agent jobs, API calls, and browser chat. Provider publishes no specific RPM or tokens/day figure.",
+      "evidenceUrl": "https://www.aionlabs.ai/pricing/"
     },
     {
       "name": "Pay-as-you-go",
       "price": "Usage-based per token",
-      "notes": "Prepaid credit balance with higher throughput and no daily token cap across specialized reasoning and agent models.",
-      "evidenceUrl": "https://aionlabs.ai"
+      "notes": "Prepaid credit balance with higher throughput and no daily token cap. Per-token rates via the API models endpoint: aion-2.0 $0.80/$1.60 per 1M, aion-3.0 $3/$6 per 1M, aion-3.0-mini $0.70/$1.40 per 1M, aion-3.5 $3/$6 per 1M, aion-3.5-mini $0.70/$1.40 per 1M, aion-rp-llama-3.1-8b $0.80/$1.60 per 1M (input/output).",
+      "evidenceUrl": "https://api.aionlabs.ai/v1/models"
     }
-  ],
-  "covers": [
-    "deepseek-v4.1-flash",
-    "qwen-3.8-27b"
   ]
 }

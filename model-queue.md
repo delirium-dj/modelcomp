@@ -21,9 +21,9 @@
 91.6 gemini-3.7-flash
 91.3 gemini-3-pro
 91.2 gpt-6.1-sol
+91.1 kimi-k3
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
-90.9 kimi-k3
 90.4 kimi-k3.1-pro
 90.2 claude-mythos-5
 89.9 claude-opus-4.8

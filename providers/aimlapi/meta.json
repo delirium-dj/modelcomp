@@ -1,7 +1,7 @@
 {
   "name": "AI/ML API",
   "kind": "aggregator",
-  "short": "Single-key gateway to 1,000+ models from every major lab, with volume discounts, a free playground tier, and OpenAI-compatible endpoints.",
+  "short": "Single-key gateway to 10,000+ models from every major lab, with volume discounts, a free playground tier, and OpenAI-compatible endpoints. Zero markup on any request.",
   "officialUrl": "https://aimlapi.com",
   "hosts": ["aimlapi.com", "docs.aimlapi.com"],
   "catalogUrl": "https://aimlapi.com/ai-ml-api-pricing",
@@ -9,13 +9,13 @@
     {
       "name": "Free playground tier",
       "price": "$0",
-      "notes": "Registered users can try models in the playground for free before paying.",
+      "notes": "Registered users can try models in the playground for free before paying. Access to Playground included at no cost.",
       "evidenceUrl": "https://aimlapi.com/ai-ml-api-pricing"
     },
     {
       "name": "Pay-as-you-go",
       "price": "Per 1M tokens",
-      "notes": "One billing key for every provider; e.g. Beam 1.0 $0.34/$1.38, DeepSeek V4.1 Flash $0.39/$1.56, GLM-5.3-Flash $0.195/$0.65.",
+      "notes": "One billing key for every provider; zero markup — pay the same price as going direct to the provider. Per-model rates vary; see the pricing page for current per-1M-token input/output prices (e.g. Beam 1.0 501B A23B $0.2645/$1.058, GLM-5.3 $0.075/$1.25 per the live table).",
       "evidenceUrl": "https://aimlapi.com/ai-ml-api-pricing"
     }
   ],

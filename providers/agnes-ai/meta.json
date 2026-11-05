@@ -1,15 +1,15 @@
 {
   "name": "Agnes AI",
-  "kind": "aggregator",
-  "short": "AI gateway offering free API access to Agnes models with no subscription required.",
+  "kind": "vendor",
+  "short": "Agnes AI's own omni-modal AI platform offering free API access to Agnes text, image, and video generation models through a unified API, no subscription required.",
   "officialUrl": "https://agnes-ai.com",
   "hosts": ["agnes-ai.com", "platform.agnes-ai.com"],
   "plans": [
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "Free API access to Agnes models; no subscription needed.",
-      "evidenceUrl": "https://platform.agnes-ai.com/"
+      "notes": "Free API access to Agnes text, image, and video generation models; no subscription needed. Provider publishes no rate limit, credit requirement, or expiry figure.",
+      "evidenceUrl": "https://agnes-ai.com/"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "AI21 Labs",
   "kind": "vendor",
-  "short": "AI systems lab developing production enterprise LLMs (Jamba 1.5 Mini & Large), with a $10/3-month evaluation credit (no card) and pay-as-you-go production billing.",
+  "short": "AI systems lab developing production enterprise LLMs (Jamba Mini, Jamba Large), with a $10/7-day evaluation credit (no card) and pay-as-you-go production billing.",
   "officialUrl": "https://ai21.com",
   "hosts": [
     "ai21.com"
@@ -14,13 +14,13 @@
     {
       "name": "Developer Trial",
       "price": "$0 ($10 credit)",
-      "notes": "Instant API key upon account signup with $10 in trial credits (valid 3 months, no credit card required). Usable locally via the AI21 REST API, Python SDK, or playground for Jamba 1.5 Mini & Large.",
+      "notes": "Instant API key upon account signup with $10 in trial credits (valid 7 days, no credit card required). Usable locally via the AI21 REST API, Python SDK, or playground for Jamba Mini and Jamba Large.",
       "evidenceUrl": "https://ai21.com/pricing"
     },
     {
       "name": "Production Pay-as-you-go",
       "price": "Usage-based",
-      "notes": "Activated by adding credit card details. Converts account to unmetered standard per-token billing with higher concurrency and enterprise tier options.",
+      "notes": "Activated by adding credit card details. Converts account to unmetered standard per-token billing with higher concurrency and enterprise tier options. Jamba Mini $0.2/$0.4 per 1M input/output tokens; Jamba Large $2/$8 per 1M input/output tokens.",
       "evidenceUrl": "https://ai21.com/pricing"
     }
   ]
