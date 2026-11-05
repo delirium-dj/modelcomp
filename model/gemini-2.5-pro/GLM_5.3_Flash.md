@@ -1,9 +1,16 @@
 # Gemini 2.5 Pro — findings by GLM 5.3 Flash
 
 - Source: Google (`gemini-2.5-pro`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-researched 2026-11-05 (prior passes 2026-10-08→10-16): **lifecycle escalation** —
+> Google formally deprecated `gemini-2.5-pro` on 2026-11-02 (removed from AI Studio); from
+> **2026-12-01** API requests auto-route to `gemini-3.8-flash` and bill at 3.8 Flash rates
+> ($0.75/$3.75 through 2026-12-31) — cheaper per token than 2.5 Pro's own $1.25/$10, but
+> the answering model changes, so pinned integrations get silently upgraded. No benchmark
+> changes; Overall formalized 71.6→72.
 
 ## Model card
 
@@ -61,12 +68,12 @@ Multimodal:
 - **Multimodal: 90/100.** Text, image, speech/audio and video input with MMMU 82% / MMMU-Pro 74.9%; audio input keeps it in the 90–100 band; text-only output.
 - **Coding: 62/100.** (Was 72 on the prior pass.) AA Coding Index 33.3%, Vals SWE-bench 54.4% and Vibe Code Bench 0.40% document the age on 2026 harnesses; the dated SWE-V 63.8% and LiveCodeBench 74.2% reads hold mid-band only.
 - **Cost efficiency: 85/100.** $1.25/$10.00 per 1M with 90% cache discount and $0.23/task on the AA Intelligence Index; between the ~$1.25/$4.25 = ~88 methodology reference and the higher-output-price penalty, landed at 85.
-- **Overall Score: 71.6/100.** (Was 77.4 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (45 + 66 + 95 + 90 + 62) / 5 = 358/5 = 71.6 — lowered materially on the 2026-10-11 second pass: AA/Vals/Epoch boards document a model now three hardware generations behind on agentic and coding work, with only multimodal breadth and 1M context holding value. Best-fit: a cheap multimodal workhorse for long-context document/video analysis only; superseded by Gemini 3 Flash at similar cost and far better reasoning.
+- **Overall Score: 72/100.** (Was 71.6 — formalized to the integer contract.) Mean of the five quality dims per `RULES.md` (Cost excluded): (45 + 66 + 95 + 90 + 62) / 5 = 358/5 = 71.6 → 72 — lowered materially on the 2026-10-11 second pass: AA/Vals/Epoch boards document a model now three hardware generations behind on agentic and coding work, with only multimodal breadth and 1M context holding value. Best-fit: a cheap multimodal workhorse for long-context document/video analysis only — and from December 1 its ID serves Gemini 3.8 Flash anyway, so migrate explicitly.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Vals/Epoch AI/Google-blog citations, the prior 2026-10-08 pass (AA page, datatunnel, futureagi), Google DeepMind pages via benchlm.ai; 2026-10-16 re-check: BenchLM 26-row refresh corroborates all rows (AA-IFBench 48.7% already cited, FrontierMath re-scored 14.1→24.6 T1-3 / 4.2→0.0 T4) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): the deprecation/routing events (Nov 2 formal deprecation, Dec 1 auto-route to gemini-3.8-flash at 3.8 Flash rates) were captured first-hand this session during the Gemini 3.5 Flash re-research (Google changelog + DigIntoAI/mihata/datastudios coverage — multiple corroborating sources); no benchmark rows changed; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.md`, using the same headings.

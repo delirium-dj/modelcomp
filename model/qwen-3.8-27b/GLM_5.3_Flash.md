@@ -51,11 +51,11 @@ Coding:
 Long context:
 
 - 262K native; AA-LCR v1.1 **82.0%** (AA — first measured long-context number, strong for the class)
-- MRCR/RULER at window length: no verified public score; 1M YaRN remains a scaling claim
+- MRCR/RULER at window length: no verified public score; 1M YaRN remains a scaling claim (the 27B card documents the exact YaRN config: factor 4.0, original 262,144)
 
 Multimodal:
 
-- CharXiv: **90.2%** with tools / **83.7%** without; OmniDocBench 1.5: **91.1%**; AA-MMMU-Pro: **76.3%** (AA); RealWorldQA: **85.9%**; BabyVision: **65.7%**; Vision2Web: **62.9%**; ERQA: **65.5%** — vision corroborated
+- CharXiv: **90.2%** with tools / **83.7%** without; OmniDocBench 1.5: **91.1%**; AA-MMMU-Pro: **76.3%** (AA) / **83.93% ±0.88** (Vals, #28/93 — NEW); RealWorldQA: **85.9%**; BabyVision: **65.7%**; Vision2Web: **62.9%** (#5/9 — NEW); ERQA: **65.5%** — vision corroborated
 
 ### Normalized scores (1–100)
 

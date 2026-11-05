@@ -1,75 +1,75 @@
 # Qwen 3.8 — findings by Step 5 Preview
 
-- Source: Alibaba (`qwen3.8-max`)
-- Date: 2026-10-10 (UTC) — second-pass verification
+- Source: Alibaba / Qwen Team (`Qwen/Qwen3.8-27B`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen 3.8 (Qwen3.8-Max — the Qwen 3.8 generation flagship)
-- **Short description:** Alibaba's Qwen 3.8 generation flagship: a ~2.4-trillion-parameter multimodal sparse MoE (95B active/token) with a 1M-token context, native text/image/video input, and aggressive $2/$6 pricing. **Identity note:** Alibaba ships no standalone base "Qwen 3.8" SKU — the 3.8 generation's tiers are Max (2.4T-A95B), Flash, Flash-Next, 27B and Omni-Flash; the verified-benchmark "Qwen 3.8" model is this Max-class flagship (also published as open weights `Qwen3.8-2.4T-A95B`). This report covers that flagship.
-- **Provider / access:** Alibaba Cloud Model Studio / QwenCloud `qwen3.8-max` (snapshot `qwen3.8-max-0902` live since 2026-09-05; also `qwen3.8-max-prime` fast tier); OpenRouter `qwen/qwen3.8-max`; OpenCode Zen `opencode/qwen3.8-max` ($2/$6, cache read $0.25). OpenAI- and DashScope-compatible; Anthropic-compatible endpoint available.
-- **Release / knowledge:** GA 2026-08-03 (preview 2026-07-19); upgraded 0902 snapshot 2026-09-02. Knowledge cutoff not disclosed.
-- **IDs:** `qwen3.8-max` (Model Studio/Zen), `qwen3.8-max-0902`, `qwen3.8-max-prime`, open weights `Qwen/Qwen3.8-2.4T-A95B` (HF, custom Qwen3.8-Max license).
-- **Context window:** 1,000,000 tokens (991,808 max input; 983,616 with thinking; 131,072 max output; 262,144 max reasoning budget); open checkpoint: 262,144 native, extensible to ~1M via YaRN.
-- **Modalities:** Text, image and video in → text out (first Qwen >1T multimodal). Thinking mode with reasoning effort low/medium/xhigh (`preserve_thinking` supported); function calling, structured outputs, batching, prefix completion, fine-tuning; five built-in Responses-API tools (code_interpreter, web_search, web_extractor, t2i_search, i2i_search).
-- **Pricing (as of 2026-10-09):** $2.00 / MTok input, $6.00 output (flat across the whole 1M window); implicit cache read $0.25; explicit cache creation $2.50 / read $0.17; batch 50% off; new Model Studio accounts get a 1M-token free quota (Singapore). Artificial Analysis measures $5.41 per completed task, 39–41 tok/s.
-- **Architecture:** Sparse MoE, ~2.4T total / 95B active (per open checkpoint card), hybrid attention; hosted API proprietary, open 2.4T checkpoint text-only under the custom "qwen3.8-max" license; Qwen3.8-27B sibling is Apache 2.0.
+- **Name:** Qwen 3.8 (the **27B dense** member). Distinct from the 2.4T **Qwen3.8 Max** flagship (`model/qwen-3.8-max/`, already refreshed) and from the sparse **Qwen3.8 Flash** — this is the compact dense tier, and it is the only Qwen3.8 member whose model card publishes a full comparison table against a frontier model.
+- **Short description:** A **native vision-language dense 27B** with real agentic coding strength at a single-GPU footprint, licensed **Apache 2.0**. Its defining feature is the honest one Alibaba chose to publish: the model card compares it head-to-head against **Claude Opus 4.6 Max**, and the 27B **wins on three rows** (SWE-bench Pro 61.7 vs 53.4; QwenSWEBench 79.0 vs 63.8; IFBench 79.5 vs 62.5) while losing badly on the flagship's strengths. That is a rare and genuinely useful disclosure.
+- **Provider / access:** Weights on Hugging Face (`Qwen/Qwen3.8-27B`, **Apache 2.0** — free self-hosting via vLLM/SGLang/TokenSpeed), a hosted Qwen Cloud API (announced, with 1M context by default), and OpenCode Zen (`opencode/qwen-3.8`) at **~$0.42/$3.00 per 1M**. Free via the Qoder app for individuals.
+- **Release / knowledge:** the Qwen3.8 family is Alibaba's August–September 2026 generation; the 27B model card is dated with the Qwen3.8 launch. **Knowledge cutoff not disclosed.**
+- **IDs:** `Qwen/Qwen3.8-27B` (Hugging Face); `opencode/qwen-3.8` (Zen); `qwen3.8-27b` (Qwen Cloud).
+- **Context window:** **262,144 tokens native, extensible to 1,000,000 via YaRN RoPE scaling**. Max output **33K** (131,072 tokens of final response recommended for agentic work, with 262,144 for reasoning content). Note that the 1M figure requires an explicit YaRN config change — it is not the default.
+- **Modalities:** **text, image and video in; text out** — a native vision-language model with a vision encoder (an unusual feature at 27B). Thinking mode **on by default**, disableable per request, with `reasoning_effort` (xhigh default / medium / low) and `preserve_thinking`.
+- **Pricing (as of 2026-11-05):** API ~**$0.42/$3.00 per 1M**; **$0 self-hosted under Apache 2.0**. Methodology anchors put $0.42/$3.00 between ~$0.60/$2.20 (≈92) and ~$1.25/$4.25 (≈88), and the self-host route is genuinely unrestricted.
+- **Architecture:** **dense 27B** causal LM with a vision encoder (27B params, hidden dim 5,120, 64 layers, hybrid Gated DeltaNet + Gated Attention layout, 248,320-vocab, MTP trained). Explicitly *not* MoE.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+**Alibaba's own model card is the primary source, so all rows below are vendor-run** — and unusually, the vendor itself re-evaluated its baselines on a refined benchmark rather than reusing published numbers. The comparison column is **Claude Opus 4.6 Max**, taken from each vendor's own reporting.
 
-- Terminal-Bench 2.1: **88.8%** (Artificial Analysis, 0902 snapshot, max effort — independent; Alibaba's 86.6% on the 0803 build via Claude Code avg@10; AA read the 0803 build at 81.3%)
-- GDPval-AA: **Elo 1608** (AA); revised to **Elo 1,721** on the current BenchmarkList index (#12/352, 97th pct — updated 2026-10-07); **Tau3-Banking 51.3% (#1/176, 100th pct — field lead)**; OSWorld-Verified 86.1% (#2/70); BrowseComp 67.9% (#49/60, only 19th pct)
-- AA-Briefcase v1.1: Elo 1564-class (unifybench lists 1564 for the AA-Briefcase family)
-- AutomationBench-AA: **56.2%** (AA); Automation-Bench pass@1: 27.3% (vendor 600-task subset)
-- OSWorld-Verified: **86.1%** (vendor — table lead vs Fable 5's 85.0); OSWorld 2.0: 19.4/46.7 partial
-- Toolathlon Verified: **72.5%** (vendor — still self-reported); JobBench 53.4%; SkillsBench 70.2%; WideSearch 81.9%
-- Terminal-Bench 4.0: **34.3%** (Vals mini-swe-agent) / 26.97% ±3.78 (official board, Claude Code, max) — behind the Claude/GPT frontier
-- Terminal-Bench-Science: **no verified public score found**; Claw-Eval (text): no verified public score found; ClawEval-MM 77.2/74.8 (vendor multimodal variant)
+Coding (Claude Code harness, temp=1.0, top_p=0.95, 256K context):
 
-Reasoning / knowledge:
+- **Terminal-Bench 2.1 (Terminus): 73.0%** (vs Opus 4.6 Max 78.2) — under the 88%+ frontier reference
+- **SWE-bench Pro: 61.7%** (vs Opus 4.6 Max **53.4** — the 27B **wins** this row)
+- **QwenSWEBench (in-house): 79.0%** (vs **63.8** — the 27B **wins**, though in-house benchmarks are not independently reproducible)
+- NL2Repo-Bench: 42.3% (vs 47.6)
+- **DeepSWE 1.1: 42.2%** — 31.8 points under the 74% frontier reference, and the weakest coding row here
+- **IFBench: 79.5%** (vs **62.5** — the 27B **wins**)
 
-- GPQA Diamond: **93.7%** (Vals AI, rank 5/133 — independent; vendor 92.6%, AA 92.7–92.8 across snapshots)
-- HLE: **43.1%** no tools (AA, 0902; vendor 43.6%; agreement across all three); HLE with tools 56.2% (vendor)
-- AA Intelligence Index: **45** on the re-based v4.3.2 (0902 snapshot — level with GLM-5.3, a point above Kimi K3); 56 on the pre-September scale
-- IFBench: **82.8%** (vendor — table lead); CritPt: **no verified public score found**
-- LiveBench overall: **78.5%** (LiveBench board, 0803 build)
+Agent:
 
-Coding:
+- **CoWorkBench (in-house): 70.7%** (vs 68.2)
+- JobBench: **33.4%**
+- **Agents' Last Exam: Pass@1 20.4 / Score 42.9** (vs Opus 4.6 Max Pass@1 10.6 / Score 27.3 — the 27B **wins** emphatically, roughly 2x)
+- **OSWorld-Verified: 84.3%** (vs 72.7 — the 27B **wins**); WebArena-Verified: 64.8%; AndroidWorld: 81.9% (vs 62.0)
+- RecreationBench: 47.1%; **ClawEval-MM: Pass@3 57.4 / average 56.9** (vs Pass@3 42.6 / 50.4 — the 27B **wins**); **SWE-MM: 38.6%** (vs 27.1 — wins); Vision2Web: 62.9% (vs 42.1 — wins)
+- **MCP-Atlas, Toolathlon, GDPval-AA, MazeBench, τ³-Banking, Terminal-Bench 4.0: no verified public score found**
 
-- SWE-bench Verified: **85.6%** (Vals AI independent, rank 13/83, bash-only harness)
-- SWE-bench Pro: **67.7%** (vendor, Claude Code harness; vs Fable 5 80.0%, Opus 4.8 69.2%, GPT-5.6 Sol 64.6%)
-- DeepSWE v1.1: **56.6%** (vendor) / **57.0%** (DeepSWE leaderboard) — vs Fable 5 70.0, GPT-5.6 Sol 73.0 (the clearest gap)
-- LiveCodeBench: **87.8%** (Vals); FrontierSWE 73.5%; PaperBench **93.0% (#1** — ahead of GPT-5.6 Sol 90.5, Fable 5 88.8)
-- NL2Repo-Bench 55.9%; MLS-Bench-Lite 41.0%; AndroidBench 75.1%; CodeArena 1691–1757 (#1 front-end arena at the 0902 snapshot)
-- Vibe Code Bench: **no verified public score found**
+General / reasoning:
 
-Multimodal:
+- **GPQA Diamond: 89.2%** (vs 91.3) — 0.8 points under the 90%+ reference
+- HLE: **30.8%** (vs 40.0) — under the 40%+ reference
+- **LiveCodeBench v6: 90.3%** (vs 88.8 — the 27B **wins**)
+- **AA-LCR, CritPt, ARC-AGI, FrontierMath, MRCR, AA Intelligence Index: no verified public score found** — so four of five reasoning references are entirely unmeasured
 
-- MMMU-Pro: **82.3%** (vendor; Fable 5 81.2, Opus 4.8 75.6); MathVision 95.2/97.7; BabyVision 82.0/91.3; ZeroBench-Sub 48.5%
-- OmniDocBench 1.5: 92.1% (table lead); VideoMME (w/ subs): 90.4%; HLE-VL (w/ tools): 52.2%; CharXiv (RQ) 88.4/93.5%
+Vision-language (all in-house or publicly-harnessed, all vendor-run):
 
-Long context:
-
-- 1M-token hosted window; MRCR v2 256K 8-needle: **92.9%** (vendor; vs Opus 4.8 83.2, GPT-5.6 Sol 93.8); **no public standalone 1M-length MRCR**, but the independent GDM-MRCRv2 Context Arena (BenchmarkList 2026-10-07) shows AUC 128K **91.0%** dropping to AUC 1M **~40%** (cumulative 1M avg ~70.7%) — long-horizon retrieval degrades at the window top; LongBench v2 66.3%
+- **CharXiv (RQ): 83.7 without CI / 90.2 with CI**; **MathVision: 90.0 without CI / 94.6 with CI**
+- **OmniDocBench 1.5: 91.1** (vs 86.6 — wins); **RealWorldQA: 85.9** (vs 73.9 — wins); BabyVision: 65.7 / 85.6 with CI; ERQA: 65.5
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Independent AA Terminal-Bench 2.1 88.8%, GDPval-AA Elo 1608, AutomationBench-AA 56.2% and OSWorld-Verified 86.1% are frontier-band; capped by Terminal-Bench 4.0 at 34.3%/27.0% (well behind the Claude/GPT frontier), Toolathlon 72.5% still vendor-reported, and no public TB-Science/Claw-Eval.
-- **Reasoning: 87/100.** GPQA 93.7% (Vals) and HLE 43.1% (AA, corroborated three ways) put general reasoning at parity with US frontier models, with the AA Intelligence Index at 45 (v4.3.2) and IFBench 82.8%; capped by HLE trailing Fable 5's 53.3% by ~10 points and no public CritPt.
-- **Context window: 94/100.** 1M-token flat-priced window with 131K output is the ≥1M tier, and MRCR v2 92.9% at 256K (vendor) is near the top of the field; the 100 tier's ≥98% retrieval at 512K+ is unverifiable (no 1M MRCR published), and the open checkpoint's native window is only 262K.
-- **Multimodal: 85/100.** Native text + image + video in → text out is the 75–90 band, anchored by MMMU-Pro 82.3%, MathVision 95.2%, BabyVision 82.0% and OmniDocBench 92.1% — among the strongest vision packages in the field; no non-text output keeps it below 90.
-- **Coding: 86/100.** SWE-bench Verified 85.6% (Vals), LiveCodeBench 87.8%, PaperBench 93.0% (#1) and CodeArena #1 show true frontier coding strength; capped by SWE-bench Pro 67.7% and DeepSWE 57.0% — the contamination-resistant long-horizon agentic suites where Fable 5/GPT-5.6 Sol hold a 13–16-point lead.
-- **Cost efficiency: 66/100.** $2/$6 per MTok sits between the methodology's $3/$15 ≈ 60 and $0.60/$2.20 ≈ 92 tiers, with $0.25 implicit cache reads and 50%-off batch; AA's measured $5.41/task (2x+ GLM-5.3/Kimi K3) and 39–41 tok/s throughput temper the list-price advantage.
-- **Overall Score: 88/100.** Best-fit recommendation: the value pick for multimodal, document and research-coding agents at $2/$6 — PaperBench/CodeArena-class output with 1M context; pair with a Claude/GPT flagship for the deepest long-horizon repository engineering (DeepSWE/SWE-Pro).
+- **Tool use: 78/100.** Genuinely strong for a 27B, and the vendor's own comparison shows it beating Opus 4.6 Max on **OSWorld-Verified (84.3% vs 72.7%), Agents' Last Exam (Pass@1 20.4 vs 10.6) and ClawEval-MM (57.4 vs 42.6)**. Capped because **two of three frontier references are unmet or unmeasured** — Terminal-Bench 2.1 is 73.0% against 88%, and MCP-Atlas, Toolathlon, GDPval-AA, τ³-Banking and MazeBench have no figure at all. JobBench 33.4% and RecreationBench 47.1% are mid-tier.
+- **Reasoning: 72/100.** Mid-band. **GPQA Diamond 89.2% misses the 90% reference by 0.8 points** and HLE 30.8% misses the 40% reference, but LiveCodeBench 90.3%, MathVision 94.6 (with CI) and CharXiv 90.2 are all strong. Capped hard by the **total absence of AA-LCR, CritPt, ARC-AGI, FrontierMath, MRCR and any composite intelligence index** — so five of the methodology's reasoning references are unmeasurable. A model that is strong on exam-style benchmarks and unmeasured on every depth benchmark.
+- **Context window: 92/100.** Scored above the methodology's 500K–1M band because the window is **262,144 tokens native — genuinely native, not claimed** — and extensible to 1M via YaRN. Held below the 1M tier (95+) because the 1M figure requires an explicit RoPE-scaling config change, the vendor notes static YaRN "remains constant regardless of input length, potentially impacting performance on shorter texts", and **no MRCR or GraphWalks retrieval measurement exists at any length**. Also note the 33K output cap, well below the 128K+ of the models above it.
+- **Multimodal: 92/100.** **A native vision-language model with its own vision encoder — a rare feature at 27B** — taking text, image and video input, which places it in the methodology's 90–100 tier (no audio). The measured depth supports the upper-middle: **OmniDocBench 91.1, MathVision 94.6 with CI, CharXiv 90.2 with CI, RealWorldQA 85.9, SWE-MM 38.6, ClawEval-MM 57.4**. Held at 92 because output is text-only, there is no MMMU-Pro or ZeroBench figure, and all visual rows are vendor-run.
+- **Coding: 76/100.** The strongest dimension. **SWE-bench Pro 61.7%, QwenSWEBench 79.0% and IFBench 79.5% are all strong, and the first of these beats Claude Opus 4.6 Max's 53.4% on Alibaba's refined benchmark.** Capped by **DeepSWE 1.1 at 42.2%** — 31.8 points under the frontier reference and the worst coding row here — plus NL2Repo-Bench 42.3%, Terminal-Bench 2.1 73.0%, and no SWE-bench Verified, AA-SciCode or AA Coding Index figure. A model that repairs repositories well and cannot yet sustain long-horizon agentic coding.
+- **Cost efficiency: 96/100.** **Apache 2.0 open weights mean the self-host cost is genuinely $0** — the only unrestricted licence in this batch — and the hosted route is ~$0.42/$3.00 with a free Qoder app tier for individuals. Held just under the 97–99 $0 anchor because the hosted route is not free and it is more expensive than the MiniMax/MiMo/GLM flash-tier cards ($0.14–$0.30 input).
+- **Overall Score: 82/100.** (78 + 72 + 92 + 92 + 76) / 5 = 82.0 → **82**. Recommendation: the best **self-hostable dense model** in this research series — Apache 2.0, a native vision encoder, 262K native context (1M with YaRN), SWE-bench Pro 61.7%, OSWorld-Verified 84.3% and Agents' Last Exam at roughly 2x Claude Opus 4.6 Max, all on a 27B footprint. Two cautions: **DeepSWE 42.2% and HLE 30.8% show the depth gap against frontier models is real**, so route the hardest reasoning elsewhere; and **every number here is vendor-run from Alibaba's own card**, with AA, Vals, ARC and FrontierMath all absent — re-measure on your own harness before betting production traffic.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-10
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (80 primary-source results, updated 2026-10-07 — independent Tau3-Banking 51.3% #1/176 field lead, OSWorld-Verified 86.1% #2/70, GDPval-AA revised Elo 1721 #12/352, SWE-bench Pro 67.7% #8/58, ERQA 77.8% #2/20, BrowseComp 67.9% #49/60, GDM-MRCRv2 Context Arena AUC 128K 91.0% → 1M ~40%) — confirms the existing Tool use 86 / Coding 86 / Context 94 reads; the Tau3-Banking field-lead and OSWorld #2 reinforce Tool use 86, and the 1M-retrieval drop (AUC ~40%) confirms Context stays at 94 (not 100). No score change warranted. Prior pass (2026-10-09) used Qwen official blog + full benchmark table, Alibaba Cloud Model Studio docs/pricing, Artificial Analysis, Vals AI via The Model Gap/BenchLeader, BenchmarkList, models.dev, OpenCode Zen docs, The AI Rankings, AIToolsReview.
-- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Alibaba's official Qwen3.8-27B model card as the primary source (which publishes a full comparison table against Claude Opus 4.6 Max and states its harness conditions — Claude Code harness, temp=1.0, top_p=0.95, 256K context, with baselines re-evaluated on a refined benchmark), cross-checked against the Hugging Face model card for architecture, licence, context and serving details and OpenCode Zen's pricing table. Because every row is vendor-run from Alibaba's own card and no Artificial Analysis, Vals, ARC or Epoch measurement exists for this ID, that absence is stated explicitly rather than implied. Alibaba's decision to compare against a frontier model and to publish rows where the 27B loses is recorded as a provenance strength. Missing benchmarks (MCP-Atlas, Toolathlon, GDPval-AA, MazeBench, τ³-Banking, Terminal-Bench 4.0, AA-LCR, CritPt, ARC-AGI, FrontierMath, MRCR, AA Intelligence Index, MMMU-Pro, ZeroBench, SWE-bench Verified, AA-SciCode, AA Coding Index) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Alibaba — Qwen3.8-27B model card (primary source; full benchmark table vs Claude Opus 4.6 Max)](https://huggingface.co/Qwen/Qwen3.8-27B)
+  - [Qwen — Qwen 3.8 blog / official model page](https://qwenlm.github.io/blog/qwen-3.8/)
+  - [Alibaba Cloud Model Studio — model listing](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

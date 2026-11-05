@@ -22,7 +22,7 @@
     {
       "name": "Pay-as-you-go",
       "price": "Usage-based (per token)",
-      "notes": "Mercury 2.5 $0.20 in / $0.75 out per 1M ($0.02 cached in). Mercury 3 launch rate $0.10 in / $0.35 out per 1M.",
+      "notes": "Mercury 2.5 $0.20 in / $0.75 out per 1M ($0.02 cached in). Mercury 3 is 50% off at launch: $0.10/$0.35 per 1M (regular $0.20/$0.70; cache $0.01). Mercury 2 $0.25/$0.75.",
       "evidenceUrl": "https://docs.inceptionlabs.ai/get-started/models"
     }
   ]

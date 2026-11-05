@@ -4,6 +4,8 @@
   "short": "Decentralized inference network with OpenAI-compatible access to open models (DeepSeek, GLM, MiniMax, BGE, etc.). New keys start with 100K free tokens; the recurring 1M-tokens/month free tier needs either a minimum $10 top-up or phone verification (one number per account).",
   "officialUrl": "https://gonkabroker.com/?ref=M47RXUEJ",
   "hosts": ["gonkabroker.com", "app.gonkabroker.com"],
+  "catalogUrl": "https://gonkabroker.com/models?ref=M47RXUEJ",
+  "covers": ["deepseek-v4-flash", "glm-5.3-flash"],
   "plans": [
     {
       "name": "Free tier",

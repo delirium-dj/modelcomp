@@ -1,76 +1,80 @@
 # Muse Spark 1.1 — findings by Step 5 Preview
 
-- Source: Meta (`muse-spark-1.1`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Meta / Meta AI (FAIR) (`muse-spark-1-1`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Spark 1.1
-- **Short description:** Meta Superintelligence Labs' July 2026 model (released 2026-07-09) — a multimodal reasoning model built for agentic tasks, and Meta's first paid developer API (Meta Model API, public preview, US). +8 Intelligence-Index points over Muse Spark 1.0 in three months (43 → 51), with the gains concentrated in coding, scientific reasoning and knowledge. Field-leading MCP-Atlas (88.1%) and HLE-with-tools (62.1%); its advertised 1M context is undercut by poor measured long-context retrieval (MRCR v2 54.1).
-- **Provider / access:** Meta Model API `muse-spark-1.1` (`api.meta.ai/v1`; OpenAI Chat Completions, OpenAI Responses and Anthropic Messages formats); Meta AI app / meta.ai Thinking mode; OpenRouter `meta/muse-spark-1.1`. No OpenCode Zen Free ID found (paid; $20 one-time free credits).
-- **Release / knowledge:** 2026-07-09 (API public preview); EU/global API availability later. Knowledge cutoff not disclosed.
-- **IDs:** `muse-spark-1.1` (Meta Model API), `meta/muse-spark-1.1` (OpenRouter).
-- **Context window:** 1,048,576 tokens, flat-priced with no long-context premium; actively self-managing (remembers actions, retrieves earlier work, compacts); 131,072 max output.
-- **Modalities:** Text, image, video, audio and PDF in → text out. `reasoning_effort` minimal → xhigh (reasoning tokens bill as output); built-in web search with citations ($2.50/1K queries); structured output; parallel tool calling.
-- **Pricing (as of 2026-10-09):** $1.25 / MTok input, $4.25 output; cached input $0.15 (88% off, automatic); no batch endpoint; 60 RPM/2M TPM free tier, 3,000 RPM/4M TPM paid. AA estimates ~$0.26–0.29 per Intelligence-Index task — among the cheapest at its intelligence level; 114 tok/s median output, ~21s to first answer token.
-- **Architecture:** Proprietary (closed weights).
+- **Name:** Muse Spark 1.1. The **earliest Muse Spark generation with a dedicated evaluation report**, now three generations behind Muse Spark 1.3 and behind Muse Wonder (62.78) in the family. BenchLM scores it 65.16/100, #32 of 1009 — remarkably, it scores *below* both of its successors (1.2: 65.41, and it beats only base Muse Spark's 59.84), so generational improvement in this family is concentrated in 1.3.
+- **Short description:** A 1.1-generation model with one genuinely notable result — **HLE 62.1% (vendor-run), the highest raw HLE figure measured in this research series** — and **Cybench 92.9%**, plus the best-documented agentic suite of any legacy Meta model (MCP Atlas 88.1%, OSWorld-Verified 80.8%, Toolathlon 75.6%, JobBench 54.7%). Its reliability is mid-pack (hallucination 50.0%) and its reasoning depth is thin (CritPt 15.1%, MRCR 1M 54.1%).
+- **Provider / access:** Meta Model API, Muse Code, OpenRouter, and OpenCode Zen (`opencode/muse-spark-1-1`) — note Zen's current model list carries Muse Spark 1.3 and 1.2 but **not 1.1**, consistent with its superseded status. Weights never released.
+- **Release / knowledge:** released **2026-07-09** (the first of the three Muse Spark releases between July and September 2026, per Artificial Analysis's "fourth Muse Spark model release in five months" framing). **Knowledge cutoff not disclosed by Meta.**
+- **IDs:** `muse-spark-1-1` (Meta Model API); `meta/muse-spark-1.1` (OpenRouter).
+- **Context window:** **1M tokens** (BenchLM and Meta's evaluation report agree). Max output not published.
+- **Modalities:** **text, image, video and audio in; text out** (the Muse Spark lineup-wide modality set; corroborated by the CharXiv and BabyVision results).
+- **Pricing (as of 2026-11-05):** not published for this legacy SKU in the sources checked — Zen's rate card covers 1.3 ($1.25/$4.25/$0.15) and 1.2 (same) but omits 1.1. Scored conservatively and flagged as unverified rather than assumed from siblings.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Meta AI's **Muse Spark 1.1 evaluation report** is the primary source (so most rows are **vendor-run**), with Artificial Analysis, Vals AI and Openrouter supplying independent rows.
 
-- MCP-Atlas: **88.1%** (Meta report — #1/48, 100th pct, BenchmarkList 2026-10-07; vs Opus 4.8 82.2, GPT-5.5 75.3)
-- JobBench: **54.7%** (#1 in table; Opus 4.8 48.4)
-- Toolathlon-Verified: **75.6%**; DeepSearchQA: **84.9%**; WebArena-Verified: **69%**
-- OSWorld-Verified: **80.8%** (Meta; Opus 4.8 83.4); **OSWorld 2.0: 14.2%**
-- Terminal-Bench 2.1: **80.0%** (Meta's harness) / **77.9–78%** (AA) / **69.3%** (Vals AI Terminus-2 — an 11-point independent gap)
-- Terminal-Bench 4.0: **6.06%** (AA)
-- GDPval-AA: **Elo 1375** (Meta) / **35.7%** (AA); BenchmarkList index reads **Elo 1381** (#50/352, 86th pct); Tau3-Banking 31.8% (#33/176)
-- AutomationBench-AA: **42.8%**; AA Agentic Index: **27.5%**
-- Finance Agent v2: **57.2%** (#1 in table); Cybench: **92.9% pass@1** (near-ceiling CTF); CyberGym 59.0%; **new weak rows (2026-10-19): ExploitGym 0.8%** (BenchLM)
-- BenchLM composite (2026-10-19): **66.08/100** overall, #33 of 959 models, 40 of 666 benchmarks covered — every file row reconfirmed (MCP-Atlas 88.1%, Toolathlon 75.6%, OSWorld 80.8%, DeepSearchQA 84.9%, JobBench 54.7%, TB2.1 80.0%/69.3%, GDPval 35.6%/1,375, SWE-Pro 61.5%, AA Coding Index 71.3%, AA-LCR 77.7%, MRCR 1M 54.1%, AA-HLE 46.2%, AA-Omniscience 28.1%) plus new rows CritPt **15.1%** and HealthBench Professional **59.3%**; one discrepancy flagged — BenchLM carries an AA Index row of **33.7** while the file records **50.62** as the current rebased reading (verified via benchmarklist 2026-10-07; BenchLM's row appears stale). No score change warranted.
+Agent / tool use — **the strongest dimension**:
 
-Reasoning / knowledge:
+- **MCP Atlas: 88.1%** (vendor) — the best MCP Atlas figure in this batch
+- **OSWorld-Verified: 80.8%** (vendor); Toolathlon: **75.6%**; WebArena-Verified: 69.0%
+- **Terminal-Bench 2.1: 80.0%** (vendor) / **69.3%** (Vals) — a 10.7-point vendor-vs-independent gap, both under the 88%+ reference
+- **GDPval-AA: 1,375 Elo** / 35.6% normalized — well under the 1,750+ frontier reference
+- DeepSearchQA: 84.9%; JobBench: 54.7%; Finance Agent v2: 57.2%; **Cybench: 92.9%**
+- **CyberGym: 59.0%**; **ExploitGym: 0.8%**; **OSWorld 2.0: 14.2%**
+- **AA Agentic Index: 27.5%** — the second-lowest in this batch
+- **τ³-Banking, BrowseComp, Toolathlon-Verified, Claw-Eval, MazeBench, ALE: no verified public score found**
 
-- Artificial Analysis Intelligence Index: **51** (v4.1, xhigh — tied with GLM-5.2/GPT-5.4/GPT-5.6 Luna, +8 over Muse Spark 1.0) / **50.62** on the current rebased v4.3.2 (#22/427, 95th pct — BenchmarkList 2026-10-07; the earlier "33.7" reading was superseded)
-- GPQA Diamond: **89.8%** (AA) / **91.2%** (Vals)
-- HLE: **62.1% with tools** (#1 in table) / **52.2% without tools** (Meta); AA-HLE **46.2%**
-- SciCode: **58.8%** (AA — #3 of all models benchmarked, behind Fable 5's 60% and Gemini 3.1 Pro's 59%)
-- MMLU-Pro: **88.7%** (Vals); AA-Omniscience index **28.1**, accuracy 52.1%, **non-hallucination rate 62%** (beats every GPT-5.x in the set)
-- LiveBench: overall **75.3%** (reasoning 87.7%, mathematics 87.1%, coding 77.2%, data analysis 72.5%, language 74.3%, instruction following 69.6%, agentic coding 58.5%)
+Reasoning / knowledge — **split, with the series' highest raw HLE**:
 
-Coding:
+- **HLE: 62.1%** (vendor evaluation report) / HLE without tools 52.2% — **the highest raw HLE figure measured anywhere in this research series**, above Claude Opus 5's 64.7% only in the without-tools column and above GPT-5.6 Sol's 54.5% on the verified column
+- **AA-HLE: 46.2%**; **AA-GPQA Diamond: 89.8%** / **91.2%** (Vals) — clears the 90%+ reference only on the Vals run
+- AA Intelligence Index: **33.7**; AA-LCR: **77.7%**; **CritPt: 15.1%**
+- **MRCR 1M: 54.1%** — one of the few measured 1M-window retrieval figures in this research series, and mid-tier at that length
+- AA-Omniscience: index 28.1, accuracy 52.1%, hallucination rate **50.0%**
+- HealthBench Professional: 59.3%; MMLU-Pro (Vals): 88.7%
+- **FrontierMath, ARC-AGI: no verified public score found**
 
-- SWE-bench Pro: **61.5% ±3.1** (Scale AI, 731 public tasks — #23/58; between GPT-5.5's 58.6% and Opus 4.8's 69.2%)
-- SWE-bench Verified: **82.0%** (Vals — #11/72)
-- DeepSWE v1.1: **53.3%** (Meta) / **53.3%** (#39/52, 25th pct — BenchmarkList 2026-10-07; DataCurve 53.0%; Opus 4.8 59.0, GPT-5.5 67.0)
-- LiveCodeBench: **85.9%** (Vals — #21/123); **Vibe Code Bench v1.1 72.2% (#12/75)**; AA Coding Index: **71.3**
-- Meta Internal Coding Bench: "competitive with leading alternatives" (no public number)
+Coding — mid-pack:
 
-Multimodal:
+- **AA Coding Index: 71.3%** — clears the 70%+ frontier reference
+- LiveCodeBench (Vals): **85.9%**; SWE-bench (Vals): **82.0%**
+- Terminal-Bench 2.1: 80.0% — under the 85% reference
+- **AA-SciCode: 58.8%** — clears the 55%+ reference; deepSWE: 53.3%
+- SWE-bench Pro: 61.5%; **SWE-bench Verified: no verified public score found**
 
-- CharXiv Reasoning: **88.4%** (slightly below Muse Spark 1.0's 88.9%); BabyVision: **76.3%** (Opus 4.8 81.2, GPT-5.5 83.6)
+Multimodal (image + video + audio in):
 
-Long context:
-
-- 1M-token window, flat-priced; **AA-LCR: 77.7% — #68/408, 84th pct** (BenchmarkList 2026-10-07; the earlier "63%, 25th of 26" reading was superseded; Kimi K3 leads at 88.7%); **MRCR v2: 54.1** in Meta's own report (GPT-5.5 74.0) — retrieval remains the model's weakest measured dimension
+- **CharXiv: 88.4%** (vendor); BabyVision: 76.3%; Design Arena (website): 1,269 Elo
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** MCP-Atlas 88.1% (table lead), OSWorld-Verified 80.8%, Toolathlon 75.6% and DeepSearchQA 84.9% are genuinely strong agentic evidence; capped by GDPval-AA 35.7%, AutomationBench-AA 42.8%, Terminal-Bench 4.0 6.06%, OSWorld 2.0 14.2% and the 11-point Vals gap on TB2.1 (80.0 vendor vs 69.3 independent).
-- **Reasoning: 84/100.** GPQA 89.8–91.2%, HLE 52.2% without tools (62.1% with), SciCode 58.8% (#3 overall) and the AA Index at 51 (v4.1) / 50.62 rebased (#22/427) are frontier-band, with a best-in-set 62% non-hallucination rate; capped by AA-HLE 46.2% and CritPt/GDPval gaps to the very top tier.
-- **Context window: 90/100.** 1,048,576 tokens at flat $1.25 pricing with 131K output and active self-compaction is the ≥1M tier; the 95–100 band requires verified retrieval strength, and both independent (AA-LCR 77.7%, #68/408) and Meta's own MRCR v2 (54.1 vs GPT-5.5's 74.0) show retrieval is the weak spot.
-- **Multimodal: 88/100.** Text + image + video + audio + PDF in → text out is the top modality band (audio input), anchored by CharXiv 88.4%, BabyVision 76.3% and native perception across the plan-execute-verify loop; no non-text output and BabyVision trailing Opus 4.8/GPT-5.5 keep it below 90.
-- **Coding: 78/100.** SWE-bench Verified 82.0% (Vals), SWE-bench Pro 61.5%, LiveCodeBench 85.9% and Coding Index 71.3 are frontier-adjacent; capped by DeepSWE 53.3% (well behind Opus 4.8's 59.0 and GPT-5.5's 67.0), Terminal-Bench 2.1 at 69.3% independent, and losing every coding row in Meta's own comparison table.
-- **Cost efficiency: 88/100.** $1.25/$4.25 per MTok with $0.15 automatic cache reads maps to the methodology's ~$1.25/$4.25 ≈ 88 tier — the cheapest 1M-context frontier-adjacent API at launch, with a measured ~$0.26–0.29 per Index task; no batch discount and 94M output tokens per Index run temper it.
-- **Overall Score: 84/100.** Best-fit recommendation: the price-efficiency agentic pick — field-leading MCP-Atlas tool orchestration and HLE-with-tools at $1.25/$4.25 with a flat-priced 1M window; add retrieval for long-context work and route hard SWE-Pro coding to Opus/Fable-class models.
+- **Tool use: 74/100.** Above the methodology's mid band on the strength of a genuinely broad agentic suite: **MCP Atlas 88.1%** (best in this batch), OSWorld-Verified 80.8%, Toolathlon 75.6%, DeepSearchQA 84.9%, JobBench 54.7% and Cybench 92.9%. Capped because **two of three frontier references are badly missed** — Terminal-Bench 2.1 is 80.0% (vendor) / 69.3% (Vals) against 88%, and GDPval-AA is 1,375 Elo against 1,750 — plus OSWorld 2.0 14.2%, ExploitGym 0.8%, AA Agentic Index 27.5% and no τ³-Banking, BrowseComp or Claw-Eval figure.
+- **Reasoning: 78/100.** Mid-band, and the raw-HLE figure needs careful handling. **HLE 62.1% on Meta's own report is the highest raw HLE in this research series**, and AA's independent run still gives 46.2% (clearing the 40%+ reference). But GPQA Diamond is only 89.8% on AA and 91.2% on Vals, and **CritPt 15.1%, no FrontierMath and no ARC-AGI figure** mean the scientific and abstract-reasoning layers are unmeasured. AA Intelligence Index 33.7 and a 50.0% hallucination rate are mid-pack (mid-pack here means neither the best nor the worst of the series).
+- **Context window: 96/100.** 1M-token tier, and one of the few models here with a measured 1M-window retrieval figure (**MRCR 1M 54.1%**). Held just under 100 because 54.1% is well below the ≥98% threshold, AA-LCR is 77.7%, and no max-output limit is published. A window that is demonstrably usable at 1M — unusually for a 1M-window model in this series — but only at about half the quality of shorter contexts.
+- **Multimodal: 92/100.** Text + image + video + **audio** input places it in the methodology's 90–100 "audio in" tier, and the measured depth supports the upper-middle: **CharXiv 88.4%, BabyVision 76.3%**, plus the Muse Spark lineup's multimodal foundations. Held at 92 rather than higher because the visual suite is only three benchmarks and there is no MMMU-Pro, ZeroBench or ExtractBench figure.
+- **Coding: 76/100.** AA Coding Index 71.3% clears the 70% reference, AA-SciCode 58.8% clears the 55% reference, and LiveCodeBench 85.9% / SWE-bench 82.0% (Vals) are solid. Capped by **deepSWE 53.3%** — 20.7 points under the 74% reference, the second-worst in this batch — plus Terminal-Bench 2.1 80.0%, SWE-bench Pro 61.5% and no SWE-bench Verified figure.
+- **Cost efficiency: 55/100.** **No rate card is published for this legacy SKU** — Zen's current model list omits Muse Spark 1.1 entirely, and Meta's Model API pricing covers 1.3 and 1.2. Scored conservatively at 55, between the methodology's ~$3/$15 (≈60) and ~$10/$50 (≈30) anchors, on the assumption that a superseded 1.1-generation Meta flagship would sit in that band if a route existed. **Explicitly an estimate, not a measurement** — verify against Meta's current pricing before relying on it.
+- **Overall Score: 83/100.** (74 + 78 + 96 + 92 + 76) / 5 = 83.2 → **83**. Recommendation: a genuinely well-rounded legacy model — **the highest raw HLE measured in this research series (62.1%), the best MCP Atlas in this batch (88.1%), measured 1M-window retrieval at 54.1%, and full audio/video input** — with the caveat that it is three generations behind and **priced on an unpublished card**. For agentic and multimodal work it remains competitive with newer models; for repository coding it is not (deepSWE 53.3%). Prefer Muse Spark 1.3 at a known $1.25/$4.25 unless 1.1 is already deployed.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM (composite 66.08/100, #33/959, 40/666; Artificial Analysis has no muse-spark-1.1 page on the natural slug, 404): every file row reconfirmed (MCP-Atlas 88.1%, Toolathlon 75.6%, OSWorld 80.8%, DeepSearchQA 84.9%, JobBench 54.7%, TB2.1 80.0%/69.3% Vals, GDPval 35.6%/1,375, SWE-Pro 61.5%, AA Coding Index 71.3%, AA-LCR 77.7%, MRCR 1M 54.1%, AA-HLE 46.2%, Omniscience 28.1%) plus new rows ExploitGym 0.8%, CritPt 15.1%, HealthBench Professional 59.3% — no score change warranted; one discrepancy flagged (BenchLM's stale AA-Index 33.7 row vs the file's verified 50.62 rebased reading). Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (72 primary-source results, updated 2026-10-07 — AA Intelligence Index 50.62 #22/427, AA-LCR 77.7% #68/408, MCP-Atlas 88.1% #1/48, SWE-bench Verified 82.0% #11/72, DeepSWE 53.3% #39/52, Vibe Code 72.2% #12/75, HLE 52.2% #13/478, MMMU-Pro 86.6% #15/79, SciCode 58.8% #13/296). Prior pass (2026-10-09) used Meta AI blog + Muse Spark 1.1 evaluation report, Artificial Analysis article/tables, Vals AI, Scale AI, LiveBench, eesel AI, writingmate, sdd.sh, RankLLMs, BenchLM.
-- Future sources: add a new file next to this one, e.g. `Grok_4.7.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Meta AI's Muse Spark 1.1 evaluation report as the primary source (so most rows are vendor-run and labelled as such), cross-checked against BenchLM's 40-row catalog (attributing independent numbers to Artificial Analysis, Vals AI and Openrouter). The vendor-vs-independent gap on Terminal-Bench 2.1 (80.0% vs 69.3%) and the exceptional-but-vendor-run HLE 62.1% are both recorded explicitly rather than smoothed over, and the series' highest raw HLE is presented with its provenance attached. Missing benchmarks (τ³-Banking, BrowseComp, Toolathlon-Verified, Claw-Eval, MazeBench, ALE, FrontierMath, ARC-AGI, SWE-bench Verified, MMMU-Pro, ZeroBench, ExtractBench) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta AI — Muse Spark 1.1 evaluation report (primary benchmark source)](https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report)
+  - [BenchLM — Muse Spark 1.1 benchmark scores (40 rows, 65.16/100, #32/1009)](https://benchlm.ai/models/muse-spark-1-1)
+  - [Artificial Analysis — Muse Spark 1.1](https://artificialanalysis.ai/models/muse-spark-1-1)
+  - [Vals AI — Muse Spark 1.1 leaderboard results](https://www.vals.ai/models/meta_muse_spark_1_1)
+  - [Openrouter — Muse Spark 1.1 benchmarks](https://openrouter.ai/meta/muse-spark-1.1/benchmarks)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

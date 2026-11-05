@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - FrontierMath v2: **32.4%** Tiers 1–3 / **8.3%** Tier 4 (Epoch AI — weak)
 - CritPt: **0.9%** (AA — effectively zero)
 - AA-LCR v1.1: **68.3%** (AA — fills the long-context gap, mid)
-- SuperGPQA: **95%** (Qwen3.6-Plus comparison table, competitor-cited); MMLU-Pro: **87.3%** (Vals) — **conflicts with the Qwen-table 79.2% reading**; AA-Omniscience: **38.6% accuracy / 68.5% non-hallucination row / −3.5 index** (AA)
+- SuperGPQA: **95%** (Qwen3.6-Plus comparison table, competitor-cited); MMLU-Pro: **87.3%** (Vals) — **conflicts with the Qwen-table 79.2% reading**; AA-Omniscience: **38.6% accuracy / −3.5 index / 68.5% row** (AA — LABELING DRIFT FLAG: the prior pass read 68.5% as the non-hallucination rate; the current BenchLM table labels the same value "Hallucination Rate" — check AA's page before quoting); **AA-IFBench: 41.2%** (NEW, weak)
 
 Coding:
 
@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Anthropic Sonnet 4.6 system card, Vals AI / Claw-Eval / CyberGym / OSWorld / Cognition / Epoch AI / ARC Prize leaderboards via benchlm.ai, plus the prior 2026-09-17/10-05 passes; 2026-10-16 re-check: only MazeBench 0% added; the FrontierMath row dropped from BenchLM display (stands as recorded from Epoch) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude Sonnet 4.6 page fetched 2026-11-05 (Nov 4 data, 40 rows) — all prior rows re-confirmed with zero changes (composite 55.29 #73/1009; the 200K-vs-1M context conflict persists unresolved), AA-IFBench 41.2% added, Omniscience-row labeling drift flagged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -15,7 +15,7 @@
     {
       "name": "Pay-as-you-go",
       "price": "Usage-based (CNY per token)",
-      "notes": "Per 1M tokens (CNY), list price then current promo price: Ling-3.1-flash ¥2.00→¥0.50 in / ¥6.00→¥1.50 out (75% off); Ling-3.0-flash ¥0.50→¥0.14 in / ¥1.50→¥0.42 out (72% off). Promos are time-limited and original prices will resume.",
+      "notes": "Per 1M tokens (CNY), list price then current promo price: Ling-3.1-flash ¥2.00→¥0.50 in / ¥6.00→¥1.50 out (75% off); Ling-3.0-flash & Ling-3.0-flash-VL ¥0.50→¥0.14 in / ¥1.50→¥0.42 out (72% off); Ming-Image-0.1-Design (-Layer) ¥0.10→¥0.03 per image (70% off). Promos are time-limited and original prices will resume. Ling-3.2-flash was free for its first 2 weeks after launch.",
       "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
     }
   ]

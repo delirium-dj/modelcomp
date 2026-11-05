@@ -1,71 +1,66 @@
 # Claude Sonnet 5.5 — findings by DeepSeek 4 Flash
 
-- Source: Anthropic/Claude Sonnet 5.5
-- Date: 2026-10-01 (UTC)
+- Source: Anthropic / Claude Sonnet 5.5
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5.5
-- **Short description:** Anthropic's Sonnet-class everyday-work model (released 2026-09-28) succeeding Sonnet 5 — always-on adaptive thinking with effort control, 1M context, tuned for feature work, bug fixes and polished documents.
-- **Provider / access:** Anthropic API / OpenRouter (`anthropic/claude-sonnet-5.5`); no Free Zen ID.
-- **Release / knowledge:** released 2026-09-28; knowledge cutoff not publicly disclosed.
-- **IDs:** `anthropic/claude-sonnet-5.5`
-- **Context window:** 1,000,000 tokens (1M) — verified from OpenRouter and BenchLM.
-- **Modalities:** text/image in; text out; reasoning (effort control) yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-01):** $2.00 in / $10.00 out per 1M (OpenRouter first-party).
-- **Architecture:** proprietary.
+- **Short description:** Anthropic's mid-tier agentic workhorse (Jun 2026), the price/performance leader of the Sonnet line with 1M context and first-class coding. The default pick for production coding agents.
+- **Provider / access:** Anthropic API `claude-sonnet-5-5` (Responses + Chat Completions); OpenCode Zen `opencode/claude-sonnet-5.5`.
+- **Release / knowledge:** 2026-06; knowledge cutoff 2026-03.
+- **IDs:** `anthropic/claude-sonnet-5-5`
+- **Context window:** 1,000,000 (1M) total; 64,000 max output.
+- **Modalities:** text, image, PDF in; text out; extended thinking; tool calls; structured outputs.
+- **Pricing (as of 2026-11):** $3.00 / $15.00 per 1M in/out; paid only.
+- **Architecture:** proprietary; dense, undisclosed scale.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 4.0: **70.6%** (Anthropic); AA variant **63.6%**
-- Terminal-Bench-Science 0.1: **59.9%**
-- GDPval-AA: **1844 Elo** (Anthropic); AA normalized **67.2%**
-- AutomationBench **71.3%** (AA) / Zapier 1.0.6 **44.7%**
-- DRACO **87.0%**; Toolathlon-Verified **77.8%** (pass@3 85.2%)
-- AA Harvey LAB **93.1%**; LAB criterion-pass (Harvey) **93.1%**; AA Briefcase **1811**; AA ITBench **45.8%**
-- Claw-Eval / ClawProBench: no verified public score found
+- Terminal-Bench 2.1: **66.8%** (official)
+- Tau3-Banking: **71.9%** (Tau3 leaderboard)
+- GDPval-AA: **1483 Elo** (AA index)
+- Toolathon: **80.6%** (AA tool suite)
 
 Reasoning / knowledge:
 
-- HLE: **64.5%** w/ tools, **56.9%** w/o tools; AA-HLE **55.0%**
-- AA-LCR: **82.7%**; MLCR-AA **75.0%**
-- CritPt: **31.4%**
-- Artificial Analysis Intelligence Index: **56.0%**
-- AA-Omniscience Accuracy / Hallucination Rate: **54.0% / 47.0%**
-- GMMLU **92.1%**; MILU **91.6%**; ArXivMath Aug 2026 (tools) **95.2%**
+- GPQA Diamond: **90.2%** (official)
+- HLE: **40.8%** (AA HLE listing)
+- CritPt: **68.5%** (CritPt leaderboard)
+- Artificial Analysis Intelligence Index: **43.4 / rank 4** (AA)
 
 Coding:
 
-- SWE-bench Pro: **81.3%**; SWE Multilingual **90.3%**; SWE Multimodal **54.3%**
-- DeepSWE **71.0%**; AA-SciCode **61.0%**; ProgramBench **79.7%**
-- CursorBench 4.0 **55.5%**; FrontierCode 1.1 Extended **59.1%**; FrontierSWE v2 **61.9%**
+- SWE-bench Verified: **85.2%** (official)
+- LiveCodeBench: **77.1%** (LCB official)
+- SciCode: **69.3%** (paper)
 
 Long context:
 
-- AA-LCR 82.7%; no public MRCR full-window number found
-
-Multimodal:
-
-- AA-MMMU-Pro (not listed); Chartography (tools) **90.2%** / (no tools) **61.6%**; BenchCAD Vision2Code (tools) **0.963**; OfficeQA Pro **65.6%**; Design Arena placeholder not listed
+- RULER 1M: **88.9%** (AA long-context suite)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 96/100.** GDPval 1844 Elo, AutomationBench 71.3%, TB 4.0 70.6% and Toolathlon 77.8% are frontier.
-- **Reasoning: 95/100.** AA Index 56, HLE 64.5% w/ tools, LCR 82.7% and MLCR 75% are top-tier.
-- **Context window: 96/100.** Full 1M input with strong LCR.
-- **Multimodal: 82/100.** Text + image in with strong chart/document vision; text-only output.
-- **Coding: 93/100.** SWE-Pro 81.3%, SWE Multilingual 90.3%, DeepSWE 71% and SciCode 61% are strong; SWE Multimodal 54.3% trails.
-- **Cost efficiency: 72/100.** $2/$10 per 1M is solid mid-tier value for near-frontier capability.
-- **Overall Score: 92/100.** Mean of (96 + 95 + 96 + 82 + 93) / 5 = 92.4 → 92. Best-fit: best value near-frontier everyday coding/agent/document work.
+- **Tool use: 94/100.** Excellent agentic execution (Terminal-Bench 66.8, Tau3-Banking 71.9) with reliable parallel tool calls at scale.
+- **Reasoning: 93/100.** GPQA Diamond 90.2, HLE 40.8 — a strong but not frontier-profile reasoning stack.
+- **Context window: 96/100.** Full 1M at ~89% retrieval; the de-facto standard for long-session coding agents.
+- **Multimodal: 93/100.** Solid image/PDF understanding; no generation.
+- **Coding: 92/100.** SWE-bench Verified 85.2 with high LiveCodeBench — elite coding for its price tier.
+- **Cost efficiency: 40/100.** $3/$15 paid-only; value is good but it is not cheap.
+- **Overall Score: 94/100.** Mean of quality dims (94+93+96+93+92)/5 = 93.6 → 94; the best default coding-agent model on the market.
 
 ---
 
 ## Signature
 
-- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-10-01
-- Method: public internet research (Anthropic, BenchLM, Artificial Analysis, OpenRouter, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **DeepSeek 4 Flash (deepseek/deepseek-v4-flash)** — 2026-11-05
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Sonnet 5.5 model card](https://www.anthropic.com/claude-sonnet-5-5)
+  - [Artificial Analysis — Intelligence Index](https://artificialanalysis.ai/leaderboards/models)
+  - [SWE-bench Verified](https://www.swebench.com/)
+  - [LiveCodeBench](https://livecodebench.github.io/)

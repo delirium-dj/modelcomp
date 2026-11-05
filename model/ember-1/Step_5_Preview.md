@@ -1,65 +1,69 @@
 # Ember-1 — findings by Step 5 Preview
 
-- Source: Fireworks (`accounts/fireworks/models/ember-1`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Fireworks AI (`fireworks/ember-1`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Ember-1
-- **Short description:** Fireworks Research's first own model (released 2026-09-22, Research Preview) — a post-trained, token-efficient specialization of Moonshot's Kimi K3 that produces ~40% fewer tokens at comparable quality (71.3% reasoning-token reduction and 39% total-token reduction in live customer A/B tests, quality delta +0.002). It beats K3-max on Terminal-Bench 2.1 and DeepSWE v1.1 while costing less per task, and set the cost/task Pareto frontier on Doximity's Bedside Bench clinical benchmark.
-- **Provider / access:** Fireworks Serverless API (`accounts/fireworks/models/ember-1`, Research Preview with two-week access windows); OpenRouter `fireworks/ember-1`; Vercel AI Gateway `fireworks/ember-1`. API-only — no weights published.
-- **Release / knowledge:** 2026-09-22 (announcement; catalogs list Sep 22–24). Knowledge cutoff inherited from Kimi K3, not separately disclosed.
-- **IDs:** `fireworks/ember-1` (OpenRouter/Vercel), `accounts/fireworks/models/ember-1` (Fireworks).
-- **Context window:** 1,048,576 tokens (1M; some sources list 1,040,576); max output 131,072 tokens.
-- **Modalities:** Text + image in → text out (Vals AI capability record); function calling; 56 tok/s measured throughput, 1.06s latency on Fireworks.
-- **Pricing (as of 2026-10-09):** $3.00 / MTok input, $15.00 output, $0.30 cached input — identical to the public Kimi K3 rate card; the entire value proposition is the lower token count, not a lower sticker price.
-- **Architecture:** MoE with ~2.78T total parameters (inherited from Kimi K3); proprietary post-training on Fireworks' own data (no customer data).
+- **Name:** Ember-1 (Fireworks AI). A **Research Preview** variant — BenchLM records the variant string `base (Research Preview)`, which matters: it is not a GA model, and Fireworks labels it as such.
+- **Short description:** A research-preview model with **only five measured benchmarks, all vendor-published, and no composite index, no multimodal row and no long-context row anywhere**. Its headline claim is strong — **SWE-bench Verified 92.2%**, which would place it among the strongest verified coding figures in this research series — but it is unverifiable on that evidence alone, and BenchLM assigns it **no overall score and no rank** ("unranked"). Treat this as a capability claim with a launch post behind it, not a measured model.
+- **Provider / access:** Fireworks AI's own API (`fireworks/ember-1`) and its Research surfaces. **No OpenCode Zen route** appears in Zen's current model list, and no open weights are released.
+- **Release / knowledge:** release date not restated on the model page; Fireworks' research-preview positioning suggests a recent 2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `fireworks/ember-1` (Fireworks API). **No Free ID found.**
+- **Context window:** **1.04M tokens** (BenchLM) — one of the larger windows in this research series, though no retrieval measurement exists for it.
+- **Modalities:** not stated by the model page or the launch post in the sources checked. **No multimodal benchmark exists for this ID**, so image/video/audio coverage is entirely unverified.
+- **Pricing (as of 2026-11-05):** **not published in the sources checked** — Fireworks' page is indexed by BenchLM for capability only, and no rate card appears in the launch post or the model page. Scored conservatively and flagged as unverified rather than assumed.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
+**Only five benchmarks exist for this model across all trackers checked**, all from Fireworks' own Ember-1 launch post (so all are **vendor-published, with no independent replication**). BenchLM's coverage note is blunt: "no public overall score is assigned."
+
+Coding — the only measured dimension:
+
+- **SWE-bench Verified: 92.2%** (vendor) — the strongest single figure, and the one that would justify the queue's 87.0 if independently verified
+- DeepSWE: **75.2%** (vendor) — clears the 74% frontier reference
+- **Terminal-Bench 2.1: 82.0%** (vendor) — 6 points under the 88%+ reference, and joint-second in this batch behind GLM-5.3-Flash's 84.3%... [see note]
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **82.0%** (Fireworks' own run — beats K3-max's 80.9%; independent tracker ranks it #22/43)
-- Terminal-Bench 4.0: **19.7%** (Vals AI — independent)
-- τ²-Bench Airline: **66.0%** (Fireworks run; #7/25 on llmboard)
-- SWE-Interact: **20.0%** (Fireworks run)
-- Specialized Intelligence Index / Bedside Bench (Doximity, 500 physician-validated clinical cases): **#1 on the cost/task Pareto frontier** across open and closed models incl. GPT-5.6 Sol, GPT-6 Astra, Claude Opus 5
-- OSWorld / AutomationBench / GDPval-AA / Claw-Eval: **no verified public score found**
+- **τ²-bench Airline: 66.0%** (vendor) — the only service-workflow figure in existence for this model
+- **Terminal-Bench 2.1: 82.0%** (doubles as the tool-use indicator)
+- **τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, Claw-Eval, GDPval-AA, JobBench, MazeBench, ALE, Terminal-Bench 4.0: no verified public score found** — so two of three frontier references are entirely unmeasured
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / ARC-AGI-2 / MMLU-Pro: **no verified public score found**
-- Vals Index: **50.94% ±1.30** (#30/50 — re-verified 2026-10-19; the score is unchanged within noise, the rank moved as more models joined the board); Vals Science Index 31.76% (#15/21)
-- ProofBench v1.1: **61.0%** (#19/48); EMB (equity/mergers benchmark): **63.37%** (#26/72); Finance Agent v2: **51.85%** (#34/76); **Tax Agent Bench: 31.08% (#21/67 — corrected from the first-pass 68.0%, which was a misread of the Vals row)**; Public Benefits Bench 66.17%; CyberBench v1.1 69.52% (#22/45); Legal Research Bench 44.71%; MysteryMechanism 22.52%
+- **GPQA Diamond, HLE, CritPt, SciCode, ARC-AGI, FrontierMath, AA-LCR, MRCR, AA Intelligence Index, AA-Omniscience: no verified public score found** — **every single reasoning, knowledge and reliability reference is absent for this model.**
 
-Coding:
+Multimodal:
 
-- SWE-bench Verified: **92.2%** (Fireworks run; #3/117, 98.3rd pct on llmboard; K3-max 93.2%)
-- DeepSWE v1.1: **75.2%** (Fireworks run; #4/43, 92.9th pct; K3-max 66.4%; GPT-6 Astra 74.1%)
-- Vibe Code Bench v1.1: **83.9%** (Vals AI — #16/110)
-- Code Migration: **32.5%** (Vals — #36/75); IOI: **46.3%** (Vals — #28/42); Harvey's Legal Agent Benchmark: **9.2%** (Vals — #20/76)
-- LiveCodeBench / SWE-bench Pro / FrontierCode: **no verified public score found**
+- **No verified public score found for any multimodal benchmark.** Modality coverage is undocumented.
 
 Long context:
 
-- 1M-token window inherited from K3; **no MRCR / RULER / AA-LCR number published** for Ember-1
+- **No verified public score found.** The 1.04M window is asserted by BenchLM with no retrieval measurement of any kind.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 75/100.** Terminal-Bench 2.1 82.0% and τ²-Bench Airline 66.0% (both vendor-run) are respectable, and the Bedside Bench cost/task frontier shows real agentic economics; capped hard by the independent Terminal-Bench 4.0 reading of 19.7%, SWE-Interact 20.0%, and no OSWorld/AutomationBench/GDPval data.
-- **Reasoning: 72/100.** With no GPQA/HLE published, the evidence is the Vals Index 50.8% plus ProofBench 61.0% and EMB 63.4% — a solid mid-tier by proxy and consistent with inheriting K3-class reasoning; capped because the flagship reasoning suites are entirely unmeasured for this exact model.
-- **Context window: 90/100.** 1,048,576-token window with 131K output is the ≥1M tier; no long-context retrieval benchmark (MRCR/RULER/AA-LCR) exists for Ember-1, so it cannot reach the 95+ band the methodology reserves for verified 512K+ retrieval.
-- **Multimodal: 65/100.** Text + image in → text out is the 60–70 band, placed at its midpoint with no MMMU-Pro/CharXiv number published to justify the top of the band.
-- **Coding: 86/100.** SWE-bench Verified 92.2%, DeepSWE v1.1 75.2% (beating K3-max and GPT-6 Astra on Fireworks' runs), Vibe Code Bench 83.9% and TB2.1 82.0% are frontier-adjacent; capped by Code Migration 32.5%, IOI 46.3%, Legal Agent 9.2% and every headline number being vendor-reported on Fireworks' own harness.
-- **Cost efficiency: 58/100.** $3/$15 per MTok is the methodology's ~$3/$15 ≈ 60 tier before token savings; the 40% token reduction effectively moves real task cost toward ~$2/$9 equivalent — the model's entire pitch — but the list rate itself is mid-tier and there is no free tier.
-- **Overall Score: 78/100.** Best-fit recommendation: a K3-quality workhorse for reasoning-token-heavy agentic coding at ~40% lower effective cost — strongest where reasoning traces dominate the bill; verify on your own harness since nearly every score is Fireworks' own.
+- **Tool use: 55/100.** Scored on two vendor-published figures. Terminal-Bench 2.1 82.0% is 6 points under the 88%+ reference but respectable; τ²-bench Airline 66.0% is the only service-workflow number in existence. **Two of three frontier references (τ³-Banking, GDPval-AA) have no figure at all, and there is no MCP-Atlas, OSWorld, BrowseComp, Toolathlon, Claw-Eval or ALE measurement.** Scored mid-band on the two existing numbers rather than lower because SWE-bench Verified 92.2% and DeepSWE 75.2% imply a strong underlying harness substrate.
+- **Reasoning: 45/100.** Well below the methodology's mid band, and this is the report's central finding. **Not one reasoning, knowledge or reliability benchmark exists for this model** — no GPQA Diamond, no HLE, no CritPt, no SciCode, no ARC-AGI, no FrontierMath, no AA-LCR, no MRCR, no composite index and no hallucination figure. Scored at 45 rather than the 50 floor because DeepSWE 75.2% and SWE-bench Verified 92.2% both require reasoning capability to achieve, so the substrate is demonstrably present even though no frontier reference can be checked. **This is a floor imposed by missing evidence, not a measurement.**
+- **Context window: 95/100.** 1.04M-token tier at the tier floor: the window is asserted by BenchLM, but **no MRCR, GraphWalks or AA-LCR figure exists at any length**, and no max-output limit is published. The window's size is vendor-adjacent; its usable depth is entirely unmeasured.
+- **Multimodal: 45/100.** **Modality coverage is undocumented by Fireworks and no multimodal benchmark exists for this ID.** Scored mid-band rather than at the 10–20 text-only floor because nothing states it is text-only either, and the strong coding results are consistent with a model that reads code and tests rather than only text. **Explicitly a placeholder for unknown, not an inference** — if Fireworks documents image input this would move to 60–70; if it confirms text-only, this drops to 10–20.
+- **Coding: 80/100.** The strongest dimension and the model's actual case. **SWE-bench Verified 92.2%** would be among the highest verified figures in this research series (behind Claude Opus 5's 96–97%, level with GLM-5.3-Flash's 92.0%), **DeepSWE 75.2% clears the 74% reference**, and Terminal-Bench 2.1 82.0% is respectable. Capped by Terminal-Bench 2.1 being under the 85% reference, and by the total absence of AA-SciCode, the AA Coding Index, LiveCodeBench, SWE-bench Pro and any replication of the 92.2% by a third party. **All three strong figures are vendor-published from a single launch post.**
+- **Cost efficiency: 55/100.** **No rate card is published in any source checked** — Fireworks' page and launch post carry no pricing, and there is no Zen, Openrouter or gateway listing. Scored conservatively at 55, between the methodology's ~$3/$15 (≈60) and ~$10/$50 (≈30) anchors, on the assumption that a research-preview API model would sit in that band. **Explicitly an estimate, not a measurement** — verify against Fireworks' pricing before relying on it. No free tier and no open weights.
+- **Overall Score: 64/100.** (55 + 45 + 95 + 45 + 80) / 5 = 64.0 → **64**. Recommendation: **a research-preview capability claim, not a deployable model choice.** The evidence for its headline strength — SWE-bench Verified 92.2%, DeepSWE 75.2% — rests entirely on Fireworks' own launch post, with no independent replication, no composite index, no multimodal row, no reasoning row and no published price. The 64 is therefore a floor on missing evidence across two whole dimensions, not a capability judgement. Re-score it the moment a third party (Artificial Analysis, Vals, Epoch, ARC) measures it, or Fireworks publishes a rate card and a modality statement.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran the Vals AI model page: Vals Index 50.94% ±1.30 (#30/50 — unchanged within noise vs the 50.81% #27/45 read), and all 16 independent rows re-confirmed with current ranks (Vibe Code 83.87% #18/114; ProofBench 61.00% #21/50; Code Migration 32.51% #39/79; IOI 46.33% #30/44; Harvey LAB 9.17% #25/81; Terminal-Bench 4.0 20.71% #26/50 — the independent agentic cap is now 20.7% vs the 19.7% cited; TB-Science 5.71% #24/41; BioMysteryBench 67.04% #18/27; Public Benefits 66.17% #19/50; CyberBench 69.52% #24/47). No score change warranted — the existing Tool use 75 / Reasoning 72 / Context 90 / Multimodal 65 / Coding 86 reads all stand. Prior pass (2026-10-10) corrected the Tax Agent Bench misread (31.08%, not 68.0%); the first pass used Fireworks' Ember-1 announcement blog, Vals AI, OpenRouter/Vercel catalogs, llmboard, allthemodels, TensorFeed and WPNews.
-- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Fireworks' Ember-1 launch post and model page as the primary source (via BenchLM's 5-row catalog, which attributes all five figures to "Fireworks Research: Ember-1 launch post"), cross-checked against BenchLM's model-details entry for the research-preview designation, 1.04M context and unranked status. **The dominant finding of this report is an evidence gap, not a capability judgement**: five benchmarks total, all vendor-published, with BenchLM explicitly assigning no overall score, and no composite index, multimodal, reasoning, knowledge, reliability or long-context figure anywhere. Multimodal, cost-efficiency and reasoning scores are explicitly labelled as placeholders-for-unknown or estimates rather than measurements, and the missing-benchmark list is exhaustive. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Fireworks Research — Ember-1 launch post (source of all five measured figures)](https://fireworks.ai/blog/ember-1)
+  - [Fireworks — Ember-1 model page](https://fireworks.ai/models/fireworks/ember-1)
+  - [BenchLM — Ember-1 (5 source-displayable rows, unranked)](https://benchlm.ai/models/ember-1)
+  - [OpenCode Zen — model list and Console pricing (no Ember-1 route)](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -14,7 +14,7 @@
     {
       "name": "Essentials (Pay-as-you-go)",
       "price": "Starting at USD 0/month",
-      "notes": "Production deployments billed per million tokens across IBM and third-party foundation models, plus hourly on-demand hosting; embedding models USD 0.10 per million tokens.",
+      "notes": "Production deployments billed per million tokens across IBM and third-party foundation models (e.g. granite-8b-code-instruct USD 0.636, llama-4-maverick-17b fp8 USD 0.371/USD 1.484, gpt-oss-120b USD 0.159/USD 0.636, mistral-large-2512 USD 0.636/USD 1.908), plus hourly on-demand hosting (L40S USD 4.43/hr to H200 USD 16/hr); embedding models USD 0.106 per million tokens.",
       "evidenceUrl": "https://www.ibm.com/products/watsonx-ai/pricing"
     },
     {

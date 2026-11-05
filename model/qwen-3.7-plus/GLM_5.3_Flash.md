@@ -75,6 +75,6 @@ Multimodal (video understanding now measured):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Alibaba Cloud Qwen3.7-Plus launch blog, Artificial Analysis model benchmarks, Vals AI leaderboards, OpenRouter benchmarks, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 71-row refresh corroborates all rows (QwenWebBench 1536, MAXIFE 88.8%, NOVA-63 58.8% added; GDPval 13.5% → 13.4%, Design Arena 1276 → 1271 drift; rank → #80/954 53.76) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.7-Plus page fetched 2026-11-05 (Nov 4 data, 69 rows) — all prior rows re-confirmed, three new rows added (FrontierMath v2 T1–3 34.4% Epoch, TB-Hard 47% AA, EnterpriseOps-Gym 40.6% AA), composite flat at 53.79 #83/1009; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.md`, using the same headings.

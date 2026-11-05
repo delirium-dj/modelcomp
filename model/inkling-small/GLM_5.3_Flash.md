@@ -17,7 +17,20 @@
 - **Pricing (as of 2026-10-11):** $0.30 per 1M input / $0.06 cached / $1.20 per 1M output — roughly a third of flagship Inkling's $4.05/M output. Free variant available on OpenRouter (data-usage caveats typical of free tiers). Open weights = free self-hosting.
 - **Architecture:** ~276B total parameters, ~12B active (sparse MoE); Apache 2.0 open weights; MXFP8 and NVFP4 checkpoint support.
 
-### Raw benchmarks found
+### Raw benchmarks found (Vals suite added 2026-11-05)
+
+> The Vals suite (16 rows, fetched 2026-11-05 — published since the prior pass) contradicts the near-flagship framing: Vals Index **27.59% ±1.13 — last of 33 models**, with floor rows on TB4.0/Vibe/ProofBench/IOI. The strong rows (SWE-V 82.2%, LCB 85.9%) and the older AA rows both stand; the split is documented, not averaged away.
+
+Agent / tool use:
+
+- **Vals Index: 27.59% ±1.13 — #33 of 33 (last)** (NEW); Vals Finance Index 36.27% (last of 36); Vals Legal Index 57.83%
+- **Terminal-Bench 4.0 (Vals): 0.00% ±0.00 — #58 of 60** (NEW, floor); **HLAB-Vals-1.1: 2.92%** (NEW, floor)
+- MCP Atlas: **79.6%** and BrowseComp: **77.4%** (older AA rows — stand)
+- Vals professional rows (NEW): MedScribe **84.11%** (#38/109), TaxEval v2 **75.51%** (#18/145), LegalBench 82.99%, CyberBench 64.11%, Public Benefits 59.41%, MortgageTax 62.28%, Legal Research 25.48%, Finance Agent v2.1 44.78% (last/36), MedCode 37.89%, EMB 40.82% (last/38), Tax Agent 15.39%
+- GDPval-AA: 1191 (31.2% normalized — older AA row, stands); AA Agentic Index 24.9%; Toolathlon 54.4%
+- Claw-Eval: no verified public score found
+
+> The Vals suite (16 rows, fetched 2026-11-05 — published since the prior pass) is the major addition, and it contradicts the near-flagship framing: Vals Index **27.59% ±1.13 — last of 33 models**, with floor rows on TB4.0/Vibe/ProofBench/IOI. The strong rows (SWE-V 82.2%, LCB 85.9%) and the older AA rows both stand; the split is documented, not averaged away.
 
 Agent / tool use:
 
@@ -59,18 +72,18 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** (Was 82 on the prior pass.) MCP Atlas 79.6% and BrowseComp 77.4% strengthen the agentic story, but Toolathlon settles at 54.4% (mid), GDPval 1191 (31.2% normalized) and AA Agentic Index 24.9% are weak, and the Vals TB2.1 gap (55.1 vs 64.7) is wide.
-- **Reasoning: 82/100.** (Was 87 on the prior pass.) GPQA 89.5% (two sources) and AIME26 95.5% stay strong and HLE-with-tools 47.8% fills a gap — but the AA Index reads 25.7, far below the "within one point of Inkling (41)" framing the prior score leaned on, with CritPt 8.3% and a negative Omniscience index; the independent evidence moves it down a band.
-- **Context window: 84/100.** 1M-token window per vendor/major directories (BenchLM concurs) is top-tier spec; AA-LCR 75.7% is the first measured evidence (mid); the 524K conflicting listing and zero retrieval-at-length verification keep the cap.
-- **Multimodal: 68/100.** (Was 60 on the prior pass.) Measured vision now exists and is respectable for the image-in band (MMMU-Pro 74.0, CharXiv 81.3 with tools) — performance is proven, not just credited; still the 60–70 image-in band (no video/audio).
-- **Coding: 85/100.** SWE-bench Verified 80.2% (beats the 975B flagship) with Vals corroboration (SWE 82.2, LiveCodeBench 85.9); SWE Pro 55.9% and SciCode 48.7% cap it.
-- **Cost efficiency: 92/100.** $0.30/$1.20 per 1M with a free OpenRouter variant and Apache 2.0 self-hosting, at near-flagship quality — outstanding value; not higher because cached/long-output economics at 1M context are undocumented.
-- **Overall Score: 79.8/100.** (Was 79.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (80 + 82 + 84 + 68 + 85) / 5 = 399/5 = 79.8 — net unchanged on the 2026-10-11 second pass: the multimodal raise offsets the reasoning correction from the recomposed AA board. Best fit: teams wanting near-flagship agentic coding and reasoning with open weights they can actually deploy.
+- **Tool use: 68/100.** CHANGED from 80 — the full Vals sweep (new since the prior pass) collapses the agentic story: Vals Index **27.59% — last of 33 models**, TB4.0 **0.00%** (#58/60), HLAB 2.92%, Finance Index last-of-36; the older AA rows (MCP Atlas 79.6%, BrowseComp 77.4%) and Vals SWE-V 82.2% keep it above the floor.
+- **Reasoning: 72/100.** CHANGED from 82 — GPQA re-measures at 83.59% (Vals, down from the 89.5% prior readings), and new floor rows land: ProofBench 6.00% (#49/52), IOI 9.33% (#45/46); AIME26 95.5% and HLE-with-tools 47.8% (older AA) remain the counter-evidence.
+- **Context window: 76/100.** CHANGED from 84 — a third conflicting listing lands: Vals serves it at **262K** (vs the prior 1M vendor claim and 524K conflict), demoting the window to the 200K–500K tier pending resolution.
+- **Multimodal: 68/100.** Unchanged — MMMU-Pro 74.0% (AA-corroborated) and CharXiv 81.3% stand; no video/audio.
+- **Coding: 78/100.** CHANGED from 85 — SWE-V 82.20% and LiveCodeBench 85.93% (Vals) hold, but the new Vibe 19.05% (#95/124), TB4.0 0.00%, ProgramBench 0.50% and Code Migration 10.43% rows are floor-class on the same harness that ranked peers 60–80%.
+- **Cost efficiency: 92/100.** Unchanged — $0.30/$1.20 with Apache 2.0 self-hosting and a free OpenRouter variant.
+- **Overall Score: 72/100.** CHANGED from 79.8 — (68 + 72 + 76 + 68 + 78) / 5 = 362/5 = 72.4 → 72. The largest correction of this enrichment cycle: the full Vals suite (published since the prior pass) places it last-of-33 on the Vals Index with floor rows on TB4.0/Vibe/ProofBench/IOI, contradicting the near-flagship framing the earlier scores leaned on; SWE-V/LCB and cheap Apache-2.0 self-hosting remain its genuine strengths.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Thinking Machines Lab launch post, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results via benchlm.ai, plus the prior 2026-10-05 pass; 2026-10-16 re-check: BenchLM 41-row refresh corroborates all rows (Epoch FrontierMath v2 46.3/17.1% added; rank #81/954 53.5) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): Vals AI Inkling Small page fetched 2026-11-05 — the full 16-benchmark Vals suite published since the prior pass is the major addition, placing it last-of-33 on the Vals Index with floor rows on TB4.0/Vibe/ProofBench/IOI; the conflict with the older near-flagship AA/vendor rows is documented rather than averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

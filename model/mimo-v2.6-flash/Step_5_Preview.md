@@ -1,78 +1,77 @@
 # MiMo-V2.6-Flash — findings by Step 5 Preview
 
-- Source: Xiaomi (`mimo-v2.6-flash`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Xiaomi (`XiaomiMiMo/MiMo-V2.6-Flash-RL`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** MiMo-V2.6-Flash
-- **Short description:** Xiaomi's efficiency checkpoint of the September 2026 MiMo-V2.6 series — a 309B-total/15B-active open-weight MoE with native omni-modal input (text, image, video, audio), 1M context and V2.5-series pricing ($0.14/$0.28 per MTok). Trained in the same livestreamed RL run as the flagship MiMo-V2.6-Pro (Xiaomi-reported cost $0.85M); slightly below Pro on every shared agentic benchmark but independently stronger on Terminal-Bench 2.1.
-- **Provider / access:** Xiaomi MiMo API (`mimo-v2.6-flash`, prepaid Token Plan or pay-as-you-go); OpenRouter `xiaomi/mimo-v2.6-flash`; open weights `XiaomiMiMo/MiMo-V2.6-Flash-RL` on Hugging Face (MIT), ModelScope, Ollama/LM Studio/vLLM/SGLang. No OpenCode Zen listing found.
-- **Release / knowledge:** 2026-09-21 (HF upload / AA) – 2026-09-22 (official page, Beijing time). Knowledge cutoff not disclosed (the "December 2024" string on the model page is a sample system prompt).
-- **IDs:** `mimo-v2.6-flash` (Xiaomi API), `xiaomi/mimo-v2.6-flash` (OpenRouter), `XiaomiMiMo/MiMo-V2.6-Flash-RL` (HF).
-- **Context window:** 1,048,576 tokens (1M) input; 128K max output.
-- **Modalities:** Text, image, video and audio in → text out (native omni-modal). Deep thinking (reasoning), tool calls, streaming, web search, structured output, context caching. Rate limits 100 RPM / 10M TPM on the official endpoint.
-- **Pricing (as of 2026-10-09):** $0.14 / MTok input (cache miss), $0.0028 cache hit, $0.28 output — one flat rate, unchanged from the V2.5 series; OpenRouter lists $0.10/$0.28 on some routes. FP8 weights ~173 GB across 65 shards (multi-GPU serving); 4-bit quants ~155 GB.
-- **Architecture:** Sparse MoE, 309B total / 15B active per token; MIT license with weights + technical report + RL environments.
+- **Name:** MiMo-V2.6-Flash. The Flash sibling of MiMo-V2.6-Pro, and **the best-ranked open-weight Flash-tier model in this research series** (BenchLM 54.78, #76 of 1009 — above MiMo-V2-Flash's 39.3 and MiMo-V2.5's not-computed, though below its own Pro's 56.44).
+- **Short description:** A narrow specialist with two standout results — **CyberGym 95.1% (the highest figure measured anywhere in this research series, above MiMo-V2.6-Pro's 94.0%)** and **Terminal-Bench 2.1 87.6%** — set against the series' **worst knowledge-reliability profile (AA-Omniscience index −10.8, accuracy 27.2%)**. A cheap, open-weight defensive-security and terminal-coding tool that must never be used as a factual assistant.
+- **Provider / access:** Weights on Hugging Face (`XiaomiMiMo/MiMo-V2.6-Flash-RL`), Xiaomi's own API, OpenRouter, and OpenCode Zen (`xiaomi/mimo-v2.6-flash`) at **$0.14/$0.28 per 1M** — **the cheapest rate card in this entire research series**. Self-hosting available.
+- **Release / knowledge:** release date not restated on the model card; the V2.6 generation is Xiaomi's 2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `xiaomi/mimo-v2.6-flash` (Zen); `XiaomiMiMo/MiMo-V2.6-Flash-RL` (Hugging Face); `xiaomi/mimo-v2.6-flash` (Openrouter).
+- **Context window:** **1M tokens** (BenchLM). Max output not published.
+- **Modalities:** the model card does not state a modality set, and only **one** benchmark (AA-MMMU-Pro 73.1%) touches vision. **Recorded as inferred-in-place rather than vendor-verified.**
+- **Pricing (as of 2026-11-05):** **$0.14 input / $0.28 output per 1M** on Zen (per the LLMLearner editorial, which cites Xiaomi's reported MiMo V2.6 Flash rate). **Open weights** allow self-hosting. Methodology anchors put $0.14/$0.28 between ~$0.10/$0.20 (≈97–99) and ~$0.60/$2.20 (≈92).
+- **Architecture:** **open-weight** MoE; parameter count undisclosed in the sources checked.
 
 ### Raw benchmarks found
 
-Agent / tool use (Xiaomi model card / tech report, self-reported):
+Xiaomi's MiMo-V2.6 technical report is the primary source (so those rows are **vendor-run**), with Artificial Analysis supplying the independent rows. **Only 24 benchmarks exist** — the second-thinnest evidence base in this batch after Muse Spark 1.1's 40.
 
-- Terminal-Bench 2.1: **87.6%** (vendor, #15/194; Fable 5.1 leads at 91.4%); **independent: 76.40%** (Vals AI, Terminus-2, 2026-10-01)
-- Terminal-Bench 4.0: **28.8%** (vendor, #17/29); **independent: 24.2%** (Vals, default effort, 2026-10-08)
-- AutomationBench v1.0.6: **52.3%** (vendor — above Claude Opus 5's 50.3 and GPT-5.6 Sol's 45.8)
-- Toolathlon-Verified: **73.6%** (vendor)
-- OSWorld-Verified: **80.8%** (vendor; Opus 5 83.4, Fable 5 86.0)
-- JobBench: **61.2%** (vendor; above GPT-5.6 Sol's 45.4)
-- Agents' Last Exam: **27.6%** (vendor)
-- CyberGym: **95.1%**, SEC-Bench Pro 47.5%, ExploitBench 25.3%, ExploitGym 6.0% (vendor)
-- GDPval-AA: **no verified public score found** (Xiaomi's table has no Flash entry)
-- Claw-Eval / ClawProBench: **no verified public score found**
+Agent / tool use — **a genuinely strong dimension**:
 
-Reasoning / knowledge:
+- **CyberGym: 95.1%** (vendor) — **the highest CyberGym figure measured anywhere in this research series**, above MiMo-V2.6-Pro's 94.0% and DeepSeek V4.1 Flash's 88.1%
+- **Terminal-Bench 2.1: 87.6%** (vendor) — 0.4 points short of the 88%+ frontier reference, and the second-highest TB2.1 in this batch after GPT-5.6 Terra's 88.0%
+- **OSWorld-Verified: 80.8%** (vendor) — identical to Muse Spark 1.1's figure, though on a different model
+- Toolathlon-Verified: **73.6%**; JobBench: 61.2%
+- **AutomationBench: 52.3%** (vendor); Agents' Last Exam: 27.6%
+- **Terminal-Bench 4.0: 28.8%** — a 58.8-point drop from its own TB2.1 result on the newer harness
+- **ExploitGym: 6.0%**; **GDPval-AA: 55.4% normalized** (AA; no Elo figure published) — under the 1,750+ reference
+- **τ³-Banking, BrowseComp, MCP-Atlas, Toolathlon, Claw-Eval, MazeBench: no verified public score found** — so two of three frontier references are unmeasured
 
-- GPQA Diamond: **no vendor-published score**; third-party quant eval (EXL3, 8K budget): 56.2% full / 85.7% budget-completing subset — unofficial, budget-limited
-- MMLU-Pro: **no vendor-published score**; third-party quant eval: 76.4% (floor 76.4–78.8%)
-- Artificial Analysis Intelligence Index: **37.9** (independent, 2026-10-03, 85th pct — Fable 5.1 leads at 65.7)
-- **HLE: 35.1%** (independent, #58/478, 88th pct — BenchmarkList/verified 2026-10-07; previously no HLE run existed); AIIQ Composite IQ **122** (#45/147, 70th pct)
-- HLE / AIME / ARC-AGI-2 / LiveCodeBench: **no additional verified public score found** beyond the independent HLE above
-- AA-LCR: **74.3%** (independent, 78th pct, #92/408; K3 leads at 88.7%)
-- SciCode: **51.3%** (85th pct); HumanEval+ 90.2%, MBPP+ 77.2%, GSM8K 96.4% (third-party quant evals, not vendor-published)
+Reasoning / knowledge — **the worst reliability in this research series**:
 
-Coding:
+- **AA Intelligence Index: 26.7%**; **AA-HLE: 35.1%** — well under the 40%+ frontier reference
+- **AA-Omniscience: index −10.8, accuracy 27.2%, hallucination rate 52.2%** — **a negative index of −10.8 is the worst measured anywhere in this research series**, meaning substantially more incorrect than correct answers
+- AA-LCR: **74.3%**; **CritPt: 12.0%**
+- **GPQA Diamond, HLE (vendor), FrontierMath, ARC-AGI, MRCR: no verified public score found** — so the primary reasoning reference and every maths/physics reference are absent
 
-- DeepSWE v1.1: **67.9%** (vendor; #18/52; O-5.5 leads 74.2%); the announcement's RL write-up reports 65.7% as the same run's after-training endpoint
-- MiMo Code Bench: **61.2%** (in-house); ProgramBench: **26.0%** (#31/37); MiMo Visual Coding: **71.5%** (in-house)
-- SWE-bench Verified / SWE-bench Pro / Vibe Code Bench: **no verified public score found**
-- WebDev Arena: **1636** (#13/100); LMArena Text 1452, Vision 1247, Math 1378
-- Vals AI CyberBench v1.1: **#5 of 44**; Vals Index 53.23% (#18/45)
+Coding — strong at terminal work, weak elsewhere:
 
-Long context:
+- **Terminal-Bench 2.1: 87.6%** — clears the 85% reference
+- DeepSWE: **67.9%** — 6.1 points under the 74% reference
+- **AA-SciCode: 51.3%** — 3.7 points under the 55% reference
+- ProgramBench: 26.0%; Terminal-Bench 4.0: 28.8%
+- **SWE-bench Verified, AA Coding Index, LiveCodeBench, SWE-bench Pro: no verified public score found** — so the 70%-index and SWE-bench references cannot be checked
 
-- 1M-token window at flat pricing; AA-LCR 74.3% (independent) is the only long-context measure; **no public MRCR/RULER**
+Multimodal:
 
-Third-pass verification (2026-10-19):
-
-- BenchLM composite: **64.59/100** overall, #39 of 959 models, 24 of 666 benchmarks covered; Artificial Analysis (hyphenated slug, not deprecated): Index **38** (#12/121 — matches the file's 37.9), 53.7 tok/s, TTFT 5.19s, $0.14/$0.28 with **98% cache discount** (blended $0.06/M; **$0.06 per Index task**), 1M context, 309B/15B, MIT, 5 providers, **240M Index tokens (very verbose — 44/47 in class)**; AA's modality row lists text+image vs Xiaomi's omni-modal claim (video/audio) — conflict noted
-- New AA rows filling the file's gaps: GDPval-AA **55.4% normalized** (the missing GDPval row — a strong agentic-knowledge-work result), AA-MMMU-Pro **73.1%** (the missing vision row — mid-tier), CritPt **12.0%**, AA-Omniscience index **−12.7%** / accuracy 27.0% / hallucination 54.4%, ExploitGym **6.0%**
+- **AA-MMMU-Pro: 73.1%** — the only measured visual result
+- **CharXiv, ExtractBench, ZeroBench, BabyVision: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Terminal-Bench 2.1 87.6% (vendor) / 76.4% (Vals), AutomationBench 52.3%, Toolathlon 73.6% and OSWorld-Verified 80.8% sit mid-frontier; capped by Terminal-Bench 4.0 at 28.8%/24.2%, Agents' Last Exam 27.6%, no GDPval-AA, and every agentic number being Xiaomi's own harness.
-- **Reasoning: 72/100.** The independent AA Intelligence Index reads 37.9 (85th pct) and AA-LCR 74.3%, with unofficial third-party evals (MMLU-Pro 76.4%, GPQA-D ~56–86% budget-limited) consistent with a strong mid-tier; capped because Xiaomi publishes no GPQA/HLE/AIME/ARC-AGI numbers at all and CritPt/LiveBench are absent.
-- **Context window: 92/100.** 1,048,576-token window with 128K output at flat pricing is the ≥1M tier; AA-LCR 74.3% supports it, but the 100 tier's ≥98% retrieval at 512K+ is unverifiable with no MRCR/RULER published.
-- **Multimodal: 84/100.** Text + image + video + audio in → text out is the 90–100 modality band on Xiaomi's card, but the third pass measured the first independent vision row — AA-MMMU-Pro **73.1%** (mid-tier) — and Artificial Analysis's own modality row lists only text+image, so the omni-modal claim is unverified beyond vendor evals. Trimmed from 88 on that measurement.
-- **Coding: 82/100.** DeepSWE v1.1 67.9% (vendor) is only ~6 points off the Opus-5.5 lead, TB2.1 87.6% (76.4% independent) and WebDev Arena #13 back it; capped by ProgramBench 26.0%, no vendor SWE-bench Verified/Pro at all, and the vendor/independent 11-point Terminal-Bench spread.
-- **Cost efficiency: 97/100.** $0.14/$0.28 per MTok with $0.0028 cache hits is below the methodology's ~$0.10/$0.20 = 97–99 tier — the #1 AA Price board model at $0.17 blended, MIT weights included; the cheapest omni-modal 1M-context model in this comparison.
-- **Overall Score: 82/100.** Mean of the five non-cost dims (80+72+92+84+82)/5 = 82.0 (Multimodal 88→84 on the newly measured AA-MMMU-Pro 73.1%; Overall 83→82). Best-fit recommendation: the cost-efficiency pick for high-volume omni-modal and agentic office workloads — Pro-class agentic scores at $0.14/$0.28 and a measured $0.06 per Index task; verify on your own harness given how thin the independent coverage is, and note the 240M-token verbosity.
+- **Tool use: 74/100.** A strong, narrow agentic profile. **CyberGym 95.1% is the highest figure measured anywhere in this research series**, Terminal-Bench 2.1 87.6% is just under the 88% reference, and OSWorld-Verified 80.8%, Toolathlon-Verified 73.6% and JobBench 61.2% corroborate. Capped because GDPval-AA has only a normalized figure (55.4%, no Elo) against the 1,750 reference, **τ³-Banking, BrowseComp, MCP-Atlas and Claw-Eval are entirely absent**, and Agents' Last Exam 27.6%, Terminal-Bench 4.0 28.8% and ExploitGym 6.0% show the newer agentic harnesses fail badly.
+- **Reasoning: 45/100.** Well below the methodology's mid band, and the worst reasoning score in this batch. **AA-HLE 35.1% fails the 40%+ reference**, and the **AA-Omniscience index is −10.8 with 27.2% accuracy** — substantially more incorrect than correct answers, the worst figure measured in this research series. AA Intelligence Index 26.7%, CritPt 12.0%, and **GPQA Diamond, FrontierMath, ARC-AGI and MRCR are all unpublished**. A model that executes tasks reliably and cannot be trusted to report facts.
+- **Context window: 95/100.** 1M-token tier at the tier floor: the only long-context evidence is AA-LCR 74.3% — the weakest in this batch — with no MRCR, GraphWalks or published max-output limit. The window's size is asserted by BenchLM; its usable depth is essentially unmeasured.
+- **Multimodal: 68/100.** Scored at the top of the methodology's "+image in" 60–70 band on the basis of a single AA-MMMU-Pro figure of 73.1%, and **explicitly an inference rather than a vendor claim**: the model card states no modality set, and no other visual benchmark exists. If Xiaomi confirms video or audio input this would jump to the 75–90 tier; if it confirms text-only, it collapses to the 10–20 band.
+- **Coding: 70/100.** Mid-band. Terminal-Bench 2.1 87.6% clears the 85% reference and CyberGym 95.1% shows real security-adjacent engineering strength. Capped by DeepSWE 67.9% (under the 74% reference), AA-SciCode 51.3% (under the 55% reference), ProgramBench 26.0%, Terminal-Bench 4.0 28.8%, and no SWE-bench Verified, AA Coding Index or LiveCodeBench figure.
+- **Cost efficiency: 97/100.** **$0.14/$0.28 per 1M is the cheapest rate card in this entire research series** — half MiniMax M3.1 Flash's $0.15/$0.60 and an eighth of GPT-5.5 Pro's $30/$180 — sitting at the top of the methodology's ~$0.10/$0.20 (≈97–99) anchor with open weights beside it. Held just under 99 because it is not a $0 route and no published cost-per-task measurement exists.
+- **Overall Score: 70.4/100.** (74 + 45 + 95 + 68 + 70) / 5 = 70.4 → **70**. Recommendation: an outstanding **cheap defensive-security and terminal-coding specialist** — the highest CyberGym in this series, Terminal-Bench 2.1 87.6%, OSWorld-Verified 80.8% and open weights at $0.14/$0.28, the cheapest card measured. Two hard cautions: **its AA-Omniscience index is −10.8**, the worst knowledge-reliability figure anywhere in this research, so it must be firewalled from any factual or retrieval-facing workload; and its multimodal, coding-index and reasoning coverage is so thin (24 benchmarks, mostly vendor-run) that the 70 is a floor on evidence, not a ceiling on ability.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 38 #12/121 — unchanged; 53.7 tok/s; TTFT 5.19s; $0.06 per Index task; 240M tokens — very verbose; AA's modality row lists text+image vs Xiaomi's omni-modal claim) and BenchLM (composite 64.59/100, #39/959, 24/666 benchmarks): the file's GDPval and vision gaps are filled — GDPval-AA 55.4% normalized (strong, reinforcing Tool 80) and AA-MMMU-Pro 73.1% (mid-tier, trimming Multimodal 88→84, Overall 83→82); new rows CritPt 12.0%, AA-Omniscience −12.7%, ExploitGym 6.0%. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (13 primary-source results, updated 2026-10-07 — independent HLE 35.1% #58/478, AIIQ IQ 122 #45/147, AA-LCR 74.3% #92/408, TB2.1 87.6% #15/194, TB4.0 28.8% #17/29, DeepSWE 67.9% #18/52, OSWorld-Verified 80.8% #17/70, JobBench 61.2% #8/48, Agents' Last Exam 27.6% #17/41, SciCode 51.3%). Prior pass (2026-10-09) used Xiaomi mimo.mi.com model page + HF model card/tech report, OpenLM.ai, The Model Gap, Vals AI, BenchmarkList, OpenRouter, llm-stats, HokAI, WaitWhichModel, third-party EXL3 quant evals.
-- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Xiaomi's MiMo-V2.6 technical report as the primary source (so those rows are vendor-run and labelled as such — the same report also supplies MiMo-V2.6-Pro's numbers, a shared-lineage relationship recorded explicitly here rather than presenting the report's figures as independently measured for the Flash variant), cross-checked against BenchLM's 24-row catalog (attributing independent numbers to Artificial Analysis) and OpenCode Zen's pricing table. The series-worst Omniscience index (−10.8) and the 58.8-point Terminal-Bench 2.1-to-4.0 drop are recorded rather than smoothed over. Missing benchmarks (τ³-Banking, BrowseComp, MCP-Atlas, Toolathlon, Claw-Eval, MazeBench, GPQA Diamond, HLE vendor-run, FrontierMath, ARC-AGI, MRCR, SWE-bench Verified, AA Coding Index, LiveCodeBench, and all multimodal benchmarks except AA-MMMU-Pro) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Xiaomi — MiMo-V2.6-Flash-RL model card](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL)
+  - [Xiaomi — MiMo-V2.6 technical report (source of most benchmark rows; also supplies MiMo-V2.6-Pro's numbers)](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf)
+  - [BenchLM — MiMo-V2.6-Flash benchmark scores (24 rows, 54.78/100, #76/1009)](https://benchlm.ai/models/mimo-v2-6-flash)
+  - [Artificial Analysis — MiMo-V2.6-Flash](https://artificialanalysis.ai/models/mimo-v2-6-flash)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

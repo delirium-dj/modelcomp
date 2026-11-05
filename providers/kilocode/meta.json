@@ -1,7 +1,7 @@
 {
   "name": "Kilo Code",
   "kind": "aggregator",
-  "short": "Unified AI gateway with a rotating pool of free models available to authenticated and anonymous users, no credit card required.",
+  "short": "Unified AI gateway (acquired by Anaconda) with a rotating pool of free models available to authenticated and anonymous users, no credit card required.",
   "officialUrl": "https://kilo.ai",
   "hosts": ["kilo.ai", "ai-gateway.kilo.ai", "app.kilo.ai"],
   "catalogUrl": "https://ai-gateway.kilo.ai/api/v1/models",
