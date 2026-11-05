@@ -1,81 +1,93 @@
 # Kimi K3 — findings by Step 5 Preview
 
-- Source: Moonshot AI `kimi-k3`
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Moonshot AI (`moonshotai/kimi-k3`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Kimi K3 (`kimi-k3`; largest open-weight-class model announced to date)
-- **Short description:** Moonshot AI's 2.8-trillion-parameter frontier MoE (896 experts, 16 active per token ≈ 280B active), built for agentic coding, long-horizon knowledge work, and multimodal reasoning. Uses Kimi Delta Attention (hybrid linear attention + Attention Residuals) to hold recall across the full 1M window. Open weights.
-- **Provider / access:** Hosted API (api.moonshot.ai), OpenRouter (`moonshotai/kimi-k3`), Together/DeepInfra/Fireworks/Baseten, and self-hosted local inference from the Hugging Face weights (`moonshotai/Kimi-K3`). Native vision, function calling, structured output, code execution.
-- **Release / knowledge:** Released 2026-07-16; open weights live on Hugging Face since 2026-07-27. Succeeds the Kimi K2.7 Code line.
-- **IDs:** `moonshotai/kimi-k3` (OpenRouter) / `kimi-k3` (AA). No free tier on the hosted API; self-hosting is hardware-cost only.
-- **Context window:** 1,048,576 (1M) input; 128,000 max output.
-- **Modalities:** Text, image in; text + tool-calls + code out. Reasoning yes; tool calls yes; JSON yes. No native audio/video.
-- **Pricing (as of 2026-10-08):** Hosted API $3.00/M in · $0.30/M cached-hit in · $15.00/M out (no surcharge for full 1M context). OpenRouter hosts as low as $0.58/$12.30. Open weights = free self-host (hardware only).
-- **Architecture:** 2.8T-param sparse MoE (896 experts, 16 active/token ≈ 280B active), Kimi Delta Attention. Open weights under the custom Kimi K3 License (modified-MIT).
+- **Name:** Kimi K3. Moonshot AI's K3-generation flagship, now superseded by **Kimi K3.1 Pro** (74.61 on BenchLM, versus K3's 69.34).
+- **Short description:** The best-balanced **open-weight** model in this batch, and the highest-scoring one relative to its queue position: BenchLM ranks it #17 of 1009 (69.34), only 1.9 points below my computed Overall. Its distinctive strengths are **best-in-batch long-context reasoning (AA-LCR 88.7%)** and **best-in-batch cyber-misuse refusal (94.0%)**. It is also, however, the **least prompt-injection-resistant model measured anywhere in this research series (Gray Swan IPI 52.7%)** — a caveat that dominates any deployment advice.
+- **Provider / access:** Weights on Hugging Face (`moonshotai/Kimi-K3`), OpenCode Zen (`moonshotai/kimi-k3`) at **$3/$15/$0.30**, and OpenRouter (`moonshotai/kimi-k3`). Self-hosting available.
+- **Release / knowledge:** release date not restated on the model card; the K3 generation is Moonshot's 2026 line. Knowledge cutoff not disclosed.
+- **IDs:** `moonshotai/kimi-k3` (Zen, OpenRouter); `moonshotai/Kimi-K3` (Hugging Face). No Free ID — paid, but open weights.
+- **Context window:** **1.05M tokens** (BenchLM). Max output not published.
+- **Modalities:** text + image in; text out — evidenced by an exceptionally deep document and math-vision suite rather than by a vendor modality statement.
+- **Pricing (as of 2026-11-05):** **$3 input / $0.30 cached / $15 output per 1M** on Zen — 3x GPT-6 Astra's input price but with open weights behind it. Methodology anchors put $3/$15 at ≈60.
+- **Architecture:** **open weights**; parameter count undisclosed in the sources checked.
 
 ### Raw benchmarks found
 
-> Cross-referenced hokai.io (Moonshot/Artificial Analysis) and vectorwire.ai (131 results/78 benchmarks, 26 independent, capability profile). Independent runs noted where available.
+Moonshot's Kimi K3 launch blog is the primary source for most rows (**vendor-run**, and labelled as such), with Artificial Analysis, Vals AI, ARC Prize, Mistral's Mistral-Large-4 launch chart, Kaggle, Cognition, Cursor, Proximal, PostTrainBench, VulcanBench, LlamaIndex, Nous Research, OpenHarmony and OpenRouter supplying the independent rows.
 
-- BenchLM composite (2026-10-19): **69.95/100** overall, #17 of 956 models, **83 of 648 benchmarks covered**
-- Artificial Analysis today (2026-10-19, max effort): Intelligence Index **44** (#5/121 — top-5 open-weights; the file's 57 was the launch-era scale), 42.0 tok/s (slow), TTFT 3.69s, $3.00/$15.00 with 90% cache discount (blended $2.31/M; **$2.00 per Index task — expensive**), 1M context, text+image, 2.8T total / **104B active per AA's row** (the file's ~280B-active vendor figure is flagged — conflict noted), 20 providers, 160M Index tokens (somewhat verbose)
+Agent / tool use — strong:
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **88.3%** (half a point behind GPT-5.6 Sol, ahead of every other open or closed model tested)
-- Toolathlon: **73.2%** / Toolathlon Verified **76.5%**
-- τ³-Bench Banking: **33.4%**
-- ProgramBench: **77.8%** (leads) / SWE-Marathon: **42.0%** (leads; v1.1 48.1%)
-- Terminal-Bench 3.0: **17.4%**
-- Vector Wire capability: **Agentic "Strong"** (−5.6% vs leader, 7/7) — its standout non-context area
-- SWE-bench Verified: **67.5%** (rank #25/32 — bottom third, a clear weak spot) — **UPDATED (2026-10-19): Vals AI's independent leaderboard now reads 93.4%**, the highest open-weight-class SWE-bench Verified in this comparison; the 67.5% row is treated as a harness outlier and the file's Coding cap on it is lifted
+- **Terminal-Bench 2.1: 88.3%** (Moonshot) / **85.0%** (AA) / **80.9%** (Vals) — clears the 88%+ reference on the vendor run
+- **BrowseComp: 91.2%**; **DeepSearchQA: 95.0%**; **MCP Atlas: 84.2%**; Toolathlon-Verified: **73.2%**
+- **GDPval-AA: 1,584 Elo** / 51.6% normalized — under the 1,750 frontier reference
+- **AA Harvey LAB v1.0: 94.6%**; DECK-Bench: 73.5%; Hermes Bench: 71.5%
+- **AA Tau3 Banking: 46.0%** — under the 50% reference; AA Agentic Index: 50.6%; AA ITBench: 47.7%; AA EnterpriseOps-Gym: 45.3%; JobBench: 52.9%; APEX-Agents-AA: 41.3%
+- **MazeBench: 1%**; ApprenticeBench: 18%; AutomationBench: 30.8%; SpreadsheetBench 2: 34.8%
+- Safety-specific: **b3 Agent Security: 88.0%**; **Cyber Misuse Refusal: 94.0%**; Finch: 77.3%
+- AA Cyber Index 41.3%; CWE-Bench-AA 53.3%; CyberGym-E2E-AA 58.0%; DeepsecBench-AA 12.5%
+- **Claw-Eval: no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.5%** (highest published open-weight result; ahead of Opus 4.8's 91.0%)
-- Artificial Analysis Intelligence Index: **57** (tied with GPT-5.6 Terra and Muse Spark 1.2; $0.94/task)
-- Vector Wire capability: **Reasoning "Strong"** (−9.3% vs leader, 6/6); **Factuality "Capable"** (−12.2%); **Math "Limited"** (−30.6%)
-- HLE now surfaced (2026-10-19): **43.5% without tools / 56.0% with tools** (Moonshot launch blog via BenchLM) — the no-tools figure clears the 40% frontier bar, filling the file's missing HLE row; AA-HLE reads **46.9%**
-- New independent rows (2026-10-19): CritPt **23.4%** (AA — far above the file's Math-"Limited" signal), ARC-AGI-1 **94.50%** / ARC-AGI-2 **60.4%** (ARC Prize semi-private), AA-Omniscience index **19.7%** / accuracy 47.6% / hallucination 53.2%, MMLU-Pro (Vals) **88.0%**, GPQA (Vals) **92.9%**, Gray Swan IPI **52.7%** (weak safety)
+- **AA-GPQA Diamond: 93.5%** (Moonshot and AA agree) / **92.9%** (Vals) — clears the 90%+ frontier reference on all three
+- **HLE: 56%** (Moonshot) / HLE without tools 43.5% / AA-HLE 46.9% — clears the 40%+ reference
+- **AA-LCR: 88.7%** — the highest long-context-reasoning figure measured in this batch, above MiMo-V2.6-Pro's 86.3% and Gemini 4 Argon's 79.7%
+- **ARC-AGI-1: 94.5%**; **ARC-AGI-2: 60.4%**
+- Artificial Analysis Intelligence Index: **43.6**; MMLU-Pro (Vals): 88.0%
+- **AA-Omniscience: index 19.7, accuracy 47.6%, hallucination rate 53.2%** — the second-worst index in this batch, ahead of only MiMo-V2.6-Pro's −4.5
+- CritPt: **23.4%**; **MRCR: no verified public score found**
 
-Coding:
+Coding — **the strongest dimension**:
 
-- DeepSWE v1.1: **67.5%** (KimiCode harness) / **67.3%** (mini-SWE-agent) — mid-tier, below the 74% frontier ref
-- SWE-bench Verified: **67.5%** (rank #25/32 — weak for a frontier claim)
-- Terminal-Bench 2.1: **88.3%** (see tool use — strong terminal coding)
-- SWE-Marathon: **42.0%** (leads) / ProgramBench **77.8%** (leads)
-- Vector Wire capability: **Coding "Capable"** (−19.1% vs leader, 5/10)
+- **AA Coding Index: 76.2%** — clears the 70% frontier reference
+- **SWE-bench (Vals): 93.4%**; LiveCodeBench (Vals): **87.2%**
+- **Terminal-Bench 2.1: 88.3%** — clears the 85% reference
+- **AA-SciCode: 59.5%** — clears the 55% reference
+- **FrontierSWE: 81.2%** (the joint-strongest FrontierSWE in this batch); FrontierSWE v2: 25.9%
+- ProgramBench: **77.8%**; Kimi Code Bench v2: **72.9%**; VulcanBench v3: 73.7%; ScarfBench: 61.3%; OpenHarmony Bench: 57.3%; CursorBench 3.2: 60.8%
+- DeepSWE: **67.5%** — 6.5 points under the 74% reference; **FrontierCode 2.0: 17.7%**; sweMarathon: 42%; PostTrainBench v1.1: 32.0%; Bug Hunt Bench: 21.0 fixes
+- **SWE-bench Verified: no verified public score found**
 
-Multimodal:
+Multimodal (image-in) — **unusually deep for an open-weight coding model**:
 
-- Text + image in; text + code out. Native vision.
-- MMMU-Pro: **81.6%**; MathVision: **97.8%**; Video-MME (w. sub): **90.0%**
-- Vector Wire: **Multimodal "Capable"** (−14.8% vs leader, 2/6)
+- **MathVision: 94.3%** / **97.8% with Python**; **OmniDocBench: 91.1%**; **CharXiv: 91.3%** (84.8% without tools)
+- MMMU-Pro: **81.6%** / 83.4% with Python / AA 80.5%; BabyVision w/ Python: **85.7%**; ExtractBench: 83.17%; Design Arena: **1,335 Elo**
+- OfficeQA Pro: 63.3%; PerceptionBench: 58.5%; WorldVQA: 51.0%; **ZeroBench: 23.0%** (41.0% with Python)
 
-Long context:
+Safety:
 
-- 1M input / 128K output; Kimi Delta Attention is built to hold recall across the full window rather than degrading past 100K (unlike sliding-window architectures)
-- Vector Wire: Long Context **"Strong"** (−3.9% vs leader, 1/3) — a top-tier long-context model
+- **Gray Swan indirect prompt injection (15 attempts): 52.7%** — by far the weakest prompt-injection resistance measured anywhere in this research series, roughly double the next-worst figure (GPT-5.6 Sol at 27.0%) and 75x Gemini 4 Carbon's 0.0%
+- Cyber Misuse Refusal 94.0% and b3 Agent Security 88.0% are excellent — so the *refusal* half is strong while the *injection* half is not
 
 ### Normalized scores (1–100)
 
-
-- **Tool use: 88/100.** Terminal-Bench 2.1 88.3% (ahead of most open and closed models), ProgramBench 77.8% and SWE-Marathon 42.0% (both leading), Toolathlon 76.5%, and a Vector Wire Agentic "Strong" (−5.6%, 7/7) rating — the third pass adds GDPval-AA 51.6% (Elo 1,533), MCP Atlas 84.2%, BrowseComp 91.2%, AA Harvey LAB 94.6% and AA Agentic Index 50.6%, all reinforcing the band. Capped by Terminal-Bench 4.0 at 12.6% and MazeBench 1%.
-- **Reasoning: 90/100.** GPQA Diamond 93.5% (highest open-weight) and AA Intelligence Index 57 with Reasoning "Strong" (−9.3%, 6/6) and Factuality "Capable" (−12.2%). Capped by Math "Limited" (−30.6%) and no verified HLE row — math is a real blind spot.
-- **Context window: 95/100.** 1M input / 128K output with Kimi Delta Attention engineered to hold recall across the full window (not degrade past 100K), and a Vector Wire Long Context "Strong" (−3.9%, 1/3) rating — a top-tier long-context model. Held from 100 by the 128K output cap and no explicit MRCR ≥98%-at-512K figure.
-- **Multimodal: 80/100.** Text + image in (text + code out), no native audio/video → the 60–70 "+image in" band nudged up by MMMU-Pro 81.6%, MathVision 97.8%, and Video-MME 90% (w. subtitles); Vector Wire rates Multimodal "Capable" (−14.8%, 2/6).
-- **Coding: 88/100.** Terminal-Bench 2.1 88.3% and leading ProgramBench/SWE-Marathon are strong, and the third pass filled the weak spot: SWE-bench Verified (Vals) **93.4%** — the highest open-weight-class result in this comparison — plus FrontierSWE v1 81.2%, AA-SciCode 59.5%, AA Coding Index 76.2% and Kimi Code Bench 72.9%. Raised from 82; DeepSWE 67.5% and the small FrontierSWE v2 (25.9%) keep it just under the top.
-- **Cost efficiency: 65/100.** Hosted API $3/$15 per 1M (rubric ~$3/$15 = ~60), nudged up because the open weights allow free self-hosting (hardware cost only) and OpenRouter hosts as low as $0.58/$12.30. No hosted free tier.
-- **Overall Score: 88/100.** Mean of the five non-cost dims (88+90+95+80+88)/5 = 88.2 (Coding raised 82→88 on the Vals SWE-bench 93.4% row and the HLE gap now measuring 43.5% no-tools; Overall 87→88). Best fit as the leading open-weight frontier option for agentic coding, long-context RAG, and self-hosted deployment; teams needing verified factual reliability without RAG grounding, native audio/video, or Western compliance (SOC 2/HIPAA) should look at Opus 4.8 or GPT-5.6 Sol instead.
+- **Tool use: 85/100.** Terminal-Bench 2.1 88.3% (vendor run) clears the frontier reference and BrowseComp 91.2% / DeepSearchQA 95.0% / MCP Atlas 84.2% / AA Harvey LAB 94.6% / DECK-Bench 73.5% are all strong. Capped by GDPval-AA 1,584 Elo (under 1,750), AA Tau3 Banking 46.0% (under 50%), AutomationBench 30.8%, MazeBench 1%, ApprenticeBench 18%, and no Claw-Eval figure.
+- **Reasoning: 87/100.** GPQA Diamond 92.9–93.5% and HLE 43.5–56% both clear their references, and **AA-LCR 88.7% is the best long-context reasoning measured in this batch**. ARC-AGI-1 94.5% and MMLU-Pro 88.0% corroborate. Capped by an AA Intelligence Index of 43.6, ARC-AGI-2 only 60.4%, CritPt 23.4%, a 53.2% hallucination rate with the second-worst Omniscience index here, and no MRCR figure.
+- **Context window: 98/100.** 1.05M-token tier with **AA-LCR 88.7%, the strongest long-context-reasoning result in this batch** — above MiMo-V2.6-Pro (86.3%), Gemini 4 Argon (79.7%) and Claude Opus 5.5 (84.7%). Held at 98 rather than 100 because no MRCR retrieval run exists and no max-output limit is published.
+- **Multimodal: 85/100.** Text + image in with text out. Scored above the methodology's "+image in" 60–70 band because the *document* tier is explicitly in scope and the depth there is exceptional: MathVision 94.3%/97.8%, OmniDocBench 91.1%, CharXiv 91.3%, ExtractBench 83.17% — a genuinely strong PDF/chart/maths-vision profile. Held at 85 rather than the 90s because there is no video or audio input and ZeroBench is only 23.0%.
+- **Coding: 91/100.** The strongest dimension. AA Coding Index 76.2% and Terminal-Bench 2.1 88.3% both clear their references, AA-SciCode 59.5% clears the 55% reference, and SWE-bench 93.4% (Vals), LiveCodeBench 87.2% and **FrontierSWE 81.2%** are all top-tier. Capped by DeepSWE 67.5% (6.5 points under the reference), FrontierCode 2.0 17.7%, sweMarathon 42%, and no published SWE-bench Verified figure.
+- **Cost efficiency: 68/100.** $3/$15 per MTok maps onto the methodology's ≈60 anchor for that rate card, and is drawn *above* it because — unlike every closed model at a similar price — **the weights are open and self-hostable**, so the route to lower marginal cost is real. Held well below the 90s because $3 input is 20x MiniMax M3.1 Flash's and 3x GPT-6 Astra's, with no free tier.
+- **Overall Score: 89/100.** (85 + 87 + 98 + 85 + 91) / 5 = 89.2 → 89. Recommendation: **the best open-weight generalist in this research series** — balanced across agentic, reasoning, long-context, multimodal-visual and coding, with the batch's best AA-LCR (88.7%) and best cyber-misuse refusal (94.0%), at $3/$15 with self-hosting available. One caveat overrides all of it: its **Gray Swan prompt-injection attack-success rate is 52.7%**, the worst measured anywhere, so **do not put it in a pipeline that reads untrusted text, tool output or web content** without an external injection filter. For that use case prefer Gemini 4 Carbon (0.0%) or Claude Opus 5.5 (1.0%).
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (opencode/step-5-preview)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (max: Index 44 #5/121 — top-5 open-weights, the file's 57 was launch-era scale; 42.0 tok/s; $2.00/task — expensive; AA's row lists 104B active vs the file's ~280B vendor figure — conflict flagged) and BenchLM (composite 69.95/100, #17/956, **83 of 648 benchmarks**): the file's HLE and SWE-bench gaps are filled — HLE 43.5% no-tools/56.0% with tools (clears the 40% bar) and SWE-bench Verified (Vals) 93.4% (the file's 67.5% weak-spot row is now treated as a harness outlier) — so Coding was raised 82→88 and Overall 87→88; new rows GDPval-AA Elo 1,533/51.6%, MCP Atlas 84.2%, BrowseComp 91.2%, AA Harvey LAB 94.6%, CritPt 23.4%, ARC-AGI-2 60.4%, AA-LCR 88.7%, FrontierSWE v1 81.2%, AA Coding Index 76.2% reinforce the band, with Terminal-Bench 4.0 12.6% and MazeBench 1% keeping the caps. Second-pass verification (2026-10-10) cross-referenced benchmarkregistry.org (52 primary-source results, updated 2026-10-07 — independent BrowseComp 89.0%, Vibe Code 85.0%, APEX-Agents 50.6%, AutomationBench 22.7%, Vals Index 50.3%, Toolathlon Verified 76.5%). Prior pass (2026-10-08) used hokai.io (Moonshot/Artificial Analysis) and vectorwire.ai.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using Moonshot's Kimi K3 launch blog as the primary source (which supplies most rows, so these are **vendor-run** and labelled as such), cross-checked against BenchLM's 87-row catalog (attributing independent numbers to Artificial Analysis, Vals AI, ARC Prize, Mistral's Mistral-Large-4 launch chart, Kaggle, Cognition, Cursor, Proximal, PostTrainBench, VulcanBench, OpenHarmony, LlamaIndex, Nous Research and OpenRouter) and OpenCode Zen's pricing table. Conflicting figures are listed side by side — Terminal-Bench 2.1 88.3% / 85.0% / 80.9% across three harnesses, ZeroBench 23.0% vs 41.0% with Python — rather than averaged. Missing benchmarks (SWE-bench Verified, MRCR, Claw-Eval) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Moonshot AI — Kimi K3 launch blog (primary benchmark source)](https://www.kimi.com/blog/kimi-k3)
+  - [Moonshot AI — Kimi-K3 model card on Hugging Face](https://huggingface.co/moonshotai/Kimi-K3)
+  - [BenchLM — Kimi K3 benchmark scores (87 rows, 69.34/100, #17/1009)](https://benchlm.ai/models/kimi-k3)
+  - [Artificial Analysis — Kimi K3](https://artificialanalysis.ai/models/kimi-k3)
+  - [Vals AI — Kimi K3 leaderboard results](https://www.vals.ai/models/kimi_kimi-k3)
+  - [ARC Prize — published semi-private results for Kimi K3](https://arcprize.org/results/moonshot-kimi-k3)
+  - [VulcanBench v3 July 2026 expanded report (Kimi K3)](https://github.com/morganlinton/VulcanBench/blob/main/docs/results/v3-kimi-k3-2026-07.md)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

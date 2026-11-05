@@ -11,6 +11,28 @@
 //     with no free SVG source in the Simple Icons / thesvg / LobeHub corpora.
 //     These are placeholder tiles, not official marks; swap for a real SVG as
 //     soon as a licensed source is available.
+import teleaiBadgeRaw from "../../assets/vendor-icons/teleai-badge.svg?raw";
+import nousPortalRaw from "../../assets/vendor-icons/nous-portal.svg?raw";
+import crusoeRaw from "../../assets/vendor-icons/crusoe.svg?raw";
+
+// Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
+// file stays the single point of truth (edit it, not this module). `vite/client`
+// types (tsconfig) declare `*.svg?raw` as a string. This strips the XML prolog and
+// the outer <svg> wrapper; VendorIcon re-wraps the inner markup with the viewBox.
+function svgRawEntry(raw: string): { viewBox: string; body: string } {
+  const viewBox = /viewBox="([^"]+)"/.exec(raw)?.[1] ?? "0 0 24 24";
+  const body = raw
+    .replace(/<\?xml[\s\S]*?\?>/, "")
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<title>[\s\S]*?<\/title>/g, "")
+    .replace(/^[\s\S]*?<svg[^>]*>/, "")
+    .replace(/<\/svg>[\s\S]*$/, "");
+  return { viewBox, body };
+}
+const teleaiBadge = svgRawEntry(teleaiBadgeRaw);
+const nousPortal = svgRawEntry(nousPortalRaw);
+const crusoe = svgRawEntry(crusoeRaw);
+
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
   vultr: {
@@ -42,15 +64,33 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   },
 
   // --- Override: replace an existing base icon (key collision → this wins) ---
-  // TeleAI's official wordmark (interlocking orbit emblem + "TeleAI / CHINA
-  // TELECOM" type) supplied by the maintainer. It is a wide 500x150 lockup, so
-  // VendorIcon letterboxes it inside the square tile (preserveAspectRatio meet).
-  // The signature-tech-blue gradient lives in <defs id="teleBlue">. Shadows the
-  // base `teleai` key only (also used by the `xing` model) — no other icon is
-  // affected.
+  // TeleAI (China Telecom) official shield badge, supplied by the maintainer. The
+  // real source SVG lives at assets/vendor-icons/teleai-badge.svg and is inlined
+  // above via Vite `?raw` (single point of truth — edit that file, not this one).
+  // It is a portrait lockup (~524x606), so VendorIcon letterboxes it in the square
+  // tile (preserveAspectRatio meet). Shadows the base `teleai` key only (also used
+  // by the `xing` model) — no other icon is affected.
   teleai: {
-    viewBox: "0 0 500 150",
-    body: '<defs><linearGradient id="teleBlue" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0054A6"/><stop offset="100%" stop-color="#00A0E9"/></linearGradient></defs><g transform="translate(20, 25)"><path d="M 40 50 C 40 20, 90 20, 90 50 C 90 80, 40 80, 40 50 Z" fill="none" stroke="url(#teleBlue)" stroke-width="12" stroke-linecap="round"/><path d="M 70 50 C 70 25, 115 25, 115 50 C 115 75, 70 75, 70 50 Z" fill="none" stroke="#00A0E9" stroke-width="8" stroke-dasharray="2 3" opacity="0.8"/><circle cx="90" cy="50" r="7" fill="#0054A6"/><circle cx="40" cy="50" r="5" fill="#00A0E9"/><text x="145" y="62" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#0054A6" letter-spacing="-1">Tele</text><text x="245" y="62" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#00A0E9" letter-spacing="-1">AI</text><text x="148" y="85" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#718096" letter-spacing="3">CHINA TELECOM</text></g>',
+    viewBox: teleaiBadge.viewBox,
+    body: teleaiBadge.body,
+  },
+
+  // Nous Portal figure mark, supplied by the maintainer. Source at
+  // assets/vendor-icons/nous-portal.svg, inlined via `?raw` (edit that file). Square
+  // 600x600 monochrome mark (currentColor / color:#000). Shadows the base
+  // `nous-portal` key only — no other icon is affected.
+  "nous-portal": {
+    viewBox: nousPortal.viewBox,
+    body: nousPortal.body,
+  },
+
+  // Crusoe Cloud mandala/starburst mark, supplied by the maintainer. Source at
+  // assets/vendor-icons/crusoe.svg, inlined via `?raw` (edit that file). Monochrome
+  // currentColor mark; the asset viewBox ("88 -2 34 34") frames the content so it
+  // fills the square tile. Shadows the base `crusoe` diamond placeholder key only.
+  crusoe: {
+    viewBox: crusoe.viewBox,
+    body: crusoe.body,
   },
 
   // --- Brand-colored monogram tiles (no free SVG source in the vendored corpora) ---
@@ -60,7 +100,8 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "coreweave":     { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#F97316"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">C</text>' },
   "patronus-ai":   { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#4F46E5"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">P</text>' },
   "galileo":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0EA5E9"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">G</text>' },
-  "oracle":        { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#C74634"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">O</text>' },
+  // Real Oracle Cloud mark (maintainer-supplied) — replaces the placeholder tile.
+  "oracle":        { viewBox: "0 0 32 20", body: '<path fill="none" stroke="#C74634" stroke-width="4" d="M10 2a8 8 0 1 0 0 16h12a8 8 0 1 0 0-16z"/>' },
   "verda":         { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#22C55E"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">V</text>' },
   "io-net":        { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#7C3AED"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">i</text>' },
   "reka":          { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#0891B2"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">R</text>' },

@@ -1,0 +1,40 @@
+# Nemotron 3 Nano Omni — findings by Flint
+
+- Source: NVIDIA / Nemotron 3 Omni
+- Date: 2026-11-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3 Nano Omni
+- **Short description:** NVIDIA's unified **multimodal large language model** that ingests video, audio, image, and text to support enterprise-grade Q&A, transcription, and document intelligence; positioned for documents, audio and video agents; part of the Nemotron family (Digital Intelligence) with open weights / NIM deployment.
+
+### Raw benchmarks found
+
+- Long-context / multimodal: official NVIDIA blog ("Introducing NVIDIA Nemotron 3 Nano Omni: Long-Context Multimodal Intelligence for Documents, Audio and Video Agents", Apr 2026) — long-context multimodal intelligence for docs/audio/video agents.
+- Independent: NVIDIA's own Nemotron evaluation ecosystem (NeMo Evaluator, Nemotron 3 Nano evaluation recipe, RTEB) — Nemotron 3 Embed ranked #1 overall on RTEB (agentic retrieval) — distinct model line but same family.
+
+### Cross-source comparison
+
+- Official NVIDIA sources (blog + Hugging Face org) vs. independent evaluation signals (RTEB #1 for Nemotron 3 Embed lineage): consistent positioning of Nemotron family as strong agentic/multimodal; no direct conflicting benchmark rows found for "Nano Omni" specifically.
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found** — agentic tool-use numbers not isolated for Nano Omni.
+- **Reasoning: no verified public score found** — unverified.
+- **Context window: 80/100.** Official positioning: long-context multimodal intelligence (documents/audio/video); context depth officially emphasized.
+- **Multimodal: 82/100.** Official: unified multimodal (video, audio, image, text) for Q&A/transcription/document intelligence.
+- **Coding: no verified public score found** — unverified.
+- **Cost efficiency: 60/100** — open-weights/NIM deployment economics; marked as directional.
+- **Overall Score: no verified public score found** — benchmark normalization not possible without verified multimodal/coding figures.
+
+## Signature
+
+- Provided by: **Flint (google/gemini-3.5-flash-lite)** — 2026-11-05
+- Method: public web research prioritizing official sources (NVIDIA blog + Hugging Face Nemotron org) plus independent evaluation signals (RTEB, Nemotron evaluation recipes) — three independent source families.
+- Reference URLs:
+  - [Introducing Nemotron 3 Nano Omni — NVIDIA](https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence)
+  - [NVIDIA Nemotron org — HF](https://huggingface.co/nvidia)
+  - [Nemotron 3 Nano evaluation recipe — NVIDIA](https://huggingface.co/blog/nvidia/nemotron-3-nano-evaluation-recipe)
+- Future sources: add a new file next to this one, e.g. `Nemotron_3_Nano_Omni.md`, using the same headings.

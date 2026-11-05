@@ -1,86 +1,77 @@
 # GPT-6.1 Sol — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: OpenAI (`gpt-6-1-sol`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-6.1 Sol
-- **Short description:** OpenAI's DevDay (2026-09-29) refresh of the GPT-6 series mid-tier — positioned as near-GPT-6-Astra capability for complex coding, computer use and professional work at one-fifth of Astra's per-token price. Replaced GPT-6 Sol just 7 days after that model shipped; Artificial Analysis confirms a 4-point Intelligence Index gain landing 1 point below Astra.
-- **Provider / access:** OpenAI Responses API `gpt-6.1-sol` (recommended; Chat Completions works only without tools); ChatGPT Work and Codex for Plus/Pro/Business/Enterprise/Edu (not the consumer Chat product at launch). No OpenCode Zen Free ID found — paid API only.
-- **Release / knowledge:** 2026-09-29; knowledge cutoff 2026-04-30.
-- **IDs:** `gpt-6.1-sol` (OpenAI); `openai/gpt-6.1-sol-20260929` (OpenRouter route — provider ID only).
-- **Context window:** 1,050,000 tokens; 128,000 max output. Long-context cliff: prompts >272K input tokens are repriced for the *whole request* at 2x input/cache and 1.5x output.
-- **Modalities:** Text + image in → text out (no audio/video input). Reasoning effort low / medium (default) / high / xhigh / max (the `none` effort is no longer accepted); full tool suite via Responses API — web search, file search, image generation, code interpreter, hosted shell, apply patch, skills, computer use, MCP, tool search; prompt caching; no fine-tuning.
-- **Pricing (as of 2026-10-09):** $2.00 / MTok input, $0.10 cached input (5% of fresh, halved vs GPT-6 Sol), $2.50 cache write, $10.00 output; >272K input: $4 / $0.20 / $5 / $15; Fast mode 2x; Batch/Flex 50%; regional processing +10%.
-- **Architecture:** Proprietary (weights not released).
+- **Name:** GPT-6.1 Sol. OpenAI's 6.1-generation `sol` variant, announced 2026-09-29 and the **#4-ranked model of 1009 on BenchLM (85.27)** — ahead of GPT-6.1 Terra (80.46) and GPT-5.6 Sol (74.83), and second only to GPT-6 Astra (86.07) within OpenAI's lineup.
+- **Short description:** The standout of this batch on both axes at once: **the only perfect FrontierMath Tier 4 score measured anywhere in this research series (100.000%)**, paired with the cheapest durable rate card of any top-5 model ($2/$10). It is the value leader, not just a capability leader.
+- **Provider / access:** OpenAI API, Microsoft Azure, AWS Bedrock, and OpenCode Zen (`opencode/gpt-6-1-sol` at **$2/$10/$0.10**, with a **>272K tier at $4/$20/$0.20**).
+- **Release / knowledge:** announced 2026-09-29. Knowledge cutoff not disclosed by OpenAI for this SKU.
+- **IDs:** `openai/gpt-6-1-sol`; `opencode/gpt-6-1-sol`. No Free ID — paid only.
+- **Context window:** **1.05M tokens** (BenchLM and Artificial Analysis agree). Max output not restated on this SKU's page.
+- **Modalities:** text + image in; text out (OpenAI's lineup-wide statement). Reasoning model.
+- **Pricing (as of 2026-11-05):** **$2 input / $0.10 cached / $2.50 cache write / $10 output per 1M** — the same rate card as Claude Sonnet 5.5 and half of GPT-6 Astra's. **Prompts above 272K input tokens are charged at 2x input and cache rates and 1.5x output for the entire request**; regional processing adds 10% where available; Batch and Flex at 50%, Fast mode at 2x.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-- BenchLM composite (2026-10-19): **84.21/100** overall, #2 of 956 models, 40 of 644 benchmarks covered (partial coverage — conservative)
-- Artificial Analysis today (2026-10-19): Intelligence Index **52** (max, #12/217, 4/4 units — matches the prior 51.8–52), 55.2 tok/s (#151/186 — notably slow), TTFT 244.06s, $2.00/$10.00 with 95% cache discount (blended $1.47/M; $0.72 per Index task), 1M context, 10 providers, 67M Index tokens (concise) — NOT deprecated on AA
+OpenAI's GPT-6.1 Sol launch post and system card addendum are the primary source; Artificial Analysis, Epoch AI, ARC Prize, Cognition, Kaggle, StemBench, LlamaIndex, Nous Research and OpenRouter supply the independent rows.
 
-Agent / tool use:
+Agent / tool use — solid but not leading:
 
-- Terminal-Bench 4.0: **56.1%** (Artificial Analysis, max — #5–9 depending on tracker; Vals 55.0% #6; +12 pts vs GPT-6 Sol)
-- AutomationBench-AA: **64.9%** (AA, max — field-leading tier); vendor AutomationBench 1.0.6: 31.7% at medium (+4.8 vs GPT-6 Sol)
-- GDPval-AA: **Elo 1575 / 53.8%** (AA, max; +5 pts vs GPT-6 Sol)
-- AA-Briefcase v1.1: **Elo 1564** (AA, max)
-- OSWorld 2.0 offline set: **71.4%** (vendor, max — within 2.1 pts of Astra's 73.5% at ~1/7 the cost/task)
-- Terminal-Bench-Science 0.1: **57.0%** (vendor, max — #5/10; Astra leads at 68.1%)
-- Terminal-Bench leaderboard: **58.2%** (#17); APEX-Agents: **60.0%** (#12)
-- BrowseComp: **95.4% ±3.1%** (independent, #1 of 60, 100th pct — BenchmarkList/verified 2026-10-07); RuneBench 6.9 (#2/61)
-- DeepSWE v1.1: **75.2%** (vendor, high effort — beats GPT-6 Sol's best 68.8% at max, at ~76% lower cost/task)
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Cost per task: **$0.72** (AA, max) down to **$0.13** (low); output speed 54–55 tok/s (faster than Astra's 45)
+- **AA Terminal-Bench 4.0: 56.1%**; Terminal-Bench-Science 0.1: **57.0%** (OpenAI)
+- **GDPval-AA: 1,608 Elo** / 54.8% normalized (AA) — under the 1,750 frontier reference; AA Briefcase: **1,555 Elo**
+- **AA AutomationBench: 64.9%** (vs **AutomationBench 36.1%** on OpenAI's own Zapier-style benchmark — a 28.8-point gap between two benchmarks with similar names)
+- AA-AnalystAgent: **50.0%**; Hermes Bench: **73.9%**; Hermes Index: 57.1%
+- **MazeBench: 17%**; GDP.pdf: 31.0%; ExploitGym: 35.1%
+- **Terminal-Bench 2.1, τ³-Banking and Claw-Eval: no verified public score found** — three of the methodology's frontier references cannot be checked for this model
 
-Reasoning / knowledge:
+Reasoning / knowledge — **the strongest dimension, with a perfect score**:
 
-- AA Intelligence Index: **51.8–52** (max; 1 point below GPT-6 Astra's 53; +4 vs GPT-6 Sol's 48)
-- HLE: **52.9%** (AA, max — #8/97; +5 pts vs GPT-6 Sol)
-- GPQA Diamond: **95.4%** (Epoch AI Hub, max — #3); Model Pareto estimate 96.1%
-- AA-LCR: **83%** (AA, max)
-- CritPt: **31.7%** (AA, max, #4); AA-Omniscience Index 41.5, accuracy 62.1%, hallucination rate 54.3% (down from 60% on GPT-6 Sol)
-- SimpleQA Verified: **73.9%** (#2, Epoch); ProofBench: **99.0%** (#4, Vals)
-- FrontierMath Tiers 1–3: **93.7%** (#1); Tier 4: **100.0%** (#1); OTIS Mock AIME: **100.0%** (#1) (Epoch, max)
-- LiveBench overall: **81.6%** (max, #6); reasoning 92.6% (#2); data analysis 82.7% (#2); mathematics 96.8% (#3)
-- AIIQ Composite IQ: **141** (independent, #3/147, 99th pct — BenchmarkList 2026-10-07); AA-LCR: **84.0%** (#10/408, 98th pct)
-- Factuality: vendor reports factual-error share on difficult chats falling 11.4% → 7.7% at low effort (~32% relative reduction)
+- **FrontierMath v2 Tier 4: 100.000%** (Epoch AI) — a perfect score, and the only one recorded in this entire research series; Tiers 1–3: **93.684%**
+- Artificial Analysis Intelligence Index: **54.5** (the highest of any OpenAI model measured here)
+- AA-HLE: **52.9%**; AA-Omniscience: index 42.0, accuracy **61.8%**, hallucination rate **51.9%** (the second-best in this batch)
+- **ARC-AGI-1: 96.5%**; **ARC-AGI-2: 94.2%**; **ARC-AGI-3: 52.7%** (Provider-Adapter run **96.18%** — a 43.5-point harness gap)
+- **CritPt: 31.7%**; **MLCR-AA: 38.3%** — both the joint-highest in this batch; AA-LCR: **83.0%**; STEMBench: 2.76
+- HealthBench Professional (raw) **67.2%** / length-adjusted 64.2% / Hard 36.2%
+- **GPQA Diamond: no verified public score found** — the one frontier reference that is missing; **MRCR: no verified public score found**
 
 Coding:
 
-- SWE-bench Verified: **~89.6%** (Model Pareto estimate, #2 — no official vendor number); SWE-bench Pro: **~75.0%** (estimated, #5)
-- Vibe Code Bench v1.1: **88.9%** (Vals, #7)
-- LMArena Coding: **1542** (#8); WebDev Arena: **1757** (#4); Codeforces: **3593** (top of its table)
-- SciCode: **54.2%** (AA, max); **55.8%** (AA, high — #24/296)
-- SWE-Marathon: **68/160 trials** (42.5%, 59th pct; mean $7.9/trial, 26.7M tokens/trial)
-- LiveBench Coding: **80.4%** (max); Agentic Coding 54.5%; AA Coding Index: **82.4** (ArtificialWatch, #6)
-- New verified rows (2026-10-19): DeepSWE **71.9%** (OpenAI GPT-6.1 Sol launch post via BenchLM — sits alongside the file's 75.2% high-effort read; effort-config difference noted), ARC-AGI-1 **96.50%** / ARC-AGI-2 **94.2%** (ARC Prize — the file's missing ARC rows, near-frontier) / ARC-AGI-3 **52.7%** (+96.18% via the Provider Adapter), STEMBench **2.76**, MLCR-AA **33.9%**, ExploitGym **35.1%**, MazeBench **17%**, Hermes Index **57.1%** / Hermes Bench **73.9%**, AutomationBench 1.0.6 **36.1%** (vendor — above the file's 31.7% medium-effort read), GDPval-AA **54.7% normalized / Elo 1,594** (AA — updates the 53.8/Elo 1,575), AA Briefcase **Elo 1,557**, Bug Hunt Bench **44.3 fixes**, HealthBench (raw) 56.7% / Hard 36.2% / Professional (raw) 67.2%, Design Arena Website **1321** (OpenRouter)
+- DeepSWE: **71.9%** — 2.1 points under the 74% frontier reference
+- **AA-SciCode: 54.2%** — 0.8 points under the 55% frontier reference
+- ScarfBench: 68.4%; FrontierCode 2.0: 39.0%; Bug Hunt Bench: 44.3 fixes; Terminal-Bench-Science 0.1: 57.0%
+- **SWE-bench Verified, SWE-bench Pro, LiveCodeBench, AA Coding Index: no verified public score found** — so the coding evidence is unusually thin for a #4-ranked model
 
-Multimodal:
-
-- MMMU-Pro: **86.0%** (AA); GDP.pdf: **31.0%** (AA); BenchLeader multimodal category 66/100
-
-Long context:
-
-- 1.05M window with the >272K repricing cliff; AA-LCR 83% (max) is the only public long-context measure found; **no MRCR/RULER number published**
+Multimodal (image-in only): **ExtractBench: 95.31%**; **AA-MMMU-Pro: 86.0%**; ParseBench: 69.70%; Design Arena: **1,315 Elo**; **ExtractBench Pro: 12%** (a striking split against the 95.31% standard ExtractBench).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** On the current-generation agentic suites it sits at the top of the field: TB4.0 56.1% (#5, +12 pts over GPT-6 Sol), AutomationBench-AA 64.9%, GDPval-AA Elo 1575 and OSWorld 2.0 offline 71.4% (within 2.1 pts of Astra at ~1/7 cost); capped by TB-Science 57.0% (Astra 68.1%), APEX-Agents 60.0% and no public Claw-Eval.
-- **Reasoning: 92/100.** AA Intelligence Index 51.8 (1 point below Astra, #1-tier), HLE 52.9%, GPQA 95.4%, FrontierMath T4 100% and ProofBench 99.0% are frontier-band across the board; CritPt 31.7% and GDP.pdf 31.0% keep it a notch off a perfect composite.
-- **Context window: 93/100.** 1,050,000-token window with 128K output is the ≥1M tier; AA-LCR 83% (max) is strong, but the 100 tier needs ≥98% retrieval at 512K+ (no MRCR published) and the >272K cliff reprices the entire request 2x/1.5x.
-- **Multimodal: 72/100.** Text + image in → text out with MMMU-Pro 86.0% and WebDev Arena 1757 (#4) above the plain image-input band; GDP.pdf 31.0% and no video/audio input or non-text output hold it below the 75–90 tier.
-- **Coding: 90/100.** DeepSWE 75.2% (vendor, high effort), SWE-bench Verified ~89.6% (estimated), Vibe Code Bench 88.9% and WebDev/LMArena Coding top-8 placements are frontier-band; capped because the headline coding numbers are vendor-run (independent harnesses pending), SWE-Marathon lands at 42.5%, and SciCode 54.2% remains mid-pack.
-- **Cost efficiency: 62/100.** $2/$10 per MTok maps to the same tier as Claude Sonnet 5 (between the methodology's $3/$15 ≈ 60 and $0.60/$2.20 ≈ 92), with the $0.10 cache read (5% of fresh) and a measured $0.72/task at max effort softening it — roughly one-fifth of Astra's task cost, but no free tier.
-- **Overall Score: 87/100.** Best-fit recommendation: the value flagship — Astra-class agentic coding, computer use and reasoning at a fifth of Astra's per-token price with faster output; the default pick for budget-conscious frontier agentic work.
+- **Tool use: 74/100.** Middle of the band. AA AutomationBench 64.9%, Terminal-Bench-Science 57.0%, AA Terminal-Bench 4.0 56.1% and Hermes Bench 73.9% are all respectable, and AA-AnalystAgent 50.0% shows real analytical competence. Capped because **three of the methodology's frontier references cannot be checked at all** (no Terminal-Bench 2.1, no τ³-Banking, no Claw-Eval) and GDPval-AA is 1,608 Elo against the 1,750 reference — plus MazeBench 17% and GDP.pdf 31.0%.
+- **Reasoning: 94/100.** The strongest reasoning profile in this batch and the only one with a perfect core score: **FrontierMath Tier 4 100.000%**, AA Intelligence Index 54.5 (highest here), AA-HLE 52.9%, ARC-AGI-2 94.2%, CritPt 31.7% and MLCR-AA 38.3% (both joint-highest here). Capped by the **missing GPQA Diamond figure** — the single most-used frontier reference — a 51.9% hallucination rate, and the ARC-AGI-3 harness gap (52.7% vs 96.18%).
+- **Context window: 97/100.** 1.05M-token tier with AA-LCR 83.0%. Held just under 100 because no MRCR retrieval run exists and the >272K pricing step doubles input cost, so the top of the window is economically impractical.
+- **Multimodal: 70/100.** Image-in/text-out only — no video or audio input — so it sits at the top of the methodology's "+image in" 60–70 band. Justification for the ceiling: MMMU-Pro 86.0% and ExtractBench 95.31% are both strong for an image-in-only model. Held down by ExtractBench Pro 12% and ParseBench 69.70%, which show document extraction is uneven.
+- **Coding: 76/100.** Right at the boundary of the mid and frontier bands. DeepSWE 71.9% and AA-SciCode 54.2% each *just* miss their references (74% and 55%), ScarfBench 68.4% and Terminal-Bench-Science 57.0% are solid, but **SWE-bench Verified, SWE-bench Pro, LiveCodeBench and the AA Coding Index are all unpublished** for this ID, so the two clearest coding references cannot be verified. FrontierCode 2.0 39.0% is weak. A model whose coding is probably better than its measured evidence, which is exactly why it cannot be scored higher.
+- **Cost efficiency: 90/100.** $2/$0.10/$10 per 1M sits just above the methodology's ~$1.25/$4.25 (≈88) anchor, and BenchLM independently reports that **only 1 of 111 other ranked models with a published API price costs the same or less while scoring higher**. Artificial Analysis measured it at **$0.72 per index task** — by far the cheapest frontier-tier figure in this research series, against GPT-6 Astra's $3.66 and Claude Opus 5.5's $5.98. Held below 100 by the >272K surcharge, the 10% regional-processing adder, and having no free tier.
+- **Overall Score: 82/100.** (74 + 94 + 97 + 70 + 76) / 5 = 82.2 → 82. Recommendation: **the default pick for anyone who wants frontier reasoning at a sane price.** It pairs the only perfect FrontierMath Tier 4 result in this series with a $0.72-per-task measured cost — roughly a fifth of GPT-6 Astra's — and AA Intelligence Index 54.5, the highest of any OpenAI model here. Its gaps are documentable rather than fundamental (missing GPQA, SWE-bench and Terminal-Bench 2.1 figures), so treat the 82 as a floor on evidence rather than a ceiling on ability: re-score it upward the moment a harness publishes those three.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 52 #12/217, 4/4 units — unchanged; 55.2 tok/s #151/186 — slow; TTFT 244.06s; pricing $2/$10 with 95% cache discount confirmed) and BenchLM (composite 84.21/100, #2/956, 40/644 benchmarks): the file's ARC gap is filled — ARC-AGI-1 96.50% / ARC-AGI-2 94.2% (ARC Prize) — plus DeepSWE 71.9% (vendor launch read alongside the file's 75.2% high-effort figure; effort-config difference noted), GDPRval-AA Elo 1,594, ExploitGym 35.1%, Hermes 57.1%, Bug Hunt 44.3 fixes, HealthBench rows — all consistent with the existing Tool use 88 / Reasoning 92 / Context 93 / Multimodal 72 / Coding 90 / Cost 62 reads, no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (22 primary-source results, updated 2026-10-07 — independent BrowseComp 95.4% #1/60, RuneBench 6.9 #2/61, AA-LCR 84.0% #10/408, AIIQ IQ 141 #3/147, AutomationBench-AA 66.6% #7/26, DeepSWE 75.2% #3/52, MMMU-Pro 86.0% #4/72, HLE 52.9% #12/478, AA Intelligence Index 51.8 #18/427) — same conclusion. Prior pass (2026-10-09) used OpenAI model/pricing docs + DevDay announcement + Deployment Safety Hub system card, Artificial Analysis releases/article, BenchLeader, BenchLM, Model Pareto, ArtificialWatch, developer-community analysis.
-- Future sources: add a new file next to this one, e.g. `Grok_4.6.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using OpenAI's GPT-6.1 Sol model documentation, launch post and system card addendum as the primary source, cross-checked against BenchLM's 45-row catalog (which attributes each number to OpenAI, Artificial Analysis, Epoch AI, ARC Prize, Cognition, Kaggle, STEMBench, LlamaIndex, Nous Research or OpenRouter) and OpenCode Zen's pricing table. Conflicting figures are listed side by side — AutomationBench 36.1% vs AA AutomationBench 64.9%, ARC-AGI-3 52.7% vs 96.18%, ExtractBench 95.31% vs ExtractBench Pro 12% — rather than averaged, and missing frontier-reference benchmarks (GPQA Diamond, SWE-bench Verified, Terminal-Bench 2.1, τ³-Banking, Claw-Eval, MRCR) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — GPT-6.1 Sol model documentation (context, limits, pricing, tiers)](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+  - [OpenAI — Introducing GPT-6.1 Sol (launch benchmark chart)](https://openai.com/index/introducing-gpt-6-1-sol/)
+  - [OpenAI — GPT-6.1 Sol system card addendum](https://cdn.openai.com/pdf/38e3efcf-545e-44cd-99ec-2b7eb395f4cc/oai_GPT_6_1_Sol.pdf)
+  - [BenchLM — GPT-6.1 Sol benchmark scores (45 rows, 85.27/100, #4/1009)](https://benchlm.ai/models/gpt-6-1-sol)
+  - [Artificial Analysis — GPT-6.1 Sol](https://artificialanalysis.ai/models/gpt-6-1-sol)
+  - [ARC Prize — published semi-private results for GPT-6.1 Sol](https://arcprize.org/results/openai-gpt-6-1-sol)
+  - [Epoch AI — FrontierMath v2 leaderboard (source of the 100% Tier 4 score)](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
