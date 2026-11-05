@@ -62,10 +62,46 @@ Multimodal:
 - **Cost efficiency: 78/100.** $5/$25 with $0.50 cache — same premium Opus-tier pricing for 6 months of leadership.
 - **Overall Score: 84/100.** Mean of the five quality dims (84+87+84+80+85)/5 = 84.0 → 84. Six-month run as the refiner's Opus for coding+agents before 4.7/4.8 took the crown.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 84 | 84 | — (corroborated) |
+| Reasoning | 87 | 87 | — |
+| Context window | 84 | 84 | — |
+| Multimodal | 80 | 80 | — |
+| Coding | 85 | 85 | — |
+| Cost efficiency | 78 | 78 | — |
+| **Overall** | **84** | **84** | **—** |
+
+**BenchLM composite (first third-party overall for this file): 62.06/100, #47 of 1014**, built from 51 of 739 rows — partial coverage, so the composite is conservative and is not comparable to this project's normalized scores.
+
+**Every headline number held.** Terminal-Bench 2.0 **65.4%**, OSWorld-Verified **72.7%**, GPQA **91.3%**, HLE **53.1%** with tools, SWE-bench Verified **80.8%**, SWE-bench Pro **53.4%** and MMMU-Pro **77.3%** are all re-published unchanged by BenchLM from the Anthropic system card. BrowseComp resolves to **83.7%** — the original's "leading" is now a number.
+
+**Newly measured agentic breadth:** τ²-bench **84.8%**, Claw-Eval **70.4%**, DeepSearchQA **73.7%**, AndroidWorld **62.0%**, CyberGym **66.6%**, Gert Labs **61.85%**, ResearchClawBench **19.9%**, JobBench **36.7%**, **ApprenticeBench 5%**, Terminal-Bench Hard **48.5%**. The pattern is a strong in-repo/desktop agent that collapses on long-horizon from-scratch work.
+
+**Newly measured coding:** Vibe Code Bench **57.57%**, SWE-Rebench **65.3%**, React Native Evals **84.1%**, LiveCodeBench Pro **70.7%**, FrontierCode 1.1 Main **26.9%**. That 26.9% greenfield figure is the honest ceiling marker against the 4.8/5.x line.
+
+**Newly measured reasoning:** AA Intelligence Index **26.4**, AA-GPQA **84.0%** and **AA-HLE 19.1%** — both far below the vendor's 91.3/53.1 because AA runs without tools; ARC-AGI-3 **0.5%**, CritPt **2.8%**, FrontierMath v2 **65.965%** (T1–3) / **26.829%** (T4), AA-IFBench **44.6%**, AA-LCR **67.0%**. AA-Omniscience reads **45.8% accuracy / 80.1% hallucination** — not a factual oracle.
+
+**Pricing and lifecycle.** Unchanged on Zen: **$5.00 in / $25.00 out, $0.50 cached, 1M context / 128K output** (models.dev). Superseded by Opus 4.7 → 4.8 → 5 → 5.5, which BenchLM scores **65.23 / 69.69 / 79.69 / 86.4**, so this is now a mid-table Opus on a third-party composite. No Zen deprecation notice.
+
+**Calibration note.** Context is scored 84 on the 1M tier, below the written band (≥1M = 95–100). That gap is dataset-wide in the 2026-09 cohort and is not corrected here.
+
+**Net assessment.** The original numbers were right and the judgment was right for its date. What changed is the ranking: six months of successors put Opus 4.6 mid-field at premium pricing.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (Anthropic release/system card, claudefa spec-plus-bench table, anotherwrapper vs 4.8, futureagg/veillum, serenitiesai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (Anthropic release/system card, claudefa spec-plus-bench table, anotherwrapper vs 4.8, futureagg/veillum, serenitiesai; BenchLM, models.dev and Artificial Analysis on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 4.6 system card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)
+  - [BenchLM — Claude Opus 4.6](https://benchlm.ai/models/claude-opus-4-6)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Claude_Opus_4.6_2.md`, using the same headings.

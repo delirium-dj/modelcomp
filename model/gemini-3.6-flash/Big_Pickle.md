@@ -59,10 +59,46 @@ Multimodal:
 - **Cost efficiency: 86/100.** $0.75/$3.75 with ~189 tokens/s throughput — one of the faster cheap-frontier options in 2026.
 - **Overall Score: 83/100.** Mean of the five quality dims (82+85+83+84+82)/5 = 83.2 → 83. The dependable workhorse Flash — very well-rounded value, outpaced only by 3.7/3.8 Flash and the Anthropic frontier.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 82 | 82 | — |
+| Reasoning | 85 | 86 | **+1** (HLE published) |
+| Context window | 83 | 83 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 82 | 83 | **+1** |
+| Cost efficiency | 86 | 76 | **−10** (price corrected) |
+| **Overall** | **83** | **84** | **+1** |
+
+**BenchLM composite: 62.56/100, #43 of 1014**, from 29 of 739 rows (partial coverage — conservative, not comparable to this project's normalized scale).
+
+**Price correction: $1.50 / $7.50, not $0.75 / $3.75.** Live models.dev and Zen both list `gemini-3.6-flash` at **$1.50 in / $7.50 out with $0.15 cached input**, 1,048,576 context / 65,536 output. The original's half-rate figures are the batch/flex tier, not the standard rate. Cost efficiency drops 86 → 76; the methodology's inverse-pricing curve puts $1.50/$7.50 between the $1.25/$4.25 (~88) and $3/$15 (~60) anchors. This does not touch Overall, which excludes Cost.
+
+**The missing HLE is now published, and it is good:** **40.8%**. With GPQA Diamond **92.8%** (Vals 93.4%), MMLU-Pro **89.3%**, AA Intelligence Index **34.0** and AA-LCR **80.0%**, Reasoning moves 85 → 86. FrontierMath v2 reads **58.947%** (T1–3) / **21.951%** (T4).
+
+**Coding moves 82 → 83.** SWE-bench (Vals) **79.6%**, LiveCodeBench (Vals) **88.1%**, AA Coding Index **69.2%**, AA-SciCode **53.4%**, CursorBench 3.2 **53.5%**, DeepSWE **49.0%**. The last two are the soft spots that keep it out of the frontier band.
+
+**Everything else re-publishes as recorded:** OSWorld-Verified **83%**, GDPval-AA **1423 Elo / 39.2%**, ARC-AGI-2 **60.4%**, ARC-AGI-1 **91.17%**, AA-MMMU-Pro **83.2%**, ParseBench **69.12%**. Terminal-Bench 2.1 shows **73.8%** on Vals against the 78% in the original — harness difference, noted rather than scored.
+
+**Newly measured:** AA Agentic Index **30.1%**, CritPt **10.6%**, AA-Omniscience **50.0% accuracy / 55.6% hallucination**, **MazeBench 0%**. The Omniscience accuracy is the best in this cohort; the 55.6% hallucination rate still argues against closed-book factual use.
+
+**Lifecycle.** Live on Zen at the corrected price. Superseded by **Gemini 3.7 Flash** (BenchLM 66.49) and **3.8 Flash** (66.74), both materially ahead on the same composite.
+
+**Net assessment.** A quality upgrade and a price downgrade: the model is slightly better than scored and materially more expensive than recorded. Net Overall +1, but the value case is weaker than the original implied.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (anotherwrapper comparison sheets, getdeploying, pricepertoken, Blognone Thai coverage, Gemini API pricing docs); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (anotherwrapper comparison sheets, getdeploying, pricepertoken, Blognone Thai coverage, Gemini API pricing docs; BenchLM, Vals AI, models.dev and OpenCode Zen on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini 3.6 Flash launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/)
+  - [BenchLM — Gemini 3.6 Flash](https://benchlm.ai/models/gemini-3-6-flash)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Gemini_3.6_Flash_2.md`, using the same headings.

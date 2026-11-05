@@ -53,10 +53,44 @@ Productivity:
 - **Cost efficiency: 88/100.** ~$0.14/$0.58 per 1M with MTP-accelerated decoding, Apache-2.0 weights, quantized single-GPU builds, and ~47% fewer tokens than GLM-5.2 on real tasks — outstanding value.
 - **Overall Score: 70/100.** Mean of the five quality dims (76+72+72+50+78)/5 = 69.6. A cheap, reliable, open 256K agentic workhorse with near-frontier coding for 21B active parameters; multimodal absence and unbenchmarked frontier reasoning hold it to a "very good" score.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 76 | 73 | **−3** |
+| Reasoning | 72 | 72 | — (GPQA/HLE now published) |
+| Context window | 72 | 72 | — |
+| Multimodal | 50 | 50 | — |
+| Coding | 78 | 75 | **−3** |
+| Cost efficiency | 88 | 88 | — |
+| **Overall** | **70** | **68** | **−2** |
+
+**This model still has no composite.** BenchLM carries **10 rows and no overall score — it remains unranked**, which is itself the headline: a July 2026 open-weight flagship with a 256K window and strong vendor numbers has not attracted enough independent evaluation to be scored.
+
+**The vendor claim the original leaned on does not reproduce.** The file's headline was **Terminal-Bench 2.1 90.4** from the HF scorecard. No independent board carries a terminal-bench row for `hy3`; what exists is **AA Agentic Index 25.6%**, **GDPval-AA 28.2% / 1136 Elo**, **CritPt 4.9%** and **Design Arena 1180**. Tool use moves 76 → 73 because the strongest supporting number is vendor-only while the independent agentic rows are mid-tier.
+
+**Gaps the original listed as missing are now filled, and they help:** **GPQA 89.7%** (AA), **AA-HLE 33.5%**, **AA-LCR 79.0%** — a genuinely good long-context reasoning reading. Reasoning holds at 72: the GPQA number is strong, but HLE 33.5% and CritPt 4.9% keep it out of the 80s.
+
+**Coding 78 → 75.** **SWE-bench Verified 74 resolved** is unchanged as a claim; the independent rows are **AA-SciCode 48.6%** and **AA Coding Index 58.8%**, both below what a 78 implies. No SWE-bench (Vals) or DeepSWE row exists.
+
+**Context stays 72.** 256K confirmed; **AA-LCR 79.0%** is the first independent retrieval-adjacent number in the file and it is better than the score assumes, but with no MRCR curve the tier score holds.
+
+**Pricing and lifecycle.** **$0.14 in / $0.58 out** (DeepInfra-class) with Apache-2.0 weights; Cost holds at 88. **Hy4 shipped 2026-11-04** — one day before this re-run — and **Hy4 Preview scores 61.57 on BenchLM**, so Hy3 is now two generations behind on its own vendor's shelf.
+
+**Net assessment.** The original was too generous on the strength of one vendor scorecard number. Corrected Overall 70 → 68, with the caveat that the missing independent terminal-bench evidence is an absence of data, not proof of weakness.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (hy.tencent.com, Hugging Face card, tencentcloud.com, GitHub, OpenRouter, llm-stats.com, kie.ai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (hy.tencent.com, Hugging Face card, tencentcloud.com, GitHub, OpenRouter, llm-stats.com, kie.ai; BenchLM, Artificial Analysis and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — tencent/Hy3](https://huggingface.co/tencent/Hy3)
+  - [Tencent Hunyuan — Hy3](https://hy.tencent.com/)
+  - [BenchLM — Hy3 (unranked)](https://benchlm.ai/models/hy3)
+  - [Artificial Analysis — Hy3](https://artificialanalysis.ai/models/hy3)
+- Future sources: add a new file next to this one, e.g. `Hy3_2.md`, using the same headings.

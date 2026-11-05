@@ -66,10 +66,47 @@ Multimodal:
 - **Cost efficiency: 95/100.** ~$0.10 blended per 1M with frontier-adjacent agentic scores — the release's defining story; roughly one-tenth the cost of GLM-5.3.
 - **Overall Score: 80/100.** Mean of the five quality dims (76+84+86+76+76)/5 = 79.6 → 80. A cheap, open, natively multimodal coding/agent powerhouse that outperforms its bigger sibling on nearly every axis.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 76 | 84 | **+8** |
+| Reasoning | 84 | 84 | — (GPQA corrected down) |
+| Context window | 86 | 86 | — |
+| Multimodal | 76 | 79 | **+3** |
+| Coding | 76 | 77 | **+1** |
+| Cost efficiency | 95 | 95 | — |
+| **Overall** | **80** | **82** | **+2** |
+
+**BenchLM composite: 58.37/100, #56 of 1014**, from 37 of 739 rows (partial coverage — conservative, not comparable to this project's normalized scale).
+
+**Tool use 76 → 84, on one number crossing the methodology anchor.** **GDPval-AA 1773** is above the written frontier reference of ~1750, and it is joined by **Terminal-Bench 2.1 84.3%** (independently confirmed at 84.27%), **Toolathlon-Verified 78.4%**, **Tau3 Banking 47.2%**, **AA ITBench 51.2%**, **Hermes Bench 68.9%**. The counterweights are real and listed: **Agents' Last Exam 26.3%**, **AutomationBench 48.8%**, **MazeBench 0%**.
+
+**One correction: GPQA is 86.4%, not 91.2%.** Vals measures **86.4%**, and the original's "independently confirmed at 91.2%" could not be reproduced — the 91.2% is the vendor's own number. Reasoning holds at 84 rather than rising because the rest of the profile is unchanged: HLE **55.3%** with tools, **FrontierMath v2 55.789%** (T1–3) / **17.073%** (T4), MMLU-Pro **86.1%**, AA-LCR **79.5**-class context work. Note also that the **AA Intelligence Index 57** quoted in the original is a **v4.1.1** figure with no current row — treat it as legacy.
+
+**Coding 76 → 77.** The contested SWE-bench pair is now both visible: **SWE-bench (Vals) 92.0%** against RankLLMs' **78.2%** — a 14-point harness gap, so neither is "the" score. The new rows that matter are **LiveCodeBench (Vals) 80.5%** (previously "no verified public score found"), **DeepSWE 63.4%**, **NL2Repo 56.3%**, **OpenHarmony 57.3%**, against weak **FrontierSWE v2 18.1%** and **Bug Hunt Bench 17.7**.
+
+**Multimodal 76 → 79.** **CharXiv 89.4%**, **MMVU 80.5%**, **ParseBench 70.55%**, **OfficeQA Pro 62.4%**, **Chartography 78.0%**, **BabyVision 53.4%**. Text + image + video in, text out, no audio — the top of the 75–90 band.
+
+**Security profile worth recording:** AA Cyber Index **49.9%**, CWE-Bench **55.8%**, CyberGym-E2E **74.0%**, but DeepsecBench **19.9%** — capable at known-CWE work, weak at novel exploit discovery.
+
+**Pricing and lifecycle.** **$0.15 in / $0.50 out, $0.03 cached, 1M / 131,072 output** (models.dev) — unchanged, and still the cheapest per-token model in this cohort. Live on Zen.
+
+**Net assessment.** A cheap, natively multimodal agent that lands near the frontier on GDPval and terminal work while staying mid-tier on greenfield coding and hard reasoning. Overall 80 → 82.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (z.ai, huggingface.co, bloomberg/datacamp, benchgen.com, lumadock.com, rankllms.com, llmlearner.com, ai-atlas.co, openrouter.ai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (z.ai, huggingface.co, bloomberg/datacamp, benchgen.com, lumadock.com, rankllms.com, llmlearner.com, ai-atlas.co, openrouter.ai; BenchLM, Vals AI, Artificial Analysis and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — zai-org/GLM-5.3-Flash model card](https://huggingface.co/zai-org/GLM-5.3-Flash)
+  - [Z.AI — GLM-5.3-Flash launch post](https://z.ai/blog)
+  - [BenchLM — GLM-5.3-Flash](https://benchlm.ai/models/glm-5-3-flash)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GLM_5.3_Flash_2.md`, using the same headings.

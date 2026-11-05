@@ -60,10 +60,47 @@ Multimodal:
 - **Cost efficiency: 93/100.** $0.30/$1.20 with $0.06 cache reads, plus 12+ hosting options and open weights — among the best capability-per-dollar in 2026. Sparse attention keeps long-context real.
 - **Overall Score: 81/100.** Mean of the five quality dims (78+81+90+80+78)/5 = 81.4 → 81. The best-value open multimodal workhorse of mid-2026: long-context champion at commodity prices.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 78 | 76 | **−2** |
+| Reasoning | 81 | 79 | **−2** |
+| Context window | 90 | 90 | — |
+| Multimodal | 80 | 82 | **+2** |
+| Coding | 78 | 76 | **−2** |
+| Cost efficiency | 93 | 93 | — |
+| **Overall** | **81** | **81** | **—** |
+
+**BenchLM composite: 49.30/100, #104 of 1014**, from 51 of 739 rows — the widest coverage of any open-weight model in this cohort, and the lowest-ranked model that is still fully live on Zen. The composite is partial-coverage and not comparable to this project's normalized scores, but the ranking is consistent with the small downward corrections below.
+
+**The agentic profile is confirmed mid-tier, not frontier.** **Terminal-Bench 2.1 (Vals) 53.56%** reproduces, against MiniMax's own **66.0%** — the same harness gap the original recorded. Independent rows: **GDPval-AA 33.4% / 1113 Elo**, **AA Agentic Index 22.1%**, **Gert Labs 34.62%**, **AA ITBench 32.0%**, **PostTrainBench 0.371 (#2 overall, #1 open-source, unchanged)**. Tool use moves 78 → 76 because the strongest numbers remain vendor-run.
+
+**Reasoning 81 → 79.** The GPQA spread the original flagged is now resolvable: **AA-GPQA 89.6%**, **Vals GPQA 84.5%**, against the vendor's **92.9%** thinking-mode figure. The independent numbers cluster well below the vendor one, and **AA-HLE 24.6%** plus **CritPt 8.3%** keep it out of the 80s. **AA-LCR 79.4%** still corroborates the long-context strength.
+
+**Coding 78 → 76.** **SWE-bench (Vals) 75.0%** reproduces, and **SWE-bench Verified 80.5%** remains the vendor-side claim. The independent ceiling markers are weaker than a 78 implies: **AA Coding Index 58.6** (unchanged), **Vibe Code Bench 47.57%**, **AA-SciCode 45.4%**, **DeepSWE 39.2%**.
+
+**Multimodal 80 → 82 — the one upward move.** **MMMU-Pro 78.1** is corroborated, and it is joined by **AA-MMMU-Pro 77.8%**, **ParseBench 61.06%** and **CharXiv 74.1%**. Text + image + video + PDF in, text out, no audio — a genuinely purpose-built multimodal profile, and the 82 sits at the top of the 75–90 band.
+
+**Context stays 90, with a spec discrepancy worth recording.** The slug describes the **1M** window, and **AA-LCR 79.4%** remains an elite long-context reading; but the live `opencode` catalogue on models.dev lists **512K context / 128K max output** for this ID. The score stays pinned to the 1M configuration the report researched, and the 512K listing is noted as the gateway's narrower serving limit rather than treated as a model change.
+
+**Pricing and lifecycle.** **$0.30 in / $1.20 out, $0.06 cached, 512K / 128K output** (models.dev) — list price unchanged, so Cost holds at 93. Still live on Zen, with **MiniMax M3.1 Flash** (BenchLM 60.25) now above it on the same composite and cheaper per task.
+
+**Net assessment.** The value case survives — commodity pricing, open weights, best-in-class long context — but the capability ceiling is lower than the original implied on agentic and coding work. Overall holds at 81; three dimensions trim by 2, one gains 2.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (datalearner, cloudprice/models.dev, llm-stats PostTrainBench, benchgecko, llmreference, vals.ai, commandcode, inferencex semianalysis, minimax.io); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (datalearner, cloudprice/models.dev, llm-stats PostTrainBench, benchgecko, llmreference, vals.ai, commandcode, inferencex semianalysis, minimax.io; BenchLM, Vals AI, Artificial Analysis and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [MiniMax — M3 model page](https://www.minimax.io/)
+  - [Hugging Face — MiniMaxAI/MiniMax-M3](https://huggingface.co/MiniMaxAI/MiniMax-M3)
+  - [BenchLM — MiniMax M3](https://benchlm.ai/models/minimax-m3)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `MiniMax_M3_2.md`, using the same headings.

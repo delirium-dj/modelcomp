@@ -21,10 +21,10 @@
 
 Agent / tool use:
 
-- GDPval-AA: **1430** (AA, independent — fills the gap; normalized **44.5%**)
-- Terminal-Bench 2.1: **83.3%** (xAI launch post via benchlm.ai); Vals independent: **67.8%** (−15.5 vendor gap)
-- AA Agentic Index: **42.1%** (AA); Terminal-Bench 3.0: **15.7%** (frontierbench.ai — very weak)
-- Tau3-Banking / MCPAtlas / Claw-Eval: no verified public score found
+- GDPval-AA: **1430** (AA, independent — fills the gap; normalized **44.5%**, Nov 5 refresh reads 44.2% — minor drift)
+- Terminal-Bench 2.1: **83.3%** (xAI launch post via benchlm.ai); Vals independent: **67.8%** (−15.5 vendor gap); AA independent: **81.6%** (NEW, Nov 5 refresh — third reading, closer to the vendor claim)
+- AA Agentic Index: **42.1%** (AA); Terminal-Bench 3.0: **15.7%** (frontierbench.ai — very weak); **AA Tau3-Banking: 42.1%** and **AA EnterpriseOps-Gym: 40.8%** (NEW, BenchLM Nov 5 refresh — fill the previously-missing Tau3 row, weak-mid)
+- Tau3-Banking / MCPAtlas / Claw-Eval: no verified public score found (Tau3-Banking now covered by the AA row above; MCPAtlas/Claw-Eval still missing)
 - Artificial Analysis agentic components: ~14,000 output tokens per Intelligence Index task (~60% fewer than Opus 4.8), corroborating token-efficiency
 
 Reasoning / knowledge:
@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - AA-LCR v1.1: **79.3%** (AA — fills the long-context gap); CritPt: **15.4%** (AA — weak)
 - Artificial Analysis Intelligence Index: **38.8** (AA current board — corroborates the 39 re-based reading; the launch-era "~54, ranked 5th" is historical)
 - MMLU-Pro: **89.2%** (Vals)
-- AA-Omniscience: **51.6% accuracy / 54.1% non-hallucination row / 25.3 index** (AA)
+- AA-Omniscience: **51.6% accuracy / 54.1% non-hallucination row / 25.3 index** (AA) — LABELING DRIFT FLAG: the BenchLM Nov 5 table labels the 54.1% value "Hallucination Rate" (same drift pattern seen on claude-sonnet-4.6); check AA's page before quoting either reading
 - FrontierMath v2 (Epoch AI re-score): **57.2%** Tiers 1–3 / **24.4%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged; no vendor FrontierMath row exists)
 
 Coding:
@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the xAI launch post + Cursor blog, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results via benchlm.ai, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 34-row refresh corroborates all rows (Epoch FrontierMath v2 57.2/24.4% added; Design Arena 1287 → 1283 flagged) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.5 page fetched 2026-11-05 (Nov 5 data, 37 rows) — all prior rows re-confirmed, AA Tau3-Banking 42.1% / EnterpriseOps-Gym 40.8% / AA-TB2.1 81.6% added, minor drift (GDPval 44.5→44.2%, Design Arena 1283→1279), Omniscience-row labeling drift flagged; composite 63.03 #40/1014 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.md`, using the same headings.

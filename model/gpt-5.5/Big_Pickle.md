@@ -55,10 +55,50 @@ Long context:
 - **Cost efficiency: 52/100.** $5/$30 per 1M is a flat 2x over GPT-5.4 — the largest single-release price jump in the line; ~40% token-efficiency offsets some of it (net ~+20% per task), and batch/flex halves the rate, but long-context surcharges add up.
 - **Overall Score: 67/100.** Mean of the five quality dims (67+67+71+61+67)/5 = 66.6. A powerful, genuinely usable-1M agentic flagship whose 2x price hike, jagged mid-tier HLE, and sub-Claude resolution coding keep its composite score in the mid-60s.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; this pass found that the file systematically under-scored the model.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 67 | 80 | **+13** |
+| Reasoning | 67 | 88 | **+21** |
+| Context window | 71 | 84 | **+13** |
+| Multimodal | 61 | 78 | **+17** |
+| Coding | 67 | 82 | **+15** |
+| Cost efficiency | 52 | 52 | — |
+| **Overall** | **67** | **82** | **+15** |
+
+**What went wrong in the original.** The raw section already contained frontier-class numbers — Terminal-Bench 2.0 **82.7%**, GPQA **93.6%**, ARC-AGI-2 **85%**, SWE-bench Verified **82.6%** — but each dimension was scored in the 60s because "nearly everything is OpenAI-run." That is a confidence discount applied to evidence that has since been independently reproduced. BenchLM now carries **73 rows** (the widest coverage in this cohort) and ranks GPT-5.5 **#19 of 1014 at 68.9/100**, above Claude Sonnet 5 (64.45) and Opus 4.6 (62.06).
+
+**Independently corroborated, not new capability:** OSWorld-Verified **78.7%**, MCP Atlas **75.3%**, Toolathlon **55.6%**, τ²-bench **98%**, AA Agentic Index **37.3%**, GDPval-AA **42.5% / 1396 Elo**, AA ITBench **45.8%**, Tau3 Banking **39.0%**, EnterpriseOps-Gym **46.6%**, JobBench **42.7%**. Tool use 67 → 80.
+
+**Reasoning 67 → 88 is the largest correction.** **AA-HLE 45.8%** is the best no-tools HLE reading in this cohort, with **AA-GPQA 93.5%**, **GPQA 93.6%**, **ARC-AGI-2 85%**, **ARC-AGI-1 95%**, **CritPt 27.1%**, **AA Intelligence Index 38.4**, **AA-LCR 84.3%**, and — the standout — **FrontierMath v2 85.263%** (T1–3) / **72.500%** (T4), both the highest in the cohort. The original's "jagged profile" framing does not survive these numbers.
+
+**Coding 67 → 82.** **SWE-bench (Vals) 82.6%**, **AA Coding Index 74.9%**, **Vibe Code Bench 69.85%**, **SciCode 55.8%**, **React Native Evals 84.7%**, **LiveCodeBench (Vals) 85.3%**, **CursorBench 3.2 58.4%**; the soft spots are **SWE-bench Pro 58.6%**, **FrontierCode 1.1 43.0%** and **FrontierCode 2.0 22.6%**.
+
+**Context 71 → 84.** The 1M window is the usable one the original described, and it is now measurable: **MRCR v2 83.1%** at 64K–128K and **87.5%** at 128K–256K, **AA-LCR 84.3%**. The >272K surcharge and 400K Codex cap remain caveats, not score drivers.
+
+**Multimodal 61 → 78.** **MMMU-Pro 81.2%** (83.2% with Python), **AA-MMMU-Pro 79.9%**, **ExtractBench 93.35%**, **ParseBench 66.42%**, OfficeQA Pro **54.1%**. Text + image in, text out, no audio — the original's 61 undersold a strong document/vision profile.
+
+**Cost stays 52.** **$5.00 in / $30.00 out, $0.50 cached, 1.05M / 128K output** — unchanged, and still the second-most expensive model in this cohort. The ~40% token-efficiency offset is real but does not rescue a 2x price tier.
+
+**One honesty caveat.** AA-Omniscience reads **58.0% accuracy** (best in cohort) but **89.0% hallucination rate** — high knowledge, low calibration.
+
+**Lifecycle.** Superseded by GPT-5.6 Terra (69.89), Sol (74.88) and GPT-6.1 Terra (80.79) on the same composite.
+
+**Net assessment.** The numbers were there; the scoring was not. Corrected Overall 67 → 82 — still below Terra's 85 in this file, which is the right ordering given Terra's stronger terminal/agentic rows.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (openai.com launch post, developers.openai.com docs, aireleasetracker.com, llmreference.com, tokenmix.ai, theairankings.com, modelcap.ai, o-mega.ai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (openai.com launch post, developers.openai.com docs, aireleasetracker.com, llmreference.com, tokenmix.ai, theairankings.com, modelcap.ai, o-mega.ai; BenchLM, Vals AI, Artificial Analysis and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — Introducing GPT-5.5](https://openai.com/index/introducing-gpt-5-5/)
+  - [BenchLM — GPT-5.5](https://benchlm.ai/models/gpt-5-5)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.5_2.md`, using the same headings.

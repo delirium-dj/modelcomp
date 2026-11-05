@@ -33,14 +33,15 @@ Agent / tool use:
 - Tau3-Banking / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 - Added 2026-10-16 (BenchLM refresh): GDPval-AA **Elo 1711** / 60.6% normalized (AA board — vs the 1695/59.8% earlier reading, both cited); AA Terminal-Bench 4.0 **25.8%** — CONFLICT with xAI's own 38.0% (harness difference, both cited); AA ITBench **42.1%**; CWE-bench v1 **68.0%**; AA-AnalystAgent **52.5%**; Hermes Bench **74.4%** / Hermes Index **39.3%**; MazeBench ASCII **1%**; MLCR-AA **15.0%**; Bug Hunt Bench **28.8 fixes**
 - FrontierMath v2: Tiers 1–3 **53.0%**, Tier 4 **17.1%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured)
+- Added 2026-11-05 (BenchLM Nov 5 refresh, now 42 rows and **unranked** — BenchLM no longer computes a composite for it): **ARC-AGI-1 89.50% / ARC-AGI-2 61.4% / ARC-AGI-3 1.8% / provider-adapter 7.02%** (ARC Prize published semi-private results — first ARC rows for this model); **AA Cyber Index 56.4%, CWE-Bench-AA 68.3%, DeepsecBench-AA 26.9%, CyberGym-E2E-AA 74.0%** (AA cyber suite); **FrontierCode 2.0: 28.6%** (Cognition — weak); drift: GDPval-AA 1711→**1718** / 60.6→**60.7%**, MLCR-AA 15.0→**20.0%**, Bug Hunt 28.8→**29.0** fixes, Design Arena Website **1248** (new)
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index v4.3.2: **46** (BenchLM lists 46.5%, AA article "Benchmarking Grok 4.7" confirms 46 — brings xAI into the top-4 labs; **#21 of 211** reasoning-class models; median 26)
+- Artificial Analysis Intelligence Index v4.3.2: **46** (BenchLM lists 46.5%, AA article "Benchmarking Grok 4.7" confirms 46 — brings xAI into the top-4 labs; **#21 of 211** reasoning-class models; median 26); Nov 5 refresh reads **35.5%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - AA-HLE: **43.1%** (BenchLM)
 - AA-LCR v1.1 (long-context reasoning): **76.7%** (BenchLM)
 - CritPt (physics reasoning): **17.7%** (BenchLM)
-- AA-Omniscience Index / Accuracy / Hallucination Rate: **32.0** / **47.4%** / **29.3%** (BenchLM)
+- AA-Omniscience Index / Accuracy / Hallucination Rate: **32.0** / **47.4%** / **29.3%** (BenchLM, Oct reading); Nov 5 refresh re-reads **31.2 / 42.7% / 20.0%** — hallucination-rate improved on re-measurement, accuracy down; both cited
 - HealthBench Professional (clinical reasoning): **56.7%** (BenchLM; xAI table: trails Sol 60.5% and Fable 5.1 62.1%)
 - LatchBio biosafety: **62.4%** — tops the benchmark (xAI, via officechai — new safety row)
 - GPQA Diamond / MLCR: no verified public score found (AA-LCR is the closest long-context proxy)
@@ -67,7 +68,7 @@ Safety:
 ### Normalized scores (1–100)
 
 - **Tool use: 75/100.** GDPval-AA 1695 Elo (confirmed with Fable 5.1's 1735 and GPT-6 Astra's 1542) and AutomationBench 65.6% sit near the frontier band, and TB2.1 (Vals) 73.4% is solid; capped by Terminal-Bench 4.0 at 38.0% (Fable 5.1 57.9% — ~20 pts), Harvey LAB 19.6%, and missing Tau3-Banking numbers.
-- **Reasoning: 80/100.** HLE 43.1% and AA-LCR 76.7% are strong, and the AA Intelligence Index of 46 (#21/211, now confirmed by AA's own article) is well above the mid band; capped by CritPt 17.7% (physics) and a mediocre 29.3% hallucination rate / 32.0 Omniscience Index.
+- **Reasoning: 80/100.** HLE 43.1% and AA-LCR 76.7% are strong, the AA Intelligence Index of 46 (#21/211, v4.3.2 scale) is well above the mid band, and the new ARC-AGI-2 61.4% (ARC Prize semi-private, added Nov 5) is a solid abstract-reasoning pillar — capped by CritPt 17.7% (physics), the near-floor ARC-AGI-3 1.8%, and a mediocre Omniscience profile (acc 42.7%/halluc 20.0% on the Nov re-read).
 - **Context window: 86/100.** 500k lands in the 500K–1M tier (85–94 per methodology); no measured retrieval at 512K+ (which would unlock higher) and unspecified max output cap it.
 - **Multimodal: 65/100.** Image input (jpg/png, 20 MiB) + text output maps to the +image-in band (60–70); no video/PDF/audio input and no non-text output prevent a higher score.
 - **Coding: 80/100.** DeepSWE 71.0% (at high effort; beats Fable 5.1) and AA-SciCode 57.4% sit at/near frontier reference bands, with EEBench 64.0% supporting; capped by FrontierSWE v2 29.5%, CursorBench 46.3%, and missing SWE-bench Verified / LiveCodeBench verification.
@@ -78,6 +79,6 @@ Safety:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (xAI docs, Artificial Analysis model/release/article pages, BenchLM, officechai's xAI launch-table coverage, SWE-bench site cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds xAI's published launch-table comparisons (GDPval 1695 with Fable 5.1/Astra context, CursorBench vs Fable 5.1 51.8%, fast-variant pricing), new safety rows (LatchBio 62.4%, HackerBench 3.3%) and AA's confirmed Index 46; 2026-10-16 re-check: GDPval 1711, AA-TB4.0 25.8% conflict, FrontierMath 53.0/17.1 and Hermes/CWE rows added — no score changes).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.7 page fetched 2026-11-05 (Nov 5 data, 42 rows, now unranked/no composite) — ARC-AGI 1/2/3 rows, four AA cyber rows and FrontierCode 2.0 added; drift re-reads cited (GDPval 1718/60.7%, MLCR 20.0%, Omniscience 31.2/42.7/20.0, AA Index 35.5 = v5.0-class rebase of the v4.3.2 46, documented not averaged) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

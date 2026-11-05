@@ -61,10 +61,48 @@ Multimodal:
 - **Cost efficiency: 97/100.** $0.20/$1.20 with $0.02 caching makes it the value king of the GPT-5.6 family — frontier-adjacent behavior at ~6 cents on the dollar presides.
 - **Overall Score: 79/100.** Mean of the five quality dims (82+84+78+72+78)/5 = 78.8 → 79. A genuinely capable budget/nano workhorse that turns cost-efficiency into usable agentic performance; the best pick for scale, not for peak quality.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 82 | 84 | **+2** |
+| Reasoning | 84 | 86 | **+2** |
+| Context window | 78 | 80 | **+2** |
+| Multimodal | 72 | 78 | **+6** |
+| Coding | 78 | 82 | **+4** |
+| Cost efficiency | 97 | 97 | — |
+| **Overall** | **79** | **82** | **+3** |
+
+**BenchLM composite: 63.94/100, #37 of 1014**, from 53 of 739 rows (partial coverage — conservative, not comparable to this project's normalized scale).
+
+**The contested SWE-bench row is not a mistake — it is a harness split.** The original flagged 79.8% (OpenAI card) vs 93.0% (Vals) as contested. Both stand: **SWE-bench (Vals) 93.0%** is reproduced on Vals' harness, while OpenAI's card number comes from its own scaffold. On a mixed-evidence basis the model is stronger than the 78 originally assigned, so Coding moves to 82 on the back of **SWE-bench Pro 62.7%**, **DeepSWE 67.2%**, **AA Coding Index 71.5%**, **SciCode 53.6%**, **CursorBench 3.2 61.1%**, **FrontierCode 1.1 Extended 55.1%** — with **CursorBench 4.0 35.9%** as the counterweight.
+
+**Reasoning 84 → 86.** **AA Intelligence Index 51.2** is the second-highest in this cohort, alongside **AA-HLE 39.5%**, **GPQA 92.3%** (AA-GPQA 91.1%, Vals 91.7%), **ARC-AGI-2 59.5%**, **CritPt 20.6%**, **FrontierMath v2 78.600%** (T1–3) / **58.500%** (T4). ARC-AGI-2 at 59.5% is the number that keeps it below Terra (83.9%).
+
+**Tool use 82 → 84.** **Terminal-Bench 2.1 84.7%** (Vals 79.0%), **BrowseComp 83.3%**, **GDPval-AA 48.0% / 1582 Elo**, **AA Agentic Index 42.7%**, **Toolathlon 53.4%**, **OSWorld 2.0 45.6%**, **ITBench 40.3%**, **EnterpriseOps-Gym 40.8%**. The cheap-tier agent story holds up under independent measurement.
+
+**Context 78 → 80.** The split is now explicit: **AA-LCR 83.7%** is strong long-context reasoning, while **MRCR v2 41.3%** and **GraphWalks 1M 51.2%** remain weak retrieval. Huge window, mediocre needle-finding — the original's framing was right and slightly harsh.
+
+**Multimodal 72 → 78.** The original said "no verified public score found"; there are now three: **MMMU-Pro 78.4%** (79.5% with Python), **AA-MMMU-Pro 78.6%**, **ExtractBench 91.16%**, plus **ParseBench 66.86%**.
+
+**Pricing and lifecycle.** **$0.20 in / $1.20 out, $0.02 cached, 1.05M / 128K output** — unchanged on models.dev and Zen; still the cheapest credible 1M-context agent in the cohort. Live.
+
+**Honesty caveat.** AA-Omniscience **42.7% accuracy / 92.6% hallucination / index −10.3** — the worst hallucination rate in this cohort. Cheap and capable, but not a factual oracle.
+
+**Net assessment.** A budget tier that measures like a mid-frontier model. Every dimension moves up modestly, Overall 79 → 82, and Cost stays at 97 — the value case is stronger than the original, not weaker.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (openai.com, developers.openai.com, benchr.org, artificialanalysis.ai, waitwhichmodel.fyi, writingmate.ai); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (openai.com, developers.openai.com, benchr.org, artificialanalysis.ai, waitwhichmodel.fyi, writingmate.ai; BenchLM, Vals AI and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — GPT-5.6](https://openai.com/index/gpt-5-6/)
+  - [BenchLM — GPT-5.6 Luna](https://benchlm.ai/models/gpt-5-6-luna)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.6_Luna_2.md`, using the same headings.

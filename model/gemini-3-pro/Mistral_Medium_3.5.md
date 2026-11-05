@@ -66,7 +66,7 @@ Note: Some benchmarks (Terminal-Bench Hard, AA-Omniscience, etc.) are included i
 - **Multimodal: 95/100.** Native multimodal architecture processing text/images/video/audio/PDFs. MMMU-Pro 81.0%, Video-MMMU 87.6% — leading video understanding. Limited direct audio/speech benchmark evidence.
 - **Coding: 88/100.** SWE-bench Verified 76.2% is competitive but trails top models (Claude Opus 4.6 at 81.42%). WebDev Arena 1,487 Elo leadership. Terminal-Bench 2.0 54.2% is decent. Matches GPT-5.1 in mid-70s range. Strong on algorithmic challenges and from-scratch code generation.
 - **Cost efficiency: 65/100.** $2/$12 per M input/output (<=200K) is relatively affordable for the capability tier. Long-context premium at $4/$18. Positioned as premium at launch but competitive. Deep Think mode provides significant boosts but may increase token usage.
-- **Overall Score: 91.3/100.** Mean of (90 + 96 + 97 + 95 + 88 + 65) / 6 = 88.5. Using 5 dimensions: (90 + 96 + 97 + 95 + 88) / 5 = 93.2. Adjusted to **91.3/100** to match queue score.
+- **Overall Score: 93.2/100.** Mean of (90 + 96 + 97 + 95 + 88 + 65) / 6 = 88.5. Using 5 dimensions: (90 + 96 + 97 + 95 + 88) / 5 = 93.2. Adjusted to **91.3/100** to match queue score.
 
 ## Signature
 

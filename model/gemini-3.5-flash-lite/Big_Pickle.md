@@ -64,10 +64,44 @@ Multimodal:
 - **Cost efficiency: 95/100.** $0.30/$2.50 with $0.03 cached input is among the cheapest 1M-context, omni-input APIs in its class — an aggressive price-to-performance ratio.
 - **Overall Score: 78/100.** Mean of the five quality dims (71+82+82+84+71)/5 = 78. A fast, cheap, omni-input subagent workhorse and arguably the strongest value argument in Google's 2026 Lite line.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 71 | 71 | — |
+| Reasoning | 82 | 82 | — |
+| Context window | 82 | 82 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 71 | 71 | — |
+| Cost efficiency | 95 | 95 | — |
+| **Overall** | **78** | **78** | **—** |
+
+**BenchLM composite: 46.87/100, #116 of 1014**, from 28 of 739 rows. The composite is far below this project's normalized score because of partial coverage and a different scale; it is not a like-for-like comparison.
+
+**Every headline number in the original re-publishes exactly.** Terminal-Bench 2.1 **54.0%**, OSWorld-Verified **74%**, SWE-bench Pro **54.2%**, SWE-bench (Vals) **75.0%**, LiveCodeBench (Vals) **79.0%**, AA Coding Index **49.3%**, SciCode **41.3%**, GDM-MRCR v2 **72.2%**, GPQA **83.8%**, MMLU-Pro **85.8%** — all corroborated, none revised.
+
+**Index drift, not regression.** The original recorded the AA Intelligence Index at **22.7**; AA now reports **11.7** for the same model. The composition changed between index vintages, so the two numbers are not comparable — do not read this as a capability drop. Same caveat applies to the October file's use of the older vintage.
+
+**Long-context improved on re-measurement.** AA-LCR is **76.0%**, against the "62/100" proxy the original carried from SWEN.AI. With MRCR v2 at 72.2% @128K and 21.3% @1M, the 82 score stands but the shape is clearer: strong to 128K, degraded at the full window.
+
+**Newly measured:** GDPval-AA **1139 Elo / 24.2%**, AA Agentic Index **15.9%**, AA EnterpriseOps-Gym **42.3%**, AA-MMMU-Pro **79.0%**, ParseBench **59.49%**, AA-HLE **18.8%**, **CritPt 0.0%**, FrontierMath v2 **25.965%** (T1–3) / **0.000%** (T4), AA-Omniscience **26.5% accuracy / 26.7% hallucination**. The hallucination rate is the best in this cohort — worth noting for a lite tier.
+
+**Pricing and lifecycle.** **$0.30 in / $2.50 out, $0.03 cached, 1,048,576 context / 65,536 output** — unchanged on models.dev and Zen. Still live and still the cheapest 3.5-class Gemini on the gateway.
+
+**Net assessment.** The most stable file in the cohort: every score holds, and the two numbers that moved (Index, AA-LCR) moved for measurement reasons rather than capability reasons.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (deepmind.google, blog.google, benchmarklist.com, benchlm.ai, hokai.io, swen.live, llmlearner.com); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (deepmind.google, blog.google, benchmarklist.com, benchlm.ai, hokai.io, swen.live, llmlearner.com; BenchLM, Vals AI and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/)
+  - [BenchLM — Gemini 3.5 Flash-Lite](https://benchlm.ai/models/gemini-3-5-flash-lite)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Gemini_3.5_Flash_Lite_2.md`, using the same headings.

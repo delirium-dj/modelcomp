@@ -25,20 +25,20 @@ Agent / tool use:
 - Terminal-Bench 2.1: **87.9%** (DeepSeek V4 Pro 0813 API update table via benchlm.ai, updated 2026-10-10 — fills the gap; the prior pass only had TB2.0 67.9); Vals independent: **54.7%** (wide vendor-vs-independent gap)
 - Toolathlon-Verified: **74.1%** (0813 API table — a large upgrade from the preview build's 51.8% the prior pass cited)
 - GDPval-AA: **1306** (technical report via benchlm.ai — fills the gap; AA-normalized **54.5%**); AA Agentic Index: **49.6%** (AA); AA EnterpriseOps-Gym: **49.6%**
-- CyberGym: **83.3%**; BrowseComp: **83.4%**; MCPAtlas: **73.6%** (leads Opus 4.6's 72.1); DSBench-Hard: **67.2%** / FullStack: **71.1%**; AutomationBench: **31.8%**; Agents' Last Exam: **25.7%**; APEX-Agents-AA: **24.3%** (AA)
+- CyberGym: **83.3%**; BrowseComp: **83.4%**; MCPAtlas: **73.6%** (leads Opus 4.6's 72.1); DSBench-Hard: **67.2%** / FullStack: **71.1%**; AutomationBench: **31.8%**; Agents' Last Exam: **25.7%**; APEX-Agents-AA: **24.3%** (AA); **AA Tau3-Banking: 39.6%** (NEW, BenchLM Nov 5 refresh — fills the Tau3 gap, weak); **Finch: 67.4%** (NEW, Mistral Large 4 comparison table)
 - Terminal-Bench 2.0: **67.9%**; Toolathlon (preview build): **51.8%** (technical report)
 - Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
 
-- HLE: **60.0%** with tools (0813 API table — a major upgrade from the preview's 37.7%); AA-HLE: **41.0%** (AA — above the 40% bar)
+- HLE: **60.0%** with tools (0813 API table — a major upgrade from the preview's 37.7%); HLE w/o tools: **42.7%** (NEW, 0813 table via BenchLM Nov 5 refresh); AA-HLE: **41.0%** (AA — above the 40% bar)
 - GPQA Diamond: **90.1%** (technical report); AA independent: **92.8%**; Vals: **92.4%** — corroborated across three sources
 - ARC-AGI-1: **90.0%**; ARC-AGI-2: **61.3%** (ARC Prize verified, V4 Pro 0813 — fills the ARC gap)
 - Artificial Analysis Intelligence Index: **53.2** (AA — fills the "no AA index" gap; solid)
 - AA-LCR v1.1: **80.3%** (AA — fills the long-context gap); CritPt: **18.0%** (AA)
-- MMLU-Pro: **87.5%** (technical report; Vals 87.0% — corroborated); Chinese-SimpleQA: **84.4%**
+- MMLU-Pro: **87.5%** (technical report; Vals 87.0% — corroborated); Chinese-SimpleQA: **84.4%**; AA-IFBench: **76.5%** (NEW, BenchLM Nov 5 refresh); Design Arena Website: **1258** (NEW)
 - AIME 2026: **94.3%**; HMMT Feb 2026: **95.2%**; IMOAnswerBench: **89.8%**; Apex: **38.3%** / Apex Shortlist: **90.2%**; Codeforces: **3206** (technical report)
-- AA-Omniscience: **49.1% accuracy / 94.1% non-hallucination row / 0.8 index** (AA)
+- AA-Omniscience: **49.1% accuracy / 94.1% non-hallucination row / 0.8 index** (AA) — LABELING DRIFT FLAG: the BenchLM Nov 5 table labels the 94.1% value "Hallucination Rate" (same drift pattern seen on claude-sonnet-4.6/grok-4.5); the near-zero 0.8 index caps the factuality story either way; check AA's page before quoting
 
 Coding:
 
@@ -67,6 +67,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the DeepSeek-V4 technical report + 0813 API update tables, Artificial Analysis model benchmarks, Vals AI leaderboards, ARC Prize verified results via benchlm.ai, plus the prior 2026-10-08 pass); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM DeepSeek-V4-Pro-0813 page fetched 2026-11-05 (Nov 5 data, 61 rows) — all prior rows re-confirmed with zero value changes; AA Tau3-Banking 39.6%, Finch 67.4%, HLE w/o tools 42.7%, AA-IFBench 76.5% and Design Arena 1258 added; Omniscience-row labeling drift flagged; composite 62.65 #42/1014 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_4.md`, using the same headings.

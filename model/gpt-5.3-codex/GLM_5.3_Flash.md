@@ -56,7 +56,7 @@ Long context:
 
 Multimodal / vision:
 
-- MMMU-Pro: **78.5%** #69 (AA — fills the previously-missing vision measurement)
+- MMMU-Pro: **78.5%** #69 (AA — fills the previously-missing vision measurement); Design Arena Website: **1161** (NEW, BenchLM Nov 5 refresh)
 
 ### Normalized scores (1–100)
 
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full tables data as of 2026-10-09 citing AA and Vals boards, OpenCode Zen docs cross-checked; re-researched 2026-10-16: official system-card SWE-V 85%, SWE-Pro 56.8% filled, OSWorld 64.7% added — Tool 85→86, Coding 85→88, Overall 81→82); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing SWE-V 74.8% #15, LCB 87.3% #15, TB 78.4% #6, GPQA 91.5% #46, HLE 42.5% #61, AA-LCR 83.3% #19, CritPt 16.9%, Vibe 61.8%, MMMU-Pro 78.5%, METR 74.5% #6 — Tool 54→85, Reasoning 63→85, Context 75→78, Multimodal 65→72, Coding 64→85, Overall 64→81.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-5.3-Codex page fetched 2026-11-05 (Nov 5 data, 19 rows) — all prior rows re-confirmed with zero value changes, Design Arena Website 1161 added; composite 62.92 #41/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.4.md`, using the same headings.

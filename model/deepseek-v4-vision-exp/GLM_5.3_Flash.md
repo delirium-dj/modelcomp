@@ -72,6 +72,6 @@ Multimodal agent (the headline section):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: freshly fetched Hugging Face model card + eval-results hub (datacurve/harborframework/HKUST leaderboard links), OpenRouter provider-hosted GPQA/τ² evals from the prior pass, the prior 2026-10-08 pass on the official comparison table; confirmed no AA/BenchLM page exists; 2026-10-16 re-check: BenchLM still 404s, the live HF card reproduces the comparison table identically and the eval-results hub links confirm DeepSWE 59.3/TB2.1 83.9/Toolathlon 75.9 — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s for this experimental checkpoint (both slug variants tried 2026-11-05), and the live Hugging Face model card reproduces the official comparison table identically (all 11 rows) with the eval-results hub confirming DeepSWE 59.3 / TB2.1 83.9 / Toolathlon-Verified 75.9 — re-verified, no new evidence, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -70,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (independent NovAI testing May 2026, ByteDance benchmark report, Volcano Engine pricing via TokenMix/opper, llm-stats, RankLLMs, Neura Market cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds the independent NovAI harness rows (HumanEval+ 89.5, LeetCode-Hard 31/50, code review 24/30, MMLU-Pro 86.4, GSM8K 96.4, FLORES-200, HK latency 312ms), HMMT 97.3 and RankLLMs/Neura composites — Tool 65→68, Overall 80 (evidence now independent); 2026-10-16 re-check: knowledge-cutoff conflict (Jan-2024 claim) and 131K max-output conflict documented — Context 76→77, Overall 80 holds (68+88+77+85+85 = 403/5 = 80.6)).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM 404s for this model under both slug variants tried (seed-2-0-pro, doubao-seed-2-0-pro) and Artificial Analysis has no model page (404) as of 2026-11-05 — no new evidence reachable; scores carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Seed_2.md`, using the same headings.

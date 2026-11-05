@@ -26,7 +26,7 @@ Agent / tool use:
 - Terminal-Bench 2.1: **63.8%** (launch post; AA 55.1%, Vals 47.6%; AA Terminal-Bench 4.0: **1.0%** — very weak on the recalibrated board)
 - BrowseComp: **77.1%** (launch post)
 - MCP Atlas: **74.1%** (launch post)
-- GDPval-AA: **1076 Elo** / 28.8% (AA board, 2026-10-15 refresh; the 2026-10-09 reading was 1079/28.9% — same value within rounding)
+- GDPval-AA: **1076 Elo** / 28.8% (AA board, 2026-10-15 refresh; the 2026-10-09 reading was 1079/28.9% — same value within rounding); Nov 5 refresh reads **1080 / 28.6%** — minor drift
 - AA Briefcase: **832 Elo** (AA); AA Tau3 Banking: **29.1%**; AA AutomationBench: **5.0%**; AA EnterpriseOps-Gym: 38.0%; AA-AnalystAgent: 23.8%; AA Agentic Index: **24.3%** (AA)
 - CWE-bench v1: **37.0%** (Collinear via benchlm.ai)
 - GDP.pdf: 12.8% (AA); Design Arena Agentic Web Dev: **1257** / Website: **1225** (2026-10-15 refresh; was 1228)
@@ -39,9 +39,9 @@ Reasoning / knowledge:
 - HLE: **46%** with tools / **30%** without (launch post; AA-HLE **31.9%**)
 - AA-LCR: **77.3%** (AA long-context-reasoning board); MLCR-AA: **12.2%**; CritPt: **5.4%**
 - FrontierMath v2: Tiers 1–3 **33.3%**, Tier 4 **4.9%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; weak, consistent with CritPt)
-- Artificial Analysis Intelligence Index: **25.0** (AA current reading — updates the 2026-09-24 draft's "42 (xhigh) / 14th of 107", which predates the index recalibration)
-- AA-Omniscience: Index 2.0, accuracy **41.6%**, hallucination rate **67.7%** (poor)
-- MMLU-Pro (Vals): **86.3%**; IFBench: **79.8%** (launch post)
+- Artificial Analysis Intelligence Index: **25.0** (AA current reading — updates the 2026-09-24 draft's "42 (xhigh) / 14th of 107", which predates the index recalibration); Nov 5 refresh reads **12.5%** — another AA Index **scale rebase** (v4.3.2→v5.0-class), documented per RULES, never averaged across scales
+- AA-Omniscience: Index 2.0, accuracy **41.6%**, hallucination rate **67.7%** (poor); Nov 5 refresh re-reads Index **−1.5** / accuracy **39.3%** / hallucination **67.2%** — slightly worse on re-measurement
+- MMLU-Pro (Vals): **86.3%**; IFBench: **79.8%** (launch post); MLCR-AA Nov 5 re-read: **6.1%** (was 12.2% — drift flagged)
 
 Coding:
 
@@ -74,6 +74,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables citing the Thinking Machines Inkling launch post, AA and Vals boards — official card plus two independent harnesses; re-researched 2026-10-16 against the BenchLM 2026-10-15 refresh — FrontierMath v2 33.3%/4.9% added, GDPval 1076 reconfirmed); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Inkling page fetched 2026-11-05 (Nov 5 data, 49 rows) — all prior rows re-confirmed with zero new harness rows; drift re-reads cited (GDPval 1080/28.6%, MLCR 6.1%, Omniscience −1.5/39.3/67.2, AA Index 12.5 = scale rebase of the 25.0 v4.3.2-class read, documented not averaged); composite 48.1 #111/1014 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Inkling_2.md`, using the same headings.

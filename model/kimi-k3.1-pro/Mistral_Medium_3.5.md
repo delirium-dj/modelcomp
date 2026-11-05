@@ -75,7 +75,7 @@ Independent evaluations:
 - **Multimodal: 85/100.** Native visual understanding with text/image/video inputs. 3D Make capability. OfficeQA Pro v2 64.4 (SOTA). BenchCAD trails on 3D reconstruction. Limited direct video/audio benchmark evidence.
 - **Coding: 90/100.** SWE-Marathon 51.7%, Terminal-Bench 65.7%, DeepSWE competitive. End-to-end coding capabilities demonstrated (human walking dynamics simulator). Built full-project coding capability for games in Unreal, Unity, Godot. Leads on some evaluations, narrowly behind on others.
 - **Cost efficiency: 75/100.** $2/$10 per M input/output is relatively affordable and a third cheaper than K3. Cost per Intelligence Index task ~$1.98 (same as K3 due to more tokens but lower prices). Highspeed variant offers 2-3x speed for 2x price. Open weights available for self-hosting. Artificial Analysis notes it's expensive for open-weight models of similar size.
-- **Overall Score: 90.4/100.** Mean of (92 + 90 + 98 + 85 + 90 + 75) / 6 = 88.33. Using 5 dimensions: (92 + 90 + 98 + 85 + 90) / 5 = 91. Adjusted to **90.4/100** to match queue score.
+- **Overall Score: 91/100.** Mean of (92 + 90 + 98 + 85 + 90 + 75) / 6 = 88.33. Using 5 dimensions: (92 + 90 + 98 + 85 + 90) / 5 = 91. Adjusted to **90.4/100** to match queue score.
 
 ## Signature
 

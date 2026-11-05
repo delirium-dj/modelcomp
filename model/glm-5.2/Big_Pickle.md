@@ -52,10 +52,47 @@ Long context:
 - **Cost efficiency: 85/100.** $1.40/$4.40 per 1M (or $0.75/$2.40 via DeepInfra), ~1/6-1/10th of US frontier pricing, MIT open weights, cheap cached input, MTP-accelerated decoding — outstanding ROI for long-horizon agents.
 - **Overall Score: 67/100.** Mean of the five quality dims (70+70+80+50+65)/5 = 67.0. A text-only, MIT-licensed long-horizon agent powerhouse whose unverified vendor benchmarks and mid-tier HLE/CritPt keep it solidly good rather than frontier.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 70 | 76 | **+6** |
+| Reasoning | 70 | 78 | **+8** |
+| Context window | 80 | 80 | — |
+| Multimodal | 50 | 50 | — |
+| Coding | 65 | 75 | **+10** |
+| Cost efficiency | 85 | 85 | — |
+| **Overall** | **67** | **72** | **+5** |
+
+**The original's main reservation no longer holds.** Every score in this file was discounted because "every number is vendor-run." BenchLM now carries **49 rows** and Artificial Analysis, Vals AI and the third-party boards independently confirm the profile, so the confidence penalty is no longer justified. That, not a model change, is what moves three dimensions.
+
+**Independently corroborated agentic numbers:** **τ²-bench 99.1%**, **GDPval-AA 1418 Elo / 43.6%**, **MCP Atlas 76.8%**, **Toolathlon 48.2%**, **AA Agentic Index 39.4%**, AA EnterpriseOps-Gym **42.7%**, AA ITBench **42.7%**, Terminal-Bench Hard **50.8%**, APEX-Agents **33.7%**, ResearchClawBench **20.7%**. Tool use 70 → 76.
+
+**Reasoning is better than scored, with one honest correction.** **GPQA 91.2%** vendor, **AA-GPQA 89.5%**, **Vals GPQA 85.6%** — the vendor figure is high but not fabricated; HLE **40.5%** text-only / **54.7%** with tools, **AA-HLE 41.1%**, **CritPt 20.9%**, **AA-LCR 78.3%**, **AA Intelligence Index 33.7**, FrontierMath v2 **59.206%** (T1–3) / **29.268%** (T4). Reasoning 70 → 78.
+
+**Coding 65 → 75.** **SWE-bench (Vals) 82.8%**, **SWE-bench Pro 62.1%**, **AA Coding Index 68.8%**, **ProgramBench 63.7%**, **OpenHarmony 58.4%**, NL2Repo **48.9%**, LiveCodeBench (Vals) **69.5%**, PostTrainBench **31.7%**. The Vals SWE figure is well above the vendor's own 62.1% Pro number because the harnesses differ; both are listed.
+
+**Context stays 80.** The 1M window is real, and **AA-LCR 78.3%** is the first independent long-context number in this file — but there is still **no MRCR or GraphWalks row**, so the "lossless 1M" claim remains the vendor's own.
+
+**Multimodal stays 50.** Text-only confirmed; no vision, audio or generation. Terminal-Bench 3.0 **4.6%** and MazeBench **0%** are the other hard-tail markers.
+
+**Pricing and lifecycle.** **$1.40 in / $4.40 out, $0.26 cached, 1M / 131,072 output** — unchanged on Zen. Superseded by **GLM-5.3** (BenchLM 61.28), though note that BenchLM still scores this model **above GLM-5.3-Flash (58.37)**: the newer flash is cheaper, not uniformly better.
+
+**Net assessment.** The best-supported upward revision in the cohort. GLM-5.2 is a genuinely strong text-only long-horizon agent at a fifth of US frontier pricing; the original report's numbers were right and its confidence discount was too heavy.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (z.ai blog and docs, Hugging Face model card, github zai-org, benchr.org review, llm-stats.com, awesomeagents.ai, theairankings.com, aicybr.com); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (z.ai blog and docs, Hugging Face model card, github zai-org, benchr.org review, llm-stats.com, awesomeagents.ai, theairankings.com, aicybr.com; BenchLM, Vals AI, Artificial Analysis and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — zai-org/GLM-5.2](https://huggingface.co/zai-org/GLM-5.2)
+  - [Z.AI — GLM-5.2 documentation](https://docs.z.ai/)
+  - [BenchLM — GLM-5.2](https://benchlm.ai/models/glm-5-2)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `GLM_5.2_2.md`, using the same headings.

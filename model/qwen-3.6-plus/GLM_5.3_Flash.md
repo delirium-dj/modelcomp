@@ -28,7 +28,7 @@ Agent / tool use:
 - Claw-Eval: **58.8%** (Claw-Eval leaderboard via benchlm.ai — fills the previously-missing Claw row); QwenClawBench: **57.2%** (in-house)
 - GDPval-AA: **1066 Elo** / 24.7% (AA — fills the previously-missing GDPval row)
 - MCP Atlas: **48.2%**; MCP-Tasks: **74.1%**; WideResearch: **74.3%**; Toolathlon: **39.8%** (Qwen blog/benchlm.ai)
-- VITA-Bench: 44.3%; DeepPlanning: 41.5%; Gert Labs: 50.6%; ResearchClawBench: 18.0% (benchlm.ai)
+- VITA-Bench: 44.3%; DeepPlanning: 41.5%; Gert Labs: 50.6%; ResearchClawBench: 18.0% (benchlm.ai); **TB-Hard (AA): 43.9%** (NEW, BenchLM Nov 5 refresh — weak-mid)
 - Artificial Analysis Intelligence Index v4.3.2: **27.0** (corroborates the earlier 27 estimate — #70-class)
 
 Reasoning / knowledge:
@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - AA-LCR: **78.3%** (AA long-context-reasoning board — fills the previously-missing LCR); LongBench v2: **62%**; AI-Needle: **68.3%** (Qwen blog)
 - CritPt: **2.9%** (AA — weak)
 - AIME26: **95.3%**; HMMT Feb 2026: **87.8%**; FrontierMath v2: T1–3 **38.2%** (Epoch 2026-10-15 refresh; was 26.2% on 2026-10-09 — re-scored upward), T4 8.3% (previous reading); HMMT Feb 2025 **96.7%** / HMMT Nov 2025 **94.6%** / MMAnswerBench **83.8%** (added 2026-10-16)
-- MMLU-Pro: **88.5%** (Qwen blog; Vals 87.7%); MMLU-Redux 94.5%; C-Eval 93.3%; SuperGPQA 71.6%; AA-Omniscience hallucination rate **34.6%**
+- MMLU-Pro: **88.5%** (Qwen blog; Vals 87.7%); MMLU-Redux 94.5%; C-Eval 93.3%; SuperGPQA 71.6%; AA-Omniscience hallucination rate **34.6%** (Nov 5 refresh adds Index **0.9** / accuracy **26.4%** — near-zero index, weak)
 - IFEval: **94.3%**; IFBench: **75.8%**; AA-IFBench: **75.2%**
 
 Coding:
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables citing the Qwen3.6-Plus blog and AA/Vals boards, updated 2026-10-09; Artificial Analysis, CloudPrice, OpenCode Zen docs cross-checked); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing SWE-V 78.8%, LCB 87.1%, TB2.0 61.6%, Claw-Eval 58.8%, Tau2 97.7%, Tau3 70.7%, GDPval-AA 1066, GPQA 90.4%, HLE 28.8%, AA-LCR 78.3%, MMMU-Pro 78.8% — Tool 52→72, Reasoning 60→78, Multimodal 80→85, Coding 58→82, Overall 69→82; 2026-10-16 re-check: FrontierMath re-scored 26.2→38.2, NL2Repo/MMLU-ProX/HMMT rows added — Reasoning 78→79, Overall 82 holds (72+79+93+85+82 = 411/5 = 82.2)).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.6-Plus page fetched 2026-11-05 (Nov 5 data, 65 rows) — all prior rows re-confirmed, TB-Hard (AA) 43.9% and AA-Omniscience Index/accuracy rows added, minor drift only (GDPval-AA 24.7→24.5%, Design Arena 1247→1241); composite 53.66 #87/1014 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.7.md`, using the same headings.

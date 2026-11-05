@@ -66,10 +66,45 @@ Original research date 2026-09-20. Re-run requested by the user to compare prior
 
 **Net assessment:** report holds as written; the speed claim is now independently corroborated. Scores unchanged.
 
+## Re-verification — 2026-11-05 (46 days after original; 35 after the first re-run)
+
+Second re-run requested by the user. The 2026-09-20 and 2026-10-01 findings above are preserved; this section records what the first independent benchmark rows changed.
+
+| Dimension | 2026-09-20 | 2026-10-01 | 2026-11-05 | Change |
+| --- | --- | --- | --- | --- |
+| Tool use | 74 | 74 | 66 | **−8** (first measured agentic rows) |
+| Reasoning | 78 | 78 | 78 | — |
+| Context window | 68 | 68 | 68 | — |
+| Multimodal | 72 | 72 | 72 | — |
+| Coding | 65 | 65 | 63 | **−2** (Vibe Code Bench 0.00%) |
+| Cost efficiency | 92 | 92 | 92 | — |
+| **Overall** | **71** | **71** | **69** | **−2** |
+
+**The two "no verified public score found" gaps are now closed — and they close downward.** The 2026-10-01 re-run correctly said Tool use and Coding were capability estimates with no tier-specific evals. BenchLM now carries 12 rows for this model, and the first measured agentic results are weak: **Terminal-Bench 2.1 (Vals) 34.1%** and **Gert Labs 38.46%**. Tool use drops 74 → 66 because an estimate has been replaced by a measurement, not because the model changed.
+
+**Coding: Vibe Code Bench 0.00%.** The first measured coding rows are **SWE-bench (Vals) 62.8%**, **LiveCodeBench (Vals) 80.1%** and **Vibe Code Bench 0.00%** — the same LiveCode-high/Vibe-zero shape the methodology maps to the 65–75 band's floor. Coding moves 65 → 63; the LiveCode number is respectable for the tier, the zero is not a rounding artefact.
+
+**Reasoning holds at 78, with a caveat.** **GPQA Diamond (Vals) 81.1%** against the vendor card's 86.9%, **MMLU-Pro (Vals) 86.2%**, **FrontierMath v2 (T1–3) 27.719%**, plus two JevBench readings (14.26 / 19.58). The vendor GPQA figure was measured on Google's own harness; 81.1% is the independent number, and it is still strong for a lite tier.
+
+**Multimodal is confirmed but still unmeasured at the top end.** **ParseBench 56.66%** and **CharXiv 73.2%** confirm real image understanding; no independent board exercises the audio or video input that the model card claims. Score unchanged at 72.
+
+**SKU caveat.** The Vals rows are published for the **`gemini-3.1-flash-lite-preview`** SKU. They are the closest public measurement of this configuration, but they are not literally the GA ID.
+
+**Pricing and lifecycle.** List price **$0.25 in / $1.50 out** is unchanged, but the model is **absent from the `opencode` provider catalogue** in `models.dev/api.json`, so it is no longer reachable through Zen. Google's deprecation schedule lists **shutdown on 2027-05-07**, which gives it a longer runway than 2.5 Flash but no gateway here.
+
+**Net assessment.** The October pass was right to flag the estimates; the November pass is the first one with evidence, and the evidence says the agentic and greenfield-coding story is weak for this tier. It remains a cheap 1M-context reader, not an agent.
+
 ---
 
 ## Signature
 
 - Provided by: **Big Pickle (opencode/big-pickle)** — 2026-10-01 (re-verified; original research 2026-09-20)
-- Method: public web research (deepmind.google model cards, blog.google, ai.google.dev); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (deepmind.google model cards, blog.google, ai.google.dev; BenchLM, Vals AI, Google's deprecation schedule and models.dev on re-run); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini API deprecations (shutdown schedule)](https://ai.google.dev/gemini-api/docs/deprecations)
+  - [BenchLM — Gemini 3.1 Flash-Lite](https://benchlm.ai/models/gemini-3-1-flash-lite)
+  - [Vals AI — Gemini 3.1 Flash-Lite (preview) rows](https://www.vals.ai/models/google_gemini-3.1-flash-lite-preview)
+  - [models.dev — provider catalogue](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Gemini_3.1_Flash_Lite_2.md`, using the same headings.

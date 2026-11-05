@@ -31,7 +31,7 @@ Agent / tool use:
 - OSWorld-Verified: **73.1%** (Moonshot tech blog — fills the previously-missing row); OSWorld 2.0: **4.6%** (OSWorld 2.0 paper)
 - GDPval-AA: **1115 Elo** / 27.0% (AA — fills the previously-missing GDPval row)
 - WideResearch: **80.8%** (HF model card — new); DeepSearchQA: **92.5%** (Moonshot tech blog)
-- Gert Labs: **56.82%**; ResearchClawBench: **18.0%**; APEX-Agents-AA: **28.5%**; AA Agentic Index: **22.1%** (benchlm.ai)
+- Gert Labs: **56.82%**; ResearchClawBench: **18.0%**; APEX-Agents-AA: **28.5%**; AA Agentic Index: **22.1%** (benchlm.ai); **TB-Hard (AA): 43.9%** (NEW, BenchLM Nov 5 refresh — weak-mid on the 2026 hard harness)
 - Toolathlon: **50%** (Moonshot tech blog); Terminal-Bench 4.0: no verified public score found for this exact ID (AA no longer benchmarks it beyond the 10k workload)
 
 Reasoning / knowledge:
@@ -77,6 +77,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables citing the MoonshotAI K2.6 model card/tech blog, Artificial Analysis, Vals AI, models.dev, updated 2026-10-09); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured SWE-V 80.2%, LCB 89.6%, SWE-Pro 58.6%, TB2.0 66.7%, Tau2 95.9%, Claw-Eval 62.3%, MCP Atlas 55.9%, GDPval-AA 1115, GPQA 90.5%, HLE 34.7%, AIME26 96.4%, MMMU-Pro 79.4%, AA-LCR 81.0%; corrects context 256K→262,144/65,536 — Tool 60→80, Reasoning 60→82, Context 70→72, Multimodal 80→82, Coding 62→85, Overall 66→80; 2026-10-16 re-check: FrontierMath re-scored 38.97→57.2 / 14.58→25.6, Vals SWE 76.2% added — Reasoning 82→83, Overall 80 holds).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Kimi K2.6 page fetched 2026-11-05 (Nov 5 data, 56 rows) — all prior rows re-confirmed, TB-Hard (AA) 43.9% added, minor drift only (GDPval-AA 27.0→26.9%, Design Arena 1274→1268); composite 57.53 #57/1014 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K3.md`, using the same headings.

@@ -57,10 +57,49 @@ Multimodal:
 - **Cost efficiency: 84/100.** $3/$15 with caching at Sonnet price for near-Opus work — the value story of the 4.x era.
 - **Overall Score: 82/100.** Mean of the five quality dims (82+84+84+80+80)/5 = 82.0 → 82. The best coding-to-dollar ratio of Anthropic's Feb 2026 lineup.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 82 | 81 | **−1** (OSWorld corrected) |
+| Reasoning | 84 | 84 | — |
+| Context window | 84 | 84 | — (1M beta) |
+| Multimodal | 80 | 80 | — |
+| Coding | 80 | 80 | — |
+| Cost efficiency | 84 | 84 | — |
+| **Overall** | **82** | **82** | **—** |
+
+**BenchLM composite: 55.66/100, #71 of 1014**, from 40 of 739 rows (partial coverage — conservative, and not comparable to this project's normalized scale).
+
+**One real correction: OSWorld 78.5% → 72.1%.** BenchLM carries **OSWorld-Verified 72.1%** for this model, sourced to the OSWorld-Verified leaderboard, against the 78.5% the original took from a comparison table. The verified-board number is the one to keep, and it is what moves Tool use 82 → 81. The rest of the agentic profile re-publishes as recorded: Terminal-Bench 2.0 **59.1%**, τ²-bench **79.5%**, Claw-Eval **67.8%**, CyberGym **65.2%**, Gert Labs **62.92%**.
+
+**Newly measured, and the real ceiling markers:** **OSWorld 2.0 8.3%**, **ApprenticeBench 2%**, **MazeBench 0%**, JobBench **36.9%**, Terminal-Bench 2.1 (Vals) **57.3%**. The jump from 72.1% on the verified 2024-era suite to 8.3% on OSWorld 2.0 is the clearest sign that the benchmark itself moved, not that the model regressed.
+
+**Coding re-confirmed and extended:** SWE-bench Verified **79.6%**, SWE-bench (Vals) **77.4%**, LiveCodeBench (Vals) **82.1%**, React Native Evals **80.6%**, Vibe Code Bench **51.48%**, SWE-Rebench **60.7%**, CursorBench 3.1 **48.8%**, FrontierCode 1.1 **24.3%**. Strong in-repo editing, weak greenfield — same shape as Opus 4.6.
+
+**Reasoning:** GPQA **89.9%** (Vals 85.6%), HLE **49%** (original recorded 46.8% — a small upward revision), ARC-AGI-2 **58.3%**, AA-LCR **68.3%**, CritPt **0.9%**, AA Intelligence Index **24.7**, AA-HLE **13.3%**. AA-Omniscience: **38.6% accuracy / 68.5% hallucination**, index −3.5.
+
+**Context caveat.** The 1M window is a beta header; BenchLM catalogues the standard window as **200K**. The score stays pinned to the beta configuration the slug was researched on, but a caller without the beta header gets 200K.
+
+**Pricing.** **$3.00 in / $15.00 out**, cache read **$0.30** (models.dev; the original listed $0.50–0.75, so cache reads are cheaper than recorded). Unchanged list price.
+
+**Lifecycle.** Superseded by **Claude Sonnet 5** (BenchLM 64.45) and **Sonnet 5.5** (81.89). Still served on Zen, no deprecation notice.
+
+**Net assessment.** Holds up. The only number that moved is the one that came from a secondary table rather than the leaderboard, and it moved down by 6 points without changing the overall verdict.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (Anthropic news pages, anotherwrapper compare tables, LLMReference, pricepertoken); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (Anthropic news pages, anotherwrapper compare tables, LLMReference, pricepertoken; BenchLM, Vals AI and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Sonnet 4.6 system card](https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf)
+  - [BenchLM — Claude Sonnet 4.6](https://benchlm.ai/models/claude-sonnet-4-6)
+  - [OSWorld-Verified leaderboard](https://os-world.github.io/)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Claude_Sonnet_4.6_2.md`, using the same headings.

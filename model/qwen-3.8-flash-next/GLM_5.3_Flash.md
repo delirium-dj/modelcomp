@@ -24,8 +24,8 @@ Agent / tool use:
 - GDPval-AA: **1648** (AA, independent; 2026-10-17 refresh reads normalized 56.4% — minor drift, flagged — fills the gap the 2026-10-05 pass marked missing; normalized **56.6%**)
 - Toolathlon-Verified: **73.5%** (HF model card via benchlm.ai, updated 2026-10-10); CoWorkBench: **73.9%**; JobBench: **55.7%**; AndroidWorld: **84.5%** (model card)
 - Agents' Last Exam: **51.2%** (model card); OSWorld 2.0: **19.4%** (weak)
-- Terminal-Bench 2.1: the 2026-10-05 conflict (62.9% llm-stats vs "84.3%" hosting-site listing) remains unresolved on BenchLM — no TB2.1 row published for this checkpoint; the "84.3%" listing likely bled in from GLM-5.3-Flash's identically-valued row
-- Tau3-Banking / Claw-Eval / MCP-Atlas: no verified public score found
+- Terminal-Bench 2.1: the 2026-10-05 conflict (62.9% llm-stats vs "84.3%" hosting-site listing) is now **resolved by AA's independent row: 86.1%** (BenchLM Nov 5 refresh) — corroborating the ~84–86 cluster and marking the llm-stats 62.9% read as the outlier
+- AA Tau3-Banking: **45.4%** (NEW, BenchLM Nov 5 refresh — fills the previously-missing Tau3 row, weak-mid); Claw-Eval / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - HLE: **35.9%** (model card); AA-HLE: **38.0%** (AA)
 - Artificial Analysis Intelligence Index: **39.8** (AA current board — fills the "composite value not confirmed" gap)
 - AA-LCR v1.1: **79.7%** (AA — fills the long-context gap); CritPt: **11.1%** (weak)
-- AA-Omniscience: **24.5% accuracy / 45.3% non-hallucination row / −9.7 index** (AA — weak)
+- AA-Omniscience: **24.5% accuracy / 45.3% non-hallucination row / −9.7 index** (AA — weak); Nov 5 refresh re-reads accuracy **23.5%** / hallucination **46.8%** / index **−12.2** — slightly worse on re-measurement, both cited
 - IFBench: **81.3%** (model card); MMLU-Pro/MMLU-Redux: no verified public score found for this checkpoint
 - MLCR: no verified public score found
 
@@ -52,22 +52,22 @@ Long context:
 
 Multimodal:
 
-- CharXiv: **90.6%** with tools / **84.6%** without; MathVision: **90.6%** / **95.7%** w/ Python; LVBench (video): **76.6%**; RealWorldQA: **88.5%**; Vision2Web: **64.0%**; ERQA: **72.3%**; AA-MMMU-Pro: **79.8%** (AA) — first measured vision/video evidence
+- CharXiv: **90.6%** with tools / **84.6%** without; MathVision: **90.6%** / **95.7%** w/ Python; LVBench (video): **76.6%**; RealWorldQA: **88.5%**; Vision2Web: **64.0%**; ERQA: **72.3%**; AA-MMMU-Pro: **79.8%** (AA) — first measured vision/video evidence; **ExtractBench (LlamaIndex): 89.88%** (NEW, Nov 5 snapshot)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** (Was 78 on the prior pass.) GDPval-AA 1648 (AA independent) fills the largest gap, with Toolathlon 73.5%, CoWorkBench 73.9% and AndroidWorld 84.5% corroborating; the unresolved TB2.1 conflict and OSWorld 2.0 19.4% keep it under 85.
+- **Tool use: 83/100.** (Was 82; raised on the 2026-11-05 re-research.) GDPval-AA 1648 (AA independent), Toolathlon 73.5%, CoWorkBench 73.9% and AndroidWorld 84.5% corroborate, and AA's independent TB2.1 row (**86.1%**, Nov 5) resolves the prior conflict in the strong direction; the weak OSWorld 2.0 19.4% and Tau3-Banking 45.4% keep it under 85.
 - **Reasoning: 82/100.** (Was 87 on the prior pass.) GPQA corroborated at 91.7–92.3% stays strong, but the now-known AA Index of 39.8, AA-HLE 38.0%, CritPt 11.1% and the negative Omniscience index place the composite mid-band — the prior score leaned on GPQA/HLE without an independent composite.
 - **Context window: 80/100.** BenchLM resolves the window conflict to 262K native (the 1M claim belongs to the production Flash serving config); AA-LCR 79.7% is a solid first measurement — the 200K–500K tier stands.
 - **Multimodal: 78/100.** (Was 62 on the prior pass.) Vision and video are now measured, not just claimed (CharXiv 90.6, MathVision 90.6/95.7, LVBench 76.6, MMMU-Pro 79.8) — the +video-in band (75–90); text-only output.
 - **Coding: 82/100.** LiveCodeBench v6 91.9%, AA Coding Index 73.0% (independent) and SWE Pro 62.5% are genuinely strong for a 6B-active model; DeepSWE 58.7% and the uncorroborated SWE-V 72.6% cap it.
 - **Cost efficiency: 96/100.** $0.15/$0.47 per 1M with $0.016 cached input plus free open weights is near-floor pricing for this capability level; not 100 because per-task agentic cost at scale isn't documented.
-- **Overall Score: 80.8/100.** (Was 77.8 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (82 + 82 + 80 + 78 + 82) / 5 = 404/5 = 80.8 — raised on the 2026-10-11 second pass: the multimodal raise (+16) and tool-use fill outweigh the reasoning correction as gaps became measurements. Best fit: cost-sensitive agentic coding and reasoning pipelines, or self-hosters wanting the Qwen4 preview architecture.
+- **Overall Score: 81/100.** (Was 80.8.) Mean of the five quality dims per `RULES.md` (Cost excluded): (83 + 82 + 80 + 78 + 82) / 5 = 405/5 = 81.0 — the 2026-11-05 re-research adds AA's independent TB2.1 86.1% (conflict resolved) and Tau3-Banking 45.4%, nudging Tool use +1. Best fit: cost-sensitive agentic coding and reasoning pipelines, or self-hosters wanting the Qwen4 preview architecture.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Qwen3.8-Flash-Next page updated 2026-10-10 citing the HF model card, Artificial Analysis independent boards (GDPval/GPQA/HLE/LCR/SciCode/Omniscience/Coding Index/MMMU-Pro) via benchlm.ai, plus the prior 2026-10-05 pass on qwen.ai/HF/llm-stats/DataCamp; 2026-10-16 re-check: BenchLM 37-row refresh corroborates every row, no new data (GDPval normalized 56.6% → 56.4%; rank → #43/954 62.8) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.8-Flash-Next page fetched 2026-11-05 (Nov 5 data, 39 rows) — all prior rows re-confirmed; genuinely new evidence: AA TB2.1 86.1% (resolves the prior TB2.1 conflict), AA Tau3-Banking 45.4%, ExtractBench 89.88%; Omniscience re-reads slightly worse (−12.2 index) — Tool use 82→83, Overall 80.8→81; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

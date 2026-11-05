@@ -58,10 +58,40 @@ Multimodal:
 - **Cost efficiency: 95/100.** $0.22/$0.66 with images at ~384 tokens each (≈$0.000085/image) makes bulk agentic-vision loops extraordinarily cheap.
 - **Overall Score: 77/100.** Mean of the five quality dims (76+81+84+70+73)/5 = 76.8 → 77. A genuinely useful cheap-vision agent model — but it is an unverified, experimental checkpoint with a soft 800×800 cap on everything it sees.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 76 | 76 | — (no new evidence) |
+| Reasoning | 81 | 81 | — (no new evidence) |
+| Context window | 84 | 84 | — |
+| Multimodal | 70 | 70 | — |
+| Coding | 73 | 73 | — |
+| Cost efficiency | 95 | 95 | — (last quoted price) |
+| **Overall** | **77** | **77** | **—** |
+
+**No public benchmark page exists for this model today.** BenchLM, Vals AI, Artificial Analysis and OpenRouter all return 404 for the ID and its obvious variants, and `deepseek-v4-vision-exp` is absent from the live `opencode` provider catalogue in `models.dev/api.json`. The surviving primary sources are the DeepSeek API changelog and the HF reference implementation, so every raw number above stays frozen at its 2026-09 status: **vendor-reported and unverified**.
+
+**What that means for the scores.** Nothing moves, in either direction — there is no new evidence, only the absence of corroboration. The dimension scores stay pinned to the configuration the slug describes (1M window, 384-token images, $0.22/$0.66), and Cost efficiency stays at 95 on that last quoted rate rather than on any current listing, because no current listing exists.
+
+**Lifecycle.** The experimental vision checkpoint was absorbed into DeepSeek's own V4 line: BenchLM now scores **DeepSeek V4.1 Flash 65.35** and **V4 Pro 62.65**, neither with a vision variant, and the V4-Flash line's non-vision checkpoints are the ones still being tracked. The endpoint this slug names is gone from the gateway.
+
+**Not re-checked.** Whether the HF reference weights (`deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`, MIT) are still downloadable — the API surface is retired and the aggregators have dropped the page, so this report makes no claim about weight availability either way.
+
+**Net assessment.** An unverifiable historical record rather than a live option. The original report was honest about the experimental label; what it could not know is that the checkpoint would be retired within weeks and never get a public benchmark row. If the dataset keeps the slug, it should be treated as frozen and flagged for parking under the retired-identity rule.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (huggingface.co, api-docs.deepseek.com, rohitraj.tech, buildfastwithai.com, ai-atlas.co, llmlearner.com, livebench.ai, nano-gpt.com); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (huggingface.co, api-docs.deepseek.com, rohitraj.tech, buildfastwithai.com, ai-atlas.co, llmlearner.com, livebench.ai, nano-gpt.com; BenchLM, Vals AI, Artificial Analysis, OpenRouter and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek API docs — changelog](https://api-docs.deepseek.com/)
+  - [Hugging Face — deepseek-ai/DeepSeek-V4-Flash-Vision-Exp](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp)
+  - [BenchLM — DeepSeek V4.1 Flash (successor line)](https://benchlm.ai/models/deepseek-v4-1-flash)
+  - [models.dev — provider catalogue](https://models.dev/api.json)
+- Future sources: add a new file next to this one, e.g. `DeepSeek_V4_Vision_Exp_2.md`, using the same headings.

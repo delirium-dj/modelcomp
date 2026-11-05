@@ -55,10 +55,48 @@ Multimodal:
 - **Cost efficiency: 83/100.** $2/$10 permanent is a strong Sonnet-tier price with caching and batch discounts — real value for agentic workloads.
 - **Overall Score: 84/100.** Mean of the five quality dims (84+84+85+84+84)/5 = 84.2 → 84. The best "default workhorse agent" of its generation — Opus-4.8-grade behavior at roughly half the price.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 84 | 85 | **+1** |
+| Reasoning | 84 | 85 | **+1** (HLE/GPQA now published) |
+| Context window | 85 | 85 | — |
+| Multimodal | 84 | 84 | — |
+| Coding | 84 | 85 | **+1** (SWE-bench corrected) |
+| Cost efficiency | 83 | 83 | — |
+| **Overall** | **84** | **85** | **+1** |
+
+**BenchLM composite: 64.45/100, #35 of 1014**, from 50 of 739 rows (partial coverage — conservative, not comparable to this project's normalized scale).
+
+**The one big correction: SWE-bench Verified 63.4% → 85.2%.** The original took 63.4% from an lmmarketcap head-to-head row; the system card and BenchLM both carry **85.2%**, with **SWE-bench (Vals) 79.6%** as the independent check. The 63.4% figure was a bad row, not a different harness. **SWE-bench Pro 63.2%** is corroborated exactly.
+
+**The gaps the original flagged as missing are now filled.** HLE **43.2%** without tools / **57.4%** with tools; GPQA Diamond **91.1%** (Vals 88.9%); AA Intelligence Index **38.2**; AA-LCR **82.0%**; CritPt **16.9%**; FrontierMath v2 **65.614%** (T1–3) / **29.268%** (T4); Terminal-Bench 2.1 **80.4%**; BrowseComp **84.7%**; OSWorld-Verified **81.2%**; GDPval-AA **1603 Elo / 48.2%**.
+
+**Newly measured agentic:** AA Agentic Index **44.3%**, Tau3 Banking **37.3%**, AA EnterpriseOps-Gym **44.7%**, AA-AnalystAgent **46.3%**, OSWorld 2.1 **57.0%**, ApprenticeBench **16%**, MazeBench **0%**, Terminal-Bench 3.0 **14.6%**.
+
+**Newly measured coding:** AA Coding Index **71.5%**, SWE Multilingual **78.3%**, AA-SciCode **54.3%**, CursorBench 3.2 **61.5%**, FrontierCode 1.1 **42.7%**, VulcanBench CII **89.2%**. Two soft spots: **SWE Multimodal 28.1%** and **CursorBench 4.0 34.1%**.
+
+**Multimodal:** CharXiv **88.3%** (77% without tools), AA-MMMU-Pro **77.3%**, ParseBench **61.16%** — a genuinely strong document/vision profile, no audio.
+
+**Pricing and lifecycle.** **$2.00 in / $10.00 out, $0.20 cached, 1M context / 128K output** (models.dev) — the permanent introductory price is confirmed. Superseded by **Sonnet 5.5** (BenchLM 81.89) but still the cheapest 1M-context Anthropic agent on Zen.
+
+**Honesty caveat.** AA-Omniscience **40.1% accuracy / 39.4% hallucination** is mid-pack; it is a good agent, not a reliable closed-book oracle.
+
+**Net assessment.** The correction is material and it goes in the model's favour: the report understated Sonnet 5's coding by 22 points because of one bad row. Tool/Reasoning/Coding each move +1, Overall 84 → 85.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (Anthropic announcement/system card, Anthropic.com Claude Sonnet product page, llm-stats OSWorld-Verified leaderboard, lmmarketcap head-to-head, dev.to Sonnet 5 roundup); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (Anthropic announcement/system card, Anthropic.com Claude Sonnet product page, llm-stats OSWorld-Verified leaderboard, lmmarketcap head-to-head, dev.to Sonnet 5 roundup; BenchLM, Vals AI and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Sonnet 5 system card](https://www-cdn.anthropic.com/d9bb04416ffe1352af84721476c1fa9994c07fde/Claude%20Sonnet%205%20System%20Card.pdf)
+  - [BenchLM — Claude Sonnet 5](https://benchlm.ai/models/claude-sonnet-5)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Claude_Sonnet_5_2.md`, using the same headings.

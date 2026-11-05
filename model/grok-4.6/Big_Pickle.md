@@ -61,10 +61,49 @@ Multimodal:
 - **Cost efficiency: 82/100.** $2/$6 (50K-200K) with $0.50 cache and same-price reasoning levels — among the cheapest frontier reasoning APIs of Aug 2026; long-context doubles.
 - **Overall Score: 84/100.** Mean of the five quality dims (87+88+82+80+85)/5 = 84.4 → 84. xAI's best-in-class cost-performance frontier agent model of the 4.x era.
 
+## Re-verification — 2026-11-05 (46 days after original)
+
+Re-run requested by the user to compare the original findings against current data. Original findings above are preserved; corrections are noted below.
+
+| Dimension | 2026-09-20 | 2026-11-05 | Change |
+| --- | --- | --- | --- |
+| Tool use | 87 | 89 | **+2** |
+| Reasoning | 88 | 89 | **+1** |
+| Context window | 82 | 82 | — |
+| Multimodal | 80 | 80 | — |
+| Coding | 85 | 87 | **+2** |
+| Cost efficiency | 82 | 82 | — |
+| **Overall** | **84** | **85** | **+1** |
+
+**BenchLM composite: 66.69/100, #23 of 1014**, from 41 of 739 rows (partial coverage — conservative, not comparable to this project's normalized scale).
+
+**Almost every original number is corroborated exactly:** GPQA **94.9%** (Vals 94.7%), HLE **42.9%**, APEX-Agents **57.5%**, Terminal-Bench 2.1 **88.4%** (aaTerminalBench21), FrontierCode **61.3%**, CursorBench 3.2 **69.9–70.8%**, DeepSWE **65.9%**, SciCode **53.6–56.5%**, AA Coding Index **76.8%**. The original report was well sourced.
+
+**One number needs a caveat: GDPval-AA.** The vendor table says **1753 Elo**; Artificial Analysis measures **1643 Elo / 55.9%**. Both are now recorded. The vendor figure clears the 1750 frontier anchor; the AA figure does not, which is why Tool use moves to 89 rather than into the 90s.
+
+**Newly measured, and it is the best agentic row in the cohort:** **AA Agentic Index 53.4%** — higher than GPT-5.6 Terra (43.7%) and Claude Sonnet 5 (44.3%). Joined by **Tau3 Banking 50.7%**, **EnterpriseOps-Gym 48.3%**, **AA ITBench**-class work, **AnalystAgent 41.3%**, **ApprenticeBench 13%**, **CWE-Bench 57.0%**.
+
+**Reasoning:** **AA Intelligence Index 44.3**, **AA-LCR 80.3%** (the original carried 75.0%), **CritPt 17.1%**, **ARC-AGI-2 67.1%**, **ARC-AGI-1 87%**, **ARC-AGI-3 2.1%** (the highest ARC-AGI-3 reading in this cohort), **FrontierMath v2 65.965%** (T1–3) / **31.707%** (T4).
+
+**Coding:** **SWE-bench (Vals) 95.6%**, **AA Coding Index 76.8%**, **CursorBench 3.2 70.8%**, **VulcanBench v3 87.0%**, **LiveCodeBench 88.2%**; the weak rows are **FrontierSWE v2 25.3%** and **Bug Hunt Bench 27.0**.
+
+**The standout finding is honesty.** AA-Omniscience: **30.5% index / 48.2% accuracy / 34.3% hallucination rate** — by a wide margin the best calibration in this cohort (next best is Gemini 3.5 Flash-Lite at 26.7%). For agent work that must not invent facts, that is a genuine differentiator the original could not see.
+
+**Pricing and lifecycle.** **$2.00 in / $6.00 out, $0.50 cached, 500K context / 500K output** (models.dev) — unchanged. Context stays 82 on the 500K tier. Superseded by **Grok 4.5** (BenchLM 63.03 — lower) and **Grok 4.7** (listed, composite not yet computed), so 4.6 remains the strongest scored Grok on that board.
+
+**Net assessment.** A frontier-adjacent agent with the cohort's best calibration, slightly under-scored on tool use and coding. Overall 84 → 85.
+
 ---
 
 ## Signature
 
-- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-09-20
-- Method: public web research (x.ai launch evals, Artificial Analysis via aicosts/pricepertoken, BenchLeader, llmreference, LLM Gateway, OCI/GCP docs); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Muse_Spark_1.3.md`, using the same headings.
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-09-20
+- Re-verified by: **Big Pickle (opencode/big-pickle)** — 2026-11-05
+- Method: public web research (x.ai launch evals, Artificial Analysis via aicosts/pricepertoken, BenchLeader, llmreference, LLM Gateway, OCI/GCP docs; BenchLM, Vals AI and models.dev on re-run); scores are normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI — Grok 4.6 launch post](https://x.ai/news/grok-4-6)
+  - [xAI — Grok 4.6 developer docs](https://docs.x.ai/developers/grok-4-6)
+  - [BenchLM — Grok 4.6](https://benchlm.ai/models/grok-4-6)
+  - [models.dev — provider catalogue (opencode pricing/limits)](https://models.dev/api.json)
+  - [OpenCode Zen — models and pricing](https://opencode.ai/docs/zen/)
+- Future sources: add a new file next to this one, e.g. `Grok_4.6_2.md`, using the same headings.
