@@ -1,86 +1,88 @@
 # DeepSeek V4.1 Flash — findings by GLM 5.3 Flash
 
-- Source: DeepSeek (`deepseek-flash`)
-- Date: 2026-10-16 (UTC)
+- Source: DeepSeek (`deepseek-flash` — now serving DeepSeek-V4.1-Flash-**1017**)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> Re-researched 2026-11-05 (prior passes 2026-10-09, 2026-10-16): **the model changed under
+> this ID** — DeepSeek-V4.1-Flash-1017 (released 2026-10-17) now serves `deepseek-flash`,
+> with vendor-measured gains (DeepSWE 74.2→77.0 now above Opus 5 and Sol; TB4.0 31.2→42.3;
+> ProgramBench→29.1; HLE→42.6) and new independent rows (LiveBench Coding 96.0% #3, Vals
+> Vibe 87.7% #12, AA Index 45 max). Tool 86→88, Coding 86→89, Reasoning 83→84,
+> Multimodal 75→76, Cost 91→92. Overall 85→86.
+
 ## Model card
 
-- **Name:** DeepSeek V4.1 Flash (open-weight flagship-flash; no Free-tier wording)
-- **Short description:** DeepSeek's Causal Encoder-Decoder MoE that absorbed the whole V4 line — from Sept 14, 2026 `deepseek-v4-pro` requests reroute to V4.1-Flash at Flash prices. Input-heavy agentic workload specialist: 8B active prefill / 16B active decode, FP4 KV cache, native vision, 1M context, MIT weights.
-- **Provider / access:** DeepSeek API `https://api.deepseek.com` (OpenAI format) and `https://api.deepseek.com/anthropic` (Anthropic format); Responses API supported. Model ID `deepseek-flash`; legacy `deepseek-v4-flash` / `deepseek-v4-flash-vision-exp` resolve to it. Weights: HF `deepseek-ai/DeepSeek-V4.1-Flash`. Not on OpenCode Zen (no Zen Free ID).
-- **Release / knowledge:** GA September 10, 2026 (two-day beta from Sept 8); lineage: V4-Flash-Preview (Apr 2026) → build 0731 public beta (July 31) → V4.1-Flash GA. V4-Pro retirement/reroute Sept 14, 2026. Knowledge cutoff not verified in reviewed sources.
-- **IDs:** `deepseek-flash` (current), legacy aliases as above.
-- **Context window:** 1M tokens; max output 384K (model card recommends max_tokens ≥ 256K and top_p 0.95–1.0); FP4 KV cache at 890 bytes/token; 2,500 concurrent sessions per account.
-- **Modalities:** Text + image in (DeepSeek-ViT, vision from first pretraining step); text out. Reasoning: yes — continuous effort 1–100 on local weights, string tiers low/high/max on the API. Tool calls, JSON mode, vision agent via Claude Code harness.
-- **Pricing (as of 2026-10-09):** $0.30 per 1M cache-miss input / $1.20 per 1M output (peak); off-peak half; cache hits $0.003 per 1M. No free tier.
-- **Architecture:** Open weights, MIT. Causal Encoder-Decoder: 552B total MoE (763B with the ViT encoder), ~8B active on prefill / ~16B on decode, 40 layers split 20 encoder / 20 decoder.
+- **Name:** DeepSeek V4.1 Flash (open-weight flagship-flash; the `deepseek-flash` ID now serves the **1017 update**, released 2026-10-17)
+- **Short description:** DeepSeek's Causal Encoder-Decoder MoE that absorbed the whole V4 line — since Sept 14, 2026 `deepseek-v4-pro` requests reroute to V4.1-Flash at Flash prices (V4-Pro remains served separately at $0.66/$1.98 off-peak, version 0813). Input-heavy agentic workload specialist: 8B active prefill / 16B active decode, FP4 KV cache, native vision, 1M context, MIT weights. The 1017 update adds faster task runtime and shorter outputs — a claimed performance–cost Pareto improvement.
+- **Provider / access:** DeepSeek API `https://api.deepseek.com` (OpenAI format) and `/anthropic` (Anthropic format); Responses API; model ID `deepseek-flash`; legacy `deepseek-v4-flash` / `deepseek-v4-flash-vision-exp` resolve to the 1017 model at Flash prices. **30+ serving providers** (BenchLeader): Chutes, SiliconFlow, Fireworks, DeepInfra, Cloudflare, Novita, with promo routes as low as $0.05/$0.50 (Particle) and $0.101/$0.150 (Sail). Weights: HF `deepseek-ai/DeepSeek-V4.1-Flash` (MIT). Not on OpenCode Zen.
+- **Release / knowledge:** V4.1-Flash GA September 10, 2026; **1017 update October 17, 2026** (weights on HF/ModelScope same day). V4-Pro retirement/reroute Sept 14 (later softened — Pro continues). Knowledge cutoff not verified in reviewed sources.
+- **IDs:** `deepseek-flash` (serves 1017); legacy aliases as above.
+- **Context window:** 1M tokens; max output 384K (model card recommends max_tokens ≥ 256K, top_p 0.95–1.0); FP4 KV cache at 890 bytes/token; 2,500 concurrent sessions per account (vs Pro's 500).
+- **Modalities:** Text + image in (DeepSeek-ViT, vision from first pretraining step); text out. Reasoning: continuous effort 1–100 on local weights, string tiers low/high/max on the API. Tool calls, JSON mode, vision agent via Claude Code harness.
+- **Pricing (as of 2026-11-05):** unchanged — $0.30/$1.20 per 1M in/out at peak (Mon–Fri 01:00–04:00 + 06:00–10:00 UTC), **half off-peak** ($0.15/$0.60); cache hits $0.003/$0.006. BenchLeader: **the cheapest model in its top-100 Index rank**. NEW: first-party **Search and Fetch APIs** opened to all developers at $0.75 per 1,000 successful calls each (free via DeepSeek Harness/Claude Code/Codex until billing began ~Nov 1) — a first-party web layer behind the same API key.
+- **Architecture:** Open weights, MIT. Causal Encoder-Decoder: 552B total MoE (763B with ViT), ~8B active prefill / ~16B decode, 40 layers split 20/20; KV cache needs 1/4 the HBM and 1/8 the SSD of the previous generation.
 
 ### Raw benchmarks found
 
+> 1017 vendor rows (self-reported, DeepSeek Harness v0.2.1+/Claude Code/Mini-SWE-V2 harnesses) supersede the pre-1017 readings; independent rows carry their sources. Cognition's single-roof comparison (no harness disclosed) adds same-table context.
+
 Agent / tool use:
 
-- Terminal-Bench 2.1: **90.6%** (HF model card, DeepSeek Harness Minimal, 1M ctx, effort=100 — highest listed in DeepSeek's frontier table); Vals independent harness: **74.5%** (benchlm.ai); effort 25 gives 82.4% at ~40% of the tokens
-- Terminal-Bench 3.0: **30.0%** (model card; Opus 5 43.3, GPT-5.6 Sol 34.4 — decisive loss); Terminal-Bench 4.0: **31.2%** (model card) / **26.8%** (AA board)
-- GDPval-AA: **1600 Elo** (AA board via benchlm.ai — fills the previously-missing GDPval row; 55.0% AA-normalized; at Opus 4.8's 1600)
-- AA AutomationBench: **68.9%** (AA board via benchlm.ai — vs vendor AutomationBench 54.8%, also highest listed in its table)
-- AA Briefcase: **1420 Elo** (AA board via benchlm.ai)
-- AA ITBench: **46.9%**; GDP.pdf: **12.8%** (AA boards)
-- CyberGym: **88.1%** (model card, highest listed); ExploitGym: **15.3%** (model card)
-- Agent's Last Exam: **31.8%** (model card, highest listed)
-- CWE-bench v1: **55.0%** (Collinear leaderboard via benchlm.ai)
-- NL2Repo-Bench: **65.4%** (tech report); ProgramBench: **20.3%** (model card; Opus 5 37.0)
-- Codeforces rating: **3471** (model card, highest listed)
+- Terminal-Bench 2.1: **90.6%** (vendor, DSH-Minimal; multi-harness table: Codex 84.1, mini-SWE 90.3, Claude Code 88, OpenCode 85, Pi 86.1) — **Cognition same-roof: 91.0**; Vals independent: **74.5%**; BenchLeader reads the vendor table with TB2.1 90.6
+- Terminal-Bench 4.0: **42.3%** (1017, +11.1 — NEW; still behind Opus 5's 51.8); AA effort ladder: 9.1% (none) / 28.8% (high) / **33.8% max** (AA measured)
+- Terminal-Bench 3.0: **30.0%** (unchanged; Opus 5 43.3 — the remaining decisive loss)
+- Automation-Bench v1.0.6: **60.5%** (1017, +5.7); AA AutomationBench 68.9% (prior reading)
+- Agents' Last Exam: **35.4%** (1017, +3.6 — leads DeepSeek's table)
+- DeepSWE v1.1: **77.0%** (1017, +2.8 — now above Opus 5's 74.0 and Sol's 73.0; Cognition confirms 77.0; multi-harness range 65.5–74.2 pre-1017)
+- GDPval-AA: **1600 Elo / 55.0%** (AA, unchanged); AA Briefcase 1420 Elo
+- Cyber: CyberGym **88.1%** (highest listed); SEC-Bench Pro **62.8%**; CWE-bench v1 55.0%; CWE-Bench-AA **68.3%** (AA measured); ExploitGym 15.3%; ExploitBench 31.1 (Cognition) / 52.8 (benchgap estimate)
+- NL2Repo-Bench: **68.2%** (1017, +2.8); ProgramBench: **29.1%** (1017, +8.8); SWE-Atlas QA **71.0** (Cognition); SWE-Bench Pro v2 Hard **86.3** (Cognition); FrontierCode 2.0 19.3 / 1.1 Main 43.9 (Cognition); Codeforces **3471**; Bug Hunt 39.1 fixes
+- AA ITBench 46.9%; GDP.pdf 12.8% (prior); AA-Briefcase 1420
 - Tau2 / Tau3 / MCP-Atlas / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.9%** (HF model card at max effort; Opus 5 93.4, Sol 94.1, Kimi K3 92.9, GLM-5.3 88.1, V4-Pro 92.4)
-- HLE: **36.8%** (model card; Opus 5 56.3, Sol 44.5); AA-HLE: **39.2%** (AA board); **HLE w/ tools 63.9%** (model card — added 2026-10-16, frontier-tier; above Claude Sonnet 5's 57.4)
-- FrontierMath v2: Tiers 1–3 **67.4%**, Tier 4 **26.8%** (Epoch AI leaderboard — added 2026-10-16; strong)
-- Artificial Analysis Intelligence Index: **39.5** (AA v4.3.2 board via benchlm.ai — fills the previously-missing Index; deepinfra cites 40)
-- AA-LCR: **84.0%** (AA long-context-reasoning board via benchlm.ai — fills the previously-missing LCR)
-- CritPt: **14.3%**; MLCR-AA: **22.8%** (AA boards via benchlm.ai)
-- Hermes Bench: **70.7%** / Hermes Index: **36.9%** (Nous Research); AA-AnalystAgent: **35.0%** (AA) — added 2026-10-16
-- AA-Omniscience: Index -5.3, accuracy **46.4%**, hallucination rate **96.5%** (benchlm.ai — severe hallucination)
-- MMLU-Pro (base): **74.1**; AGIEval 83.4; C-Eval 92.1; SimpleQA-Verified 42.3; MATH 61.1; GSM8K 93.0 (base model, internal framework)
-- LongBench-V2 (base): **45.2**
-- Vendor claim: V4.1-Flash beats V4-Pro on HumanEval, GSM8K, DeepSWE and Terminal-Bench
+- GPQA Diamond: **90.9%** (vendor, max effort — unchanged; still below V4-Pro's 92.4 and the Western frontier)
+- HLE: **42.6%** (1017, +5.8; 44.0 text-only subset); HLE w/ tools **63.9%** (unchanged, frontier-tier); AA-HLE 39.2%
+- Artificial Analysis Intelligence Index: **45 at max reasoning** (thetechsignal/AA for 1017; median 19; 210M output tokens = very verbose) — supersedes the 39.5 v4.3.2 reading; effort-dependent
+- FrontierMath v2: Tiers 1–3 **67.4%** / Tier 4 **26.8%** (Epoch, unchanged); MathArena Apex 65.6% → Apex Bench v1.1 **72.1%** (1017)
+- AA-LCR: **84.0%** (unchanged, strong); CritPt 14.3%; MLCR-AA 22.8%
+- Hermes Bench 70.7% / Hermes Index 36.9%; AA-AnalystAgent 35.0%/41.8%; LiveBench 2.0 Coding: **96.0%** (#3 — NEW, very strong)
+- AA-Omniscience: Index −5.3, accuracy 46.4%, hallucination rate **96.5%** (severe — unchanged warning)
+- MMLU-Pro (base) 74.1; AGIEval 83.4; C-Eval 92.1; SimpleQA-Verified 42.3; LongBench-V2 (base) 45.2
 
 Coding:
 
-- Terminal-Bench 2.1 (coding harness): **90.6%** (see above)
-- DeepSWE v1.1: **74.2%** (mini-SWE harness; above Opus 5 74.0 and Sol 73.0; vs V4-Pro 62.7, V4-Flash 54.4)
-- Codeforces: **3471** rating; BigCodeBench (base): **60.6**; HumanEval (base): **79.4**
-- NL2Repo: **65.4%**; OpenHarmony Bench: **60.3%** (official leaderboard via benchlm.ai); CWE-bench v1: **55.0%**
-- Apex (math): **65.6%** (model card)
-- Bug Hunt Bench: **21.7 fixes** (benchlm.ai); ProgramBench: **20.3%**
-- SWE-bench Verified / Pro / LiveCodeBench / SWE-Atlas / Vibe: no verified public score found; AA-SciCode **51.9%** (AA board — added 2026-10-16, fills the old gap; just under the 55%+ mark); JevBench 1.4/1.5: 4.77/6.65 (niche third-party benchmark, weak)
-- Harness caveat: agentic rows are model+DeepSeek-Harness scores; a multi-scaffold table (Claude Code, Codex, OpenCode) exists in the card
+- DeepSWE v1.1: **77.0%** (1017 — see above); Terminal-Bench 2.1 (coding harness): **90.6%** (see above)
+- LiveBench 2.0 Coding: **96.0%** (#3 of field — NEW); Vibe Code Bench v1.1 (Vals): **87.7% ±?** (#12 — NEW, fills the old gap); Code Migration v1.1 (Vals): **67.5%** (#7) / 44.2% (v1.0)
+- SciCode (AA): **55.9% max** (#44 — NEW, clears the 55% mark; pre-1017 AA-SciCode was 51.9%); ALE-Bench 1622 (#19); CursorBench ladder 44.9–47.7%
+- Codeforces **3471** (highest listed); BigCodeBench (base) 60.6; HumanEval (base) 79.4; OpenHarmony 60.3%; NL2Repo 68.2%; CWE-bench 55.0%
+- SWE-bench Verified / Pro / SWE-Atlas / SWE-Marathon: no verified public score found (benchgap's SWE-V 82.3% and SWE-Pro 62.7% are estimates — excluded)
 
 Long context:
 
-- 1M window; AA-LCR **84.0%** measured (benchlm.ai); LongBench-V2 base 45.2; no MRCR/RULER retrieval number verified
+- 1M window; AA-LCR **84.0%** (strong, unchanged); LongBench-V2 base 45.2; no MRCR/RULER ≥98% verification
 
 Multimodal / vision:
 
-- AA-MMMU-Pro: **77.0%** (AA board via benchlm.ai — fills the previously-missing vision measurement); Chartography (tools): **78.9%**, BabyVision w/ Python: **89.6%**, ZeroBench w/ Python: **49.0%** (model card rows)
+- Chartography (w/tools): **83.0%** (1017, +4.1); BabyVision w/Python: **92.5%** (+2.9); ZeroBench-main w/tools: **51.0%** (+2.0); AA-MMMU-Pro **77.0%** (unchanged)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** TB2.1 90.6% (vendor; Vals 74.5%) is frontier-tier, and the filled GDPval-AA 1600 Elo (at Opus 4.8) plus AA AutomationBench 68.9% clear the mid-band anchors; CyberGym 88.1% leads — but the collapse to 30–31% on TB 3.0/4.0 (vs Opus 5's 43–52%) and ExploitGym 15.3% show strength concentrated in established agentic tasks.
-- **Reasoning: 83/100.** CHANGED from 80 — GPQA 90.9% clears the 90% frontier ref; the newly measured HLE w/ tools 63.9% (frontier-tier) and FrontierMath v2 67.4%/26.8% (Epoch) add two strong pillars to the already-filled AA Intelligence Index 39.5 + AA-LCR 84.0%; AA-HLE 39.2% (no-tools) and CritPt 14.3% stay weak and the 96.5% hallucination rate is severe.
-- **Context window: 94/100.** 1M window (95–100 tier) with 384K output; measured AA-LCR 84.0% is strong; no MRCR/RULER ≥98% verification and a weak base LongBench-V2 (45.2) keep it just under 95.
-- **Multimodal: 75/100.** Native image input with measured vision (AA-MMMU-Pro 77.0%, Chartography 78.9%, BabyVision 89.6%); text-only output, no video/audio — into the 75–90 band's floor.
-- **Coding: 86/100.** DeepSWE 74.2% edges Opus 5 and Sol, TB2.1 90.6% and Codeforces 3471 are frontier, but TB 3.0/4.0 losses, ProgramBench 20.3% and CWE-bench 55.0% cap it below the 90s; the newly measured AA-SciCode 51.9% sits just under the frontier mark.
-- **Cost efficiency: 91/100.** $0.30/$1.20 peak (the M2.7/M3 anchor price) with off-peak at half and $0.003/1M cache hits — exceptional for cached agent loops; effort tuning matters (effort 25 keeps most accuracy at ~40% of tokens). No free tier.
-- **Overall Score: 85/100.** CHANGED from 84 — mean of the five quality dims (86 + 83 + 94 + 75 + 86) / 5 = 424/5 = 84.8 → 85. Best fit: cache-heavy, input-heavy agentic coding at commodity prices — deploy with effort 60–80, not max, and verify on your own scaffold before trusting the leaderboard rows; the 96.5% hallucination rate argues against unsupervised knowledge work.
+- **Tool use: 88/100.** CHANGED from 86 — the 1017 update resolves much of the old "collapse on newer boards" critique (TB4.0 31.2→42.3, Automation 54.8→60.5, ALE 31.8→35.4) while TB2.1 90.6/91.0, CyberGym 88.1% and GDPval 1600 hold; TB3.0 30.0% vs Opus 5's 43.3 remains the outlier loss.
+- **Reasoning: 84/100.** CHANGED from 83 — HLE w/o tools 42.6% (+5.8) and the AA Index 45-at-max reading add measured strength to the existing GPQA 90.9% / HLE-tools 63.9% / FrontierMath 67.4% pillars; the 96.5% hallucination rate and AA-HLE 39.2% (no-tools) still cap it.
+- **Context window: 94/100.** Unchanged — 1M window with 384K output and AA-LCR 84.0% strong; still no ≥98% MRCR/RULER verification at depth.
+- **Multimodal: 76/100.** CHANGED from 75 — the 1017 vision gains (Chartography 83.0, BabyVision 92.5, ZeroBench 51.0) nudge the measured-vision band up; text-only output, no video/audio.
+- **Coding: 89/100.** CHANGED from 86 — DeepSWE 77.0% now leads Opus 5 and Sol outright, LiveBench Coding 96.0% (#3), Vals Vibe 87.7% (#12), SWE-Atlas QA 71.0 and ProgramBench 29.1 lift the band; SWE-V/SWE-Pro/SWE-Atlas leaderboard rows still unpublished and TB3.0 30.0% lingers.
+- **Cost efficiency: 92/100.** CHANGED from 91 — list unchanged but 30+ providers now compete (promos to $0.05/$0.50), off-peak halves the bill, $0.003 cache hits reward the target workload, and BenchLeader crowns it the cheapest top-100 model; the new Search/Fetch per-call fees are the one addition.
+- **Overall Score: 86/100.** CHANGED from 85 — (88 + 84 + 94 + 76 + 89) / 5 = 431/5 = 86.2 → 86. Best fit: cache-heavy, input-heavy agentic coding at commodity prices got better under the same ID — the 1017 update is a genuine Pareto move; still deploy with effort tuning, verify on your own scaffold, and keep unsupervised knowledge work away from the 96.5% hallucination rate.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the HF model card and AA boards, Vals AI, deepinfra, DuckDuckGo search cross-checked; re-researched 2026-10-16: HLE w/tools 63.9%, FrontierMath v2 67.4/26.8, AA-SciCode 51.9, Hermes rows added — Reasoning 80→83, Overall 84→85); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds measured GDPval-AA 1600, AA Intelligence Index 39.5, AA-LCR 84.0%, AA AutomationBench 68.9%, AA-MMMU-Pro 77.0%, Vals TB2.1 74.5% — Tool 82→86, Reasoning 78→80, Context 92→94, Multimodal 66→75, Overall 81→84.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research (3 web searches: DeepSeek API changelog + HF model card (1017 delta table with harness footnotes), BenchLeader 1017 profile + 30-provider price/speed table + LiveBench/Vals/Cognition rows, thetechsignal/ai-primer/explainx/Dealroom 1017 coverage + orcarouter legacy-ID routing note + dev.to V4-Pro comparison); the ID-swap (V4.1-Flash → 1017 under `deepseek-flash`) documented as the headline change; estimates excluded; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

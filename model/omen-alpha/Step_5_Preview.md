@@ -1,78 +1,79 @@
-# omen-alpha — findings by Step 5 Preview
+# Omen Alpha — findings by Step 5 Preview
 
-- Source: unidentified vendor — OpenCode Go stealth route (`omen-alpha`; catalog lab `unknown`, backend `opencode-go`)
-- Date: 2026-10-26 (UTC)
+- Source: OpenCode (undisclosed provider) (`omen-alpha`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Omen Alpha (catalog ID `omen-alpha`)
-- **Short description:** An anonymous "stealth" coding model launched 2026-09-04 exclusively to OpenCode's $10/month Go subscribers ("$100 worth of usage for $10"), served through the OpenAI-compatible Go endpoint `https://opencode.ai/zen/go/v1`. The operating vendor has never been named. Startup Fortune (2026-09-04) reports OpenCode's own data URL files the model under a **`zhipu` namespace**, and an independent benchmark run found the model fails the exact same test lines as Ox Alpha and GLM-5.3-Flash with near-identical output — behavioral evidence consistent with a Zhipu AI (Z.ai) GLM-5.3-Flash-family model, possibly a faster-serving variant. **No vendor has confirmed the identity, so every inference below is labeled.**
-- **Provider / access:** OpenCode Go only (`opencode-go` / `https://opencode.ai/zen/go/v1`); Chat-Completions-style API (`openai-completions`). Not on OpenRouter (unlike its predecessor Ox Alpha, which was listed there in August). One host in every tracker (modelbenchmark.io: "Available from 1 host").
-- **Release / knowledge:** 2026-09-04 (OpenCode announcement; modelbenchmark.io agrees). Knowledge cutoff not disclosed.
-- **IDs:** `omen-alpha` (opencode-go). No vendor model ID exists publicly — this is a route alias, not a vendor checkpoint name.
-- **Context window:** **500,000 tokens / 128,000 max output** — Pi.dev's published config (`contextWindow: 500000, maxTokens: 128000`), modelbenchmark.io's "most-agreed" values, and the launch-day community reports all agree. Reasoning modes: `low` and `high` mapped via `thinkingLevelMap` (other levels null).
-- **Modalities:** text + image in → text out (Pi.dev `input: ["text","image"]`); reasoning yes; supportsReasoningEffort yes; supportsStrictMode yes; tool calling assumed via agent use (no vendor modalities list exists).
-- **Pricing (as of 2026-10-26):** **$0.20 / $0.66 per 1M in/out, $0.04 cache read** — identical across Pi.dev, modelbenchmark.io and OpenCode's own catalog (launch-day Magica report matches). Metered inside the $10 Go subscription ($100 of usage value/month), not sold per-token publicly.
-- **Architecture:** undisclosed — no parameter count, no weights, no license. Behavioral fingerprint below suggests GLM-5.3-Flash-class (320B-A18B) weights, ~3× faster serving, but no source states this.
+- **Name:** Omen Alpha. An **OpenCode stealth model** — no lab credit, no model card, no parameter count, no architecture, no knowledge cutoff.
+- **Short description:** A coding-focused reasoning model shipped into OpenCode Go on 2026-09-04 with no vendor attribution at all. OpenCode's announcement was one line: "Omen Alpha (new stealth model) — Exclusively for OpenCode Go subscribers — $100 usage for $10." It is the second anonymous model OpenCode shipped in under two weeks, following Ox Alpha (confirmed 2026-08-26 as Zhipu's GLM-5.3-Flash).
+- **Provider / access:** **OpenCode Go only** — $10/month for $100 of bundled usage, capped at $12 per 5 hours, $30 per week and $60 per month. **Not sold standalone and not on OpenRouter**, which makes independent third-party benchmarking structurally hard. Reachable through OpenCode's own client via an OpenAI-compatible chat-completions endpoint, model ID `omen-alpha`.
+- **Release / knowledge:** released **2026-09-04**. Knowledge cutoff **not disclosed**.
+- **IDs:** `omen-alpha` (OpenCode Go / `opencode-go/omen-alpha`); OpenCode's usage-data page files it under the path **`zhipu/omen-alpha`**. No Free ID.
+- **Context window:** **500,000 tokens** with **128,000 max output** (OpenCode docs, models.dev and BuildFastWithAI all agree). One outlier: TokenRa advertises "1M context" and $0.13/M input — contradicted by three corroborating sources on both figures, so TokenRa is treated as unreliable here.
+- **Modalities:** text and image input; text output. Reasoning supported with low/high thinking levels; tool calling supported and coding-agent focused. No image or audio *generation*.
+- **Pricing (as of 2026-11-05):** reference **$0.20 input / $0.66 output / $0.04 cached read per 1M** — corroborated by omenalpha.io and explainx.ai. Critically, this is **the rate OpenCode uses to size the $10/month bundle, not a rate you are billed against directly**; usage is capped in dollar terms rather than metered. Measured economics from the OpenCode snapshot: **$0.03 average cost per prompt**, ~$0.27 average session cost across 7,518 sessions.
+- **Architecture:** undisclosed. **Zero data retention and no training use is OpenCode's claim about its own layer** — explainx.ai correctly notes this "says nothing about what an unconfirmed upstream provider does with the same traffic underneath", which matters enormously for a stealth model.
 
 ### Raw benchmarks found
 
-Agent / tool use / coding — **one independent benchmark exists**, the only public evaluation of this route:
+**This is the thinnest evidence base in the entire research series.** Exactly one dated benchmark snapshot exists, it is proprietary to OpenCode rather than a named public suite, and it covers four coding projects. Every standard benchmark row below reads "no verified public score found", and the scores in the normalised block are conservative evidence-poor floors rather than measurements.
 
-- **llmbench (independent, self-made SWE-bench-style harness, github.com/zephel01/swe-bench, MIT), run 2026-09-04** (note.com/zephel01, 60 questions × 5 trials + L7 grandmaster 16 questions × 3 trials, temperature 0.35, hidden-pytest pass/fail):
-  - 60-question set: **Resolved 95.0% (57/60)**, Average success rate (pass@1) **95.7%**, Quality **84.5**, Combined **88.3** — "enters the top group among those I have tested with this 60-question configuration."
-  - L7 grandmaster 16 questions: **Resolved 81.2% (13/16)**; failures t069, t103, t105; **all 16 questions 3/3 or 0/3 — all-or-nothing, a first in the author's records.**
-  - Median throughput: **135.8 tok/s (60q) / 164.1 tok/s (L7)** — "about 3 times the actual measured speed of GLM-5.3-Flash (~52.8 / ~48.1)"; flagged by the author himself as "the only point that does not match."
-- Behavioral identity evidence (same run): t103 and t105 are "the same problems that Ox Alpha on 8/23 and GLM-5.3-Flash on 8/27 failed on **the exact same line of the exact same test**"; t103's generated output (4 files, zero ruff issues, **MI=94**) was "almost identical across all three"; it passed t101 (log rotator), the second instance in the author's records after GLM-5.3-Flash. An X post cited by Startup Fortune claimed the model was **not** from Z.ai despite GLM-like behavior — unresolved conflict.
-- Terminal-Bench 2.1: no verified public score found (llmbench is the closest proxy).
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+The one verified result — OpenCode leaderboard snapshot, "Omen Alpha (High)", evaluated **2026-09-04**, environment OpenCode, methodology v1, **rank #15**:
 
-Reasoning / knowledge:
+- **Overall coding score: 23.14 / 40**
+- Component project scores (five-point rubric each): CSV import (PHP) **4/5** · Offline sync (PHP) **3.5/5** · Bank feed (Dart/Flutter) **2.75/5** · Shipping quotes (Go) **3/5** · Code quality (expanded 20-point component) **9.94/20**
+- Average cost per prompt: **$0.03**; average time per prompt: **01:51**; reported throughput ~**189 tokens/second** (community-measured, no official benchmark)
+- omenalpha.io is careful that "the displayed component scales are not summed together as a new score", and the four project rows sum to 13.25/20 (66.25%) while the transcribed leaderboard total is 23.14/40 (57.85%) — **these two renderings do not reconcile, and the page does not explain the discrepancy**. Both are reported here.
 
-- GPQA Diamond: no verified public score found for this ID. Closest proxy (provisional, flagged): if the Zhipu/GLM-5.3-Flash behavioral link holds, the shared-weights figures are AA Intelligence Index 41.81 (#4/118 open-weights, v4.3.2, AA-measured) and GPQA Diamond 91% (third-party compilation) — **not measured on this route and not used as verified scores.**
-- HLE: no verified public score found.
-- LCR / MLCR / CritPt: no verified public score found.
-- Artificial Analysis Intelligence Index: no entry (route is unlisted at AA; RankLLMs: "Not established").
-- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+Benchmarks with **no verified public score found** for this model ID:
 
-Coding:
+- **Agent / tool use:** Terminal-Bench 2.1 and 4.0, τ³-Banking, τ²-bench, GDPval-AA, OSWorld, MCP-Atlas, Claw-Eval, BrowseComp, AutomationBench, Harvey LAB-AA — none published.
+- **Reasoning / knowledge:** GPQA Diamond, HLE, CritPt, AA-LCR, MLCR, Artificial Analysis Intelligence Index, Vals Index, LiveBench, AA-Omniscience — none published. Artificial Analysis does not list this model at all.
+- **Coding:** SWE-bench Verified, SWE-bench Pro, DeepSWE, LiveCodeBench, SciCode, Vibe Code Bench, FrontierCode, Code Migration — none published.
+- **Long context:** MRCR, RULER, GraphWalks, AA-LCR — none published, so the 500K window has **no retrieval measurement of any kind**.
+- **Multimodal:** MMMU-Pro, BabyVision, CharXiv, ZeroBench — none published, so image input is metadata-confirmed but entirely unmeasured.
 
-- SWE-bench Verified: no verified public score found under this ID (llmbench is a SWE-bench-style independent equivalent, above).
-- LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE (official datasets): no verified public score found for this ID.
+Conflicting community reports (both recorded, neither resolvable):
 
-Long context:
+- A Reddit user reported the model "struggled to recall information from earlier turns and repeatedly asked for clarification" — a long-context/agentic-continuity failure.
+- Other users described it as "fast and competent for coding", capable of planning and executing complex coding work.
+- Community researcher zephel01 reported that Omen Alpha **fails on the exact same line of a coding test where both Ox Alpha and GLM-5.3-Flash failed** — a behavioural coincidence pointing at GLM lineage, but explicitly not serving-layer proof.
 
-- 500,000-token window verified three ways (Pi.dev config, modelbenchmark.io, launch reports); MRCR / RULER / GraphWalks retrieval: no verified public score found.
+Identity — **unconfirmed, with two live and mutually incompatible theories**:
 
-Usage telemetry (OpenCode Data, updated 2026-10-26T19:38Z — platform activity, **not** quality evidence): 2.3T tokens over 2 months (+100% vs prior window), 90K unique users, 588,104 sessions, 3.9M tokens/session, $0.2114 avg cost/session, $124,319 total spend, 93.1% cache-served input, 63.4% weekly retention, rank #40 last week. Traffic history: launched 2026-09-04 at 241B tokens/day, decayed to zero on 2026-09-29/30 (withdrawn), returned 2026-10-01 and has been stable at ~1–3.7B/day since — consistent with a stealth preview that was pulled and partially restored. Geography: China 33.5%, US 15.1%, Japan 7.1%.
-
-### Conflict / resolution notes
-
-1. **Identity — zhipu vs unknown vs not-Zhipu.** OpenCode's data path (`unknown` lab; startupfortune reports a `zhipu` namespace in the data URL), the same-line failure signature plus MI=94 output identity with Ox Alpha/GLM-5.3-Flash, and the ~3× speed of GLM-5.3-Flash all point at a Zhipu GLM-5.3-Flash-family serving variant; an X post claims the opposite; RankLLMs' editorial review concludes the attribution is "not established." Resolution: treat identity as **unconfirmed but strongly indicated**; no GLM figure is used as a verified score — only as explicitly-labeled provisional context.
-2. **Speed conflict:** llmbench-measured 135.8–164.1 tok/s median (one author, one day) vs GLM-5.3-Flash's independently measured ~48–52.8 tok/s and OpenCode's unpublished serving config — directionally consistent with a speed tier but both figures are single-source snapshots.
-3. **Supersedes the 2026-10-09 `.excluded` twin.** That pass found a fully unmodeled route: null metadata, zero specs, zero benchmarks. Fresh research on 2026-10-26 found published specs (Pi.dev config + modelbenchmark.io + OpenCode catalog, three sources agreeing on 500K/128K/$0.20/$0.66/$0.04), the only independent benchmark evaluation of the route (llmbench, with published methodology and MIT-licensed harness), and behavioral identity evidence — i.e., the twin's own re-score trigger ("If the operator or a tracker publishes a model card, benchmark table or catalog listing matching this endpoint") has fired.
-4. Caveats that cap the scores: one independent benchmark author (n=60 + 16, self-made harness — not a standard leaderboard); no vendor model card; no GPQA/HLE/AA measurement on this exact route; identity inference is indirect.
+- **Theory 1, Zhipu:** OpenCode's usage-data path reads `zhipu/omen-alpha`, the same operator namespace Zhipu (Z.AI) uses. If accurate it would be Zhipu's second anonymous release in nine days.
+- **Theory 2, Xiaomi:** OrcaRouter argues Omen Alpha's visible reasoning trace resembles DeepSeek-lineage patterns and speculates an operator is serving a MiMo-V3-Flash checkpoint. OrcaRouter itself states the weakness: "a chain-of-thought resemblance is the weakest class of model fingerprint, because it is style rather than structure."
+- Precedent cuts both ways: Ox Alpha was confirmed via serving-layer stack traces and 30/30 tokenizer matches, while Hunter Alpha and Healer Alpha were both later confirmed as Xiaomi MiMo releases. **Neither Zhipu nor Xiaomi has made an on-record statement about Omen Alpha.**
+- Operational risk: stealth listings are explicitly time-boxed — Ox Alpha's own preview terms changed pricing overnight after Zhipu's reveal. Omen Alpha can vanish or reprice without notice, and there is no named company to hold to an SLA.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** The single independent evaluation shows elite agentic resolution (95.0% on 60 tasks, 81.2% on L7 grandmaster set, all-or-nothing 3/3 consistency), but it is one author's self-made harness on one day, and no standard agentic suite (Terminal-Bench, Toolathlon, Tau) has ever been run on this route.
-- **Reasoning: 70/100.** No direct reasoning benchmark exists for this ID; scored provisionally off the GLM-5.3-Flash shared-weights evidence (AA Index 41.81 #4/118 open-weights, GPQA Diamond 91%) that the same-line-failure fingerprint strongly suggests applies — flagged as inference, not measurement.
-- **Context window: 90/100.** 500,000-token input / 128,000-token output verified by three independent listings (Pi.dev, modelbenchmark.io, OpenCode launch materials) — top-tier but below the 1M tier; no long-context retrieval benchmark exists for this route.
-- **Multimodal: 55/100.** Text + image input and text output per Pi.dev's published config; no video, audio or document input is documented anywhere, and no vision benchmark exists for this route.
-- **Coding: 85/100.** llmbench Resolved 95.0% / Quality 84.5 / Combined 88.3 with 3/3-or-0/3 L7 consistency and measured 135.8–164.1 tok/s median throughput (~3× GLM-5.3-Flash) — the strongest single-harness coding evidence in this queue for an anonymous route; capped because it is one independent harness, not a standard benchmark, and SWE-bench Verified itself reports nothing for this ID.
-- **Cost efficiency: 85/100.** $0.20/$0.66 per 1M ($0.04 cache read) — near the cheap end of the measured-performance field, bundled as "$100 of usage for $10" inside OpenCode Go.
-- **Overall Score: 76.0/100.** Mean of the five non-cost dims: (80 + 70 + 90 + 55 + 85) / 5 = 76.0. Best fit: a fast, cheap stealth coding-agent route with elite independent-harness coding scores; adopt pending either a vendor confirmation of identity or a standard-benchmark run on this exact route.
+> **Read this first.** Because only one proprietary benchmark exists, each score below is an *evidence-poor floor* anchored on the methodology's tier mapping, not a measurement derived from benchmark numbers. The template's rule — never invent numbers — means every unmeasured dimension is labelled "no verified public score found" above rather than filled with a plausible-looking value. Treat these five numbers as "at least this good, probably no better" and re-derive them the moment a real benchmark suite covers this model.
+
+- **Tool use: 55/100.** The only measured agentic result is the OpenCode leaderboard at 23.14/40 (57.85% of max, rank #15) across four real implementation projects run through a coding harness, and Tool calling is metadata-confirmed. That places it in the middle of the methodology's band rather than the frontier tier, and it is the single best piece of evidence available. Capped by having *no* τ³-Banking, Terminal-Bench, MCP-Atlas, GDPval or Claw-Eval figure, and by the contradictory community reports about long-context recall.
+- **Reasoning: 48/100.** Reasoning support with low/high thinking levels is confirmed by metadata, and the OpenCode projects presumably require it, but there is no GPQA Diamond, HLE, CritPt, index or LiveBench result — Artificial Analysis does not track this model at all. Scored below the methodology's mid band (55–65) because nothing is measured and the one substantive negative community report describes it failing to recall earlier turns and repeatedly asking for clarification, which is a reasoning-continuity signal.
+- **Context window: 85/100.** 500,000 tokens with 128,000 max output maps to the methodology's 500K–1M tier floor of 85. Held at the floor because there is no retrieval measurement — no MRCR, RULER, GraphWalks or AA-LCR — so the "≥98% retrieval at 512K+" condition for a 100 is not merely unmet but untested, and the negative community recall report is the only behavioural evidence about long sessions.
+- **Multimodal: 62/100.** Text and image input with text output puts it in the methodology's "+image in" 60–70 band. Scored at the low end because image input is metadata-confirmed but **entirely unmeasured** — no MMMU-Pro, BabyVision, CharXiv or perception benchmark exists — and there is no video or audio input to lift it into the 75–90 tier.
+- **Coding: 62/100.** Anchored on the OpenCode leaderboard snapshot: 23.14/40 overall, with a best project of 4/5 (PHP CSV import), a mid of 3.5/5 and 3/5 (PHP offline sync, Go shipping quotes) and a worst of 2.75/5 (Dart/Flutter bank feed), plus code quality 9.94/20 and rank #15. The spread across four languages is the real signal — PHP and Go results are respectable while the Dart/Flutter result is the weakest, so this is a mid-pack coding worker rather than a generalist. Capped by the total absence of SWE-bench Verified, DeepSWE, LiveCodeBench, SciCode and Vibe Code Bench, and by the fact that the only result is a proprietary 4-project rubric from a single date that explainx.ai (Sept 5) described as having no published leaderboard entry — a direct conflict with omenalpha.io's transcription, unresolved here.
+- **Cost efficiency: 95/100.** $0.20/$0.66 per 1M with $0.04 cached reads sits between the methodology's ~$0.10/$0.20 (97–99) and ~$0.60/$2.20 (≈92) anchors, and the bundle economics are better than the rate card suggests: $10/month buys $100 of usage — a 10x leverage — with measured cost of $0.03 per prompt and ~$0.27 per session across 7,518 sessions. Held just under the 97–99 tier because it is not a $0 route and the bundled caps ($12/5h, $30/week, $60/month) constrain sustained batch work.
+- **Overall Score: 62/100.** (55 + 48 + 85 + 62 + 62) / 5 = 62.4 → 62. Recommendation: **a high-throughput, low-cost coding worker for OpenCode Go subscribers, and nothing more than that.** At ~189 tok/s with 500K context, image input and zero claimed retention, it is well shaped for routine implementation loops, repository exploration and iterative debugging, and its measured $0.03/prompt is genuinely excellent value inside a $10/month bundle. But it is opaque, unaccountable and essentially unbenchmarked: there is no vendor model card at all, one proprietary 4-project rubric from a single date, no standard benchmark of any kind, and two incompatible identity theories. Do not route anything high-risk or confidential to it without your own golden-task eval — and note that "zero retention" is OpenCode's claim about its own layer, not about an unnamed upstream provider.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-26
-- Method: public internet research across six independent source families on 2026-10-26 — OpenCode's own usage-data page and JSON catalog endpoint, Pi.dev's published model configuration, modelbenchmark.io's spec/pricing aggregation, Startup Fortune's identity report (zhipu namespace clue + community reaction), RankLLMs' editorial verification review, Magica's launch-day pricing report, and the independent llmbench evaluation (note.com/zephel01, MIT harness) with its behavioral comparison to Ox Alpha and GLM-5.3-Flash — cross-compared for conflicts (identity attribution and speed figures conflict and are resolved in the notes). Scores are normalized 1–100 interpretations, not official vendor scores; the reasoning score is explicitly provisional.
-- Supersedes: `Step_5_Preview.md.excluded` (2026-10-09, "unmodeled stealth/test route") — that verdict no longer holds on the evidence found today.
-- Future sources: add a new file next to this one, e.g. `Omen_Alpha.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: public internet research using OpenCode's own Go documentation and announcement as the primary source, plus omenalpha.io's transcribed September 4, 2026 OpenCode leaderboard snapshot (the only benchmark data that exists), BuildFastWithAI's independent review, and explainx.ai's identity/pricing investigation which explicitly separates confirmed facts from the two competing provider theories. Where sources conflict — the 23.14/40 vs 13.25/20 project-sum renderings, explainx.ai's "no published leaderboard entry" vs omenalpha.io's transcription, and TokenRa's $0.13/1M-context claims against three corroborating sources — both positions are recorded rather than resolved. Because only one proprietary benchmark exists, every normalised score above is an explicitly labelled evidence-poor floor rather than a benchmark-derived value.
+- Reference URLs:
+  - [omenalpha.io — Omen Alpha benchmarks (OpenCode leaderboard snapshot, 2026-09-04, methodology v1)](https://omenalpha.io/benchmarks.html)
+  - [BuildFastWithAI — Omen Alpha review: speed, price, coding & is it worth it?](https://blog.buildfastwithai.com/omen-alpha-review)
+  - [explainx.ai — Omen Alpha: OpenCode stealth model at $0.20/M (identity forensics, pricing, precedent)](https://www.explainx.ai/blog/opencode-omen-alpha-mystery-model-cheap-2026)
+  - [OpenCode Go documentation (access, allowances, privacy)](https://opencode.ai/docs/go/)
+  - [OpenCode usage-data page — zhipu/omen-alpha path](https://opencode.ai/data/zhipu/omen-alpha)
+  - [OpenCode on X — Omen Alpha announcement](https://x.com/opencode/status/2095746098522452093)
+  - [OrcaRouter — Xiaomi MiMo-V3-Flash identity analysis](https://www.orcarouter.ai/blog/xiaomi-mimo-v3-flash-leak)
+  - [AI Coding Daily — Omen Alpha coding-model coverage](https://aicodingdaily.com/model/omen-alpha)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

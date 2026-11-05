@@ -1,77 +1,87 @@
 # GPT-5.6 Terra — findings by GLM 5.3 Flash
 
 - Source: OpenAI (`gpt-5.6-terra`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> Re-researched 2026-11-05 (prior passes 2026-09-18→10-05, 2026-10-11, 2026-10-16): the
+> model is now a **legacy SKU** (main pricing page delisted, AA marks it deprecated,
+> successor GPT-6.1 Terra at half price) and official docs add a 2x-input/1.5x-output
+> surcharge over 272K prompts. Newly measured long-context retrieval at depth
+> (MRCR 512K–1M 57.9%, Graphwalks 1M 75.5% F1) docks Context 100→96 under the ≥98% rule;
+> SWE-V 75.2% and Vibe 74.6% fill coding gaps, AutomationBench 15.2% and Harvey ~1–2.5%
+> are weak additions. Tool use 91→90; Overall 89.8→89.
 
 ## Model card
 
 - **Name:** GPT-5.6 Terra (balanced mid-tier of the GPT-5.6 series — between flagship Sol and small Luna; tier names are durable capability tiers that advance on their own cadence)
-- **Short description:** OpenAI's July 2026 production workhorse: GPT-5.5-level quality at roughly half the cost, 1.05M-token context and Terminal-Bench 2.1 87.4% — aimed at high-volume support, document analysis and back-office automation. Price cut 20% on 2026-07-30. The 2026-10-11 second pass resolves the reasoning ambiguity: GPQA 92.9% at the launch-table setting (the prior 84.3% was AA's low-effort reading), ARC-AGI-2 83.9% (ARC Prize verified) and FrontierMath Tier 4 68.3%.
-- **Provider / access:** OpenAI API ID `gpt-5.6-terra`; available across the API, Codex and ChatGPT. Responses API (OpenAI's own surface).
-- **Release / knowledge:** limited preview 2026-06-26, public release 2026-07-09 (with GPT-5.6 Sol and Luna). Knowledge cutoff **2026-02-16** — the freshest measured in this repo.
+- **Short description:** OpenAI's July 2026 production workhorse: GPT-5.5-level quality at roughly half the cost, 1.05M-token context and Terminal-Bench 2.1 87.4%. Price cut 20% on 2026-07-30. **As of November 2026 it is a legacy SKU**: the main pricing page no longer lists it, Codex shows only GPT-6.1 Terra, and Artificial Analysis labels it deprecated — OpenAI still serves it with no announced shutdown (Azure schedule: 2028-01-11).
+- **Provider / access:** OpenAI API ID `gpt-5.6-terra` (Responses API); ~30 gateways (Azure, Databricks, Snowflake, Cloudflare, Vercel, GitHub Copilot, OpenRouter…, $2/$12 standard; outliers $1.5/$2 and $1.5/$9); batch $1/$6. Available across the API, Codex and ChatGPT.
+- **Release / knowledge:** limited preview 2026-06-26, public release 2026-07-09 (with Sol and Luna). Knowledge cutoff **2026-02-16** (official docs).
 - **IDs:** `gpt-5.6-terra` (OpenAI). **No free tier** — API-only, paid.
-- **Context window:** 1,050,000-token input (BenchLM concurs: 1.05M), 128,000-token max output (ai-tldr spec block).
-- **Modalities:** text + image in, text out (ai-tldr spec block; the repo catalog lists audio/video/PDF as well — unverified, treat cautiously). Reasoning-model architecture with the GPT-5.6 safety stack.
-- **Pricing (as of 2026-10-11):** $2.00 in / $12.00 out per 1M after the 2026-07-30 20% cut (was $2.50/$15.00 at launch); OpenAI attributes the cut to efficiency gains from using GPT-5.6 to rewrite its own production stack.
+- **Context window:** 1,050,000-token window with **maximum input 922,000 tokens** (official docs — new precision); 128,000 max output. Surcharge: prompts >272K input tokens bill at **2x input / 1.5x output** for the full request.
+- **Modalities:** text + image in, text out (official docs; repo-catalog audio/video/PDF claims remain unverified). Reasoning efforts: none/low/medium (default)/high/xhigh/max.
+- **Pricing (as of 2026-11-05):** $2.00 in / $12.00 out per 1M (stable since the 2026-07-30 cut); cached input $0.20 (90% off); **cache writes 1.25x input ($2.50)** — OpenAI's first cache-write pricing; long-context band as above. Legacy status: successor GPT-6.1 Terra halves input (−50%) and cuts output −58.3%.
 - **Architecture:** proprietary, parameters undisclosed; reasoning model; one of three GPT-5.6 tiers (Sol/Terra/Luna, all 1.05M context).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **87.4%** (OpenAI GPT-5.6 launch table via benchlm.ai, updated 2026-10-10 — up from the 84.3% the 2026-10-05 pass cited); Vals independent: **77.5%**
-- τ²-bench: **86.3%** (AA, independent); AA ITBench-AA: **51.0%**; AA Agentic Index: **43.7%** (AA)
-- GDPval-AA: **1583** (OpenAI launch table); AA-normalized: **47.7%** (AA)
-- BrowseComp: **87.5%**; OSWorld 2.0: **50.2%**; CyberGym: **81.8%**; ExploitGym: **23.2%**; Toolathlon: **53.1%** (OpenAI)
-- APEX-Agents-AA: **38.9%** (AA); ApprenticeBench (GUI): **16%** (NeoCognition — weak); Terminal-Bench 3.0: **20.8%** (frontierbench.ai — weak on the newer board)
-- MazeBench ASCII: **6%** (added 2026-10-16); AA-IFBench: **71.2%** (added 2026-10-16)
-- AutomationBench: no verified public score found
+- Terminal-Bench 2.1: **87.4%** (OpenAI launch table; Best-Reported-Harness rank #6/27) — Vals independent: **77.5%**
+- Terminal-Bench 4.0: **22.73% ±2.31** (Vals, #26-31/59 — NEW, weak; BenchmarkList 23.6%); Terminal-Bench Hard (AA): **62.9% Xhigh** (#3, behind Sol — NEW, strong)
+- AutomationBench: **15.2%** (OpenAI-reported, Frontier-Log verified — NEW, fills the gap, weak)
+- Agents' Last Exam v1: **50.4%** (NEW — strong for the field)
+- SEC-bench Pro: **57.7%** (#6 — NEW); ExploitGym 23.2%; ExploitBench 52.9% (#6); CyberGym 81.8%
+- Harvey LAB-AA: **2.5%** all-pass (criterion pass 85.2%); Harvey's Legal Agent Bench (Vals): **0.8%** max — both very weak (NEW)
+- τ²-bench: **86.3%** (AA); AA ITBench-AA 51.0%; AA Agentic Index 43.7% (frozen Sep 9) / 43.2 (Nov 4 drift); APEX-Agents (Epoch): **58.2%** max; BrowseComp 87.5%; OSWorld 2.0: 50.2% (triple-corroborated); Toolathlon 53.1%; χ-Bench 13.3%; ApprenticeBench 16%; TB3.0 20.8%; MazeBench 6%
+- GDPval-AA: **1583** (launch) / 47.7% normalized (AA)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.9%** (OpenAI GPT-5.6 launch table via benchlm.ai); AA independent: **92.5%**; Vals: **90.9%** — resolves the effort-setting ambiguity: the 2026-10-05 pass scored AA's low-effort 84.3%, but the launch-table setting reads 92.9 across three sources
-- HLE-Verified: **51.1%** (competitor cross-table — Gemini 3.8 Flash model card via benchlm.ai); AA-HLE: **42.9%** (AA)
-- ARC-AGI-2: **83.9%** (ARC Prize verified, arcprize.org/results/openai-gpt-5-6); ARC-AGI-1: **96.5%** (Terra Max verified); ARC-AGI-3: **0.8%**
-- FrontierMath v2: **84.9%** Tiers 1–3 / **68.3%** Tier 4 (OpenAI; legacy FrontierMath 84.9%)
-- Artificial Analysis Intelligence Index: **55.0** (OpenAI launch table via benchlm.ai — fills the "no verified Index" gap)
-- AA-LCR v1.1: **83.0%** (AA — fills the long-context gap); CritPt: **30.0%** (AA)
-- AA-Omniscience: **46.8% accuracy / 87.9% non-hallucination row / 0.1 index** (AA — the near-zero index reflects heavy hedging/refusals, not knowledge failure)
-- MMLU-Pro: **86.7%** (Vals); HealthBench Professional: **57.7%**; HealthBench Hard: **32.7%** (system card); LABBench2: **81.2%** (competitor-cited)
+- GPQA Diamond: **92.9%** (launch table) / **92.5%** (AA) / **90.91% ±1.91** (Vals x-high, #24/138) — three-source agreement holds
+- HLE: AA-HLE **42.9%**; HLE-Verified **51.1%** (Gemini 3.8 Flash card cross-table, #5 of a 6-model field)
+- ARC-AGI-2: **83.9%** (ARC Prize verified); ARC-AGI-1: **96.5%** (max); ARC-AGI-3: 0.8%
+- FrontierMath: legacy **84.9%**; v2 Tiers 1–3 **84.9%** / Tier 4 **68.3-68.5%** (private set); FrontierMath 2025-02-28 Private: **89.9%**
+- ProofBench: **71.0% ±4.56** (x-high, #5 of 53 — NEW, strong); IOI (Vals): **87.61% ±6.53** (#7 of 46 — NEW, strong)
+- Artificial Analysis Intelligence Index version chain: **55** (launch, v4.1.1) → **42** (v4.3.2 archived) → **32.2** (v5.0-era, OpenRouter Nov 4) — rescalings, not capability changes
+- AA-LCR v1.1: **83.0%** (#20/423, 95th pct); CritPt 30.0% (#3/200); AA-Omniscience: 46.8% accuracy / 87.9% non-hallucination row / 0.1 index (heavy hedging); EnigmaEval-class: n/a
+- MMLU-Pro: **86.7%** (Vals); ObviousBench **97.9%** (max, answer-pass³); LegalBench 85.1%; Legal Research 40.9% (#7/27); RedlineBench 49.3%; HealthBench Professional 57.7% (62.4% raw); HealthBench Hard 32.7%; LABBench2 81.2%; AIIQ 130 (#17/168)
 
 Coding:
 
-- SWE-bench Pro: **63.4%** (OpenAI launch table — fills the gap); SWE-bench (Vals): **95.4%** (Vals, independent)
-- DeepSWE: **69.6%** (OpenAI); LiveCodeBench (Vals): **85.9%** (fills the LiveCodeBench gap)
-- FrontierCode 1.1 Extended: **55.8%** (Cognition/Devin); CursorBench 3.2: **64.9%**; CursorBench 4.0: **41.3%**
-- AA Coding Index: **76.7%** (AA); AA-SciCode: **55.0%** (AA); VulcanBench v3: **87.0%**
-- SWE-bench Verified: no verified public score found for Terra specifically
+- SWE-bench Verified: **75.2%** (BenchmarkList, #29/72 — NEW, fills the gap); SWE-bench (Vals): **95.40% ±0.94** (#5/88, joint 5th)
+- SWE-bench Pro: **63.4%** (#17/61); DeepSWE 1.1: **69.6%** (#18/61, triple-corroborated)
+- Vibe Code Bench v1.1 (Vals): **74.59% ±4.20** (#42/123 — NEW; BenchmarkList reads 67.8%)
+- LiveCodeBench (Vals): **85.93%**; AA Coding Index **76.7-77.4** (Coding Agent Index rank #2/10); AA-SciCode 55.0%; VulcanBench v3 87.0%
+- FrontierCode 1.1 Extended: **55.8%** (Cognition/Devin); Android Bench **86.8%** (#7/46); ReactBench 40.5% (#5/24); Convex Coding 69.8%; SWE-Marathon 52/160; SWE-sweep 1.5%; CursorBench 3.2 64.9%; CursorBench 4.0 41.3%
 
 Long context:
 
-- Window: **1,050,000 tokens** in / 128K out
-- AA-LCR v1.1: **83.0%** (AA — first measured long-context number, strong)
-- MRCR/RULER: no verified public score found
+- Window: 1,050,000 in (max input 922K) / 128K out
+- **MRCR v2 (8-needle): 89.6%** overall — **57.9% @512K–1M**, 78.9% @256K–512K, 93.5% @128K (NEW measured depth falloff)
+- **Graphwalks BFS: 94.9% F1 @256K / 75.5% F1 @1M** (NEW); Graphwalks >128K: 76.9%
+- AA-LCR v1.1: **83.0%**
 
 Multimodal:
 
-- MMMU-Pro: **80.7%** / **82.0%** with Python (OpenAI); AA-MMMU-Pro: **80.7%** (AA) — measured vision backs the image-input claim
+- MMMU-Pro: **80.7%** / **82.0%** with tools (OpenAI) / **86.5%** (BenchmarkList x-high, #16/79); MVBench 75.0% (#3/26); Vals Multimodal Index 65.1%
 
 ### Normalized scores (1–100)
 
-- **Tool use: 91/100.** (Was 93 on the prior pass.) TB2.1 87.4% (vendor; 77.5% Vals) and τ²-bench 86.3% hold a strong agentic story, but the newly surfaced weak rows (Toolathlon 53.1%, ApprenticeBench 16%, GDPval 1583/47.7% normalized, TB3.0 20.8%) put the mid-tier in its place — one band below the evidence the prior single-benchmark score implied.
-- **Reasoning: 88/100.** (Was 85 on the prior pass.) GPQA resolves to 92.9% (three independent sources agree at the launch-table setting, vs the low-effort 84.3% previously scored), ARC-AGI-2 83.9% is verified and FrontierMath T4 68.3% is strong; AA-HLE 42.9% and the 0.1 Omniscience index keep it a band below flagship Sol (90).
-- **Context window: 100/100.** 1.05M input — the largest measured in this repo — with 128K output; AA-LCR 83.0% now provides strong measured long-context evidence.
-- **Multimodal: 82/100.** Text + image in with measured MMMU-Pro 80.7/82.0; audio/video/PDF claims remain unverified; text-only output.
-- **Coding: 88/100.** Vals SWE-bench 95.4%, LiveCodeBench 85.9% and TB2.1 87.4% are strong, but SWE-bench Pro 63.4% and DeepSWE 69.6% sit below the frontier band — the score holds.
-- **Cost efficiency: 55/100.** No free tier and $2.00/$12.00 list — an order of magnitude above open-weights tiers; the 20% cut and GPT-5.5-class quality keep it mid-tier.
-- **Overall Score: 89.8/100.** (Was 89.6 on the prior pass.) Mean of the five quality dims per `RULES.md` (Cost excluded): (91 + 88 + 100 + 82 + 88) / 5 = 449/5 = 89.8 — effectively unchanged on the 2026-10-11 second pass: the reasoning raise (85→88) and tool-use correction (93→91) net out. Best fit: the OpenAI-locked production workhorse — excellent agents, 1.05M context and now fully measured reasoning; per-dollar it still loses to Gemini 3.7/3.8 Flash and the free open tiers.
+- **Tool use: 90/100.** CHANGED from 91 — TB-Hard 62.9% (#3), Agents' Last Exam 50.4% and SEC-bench 57.7% are strong additions, but the newly measured TB4.0 22.7%, AutomationBench 15.2% and Harvey ~1–2.5% rows are genuinely weak and join Toolathlon 53.1% on the debit side.
+- **Reasoning: 88/100.** Unchanged — ProofBench 71.0% (#5) and IOI 87.6% (#7) add independent strength to GPQA 90.9–92.9% and FrontierMath T4 68.3%; the AA Index rebase to 32.2 tracks the global v5 rescale, not a decline.
+- **Context window: 96/100.** CHANGED from 100 — measured retrieval at depth now exists and falls short of the ≥98%-at-512K+ bar for the top score: MRCR 512K–1M 57.9% and Graphwalks 1M 75.5% F1 (vs 94.9% at 256K); 1.05M window and AA-LCR 83.0% keep it in the top tier.
+- **Multimodal: 82/100.** Unchanged — text + image in with MMMU-Pro now triple-sourced (80.7/82.0/86.5) and MVBench 75.0%; unverified audio/video/PDF claims; text-only output.
+- **Coding: 88/100.** Unchanged — SWE-V 75.2% and Vibe 74.6% fill former gaps mid-band while Vals SWE-bench 95.4%, TB2.1 87.4% and the #2 Coding-Agent-Index rank hold the top; SWE-Pro 63.4% and DeepSWE 69.6% still cap below the frontier band.
+- **Cost efficiency: 55/100.** Unchanged — $2.00/$12.00 list with no free tier; the newly documented >272K surcharge (2x input / 1.5x output) and 1.25x cache writes worsen long-context economics; the half-price successor makes staying on Terra a premium choice.
+- **Overall Score: 89/100.** CHANGED from 89.8 — (90 + 88 + 96 + 82 + 88) / 5 = 444/5 = 88.8 → 89. Best fit: a strong legacy workhorse still worth pinning for its 1.05M context and measured depth — but GPT-6.1 Terra now beats it on TB4.0, Vibe and price, so new work should justify the premium explicitly.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing OpenAI's GPT-5.6 launch table + system card, ARC Prize verified results, Vals AI / AA / Cursor / Cognition / NeoCognition leaderboards via benchlm.ai, plus the prior 2026-09-18/10-05 passes; 2026-10-16 re-check: BenchLM 54-row refresh corroborates all rows (MazeBench 6%, AA-IFBench 71.2% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z.ai/glm-5.3-flash)** — 2026-11-05 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research (3 web searches: OpenAI official docs (token limits, surcharge, cache pricing, efforts) + launch post, datastudios GPT-6.1-vs-5.6 comparison (legacy status, hallucination delta), Vals AI model page + Ridge + theindexofai + BenchmarkList + Frontier Log + benchlm + CtrlAltDebrief/GenMagic price-volume logs); index-version chain documented; estimates excluded; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
