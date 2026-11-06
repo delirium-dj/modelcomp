@@ -52,7 +52,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1270** (OpenRouter; BenchLM 2026-10-17 refresh reads **1266** — minor drift, flagged); image+video input confirmed (video experimental, official API only)
+- Design Arena Website: **1270** (OpenRouter; BenchLM 2026-10-17 refresh reads **1266** — minor drift, flagged; Nov 5 refresh reads **1262** — continued minor drift); image+video input confirmed (video experimental, official API only)
 
 ### Normalized scores (1–100)
 
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Moonshot K2.7-Code model card, Artificial Analysis independent boards (LCR/CritPt/Coding Index/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 29-row refresh corroborates all rows (Epoch FrontierMath v2 54.0/12.2% added; Design Arena 1270 → 1266 and GDPval normalized 27.0% → 26.9% drift flagged) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Kimi K2.7 Code page fetched 2026-11-05 (Nov 5 data, 26 rows) — all prior rows re-confirmed, TB-Hard (AA) 44.7% added, minor drifts only (Design Arena 1266→1262, GDPval normalized 26.9% steady); composite 53.75 #86/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K2.md`, using the same headings.

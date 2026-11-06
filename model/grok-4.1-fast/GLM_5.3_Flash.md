@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - Artificial Analysis Intelligence Index: **11.3** (AA, non-reasoning base — the Reasoning sibling scores materially higher per BenchLM's 46.31 composite); AA-GPQA Diamond: **63.7%** (AA — **far below the frontier class**); AA-HLE: **5.1%** (AA)
 - FRAMES: **87.6%** (xAI launch post; vs GPT-5 86%, Gemini 3 Pro 90.9%)
 - AA-LCR v1.1: **31.3%** (AA base — **conflicts with the vendor-measured 67% at 2M**); CritPt: **0.0%** (AA)
-- AA-Omniscience: **17.2% accuracy / 82.3% non-hallucination row / −50.9 index** (AA — worst index measured in this repo)
+- AA-Omniscience: **17.2% accuracy / 82.3% non-hallucination row / −50.9 index** (AA — worst index measured in this repo); LABELING NOTE (Nov 5): BenchLM now labels the 82.3% value "Hallucination Rate" — under the current labeling it coheres with the catastrophic −50.9 index; either reading leaves the score unchanged
 - AA-IFBench: **36.5%** (AA)
 - LCR / MLCR / CritPt: no verified public score found for the reasoning variant
 

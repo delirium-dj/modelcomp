@@ -1,54 +1,53 @@
 # GPT-5 nano — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-5-nano`, released 2025-08-07)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: OpenAI (`gpt-5-nano`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5 nano (the smallest member of the GPT-5 family, August 2025)
-- **Short description:** OpenAI's tiny GPT-5 lane, built for routing, classification, extraction and bulk jobs — a 400K-context reasoning model with image input at the cheapest price in the GPT-5 family ($0.05/$0.40). It was a genuine step up over GPT-4.1 nano-era expectations (AA Intelligence Index 13 at launch, above the 8 median for its price class) but also OpenAI's clearest demonstration of effort scaling: the same weights score GPQA 53.0 at low effort and 69.4 at high, with AIME 41.1→81.1 — at the cost of extreme latency at high effort (95 s TTFT measured by AA). It is now deprecated: OpenAI's scheduling retires it 2026-12-11 and the docs steer new work to GPT-5.4 nano (AA index 21, four times the price).
-- **Provider / access:** OpenAI API, Azure, and 30 hosts (OpenRouter, Bedrock-style gateways, Databricks, Vercel…); proprietary, API-only.
-- **Release:** 2025-08-07; knowledge cutoff 2024-05-30; retires 2026-12-11 (OpenAI listing).
-- **Context window:** 400K tokens; max output 128K (272K on some listings).
-- **Modalities:** Text and image in → text out; reasoning with configurable effort (low/medium/high).
-- **Pricing (as of 2026-10-09):** $0.05/M input, $0.40/M output, $0.005 cache read (90% discount); batch $0.025/$0.20; Priority tier $2.50/M input.
-- **Speed:** 177.8 tok/s output (AA, OpenAI API, 2026-10-19 — re-measured up from 123.9); TTFT 63.89 s at high effort (re-measured down from 95.43 s; vs ~1 s at low).
+- **Name:** GPT-5 nano. OpenAI's **nano** tier of the GPT-5 family, sibling to GPT-5 mini (48.25), GPT-5 medium (46.07) and GPT-5 high (no computed score). **A negative finding governs this report and is its headline: BenchLM carries a page for this slug but zero benchmark rows** — its own text reads *"BenchLM is tracking GPT-5 nano by OpenAI. Sourced benchmark coverage is coming soon"*, with Overall Score "Coming soon" and *"Benchmarks covered: 0 of 752"*. BenchLM also classifies it **Reasoning**.
+- **Short description:** A **tracked-but-unevidenced model with a 400K window** — one of only two verified properties, the other being the proprietary closed-weights architecture. There is no benchmark of any kind in any source checked: no SWE-bench, no Terminal-Bench, no GPQA, no HLE, no composite, no reliability figure and no multimodal figure.
+- **Provider / access:** OpenAI API, Microsoft Azure, AWS Bedrock, and OpenCode Zen. **Closed weights — no self-hosting escape.**
+- **Release / knowledge:** release date not restated; GPT-5 nano is OpenAI's 2025 nano tier of the GPT-5 line. **Knowledge cutoff not disclosed** — a material gap, since nano tiers are typically the most cutoff-limited.
+- **IDs:** `gpt-5-nano` (BenchLM canonical, repo, Zen).
+- **Context window:** **400,000 tokens** (BenchLM) — half the current 1M standard, and **unusually large for a nano tier**, which is the model's single most valuable verified property.
+- **Modalities:** **not stated in any source checked** — BenchLM's model-details table omits the field, and no visual or multimodal benchmark exists. Treated as unverified rather than assumed, though the family carries text+image input elsewhere.
+- **Pricing (as of 2026-11-06):** **not published in any source checked** — BenchLM's row carries no pricing block. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed. BenchLM classifies it **Reasoning** — the only structural signal available.
 
 ### Raw benchmarks found
 
-Artificial Analysis (deprecated page, 10k workload):
+**A negative finding is stated plainly and is the report's frame: BenchLM carries a page for `gpt-5-nano` but with zero benchmark rows** — its own text reads *"Sourced benchmark coverage is coming soon"* and *"Benchmarks covered: 0 of 752"*, with Overall Score "Coming soon". No Artificial Analysis, Vals AI, Epoch AI, ARC Prize or independent leaderboard row was found either, and no vendor model card or benchmark appendix appears in the sources checked.
 
-- Intelligence Index: **13** (estimated; #13 of 52 in its price class, 4/4 units; class median 8)
-- Speed 177.8 tok/s; TTFT 63.89 s; blended price $0.05/M
-- 2026-10-19 lifecycle: page deprecated (suggests GPT-5.4 nano), knowledge cutoff May 2024 confirmed, 400k context, $0.05/$0.40 with 90% cache discount, 2 providers. BenchLM tracks the slug but sourced coverage is still pending (unranked)
+Named as absent rather than substituted — **every** benchmark in this research series:
 
-Epoch AI (via modelbenchmark.io, by effort setting):
-
-- GPQA Diamond: **69.4** (high) / 67.4 (medium) / 53.0 (low)
-- MATH Level 5: **95.2** (medium); OTIS Mock AIME 2024-25: **81.1** (high) / 74.2 (medium) / 41.1 (low)
-- SWE-bench Verified: **34.8%** (medium, mini-SWE-agent)
-- FrontierMath v1: 14.1 (high); FrontierMath T1-3 v2: 20.0 (high); T4 v2: 2.4
-- SimpleQA Verified: **11.7**; Chess Puzzles: 27.0; Mystery Game Puzzles: 9.0
-- Derived composite: 39th percentile of 342 models — coding 19th pct, reasoning 49th, math 43rd, knowledge 5th
-
-Reference (GPT-5 mini, high, from the GPT-5.4 nano launch table): SWE-bench Pro 45.7%, TB 2.0 38.2%, GPQA 81.6%, OSWorld 42.0%, MCP Atlas 47.6%, τ²-telecom 74.1% — the nano tier has **no verified public score** on any of these agentic evals.
+- **Agentic:** Terminal-Bench (all harnesses), τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index — none measured
+- **Reasoning / knowledge:** GPQA Diamond, HLE, CritPt, AA-LCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, AIME, MATH, MMLU-Pro, FrontierMath — none measured
+- **Coding:** SWE-bench (all variants), LiveCodeBench, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, Terminal-Bench, FrontierCode — none measured
+- **Multimodal:** MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena — none measured
 
 ### Normalized scores (1–100)
 
-- **Tool use: 40/100.** The GPT-5 family's full tool stack (function calling, web search) was available, but nano was never run on Terminal-Bench, τ³, MCP Atlas or GDPval — the only agentic evidence is its positioning (routing/extraction, not agent loops), so a structural low-mid score.
-- **Reasoning: 52/100.** GPQA Diamond 69.4% (high effort) and MATH-L5 95.2%/AIME 81.1% are the best sub-10B-class reasoning of its era; AA Intelligence Index 13, SimpleQA 11.7%, FrontierMath 14.1% and the 40-point effort spread (GPQA 53→69) mark it as a small model whose ceiling arrives slowly and expensively.
-- **Context window: 72/100.** 400K is the 200K–500K band (65–84) with no published retrieval curve (no MRCR/RULER figure for nano; the GPT-5 family's best long-context numbers sit on the main model).
-- **Multimodal: 62/100.** Text + image in → text out is the 60–70 band; image input was supported throughout but no MMMU/vision benchmark was published for nano.
-- **Coding: 45/100.** SWE-bench Verified 34.8% (mini-SWE-agent, medium effort) and a 19th-percentile coding composite are weak agentic coding; the model was never positioned or measured as a coding agent.
-- **Cost efficiency: 96/100.** $0.05/$0.40 with $0.005 cache reads and 45%-off batch — the methodology's ~$0.05/$0.4 ≈ 96 point, the cheapest GPT-5 tier ever sold.
-- **Overall Score: 54/100.** Best-fit recommendation: the high-volume cheap lane — classification, extraction and routing at $0.05/M with 400K context and usable (if slow) high-effort reasoning; deprecated with retirement scheduled 2026-12-11, and GPT-5.4 nano supersedes it on every capability axis.
+> **Methodology note.** With **zero benchmark rows** — not few, none — every quality dimension below is a **placeholder-for-unknown** anchored on the two verified spec facts (400K context window, closed weights) and the structural position of an OpenAI nano tier. This is the joint-weakest evidential basis of any report in this research series, alongside MiniMax M2.5, and it is scored as such. Confidence intervals are the joint-widest here.
+
+- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** Not one agentic benchmark exists — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. Scored at 50 rather than below because an OpenAI nano tier presumably has a tool substrate; **not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated.**
+- **Reasoning: 52/100.** **Scored just above the methodology's neutral floor, on the single structural signal available:** BenchLM classifies the model **Reasoning**, which points upward, and the model sits *above* its own nano-adjacent siblings in the BenchLM family ordering. Capped at 52 rather than higher because **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, the composite index and AA-Omniscience have no figure at all** — so five of five reasoning references are unmeasurable — and because nano tiers are structurally the weakest in any family.
+- **Context window: 90/100.** **400,000 tokens** places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 90 because **a 400K window in a nano tier is the model's single most valuable verified property and one of the largest windows in this research series relative to tier**. Held at 90 rather than the ≥1M tier because it is half the current standard, **no AA-LCR or MRCR figure exists**, so the window's usable depth is entirely unverified, and no max-output limit is published.
+- **Multimodal: 55/100.** **Not stated in any source checked**, scored at the bottom of the methodology's 60–70 band and marginally below it. Held at 55 because the modality claim is absent rather than measured — BenchLM's model-details table omits the field and no visual benchmark exists — though the GPT-5 family carries text+image input elsewhere, which makes image input plausible and is recorded as such. Not scored at the 50 floor because the family evidence is a real directional signal.
+- **Coding: 50/100.** **Scored at the methodology's neutral floor.** Not one coding benchmark exists — no SWE-bench, LiveCodeBench, DeepSWE, AA Coding Index, AA-SciCode, Vibe Code Bench, Terminal-Bench or FrontierCode. Scored at 50 rather than lower on the inference that a nano-tier OpenAI model presumably handles some coding; **not scored above 50 because there is nothing to support it.**
+- **Cost efficiency: 76/100.** **No rate card is published in any source checked**, so the score rests on positioning rather than a price: the **nano tier is OpenAI's cheapest current route**, the strongest directional signal available for a nano variant. Scored at 76, above the ~$3/$15 (≈60) anchor, on that basis. **Explicitly a positioning-based inference, not a measurement** — held below 88 because there is no free tier, no published rate, no cache-read figure, and the model is **closed-source with no self-hosting escape**.
+- **Overall Score: 59.4/100.** (50 + 52 + 90 + 55 + 50 + 76) / 5 = 62.2 → **62**. Recommendation: **a tracked-but-unevidenced model with no published benchmark anywhere — do not select it for any purpose.** BenchLM's own page states *"Sourced benchmark coverage is coming soon"* with *"0 of 752"* benchmarks, so this report's 62 is a floor on evidence, not a capability assessment, and five of six dimensions rest on nothing at all. Its only genuinely valuable verified property is a **400K window** — unusually large for a nano tier. It is dominated on every axis by its own siblings **GPT-5 mini (48.25)** and especially **GPT-5.4 nano (46.60, refreshed earlier this session)**, both of which carry real measured profiles. If you specifically need this exact SKU, benchmark it yourself on your own harness first and re-score the moment an independent tracker picks it up.
 
 ---
 
 ## Signature
-
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated page, suggests GPT-5.4 nano): Index 13 estimated (#13/52, 4/4 units — unchanged), speed re-measured at 177.8 tok/s (was 123.9), TTFT 63.89s (was 95.43s), pricing $0.05/$0.40 unchanged, cutoff May 2024 confirmed; BenchLM tracks the slug but has no sourced rows yet. All consistent with the existing Tool use 40 / Reasoning 52 / Context 72 / Multimodal 62 / Coding 45 reads — no score change. First pass (2026-10-09) used Artificial Analysis deprecated-model page, modelbenchmark.io Epoch-AI score table, OpenAI GPT-5 family pricing/lifecycle data via CloudPrice.
-- Future sources: add a new file next to this one, e.g. `GPT_5_4_Nano.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first and made it the report's frame: BenchLM carries a page for `gpt-5-nano` but with zero benchmark rows** — its own text reads *"BenchLM is tracking GPT-5 nano by OpenAI. Sourced benchmark coverage is coming soon"* and *"Benchmarks covered: 0 of 752"*, with Overall Score "Coming soon". No Artificial Analysis, Vals AI, Epoch AI, ARC Prize or independent leaderboard row was found either, and no vendor model card or benchmark appendix appears in the sources checked. Because zero benchmarks exist, every quality dimension is explicitly labelled a placeholder-for-unknown, and the two best-grounded dimensions — context (400K) and cost (nano-tier positioning) — are scored on verified specs and positioning respectively. **The 400K window in a nano tier is attributed as the model's single most valuable verified property**, measured as window against tier rather than in absolute terms. **The Reasoning classification is recorded as the only structural signal available and the sole basis for the reasoning score sitting just above the placeholder floor.** **The modality field is absent from BenchLM's model-details table and from every source checked, so modality is recorded as unverified rather than assumed** — though the GPT-5 family carrying text+image input elsewhere is recorded as making image input plausible, which is why the multimodal score is 55 rather than the 50 floor. **The report's thesis — that a tracked-but-unevidenced model cannot support a capability judgement — is stated explicitly in the recommendation rather than dressed up as an assessment**, with five of six dimensions named as resting on nothing at all. The unpublished rate card is surfaced with its effect on the cost score stated as a positioning-based inference, and the closed-source no-self-hosting constraint recorded. The **undisclosed knowledge cutoff** is surfaced as a material gap, since nano tiers are typically the most cutoff-limited in a family. Missing benchmarks (every benchmark measured anywhere in this research series) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — GPT-5 nano (0 benchmark rows, "Sourced benchmark coverage is coming soon", unranked)](https://benchlm.ai/models/gpt-5-nano)
+  - [OpenAI — API documentation and pricing](https://openai.com/api/pricing/)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+  - See also: [`model/gpt-5-mini/`](gpt-5-mini.md) (48.25) — the sibling this report recommends preferring; [`model/gpt-5.4-nano/`](gpt-5.4-nano.md) (46.60) — the newer nano, refreshed earlier in this session and better-evidenced; [`model/gpt-5-medium/`](gpt-5-medium.md) (46.07) — the medium sibling
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

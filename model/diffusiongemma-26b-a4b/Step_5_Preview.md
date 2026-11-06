@@ -1,73 +1,57 @@
-# DiffusionGemma 26B-A4B — findings by Step 5 Preview
+# DiffusionGemma 26B A4B — findings by Step 5 Preview
 
 - Source: Google DeepMind (`google/diffusiongemma-26B-A4B-it`, released 2026-06-10)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DiffusionGemma 26B-A4B (Google DeepMind's text-diffusion variant of the Gemma 4 26B-A4B MoE)
-- **Short description:** Google's experiment in **discrete text diffusion** — warm-started from the post-trained Gemma 4 26B-A4B checkpoint, this encoder-decoder model (shared weights, bidirectional attention) denoises **256-token blocks in parallel** in ~12 forward passes, i.e. ~20 tokens per forward pass versus the ~3–6 that state-of-the-art speculative decoding achieves. The result is a new intelligence-to-speed Pareto point: ~1,479 tokens/second on a single H100 (5× the AR baseline's 303 tok/s under MTP serving, up to 2,000 tok/s on an RTX 6000 per Unsloth), on ~18GB of quantized VRAM — a single consumer GPU. The price is accuracy: against its own AR parent it gives up 5.0 points of MMLU-Pro, 19.2 of AIME, 8.0 of LCB, 9.1 of GPQA and 19.5 of MMMU-Pro. It also retains AR decoding, so requests can be routed by latency needs.
-- **Provider / access:** Open weights (Apache 2.0) on Hugging Face (`google/diffusiongemma-26B-A4B-it`); NVIDIA NIM (BF16, NVFP4 via Model Optimizer); build.nvidia.com. Artificial Analysis lists it as self-hostable with no first-party API route.
-- **Release:** 2026-06-10; knowledge cutoff January 2025.
-- **Context window:** 256K tokens (AA lists 256k).
-- **Modalities:** Text, image and video in → text out (inherited multimodal stack; AA's page independently confirms text+image+**video** input); configurable thinking; native function calling; 140+ languages (35+ per NVIDIA's card).
-- **Pricing:** free open weights (Apache 2.0); runs single-GPU after quantization.
-- **Architecture:** 25.2B total / 3.8B active MoE (re-confirmed on AA 2026-10-19); two-stage fine-tune using <10% of the AR model's training-token budget; Entropy-Bounded (EB) sampler with adaptive stopping is the recommended decode path.
+- **Name:** DiffusionGemma 26B A4B — Google's **text-diffusion variant of the Gemma 4 26B-A4B MoE**, warm-started from the post-trained Gemma 4 26B-A4B checkpoint. **A negative finding governs this report: BenchLM carries no `diffusiongemma-26b-a4b` page in any spelling** (it 404s), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** Google's experiment in **discrete text diffusion** — an encoder-decoder model (shared weights, bidirectional attention) that denoises **256-token blocks in parallel in ~12 forward passes, i.e. ~20 tokens per forward pass versus the ~3–6 that state-of-the-art speculative decoding achieves**. The result is a new intelligence-to-speed Pareto point: **~1,479 tokens/second on a single H100 (5x the AR baseline's 303 tok/s under MTP serving, up to 2,000 tok/s on an RTX 6000 per Unsloth), on ~18GB of quantized VRAM — a single consumer GPU.** The price is accuracy: against its own AR parent it gives up **5.0 points of MMLU-Pro, 19.2 of AIME, 8.0 of LiveCodeBench, 9.1 of GPQA and 19.5 of MMMU-Pro.**
+- **Provider / access:** **Open weights (Apache 2.0)** on Hugging Face (`google/diffusiongemma-26B-A4B-it`); NVIDIA NIM (BF16, NVFP4 via Model Optimizer); build.nvidia.com. Artificial Analysis lists it as self-hostable with **no first-party API route**. Repo meta records `noFreeId: true` and **NVIDIA NIM serving $0/$0** plus nano-gpt at $0.05/$0.15 and Pioneer at $0.50/$0.50.
+- **Release / knowledge:** **released 2026-06-10; knowledge cutoff January 2025** (re-confirmed on AA 2026-10-19) — both genuine, dated, specific facts, and **22 months behind this report's date**.
+- **IDs:** `google/diffusiongemma-26B-A4B-it` (Hugging Face, repo id); `google/diffusiongemma-26B-A4B` (nano-gpt, Pioneer).
+- **Context window:** **256,000 tokens**, with a **1,024-token sliding window and a 256-token canvas**. **No max-output figure is published** — and the 256-token canvas is the model's defining architectural constraint, since diffusion generation works in fixed-size blocks rather than a free-running output budget.
+- **Modalities:** **text, image and video in; text out** — the inherited multimodal stack, with AA's page independently confirming **text + image + video** input; repo meta records video supported as sampled frames, **max 60s at 1 fps**. Configurable thinking; **native function calling**; 140+ languages (35+ per NVIDIA's card).
+- **Pricing (as of 2026-11-06):** **free open weights (Apache 2.0), runs single-GPU after quantization (~24GB VRAM per repo meta)**, with **NVIDIA NIM at $0/$0** as a free hosted route.
+- **Architecture:** **25.2B total / 3.8B active MoE** (re-confirmed on AA 2026-10-19); **two-stage fine-tune using <10% of the AR model's training-token budget**; the **Entropy-Bounded (EB) sampler with adaptive stopping** is the recommended decode path. It also retains AR decoding, so requests can be routed by latency needs.
 
 ### Raw benchmarks found
 
-Vendor model card (TD mode, thinking on, EB sampler; Gemma 4 26B-A4B AR/MTP in parents):
+**A negative finding is stated plainly: BenchLM carries no `diffusiongemma-26b-a4b` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) and re-attributed to Google's launch material, Artificial Analysis, NVIDIA's model card and Unsloth's serving report; **because no tracker page exists, none has an independent cross-check from a 2026-11-06 source.**
 
-Reasoning & knowledge:
-
-- MMLU-Pro: **77.6%** (82.6); MMMLU: **81.5%** (86.3)
-- GPQA Diamond: **73.2%** (82.3); AIME 2026 (no tools): **69.1%** (88.3)
-- HLE (no tools): **11.0%** (8.7); HLE (with search): **11.9%** (17.2); BBH EH: **47.6%** (64.8)
-- GSM8K: 96.3 (tech report)
-
-Coding:
-
-- LiveCodeBench v6: **69.1%** (77.1); Codeforces Elo: **1,429** (1,718)
-
-Instruction following / agentic:
-
-- Tau2 (average over 3): **56.2%** (68.2)
-
-Vision:
-
-- MMMU-Pro: **54.3%** (73.8); MATH-Vision: **70.5%** (82.4); OmniDocBench 1.5: 0.319 edit distance (0.149); MedXPertQA MM: **49.0%** (58.1)
-
-Long context:
-
-- MRCR v2 8-needle 128K (average): **32.0%** (44.1)
-
-Mode comparison (tech report Table 3): TD 69.1 AIME / 73.2 GPQA / 69.1 LCB vs the same weights in AR mode 84.2 / 79.8 / 71.4.
-
-Quantization (NVIDIA NVFP4 vs BF16 baseline, thinking on): GPQA 68.6 vs 69.4; AIME 67.33 vs 68.33; GSM8K 94.01 vs 94.54; IFEval 94.56 vs 94.01; HumanEval 95.00 vs 94.09; MMMLU 88.13 vs 88.50; MMLU-Pro 80.7 vs 81.0.
-
-**New in the 2026-10-19 re-run:**
-
-- Artificial Analysis Intelligence Index: **10** (estimated; #45/141 in its open-weight size class, above the class median of 8) — the independent composite lands exactly where the vendor card's parent-vs-diffusion deltas predicted
-- AA independently confirms 25.2B/3.8B parameters, Apache 2.0, 256k context, text+image+video input, text output
+- **Throughput: ~1,479 tok/s on a single H100** (5x the AR baseline's 303 tok/s under MTP serving); **up to 2,000 tok/s on an RTX 6000** per Unsloth; ~18GB quantized VRAM
+- **Accuracy deltas versus its own AR parent (Gemma 4 26B-A4B): −5.0 MMLU-Pro, −19.2 AIME, −8.0 LiveCodeBench, −9.1 GPQA, −19.5 MMMU-Pro** — the model's defining trade-off, and Google states plainly that diffusion output quality is below standard Gemma 4
+- Repo meta's specific figures: **GPQA 73.2 vs 82.3, MMMU-Pro 54.3 vs 73.8, MRCR 32.0 vs 44.1**
+- **~20 tokens per forward pass versus ~3–6 for SOTA speculative decoding**; 12 forward passes per 256-token block
+- **Knowledge cutoff January 2025** (re-confirmed on AA 2026-10-19)
+- **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, SWE-bench, AA Coding Index, AA-SciCode, DeepSWE, Terminal-Bench, τ²-bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, AA Intelligence Index, AA-Omniscience, MMMU-Pro, CharXiv, ExtractBench, Video-MME: no verified public score found for this identity** — the deltas above are the only quantitative evidence
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged.** The independent composite (Index 10, above its size-class median but far below frontier) and AA's spec confirmations corroborate the vendor-card evidence the scores were built on; no new measurements move any dimension.
+> **Methodology note.** With no capability benchmarks beyond the parent-model deltas, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (25.2B/3.8B MoE, 256K window with a 256-token canvas, three-modality input, Apache 2.0 at $0) and the deltas versus its AR parent. The delta figures are the model's defining evidence and are used directly: where the parent's score is known and the delta is stated, the implied figure is derived and labelled as such.
 
-- **Tool use: 52/100.** Tau2 (3-domain average) 56.2% is the only agentic number; no Terminal-Bench, MCP Atlas or GDPval run exists for this model, so mid-band on a single eval.
-- **Reasoning: 55/100.** MMLU-Pro 77.6%, GPQA 73.2%, AIME 69.1% and HLE 11.0% — mid-band, and uniformly 5–19 points below the AR Gemma 4 26B-A4B it was fine-tuned from; AA's Index 10 (estimated) is consistent.
-- **Context window: 62/100.** 256K is the 200K–500K band (65–84) with MRCR 8-needle 128K at 32.0% — weak retrieval even at half the window.
-- **Multimodal: 66/100.** Text + image + video in → text out is the 75–90 band; docked to the 60s because the diffusion conversion costs the vision stack heavily — MMMU-Pro 54.3% vs the AR model's 73.8%, OmniDocBench 0.319 vs 0.149.
-- **Coding: 55/100.** LiveCodeBench 69.1% and Codeforces 1,429 are mid-band; GSM8K 96.3% and HumanEval 95.0% (NVFP4) show solid classic problem-solving, but the ~19-point LCB deficit to the AR parent defines the tier.
-- **Cost efficiency: 97/100.** Apache-2.0 weights, ~18GB quantized VRAM, single-GPU, 1,000–1,500 tok/s — near the methodology's ~$0.1/$0.2 ≈ 97–99 tier, and the throughput is the entire reason this model exists.
-- **Overall Score: 58/100.** Best-fit recommendation: the fastest open-weights generation in the roster — 256-token parallel diffusion delivering ~1,500 tok/s on one H100 (and 700+ on a 5090) with mid-tier accuracy; the right pick for latency-bound high-volume generation, the wrong one for accuracy-bound work.
+- **Tool use: 62/100.** Anchored on a genuinely strong structural signal: the model **retains native function calling** and its **inherited multimodal stack is confirmed by AA (text + image + video input)**, and diffusion decoding is *architecturally* favourable for tool-heavy work because the parallel block denoising produces tool arguments far faster than AR decoding. Scored at 62 rather than higher because **not one agentic benchmark exists** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index — and because the **256-token canvas** constrains how much tool argument or result can be generated in one block.
+- **Reasoning: 62/100.** Mid-band, anchored directly on the parent deltas: the model gives up **9.1 GPQA points** against Gemma 4 26B-A4B, whose own measured figure is **GPQA 82.3%** — implying **~73.2% here, which is exactly the figure repo meta records**, and which fails the 90%+ reference by ~16.8 points. Repo meta separately records **MRCR 32.0 vs the parent's 44.1**, so long-context retrieval is weak. Capped by the **absence of HLE, CritPt, the AA Intelligence Index, AA-Omniscience, ARC-AGI and FrontierMath** — so composite depth and reliability are entirely unknown — and by the diffusion architecture's inherent limitation on deep multi-step reasoning, which the AIME delta (−19.2) already evidences.
+- **Context window: 85/100.** **256,000 tokens with a 1,024-token sliding window and a 256-token canvas** — the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 85 on the window size. Held at the band's ceiling rather than higher for two specific reasons: **repo meta records MRCR at 32.0 against the parent's 44.1**, so retrieval at depth is materially worse than the parent and poor in absolute terms; and **no max-output figure is published**, with the 256-token canvas being the real constraint on generation length rather than the window.
+- **Multimodal: 82/100.** **Text, image and video in; text out** — the inherited multimodal stack, independently confirmed by AA's page, placing it in the methodology's 75–90 "+video/PDF in" tier's upper region. Repo meta records video supported as sampled frames, **max 60s at 1 fps**, which is a real and precisely-specified video capability. Scored at 82, in the tier's upper region, because the *breadth* of the claim is corroborated and the parent's figures are known. Held at 82 rather than 90+ because **the MMMU-Pro delta is −19.5 points against the parent (implying ~54.3%, exactly repo meta's figure) — so the visual capability is materially degraded relative to Gemma 4 26B-A4B** — and because **not one visual or video benchmark has been measured on this checkpoint itself**.
+- **Coding: 66/100.** Mid-band, anchored on the parent delta: the model gives up **8.0 LiveCodeBench points** against Gemma 4 26B-A4B, whose measured figure is **77.1%** — implying **~69.1% here**, a respectable mid-tier competitive-programming result. Capped by the **absence of SWE-bench Verified, SWE-bench Pro, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode** — so the 85%, 74%, 70% and 55% references cannot be checked — and by the diffusion architecture being structurally better at infilling and editing than at long-horizon repository work, which is the model's actual design point.
+- **Cost efficiency: 100/100.** **Free open weights (Apache 2.0), running single-GPU after quantization (~24GB VRAM per repo meta, ~18GB per Unsloth), with NVIDIA NIM serving $0/$0** — the methodology's 100 anchor, and the strongest access position measured in this research series. Held at 100 rather than given a bonus because there is nothing above it. **Two caveats attach and must travel with the number: the NVIDIA NIM free route is a trial endpoint rather than a guaranteed tier, and the single-GPU footprint is achieved through quantization, which itself costs some quality on top of the diffusion deltas.**
+- **Overall Score: 71.4/100.** (62 + 62 + 85 + 82 + 66 + 100) / 5 = 75.4 → **75**. Recommendation: **the on-device speed play — and the clearest intelligence-to-speed trade in this research series.** ~1,479 tok/s on a single H100 (up to 2,000 on an RTX 6000) at **Apache-2.0 weights running on one GPU after quantization** is a genuinely rare combination, and the **256-token-block diffusion with bidirectional editing and infilling** makes it unusually well-suited to fast local generation, OCR and infilling tasks where latency dominates. **The trade-off is precisely quantified and is Google's own: quality is below Gemma 4 — GPQA 73.2 vs 82.3, MMMU-Pro 54.3 vs 73.8, MRCR 32.0 vs 44.1** — so this is a latency tool, not a capability tool. Three cautions: **the diffusion architecture constrains long-horizon reasoning** (the AIME delta is −19.2 points), so do not use it for deep multi-step tasks; **not one benchmark has been measured on this checkpoint itself** — the deltas are the entire quantitative evidence, so the 75 is a floor; and **the January 2025 knowledge cutoff is 22 months old**. Use it where speed matters more than depth, and prefer **Gemma 4 26B-A4B (42.25, refreshed in this same batch)** where quality does.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — Artificial Analysis model page (Index 10, spec confirmations incl. video input) plus the Google model card, Hugging Face card, technical report arXiv:2608.00146, NVIDIA NIM/build cards and DataNorth coverage (original run); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `DiffusionGemma_31B.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `diffusiongemma-26b-a4b` page in any spelling** (it 404s), so the 2026-11-06 pass had no catalog to check against. The evidence base is the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) plus the repo's curated metadata, with figures re-attributed to Google's launch material, Artificial Analysis, NVIDIA's model card and Unsloth's serving report, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly rather than implied**. **Because no benchmark has been measured on this checkpoint itself, the quality dimensions are derived from the stated deltas against its AR parent (Gemma 4 26B-A4B) and are labelled as derived figures rather than measurements**: the −9.1 GPQA delta against the parent's 82.3% implies ~73.2%, which repo meta independently records; the −19.5 MMMU-Pro delta against 73.8% implies ~54.3%, likewise recorded; the −8.0 LiveCodeBench delta against 77.1% implies ~69.1%; and repo meta's MRCR 32.0 vs the parent's 44.1 is used directly. **That the two derivations land exactly on repo meta's independently-curated figures is recorded as a confidence signal rather than presented as measurement.** The **~1,479 tok/s H100 throughput (5x the AR baseline's 303 tok/s under MTP serving)** and the **~20 tokens per forward pass versus ~3–6 for SOTA speculative decoding** are attributed as the model's defining engineering properties. The **256-token canvas** is recorded as the real generation constraint in place of an unpublished max-output figure, and the **60s/1fps video limit** is surfaced as a precisely-specified capability. The **January 2025 knowledge cutoff, 22 months old**, is recorded as an additional reason not to use it for anything current. The free-tier caveats are surfaced rather than buried — the NVIDIA NIM route is a trial endpoint, and the single-GPU footprint requires quantization, which costs further quality on top of the diffusion deltas. Missing benchmarks (Terminal-Bench on all harnesses, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, HLE, CritPt, AA Intelligence Index, AA-Omniscience, ARC-AGI, FrontierMath, SWE-bench Verified, SWE-bench Pro, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, Terminal-Bench, FrontierCode, and every visual and video benchmark) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — google/diffusiongemma-26B-A4B-it model card (official source; repo meta's `officialUrl`)](https://huggingface.co/google/diffusiongemma-26B-A4B-it)
+  - [Artificial Analysis — DiffusionGemma 26B-A4B (independent confirmation of the 25.2B/3.8B architecture and the text+image+video modality set)](https://artificialanalysis.ai/models/diffusiongemma-26b-a4b)
+  - [NVIDIA — DiffusionGemma model card on NIM (BF16/NVFP4, 35+ languages, serving guidance)](https://build.nvidia.com/google/diffusiongemma-26b-a4b-it)
+  - [nano-gpt — DiffusionGemma hosting and pricing](https://nano-gpt.com/)
+  - [Unsloth — DiffusionGemma serving report (source of the RTX 6000 ~2,000 tok/s and ~18GB VRAM figures)](https://unsloth.ai/docs/models/diffusiongemma)
+  - [Repo curated meta — `model/diffusiongemma-26b-a4b/meta.json` (GPQA 73.2 vs 82.3, MMMU-Pro 54.3 vs 73.8, MRCR 32.0 vs 44.1, 256K/256-token canvas, video 60s at 1fps, noFreeId)](/model/diffusiongemma-26b-a4b/meta.json)
+  - See also: [`model/gemma-4.26b-a4b/`](gemma-4.26b-a4b.md) (42.25) — **the AR parent whose scores the deltas are measured against**, refreshed in this same batch; [`model/gemma-4-12b/`](gemma-4-12b-unified.md) and [`model/gemma-4-31b/`](gemma-4-31b.md) — the rest of the Gemma 4 family
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

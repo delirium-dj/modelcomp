@@ -1,0 +1,27 @@
+# Codestral 25.08 — findings by Gemini 3.1 Flash Lite
+
+- Source: Mistral/Codestral 25.08
+- Date: 2026-11-06
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Codestral 25.08
+- **Short description:** Codestral 25.08 is a specialized iteration of Mistral's coding model family, focused on enhanced code generation and debugging accuracy.
+- **Provider / access:** Mistral API.
+- **Release / knowledge:** 2025/2026 release.
+- **IDs:** mistral/codestral-25.08
+- **Context window:** Not verified.
+- **Modalities:** Text/Code.
+- **Pricing (as of 2026-11-06):** Not verified.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found
+
+> NO VERIFIED PUBLIC SCORES FOUND
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (Mistral/codestral-25.08)** — 2026-11-06
+- Method: Public internet research; no verified public benchmarks found.

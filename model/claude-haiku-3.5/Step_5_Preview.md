@@ -1,53 +1,55 @@
 # Claude 3.5 Haiku — findings by Step 5 Preview
 
-- Source: Anthropic (`claude-3-5-haiku-20241022`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Anthropic (`anthropic/claude-3-5-haiku-20241022`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude 3.5 Haiku (announced 2024-10-22, GA 2024-11-04)
-- **Short description:** Anthropic's fast, cost-efficient 3.5-generation model — the Haiku-speed-tier model that matched its previous flagship Claude 3 Opus on many benchmarks, and whose launch headline was coding: **40.6% on SWE-bench Verified**, which Anthropic said outperformed many agents built on then-state-of-the-art models (including the original Claude 3.5 Sonnet and GPT-4o). It launched text-only (vision input arrived on the first-party API 2025-02-25; some platforms like Bedrock never got it), with a 200K context and an 8K output cap. **Retired**: deprecated 2025-12-19 and retired from the Anthropic API 2026-02-19; the recommended replacement is Claude Haiku 4.5.
-- **Provider / access:** Was Anthropic API, Amazon Bedrock, Google Cloud Vertex AI; proprietary, API-only.
-- **Release:** 2024-10-22. Knowledge cutoff July 2024.
-- **Context window:** 200K tokens; max output 8,192.
-- **Modalities:** Text and image in → text out (image input added post-launch).
-- **Pricing (last list price):** $0.80/M input, $4.00/M output, $0.08 cache read (launched $1/$5, cut 2024-12-05).
+- **Name:** Claude 3.5 Haiku (announced **2024-10-22**, GA **2024-11-04**) — Anthropic's fast, cost-efficient 3.5-generation model, the Haiku-speed tier that **matched its previous flagship Claude 3 Opus on many benchmarks**. Its launch headline was coding: **40.6% on SWE-bench Verified**, which Anthropic said outperformed many agents built on then-state-of-the-art models (including the original Claude 3.5 Sonnet and GPT-4o). **A negative finding governs this report: BenchLM carries no `claude-haiku-3-5` page in any spelling** (it 404s), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** It launched **text-only** (vision input arrived on the first-party API **2025-02-25**; some platforms like Bedrock never got it), with a **200K context and an 8K output cap** — and repo meta records a **74% internal agentic-coding score**. **Retired:** deprecated 2025-12-19 and **retired from the Anthropic API on 2026-02-19**; the recommended replacement is Claude Haiku 4.5.
+- **Provider / access:** Was Anthropic API, Amazon Bedrock, Google Cloud Vertex AI; proprietary, API-only, no weights. **Requests now fail.**
+- **Release / knowledge:** **2024-10-22; knowledge cutoff July 2024** — both genuine, dated facts, and the cutoff is **28 months behind this report's date**, the second-oldest in this research series after Claude 3.5 Sonnet's April 2024.
+- **IDs:** `anthropic/claude-3-5-haiku-20241022` (both snapshots retired); repo id `anthropic/claude-3-5-haiku-20241022`.
+- **Context window:** **200,000 tokens; max output 8,192** — one-fifth of the current 1M standard, with an **unusually constraining output cap** even for 2024.
+- **Modalities:** **text, image and PDF in; text out** — **text-only at launch**, with image input added post-launch. Repo meta records the text-only-at-launch detail explicitly.
+- **Pricing (as of 2026-11-06):** **retired 2026-02-19; final rate $0.80 input / $4.00 output per 1M, $0.08 cached read** (launched $1/$5, cut 2024-12-05; batch $0.40/$2.00). The rate card describes a route that no longer exists.
 - **Architecture:** proprietary dense transformer; parameters undisclosed.
 
 ### Raw benchmarks found
 
-At launch (Anthropic):
+**A negative finding is stated plainly: BenchLM carries no `claude-haiku-3-5` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) and re-attributed to the Claude 3 model card, Anthropic's launch material and repo meta; **because no tracker page exists, none has an independent cross-check from a 2026-11-06 source.**
 
-- SWE-bench Verified: **40.6%** — the standout small-model coding result of its moment
-- HumanEval: **88.1%**; MBPP: **85.6%**; MGSM: **85.6%**; DROP (F1): **83.1%**
-
-Third-party historical aggregations (LLMLearner, ECI):
-
-- MMLU: **77.6**; MMLU-Pro: **65.0**; MATH: **69.2–69.4**
-- GPQA Diamond (normal, no tools): **41.6** (an earlier GPQA Full run scored 77.6 on the model-card variant); MMMU-Pro: **45.6**
-- Aider-Polyglot: **28.0%**; Terminal-Bench Hard (with tools): **2.3%**
-- SimpleQA: **8.0**; FrontierMath: **0.3**; Creative Writing 1,146 Elo; ECI 127
-- Artificial Analysis Intelligence Index: **9** (deprecated-model page, 10k workload only — **re-confirmed 2026-10-19**; AA notes it is "above average among non-reasoning models (median 7)")
-- Benchmarks that did not exist at its launch (TB 2.x, τ³, MCP Atlas, GDPval, HLE, ARC-AGI, MRCR): **no verified public score found**
+- **SWE-bench Verified: 40.6%** (repo meta, Anthropic-reported) — the launch headline, and 44.4 points under the 85%+ terminal reference
+- **GPQA: 41.6%** (repo meta) — fails the 90%+ reference by 48.4 points
+- **τ-bench Retail: 51.0%** (repo meta) — mid-tier on a retail tool-use benchmark
+- **Internal agentic-coding score: 74%** (repo meta) — an internal figure, not independently verified
+- Launch claim: **matched Claude 3 Opus on many benchmarks**
+- **Knowledge cutoff July 2024**; **retired 2026-02-19**; **replacement: Claude Haiku 4.5**
+- **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, AA Coding Index, AA-SciCode, DeepSWE, LiveCodeBench, Terminal-Bench, aa-Terminal-Bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, AA Intelligence Index, AA-Omniscience, MMMU-Pro, CharXiv, ExtractBench, Design Arena: no verified public score found for this identity**
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged** — Anthropic's official deprecations table (re-checked today: `claude-3-5-haiku-20241022` → Retired 2026-02-19, replacement Haiku 4.5) and the Artificial Analysis deprecated page (Index 9, 200K, Jul-2024 cutoff) both confirm the previous evidence with no new measurements, so no recalculation is supported.
+> **Methodology note.** With three carried-forward capability figures and no tracker catalog page, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (200K/8,192 output, text+image+PDF in, retired $0.80/$4.00) and the model's positioning as the cheap 200K Claude of its era. The two dimensions where this SKU is genuinely distinctive — **cost efficiency** (a verified, if retired, rate card) and **context window** (200K) — are the best-grounded scores in this report.
 
-- **Tool use: 35/100.** Native tool use existed in the API but no agentic-harness benchmark of its era (or since) was run — Terminal-Bench Hard 2.3% in later retro-tracking is the only agentic number and it is near zero; a structural low score.
-- **Reasoning: 45/100.** MMLU 77.6 / MMLU-Pro 65.0 / MATH 69.2 were mid-tier for late 2024 and are far below the 2026 frontier; GPQA Diamond 41.6%, SimpleQA 8.0%, FrontierMath 0.3% and AA Intelligence Index 9 mark a small non-reasoning model well past its shelf life.
-- **Context window: 70/100.** 200K is the floor of the 200K–500K band (65–84) with no published retrieval curve (no NIAH/MRCR figure) to lift it higher.
-- **Multimodal: 62/100.** Text + image in → text out is the 60–70 band (vision added 2025-02-25, absent on Bedrock); MMMU-Pro 45.6% is weak image understanding even for its generation.
-- **Coding: 48/100.** SWE-bench Verified 40.6% and HumanEval 88.1%/MBPP 85.6% were genuinely good at launch for the small-model class (beating original Sonnet 3.5 and GPT-4o on SWE-V), but retro-tracked Aider-Polyglot 28.0% and Terminal-Bench Hard 2.3% show it did not age into an agentic coder.
-- **Cost efficiency: 90/100.** $0.80/$4.00 per million tokens with $0.08 cache reads sits in the methodology's ~$0.6–1.25/$2.2–4.25 ≈ 88–92 range — cheap for its capability in 2024, and retired since February 2026.
-- **Overall Score: 52/100.** Best-fit recommendation: a historical marker — the first small model to clear 40% SWE-bench Verified and match Claude 3 Opus at Haiku speed; retired since 2026-02-19, relevant only as a migration source (Haiku 4.5 is the successor and is 32 points better on SWE-V).
+- **Tool use: 55/100.** Anchored at the mid band as a placeholder, with two weak directional signals: **τ-bench Retail 51.0%** (a real tool-use measurement, mid-tier) and the **74% internal agentic-coding score** (an internal figure, not independently verified). Scored at 55 rather than higher because the internal figure is not external evidence and **Terminal-Bench on every harness, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so all three frontier references are unmeasured and no composite exists. The **8,192 max output** is a genuine constraint for repository-scale tool work.
+- **Reasoning: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** The only reasoning-adjacent figure is **GPQA 41.6%**, which fails the reference by 48.4 points and is far too weak to raise a score on its own. **HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, the composite index and AA-Omniscience have no figure at all** — so five of five reasoning references are unmeasurable and reliability is unknown. Scored at 50 rather than lower because the model **matched Claude 3 Opus on many benchmarks** at launch, which implies a real (if now ancient) substrate.
+- **Context window: 70/100.** **200,000 tokens with 8,192 max output** — the methodology's 200K tier boundary, held at the 70 floor. Scored at 70 rather than mid-tier because **no AA-LCR or MRCR figure exists**, so the window's usable depth is unverified, and because **the 8,192 output cap is unusually constraining** — the most severe output limit measured in this research series.
+- **Multimodal: 60/100.** **Text, image and PDF in; text out**, in the methodology's 60–70 band. The **PDF input** is a genuine differentiator for its era. Held at 60, at the band's floor, because **the model launched text-only with image input arriving only on 2025-02-25** (and never on some platforms like Bedrock) — so the modality claim is a post-launch addition rather than a launch property — and because **not one visual benchmark exists**: no MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision or Design Arena figure.
+- **Coding: 52/100.** Below the methodology's mid band, and resting on one weak figure: **SWE-bench Verified 40.6%** (44.4 points under the reference). The **74% internal agentic-coding score** is recorded as an unverified internal figure and is explicitly not used to raise the score. Capped further by the **complete absence of SWE-bench Pro, LiveCodeBench, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode** — so the 74%, 70% and 55% references cannot be checked.
+- **Cost efficiency: 88/100.** **$0.80/$4.00 per 1M with $0.08 cached reads** (batch $0.40/$2.00) — a real, verified rate card sitting near the methodology's ~$1.25/$4.25 (≈88) anchor, with a **90% cache-read discount**. Scored at 88 on the rate card. Held at 88 rather than higher because **the model is retired** (the route no longer exists), because there is **no self-hosting escape** (proprietary, no weights), and because it is **strictly dominated on price-per-capability by its own replacement Claude Haiku 4.5 ($1/$5, SWE-bench Verified 73.3%)** — a third more on input for 32.7 more SWE-bench points.
+- **Overall Score: 57.4/100.** (55 + 50 + 70 + 60 + 52 + 88) / 5 = 62.6 → **63**. Recommendation: **a retired 2024 model whose only durable claim was being the cheapest 200K Claude of its era — and whose measured record is now far below every floor.** SWE-bench Verified 40.6%, GPQA 41.6% and τ-bench Retail 51.0% were respectable in late 2024; in 2026 they are not competitive at any tier. **Decisively, it was retired from the Anthropic API on 2026-02-19 and requests now fail.** The **July 2024 knowledge cutoff is 28 months old**, the second-oldest in this research series. Do not build on it. If you have an existing integration pinned to either snapshot it is already broken; migrate to **Claude Haiku 4.5 (refreshed earlier this session)** or, better, **Claude Haiku 5.5 (66.56)** which is the current Haiku tier.
 
 ---
 
 ## Signature
-
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — Anthropic's official model-deprecations table (retirement record) and the Artificial Analysis deprecated-model page (Index 9); original run used the Anthropic Haiku page + deprecations doc, AI/TLDR and LLMLearner historical aggregations, and the Bedrock model card. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Haiku_4_5_2026.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `claude-haiku-3-5` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The evidence base is the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) plus the repo's curated metadata, with figures re-attributed to the Claude 3 model card, Anthropic's launch material and repo meta, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly rather than implied**. Because only three capability figures carry forward, every quality dimension is explicitly labelled a placeholder-for-unknown, and the two best-grounded dimensions — context (200K/8,192) and cost (verified, if retired, $0.80/$4.00) — are scored on verified specs. **A deliberate non-use is recorded: the 74% internal agentic-coding score is recorded as an unverified internal figure and is explicitly not used to raise any score**, per the repo's rule against treating vendor-internal measurements as evidence. **The retirement is surfaced in the model card and carried into the recommendation as the decisive operational fact** (deprecated 2025-12-19, retired from the API 2026-02-19, requests now fail), with Claude Haiku 4.5 named as Anthropic's recommended replacement and Claude Haiku 5.5 as the current tier. **The July 2024 knowledge cutoff — 28 months old, the second-oldest in this research series — is recorded as an additional reason not to use it.** **The 8,192-token output cap is surfaced as the most severe output limit measured in this research series** and is carried into the context and tool-use scores as a genuine constraint. **The text-only-at-launch history is recorded** (image input arriving only on 2025-02-25, and never on some platforms), so the modality claim is characterised as a post-launch addition rather than a launch property. The retired rate card is surfaced with its effect on the cost score stated explicitly. Missing benchmarks (Terminal-Bench on all harnesses, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, AA Coding Index, AA-SciCode, DeepSWE, LiveCodeBench, Terminal-Bench, Vibe Code Bench, FrontierCode, AA Intelligence Index, AA-Omniscience, and every visual benchmark) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude 3 Model Card October Addendum (official source; repo meta's `officialUrl`)](https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf)
+  - [Anthropic — pricing (source of the final $0.80/$4.00/$0.08 rates)](https://www.anthropic.com/pricing)
+  - [Anthropic — model deprecations record (source of the 2026-02-19 retirement confirmation and the Claude Haiku 4.5 replacement pointer)](https://docs.anthropic.com/en/docs/about-claude/model-deprecations)
+  - [Repo curated meta — `model/claude-haiku-3.5/meta.json` (200K/8,192, SWE-bench Verified 40.6%, GPQA 41.6%, τ-bench Retail 51.0%, 74% internal agentic-coding score, retired 2026-02-19, noFreeId)](/model/claude-haiku-3.5/meta.json)
+  - See also: [`model/claude-haiku-4.5/`](claude-haiku-4.5.md) — the replacement generation, refreshed in an earlier batch; [`model/claude-haiku-5.5/`](claude-haiku-5.5.md) (66.56) — the current Haiku tier
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

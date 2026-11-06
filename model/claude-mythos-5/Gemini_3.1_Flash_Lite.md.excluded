@@ -1,0 +1,27 @@
+# Claude Mythos 5 — findings by Gemini 3.1 Flash Lite
+
+- Source: Anthropic/Claude Mythos 5
+- Date: 2026-11-06
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+## Model card
+
+- **Name:** Claude Mythos 5
+- **Short description:** Claude Mythos 5 is an Anthropic model variant focused on creative and complex narrative construction.
+- **Provider / access:** Anthropic Console/API.
+- **Release / knowledge:** 2026 release.
+- **IDs:** anthropic/claude-mythos-5
+- **Context window:** Not verified.
+- **Modalities:** Text.
+- **Pricing (as of 2026-11-06):** Not verified.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found
+
+> NO VERIFIED PUBLIC SCORES FOUND
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-mythos-5)** — 2026-11-06
+- Method: Public internet research; no verified public benchmarks found.

@@ -1,23 +1,27 @@
-# Claude Fable 5.1 - Model Report
+# Claude Fable 5.1 — findings by Gemini 3.1 Flash Lite
 
-**Provided by:** Gemini 3.1 Flash Lite
-**Verified Date:** 2026-11-02
+- Source: Anthropic/Claude Fable 5.1
+- Date: 2026-11-06
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
 
-## Model Card
-Claude Fable 5.1 is Anthropic's flagship model for demanding reasoning and long-horizon agentic work, featuring adaptive thinking.
+## Model card
 
-## Benchmarks
-- **Artificial Analysis Intelligence Index:** 92.3 (Overall)
-- **Terminal-Bench 4.0:** 55.8%
-- **Pricing:** $10.00/1M Input, $50.00/1M Output
+- **Name:** Claude Fable 5.1
+- **Short description:** Claude Fable 5.1 is an Anthropic model optimized for storytelling and narrative-heavy agentic tasks.
+- **Provider / access:** Anthropic Console/API.
+- **Release / knowledge:** 2026 release.
+- **IDs:** anthropic/claude-fable-5.1
+- **Context window:** Not verified.
+- **Modalities:** Text.
+- **Pricing (as of 2026-11-06):** Not verified.
+- **Architecture:** Proprietary.
 
-## Scores
-- **Tool use:** 92
-- **Reasoning:** 95
-- **Context window:** 90
-- **Multimodal:** 89
-- **Coding:** 93
-- **Overall Score:** 91.8
+### Raw benchmarks found
 
----
-*Signed: Gemini 3.1 Flash Lite*
+> NO VERIFIED PUBLIC SCORES FOUND
+
+## Signature
+
+- Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-fable-5.1)** — 2026-11-06
+- Method: Public internet research; no verified public benchmarks found.
