@@ -68,3 +68,15 @@ Long context:
 - Provided by: **GLM 5.2 Coding (zai-org/GLM-5.2-Coding)** — 2026-09-22
 - Method: public internet research (BenchLM model record + HF model card + Alibaba pricing table) on 2026-09-22; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+### Addendum 2026-10-09 (session 2) — HF card + LLM Stats cross-read (pricing, architecture, modality nuance)
+
+- **Pricing resolved** (was provisional at Qwen3.5-tier $0.60/$3.60): **DeepInfra $1.65/$4.95/$0.21-cached** (256K/256K); Fireworks + Novita $2.00/$6.00 (262K/131K and 1M/131K); Together $2.50/$6.25/$0.50 (1M/131K) — LLM Stats, 4 providers. Real rates ~2.7x the provisional guess; cost score's 88 stands only via open-weights self-hosting economics.
+- **Release date:** 2026-08-02 (LLM Stats). Blog title: "A New Bar for Coding and Cowork."
+- **Modality split clarified** (docs vs BenchLM record): the **HF base Qwen3.8-2.4T-A95B is text-only, thinking always on** (no non-thinking, no vision); **vision input + non-thinking exist only on Qwen Cloud's qwen3.8-max wrapper**. The video-input rows in the file above (Video-MME 90.4% etc.) therefore attach to the Max wrapper, not the open base — a real deployment distinction the card states explicitly.
+- **Context spec precise:** 262,144 native, extensible to **1,010,000**; recommended split within 1M: 262K reasoning / 131K final output. Provider reality: only Novita/Together serve 1M; DeepInfra caps at 256K.
+- **Architecture published:** 92 layers, hidden 8192, 23 × (3 × (Gated DeltaNet → MoE) + 1 × (Gated Attention → MoE)); 512 experts, 10 routed + 1 shared; linear heads 128V/16QK@128; gated attention 64Q/4KV@256, RoPE 64; MTP multi-step; vocab 248,320 padded.
+- **reasoning_effort + preserve_thinking:** xhigh (default) / medium / low; preserve_thinking on by default — same thinking-history sensitivity as Kimi K3 (harness must round-trip thinking or quality degrades).
+- **New benchmark rows from vendor table** (not in BenchLM record): IFBench **82.8 best-in-table** (instruction following standout), HealthBench **60.2 best-in-table**, PLawBench **73.2 best-in-table**, PRBench-Finance **58.3 best-in-table**, $OneMillion-Bench 52.5, WideSearch **81.9 best-in-table**, QwenReactBench Elo 1,724 / QwenSVGBench 1,713, AndroidBench 75.1, MLS-Bench-Lite 41.0 — health/law/finance domain sweep corroborates the cowork positioning.
+- **License precise (Qwen3.8-Max):** commercial OK; >100M MAU or >$20M/mo → attribution display; MaaS/AI-assistant >$50M/12mo → separate Qwen license; internal use excepted.
+- No normalized-score changes; the 88.6 Overall stands with pricing now evidence-backed.

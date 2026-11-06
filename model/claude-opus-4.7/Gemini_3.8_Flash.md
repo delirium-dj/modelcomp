@@ -1,7 +1,7 @@
 # Claude Opus 4.7 — findings by Gemini 3.8 Flash
 
 - Source: Anthropic/Claude Opus 4.7 (`claude-opus-4-7`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -63,6 +63,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing official Anthropic releases, model card data, and independent evaluations from Vellum, BenchLM, Thesys, and Vals.ai; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

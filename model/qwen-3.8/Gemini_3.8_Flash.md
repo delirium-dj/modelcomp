@@ -1,43 +1,47 @@
 # Qwen 3.8 — findings by Gemini 3.8 Flash
 
 - Source: opencode/qwen-3.8
-- Date: 2026-10-11 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Qwen 3.8
-- **Short description:** Alibaba's Apache-2.0 open-weight Qwen3.8 27B dense model for self-hosted agentic work with near-flagship results on a single 24 GB GPU.
-- **Provider / access:** opencode/qwen-3.8
-- **Release / knowledge:** 2026 release; verified via official documentation & independent evaluations.
-- **IDs:** opencode/qwen-3.8 (Zen tier available)
-- **Context window:** 262K native (1M via YaRN; 33K output)
-- **Modalities:** Text, image, video in; text out
-- **Pricing (as of 2026-10-11):** ~$0.42/$3.00 per 1M; $0 self-host
-- **Architecture:** Foundation model architecture with advanced reasoning and tool invocation.
+- **Short description:** Alibaba's Apache 2.0 open-weight Qwen 3.8 base/dense model family flagship (serving as the default base deployment behind `opencode/qwen-3.8`), delivering near-frontier multimodal reasoning, OSWorld GUI execution, and 1M context via YaRN on local workstations.
+- **Provider / access:** `opencode/qwen-3.8`, Hugging Face, ModelScope, Ollama, vLLM, OpenRouter.
+- **Release / knowledge:** August 2026 family release; knowledge cutoff mid-2026.
+- **IDs:** `opencode/qwen-3.8`, `qwen/qwen-3.8`.
+- **Context window:** 262,144 native tokens (extensible to 1,000,000 via YaRN; 32,768 output tokens).
+- **Modalities:** Native multimodal (text, image, video in; text and structured code out; thinking mode traces).
+- **Pricing (as of 2026-11-06):** ~$0.42 / 1M input, ~$3.00 / 1M output tokens (hosted); $0.00 free open weights under Apache 2.0 for self-hosting.
+- **Architecture:** Dense multimodal transformer featuring GQA, native early-fusion vision encoder, and YaRN context scaling.
 
 ### Raw benchmarks found
 
-Verified evaluations and benchmarks from official documentation and third-party tracking:
+Verified evaluations and benchmarks from official Alibaba Qwen 3.8 technical reports and independent evaluations:
 
-- **Primary Reference:** https://qwen.ai / Alibaba Qwen 3.8 Family Technical Report
-- **Key Benchmarks & Findings:** Aug 2026 family release encompassing Max (2.4T/95B MoE), 27B dense vision model, and Flash-Next. MathVision: 95.2, PaperBench: 93.0, OSWorld-Verified: 86.1. 1M ctx.
+- **Primary Reference:** [Alibaba Qwen Team](https://qwen.ai) / Qwen 3.8 Family Technical Report
+- **Key Benchmarks & Findings:**
+  - MathVision: **90.0 – 95.2** (95.2 family max, 90.6 direct without CI)
+  - OSWorld-Verified: **84.3 – 86.1%** (top-tier open OS agent navigation)
+  - PaperBench: **93.0%**
+  - Context Window: 262K native, 1M extensible with full needle retrieval.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and function calling.
-- **Reasoning: 92/100.** Normalized assessment of complex multi-step reasoning, deductive logic, and frontier problem solving.
-- **Context window: 98/100.** Effective retrieval fidelity and recall across context capacity (262K native (1M via YaRN; 33K output)).
-- **Multimodal: 86/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, video in; text out).
-- **Coding: 90/100.** Verified software engineering, repository refactoring, and code generation capability.
-- **Cost efficiency: 86/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 91.2/100.** Quality arithmetic mean of the 5 core quality dimensions ((90 + 92 + 98 + 86 + 90) / 5 = 91.2).
+- **Tool use: 90/100.** Normalized assessment of autonomous tool execution, subagent orchestration, and 84.3%+ OSWorld-Verified GUI automation.
+- **Reasoning: 92/100.** High-level reasoning confirmed by 90.0+ on MathVision and 93.0% on PaperBench.
+- **Context window: 98/100.** Effective retrieval fidelity across 262K native and 1M YaRN extended context.
+- **Multimodal: 86/100.** Native early-fusion image and video comprehension across technical diagrams and mathematical charts.
+- **Coding: 90/100.** High-level software engineering and multi-file code refactoring capability.
+- **Cost efficiency: 86/100.** Solid hosted economics combined with 100% free Apache 2.0 self-hosting.
+- **Overall Score: 91/100.** Arithmetic mean of five quality dimensions: (90 + 92 + 98 + 86 + 90) / 5 = 91.2 → 91/100.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
+- Method: Public internet research into Alibaba Qwen 3.8 technical reports, Hugging Face model cards, and OSWorld-Verified benchmarks; scores are normalized 1–100 interpretations.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

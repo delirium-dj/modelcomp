@@ -113,6 +113,7 @@ describe("sanctioned deletions (user-ordered, kept deleted)", () => {
       "model/muse-spark-1.3/Xing_4.0.29B_A4B.md.excluded",
       "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md",
       "model/claude-sonnet-5.5/Xing_4.0.29B_A4B.md.excluded",
+      "model/gpt-6-astra/Xing_4.0.29b_a4b.md.excluded",
     ]);
   });
 });

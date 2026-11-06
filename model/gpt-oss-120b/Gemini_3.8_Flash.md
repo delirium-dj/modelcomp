@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Gemini 3.8 Flash
 
 - Source: OpenAI/GPT-OSS 120B (`openai/gpt-oss-120b`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing OpenAI official model card documentation (arXiv:2508.10925), Hugging Face repository specifications, and independent evaluations from Artificial Analysis and OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

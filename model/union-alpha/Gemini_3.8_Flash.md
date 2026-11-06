@@ -1,20 +1,20 @@
 # Union Alpha — findings by Gemini 3.8 Flash
 
 - Source: Unbiased (`unbiased/pareto`, formerly stealth `stealth/union-alpha`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Union Alpha (Pareto 26.9)
-- **Short description:** A parallel-mixture ensemble gateway developed by Unbiased (Circuit & Chisel), originally previewed as stealth "Union Alpha" before being revealed as Pareto 26.9; evaluates and synthesizes responses simultaneously across multiple frontier and open models.
+- **Short description:** A parallel-mixture ensemble gateway developed by Unbiased (Circuit & Chisel), previewed as stealth "Union Alpha" before being revealed as Pareto 26.9; evaluates and synthesizes responses simultaneously across multiple frontier and open models.
 - **Provider / access:** [OpenRouter](https://openrouter.ai/models/unbiased/pareto) (`unbiased/pareto`, retired stealth alias `stealth/union-alpha`), Cloudflare AI.
-- **Release / knowledge:** 2026-09 release (stealth preview September 2026; unmasked as Pareto 26.9).
-- **IDs:** `unbiased/pareto` (formerly `stealth/union-alpha`)
+- **Release / knowledge:** September 2026 stealth preview; unmasked as Pareto 26.9; knowledge cutoff late 2026.
+- **IDs:** `unbiased/pareto` (formerly `stealth/union-alpha`), `unbiased/pareto-26.9`.
 - **Context window:** 262,144 tokens (256K input window, up to 131,072 max output tokens).
 - **Modalities:** Text and image input; text output; native tool calling and structured outputs supported.
-- **Pricing (as of 2026-10-11):** $2.50 / 1M input tokens, $7.50 / 1M output tokens ($0.25 cached input) ([OpenRouter](https://openrouter.ai/models/unbiased/pareto)).
+- **Pricing (as of 2026-11-06):** $2.50 / 1M input tokens, $7.50 / 1M output tokens ($0.25 cached input) on OpenRouter.
 - **Architecture:** Parallel-mixture ensemble routing gateway synthesizing multi-model consensus across top frontier backends.
 
 ### Raw benchmarks found
@@ -52,6 +52,6 @@ Long context & Multimodal:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public benchmark evaluation and analysis of OpenRouter disclosures, Pareto 26.9 model documentation, and Datacurve DeepSWE leaderboards; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
+- Method: Public benchmark evaluation and analysis of OpenRouter disclosures, Pareto 26.9 model documentation, and Datacurve DeepSWE leaderboards; scores are normalized 1–100 interpretations.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

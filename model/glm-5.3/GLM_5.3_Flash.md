@@ -25,7 +25,7 @@ Agent / tool use:
 - Terminal-Bench 2.1: **88.2%** (vendor; AA independent: **83.9%**; Vals: **71.5%** — wide spread, all three listed)
 - AA Terminal-Bench 4.0: **41.9%** (AA — much better than the TB3.0 28.3% weakness; new)
 - Toolathlon-Verified: **73.0%** (model card — fills the gap); AA AutomationBench-AA: **62.2%** (corroborates the vendor 48.2 on a different harness); AA Agentic Index: **53.4%** (AA)
-- AA Tau3-Banking: **50.3%** (AA — fills the Tau3 gap); AA-Briefcase: **1510 Elo**; AA EnterpriseOps-Gym: **36.4%**; AA ITBench: **46.1%**; AA GDP.pdf: **11.2%**
+- AA Tau3-Banking: **50.3%** (AA — fills the Tau3 gap); AA-Briefcase: **1510 Elo** (Nov 6 re-read 1503); AA EnterpriseOps-Gym: **36.4%**; AA ITBench: **46.1%**; AA GDP.pdf: **11.2%**; **AA-AnalystAgent: 38.8%** (NEW, BenchLM Nov 6); **AA Cyber Index 36.4% / CWE-Bench-AA 55.8% / DeepsecBench-AA 24.3% / CyberGym-E2E-AA 29.0%** (NEW AA cyber suite); **Finch 65.1% / b3 Agent Security 93.0% / Cyber Misuse Refusal 87.0%** (NEW, Mistral Large 4 comparison table)
 - Terminal-Bench 3.0: **28.3%** (vendor — corroborated); AutomationBench: **48.2%**; Agents' Last Exam: **28.5%** (corroborated)
 - CyberGym: **84.5%**; ExploitGym: **15.0%**; ExploitBench: **54.4%** (security suite, corroborated)
 - Claw-Eval: no verified public score found
@@ -34,10 +34,10 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **91.7%** (AA, independent — fills the gap the prior pass marked missing; elite); Vals: **88.1%**
 - AA-HLE: **42.3%** (AA — above the 40% bar; corroborates the vendor HLE-with-tools 62.5% on a different setting)
-- Artificial Analysis Intelligence Index: **44.8** (AA current board — corroborates the re-based 45 reading)
-- AA-LCR v1.1: **79.7%** (AA — fills the long-context gap); MLCR-AA: **48.3%** (fills the MLCR gap); CritPt: **19.1%** (fills the CritPt gap)
+- Artificial Analysis Intelligence Index: **44.8** (AA current board — corroborates the re-based 45 reading); Nov 6 refresh reads **31.6%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
+- AA-LCR v1.1: **79.7%** (AA — fills the long-context gap); MLCR-AA: **48.3%** (fills the MLCR gap; Nov 6 re-read **17.2%** — large downward re-measurement, same instability as claude-haiku-5.5, both cited); CritPt: **19.1%** (fills the CritPt gap)
 - MMLU-Pro: **86.8%** (Vals)
-- AA-Omniscience: **33.9% accuracy / 29.6% non-hallucination row / 14.3 index** (AA — weak)
+- AA-Omniscience: **33.9% accuracy / 29.6% non-hallucination row / 14.3 index** (AA — weak); Nov 6 re-read **32.3% accuracy / 38.9% hallucination / 6.0 index** — re-measured, both cited
 - FrontierMath v2: Tiers 1–3 **68.8%**, Tier 4 **29.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; solid)
 - MazeBench ASCII: **0%**; Hermes Bench: **71.8%** / Hermes Index: **39.2%**; AA-Briefcase: **Elo 1508** (all added 2026-10-16)
 - Gray Swan IPI (15 attempts): **31.5%** (competitor-reported — Google's Gemini 4 Argon launch chart; weak injection resistance)
@@ -57,7 +57,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1306** (OpenRouter); text-only in/out — no vision path, the clearest capability gap vs the 2026 frontier
+- Design Arena Website: **1306** (OpenRouter; Nov 6 re-read 1288 — minor drift); text-only in/out — no vision path, the clearest capability gap vs the 2026 frontier
 
 ### Normalized scores (1–100)
 
@@ -75,6 +75,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Z.AI GLM-5.3 HF model card, Artificial Analysis independent boards (GPQA/GDPval/LCR/SciCode/Omniscience) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 56-row refresh corroborates all rows — FrontierMath v2 68.8/29.3, MazeBench 0%, Hermes 71.8% added — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GLM-5.3 page fetched 2026-11-06 (Nov 6 data, 63 rows) — all prior rows re-confirmed; Finch/b3/Cyber-Refusal and four AA cyber rows added; notable re-reads cited (MLCR 48.3→17.2% re-measured, Omniscience index 14.3→6.0, AA Index 31.6% = v5.0-class rebase of 44.8, GDPval 57.6→57.5%); composite 61.34 #49/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.md`, using the same headings.

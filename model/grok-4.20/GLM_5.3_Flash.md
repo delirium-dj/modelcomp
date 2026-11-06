@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing Meta's Muse Spark comparison chart + Vals AI + ARC Prize, the prior 2026-10-08 pass on xAI docs/AA/BenchLM, felloai deep-dive from the prior pass; full row-by-row corroboration confirmed; 2026-10-16 re-check: BenchLM 25-row refresh corroborates (MazeBench 0% added; Design Arena 1236 → 1231 flagged; rank #56/889 → #60/954 57.43) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.20 page fetched 2026-11-06 (Nov 6 data, 25 rows) — all prior rows re-confirmed with zero value changes, Design Arena 1231→1228 continued minor drift; composite 56.42 #63/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.8.md`, using the same headings.

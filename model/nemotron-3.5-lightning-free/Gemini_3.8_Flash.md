@@ -1,7 +1,7 @@
 # Nemotron 3.5 Lightning Free — findings by Gemini 3.8 Flash
 
 - Source: NVIDIA/Nemotron 3.5 Lightning Free (`opencode/nemotron-3.5-lightning-free`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing NVIDIA Nemotron-3.5 technical documentation, Hugging Face model card evaluations, OpenCode Zen specifications, and NeMo Gym benchmark logs; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

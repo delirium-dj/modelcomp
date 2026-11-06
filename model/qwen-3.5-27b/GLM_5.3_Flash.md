@@ -69,12 +69,12 @@ Long context:
 - **Multimodal: 82/100.** Native image+video input with excellent vision scores (MMMU 82.3, MathVision 86.0, VideoMME 87.0, ScreenSpot Pro 70.3); no audio input/output caps it.
 - **Coding: 78/100.** SWE-bench Verified 72.4 and LCB v6 80.7 match GPT-5-mini-class; CodeForces 1899 and Terminal Bench 41.6 cap it below the flagship coding tier.
 - **Cost efficiency: 80/100.** No verified hosted pricing found; scored provisionally on Apache-2.0 open weights + dense 27B self-host economics (moderate VRAM, high throughput via hybrid DeltaNet layout). Re-score when a hosted price is published.
-- **Overall Score: 81/100.** Mean of the five non-cost dims (78+82+85+82+78)/5. Best fit: self-hosted multimodal coding/agent workhorse where flagship API quality is not required.
+- **Overall Score: 81/100.** Mean of the five non-cost dims (78+80+85+82+78)/5 = 403/5 = 80.6 → 81 — unchanged after the Reasoning dock because the recomputed mean still rounds to 81. Best fit: self-hosted multimodal coding/agent workhorse where flagship API quality is not required.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-21
-- Method: public internet research (official HF model card, OpenRouter model page, Alibaba Model Studio catalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-21)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.5-27B page fetched 2026-11-06 (Nov 6 data, 33 rows, now ranked #108/1016) — the first independent AA rows landed since the vendor-card-only pass (τ² 93.9% AA vs the vendor 79.0%, AA Index 22.9% measured, Omniscience −44.0, CritPt 0.9%, SWE-Rebench 58.9%, AA-LCR 77.7%, corroborations for GPQA/HLE/MMMU-Pro); the measured index contradicts the near-flagship vendor framing — Reasoning 82→80, Overall recomputes 81.0→80.6→81 (unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

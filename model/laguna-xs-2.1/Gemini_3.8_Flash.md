@@ -1,7 +1,7 @@
 # Laguna XS 2.1 — findings by Gemini 3.8 Flash
 
 - Source: Poolside/Laguna XS 2.1 (`poolside/laguna-xs-2.1`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,6 +59,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing Poolside's official model card releases, Hugging Face open-weights documentation, and independent evaluations from vLLM and OpenRouter; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

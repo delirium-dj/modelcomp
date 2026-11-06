@@ -39,7 +39,7 @@ Reasoning / knowledge:
 - AA-LCR: **73.7%** (AA long-context-reasoning board — fills the previously-missing LCR); CritPt: **2.9%**
 - Artificial Analysis Intelligence Index: **17.9** (AA current reading via benchlm.ai — fills the previously-missing independent index value; the launch-era claim was only a qualitative SOTA price-to-intelligence ratio)
 - AA-Omniscience: Index -29.9, accuracy **22.8%**, hallucination rate **68.3%** (benchlm.ai — poor)
-- AA-IFBench: **50.5%** (AA)
+- AA-IFBench: **50.5%** (AA); **AA LiveCodeBench: 83.2%** (NEW, BenchLM Nov 6 — first independent LCB row, corroborates the strong-LCB story); **AA MMLU-Pro 85.0% / AA AIME-2025 89.7%** (NEW — the AA AIME read sits below the vendor's 92.0% no-tools claim, both cited)
 - LMArena Text Arena: **#8** — `grok-4-fast` (`tahoe`), on par with `grok-4-0709` (xAI announcement)
 
 Coding:
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA and Vals boards + the xAI announcement — official plus independent sources, conflicts compared; earlier draft via xAI announcement + Vals AI; 2026-10-16 re-check: BenchLM 404s this model, llm-stats conflicts on launch date (Aug vs Sep 19, 2025) and multimodal input — retirement 2026-05-15 added to the card, no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Tau2 65.8%, AA-LCR 73.7%, AA Index 17.9, Vibe 0.00%, AA-MMMU-Pro 61.8%, AA-Omniscience 68.3% — Tool 82→80, Reasoning 84→78, Multimodal 45→50, Coding 78→74, Overall 76→75.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's Grok 4 Fast (Reasoning) page — which 404ed at the prior pass — now exists (fetched 2026-11-06, Nov 6 data, 15 rows, ranked #125/1016, composite 43.4) and re-confirms every prior row with zero value changes; AA LiveCodeBench 83.2%, AA MMLU-Pro 85.0% and AA AIME-2025 89.7% added — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.1_Fast.md`, using the same headings.

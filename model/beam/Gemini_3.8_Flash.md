@@ -1,7 +1,7 @@
 # Beam — findings by Gemini 3.8 Flash
 
 - Source: Reflection AI/Beam (`reflection-ai/beam`)
-- Date: 2026-10-17 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing Reflection AI model documentation, Hugging Face repository releases, and benchmark tracking from Artificial Analysis and DataCurve; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

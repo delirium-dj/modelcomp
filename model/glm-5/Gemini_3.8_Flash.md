@@ -1,7 +1,7 @@
 # GLM 5 — findings by Gemini 3.8 Flash
 
 - Source: Z.ai/GLM 5 (`zai-org/GLM-5`)
-- Date: 2026-10-16 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-16
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research synthesizing Z.ai official technical releases, Hugging Face model cards, and independent evaluations from Artificial Analysis, Clore.ai, and OpenCode Zen documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -23,6 +23,8 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 | MiniMax M2.7 (`minimax-m2.7` — requested as Free, no Free ID found on Zen) | 80 | 75 | 70 | 15 | 82 | 90 | 69 |
 | Xiaomi MiMo-V2.5-Pro (`mimo-v2.5-pro` — requested as Free, no Free ID found on Zen) | 82 | 78 | 100 | 15 | 82 | 85 | 74 |
 | MiMo V2.6 Pro (`xiaomi/mimo-v2.6-pro`) | 89 | 89 | 96 | 92 | 89 | 92 | 91 |
+| Mistral Large 3 (`opencode/mistral-large-3`) | 64 | 66 | 78 | 60 | 58 | 85 | 65 |
+| Mistral Small 4 (`opencode/mistral-small-4`) | 62 | 68 | 74 | 60 | 60 | 90 | 65 |
 
 ### Requested-name resolution
 
@@ -150,6 +152,24 @@ Full details moved to [`model/mimo-v2.6-pro/GLM_4.5_Flash.md`](model/mimo-v2.6-p
 
 ---
 
+## Mistral Large 3
+
+Full details in [`model/mistral-large-3/Beam.md`](model/mistral-large-3/Beam.md).
+
+- **Scores:** Tool 64 / Reasoning 66 / Context 78 / Multimodal 60 / Coding 58 / Cost 85 → **Overall 65**
+- **One-liner:** Mistral's December 2025 open-weight multimodal MoE flagship (675B/41B, Apache 2.0); mid-tier agentic/coding with native vision, superseded by Mistral Large 4.
+
+---
+
+## Mistral Small 4
+
+Full details in [`model/mistral-small-4/Beam.md`](model/mistral-small-4/Beam.md).
+
+- **Scores:** Tool 62 / Reasoning 68 / Context 74 / Multimodal 60 / Coding 60 / Cost 90 → **Overall 65**
+- **One-liner:** compact Apache-2.0 MoE (119B/~6.5B) unifying chat, reasoning, and agentic coding with configurable reasoning effort.
+
+---
+
 ## Scoring methodology (v1, 2026-09-17)
 
 All dimensions 1–100, higher = better. Score raw benchmarks first, then normalize.
@@ -248,3 +268,4 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - 2026-10-02: v6 — renamed `model/muse-spark-1.2-free/` → `model/muse-spark-1.2/` and display name `Muse Spark 1.2 Free` → `Muse Spark 1.2` (same treatment as v5's 1.3 merge): Contributor/Free/Standard/Max are tiers of one model, `meta.json` id now `opencode/muse-spark-1.2`. Findings-file prose is frozen history — tier-suffixed mentions in older reports/signatures stay as written.
 - 2026-10-04: v7 — added optional `meta.json` `category` (`"generative"` default, `"decision"` for typed-decision System-One models; schema in `model/README.md`). `jev-1.13/meta.json` curated with verified decision-native facts and `category: decision`. Decision models stay in `model/` and are separated at render time: own shelf in All models, excluded from A/B/C compare slots, never ranked against generative Overall. No folders renamed or moved.
 - 2026-10-30: v8 — added MiMo V2.6 Pro model to comparison table with averaged scores from 29 reporting sources. Overall score of 91 makes it the highest-scoring open-weight model in the comparison.
+- 2026-11-06: v9 — added Mistral Large 3 and Mistral Small 4 to comparison table and per-model sections using Beam findings (Overall 65/65).

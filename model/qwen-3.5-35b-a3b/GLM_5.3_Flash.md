@@ -44,8 +44,8 @@ Reasoning / knowledge:
 - AA-LCR: **58.5** (HF card)
 - HMMT Feb 25: **89.0**; HMMT Nov 25: **89.2** (HF card)
 - IFEval: **91.9**; IFBench: **70.2** (HF card)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found; **MEASURED on the BenchLM Nov 6 refresh (33 rows, ranked #117/1016): AA Index 19.3% (low), AA-GPQA 84.5% / AA-HLE 21.0% (corroborate the card), CritPt 0.9% (floor), Omniscience 20.1% accuracy / 85.4% hallucination / −48.1 index (basement-class)**
+- Omniscience Accuracy / Hallucination Rate: no verified public score found (now covered by the AA row above)
 
 Coding:
 

@@ -36,7 +36,7 @@ Reasoning / knowledge:
 - ARC-AGI-2 (verified): **18.9%** #127 (ARC Prize — fills; weak); ARC-AGI-1: 63.7% #136; CritPt: **10.0%** #111
 - FrontierMath Tiers 1–3: **51.2%** #46 (Epoch v2 — fills); Tier 4: 9.8%; OTIS Mock AIME: 88.9%; AIME (Vals): **95.6%** #8; ProofBench: 21.0%
 - AA-LCR: **77.0%** #130 (AA — fills the previously-missing LCR); LMCA: 40.8%; DTBench: 80.0%
-- SimpleQA Verified: **29.4%**; MMLU-Pro (Vals): **84.5%**; AA-Omniscience: non-hallucination **9.8%** (severe hallucination); LiveBench Math: 78.5%
+- SimpleQA Verified: **29.4%**; MMLU-Pro (Vals): **84.5%** (Nov 6 re-read 84.6%); AA-Omniscience: non-hallucination **9.8%** (severe hallucination); Nov 6 refresh adds the full profile: Index **−18.9** / accuracy **37.5%** / hallucination **90.2%**; **AA-IFBench 73.3% / AA Global-MMLU-Lite 89.4%** (NEW); LiveBench Math: 78.5%
 - Kagi LLM Benchmark: 37.9%; ForecastBench: 57.0%
 
 Coding:
@@ -44,8 +44,7 @@ Coding:
 - SWE-bench (Vals): **73.0%** #51 (fills the previously-missing independent SWE row)
 - LiveCodeBench: **81.5%** #59 (Vals — fills the previously-missing LCB)
 - SciCode: **49.9%** (Epoch / AA 52.1% — fills; below the 55%+ frontier mark)
-- Vibe Code Bench v1.1: **48.0%**; Code Migration: 12.9%; ProgramBench: 0.0% (Vals — weak)
-- FrontierCode: **27.0%** #30 (Cognition, not-stated); WeirdML: 60.3%; ALE-Bench: 1188.6; LiveBench Coding: 71.6%
+- Vibe Code Bench v1.1: **48.0%**; Code Migration: 12.9%; ProgramBench: 0.0% (Vals — weak); **AA Coding Index: 56.1%** (NEW, BenchLM Nov 6 — mid); FrontierCode: **27.0%** #30 (Cognition, not-stated); WeirdML: 60.3%; ALE-Bench: 1188.6; LiveBench Coding: 71.6%
 - SWE-bench Verified: no verified public score found for `gpt-5.4-mini`
 
 Long context:
@@ -54,7 +53,7 @@ Long context:
 
 Multimodal / vision:
 
-- MMMU-Pro (Vals): **79.3%** #48 (fills the previously-missing vision row); AA-MMMU-Pro: **73.3%**; SAGE (Vals): **50.8%** #15; Vals Multimodal Index: **54.2%** #21; LMArena Vision: 1245
+- MMMU-Pro (Vals): **79.3%** #48 (fills the previously-missing vision row); AA-MMMU-Pro: **73.3%**; MMMU-Pro (OpenAI mini/nano table): **76.6%** / **78.0%** w/ Python (NEW, BenchLM Nov 6); SAGE (Vals): **50.8%** #15; Vals Multimodal Index: **54.2%** #21; LMArena Vision: 1245
 
 ### Normalized scores (1–100)
 
@@ -70,6 +69,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals boards, OpenCode Zen docs cross-checked; re-researched 2026-10-16: OSWorld 72.1%, τ² 93.4%, HLE w/tools 41.5% added — Tool 58→61, Reasoning 62→64, Overall 68→69); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.9% #71, HLE 28.1%, ARC-AGI-2 18.9%, SWE-bench (Vals) 73.0%, LCB 81.5%, SciCode 49.9%, TB2.1 54.7%, MCP Atlas 56.7%, MMMU-Pro 79.3%, AA-LCR 77.0%, FrontierMath 51.2% — Tool 46→58, Reasoning 55→62, Context 75→76, Multimodal 65→72, Coding 52→72, Overall 59→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-5.4-mini page fetched 2026-11-06 (Nov 6 data, 41 rows) — all prior rows re-confirmed; AA Coding Index 56.1%, AA-IFBench 73.3%, Global-MMLU-Lite 89.4%, full Omniscience profile (−18.9 index) and the OpenAI mini/nano MMMU-Pro rows added, GDPval drift 25.8→25.6%; composite 53.3 #85/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.

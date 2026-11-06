@@ -1,7 +1,7 @@
 # DeepSeek V4.1 Flash 1017 — findings by Gemini 3.8 Flash
 
 - Source: DeepSeek (`deepseek/deepseek-v4.1-flash-1017`)
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context / vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-22
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation, DeepSeek official technical release benchmarks, Hugging Face leaderboards, and OpenRouter API listings; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

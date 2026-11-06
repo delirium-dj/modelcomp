@@ -1,29 +1,31 @@
 # Muse Glimmer 30B — findings by Gemini 3.8 Flash
 
 - Source: Meta / Muse (`meta/muse-glimmer-30b`)
-- Date: 2026-10-11 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** Muse Glimmer 30B
-- **Short description:** Meta's 29.6B dense open-weights multimodal foundation model (incorporating a 1.8B vision encoder) distilled from Muse Spark, designed under Apache 2.0 for local deployment on consumer GPUs and autonomous agent workflows.
+- **Short description:** Meta Superintelligence Labs' 29.6B dense open-weights multimodal foundation model (incorporating a 1.8B vision encoder) distilled from Muse Spark, designed under Apache 2.0 for local deployment on consumer GPUs and autonomous agent workflows.
 - **Provider / access:** [Hugging Face](https://huggingface.co/meta) open weights (Apache 2.0; BF16, GGUF, vLLM, llama.cpp), [OpenRouter](https://openrouter.ai/models/meta/muse-glimmer-30b), and Fireworks AI.
 - **Release / knowledge:** 2026-08-10 release; knowledge cutoff mid-2026.
 - **IDs:** `meta/muse-glimmer-30b`
 - **Context window:** 131,072 tokens total (128K context window with hybrid sliding-window attention).
 - **Modalities:** Text and image inputs; text, code, structured JSON output, and schema-based tool calling.
-- **Pricing (as of 2026-10-11):** $0.00 (open weights Apache 2.0); hosted inference routes average ~$0.30–$0.35 / 1M input tokens, $1.20–$1.50 / 1M output tokens ($0.04 cached input).
-- **Architecture:** 29.6B dense multimodal transformer (including 1.8B vision encoder) featuring GQA and DFlash speculative decoding support.
+- **Pricing (as of 2026-11-06):** $0.00 (open weights Apache 2.0); hosted inference routes average ~$0.30–$0.35 / 1M input tokens, $1.20–$1.50 / 1M output tokens ($0.04 cached input).
+- **Architecture:** 29.6B dense multimodal transformer (52-layer text decoder + 1.8B ViT perception encoder) featuring GQA, native 4-bit quantization support, and DFlash speculative decoding.
 
 ### Raw benchmarks found
 
 Agent / tool use:
-- MCP Atlas: **75.5** ([Fireworks AI / Meta Report](https://fireworks.ai))
+- MCP Atlas (High Reasoning): **75.5** ([Fireworks AI / Meta Report](https://fireworks.ai)) (vs Gemma 4-31B: 54.2, Qwen 3.6-27B: 62.5)
 - OSWorld-Verified: **65.9%**
 - DeepSearch QA: **74.6**
 - Terminal-Bench 2.1: **51.7%**
+- MetroLLM-Bench: Top tier for edge-agent transit kiosk policy layer execution
+- OmnilingualGAIA2: Evaluated across 100+ languages for cross-lingual agent tasks
 
 Reasoning / knowledge:
 - AIME 2026: **94.7%** ([Meta Model Card](https://huggingface.co))
@@ -33,7 +35,7 @@ Reasoning / knowledge:
 
 Coding:
 - SWE-bench Verified: **76.0%** resolved
-- SWE-bench Pro: **51.2%** resolved
+- SWE-bench Pro: **51.2%** resolved (outperforms Gemma 4-31B at 36.9%)
 - Coding Index: **49.0** (Artificial Analysis)
 
 Long context:
@@ -53,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-11
-- Method: Public internet research into Meta's official model announcements, Artificial Analysis benchmarks, and OpenRouter model documentation; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
+- Method: Public internet research into Meta Superintelligence Labs' official technical report ("Muse Glimmer 30B: An On-Device Agentic Model"), Artificial Analysis benchmarks, Hugging Face model card, and OpenRouter documentation; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

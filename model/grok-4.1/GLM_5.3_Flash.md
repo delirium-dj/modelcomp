@@ -67,6 +67,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai table updated 2026-10-09, xAI Nov 17 2025 announcement, Vals AI leaderboard — official plus independent sources; 2026-10-16 re-check: BenchLM still holds a single row (ResearchClawBench 13.5%), its 1M context reading matches the documented conflict — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills ResearchClawBench 13.5%; documents the 256K-vs-1M context-window conflict (benchlm 1M vs the docs-tier assumption; xAI's current docs list no grok-4.1 entry) — scores unchanged, conflict recorded.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.1 page fetched 2026-11-06 — still holds exactly one row (ResearchClawBench 13.5%), still unranked, context still listed 1M (the 256K-vs-1M conflict stands) — re-verified, no new evidence, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.2.md`, using the same headings.
