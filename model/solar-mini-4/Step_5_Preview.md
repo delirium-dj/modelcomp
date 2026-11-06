@@ -1,51 +1,53 @@
 # Solar Mini 4 — findings by Step 5 Preview
 
-- Source: Upstage (`solar-mini4`, released 2026-09-22)
-- Date: 2026-10-09 (UTC)
+- Source: Upstage (`upstage/solar-mini4`, released 2026-09-22)
+- Date: 2026-11-06 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Solar Mini 4 (Upstage's compact reasoning model)
-- **Short description:** Upstage's small proprietary reasoner — a 35B-total / **3B-active** MoE with a 524K-token context window (AA lists 1M), built for agentic use cases where response speed and cost matter, with fluent Korean alongside English and Japanese and a February 2026 knowledge cutoff. Artificial Analysis scores it **24 on the Intelligence Index** (#36 of 182; class median 13) — well above average for its price tier — but flags the catch: it is **very verbose** (370M output tokens per index run vs a 100M median), so despite competitive per-token prices ($0.10/$0.40 official, $0.05/$0.20 via OpenRouter) it costs $0.36 per index task — roughly 5× GPT-6 Luna (max) at similar sticker prices. Output speed is below average (75.5 tok/s) with a decent 1.87 s TTFT; third-party coding composites are weak (40/100, #252).
-- **Provider / access:** Upstage API (first-party), OpenRouter (cheapest route); proprietary, no weights.
-- **Release:** 2026-09-22.
-- **Context window:** 524,288 tokens (AA measurement: 1M); max output 131,072.
-- **Modalities:** Text in → text out (no image input); reasoning model.
-- **Pricing (as of 2026-10-09):** $0.10/M input, $0.40/M output (blended $0.07) on the official API; $0.05/$0.20 via OpenRouter.
-- **Knowledge cutoff:** 2026-02-01.
+- **Name:** Solar Mini 4 — Upstage's **compact reasoning model**, and one of the few Korean-first labs in this research series. **A negative finding governs this report: BenchLM carries no `solar-mini-4` page in any spelling** (`solar-mini-4`, `solar-mini4` and `Solar-Mini-4` all 404), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** **A budget Korean/English/Japanese reasoner with a half-million-token window, adequate general capability at low sticker prices, and the wrong pick for coding.** Its measured record is thin and mostly indirect: **AA Intelligence Index 24 (#36/182, median 13), LM Market Cap coding composite 40/100 (#252), 75.5 tok/s output against a 109.6 class median, and a cost per Index task of $0.36 — roughly 5x GPT-6 Luna (max) at similar per-token prices.**
+- **Provider / access:** **Upstage API (first-party), OpenRouter (cheapest route); proprietary, no weights.**
+- **Release / knowledge:** released **2026-09-22**. **Knowledge cutoff 2026-02-01** — the only model in this batch with a disclosed cutoff, and eight months stale relative to this report's date.
+- **IDs:** `upstage/solar-mini4` (Upstage API); repo id `solar-mini-4`.
+- **Context window:** **524,288 tokens** (AA measurement: **1M**); **max output 131,072** — a genuine asset, and one of only two verified properties.
+- **Modalities:** **text in → text out** (no image input); reasoning model.
+- **Pricing (as of 2026-11-06):** **$0.10/M input, $0.40/M output** (blended $0.07) on the official API; **$0.05/$0.20 via OpenRouter**; **$0.01 cached read**. **A promotional $0.05/$0.20 rate ran through 2026-10-23 and has now lapsed.**
+- **Architecture:** **proprietary.** Reasoning model; parameter count and architecture undisclosed — the thinnest architecture disclosure in this batch.
 
 ### Raw benchmarks found
 
-Artificial Analysis (independent):
+**A provenance finding is recorded: the entire evidence base is Artificial Analysis and LM Market Cap composite measurements, with no Upstage launch post or model card row anywhere** — so unlike most vendor-reported models in this series, **this model has no vendor benchmark claims at all**, only independent composite tracking. That is cleaner provenance and a thinner evidence base simultaneously.
 
-- Intelligence Index: **24** (#36/182; median 13); 18 of 27 evals run
-- Output speed: 75.5 tok/s (class median 109.6); TTFT 1.87 s (median 2.16 s)
-- Cost per Intelligence-Index task: **$0.36** — ~5× GPT-6 Luna (max) at similar per-token prices
-- Verbosity: 370M output tokens per index run (median 100M)
-
-Third-party:
-
-- LM Market Cap coding composite: **40/100** (#252)
-- Benchable: 96th-percentile speed, 88th-percentile pricing (provider-level observations)
-
-GPQA/HLE/AIME/SWE-bench/Terminal-Bench/MCP Atlas values for Solar Mini 4: **no verified public score found** (AA's per-eval breakdown is not publicly listed for this model).
+- **AA Intelligence Index: 24 (#36/182; median 13)** — above its price-class median but only mid-tier globally; **18 of 27 evals run**
+- **Output speed: 75.5 tok/s** (class median 109.6); **TTFT 1.87 s** (median 2.16 s)
+- **Cost per Intelligence-Index task: $0.36** — **~5x GPT-6 Luna (max) at similar per-token prices**
+- **Verbosity: 370M output tokens per index run** (median 100M) — **3.7x the class norm, the model's most damaging measured property**
+- **LM Market Cap coding composite: 40/100 (#252)**
+- **Benchable: 96th-percentile speed, 88th-percentile pricing** (provider-level observations)
+- **No verified public score found** for GPQA, HLE, AIME, MATH, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, the AA-Omniscience figures, SWE-bench, LiveCodeBench, AA-SciCode, AA Coding Index, Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, GDPval-AA, the AA Agentic Index or any vision benchmark.
+- **This report re-verifies the 2026-10-09 finding that no per-benchmark figure of any kind is public for this model** — the entire record is composite and behavioural, which is the thinnest evidence base in this batch alongside Big Pickle and Exo Free.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 45/100.** Built for agentic use cases, but no Terminal-Bench, τ³, MCP Atlas or GDPval number is published for this model — a structural mid-low estimate.
-- **Reasoning: 52/100.** AA Intelligence Index 24 is above its price-class median (13) but only mid-tier globally; no GPQA/HLE/AIME figure is public.
-- **Context window: 78/100.** 524K (AA-measured 1M) is in the ≥500K band, but with no MRCR/RULER/AA-LCR retrieval curve published the top band can't be justified.
-- **Multimodal: 12/100.** Text-only (no image input) — the methodology's text-only band (10–20).
-- **Coding: 45/100.** A 40/100 coding composite (#252 on LM Market Cap) and no SWE-bench/LiveCodeBench figure — weak coding for a 2026 model.
-- **Cost efficiency: 78/100.** Sticker prices are competitive ($0.05–0.10 / $0.20–0.40) but the verbosity penalty (370M tokens per index run; $0.36/task, 5× GPT-6 Luna) erodes the advantage — the methodology's ~$1/$4 ≈ 85 range docked for measured token burn.
-- **Overall Score: 46/100.** Best-fit recommendation: a budget Korean/English/Japanese reasoner with a half-million-token window — adequate general capability at low sticker prices, undermined by verbose output and below-average speed; the wrong pick for coding.
-
----
+- **Tool use: 45/100.** Below the methodology's mid band, and a structural estimate. **Built for agentic use cases, but no Terminal-Bench, τ³-bench, MCP Atlas, OSWorld or GDPval number is published for this model** — so all three frontier references are unmeasured and no composite exists. Held at 45 rather than the neutral floor because the AA Intelligence Index run includes agentic workloads and the model is positioned for them; **not higher because a positioning claim is not a measurement.**
+- **Reasoning: 52/100.** At the methodology's mid band's floor. **AA Intelligence Index 24 is above its price-class median (13) but only mid-tier globally**, and it is the *only* capability figure that exists — **no GPQA, HLE, AIME, MATH, CritPt, AA-LCR or ARC-AGI figure is public.** Held at 52 rather than lower because the composite is independently run and above its class median; **not higher because one composite cannot support a capability judgement**, which is the report's thesis rather than an assessment.
+- **Context window: 78/100.** **524,288 tokens** (AA-measured **1M**) is in the methodology's ≥500K band (78–84), scored at 78 — the band's floor. Held at the floor rather than higher because **no MRCR, RULER or AA-LCR retrieval curve is published**, so the window's usable depth is entirely unverified, and a window whose depth is unmeasured should not be scored as though it were demonstrated.
+- **Multimodal: 12/100.** **Text-only (no image input)** — the methodology's text-only band (10–20), and a specified absence rather than an unmeasured one.
+- **Coding: 45/100.** Below the methodology's mid band. **A 40/100 coding composite (#252 on LM Market Cap) and no SWE-bench, LiveCodeBench or AA-SciCode figure** — weak coding for a 2026 model, and the model's clearest disqualification. Held at 45 rather than the floor because 40/100 is a real if weak measurement.
+- **Cost efficiency: 78/100.** Sticker prices are competitive (**$0.05–0.10 / $0.20–0.40**, blended $0.07) but **the verbosity penalty erodes the advantage**: **370M output tokens per Index run against a 100M median (3.7x the class norm) and $0.36 per Index task, roughly 5x GPT-6 Luna (max)** — the methodology's ~$1/$4 → 85 range docked for measured token burn. **This is the report's central finding: the model is cheap per token and expensive per task**, and the cost score is the only place in the file where that is visible.
+- **Overall Score: 46/100.** (45 + 52 + 78 + 12 + 45) / 5 = 46.4 → **46**. **A disagreement is recorded rather than reconciled: the repo queue carries 58.9 for this slug while this report reads 46**, and with BenchLM absent there is no third instrument to arbitrate — the queue figure is the corpus-average of other research agents' raters, this report is Step 5 Preview's own normalized reading, and both are stated side by side rather than flattened. **This is the oldest-dated report refreshed in this batch (originally 2026-10-09, i.e. 28 days stale at re-run) and the only one whose refresh confirmed no new evidence had appeared in the interim** — the composite figures are unchanged and no per-benchmark figure has become public, which is itself a finding about how thinly this model is measured. Recommendation: **a budget Korean/English/Japanese reasoner with a half-million-token window** — adequate general capability at low sticker prices, undermined by verbose output and below-average speed, and the wrong pick for coding. **Its two genuine assets are the window (524K native, AA-measured 1M) and the multilingual positioning**, and its two genuine drags are the **3.7x verbosity** and the **#252 coding composite**. Three cautions: **the entire evidence base is composite and behavioural, with no per-benchmark figure of any kind public**; **its knowledge cutoff is 2026-02-01**, eight months stale; and **architecture and parameter count are undisclosed**, so it cannot be assessed for deployment footprint or compared on capability-per-parameter.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
-- Method: public internet research (Artificial Analysis model page + launch article, llm-stats/OpenRouter pricing, LM Market Cap, Benchable); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `solar-mini-4` page in any spelling** (`solar-mini-4`, `solar-mini4` and `Solar-Mini-4` all return 404), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-09), with figures re-attributed, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. **This is the oldest-dated report refreshed in this batch — originally 2026-10-09, 28 days stale at re-run — and the only one whose refresh confirmed that no new evidence had appeared in the interim**: the composite figures are unchanged, no per-benchmark figure has become public, and that stability is recorded as a finding about how thinly this model is measured rather than as a reason to shorten the report. **A provenance finding is recorded: the entire evidence base is Artificial Analysis and LM Market Cap composite measurements with no Upstage launch post or model card row anywhere** — so unlike most vendor-reported models in this series, this model has no vendor benchmark claims at all, which is simultaneously cleaner provenance and a thinner evidence base. The report's central finding is a **cost-per-token versus cost-per-task split**: the sticker prices are competitive but the **3.7x verbosity (370M output tokens per Index run against a 100M median) and the $0.36 per-Index-task cost at roughly 5x GPT-6 Luna (max)** mean the model is cheap per token and expensive per task, and that drag is recorded in the cost dimension and nowhere else, because that is the only place it is visible. **The absence of any per-benchmark figure is stated as the thinnest evidence base in this batch** (alongside Big Pickle and Exo Free) rather than hedged, and the report's thesis — that one composite cannot support a capability judgement — is stated in the recommendation rather than dressed up as an assessment. **The 2026-02-01 knowledge cutoff is attributed as the only disclosed cutoff in this batch and as eight months stale**, and **the undisclosed architecture and parameter count** as the reason the model cannot be assessed for deployment footprint. **The promotional $0.05/$0.20 rate is recorded as lapsed (it ran through 2026-10-23)** so the cost score rests on the current $0.10/$0.40 list rate rather than a price that no longer exists. **A model-difference is recorded rather than resolved: the repo queue carries 58.9 while this report reads 46, with BenchLM absent so no third instrument exists to arbitrate.** Missing benchmarks (GPQA, HLE, AIME, MATH, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, AA-Omniscience, SWE-bench, LiveCodeBench, AA-SciCode, AA Coding Index, Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, and every vision benchmark) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Artificial Analysis — Solar Mini 4 (Intelligence Index 24, verbosity 370M, $0.36/task, 75.5 tok/s, 524K/1M context)](https://artificialanalysis.ai/models/solar-mini-4)
+  - [LM Market Cap — coding composite (40/100, #252)](https://lmmarketcap.com/)
+  - [Upstage — Solar Mini 4 API and pricing (first-party route)](https://www.upstage.ai/)
+  - [OpenRouter — upstage/solar-mini4 (cheapest route at $0.05/$0.20)](https://openrouter.ai/upstage/solar-mini4)
+  - [Repo curated meta — `model/solar-mini-4/meta.json` (524K/131K, text-only, $0.10/$0.40, cutoff 2026-02-01)](/model/solar-mini-4/meta.json)
 - Future sources: add a new file next to this one, e.g. `Solar_Mini_5.md`, using the same headings.

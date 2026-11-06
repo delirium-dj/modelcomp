@@ -34,6 +34,7 @@ Agent / tool use:
 - Terminal Bench 2: **49.4%** (HF card — best of the mid-size Qwen3.5 group)
 - OSWorld-Verified: **58.0**; AndroidWorld: **66.4**; ScreenSpot Pro: **70.4** (HF card)
 - Claw-Eval / ClawProBench: no verified public score found
+- NEW independent rows (BenchLM Nov 6, 31 rows, ranked #93/1016): **τ²-bench (AA): 93.6%** — well above the vendor card's 79.5%; **GDPval-AA 925 / 15.7% normalized (weak)**; **AA Agentic Index 9.6% (weak)**; **AA-SciCode 39.7% / AA Coding Index 45.7% (weak)**; **AA-LCR 76.3%** (above the vendor's 66.9); CritPt 0.6% (floor); AA-GPQA 85.7% / AA-HLE 25.2% / AA-MMMU-Pro 75.0% (all corroborate the card); AA-IFBench **75.7%**; AA Global-MMLU-Lite 89.1%; MMVU 74.7%, CharXiv 77.2%, V* 93.2%
 - Toolathon / MCP-Atlas / SWE Atlas: no verified public score found
 
 Reasoning / knowledge:
@@ -74,6 +75,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-21
-- Method: public internet research (official HF model card, OpenRouter model page); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-21)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.5-122B-A10B page fetched 2026-11-06 (Nov 6 data, 31 rows, now ranked #93/1016) — the first independent AA/BenchLM rows landed since the vendor-card-only first pass (τ² 93.6% AA vs the vendor 79.5%, GDPval 925/15.7%, AA Agentic 9.6%, AA-SciCode 39.7%, AA Coding Index 45.7%, AA-LCR 76.3%, AA-IFBench 75.7%, corroborations for GPQA/HLE/MMMU-Pro); all rows land inside the existing bands — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

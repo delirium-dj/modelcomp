@@ -1,50 +1,51 @@
-# Llama 3.2 Vision (Instruct) — findings by Step 5 Preview
+# Llama 3.2 Vision Instruct — findings by Step 5 Preview
 
 - Source: Meta (`meta-llama/Llama-3.2-11B-Vision-Instruct`, `meta-llama/Llama-3.2-90B-Vision-Instruct`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Llama 3.2 Vision Instruct (Meta's first natively multimodal Llama; 11B and 90B)
-- **Short description:** The Meta Connect 2024 release that brought image reasoning to the open-weights ecosystem — a frozen Llama 3.1 text backbone (8B for the 11B, 70B for the 90B) plus a ~850M-parameter ViT-H/14 vision encoder (with 8 gated self-attention layers) wired in through cross-attention adapters after every fourth text block, pre-trained on 6B image-text pairs and instruction-tuned with public vision datasets plus 3M+ synthetic examples. Meta positioned the 90B as competitive with Claude 3 Haiku and GPT-4o-mini on image understanding while preserving the frozen backbone's text quality (MMLU 86.0) — "drop-in replacements for their corresponding text model equivalents." The multimodal weights carry the Llama 3.2 Community License's EU restriction. Two years on it is the historical reference for open vision models: the last Meta open-weights release before the Llama-4 era and the baseline every Qwen/Gemma VLM was measured against.
-- **Provider / access:** Hugging Face / Meta (Llama 3.2 Community License); Bedrock, Vertex AI, Azure; Transformers (`MllamaForConditionalGeneration`).
-- **Release:** 2024-09-25 (Meta Connect 2024).
-- **Context window:** 128K tokens; knowledge cutoff December 2023.
-- **Modalities:** Text and image in → text out; image captioning, document-level understanding (charts, graphs), OCR and visual grounding.
-- **Pricing (as of 2026-10-09):** legacy hosted endpoints; weights free under the Llama 3.2 Community License (multimodal weights EU-restricted).
-- **Architecture:** Llama 3.1 text backbone (frozen during vision training) + ViT-H/14 (8 gated SA layers) + cross-attention adapters; GQA.
+- **Name:** Llama 3.2 Vision Instruct — **Meta's first natively multimodal Llama**, in 11B and 90B sizes, with the repo folder recording the underscore spelling `llama_3.2_vision_instruct`. **A negative finding governs this report: BenchLM carries no page for this model in any spelling** (`llama_3.2_vision_instruct`, `llama-3.2-vision-instruct` and `Llama-3.2-Vision-Instruct` all 404), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** **A historical baseline.** The open-weights vision model of 2024, useful for document and chart understanding research on a single GPU, and comprehensively outclassed by 2026 vision models on every axis. Its figures are a 2024 snapshot: **MMMU 50.7/60.3, MathVista 51.5/57.3, ChartQA 83.4/85.5, DocVQA 88.4/90.1, AI2 Diagram 91.1/92.3, MMLU 73.0/86.0, MATH 51.9/68.0, GPQA 32.8/46.7.**
+- **Provider / access:** Hugging Face / Meta (**Llama 3.2 Community License**); Amazon Bedrock, Google Cloud Vertex AI, Azure; Transformers (`MllamaForConditionalGeneration`). **Legacy hosted endpoints; weights free under the Community License, with the multimodal weights EU-restricted.**
+- **Release / knowledge:** **2024-09-25** (Meta Connect 2024). **Knowledge cutoff December 2023.**
+- **IDs:** `meta-llama/Llama-3.2-11B-Vision-Instruct` and `meta-llama/Llama-3.2-90B-Vision-Instruct` (Hugging Face); repo id `llama_3.2_vision_instruct`.
+- **Context window:** **128,000 tokens** — one-eighth of the current 1M standard.
+- **Modalities:** **text and image in → text out**; image captioning, document-level understanding (charts, graphs), OCR and visual grounding.
+- **Pricing (as of 2026-11-06):** **legacy hosted endpoints** (hosted at $0.0485–$0.35/M in, $0.055–$0.676/M out across providers); **weights free under the Llama 3.2 Community License**, with the multimodal weights EU-restricted.
+- **Architecture:** **Llama 3.1 text backbone (frozen during vision training) + ViT-H/14 (8 gated self-attention layers) + cross-attention adapters; GQA.** **The frozen backbone is the model's defining architectural fact and the reason its reasoning figures look 2024-dated.**
+- **Slug-identity note:** the repo folder uses underscores (`llama_3.2_vision_instruct`); **a hyphen-spelled duplicate folder was identified and removed in an earlier session and must never be restored**, and BenchLM carries no page under either spelling.
 
 ### Raw benchmarks found
 
-Vendor model card (instruct-tuned; 11B / 90B):
+Vendor-reported (Meta's launch post and model card) and carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check. Two sizes are given throughout as **11B / 90B**.
 
-- MMMU (val, CoT): **50.7 / 60.3**; MMMU-Pro (Standard, 10 opts): **33.0 / 45.2**; MMMU-Pro (Vision): 23.7 / 33.8
-- MathVista (testmini): **51.5 / 57.3**
-- ChartQA (test, CoT): **83.4 / 85.5**; AI2 Diagram (test): **91.1 / 92.3**; DocVQA (test, ANLS): **88.4 / 90.1**
-- VQAv2 (test): **75.2 / 78.1**
-- MMLU (CoT): **73.0 / 86.0**; MATH (CoT): **51.9 / 68.0**; GPQA: **32.8 / 46.7**; MGSM (CoT): **68.9 / 86.9**
-- Base models: VQAv2 66.8/73.6, MMMU (0-shot) 41.7/49.3, ChartQA 39.4/54.2
-
-SWE-bench, Terminal-Bench, τ-bench, MCP Atlas, GDPval, HLE, ARC-AGI, MRCR/RULER: **no verified public score found** (the model predates those evals).
-
-Third-pass verification (2026-10-19): Artificial Analysis has no Llama 3.2 Vision page (404 on the natural and hyphenated slugs) — a 2024 legacy model outside current tracker coverage; no new independent evidence exists for a two-year-old release. No score change warranted.
+- **MMMU (val, CoT): 50.7 / 60.3; MMMU-Pro (Standard, 10 opts): 33.0 / 45.2; MMMU-Pro (Vision): 23.7 / 33.8**
+- **MathVista (testmini): 51.5 / 57.3**
+- **ChartQA (test, CoT): 83.4 / 85.5; AI2 Diagram (test): 91.1 / 92.3; DocVQA (test, ANLS): 88.4 / 90.1; VQAv2 (test): 75.2 / 78.1** — **genuine document and chart strength, and the model's real asset**
+- **MMLU (CoT): 73.0 / 86.0; MATH (CoT): 51.9 / 68.0; GPQA: 32.8 / 46.7; MGSM (CoT): 68.9 / 86.9**
+- **Base models: VQAv2 66.8/73.6, MMMU (0-shot) 41.7/49.3, ChartQA 39.4/54.2** — the vision-training delta
+- **No verified public score found** for SWE-bench, HumanEval, LiveCodeBench, AIME, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, the AA Intelligence Index, AA-Omniscience, Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, GDPval-AA or the AA Agentic Index.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 35/100.** No agentic-harness benchmark exists (the model predates TB/τ³/MCP-Atlas); it has no native function-calling/tool-use training focus — a structural low score.
-- **Reasoning: 42/100.** MMLU 73.0/86.0%, MATH 51.9/68.0% and GPQA 32.8/46.7% are low-mid even for 2024 (the frozen 2024 backbone shows); mid-low on today's scale.
-- **Context window: 62/100.** 128K is the 100K–200K band (50–64) with no published retrieval curve (no MRCR/RULER/NIAH figure).
-- **Multimodal: 62/100.** Text + image in → text out is the 60–70 band, at its bottom: MMMU 50.7/60.3% and MathVista 51.5/57.3% were mid-tier in 2024 and are weak now, though DocVQA 88.4/90.1% and AI2 Diagram 91.1/92.3% show genuine document strength.
-- **Coding: 40/100.** No SWE-bench/HumanEval/LiveCodeBench figure was ever published for the vision models — structural low-mid.
-- **Cost efficiency: 88/100.** Open weights (11B fits a single consumer GPU; 90B on one 80GB node) at no license fee — the ~$0.6/$2.2 ≈ 92 range docked for the Llama Community License's EU multimodal restriction and legacy status.
-- **Overall Score: 48/100.** Best-fit recommendation: a historical baseline — the open-weights vision model of 2024, useful for document/chart understanding research on a single GPU; comprehensively outclassed by 2026 vision models (Gemma 4 E4B, Ling-3.0-flash-VL, Qwen3.5-9B) on every axis.
-
----
+- **Tool use: 35/100.** Below the methodology's low band, and structurally so. **No agentic-harness benchmark exists — the model predates Terminal-Bench, τ³-bench, MCP-Atlas, OSWorld, GDPval-AA and the AA Agentic Index entirely**, and it has no native function-calling or tool-use training focus. **This is a missing-instrument score, not a measured one**, and it is stated as such: the 35 reflects that no evidence exists rather than that capability was measured and found wanting.
+- **Reasoning: 42/100.** Below the methodology's mid band. **MMLU 73.0/86.0%, MATH 51.9/68.0% and GPQA 32.8/46.7%** were mid-tier in 2024 and are low-mid today — **the frozen 2024 Llama 3.1 backbone shows through**, since vision training updated only the adapters. **AIME, HLE, CritPt, AA-LCR, ARC-AGI, the AA Intelligence Index and AA-Omniscience are all absent**, so composite depth and reliability are unknown.
+- **Context window: 62/100.** **128,000 tokens** is the methodology's 100K–200K band (50–64), above the band's floor because 128K was generous for 2024 — **and no published retrieval curve exists** (no MRCR, RULER or NIAH figure), so the score reflects the spec rather than the measurement.
+- **Multimodal: 62/100.** **Text + image in → text out** is the methodology's 60–70 band, at its bottom. **MMMU 50.7/60.3% and MathVista 51.5/57.3%** were mid-tier in 2024 and are weak now, though **DocVQA 88.4/90.1%, AI2 Diagram 91.1/92.3% and ChartQA 83.4/85.5% show genuine document strength** — which is why the score sits at the band's bottom rather than below it. Held there by the two-year gap to current vision models.
+- **Coding: 40/100.** Below the methodology's mid band, and structurally so: **no SWE-bench, HumanEval, LiveCodeBench, Aider-Polyglot or Terminal-Bench figure was ever published for the vision models.** This is a missing-instrument score, not a measured one, and it is stated as such.
+- **Cost efficiency: 88/100.** **Open weights at no licence fee** — the 11B fits a single consumer GPU and the 90B runs on one 80GB node — which is the methodology's ~$0.6/$2.2 → 92 range docked for **the Llama Community License's EU multimodal restriction and the model's legacy status** (hosted endpoints retired).
+- **Overall Score: 48/100.** (35 + 42 + 62 + 62 + 40) / 5 = 48.2 → **48**. **A disagreement is recorded rather than reconciled: the repo queue carries 59.8 for this slug while this report reads 48**, and with BenchLM absent there is no third instrument to arbitrate — the queue figure is the corpus-average of other research agents' raters, this report is Step 5 Preview's own normalized reading, and both are stated side by side rather than flattened. Recommendation: **a historical baseline — the open-weights vision model of 2024, useful for document and chart understanding research on a single GPU, and comprehensively outclassed by 2026 vision models** (Gemma 4 E4B, Ling-3.0-flash-VL, Qwen3.5-9B and the Gemma 4 12B Unified, all refreshed in this session) on every axis. **Its one genuine asset is document understanding**: DocVQA 88.4/90.1%, AI2 Diagram 91.1/92.3% and ChartQA 83.4/85.5% are strong figures even by 2026 standards, and they are the reason this is worth keeping rather than archiving. Three cautions: **two of its six dimensions (tool use and coding) are missing-instrument scores with zero benchmarks**, so it cannot be assessed as an agent or a coder at all; **the frozen 2024 backbone is visible in every reasoning figure**; and **the model is two years old**, so every capability comparison in this file is against a 2026 field.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no Llama 3.2 Vision page (404) — the 2024 legacy release is outside tracker coverage and no new independent evidence exists; the Meta model-card rows remain the only published numbers. No score change warranted. First pass (2026-10-09) used Meta model cards on GitHub/Hugging Face for 11B and 90B Vision Instruct, NVIDIA NIM cards, AI Wiki architecture summary.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no page for this model in any spelling** (`llama_3.2_vision_instruct`, `llama-3.2-vision-instruct` and `Llama-3.2-Vision-Instruct` all return 404), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the two prior verified research passes (2026-10-09, 2026-10-19), with figures re-attributed to Meta's launch post and model card, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. **Two of the six dimensions are recorded as missing-instrument scores rather than measured ones**: tool use and coding have zero benchmarks because the model predates the entire agentic-benchmark generation, and the 35 and 40 are stated to reflect absent evidence rather than measured weakness — a distinction that matters because reading them as performance would misrepresent a 2024 model against 2026 harnesses. **The frozen-backbone architecture is surfaced as the causal explanation for the reasoning figures**: Llama 3.1's text backbone was frozen during vision training, so the MMLU/MATH/GPQA rows are 2024 rows, and that is why reasoning sits at 42 despite MMLU 86.0% on the 90B. **The document-understanding rows are attributed as the model's one genuine asset** (DocVQA 88.4/90.1%, AI2 Diagram 91.1/92.3%, ChartQA 83.4/85.5%) and as the reason the multimodal score sits at the band's bottom rather than below it and the reason the model is worth keeping rather than archiving. **The vision-training delta is recorded from the base-model rows** (VQAv2 66.8→75.2, MMMU 0-shot 41.7→50.7, ChartQA 39.4→83.4), which quantifies what the cross-attention adapters actually added. **A slug-identity note is recorded: the repo folder uses underscores, a hyphen-spelled duplicate folder was identified and removed in an earlier session and must never be restored, and BenchLM carries no page under either spelling** — so no dotted-slug trap could be resolved and the model is tracker-absent by fact, not by misspelling. **A model-difference is recorded rather than resolved: the repo queue carries 59.8 while this report reads 48, with BenchLM absent so no third instrument exists to arbitrate.** Missing benchmarks (SWE-bench, HumanEval, LiveCodeBench, Aider-Polyglot, Terminal-Bench, AIME, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AA Intelligence Index, AA-Omniscience, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta AI — Llama 3.2 announcement and model card (primary source; all benchmark rows, both sizes)](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-text-models/)
+  - [Hugging Face — meta-llama/Llama-3.2-11B-Vision-Instruct and -90B-Vision-Instruct (Llama 3.2 Community License, weights)](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct)
+  - [Repo curated meta — `model/llama_3.2_vision_instruct/meta.json` (128K, text/image in, EU-restricted multimodal weights)](/model/llama_3.2_vision_instruct/meta.json)
+  - See also: [`model/gemma-4-e4b/`](gemma-4-e4b.md), [`model/gemma-4-12b-unified/`](gemma-4-12b-unified.md) and [`model/ling-3.0-flash-vl/`](ling-3.0-flash-vl.md) — the 2026 vision models this report names as superseding it
 - Future sources: add a new file next to this one, e.g. `Llama_4_Vision.md`, using the same headings.

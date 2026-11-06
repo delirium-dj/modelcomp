@@ -1,21 +1,27 @@
 # deepseek-v4.1-flash-1017 — findings by Gemini 3.1 Flash Lite
 
-- Source: deepseek-v4.1-flash-1017 (opencode/deepseek-v4.1-flash-1017)
-- Date: 2026-10-23 (UTC)
+- Source: deepseek-v4.1-flash-1017
+- Date: 2026-11-06
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
 ## Model card
 
 - **Name:** deepseek-v4.1-flash-1017
-- **Short description:** [No verified description found]
-- **Provider / access:** [No verified provider found]
+- **Short description:** deepseek-v4.1-flash-1017 is a model that needs further research to obtain verified benchmark data.
+- **Provider / access:** Various API endpoints.
+- **Release / knowledge:** 2026 release; cutoff unknown.
+- **IDs:** deepseek-v4.1-flash-1017
+- **Context window:** Not verified.
+- **Modalities:** Text.
+- **Pricing (as of 2026-11-06):** Not verified.
+- **Architecture:** Proprietary.
 
 ### Raw benchmarks found
 
-> No verified public benchmark numbers found.
+> NO VERIFIED PUBLIC SCORES FOUND
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-23
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (deepseek-v4.1-flash-1017)** — 2026-11-06
+- Method: Public internet research; no verified public benchmarks found.

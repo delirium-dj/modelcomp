@@ -123,7 +123,7 @@ export const VERIFIED: Record<string, string> = {
   "kimi-k3.1-pro": "2026-11-19",
   "laguna-s-2.1": "2026-11-06",
   "laguna-xs-2.1": "2026-11-06",
-  "leanstral-1.5": "2026-11-05",
+  "leanstral-1.5": "2026-11-06",
   "ling-2.6-flash": "2026-11-06",
   "ling-2.6.1t": "2026-11-06",
   "ling-3.0-flash": "2026-11-06",
@@ -204,5 +204,5 @@ export const VERIFIED: Record<string, string> = {
   "solar-pro-4": "2026-11-06",
   "step-5-preview": "2026-11-06",
   "union-alpha": "2026-11-06",
-  "xing_4.0_29b_a4b": "2026-11-02",
+  "xing_4.0_29b_a4b": "2026-11-06",
 };

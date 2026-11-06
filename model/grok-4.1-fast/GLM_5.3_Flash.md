@@ -62,6 +62,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai non-reasoning base page + Reasoning sibling reference updated 2026-10-10 with AA citations, the prior 2026-10-03 pass on the xAI launch post via AI/TLDR + HostZealot, OpenRouter/Oracle OCI listings; 2026-10-16 re-check: BenchLM 12-row refresh corroborates every row, no new data (rank drift: base #150/889 36.37 → #154/954 36.45; Reasoning sibling 46.31 → 45.83) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.1 Fast page fetched 2026-11-05 (Nov 5 data, 12 rows) — all prior rows re-confirmed with zero value changes; the 82.3% Omniscience row's label flipped to "Hallucination Rate" (coheres with the −50.9 index, flagged); rank drift base #159/1016, Reasoning sibling 45.54 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

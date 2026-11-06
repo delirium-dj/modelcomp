@@ -68,6 +68,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai MiMo-V2.5 page updated 2026-10-10 citing the Xiaomi launch page + Vals AI + Claw-Eval leaderboard, the prior 2026-10-08 pass on BenchmarkList/Xiaomi launch page, repo catalog's models.dev Zen serve config; 2026-10-16 re-check: BenchLM 16-row refresh corroborates every row, still unranked, no new data (Design Arena 1267, inside the 1271–1288 band) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM MiMo-V2.5 page fetched 2026-11-06 (Nov 6 data, 16 rows) — all prior rows re-confirmed with zero value changes, still unranked (Design Arena 1267→1265, inside the recorded band) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

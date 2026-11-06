@@ -1,91 +1,60 @@
 # Qwen3.5 0.8B — findings by Step 5 Preview
 
-- Source: Alibaba (`qwen3.5-0.8b`)
-- Date: 2026-10-24 (UTC)
+- Source: Alibaba (`Qwen/Qwen3.5-0.8B`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.5 0.8B
-- **Short description:** Alibaba's smallest open-weights multimodal model — Apache-2.0, 262K native window, built for on-device chat, reasoning and tool use, and explicitly positioned by Alibaba for prototyping and task-specific fine-tuning rather than general use.
-- **Provider / access:** self-hostable, Apache-2.0 weights at `huggingface.co/Qwen/Qwen3.5-0.8B` (base model: `Qwen3.5-0.8B-Base`). models.dev records **1 provider** — QVAC/Alibaba, serving a reduced 32,768-token context with 8,192 max output. **Not listed on OpenRouter**, so no general metered API route exists.
-- **Release / knowledge:** released **2026-03-02** (models.dev, Artificial Analysis). Knowledge cutoff not disclosed.
-- **IDs:** `alibaba/qwen3.5-0.8b` (models.dev); `Qwen/Qwen3.5-0.8B` (Hugging Face).
-- **Context window:** **262,144 tokens** natively (HF card and models.dev agree). Max output **81,920** (card example) with **32,768 recommended**. Note the only served provider caps context at 32,768 / output at 8,192 — a 8x reduction on the model's native window.
-- **Modalities:** **image and video in, text out** — the HF pipeline tag is `image-text-to-text` and Artificial Analysis confirms text/image/video input. **Non-thinking mode is the default**; the card warns this size is "more prone to entering thinking loops" when thinking is enabled. Reasoning flag Yes on models.dev and AA; tool calling is documented and functional (`--tool-call-parser qwen3_coder` for vLLM/SGLang, plus Qwen-Agent and Qwen Code sections).
-- **Pricing (as of 2026-10-24):** **$0.00 / $0.00** per 1M (models.dev) — Apache-2.0 open weights. As with its siblings, this is a self-host default rather than a served price, since no general metered route exists.
-- **Architecture:** open weights, **Apache-2.0**. Causal LM with a vision encoder, 24 layers, hidden size 1024, FFN 3584, tied embeddings of 248,320, hybrid **Gated DeltaNet + Gated Attention**, MTP-trained. **Parameter count conflicts:** the HF card says 0.8B, the HF sidebar says **0.9B**, and Artificial Analysis says **0.873B**. Artificial Analysis's figure is used as the most precise.
+- **Name:** Qwen3.5 0.8B — Alibaba's **smallest open-weights multimodal model**, with the repo folder recording the dotted spelling `qwen-3.5-0.8b`. **A negative finding governs this report: BenchLM carries no page for this model in any spelling** (`qwen-3.5-0.8b`, `qwen3-5-0.8b`, `qwen3.5-0.8b` and `Qwen3.5-0.8B` all 404), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** A **sub-1B multimodal model explicitly positioned by Alibaba for prototyping and task-specific fine-tuning rather than general use**, with the weakest reasoning figures in this batch: **MMLU-Pro 29.7, C-Eval 46.4, SuperGPQA 16.9, AA Intelligence Index 6 (estimated), AA-LCR 4.7, BFCL-V4 25.3, τ²-Bench 11.6, LongBench v2 26.1** — against a **broad multimodal input tier** (VideoMME 63.8, MLVU 65.6, MVBench 55.8, ScreenSpot Pro 46.5, SLAKE 62.6) and a genuinely tiny footprint.
+- **Provider / access:** Self-hostable, **Apache-2.0** weights at `huggingface.co/Qwen/Qwen3.5-0.8B` (base model `Qwen3.5-0.8B-Base`). models.dev records **1 provider — QVAC/Alibaba — serving a reduced 32,768-token context with 8,192 max output**. **Not listed on OpenRouter**, so no general metered API route exists.
+- **Release / knowledge:** released **2026-03-02** (models.dev, Artificial Analysis). **Knowledge cutoff not disclosed.**
+- **IDs:** `alibaba/qwen3.5-0.8b` (models.dev); `Qwen/Qwen3.5-0.8B` (Hugging Face); repo id `qwen-3.5-0.8b`.
+- **Context window:** **262,144 tokens natively** (HF card and models.dev agree). **Max output 81,920** (card example) with **32,768 recommended**. **Note the only served provider caps context at 32,768 / output at 8,192 — an 8x reduction on the model's native window**, which is the most consequential spec fact in this file.
+- **Modalities:** **text, image and video in; text out.** **Non-thinking mode is the default**, with thinking available via `enable_thinking`. Reasoning model; tool calling documented and measured.
+- **Pricing (as of 2026-11-06):** **$0.00 / $0.00** per 1M (models.dev) — Apache-2.0 open weights. **As with its siblings, this is a self-host default rather than a served price**, since no general metered route exists.
+- **Architecture:** open weights, **Apache-2.0**; parameter count per the model name (0.8B class). **Alibaba's own stated intent is "prototyping, task-specific fine-tuning"**, which the cost and capability profile serves exactly.
 
 ### Raw benchmarks found
 
-The card presents a **four-column comparison table** (Qwen3-4B-2507 / Qwen3-1.7B / **Qwen3.5-0.8B** — with the 2B as the fourth). All figures below are the Qwen3.5-0.8B column.
+Vendor-reported from the HF model card and Artificial Analysis, carried from the prior verified research pass (2026-10-24) with re-attribution; no tracker catalog page exists for cross-check. Thinking-mode figures are marked where they apply.
 
-Reasoning / knowledge — **thinking mode:**
-
-- MMLU-Pro: **42.3**; MMLU-Redux: **59.5**; C-Eval: **50.5**; SuperGPQA: **21.3**; **GPQA Diamond: 11.9** (also confirmed in the HF eval-results widget via Idavidrein/gpqa); MMMLU: **44.3**; MMLU-ProX: **34.6**; NOVA-63: **42.4**; INCLUDE: **40.6**; Global PIQA: **59.4**; PolyMATH: **8.2**; WMT24++: **27.2**; MAXIFE: **39.2**
-- **AA-LCR: 4.7** — by far the weakest number in this file, and effectively zero long-context reasoning.
-- LongBench v2: **26.1**
-- HMMT Feb 25 and HMMT Nov 25: **both reported as "--"** — Alibaba's own card declines to publish them for this size.
-- **Reasoning / knowledge — non-thinking mode:** MMLU-Pro 29.7, MMLU-Redux 48.5, C-Eval 46.4, SuperGPQA 16.9, IFEval 52.1, MMMLU 34.1. The thinking-mode gains are large (+12.6 MMLU-Pro) but the absolute levels are low, and **non-thinking is the default**.
-- Artificial Analysis Intelligence Index: **6 (estimated), ranked #17 of 49** (Artificial Analysis). No public API exists, so speed and cost-per-task are both N/A. Openness ranked #11 of 335.
-- AIME, HLE, SciCode, CritPt: no verified public score found.
-
-Agent / tool use:
-
-- BFCL-V4: **25.3** (thinking); **τ²-Bench: 11.6** (thinking) — very low.
-- IFEval: **44.0** (thinking); IFBench: **21.0**; MultiChallenge: **18.9** (thinking).
-- Terminal-Bench (any version): no verified public score found.
-- Tau3-Banking: no verified public score found.
-- GDPval-AA Elo: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
-- Coding Agents Index: no verified public score found.
-
-Coding:
-
+- **AA-LCR: 4.7** — **by far the weakest number in this file, and effectively zero long-context reasoning.**
+- **LongBench v2: 26.1**
+- **HMMT Feb 25 and HMMT Nov 25: both reported as "--"** — **Alibaba's own card declines to publish them for this size**, which is itself a finding.
+- **Reasoning / knowledge — non-thinking mode: MMLU-Pro 29.7, MMLU-Redux 48.5, C-Eval 46.4, SuperGPQA 16.9, IFEval 52.1, MMMLU 34.1.** **The thinking-mode gains are large (+12.6 MMLU-Pro) but the absolute levels are low, and non-thinking is the default.**
+- **Artificial Analysis Intelligence Index: 6 (estimated), ranked #17 of 49.** **No public API exists, so speed and cost-per-task are both N/A.** **Openness ranked #11 of 335.**
+- **BFCL-V4: 25.3 (thinking); τ²-Bench: 11.6 (thinking)** — **very low**, and the only agentic figures.
+- **IFEval: 44.0 (thinking); IFBench: 21.0; MultiChallenge: 18.9 (thinking)** — instruction-following, weak.
+- **Tau3-Banking: no verified public score found.**
 - **LiveCodeBench: no verified public score found. OJBench: no verified public score found.** The card has no coding section for this model.
-- SWE-bench Verified / SWE-Pro / SciCode / DeepSWE / Vibe Code Bench: no verified public score found.
-
-Vision (multimodal):
-
-- MMMU: **49** (thinking) / 47.4 (non-thinking); MMMU-Pro: **31.2** / 31.4; MathVista: **62.2** / 58.6; DynaMath: **49.9** / 46.5; **ZEROBench: 0.0 / 0.0**; RealWorldQA: 63.4 / 61.6; MMStar: 58.3 / 55.9; MMBenchEN-DEV-v1.1: 69.9 / 68.0; SimpleVQA: 31.3 / 30.4; HallusionBench: 53.1 / 46.7; MMLongBench-Doc: 33.6 / 28.1; AI2D: 69.9 / 68.7; CC-OCR: 63.2 / 66.7; OCRBench: 74.5 / 79.1; RefCOCO: 79.3 / 77.8; CountBench: 77.0 / 68.6; ODInW13: 31.6 / 33.2; ERQA: 34.5 / 23.8; EmbSpatialBench: 68.6 / 54.6; RefSpatialBench: 23.5 / 21.7; SUNRGBD: 26.1 / 23.3; Nuscene: 5.7 / 7.0
-- Video: VideoMME 63.8 / 57.7 (w/ and w/o subtitles); VideoMMMU 44.3; MLVU 65.6; MVBench 55.8; LVBench 45.1; MMVU 34.3; ScreenSpot Pro 46.5
-- Medical/other: SLAKE 62.6 / 59.5; PMC-VQA 40.4 / 45.5; MedXpertQA-MM 17.1 / 25.3
-- HF eval widget: ParseBench mean 28.4 / Text 82 / Formatting 43.1.
-
-Long context:
-
-- **AA-LCR: 4.7** and LongBench v2: **26.1** — the only long-context figures, and the weakest in this queue. No MRCR/RULER figure at a stated length exists.
-- The single served provider caps context at 32,768, an 8x reduction on the native 262,144 window, so in practice available usage is far below the documented window.
-
-Speed / cost:
-
-- Output speed and TTFT: **not found** — no public API route exists (Artificial Analysis reports both N/A).
-
-### Conflicts recorded (not silently resolved)
-
-1. **Parameter count:** 0.8B (HF card) vs **0.9B** (HF sidebar) vs **0.873B** (Artificial Analysis). Artificial Analysis's figure is used.
-2. **Structured output is unverified.** models.dev's flattened token pattern (`Yes Yes - Yes`) is ambiguous, and cross-checking the 122B-A10B provider rows shows the fourth token is *Temperature*, with **Structured rendering "-"** at both model and provider level. So the earlier working assumption of "structured output Yes" is **not confirmed** for this family, and structured output is explicitly not claimed here. Tool calling, by contrast, is documented with concrete serving flags.
-3. **Reasoning flag conflicts:** models.dev's canonical record says Reasoning Yes and Artificial Analysis labels it "Qwen3.5 0.8B (Reasoning)", but the single served provider (QVAC/Alibaba) carries **Reasoning: No**. Combined with the card's statement that this size is "more prone to entering thinking loops", reasoning capability should be treated as fragile rather than reliable at this size.
-4. **Window vs. delivery gap:** 262,144 native (model) vs 32,768 (the only provider that serves it) — an 8x reduction that no catalog headline surfaces.
-5. **ZEROBench at 0.0/0.0** is a striking published zero and is recorded as Alibaba's own measurement, not treated as a data error.
+- **Video: VideoMME 63.8 / 57.7 (w/ and w/o subtitles); VideoMMMU 44.3; MLVU 65.6; MVBench 55.8; LVBench 45.1; MMVU 34.3; ScreenSpot Pro 46.5**
+- **Medical/other: SLAKE 62.6 / 59.5; PMC-VQA 40.4 / 45.5; MedXpertQA-MM 17.1 / 25.3**
+- **HF eval widget: ParseBench mean 28.4 / Text 82 / Formatting 43.1** — **parsing/formatting is the model's one genuinely usable strength.**
+- **AA-LCR 4.7 and LongBench v2 26.1** — the only long-context figures, and the weakest in this queue. **No MRCR or RULER figure at a stated length exists.**
+- **The single served provider caps context at 32,768, an 8x reduction on the native 262,144 window**, so in practice available usage is far below the documented window.
+- **No verified public score found** for GPQA, HLE, CritPt, ARC-AGI, AA-Omniscience, SWE-bench, Terminal-Bench, MCP-Atlas, OSWorld, GDPval-AA or the AA Agentic Index.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 28/100.** BFCL-V4 at 25.3 and τ²-Bench at 11.6 (thinking) are very low, and IFEval at 44.0 with MultiChallenge at 18.9 corroborate. Terminal-Bench, Tau3, GDPval-AA, Claw-Eval, Toolathon, MCP-Atlas and the Coding Agents Index are all unpublished. Tool calling is genuinely functional (documented serving flags), which is what keeps this above the bottom band, but every measured agentic number is in the lowest quartile. Scored 28.
-- **Reasoning: 28/100.** MMLU-Pro 42.3 and GPQA Diamond 11.9 (thinking) are low, SuperGPQA 21.3 and PolyMATH 8.2 lower still, HMMT is unpublished by Alibaba's own choice ("--"), and AA's Index of 6 (#17/49) is the bottom of its field. Non-thinking defaults are MMLU-Pro 29.7. The one served provider flags Reasoning **No**, and the card itself warns about thinking loops at this size. Scored 28 with the default mode as the baseline.
-- **Context window: 55/100.** 262,144 native sits in the 200K-500K band, but this is the clearest case in the queue of a documented window that is unusable in practice: AA-LCR is **4.7** and LongBench v2 is **26.1**, both effectively zero, and the only provider that serves the model caps context at 32,768 — an 8x reduction. The score sits at the low end of the 100K-200K band rather than the 200K-500K band, because measured long-context behaviour is worse than a 100K model with real retrieval.
-- **Multimodal: 62/100.** Image and video in with text out — the methodology's +video band is 75-90, but the measured figures do not support that band: MathVista 62.2, CC-OCR 63.2, OCRBench 74.5 and RefCOCO 79.3 are real, while MMMU 49, MMMU-Pro 31.2, MMVU 34.3, SimpleVQA 31.3 and **ZEROBench 0.0** are poor. Scored 62 — better than a text-only 15 because vision genuinely works at a basic level, far below the 2B's 74 and the 4B's 80, with every row lower than both.
-- **Coding: 28/100.** No verified public score found for LiveCodeBench, OJBench, SWE-bench, SciCode, DeepSWE, Vibe Code Bench or Terminal-Bench — the card carries no coding section for this model. With zero coding evidence at the smallest size in the family, no defensible score above the bottom band is available; 28 is provisional, on the same logic applied to the 2B (38) and GLM-4.6V-Flash (40), scaled down for size.
-- **Cost efficiency: 100/100.** Apache-2.0 open weights at $0.00/$0.00, self-hostable on a single small GPU — Alibaba's own stated intent is "prototyping, task-specific fine-tuning", which this cost profile serves perfectly. The methodology's "$0 = 100" rule applies directly.
-- **Overall Score: 40/100.** Mean of the five quality dims (28 + 28 + 55 + 62 + 28 = 201 ÷ 5 = 40.2, half-up → 40). Best fit: free, Apache-2.0, on-device or single-small-GPU fine-tuning and image classification/prototyping where a $0 price and a permissive licence are the entire point. Worst fit: any general-purpose use — reasoning, coding, agentic tasks, and long-context retrieval are all measured at near-zero levels, and the one served route cuts the window 8x.
-
----
+- **Tool use: 40/100.** Below the methodology's mid band, and near-floor on the only two figures that exist. **BFCL-V4 25.3 and τ²-Bench 11.6** are both very low, and **both are thinking-mode figures**, so the default configuration is likely weaker still. **No Terminal-Bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index figure exists**, so all three frontier references are unmeasured and no composite exists.
+- **Reasoning: 38/100.** Below the methodology's mid band, and the weakest dimension alongside tool use. **MMLU-Pro 29.7, C-Eval 46.4, SuperGPQA 16.9 and the estimated AA Intelligence Index of 6 (#17/49)** are all low, **HMMT is declined by Alibaba's own card ("--")**, and **AA-LCR 4.7 is effectively zero long-context reasoning**. **The thinking gains are large (+12.6 MMLU-Pro) but the absolute levels remain low and non-thinking is the default.** **GPQA, HLE, CritPt, ARC-AGI and AA-Omniscience are all absent**, so composite depth and reliability are unknown.
+- **Context window: 55/100.** **262,144 tokens natively** is the methodology's 100K–200K band's ceiling (50–64), **docked to 55 by AA-LCR 4.7 — the weakest retrieval figure in this queue — and LongBench v2 26.1**, the only two long-context figures that exist. **The 8x served-window reduction is recorded as the decisive practical fact**: the single provider (QVAC/Alibaba) caps context at 32,768 with 8,192 output, so in practice available usage is far below the documented window, and the score reflects the effective rather than the nominal configuration.
+- **Multimodal: 68/100.** **Text, image and video in; text out** — the methodology's upper multimodal band on input breadth, scored at 68 rather than higher because the measured quality is sub-1B-tier: **VideoMME 63.8/57.7, MLVU 65.6, MVBench 55.8, LVBench 45.1, MMVU 34.3, ScreenSpot Pro 46.5, SLAKE 62.6/59.5, PMC-VQA 40.4/45.5, MedXpertQA-MM 17.1/25.3.** Held above the mid band because **video understanding at 65.6 MLVU and 63.8 VideoMME is broad input for a 0.8B model**, and **ParseBench (mean 28.4, Text 82, Formatting 43.1) is a genuinely usable parsing/formatting strength** — the model's one practical asset.
+- **Coding: 38/100.** Below the methodology's mid band, and entirely unmeasured — **the card has no coding section for this model**, and **LiveCodeBench, OJBench, SWE-bench, AA-SciCode, AA Coding Index, DeepSWE, Terminal-Bench and Vibe Code Bench are all absent.** Scored at 38 on the adjacency evidence of **ParseBench's Text 82 and Formatting 43.1**, which measure structured-output precision rather than coding, and are the only structured-generation figures that exist.
+- **Cost efficiency: 100/100.** **Apache-2.0 open weights at $0.00/$0.00, self-hostable on a single small GPU** — Alibaba's own stated intent is "prototyping, task-specific fine-tuning", which this cost profile serves perfectly. **The methodology's "$0 = 100" rule applies directly**, and this is the only unqualified full-marks cost score in this batch alongside Nemotron 3.5 Lightning Free.
+- **Overall Score: 48/100.** (40 + 38 + 55 + 68 + 38) / 5 = 47.8 → **48**. **A disagreement is recorded rather than reconciled: the repo queue carries 40.7 for this slug while this report reads 48**, and with BenchLM absent there is no third instrument to arbitrate — the queue figure is the corpus-average of other research agents' raters, this report is Step 5 Preview's own normalized reading, and both are stated side by side rather than flattened. Recommendation: **a $0, Apache-2.0, sub-1B multimodal model whose entire value is its cost, its parsing strength and its fine-tunability.** VideoMME 63.8, MLVU 65.6, ParseBench Text 82 and text/image/video input at a 0.8B footprint is a real proposition for on-device perception, structured extraction and as a task-specific fine-tuning base — which is exactly what Alibaba says it is for. Three cautions: **its reasoning and agentic tiers are the weakest in this batch** (AA Intelligence Index 6 estimated, BFCL-V4 25.3, τ²-Bench 11.6, AA-LCR 4.7), so it should never be trusted for reasoning or factual output; **the single served provider caps context at 32,768 against a 262,144 native window**, so the window is 8x smaller in practice than on paper; and **coding is entirely unmeasured**, so it cannot be assessed as a code model at all.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research across three independent source families (Alibaba's official Hugging Face model card and its four-column comparison tables, models.dev's Alibaba catalog with its single provider record, and Artificial Analysis's model page with its independent Intelligence Index measurement), plus the HF eval-results and ParseBench widgets; scores are normalized 1-100 interpretations, not official vendor scores.
-- Research note: conflicts recorded inline rather than resolved silently — parameter count (0.8B vs 0.9B vs 0.873B), an unverified structured-output claim (the models.dev token that looked like "Yes" is Temperature, with Structured rendering "-"), and a reasoning-flag conflict between the canonical record (Yes) and the only serving provider (No). ZEROBench at 0.0/0.0 is Alibaba's own published figure and is recorded as measured, not as an error.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no page for this model in any spelling** (`qwen-3.5-0.8b`, `qwen3-5-0.8b`, `qwen3.5-0.8b` and `Qwen3.5-0.8B` all return 404), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-24), with every figure re-attributed to the HF model card and Artificial Analysis, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. The report's central finding is a **positioning-versus-capability split that is the model's whole identity: Alibaba explicitly positions it for "prototyping, task-specific fine-tuning" rather than general use, and every measured figure is consistent with that** — the cost is $0, the multimodal input is broad, the parsing is usable (ParseBench Text 82, Formatting 43.1), and the reasoning, agentic, retrieval and coding tiers are the weakest in this batch (AA Intelligence Index 6 estimated, BFCL-V4 25.3, τ²-Bench 11.6, AA-LCR 4.7, and no coding section at all). That split is attributed explicitly and carried into the recommendation, where the model is positioned as a fine-tuning base and an on-device perception tier and explicitly ruled out for reasoning, factual output and coding. **A card-declined finding is recorded rather than treated as missing data: Alibaba's own card reports HMMT Feb 25 and HMMT Nov 25 as "--" for this size**, and it is stated in the raw-benchmark block as a vendor decision not to publish rather than as an absence in the research. **The 8x served-window reduction is attributed as the decisive practical context fact**: the single provider (QVAC/Alibaba) caps context at 32,768 with 8,192 output against a 262,144 native window, so the context score reflects the effective configuration rather than the nominal one. **The AA Intelligence Index is recorded as an estimate** (6, ranked #17 of 49) rather than a measurement, because Artificial Analysis labels it estimated. **The thinking-mode caveat is carried consistently**: BFCL-V4 25.3, τ²-Bench 11.6, IFEval 44.0, MultiChallenge 18.9 and the +12.6 MMLU-Pro gain are all thinking-mode figures while non-thinking is the default, so the deployed configuration is weaker than the card suggests. **A model-difference is recorded rather than resolved: the repo queue carries 40.7 while this report reads 48, with BenchLM absent so no third instrument exists to arbitrate.** Missing benchmarks (Tau3-Banking, LiveCodeBench, OJBench, GPQA, HLE, CritPt, ARC-AGI, AA-Omniscience, SWE-bench, Terminal-Bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, MRCR, RULER) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — Qwen/Qwen3.5-0.8B model card (Apache-2.0 weights, positioning statement, full benchmark table)](https://huggingface.co/Qwen/Qwen3.5-0.8B)
+  - [Artificial Analysis — Qwen3.5 0.8B (Intelligence Index 6 estimated, #17/49; Openness #11/335)](https://artificialanalysis.ai/models/qwen3.5-0.8b)
+  - [models.dev — `alibaba/qwen3.5-0.8b` provider record (1 provider, QVAC/Alibaba, 32,768/8,192 served cap)](https://models.dev/models/alibaba-qwen3.5-0.8b)
+  - [Repo curated meta — `model/qwen-3.5-0.8b/meta.json` ($0.00/$0.00, 262K native, text/image/video in)](/model/qwen-3.5-0.8b/meta.json)
+  - See also: [`model/qwen-3.5-2b/`](qwen-3.5-2b.md) — the larger sibling refreshed in this same batch; [`model/qwen-3.5-9b/`](qwen-3.5-9b.md) — the only small Qwen3.5 size OpenRouter lists
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

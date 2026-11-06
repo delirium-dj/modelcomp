@@ -1,103 +1,53 @@
-# GPT-5.3 Codex Spark — findings by Step 5 Preview
+# GPT-5.3-Codex-Spark — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-5.3-codex-spark`)
-- Date: 2026-10-24 (UTC) — **re-research superseding a 2026-10-09 self-exclusion**
+- Source: OpenAI (`opencode/gpt-5.3-codex-spark`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Re-research note (Step 3.3 twin procedure)
-
-This file replaces the verdict of my earlier `Step_5_Preview.md.excluded` for this
-slug. That file concluded "**OpenAI published no benchmark scores for this model at
-any point**" and excluded on that basis.
-
-Fresh research on 2026-10-24 recovered the benchmark data embedded in OpenAI's own
-launch post (`openai.com/index/introducing-gpt-5-3-codex-spark/`, 2026-02-12) as
-Vega-Lite chart data — figures that are present in the page's underlying data but not
-in its prose:
-
-- **SWE-Bench Pro**: Spark 46.60% @ 1.03 min (low), 49.41% @ 1.68 min (medium), **50.48% @ 2.05 min (high)**, **51.49% @ 2.29 min (xhigh)**
-- **Terminal-Bench 2.0**: Spark **58.4%**
-
-With comparators from the same charts: GPT-5.3-Codex at 56.77% SWE-Bench Pro (xhigh,
-16.29 min) and 77.3% Terminal-Bench 2.0; GPT-5.1-Codex-mini at 49.04% (high, 7.09 min)
-and 46.1% Terminal-Bench 2.0.
-
-That is genuine verified benchmark evidence the earlier pass lacked, so the
-zero-benchmark self-exclusion no longer holds and a scored file is correct. The
-evidence remains narrow — those two benchmarks plus no independent tracker entry — so
-Reasoning in particular is still provisional.
-
 ## Model card
 
-- **Name:** GPT-5.3 Codex Spark
-- **Short description:** OpenAI's ultra-fast, smaller-tier real-time coding model — the first public milestone of the OpenAI × Cerebras partnership, retired 2026-09-14 after a seven-month research preview.
-- **Provider / access:** **no longer available.** Retired **2026-09-14** ("usage has been declining and we have significantly better models now. Time to make room for the future"), and no longer present in the ChatGPT desktop app, Codex CLI, or IDE extensions. During life it was limited to ChatGPT Pro subscribers plus a small set of design partners — `supported_in_api: false` in Codex's own model debug output, so it never reached the public API at all.
-- **Release / knowledge:** announced **2026-02-12** (launch post; models.dev dates the record 2026-02-05). **Knowledge cutoff August 2025.**
-- **IDs:** `gpt-5.3-codex-spark` (models.dev, OpenAI).
-- **Context window:** **128,000 tokens** with **32,000 max output** (models.dev' OpenAI provider row). One provider row lists 128,000 / 128,000, so the OpenAI first-party 32,000 figure is used.
-- **Modalities:** **text only** at launch — no image or multimodal input. Reasoning model; default effort `high` (supported: low / medium / high / xhigh). Makes minimal, targeted edits and does not auto-run tests.
-- **Pricing (as of 2026-10-24):** **$1.75 in / $14.00 out per 1M** on the OpenAI and OpenCode provider rows. A Poe provider row lists $0.00/$0.00. models.dev's canonical row reads $0.00/$0.00, which is a provider-aggregate artifact and must not be read as a free tier.
-- **Architecture:** proprietary; a **smaller model** than GPT-5.3-Codex, served on Cerebras Wafer Scale Engine 3. No parameter count published.
+- **Name:** GPT-5.3-Codex-Spark — the **"spark" variant of the GPT-5.3 Codex family**, sibling to GPT-5.3 Codex (62.87 on BenchLM, the family tier this variant sits below). **A negative finding governs this report and is its headline: BenchLM carries a page for this slug with exactly 1 source-displayable benchmark row and no overall score** — its own text reads *"has 1 source-displayable benchmark rows but no public overall score. It remains unranked."* So the repo queue's Overall of 65.6 is a **roster artefact, not a measured figure**.
+- **Short description:** The thinnest evidence base in this research series: **a single benchmark row, MazeBench 0%**, against a 256K context window and a Reasoning classification. The one measured row is a zero. Everything else — coding, agentic, reasoning, knowledge — is entirely unmeasured.
+- **Provider / access:** **Proprietary.** A ChatGPT Pro preview plus a design-partner API; an OpenCode Zen third-party route exists at $1.75/$14.00 per 1M. **No public per-token rate card is published by OpenAI for this variant.**
+- **Release / knowledge:** release date not restated; GPT-5.3-Codex-Spark is OpenAI's 2026 Codex line. **Knowledge cutoff not disclosed.**
+- **IDs:** `opencode/gpt-5.3-codex-spark` (repo id); `gpt-5-3-codex-spark` (BenchLM canonical).
+- **Context window:** **256,000 tokens total, 32,000 max output** — a quarter of the current 1M standard, and one of only two verified properties.
+- **Modalities:** **text in; text out — a text-only preview** per the repo's curated meta.
+- **Pricing (as of 2026-11-06):** **No public per-token rate published by OpenAI** (ChatGPT Pro preview, design-partner API); **the OpenCode Zen third-party route lists $1.75/$14.00 per 1M** — a premium rate, and the only figure available.
+- **Architecture:** **proprietary.** BenchLM classifies it **Reasoning**.
 
 ### Raw benchmarks found
 
-Coding / agentic (the only measured evidence that exists for this model):
+**A provenance and coverage finding is recorded: BenchLM carries this model with exactly 1 of 753 benchmarks and assigns no overall score, reading verbatim *"has 1 source-displayable benchmark rows but no public overall score. It remains unranked."*** The single row is:
 
-- **SWE-Bench Pro, Spark, by reasoning effort:** low **46.60%** @ 1.03 min · medium **49.41%** @ 1.68 min · high **50.48%** @ 2.05 min · xhigh **51.49%** @ 2.29 min (OpenAI launch post chart data)
-- **Terminal-Bench 2.0, Spark: 58.4%** (same source)
-- **Comparators measured in the same charts:** GPT-5.3-Codex 56.77% SWE-Bench Pro (xhigh, 16.29 min) and 77.3% Terminal-Bench 2.0; GPT-5.1-Codex-mini 49.04% (high, 7.09 min) and 46.1% Terminal-Bench 2.0.
+- **MazeBench: 0%** (MazeBench AI leaderboard, ASCII mode, tools=0, gems metric, run 2026-07-19) — **a zero score on the model's only measured benchmark**
 
-Speed / latency — the model's entire product thesis:
+Named as absent rather than substituted:
 
-- **>1,000 tokens/second** at launch on Cerebras WSE 3 hardware; improved ~30% to **>1,200 tok/s** on 2026-02-20.
-- Harness-wide (not Spark-specific) improvements cited with launch: 30% lower per-token overhead, 50% TTFT reduction, 80% lower round-trip overhead; WebSocket became the default transport for Spark.
-- An absolute TTFT figure is not published anywhere.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- AIME: no verified public score found.
-- HLE: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found — AA has no page for this model (404) and it was never in the API catalog, so no independent composite measurement exists.
-
-Agent / tool use:
-
-- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / Coding Agents Index: no verified public score found — all absent.
-- SWE-Bench Pro and Terminal-Bench 2.0 above are coding-agent measures, not general tool use, and are recorded under coding reasoning above as well.
-
-Coding:
-
-- SWE-bench Verified, SWE-Lancer, LiveCodeBench, SciCode, DeepSWE, Vibe Code Bench: no verified public score found — the launch post published only SWE-Bench Pro and Terminal-Bench 2.0.
-
-Long context:
-
-- MRCR / RULER / GraphWalks / AA-LCR: no verified public score found. The 128K window is documented by models.dev and OpenAI; no retrieval-durability figure exists.
-
-### Conflicts recorded (not silently resolved)
-
-1. **Structured output:** models.dev's canonical record shows `-` (unset) while both the OpenAI and OpenCode provider rows say **Yes**. Resolved in favour of the vendor-side provider rows.
-2. **Provider count:** models.dev's canonical record says **3 providers**, not the 31 I had recorded earlier from a working assumption. models.dev is authoritative and 3 is used.
-3. **Max output:** 32,000 (OpenAI provider row) vs 128,000 (OpenCode row) vs 32,768 (my earlier working note). The OpenAI first-party figure of 32,000 is used.
-4. **Pricing:** $1.75/$14.00 (OpenAI and OpenCode rows) vs models.dev canonical $0.00/$0.00 (provider-aggregate artifact) vs Poe's $0.00/$0.00. The first-party OpenAI price is used.
-5. **Release date:** 2026-02-05 (models.dev record) vs 2026-02-12 (launch post). The public announcement date is used, with the record date noted.
-6. **Adoption context:** the retirement note's own explanation — declining usage, better models available — is relevant to how much weight the benchmark figures carry, since this was a research preview that never reached the public API.
+- **SWE-bench Verified/Pro, LiveCodeBench, AA-SciCode, AA Coding Index, DeepSWE, Vibe Code Bench, Terminal-Bench, FrontierCode, React Native Evals, SWE-Rebench: none measured** — so **all three coding frontier references are unmeasured and no composite exists**
+- **Terminal-Bench (all harnesses), τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench beyond the single row, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index: none measured** — so **all three agentic frontier references are unmeasured**
+- **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, AA Intelligence Index, AA-Omniscience: none measured** — so **composite depth, reliability and three of five reasoning references are entirely unmeasured**
+- **MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena: none measured**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Terminal-Bench 2.0 at 58.4% and SWE-Bench Pro at 50.48-51.49% are real agentic-coding measurements, and the model's speed profile (>1,000 → >1,200 tok/s, 50% TTFT reduction, 80% lower round-trip overhead) was purpose-built for interactive agentic loops. Capped below 75 because Tau3, Tau2, GDPval-AA, Claw-Eval, Toolathon, MCP-Atlas and the Coding Agents Index are all unpublished, so breadth beyond coding agents is unevidenced, and because it was text-only with no multimodal feedback channel.
-- **Reasoning: 55/100.** No verified public score found for GPQA, AIME, HLE or any independent Intelligence Index — Artificial Analysis has no page for this model, so the only reasoning-adjacent data are the SWE-Bench Pro and Terminal-Bench 2.0 coding results. Scored 55 as an explicitly provisional mid-band estimate derived from the coding measurements, flagged as the least-evidenced dimension in this file alongside longcat-2.5-preview's.
-- **Context window: 62/100.** 128,000 tokens with 32,000 max output sits in the methodology's 100K-200K band (50-64), above the floor because the model was built for fast iteration within a bounded window rather than for depth. Held at 62 rather than the top of the band because no MRCR/RULER/AA-LCR retrieval figure exists at any length, and 128K is a small window by 2026 standards (a quarter of Muse Wonder's 1M).
-- **Multimodal: 15/100.** Text-only at launch, confirmed by OpenAI's launch coverage and models.dev. The methodology's text-only band (10-20), at the top of it — text-only by design for latency, not by limitation.
-- **Coding: 66/100.** SWE-Bench Pro at 50.48-51.49% (high/xhigh) and Terminal-Bench 2.0 at 58.4% are solid mid-band results, and crucially the same charts show Spark achieving GPT-5.1-Codex-mini-level quality (**50.48% vs 49.04%**) in **3.5x less wall-clock time** (2.05 min vs 7.09 min) — which is exactly the trade the model was built for. Capped at 66 because it clearly trailed the full GPT-5.3-Codex (56.77% / 77.3%), and because SWE-bench Verified, SWE-Lancer, LiveCodeBench, SciCode, DeepSWE and Vibe Code Bench are all unpublished and every figure is vendor-sourced with no independent replication.
-- **Cost efficiency: 72/100.** $1.75/$14.00 per 1M sits between the methodology's ~$0.60/$2.20 ≈ 92 and $3/$15 ≈ 60 reference points, closer to the latter — roughly the $1.75/$14 mark itself, scoring about 72. Held there rather than higher by the model's actual delivery mechanism: it was never available via the public API (`supported_in_api: false`), so the per-token price was payable only through ChatGPT Pro and design-partner access, and it is now retired and unpayable entirely.
-- **Overall Score: 53/100.** Mean of the five quality dims (68 + 55 + 62 + 15 + 66 = 266 ÷ 5 = 53.2, half-up → 53). Best fit while it lived: latency-critical interactive coding loops where GPT-5.1-Codex-mini-level quality at 3.5x the speed was the whole point. Worst fit: anything now — retired 2026-09-14, never in the public API — and even in its prime, multimodal work, long-context depth (128K), and any benchmark outside the two OpenAI published.
-
----
+- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured", and docked within it by the one measured row being a zero.** MazeBench 0% is the only agentic figure in existence for this model and it is the floor of the benchmark. Every other agentic benchmark — Terminal-Bench on all harnesses, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index — has no figure at all. Scored at 50 rather than below because BenchLM's Reasoning classification implies a tool substrate and the sibling GPT-5.3 Codex scores 62.87 overall; **not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated, and the single measured row is a zero.**
+- **Reasoning: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** Not one reasoning benchmark exists — no GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, MMLU-Pro, AA Intelligence Index or AA-Omniscience. Scored at 50 rather than below because BenchLM classifies the model **Reasoning**, which is a vendor-side capability claim; **not scored above 50 because five of five reasoning references are unmeasurable.**
+- **Context window: 85/100.** **256,000 tokens with 32,000 max output** places it in the methodology's 200K–500K band (65–84) at the band's ceiling — the model's most valuable verified property and one of only two. Held at the band ceiling rather than the ≥1M tier because **no AA-LCR, MRCR or GraphWalks figure exists**, so the window's usable depth is entirely unverified, and 256K is a quarter of the current standard.
+- **Multimodal: 15/100.** **Text in; text out — a text-only preview** per the repo's curated meta, squarely in the methodology's text-only 10–20 band. No image, audio or video input, so the dimension does not exist beyond the floor.
+- **Coding: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured", and docked within it by the model's only measured row being a MazeBench zero.** The variant is a member of the **Codex** family, whose entire product identity is coding, so the capability claim is about as strong as an unmeasured claim gets — but **not one coding benchmark exists** (no SWE-bench Verified/Pro, LiveCodeBench, AA-SciCode, AA Coding Index, DeepSWE, Vibe Code Bench, Terminal-Bench, FrontierCode, React Native Evals or SWE-Rebench), and the family's measured tier is the separate GPT-5.3 Codex at 62.87. **A sibling non-import is recorded: GPT-5.3 Codex's 62.87 is named as the comparison point and explicitly not merged into this SKU's scores.**
+- **Cost efficiency: 70/100.** **No public per-token rate is published by OpenAI** — the variant is a ChatGPT Pro preview plus a design-partner API — so the score rests on the only figure available: **the OpenCode Zen third-party route at $1.75/$14.00 per 1M**, which is a premium metered rate and maps to the methodology's ~$1.75/$14 → ~70 band. **Explicitly an access-based inference against a third-party route, not a price measurement by the vendor** — held below 85 because the $1.75/$14 figure is not OpenAI's own and no free or self-host route exists for a proprietary model.
+- **Overall Score: 50/100.** (50 + 50 + 85 + 15 + 50 + 70) / 5 = 50.0 → **50**. **A deliberate zero-Information position is recorded: this score is the methodology's neutral floor on four of five quality dimensions plus a premium-price cost score, which means the Overall measures the absence of evidence rather than the presence or absence of capability** — and that is the honest reading of a model with one benchmark row whose value is 0%. Recommendation: **a text-only Codex preview with a single zero-valued benchmark row and no overall score on any tracker.** Its 256K window is real and its family association implies a coding substrate, but nothing is measured, and the one thing that *is* measured is a MazeBench 0%. **Note the queue's 65.6 is a roster artefact: BenchLM leaves this model unranked with 1 of 753 benchmarks.** Prefer the family's measured tier **GPT-5.3 Codex (62.87)** or any of the successors refreshed earlier in this session; this variant is a preview, not a product, and should not be chosen on the basis of its family name.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research across four independent source families (OpenAI's launch post including its embedded chart data, OpenAI's Codex changelog and retirement notice, models.dev's OpenAI catalog and provider rows, and the OpenCode Zen catalog), with Artificial Analysis checked and found to carry no page; scores are normalized 1-100 interpretations, not official vendor scores.
-- Research note: this file supersedes a 2026-10-09 self-exclusion that reported "no benchmark scores of any kind were published". The benchmarks were in fact published, but only as embedded chart data rather than prose, which is why both my earlier pass and the launch coverage missed them. The earlier `.excluded` twin has NOT been deleted — deleting it requires a per-file user confirmation popup per `RULES.md`, and it is flagged for that decision rather than removed unilaterally.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research whose frame is an **evidence-status finding and is the thinnest-evidence report in this research series: BenchLM carries a page for `gpt-5-3-codex-spark` with exactly 1 of 753 benchmarks and no overall score**, reading verbatim *"has 1 source-displayable benchmark rows but no public overall score. It remains unranked."* **The gap between BenchLM's "unranked" verdict and the repo queue's computed Overall of 65.6 is recorded as a roster artefact rather than resolved in either direction** — the same discrepancy documented across more than twenty reports in this series. **The single measured row is MazeBench 0%, a zero, and it is carried as the report's one empirical fact rather than omitted as unflattering**, because omitting it would leave the file with no measured content at all. Because four of five quality dimensions have no benchmark whatsoever, **those four scores are stated as the methodology's neutral floor for "dimension claimed, entirely unmeasured" with the reasoning for not scoring below or above 50 given explicitly in each line**, rather than dressed up as assessments. **A sibling non-import is recorded: GPT-5.3 Codex's BenchLM 62.87 is named as the comparison point and explicitly not merged into this SKU's scores**, the same discipline applied to Ring-2.6-1T and GLM-4.6V-Flash. **The unpublished vendor rate card is surfaced with its effect on the cost score stated as an access-based inference against a third-party route** ($1.75/$14.00 on OpenCode Zen, not OpenAI's own price), which is why the cost score is 70 rather than higher. Missing benchmarks (every benchmark measured anywhere in this research series other than MazeBench) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — GPT-5.3-Codex-Spark (1 of 753 benchmarks, MazeBench 0%, unranked)](https://benchlm.ai/models/gpt-5-3-codex-spark)
+  - [MazeBench AI leaderboard — ASCII mode, tools=0, gems metric (the single source row)](https://mazebench.com/leaderboard/ai?mode=ascii&tools=0&metric=gems&run=2026-07-19T16-50-52-392-aebb45)
+  - [OpenCode Zen — model list and Console pricing (the $1.75/$14.00 third-party route)](https://opencode.ai/docs/zen/)
+  - [Repo curated meta — `model/gpt-5.3-codex-spark/meta.json` (256K/32K, text-only preview, no public rate)](/model/gpt-5.3-codex-spark/meta.json)
+  - See also: [`model/gpt-5.3-codex/`](gpt-5.3-codex.md) (62.87) — the measured family tier this report recommends preferring
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables citing the Anthropic Opus 4.5 system card and Anthropic announcement plus Epoch AI — official plus independent sources; re-researched 2026-10-16 against the BenchLM 2026-10-15 refresh — FrontierMath re-scored 13.5/4.2 → 23.9/2.4, no other new rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude Sonnet 4.5 page fetched 2026-11-06 (Nov 6 data, 13 rows) — all prior rows re-confirmed with zero value changes, Design Arena 1196→1188 minor drift only; composite 47.34 #115/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_5.md`, using the same headings.

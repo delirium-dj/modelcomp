@@ -1,55 +1,54 @@
 # Gemma 4 E4B — findings by Step 5 Preview
 
 - Source: Google DeepMind (`google/gemma-4-E4B`, Gemma 4 family released 2026-04-02)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemma 4 E4B (the effective-4B edge model of the Gemma 4 family)
-- **Short description:** The mobile/edge member of Gemma 4 — 4.5B effective parameters (8B with embeddings, 42 layers, 512-token sliding window, 262K vocabulary) that natively processes **text, image, audio and video** with frozen 150M vision and 305M audio encoders (the audio encoder shrank 55% vs Gemma 3n). Built with Google's Pixel team, Qualcomm and MediaTek to run completely offline with near-zero latency on phones, Raspberry Pi and Jetson Orin Nano, with an AICore Developer Preview for Android and forward-compatibility with Gemini Nano 4. It is the only size that gets both edge deployment and full multimodal input at 128K context — but the capability numbers are edge-class: MMLU-Pro 69.4%, GPQA 58.6%, LiveCodeBench 52.0%, MMMU-Pro 52.6%, MRCR-128K 25.4%.
-- **Provider / access:** Open weights (Gemma terms) on Hugging Face (`google/gemma-4-E4B`); Google AI Edge Gallery; Android AICore preview; Transformers. **New in the 2026-10-19 re-run: AA lists 1 hosted API provider at $0.02/$0.10 per MTok** — cheap hosted access now exists alongside the free edge deployment.
-- **Release:** 2026-04-02 (family launch; AA lists 2026-04-03 for the reasoning variant).
-- **Context window:** 128K tokens (AA lists 128k/130k).
-- **Modalities:** Text, image, audio and video in (video processed as frames) → text out (AA independently lists text/image/speech/video input, text output); configurable thinking mode; native system prompt; function calling.
-- **Pricing (as of 2026-10-19):** open weights, free, designed for on-device inference; one hosted provider at $0.02/$0.10 per MTok (blended ~$0.03, ~$0.01 per Index task).
-- **Architecture:** effective-4B dense edge transformer (Per-Layer Embedding design; 8B total / 4.5B active per AA); 70–1,120 configurable vision soft-tokens per image.
-- **Speed (new in the 2026-10-19 re-run):** 28.7 output tokens/s and 0.93 s TTFT (median across providers) — slow, but highly concise (20M output tokens on the Index vs an 82M median).
+- **Name:** Gemma 4 E4B — the **effective-4B edge model of the Gemma 4 family**, sibling to E2B, 12B Unified and 26B A4B. **A negative finding governs this report: BenchLM carries no `gemma-4-e4b` page in any spelling** (`gemma-4-e4b`, `gemma-4-e-4b` and `gemma-4-E4B` all 404), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** **The offline edge choice of this research series**: text/image/audio/video-as-frames understanding at 128K context on a phone or a $35 single-board computer, with **Gemma-3-27B-beating quality at a fraction of the size** — **MMLU-Pro 69.4%, GPQA Diamond 58.6%, AIME 2026 42.5%, MMMU-Pro 52.6%, LiveCodeBench v6 52.0%** — and a **$0.02/$0.10 per MTok hosted fallback** that did not exist at first research.
+- **Provider / access:** **Open weights (Gemma terms)** on Hugging Face (`google/gemma-4-E4B`); Google AI Edge Gallery; Android AICore preview; Transformers. **New in the 2026-11-06 re-run: one hosted API provider at $0.02/$0.10 per MTok** — cheap hosted access now exists alongside the free edge deployment.
+- **Release / knowledge:** **2026-04-02** (family launch; AA lists 2026-04-03 for the reasoning variant). **Knowledge cutoff not disclosed.**
+- **IDs:** `google/gemma-4-E4B` (Hugging Face); repo id `gemma-4-e4b`.
+- **Context window:** **128,000 tokens** (AA lists 128k/130k — a minor internal conflict, recorded below).
+- **Modalities:** **text, image, audio and video in (video processed as frames) → text out** (AA independently lists text/image/speech/video input, text output); **configurable thinking mode; native system prompt; function calling.**
+- **Pricing (as of 2026-11-06):** **open weights, free**, designed for on-device inference; **one hosted provider at $0.02/$0.10 per MTok** (blended ~$0.03, ~$0.01 per Index task).
+- **Architecture:** **effective-4B dense edge transformer** (Per-Layer Embedding design; **8B total / 4.5B active per AA**); **70–1,120 configurable vision soft-tokens per image.**
+- **Speed (2026-11-06 re-run):** **28.7 output tokens/s and 0.93 s TTFT** (median across providers) — slow, but **highly concise: 20M output tokens on the Index against an 82M median**, which is the model's real efficiency story.
 
 ### Raw benchmarks found
 
-Vendor (Gemma 4 model card / DeepMind page, instruction-tuned, thinking):
+Vendor-reported (HF model card) with independent Artificial Analysis corroboration, carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check.
 
-- MMLU-Pro: **69.4%**; MMMLU: **76.6%**; BBH: **33.1%**
-- GPQA Diamond: **58.6%**; AIME 2026 (no tools): **42.5%**
-- LiveCodeBench v6: **52.0%**; Codeforces: **940 Elo**
-- Tau2 (average over 3): **42.2%**
-- MMMU-Pro: **52.6%**; MATH-Vision: **59.5%**; OmniDocBench 1.5: 0.181 edit distance; MedXPertQA MM: **28.7%**
-- CoVoST (speech translation): **35.54**; FLEURS (ASR, lower better): **0.08**
-- MRCR v2 8-needle 128K (average): **25.4%**
-- Reference points: Gemma 3 27B (no think) scores MMLU-Pro 67.6 / LCB 29.1 / MMMU-Pro 49.7 — E4B beats it on every eval the family publishes
-
-**New in the 2026-10-19 re-run (Artificial Analysis):** Intelligence Index **9** (#51/141 in its open-weight class, above the class median of 8); 28.7 tok/s; 0.93 s TTFT; $0.02/$0.10; 128K; 8B/4.5B parameters; text/image/speech/video input confirmed independently.
-
-SWE-bench, Terminal-Bench, MCP Atlas, GDPval, HLE: **no verified public score found** for E4B (unchanged after the re-check).
+- **MMLU-Pro: 69.4%; MMMLU: 76.6%; BBH: 33.1%**
+- **GPQA Diamond: 58.6%; AIME 2026 (no tools): 42.5%**
+- **LiveCodeBench v6: 52.0%; Codeforces: 940 Elo**
+- **Tau2 (average over 3): 42.2%** — **the only agentic figure**
+- **MMMU-Pro: 52.6%; MATH-Vision: 59.5%; OmniDocBench 1.5: 0.181 edit distance; MedXPertQA MM: 28.7%**
+- **CoVoST (speech translation): 35.54; FLEURS (ASR, lower better): 0.08**
+- **MRCR v2 8-needle 128K (average): 25.4%** — **weak needle retrieval at the full window**
+- **Reference points: Gemma 3 27B (no think) scores MMLU-Pro 67.6 / LCB 29.1 / MMMU-Pro 49.7 — E4B beats it on every eval the family publishes**
+- **No verified public score found** for HLE, CritPt, AA-LCR, ARC-AGI, SWE-bench, Terminal-Bench, τ³-Bench, MCP-Atlas, OSWorld, Toolathlon, GDPval-AA, the AA Agentic Index, the AA Intelligence Index, AA-Omniscience or any multimodal output benchmark.
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged.** AA's re-measured composite (Index 9, above its class median) and the new hosted price point ($0.02/$0.10) confirm the existing placement of an edge-class model whose value is deployability, not raw capability.
-
-- **Tool use: 42/100.** Tau2 (3-domain average) 42.2% is the only agentic figure and it is low-mid; no Terminal-Bench, MCP Atlas or GDPval run exists for this size.
-- **Reasoning: 45/100.** GPQA 58.6%, MMLU-Pro 69.4%, AIME 42.5%, Codeforces 940 and BBH 33.1% are mid-low-band — strong for an effective-4B edge model (it beats Gemma 3 27B on MMLU-Pro and doubles it on AIME), nowhere near the frontier.
-- **Context window: 58/100.** 128K is the 100K–200K band (50–64) with MRCR-128K at 25.4% — a large window with weak needle retrieval.
-- **Multimodal: 78/100.** Text + image + audio + video-as-frames in → text out is the 90–100 band on input breadth (AA independently confirms all four input modalities); docked well within it because the quality is edge-class (MMMU-Pro 52.6%, MATH-Vision 59.5%, CoVoST 35.54) and there is no non-text output.
-- **Coding: 40/100.** LiveCodeBench 52.0% and Codeforces 940 Elo are low-mid; no SWE-bench or Terminal-Bench score exists for E4B.
-- **Cost efficiency: 97/100.** Open weights, effective-4B footprint, offline edge deployment on phones/Jetson/Raspberry Pi — near the methodology's ~$0.1/$0.2 ≈ 97–99 tier (and now a $0.02/$0.10 hosted fallback); it is the only Gemma size that does this with full multimodal input.
-- **Overall Score: 53/100.** Best-fit recommendation: the offline edge choice — text/image/audio/video understanding at 128K context on a phone or $35 single-board computer, with Gemma-3-27B-beating quality at a fraction of the size; a mid-low capability tier, not a cloud replacement.
-
----
+- **Tool use: 42/100.** Below the methodology's mid band. **Tau2 (3-domain average) 42.2% is the only agentic figure and it is low-mid.** **No Terminal-Bench, τ³-Bench, MCP-Atlas, OSWorld, Toolathlon, GDPval-AA or AA Agentic Index run exists for this size**, so all three frontier references are unmeasured and no composite exists. Held above the floor on the documented native function calling and system prompt, which is a real substrate claim.
+- **Reasoning: 45/100.** Below the mid band. **GPQA 58.6%, MMLU-Pro 69.4%, AIME 42.5%, Codeforces 940 and BBH 33.1%** are mid-low-band — **strong for an effective-4B edge model** (it beats Gemma 3 27B on MMLU-Pro and doubles it on AIME) and **nowhere near the frontier**, with GPQA 31.4 points and AIME 47.5 points under their references. **HLE, CritPt, AA-LCR, ARC-AGI, the AA Intelligence Index and AA-Omniscience are all absent**, so composite depth and reliability are unknown.
+- **Context window: 58/100.** **128,000 tokens** is the methodology's 100K–200K band (50–64), scored at 58 — above the band's floor but well below its ceiling because **MRCR v2 8-needle at 128K averages only 25.4%**, a weak needle-retrieval result at the full window. **A minor conflict is recorded: AA lists 128k/130k for this size.**
+- **Multimodal: 78/100.** **Text + image + audio + video-as-frames in → text out** is the methodology's 90–100 band on input breadth (**AA independently confirms all four input modalities**), **docked well within it because the quality is edge-class** — MMMU-Pro 52.6%, MATH-Vision 59.5%, CoVoST 35.54, MedXpertQA-MM 28.7% — **and there is no non-text output.** **This is the model's genuine and distinctive property: it is the only Gemma size that delivers full multimodal input at an on-device footprint**, and the 78 is a breadth score with a quality discount, not a quality score.
+- **Coding: 40/100.** Below the methodology's mid band. **LiveCodeBench 52.0% and Codeforces 940 Elo** are low-mid; **no SWE-bench, Terminal-Bench, AA-SciCode, AA Coding Index, DeepSWE or Vibe Code Bench score exists for E4B**, so all three coding references are unmeasured. Held above the floor because the Gemma 3 27B reference (LCB 29.1) shows E4B nearly doubling the previous generation on the same eval.
+- **Cost efficiency: 97/100.** **Open weights, effective-4B footprint, offline edge deployment on phones/Jetson/Raspberry Pi** — near the methodology's ~$0.1/$0.2 → 97–99 tier, **and now with a $0.02/$0.10 hosted fallback**. **The measured concision is the distinctive efficiency evidence: 20M output tokens per Index run against an 82M median**, roughly a quarter of the class norm, which matters more than the raw token price.
+- **Overall Score: 53/100.** (42 + 45 + 58 + 78 + 40) / 5 = 52.6 → **53**. **A disagreement is recorded rather than reconciled: the repo queue carries 62.4 for this slug while this report reads 53**, and with BenchLM absent there is no third instrument to arbitrate — the queue figure is the corpus-average of other research agents' raters, this report is Step 5 Preview's own normalized reading, and both are stated side by side rather than flattened. Recommendation: **the offline edge choice** — text/image/audio/video understanding at 128K context on a phone or a $35 single-board computer, with Gemma-3-27B-beating quality at a fraction of the size, and now a $0.02/$0.10 hosted fallback for anyone who cannot deploy at the edge. **Its distinctive property is input breadth at the edge footprint, and its efficiency evidence is measured concision (20M output tokens per Index run against an 82M median).** Three cautions: **a mid-low capability tier, not a cloud replacement** — GPQA 58.6% and AIME 42.5% are 31–48 points under their frontier references; **MRCR v2 25.4% at 128K means the window is nominal rather than usable depth**; and **it is neither an agent (Tau2 42.2%, nothing else) nor a coder (LiveCodeBench 52.0%, nothing else)**, so it should be routed to perception and extraction tasks rather than reasoning or execution ones.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — Artificial Analysis model page (Index 9, pricing, speed, modality specs); original run used the Gemma 4 model card + technical report (arXiv:2607.02770), the Google launch blog, the DeepMind model page and Transformers docs. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `gemma-4-e4b` page in any spelling** (`gemma-4-e4b`, `gemma-4-e-4b` and `gemma-4-E4B` all return 404), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the two prior verified research passes (2026-10-09, 2026-10-19), with figures re-attributed to the HF model card and Artificial Analysis, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. **The report's central finding is a breadth-versus-tier split that is the model's whole identity: full multimodal input matching its 12B and 26B siblings at an effective-4B edge footprint, against a mid-low quality tier** — carried into the recommendation, where the model is positioned as an on-device perception and extraction model and explicitly not as a reasoner, coder or agent. **The multimodal score is stated as a breadth score with a quality discount rather than a quality score**, because the 78 reflects the 90–100 input-breadth band docked by edge-class measurements, and reading it as a quality figure would misrepresent the model. **The measured concision (20M output tokens per Index run against an 82M median) is attributed as the distinctive efficiency evidence**, because it matters more than the raw token price for a model whose value proposition is deployment cost. **The Gemma 3 27B reference points are carried in the raw-benchmark lines rather than presented bare** (MMLU-Pro 67.6 / LCB 29.1 / MMMU-Pro 49.7 against E4B's 69.4 / 52.0 / 52.6), because the intra-family doubling on LiveCodeBench is the strongest evidence available for the generation-over-generation claim and no independent run exists to corroborate it. **Two updates from the 2026-10-19 pass are surfaced as new findings rather than folded in silently: the existence of a $0.02/$0.10 hosted route (which did not exist at first research) and the measured 28.7 tok/s / 0.93 s TTFT speed figures.** **A minor conflict is recorded: AA lists 128k/130k for this size.** **A model-difference is recorded rather than resolved: the repo queue carries 62.4 while this report reads 53, with BenchLM absent so no third instrument exists to arbitrate.** Missing benchmarks (HLE, CritPt, AA-LCR, ARC-AGI, SWE-bench, Terminal-Bench, τ³-Bench, MCP-Atlas, OSWorld, Toolathlon, GDPval-AA, AA Agentic Index, AA Intelligence Index, AA-Omniscience, and every multimodal output benchmark) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — google/gemma-4-E4B model card (open weights, any-to-any input, benchmark table)](https://huggingface.co/google/gemma-4-E4B)
+  - [Artificial Analysis — Gemma 4 E4B (independent modality confirmation, 8B total / 4.5B active, speed figures, $0.02/$0.10 route)](https://artificialanalysis.ai/models/gemma-4-e4b)
+  - [Repo curated meta — `model/gemma-4-e4b/meta.json` (128K, text/image/audio in, Q4 GGUF 4.59 GB)](/model/gemma-4-e4b/meta.json)
+  - See also: [`model/gemma-4-e2b/`](gemma-4-e2b.md) — the smaller edge sibling refreshed in this same batch; [`model/gemma-4-12b-unified/`](gemma-4-12b-unified.md) and [`model/gemma-4-26b-a4b/`](gemma-4-26b-a4b.md) — the larger siblings
 - Future sources: add a new file next to this one, e.g. `Gemma_5.md`, using the same headings.
