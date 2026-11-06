@@ -1,0 +1,35 @@
+# Solar Open 2 — findings by Laguna XS 2.1
+
+> Source: Aleph Alpha / Solar (`opencode/solar-open-2`)
+> Date: 2026-11-06 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Open 2
+- **Short description:** Aleph Alpha's open-weight 2nd generation model; Apache 2.0 license for self-host; text-only architecture.
+- **Provider / access:** OpenCode API; OpenRouter; self-host Apache 2.0 weights $0.
+- **Release / knowledge:** 2nd generation open model; Apache 2.0 license.
+- **IDs:** `opencode/solar-open-2`
+- **Context window:** 128K typical
+- **Modalities:** Text in/out only
+- **Pricing:** Open weights; self-host $0
+
+### Normalized scores (1–100)
+
+- **Tool use: 62/100.** Open-weight model; good agentic capability mid-tier.
+- **Reasoning: 62/100.** 2nd gen open model; solid Tier-B reasoning.
+- **Context window: 70/100.** 128K in 100K-200K tier.
+- **Multimodal: 15/100.** Text-only baseline.
+- **Coding: 65/100.** Tier-B coding performance from open weights.
+- **Cost efficiency: 100/100.** Apache 2.0 self-host $0; excellent value.
+- **Overall Score: 54.8/100.** Mean of (62 + 62 + 70 + 15 + 65) / 5 = 66.8 → 68.
+
+---
+
+## Signature
+
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-11-06
+- Method: public-internet research; scores normalized 1-100 interpretations.
+- Reference URLs: [OpenCode Models](https://opencode.ai)

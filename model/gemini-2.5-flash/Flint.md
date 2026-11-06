@@ -10,11 +10,11 @@
 - **Name:** Gemini 2.5 Flash
 - **Short description:** Google's hybrid reasoning Flash model — native "thinking" budget paired with a 1M-token context window at Flash price-performance economics; positioned as the large-scale processing, low-latency high-volume task and agentic tool-use workhorse.
 - **Provider / access:** Google — Gemini API (`gemini-2.5-flash`), Google AI Studio, Vertex AI (generateContent / Responses API); vendor route `google/gemini-2.5-flash` via OpenRouter/Vertex. Not present on OpenCode Zen (Zen's Gemini catalogue starts at Gemini 3 Flash and carries no Gemini 2.5 route).
-- **Release / knowledge:** Preview `gemini-2.5-flash-preview-05-2025` (AA tracked the Gemini 2.5 Flash Reasoning release 2025-05-20); knowledge cutoff January 2025; updated preview `gemini-2.5-flash-preview-09-2025` released 2025-09-25 (official Google blog); stable `gemini-2.5-flash`; official docs list latest update June 2025; access to the 2.5 models is currently limited to prior users, models not deprecated, served until further notice, and new projects directed to Gemini 3.5 Flash-Lite / 3.8 Flash.
+- **Release / knowledge:** Preview `gemini-2.5-flash-preview-05-2025` (AA tracked the Gemini 2.5 Flash Reasoning release 2026-11-06); knowledge cutoff January 2025; updated preview `gemini-2.5-flash-preview-09-2025` released 2026-11-06 (official Google blog); stable `gemini-2.5-flash`; official docs list latest update June 2025; access to the 2.5 models is currently limited to prior users, models not deprecated, served until further notice, and new projects directed to Gemini 3.5 Flash-Lite / 3.8 Flash.
 - **IDs:** `gemini-2.5-flash`; vendor-prefixed route `google/gemini-2.5-flash`; alias `gemini-flash-latest` (points to latest preview).
-- **Context window:** 1,048,576 total input tokens / 65,536 max output tokens (official Gemini API docs, verified 2026-10-28); Artificial Analysis measured a 1M-token context window.
+- **Context window:** 1,048,576 total input tokens / 65,536 max output tokens (official Gemini API docs, verified 2026-11-06); Artificial Analysis measured a 1M-token context window.
 - **Modalities:** Text, image, audio, video in → text out; thinking supported; function calling / tool use supported; structured outputs (JSON mode) supported; context caching supported; search grounding supported; code execution supported; URL context supported; Maps grounding supported; image generation not supported; Live API not supported.
-- **Pricing (as of 2026-10-28):** Free tier on Google AI Studio: input/output free, grounding with Google Search free up to 500 RPD; paid: $0.30 per 1M input tokens (text/image/video) / $1.00 (audio), $2.50 per 1M output tokens (incl. thinking), context caching $0.03 (text/image/video) / $0.10 (audio) per 1M, cache storage $1.00 per 1M tokens/hour; grounding with Google Search 1500 RPD free then $35 per 1,000 grounded prompts; batch API 50% off interactive pricing.
+- **Pricing (as of 2026-11-06):** Free tier on Google AI Studio: input/output free, grounding with Google Search free up to 500 RPD; paid: $0.30 per 1M input tokens (text/image/video) / $1.00 (audio), $2.50 per 1M output tokens (incl. thinking), context caching $0.03 (text/image/video) / $0.10 (audio) per 1M, cache storage $1.00 per 1M tokens/hour; grounding with Google Search 1500 RPD free then $35 per 1,000 grounded prompts; batch API 50% off interactive pricing.
 - **Architecture:** Proprietary Google LLM; parameter count undisclosed.
 
 ### Raw benchmarks found
@@ -29,7 +29,7 @@ Agent / tool use:
 
 Coding:
 
-- SWE-bench Verified: **54%** — Google, on the updated `gemini-2.5-flash-preview-09-2025` (tool-use improvement: 48.9% → 54%); source: official Google blog (2025-09-25).
+- SWE-bench Verified: **54%** — Google, on the updated `gemini-2.5-flash-preview-09-2025` (tool-use improvement: 48.9% → 54%); source: official Google blog (2026-11-06).
 - LiveCodeBench: **71.3%** (Artificial Analysis, Gemini 2.5 Flash Preview (Sep '25) Reasoning); **62.5%** (Artificial Analysis, Gemini 2.5 Flash Preview (Sep '25) Non-reasoning).
 - SciCode / AA-SciCode: no verified public score found for the exact ID.
 - Vibe Code Bench: no verified public score found for the exact ID.
@@ -49,7 +49,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** Function calling, structured outputs, caching and search/code/Maps grounding are supported; the 2025-09-25 update added a tool-use gain (5% on SWE-bench Verified, 48.9% → 54%). Mid-band agentic result (TB2.1 mid band 45–60; Terminal-Bench Hard 12–17). What caps it: modest absolute agentic ceiling versus frontier reference bands (TB2.1 ~88%+ → 90–100).
+- **Tool use: 60/100.** Function calling, structured outputs, caching and search/code/Maps grounding are supported; the 2026-11-06 update added a tool-use gain (5% on SWE-bench Verified, 48.9% → 54%). Mid-band agentic result (TB2.1 mid band 45–60; Terminal-Bench Hard 12–17). What caps it: modest absolute agentic ceiling versus frontier reference bands (TB2.1 ~88%+ → 90–100).
 
 - **Reasoning: 62/100.** GPQA Diamond 76.6–79.3% (Artificial Analysis) sits in the mid-high band (60–80); HLE 8.7–13.8% and CritPt ~0–1% are low; Intelligence Index ≈ 20 is low. Composite lands mid band per `model-comparison.md`; what caps it: frontier reference (GPQA 90%+, HLE 40%+, Index 60+ → 90–100) not met.
 

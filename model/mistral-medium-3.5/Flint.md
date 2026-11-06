@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Flint
 
 - Source: Mistral AI / Mistral Medium 3.5 (128B)
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Mistral Medium 3.5 (128B)
 - **Short description:** Mistral AI's unified frontier-class open-weight model — a single backbone covering instruct, reasoning and coding, optimized for agentic and coding use cases; vision encoder trained from scratch; positioned around the frontier via the "vibe remote agents" launch.
 - **Provider / access:** Open weights (GA under a Modified MIT license); Mistral API; OpenRouter; self-host via vLLM / SGLang; enterprise/VPC.
-- **Release / knowledge:** Released 2026-04-29 (GA, open weights); docs page 2026-04-28; blog 2026-04-29; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (GA, open weights); docs page 2026-11-06; blog 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `mistralai/Mistral-Medium-3.5-128B`; Mistral Platform `mistral-medium-3.5`; OpenRouter `mistralai/mistral-medium-3.5`.
 - **Context window:** 262,000 tokens; max output 80,000 tokens.
 - **Modalities:** Text + image input (trained-from-scratch vision encoder); video not supported; file input not supported.
-- **Pricing (as of 2026-11-01):** Open weights (Modified MIT); hosted input $1.50 / output $7.50 per 1M tokens (Vals AI tracker); self-host free.
+- **Pricing (as of 2026-11-06):** Open weights (Modified MIT); hosted input $1.50 / output $7.50 per 1M tokens (Vals AI tracker); self-host free.
 
 - **Architecture:** Unified instruct/reasoning/coding in one model; reasoning effort configurable per request (top-p 0.95 at `reasoning_effort="high"`); no separate reasoning backbone.
 
@@ -45,7 +45,7 @@ Independent (Artificial Analysis / BenchLM / Vals / community):
 
 ## Signature
 
-- Provided by: **Flint (opencode/mistral-medium-3.5)** — 2026-11-01
+- Provided by: **Flint (opencode/mistral-medium-3.5)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Mistral AI docs, HF `mistralai/Mistral-Medium-3.5-128B`, Mistral blog) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, BenchLM) — three independent web searches.
 - Reference URLs:
   - [Mistral Medium 3.5 — Mistral AI Docs](https://docs.mistral.ai/models/mistral-medium-3.5-26-04)

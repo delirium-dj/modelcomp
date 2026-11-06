@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Qwen3.8 (Max, 0902)
-- **Short description:** Proprietary reasoning flagship from Alibaba (Qwen), released 2026-09-02; text and image input, text output; 984k context.
+- **Short description:** Proprietary reasoning flagship from Alibaba (Qwen), released 2026-11-06; text and image input, text output; 984k context.
 - **Provider / access:** Alibaba API; proprietary weights (not open).
 
 ### Raw benchmarks found

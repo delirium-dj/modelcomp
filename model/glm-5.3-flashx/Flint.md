@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GLM-5.3-FlashX
-- **Short description:** Same-weights high-speed serving sibling of GLM-5.3-Flash (320B-total / 18B-active MoE, MIT), launched 2026-09-18; ~200 tok/s serving variant.
+- **Short description:** Same-weights high-speed serving sibling of GLM-5.3-Flash (320B-total / 18B-active MoE, MIT), launched 2026-11-06; ~200 tok/s serving variant.
 - **Provider / access:** Z.ai / OpenCode Zen (`opencode/glm-5.3-flashx`); OpenRouter.
-- **Release / knowledge:** Launched 2026-09-18; knowledge cutoff ~2025-11.
+- **Release / knowledge:** Launched 2026-11-06; knowledge cutoff ~2025-11.
 - **IDs:** `z-ai/glm-5.3-flash` weights under FlashX serving id.
 - **Context window:** 1.05M tokens / 130K max output.
 - **Modalities:** Text + image + video + PDF in; text out; reasoning yes.
-- **Pricing (as of 2026-10-23):** paid tier.
+- **Pricing (as of 2026-11-06):** paid tier.
 - **Architecture:** Open-weights MoE, 320B total / 18B active, MIT.
 
 ### Raw benchmarks found

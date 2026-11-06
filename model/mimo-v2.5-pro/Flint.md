@@ -1,7 +1,7 @@
 # MiMo-V2.5-Pro — findings by Flint
 
 - Source: Xiaomi (MiMo) / Hugging Face / Vals AI / Artificial Analysis / BenchLM / The Aggregate / LMArena / LLM Reference
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,18 +10,18 @@
 - **Name:** MiMo-V2.5-Pro
 - **Short description:** Xiaobi's most capable model to date — open-weight MoE (1.02T params / 42B active, hybrid attention + MTP, 27T tokens FP8 pre-training) tuned for demanding agentic, complex software engineering, and long-horizon tasks; context extended to 1M tokens.
 - **Provider / access:** Open weights (MIT) on Hugging Face (`XiaomiMiMo/MiMo-V2.5-Pro`); API via Xiaomi / OpenRouter / DeepInfra / GMI / Zyphra; LMArena, Vals, AA provider routes.
-- **Release / knowledge:** Released 2026-04-22/23; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06/23; knowledge cutoff not verified in sources found.
 - **IDs:** `XiaomiMiMo/MiMo-V2.5-Pro`; API tag `mimo-v2.5-pro`.
 - **Context window:** **1M** tokens (per Xiaomi, Vals, BenchLM, AA); max output 128k.
 - **Modalities:** Text in; image in (not supported per Vals); video not supported; file not supported.
-- **Pricing (as of 2026-11-01):** $0.43 input / $0.87 output per 1M (Vals, LLM Reference); AA: $0.2 input / $1.02 output; MiMo-V2.5-Pro-UltraSpeed ~3x cost of base, ~10x speed (1000 TPS).
+- **Pricing (as of 2026-11-06):** $0.43 input / $0.87 output per 1M (Vals, LLM Reference); AA: $0.2 input / $1.02 output; MiMo-V2.5-Pro-UltraSpeed ~3x cost of base, ~10x speed (1000 TPS).
 - **Architecture:** 1.02T MoE / 42B active; hybrid SWA+GA attention (6:1, 128-token window), learnable attention-sink bias; MTP module tripling output throughput; FP8 pre-training at native 32K, context to 1M.
 
 ### Raw benchmarks found
 
 Official (Xiaomi / MiMo / HF):
 
-- MiMo-V2.5-Pro released 2026-04-22/23; open-weight; hybrid attention; MTP; 1M ctx; 27T tokens.
+- MiMo-V2.5-Pro released 2026-11-06/23; open-weight; hybrid attention; MTP; 1M ctx; 27T tokens.
 - MiMo Coding Bench (in-house, Claude Code agentic suites).
 
 Independent (Xiaomi-internal, Vals, AA, BenchLM, Aggregate, LMArena, LLM Reference):
@@ -51,7 +51,7 @@ Independent (Xiaomi-internal, Vals, AA, BenchLM, Aggregate, LMArena, LLM Referen
 
 ## Signature
 
-- Provided by: **Flint (opencode/mimo-v2.5-pro)** — 2026-11-01
+- Provided by: **Flint (opencode/mimo-v2.5-pro)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Xiaomi MiMo blog, Hugging Face `XiaomiMiMo/MiMo-V2.5-Pro`) plus independent benchmarks/reviews (Vals AI, BenchLM, Artificial Analysis, The Aggregate, LMArena, LLM Reference) — three independent web searches.
 - Reference URLs:
   - [MiMo-V2.5-Pro | Xiaomi](https://mimo.xiaomi.com/mimo-v2-5-pro)

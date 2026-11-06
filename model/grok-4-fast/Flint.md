@@ -14,7 +14,7 @@
 - **IDs:** `grok-4-fast-reasoning` / `grok-4-fast-non-reasoning` under the `grok-4-fast` family.
 - **Context window:** 2,000,000 tokens (xAI blog; Artificial Analysis).
 - **Modalities:** Text + image input, text output; unified reasoning + non-reasoning modes (steered via system prompts); tool use yes (end-to-end tool-use RL, web/X search).
-- **Pricing (as of 2026-10-28):** xAI: input $0.20 / 1M tokens (<128k), $0.40 / 1M (≥128k); output $0.50 / 1M (<128k), $1.00 / 1M (≥128k); cached input $0.05 / 1M. Artificial Analysis: $0.20 in / $0.50 out per 1M (blended ≈ $0.23 / 1M).
+- **Pricing (as of 2026-11-06):** xAI: input $0.20 / 1M tokens (<128k), $0.40 / 1M (≥128k); output $0.50 / 1M (<128k), $1.00 / 1M (≥128k); cached input $0.05 / 1M. Artificial Analysis: $0.20 in / $0.50 out per 1M (blended ≈ $0.23 / 1M).
 - **Architecture:** Proprietary (closed weights); unified reasoning/non-reasoning weights; parameter count not disclosed.
 
 ### Raw benchmarks found

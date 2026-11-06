@@ -10,11 +10,11 @@
 - **Name:** MiMo V2.6 Pro
 - **Short description:** Xiaomi's MIT open-weights omni-modal MoE (1.02T/42B active) for agents and code; Terminal-Bench 2.1 89.9%, AA Index 46.3.
 - **Provider / access:** Xiaomi MiMo API, Hugging Face (`https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL`), OpenCode Zen / OpenRouter routes (`opencode/mimo-v2.6-pro`).
-- **Release / knowledge:** Released 2026-09-22; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `xiaomi/mimo-v2.6-pro`; `opencode/mimo-v2.6-pro`.
 - **Context window:** **1,048,576** total / **131,072** out (models.dev; repo meta 1M/128K).
 - **Modalities:** Text, image, audio, video in; text out (models.dev).
-- **Pricing (as of 2026-10-25):** MIT open weights; Xiaomi API $0.435/$0.87 per 1M (cached $0.0036).
+- **Pricing (as of 2026-11-06):** MIT open weights; Xiaomi API $0.435/$0.87 per 1M (cached $0.0036).
 
 - **Architecture:** Open-weights MoE (1.02T total / 42B active); MIT.
 

@@ -8,12 +8,12 @@
 ## Model card
 
 - **Name:** GPT-5.4 Pro (Xhigh)
-- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-03-05; predecessor of GPT-5.5 Pro and now marked deprecated upstream with "consider GPT-5.5 Pro instead".
+- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-11-06; predecessor of GPT-5.5 Pro and now marked deprecated upstream with "consider GPT-5.5 Pro instead".
 - **Provider / access:** OpenAI first-party API (`openai/gpt-5.4-pro`); reasoning via extended thinking; text and image input, text output; Artificial Analysis records 1 API provider.
 
 ### Raw benchmarks found
 
-- Artificial Analysis: released 2026-03-05; reasoning tier; context **1.1M** tokens; knowledge cutoff **Aug 31, 2025**; pricing $30.00 per 1M input / $180.00 per 1M output (blended $45.00/M); Intelligence Index **N/A**.
+- Artificial Analysis: released 2026-11-06; reasoning tier; context **1.1M** tokens; knowledge cutoff **Aug 31, 2025**; pricing $30.00 per 1M input / $180.00 per 1M output (blended $45.00/M); Intelligence Index **N/A**.
 
 ### Normalized scores (1–100)
 

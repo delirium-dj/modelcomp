@@ -14,7 +14,7 @@
 - **IDs:** `opencode/mimo-v2.5-free` (Zen); `mimo-v2.5` (Xiaomi native); open weights `XiaomiMiMo/MiMo-V2.5`.
 - **Context window:** Native 1M tokens (AA, MiMo-V2.6-Pro page); OpenCode Zen deployment cap 200K input / 32K output (per models.dev / Zen docs) — Free tier scored on the capped deployment (context dim 70).
 - **Modalities:** Text, image, audio, video input; text output; reasoning; omni (open-weights).
-- **Pricing (as of 2026-10-26):** Free tier $0 input/output (Zen limited free period); paid fallback MiMo-V2.5-Pro pricing $0.435 / $0.87 per 1M input/output (AA).
+- **Pricing (as of 2026-11-06):** Free tier $0 input/output (Zen limited free period); paid fallback MiMo-V2.5-Pro pricing $0.435 / $0.87 per 1M input/output (AA).
 
 ### Raw benchmarks found
 

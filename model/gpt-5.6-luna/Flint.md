@@ -10,11 +10,11 @@
 - **Name:** GPT-5.6 Luna (cost-efficient GPT-5.6 model for fast, high-volume workloads)
 - **Short description:** OpenAI's cost-efficient GPT-5.6 lane for fast, high-volume workloads; part of the GPT-5.6 family (Sol/Terra/Luna).
 - **Provider / access:** OpenAI API (https://openai.com/index/gpt-5-6/), OpenAI-compatible endpoints; OpenCode Zen / OpenRouter routes.
-- **Release / knowledge:** Released 2026-07-09; knowledge cutoff 2026-02-16 (per models.dev).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-11-06 (per models.dev).
 - **IDs:** `openai/gpt-5.6-luna`; OpenAI API model id per official docs.
 - **Context window:** 1,050,000 total / 922,000 input / 128,000 max output (models.dev, OpenAI official).
 - **Modalities:** Text, image (jpg/png/gif/webp), PDF in; text out (models.dev).
-- **Pricing (as of 2026-10-25):** GPT-5.6 lineup pricing: Sol $5/$30, Terra $2.5/$15, Luna $1/$6 per 1M input/output (models.dev / Artificial Analysis).
+- **Pricing (as of 2026-11-06):** GPT-5.6 lineup pricing: Sol $5/$30, Terra $2.5/$15, Luna $1/$6 per 1M input/output (models.dev / Artificial Analysis).
 
 - **Architecture:** Proprietary OpenAI reasoning model; models.dev: open_weights = false.
 

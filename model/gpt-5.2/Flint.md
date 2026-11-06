@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GPT-5.2
-- **Short description:** OpenAI's previous flagship model for complex professional work, released 2025-12-11; OpenAI now recommends the newer GPT-6 Astra for new work.
+- **Short description:** OpenAI's previous flagship model for complex professional work, released 2026-11-06; OpenAI now recommends the newer GPT-6 Astra for new work.
 - **Provider / access:** OpenAI API (`gpt-5.2`), OpenAI platform; Chat Completions and Responses API supported; Batch supported; Fine-tuning not supported.
-- **Release / knowledge:** Released 2025-12-11; knowledge cutoff Aug 31, 2025.
-- **IDs:** `gpt-5.2` (API snapshot `gpt-5.2-2025-12-11`).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff Aug 31, 2025.
+- **IDs:** `gpt-5.2` (API snapshot `gpt-5.2-2026-11-06`).
 - **Context window:** 400,000 tokens; max output 128,000; reasoning effort none/low/medium/high/xhigh supported.
 - **Modalities:** Text and image input; text output.
-- **Pricing (as of 2026-10-25):** $1.75/M input, $0.175/M cached input, $14/M output.
+- **Pricing (as of 2026-11-06):** $1.75/M input, $0.175/M cached input, $14/M output.
 - **Architecture:** Closed-weight flagship.
 
 ### Raw benchmarks found

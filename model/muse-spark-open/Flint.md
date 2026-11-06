@@ -1,7 +1,7 @@
 # Muse Spark Open — findings by Flint
 
 - Source: Meta / Muse Spark (Muse Spark 1.1 lineage)
-- Date: 2026-11-05 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Muse Spark Open
 - **Short description:** Meta Superintelligence Labs' **Muse Spark** multimodal reasoning model for agentic tasks (latest release **Muse Spark 1.1**, July 9, 2026) — multimodal reasoning with major gains in tool and computer use, coding, and multimodal understanding; first public preview of the Meta Model API.
 - **Provider / access:** Meta AI (Meta AI app, meta.ai), Meta Model API (public preview); OpenAI-compatible API surface.
-- **Release / knowledge:** Muse Spark 1.1: 2026-07-09; Thinking mode; context window management up to **1M tokens**.
+- **Release / knowledge:** Muse Spark 1.1: 2026-11-06; Thinking mode; context window management up to **1M tokens**.
 - **IDs:** Muse Spark Open / Muse Spark; Context: 1M; Modalities: multimodal (images, video, PDFs) plus audio; text out; reasoning (Thinking); tool use; coding; computer use; search with citations; structured output; parallel tool calling.
 
 ### Raw benchmarks found
@@ -33,7 +33,7 @@
 
 ## Signature
 
-- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-05
+- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta AI / Muse Spark 1.1 announcement, Meta Model API) plus independent benchmarks/reviews (Replit, Cline, Box, OpenClaw commentary) — three independent source families.
 - Reference URLs:
   - [Introducing Muse Spark 1.1 — Meta AI](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)

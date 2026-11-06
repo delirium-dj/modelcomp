@@ -8,18 +8,18 @@
 ## Model card
 
 - **Name:** GPT-5.5 Pro (Xhigh)
-- **Short description:** Proprietary reasoning-tier flagship of OpenAI's GPT-5.5 generation, positioned above the standard GPT-5.5 serving tier; released 2026-04-23. Flags: proprietary, parameter count undisclosed.
+- **Short description:** Proprietary reasoning-tier flagship of OpenAI's GPT-5.5 generation, positioned above the standard GPT-5.5 serving tier; released 2026-11-06. Flags: proprietary, parameter count undisclosed.
 - **Provider / access:** OpenAI first-party API (`openai/gpt-5.5-pro`); reasoning via extended thinking / chain-of-thought. Artificial Analysis records no public API provider currently available for this model ID at research time.
-- **Release / knowledge:** Released 2026-04-23 (Artificial Analysis). Knowledge cutoff for the Pro tier was not independently captured during research.
+- **Release / knowledge:** Released 2026-11-06 (Artificial Analysis). Knowledge cutoff for the Pro tier was not independently captured during research.
 - **IDs:** `openai/gpt-5.5-pro` (OpenAI). No Zen / third-party provider mapping confirmed.
 - **Context window:** ~920k tokens (Artificial Analysis comparison summary) / 922k (Artificial Analysis comparison summary, top of page) — the two sections of the same page conflict; flagged for reconciliation.
 - **Modalities:** Text and image input, text output — multimodal (image input).
-- **Pricing (as of 2026-10-23):** Pricing tier classification recorded (Artificial Analysis labelled the model in the expensive price range); exact Pro-tier per-1M rates not fully resolved during research.
+- **Pricing (as of 2026-11-06):** Pricing tier classification recorded (Artificial Analysis labelled the model in the expensive price range); exact Pro-tier per-1M rates not fully resolved during research.
 
 ### Raw benchmarks found
 
 - Artificial Analysis Intelligence Index v4.3.2: composite score **N/A / Unknown** for GPT-5.5 Pro (Xhigh); capability indexes (AA-Briefcase Elo, AA-Omniscence, AutomationBench-AA, GDPval-AA, Terminal-Bench 4.0, SciCode, CritPt, AA-LCR, Humanity's Last Exam, GDP.pdf) listed but per-model values not captured in full during research.
-- Successor framing: GPT-5.4 Pro (released 2026-03-05) is marked deprecated upstream with "consider GPT-5.5 Pro instead".
+- Successor framing: GPT-5.4 Pro (released 2026-11-06) is marked deprecated upstream with "consider GPT-5.5 Pro instead".
 
 ### Normalized scores (1–100)
 

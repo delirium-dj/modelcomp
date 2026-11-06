@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GPT-5.4
-- **Short description:** OpenAI's flagship model for complex professional work, released 2026-03-05 (default snapshot `gpt-5.4-2026-03-05`); positioned by OpenAI as a more affordable model for coding and professional work.
+- **Short description:** OpenAI's flagship model for complex professional work, released 2026-11-06 (default snapshot `gpt-5.4-2026-11-06`); positioned by OpenAI as a more affordable model for coding and professional work.
 - **Provider / access:** OpenAI API (`gpt-5.4`), OpenAI platform; Chat Completions and Responses API supported; Batch supported; Fine-tuning not supported.
-- **Release / knowledge:** Released 2026-03-05; knowledge cutoff Aug 31, 2025.
-- **IDs:** `gpt-5.4` (API snapshot `gpt-5.4-2026-03-05`).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff Aug 31, 2025.
+- **IDs:** `gpt-5.4` (API snapshot `gpt-5.4-2026-11-06`).
 - **Context window:** 1,050,000 tokens; max output 128,000; reasoning effort none/low/medium/high/xhigh supported.
 - **Modalities:** Text and image input; text output.
-- **Pricing (as of 2026-10-25):** $2.5/M input, $0.25/M cached input, $15/M output; prompts >272K input tokens priced at 2x input / 1.5x output.
+- **Pricing (as of 2026-11-06):** $2.5/M input, $0.25/M cached input, $15/M output; prompts >272K input tokens priced at 2x input / 1.5x output.
 - **Architecture:** Closed-weight flagship.
 
 ### Raw benchmarks found

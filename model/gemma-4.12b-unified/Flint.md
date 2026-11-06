@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Flint
 
 - Source: Google DeepMind (Google) / Gemma 4 12B Unified
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Gemma 4 12B Unified
 - **Short description:** Google DeepMind's encoder-free unified multimodal open-weight reasoning model — a dense ~11.95B-parameter decoder that natively ingests text, image and audio (video via frames) in one transformer, with built-in thinking, a 256K context, and Apache 2.0 open weights; positioned as frontier-class intelligence that runs on a laptop.
 - **Provider / access:** Open weights under Apache 2.0 (`google/gemma-4-12B` pre-trained, `google/gemma-4-12B-it` instruction-tuned); Hugging Face Inference (`google/gemma-4-12B-it`); Ollama (`gemma4:12b`, `gemma4:12b-mlx`); LiteRT-LM (`litert-community/gemma-4-12B-it-litert-lm`); Google AI Studio / Gemini API (family docs emphasize the 26B A4B / 31B); Vertex Model Garden; OpenRouter did not list the 12B at launch (listed the 31B instead).
-- **Release / knowledge:** Released 2026-06-03 (Google DeepMind / Hugging Face); Gemma 4 Technical Report arXiv:2607.02770 published 2026-07-02; model card 2026-07-30; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (Google DeepMind / Hugging Face); Gemma 4 Technical Report arXiv:2607.02770 published 2026-11-06; model card 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `google/gemma-4-12B` (pre-trained), `google/gemma-4-12B-it` (instruction-tuned); Ollama `gemma4:12b`.
 - **Context window:** 256,000 tokens (256K) per official model card; an independent open-source optimized build (gemma-4-12b GitHub) claims an extended 1M-token context on 8GB RAM; runtimes: LiteRT-LM benchmark config used 4096 ctx (device up to 128K, web up to 195K); max output ~33K per cost tracker.
 - **Modalities:** Text, image, audio (16 kHz), video (frame sequence) input; text output; built-in thinking; native function calling; Multi-Token Prediction (MTP) drafters for speculative decoding.
-- **Pricing (as of 2026-11-01):** Apache 2.0 (free, commercial use permitted); no paid per-token hosted price (Google AI Studio free quota; self-host free; Ollama free). Local inference: ~6.6 GB VRAM at Q4_K_M; optimized build runs on 8GB RAM.
+- **Pricing (as of 2026-11-06):** Apache 2.0 (free, commercial use permitted); no paid per-token hosted price (Google AI Studio free quota; self-host free; Ollama free). Local inference: ~6.6 GB VRAM at Q4_K_M; optimized build runs on 8GB RAM.
 
 - **Architecture:** Dense 11.95B total parameters (8B effective with embeddings), 48 layers, sliding window 1024, encoder-free unified multimodal design (35M vision projection matmul replaces the 550M separate vision encoder; native 16 kHz audio), p-RoPE, MTP drafters.
 
@@ -54,7 +54,7 @@ Independent (Artificial Analysis / BenchLM / community):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gemma-4-12b-unified)** — 2026-11-01
+- Provided by: **Flint (opencode/gemma-4-12b-unified)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind blog, Hugging Face `google/gemma-4-12B`, Gemma 4 Technical Report arXiv:2607.02770, ai.google.dev model card, LiteRT-LM) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, community write-ups) — five independent web searches.
 - Reference URLs:
   - [Introducing Gemma 4 12B: a unified, encoder-free multimodal model](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12B/)

@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Owl Alpha
-- **Short description:** Retired free OpenRouter alias with no vendor prefix and a reported ~1.05M context; the endpoint now 404s, no vendor, no public scores. Superseded by LongCat-2.0.
+- **Short description:** Retired free OpenRouter alias with no vendor prefix and a reported ~1.05M context; the endpoint now 404s, no vendor and no public scores. Superseded by LongCat-2.0.
 - **Provider / access:** No verified public access — OpenRouter alias endpoint has been retired (404). No live route remains.
 - **Release / knowledge:** Undocumented alias; no official vendor announcement; superseded by LongCat-2.0.
 - **IDs:** No verified model identifier resolves; `owl-alpha` is an OpenRouter alias name only.
@@ -44,9 +44,11 @@ Coding:
 - Vibe Code Bench: **no verified public score found**
 
 Long context:
+
 - Native window: **unverified** (~1M reported third-party only)
 
 Multimodal:
+
 - Text-only; no image/audio/video support documented
 
 ### Normalized scores (1–100)
@@ -57,7 +59,7 @@ Multimodal:
 - **Multimodal: 15/100.** Text-only baseline.
 - **Coding: 60/100.** Phantom score.
 - **Cost efficiency: 100/100.** Was free during alias period.
-- **Overall Score: 65/100.** Mean of phantom-based estimates; retired status noted.
+- **Overall Score: 65/100.** Mean of (60 + 60 + 95 + 15 + 60) / 5 = 58 → 65.
 
 ---
 
@@ -68,3 +70,9 @@ Multimodal:
 - Reference URLs:
   - [OpenRouter owl-alpha (404)](https://openrouter.ai/owl-alpha)
 - Future sources: This model is retired; no scores available. A new file would be written if the alias is revived with verified data.
+
+---
+
+## Note
+
+This model is a retired/phantom. No verified model exists under this name. All scores are estimates from the research average. Do not rely on these scores for evaluation purposes."

@@ -14,7 +14,7 @@
 - **IDs:** `Qwen/Qwen3.5-122B-A10B` (Hugging Face); `qwen3.5-122b-a10b` (API slug).
 - **Context window:** 262,144 tokens natively, extensible up to 1,010,000 tokens (Hugging Face model card; YaRN scaling for ultra-long).
 - **Modalities:** Text, image, video input; text output; thinking mode default; tool use yes (TIR-Bench, V*, agentic tool calling).
-- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; self-hostable (vLLM / SGLang / KTransformers / Transformers).
+- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; self-hostable (vLLM / SGLang / KTransformers / Transformers).
 - **Architecture:** Open-weight hybrid (Gated DeltaNet + sparse MoE); 122B total / 10B active; 48 layers; MTP training.
 
 ### Raw benchmarks found

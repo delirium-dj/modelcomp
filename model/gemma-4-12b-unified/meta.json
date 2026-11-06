@@ -4,5 +4,14 @@
   "short": "Google's 12B Gemma 4 with unified cross-modal token projection (262K ctx) - multimodal in, free open weights for local and hosted use.",
   "contextWindow": "262,144 total; 32,768 max output",
   "modalities": "Text, image, audio in; text out",
-  "pricingNote": "Free open weights; hosted ~$0.10/$0.25 per 1M"
+  "pricingNote": "Free open weights (Apache 2.0 self-host); hosted ~$0.10/$0.25 per 1M",
+  "pricingTiers": [
+    "Free open weights (Apache 2.0 self-host)",
+    "Hosted ~$0.10/$0.25 per 1M in/out"
+  ],
+  "pricingLinks": [
+    "https://huggingface.co/google/gemma-4-12B",
+    "https://opencode.ai/docs/zen"
+  ],
+  "freeTierNote": "Apache 2.0 open weights available for free self-hosting"
 }

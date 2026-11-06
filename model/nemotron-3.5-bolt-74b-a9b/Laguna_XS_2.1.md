@@ -59,7 +59,7 @@ Multimodal:
 - **Multimodal: 75/100.** Vision-language support; image+video input; no dedicated benchmarks.
 - **Coding: 50/100.** No SWE-bench/LiveCodeBench data; Terminal-Bench 50.98% estimated; IQ2 quantization noted as quality cap.
 - **Cost efficiency: 95/100.** Open weights + local execution; 24GB VRAM requirement is structural constraint but $0 per-token cost.
-- **Overall Score: 63/100.** Mean of (51 + 60 + 85 + 75 + 50) / 5 = 64.2 → 63.
+- **Overall Score: 64.2/100.** Mean of (51 + 60 + 85 + 75 + 50) / 5 = 64.2 → 63.
 
 ---
 

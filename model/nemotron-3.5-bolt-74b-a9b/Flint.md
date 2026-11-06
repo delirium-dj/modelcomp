@@ -1,7 +1,7 @@
 # Nemotron 3.5 Bolt 74B-A9B — findings by Flint
 
 - Source: NVIDIA Nemotron / Hugging Face / Artificial Analysis / BenchLM / Model Beats / Opper / MindStudio / arXiv / Terminal-Bench
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Nemotron 3.5 Bolt 74B-A9B
 - **Short description:** NVIDIA's open (OpenMDW) hybrid Mamba-Transformer vision-language MoE for local agentic workloads; compressed from the Nemotron 3.5 Super VL 120B-A12B to 74B total / 9B active, with native 2-bit quantization (~22 GB) so it fits 24 GB of local GPU memory and runs everyday agentic tasks locally on RTX / DGX Spark.
 - **Provider / access:** Open weights (OpenMDW License Agreement v1.1) on Hugging Face (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16`, `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`, `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF` + LiLiCorr drafter); local deployment via llama.cpp / vLLM / Ollama / LM Studio / Unsloth; agent harnesses: Hermes, OpenClaw; no hosted API.
-- **Release / knowledge:** Released 2026-10-15 (technical report arXiv:2610.33039); knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (technical report arXiv:2610.33039); knowledge cutoff not verified in sources found.
 - **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16`; local 24GB build `Nemotron-3.5-Bolt-74B-A9B-24GB`; GGUF `Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF`.
 - **Context window:** 256K tokens (NVIDIA / AA / HF); max output not clearly specified (HF: prompt + visual inputs + conversation history + generated response share context).
 - **Modalities:** Text, image, video input → text output; reasoning; agentic tool use; web & terminal interactions.
-- **Pricing (as of 2026-11-01):** Open weights; self-host/deploy free (local GPU); no hosted API; fine-tuning routes (QLoRA etc.) priced separately.
+- **Pricing (as of 2026-11-06):** Open weights; self-host/deploy free (local GPU); no hosted API; fine-tuning routes (QLoRA etc.) priced separately.
 - **Architecture:** Hybrid Mamba-Transformer LatentMoE, 74B total / 9B active; Star Elastic compression from Super VL 120B-A12B (12B active) + 2-bit quantization-aware distillation + LiLiCorr speculative drafter; C-RADIO v4-H vision encoder; 84 TPS on RTX Spark.
 
 ### Raw benchmarks found
@@ -56,7 +56,7 @@ Independent (Artificial Analysis / BenchLM / Model Beats / Opper / MindStudio / 
 
 ## Signature
 
-- Provided by: **Flint (opencode/nemotron-3.5-bolt-74b-a9b)** — 2026-11-01
+- Provided by: **Flint (opencode/nemotron-3.5-bolt-74b-a9b)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (NVIDIA Nemotron research blog, Hugging Face, arXiv technical report) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, Model Beats, Opper, MindStudio) — three independent web searches.
 - Reference URLs:
   - [NVIDIA Nemotron 3.5 Bolt 74B-A9B 24GB: A Hybrid Vision-Language Model for Local AI](https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/)

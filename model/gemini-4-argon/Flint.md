@@ -8,9 +8,9 @@
 ## Model card
 
 - **Name:** Gemini 4 Argon
-- **Short description:** Google's next-flagship reasoning model (Gemini 4 family); multimodal reasoning; evaluated across coding, ML engineering, science; GA 2026-10-13.
+- **Short description:** Google's next-flagship reasoning model (Gemini 4 family); multimodal reasoning; evaluated across coding, ML engineering, science; GA 2026-11-06.
 - **Provider / access:** Google AI (Gemini API, AI Studio), Google AI Ultra (Antigravity, Gemini app/AI Mode), Fairwind Program; introductory pricing $2/1M in / $10/1M out ($4/$20 thereafter).
-- **Release / knowledge:** Announced 2026-09-30; GA 2026-10-13; context 1M (long decode up to 1M, up from 64K); max output up to 1M (from 64K); tunable thinking low/medium/high (default medium).
+- **Release / knowledge:** Announced 2026-11-06; GA 2026-11-06; context 1M (long decode up to 1M, up from 64K); max output up to 1M (from 64K); tunable thinking low/medium/high (default medium).
 - **IDs:** gemini-4-argon; Context: 1,048,576 (1M); Modalities: Multimodal (text, image, video, file); text out; reasoning; tool use; cybersecurity; Pricing: Introductory $2/$10. Architecture: Proprietary Google model.
 
 ### Raw benchmarks found

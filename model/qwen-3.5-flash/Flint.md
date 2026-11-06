@@ -1,17 +1,17 @@
 # Qwen3.5 Flash — findings by Flint
 
 - Source: Alibaba (Qwen / Alibaba Cloud)
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3.5 Flash
-- **Short description:** Alibaba's hosted production-grade Qwen3.5 Flash model (functionally equivalent to snapshot `qwen3.5-flash-2026-02-23`) — hybrid Gated Delta Network + sparse MoE architecture, native multimodal (text, images, videos), built for inference efficiency; the hosted version carries a 1M context and official built-in tools. Closed hosted model (no open weights for the Flash tier).
+- **Short description:** Alibaba's hosted production-grade Qwen3.5 Flash model (functionally equivalent to snapshot `qwen3.5-flash-2026-11-06`) — hybrid Gated Delta Network + sparse MoE architecture, native multimodal (text, images, videos), built for inference efficiency; the hosted version carries a 1M context and official built-in tools. Closed hosted model (no open weights for the Flash tier).
 - **Provider / access:** Alibaba Cloud Model Studio (`qwen3.5-flash`); also on Hugging Face / ModelScope as Qwen3.5-35B-A3B family member context.
-- **Release / knowledge:** Released 2026-02-23 (snapshot); Qwen3.5 generation announced 2026-02-17; knowledge cutoff not verified in sources found.
-- **IDs:** `qwen3.5-flash`; snapshot `qwen3.5-flash-2026-02-23`.
+- **Release / knowledge:** Released 2026-11-06 (snapshot); Qwen3.5 generation announced 2026-11-06; knowledge cutoff not verified in sources found.
+- **IDs:** `qwen3.5-flash`; snapshot `qwen3.5-flash-2026-11-06`.
 - **Context window:** 1,000,000 tokens (max input 991,808; thinking-mode max input 983,616); max output 65,536; max chain-of-thought 81,920.
 - **Modalities:** Native multimodal — text, image, video input; text output; thinking + instruct modes; tool calling; structured outputs; code interpreter (limited time free); web search.
 - **Pricing (as of 2026-10):** API $0.10/$0.40 per 1M input/output (cache creation $0.125, cache read $0.01); batch 50%; free quota only in Singapore (1M tokens).
@@ -59,7 +59,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen3.5-flash)** — 2026-11-01
+- Provided by: **Flint (opencode/qwen3.5-flash)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Alibaba Cloud Model Studio qwen3.5-flash docs, Qwen3.5 announcement) plus independent benchmarks/reviews (benchgap, Epoch AI, BenchmarkList, OnlySOTA, AIWire, Aggregate) — three independent web searches.
 - Reference URLs:
   - [Qwen3.5-Flash Model Info - Alibaba Cloud Model Studio](https://www.alibabacloud.com/help/en/model-studio/qwen3-5-flash)

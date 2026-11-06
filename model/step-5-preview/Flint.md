@@ -10,11 +10,11 @@
 - **Name:** Step 5 Preview (StepFun; Step family — flagship preview).
 - **Short description:** StepFun's flagship model for agentic work; sparse MoE with 600B total / 27B active parameters; frontier-level performance across software engineering and professional knowledge work, with particular strength in finance; up to 1M context; text, image, and video input; text output; reasoning + tool use.
 - **Provider / access:** Open weights (Hugging Face `stepfun-ai/Step-5-Preview`, ModelScope); OpenAI-compatible API via vLLM / SGLang (platform.stepfun.ai); offline generation via Transformers.
-- **Release / knowledge:** Released 2026-09-18 (Artificial Analysis, Epoch AI; Hugging Face card); knowledge cutoff not stated in verified sources.
+- **Release / knowledge:** Released 2026-11-06 (Artificial Analysis, Epoch AI; Hugging Face card); knowledge cutoff not stated in verified sources.
 - **IDs:** `step-5-preview` (Hugging Face / repo slug); `step5` model name in OpenAI-compatible API requests.
 - **Context window:** 1,000,000 tokens (Artificial Analysis, Hugging Face); maximum output up to 1M tokens (Hugging Face).
 - **Modalities:** Text, image, and video input; text output; reasoning yes (High setting); tool use / long-horizon agentic execution.
-- **Pricing (as of 2026-10-28):** $1.00 input / $2.70 output per 1M tokens (Artificial Analysis, Epoch AI); blended cache-hit/input/output (7:2:1) approx $0.54 per 1M tokens; open weights under StepFun Model License 1.0 (Apache-2.0-style, additional attribution/commercial conditions).
+- **Pricing (as of 2026-11-06):** $1.00 input / $2.70 output per 1M tokens (Artificial Analysis, Epoch AI); blended cache-hit/input/output (7:2:1) approx $0.54 per 1M tokens; open weights under StepFun Model License 1.0 (Apache-2.0-style, additional attribution/commercial conditions).
 - **Architecture:** Open-weight sparse Mixture-of-Experts; 600B total / 27B active parameters; training compute not disclosed.
 
 ### Raw benchmarks found

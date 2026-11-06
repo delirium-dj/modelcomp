@@ -10,11 +10,11 @@
 - **Name:** Kimi K2.7 Code
 - **Short description:** Moonshot AI's coding-specialized 1T/32B MoE cut with 262K context for long-horizon coding; SWE-bench 78.2%.
 - **Provider / access:** Hugging Face (`https://huggingface.co/moonshotai/Kimi-K2.7-Code`), Moonshot Kimi API, OpenCode Zen / OpenRouter routes (`opencode/kimi-k2.7-code`).
-- **Release / knowledge:** Released 2026-06-12; knowledge cutoff 2025-01 (models.dev).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2025-01 (models.dev).
 - **IDs:** `moonshotai/Kimi-K2.7-Code`; `opencode/kimi-k2.7-code`.
 - **Context window:** **262,144** total / **262,144** out (models.dev; repo meta 262K).
 - **Modalities:** Text, image, video in; text out.
-- **Pricing (as of 2026-10-25):** Open weights; $0.95/$4.00 per 1M in/out (Moonshot); $0.19 cached input.
+- **Pricing (as of 2026-11-06):** Open weights; $0.95/$4.00 per 1M in/out (Moonshot); $0.19 cached input.
 
 - **Architecture:** Open-weights MoE (1T total / 32B active); open_weights = true.
 

@@ -1,7 +1,7 @@
 # Gemma 4 26B A4B — findings by Flint
 
 - Source: Google DeepMind / Gemma 4 26B A4B
-- Date: 2026-10-29 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -15,7 +15,7 @@
 - **Context window:** 256K tokens (Hugging Face model card / Gemma 4 docs; Artificial Analysis reported 256K on the release page and 260K on the model FAQ).
 - **Modalities:** Text, image, and video input (Artificial Analysis), text output; reasoning yes (thinking mode via the `<|think|>` control token); tool use yes (native function calling); audio not supported on this variant (Google Gemma 4 docs scope audio to the E2B / E4B / 12B models).
 
-- **Pricing (as of 2026-10-29):** Open weights Apache 2.0; Gemma API pricing from $0.10 per 1M input / $0.34 per 1M output (Artificial Analysis; blended ≈ $0.09 per 1M with cache); hosted median ~$0.12 input / $0.30 output.
+- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; Gemma API pricing from $0.10 per 1M input / $0.34 per 1M output (Artificial Analysis; blended ≈ $0.09 per 1M with cache); hosted median ~$0.12 input / $0.30 output.
 
 - **Architecture:** Open-weight Mixture-of-Experts (MoE); 25.2B total / 3.8B active parameters; 30 layers; sliding window 1024; hybrid local sliding-window + global attention; expert count 8 active / 128 total + 1 shared; vision encoder ~550M params.
 
@@ -71,6 +71,6 @@ Independent signals (Artificial Analysis Intelligence Index v5.0, graysoft bench
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-29
+- Provided by: **Flint (opencode/flint)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Hugging Face `google/gemma-4-26B-A4B-it` + ai.google.dev Gemma 4 docs + arXiv:2607.02770) plus independent benchmarks/reviews (Artificial Analysis Intelligence Index, graysoft benchmark comparison) — official-first with independent benchmark comparison; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemma_4_26B_A4B.md`, using the same headings.

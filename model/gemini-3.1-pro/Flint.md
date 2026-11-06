@@ -10,7 +10,7 @@
 - **Name:** Gemini 3.1 Pro (Google DeepMind's most advanced reasoning Gemini model; flagship of the Gemini 3 Pro series; built to refine the Gemini 3 Pro series with better thinking, improved token efficiency, grounded/factually consistent experience; optimized for software engineering behavior and agentic workflows)
 - **Short description:** Frontier reasoning model with enhanced software engineering performance, improved agentic reliability, more efficient token usage; built on multimodal foundation (text, image, video, audio, PDF, code repos); 1M token context.
 - **Provider / access:** Google AI (Gemini API `gemini-3.1-pro-preview`, AI Studio, Gemini Enterprise Agent Platform); Antigravity; custom tools endpoint `gemini-3.1-pro-preview-customtools` (bash/custom tools optimized); pricing $2/M in / $12/M out (Kilo/LLMBench/OpenRouter); cache read $0.10/M.
-- **Release / knowledge:** Released 2026-02-19 (public preview); knowledge cutoff not stated in sources found.
+- **Release / knowledge:** Released 2026-11-06 (public preview); knowledge cutoff not stated in sources found.
 - **IDs:** `gemini-3.1-pro-preview`, `gemini-3.1-pro-preview-customtools`.
 - **Context window:** 1,048,576 tokens (1M); max output 65,536.
 - **Modalities:** Text, image, video, audio, PDF input; text output; thinking; function calling, structured outputs, code execution, grounding, system instructions, context caching; multimodal.

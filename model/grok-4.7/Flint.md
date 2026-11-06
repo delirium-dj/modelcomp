@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** Grok 4.7
-- **Short description:** xAI's agentic coding model (Grok Build) plus general chat model, released 2026-09-21; closed weights.
+- **Short description:** xAI's agentic coding model (Grok Build) plus general chat model, released 2026-11-06; closed weights.
 - **Provider / access:** xAI API (api.x.ai/v1, Responses API), Grok Build; coding via Grok Build.
-- **Release / knowledge:** Released 2026-09-21; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated.
 - **IDs:** `grok-4.7` (API), Grok-4.7 (Grok Build).
 - **Context window:** not verified.
 - **Modalities:** text; image/video via xAI APIs.
-- **Pricing (as of 2026-10-25):** $2/M input, $6/M output (per Epoch AI pricing).
+- **Pricing (as of 2026-11-06):** $2/M input, $6/M output (per Epoch AI pricing).
 - **Architecture:** Closed-weight; 2.1e9 params.
 
 ### Raw benchmarks found

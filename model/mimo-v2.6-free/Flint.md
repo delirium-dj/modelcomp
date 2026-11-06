@@ -14,7 +14,7 @@
 - **IDs:** `mimo-v2.6-free`.
 - **Context window:** 1M tokens (MiMo-V2.6) / 128K output.
 - **Modalities:** Text + image in; text out; reasoning yes.
-- **Pricing (as of 2026-10-23):** Free.
+- **Pricing (as of 2026-11-06):** Free.
 - **Architecture:** Open-weights MoE (MiMo-V2.6).
 
 ### Raw benchmarks found

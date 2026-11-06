@@ -1,7 +1,7 @@
 # GPT-6.1 Terra — findings by Flint
 
 - Source: OpenAI
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-6.1 Terra
 - **Short description:** OpenAI's fast, efficient, cost-conscious model in the GPT-6.1 family — combines detailed visual reasoning and precise computer use with clearer, more natural writing; a significant step up from GPT-5.6 Terra while halving API prices vs GPT-5.6 Terra / GPT-6.1 Sol.
 - **Provider / access:** OpenAI API (`gpt-6.1-terra`); ChatGPT Work / Codex (Plus, Pro, Enterprise, Edu).
-- **Release / knowledge:** Released 2026-10-26; knowledge cutoff 2026-06-01; system-card addendum published same day.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-11-06; system-card addendum published same day.
 - **IDs:** `gpt-6.1-terra` (OpenAI API); snapshot `gpt-6.1-terra`.
 - **Context window:** 1,050,000 tokens total; max input tokens 922,000; max output tokens 128,000.
 - **Modalities:** Input text, image; output text; audio/video unsupported; tool calling via Responses API; reasoning effort none/low/medium(default)/high/xhigh/max.
-- **Pricing (as of 2026-10-26):** $1.00/$5.00 per 1M input/output; cached input $0.05; cache writes $1.25 (30-min) / $2.50 (12h); prompts >272K input bill at 2× input / 1.5× output; batch & Flex 50% lower; Fast mode 2×; regional +10%.
+- **Pricing (as of 2026-11-06):** $1.00/$5.00 per 1M input/output; cached input $0.05; cache writes $1.25 (30-min) / $2.50 (12h); prompts >272K input bill at 2× input / 1.5× output; batch & Flex 50% lower; Fast mode 2×; regional +10%.
 
 - **Architecture:** Proprietary OpenAI closed model (GPT-6 family, Terra tier successor to GPT-5.6 Terra).
 
@@ -59,7 +59,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-6.1-terra)** — 2026-11-01
+- Provided by: **Flint (opencode/gpt-6.1-terra)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI launch + GPT-6.1 Terra system card addendum + OpenAI API docs) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI, OpenRouter/Vals, TheDecoder, TheModelIndex) — three independent web searches.
 - Reference URLs:
   - [Introducing GPT-6.1 Terra | OpenAI](https://openai.com/index/introducing-gpt-6-1-terra/)

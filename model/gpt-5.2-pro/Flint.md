@@ -16,7 +16,7 @@
 
 - **Modalities:** Text + image input, text output; reasoning yes (Thinking); tool use yes (agentic coding, cybersecurity per OpenAI blog).
 
-- **Pricing (as of 2026-10-28):** GPT-5.2 Thinking/Pro: $21 per 1M input / $168 per 1M output (OpenAI); GPT-5.2 Thinking: $1.75 per 1M input / $14 per 1M output.
+- **Pricing (as of 2026-11-06):** GPT-5.2 Thinking/Pro: $21 per 1M input / $168 per 1M output (OpenAI); GPT-5.2 Thinking: $1.75 per 1M input / $14 per 1M output.
 
 - **Architecture:** Proprietary (closed weights); parameter count not disclosed.
 

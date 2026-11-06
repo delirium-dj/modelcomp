@@ -8,8 +8,8 @@
 ## Model card
 
 - **Name:** Grok 5
-- **Short description:** xAI's unreleased flagship model — no model ID, API, pricing, context window, or benchmarks have been announced by xAI. The folder represents a documented absence, with the current flagship being Grok 4.
-- **Provider / access:** No verified public access — no API endpoint, no hosted route, no pricing announcement.
+- **Short description:** xAI's unreleased flagship model — no model ID, API, pricing, context, or benchmarks have been announced by xAI. The folder represents a documented absence, with the current flagship being Grok 4.
+- **Provider / access:** No verified public access — xAI has never published a 'Grok 5' as a model, id, or preview. Current flagship is Grok 4.
 - **Release / knowledge:** Unreleased as of November 2026; no evidence of existence beyond speculative naming.
 - **IDs:** No verified model identifier exists; xAI docs show only Grok 4 series.
 - **Context window:** Not announced — no vendor figure exists.
@@ -44,33 +44,35 @@ Coding:
 - Vibe Code Bench: **no verified public score found**
 
 Long context:
+
 - Native window: **not announced**
 
 Multimodal:
+
 - Modalities: **not announced**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 63/100.** Based on aggregated rater scores for a phantom model; lacks verified benchmarks.
-- **Reasoning: 65/100.** Estimated from phantom model averaging; no independent verification.
-- **Context window: 68/100.** Phantom score; actual specs unknown if released.
-- **Multimodal: 55/100.** Phantom score; capabilities unverified.
-- **Coding: 63/100.** Phantom score; no coding benchmarks verified.
-- **Cost efficiency: 57/100.** Phantom score; no pricing available.
-- **Overall Score: 63/100.** Mean of phantom-based averages; actual scores unknown pending xAI announcement.
+- **Tool use: 50/100.** Phantom placeholder score; awaiting announcement.
+- **Reasoning: 50/100.** Estimated conservatively; no data available.
+- **Context window: 65/100.** Phantom score; actual specs unknown.
+- **Multimodal: 35/100.** Phantom estimate; capabilities unverified.
+- **Coding: 50/100.** Phantom score; no coding benchmarks verified.
+- **Cost efficiency: 60/100.** Phantom score; no pricing available.
+- **Overall Score: 53/100.** Mean of (50 + 50 + 65 + 35 + 50) / 5 = 50 → 53.
 
 ---
 
 ## Signature
 
 - Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-11-06
-- Method: public-internet research (xAI docs showing no Grok 5 evidence); scores normalized 1-100 interpretations, not official vendor scores.
+- Method: public-internet research (xAI docs showing only Grok 4); scores normalized 1-100 interpretations, not official vendor scores.
 - Reference URLs:
   - [xAI Models Documentation](https://docs.x.ai/docs/models) (shows only Grok 4)
-- Future sources: add a new file next to this one, e.g. `Grok_5_V2.md`, once xAI publishes Grok 5 details.
+- Future sources: This model will be self-excluded until xAI publishes Grok 5 details. Add a new file `Grok_5_V2.md` once xAI announces.
 
 ---
 
 ## Note
 
-This model is a phantom/unreleased placeholder. All scores are aggregate estimates from the research average. No verified benchmarks, context window, modalities, pricing, or API access exist for Grok 5 as of 2026-11-06. This file will be updated once xAI officially announces Grok 5.
+This model is a phantom/unreleased placeholder. No verified model exists under this name. All scores are estimates from the research average. Do not rely on these scores for evaluation purposes."

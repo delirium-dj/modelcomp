@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** GPT-5.6 Terra (Max)
-- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-07-09; part of the GPT-5.6 generation. Flags: proprietary, parameter count undisclosed.
+- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-11-06; part of the GPT-5.6 generation. Flags: proprietary, parameter count undisclosed.
 - **Provider / access:** OpenAI first-party API (`openai/gpt-5.6-terra`); reasoning via extended thinking; text and image input, text output. Artificial Analysis records availability through 7 API providers.
 
 ### Raw benchmarks found

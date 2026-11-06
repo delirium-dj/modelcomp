@@ -14,7 +14,7 @@
 - **IDs:** `moonshotai/Kimi-K2-Instruct` (Hugging Face); Kimi K2 API model IDs (e.g. `kimi-k2-0905`).
 - **Context window:** 128K tokens (Artificial Analysis; Kimi K2); blended cache-hit pricing ~$0.74 / 1M.
 - **Modalities:** Text input, text output (Artificial Analysis: Kimi K2 is text-only, not multimodal); reasoning no (Kimi K2 non-reasoning); tool use yes (agentic heritage).
-- **Pricing (as of 2026-10-28):** Open weights (Modified MIT); Moonshot API $0.57 input / $2.30 output per 1M tokens (median across providers: $0.47 / $1.59); blended ≈ $0.74 / 1M.
+- **Pricing (as of 2026-11-06):** Open weights (Modified MIT); Moonshot API $0.57 input / $2.30 output per 1M tokens (median across providers: $0.47 / $1.59); blended ≈ $0.74 / 1M.
 - **Architecture:** Open-weight Mixture-of-Experts; 1T total / 32B active parameters; Modified MIT license (commercial use with restrictions).
 
 ### Raw benchmarks found

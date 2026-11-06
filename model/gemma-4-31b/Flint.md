@@ -17,7 +17,7 @@
 
 - **Modalities:** Text + image (+ video via frame processing) input, text output; reasoning yes (built-in thinking mode via `<|think|>`); tool use yes (native function calling); no audio on the 31B dense variant.
 
-- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; Google API $0.00 input / $0.00 output per 1M tokens (very competitive; cross-model medians $0.12 input / $0.30 output); blended cache-hit ratio ~$0.00/M.
+- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; Google API $0.00 input / $0.00 output per 1M tokens (very competitive; cross-model medians $0.12 input / $0.30 output); blended cache-hit ratio ~$0.00/M.
 
 - **Architecture:** Open-weight dense transformer; 30.7B total / 60 layers, sliding window 1024 tokens, hybrid local sliding-window + global attention, vision encoder ~550M params.
 

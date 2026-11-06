@@ -1,7 +1,7 @@
 # Muse Wonder — findings by Flint
 
 - Source: Meta Platforms, Inc. / Muse Wonder
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Muse Wonder / Muse Wonder Full
 - **Short description:** Meta Superintelligence Labs' frontier agentic models — Muse Wonder and the stronger Muse Wonder Full — built for personal and professional AI agents (long-horizon coding, memory/focus, expert-domain knowledge work). Muse Wonder Full: top coding leaderboard performance (DeepSWE, SWE-Marathon) in independent third-party runs.
 - **Provider / access:** Meta Model API (`meta/muse-wonder`), Muse Code (Wonder Full for subscribers); OpenRouter (`muse-wonder`); Vercel AI Gateway; developer hosts.
-- **Release / knowledge:** Released 2026-10-12 (Meta Model API / Muse Code); Muse Wonder Full subscriber-only. Knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (Meta Model API / Muse Code); Muse Wonder Full subscriber-only. Knowledge cutoff not verified in sources found.
 - **IDs:** `meta/muse-wonder`; Wonder Full subscription tier of the same family.
 - **Context window:** 1,048,576 tokens (1M) per Meta model card / dev hub; max output 128K (dev hub / earlier Muse Spark tiering).
 - **Modalities:** Input text, image, video, audio; output text (model card); reasoning always on with six effort levels (minimal–max); tool calling; structured outputs.
-- **Pricing (as of 2026-10-12):** Muse Wonder API $4.00/$20.00 per 1M input/output, cache hit $0.20; Muse Wonder Full $50/month (Muse Code subscribers; Power Usage / new Maximum Usage plans).
+- **Pricing (as of 2026-11-06):** Muse Wonder API $4.00/$20.00 per 1M input/output, cache hit $0.20; Muse Wonder Full $50/month (Muse Code subscribers; Power Usage / new Maximum Usage plans).
 
 - **Architecture:** Proprietary (Wonder / Wonder Full); MoE (Wonder Open sibling is 816B total / 42B active MoE, multimodal, 1M, open weights — distinct release).
 
@@ -57,7 +57,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/muse-wonder)** — 2026-11-01
+- Provided by: **Flint (opencode/muse-wonder)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta research.meta.ai Muse Wonder model card + dev hub, Meta research blog, FB news) plus independent benchmarks/reviews (Artificial Analysis, RankLLMs, benchgap, LMArena, systemcard.io) — three independent web searches.
 - Reference URLs:
   - [Muse Wonder Model Card](https://research.meta.ai/static/muse-wonder-model-card)

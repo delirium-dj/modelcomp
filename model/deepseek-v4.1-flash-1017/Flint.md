@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** DeepSeek V4.1 Flash 1017
-- **Short description:** DeepSeek's 2026-10-17 updated checkpoint of V4.1 Flash (MIT, 552B/16B-active CED MoE, 1M ctx) - improved reasoning, coding, agentic tasks, visual understanding.
+- **Short description:** DeepSeek's 2026-11-06 updated checkpoint of V4.1 Flash (MIT, 552B/16B-active CED MoE, 1M ctx) - improved reasoning, coding, agentic tasks, visual understanding.
 - **Provider / access:** DeepSeek API, Hugging Face (`https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017`), OpenCode Zen / OpenRouter routes (`opencode/deepseek-v4.1-flash-1017`).
-- **Release / knowledge:** Released 2026-10-17; knowledge cutoff 2025-05 (models.dev).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2025-05 (models.dev).
 - **IDs:** `deepseek-ai/DeepSeek-V4.1-Flash-1017`; `opencode/deepseek-v4.1-flash-1017`.
 - **Context window:** **1,000,000** total / **384,000** max output (models.dev; repo meta 1M/384K).
 - **Modalities:** Text, image in; text out (models.dev).
-- **Pricing (as of 2026-10-25):** Open weights; $0.30/$1.20 per 1M peak, $0.15/$0.60 off-peak (hosted deepseek-flash).
+- **Pricing (as of 2026-11-06):** Open weights; $0.30/$1.20 per 1M peak, $0.15/$0.60 off-peak (hosted deepseek-flash).
 
 - **Architecture:** Open-weights MoE (552B total / 16B active CED); MIT.
 

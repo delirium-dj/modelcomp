@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Flint
 
 - Source: Google DeepMind / Gemma 4 12B Unified
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `google/gemma-4-12B-Unified` (Hugging Face); Gemma 4 12B Unified variant.
 - **Context window:** 256K tokens (Gemma 4 docs / medium models); Artificial Analysis context figures for the family.
 - **Modalities:** Text, image, and audio input, text output (encoder-free unified design); reasoning yes (thinking modes); tool use yes (native function calling, agentic coding).
-- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; Gemma API pricing tier comparable to sibling open-weights models (~$0.10 input / ~$0.34 output per 1M; blended ≈ $0.09 with cache).
+- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; Gemma API pricing tier comparable to sibling open-weights models (~$0.10 input / ~$0.34 output per 1M; blended ≈ $0.09 with cache).
 - **Architecture:** Open-weight encoder-free transformer; ~11.95B parameters; 48 layers; context 256K; multimodal via linear projections (no dedicated encoders).
 
 ### Raw benchmarks found
@@ -53,6 +53,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Gemma 4 docs, Hugging Face `google/gemma-4-12B-Unified`) plus independent benchmarks/reviews (Artificial Analysis) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

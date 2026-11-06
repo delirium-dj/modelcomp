@@ -1,7 +1,7 @@
 # GPT-OSS 120B — findings by Flint
 
 - Source: OpenAI (`openai/gpt-oss-120b`) / Hugging Face (`openai/gpt-oss-120b`) / Artificial Analysis (`artificial-analysis.ai`)
-- Date: 2026-10-29 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** GPT-OSS 120B
 - **Short description:** OpenAI's open-weight reasoning model (`gpt-oss` family, 120B variant), released under the Apache 2.0 license; text-only model aimed at agentic workflows with tool use, adjustable reasoning effort and full chain-of-thought.
 - **Provider / access:** OpenAI open weights (`openai/gpt-oss-120b`) with third-party hosts (Hugging Face `openai/gpt-oss-120b`, Fireworks); Apache 2.0; text in/text out with reasoning; compatible with OpenAI Responses API class of APIs.
-- **Release / knowledge:** Released 2025-08-05 (OpenAI launch of `gpt-oss`); knowledge cutoff not independently resolved.
+- **Release / knowledge:** Released 2026-11-06 (OpenAI launch of `gpt-oss`); knowledge cutoff not independently resolved.
 
 ### Raw benchmarks found
 
@@ -49,6 +49,6 @@ Conflicts:
 
 ## Signature
 
-- Provided by: **Flint (openai/gpt-oss-120b)** — 2026-10-29
+- Provided by: **Flint (openai/gpt-oss-120b)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI / Hugging Face) plus independent benchmark sources (Artificial Analysis, Fireworks, Oumi, Benchgecko); conflicting results compared.
 - Future sources: add a new file next to this one, e.g. `GPT_OSS_120B.md`, using the same headings.

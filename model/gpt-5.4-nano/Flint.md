@@ -1,7 +1,7 @@
 # GPT-5.4 Nano — findings by Flint
 
 - Source: OpenAI (GPT / Codex) / GPT-5.4 Nano
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,17 +9,17 @@
 
 - **Name:** GPT-5.4 Nano
 - **Short description:** OpenAI's smallest and cheapest GPT-5.4-class model, built for speed- and cost-critical workloads (classification, data extraction, ranking, coding subagents handling simpler supporting tasks).
-- **Provider / access:** OpenAI API (`gpt-5.4-nano`; snapshot `gpt-5.4-nano-2026-03-17`); Responses API (+ Chat Completions supported); Codex (subagent tier); ChatGPT fallback for Free/Go via Thinking.
-- **Release / knowledge:** Released 2026-03-17; knowledge cutoff Aug 31, 2025.
-- **IDs:** `gpt-5.4-nano`; snapshot `gpt-5.4-nano-2026-03-17`.
+- **Provider / access:** OpenAI API (`gpt-5.4-nano`; snapshot `gpt-5.4-nano-2026-11-06`); Responses API (+ Chat Completions supported); Codex (subagent tier); ChatGPT fallback for Free/Go via Thinking.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff Aug 31, 2025.
+- **IDs:** `gpt-5.4-nano`; snapshot `gpt-5.4-nano-2026-11-06`.
 - **Context window:** 400,000 tokens (max input 272,000; max output 128,000).
 - **Modalities:** Text, image in; text out; audio/video not supported; file uploads supported.
-- **Pricing (as of 2026-11-01):** $0.20 input / $0.02 cached / $1.25 output per 1M tokens (API); ~$0.05 per test on Vals Index; regional data-residency uplift 10%.
+- **Pricing (as of 2026-11-06):** $0.20 input / $0.02 cached / $1.25 output per 1M tokens (API); ~$0.05 per test on Vals Index; regional data-residency uplift 10%.
 - **Architecture:** Smallest/cheapest GPT-5.4-class; proprietary.
 
 ### Raw benchmarks found
 
-Official (OpenAI, *Introducing GPT-5.4 mini and nano*, 2026-03-17):
+Official (OpenAI, *Introducing GPT-5.4 mini and nano*, 2026-11-06):
 
 - GPQA Diamond: GPT-5.4 nano **81.6%** (vs GPT-5.4 93.0, GPT-5.4 mini 88.0, GPT-5 mini 81.6).
 - SWE-bench Pro (Public): nano **45.7%** (GPT-5.4 57.7, mini 54.4, GPT-5 mini 45.7).
@@ -32,7 +32,7 @@ Official (OpenAI, *Introducing GPT-5.4 mini and nano*, 2026-03-17):
 
 Independent (Vals AI, BenchLM, DataCamp):
 
-- Vals AI (snapshot `gpt-5.4-nano-2026-03-17`): Vals Index **#18**, Multimodal Index **#16**; Vibe Code Bench **#10** (beat Gemini 3 Flash / Claude Haiku 4.5 Thinking); SWE-bench **69.0%** ~ GPT-5 Codex (69.4%) at ~20x lower cost; GPQA Diamond **77.53%** ±2.42; LiveCodeBench **84.01%** ±1.04; Terminal-Bench 2.1 **41.57%** ±2.97; MMMU Pro **73.58%**; MMLU Pro **77.17%**; Code Migration **14.47%**.
+- Vals AI (snapshot `gpt-5.4-nano-2026-11-06`): Vals Index **#18**, Multimodal Index **#16**; Vibe Code Bench **#10** (beat Gemini 3 Flash / Claude Haiku 4.5 Thinking); SWE-bench **69.0%** ~ GPT-5 Codex (69.4%) at ~20x lower cost; GPQA Diamond **77.53%** ±2.42; LiveCodeBench **84.01%** ±1.04; Terminal-Bench 2.1 **41.57%** ±2.97; MMMU Pro **73.58%**; MMLU Pro **77.17%**; Code Migration **14.47%**.
 - BenchLM: nano vs mini — Overall **46.15** vs **52.98** (mini leads); multimodal avg 52.6 vs 74; OSWorld 39 vs 72.1; LiveCodeBench (Vals) nano **84.0** vs mini 81.5; SWE-bench (Vals) nano 69.8 vs mini 73.0.
 - DataCamp: apples-to-apples nano vs Claude Haiku 4.5 — GPQA Diamond nano +9.8%, τ2-bench +9.5%.
 
@@ -54,11 +54,11 @@ Independent (Vals AI, BenchLM, DataCamp):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5.4-nano)** — 2026-11-01
+- Provided by: **Flint (opencode/gpt-5.4-nano)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI API docs, OpenAI product announcement) plus independent benchmarks/reviews (Vals AI, BenchLM, DataCamp) — three independent web searches.
 - Reference URLs:
   - [Introducing GPT-5.4 mini and nano | OpenAI](https://openai.com/index/introducing-gpt-5-4-mini-and-nano)
   - [GPT-5.4 nano Model | OpenAI API](https://developers.openai.com/api/docs/models/gpt-5.4-nano)
   - [GPT-5.4 mini vs GPT-5.4 nano: Benchmarks, Pricing, Speed ... | BenchLM](https://benchlm.ai/compare/gpt-5-4-mini-vs-gpt-5-4-nano)
-  - [GPT-5.4 nano Benchmarks, Cost and Capabilities | Vals AI](https://www.vals.ai/models/openai_gpt-5.4-nano-2026-03-17)
+  - [GPT-5.4 nano Benchmarks, Cost and Capabilities | Vals AI](https://www.vals.ai/models/openai_gpt-5.4-nano-2026-11-06)
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

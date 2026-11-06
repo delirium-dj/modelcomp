@@ -4,6 +4,10 @@
   "short": "Alibaba's Qwen model evaluation entry.",
   "contextWindow": "128K total",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "officialUrl": "https://qwenlm.github.io/"
+  "pricingNote": "Paid commercial API ~$0.32–$1.48/$1.28–$4.43 per 1M",
+  "officialUrl": "https://qwenlm.github.io/",
+  "noFreeId": true,
+  "pricingLinks": [
+    "https://www.alibabacloud.com/help/en/model-studio/models"
+  ]
 }

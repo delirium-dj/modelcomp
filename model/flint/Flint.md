@@ -1,7 +1,7 @@
 # Flint — findings by Flint
 
 - Source: Recursive Superintelligence (Recursive) / Flint
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Flint
 - **Short description:** Open-weight-ish reasoning model / open MoE coding model from Recursive Superintelligence; Apache 2.0; reasoning always on; tool use via runtime; text/text modalities.
 - **Provider / access:** OpenAI-compatible local serving (Ollama flint, llama.cpp, Unsloth/LM Studio GGUFs, vLLM, SGLang, rec engine); hosted/free API via Recursive; OpenCode Zen opencode/flint.
-- **Release / knowledge:** Released 2026-10-21 (some sources 2026-10-19); knowledge cutoff June 2026.
+- **Release / knowledge:** Released 2026-11-06 (some sources 2026-11-06); knowledge cutoff June 2026.
 - **IDs:** RecursiveSI/flint, local flint, opencode/flint.
 - **Context window:** 262,144 tokens documented; Recursive flags up to 512K recommend 256K; local client gen budget 65,536 incl reasoning.
 - **Modalities:** Text in/out; reasoning always on; tool use via runtime; text-only.
-- **Pricing as of 2026-10-22:** Free.
+- **Pricing as of 2026-11-06:** Free.
 - **Architecture:** MoE 39.8B/2.5B active, 49 layers, sliding window 513, 256 experts (6 routed + shared), hidden 2048, vocab 150,144, trained from scratch, Apache 2.0.
 
 ### Raw benchmarks found
@@ -40,6 +40,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-22
+- Provided by: **Flint (opencode/flint)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Recursive, HF) plus independent benchmarks/reviews (WIRED, press, BenchLM).
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

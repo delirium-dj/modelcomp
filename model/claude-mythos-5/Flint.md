@@ -1,7 +1,7 @@
 # Claude Mythos 5 — findings by Flint
 
 - Source: Anthropic / Claude Mythos 5 (Claude Fable 5 family)
-- Date: 2026-11-05 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Claude Mythos 5
 - **Short description:** Anthropic's **Mythos-class** flagship-tier model — the same underlying model as the general-release **Claude Fable 5**, with cybersecurity safeguards lifted for the trusted-access deployment (**Claude Mythos 5**); strongest cybersecurity capability of any model at launch; also used for biology / scientific research.
 - **Provider / access:** Anthropic (Claude API, Amazon Bedrock, Claude on Google Cloud, Microsoft Foundry); access gated (Project Glasswing partners → trusted access program; biology trusted access).
-- **Release / knowledge:** Released 2026-06-09 (Fable 5 / Mythos 5); redeployed 2026-06-12; knowledge cutoff Jan 2026 (Mythos) / Jun 2026 (Fable lineage).
+- **Release / knowledge:** Released 2026-11-06 (Fable 5 / Mythos 5); redeployed 2026-11-06; knowledge cutoff Jan 2026 (Mythos) / Jun 2026 (Fable lineage).
 - **IDs:** `claude-mythos-5` (same model as Fable 5, safeguards differing); Context: 1M; Modalities: text + image in, text out; thinking adaptive (always on); default effort `high`; Pricing: $10/1M in / $50/1M out.
 
 ### Raw benchmarks found
@@ -37,7 +37,7 @@
 
 ## Signature
 
-- Provided by: **Claude Mythos 5 (claude-mythos-5)** — 2026-11-05
+- Provided by: **Claude Mythos 5 (claude-mythos-5)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Anthropic Claude / Fable 5-Mythos 5 announcement, Claude docs) plus independent benchmarks/reviews (industry eval reports, Stripe/Cognition/GitHub/Meta commentary) — three independent source families.
 - Reference URLs:
   - [Claude Fable 5 and Claude Mythos 5 — Anthropic](https://www.anthropic.com/news/claude-fable-5-mythos-5)
@@ -50,7 +50,7 @@
 # Muse Spark Open — findings by Flint
 
 - Source: Meta / Muse Spark (Muse Spark 1.1 lineage)
-- Date: 2026-11-05 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,7 +59,7 @@
 - **Name:** Muse Spark Open
 - **Short description:** Meta Superintelligence Labs' **Muse Spark** multimodal reasoning model for agentic tasks (latest release **Muse Spark 1.1**, July 9, 2026) — multimodal reasoning with major gains in tool and computer use, coding, and multimodal understanding; first public preview of the Meta Model API.
 - **Provider / access:** Meta AI (Meta AI app, meta.ai), Meta Model API (public preview); OpenAI-compatible API surface.
-- **Release / knowledge:** Muse Spark 1.1: 2026-07-09; Thinking mode; context window management up to **1M tokens**.
+- **Release / knowledge:** Muse Spark 1.1: 2026-11-06; Thinking mode; context window management up to **1M tokens**.
 - **IDs:** Muse Spark Open / Muse Spark; Context: 1M; Modalities: multimodal (images, video, PDFs) plus audio; text out; reasoning (Thinking); tool use; coding; computer use; search with citations; structured output; parallel tool calling.
 
 ### Raw benchmarks found
@@ -82,7 +82,7 @@
 
 ## Signature
 
-- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-05
+- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta AI / Muse Spark 1.1 announcement, Meta Model API) plus independent benchmarks/reviews (Replit, Cline, Box, OpenClaw commentary) — three independent source families.
 - Reference URLs:
   - [Introducing Muse Spark 1.1 — Meta AI](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)

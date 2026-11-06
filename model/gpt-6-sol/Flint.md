@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GPT-6 Sol (Max)
-- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-09-22; positioned as a leading agentic/coding model. Flags: proprietary, parameter count undisclosed; now marked deprecated upstream in favour of GPT-6.1 Sol.
+- **Short description:** Proprietary reasoning-tier model from OpenAI, released 2026-11-06; positioned as a leading agentic/coding model. Flags: proprietary, parameter count undisclosed; now marked deprecated upstream in favour of GPT-6.1 Sol.
 - **Provider / access:** OpenAI first-party API (`openai/gpt-6-sol`); reasoning via extended thinking; text and image input, text output. Artificial Analysis records this model available through 7 API providers.
-- **Release / knowledge:** Released 2026-09-22 (Artificial Analysis). Context window figure conflicts between sections (1M vs 1.1M) and was flagged.
+- **Release / knowledge:** Released 2026-11-06 (Artificial Analysis). Context window figure conflicts between sections (1M vs 1.1M) and was flagged.
 - **IDs:** `openai/gpt-6-sol` (OpenAI); "GPT-6 Sol (max)" variant tracked.
 - **Context window:** 1M tokens per FAQ / 1.1M per comparison summary — conflicting figures within the same source; flagged for reconciliation.
 - **Modalities:** Text and image input, text output — multimodal (image input).
-- **Pricing (as of 2026-10-23):** $2.00 per 1M input / $10.00 per 1M output; cache discount 90%; blended $1.54 per 1M tokens; $1.04 per Intelligence Index task on average.
+- **Pricing (as of 2026-11-06):** $2.00 per 1M input / $10.00 per 1M output; cache discount 90%; blended $1.54 per 1M tokens; $1.04 per Intelligence Index task on average.
 
 ### Raw benchmarks found
 

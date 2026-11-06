@@ -10,7 +10,7 @@
 - **Name:** Gemini 3 Pro (first flagship of the Gemini 3 generation; sparse MoE transformer; native multimodal; trained from scratch).
 - **Short description:** Flagship reasoning model; advanced reasoning, multimodal, vibe/agentic coding; released Nov 18, 2025.
 - **Provider / access:** Google AI (Gemini API `gemini-3-pro`, AI Studio, Gemini app), Antigravity; pricing $2/M in / $12/M out.
-- **Release / knowledge:** Released 2025-11-18; knowledge cutoff not stated in sources found.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated in sources found.
 - **IDs:** gemini-3-pro; Context: 1,048,576 (1M); max output 65,536; Modalities: text, image, video, audio, PDF, code; multimodal.
 - **Architecture:** Proprietary Google model; sparse MoE.
 

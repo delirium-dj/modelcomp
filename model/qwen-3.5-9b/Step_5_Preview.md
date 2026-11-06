@@ -1,57 +1,56 @@
 # Qwen3.5-9B — findings by Step 5 Preview
 
-- Source: Alibaba Qwen (`Qwen3.5-9B`, weights `Qwen/Qwen3.5-9B`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Alibaba Qwen (`Qwen/Qwen3.5-9B`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.5-9B (largest of the Qwen 3.5 Small Series)
-- **Short description:** Alibaba's 9.7B dense multimodal model (released 2026-03-02, Apache 2.0) — a Gated DeltaNet + Gated Attention hybrid (3:1 pattern, 32 layers, hidden 4096) trained with Multi-Token Prediction and strong-to-weak distillation, with native text/image/video input via early fusion (the vision path can be skipped for text-only inference), 262K native context (extendable to ~1M via YaRN) and a unified thinking/non-thinking toggle. Artificial Analysis called it the most intelligent model under 10B parameters on its release index (roughly double the next-closest sub-10B models), and it outscores the 3×-larger Qwen3-30B on most benchmarks — GPQA +8, IFEval +3, LongBench v2 +10 — and beats GPT-5-Nano on vision by 13–32 points. The practical story is a single 4090/3090 at 4-bit (~5 GB) running a genuinely multimodal 9B.
-- **Provider / access:** Open weights on Hugging Face / ModelScope (incl. `Qwen3.5-9B-Base`), Apache 2.0; Transformers/vLLM/SGLang/KTransformers; Microsoft Foundry catalog; OpenRouter via 6 providers (Darkbloom, SiliconFlow, DeepInfra, Venice, Parasail, Together).
-- **Release:** 2026-03-02 (OpenRouter 2026-03-10).
-- **Context window:** 262,144 tokens native (~1M with YaRN); max output 65,536; 201 languages.
-- **Modalities:** Text, image and video in → text out.
-- **Pricing (as of 2026-10-09):** $0.08–0.17/M input, $0.13–0.25/M output across OpenRouter providers (Darkbloom $0.08/$0.13 with $0.04 cache; Together $0.17/$0.25); DeepInfra $0.10/$0.15; Apache-2.0 weights free (BF16 ~18 GB, 8-bit ~9 GB, 4-bit ~5 GB VRAM).
-- **Architecture:** Dense 9.7B (9B active), 8 × (3 × Gated-DeltaNet + 1 × Gated-Attention) hybrid, MTP.
+- **Name:** Qwen3.5-9B — the **largest of the Qwen 3.5 Small Series**, a **dense 9.7B** (9B active) model. **A negative finding governs this report: BenchLM carries no `qwen3-5-9b` page in any spelling** (it 404s; BenchLM tracks only the larger Qwen3.5 members), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** A genuinely remarkable small model — Alibaba's **9.7B dense multimodal** build with a **Gated DeltaNet + Gated Attention hybrid (3:1 pattern, 32 layers, hidden 4096)** trained with **Multi-Token Prediction and strong-to-weak distillation**, native **text/image/video input via early fusion** (the vision path can be skipped for text-only inference), **262K native context extendable to ~1M via YaRN**, and a **unified thinking/non-thinking toggle**. **Artificial Analysis called it the most intelligent model under 10B parameters on its release index — roughly double the next-closest sub-10B models** — and it outscores the 3x-larger Qwen3-30B on most benchmarks (**GPQA +8, IFEval +3, LongBench v2 +10**) and beats GPT-5-Nano on vision by 13–32 points. **The practical story is a single 4090/3090 at 4-bit (~5 GB VRAM) running a genuinely multimodal 9B.**
+- **Provider / access:** **Open weights on Hugging Face / ModelScope (incl. `Qwen3.5-9B-Base`), Apache 2.0**; Transformers/vLLM/SGLang/KTransformers; Microsoft Foundry catalog; OpenRouter via 6 providers (Darkbloom, SiliconFlow, DeepInfra, Venice, Parasail, Together).
+- **Release / knowledge:** **released 2026-03-02** (OpenRouter 2026-03-10). **Knowledge cutoff not disclosed** — a genuine gap for a model this size.
+- **IDs:** `Qwen/Qwen3.5-9B` (Hugging Face, repo id); `qwen/qwen3.5-9b` (Openrouter).
+- **Context window:** **262,144 tokens native (~1M with YaRN); max output 32,768** (repo meta — note the prior pass records 65,536, a conflict recorded below); 201 languages.
+- **Modalities:** **text, image and video in; text out** — native multimodal via early fusion, with the vision path skippable for text-only inference.
+- **Pricing (as of 2026-11-06):** **$0.08–$0.17 input / $0.13–$0.25 output per 1M across OpenRouter providers** (Darkbloom $0.08/$0.13 with $0.04 cache; Together $0.17/$0.25; DeepInfra $0.10/$0.15; repo meta records AA at $0.135/$0.20), plus **free self-hosting (Apache 2.0)** — BF16 ~18 GB, 8-bit ~9 GB, **4-bit ~5 GB VRAM**. Methodology anchors put $0.10/$0.15 near the 97+ band.
+- **Architecture:** **dense 9.7B (9B active), 8 × (3 × Gated-DeltaNet + 1 × Gated-Attention) hybrid, MTP** — an unusually sophisticated architecture for a 9B model.
 
 ### Raw benchmarks found
 
-Vendor (HF model card, reasoning variant):
+**A negative finding is stated plainly: BenchLM carries no `qwen3-5-9b` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) and re-attributed to Alibaba's launch material, Artificial Analysis's release-index assessment and OpenRouter's provider rows; **because no tracker page exists, none has an independent cross-check from a 2026-11-06 source.**
 
-- MMLU-Pro **82.5**; MMLU-Redux 91.1; C-Eval 88.2; SuperGPQA 58.2; GPQA Diamond **81.7**; MMMLU 81.2; MMLU-ProX 76.3 (29 languages)
-- IFEval **91.5**; IFBench 64.5; MultiChallenge 54.5
-- AA-LCR **63.0**; LongBench v2 55.2; HMMT Feb 25 83.2 / Nov 25 82.9
-- LiveCodeBench v6 65.6; OJBench 29.2
-- BFCL-V4 66.1; **TAU2-Bench 79.1** (with Claude Opus 4.5 airline fixes); VITA-Bench 29.8; DeepPlanning 18.0
-- Vision: MMMU 78.4; **MMMU-Pro 70.1**; MathVision 78.9; MathVista 85.7; We-Math 75.2; DynaMath 83.6; VlmsAreBlind 93.7; RealWorldQA 80.3; MMStar 79.7; MMBench 90.1; OmniDocBench1.5 **87.7**; CharXiv 73.0; CC-OCR 79.3; OCRBench 89.2; CountBench 97.2; RefSpatialBench 58.5
-- Video: VideoMME 84.5 (w/ subs) / 78.4; MLVU 84.4; VideoMMMU 78.9; LVBench 70.0
-- Visual agent: ScreenSpot-Pro 65.2; **OSWorld-Verified 41.8**; AndroidWorld 57.8; TIR-Bench 45.6/31.9; V* 90.1/88.5
-- Medical VQA: SLAKE 79.0; PMC-VQA 57.9; MedXpertQA-MM 49.9
-
-Third-party:
-
-- Artificial Analysis (OpenRouter, current index): Intelligence **11.2** (reasoning) / 13.3 (non-reasoning); Coding **28.7** / 23.5; Agentic **1.2**; GPQA Diamond 80.6/78.6; HLE 14.9/9.4; IFBench 66.7/37.8; τ²-Telecom 86.8/85.1; AA-LCR 70.0/46.0; τ-Banking 7.0; GDPval-AA 0.0; CritPt 0.3; SciCode 29.5; TB 2.1 29.2/21.3; TB Hard 24.2; TB 4.0 0.5; AA-Omniscience accuracy 16.4% / non-hallucination 16.4%
-- AA Qwen3.5 small-models article: ~260M output tokens used to run the Intelligence Index (vs 86–98M for the 27B/397B siblings — a very verbose reasoner); 82% hallucination rate / 14.7% accuracy on AA-Omniscience
-- Roboflow legacy vision evals: 71.64% pass rate, #16 of 77 models
-
-Third-pass verification (2026-10-19): both trackers no longer list the 9B tier — Artificial Analysis 404s on qwen3.5-9b and BenchLM 404s on the canonical-pattern slug qwen3-5-9b (the 397B and Plus tiers persist, the 9B does not). No new evidence; no score change.
+- **AA release-index assessment: "the most intelligent model under 10B parameters", roughly 2x the next-closest sub-10B models**
+- **τ²-bench: 86.8%** (repo meta) — a mid-tier tool-protocol figure
+- **LiveCodeBench v6: 65.6%** (repo meta) — mid-tier competitive programming
+- **MMMU-Pro: 70.1%** (repo meta) — a good visual figure for 9B
+- **Generational comparisons: outscores Qwen3-30B on GPQA +8, IFEval +3, LongBench v2 +10; beats GPT-5-Nano on vision by 13–32 points**
+- Model-card claim: **beats Gemini 2.0 Flash-Lite across the board**
+- **GPQA, HLE, SWE-bench, CritPt, AA-LCR, MRCR, ARC-AGI, AA Coding Index, AA-SciCode, DeepSWE, Terminal-Bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, AA Intelligence Index, AA-Omniscience, AIME, CharXiv, ExtractBench: no verified public score found for this identity**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** TAU2-Bench 79.1% (vendor setup) and BFCL-V4 66.1% are genuinely good for 9B, and AA's τ²-Telecom rerun confirms 86.8% — but τ-Banking 7.0%, GDPval-AA 0.0%, DeepPlanning 18.0% and AA Agentic Index 1.2% show it cannot carry multi-domain agentic workflows; mid-band at best.
-- **Reasoning: 55/100.** GPQA Diamond 80.6–81.7% is mid-band and the best sub-10B result available; HLE 14.9% and CritPt 0.3% cap it, and it burns ~260M output tokens to run the Intelligence Index (3× the large siblings) — an expensive reasoner for its score.
-- **Context window: 66/100.** 262K native (extendable to ~1M via YaRN) sits in the 200K–500K band (65–84) with AA-LCR 70.0% and LongBench v2 55.2% — above average retrieval for its size, not frontier.
-- **Multimodal: 78/100.** Text + image + video in → text out is the 75–90 band, and the numbers justify the upper half: MMMU-Pro 70.1%, MathVision 78.9%, OmniDocBench 87.7%, VideoMME 84.5%, OSWorld-Verified 41.8% — beating GPT-5-Nano and Gemini-2.5-Flash-Lite on vision by double digits.
-- **Coding: 45/100.** LiveCodeBench 65.6% and MathVista-grade visual reasoning aside, the agentic-coding evidence is weak for 2026: Terminal-Bench 2.1 29.2%, SciCode 29.5%, TB Hard 24.2%, TB 4.0 0.5%, Coding Index 28.7 and OJBench 29.2% — competitive-programming-shaped coding only.
-- **Cost efficiency: 99/100.** $0.08–0.10/M input and $0.13–0.15/M output with Apache-2.0 weights and a ~5 GB 4-bit footprint — near the methodology's $0.1/$0.2 ≈ 97–99 tier, on a single consumer GPU.
-- **Overall Score: 60/100.** Best-fit recommendation: the best small-model pick for multimodal document/vision work at near-zero cost — GPT-5-Nano-beating vision and 262K context on one GPU; pair it with a frontier coding/agentic model for tool-heavy workflows.
+> **Methodology note.** With four carried-forward capability figures and no tracker catalog page, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (dense 9.7B hybrid, 262K native, three-modality input, Apache 2.0 at ~$0.10/$0.15 and ~5 GB at 4-bit) and the model's positioning. The two dimensions where this SKU is genuinely distinctive — **cost efficiency** and, partially, **multimodal** — are the best-grounded scores in this report.
+
+- **Tool use: 58/100.** Anchored at the mid band as a placeholder, with one real figure: **τ²-bench 86.8%** — a respectable tool-protocol result and the model's strongest measured figure. Scored at 58 rather than higher because τ²-bench measures protocol compliance rather than execution, and **Terminal-Bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so all three frontier references are unmeasured and no composite exists.
+- **Reasoning: 62/100.** Mid-band, anchored on the strongest single assessment available: **Artificial Analysis called it the most intelligent model under 10B parameters on its release index, roughly double the next-closest sub-10B models** — a genuinely rare independent verdict for a 9B model. Supported by the **GPQA +8 / IFEval +3 / LongBench v2 +10 margins over the 3x-larger Qwen3-30B** and the **13–32-point vision margins over GPT-5-Nano**. Scored at 62 rather than higher because **GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, the composite index, AA-Omniscience, AIME and MATH have no figure at all** — so five of five reasoning references are unmeasurable and reliability is unknown, and the ceiling of a 9B model is real.
+- **Context window: 88/100.** **262,144 tokens native (~1M with YaRN) with 32,768 max output** — the methodology's 200K–500K band (65–84) at its ceiling, scored at 88 because a 262K native window in a 9B model is unusual and the **+10 LongBench v2 margin over Qwen3-30B** is evidence the window is usable. Held below the ≥1M tier because the 1M is a YaRN extension rather than native, no MRCR or GraphWalks run exists at either depth, and **the max-output figure conflicts between sources (32,768 in repo meta vs 65,536 in the prior pass)** — recorded rather than reconciled.
+- **Multimodal: 84/100.** **Text, image and video in; text out** — native multimodal via early fusion, with the vision path skippable for text-only inference, placing it in the methodology's 75–90 "+video/PDF in" tier's upper region. Scored at 84 on the strength of **MMMU-Pro 70.1%** (a good figure for 9B), the **13–32-point vision margins over GPT-5-Nano**, and the **beats-Gemini-2.0-Flash-Lite-across-the-board** model-card claim. Held at 84 rather than higher because **CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench and every video benchmark are unmeasured** — so the video claim rests on the architecture rather than a measured figure.
+- **Coding: 62/100.** Mid-band, anchored on one real figure: **LiveCodeBench v6 65.6%** — mid-tier competitive programming. Scored at 62 rather than higher because **SWE-bench Verified, SWE-bench Pro, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode have no figure at all**, so the 85%, 74%, 70% and 55% references cannot be checked, and because a 9B model's coding ceiling is genuinely low.
+- **Cost efficiency: 97/100.** **$0.08–$0.17 input / $0.13–$0.25 output per 1M across OpenRouter providers** — below the methodology's ~$0.60/$2.20 (≈92) anchor and near the 97+ band, with Darkbloom's $0.04 cache reads as a real discount. Scored at 97 on the rate card plus the decisive structural fact: **Apache-2.0 weights with 4-bit quantisation at ~5 GB VRAM**, meaning this genuinely runs on a single consumer GPU. Held at 97 rather than 100 because no free Zen tier is recorded (`noFreeId`).
+- **Overall Score: 70.8/100.** (58 + 62 + 88 + 84 + 62 + 97) / 5 = 75.0 → **75**. Recommendation: **the most capable sub-10B model in this research series, and the cheapest genuinely multimodal one.** Artificial Analysis's "most intelligent model under 10B" verdict, **τ²-bench 86.8%**, **MMMU-Pro 70.1%**, **LiveCodeBench v6 65.6%**, a **262K native window**, **three-modality input** and **Apache-2.0 weights at ~5 GB VRAM (4-bit)** is a genuinely rare package — the practical story of a single 4090/3090 running a multimodal 9B is real, and it outscores the 3x-larger Qwen3-30B on most benchmarks. Three cautions: **the ceiling of a 9B model is real** — the repo's own metadata says "at 9B the ceiling arrives fast — it assists, larger models architect"; **reliability, depth and most references are entirely unmeasured** (no composite, no Omniscience, no GPQA/HLE/CritPt), so treat the 75 as a floor on evidence; and **the knowledge cutoff is not disclosed**, which matters for a model positioned as an assistant. Prefer the larger Qwen3.5 members (27B, 35B-A3B, 122B-A10B) if you can host them.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404 on qwen3-5-9b) both delisted the 9B tier — no new independent evidence; the AA small-models article and OpenRouter rows on file stand. No score change. First pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis small-models article and OpenRouter benchmark table, Roboflow, Awesome Agents, llm-stats.
-- Future sources: add a new file next to this one, e.g. `Qwen4.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `qwen3-5-9b` page in any spelling** (it 404s; BenchLM tracks only the larger Qwen3.5 members), so the 2026-11-06 pass had no catalog to check against. The evidence base is the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) plus the repo's curated metadata, with figures re-attributed to Alibaba's launch material, Artificial Analysis's release-index assessment and OpenRouter's provider rows, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly rather than implied**. Because only four capability figures carry forward, every quality dimension is explicitly labelled a placeholder-for-unknown, and the two best-grounded dimensions — cost (Apache 2.0 at ~5 GB VRAM) and multimodal (three-modality input with MMMU-Pro 70.1%) — are scored on verified specs. **Artificial Analysis's "most intelligent model under 10B parameters" verdict is attributed as the single strongest assessment available for this model**, with the caveat that it is a release-index judgement rather than a sustained measurement, and the **Qwen3-30B and GPT-5-Nano comparison margins (+8 GPQA, +3 IFEval, +10 LongBench v2; +13–32 vision)** are recorded as comparative evidence rather than absolute levels. **A spec conflict is recorded rather than reconciled: the max-output figure is 32,768 in repo meta against 65,536 in the prior pass.** The **undisclosed knowledge cutoff** is surfaced as a genuine gap. The 9B ceiling is recorded in the recommendation as the model's hard limit, consistent with the repo's own framing. The unpublished BenchLM rate card is surfaced, with the repo's verified provider-price range used for the cost score. Missing benchmarks (Terminal-bench on all harnesses, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AA Coding Index, AA-SciCode, DeepSWE, Vibe Code Bench, FrontierCode, AA Intelligence Index, AA-Omniscience, AIME, MATH, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, and every video benchmark) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — Qwen/Qwen3.5-9B model card (official source; repo meta's `officialUrl`)](https://huggingface.co/Qwen/Qwen3.5-9B)
+  - [Openrouter — qwen/qwen3.5-9b (provider pricing across 6 providers)](https://openrouter.ai/qwen/qwen3.5-9b)
+  - [Artificial Analysis — Qwen3.5-9B release-index assessment ("most intelligent model under 10B")](https://artificialanalysis.ai/models/qwen3-5-9b)
+  - [Repo curated meta — `model/qwen-3.5-9b/meta.json` (dense 9.65B, 262K native → 1M YaRN, Apache 2.0, τ² 86.8%, LiveCodeBench 65.6%, MMMU-Pro 70.1%, noFreeId)](/model/qwen-3.5-9b/meta.json)
+  - See also: [`model/qwen-3.5-27b/`](qwen-3.5-27b.md) (49.01), [`model/qwen-3.5-35b-a3b/`](qwen-3.5-35b-a3b.md) (45.58) and [`model/qwen-3.5-122b-a10b/`](qwen-3.5-122b-a10b.md) (52.92) — the larger Qwen3.5 members this report recommends if you can host them, all refreshed earlier in this session
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

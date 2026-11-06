@@ -16,7 +16,7 @@
 
 - **Modalities:** Text in/out; reasoning yes (Thinking `quasarflux` / non-reasoning `tensor`); tool use yes (web search, agentic reasoning per xAI).
 
-- **Pricing (as of 2026-10-28):** xAI Grok 4.1 API pricing — not fully resolved in session (Grok 4 was $3/$15 per 1M; Grok 4 Fast $0.20/$0.50); Grok 4.1 inherits frontier-tier pricing.
+- **Pricing (as of 2026-11-06):** xAI Grok 4.1 API pricing — not fully resolved in session (Grok 4 was $3/$15 per 1M; Grok 4 Fast $0.20/$0.50); Grok 4.1 inherits frontier-tier pricing.
 
 - **Architecture:** Proprietary (closed weights); parameter count not disclosed.
 

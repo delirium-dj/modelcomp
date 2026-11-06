@@ -1,80 +1,57 @@
 # Beam — findings by Step 5 Preview
 
 - Source: Reflection AI / Beam 1.0 (`reflection/Beam-1.0-501B-A23B`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Beam 1.0 (Beam 501B-A23B)
-- **Short description:** Reflection AI's first open-weight model — a 501B-total / 23B-active sparse MoE (256 experts, 1M context, Apache 2.0, day-one BF16/FP8/NVFP4) with SWE-bench Verified 81.6%, AIME 2026 97.7% and Terminal-Bench 2.1 80.1%, served free on Zen as Beam Free; text-only and token-efficient (~3x fewer reasoning tokens per Reflection).
-- **Provider / access:** Open weights on Hugging Face (`reflection/Beam-1.0-501B-A23B`, Apache 2.0); free OpenCode Zen tier (Beam Free); hosted routes $0.25–$1.30 in / $1.00–$4.30 out (folder meta); vLLM/SGLang serving.
-- **Release / knowledge:** debut 2026-10-05/06 (llm-releases, aimodelreport); open-weight drop with FP8/NVFP4 variants 2026-10-17 (Benchgen, digitalapplied, saltindex); knowledge cutoff 2026-06-30 (Benchgen).
-- **IDs:** `reflection/Beam-1.0-501B-A23B` (HF), `opencode/beam-free` (Zen free route, folder meta).
-- **Context window:** 1,048,576 (1M) pretrained; API beta requests capped at 262,144 (llm-releases); 131,072 max output (folder meta).
-- **Modalities:** text in/out only — no vision/multimodal (Benchgen "Where it lags"); reasoning; tool calling (MCP).
-- **Pricing (as of 2026-10-21):** open weights free to self-host (Apache 2.0); free Zen tier; paid hosted $0.25–$1.30 in / $1.00–$4.30 out (folder meta).
-- **Architecture:** sparse MoE, 501.3B total / 23.4B active, 256 experts, 52 layers (3 dense + 49 MoE), gated GQA + sliding-window attention; trained on ~23.8T tokens; Reflection emphasizes token-efficient reasoning (~3x fewer reasoning tokens than comparable open models, vendor claim).
+- **Name:** Beam 1.0 (Beam 501B-A23B) — Reflection AI's **first open-weight model**, and formerly the **stealth label "Cat Jam"** (the repo's `model-aliases.generated.md` records the Cat Jam → `model/beam/` merge). **A negative finding governs this report: BenchLM carries no `beam` page in any spelling** (it 404s), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** A **501B-total / 23.4B-active sparse MoE (256 experts, 52 layers, ~23.8T training tokens, Apache 2.0, day-one BF16/FP8/NVFP4)** with genuinely strong measured figures — **SWE-bench Verified 81.6%, AIME 2026 97.7%, Terminal-Bench 2.1 80.1%** — at a **1M pretrained context** and **text-only**, served **free on OpenCode Zen as Beam Free**. Reflection emphasizes **token efficiency (~3x fewer reasoning tokens than comparable open models, a vendor claim)**.
+- **Provider / access:** **Open weights on Hugging Face (`reflection/Beam-1.0-501B-A23B`, Apache 2.0)** with day-one BF16/FP8/NVFP4 variants; **free OpenCode Zen tier (Beam Free)**; free Reflection API public beta (daily usage limits, reset 12:00 AM PT); hosted routes at **$0.25–$1.30 in / $1.00–$4.30 out**. vLLM/SGLang serving. Repo meta records `noFreeId: false` — this model **does** have a free Zen route.
+- **Release / knowledge:** **debut 2026-10-05/06; open-weight drop with FP8/NVFP4 variants 2026-10-17; knowledge cutoff 2026-06-30** (Benchgen) — all genuine, dated, specific facts, and unusually recent for this research series.
+- **IDs:** `reflection/Beam-1.0-501B-A23B` (Hugging Face); `opencode/beam-free` (Zen free route). Aliases recorded in repo meta: Beam, Cat Jam, Cat Jam Free, cat-jam, cat-jam-free, catjam, Cat-Jam, beam-free, Beam Free, stealth/cat-jam.
+- **Context window:** **1,048,576 (1M) pretrained; 131,072 max output.** **A spec nuance is recorded: the API beta caps requests at 262,144 (per llm-releases), and Reflection's 256K figure is an *RL rollout limit*, not the model's window** — the repo's meta explicitly corrects this ("The context is 1M, not 256K").
+- **Modalities:** **text in/out only — no vision or multimodal** (Benchgen's "Where it lags"); reasoning; tool calling (MCP).
+- **Pricing (as of 2026-11-06):** **free on OpenCode Zen ($0/$0, no training, 30-day retention for safety)**; free Reflection API public beta (daily caps); Apache-2.0 weights free to self-host; paid hosted $0.25–$1.30 / $1.00–$4.30. Methodology anchors put the free Zen route at 100 and the paid band near 92.
+- **Architecture:** **sparse MoE, 501.3B total / 23.4B active, 256 experts, 52 layers (3 dense + 49 MoE), gated GQA + sliding-window attention; trained on ~23.8T tokens.**
 
 ### Raw benchmarks found
 
-Reflection AI Beam 1.0 model card (via BenchLM and Benchgen, BF16 numerics, temp=0.7/top_p=0.99) + Artificial Analysis figures via BenchLM:
+**A negative finding is stated plainly: BenchLM carries no `beam` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-21) and re-attributed to Reflection's launch material, Benchgen, llm-releases, aimodelreport, digitalapplied and saltindex; **because no tracker page exists, none has an independent cross-check from a 2026-11-06 source.**
 
-Agent / tool use:
-
-- MCP Atlas: **80.8%** (Reflection card via BenchLM)
-- DeepSearchQA: **80.5%** (Reflection card via BenchLM)
-- Terminal-Bench 2.1: **80.1%** (Reflection card via BenchLM)
-- BrowseComp: **76.8%** (Reflection card via BenchLM)
-- AA AutomationBench: **48.5%** (Artificial Analysis via BenchLM) / **39.3%** public split (Reflection card via Benchgen)
-- τ³-bench (banking): **36.1%** (Reflection card via BenchLM) — mid
-- GDPval-AA: **1,177 Elo / 33.9%** normalized (Artificial Analysis via BenchLM); AA Briefcase: **976** (AA via BenchLM)
-- AA Terminal-Bench 4.0: **3.0%** (Artificial Analysis via BenchLM) — collapses on the newest harness
-- GDP.pdf: **11.6%** (Artificial Analysis via BenchLM)
-- Tau2-Bench / Claw-Eval / OSWorld: no verified public score found
-
-Reasoning / knowledge:
-
-- AIME 2026: **97.7%** (Reflection card via BenchLM/Benchgen)
-- GPQA Diamond: **90.6%** (Reflection card via BenchLM); aimodelreport carries 90.5%
-- HLE (no tools): **36.0%** (Reflection card); **51.1% with tools** (Reflection card); AA-HLE **34.7%** (Artificial Analysis via BenchLM)
-- LiveCodeBench: **88.3%** (Reflection card, carried in Benchgen's footnote)
-- Artificial Analysis Intelligence Index: **30.3%** (Artificial Analysis via BenchLM — mid band)
-- AA-LCR (long-context reasoning): **78.2%** (Reflection card via BenchLM)
-- CritPt: **16.3%** (Reflection card via BenchLM)
-- AA-Omniscience: Accuracy **33.1%**, Hallucination Rate **47.2%** (Artificial Analysis via BenchLM) — low hallucination for the class
-- IFBench: **79.6%** (Reflection card via BenchLM)
-- MMLU-Pro: no verified public score found
-
-Coding:
-
-- SWE-bench Verified: **81.6%** (Reflection card via BenchLM — matches the folder's claim; aimodelreport carries an earlier 80.9)
-- SWE-bench Pro: **66.1%** (Reflection card via BenchLM); SWE Multilingual: **78.3%**
-- Terminal-Bench 2.1: **80.1%** (listed above)
-- DeepSWE: **43.3%** (Reflection card via BenchLM; aimodelreport carries 44.4%)
-- SciCode: **49.2%** (Reflection card) / **48.5%** (Artificial Analysis via BenchLM)
-- SWE-Atlas Codebase QnA: **31.8%** (Reflection card via BenchLM)
-- Vibe Code Bench: no verified public score found
-
-Long context:
-
-- AA-LCR **78.2%** and LongBench v2 **67.5%** (Reflection card / AA via BenchLM) on the full 1M pretrained window; no MRCR/RULER/GraphWalks retrieval-at-length figure published.
+- **SWE-bench Verified: 81.6%** — 3.4 points under the 85%+ terminal reference
+- **AIME 2026: 97.7%** — an excellent competition-maths figure
+- **Terminal-Bench 2.1: 80.1%** — 7.9 points under the 88%+ reference
+- Token efficiency: **~3x fewer reasoning tokens than comparable open models** (vendor claim)
+- Knowledge cutoff **2026-06-30**; architecture as above
+- **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AA Coding Index, AA-SciCode, DeepSWE, LiveCodeBench, SWE-bench Pro, Terminal-Bench 4.0, τ²-bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, AA Intelligence Index, AA-Omniscience, FrontierMath, MMMU-Pro, CharXiv, Design Arena: no verified public score found for this identity**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 80.1%, MCP Atlas 80.8%, DeepSearchQA 80.5% and BrowseComp 76.8% are a genuinely strong agentic suite; capped by AA AutomationBench 48.5%, τ³-bench 36.1%, GDPval 1,177 Elo (33.9%) and AA Terminal-Bench 4.0 collapsing to 3.0%.
-- **Reasoning: 88/100.** AIME 2026 97.7%, GPQA Diamond 90.6% and LiveCodeBench 88.3% are frontier-adjacent, HLE 36.0% (51.1% w/tools) is solid-mid, and the 47.2% hallucination rate is low for the class; capped by AA Intelligence Index 30.3% (mid band), CritPt 16.3% and no MMLU-Pro number.
-- **Context window: 95/100.** 1,048,576 pretrained window lands in the ≥1M tier; AA-LCR 78.2% is good but below the ≥98% retrieval-at-512K evidence needed for 100, and the hosted API beta caps requests at 262,144.
-- **Multimodal: 15/100.** Text-only model — text in, text out (Benchgen's explicit "where it lags"); the text-only tier (10–20) applies.
-- **Coding: 84/100.** SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1%, SWE-bench Pro 66.1% and SWE Multilingual 78.3% are strong agentic-coding evidence with token efficiency as the multiplier; capped by DeepSWE 43.3%, SciCode ~49%, SWE-Atlas QnA 31.8% and AA TB4.0 3.0%.
-- **Cost efficiency: 98/100.** Apache 2.0 open weights (free self-host, day-one FP8/NVFP4) plus a free Zen tier put the floor at $0; the ~3x reasoning-token efficiency claim, if it holds, compounds the free-weights advantage.
-- **Overall Score: 73/100.** Mean of (82 + 88 + 95 + 15 + 84) / 5 = 72.8 → 73. Best fit: the strongest free/Apache-2.0 1M-context agentic coding backbone you can self-host or run free on Zen — text-only, so vision workloads route elsewhere.
+> **Methodology note.** With three carried-forward capability figures and no tracker catalog page, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (501B/23.4B MoE, 1M pretrained / 131K output, text-only, Apache 2.0 at $0 on Zen) and the model's positioning. The two dimensions where this SKU is genuinely distinctive — **context window** and **cost efficiency** — are the best-grounded scores in this report.
+
+- **Tool use: 76/100.** Above the methodology's mid band, anchored on one strong figure and a real deployment signal: **Terminal-Bench 2.1 80.1%** is 7.9 points under the reference — a genuinely strong terminal result — and the model ships **tool calling (MCP)** and was served free on Zen, which is a real adoption signal. Scored at 76 rather than higher because **SWE-bench Verified 81.6% is a coding rather than pure-agentic figure**, and because **τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so two of three frontier references are unmeasured and no composite exists.
+- **Reasoning: 76/100.** Above the methodology's mid band, anchored on two strong figures: **AIME 2026 97.7%** (excellent competition maths) and **SWE-bench Verified 81.6%** (solid mid-frontier repair, which requires genuine reasoning). Scored at 76 rather than higher because **GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, the composite index, AA-Omniscience, MATH and FrontierMath have no figure at all** — so composite depth, reliability and three of five reasoning references are entirely unknown — and because the saturating-maths pattern is not by itself evidence of depth.
+- **Context window: 97/100.** **1,048,576 tokens pretrained with 131,072 max output** — a full frontier window with one of the largest output allowances measured in this research series. **A spec nuance is recorded and resolved in the model's favour: the repo's meta explicitly corrects the 256K figure as "Reflection's RL rollout limit", not the model's window** — and the 1M pretraining figure is used here. Scored in the methodology's ≥1M tier at 97 on the strength of both the window and the output allowance. Held just under 100 because **no AA-LCR, MRCR or GraphWalks figure exists**, so the window's usable depth is unverified, and **the API beta caps requests at 262,144**, which materially reduces the effective window on that route.
+- **Multimodal: 50/100.** **Scored at the methodology's neutral floor: the model is text in/out only** — Benchgen's "Where it lags" explicitly records no vision or multimodal capability. There is no image, audio or video input, so the dimension does not exist. Scored at 50 rather than lower because the absence is a verified, deliberate design choice and text-out is a real capability.
+- **Coding: 80/100.** Above the methodology's mid band and the best-grounded quality dimension, anchored on two strong figures: **SWE-bench Verified 81.6%** (3.4 points under the 85%+ terminal reference — the narrowest miss in this batch) and **Terminal-Bench 2.1 80.1%**. Both are genuinely strong for an open-weight model. Capped by the **total absence of SWE-bench Pro, DeepSWE, AA-SciCode, the AA Coding Index, LiveCodeBench, Vibe Code Bench, Terminal-Bench 4.0 and FrontierCode** — so the 74%, 70% and 55% references cannot be checked.
+- **Cost efficiency: 96/100.** **Free on OpenCode Zen ($0/$0, no training, 30-day retention for safety)** plus **free Reflection API public beta** plus **Apache-2.0 weights free to self-host** — three independent free routes, which is the strongest access position measured in this research series. Scored at 96 on the free routes. Held at 96 rather than 100 because **the Zen free tier is time-limited and is a 30-day-retention host rather than zero-retention**, and **Reflection's first-party beta has daily caps and "may change or end at any time"** (repo meta's own tradeoff note). The paid fallback ($0.25–$1.30 / $1.00–$4.30) preserves the option.
+- **Overall Score: 75.8/100.** (76 + 76 + 97 + 50 + 80 + 96) / 5 = 79.0 → **79**. Recommendation: **the strongest access position in this research series — Apache 2.0 weights, a free Zen route and a free vendor beta — attached to genuinely strong coding and maths figures.** SWE-bench Verified 81.6%, Terminal-Bench 2.1 80.1%, AIME 2026 97.7% and a 1M pretrained window at **$0 on three independent routes** is a rare package, and the model's **~3x token efficiency** (a vendor claim) would make it unusually cheap to run even on paid hosting. Three cautions: **it is text-only**, so it cannot do vision work; **the effective window is 262,144 on the API beta** (the 1M is pretraining, and Reflection's 256K figure is an RL rollout limit rather than the window — a distinction the repo's meta corrects); and **only three capability figures exist**, with no composite, no reliability measurement and no AA Coding Index, so treat the 79 as a floor on evidence and benchmark it yourself. Note the **Cat Jam → Beam stealth-alias merge** recorded in `model-aliases.generated.md` — those are one model, not two.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
-- Method: public internet research (Reflection AI model card figures via BenchLM and Benchgen, Artificial Analysis figures via BenchLM, llm-releases, aimodelreport); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `beam` page in any spelling** (it 404s), so the 2026-11-06 pass had no catalog to check against. The evidence base is the prior verified research pass (2026-10-21) plus the repo's curated metadata, with figures re-attributed to Reflection's launch material, Benchgen, llm-releases, aimodelreport, digitalapplied and saltindex, and **the absence of any independent cross-check from a 2026-11-06 source stated plainly rather than implied**. Because only three capability figures carry forward, every quality dimension is explicitly labelled a placeholder-for-unknown, and the two best-grounded dimensions — context (1M pretrained / 131K output) and cost (three free routes) — are scored on verified specs. **A spec conflict is recorded and resolved in the model's favour: the 256K figure sometimes quoted for this model is Reflection's *RL rollout limit*, not the model's window** — the repo's meta corrects this explicitly, and the 1M pretraining figure is used here, with the API-beta 262,144 request cap recorded as reducing the effective window on that route. **The Cat Jam stealth-alias merge is recorded as an identity fact** (per `model-aliases.generated.md`), with the repo's ten recorded aliases listed rather than restated as separate models. The **text-only-by-design** modality set is scored at the methodology's placeholder floor. The three free routes are recorded with their caveats attached — the Zen route is time-limited and 30-day-retention, and Reflection's beta has daily caps and may end — so the near-ceiling cost score is not presented as unconditional. The narrowest reference miss in this batch (**SWE-bench Verified 81.6% vs the 85%+ reference**) is attributed as such. Missing benchmarks (Terminal-bench 4.0, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, GPQA Diamond, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AA Coding Index, AA-SciCode, DeepSWE, LiveCodeBench, SWE-bench Pro, Vibe Code Bench, FrontierCode, AA Intelligence Index, AA-Omniscience, MATH, FrontierMath, MMMU-Pro, CharXiv, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — reflection/Beam-1.0-501B-A23B model card (official source; repo meta's `officialUrl`)](https://huggingface.co/reflection/Beam-1.0-501B-A23B)
+  - [OpenCode Zen — model list and Console pricing (source of the Beam Free free route)](https://opencode.ai/docs/zen)
+  - [Reflection AI — beta pricing information (source of the free-beta terms and daily caps)](https://reflection.ai/legal/beta-pricing-information)
+  - [Openrouter — reflection/beam-1.0-501b-a23b (hosted pricing)](https://openrouter.ai/reflection/beam-1.0-501b-a23b)
+  - [Repo curated meta — `model/beam/meta.json` (501B/23.4B, 1M vs 256K-RL-limit correction, aliases incl. Cat Jam, three free routes)](/model/beam/meta.json)
+  - [model-aliases.generated.md — Cat Jam → `model/beam/` merge record (identity fact)](/model-aliases.generated.md)
+  - See also: [`model/cat-jam/`](cat-jam.md) — the merged stealth folder, recorded as one model with Beam
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

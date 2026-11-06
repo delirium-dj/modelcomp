@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** OpenAI's mid-tier GPT-6 model, released 2026-09-29, pitched as "near-Astra intelligence for a fifth of the price" for agentic coding, computer use, and professional work.
+- **Short description:** OpenAI's mid-tier GPT-6 model, released 2026-11-06, pitched as "near-Astra intelligence for a fifth of the price" for agentic coding, computer use, and professional work.
 - **Provider / access:** OpenAI API (Responses API for tool use), ChatGPT Work, Codex, Azure, GitHub Copilot, OpenRouter (`openai/gpt-6.1-sol`).
-- **Release / knowledge:** Released 2026-09-29; knowledge cutoff not confirmed in sources reviewed.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not confirmed in sources reviewed.
 - **IDs:** `gpt-6.1-sol`, `openai/gpt-6.1-sol`.
 - **Context window:** 1,050,000 tokens input / 128,000 max output.
 - **Modalities:** Text in -> text out; reasoning yes; tool use yes.
-- **Pricing (as of 2026-10-23):** $2 / $10 per MTok; cached input read $0.10; long prompts >272K input: 2x input, 1.5x output.
+- **Pricing (as of 2026-11-06):** $2 / $10 per MTok; cached input read $0.10; long prompts >272K input: 2x input, 1.5x output.
 - **Architecture:** Proprietary GPT-6 family.
 
 ### Raw benchmarks found

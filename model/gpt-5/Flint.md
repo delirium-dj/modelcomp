@@ -10,17 +10,17 @@
 - **Name:** GPT-5
 - **Short description:** OpenAI's router flagship (Instant/Thinking lanes) for general work; deprecated, removal scheduled.
 - **Provider / access:** OpenAI API (`https://openai.com/index/gpt-5/`), OpenAI $1.25/$10 per 1M (cached $0.125); OpenCode Zen $1.07/$8.50.
-- **Release / knowledge:** Released 2025-08-07; knowledge cutoff 2024-09-30 (models.dev).
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-11-06 (models.dev).
 - **IDs:** `openai/gpt-5`; `opencode/gpt-5`.
 - **Context window:** 400,000 total / 128,000 max output (models.dev); repo meta 400K/128K.
 - **Modalities:** Text, image, file in; text out (repo meta).
-- **Pricing (as of 2026-10-25):** OpenAI $1.25/$10 (cached $0.125); Zen $1.07/$8.50.
+- **Pricing (as of 2026-11-06):** OpenAI $1.25/$10 (cached $0.125); Zen $1.07/$8.50.
 
 - **Architecture:** Proprietary; models.dev: open_weights = false.
 
 ### Raw benchmarks found
 
-- Coding: Aider Polyglot: **88.0%** (aider.chat/docs/leaderboards, 2025-08-23); SWE-Bench Pro: **41.78** resolve rate (Scale Labs).
+- Coding: Aider Polyglot: **88.0%** (aider.chat/docs/leaderboards, 2026-11-06); SWE-Bench Pro: **41.78** resolve rate (Scale Labs).
 - Reasoning: AIME **94.6%, SWE-bench Verified **74.9% (repo meta).
 
 ### Cross-source comparison

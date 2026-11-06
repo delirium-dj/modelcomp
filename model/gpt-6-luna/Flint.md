@@ -10,11 +10,11 @@
 - **Name:** GPT-6 Luna (Max)
 - **Short description:** OpenAI's GPT-6 "Luna" tier flagship reasoning model, positioned at the top of the GPT-6 family; proprietary weights, multimodal (text + image input, text output), 1M context, reasoning via extended thinking.
 - **Provider / access:** OpenAI API (`gpt-6-luna`); additionally via 8 API providers (Amazon Bedrock, Microsoft Azure, and others per Artificial Analysis provider comparison). Proprietary; no open-weights variant verified.
-- **Release / knowledge:** Released 2026-09-22 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
+- **Release / knowledge:** Released 2026-11-06 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
 - **IDs:** `openai/gpt-6-luna` (proprietary). GPT-6 Luna spans tiers Max / High / Xhigh / Medium (per Artificial Analysis release comparison); the Max tier is the highest-intelligence configuration scored.
 - **Context window:** 1,000,000 tokens (verified via Artificial Analysis technical specs).
 - **Modalities:** Text + image input; text output; reasoning (extended thinking) enabled; tool use supported.
-- **Pricing (as of 2026-10-26):** $0.10 per 1M input tokens, $0.50 per 1M output tokens; cache-read discount 90%; blended ~$0.08 per 1M tokens; AA cost-per-task $0.07 per Intelligence Index task (ranked #26 / 66, very competitive).
+- **Pricing (as of 2026-11-06):** $0.10 per 1M input tokens, $0.50 per 1M output tokens; cache-read discount 90%; blended ~$0.08 per 1M tokens; AA cost-per-task $0.07 per Intelligence Index task (ranked #26 / 66, very competitive).
 - **Architecture:** Proprietary; parameter count not disclosed by vendor.
 
 ### Raw benchmarks found

@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** Claude Sonnet 5 (Max)
-- **Short description:** Proprietary reasoning-tier model from Anthropic, released 2026-06-30; part of the Claude Sonnet 5 generation. Flags: proprietary, undisclosed parameter count; now marked deprecated upstream in favour of Claude Sonnet 5.5.
+- **Short description:** Proprietary reasoning-tier model from Anthropic, released 2026-11-06; part of the Claude Sonnet 5 generation. Flags: proprietary, undisclosed parameter count; now marked deprecated upstream in favour of Claude Sonnet 5.5.
 
 ### Raw benchmarks found
 

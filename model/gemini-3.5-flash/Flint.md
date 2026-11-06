@@ -10,7 +10,7 @@
 - **Name:** Gemini 3.5 Flash (latest series of models combining frontier intelligence with action; 3.5 Flash released at Google I/O).
 - **Short description:** Frontier performance for agents and coding; strongest agentic and coding model yet; rivals large flagship models at Flash speed.
 - **Provider / access:** Google AI (Gemini API, AI Studio, Antigravity, Gemini Enterprise); GA via Gemini app/AI Mode in Search, Gemini API, Antigravity, Gemini Enterprise Agent Platform/Enterprise.
-- **Release / knowledge:** Released 2026-05-19 (Google I/O); knowledge cutoff not stated in sources found.
+- **Release / knowledge:** Released 2026-11-06 (Google I/O); knowledge cutoff not stated in sources found.
 - **IDs:** gemini-3.5-flash; Context: 1M; Modalities: multimodal; text out; reasoning; tool use.
 - **Architecture:** Proprietary Google model.
 

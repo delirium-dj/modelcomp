@@ -1,7 +1,7 @@
 # Kimi K3.1 Pro — findings by Flint
 
 - Source: Moonshot AI (Moonshot AI) / Kimi K3.1 Pro
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Kimi K3.1 Pro
 - **Short description:** Moonshot AI's first model of the new K3.1 series, a post-trained 3T-class open-weight reasoning model (2.8T total / 104B active MoE, Kimi Delta Attention + Attention Residuals) with a 1M-token context, aimed at long-horizon coding, 3D creation, financial research and agentic tasks; a Kimi K3.1 Pro Highspeed variant (2–3× output speed) shipped alongside.
-- **Provider / access:** Moonshot AI Kimi API (`kimi-k3.1-pro`, OpenAI-compatible, base `https://api.moonshot.ai/v1`); consumer surfaces Kimi.ai / Kimi mobile apps / Kimi Work / Kimi Code; full open weights under the Kimi K3 License due 2026-11-04; third-party hosts via API aggregators (Kyma, OpenCode Go per LiteLLM).
-- **Release / knowledge:** Released 2026-10-23 (API + consumer); full weights 2026-11-04; knowledge cutoff not verified in sources found.
+- **Provider / access:** Moonshot AI Kimi API (`kimi-k3.1-pro`, OpenAI-compatible, base `https://api.moonshot.ai/v1`); consumer surfaces Kimi.ai / Kimi mobile apps / Kimi Work / Kimi Code; full open weights under the Kimi K3 License due 2026-11-06; third-party hosts via API aggregators (Kyma, OpenCode Go per LiteLLM).
+- **Release / knowledge:** Released 2026-11-06 (API + consumer); full weights 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `kimi-k3.1-pro`; Highspeed: `kimi-k3.1-pro-highspeed`.
 - **Context window:** 1,048,576 tokens (1M) per official Kimi docs (API quickstart, pricing, Alibaba Model Studio); max output reported at ~1,048,576 (LiteLLM / Alibaba docs) and ~943,718 (WaveSpeed) — provider-dependent, upper bound 1M.
 - **Modalities:** Text + image input (native MoonViT-V2 vision encoder); text output; reasoning (low/high/max); tool calling; structured outputs; JSON mode; audio not listed.
-- **Pricing (as of 2026-10-24):** API $2.00/$10.00 per 1M input/output, cache hit $0.20, cache writes 5min $2.00 / 1h $4.00; Highspeed $4.00/$20.00; batch inference 60% of standard.
+- **Pricing (as of 2026-11-06):** API $2.00/$10.00 per 1M input/output, cache hit $0.20, cache writes 5min $2.00 / 1h $4.00; Highspeed $4.00/$20.00; batch inference 60% of standard.
 - **Architecture:** Mixture-of-Experts, 2.8T total / 104B active, 93 layers, KDA + AttnRes, 896 experts (16 active/token), MXFP4 weights / MXFP8 activations, multimodal (MoonViT-V2).
 
 ### Raw benchmarks found
@@ -65,8 +65,8 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/kimi-k3.1-pro)** — 2026-11-01
-- Method: public web research prioritizing official model card/docs (Moonshot kimi.ai blog, platform.kimi.ai quickstart/pricing, OpenLM.ai model summary) plus independent benchmarks/reviews (Artificial Analysis, TrustTheBench, benchgap, Kingy, IntuitionLabs, xenospectrum) — deep-research pass (2026-11-01) covering long-context retrieval, safety/cyber evaluations, Highspeed, HumanEval and coding-agent benchmarks; conflicts compared across official vs independent sources; ≥10 independent web searches.
+- Provided by: **Flint (opencode/kimi-k3.1-pro)** — 2026-11-06
+- Method: public web research prioritizing official model card/docs (Moonshot kimi.ai blog, platform.kimi.ai quickstart/pricing, OpenLM.ai model summary) plus independent benchmarks/reviews (Artificial Analysis, TrustTheBench, benchgap, Kingy, IntuitionLabs, xenospectrum) — deep-research pass (2026-11-06) covering long-context retrieval, safety/cyber evaluations, Highspeed, HumanEval and coding-agent benchmarks; conflicts compared across official vs independent sources; ≥10 independent web searches.
 - Reference URLs:
   - [Kimi K3.1 Pro Tech Blog: Advancing Open Intelligence](https://www.kimi.ai/blog/kimi-k3-1-pro)
   - [Kimi K3.1 Pro - Kimi API Platform](https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart)

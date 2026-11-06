@@ -10,7 +10,7 @@
 - **Name:** Gemini 3.8 Flash (most intelligent Flash model; 3rd Flash in ~6 weeks — 3.6 Flash Jul 21, 3.7 Flash Aug 13, 3.8 Flash Sep 2).
 - **Short description:** Google's most intelligent workhorse model, engineered for long-horizon software engineering, autonomous agents, complex enterprise workflows; same speed/low cost as 3.7 Flash, substantial gains from 3.7.
 - **Provider / access:** Google AI (Gemini API, AI Studio, Gemini Enterprise Agent Platform); Antigravity; introductory pricing $0.75/1M in / $3.75/1M out through Dec 31, 2026; standard from Jan 1, 2027; context 1M, max output 65,536; thinking low/medium/high (medium default; MINIMAL unsupported).
-- **Release / knowledge:** Released 2026-09-02; knowledge cutoff not stated in sources found.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated in sources found.
 - **IDs:** gemini-3.8-flash; Context: 1,048,576 (1M); max output 65,536; Modalities: Text, image, video, audio, PDF input; text out; thinking; function calling, structured outputs, code execution, grounding, computer use; multimodal.
 
 ### Raw benchmarks found

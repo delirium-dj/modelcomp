@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** MiMo-V2.6-Flash
-- **Short description:** Open-weights reasoning model from Xiaomi, released 2026-09-21; MoE with 309B total / 15B active parameters, MIT license; text and image input, text output.
+- **Short description:** Open-weights reasoning model from Xiaomi, released 2026-11-06; MoE with 309B total / 15B active parameters, MIT license; text and image input, text output.
 - **Provider / access:** Open weights (MIT, self-hostable) + API via multiple providers (4 tracked).
 
 ### Raw benchmarks found

@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** Kimi K2.6
-- **Short description:** Moonshot's open-weights hybrid reasoning/coding model released 2026-04-20; positioned for long-horizon coding, knowledge work and deep reasoning.
+- **Short description:** Moonshot's open-weights hybrid reasoning/coding model released 2026-11-06; positioned for long-horizon coding, knowledge work and deep reasoning.
 - **Provider / access:** Moonshot API (platform.kimi.ai), OpenRouter (`moonshotai/kimi-k2.6`); open weights.
-- **Release / knowledge:** Released 2026-04-20; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated.
 - **IDs:** `Kimi-K2.6` (API), moonshotai/Kimi-K2.6 (Hugging Face).
 - **Context window:** not verified.
 - **Modalities:** natively multimodal; text + image/video.
-- **Pricing (as of 2026-10-25):** $0.95/M input, $4/M output (Epoch AI pricing).
+- **Pricing (as of 2026-11-06):** $0.95/M input, $4/M output (Epoch AI pricing).
 - **Architecture:** Open-weight; 1.0e12 params.
 
 ### Raw benchmarks found

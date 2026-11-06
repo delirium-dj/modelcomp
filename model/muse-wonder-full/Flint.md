@@ -14,7 +14,7 @@
 - **IDs:** muse-wonder-full; hosted tier $50/mo via Muse Code; base Wonder tier $4 in / $20 out per Mtok.
 - **Context window:** 1,048,576 (1M) total tokens (research-verified context scale); max output not stated in verified sources.
 - **Modalities:** Text, image, video, audio, PDF in; text out; reasoning; tool use.
-- **Pricing (as of 2026-10-27):** Muse Wonder Full $50/mo via Muse Code; Muse Wonder base tier $4/$20 per Mtok; Full not on Model API.
+- **Pricing (as of 2026-11-06):** Muse Wonder Full $50/mo via Muse Code; Muse Wonder base tier $4/$20 per Mtok; Full not on Model API.
 - **Architecture:** Proprietary (Meta); parameter scale not disclosed in verified sources.
 
 ### Raw benchmarks found

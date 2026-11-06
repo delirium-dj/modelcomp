@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** MiniMax M3
-- **Short description:** MiniMax's open-weight frontier general model released 2026-06-01 — the first open-weight model combining frontier coding, agentic task execution, up to 1M-token context (MiniMax Sparse Attention) and native multimodality in one model.
+- **Short description:** MiniMax's open-weight frontier general model released 2026-11-06 — the first open-weight model combining frontier coding, agentic task execution, up to 1M-token context (MiniMax Sparse Attention) and native multimodality in one model.
 - **Provider / access:** MiniMax API (`MiniMax-M3` on `api.minimax.io` text chat-completion v2), MiniMax Token Plan (Plus $20/M, Max $50/M, Ultra $120/M monthly), MiniMax Code, MiniMax Open Platform; full open-sourcing on HuggingFace/GitHub announced.
-- **Release / knowledge:** Released 2026-06-01; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated.
 - **IDs:** `MiniMax-M3` (API), MiniMaxAI/M3 (Hugging Face).
 - **Context window:** 1,000,000 tokens (MiniMax Sparse Attention; guaranteed minimum 512K); thinking on/off supported.
 - **Modalities:** Text in/out; native image and video input; computer-use capable; text out.
-- **Pricing (as of 2026-10-25):** Token Plan Plus $20/M, Max $50/M, Ultra $120/M (monthly token pool); API pricing not verified.
+- **Pricing (as of 2026-11-06):** Token Plan Plus $20/M, Max $50/M, Ultra $120/M (monthly token pool); API pricing not verified.
 - **Architecture:** Open-weight mixture-of-experts with MiniMax Sparse Attention (MSA).
 
 ### Raw benchmarks found

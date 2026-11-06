@@ -25,7 +25,7 @@ Agent / tool use:
 - MCP-Atlas: **76.0%** (corroborated); Kimi Claw 24/7 Bench: **46.9%** (corroborated)
 - τ²-bench: **90.1%** (AA — corroborated); GDPval-AA: **1114** (AA; normalized **27.0%** — consistent with the prior 26.3% Vals read)
 - Terminal-Bench 2.1 (Vals): **67.0%** (corroborated)
-- AA Agentic Index: **22.5%** (AA — new; weak)
+- AA Agentic Index: **22.5%** (AA — new; weak); **TB-Hard (AA): 44.7%** (NEW, BenchLM Nov 5 refresh — weak-mid)
 - WildClawBench: **46.9%**; Long-Horizon Terminal-Bench: **3 tasks solved** (prior pass, HF-card-linked leaderboards)
 - Tau3: no verified public score found
 

@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** GPT-5.3 Codex
-- **Short description:** OpenAI's agentic coding model, released 2026-02-05; closed weights; positioned via Grok Build-style agentic coding workflows.
+- **Short description:** OpenAI's agentic coding model, released 2026-11-06; closed weights; positioned via Grok Build-style agentic coding workflows.
 - **Provider / access:** OpenAI API (`gpt-5.3-codex`), OpenAI platform; coding agentic workflows.
-- **Release / knowledge:** Released 2026-02-05; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated.
 - **IDs:** `gpt-5.3-codex` (API).
 - **Context window:** not verified.
 - **Modalities:** text; coding.
-- **Pricing (as of 2026-10-25):** $1.75/M input, $14/M output (Epoch AI pricing).
+- **Pricing (as of 2026-11-06):** $1.75/M input, $14/M output (Epoch AI pricing).
 - **Architecture:** Closed-weight.
 
 ### Raw benchmarks found

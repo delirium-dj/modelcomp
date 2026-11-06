@@ -10,11 +10,11 @@
 - **Name:** Mistral Large 4 (Mistral Large 4 Preview per Artificial Analysis)
 - **Short description:** Mistral's 1T-parameter multimodal MoE for reasoning, coding, and agentic work; multilingual European option.
 - **Provider / access:** Mistral AI API, OpenAI-compatible endpoints; OpenCode Zen / OpenRouter routes (`opencode/mistral-large-4`).
-- **Release / knowledge:** Released 2026-10-06; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `mistral/mistral-large-4`; `opencode/mistral-large-4`.
 - **Context window:** Conflicting sources: models.dev **1,048,576** total / **262,144** out; repo meta.json **131,072** total / **32,768** out; Artificial Analysis **524k** context.
 - **Modalities:** Text, image in; text out (models.dev; Artificial Analysis confirms text+image in, text out).
-- **Pricing (as of 2026-10-25):** Paid $2.00/$6.00 per 1M (Mistral AI); Artificial Analysis: $1.36 in / $4.18 out, cache discount 90% -> $1.13 effective.
+- **Pricing (as of 2026-11-06):** Paid $2.00/$6.00 per 1M (Mistral AI); Artificial Analysis: $1.36 in / $4.18 out, cache discount 90% -> $1.13 effective.
 
 - **Architecture:** Proprietary 1T-parameter multimodal MoE; models.dev: open_weights = false.
 

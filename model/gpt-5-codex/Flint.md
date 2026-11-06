@@ -1,7 +1,7 @@
 # GPT-5-Codex — findings by Flint
 
 - Source: OpenAI (GPT / Codex) / Vals AI / BenchLM / Terminal-Bench / Metatext / AI Rank / LMArena
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-5-Codex
 - **Short description:** OpenAI's agentic coding-specialized version of GPT-5, trained on real-world software engineering tasks (building full projects from scratch, adding features + tests, debugging, large-scale refactors, code reviews); default for cloud tasks and code review in Codex.
 - **Provider / access:** OpenAI API via the Responses API only (model ID `gpt-5-codex`); same price as GPT-5; Codex (CLI, IDE extension, cloud, code review) included with ChatGPT Plus / Pro / Business / Edu / Enterprise. Status: **Shut down** (OpenAI API docs; OpenMark: shut down July 23, 2026; LLM API: stops serving March 17, 2027); superseded — newer Codex models (GPT-5.3-Codex, GPT-5.2-Codex, GPT-5.4) are cheaper and better on the same task.
-- **Release / knowledge:** Released Aug 2025 (GPT-5 family launch; Codex API access via API key from 2025-09-23); knowledge cutoff Sep 30, 2024 (GPT-5 family, per OpenAI API docs); model status: **Shut down** (OpenAI API docs; OpenMark: shut down July 23, 2026; LLM API: stops serving March 17, 2027).
+- **Release / knowledge:** Released Aug 2025 (GPT-5 family launch; Codex API access via API key from 2026-11-06); knowledge cutoff Sep 30, 2024 (GPT-5 family, per OpenAI API docs); model status: **Shut down** (OpenAI API docs; OpenMark: shut down July 23, 2026; LLM API: stops serving March 17, 2027).
 - **IDs:** `gpt-5-codex` (Responses API); GPT-5 family snapshot.
 - **Context window:** 400,000 tokens (max input 272,000; max output 128,000).
 - **Modalities:** Text + image in; text out; video not supported; file supported (Vals AI).
-- **Pricing (as of 2026-11-01):** Same as GPT-5 — $1.25 input / $10.00 output / $0.125 cached input per 1M tokens (OpenAI API docs, OpenMark, LLM API, Vals AI); proprietary; 1 task (1K in + 500 out) ≈ $0.0063, 1,000 runs ≈ $6.25.
+- **Pricing (as of 2026-11-06):** Same as GPT-5 — $1.25 input / $10.00 output / $0.125 cached input per 1M tokens (OpenAI API docs, OpenMark, LLM API, Vals AI); proprietary; 1 task (1K in + 500 out) ≈ $0.0063, 1,000 runs ≈ $6.25.
 - **Architecture:** Proprietary; GPT-5 further optimized for agentic coding in Codex (context compaction, long-horizon work, large refactors, migrations, Windows).
 
 ### Raw benchmarks found
@@ -52,7 +52,7 @@ Independent (Vals AI, Terminal-Bench, BenchLM, Metatext, AI Rank):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5-codex)** — 2026-11-01
+- Provided by: **Flint (opencode/gpt-5-codex)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI / Codex announcements, Codex developer docs) plus independent benchmarks/reviews (Vals AI, Terminal-Bench, BenchLM, Metatext, AI Rank) — three independent web searches.
 - Reference URLs:
   - [Introducing upgrades to Codex | OpenAI](https://openai.com/index/introducing-upgrades-to-codex)

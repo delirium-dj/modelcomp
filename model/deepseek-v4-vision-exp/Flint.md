@@ -14,7 +14,7 @@
 - **IDs:** `deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`; API legacy alias `deepseek-v4-flash-vision-exp`.
 - **Context window:** Not separately stated for the vision-exp variant (inherits V4-Flash architecture); max output not stated in verified sources.
 - **Modalities:** Image + text input (Image-Text-to-Text), text output; multimodal agentic capabilities.
-- **Pricing (as of 2026-10-28):** Open weights (MIT); DeepSeek API billing at Flash tier (vision-exp alias retired → served by DeepSeek-V4.1-Flash-1017 at Flash price).
+- **Pricing (as of 2026-11-06):** Open weights (MIT); DeepSeek API billing at Flash tier (vision-exp alias retired → served by DeepSeek-V4.1-Flash-1017 at Flash price).
 - **Architecture:** Open-weight MoE (V4-Flash lineage; 291B Flash / 292B Flash-Base / 1.6T Pro variants); vision encoder + aligner + DFlash attention + MoE + Hyper-Connections + DSpark forward path.
 
 ### Raw benchmarks found

@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** Claude Sonnet 5.5
-- **Short description:** Anthropic's second model of the Claude 5.5 family (after Claude Opus 5.5), framed as a faster, lower-cost complement to the flagship - strongest at well-scoped everyday tasks, bug fixes, polished documents, and design work, and a clear upgrade over Claude Sonnet 5. Released 2026-09-28.
+- **Short description:** Anthropic's second model of the Claude 5.5 family (after Claude Opus 5.5), framed as a faster, lower-cost complement to the flagship - strongest at well-scoped everyday tasks, bug fixes, polished documents, and design work, and a clear upgrade over Claude Sonnet 5. Released 2026-11-06.
 - **Provider / access:** Anthropic Claude API (`claude-sonnet-5-5`); Amazon Bedrock (`anthropic.claude-sonnet-5-5`); Google Cloud Vertex AI / Google-managed (`claude-sonnet-5-5`); Microsoft Foundry (`claude-sonnet-5-5`); AWS Claude Platform (`claude-sonnet-5-5`). Messages API surfaces (Chat Completions + Responses).
-- **Release / knowledge:** Released 2026-09-28; reliable knowledge cutoff 2026-06; training data cutoff 2026-06.
+- **Release / knowledge:** Released 2026-11-06; reliable knowledge cutoff 2026-06; training data cutoff 2026-06.
 - **IDs:** `claude-sonnet-5-5`, `anthropic.claude-sonnet-5-5`.
-- **Context window:** 1M tokens (approx. 555k words / 2.5M chars on the current tokenizer); max output 128K (300K with `output-300k-2026-03-24` beta on Message Batches); text + image in -> text out.
+- **Context window:** 1M tokens (approx. 555k words / 2.5M chars on the current tokenizer); max output 128K (300K with `output-300k-2026-11-06` beta on Message Batches); text + image in -> text out.
 - **Modalities:** Text + image in -> text out; reasoning via adaptive thinking (default effort `high`); tool use supported (server-side and client-side tools); JSON mode not verified.
-- **Pricing (as of 2026-10-23):** input $2 / MTok, output $10 / MTok; cache write (5m) $2.50 / MTok, (1h) $4 / MTok; cache read $0.10 / MTok; Batch API 50% off. Paid tier (no zero-cost access lane).
+- **Pricing (as of 2026-11-06):** input $2 / MTok, output $10 / MTok; cache write (5m) $2.50 / MTok, (1h) $4 / MTok; cache read $0.10 / MTok; Batch API 50% off. Paid tier (no zero-cost access lane).
 - **Architecture:** Proprietary; parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -44,7 +44,7 @@ Vision:
 Independent composite / cross-source comparison:
 
 - Artificial Analysis Intelligence Index v4.3.2: Claude Sonnet 5.5 **56** (rank #2 / 215 models, approx. 1% top-tier); composite over AA-Briefcase v1.1, GDPval-AA v2.1, AutomationBench-AA, Terminal-Bench 4.0, SciCode, Humanity's Last Exam, GDP.pdf, CritPt, AA-Omniscience, AA-LCR v1.1. Speed 132.0 tok/s (#33/186); cost $2 / $10 per MTok with 95% cache discount; $5.46 per Intelligence-Index task (#4/4 for cost); 420M output tokens (#116/116 for verbosity - i.e. very verbose).
-- Independent third-party comparison (DataCamp, 2026-09-30): Artificial Analysis Intelligence Index 56.0 (Sonnet) vs 51.8 (GPT-6.1 Sol); Terminal-Bench 4.0 - Anthropic **70.6%** vs Artificial Analysis **64%**.
+- Independent third-party comparison (DataCamp, 2026-11-06): Artificial Analysis Intelligence Index 56.0 (Sonnet) vs 51.8 (GPT-6.1 Sol); Terminal-Bench 4.0 - Anthropic **70.6%** vs Artificial Analysis **64%**.
 
 Conflicts and resolutions:
 

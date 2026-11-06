@@ -1,7 +1,7 @@
 # Qwen3.8-27B — findings by Flint
 
 - Source: Alibaba (Qwen / Alibaba Cloud)
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,7 +10,7 @@
 - **Name:** Qwen3.8-27B
 - **Short description:** Alibaba's Qwen3.8 open-weight flagship generation entry — a native multimodal dense vision-language model (27B params, 64 layers, hybrid Gated DeltaNet + Gated Attention, hidden 5120) designed for compact deployment; outperforms the larger MoE Qwen3.7-Plus overall while running on consumer hardware.
 - **Provider / access:** Open weights under Apache 2.0 (Hugging Face `Qwen/Qwen3.8-27B`, ModelScope); hosted via Alibaba Cloud Model Studio / Qwen API (`qwen3.8-27b`) with 1M context on hosted tier; third-party inference (Groq).
-- **Release / knowledge:** Released 2026-08-14 (weights); Qwen3.8 flagship line Aug 2026; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (weights); Qwen3.8 flagship line Aug 2026; knowledge cutoff not verified in sources found.
 - **IDs:** `Qwen/Qwen3.8-27B`; hosted `qwen3.8-27b`.
 - **Context window:** 262,144 tokens native; extensible to 1,000,000 via YaRN (vLLM / SGLang / TokenSpeed); hosted tier default 1M context; recommended agentic output caps (reasoning 262,144, final response 131,072 within 1M.
 - **Modalities:** Native multimodal — text, image, video input; text output; thinking + instruct modes; tool use; structured outputs.
@@ -61,7 +61,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen3.8-27b)** — 2026-11-01
+- Provided by: **Flint (opencode/qwen3.8-27b)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Qwen/Qwen3.8-27B Hugging Face card, Alibaba Cloud blog, AlibabaCloud-Official GitHub) plus independent benchmarks/reviews (Groq docs, NYUL/rit analysis, HokAI, AI/TLDR, ModelComp) — three independent web searches.
 - Reference URLs:
   - [Qwen/Qwen3.8-27B — Hugging Face](https://huggingface.co/Qwen/Qwen3.8-27B)

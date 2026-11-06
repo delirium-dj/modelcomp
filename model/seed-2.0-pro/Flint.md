@@ -14,7 +14,7 @@
 - **IDs:** `deepinfra/ByteDance/Seed-2.0-pro`; `bytedance/seed-2.0-pro` (OpenRouter-style).
 - **Context window:** 256K total / 65K max output (repo meta.json); multimodal vision path documented by DeepInfra.
 - **Modalities:** Text, image, video in; text out (repo meta.json); DeepInfra vision docs confirm image input via URL/Base64; ByteDance model TOML lists image formats only.
-- **Pricing (as of 2026-10-25):** Paid-tier (no Free ID); DeepInfra text $0.50 input / $3.00 output per 1M (cache read $0.10; >128K context -> $1.00 / $6.00).
+- **Pricing (as of 2026-11-06):** Paid-tier (no Free ID); DeepInfra text $0.50 input / $3.00 output per 1M (cache read $0.10; >128K context -> $1.00 / $6.00).
 
 - **Architecture:** Proprietary closed agent model (ByteDance Seed family); open-weight sibling Seed OSS 36B tracked separately.
 

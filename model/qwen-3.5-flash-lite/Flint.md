@@ -1,7 +1,7 @@
 # Qwen 3.5 Flash Lite — findings by Flint
 
 - Source: Alibaba (Qwen / Tongyi Lab) / Qwen 3.5 Flash Lite
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,18 +10,18 @@
 - **Name:** Qwen 3.5 Flash Lite
 - **Short description:** Alibaba's cost-efficient, high-throughput Flash-tier model of the Qwen 3.5 family, aimed at agentic coding and multimodal agent workloads at production scale; the hosted Qwen3.5-Flash line built from the Qwen3.5-35B-A3B base.
 - **Provider / access:** Alibaba Cloud Model Studio / Qwen API (`qwen3.5-flash`); OpenRouter (`qwen/qwen3.5-flash`); Hugging Face collection `Qwen/qwen35`. Weights private per Vals for the Flash tier.
-- **Release / knowledge:** Released 2026-02-24/25 (Qwen 3.5 Medium Model Series); knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06/25 (Qwen 3.5 Medium Model Series); knowledge cutoff not verified in sources found.
 - **IDs:** `Qwen/qwen3.5-Flash`; Alibaba Cloud `qwen3.5-flash`; OpenRouter `qwen/qwen3.5-flash`.
 - **Context window:** 1M tokens (hosted Flash tier per Vals; open-weight Qwen3.5 models list 254K native, extensible to 1M).
 - **Modalities:** Text, image, video in; text out; natively multimodal via early fusion; reasoning yes (thinking levels).
-- **Pricing (as of 2026-11-01):** $0.10 input / $0.01 cached / $0.40 output per 1M tokens (Alibaba Cloud API); OpenRouter ~$0.065/$0.26 per 1M (BenchmarkList).
+- **Pricing (as of 2026-11-06):** $0.10 input / $0.01 cached / $0.40 output per 1M tokens (Alibaba Cloud API); OpenRouter ~$0.065/$0.26 per 1M (BenchmarkList).
 - **Architecture:** Qwen3.5-Flash production variant developed from the Qwen3.5-35B-A3B MoE base; Apache 2.0 open-weight lineage for the Qwen3.5 family.
 
 ### Raw benchmarks found
 
 Official (Alibaba / Qwen / Tongyi Lab / HF / GIGAZINE / DeepLearning.ai):
 
-- Qwen 3.5 Medium Model Series (2026-02-24/25): Qwen3.5-Flash, -35B-A3B, -122B-A10B, -27B announced; Qwen3.5-Flash positioned as high-throughput agentic model; API pricing $0.1/$0.01/$0.4 per 1M.
+- Qwen 3.5 Medium Model Series (2026-11-06/25): Qwen3.5-Flash, -35B-A3B, -122B-A10B, -27B announced; Qwen3.5-Flash positioned as high-throughput agentic model; API pricing $0.1/$0.01/$0.4 per 1M.
 - Qwen3.5-397B-A17B flagship benchmarks: AIME 2026 **91.3**, GPQA Diamond **88.4**, MathVista **90.3**, MMMU **85.0**, LiveCodeBench v6 **83.6**.
 
 Independent (Artificial Analysis / BenchLM / Vals AI / Bloomberg / VentureBeat / GIGAZINE / RITS / DeepLearning.ai):
@@ -48,7 +48,7 @@ Independent (Artificial Analysis / BenchLM / Vals AI / Bloomberg / VentureBeat /
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen-3.5-flash-lite)** — 2026-11-01
+- Provided by: **Flint (opencode/qwen-3.5-flash-lite)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Alibaba Qwen / Tongyi Lab announcements, Hugging Face `Qwen/qwen35`, Alibaba Cloud API docs) plus independent benchmarks/reviews (Vals AI, BenchmarkList, DeepLearning.ai / The Batch, GIGAZINE, VentureBeat) — three independent web searches.
 - Reference URLs:
   - [Qwen 3.5: Alibaba’s Native Multimodal Agent Model Arrives | DeepLearning.ai](https://www.deeplearning.ai/the-batch/qwen-3-5-alibabas-native-multimodal-agent-model-arrives)

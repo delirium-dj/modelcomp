@@ -10,11 +10,11 @@
 - **Name:** Grok 4.1 Fast (xAI; Grok family — Fast tier).
 - **Short description:** xAI's best tool-calling model with a 2M-token context window, built and released (Nov 2025) for real-world agentic use cases such as customer support and finance; launched alongside the Agent Tools API.
 - **Provider / access:** xAI API (`grok-4-1-fast-reasoning`, `grok-4-1-fast-non-reasoning`); also surfaced via third-party API providers per independent coverage.
-- **Release / knowledge:** Release date ~2025-11-19 (xAI blog; some sources 2025-11-20); knowledge cutoff not stated in verified sources.
+- **Release / knowledge:** Release date ~2026-11-06 (xAI blog; some sources 2026-11-06); knowledge cutoff not stated in verified sources.
 - **IDs:** `grok-4-1-fast-reasoning` (max intelligence) / `grok-4-1-fast-non-reasoning` (instant responses) under the `grok-4.1-fast` family.
 - **Context window:** 2,000,000 tokens (xAI blog + Artificial Analysis verified); conflicting reports (BenchLM, aimlapi) split base context 1M vs reasoning context 2M — resolved toward 2M for the reasoning variant.
 - **Modalities:** Text + image input, text output; reasoning variants; native tool use (function calling) built in.
-- **Pricing (as of 2026-10-28):** xAI: input $0.20 / 1M tokens, cached input $0.05 / 1M, output $0.50 / 1M; tool calls from $5 / 1,000 successful invocations. Independent source (aimlapi) reported Reasoning variant at $1.625 in / $3.25 out per 1M — conflict noted.
+- **Pricing (as of 2026-11-06):** xAI: input $0.20 / 1M tokens, cached input $0.05 / 1M, output $0.50 / 1M; tool calls from $5 / 1,000 successful invocations. Independent source (aimlapi) reported Reasoning variant at $1.625 in / $3.25 out per 1M — conflict noted.
 - **Architecture:** Proprietary (xAI / SpaceXAI); parameter count not disclosed in verified sources.
 
 ### Raw benchmarks found

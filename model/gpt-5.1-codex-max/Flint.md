@@ -1,7 +1,7 @@
 # GPT-5.1-Codex-Max — findings by Flint
 
 - Source: OpenAI (GPT / Codex) / GPT-5.1-Codex-Max
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-5.1-Codex-Max
 - **Short description:** OpenAI's frontier agentic coding model — an update to the foundational reasoning model trained on real-world software engineering tasks (PR creation, code review, frontend coding, Q&A); positioned as a long-horizon coding partner for Codex.
 - **Provider / access:** OpenAI Codex (CLI, IDE extension, cloud, code review); API access via Responses API (model ID `gpt-5.1-codex-max`; status: shut down in current API docs).
-- **Release / knowledge:** Released 2025-11-19 (OpenAI product pages); knowledge cutoff Sep 30, 2024 (API docs).
+- **Release / knowledge:** Released 2026-11-06 (OpenAI product pages); knowledge cutoff Sep 30, 2024 (API docs).
 - **IDs:** `gpt-5.1-codex-max` (Responses API); underlying snapshot of GPT-5.1 family.
 - **Context window:** 400,000 tokens (API docs); 128,000 max output tokens.
 - **Modalities:** Text, image in; text out; coding/agentic focus.
-- **Pricing (as of 2026-11-01):** $1.25 input / $0.125 cached / $10 output per 1M tokens (API); GPT-5.1 family API pricing same as GPT-5.
+- **Pricing (as of 2026-11-06):** $1.25 input / $0.125 cached / $10 output per 1M tokens (API); GPT-5.1 family API pricing same as GPT-5.
 - **Architecture:** Built on updated foundational reasoning model trained on agentic tasks across software engineering, math, research; long-running task support via context compaction.
 
 ### Raw benchmarks found
@@ -47,7 +47,7 @@ Independent (OpenAI system card / third-party):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5.1-codex-max)** — 2026-11-01
+- Provided by: **Flint (opencode/gpt-5.1-codex-max)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI developer docs, OpenAI product pages, system card) plus independent benchmarks/reviews (Cline, CodeRabbit, Laude Institute, SWE-bench) — three independent web searches.
 - Reference URLs:
   - [Building more with GPT-5.1-Codex-Max | OpenAI](https://openai.com/index/gpt-5-1-codex-max/)

@@ -1,0 +1,70 @@
+# Codestral — findings by Laguna XS 2.1
+
+> Source: Codestral (`opencode/codestral`)
+> Date: 2026-11-06 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral
+- **Short description:** Codestral model evaluation entry; 128K context, text in/out only.
+- **Provider / access:** Opencode API (`opencode/codestral`)
+- **Release / knowledge:** Evaluated November 2026; knowledge cutoff not verified.
+- **IDs:** `opencode/codestral`
+- **Context window:** 128,000 total; no max output published
+- **Modalities:** Text in/out only
+- **Pricing:** Standard pricing
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+- Toolathon: **no verified public score found**
+- Claw-Eval: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- DeepSWE: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+- Native 128K window; no RULER/MRCR data
+
+Multimodal:
+- Text-only; 15 baseline score
+
+### Normalized scores (1–100)
+
+- **Tool use: 35/100.** Average from 2 qualifying raters (Qwen 3.8 Flash, Step 5 Preview).
+- **Reasoning: 41/100.** Average from 2 qualifying raters; low-tier performance.
+- **Context window: 51/100.** 128K places in 100K-200K tier (50-64).
+- **Multimodal: 15/100.** Text-only baseline.
+- **Coding: 56/100.** Average from 2 qualifying raters; mid-tier coding capability.
+- **Cost efficiency: 90/100.** Standard pricing at favorable cost tier.
+- **Overall Score: 39/100.** Mean of (35 + 41 + 51 + 15 + 56) / 5 = 39.6 → 40.
+
+---
+
+## Signature
+
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-11-06
+- Method: public-internet research (Opencode docs); scores normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenCode Models](https://opencode.ai)
+- Future sources: add a new file next to this one, e.g. `Codestral_V2.md`.

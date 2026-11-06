@@ -1,9 +1,26 @@
 {
   "id": "opencode/codestral-25.08",
   "name": "Codestral 25.08",
-  "short": "Codestral 25.08 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Mistral's refreshed 22B single-purpose code model (`codestral-2508`, 2025) behind the `codestral-latest` alias — fill-in-the-middle autocomplete, code correction and test generation across 80+ languages at 256K context.",
+  "contextWindow": "256,000 total (8,192 max output)",
+  "modalities": "Text, code in; text, code out",
+  "pricingNote": "Hosted ~$0.30/$0.90 per 1M in/out (La Plateforme); source-available weights for free self-host.",
+  "pricingTiers": [
+    "La Plateforme / cloud marketplaces ~$0.30/$0.90 per 1M in/out",
+    "Self-host source-available weights $0 (non-production license)"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://mistral.ai/news/codestral/",
+  "pricingLinks": [
+    "https://mistral.ai/pricing",
+    "https://mistral.ai/news/codestral-2501/"
+  ],
+  "standout": "Best-in-class cheap FIM autocomplete: ~95% HumanEval-FIM pass@1 at 256K context for $0.30/$0.90.",
+  "tradeoff": "A single-shot 22B completion engine — no reasoning/agentic modes, no independent AA row (all capability numbers are vendor-run), and LiveCodeBench 31.5 sits far below 2026 agentic coders.",
+  "aliases": [
+    "codestral-2508",
+    "codestral-latest",
+    "mistralai/codestral-25.08",
+    "mistral/codestral-25.08"
+  ]
 }

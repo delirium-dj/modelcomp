@@ -1,7 +1,7 @@
 # GLM 5.2 — findings by Flint
 
 - Source: Z.ai (Zhipu AI) / Hugging Face / Vals AI / Artificial Analysis / BenchLM / LMArena / Kilo Code / NVIDIA NIM / CrossModel / NIST CAISI / docs.z.ai
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GLM 5.2
 - **Short description:** Z.ai's (Zhipu AI) open-weight flagship reasoning/coding model built for long-horizon tasks, with a stable 1M-token context; strongest open-source model on several coding and long-horizon benchmarks at release.
 - **Provider / access:** Z.ai API (`glm-5.2`; reasoning_effort high/max; OpenAI-compatible + Anthropic protocols); open weights (MIT) on Hugging Face (`zai-org/GLM-5.2`); third-party routes via OpenRouter / NVIDIA NIM / Z.ai Coding Plan. Paid — no Free ID found on OpenCode Zen (closest: paid `opencode/glm-5.1`).
-- **Release / knowledge:** Released 2026-06-16; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `zai-org/GLM-5.2`; API tag `glm-5.2`.
 - **Context window:** 1,048,576 tokens (1M); max output 131,072 tokens (128K).
 - **Modalities:** Text in; text out; reasoning yes (High / Max effort); tool calls yes (function calling, JSON mode, streaming tool calls); web search yes. Image/audio/video/file: not supported (text-only).
-- **Pricing (as of 2026-11-01):** $1.40 input / $4.40 output / $0.275 cached input per 1M tokens (Z.ai API, Artificial Analysis, EmpirioLabs); web search $0.013/call; enterprise plans from $18/mo.
+- **Pricing (as of 2026-11-06):** $1.40 input / $4.40 output / $0.275 cached input per 1M tokens (Z.ai API, Artificial Analysis, EmpirioLabs); web search $0.013/call; enterprise plans from $18/mo.
 - **Architecture:** 753B-parameter MoE (753,329,940,480 params; ~40B active) with DSA (Dense-Sparse-Alternating) + IndexShare sparse attention; MTP with IndexShare/KVShare; MIT open weights.
 
 ### Raw benchmarks found
@@ -33,7 +33,7 @@ Independent (Vals AI, Artificial Analysis, BenchLM, LMArena, Kilo Code, NVIDIA, 
 - Artificial Analysis: Intelligence Index v4.1 **51** — leading open-weight model (ahead of MiniMax-M3 44, DeepSeek V4 Pro max 44, Kimi K2.6 43); GDPval-AA v2 **1524** (ahead of MiniMax-M3 1418, DeepSeek-V4-Pro max 1328; close to GPT-5.5 xhigh 1514); AA-LCR (Max) 78.3; AA Coding Index 68.8.
 - BenchLM: overall **60.03/100**, rank #52/1004; coverage 49/724 (partial → conservative).
 - LMArena: GLM-5.2 (Max) Overall **1464** (#35/374, 14,228 votes); Coding **1511** (#33/369); Math 1477 (#22/362); Hard Prompts 1487 (#32/374).
-- NIST CAISI (2026-07-17): GLM-5.2 probably the most capable open-weight AI model at release; overall capabilities similar to GPT-5.2 (2025-12); cyber capabilities similar to Opus 4.6; safeguards mixed.
+- NIST CAISI (2026-11-06): GLM-5.2 probably the most capable open-weight AI model at release; overall capabilities similar to GPT-5.2 (2025-12); cyber capabilities similar to Opus 4.6; safeguards mixed.
 - Kilo Code / OpenClaw: PinchBench average **87.0%** (#13/50); OpenClaw agent benchmarks; Security from Enkrypt AI Safety Leaderboard (Oct 2026).
 - VentureBeat / New Horizon: GLM-5.2 beats GPT-5.5 on multiple long-horizon coding benchmarks for ~1/6 cost.
 
@@ -56,7 +56,7 @@ Independent (Vals AI, Artificial Analysis, BenchLM, LMArena, Kilo Code, NVIDIA, 
 
 ## Signature
 
-- Provided by: **Flint (opencode/glm-5.2)** — 2026-11-01
+- Provided by: **Flint (opencode/glm-5.2)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Z.ai blog, docs.z.ai, Hugging Face, NVIDIA NIM) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, BenchLM, LMArena, Kilo Code) — four independent web searches.
 - Reference URLs:
   - [GLM-5.2: Built for Long-Horizon Tasks | Z.ai](https://z.ai/blog/glm-5.2)

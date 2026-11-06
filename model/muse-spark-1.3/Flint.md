@@ -10,13 +10,13 @@
 - **Name:** Muse Spark 1.3 (Contributor / Free tier scored; same weights)
 - **Short description:** Meta Superintelligence Labs' Muse Spark, tuned for long-horizon agentic coding, coding and agentic work; reasoning model with tool use and MCP support.
 - **Provider / access:** Meta Model API (`meta/muse-spark-1.3`), Muse Code; OpenRouter (`muse-spark-1.3`, `muse-spark-1.3-contributor`); Vercel AI Gateway; Together AI; Fireworks AI; GroqCloud; OpenCode Zen `opencode/muse-spark-1.3` (Contributor/Free tier).
-- **Release / knowledge:** Released 2026-09-02 (Meta Model API / Muse Code); Muse Spark Open open-weight release 2026-10-15 (816B total / 42B active MoE, 1M context, multimodal); knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06 (Meta Model API / Muse Code); Muse Spark Open open-weight release 2026-11-06 (816B total / 42B active MoE, 1M context, multimodal); knowledge cutoff not verified in sources found.
 - **IDs:** `meta/muse-spark-1.3` (Meta Model API); `muse-spark-1.3` / `muse-spark-1.3-contributor` (OpenRouter); OpenCode Zen `opencode/muse-spark-1.3` / `opencode/muse-spark-1.3-contributor-free`.
 - **Context window:** 1,048,576 tokens (1M) via Meta API / Muse Code; max output 131K; Muse Spark Open 1M context.
 - **Modalities:** Text, image, video (and audio for Open) input; text output; reasoning; tool use (MCP); multimodal.
-- **Pricing (as of 2026-10-22):** Standard $1.25/$4.25 per 1M (cache $0.15); Contributor/Free $0.10/$0.20 per 1M; Free scored 100.
+- **Pricing (as of 2026-11-06):** Standard $1.25/$4.25 per 1M (cache $0.15); Contributor/Free $0.10/$0.20 per 1M; Free scored 100.
 
-- **Architecture:** Proprietary; Muse Spark Open (2026-10-15) is a sparse mixture of experts, 816B total / 42B active, multimodal, 1M context, open weights.
+- **Architecture:** Proprietary; Muse Spark Open (2026-11-06) is a sparse mixture of experts, 816B total / 42B active, multimodal, 1M context, open weights.
 
 ### Raw benchmarks found
 
@@ -39,7 +39,7 @@ Long context:
 
 - Muse Spark 1.3 (xhigh) Artificial Intelligence Index **61** vs (max) **62** (limited preview); tied with GPT-5.6 Sol (max), Grok 4.6 (high), Claude Opus 5 (high); behind Claude Fable 5.1 (max, 66) / Claude Opus 5 (max, 63) — frontier.
 - Muse Spark 1.3 (xhigh) cost per Intelligence Index task **$0.55** — lowest of any model at 59+, Pareto frontier vs intelligence (Artificial Analysis).
-- Version split: Muse Spark 1.3 (proprietary, 2026-09-02) vs Muse Spark Open (open-weight, 2026-10-15, 816B/42B) vs Muse Spark 1.3 via Gemini Enterprise (Preview, release 2026-09-24).
+- Version split: Muse Spark 1.3 (proprietary, 2026-11-06) vs Muse Spark Open (open-weight, 2026-11-06, 816B/42B) vs Muse Spark 1.3 via Gemini Enterprise (Preview, release 2026-11-06).
 
 ### Normalized scores (1–100)
 

@@ -10,11 +10,11 @@
 - **Name:** Gemini 3.7 Flash
 - **Short description:** Google's newest Flash-tier model, a refinement of Gemini 3.6 Flash (algorithmic improvements to the core reasoning foundation rather than a new pretraining run), aimed at coding and agentic workflows; accepts text, images, audio, and video across a 1M-token context window; returns up to 64K output tokens; knowledge cutoff March 2026.
 - **Provider / access:** Google DeepMind / Google AI - Gemini API and Google AI Studio, Google Antigravity, Android Studio, Gemini Enterprise Agent Platform, Gemini Enterprise app; consumers via Gemini Spark on Google AI Pro and Ultra plans. API and enterprise only; no open weights.
-- **Release / knowledge:** Released 2026-08-13; knowledge cutoff 2026-03.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-03.
 - **IDs:** `gemini-3.7-flash`.
 - **Context window:** 1M tokens; max output 64K tokens.
 - **Modalities:** Text, image, audio, video in -> text out; customizable thinking configurations that trade quality against cost and latency.
-- **Pricing (as of 2026-10-23):** $0.75 / 1M input, $3.75 / 1M output (intro, through 2026-12-31); from 2027-01-01 -> $1.50 / $7.50. Blended at 80/20 input-output mix: $1.35 / MTok today vs $3.60 (Claude Sonnet 5) and $4.00 (GPT-5.6 Terra).
+- **Pricing (as of 2026-11-06):** $0.75 / 1M input, $3.75 / 1M output (intro, through 2026-11-06); from 2026-11-06 -> $1.50 / $7.50. Blended at 80/20 input-output mix: $1.35 / MTok today vs $3.60 (Claude Sonnet 5) and $4.00 (GPT-5.6 Terra).
 - **Architecture:** Proprietary; no open weights.
 
 ### Raw benchmarks found
@@ -50,7 +50,7 @@ Conflicts and resolutions:
 - **Context window: 92/100.** Native 1M-token context; long-context retrieval (GDM-MRCR v2, 128k) **97.0**. Cap: single long-context retrieval eval.
 - **Multimodal: 85/100.** Accepts text, image, audio, video in -> text out; no independent multimodal benchmark located for this snapshot. Cap: modality support documented, independent measurement absent.
 - **Coding: 83/100.** FrontierCode 1.1 **43.6%** (3.7 Flash) vs 34.4% (3.6 Flash); DeepSWE v1.1 **65.3%**; WebDev Arena **1588** Elo (top). Below GPT-5.6 Terra on DeepSWE (69.6%), ahead on WebDev Arena / AutomationBench. Cap: vendor-reported eval set.
-- **Cost efficiency: 92/100.** $0.75 / $3.75 per MTok (intro, through 2026-12-31); blended $1.35 / MTok vs $3.60 (Claude Sonnet 5) and $4.00 (GPT-5.6 Terra). Paid tier, very low cost.
+- **Cost efficiency: 92/100.** $0.75 / $3.75 per MTok (intro, through 2026-11-06); blended $1.35 / MTok vs $3.60 (Claude Sonnet 5) and $4.00 (GPT-5.6 Terra). Paid tier, very low cost.
 - **Overall Score: 86/100.** (84 + 86 + 92 + 85 + 83) / 5 = **86** (half-up mean of the five quality dims; Cost efficiency excluded).
 
 ---

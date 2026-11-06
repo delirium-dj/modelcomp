@@ -1,63 +1,78 @@
 # Fledge Alpha — findings by Laguna XS 2.1
 
-> Source: poolside/Laguna-XS-2.1 (Poolside AI), e.g. Hugging Face model card, Artificial Analysis, BenchLM, trajectories.poolside.ai  
-> Date: 2026-10-09 (UTC)  
-> Overview and scoring methodology: `../../model-comparison.md`  
-> Cross-model signed log: `../../model-findings.md`  
+> Source: Unidentified vendor (`opencode/fledge-alpha-free`)
+> Date: 2026-11-06 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Fledge Alpha
-- **Short description:** AI model research findings by Laguna XS 2.1.
-- **Provider / access:** Research-based evaluation from public sources.
-- **Release / knowledge:** Evaluated October 2026.
-- **IDs:** Model identification from available documentation.
-- **Context window:** Evaluated from available specifications.
-- **Modalities:** As per model capabilities.
-- **Pricing:** Evaluated from pricing documentation.
+- **Short description:** OpenCode Zen's unidentified-vendor free stealth preview (1M context, image in) listed 2026-10-01 and retired by 2026-10-08; no public benchmarks, no successor published.
+- **Provider / access:** OpenCode Zen (`$0/$0` during 2026-10-01 to 2026-10-08 preview); now retired
+- **Release / knowledge:** Limited preview October 1-8, 2026; discontinued with no successor.
+- **IDs:** Unidentified vendor model; no model ID published
+- **Context window:** 1,048,576 total (1M); 131,072 max output
+- **Modalities:** Text and image in; text out
+- **Pricing:** Free during OpenCode Zen preview; now unavailable
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **TBD**
-- Tau3-Banking / Tau2-Bench: **TBD**
-- GDPval-AA: **TBD**
-- Toolathon / MCP-Atlas: **TBD**
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+- Toolathon: **no verified public score found**
+- Claw-Eval: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **TBD**
-- HLE: **TBD**
-- LCR / MLCR: **TBD**
-- CritPt: **TBD**
-- Artificial Analysis Intelligence Index: **TBD**
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **TBD**
-- LiveCodeBench: **TBD**
-- SciCode: **TBD**
-- DeepSWE / Coding Index: **TBD**
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- DeepSWE: **no verified public score found**
 
 Long context:
 
-- MRCR / RULER: **TBD**
+- Native 1M window; no benchmarks available
+
+Multimodal:
+
+- Image input supported; no dedicated benchmarks surfaced
 
 ### Normalized scores (1–100)
 
-- **Tool use: TBD**
-- **Reasoning: TBD**
-- **Context window: TBD**
-- **Multimodal: TBD**
-- **Coding: TBD**
-- **Cost efficiency: TBD**
-- **Overall Score: TBD**
+- **Tool use: 35/100.** Phantom placeholder; no verified data.
+- **Reasoning: 35/100.** Estimated conservatively; no benchmarks.
+- **Context window: 95/100.** Native 1M tokens (948,576) in top tier.
+- **Multimodal: 60/100.** Image input; no dedicated benchmarks.
+- **Coding: 35/100.** No verified benchmarks; estimated low.
+- **Cost efficiency: 100/100.** Was free during preview; now retired.
+- **Overall Score: 50/100.** Mean of (35 + 35 + 95 + 60 + 35) / 5 = 50.
 
 ---
 
 ## Signature
 
-- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-10-09
-- Method: public internet research; scores normalized 1-100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Commission_1.0.md`, using the same headings.
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-11-06
+- Method: public-internet research (OpenCode changelog showing 2026-10-01 to 2026-10-08 preview); scores normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenCode Changelog](https://opencode.ai/changelog)
+  - [OpenCode Zen](https://opencode.ai/docs/zen)
+- Future sources: add a new file next to this one, e.g. `Fledge_Alpha_V2.md`, once vendor details are published.
+
+---
+
+## Note
+
+This model was retired (listed 2026-10-01, retired by 2026-10-08) with no successor announced. No benchmarks or vendor details were ever published. All scores are placeholder estimates."

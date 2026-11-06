@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Flint
 
 - Source: InclusionAI (Ant Group) / Ling 3.0 Flash VL
-- Date: 2026-11-01 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Ling 3.0 Flash VL
 - **Short description:** Ant Group's (InclusionAI) first natively multimodal Ling model — a 124B-parameter MoE (5.5B active) that ingests image and video alongside text and reasons over visual evidence, with a "visual feedback closed loop" for agentic visual tasks; MIT open weights.
 - **Provider / access:** Open weights (MIT) on Hugging Face (`inclusionAI/Ling-3.0-flash-VL`, plus r0b0tlab NVFP4-MP quantization) and ModelScope; Ant API (`api.ant-ling.com`, OpenAI- and Anthropic-compatible chat completions with image/video input); OpenRouter (`inclusionAI/ling-3.0-flash-vl`, $0.06/$0.18 per 1M); Kilo Gateway, DevPass. Audio understanding via separate `Ming-3.0-audio-flash`.
-- **Release / knowledge:** Released 2026-09-09/10 (Hugging Face / Ant Group press release); API docs updated 2026-10-28; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-11-06/10 (Hugging Face / Ant Group press release); API docs updated 2026-11-06; knowledge cutoff not verified in sources found.
 - **IDs:** `inclusionAI/Ling-3.0-flash-VL`; Ant Ling API model id `Ling-3.0-flash-VL`; OpenRouter `inclusionAI/ling-3.0-flash-vl`.
 - **Context window:** 256K tokens native (official Ling-3.0-flash-VL card); 262K per Artificial Analysis / BenchLM; 131K per OpenRouter text-window listing; Ling-3.0-flash text extends to 1M. KV capacity in NVFP4-MP quant: 2,309,051 tokens (~17.6× the 131K window).
 - **Modalities:** Text, image, video input → text output; native multimodal reasoning with visual evidence; hybrid reasoning (thinking/non-thinking switch); tool use via MCP/API.
-- **Pricing (as of 2026-11-01):** Open weights (MIT); hosted API ~$0.06/$0.18 per 1M tokens (OpenRouter via DeepInfra; also Kilo Gateway / DevPass).
+- **Pricing (as of 2026-11-06):** Open weights (MIT); hosted API ~$0.06/$0.18 per 1M tokens (OpenRouter via DeepInfra; also Kilo Gateway / DevPass).
 
 - **Architecture:** Sparse MoE, 124B total / 5.5B active (VL); hybrid KDA + MLA attention; ViT vision tower + two-layer MLP projector + VideoRoPE (spatial/temporal encoding); native vision integrated into understand→reason→act→verify loop.
 
@@ -52,7 +52,7 @@ Independent (Artificial Analysis / BenchLM / OpenRouter / Model Beat):
 
 ## Signature
 
-- Provided by: **Flint (opencode/ling-3.0-flash-vl)** — 2026-11-01
+- Provided by: **Flint (opencode/ling-3.0-flash-vl)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Ant Group / InclusionAI developer docs, Hugging Face `inclusionAI/Ling-3.0-flash-VL`, Ant Group press release, OpenRouter) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, OpenRouter rankings, Model Beat) — three independent web searches.
 - Reference URLs:
   - [Ling 3.0 Flash VL Benchmark Scores & Performance | BenchLM](https://benchlm.ai/models/ling-3-0-flash-vl)

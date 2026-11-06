@@ -1,7 +1,7 @@
 # Qwen3.7 — findings by Flint
 
 - Source: Alibaba — Qwen3.7 (Qwen3.7 Plus)
-- Date: 2026-10-26 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Qwen3.7 (Plus-tier flagship)
 - **Short description:** Alibaba's Qwen3.7 generation reasoning model family flagship (Qwen3.7 Plus scored); proprietary weights, multimodal (text, image, video input; text output), 1M context, reasoning.
 - **Provider / access:** Alibaba API (`qwen`); proprietary; no open-weights variant verified for the Plus tier.
-- **Release / knowledge:** Released 2026-06-01 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
+- **Release / knowledge:** Released 2026-11-06 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
 - **IDs:** `alibaba/qwen3.7` (proprietary); Plus tier configuration.
 - **Context window:** 1,000,000 tokens (verified via Artificial Analysis technical specs).
 - **Modalities:** Text, image, video input; text output; reasoning (extended thinking) enabled; multimodal (video in).
-- **Pricing (as of 2026-10-26):** $0.40 per 1M input tokens, $1.60 per 1M output tokens; cache-read discount 80%; blended ~$0.30 per 1M tokens; AA cost-per-task $0.22 (rank #48 / 66, expensive).
+- **Pricing (as of 2026-11-06):** $0.40 per 1M input tokens, $1.60 per 1M output tokens; cache-read discount 80%; blended ~$0.30 per 1M tokens; AA cost-per-task $0.22 (rank #48 / 66, expensive).
 - **Architecture:** Proprietary; parameter count not disclosed by vendor.
 
 ### Raw benchmarks found
@@ -37,5 +37,5 @@
 
 ## Signature
 
-- Provided by: **Flint** — 2026-10-26
+- Provided by: **Flint** — 2026-11-06
 - Method: public internet research — official Alibaba Qwen3.7 model information plus independent Artificial Analysis benchmark pages; scores are normalized 1–100 interpretations, not official vendor scores.

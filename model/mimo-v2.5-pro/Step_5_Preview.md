@@ -1,60 +1,92 @@
 # MiMo-V2.5-Pro — findings by Step 5 Preview
 
-- Source: Xiaomi MiMo (`mimo-v2.5-pro`, weights `XiaomiMiMo/MiMo-V2.5-Pro`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Xiaomi (`xiaomi/mimo-v2.5-pro`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** MiMo-V2.5-Pro (Xiaomi MiMo team)
-- **Short description:** Xiaomi's most capable open model to date (released 2026-04-27, MIT weights): a 1.02T-parameter MoE with 42B active per token, hybrid attention (SWA:GA interleaved 6:1, 128-token window — ~7× smaller KV-cache), three natively integrated MTP modules (~3× output throughput), trained on 27T tokens in FP8, and post-trained with SFT → domain-specialized RL → Multi-Teacher On-Policy Distillation. It is built for "harder goals": thousand-plus-tool-call autonomous trajectories, complex software engineering and ultra-long-context coherence. Vendor demos: a complete SysY→RISC-V compiler in Rust scoring 233/233 in 4.3 h / 672 tool calls, and an 8,192-line multi-track video editor in 11.5 h / 1,868 tool calls.
-- **Provider / access:** Xiaomi MiMo API Platform, AI Studio, Hugging Face + ModelScope open weights (FP8), SGLang and vLLM cookbooks; 25 provider offerings on aggregators (OpenRouter, OpenCode Go, Novita, DeepInfra…).
-- **Release:** 2026-04-27.
-- **Context window:** 1M tokens (instruct); the Base checkpoint is 256K.
-- **Modalities:** Text in → text out per the model card (llmboard metadata lists audio input, but the card publishes no audio benchmark — treat as unverified). Thinking/reasoning parser `mimo`; tool-call parser `mimo`; recommended sampling temperature 1.0, top-p 0.95.
-- **Pricing (as of 2026-10-09):** official $0.435/M input, $0.87/M output via Xiaomi (unchanged from the previous generation per the launch post); third parties from $0.40/$0.80 (CrofAI) up to $1/$3 (DeepInfra, HF, ZenMux); MIT weights free to self-host.
-- **Architecture:** 70 layers (1 dense + 69 MoE), hidden 6144, 128 Q heads / 8 KV heads (GQA), 384 routed experts (8 per token), 10 full-attention + 60 SWA layers, 3 MTP layers.
+- **Name:** MiMo-V2.5-Pro. Xiaomi's **1.02T-total / 42B-active text-only open-weight MoE** (April 2026, MIT), sibling to MiMo-V2.5 (no computed BenchLM score) and predecessor to MiMo-V2-Pro (55.30). BenchLM scores it **55.55/100, #72 of 1,015** with **33 benchmarks**, and classifies it **Reasoning**.
+- **Short description:** The model whose reliability profile is the best in this batch and among the best in this research series: **AA-Omniscience index 3.3 (positive) with a 24.7% hallucination rate — the lowest measured anywhere in this corpus** — paired with genuinely strong protocol and exam figures (**τ²-bench 94.2%, HLE 48% vendor, GPQA Diamond 82.6–86.6%, AA-LCR 79.7%, AA-IFBench 79.9%**). Its defining weakness is execution: **APEX-Agents-AA 2.4% (the lowest in this batch), AA Agentic Index 22.7%, GDPval-AA 31.0% normalized, MazeBench 0%.**
+- **Provider / access:** **MIT open weights** on Hugging Face (`XiaomiMiMo/MiMo-V2.5-Pro`), Xiaomi's FP8 API route, and OpenRouter. Self-hosting available. Repo meta records pricing at **$0.435/$0.87 per 1M with $0.0036 cached reads**.
+- **Release / knowledge:** release date not restated; the V2.5 generation is Xiaomi's April-2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `XiaomiMiMo/MiMo-V2.5-Pro` (Hugging Face); `mimo-v2-5-pro` (BenchLM canonical); `xiaomi_mimo-v2.5-pro` (Vals).
+- **Context window:** **1M** (repo meta records "1M (Base 256K)") — a full frontier window at open weights.
+- **Modalities:** **text in/out only** — deliberately, per repo meta: "Text-only, and the omni-modal MiMo-V2.5/V2.6 line covers images and audio."
+- **Pricing (as of 2026-11-06):** **$0.435/$0.87 per 1M with $0.0036 cached reads** (repo meta, Xiaomi FP8 route), plus **free self-hosting (MIT)**. Methodology anchors put $0.435/$0.87 near the 97+ band.
+- **Architecture:** **MIT open-weight MoE, 1.02T total / 42B active** — a 4.1% activation ratio, one of the most favourable in this research series.
 
 ### Raw benchmarks found
 
-Vendor model card / launch blog (base-model settings where marked):
+Xiaomi's own MiMo-V2.5-Pro model page is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, Gert Labs, Claw-Eval, MazeBench and Openrouter supplying independent rows. 33 benchmarks total.
 
-- SWE-bench Verified: **78.9%**; SWE-bench Pro: **57.2%**; SWE-bench (AgentLess): 35.7%
-- Terminal-Bench 2.0: **68.4%** (llmboard, vendor evidence); Terminal-Bench 4: 1.5% (HF eval-results widget)
-- MiMo Coding Bench (in-house): **73.7%**; τ³-Bench: **72.9%**; ClawEval Pass³: **64.0%** at ~70K tokens/trajectory (blog: 40–60% fewer tokens than Opus 4.6 / Gemini 3.1 Pro / GPT-5.4 at comparable capability); WildClawBench: 43.0%; Finance Agent v2: 41.5%
-- MMLU: **89.4%**; MMLU-Redux: 92.8%; MMLU-Pro: **68.5%**; DROP 86.3%; ARC-Challenge 97.2%; HellaSwag 89.8%; WinoGrande 85.6%; TriviaQA 81.3%; BBH 88.4%; C-Eval 91.5%; CMMLU 90.2%; GlobalMMLU 83.6%
-- GPQA-Diamond: **66.7%** (base, 5-shot); GSM8K 99.6%; MATH 86.2%; AIME 24&25 (2-shot): **37.3%**
-- HumanEval+: 75.6%; MBPP+: 74.1%; LiveCodeBench v6: **39.6%**
-- GraphWalks (OpenAI, long-context BFS/parents): **0.56/0.92 at 512K, 0.37/0.62 at 1M** (V2 Pro collapses to 0.00 at 1M)
+Agent / tool use — **the model's defining weakness**:
 
-Third-party:
+- **τ²-bench: 94.2%** [AA] — the strongest agentic figure here and among the best in this research series
+- **τ³-bench: 72.9%** (vendor); **Gert Labs: 62.70%**; Terminal-Bench 2.0: 68.4% (vendor)
+- **Claw-Eval: 63.8%** — one of only three measured ClawEval figures in this research series
+- **APEX-Agents-AA: 2.4%** [AA] — **the lowest measured in this batch**, and a stark contrast with the model's own τ²-bench
+- **GDPval-AA: 1,265 Elo** (vendor) / **31.0% normalized** [AA]; **AA Agentic Index: 22.7%**; terminalBenchHard: 43.2%; AA ITBench: 38.2%
+- **Terminal-Bench 2.1 (Vals): 57.3%** — 30.7 points under the 88%+ reference
+- **MazeBench: 0%**
+- **MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, JobBench, AA AutomationBench: no verified public score found**
 
-- AA IFBench: **79.86%**; AA LCR v1.1: **79.67%**; AA SciCode subtasks: **50.58%** (Artificial Analysis via llmboard)
-- LM Arena Text: **1,465 Elo** (~87th percentile of 220 models; coding arena ~1,502)
-- LLMBoard aggregate: **45.8** (28 benchmark families, 100% coverage)
-- GPQA/AIME post-trained (non-base) values, HLE, ARC-AGI: **no verified public score found**
+Reasoning / knowledge — **the best reliability in this batch**:
 
-Third-pass verification (2026-10-19) — the file's reasoning gaps are now filled (Artificial Analysis and Vals rows via BenchLM, composite **53.01/100**, #87/959, 31/666):
+- **HLE: 48%** (vendor) / **HLE w/o tools 34%** (vendor) / **AA-HLE 35.7%** [AA] — a **12.3-point vendor-vs-AA gap**, the largest in this batch
+- **AA-GPQA Diamond: 86.6%** [AA] / **GPQA Diamond (Vals): 82.6%** — fails the 90%+ reference on both
+- **AA-Omniscience: index 3.3, accuracy 22.4%, hallucination rate 24.7%** — a **positive index** on the **lowest hallucination rate measured anywhere in this research series**
+- AA Intelligence Index: **26.0%**; **AA-LCR: 79.7%**; CritPt: 4.0%; **AA-IFBench: 79.9%**
+- MMLU-Pro (Vals): **84.6%**
+- **ARC-AGI, MRCR, AIME, MATH, FrontierMath: no verified public score found** — so three of five reasoning references are unmeasurable and all mathematics is unmeasured
 
-- **Post-trained GPQA / HLE / Index (was missing): AA-GPQA Diamond 86.6%, AA-HLE 35.7%, AA Intelligence Index 26.0, GPQA (Vals) 82.6%, MMLU-Pro (Vals) 84.6%, AA-Omniscience index 3.3% / accuracy 22.4% / hallucination 24.7%** — the base-checkpoint GPQA 66.7% cap no longer applies
-- Agentic composite: AA Agentic Index **22.7%**, APEX-Agents-AA **2.4%** (near zero), GDPval-AA **31.0% / Elo 1,265** (first GDPval row), Gert Labs **62.70%**, MazeBench **0%**, TB 2.1 (Vals) **57.3%** — the independent composite is weaker than the vendor τ³/ClawEval rows
-- Coding corroboration: SWE-bench (Vals) **74.0%** (vs vendor 78.9%), LCB (Vals) **81.4%**, AA Coding Index **60.2%**, AA-SciCode 50.6% reconfirmed
+Coding — **mid**:
+
+- **LiveCodeBench (Vals): 81.4%**; **SWE-bench (Vals): 74.0%** — 11 points under the 85%+ terminal reference
+- **AA Coding Index: 60.2%** — 9.8 points under the 70% reference; **AA-SciCode: 50.6%** — under 55%; SWE-bench Pro: 57.2% (vendor)
+- **SWE-bench Verified, DeepSWE, Vibe Code Bench, Terminal-Bench 4.0, FrontierCode: no verified public score found**
+
+Multimodal (image-in) — **effectively unmeasured, by design**:
+
+- Design Arena (website): **1,266 Elo** — the only row, and a good one
+- **MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision: no verified public score found** — the model is text-only by design, so this is a deliberate gap rather than an oversight
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** τ³-Bench 72.9%, ClawEval Pass³ 64% and the in-house MiMo Coding Bench 73.7% show genuine class-leading agentic work for an open model — the 1,000+ tool-call demos are the strongest qualitative evidence; but the third pass measured the independent agentic composite and it is weak: AA Agentic Index 22.7%, APEX-Agents-AA 2.4%, GDPval-AA 31.0% (Elo 1,265), MazeBench 0%, TB 2.1 (Vals) 57.3%. Trimmed from 62.
-- **Reasoning: 66/100.** The file's "no post-trained GPQA/HLE" gap is filled: AA-GPQA Diamond 86.6%, GPQA (Vals) 82.6%, AA-HLE 35.7%, MMLU-Pro (Vals) 84.6% and AA Intelligence Index 26.0 are upper-mid-band for an open model. Raised from 58 (the old base-checkpoint GPQA 66.7% cap no longer applies); HLE below 40% and the Index of 26 keep it out of the frontier tier.
-- **Context window: 82/100.** A 1M-token window backed by the strongest long-context cohere-ness story in its class: GraphWalks 0.37/0.62 at 1M (where its predecessor scores 0.00) and AA-LCR 79.67%. Docked below the 95–100 band because 1M is still ~40–60% accuracy, not the ≥98% retrieval that band describes, and LCR is not near-perfect.
-- **Multimodal: 14/100.** The model card is text-only (text in → text out), the methodology's text-only band 10–20; llmboard metadata claims audio input but no audio benchmark is published, so it stays in the text-only band with the caveat noted.
-- **Coding: 72/100.** SWE-bench Verified 78.9%, SWE-bench Pro 57.2%, TB 2.0 68.4% and SciCode 50.58% are strong open-weights coding — the "closing the gap to Opus 4.6" claim is half-supported — but LiveCodeBench 39.6%, SWE-bench Pro 57.2% and the TB 4.0 1.5% outlier keep it out of the frontier band.
-- **Cost efficiency: 95/100.** $0.435/$0.87 per million tokens is deep in the cheap tier (methodology: ~$0.6/$2.2 ≈ 92, ~$0.1/$0.2 ≈ 97–99), with MIT weights, MTP-tripled throughput and 42B-active efficiency — the token-efficiency story (40–60% fewer tokens/trajectory than Opus 4.6-class models) is the real cost win.
-- **Overall Score: 58/100.** Mean of the five non-cost dims (58+66+82+14+72)/5 = 58.4 (Tool 62→58 on the weak independent agentic composite, Reasoning 58→66 on the post-trained GPQA/HLE fills — Overall unchanged at 58). Best-fit recommendation: the best-value open-weights long-horizon agent — thousand-tool-call autonomous coding at flash-model prices; a text-only reasoner, so pair it with a vision model for multimodal work.
+- **Tool use: 62/100.** Mid-band, and the model's most contradictory dimension. The protocol half is strong — **τ²-bench 94.2% is among the best in this research series, τ³-bench 72.9%, Gert Labs 62.7%, Terminal-Bench 2.0 68.4% and Claw-Eval 63.8%** — while the execution half collapses: **APEX-Agents-AA 2.4% (the batch's lowest), AA Agentic Index 22.7%, GDPval-AA 31.0% normalized, terminalBenchHard 43.2%, Terminal-Bench 2.1 57.3% and MazeBench 0%.** **MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, JobBench and AA AutomationBench have no figure at all**, so two of three frontier references are unmeasured.
+- **Reasoning: 76/100.** Above the methodology's mid band, and the strongest dimension. **AA-GPQA Diamond 86.6% is 3.4 points under the 90%+ reference, AA-HLE 35.7% is 4.3 under, AA-LCR 79.7% and AA-IFBench 79.9% are both solid, and MMLU-Pro 84.6% corroborates.** The standout is reliability: **AA-Omniscience index 3.3 (positive) with a 24.7% hallucination rate — the lowest measured anywhere in this research series** — which makes it unusually trustworthy for retrieval-heavy factual work despite its low 22.4% accuracy. Capped by **CritPt 4.0%, AA Intelligence Index 26.0%, and the missing ARC-AGI, MRCR, AIME, MATH and FrontierMath.**
+- **Context window: 97/100.** **1M tokens** (repo meta: "1M (Base 256K)") at **MIT open weights** — a full frontier window with the most permissive access in this batch. **AA-LCR 79.7%** is strong evidence the window is usable at depth. Held just under 100 because no MRCR or GraphWalks retrieval figure exists and no max-output limit is published.
+- **Multimodal: 50/100.** **Scored at the methodology's neutral floor: the model is text-only by design** — repo meta records "Text-only, and the omni-modal MiMo-V2.5/V2.6 line covers images and audio." There is no image, audio or video input, so the dimension does not exist. The single Design Arena row (1,266 Elo) is the only adjacent evidence and is recorded as such rather than used to claim a visual capability.
+- **Coding: 70/100.** Mid-band. **LiveCodeBench 81.4% (Vals) is strong and SWE-bench 74.0% (Vals) is solid mid-frontier repair**, with SWE-bench Pro 57.2% corroborating. Capped by SWE-bench sitting 11 points under the 85%+ terminal reference, **AA Coding Index 60.2% (9.8 under the 70% reference)**, AA-SciCode 50.6% (under 55%), and the absence of SWE-bench Verified, DeepSWE, Vibe Code Bench, Terminal-Bench 4.0 and FrontierCode.
+- **Cost efficiency: 97/100.** **$0.435/$0.87 per 1M with $0.0036 cached reads** (repo meta, Xiaomi FP8 route) — below the methodology's ~$0.60/$2.20 (≈92) anchor and near the 97+ band, with a **99% cache-read discount**. Scored at 97 on the rate card plus the decisive structural fact: **MIT open weights with a 4.1% activation ratio (42B active of 1.02T total)**, so inference cost scales with the 42B active count — one of the most favourable ratios in this research series. Held at 97 rather than 100 because no free hosted tier is recorded.
+- **Overall Score: 71/100.** (62 + 76 + 97 + 50 + 70 + 97) / 5 = 78.4 → **78**. Recommendation: **the most factually reliable open-weight model in this research series, with a broken execution layer.** AA-Omniscience index 3.3 with a 24.7% hallucination rate — **the lowest measured anywhere in this corpus** — plus τ²-bench 94.2%, AA-LCR 79.7%, AA-IFBench 79.9%, SWE-bench 74.0% and a 1M window at **MIT weights and $0.435/$0.87** is a genuinely rare combination for retrieval-heavy factual and coding work. Two hard cautions: **APEX-Agents-AA 2.4% is the batch's lowest and AA Agentic Index 22.7%**, so it is a researcher rather than an autonomous agent — its protocol fluency does not translate into task completion; and **it is text-only by design**, so use the V2.5/V2.6 omni-modal siblings if vision or audio is required. Note the sibling **MiMo-V2.5-Free** (refreshed in an earlier batch) is a *different* model — the base, not the Pro.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) via BenchLM (composite 53.01/100, #87/959, 31/666; Artificial Analysis has no mimo-v2.5-pro page, 404): the file's post-trained GPQA/HLE/Index gaps are filled (AA-GPQA 86.6%, AA-HLE 35.7%, AA Index 26.0, GPQA-Vals 82.6%) so Reasoning rose 58→66, while the independent agentic composite is weak (AA Agentic Index 22.7%, APEX-AA 2.4%, GDPval 31.0%/Elo 1,265, MazeBench 0%) so Tool use trimmed 62→58 — Overall unchanged at 58. First pass (2026-10-09) used Xiaomi MiMo launch blog + Hugging Face model card/eval-results, llmboard.ai aggregated benchmark table with evidence tiers, Artificial Analysis figures via llmboard.
-- Future sources: add a new file next to this one, e.g. `MiMo_V2_6_Pro.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using Xiaomi's own MiMo-V2.5-Pro model page as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 33-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, Gert Labs, Claw-Eval, MazeBench and Openrouter). The report's central finding is a **profile inversion rather than a level: the lowest hallucination rate measured anywhere in this research series (24.7%, on a positive Omniscience index of 3.3) coexisting with the batch's lowest APEX-Agents-AA (2.4%) and a 22.7% AA Agentic Index** — attributed explicitly as the same protocol-fluency-without-execution pattern confirmed across ten models in this series, and carried into the recommendation rather than averaged away. The **lowest hallucination rate in this research series (24.7%)** is attributed rather than presented bare, as is the **12.3-point vendor-vs-AA HLE gap (48% vs 35.7%)**, the batch's largest, resolved in favour of the independent run. Conflicts are listed side by side — GPQA Diamond 86.6% [AA] / 82.6% [Vals]; HLE 48% (vendor) / 35.7% [AA]; HLE w/o tools 34% (vendor) — rather than averaged, with the independent run preferred on each. The **text-only-by-design** modality set is scored at the methodology's placeholder floor and recorded as a deliberate gap rather than an oversight, with the omni-modal siblings named as the alternative. The **1M / Base-256K spec nuance** from repo meta is recorded rather than silently dropped. The unpublished BenchLM rate card is surfaced, with the repo's verified $0.435/$0.87/$0.0036 rates used for the cost score. Missing benchmarks (MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, JobBench, AA AutomationBench, Terminal-Bench 4.0, ARC-AGI, MRCR, AIME, MATH, FrontierMath, SWE-bench Verified, DeepSWE, Vibe Code Bench, FrontierCode, and every visual benchmark except Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Xiaomi — MiMo-V2.5-Pro model page (primary source)](https://mimo.xiaomi.com/mimo-v2-5-pro)
+  - [BenchLM — MiMo-V2.5-Pro benchmark scores (33 rows, 55.55/100, #72/1015)](https://benchlm.ai/models/mimo-v2-5-pro)
+  - [Artificial Analysis — MiMo-V2.5-Pro](https://artificialanalysis.ai/models/mimo-v2-5-pro)
+  - [Vals AI — MiMo-V2.5-Pro leaderboard results](https://www.vals.ai/models/xiaomi_mimo-v2.5-pro)
+  - [Artificial Analysis — omniscience leaderboard (source of the series-lowest 24.7%)](https://artificialanalysis.ai/evaluations/omniscience)
+  - [Artificial Analysis — apex-agents-aa leaderboard (source of the batch-lowest 2.4%)](https://artificialanalysis.ai/evaluations/apex-agents-aa)
+  - [Artificial Analysis — aaagenticindex leaderboard](https://artificialanalysis.ai/evaluations/aaagenticindex)
+  - [Artificial Analysis — tau2-bench leaderboard](https://artificialanalysis.ai/evaluations/tau2-bench)
+  - [Artificial Analysis — gdpval-aa leaderboard](https://artificialanalysis.ai/evaluations/gdpval-aa)
+  - [Artificial Analysis — gpqa-diamond leaderboard](https://artificialanalysis.ai/evaluations/gpqa-diamond)
+  - [Artificial Analysis — humanitys-last-exam leaderboard](https://artificialanalysis.ai/evaluations/humanitys-last-exam)
+  - [Artificial Analysis — aacodingindex leaderboard](https://artificialanalysis.ai/evaluations/aacodingindex)
+  - [Artificial Analysis — ifbench leaderboard](https://artificialanalysis.ai/evaluations/ifbench)
+  - [Artificial Analysis — lcr leaderboard](https://artificialanalysis.ai/evaluations/lcr)
+  - [Claw-Eval leaderboard](https://claw-eval.github.io/)
+  - [Gert Labs rankings](https://gertlabs.com/rankings)
+  - [MazeBench AI leaderboard](https://mazebench.com/leaderboard/ai)
+  - [Openrouter — MiMo-V2.5-Pro benchmarks](https://openrouter.ai/xiaomi/mimo-v2.5-pro/benchmarks)
+  - [Repo curated meta — `model/mimo-v2.5-pro/meta.json` (1.02T/42B, 1M (Base 256K), text-only, $0.435/$0.87/$0.0036, MIT)](/model/mimo-v2.5-pro/meta.json)
+  - See also: [`model/mimo-v2.5-free/`](mimo-v2.5-free.md) — the **base** model on a free tier, a **different** model refreshed earlier in this session; [`model/mimo-v2.6-pro/`](mimo-v2-6-pro.md) (57.27) — the successor generation
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

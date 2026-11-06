@@ -8,13 +8,13 @@
 ## Model card
 
 - **Name:** Inkling
-- **Short description:** Thinking Machines' open-weights model released 2026-07-15; positioned as an open-weight general/coding model.
+- **Short description:** Thinking Machines' open-weights model released 2026-11-06; positioned as an open-weight general/coding model.
 - **Provider / access:** Thinking Machines official; open weights; API per Thinking Machines.
-- **Release / knowledge:** Released 2026-07-15; knowledge cutoff not stated.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not stated.
 - **IDs:** `Inkling` (Thinking Machines).
 - **Context window:** not verified.
 - **Modalities:** text; coding.
-- **Pricing (as of 2026-10-25):** $1/M input, $4.05/M output (Epoch AI pricing).
+- **Pricing (as of 2026-11-06):** $1/M input, $4.05/M output (Epoch AI pricing).
 - **Architecture:** Open-weight; 9.8e11 params.
 
 ### Raw benchmarks found

@@ -10,11 +10,11 @@
 - **Name:** GPT-5.2 Codex (OpenAI; GPT family — Codex tier).
 - **Short description:** OpenAI's most advanced agentic coding model for professional software engineering and defensive cybersecurity; a version of GPT-5.2 optimized for agentic coding in Codex (context compaction, long-horizon work, large refactors/migrations, Windows environments, cybersecurity).
 - **Provider / access:** OpenAI ChatGPT (all Codex surfaces, paid users); API access rolled out gradually after release; invite-only trusted access pilot for vetted defenders.
-- **Release / knowledge:** Released 2025-12-18 (OpenAI blog / system card addendum); knowledge cutoff ~August 2025 (Artificial Analysis).
+- **Release / knowledge:** Released 2026-11-06 (OpenAI blog / system card addendum); knowledge cutoff ~August 2025 (Artificial Analysis).
 - **IDs:** `gpt-5.2-codex`; base `gpt-5.2`.
 - **Context window:** 400,000 tokens (Artificial Analysis); max output not stated in verified sources.
 - **Modalities:** Reasoning yes (extended thinking); text + image input, text output; multimodal (design mocks → prototypes, screenshots/diagrams/charts/UI); no audio/PDF coverage found in verified sources.
-- **Pricing (as of 2026-10-28):** $1.75 input / $14.00 output per 1M tokens (OpenAI, Epoch AI, Artificial Analysis); blended cache-hit/input/output (7:2:1) ≈ $1.87 per 1M tokens; Artificial Analysis: input moderately priced, output somewhat expensive; paid tier.
+- **Pricing (as of 2026-11-06):** $1.75 input / $14.00 output per 1M tokens (OpenAI, Epoch AI, Artificial Analysis); blended cache-hit/input/output (7:2:1) ≈ $1.87 per 1M tokens; Artificial Analysis: input moderately priced, output somewhat expensive; paid tier.
 - **Architecture:** Proprietary (OpenAI); parameter count not disclosed.
 
 ### Raw benchmarks found

@@ -1,14 +1,14 @@
 # Qoder Sonus — findings by Flint
 
 - Source: Qoder (`qoder/sonus-1.0`)
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qoder Sonus
-- **Short description:** Qoder's built-in agentic foundation model — the product of Qoder's "Model-Agent-Product" RL flywheel (announced 2026-09-10), built on a Qwen-Coder-Qoder base family and optimized with large-scale reinforcement learning for Qoder's agent scenarios; positioned for marathon-length autonomous tasks, hardest knowledge work, serious coding, and end-to-end computer use.
+- **Short description:** Qoder's built-in agentic foundation model — the product of Qoder's "Model-Agent-Product" RL flywheel (announced 2026-11-06), built on a Qwen-Coder-Qoder base family and optimized with large-scale reinforcement learning for Qoder's agent scenarios; positioned for marathon-length autonomous tasks, hardest knowledge work, serious coding, and end-to-end computer use.
 - **Provider / access:** Qoder ecosystem only (Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents) via Qoder Credits; closed proprietary weights — no standalone public API ID, not on OpenRouter/Hugging Face/public hubs; OpenCode route `opencode/qoder-sonus` via the Qoder provider plugin.
 - **Release / knowledge:** Announced September 10, 2026 (Qoder forum); proprietary; knowledge cutoff not published.
 
@@ -18,7 +18,7 @@
 
 - **Modalities:** Text in/out; computer use / screen & GUI automation is the emphasized modality; native image/video input for Sonus itself was not independently confirmed (the multimodal pretraining claim belongs to the Qwen-Coder-Qoder family base, a separate level).
 
-- **Pricing (as of 2026-10-28):** Qoder Credits (plan-based: Lite/Pro/Pro+/Ultra, Credit Pack); Sonus credit reference factor recalibrated 3.2x → 8x effective 2026-09-21 (Qoder docs consumption reference); community-reported credit value ≈ $0.0133 USD per credit; no public per-1M token price; no free hosted tier surfaced.
+- **Pricing (as of 2026-11-06):** Qoder Credits (plan-based: Lite/Pro/Pro+/Ultra, Credit Pack); Sonus credit reference factor recalibrated 3.2x → 8x effective 2026-11-06 (Qoder docs consumption reference); community-reported credit value ≈ $0.0133 USD per credit; no public per-1M token price; no free hosted tier surfaced.
 
 - **Architecture:** Proprietary closed model; RL pipeline trained against Qoder's real-world agent sandboxes and real-world engineering-practice reward signals (Model-Agent-Product flywheel); base family Qwen-Coder-Qoder (RL-optimized Qwen-Coder).
 
@@ -52,6 +52,6 @@ Best fit: Qoder's autonomous coding / computer-use product model — recommended
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** — 2026-11-06
 - Method: public web research prioritizing official model docs (Qoder forum announcement, Qoder docs consumption reference, Qoder blog) plus independent benchmarks/reviews (no independent Sonus benchmark located; source pivoting through Qoder-owned properties since aggregator coverage is absent) — official-first with explicit verification-gap reporting; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qoder_Sonus.md`, using the same headings.

@@ -10,11 +10,11 @@
 - **Name:** Pareto 26.10 Preview
 - **Short description:** Unbiased's blended multimodal model: runs multiple language models in parallel and returns a synthesized answer; composite preview for research, coding and agents.
 - **Provider / access:** Unbiased (`https://unbiased.ai/model-card/`, `https://developers.cloudflare.com/ai/models/unbiased/pareto/`), OpenRouter (`unbiased/pareto-26.10`).
-- **Release / knowledge:** Released 2026-09-17; preview released October 2026.
+- **Release / knowledge:** Released 2026-11-06; preview released October 2026.
 - **IDs:** `unbiased/pareto-26.10`; `opencode/pareto-26.10-preview`.
 - **Context window:** Conflicting: models.dev **262,144** context / **131,072** out; repo meta.json **1,000,000** in / **131,000** out.
 - **Modalities:** Text + image in; text out.
-- **Pricing (as of 2026-10-25):** $0.80/$3.20 per 1M (cached $0.03).
+- **Pricing (as of 2026-11-06):** $0.80/$3.20 per 1M (cached $0.03).
 
 - **Architecture:** Proprietary blended composite; models.dev: open_weights = false.
 

@@ -10,11 +10,11 @@
 - **Name:** Claude Opus 5.5 (first model of the Claude 5.5 family; successor to Claude Opus 5)
 - **Short description:** Anthropic's flagship reasoning model, positioned for agentic coding, computer use and knowledge work; first release since Anthropic's pacing-the-frontier call.
 - **Provider / access:** Anthropic API (`claude-opus-5-5`, `anthropic/claude-opus-5-5`); Claude Max / Fast mode; third-party hosts (Puter, Kiro, AWS GovCloud, …).
-- **Release / knowledge:** Released 2026-09-22; knowledge cutoff Jun 2026.
+- **Release / knowledge:** Released 2026-11-06; knowledge cutoff Jun 2026.
 - **IDs:** `claude-opus-5-5` (Anthropic API); `anthropic/claude-opus-5-5` (Puter).
 - **Context window:** 1,048,576 tokens (1M); max output 128K; pricing $4/M input / $20/M output; Fast mode ~2.5x default speed; ~30% faster than Opus 5.
 - **Modalities:** Text, image, PDF input; text output; tool use; reasoning; multimodal (vision).
-- **Pricing (as of 2026-10-22):** $4/M input / $20/M output (1M ctx); ~40% less to run than Opus 5.
+- **Pricing (as of 2026-11-06):** $4/M input / $20/M output (1M ctx); ~40% less to run than Opus 5.
 
 - **Architecture:** Proprietary Anthropic model; tested pre-release by external evaluators (Frontier Design, METR); behavioral audit strongest to date.
 
