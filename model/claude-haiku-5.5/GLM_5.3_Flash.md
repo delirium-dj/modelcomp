@@ -32,10 +32,11 @@ Reasoning / knowledge:
 
 - HLE: **45.9%** no tools / **57.4%** with tools (Anthropic; vs Haiku 4.5 10.2%/18.7%); AA-HLE: **44.4%** (AA — fills the AA gap, above the 40% bar)
 - AA-LCR v1.1: **82.7%** (AA — fills the long-context gap; excellent for the class, matching Sonnet 5.5's 82.7%)
-- Artificial Analysis Intelligence Index: **43.4** (AA current board — corroborates the 43)
+- Artificial Analysis Intelligence Index: **43.4** (AA current board — corroborates the 43); Nov 5 refresh reads **36.5%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - CritPt: **18.9%** (AA); AA-Omniscience: index **10.7** (AA — weak)
 - FrontierMath v2: Tiers 1–3 **75.1%**, Tier 4 **46.3%** (Epoch AI leaderboard — added 2026-10-16, previously unmeasured; strong for the class)
-- MLCR-AA: **63.3%** (AA — added 2026-10-16)
+- MLCR-AA: **63.3%** (AA — added 2026-10-16); Nov 5 refresh re-reads **35.0%** — large downward drift on re-measurement, both cited
+- NEW (BenchLM Nov 5): **ARC-AGI-1 89.00% / ARC-AGI-2 61.3% / ARC-AGI-3 0.5% / adapter 2.82%** (ARC Prize published semi-private results — first ARC rows for this model, strong); AA-AnalystAgent **53.8%**; Hermes Index **37.0%** / Hermes Bench **71.0%**; FrontierCode 2.0 **27.7%** (weak, vs the 1.1 Main 46.4% system-card row); ParseBench **56.02%**; MazeBench (tools-on) **1%**; Design Arena Website **1261**
 - GPQA Diamond: no verified public score found
 - Chartography (no tools): **46.4%** (Anthropic; vs Haiku 4.5 6.4%)
 
@@ -54,7 +55,7 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** AA Harvey LAB 89.9% is a strong independent addition alongside GDPval 1620 and AA-Briefcase 1578 (both corroborated), with OSWorld 2.1 72.4% making desktop automation usable; AA AutomationBench 35.4% and TB4.0 32.8% (AA) cap it.
-- **Reasoning: 80/100.** CHANGED from 78 — AA-HLE 44.4%, AA-LCR 82.7% and the AA Index 43.4 stand corroborated, and the newly measured FrontierMath v2 75.1%/46.3% (Epoch) plus MLCR-AA 63.3% add two solid pillars; CritPt 18.9% and the weak Omniscience index keep it under 85.
+- **Reasoning: 80/100.** CHANGED from 78 — AA-HLE 44.4%, AA-LCR 82.7% and the AA Index 43.4 stand corroborated, the newly measured FrontierMath v2 75.1%/46.3% (Epoch) and MLCR-AA 63.3% added two solid pillars, and the Nov 5 ARC-AGI-2 61.3% (ARC Prize verified) adds a third — offsetting the MLCR re-read down to 35.0% and the AA Index v5.0 rebase (36.5); CritPt 18.9% and the weak Omniscience index keep it under 85.
 - **Context window: 95/100.** Documented 1M tokens (BenchLM concurs; tier ≥1M = 95–100); AA-LCR 82.7% is the first measured long-context evidence (strong) — no ≥98%-retrieval at length to reach 100.
 - **Multimodal: 78/100.** Text, image and PDF input with text output maps to the +PDF-in 75–90 band; Chartography 46.4% shows real chart-reading; no audio/video input documented.
 - **Coding: 68/100.** CHANGED from 66 — AA-SciCode 55.0%, Bug Hunt 21.5 and the newly surfaced FrontierSWE v2 43.8% (first SWE-family row) add independent evidence to FrontierCode 46.4%; still no SWE-bench Verified/SWE-Pro rows, so the score rests on mid-tier agent results.
@@ -65,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research, enrichment re-check 2026-10-19 (AA model page `https://artificialanalysis.ai/models/claude-haiku-5-5` fetched live — confirms Index 43 #3/173, $0.10/$0.50, 1M context, text+image in, and adds max-effort measurements: 232.2 tok/s (#16/151), TTFT 258.5s, and extreme max-effort verbosity 440M index tokens, #68/68; a Bing search for SWE-bench/GPQA rows found nothing new — both gaps stand). No evidence supports a score change — all seven scores carried from the 2026-10-16 pass. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude Haiku 5.5 page fetched 2026-11-05 (Nov 5 data, 37 rows) — all prior rows re-confirmed; ARC-AGI 1/2/3 suite, AA AnalystAgent, Hermes and FrontierCode 2.0 rows added; drifts cited (MLCR 63.3→35.0% re-measured, AA Index 36.5 = v5.0-class rebase of 43.4); ARC-2 offsets the MLCR drop — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

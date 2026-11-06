@@ -60,7 +60,7 @@ Long context:
 
 Multimodal / vision:
 
-- MMMU-Pro: **78.1%** (AA); AA-MMMU-Pro: **78.1%**; Design Arena Website: **1201** (OpenRouter)
+- MMMU-Pro: **78.1%** (AA); AA-MMMU-Pro: **78.1%**; Design Arena Website: **1201** (OpenRouter; Nov 5 refresh reads 1194 — minor drift)
 
 ### Normalized scores (1–100)
 
@@ -76,6 +76,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables citing AA/OpenRouter/Vals boards, updated 2026-10-09, theairankings.com; 2026-10-16 re-check: FrontierMath v2 42.8/14.6 and AA-HLE 37.2 added — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 41.9% (Vals), GDPval-AA 1018, AA-LCR 64.3%, SciCode 47.3%, LCB 84.5%, SWE-bench (Vals) 71.4%, IFBench 81.3%, MMMU-Pro 78.1%; updates AA Index 25→37.6 — Tool 92→75, Reasoning 85→84, Coding 70→78, Overall 85→83.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4.3 page fetched 2026-11-05 (Nov 5 data, 32 rows) — all prior rows re-confirmed with zero value changes, Design Arena 1201→1194 minor drift only; composite 52.89 #93/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.5.md`, using the same headings.

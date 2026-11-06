@@ -26,24 +26,24 @@ Agent / tool use:
 - AA AutomationBench-AA: **53.2%** (AA, independent — far better than the vendor-chart AutomationBench 20.7% row the 2026-10-08 pass cited; different harness)
 - AA-Briefcase: **1336 Elo** (AA); AA GDP.pdf: **22.8%** (AA)
 - Agents' Last Exam V1: **50.9%** max ($0.15/task; OpenAI vendor chart); OSWorld 2.0 offline: **52.7%** max; OSWorld 2.1: **48.9%** (Anthropic-reported); AutomationBench 1.0.6: **20.7%** (vendor chart)
-- AA Terminal-Bench 4.0: **12.6%** (AA — very weak; consistent with the 16.4% Anthropic-reported row)
+- AA Terminal-Bench 4.0: **12.6%** (AA — very weak; consistent with the 16.4% Anthropic-reported row); **AA-AnalystAgent: 43.8%** (NEW, BenchLM Nov 5 refresh — mid); **AA Cyber Index 52.7%, CWE-Bench-AA 56.7%, DeepsecBench-AA 23.5%, CyberGym-E2E-AA 77.9%** (NEW AA cyber suite)
 - Terminal-Bench 2.1 / Tau3: no verified public score found (OpenAI didn't report Terminal-Bench for Luna)
 - ExploitGym: **11.6%** (GPT-6 Astra system card)
 
 Reasoning / knowledge:
 
 - ARC-AGI-1: **86.7%**; ARC-AGI-2: **59.3%**; ARC-AGI-3: **0.1%** (ARC Prize verified results, arcprize.org/results/openai-gpt-6-luna — fills the ARC gap)
-- Artificial Analysis Intelligence Index: **38.1** (AA — fills the "no index" gap); AA-HLE: **38.5%** (AA — fills the HLE gap, just under the 40% bar)
-- AA-LCR v1.1: **83.3%** (AA — fills the long-context gap; excellent); CritPt: **19.4%**; MLCR-AA: **16.1%** (AA — fills the MLCR gap, weak)
+- Artificial Analysis Intelligence Index: **38.1** (AA — fills the "no index" gap); Nov 5 refresh reads **27.9%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales; AA-HLE: **38.5%** (AA — fills the HLE gap, just under the 40% bar)
+- AA-LCR v1.1: **83.3%** (AA — fills the long-context gap; excellent); CritPt: **19.4%**; MLCR-AA: **16.1%** (AA — fills the MLCR gap, weak; Nov 5 re-read **26.1%** — upward drift, both cited)
 - Factual error rate (lower is better): **7.6%** max ($0.012/prompt; beats GPT-5.6 Sol's best 8.5% at ~1/70th of the cost — OpenAI chart)
 - GPQA Diamond: no verified public score found for Luna specifically
 - HealthBench: **50.0%** raw / **54.5%** length-adjusted / Professional **60.8%** (raw **61.2%**) / Hard **31.4%** (GPT-6 Astra system card)
 - FrontierMath v2 (Epoch AI re-score): **78.9%** Tiers 1–3 / **56.1%** Tier 4 (epoch.ai, added 2026-10-16 — documented inline per repo convention, not averaged with vendor rows; Luna has no vendor FrontierMath row)
-- AA-Omniscience: **43.8% accuracy / 76.7% non-hallucination row / 0.7 index** (AA)
+- AA-Omniscience: **43.8% accuracy / 76.7% non-hallucination row / 0.7 index** (AA); Nov 5 refresh re-reads **39.6% accuracy / 79.3% hallucination / −8.3 index** — LABELING DRIFT FLAG (same pattern as grok-4.5/deepseek-v4-pro: the middle value is now labeled "Hallucination Rate" and the index flipped negative on re-measurement); check AA's page before quoting either reading
 
 Coding:
 
-- DeepSWE v1.1: **66.6%** max ($0.22/task; OpenAI — corroborated by benchlm; near Opus 5 at medium at 93–96% less cost)
+- DeepSWE v1.1: **66.6%** max ($0.22/task; OpenAI — corroborated by benchlm; near Opus 5 at medium at 93–96% less cost); **FrontierCode 2.0: 21.9%** (NEW, Cognition via BenchLM Nov 5 — weak, different harness from the vendor FrontierCode 1.1 Main 42.4% chart row)
 - AA-SciCode: **54.6%** (AA — fills the SciCode gap); Bug Hunt Bench: **18.3 fixes** (public data)
 - FrontierCode 1.1 Main: **42.4%** max ($0.11/task; OpenAI chart)
 - SWE-bench Verified / LiveCodeBench / Vibe Code Bench: no verified public score found for Luna specifically
@@ -54,7 +54,7 @@ Long context:
 
 Multimodal:
 
-- AA-MMMU-Pro: **79.7%** (AA — first measured vision evidence, strong for the band)
+- AA-MMMU-Pro: **79.7%** (AA — first measured vision evidence, strong for the band); **ExtractBench 91.01% / ParseBench 64.13%** (NEW, Nov 5 LlamaIndex snapshots); **ExtractBench Pro: 0%** (NEW, Oct 28 snapshot — anomalous zero, flagged)
 
 ### Normalized scores (1–100)
 
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the OpenAI GPT-6 Astra system card + GPT-6 launch post, Artificial Analysis independent boards (LCR/ARC/SciCode/Omniscience/Briefcase) via benchlm.ai, ARC Prize verified results, plus the prior 2026-10-08 pass with per-effort vendor charts; 2026-10-16 re-check: BenchLM 34-row refresh corroborates (MazeBench 0%, Hermes 33.9/70.5%, Epoch FrontierMath v2 78.9/56.1% added; GDPval 1437 vs AA 1432 flagged) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-6-Luna page fetched 2026-11-05 (Nov 5 data, 46 rows) — all prior rows re-confirmed; AA AnalystAgent 43.8%, four AA cyber rows, FrontierCode 2.0 21.9%, ExtractBench/ParseBench rows added; drifts cited (GDPval 1444, MLCR 16.1→26.1%, AA Index 27.9 = v5.0-class rebase of 38.1, Omniscience re-read with labeling-drift flag, ExtractBench Pro 0% anomaly); composite 62.53 #44/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

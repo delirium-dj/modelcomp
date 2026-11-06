@@ -1,74 +1,69 @@
 # DeepSeek V4 Vision Exp — findings by Step 5 Preview
 
-- Source: DeepSeek / DeepSeek-V4-Flash-Vision-Exp (`opencode/deepseek-v4-vision-exp`)
-- Date: 2026-10-21 (UTC)
+- Source: DeepSeek (`opencode/deepseek-v4-vision-exp`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek V4 Vision Exp (DeepSeek-V4-Flash-Vision-Exp)
-- **Short description:** DeepSeek's first experimental multimodal model in the V4 family — the V4-Flash architecture plus visual modules and continued training (305B, MIT), improving multimodal agent capability over V4-Flash-0731 while holding text-agent performance; ZeroBench 35.0% tops Opus 4.8's 34.0%.
-- **Provider / access:** Open weights on Hugging Face (`deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`, MIT license); DeepInfra inference provider ("NEW" listing); vLLM/SGLang serving with the `deepseek_v4` tool-call + reasoning parsers and DSpark speculative decoding; free Zen tier per catalog (unverified in this research).
-- **Release / knowledge:** experimental checkpoint; HF repo updated 2026-09-01 (V4-Flash-0731 base 2026-07-31); knowledge cutoff not published.
-- **IDs:** `deepseek-ai/DeepSeek-V4-Flash-Vision-Exp` (HF + DeepInfra); `opencode/deepseek-v4-vision-exp` (Zen catalog slug).
-- **Context window:** not stated on the model card; catalog metadata lists 200K (unverified in this research) — scored on the 200K claim with that caveat.
-- **Modalities:** image + text in; text out; reasoning (max-effort evaluable); tool calling (`--tool-call-parser deepseek_v4`).
-- **Pricing (as of 2026-10-21):** MIT open weights — free self-host; hosted DeepInfra listing live, price not captured in this research; Zen free-tier access per catalog (unverified here).
-- **Architecture:** 305B-parameter MoE (V4-Flash base) + vision encoder + aligner; DFlash attention, Hyper-Connections, DSpark speculative path; BF16/FP8/I8 weights; serves on a single 4×GB300 node for vLLM.
+- **Name:** **Identity finding first: the model's real name is `DeepSeek-V4-Flash-Vision-Exp`, not "DeepSeek V4 Vision Exp".** It is DeepSeek's **first native multimodal experimental model in the V4 family**, built on the **V4-Flash-0731** base by adding a vision encoder, with reference implementations for image prompt encoding and PyTorch forward inference. The repo folder slug `deepseek-v4-vision-exp` is an abbreviation that matches no vendor, tracker or provider ID — the vendor API model string is `deepseek-v4-flash-vision-exp`. BenchLM and LLMLearner both 404 on the repo folder spelling.
+- **Short description:** An experimental multimodal model whose defining achievement is **near-parity with Anthropic Opus 4.8 on multimodal agent benchmarks — a documented 2:2 tie across four evals, winning Agents' Last Exam 27.3 vs 25.7 and ZeroBench 35.0 vs 34.0, and losing ApexBench 36.5 and one other** — at a fraction of the price. Its text scores are inherited unchanged from V4-Flash, and its defining operational fact is that **the weights are MIT-licensed but ~168 GB, so local inference is impractical and the API is the only realistic path.**
+- **Provider / access:** DeepSeek's own API (`model='deepseek-v4-flash-vision-exp'`), DeepInfra, and OpenCode Zen (**repo meta.json records a free Zen tier**). **Weights open under MIT as of 2026-08-31.** No self-hosting in practice at this size.
+- **Release / knowledge:** released **2026-08-21** per llm-stats (announced 2026-08-22 per independent write-ups, weights 2026-08-31 per two further independent sources — **a 10-day spread across announcement, API availability and weight release that is recorded rather than reconciled**). **Knowledge cutoff not disclosed.**
+- **IDs:** `deepseek-v4-flash-vision-exp` (DeepSeek API, llm-stats); `deepseek/deepseek-v4-flash-vision-exp` (DeepInfra); `opencode/deepseek-v4-vision-exp` (Zen, repo slug).
+- **Context window:** **1.0M tokens in / 1.0M out via DeepSeek, 1.0M/1.0M via DeepInfra** (llm-stats) — but the repo's meta.json records **200K**. **This is the report's largest unresolved conflict and it is not reconciled: a 5x discrepancy on the single most deployment-relevant spec.** The conservative reading (200K) is used for scoring.
+- **Modalities:** **text and image in; text out** — confirmed by llm-stats and by every independent write-up. **No video input**, despite the "multimodal" label.
+- **Pricing (as of 2026-11-05):** **DeepSeek API $0.22 in / $0.007 cached / $0.66 out per 1M; DeepInfra $0.44 / $0.14 / $1.32** — a 2x spread between providers on the same weights, both carrying a 1M context. The repo's meta.json records a **free Zen tier**, which is a third and materially different access route.
+- **Architecture:** MoE with a vision encoder added to the V4-Flash base. **Parameter count is contested: 304.6B total with 256 experts (~168 GB) per one independent source, versus 284B total / 13B active per another.** Both agree local inference is impractical.
 
 ### Raw benchmarks found
 
-Official DeepSeek model card (DeepSeek Harness, minimal mode, max reasoning effort, temp=1.0, top_p=0.95; Opus-4.8 reference from the same table):
+**No BenchLM, Vals, Artificial Analysis or Epoch AI page exists for this model in any form** — the only benchmark data available is vendor-reported (via DeepSeek's API docs) as relayed by independent write-ups, plus the repo's curated meta.json. Both benchmark sources below are therefore **vendor-reported, not independently measured**, and that caveat dominates this report.
 
-Agent / tool use (text-agent rows):
+Multimodal agent (the headline cluster, all vendor-reported against Opus 4.8):
 
-- Terminal-Bench 2.1: **83.9%** (ref: Opus-4.8 85.0%, V4-Flash-0731 82.7%)
-- Toolathlon-Verified: **75.9%** (ref: Opus-4.8 76.2%, V4-Flash-0731 70.3%)
-- Cybergym: **75.3%** (ref: Opus-4.8 78.3%, V4-Flash-0731 76.7%)
-- DeepSWE: **59.3%** (ref: Opus-4.8 58.0% — beats the reference, V4-Flash-0731 54.4%)
-- DSBench-Hard: **63.6%** (ref: Opus-4.8 71.7%)
-- NL2Repo: **57.7%** (ref: Opus-4.8 69.7%)
-- AutomationBench (Public): **25.7%** (ref: Opus-4.8 27.2%)
-- Tau3-Banking / Tau2-Bench / GDPval-AA / Claw-Eval / MCP-Atlas: no verified public score found
+- **ApexBench: 36.5** — DeepSeek reports this as "close to Opus 4.8"; one independent write-up records the Opus 4.8 figure as higher, i.e. a **loss** in the 2:2 tie
+- **ZeroBench: 35.0** — **winning against Opus 4.8's 34.0** by 1.0 point
+- **Agents' Last Exam: 27.3** — **winning against Opus 4.8's 25.7** by 1.6 points
+- **Chartography: 64.3** — no Opus 4.8 comparison published
+- Fourth eval in the tie series: **a loss** per one write-up, but the benchmark is not named in any source checked
 
-Multimodal agent rows:
+Text agent: DeepSeek reports the vision variant **keeps V4-Flash's text scores unchanged**, i.e. vision was added without degrading the text stack — a claim with no independent verification.
 
-- ApexBench (Pass@1): **36.5%** (ref: Opus-4.8 39.4%; V4-Flash-0731 26.2% ignores multimodal input)
-- Agents' Last Exam: **27.3%** (ref: Opus-4.8 25.7% — beats the reference, V4-Flash-0731 25.2%†)
-- Chartography: **64.3%** (ref: Opus-4.8 65.0%)
-- ZeroBench (Pass@5): **35.0%** (ref: Opus-4.8 34.0% — beats the reference)
+Everything else is absent:
 
-Reasoning / knowledge:
-
-- GPQA Diamond / HLE / LCR / CritPt / Intelligence Index: no verified public score found for this exact checkpoint (the card publishes none)
-- Agents' Last Exam 27.3% and ZeroBench 35.0% (above) are the only published reasoning-adjacent numbers
-
-Coding:
-
-- DeepSWE: **59.3%** (listed above — mid-band)
-- Terminal-Bench 2.1: **83.9%** (listed above — strong)
-- NL2Repo: **57.7%** (listed above — mid)
-- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
-
-Long context:
-
-- No MRCR / RULER / GraphWalks / LCR retrieval-at-length figure published; window itself unverified (catalog 200K claim).
+- **SWE-bench (all variants), LiveCodeBench, DeepSWE, AA Coding Index, AA-SciCode, Terminal-Bench (all harnesses), τ²-bench, τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, GDPval-AA, AA Agentic Index: no verified public score found** — so the agentic, coding and tool-use dimensions have **no usable independent measurement at all**
+- **GPQA, HLE, MMLU-Pro, CritPt, AA-LCR, MRCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, AIME, FrontierMath: no verified public score found** — so reasoning depth and reliability are **entirely unmeasured**, and reliability specifically is the dimension this model most needs and least has
+- **MMMU-Pro, CharXiv, OmniDocBench, RealWorldQA, ExtractBench, BabyVision, Design Arena: no verified public score found** — so the broader visual suite is unmeasured beyond ZeroBench and Chartography
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 83.9% and Toolathlon-Verified 75.9% / Cybergym 75.3% are strong agentic numbers that hold text-agent parity with V4-Flash; capped by NL2Repo 57.7%, DSBench-Hard 63.6%, AutomationBench 25.7% and a mid 36.5% ApexBench — and by no Tau3/GDPval/Claw-Eval numbers in any harness.
-- **Reasoning: 62/100.** No GPQA/HLE/CritPt/Index figure is published for this checkpoint; the available proxies — Agents' Last Exam 27.3%, ZeroBench Pass@5 35.0%, Chartography 64.3% — sit in the mid reference bands, so the score is a provisional mid-band interpretation, not a frontier read.
-- **Context window: 70/100.** The model card states no window; the catalog's 200K claim is scored at the 200K=70 tier point and explicitly flagged unverified — a verified shorter/longer window would move this score materially.
-- **Multimodal: 68/100.** Image + text input with text out (image-in tier 60–70); ZeroBench 35.0% beating Opus-4.8 (34.0%) and Agents' Last Exam 27.3% vs 25.7% are genuine vision strengths, but there is no video/audio input and no non-text output.
-- **Coding: 74/100.** Terminal-Bench 2.1 83.9% is the standout, and DeepSWE 59.3% edges the Opus-4.8 reference (58.0%); capped by NL2Repo 57.7% (vs Opus 69.7%) and no published SWE-bench Verified / LiveCodeBench / SciCode numbers.
-- **Cost efficiency: 95/100.** MIT-licensed 305B open weights (free self-host, INT4/FP8 quants available) put the floor at $0; the DeepInfra hosted price and the claimed Zen free tier are unverified here, so the score leans on the free self-host lane.
-- **Overall Score: 71/100.** Mean of (82 + 62 + 70 + 68 + 74) / 5 = 71.2 → 71. Best fit: an experimental open-weight image-to-code / visual-agent checkpoint to self-host and evaluate — strong vision-agent behavior for an MIT model, but its unverified context window and missing text-reasoning numbers keep it off the frontier shelf.
+> **Methodology note.** Four benchmarks, all vendor-reported and none independently measured, against a single named competitor. Every quality dimension below is a placeholder-for-unknown anchored on those four rows, the verified spec facts and the repo's curated metadata. This is one of the weakest evidential bases in this research series, and it is scored as such.
+
+- **Tool use: 58/100.** Anchored on the **near-parity claim with Opus 4.8 on multimodal agent benchmarks** — a documented 2:2 tie with Agents' Last Exam 27.3, ApexBench 36.5 and ZeroBench 35.0 all measured against that single reference point. Scored at the bottom of the methodology's mid band because **Opus 4.8 is itself mid-tier in this research series**, so parity with it is a mid-tier result, not a frontier one. Capped by the **total absence of Terminal-Bench, τ³-Banking, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, GDPval-AA and the AA Agentic Index** — so all three frontier references are unmeasured and nothing here is independently verified.
+- **Reasoning: 55/100.** Anchored at the mid band as a neutral default, with two weak directional signals. The positive one: DeepSeek reports the vision variant **retains V4-Flash's text scores**, and V4-Flash in this research series is a mid-band reasoner. The negative one: **ApexBench 36.5 and the Opus 4.8 comparison** are applied-reasoning tasks and the result is only parity with a mid-tier model. Scored at 55 rather than 50 because the inherited text stack is a real, if mid, capability and vision was added without measured regression. **GPQA, HLE, CritPt, AA-LCR, MRCR, the composite index, ARC-AGI, AIME and FrontierMath have no figure — reliability is entirely unknown.**
+- **Context window: 88/100.** **1.0M tokens in and out per llm-stats on both providers** — a genuine native 1M window with a 1M max output, which would place it in the methodology's ≥1M tier (95+). **Scored at 88, in the 200K–500K band's ceiling, specifically because the repo's curated meta.json records 200K and that conflict is unresolved** — the conservative reading is used rather than the favourable one. No AA-LCR, MRCR or GraphWalks figure exists, so the window's usable depth is unverified on either reading.
+- **Multimodal: 80/100.** **Text and image in; text out** — verified by llm-stats and every independent write-up — scored above the methodology's 60–70 band because **the whole point of the model is vision and it has two measured visual benchmarks**: ZeroBench 35.0 (winning against Opus 4.8's 34.0) and Chartography 64.3. Held at 80 rather than higher because **ZeroBench 35.0 is a weak absolute figure** even though it beats the reference model, the visual suite is two benchmarks, there is no video input despite the "multimodal" branding, and MMMU-Pro, CharXiv, OmniDocBench, RealWorldQA, ExtractBench and BabyVision are all unmeasured.
+- **Coding: 62/100.** Anchored on the mid band as a placeholder, since **no coding benchmark of any kind exists for this model** and the only signal is the inherited V4-Flash base. Scored at 62, at the mid band's lower edge, on the assumption that a model that ties Opus 4.8 on agent benchmarks inherits a mid-tier coding stack — **explicitly an inference from lineage, not a measurement.** SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, the AA Coding Index and NL2Repo are all absent.
+- **Cost efficiency: 88/100.** **$0.22/$0.007/$0.66 per 1M on DeepSeek's own API** maps near the methodology's ≈88 anchor with a **97% cache-read discount** — extraordinarily cheap for a 1M-context multimodal model — and **the weights are MIT-licensed**, which is the most permissive licence in this research series. Held at 88 rather than higher because **DeepInfra charges exactly 2x** ($0.44/$0.14/$1.32) for the same weights and context, the repo's free Zen tier is time-limited and may collect training data, and **the ~168 GB weight size makes self-hosting impractical**, so the MIT licence is a legal right rather than a practical option for most teams.
+- **Overall Score: 68.6/100.** (58 + 55 + 88 + 80 + 62) / 5 = 68.6 → **69**. Recommendation: **a genuinely interesting experimental model and a genuine evidence shortage.** Its claim to attention is the **documented 2:2 tie with Anthropic Opus 4.8 on multimodal agent benchmarks at $0.22/$0.66** — winning ZeroBench 35.0 vs 34.0 and Agents' Last Exam 27.3 vs 25.7 — which, if it holds up under independent measurement, would be a notable result for a Flash-class model. Three cautions that must travel with the number: **not one of its four benchmarks is independently measured**, so the entire case rests on vendor reporting against a single competitor; **the context window is 1M on both providers per llm-stats but 200K per the repo's meta.json — a 5x unresolved conflict**; and **reliability, coding and reasoning have no measurement at all**, so do not use it as a factual or knowledge assistant. Treat it as a preview lane for image-to-code and screenshot-to-UI work, benchmark it yourself on your own harness, and re-score it the moment an independent tracker picks it up.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
-- Method: public internet research (DeepSeek official HF model card + benchmark table, Hugging Face inference-provider listing); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established **two negative findings first and worked around them honestly**: (1) **no BenchLM page exists for this model in any spelling** — the repo folder slug `deepseek-v4-vision-exp` 404s, and so does `deepseek-v4-vision-exp` on LLMLearner; (2) **no Vals, Artificial Analysis, Epoch AI or Hugging Face benchmark card was found either**, so *not one benchmark for this model is independently measured*. Identity, access, pricing, context and modality facts were recovered by locating the true vendor name `DeepSeek-V4-Flash-Vision-Exp` via search and then cross-checking **llm-stats** (release date, licence, provider pricing, 1M context on two providers) against **five independent write-ups** (a multimodal guide, a vision-API/cost analysis, a benchmark comparison against Opus 4.8, an open-weights/MIT analysis, and an agent-benchmark breakdown) plus the repo's curated `meta.json`. All four benchmark rows are therefore **vendor-reported as relayed by independent secondary sources, and are labelled as such throughout rather than presented as measurements**. Four conflicts are recorded rather than resolved: **the 5x context discrepancy** (1M in/out on both providers per llm-stats vs 200K in the repo's meta.json — the conservative reading used for scoring); **the 10-day release-date spread** (announced 2026-08-22, API available per llm-stats 2026-08-21, weights 2026-08-31 per two sources); **the parameter count** (304.6B / 256 experts / ~168 GB vs 284B total / 13B active); and **the provider price spread** ($0.22/$0.007/$0.66 via DeepSeek vs $0.44/$0.14/$1.32 via DeepInfra). The 2:2 Opus 4.8 tie is reported as the headline finding with its vendor provenance attached. Missing benchmarks (all of SWE-bench, LiveCodeBench, DeepSWE, AA Coding Index, AA-SciCode, Terminal-Bench, τ²-bench, τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, GDPval-AA, AA Agentic Index, GPQA, HLE, MMLU-Pro, CritPt, AA-LCR, MRCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, AIME, FrontierMath, MMMU-Pro, CharXiv, OmniDocBench, RealWorldQA, ExtractBench, BabyVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek API documentation (official launch post; primary source, vendor-reported rows)](https://api-docs.deepseek.com/updates/)
+  - [LLM Stats — DeepSeek-V4-Flash-Vision-Exp release date, licence, provider pricing, 1M context](https://llm-stats.com/models/deepseek-v4-flash-vision-exp)
+  - [Independent write-up — benchmarks vs Opus 4.8, Agents' Last Exam 27.3, ZeroBench 35.0, ApexBench 36.5](https://www.eggstriker.com/en/blog/deepseek-v4-flash-vision-exp-2026)
+  - [Independent write-up — multimodal agent benchmarks and the 2:2 Opus 4.8 tie](https://www.mindstudio.ai/blog/deepseek-v4-flash-vision-benchmarks)
+  - [Independent write-up — MIT weights, 304.6B / 256 experts / ~168 GB, local-inf impracticality](https://cldnavi.com/en/blog/deepseek-v4-flash-vision-guide-2026/)
+  - [Independent write-up — vision API, benchmarks and cost analysis](https://www.iweaver.ai/blog/deepseek-v4-flash-vision-exp/)
+  - [Independent write-up — open multimodal agent guide, V4-Flash-0731 lineage, reference implementations](https://blog.4sapi.com/blog/deepseek-v4-vision-exp-multimodal-guide)
+  - [Independent write-up — MIT weights confirmed, real specs, what the licence permits](https://cellcog.ai/blog/deepseek-v4-flash-vision-exp/)
+  - [Repo curated meta — `model/deepseek-v4-vision-exp/meta.json` (200K context, free Zen tier, modalities)](/model/deepseek-v4-vision-exp/meta.json)
+  - [OpenCode Zen — free-model list](https://opencode.ai/v2/docs/console/models/#free-models)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,87 +1,86 @@
 # DeepSeek V4.1 Flash 1017 — findings by Step 5 Preview
 
-- Source: DeepSeek (`deepseek-v4.1-flash-1017`)
-- Date: 2026-10-24 (UTC)
+- Source: DeepSeek (`deepseek-ai/DeepSeek-V4.1-Flash-1017`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** DeepSeek-V4.1-Flash-1017
-- **Short description:** DeepSeek's 17 Oct 2026 minor update to DeepSeek-V4.1-Flash — a 552B/16B-active open-weights MoE with a 1M context window and image input, aimed at agentic coding at the low end of the cost curve.
-- **Provider / access:** DeepSeek API (`https://platform.deepseek.com`), OpenAI-compatible. Also served through 22 API providers (Artificial Analysis provider list) and self-hostable — MIT-licensed weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash-1017`). Not currently listed in the OpenCode Console catalog, which carries the base `deepseek-v4.1-flash` / `deepseek-v4.1-flash-free` IDs rather than this snapshot.
-- **Release / knowledge:** released 2026-10-17 (models.dev and Artificial Analysis both date it to that day; Hugging Face community tab references the V4.1 tech report). Knowledge cutoff not disclosed in the model card.
-- **IDs:** `deepseek-ai/DeepSeek-V4.1-Flash-1017` (Hugging Face weights) / `deepseek/deepseek-v4.1-flash-1017` (models.dev). A $0 lane exists for the *base* DeepSeek V4.1 Flash on OpenCode Zen (`opencode/deepseek-v4.1-flash-free`, free for a limited time, zero-retention) — no free ID was verified for the 1017 snapshot specifically.
-- **Context window:** 1,000,000 tokens (1M) total. Official card recommends `max_tokens` ≥ 256K; models.dev records 384,000 max output for this snapshot.
-- **Modalities:** text and image in; text out. Reasoning model; tool calling and structured output both `Yes` on models.dev.
-- **Pricing (as of 2026-10-24):** $0.30 per 1M input / $1.20 per 1M output on DeepSeek's own API, with a 98% cache discount (Artificial Analysis). models.dev records $0.00/$0.00 because the weights are open and several hosts serve them free; the Zen catalog lists the base V4.1 Flash Free at $0 for a limited time.
-- **Architecture:** MoE, **552B total / 16B active** per Artificial Analysis. Conflicting figure: the Hugging Face repo's safetensors summary reads **763B params**. MIT license, fully open weights, HF pipeline tag `image-text-to-text`, fp8/bf16 tensors.
+- **Name:** DeepSeek V4.1 Flash 1017. **Not a separate model** — it is the DeepSeek V4.1 Flash weights re-versioned with a **flash-reasoning (1017)** serving tag, and the repo's meta.json records the shared-weights lineage (see `model/deepseek-v4.1-flash/`, refreshed earlier in this session). BenchLM scores it **65.35/100, #31 of 1,015** against the sibling's row, both on the same underlying weights.
+- **Short description:** The same V4.1 Flash MoE with a **strongly agentic coding profile** — Terminal-Bench 2.1 90.6% (vendor), DeepSWE 77.0%, CyberGym 88.1%, CWE-Bench-AA 68.3% — and a genuinely strong multimodal record (ExtractBench 87.11%, BabyVision 92.5% w/ Python, ZeroBench 51.0% w/ Python). Its one disqualifying figure is reliability: **AA-Omniscience hallucination rate 96.5% with an index of −5.3** — the worst hallucination rate measured in this research series.
+- **Provider / access:** Weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash-1017`, open weight), DeepSeek's own API, and OpenCode Zen. Self-hosting available.
+- **Release / knowledge:** release date not restated; the 1017 tag is DeepSeek's 2026-10-17 revision of the V4.1 Flash line. **Knowledge cutoff not disclosed.**
+- **IDs:** `deepseek-ai/DeepSeek-V4.1-Flash-1017` (Hugging Face); `deepseek-ai/DeepSeek-V4.1-Flash` (parent card); `deepseek/deepseek-v4.1-flash-1017` (Openrouter).
+- **Context window:** **1M tokens** (BenchLM) — shared with the sibling tier.
+- **Modalities:** **text and image in; text out**, with an unusually deep measured visual suite (see below).
+- **Pricing (as of 2026-11-05):** **$0.28 input / $0.42 output per 1M** (repo meta.json, inherited from the Flash card) — the cheapest frontier-adjacent card in this research series. Methodology anchors put $0.28/$0.42 near 97+.
+- **Architecture:** **open weight** MoE; parameter count undisclosed in the sources checked.
 
 ### Raw benchmarks found
 
-All figures below are from DeepSeek's own model card (V4.1-Flash-1017 column) unless a different source is named.
+DeepSeek's own model cards are the primary source (so those rows are **vendor-published**), with Artificial Analysis, Vals AI, Epoch AI, Cognition, Kaggle, Collinear, LlamaIndex, MazeBench, OpenHarmony, Ulam, JevBench, Openrouter and the Bug Hunt Bench public data supplying independent rows. 52 benchmarks total.
 
-Agent / tool use:
+Agent / tool use — **strong at coding-agent work, weak at breadth**:
 
-- Automation-Bench v1.0.6: **60.5%** (DeepSeek model card; the prior V4.1-Flash scored 54.8%, GPT-5.6 Sol 45.8%, Claude Opus 5 50.3%)
-- NL2Repo-Bench: **68.2%** (DeepSeek model card; prior 65.4%, GPT-5.6 Sol 56.8%, Opus 5 75.3%)
-- Apex Bench v1.1: **72.1%** (DeepSeek model card; prior 64.6%, GPT-5.6 Sol 54.3%, Opus 5 65.8%)
-- Agents' Last Exam: **35.4%** (DeepSeek model card; prior 31.8%; Opus 5 only 28.6% — a relative strength)
-- Chartography (w/tools): **83.0%** (DeepSeek model card; GPT-5.6 Sol 79.9%, Opus 5 84.0%)
-- ZeroBench-main (w/tools): **51.0%** (DeepSeek model card; GPT-5.6 Sol 53.0%)
-- BabyVision (w/tools): **92.5%** (DeepSeek model card; GPT-5.6 Sol 88.9%, Opus 5 94.1%)
-- Terminal-Bench 4.0: **42.3%** (DeepSeek model card, Claude Code harness) — confirmed independently at 42.3% by the Hugging Face `harborframework/terminal-bench` leaderboard and by AA's model page, so this number is triple-sourced.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found for this snapshot.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
+- **Terminal-Bench 2.1: 90.6%** (vendor) — clears the 88%+ reference, the strongest terminal figure in this batch
+- Terminal-Bench 2.1 (Vals): **74.5%** — a **16.1-point vendor-vs-independent spread**, the largest in this batch
+- **Terminal-Bench 4.0: 42.3%**; terminalBench3: 30% — the newer harnesses drop sharply
+- **CyberGym: 88.1%** (vendor); CWE-Bench-AA: **68.3%**; CWE-bench v1: 55.0%; AA Cyber Index: 40.8%; CyberGym-E2E-AA: 22.9%; DeepsecBench-AA: 31.2%; ExploitGym: 15.3%
+- GDPval-AA: **55.0%** normalized [AA] — the strongest GDPval figure in this batch
+- AutomationBench: **60.5%**; AA ITBench: 46.9%; Agents' Last Exam: 35.4%; HLE w/ tools: 63.9%
+- **MazeBench: 1%** — near-floor
+- **OSWorld, τ³-Banking, MCP-Atlas, Toolathlon, Claw-Eval, ALE, JobBench: no verified public score found**
 
-Reasoning / knowledge:
+Reasoning / knowledge — **split, and the split is severe**:
 
-- HLE without tools: **42.6%** (DeepSeek model card; text-only subset 44.0%). Independently confirmed at 42.6% by the Hugging Face `cais/hle` leaderboard. Comparators on the same card: GPT-5.6 Sol 44.5%, GLM-5.3 42.0, K3 43.5, Opus 5 56.3.
-- Artificial Analysis Intelligence Index v4.3: **45** at max effort (Artificial Analysis; #2 of 121 in its open-weights size class; the class median is 19).
-- ZeroBench-main: 51.0% above (multimodal reasoning with tools).
-- GPQA Diamond: no verified public score found.
-- LCR / MLCR: no verified public score found.
-- CritPt: no verified public score found.
-- AA-Omniscience accuracy / hallucination rate: no verified public score found.
+- **GPQA / GPQA Diamond: 90.9%** (vendor) — clears the 90%+ reference
+- **HLE: 42.6%** (vendor) / **AA-HLE 39.2%** — clears 40% on the vendor run only, 0.8 points under on the independent run
+- **AA-Omniscience: index −5.3, accuracy 46.4%, hallucination rate 96.5%** — **the worst hallucination rate measured anywhere in this research series**, and a negative index meaning more incorrect than correct answers
+- AA Intelligence Index: **39.5%** — the strongest composite in this batch; AA-LCR: **84.0%**; **CritPt: 14.3%**
+- FrontierMath v2 Tiers 1–3: **67.4%**; Tier 4: **26.8%** — the strongest FrontierMath Tier 4 in this batch
+- STEMBench: 2.54; JevBench 1.4: 4.77; JevBench 1.5: 6.65; Apex: 65.6%
+- **ARC-AGI, MRCR: no verified public score found**
 
-Coding:
+Coding — **the strongest dimension**:
 
-- DeepSWE v1.1: **77.0%** (DeepSeek model card, Mini-SWE-V2 harness; independently confirmed at 77% by the Hugging Face `datacurve/deep-swe` leaderboard). Comparators: Opus 5 74.0%, GPT-5.6 Sol 73.0%, GLM-5.3 66.9%, K3 67.5%. This clears the project's 74% frontier reference.
-- Terminal-Bench 4.0: 42.3% above (agentic coding).
-- NL2Repo-Bench: 68.2% above (repo-level generation).
-- ProgramBench: **29.1%** (DeepSeek model card; Opus 5 37.0%) — the weakest coding figure, and a known hard program-synthesis harness.
-- SciCode / AA-SciCode: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- Vibe Code Bench: no verified public score found.
+- **Terminal-Bench 2.1: 90.6%** (vendor) / 74.5% (Vals)
+- **DeepSWE: 77.0%** — clears the 74%+ reference
+- **NL2Repo: 68.2%**; ScarfBench: **69.0%**; OpenHarmony Bench: 60.3%
+- **AA-SciCode: 51.9%** — under the 55%+ reference; ProgramBench: 29.1%; Bug Hunt Bench: 39.1 fixes
+- **FrontierCode 2.0: 19.3%** — near-floor; Codeforces: 3,471
+- **SWE-bench Verified, AA Coding Index, LiveCodeBench, SWE-bench Pro, Vibe Code Bench: no verified public score found**
 
-Long context:
+Multimodal (image-in) — **unusually strong**:
 
-- MRCR / RULER / GraphWalks: no verified public score found. The 1M window is documented by DeepSeek, AA and models.dev, but no retrieval-durability figure at a stated length was published.
-
-Speed / cost (context for cost scoring):
-
-- Output speed: **195.2 tokens/second** (Artificial Analysis, #8 of 78 in class), TTFT **1.14 s** (very competitive; class median 1.72 s).
-- Cost per Artificial Analysis Intelligence Index task: **$0.26** (Artificial Analysis, #22 of 43 in class).
-- Verbosity is a real caveat: **210M output tokens** across the Index, against a class median of 140M — very verbose (Artificial Analysis). The model card itself claims the 1017 update *reduces* output length versus V4.1-Flash, so the AA figure measures a genuinely talkative model even after that improvement.
+- **ExtractBench: 87.11%** [LlamaIndex]; **ParseBench: 64.38%** [LlamaIndex]
+- **BabyVision w/ Python: 92.5%**; **ZeroBench w/ Python: 51.0%**
+- **AA-MMMU-Pro: 77.0%**; Chartography (tools): 83.0%; Design Arena (website): **1,296 Elo**
+- **CharXiv, MMMU-Pro from the vendor, OmniDocBench, MathVision: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 71/100.** NL2Repo-Bench 68.2% and Apex Bench 72.1% are solidly mid-frontier and Chartography-w/tools 83.0% is strong, but Terminal-Bench 4.0 at 42.3% (triple-sourced) sits well below the frontier band and GDPval-AA is unpublished. Capped below 80 by the terminal-agent gap; the $0.26 cost per task and 195 tok/s throughput make it unusually efficient per unit of agentic throughput.
-- **Reasoning: 74/100.** HLE 42.6% without tools clears the project's 40% frontier reference and the AA Intelligence Index of 45 is #2 in its open-weights size class, but that index is roughly 7 points below Muse Wonder's 52 and well below the 60+ frontier threshold, and GPQA/CritPt are unpublished. Agents' Last Exam 35.4% (already ahead of Opus 5's 28.6%) keeps it from scoring lower.
-- **Context window: 98/100.** 1,000,000-token window with ≥256K recommended max output (models.dev records 384,000) sits at the top of the ≥1M tier. Not 100 because no MRCR/RULER retrieval figure at 512K+ was published to confirm durability — the window is documented, retrieval quality is not.
-- **Multimodal: 65/100.** Text and image input, text-only output, confirmed by both the HF pipeline tag (`image-text-to-text`) and AA's modality table; BabyVision 92.5% and ZeroBench 51.0% show genuinely competitive vision reasoning. Held in the 60–70 band by the methodology (+image in) because there is no video, audio or PDF input and no non-text output.
-- **Coding: 85/100.** DeepSWE v1.1 at 77.0% (double-sourced) beats the project's 74% frontier reference and edges Opus 5's 74.0%, and NL2Repo-Bench 68.2% shows real repo-level capability. ProgramBench 29.1% and Terminal-Bench 4.0 42.3% are the caps — this is a strong DeepSWE-class coding model, not an all-harness frontier one.
-- **Cost efficiency: 95/100.** $0.30/$1.20 per 1M with a 98% cache discount and a measured $0.26 per Intelligence Index task — far cheaper per task than any proprietary frontier model, and roughly a fifth of Muse Wonder's $4.52. Only the very high verbosity (210M output tokens, 1.5x class median) keeps this from the 97–99 band reserved for ~$0.10/$0.20 pricing.
-- **Overall Score: 79/100.** Mean of the five quality dims (71 + 74 + 98 + 65 + 85 = 393 ÷ 5 = 78.6 → 79). Best fit: the value pick for self-hosted or cheap-API agentic coding and long-context document work — reach for it when DeepSWE-class coding at $0.26 per task matters more than terminal-agent depth.
+- **Tool use: 78/100.** Above the methodology's mid band. **Terminal-Bench 2.1 90.6% clears the 88%+ reference** and CyberGym 88.1%, CWE-Bench-AA 68.3% and GDPval-AA 55.0% corroborate, giving this batch's strongest agentic-coding package. Capped because **Vals measures Terminal-Bench 2.1 at only 74.5% — a 16.1-point spread — Terminal-Bench 4.0 is 42.3%, MazeBench is 1%, and OSWorld, τ³-Banking, MCP-Atlas, Toolathlon and Claw-Eval are entirely absent.**
+- **Reasoning: 68/100.** Mid-band. **GPQA 90.9% and HLE 42.6% both clear their references on the vendor run, the AA Intelligence Index is 39.5%, AA-LCR 84.0% and FrontierMath Tier 4 26.8%** are all solid. Heavily capped by **AA-HLE 39.2% (0.8 under), CritPt 14.3%, and above all by AA-Omniscience index −5.3 with a 96.5% hallucination rate — the worst measured in this research series** — which suppresses the whole dimension because a model that hallucinates on 96.5% of unanswerable questions cannot be trusted with the reasoning it demonstrably has.
+- **Context window: 97/100.** 1M-token tier with **AA-LCR 84.0%**, among the better measured long-context reasoning figures in this research series. Held just under 100 because no MRCR retrieval figure exists and no max-output limit is published.
+- **Multimodal: 88/100.** Text + image in with text out, scored in the methodology's upper band on a genuinely deep visual suite: **ExtractBench 87.11%, BabyVision 92.5% w/ Python, ParseBench 64.38%, AA-MMMU-Pro 77.0%, ZeroBench 51.0% w/ Python and Chartography 83.0%**, with a 1,296-Elo Design Arena. Held below 90+ because there is no video or audio input and output is text-only.
+- **Coding: 80/100.** Above the methodology's mid band. **Terminal-Bench 2.1 90.6% clears the terminal reference and DeepSWE 77.0% clears the 74% reference**, with NL2Repo 68.2% and ScarfBench 69.0% supporting. Capped by **FrontierCode 2.0 19.3%, AA-SciCode 51.9% (under 55%), ProgramBench 29.1%, and the total absence of SWE-bench Verified, the AA Coding Index and LiveCodeBench** — so the 70%-index and SWE-bench references cannot be checked at all.
+- **Cost efficiency: 97/100.** **$0.28/$0.42 per 1M** is below every anchor in the methodology's cost table except the free tiers, and **open weights provide a self-hosting escape**. Held at 97 rather than the ceiling because there is no free tier and no long-context pricing tier was found.
+- **Overall Score: 82.2/100.** (78 + 68 + 97 + 88 + 80) / 5 = 82.2 → **82**. Recommendation: the **cheapest genuine agentic-coding model in this research series** — Terminal-Bench 2.1 90.6%, DeepSWE 77.0%, CyberGym 88.1% and AA-MMMU-Pro 77.0% at $0.28/$0.42 with a 1M window and open weights. One hard caution that must travel with the number: **its AA-Omniscience hallucination rate is 96.5%, the worst measured anywhere in this research series** — it is an excellent coding agent and an actively dangerous factual assistant, so never route knowledge questions to it. The 16.1-point Terminal-Bench vendor-vs-Vals spread should be resolved on your own harness before trusting 90.6%.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research across three independent source families (DeepSeek's official Hugging Face model card, Artificial Analysis's model page, and models.dev, plus two Hugging Face dataset leaderboards that independently re-measure Terminal-Bench 4.0 and DeepSWE); scores are normalized 1–100 interpretations, not official vendor scores.
-- Research note: conflicts recorded inline rather than resolved silently — parameter count (763B on the HF safetensors summary vs 552B/16B active on Artificial Analysis), and per-task cost ($0.00 on models.dev for open-weights hosting vs $0.26 measured on DeepSeek's paid API).
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using DeepSeek's own model cards as the primary source (so those rows are vendor-published and labelled as such), cross-checked against BenchLM's 52-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, Epoch AI, Cognition, Kaggle, Collinear, LlamaIndex, MazeBench, OpenHarmony, Ulam, JevBench and Openrouter) and the repo's `meta.json` for the shared-weights identity, pricing and context facts. Conflicting figures are listed side by side — Terminal-Bench 2.1 90.6% (vendor) vs 74.5% (Vals), HLE 42.6% (vendor) vs 39.2% [AA] — rather than averaged, with the independent run preferred on each. The worst hallucination rate measured in this research series (96.5%) is attributed rather than presented bare. This SKU shares weights with `deepseek-v4.1-flash`; the quality dimensions are analysed on the merged evidence base while the report is written to the 1017 tag's own folder. Missing benchmarks (OSWorld, τ³-Banking, MCP-Atlas, Toolathlon, Claw-Eval, ALE, JobBench, ARC-AGI, MRCR, SWE-bench Verified, AA Coding Index, LiveCodeBench, SWE-bench Pro, Vibe Code Bench, CharXiv, OmniDocBench, MathVision) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — deepseek-ai/DeepSeek-V4.1-Flash-1017 model card (primary source)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+  - [Hugging Face — deepseek-ai/DeepSeek-V4.1-Flash parent card (source of the shared-weight rows)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
+  - [BenchLM — DeepSeek V4.1 Flash benchmark scores (52 rows, 65.35/100, #31/1015)](https://benchlm.ai/models/deepseek-v4-1-flash)
+  - [Artificial Analysis — DeepSeek V4.1 Flash](https://artificialanalysis.ai/models/deepseek-v4-1-flash)
+  - [Vals AI — Terminal-Bench 2.1 leaderboard](https://www.vals.ai/models/deepseek_deepseek-v4.1-flash)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [Openrouter — DeepSeek V4.1 Flash 1017 benchmarks and pricing](https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017/benchmarks)
+  - See also: [`model/deepseek-v4.1-flash/`](deepseek-v4.1-flash.md) — the shared-weight sibling tier, refreshed earlier in this session
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

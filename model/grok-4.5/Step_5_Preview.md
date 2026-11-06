@@ -1,81 +1,83 @@
 # Grok 4.5 — findings by Step 5 Preview
 
-- Source: xAI / Grok 4.5 (`opencode/grok-4.5`)
-- Date: 2026-10-21 (UTC)
+- Source: xAI (`xai/grok-4.5`)
+- Date: 2026-11-05 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Grok 4.5
-- **Short description:** xAI/SpaceXAI's July 2026 coding-and-agents flagship, jointly trained with Cursor — ~4x more token-efficient than Opus 4.8 on SWE-bench Pro at an unchanged $2/$6, trading Grok 4.3's 1M window and video input for a sharper 500K coding focus; superseded by Grok 4.6 in August 2026.
-- **Provider / access:** xAI/SpaceXAI API (`grok-4.5`), OpenRouter (`x-ai/grok-4.5`), OpenCode Zen, Cursor (all plans at launch), Grok Build, Vercel, Cloudflare, GitHub Copilot; Chat Completions API, reasoning on at high effort by default.
-- **Release / knowledge:** released 2026-07-08; superseded 2026-08-12 by Grok 4.6; knowledge cutoff not disclosed; ~1.5T parameters (Musk-reported, unconfirmed).
-- **IDs:** `xai/grok-4.5`, `x-ai/grok-4.5` (OpenRouter), `opencode/grok-4.5` (Zen).
-- **Context window:** 500,000 total; up to 450,000 max output (folder meta); pricing rises above 200K input.
-- **Modalities:** text and image in; text out; reasoning (high default, not disableable); tool/function calling. Native video input from Grok 4.3 was dropped.
-- **Pricing (as of 2026-10-21):** $2.00/$6.00 per 1M (cached $0.50) under 200K input, higher tier above; Artificial Analysis measured ~$1.04 per Intelligence-Index task.
-- **Architecture:** proprietary; ~1.5T parameters claimed by Musk, not confirmed in xAI documentation.
+- **Name:** Grok 4.5. Sandwiched between Grok 4.6 (66.69) and Grok 4.3 (52.89), and **the only Grok whose BenchLM overall (63.03, #40 of 1,015) exceeds both its neighbours' ranks** — i.e. the 4.5→4.6 step was the smallest generational gain in the family.
+- **Short description:** A Grok 4.5-generation model with a **strong knowledge-and-reasoning profile for its rank** (AA-GPQA Diamond 93.1%, AA-LCR 79.3%, FrontierMath Tier 4 24.4%) and a **solid coding record** (AA Coding Index 72.5%, SWE-bench 86.6% Vals, VulcanBench v3 89.9%), set against a **500K window** and a **Terminal-Bench 2.1 split** (83.3% vendor / 81.6% AA / 67.8% Vals — a 15.5-point spread, the largest in this batch).
+- **Provider / access:** xAI's own API, Cursor (which co-published the launch), Vercel AI Gateway, OpenRouter, and OpenCode Zen (`xai/grok-4.5`). No Free ID.
+- **Release / knowledge:** release date not restated; Grok 4.5 sits mid-way through xAI's 2026 4.x line. **Knowledge cutoff not disclosed.**
+- **IDs:** `xai/grok-4.5` (xAI, Zen); `x-ai/grok-4.5` (Openrouter).
+- **Context window:** **500,000 tokens** — half the current 1M standard, shared with the whole 4.x line.
+- **Modalities:** **text and image in; text out**.
+- **Pricing (as of 2026-11-05):** **$2.00 input / $6.00 output per 1M with $0.50 cached reads below 200K**, and a >200K tier at $4/$12/$1 — the same card as Grok 4.6, so 4.6 offers no price advantage for its higher rank. Methodology anchors put $2/$6 near ≈88.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-SpaceXAI launch table (vendor, 2026-07-08) + Artificial Analysis / Vals AI figures via BenchLM:
+xAI's Grok 4.5 launch post is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, ARC Prize, Epoch AI, Cursor, Kaggle, LlamaIndex, VulcanBench's technical report, PostTrain Bench and Openrouter supplying independent rows. 37 benchmarks total.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **83.3%** (xAI; ref: Fable 5 84.3%, Opus 4.8 78.9%); **67.8%** on Vals AI (independent harness)
-- Terminal-Bench 3.0: **15.7%** (Terminal-Bench leaderboard via BenchLM) — weak on the new harness
-- GDPval-AA: **1,430 Elo / 44.2%** normalized (Artificial Analysis via BenchLM)
-- AA Agentic Index: **42.1%** (Artificial Analysis via BenchLM)
-- CursorBench 3.2: **66.7%** (Cursor evals via BenchLM)
-- Tau3-Banking / Tau2-Bench / Claw-Eval / MCP-Atlas / Toolathlon: no verified public score found
+- **Terminal-Bench 2.1: 83.3%** (vendor) / **81.6%** [AA] / **67.8%** [Vals] — a **15.5-point spread**, and the Vals figure is 20 points under the 88%+ reference
+- GDPval-AA: **1,430 Elo** [AA] / 44.2% normalized — under the 1,750 reference
+- **AA Tau3 Banking: 42.1%** — 7.9 points under the 50% reference
+- **AA Agentic Index: 42.1%**; AA EnterpriseOps-Gym: 40.8%
+- **Terminal-Bench 3.0: 15.7%** — near-floor on the newer harness
+- **MCP-Atlas, OSWorld, Toolathlon, Claw-Eval, MazeBench, ALE: no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **93.1%** (Artificial Analysis); **92.9%** (Vals AI)
-- AA-HLE: **42.7%** (Artificial Analysis via BenchLM) — frontier band (40%+)
-- AA Intelligence Index: **38.8%** re-based v4.3 (BenchLM; ~54 and rank 4–5 at launch on the old scale, rank 38th of 200 after the 2026-09-07 re-base)
-- MMLU-Pro (Vals): **89.2%** (Vals AI via BenchLM)
-- AA-LCR (long-context reasoning): **79.3%** (Artificial Analysis via BenchLM)
-- CritPt: **15.4%** (Artificial Analysis via BenchLM) — weak
-- ARC-AGI-1: **85.67%** / ARC-AGI-2: **52.6%** (ARC Prize semi-private via BenchLM)
-- FrontierMath v2: **57.2%** Tiers 1–3 / **24.4%** Tier 4 (Epoch AI via BenchLM)
-- AA-Omniscience: Accuracy **51.6%**, Hallucination Rate **54.1%** (Artificial Analysis via BenchLM)
+- **AA-GPQA Diamond: 93.1%** / GPQA Diamond 92.9% (Vals) — clears the 90%+ frontier reference on both
+- AA-HLE: **42.7%** — clears the 40%+ reference
+- **AA-LCR: 79.3%**; FrontierMath v2 Tiers 1–3: **57.2%**; Tier 4: **24.4%**
+- AA Intelligence Index: **38.8%**; **CritPt: 15.4%**
+- ARC-AGI-1: **85.7%**; ARC-AGI-2: **52.6%**; **ARC-AGI-3: 0.3%**
+- **AA-Omniscience: index 25.3, accuracy 51.6%, hallucination rate 54.1%** — mid-pack reliability, worse than Grok 4.6's 34.3% and Grok 4.7's 20.0%
+- MMLU-Pro (Vals): 89.2%
+- **MRCR: no verified public score found**
 
-Coding:
+Coding — the strongest dimension:
 
-- SWE-bench Verified (Vals): **86.6%** (Vals AI via BenchLM — matches the folder's launch claim)
-- LiveCodeBench (Vals): **87.4%** (Vals AI via BenchLM)
-- DeepSWE 1.0: **62.0%** (xAI; ref: Opus 4.8 55.75%, Fable 5 66.1%)
-- DeepSWE 1.1: **53%** (xAI; ref: Opus 4.8 59%, Fable 5 70%)
-- SWE-bench Pro: **64.7%** (xAI vendor harness; ref: Opus 4.8 69.2%, Fable 5 80.4%)
-- Terminal-Bench 2.1: **83.3%** (listed above)
-- SWE Multilingual: **78%** (Cursor launch post via BenchLM)
-- AA-SciCode: **55.0%** (Artificial Analysis via BenchLM — frontier ref 55%+)
-- VulcanBench v3: **89.9%** (VulcanBench via BenchLM)
-- AA Coding Index: **72.5%** (Artificial Analysis via BenchLM — frontier ref 70%+)
-- Vibe Code Bench / DeepSWE on AA: no verified public score found
+- **AA Coding Index: 72.5%** — clears the 70%+ frontier reference
+- SWE-bench (Vals): **86.6%**; SWE-bench Pro: 64.7% (vendor); SWE Multilingual: 78.0%
+- LiveCodeBench (Vals): **87.4%**; **VulcanBench v3: 89.9%**; CursorBench 3.2: 66.7%
+- **AA-SciCode: 55.0%** — exactly at the 55% reference
+- deepSwe: **53.0%** — 21 points under the 74% reference; PostTrainBench v1.1: 23.4%
+- **SWE-bench Verified, FrontierCode, Vibe Code Bench, Terminal-Bench 4.0: no verified public score found**
 
-Long context:
+Multimodal (image-in):
 
-- AA-LCR **79.3%** long-context reasoning (Artificial Analysis, via BenchLM); 500K native window; no MRCR/RULER/GraphWalks retrieval-at-length figure published.
-
-Multimodal extras (traceability): AA-MMMU-Pro 80.4%; Design Arena Website 1281 Elo (OpenRouter).
+- AA-MMMU-Pro: **80.4%**; Design Arena (website): **1,279 Elo**
+- **CharXiv, ExtractBench, BabyVision, ZeroBench: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** Terminal-Bench 2.1 83.3% (vendor) with GDPval 1,430 Elo above the mid reference and a 42.1% AA Agentic Index; capped by Vals' 67.8% on the same TB2.1, Terminal-Bench 3.0 at 15.7%, CursorBench 66.7% mid-band and no Tau3/Claw-Eval/MCP-Atlas numbers.
-- **Reasoning: 88/100.** GPQA Diamond 93.1% and HLE 42.7% are frontier-band, MMLU-Pro 89.2% and ARC-AGI-2 52.6% are strong, and the AA Intelligence Index was rank 4–5 (~54) at launch; capped by the re-based v4.3 read (38.8), CritPt 15.4%, LCR 79.3% and a 54.1% hallucination rate.
-- **Context window: 90/100.** 500K total with 450K max output lands in the 500K–1M tier (85–94); LCR 79.3% is competent but no ≥98% retrieval-at-512K evidence exists, and the >200K price tiering is a practical caveat.
-- **Multimodal: 68/100.** Text + image input with text out (image-in tier 60–70); AA-MMMU-Pro 80.4% is solid image reasoning, but video input was dropped versus Grok 4.3 and there is no non-text output.
-- **Coding: 86/100.** SWE-bench Verified 86.6% (Vals), LiveCodeBench 87.4%, AA-SciCode 55.0%, VulcanBench 89.9% and AA Coding Index 72.5% all clear or approach the frontier reference bands; capped by DeepSWE 1.1 53%, SWE-bench Pro 64.7% (vendor) and CursorBench 66.7%.
-- **Cost efficiency: 84/100.** $2/$6 (cached $0.50, higher tier above 200K) matches the ~$1.25/$4.25 ≈ 88 band slightly on the expensive side, but measured token efficiency — 15,954 vs 67,020 output tokens per SWE-bench Pro task against Opus 4.8, ~$1.04 per AA index task — pulls effective per-task cost well below that band.
-- **Overall Score: 83/100.** Mean of (82 + 88 + 90 + 68 + 86) / 5 = 82.8 → 83. Best fit: high-volume agentic coding where token efficiency dominates the bill — the best intelligence-per-dollar coding lane of July 2026, even though Fable 5 leads on peak capability.
+- **Tool use: 70/100.** Weakest dimension and mid-band. **Terminal-Bench 2.1 83.3% (vendor) and 81.6% (AA) are 5–7 points under the 88%+ reference, but Vals measures only 67.8%** — a 15.5-point spread that makes the favourable direction untrustworthy. GDPval-AA 1,430 Elo and AA Tau3 Banking 42.1% both miss their references, AA Agentic Index is 42.1%, Terminal-Bench 3.0 is 15.7%, and **MCP-Atlas, OSWorld, Toolathlon, Claw-Eval and MazeBench are entirely absent**.
+- **Reasoning: 78/100.** Above the methodology's mid band and the strongest dimension. AA-GPQA Diamond 93.1% and AA-HLE 42.7% both clear their references, AA-LCR 79.3% is solid long-context reasoning, and FrontierMath Tier 4 24.4% is at least non-zero. Capped by an AA Intelligence Index of 38.8%, CritPt 15.4%, ARC-AGI-2 52.6%, ARC-AGI-3 0.3%, a **54.1% hallucination rate — materially worse than its own successors' 34.3% (4.6) and 20.0% (4.7)** — and no MRCR figure.
+- **Context window: 85/100.** **500,000 tokens** places it in the methodology's 500K–1M tier at the floor, shared across the whole Grok 4.x line. Held at 85 rather than higher because AA-LCR is 79.3%, no MRCR figure exists, no max-output limit is published, and the >200K tier doubles input cost.
+- **Multimodal: 76/100.** Text + image in with text out, scored above the methodology's 60–70 band on **AA-MMMU-Pro 80.4%** and a 1,279-Elo Design Arena. Held at 76 because the visual suite is two benchmarks — no CharXiv, ExtractBench, BabyVision or ZeroBench — and there is no video or audio input.
+- **Coding: 86/100.** The strongest dimension and right at the frontier band's lower edge. **AA Coding Index 72.5% clears the 70% reference** and AA-SciCode 55.0% is exactly at the 55% reference, with SWE-bench 86.6% (Vals), LiveCodeBench 87.4% and VulcanBench v3 89.9% all strong. Capped by deepSwe 53.0% (21 points under the reference), FrontierMath-adjacent figures, PostTrainBench 23.4%, and the absence of SWE-bench Verified, FrontierCode and Vibe Code Bench.
+- **Cost efficiency: 88/100.** **$2.00/$0.50/$6.00 per 1M** maps onto the ≈88 anchor with a 75% cache-read discount, and the 500K window is a genuine asset at that price. Held at exactly 88 because the **>200K tier doubles input cost**, there is no free tier, and **Grok 4.6 is sold on the identical card at a higher BenchLM rank** — so 4.5 has no price advantage over its successor.
+- **Overall Score: 79/100.** (70 + 78 + 85 + 76 + 86) / 5 = 79.0 → **79**. Recommendation: a **solid mid-price coding model** — AA Coding Index 72.5%, SWE-bench 86.6%, VulcanBench v3 89.9% and LiveCodeBench 87.4% at $2/$6 — whose reliability (54.1% hallucination) is acceptable rather than good. Two cautions: the **15.5-point Terminal-Bench 2.1 vendor-vs-Vals spread** needs resolving on your own harness before trusting the favourable reading; and **Grok 4.6 sits on the identical rate card with a higher BenchLM rank, better hallucination (34.3% vs 54.1%) and a stronger agentic profile** — prefer 4.6 unless 4.5 is already deployed.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
-- Method: public internet research (The AI Rankings launch record with SpaceXAI figures, Artificial Analysis/Vals AI/ARC/Epoch AI figures via BenchLM); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-05
+- Method: re-research using xAI's Grok 4.5 launch post as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 37-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, ARC Prize, Epoch AI, Cursor, Kaggle, LlamaIndex, VulcanBench's technical report, PostTrain Bench and Openrouter) and Zen's pricing table. The batch's largest vendor-vs-independent spread — Terminal-Bench 2.1 at 83.3% (vendor) / 81.6% (AA) / 67.8% (Vals) — is listed side by side rather than averaged, and the reliability regression against both successors (4.6's 34.3% and 4.7's 20.0% hallucination) is attributed explicitly. Missing benchmarks (MCP-Atlas, OSWorld, Toolathlon, Claw-Eval, MazeBench, ALE, MRCR, SWE-bench Verified, FrontierCode, Vibe Code Bench, and all multimodal benchmarks except MMMU-Pro and Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI — Grok 4.5 launch post (primary benchmark source)](https://x.ai/news/grok-4-5)
+  - [Cursor — Grok 4.5 launch post (co-publisher; source of the SWE Multilingual row)](https://cursor.com/en-US/blog/grok-4-5)
+  - [BenchLM — Grok 4.5 benchmark scores (37 rows, 63.03/100, #40/1015)](https://benchlm.ai/models/grok-4-5)
+  - [Artificial Analysis — Grok 4.5](https://artificialanalysis.ai/models/grok-4-5)
+  - [Vals AI — Grok 4.5 leaderboard results](https://www.vals.ai/models/grok_grok-4.5)
+  - [ARC Prize — published semi-private results for Grok 4.5](https://arcprize.org/results/xai-grok-4-5)
+  - [VulcanBench v3 Technical Report No. 4 (source of the 89.9% figure)](https://github.com/morganlinton/VulcanBench/blob/main/docs/results/v3-3way-2026-07/model-card.md)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

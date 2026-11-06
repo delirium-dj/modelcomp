@@ -40,7 +40,7 @@ Reasoning / knowledge:
 - SimpleQA Verified: **50.1%** #25 (Epoch); AA-Omniscience: accuracy 40.3%, non-hallucination **17.8%** #300 at high (severe hallucination; 2026-10-15 refresh reads 83.2% hallucination / 39.5% accuracy on the medium variant — consistent); MultiChallenge: 63.2% #9; AA-IFBench: **70.6%**; AA MATH-500: **99.1%** (both added 2026-10-16)
 - MMLU-Pro (Vals): **86.5%**; HELM MMLU-Pro: **86.3%** #2; MedQA (Vals): **96.3%** #4; LegalBench (Vals): 86.0%; CaseLaw v2: 66.5% #6
 - Hallucination proxies (OpenAI system card): ~45% fewer factual errors than GPT-4o with web search; ~6x fewer than o3 on LongFact-style prompts; deception rate 2.1% vs o3's 4.8%
-- LCR: **76.0%** (AA-LCR — filled 2026-10-16, previously unpublished; solid); MLCR: no verified public score found
+- LCR: **76.0%** (AA-LCR — filled 2026-10-16, previously unpublished; solid; Nov 5 refresh reads **78.2%** — minor drift); MLCR: no verified public score found; **AA Coding Index 37.8% (weak), AA LiveCodeBench 84.6%, AA MMLU-Pro 87.1%, AA Global-MMLU-Lite 90.7%, AA AIME-2025 94.3%, Design Arena Website 1183, AA-Omniscience Index −8.7** (all NEW, BenchLM Nov 5 refresh)
 
 Coding:
 
@@ -64,7 +64,7 @@ Multimodal / vision:
 
 - **Tool use: 68/100.** Now measured: TB 49.6% (#35) and GDPval 34.8% are weak, but τ² Telecom 86.5%, BrowseComp-Plus 57.6% (#1), Aider Polyglot 88% (#1) and METR 69.4% hold mid-band; the missing Claw/Toolathon rows cap it.
 - **Reasoning: 72/100.** GPQA 86.2% (filled — just under the 90% reference), AIME 2025 94.6% (SOTA at launch) and MATH Level 5 98.1% (#1) are strong; HLE 25.3%/28.5% stays under the 40% bar, ARC-AGI-2 9.9% is very weak, and AA Index 23 (deprecated model) plus the 17.8% non-hallucination rate cap it.
-- **Context window: 82/100.** CHANGED from 80 — 400K total tokens (upper end of the 200K–500K tier) with the previously-missing AA-LCR now measured at 76.0%; the 128K max-output caveat remains.
+- **Context window: 82/100.** CHANGED from 80 — 400K total tokens (upper end of the 200K–500K tier) with the previously-missing AA-LCR now measured at 76.0% (Nov 5 re-read 78.2%); the 128K max-output caveat remains. Conflict widened again 2026-11-05: BenchLM's (high)-variant page lists 128K — a fourth value alongside the 400K/272K/200K reads; the OpenAI 400K spec stays authoritative.
 - **Multimodal: 82/100.** Text and image input with measured MMMU-Pro (Vals) 81.5%, VISTA 49.7% (#11) and GeoBench 81.0% (#4); text-only output and no verified audio/PDF input keep it below audio-vision-tier models.
 - **Coding: 75/100.** Now with filled rows: SWE-V 73.5% (#19 Epoch) / 65.0% (swebench.com), LCB 85.9% (#27), Aider 88% (#1); SWE-Pro 41.8% and SciCode 42.9% sit below frontier marks, and the 2026 cohort now sits at 95%+ SWE-bench.
 - **Cost efficiency: 74/100.** $1.25/$10.00 per 1M (blended $3.44/M, ~90% cache discount) is moderately priced per AA and cheap for a former flagship, but the $10.00 output rate is well above mid-tier models and there is no free tier.
@@ -74,6 +74,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenAI launch post, Vellum cross-check; re-researched 2026-10-16: AA-LCR 76.0 filled, IFBench 70.6, MATH-500 99.1 added — Context 80→82, Overall 75→76); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 86.2% #76, HLE 25.3% #13, independent SWE-V 73.5% #19, LCB 85.9%, SWE-Pro 41.8%, SciCode 42.9%, TB 49.6%, GDPval 34.8%, BrowseComp-Plus 57.6% #1, MMMU-Pro 81.5% — Tool 65→68, Reasoning 78→72, Coding 72→75, Overall 75 (recalculated).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-5 (high)-variant page fetched 2026-11-05 (the bare gpt-5 slug 404s; this page, 22 rows, unranked) — all prior rows re-confirmed; AA Coding Index 37.8%, AA LiveCodeBench 84.6%, AA MMLU-Pro 87.1%, Global-MMLU-Lite 90.7%, AIME-2025 94.3%, Design Arena 1183 and Omniscience Index −8.7 added; minor drifts (AA-LCR 76.0→78.2%, IFBench 70.6→73.1%, MATH-500 99.1→99.4%); context conflict widened (BenchLM 128K = fourth value; OpenAI 400K stays authoritative) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.1.md`, using the same headings.

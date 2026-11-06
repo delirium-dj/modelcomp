@@ -38,13 +38,13 @@ Reasoning / knowledge:
 - AIME (Vals): **93.3%**; MGSM: **93.0%**; OTIS Mock AIME: 88.6%; MathArena Apex: 1.0%; HELM Omni-MATH: 46.4%
 - AA-LCR: **80.0%** #73 (AA — fills the previously-missing LCR)
 - MMLU-Pro (Vals): **86.4%**; MedQA (Vals): **96.4%** #2; MedScribe (Vals): **88.1%**; LegalBench (Vals): 85.7%; CaseLaw v2: 73.4% #2
-- AA-Omniscience: accuracy 37.7%, non-hallucination **48.1%** #122 at high; FORTRESS 25.7%; MASK 86.3%
+- AA-Omniscience: accuracy 37.7%, non-hallucination **48.1%** #122 at high (BenchLM Nov 5 displays the complement as hallucination rate 51.9% — consistent, labeling confirmed); AA-Omniscience Index **5.4**; FORTRESS 25.7%; MASK 86.3%
 - HELM Capabilities mean: **65.6%** #33; IFEval (HELM): **93.5%** #3; WildBench (HELM): **86.3%** #2
 
 Coding:
 
 - SWE-bench Verified: **68.0%** #26 (Epoch, high — fills the previously-missing SWE-V row); swebench.com bash-only: **66.0%** #17 (medium; any scaffold 66.0%)
-- LiveCodeBench: **86.5%** #21 (Vals — fills the previously-missing LCB)
+- LiveCodeBench: **86.5%** #21 (Vals — fills the previously-missing LCB); **AA LiveCodeBench: 86.8%** (NEW, BenchLM Nov 5 refresh — corroborates); **AA MMLU-Pro 87.0% / AA Global-MMLU-Lite 90.6% / AA AIME-2025 94.0%** (NEW)
 - SWE-bench (Vals): 69.8%; Vibe Code Bench v1.1: **24.6%** (weak); WeirdML: **60.8%** #47; ALE-Bench: **1192.2** #35; GSO-Bench: 13.7%
 - SciCode: **43.3%** (SciCode via Epoch, not-stated — fills the previously-missing SciCode; below the 55%+ frontier mark); AA Coding Index: **49.4%** (added 2026-10-16 — weak); AA-IFBench: **72.9%** (added 2026-10-16)
 - LMArena Coding: 1492; LMArena WebDev: 1395
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing Epoch/AA/Vals/Scale/HELM boards, OpenCode Zen docs cross-checked; re-researched 2026-10-16: GDPval Elo 930, Gert Labs 41.2, AA Coding Index 49.4, IFBench 72.9 added; context conflict widened (BenchLM 200K) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 87.6% #65, HLE 23.7%, SWE-V 68.0%/66.0%, LCB 86.5% #21, SciCode 43.3%, TB 47.6%, MCP Atlas 50.1%, MMMU-Pro 83.2%/79.0% #4, AA-LCR 80.0%; updates AA Index 25→24.7, price history — Tool 45→55, Reasoning 58→68, Context 68→72, Multimodal 65→72, Coding 58→75, Cost 73→72, Overall 59→68.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-5.1 page fetched 2026-11-05 (Nov 5 data, 23 rows) — all prior rows re-confirmed; AA LiveCodeBench 86.8%, AA MMLU-Pro 87.0%, AA Global-MMLU-Lite 90.6%, AA AIME-2025 94.0% and Omniscience Index 5.4 added, minor drift (GDPval 16.5→16.3%, MMMU-Pro 76.0→75.5%); the 200K-vs-400K context conflict persists (BenchLM still 200K); composite 57.04 #59/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.2.md`, using the same headings.

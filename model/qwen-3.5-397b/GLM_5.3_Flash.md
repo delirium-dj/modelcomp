@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- τ²-bench: **83.9%** (AA, independent); τ³-bench: **68.4%** (Qwen3.6-Plus comparison table — fills the Tau3 gap)
+- τ²-bench: **83.9%** (AA, independent; Nov 5 re-read **95.6%** — large upward re-measurement, both cited); τ³-bench: **68.4%** (Qwen3.6-Plus comparison table — fills the Tau3 gap); **APEX-Agents-AA: 15.3%** (NEW, BenchLM Nov 5 — weak; the prior AA Agentic Index 8 row no longer displays, replaced by this)
 - MCP-Tasks: **74.2%**; WideResearch: **74.0%**; BrowseComp: **69%** (model card); Claw-Eval: **56.8%**; OSWorld-Verified: **62.2%**; QwenClawBench: **51.8%**; VITA-Bench: **43.7%**; DeepPlanning: **37.6%** (Qwen tables — fill gaps)
 - MCP Atlas: **46.1%**; Toolathlon: **36.3%** (Qwen tables — weak); Gert Labs: **46.76%**; ResearchClawBench: **14.2%**
 - Terminal-Bench 2.0: **52.5%** (Qwen table; the apxml read of 54.0% is consistent)
@@ -29,10 +29,10 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **88.4%** (Qwen3.6-Plus table — corroborates the apxml read); AA independent: **86.1%**
-- HLE: **28.7%** (Qwen3.6-Plus table — fills the gap); AA-HLE: **19.8%** (AA)
+- GPQA Diamond: **88.4%** (Qwen3.6-Plus table — corroborates the apxml read); AA independent: **86.1%** (Nov 5 re-read **89.3%** — upward drift)
+- HLE: **28.7%** (Qwen3.6-Plus table — fills the gap); AA-HLE: **19.8%** (AA; Nov 5 re-read **29.0%** — upward drift)
 - Artificial Analysis Intelligence Index: **21.4** (AA — corroborates the 18–21 zone)
-- AA-LCR v1.1: **64.3%** (AA — fills the long-context gap, mid); LongBench v2: **63.2%**; AI-Needle: **68.7%** (Qwen tables); CritPt: **0.9%** (AA — near-zero)
+- AA-LCR v1.1: **64.3%** (AA — fills the long-context gap, mid; Nov 5 re-read **77.3%** — upward drift); LongBench v2: **63.2%**; AI-Needle: **68.7%** (Qwen tables); CritPt: **0.9%** (AA — near-zero; Nov 5 re-read 1.7%)
 - AIME26: **93.3%**; HMMT Feb 2025: **94.8%** / Nov 2025: **92.7%** / Feb 2026: **87.9%** (Qwen tables — strong math)
 - MMLU-Pro: **87.8%** (corroborated); MMLU-Redux: **94.9%**; C-Eval: **93%**; SuperGPQA: **70.4%**
 - AA-Omniscience: **24.5% accuracy / 82.7% non-hallucination row / −37.9 index** (AA — worst index measured in this repo)
@@ -42,7 +42,7 @@ Coding:
 - SWE-bench Verified: **76.2%** (Qwen3.6-Plus table) — **conflicts with the apxml model-card read of 80.0%** the prior pass cited; both listed
 - LiveCodeBench v6: **83.6%** (Qwen3.6-Plus table — fills the unconfirmed gap)
 - SWE-bench Pro: **50.9%** (Qwen table — fills the gap; weak); SWE Multilingual: **69.3%**; NL2Repo: **32.2%**
-- Stack Unseen: **76.3%** (apxml, prior pass); WebDev Arena: **1399** Elo (apxml, prior pass); AA Coding Index: **48** (prior pass)
+- Stack Unseen: **76.3%** (apxml, prior pass); WebDev Arena: **1399** Elo (apxml, prior pass); AA Coding Index: **48** (prior pass; no longer displays on Nov 5 — replaced by **AA-SciCode 44.8%**, NEW); **IFBench 76.5% / AA-IFBench 78.8%, IFEval 92.6%** (NEW); multilingual suite NEW: MMLU-ProX 84.7%, NOVA-63 59.1%, INCLUDE 85.6%, PolyMath 73.3%, MAXIFE 88.2%
 
 Long context:
 
@@ -50,7 +50,7 @@ Long context:
 
 Multimodal (richly measured; note the AA-vs-vendor MMMU-Pro conflict):
 
-- MMMU: **85.0%**; MMMU-Pro: **79.0%** (Qwen tables) — **AA-MMMU-Pro reads 52.7%**, a major vendor-vs-independent conflict on the same benchmark
+- MMMU: **85.0%**; MMMU-Pro: **79.0%** (Qwen tables) — **AA-MMMU-Pro reads 52.7%**, a major vendor-vs-independent conflict on the same benchmark; **RESOLVED on the Nov 5 refresh: AA re-measures 77.3%**, corroborating the vendor read (the 52.7% stands as the superseded Oct reading)
 - Video-MME: **87.5%** with subs / **83.7%** without; VideoMMMU: **84.7%**; MLVU: **86.7%** — video understanding measured
 - OmniDocBench 1.5: **90.8%**; CharXiv: **80.8%**; MathVision: **88.6%**; We-Math: **87.9%**; DynaMath: **86.3%**; AI2D: **93.9%**; CountBench: **97.2%**; RefCOCO: **92.3%**; V*: **95.8%**; ScreenSpot-Pro: **65.6%**; CC-OCR: **82.0%**; RealWorldQA: **83.9%**
 
@@ -68,6 +68,6 @@ Multimodal (richly measured; note the AA-vs-vendor MMMU-Pro conflict):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Qwen3.5-397B-A17B HF model card + Qwen3.6-Plus comparison tables, Artificial Analysis model benchmarks, the prior 2026-10-08 pass on apxml/OpenRouter/llm-stats; 2026-10-16 re-check: BenchLM Reasoning-sibling page (11 rows) corroborates all rows, still unranked; base variant rank → #65/954 55.34 — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.5-397B page fetched 2026-11-05 (Nov 5 data, 71 rows, ranked #74/1015) — all prior rows re-confirmed; notable AA re-reads cited (τ² 83.9→95.6%, AA-LCR 64.3→77.3%, AA-GPQA 86.1→89.3%, AA-HLE 19.8→29.0%); the flagged MMMU-Pro vendor-vs-AA conflict is resolved (AA 77.3% corroborates the vendor 79.0%); APEX 15.3%, AA-SciCode 44.8%, IFBench and multilingual rows added — weak binding rows (MCP Atlas 46.1, Toolathlon 36.3, APEX 15.3) persist so no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

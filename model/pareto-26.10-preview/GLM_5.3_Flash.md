@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 sources: benchlm.ai Pareto 26.10 Preview page updated 2026-10-10 citing Unbiased's preliminary results, the unbiased.ai vendor card, plus the prior 2026-10-05 pass on OpenRouter/NanoGPT/CloudPrice listings; confirmed unranked with 3 vendor rows and no independent verification; 2026-10-16 re-check: BenchLM still holds the identical 3 vendor rows, unranked — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Pareto 26.10 Preview page fetched 2026-11-05 — still exactly the same 3 vendor-run rows (TB4.0 50.8%, DeepSWE 69.9%, GPQA-D 92.4%), still unranked, context still "N/A" — re-verified, no new independent evidence has emerged, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
