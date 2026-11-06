@@ -1,7 +1,7 @@
 # GPT-5-Codex — findings by Step 5 Preview
 
 - Source: OpenAI/GPT-5-Codex (`gpt-5-codex`)
-- Date: 2026-10-19 (UTC)
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,6 +60,15 @@ Speed / latency (Artificial Analysis, median across providers): 189.0 output tok
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research — official OpenAI model docs + the Codex launch post cross-checked against Artificial Analysis (model page) and Vals AI (Sep 2025 coding evaluations), plus the OpenCode Zen model list; scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (gpt-5-codex, gpt-5-codex and GPT-5-Codex all 404), so the 2026-10-19 pass remains the only evidence base and no new measurement has appeared. The 2026-10-19 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [OpenAI - GPT-5-Codex official model documentation (Responses API only)](https://platform.openai.com/docs/models)
+  - [OpenAI - Codex launch post (the 7-hour autonomous-run and code-review claims)](https://openai.com/index/introducing-codex/)
+  - [Artificial Analysis - GPT-5-Codex](https://artificialanalysis.ai/models/gpt-5-codex)
+  - [Vals AI - GPT-5-Codex Sep 2025 coding evaluations](https://www.vals.ai/)
+  - [BenchLM - gpt-5-codex (404 under all spellings, re-verified 2026-11-06)](https://benchlm.ai/models/gpt-5-codex)
+  - [OpenCode Zen - model list (the opencode/gpt-5-codex paid route)](https://opencode.ai/docs/zen/)
+  - [Repo curated meta - model/gpt-5-codex/meta.json (400K/272K-input-cap/128K, .25/)](/model/gpt-5-codex/meta.json)
 - Future sources: add a new file next to this one, e.g. `Step_5_Preview_v2.md`, using the same headings.

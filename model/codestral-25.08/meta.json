@@ -1,9 +1,15 @@
 {
   "id": "opencode/codestral-25.08",
   "name": "Codestral 25.08",
-  "short": "Codestral 25.08 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Mistral AI's specialized low-latency code model for IDE autocomplete, fill-in-the-middle (FIM), and multi-language development.",
+  "contextWindow": "256,000 total (8,192 max out)",
+  "modalities": "Text and code in; text and code out",
+  "pricingNote": "$0.30 / $0.90 per 1M input/output tokens (Mistral AI La Plateforme and OpenRouter)",
+  "noFreeId": true,
+  "officialUrl": "https://mistral.ai",
+  "pricingLinks": [
+    "https://mistral.ai/pricing"
+  ],
+  "standout": "A lightweight, low-latency code engine tuned for IDE autocomplete and inline fill-in-the-middle completion.",
+  "tradeoff": "Text and code only; tuned for completions rather than autonomous multi-turn tool loops."
 }

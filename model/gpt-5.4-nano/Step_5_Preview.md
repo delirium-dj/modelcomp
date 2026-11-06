@@ -1,7 +1,7 @@
 # GPT-5.4 nano — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5.4-nano`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,14 @@ Third-party:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated page, suggests GPT-5.6 Luna: Index 21 #50/173 — unchanged; 165.6 tok/s; TTFT 55.69s at xhigh; 190M Index tokens — very verbose; pricing unchanged) and BenchLM (composite 46.85/100, #115/956, 37/644 benchmarks): new rows APEX-AA 24.9%, GDPval-AA Elo 1,035, TB2.1 (Vals) 41.6% (vs the AA protocol's 60.7% — harness split), LCB (Vals) 84.0%, SWE-bench (Vals) 69.8%, Vibe Code 26.1%, ARC-AGI-1 51.5%/ARC-AGI-2 5.7%, AA-Omniscience −29.5%, AA Agentic Index corrected to 17.7% (earlier 0.16 was a parse artifact) — all consistent with the existing Tool use 55 / Reasoning 62 / Context 68 / Multimodal 66 / Coding 60 reads, no score change. First pass (2026-10-09) used OpenAI launch post + API docs, Artificial Analysis, Respan/LiveBench aggregations, CloudPrice, BenchGecko.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists (46.6/100, #118 of 1016, 400K context, Reasoning, Proprietary) and re-confirms the Terminal-Bench 2.0 46.3 / OSWorld-Verified 39.0 / MCP Atlas 56.1 / Toolathlon 35.5 / tau2-bench 92.5 / GPQA 82.8 / HLE 24.3 / AA-SciCode 47.2 / MMMU-Pro 66.1 rows carried from the 2026-10-09 pass, while adding Vibe Code Bench 26.10, LiveCodeBench (Vals) 84.0, SWE-bench (Vals) 69.8, AA Coding Index 56.1, ExtractBench 74.90, ParseBench 42.24, ARC-AGI-1 51.50 / ARC-AGI-2 5.7, AA-IFBench 75.9, AA-LCR 76.7, CritPt 9.3, AA-Intelligence Index 20.7, AA-HLE 28.3, AA-Omniscience accuracy 25.7 / hallucination 74.2 and APEX-Agents-AA 24.9. None of these changes any score, so the 2026-10-09 normalized values are carried forward unchanged and the new rows are recorded here rather than folded into the score lines.
+- Reference URLs:
+  - [OpenAI - GPT-5.4 nano official model documentation](https://platform.openai.com/docs/models)
+  - [Artificial Analysis - GPT-5.4 nano](https://artificialanalysis.ai/models/gpt-5-4-nano)
+  - [BenchLM - gpt-5-4-nano (46.6/100, #118 of 1016, re-verified 2026-11-06)](https://benchlm.ai/models/gpt-5-4-nano)
+  - [Vals AI - GPT-5.4 nano coding evaluations](https://www.vals.ai/)
+  - [OpenRouter - openai/gpt-5.4-nano](https://openrouter.ai/openai/gpt-5.4-nano)
+  - [Repo curated meta - model/gpt-5.4-nano/meta.json (400K/128K, .20/.25, cutoff 2025-08-31)](/model/gpt-5.4-nano/meta.json)
 - Future sources: add a new file next to this one, e.g. `GPT_5_5_Nano.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Gemini 2.5 Flash-Lite — findings by Step 5 Preview
 
 - Source: Google DeepMind (`gemini-2.5-flash-lite`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,14 @@ Re-run verdict 2026-10-19: **scores unchanged.** AA's re-measured composite (Ind
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research, re-run 2026-10-19 — Artificial Analysis deprecated page (Index 7, 304.8 tok/s, 0.30 s TTFT, pricing, 1M/Jan-2025 specs); original run used the Gemini 2.5 Flash-Lite model card PDF, the Google developer blog GA post, the Gemini 2.5 tech report, AA/OpenRouter, llm-stats and BenchGecko. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists with 12 source-displayable rows and no overall score (unranked, 1M context, Hybrid reasoning), re-confirming the tau2-bench 19% / SWE-bench Verified 31.6 / MMMU 72.9 / AA-MMMU-Pro 54.0 / AA-LCR 32.0 / CritPt 0.0 / GPQA 64.6 / SimpleQA 10.7 / AA-Intelligence Index 6.7 / AA-GPQA Diamond 47.4 / AA-HLE 3.7 / AA-Omniscience accuracy 15.4 / hallucination 87.8 / AA-IFBench 31.5 / AIME 2025 49.8 rows carried from the 2026-10-19 pass. None of these changes any score, so the 2026-10-19 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Google - Gemini API: Gemini 2.5 Flash-Lite official model card](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite)
+  - [Google - Gemini 2.5 GA developer blog post](https://blog.google/)
+  - [Gemini 2.5 technical report](https://arxiv.org/abs/2507.06261)
+  - [Artificial Analysis - Gemini 2.5 Flash-Lite (deprecated page)](https://artificialanalysis.ai/models/gemini-2-5-flash-lite)
+  - [BenchLM - gemini-2-5-flash-lite (12 rows, unranked, re-verified 2026-11-06)](https://benchlm.ai/models/gemini-2-5-flash-lite)
+  - [Repo curated meta - model/gemini-2.5-flash-lite/meta.json (1M, proprietary, text/image in)](/model/gemini-2.5-flash-lite/meta.json)
 - Future sources: add a new file next to this one, e.g. `Gemini_3_1_Flash_Lite.md`, using the same headings.

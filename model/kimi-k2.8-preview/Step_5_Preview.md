@@ -61,4 +61,11 @@ Long context:
 
 - Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-29
 - Method: public internet research (Kimi Code docs/changelog, SWE-Residual arXiv:2610.25899v1, BenchmarkList, llm-stats, ZenMux, aimodeling.com, ki-ai.chat); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Kimi Code documentation and changelog](https://www.kimi.com/)
+  - [arXiv - SWE-Residual (2610.25899v1)](https://arxiv.org/abs/2610.25899)
+  - [BenchmarkList](https://benchmarklist.com/)
+  - [llm-stats](https://llm-stats.com/)
+  - [ZenMux](https://zenmux.com/)
+  - [Repo curated meta - model/kimi-k2.8-preview/meta.json](/model/kimi-k2.8-preview/meta.json)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

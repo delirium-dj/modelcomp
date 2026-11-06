@@ -1,9 +1,15 @@
 {
   "id": "opencode/mistral-small-4",
   "name": "Mistral Small 4",
-  "short": "Mistral Small 4 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Mistral AI's compact multimodal MoE model unifying instruct chat, reasoning, and agentic coding with configurable reasoning effort.",
+  "contextWindow": "262,144 total (256K)",
+  "modalities": "Text and image in; text and code out",
+  "pricingNote": "$0.15 / $0.60 per 1M input/output tokens ($0.015 cached read; Mistral AI La Plateforme and OpenRouter)",
+  "noFreeId": true,
+  "officialUrl": "https://mistral.ai",
+  "pricingLinks": [
+    "https://mistral.ai/pricing"
+  ],
+  "standout": "An open Apache 2.0 MoE hybrid that combines chat, reasoning (Magistral) and agentic coding (Devstral) in one compact model.",
+  "tradeoff": "Reasoning and coding indices measure well below frontier; no verified long-context retrieval scores at 256K."
 }

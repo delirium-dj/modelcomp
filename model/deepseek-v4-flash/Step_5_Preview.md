@@ -1,7 +1,7 @@
 # DeepSeek-V4-Flash — findings by Step 5 Preview
 
 - Source: DeepSeek (`deepseek-v4-flash`, weights `deepseek-ai/DeepSeek-V4-Flash`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -84,6 +84,15 @@ Re-run verdict 2026-10-19: **four scores raised on new evidence — Tool use 64 
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research, re-run 2026-10-19 — BenchLM's 56-row aggregate (0731 official update-page numbers, Vals AI runs, ARC Prize semi-private results, AA per-benchmark rows incl. Omniscience) plus the DeepSeek Hugging Face model card + arXiv:2606.19348 and llmboard.ai for the Vision-Exp variant; original run used the same vendor card/report plus third-party coding-cost measurements. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists with 31 source-displayable rows and no overall score (unranked, 1M context), re-confirming the Terminal-Bench 2.1 82.7 / SWE-bench Verified 79.0 / SWE-bench Pro 52.6 / SWE Multilingual 73.3 / DeepSWE 54.4 / DSBench-Hard 59.6 / AA-SciCode 50.3 / LiveCodeBench (Vals) 87.3 / SWE-bench (Vals) 88.8 / AA Coding Index 69.1 / MRCR 1M 78.7 / CorpusQA 1M 60.5 / AA-LCR 79.7 / MCP Atlas 69.0 / BrowseComp 73.2 / Toolathlon-Verified 70.3 / GDPval-AA 46.7% normalized rows carried from the 2026-10-09 and 2026-10-19 passes, while adding Codeforces 3052 Elo, NL2Repo 54.2, DSBench-FullStack 68.7, VulcanBench v3 88.4, OpenHarmony Bench 53.8, CyberGym 76.7, AA Tau3 Banking 39.4, HLE w/ tools 45.1, AutomationBench 25.1, Agents' Last Exam 25.2, CritPt 16.6, Design Arena Website 1206 Elo and a MazeBench 0.0% row. None of these changes any score, so the 2026-10-19 normalized values are carried forward unchanged and the new rows are recorded here rather than folded into the score lines.
+- Reference URLs:
+  - [Hugging Face - deepseek-ai/DeepSeek-V4-Flash model card (MIT weights)](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash)
+  - [arXiv - DeepSeek-V4 technical report (2606.19348)](https://arxiv.org/abs/2606.19348)
+  - [Artificial Analysis - DeepSeek V4 Flash](https://artificialanalysis.ai/models/deepseek-v4-flash)
+  - [BenchLM - deepseek-v4-flash (31 rows, unranked, re-verified 2026-11-06)](https://benchlm.ai/models/deepseek-v4-flash)
+  - [Vals AI - DeepSeek V4 Flash coding evaluations](https://www.vals.ai/)
+  - [Repo curated meta - model/deepseek-v4-flash/meta.json (1M/384K, MIT, ~.14/.28)](/model/deepseek-v4-flash/meta.json)
+  - See also: [model/deepseek-v4-vision-exp/](deepseek-v4-vision-exp.md) - the API-only vision variant, a separate SKU
 - Future sources: add a next file next to this one, e.g. `DeepSeek_V4_1_Flash.md`, using the same headings.

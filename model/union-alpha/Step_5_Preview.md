@@ -1,7 +1,7 @@
 # Union Alpha — findings by Step 5 Preview
 
 - Source: Unbiased / Circuit & Chisel (`union-alpha` — stealth alias of Pareto 26.9)
-- Date: 2026-10-09 (UTC)
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,6 +59,14 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research (Unbiased Pareto model card, OpenRouter stealth listing + reveal, Capital & Compute, CellCog, HunterAlphaHub, Edge Notes, Ena Pragma); scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (union-alpha, union_alpha and Union-Alpha all 404), so the 2026-10-09 pass remains the only evidence base and no new measurement has appeared. The 2026-10-09 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Unbiased - Pareto 26.9 model card (the revealed identity behind the union-alpha stealth slug)](https://www.unbiased.ai/)
+  - [OpenRouter - the retired stealth/union-alpha listing and the revealed unbiased/pareto route](https://openrouter.ai/unbiased)
+  - [Capital & Compute](https://capitalandcompute.com/)
+  - [BenchLM - union-alpha (404 under all spellings, re-verified 2026-11-06)](https://benchlm.ai/models/union-alpha)
+  - [Repo curated meta - model/union-alpha/meta.json (unbiased/pareto-26.9, 262,144/131,072, .50/.50)](/model/union-alpha/meta.json)
+  - See also: [model/pareto-26.9/](pareto-26.9.md) - the revealed identity this slug is an alias of
 - Future sources: add a new file next to this one, e.g. `Pareto_26.10.md`, using the same headings.

@@ -34,7 +34,7 @@ Vendor-reported throughout, carried from the prior verified research pass (2026-
 - **Multimodal: 15/100.** **Text-only input and output** per the official card — squarely in the methodology's text-only 10–20 band.
 - **Coding: 74/100.** Mid-band. **SWE-bench Verified 75.0% (SWE-agent) and SWE-bench Multilingual 66.0% are solid mid-plus** and Terminal-Bench 2.1 57.5% is mid-band, but no LiveCodeBench, SciCode, DeepSWE or Vibe figure exists, keeping it below the 90+ frontier tier.
 - **Cost efficiency: 100/100.** **Free route on OpenRouter ($0 input/output) plus Apache 2.0 weights for self-hosting (4-bit build on a single 24GB-class GPU)** — the methodology's $0 anchor.
-- **Overall Score: 62/100.** (75 + 70 + 74 + 15 + 74) / 5 = 61.6 → **62**. Recommendation: a **remarkably cheap (free) open-weight agentic-coding workhorse for budget deployments** — SWE-bench ~75% and Tau3 ~65% at zero per-token cost on a single consumer GPU. Caveats: **every score is vendor self-reported** and the reasoning/multimodal evidence is thin. Its **Ascend 910C training provenance** is the model's most distinctive property and matters for anyone tracking domestic-China silicon supply chains.
+- **Overall Score: 62/100.** (75 + 70 + 74 + 15 + 74) / 5 = 61.6 → **62** → **62**. Recommendation: a **remarkably cheap (free) open-weight agentic-coding workhorse for budget deployments** — SWE-bench ~75% and Tau3 ~65% at zero per-token cost on a single consumer GPU. Caveats: **every score is vendor self-reported** and the reasoning/multimodal evidence is thin. Its **Ascend 910C training provenance** is the model's most distinctive property and matters for anyone tracking domestic-China silicon supply chains.
 
 ## Signature
 

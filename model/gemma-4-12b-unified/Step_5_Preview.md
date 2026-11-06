@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Step 5 Preview
 
 - Source: Google DeepMind (`google/gemma-4-12B-it`)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -39,15 +39,16 @@
 - **Multimodal: 82/100.** **Text, image, audio and video in; text out** — the methodology's 90–100 band on input breadth, docked to 82 because the measured quality is mid-tier rather than frontier (**MMMU-Pro 69.1, MATH-Vision 79.7**) and there is no non-text output. The audio-input capability is the family-distinctive property and is the reason this score is well above the E4B's modality-blindness.
 - **Coding: 60/100.** Below the mid band's top. **LiveCodeBench v6 72.0 and Codeforces Elo 1659** are solid competitive-programming figures for a 12B; held below the upper band because **no SWE-bench Verified/Pro, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench or Terminal-Bench figure exists**, so the 85%, 74% and 70% references cannot be checked.
 - **Cost efficiency: 92/100.** **$0.05/$0.25 per 1M** maps to the methodology's ~$0.05–$0.25 → 90–92 tier, with **Apache-2.0 weights available for true $0 self-hosting** — the rule that lifts it to the top of the band rather than the middle.
-- **Overall Score: 68/100.** (52 + 62 + 85 + 82 + 60) / 5 = 68.2 → **68**. Recommendation: **the audio-capable mid-size member of the Gemma 4 family** — any-to-any input including audio, Apache-2.0 weights, a 262K window and $0.05/$0.25 pricing, with genuinely respectable knowledge and competitive-coding figures for 12B. Two cautions: **HLE without tools 5.2 is near-floor**, so it is not a deep open-domain reasoner; and **MRCR v2 at 128K is only 43.4**, so the 262K window is nominal rather than usable depth. Prefer **Gemma 4 26B A4B** for measured quality or **Gemma 4 E4B** for the edge footprint, both refreshed in this session.
+- **Overall Score: 68/100.** (52 + 62 + 85 + 82 + 60) / 5 = 68.2 -> **68**. Recommendation: **the audio-capable mid-size member of the Gemma 4 family** — any-to-any input including audio, Apache-2.0 weights, a 262K window and $0.05/$0.25 pricing, with genuinely respectable knowledge and competitive-coding figures for 12B. Two cautions: **HLE without tools 5.2 is near-floor**, so it is not a deep open-domain reasoner; and **MRCR v2 at 128K is only 43.4**, so the 262K window is nominal rather than usable depth. Prefer **Gemma 4 26B A4B** for measured quality or **Gemma 4 E4B** for the edge footprint, both refreshed in this session.
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: re-research that established a **negative finding first: BenchLM carries no `gemma-4-12b-unified` page in any spelling** (hyphen, dotted and `gemma-4-12b` variants all return 404), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-24), with every figure re-attributed to the HF model card and **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. **The model's naming is disambiguated in the report's first line: "Unified" is Google's own architecture term (encoder-free), not a separate SKU**, and the repo folder names a size tier rather than a product line — recorded because it is the single most likely misreading of this slug. The **audio-input capability is attributed as the family-distinctive property** (only E2B/E4B/12B accept audio per the card) and is what lifts the multimodal score to 82 against the 90–100 breadth band's docked position. The **HLE-without-tools 5.2** is named as the lowest reasoning figure in the file rather than smoothed, and the **MRCR v2 at 128K 43.4** as the reason the context score sits at the band ceiling. **An 11.95B-vs-12B rounding discrepancy is recorded rather than resolved** (card table 11.95B, sidebar rounds to "12B"), the card's figure being used. Missing benchmarks (Tau3-Banking, SWE-bench, Terminal-Bench, Toolathlon, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, CritPt, AA-LCR, ARC-AGI, AA Intelligence Index, AA-Omniscience) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Hugging Face — google/gemma-4-12B-it model card (encoder-free "Unified" architecture, any-to-any input, all benchmark rows)](https://huggingface.co/google/gemma-4-12B-it)
   - [models.dev — `google/gemma-4-12b-it` provider record (22 providers at $0.05/$0.25, 262K/32,768)](https://models.dev/models/google-gemma-4-12b-it)
   - [Repo curated meta — `model/gemma-4-12b-unified/meta.json`](/model/gemma-4-12b-unified/meta.json)
   - See also: [`model/gemma-4-26b-a4b/`](gemma-4-26b-a4b.md) — the larger sibling refreshed in this same batch; [`model/gemma-4-e4b/`](gemma-4-e4b.md) — the edge sibling
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06 - catalog page absent under any spelling (gemma-4-12b-unified, gemma-4-12b, gemma-4.12b-unified and Gemma-4-12B all 404), so the 2026-10-24 pass remains the only evidence base and no new measurement has appeared. The 2026-10-24 normalized values are carried forward unchanged.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,9 +1,15 @@
 {
   "id": "opencode/ling-3.2-flash",
   "name": "Ling 3.2 Flash",
-  "short": "Ling 3.2 Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Ant Group's Nov 2026 native multimodal Ling-series MoE (560B total / 25B active, 1M context) for visual understanding, multimodal agents and 3D/medical work; $0.30/$0.90 per 1M in/out on Ant Bailian, no Free ID.",
+  "contextWindow": "1,000,000 total",
+  "modalities": "Text, image and video in; text out",
+  "pricingNote": "$0.30 / $0.90 per 1M input/output tokens (Ant Bailian launch pricing; two-week free trial at launch)",
+  "noFreeId": true,
+  "officialUrl": "https://developer.ant-ling.com/en/docs/models/ling/",
+  "pricingLinks": [
+    "https://developer.ant-ling.com/en/docs/models/ling/"
+  ],
+  "standout": "Native image-and-video input from open weights at Flash-class serving costs, with a 1M context window.",
+  "tradeoff": "Text reasoning, coding-agent and tool-use benchmarks are not yet publicly verified; launch free trial is time-limited, not a standing free tier."
 }

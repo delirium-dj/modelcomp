@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by Step 5 Preview
 
 - Source: Alibaba / Qwen 3.7 (generation entry — flagship `qwen3.7-max`)
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -76,6 +76,15 @@ Long context:
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-28
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research (Qwen official launch blog via BenchLM citations, Alibaba Cloud Model Studio docs, Artificial Analysis, Vals AI, BenchLM, DataCamp, AI Flash Report, AI Release Tracker, models.dev, InsiderLLM/LocalClaw weight-existence audits); scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (qwen-3-7, qwen-3.7 and Qwen-3.7 all 404), so the 2026-10-28 pass remains the only evidence base and no new measurement has appeared. The 2026-10-28 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Qwen - official launch blog](https://qwen.ai/)
+  - [Alibaba Cloud Model Studio - Qwen3.7 documentation and pricing](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Artificial Analysis - Qwen3.7](https://artificialanalysis.ai/models/qwen-3-7)
+  - [Vals AI - Qwen3.7 evaluations](https://www.vals.ai/)
+  - [BenchLM - qwen-3-7 (404 under all spellings, re-verified 2026-11-06)](https://benchlm.ai/models/qwen-3-7)
+  - [models.dev - alibaba/qwen3.7 provider record](https://models.dev/models/alibaba-qwen3.7)
+  - [Repo curated meta - model/qwen-3.7/meta.json](/model/qwen-3.7/meta.json)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

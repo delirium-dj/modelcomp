@@ -1,9 +1,15 @@
 {
   "id": "opencode/codestral",
   "name": "Codestral",
-  "short": "Codestral model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Mistral AI's open-weight 22B code model for low-latency code completion, inline fill-in-the-middle (FIM), and developer tool assistance.",
+  "contextWindow": "32,768 total (extended to 128K on later checkpoints)",
+  "modalities": "Text and code in; text and code out",
+  "pricingNote": "$0.30 / $0.90 per 1M input/output tokens ($0.03 cached input; Mistral AI)",
+  "noFreeId": true,
+  "officialUrl": "https://mistral.ai",
+  "pricingLinks": [
+    "https://mistral.ai/pricing"
+  ],
+  "standout": "Mistral's first open-weight code model, purpose-built for low-latency autocomplete and fill-in-the-middle completion.",
+  "tradeoff": "A 22B dense model whose 32K native window trails frontier 256K+ context standards."
 }

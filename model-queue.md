@@ -115,7 +115,7 @@
 77.4 gemini-2.0-flash
 77 gpt-5.1-codex
 76.9 claude-sonnet-3.7
-76.8 glm-5.2-coding
+76.9 glm-5.2-coding
 76.7 gpt-5.1-codex-max
 76.5 gemma-4.26b-a4b
 76.1 gemma-4.12b-unified
@@ -138,8 +138,8 @@
 73.7 mai-code-1.1-flash
 73.6 gemini-2.5-flash-lite
 73.6 qwen-3.5-9b
+73.4 beam
 73.4 claude-sonnet-3.5
-73.3 beam
 72.8 fledge-alpha
 72.7 longcat-2.5-preview
 72.7 nemotron-3-ultra-free
@@ -159,7 +159,7 @@
 67.7 minimax-m2.5
 67.7 minimax-m2.7
 67.7 omen-alpha
-67.6 laguna-s-2.1
+67.5 laguna-s-2.1
 67.4 qwen-3.5-4b
 67.3 gpt-5-nano
 67 mistral-small-4

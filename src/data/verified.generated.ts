@@ -170,7 +170,7 @@ export const VERIFIED: Record<string, string> = {
   "nemotron-3.5-super-vl": "2026-11-06",
   "neomorph": "2026-11-06",
   "north_mini_code": "2026-11-06",
-  "omen-alpha": "2026-11-05",
+  "omen-alpha": "2026-11-06",
   "owl-alpha": "2026-11-06",
   "owo-2.5": "2026-11-06",
   "pareto-26.10-preview": "2026-11-05",

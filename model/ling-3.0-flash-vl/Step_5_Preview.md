@@ -1,7 +1,7 @@
 # Ling-3.0-flash-VL — findings by Step 5 Preview
 
 - Source: inclusionAI / Ant Group (`Ling-3.0-flash-VL`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -56,6 +56,15 @@ Third-pass verification (2026-10-19):
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) re-ran Artificial Analysis (not deprecated: Index 25 #2/67 — matches the file; 160M Index tokens) and BenchLM (composite 46.82/100, #116/956, 11/648 benchmarks; official HF model card now linked): every AA row on file reconfirmed (GDPval-AA 33.1%, AA-SciCode 44.2%, AA-MMMU-Pro 79.0%, AA-LCR 78.3%, CritPt 2.0%, Omniscience −4.5%) — no new independent evidence, no score change. First pass (2026-10-09) used Ant Ling developer docs + HF model card, Artificial Analysis via OpenRouter, AI/TLDR benchmark tables, OrcaRouter and RuntimeWire launch analyses.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists with 7 source-displayable rows and no overall score (unranked), re-confirming AA-MMMU-Pro 79.0, AA-GPQA Diamond 86.2, AA-HLE 22.0, AA-LCR 78.3, CritPt 2.0 and AA-SciCode 44.2 from the 2026-10-09 pass and adding GDPval-AA 33.0% normalized. None of these changes any score, so the 2026-10-09 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Hugging Face - inclusionAI/Ling-3.0-flash-VL model card (official, MIT weights)](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL)
+  - [Ant Ling developer documentation and API](https://ling.ant.ai/)
+  - [Artificial Analysis - Ling 3.0 Flash VL](https://artificialanalysis.ai/models/ling-3-0-flash-vl)
+  - [BenchLM - ling-3-0-flash-vl (7 rows, unranked, re-verified 2026-11-06)](https://benchlm.ai/models/ling-3-0-flash-vl)
+  - [OpenRouter - inclusionai/ling-3.0-flash-vl](https://openrouter.ai/inclusionai/ling-3.0-flash-vl)
+  - [Repo curated meta - model/ling-3.0-flash-vl/meta.json (262,144 native / 262,144 YaRN, MIT)](/model/ling-3.0-flash-vl/meta.json)
+  - See also: [model/ling-3.0-flash/](ling-3.0-flash.md) - the text sibling refreshed in this session
 - Future sources: add a new file next to this one, e.g. `Ling_4.md`, using the same headings.

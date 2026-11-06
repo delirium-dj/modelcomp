@@ -72,7 +72,7 @@ Multimodal:
 - **Multimodal: 85/100.** Image + video + PDF in (MMMU-Pro 82.0%, GeoBench ACW 86.0% #3) but text-only output and audio explicitly deferred to Muse Spark 1.2 — lands in the "+video/PDF in" band, below the "any non-text out / audio in" tier.
 - **Coding: 90/100.** DeepSWE 75.4% (#6), TB2.1 88.8%/85.4% and SciCode 59.7% all clear the frontier reference. Capped by SWE-bench Verified being unverified, and by much weaker numbers on the newer agentic-coding harnesses (TB4.0 33.3%, CursorBench 41.6%, FrontierSWE 25.8%).
 - **Cost efficiency: 89/100.** Scored on the paid Standard tier at $1.25/$4.25 ($0.15 cached) — the methodology's ~88 baseline, nudged up for the independently verified $0.55/task Pareto lead at its intelligence level. The Contributor route is far cheaper ($0.10/$0.20) but Meta trains on prompts and completions, so it is not a free lunch; no Free Zen route exists today.
-- **Overall Score: 92/100.** (93 + 90 + 100 + 85 + 90) / 5 = 91.6 → 92. Recommendation: the default pick for long-horizon agentic coding and tool-use when budget allows — top-quartile tool use and near-perfect long-context retention at roughly half the per-task cost of its direct index peers; use a maths/science specialist for FrontierMath/CritPt-grade work and do not put confidential code on the Contributor tier.
+- **Overall Score: 92/100.** (93 + 90 + 100 + 85 + 90) / 5 = 91.6 → **92** → 92. Recommendation: the default pick for long-horizon agentic coding and tool-use when budget allows — top-quartile tool use and near-perfect long-context retention at roughly half the per-task cost of its direct index peers; use a maths/science specialist for FrontierMath/CritPt-grade work and do not put confidential code on the Contributor tier.
 
 ---
 

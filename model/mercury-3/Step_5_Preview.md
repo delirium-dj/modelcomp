@@ -82,7 +82,7 @@
 - **Multimodal: 15/100.** Text-in / text-out only; no image, audio, video or PDF input and no non-text output. Reasoning and tool-calling do not compensate — text-only maps to 10–20.
 - **Coding: 78/100.** SWE-Bench Atlas 51.08% is a large lead over GPT-6 Luna and Haiku 5.5 and the independent 86.0% pass rate on HumanEval+/MBPP+/LiveCodeBench is solid, but DeepSWE 46.31% trails Haiku 5.5 by 5.3pp and the leader by 26.7pp, Vibe Code Bench 60.9% and Code Migration 39.3% are mid-band, and Vals Terminal-Bench 4.0 at 3.0% is near-floor (provisional).
 - **Cost efficiency: 88/100.** $0.10/$0.35 per 1M is inside the ~$0.10/$0.20 = 97–99 band and cheaper than 83% of 321 tracked priced models, but the promo is time-limited, prices double to $0.20/$0.70 at list, and the independent cost-per-correct-answer test shows $0.59–$1.19 per 1,000 passing code answers against GPT-6 Luna's $0.07 — 8–17× worse per right answer. The runaway-reasoning defect (61% of output tokens burned on calls that returned nothing) burns the per-token advantage.
-- **Overall Score: 63/100.** (62 + 68 + 93 + 15 + 78) / 5 = 63.2. Best fit: latency-critical agent loops and interactive products where sub-second answers matter and you can pin reasoning to `low`/`instant` — not the choice for maximum quality per dollar or for long-document retrieval.
+- **Overall Score: 63/100.** (62 + 68 + 93 + 15 + 78) / 5 = 63.2 → **63** Best fit: latency-critical agent loops and interactive products where sub-second answers matter and you can pin reasoning to `low`/`instant` — not the choice for maximum quality per dollar or for long-document retrieval.
 
 ---
 

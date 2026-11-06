@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Step 5 Preview
 
 - Source: Meta (`Muse-Glimmer-30B`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -66,6 +66,15 @@ Third-pass verification (2026-10-19): Artificial Analysis has no muse-glimmer-30
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no muse-glimmer-30b page (404); BenchLM composite 41.23/100 (#134/959, 28/666) carrying the AA rows — GDPval-AA 14.3%/Elo 893, AA Agentic Index 10.5%, Index 17.5, Omniscience −32.8%, CritPt 2.6%, AA-LCR 83.3% — so Tool use was trimmed 62→56 (Overall 66→64); AA-LCR 83.3% and AA-MMMU-Pro 74.3% corroborate the other dims. First pass (2026-10-09) used Meta Muse Glimmer model page + HuggingFace model card + NVIDIA NIM card + dev.meta.ai docs, HF blog.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists (32.62/100, #174 of 1016, 131K context, Reasoning, Open Weight) and re-confirms the SWE-bench Verified 76.0 / SWE-bench Pro 51.2 / Terminal-Bench 2.1 51.7 / SciCode 43.6 / CharXiv 78.8 / MMMU-Pro 74.0 / AIME26 94.7 / GPQA 83.5 / HLE 22.0 / AA-LCR 83.3 rows carried from the 2026-10-09 pass, while adding AA-SciCode 44.9, AA Coding Index 49.0, AA-MMMU-Pro 74.3, ScreenSpot Pro 75.4, OmniDocBench 1.5 75.8, MCP Atlas 75.5, DeepSearchQA 74.6, OSWorld-Verified 65.9, skillsBench 44.3, GDPval-AA 893 Elo / 14.2% normalized, AA Agentic Index 10.5, IFBench 77.0, AA-Intelligence Index 6.3, CritPt 2.6 and AA-Omniscience accuracy 28.0 / hallucination 83.6. None of these changes any score, so the 2026-10-09 normalized values are carried forward unchanged and the new rows are recorded here rather than folded into the score lines.
+- Reference URLs:
+  - [Meta - Muse Glimmer model page](https://ai.meta.ai/)
+  - [Hugging Face - meta-models/Muse-Glimmer-30B model card (Apache-2.0 weights)](https://huggingface.co/meta-models/Muse-Glimmer-30B)
+  - [NVIDIA NIM - Muse Glimmer hosted card](https://build.nvidia.com/)
+  - [Meta developer documentation](https://dev.meta.ai/)
+  - [Artificial Analysis - muse-glimmer-30b (404, re-verified 2026-11-06)](https://artificialanalysis.ai/models/muse-glimmer-30b)
+  - [BenchLM - muse-glimmer-30b (32.62/100, #174 of 1016, re-verified 2026-11-06)](https://benchlm.ai/models/muse-glimmer-30b)
+  - [Repo curated meta - model/muse-glimmer-30b/meta.json](/model/muse-glimmer-30b/meta.json)
 - Future sources: add a new file next to this one, e.g. `Muse_Spark.md`, using the same headings.

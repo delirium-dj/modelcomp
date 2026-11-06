@@ -1,7 +1,7 @@
 # Mistral Medium 3.5 — findings by Step 5 Preview
 
 - Source: Mistral AI (`mistral-medium-3.5`, model ID `mistral-medium-2604`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,14 @@ Third-pass verification (2026-10-19): Artificial Analysis has no mistral-medium-
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both untracked for this model — no new independent evidence; the AA-via-OpenRouter rows on file stand and no score change is warranted. First pass (2026-10-09) used Mistral docs + HF model card, Artificial Analysis via OpenRouter/OpenKey, llm-stats, TechSifted review.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (mistral-medium-3-5, mistral-medium-3.5 and Mistral-Medium-3.5 all 404), so the 2026-10-09 pass remains the only evidence base and no new measurement has appeared. The 2026-10-09 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Mistral AI - Mistral Medium 3.5 documentation and launch post](https://mistral.ai/)
+  - [Hugging Face - mistralai/Mistral-Medium-3.5-128B model card (Modified MIT)](https://huggingface.co/mistralai/Mistral-Medium-3.5-128B)
+  - [Artificial Analysis - Mistral Medium 3.5](https://artificialanalysis.ai/models/mistral-medium-3-5)
+  - [BenchLM - mistral-medium-3-5 (404 under all spellings, re-verified 2026-11-06)](https://benchlm.ai/models/mistral-medium-3-5)
+  - [OpenRouter - mistralai/mistral-medium-3-5](https://openrouter.ai/mistralai/mistral-medium-3-5)
+  - [Repo curated meta - model/mistral-medium-3.5/meta.json (256K, .50/.50, Modified MIT)](/model/mistral-medium-3.5/meta.json)
 - Future sources: add a new file next to this one, e.g. `Mistral_Large.md`, using the same headings.

@@ -34,6 +34,7 @@ Agent / tool use:
 - Terminal Bench 2: **41.6%** (HF card)
 - OSWorld-Verified: **56.2**; AndroidWorld: **64.2**; ScreenSpot Pro: **70.3** (HF card, visual agent)
 - Claw-Eval / ClawProBench: no verified public score found
+- NEW independent rows (BenchLM Nov 6, 33 rows, ranked #108/1016): **τ²-bench (AA): 93.9%** — well above the vendor card's 79.0%; **AA ITBench 35.5%** (weak); Gert Labs 39.41%; **SWE-Rebench 58.9%** (fills the gap); **AA-LCR 77.7%** (above the vendor's 66.1); AA-MMMU-Pro 75.0% (corroborates); AA-IFBench 75.6%; AA Global-MMLU-Lite 86.8%; MMVU 73.3%, CharXiv 79.5%, V* 93.7%
 - Toolathon / MCP-Atlas / SWE Atlas: no verified public score found
 
 Reasoning / knowledge:
@@ -44,8 +45,8 @@ Reasoning / knowledge:
 - AA-LCR: **66.1** (HF card)
 - HMMT Feb 25: **92.0**; HMMT Nov 25: **89.8** (HF card)
 - IFEval: **95.0**; IFBench: **76.5** (HF card)
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (AA model page 404 on the id checked 2026-10-21)
-- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (AA model page 404 on the id checked 2026-10-21); **MEASURED on the BenchLM Nov 6 refresh: AA Index 22.9% (low-mid), AA-GPQA 85.8% / AA-HLE 23.9% (corroborate the card), CritPt 0.9% (floor), Omniscience 20.7% accuracy / 81.5% hallucination / −44.0 index (basement-class)**
+- Omniscience Accuracy / Hallucination Rate: no verified public score found (now covered by the AA row above)
 
 Coding:
 
@@ -63,8 +64,8 @@ Long context:
 ### Normalized scores (1–100)
 
 - **Tool use: 78/100.** TAU2-Bench 79.0 and BFCL-V4 68.5 with best-in-comparison VITA-Bench 41.9 and solid search-agent results (Browsecomp 61.0) — strong agentic stack capped by Terminal Bench 2 41.6 and missing third-party agent-harness confirmation.
-- **Reasoning: 82/100.** GPQA Diamond 85.5 and HMMT 92.0 near flagship level, but HLE w/ CoT 24.3 keeps it below the frontier tier.
-- **Context window: 85/100.** 262K native with 1.01M YaRN extension verified from the card; retrieval numbers (AA-LCR 66.1) are good but not top-tier.
+- **Reasoning: 80/100.** CHANGED from 82 — GPQA 85.5–85.8% (two sources) and HMMT 92.0 stay near-flagship, but the newly measured AA Index 22.9% (low-mid), the −44.0 Omniscience index, CritPt 0.9% and corroborated HLE 23.9% document a composite well below the vendor-card framing — docked two points per the repo's index-landing precedent.
+- **Context window: 85/100.** 262K native with 1.01M YaRN extension verified from the card; retrieval numbers (AA-LCR 66.1 vendor / 77.7% AA) are good but not top-tier.
 - **Multimodal: 82/100.** Native image+video input with excellent vision scores (MMMU 82.3, MathVision 86.0, VideoMME 87.0, ScreenSpot Pro 70.3); no audio input/output caps it.
 - **Coding: 78/100.** SWE-bench Verified 72.4 and LCB v6 80.7 match GPT-5-mini-class; CodeForces 1899 and Terminal Bench 41.6 cap it below the flagship coding tier.
 - **Cost efficiency: 80/100.** No verified hosted pricing found; scored provisionally on Apache-2.0 open weights + dense 27B self-host economics (moderate VRAM, high throughput via hybrid DeltaNet layout). Re-score when a hosted price is published.

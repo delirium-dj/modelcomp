@@ -1,7 +1,7 @@
 # Qwen3.5-9B — findings by Step 5 Preview
 
 - Source: Alibaba Qwen (`Qwen3.5-9B`, weights `Qwen/Qwen3.5-9B`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -52,6 +52,16 @@ Third-pass verification (2026-10-19): both trackers no longer list the 9B tier �
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404 on qwen3-5-9b) both delisted the 9B tier — no new independent evidence; the AA small-models article and OpenRouter rows on file stand. No score change. First pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis small-models article and OpenRouter benchmark table, Roboflow, Awesome Agents, llm-stats.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (qwen-3-5-9b, qwen3-5-9b and qwen3.5-9b all 404), so the 2026-10-19 pass remains the only evidence base and no new measurement has appeared. The 2026-10-19 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [Hugging Face - Qwen/Qwen3.5-9B model card and README](https://huggingface.co/Qwen/Qwen3.5-9B)
+  - [Qwen - official small-models launch material](https://qwen.ai/)
+  - [Artificial Analysis - Qwen3.5 small-models article](https://artificialanalysis.ai/)
+  - [OpenRouter - qwen/qwen3.5-9b](https://openrouter.ai/qwen/qwen3.5-9b)
+  - [Artificial Analysis - qwen-3-5-9b (404, re-verified 2026-11-06)](https://artificialanalysis.ai/models/qwen-3-5-9b)
+  - [BenchLM - qwen-3-5-9b (404 under all spellings, re-verified 2026-11-06)](https://benchlm.ai/models/qwen-3-5-9b)
+  - [Repo curated meta - model/qwen-3.5-9b/meta.json](/model/qwen-3.5-9b/meta.json)
+  - See also: [model/qwen-3.5-2b/](qwen-3.5-2b.md) and [model/qwen-3.5-0.8b/](qwen-3.5-0.8b.md) - the smaller Qwen3.5 siblings refreshed in this session
 - Future sources: add a new file next to this one, e.g. `Qwen4.md`, using the same headings.

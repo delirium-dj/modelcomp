@@ -35,7 +35,7 @@ Vendor-reported throughout, carried from the prior verified research pass (2026-
 - **Multimodal: 12/100.** **Text-only** — the methodology's text-only band (10–20).
 - **Coding: 68/100.** Mid-band. SWE-V 72.20 edges non-reasoning GPT-5.4 and LiveCodeBench 65.58 leads the non-thinking comparison set; the reasoning sibling Ring-2.6-1T is stronger (SWE-V 74.0), which is where the coding crown sits.
 - **Cost efficiency: 68/100.** $0.30/$2.50 with $0.06 cached reads and MIT self-host weights — the methodology's ~$0.3/$2.5 → 63–68 tier — offset by **63B active parameters that make self-hosting expensive**, and its ~16M-token evaluation footprint which is genuinely efficient.
-- **Overall Score: 58/100.** (66 + 72 + 72 + 12 + 68) / 5 = 58.0 → **58**. Recommendation: the **non-reasoning trillion-parameter workhorse** — GPT-5.4-class instant responses with SWE-V 72.2 and AIME 87.4 at a third of the price, MIT-licensed. Superseded by the Ling 3.0 generation and **delisted on OpenRouter**. Prefer **Ling 3.1 Flash (65.57, refreshed in this same session)** for the current generation.
+- **Overall Score: 58/100.** (66 + 72 + 72 + 12 + 68) / 5 = 58 → **58**. Recommendation: the **non-reasoning trillion-parameter workhorse** — GPT-5.4-class instant responses with SWE-V 72.2 and AIME 87.4 at a third of the price, MIT-licensed. Superseded by the Ling 3.0 generation and **delisted on OpenRouter**. Prefer **Ling 3.1 Flash (65.57, refreshed in this same session)** for the current generation.
 
 ## Signature
 

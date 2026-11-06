@@ -1,7 +1,7 @@
 # Nemotron 3 Nano Omni — findings by Step 5 Preview
 
 - Source: NVIDIA (`nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`; technical report arXiv:2604.24954)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,14 @@ Third-pass verification (2026-10-19): Artificial Analysis has no nemotron-3-nano
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both remain untracked for this omni-modal checkpoint — no new independent evidence; the NVIDIA technical report rows on file stand and no score change is warranted. First pass (2026-10-09) used arXiv:2604.24954 technical report, NVIDIA research page and developer blog, Hugging Face model cards, NVIDIA Nemotron docs.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page absent under any spelling (nemotron-3-nano-omni, nemotron-3-nano-omni and Nemotron-3-Nano-Omni all 404), so the 2026-10-19 pass remains the only evidence base and no new measurement has appeared. The 2026-10-19 normalized values are carried forward unchanged.
+- Reference URLs:
+  - [arXiv - Nemotron 3 Nano Omni technical report (2604.24954)](https://arxiv.org/abs/2604.24954)
+  - [Hugging Face - nvidia Nemotron 3 Nano Omni model card](https://huggingface.co/nvidia)
+  - [NVIDIA NIM - build.nvidia.com](https://build.nvidia.com/)
+  - [Artificial Analysis - nemotron-3-nano-omni (404, re-verified 2026-11-06)](https://artificialanalysis.ai/models/nemotron-3-nano-omni)
+  - [BenchLM - nemotron-3-nano-omni (404, re-verified 2026-11-06)](https://benchlm.ai/models/nemotron-3-nano-omni)
+  - [Repo curated meta - model/nemotron-3-nano-omni/meta.json](/model/nemotron-3-nano-omni/meta.json)
 - Future sources: add a new file next to this one, e.g. `Nemotron_3_Nano.md`, using the same headings.

@@ -61,7 +61,7 @@ Re-run verdict 2026-10-19: **scores unchanged.** AA's independent composite (Ind
 - **Multimodal: 90/100.** Text + image + audio + video input → text out is the 90–100 band (all four input modalities independently confirmed by AA), and it is the only 12B-class model that takes all four natively without encoders: MMMU-Pro 69.1%, MATH-Vision 79.7%, InfographicVQA 88.4% and the family's best ASR (FLEURS 0.069); docked within the band because CoVoST translation (38.5) and MedXPertQA (48.7%) are mid-tier.
 - **Coding: 62/100.** LiveCodeBench v6 72.0% and Codeforces 1659 are respectable mid-band competitive coding for a local model, but no SWE-bench or agentic-coding score exists and the 31B/26B siblings clearly outperform it here (80.0 / 77.1 LCB).
 - **Cost efficiency: 100/100.** Apache 2.0 weights, encoder-free design, 6.7 GB at 4-bit on a 16 GB laptop with a built-in MTP drafter — the methodology's $0 = 100 tier (with a cheap $0.10/$0.30 hosted fallback now recorded); the most capable thing that runs on consumer memory in the Gemma 4 family.
-- **Overall Score: 69/100.** Mean of the five quality dimensions = (60 + 62 + 72 + 90 + 62) / 5 = 69.2 → 69. Best-fit recommendation: the best local multimodal model for laptops — text, image, audio and video in one Apache-2.0 12B that fits 16 GB of unified memory, out-agenting the bigger 26B MoE while costing nothing to run.
+- **Overall Score: 69/100.** Mean of the five quality dimensions = (60 + 62 + 72 + 90 + 62) / 5 = 69.2 → **69** → 69. Best-fit recommendation: the best local multimodal model for laptops — text, image, audio and video in one Apache-2.0 12B that fits 16 GB of unified memory, out-agenting the bigger 26B MoE while costing nothing to run.
 
 ---
 

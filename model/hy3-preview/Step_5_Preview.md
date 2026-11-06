@@ -1,7 +1,7 @@
 # Tencent Hy3 Preview — findings by Step 5 Preview
 
 - Source: Tencent / Hy3-preview (`tencent/hy3-preview`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC) - re-run; prior-pass content carried forward with a re-verification note
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,12 +60,19 @@ Long context:
 - **Multimodal: 15/100.** Text-only — text in, text out (Clore.ai guide, official GitHub); the text-only tier (10–20) applies.
 - **Coding: 76/100.** SWE-bench Verified 74.4% (vendor, explicit multi-step tool-use optimization) and AA Coding Index 58.8% are upper-mid band; capped by SciCode 41.2–48.6%, Terminal-Bench 2.0 54.4% and no SWE-bench Pro/LiveCodeBench/DeepSWE numbers.
 - **Cost efficiency: 93/100.** ~$0.18/$0.60 (cache $0.06) on OpenRouter and ~1.2 yuan per 1M domestically sit near the ~$0.60/$2.20 ≈ 92 band on the cheaper side; free self-host costs 590GB of BF16 VRAM, which erodes that floor in practice.
-- **Overall Score: 66/100.** Mean of (76 + 84 + 78 + 15 + 76) / 5 = 65.8 → 66. Best fit: the historical preview snapshot for A/B comparisons against GA Hy3 — new deployments should use the Apache-2.0 GA Hy3, which scores higher at a similar price.
+- **Overall Score: 66/100.** Mean of (76 + 84 + 78 + 15 + 76) / 5 = 65.8 → **66** → 66. Best fit: the historical preview snapshot for A/B comparisons against GA Hy3 — new deployments should use the Apache-2.0 GA Hy3, which scores higher at a similar price.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** - 2026-11-06
 - Method: public internet research (Tencent model card rows via BenchLM, Clore.ai deployment guide with the vendor comparison table, houdao, Artificial Analysis); scores are normalized 1–100 interpretations, not official vendor scores.
+- Re-verification note (2026-11-06): BenchLM re-check 2026-11-06: catalog page exists (52.96/100, #92 of 1016, 256K context, Reasoning, Open Weight) and re-confirms the SWE-bench Verified 74.4 / Terminal-Bench 2.0 54.4 / SciCode 41.2 / AA-SciCode 48.6 / AA Coding Index 58.8 / GPQA 87.2 / GPQA-D 87.2 / HLE 25.5 / AA-LCR 66.7 / CritPt 4.9 / IFBench 63.1 rows carried from the 2026-10-21 pass, while adding AA-GPQA Diamond 89.7, AA-HLE 33.5, AA-Intelligence Index 41.2, AA-Omniscience accuracy 31.5 / hallucination 73.0, GDPval-AA 1136 Elo / 35.8% normalized, AA Agentic Index 25.6 and Gert Labs 36.91. None of these changes any score, so the 2026-10-21 normalized values are carried forward unchanged and the new rows are recorded here rather than folded into the score lines.
+- Reference URLs:
+  - [Tencent - Hy3 Preview model card](https://hunyuan.tencent.com/)
+  - [BenchLM - hy3-preview (52.96/100, #92 of 1016, re-verified 2026-11-06)](https://benchlm.ai/models/hy3-preview)
+  - [Artificial Analysis - Hy3 Preview](https://artificialanalysis.ai/models/hy3-preview)
+  - [Hugging Face - Tencent Hy3 Preview weights](https://huggingface.co/tencent)
+  - [Repo curated meta - model/hy3-preview/meta.json (256K, open weight, Reasoning)](/model/hy3-preview/meta.json)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
