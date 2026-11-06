@@ -102,6 +102,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [42, 40, 75, 15, 42, 100, 43],
     "Claude_Opus_4.8.md": [55, 58, 70, 15, 68, 100, 53.2],
     "Claude_Opus_5.md": [50, 40, 52, 15, 56, 82, 42.6],
+    "Claude_Sonnet_4.6.md": [55, 55, 75, 15, 60, 95, 52],
     "Claude_Sonnet_4.md": [52, 55, 70, 15, 72, 100, 52.8],
     "DeepSeek_4.1_Flash.md": [60, 55, 70, 15, 72, 100, 54],
     "DeepSeek_4_Flash.md": [55, 50, 70, 15, 68, 100, 52],
@@ -1743,6 +1744,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "flint": {
     "Beam.md": [55, 55, 75, 15, 70, 100, 54],
     "Big_Pickle.md": [55, 50, 72, 10, 55, 100, 48.4],
+    "Claude_Sonnet_4.6.md": [83, 72, 78, 15, 88, 100, 67.2],
     "DeepSeek_4.1_Flash.md": [70, 65, 75, 15, 80, 96, 61],
     "Flint.md": [55, 55, 75, 15, 70, 100, 54],
     "GLM_4.5_Flash.md": [50, 50, 50, 50, 50, 50, 50],
@@ -1763,7 +1765,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [66, 60, 82, 15, 68, 100, 58.2],
     "Qwen_3.8_Max.md": [62, 58, 66, 50, 70, 92, 61],
     "Step_5_Preview.md": [52, 62, 85, 15, 70, 88, 56.8],
-    "average.md": [65.1, 59.6, 74.6, 20.6, 75.1, 96.2, 59],
+    "average.md": [66.9, 60.8, 74.9, 20, 76.4, 96.6, 59.8],
   },
   "gemini-1.5-pro": {
     "Beam.md": [56, 56, 88, 76, 54, 82, 66],
@@ -2644,6 +2646,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "gemini-4-carbon": {
     "Beam.md": [82, 87, 95, 86, 78, 42, 86],
     "Big_Pickle.md": [91, 94, 98, 90, 91, 56, 93],
+    "Claude_Sonnet_4.6.md": [93, 95, 92, 82, 93, 25, 91],
     "DeepSeek_4.1_Flash.md": [93, 94, 97, 88, 92, 72, 93],
     "DeepSeek_4_Flash.md": [91, 93, 95, 93, 90, 52, 92],
     "Flint.md": [85, 70, 100, 75, 85, 90, 83],
@@ -2663,7 +2666,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Max.md": [92, 94, 96, 86, 90, 58, 92],
     "Step_5_Preview.md": [94, 90, 97, 92, 92, 72, 93],
     "Xing_4.0_29B_A4B.md": [92, 92, 96, 90, 92, 80, 92.4],
-    "average.md": [91.3, 93.3, 96.1, 89.5, 90.4, 67.9, 92.2],
+    "average.md": [91.4, 93.4, 95.7, 88.7, 90.7, 63.1, 92],
   },
   "gemma-4-12b-unified": {
     "Beam.md": [55, 78, 74, 80, 74, 95, 72],
@@ -2820,6 +2823,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [68, 66, 65, 72, 68, 99, 68],
     "Claude_Opus_4.8.md": [28, 44, 55, 72, 30, 98, 45.8],
     "Claude_Opus_5.md": [30, 52, 46, 62, 40, 92, 46],
+    "Claude_Sonnet_4.6.md": [32, 60, 65, 72, 55, 100, 56.8],
     "DeepSeek_4.1_Flash.md": [42, 55, 58, 82, 52, 96, 58],
     "Fledge_Alpha.md": [44, 62, 82, 68, 52, 97, 62],
     "Flint.md": [20, 20, 15, 15, 20, 50, 18],
@@ -5887,6 +5891,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [42, 38, 78, 15, 52, 95, 45],
     "Claude_Opus_4.8.md": [48, 52, 72, 15, 68, 95, 51],
     "Claude_Opus_5.md": [62, 48, 70, 15, 76, 96, 54.2],
+    "Claude_Sonnet_4.6.md": [68, 60, 78, 15, 78, 98, 59.8],
     "DeepSeek_4.1_Flash.md": [52, 55, 71, 15, 72, 98, 53],
     "DeepSeek_4_Flash.md": [55, 55, 74, 15, 72, 98, 54],
     "Fledge_Alpha.md": [60, 58, 88, 15, 64, 93, 57],
@@ -5921,7 +5926,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [50, 50, 70, 12, 72, 92, 51],
     "Qwen_3.8_Max.md": [62, 58, 66, 50, 70, 88, 61],
     "Step_5_Preview.md": [42, 50, 85, 15, 62, 88, 50.8],
-    "average.md": [66.9, 62.9, 77.8, 19, 77.5, 95.3, 60.7],
+    "average.md": [67.5, 64.1, 78.6, 19, 77.7, 95.5, 61.3],
   },
   "leanstral-1.5": {
     "Beam.md": [70, 91, 74, 15, 78, 100, 66],
@@ -5952,6 +5957,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Big_Pickle.md": [50, 50, 50, 50, 50, 50, 50],
     "Claude_Opus_4.6.md": [45, 30, 78, 15, 38, 100, 41],
     "Claude_Opus_5.md": [58, 38, 52, 15, 34, 80, 39.4],
+    "Claude_Sonnet_4.6.md": [68, 40, 65, 15, 72, 97, 52],
     "DeepSeek_4.1_Flash.md": [62, 58, 72, 15, 62, 95, 54],
     "Fledge_Alpha.md": [76, 50, 55, 15, 62, 90, 52],
     "Flint.md": [30, 35, 50, 15, 30, 90, 32],
@@ -5984,7 +5990,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [55, 38, 66, 15, 42, 92, 43],
     "Qwen_3.8_Max.md": [62, 44, 70, 50, 55, 85, 56],
     "Step_5_Preview.md": [45, 45, 66, 12, 45, 97, 43],
-    "average.md": [63.7, 60.4, 76.7, 19, 61, 89.3, 56.2],
+    "average.md": [65.5, 59.2, 75.4, 19, 63.2, 89.2, 56.5],
   },
   "ling-2.6.1t": {
     "Beam.md": [64, 60, 66, 40, 64, 92, 58.8],
@@ -6203,6 +6209,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [28, 52, 65, 58, 38, 95, 48],
     "Claude_Opus_4.8.md": [25, 44, 55, 70, 28, 90, 44.4],
     "Claude_Opus_5.md": [25, 42, 44, 64, 22, 82, 39.4],
+    "Claude_Sonnet_4.6.md": [55, 60, 65, 60, 55, 80, 59],
     "DeepSeek_4.1_Flash.md": [25, 32, 52, 64, 32, 90, 41],
     "DeepSeek_4_Flash.md": [15, 25, 58, 62, 22, 90, 36],
     "Fledge_Alpha.md": [22, 58, 84, 86, 22, 92, 54],
@@ -6237,7 +6244,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [25, 42, 50, 62, 30, 88, 42],
     "Qwen_3.8_Max.md": [46, 45, 60, 64, 50, 74, 53],
     "Step_5_Preview.md": [35, 42, 62, 62, 40, 88, 48],
-    "average.md": [46.3, 59.5, 66.4, 74, 52.6, 89.1, 59.8],
+    "average.md": [47.2, 61, 66.9, 73.6, 53.1, 89.7, 60.4],
   },
   "longcat-2.0": {
     "Beam.md": [56, 60, 72, 40, 58, 100, 57.2],
@@ -6519,6 +6526,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "mercury-3": {
     "Beam.md": [70, 78, 92, 15, 68, 92, 65],
     "Big_Pickle.md": [64, 78, 88, 15, 60, 97, 61],
+    "Claude_Sonnet_4.6.md": [68, 83, 92, 15, 55, 90, 62.6],
     "DeepSeek_4.1_Flash.md": [60, 65, 95, 15, 55, 90, 58],
     "Flint.md": [40, 50, 50, 15, 40, 90, 39],
     "GLM_5.3_Flash.md": [72, 84, 93, 15, 70, 96, 67],
@@ -6532,7 +6540,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [55, 45, 85, 15, 50, 88, 50],
     "Qwen_3.8_Max.md": [64, 72, 91, 15, 60, 92, 60],
     "Step_5_Preview.md": [62, 68, 93, 15, 78, 88, 63],
-    "average.md": [65, 70.9, 90.8, 15, 63.4, 91.9, 61],
+    "average.md": [65.3, 72.2, 90.9, 15, 62.4, 91.7, 61.1],
   },
   "mimo-v2.5-free": {
     "Beam.md": [68, 66, 84, 72, 64, 100, 70.8],
@@ -7039,6 +7047,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [72.3, 73.4, 91.4, 78.6, 75.3, 89.5, 78.2],
   },
   "mistral-large-3": {
+    "Claude_Sonnet_4.6.md": [68, 69, 78, 60, 60, 85, 67.1],
     "Flint.md": [60, 62, 78, 60, 66, 82, 65],
     "GLM_5.3_Flash.md": [33, 54, 72, 61, 45, 91, 53],
     "Gemini_3.8_Flash.md": [88, 89, 86, 84, 88, 91, 87],
@@ -7048,7 +7057,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Nemotron_3.5_Super_VL_120B_A12B.md": [60, 50, 82, 68, 60, 50, 64],
     "Qwen_3.8_Flash.md": [60, 62, 78, 60, 66, 82, 65.2],
     "Step_5_Preview.md": [45, 57, 66, 62, 45, 93, 55],
-    "average.md": [57.2, 64.2, 75, 66.4, 62.8, 90, 65],
+    "average.md": [59, 65, 75.5, 65.3, 62.3, 89.2, 65.4],
   },
   "mistral-large-4": {
     "Beam.md": [66, 70, 80, 64, 68, 84, 70],
@@ -7149,6 +7158,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [79.2, 75.3, 77.5, 65.3, 80.1, 76.8, 75.6],
   },
   "mistral-small-4": {
+    "Claude_Sonnet_4.6.md": [70, 72, 78, 60, 69, 80, 69.8],
     "Flint.md": [68, 70, 78, 58, 72, 93, 69],
     "GLM_5.3_Flash.md": [40, 58, 72, 62, 50, 93, 56],
     "Gemini_3.8_Flash.md": [85, 87, 86, 80, 85, 97, 85],
@@ -7158,7 +7168,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Nemotron_3.5_Super_VL_120B_A12B.md": [72, 55, 82, 68, 68, 90, 69],
     "Qwen_3.8_Flash.md": [68, 70, 78, 58, 72, 93, 69.2],
     "Step_5_Preview.md": [48, 57, 67, 62, 44, 94, 56],
-    "average.md": [59.8, 66.8, 75.2, 65.4, 64.6, 94.4, 66.4],
+    "average.md": [61.5, 67.7, 75.7, 64.5, 65.3, 92, 67],
   },
   "muse-glimmer-30b": {
     "Beam.md": [72, 74, 70, 78, 68, 100, 72.4],
@@ -7398,6 +7408,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "muse-spark-open": {
     "Beam.md": [86, 76, 85, 88, 74, 80, 82],
     "Big_Pickle.md": [82, 78, 92, 90, 75, 95, 83],
+    "Claude_Sonnet_4.6.md": [90, 89, 92, 88, 83, 80, 88.4],
     "DeepSeek_4.1_Flash.md": [76, 70, 94, 86, 68, 92, 79],
     "DeepSeek_4_Flash.md": [84, 87, 86, 84, 85, 96, 85],
     "Flint.md": [80, 78, 90, 85, 82, 70, 83],
@@ -7413,7 +7424,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Max.md": [74, 70, 90, 87, 73, 86, 79],
     "Step_5_Preview.md": [80, 64, 95, 92, 72, 84, 81],
     "Xing_4.0_29B_A4B.md": [80, 68, 85, 78, 62, 10, 74.6],
-    "average.md": [79.1, 73, 93.7, 88.6, 76.4, 88.4, 82.3],
+    "average.md": [80.5, 75, 93.5, 88.5, 77.3, 87.4, 83.1],
   },
   "muse-wonder-1.0": {
     "Beam.md": [92, 92, 100, 88, 92, 60, 93],
@@ -7662,6 +7673,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [50, 32, 78, 15, 40, 95, 43],
     "Claude_Opus_4.8.md": [42, 50, 84, 15, 50, 100, 48.2],
     "Claude_Opus_5.md": [70, 66, 60, 15, 56, 93, 53.4],
+    "Claude_Sonnet_4.6.md": [38, 55, 78, 15, 55, 98, 48.2],
     "DeepSeek_4.1_Flash.md": [45, 55, 72, 15, 55, 100, 48],
     "DeepSeek_4_Flash.md": [50, 58, 80, 15, 58, 100, 52],
     "Fledge_Alpha.md": [72, 65, 88, 15, 62, 96, 60],
@@ -7759,6 +7771,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [38, 48, 78, 15, 50, 100, 46],
     "Claude_Opus_4.8.md": [42, 48, 72, 15, 46, 100, 44.6],
     "Claude_Opus_5.md": [58, 52, 58, 15, 68, 92, 50.2],
+    "Claude_Sonnet_4.6.md": [38, 40, 78, 15, 83, 100, 50.8],
     "DeepSeek_4.1_Flash.md": [48, 60, 73, 15, 70, 100, 53],
     "Fledge_Alpha.md": [78, 65, 90, 15, 70, 94, 64],
     "Flint.md": [30, 35, 50, 15, 30, 90, 32],
@@ -8079,6 +8092,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   "qwen-3.5-2b": {
     "Beam.md": [38, 40, 72, 15, 38, 100, 41],
     "Big_Pickle.md": [72, 72, 90, 74, 72, 98, 76],
+    "Claude_Sonnet_4.6.md": [50, 48, 78, 72, 55, 100, 60.6],
     "DeepSeek_4.1_Flash.md": [40, 55, 55, 52, 35, 100, 47],
     "Flint.md": [20, 25, 50, 15, 20, 90, 26],
     "GLM_4.5_Flash.md": [50, 50, 50, 50, 50, 50, 50],
@@ -8099,7 +8113,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [48, 52, 62, 52, 48, 100, 52.4],
     "Qwen_3.8_Max.md": [52, 52, 66, 72, 48, 90, 58],
     "Step_5_Preview.md": [48, 48, 72, 78, 42, 97, 58],
-    "average.md": [45.8, 51.2, 66.9, 70.2, 42.4, 93.8, 55.2],
+    "average.md": [47.8, 51.7, 67.5, 69.7, 45.9, 93.9, 56.5],
   },
   "qwen-3.5-35b-a3b": {
     "Beam.md": [64, 66, 72, 15, 64, 95, 56],
@@ -8699,6 +8713,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_4.6.md": [85, 84, 88, 72, 87, 95, 83],
     "Claude_Opus_4.8.md": [80, 81, 88, 87, 84, 90, 84.4],
     "Claude_Opus_5.md": [78, 78, 86, 86, 80, 92, 81.6],
+    "Claude_Sonnet_4.6.md": [87, 92, 92, 72, 92, 97, 87],
     "DeepSeek_4.1_Flash.md": [88, 88, 95, 85, 85, 96, 88],
     "DeepSeek_4_Flash.md": [65, 65, 90, 85, 84, 95, 78],
     "Fledge_Alpha.md": [80, 78, 88, 88, 80, 94, 83],
@@ -8746,7 +8761,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Max.md": [84, 83, 87, 78, 86, 96, 84],
     "Step_5_Preview.md": [62, 76, 92, 88, 78, 92, 79.2],
     "Xing_4.0_29B_A4B.md": [88, 88, 96, 88, 86, 95, 89.2],
-    "average.md": [85.9, 86.5, 95.5, 85.7, 86.5, 93.9, 88],
+    "average.md": [86.2, 87, 95.4, 84.8, 87.1, 94.2, 88.1],
   },
   "qwen-3.8-flash-next": {
     "Beam.md": [78, 74, 74, 86, 76, 98, 78],
@@ -9001,6 +9016,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Claude_Opus_5.5.md": [35, 58, 87, 15, 45, 94, 48],
     "Claude_Opus_5.md": [32, 66, 88, 15, 42, 58, 48.6],
     "Claude_Sonnet_4.5.md": [42, 52, 84, 15, 38, 98, 46],
+    "Claude_Sonnet_4.6.md": [25, 72, 86, 15, 55, 88, 50.6],
     "Claude_Sonnet_5.5.md": [30, 55, 87, 15, 45, 96, 46.4],
     "DeepSeek_4.1_Flash.md": [62, 66, 88, 15, 60, 97, 58],
     "Fledge_Alpha.md": [55, 40, 70, 15, 40, 88, 44],

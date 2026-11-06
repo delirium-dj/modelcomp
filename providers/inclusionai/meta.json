@@ -1,21 +1,15 @@
 {
   "name": "InclusionAI",
   "kind": "vendor",
-  "short": "InclusionAI (Ant Group's AGI initiative) serves its Ling (general-text) and Ming (multimodal) model families through the Ant Ling developer platform — pay-as-you-go in CNY with a daily free quota, OpenAI/Anthropic-compatible APIs, and discounted access via OpenRouter/ZenMux.",
+  "short": "InclusionAI (Ant Group's AGI initiative) serves its Ling (general-text) and Ming (multimodal) model families through the Ant Ling developer platform — pay-as-you-go in CNY with OpenAI/Anthropic-compatible APIs, and discounted access via OpenRouter/ZenMux.",
   "officialUrl": "https://www.inclusion-ai.org/",
   "hosts": ["developer.ant-ling.com", "ant-ling.com"],
   "idPrefixes": ["inclusionAI", "inclusionai"],
   "plans": [
     {
-      "name": "Free quota",
-      "price": "$0 (daily free quota)",
-      "notes": "Daily free token quota per account; auto-switches to pay-as-you-go once exhausted (with Alipay binding).",
-      "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
-    },
-    {
       "name": "Pay-as-you-go",
       "price": "Usage-based (CNY per token)",
-      "notes": "Per 1M tokens (CNY), list price then current promo price: Ling-3.1-flash ¥2.00→¥0.50 in / ¥6.00→¥1.50 out (75% off); Ling-3.0-flash & Ling-3.0-flash-VL ¥0.50→¥0.14 in / ¥1.50→¥0.42 out (72% off); Ming-Image-0.1-Design (-Layer) ¥0.10→¥0.03 per image (70% off). Promos are time-limited and original prices will resume. Ling-3.2-flash was free for its first 2 weeks after launch.",
+      "notes": "Per 1M tokens (CNY), list price then promo price: Ling-3.1-flash ¥2.00→¥0.50 in / ¥6.00→¥1.50 out; Ling-3.0-flash & Ling-3.0-flash-VL ¥0.50→¥0.14 in / ¥1.50→¥0.42 out; Ming-Image-0.1-Design ¥0.10→¥0.03 per image. Note: Free quotas / trials require Alipay real-name identity verification (passport / Chinese national ID).",
       "evidenceUrl": "https://developer.ant-ling.com/en/docs/models/price/"
     }
   ]
