@@ -19,4 +19,4 @@
 
 - Based on 8 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
 - Average from top 8 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-5.6 Luna, MiMo 2.6 Flash, Qwen 3.8 Flash, Qwen 3.8 Max, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, Muse Glimmer 30B, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Beam, Big Pickle, Flint, Gemini 3.5 Flash Lite, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3.5 Super VL 120B A12B.

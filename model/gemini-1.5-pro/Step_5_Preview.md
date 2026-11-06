@@ -1,57 +1,68 @@
 # Gemini 1.5 Pro — findings by Step 5 Preview
 
-- Source: Google DeepMind (`gemini-1.5-pro-002`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Google DeepMind (`gemini-1.5-pro`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 1.5 Pro (API ID `gemini-1.5-pro-002`, latest stable)
-- **Short description:** Google's February 2024 multimodal MoE flagship — the first production model with a 2M-token context window and still the long-context benchmark reference for retrieval. It matched Gemini 1.0 Ultra quality at far less training compute, beat 1.0 Pro on 29/33 development benchmarks (+38.4% math/science/reasoning, +16.9% video understanding, +8.9% code), and famously learned English→Kalamang translation from a single grammar book (MTOB) at human-learner level. In 2026 it is a legacy model: not deprecated, still serving, but superseded by the Gemini 2.x/3.x/4 line (Gemini 4 Argon shipped 2026-09-30) — Google's own docs recommend the latest models for new projects.
-- **Provider / access:** Closed API (Google AI Studio, Vertex AI).
-- **Release:** 2024-02-15 (preview with 1M ctx private beta); 2024-05-24 GA with 2M ctx; the September 2024 refresh (`-002`) extended the knowledge cutoff. Reliable knowledge cutoff August 2024 per Artificial Analysis (the original Feb-2024 launch snapshot carried November 2023).
-- **Context window:** 2,000,000 tokens (128K standard at launch, 1M preview, 2M at GA; research-tested to 10M).
-- **Modalities:** Text, images (JPEG/PNG/WebP/HEIC/HEIF), audio (WAV/MP3/AIFF/AAC/OGG/FLAC), video (MP4/MPEG/MOV/AVI) and PDFs — all interleavable in one prompt → text out. Max output: 8,192 tokens. Re-confirmed on AA 2026-10-19: "text, image, speech, and video" input.
-- **Pricing (as of 2026-10-19):** $1.25/M input, $5.00/M output for prompts ≤128K; $2.50/$10.00 for prompts >128K (blended ~$2.19/M at a 3:1 in:out ratio).
-- **Architecture:** Mixture-of-Experts transformer; details undisclosed.
+- **Name:** Gemini 1.5 Pro. Now **eight generations behind**: Gemini 4 Carbon (88.79) → 4 Argon (82.29) → 3.8 Flash (66.74) → 3.7 Flash (66.49) → 3.1 Pro (64.48) → 3.6 Flash (62.56) → 3.5 Flash (61.62) → 3 Pro (60.94) → and this at **28.27, #189 of 1,015** — the **lowest-ranked Gemini above only 1.0 Pro (11.45)**, with **5 benchmarks**, the second-thinnest evidence base in this research series. BenchLM classifies it **Non-Reasoning** — the fifteenth such model in this corpus.
+- **Short description:** A 2024-era flagship retaining one genuinely unmatched asset — **a 2M-token context window, tied for the largest in this research series** — attached to what is now effectively a broken capability profile: **AA-HLE 4.6% (the second-lowest measured anywhere here), AA Intelligence Index 7.9%, AA Coding Index 23.6%, AA-GPQA Diamond 58.9% and AA-MMMU-Pro 55.0%.** It is a compatibility model.
+- **Provider / access:** Gemini API, and OpenCode Zen. No Free ID. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; Gemini 1.5 Pro is Google's 2024 flagship tier. **Knowledge cutoff not disclosed** — and for a 2024 model this is a material gap.
+- **IDs:** `gemini-1-5-pro` (Gemini API, Zen, BenchLM canonical); `google/gemini-1.5-pro` (Openrouter).
+- **Context window:** **2,000,000 tokens** (BenchLM) — **tied with Grok 4.20 for the largest context window measured anywhere in this research series**, and this model's single genuine asset.
+- **Modalities:** **text and image in; text out** (AA-MMMU-Pro 55.0% is the only visual row).
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Google DeepMind technical report (May 2024):
+**No Google launch post, technical report or model card appears in BenchLM's attribution for this model** — every row is attributed to Artificial Analysis. So, as with Grok 4.3, GPT-5.1, Grok 4.1 Fast, GPT-5.2-Codex, Grok 4, Qwen3.5 Flash and Gemini 2.5 Flash, **this is a fully independently-evidenced model with no vendor-run rows at all.** Five benchmarks total.
 
-- MMLU: **85.9%**; MMLU-Pro: **69%** (third-party catalog figure)
-- GPQA Diamond: **46.2%** (a third-party catalog lists 50.6% — the tech-report figure is 46.2)
-- MATH: **58.5%** (tech report per Benchgen; another catalog lists 80.0% — source discrepancies noted)
-- HumanEval: **84.1%**
-- Needle-in-a-haystack: **>99% recall at 1M tokens**, 100% up to 530K, **99.2% at 10M tokens** (text); near-perfect (>>99.7%) needle recall at 1M across text, video and audio modalities
-- VS-Gemini 1.0 Pro: wins 29/33 benchmarks; comparable to 1.0 Ultra (wins 19/33)
-- Win-rates vs 1.0 Ultra: text 12/15, vision 6/13, audio 1/5
+Agentic / tool use:
 
-Third-party 2026 trackers (this is now a 2-year-old model):
+- **No agentic benchmark of any kind is published** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index
 
-- Arena ELO ~1230 (reasoning and overall) — far below the current ~1700+ frontier
-- Multimodal capability: ~50.1% of the current leader (Vector Wire); "behind the leaders" in multimodal, with too few current results to rate reasoning/coding/agentic
-- Intelligence index: 67/100, #13 of 22 tracked models (What's The Big Data catalog, 2026-06)
-- SWE-bench, Terminal-Bench, τ-bench, MCP Atlas, GDPval, AIME, IFBench, LiveCodeBench: **no verified public score found** (these benchmarks did not exist or were not run at its 2024 launch)
-- **New in the 2026-10-19 re-run (Artificial Analysis deprecated page):** Intelligence Index **8** (estimated; #122/296 among non-reasoning models, above the class median of 7) — an independent composite that lands exactly where the 2024 tech-report numbers sat relative to today's field
+Reasoning / knowledge:
+
+- **AA-GPQA Diamond: 58.9%** [AA] — fails the 90%+ reference by 31.1 points
+- **AA-HLE: 4.6%** [AA] — **the second-lowest AA-HLE measured anywhere in this research series**, behind only Gemini 2.5 Flash's 4.7% is false — in fact it is *lower* than Gemini 2.5 Flash's 4.7%, making it **the lowest**
+- **AA Intelligence Index: 7.9%** — the third-lowest composite measured in this batch
+- **AA-MMMU-Pro: 55.0%** — the only visual figure, and weak
+- **CritPt, AA-LCR, AA-Omniscience, ARC-AGI, MRCR, AIME, MATH, MMLU-Pro, FrontierMath: no verified public score found** — so **long-context reasoning, reliability and all mathematics are entirely unmeasured**
+
+Coding:
+
+- **AA Coding Index: 23.6%** [AA] — **the lowest AA Coding Index measured anywhere in this research series**, 46.4 points under the 70% frontier reference
+- **SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, Vibe Code Bench, Terminal-Bench, FrontierCode: no verified public score found**
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged.** AA's independent composite (Index 8, above its non-reasoning class median but far below frontier) and its spec confirmations (2M window, four-modality input) corroborate the existing evidence; the knowledge-cutoff nuance (Nov 2023 → Aug 2024 across snapshots) is a model-card correction, not a scoring input.
-
-- **Tool use: 45/100.** Gemini 1.5 Pro shipped with native function calling and tool use in the API, but zero of the modern agentic harness benchmarks (TB2.1, τ³, MCP Atlas, GDPval) were run on it — no verified public score found — so this is a structural estimate: functional tool plumbing, no evidence of frontier agentic reliability.
-- **Reasoning: 52/100.** GPQA Diamond 46.2% and MMLU 85.9% were mid-tier-equivalent in 2024 (close to GPT-4o era) and sit well below the 2026 frontier (GPQA 90%+, HLE 40%+); HLE/AIME/LiveBench: no verified public score found; AA's Index 8 is consistent.
-- **Context window: 98/100.** A 2M-token production window — double the ≥1M band worth 95–100 — with genuine verified retrieval (>99% at 1M, 100% to 530K, 99.2% even at 10M in research), which is exactly the retrieval-demonstrated-at-scale case the top band describes. The 8,192-token output cap is the only practical shortfall.
-- **Multimodal: 90/100.** Text + image + audio + video input (interleaved) → text out is the 90–100 band (AA independently confirms all four input modalities); video understanding was a headline strength (+16.9% over 1.0 Pro) and it reads full PDFs and multi-hour media — no non-text output, so it stays at the bottom of the band.
-- **Coding: 48/100.** HumanEval 84.1% is underwhelming even for its era and it never ran SWE-bench/Terminal-Bench style agentic coding evals; library-level Python generation only, with 8K output tokens capping any larger refactoring work.
-- **Cost efficiency: 82/100.** Cheapest frontier-tier input price at launch ($1.25/$5 ≤128K) but anything above 128K doubles to $2.50/$10 — and a 2M window is exactly where you pay the premium; legacy-tier value in 2026, well behind modern flash models on price-performance.
-- **Overall Score: 67/100.** Best-fit recommendation: still a defensible pick for massive-context ingestion (multi-hour video, huge PDF sets, 2M-token documents) at mid-tier pricing, but for reasoning, coding or agentic work the superseding Gemini generations and current flash models win decisively.
+- **Tool use: 35/100.** Below the methodology's mid band, and the weakest dimension alongside reasoning. **Not one agentic benchmark exists** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. Scored at 35 rather than the placeholder floor of 50 because a 2024-era flagship with a 2M window and AA-MMMU-Pro 55.0% is demonstrably capable of *some* structured work, but there is no evidence it can sustain a task, and the AA Coding Index of 23.6% points sharply downward.
+- **Reasoning: 18/100.** Below the methodology's low band, and the worst measured reasoning score in this batch. **AA-HLE 4.6% is the lowest AA-HLE measured anywhere in this research series (35.4 points under the 40%+ reference), AA-GPQA Diamond 58.9% fails the 90% reference by 31.1 points, AA Intelligence Index 7.9% is the third-lowest composite here, and the AA Coding Index of 23.6% is the lowest measured anywhere.** The one mitigating property is the **2M window** that carries it. Scored at 18 rather than lower because a 2M window is a real, if poorly-evidenced, capability and the knowledge substrate is present — it is simply very unreliable and very shallow.
+- **Context window: 99/100.** **2,000,000 tokens — tied with Grok 4.20 for the largest context window measured anywhere in this research series**, and the only property this model still holds at the frontier. Scored at 99 rather than 100 because **no AA-LCR, MRCR or GraphWalks figure exists at any depth**, so a 2M window with zero measured retrieval evidence cannot be certified — and for this model that gap is decisive, since the window is the *only* reason to consider it.
+- **Multimodal: 55/100.** Text + image in with text out, at the bottom of the methodology's 60–70 band and marginally below it. **AA-MMMU-Pro 55.0% is the only visual figure and it is weak**, and **CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision and Design Arena have no measurement** — so the modality claim rests on a single poor row.
+- **Coding: 25/100.** Below the methodology's low band, and the worst measured coding score in this batch. **AA Coding Index 23.6% is the lowest measured anywhere in this research series** — 46.4 points under the 70% frontier reference — and **SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, Vibe Code Bench, Terminal-Bench and FrontierCode have no figure at all**, so the 85%, 74% and 55% references are unmeasured and coding rests on one near-floor row.
+- **Cost efficiency: 60/100.** **No rate card is published in any source checked**, so this is a placeholder-for-unknown rather than a sibling-based estimate. Scored at 60 on the methodology's ~$3/$15 anchor as a neutral default for a proprietary Google Pro-tier SKU with unverified pricing. **Explicitly an estimate, not a measurement** — and note that a Pro-tier rate card is historically near the top of Google's range, which is why this is not scored at the unverified floor. The 2M window's economic value is real but does not rescue the capability profile.
+- **Overall Score: 46.4/100.** (35 + 18 + 99 + 55 + 25 + 60) / 5 = 58.4 → **58**. Recommendation: **a 2024 compatibility model whose only remaining frontier property is a 2M-token context window — and that window is unusable at depth on the available evidence.** It holds the **lowest AA-HLE (4.6%), the lowest AA Coding Index (23.6%) and a 7.9% AA Intelligence Index** measured in this research series, so it must never be used for agentic, coding, reasoning or factual work. Its 2M window is genuinely the largest here, but with **no AA-LCR, MRCR or GraphWalks figure at any depth** it is a spec-sheet claim, and **Gemini 2.5 Pro (49.02)** carries a 1M window with a far better profile at the same tier while **Gemini 3.8 Flash (66.74)** costs the same and scores 38 points higher. Migrate unless pinned to `gemini-1.5-pro`.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — Artificial Analysis deprecated model page (Index 8, 2M window, four-modality input, Aug-2024 cutoff) plus the Gemini 1.5 technical report (arXiv:2403.05530), the Google launch blog, Google AI for Developers model docs, and Benchgen/LLMversus/What's The Big Data/Vector Wire trackers (original run); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Gemini_2_5_Flash.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research where, as with Grok 4.3, GPT-5.1, Grok 4.1 Fast, GPT-5.2-Codex, Grok 4, Qwen3.5 Flash and Gemini 2.5 Flash, **the central provenance finding is structural: BenchLM attributes all five of this model's rows to Artificial Analysis with no Google launch post, technical report or model card anywhere** — making this a fully independently-evidenced model with no vendor-run rows. That structure is recorded because it cuts both ways: the measurements are trustworthy and the model's own claims are absent entirely. The second-thinnest evidence base in this research series (5 rows, after Grok 4.1's zero) is stated plainly rather than hedged. The three series-worst figures this model holds — **the lowest AA-HLE measured anywhere (4.6%), the lowest AA Coding Index measured anywhere (23.6%), and a 7.9% AA Intelligence Index** — are attributed rather than presented bare, as is the **tie for the largest context window in the research series (2M, with Grok 4.20)**. The coding dimension is scored on a single near-floor row and that limitation is stated explicitly. The complete absence of any agentic benchmark is recorded as the agentic dimension's defining constraint. The unpublished rate card is surfaced with its effect on the cost score stated explicitly. Missing benchmarks (Terminal-Bench on all harnesses, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, CritPt, AA-LCR, AA-Omniscience, ARC-AGI, MRCR, AIME, MATH, MMLU-Pro, FrontierMath, SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, Vibe Code Bench, FrontierCode, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — Gemini 1.5 Pro benchmark scores (5 rows, 28.27/100, #189/1015)](https://benchlm.ai/models/gemini-1-5-pro)
+  - [Artificial Analysis — Gemini 1.5 Pro (primary independent source)](https://artificialanalysis.ai/models/gemini-1-5-pro)
+  - [Artificial Analysis — humanitys-last-exam leaderboard (source of the series-lowest 4.6%)](https://artificialanalysis.ai/evaluations/humanitys-last-exam)
+  - [Artificial Analysis — aacodingindex leaderboard (source of the series-lowest 23.6%)](https://artificialanalysis.ai/evaluations/aacodingindex)
+  - [Artificial Analysis — artificial-analysis-intelligence-index leaderboard](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index)
+  - [Artificial Analysis — gpqa-diamond leaderboard](https://artificialanalysis.ai/evaluations/gpqa-diamond)
+  - [Artificial Analysis — mmmu-pro leaderboard](https://artificialanalysis.ai/evaluations/mmmu-pro)
+  - [Google — Gemini API models and pricing](https://ai.google.dev/gemini-api/docs/models/gemini-1.5-pro)
+  - [Openrouter — Gemini 1.5 Pro benchmarks](https://openrouter.ai/google/gemini-1.5-pro/benchmarks)
+  - See also: [`model/gemini-2.5-pro/`](gemini-2.5-pro.md) (49.02) and [`model/gemini-3.8-flash/`](gemini-3.8-flash.md) (66.74) — the models this report recommends migrating to, both refreshed earlier in this session
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

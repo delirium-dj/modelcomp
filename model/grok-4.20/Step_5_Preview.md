@@ -1,75 +1,82 @@
 # Grok 4.20 — findings by Step 5 Preview
 
-- Source: xAI / Grok 4.20 (`x-ai/grok-4.20`)
-- Date: 2026-10-21 (UTC)
+- Source: xAI (`xai/grok-4.20`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Grok 4.20
-- **Short description:** xAI's Feb–Mar 2026 multi-agent reasoning flagship — a four-agent inference council (coordinator/research/math-code/synthesis, 16-agent Heavy mode) over a 2M-token window (single-model variants 1M), with GPQA 88.5–88.9%, SWE-bench Verified 72–77% by harness and LiveCodeBench 84.3% at $1.25/$2.50; deprecated to long-context duty when Grok 4.3 shipped 2026-04-30.
-- **Provider / access:** xAI API (`grok-4.20-0309-reasoning` / `-non-reasoning` / `grok-4.20-multi-agent-0309`), OpenRouter (`x-ai/grok-4.20`), Fireworks, Together; not on AWS Bedrock/Azure managed tiers (Grok 4.3 got those). Closed weights, API-only.
-- **Release / knowledge:** public beta 2026-02-17; Beta 2 2026-03-03; reasoning variant 2026-03-10; full GA 2026-03-18 (hokai.io); knowledge cutoff November 2024 (static) with a live X-data search hook extending current-events coverage.
-- **IDs:** `x-ai/grok-4.20`, `xai/grok-4.20-0309-reasoning`, `grok-4.20-multi-agent-0309`.
-- **Context window:** 2,000,000 on the multi-agent variant; 1,000,000 on the single-model reasoning/non-reasoning variants (hokai.io); xAI docs list 1M with ~30K max output for the reasoning route (folder meta); output tokens count toward the window.
-- **Modalities:** text, image and PDF (via the X file-processing pipeline) in; text and tool-call out; no native audio/video; function calling + JSON mode; real-time X data hook.
-- **Pricing (as of 2026-10-21):** $1.25/$2.50 per 1M, cached $0.20 (May 2026 cut from the $2/$6 launch rate, hokai.io); ~265 tok/s output (Artificial Analysis); blended $1.56–$1.88/M.
-- **Architecture:** proprietary MoE (~1.7–3T total per hokai estimate); four named parallel agents debate via peer-review rounds on shared weights; vendor-measured hallucination rate 4.2% vs ~12% single-model (xAI internal).
+- **Name:** Grok 4.20 (the **reasoning** variant; BenchLM's canonical slug is `grok-4-20-beta`, and its separate `Grok 4.20 Multi-agent Beta` sibling has no computed score). Scoring **56.41/100, #62 of 1,015** with **25 benchmarks**, it sits between Grok 4.6 (66.69) and Grok 4.5 (63.03) above and Grok 4.3 (52.89) below — so the 4.20 generation was a genuine step, and it is the **only 2M-context model in this research series**.
+- **Short description:** The largest context window measured anywhere here — **2M tokens, twice every other model in this corpus** — attached to a mid-tier capability profile. **SWE-bench Verified 76.7% and LiveCodeBench 84.3% (Vals) are solid coding figures, GPQA Diamond 88.6% (Vals) is only 1.4 points under the frontier reference, and a six-benchmark multimodal cluster gives real depth** — set against a **near-total agentic collapse: Terminal-Bench 2.1 44.2% (Vals), MazeBench 0%, Vibe Code Bench 4.06% and DeepSearchQA 62.8%.**
+- **Provider / access:** xAI's own API, Cloudflare, Vercel AI Gateway, OpenRouter, and OpenCode Zen. No Free ID. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; the 4.20 generation is xAI's 2026 mid-cycle line. **Knowledge cutoff not disclosed.**
+- **IDs:** `xai/grok-4.20`; `grok-4-20-beta` (BenchLM canonical); `grok_grok-4.20-0309-reasoning` (Vals) — note the Vals slug carries a `-0309-reasoning` suffix that is not part of the model name.
+- **Context window:** **2,000,000 tokens** (BenchLM) — the largest in this research series by 2x, and this model's single most distinctive property.
+- **Modalities:** **text and image in; text out**, with the deepest measured multimodal cluster of any Grok refreshed in this session (six benchmarks, including a medical suite).
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Meta AI Muse Spark comparison chart + Vals AI figures via BenchLM + hokai.io vendor numbers:
+**A provenance finding is recorded prominently, and it is unusual: the majority of this model's rows are attributed to *Meta AI's "Introducing Muse Spark" comparison chart* rather than to any xAI source.** That is materially weaker provenance than a vendor system card, and it means most of the non-Vals figures may describe how a competitor's *comparison* measured this model rather than how xAI reports it. This is the same cross-citation pattern recorded in Claude Opus 4.5 and Claude Sonnet 4.5's reports, and it is flagged at each affected figure rather than implied. 25 benchmarks total.
 
-Agent / tool use:
+Agent / tool use — **the model's defining weakness**:
 
-- Terminal-Bench 2.0: **47.1%** (Meta AI comparison chart via BenchLM)
-- Terminal-Bench 2.1 (Vals): **44.2%** (Vals AI via BenchLM) — mid-weak for a flagship
-- DeepSearchQA: **62.8%** (Meta AI chart via BenchLM)
-- Gert Labs: **38.4%** (Gert Labs via BenchLM); MazeBench: **0%** (MazeBench via BenchLM)
-- Tau2 / Tau3 / GDPval-AA / OSWorld / Claw-Eval / MCP-Atlas: no verified public score found
+- **DeepSearchQA: 62.8%** (Meta comparison chart); Terminal-Bench 2.0: 47.1% (Meta chart)
+- **Gert Labs: 38.36%**; **Terminal-Bench 2.1 (Vals): 44.2%** — 43.8 points under the 88%+ reference
+- **MazeBench: 0%** — near-floor
+- **Terminal-Bench 4.0, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index: no verified public score found** — so two of three frontier references are unmeasured and **no composite agentic figure exists at all**
 
-Reasoning / knowledge:
+Reasoning / knowledge — **solid mid-tier, with a real medical cluster**:
 
-- GPQA Diamond: **88.5%** (Meta AI chart via BenchLM); **88.6%** (Vals AI); **88.9%** (vendor via hokai.io) — ref: GPT-5.4 92.8%, Claude Opus 4.6 91.3%
-- MMLU-Pro: **86.3%** (Vals AI via BenchLM); **86.6%** (vendor via hokai.io)
-- AIME 2025: **~95%** (vendor via hokai.io; 16-agent Heavy reports a perfect score)
-- HLE (no tools): **31.6%** (Meta AI chart via BenchLM) — mid
-- ARC-AGI-2: **53.3%** (Meta AI chart via BenchLM)
-- IFBench: **82.9%** (vendor via hokai.io)
-- LMArena Elo: **1,505–1,535** provisional March 2026 (hokai.io)
-- HealthBench Hard: **20.3%**; MedXpertQA: Text **50.2%** / MM **65.8%** (Meta AI chart via BenchLM)
-- AA-LCR / CritPt / Omniscience / AA Intelligence Index: no verified public score found
+- **GPQA Diamond: 88.6%** (Vals) / **GPQA-D 88.5%** (Meta chart) — the two agree, and both are 1.4–1.5 points under the 90%+ reference
+- **MMLU-Pro (Vals): 86.3%**; **HLE w/o tools: 31.6%** (Meta chart) — fails the 40%+ reference
+- **HealthBench Hard: 20.3%**; **MedXpertQA (Text): 50.2%**; **MedXpertQA (MM): 65.8%** — a genuine medical-depth cluster, one of the few in this research series
+- **ARC-AGI-2: 53.3%** (Meta chart); **ARC-AGI-3: 0.1%** [ARC Prize]
+- **AA-LCR, CritPt, AA Intelligence Index, AA-Omniscience, MRCR, AIME, FrontierMath: no verified public score found** — so **long-context reasoning, composite depth, reliability and all mathematics are entirely unmeasured**
 
-Coding:
+Coding — **solid mid-frontier, with one startling outlier**:
 
-- SWE-bench Verified: **76.7%** (Meta AI chart via BenchLM); **72.2%** (Vals AI via BenchLM) — the harness spread the folder flagged; vendor cites 75% (hokai.io)
-- SWE-bench Pro: **51.8%** (Meta AI chart via BenchLM)
-- LiveCodeBench (Vals): **84.3%** (Vals AI via BenchLM)
-- LiveCodeBench Pro: **74.2%** (Meta AI chart via BenchLM)
-- Vibe Code Bench: **4.06%** (Vals AI via BenchLM) — near-zero full-stack building
-- DeepSWE / SciCode / Terminal-Bench 3.0+: no verified public score found
+- **LiveCodeBench (Vals): 84.3%** — the strongest coding figure
+- **SWE-bench Verified: 76.7%** (Meta chart) / **SWE-bench (Vals): 72.2%** — a 4.5-point gap, both mid-frontier
+- **LiveCodeBench Pro: 74.2%** (Meta chart); **SWE-bench Pro: 51.8%** (Meta chart)
+- **Vibe Code Bench: 4.06%** [Vals] — **a 20x drop from its own LiveCodeBench figure on a neighbouring coding benchmark**, the starkest internal contradiction in this batch
+- **DeepSWE, AA-SciCode, AA Coding Index, Terminal-Bench 4.0, FrontierCode: no verified public score found** — so the 74%, 70% and 55% references are unmeasured
 
-Long context:
+Multimodal (image-in) — **the second-strongest dimension**:
 
-- 2M window on the multi-agent variant (1M single-model); community evaluations report strong recall above 500K tokens (hokai.io); no MRCR/RULER/GraphWalks retrieval-at-length figure published.
-
-Multimodal extras (traceability): MMMU-Pro 75.2%, CharXiv 60.9%, ERQA 54.1%, SimpleVQA 57.4%, Design Arena Website 1231 Elo (Meta AI chart / OpenRouter via BenchLM).
+- **MMMU-Pro: 75.2%** (Meta chart); **MedXpertQA (MM): 65.8%**; **CharXiv: 60.9%**
+- **SimpleVQA: 57.4%**; **ERQA: 54.1%**; Design Arena (website): **1,228 Elo**
+- **ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** DeepSearchQA 62.8% is decent and the 4-agent council with tool calls is structurally built for multi-step work, but Terminal-Bench 2.0/2.1 at 47.1%/44.2%, Gert Labs 38.4% and MazeBench 0% are all mid-to-weak — agentic terminal execution is not this model's strength.
-- **Reasoning: 88/100.** GPQA Diamond 88.5–88.9% and MMLU-Pro 86.3–86.6% are frontier-cluster, AIME ~95% is near-perfect competition math, ARC-AGI-2 53.3% and IFBench 82.9% round it out; capped by HLE 31.6% (mid), the disputed November 2024 static cutoff and no published CritPt/LCR/Omniscience rows.
-- **Context window: 95/100.** 2,000,000 on the multi-agent variant (1M on the single-model routes) lands in the ≥1M tier with community-verified recall above 500K; no ≥98% retrieval-at-512K evidence, and the ~30K max output on the docs' 1M route is a practical caveat.
-- **Multimodal: 68/100.** Text + image (and PDF via the X pipeline) in with text out (image-in tier 60–70); MMMU-Pro 75.2% is solid; explicitly no audio/video input and no non-text output.
-- **Coding: 76/100.** SWE-bench Verified 72.2–76.7% (harness-dependent) and LiveCodeBench 84.3% are solid mid-to-upper band; capped by SWE-bench Pro 51.8%, Vibe Code Bench 4.06% and Terminal-Bench 2.1 44.2% — the council helps reasoning, not repo-scale agentic coding.
-- **Cost efficiency: 88/100.** $1.25/$2.50 with $0.20 cached (an 84% cache discount) matches the ~$1.25/$4.25 ≈ 88 reference band; the 16-agent Heavy mode multiplies token consumption 8–12x, so the standard council is the cost-sane route.
-- **Overall Score: 79/100.** Mean of (70 + 88 + 95 + 68 + 76) / 5 = 79.4 → 79. Best fit: book-length document analysis, legal/research archives and long-context RAG past 200K at a mid-tier price — a deprecated flagship kept for exactly that job.
+- **Tool use: 48/100.** Below the methodology's mid band, and the weakest dimension. DeepSearchQA 62.8% is the only respectable agentic figure, and it is cross-cited from a competitor's chart. **Terminal-Bench 2.1 44.2% (Vals) is 43.8 points under the 88%+ reference, Terminal-Bench 2.0 47.1%, Gert Labs 38.36% and MazeBench 0%**, and **Terminal-Bench 4.0, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so two of three frontier references are unmeasured and no composite exists. The agentic layer is the clearest reason this model ranks #62 rather than higher.
+- **Reasoning: 66/100.** Mid-band. **GPQA Diamond 88.6% (Vals) and 88.5% (Meta chart) agree closely and both fall only 1.4–1.5 points under the 90%+ frontier reference — the narrowest miss in this batch. MMLU-Pro 86.3% is solid, ARC-AGI-2 53.3% is respectable, and the medical cluster (MedXpertQA Text 50.2%, MM 65.8%, HealthBench Hard 20.3%) gives genuine domain depth.** Capped by **HLE w/o tools 31.6% (under 40%), ARC-AGI-3 0.1%, and the total absence of AA-LCR, CritPt, the AA Intelligence Index, AA-Omniscience, MRCR, AIME and FrontierMath** — so long-context reasoning, composite depth, reliability and all mathematics are unknown.
+- **Context window: 99/100.** **2,000,000 tokens — the largest context window measured anywhere in this research series, twice every other model in this corpus** — and the model's single most distinctive and genuinely valuable property. Held at 99 rather than 100 for one specific reason: **no AA-LCR, MRCR or GraphWalks figure exists at any depth**, so a 2M window with zero measured retrieval evidence cannot be certified as usable. That is the single largest evidential gap in this report, and it matters more here than for any other model because the window is the headline claim.
+- **Multimodal: 72/100.** Text + image in with text out, scored above the methodology's 60–70 band on the deepest multimodal cluster of any Grok refreshed in this session: **MMMU-Pro 75.2%, MedXpertQA (MM) 65.8%, CharXiv 60.9%, SimpleVQA 57.4%, ERQA 54.1%**, with a 1,228-Elo Design Arena. Held at 72 rather than higher because **three of six visual benchmarks sit in the 54–61% range**, ExtractBench, BabyVision, ZeroBench, OmniDocBench and MathVision are unmeasured, and there is no video or audio input.
+- **Coding: 70/100.** Mid-band, with the batch's starkest internal contradiction. **LiveCodeBench 84.3% (Vals) is strong and SWE-bench Verified 76.7% / 72.2% (Vals) is solid mid-frontier repair, with LiveCodeBench Pro 74.2% and SWE-bench Pro 51.8% corroborating.** But **Vibe Code Bench 4.06% is a 20x drop from the model's own LiveCodeBench figure on a neighbouring benchmark** — recorded as an unresolved data conflict rather than averaged, and the reason coding is not scored higher. Capped further by the absence of DeepSWE, AA-SciCode, the AA Coding Index, Terminal-Bench 4.0 and FrontierCode.
+- **Cost efficiency: 60/100.** **No rate card is published in any source checked**, so this is a placeholder-for-unknown rather than a sibling-based estimate. Scored at 60 on the methodology's ~$3/$15 anchor as a neutral default for a proprietary xAI mid-tier SKU with unverified pricing. **Explicitly an estimate, not a measurement** — the mitigating facts are the 2M window (which genuinely changes the economics of tasks that would otherwise need chunking) and the historical xAI mid-tier pricing, but it is not scored at the unverified floor.
+- **Overall Score: 71/100.** (48 + 66 + 99 + 72 + 70 + 60) / 5 = 71.0 → **71**. Recommendation: **the largest context window in this research series, attached to a mid-tier model with a broken agentic layer.** The 2M window is genuinely valuable and unmatched here — for whole-repository, whole-codebase and long-document work it removes a constraint every other model imposes. GPQA Diamond 88.6%, LiveCodeBench 84.3%, SWE-bench Verified 76.7% and a six-benchmark multimodal cluster round out a decent package. **But verify the window before you rely on it: no AA-LCR, MRCR or GraphWalks figure exists at any depth, so "2M" is a spec-sheet claim rather than a measured capability.** Three further cautions: **the agentic layer is near-floor** (Terminal-Bench 2.1 44.2%, MazeBench 0%, no composite at all); **Vibe Code Bench 4.06% against LiveCodeBench 84.3% is a 20x internal contradiction** that must be resolved on your own harness before trusting the coding scores; and **most non-Vals figures are cross-cited from Meta's Muse Spark chart rather than from xAI**, which is weak provenance. Prefer Grok 4.5 (63.03) or 4.6 (66.69) unless the 2M window is decisive.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-21
-- Method: public internet research (BenchLM with Meta AI chart + Vals AI rows, hokai.io vendor review, tokencost.app); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using BenchLM's 25-row catalog as the direct source, cross-checked against its price registry and the individual leaderboards BenchLM cites. **A provenance finding is recorded prominently: the majority of this model's rows are attributed to *Meta AI's "Introducing Muse Spark" comparison chart* rather than to any xAI source — materially weaker provenance than a vendor system card, meaning those figures may describe how a competitor's comparison measured this model rather than how xAI reports it. It is flagged at each affected figure rather than implied, and it is the same cross-citation pattern recorded in the Claude Opus 4.5 and Claude Sonnet 4.5 reports.** Three conflicts are listed side by side rather than averaged: **SWE-bench Verified 76.7% (Meta chart) vs 72.2% (Vals); GPQA Diamond 88.6% (Vals) vs 88.5% (Meta chart), agreeing closely and noted as a confidence signal; and the 20x internal contradiction between LiveCodeBench 84.3% and Vibe Code Bench 4.06%**, which is recorded as unresolved and is the reason the coding score is not higher. The **series-largest context window (2M)** is attributed as the model's decisive property, and the **absence of any long-context retrieval measurement at that depth (no AA-LCR, MRCR or GraphWalks)** is stated as the report's single largest evidential gap rather than glossed. The **Vals slug's `-0309-reasoning` suffix** is recorded as not part of the model name. Missing benchmarks (Terminal-Bench 4.0, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, AA-LCR, CritPt, AA Intelligence Index, AA-Omniscience, MRCR, AIME, FrontierMath, DeepSWE, AA-SciCode, AA Coding Index, FrontierCode, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — Grok 4.20 benchmark scores (25 rows, 56.41/100, #62/1015; canonical slug `grok-4-20-beta`)](https://benchlm.ai/models/grok-4-20-beta)
+  - [Meta AI — Introducing Muse Spark comparison chart (source of most non-Vals rows; weaker provenance)](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+  - [Vals AI — Grok 4.20 (0309 reasoning) leaderboard results](https://www.vals.ai/models/grok_grok-4.20-0309-reasoning)
+  - [Vals AI — Terminal-Bench 2.1 leaderboard](https://www.vals.ai/models/grok_grok-4.20-0309-reasoning)
+  - [Vals AI — LiveCodeBench leaderboard](https://www.vals.ai/models/grok_grok-4.20-0309-reasoning)
+  - [Vals AI — SWE-bench leaderboard](https://www.vals.ai/models/grok_grok-4.20-0309-reasoning)
+  - [Vals AI — Vibe Code Bench v1.1 (source of the 4.06%)](https://www.vals.ai/benchmarks/vibe-code)
+  - [ARC Prize — official leaderboard data (source of the ARC-AGI-2 and ARC-AGI-3 rows)](https://arcprize.org/leaderboard)
+  - [Gert Labs rankings](https://gertlabs.com/rankings)
+  - [MazeBench AI leaderboard](https://mazebench.com/leaderboard/ai)
+  - [Openrouter — Grok 4.20 benchmarks](https://openrouter.ai/x-ai/grok-4.20/benchmarks)
+  - See also: [`model/grok-4.20-multi-agent-beta/`](grok-4.20-multi-agent-beta.md) — the separately-tracked Multi-agent Beta sibling with no computed BenchLM score, **not** the same identity; [`model/grok-4.5/`](grok-4.5.md) (63.03) and [`model/grok-4.6/`](grok-4.6.md) (66.69) — the models this report recommends preferring
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

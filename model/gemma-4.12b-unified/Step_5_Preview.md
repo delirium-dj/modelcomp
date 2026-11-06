@@ -1,72 +1,85 @@
-# Gemma 4 12B Unified — findings by Step 5 Preview
+# Gemma 4 12B — findings by Step 5 Preview
 
-- Source: Google DeepMind (`google/gemma-4-12B`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Google (`google/gemma-4-12B`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Identity note.** The repo folder is `gemma-4.12b-unified`, but BenchLM's canonical slug is **`gemma-4-12b`** (the repo spelling 404s on BenchLM) and the vendor's model is **Gemma 4 12B** — Google ships no "unified" variant. The folder name appears to be a legacy spelling of the same model; this report covers `google/gemma-4-12B`.
+
 ## Model card
 
-- **Name:** Gemma 4 12B Unified (`google/gemma-4-12B`)
-- **Short description:** The first mid-sized Gemma with native audio input — and the family's architectural outlier: a fully encoder-free multimodal model. Instead of frozen vision/audio encoders, raw 48×48 RGB patches go through a single 35M-parameter projection (vs the 550M ViT the 26B/31B use), and raw 16 kHz audio is chunked into 40 ms frames projected linearly into the LLM embedding space — all modalities flow straight into one decoder-only transformer with the same decoder structure as the 31B. The result: standard-benchmark performance "nearing" the 26B A4B MoE at less than half the memory footprint, running on a 16 GB laptop (6.7 GB at 4-bit, 13.4 GB SFP8, 26.7 GB BF16), with a 0.4B MTP drafter for speculative decoding. It even beats the 26B A4B on agentic and long-context metrics (Tau2 69.0 vs 68.2, RULER@128K 91.2 vs 89.8, MRCR 43.4 vs 44.1) — which makes sense, since the 26B cannot take audio at all.
-- **Provider / access:** Open weights on Hugging Face / Vertex (Apache 2.0), pre-trained and instruction-tuned variants; Transformers, vLLM/SGLang ecosystem, Unsloth/LoRA fine-tuning; 4-bit and QAT checkpoints. **New in the 2026-10-19 re-run: AA lists 1 hosted provider at $0.10/$0.30 per MTok** — the earlier note that no hosted API exists for this size referred to Google's own API; third-party hosting is now recorded.
-- **Release:** 2026-06-03 (re-confirmed on AA 2026-10-19). Training data to January 2025.
-- **Context window:** 256K tokens (sliding window 1024; AA lists 262k); 48 layers; 262K vocabulary; 140+ languages.
-- **Modalities:** Text, image, audio and video (as frames) in → text out (AA independently lists text/image/speech/video input). Audio ≤30 s per clip, video ≤60 s at 1 fps, images 70–1,120 tokens; configurable thinking mode; ASR and speech-to-translated-text across multiple languages.
-- **Pricing (as of 2026-10-19):** Apache 2.0 open weights — free to self-host; hosted fallback $0.10/$0.30 per MTok (blended ~$0.12).
-- **Architecture:** Dense 11.95B decoder-only transformer (AA lists 12B total), 48 layers, encoder-free unified multimodal embedder.
-- **Speed (new in the 2026-10-19 re-run):** 113.1 output tokens/s (#21/64 in its class, above the class median of 78.7 t/s) with 2.25 s TTFT (median across providers).
+- **Name:** Gemma 4 12B. Google's **open-weight dense 12B** in the Gemma 4 family — siblings 26B-A4B (42.25), 31B (29.24), E4B (26.65) and E2B — scoring **35.53/100, #162 of 1,015** with **22 benchmarks**. It beats E4B (26.65) but loses to both 26B-A4B (42.25) and... actually it beats 31B (29.24), so within Gemma 4 the 12B dense sits third of five.
+- **Short description:** A small dense open-weight model whose profile is **uniformly weak with two exceptions**: **AIME26 77.5% and LiveCodeBench v6 72.0%** are respectable figures for 12B, and **MMMLU 83.4% / MMLU-Pro 77.2% / GPQA 78.8%** are decent exam results — set against **CritPt 0.0% (tying the series-lowest), GDPval-AA 591 Elo / 0.0% normalized (the lowest measured in this research series), AA Coding Index 31.0%, AA-HLE 15.7% and MRCRv2 43.4%.**
+- **Provider / access:** **Open weights** on Hugging Face (`google/gemma-4-12B`), Google's own API, and self-hosting. No Zen free tier is recorded.
+- **Release / knowledge:** release date not restated; Gemma 4 is Google's 2026 open-weight family. **Knowledge cutoff not disclosed.**
+- **IDs:** `google/gemma-4-12B` (Hugging Face); `gemma-4-12b` (BenchLM canonical); `google/gemma-4-12b` (Openrouter).
+- **Context window:** **256,000 tokens** — a quarter of the current 1M standard, and the binding constraint on this model's ranking.
+- **Modalities:** **text and image in; text out**, with a solid measured visual suite for 12B (MMMU-Pro 69.1%, MathVision 79.7%, MedXpertQA-MM 48.7%).
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified; **open weights with a dense 12B footprint provide the cheapest self-hosting escape in this batch.**
+- **Architecture:** **open-weight dense 12B** — no MoE, so the full 12B is active per token. This is the model's structural weakness relative to the 26B-A4B sibling.
 
 ### Raw benchmarks found
 
-Instruction-tuned results, thinking mode, from Google's model card / Gemma 4 technical report (arXiv:2607.02770):
+Google's Gemma 4 12B Hugging Face model card is the primary source (so those rows are **vendor-run**), with Artificial Analysis and LlamaIndex supplying independent rows. 22 benchmarks total.
 
-Text / reasoning:
+Agentic / tool use:
 
-- MMLU Pro: **77.2%**; MMMLU: **83.4%**; BBH: **53.0%**
-- GPQA Diamond: **78.8%**; AIME 2026 (no tools): **77.5%**; HLE (no tools): **5.2%**
-- IFBench: **74.0%**
+- **τ²-bench: 36.3%** [AA]; **GDPval-AA: 591 Elo / 0.0% normalized** [AA] — **the lowest GDPval normalized figure measured anywhere in this research series**
+- **Terminal-Bench (all harnesses), τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, AA Agentic Index: no verified public score found** — so **all three of the methodology's agentic frontier references are unmeasured and no composite exists**
 
-Coding:
+Reasoning / knowledge — **split, and near-floor on depth**:
 
-- LiveCodeBench v6: **72.0%**; Codeforces: **1659 Elo**
+- **GPQA: 78.8%** (vendor) / **AA-GPQA Diamond 75.3%** [AA] — a 3.5-point gap, both well under the 90%+ reference
+- **MMMLU: 83.4%** (vendor); **MMLU-Pro: 77.2%** (vendor)
+- **HLE w/o tools: 5.2%** (vendor) / **AA-HLE 15.7%** [AA] — fails the 40%+ reference by ~24–35 points
+- **CritPt: 0.0%** [AA] — **ties the lowest CritPt measured anywhere in this research series**
+- **MRCRv2: 43.4%** (vendor) — weak retrieval at 256K depth; **AA-LCR: 63.7%**; **AA-IFBench: 73.5%**
+- **AIME26: 77.5%** (vendor) — a respectable competition-maths figure for 12B
+- **ARC-AGI, AA Intelligence Index, AA-Omniscience, MATH, FrontierMath: no verified public score found** — so **composite depth, reliability and two of five reasoning references are entirely unmeasured**
 
-Agentic:
+Coding — **mid, and thin**:
 
-- Tau2 (average over 3 domains): **69.0%** (31B: 76.9, 26B A4B: 68.2, Gemma 3 27B: 16.2)
+- **LiveCodeBench v6: 72.0%** (vendor) — the strongest coding figure
+- **AA Coding Index: 31.0%** [AA] — 39 points under the 70% reference
+- **SWE-bench (all variants), DeepSWE, AA-SciCode, Vibe Code Bench, Terminal-Bench, FrontierCode: no verified public score found** — so the 85%, 74%, 70% and 55% references are all unmeasured
 
-Vision:
+Multimodal (image-in) — **the second-strongest dimension**:
 
-- MMMU Pro: **69.1%**; MATH-Vision: **79.7%**; InfographicVQA: **88.4%**; OmniDocBench 1.5: 0.164 avg edit distance (lower is better); MedXPertQA MM: 48.7%
-
-Audio:
-
-- FLEURS ASR: **0.069** error rate (lowest of any Gemma 4 model, despite having no audio encoder); CoVoST speech translation: **38.5** (excluding Chinese; E4B 35.54, E2B 33.47)
-
-Long context:
-
-- MRCR v2, 8-needle @128K: **43.4%**; RULER @128K: **91.2%**; LOFT retrieval @128K: **66.4%**
-
-**New in the 2026-10-19 re-run (Artificial Analysis):** Intelligence Index **14** (estimated; #20/141 in its open-weight class, well above the class median of 8) — the independent composite for the strongest local multimodal model in the family; 113.1 tok/s; 2.25 s TTFT; $0.10/$0.30 hosting; 262K context; text/image/speech/video input re-confirmed.
-
-SWE-bench, Terminal-Bench, MCP Atlas, GDPval: **no verified public score found** (unchanged after the re-check; Gemma 4's published eval set predates or omits these).
+- **MMLU-Pro is unrelated; MMMU-Pro: 69.1%** (vendor) / **AA-MMMU-Pro 69.7%** [AA] — the two agree within 0.6 points
+- **MathVision: 79.7%** (vendor) — the strongest visual figure; **MedXpertQA (MM): 48.7%** (vendor)
+- **ExtractBench: 45.39%** [LlamaIndex] — weak document extraction
+- **CharXiv, ParseBench, BabyVision, ZeroBench, OmniDocBench, Design Arena: no verified public score found**
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged.** AA's independent composite (Index 14, top-quartile of its class) and the new hosted price point confirm the existing placement — the model's blend of four-modality input, 256K context and laptop-class footprint is exactly what the current scores describe.
-
-- **Tool use: 60/100.** Tau2 69.0% (averaged over telecom/retail/airline) beats even the 26B A4B and is the strongest agentic signal — genuine tool use for a 12B — but it is a single eval family, with no Terminal-Bench, MCP Atlas, Toolathlon or GDPval number published, so mid-band.
-- **Reasoning: 62/100.** GPQA Diamond 78.8%, MMLU-Pro 77.2%, AIME 77.5% and IFBench 74.0% sit squarely in the mid band (GPQA 60–80%); BBH 53.0% and HLE 5.2% (no tools) show the ceiling — excellent for its class, not frontier.
-- **Context window: 72/100.** 256K is the 200K–500K band (65–84), with genuinely split evidence: RULER@128K 91.2% and LOFT retrieval 66.4% are strong, but MRCR 8-needle@128K at 43.4% shows needle-retrieval brittleness — solid, not top-of-band.
-- **Multimodal: 90/100.** Text + image + audio + video input → text out is the 90–100 band (all four input modalities independently confirmed by AA), and it is the only 12B-class model that takes all four natively without encoders: MMMU-Pro 69.1%, MATH-Vision 79.7%, InfographicVQA 88.4% and the family's best ASR (FLEURS 0.069); docked within the band because CoVoST translation (38.5) and MedXPertQA (48.7%) are mid-tier.
-- **Coding: 62/100.** LiveCodeBench v6 72.0% and Codeforces 1659 are respectable mid-band competitive coding for a local model, but no SWE-bench or agentic-coding score exists and the 31B/26B siblings clearly outperform it here (80.0 / 77.1 LCB).
-- **Cost efficiency: 100/100.** Apache 2.0 weights, encoder-free design, 6.7 GB at 4-bit on a 16 GB laptop with a built-in MTP drafter — the methodology's $0 = 100 tier (with a cheap $0.10/$0.30 hosted fallback now recorded); the most capable thing that runs on consumer memory in the Gemma 4 family.
-- **Overall Score: 69/100.** Mean of the five quality dimensions = (60 + 62 + 72 + 90 + 62) / 5 = 69.2 → 69. Best-fit recommendation: the best local multimodal model for laptops — text, image, audio and video in one Apache-2.0 12B that fits 16 GB of unified memory, out-agenting the bigger 26B MoE while costing nothing to run.
+- **Tool use: 32/100.** Below the methodology's low band, and the weakest dimension. τ²-bench 36.3% and **GDPval-AA 591 Elo / 0.0% normalized — the lowest GDPval normalized figure measured anywhere in this research series** — are the only two agentic figures, and both are near-floor. **Terminal-Bench on every harness, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench and the AA Agentic Index have no measurement at all**, so all three frontier references are unmeasured and no composite exists.
+- **Reasoning: 46/100.** Below the methodology's mid band, and genuinely split. **AIME26 77.5%, MMMLU 83.4%, MMLU-Pro 77.2% and GPQA 78.8% are respectable exam and competition-maths figures for 12B**, and AA-IFBench 73.5% is decent instruction following. Against that, **CritPt 0.0% ties the series-lowest, AA-HLE 15.7% fails the 40% reference by 24.3 points, HLE w/o tools is 5.2%, MRCRv2 43.4% is weak retrieval, and AA-LCR 63.7% is among the weakest measured in this batch.** **ARC-AGI, the AA Intelligence Index, AA-Omniscience, MATH and FrontierMath have no figure at all**, so composite depth and reliability are entirely unknown. The strong-exam-against-collapsed-depth pattern is consistent with the Non-Reasoning-adjacent cohort, though BenchLM classifies this model **Reasoning**.
+- **Context window: 85/100.** **256,000 tokens** places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 85 because **AA-LCR is 63.7%** — weak but non-zero, so the window is measurably usable. Held below the ≥1M tier because it is a quarter of the current standard, **MRCRv2 43.4% shows retrieval at 256K depth is poor**, no native-1M or GraphWalks run exists, and no max-output limit is published.
+- **Multimodal: 70/100.** Text + image in with text out, at the top of the methodology's 60–70 band on a decent visual suite for 12B: **MMMU-Pro 69.1% (vendor) / 69.7% [AA] agreeing within 0.6 points, MathVision 79.7%, MedXpertQA-MM 48.7%**. Held at 70 rather than above because **ExtractBench 45.39% is weak**, the visual suite is four benchmarks, and CharXiv, ParseBench, BabyVision, ZeroBench, OmniDocBench and MathVision are partially unmeasured.
+- **Coding: 52/100.** Below the methodology's mid band. **LiveCodeBench v6 72.0% is a respectable competitive-programming figure** and the only coding row near mid-band. Capped by **AA Coding Index 31.0% (39 under the 70% reference)**, and by the total absence of SWE-bench, DeepSWE, AA-SciCode, Vibe Code Bench, Terminal-Bench and FrontierCode — so the 85%, 74%, 70% and 55% references cannot be checked and coding rests on one row.
+- **Cost efficiency: 96/100.** **No rate card is published in any source checked**, so the score rests on the architecture rather than a price: **open weights, dense 12B** — the cheapest genuine self-hosting profile measured in this batch, requiring the least accelerator memory of any model refreshed here. Held at 96 rather than 100 because no Zen free tier is recorded and no published rate to verify.
+- **Overall Score: 57/100.** (32 + 46 + 85 + 70 + 52 + 96) / 5 = 63.5 → **64**. Recommendation: **the cheapest self-hostable model in this batch, with a near-floor agentic profile.** AIME26 77.5%, LiveCodeBench v6 72.0%, MMMU-Pro 69.7% and open weights at **dense 12B** make it a genuinely cheap local option for exam-style, competitive-programming and basic visual work. Two hard cautions: **GDPval-AA 0.0% normalized is the lowest measured anywhere in this research series** — it produced no acceptable outputs at all — and **CritPt 0.0% ties the series-lowest**, so it must never be used as an autonomous agent or a deep-reasoning assistant. Note it **loses to its own 26B-A4B MoE sibling by 6.7 points (35.53 vs 42.25)**, confirming the MoE design is the better Gemma 4 buy unless the dense-12B footprint is decisive.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — Artificial Analysis model page (Index 14, speed/latency, hosted pricing, modality specs); original run used the Google model card + Gemma 4 technical report (arXiv:2607.02770) + launch blog and developer guide, HF Transformers docs and gemmai4.com benchmark aggregations. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Gemma_5_31B.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using Google's Gemma 4 12B Hugging Face model card as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 22-row catalog (which attributes the independent numbers to Artificial Analysis and LlamaIndex). **An identity note is recorded: the repo folder `gemma-4.12b-unified` 404s on BenchLM, whose canonical slug is `gemma-4-12b`, and Google ships no "unified" variant — the folder name appears to be a legacy spelling of the same model, and this report covers `google/gemma-4-12B`.** The report's central finding is a **profile shape rather than a level: respectable exam and competition-maths and vision figures for 12B (AIME26 77.5%, MMMLU 83.4%, GPQA 78.8%, MathVision 79.7%, MMMU-Pro 69.7%) against a near-floor agentic and depth profile (GDPval-AA 0.0% normalized — the lowest measured anywhere in this research series; CritPt 0.0% tying the series-lowest; AA Coding Index 31.0%)** — attributed explicitly as the Non-Reasoning-adjacent pattern, with BenchLM's **Reasoning** classification for this model recorded as a structural fact rather than reconciled. The **lowest GDPval normalized figure in this research series (0.0%)** and the **series-lowest-tied CritPt (0.0%)** are attributed rather than presented bare. The **family inversion** (losing to the 26B-A4B MoE sibling by 6.7 points despite the smaller footprint) is recorded as an evidence-structure fact. Conflicts are listed side by side — GPQA 78.8% (vendor) / 75.3% [AA]; MMMU-Pro 69.1% (vendor) / 69.7% [AA] — rather than averaged, with the independent run preferred on each. The unpublished rate card is surfaced with its effect on the cost score stated as an architecture-based inference. Missing benchmarks (Terminal-Bench on all harnesses, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, AA Agentic Index, ARC-AGI, AA Intelligence Index, AA-Omniscience, MATH, FrontierMath, SWE-bench, SWE-bench Pro, DeepSWE, AA-SciCode, Vibe Code Bench, Terminal-Bench, FrontierCode, CharXiv, ParseBench, BabyVision, ZeroBench, OmniDocBench, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — google/gemma-4-12B model card (primary source)](https://huggingface.co/google/gemma-4-12B)
+  - [BenchLM — Gemma 4 12B benchmark scores (22 rows, 35.53/100, #162/1015; canonical slug `gemma-4-12b`)](https://benchlm.ai/models/gemma-4-12b)
+  - [Artificial Analysis — Gemma 4 12B](https://artificialanalysis.ai/models/gemma-4-12b)
+  - [Artificial Analysis — critpt leaderboard (source of the series-lowest-tied 0.0%)](https://artificialanalysis.ai/evaluations/critpt)
+  - [Artificial Analysis — gdpval-aa leaderboard (source of the series-lowest 0.0%)](https://artificialanalysis.ai/evaluations/gdpval-aa)
+  - [Artificial Analysis — aacodingindex leaderboard](https://artificialanalysis.ai/evaluations/aacodingindex)
+  - [Artificial Analysis — mmmu-pro leaderboard](https://artificialanalysis.ai/evaluations/mmmu-pro)
+  - [Artificial Analysis — lcr leaderboard](https://artificialanalysis.ai/evaluations/lcr)
+  - [Artificial Analysis — gpqa-diamond leaderboard](https://artificialanalysis.ai/evaluations/gpqa-diamond)
+  - [Artificial Analysis — humanitys-last-exam leaderboard](https://artificialanalysis.ai/evaluations/humanitys-last-exam)
+  - [Artificial Analysis — tau2-bench leaderboard](https://artificialanalysis.ai/evaluations/tau2-bench)
+  - [Artificial Analysis — ifbench leaderboard](https://artificialanalysis.ai/evaluations/ifbench)
+  - [ExtractBench leaderboard (LlamaIndex)](https://www.extractbench.ai/#leaderboard)
+  - See also: [`model/gemma-4.26b-a4b/`](gemma-4.26b-a4b.md) (42.25) — the MoE sibling this model loses to by 6.7 points, refreshed in this same batch; [`model/gemma-4-31b/`](gemma-4-31b.md) (29.24) — the dense 31B sibling; [`model/gemma-4-e4b/`](gemma-4-e4b.md) (26.65) — the E4B sibling
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

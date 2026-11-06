@@ -1,7 +1,7 @@
 # Union Alpha — findings by Flint
 
 - Source: Unbiased / Circuit & Chisel (`union-alpha` — stealth alias of Pareto 26.9)
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,7 +60,7 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public internet research (official Unbiased / Circuit & Chisel pages, OpenRouter listings, Unbiased model card, Unbiased public pareto-evals harness, independent benchmark coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 

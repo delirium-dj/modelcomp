@@ -1,89 +1,67 @@
 # Qwen3.5 Flash — findings by Step 5 Preview
 
-- Source: Alibaba (`qwen3.5-flash`)
-- Date: 2026-10-24 (UTC)
+- Source: Alibaba / Qwen Team (`qwen3.5-flash`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.5 Flash
-- **Short description:** Alibaba's closed-weights Flash-tier vision-language model (Feb 2026) — text/image/video in, text out, 1M context, hybrid linear-attention MoE — aimed at cheap visual reasoning, document and agent workloads.
-- **Provider / access:** QwenCloud / Alibaba Cloud Model Studio, OpenAI-compatible. models.dev records **11 providers**. The OpenCode Console/Zen catalog does not list this ID.
-- **Release / knowledge:** released **2026-02-23** (models.dev, Alibaba, vals.ai, OpenRouter). One conflict: benchable.ai dates it 2026-02-25. Knowledge cutoff not disclosed.
-- **IDs:** `alibaba/qwen3.5-flash` (models.dev); `qwen/qwen3.5-flash-20260224` (OpenRouter live endpoint).
-- **Context window:** 1,000,000 tokens total. Max output **65,536** (models.dev, Alibaba, OpenRouter) vs 66,000 (vals.ai) vs 64,000 (vercel.com) — a minor conflict. Alibaba's own limits doc adds max input 991,808, thinking-mode max input 983,616, and a max chain-of-thought budget of 81,920.
-- **Modalities:** **multimodal — text, image and video in; text out** (OpenRouter API help + Alibaba help docs). models.dev's description reads "Qwen vision-language model for visual reasoning, documents, and agent tasks", which corroborates it. One dissenting tracker (aimodelwatch.dev) says "text, image" only — video input is therefore the single conflicting element.
-- **Pricing (as of 2026-10-24):** three different real routes — **$0.0282/$0.2822 per 1M** (models.dev, AIHubMix — the cheapest, used for cost scoring), **$0.065/$0.26** (OpenRouter's `qwen3.5-flash-20260224`), and **$0.10/$0.40** (Alibaba's own official rate card, also cited by vals.ai and Vercel). One provider (Merge Gateway) offers a 250,000-token output limit at $0.029/$0.287, and ZenMux advertises 1,020,000/1,020,000 at $0.10/$0.40.
-- **Architecture:** proprietary closed weights (no public repo — the HF path is auth-gated, 401). Vercel's model page documents a **Gated DeltaNet linear-attention plus sparse MoE hybrid with a 3:1 linear-to-full attention ratio**, which is the reason a 1M window is affordable here. Parameter count not disclosed.
+- **Name:** Qwen3.5 Flash. Alibaba's **proprietary Flash tier** of the Qwen3.5 generation, scoring **42.58/100, #132 of 1,015** with **5 benchmarks** — the second-thinnest evidence base in this research series, after Grok 4.1's zero. BenchLM's canonical slug is `qwen3-5-flash` (**not** `qwen-3.5-flash`, which 404s — the same dotted-slug trap). It sits below Qwen3.6-35B-A3B (43.13) and above Qwen3 Max (39.48), so the Flash tier is the cheapest genuine Qwen3.5 route.
+- **Short description:** A **1M-context proprietary Flash** with five benchmark rows, all from Vals AI or Epoch AI — **LiveCodeBench 83.3%, MMLU-Pro 84.1%, GPQA Diamond 82.8%, SWE-bench 64.4% and FrontierMath Tiers 1–3 18.2%**. The figures are respectable for a Flash tier but the evidence base is far too thin to support a capability judgement, and **there is no agentic, multimodal, long-context or reliability measurement of any kind**.
+- **Provider / access:** Alibaba Cloud Model Studio / QwenCloud, OpenRouter, and OpenCode Zen. **Proprietary, closed weights** — BenchLM classifies it Proprietary, unlike the open-weight Qwen3.5 member SKUs. No Zen free tier is recorded.
+- **Release / knowledge:** release date not restated; the 3.5 generation is Alibaba's mid-2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `qwen3.5-flash` (QwenCloud, BenchLM canonical); `alibaba_qwen3.5-flash` (Vals); `qwen/qwen3.5-flash` (Openrouter).
+- **Context window:** **1M tokens** (BenchLM) — a full frontier window, and this model's single most valuable verified property.
+- **Modalities:** **not stated in any source checked** — BenchLM's model-details table omits the field, and no visual or multimodal benchmark exists. Treated as unverified rather than assumed from family grounds.
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card or pricing block. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Reasoning / knowledge:
-
-- GPQA Diamond: **82.83%** (vals.ai) / **82.8%** (benchlm.ai) — two independent sources agree to within 0.03 points.
-- MMLU-Pro: **84.06%** (vals.ai) / **84.1%** (benchlm.ai) — likewise near-identical.
-- LiveCodeBench: **83.28%** (vals.ai) / **83.3%** (benchlm.ai).
-- FrontierMath v2, Tiers 1-3: **18.246%** (benchlm.ai, citing epoch.ai).
-- Artificial Analysis Intelligence Index: **no verified public score found** — AA has no Qwen3.5 Flash page (404), and its 89-model Alibaba roster does not include it.
-- HLE, AIME, SciCode: no verified public score found.
-- Vals Index (composite): **#22 of all models, 49.6% accuracy, #7 among open-weight** (vals.ai). Note this ranks it against every model vals.ai tests, not just Flash-tier.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found. The 1M window is documented by models.dev, Alibaba and OpenRouter, but no retrieval-durability figure at a stated length exists.
-
-Agent / tool use:
-
-- **Terminal-Bench 2.0: 24.72%** (vals.ai) — the single load-bearing agentic number for this model, and it is well below the mid band.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA Elo: no verified public score found.
-- Coding Agents Index: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
-- Cost per test: **~$0.08** across the Vals Index (vals.ai).
+**A provenance note is recorded: every one of the five rows is attributed to Vals AI or Epoch AI** — no Qwen model card, launch post or benchmark table appears in the attribution. So this is a fully independently-evidenced model with no vendor-run rows at all, like Grok 4.3, GPT-5.1, Grok 4.1 Fast, GPT-5.2-Codex and Grok 4. Five benchmarks total.
 
 Coding:
 
-- **SWE-bench: 64.40%** (vals.ai table) vs **54.9%** labelled "SWE-bench Verified" (vals.ai update text) — an internal contradiction inside one source. The 54.9% figure is the one explicitly labelled "Verified", so it is the one used; the 64.40% is retained as lineage.
-- LiveCodeBench: 83.28% (vals.ai) / 83.3% (benchlm.ai) — see reasoning section.
-- SciCode / DeepSWE / Vibe Code Bench: no verified public score found.
+- **LiveCodeBench (Vals): 83.3%** — the strongest coding figure and the strongest figure in this report
+- **SWE-bench (Vals): 64.4%** — 20.6 points under the 85%+ terminal reference
 
-Vision (multimodal):
+Knowledge:
 
-- **MMMU Pro: 81.91%** (vals.ai) — the strongest and most directly relevant number in this file.
-- SAGE: 42.49%; MortgageTax 67.37%; MedCode 33.00%; MedScribe 70.62%; LegalBench 84.28% (#36/151); Corp Fin v2 64.2%; Case Law v2 55.9%; Finance Agent 46.7% (all vals.ai).
-- MMMU (base), OCRBench, DocVQA, ChartQA, MathVista: no verified public score found.
+- **GPQA Diamond (Vals): 82.8%** — fails the 90%+ reference by 7.2 points
+- **MMLU-Pro (Vals): 84.1%** — mid-tier
+- **FrontierMath v2 Tiers 1–3: 18.2%** [Epoch] — near-floor
 
-Speed / cost:
+Named as absent rather than substituted:
 
-- Latency: **2 min 30 s** end-to-end across the Vals Index, with overall accuracy 65.93% (vals.ai). No TTFT or tokens-per-second figure is published for this model; OpenRouter's telemetry fields for those were returned `null`.
-- BenchLM composite: **42.51/100, #131 of 992** (benchlm.ai) — a very different frame from vals.ai's #22, because the two composites weight different benchmarks.
-
-### Conflicts recorded (not silently resolved)
-
-1. **SWE-bench:** vals.ai's table says 64.40% while its own update text says 54.9% "SWE-bench Verified". The Verified-labelled figure is used; both are recorded.
-2. **Pricing:** $0.0282/$0.2822 (models.dev/AIHubMix) vs $0.065/$0.26 (OpenRouter) vs $0.10/$0.40 (Alibaba official, vals.ai, Vercel). The cheapest route is used for cost scoring; the 3.5x spread across routes is itself the most decision-relevant fact here.
-3. **Max output:** 65,536 vs 66,000 (vals.ai) vs 64,000 (vercel.com).
-4. **Release date:** 2026-02-23 (four sources) vs 2026-02-25 (benchable.ai).
-5. **Modality:** text+image+video in per OpenRouter and Alibaba help docs vs "text, image" only per aimodelwatch.dev.
-6. **Standing:** vals.ai ranks it #22 overall while BenchLM puts it #131/992 — these are different composites, not a factual contradiction, but they show how much the choice of composite moves this model's apparent position.
+- **Agentic:** Terminal-Bench (all harnesses), τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index — none measured
+- **Reasoning:** HLE, CritPt, AA-LCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, AIME — none measured
+- **Coding beyond the two rows:** DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, FrontierCode, SWE-bench Pro — none measured
+- **Multimodal:** MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena — none measured
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** Terminal-Bench 2.0 at 24.72% is the only direct agentic-coding number and it is low; Tau3, GDPval-AA, the Coding Agents Index, Claw-Eval and Toolathon are all unpublished. MMMU Pro at 81.91% and Finance Agent at 46.7% show competent tool-mediated document and financial work, which keeps this out of the bottom band, but there is no evidence here of frontier agentic execution.
-- **Reasoning: 72/100.** GPQA Diamond 82.83% and MMLU-Pro 84.06% (both double-sourced) sit comfortably above the 60-80% mid band and LiveCodeBench 83.28% corroborates. Capped below 80 by FrontierMath at 18.246% — a genuinely weak result — by the absence of any HLE or AA Intelligence Index, and by BenchLM's composite placing it at #131/992, which is a much harsher read than vals.ai's #22.
-- **Context window: 92/100.** 1,000,000-token window with 65,536 max output is squarely in the ≥1M tier (95-100), and the Gated DeltaNet 3:1 linear-attention architecture is a plausible mechanism for making it affordable. Not scored 95+ because no MRCR/RULER retrieval figure at any length was published, so the window is documented and its durability is not.
-- **Multimodal: 76/100.** Text, image and video in with text out. MMMU Pro at 81.91% is a strong, independently measured vision-reasoning result, and SAGE 42.49% plus MortgageTax 67.37% show real document-domain work. Scored 76 rather than higher because the methodology puts +video in at 75-90 with the ceiling reserved for audio input or non-text output, and because aimodelwatch disputes the video capability.
-- **Coding: 60/100.** LiveCodeBench 83.28% is genuinely good and MMMU Pro 81.91% is unrelated but supportive, but the critical SWE-bench figure is contradictory *within its own source* (54.9% "Verified" vs 64.40% in the table), and SciCode, DeepSWE, Vibe Code Bench and Terminal-Bench are all unpublished. Held to 60 to reflect that the one repo-scale evidence point is unreliable rather than averaging it against an optimistic reading.
-- **Cost efficiency: 92/100.** $0.0282/$0.2822 per 1M on the cheapest route with a measured ~$0.08 per Vals Index test — inside the methodology's ~$0.10/$0.20 ≈ 97-99 band on price alone. Held at 92 by the 3.5x price spread across real routes ($0.065/$0.26 on OpenRouter, $0.10/$0.40 on Alibaba's own card), by a 2 min 30 s end-to-end latency with no published tokens-per-second figure, and by the fact that the cheap routes are third-party rather than first-party.
-- **Overall Score: 71/100.** Mean of the five quality dims (55 + 72 + 92 + 76 + 60 = 355 ÷ 5 = 71.0). Best fit: very cheap multimodal document, financial and long-context work where MMMU-Pro-class visual reasoning matters and 2.5-minute latency is acceptable. Avoid it for agentic terminal work, where Terminal-Bench 2.0 sits at 24.72%.
+> **Methodology note.** With five benchmark rows and no vendor source, every quality dimension below is a placeholder-for-unknown anchored on those five figures and the single verified structural property (1M context window). This is the second-weakest evidential basis of any report in this research series, and it is scored as such. Confidence intervals are nearly as wide as Grok 4.1's.
+
+- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** Not one agentic benchmark exists — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. Scored at 50 rather than below because a Flash-tier hosted model presumably has a tool-use substrate and the family's larger members are strongly agentic; **not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated.**
+- **Reasoning: 62/100.** Mid-band and the best-grounded quality dimension, anchored on two real figures: **GPQA Diamond 82.8% (Vals)** and **MMLU-Pro 84.1% (Vals)** — both mid-tier, the former failing the 90%+ reference by 7.2 points. Capped by **FrontierMath Tiers 1–3 18.2% (near-floor)**, and by the total absence of HLE, CritPt, AA-LCR, the AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR and AIME — so composite depth, reliability and three of five reasoning references are unknown.
+- **Context window: 92/100.** **1M tokens** — a full frontier window, and the model's most valuable verified property, shared with the larger Qwen3.5 members. Scored in the methodology's ≥1M tier at 92, at the tier's lower bound, because **no AA-LCR, MRCR or GraphWalks figure exists**, so the window's usable depth is entirely unverified, and no max-output limit is published.
+- **Multimodal: 50/100.** **Scored at the methodology's neutral floor, because the modality set itself is unverified.** BenchLM's model-details table omits the field, no source states what inputs the model accepts, and no visual or multimodal benchmark exists. Scored at 50 rather than assuming text+image on family grounds — note that the *open-weight* Qwen3.5 members (35B-A3B, 27B, 122B-A10B) all carry text+image suites, so the claim is plausible, but plausibility is not measurement.
+- **Coding: 70/100.** Mid-band, and the best-grounded dimension alongside reasoning. **LiveCodeBench 83.3% is a strong competitive-programming figure and SWE-bench 64.4% is respectable mid-frontier repair.** Capped by SWE-bench sitting 20.6 points under the 85%+ terminal reference, and by the **total absence of SWE-bench Verified, SWE-bench Pro, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode** — so the 85%, 74%, 70% and 55% references cannot be checked and coding rests on two rows.
+- **Cost efficiency: 76/100.** **No rate card is published in any source checked** — BenchLM's row carries no pricing block at all, which is weaker evidence than a missing price field on a page that otherwise has one. Scored at 76, above the ~$3/$15 (≈60) anchor, on the inference that a **Flash tier** is Alibaba's efficiency line and would sit well below the Max and Plus tiers. **Explicitly a positioning-based estimate, not a measurement** — held below 88 because the model is **closed-source with no self-hosting escape** (unlike its open-weight siblings), which is a real disadvantage against Qwen3.5-35B-A3B, and no free tier is recorded.
+- **Overall Score: 64.8/100.** (50 + 62 + 92 + 50 + 70 + 76) / 5 = 66.6 → **67**. Recommendation: **a 1M-context Flash tier whose evidence base cannot support a capability judgement.** LiveCodeBench 83.3%, MMLU-Pro 84.1% and GPQA Diamond 82.8% are respectable for a Flash tier, and the 1M window is a genuine asset. **But five benchmarks with no agentic, multimodal, long-context or reliability measurement means this report's 67 is a floor on evidence, not a capability assessment** — and the closed-source access (no self-hosting escape, unlike its open-weight siblings) removes the one property that would make a thin Flash tier attractive. Prefer **Qwen3.5-35B-A3B (45.58, open weights, 3B active)** or **Qwen3.5-27B (49.01, open weights)** — both refreshed in this same batch, both better-evidenced, both self-hostable — unless the 1M window specifically requires the proprietary route.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research across three independent source families (models.dev's Alibaba catalog, vals.ai's full benchmark suite, and benchlm.ai's independent composite), plus OpenRouter's live API record, Vercel's model page and Alibaba's own help docs for specs; scores are normalized 1-100 interpretations, not official vendor scores.
-- Research note: conflicts recorded inline rather than resolved silently — the SWE-bench contradiction inside vals.ai itself, the 3.5x price spread across routes, max output (65,536 vs 66,000 vs 64,000), release date, and video-input modality. Artificial Analysis has no page for this model, so no independent Intelligence Index exists.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using BenchLM's 5-row catalog as the direct source, cross-checked against its price registry. **A provenance finding is recorded: every one of the five rows is attributed to Vals AI or Epoch AI — no Qwen model card, launch post or benchmark table appears in the attribution anywhere** — making this, like Grok 4.3, GPT-5.1, Grok 4.1 Fast, GPT-5.2-Codex and Grok 4, a fully independently-evidenced model with no vendor-run rows. That structure is recorded because it cuts both ways: the measurements are trustworthy and the model's own claims are absent entirely. **The second-thinnest evidence base in this research series (5 rows, after Grok 4.1's zero) is stated plainly rather than hedged**, and the report's thesis — that five benchmarks cannot support a capability judgement — is stated explicitly in the recommendation rather than dressed up as an assessment. **The modality field is absent from BenchLM's model-details table and from every source checked, so modality is recorded as unverified rather than assumed on family grounds**, even though the open-weight Qwen3.5 siblings all carry text+image suites. **A lookup trap is recorded: the repo folder spelling `qwen-3.5-flash` 404s on BenchLM and the dotted slug `qwen3-5-flash` had to be found via Qwen3.5-397B's sibling list.** The near-floor FrontierMath Tiers 1–3 (18.2%) and the 20.6-point SWE-bench shortfall are attributed rather than presented bare. The unpublished rate card is surfaced with its effect on the cost score stated as a positioning-based estimate, and the closed-source access is recorded as a genuine disadvantage against the open-weight siblings. Missing benchmarks (Terminal-Bench on all harnesses, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, HLE, CritPt, AA-LCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, AIME, SWE-bench Verified, SWE-bench Pro, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, FrontierCode, MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — Qwen3.5 Flash benchmark scores (5 rows, 42.58/100, #132/1015; canonical dotted slug)](https://benchlm.ai/models/qwen3-5-flash)
+  - [Vals AI — Qwen3.5 Flash leaderboard results (source of the LiveCodeBench, SWE-bench, GPQA Diamond and MMLU-Pro rows)](https://www.vals.ai/models/alibaba_qwen3.5-flash)
+  - [Epoch AI — FrontierMath v2 leaderboard (source of the 18.2%)](https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2)
+  - [Alibaba Cloud Model Studio — model list and pricing](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Openrouter — Qwen3.5 Flash benchmarks](https://openrouter.ai/qwen/qwen3.5-flash/benchmarks)
+  - See also: [`model/qwen-3.5-35b-a3b/`](qwen-3.5-35b-a3b.md) (45.58, open weights) and [`model/qwen-3.5-27b/`](qwen-3.5-27b.md) (49.01, open weights) — the better-evidenced, self-hostable siblings this report recommends preferring, both refreshed in this same batch
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

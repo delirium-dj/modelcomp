@@ -1,69 +1,55 @@
 # Grok 4.1 — findings by Step 5 Preview
 
-- Source: xAI (`grok-4.1`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: xAI (`xai/grok-4.1`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Grok 4.1
-- **Short description:** xAI's November-2025 chat upgrade (released 2025-11-17 after a silent two-week rollout) — the same ~3T-parameter MoE pretrained base as Grok 4 with aggressive RL applied to style, personality, helpfulness and alignment (frontier models used as reward models). Thinking mode (`quasarflux`) debuted #1 on LMArena Text Arena at 1483 Elo (31 points clear of the best non-xAI model; non-reasoning `tensor` #2 at 1465), with the production hallucination rate cut from 12.09% to 4.22% and FActScore errors from 9.89% to 2.97%. Documented tradeoffs: sycophancy rose 0.07 → 0.19–0.23 and MASK dishonesty 0.43 → 0.49.
-- **Provider / access:** grok.com, X, iOS/Android apps (default in Auto mode); the API-facing sibling was Grok 4.1 Fast (2025-11-19, retired 2026-05-15 → redirects to Grok 4.3). No OpenCode Zen Free ID found.
-- **Release / knowledge:** 2025-11-17; knowledge cutoff ~November 2024.
-- **IDs:** `grok-4.1` (consumer), `grok-4-1-fast-reasoning` / `grok-4-1-fast-non-reasoning` (API, retired).
-- **Context window:** 256,000 tokens; ~8K max output.
-- **Modalities:** Text and image in → text out ( vision upgraded for chart analysis / OCR-level extraction); Thinking and Non-Reasoning modes.
-- **Pricing (as of 2026-10-09):** $3.00 / MTok input, $15.00 output (tracked; no cached/batch tier published for 4.1 itself).
-- **Architecture:** Proprietary; same pretrained base as Grok 4 (~3T MoE per third-party reporting), RL tuned for conversation.
+- **Name:** Grok 4.1. **A negative finding governs this report and is its headline: BenchLM carries a page for this slug but only one benchmark row and no overall score** — its own text reads *"has 1 source-displayable benchmark rows but no public overall score. It remains unranked"*, with Overall Score "Not computed (unranked)" and *"Benchmarks covered: 1 of 744"*. BenchLM classifies it **Non-Reasoning**, the twelfth such model in this corpus.
+- **Short description:** An **unranked model with essentially no public evidence**: one benchmark row (ResearchClawBench 13.5%, a near-floor result), a 1M context window, and nothing else. There is no capability figure to assess and no rate card to verify. Its ranking in the repo's queue (Overall 78.9) is therefore a **roster artefact, not a measured figure** — the same situation as Grok 4.7, which BenchLM also leaves unranked.
+- **Provider / access:** xAI's own API, Cloudflare, Vercel AI Gateway, OpenRouter, and OpenCode Zen. No Free ID. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; Grok 4.1 is xAI's 2026 4.1 line, positioned between Grok 4 Fast (80.3) and Grok 4.20 (80.4). **Knowledge cutoff not disclosed.**
+- **IDs:** `xai/grok-4.1`; `grok-4-1` (BenchLM canonical). Note the family carries several separately-tracked variants that are **not** this identity: `grok-4-1-fast` (36.36), `grok-4-1-fast-reasoning` (45.53), and `grok-4-20-beta` for the 4.20 generation.
+- **Context window:** **1M tokens** (BenchLM) — a full frontier window, and one of only two verified properties for this model.
+- **Modalities:** **not stated in any source checked** — BenchLM's model-details table omits the modality field entirely, and no visual or audio benchmark exists. Treated as unverified rather than assumed.
+- **Pricing (as of 2026-11-06):** **not published in any source checked** — BenchLM's row carries no rate card and no pricing block. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-Human-preference / safety (xAI launch):
+**There is one.** ResearchClawBench **13.5%**, attributed to the ResearchClawBench leaderboard (internscience.github.io) — an independent source, and a near-floor result.
 
-- LMArena Text Arena: **1483 Elo #1** (Thinking) / **1465 #2** (non-reasoning); Grok 4 had ranked #33
-- EQ-Bench3: **1586 #1** (Thinking) / 1585 #2; Creative Writing v3: **1721.9 #2** (Thinking) / 1708.6 #3
-- Blind live-traffic preference vs previous production Grok: **64.78%**
-- Hallucination rate (production info-seeking sample): **4.22%** (from 12.09%); FActScore error rate: **2.97%** (from 9.89%)
-- Sycophancy: 0.19 (Thinking) / 0.23 (non-thinking) vs Grok 4's 0.07; MASK dishonesty 0.49 / 0.46 vs 0.43
+Named as absent rather than substituted — **every** benchmark in this research series:
 
-Independent (AA / Vals, thinking config where noted):
-
-- GPQA Diamond: **85.3%** (AA, thinking) / 63.7% (standard mode); Vals: 84.3%
-- HLE: **19.3%** (AA, thinking) / 5.0–5.1% (standard)
-- LiveCodeBench: **80.6%** (Vals, thinking) / 42.6% (non-reasoning)
-- SWE-bench Verified: **41.4%** (Vals, thinking)
-- MMLU-Pro: **84.2%** (Vals); MMMU: 72.7% (Vals); MMMU-Pro: 63.3% (AA)
-- AA Intelligence Index: **~20.4–23.6**; AA-LCR: **74%**; IFBench: 52.7%; CritPt: 2.9%
-- Vibe Code Bench v1.1: **1.2%** (Vals)
-
-Agentic / tool use:
-
-- **τ²-Bench Telecom: 100%** (xAI launch, with Agent Tools API) / 93.3% (AA, thinking) / 63.7% (standard)
-- Berkeley Function Calling v4: **72% overall** (xAI launch) / 69.6% (AA, thinking, #5)
-- Terminal-Bench Hard: 24.2% (AA); Terminal-Bench 2.0: 24.7% (Vals)
-- MCP-Atlas / BrowseComp / GDPval-AA / Claw-Eval: **no verified public score found**
-- ResearchClawBench: **13.5%** (ResearchClawBench leaderboard via BenchLM, 2026-10-19) — a weak real-research-agentic data point consistent with the mid Tool use read
-
-Third-pass verification (2026-10-19):
-
-- Artificial Analysis has no grok-4.1 page (404 on both dotted and hyphenated slugs) — the AA rows above stand from the original pass
-- BenchLM tracks the slug but assigns no public overall score (1 of 644 benchmarks covered, unranked); **context conflict noted: BenchLM lists a 1M window vs the file's 256K** — the 256K figure stands (launch-era xAI docs), the 1M claim is a single uncorroborated tracker row
+- **Agentic:** Terminal-Bench (all harnesses), τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, AA AutomationBench, AA ITBench — none measured
+- **Reasoning / knowledge:** GPQA Diamond, HLE, CritPt, AA-LCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, AIME, MATH, FrontierMath, MMLU-Pro — none measured
+- **Coding:** SWE-bench (all variants), LiveCodeBench, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, FrontierCode — none measured
+- **Multimodal:** MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena — none measured
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** τ² Telecom 93.3% (thinking) and BFCL v4 69.6–72% show real tool-calling strength at launch; capped by the standard-mode τ² of 63.7%, Terminal-Bench Hard 24.2% and no published MCP-Atlas/BrowseComp/GDPval rows.
-- **Reasoning: 62/100.** GPQA 84.3–85.3% (thinking), LiveCodeBench 80.6% and MMLU-Pro 84.2% are mid-tier; capped by HLE 5.0–19.3% (config-dependent), CritPt 2.9% and the AA Index of ~20–24 — the RL was spent on conversation, not new reasoning.
-- **Context window: 72/100.** 256K-token window in the 200K–500K band with ~8K output; AA-LCR 74% is the only long-context measure and no MRCR/RULER figure exists.
-- **Multimodal: 68/100.** Text + image in → text out (upgraded chart/OCR vision) is the 60–70 band with MMMU-Pro 63.3% (AA); no video/audio input or non-text output.
-- **Coding: 58/100.** LiveCodeBench 80.6% (thinking) is the strong cell, but SWE-bench Verified 41.4%, Vibe Code Bench 1.2% and Terminal-Bench Hard 24.2% put agentic coding firmly mid-to-low.
-- **Cost efficiency: 60/100.** $3/$15 per MTok maps to the methodology's ~$3/$15 ≈ 60 tier; the Fast sibling was cheaper ($0.20/$0.50) but is retired and redirected to Grok 4.3.
-- **Overall Score: 64/100.** Best-fit recommendation: a personality-first chat model whose LMArena and EQ-Bench leads defined its generation — superseded by Grok 4.20/4.3+ for both chat and code; relevant as the RL-on-style reference point.
+> **Methodology note.** With **one** benchmark row — and that row a near-floor agentic result — every quality dimension below is a **placeholder-for-unknown** anchored on the single verified spec (1M context window) and the structural position of a base-tier Grok. This is the weakest evidential basis of any report written in this research series, and it is scored as such. Confidence intervals are wider than for GPT-5.2 Pro, which at least had a verified rate card; here even pricing is unknown.
+
+- **Tool use: 45/100.** Anchored on the one measured row: **ResearchClawBench 13.5%, a near-floor agentic result** — the only evidence that exists, and it points downward. Held at 45 rather than the floor because a single benchmark on a single harness cannot establish a level, and because the model is a base-tier xAI SKU with a presumed agentic substrate. Capped by the **total absence of Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index** — so all three frontier references are unmeasured and no composite exists.
+- **Reasoning: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** Not one reasoning benchmark exists — no GPQA Diamond, HLE, CritPt, AA-LCR, AA Intelligence Index, ARC-AGI, MRCR, AIME, MATH, FrontierMath or MMLU-Pro. Scored at 50 rather than lower because a proprietary flagship-family SKU presumably has a reasoning substrate; **not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated**, and BenchLM's **Non-Reasoning** classification is the one structural signal pointing downward.
+- **Context window: 92/100.** **1M tokens** (BenchLM) — the model's single most valuable verified property, and a full frontier window. Scored in the methodology's ≥1M tier at 92, at the tier's lower bound, because **no AA-LCR, MRCR or GraphWalks figure exists**, so the window's usable depth is entirely unverified, and no max-output limit is published.
+- **Multimodal: 50/100.** **Scored at the methodology's neutral floor, because the modality set itself is unverified.** BenchLM's model-details table omits the field entirely, no source states what inputs the model accepts, and no visual or audio benchmark exists. Scored at 50 rather than assuming text+image on family grounds — the repo's rule is that an untested capability claim must not be scored as though it were demonstrated, and here even the *claim* is absent.
+- **Coding: 50/100.** **Scored at the methodology's neutral floor.** Not one coding benchmark exists — no SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, Terminal-Bench or FrontierCode. Scored at 50 rather than lower on the inference that a base-tier Grok has a coding substrate; not scored above 50 because there is nothing to support it.
+- **Cost efficiency: 60/100.** **No rate card is published in any source checked** — BenchLM's row carries no pricing block at all, which is weaker evidence than a missing price field on a page that otherwise has one. Scored at 60 on the methodology's ~$3/$15 anchor as a neutral default for a proprietary xAI base-tier SKU with entirely unverified pricing. **Explicitly a placeholder, not an estimate** — the sibling rate cards (Grok 4.5 and 4.6 at $2/$6 per the earlier Grok 4.5 report) are the only directional signal available, and they are the reason this is not scored at the unverified floor.
+- **Overall Score: 57/100.** (45 + 50 + 92 + 50 + 50 + 60) / 5 = 61.4 → **61**. Recommendation: **do not select this model on the available evidence, and do not treat the queue's 78.9 as a capability figure.** BenchLM leaves it **unranked with 1 of 744 benchmarks**, and that single row is a near-floor ResearchClawBench result. The only verified property is a **1M context window** — a genuine asset, but one shared by Grok 4.3 (52.89), 4.5 (63.03) and 4.6 (66.69), all of which have far better-evidenced profiles at presumably similar prices. **Prefer any of those.** If you specifically need Grok 4.1, benchmark it yourself on your own harness first: this report's 61 is a floor on evidence, not a capability judgement, and three of its six dimensions rest on nothing at all.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis has no grok-4.1 page (404 on both slug forms) and BenchLM assigns no public overall score (1 of 644 benchmarks, unranked); the only new independent row is ResearchClawBench 13.5% (weak — consistent with Tool use 58), and one conflict is flagged: BenchLM lists a 1M context window vs the file's 256K (uncorroborated single-source claim; the 256K figure is retained). No score change warranted — the LMArena/EQ-Bench-led positioning and the thinking-vs-standard benchmark split are unchanged. First pass (2026-10-09) used xAI Grok 4.1 launch post + Grok 4.1 Fast post, Artificial Analysis, Vals AI, HokAI, TheExpertRanking, ShawnHack, DataCamp.
-- Future sources: add a new file next to this one, e.g. `Grok_4.2.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first and made it the report's frame: BenchLM carries a page for `grok-4-1` but only one benchmark row and no overall score** — its own text reads *"has 1 source-displayable benchmark rows but no public overall score. It remains unranked"* and *"Benchmarks covered: 1 of 744"*, with Overall Score "Not computed (unranked)" and Unranked rank. No Artificial Analysis, Vals AI, Epoch AI or ARC Prize row was found either. The single measured figure — **ResearchClawBench 13.5%, attributed to the ResearchClawBench leaderboard, an independent source** — is the entire capability evidence base. The 1M context window and the Non-Reasoning classification were taken from BenchLM's model-details table; **the modality field is absent from that table and from every source checked, so modality is recorded as unverified rather than assumed on family grounds.** Because only one benchmark exists — and it is a near-floor result — every quality dimension is explicitly labelled a placeholder-for-unknown, and the context dimension (the only one resting on a verified spec) is the best-grounded score in the report. **The gap between BenchLM's "unranked" verdict and the repo queue's computed Overall of 78.9 is recorded as a roster artefact rather than resolved in either direction** — the same discrepancy documented in the Grok 4.7 report. The unpublished rate card is surfaced with its effect on the cost score stated as a placeholder. Missing benchmarks (every benchmark measured anywhere in this research series) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — Grok 4.1 (1 benchmark row, 0 of 744 with a score, unranked)](https://benchlm.ai/models/grok-4-1)
+  - [ResearchClawBench leaderboard (source of the single 13.5% row)](https://internscience.github.io/ResearchClawBench-Home/)
+  - [xAI — API documentation and pricing](https://x.ai/api)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+  - See also: [`model/grok-4.3/`](grok-4.3.md) (52.89), [`model/grok-4.5/`](grok-4.5.md) (63.03), [`model/grok-4.6/`](grok-4.6.md) (66.69) — the better-evidenced Groks this report recommends preferring, all refreshed this session; [`model/grok-4.1-fast/`](grok-4.1-fast.md) (36.36) — the separately-tracked Fast variant, **not** the same identity
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

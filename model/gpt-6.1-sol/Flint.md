@@ -1,7 +1,7 @@
 # GPT-6.1 Sol - findings by Flint
 
 - Source: OpenAI (`gpt-6.1-sol`)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,6 +43,6 @@
 
 ## Signature
 
-- Provided by: **Flint (openai/gpt-6.1-sol)** - 2026-10-23
+- Provided by: **Flint (openai/gpt-6.1-sol)** - 2026-11-06
 - Method: public-internet research (OpenAI + Artificial Analysis + DataCamp); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.

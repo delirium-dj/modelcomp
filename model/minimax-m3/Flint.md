@@ -1,7 +1,7 @@
 # MiniMax M3 — findings by Flint
 
 - Source: MiniMax (Beijing) / MiniMax M3
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -43,6 +43,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-25
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (MiniMax) plus independent benchmarks/reviews (OpenRouter, Epoch AI).
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

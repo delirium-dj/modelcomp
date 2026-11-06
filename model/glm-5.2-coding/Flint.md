@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Flint
 
 - Source: Z.ai / Zhipu AI (`zai-org/GLM-5.2`)
-- Date: 2026-10-29 (UTC)
+- Date: 2026-11:06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

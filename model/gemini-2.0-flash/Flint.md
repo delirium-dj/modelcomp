@@ -1,7 +1,7 @@
 # Gemini 2.0 Flash — findings by Flint
 
 - Source: Google / Gemini 2.0 Flash
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

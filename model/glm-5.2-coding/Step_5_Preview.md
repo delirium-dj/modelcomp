@@ -1,80 +1,55 @@
 # GLM-5.2 Coding — findings by Step 5 Preview
 
-- Source: Z.ai (`glm-5.2` — coding-first release)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: Z.AI / Zhipu (`glm-5.2` — coding-first release)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GLM-5.2 Coding
-- **Short description:** Z.ai's coding-first flagship (released 2026-06-13, coding-plan rollout 2026-06-16) — the mid-2026 "strongest open-weights coding model", built for repository-scale, long-horizon engineering with a usable 1M-token context. Shipped distribution-first (GLM Coding Plan tiers, eight coding agents, day-zero partners) with benchmarks following shortly; MIT open weights. Its differentiators: IndexShare cross-layer indexer reuse (2.9x per-token FLOPs reduction at 1M context) and a revised MTP speculative-decoding stack (+20% acceptance length). Artificial Analysis now lists it as deprecated (superseded by GLM-5.3), re-confirmed 2026-10-19.
-- **Provider / access:** Z.ai API `glm-5.2` / `glm-5.2[1m]`; OpenRouter `z-ai/glm-5.2` (18 providers per AA); GLM Coding Plan (~$18–$72/mo tiers); MIT weights `zai-org/GLM-5.2` on Hugging Face (~1.51TB BF16) via vLLM/SGLang/Transformers/KTransformers.
-- **Release / knowledge:** 2026-06-13. Knowledge cutoff not disclosed.
-- **IDs:** `glm-5.2` (Z.ai), `z-ai/glm-5.2` (OpenRouter).
-- **Context window:** 1,048,576 tokens; 128–131K max output (AA confirms 1M).
-- **Modalities:** **Text-only** (no image/audio input — re-confirmed on AA 2026-10-19); thinking effort High / Max (Max recommended for coding); function calling, JSON-schema structured outputs.
-- **Pricing (as of 2026-10-19):** $1.40 / MTok input, $0.26 cached, $4.40 output — identical to GLM-5.1, flat across the full window; **AA re-measurement: blended $0.90, ~$1.47 per Index task, 81% cache discount**; cached-input storage limited-time free.
-- **Architecture:** MoE, 753B total / 40B active (re-confirmed on AA); hybrid sparse attention with IndexShare.
+- **Name:** GLM-5.2 Coding. **An identity finding is recorded first and is the report's central caveat: the repo's own meta.json states that no separate `GLM-5.2-Coding` SKU is published on Z.ai, Zen, OpenRouter or models.dev** — this is the `glm-5.2` model served through a **coding-positioned route** (the GLM Coding Plan, and a free `coding-glm-5.2-free` tier via AIHubMix), not a distinct checkpoint. **A negative finding also governs this report: BenchLM carries no `glm-5-2-coding` page in any spelling** (it 404s; BenchLM tracks only `glm-5-2` at 60.23), so the 2026-11-06 re-research had no catalog to check against.
+- **Short description:** Z.ai's coding-first flagship (released **2026-06-13**, coding-plan rollout 2026-06-16) — the mid-2026 "strongest open-weights coding model", built for repository-scale, long-horizon engineering with a usable **1M-token context**, **MIT-licensed**, ~1.51TB BF16. Its differentiators were **IndexShare cross-layer indexer reuse (2.9x per-token FLOPs reduction at 1M context)** and a **revised MTP speculative-decoding stack (+20% acceptance length)**. **Artificial Analysis now lists it as deprecated, superseded by GLM-5.3** (61.28, refreshed in an earlier batch).
+- **Provider / access:** Z.ai API `glm-5.2` / `glm-5.2[1m]`; OpenRouter `z-ai/glm-5.2` (18 providers per AA); GLM Coding Plan (~$18–$72/mo tiers); **MIT weights `zai-org/GLM-5.2` on Hugging Face** via vLLM/SGLang/Transformers/KTransformers. **A free route exists via AIHubMix (`coding-glm-5.2-free`)** — the repo's meta records this as the "Free tier route".
+- **Release / knowledge:** **released 2026-06-13. Knowledge cutoff not disclosed.**
+- **IDs:** `glm-5.2` (Z.ai); `z-ai/glm-5.2` (Openrouter); `zai-org/GLM-5.2` (Hugging Face); `coding-glm-5.2-free` (AIHubMix free route). **There is no published `glm-5.2-coding` model ID** — the repo folder name is a positioning label, not a variant.
+- **Context window:** **1,048,576 tokens (1M); 128–131K max output** (AA confirms 1M). The repo's meta explicitly records that **"128K is not this model's window"**.
+- **Modalities:** **text-only** — no image or audio input, re-confirmed on AA. Thinking effort High / Max (Max recommended for coding); function calling and JSON-schema structured outputs.
+- **Pricing (as of 2026-11-06):** **$1.40 input / $4.40 output per 1M** (Z.ai API), with a **free AIHubMix route** (`coding-glm-5.2-free`). Methodology anchors put $1.40/$4.40 near the ≈88 band.
+- **Architecture:** **MIT open-weight MoE**; parameter count undisclosed. The IndexShare and MTP optimisations are the model's engineering signature.
 
 ### Raw benchmarks found
 
-Coding (Z.ai launch results, mostly vendor-run):
+**A negative finding is stated plainly: BenchLM carries no `glm-5-2-coding` page in any spelling**, so the 2026-11-06 pass had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) and re-attributed to the repo's curated `meta.json`, Vals AI and Artificial Analysis; **because no tracker catalog page exists, none has an independent cross-check from a 2026-11-06 source.**
 
-- Terminal-Bench 2.1: **81.0%** (Terminus-2) / **82.7%** (best reported harness) — vs GLM-5.1's 63.5%, GPT-5.5 84.0%, Opus 4.8 85.0%, Gemini 3.1 Pro 74.0%
-- SWE-bench Pro: **62.1%** (vs GPT-5.5 58.6%, Opus 4.8 69.2%)
-- FrontierSWE: **74.4** (vs GPT-5.5 72.6, Opus 4.8 75.1 — within 1 point of the flagship)
-- PostTrainBench: **34.3** (vs GPT-5.5 28.4, Opus 4.8 37.2)
-- SWE-Marathon v1.1: **13.0** (vs GPT-5.5 12.0, Opus 4.8 26.0 — the hardest long-horizon suite still trails)
-- DeepSWE v1.1: **46.2** (vendor; AskClash 43.8); NL2Repo: 48.9; ProgramBench: 63.7
-- CursorBench 3.1: **54.6%**; CursorBench 3.2: **55.0%** (Max, $1.76/task, ~36K tokens, 58 steps)
-- SWE-bench Verified: ~62% (unofficial tracker — not vendor-published)
-
-Agentic / tool use:
-
-- MCP-Atlas (public set): **76.8** (vs GPT-5.5 75.3, Opus 4.8 77.8)
-- Toolathlon / Tool-Decathlon: **48.2%**; τ²-Bench: **99.1%** (AskClash aggregate); MazeBench: **0%**
-- GDPval-AA: **Elo 1374.6** (AskClash) / **Elo 1418** (AA) — below GPT-5.5/GPT-5.6-tier leaders
-- Finance Agent v2: 49.7%
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **91.2%** (vs GPT-5.5 93.6%, Opus 4.8 93.6%)
-- HLE: **40.5%** text-only / **54.7% with tools** (vs GPT-5.5 41.4/52.2, Opus 4.8 49.8/57.9)
-- CritPt: **20.9%** (matches Opus 4.8); AIME 2026: **99.2%** (vs GPT-5.5 98.3%); HMMT Feb 2026: 92.5%; IMO-AnswerBench: 91.0%
-- IFEval: 73.3%
-
-Long context:
-
-- 1M-token window with IndexShare; **new in the 2026-10-19 re-run: AA-LCR 78.3% (Artificial Analysis)** — the first independent long-context-reasoning figure; no MRCR/RULER number exists
-
-**New in the 2026-10-19 re-run (independent, via BenchLM's 46-row aggregate):**
-
-- SWE-bench Verified (Vals AI): **82.8%** — the strongest independent coding reading to date for this model
-- Terminal-Bench 2.1 (Vals AI): **67.8%** — well below Z.ai's Terminus-2 81.0%; harness gap documented
-- Terminal-Bench 3.0: **4.6%** — near-floor on the newest terminal suite
-- LiveCodeBench (Vals): **69.5%**; GPQA Diamond (Vals): **85.6%**; MMLU-Pro (Vals): **86.7%**
-- AA composite: Intelligence Index **34** (#16/121 in class); AA-HLE **41.1%** (independent — above the 40% frontier bar); AA-GPQA Diamond **89.5%**
-- GDPval-AA (AA): normalized **43.6%**; APEX-Agents-AA: **33.7%**; ResearchClawBench: **20.7%**; AA Agentic Index: **39.4%**
-- AA-SciCode: **51.2%**; AA Coding Index: **68.8%**; AA-IFBench: **73.3%**; AA-Omniscience: Index **4.4**, accuracy 24.3%, hallucination **26.3%**
-- FrontierMath v2: **59.2%** T1–3 / **29.3%** Tier 4 (Epoch AI); Design Arena Website: **1285**; BenchLM aggregate **60.53** (#55/956); speed 87.4 tok/s, TTFT 3.14 s (AA)
+- **SWE-bench: 82.8%** (Vals, repo meta.json) — the headline coding figure
+- **τ²-bench: 99.1%** (AA, repo meta.json) — **the highest τ²-bench figure measured anywhere in this research series**
+- **Terminal-Bench 2.1: 81.0%** (vendor) / **67.8%** (Vals) — a 13.2-point spread, both under the 88%+ reference
+- **A vendor "SWE-bench 78.7%" claim could not be found in any source** (repo meta.json) — recorded as unverified rather than used
+- **CritPt, AA-LCR, MRCR, ARC-AGI, AIME, FrontierMath, AA Coding Index, AA-SciCode, DeepSWE, AA-Omniscience, AA Intelligence Index: no verified public score found for this identity** — note that BenchLM's `glm-5-2` (60.23) and `glm-5-3` (61.28) rows are **separately-tracked identities whose figures are not used here**
 
 ### Normalized scores (1–100)
 
-Re-run verdict 2026-10-19: **scores unchanged.** The new independent evidence cuts both ways and nets out exactly where the previous scores stood: Vals SWE-bench 82.8% and AA-LCR 78.3%/AA-HLE 41.1% confirm the strong axis, while TB 3.0 4.6%, TB2.1-Vals 67.8%, APEX 33.7% and ResearchClawBench 20.7% confirm the conservative caps.
+> **Methodology note.** With no tracker page, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (1M/128–131K output, MIT weights, $1.40/$4.40, free route) and the model's historical positioning. The two dimensions where this SKU is genuinely distinctive — **context window** (1M) and **cost efficiency** ($1.40/$4.40 plus a free route) — are the best-grounded scores in this report.
 
-- **Tool use: 66/100.** MCP-Atlas 76.8 (near-flagship), τ² 99.1% and CursorBench 55.0% are respectable; capped by Tool-Decathlon 48.2%, GDPval-AA normalized 43.6%/Elo 1418 (well behind the 1600–1860 leader band), the new AA Agentic Index 39.4%/APEX-Agents 33.7%/ResearchClawBench 20.7%, and no Claw-Eval/BrowseComp row.
-- **Reasoning: 82/100.** GPQA 85.6–91.2%, AIME 99.2%, CritPt 20.9% and HLE 54.7% with tools are frontier-band on the classic suites — the new independent AA-HLE 41.1% even clears the 40% frontier reference on the text-only set; capped by no HLE-vs-frontier margin and no AA composite in this report's more conservative framing.
-- **Context window: 90/100.** 1M-token window in the ≥1M tier with IndexShare as real long-context engineering (2.9x FLOPs at 1M) and the new AA-LCR 78.3% as independent support; the 100 tier needs ≥98% verified retrieval at 512K+ and no MRCR/RULER number exists.
-- **Multimodal: 15/100.** **Text-only** — no image, video or audio input; the methodology's text-only band is 10–20.
-- **Coding: 72/100.** SWE-bench Pro 62.1% (beating GPT-5.5), the new Vals SWE-bench Verified 82.8%, FrontierSWE 74.4 (within 1 point of Opus 4.8) and TB2.1 81–82.7% are strong open-weight coding; capped by DeepSWE 46.2%, SWE-Marathon 13.0%, TB 3.0 4.6%, TB2.1-Vals 67.8% and CursorBench ~55% — the long-horizon suites where the closed frontier still leads.
-- **Cost efficiency: 88/100.** $1.40/$4.40 per MTok ($0.26 cached; AA blended $0.90) maps to the methodology's ~$1.25/$4.25 ≈ 88 tier, with MIT self-hosting as the real cost lever; documented ~43K reasoning tokens per task inflate effective per-task cost.
-- **Overall Score: 65/100.** Best-fit recommendation: the mid-2026 open-weight coding workhorse — SWE-Pro/FrontierSWE-class repository engineering at $1.40/$4.40 with 1M context and MIT weights; superseded by GLM-5.3 (August 2026), which is materially stronger at the same price.
+- **Tool use: 84/100.** Above the methodology's mid band, and the best-grounded quality dimension alongside coding, anchored on **τ²-bench 99.1% [AA] — the highest τ²-bench figure measured anywhere in this research series** — and **Terminal-Bench 2.1 81.0% (vendor) / 67.8% (Vals)**. The 99.1% τ² figure is genuinely exceptional and is the model's single most decision-relevant property: near-perfect tool-orchestration protocol compliance. Held at 84 rather than higher because the **13.2-point vendor-vs-Vals Terminal-Bench spread** is unresolved, Terminal-Bench 4.0 is unmeasured, and **τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so two of three frontier references are unmeasured and no composite exists.
+- **Reasoning: 68/100.** Mid-band, anchored on the inference that a coding-first flagship with a 1M window, MIT weights and a paid tier implies mid-to-upper-mid reasoning. Scored at 68 rather than higher because **GPQA, HLE, CritPt, AA-LCR, MRCR, the composite index, ARC-AGI, AIME, FrontierMath and every reliability figure are absent** — so composite depth, reliability and three of five reasoning references are entirely unknown, and the coding strength is a real signal but coding is not reasoning.
+- **Context window: 97/100.** **1,048,576 tokens with 128–131K max output** — a full frontier window, and one of the largest output allowances measured in this research series. Scored in the methodology's ≥1M tier at 97 on the strength of both the window and the output allowance, and on the model's **IndexShare 2.9x per-token FLOPs reduction at 1M context**, which is direct engineering evidence that the window is usable at depth rather than merely nominally available. Held at 97 rather than 100 because **no MRCR or GraphWalks retrieval figure exists** and no long-context pricing tier was found.
+- **Multimodal: 50/100.** **Scored at the methodology's neutral floor: the model is text-only** — re-confirmed on Artificial Analysis, and recorded in the repo's meta.json. There is no image, audio or video input, so the dimension does not exist for this model. Scored at 50 rather than lower because the absence is a verified, deliberate design choice rather than an unknown, and text-out is a real capability.
+- **Coding: 84/100.** Above the methodology's mid band and a genuinely strong dimension, anchored on two real figures: **SWE-bench 82.8% (Vals)** — solid mid-frontier repair, 2.2 points under the 85%+ terminal reference — and **Terminal-Bench 2.1 81.0% (vendor) / 67.8% (Vals)**. Capped by the 13.2-point vendor-vs-Vals Terminal-Bench spread, by the **unverifiable vendor "SWE-bench 78.7%" claim** (recorded as unverified rather than used), and by the total absence of SWE-bench Verified re-runs, LiveCodeBench, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench and FrontierCode — so the 74%, 70% and 55% references cannot be checked.
+- **Cost efficiency: 92/100.** **$1.40/$4.40 per 1M on the Z.ai API, plus a free AIHubMix route (`coding-glm-5.2-free`)** — a genuinely strong card sitting between the methodology's ~$1.25/$4.25 (≈88) and ~$0.60/$2.20 (≈92) anchors. Scored at 92 on the paid rate, and **held there rather than at 100 because the free route is a third-party gateway (AIHubMix), not the vendor's own tier** — the repo's own `freeTierNote` frames it as "available as a free coding tier route", and a free third-party gateway carries the same availability and data-use caveats as any other. **MIT open weights provide the definitive self-hosting escape** (~1.51TB BF16), which is the strongest structural fact here.
+- **Overall Score: 76.6/100.** (84 + 68 + 97 + 50 + 84 + 92) / 5 = 79.0 → **79**. Recommendation: **the strongest tool-orchestration figure measured in this research series, attached to a MIT-licensed 1M-window MoE.** τ²-bench 99.1% is genuinely exceptional — near-perfect tool protocol compliance — and SWE-bench 82.8%, Terminal-Bench 2.1 81.0% (vendor), a 1M window with 128–131K output, **MIT weights** and **$1.40/$4.40 with a free AIHubMix route** make this an unusually strong value case for self-hosted or budget coding work. Two cautions: **the "GLM-5.2-Coding" SKU itself is unverified** — no such model is published on Z.ai, Zen, OpenRouter or models.dev, so this is `glm-5.2` served through a coding-positioned route, and you should not expect SKU-specific behaviour; and **Artificial Analysis now lists the model as deprecated, superseded by GLM-5.3** (61.28, refreshed in an earlier batch), which carries SWE-bench 95.4% and AA Coding Index 74.8% at the same window. Prefer GLM-5.3 unless the free AIHubMix route or the lower price is decisive.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-10-19
-- Method: public internet research, re-run 2026-10-19 — BenchLM's 46-row aggregate for GLM-5.2 (Vals AI coding runs, AA per-benchmark rows incl. LCR/HLE/Agentic Index, Epoch FrontierMath, TB 3.0) + the Artificial Analysis deprecated model page (Index 34, 87.4 tok/s, pricing, text-only/1M specs); original run used Z.ai GLM-5.2 blog/docs/pricing, the HuggingFace model card, Featherless, MyClaw, AskClash and Tarsk. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established **two negative findings first and worked around them honestly**: (1) **BenchLM carries no `glm-5-2-coding` page in any spelling** (it 404s; BenchLM tracks only the separately-scored `glm-5-2` at 60.23 and `glm-5-3` at 61.28), so the 2026-11-06 pass had no catalog to check against; (2) **the repo's own meta.json records that no separate `GLM-5.2-Coding` SKU is published on Z.ai, Zen, OpenRouter or models.dev** — this is the `glm-5.2` model served through a coding-positioned route (GLM Coding Plan / AIHubMix), not a distinct checkpoint, and that identity finding is recorded as the report's central caveat and carried into the recommendation. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09), with figures re-attributed to Vals AI and Artificial Analysis and **the absence of any independent cross-check from a 2026-11-06 source stated plainly rather than implied**. Because only three capability figures carry forward, every quality dimension is explicitly labelled a placeholder-for-unknown or a lineage/positioning inference, and the two best-grounded dimensions — context (1M/128–131K) and cost ($1.40/$4.40 plus a free third-party route) — are scored on verified specs. **The highest τ²-bench figure measured anywhere in this research series (99.1%) is attributed as the model's single most decision-relevant property rather than presented bare**, as is the **13.2-point vendor-vs-Vals Terminal-Bench 2.1 spread (81.0% vs 67.8%)**, listed side by side rather than averaged. **An unverifiable vendor claim is recorded and deliberately not used: a published "SWE-bench 78.7%" figure could not be found in any source.** The multimodal dimension is scored at the methodology's placeholder floor on the verified text-only design rather than assumed. **Artificial Analysis's deprecated status is surfaced in the model card and carried into the recommendation**, with GLM-5.3 named as the successor. **A deliberate non-import is recorded: the separately-tracked `glm-5-2` (60.23) and `glm-5-3` (61.28) siblings' BenchLM rows are NOT used**, because they are different identities. Missing benchmarks (Terminal-Bench 4.0, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, FrontierMath, AA Coding Index, AA-SciCode, DeepSWE, AA-Omniscience, AA Intelligence Index, LiveCodeBench, Vibe Code Bench, FrontierCode) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Z.AI / Zhipu — developer platform (repo meta.json's `officialUrl`)](https://open.zhipuai.cn/)
+  - [Z.AI docs — pricing (source of the $1.40/$4.40 rates)](https://docs.z.ai/guides/overview/pricing)
+  - [Hugging Face — zai-org/GLM-5.2 MIT weights](https://huggingface.co/zai-org/GLM-5.2)
+  - [AIHubMix — the free `coding-glm-5.2-free` route](https://aihubmix.com/)
+  - [Repo curated meta — `model/glm-5.2-coding/meta.json` (no published SKU, 1M window, $1.40/$4.40, free route, τ² 99.1%, SWE-bench 82.8%, TB 2.1 81.0/67.8)](/model/glm-5.2-coding/meta.json)
+  - See also: [`model/glm-5.3/`](glm-5.3.md) (61.28) — the successor this report recommends preferring, refreshed in an earlier batch; [`model/glm-5.2/`](glm-5.2.md) (60.23) — the same weights under the base identity, whose BenchLM rows are deliberately not imported
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

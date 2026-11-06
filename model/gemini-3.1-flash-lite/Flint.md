@@ -1,7 +1,7 @@
 # Gemini 3.1 Flash-Lite — findings by Flint
 
 - Source: Google (DeepMind) / Gemini 3.1 Flash-Lite
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -61,6 +61,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public internet research prioritizing official Google documentation and official Google blog posts plus independent third-party benchmarks (Artificial Analysis, LiveCodeBench, Terminal-Bench, Design Arena, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

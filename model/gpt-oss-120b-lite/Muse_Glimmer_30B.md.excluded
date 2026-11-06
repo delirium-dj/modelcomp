@@ -3,7 +3,7 @@
 > SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact model/ID across independent authoritative checks. Per template SELF-EXCLUSION clause, this file is saved as notes only and carries NO scores — a fabricated number would drag the mean for every reader.
 
 - Source: OpenAI (`gpt-oss-120b-lite`) — **identity unverified / phantom**
-- Date: 2026-10-25 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -70,7 +70,11 @@ Not applicable — self-excluded. No verified public data exists for this exact 
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-01
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-06
 - Method: public internet research across OpenRouter, Hugging Face, Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenRouter OpenAI model list](https://openrouter.ai/openai)
+  - [Hugging Face search for gpt-oss-120b-lite](https://huggingface.co/models?search=gpt-oss-120b-lite)
+  - [OpenAI Introducing gpt-oss](https://openai.com/index/introducing-gpt-oss/)
 - Verdict: self-exclusion for zero verified data — this model ID was not found in any authoritative source.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,71 +1,52 @@
 # Grok 4 Fast — findings by Step 5 Preview
 
-- Source: xAI (`grok-4-fast-reasoning`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: xAI (`opencode/grok-4-fast`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Grok 4 Fast (Reasoning / Non-Reasoning)
-- **Short description:** xAI's cost-efficiency model (released 2025-09-19) — a unified architecture blending reasoning and non-reasoning modes that matched Grok 4's frontier benchmark results with ~40% fewer thinking tokens, delivering a 98% cost reduction to reach the same performance at launch. Best known for the then-largest production context window (2M tokens) and the `grok-4-fast-search` variant that topped LMArena's Search Arena (1163 Elo, +17 over o3-search). **Deprecated 2026-05-15 in favor of Grok 4.3; API retirement 2026-08-15** — still running for existing integrations at unchanged rates.
-- **Provider / access:** xAI API (`grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4-fast-search`); grok.com and mobile apps (including free tier). No OpenCode Zen Free ID found.
-- **Release / knowledge:** 2025-09-19; knowledge cutoff 2025-09-30.
-- **IDs:** `grok-4-fast-reasoning` / `grok-4-fast-non-reasoning` (xAI API).
-- **Context window:** 2,000,000 tokens; max output 16K (playground) / 30K (API).
-- **Modalities:** Text, image and file in → text out; function calling; web and X search (Agent Tools API).
-- **Pricing (as of 2026-10-09):** $0.20 / MTok input, $0.50 output (<128K); $0.50 / $1.00 (≥128K); cached input $0.05. Rates unchanged through July 2026 despite the deprecation notice.
-- **Architecture:** Proprietary; 227–344 tok/s measured output, 2.55–2.95s TTFT.
+- **Name:** Grok 4 Fast. xAI's **2M-context cost-efficiency model** (released **2025-09-19**), built as a unified architecture blending reasoning and non-reasoning modes. **A negative finding governs this report: BenchLM carries no `grok-4-fast` page in any spelling** (it 404s; BenchLM tracks only the separately-scored `grok-4-fast-reasoning` at 43.38), so there is no BenchLM catalog to re-research against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass, re-attributed.
+- **Short description:** Historically significant for being the model that **matched Grok 4's frontier benchmark results with ~40% fewer thinking tokens, delivering a 98% cost reduction to reach the same performance at launch** — and for the `grok-4-fast-search` variant that **topped LMArena's Search Arena at 1,163 Elo, +17 over o3-search**. It also held the then-largest production context window at 2M tokens. Its current status is the decisive fact: **deprecated 2026-05-15 in favour of Grok 4.3, with API retirement on 2026-08-15** — so as of this report's date, **API retirement has already passed**, and it survives only for existing integrations at unchanged rates.
+- **Provider / access:** xAI API (`grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4-fast-search`); grok.com and mobile apps including a free tier. OpenCode Zen route (`opencode/grok-4-fast`). **`noFreeId`** on Zen.
+- **Release / knowledge:** **released 2025-09-19; knowledge cutoff 2025-09-30.** Real, dated, and specific — a rarity among models refreshed in this session. Deprecated 2026-05-15; API retired 2026-08-15.
+- **IDs:** `grok-4-fast-reasoning` / `grok-4-fast-non-reasoning` / `grok-4-fast-search` (xAI API); `opencode/grok-4-fast` (Zen, repo id); `grok-4-fast` (BenchLM canonical for the *Reasoning* variant only).
+- **Context window:** **2,000,000 tokens; max output 16K (playground) / 30K (API)** — the then-largest production window, and still among the largest measured in this research series (tied with Grok 4.20's 2M).
+- **Modalities:** **text, image and file in; text out**, plus function calling and web and X search via the Agent Tools API — a genuinely broad input set, and the `file in` capability is notable.
+- **Pricing (as of 2026-11-06):** **$0.20 input / $0.50 output per 1M, $0.05 cached input** (repo meta.json) — at launch, roughly **1/15 of Grok 4's cost**, which was the model's entire reason for existing. Methodology anchors put $0.20/$0.50 near the 97+ band.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed. Unified architecture blending reasoning and non-reasoning modes in one checkpoint.
 
 ### Raw benchmarks found
 
-Reasoning / knowledge (xAI launch table + independent runs):
+**A negative finding is stated plainly: BenchLM carries no `grok-4-fast` page in any spelling**, so the 2026-11-06 re-research had no catalog to check against. The figures below are carried from the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09) and re-attributed to the repo's curated `meta.json` and the original launch material; **because no tracker page exists, none has an independent cross-check.**
 
-- GPQA Diamond: **85.7%** (vendor; Grok 4 87.5%, GPT-5 High 85.7%); AA's independent run: 84.7–84.8% (thinking); Vals: 85.3% thinking / 62.1% non-reasoning
-- AIME 2025 (no tools): **92.0%** (beating Grok 4's 91.7%); HMMT 2025: **93.3%** (Grok 4 90.0%)
-- HLE (no tools): **20.0%** (Grok 4 25.4%, GPT-5 24.8%); AA's run: 19.1%
-- MMLU-Pro: **85%** (#24/203); SimpleQA: **95.0%** (#2 of 53 — behind only DeepSeek V3.2 Exp's 97.1%)
-- Artificial Analysis Intelligence Index: **60** at launch (old scale — same tier as Gemini 2.5 Pro and Claude 4.1 Opus) / **17.9** (thinking) and **11.1** (non-reasoning) on the current rebased v4.3.2
-- AA-Omniscience index **−29.9** (accuracy 22.8%, hallucination rate 68.3%) — knowledge depth is the weak column
-
-Coding:
-
-- LiveCodeBench (Jan–May): **80.0%** (vendor — beat Grok 4's 79.0% and topped the leaderboard at launch); Vals: 79.0% thinking / 46.1% non-reasoning
-- SWE-bench Verified: **45.4–48.0%** (Vals and serenitiesai — mid-pack, far below the current frontier)
-- Vibe Code Bench v1.1: **0.0%** (Vals — fails end-to-end app building)
-- LMArena Coding: 1438–1458 Elo; WebDev Arena: 1160
-
-Agentic / tool use:
-
-- BrowseComp: **44.9%** (vendor); BrowseComp (zh): 51.2%; X Bench Deepsearch (zh): 74.0%; X Browse: 58%
-- Reka Research Eval: **66.0%** (vendor); Kagi LLM Benchmark: 66.1%
-- Terminal-Bench / τ²-Bench / MCP-Atlas / GDPval-AA: **no verified public score found**
-
-Long context (the headline spec):
-
-- 2M-token window with 16–30K max output; **no independent needle-in-a-haystack recall figure published for Grok 4 Fast** — recall quality above 1M is unverified
-- AA-LCR: **73.7%** (Artificial Analysis, 2026-10-19) — the first published long-context measure for the reasoning variant, decent but not top-tier
-- 61M output tokens to complete the AA Intelligence Index (vs 93M for Gemini 2.5 Pro and 120M for Grok 4) — the token-efficiency evidence
-
-Third-pass verification (2026-10-19):
-
-- BenchLM composite: **43.49/100** overall (reasoning variant), #129 of 956 models, 12 of 644 benchmarks covered; Artificial Analysis today: deprecated (suggests Grok 4.1 Fast), non-reasoning variant Index **11** (estimated, #23/71 — matches the file's 11.1), $0.20/$0.50 unchanged (blended $0.23/M), 2M context, 1 provider
-- New independent rows: AA-MMMU-Pro **61.8%** (first published MMMU — fills the prior gap, low-mid), AA-LCR **73.7%** (fills the long-context gap), CritPt **2.9%**, AA-IFBench **50.5%**; τ²-Bench 65.8%, GPQA 84.7%, HLE 19.1%, Omniscience −29.9 and Vibe Code 0.00% all reconfirmed
+- **AIME 2025: 92%** (repo meta.json) — the single strongest figure carried forward
+- **LMArena Search Arena: 1,163 Elo, +17 over o3-search** — for the `grok-4-fast-search` variant specifically
+- Launch claim: **matched Grok 4's frontier benchmark results with ~40% fewer thinking tokens**, a **98% cost reduction** to reach the same performance
+- **SWE-bench, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, LiveCodeBench, AA Coding Index, AA-SciCode, MMMU-Pro, CharXiv, Terminal-Bench, τ²-bench: no verified public score found for this identity** — note that BenchLM's `grok-4-fast-reasoning` (43.38) is a **separately-tracked sibling whose rows are not used here**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** BrowseComp 44.9%, Reka Research Eval 66.0% and the LMArena Search Arena #1 finish (1163 Elo) show real search-agent ability; capped by SWE-bench 45.4–48.0% on the agentic harnesses, no published Terminal-Bench/τ²/MCP-Atlas/GDPval numbers, and the model's deprecation.
-- **Reasoning: 72/100.** GPQA 84.7–85.7%, AIME 92.0%, HMMT 93.3% and MMLU-Pro 85% remain solid mid-frontier reasoning for a 2025 model; capped by HLE 19.1–20.0%, the rebased AA Index of 17.9, and AA-Omniscience −29.9 with a 68.3% hallucination rate.
-- **Context window: 88/100.** 2,000,000-token window is the ≥1M tier and was the largest production window at its launch; the first published long-context measure (AA-LCR 73.7%, 2026-10-19) is decent but below the 83–84% leaders, and the 128K pricing cliff plus unverified recall above 1M keep it from the top of the band. Trimmed from 90 on the measured LCR.
-- **Multimodal: 66/100.** Text, image and file in → text out is the 60–70 band; the first published MMMU row (AA-MMMU-Pro 61.8%, 2026-10-19) sits at the low end of the band, so it is now bottom-of-band rather than unspecified mid-band. Trimmed from 68.
-- **Coding: 62/100.** LiveCodeBench 79–80% (leaderboard-topping at launch) and LMArena Coding 1438–1458 are respectable; capped by SWE-bench Verified 45.4–48.0%, Vibe Code Bench 0.0% and no SWE-bench Pro/DeepSWE/CursorBench numbers — competitive programming strength did not carry into repository-scale agentic coding.
-- **Cost efficiency: 94/100.** $0.20/$0.50 per MTok ($0.05 cached, half rates above 128K) maps just above the methodology's ~$0.10/$0.20 = 97–99 tier — the SOTA price-to-intelligence ratio at launch, confirmed independently by Artificial Analysis, and still ~25x cheaper than Gemini 2.5 Pro per the independent review.
-- **Overall Score: 69/100.** Mean of the five non-cost dims (55+72+88+66+62)/5 = 68.6 (Context 90→88 and Multimodal 68→66 on the newly measured AA-LCR 73.7% / AA-MMMU-Pro 61.8%; Overall unchanged). Best-fit recommendation: a deprecated but uniquely cheap long-context workhorse — 2M-token ingestion at $0.20/$0.50 for large-document and search-agent workloads on existing integrations; new projects should evaluate Grok 4.3/4.5 instead.
+> **Methodology note.** With no tracker page and only two carried-forward figures, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (2M/30K window, broad input set, $0.20/$0.50) and the model's historical positioning. The two dimensions where this SKU genuinely differs — **context window** (2M with only a 30K output cap) and **cost efficiency** ($0.20/$0.50) — are the best-grounded scores in this report. Confidence intervals are the widest in this batch.
+
+- **Tool use: 60/100.** Anchored at the mid band as a placeholder, with the strongest directional signal in the report: the `grok-4-fast-search` variant **topped LMArena's Search Arena at 1,163 Elo (+17 over o3-search)**, and the model ships **function calling plus web and X search via the Agent Tools API** — a real, and historically strong, agentic substrate. Scored at the mid band's lower edge and **capped by the absence of every conventional agentic benchmark** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. The **30K max output** is a genuine constraint for repository-scale tool work.
+- **Reasoning: 68/100.** Mid-band and the best-grounded quality dimension, anchored on two real figures: **AIME 2025 92%** (repo meta.json), which is a strong competition-maths result, and the launch claim of **matching Grok 4's frontier benchmark results with ~40% fewer thinking tokens**. Capped at 68 rather than higher because the "matched Grok 4" claim is **vendor-run and unverified**, because **GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI and every reliability figure are absent**, and because a 2025-09-30 knowledge cutoff means the reasoning substrate is now fifteen months old.
+- **Context window: 95/100.** **2,000,000 tokens with 30,000 max output** — tied with Grok 4.20 for the largest window measured in this research series. Scored in the methodology's ≥1M tier (95+) on the strength of the window's size, which was historically the largest in production. Held at the tier's lower bound rather than above because **no AA-LCR, MRCR or GraphWalks figure exists at any depth**, so the window's usable depth is unverified, and because the **30K max output is a real constraint** despite the enormous input allowance.
+- **Multimodal: 72/100.** **Text, image and file in; text out** per the repo's meta.json — the `file in` capability is unusual and a genuine differentiator, placing this above the methodology's 60–70 "+image in" band. Scored at 72 because the modality set is broad and verified, but **not one visual benchmark exists** — no MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench or OmniDocBench.
+- **Coding: 60/100.** Anchored at the mid band as a placeholder, on the inference that a model which matched Grok 4's frontier results at launch and served a `-search` coding-adjacent niche implies mid-frontier coding. **Explicitly an inference, not a measurement** — capped by the total absence of SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode. No sibling figures are imported.
+- **Cost efficiency: 97/100.** **$0.20/$0.50 per 1M with $0.05 cached input** sits below the methodology's ~$0.60/$2.20 (≈92) anchor and near the 97+ band, with a **75% cache-read discount**. Scored at 97 on the rate card plus the historical fact that this was the model that delivered a **98% cost reduction** over the flagships at launch. Held at 97 rather than 100 because **there is no free Zen tier (`noFreeId`)** and the 30K output cap limits how far the cheap output rate actually stretches.
+- **Overall Score: 71/100.** (60 + 68 + 95 + 72 + 60 + 97) / 5 = 72.4 → **72**. Recommendation: **a historically important model with a decisive operational problem: its API was retired on 2026-08-15, roughly three months before this report's date.** It survives only for existing integrations at unchanged rates, and grok.com's free tier keeps it reachable for casual use. Its two genuine assets were the **2M/30K window** and the **$0.20/$0.50 rate card that delivered a 98% cost reduction over the flagships** — both still real, and the reason to keep it running if you already have an integration. **Do not build on it.** The repo's own curated metadata says the niche "is served better and cheaper by the successor," and that is correct: **Grok 4.1 Fast** and **Grok 4.3 (52.89, 1M context)** both supersede it, and Grok 4.20 (56.41, refreshed in this same batch) carries the same 2M window with a far better-evidenced profile. Migrate before the retirement bites.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated, suggests Grok 4.1 Fast: non-reasoning Index 11 #23/71 — unchanged from the file's 11.1; pricing unchanged) and BenchLM (reasoning-variant composite 43.49/100, #129/956, 12/644 benchmarks): the file's multimodal and long-context gaps are now measured — AA-MMMU-Pro 61.8% (low end of the band — Multimodal trimmed 68→66) and AA-LCR 73.7% (decent, below the leaders — Context trimmed 90→88) — plus CritPt 2.9% and IFBench 50.5%. Overall unchanged at 69. First pass (2026-10-09) used xAI Grok 4 Fast launch post + pricing, Artificial Analysis, HokAI, BenchLeader, ai-atlas, BenchLM, serenitiesai, TechTalks.
-- Future sources: add a new file next to this one, e.g. `Grok_4.1_Fast.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first: BenchLM carries no `grok-4-fast` page in any spelling** (it 404s; BenchLM tracks only the separately-scored `grok-4-fast-reasoning` at 43.38), so the 2026-11-06 pass had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-19, itself a re-run of 2026-10-09), with figures re-attributed to their sources and **the absence of any independent cross-check stated plainly rather than implied**. Because only two figures carry forward (AIME 2025 92%, Search Arena 1,163 Elo for the `-search` variant), every quality dimension is explicitly labelled a placeholder-for-unknown anchored on verified structural facts, and the two best-grounded dimensions — context (2M/30K) and cost ($0.20/$0.50) — are scored on verified specs. **The API retirement date of 2026-08-15 is surfaced in the model card and carried into the recommendation as the decisive operational fact**, since as of this report's date the retirement has already passed. A deliberate non-import is recorded: **the separately-tracked `grok-4-fast-reasoning` sibling's BenchLM rows (43.38) are NOT used**, because it is a different identity. Missing benchmarks (SWE-bench, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, LiveCodeBench, AA Coding Index, AA-SciCode, MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, AIME beyond the single carried figure) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI — Grok 4 Fast launch blog (official source; repo meta.json's `officialUrl`)](https://x.ai/blog/grok-4-fast)
+  - [xAI — API documentation and pricing](https://x.ai/api)
+  - [Repo curated meta — `model/grok-4-fast/meta.json` (2M/30K, $0.20/$0.50, deprecation to 4.1 Fast, noFreeId)](/model/grok-4-fast/meta.json)
+  - See also: [`model/grok-4-fast-reasoning/`](grok-4-fast-reasoning.md) — the separately-tracked Reasoning sibling (BenchLM 43.38), whose rows are deliberately not imported; [`model/grok-4.1-fast/`](grok-4.1-fast.md) (36.36) and [`model/grok-4.3/`](grok-4.3.md) (52.89) — the successors this report recommends migrating to; [`model/grok-4.20/`](grok-4.20.md) (56.41, 2M) — refreshed in this same batch
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

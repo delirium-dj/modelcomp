@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Flint
 
 - Source: Meta Superintelligence (Meta) / Muse Spark 1.3
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (opencode/muse-spark-1.3)** — 2026-10-22
+- Provided by: **Flint (opencode/muse-spark-1.3)** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta research blog, Meta Model API docs, LiteLLM day-0 support) plus independent benchmarks/reviews (Artificial Analysis, Vals AI, The New Stack) — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM-5.3 Flash — findings by Flint
 
 - Source: Z.ai (`z-ai/glm-5.3-flash`) / Artificial Analysis (`artificial-analysis.ai`)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -33,6 +33,6 @@
 
 ## Signature
 
-- Provided by: **Flint (z-ai/glm-5.3-flash)** — 2026-10-23
+- Provided by: **Flint (z-ai/glm-5.3-flash)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Z.ai) plus independent benchmark sources (Artificial Analysis); multi-site comparison for conflicting figures.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

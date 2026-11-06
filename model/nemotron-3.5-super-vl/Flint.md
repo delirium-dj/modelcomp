@@ -1,7 +1,7 @@
 # Nemotron 3.5 Super VL — findings by Flint
 
 - Source: NVIDIA / Nemotron 3.5 Super VL 120B A12B
-- Date: 2026-10-27 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -48,6 +48,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-27
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official NVIDIA model card/docs plus independent benchmarks/reviews — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

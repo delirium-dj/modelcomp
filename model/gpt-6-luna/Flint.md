@@ -1,7 +1,7 @@
 # GPT-6 Luna — findings by Flint
 
 - Source: OpenAI — GPT-6 Luna
-- Date: 2026-10-26 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -37,6 +37,6 @@
 
 ## Signature
 
-- Provided by: **Flint** — 2026-10-26
+- Provided by: **Flint** - 2026-11-06
 - Method: public internet research — official OpenAI GPT-6 Luna model information plus independent Artificial Analysis benchmark pages; scores are normalized 1–100 interpretations, not official vendor scores.
 

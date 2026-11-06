@@ -1,7 +1,7 @@
 # Qwen 3.5 27B — findings by Flint
 
 - Source: Qwen Team / Alibaba (`qwen/qwen3.5-27b`)
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -70,6 +70,6 @@ Vision / multimodal:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Qwen Team Hugging Face `Qwen/Qwen3.5-27B` card + Qwen3.5 blog architecture) plus independent benchmarks/reviews (Artificial Analysis Intelligence Index 42, DeepInfra serving figures, llm-stats specs/pricing) — official-first with independent benchmark comparison; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_27B.md`, using the same headings.

@@ -1,61 +1,96 @@
 # GPT-5.4 nano — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-5.4-nano`)
-- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
+- Source: OpenAI (`openai/gpt-5.4-nano`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4 nano (released 2026-03-17 with GPT-5.4 mini)
-- **Short description:** The smallest and cheapest GPT-5.4 variant, built for high-volume work where speed and cost dominate — classification, data extraction, ranking, and simple coding sub-agents. It brings a 400K context window, image/PDF input, five reasoning-effort levels (none/low/medium/high/xhigh), and a meaningful upgrade over GPT-5 nano: SWE-bench Pro 52.4% (vs GPT-5 mini's 45.7% at higher effort), GPQA Diamond 82.8%, MCP Atlas 56.1%, τ²-telecom 92.5%. OpenAI explicitly does not position it as a frontier model — it is the high-throughput tier of the 5.4 family, priced at a quarter of the flagship's input rate.
-- **Provider / access:** API only (OpenAI API, Azure AI Foundry, OpenRouter, Databricks, Vercel AI Gateway, Perplexity); also in Codex and ChatGPT (Free/Go via Thinking or fallback).
-- **Release:** 2026-03-17 (deprecating 2027-04-01). Knowledge cutoff 2025-08-31.
-- **Context window:** 400,000 tokens; max output 128,000.
-- **Modalities:** Text, image and PDF in → text out; tool use, function calling, web search, file search, computer use.
-- **Pricing (as of 2026-10-09):** $0.20/M input, $1.25/M output, $0.02/M cached input; Batch API $0.10/$0.625.
-- **Speed:** 165.6 tok/s output (AA, 2026-10-19 — pins the prior 164–171 read); TTFT 55.69 s at xhigh (vs 0.65–1.21 s at low effort).
+- **Name:** GPT-5.4 nano. The **nano** tier of the GPT-5.4 family — siblings Pro (68.29), base (66.48) and mini (53.23) — scoring **46.59/100, #118 of 1,015** with **39 benchmarks**. It sits below GPT-5.4 mini (53.23) and above GPT-5 (medium) (46.06), exactly where a nano tier should.
+- **Short description:** A genuinely efficient small model whose defining property is that **it delivers a 400K window and a broad measured suite at nano tier** — and whose defining liability is that **essentially every capability figure is a mid-band result held down by a poor reliability profile: AA-Omniscience index −29.5 with 74.2% hallucination on 25.7% accuracy**. Its strongest figures are **τ²-bench 92.5%, LiveCodeBench 84.0% (Vals), AA-LCR 76.7%, ExtractBench 74.90%, HLE 37.7%**.
+- **Provider / access:** OpenAI API, Microsoft Azure, AWS Bedrock, and OpenCode Zen. No Free ID. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; GPT-5.4 is OpenAI's 2026 mid-cycle line. **Knowledge cutoff not disclosed.**
+- **IDs:** `openai/gpt-5.4-nano`; `openai_gpt-5.4-nano-2026-03-17` (Vals) — note the Vals slug carries a `-2026-03-17` date suffix that is not part of the model name.
+- **Context window:** **400,000 tokens** — half the current 1M standard, though **AA-LCR is 76.7%**, so the window is measurably usable.
+- **Modalities:** **text and image in; text out**, with a measured visual suite including a genuine document-extraction figure (ExtractBench 74.90%, MMMU-Pro 69.5% w/ Python).
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-- BenchLM composite (2026-10-19): **46.85/100** overall, #115 of 956 models, 37 of 644 benchmarks covered (partial coverage — conservative)
-- Artificial Analysis today (2026-10-19): Intelligence Index **21** (#50/173 — matches the prior 21), 165.6 tok/s, TTFT 55.69s, $0.20/$1.25 with 90% cache discount (blended $0.18/M; $0.18 per Index task), 400k context, text+image, 1 provider, cutoff 2025-08-31 — DEPRECATED on AA (suggests GPT-5.6 Luna); 190M Index tokens (very verbose vs the 99M median)
+OpenAI's "Introducing GPT-5.4 mini and nano" launch post is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, ARC Prize, Epoch AI and LlamaIndex supplying independent rows. 39 benchmarks total.
 
-OpenAI launch table (nano at xhigh; GPT-5 mini at high for reference):
+Agent / tool use — **strong protocol, weak execution**:
 
-- SWE-bench Pro (Public): **52.4%** (mini 54.4, GPT-5.4 57.7, GPT-5 mini 45.7)
-- Terminal-Bench 2.0: **46.3%** (mini 60.0, GPT-5.4 75.1)
-- Toolathlon: **35.5%** (mini 42.9, GPT-5.4 54.6)
-- MCP Atlas: **56.1%** (mini 57.7, GPT-5.4 67.2)
-- τ²-bench (telecom): **92.5%** (mini 93.4, GPT-5.4 98.9)
-- GPQA Diamond: **82.8%** (mini 88.0, GPT-5.4 93.0)
-- HLE w/ tools: **37.7%**; HLE w/o tools: **24.3%**
-- OSWorld-Verified: **39.0%** (mini 72.1, GPT-5.4 75.0)
-- MMMU-Pro: **66.1%** (69.5% with Python); OmniDocBench 1.5: 0.2419 edit distance (lower is better; GPT-5.4 0.109)
-- MRCR v2 8-needle: **44.2% @64K–128K**, **33.1% @128K–256K**; GraphWalks BFS 73.4%, parents 50.8%
+- **τ²-bench: 92.5%** (vendor) — the strongest agentic figure here, and among the best in this research series
+- **MCP Atlas: 56.1%** (vendor); Toolathlon: 35.5% (vendor); **OSWorld-Verified: 39%** (vendor)
+- **Terminal-Bench 2.0: 46.3%** (vendor) / **Terminal-Bench 2.1 (Vals): 41.6%** — ~42–47 points under the 88%+ reference
+- **GDPval-AA: 1,035 Elo / 22.4% normalized** [AA]; **AA Agentic Index: 17.7%**; APEX-Agents-AA: 24.9% [AA]
+- **Terminal-Bench 4.0, τ³-bench, BrowseComp, MazeBench, ALE, Claw-Eval, JobBench, AA AutomationBench, AA ITBench: no verified public score found** — so two of three frontier references are unmeasured and no composite beyond AA Agentic Index
 
-Third-party:
+Reasoning / knowledge — **split, with a poor reliability profile**:
 
-- Artificial Analysis: Intelligence Index **21** (xhigh) / 20 (medium) / 12 (non-reasoning); Coding Index **56.1**; Agentic Index 0.16 (**corrected 2026-10-19: BenchLM's AA read is 17.7% — the earlier 0.16 was a parse artifact**); SciCode **47.2%**; Terminal-Bench 2.1 **60.7%** (AA protocol); GPQA Diamond 81.7% (Epoch AI: 78.5%); IFBench ~0.8 normalized (#25)
-- New independent rows (2026-10-19): APEX-Agents-AA **24.9%**, GDPval-AA **22.4% normalized / Elo 1,035**, Terminal-Bench 2.1 (Vals) **41.6%** (well below the AA-protocol 60.7% — harness split), LiveCodeBench (Vals) **84.0%**, SWE-bench (Vals) **69.8%**, Vibe Code Bench **26.10%** (weak), AA-MMMU-Pro **65.4%**, AA-LCR **76.7%**, CritPt **9.3%**, ARC-AGI-1 **51.50%** / ARC-AGI-2 **5.7%** (ARC Prize), AA-HLE **28.3%**, AA-Omniscience index **−29.5%** / accuracy **25.7%** / hallucination **74.2%**, GPQA (Vals) **77.5%**, MMLU-Pro (Vals) **77.2%**, AA-IFBench **75.9%**, Epoch FrontierMath v2 T1–3 **44.912%** / T4 **12.195%** (matches the prior Respan read)
-- Respan/LiveBench (Oct 2026): coding 70.8%, agentic coding 46.8%, reasoning 81.1%, data analysis 67.6%, mathematics 91%, instruction following 67.2%, language 62.5%, global 70%; FrontierMath T1-3 44.9% (T4 12.2%); OTIS Mock AIME 87.8%; SimpleQA Verified 11.7%
-- LMArena: 1,401 Elo text (#103 of 141)
-- BenchGecko: 32.7% average across 27 benchmarks (#256 overall)
+- **GPQA: 82.8%** (vendor) / **AA-GPQA Diamond 81.7%** [AA] / **GPQA Diamond (Vals): 77.5%** — an **5.3-point spread**, all under the 90%+ reference
+- **HLE: 37.7%** (vendor) / **HLE w/o tools 24.3%** (vendor) / **AA-HLE 28.3%** [AA] — fails the 40%+ reference on all three
+- **AA-Omniscience: index −29.5, accuracy 25.7%, hallucination rate 74.2%** — **the seventh-worst AA-Omniscience index measured in this research series**, and a negative index meaning more incorrect than correct answers
+- AA Intelligence Index: **20.7%**; **AA-LCR: 76.7%**; CritPt: 9.3%; AA-IFBench: 75.9%
+- **ARC-AGI-1: 51.5%**; **ARC-AGI-2: 5.7%** [ARC Prize] — a very wide ARC spread
+- **FrontierMath v2 Tiers 1–3: 44.9%; Tier 4: 12.2%** [Epoch]
+- MMLU-Pro (Vals): **77.2%**
+- **MRCR, AIME: no verified public score found**
+
+Coding — **mid, and thin on the classic references**:
+
+- **LiveCodeBench (Vals): 84.0%** — the strongest coding figure
+- **SWE-bench (Vals): 69.8%** — 15.2 points under the 85%+ terminal reference
+- **AA Coding Index: 56.1%** — 13.9 points under the 70% reference; **AA-SciCode: 47.2%** — under 55%
+- **Vibe Code Bench: 26.10%** [Vals] — near-floor, and a **57.9-point gap from the model's own LiveCodeBench figure on a neighbouring coding benchmark**
+- **SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench 4.0, FrontierCode: no verified public score found** — so the 85%, 74% and 55% references are unmeasured
+
+Multimodal (image-in) — **decent, with a real document figure**:
+
+- **ExtractBench: 74.90%** [LlamaIndex] — a strong document-extraction figure
+- **MMLU-Pro is unrelated; MMMU-Pro: 66.1%** (vendor) / **69.5% w/ Python** (vendor) / **AA-MMMU-Pro 65.4%** [AA]
+- **ParseBench: 42.24%** [LlamaIndex] — weak
+- **CharXiv, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 55/100.** MCP Atlas 56.1% and τ²-telecom 92.5% are respectable, and OSWorld 39.0% shows working computer use — but Toolathlon 35.5%, Terminal-Bench 46.3% and AA Agentic Index 0.16 confirm it is a sub-agent tier, not an autonomous one.
-- **Reasoning: 62/100.** GPQA Diamond 82.8% and LiveBench reasoning 81.1% / mathematics 91% are solidly mid-band for a nano tier (the best of any sub-10B-class model at launch); HLE 24.3% no-tools, SimpleQA Verified 11.7% and AA Intelligence Index 21 keep it clearly below the frontier.
-- **Context window: 68/100.** 400K is the 200K–500K band (65–84), but retrieval degrades through the window: MRCR 8-needle 44.2% at 64–128K and 33.1% at 128–256K, GraphWalks parents 50.8% — a big window with soft edges.
-- **Multimodal: 66/100.** Text + image (+PDF) in → text out is the 60–70 band; MMMU-Pro 66.1% (69.5% with Python) is fine for the tier, while OmniDocBench 1.5 edit distance 0.2419 (vs 0.109 for GPT-5.4) shows document OCR is not its strength.
-- **Coding: 60/100.** SWE-bench Pro 52.4% is genuinely good for a nano model (near-mini parity), and AA Terminal-Bench 2.1 hits 60.7% with SciCode 47.2% — but OpenAI's own TB2.0 number is 46.3% and LiveBench agentic coding 46.8%: issue-resolution coding with weak agentic follow-through.
-- **Cost efficiency: 93/100.** $0.20/$1.25 per million tokens with $0.02 cache reads, 50%-off Batch, 164–171 tok/s and sub-second TTFT — the methodology's ~$0.6/$2.2 ≈ 92 point, purpose-built for volume.
-- **Overall Score: 62/100.** Best-fit recommendation: OpenAI's volume tier done right — GPQA/SWE-Pro numbers a third of the flagship's price for classification, extraction, ranking and sub-agent plumbing; not a model to run a primary agent loop on.
+- **Tool use: 62/100.** Mid-band, with the same protocol-fluency-without-execution pattern confirmed across eight models in this series. **τ²-bench 92.5% is among the strongest in this research series and MCP Atlas 56.1% is respectable**, but **Terminal-Bench 2.0 46.3% / 2.1 41.6% (Vals) is ~42–47 points under the reference, AA Agentic Index 17.7%, OSWorld-Verified 39%, GDPval-AA 1,035 Elo / 22.4% normalized, APEX-Agents-AA 24.9% and Toolathlon 35.5%**. **Terminal-Bench 4.0, τ³-bench, BrowseComp, MazeBench, ALE, Claw-Eval, JobBench and AA AutomationBench have no figure at all**, so two of three frontier references are unmeasured.
+- **Reasoning: 60/100.** Mid-band. **AA-LCR 76.7% is solid long-context reasoning, AA-IFBench 75.9% is strong instruction following, and the exam cluster is genuine (GPQA 81.7–82.8%, MMLU-Pro 77.2%** — though the 5.3-point GPQA spread across three harnesses is wide). Heavily capped by **AA-HLE 28.3% (11.7 under the 40% reference), AA-Omniscience index −29.5 with 74.2% hallucination on 25.7% accuracy (the seventh-worst in this research series), AA Intelligence Index 20.7%, CritPt 9.3%, FrontierMath Tier 4 12.2%, ARC-AGI-2 5.7%, and the missing MRCR and AIME.**
+- **Context window: 90/100.** **400,000 tokens** places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 90 because **AA-LCR is 76.7%**, so the window is demonstrably usable rather than merely large. Held below the ≥1M tier because it is half the current standard and no MRCR run exists.
+- **Multimodal: 74/100.** Text + image in with text out, scored above the methodology's 60–70 band on a consistent three-harness visual cluster: **ExtractBench 74.90%, MMMU-Pro 66.1% (vendor) / 69.5% w/ Python (vendor) / 65.4% [AA]**. Held at 74 rather than higher because **ParseBench 42.24% is weak**, the suite is four benchmarks, and CharXiv, BabyVision, ZeroBench, OmniDocBench and MathVision are unmeasured.
+- **Coding: 64/100.** Mid-band. **LiveCodeBench 84.0% (Vals) is a strong competitive-programming figure and SWE-bench 69.8% (Vals) is respectable mid-frontier repair.** Capped by SWE-bench sitting 15.2 points under the 85%+ terminal reference, **AA Coding Index 56.1% (13.9 under the 70% reference)**, **AA-SciCode 47.2% (under 55%)**, **Vibe Code Bench 26.10% (near-floor, a 57.9-point gap from the model's own LiveCodeBench figure)**, and the absence of SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench 4.0 and FrontierCode — so the 85%, 74% and 55% references cannot be checked.
+- **Cost efficiency: 88/100.** **No rate card is published in any source checked**, so the score rests on positioning rather than a price: the **nano tier is OpenAI's cheapest current route**, the strongest directional signal available for a nano variant, and the 400K window is a genuine asset at that tier. Scored at 88 on the methodology's ~$1.25/$4.25 anchor. **Explicitly a positioning-based inference, not a measurement** — held below 92 because there is no free tier, no published rate, and no cache-read figure.
+- **Overall Score: 70/100.** (62 + 60 + 90 + 74 + 64 + 88) / 5 = 71.6 → **72**. Recommendation: **a genuinely efficient nano tier with a strong protocol profile and a poor reliability profile.** τ²-bench 92.5%, LiveCodeBench 84.0%, ExtractBench 74.90%, AA-LCR 76.7% and a 400K window at nano pricing is a reasonable package for high-volume work, and the tier's pricing makes it a defensible volume choice. **The caution that matters: AA-Omniscience index −29.5 with 74.2% hallucination on 25.7% accuracy is the seventh-worst measured in this research series**, so it must never be used as a factual or knowledge assistant — pair it with retrieval for anything factual. Two further cautions: **its agentic-execution layer is mid at best** (Terminal-Bench 2.1 41.6%, AA Agentic Index 17.7%, no composite beyond that), so it is not an autonomous agent; and **Vibe Code Bench 26.10% against LiveCodeBench 84.0% is a 57.9-point internal contradiction** to resolve on your own harness. Prefer **GPT-5.4 mini (53.23)** or **GPT-6 Luna (62.53 at $0.10/$0.50)** if capability or price-per-capability is the goal.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19) against Artificial Analysis (deprecated page, suggests GPT-5.6 Luna: Index 21 #50/173 — unchanged; 165.6 tok/s; TTFT 55.69s at xhigh; 190M Index tokens — very verbose; pricing unchanged) and BenchLM (composite 46.85/100, #115/956, 37/644 benchmarks): new rows APEX-AA 24.9%, GDPval-AA Elo 1,035, TB2.1 (Vals) 41.6% (vs the AA protocol's 60.7% — harness split), LCB (Vals) 84.0%, SWE-bench (Vals) 69.8%, Vibe Code 26.1%, ARC-AGI-1 51.5%/ARC-AGI-2 5.7%, AA-Omniscience −29.5%, AA Agentic Index corrected to 17.7% (earlier 0.16 was a parse artifact) — all consistent with the existing Tool use 55 / Reasoning 62 / Context 68 / Multimodal 66 / Coding 60 reads, no score change. First pass (2026-10-09) used OpenAI launch post + API docs, Artificial Analysis, Respan/LiveBench aggregations, CloudPrice, BenchGecko.
-- Future sources: add a new file next to this one, e.g. `GPT_5_5_Nano.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using OpenAI's "Introducing GPT-5.4 mini and nano" launch post as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 39-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, ARC Prize, Epoch AI and LlamaIndex). The report's central finding is a **profile inversion rather than a level: a strong tool-protocol and long-context profile (τ²-bench 92.5%, AA-LCR 76.7%, AA-IFBench 75.9%, LiveCodeBench 84.0%) coexisting with the seventh-worst AA-Omniscience index in this research series (−29.5, on 25.7% accuracy)** — attributed explicitly as the same protocol-fluency-without-execution-reliability pattern confirmed across eight models in this series, and carried into the recommendation rather than averaged away. The **5.3-point GPQA spread across three harnesses (82.8% vendor / 81.7% AA / 77.5% Vals)** and the **57.9-point internal contradiction between LiveCodeBench 84.0% and Vibe Code Bench 26.10%** are both listed side by side rather than averaged, with the independent run preferred on each. The seventh-worst AA-Omniscience index is attributed rather than presented bare. The strong-exam-against-collapsed-depth pattern is stated as consistent with the Non-Reasoning-adjacent cohort. The **Vals slug's `-2026-03-17` date suffix** is recorded as not part of the model name. The unpublished rate card is surfaced with its effect on the cost score stated as a positioning-based estimate. Missing benchmarks (Terminal-Bench 4.0, τ³-bench, BrowseComp, MazeBench, ALE, Claw-Eval, JobBench, AA AutomationBench, AA ITBench, MRCR, AIME, SWE-bench Verified, DeepSWE, SWE-bench Pro, Terminal-Bench, FrontierCode, CharXiv, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — Introducing GPT-5.4 mini and nano (primary source)](https://openai.com/index/introducing-gpt-5-4-mini-and-nano/)
+  - [BenchLM — GPT-5.4 nano benchmark scores (39 rows, 46.59/100, #118/1015)](https://benchlm.ai/models/gpt-5-4-nano)
+  - [Artificial Analysis — GPT-5.4 nano](https://artificialanalysis.ai/models/gpt-5-4-nano)
+  - [Vals AI — GPT-5.4 nano (2026-03-17) leaderboard results](https://www.vals.ai/models/openai_gpt-5.4-nano-2026-03-17)
+  - [Artificial Analysis — omniscience leaderboard (source of the −29.5)](https://artificialanalysis.ai/evaluations/omniscience)
+  - [Artificial Analysis — aaagenticindex leaderboard](https://artificialanalysis.ai/evaluations/aaagenticindex)
+  - [Artificial Analysis — gdpval-aa leaderboard](https://artificialanalysis.ai/evaluations/gdpval-aa)
+  - [Artificial Analysis — tau2-bench leaderboard](https://artificialanalysis.ai/evaluations/tau2-bench)
+  - [Artificial Analysis — gpqa-diamond leaderboard](https://artificialanalysis.ai/evaluations/gpqa-diamond)
+  - [Artificial Analysis — humanitys-last-exam leaderboard](https://artificialanalysis.ai/evaluations/humanitys-last-exam)
+  - [Artificial Analysis — lcr leaderboard](https://artificialanalysis.ai/evaluations/lcr)
+  - [Artificial Analysis — aacodingindex leaderboard](https://artificialanalysis.ai/evaluations/aacodingindex)
+  - [Artificial Analysis — scicode leaderboard](https://artificialanalysis.ai/evaluations/scicode)
+  - [Artificial Analysis — mmmu-pro leaderboard](https://artificialanalysis.ai/evaluations/mmmu-pro)
+  - [Artificial Analysis — ifbench leaderboard](https://artificialanalysis.ai/evaluations/ifbench)
+  - [ARC Prize — official leaderboard data](https://arcprize.org/leaderboard)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [Vals AI — Vibe Code Bench v1.1 (source of the 26.10%)](https://www.vals.ai/benchmarks/vibe-code)
+  - [ExtractBench leaderboard (LlamaIndex)](https://www.extractbench.ai/#leaderboard)
+  - [Openrouter — GPT-5.4 nano benchmarks](https://openrouter.ai/openai/gpt-5.4-nano/benchmarks)
+  - See also: [`model/gpt-5.4-mini/`](gpt-5.4-mini.md) (53.23) — the sibling refreshed in an earlier batch; [`model/gpt-6-luna/`](gpt-6-luna.md) (62.53 at $0.10/$0.50) — the price-per-capability alternative
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

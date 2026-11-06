@@ -1,7 +1,7 @@
 # GPT-5.2 Codex — findings by Flint
 
 - Source: OpenAI / GPT-5.2 Codex
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -44,7 +44,7 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI blog / system card) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
 

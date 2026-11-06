@@ -1,7 +1,7 @@
 # GPT-5.1 Codex — findings by Flint
 
 - Source: OpenAI / GPT-5.1 Codex
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11:06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

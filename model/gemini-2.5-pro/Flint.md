@@ -1,7 +1,7 @@
 # Gemini 2.5 Pro — findings by Flint
 
 - Source: Google / Gemini 2.5 Pro
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,6 +35,6 @@
 
 ## Signature
 
-- Provided by: **Gemini 2.5 Pro (gemini-2.5-pro)** — 2026-10-22
+- Provided by: **Gemini 2.5 Pro (gemini-2.5-pro)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs plus independent benchmarks — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

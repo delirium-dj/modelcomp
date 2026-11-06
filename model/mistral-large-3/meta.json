@@ -1,0 +1,9 @@
+{
+  "id": "opencode/mistral-large-3",
+  "name": "Mistral Large 3",
+  "short": "Mistral Large 3 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

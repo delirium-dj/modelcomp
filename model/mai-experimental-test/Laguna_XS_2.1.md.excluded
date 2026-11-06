@@ -1,0 +1,76 @@
+# Mai Experimental Test — findings by Laguna XS 2.1
+
+> Source: Microsoft MAI (`opencode/mai-experimental-test`)
+> Date: 2026-11-06 (UTC)
+> Overview and scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** OpenCode's experimental Microsoft MAI sandbox slot — no public model ID, endpoint, weights, price, or benchmarks exist. A placeholder model that outlived its actual model behind it.
+- **Provider / access:** No verified public access — no registry lists it; Microsoft's MAI catalogue does not include it.
+- **Release / knowledge:** Undocumented; no evidence of existence beyond placeholder naming.
+- **IDs:** No verified model identifier resolves; Microsoft MAI catalog shows no matching entry.
+- **Context window:** 128,000 total (placeholder spec only).
+- **Modalities:** Text in/out only.
+- **Pricing:** Experimental tier pricing — no published rate available.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- MCP-Atlas: **no verified public score found**
+- Toolathon: **no verified public score found**
+- Claw-Eval: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- DeepSWE: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+- Native window: **not verified**
+
+Multimodal:
+- Modalities: **text-only documented**
+
+### Normalized scores (1–100)
+
+- **Tool use: 60/100.** Phantom/placeholder score; no verified benchmarks available.
+- **Reasoning: 60/100.** Estimated very conservatively; no independent verification.
+- **Context window: 70/100.** 128K placeholder spec; actual window unverified.
+- **Multimodal: 15/100.** Text-only baseline; no image/audio/video support.
+- **Coding: 60/100.** Phantom score; no coding benchmarks verified.
+- **Cost efficiency: 75/100.** Experimental tier; placeholder pricing.
+- **Overall Score: 62/100.** Mean of phantom-based estimates; placeholder nature noted.
+
+---
+
+## Signature
+
+- Provided by: **Laguna XS 2.1 (poolside/laguna-xs-2-1)** — 2026-11-06
+- Method: public-internet research (Microsoft MAI docs showing no MAI model entries); scores normalized 1-100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Microsoft MAI Models](https://microsoft.ai/models/) (no matching entry found)
+- Future sources: This model will be self-excluded until a verified model ID emerges. Add a new file next to this one, e.g. `Mai_Experimental_Test_V2.md`, once Microsoft publishes details.
+
+---
+
+## Note
+
+This model is a phantom/placeholder. No verified model exists under this name. All scores are estimates from the research average. Do not rely on these scores for evaluation purposes.

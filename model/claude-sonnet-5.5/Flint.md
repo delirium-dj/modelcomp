@@ -1,7 +1,7 @@
 # Claude Sonnet 5.5 - findings by Flint
 
 - Source: Anthropic (`claude-sonnet-5-5`)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -69,6 +69,6 @@ Conflicts and resolutions:
 
 ## Signature
 
-- Provided by: **Flint (anthropic/claude-sonnet-5-5)** - 2026-10-23
+- Provided by: **Flint (anthropic/claude-sonnet-5-5)** - 2026-11-06
 - Method: public-internet research (official Anthropic release + docs, Artificial Analysis, third-party comparison coverage); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

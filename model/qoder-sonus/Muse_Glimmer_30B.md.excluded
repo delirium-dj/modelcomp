@@ -1,7 +1,7 @@
 # Qoder Sonus — findings by Muse Glimmer 30B
 
 - Source: Qoder / qoder-sonus
-- Date: 2026-11-04 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -9,12 +9,12 @@
 
 - **Name:** Qoder Sonus
 - **Short description:** Qoder built-in model announced 2026, positioned for marathon-length autonomous tasks, computer use, knowledge work and coding. Described as best when using the computer with Qoder Desktop improvements.
-- **Provider / access:** Qoder platform built-in model, available across Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents. Credit multiplier 3.2×.
+- **Provider / access:** Qoder platform built-in model, available across Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents. Credit multiplier 3.2× at launch, adjusted to 8× effective 2026-09-21.
 - **Release / knowledge:** Announced 2026; exact release date not publicly documented.
 - **IDs:** Sonus / qoder-sonus
 - **Context window:** Qoder UI supports 200K, 400K, 1M options per docs; specific Sonus default not published.
 - **Modalities:** Text input/output; computer use tooling integration; no independent multimodal spec published.
-- **Pricing (as of 2026-11-04):** Credit-based metering via Qoder plans; no direct per-token pricing published. Credit multiplier 3.2× for Sonus.
+- **Pricing (as of 2026-11-06):** Credit-based metering via Qoder plans; no direct per-token pricing published. Credit multiplier was 3.2× at launch (Sep 2026) and was adjusted to 8× effective 2026-09-21 per Qoder model consumption reference update.
 - **Architecture:** Proprietary; underlying vendor/model not disclosed.
 
 ### Raw benchmarks found
@@ -42,7 +42,7 @@ Scores omitted due to self-exclusion; no verified raw benchmark data.
 
 ## Signature
 
-- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-04
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-06
 - Method: public internet research; zero verified independent benchmarks found for this exact model ID, so file saved as .md.excluded per RULES.md.
 - Reference URLs:
   - [Sonus is here — Qoder forum announcement](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
@@ -52,7 +52,7 @@ Scores omitted due to self-exclusion; no verified raw benchmark data.
   - [Qoder X announcement Sep 10 2026](https://x.com/qoder_ai_ide/status/2097932963753443736)
   - [Qoder release notes model consumption reference update](https://docs.qoder.com/release-notes/model-consumption-reference-update)
   - [Alibaba Cloud Developer Community Qoder Sonus launch](https://developer.aliyun.com/article/1762195)
-  - [AI-bio Sonus profile](https://ai-bio.cn/sonus)
+  - [Sonus profile AI-bio](https://ai-bio.cn/sonus)
   - [Bit.Fan Qoder launches Sonus](https://www.bit.fan/en/news/list/qoder-launches-sonus-for-computer-use-6678dc86-en-keyName-525a11d1)
   - [DEV Community Sonus credit discussion](https://dev.to/unitbuilds/we-need-to-talk-2dk9)
   - [qoder2api README Sonus specs](https://raw.githubusercontent.com/Zhengyuuuui/qoder2api/main/README.md)

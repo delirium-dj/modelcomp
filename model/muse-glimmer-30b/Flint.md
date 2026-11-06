@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Flint
 
 - Source: Meta Superintelligence Labs / Hugging Face `meta-models/Muse-Glimmer-30B`
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-10-28
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta Superintelligence Labs / Hugging Face `meta-models/Muse-Glimmer-30B` + arXiv:2610.24628) plus prior in-repo findings cross-check — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

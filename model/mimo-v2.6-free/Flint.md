@@ -1,7 +1,7 @@
 # MiMo-V2.6-Free — findings by Flint
 
 - Source: Xiaomi (`MiMo-V2.6-Free`) / Artificial Analysis (`artificialanalysis.ai`)
-- Date: 2026-10-23 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -35,7 +35,7 @@
 
 ## Signature
 
-- Provided by: **Flint (mimo-v2.6-free)** — 2026-10-23
+- Provided by: **Flint (mimo-v2.6-free)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Xiaomi) plus independent benchmark sources (Artificial Analysis); multi-site comparison for conflicting figures.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
 
