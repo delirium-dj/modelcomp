@@ -35,8 +35,8 @@ Reasoning / knowledge:
 - FrontierMath v2: **19.7%** Tiers 1–3 / **2.1%** Tier 4 (Epoch AI — weak)
 - ARC-AGI-2: **15.8%** (xAI-reported, prior pass)
 - AIME 2025: **30/30** (xAI-reported, prior pass)
-- AA-Omniscience: **40.5% accuracy / 64.5% non-hallucination row / 2.1 index** (AA — weak)
-- AA-IFBench: **53.7%** (AA)
+- AA-Omniscience: **40.5% accuracy / 64.5% non-hallucination row / 2.1 index** (AA — weak); LABELING NOTE (Nov 6): BenchLM now labels the 64.5% value "Hallucination Rate" (recurring drift pattern) — either reading stays weak
+- AA-IFBench: **53.7%** (AA); **AA LiveCodeBench: 81.9%** (NEW, BenchLM Nov 6 refresh — first independent LCB row, corroborates mid-frontier vs the vendor's 91% claim); **AA MMLU-Pro 86.6% / AA Global-MMLU-Lite 89.5% / AA AIME-2025 92.7% / AA MATH-500 99.0%** (NEW)
 
 Coding:
 
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with AA/Epoch AI citations, the prior 2026-09-24 pass on llm-stats/binaryverseai/nextbigfuture, xAI-reported rows via benchlm.ai; 2026-10-16 re-check: BenchLM 13-row refresh corroborates every row, no new data (rank drift only: #90/889 51.96 → #92/954 51.77) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Grok 4 page fetched 2026-11-06 (Nov 6 data, 18 rows) — all prior rows re-confirmed; AA LiveCodeBench 81.9% (first independent LCB), AA AIME-2025 92.7%, AA MATH-500 99.0% and MMLU rows added; Omniscience labeling drift flagged; composite 51.57 #97/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Grok_4.md`, using the same headings.

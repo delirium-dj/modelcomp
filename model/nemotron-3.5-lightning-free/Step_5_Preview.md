@@ -19,8 +19,6 @@
 
 ### Raw benchmarks found
 
-Vendor-reported (NVIDIA's HF card and its own eval tables) with independent Artificial Analysis and benchmark-leaderboard cross-checks, carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check.
-
 - **PinchBench: 85.37%** — **its strongest result** (Qwen3.6-35B 88.07, Gemma 4 26B A4B 74.70)
 - **MMLU-Pro: 81.94%**; **AA-Omniscience: 17.50**
 - **GPQA Diamond (no tools): 76.89%** (75.44 in the NVFP4 table); **HLE (text-only): 11.72%**

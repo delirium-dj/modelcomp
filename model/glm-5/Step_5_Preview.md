@@ -72,5 +72,5 @@ Multimodal — **text-only, with one grounded row carried in the wrong section**
   - [Arcee — GLM-5 eval runs (MMLU-Pro 85.8%, AIME 2025 93.3%)](https://arc.eval.auto/)
   - [Hugging Face — GLM-5 model card (MIT weights)](https://huggingface.co/zai-org/GLM-5)
   - [Repo curated meta — `model/glm-5/meta.json` ($1.00/$3.20, 200K/128K, text-only)](/model/glm-5/meta.json)
-  - See also: [`model/glm-5.1/`](glm-5.1.md), [`model/glm-5.2/`](glm-5.2.md) and [`model/glm-5.3/`](glm-5.3.md) — the successors this report recommends preferring, refreshed earlier in this session
+  - See also: [`model/glm-5.1/`](glm-5.1.md), [`model/glm-5.2/`](glm-5.2.md) and [`model/glm-5.3/`](glm-5.3.md) — the successors this report recommends preferring, refreshed in this session
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

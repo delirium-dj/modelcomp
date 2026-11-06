@@ -1,7 +1,7 @@
 # GPT-5.4 Mini — findings by Flint
 
 - Source: OpenAI / GPT-5.4 Mini
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gpt-5.4-mini` (OpenAI API); GPT-5.4 mini (Xhigh) reasoning variant.
 - **Context window:** 400K tokens (OpenAI API; Artificial Analysis).
 - **Modalities:** Text + image input, text output; reasoning yes (Xhigh / extended thinking); tool use yes (tool use, function calling, web search, file search, computer use, skills — per OpenAI API docs).
-- **Pricing (as of 2026-11-06):** $0.75 per 1M input tokens / $4.50 per 1M output tokens (OpenAI API; Artificial Analysis); cache discount 90%; blended ≈ $0.65 per 1M; GPT-5.4 nano: $0.20 in / $1.25 out per 1M.
+- **Pricing (as of 2026-10-28):** $0.75 per 1M input tokens / $4.50 per 1M output tokens (OpenAI API; Artificial Analysis); cache discount 90%; blended ≈ $0.65 per 1M; GPT-5.4 nano: $0.20 in / $1.25 out per 1M.
 - **Architecture:** Proprietary (closed weights); parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -63,6 +63,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (OpenAI blog / GPT-5.4 mini) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Kimi K2.8 Preview — findings by Flint
 
 - Source: Moonshot AI / Kimi K2.8 Preview
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `moonshotai/Kimi-K2-Instruct` (Hugging Face); Kimi K2 API model IDs (e.g. `kimi-k2-0905`).
 - **Context window:** 128K tokens (Artificial Analysis; Kimi K2); blended cache-hit pricing ~$0.74 / 1M.
 - **Modalities:** Text input, text output (Artificial Analysis: Kimi K2 is text-only, not multimodal); reasoning no (Kimi K2 non-reasoning); tool use yes (agentic heritage).
-- **Pricing (as of 2026-11-06):** Open weights (Modified MIT); Moonshot API $0.57 input / $2.30 output per 1M tokens (median across providers: $0.47 / $1.59); blended ≈ $0.74 / 1M.
+- **Pricing (as of 2026-10-28):** Open weights (Modified MIT); Moonshot API $0.57 input / $2.30 output per 1M tokens (median across providers: $0.47 / $1.59); blended ≈ $0.74 / 1M.
 - **Architecture:** Open-weight Mixture-of-Experts; 1T total / 32B active parameters; Modified MIT license (commercial use with restrictions).
 
 ### Raw benchmarks found
@@ -42,6 +42,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (Moonshot AI / Hugging Face Kimi K2) plus independent benchmarks/reviews (Artificial Analysis) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

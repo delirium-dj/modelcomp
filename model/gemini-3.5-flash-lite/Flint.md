@@ -1,7 +1,7 @@
 # Gemini 3.5 Flash Lite - findings by Flint
 
 - Source: Google / Gemini 3.5 Flash Lite (proprietary)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Gemini 3.5 Flash Lite
 - **Short description:** Google's 1M-context Flash-Lite (GPQA 83.8%, SWE-bench 75%) for ultra-low-latency volume work; free tier on AI Studio/Zen.
 - **Provider / access:** Google AI Studio / Gemini API, OpenCode Zen free tier; DeepMind model card.
-- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-03 (models.dev).
+- **Release / knowledge:** Released 2026-07-21; knowledge cutoff 2026-03 (models.dev).
 - **IDs:** `google/gemini-3.5-flash-lite`; `opencode/gemini-3.5-flash-lite`.
 - **Context window:** **1,048,576** total / **65,536** out (models.dev; repo meta 1M).
 - **Modalities:** Text, image, audio, PDF in; text out (models.dev).
-- **Pricing (as of 2026-11-06):** Free tier on Google AI Studio / OpenCode Zen; paid tier.
+- **Pricing (as of 2026-10-25):** Free tier on Google AI Studio / OpenCode Zen; paid tier.
 
 - **Architecture:** Proprietary; models.dev: open_weights = false.
 
@@ -40,6 +40,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/gemini-3.5-flash-lite)** - 2026-11-06
+- Provided by: **Flint (opencode/gemini-3.5-flash-lite)** - 2026-10-25
 - Method: public web research prioritizing official model card/docs plus independent benchmarks - three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

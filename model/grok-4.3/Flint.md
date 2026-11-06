@@ -1,7 +1,7 @@
 # Grok 4.3 — findings by Flint
 
 - Source: xAI — Grok 4.3
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-26 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Grok 4.3
 - **Short description:** xAI (SpaceXAI) third-generation frontier reasoning assistant with real-time web/X integration, multimodal input, and agentic coding orientation; proprietary weights, no open release.
 - **Provider / access:** SpaceXAI API (`grok` model id); additionally distributed via Amazon Bedrock and Microsoft Azure. Proprietary; no open-weights variant verified.
-- **Release / knowledge:** Released 2026-11-06 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
+- **Release / knowledge:** Released 2026-04-30 UTC (verified via Artificial Analysis release page); knowledge cutoff not publicly disclosed in verified sources.
 - **IDs:** `xai/grok-4.3` (proprietary).
 - **Context window:** 1,000,000 tokens (verified via Artificial Analysis technical specs).
 - **Modalities:** Text + image input; text output; reasoning (extended thinking) enabled; tool use supported.
-- **Pricing (as of 2026-11-06):** $1.25 per 1M input tokens, $2.50 per 1M output tokens; cache-read discount 84%; blended ~$0.64 per 1M tokens (AA cost-per-task $0.21 per Intelligence Index task).
+- **Pricing (as of 2026-10-26):** $1.25 per 1M input tokens, $2.50 per 1M output tokens; cache-read discount 84%; blended ~$0.64 per 1M tokens (AA cost-per-task $0.21 per Intelligence Index task).
 - **Architecture:** Proprietary; parameter count not disclosed by vendor.
 
 ### Raw benchmarks found
@@ -37,7 +37,7 @@
 
 ## Signature
 
-- Provided by: **Flint** - 2026-11-06
+- Provided by: **Flint** — 2026-10-26
 - Method: public internet research — official xAI/SpaceXAI model information plus independent Artificial Analysis benchmark pages; scores are normalized 1–100 interpretations, not official vendor scores.
 
 

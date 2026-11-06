@@ -1,7 +1,7 @@
 # GPT-5.1 Codex — findings by Flint
 
 - Source: OpenAI / GPT-5.1 Codex
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `gpt-5.1` (OpenAI API reasoning model); Codex agentic surface.
 - **Context window:** 400K tokens (OpenAI API; Artificial Analysis).
 - **Modalities:** Text + image input, text output; reasoning yes (Thinking / High); tool use yes (Codex agentic coding: SWE-bench, Terminal-Bench, τ2-bench, MCP Atlas per OpenAI/Artificial Analysis).
-- **Pricing (as of 2026-11-06):** $1.25 per 1M input tokens / $10 per 1M output tokens (OpenAI API; Artificial Analysis); cache discount 90%; blended ≈ $1.34 per 1M; GPT-5.1 Instant via API as `gpt-5.1-chat-latest`.
+- **Pricing (as of 2026-10-28):** $1.25 per 1M input tokens / $10 per 1M output tokens (OpenAI API; Artificial Analysis); cache discount 90%; blended ≈ $1.34 per 1M; GPT-5.1 Instant via API as `gpt-5.1-chat-latest`.
 - **Architecture:** Proprietary (closed weights); parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -53,6 +53,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (OpenAI blog / GPT-5.1) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

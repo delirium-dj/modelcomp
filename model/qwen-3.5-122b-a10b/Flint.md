@@ -1,7 +1,7 @@
 # Qwen3.5 122B A10B — findings by Flint
 
 - Source: Qwen / Qwen3.5-122B-A10B
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `Qwen/Qwen3.5-122B-A10B` (Hugging Face); `qwen3.5-122b-a10b` (API slug).
 - **Context window:** 262,144 tokens natively, extensible up to 1,010,000 tokens (Hugging Face model card; YaRN scaling for ultra-long).
 - **Modalities:** Text, image, video input; text output; thinking mode default; tool use yes (TIR-Bench, V*, agentic tool calling).
-- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; self-hostable (vLLM / SGLang / KTransformers / Transformers).
+- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; self-hostable (vLLM / SGLang / KTransformers / Transformers).
 - **Architecture:** Open-weight hybrid (Gated DeltaNet + sparse MoE); 122B total / 10B active; 48 layers; MTP training.
 
 ### Raw benchmarks found
@@ -49,6 +49,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (Qwen / Hugging Face Qwen3.5) plus independent benchmarks/reviews (Hugging Face eval leaderboards, Artificial Analysis) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

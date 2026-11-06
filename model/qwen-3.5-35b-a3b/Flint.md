@@ -1,7 +1,7 @@
 # Qwen 3.5 35B — findings by Flint
 
 - Source: Qwen Team / Alibaba (`qwen/qwen3.5-35b-a3b`)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `qwen/qwen3.5-35b-a3b` (OpenRouter); HF `Qwen/Qwen3.5-35B-A3B`.
 - **Context window:** **262,144 native** tokens; extensible to **~1,010,000** via YaRN RoPE scaling (not native); **65,536 max output** (32,768 recommended; 81,920 for complex math/competition problems).
 - **Modalities:** Text + image + video in → text out; reasoning yes (thinking default, Instruct via `enable_thinking: False`); tool calls yes (function calling, BFCL-V4, JSON mode); web search **NOT supported**; URL context **NOT supported**; no audio input.
-- **Pricing (as of 2026-11-06):** Hosted **$0.14/$1.00** per 1M tokens (OpenRouter), **$0.25/$2.00** (Alibaba Cloud Model Studio); self-host **$0** (Apache 2.0 weights).
+- **Pricing (as of 2026-10-29):** Hosted **$0.14/$1.00** per 1M tokens (OpenRouter), **$0.25/$2.00** (Alibaba Cloud Model Studio); self-host **$0** (Apache 2.0 weights).
 - **Architecture:** Open-weight **MoE** — 36B total / 3B active (A3B); Apache 2.0.
 
 ### Raw benchmarks found
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **84.2%** (Qwen scorecard, HF model card, thinking; HF eval 85.35); **84.5%** (DeepInfra/Requesty independent; benchgap AA-GPQA); **81.9%** (older Artificial Analysis comparison).
 - HLE: **no verified public score found** for this ID (benchgap AA-HLE estimate **21.0** — flagged provisional, not adopted).
-- Artificial Analysis Intelligence Index / BenchLM overall: **19.3** (AA Intelligence Index v5.0, best run `qwen/qwen3.5-35b-a3b`, since 2026-11-06; deprecated → successor Qwen3.6 35B A3B); **45.2/100** (BenchLM, #122/1002); FitMyLLM Arena Elo **1485**.
+- Artificial Analysis Intelligence Index / BenchLM overall: **19.3** (AA Intelligence Index v5.0, best run `qwen/qwen3.5-35b-a3b`, since 2026-10-28; deprecated → successor Qwen3.6 35B A3B); **45.2/100** (BenchLM, #122/1002); FitMyLLM Arena Elo **1485**.
 - IFEval: **91.9**; LongBench v2: **59.0**; MMLU-Pro: **85.3** — Qwen scorecard.
 
 Coding:
@@ -47,7 +47,7 @@ Long context:
 
 ### Cross-source comparison
 
-- Official (Qwen Team HF model card / Qwen3.5 blog, re-reported by DeepInfra and llm-stats) vs independent (Artificial Analysis Intelligence Index, DeepInfra serving figures, BenchLM, FitMyLLM Arena): direction consistent for the capability anchors (GPQA Diamond ~**84–85**, SWE-bench Verified **69.2**, LiveCodeBench v6 **74.6**), but the current Artificial Analysis Intelligence Index v5.0 (**19.3**, best run `qwen/qwen3.5-35b-a3b`, since **2026-11-06**, deprecated → Qwen3.6 35B A3B successor) sits far below the superseded comparison-page figures (Intelligence **30.7**, Coding **16.8**, GPQA **81.9**) — read as a methodology reset, not a capability collapse; both dated readings retained with sources.
+- Official (Qwen Team HF model card / Qwen3.5 blog, re-reported by DeepInfra and llm-stats) vs independent (Artificial Analysis Intelligence Index, DeepInfra serving figures, BenchLM, FitMyLLM Arena): direction consistent for the capability anchors (GPQA Diamond ~**84–85**, SWE-bench Verified **69.2**, LiveCodeBench v6 **74.6**), but the current Artificial Analysis Intelligence Index v5.0 (**19.3**, best run `qwen/qwen3.5-35b-a3b`, since **2026-10-28**, deprecated → Qwen3.6 35B A3B successor) sits far below the superseded comparison-page figures (Intelligence **30.7**, Coding **16.8**, GPQA **81.9**) — read as a methodology reset, not a capability collapse; both dated readings retained with sources.
 
 ### Normalized scores (1–100)
 
@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-29
 - Method: public web research prioritizing official model card/docs (Qwen Team Hugging Face `Qwen/Qwen3.5-35B-A3B` card + Qwen3.5 blog) plus independent benchmarks/reviews (Artificial Analysis Intelligence Index, DeepInfra serving figures, BenchLM, FitMyLLM Arena) — official-first with independent benchmark comparison; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_35B_A3B.md`, using the same headings.

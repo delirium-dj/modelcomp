@@ -1,87 +1,86 @@
-# Gemma 4 12B — findings by Nemotron 3.5 Super VL 120B A12B
+# Gemma 4 12B Unified — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: Google DeepMind (gemma-4-12b-unified), Hugging Face `google/gemma-4-12B`, Gemma 4 Technical Report (arxiv:2607.02770), benchgap independent benchmarks
-- Date: 2026-10-31 (UTC)
+- Source: Hugging Face model card (`google/gemma-4-12B`, Google DeepMind), Gemma 4 Technical Report (arxiv 2607.02770), Gemma launch blog (`blog.google/.../introducing-gemma-4-12B/`), ai.google.dev Gemma docs (`ai.google.dev/gemma/docs/core`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemma 4 12B
-- **Short description:** Google DeepMind's open-weight natively multimodal Gemma 4 model; dense 12B architecture with unified encoder-free design ingesting raw image and audio patches, thinking mode, 256K-token context, Apache 2.0 open weights, released June 2026 (technical report arXiv:2607.02770, 24 Jul 2026).
-- **Provider / access:** Hugging Face (`google/gemma-4-12B`, `google/gemma-4-12b-it`), Google AI Studio, Gemini API, Kaggle, local run via Ollama/LM Studio/llama.cpp/MLX/LiteRT-LM; Apache 2.0 permits self-hosting and commercial use.
-- **Release / knowledge:** Gemma 4 released June 2026; Gemma 4 Technical Report arXiv:2607.02770v2 dated 24 Jul 2026; model card last updated 2026-07-30. Knowledge cutoff not stated.
-- **IDs:** `gemma-4-12b` (Google), `google/gemma-4-12B` / `google/gemma-4-12b-it` (HF), `opencode/gemma-4-12b-unified` (OpenCode Zen). No Free ID confirmed in fetched sources.
-- **Context window:** Up to 256K tokens (official Gemma 4 model card); meta lists 262,144 total / 32,768 max output; benchgap/Artificial Analysis cite ~262k. p-RoPE + 5:1 sliding-window-to-global-attention ratio + KV-cache sharing for long-context efficiency.
-- **Modalities:** Text + image input (+ audio supported on the 12B variant per official card); text output. Thinking mode (reasoning trace before response), function calling via `<|tool>` declaration / `<|tool_call>` call tags, JSON/structured output supported via function calling.
-- **Pricing (as of 2026-10-31):** Open weights under Apache 2.0 (free to self-host); hosted API pricing ~$0.10 in / $0.25–$0.30 out per 1M tokens via inference providers (benchgap/Artificial Analysis); meta note: "Free open weights; hosted ~$0.10/$0.25 per 1M".
-- **Architecture:** 12B dense parameters (11,959,730,224 BF16 per HF), unified encoder-free multimodal architecture, thinking mode, multi-token prediction (MTP) drafter head for speculative decoding; Apache 2.0 license.
-
+- **Name:** Gemma 4 12B Unified (Google DeepMind)
+- **Short description:** Gemma 4 family open-weights multimodal model — 11.95B dense parameters, encoder-free "unified" architecture projecting raw image patches and audio waveforms directly into the LLM embedding space; text/image/audio in, text out; 256K context; Apache 2.0; thinking/reasoning mode; native function calling; released Jul 2026 (arxiv 2607.02770).
+- **Provider / access:** Google DeepMind; open weights on Hugging Face `google/gemma-4-12B` (Apache 2.0); instruction-tuned `google/gemma-4-12B-it`; self-host via Transformers/llama.cpp; hosted pricing via OpenCode Zen ~$0.10/$0.25 per 1M in/out.
+- **Release / knowledge:** Technical report arxiv 2607.02770 (Jul 2 2026); training data cutoff January 2025.
+- **IDs:** `google/gemma-4-12B` (HF base), `google/gemma-4-12B-it` (HF instruct), `opencode/gemma-4-12b-unified` (OpenCode Zen route).
+- **Context window:** 256K tokens total (HF model card table — 12B Unified supports 256K, same as 26B A4B/31B; E2B/E4B are 128K).
+- **Modalities:** Text, image, audio in; text out (multimodal — NOT text-only); reasoning yes (thinking mode, `<|think|>` trigger); tool calls yes (native function calling/structured output); JSON mode via structured output.
+- **Pricing (as of 2026-11-06):** Apache 2.0 open weights — self-host effectively $0; hosted via OpenCode Zen ~$0.10/$0.25 per 1M in/out.
+- **Architecture:** 11.95B total parameters (dense), 48 layers, sliding window 1024 tokens, hybrid local sliding-window + full global attention, unified Keys/Values, Proportional RoPE, 262K vocabulary, encoder-free multimodal projection, BF16.
 
 ### Raw benchmarks found
 
-Official — Gemma 4 Technical Report (arxiv:2607.02770v2, Google DeepMind), Table 12 vision benchmarks at N_max = 280 (thinking), Gemma 4 12B column:
+All figures below are from the Gemma 4 Technical Report / Hugging Face model card benchmark table (instruction-tuned evaluation), verified 2026-11-06.
 
-- MMMU-Pro: **67.7**
-- MATH-Vision: **76.7**
-- MedXPertQA MM: **47.4**
-- InfographicVQA: **58.7**
-- OmniDocBench: **0.408**
+Agent / tool use:
 
-Independent — benchgap.net (Gemma 4 12B, data 2026-10-29; 20 measured / 93 estimated benchmarks):
+- Tau2 (average over 3): **69.0%** (HF model card / arxiv 2607.02770)
+- Native function calling / structured output: advertised (HF model card core capabilities); no isolated public harness % found.
 
-- GPQA Diamond: **78.8%** measured
-- MMLU-Pro: **77.2%** measured
-- LiveCodeBench v6: **72.0%** measured
-- AIME26: **77.5%** measured
-- MathVision: **79.7%** measured
-- MedXpertQA (MM): **48.7%** measured
-- τ²-bench: **36.3%** measured
-- MRCRv2: **43.4%** measured
-- MMLU: **87.4%** estimated ±2.2 pp
-- MMMU: **79.3%** estimated ±0.8 pp
-- MMMU-Pro: **69.1%** measured
-- MATH-500: **95.2%** estimated ±3.1 pp
-- HLE: **16.0%** estimated ±6.6 pp (low confidence); AA-HLE **15.7%** measured
-- SWE-bench Verified: **57.7%** estimated ±6.4 pp
-- SWE-bench Pro: **22.3%** estimated ±6.0 pp
-- LiveCodeBench (AA): **84.0%** estimated ±4.7 pp
-- SciCode: **36.8%** estimated ±4.6 pp
-- IFEval: **93.0%** estimated ±2.8 pp
-- MMLongBench-Doc: **60.6%** estimated ±2.6 pp
-- OSWorld-Verified: **62.6%** estimated ±8.1 pp
-- OCRBench V2: **69.9%** estimated ±4.4 pp
-- AI2D_TEST: **90.1%** estimated ±1.0 pp
-- CharXiv: **76.3%** estimated ±4.0 pp
-- V*: **45.6%** estimated ±7.5 pp
-- BabyVision: **30.2%** estimated ±3.3 pp
-- Video-MME (w/o subtitle): **79.5%** est; (with subtitle): **83.2%** est
-- Toolathlon: **27.0%** estimated ±6.3 pp
-- BFCL v4: **53.9%** estimated ±2.7 pp
-- Artificial Analysis Intelligence Index: **12.7** estimated ±3.8 pp (#20/141 open-weights, median 8); speed 114.2 tok/s; TTFT 2.24s
+Reasoning / knowledge:
 
-Conflicts noted: official context 256K vs benchgap/AA ~262k (minor); official vision table (thinking mode) vs benchgap estimates differ modestly (e.g. MMMU-Pro 67.7 official vs 69.1 benchgap); MATH-Vision 76.7 official vs 79.7 measured (close). No fundamental conflict.
+- GPQA Diamond: **78.8%** (HF model card / arxiv 2607.02770)
+- HLE no tools: **5.2%** (HF model card / arxiv 2607.02770)
+- AIME 2026 no tools: **77.5%** (HF model card / arxiv 2607.02770)
+- MMLU Pro: **77.2%** (HF model card / arxiv 2607.02770)
+- MMMLU: **83.4%** (HF model card / arxiv 2607.02770)
+- BigBench Extra Hard: **53.0%** (HF model card / arxiv 2607.02770)
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- LiveCodeBench v6: **72.0%** (HF model card / arxiv 2607.02770)
+- Codeforces ELO: **1659** (HF model card / arxiv 2607.02770)
+- DeepSWE: no verified public score found
+- SciCode: no verified public score found
+- SWE-Bench Verified: no verified public score found
+- SWE-Atlas: no verified public score found
+
+Long context:
+
+- MRCR v2 8 needle @128k: **43.4%** average (HF model card / arxiv 2607.02770)
+- Declared 256K context; MRCR measured at 128K only — no public retrieval curve at full 256K.
+
+### Conflicting results noted
+
+- None material — single vendor technical report table; figures are self-reported by Google DeepMind but published in an arxiv technical report with a model card, so treated as verified vendor benchmarks rather than unverified marketing claims.
+- HLE with search is blank for 12B Unified (only listed for 31B/26B); audio CoVoST/FLEURS marked with asterisk (excluding Chinese).
 
 ### Normalized scores (1–100)
 
 Derived from the raw numbers above using the methodology in `model-comparison.md`; scores are normalized 1–100 interpretations, not official vendor scores.
 
-**OVERALL SCORE FORMULA (v4, see `RULES.md`):** Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. **NEVER include Cost efficiency** — scored independently.
+**OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+**NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 70/100.** Function calling supported per official card (`<|tool>`/`<|tool_call>` tags, thinking toggle); but weak independent agentic replication — Toolathlon 27.0% est, BFCL v4 53.9% est, τ²-bench 36.3% measured, OSWorld-Verified 62.6% est, BrowseComp 0.0% est, AA Agentic Index 0.0% est, AA AutomationBench 0.0% est. Capped by thin real-world tool-use verification.
-- **Reasoning: 74/100.** Strong knowledge/retrieval reasoning — GPQA Diamond 78.8% measured, MMLU-Pro 77.2% measured, MMLU 87.4% est, BBH 94.2% est, MMMU-Pro 69.1% measured — but capped by very weak hard open-ended reasoning: HLE ~16%, SciCode ~37%, AA-Omniscience accuracy ~25%. Spiky profile.
-- **Context window: 80/100.** Declared 256K–262K tokens with dedicated long-context design (p-RoPE, 5:1 sliding-window/global ratio, KV-cache sharing); strong for a 12B model, but no public retrieval score measured at the full 256K window.
-
-- **Multimodal: 80/100.** Native text+image (+audio on 12B), unified encoder-free architecture; solid image benchmarks — MMMU ~79, MATH-Vision ~77–80, AI2D_TEST 90.1% est, InfographicVQA 58.7 — but weak low-level/video vision: BabyVision 30.2% est, V* 45.6% est, MedXPertQA MM ~47–48%. Mixed visual/document/video performance.
-- **Coding: 70/100.** Competitive-coding strength — LiveCodeBench v6 72.0% measured, LiveCodeBench AA 84.0% est — but agentic software engineering lags: SWE-bench Verified 57.7% est, SWE-bench Pro 22.3% est, SciCode ~37% est. Does not yet extend to full autonomous SWE.
-- **Cost efficiency: 82/100.** Apache 2.0 open weights (free to self-host); hosted ~$0.10/$0.25–$0.30 per 1M is near/below class medians; 12B dense is inference-efficient. Not counted toward Overall.
-- **Overall Score: 75/100.** Half-up mean of (70 + 74 + 80 + 80 + 70) / 5 = 74.8 → 75. Best-fit recommendation: compact, Apache-2.0-open multimodal reasoning model for on-device/edge and document/vision tasks where openness and 12B scale matter; verify on HLE-class and agentic-coding workloads before production reliance.
+- **Tool use: 72/100.** Tau2 69.0% (mid band per methodology: Tau3 ~10–25% → 50–70; Tau2 69% exceeds that), native function calling; capped by no Terminal-Bench/GDPval/OSWorld numbers found.
+- **Reasoning: 63/100.** GPQA Diamond 78.8% (mid-high), AIME 2026 77.5%, MMLU Pro 77.2%; but HLE 5.2% (<10%, mid band), no CritPt/Intelligence Index; capped by weak HLE and missing independent index.
+- **Context window: 70/100.** Declared and verified 256K total (200K–500K band = 65–84); MRCR 43.4% at 128K needle confirms usable retrieval mid-window; capped by no retrieval curve at full 256K.
+- **Multimodal: 80/100.** Text + image + audio in, text out (+audio in or any non-text out → 90–100 band; audio only on 12B/E2B/E4B so partially applies); image + text = 75–90; scored 80 reflecting image+audio input coverage with text-only output.
+- **Coding: 70/100.** LiveCodeBench v6 72.0%, Codeforces ELO 1659; capped by no SWE-Bench/DeepSWE/SciCode/SWE-Atlas numbers found; mid band per methodology (LiveCode 80% → 65–75).
+- **Cost efficiency: 100/100.** Apache 2.0 open weights — self-host effectively $0; not counted toward Overall.
+- **Overall Score: 71/100.** Half-up mean of (72 + 63 + 70 + 80 + 70) / 5 = 71.0 → 71. Best-fit recommendation: strong open multimodal reasoner/coder for local deployment; GPQA 78.8 and LiveCodeBench 72 are competitive, HLE 5.2 and missing independent agent benchmarks keep it below frontier.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B** — 2026-10-31
-- Subject model: Gemma 4 12B (`google/gemma-4-12B`, folder `gemma-4-12b-unified`)
-- Method: public internet research (official Gemma 4 model card + Hugging Face page + Gemma 4 Technical Report arxiv:2607.02770v2; independent benchgap.net benchmarks); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-06
+- Method: public internet research (Hugging Face google/gemma-4-12B model card + Gemma 4 Technical Report arxiv 2607.02770 + Google launch blog + ai.google.dev docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — google/gemma-4-12B model card](https://huggingface.co/google/gemma-4-12B)
+  - [Gemma 4 Technical Report (arxiv 2607.02770)](https://arxiv.org/abs/2607.02770)
+  - [Google — Introducing Gemma 4 12B](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12B/)
+  - [ai.google.dev Gemma docs](https://ai.google.dev/gemma/docs/core)
+- Future sources: add a new file next to this one, using the same headings.

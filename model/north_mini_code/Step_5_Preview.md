@@ -20,8 +20,6 @@
 
 ### Raw benchmarks found
 
-Vendor-reported (Cohere's launch post and Poolside's tabulation) and carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check.
-
 - **Artificial Analysis Coding Index: 33.4** — the one independently-run composite
 - **SWE-bench Verified: 67.6%; SWE-bench Pro: 40.2%; Terminal-Bench 2.0: 36.0%** (scores as tabulated by Poolside using each model's highest publicly-referenced result — **a tabulation-provenance caveat recorded below**)
 - **τ²-bench: 37.4%** (newly measured in the 2026-10-19 pass); **GDPval-AA: 0.0%** — effectively zero on agentic knowledge work

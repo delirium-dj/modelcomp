@@ -1,7 +1,7 @@
 # Grok 4.1 — findings by Flint
 
 - Source: xAI / Grok 4.1
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -16,7 +16,7 @@
 
 - **Modalities:** Text in/out; reasoning yes (Thinking `quasarflux` / non-reasoning `tensor`); tool use yes (web search, agentic reasoning per xAI).
 
-- **Pricing (as of 2026-11-06):** xAI Grok 4.1 API pricing — not fully resolved in session (Grok 4 was $3/$15 per 1M; Grok 4 Fast $0.20/$0.50); Grok 4.1 inherits frontier-tier pricing.
+- **Pricing (as of 2026-10-28):** xAI Grok 4.1 API pricing — not fully resolved in session (Grok 4 was $3/$15 per 1M; Grok 4 Fast $0.20/$0.50); Grok 4.1 inherits frontier-tier pricing.
 
 - **Architecture:** Proprietary (closed weights); parameter count not disclosed.
 
@@ -53,6 +53,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (xAI blog / Grok 4.1) plus independent benchmarks/reviews (LMArena data reported by xAI; prior independent coverage) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

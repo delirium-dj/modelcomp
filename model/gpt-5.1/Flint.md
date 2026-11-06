@@ -1,7 +1,7 @@
 # GPT-5.1 - findings by Flint
 
 - Source: OpenAI / GPT-5.1 (proprietary; family gpt)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GPT-5.1
 - **Short description:** OpenAI's Instant/Thinking revision (400K/128K, $1.25/$10) for generalist work; SWE-Verified 66.0%.
 - **Provider / access:** OpenAI API (`https://openai.com/index/gpt-5.1/`), OpenAI $1.25/$10 per 1M (cached $0.125); OpenCode Zen / OpenRouter routes (`opencode/gpt-5.1`).
-- **Release / knowledge:** Released 2026-11-06; knowledge cutoff 2026-11-06 (models.dev).
+- **Release / knowledge:** Released 2025-11-13; knowledge cutoff 2024-09-30 (models.dev).
 - **IDs:** `openai/gpt-5.1`; `opencode/gpt-5.1`.
 - **Context window:** **400,000** total / **128,000** out (models.dev; repo meta).
 - **Modalities:** Text, image in; text out (models.dev; repo meta says text, image in).
-- **Pricing (as of 2026-11-06):** Paid $1.25/$10 per 1M; $0.125 cached (repo meta).
+- **Pricing (as of 2026-10-25):** Paid $1.25/$10 per 1M; $0.125 cached (repo meta).
 
 - **Architecture:** Proprietary; models.dev: open_weights = false.
 
@@ -39,6 +39,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5.1)** - 2026-11-06
+- Provided by: **Flint (opencode/gpt-5.1)** - 2026-10-25
 - Method: public web research prioritizing official model card/docs plus independent benchmarks - three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GLM 5.2 Coding — findings by Flint
 
 - Source: Z.ai / Zhipu AI (`zai-org/GLM-5.2`)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** GLM 5.2 Coding
 - **Short description:** Z.ai's (Zhipu AI's) **flagship foundation model for long-horizon tasks** (June 2026), released as **pure open** (MIT) MoE weights and positioned hardest at advanced coding with flexible reasoning effort — the first GLM with a **solid 1M-token context**.
 - **Provider / access:** Open-weight **MIT** (Hugging Face `zai-org/GLM-5.2`); served via the Z.ai API Platform (`https://api.z.ai/api/paas/v4`, model id `glm-5.2`, OpenAI-compatible **Chat Completions**); also via OpenRouter / third-party inference (vLLM, SGLang, Transformers, KTransformers, Unsloth); **no OpenCode Zen Free ID** exists for this model (paid route only).
-- **Release / knowledge:** Released **June 2026** (Z.ai blog `glm-5.2` published 2026-11-06; HF blog 2026-11-06); knowledge cutoff not published.
+- **Release / knowledge:** Released **June 2026** (Z.ai blog `glm-5.2` published 2026-06-16; HF blog 2026-06-17); knowledge cutoff not published.
 - **IDs:** `glm-5.2` (Z.ai API / OpenRouter); HF `zai-org/GLM-5.2`; MIT license.
 - **Context window:** **1,048,576 tokens (1M)** native (docs.z.ai: Context Length **1M**; Z.ai HF blog: solid 1M-token context); max output **128K** (docs.z.ai: Maximum Output Tokens **128K**; HF eval footnote: max generation length **163,840**; AA: 131,072).
 - **Modalities:** Text in → text out; reasoning **yes** (thinking mode, default enabled; `reasoning_effort` high → xhigh where xhigh = max); tool calls **yes** (function calling, MCP, structured output / JSON mode, context caching); web search support for this ID **not verified**; no image / audio / video input.
-- **Pricing (as of 2026-11-06):** Hosted **$1.40 input / $4.40 output / $0.26 cached per 1M tokens** (Z.ai official pricing; in line with GLM-5.1); MIT open weights → self-host at **$0**.
+- **Pricing (as of 2026-10-29):** Hosted **$1.40 input / $4.40 output / $0.26 cached per 1M tokens** (Z.ai official pricing; in line with GLM-5.1); MIT open weights → self-host at **$0**.
 - **Architecture:** Open-weight **MoE** — **753B** total params (HF card, BF16); **40B** active (Z.ai family framing; AA sizes GLM-5.2 the same as GLM-5.1 at 744B total / 40B active); new **IndexShare** sparse-attention indexer + improved MTP layer.
 
 ### Raw benchmarks found
@@ -76,6 +76,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-29
 - Method: public web research prioritizing official model card/docs (Z.ai blog `glm-5.2`, HF `zai-org/GLM-5.2`, docs.z.ai) plus independent benchmarks/reviews (Artificial Analysis Intelligence Index, BenchLM, benchgap, Vals AI, The Model Gap) — official-first with independent benchmark comparison; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.2.md`, using the same headings.

@@ -19,8 +19,6 @@
 
 ### Raw benchmarks found
 
-Vendor-reported and carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check. **Contemporaneous frontier comparison figures are given in parentheses and are the reason the value claim rests on comparison rather than on absolute levels.**
-
 - **Terminal-Bench 2.1: 70.8** (Gemini 3.1 Pro 70.7*, GPT-5.5 73.8*, Opus 4.7 71.7*, Opus 4.8 78.9*)
 - **SWE-bench Pro: 59.5** (GPT-5.5 58.6*, Gemini 3.1 Pro 54.2*, Opus 4.6 57.3*, Opus 4.7 64.3*, Opus 4.8 69.2*)
 - **SWE-bench Multilingual: 77.3** (Gemini 3.1 Pro 76.9*, Opus 4.6 77.8*)

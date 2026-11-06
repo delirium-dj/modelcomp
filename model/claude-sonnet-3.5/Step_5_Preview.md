@@ -19,8 +19,6 @@
 
 ### Raw benchmarks found
 
-Vendor-reported (Anthropic model card and launch posts) and carried from the prior verified research passes (2026-10-09, 2026-10-19) with re-attribution; no tracker catalog page exists for cross-check.
-
 - **GPQA Diamond (0-shot CoT): 59.4%** (65.0 normal, no tools) — fails the 90%+ reference by ~25–30 points
 - **MMLU (5-shot): 88.7%** (88.3); MMLU-Pro 78.0
 - **HumanEval (0-shot): 92.0%** (93.7) — strong classic codegen

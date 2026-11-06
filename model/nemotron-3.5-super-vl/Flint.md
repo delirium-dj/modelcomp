@@ -1,7 +1,7 @@
 # Nemotron 3.5 Super VL — findings by Flint
 
 - Source: NVIDIA / Nemotron 3.5 Super VL 120B A12B
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-27 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Nemotron 3.5 Super VL 120B A12B (NVIDIA; Nemotron family).
 - **Short description:** NVIDIA open-weight (OpenMDW-1.1) 120B/12B-active MoE with Mamba-2 hybrid + C-RADIO vision-language tuning, aimed at multimodal / video-length agentic workloads.
 - **Provider / access:** Open weights (OpenMDW-1.1) on Hugging Face + NVIDIA NVFP4 builds; hosted inference via PrimaLabs, Baseten, CoreWeave, Together AI, Nebius; NanoGPT hosted tier $0.15/$0.50 per Mtok. No OpenCode Zen Free ID (free tier = self-host on OpenMDW-1.1).
-- **Release / knowledge:** Released 2026-11-06 per NVIDIA sources; knowledge cutoff not stated in verified sources.
+- **Release / knowledge:** Released 2026-10-15 per NVIDIA sources; knowledge cutoff not stated in verified sources.
 - **IDs:** nvidia/nemotron-3.5-super-vl-120b-a12b (HF NVFP4); OpenMDW-1.1 license.
 - **Context window:** 1,000,000 native (host-served 262,144).
 - **Modalities:** Text, image, video in; text out; reasoning; tool use.
-- **Pricing (as of 2026-11-06):** Open weights self-host free (OpenMDW-1.1); hosted $0.15 in / $0.50 out per Mtok (NanoGPT).
+- **Pricing (as of 2026-10-27):** Open weights self-host free (OpenMDW-1.1); hosted $0.15 in / $0.50 out per Mtok (NanoGPT).
 - **Architecture:** MoE 120B total / 12B active + Mamba-2 + C-RADIO VLM hybrid, open weights (OpenMDW-1.1).
 
 ### Raw benchmarks found
@@ -48,6 +48,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-27
 - Method: public web research prioritizing official NVIDIA model card/docs plus independent benchmarks/reviews — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

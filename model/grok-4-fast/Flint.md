@@ -1,7 +1,7 @@
 # Grok 4 Fast — findings by Flint
 
 - Source: xAI / Grok 4 Fast
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `grok-4-fast-reasoning` / `grok-4-fast-non-reasoning` under the `grok-4-fast` family.
 - **Context window:** 2,000,000 tokens (xAI blog; Artificial Analysis).
 - **Modalities:** Text + image input, text output; unified reasoning + non-reasoning modes (steered via system prompts); tool use yes (end-to-end tool-use RL, web/X search).
-- **Pricing (as of 2026-11-06):** xAI: input $0.20 / 1M tokens (<128k), $0.40 / 1M (≥128k); output $0.50 / 1M (<128k), $1.00 / 1M (≥128k); cached input $0.05 / 1M. Artificial Analysis: $0.20 in / $0.50 out per 1M (blended ≈ $0.23 / 1M).
+- **Pricing (as of 2026-10-28):** xAI: input $0.20 / 1M tokens (<128k), $0.40 / 1M (≥128k); output $0.50 / 1M (<128k), $1.00 / 1M (≥128k); cached input $0.05 / 1M. Artificial Analysis: $0.20 in / $0.50 out per 1M (blended ≈ $0.23 / 1M).
 - **Architecture:** Proprietary (closed weights); unified reasoning/non-reasoning weights; parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -48,6 +48,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (xAI blog / Grok 4 Fast) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

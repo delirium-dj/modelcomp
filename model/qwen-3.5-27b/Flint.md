@@ -1,7 +1,7 @@
 # Qwen 3.5 27B — findings by Flint
 
 - Source: Qwen Team / Alibaba (`qwen/qwen3.5-27b`)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `qwen/qwen3.5-27b` (OpenRouter); HF `Qwen/Qwen3.5-27B`.
 - **Context window:** **262,144 native** tokens; extensible to **~1,010,000** via YaRN RoPE scaling (not native); **65,536 max output** (32,768 recommended; 81,920 for complex math/competition problems).
 - **Modalities:** **Text + image in → text out** via early-fusion vision-language training; reasoning yes (thinking by default via sampling params — `temperature=1.0, top_p=0.95, top_k=20` general / `0.6/0.95/20` precise coding / non-thinking via `enable_thinking: false`); tool calls yes (BFCL-V4, JSON mode, Qwen-Agent / Qwen-Code agent scaffolds). **Video input: meta-claimed for the Qwen3.5 family but only text+image independently confirmed for this 27B size** (llm-stats / DeepInfra) — flagged, not inherited.
-- **Pricing (as of 2026-11-06):** Hosted **$0.27/$2.16** per 1M tokens (OpenRouter), **$0.30/$2.40** (Alibaba Cloud Model Studio); DeepInfra FP8 blended ≈ **$0.84**/M. **Self-host: $0** (Apache 2.0 weights).
+- **Pricing (as of 2026-10-28):** Hosted **$0.27/$2.16** per 1M tokens (OpenRouter), **$0.30/$2.40** (Alibaba Cloud Model Studio); DeepInfra FP8 blended ≈ **$0.84**/M. **Self-host: $0** (Apache 2.0 weights).
 - **Architecture:** **Dense** — 27B params, 64 layers, hidden dim 5120, Gated DeltaNet (linear attention: 48 V heads + 16 QK heads) + FFN; early-fusion multimodal tokens; MTP-trained; thinking + non-thinking.
 
 ### Raw benchmarks found
@@ -70,6 +70,6 @@ Vision / multimodal:
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (Qwen Team Hugging Face `Qwen/Qwen3.5-27B` card + Qwen3.5 blog architecture) plus independent benchmarks/reviews (Artificial Analysis Intelligence Index 42, DeepInfra serving figures, llm-stats specs/pricing) — official-first with independent benchmark comparison; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.5_27B.md`, using the same headings.

@@ -1,53 +1,64 @@
 # Union Alpha — findings by Step 5 Preview
 
-- Source: Unbiased / Circuit & Chisel (`unbiased/pareto-26.9`)
-- Date: 2026-11-06 (UTC)
+- Source: Unbiased / Circuit & Chisel (`union-alpha` — stealth alias of Pareto 26.9)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Union Alpha — the **stealth alias of Pareto 26.9** by **Unbiased**, the AI platform of **Circuit & Chisel** (founded 2025 by former Stripe executives Louis Amira and David Noël-Romas). **A negative finding governs this report: BenchLM carries no `union-alpha` page in any spelling** (it 404s, consistent with the model's own history — it was a delisted OpenRouter stealth route), so the 2026-11-06 re-research had no catalog to check against. The evidence base is the repo's curated `meta.json` plus the prior verified research pass, re-attributed.
-- **Short description:** Architecturally unique in this research series: **Pareto is a blended best-of-N ensemble** — several frontier and open-source models run on each request and the best answer is kept — behind one model string and one bill. Unlike a router it **never switches models mid-conversation**, so prompt-cache savings survive. **Its defining data point is DeepSWE 70.0% (26.9) / 69.9% (26.10), and the repo's meta.json explicitly records that the circulated ~74% figure is *GPT-6 Astra's*, not Pareto's** — a misattribution the repo has taken care to correct.
-- **Provider / access:** OpenRouter `stealth/union-alpha` (**delisted**) → `unbiased/pareto-26.9` at $2.50/$7.50; Unbiased's own platform. **`noFreeId`** — the free Zen preview ran only **2026-09-16 to 2026-09-18** and is retired.
-- **Release / knowledge:** **2026-09-16 (stealth listing, 14:42 UTC) / 2026-09-17 (revealed, 23:24 UTC)** — a **33-hour stealth window against an announced week**, during which it pulled **702B prompt tokens and 9.22B completion tokens**. **Knowledge cutoff not disclosed**, and structurally undisclosable — the cutoff is that of the blended components.
-- **IDs:** `stealth/union-alpha` (dead); `unbiased/pareto-26.9` (Openrouter, repo id); `pareto` (Unbiased platform).
-- **Context window:** **262,144 tokens total, 131,072 max output** (repo meta.json) — a quarter of the current 1M standard.
-- **Modalities:** **text and image in; text out**, plus tools / tool_choice / response_format and five parameters (max_tokens, temperature, top_p, tools, tool_choice).
-- **Pricing (as of 2026-11-05):** **$2.50 input / $0.25 cached / $7.50 output per 1M** (repo meta.json) — Unbiased positions this as **25% of Claude Fable 5's input price**, and models a multi-step agentic task at **~$2.03 versus ~$9.70 for GPT-6 Astra**.
-- **Architecture:** **Blended ensemble over third-party models** — the maker does not disclose the underlying set. **Not a single trained checkpoint.** This is the model's defining property and the reason its capability figures are lineage data by construction.
+- **Name:** Union Alpha (stealth alias of **Pareto 26.9**, Unbiased)
+- **Short description:** The anonymous OpenRouter stealth model listed 2026-09-16 14:42 UTC and revealed 33 hours later (2026-09-17 23:24 UTC) as Pareto 26.9 by Unbiased — the AI platform of Circuit & Chisel (founded 2025 by former Stripe executives Louis Amira and David Noël-Romas). Pareto is a **blended best-of-N ensemble**: several frontier and open-source models run on each request and the best answer is kept — one model string, one bill, and (unlike a router) it never switches models mid-conversation, so prompt-cache savings survive. It pulled 702B prompt tokens and 9.22B completion tokens during its two-day free stealth window. The free window lasted 33 hours against the announced week.
+- **Provider / access:** OpenRouter `stealth/union-alpha` (delisted) → `unbiased/pareto` at $2.50/$7.50; Unbiased's own platform (`pareto`); also seeded through OpenCode's free tier (third-party reported).
+- **Release / knowledge:** 2026-09-16 (stealth) / 2026-09-17 (revealed). Knowledge cutoff not disclosed.
+- **IDs:** `stealth/union-alpha` (dead), `unbiased/pareto` (OpenRouter), `pareto` (Unbiased).
+- **Context window:** 262,144 tokens; 131,072 max output.
+- **Modalities:** Text + image in → text out; tools / tool_choice / response_format; five parameters (max_tokens, temperature, top_p, tools, tool_choice).
+- **Pricing (as of 2026-10-09):** **$0 during the 33-hour stealth window**; now $2.50 / MTok input, $0.25 cached, $7.50 output (Unbiased positions this as 25% of Fable 5's input price; a modeled multi-step agentic task costs ~$2.03 vs ~$9.70 for Astra). Superseded by Pareto 26.10 Preview (2026-10-01: 69.9% DeepSWE at $0.24/task).
+- **Architecture:** Blended ensemble over third-party models (maker does not disclose the underlying set); not a single trained checkpoint.
 
 ### Raw benchmarks found
 
-**A negative finding is stated plainly: BenchLM carries no `union-alpha` page in any spelling**, and no Artificial Analysis, Vals AI or Epoch AI page was found either — consistent with the model's history as a delisted stealth route. The figures below are carried from the prior verified research pass and the repo's curated `meta.json`, and re-attributed.
+(All five published scores are vendor-reported from the Pareto 26.9 model card against Fable 5.1 / GPT-6 Astra / DeepSeek 4.1 Flash; the DeepSWE run uses a 30-task slice; no composite score, no published task costs, and no independent reproduction yet.)
 
-- **DeepSWE: 70.0%** for Pareto 26.9 and **69.9%** for Pareto 26.10 (repo meta.json) — the headline capability figure, and a solid mid-frontier coding result
-- **Stealth-window traffic: 702B prompt tokens, 9.22B completion tokens** over 33 hours — a real adoption signal, and unusually precise
-- **Pricing position: ~$2.03 per modeled multi-step agentic task versus ~$9.70 for GPT-6 Astra**, and 25% of Claude Fable 5's input price
-- **SWE-bench, LiveCodeBench, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, AA Coding Index, AA-SciCode, MMMU-Pro, CharXiv, Terminal-Bench, τ²-bench, AA Agentic Index, GDPval-AA, AA-Omniscience, AIME, FrontierMath: no verified public score found for this identity** — note that Pareto 26.10 is a **separately-tracked model** (`model/pareto-26.10-preview/`) whose rows are not used here
+Coding:
+
+- DeepSWE: **74** — three-way tie with GPT-6 Astra (74) and DeepSeek 4.1 Flash (74); ahead of Fable 5.1's 67
+- Terminal-Bench 4.0: **51** (Astra 58, Fable 5.1 56, DeepSeek 4.1 Flash 31)
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / Vibe Code Bench: **no verified public score found**
+
+Reasoning / knowledge:
+
+- HLE (no tools): **49** (Astra 54, Fable 5.1 55, DeepSeek 4.1 Flash 39)
+- ArXivMath: **88** (Astra 91, Fable 5.1 72, DeepSeek 4.1 Flash 28)
+- GPQA Diamond / AA Intelligence Index / CritPt: **no verified public score found**
+
+Multimodal:
+
+- MMMU-Pro: **78** (Astra 87, Fable 5.1 81, DeepSeek 4.1 Flash 77)
+
+Agentic / tool use:
+
+- Terminal-Bench 4.0 (agentic coding): 51 (above); MCP-Atlas / BrowseComp / GDPval-AA / Toolathlon / Claw-Eval: **no verified public score found**
+
+Long context:
+
+- 262K-token window; MRCR / RULER / AA-LCR: **no verified public score found**
 
 ### Normalized scores (1–100)
 
-> **Methodology note.** With one carried-forward capability figure (DeepSWE 70.0%), every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (blended ensemble, 262K/131K, $2.50/$7.50) and the model's positioning. The two dimensions where this SKU is genuinely distinctive — **context window** (262K with a 131K output) and **cost efficiency** ($2.50/$7.50 with a task-level cost model) — are the best-grounded scores in this report.
-
-- **Tool use: 60/100.** Anchored at the mid band as a placeholder, with a genuinely strong directional signal: the repo's meta.json describes it as *"several models consulted per request, assembled behind one frontier-coding front door"* for **agentic coding**, and the model exposes **tools, tool_choice and response_format** plus five controllable parameters — a real, deliberately designed agentic substrate. Scored at the mid band's lower edge and **capped by the absence of every conventional agentic benchmark** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. The **131K max output** is a generous allowance for agentic work.
-- **Reasoning: 62/100.** Mid-band, anchored on the inference that a best-of-N blend over *frontier* models would inherit frontier-class reasoning on the requests it keeps. That is a structurally sound inference — and it is the one place where a composite architecture legitimately implies capability, because the kept answer comes from a model that produced it. Scored at 62 rather than higher because **the maker does not disclose the component set**, so the blend's ceiling is unverifiable, and because **GPQA, HLE, CritPt, AA-LCR, MRCR, the composite index, ARC-AGI and every reliability figure are absent**. **The knowledge cutoff is structurally undisclosable** — it is that of whichever component answered.
-- **Context window: 85/100.** **262,144 tokens total with 131,072 max output** — the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 85 because **a 131K max output is the second-largest measured in this batch** (beaten only by GPT-5.2 Pro's 128K is false — in fact it *exceeds* it), so the output allowance is genuinely generous. Held below the ≥1M tier because 262K is a quarter of the current standard, no AA-LCR or MRCR figure exists, and the input window is not verifiable at depth.
-- **Multimodal: 55/100.** **Text and image in; text out** per the repo's meta.json, scored at the bottom of the methodology's 60–70 band and marginally below it, because the image-input claim is a **spec-sheet claim with zero measured support** — no MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench or Design Arena figure exists. Note this is *structurally* uncertain for a composite: the image capability depends on which component handled the request.
-- **Coding: 72/100.** Mid-band and the best-grounded quality dimension, anchored on the one real figure: **DeepSWE 70.0%** (26.9) and **69.9%** (26.10) — a solid mid-frontier result, and one the repo has been careful to attribute correctly, since **the circulated ~74% is GPT-6 Astra's figure, not Pareto's**. Capped by the **total absence of SWE-bench Verified, SWE-bench Pro, LiveCodeBench, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode** — so the 85%, 74%, 70% and 55% references cannot be checked.
-- **Cost efficiency: 88/100.** **$2.50/$0.25/$7.50 per 1M** sits on the methodology's ~$3/$15 (≈60) to ~$1.25/$4.25 (≈88) boundary, scored at 88 on the strength of the **task-level cost model**: **~$2.03 per modeled multi-step agentic task versus ~$9.70 for GPT-6 Astra**, and **25% of Claude Fable 5's input price**. The **90% cache-read discount** and the fact that a best-of-N blend *never switches models mid-conversation* — so prompt-cache savings survive, unlike a router — are genuine structural advantages. Held at 88 rather than 92+ because there is **no free tier (`noFreeId`; the free preview ended 2026-09-18)** and because the composite architecture means **you inherit every component's cost structure**, which the repo's own meta flags as the tradeoff.
-- **Overall Score: 67/100.** (60 + 62 + 85 + 55 + 72 + 88) / 5 = 72.4 → **72**. Recommendation: **architecturally unique and the clearest cost-per-agentic-task case in this batch, with thin provenance.** The best-of-N blend behind a single model string — which never switches models mid-conversation, so prompt-cache savings survive — is a genuinely different proposition from a router, and the modeled **~$2.03 per multi-step agentic task against ~$9.70 for GPT-6 Astra** is the strongest cost-per-task figure measured in this research series. **DeepSWE 70.0% is solid mid-frontier and the repo attributes it correctly; the circulated ~74% is GPT-6 Astra's and must not be reused.** Three cautions: **the maker does not disclose the component set**, so the blend's ceiling, its knowledge cutoff and its modalities are all structurally unverifiable — you are trusting an opaque layer; **262K context is a quarter of the current standard**; and **not one independent benchmark row exists for this identity**, so this report's 72 is a floor on evidence rather than a capability assessment. Note also it is **superseded by Pareto 26.10** (2026-10-01: 69.9% DeepSWE), which is a separately-tracked model and the natural upgrade.
+- **Tool use: 84/100.** Terminal-Bench 4.0 at 51% is top-quartile on the current hard agentic suite (field leaders 55.8–63.6), and the ensemble design layers multiple models' tool competence per request; capped by no published MCP-Atlas/BrowseComp/GDPval/Claw-Eval rows and the fact that tool-use strength is inherited, not native.
+- **Reasoning: 84/100.** HLE 49% no-tools and ArXivMath 88% are both frontier-band numbers on vendor runs (HLE 49 vs the 39–55 comparison set); capped by zero independent replication, no AA Intelligence Index entry, and no GPQA/CritPt figure.
+- **Context window: 72/100.** 262,144-token window in the 200K–500K band; no MRCR/RULER/AA-LCR figure exists for this blended model, so long-context retrieval is unverifiable.
+- **Multimodal: 70/100.** Text + image in → text out is the 60–70 band, at its top on MMMU-Pro 78% (between Fable 5.1's 81 and DeepSeek 4.1 Flash's 77); no video/audio input or non-text output.
+- **Coding: 88/100.** DeepSWE 74 is a three-way tie for the field lead (Astra and DeepSeek 4.1 Flash) on the model card, with TB4.0 51% well above the open-weight field; capped by the 30-task DeepSWE slice, vendor-only runs, and no SWE-bench Verified number.
+- **Cost efficiency: 68/100.** $2.50/$7.50 per MTok (cached $0.25) sits between the methodology's ~$1.25/$4.25 ≈ 88 and ~$3/$15 ≈ 60 tiers; the ~$2.03 modeled task cost (vs Astra's ~$9.70) shows the ensemble's real economic pitch, and the stealth window was $0.
+- **Overall Score: 80/100.** Best-fit recommendation: a frontier-class blended coding agent at roughly a fifth of Fable 5's per-token price — strongest on DeepSWE-class agentic coding; validate on your own evals, since every published number is Unbiased's own run with no independent reproduction.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/stepfun-ai/step-5-preview)** — 2026-11-06
-- Method: re-research that established a **negative finding first: BenchLM carries no `union-alpha` page in any spelling** (it 404s, consistent with the model's history as a delisted OpenRouter stealth route), and no Artificial Analysis, Vals AI or Epoch AI page was found either. The evidence base is the repo's curated `meta.json` plus the prior verified research pass (2026-10-09), with figures re-attributed to their sources and **the absence of any independent cross-check stated plainly rather than implied**. Because only one capability figure carries forward (**DeepSWE 70.0% for 26.9 / 69.9% for 26.10**), every quality dimension is explicitly labelled a placeholder-for-unknown anchored on verified structural facts, and the two best-grounded dimensions — context (262K/131K) and cost ($2.50/$7.50 with a task-level model) — are scored on verified specs. **A deliberate non-import is recorded: the separately-tracked `pareto-26.10-preview` sibling's figures are NOT merged into this report**, because it is a different identity, and the repo's `TRACKED_ALIAS_NOTES` entry for `union-alpha` already establishes that relationship. **A deliberate correction is also recorded and preserved: the circulating ~74% DeepSWE figure is *GPT-6 Astra's*, not Pareto's — the repo's meta.json says so explicitly and this report does not reuse the higher number.** The blended-ensemble architecture is recorded as the model's defining property, with the three things it makes structurally unverifiable (component set, knowledge cutoff, modalities) named rather than glossed. Missing benchmarks (SWE-bench, LiveCodeBench, GPQA, HLE, CritPt, AA-LCR, MRCR, ARC-AGI, MMLU-Pro, AA Coding Index, AA-SciCode, MMMU-Pro, CharXiv, Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, AA-Omniscience, AIME, FrontierMath) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Reference URLs:
-  - [Unbiased — model card (official source; repo meta.json's `officialUrl`)](https://unbiased.ai/model-card)
-  - [Unbiased — pricing](https://unbiased.ai/pricing)
-  - [Openrouter — unbiased/pareto-26.9 (paid route)](https://openrouter.ai/unbiased/pareto-26.9)
-  - [Repo curated meta — `model/union-alpha/meta.json` (262K/131K, $2.50/$7.50, DeepSWE 70.0/69.9 with the ~74% misattribution corrected, composite architecture, noFreeId)](/model/union-alpha/meta.json)
-  - See also: [`model/pareto-26.10-preview/`](pareto-26.10-preview.md) — the successor Pareto 26.10, a **separately-tracked model** whose figures are deliberately not merged here; `model-aliases.generated.md` § Alias-family records, the `union-alpha` entry establishing that `pareto-26.9` and `unbiased-pareto` must never be scaffolded as folders
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-09
+- Method: public internet research (Unbiased Pareto model card, OpenRouter stealth listing + reveal, Capital & Compute, CellCog, HunterAlphaHub, Edge Notes, Ena Pragma); scores are normalized 1–100 interpretations, not official vendor scores.
+- Future sources: add a new file next to this one, e.g. `Pareto_26.10.md`, using the same headings.

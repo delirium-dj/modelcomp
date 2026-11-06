@@ -1,60 +1,81 @@
 # Qwen 3.7 — findings by Step 5 Preview
 
 - Source: Alibaba / Qwen 3.7 (generation entry — flagship `qwen3.7-max`)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen 3.7 (series entry; **canonical flagship SKU: Qwen3.7-Max**, 62.42 on BenchLM, refreshed in an earlier batch). **Identity resolution per `RULES.md` family-shorthand rule:** the bare name "Qwen 3.7" is Alibaba's **generation/series designation, not a standalone SKU**. Alibaba Cloud Model Studio lists only suffixed 3.7 IDs (`qwen3.7-max`, `qwen3.7-plus`, `qwen3.7-flash`); **no `Qwen/Qwen3.7` Hugging Face weights exist** — the announced open mid-tier never shipped, as the 3.7 generation was open-skipped in favour of Qwen3.8-27B. Every API ID, spec sheet and price for "Qwen 3.7" resolves to a tracked member folder, and the flagship carrying the 3.7 launch identity is **Qwen3.7-Max**: the official May 2026 blog "Qwen3.7: The Agent Frontier" is the Max launch, and Alibaba's own docs call Max "the largest and most capable in the Qwen3.7 series." **A negative finding also governs this report: BenchLM carries no `qwen-3.7` page in any spelling** (both `qwen-3-7` and `qwen3-7` 404; BenchLM tracks only `qwen3-7-max` at 62.42, `qwen3-7-plus` at 53.91 and `qwen3-7-flash` at 47.51).
-- **Short description:** This folder is a **series-level entry covering the flagship `qwen3.7-max`**, whose measured profile — refreshed in an earlier batch — is the strongest all-round proprietary Qwen in this research series: **GPQA Diamond 92.4% (vendor) / 92.3% [AA] / 90.2% (Vals), HLE 41.4% (vendor) / 40.5% [AA], MRCRv2 90.4%, AA-Omniscience index 13.5 with a 25.6% hallucination rate (the lowest in this research series), AA-LCR 79.0%, CritPt 13.4%, AA Agentic Index 23.9%** at a **1M window**. Its weaknesses are the agentic-execution layer and a multimodal suite of exactly one benchmark.
-- **Provider / access:** Alibaba Cloud Model Studio / QwenCloud (DashScope-compatible, OpenAI-style API) plus third-party gateways (OpenRouter `qwen/qwen3.7-max`, DeepInfra, Vercel AI Gateway, ~35–37 providers per models.dev). Chat Completions; tool calling, structured output and JSON mode supported.
-- **Release / knowledge:** **2026-05-19/20** — AA and AI Flash Report say May 19, the Alibaba snapshot ID is `qwen3.7-max-2026-05-20`, models.dev lists 2026-05-21; a minor date conflict all within the same launch window, recorded rather than reconciled. **Knowledge cutoff not published.**
-- **IDs:** `alibaba/qwen3.7-max` (Alibaba Cloud, list pricing); `qwen/qwen3.7-max` (OpenRouter and several gateways, ~$1.5–1.9/$4.4–5.6). **There is no `qwen-3.7` model ID** — the repo folder name is a series label, not a variant.
-- **Context window:** **1,000,000 tokens total** (Alibaba docs; AA; Vals AI measures 984K usable). **Max output conflicts across sources: 65,536 (models.dev, most providers), 131,072 in thinking mode (Alibaba docs), 66K (Vals), 33K (swfte)** — the output cap is not consistently published, which is recorded rather than resolved.
-- **Modalities:** **text in, text out — text-only, no image/video input**, confirmed on AA's comparison pages ("Image Input Support: No"). Reasoning model (hybrid thinking/non-thinking modes per series docs); tool calls, structured output and JSON mode all supported.
-- **Pricing (as of 2026-11-06):** **not published in the sources checked for this exact series entry** — BenchLM has no page. The repo's `meta.json` records a range of **~$0.32–$1.48 input / $1.28–$4.43 output per 1M** for the series, and the flagship's own route runs ~$1.5–1.9/$4.4–5.6 per OpenRouter. Scored conservatively and flagged as unverified.
-- **Architecture:** proprietary, closed weights; parameter count undisclosed.
+- **Name:** Qwen 3.7 (series entry; canonical flagship SKU: Qwen3.7-Max)
+- **Short description:** **Identity resolution (per `RULES.md` family-shorthand rule):** the bare name "Qwen 3.7" is Alibaba's *generation/series* designation, not a standalone SKU. Verified 2026-10-28: Alibaba Cloud Model Studio lists only suffixed 3.7 IDs (`qwen3.7-max`, `qwen3.7-plus`, `qwen3.7-flash`); no `Qwen/Qwen3.7` Hugging Face weights exist (InsiderLLM/LocalClaw repo probes return HTTP 401; the announced open mid-tier never shipped — the 3.7 generation was open-skipped in favor of Qwen3.8-27B). Every API ID, spec sheet and price for "Qwen 3.7" resolves to a tracked member folder, and the flagship that carries the 3.7 launch identity is **Qwen3.7-Max**: the official May 2026 blog "Qwen3.7: The Agent Frontier" (qwen.ai/blog?id=qwen3.7) is the Max launch, and Alibaba's own docs call Max "the largest and most capable in the Qwen3.7 series." Scores below therefore measure the flagship `qwen3.7-max`, with Plus/Flash noted as separate tracked folders (`qwen-3.7-plus`, `qwen-3.7-flash`) — never blended into these numbers.
+- **Provider / access:** Alibaba Cloud Model Studio / Qwen Cloud (DashScope-compatible, OpenAI-style API) + third-party gateways (OpenRouter `qwen/qwen3.7-max`, DeepInfra, Vercel AI Gateway, ~35-37 providers per models.dev). Chat Completions; tool calling + structured output supported.
+- **Release / knowledge:** 2026-05-19/20 (AA and AI Flash Report say May 19; the Alibaba snapshot ID is `qwen3.7-max-2026-05-20`, models.dev lists 2026-05-21 — minor date conflict, all within the same launch window). Knowledge cutoff not published.
+- **IDs:** `alibaba/qwen3.7-max` (Alibaba Cloud, list pricing); `qwen/qwen3.7-max` (OpenRouter and several gateways, ~$1.5-1.9/$4.4-5.6).
+- **Context window:** 1,000,000 tokens total (Alibaba docs; AA; Vals AI measures 984K usable). Max output conflicts across sources: 65,536 (models.dev most providers), 131,072 in thinking mode (Alibaba docs), 66K (Vals), 33K (swfte) — output cap not consistently published.
+- **Modalities:** Text in, text out — **text-only, no image/video input** (confirmed on AA's comparison pages: "Image Input Support: No"). Reasoning model (hybrid thinking/non-thinking modes per series docs); tool calls yes; structured output yes; JSON mode yes.
+- **Pricing (as of 2026-10-28):** $2.50 input / $7.50 output per 1M (Alibaba list; AA blended rate $1.60/1M at 7:2:1 cache ratio; ~80% cache discount). Gateway routes undercut list ($1.475/$4.425 standardcompute, $1.88/$5.63 some Qwen routes).
+- **Architecture:** Proprietary, parameter count undisclosed. Closed weights (no 3.7 open release ever shipped).
 
 ### Raw benchmarks found
 
-**A negative finding is stated plainly: BenchLM carries no `qwen-3.7` page in any spelling**, so the 2026-11-06 re-research had no catalog to check against for this series entry. The figures below are the flagship `qwen3.7-max`'s, carried from the prior verified research pass (2026-10-28) and re-attributed to Alibaba's Qwen3.7-Max launch material, Artificial Analysis, Vals AI, Epoch AI, Gert Labs, ResearchClawBench and Openrouter. **This folder deliberately covers the flagship only** — `qwen-3.7-plus` and `qwen-3.7-flash` are separate tracked folders whose figures are never blended in.
+> Primary sources: official Qwen3.7 launch blog (via BenchLM citations), Alibaba Cloud Model Studio docs, Artificial Analysis, Vals AI, BenchLM, DataCamp. Conflicting harness results listed side by side.
 
-- **GPQA Diamond: 92.4%** (vendor) / **92.3%** [AA] / **90.2%** (Vals) — the AA run clears the 90%+ frontier reference
-- **HLE: 41.4%** (vendor) / **AA-HLE 40.5%** — both clear the 40%+ frontier reference
-- **MRCRv2: 90.4%**; **AA-Omniscience: index 13.5 (positive), 25.6% hallucination — the lowest measured anywhere in this research series**
-- **AA-LCR: 79.0%**; CritPt: 13.4%; AA Agentic Index: 23.9%; GDPval-AA 1,190 Elo / 31.4% normalized
-- **AA Intelligence Index: 29.5%**; MMLU-Pro: 89.6% (vendor) / 89.3% (Vals); MMLU-Redux: 95%; MMMLU: 90.3%; SuperGPQA: 73.6%
-- IFEval: 94.3%; IFBench: 79.1% (vendor) / AA-IFBench 80.5% [AA]
-- **HMMT Feb 2026: 97.1%**; IMOAnswerBench: 90.0%; Apex: 44.5%; FrontierMath v2 Tiers 1–3: 64.6% / Tier 4: 34.1% [Epoch]
-- **SWE-bench Verified: 80.4%** (vendor) / 68.8% (Vals); SWE-bench Pro: 60.6%; SWE Multilingual: 78.3%; LiveCodeBench v6 91.6% (vendor) / 87.1% (Vals); AA Coding Index: 66.0%; AA-SciCode 49.5%
-- **Design Arena: 1,274 Elo** — the only multimodal row; no visual benchmark of any kind
-- **ARC-AGI, MRCR (native 1M), AIME: no verified public score found for this identity**
+Agent / tool use:
+
+- TAU2-bench: **94.7%** (AI Flash Report, verified 2026-09-29)
+- BFCL v4 (function calling): **75.0%** (BenchLM)
+- MCP Atlas: **76.4%** (AI Release Tracker, retrieved 2026-08-31)
+- Terminal-Bench 2.0: **69.7%** (official Qwen3.7 blog via BenchLM; vs Qwen3.6-Plus 61.6); Kilo Code harness run: 54.6% completion at $20.65/attempt — same benchmark, different harness/agent, both reported
+- Terminal-Bench 2.1 (Vals harness): **61.0%** (Vals AI leaderboard via BenchLM)
+- QwenClawBench (real-user-distribution Claw agent bench, open-source): **64.3%** (BenchLM)
+- Claw-Eval: **65.2%** (BenchLM)
+- YC-Bench (startup simulation): **$2.08M revenue**, 2x Qwen3.6-Plus (DataCamp, citing official blog)
+- GDPval-AA: **31.4%** (Artificial Analysis) / GDPval-AA Elo **886** attributed to the Plus sibling — mid-tier composite, no frontier result
+- Tau3-Banking: no verified public score found
+- GDPval-AA Elo for Max specifically: no verified public score found
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index: **56.6 (v4.3 era)** — DataCamp, AI Weekly, swfte all cite 56.6; "highest for a Chinese model at release" (AI Weekly). Current AA page marks Qwen3.7-Max deprecated vs Qwen3.8 Max and no longer updates non-default workloads (historical values retained).
+- GPQA Diamond: **92.4%** (BenchLM, sourced from the official blog; AI Release Tracker concurs) — **conflict:** Vals AI harness measures **90.2%**, AI Flash Report **92.3%**
+- MMLU-Pro: **89.6%** (official blog via BenchLM; Vals 89.3%)
+- MMLU-Redux: **95%**; SuperGPQA: **73.6%**; MMMLU: **90.3%** (official blog via BenchLM)
+- HLE (with tools): **41.4%** (BenchLM) — **conflict:** AI Flash Report lists **38.1%** (tools configuration unclear)
+- PolyMATH: **86.5%** (DataCamp citing official blog — ahead of Opus-4.6 Max 80.2, Kimi K2.6 Thinking 82.7)
+- Verbosity caveat: AA observed ~**97M output tokens** per index run vs a ~24M median (DataCamp) — heavily verbose; Vals AI measured 13m30s average task latency in thinking mode
+- CritPt / AA-Omniscience / LCR: no verified public score found for Max specifically
+
+Coding:
+
+- SWE-bench Verified: **80.4%** (BenchLM / AI Release Tracker) — **major conflict:** Vals AI's own harness measures **68.8%** (66.7% on the Vals-Index subset). Both cited; the 11.6-point gap is harness/scaffold difference, per the caveats pattern already documented in `model-comparison.md`.
+- SWE-bench Pro: **60.6%** (BenchLM; ahead of Opus 4.6 Max 56.6 per atomicbot.ai)
+- LiveCodeBench v6: **91.6%** (BenchLM) — **conflict:** Vals harness **87.1%**, AI Flash Report "LiveCodeBench Reasoning" **69.0%**
+- SWE-Multilingual: **78.3%** (BenchLM)
+- SciCode: **53.5%** (BenchLM, official blog) — **conflict:** AA-SciCode **49.5%** (AA), AI Flash Report **48.8%**
+- NL2Repo: **47.2%** (BenchLM)
+- BenchLM aggregate: overall **62.36/100, #48/992**; agentic public-lane **40.6 (#69/132)** (partial coverage, 43-59 of 706 benchmarks)
+- Vibe Code Bench: no verified public score found
+- DeepSWE: no verified public score found for Max (the Plus sibling is weaker)
+
+Long context:
+
+- 1M-token window verified across Alibaba docs/AA/Vals; MRCR / RULER / GraphWalks retrieval-at-length: no verified public score found for `qwen3.7-max`.
 
 ### Normalized scores (1–100)
 
-> **Methodology note.** This folder is a **series-level entry whose scores measure the flagship `qwen3.7-max`**, applied to the series folder per the repo's family-shorthand identity rule. The `qwen-3.7-plus` and `qwen-3.7-flash` folders are separately tracked and their figures are never blended in — recorded as a deliberate non-import. Because BenchLM has no page for this series entry, no 2026-11-06 cross-check exists for these figures.
-
-- **Tool use: 62/100.** Carried from the flagship's verified pass: a genuinely split dimension where the protocol half is strong (**τ²-bench 94.7% [AA], MCP Atlas 76.4%, BFCL v4 75.0%, QwenWebBench 1,568 Elo, Claw-Eval 65.2%**) and the execution half is not (**AA Agentic Index 23.9%, GDPval-AA 1,190 Elo / 31.4% normalized, terminalBenchHard 50.8%, ResearchClawBench 18.7%, Terminal-Bench 2.0 69.7% / 2.1 61.0% (Vals)** — an 8.7-point gap, both ~20–27 points under the reference). The strong-protocol-against-absent-execution pattern is the same one confirmed across twelve models in this research series.
-- **Reasoning: 82/100.** Carried from the flagship's verified pass, and the strongest dimension. **GPQA Diamond 92.4% / 92.3% [AA] / 90.2% (Vals) clears the 90%+ reference on two of three harnesses, HLE 41.4% (vendor) / 40.5% [AA] clears the 40%+ reference on both, MRCRv2 90.4% is the second-strongest in its family here, and the standout is AA-Omniscience index 13.5 (positive) with a 25.6% hallucination rate — the lowest measured anywhere in this research series.** HMMT Feb 2026 97.1%, IMOAnswerBench 90.0%, MMLU-Redux 95%, IFEval 94.3% and AA-IFBench 80.5% all support. Capped by **CritPt 13.4%, Apex 44.5%, FrontierMath Tier 4 34.1%, AA Intelligence Index 29.5%, and the missing ARC-AGI, native-1M MRCR and AIME.**
-- **Context window: 97/100.** Carried from the flagship's verified pass: **1M tokens at a proprietary hosted tier** — a full frontier window with a genuinely generous output allowance. **MRCRv2 90.4% and AA-LCR 79.0%** are strong evidence the window is usable at depth. Held just under 100 because no native-1M MRCR or GraphWalks run exists, **the max-output figure is inconsistently published across four sources (65,536 / 131,072 / 66K / 33K)**, and no long-context pricing tier was found.
-- **Multimodal: 55/100.** Carried from the flagship's verified pass: **text in, text out — text-only, no image or video input**, confirmed on AA's comparison pages. Scored at the bottom of the methodology's 60–70 band and marginally below it, because the entire measured visual evidence is one Design Arena result of 1,274 Elo and **MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench and MathVision have no figure whatsoever**. Scored as a text-only model rather than assumed from family grounds.
-- **Coding: 74/100.** Carried from the flagship's verified pass: mid-band and well-corroborated. **LiveCodeBench v6 91.6% (vendor) / 87.1% (Vals) is strong, SWE-bench Verified 80.4% (vendor) / 68.8% (Vals) is solid mid-frontier repair with an 11.6-point gap, and SWE Multilingual 78.3%, SWE-bench Pro 60.6% corroborate.** Capped by the 11.6-point vendor-vs-Vals gap, AA Coding Index 66.0% (4 under the 70% reference), AA-SciCode 49.5% (under 55%), NL2Repo 47.2%, and the absence of DeepSWE, Vibe Code Bench, Terminal-Bench 4.0 and FrontierCode.
-- **Cost efficiency: 60/100.** **No rate card is published in any source checked for this series entry** — BenchLM has no page. The repo's `meta.json` records a series range of **~$0.32–$1.48 input / $1.28–$4.43 output**, and the flagship's own route runs ~$1.5–1.9/$4.4–5.6. Scored at 60 on the methodology's ~$3/$15 anchor, with the wide range recorded rather than reconciled. **Explicitly an estimate, not a measurement** — held below 88 because the top of the range approaches flagship pricing, the model is **closed-source with no self-hosting escape**, and parameter count is undisclosed.
-- **Overall Score: 74/100.** (62 + 82 + 97 + 55 + 74 + 60) / 5 = 74.0 → **74**. Recommendation: **this series folder measures the flagship Qwen3.7-Max (62.42 on BenchLM, refreshed in an earlier batch) — the strongest all-round proprietary Qwen in this research series and the second-most-reliable model measured anywhere here.** GPQA Diamond 92.4%, HLE 41.4%, MRCRv2 90.4%, an AA-Omniscience index of 13.5 with a 25.6% hallucination rate (the series' lowest), HMMT Feb 2026 97.1% and a 1M window make it a genuinely strong reasoning package. **But read `model/qwen-3.7-max/` for the model itself** — this folder is a series-level entry per the repo's family-shorthand rule, and the bare "Qwen 3.7" name is not a SKU you can call. Three cautions carried from the flagship pass: **its agentic-execution layer is its weakest dimension** (AA Agentic Index 23.9%, GDPval-AA 31.4% normalized), so it is a reasoner rather than an autonomous agent; **it is a text-only model** whose multimodal capability is unproven — use `qwen-3.7-plus` if vision is required; and **it is superseded by Qwen3.8 Max (64.95)**, so prefer the successor unless pinned.
+- **Tool use: 78/100.** Exceptional classic function-calling (TAU2 94.7, BFCL 75.0, MCP Atlas 76.4) but only mid-tier agentic composites (Claw-Eval 65.2, QwenClawBench 64.3, GDPval-AA 31.4) and no Tau3/TB2.1 frontier numbers; capped below the 90-100 frontier band on GDPval-AA and the 54.6% Kilo-harness Terminal-Bench run.
+- **Reasoning: 88/100.** GPQA-D 92.4%, HLE 41.4% (tools) and PolyMATH 86.5 sit in the frontier band (GPQA 90+/HLE 40+ → 90-100), while the AA Intelligence Index 56.6 lands just under the 60+ frontier threshold — hence 88, not 90+. Verbose decode (97M tokens) and 13m30s Vals latency cap real-world usability.
+- **Context window: 95/100.** 1,000,000-token total window (Alibaba docs; AA; Vals 984K) = ≥1M tier; 95 rather than 100 because no independent 98%+ retrieval-at-512K evidence was found.
+- **Multimodal: 15/100.** Text-only input/output — AA comparison pages confirm no image input for `qwen3.7-max` (vision arrived only in the separate Plus sibling); 15 per the text-only band.
+- **Coding: 87/100.** SWE-bench Verified 80.4 and LiveCodeBench v6 91.6 are frontier-grade; SWE-bench Pro 60.6 and SciCode 53.5 sit below the 90-100 band references and the Vals-harness SWE number (68.8) confirms scaffold sensitivity — capped at 87.
+- **Cost efficiency: 78/100.** $2.50/$7.50 list (blended $1.60/1M with cache) interpolates to ~78 between the $1.25/$4.25≈88 and $3/$15≈60 anchors; gateway routes at ~$1.5/$4.5 improve it further, but no free tier exists.
+- **Overall Score: 73/100.** Mean of Tool 78 + Reasoning 88 + Context 95 + Multimodal 15 + Coding 87 = 363/5 = 72.6 → 73. Best fit: text-only agentic coding and long-horizon office/productivity work at mid-premium pricing; pick the `qwen-3.7-plus` entry when vision is needed and `qwen-3.7-flash` for cheap 1M-context jobs — this entry is the flagship, not the whole family.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
-- Method: re-research that established **two findings first: (1) BenchLM carries no `qwen-3.7` page in any spelling** (both `qwen-3-7` and `qwen3-7` 404; BenchLM tracks only the separately-scored `qwen3-7-max` at 62.42, `qwen3-7-plus` at 53.91 and `qwen3-7-flash` at 47.51), so the 2026-11-06 pass had no catalog to check against for this series entry; and (2) **per `RULES.md` family-shorthand identity, the bare name "Qwen 3.7" is Alibaba's generation designation, not a standalone SKU** — verified across Alibaba Cloud Model Studio (only suffixed 3.7 IDs), Hugging Face (no `Qwen/Qwen3.7` weights; the announced open mid-tier never shipped, as 3.7 was open-skipped for Qwen3.8-27B) and the official May-2026 "Qwen3.7: The Agent Frontier" blog, which is the Max launch. The evidence base is the prior verified research pass (2026-10-28) re-attributed to Alibaba's Qwen3.7-Max launch material, Artificial Analysis, Vals AI, Epoch AI, Gert Labs, ResearchClawBench and Openrouter, with **the absence of any independent cross-check from a 2026-11-06 source stated plainly**. **This folder deliberately covers the flagship `qwen3.7-max` only, and a deliberate non-import is recorded: the `qwen-3.7-plus` and `qwen-3.7-flash` siblings' figures are never blended into these numbers** — the repo's family-shorthand rule applied correctly. **Four spec conflicts are recorded rather than reconciled: the release date (May 19 per AA / May 20 per the snapshot ID / May 21 per models.dev), and the max-output cap (65,536 / 131,072 in thinking mode / 66K / 33K across four sources).** The **lowest AA-Omniscience hallucination rate in this research series (25.6%, on a positive index of 13.5)** is attributed rather than presented bare, as is the **second-strongest MRCRv2 (90.4%)**. The strong-protocol-against-absent-execution pattern is recorded as consistent with twelve models in this series. The unpublished rate card is surfaced with the repo's wide series range recorded rather than averaged, and its effect on the cost score stated as an estimate. Missing benchmarks (ARC-AGI, native-1M MRCR, AIME, DeepSWE, Vibe Code Bench, Terminal-Bench 4.0, FrontierCode, and every visual benchmark except Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Reference URLs:
-  - [Qwen — "Qwen3.7: The Agent Frontier" launch blog (the Max launch; official source)](https://qwen.ai/blog?id=qwen3.7)
-  - [Alibaba Cloud Model Studio — model list and pricing (only suffixed 3.7 IDs listed)](https://www.alibabacloud.com/help/en/model-studio/models)
-  - [Alibaba — Qwen3.7-Max model documentation](https://qwenlm.github.io/blog/qwen3.7-max/)
-  - [Openrouter — qwen/qwen3.7-max benchmarks and pricing](https://openrouter.ai/qwen/qwen3.7-max)
-  - [Repo curated meta — `model/qwen-3.7/meta.json` (generation entry, series price range, noFreeId)](/model/qwen-3.7/meta.json)
-  - See also: [`model/qwen-3.7-max/`](qwen-3.7-max.md) — **the flagship SKU this series folder measures, refreshed earlier in this session**; [`model/qwen-3.7-plus/`](qwen-3.7-plus.md) — the vision-bearing sibling; [`model/qwen-3.7-flash/`](qwen-3.7-flash.md) — the Flash sibling; [`model/qwen-3.8-max/`](qwen-3.8-max.md) (64.95) — the successor generation
+- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-28
+- Method: public internet research (Qwen official launch blog via BenchLM citations, Alibaba Cloud Model Studio docs, Artificial Analysis, Vals AI, BenchLM, DataCamp, AI Flash Report, AI Release Tracker, models.dev, InsiderLLM/LocalClaw weight-existence audits); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

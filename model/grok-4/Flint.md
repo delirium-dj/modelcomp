@@ -1,7 +1,7 @@
 # Grok 4 — findings by Flint
 
 - Source: xAI / Grok 4
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Grok 4 (xAI; Grok family — flagship tier); Grok 4 Heavy is the higher-tier variant.
 - **Short description:** xAI's flagship model, positioned by xAI as "the most intelligent model in the world"; native tool use with real-time X / web search integration; released Jul 2025; also the base for Grok 4 Heavy.
 - **Provider / access:** xAI API (SuperGrok / Premium+ subscribers; xAI API); Grok 4 Heavy tier; later surfaced via third-party provider Azure (per Artificial Analysis).
-- **Release / knowledge:** Release date 2026-11-06 (xAI blog; Epoch AI); knowledge cutoff not stated in verified sources.
+- **Release / knowledge:** Release date 2025-07-09 (xAI blog; Epoch AI); knowledge cutoff not stated in verified sources.
 - **IDs:** `grok-4`; `grok-4-heavy`.
 - **Context window:** 256,000 tokens (xAI blog API spec) — conflicting report of 260k (Artificial Analysis FAQ); max output not stated in verified sources.
 - **Modalities:** Reasoning yes (extended thinking); text + image input, text output; multimodal (vision) per xAI; Grok Voice Mode adds camera / video understanding; no audio / PDF coverage found in verified sources.
-- **Pricing (as of 2026-11-06):** $3.00 input / $15.00 output per 1M tokens (xAI, Epoch AI, Artificial Analysis); blended cache-hit/input/output (7:2:1) ≈ $4.20 per 1M tokens; Artificial Analysis rated input as "somewhat expensive" vs median.
+- **Pricing (as of 2026-10-28):** $3.00 input / $15.00 output per 1M tokens (xAI, Epoch AI, Artificial Analysis); blended cache-hit/input/output (7:2:1) ≈ $4.20 per 1M tokens; Artificial Analysis rated input as "somewhat expensive" vs median.
 - **Architecture:** Proprietary (xAI / SpaceXAI); ~3.0e12 total parameters (Epoch AI) with 5.0e26 FLOPs training compute.
 
 ### Raw benchmarks found
@@ -50,6 +50,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (xAI blog) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

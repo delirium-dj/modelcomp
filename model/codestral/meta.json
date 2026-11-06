@@ -1,25 +1,9 @@
 {
   "id": "opencode/codestral",
   "name": "Codestral",
-  "short": "Mistral's original 22B open-weight code model (`codestral-2405`, 2024): low-latency fill-in-the-middle autocomplete across 80+ languages at 32K context; the live `codestral` alias now redirects to Codestral 25.08.",
-  "contextWindow": "32,768 total",
-  "modalities": "Text, code in; text, code out",
-  "pricingNote": "Source-available weights; `codestral-2405` is deprecated — the live alias resolves to Codestral 25.08.",
-  "pricingTiers": [
-    "Historical La Plateforme API ~$0.30/$0.90 per 1M in/out (now redirected to codestral-2508)",
-    "Self-host source-available weights $0 (non-commercial license)"
-  ],
-  "noFreeId": true,
-  "officialUrl": "https://mistral.ai/news/codestral/",
-  "pricingLinks": [
-    "https://mistral.ai/news/codestral/",
-    "https://mistral.ai/pricing"
-  ],
-  "standout": "The model that started Mistral's code line — SOTA FIM autocomplete at launch (HumanEval 81.1, FIM pass@1 91.8) from a light 22B.",
-  "tradeoff": "A superseded 2024 release: 32K window, no reasoning/agentic modes, no independent AA row — the live alias now points to 25.08, so this bare slug risks conflation with `codestral-25.08`.",
-  "aliases": [
-    "codestral-2405",
-    "mistralai/codestral-22b-v0.1",
-    "mistral/codestral"
-  ]
+  "short": "Codestral model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
 }

@@ -1,7 +1,7 @@
 # Muse Glimmer 30B — findings by Flint
 
 - Source: Meta Superintelligence Labs / Hugging Face `meta-models/Muse-Glimmer-30B`
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `meta/muse-glimmer-30b` (meta.json / provider namespace); Hugging Face `meta-models/Muse-Glimmer-30B`.
 - **Context window:** 131,072+ tokens (Hugging Face model card; meta.json).
 - **Modalities:** Text + image input, text output (perception encoder ViT-G/14 ~1.8B params); no audio.
-- **Pricing (as of 2026-11-06):** Open weights Apache 2.0 self-host free; hosted from $0.30/$1.10 per 1M (OpenRouter) / $0.35/$1.50 (Fireworks/Together/Vercel) / $0 (NVIDIA NIM).
+- **Pricing (as of 2026-10-28):** Open weights Apache 2.0 self-host free; hosted from $0.30/$1.10 per 1M (OpenRouter) / $0.35/$1.50 (Fireworks/Together/Vercel) / $0 (NVIDIA NIM).
 - **Architecture:** Open-weight dense causal transformer with perception encoder; ~29.6B parameters total, 52 layers, hidden 6656, sliding window [Local, Local, Local, Global] repeating, SW 2048, GQA (32 Q / 2 KV), RoPE θ=500k, SwiGLU FFN (intermediate 19,968), vocab 202,048, context 131,072+, multimodal text+image.
 
 ### Raw benchmarks found
@@ -57,6 +57,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (Meta Superintelligence Labs / Hugging Face `meta-models/Muse-Glimmer-30B` + arXiv:2610.24628) plus prior in-repo findings cross-check — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

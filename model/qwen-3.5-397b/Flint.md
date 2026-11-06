@@ -1,7 +1,7 @@
 # Qwen 3.5 397B - findings by Flint
 
 - Source: Alibaba / Qwen3.5 397B-A17B (open-weights MoE)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -10,11 +10,11 @@
 - **Name:** Qwen 3.5 397B (Qwen3.5-397B-A17B)
 - **Short description:** Alibaba's open-weights multimodal MoE (397B total / 17B active) for reasoning, coding and vision; SWE-bench 76.4%, AIME 91.3%, Apache 2.0.
 - **Provider / access:** Hugging Face (`https://huggingface.co/Qwen/Qwen3.5-397B-A17B`), Model Studio / Alibaba API; OpenCode Zen / OpenRouter routes (`opencode/qwen-3.5-397b`).
-- **Release / knowledge:** Released 2026-11-06; knowledge cutoff not verified in sources found.
+- **Release / knowledge:** Released 2026-02-15; knowledge cutoff not verified in sources found.
 - **IDs:** `Qwen/Qwen3.5-397B-A17B`; `opencode/qwen-3.5-397b`.
 - **Context window:** **262,144** native (extensible to ~1,010,000; **1M hosted**) (repo meta; models.dev).
 - **Modalities:** Text, image, video in; text out; no audio input (models.dev note).
-- **Pricing (as of 2026-11-06):** Apache 2.0 open weights (free self-host); Artificial Analysis $0.60/$3.60 per 1M.
+- **Pricing (as of 2026-10-25):** Apache 2.0 open weights (free self-host); Artificial Analysis $0.60/$3.60 per 1M.
 
 - **Architecture:** Open-weights MoE (397B total / 17B active); Apache 2.0.
 
@@ -41,6 +41,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen-3.5-397b)** - 2026-11-06
+- Provided by: **Flint (opencode/qwen-3.5-397b)** - 2026-10-25
 - Method: public web research prioritizing official model card/docs plus independent benchmarks - three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

@@ -4,19 +4,12 @@
   "short": "NVIDIA's Apr 2026 open 31B/3B-active omni reasoning model (audio+vision+video+text in, 256-262K ctx) with a free Build endpoint - not on Zen.",
   "contextWindow": "256,000-262,144 (NVIDIA states both); 65,536 max output",
   "modalities": "Text, image, video, audio in; text out",
-  "pricingNote": "Free on NVIDIA NIM / Build ($0); OpenRouter free route; paid $0.20/$0.80 (DeepInfra)",
+  "pricingNote": "$0 on NVIDIA Build and the OpenRouter free route; paid $0.20/$0.80 (DeepInfra)",
+  "noFreeId": true,
   "officialUrl": "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
   "pricingLinks": [
-    "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
-    "https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-    "https://deepinfra.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
+    "https://build.nvidia.com/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
   ],
   "standout": "The on-device omni: audio, vision and text reasoning from a 30B-A3B open model with a free hosted endpoint.",
-  "tradeoff": "Nano-class depth and a 262K ceiling — it senses and responds, frontier models conclude.",
-  "freeTierNote": "Free hosted endpoint available on NVIDIA NIM (build.nvidia.com) and OpenRouter free route; paid commercial hosting from $0.20/$0.80",
-  "pricingTiers": [
-    "Free on NVIDIA NIM / Build ($0)",
-    "OpenRouter free route (:free)",
-    "Paid $0.20/$0.80 per 1M (DeepInfra)"
-  ]
+  "tradeoff": "Nano-class depth and a 262K ceiling — it senses and responds, frontier models conclude."
 }

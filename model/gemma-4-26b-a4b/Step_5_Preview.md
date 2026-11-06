@@ -19,8 +19,6 @@
 
 ### Raw benchmarks found
 
-All figures are vendor-reported from the HF model card (several re-confirmed by HF's own eval-results widget) and carried from the prior verified research pass (2026-10-24) with re-attribution; no independent tracker catalog page exists for cross-check.
-
 - **GPQA Diamond: 82.3** (HF card; confirmed at 82.3 by the HF eval-results widget) — 7.7 under the 90% frontier reference
 - **MMLU-Pro: 82.6** (HF card; confirmed at 82.6 by the widget); **MMMLU: 86.3**
 - **AIME 2026 without tools: 88.3** (HF card) — near the 90%+ tier

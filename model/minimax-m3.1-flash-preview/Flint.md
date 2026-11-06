@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash — findings by Flint
 
 - Source: MiniMax / MiniMax M3.1 Flash
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-22 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -34,6 +34,6 @@
 
 ## Signature
 
-- Provided by: **MiniMax M3.1 Flash (minimax-m3.1-flash-preview)** - 2026-11-06
+- Provided by: **MiniMax M3.1 Flash (minimax-m3.1-flash-preview)** — 2026-10-22
 - Method: public web research prioritizing official model card/docs plus independent benchmarks — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

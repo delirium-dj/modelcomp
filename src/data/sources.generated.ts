@@ -100,7 +100,8 @@ export type SourceKey =
   | "Xing 4.0.29B A4B"
   | "MiniMax M2.7"
   | "Mistral Medium 3.5"
-  | "Mistral Large 4";
+  | "Mistral Large 4"
+  | "Ling 3.2 Flash";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -212,4 +213,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "MiniMax M2.7", label: "MiniMax M2.7", file: "MiniMax_M2.7.md", slug: "minimax-m2.7" },
   { key: "Mistral Medium 3.5", label: "Mistral Medium 3.5", file: "Mistral_Medium_3.5.md", slug: "mistral-medium-3.5" },
   { key: "Mistral Large 4", label: "Mistral Large 4", file: "Mistral_Large_4.md", slug: "mistral-large-4" },
+  { key: "Ling 3.2 Flash", label: "Ling 3.2 Flash", file: "Ling_3.2_Flash.md", slug: "ling-3.2-flash" },
 ];

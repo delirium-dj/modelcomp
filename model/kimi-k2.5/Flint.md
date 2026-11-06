@@ -1,7 +1,7 @@
 # Kimi K2.5 - findings by Flint
 
 - Source: Moonshot AI / Kimi K2.5 (open-weight MoE)
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-25 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Kimi K2.5
 - **Short description:** Moonshot AI's open-weight 1T/32B MoE with 256K context for long-context agents and multimodal work; SWE-bench 70.8%, AIME 95.8%.
-- **Provider / access:** Hugging Face (`https://huggingface.co/moonshotai/Kimi-K2.5`), Moonshot Kimi API (retired 2026-11-06); OpenCode Zen / OpenRouter routes (`opencode/kimi-k2.5`).
-- **Release / knowledge:** Released 2026-11-06; knowledge cutoff **2025-01** (models.dev).
+- **Provider / access:** Hugging Face (`https://huggingface.co/moonshotai/Kimi-K2.5`), Moonshot Kimi API (retired 2026-08-31); OpenCode Zen / OpenRouter routes (`opencode/kimi-k2.5`).
+- **Release / knowledge:** Released 2026-01-27; knowledge cutoff **2025-01** (models.dev).
 - **IDs:** `moonshotai/Kimi-K2.5`; `opencode/kimi-k2.5`.
 - **Context window:** **262,144** total / **65,536** out (repo meta; models.dev 262,144/262,144).
 - **Modalities:** Text, image, video in; text out; no audio.
-- **Pricing (as of 2026-11-06):** Open weights; OpenCode Zen $0.60/$3.00 per 1M (cached $0.08).
+- **Pricing (as of 2026-10-25):** Open weights; OpenCode Zen $0.60/$3.00 per 1M (cached $0.08).
 
 - **Architecture:** Open-weights MoE (1T total / 32B active); Apache 2.0.
 
@@ -39,6 +39,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/kimi-k2.5)** - 2026-11-06
+- Provided by: **Flint (opencode/kimi-k2.5)** - 2026-10-25
 - Method: public web research prioritizing official model card/docs plus independent benchmarks - three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

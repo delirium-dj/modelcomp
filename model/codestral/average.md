@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
 - Average from top 5 by Overall Score: Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Qwen 3.8 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Flint, Laguna XS 2.1, Muse Glimmer 30B.
+- Ignored below-gate rater(s): Flint, Laguna XS 2.1, Muse Glimmer 30B, Nemotron 3.5 Super VL 120B A12B.

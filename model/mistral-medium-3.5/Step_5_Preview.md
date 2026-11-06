@@ -1,60 +1,57 @@
 # Mistral Medium 3.5 — findings by Step 5 Preview
 
-- Source: Mistral AI (`mistral-medium-3-5`)
-- Date: 2026-11-06 (UTC)
+- Source: Mistral AI (`mistral-medium-3.5`, model ID `mistral-medium-2604`)
+- Date: 2026-10-19 (UTC) — re-run; first researched 2026-10-09
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Mistral Medium 3.5 (properly **Mistral Medium 3.5 128B**). Mistral AI's **dense 128B open-weight multimodal** model, released **2026-04-29**. **Two negative findings govern this report: (1) the repo folder `mistral-medium-3.5` 404s on BenchLM, whose canonical slug is the suffixed `mistral-medium-3-5-128b`; (2) even that page carries only 7 source-displayable rows and a score of 29.56 described by BenchLM as "(Estimated)"**, with models being scored on the public leaderboard at #181 of 216. So the evidence base is thin *and* BenchLM's own score for it is an estimate.
-- **Short description:** A **European, dense, MIT-licensed, self-hostable multimodal 128B** model at **$1.50/$7.50 per 1M** with a **256K context window and configurable reasoning** — its distinguishing property being the licence (modified MIT) and the self-hosting freedom that goes with it. Its headline capability figure is **SWE-bench Verified 77.6%**, corroborated across independent write-ups, against **HLE 4.52%**.
-- **Provider / access:** Mistral's own API (**4 providers tracked** per CloudPrice), and **self-hosting** — Mistral's own pricing page confirms "Yes, you can self-host our models anywhere," with open-weight models under a **modified MIT licence** where "commercial deployments require a Mistral license with separate terms for derivatives and production use." No Zen free tier is recorded.
-- **Release / knowledge:** **released 2026-04-29** (llm-stats, and independently by aistudio.quest). Note one independent source (Benchgen) dates it "Oct 2025", which conflicts with the 2026-04-29 date carried by two others — recorded rather than reconciled. **Knowledge cutoff not disclosed.**
-- **IDs:** `mistral-medium-3-5` (repo, llm-stats, cloudprice); `mistral-medium-3-5-128b` (BenchLM canonical); `mistralai/mistral-medium-3.5` (expected HF form, unverified in this pass).
-- **Context window:** **256K–262K tokens** — sources differ between 256K and 262K (262,144), which is a rounding difference rather than a conflict.
-- **Modalities:** **multimodal** — text and image in, per the independent write-ups; one describes it as "Best self-hostable multimodal model."
-- **Pricing (as of 2026-11-05):** **$1.50 input / $7.50 output per 1M** — corroborated by **five independent sources** (llm-stats, CloudPrice, userightai, anotherwrapper, aistudio.quest), making this the best-corroborated pricing fact in this batch.
-- **Architecture:** **dense 128B, open weights, modified MIT licence**, with configurable reasoning.
+- **Name:** Mistral Medium 3.5 (`mistral-medium-3.5`, weights `mistralai/Mistral-Medium-3.5-128B`)
+- **Short description:** Mistral's "first flagship merged model" — a dense 128B open-weight model (Modified MIT license) that unifies instruct, reasoning and coding in a single set of weights, replacing Mistral Medium 3.1 and Magistral in Le Chat and Devstral 2 in the Vibe coding agent. Reasoner effort is configurable per request, vision uses a custom encoder that handles variable image sizes/aspect ratios, and it can self-host on as few as 4× H100 (FP8, ~128GB weights). Released 2026-04-29.
+- **Provider / access:** Mistral API (`mistral-medium-3.5`), Le Chat, OpenRouter, NVIDIA build.nvim/NIM, and Hugging Face open weights.
+- **Release:** 2026-04-29 (Artificial Analysis tracks 2026-04-29; OpenRouter listing Apr 30).
+- **Context window:** 256K tokens (262,144 in/out).
+- **Modalities:** Text and image in → text out; configurable reasoning mode (fast instant-reply or reasoning with test-time compute); native function calling and JSON output; dozens of languages.
+- **Pricing (as of 2026-10-09):** $1.50/M input, $7.50/M output (Mistral API; third parties match or add ~10%; self-hostable under Modified MIT, which routes companies above a large-revenue threshold back to Mistral's paid channel).
+- **Architecture:** Dense 128B transformer; no parameter/architecture detail beyond that published.
 
 ### Raw benchmarks found
 
-**A negative finding is stated plainly: the repo folder spelling 404s on BenchLM**, and the canonical page (`mistral-medium-3-5-128b`) carries only **7 source-displayable rows with a BenchLM score of 29.56 that BenchLM itself labels "(Estimated)"**. So the 2026-11-06 re-research relied on independent write-ups. The figures below come from **five or more independent sources** (Benchgen, aimadetools, aistudio.quest, userightai, anotherwrapper, llm-stats, CloudPrice, LM Market Cap), which is good corroboration of the *figures* but none of it is a first-party benchmark table.
+Vendor-reported (Hugging Face model card):
 
-- **SWE-bench Verified: 77.6%** — corroborated by Benchgen, aimadetools and aistudio.quest independently, making it the best-attested figure for this model
-- **HLE: 4.52%** (Benchgen) — near-floor
-- **256K context, $1.50/$7.50, dense 128B, modified MIT, configurable reasoning, multimodal** — all corroborated across five-plus sources
-- **LM Market Cap's composite: 40/100**, with component signals of **Capabilities 83/100, Pricing 93/100, Context Window 86/100** — an independent aggregate, recorded as such rather than merged into the normalized scores
-- **GPQA, CritPt, AA-LCR, MRCR, ARC-AGI, AIME, MATH, LiveCodeBench, DeepSWE, AA Coding Index, Terminal-Bench, τ²-bench, MCP-Atlas, OSWorld, GDPval-AA, AA Agentic Index, AA-Omniscience, AA Intelligence Index, MMMU-Pro, CharXiv, Design Arena: no verified public score found for this identity**
+- SWE-bench Verified: **77.6%** (ahead of Devstral 2 and Qwen 3.5 397B A17B; behind Gemini 3.1 Pro 78.8% and Claude Sonnet 4.6 79.6%)
+- τ³-Telecom: **91.4%**
+- LEXam-hard: 31.89
+
+Artificial Analysis (as reported on OpenRouter, current index version):
+
+- Intelligence Index: **14.2** (median of comparable models: 8); Coding Index: **46.9**; Agentic Index: **7.0**
+- GPQA Diamond: **74.8%**; HLE: **13.8%**; IFBench: **68.8%**
+- τ²-Bench Telecom: **94.2%**; τ-Bench Banking: **15.1%**; GDPval-AA: **13.2%**
+- AA-LCR (long-context reasoning): **69.3%**
+- SciCode: **40.2%**; Terminal-Bench 2.1: **50.6%**; Terminal-Bench Hard: **33.3%**; Terminal-Bench 4.0: **0.0%**; CritPt: **0.0%**
+- AA-Omniscience: accuracy 24.7%, non-hallucination rate 18.4%
+- SWE-Bench Pro: **64.3%** (public benchmark data, verified April 2026)
+
+Notably absent from Mistral's launch materials: MMLU, AIME, MMMU, HumanEval, MATH — **no verified public score found** for those.
+
+Third-pass verification (2026-10-19): Artificial Analysis has no mistral-medium-3.5 page (404 on the natural slug) and BenchLM has no mistral-medium-3.5 page (404) — both trackers untracked for this April-2026 model; the AA-via-OpenRouter rows on file remain the only independent evidence. No new data — no score change warranted.
 
 ### Normalized scores (1–100)
 
-> **Methodology note.** With two carried-forward capability figures and no BenchLM catalog page, every quality dimension below is a placeholder-for-unknown anchored on the verified structural facts (256K window, modified MIT open weights, $1.50/$7.50, dense 128B, multimodal) and independent corroboration. The two dimensions where this SKU is genuinely distinctive — **cost efficiency** ($1.50/$7.50, the best-corroborated pricing fact in this batch) and **licence/access** (modified MIT with self-hosting freedom) — are the best-grounded scores in this report.
-
-- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** Not one agentic benchmark exists — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. Scored at 50 rather than below because a frontier-class dense 128B with function calling presumably has a tool-use substrate; **not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated.**
-- **Reasoning: 62/100.** Mid-band, anchored on two real figures: **SWE-bench Verified 77.6%** (corroborated across three independent sources), which requires genuine reasoning to achieve, and **HLE 4.52%**, which shows open-ended depth is near-floor. The split is the model's signature. Capped further by the total absence of GPQA, CritPt, AA-LCR, MRCR, the composite index, ARC-AGI, AIME, MATH and every reliability figure — so composite depth and reliability are unknown.
-- **Context window: 85/100.** **256K–262K tokens** places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 85 on the strength of both the window size and the **independent LM Market Cap signal of Context Window 86/100**. Held below the ≥1M tier because it is roughly a quarter of the current standard and **no AA-LCR or MRCR figure exists**, so the window's usable depth is unverified.
-- **Multimodal: 62/100.** **Multimodal — text and image in, text out** — per the independent write-ups, placing it in the methodology's 60–70 band. Scored at 62, at the band's lower edge, because the modality claim is corroborated but **not one visual benchmark exists** — no MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision or Design Arena figure.
-- **Coding: 72/100.** Mid-band and the best-grounded quality dimension, anchored on the one well-attested figure: **SWE-bench Verified 77.6%** — solid mid-frontier repair, corroborated by three independent sources, and the model's headline claim. Capped by it sitting 7.4 points under the 85%+ terminal reference, and by the total absence of SWE-bench Pro, LiveCodeBench, DeepSWE, AA-SciCode, the AA Coding Index, Vibe Code Bench, Terminal-Bench and FrontierCode — so the 74%, 70% and 55% references cannot be checked.
-- **Cost efficiency: 88/100.** **$1.50/$7.50 per 1M, corroborated by five independent sources** — the best-corroborated pricing fact in this batch, sitting directly on the methodology's ~$1.25/$4.25 (≈88) anchor. Scored at 88 on the rate card. Held there rather than higher because **the licence is a *modified* MIT, not plain Apache: Mistral's own pricing page states that commercial deployments "require a Mistral license with separate terms for derivatives and production use"** — so the self-hosting freedom is real but not unconditional, and this is the model's most important commercial caveat.
-- **Overall Score: 66.2/100.** (50 + 62 + 85 + 62 + 72 + 88) / 5 = 71.8 → **72**. Recommendation: **a European self-hostable multimodal 128B with a genuinely attractive licence-and-price combination and a thin evidence base.** SWE-bench Verified 77.6% (independently corroborated), a 256K window, configurable reasoning, **$1.50/$7.50** and **modified-MIT open weights** make a reasonable case for self-hosted European deployment where data residency matters. **But the evidence base is thin: the repo folder spelling 404s on BenchLM, the canonical page carries 7 rows with a BenchLM score it itself labels "(Estimated)", and only two capability figures exist** — so treat the 72 as a floor on evidence, and benchmark it yourself before relying on it. **One commercial caveat that must travel with the licence claim: Mistral's own pricing page states that commercial deployments of its open-weight models "require a Mistral license with separate terms for derivatives and production use"** — verify the terms for your use case before treating this as unconditional self-hosting freedom.
+- **Tool use: 60/100.** τ²-Bench Telecom 94.2% and vendor τ³-Telecom 91.4% are strong, and it is explicitly built for agentic work (powers Vibe); pulled back to mid-band by τ-Bench Banking 15.1%, GDPval-AA 13.2% and an Agentic Index of 7.0 — excellent in one domain, weak in others.
+- **Reasoning: 62/100.** GPQA Diamond 74.8% and IFBench 68.8% sit in the mid band (60–80% GPQA); HLE 13.8% and Intelligence Index 14.2 cap it below frontier; AA-Omniscience 24.7% accuracy shows knowledge gaps and an 18.4% non-hallucination rate is a real reliability concern.
+- **Context window: 73/100.** 256K is the 200K–500K band (worth 65–84), supported by AA-LCR 69.3% — a quarter of the 1M frontier norm, so mid-band.
+- **Multimodal: 68/100.** Text + image in → text out is the 60–70 band; the custom vision encoder with variable sizes/aspect ratios is a genuine plus, but Mistral published no MMMU/CharXiv/Video-MME score, so it stays at the top of the image-input band.
+- **Coding: 72/100.** SWE-bench Verified 77.6% (vendor) and SWE-bench Pro 64.3% are the strongest dense open-weights coding at release — close to Sonnet 4.6's 79.6%; capped by Terminal-Bench 2.1 50.6%, TB Hard 33.3%, TB 4.0 0.0%, SciCode 40.2% and Coding Index 46.9.
+- **Cost efficiency: 78/100.** $1.50/$7.50 per million tokens is mid-priced for the tier (half of Sonnet 4.6's input price, but $7.50 output is dear); open weights under Modified MIT help self-hosters, though the license's large-revenue carve-out pushes big enterprises back to the paid API.
+- **Overall Score: 67/100.** Best-fit recommendation: a self-hostable 128B consolidate-everything model — the best open-weights option when you need instruct + reasoning + coding + vision in one deployment on 4 GPUs; as an API it is outclassed on price-performance by Chinese open-weight models at a fifth of the size.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
-- Method: re-research that established **two negative findings first: (1) the repo folder spelling `mistral-medium-3.5` 404s on BenchLM, whose canonical slug is the suffixed `mistral-medium-3-5-128b`; (2) even that page carries only 7 source-displayable rows and a BenchLM score of 29.56 that BenchLM itself labels "(Estimated)"** — so the 2026-11-06 pass had no usable catalog and relied instead on independent write-ups. The evidence base is **five or more independent sources** (Benchgen, aimadetools, aistudio.quest, userightai, anotherwrapper, llm-stats, CloudPrice, LM Market Cap), which is good corroboration of the *figures* but none of it is a first-party benchmark table — stated plainly rather than implied. Because only two capability figures carry forward, every quality dimension is explicitly labelled a placeholder-for-unknown anchored on verified structural facts, and the two best-grounded dimensions — cost ($1.50/$7.50) and access (modified-MIT self-hosting) — are scored on facts corroborated across five-plus sources. **A deliberate non-import is recorded: LM Market Cap's independent composite (40/100, with component signals Capabilities 83, Pricing 93, Context Window 86) is recorded as an external aggregate and deliberately NOT merged into the normalized scores**, because its weighting is not the repo methodology's. **A licence caveat is surfaced and carried into the recommendation: the licence is *modified* MIT, not plain Apache — Mistral's own pricing page states that commercial deployments "require a Mistral license with separate terms for derivatives and production use"**, so the self-hosting freedom is real but conditional, and this is the model's most important commercial fact. **A date conflict is recorded rather than reconciled: the 2026-04-29 release date carried by llm-stats and aistudio.quest against Benchgen's "Oct 2025".** Missing benchmarks (every benchmark measured anywhere in this research series, across agentic, reasoning, coding and multimodal) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Reference URLs:
-  - [Mistral — pricing page (source of the licence terms and the self-hosting statement)](https://mistral.ai/pricing/)
-  - [LLM Stats — Mistral Medium 3.5 (release date 2026-04-29, $1.50/$7.50, 256K context)](https://llm-stats.com/models/mistral-medium-3-5)
-  - [CloudPrice — Mistral Medium 3.5 pricing and specs ($1.50/1M input, 262K context, 4 providers)](https://cloudprice.net/models/mistral-medium-3-5)
-  - [BenchLM — Mistral Medium 3.5 128B (canoninal suffixed slug; 7 rows, 29.56/100 described as "(Estimated)")](https://benchlm.ai/models/mistral-medium-3-5-128b)
-  - [Benchgen — Mistral Medium 3.5 (SWE-bench Verified 77.6%, HLE 4.52%)](https://benchgen.com/models/mistral-ai/mistral-medium-3-5)
-  - [aimadetools — Mistral Medium 3.5 complete guide (77.6% SWE-bench, 256K, configurable reasoning, open weights)](https://www.aimadetools.com/blog/mistral-medium-3-5-complete-guide/)
-  - [UseRightAI — Mistral Medium 3.5 ($1.5/$7.5, 262K, "best self-hostable multimodal model — European, dense, MIT-licensed")](https://www.userightai.com/models/mistral-medium-3-5)
-  - [AnotherWrapper — Mistral Medium 3.5 API pricing](https://anotherwrapper.com/tools/llm-pricing/mistral-medium-3-35)
-  - [AIStudio.quest — Mistral Medium 3.5 specs and benchmarks (April 2026, 256K, multimodal, modified MIT)](https://aistudio.quest/mistral-medium-3-5.html)
-  - [LM Market Cap — Mistral Medium 3.5 (independent composite 40/100; component signals recorded, not merged)](https://lmmarketcap.com/model/mistral-mistral-medium-3-5)
-  - See also: [`model/mistral-large-4/`](mistral-large-4.md) (52.54) — Mistral's open-weight flagship refreshed earlier in this session; [`model/mistral-medium-3.5/`](mistral-medium-3.5.md) is this file
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
+- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Re-run verification (2026-10-19): Artificial Analysis (404) and BenchLM (404) both untracked for this model — no new independent evidence; the AA-via-OpenRouter rows on file stand and no score change is warranted. First pass (2026-10-09) used Mistral docs + HF model card, Artificial Analysis via OpenRouter/OpenKey, llm-stats, TechSifted review.
+- Future sources: add a new file next to this one, e.g. `Mistral_Large.md`, using the same headings.

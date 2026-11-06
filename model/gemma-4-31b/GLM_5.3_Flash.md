@@ -28,8 +28,8 @@
 Agent / tool use:
 
 - Tau2-Bench: **59.9%** (Artificial Analysis)
-- GDPval-AA: **Elo 755** / 6.0% normalized (Artificial Analysis; Nov 6 re-read 5.9%) — far below frontier (Gemini 3.7 Flash: 1525)
-- AA Agentic Index: **6.7%** (Artificial Analysis); **AA ITBench: 37.3%** (NEW, BenchLM Nov 6 refresh — weak-mid); **b3 Agent Security 83.0% / Cyber Misuse Refusal 84.0%** (NEW, Mistral Large 4 comparison table)
+- GDPval-AA: **Elo 755** / 6.0% normalized (Artificial Analysis) — far below frontier (Gemini 3.7 Flash: 1525)
+- AA Agentic Index: **6.7%** (Artificial Analysis)
 - Gert Labs: **35.26%** (gertlabs.com rankings)
 - Terminal-Bench / MCPAtlas / OSWorld: no verified public score found
 
@@ -39,8 +39,8 @@ Reasoning / knowledge:
 - MMLU-Pro: **85.2%** (Google model card)
 - HLE: **26.5%** with tools / **19.5%** without (Google model card); AA-HLE 23.6%
 - CritPt: **1.4%** (Artificial Analysis)
-- Artificial Analysis Intelligence Index: **14.7** (independent; for scale — Gemini 3.7 Flash 39.1, Nemotron 3.5 Super VL 26.5); Nov 6 refresh reads **4.4%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
-- AA-Omniscience: accuracy **20.0%** / hallucination rate **85.0%** (poor calibration; Nov 6 re-read 19.9% / 85.5%, index **−48.5** — among the repo's worst)
+- Artificial Analysis Intelligence Index: **14.7** (independent; for scale — Gemini 3.7 Flash 39.1, Nemotron 3.5 Super VL 26.5)
+- AA-Omniscience: accuracy **20.0%** / hallucination rate **85.0%** (poor calibration)
 - AA-IFBench (instruction following): **75.6%** (Artificial Analysis)
 
 Coding:
@@ -51,9 +51,9 @@ Coding:
 - AA-SciCode: **45.5%** / AA Coding Index: **43.4%** (Artificial Analysis)
 - SWE-bench Verified / Pro: no verified public score found
 
-- Multimodal:
+Multimodal:
 
-- MMMU-Pro: **76.9%** (Google model card) / **73.4%** (Artificial Analysis) — solid measured vision; **ParseBench: 62.40%** (NEW, Nov 6 LlamaIndex snapshot)
+- MMMU-Pro: **76.9%** (Google model card) / **73.4%** (Artificial Analysis) — solid measured vision
 
 Long context:
 
@@ -73,6 +73,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
-- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemma 4 31B page fetched 2026-11-06 (Nov 6 data, 30 rows) — all prior rows re-confirmed; b3 Agent Security 83.0%, Cyber Misuse Refusal 84.0%, AA ITBench 37.3% and ParseBench 62.40% added; AA Index re-read 14.7→4.4% (v5.0-class rebase, documented not averaged) and minor Omniscience drift; composite 29.24 #184/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-16
+- Method: public internet research (re-run of the 2026-09-20 + 2026-10-05 passes; BenchLM profile refreshed 2026-10-15 aggregating the Google HF model card, Artificial Analysis, SWE-Rebench, React Native Evals, Gert Labs; no conflicting figures found — the prior pass simply lacked data); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

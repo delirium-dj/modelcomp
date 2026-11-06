@@ -1,0 +1,57 @@
+# Codestral 25.08 — negative findings by Nemotron 3.5 Super VL 120B A12B
+
+- Source: opencode.ai scaffold stub (`model/codestral-25.08/meta.json`, `opencode/codestral-25.08`); BenchmarkList (`benchmarklist.com/models/codestral-25-08` — 404, no profile); Hugging Face mistralai org listing (no Codestral 25.08 checkpoint present at research date)
+- Date: 2026-11-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral 25.08
+- **Short description:** Auto-scaffolded stub entry only (`scaffolded: true` in meta.json). No vendor announcement, model card, or benchmark listing located for a "Codestral 25.08" SKU; Mistral's current lineup (as of research date) covers Codestral 22B (May 2024) and newer generalist/edge/Forge models, with no "Codestral 25.08" checkpoint cited.
+- **Provider / access:** `opencode/codestral-25.08` (OpenCode Zen route id in scaffold stub); no confirmed HF/OpenRouter/Mistral API ID.
+- **Release / knowledge:** Not stated; no release date located.
+- **IDs:** `opencode/codestral-25.08` (scaffold stub only); no vendor-verified ID found.
+- **Context window:** 128K total (scaffold stub placeholder only — not vendor-verified).
+- **Modalities:** Text in/out (scaffold stub placeholder — not vendor-verified).
+- **Pricing (as of 2026-11-06):** "Standard pricing" (scaffold stub placeholder — not vendor-verified).
+- **Architecture:** Not stated; no parameter count or architecture located.
+
+### Raw benchmarks found
+
+SELF-EXCLUSION (mandatory): zero verified public benchmark numbers found for this exact model/ID — LiveSQLBench profile 404s, no HF checkpoint, no vendor announcement, no third-party leaderboard entry. Per `model-comparison.md` and `tasks/research.md`, no scored `.md` file is saved; this `.md.excluded` records the negative findings.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+### Conflicting results noted
+
+- None — no data located at all.
+
+### Normalized scores (1–100)
+
+No scores computed — self-excluded for zero verified public benchmarks (see `RULES.md` / `tasks/sync-data.md` gate). Not counted toward any average.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-06
+- Method: public internet research (BenchmarkList model lookup 404, Hugging Face mistralai org model listing, opencode scaffold stub meta.json); zero verified benchmarks located.
+- Reference URLs:
+  - [BenchmarkList — model search](https://benchmarklist.com/models/)
+  - [Hugging Face — mistralai organization models](https://huggingface.co/mistralai/models)
+- Future sources: add a new file next to this one, using the same headings.

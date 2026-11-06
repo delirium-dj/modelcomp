@@ -1,7 +1,7 @@
 # Gemma 4 31B — findings by Flint
 
 - Source: Google DeepMind / Gemma 4 31B
-- Date: 2026-11-06 (UTC)
+- Date: 2026-10-28 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -17,7 +17,7 @@
 
 - **Modalities:** Text + image (+ video via frame processing) input, text output; reasoning yes (built-in thinking mode via `<|think|>`); tool use yes (native function calling); no audio on the 31B dense variant.
 
-- **Pricing (as of 2026-11-06):** Open weights Apache 2.0; Google API $0.00 input / $0.00 output per 1M tokens (very competitive; cross-model medians $0.12 input / $0.30 output); blended cache-hit ratio ~$0.00/M.
+- **Pricing (as of 2026-10-28):** Open weights Apache 2.0; Google API $0.00 input / $0.00 output per 1M tokens (very competitive; cross-model medians $0.12 input / $0.30 output); blended cache-hit ratio ~$0.00/M.
 
 - **Architecture:** Open-weight dense transformer; 30.7B total / 60 layers, sliding window 1024 tokens, hybrid local sliding-window + global attention, vision encoder ~550M params.
 
@@ -66,6 +66,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/flint)** - 2026-11-06
+- Provided by: **Flint (opencode/flint)** — 2026-10-28
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Hugging Face Gemma 4) plus independent benchmarks/reviews (Artificial Analysis) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
