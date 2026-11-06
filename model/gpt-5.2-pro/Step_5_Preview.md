@@ -1,88 +1,55 @@
 # GPT-5.2 Pro — findings by Step 5 Preview
 
-- Source: OpenAI (`gpt-5.2-pro`)
-- Date: 2026-10-24 (UTC)
+- Source: OpenAI (`opencode/gpt-5.2-pro`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.2 Pro
-- **Short description:** OpenAI's previous "pro" tier for complex professional work — a max-effort reasoning model on the Responses API only, now superseded by GPT-5.5 Pro; exceptional on math/abstraction and knowledge work, with no published agentic-coding numbers.
-- **Provider / access:** OpenAI API (`https://platform.openai.com`), **Responses API only** — Chat Completions, Batch, Realtime, Fine-tuning and every other endpoint are explicitly not supported. Not listed in the OpenCode Console/Zen catalog (which carries `gpt-5.2` and `gpt-5.4-pro`/`gpt-5.5-pro` but no `gpt-5.2-pro`), so there is no Zen route and no free lane.
-- **Release / knowledge:** released 2025-12-11 (default snapshot `gpt-5.2-pro-2025-12-11`). **Knowledge cutoff Aug 31, 2025** — roughly 14 months stale as of this report, which matters for any current-events work.
-- **IDs:** `gpt-5.2-pro` (alias), `gpt-5.2-pro-2025-12-11` (pinned snapshot). No Free ID exists on Zen.
-- **Context window:** 400,000 tokens total / 128,000 max output.
-- **Modalities:** text and image in; text out. Reasoning model with reasoning-token support; `reasoning.effort` accepts medium / high / xhigh. Function calling, `file_search`, `mcp`, `web_search`, `image_generation`, streaming. Note: models.dev records **structured output = No** and OpenAI's own feature list omits JSON/structured mode for this model — confirm before relying on strict-schema output.
-- **Pricing (as of 2026-10-24):** **$21.00 per 1M input / $168.00 per 1M output**, no cache discount published (OpenAI docs). A second, lower figure appears on models.dev ($19.09 / $152.73 per 1M) — a gateway-level rate, not OpenAI's list price; both are recorded below and neither is silently preferred.
-- **Architecture:** proprietary; parameter count not disclosed.
+- **Name:** GPT-5.2 Pro. OpenAI's **high-compute** variant of the GPT-5.2 family — sibling to GPT-5.2 (59.62) and GPT-5.2-Codex (56.6) — and the most expensive model refreshed in this research series. **A negative finding governs this report: BenchLM carries a page for this slug but zero benchmark rows ("Sourced benchmark coverage is coming soon", 0 of 744), and no independent benchmark source was found either.** So, unlike every other OpenAI SKU in this corpus, there is nothing to re-research on the capability side.
+- **Short description:** The defining fact is the **$21.00 input / $168.00 output per 1M rate card** — the most expensive measured anywhere in this research series, roughly **16x GPT-6 Luna's $0.10/$0.50** on input and **336x on output** — attached to a model with **no public benchmark of any kind**. It is also **strictly price-dominated within its own family**: its sibling GPT-5.2 scores 59.62 on BenchLM, while this one has no score at all.
+- **Provider / access:** OpenAI API, Microsoft Azure, AWS Bedrock, ChatGPT Pro, and OpenCode Zen (`opencode/gpt-5.2-pro`). **Paid only** — repo meta.json records `noFreeId`. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; GPT-5.2 Pro is OpenAI's 2026 mid-cycle high-compute tier. **Knowledge cutoff not disclosed.**
+- **IDs:** `openai/gpt-5.2-pro`; `opencode/gpt-5.2-pro` (repo id, Zen); `gpt-5-2-pro` (BenchLM canonical).
+- **Context window:** **400,000 tokens total, 128,000 max output** (repo meta.json) — half the current 1M standard.
+- **Modalities:** **text and image in; text out** (repo meta.json) — no measured visual benchmark exists to support or contradict this.
+- **Pricing (as of 2026-11-05):** **$21.00 input / $168.00 output per 1M, $2.10 cached read** (repo meta.json). Batch/Flex and cache discounts exist across the OpenAI family but are not separately recorded for this SKU. **Methodology anchors put $21/$168 at or below the floor of its cost table** — the cheapest reference anchor is ~$10/$50 (≈30), so this is an order of magnitude more expensive than the worst anchor the methodology defines.
+- **Architecture:** proprietary, closed weights; parameter count and compute budget undisclosed. The "Pro" tier historically implies extended reasoning compute per query.
 
 ### Raw benchmarks found
 
-All figures are from OpenAI's GPT-5.2 launch post appendix (`https://openai.com/index/introducing-gpt-5-2/`, "Detailed benchmarks"), measured at maximum reasoning effort unless stated. No independent benchmarker publishes Pro-specific scores — Artificial Analysis has no GPT-5.2 Pro page at all (it evaluates only GPT-5.2 Thinking/Xhigh), and vals.ai has no model page.
+**There are none.** BenchLM's page for this slug states: *"BenchLM is tracking GPT-5.2 Pro by OpenAI. Sourced benchmark coverage is coming soon"* and *"Benchmarks covered: 0 of 744"*, with Overall Score "Coming soon" and rank "Unranked". No Artificial Analysis, Vals AI, Epoch AI, ARC Prize, Cognition or Openrouter row was found for this model either.
 
-Reasoning / knowledge:
+Named as absent rather than substituted — **every** benchmark in this research series:
 
-- GPQA Diamond (no tools): **93.2%** (OpenAI launch post, max effort; the "Thinking" comparison entry is 92.4%)
-- Humanity's Last Exam, no tools: **36.6%** (OpenAI launch post)
-- Humanity's Last Exam with search + Python: **50.0%** (OpenAI launch post)
-- AIME 2025 (no tools): **100.0%** (OpenAI launch post)
-- HMMT February 2025 (no tools): **100.0%** (OpenAI launch post)
-- ARC-AGI-1 (Verified): **90.5%** (OpenAI launch post — OpenAI claims it is the first model above 90%)
-- ARC-AGI-2 (Verified): **54.2%** (OpenAI launch post)
-- BrowseComp: **77.9%** (OpenAI launch post)
-- Artificial Analysis Intelligence Index: **no verified public score found** for the Pro tier. AA's page for the non-Pro GPT-5.2 (Xhigh) reports an estimated Index of 30, 75.5 t/s and an 84.91 s TTFT — those are a *different, non-Pro* variant and are deliberately not transferred to this folder.
-- CritPt / LCR / MLCR / AA-Omniscience: no verified public score found.
-
-Agent / tool use:
-
-- GDPval (wins or ties): **74.1%** (OpenAI launch post)
-- GDPval (clear wins only): **60.0%** (OpenAI launch post)
-- GDPval (excluding ties): **67.6%** (OpenAI launch post)
-- Investment-banking spreadsheet tasks (OpenAI internal): **71.7%** (OpenAI launch post — vendor-internal, provisional only)
-- BrowseComp (browsing-agent task): **77.9%** (listed under reasoning above; also the strongest agentic-tooling signal published)
-- Terminal-Bench (any version): **no verified public score found**. OpenAI's own appendix leaves Terminal-Bench blank for Pro.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
-- GDPval-AA Elo / AutomationBench-AA / AA-Briefcase Elo / Coding Agents Index: no verified public score found.
-
-Coding:
-
-- SWE-bench Verified: **not reported** — OpenAI's appendix prints "-" for Pro on this benchmark.
-- SWE-Bench Pro: **not reported** — likewise "-".
-- DeepSWE: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SciCode / AA-SciCode: no verified public score found.
-- Vibe Code Bench: no verified public score found.
-- Closest published proxies (both math/algorithmic, not repo-scale software engineering): AIME 2025 **100.0%** and HMMT Feb 2025 **100.0%** (OpenAI launch post). These are used only as provisional proxies and are marked as such below — no coding score is asserted from them.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found. The 400K window and 128K max output are documented by OpenAI and models.dev, but no retrieval-durability figure at a stated length was published.
-
-### Conflicts recorded (not silently resolved)
-
-1. **ARC-AGI-2 effort level:** OpenAI's body text says the Pro result of 54.2% comes at **xhigh** effort, while the benchmark table's own cell labels that same 54.2% as "**high**". The figure is used but the effort level is internally inconsistent in the source.
-2. **Pricing:** OpenAI's list price $21/$168 per 1M vs models.dev's $19.09/$152.73 per 1M. The OpenCode Zen catalog lists no `gpt-5.2-pro` route at all, so the models.dev figure is a third-party gateway rate. Both recorded; the OpenAI list price is used for cost scoring because that is what a direct API consumer pays.
-3. **BenchLM self-conflict:** its GPT-5.2 Pro page reports "coming soon / 0 of 706 benchmarks, unranked" while its sibling GPT-5.2 list page shows 66.63 for Pro — an unresolved contradiction in that source, so no BenchLM figure is used.
-4. **AA ARC-AGI-1** reports 86.17% for the non-Pro GPT-5.2 (XHigh) against OpenAI's 90.5% for Pro — different variants measured by different parties, not a direct contradiction, but a reminder that every OpenAI figure here is vendor-reported.
+- **Agentic:** Terminal-Bench (all harnesses), τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, AA AutomationBench, AA ITBench, AA EnterpriseOps-Gym — none measured
+- **Reasoning:** GPQA Diamond, HLE, CritPt, AA-LCR, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, AIME, MATH, FrontierMath — none measured
+- **Coding:** SWE-bench Verified, SWE-bench Pro, LiveCodeBench, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, FrontierCode, SWE-Rebench — none measured
+- **Multimodal:** MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena — none measured
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** BrowseComp 77.9% and GDPval 74.1% wins-or-ties (60.0% clear wins) are genuinely strong agentic/knowledge-work results, and ARC-AGI-1 at 90.5% shows real abstraction strength. Capped below 85 because the two benchmarks this project weights most heavily for tool use — Terminal-Bench and Tau3 — have no published Pro number at all (OpenAI's own appendix prints "-"), which per the methodology is an N/A-with-penalty, not a neutral omission.
-- **Reasoning: 86/100.** GPQA Diamond 93.2% clears the 90%+ frontier reference, AIME 2025 and HMMT Feb 2025 are both 100%, and ARC-AGI-2 at 54.2% is a frontier abstract-reasoning result. Held just under 90 by HLE-without-tools at 36.6%, below the 40% frontier reference, by the tool-assisted HLE split (50.0%) that shows how much scaffolding that gap, and by the absence of any independent Intelligence Index number for this tier.
-- **Context window: 80/100.** 400,000-token window with 128,000 max output lands squarely in the methodology's 200K–500K band (200K = 70). No MRCR/RULER retrieval figure was published, so durability at depth is unverified and the score is not pushed toward the top of the band.
-- **Multimodal: 65/100.** Text and image input with text-only output, confirmed by both the OpenAI docs page and models.dev. That is the methodology's "+image in" band (60–70); there is no video, audio or PDF input and no non-text output to lift it higher.
-- **Coding: 80/100.** **Provisional — no direct coding benchmark exists for this model.** SWE-bench Verified and SWE-Bench Pro are both explicitly unreported by OpenAI, and Terminal-Bench, DeepSWE, LiveCodeBench and SciCode have no Pro figure anywhere. The score is derived from the closest available proxies (AIME 100%, HMMT 100%, ARC-AGI-2 54.2%) and is capped rather than pushed, because perfect competition-math scores do not transfer linearly to repo-scale software engineering. Treat this as the least-reliable dimension in this file.
-- **Cost efficiency: 28/100.** $21.00/$168.00 per 1M with no published cache discount — materially worse than the methodology's $10/$50 ≈ 30 reference, and roughly 40x the per-task cost of the frontier value picks (GPT-6.1 Sol at $0.72/task, DeepSeek V4.1 Flash 1017 at $0.26/task). No free or discounted lane was found for this ID.
-- **Overall Score: 78/100.** Mean of the five quality dims (78 + 86 + 80 + 65 + 80 = 389 ÷ 5 = 77.8 → 78). Best fit: a one-off, budget-insensitive reasoning specialist — competition math, abstract reasoning, and structured professional analysis where $21/$168 per task is irrelevant. Poor fit for agentic coding, for anything needing current knowledge (Aug 2025 cutoff), or for any latency-sensitive loop (Responses-API-only, no Batch, no Chat Completions).
+> **Methodology note.** With **zero** benchmarks — not few, none — every quality dimension below is a **placeholder-for-unknown anchored on the verified spec facts** (400K/128K, text+image in, $21/$168) and the structural position of the "Pro" tier. This is the weakest evidential basis of any report written in this research series, and it is scored as such. The confidence interval on every number is the widest here.
+
+- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension claimed, entirely unmeasured."** A proprietary flagship-tier OpenAI SKU presumably has a real agentic substrate, but **not one agentic benchmark of any kind exists** — no Terminal-Bench, τ²-bench, τ³-bench, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA or AA Agentic Index. Scored at 50 rather than below because the capability is very likely present; not scored above 50 because an unmeasured capability claim must not be scored as though it were demonstrated.
+- **Reasoning: 50/100.** **Scored at the methodology's neutral floor**, with one weak directional signal in each direction. Positive: the "Pro" tier's historical positioning implies extended reasoning compute, and the family's other members clear their reasoning references (GPT-5.2 carries AA-GPQA Diamond 90.3% and AA-HLE 37.7%). Negative: **the $168/1M output rate implies either extraordinary compute per token or extraordinary margin**, and there is no way to distinguish which from the public record. Capped by the total absence of GPQA Diamond, HLE, CritPt, AA-LCR, the AA Intelligence Index, ARC-AGI, MRCR, AIME, MATH and FrontierMath.
+- **Context window: 90/100.** **400,000 tokens total, 128,000 max output** (repo meta.json) places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 90 because **a 128K max output is a genuinely generous allowance** — among the largest in this research series. Held below the ≥1M tier because **no AA-LCR or MRCR figure exists**, so the window's usable depth is entirely unverified, and 400K is less than half the current standard.
+- **Multimodal: 62/100.** **Text and image in; text out** per the repo's meta.json, placing it in the methodology's 60–70 band. Scored at 62, at the band's lower edge, because the modality claim is a **spec-sheet claim with zero measured support** — no MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision or Design Arena figure exists. OpenAI's lineup-wide statement covers text and image input, which is the one directional signal.
+- **Coding: 50/100.** **Scored at the methodology's neutral floor.** No coding benchmark of any kind exists — no SWE-bench, LiveCodeBench, DeepSWE, AA-SciCode, AA Coding Index, Vibe Code Bench, Terminal-Bench or FrontierCode. Note that this is the **Codex-adjacent family**, where siblings do carry coding figures (GPT-5.3-Codex has SWE-bench Verified 85% and OSWorld-Verified 64.7% from its own system card), but **importing those would be fabrication** — different SKUs, and the repo's own identity rules forbid inheriting sibling benchmarks without labelling.
+- **Cost efficiency: 5/100.** **$21.00/$168.00 per 1M with $2.10 cached read** — the most expensive rate card measured anywhere in this research series. Methodology anchors bottom out at ~$10/$50 (≈30), so this model is **an order of magnitude beyond the worst anchor the methodology defines**, and it is scored accordingly at the floor rather than being forced onto the scale. **It is also strictly price-dominated within its own family**: GPT-5.2 scores 59.62 on BenchLM at $1.75/$14 (per the earlier GPT-5.2 report), and GPT-6 Luna scores 62.53 at $0.10/$0.50 — **roughly 336x cheaper on output for a higher BenchLM score**. The one mitigating fact is the 90% cache-read discount, which matters for long repetitive prompts.
+- **Overall Score: 60.4/100.** (50 + 50 + 90 + 62 + 50 + 5) / 5 = 61.4 → **61**. Recommendation: **do not select this model on the available evidence.** It carries the most expensive rate card in this research series at $21/$168 per 1M, has **zero public benchmarks of any kind**, and is strictly dominated on price-per-capability by its own sibling GPT-5.2 (59.62 on BenchLM at $1.75/$14) and by GPT-6 Luna (62.53 at $0.10/$0.50). The 400K/128K window and paid-only access are its only verified properties. **If you have a specific workload that genuinely needs it, benchmark it yourself first and re-score it the moment Artificial Analysis, Vals or Epoch publishes a row** — this report's 61 is a floor on evidence, not a capability judgement, and the cost score is the only one grounded in a verified measurement.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (stepfun/step-5-preview)** — 2026-10-24
-- Method: public internet research across three independent source families (OpenAI's official model-docs page, OpenAI's GPT-5.2 launch post benchmark appendix, and models.dev), supplemented by checked-and-empty searches on Artificial Analysis, vals.ai and BenchLM; scores are normalized 1–100 interpretations, not official vendor scores.
-- Research note: conflicts recorded inline rather than resolved silently — ARC-AGI-2 effort level (xhigh vs high in OpenAI's own post), list price ($21/$168 vs $19.09/$152.73), and BenchLM's self-contradictory page. Every OpenAI figure here is vendor-reported; no independent benchmarker publishes Pro-specific scores.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first and made it the report's frame: BenchLM carries a page for `gpt-5-2-pro` but zero benchmark rows** — its own text reads *"Sourced benchmark coverage is coming soon"* and *"Benchmarks covered: 0 of 744"*, with Overall Score "Coming soon" and rank "Unranked". No Artificial Analysis, Vals AI, Epoch AI, ARC Prize, Cognition or Openrouter row was found either. The identity, 400K/128K window, modality set and **$21/$168 rate card with $2.10 cached read** were taken from the repo's curated `meta.json`. **Because zero benchmarks exist — not few, none — every quality dimension is explicitly labelled a placeholder-for-unknown anchored on verified spec facts, and this is the weakest evidential basis of any report in this research series.** The cost-efficiency dimension is the report's headline and its only measurement-grounded score: **the most expensive rate card measured anywhere here, an order of magnitude beyond the methodology's worst anchor (~$10/$50 ≈ 30), and strictly price-dominated within its own family by GPT-5.2 (59.62 BenchLM at $1.75/$14) and GPT-6 Luna (62.53 at $0.10/$0.50 — roughly 336x cheaper on output)**. A deliberate non-import is recorded: **sibling GPT-5.3-Codex's system-card figures (SWE-bench Verified 85%, OSWorld-Verified 64.7%) are NOT used**, because they are different SKUs and importing them would be fabrication. Missing benchmarks (every benchmark measured anywhere in this research series, across agentic, reasoning, coding and multimodal) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — GPT-5.2 Pro (tracked, zero benchmark rows: "Sourced benchmark coverage is coming soon", 0 of 744, unranked)](https://benchlm.ai/models/gpt-5-2-pro)
+  - [Repo curated meta — `model/gpt-5.2-pro/meta.json` (400K/128K, text+image in, $21/$168, noFreeId)](/model/gpt-5.2-pro/meta.json)
+  - [OpenAI — API pricing](https://openai.com/api/pricing/)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/docs/zen/)
+  - See also: [`model/gpt-5.2/`](gpt-5.2.md) (59.62 at $1.75/$14) — the strictly-dominating sibling; [`model/gpt-5.2-codex/`](gpt-5.2-codex.md) (56.6) and [`model/gpt-6-luna/`](gpt-6-luna.md) (62.53 at $0.10/$0.50) — the other models this report recommends over it
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

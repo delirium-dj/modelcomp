@@ -4,6 +4,7 @@
 - Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+- Note: same underlying model as the `gemma-4.26b-a4b` queue entry (duplicate slug pair; param sizes should be hyphenated per slug rules — this is the canonical spelling).
 
 ## Model card
 
@@ -36,10 +37,6 @@ Long context:
 Multimodal:
 
 - Text/image/video input, text output
-
-Safety/other:
-
-- Openness Index tracked by AA (open weights)
 
 ### Normalized scores (1–100)
 
