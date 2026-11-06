@@ -1,7 +1,7 @@
 # GPT-5.5 Pro — findings by Gemini 3.8 Flash
 
 - Source: opencode/gpt-5.5-pro
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -38,6 +38,6 @@ Verified evaluations and benchmarks from official documentation and third-party 
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

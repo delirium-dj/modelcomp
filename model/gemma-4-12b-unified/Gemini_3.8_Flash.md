@@ -1,7 +1,7 @@
 # Gemma 4 12B Unified — findings by Gemini 3.8 Flash
 
 - Source: Google / DeepMind (`google/gemma-4-12b-unified`)
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context / multimodal:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-22
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation, Google DeepMind technical reports, Hugging Face model cards, and Artificial Analysis evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

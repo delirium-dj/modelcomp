@@ -1,7 +1,7 @@
 # Gemini 4 Argon — findings by Gemini 3.8 Flash
 
 - Source: Google DeepMind (`opencode/gemini-4-argon`)
-- Date: 2026-10-30 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -60,7 +60,7 @@ Conflicting evidence & notes:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-30
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Deep multi-source web research across Google DeepMind technical disclosures, release model cards, independent benchmark leaderboards (DeepSWE, Vals AI, Zapier AutomationBench), and developer evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Google DeepMind — Gemini 4 Architecture and Capabilities](https://deepmind.google/technologies/gemini/)

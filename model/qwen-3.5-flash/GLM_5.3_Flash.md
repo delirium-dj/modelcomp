@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-21
-- Method: public internet research (BenchLM model page with Vals AI / Epoch AI sourced numbers, CloudPrice specs & provider pricing, official Qwen HF card for the sibling checkpoint, TokenRate); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-21)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3.5 Flash page fetched 2026-11-06 — still exactly the same 5 Vals/Epoch rows (LCB 83.3%, SWE-bench 64.4%, GPQA 82.8%, MMLU-Pro 84.1%, FrontierMath 18.25%), composite 42.41 #129/1016 — re-verified, no new evidence, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

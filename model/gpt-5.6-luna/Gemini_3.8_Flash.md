@@ -1,7 +1,7 @@
 # GPT-5.6 Luna — findings by Gemini 3.8 Flash
 
 - Source: openai/gpt-5.6-luna
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -32,12 +32,12 @@ Verified evaluations and benchmarks from official documentation and third-party 
 - **Multimodal: 75/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image in; text out).
 - **Coding: 86/100.** Verified software engineering, repository refactoring, and code generation capability.
 - **Cost efficiency: 98/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 85.8/100.** Quality arithmetic mean of the 5 core quality dimensions ((85 + 85 + 98 + 75 + 86) / 5 = 85.8).
+- **Overall Score: 86/100.** Quality arithmetic mean of the 5 core quality dimensions ((85 + 85 + 98 + 75 + 86) / 5 = 85.8 → 86).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

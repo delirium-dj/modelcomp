@@ -1,7 +1,7 @@
 # GLM 4.5 Flash — findings by Gemini 3.8 Flash
 
 - Source: Z.ai (`opencode/glm-4.5-flash`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation and web research across Z.ai technical announcements, API pricing docs, and independent benchmark platforms; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,7 +1,7 @@
 # GPT-5.2-Pro — findings by Gemini 3.8 Flash
 
 - Source: OpenAI (`openai/gpt-5.2-pro`)
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -58,6 +58,6 @@ Long context / vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-22
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation, OpenAI technical briefings, independent ARC Prize evaluations, and benchmark tracking; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
