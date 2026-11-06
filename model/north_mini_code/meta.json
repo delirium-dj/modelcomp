@@ -17,5 +17,9 @@
     "Free $0/$0 hosted routes (OpenRouter cohere/north-mini-code:free; Cohere API row)",
     "Self-host $0 (Apache 2.0 weights)"
   ],
+  "aliases": [
+    "north-mini-code",
+    "opencode/north-mini-code"
+  ],
   "noFreeId": false
 }

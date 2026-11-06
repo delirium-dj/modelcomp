@@ -9,7 +9,7 @@
 
 ## Parked (retired) slugs — folders stay on disk and in git; never researched
 
-- `omin-alpha` — misspelled phantom duplicate of omen-alpha (Omen Alpha) — the folder's only two reports are self-excluded (`*.md.excluded`, zero verified benchmarks; the report itself flags it as a typo/conflation of `omen-alpha`/`ox-alpha`); no usable average.md is possible; parked 2026-11-04 (non-destructive — folder kept on disk per permanence rule) — research belongs in model/omen-alpha/
+- `omin-alpha` — misspelling of omen-alpha (Omen Alpha) — NOT a separate model: independent search for "Omin Alpha" returns no LLM, no model card, no tracker page and no queue entry; the folder's three reports are all self-excluded (`*.md.excluded`, zero verified benchmarks) and each independently identifies the slug as a typo/conflation of `omen-alpha`; never re-scaffold, never re-queue and never write research into it — it is parked in RETIRED_SLUGS, so sync can never queue, score or make it a rater; the folder stays on disk and in git under the research-permanence rule (parked 2026-11-04, reconfirmed 2026-11-06 after a research agent nearly filed a scored report under this slug) — research belongs in model/omen-alpha/
 
 ## Deleted phantom model folders — removed from disk + git 2026-11-03; never recreate or restore
 
@@ -38,6 +38,8 @@
 - `cat-jam` -> `beam` — revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/
 - `muse-wonder` -> `muse-wonder-1.0` — vendor product-name duplicate of muse-wonder-1.0 — Meta ships the Muse Wonder product only as API SKU muse-wonder-1.0 (dev.meta.ai model page + OpenRouter meta/muse-wonder; same 1M window, same $4/$20; the distinct Muse Wonder Full is muse-wonder-full-1.0, subscription-only); one rater had already self-excluded the folder as a scaffolded stub of the same model; merged + deleted 2026-11-01 (user order) — research belongs in model/muse-wonder-1.0/
 - `glm-5.3-flash-x` -> `glm-5.3-flashx` — GLM-5.3-Flash-X / GLM-5.3-FlashX spelling duplicate (Z.ai canonical API code is `glm-5.3-flashx`; OpenCode Zen route spelling `glm-5.3-flash-x` is the forbidden hyphenated variant — same 320B/18B FlashX weights, same price, same 1M window); merged + deleted 2026-11-02 (user order) — research belongs in model/glm-5.3-flashx/
+- `north-mini-code` -> `north_mini_code` — hyphen-separator spelling duplicate of canonical underscore folder north_mini_code (one model; an auto-scaffolded opencode stub created 2026-11-05 by a run that filed into the wrong folder name, double-counting it in the queue); merged newest-report-wins + deleted 2026-11-06 (user order) — research belongs in model/north_mini_code/
+- `llama-3.2-vision-instruct` -> `llama_3.2_vision_instruct` — hyphen-separator spelling duplicate of canonical underscore folder llama_3.2_vision_instruct (one model; an auto-scaffolded opencode stub created 2026-11-05, double-counting it in the queue); merged newest-report-wins + deleted 2026-11-06 (user order) — research belongs in model/llama_3.2_vision_instruct/
 
 ## Retired vendor aliases — never a folder
 
@@ -61,3 +63,4 @@
 - `nemotron-3.5-lightning-free` — covers EVERY Nemotron 3.5 Lightning name — Free is an access tier; paid/NIM routes serve the same 30B-A3B weights; NEVER scaffold model/nemotron-3.5-lightning/
 - `nemotron-3-nano-omni` — canonical folder for Nemotron 3 Nano Omni — a single model (30B-A3B-Reasoning weights; free serving on Zen/NVIDIA Build plus open checkpoints, never a -free split); research under it
 - `mimo-v2.5-free` — also covers the Xiaomi MiMo-V2.5 Free name — do not scaffold a second folder for it
+- `omen-alpha` — covers the Omen Alpha spelling — `omin-alpha` is a misspelling of it, not a second model (no "Omin Alpha" exists in any vendor, Hugging Face, gateway or tracker source); NEVER scaffold model/omin-alpha/, never re-queue the `omin-alpha` slug and never write research under it — that slug is parked in RETIRED_SLUGS, so sync can never queue, score or make it a rater; the parked folder model/omin-alpha/ stays on disk and in git under the research-permanence rule and holds only self-excluded reports

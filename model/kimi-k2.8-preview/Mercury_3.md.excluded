@@ -1,0 +1,48 @@
+# Kimi K2.8 Preview — findings by Mercury 3 (SELF-EXCLUDED: no verified public benchmarks)
+
+- Source: Moonshot AI (Kimi K2.8 Preview)
+- Date: 2026-11-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **`.md.excluded`** — zero verified public benchmark numbers found for this exact model/ID; scores inside are ignored by `pnpm sync`.
+
+## Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mid-tier coding/agentic model, rolled out 2026-09-11 at the unchanged `kimi-for-coding` model ID in Kimi Code (replacing K2.7 Code). Vendor positions it "close to K3" with more efficient thinking, but publishes no parameters, benchmarks, weights, or per-token price.
+- **Provider / access:** Kimi Code only (CLI, VS Code, Desktop, third-party agents via Kimi Code API keys — OpenAI- and Anthropic-compatible base URLs). Included in membership plans (Plus+ new plans, Andante+ legacy). Not on Moonshot's Open Platform pay-as-you-go API.
+- **Release / knowledge:** Rolled out 2026-09-11; knowledge cutoff not published.
+- **IDs:** `kimi-for-coding` (Kimi Code route; the name "K2.8 Preview" is not a usable ID).
+- **Context window:** 1,048,576 tokens (all plans with Kimi Code).
+- **Modalities:** text + image + video input; text / tool-calls / code output; reasoning effort low/high/max (default max; `none` routes to K2.8 no-thinking). No open weights.
+- **Pricing:** No official per-token API price; membership quota billing. Unofficial reseller listings (ZenMux, APIMaster) show $1 in / $4 out / $0.25 cache read — not documented by Moonshot.
+- **Architecture:** undisclosed (likely shares K2.7 Code's MoE design per shared endpoint — inference, not confirmed).
+
+## Raw benchmarks found
+
+- **No verified public benchmark scores exist for this checkpoint** (as of 2026-11-06): no SWE-bench/GPQA/HLE or other numbers from Moonshot or independent evaluators; no Artificial Analysis page.
+- Vendor statement only: performance "close to K3" (K3's own 93.5% GPQA Diamond figure does NOT carry over to this checkpoint).
+- The only numeric third-party signals found: ZenMux measured ~41.1 tok/s throughput / 1.43s latency (a live metric, not a benchmark).
+
+## Negative-findings notes
+
+- Treat any quoted K2.8 benchmark score as unverified until Moonshot or an independent evaluator publishes one with a method.
+- The model behind `kimi-for-coding` changed without a version bump on 2026-09-11 — pin evaluations and effort levels explicitly.
+- No open weights and no system/model card; retention/training-on-inputs behavior unanswered.
+- Use only if already on a Kimi plan with Kimi Code and you need 1M-context coding help at lower quota cost than K3; otherwise prefer K3 or K2.7 Code (both with public benchmarks/open weights).
+
+---
+
+## Signature
+
+- Provided by: **Mercury 3 (inception/mercury-3)** — 2026-11-06
+- Method: public internet research; no scores assigned due to zero verified public benchmarks (self-excluded per model-report template).
+- Reference URLs:
+  - [Kimi Code changelog (What's New, 2026-09-11)](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)
+  - [Kimi Code model configuration page](https://www.kimi.com/code/docs/en/kimi-code/models.html)
+  - [Moonshot Open Platform price table (no K2.8 line)](https://platform.kimi.ai/docs/pricing/chat)
+  - [Pandaily: Moonshot Kimi K2.8 Preview full rollout](https://pandaily.com/moonshot-kimi-k28-preview-full-rollout-kimi-code)
+  - [k3-kimi.com guide: Kimi K2.8 Preview (1M context, plans, K2.8 vs K3 vs K2.7)](https://k3-kimi.com/blog/kimi-k2-8-preview/)
+  - [Hokai: Kimi K2.8 Preview review/pricing/verdict](https://hokai.io/hub/models/kimi-k2.8-preview)
+  - [Models.dev: kimi-k2.8-preview listing](https://models.dev/models/moonshotai/kimi-k2.8-preview/)
+- Future sources: add a new file next to this one using the same headings.

@@ -1,67 +1,91 @@
-# Qwen3.5-397B-A17B — findings by Step 5 Preview
+# Qwen3.5 397B — findings by Step 5 Preview
 
-- Source: Alibaba Qwen (`Qwen3.5-397B-A17B`, weights `Qwen/Qwen3.5-397B-A17B`)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Alibaba / Qwen Team (`Qwen/Qwen3.5-397B-A17B`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.5-397B-A17B (first model of the Qwen3.5 family, 2026-02-16)
-- **Short description:** Alibaba's flagship open-weights model and the first Qwen with native vision — a hybrid Gated-DeltaNet + sparse-MoE architecture (60 layers, 15 × (3 Gated-DeltaNet + 1 Gated-Attention), 512 experts with 10 routed + 1 shared activated) that unifies the previously separate Qwen3 (text) and Qwen3-VL (vision) lines through early-fusion multimodal training. 397B total / 17B active per token, 262,144 native context (extensible to ~1M via YaRN; the hosted Qwen3.5-Plus variant ships 1M by default), 81,920 max output, 201 languages, MTP-trained. Artificial Analysis scored it 45 on the Intelligence Index at release — #3 among open-weights models behind GLM-5 (50) and Kimi K2.5 (47) — with a +16-point jump over Qwen3-235B driven by agentic gains (GDPval-AA Elo 1,221, +361). Its decoding runs 8.6–19× faster than Qwen3-Max at 32K–256K context.
-- **Provider / access:** Open weights (Apache 2.0) on Hugging Face/ModelScope; Alibaba Cloud Model Studio API (Qwen3.5-Plus is the hosted 1M-context variant); OpenRouter via 7+ providers (Alibaba, DeepInfra, Novita, AtlasCloud, Parasail, Phala, Venice, GMICloud, StreamLake, DigitalOcean).
-- **Release:** 2026-02-15/16.
-- **Context window:** 262,144 tokens native (~1,010,000 via YaRN).
-- **Modalities:** Text, image and video in → text out; reasoning and non-reasoning modes; function calling; JSON mode.
-- **Pricing (as of 2026-10-09):** $0.39–0.60/M input, $2.34–3.60/M output across providers (blended ~$1.25–1.35/M; DeepInfra cheapest at $0.45–0.54 in / $3.00–3.40 out); Apache-2.0 weights free to self-host.
-- **Architecture:** Gated DeltaNet + sparse MoE hybrid, 397B/17B active, MTP multi-step training.
+- **Name:** Qwen3.5 397B — properly **Qwen3.5-397B-A17B**, Alibaba's **open-weight** 397B-total / **17B-active** MoE. BenchLM's canonical slug is `qwen3-5-397b` (**not** `qwen-3.5-397b`, which 404s — the same dotted-slug trap as every Qwen 3.x SKU; note the repo folder name is also ambiguous against the `qwen-3.5-397b` param-size spelling). It scores **55.46/100, #74 of 1,015** with **71 benchmarks** — the second-deepest evidence base in this research series, behind Qwen3.8-27B's 75.
+- **Short description:** An **open-weight 397B/17B-active MoE with an unusually deep measured multimodal suite** — 21 visual benchmarks including **AI2D_TEST 93.9%, CountBench 97.2%, RefCOCO 92.3%, V\* 95.8%, OmniDocBench 90.8%, Video-MME 87.5%, VideoMMMU 84.7%** — and **τ²-bench 95.6% [AA]**, the strongest in this batch. Its weaknesses are concentrated and severe: **BenchLM classifies it Non-Reasoning (the sixth such model in this corpus), CritPt is 1.7% (the lowest measured anywhere in this research series), AA-HLE is 29.0%, and the context window is only 128K.**
+- **Provider / access:** **Open weights on Hugging Face (`Qwen/Qwen3.5-397B-A17B`)**, Alibaba Cloud Model Studio / QwenCloud, and self-hosting. **Repo meta.json records `noFreeId`** — no Zen free tier. There is also a separately-tracked `Qwen3.5 397B (Reasoning)` sibling with no computed BenchLM score.
+- **Release / knowledge:** release date not restated; the 3.5 generation is Alibaba's mid-2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `Qwen/Qwen3.5-397B-A17B` (Hugging Face); `qwen3-5-397b` (BenchLM canonical, AA); `qwen3-5-397b-a17b` (AA's model page slug); `qwen/qwen3.5-397b-a17b` (Openrouter).
+- **Context window:** **128,000 tokens** (BenchLM) — the smallest window in this batch and one-eighth of the current 1M standard. This is the binding constraint on the model's ranking.
+- **Modalities:** **text, image and video in; text out** — the defining strength, with the deepest measured visual suite in this research series for its size.
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified; **open weights provide the self-hosting escape that makes the gap less damaging.**
+- **Architecture:** **open-weight sparse MoE, 397B total / 17B active** — a 4.3% activation ratio, which is the model's defining engineering property and the reason its cost-efficiency score is high despite being a 397B model.
 
 ### Raw benchmarks found
 
-Vendor (HF model card, thinking mode):
+Qwen's own model card and the Qwen3.6-Plus comparison tables are the primary source (so the large majority of rows are **vendor-run**), with Artificial Analysis, ARC-adjacent third parties, Epoch AI, Gert Labs, LlamaIndex, ResearchClawBench, Claw-Eval and Openrouter supplying independent rows. **71 benchmarks total — the second-deepest evidence base in this research series.**
 
-- MMLU-Pro **87.8**; MMLU-Redux 94.9; SuperGPQA 70.4; C-Eval 93.0
-- GPQA Diamond **88.4**; HLE 28.7 (37.6 HLE-Verified); HLE w/ tools 48.3
-- LiveCodeBench v6 **83.6**; HMMT Feb 25 94.8 / Nov 25 92.7; IMOAnswerBench 80.9; AIME26 **91.3**
-- IFEval 92.6; IFBench **76.5**; MultiChallenge 67.6
-- AA-LCR 68.7; LongBench v2 63.2
-- BFCL-V4 **72.9**; TAU2-Bench **86.7**; VITA-Bench 49.7; DeepPlanning 34.3; Tool Decathlon 38.3; MCP-Mark 46.1
-- BrowseComp 69.0 (78.6 with discard-all strategy); BrowseComp-zh 70.3; WideSearch 74.0; Seal-0 46.9
-- SWE-bench Verified **76.4**; SWE-Multilingual 69.3; SecCodeBench 68.3; Terminal-Bench 2 52.5
-- Vision: MMMU 85.0; MMMU-Pro **79.0**; MathVision 88.6; MathVista 90.3; We-Math 87.9; OmniDocBench 1.5 **90.8**; OCRBench 93.1; CharXiv 80.8; CountBench 97.2; VideoMME 87.5; MLVU 86.7
-- Visual agents: OSWorld-Verified **62.2**; ScreenSpot-Pro 65.6; AndroidWorld 66.8; V* 95.8 (with code interpreter)
+Agent / tool use — **broad but weak outside τ²**:
 
-Third-party:
+- **τ²-bench: 95.6%** [AA] — the strongest τ²-bench figure in this batch
+- **MCP-Tasks: 74.2%**; WideResearch: **74.0%**; BrowseComp: **69.0%** (model card); QwenClawBench: 51.8%
+- **τ³-bench: 68.4%**; OSWorld-Verified: **62.2%** (model card); **Claw-Eval: 56.8%** — one of only three measured ClawEval figures in this research series
+- **Terminal-Bench 2.0: 52.5%**; VITA-Bench: 43.7%; Toolathlon: 36.3%; DeepPlanning: 37.6%; MCP Atlas: 46.1%
+- Gert Labs: 46.76%; **ResearchClawBench: 14.2%**; **APEX-Agents-AA: 15.3%** [AA]
+- **Terminal-Bench 2.1/4.0, MazeBench, ALE, JobBench, GDPval-AA, AA Agentic Index, AA AutomationBench: no verified public score found** — so two of three frontier references are unmeasured and no composite exists
 
-- Artificial Analysis: Intelligence Index 45 at launch (#3 open weights); current-index runs 21.4; GPQA Diamond 89.3% (thinking) / 86.1%; HLE 29.0%; IFBench 78.8%; MMMU-Pro 77.3%; AA-LCR 77.3%; SciCode 44.8%; TB 2.1 51.3%; TB Hard 40.9%; τ²-Telecom 95.6%; τ³-Banking 13.4%; GDPval-AA v2.1 14.8%; AA-Omniscience −32 (88% hallucination rate)
-- Epoch AI: GPQA Diamond 86.4%; FrontierMath T1-3 31.2%; OTIS Mock AIME 88.9%
-- LMArena: 1,464 hard-prompts Elo; 1,491 coding; 1,400 WebDev
-- BenchLeader Index 55.2 (#217 of 759): reasoning 44, agents & tools 56, knowledge 48, instruction following 76, multimodal 60, long context 64
-- benchmarklist.com (independent, 131 results, 2026-10-07): t2-bench **87.9% (#1/17 — field lead)**, Tau2-Bench Telecom **95.6% (#20/332)**, TAU3-Bench 71.0% (#5/13), Tau3-Banking 13.4% (#77/176), GDPval-AA **Elo 966 (#120/352)**, Terminal-Bench Hard 40.9% (#32/326), TB 2.1 51.3%, ScreenSpot-Pro #10/59, PinchBench 89.1% (#11/73), MCP Atlas, ClawProBench 64.18 (#4/48), Vals Financial Agent 61.3% (#1/7), BrowseComp 40.5% (#58/60 — weak)
+Reasoning / knowledge — **severe, and the model's defining limitation**:
 
-Third-pass verification (2026-10-19) — BenchLM canonical page `qwen3-5-397b` (73 of 667 rows, overall 55.42 #66/959; the reasoning sibling is unranked), AA via the non-reasoning workload slug:
+- **CritPt: 1.7%** — **the lowest CritPt measured anywhere in this research series**
+- **GPQA: 88.4%** (vendor) / **AA-GPQA Diamond 89.3%** — fails the 90%+ reference on both
+- **HLE: 28.7%** (vendor) / **AA-HLE 29.0%** — fails the 40%+ reference by ~11 points on both
+- MMLU-Pro: 87.8%; MMLU-Redux: 94.9%; C-Eval: 93%; SuperGPQA: 70.4%
+- **AA-LCR: 77.3%**; LongBench v2: 63.2%; AI-Needle: 68.7%
+- IFEval: 92.6%; IFBench: 76.5% (vendor) / **AA-IFBench 78.8%** — the independent run above the vendor
+- **AIME26: 93.3%**; HMMT Feb 2025: 94.8%; HMMT Nov 2025: 92.7%; HMMT Feb 2026: 87.9%; MMAnswerBench: 80.9%
+- **AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, FrontierMath: no verified public score found** — so **composite depth, reliability and two reasoning references are entirely unmeasured**
+- **Note the split: competition mathematics is genuinely strong (AIME26 93.3%, HMMT 87.9–94.8%) while scientific depth is the worst measured in this series (CritPt 1.7%)** — the signature of a Non-Reasoning model that memorises contest maths.
 
-- New agentic rows: **SWE-bench Pro 50.9%**, QwenClawBench **51.8%**, **Claw-Eval 56.8%**, MCP-Tasks **74.2%** (distinct from MCP Atlas 46.1% — the file's "MCP-Mark 46.1" and this are the same family of rows), WideResearch 74.0%, τ³-bench 68.4%, VITA-Bench 43.7%, DeepPlanning 37.6%, Toolathlon 36.3%, Gert Labs **46.76%**, ResearchClawBench **14.2%** (weak)
-- New coding rows: NL2Repo **32.2%** (weak end-to-end), SWE-V 76.2% (vs the card's 76.4), AIME26 93.3% (vs the card's 91.3)
-- New multimodal rows: VideoMMMU 84.7%, V* 95.8%, RealWorldQA 83.9%, MMLongBench-Doc 61.5%, Video-MME w/o subs 83.7%, AI2D 93.9%, ERQA 67.5%
-- New knowledge/instruction rows: MMLU-ProX 84.7%, NOVA-63 59.1%, INCLUDE 85.6%, PolyMath 73.3%, MAXIFE 88.2%, HMMT Feb 2026 87.9%, MMAnswerBench 80.9%
-- Long context: **AI-Needle 68.7%** (vendor — partial fill of the retrieval-curve gap); AA-LCR now reads **64.3%** on the non-reasoning AA workload (vs 77.3% earlier AA runs and the card's 68.7%) — a variant/harness spread, both recorded
-- Conflicts flagged, not resolved: AA-HLE **19.8%** on the non-reasoning workload (file's AA row said 29.0%), AA-MMMU-Pro **52.7%** (file's AA row said 77.3%), AA-IFBench **51.6%** (file's AA row said 78.8%), AA-Omniscience **−37.9** / 82.7% hallucination (file: −32 / 88%), CritPt 0.9% (file: 1.7%) — the non-reasoning AA workload reads materially lower on knowledge/multimodal; the Intelligence Index is unchanged at 21.4
+Coding — **mid-frontier**:
+
+- **SWE-bench Verified: 76.2%** (vendor) — 8.8 points under the 85%+ terminal reference
+- **LiveCodeBench v6: 83.6%**; SWE Multilingual: **69.3%**; SWE-bench Pro: 50.9%
+- **AA-SciCode: 44.8%** — under the 55%+ reference; **NL2Repo: 32.2%** — weak
+- **DeepSWE, AA Coding Index, Vibe Code Bench, FrontierCode, Terminal-Bench: no verified public score found** — so the 74%, 70% and 55% coding references are all unmeasured
+
+Multimodal (image-in) — **the deepest visual suite in this research series**:
+
+- **CountBench: 97.2%** — the highest figure in this research series
+- **AI2D_TEST: 93.9%**; **RefCOCO (avg): 92.3%**; **OmniDocBench 1.5: 90.8%**
+- **MathVision: 88.6%**; We-Math: 87.9%; DynaMath: 86.3%; **Video-MME (with subtitle): 87.5%** / 83.7% without
+- **MLVU (M-Avg): 86.7%**; **VideoMMMU: 84.7%**; RealWorldQA: 83.9%; CC-OCR: 82.0%; **CharXiv: 80.8%**; MMMU: 85.0%
+- **V\*: 95.8%** — the second-highest V\* figure in this research series, behind Kimi K2.6's 96.9%
+- **MMMU-Pro: 79.0%** (vendor) / **AA-MMMU-Pro 77.3%**; ScreenSpot Pro: 65.6%; MMLongBench-Doc: 61.5%; ERQA: 67.5%; SimpleVQA: 67.1%; ODINW13: 47.0%
+- **ExtractBench, BabyVision, ZeroBench, Design Arena, Chartography: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 66/100.** TAU2-Bench 86.7% and BFCL-V4 72.9% (vendor) with AA confirming τ²-Telecom 95.6% — upper-mid tool use — but Tool Decathlon 38.3%, MCP-Mark 46.1%, τ³-Banking 13.4%, GDPval 14.8% and AA Agentic Index mid-teens show uneven agentic reliability outside telecom/retail.
-- **Reasoning: 74/100.** GPQA Diamond 88.4–89.3%, AIME26 91.3%, LiveCodeBench 83.6% and MMLU-Pro 87.8% are upper-mid-band (the best open-weights reasoning trio after GLM-5/K2.5); HLE 28.7% and CritPt 1.7% cap it below the frontier tier.
-- **Context window: 74/100.** 262K native (1M via YaRN/hosted) is the 200K–500K band (65–84) with AA-LCR 68.7–77.3% and LongBench v2 63.2% — good, verified retrieval, but a quarter of the 1M frontier norm on weights.
-- **Multimodal: 84/100.** Text + image + video in → text out is the 75–90 band, near its top: MMMU-Pro 79.0%, MathVision 88.6%, OmniDocBench 90.8%, OCRBench 93.1%, VideoMME 87.5% and OSWorld-Verified 62.2% — the strongest open-weights vision profile, and no audio input keeps it out of the 90+ band.
-- **Coding: 72/100.** SWE-bench Verified 76.4%, SWE-Multilingual 69.3%, SecCodeBench 68.3% and LiveCodeBench 83.6% are strong open-weights coding; Terminal-Bench 2 52.5% (AA 2.1: 51.3%), TB Hard 40.9% and SciCode 44.8% keep it below the frontier band.
-- **Cost efficiency: 90/100.** $0.39–0.60/M input and $2.34–3.60/M output (blended ~$1.25) with Apache-2.0 weights, 17B active parameters and 8.6–19× faster decoding than Qwen3-Max — the methodology's ~$0.6/$2.2 ≈ 92 range, high but not top-tier by 2026 Chinese-flash pricing.
-- **Overall Score: 74/100.** Best-fit recommendation: the most balanced open-weights flagship of early 2026 — frontier-adjacent reasoning, coding and the best open vision-language profile at 17B active, Apache-2.0 and self-hostable; hallucination (88% rate on AA-Omniscience) is its one serious flaw.
+- **Tool use: 62/100.** Mid-band and split. The protocol and research half is respectable — **τ²-bench 95.6% [AA] is the strongest in this batch, MCP-Tasks 74.2%, WideResearch 74.0%, BrowseComp 69.0%, τ³-bench 68.4% and Claw-Eval 56.8%** — while the execution half collapses: **Terminal-Bench 2.0 52.5%, Toolathlon 36.3%, DeepPlanning 37.6%, MCP Atlas 46.1%, ResearchClawBench 14.2%, APEX-Agents-AA 15.3%**, and **Terminal-Bench 2.1/4.0, MazeBench, ALE, JobBench, GDPval-AA and the AA Agentic Index have no figure at all** — so two of three frontier references are unmeasured and no composite exists.
+- **Reasoning: 56/100.** Below the methodology's mid band, and the report's central caution. **The split is the model's signature: competition mathematics is genuinely strong (AIME26 93.3%, HMMT 87.9–94.8%, MMAnswerBench 80.9%) while scientific depth is the worst measured anywhere in this research series — CritPt 1.7%** — and **AA-HLE 28.7–29.0% fails the 40% reference by ~11 points**. GPQA Diamond fails 90% on both runs. **AA-LCR 77.3% and AA-IFBench 78.8% (above the vendor's 76.5%) are the respectable figures**, and MMLU-Redux 94.9% / C-Eval 93% show broad knowledge. Capped hard by **CritPt 1.7%, and by the total absence of the AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR and FrontierMath** — so composite depth and reliability are entirely unknown. **BenchLM's Non-Reasoning classification is consistent with this profile and is recorded as a corroborating structural fact rather than a separate finding.**
+- **Context window: 70/100.** **128,000 tokens** places it exactly on the methodology's 200K tier boundary but below it, and it is the smallest window in this batch. Scored at 70, the 128K tier's floor, on the strength of **AA-LCR 77.3%** — which means the window that exists is measurably usable. Held at 70 rather than higher because **128K is one-eighth of the current standard**, no MRCR or GraphWalks figure exists, and no max-output limit is published. **This is the single largest constraint on the model's ranking.**
+- **Multimodal: 94/100.** Text, image and video in with text out, scored at the top of the methodology's 75–90 band and **above it**, because this is **the deepest measured visual suite in this research series — 21 benchmarks** including **CountBench 97.2% (the series' highest), AI2D_TEST 93.9%, RefCOCO 92.3%, V\* 95.8% (second-highest), OmniDocBench 90.8%, Video-MME 87.5%, VideoMMMU 84.7%, MLVU 86.7%, MathVision 88.6%**, with genuine video understanding across three benchmarks. Held below 95+ because output is text-only, there is no audio input, **ExtractBench, BabyVision, ZeroBench and Design Arena are unmeasured**, and **ODINW13 47.0% and ScreenSpot Pro 65.6%** sit well below the rest of the suite.
+- **Coding: 68/100.** Mid-band. **SWE-bench Verified 76.2% and LiveCodeBench v6 83.6% are solid mid-frontier repair figures, and SWE Multilingual 69.3% corroborates.** Capped by SWE-bench Verified sitting 8.8 points under the 85%+ terminal reference, **AA-SciCode 44.8% (under 55%), NL2Repo 32.2%, and the total absence of DeepSWE, the AA Coding Index, Vibe Code Bench, FrontierCode and Terminal-Bench** — so the 74%, 70% and 55% references cannot be checked.
+- **Cost efficiency: 92/100.** **No rate card is published in any source checked**, so the score rests on the architecture rather than a price: **open weights with a 4.3% activation ratio (17B active of 397B total)** means inference cost scales with the 17B active count, not the 397B total, which is one of the most favourable ratios in this research series. Scored at 92 on that basis plus the self-hosting escape. **Explicitly an architecture-based inference, not a price measurement** — held below 95 because no Zen free tier exists (`noFreeId`), no hosted rate is published, and the 128K window keeps prompt costs down without earning a premium.
+- **Overall Score: 70/100.** (62 + 56 + 70 + 94 + 68 + 92) / 5 = 73.6 → **74**. Recommendation: **the best open-weight vision model in this research series, and a poor reasoning model.** The 21-benchmark visual suite — CountBench 97.2%, V\* 95.8%, AI2D_TEST 93.9%, RefCOCO 92.3%, OmniDocBench 90.8% and three genuine video benchmarks — combined with **open weights and a 4.3% activation ratio** makes it the strongest self-hostable choice for document, chart, OCR, grounding and video understanding in this corpus. Two hard cautions: **CritPt 1.7% is the lowest measured anywhere in this research series and AA-HLE is 29.0%**, so — with BenchLM classifying the model **Non-Reasoning** despite strong competition-maths figures (AIME26 93.3%, HMMT 87.9–94.8%) — it must never be used as a scientific or deep-reasoning assistant; the maths scores reflect contest-pattern recall, not reasoning. And **128K context is one-eighth of the current standard**, which disqualifies it from long-document work despite the strong document-perception benchmarks. Prefer the separately-tracked `Qwen3.5 397B (Reasoning)` sibling if reasoning is the requirement.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) via BenchLM canonical page `qwen3-5-397b` (73/667 rows, 55.42 #66/959) and the AA non-reasoning workload: new agentic/coding gaps filled (SWE-Pro 50.9%, QwenClawBench 51.8%, Claw-Eval 56.8%, MCP-Tasks 74.2%, Gert Labs 46.76%, ResearchClawBench 14.2%, NL2Repo 32.2%, AI-Needle 68.7%), while the non-reasoning AA workload conflicts (AA-HLE 19.8%, AA-MMMU-Pro 52.7%, AA-IFBench 51.6%, AA-Omniscience −37.9) are flagged, not resolved — the existing Tool use 66 / Reasoning 74 / Context 74 / Multimodal 84 / Coding 72 reads already carry the low-GDPval (Elo 966), τ³-Banking 13.4% and weak end-to-end coding caps, so no score change. Second-pass verification (2026-10-10) cross-referenced benchmarklist.com (131 primary-source results, updated 2026-10-07). Prior pass (2026-10-09) used Qwen Hugging Face model card + README, Artificial Analysis launch article and current index, BenchLeader, DeepInfra/Together provider benchmarks, Vector Wire, AI Atlas.
-- Future sources: add a new file next to this one, e.g. `Qwen_4.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using Qwen's own model card and the Qwen3.6-Plus comparison tables as the primary source (so the large majority of rows are vendor-run and labelled as such), cross-checked against **BenchLM's 71-row catalog — the second-deepest evidence base in this research series — under its canonical dotted slug `qwen3-5-397b`**, which attributes the independent numbers to Artificial Analysis, Epoch AI, Gert Labs, LlamaIndex, ResearchClawBench and Claw-Eval. **A lookup trap is recorded: the repo folder spelling `qwen-3.5-397b` 404s on BenchLM, and the dotted slug had to be found via Qwen3.8-27B's sibling list; the canonical model name is also `Qwen3.5-397B-A17B`, which the repo folder name does not carry, and the folder spelling is further confusable with the `qwen-3.5-397b` param-size convention.** The report's central analytical finding is a **split rather than a level: competition mathematics is strong (AIME26 93.3%, HMMT 87.9–94.8%) while scientific depth is the worst measured anywhere in this research series (CritPt 1.7%)** — a profile consistent with BenchLM's **Non-Reasoning** classification, which is recorded as a corroborating structural fact and carried into the recommendation. Conflicts are listed side by side — GPQA 88.4% (vendor) / 89.3% [AA]; HLE 28.7% (vendor) / 29.0% [AA]; IFBench 76.5% (vendor) / 78.8% [AA]; MMMU-Pro 79.0% (vendor) / 77.3% [AA]; Video-MME 87.5% with-subtitle / 83.7% without — rather than averaged, with the independent run preferred on each. The series-highest CountBench (97.2%) and series-lowest CritPt (1.7%) are attributed rather than presented bare. The unpublished rate card is surfaced with its effect on the cost score stated as an architecture-based inference rather than a measurement. Missing benchmarks (Terminal-Bench 2.1/4.0, MazeBench, ALE, JobBench, GDPval-AA, AA Agentic Index, AA AutomationBench, AA Intelligence Index, AA-Omniscience, ARC-AGI, MRCR, FrontierMath, DeepSWE, AA Coding Index, Vibe Code Bench, FrontierCode, Terminal-Bench, ExtractBench, BabyVision, ZeroBench, Design Arena, Chartography) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Hugging Face — Qwen/Qwen3.5-397B-A17B model card (primary source)](https://huggingface.co/Qwen/Qwen3.5-397B-A17B)
+  - [Qwen — Qwen3.6-Plus comparison tables (source of the large vendor-run row set)](https://qwen.ai/blog?id=qwen3.6)
+  - [BenchLM — Qwen3.5 397B benchmark scores (71 rows, 55.46/100, #74/1015; canonical dotted slug)](https://benchlm.ai/models/qwen3-5-397b)
+  - [Artificial Analysis — Qwen3.5-397B-A17B](https://artificialanalysis.ai/models/qwen3-5-397b-a17b)
+  - [Gert Labs rankings](https://gertlabs.com/rankings)
+  - [ResearchClawBench leaderboard](https://internscience.github.io/ResearchClawBench-Home/)
+  - [Claw-Eval leaderboard](https://claw-eval.github.io/)
+  - [Artificial Analysis — tau2-bench leaderboard](https://artificialanalysis.ai/evaluations/tau2-bench)
+  - [Artificial Analysis — critpt leaderboard](https://artificialanalysis.ai/evaluations/critpt)
+  - [Artificial Analysis — ifbench leaderboard](https://artificialanalysis.ai/evaluations/ifbench)
+  - [Artificial Analysis — mmmu-pro leaderboard](https://artificialanalysis.ai/evaluations/mmmu-pro)
+  - See also: [`model/qwen3-5-397b-reasoning/`](qwen3-5-397b-reasoning.md) — the separately-tracked Reasoning sibling with no computed BenchLM score; [`model/qwen-3.8-27b/`](qwen-3.8-27b.md) — the 27B dense sibling refreshed earlier in this session
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

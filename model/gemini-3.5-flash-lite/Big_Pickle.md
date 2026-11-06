@@ -86,7 +86,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Long-context improved on re-measurement.** AA-LCR is **76.0%**, against the "62/100" proxy the original carried from SWEN.AI. With MRCR v2 at 72.2% @128K and 21.3% @1M, the 82 score stands but the shape is clearer: strong to 128K, degraded at the full window.
 
-**Newly measured:** GDPval-AA **1139 Elo / 24.2%**, AA Agentic Index **15.9%**, AA EnterpriseOps-Gym **42.3%**, AA-MMMU-Pro **79.0%**, ParseBench **59.49%**, AA-HLE **18.8%**, **CritPt 0.0%**, FrontierMath v2 **25.965%** (T1–3) / **0.000%** (T4), AA-Omniscience **26.5% accuracy / 26.7% hallucination**. The hallucination rate is the best in this cohort — worth noting for a lite tier.
+**Newly measured:** GDPval-AA **1139 Elo / 24.2%**, AA Agentic Index **15.9%**, AA EnterpriseOps-Gym **42.3%**, AA-MMMU-Pro **79.0%**, ParseBench **59.49%**, AA-HLE **18.8%**, **CritPt 0.0%**, FrontierMath v2 **25.965%** (T1–3) / **0.000%** (T4), AA-Omniscience **26.5% accuracy / 26.7% hallucination**. The hallucination rate is the second-best in this cohort behind GLM-5.2 (26.3%) — worth noting for a lite tier.
 
 **Pricing and lifecycle.** **$0.30 in / $2.50 out, $0.03 cached, 1,048,576 context / 65,536 output** — unchanged on models.dev and Zen. Still live and still the cheapest 3.5-class Gemini on the gateway.
 

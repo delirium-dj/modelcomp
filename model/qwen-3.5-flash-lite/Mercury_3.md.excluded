@@ -1,0 +1,33 @@
+# Qwen3.5-Flash-Lite — findings by Mercury 3 (SELF-EXCLUDED: no such public model)
+
+- Source: Qwen / Alibaba (claimed Qwen3.5-Flash-Lite)
+- Date: 2026-11-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **`.md.excluded`** — no verified public info exists for this model ID; scores would be fabricated.
+
+## Findings
+
+- **No public model named "Qwen3.5-Flash-Lite" exists** as of 2026-11-06:
+  - Alibaba Cloud Model Studio: 404 for `qwen3-5-flash-lite` (only `qwen3.5-flash` exists)
+  - QwenCloud: 404 for `qwen3.5-flash-lite`
+  - OpenRouter: 404 for `qwen/qwen3.5-flash-lite`
+  - llm-stats: no model page
+  - No Hugging Face checkpoint, model card, or third-party listing found
+- The Qwen3.5 series' Flash tier is **`qwen3.5-flash`** (hosted 1M-context hybrid MoE; open-weight sibling Qwen3.5-35B-A3B) — already researched in `model/qwen-3.5-flash/Mercury_3.md`.
+- This slug almost certainly represents a phantom/non-existent variant of `qwen-3.5-flash` (suspected duplicate-queue entry). It should not be scored or treated as a distinct model.
+- If the orchestrator has an authoritative identity for this slug (e.g., an API model ID), re-delegate for fresh research; otherwise consider merging with/flagging against `qwen-3.5-flash`.
+
+---
+
+## Signature
+
+- Provided by: **Mercury 3 (inception/mercury-3)** — 2026-11-06
+- Method: public internet research; no scores assigned (no such model found — self-excluded).
+- Reference URLs:
+  - [Alibaba Cloud Model Studio: qwen3.5-flash (487 only Flash page)](https://www.alibabacloud.com/help/en/model-studio/qwen3-5-flash)
+  - [Alibaba Cloud Model Studio: qwen3.5-flash-lite (404)](https://www.alibabacloud.com/help/en/model-studio/qwen3-5-flash-lite)
+  - [QwenCloud: qwen3.5-flash-lite (404)](https://www.qwencloud.com/models/qwen3.5-flash-lite)
+  - [OpenRouter: qwen/qwen3.5-flash-lite (404)](https://openrouter.ai/qwen/qwen3.5-flash-lite)
+  - [llm-stats: Qwen3.5-Flash (family)](https://llm-stats.com/models/qwen3.5-flash)
+- Future sources: add a new file next to this one using the same headings.

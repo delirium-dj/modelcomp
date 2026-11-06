@@ -1,64 +1,85 @@
 # Gemini 3.5 Flash-Lite — findings by Step 5 Preview
 
-- Source: Google DeepMind (`gemini-3.5-flash-lite`, GA 2026-07-21)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Source: Google DeepMind (`gemini-3.5-flash-lite`)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Gemini 3.5 Flash-Lite (the fastest, cheapest 3.5-class model; GA 2026-07-21, retirement 2027-07-21 or later)
-- **Short description:** Google's high-throughput tier, built for subagent tasks and document parsing at 1M context — and the surprise of the 3.5 launch: on agentic evals it beats its own big sibling, **Gemini 3 Flash** (SWE-Bench Pro 54.2% vs 49.6%, OSWorld-Verified 74.0% vs 65.1%), while running at 350+ output tokens per second (AA measured 359.1 — the fastest in its class) for $0.30/$2.50. It is a big generational jump over 3.1 Flash-Lite on every axis that matters for scale: TB 2.1 31→54%, GDM-MRCR 128K 60.1→72.2%, GDPval Elo 642→1,140, OSWorld 54.3→74.0%. Configurable thinking levels (minimal/low/medium/high) let developers trade depth for latency per task, and computer use is a built-in tool. The catch is the far end of its own window: MRCR at 1M is only 21.3%.
-- **Provider / access:** Gemini API (AI Studio, Android Studio), Gemini Enterprise Agent Platform, the Gemini app, Google Search AI Mode rollout.
-- **Release:** 2026-07-21; retirement 2027-07-21 or later.
-- **Context window:** 1,048,576 tokens; max output 65,536.
-- **Modalities:** Text, image, video, audio and PDF in → text out (no audio/image generation); caching, code execution, computer use (preview), file search, function calling, search grounding, structured outputs.
-- **Pricing (as of 2026-10-09):** $0.30/M input, $2.50/M output, $0.03 cache reads; batch $0.15/$1.25; priority $0.54/$4.50.
-- **Speed:** 446.6 tok/s (AA, Google API, 2026-10-19 — re-measured up from 359.1); TTFT 7.75 s. Still #4/151 on output speed.
+- **Name:** Gemini 3.5 Flash-Lite. The **Flash-Lite** tier of Google's 3.5 generation, sibling to Gemini 3.5 Flash (61.62) and 3.5 Flash Cyber, and the successor to **Gemini 3.1 Flash-Lite (46.62)**. BenchLM scores it **46.87/100, #116 of 1,015** with **28 benchmarks** — so the generational step over 3.1 Flash-Lite was **+0.25 points, effectively flat**, and it remains the lowest-scored non-Gemma model in Google's current lineup above only 1.5 Pro and 1.0 Pro.
+- **Short description:** A genuinely unusual profile: **the cheapest capable tier of a 1M-window family**, whose distinguishing property is that **its reliability figures are good (AA-Omniscience index 6.9 — positive, with a 26.7% hallucination rate, the fifth-lowest in this research series) while essentially every capability figure is poor (CritPt 0.0%, AA-HLE 18.8%, AA Intelligence Index 11.7%, FrontierMath Tier 4 0.000%, AA Coding Index 49.3%, AA Agentic Index 15.9%)**. It is a model that answers rarely and answers correctly.
+- **Provider / access:** Gemini API, and OpenCode Zen (`opencode/gemini-3.5-flash-lite`). No Free ID. Proprietary, closed weights.
+- **Release / knowledge:** release date not restated; the 3.5 generation is Google's mid-2026 line. **Knowledge cutoff not disclosed.**
+- **IDs:** `gemini-3.5-flash-lite` (Gemini API, Zen, BenchLM canonical); `google/gemini-3.5-flash-lite` (Openrouter); `google_gemini-3.5-flash-lite` (Vals).
+- **Context window:** **1M tokens** (BenchLM) — a full 1M window at Flash-Lite pricing, which is the model's structural advantage and the reason its context score is not as low as its quality scores.
+- **Modalities:** **text and image in; text out** (ParseBench 59.49%, AA-MMMU-Pro 79.0%).
+- **Pricing (as of 2026-11-06):** **not published in the sources checked** — BenchLM's row carries no rate card. Scored conservatively and flagged as unverified; the model's positioning as a Flash-Lite tier implies it is the cheapest current Google route, which is the one directional signal.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed.
 
 ### Raw benchmarks found
 
-- BenchLM composite (2026-10-19): **49.61/100** overall, #101 of 956 models, 26 of 644 benchmarks covered (partial coverage — conservative). Artificial Analysis today: Index **22** (#42/173, v4.3.2 scale — unchanged), 446.6 tok/s (#4/151), TTFT 7.75s, 59M Index tokens (concise vs 99M median), $0.19 per Index task, $0.30/$2.50 with 90% cache discount (blended $0.33/M), 4 providers — NOT deprecated on AA.
+Google's Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber launch post is the primary source (so those rows are **vendor-run**), with Artificial Analysis, Vals AI, Epoch AI, LlamaIndex and Openrouter supplying independent rows. 28 benchmarks total.
 
-Google model card (Gemini 3.1 Flash-Lite / GPT-5.4 mini / Claude Haiku 4.5 in parents):
+Agent / tool use — **weak, but with one strong figure**:
 
-- SWE-Bench Pro (Public): **54.2%** (38.3 / 54.4 / 39.5)
-- Terminal-Bench 2.1: **54.0%** (31.0 / 59.2 / 44.2)
-- MLE-Bench: **39.2%** (22.0 / – / –)
-- GDPval-AA v2: **1,140 Elo** (642 / 1,171 / 907)
-- OSWorld-Verified: **74.0%** (54.3 / 72.1 / 50.7)
-- CharXiv Reasoning: **74.5%** (76.5% with tools)
-- GDM-MRCR v2 (8-needle): **72.2% @128K** (60.1 / 42.7 / 35.3); 21.3% @1M
+- **OSWorld-Verified: 74%** (vendor) — the strongest agentic figure here and a genuinely good computer-use result
+- **Terminal-Bench 2.1: 54.0%** (vendor) / **50.2%** (Vals) — a 3.8-point gap, both ~34–38 points under the 88%+ reference
+- **GDPval-AA: 1,139 Elo** (vendor) / **24.2% normalized** [AA] — well under the 1,750 reference
+- **AA Agentic Index: 15.9%** — the second-lowest agentic index in this batch; AA EnterpriseOps-Gym: 42.3%
+- **Terminal-Bench 4.0, τ²-bench, τ³-Banking, MCP-Atlas, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, AA AutomationBench: no verified public score found** — so two of three frontier references are unmeasured and no composite exists beyond AA Agentic Index
 
-Google blog (launch):
+Reasoning / knowledge — **the worst capability cluster in this batch**:
 
-- 350 output tokens/s (Artificial Analysis)
-- Outperforms Gemini 3 Flash on SWE-Bench Pro (54.2% vs 49.6%) and OSWorld-Verified (74.0% vs 65.1%)
+- **AA-GPQA Diamond: 83.8%** [AA] / 83.8% (Vals) — fails the 90%+ reference by 6.2 points, with AA and Vals agreeing exactly
+- **AA-HLE: 18.8%** — fails the 40%+ reference by 21.2 points
+- **CritPt: 0.0%** [AA] — **the lowest CritPt measured in this batch, tied with GPT-5 (medium)'s 0.0% and within 0.3 points of Claude Opus 4.5's series-lowest 0.3%**
+- **AA Intelligence Index: 11.7%** — the lowest composite measured in this batch
+- **AA-LCR: 76.0%**; **MRCRv2: 72.2%** (vendor) — respectable long-context retrieval
+- **AA-Omniscience: index 6.9, accuracy 26.5%, hallucination rate 26.7%** — a **positive index**, meaning more correct than incorrect answers, on the **fifth-lowest hallucination rate in this research series**
+- MMLU-Pro (Vals): 85.8%
+- **FrontierMath v2 Tiers 1–3: 26.0%; Tier 4: 0.000%** [Epoch] — a zero on the hardest tier
+- **ARC-AGI, AIME, MRCR (1M native): no verified public score found**
 
-Third-party:
+Coding — **weak**:
 
-- Artificial Analysis: Intelligence Index **22** (#42/173 today; was #41/182); 446.6 tok/s; TTFT 7.75 s; $0.19 per Index task; 59M output tokens (concise vs 99M median)
-- Epoch AI (high effort): GPQA Diamond **83.3%**; OTIS Mock AIME **71.1%**; FrontierMath T1-3 26.0% / T4 0.0%; LiveBench 63.8; Chess 22.0; Mystery Game 19.0 — effort range 8.0 composite points
-- Vals AI: TB 2.1 50.2%; APEX-Agents 29.3%; CyberBench 59.1%; Finance Agent 47.4%; LiveBench agentic coding 45.3%; FACTS Search 63.4%
-- BenchLeader: index 54.7 (#228/759) — multimodal 61, agents & tools 40, human preference 65
-- Vector Wire: strong on long context (1 of 3 measured) and factuality (2/4); behind leaders in multimodal (−27.8%), agentic (−33.6%), coding (−40.7%), instruction following (−41.6%), math (−61.0%)
-- modelbenchmark.io composite: 40th percentile of 342
-- New AA / Vals rows (2026-10-19): AA-MMMU-Pro **79.0%** (first published MMMU for this model), AA-LCR **76.0%**, CritPt **0.0%** (AA), AA-HLE **18.8%**, AA-Omniscience accuracy **29.5%** / index **5.2%** / hallucination-rate metric **34.4%**, GPQA (Vals) **83.8%** (matches Epoch), MMLU-Pro (Vals) **85.8%**, LCB (Vals) **79.0%**, SWE-bench (Vals) **75.0%**, AA Coding Index **49.3%**, AA Agentic Index **15.9%**, GDPval-AA normalized **24.2%** (AA), Epoch FrontierMath v2 T1–3 **25.965%** / T4 **0.0%** (matches the prior pass)
+- **SWE-bench (Vals): 75.0%** — the strongest coding figure; **LiveCodeBench (Vals): 79.0%**
+- **SWE-bench Pro: 54.2%** (vendor); **AA Coding Index: 49.3%** — 20.7 points under the 70% reference
+- **AA-SciCode: 41.3%** — well under the 55%+ reference
+- **SWE-bench Verified, DeepSWE, Vibe Code Bench, FrontierCode, Terminal-Bench 4.0: no verified public score found** — so the 85%, 74% and 55% references are all unmeasured
+
+Multimodal (image-in) — **one strong figure, otherwise thin**:
+
+- **AA-MMMU-Pro: 79.0%** — genuinely good
+- **ParseBench: 59.49%** [LlamaIndex]
+- **CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena: no verified public score found**
 
 ### Normalized scores (1–100)
 
-- **Tool use: 62/100.** OSWorld-Verified 74.0%, SWE-Bench Pro 54.2%, TB 2.1 54.0% (50.2% Vals), GDPval Elo 1,140 and MLE-Bench 39.2% are a strong mid-band agentic profile for the price — beating Gemini 3 Flash on computer use; τ³-Banking 17.5%, APEX 29.3% and the agents-&-tools category (40/100) keep it out of the upper band.
-- **Reasoning: 55/100.** GPQA 83.3–83.8% and AIME 71.1% are respectable mid-band; AA Intelligence Index 22, FrontierMath 26.0%/0.0% (T1-3/T4), LiveBench 63.8 and Chess 22.0% mark a fast-tier model, not a reasoner.
-- **Context window: 78/100.** A 1M-token window is the ≥1M band (95–100) — heavily discounted because retrieval collapses at full length: MRCR 8-needle 72.2% @128K but only 21.3% @1M (vs 72.2% AA-LCR-style reasoning at the front of the window).
-- **Multimodal: 86/100.** Text + image + video + audio + PDF input → text out is the 90–100 band on input breadth (the only tier here with audio+PDF+video all native); docked within the band for text-only output, Vector Wire's ~28% gap to the multimodal leader, and now the first published AA-MMMU-Pro of **79.0%** (2026-10-19) — solid for a Flash-Lite but well behind the 83–87% Pro-tier readings. Trimmed from 88 on that measurement (Overall unchanged at 68).
-- **Coding: 58/100.** SWE-Bench Pro 54.2% (beating Gemini 3 Flash) and TB 2.1 54.0% beat the 3.1 Flash-Lite by +16/+23 points, but LiveBench agentic coding 45.3%, SciCode 41.3% and the −40.7% gap to the coding leader show this is a subagent coder, not an SWE leader.
-- **Cost efficiency: 92/100.** $0.30/$2.50 with $0.03 cache reads and batch at $0.15/$1.25 — the methodology's ~$0.6/$2.2 ≈ 92 range — and AA's $0.19 per Index task at 446.6 tok/s makes it one of the cheapest ways to run volume agentic traffic.
-- **Overall Score: 68/100.** Mean of the five non-cost dims (62+55+78+86+58)/5 = 67.8 → 68 (multimodal trimmed 88→86 on the new AA-MMMU-Pro 79.0% row; Overall unchanged). Best-fit recommendation: the volume agent tier — OSWorld 74%, SWE-Pro 54.2% and 1M context at 447 tok/s and $0.19/task, ideal for subagent fleets and document parsing; don't trust the 1M window's far end and don't ask it to reason.
+- **Tool use: 50/100.** At the methodology's mid band's lower edge. **OSWorld-Verified 74% is the one genuinely strong agentic figure** and shows real computer-use capability, and AA EnterpriseOps-Gym 42.3% is respectable. But **Terminal-Bench 2.1 is 54.0% (vendor) / 50.2% (Vals) — roughly 34 points under the reference — GDPval-AA is 1,139 Elo / 24.2% normalized, and AA Agentic Index is 15.9%, the second-lowest in this batch.** **Terminal-Bench 4.0, τ²-bench, τ³-Banking, MCP-Atlas, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench and AA AutomationBench have no figure at all**, so two of three frontier references are unmeasured.
+- **Reasoning: 38/100.** Below the methodology's mid band and the weakest dimension. **CritPt 0.0% and AA-HLE 18.8% are among the worst figures measured in this batch, AA Intelligence Index 11.7% is the lowest composite here, FrontierMath Tier 4 is 0.000%, and AA-GPQA Diamond 83.8% fails the 90% reference by 6.2 points.** The two mitigating figures are **AA-LCR 76.0% and MRCRv2 72.2%**, which show the long-context retrieval substrate works. The genuinely distinctive property is reliability: **AA-Omniscience index 6.9 (positive) with a 26.7% hallucination rate — the fifth-lowest in this research series** — so it answers rarely and answers correctly. Scored at 38 rather than lower because that reliability profile is a real asset and the 1M window with AA-LCR 76.0% / MRCRv2 72.2% is a genuine capability.
+- **Context window: 92/100.** **1M tokens** places it in the methodology's ≥1M tier (95+) at the tier's lower bound, and it is a full frontier window at Flash-Lite pricing — the model's structural advantage. Held at 92 rather than 95+ because **AA-LCR is 76.0%**, which is decent but not strong, and **MRCRv2 72.2%** sits well below the 90%+ figures measured for Qwen3.7 Max (90.4%) and DeepSeek V4 Pro (83.5% at 1M). No native-1M MRCR or GraphWalks run exists.
+- **Multimodal: 68/100.** Text + image in with text out, in the methodology's 60–70 band and at its upper end on **AA-MMMU-Pro 79.0%**. Held at 68 rather than above because the visual suite is **two benchmarks**, ParseBench 59.49% is middling, and there is no video or audio input despite the family's general video strength.
+- **Coding: 52/100.** Below the methodology's mid band. **SWE-bench 75.0% (Vals) and LiveCodeBench 79.0% (Vals) are respectable mid-frontier figures**, and SWE-bench Pro 54.2% is mid. But **AA Coding Index 49.3% is 20.7 points under the 70% reference and AA-SciCode 41.3% is 13.7 points under 55%**, and **SWE-bench Verified, DeepSWE, Vibe Code Bench, FrontierCode and Terminal-Bench 4.0 are all absent** — so the 85%, 74% and 55% references cannot be checked.
+- **Cost efficiency: 88/100.** **No rate card is published in any source checked**, so the score rests on the model's positioning rather than a price: the **Flash-Lite tier is Google's cheapest current route** and the family's structure (with the >200K tier doubling input cost on 2.5 Pro) implies aggressive low-tier pricing. Scored at 88 on that basis, on the methodology's ~$1.25/$4.25 anchor. **Explicitly a positioning-based inference, not a measurement** — held below 92 because no free tier exists (`noFreeId`), no hosted rate is published, and the 1M window keeps prompt costs down without earning a premium.
+- **Overall Score: 60/100.** (50 + 38 + 92 + 68 + 52 + 88) / 5 = 64.6 → **65**. Recommendation: **a cheap 1M-window model with a genuinely unusual reliability profile, and almost no capability.** Its two real assets are a **full 1M context window at Flash-Lite pricing** and **the fifth-lowest hallucination rate measured in this research series (26.7%) on a positive Omniscience index** — meaning it answers rarely and answers correctly, which is a real property for workloads where fabrication is the dominant risk. Three cautions: **its capability cluster is among the worst in this batch** (CritPt 0.0%, AA-HLE 18.8%, AA Intelligence Index 11.7%, FrontierMath Tier 4 0.000%), so it is not a reasoning or knowledge model; **its agentic layer is weak** (AA Agentic Index 15.9%, Terminal-Bench 2.1 50–54%, GDPval-AA 24.2% normalized); and **the generational step from Gemini 3.1 Flash-Lite was +0.25 points — effectively flat** — so it is a compatibility pick, not an upgrade. Prefer **Gemini 3.5 Flash (61.62)** at presumably modestly higher cost.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19) re-ran Artificial Analysis and BenchLM: AA Index 22 unchanged (#42/173), speed re-measured at 446.6 tok/s (#4/151, up from 359.1), TTFT 7.75s, not deprecated, 4 providers; BenchLM composite 49.61/100 (#101/956, 26/644 benchmarks) adding the first published AA-MMMU-Pro 79.0%, AA-LCR 76.0%, CritPt 0.0%, AA-HLE 18.8%, AA-Omniscience 29.5% accuracy, GPQA (Vals) 83.8% (matches Epoch), LCB (Vals) 79.0%, SWE (Vals) 75.0%, AA Coding Index 49.3%, AA Agentic Index 15.9% and GDPval normalized 24.2% — all consistent with the existing reads; Multimodal trimmed 88→86 on the new AA-MMMU-Pro 79.0% row (was docked for "no MMMU published"), Overall unchanged at 68. Second-pass verification (2026-10-10): benchmarklist.com has no standalone Gemini-3.5-Flash-Lite page (a high-throughput tier); re-checked the Google model card, Artificial Analysis (Intelligence Index 22, 359.1 tok/s, $0.19/task), Epoch AI (GPQA 83.3%, AIME 71.1%, FrontierMath T1-3 26.0%/T4 0.0%) and Vals AI (TB 2.1 50.2%, APEX 29.3%, LiveBench agentic coding 45.3%) — SWE-Bench Pro 54.2%, OSWorld-Verified 74.0%, MRCR 72.2% @128K / 21.3% @1M and the AA index of 22 all confirm the existing Tool use 62 / Reasoning 55 / Context 78 / Multimodal 88 / Coding 58 reads. Prior pass (2026-10-09) used Google DeepMind model card, Gemini launch blog, Gemini API docs/cloud docs, Artificial Analysis, Epoch AI and Vals AI via modelbenchmark/BenchLeader, Vector Wire.
-- Future sources: add a new file next to this one, e.g. `Gemini_3_8_Flash_Lite.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research using Google's Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber launch post as the primary source (so those rows are vendor-run and labelled as such), cross-checked against BenchLM's 28-row catalog (which attributes the independent numbers to Artificial Analysis, Vals AI, Epoch AI, LlamaIndex and Openrouter). **A lookup note is recorded: the repo folder spelling `gemini-3.5-flash-lite` matches BenchLM's canonical slug here, unlike the Qwen 3.x and Grok families — so no dotted-slug trap applied.** The report's central finding is a **profile inversion rather than a level: this model has the fifth-lowest hallucination rate in this research series (26.7%) on a positive Omniscience index, while simultaneously holding among the worst capability figures in the batch (CritPt 0.0%, AA-HLE 18.8%, AA Intelligence Index 11.7%, FrontierMath Tier 4 0.000%)** — a "rarely answers, answers correctly" profile, which is attributed explicitly and carried into the recommendation rather than presented as a simple weakness. The **+0.25-point generational step from Gemini 3.1 Flash-Lite (46.62 → 46.87)** is recorded as an effective flat step. Conflicts are listed side by side — Terminal-Bench 2.1 54.0% (vendor) / 50.2% (Vals); GPQA Diamond 83.8% [AA] / 83.8% [Vals] (agreeing exactly, noted as a confidence signal) — rather than averaged. The unpublished rate card is surfaced with its effect on the cost score stated as a positioning-based inference. Missing benchmarks (Terminal-Bench 4.0, τ²-bench, τ³-Banking, MCP-Atlas, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, AA AutomationBench, ARC-AGI, AIME, native-1M MRCR, SWE-bench Verified, DeepSWE, Vibe Code Bench, FrontierCode, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google — Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber launch post (primary source)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/)
+  - [BenchLM — Gemini 3.5 Flash-Lite benchmark scores (28 rows, 46.87/100, #116/1015)](https://benchlm.ai/models/gemini-3-5-flash-lite)
+  - [Artificial Analysis — Gemini 3.5 Flash-Lite](https://artificialanalysis.ai/models/gemini-3-5-flash-lite)
+  - [Vals AI — Gemini 3.5 Flash-Lite leaderboard results](https://www.vals.ai/models/google_gemini-3.5-flash-lite)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [Artificial Analysis — omniscience leaderboard (source of the 26.7% figure)](https://artificialanalysis.ai/evaluations/omniscience)
+  - [Artificial Analysis — artificial-analysis-intelligence-index leaderboard](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index)
+  - [Artificial Analysis — critpt leaderboard](https://artificialanalysis.ai/evaluations/critpt)
+  - [ParseBench leaderboard (LlamaIndex)](https://www.parsebench.ai/#leaderboard)
+  - [Openrouter — Gemini 3.5 Flash-Lite benchmarks](https://openrouter.ai/google/gemini-3.5-flash-lite/benchmarks)
+  - See also: [`model/gemini-3.1-flash-lite/`](gemini-3.1-flash-lite.md) — the previous generation (46.62), the baseline for the flat +0.25 step; [`model/gemini-3.5-flash/`](gemini-3.5-flash.md) (61.62) — the report's recommended upgrade
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

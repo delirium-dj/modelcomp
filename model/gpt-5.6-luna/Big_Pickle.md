@@ -83,7 +83,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Tool use 82 → 84.** **Terminal-Bench 2.1 84.7%** (Vals 79.0%), **BrowseComp 83.3%**, **GDPval-AA 48.0% / 1582 Elo**, **AA Agentic Index 42.7%**, **Toolathlon 53.4%**, **OSWorld 2.0 45.6%**, **ITBench 40.3%**, **EnterpriseOps-Gym 40.8%**. The cheap-tier agent story holds up under independent measurement.
 
-**Context 78 → 80.** The split is now explicit: **AA-LCR 83.7%** is strong long-context reasoning, while **MRCR v2 41.3%** and **GraphWalks 1M 51.2%** remain weak retrieval. Huge window, mediocre needle-finding — the original's framing was right and slightly harsh.
+**Context 78 → 80.** **AA-LCR 83.7%** is strong long-context reasoning on the full 1.05M window. There is still no MRCR v2 or GraphWalks row for this checkpoint, so needle-finding at depth remains unmeasured — the score moves on the window plus the one independent long-context reading, not on a retrieval curve.
 
 **Multimodal 72 → 78.** The original said "no verified public score found"; there are now three: **MMMU-Pro 78.4%** (79.5% with Python), **AA-MMMU-Pro 78.6%**, **ExtractBench 91.16%**, plus **ParseBench 66.86%**.
 

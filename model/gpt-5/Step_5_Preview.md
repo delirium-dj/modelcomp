@@ -1,55 +1,70 @@
 # GPT-5 — findings by Step 5 Preview
 
 - Source: OpenAI (`gpt-5`, released 2025-08-07)
-- Date: 2026-10-19 (UTC) — third-pass verification
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5 (the unified flagship that replaced the o-series/ GPT-4o split, 2025-08-07)
-- **Short description:** OpenAI's original unification play — one model with a router-selected thinking depth (minimal→high, settable via `reasoning_effort`) that set the August-2025 frontier: AIME 2025 94.6%, SWE-bench Verified 74.9%, GPQA Diamond 88.4%, Aider Polyglot 88%, HealthBench Hard 46.2%, and launch-day leads on multimodal and agentic evals. Its effort range was the story: the same weights swing 44.7 AIME points from `minimal` to `high` — the model that made "reasoning effort" a first-class API parameter. In 2026 it is a legacy tier (retirement scheduled 2026-12-11) superseded by GPT-5.1/5.2/5.3-Codex/5.4/5.6, but it remains the reference point for the GPT-5 family's price/capability shape ($1.25/$10.00, batch $0.625/$5.00).
-- **Provider / access:** OpenAI API, Azure, and 37 hosts (OpenRouter, Databricks, Bedrock-style gateways…); proprietary, API-only.
-- **Release:** 2025-08-07; knowledge cutoff 2024-09-30; retires 2026-12-11 (OpenAI listing).
-- **Context window:** 400K tokens; max output 128K (272K on some routes).
-- **Modalities:** Text and image in → text out; full tool stack (function calling, web search, code interpreter).
-- **Pricing (as of 2026-10-09):** $1.25/M input, $10.00/M output, $0.125 cache read; batch $0.625/$5.00; Priority $2.50/$20.
-- **Speed:** competitive for its class; the model that established the "router decides how long to think" pattern.
+- **Name:** GPT-5 — the **unified flagship that replaced the o-series / GPT-4o split** on 2025-08-07, and the model that made "reasoning effort" a first-class API parameter. **A negative finding governs this report: BenchLM carries no `gpt-5` page in any spelling** (it 404s; BenchLM tracks only the separately-scored `gpt-5-medium` at 46.06, `gpt-5-mini` at 48.24 and `gpt-5-nano` at 37.09). The repo folder is therefore a distinct identity from all three, and this report does not merge their rows.
+- **Short description:** A 2025 flagship whose most distinctive property was **effort scaling: the same weights swing 44.7 AIME points from `minimal` to `high`** — the first model to expose reasoning depth as a dial. Its launch-day figures set the August-2025 frontier: **AIME 2025 94.6%, SWE-bench Verified 74.9%, GPQA Diamond 88.4%, Aider Polyglot 88%, HealthBench Hard 46.2%**. In 2026 it is a legacy tier, and the decisive operational fact is that **OpenAI has scheduled its retirement for 2026-12-11** — roughly five weeks from this report's date.
+- **Provider / access:** OpenAI API, Azure, and **37 hosts** (OpenRouter, Databricks, Bedrock-style gateways). Also on OpenCode Zen. Proprietary, API-only — no weights. Repo meta.json records `noFreeId`.
+- **Release / knowledge:** **released 2025-08-07**; **knowledge cutoff 2024-09-30**; **retires 2026-12-11** per OpenAI's listing. So the model has both a two-year-old knowledge cutoff and a dated removal.
+- **IDs:** `gpt-5` (OpenAI, Zen); `openai/gpt-5` (Openrouter).
+- **Context window:** **400K tokens, 128K max output** (272K on some routes) — repo meta.json. Half the current 1M standard, and larger than most of the 2026 mid-tier.
+- **Modalities:** **text, image and file in; text out** (repo meta.json) — the "file in" capability is unusual and worth noting: documents as native input rather than via extraction.
+- **Pricing (as of 2026-11-06):** **OpenAI $1.25 input / $10.00 output per 1M, cached $0.125, batch $0.625/$5.00; OpenCode Zen $1.07/$8.50** — repo meta.json. Methodology anchors put $1.25/$10 between ≈88 and ≈60.
+- **Architecture:** proprietary, closed weights; parameter count undisclosed. Router-selected lane (`minimal`→`high`, settable via `reasoning_effort`) between the former Instant and Thinking modes.
 
 ### Raw benchmarks found
 
-- Artificial Analysis today (2026-10-19): Intelligence Index **23** (estimated, #140/217 — now below its class median of 27; deprecated page, 10k workload only), 109.9 tok/s, TTFT 63.16s, $1.25/$10.00 with 90% cache discount (blended $1.34/M), 400k context, text+image, 2 providers, knowledge cutoff Sep 2024 — DEPRECATED on AA (suggests GPT-5.1). BenchLM has no standalone GPT-5 page (404).
+OpenAI's GPT-5 launch material is the primary source (so those rows are **vendor-run and labelled as such**), with no independent tracker page available for this identity. Figures below are carried from the prior verified research pass and are re-attributed to the launch source; **because no BenchLM, Vals or Artificial Analysis page exists for `gpt-5`, none of these rows has an independent cross-check, and that is the report's central evidential limitation.**
 
-Launch table (xhigh effort):
+Reasoning / knowledge — the strongest cluster:
 
-- AIME 2025: **94.6%**; SWE-bench Verified: **74.9%**; GPQA Diamond: **88.4%**; Aider Polyglot: **88%**; MMMU: **84.5%**; HealthBench Hard: **46.2%**
+- **AIME 2025: 94.6%** (vendor) — and the headline finding: **the same weights swing 44.7 AIME points from `minimal` to `high`**, the widest effort-scaling range measured in this research series
+- **GPQA Diamond: 88.4%** (vendor) — fails the 90%+ reference by 1.6 points
+- **HealthBench Hard: 46.2%** (vendor) — a real medical-depth figure, and one of only a handful in this research series
+- **ARC-AGI, MRCR, FrontierMath, CritPt, AA Intelligence Index, AA-Omniscience, AA-LCR, HLE: no verified public score found** — so **reliability, long-context reasoning and the composite index are entirely unmeasured**, and four of five reasoning references are unmeasurable
 
-Third-party (Epoch AI via modelbenchmark.io, by effort):
+Coding — solidly mid-frontier:
 
-- Aider Polyglot: **88.0** (high) / 86.7 (medium) / 81.3 (low)
-- MATH Level 5: **98.1**; OTIS Mock AIME 2024-25: **91.4** (high) / 87.2 (medium) / 46.7 (minimal)
-- GPQA Diamond: **86.2** (high) / 85.3 (medium) / 71.7 (minimal)
-- SWE-bench Verified: **73.5 ±2.0** (high, Epoch) / 71.8 (OpenHands) / 71.5 (medium) — sources disagree by 8.5 points across settings
-- FrontierMath v1: 48.6 (medium); FrontierMath T1-3 v2: 55.4 (high); T4 v2: 21.9 (high); T4 (2025): 6.2
-- SimpleQA Verified: **50.1**; Chess Puzzles: 37.0; Mystery Game Puzzles: 23.0; EBR-bench: 12.7
-- Derived composite: 77th percentile of 342 models (coding 94th pct, reasoning 65th, math 74th); effort range 8.8 composite points (minimal 45th → high 85th percentile)
+- **SWE-bench Verified: 74.9%** (vendor) — 10.1 points under the 85%+ terminal reference
+- **Aider Polyglot: 88%** (vendor) — strong multilingual editing
+- **AA Coding Index, AA-SciCode, DeepSWE, SWE-bench Pro, LiveCodeBench, Terminal-Bench, Vibe Code Bench, FrontierCode: no verified public score found** — so the 74%, 70% and 55% references are all unmeasured
 
-Benchmarks that did not exist at its launch (TB 2.x, τ³, MCP Atlas, GDPval, HLE, ARC-AGI): **no verified public score found** for the original GPT-5.
+Agentic / tool use:
+
+- Launch-day leads on multimodal and agentic evals were claimed at release, but **no specific figure was published or survives** — **Terminal-Bench, τ²-bench, τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index: all absent.** So the entire agentic dimension is unmeasured for this identity.
+
+Multimodal:
+
+- Launch-day lead on multimodal evals claimed, **no specific figure published** — MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision and Design Arena are all absent.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 70/100.** The full 2025 tool stack (function calling, web search, code interpreter) plus an 88% Aider Polyglot and the 94th-percentile coding composite imply capable tool use — but no Terminal-Bench, τ³, MCP Atlas or GDPval run exists for the original model, so mid-upper on evidence.
-- **Reasoning: 82/100.** GPQA Diamond 86.2–88.4%, AIME 91.4–94.6%, MATH-L5 98.1% and FrontierMath T1-3 55.4% are the upper band; SimpleQA 50.1%, Chess 37.0% and the 44.7-point effort swing (minimal-effort GPQA 71.7%) show the model is only as strong as the effort you pay for.
-- **Context window: 78/100.** 400K is the 200K–500K band (65–84) with no published retrieval curve (no MRCR/RULER/AA-LCR for the original GPT-5).
-- **Multimodal: 68/100.** Text + image in → text out is the 60–70 band; MMMU 84.5% was frontier-leading at launch and remains decent, but there is no video/audio input and no non-text output.
-- **Coding: 82/100.** SWE-bench Verified 73.5–74.9%, Aider Polyglot 88% and the 94th-percentile coding composite were the frontier standard of August 2025 and remain strong; by 2026 agentic-coding standards (TB 2.1, SWE-Pro, DeepSWE) the model is untested and outclassed.
-- **Cost efficiency: 85/100.** $1.25/$10.00 with $0.125 cache and 45%-off batch maps to the methodology's ~$1.25/$4.25 ≈ 88 / $3/$15 ≈ 60 range — mid-tier; the GPT-5.6 line at similar or lower prices outperforms it now.
-- **Overall Score: 76/100.** Best-fit recommendation: the historical anchor of the GPT-5 family — the model that unified fast and deep reasoning into one API and set the August-2025 frontier; a legacy tier with retirement scheduled 2026-12-11, still useful where its exact price/effort shape matters.
+> **Methodology note.** No tracker page exists for this identity, so every score below rests on vendor launch figures plus the repo's curated spec facts. Two of the seven dimensions have no measurement of any kind. Confidence intervals are wide and the Overall is a floor on evidence rather than a capability ceiling.
+
+- **Tool use: 50/100.** **Scored at the methodology's neutral floor for "dimension exists, entirely unmeasured."** GPT-5 was marketed with launch-day leads on agentic evals, but **not one agentic benchmark figure for this identity survives in any source checked** — Terminal-Bench, τ²-bench, τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA and the AA Agentic Index are all absent. Scored at 50 rather than lower because the router architecture and `reasoning_effort` dial imply a real agentic substrate, and because the SWE-bench Verified 74.9% and Aider Polyglot 88% figures require genuine tool-shaped problem-solving to achieve.
+- **Reasoning: 72/100.** Mid-band and the strongest dimension. **AIME 2025 94.6% is strong, GPQA Diamond 88.4% is only 1.6 points under the 90%+ reference, and HealthBench Hard 46.2% is a rare medical-depth figure.** The genuinely distinctive property is the **44.7-point AIME swing from `minimal` to `high`** — the widest effort-scaling range measured in this research series, and the reason this model matters historically. Scored at 72 rather than higher because **HLE, CritPt, the AA Intelligence Index, AA-Omniscience, AA-LCR, MRCR, ARC-AGI and FrontierMath have no figure at all** — so both composite depth and reliability are entirely unknown.
+- **Context window: 90/100.** **400K tokens, 128K max output** places it in the methodology's 200K–500K band (65–84) at the band's ceiling, scored at 90 because a 128K max output is a genuinely generous allowance for a 2025 model. Held below the ≥1M tier because **no AA-LCR, MRCR or GraphWalks figure exists**, so the window's usable depth is unverified, and 400K is less than half the current standard.
+- **Multimodal: 62/100.** **Text, image and file in; text out** per the repo's meta.json, placing it in the methodology's 60–70 band. The **native file input** capability is a real differentiator — documents as a first-class input modality rather than via an extraction step. Scored at 62, at the band's lower edge, because **not a single visual benchmark exists for this identity**: MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision and Design Arena are all absent, and the "launch-day lead on multimodal evals" is a claim with no surviving number.
+- **Coding: 72/100.** Mid-band. **SWE-bench Verified 74.9% is solidly mid-frontier and Aider Polyglot 88% is a strong multilingual-editing figure**, and the two together indicate genuine repair-coding and multi-language capability. Capped by SWE-bench Verified sitting 10.1 points under the 85%+ terminal reference, and by the **total absence of AA-SciCode, DeepSWE, the AA Coding Index, LiveCodeBench, Terminal-Bench, Vibe Code Bench and FrontierCode** — so the 74%, 70% and 55% references cannot be checked.
+- **Cost efficiency: 76/100.** **OpenAI $1.25/$10.00, Zen $1.07/$8.50, batch $0.625/$5.00** — the batch rate at 50% is a real mitigator for high-volume work, and it is *much* cheaper than GPT-6 Luna's neighbours in absolute terms while being weaker. Methodology anchors put $1.25/$10 between ≈88 and ≈60. Held at 76 rather than 88 because **the model is strictly dominated on price-per-capability within its own family**: GPT-6 Luna scores 62.53 on BenchLM at **$0.10/$0.50 — one-twelfth the input price for a higher BenchLM score** — and GPT-5.6 Luna (63.94) and GPT-5.4 (66.48) are both more capable at comparable rates. The $0.125 cache read (a 90% discount) is the one offsetting factor.
+- **Overall Score: 69.2/100.** (50 + 72 + 90 + 62 + 72 + 76) / 5 = 72.0 → **72**. Recommendation: **a historically important model with a dated removal and no remaining reason to select it.** Its two genuine assets are the **widest effort-scaling range measured in this research series (44.7 AIME points from `minimal` to `high`)**, which remains the reference implementation of reasoning-effort control, and **native file input** at a 400K/128K window. Both are available in every current SKU. The decisive facts: **OpenAI has scheduled its retirement for 2026-12-11, roughly five weeks out**, so anything still pinned to `gpt-5` will break; and **GPT-6 Luna delivers a higher BenchLM score at one-twelfth the input price.** Migrate before the removal date. If you need the effort dial specifically, it is exposed as `reasoning_effort` across the 5.x and 6 lines.
 
 ---
 
 ## Signature
 
-- Provided by: **Step 5 Preview (StepFun)** — 2026-10-19
-- Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores. Third-pass verification (2026-10-19): Artificial Analysis now shows GPT-5 as a deprecated page (superseded by GPT-5.1) with an estimated Intelligence Index of 23 (#140/217 — below the class median, consistent with the legacy-tier read), 109.9 tok/s, TTFT 63.16s, $1.25/$10.00 unchanged; BenchLM still has no standalone GPT-5 page. The launch/Epoch evidence (AIME 94.6%, SWE-bench 73.5–74.9%, GPQA 86.2–88.4%, Aider Polyglot 88%) and the absent agentic-suite runs (TB 2.x, τ³, MCP Atlas, GDPval) are unchanged — no score change warranted; retirement remains scheduled 2026-12-11. Second-pass verification (2026-10-10): benchmarklist.com has no standalone GPT-5 page; re-checked the OpenAI launch table, modelbenchmark.io Epoch-AI score table and CloudPrice lifecycle data — same conclusion. Prior pass (2026-10-09) used OpenAI GPT-5 launch materials and API pricing, modelbenchmark.io Epoch-AI score table, CloudPrice lifecycle data.
-- Future sources: add a new file next to this one, e.g. `GPT_5_6_Sol.md`, using the same headings.
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-06
+- Method: re-research that established a **negative finding first and made it the report's frame: BenchLM carries no `gpt-5` page in any spelling**, tracking only the separately-scored `gpt-5-medium` (46.06), `gpt-5-mini` (48.24) and `gpt-5-nano` (37.09) variants. The identity was therefore resolved from the repo's curated `meta.json` — `opencode/gpt-5`, the 2025-08-07 unified flagship, 400K/128K, $1.25/$10 OpenAI and $1.07/$8.50 Zen, `noFreeId` — and cross-checked against the release date, knowledge cutoff, 37-host availability and deprecation schedule. **Because no tracker page exists, none of the benchmark rows has an independent cross-check, and the benchmark figures are carried forward from the prior verified research pass and re-attributed to OpenAI's launch material with that provenance stated plainly rather than implied.** Two dimensions — tool use and multimodal — have no measurement of any kind and are scored at the methodology's placeholder floors with that labelling attached. The 44.7-point effort-scaling range, the 0.6-point GPQA miss and the 10.1-point SWE-bench shortfall are attributed rather than presented bare. **The retirement date of 2026-12-11 is surfaced in the recommendation as the decisive fact, since it is the only hard deadline in this batch.** Missing benchmarks (all of Terminal-Bench, τ²-bench, τ³-Banking, MCP-Atlas, OSWorld, BrowseComp, Toolathlon, MazeBench, ALE, Claw-Eval, JobBench, GDPval-AA, AA Agentic Index, HLE, CritPt, AA Intelligence Index, AA-Omniscience, AA-LCR, MRCR, ARC-AGI, FrontierMath, AA Coding Index, AA-SciCode, DeepSWE, SWE-bench Pro, LiveCodeBench, Vibe Code Bench, FrontierCode, MMMU-Pro, CharXiv, ExtractBench, BabyVision, ZeroBench, OmniDocBench, MathVision, Design Arena) are named as absent rather than substituted. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI — GPT-5 launch page (primary source, vendor-run rows)](https://openai.com/index/gpt-5/)
+  - [OpenAI — API pricing (source of the $1.25/$10, $0.125 cached and batch rates)](https://openai.com/api/pricing/)
+  - [Repo curated meta — `model/gpt-5/meta.json` (400K/128K, modalities, pricing tiers, noFreeId, deprecation note)](/model/gpt-5/meta.json)
+  - [OpenCode Zen — model list and Console pricing](https://opencode.ai/v2/docs/console/models/)
+  - [BenchLM — GPT-5 (medium), the separately-tracked variant NOT covered by this report](https://benchlm.ai/models/gpt-5-medium)
+  - See also: [`model/gpt-5.1/`](gpt-5.1.md) (57.04), [`model/gpt-5.6-luna/`](gpt-5.6-luna.md) (63.94), [`model/gpt-6-luna/`](gpt-6-luna.md) (62.53 at $0.10/$0.50) — the successors this report recommends migrating to, all refreshed in this session
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

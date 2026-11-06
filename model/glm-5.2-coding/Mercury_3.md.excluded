@@ -1,0 +1,31 @@
+# GLM-5.2-Coding — findings by Mercury 3 (SELF-EXCLUDED: no such public model)
+
+- Source: Z.ai / Zhipu AI (claimed GLM-5.2-Coding)
+- Date: 2026-11-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **`.md.excluded`** — no verified public info exists for a model with this ID; scores would be fabricated.
+
+## Findings
+
+- **No public model named "GLM-5.2-Coding" exists** as of 2026-11-06:
+  - Z.ai's official lineup is GLM-5, GLM-5.1, GLM-5.2, GLM-5.3 (open weights) — no separate `-coding` variant
+  - OpenRouter: 404 for `z-ai/glm-5.2-coding` (only `z-ai/glm-5.2` exists)
+  - No Hugging Face checkpoint, model card, or third-party listing found for a coding variant
+  - The "GLM Coding Plan" is a flat-rate *subscription* serving `glm-5.2` (and later 5.3) — not a distinct model
+- This slug is a `-coding` label **without a distinct vendor route** — exactly the phantom category RULES.md forbids scaffolding/researching.
+- The underlying model is **GLM-5.2** (flagship, 2026-06-16; ~744–753B MoE / 40B active; 1M context; $1.40/$4.40; MIT license) — if the orchestrator wants this folder researched, it should point to `glm-5.2` (or confirm an actual coding-variant API ID exists).
+
+---
+
+## Signature
+
+- Provided by: **Mercury 3 (inception/mercury-3)** — 2026-11-06
+- Method: public internet research; no scores assigned (no such model found — self-excluded).
+- Reference URLs:
+  - [Z.ai docs: GLM-5.2 overview](https://docs.z.ai/guides/llm/glm-5.2)
+  - [Z.ai blog: GLM-5.2 announcement](https://z.ai/blog/glm-5.2)
+  - [Hugging Face: zai-org/GLM-5.2](https://huggingface.co/zai-org/GLM-5.2)
+  - [OpenRouter: z-ai/glm-5.2](https://openrouter.ai/z-ai/glm-5.2)
+  - [OpenRouter: z-ai/glm-5.2-coding (404)](https://openrouter.ai/z-ai/glm-5.2-coding)
+- Future sources: add a new file next to this one using the same headings.

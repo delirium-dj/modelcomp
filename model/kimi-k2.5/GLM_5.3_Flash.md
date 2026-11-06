@@ -67,6 +67,6 @@ Multimodal (richly corroborated):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Moonshot K2.5 model card + Qwen/Arcee comparison tables, Artificial Analysis model benchmarks, Epoch AI + AA rows via benchlm.ai, plus the prior 2026-10-08 pass; 2026-10-16 re-check: BenchLM 84-row refresh corroborates all rows (new: DeepSearchQA 77.1%, IFEval 93.9%, AA-IFBench 70.2%, MMLU-ProX 82.3%, INCLUDE 83.3%, PolyMath 43.1%, MAXIFE 72.8%, NOVA-63 56.0%, We-Math 84.7%, DynaMath 84.4%, CountBench 94.1%, MMLongBench-Doc 58.5%, SimpleVQA 71.2%, HMMT Nov 2025 91.1%, MMAnswerBench 81.8%, Design Arena 1250; GDPval normalized 17.2% → 17.0% — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Kimi K2.5 page fetched 2026-11-05 (Nov 5 data, 84 rows) — all prior rows re-confirmed with zero value changes (the refresh is identical to the 2026-10-16 re-check, including the SWE-V 76.8-vs-70.8 conflict and HLE 30.1% resolution); composite 52.87 #94/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

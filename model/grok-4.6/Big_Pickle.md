@@ -87,7 +87,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Coding:** **SWE-bench (Vals) 95.6%**, **AA Coding Index 76.8%**, **CursorBench 3.2 70.8%**, **VulcanBench v3 87.0%**, **LiveCodeBench 88.2%**; the weak rows are **FrontierSWE v2 25.3%** and **Bug Hunt Bench 27.0**.
 
-**The standout finding is honesty.** AA-Omniscience: **30.5% index / 48.2% accuracy / 34.3% hallucination rate** — by a wide margin the best calibration in this cohort (next best is Gemini 3.5 Flash-Lite at 26.7%). For agent work that must not invent facts, that is a genuine differentiator the original could not see.
+**The standout finding is honesty.** AA-Omniscience: **30.5 index / 48.2% accuracy / 34.3% hallucination rate** — the highest index in this cohort by a wide margin (Gemini 3.6 Flash is next at 22.1, Gemini 3.5 Flash-Lite at 6.9). Flash-Lite does post a lower raw hallucination rate (**26.7%** vs 34.3%), but on the accuracy/hallucination balance this is the cohort's best-calibrated model. For agent work that must not invent facts, that is a genuine differentiator the original could not see.
 
 **Pricing and lifecycle.** **$2.00 in / $6.00 out, $0.50 cached, 500K context / 500K output** (models.dev) — unchanged. Context stays 82 on the 500K tier. Superseded by **Grok 4.5** (BenchLM 63.03 — lower) and **Grok 4.7** (listed, composite not yet computed), so 4.6 remains the strongest scored Grok on that board.
 

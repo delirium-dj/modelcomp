@@ -23,7 +23,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **54.0%** (Google launch blog via benchlm.ai — corroborated); Vals independent: **50.2%**
 - OSWorld-Verified: **74%** (Google launch blog — beats the larger Gemini 3 Flash's 65.1%)
-- GDPval-AA: **1139 Elo** (Google launch blog; AA-normalized **24.3%**)
+- GDPval-AA: **1139 Elo** (Google launch blog; AA-normalized **24.3%**, Nov 5 re-read 24.2%); **AA EnterpriseOps-Gym: 42.3%** (NEW, BenchLM Nov 5 refresh — weak-mid)
 - AA Agentic Index: **15.9%** (AA — weak)
 - Tau2/Tau3/BFCL/Claw: no verified public score found
 
@@ -31,9 +31,9 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **83.8%** (AA, independent; Vals **83.8%** — fills the gap, decent for the tier)
 - AA-HLE: **18.8%** (AA — fills the HLE gap; weak); CritPt: **0.0%** (AA — floor)
-- Artificial Analysis Intelligence Index: **22.2** (AA current board) — **conflicts with the "36" launch-era reading the 2026-10-05 pass cited**; board recomposition accounts for the difference
+- Artificial Analysis Intelligence Index: **22.2** (AA current board) — **conflicts with the "36" launch-era reading the 2026-10-05 pass cited**; board recomposition accounts for the difference; Nov 5 refresh reads **11.7%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - AA-LCR v1.1: **76.0%** (AA — fills the long-context gap); MRCR v2: **72.2%** (Google launch row — corroborated)
-- AA-Omniscience: **29.5% accuracy / 34.4% non-hallucination row / 5.2 index** (AA — weak)
+- AA-Omniscience: **29.5% accuracy / 34.4% non-hallucination row / 5.2 index** (AA — weak); Nov 5 refresh re-reads **26.5% accuracy / 26.7% hallucination / 6.9 index** — re-measured, both cited; **ParseBench: 59.49%** (NEW, Nov 5 LlamaIndex snapshot)
 - MMLU-Pro: **85.8%** (Vals)
 
 Coding:
@@ -66,6 +66,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Google launch blog, Vals AI leaderboards, Artificial Analysis model benchmarks via benchlm.ai, plus the prior 2026-09-18/10-05 passes; 2026-10-16 re-check: BenchLM 26-row refresh corroborates all rows (FrontierMath v2 25.97/0.0 added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemini 3.5 Flash-Lite page fetched 2026-11-05 (Nov 5 data, 28 rows) — all prior rows re-confirmed; AA EnterpriseOps-Gym 42.3% and ParseBench 59.49% added; AA Index re-read 22.2→11.7% (v5.0-class rebase, documented not averaged) and Omniscience re-measured; GDPval drift 24.3→24.2% — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

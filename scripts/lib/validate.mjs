@@ -83,6 +83,18 @@ export const MERGED_MODEL_SLUGS = new Map([
   // window. `glm-5.3-flash-x` is the forbidden hyphenated variant; all
   // research belongs in model/glm-5.3-flashx/.
   ["glm-5.3-flash-x", "glm-5.3-flashx"],
+  // Scaffolded-stub hyphen/underscore spelling duplicates (RULES.md slug
+  // identity, user-ordered merges 2026-11-06): a research run filed fresh
+  // reports into the hyphenated names `north-mini-code` /
+  // `llama-3.2-vision-instruct` instead of the already-tracked canonical
+  // underscore folders `north_mini_code` / `llama_3.2_vision_instruct`, which
+  // already carried curated meta.json + full rater coverage. sync
+  // auto-scaffolded stub meta for the hyphen names, double-counting each
+  // model in the queue. Colliding raters folded newest-report-wins and the
+  // unique Nemotron report moved into the canonical underscore folders; the
+  // hyphen stub folders were deleted on user order — never recreate them.
+  ["north-mini-code", "north_mini_code"],
+  ["llama-3.2-vision-instruct", "llama_3.2_vision_instruct"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -305,6 +317,10 @@ export function isRegenerablePath(posix) {
  * Inputs are precomputed by sync (fs already consulted):
  * - mergedSource: it is a merged duplicate stem whose canonical sibling exists
  *   (user-ordered source merge, 2026-10-08);
+ * - mergedSlugFolder: it lived under a folder whose slug is a merged-and-deleted
+ *   duplicate (MERGED_MODEL_SLUGS) — the folder was folded into its canonical
+ *   sibling and deleted on user order, so its tracked files leaving HEAD is
+ *   sanctioned while the deletion commit is pending;
  * - twinRetired: its fresh <.md> sibling exists (own-twin re-research);
  * - quarantined: its <.md.excluded> sibling exists (quarantined / renamed);
  * - mirror: name of the sanctioned mirror tree holding the same path (if any);
@@ -313,20 +329,23 @@ export function isRegenerablePath(posix) {
  *   sanctioned — the folder must stay gone, and a resurrect FAILs elsewhere;
  * - sanctionedDeletion: exact path recorded in SANCTIONED_DELETIONS (explicit
  *   per-instance user sign-off, kept deleted).
- * Returns "merged-source" | "twin-retired" | "quarantined" | "relocated" |
- * "deleted-phantom" | "sanctioned-deletion" | "deleted" (=> FAIL).
+ * Returns "merged-source" | "merged-slug-folder" | "twin-retired" |
+ * "quarantined" | "relocated" | "deleted-phantom" | "sanctioned-deletion" |
+ * "deleted" (=> FAIL).
  */
 export function classifyMissingTracked({
   twinRetired,
   quarantined,
   mirror,
   mergedSource,
+  mergedSlugFolder,
   deletedPhantom,
   sanctionedDeletion,
 }) {
   if (sanctionedDeletion) return "sanctioned-deletion";
   if (deletedPhantom) return "deleted-phantom";
   if (mergedSource) return "merged-source";
+  if (mergedSlugFolder) return "merged-slug-folder";
   if (twinRetired) return "twin-retired";
   if (quarantined) return "quarantined";
   if (mirror !== undefined) return "relocated";
@@ -625,7 +644,7 @@ export const CASE_LAW_NOTES = new Map([
   ["qwen-3.8-325b", "phantom checkpoint — live-existence audit: HF Qwen org, Alibaba Cloud Model Studio and models.dev list only Qwen3.8 Max/27B/Flash/Flash-Next/Omni/2.4T-A95B, no 325B variant ever released; parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
   ["ox_alpha", "revealed stealth preview of glm-5.3-flash (OpenRouter stealth/ox-alpha, ~1M ctx, free; Z.ai confirmed 2026-08-26 and later released the weights) — user-ordered park 2026-10-26 overriding the revealed-stealth merge rule; folder deleted 2026-11-03 (user order) — research belongs in model/glm-5.3-flash/"],
   ["omi-alpha", "phantom identity — no independent OMI LLM exists outside this project; all external references resolve to a WWII-era OMI Alpha cipher machine (Ottico Meccanica Italiana), not an LLM vendor; vendor-prefixed id `opencode/omi-alpha` and pricing/access claims are unverifiable; deleted 2026-11-03 (user order, never resurrect)"],
-  ["omin-alpha", "misspelled phantom duplicate of omen-alpha (Omen Alpha) — the folder's only two reports are self-excluded (`*.md.excluded`, zero verified benchmarks; the report itself flags it as a typo/conflation of `omen-alpha`/`ox-alpha`); no usable average.md is possible; parked 2026-11-04 (non-destructive — folder kept on disk per permanence rule) — research belongs in model/omen-alpha/"],
+  ["omin-alpha", "misspelling of omen-alpha (Omen Alpha) — NOT a separate model: independent search for \"Omin Alpha\" returns no LLM, no model card, no tracker page and no queue entry; the folder's three reports are all self-excluded (`*.md.excluded`, zero verified benchmarks) and each independently identifies the slug as a typo/conflation of `omen-alpha`; never re-scaffold, never re-queue and never write research into it — it is parked in RETIRED_SLUGS, so sync can never queue, score or make it a rater; the folder stays on disk and in git under the research-permanence rule (parked 2026-11-04, reconfirmed 2026-11-06 after a research agent nearly filed a scored report under this slug) — research belongs in model/omen-alpha/"],
   // Merged-and-deleted duplicate slugs
   ["google-gemini-2.5-flash-lite", "vendor-prefixed duplicate of gemini-2.5-flash-lite (same weights, Zen gateway route); merged + deleted 2026-10-06"],
   ["glm-5.1-coding", "the -coding suffix was a dataset label of glm-5.1, never a SKU (vendor lists exactly one glm-5.1 route); folder renamed, old slug merged + deleted 2026-10-12"],
@@ -637,6 +656,8 @@ export const CASE_LAW_NOTES = new Map([
   ["cat-jam", "revealed stealth alias of Reflection Beam 1.0 (same 501B/23B weights, opencode/beam-free; OpenCode PR #55993); folder merged into model/beam/ on user order 2026-10-24 (revealed-stealth merge rule) — research belongs in model/beam/"],
   ["muse-wonder", "vendor product-name duplicate of muse-wonder-1.0 — Meta ships the Muse Wonder product only as API SKU muse-wonder-1.0 (dev.meta.ai model page + OpenRouter meta/muse-wonder; same 1M window, same $4/$20; the distinct Muse Wonder Full is muse-wonder-full-1.0, subscription-only); one rater had already self-excluded the folder as a scaffolded stub of the same model; merged + deleted 2026-11-01 (user order) — research belongs in model/muse-wonder-1.0/"],
   ["glm-5.3-flash-x", "GLM-5.3-Flash-X / GLM-5.3-FlashX spelling duplicate (Z.ai canonical API code is `glm-5.3-flashx`; OpenCode Zen route spelling `glm-5.3-flash-x` is the forbidden hyphenated variant — same 320B/18B FlashX weights, same price, same 1M window); merged + deleted 2026-11-02 (user order) — research belongs in model/glm-5.3-flashx/"],
+  ["north-mini-code", "hyphen-separator spelling duplicate of canonical underscore folder north_mini_code (one model; an auto-scaffolded opencode stub created 2026-11-05 by a run that filed into the wrong folder name, double-counting it in the queue); merged newest-report-wins + deleted 2026-11-06 (user order) — research belongs in model/north_mini_code/"],
+  ["llama-3.2-vision-instruct", "hyphen-separator spelling duplicate of canonical underscore folder llama_3.2_vision_instruct (one model; an auto-scaffolded opencode stub created 2026-11-05, double-counting it in the queue); merged newest-report-wins + deleted 2026-11-06 (user order) — research belongs in model/llama_3.2_vision_instruct/"],
   // Retired vendor aliases
   ["grok-code-fast-1", "docs.x.ai alias of grok-build-0.1 — never a folder; alias-measured figures are lineage data, cited only labelled with the measured ID"],
   // Merged-and-deleted duplicate findings-file stems
@@ -681,6 +702,10 @@ export const TRACKED_ALIAS_NOTES = new Map([
   [
     "mimo-v2.5-free",
     "also covers the Xiaomi MiMo-V2.5 Free name — do not scaffold a second folder for it",
+  ],
+  [
+    "omen-alpha",
+    "covers the Omen Alpha spelling — `omin-alpha` is a misspelling of it, not a second model (no \"Omin Alpha\" exists in any vendor, Hugging Face, gateway or tracker source); NEVER scaffold model/omin-alpha/, never re-queue the `omin-alpha` slug and never write research under it — that slug is parked in RETIRED_SLUGS, so sync can never queue, score or make it a rater; the parked folder model/omin-alpha/ stays on disk and in git under the research-permanence rule and holds only self-excluded reports",
   ],
 ]);
 

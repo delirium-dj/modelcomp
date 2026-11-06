@@ -261,12 +261,21 @@ try {
     // tracked files are sanctioned INFO. A resurrected folder FAILs the slug
     // guard below, never this tripwire.
     const deletedPhantom = parts[0] === "model" && DELETED_PHANTOM_SLUGS.has(parts[1]);
+    // Merged-and-deleted duplicate folder (MERGED_MODEL_SLUGS, user-ordered
+    // merges): the slug's folder was folded into its canonical sibling and
+    // deleted, so its tracked research files leaving HEAD is sanctioned while
+    // the deletion commit is still pending — the same shape as the
+    // deleted-phantom case above. A resurrected folder FAILs the merged-slug
+    // guard elsewhere, never this tripwire.
+    const mergedSlugCanonical = parts[0] === "model" ? MERGED_MODEL_SLUGS.get(parts[1]) : undefined;
+    const mergedSlugFolder = mergedSlugCanonical !== undefined;
     const sanctionedDeletion = SANCTIONED_DELETIONS.has(posix);
     const verdict = classifyMissingTracked({
       twinRetired,
       quarantined,
       mirror,
       mergedSource,
+      mergedSlugFolder,
       deletedPhantom,
       sanctionedDeletion,
     });
@@ -280,6 +289,10 @@ try {
     }
     if (verdict === "merged-source") {
       log(`  INFO  ${posix}: merged duplicate stem (canonical ${canonicalStem}.md present) — sanctioned user-ordered source merge`);
+      continue;
+    }
+    if (verdict === "merged-slug-folder") {
+      log(`  INFO  ${posix}: merged duplicate folder model/${parts[1]}/ (folded into model/${mergedSlugCanonical}/ and deleted on user order) — sanctioned deletion, pending commit`);
       continue;
     }
     if (verdict === "twin-retired") {

@@ -67,28 +67,30 @@ Re-run requested by the user to compare the original findings against current da
 | Dimension | 2026-09-20 | 2026-11-05 | Change |
 | --- | --- | --- | --- |
 | Tool use | 78 | 76 | **−2** |
-| Reasoning | 81 | 79 | **−2** |
+| Reasoning | 81 | 81 | — (independent rows corroborate) |
 | Context window | 90 | 90 | — |
 | Multimodal | 80 | 82 | **+2** |
 | Coding | 78 | 76 | **−2** |
 | Cost efficiency | 93 | 93 | — |
 | **Overall** | **81** | **81** | **—** |
 
-**BenchLM composite: 49.30/100, #104 of 1014**, from 51 of 739 rows — the widest coverage of any open-weight model in this cohort, and the lowest-ranked model that is still fully live on Zen. The composite is partial-coverage and not comparable to this project's normalized scores, but the ranking is consistent with the small downward corrections below.
+**BenchLM composite: 49.30/100, #104 of 1014**, from 51 of 739 rows — the widest coverage of any open-weight model in this cohort, though the ranking itself is near the bottom of the live cohort. The composite is partial-coverage and not comparable to this project's normalized scores, but the ranking is consistent with the small downward corrections below.
 
-**The agentic profile is confirmed mid-tier, not frontier.** **Terminal-Bench 2.1 (Vals) 53.56%** reproduces, against MiniMax's own **66.0%** — the same harness gap the original recorded. Independent rows: **GDPval-AA 33.4% / 1113 Elo**, **AA Agentic Index 22.1%**, **Gert Labs 34.62%**, **AA ITBench 32.0%**, **PostTrainBench 0.371 (#2 overall, #1 open-source, unchanged)**. Tool use moves 78 → 76 because the strongest numbers remain vendor-run.
+**The agentic profile is confirmed mid-tier, not frontier.** **Terminal-Bench 2.1 (Vals) 53.6%** reproduces, against MiniMax's own **66.0%** — the same harness gap the original recorded. Independent rows: **GDPval-AA 37.1% / 1304 Elo**, **AA Agentic Index 30.8%**, **τ²-bench 88.9%**, **MCP Atlas 74.2%**, **Claw-Eval 74.5%**, **OSWorld-Verified 70.1%**, with **PostTrainBench 0.371 (#2 overall, #1 open-source, unchanged)**. Tool use moves 78 → 76 because the long-horizon rows are weak: **ResearchClawBench 19.8%**, **OSWorld 2.0 4.6%**, **MazeBench 0%**.
 
-**Reasoning 81 → 79.** The GPQA spread the original flagged is now resolvable: **AA-GPQA 89.6%**, **Vals GPQA 84.5%**, against the vendor's **92.9%** thinking-mode figure. The independent numbers cluster well below the vendor one, and **AA-HLE 24.6%** plus **CritPt 8.3%** keep it out of the 80s. **AA-LCR 79.4%** still corroborates the long-context strength.
+**Reasoning holds at 81, and the independent numbers are the reason.** The GPQA spread the original flagged is now resolved upward: **AA-GPQA Diamond 92.9%** and **Vals GPQA 92.7%**, both at the methodology's 90%+ frontier anchor. They are joined by **AA-HLE 39.0%** (just under the 40% anchor), **AA-LCR 83.0%**, **AA-IFBench 82.9%** and **USAMO 2026 85.7%**. The counterweights are **CritPt 3.7%** and an **AA Intelligence Index of 18.9**, which is why it stays at 81 rather than rising.
 
-**Coding 78 → 76.** **SWE-bench (Vals) 75.0%** reproduces, and **SWE-bench Verified 80.5%** remains the vendor-side claim. The independent ceiling markers are weaker than a 78 implies: **AA Coding Index 58.6** (unchanged), **Vibe Code Bench 47.57%**, **AA-SciCode 45.4%**, **DeepSWE 39.2%**.
+**Coding 78 → 76.** **SWE-bench (Vals) 75.0%** reproduces, and **SWE-bench Verified 80.5%** / **SWE-bench Pro 59%** remain vendor-side claims. The independent ceiling markers are weaker than a 78 implies: **AA Coding Index 58.6**, **AA-SciCode 47.1%**, **VIBE V2 50.1%**, **NL2Repo 42.1%**, against a strong **LiveCodeBench (Vals) 82.2%**.
 
-**Multimodal 80 → 82 — the one upward move.** **MMMU-Pro 78.1** is corroborated, and it is joined by **AA-MMMU-Pro 77.8%**, **ParseBench 61.06%** and **CharXiv 74.1%**. Text + image + video + PDF in, text out, no audio — a genuinely purpose-built multimodal profile, and the 82 sits at the top of the 75–90 band.
+**Multimodal 80 → 82 — the one upward move.** **MMMU-Pro 78.1%** is corroborated by **AA-MMMU-Pro 78.6%**, and the video/document rows are genuinely strong: **VideoMMMU 84.6%**, **Video-MME 85.4%**, **OmniDocBench 1.5 91.6%**, **OfficeQA Pro 45.1%**. Text + image + video + PDF in, text out, no audio — the 82 sits at the top of the 75–90 band.
 
-**Context stays 90, with a spec discrepancy worth recording.** The slug describes the **1M** window, and **AA-LCR 79.4%** remains an elite long-context reading; but the live `opencode` catalogue on models.dev lists **512K context / 128K max output** for this ID. The score stays pinned to the 1M configuration the report researched, and the 512K listing is noted as the gateway's narrower serving limit rather than treated as a model change.
+**Context stays 90, with a spec discrepancy worth recording.** BenchLM catalogues the **1M** window the slug describes, and **AA-LCR 83.0%** is an elite long-context reading; but the live `opencode` catalogue on models.dev lists **512K context / 128K max output** for this ID. The score stays pinned to the 1M configuration the report researched, and the 512K listing is noted as the gateway's narrower serving limit rather than treated as a model change.
 
-**Pricing and lifecycle.** **$0.30 in / $1.20 out, $0.06 cached, 512K / 128K output** (models.dev) — list price unchanged, so Cost holds at 93. Still live on Zen, with **MiniMax M3.1 Flash** (BenchLM 60.25) now above it on the same composite and cheaper per task.
+**Honesty caveat.** AA-Omniscience reads **44.9% accuracy / 91.4% hallucination / index −5.5** — high knowledge, very poor calibration.
 
-**Net assessment.** The value case survives — commodity pricing, open weights, best-in-class long context — but the capability ceiling is lower than the original implied on agentic and coding work. Overall holds at 81; three dimensions trim by 2, one gains 2.
+**Pricing and lifecycle.** **$0.30 in / $1.20 out, $0.06 cached, 512K / 128K output** (models.dev) — list price unchanged, so Cost holds at 93. Still live on Zen, with **MiniMax M3.1 Flash** (BenchLM 60.25) now above it on the same composite.
+
+**Net assessment.** The value case survives — commodity pricing, open weights, elite long context — but the long-horizon agentic and greenfield-coding rows keep it off the frontier. Overall holds at 81; two dimensions trim by 2, one gains 2.
 
 ---
 

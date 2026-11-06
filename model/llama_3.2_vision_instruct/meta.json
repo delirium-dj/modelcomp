@@ -16,5 +16,9 @@
     "https://developers.cloudflare.com/workers-ai/models/llama-3.2-11b-vision-instruct/"
   ],
   "standout": "The legacy vision workhorse for document, chart and diagram reading from open weights.",
-  "tradeoff": "A 4,096-token output cap, no audio/video, and Together, Groq, Cerebras and OpenRouter have all delisted both sizes."
+  "tradeoff": "A 4,096-token output cap, no audio/video, and Together, Groq, Cerebras and OpenRouter have all delisted both sizes.",
+  "aliases": [
+    "llama-3.2-vision-instruct",
+    "opencode/llama-3.2-vision-instruct"
+  ]
 }

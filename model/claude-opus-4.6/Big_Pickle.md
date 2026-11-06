@@ -78,7 +78,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **BenchLM composite (first third-party overall for this file): 62.06/100, #47 of 1014**, built from 51 of 739 rows — partial coverage, so the composite is conservative and is not comparable to this project's normalized scores.
 
-**Every headline number held.** Terminal-Bench 2.0 **65.4%**, OSWorld-Verified **72.7%**, GPQA **91.3%**, HLE **53.1%** with tools, SWE-bench Verified **80.8%**, SWE-bench Pro **53.4%** and MMMU-Pro **77.3%** are all re-published unchanged by BenchLM from the Anthropic system card. BrowseComp resolves to **83.7%** — the original's "leading" is now a number.
+**Every headline number held.** Terminal-Bench 2.0 **65.4%**, OSWorld-Verified **72.7%**, GPQA **91.3%**, HLE **53.0%** with tools, SWE-bench Verified **80.8%**, SWE-bench Pro **53.4%** and MMMU-Pro **77.3%** are all re-published unchanged by BenchLM from the Anthropic system card. BrowseComp resolves to **83.7%** — the original's "leading" is now a number.
 
 **Newly measured agentic breadth:** τ²-bench **84.8%**, Claw-Eval **70.4%**, DeepSearchQA **73.7%**, AndroidWorld **62.0%**, CyberGym **66.6%**, Gert Labs **61.85%**, ResearchClawBench **19.9%**, JobBench **36.7%**, **ApprenticeBench 5%**, Terminal-Bench Hard **48.5%**. The pattern is a strong in-repo/desktop agent that collapses on long-horizon from-scratch work.
 
@@ -86,7 +86,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Newly measured reasoning:** AA Intelligence Index **26.4**, AA-GPQA **84.0%** and **AA-HLE 19.1%** — both far below the vendor's 91.3/53.1 because AA runs without tools; ARC-AGI-3 **0.5%**, CritPt **2.8%**, FrontierMath v2 **65.965%** (T1–3) / **26.829%** (T4), AA-IFBench **44.6%**, AA-LCR **67.0%**. AA-Omniscience reads **45.8% accuracy / 80.1% hallucination** — not a factual oracle.
 
-**Pricing and lifecycle.** Unchanged on Zen: **$5.00 in / $25.00 out, $0.50 cached, 1M context / 128K output** (models.dev). Superseded by Opus 4.7 → 4.8 → 5 → 5.5, which BenchLM scores **65.23 / 69.69 / 79.69 / 86.4**, so this is now a mid-table Opus on a third-party composite. No Zen deprecation notice.
+**Pricing and lifecycle.** Unchanged on Zen: **$5.00 in / $25.00 out, $0.50 cached, 1M context / 128K output** (models.dev). Superseded by Opus 4.7 → 4.8 → 5 → 5.5, which BenchLM scores **65.23 / 69.69 / 79.69 / 86.4**, so this is now the weakest scored Opus on that board. No Zen deprecation notice.
 
 **Calibration note.** Context is scored 84 on the 1M tier, below the written band (≥1M = 95–100). That gap is dataset-wide in the 2026-09 cohort and is not corrected here.
 

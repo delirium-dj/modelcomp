@@ -81,7 +81,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Multimodal 61 → 78.** **MMMU-Pro 81.2%** (83.2% with Python), **AA-MMMU-Pro 79.9%**, **ExtractBench 93.35%**, **ParseBench 66.42%**, OfficeQA Pro **54.1%**. Text + image in, text out, no audio — the original's 61 undersold a strong document/vision profile.
 
-**Cost stays 52.** **$5.00 in / $30.00 out, $0.50 cached, 1.05M / 128K output** — unchanged, and still the second-most expensive model in this cohort. The ~40% token-efficiency offset is real but does not rescue a 2x price tier.
+**Cost stays 52.** **$5.00 in / $30.00 out, $0.50 cached, 1.05M / 128K output** — unchanged, and still the highest output rate in this cohort ($30 per 1M). The ~40% token-efficiency offset is real but does not rescue a 2x price tier.
 
 **One honesty caveat.** AA-Omniscience reads **58.0% accuracy** (best in cohort) but **89.0% hallucination rate** — high knowledge, low calibration.
 

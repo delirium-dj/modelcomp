@@ -19,4 +19,4 @@
 
 - Based on 6 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Mistral Large 4, Qwen 3.8 Max, Step 5 Preview.
 - Average from top 6 by Overall Score: DeepSeek 4.1 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Mistral Large 4, Qwen 3.8 Max, Step 5 Preview.
-- Ignored below-gate rater(s): Beam, Big Pickle, DeepSeek 4 Flash, Flint, Gemini 3.5 Flash Lite, Mistral Medium 3.5, Muse Glimmer 30B, Nemotron 3.5 Super VL 120B A12B, North Mini Code, Qoder Sonus, Xing 4.0 29B A4B.
+- Ignored below-gate rater(s): Beam, Big Pickle, DeepSeek 4 Flash, Flint, Gemini 3.5 Flash Lite, Mercury 3, Mistral Medium 3.5, Muse Glimmer 30B, Nemotron 3.5 Super VL 120B A12B, North Mini Code, Qoder Sonus, Xing 4.0 29B A4B.

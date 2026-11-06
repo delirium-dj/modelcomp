@@ -35,7 +35,7 @@ Reasoning / knowledge:
 - HLE: **30.8%** (Qwen3.6-Plus comparison table — consistent with the 32.0% third-party comparative the prior pass cited); AA-HLE: **13.2%** (AA non-reasoning base)
 - AIME26: **95.1%**; HMMT Feb 2025: **92.9%** / Nov 2025: **93.3%** / Feb 2026: **85.3%** (Qwen tables — strong math)
 - FrontierMath v2: **34.4%** Tiers 1–3 / **4.9%** Tier 4 (Epoch AI leaderboard, 2026-10-17 refresh) — CHANGED: the 2026-10-11 pass recorded 20.7%/4.2% from the same source; Epoch has since re-scored upward, current values used; CritPt: **0.3%** (AA — near-zero)
-- AA-LCR v1.1: **70.7%** (AA — fills the long-context gap, mid); LongBench v2: **64.4%**; AI-Needle: **74%** (Qwen tables)
+- AA-LCR v1.1: **70.7%** (AA — fills the long-context gap, mid); LongBench v2: **64.4%**; AI-Needle: **74%** (Qwen tables); NEW (BenchLM Nov 5): AA-IFBench **43.0%** (weak), IFBench **58%**, IFEval **90.9%**; multilingual suite MMLU-ProX 85.7% / NOVA-63 56.7% / INCLUDE 86.2% / PolyMath 79.0% / MAXIFE 79.2%; MMAnswerBench 84.0%; Design Arena Website **1245**
 - MMLU-Pro: **89.5%** (Qwen table) / **88.9%** (AA) — corroborated; MMLU-Redux: **96.6%**; SuperGPQA: **70.6%**; C-Eval: **92.2%**
 - Artificial Analysis Intelligence Index: **23.7** (AA current board — corroborates the 24 estimate)
 - AA-Omniscience: **40.9% accuracy / 76.2% non-hallucination row / −4.1 index** (AA)
@@ -70,6 +70,6 @@ Multimodal (richly measured via the Qwen comparison tables):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research, enrichment re-check 2026-10-19 (Bing web search for new independent Opus 4.5 evaluations — none surfaced for the three-generations-old model; the 2026-10-16 evidence base stands: the Anthropic system card + Qwen3.5-397B/Qwen3.6-Plus comparison tables via benchlm.ai, Artificial Analysis benchmarks, and Epoch AI's FrontierMath refresh). No evidence supports a score change — all seven scores carried. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude Opus 4.5 page fetched 2026-11-05 (Nov 5 data, 73 rows) — all prior rows re-confirmed with zero value changes; AA-IFBench 43.0%, IFBench 58%, IFEval 90.9% and the multilingual suite added; composite 53.75 #85/1015 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

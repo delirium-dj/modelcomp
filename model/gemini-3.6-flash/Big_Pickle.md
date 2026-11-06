@@ -83,7 +83,7 @@ Re-run requested by the user to compare the original findings against current da
 
 **Everything else re-publishes as recorded:** OSWorld-Verified **83%**, GDPval-AA **1423 Elo / 39.2%**, ARC-AGI-2 **60.4%**, ARC-AGI-1 **91.17%**, AA-MMMU-Pro **83.2%**, ParseBench **69.12%**. Terminal-Bench 2.1 shows **73.8%** on Vals against the 78% in the original — harness difference, noted rather than scored.
 
-**Newly measured:** AA Agentic Index **30.1%**, CritPt **10.6%**, AA-Omniscience **50.0% accuracy / 55.6% hallucination**, **MazeBench 0%**. The Omniscience accuracy is the best in this cohort; the 55.6% hallucination rate still argues against closed-book factual use.
+**Newly measured:** AA Agentic Index **30.1%**, CritPt **10.6%**, AA-Omniscience **50.0% accuracy / 55.6% hallucination**, **MazeBench 0%**. The Omniscience accuracy is the second-best in this cohort behind GPT-5.5 (58.0%); the 55.6% hallucination rate still argues against closed-book factual use.
 
 **Lifecycle.** Live on Zen at the corrected price. Superseded by **Gemini 3.7 Flash** (BenchLM 66.49) and **3.8 Flash** (66.74), both materially ahead on the same composite.
 
