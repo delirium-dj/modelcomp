@@ -24,16 +24,15 @@ Sources this pass: official HF model card + its eval-results tab (SWE-bench/Deep
 Agent / tool use:
 
 - Terminal-Bench 2.1: **71.7%** (HF eval-results row → harborframework/terminal-bench-2.1 leaderboard — fills the prior gap; strong)
-- GDPval-AA: **1136** Elo (AA, independent — normalized **28.3%**; weak)
+- GDPval-AA: **1136** Elo (AA, independent — normalized **28.3%**; weak; Nov 7 re-read 28.2% — minor drift); AA Agentic Index: **25.6%** (AA, prior pass); Design Arena Website: **1183** (OpenRouter; Nov 7 re-read 1180 — minor drift)
 - Apex Agents (Mercor): **25.6** (HF eval-results row ≤500B class — new)
 - Long-Horizon Terminal Bench (LHTB): **1** (HF eval-results row — near-zero on the extreme long-horizon variant)
-- AA Agentic Index: **25.6%** (AA, prior pass); Design Arena Website: **1183** (OpenRouter)
 - Tool-call stability: SWE-bench Verified variance ≤4% across CodeBuddy/Cline/KiloCode scaffolds (vendor, official card)
 - Tau2 / Claw-Eval / MCP-Atlas: no verified public score found for the full HY3 build
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.4%** (HF eval-results row, corroborating the prior 87.2–90.4 three-source spread at its top end)
+- GPQA Diamond: **90.4%** (HF eval-results row, corroborating the prior 87.2–90.4 three-source spread at its top end); Nov 7 re-read AA-GPQA **89.7%** — minor drift
 - HLE: **33.5%** (AA, prior pass)
 - Artificial Analysis Intelligence Index: **25** (#31 of 121; AA v4.3.2, independent)
 - AA-LCR v1.1: **79.0%** (AA — long-context reasoning, solid); CritPt: **4.9%** (AA — near-zero)

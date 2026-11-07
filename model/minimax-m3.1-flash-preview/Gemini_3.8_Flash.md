@@ -1,7 +1,7 @@
 # MiniMax M3.1 Flash Preview — findings by Gemini 3.8 Flash
 
 - Source: MiniMax (`minimax-m3.1-flash-preview`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,5 +59,5 @@ Long context & Vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Multi-source web research across official MiniMax disclosures, OpenRouter pricing, KingBench 3, DeepSWE benchmarks, and community evaluations.

@@ -146,12 +146,12 @@
 72.3 qwen3-max
 72.1 hy3
 71.2 qwen-3.7-flash
-71.1 ling-3.2-flash
 71 longcat-2.0
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
 69.9 hy3-preview
 69.9 solar-open-2
+69.8 ling-3.2-flash
 69.7 ling-3.1-flash
 69.5 solar-pro-4
 69.2 pixel_canary
@@ -167,7 +167,7 @@
 66.8 claude-haiku-3.5
 66.8 deepseek-v3.2
 66.5 glm-5
-65.9 mistral-small-4
+66.2 mistral-small-4
 65.6 gpt-5.3-codex-spark
 65.2 ling-3.0-flash
 65 glm-4.6v-flash

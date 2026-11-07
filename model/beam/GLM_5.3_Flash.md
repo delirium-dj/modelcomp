@@ -31,6 +31,9 @@ Agent / tool use:
 - Tau3 Banking: **36.1%** (official card appendix — new)
 - SWE Atlas Codebase QnA: **31.8%** (official card appendix — new)
 - Artificial Analysis Intelligence Index: **30** (independent, 2026-10-16 snapshot — agentic components included, per-eval values not itemized before the page went 404)
+
+> **NEW — the full Vals suite (16 rows, fetched 2026-11-07 — published since the last pass) contradicts the vendor-card framing and drives the downgrade below**: Vals Index **43.42% ±1.06 — #31 of 34** (near-last); Vals Science Index **22.03% — #23 of 23 (last)**; Vals Finance Index 46.50% (34/37); Legal Index 61.80% (31/35); **Terminal-Bench 4.0: 4.04% — #52/61 (floor)**; TB-Science 1.43% (38/44); HLAB 4.58%; IOI 22.83% (42/46); ProofBench 18.00% (42/52); Tax Agent 8.81% (69/82); Finance Agent v2.1 51.83% (34/37); Legal Research 28.85% (57/91); Code Migration 22.85% (25/29); EMB 64.73% (33/39); MysteryMechanism 22.07%; BioMysteryBench 42.59% (30/30, last); **Vibe Code Bench 66.44% (#54/125 — the one mid row)**; latency 7m27s. The split between the vendor appendix (TB2.1 80.1%, SWE-V 81.6%, GPQA 90.6%) and the independent Vals boards is documented, not averaged away.
+
 - GDPval-AA / Claw-Eval: no verified public score found
 
 Reasoning / knowledge:
@@ -65,18 +68,18 @@ Speed / efficiency (AA-measured 2026-10-16, independent):
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** (Was 75.) Raised: Terminal-Bench 2.1 80.1% now sits on the official card appendix alongside MCP Atlas 80.8%, BrowseComp 76.8% and DeepSearchQA 80.5% — a coherent strong agentic-tooling profile; capped because every row is vendor-run (temp 0.7/top_p 0.99) with no independent harness replication yet.
-- **Reasoning: 80/100.** (Was 72.) Raised: GPQA Diamond 90.6%, HLE 36.0% (51.1% with tools), AIME 2026 97.7%, AA-LCR 78.2% and the independent AA Index 30 together document near-frontier reasoning; capped by CriPT 16.3% and the weak AA Omniscience 10.8 knowledge-reliability row.
+- **Tool use: 68/100.** CHANGED from 80 — the independent Vals suite collapses the vendor-run agentic story: TB4.0 **4.04% (#52/61 floor)**, HLAB 4.58%, Finance Agent v2.1 51.83% (34/37), EMB 64.73% (33/39); the vendor TB2.1 80.1%/MCP Atlas 80.8% rows stand unreplicated — docked two bands.
+- **Reasoning: 72/100.** CHANGED from 80 — GPQA 90.6%/AIME 97.7% (vendor) stay as recorded, but the independent Vals boards document the class ceiling: Science Index **last of 23**, ProofBench 18.0% (42/52), IOI 22.83% (42/46), MysteryMechanism 22.07%; AA Index 30 (v4.3.2 snapshot) stands.
 - **Context window: 95/100.** (Unchanged.) 1M verified across the official card, AA and Zen; AA-LCR 78.2% / LongBench v2 67.5% show real but not top-tier long-context retrieval, keeping it off the maximum.
 - **Multimodal: 15/100.** (Unchanged.) Official card lists Text as the only supported modality.
-- **Coding: 84/100.** (Was 78.) Raised: SWE-bench Verified 81.6%, LiveCodeBench 88.3%, SWE-bench Multilingual 78.3%, SWE-bench Pro v2-Hard 76.5% and DeepSWE 43.3% form a top-open-weights coding profile; still vendor-run only, which caps it below independently replicated frontier peers.
+- **Coding: 76/100.** CHANGED from 84 — Vibe Code Bench 66.44% (#54/125) and Code Migration 22.85% (25/29) are the first independent coding rows and land well below the vendor appendix (SWE-V 81.6%, LCB 88.3% — unreplicated); SWE-bench Pro v2-Hard 76.5% and the Multilingual 78.3% stand as recorded.
 - **Cost efficiency: 90/100.** (Unchanged.) Paid routes $0.70–$1.00 in / $2.10–$3.00 out with an 84–90% cache discount sit between the ~92 and ~88 methodology bands; $0 Zen/Go free route (limited-time) and free Apache-2.0 self-hosting.
-- **Overall Score: 71/100.** (Was 67.) Mean of the five non-cost dims: (80 + 80 + 95 + 15 + 84) / 5 = 354/5 = 70.8 → 71. The official card's full 19-benchmark appendix (captured this pass) converts last pass's provisional single-row scores into a coherent near-frontier profile — with the standing caveat that every benchmark row is Reflection's own until independent harnesses replicate. Best fit: a fast, concise, permissively licensed 1M-context coding/agent model for self-hosters and cost-sensitive agent loops; text-only ceiling remains.
+- **Overall Score: 65/100.** CHANGED from 71 — mean of the five non-cost dims: (68 + 72 + 95 + 15 + 76) / 5 = 326/5 = 65.2 → 65. The full Vals suite (published since the last pass) places it #31/34 on the Vals Index with floor rows on TB4.0/IOI/ProofBench/Science — the same vendor-vs-independent split that drove the inkling-small correction; SWE-V/LCB and the permissive 1M-window license remain its genuine strengths. Best fit: a fast, concise, permissively licensed 1M-context model where self-hosting freedom matters more than verified agentic depth.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: enrichment re-research 2026-10-19 (≥3 independent lookups: official HF model card `https://huggingface.co/reflection/Beam-1.0-501B-A23B` with its benchmark appendix and eval-results rows, AA page checks — now 404 under both slugs, so the 2026-10-16 AA snapshot is retained and labeled — and two Bing web searches, no relevant independent reviews found for the 3-day-old release). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): the full Vals suite (16 rows, fetched 2026-11-07 — published since the last pass) is the major addition and contradicts the vendor appendix: Vals Index 43.42% #31/34, Science Index last-of-23, TB4.0 4.04% floor; Tool use 80→68, Reasoning 80→72, Coding 84→76, Overall 71→65 — the vendor-vs-independent split is documented, not averaged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
