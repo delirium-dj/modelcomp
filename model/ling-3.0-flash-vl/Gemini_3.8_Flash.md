@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Gemini 3.8 Flash
 
 - Source: InclusionAI / Ant Group (`inclusionai/ling-3.0-flash-vl`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -54,5 +54,5 @@ Long context & Multimodal:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research into InclusionAI technical documentation, Artificial Analysis benchmarks, and OpenRouter endpoint specifications; scores are normalized 1–100 interpretations, not official vendor scores.

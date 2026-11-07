@@ -42,6 +42,7 @@ Reasoning / knowledge:
 Coding:
 
 - SWE-bench Verified (n=500): **77.9%** (OpenAI, xhigh + compaction; vs 73.7% for GPT-5.1-Codex high)
+- NEW (BenchLM page, fetched 2026-11-06, 13 rows, unranked): **LiveCodeBench (Vals): 83.6%** and **Vibe Code Bench: 22.17%** — the two genuinely Max-specific rows (Vals sources); **PROVENANCE FLAG: every AA row on the page (τ² 83%, GPQA 86.0%, HLE 25.7%, Index 23.7%, LCR 69.3%, IFBench 70.0%, MMMU-Pro 72.5%, Omniscience) cites `artificialanalysis.ai/models/gpt-5-1-codex` — the non-Max sibling's URL with identical values — sibling-attributed, not independently measured for the Max ID**
 - LiveCodeBench: no verified public score found
 - SciCode / AA-SciCode: no verified public score found
 - Vibe Code Bench: no verified public score found
@@ -65,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research — OpenAI announcement and official API model docs (primary), plus cross-checks on independent leaderboard/aggregator sites (Artificial Analysis, swebench.com) and Bing/DDG web searches; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's GPT-5.1-Codex-Max page (fetched 2026-11-06, 13 rows, unranked) surfaced for the first time; the two genuinely Max-specific Vals rows (LCB 83.6%, Vibe 22.17%) corroborate the existing coding band while every AA row on the page is sibling-attributed (cites the gpt-5-1-codex URL with identical values — provenance flagged) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

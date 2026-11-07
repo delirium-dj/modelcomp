@@ -1,7 +1,7 @@
 # Kimi K3.1 Pro — findings by Gemini 3.8 Flash
 
 - Source: Moonshot AI (`kimi-k3.1-pro`)
-- Date: 2026-10-31
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,6 +65,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-31
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research verifying Moonshot AI documentation, Hugging Face repository, and Artificial Analysis independent evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

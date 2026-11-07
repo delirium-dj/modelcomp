@@ -25,7 +25,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.1: **82.7%** (0731 update notes — fills the previously-missing TB row; Vals 67.0%; TB2.0 56.9% per tech report)
 - MCP Atlas: **69%** (DeepSeek-V4 technical report — fills the previously-missing MCP row)
-- GDPval-AA: **1189 Elo** / 46.9% (tech report + AA — fills the previously-missing GDPval row)
+- GDPval-AA: **1189 Elo** / 46.9% (tech report + AA — fills the previously-missing GDPval row; Nov 6 re-read normalized 46.7% — minor drift); **AA Tau3-Banking: 39.4%** (NEW, BenchLM Nov 6 refresh — fills the Tau3 gap, weak)
 - BrowseComp: **73.2%** (tech report — fills); CyberGym: **76.7%** (0731 update); Toolathlon-Verified: **70.3%** (corroborates); AA Agentic Index: **41.7%**
 - Agents' Last Exam: 25.2%; AutomationBench: 25.1% (0731 update — weak); MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
 - Toolathlon (plain): 47.8% (tech report)
@@ -56,7 +56,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1214** (OpenRouter); text-only in/out per available evidence — no vision/audio/video input
+- Design Arena Website: **1214** (OpenRouter; Nov 6 re-read 1206 — minor drift); text-only in/out per available evidence — no vision/audio/video input
 
 ### Normalized scores (1–100)
 
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the DeepSeek-V4 technical report, 0731 update notes, AA and Vals boards — official plus two independent harnesses; 2026-10-16 re-check: only Chinese-SimpleQA 78.9%, Apex Shortlist 85.7%, MazeBench 0% added, no score changes, the SWE-V conflict resolved in favor of the Vals reading); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 82.7%, MCP Atlas 69%, GDPval-AA 1189, ARC-AGI-2 61.4% verified, MRCR 1M 78.7%, AA-LCR 79.7%, CritPt 16.6%, HLE w/tools 45.1%, AA Index 50→34.3 — Tool 70→82, Context 92→93, Coding 85→88, Overall 69→72.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM DeepSeek-V4-Flash-0731 page fetched 2026-11-06 (Nov 6 data, 57 rows, still unranked) — all prior rows re-confirmed with zero value changes; AA Tau3-Banking 39.4% added, minor drifts (GDPval 46.9→46.7%, Design Arena 1214→1206) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4.1.md`, using the same headings.

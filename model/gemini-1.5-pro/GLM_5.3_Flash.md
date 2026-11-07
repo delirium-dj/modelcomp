@@ -60,6 +60,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing AA boards + Artificial Analysis/llm-stats model pages + the Gemini 1.5 technical report via arXiv; 2026-10-16 re-check: zero new rows on the BenchLM 2026-10-15 refresh); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing GPQA 58.9%, HLE 4.6%, AA Coding Index 23.6%, AA-MMMU-Pro 55.0% — Reasoning 40→38, Coding 55→52, Multimodal 90→85, Overall 68→66.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemini 1.5 Pro page fetched 2026-11-06 — still exactly the same 5 AA rows (GPQA 58.9%, HLE 4.6%, Coding Index 23.6%, MMMU-Pro 55.0%, Index 7.9%), composite 28.29 #185/1016 — re-verified, no new evidence, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_2.md`, using the same headings.

@@ -1,7 +1,7 @@
 # Grok 4.5 — findings by Gemini 3.8 Flash
 
 - Source: opencode/grok-4.5
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -32,12 +32,12 @@ Verified evaluations and benchmarks from official documentation and third-party 
 - **Multimodal: 76/100.** Input/output modality comprehension across images, audio, documents, and video (Text, image, file in; text out).
 - **Coding: 88/100.** Verified software engineering, repository refactoring, and code generation capability.
 - **Cost efficiency: 84/100.** Value proposition relative to performance, cache hit economics, and pricing tiers.
-- **Overall Score: 86.4/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 88 + 94 + 76 + 88) / 5 = 86.4).
+- **Overall Score: 86/100.** Quality arithmetic mean of the 5 core quality dimensions ((86 + 88 + 94 + 76 + 88) / 5 = 86.4 → 86).
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. GPT_5.md, using the same headings.

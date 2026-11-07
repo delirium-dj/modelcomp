@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **790** (AA, independent; 2026-10-17 refresh reads 787, normalized 14.3% — minor drift, flagged) — normalized **14.5%**) — **conflicts with the 953 BenchmarkList reading the prior pass cited**; the AA board is lower
+- GDPval-AA: **790** (AA, independent; 2026-10-17 refresh reads 787, normalized 14.3% — minor drift, flagged) — normalized **14.5%**) — **conflicts with the 953 BenchmarkList reading the prior pass cited**; the AA board is lower; Nov 6 adds the gdpval-aa leaderboard row at **893** / 14.2% normalized (the leaderboard and model-benchmarks sub-boards differ; all readings cited)
 - AA Agentic Index: **10.5%**; AA AutomationBench-AA: **6.8%**; AA Terminal-Bench 4.0: **0.5%** (floor); AA-Briefcase: **477 Elo**; AA EnterpriseOps-Gym: **34.7%**; AA GDP.pdf: **10.0%** (AA — the independent agentic board is weak across the board)
 - AA Tau3-Banking: **23.5%** (AA — corroborated); AA Terminal-Bench 2.1: **51.7%** (corroborated); AA-AnalystAgent: **20.0%** (added 2026-10-16)
 - MCP Atlas: **75.5%**; DeepSearchQA: **74.6%**; skillsBench: **44.3%**; OSWorld-Verified: **65.9%**; WildClawBench: **47.6%**; GAIA2: **43.3%** (Meta launch post — corroborated by benchlm)
@@ -29,11 +29,11 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **17.5** (AA current board, 2026-10-10) — **conflicts with the "35 (High)" reading the 2026-10-05 pass cited**; the recomposed board supersedes it (same launch-era-vs-current pattern documented across this pass)
+- Artificial Analysis Intelligence Index: **17.5** (AA current board, 2026-10-10) — **conflicts with the "35 (High)" reading the 2026-10-05 pass cited**; the recomposed board supersedes it (same launch-era-vs-current pattern documented across this pass); Nov 6 refresh reads **6.3%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - GPQA Diamond: **83.5%** (AA — corroborated; Gemma 4 31B leads at 85.7%); HLE: **22.0%** (AA — corroborated)
 - AA-LCR v1.1: **83.3%** (AA — updated up from the prior 80.0 read; strong); MLCR-AA: **20.0%** (fills the gap, weak); CritPt: **2.6%** (near-zero)
 - AIME26: **94.7%** (Meta — corroborated by benchlm); IFBench: **77%** (corroborated)
-- AA-Omniscience: **27.0% accuracy / 81.9% non-hallucination row / −32.8 index** (AA — very weak)
+- AA-Omniscience: **27.0% accuracy / 81.9% non-hallucination row / −32.8 index** (AA — very weak); Nov 6 re-read **28.0% accuracy / 83.6% hallucination / −32.2 index** (labeling drift pattern, re-measured) — both cited; Design Arena Website **1173** (NEW)
 
 Coding:
 
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Meta Muse Glimmer launch post, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-09-24/10-05 passes; 2026-10-16 re-check: BenchLM 37-row refresh corroborates all rows (AA-AnalystAgent 20.0% added; GDPval 790 → 787 drift; rank → #132/954 41.19) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Muse Glimmer 30B page fetched 2026-11-06 (Nov 6 data, 29 rows) — all prior rows re-confirmed; GDPval sub-board divergence documented (leaderboard 893 vs model-benchmarks 787/790), AA Index 17.5→6.3% (v5.0-class rebase, documented not averaged), Omniscience re-measured, Design Arena 1173 added; composite 32.57 #169/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Muse_Glimmer.md`, using the same headings.

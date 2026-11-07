@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **713** (AA, independent — normalized **3.4%**, floor-class)
+- GDPval-AA: **713** (AA, independent — normalized **3.4%**, floor-class; Nov 6 re-read 3.2%)
 - τ²-bench: **43.6%** (AA, independent — fills the gap; weak)
 - SWE-bench Lite (agentic, local FP8 + Moatless Tools scaffold): **38.67%** (116/300), ranked #16 globally at the time (ai-muninn.com, prior pass); SWE-bench Verified (grigio.org harness): **17.4%** (prior pass — scaffold-dependent spread)
 - Terminal-Bench 2.1 / Tau3 / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
@@ -39,7 +39,7 @@ Reasoning / knowledge:
 Coding:
 
 - LiveCodeBench v6: **77.1%** (HF model card via benchlm.ai — fills the gap; strong for the class)
-- AA Coding Index: **39.3%** (AA — new; weak); AA-SciCode: **40.0%** (AA — fills the gap)
+- AA Coding Index: **39.3%** (AA — new; weak); AA-SciCode: **40.0%** (AA — fills the gap); **ScarfBench (IBM Research): 24.4%** (NEW, BenchLM Nov 6 — weak)
 - SWE-bench Verified: **17.4%** in one independent harness (grigio.org); the dev.to guide instead reports Gemma 4 26B A4B winning SWE-bench Verified among small open models — harness-dependent spread of roughly 17–39% across scaffolds
 
 Long context:
@@ -48,7 +48,7 @@ Long context:
 
 Multimodal:
 
-- MMMU-Pro: **73.8%** (model card) / **69.2%** (AA — corroborated) — first measured vision evidence, decent for the class
+- MMMU-Pro: **73.8%** (model card) / **69.2%** (AA — corroborated) — first measured vision evidence, decent for the class; **ExtractBench 70.27% / ParseBench 58.50%** (NEW, Nov 6 LlamaIndex snapshots)
 
 ### Normalized scores (1–100)
 
@@ -64,6 +64,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Gemma 4 26B A4B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on AA-OpenRouter/ai-muninn/grigio/dev.to); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemma 4 26B A4B page fetched 2026-11-06 (Nov 6 data, 21 rows) — all prior rows re-confirmed; ScarfBench 24.4%, ExtractBench 70.27% and ParseBench 58.50% added, GDPval drift 3.4→3.2%; composite 42.28 #130/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

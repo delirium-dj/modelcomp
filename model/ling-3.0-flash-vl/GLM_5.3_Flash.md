@@ -21,7 +21,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: normalized **33.2%** (AA, independent; BenchLM 2026-10-17 refresh reads 33.1% — minor drift, flagged — fills the gap the prior pass marked missing; weak)
+- GDPval-AA: normalized **33.2%** (AA, independent; BenchLM 2026-10-17 refresh reads 33.1%, Nov 6 refresh **33.0%** — continued minor drift, flagged — fills the gap the prior pass marked missing; weak)
 - Terminal-Bench 2.1: evaluated under the AA protocol per the HF card but published only as a chart image — **still no verified extractable score**
 - Tau3-Banking / Tau2-Bench / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
 - Benchable reliability: 100% response success (in-house harness, prior pass)
@@ -65,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 with Artificial Analysis board citations, the prior 2026-10-03 pass on the HF vendor card + Benchable evals, OpenRouter/DeepInfra/Novita listings; 2026-10-16 re-check: BenchLM 11-row refresh corroborates every row, no new data (GDPval 33.2% → 33.1%; rank → #114/954 46.72) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Ling 3.0 Flash VL page fetched 2026-11-06 — the same 7 rows re-confirmed with zero value changes, still unranked (GDPval 33.2→33.0% continued minor drift) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

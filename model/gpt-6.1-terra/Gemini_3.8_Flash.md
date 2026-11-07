@@ -1,7 +1,7 @@
 # GPT-6.1 Terra — findings by Gemini 3.8 Flash
 
 - Source: OpenAI (`openai/gpt-6.1-terra`)
-- Date: 2026-10-29 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -57,6 +57,6 @@ Long context / vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-29
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation, OpenAI announcement disclosures, and independent benchmark evaluations (Artificial Analysis, OSWorld, Terminal-Bench); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

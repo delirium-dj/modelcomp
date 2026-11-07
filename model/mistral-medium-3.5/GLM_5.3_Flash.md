@@ -31,11 +31,11 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- Artificial Analysis Intelligence Index: **30** (2026-10-09 reading) — CONFLICT: the 2026-10-15 refresh reads **14.2** (AA current composite; re-scale, both cited)
+- Artificial Analysis Intelligence Index: **30** (2026-10-09 reading) — CONFLICT: the 2026-10-15 refresh reads **14.2** (AA current composite; re-scale, both cited); Nov 6 refresh reads **4.7%** — continued AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - GPQA Diamond: **74.8%** (AA — added 2026-10-16, fills the missing row) — CONFLICT: Vals reads **34.8%** (config/harness difference, both cited); MMLU-Pro (Vals): **75.3%**
 - HLE: **13.8%** (AA-HLE — added 2026-10-16; well under the 40% bar); CritPt: **0.0%** (AA)
 - AA-LCR: **69.3%** (AA — added 2026-10-16, fills the previously-missing LCR)
-- AA-Omniscience: accuracy **24.7%**, hallucination rate **81.6%** (added 2026-10-16 — poor); AA-IFBench: **68.8%**
+- AA-Omniscience: accuracy **24.7%**, hallucination rate **81.6%** (added 2026-10-16 — poor); Nov 6 re-read **23.0% accuracy / 80.2% hallucination / −38.7 index** (basement-class); AA-IFBench: **68.8%**
 - LCR / MLCR beyond the above: no verified public score found
 
 Coding:
@@ -66,6 +66,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (HF model card + HF hub eval-results + theairankings/OpenRouter/AA — official plus independent sources, conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: adds the independent LEXam Hard 31.89 row, SWE-V corroboration (77.6 via HF eval-results), the EAGLE speedup model, and the Transformers long-context config fix note; 2026-10-16 re-research: 23 BenchLM rows added (Tau2 94.2%, AA Index re-scale 30→14.2, GPQA 74.8-vs-34.8 and SWE-V 77.6-vs-66.4 conflicts cited) — Tool 88→78, Reasoning 62→58, Coding 83→78, Overall 75→71).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's "Mistral Medium 3.5 128B" page (the slug BenchLM hosts it under; fetched 2026-11-06, Nov 6 data, 23 rows) — all prior rows re-confirmed with zero value changes; AA Index re-read 14.2→4.7% (continued v5.0-class rebase, documented not averaged), Omniscience Index −38.7 newly displays, the LEXam row no longer displays (stands as recorded) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Mistral_Medium_4.md`, using the same headings.

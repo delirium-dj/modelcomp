@@ -70,6 +70,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (2026-10-09 pass: BenchLM tables citing AA boards + the Anthropic "Introducing Claude 4" announcement; 2026-10-16 re-check against BenchLM's 2026-10-15 refresh: zero new rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's "Claude 4 Sonnet" page (the slug BenchLM hosts this model under; fetched 2026-11-06, Nov 6 data, 15 rows) — all prior rows re-confirmed with zero value changes; composite 38.49 #147/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Sonnet_4.5.md`, using the same headings.

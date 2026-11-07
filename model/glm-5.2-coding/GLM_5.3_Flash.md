@@ -24,7 +24,7 @@ Agent / tool use:
 - τ²-bench: **99.1%** (AA, independent — elite; fills the Tau2 gap)
 - MCP Atlas: **76.8%** (Z.AI model card via benchlm.ai, updated 2026-10-10 — fills the gap the 2026-10-05 pass marked missing)
 - GDPval-AA: **1418** (AA — fills the gap; normalized **43.7%**)
-- Terminal-Bench 2.1: **81.0%** (model card — corroborated); Vals independent: **67.8%**
+- Terminal-Bench 2.1: **81.0%** (model card — corroborated); Vals independent: **67.8%**; **TB-Hard (AA): 50.8%** (NEW, BenchLM Nov 6 refresh — fills the gap, mid); **AA EnterpriseOps-Gym: 42.7%** (NEW)
 - Toolathlon: **48.2%** (model card — weak); AA Agentic Index: **39.4%**; AA ITBench: **42.7%**; APEX-Agents-AA: **33.7%**; ResearchClawBench: **20.7%** (weak rows)
 - Terminal-Bench 3.0: **4.6%** (frontierbench.ai — very weak on the 2026 harness)
 - Tool-Decathlon: well behind Claude Opus 4.8 and GPT-5.5 (no exact value published — prior pass)
@@ -55,7 +55,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1292** (OpenRouter); text in/out only — vision requires the separate GLM-5V-Turbo model
+- Design Arena Website: **1292** (OpenRouter; Nov 6 re-read 1282 — minor drift); text in/out only — vision requires the separate GLM-5V-Turbo model
 
 ### Normalized scores (1–100)
 
@@ -71,6 +71,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai GLM-5.2 page updated 2026-10-10 citing the Z.AI HF model card, Artificial Analysis independent boards (τ²/LCR/SciCode/Omniscience/GDPval) via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-21/10-05 passes; 2026-10-16 re-check: BenchLM GLM-5.2 46-row refresh (shared weights) corroborates all rows — FrontierMath v2 59.2/29.3 and MazeBench 0% added — Reasoning 85→86, Overall 73 holds (73.2)); scores are normalized 1–100 interpretations, not official vendor scores. GLM-5.2 numbers transfer to the Coding serving lane via the same-weights statement.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's GLM-5.2 shared-weights page (the Coding lane has no BenchLM page of its own) fetched 2026-11-06 (Nov 6 data, 49 rows) — all prior rows re-confirmed with zero value changes; TB-Hard (AA) 50.8%, AA EnterpriseOps-Gym 42.7% and MMAnswerBench 91.0% added, Design Arena 1292→1282 and GDPval 43.7→43.6% minor drifts — no score changes; scores are normalized 1–100 interpretations, not official vendor scores. GLM-5.2 numbers transfer to the Coding serving lane via the same-weights statement.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

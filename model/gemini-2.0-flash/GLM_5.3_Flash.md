@@ -37,7 +37,7 @@ Reasoning / knowledge:
 - HLE: **4.3%** (AA-HLE — very weak); AA-LCR: **31.3%** (weak); CritPt: **0.0%**
 - AIME 2025: **29.7%**; SimpleQA: **29.9%** (both from the 2.5 tech report — added 2026-10-16)
 - Artificial Analysis Intelligence Index: **8.9** (AA current board — corroborates the 9 estimate)
-- AA-Omniscience: accuracy **23.5%**, hallucination rate **86.2%** (poor)
+- AA-Omniscience: accuracy **23.5%**, hallucination rate **86.2%** (poor; Nov 6 adds the index: **−42.5** — basement-class)
 - AA-IFBench: **40.2%**
 
 Coding:
@@ -70,6 +70,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: freshly fetched artificialanalysis.ai Gemini 2.0 Flash page re-confirms the prior data identically; BenchLM 404 — no aggregator page beyond AA; the prior 2026-09-28 pass on AA + Vellum + Google DeepMind pages; 2026-10-16 CORRECTION: the BenchLM 2026-10-17 refresh now carries 15 rows (prior pass said 404) — Tau2 29.5%, SWE-V 21.4%, GPQA 62.3-65.2%, MMMU 69.3% filled — Tool 45→40, Reasoning 48→46, Multimodal 90→88, Coding 45→35, Overall 65→61); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemini 2.0 Flash page fetched 2026-11-06 — the same 15 rows re-confirmed with zero value changes, still unranked (only the Omniscience Index −42.5 newly displays) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

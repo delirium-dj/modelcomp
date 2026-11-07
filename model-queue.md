@@ -49,7 +49,7 @@
 88 qwen-3.8
 87.4 gpt-5.4
 87.4 mimo-v2.6-free
-87.3 grok-4.6
+87.2 grok-4.6
 87 ember-1
 87 minimax-m3
 86.8 qwen-3.7-plus
@@ -146,8 +146,8 @@
 72.3 qwen3-max
 72.1 hy3
 71.2 qwen-3.7-flash
+71.1 ling-3.2-flash
 71 longcat-2.0
-70.6 ling-3.2-flash
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
 69.9 hy3-preview
@@ -169,7 +169,6 @@
 66.5 glm-5
 65.9 mistral-small-4
 65.6 gpt-5.3-codex-spark
-65.4 mistral-large-3
 65.2 ling-3.0-flash
 65 glm-4.6v-flash
 65 ling-2.6.1t
@@ -177,6 +176,7 @@
 64.5 xing_4.0_29b_a4b
 64.3 leanstral-1.5
 64.1 mimo-v2.6-distill-qwen-9b
+64 mistral-large-3
 63 mai-code-1-flash
 62.4 gemma-4-e4b
 61.4 gpt-oss-120b

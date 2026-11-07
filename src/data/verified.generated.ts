@@ -89,7 +89,7 @@ export const VERIFIED: Record<string, string> = {
   "gpt-5.4-pro": "2026-11-06",
   "gpt-5.5": "2026-11-06",
   "gpt-5.5-pro": "2026-11-06",
-  "gpt-5.6-luna": "2026-11-05",
+  "gpt-5.6-luna": "2026-11-06",
   "gpt-5.6-sol": "2026-11-11",
   "gpt-5.6-terra": "2026-11-06",
   "gpt-6-astra": "2026-11-07",

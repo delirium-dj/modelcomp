@@ -26,9 +26,10 @@ Agent / tool use:
 - Claw-Eval: **63.8%** (Claw-Eval leaderboard — fills the gap; corroborates the vendor's "64% Pass³" launch claim)
 - GDPval-AA: **1265** (Xiaomi page; AA-normalized **31.2%** — fills the gap, weak)
 - Terminal-Bench 2.0: **68.4%** (Xiaomi page — new); Vals TB2.1: **57.3%** (Vals, independent)
-- AA Agentic Index: **22.7%**; APEX-Agents-AA: **2.4%** (AA — floor-class weak rows)
+- AA Agentic Index: **22.7%**; APEX-Agents-AA: **2.4%** (AA — floor-class weak rows); **AA ITBench: 38.2%** and **TB-Hard (AA): 43.2%** (NEW, BenchLM Nov 6 refresh — weak-mid, fill the ITBench/TB-Hard gaps)
 - Gert Labs: **62.70%** (new)
-- MazeBench ASCII: **0%** (added 2026-10-16, tools-off run); GDPval normalized 31.2% → 31.0% (minor drift); Design Arena 1273 → 1269 (drift)`n- Long-horizon demos: SysY compiler in Rust — **233/233** hidden tests, **672 tool calls in 4.3 hours**; full video editor — **8,192 LOC over 1,868 tool calls** (Xiaomi launch demos, prior pass)
+- MazeBench ASCII: **0%** (added 2026-10-16, tools-off run); GDPval normalized 31.2% → 31.0% (minor drift); Design Arena 1273 → 1269 (drift); Nov 6 re-read **1265** (continued minor drift)
+- Long-horizon demos: SysY compiler in Rust — **233/233** hidden tests, **672 tool calls in 4.3 hours**; full video editor — **8,192 LOC over 1,868 tool calls** (Xiaomi launch demos, prior pass)
 
 Reasoning / knowledge:
 
@@ -68,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Xiaomi MiMo-V2.5-Pro launch page, Artificial Analysis model benchmarks + Claw-Eval leaderboard via benchlm.ai, Vals AI leaderboards, plus the prior 2026-09-18/10-05 passes; 2026-10-16 re-check: BenchLM 31-row refresh corroborates all rows (MazeBench 0% added; GDPval/Design Arena drift flagged; rank → #88/954 52.97) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM MiMo-V2.5-Pro page fetched 2026-11-06 (Nov 6 data, 33 rows) — all prior rows re-confirmed with zero value changes; AA TB-Hard 43.2% and AA ITBench 38.2% added, Design Arena 1269→1265 continued minor drift; composite 55.58 #68/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

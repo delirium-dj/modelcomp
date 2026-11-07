@@ -1,7 +1,7 @@
 # Kimi K3 — findings by Gemini 3.8 Flash
 
 - Source: moonshotai/kimi-k3
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -42,5 +42,5 @@ Verified evaluations and benchmarks from official documentation and third-party 
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public benchmark evaluation and analysis of Moonshot AI technical reports, OpenRouter endpoints, and third-party AI benchmarks.

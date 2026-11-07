@@ -38,7 +38,7 @@ Reasoning / knowledge:
 - HLE: **4.2%** (AA-HLE — added 2026-10-16, very weak); AA-LCR: **51.7%**; CritPt: **0.0%**
 - Artificial Analysis Intelligence Index: **15.3** (AA current board — corroborates the 15 estimate, #32 of 61 non-reasoning models, exactly at the class median)
 - MATH-500: **82.2%**; AIME 2024: **23.3%**; MMMLU: **83.2%**; IFEval: **90.8%** / AA-IFBench: **44.0%** (all added 2026-10-16)
-- AA-Omniscience: accuracy **28.2%**, hallucination rate **52.8%**
+- AA-Omniscience: accuracy **28.2%**, hallucination rate **52.8%** (Nov 6 adds the index: **−9.7**)
 
 Coding:
 
@@ -69,6 +69,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 sources: freshly fetched artificialanalysis.ai Claude 3.7 Sonnet page (non-reasoning variant), BenchLM 404 confirmations on both slug variants, the prior 2026-10-01 pass on the official Anthropic announcement + appendix; 2026-10-16 CORRECTION: the BenchLM 2026-10-17 refresh now carries 18 rows (prior pass said 404) — GPQA 65.6-68%, Tau2 50%, MMMU 71.8% filled — Reasoning 52→54, Tool 58→56, Overall 62 holds); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude 3.7 Sonnet page fetched 2026-11-06 — the same 18 rows re-confirmed with zero value changes, still unranked (only the Omniscience Index −9.7 newly displays) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Sonnet_3.md`, using the same headings.

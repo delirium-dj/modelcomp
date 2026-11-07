@@ -8,7 +8,7 @@
 ## Model card
 
 - **Name:** MiniMax M3.1 Flash Preview
-- **Short description:** MiniMax's latest M-series model — a frontier multimodal coding model with a 1M context window and tunable thinking depth, built for everyday development work (bug fixes, feature work, edge cases, regression testing). Launched quietly inside MiniMax Code before any announcement. Not an alias: a distinct M3.1 Flash preview tier; "Flash" = built for speed on short everyday tasks, "Preview" = no model card, details can change.
+- **Short description:** MiniMax's latest M-series model — a frontier multimodal coding model with a 1M context window and tunable thinking depth, built for everyday development work (bug fixes, feature work, edge cases, regression testing). Launched quietly inside MiniMax Code before any announcement; **the formal M3.1 Flash GA launch has since landed (launch post benchmarked by BenchLM, Nov 6, 30 rows, #53/1016)** while the Preview SKU page itself remains unranked. Not an alias: a distinct M3.1 Flash preview tier; "Flash" = built for speed on short everyday tasks, "Preview" = no model card at research time.
 - **Provider / access:** MiniMax Platform — Anthropic-compatible `https://api.minimax.io/anthropic` (recommended; mainland China `api.minimax.cn/anthropic`), OpenAI-compatible `https://api.minimax.io/v1`, OpenAI Responses also supported. Available only through the Token Plan and MiniMax Code for now (desktop macOS/Windows + web); no OpenRouter listing, no self-hosting.
 - **Release / knowledge:** Released 2026-09-27 (announced via @MiniMaxAgent on X; quota reset + 2x daily check-in credits 2026-09-28 to 2026-10-07 UTC+8). Knowledge cutoff: no verified public data found.
 - **IDs:** `MiniMax-M3.1-Flash-Preview` (no OpenCode Zen Free ID exists)
@@ -34,6 +34,7 @@ Coding:
 
 - KingBench 3 (8 generation tasks): **66.25% (53/80)** (AICodeKing independent test, 2026-09-28, via daily.dev/YouTube — vs MiniMax-M3's 31.25% on the same suite, Opus 5.5 93.75%, SWE2 83.75%, GPT6 Soul 82.5%)
 - KingBench 3 task detail: folding table **9/10** (smooth animated 3D geometry); elevator sim **3/10** (crashed — position value called as a function); archery game **4/10** (targets drawn in wrong location, timer pausing between shots)
+- NEW — GA sibling measurements (BenchLM "MiniMax M3.1 Flash" page, fetched 2026-11-06, 30 rows, #53/1016, sourced from the formal launch post; **SKU-attribution caveat: these are the GA tier's rows — the Preview page remains unranked, and whether the Preview ID resolves to this GA build is unconfirmed**): AA Index **29.1%**, GDPval-AA **1465 / 47.9%**, AA Briefcase **1476**, AA TB4.0 **25.8%**, OSWorld 2.0 **61.7%**, CyberGym **82.2%**, DeepSWE **73.7%**, NL2Repo **61.2%**, AA-SciCode **53.4%**, AA-HLE **48.0%**, HLE w/o tools **43.4%**, AA-LCR **79.7%**, CritPt **22.3%**, MLCR 16.7%, AA-MMMU-Pro **79.1%**, CharXiv 82.5%, BabyVision-Python 91.0%, Omniscience −6.4 index
 - SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: no verified public score found for this exact ID (M3's 80.5%/59.0% are vendor numbers for a different model)
 
 Long context:
@@ -56,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai page shows 0 of 625 rows "coming soon"; the prior 2026-10-02 pass on SaaSCity/AICodeKing/MiniMax docs remains the evidence base; 2026-10-16 re-check: BenchLM page still shows 0 of 639 rows, coming soon — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-06 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): the Preview page on BenchLM still shows unranked/"coming soon", but the **formal MiniMax M3.1 Flash GA launch has landed** — BenchLM's GA page (fetched 2026-11-06, 30 rows, #53/1016, launch-post-sourced) is documented in the raw section as sibling evidence with an explicit SKU-attribution caveat (Preview vs GA identity unconfirmed), so the Preview's own scores carry unchanged per the evidence-dock protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research — OpenAI announcement, GPT-5-Codex system card addendum, official API model docs (primary), plus independent cross-checks (Simon Willison's launch review, Theo Browne's video review via citation, aggregator leaderboards, web searches); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s `gpt-5-codex` (tried 2026-11-07) — no aggregator page exists for this exact ID, and no new vendor or independent rows surfaced; scores carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

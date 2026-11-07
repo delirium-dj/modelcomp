@@ -47,7 +47,7 @@ Long context:
 
 Multimodal:
 
-- MMMU-Pro: **69.1%** (HF card) / **69.7%** (AA — corroborated); MathVision: **79.7%**; MedXpertQA (MM): **48.7%** (HF card) — first measured vision evidence, decent for the class
+- MMMU-Pro: **69.1%** (HF card) / **69.7%** (AA — corroborated); MathVision: **79.7%**; MedXpertQA (MM): **48.7%** (HF card) — first measured vision evidence, decent for the class; **ExtractBench: 45.39%** (NEW, Nov 6 LlamaIndex snapshot — weak)
 
 ### Normalized scores (1–100)
 
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the Google Gemma 4 12B HF model card, Artificial Analysis model benchmarks via benchlm.ai, the prior 2026-10-05 pass on orcarouter/technofuzn/AAA; 2026-10-16 re-check: BenchLM 25-row refresh reproduces all rows identically (AA-IFBench 73.5% added) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemma 4 12B page fetched 2026-11-06 (Nov 6 data, 22 rows) — all prior rows re-confirmed with zero value changes, ExtractBench 45.39% added; composite 35.24 #158/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

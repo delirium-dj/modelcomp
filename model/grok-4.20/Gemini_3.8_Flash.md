@@ -1,7 +1,7 @@
 # Grok 4.20 — findings by Gemini 3.8 Flash
 
 - Source: xAI / Grok (`xai/grok-4.20`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -51,6 +51,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public internet research into Artificial Analysis evaluations, OpenRouter model card, and xAI technical release records; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
