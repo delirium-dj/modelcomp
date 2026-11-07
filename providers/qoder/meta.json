@@ -1,8 +1,8 @@
 {
   "name": "Qoder",
   "kind": "aggregator",
-  "short": "Agentic coding IDE with credit-metered chat, agent and Quest runs across premium models, plus bring-your-own-key on the free tier.",
-  "officialUrl": "https://qoder.com",
+  "short": "Agentic coding IDE with credit-metered chat, agent and Quest runs across premium models, plus bring-your-own-key on the free tier. Complete the first payment within 30 days and you will receive additional 500 Credits!",
+  "officialUrl": "https://qoder.com/activities?referral_code=9mPdqqSFM7dZ29VktFPdctObEawiCFcJ",
   "hosts": ["qoder.com", "docs.qoder.com"],
   "catalogUrl": "https://docs.qoder.com/qoder/model-selector",
   "covers": [

@@ -1,7 +1,7 @@
 # MiMo V2.6 Flash — findings by Gemini 3.8 Flash
 
 - Source: xiaomi/mimo-v2.6-flash
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -41,5 +41,5 @@ Verified evaluations and benchmarks from official documentation and third-party 
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public benchmark evaluation and analysis of Xiaomi MiMo AI disclosures, OpenRouter endpoints, and third-party evaluation suites.

@@ -70,6 +70,6 @@ Multimodal (vision):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (BenchLeader full effort-sweep tables data as of 2026-10-09 citing AA/Epoch/MathArena boards + the official HF model card — vendor vs independent conflicts compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing AA Index 11.2, HLE 14.9%, TB2.1 29.2%, τ² Telecom 86.8%, SciCode 27.6%, MMMU-Pro (AA) 69.3%, AA-LCR 70.0%, AIME 2026 92.5%, verified $0.08/$0.13 routes — Tool 75→62, Reasoning 72→64, Multimodal 85→78, Coding 60→55, Cost 92→96, Overall 74→67; 2026-10-16 re-check: BenchLM/benchgen have no page for this ID and search engines rate-limited the pass — the 2026-10-09 effort-sweep data stands as the most current evidence).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s this ID (tried 2026-11-07, consistent with the prior pass) — no aggregator page exists and no new vendor rows surfaced; the 2026-10-09 effort-sweep evidence stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Qwen_3.6.md`, using the same headings.

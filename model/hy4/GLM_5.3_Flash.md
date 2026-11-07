@@ -41,7 +41,8 @@ Reasoning / knowledge:
 - CritPt: **16.9%** (BenchmarkList, 50th percentile — mid-tier on research physics)
 - $OneMillion-Bench: 65.4% / OfficeQA Pro: 66.2% (BenchmarkList)
 - LCR / MLCR / AA Intelligence Index: no verified public score found
-- Added 2026-10-16: Vals Index **49.94%, rank #31 of 48** (vals.ai; Public Benefits Bench #9/50) — mid-pack on the independent composite, corroborating the score band; OpenCode Go route exists (`opencode-go/hy4-preview`, 1,024,000 ctx / 64K out) and ranks **15 of 16** on TokenDyno's measured throughput (slow serving — practical caveat)
+- Added 2026-10-16: Vals Index **49.94%, rank #31 of 48** (vals.ai; Public Benefits Bench #9/50) — mid-pack on the independent composite, corroborating the score band; OpenCode Go route exists (`opencode-go/hy4-preview`, 1,024,000 ctx / 64K out) and ranks **15 of 16** on TokenDyno's measured throughput (slow serving — practical caveat); **recomposition note (Nov 6): Vals' GA-Hy4 post re-states the Preview at 53.21%** on the Vals Index — recomposed from the 49.94% Oct reading, both cited
+- NEW — GA sibling measurements (Vals "Hy4" page, `tencent_hy4`, GA released 2026-11-04, fetched 2026-11-06; **SKU-attribution caveat: the GA build, not the Preview this report covers**): Vals Index **59.35% ±1.08 — #13 of 34** (#4 open-weight, behind Kimi K3.1 Pro 62.52%, DeepSeek V4.1 Flash 1017 61.26%, GLM 5.3 59.73%; **up from the Preview's recomposed 53.21%**); **Terminal-Bench 4.0: 39.39% — #15/60, #2 open-weight** (up from the Preview's 8.08%); Vibe Code Bench **81.01%** (#29/124); Finance Agent v2.1 **64.70%** (#11/36); Tax Agent **34.40%** (#15/81); Vals Finance Index 58.05% (#13/37); Vals Legal Index 70.55% (#15/35); EMB 66.18% (#28/38); Legal Research 41.35% (#28/90); HLAB 12.50% (#16/34) — latency 51min31s, $1.72/test
 
 Coding:
 
@@ -75,6 +76,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (HF model card + HF eval-results hub rows + BenchmarkList aggregation + eesel/MindStudio — official plus independent sources, corroborations compared); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: corroborates GPQA 92.3, TB2.1 85.4, SWE-Pro 65.7, SWE-Multilingual 82.9, DeepSWE 64.3, APEX 37.1, Toolathlon 74.1 via HF eval-results; adds the exact blind-eval splits (46.8/12.8/40.4 vs GLM 5.3, 51.2/7.9/40.9 vs Kimi K3), the Novita provider and prebuilt vLLM/SGLang images; 2026-10-16 re-check: Vals Index 49.94% #31/48 and TokenDyno throughput rank added — no score changes).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): Vals' Hy4 page (fetched 2026-11-06) documents the **GA Hy4 release of 2026-11-04** with a full Vals suite (Index 59.35% #13/34, TB4.0 39.39% #2 open-weight) — recorded as sibling evidence with an explicit SKU-attribution caveat (the Preview this report covers is not re-scored), plus the Preview's recomposed Vals reading (49.94→53.21%) cited; the prior BenchmarkList/HF-corroborated evidence stands — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Hy4_GA.md`, using the same headings.

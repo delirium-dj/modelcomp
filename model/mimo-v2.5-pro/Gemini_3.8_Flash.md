@@ -1,7 +1,7 @@
 # Xiaomi MiMo-V2.5-Pro — findings by Gemini 3.8 Flash
 
 - Source: Xiaomi (`xiaomi/mimo-v2.5-pro`)
-- Date: 2026-10-21 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
@@ -57,5 +57,5 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-21
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public benchmark evaluation and analysis of Xiaomi MiMo model disclosures, Artificial Analysis benchmarks, and OpenRouter endpoint audits; scores are normalized 1–100 interpretations, not official vendor scores.

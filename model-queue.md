@@ -17,17 +17,17 @@
 92.4 claude-opus-5
 92.4 muse-wonder-full
 92.3 claude-fable-5
+92.1 claude-mythos-5
 92.1 gpt-5.6-sol
 91.6 gemini-3.7-flash
-91.3 claude-mythos-5
 91.3 gemini-3-pro
+91.3 kimi-k3.1-pro
 91.2 gpt-6.1-sol
 91.1 kimi-k3
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
-90.9 kimi-k3.1-pro
 90.4 muse-wonder-1.0
-90.1 claude-opus-4.8
+90.3 claude-opus-4.8
 90 claude-opus-4.7
 90 muse-spark-1.2
 89.9 gpt-5.4-pro
@@ -58,6 +58,7 @@
 86.6 inkling-small
 86.5 qwen-3.8-27b
 86.4 gpt-5.2
+86.4 gpt-6.1-terra
 86.4 step-5-preview
 86.2 kimi-k2.6
 86.1 grok-4.7
@@ -67,7 +68,6 @@
 85.9 deepseek-v4-vision-exp
 85.6 qwen-3.8-flash-next
 85.5 deepseek-v4.1-flash-1017
-85.5 gpt-6.1-terra
 85.5 qwen-3.5-plus
 85.3 seed-2.0-pro
 85.2 deepseek-v4-pro

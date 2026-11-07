@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai claude-3-5-sonnet page corroborates all rows identically with the overall recomposed to 28.27; the prior 2026-10-01 pass remains the evidence base; 2026-10-16 re-check: BenchLM still 2 rows (both corroborated), the FrontierMath rows dropped from BenchLM display but stand as recorded from Epoch — nothing new); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM claude-3-5-sonnet page fetched 2026-11-06 — still exactly 2 rows (SWE-V 49%, GPQA 59.4%), both corroborated with zero value changes; the FrontierMath rows remain absent from display (stand as recorded from Epoch); composite recomputed 28.27→27.86 #189/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
