@@ -51,7 +51,7 @@ Speech:
 
 Multimodal:
 
-- MMMU: **70.8%** (tech report — fills the gap); AI2D: **88.5%**; RefCOCO: **90.5%** (corroborated); **AA-MMMU-Pro 53.2%** (AA — conflicts with the vendor MMMU row)
+- MMMU: **70.8%** (tech report — fills the gap); AI2D: **88.5%**; RefCOCO: **90.5%** (corroborated); **AA-MMMU-Pro 53.2%** (AA — conflicts with the vendor MMMU row); **ParseBench: 48.51%** (NEW, Nov 6 LlamaIndex snapshot — weak)
 
 ### Normalized scores (1–100)
 
@@ -67,6 +67,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai updated 2026-10-10 citing the NVIDIA Nemotron 3 Nano Omni technical report + AA boards + VoiceBench snapshot, the prior 2026-10-08 pass on the NVIDIA HF launch blog/build.nvidia.com; 2026-10-16 re-check: BenchLM 29-row refresh corroborates every row, no new data (rank #168/889 32.15 → #173/954 32.22; VoiceBench snapshot now 2026-10-15) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Nemotron 3 Nano Omni page fetched 2026-11-06 (Nov 6 data, 26 rows) — all prior rows re-confirmed with zero value changes, ParseBench 48.51% added, VoiceBench 89.39 #4/44 re-confirmed on the refreshed snapshot; composite 33.71 #163/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -27,7 +27,7 @@ Agent / tool use:
 
 - Terminal-Bench 2.1 (Vals): **43.8%** (Vals AI); Terminal-Bench (Terminus 2, Anthropic methodology): **40.21%** without thinking, **41.75%** with 32K thinking budget (11-run average, n=1)
 - OSWorld (OSWorld-Verified, 100 max steps): **~50.7%** (press-reported chart value; Anthropic states Haiku 4.5 surpasses Claude Sonnet 4, which scored 42.1% — provisional, chart-only)
-- JobBench: **16.0%** (JobBench paper — weak); MazeBench ASCII: **0%** (added 2026-10-16 — very weak)
+- JobBench: **16.0%** (JobBench paper — weak); MazeBench ASCII: **0%** (added 2026-10-16 — very weak); **OSWorld 2.1 Offline: 15.7%** (NEW, BenchLM Nov 6 — the Haiku 5.5 system-card comparison row, weak)
 - Tau2-Bench: verified achieved with 128K thinking budget (Anthropic methodology) — chart value not readable, no verified text number
 - GDPval-AA / Claw-Eval: no verified public score found
 - Augment agentic coding evaluation: **90% of Sonnet 4.5's performance** (Augment co-founder quote, Anthropic announcement)
@@ -55,7 +55,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1124** (OpenRouter, 2026-10-15 refresh; was 1127); no measured vision benchmark beyond the announcement chart
+- Design Arena Website: **1124** (OpenRouter, 2026-10-15 refresh; was 1127; Nov 6 re-read **1120** — continued minor drift); **ParseBench: 49.34%** (NEW, Nov 6 LlamaIndex snapshot — weak); no measured vision benchmark beyond the announcement chart
 
 ## Normalized scores (1–100)
 
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research (2026-10-09 pass: BenchLM tables citing Vals AI, Epoch AI, VulcanBench and the Anthropic announcement; 2026-10-16 re-check against BenchLM's 2026-10-15 refresh; 2026-10-19 enrichment re-check: AA has no dedicated model page under the tried slug (404), a Bing search surfaced no new independent evaluations, and the live Zen roster still lists `claude-haiku-4-5` despite the Oct 15, 2026 retirement horizon having arrived — availability continues). No evidence supports a score change — all seven scores carried. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Claude Haiku 4.5 page fetched 2026-11-06 (Nov 6 data, 12 rows) — all prior rows re-confirmed; OSWorld 2.1 Offline 15.7% (Haiku 5.5 system-card comparison row) and ParseBench 49.34% added, Design Arena 1124→1120 continued minor drift; composite 40.15 #139/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Haiku_5.5.md`, using the same headings.

@@ -13,11 +13,11 @@
 92.6 claude-mythos-5.1
 92.5 claude-sonnet-5.5
 92.5 gemini-3.8-flash
+92.5 gemini-4-carbon
 92.4 claude-opus-5
 92.4 muse-wonder-full
 92.3 claude-fable-5
 92.1 gpt-5.6-sol
-91.9 gemini-4-carbon
 91.6 gemini-3.7-flash
 91.3 claude-mythos-5
 91.3 gemini-3-pro

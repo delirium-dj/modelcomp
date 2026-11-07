@@ -55,7 +55,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1292** (OpenRouter); text-only modality
+- Design Arena Website: **1292** (OpenRouter; Nov 6 re-read **1282** — minor drift); text-only modality; NEW (BenchLM Nov 6): **TB-Hard (AA) 50.8%** (fills the gap, mid), **AA EnterpriseOps-Gym 42.7%**
 
 ### Normalized scores (1–100)
 
@@ -71,6 +71,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-09 citing the Z.AI GLM-5.2 HF model card, AA and Vals boards — official plus two independent harnesses, conflicts compared; earlier draft via opper.ai's AA feed; re-researched 2026-10-16: FrontierMath v2 59.2/29.3, MMAnswerBench 91.0, MazeBench 0% added — Reasoning 86→87, Overall 74 holds (87+88+95+15+87 = 372/5 = 74.4)); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing TB2.1 81.0%, MCP Atlas 76.8%, GDPval-AA 1418, HLE 54.7%/40.5%, GPQA 91.2%, AIME26 99.2%, CritPt 20.9%, SWE-bench (Vals) 82.8%, LCB 69.5% — Tool 87→88, Reasoning 83→86, Context 100→95, Coding 90→87, Overall 79→74 (old draft also showed a six-dim calc).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GLM-5.2 page fetched 2026-11-06 (Nov 6 data, 49 rows) — all prior rows re-confirmed with zero value changes; TB-Hard (AA) 50.8% and AA EnterpriseOps-Gym 42.7% added, Design Arena 1292→1282 minor drift — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.3.md`, using the same headings.
