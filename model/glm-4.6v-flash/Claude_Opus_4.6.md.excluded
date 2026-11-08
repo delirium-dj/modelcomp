@@ -1,0 +1,74 @@
+# GLM-4.6V-Flash — findings by Claude Opus 4.6
+
+- Source: Zhipu AI / Z.ai (`glm-4.6v-flash`)
+- Date: 2026-11-07 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6V-Flash
+- **Short description:** Zhipu AI's lightweight 9B open-weight vision-language model from the GLM-4.6V multimodal family. Supports native text + image + video + document input with innovative native multimodal function calling. Optimized for local/edge deployment on consumer hardware.
+- **Provider / access:** Z.ai API (OpenAI-compatible endpoints, free-tier available), Hugging Face, Ollama (`ollama run glm-4-6v`). Open-weight with commercial use permitted.
+- **Release / knowledge:** 2026; knowledge cutoff not publicly stated.
+- **IDs:** `zhipu/glm-4.6v-flash`
+- **Context window:** 128,000 tokens (128K). Max output 32,768 tokens.
+- **Modalities:** Text, image, video, files/documents (PDF, slides) in; text out; JSON mode; structured outputs; native multimodal function calling (visual data passed directly as tool parameters).
+- **Pricing (as of 2026):** Free-tier API available for developers. Open-weight for local deployment. Runs on consumer hardware (~6–8GB VRAM with Q4 quantization).
+- **Architecture:** 9B dense parameters. Unified multimodal transformer. Open-weight with commercial license.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Native multimodal function calling: raw visual data (screenshots, charts, images) passed directly as tool parameters without text conversion (z.ai — innovative approach minimizing information loss)
+- UI-to-code generation: efficient performance on web browsing automation agents and workspace documentation (aibase.com, youtube.com)
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Parameter-class SoTA: positioned at or near top of open-source 9B models for visual understanding, OCR, chart/diagram parsing, and spatial grounding (z.ai)
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- UI-to-code: competitive visual-to-code grounding for frontend generation
+
+Long context:
+
+- 128K context window. Handles dense video datasets (competitive on Video-MME and MMBench-Video for its scale) and multi-page reports with embedded figures. No specific MRCR/RULER/GraphWalks percentage published.
+
+### Normalized scores (1–100)
+
+- **Tool use: 60/100.** Innovative native multimodal function calling is a standout feature — visual data flows directly into tool parameters. UI-to-code and browser automation agent capabilities. Capped by no published standard tool-use benchmarks and small 9B model size limiting complex multi-step orchestration.
+- **Reasoning: 50/100.** No GPQA Diamond, HLE, or standard reasoning benchmarks published. Strong within its 9B weight class for visual understanding but general reasoning capability limited by parameter count. Capped by zero verified reasoning metrics.
+- **Context window: 70/100.** 128K tokens — solid mid-range context. Good for multi-page documents and video processing. Tier-mapped to 70 for 128K window.
+- **Multimodal: 80/100.** Native text + image + video + document (PDF/slides) input. Native multimodal function calling with raw visual data. Unified transformer architecture for all modalities. Strong OCR, chart parsing, and spatial grounding. No audio input or image generation. Broad input coverage for a 9B model.
+- **Coding: 48/100.** UI-to-code generation capability via visual grounding. No SWE-bench, LiveCodeBench, or standard coding benchmarks. Limited by 9B parameter count for complex code generation tasks. Capped by zero verified coding metrics.
+- **Cost efficiency: 98/100.** Free API tier + open-weight. Runs on consumer hardware (~6GB VRAM quantized). Virtually zero cost for local deployment. Outstanding value.
+- **Overall Score: 62/100.** Mean of (60 + 50 + 70 + 80 + 48) / 5 = 61.6, rounded half-up to 62. An innovative multimodal model with standout native visual function calling and broad input coverage for its tiny 9B footprint, severely limited by absence of standard reasoning and coding benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-07
+- Method: Public internet research across official documentation, model cards, and independent evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Z.ai — GLM-4.6V Model Family](https://z.ai)
+  - [AIBase — GLM-4.6V-Flash Overview](https://aibase.com)
+  - [LLM Configurator — GLM-4.6V-Flash Specs](https://llmconfigurator.com)
+  - [Models.dev — GLM-4.6V-Flash](https://models.dev)
+  - [Empirio Labs — GLM-4.6V-Flash Evaluation](https://empiriolabs.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

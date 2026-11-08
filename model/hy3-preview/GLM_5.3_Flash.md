@@ -64,6 +64,6 @@ Status (sourced, non-benchmark):
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Hy3 Preview page citing the Tencent HF model card + AA boards, the prior 2026-09-19/10-05 passes on emergent.sh/TokenHub; 2026-10-16 re-check: BenchLM 22-row refresh corroborates every row, no new data (rank #86/889 52.5 → #91/954 52.21) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Hy3 Preview page fetched 2026-11-07 (Nov 7 data, 21 rows) — all prior rows re-confirmed with zero value changes; composite 52.92 #88/1016 — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

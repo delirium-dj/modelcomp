@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: enrichment re-research 2026-10-19 (≥3 independent sources this pass: the official HF model card `https://huggingface.co/tencent/Hy3` with its eval-results leaderboard rows, the Artificial Analysis model page `https://artificialanalysis.ai/models/hy3`, and Bing web search; prior passes' HF chat template, llm-stats, innfactory.ai and BenchLM figures retained as corroboration). Scores are normalized 1–100 interpretations, not official vendor scores; multimodal corrected to text-only on dual-source evidence.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Hy3 page fetched 2026-11-07 (Nov 7 data, 10 rows, unranked) — all prior rows re-confirmed with zero value changes, minor drifts only (AA-GPQA 90.4→89.7%, GDPval 28.3→28.2%, Design Arena 1183→1180) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores; multimodal stands corrected to text-only on dual-source evidence.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

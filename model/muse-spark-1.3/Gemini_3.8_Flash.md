@@ -1,7 +1,7 @@
 # Muse Spark 1.3 — findings by Gemini 3.8 Flash
 
 - Source: Meta (`opencode/muse-spark-1.3`)
-- Date: 2026-10-30 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -59,7 +59,7 @@ Conflicting evidence & notes:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-30
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Deep multi-source web research across Meta Superintelligence Labs documentation, official release benchmarks (DeepSWE, Terminal-Bench 2.1), and independent developer reviews; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Meta Superintelligence Labs — Introducing Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)

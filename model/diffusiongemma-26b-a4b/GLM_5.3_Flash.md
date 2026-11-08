@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched artificialanalysis.ai DiffusionGemma 26B A4B page (Index/specs/param verification), BenchLM 404 confirmation, the prior 2026-10-05 pass on ai.google.dev/NVIDIA/arXiv/TechJack; 2026-10-16 re-check: AA page re-fetched live — Index still 10 (estimated, #45/141), 256K ctx confirmed, BenchLM still 404s — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s this model (tried 2026-11-07, consistent with the prior passes) — no aggregator page exists and no new vendor rows surfaced; the AA page evidence (Index 10 estimated, 256K ctx, video-in) stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

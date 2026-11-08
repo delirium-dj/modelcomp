@@ -47,7 +47,7 @@ Coding:
 
 - SWE-bench (Vals): **76.4%** (Vals AI — fills the previously-missing independent SWE row)
 - LiveCodeBench (Vals): **81.4%** (fills the previously-missing LCB row)
-- Vibe Code Bench: **31.5%** (Vals v1.1 — fills; weak); SWE-Rebench: **62.7%** (fills); NL2Repo: **42.7%**; OpenHarmony Bench: **52.3%** (benchlm.ai)
+- Vibe Code Bench: **31.5%** (Vals v1.1 — fills; weak); SWE-Rebench: **62.7%** (fills); NL2Repo: **42.7%**; OpenHarmony Bench: **52.3%** (benchlm.ai); **FrontierMath v2 T1–3: 36.8%** (NEW, Epoch via BenchLM Nov 7 — weak-mid, first FrontierMath row for this model)
 - AA-SciCode: **44.8%** (AA — corroborates the earlier 45; below the 55%+ frontier mark)
 - AA Coding Index: **55.8%** (AA — corroborated)
 - SWE-bench Verified: no verified public score found for `glm-5.1` itself
@@ -58,7 +58,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1290** (OpenRouter); text-only in and out (Z.AI docs)
+- Design Arena Website: **1290** (OpenRouter); **AA ITBench: 40.3%** (NEW, BenchLM Nov 7 — weak-mid); text-only in and out (Z.AI docs)
 
 ### Normalized scores (1–100)
 
@@ -74,6 +74,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing the Z.AI GLM-5.1 blog, HF model card, AA and Vals boards — official plus two independent harnesses; earlier draft via opper.ai's AA feed; 2026-10-16 re-check: MMAnswerBench 83.8 added, FrontierMath re-scored 33.4→36.8 — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 71.8%, Claw-Eval 62.3%, GDPval-AA 1181, HLE w/tools 52.3%, SWE-bench (Vals) 76.4%, LCB 81.4%, AA-LCR 73.7%, CritPt 4.6%, AIME26 95.3% — Tool 86→85, Reasoning 80→78, Coding 88→84, Overall 69→66 (old draft also showed a six-dim calc).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GLM-5.1 page fetched 2026-11-07 (Nov 7 data, 44 rows) — all prior rows re-confirmed with zero value changes; FrontierMath v2 T1–3 36.8% and AA ITBench 40.3% added, CritPt 4.9→4.6% minor drift — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GLM_5.2.md`, using the same headings.

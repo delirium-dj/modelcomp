@@ -30,7 +30,7 @@ Reasoning / knowledge:
 - AA-GPQA Diamond: **76.4%** (AA, independent) — **conflicts with the ~86% TokenMix estimate the prior pass scored on**; the independent board is materially lower
 - AA-HLE: **11.9%** (AA — fills the HLE gap; floor-class); Artificial Analysis Intelligence Index: **15.6** (AA current board) — **down from the 21.3 requesty reading the prior pass cited**; recomposition accounts for the difference
 - AA-LCR v1.1: **50.0%** (AA — fills the long-context gap; weak); CritPt: **0.0%** (AA — floor)
-- AA-Omniscience: **24.4% accuracy / 89.9% non-hallucination row / −43.5 index** (AA — repo-worst tier)
+- AA-Omniscience: **24.4% accuracy / 89.9% non-hallucination row / −43.5 index** (AA — repo-worst tier); LABELING NOTE (Nov 7): BenchLM now labels the 89.9% value "Hallucination Rate" — under the current labeling it coheres with the catastrophic −43.5 index; either reading stays repo-worst tier
 - MMLU: **~88%** (TokenMix estimate, prior pass); AA-IFBench: **44.1%** (AA)
 
 Coding:
@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Qwen3 Max page with AA/Vals/Epoch citations, the prior 2026-10-08 pass on TokenMix/OpenRouter/requesty/dev.to; 2026-10-16 re-check: BenchLM 12-row refresh corroborates every row, no new data — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Qwen3 Max page fetched 2026-11-07 (Nov 7 data, 12 rows) — all prior rows re-confirmed with zero value changes; the 89.9% Omniscience row's label flipped to "Hallucination Rate" (coheres with the −43.5 index, flagged); the 262K-vs-1M context conflict persists (BenchLM still 1M) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

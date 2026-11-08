@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: the freshly fetched benchlm.ai LongCat-2.0 page shows 0 of 625 rows "coming soon"; the prior 2026-09-28 pass on the official HF model card + eval-results hub remains the evidence base; 2026-10-16 re-check: BenchLM page still shows 0 of 639 rows, coming soon — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM LongCat-2.0 page fetched 2026-11-07 — still 0 of 759 rows ("coming soon"), no independent evidence has surfaced; the HF model card + eval-results hub evidence stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

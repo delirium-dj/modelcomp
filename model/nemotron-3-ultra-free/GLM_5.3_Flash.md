@@ -25,7 +25,7 @@ Agent / tool use:
 - GDPval-AA: **1016** (AA, independent, normalized **33.1%**; 2026-10-17 refresh reads 1091 — minor drift, flagged) — **conflicts with the NVIDIA-table 1,448 the prior pass cited**; the independent board is lower
 - AA Harvey LAB-AA v1.0: **81.7%** (AA — new, strong); BrowseComp: **44.4%** (model card); PinchBench: **90.0%** (corroborated, down from the prior 91 read); terminalBenchHard: **36.4%**
 - AA weak rows: AutomationBench-AA **3.0%**, Terminal-Bench 4.0 **0.5%**, Tau3-Banking **14.2%**, AnalystAgent **6.3%**, Briefcase **876 Elo** (AA — the standardized agentic board is weak)
-- AA Agentic Index: **21.7%** (AA); Vals TB2.1: **50.9%** (Vals, vs vendor 56.4)
+- AA Agentic Index: **21.7%** (AA); Vals TB2.1: **50.9%** (Vals, vs vendor 56.4); **AA Cyber Index 13.1% / CWE-Bench-AA 27.5% / DeepsecBench-AA 1.0% / CyberGym-E2E-AA 10.7%** (NEW, BenchLM Nov 7 — the AA cyber suite is floor-class here)
 - Terminal-Bench 2.0: **54%** (prior pass); EnterpriseOps-Gym: **33%** (prior pass)
 - Efficiency: **5× throughput** vs comparable open models; **up to 30% lower cost-to-task-completion** (NVIDIA blog, prior pass)
 
@@ -33,7 +33,7 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **87.0%** (model card — corroborated; AA **86.7%**; Vals **86.1%** — three-source agreement)
 - HLE: **37.4%** with tools (model card — fills the gap) / **26.7%** without; AA-HLE: **28.4%**
-- Artificial Analysis Intelligence Index: **22.9** (AA — fills the index gap; low)
+- Artificial Analysis Intelligence Index: **22.9** (AA — fills the index gap; low); Nov 7 refresh reads **11.8%** — an AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - AA-LCR v1.1: **67.0%** (model card — corroborates the prior 65.4); LongBench v2: **61.9%** (model card — fills the gap); CritPt: **3.1%** (near-zero); MLCR-AA: **11.1%** (weak)
 - IFBench: **81.7% / 81.4%** (corroborates the prior 82 — best-in-table claim stands); MMLU-Pro: **86.8% / 85.8%** (two sources)
 
@@ -49,7 +49,7 @@ Long context:
 
 Multimodal:
 
-- Design Arena Website: **1145** (OpenRouter; 2026-10-17 refresh reads 1146 — minor drift); MazeBench ASCII: **0%** (tools-off run, added 2026-10-16); MMLU-ProX: **83.0%**; AA Openness Index: **83.3%** (both added 2026-10-16); text-only in/out
+- Design Arena Website: **1145** (OpenRouter; 2026-10-17 refresh reads 1146, Nov 7 re-read **1143** — minor drift); MazeBench ASCII: **0%** (tools-off run, added 2026-10-16); MMLU-ProX: **83.0%**; AA Openness Index: **83.3%** (both added 2026-10-16); text-only in/out
 
 ### Normalized scores (1–100)
 
@@ -65,6 +65,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: benchlm.ai Nemotron 3 Ultra page updated 2026-10-10 citing the NVIDIA HF model card + AA/Vals boards, the prior 2026-09-18/10-05 passes on the NVIDIA technical blog/build.nvidia/Vals; 2026-10-16 re-check: BenchLM 42-row refresh corroborates all rows (MazeBench 0%, MMLU-ProX 83%, AA Openness 83.3% added; GDPval 1016 → 1091 and Design Arena 1145 → 1146 drift; rank → #115/954 46.58) — no score changes); scores are normalized 1–100 interpretations, not official vendor scores. Ultra numbers transfer to the Free tier via the same-weights free-serving statement.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Nemotron 3 Ultra page fetched 2026-11-07 (Nov 7 data, 46 rows) — all prior rows re-confirmed with zero value changes; the four AA cyber rows added (all floor-class), AA Index re-read 22.9→11.8% (v5.0-class rebase, documented not averaged), Design Arena 1146→1143 drift — no score changes; scores are normalized 1–100 interpretations, not official vendor scores. Ultra numbers transfer to the Free tier via the same-weights free-serving statement.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
