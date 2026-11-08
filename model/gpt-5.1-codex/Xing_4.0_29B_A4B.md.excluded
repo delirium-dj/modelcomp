@@ -1,0 +1,43 @@
+# GPT-5.1 Codex — findings by Xing 4.0 29B A4B
+
+## Model card
+
+- **Name:** GPT-5.1 Codex
+- **Short description:** OpenAI agentic coding variant between Codex Mini and Max; repo-scale software engineering; Responses API only; deprecated in favor of GPT-5.2 Codex.
+- **Provider / access:** OpenAI native `gpt-5.1-codex`; OpenCode Zen listed at $1.07/$8.50 before API shutdown July 2026. Responses API only.
+- **Release / knowledge:** November 2025; knowledge cutoff September 30, 2024
+- **IDs:** `<provider>/gpt-5.1-codex`; no Free ID on Zen (`noFreeId: true`)
+- **Context window:** 400,000 total (128,000 out) — confirmed via Artificial Analysis
+- **Modalities:** Text, image in; text out. Reasoning yes. Tool calls implied by Codex class but not separately documented for this SKU.
+- **Pricing (as of <date>):** OpenAI native $1.25 / $10.00 per 1M ($0.125 cached); OpenCode Zen $1.07 / $8.50 per 1M. Data-usage caveat: proprietary, responses-API-only.
+- **Architecture:** Proprietary; parameter count undisclosed
+
+### Raw benchmarks found
+
+> GPT-5.1 Codex yielded ZERO verified public benchmark numbers across all sources consulted. Every source returned either specs-only or "no publicly available API":
+> - Artificial Analysis: Intelligence Index "Unknown out of 4 units"; all evaluations return "No publicly available API" — model marked deprecated, recommending GPT-5.2 Codex instead.
+> - HuggingFace: no open-weights checkpoint exists; 401 on all fetch attempts.
+> - models.dev: entry not present in canonical model table.
+> - OpenAI announcement pages (gpt-5-codex/, gpt-5/) returned 404 — original benchmark tables behind paywall/redirect unavailable.
+> - Codex changelog confirms GPT-5.4 mini retired from Codex (Aug 2026) but does not list any benchmark numbers for GPT-5.1-codex.
+
+### Normalized scores (1–100)
+
+No verified data — saved as self-exclusion per template rule. Scores below would be fabricated, which is forbidden by `tasks/sync-data.md` gate criteria.
+
+- **Tool use: N/A.** No verified score found. Proxy: same Codex class as GPT-5.2 Codex (also no raw score on AA), so cannot derive without the sibling's raw numbers.
+- **Reasoning: N/A.** No verified score found. AA reports reasoning model status only.
+- **Context window: N/A.** Spec says 400k but no verified benchmark harness measurement reported.
+- **Multimodal: N/A.** Text + image input, text output; no verified multimodal benchmark.
+- **Coding: N/A.** Agentic coding SKU; no verified SWE-bench or LiveCodeBench score found.
+- **Cost efficiency: N/A.** Pricing known ($1.25/$10 per 1M) but no verified benchmark output-cost proxy.
+
+## Signature
+
+- Provided by: **Xing 4.0 29B A4B** — <2026-11-08 UTC>
+- Method: public internet research; no verified benchmark data located for this exact model/ID; all sources returned either specs-only or "no publicly available API"; the model page on Artificial Analysis is deprecated and recommends GPT-5.2 Codex instead.
+- Reference URLs:
+  - [GPT-5.1 Codex (High) — Artificial Analysis](https://artificialanalysis.ai/models/gpt-5-1-codex/)
+  - [GPT-5.2 Codex (Xhigh) — Artificial Analysis](https://artificialanalysis.ai/models/gpt-5-2-codex/)
+  - [OpenAI Codex changelog](https://developers.openai.com/codex/changelog)
+  - [Meta spec: GPT-5.1 Codex](meta.json)

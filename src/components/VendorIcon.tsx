@@ -244,6 +244,13 @@ const VENDORS: VendorMatch[] = [
   { match: "streamlake", icon: "streamlake", label: "StreamLake", adaptive: true },
   { match: "ppio", icon: "ppio", label: "PPIO", adaptive: true },
   { match: "zenmux", icon: "zenmux", label: "ZenMux", adaptive: true },
+  { match: "eden", icon: "eden-ai", label: "Eden AI" },
+  { match: "fastrouter", icon: "fastrouter", label: "FastRouter" },
+  { match: "llmgateway", icon: "llm-gateway", label: "LLM Gateway", adaptive: true },
+  { slug: "llm-gateway", icon: "llm-gateway", label: "LLM Gateway", adaptive: true },
+  { match: "cortecs", icon: "cortecs", label: "Cortecs" },
+  { match: "scx", icon: "scx-ai", label: "SCX.ai" },
+  { slug: "scx-ai", icon: "scx-ai", label: "SCX.ai" },
   // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
   // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
   // pick up the OpenCode mark below; originals omen / owl have no brand SVG —

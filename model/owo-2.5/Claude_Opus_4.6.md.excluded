@@ -1,0 +1,71 @@
+# Owo 2.5 — findings by Claude Opus 4.6
+
+- Source: Owo / OpenCode Zen (`owo-2.5`)
+- Date: 2026-11-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owo 2.5
+- **Short description:** Owo's September 2026 proprietary LLM with 1M context window, multimodal input (text + image), and tool use. Hosted via the Owo API and OpenCode Zen. Very limited public documentation or benchmark disclosure.
+- **Provider / access:** Owo API, OpenCode Zen (`opencode/owo-2.5`).
+- **Release / knowledge:** September 2026; knowledge cutoff not publicly stated.
+- **IDs:** `opencode/owo-2.5`
+- **Context window:** 1,048,576 tokens (1M); 256,000 max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-09):** $0.40 / $3.20 per 1M tokens in/out (official Owo API docs).
+- **Architecture:** Proprietary. No parameter count, architecture details, or training information publicly disclosed.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION triggered:** ZERO verified public benchmark numbers found for this exact model/ID across multiple search queries. Every benchmark row below reads "no verified public score found."
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP-Atlas / Toolathon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- 1M context window claimed. No MRCR/RULER/GraphWalks or long-context retrieval scores published.
+
+### Normalized scores (1–100)
+
+> Scores below are included for structural completeness but are ignored by the parser for `.md.excluded` files.
+
+- **Tool use: N/A.** No benchmarks.
+- **Reasoning: N/A.** No benchmarks.
+- **Context window: N/A.** No verified retrieval data.
+- **Multimodal: N/A.** No benchmarks.
+- **Coding: N/A.** No benchmarks.
+- **Cost efficiency: N/A.**
+- **Overall Score: N/A.** Excluded due to zero verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-08
+- Method: Public internet research across multiple search queries; no verified public benchmark data found for this model. Scores are excluded.
+- Reference URLs:
+  - No primary benchmark sources found. Model metadata sourced from repo `meta.json`.
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

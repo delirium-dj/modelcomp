@@ -1,7 +1,7 @@
 # Claude Sonnet 5 — findings by MiMo 2.6 Flash
 
 - Source: Anthropic (`claude-sonnet-5`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 

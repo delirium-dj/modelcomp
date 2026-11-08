@@ -1,0 +1,73 @@
+# GLM-4.6-Flash — findings by Claude Opus 4.6
+
+- Source: Zhipu AI / Z.ai (`glm-4.6-flash`)
+- Date: 2026-11-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6-Flash
+- **Short description:** Zhipu AI's lightweight text-only Flash variant from the GLM-4.6 family. The flagship GLM-4.6 is a 357B total / 32B active MoE model under MIT license focused on agentic coding workflows. Flash is the cost-optimized, lower-latency deployment tier. Uses 15–30% fewer tokens than predecessor GLM-4.5 for identical tasks.
+- **Provider / access:** Z.ai API (free or ultra-low-cost tiers available), OpenRouter, Hugging Face. OpenAI-compatible endpoints.
+- **Release / knowledge:** 2026; knowledge cutoff not publicly stated.
+- **IDs:** `zhipu/glm-4.6-flash`
+- **Context window:** 200,000 tokens (200K) input; up to 128K output (flagship GLM-4.6 specs; Flash tier may have reduced limits).
+- **Modalities:** Text in; text out; tool calling; structured outputs. Text-only (no vision — distinct from GLM-4.6V-Flash which adds multimodal).
+- **Pricing (as of 2026):** Flash tier — free or ultra-low-cost on Z.ai platform. Flagship GLM-4.6 priced at ~$0.60/$2.20 per 1M in/out, cached $0.11/M. Flash is cheaper.
+- **Architecture:** MoE. Flagship GLM-4.6 is ~357B total / ~32B active; Flash variant is a lighter derivative. MIT open-weight license.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Optimized for coding assistant frameworks: Claude Code, Cline, Roo Code, Kilo Code (glm-ai.chat)
+- Real-world coding (CC-Bench): high token efficiency — 15–30% fewer tokens than GLM-4.5 for identical tasks (z.ai)
+- Terminal-Bench: no verified public score found for Flash variant specifically
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP-Atlas / Toolathon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found for Flash variant
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- General reasoning: inherits GLM-4.6 family capabilities but at reduced tier
+
+Coding:
+
+- SWE-bench Verified: flagship GLM-4.6 scores competitively within open-weight tiers, near parity with top OSS peers (swebench.com). Flash variant score not independently published
+- LiveCodeBench / CC-Bench: real-world coding tests show strong multi-turn frontend development, debugging, and terminal tool use (z.ai)
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- 200K-token context window (flagship). No specific MRCR/RULER/GraphWalks percentage published.
+
+### Normalized scores (1–100)
+
+- **Tool use: 55/100.** Optimized for multiple coding assistant frameworks with native tool calling. High token efficiency (15–30% reduction over predecessor). Capped by Flash tier positioning and no published standalone tool-use benchmarks.
+- **Reasoning: 42/100.** No GPQA Diamond, HLE, or standalone reasoning benchmarks published for Flash variant. Inherits GLM-4.6 family reasoning but at reduced capacity. Capped by zero verified reasoning metrics for this specific tier.
+- **Context window: 75/100.** 200K tokens input. Tier-mapped to 75 for 200K window.
+- **Multimodal: 15/100.** Text-only model (distinct from GLM-4.6V-Flash which adds vision). No image, video, or audio. Text-only = 15.
+- **Coding: 58/100.** Flagship GLM-4.6 competitive on SWE-bench with open-weight peers. Flash tier inherits coding DNA with high token efficiency. Real-world CC-Bench and multi-turn coding strong. Capped by no independently published SWE-bench/LiveCodeBench score for Flash specifically.
+- **Cost efficiency: 96/100.** Free or ultra-low-cost on Z.ai. MIT open-weight license for local deployment. Flash tier is the most economical in the GLM-4.6 family. Outstanding value.
+- **Overall Score: 49/100.** Mean of (55 + 42 + 75 + 15 + 58) / 5 = 49.0. A highly cost-efficient coding-focused Flash model inheriting strong GLM-4.6 family DNA, severely limited by text-only modality and lack of independently published benchmarks for this specific tier.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-08
+- Method: Public internet research across official documentation, model platforms, and independent evaluations; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Z.ai — GLM-4.6 Model Family](https://z.ai)
+  - [GLM AI Chat — GLM-4.6 Specifications](https://glm-ai.chat)
+  - [SWE-bench — GLM-4.6 Evaluation](https://swebench.com)
+  - [Flowlyn — GLM-4.6 Pricing](https://flowlyn.com)
+  - [AiHubMix — GLM-4.6 Overview](https://aihubmix.com)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

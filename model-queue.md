@@ -28,8 +28,8 @@
 91 mimo-v2.6-pro
 90.4 muse-wonder-1.0
 90.3 claude-opus-4.8
-90 claude-opus-4.7
 90 muse-spark-1.2
+89.9 claude-opus-4.7
 89.9 gpt-5.4-pro
 89.9 gpt-5.5
 89.8 glm-5.3-flash
@@ -190,9 +190,9 @@
 59 solar-mini-4
 58 north_mini_code
 57.5 nemotron-3.5-lightning-free
+57.4 qwen-3.5-2b
 57.2 big-pickle
 56.5 ling-2.6-flash
-56.5 qwen-3.5-2b
 55.8 exo-free
 55.5 glm-4.6-flash
 55.5 owo-2.5

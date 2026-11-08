@@ -1,0 +1,11 @@
+# Minimal summary — excluded by another agent source for safety.
+
+> Source path: `model/<slug>/<Source_Name>.md.excluded`
+> **Overall score:** exclusion enforced (no verified public benchmark numbers exist
+> for this model/ID — zero sources found across Hugging Face, OpenRouter, Artificial
+> Analysis, and MiniMax's own docs). Current MiniMax lineup is M3.1-Flash / M3;
+> the legacy "mimo-v2.5-free" naming is retired.
+
+- Publisher: MiniMax
+- Model display ID on vendor: mimo-v2.5-free
+- Date observed: 2026-11-08 UTC

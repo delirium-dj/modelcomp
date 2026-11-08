@@ -21,23 +21,24 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 (AA protocol, Terminus 2 harness): charted on the official HF card — exact value not extractable — no verified numeric public score found
-- Tau3-banking-AA / MCP-Atlas / SkillsBench / GDPval v2-AA / WideSearch / Draco / BrowseComp / MiniAppBench / AntSWEBench: charted on the official HF card — exact values not extractable — no verified numeric public score found
-- Artificial Analysis Intelligence Index: **20 / #3 of 65 in class** (AA model page; well above the small-open-weight median of 8; only the default 10K-input workload is still benchmarked)
+- **NEW — BenchLM page surfaced (fetched 2026-11-07, 40 rows; the prior passes recorded 404/chart-only)**: Terminal-Bench 2.1 **57.0%** (numeric; Vals independent **50.2%**), AA Tau3-Banking **28.0%** (weak), MCP Atlas **65.5%**, skillsBench 44.8%, BFCL v4 **73.0%**, GDPval-AA **1107 / 22.4%** (weak), WideResearch 73.6%, BrowseComp 72.2%, DRACO 70.4%, AA Agentic Index **21.0%** (weak), Hermes Index 21.6% / Hermes Bench 53.8%
+- Artificial Analysis Intelligence Index: **20 / #3 of 65 in class** (AA model page; well above the small-open-weight median of 8; only the default 10K-input workload is still benchmarked; Nov 7 re-read 20.1%)
 
 Reasoning / knowledge:
 
 - AIME 2026: **93.2%** (official HF eval results, MathArena)
 - HMMT Feb 2026: **87.0%** (official HF eval results, MathArena)
 - HLE: **22.7%** (official HF eval results)
-- GPQA Diamond: no verified public score found
-- CritPt / LCR: no verified public score found
+- **GPQA Diamond: 85.0%** (NEW — the model card row now numeric via BenchLM Nov 7; AA-GPQA 85.5%, Vals 84.8% — three-source agreement; fills the gap the prior passes marked missing)
+- **AA-LCR: 73.0% measured** (NEW, BenchLM Nov 7 — the prior passes found no LCR value); CritPt: **1.7%** (near-zero)
+- MMLU-Pro (Vals): **82.0%**; IFBench: 74.5%; IMOAnswerBench 83.7% (NEW); AA-Omniscience: Index **−17.9** / accuracy 18.2% / hallucination 44.1% (NEW — weak)
 
 Coding:
 
 - SWE-bench Pro: **56.6%** (official HF eval results; OpenHands harness, 256K context, 32K output)
 - SWE-bench Multilingual: **72.4%** (official HF eval results)
-- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE: no verified public score found
+- **LiveCodeBench v5: 82.8%** (NEW — fills the previously-missing LCB; strong); SciCode: **41.2%** (NEW) / AA-SciCode **42.0%**; **LCB (Vals): 84.0% / SWE-bench (Vals): 65.2% / AA Coding Index: 50.6%** (NEW, BenchLM Nov 7)
+- SWE-bench Verified / Vibe Code Bench / DeepSWE: no verified public score found
 
 Long context:
 
@@ -47,18 +48,21 @@ Speed: 332.1 output tokens/s (#1 of 65 in class, AA, InclusionAI API) — class-
 
 ### Normalized scores (1–100)
 
-- **Tool use: 60/100.** Provisional — the official card reports strong Tau3-banking-AA, MCP-Atlas, SkillsBench, and GDPval v2-AA performance but publishes the numbers only in chart images (not extractable); the closest verified proxy is SWE-bench Pro 56.6% under an OpenHands agent harness, plus an AA class rank of #3/65.
-- **Reasoning: 65/100.** AIME 2026 93.2% and HMMT 87.0% are strong math signals, but HLE 22.7% is well below the 40% frontier reference, no GPQA number is public, and Intelligence Index 20 (despite a high in-class rank) sits in the mid-band — capped below frontier.
-- **Context window: 72/100.** 262K total / 32K max output (256K YaRN training schedule) sits inside the 200K–500K band (200K ≈ 70); no MRCR/RULER/LCR retrieval benchmark is published to push it higher.
-- **Multimodal: 15/100.** Text-only input and output per the official HF card and AA — no image/audio/video support.
-- **Coding: 68/100.** SWE-bench Multilingual 72.4% and SWE-bench Pro 56.6% are solid mid-band results below the 90–100 frontier references (DeepSWE 74%+, SciCode 55%+ with stronger companions); missing SWE-bench Verified/LiveCodeBench numbers cap the score.
+> Recalculated 2026-11-08 on the newly surfaced 40-row BenchLM profile — the prior
+> scores rested on chart-only vendor rows with the GPQA/LCR/LCB gaps marked missing.
+
+- **Tool use: 58/100.** CHANGED from 60 — the charted rows are now numeric and mid-weak: TB2.1 57.0% (Vals 50.2%), MCP Atlas 65.5%, GDPval 22.4%, AA Agentic Index 21.0%, Tau3-Banking 28.0%; BFCL v4 73.0% and BrowseComp 72.2% hold it above the floor.
+- **Reasoning: 68/100.** CHANGED from 65 — GPQA Diamond 85.0% (three-source agreement) fills the largest gap, AIME26 93.2% and AA-LCR 73.0% (measured) support the class; HLE 22.7%, CritPt 1.7%, the −17.9 Omniscience index and AA Index 20.1 cap it below frontier.
+- **Context window: 74/100.** CHANGED from 72 — 262K total / 32K output with AA-LCR 73.0% now measured (solid for the tier).
+- **Multimodal: 15/100.** Text-only input and output per the official HF card and AA.
+- **Coding: 70/100.** CHANGED from 68 — LiveCodeBench v5 82.8% (Vals 84.0%) fills the missing LCB strongly, SWE-ML 72.4% and SWE-Pro 56.6% stand; SciCode 41.2%, AA Coding Index 50.6% and Vals SWE 65.2% temper it.
 - **Cost efficiency: 98/100.** CHANGED from 97 — $0.075/$0.22 per 1M sits at the ~$0.10/$0.20 ≈ 97–99 reference with an 80% cache discount and ~$0.05/1M blended rate, and the newly tracked DeepInfra route ($0.06/$0.18, $0.012 cached) undercuts it further; among the cheapest hosted models benchmarked by AA. Paid, not $0 — not counted toward Overall.
-- **Overall Score: 56/100.** Mean of the five quality dims (60 + 65 + 72 + 15 + 68) / 5 = 56.0 → 56. Best-fit recommendation: ultra-fast, ultra-cheap workhorse for high-volume agentic coding and text workflows; escalate to a frontier model for deep reasoning, multimodal, or terminal-heavy tasks.
+- **Overall Score: 57/100.** CHANGED from 56 — mean of the five quality dims (58 + 68 + 74 + 15 + 70) / 5 = 285/5 = 57.0 → 57. The surfaced BenchLM page converts the chart-only evidence into measurements: the GPQA/LCR/LCB fills raise Reasoning/Context/Coding while the numeric agentic rows dock Tool use. Best-fit recommendation: ultra-fast, ultra-cheap workhorse for high-volume agentic coding and text workflows; escalate to a frontier model for deep reasoning, multimodal, or terminal-heavy tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (official Hugging Face model card and eval results, Artificial Analysis model page; 2026-10-16 re-check: DeepInfra route $0.06/$0.18 added (Cost 97→98), served-context conflict 131K documented); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's Ling 3.0 Flash page surfaced for the first time (fetched 2026-11-07 — 40 rows; the prior passes recorded 404/chart-only evidence) — GPQA 85.0% (three-source), TB2.1 57.0%, MCP Atlas 65.5%, LCB v5 82.8%, AA-LCR 73.0% and the AA/Vals/Hermes rows are new measurements; Tool 60→58, Reasoning 65→68, Context 72→74, Coding 68→70, Overall 56→57; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

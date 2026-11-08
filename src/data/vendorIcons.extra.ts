@@ -20,6 +20,11 @@ import huaweiCloudRaw from "../../assets/vendor-icons/huawei-cloud.svg?raw";
 import reflectionRaw from "../../assets/vendor-icons/reflection.svg?raw";
 import ai01Raw from "../../assets/vendor-icons/01-ai.svg?raw";
 import rekaRaw from "../../assets/vendor-icons/reka.svg?raw";
+import edenaiRaw from "../../assets/vendor-icons/edenai.svg?raw";
+import fastrouterRaw from "../../assets/vendor-icons/fastrouter.svg?raw";
+import llmgatewayRaw from "../../assets/vendor-icons/llmgateway.svg?raw";
+import cortecsRaw from "../../assets/vendor-icons/cortecs.svg?raw";
+import scxRaw from "../../assets/vendor-icons/scx.svg?raw";
 
 // Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
 // file stays the single point of truth (edit it, not this module). `vite/client`
@@ -44,6 +49,11 @@ const huaweiCloud = svgRawEntry(huaweiCloudRaw);
 const reflection = svgRawEntry(reflectionRaw);
 const ai01 = svgRawEntry(ai01Raw);
 const reka = svgRawEntry(rekaRaw);
+const edenai = svgRawEntry(edenaiRaw);
+const fastrouter = svgRawEntry(fastrouterRaw);
+const llmgateway = svgRawEntry(llmgatewayRaw);
+const cortecs = svgRawEntry(cortecsRaw);
+const scx = svgRawEntry(scxRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
@@ -163,4 +173,9 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "spheron":       { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#A855F7"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">S</text>' },
   "lightning-ai":  { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#FBBF24"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#0B100F">L</text>' },
   "01-ai":         { viewBox: ai01.viewBox, body: ai01.body },
+  "eden-ai":       { viewBox: edenai.viewBox, body: edenai.body },
+  "fastrouter":    { viewBox: fastrouter.viewBox, body: fastrouter.body },
+  "llm-gateway":   { viewBox: llmgateway.viewBox, body: llmgateway.body },
+  "cortecs":       { viewBox: cortecs.viewBox, body: cortecs.body },
+  "scx-ai":        { viewBox: scx.viewBox, body: scx.body },
 };
