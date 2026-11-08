@@ -1,0 +1,37 @@
+{
+  "name": "Eden AI",
+  "kind": "aggregator",
+  "short": "European multi-AI API aggregator connecting ~1,000 models across LLMs, translation, vision, and speech with zero model markup, automatic catalog updates, and unified billing.",
+  "officialUrl": "https://www.edenai.co",
+  "hosts": [
+    "edenai.co",
+    "www.edenai.co",
+    "docs.edenai.co"
+  ],
+  "catalogUrl": "https://www.edenai.co/pricing",
+  "plans": [
+    {
+      "name": "Free trial credits",
+      "price": "$0 (starter credits)",
+      "notes": "Starter trial credits upon account signup without credit card upfront to test and benchmark models across the catalog.",
+      "evidenceUrl": "https://www.edenai.co/pricing"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "Provider list price + 5.5% platform fee",
+      "notes": "Zero markup on underlying provider token rates; 5.5% platform fee on credit balance refills; access to 1,000+ models, unified keys, latency tracking, and cost analytics.",
+      "evidenceUrl": "https://www.edenai.co/pricing"
+    },
+    {
+      "name": "Advanced / Enterprise",
+      "price": "Custom contract",
+      "notes": "Volume pricing, dedicated throughput, customized routing, SLAs, private VPC deployments, and EU sovereign data residency options.",
+      "evidenceUrl": "https://www.edenai.co/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-5.5",
+    "qwen-3.8-max"
+  ]
+}
+

@@ -1,9 +1,15 @@
 # Qwen3.8-Flash — findings by MiMo 2.6 Flash
 
 - Source: Alibaba / Qwen (`qwen-3.8-flash`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 86). Fresh sources this pass: BenchLM Qwen3.8-Flash-Next
+> page (updated 2026-11-07) aggregating the Artificial Analysis model rows.
+> Changes: Tool 85→87, Reasoning 83→85, Multimodal 86→88, Coding 83→85,
+> Overall 86→88; Context 95 and Cost 95 held.
 
 ## Model card
 
@@ -14,60 +20,71 @@
 - **IDs:** `qwen3.8-flash` (hosted) / `qwen/qwen3.8-flash` (gateways) / `Qwen/Qwen3.8-Flash-Next` (open weights).
 - **Context window:** **1,000,000 tokens default on the hosted API**; the open Flash-Next checkpoint is 262,144 native, YaRN-extendable to 1M; max output 131,072.
 - **Modalities:** text, images, video understanding in; text out; reasoning yes (thinking mode, `reasoning_effort` levels); tool calls yes (function calling, structured output, hosted built-in tools, web search).
-- **Pricing (as of 2026-10-07):** **$0.15 in / $0.47 out** per 1M (official blog; X post says $0.16/$0.47; China 1/3 CNY ≈ $0.149/$0.447); cache read **$0.016** (10% of input), cache write $0.20; cheapest tracked third party Ofox $0.11/$0.39; ~1/12 of Qwen3.8-Max's $2/$6. Free weights for self-hosting (GGUF 72–111 GB by quant).
+- **Pricing (as of 2026-11-08):** **$0.15 in / $0.47 out** per 1M (official blog; X post says $0.16/$0.47; China 1/3 CNY ≈ $0.149/$0.447); cache read **$0.016** (10% of input), cache write $0.20; cheapest tracked third party Ofox $0.11/$0.39; ~1/12 of Qwen3.8-Max's $2/$6 (re-confirmed by two independent pricing guides this pass). Free weights for self-hosting (GGUF 72–111 GB by quant).
 - **Architecture:** Flash-Next MoE lineage as above; ~1/9 training compute of Qwen3.7-Plus (vendor).
 
 ### Raw benchmarks found
 
-> Qwen has not published a separate table for the hosted endpoint; rows below are the Flash-Next foundation evaluation (vendor) plus independent leaderboard readings for `qwen3.8-flash`.
+> Qwen has not published a separate table for the hosted endpoint; rows below are the Flash-Next foundation evaluation (vendor) plus independent leaderboard readings for `qwen3.8-flash` / its open `Qwen3.8-Flash-Next` checkpoint (AA does not list a separate hosted-Flash id — the flash-next rows are the independent evidence base).
 
 Agent / tool use:
 
 - Terminal-Bench 2.1: **86.1** (Artificial Analysis, independent, observed 2026-09-15) — **clears the 85% ref**
 - Terminal-Bench 4.0: **25.3** (AA, independent) — mid-lower pack
 - Toolathlon Verified (Pass@1): **73.5** (vendor; vs DeepSeek-V4-Flash 70.3, Qwen3.7-Plus 50.6)
-- CoWorkBench: 73.9 (vendor; vs Claude Opus 4.6 68.2); JobBench 55.7 (vs Qwen3.7-Plus 27.6)
-- AndroidWorld: **84.5** (vendor; vs Opus 4.6 62.0) — strong mobile-agent row; ERQA embodied row mentioned without figure
-- OSWorld / GDPval / MCP-Atlas / ALE: no figure found
+- **GDPval-AA: 1648 Elo** (AA, new this pass — under the 1750+ frontier ref but far above the 900–1200 mid band)
+- **τ-Bench Banking (AA): 45.4** (new this pass — just under the ~50% frontier ref)
+- **OSWorld 2.0: 19.4** (vendor, new this pass — weak GUI-desktop row) and AndroidWorld: **84.5** (vendor; vs Opus 4.6 62.0) — strong mobile-agent row
+- CoWorkBench: 73.9 (vendor; vs Claude Opus 4.6 68.2); JobBench 55.7 (vs Qwen3.7-Plus 27.6); **Agents' Last Exam: 51.2** (new this pass)
+- MCP-Atlas / ALE: no figure found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **91.7** vendor / **92.3** independent (AA, 2026-09-11/16; −3.94 vs GPT-6 Astra); llmboard: 91.70, 92nd pct, rank 20/250 — **clears the 90%+ ref, on both vendor and independent readings**
-- HLE / ARC-AGI / AIME: not published for this id
-- LiveCodeBench v6: **91.9** (vendor; vs Opus 4.6 88.8)
+- HLE: **35.9** vendor (no-tools) / **38.0** (AA, new this pass) — just under the 40% ref; ARC-AGI / AIME still not published for this id
+- **AA-LCR: 79.7** (new this pass — solid long-context reasoning retrieval); CritPt: **11.1** (new, soft); AA-Omniscience: 23.5 accuracy / 46.8 hallucination / −12.2 net (new)
+- AA Intelligence Index: no verified public score found for this id (AA page exists only for the open flash-next checkpoint and does not surface an Index figure on BenchLM's aggregation)
 - LLMBoard composite: 80.6 (coverage 40%, 22 benchmark families, independent)
+- BenchLM overall: **55.87/100, #66 of 1016** (flash-next page, updated 2026-11-07; 39/759 coverage, conservative) — new composite anchor this pass
 
 Coding (Qwen-run unless noted):
 
 - SWE-bench Pro: **62.5** (vendor; vs Opus 4.6 Max 53.4, Qwen3.7-Plus 55.8, DeepSeek-V4-Flash 56.0) — mid-tier, no ref for this row
 - DeepSWE 1.1: **58.7** (vendor; vs Qwen3.7-Plus 16.5) — **under the 74%+ ref**
 - SWE-bench Multilingual: 81.0; NL2Repo-Bench: 48.1; SWE-bench Verified: not published for this id
-- SciCode / AA Coding Index: not found
+- **AA Coding Index: 73.0** (AA, new this pass — **clears the 70%+ ref**); **AA-SciCode: 50.6** (new — just under the 55 ref, previously unrecorded)
+- LiveCodeBench v6: **91.9** (vendor; vs Opus 4.6 88.8)
 
 Long context:
 
-- 1M default hosted window; open checkpoint 262K native → 1M YaRN; **no needle/MRCR/LCR figure found**
+- 1M default hosted window; open checkpoint 262K native → 1M YaRN; **no needle/MRCR/RULER figure found**; AA-LCR 79.7 (above) is the deepest retrieval-adjacent reading
 
-Multimodal (Qwen-run):
+Multimodal (Qwen-run unless noted):
 
-- LVBench (video): **76.6** (vs Opus 4.6 63.0); RealWorldQA: **88.5** (vs Opus 4.6 73.9); MathVision mentioned as competitive (no figure extracted); AndroidWorld 84.5 as above
+- LVBench (video): **76.6** (vs Opus 4.6 63.0); RealWorldQA: **88.5** (vs Opus 4.6 73.9)
+- **MathVision: 90.6 / 95.7 with Python** (vendor, figure extracted this pass); **CharXiv: 90.6** (84.6 no-tools); **AA-MMMU-Pro: 79.8** (AA, new); ExtractBench (LlamaIndex, 2026-11-06 snapshot): **89.88** (new — document-extraction proxy); ERQA 72.3; Vision2Web 64.0
+- AndroidWorld 84.5 as above
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Independent TB2.1 86.1 (85+ ref), Toolathlon 73.5, CoWork 73.9, AndroidWorld 84.5 and JobBench 55.7 make a credible multi-surface agent story; no OSWorld/GDPval/ALE/MCP rows and TB4.0 25.3 keep it at 85.
-- **Reasoning: 83/100.** GPQA Diamond clears the 90+ ref twice over (91.7 vendor / 92.3 AA independent) and LCB v6 91.9 reinforces technical depth; but HLE, ARC-AGI and the AA Intelligence Index are all absent, so only one of three reasoning refs is verifiable.
-- **Context window: 95/100.** Hosted default is 1M → ≥1M floor; no retrieval benchmark at any length and the open checkpoint's native 262K prevent anything above the floor.
-- **Multimodal: 86/100.** Text + image + video in → 75–90 band; LVBench 76.6, RealWorldQA 88.5, AndroidWorld 84.5 all beat their Opus 4.6 comparators; no audio input and no PDF-native/document rows hold it at 86.
-- **Coding: 83/100.** Independent TB2.1 86.1 clears the ref, LCB v6 91.9 is strong, SWE-ML 81.0 solid; DeepSWE 58.7 misses the 74% ref badly, SWE-Pro 62.5 is mid-tier, no SWE-V/SciCode row, and Qwen explicitly hasn't published hosted-endpoint results.
-- **Cost efficiency: 95/100.** $0.15/$0.47 with 10%-of-input cache reads and free open weights — roughly a twelfth of Max pricing at functional parity for most flash-tier workloads; only the absence of a documented free API tier and the usual China-region hosting considerations keep it below 96.
-- **Overall Score: 86/100.** (85+83+95+86+83)/5 = 86.4 → 86 — Qwen's cost-optimization showpiece: independent-verified frontier-band agentic coding and GPQA at under 50¢ per million output tokens, discounted for missing HLE/Index/retrieval disclosure, a sub-74 DeepSWE, and benchmark tables that technically belong to its open foundation, not the hosted endpoint.
+- **Tool use: 87/100.** Up from 85: the previously missing agent anchors now exist — GDPval-AA **1648** and τ-Bench Banking **45.4** (both AA, just under the 1750/50% frontier refs and far above mid), alongside independent TB2.1 86.1, Toolathlon 73.5, AndroidWorld 84.5, JobBench 55.7. Capped by OSWorld 2.0 19.4, TB4.0 25.3, no MCP-Atlas/ALE/Claw rows.
+- **Reasoning: 85/100.** Up from 83: HLE now verifiable at **35.9 vendor / 38.0 AA** (just under the 40 ref instead of absent) plus AA-LCR 79.7, with GPQA clearing the 90+ ref twice over (91.7/92.3) and LCB v6 91.9 reinforcing technical depth; still no AA Intelligence Index figure and CritPt 11.1 is soft.
+- **Context window: 95/100.** Hosted default is 1M → ≥1M floor; no retrieval benchmark at any length and the open checkpoint's native 262K prevent anything above the floor. Held — no new needle/MRCR row this pass (AA-LCR 79.7 is depth-limited, not 512K evidence).
+- **Multimodal: 88/100.** Up from 86: new measured rows — AA-independently-run MMMU-Pro **79.8**, CharXiv **90.6**, MathVision **90.6/95.7** (figure now extracted), ExtractBench **89.88** document proxy — on top of LVBench 76.6 / RealWorldQA 88.5 / AndroidWorld 84.5, all beating their Opus 4.6 comparators. Still no audio input and no PDF-native/document-grounded suite → below 90.
+- **Coding: 85/100.** Up from 83: **AA Coding Index 73.0 clears the 70%+ ref** and AA-SciCode 50.6 is now measured (was "not found", sits just under the 55 ref), with independent TB2.1 86.1 and LCB v6 91.9 strong. DeepSWE 58.7 still misses the 74% ref badly, SWE-Pro 62.5 mid-tier, no SWE-V row, and Qwen still hasn't published hosted-endpoint results.
+- **Cost efficiency: 95/100.** $0.15/$0.47 with 10%-of-input cache reads and free open weights — roughly a twelfth of Max pricing at functional parity for most flash-tier workloads; only the absence of a documented free API tier and the usual China-region hosting considerations keep it below 96. Held — pricing re-confirmed unchanged this pass.
+- **Overall Score: 88/100.** (87+85+95+88+85)/5 = 88.0 → 88 — Qwen's cost-optimization showpiece: now with independent GDPval/Tau3/MMMU-Pro/SciCode/Coding-Index/HLE rows filling the exact gaps that capped the previous 86, still at under 50¢ per million output tokens.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Alibaba Cloud blog, Qwen GitHub, AI Atlas, llmboard, LLM Data Hub, OrcaRouter, MindStudio, B.AI docs); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: BenchLM Qwen3.8-Flash-Next page, Artificial Analysis model/leaderboard rows, Hugging Face Flash-Next model card, independent pricing guides); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — Qwen3.8-Flash-Next](https://benchlm.ai/models/qwen3-8-flash-next)
+  - [Artificial Analysis — Qwen3.8-Flash-Next](https://artificialanalysis.ai/models/qwen3-8-flash-next)
+  - [Hugging Face — Qwen/Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
@@ -143,4 +160,3 @@ Multimodal:
 - Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
 - Method: public internet research (QwenCloud docs, models.dev provider rows, aliyun developer deep-dive, Qwen launch-class benchmark tables); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

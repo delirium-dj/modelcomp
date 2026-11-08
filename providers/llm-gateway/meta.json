@@ -1,0 +1,43 @@
+{
+  "name": "LLM Gateway",
+  "kind": "aggregator",
+  "short": "Open-source (AGPLv3) multi-provider AI gateway and proxy with 250+ models, self-hosting support, 5% credit platform fees, and DevPass flat-rate subscriptions for AI coding agents.",
+  "officialUrl": "https://llmgateway.io",
+  "hosts": [
+    "llmgateway.io",
+    "www.llmgateway.io",
+    "docs.llmgateway.io"
+  ],
+  "catalogUrl": "https://llmgateway.io/pricing",
+  "plans": [
+    {
+      "name": "Open Source & Free Tier (BYOK)",
+      "price": "$0 (free forever)",
+      "notes": "Self-host the AGPLv3 gateway on your own infra, or bring your own keys with $0 platform fee; access to hosted zero-cost models (rate-limited ~20 RPM) without credit card.",
+      "evidenceUrl": "https://llmgateway.io/pricing"
+    },
+    {
+      "name": "Managed Credits",
+      "price": "Provider list price + 5% fee",
+      "notes": "No subscription required; top up unified credits to access 250+ models across OpenAI, Anthropic, Google, and open-weight hosts with a flat 5% platform fee.",
+      "evidenceUrl": "https://llmgateway.io/pricing"
+    },
+    {
+      "name": "DevPass Lite",
+      "price": "$29/month",
+      "notes": "Flat-rate AI coding pass including $58 in monthly model usage across Cursor, Claude Code, Windsurf, and OpenCode with fair-use limits.",
+      "evidenceUrl": "https://llmgateway.io/pricing"
+    },
+    {
+      "name": "DevPass Pro",
+      "price": "$79/month",
+      "notes": "Flat-rate coding subscription including $158 in monthly model usage with higher frontier model velocity limits.",
+      "evidenceUrl": "https://llmgateway.io/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-5.5",
+    "qwen-3.8-max"
+  ]
+}
+

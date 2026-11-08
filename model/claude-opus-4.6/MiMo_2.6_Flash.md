@@ -1,63 +1,80 @@
 # Claude Opus 4.6 — findings by MiMo 2.6 Flash
 
 - Source: Anthropic (`claude-opus-4-6`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 82). Fresh sources this pass: BenchLM model page
+> (updated 2026-11-07, 52/759 rows with source links) — first verified
+> **Claw-Eval** row (70.4) and first measured **MMMU-Pro** row (77.3).
+> Changes: Tool use 84→86 (Claw-Eval gap closed), Multimodal 65→68
+> (MMMU-Pro 77.3 / AA 72.5); Reasoning 86, Context 95, Coding 82, Cost 50 held.
 
 ## Model card
 
 - **Name:** Claude Opus 4.6
-- **Short description:** The February-2026 flagship that defined the Claude 4.6 generation (released 2026-02-05, superseded by Opus 4.7) — first Opus-class model with a **1M-token context window (beta)**, adaptive thinking at four effort levels, and at release #1 rows on Terminal-Bench 2.0, HLE, BrowseComp and GDPval-AA (+144 Elo over GPT-5.2, +190 over Opus 4.5). Introduced the compaction API and the agentic "manages a 50-person org across 6 repos" demo. Legacy now — Okou has dropped it from its lineup; Okou's guidance: stay only for behaviour stability of validated agents.
+- **Short description:** The February-2026 flagship that defined the Claude 4.6 generation (released 2026-02-05, superseded by Opus 4.7) — first Opus-class model with a **1M-token context window (beta)**, adaptive thinking at four effort levels, and at release #1 rows on Terminal-Bench 2.0, HLE, BrowseComp and GDPval-AA. BenchLM composite 62.15, #47 of 1016 (2026-11-07) — legacy tier now; guidance is to keep it only for behaviour stability of validated agents.
 - **Provider / access:** Claude API (`claude-opus-4-6`), Claude Platform, Amazon Bedrock, Google Vertex, Microsoft Foundry, claude.ai (Pro/Team); US-only inference at 1.1× (`inference_geo`).
 - **Release / knowledge:** released 2026-02-05; knowledge cutoff not surfaced in these sources → not scored.
 - **IDs:** `anthropic/claude-opus-4-6` (gateway routes) / `claude-opus-4-6` (native; no date suffix).
 - **Context window:** **200K standard / 1M beta** (usage tier 4+ or custom limits, Claude Platform only); max output 128,000; prefilling removed (400 error); Compaction API beta.
 - **Modalities:** text + images in; text out; reasoning yes (adaptive thinking, four effort levels); tool calls yes.
-- **Pricing (as of 2026-10-07):** **$5.00 in / $25.00 out** per 1M up to 200K context; **prompts >200K in the 1M beta bill every token at $10/$37.50**; Batch $2.50/$12.50 (50%); cache read $0.50 (AA); US-only +1.1×. Paid. (Okou's archived reseller card lists $15/$75 — a third-party markup, not Anthropic list.)
+- **Pricing (as of 2026-10-07):** **$5.00 in / $25.00 out** per 1M up to 200K context; **prompts >200K in the 1M beta bill every token at $10/$37.50**; Batch $2.50/$12.50 (50%); cache read $0.50 (90% off); US-only +1.1×. Paid. No price change found this pass.
 - **Architecture:** proprietary.
 
 ### Raw benchmarks found
 
 Agent / tool use (Anthropic-run unless noted):
 
-- Terminal-Bench 2.0: **65.4** (Anthropic, max effort — #1 at release vs GPT-5.2's 64.7 Codex-CLI; public Terminus-2 leaderboard entry 62.9 ±2.7). Terminal-Bench 2.1: **62.9 ±2.7** (leaderboard, Terminus-2, 2026-02-06) — well under the 88% frontier ref that later models hold.
-- GDPval-AA: **1606** Elo (vs GPT-5.2 1462, Opus 4.5 1416) — the release's #1 claim, but **under the 1750+ ref**.
-- BrowseComp: **84.0** (#1 at release; vs GPT-5.2 Pro 77.9). OSWorld: **72.7** (+6.4 over 4.5). Finance Agent: **60.7**. τ²-bench Retail: **91.9**. OpenRCA: 34.9.
-- MCP-Atlas: known trade-off (multiple reviews note weaker large-scale tool orchestration vs gains elsewhere; no score surfaced). AutomationBench: no row for this model.
+- **Claw-Eval: 70.4** (Claw-Eval leaderboard, via BenchLM 2026-11-07 — **first verified Claw-Eval row for 4.6**; previous passes had none).
+- Terminal-Bench 2.0: **65.4** (Anthropic system card, max effort — #1 at release). Terminal-Bench Hard: **48.5** (AA leaderboard). TB2.1: no verified public score found (4.6 predates the 2.1 tables).
+- τ²-bench: **84.8** (AA, via BenchLM; Anthropic's own τ²-Bench Retail row 91.9). AndroidWorld: **62.0** (Qwen3.8-27B card comparison). ScreenSpot Pro: **83.1** (Meta Muse Spark chart).
+- GDPval-AA: **1606** Elo (Anthropic; BenchmarkList 1619) — release #1 claim, **under the 1750+ ref**. BrowseComp: **84.0** (Anthropic). OSWorld-Verified: **72.7** (Anthropic). Finance Agent: **60.7**. OpenRCA: 34.9.
+- MCP-Atlas: no verified public score found this pass (prior reads 62.7 Anthropic / 76.8 BenchmarkList — harness spread). AutomationBench: no row.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **91.3** — clears the 90%+ ref (GPT-5.2 Pro 93.2, Gemini 3 Pro 91.9 above).
-- HLE with tools: **53.1** — clears the 40%+ ref (GPT-5.2 Pro 50.0). No-tools HLE not published by Anthropic; AA's **non-reasoning** config reads 19 (not comparable to reasoning-mode scores).
-- AA Intelligence Index: **26** for the measured non-reasoning/high configuration (AA) — the reasoning-mode index value did not surface; on either reading it is under the 60+ ref (later-era scale).
-- Anthropic's release framing: #1 on HLE among frontier models at 2026-02-05.
+- GPQA Diamond: **91.3** (Anthropic system card — clears the 90%+ ref); AA independent **84.0** (lower config reading). HLE with tools: **53.1** (Anthropic — clears 40%+); **HLE w/o tools: 40** (Meta Muse Spark chart — fills the previously missing no-tools row); AA-HLE **19.1** (AA non-reasoning config).
+- FrontierMath v2: **65.965% T1-3 / 26.829% T4** (Epoch AI leaderboard — **first math rows found for 4.6**).
+- AA Intelligence Index: **26.4** (AA — non-reasoning/measured config; reasoning-mode index never surfaced). AA-Omniscience accuracy 45.8 / hallucination 80.1. CritPt: **2.8** (AA). ARC-AGI-3: 0.5 (ARC Prize). AA-IFBench: 44.6.
 
 Coding (Anthropic-run unless noted):
 
-- SWE-bench Verified: **80.8** (flat vs Opus 4.5's 80.9; GPT-5.2 80.0) — mid-saturation era; **below the 85%+ band** later frontier rows occupy, and OpenAI flagged cross-frontier SWE-V contamination in this period (Okou note).
-- Terminal-Bench 2.0/2.1 as above (65.4 / 62.9). OpenRCA 34.9. No DeepSWE/SciCode/AA Coding Index row found.
+- SWE-bench Verified: **80.8** (Anthropic system card; flat vs Opus 4.5's 80.9 — contamination-flagged era per OpenAI note).
+- **SWE-bench Pro: 53.4** (Meta Muse Spark chart — **first SWE-Pro row for 4.6**). **LiveCodeBench Pro: 70.7** (same chart). SWE-Rebench: 65.3 (leaderboard). Vibe Code Bench: 57.6 (Vals). FrontierCode 1.1 Main: **26.9** (Cognition).
+- Terminal-Bench 2.0: 65.4. No DeepSWE / AA Coding Index row found.
 
 Long context:
 
-- **MRCR v2 (8-needle): 93% at 256K, 76% at 1M** (Anthropic) vs Sonnet 4.5's 10.8/18.5 — a "qualitative shift against context rot"; the strongest 1M retrieval evidence among early-2026 models, though 76 at 1M is still short of the ≥98% condition and the whole tier is premium-gated/beta.
+- **MRCR v2 (8-needle): 93% at 256K, 76% at 1M** (Anthropic) — strongest 1M retrieval evidence among early-2026 models, still short of the ≥98% condition; window premium-gated. AA-LCR: **67.0** (AA, via BenchLM 2026-11-07 — first independent LCR row).
+
+Multimodal:
+
+- **MMMU-Pro: 77.3** (Anthropic system card — **first measured multimodal row for 4.6 in this file**) / **72.5** (AA mirror). ParseBench: 53.8 (LlamaIndex, 2026-11-06). MedXpertQA-MM: 64.8; ERQA: 51.6 (Meta chart). Text + image in; no video/audio-native input, no non-text output.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** BrowseComp 84.0 (#1), OSWorld 72.7, τ² 91.9 and FinanceAgent 60.7 are strong release-day rows; GDPval 1606 misses the 1750 ref, TB2.1 ~63 is far under the modern frontier bar, and MCP-Atlas is a noted weakness.
-- **Reasoning: 86/100.** GPQA 91.3 (90+) and HLE-tools 53.1 (40+) both clear, and Anthropic led the field on HLE at release; no published no-tools HLE, a non-reasoning-only AA Index row (26), and no ARC/AlphaProof-class evidence cap it at 86.
-- **Context window: 95/100.** 1M exists (beta) with MRCR 93/76 — real retrieval proof — but the window is gated to top tiers, billed at $10/$37.50 above 200K, and 76% at 1M misses the ≥98% condition → floor with an asterisk.
-- **Multimodal: 65/100.** Text + image in, text out = image band (60–70); OSWorld/BrowseComp show strong visual grounding, no video/audio/PDF-native input or non-text output.
-- **Coding: 82/100.** TB2.0 #1 at release (65.4) and SWE-V 80.8 led the February cohort, OpenRCA 34.9 solid; absolute rows are well below the later frontier refs (TB2.1 88, SWE-V 85+) and SWE-V was in its contamination-flagged era.
-- **Cost efficiency: 50/100.** $5/$25 sits midway between the $3/$15 ≈ 60 and $10/$50 ≈ 30 anchors (≈48–50); batch halves, 90%-off cache reads, and flat pre-200K pricing hold it at 50 — the 200K+ premium doubling input to $10/$37.50 is the structural negative.
-- **Overall Score: 82/100.** (84+86+95+65+82)/5 = 82.4 → 82 — the model that made 1M context and adaptive thinking standard for Claude, judged now as a legacy tier: four #1-at-release rows and excellent MRCR evidence, weighed against a 200K-gated window, GDPval below the frontier ref, and absolute benchmark rows the 4.7/4.8/5.x line has left behind.
+- **Tool use: 86/100.** The previously missing **Claw-Eval 70.4** row lands (84→86): BrowseComp 84.0 (#1 at release), OSWorld 72.7, τ² 84.8–91.9, FinanceAgent 60.7 and AndroidWorld 62.0 are a broad agentic stack; capped by GDPval 1606 (<1750 ref), TB2.0 65.4 / TB-Hard 48.5 far under the modern TB2.1 88 ref, and no MCP-Atlas row.
+- **Reasoning: 86/100.** Held: GPQA 91.3 (90+) and HLE-tools 53.1 (40+) clear both refs, and the new FrontierMath v2 65.97/26.8 rows plus HLE-no-tools 40 fill old gaps — but AA-GPQA 84.0 (independent) and AA-HLE 19.1 undercut the vendor configs, AA Index 26.4 stays far under 60+, CritPt 2.8 is weak → no uplift past 86.
+- **Context window: 95/100.** Held: 1M exists (beta) with MRCR 93/76 — real retrieval proof (AA-LCR 67.0 now independent) — but the window is gated to top tiers, billed $10/$37.50 above 200K, and 76% at 1M misses the ≥98% condition → floor with an asterisk.
+- **Multimodal: 68/100.** First measured rows justify the move (65→68): **MMMU-Pro 77.3** (Anthropic) / 72.5 (AA) plus ScreenSpot Pro 83.1 put image-input reasoning at the top of the 60–70 band; still no video/audio-native input or non-text output → capped at 70.
+- **Coding: 82/100.** Held: SWE-V 80.8 and TB2.0 65.4 led the February cohort; the new SWE-Pro 53.4, LiveCodeBench Pro 70.7 and SWE-Rebench 65.3 are mid-band rows that confirm rather than change the level, and FrontierCode 26.9 is weak — absolute rows stay well under the later frontier refs (TB2.1 88, SWE-V 85+, DeepSWE 74).
+- **Cost efficiency: 50/100.** Held: $5/$25 sits midway between the $3/$15 ≈ 60 and $10/$50 ≈ 30 anchors (~48–50); batch halves and 90%-off cache reads hold it at 50 — the >200K premium doubling input to $10/$37.50 is the structural negative (no price change found this pass).
+- **Overall Score: 83/100.** (86+86+95+68+82)/5 = 83.4 → 83 — the model that made 1M context and adaptive thinking standard for Claude, judged now as a legacy tier: broad agentic rows including the newly verified Claw-Eval 70.4 and excellent MRCR evidence, weighed against a 200K-gated window, GDPval below the frontier ref, and absolute benchmark rows the 4.7/4.8/5.x line has left behind.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Anthropic launch post + research page, Digital Applied, TechInformed, Vellum, Code Velocity, Okou, Artificial Analysis comparison pages); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page updated 2026-11-07 with per-row source links, Claw-Eval leaderboard, Anthropic Opus 4.6 system card, AA mirror rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic — Claude Opus 4.6 system card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)
+  - [BenchLM — Claude Opus 4.6 (updated 2026-11-07)](https://benchlm.ai/models/claude-opus-4-6)
+  - [Artificial Analysis — Claude Opus 4.6](https://artificialanalysis.ai/models/claude-opus-4-6)
+  - [Claw-Eval leaderboard](https://claw-eval.github.io/)
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
@@ -143,4 +160,3 @@ Multimodal:
 - Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
 - Method: public internet research (Anthropic Opus 4.6 research + announcement pages, Benchgen, Digital Applied, Code Velocity, The AI Rankings); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (200 benchmarks) — confirmed OSWorld-Verified 72.7 (rank 27), extended GDPval to 1619 (rank 25), added TB-Hard 48.5, MCP Atlas 76.8, Tau2-Telecom 92.1, BrowseComp 83.7, ARC-AGI-1/2 rows; TB2.1/Toolathlon/Tau3/Claw/AA-Index gaps re-confirmed. Scores unchanged: (89+91+91+65+88)/5 = 84.8 → 85. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

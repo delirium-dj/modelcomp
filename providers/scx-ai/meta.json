@@ -1,0 +1,30 @@
+{
+  "name": "SCX.ai",
+  "kind": "vendor",
+  "short": "Australian sovereign AI infrastructure provider delivering secure, onshore, OpenAI-compatible inference endpoints for open-weight models and the sovereign MAGPiE MoE architecture.",
+  "officialUrl": "https://scx.ai",
+  "hosts": [
+    "scx.ai",
+    "www.scx.ai",
+    "api.scx.ai"
+  ],
+  "catalogUrl": "https://scx.ai/pricing",
+  "plans": [
+    {
+      "name": "Service Token Units (Pay-as-you-go)",
+      "price": "Per 1M tokens (metered via STUs)",
+      "notes": "Pay-as-you-go inference for open-weights (DeepSeek, Qwen, Gemma) and SCX sovereign models; isolated private inference with zero training on customer prompts.",
+      "evidenceUrl": "https://scx.ai/pricing"
+    },
+    {
+      "name": "Enterprise Sovereign Capacity",
+      "price": "Custom contract",
+      "notes": "Dedicated Australian onshore compute clusters, sovereign government & defense compliance, custom fine-tuning of MAGPiE models, and direct SLAs.",
+      "evidenceUrl": "https://scx.ai/pricing"
+    }
+  ],
+  "covers": [
+    "qwen-3.8-max"
+  ]
+}
+

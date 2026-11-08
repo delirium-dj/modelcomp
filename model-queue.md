@@ -44,8 +44,8 @@
 88.8 gpt-6-sol
 88.7 mimo-v2.6-flash
 88.4 gemini-3-flash
+88.3 qwen-3.8-flash
 88.1 glm-5.3-flashx
-88.1 qwen-3.8-flash
 88 qwen-3.8
 87.4 gpt-5.4
 87.4 mimo-v2.6-free

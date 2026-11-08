@@ -1,0 +1,25 @@
+{
+  "name": "Cortecs",
+  "kind": "aggregator",
+  "short": "European GDPR-compliant LLM router and gateway providing unified OpenAI-compatible access across frontier and open-weight models with strict EU data residency and zero subscription tiers.",
+  "officialUrl": "https://cortecs.ai",
+  "hosts": [
+    "cortecs.ai",
+    "www.cortecs.ai",
+    "docs.cortecs.ai"
+  ],
+  "catalogUrl": "https://cortecs.ai/pricing",
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Provider list price + 5% top-up fee",
+      "notes": "Billed per token at underlying provider list rates; flat 5% gateway service fee on account balance top-ups; no recurring monthly subscription fee.",
+      "evidenceUrl": "https://cortecs.ai/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-5.5",
+    "qwen-3.8-max"
+  ]
+}
+

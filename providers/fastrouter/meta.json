@@ -1,0 +1,31 @@
+{
+  "name": "FastRouter",
+  "kind": "aggregator",
+  "short": "Low-latency AI gateway and control plane routing across 200+ models for AI coding assistants (OpenCode, Cursor, Cline) with 0% token markup, automatic failovers, and flex discount lanes.",
+  "officialUrl": "https://fastrouter.ai",
+  "hosts": [
+    "fastrouter.ai",
+    "www.fastrouter.ai",
+    "docs.fastrouter.ai"
+  ],
+  "catalogUrl": "https://fastrouter.ai/pricing",
+  "plans": [
+    {
+      "name": "Free tier & test credits",
+      "price": "$0",
+      "notes": "Free signup test tokens; access to :free model routes and fastrouter/free zero-cost endpoints; $0 platform fee on Bring Your Own Keys (BYOK).",
+      "evidenceUrl": "https://fastrouter.ai/pricing"
+    },
+    {
+      "name": "Pro Tier",
+      "price": "from $199/month",
+      "notes": "Advanced control plane, automated cost optimization insights, role-based access control, high concurrency batch processing, and 24/7 support.",
+      "evidenceUrl": "https://fastrouter.ai/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-5.5",
+    "qwen-3.8-max"
+  ]
+}
+
