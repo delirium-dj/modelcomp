@@ -57,6 +57,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM 404 on the canonical slug — no aggregator page exists; the prior 2026-09-18/10-09 passes on the NVIDIA published evaluation table remain the evidence base; 2026-10-16 re-check: the NVFP4-checkpoint BenchLM page (27 rows) corroborates the vendor table within quantization drift — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): the NVFP4-checkpoint BenchLM page (the BF16 slug still 404s) fetched 2026-11-07 (Nov 7 data, 27 rows) — all rows re-confirmed within quantization drift exactly as the prior corroboration recorded; the AA Index re-read 12.9→5.5% (a further v5.0-class rebase step, documented not averaged), Omniscience rows (−15.7 index) and AA-GPQA 74.3% newly display — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

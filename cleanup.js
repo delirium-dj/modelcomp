@@ -1,26 +1,32 @@
-// ❌ WRONG (Never hardcode strings or console.log this value)
-// const VERCEL_TOKEN = "ucj_example_token_here";
-
-//  CORRECT (Securely reads the secret injected by GitHub)
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH"; // It is safe to keep your Vercel Project ID here
+
+// ⚠️ MAKE SURE THIS MATCHES YOUR VERCEL PROJECT ID
+// You can find this in Vercel Dashboard > Project Settings > General
+const PROJECT_ID = "prj_cZ6fRz2Xp2qf6Sj9K3mP8vWq4t1B";
+
 const DAYS_TO_KEEP = 3;
 const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
 
 async function cleanupOldDeployments() {
   if (!VERCEL_TOKEN) {
-    console.error("Error: VERCEL_TOKEN environment variable is missing.");
+    console.error(
+      "Error: VERCEL_TOKEN environment variable is missing in GitHub Secrets.",
+    );
     process.exit(1);
   }
 
   try {
-    console.log("Fetching deployments...");
+    console.log("Fetching deployments from Vercel...");
     const response = await fetch(`https://vercel.com{PROJECT_ID}&limit=100`, {
-      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` }, // Sent securely in the request header
+      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch deployments: ${response.statusText}`);
+      // This will read out the exact error message text from Vercel's server
+      const errorText = await response.text();
+      throw new Error(
+        `Vercel API returned status ${response.status}: ${errorText}`,
+      );
     }
 
     const data = await response.json();
@@ -31,7 +37,6 @@ async function cleanupOldDeployments() {
       if (deployment.target === "production") continue;
 
       if (deployment.createdAt < THREE_DAYS_AGO) {
-        // We print the deployment URL and deployment UID, NOT the security token
         console.log(`Deleting deployment: ${deployment.url}`);
 
         const deleteResponse = await fetch(
@@ -43,15 +48,17 @@ async function cleanupOldDeployments() {
         );
 
         if (!deleteResponse.ok) {
-          console.error(`Failed to delete ${deployment.uid}`);
+          const deleteError = await deleteResponse.text();
+          console.error(`Failed to delete ${deployment.uid}: ${deleteError}`);
         } else {
           console.log(`Successfully deleted ${deployment.uid}`);
         }
       }
     }
-    console.log("Cleanup process completed!");
+    console.log("Cleanup process completed successfully!");
   } catch (error) {
-    console.error("Error running cleanup process.");
+    // 🔍 This prints out the complete error stack trace to the GitHub console log
+    console.error("Detailed Execution Error:", error);
     process.exit(1);
   }
 }

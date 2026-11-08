@@ -62,6 +62,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai North Mini Code page with AA board citations, the prior 2026-10-03 pass on BenchmarkList/AA verified evals, Cohere launch blog; 2026-10-16 re-check: BenchLM 12-row refresh corroborates every row, still unranked, no new data — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM North Mini Code page fetched 2026-11-07 (Nov 7 data, 12 rows, unranked) — all prior rows re-confirmed with zero value changes; the AA Index re-read 9.9→3.4% (a further v5.0-class rebase step, documented not averaged — the Reasoning 54 already reflects the recomposition) and Omniscience minor drift — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

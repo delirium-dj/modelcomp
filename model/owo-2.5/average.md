@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Step 5 Preview.
 - Average from top 2 by Overall Score: Gemini 3.8 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1.
+- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, GLM 4.5 Flash, Laguna XS 2.1, Nemotron 3 Ultra 550B A55B.

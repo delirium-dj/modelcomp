@@ -1,7 +1,7 @@
 # Claude Mythos 5 — findings by Beam
 
 - Source: Anthropic (`claude-mythos-5`)
-- Date: 2026-11-04 (UTC)
+- Date: 2026-11-08 (UTC) (enrichment pass; original 2026-11-04)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,7 +14,7 @@
 - **IDs:** `claude-mythos-5` (Anthropic), `anthropic.claude-mythos-5` (Bedrock). Artificial Analysis does not track this restricted model (no public API → 404); BenchLM/Benchgap relay Anthropic's system-card figures.
 - **Context window:** 1,000,000 tokens input, 128,000 max output. No long-context surcharge.
 - **Modalities:** Text + image input → text output. Reasoning (adaptive thinking, always on, default effort high). Tool/function calling, JSON mode, prompt caching, batch API. No audio/video input or media output.
-- **Pricing (as of 2026-11-04):** $10.00 / $50.00 per 1M input/output tokens; cached read $1.00/M (~90% discount); 5-min cache write $12.50/M, 1-hour $20.00/M; batch $5.00/$25.00. CVP-vetted access only. Blended (3:1) ~$20.00 per 1M.
+- **Pricing (as of 2026-11-08):** $10.00 / $50.00 per 1M input/output tokens; cached read $1.00/M (~90% discount); 5-min cache write $12.50/M, 1-hour $20.00/M; batch $5.00/$25.00. CVP-vetted access only. Blended (3:1) ~$20.00 per 1M.
 - **Architecture:** Proprietary; parameter count undisclosed. Claude Fable 5-class weights (Mythos = the refusal-lifted cyber variant). Adaptive reasoning + tool use.
 
 ### Raw benchmarks found
@@ -35,6 +35,7 @@ Agent / tool use (Anthropic system card):
 - Harvey's Legal Agent Benchmark: **13.3%** (system card, Sugra, ViralChart)
 - OfficeQA: **79%**; OfficeQA Pro: **67.1%** (Sugra)
 - ProgramBench (Anthropic harness, 166-task golden subset): **93.0%** best hidden test pass (BenchmarkList)
+- BenchLM aggregator (2026-11-07): only Terminal-Bench 4.0 **60.90%** published; still unranked (no new verified rows beyond system card).
 
 Reasoning / knowledge (Anthropic system card):
 
@@ -101,20 +102,19 @@ Safety/alignment:
 
 > Overall = half-up mean of the five quality dims (Tool + Reasoning + Context + Multimodal + Coding) / 5. Cost efficiency excluded.
 
-- **Tool use: 93/100.** Terminal-Bench 2.1 88%, OSWorld 85%, BrowseComp 88%, CyberGym 83.8%, Toolathlon 79.3%, ScreenSpot-Pro 90.7%, DRACO 86.4%, ProgramBench 93%. Capped just below 95 by vendor-only provenance (no independent harness).
+- **Tool use: 93/100.** Terminal-Bench 2.1 88%, OSWorld 85%, BrowseComp 88%, CyberGym 83.8%, Toolathlon 79.3%, ScreenSpot-Pro 90.7%, DRACO 86.4%, ProgramBench 93%. Capped just below 95 by vendor-only provenance (no independent harness). Enrichment (2026-11-08): BenchLM aggregator (updated 2026-11-07) published only Terminal-Bench 4.0 60.90% (still unranked); no new verified rows beyond system card. No change.
 - **Reasoning: 93/100.** GPQA Diamond 94.1%, USAMO 2026 ~99.8%, HLE 64.5% (with tools), AA-Omniscience net 0.58, DeepSearchQA 94.2%. Capped by HLE below 65% and unknown knowledge cutoff.
 - **Context window: 94/100.** 1M/128K top tier; GraphWalks BFS 79.4% at 1M and 91.1% at 256K; Parents 97.5%/100%. Capped by BFS 1M 79.4% and unverified MRCR/RULER.
 - **Multimodal: 80/100.** Text+image in → text out (no video/audio); CharXiv 93.5%, ChartMuseum 93.2%, Chartography 85.2% with tools, but ChartQAPro 72.9% and SWE-multimodal 54.9%. Capped by text-only output and no video.
 - **Coding: 96/100.** SWE-bench Verified 95.5% (among highest published), SWE-Pro 80.3%, SWE-Multilingual 92.2%, Terminal-Bench 2.1 88%. Capped at 96 by vendor-only provenance and FrontierCode Diamond 29.3%.
 - **Cost efficiency: 36/100.** $10/$50 per 1M, cached $1.00; blended ~$20.00 — among the most expensive in the roster; CVP-restricted. Not counted toward Overall.
-- **Overall Score: 91/100.** (93 + 93 + 94 + 80 + 96) / 5 = 91.2 → 91. Best fit: Anthropic's refusal-lifted cyber-defense flagship — frontier-top coding/agentic/reasoning at 1M context for vetted security work, but restricted-access and premium-priced.
+- **Overall Score: 91/100.** (93 + 93 + 94 + 80 + 96) / 5 = 91.2 → 91. Best fit: Anthropic's refusal-lifted cyber-defense flagship — frontier-top coding/agentic/reasoning at 1M context for vetted security work, but restricted-access and premium-priced. Enrichment (2026-11-08): BenchLM aggregator (updated 2026-11-07) published only Terminal-Bench 4.0 60.90% (still unranked); no new verified rows beyond system card. Overall unchanged at 91.
 
 ---
-
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-11-04
-- Method: public internet research (Anthropic platform docs for `claude-mythos-5`; AA article on Fable 5/Mythos-class; BenchLM, BenchmarkList, Sugra, FrontierLog, benchgap, ViralChart for system-card benchmark relay; Qwen 3.8 Max/Flash prior reports for cross-check). Scores are normalized 1–100 interpretations, not official vendor scores; all absolutes are Anthropic system-card (vendor) figures — no independent AA/harness exists for this restricted model.
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-08
+- Method: enrichment pass (fresh public web research via BenchLM/Artificial Analysis aggregator, 2026-11-08); scores are normalized 1–100 interpretations, not official vendor scores. Original report 2026-11-04 preserved; BenchLM aggregator checked (only Terminal-Bench 4.0 60.90% published, still unranked); no new verified rows; no dimension score changed.
 - Reference URLs:
   - [Claude Mythos 5 — Anthropic platform docs](https://platform.claude.com/docs/en/models/mythos-5/overview)
   - [Claude Fable 5 launch — Artificial Analysis](https://artificialanalysis.ai/articles/claude-fable-5-mythos-intelligence-index)
