@@ -34,7 +34,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **59.3%** (AA — fills the gap; low); AA-GPQA Diamond: **59.3%** (corroborated)
 - HLE: **6.3%** (AA — fills the gap; floor); Artificial Analysis Intelligence Index: **14.1** (AA current board — recomposed from the prior 10 reading; still low)
 - AA-LCR v1.1: **31.3%** (AA — fills the long-context gap; very weak); CritPt: **0.0%** (AA — floor)
-- AA-Omniscience: **15.6% accuracy / 96.7% non-hallucination row / −66.1 index** (AA — repo worst by a wide margin)
+- AA-Omniscience: **15.6% accuracy / 96.7% non-hallucination row / −66.1 index** (AA — repo worst by a wide margin; Nov 7 re-confirms all three values, now with the 96.7% row labeled "Hallucination Rate" — the labeling-drift pattern; the −66.1 index is the operative reading either way)
 - IFBench: **57% / 57.4%** (AA — corroborated)
 - AIME 2026: **73.85%**; HMMT Feb 2026: **49.29%** (prior pass, HF eval results)
 
@@ -63,6 +63,6 @@ Speed: up to 340 tokens/s on 4× H20; ~4× prefill/decode throughput vs size-cla
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 2.6 Flash page with AA board citations (now computing 32.73 #167), the prior 2026-10-09 pass on the HF model card + AA; 2026-10-16 re-check: BenchLM 16-row refresh corroborates every row, no new data (rank #167/889 32.73 → #172/954 32.43; Ling 3.1 Flash 62.06 → 68.03) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Ling 2.6 Flash page fetched 2026-11-07 (Nov 7 data, 16 rows) — all prior rows re-confirmed with zero value changes; composite recomputed 32.43→33.41 #168/1016; Omniscience labeling drift flagged — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

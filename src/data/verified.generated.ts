@@ -144,7 +144,7 @@ export const VERIFIED: Record<string, string> = {
   "mimo-v2.5-free": "2026-11-06",
   "mimo-v2.5-pro": "2026-11-06",
   "mimo-v2.6-distill-qwen-9b": "2026-11-06",
-  "mimo-v2.6-flash": "2026-11-06",
+  "mimo-v2.6-flash": "2026-11-08",
   "mimo-v2.6-free": "2026-11-06",
   "mimo-v2.6-pro": "2026-11-08",
   "minimax-m2.5": "2026-11-06",

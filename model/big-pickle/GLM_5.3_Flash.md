@@ -55,6 +55,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: enrichment re-research 2026-10-19 (≥3 independent lookups: live OpenCode Zen roster re-verification, models.dev catalog fetch, the canonical identity thread `https://github.com/anomalyco/opencode/issues/4276` read in full — including the collaborator confirmations and the 2026 Ox Alpha reports — and a Bing web search). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s this anonymous stealth alias (tried 2026-11-08, consistent with the prior passes) — trackers do not carry anonymous router aliases and no new era-specific measurement surfaced; the router-history evidence (GLM-4.6 → DeepSeek V4 Flash → reported Ox Alpha) and the 2026-10-19 enrichment scores stand unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
