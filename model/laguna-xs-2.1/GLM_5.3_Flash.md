@@ -60,6 +60,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (re-run of the 2026-09-24 pass; Poolside HuggingFace model card, llm-stats provider/pricing rows fetched live, aibenchy.com and goldiebench.com independent evals, benchgen, ask-coreai review, DuckDuckGo web search ×3); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Laguna XS 2.1 page fetched 2026-11-07 — still exactly the same 5 model-card rows, still unranked — re-verified, no new evidence, scores carried unchanged; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Laguna_XS.md`, using the same headings.

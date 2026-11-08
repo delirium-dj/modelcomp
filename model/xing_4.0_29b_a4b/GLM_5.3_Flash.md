@@ -66,6 +66,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-19
-- Method: public internet research — official Hugging Face model card with per-benchmark harness footnotes (primary), arXiv TeleChat3-MoE / TeleChat2 technical reports (provenance), HF API model search, and web search cross-checks; every benchmark row is vendor-reported and labeled as such; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-19)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM 404s this model (tried 2026-11-08) — no aggregator page exists and no new vendor or independent rows surfaced; the vendor-reported model-card evidence (all rows labeled vendor-run) stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

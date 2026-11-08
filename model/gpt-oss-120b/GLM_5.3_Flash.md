@@ -54,6 +54,7 @@ Coding:
 Long context:
 
 - No long-context retrieval reported beyond AA-LCR 52.0% (modest, consistent with the 128K window)
+- **AA LiveCodeBench: 87.8%** (NEW, BenchLM Nov 7 — strong, corroborating the algorithmic-coding side against the weak AA Coding Index 30.4%); **AA AIME-2025 93.4%, AA-IFBench 69.0%, AA-GPQA 78.2%, Gert Labs 29.61%** (NEW)
 
 ### Normalized scores (1–100)
 
@@ -69,6 +70,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (re-run of the 2026-09-24 + 2026-10-05 passes; BenchLM profile refreshed 2026-10-15 aggregating the official OpenAI model-card PDF, Artificial Analysis, Gert Labs, React Native Evals; GPQA/AA-Index readings consistent across three passes, HLE conflict 14.9 vs 19.6 documented); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM GPT-OSS-120B page fetched 2026-11-07 (Nov 7 data, 23 rows) — all prior rows re-confirmed with zero value changes; AA LiveCodeBench 87.8%, AA AIME-2025 93.4%, Gert Labs 29.61%, AA-IFBench 69.0% and AA-GPQA 78.2% added, Design Arena 969→966 minor drift — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_OSS.md`, using the same headings.
