@@ -1,6 +1,6 @@
 {
   "name": "Bifrost",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "High-performance open-source (Apache 2.0) Go AI gateway with drop-in OpenAI compatibility, virtual keys, budgets, rate limits, caching, fallbacks, and MCP gateway — self-hosted.",
   "officialUrl": "https://www.getmaxim.ai/bifrost",
   "hosts": ["getmaxim.ai", "www.getmaxim.ai"],

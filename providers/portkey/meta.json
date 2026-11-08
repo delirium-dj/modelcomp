@@ -1,6 +1,6 @@
 {
   "name": "Portkey",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "Open-source AI gateway and control plane providing unified routing, logging, and observability with a free developer plan.",
   "officialUrl": "https://portkey.ai",
   "hosts": ["portkey.ai", "api.portkey.ai"],

@@ -1,6 +1,6 @@
 {
   "name": "Kong AI Gateway",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "LLM routing on the Kong API gateway with AI traffic management, PII sanitization, RBAC, analytics, and developer portal; self-hosted OSS core plus managed Konnect and Enterprise tiers.",
   "officialUrl": "https://konghq.com/products/kong-ai-gateway",
   "hosts": ["konghq.com", "konghq.com"],

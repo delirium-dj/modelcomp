@@ -34,8 +34,8 @@ describe("providers/<slug>/meta.json", () => {
     it(`${slug}: schema is valid`, () => {
       assert.ok(meta, "parse test must run first");
       assert.ok(
-        meta.kind === undefined || meta.kind === "vendor" || meta.kind === "aggregator",
-        `kind must be vendor|aggregator (got ${meta.kind})`,
+        meta.kind === undefined || meta.kind === "vendor" || meta.kind === "aggregator" || meta.kind === "router",
+        `kind must be vendor|aggregator|router (got ${meta.kind})`,
       );
       assert.ok(Array.isArray(meta.plans) && meta.plans.length > 0, "plans non-empty array");
       for (const plan of meta.plans) {

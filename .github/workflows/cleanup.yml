@@ -1,0 +1,22 @@
+name: Daily Vercel Cleanup
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
+  workflow_dispatch: # Allows you to trigger this manually from GitHub UI to test it
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Cleanup Script
+        run: node cleanup.js
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

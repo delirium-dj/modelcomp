@@ -23,7 +23,7 @@ it is loaded directly by the website build via `import.meta.glob`
 | field | required | meaning |
 |---|---|---|
 | `name` | yes | Display name (vendor-accurate casing, e.g. `OpenCode Zen`) |
-| `kind` | no | `vendor` (sells own models) or `aggregator` (bills others'). Default `vendor` |
+| `kind` | no | `vendor` (sells own models), `aggregator` (bills others'), or `router` (proxy / BYOK control plane). Default `vendor` |
 | `short` | yes | 1–2 sentence description shown on the card |
 | `officialUrl` | no | Main site (also used to build the covered-model list) |
 | `hosts` | no | Extra domain names whose claimant links count this provider as the seller |

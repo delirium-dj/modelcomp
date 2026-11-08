@@ -1,6 +1,6 @@
 {
   "name": "FastRouter",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "Low-latency AI gateway and control plane routing across 200+ models for AI coding assistants (OpenCode, Cursor, Cline) with 0% token markup, automatic failovers, and flex discount lanes.",
   "officialUrl": "https://fastrouter.ai",
   "hosts": [

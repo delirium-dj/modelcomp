@@ -1,6 +1,6 @@
 {
   "name": "Opper",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "EU-hosted (Stockholm) LLM gateway and router exposing 700+ models from 50+ providers via one OpenAI-compatible API, with zero data retention by default, LLM checks, routing/fallbacks, and observability.",
   "officialUrl": "https://opper.ai",
   "hosts": ["opper.ai", "www.opper.ai"],

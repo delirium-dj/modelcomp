@@ -1,6 +1,6 @@
 {
   "name": "Cloudflare AI Gateway",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "Free observability and routing control plane over your own provider keys, with request logging, caching, rate limiting, fallback routing, and DLP/PII scanning on Cloudflare's edge.",
   "officialUrl": "https://developers.cloudflare.com/ai-gateway",
   "hosts": ["developers.cloudflare.com", "cloudflare.com", "ai.cloudflare.com"],

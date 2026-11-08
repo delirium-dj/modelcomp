@@ -25,8 +25,8 @@ export interface ProviderPlan {
   _readonly?: string;
 }
 
-/** Provider kind: `vendor` sells its own models, `aggregator` bills others'. */
-export type ProviderKind = "vendor" | "aggregator";
+/** Provider kind: `vendor` sells its own models, `aggregator` bills others', `router` routes user's own BYOK keys / proxy control plane. */
+export type ProviderKind = "vendor" | "aggregator" | "router";
 
 export interface ProviderMeta {
   name: string;
@@ -307,7 +307,12 @@ export const PROVIDERS: Provider[] = (() => {
     return {
       ...meta,
       slug,
-      kind: meta.kind === "aggregator" ? ("aggregator" as const) : ("vendor" as ProviderKind),
+      kind:
+        meta.kind === "aggregator"
+          ? ("aggregator" as const)
+          : meta.kind === "router"
+            ? ("router" as const)
+            : ("vendor" as ProviderKind),
       plans: meta.plans,
       freePlans,
       freeTier: freePlans.length > 0,

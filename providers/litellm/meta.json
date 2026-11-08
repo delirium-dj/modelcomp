@@ -1,6 +1,6 @@
 {
   "name": "LiteLLM",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "Open-source (MIT) AI gateway and proxy: one OpenAI-compatible endpoint across 100+ providers, virtual keys, budgets, rate limits, spend tracking — self-hosted so your keys never leave your infra.",
   "officialUrl": "https://www.litellm.ai",
   "hosts": ["litellm.ai", "www.litellm.ai", "docs.litellm.ai"],

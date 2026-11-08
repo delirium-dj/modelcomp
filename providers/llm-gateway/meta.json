@@ -1,6 +1,6 @@
 {
   "name": "LLM Gateway",
-  "kind": "aggregator",
+  "kind": "router",
   "short": "Open-source (AGPLv3) multi-provider AI gateway and proxy with 250+ models, self-hosting support, 5% credit platform fees, and DevPass flat-rate subscriptions for AI coding agents.",
   "officialUrl": "https://llmgateway.io",
   "hosts": [
