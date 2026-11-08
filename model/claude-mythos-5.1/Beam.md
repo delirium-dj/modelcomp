@@ -1,7 +1,7 @@
 # Claude Mythos 5.1 — findings by Beam
 
 - Source: Anthropic/Claude Mythos 5.1, `anthropic/claude-mythos-5-1`
-- Date: 2026-10-22 (UTC)
+- Date: 2026-11-08 (UTC) (enrichment pass; original 2026-10-22)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,10 +14,14 @@
 - **IDs:** `anthropic/claude-mythos-5-1`
 - **Context window:** 1,000,000 tokens; max output 128,000.
 - **Modalities:** text, image, file (PDF) in; text out; reasoning yes (adaptive thinking, default high effort); tool calling yes. No audio.
-- **Pricing (as of 2026-10-22):** $10.00 / 1M input, $50.00 / 1M output, $0.25 / 1M cache read (75% cheaper vs Fable 5); paid. Batch API 50% discount.
+- **Pricing (as of 2026-11-08):** $10.00 / 1M input, $50.00 / 1M output, $0.25 / 1M cache read (75% cheaper vs Fable 5); paid. Batch API 50% discount.
 - **Architecture:** proprietary; params not published.
 
 ### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
 
 Agent / tool use:
 
@@ -33,6 +37,7 @@ Agent / tool use:
 - ExploitBench / OSS-Fuzz / Firefox 147 / ExploitGym: Mythos 5.1 substantially outperforms Opus 5 (no numeric in sources)
 - SRE-Bench: not individually reported for Mythos 5.1
 - Agentic public-lane: not computed (coming soon)
+- BenchLM aggregator (2026-11-07): only Terminal-Bench 4.0 **60.90%** published; still unranked.
 
 Reasoning / knowledge:
 
@@ -63,18 +68,37 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Terminal-Bench 4.0 60.9%, Terminal-Bench 2.1 88.0%, OSWorld 77.9%/85%, BrowseComp 88%, CyberGym 83.8%, GDPval-AA 1,853, AutomationBench 31.4%; strongest cyber of Anthropic lineup.
-- **Reasoning: 92/100.** HLE 60.9-65.0%, GPQA 94.1%, USAMO 97.6%; caps at no published ARC-AGI/FrontierMath.
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 90/100.** Terminal-Bench 4.0 60.9%, Terminal-Bench 2.1 88.0%, OSWorld 77.9%/85%, BrowseComp 88%, CyberGym 83.8%, GDPval-AA 1,853, AutomationBench 31.4%; strongest cyber of Anthropic lineup. Enrichment (2026-11-08): BenchLM aggregator published only Terminal-Bench 4.0 60.90% (still unranked). No new verified rows beyond existing system-card data. No change.
+- **Reasoning: 92/100.** HLE 60.9-65.0%, GPQA 94.1%, USAMO 97.6%; caps at no published ARC-AGI/FrontierMath. Enrichment: no new verified rows. No change.
 - **Context window: 90/100.** 1M window; caps at no published MRCR retrieval.
 - **Multimodal: 92/100.** Text/image/file in; CharXiv 93.5%, CharXiv w/o tools 88.9%, OSWorld 77.9%.
 - **Coding: 88/100.** SWE-bench Verified 95.5%, SWE-bench Pro 80.3%, CursorBench 73.4%, SWE-bench Multimodal 54.9%; caps at unverified DeepSWE.
 - **Cost efficiency: 62/100.** Premium $10/$50 per 1M (cache reads $0.25/1M).
-- **Overall Score: 90/100.** Mean of five quality dims; best-fit for cybersecurity defense + life sciences research at premium cost.
+- **Overall Score: 90/100.** Mean of five quality dims; best-fit for cybersecurity defense + life sciences research at premium cost. Enrichment (2026-11-08): BenchLM aggregator published only Terminal-Bench 4.0 60.90% (still unranked); no new verified rows beyond existing system-card data. Overall unchanged at 90.
 
 ---
-
 ## Signature
 
-- Provided by: **Beam (Beam)** — 2026-10-22
-- Method: public internet research (Anthropic announcement/system card, AWS Bedrock, Vellum, Augmenter, BenchLM); scores are normalized 1–100 interpretations, not official vendor scores. Many Mythos 5.1 figures inherited from Mythos 5 where 5.1-specific numbers were not published; new Fable 5.1-specific benchmarks added where published.
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-08
+- Method: enrichment pass (fresh public web research via BenchLM/Artificial Analysis aggregator, 2026-11-08); scores are normalized 1–100 interpretations, not official vendor scores. Original report 2026-10-22 preserved; BenchLM aggregator checked (only Terminal-Bench 4.0 60.90% published, still unranked); no new verified rows; no dimension score changed.
+- Reference URLs:
+  - [BenchLM — Claude Mythos 5.1](https://benchlm.ai/models/claude-mythos-5-1)
+  - [Anthropic — Claude Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+  - [Claude Fable 5.1 / Mythos 5.1 system card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+## Submission checklist (complete, then remove this section before finishing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
+4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).

@@ -32,10 +32,10 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - GPQA Diamond: **75.7%** (AA — corroborated)
-- HLE: **11.1%** (AA — corroborated); Artificial Analysis Intelligence Index: **9.9** (AA current board, 2026-10-10) — **conflicts with the 20.2 BenchmarkList reading the prior pass cited**; recomposition accounts for the difference
+- HLE: **11.1%** (AA — corroborated); Artificial Analysis Intelligence Index: **9.9** (AA current board, 2026-10-10) — **conflicts with the 20.2 BenchmarkList reading the prior pass cited**; recomposition accounts for the difference; Nov 7 re-read **3.4%** — a further AA Index **version rebase** (v4.3.2→v5.0-class scale), documented per RULES, never averaged across scales
 - AA-LCR v1.1: **37.3%** (AA — corroborates the prior 36.0); CritPt: **0.3%** (AA — floor)
-- AA-Omniscience: **18.9% accuracy / 83.2% non-hallucination row / −48.6 index** (AA — repo-worst tier)
-- AA-IFBench: **57.6%** (AA — new)
+- AA-Omniscience: **18.9% accuracy / 83.2% non-hallucination row / −48.6 index** (AA — repo-worst tier); Nov 7 re-read accuracy **18.4%** / hallucination **83.5%** / index **−49.8** — minor drift
+- AA-IFBench: **57.6%** (AA — new; Nov 7 re-confirmed)
 - BenchmarkList ECI: **110.74** (#195/397; prior pass)
 
 Coding:

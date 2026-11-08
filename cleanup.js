@@ -1,6 +1,9 @@
-const VERCEL_TOKEN =
-  vcp_5HCtJObRBh9wvcDxTiWgkFcjl5GjAOYJEf4hfL5Gm7rIqjvnZx1Q7Hhn;
-const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH"; // Replace with your Vercel Project ID
+// ❌ WRONG (Never hardcode strings or console.log this value)
+// const VERCEL_TOKEN = "ucj_example_token_here";
+
+//  CORRECT (Securely reads the secret injected by GitHub)
+const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH"; // It is safe to keep your Vercel Project ID here
 const DAYS_TO_KEEP = 3;
 const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
 
@@ -11,10 +14,9 @@ async function cleanupOldDeployments() {
   }
 
   try {
-    // 1. Fetch recent deployments from the Vercel API
     console.log("Fetching deployments...");
     const response = await fetch(`https://vercel.com{PROJECT_ID}&limit=100`, {
-      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` }, // Sent securely in the request header
     });
 
     if (!response.ok) {
@@ -25,18 +27,12 @@ async function cleanupOldDeployments() {
     const deployments = data.deployments || [];
     console.log(`Found ${deployments.length} total deployments.`);
 
-    // 2. Loop through and delete deployments older than 3 days
     for (const deployment of deployments) {
-      // Safety skip: Never delete active production deployments
-      if (deployment.target === "production") {
-        console.log(`Skipping active production deployment: ${deployment.url}`);
-        continue;
-      }
+      if (deployment.target === "production") continue;
 
       if (deployment.createdAt < THREE_DAYS_AGO) {
-        console.log(
-          `Deleting deployment: ${deployment.url} (Created: ${new Date(deployment.createdAt).toDateString()})`,
-        );
+        // We print the deployment URL and deployment UID, NOT the security token
+        console.log(`Deleting deployment: ${deployment.url}`);
 
         const deleteResponse = await fetch(
           `https://vercel.com{deployment.uid}`,
@@ -47,9 +43,7 @@ async function cleanupOldDeployments() {
         );
 
         if (!deleteResponse.ok) {
-          console.error(
-            `Failed to delete ${deployment.uid}: ${deleteResponse.statusText}`,
-          );
+          console.error(`Failed to delete ${deployment.uid}`);
         } else {
           console.log(`Successfully deleted ${deployment.uid}`);
         }
@@ -57,7 +51,7 @@ async function cleanupOldDeployments() {
     }
     console.log("Cleanup process completed!");
   } catch (error) {
-    console.error("Error running cleanup:", error);
+    console.error("Error running cleanup process.");
     process.exit(1);
   }
 }
