@@ -34,17 +34,17 @@ Reasoning / knowledge:
 
 - GPQA Diamond: **89.0–89.1%** (launch post + AA — corroborated; just under the 90% frontier reference)
 - HLE: **29.2%** (AA — corroborated; under the 40% bar)
-- CritPt: **5.4%** (AA — corroborated; weak)
+- CritPt: **5.4%** (AA — corroborated; weak; Nov 7 re-read **6.3%** — minor upward drift)
 - Artificial Analysis Intelligence Index: **28.1** (AA current reading — updates the earlier "42", which was a pre-recalibration snapshot)
 - AA-LCR: **71.0%** (launch post via benchlm.ai — updates the earlier 74.0 reading)
 - MMLU-Pro: **86.3%** (corroborated); AIME 2026: **95.3%** (corroborated); KMMLU-Pro: **79.2%** (launch post — new Korean row)
-- AA-Omniscience: Index -0.8, accuracy **18.9%**, hallucination rate **24.4%** (benchlm.ai — good honesty)
+- AA-Omniscience: Index -0.8, accuracy **18.9%**, hallucination rate **24.4%** (benchlm.ai — good honesty); Nov 7 re-read Index **1.4** / accuracy **18.4%** / hallucination **20.9%** — improved on re-measurement, both cited
 
 Coding:
 
 - SWE-bench Verified: **70.6%** (OpenHands scaffold — corroborated)
 - LiveCodeBench: **87.8%** (launch post — fills the previously-missing LCB row)
-- SciCode / AA-SciCode: **44.6%** (AA — corroborated; below the 55%+ frontier mark)
+- SciCode / AA-SciCode: **44.6%** (AA — corroborated; below the 55%+ frontier mark; Nov 7 re-read **48.0%** — upward drift, still below the mark)
 
 Long context:
 
@@ -52,7 +52,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1183** (OpenRouter); text-only input and output
+- Design Arena Website: **1183** (OpenRouter; Nov 7 re-read **1174** — minor drift); text-only input and output
 
 ### Normalized scores (1–100)
 
@@ -68,6 +68,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: Independent public web research (benchlm.ai tables updated 2026-10-10 citing the Upstage launch post and AA boards — official plus independent sources); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing MCP Atlas 61.4%, BrowseComp 49.2%, APEX 18.7%, LCB 87.8%, AA Index 42→28.1, AA-LCR 74.0→71.0%, KMMLU-Pro 79.2% — Tool 74→70, Reasoning 85→82, Coding 82→83, Overall 70→68; 2026-10-16 re-check: all 22 BenchLM rows already captured — nothing new).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Solar Pro 4 page fetched 2026-11-07 (Nov 7 data, 21 rows, still unranked) — all prior rows re-confirmed; AA-SciCode 44.6→48.0% and CritPt 5.4→6.3% upward re-reads, Omniscience improved (Index 1.4), GDPval 30.5→30.3% and Design Arena 1183→1174 minor drifts — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Solar_Pro_5.md`, using the same headings.

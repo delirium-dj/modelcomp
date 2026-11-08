@@ -26,7 +26,7 @@ Agent / tool use:
 - Terminal-Bench 2: **57.0%** (MiniMax official — corroborated); TB2.1 (Vals): **48.7%** (fills); Terminal-Bench Hard: **39%** (AA — corroborated)
 - Tau2-Bench Telecom: **84.8%** (AA — corroborates the earlier 85); Tau3-bench: **67.6%** (GLM-5.1 comparison table — fills)
 - Claw-Eval: **48.7%** (Claw-Eval leaderboard — fills the previously-missing Claw row)
-- GDPval-AA: **1087 Elo** / 25.7% (AA — fills the previously-missing GDPval row)
+- GDPval-AA: **1087 Elo** / 25.7% (AA — fills the previously-missing GDPval row; Nov 7 re-read 25.5% — minor drift)
 - Toolathon: **46.3%**; Toolathlon: **46.3%**; MM-ClawBench: **62.7%** with multi-turn Excel/PPT/Word editing (MiniMax official — corroborated)
 - MLE-Bench Lite: **66.6%** (MiniMax official — new); APEX-Agents-AA: **10.6%**; AA Agentic Index: **16.8%**; Gert Labs: **40.40%** (benchlm.ai — weak rows)
 - Agent Teams: **97% skill adherence** across 40+ complex skills (MiniMax claim)
@@ -56,7 +56,7 @@ Long context:
 
 Multimodal / vision:
 
-- Design Arena Website: **1248** (OpenRouter); text-only in and out
+- Design Arena Website: **1248** (OpenRouter; Nov 7 re-read **1240** — minor drift); text-only in and out
 
 ### Normalized scores (1–100)
 
@@ -72,6 +72,6 @@ Multimodal / vision:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (benchlm.ai tables updated 2026-10-10 citing MiniMax official, AA, Vals and the GLM-5.1 comparison table — official plus independent sources; earlier draft via opper.ai's AA feed; 2026-10-16 re-check: all 46 BenchLM rows already captured — nothing new); scores are normalized 1–100 interpretations, not official vendor scores. Second-pass enrichment: fills missing Claw-Eval 48.7%, GDPval-AA 1087, Tau3 67.6%, SWE-V* 75.4%, SWE-bench (Vals) 73.8%, LCB 79.9%, AIME26 89.8% — Tool 80→76, Overall 65 (unchanged).
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM MiniMax M2.7 page fetched 2026-11-07 (Nov 7 data, 46 rows) — all prior rows re-confirmed with zero value changes, GDPval 25.7→25.5% and Design Arena 1248→1240 minor drifts — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `MiniMax_M3.md`, using the same headings.

@@ -2377,7 +2377,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "AA-LCR", value: "69.5%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol", "GPT_5.6_Terra", "Laguna_S_2.1", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Qwen_3.7_Plus"] },
     { benchmark: "SciCode", value: "44.4%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Luna", "GPT_5.6_Sol", "GPT_5.6_Terra", "Laguna_S_2.1", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Qwen_3.7_Plus"] },
     { benchmark: "SWE-bench Pro", value: "55.4%", raters: ["DeepSeek_4.1_Flash", "GPT_5.6_Sol", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "Muse_Glimmer_30B", "Muse_Spark_1.3", "Qwen_3.7_Plus"] },
-    { benchmark: "Vibe Code Bench", value: "14.85%", raters: ["Beam", "DeepSeek_4.1_Flash", "GLM_5.3", "GPT_5.6_Terra", "Qwen_3.7_Plus", "Step_5_Preview"] },
+    { benchmark: "Vibe Code Bench", value: "14.85%", raters: ["Beam", "DeepSeek_4.1_Flash", "GLM_5.3", "GLM_5.3_Flash", "GPT_5.6_Terra", "Qwen_3.7_Plus", "Step_5_Preview"] },
     { benchmark: "LiveCodeBench", value: "79.2%", raters: ["Gemini_3.8_Flash", "Laguna_XS_2.1", "LongCat_2.5_Preview", "MiMo_2.6_Flash", "Qwen_3.8_Max"] },
     { benchmark: "AIME", value: "86.3%", raters: ["Beam", "Big_Pickle", "GPT_5.6_Sol", "Laguna_S_2.1"] },
     { benchmark: "Tau2-bench", value: "95.3%", raters: ["Gemini_3.8_Flash", "MiMo_2.6_Flash"] },

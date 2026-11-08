@@ -61,6 +61,6 @@ Speed / cost / other verified measurements:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (verification pass: BenchLM fetch 404 — no aggregator page exists for the anonymous stealth model; the prior 2026-10-01/09 passes on omenalpha.io/OpenCode data/rankllms remain the evidence base; 2026-10-16 re-check: BenchLM still 404s the model slug, no new evidence — no score changes); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s this anonymous stealth model (tried 2026-11-08, consistent with the prior passes) — no aggregator page exists and the vendor remains unconfirmed; the OpenCode leaderboard snapshot stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

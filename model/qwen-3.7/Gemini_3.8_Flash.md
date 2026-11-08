@@ -1,7 +1,7 @@
 # Qwen 3.7 — findings by Gemini 3.8 Flash
 
 - Source: Alibaba Cloud (`alibaba/qwen-3.7`)
-- Date: 2026-10-28 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -53,6 +53,6 @@ Long context / vision:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-28
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public documentation, Alibaba Cloud Summit disclosures, independent Artificial Analysis evaluations and benchmarks; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

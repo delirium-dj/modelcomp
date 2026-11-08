@@ -34,12 +34,12 @@ Reasoning / knowledge:
 - AIME25 → AA-LCR: internal testing "based on Artificial Analysis Intelligence Index methods" per official appendix (values in image, not textually citable)
 - Artificial Analysis Intelligence Index: no verified independent value found in text sources
 
-Coding:
-
+- Coding:
 - SWE-bench Verified: **80.2%** (official, Claude Code scaffolding, avg of 4 runs)
 - Multi-SWE-Bench: **51.3%** (official)
 - VIBE-Pro: on par with Claude Opus 4.5 per official post (internal benchmark, no absolute number)
 - SWE-bench Multilingual / SWE-bench Pro: tested officially (values in appendix image, not textually citable)
+- **Vibe Code Bench v1.1: 14.85%** (NEW — BenchLM page now exists with this single Vals row, fetched 2026-11-07; the first independent coding measurement and it is floor-class vs the vendor's SWE-V 80.2% — the vendor-vs-independent split is documented, not averaged away)
 
 Long context:
 
@@ -51,14 +51,14 @@ Long context:
 - **Reasoning: 76/100.** No public GPQA/HLE/LCR number is textually verifiable; scoring rests on the model's agentic reasoning proxies (SWE planning, RISE) — provisional pending independent index coverage.
 - **Context window: 85/100.** 1M-token window per the provider row (128K conflicting record noted), but zero public long-context retrieval benchmarks found to verify measured depth.
 - **Multimodal: 15/100.** Text-only I/O; no vision/audio support documented anywhere.
-- **Coding: 84/100.** SWE-bench Verified 80.2% and Multi-SWE-Bench 51.3% officially measured, Opus-4.6-level harness parity and Opus-4.5-level VIBE-Pro positioning; all lab-reported, no independent harness verification found.
+- **Coding: 80/100.** CHANGED from 84 — SWE-bench Verified 80.2% and Multi-SWE-Bench 51.3% remain officially measured, but the first independent coding row (Vals Vibe 14.85%, Nov 7) lands floor-class against them — docked per the repo's independent-evidence precedent; Opus-4.5-level VIBE-Pro positioning stands as a vendor claim only.
 - **Cost efficiency: 95/100.** ~$0.15–$0.30 in / $1.20 out per 1M with MIT open weights — among the cheapest frontier-class options; not $0, so not 100.
-- **Overall Score: 69/100.** Mean of (85+76+85+15+84)/5 = 69. Best fit: high-volume agentic coding, search, and office automation where cost per token dominates; wrong pick for multimodal input or when independently verified reasoning benchmarks are required.
+- **Overall Score: 68/100.** CHANGED from 69 — mean of (85+76+85+15+80)/5 = 341/5 = 68.2 → 68, docked with Coding as the independent Vals row corrected the lab-only evidence base. Best fit: high-volume agentic coding, search, and office automation where cost per token dominates; wrong pick for multimodal input or when independently verified coding benchmarks are required.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (zai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research (official MiniMax announcement, llm-stats, llmlearner/benchmarklist; two data conflicts — output pricing tier and context window — identified and resolved toward official/provider-row values); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM's MiniMax M2.5 page surfaced for the first time (fetched 2026-11-07 — a single Vals row: Vibe Code Bench 14.85%, floor-class vs the vendor SWE-V 80.2%) — Coding 84→80, Overall 69→68; BenchLM also lists 128K context, sharpening the 1M-vs-128K conflict (the official provider-row 1M spec stays primary per the vendor-spec-wins precedent, conflict documented) — scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

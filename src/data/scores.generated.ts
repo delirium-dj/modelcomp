@@ -6907,7 +6907,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Flint.md": [35, 45, 50, 15, 35, 90, 36],
     "GLM_4.5_Flash.md": [50, 50, 50, 50, 50, 50, 50],
     "GLM_5.3.md": [78, 72, 95, 65, 85, 95, 79],
-    "GLM_5.3_Flash.md": [85, 76, 85, 15, 84, 95, 69],
+    "GLM_5.3_Flash.md": [85, 76, 85, 15, 80, 95, 68],
     "GPT_5.6_Luna.md": [84, 78, 83, 15, 86, 91, 69],
     "GPT_5.6_Sol.md": [82, 80, 70, 15, 86, 94, 67],
     "GPT_5.6_Terra.md": [76, 71, 72, 15, 82, 97, 63],
@@ -6932,7 +6932,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_Flash.md": [77, 69, 60, 15, 83, 97, 60.8],
     "Qwen_3.8_Max.md": [75, 72, 76, 50, 77, 85, 70],
     "Step_5_Preview.md": [45, 45, 78, 50, 40, 60, 52],
-    "average.md": [79.7, 75, 77, 23.5, 82.8, 93, 67.7],
+    "average.md": [79.7, 75, 77, 23.5, 82.4, 93, 67.6],
   },
   "minimax-m2.7": {
     "Beam.md": [66, 68, 62, 40, 66, 90, 60.4],

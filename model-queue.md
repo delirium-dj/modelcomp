@@ -157,10 +157,10 @@
 69.2 pixel_canary
 68.4 ring-2.6.1t
 67.7 mai-thinking-1
-67.7 minimax-m2.5
 67.7 minimax-m2.7
 67.7 omen-alpha
 67.7 qwen-3.5-4b
+67.6 minimax-m2.5
 67.5 laguna-s-2.1
 67.3 gpt-5-nano
 66.9 gpt-5.1-codex-mini

@@ -1,7 +1,7 @@
 # Xing 4.0 29B-A4B — findings by Gemini 3.8 Flash
 
 - Source: China Telecom (TeleAI) / XingChen-AGI (`xing_4.0_29b_a4b`)
-- Date: 2026-10-17 (UTC)
+- Date: 2026-11-06 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -64,6 +64,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-10-17
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** — 2026-11-06
 - Method: Public model card releases, independent benchmark tracking, and community evaluation repositories; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
