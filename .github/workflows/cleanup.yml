@@ -11,38 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: 24
 
-      - name: Run Native Vercel Deletion
-        run: |
-          echo "Fetching recent deployment records..."
-          # Fetch the last 20 deployments as JSON data
-          DEPLOYMENTS=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --list --json)
-          
-          # Calculate the timestamp threshold for 3 days ago in milliseconds
-          THREE_DAYS_AGO=$(node -e "echo Date.now() - (3 * 24 * 60 * 60 * 1000)")
-          
-          # Loop through deployments, filtering by date and protecting production environments
-          echo "$DEPLOYMENTS" | node -e '
-            const readline = require("readline");
-            const rl = readline.createInterface({ input: process.stdin });
-            let data = "";
-            rl.on("line", (line) => data += line);
-            rl.on("close", () => {
-              try {
-                const list = JSON.parse(data);
-                list.forEach(d => {
-                  if (d.target !== "production" && d.createdAt < '$THREE_DAYS_AGO') {
-                    console.log(`::NOTICE::Targeting old deployment for removal: ${d.uid} (${d.url})`);
-                    // Use native vercel remove to delete it safely without prompts
-                    require("child_process").execSync(`vercel remove ${d.uid} --token=${process.env.VERCEL_TOKEN} --yes`);
-                  }
-                });
-              } catch(e) {
-                console.error("No valid deployment records parsed.");
-              }
-            });
-          '
+      - name: Run Cleanup Script
+        run: node cleanup.js
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
