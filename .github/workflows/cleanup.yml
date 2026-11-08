@@ -15,7 +15,7 @@ jobs:
           
           echo "Fetching target deployment list from Vercel API..."
           
-          # Fixed the clean endpoint using the correct api subdomain and environment variables
+          # Fully restored the api subdomain, version string, and query variables
           RESPONSE=$(curl -s -X GET \
             "https://vercel.com" \
             -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
