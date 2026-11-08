@@ -23,7 +23,7 @@
 
 Agent / tool use:
 
-- GDPval-AA: **normalized 3.2%** (AA, independent; 2026-10-17 refresh reads 3.1% — minor drift, flagged — fills the gap; floor-class)
+- GDPval-AA: **normalized 3.2%** (AA, independent; 2026-10-17 refresh reads 3.1%, Nov 7 re-read **3.0%** — continued minor drift, flagged — fills the gap; floor-class); the AA Agentic Index 16 row no longer displays (Nov 7 — stands as recorded)
 - Artificial Analysis Agentic Index: **16** (InclusionAI HF card citing AA, prior pass)
 - Terminal-Bench 2.1: charted on the HF card — still no verified extractable numeric score
 
@@ -32,7 +32,7 @@ Reasoning / knowledge:
 - AA-GPQA Diamond: **73.4%** (AA, independent — fills the GPQA gap; decent for the 1.3B-active class)
 - AA-HLE: **9.3%** (AA — fills the HLE gap; floor); Artificial Analysis Intelligence Index: **11.1** (AA — corroborates the prior 11)
 - AA-LCR v1.1: **60.3%** (AA — fills the long-context gap; moderate, above expectations for the class); CritPt: **0.0%** (AA — floor)
-- AA-Omniscience: **8.5% accuracy / 30.5% non-hallucination row / −19.3 index** (AA — very weak)
+- AA-Omniscience: **8.5% accuracy / 30.5% non-hallucination row / −19.3 index** (AA — very weak); Nov 7 re-read accuracy **37.9%** / hallucination **86.7%** / index **−15.9** — accuracy improved substantially on re-measurement and the middle row is now labeled "Hallucination Rate" (labeling-drift pattern); both cited
 
 Coding:
 
@@ -60,6 +60,6 @@ Speed: 56.6 output tokens/s (AA — below the open-weight median of 84.4); TTFT 
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Ling 3.0 Tiny page with AA board citations, the prior 2026-10-09 pass on the HF model card + AA model page; 2026-10-16 re-check: BenchLM 10-row refresh corroborates every row, still unranked, no new data (GDPval 3.2% → 3.1%) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Ling 3.0 Tiny page fetched 2026-11-07 (Nov 7 data, 9 rows, unranked) — all prior rows re-confirmed; the AA Agentic Index row dropped from display, GDPval 3.2→3.0% continued drift, Omniscience re-measured (accuracy 37.9%, labeling drift flagged) — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

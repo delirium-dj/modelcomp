@@ -15,7 +15,9 @@
 - **Context window:** 1M tokens total (Artificial Analysis: 1,048,576), input and output. Google has not published an exact limit in the October 28 announcement.
 
 
-### Raw benchmarks found
+- **Modalities:** Text, image, speech and video input; text output. Reasoning: extended thinking with high/medium/low effort levels (a non-reasoning variant may also exist). Reasoning-capable model.
+- **Pricing (as of 2026-11-08):** Introductory $2 per 1M input / $10 per 1M output (cached input $0.10, 95% off) — the announced introductory price, stated to apply until an unstated end date; after the intro period, $4 per 1M input / $20 per 1M output. Blended (7:2:1 cache ratio) ≈ $2.94 per 1M; ≈ $7.76 per Intelligence Index task (Artificial Analysis). No free tier. Prices checked 2026-11-03 via Google Gemini API pricing page.
+- **Architecture:** Proprietary, closed weights; Google has not disclosed parameter count or architecture. Secondary coverage describes it as built on Gemini 4 Argon (a sparse mixture-of-experts), with a knowledge cutoff not disclosed.
 
 > Agent / tool use:
 > - Artificial Analysis Intelligence Index v5.0.1 (composites: AA-Briefcase v1.1, AutomationBench-AA, Terminal-Bench 4.0, FrontierCode 2.0, AA-Omniscience v1.1, GDP.pdf, HLE-Diamond, CritPt v2 (Hard Subset), Terminal-Bench-Science 0.1): 59.4 points at high effort (#7/325, 98th percentile; #1 at release).
@@ -38,6 +40,13 @@
 > - Terminal-Bench-Science 0.1: 64.8% resolution rate (#2/12, 91st percentile).
 > - SciCode: 64.2% (#2/312, 100th percentile).
 
+> - FrontierCode 2.0: new_score=0.4 (#4/26, 88th percentile).
+> - SWE-sweep: 9.6% (#1/12, 100th percentile).
+> - No verified public GPQA Diamond, LiveCodeBench, or SWE-bench Verified rows found for this exact gated model.
+
+> Long context:
+> - AA-LCR 79.3% (86th percentile); RiemannBench 80.0% (#1/9); Chartography 72.5% (71st percentile, #14/46).
+
 
 ### Normalized scores (1–100)
 
@@ -47,6 +56,9 @@
 - **Multimodal: 80/100.** Text, image, speech and video in with text out — image/video/speech input but no non-text output; Chartography 72.5% (#14/46).
 
 
+- **Coding: 74/100.** SciCode 64.2% (#2/312) and SWE-sweep 9.6% (#1/12) plus Terminal-Bench 4.0 65.2% (#4/41) show solid coding for an agentic/cyber model; no verified public SWE-bench Verified or LiveCodeBench row for this gated model.
+- **Cost efficiency: 72/100.** Standard $4/$20 per 1M is a premium tier (only the temporary intro $2/$10 plus a 95%-off cached-input rate make it cheaper); no free tier; not a cost leader.
+- **Overall Score: 85/100.** (86 + 92 + 95 + 80 + 74) / 5 = 85.4 → 85. Best fit: a frontier-level cybersecurity and long-horizon agentic coding model that is not yet generally available.
 ## Signature
 
 - Provided by: **Solar Mini 4 (solar-mini4)** — 2026-11-08
@@ -60,16 +72,4 @@
   - [llmleaderboard.com — Gemini 4 Carbon](https://llmleaderboard.com/models/gemini-4-carbon)
   - [The Model Gap — Gemini 4 Carbon benchmarks & pricing](https://themodelgap.com/models/gemini-4-carbon)
 
-- **Coding: 74/100.** SciCode 64.2% (#2/312) and SWE-sweep 9.6% (#1/12) plus Terminal-Bench 4.0 65.2% (#4/41) show solid coding for an agentic/cyber model; no verified public SWE-bench Verified or LiveCodeBench row for this gated model.
-- **Cost efficiency: 72/100.** Standard $4/$20 per 1M is a premium tier (only the temporary intro $2/$10 plus a 95%-off cached-input rate make it cheaper); no free tier; not a cost leader.
-- **Overall Score: 85/100.** (86 + 92 + 95 + 80 + 74) / 5 = 85.4 → 85. Best fit: a frontier-level cybersecurity and long-horizon agentic coding model that is not yet generally available.
 
-> - FrontierCode 2.0: new_score=0.4 (#4/26, 88th percentile).
-> - SWE-sweep: 9.6% (#1/12, 100th percentile).
-> - No verified public GPQA Diamond, LiveCodeBench, or SWE-bench Verified rows found for this exact gated model.
-
-> Long context:
-> - AA-LCR 79.3% (86th percentile); RiemannBench 80.0% (#1/9); Chartography 72.5% (71st percentile, #14/46).
-- **Modalities:** Text, image, speech and video input; text output. Reasoning: extended thinking with high/medium/low effort levels (a non-reasoning variant may also exist). Reasoning-capable model.
-- **Pricing (as of 2026-11-08):** Introductory $2 per 1M input / $10 per 1M output (cached input $0.10, 95% off) — the announced introductory price, stated to apply until an unstated end date; after the intro period, $4 per 1M input / $20 per 1M output. Blended (7:2:1 cache ratio) ≈ $2.94 per 1M; ≈ $7.76 per Intelligence Index task (Artificial Analysis). No free tier. Prices checked 2026-11-03 via Google's Gemini API pricing page.
-- **Architecture:** Proprietary, closed weights; Google has not disclosed parameter count or architecture. Secondary coverage describes it as built on Gemini 4 Argon (a sparse mixture-of-experts), with a knowledge cutoff not disclosed.

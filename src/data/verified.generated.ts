@@ -42,7 +42,7 @@ export const VERIFIED: Record<string, string> = {
   "gemini-2.5-flash": "2026-11-06",
   "gemini-2.5-flash-lite": "2026-11-06",
   "gemini-2.5-pro": "2026-11-06",
-  "gemini-3-flash": "2026-11-06",
+  "gemini-3-flash": "2026-11-08",
   "gemini-3-pro": "2026-11-14",
   "gemini-3.1-flash-lite": "2026-11-06",
   "gemini-3.1-pro": "2026-11-08",

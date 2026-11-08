@@ -30,7 +30,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **43.4%** (Gemma 4 HF blog via benchlm.ai — fills the gap; very low) — **conflicts with the vendor-measured 82.6% MMLU-Pro "thinking enabled" reading the prior pass scored on** (a different benchmark and configuration); AA independent: **43.3%** (corroborates)
 - MMLU-Pro: **60%** (HF blog) — **conflicts with the 82.6% thinking-enabled vendor figure**; the non-thinking reading is the one to score on
 - HLE: **4.8%** (AA — fills the gap; floor); Artificial Analysis Intelligence Index: **7.8** (AA — fills the index gap; floor)
-- MRCR v2: **19.1%** (HF card — fills the long-context gap; very weak); AA-LCR v1.1: **16.3%** (AA — very weak); CritPt: **0.0%** (AA — floor)
+- MRCR v2: **19.1%** (HF card — fills the long-context gap; very weak); AA-LCR v1.1: **16.3%** (AA — very weak); CritPt: **0.0%** (AA — floor); **ExtractBench: 51.85%** (NEW, BenchLM Nov 7 LlamaIndex snapshot)
 - AA-Omniscience: **6.6% accuracy / 32.4% non-hallucination row / −23.6 index** (AA — very weak)
 - AA-IFBench: **38.0%** (AA)
 - BenchLM overall: **30.21, #176 of 889**
@@ -63,6 +63,6 @@ Multimodal:
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-10-16
-- Method: public internet research, second pass 2026-10-11 (≥3 independent sources: the freshly fetched benchlm.ai Gemma 4 E2B page citing the HF model card + Gemma 4 blog + AA boards, the prior 2026-10-05 pass on LLMLearner/apxml/anotherwrapper; 2026-10-16 re-check: BenchLM 19-row refresh reproduces all rows identically — no new evidence, scores unchanged); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-08 (re-research pass; prior 2026-10-16)
+- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM Gemma 4 E2B page fetched 2026-11-07 (Nov 7 data, 16 rows) — all prior rows re-confirmed with zero value changes; ExtractBench 51.85% added — no score changes; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

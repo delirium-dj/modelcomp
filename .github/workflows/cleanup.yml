@@ -1,59 +1,23 @@
-name: Daily Vercel Cleanup
+name: Delete Vercel deployments older than 3 days
+
 on:
   schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch: 
+    - cron: '0 0 * * *'   # every day at 00:00 UTC
+  workflow_dispatch:      # allow manual runs from the Actions tab
+
+permissions: {}           # no GITHUB_TOKEN permissions needed
 
 jobs:
   cleanup:
     runs-on: ubuntu-24.04
     steps:
-      - name: Fetch and Filter Deployments
-        run: |
-          # Calculate the target Unix timestamp for 3 days ago in milliseconds
-          THREE_DAYS_AGO=$(date -d "3 days ago" +%s%3N)
-          
-          echo "Fetching target deployment list from Vercel API..."
-          
-          # Fully restored the api subdomain, version string, and query variables
-          RESPONSE=$(curl -s -X GET \
-            "https://vercel.com" \
-            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
-            -H "Content-Type: application/json")
-            
-          # Verify we received a valid deployments array layout from the API
-          if ! echo "$RESPONSE" | jq -e '.deployments' > /dev/null; then
-            echo "Error: Failed to fetch deployments. Check token or account scope. Server returned:"
-            echo "$RESPONSE" | head -n 5
-            exit 1
-          fi
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-          # Filter deployments older than 3 days that are NOT production targets
-          echo "Filtering deployment history..."
-          DEPLOYMENTS_TO_DELETE=$(echo "$RESPONSE" | jq -c ".deployments[] | select(.target != \"production\" and .createdAt < ${THREE_DAYS_AGO})")
-
-          if [ -z "$DEPLOYMENTS_TO_DELETE" ]; then
-            echo "Success: No old non-production deployments found matching the criteria."
-            exit 0
-          fi
-
-          # Loop through and dispatch deletion requests
-          echo "$DEPLOYMENTS_TO_DELETE" | while read -r deployment; do
-            UID=$(echo "$deployment" | jq -r '.uid')
-            URL=$(echo "$deployment" | jq -r '.url')
-            
-            echo "Deleting deployment: ${URL} (${UID})"
-            
-            DELETE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
-              "https://vercel.com{UID}?teamId=$TEAM_ID" \
-              -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}")
-              
-            if [ "$DELETE_STATUS" = "200" ]; then
-              echo "Successfully removed ${UID}"
-            else
-              echo "Failed to remove ${UID}. API responded with status code: ${DELETE_STATUS}"
-            fi
-          done
+      - name: Run deployment cleanup
+        run: node cleanup.js
         env:
-          PRJ_ID: "prj_0prkidewxqbh5khccp8ai17b3omh"
-          TEAM_ID: "delirium-djs-projects"
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          PROJECT_ID: 'prj_0prkidewxqbh5khccp8ai17b3omh'
+          TEAM_ID: 'delirium-djs-projects'
+          DAYS_TO_KEEP: '3'
