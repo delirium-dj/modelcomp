@@ -11,13 +11,13 @@ import https from 'https';
  *   VERCEL_TOKEN   Vercel personal/team API token (no default)
  *
  * Optional env (defaults shown):
- *   PROJECT_ID     prj_0prkidewxqbh5khccp8ai17b3omh
+ *   PROJECT_ID     prj_0prkiDEwxQBH5KhCcP8ai17b3OmH
  *   TEAM_ID        delirium-djs-projects
  *   DAYS_TO_KEEP   3
  */
 
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-const PROJECT_ID = process.env.PROJECT_ID || 'prj_0prkidewxqbh5khccp8ai17b3omh';
+const PROJECT_ID = process.env.PROJECT_ID || 'prj_0prkiDEwxQBH5KhCcP8ai17b3OmH';
 const TEAM_ID = process.env.TEAM_ID || 'delirium-djs-projects';
 const DAYS_TO_KEEP = Number(process.env.DAYS_TO_KEEP || 3);
 const CUTOFF = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
