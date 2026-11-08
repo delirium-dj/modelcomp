@@ -1,60 +1,59 @@
-Run # Calculate the target Unix timestamp for 3 days ago in milliseconds
-  # Calculate the target Unix timestamp for 3 days ago in milliseconds
-  THREE_DAYS_AGO=$(date -d "3 days ago" +%s%3N)
-  
-  echo "Fetching target deployment list from Vercel API..."
-  
-  # Fully restored the api subdomain, version string, and query variables
-  RESPONSE=$(curl -s -X GET \
-    "https://vercel.com" \
-    -H "Authorization: ***" \
-    -H "Content-Type: application/json")
-    
-  # Verify we received a valid deployments array layout from the API
-  if ! echo "$RESPONSE" | jq -e '.deployments' > /dev/null; then
-    echo "Error: Failed to fetch deployments. Check token or account scope. Server returned:"
-    echo "$RESPONSE" | head -n 5
-    exit 1
-  fi
-  
-  # Filter deployments older than 3 days that are NOT production targets
-  echo "Filtering deployment history..."
-  DEPLOYMENTS_TO_DELETE=$(echo "$RESPONSE" | jq -c ".deployments[] | select(.target != \"production\" and .createdAt < ${THREE_DAYS_AGO})")
-  
-  if [ -z "$DEPLOYMENTS_TO_DELETE" ]; then
-    echo "Success: No old non-production deployments found matching the criteria."
-    exit 0
-  fi
-  
-  # Loop through and dispatch deletion requests
-  echo "$DEPLOYMENTS_TO_DELETE" | while read -r deployment; do
-    UID=$(echo "$deployment" | jq -r '.uid')
-    URL=$(echo "$deployment" | jq -r '.url')
-    
-    echo "Deleting deployment: ${URL} (${UID})"
-    
-    DELETE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
-      "https://vercel.com{UID}?teamId=$TEAM_ID" \
-      -H "Authorization: ***")
-      
-    if [ "$DELETE_STATUS" = "200" ]; then
-      echo "Successfully removed ${UID}"
-    else
-      echo "Failed to remove ${UID}. API responded with status code: ${DELETE_STATUS}"
-    fi
-  done
-  shell: /usr/bin/bash -e {0}
-  env:
-    PRJ_ID: prj_0prkidewxqbh5khccp8ai17b3omh
-    TEAM_ID: delirium-djs-projects
-Fetching target deployment list from Vercel API...
-jq: parse error: Invalid numeric literal at line 1, column 10
-/home/runner/work/_temp/224c816b-4d9f-47fe-b0a2-a08b19cd8432.sh: line 13: echo: write error: Broken pipe
-Error: Failed to fetch deployments. Check token or account scope. Server returned:
-/home/runner/work/_temp/224c816b-4d9f-47fe-b0a2-a08b19cd8432.sh: line 15: echo: write error: Broken pipe
-<!DOCTYPE html><html data-dpl-id="dpl_8RjhVZeSixz1ic1WeZnqDPbvrrXd" class="VEU71W_className gb9FOq_className VEU71W_variable gb9FOq_variable" lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/07a39a8a4660cc7c.p.1v5bejj26fx9h.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/GeistPixel_Circle.p.33ptqjycga8_k.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/GeistPixel_Grid.p.2u9udzfirdsy9.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/GeistPixel_Line.p.2mkbez_3692ug.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/GeistPixel_Square.p.3i-voztpvqxl2.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/GeistPixel_Triangle.p.2yt1keahkoo6c.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/vc-ap-vercel-marketing/_next/static/immutable/media/Geist_Variable-s.p.2wz-lhd5-5z0-.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/vercel-light.3_gxxexgi1nmy.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/vercel-dark.1f3cgy23m5_jy.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-claude-color-light.44opgk1h22zu1.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-claude-color-dark.44opgk1h22zu1.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-open-ai-color-light.19_d6xia9t_gb.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-open-ai-color-dark.2s69z6l-k1q-7.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-cursor-color-light.404d-vkjpq-4k.svg"/><link rel="preload" as="image" href="/vc-ap-vercel-marketing/_next/static/immutable/media/logo-cursor-color-dark.3a_-818hc-m_2.svg"/><link rel="preload" as="image" imageSrcSet="/vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffallback-dark-glow-mobile.3b4fyu5pe7opg.webp&amp;w=1920&amp;q=95 1x, /vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffallback-dark-glow-mobile.3b4fyu5pe7opg.webp&amp;w=3840&amp;q=95 2x"/><link rel="preload" as="image" imageSrcSet="/vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffallback-dark-glow-desktop.25ylksegigbc-.webp&amp;w=1920&amp;q=95 1x, /vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Ffallback-dark-glow-desktop.25ylksegigbc-.webp&amp;w=3840&amp;q=95 2x"/><link rel="stylesheet" href="/vc-ap-vercel-marketing/_next/static/immutable/chunks/28iv2gg6gxf5b.css" data-precedence="next"/><link rel="stylesheet" href="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1algy9qpxkzwe.css" data-precedence="next"/><link rel="stylesheet" href="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3u82rwmj_1n8p.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0lpajjpnb2k5c.js"/><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3ax878yiio--h.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0a756y5g9dct9.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1xfgo2cm5jixl.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/05e7qw-29b39f.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/168r-mgbee569.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/turbopack-2d6yzswnspsc7.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2r9bnqhyyag7a.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/13f-5-q198_yl.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0relcc5yf6cci.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1ucx8cw75c95c.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/30yhpz_qaohgu.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0mv05eihh7v7e.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1-u5tnuqrq_q3.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/36o_cd5bx1xcy.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/44q-d0940misl.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1e5mcz24xdh9p.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/350_1t37f95yc.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0qam3lr7-yy4y.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3kwv9r7bluv66.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1sperssjyrch1.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3eefvk2-xrh7y.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2y3m8skjgnzqj.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2xolsd5t2xork.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0fx_y6v--6e6x.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0h-3azbyow04j.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3u56mkl37wgrq.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1pv4_0hropadu.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2s6jx6g4y12fj.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3nslgcp5qsc7q.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/33ug6m9swqp1e.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1jt_iflnzm-ks.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1yxix_kua44r7.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/0oipv0nsqdwto.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2wg3454kjgruk.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3f3mulcy8mh3f.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3bqd1izul2zu8.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/3bc3t7thaga40.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/2i8qgj8xdl-mw.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/1bay1iql6klqe.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/33acxc-x3mymx.js" async=""></script><script src="/vc-ap-vercel-marketing/_next/static/immutable/chunks/06wy3b4c-0_a9.js" async=""></script><meta name="next-size-adjust" content=""/><meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)"/><meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)"/><meta name="color-scheme" content="dark light"/><title>Agentic Infrastructure - Vercel</title><meta name="description" content="The autonomous stack for every app and agent."/><link rel="manifest" href="/manifest.webmanifest"/><meta name="robots" content="index, max-image-preview:large"/><meta name="trace-attributes" content="{&quot;next.appdir&quot;:true}"/><link rel="canonical" href="https://vercel.com"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Vercel"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta property="og:title" content="Agentic Infrastructure - Vercel"/><meta property="og:description" content="The autonomous stack for every app and agent."/><meta property="og:url" content="https://vercel.com"/><meta property="og:site_name" content="Vercel"/><meta property="og:locale" content="en_US"/><meta property="og:image" content="https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Agentic Infrastructure - Vercel"/><meta name="twitter:description" content="The autonomous stack for every app and agent."/><meta name="twitter:image" content="https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-x.png"/><link rel="icon shortcut" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/favicon.ico" type="image/x-icon"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-57x57.png" sizes="57x57"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-60x60.png" sizes="60x60"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-72x72.png" sizes="72x72"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-76x76.png" sizes="76x76"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-114x114.png" sizes="114x114"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-120x120.png" sizes="120x120"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-144x144.png" sizes="144x144"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-152x152.png" sizes="152x152"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-180x180.png" sizes="180x180"/><link rel="apple-touch-icon" href="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/apple-touch-icon-256x256.png" sizes="256x256"/><script id="theme-script">((a,b,c,d,e,f,g,h,i)=>{let j=document.documentElement,k=["light","dark"],l=a=>f?.[a]||a,m=Array.from(new Set([...e.map(a=>l(a)),...Object.values(f??{})]));function n(b){var c;let d=Array.isArray(a)?a:[a],e=l(b);d.forEach(a=>{"class"===a?(j.classList.remove(...m),j.classList.add(e)):j.setAttribute(a,e)}),c=b,h&&k.includes(c)&&(j.style.colorScheme=c)}if(d)n(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)"):null,e=d?d.matches?"dark":"light":a;if(n(e),d){var o;let a=(o=a=>{try{let d=localStorage.getItem(b)||c;"system"===d&&n(a.matches?"dark":"light")}catch(a){}},d.addEventListener?(d.addEventListener("change",o),()=>d.removeEventListener("change",o)):(d.addListener(o),()=>d.removeListener(o)));window.addEventListener(i,a,{once:!0})}}catch(a){}})("class","zeit-theme","system",null,["light","dark"],{"light":"light-theme","dark":"dark-theme"},true,true,"next-themes:zeit-theme:[\"class\"]:provider-mounted")</script><style>
-html[data-user-display="logged-in"]  [data-user-display="logged-out"],
-html[data-user-display="logged-out"] [data-user-display="logged-in"] {
-  display: none !important;
-}
-Error: Process completed with exit code 1.
+name: Daily Vercel Cleanup
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fetch and Filter Deployments
+        run: |
+          # Calculate the target Unix timestamp for 3 days ago in milliseconds
+          THREE_DAYS_AGO=$(date -d "3 days ago" +%s%3N)
+          
+          echo "Fetching target deployment list from Vercel API..."
+          
+          # Fully restored the api subdomain, version string, and query variables
+          RESPONSE=$(curl -s -X GET \
+            "https://vercel.com" \
+            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            -H "Content-Type: application/json")
+            
+          # Verify we received a valid deployments array layout from the API
+          if ! echo "$RESPONSE" | jq -e '.deployments' > /dev/null; then
+            echo "Error: Failed to fetch deployments. Check token or account scope. Server returned:"
+            echo "$RESPONSE" | head -n 5
+            exit 1
+          fi
+
+          # Filter deployments older than 3 days that are NOT production targets
+          echo "Filtering deployment history..."
+          DEPLOYMENTS_TO_DELETE=$(echo "$RESPONSE" | jq -c ".deployments[] | select(.target != \"production\" and .createdAt < ${THREE_DAYS_AGO})")
+
+          if [ -z "$DEPLOYMENTS_TO_DELETE" ]; then
+            echo "Success: No old non-production deployments found matching the criteria."
+            exit 0
+          fi
+
+          # Loop through and dispatch deletion requests
+          echo "$DEPLOYMENTS_TO_DELETE" | while read -r deployment; do
+            UID=$(echo "$deployment" | jq -r '.uid')
+            URL=$(echo "$deployment" | jq -r '.url')
+            
+            echo "Deleting deployment: ${URL} (${UID})"
+            
+            DELETE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
+              "https://vercel.com{UID}?teamId=$TEAM_ID" \
+              -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}")
+              
+            if [ "$DELETE_STATUS" = "200" ]; then
+              echo "Successfully removed ${UID}"
+            else
+              echo "Failed to remove ${UID}. API responded with status code: ${DELETE_STATUS}"
+            fi
+          done
+        env:
+          PRJ_ID: "prj_0prkidewxqbh5khccp8ai17b3omh"
+          TEAM_ID: "delirium-djs-projects"
