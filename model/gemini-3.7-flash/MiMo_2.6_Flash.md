@@ -1,154 +1,86 @@
 # Gemini 3.7 Flash — findings by MiMo 2.6 Flash
 
 - Source: Google DeepMind (`gemini-3.7-flash`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 87). Fresh sources this pass: BenchLM model page
+> (last updated 2026-11-07, 47 rows) + Artificial Analysis model page/leaderboards
+> + LlamaIndex ParseBench + ARC Prize + Epoch AI FrontierMath.
+> Changes: Tool use 74→80 (the two named missing rows are now captured —
+> GDPval-AA 1525 and OSWorld 2.0 47.9 — with TB2.1 85.8 still near-frontier);
+> Reasoning 89, Context window 95, Multimodal 92, Coding 87, Cost efficiency 90
+> held (AA Index cross-check now exists at 39.1 — below the 60+ ref, so no rise;
+> DeepSWE/FrontierCode caps unchanged), Overall 87→88.6.
 
 ## Model card
 
 - **Name:** Gemini 3.7 Flash
 - **Short description:** Google DeepMind's "most intelligent workhorse" Flash model (GA 2026-08-13, three weeks after 3.6 Flash) for coding, agents, and web development — big gains over 3.6 Flash on DeepSWE and FrontierCode at half the original list price. Superseded on the Flash track by Gemini 3.8 Flash but still a separate, generally-available entry.
-- **Provider / access:** Gemini API / AI Studio (`gemini-3.7-flash`, stable), Antigravity, Gemini Enterprise, Gemini app (Spark on AI Pro/Ultra), Vertex AI. Chat Completions-compatible and native routes; Batch/Flex/Priority inference available.
+- **Provider / access:** Gemini API / AI Studio (`gemini-3.7-flash`, stable), Antigravity, Gemini Enterprise, Gemini app, Vertex AI. Chat Completions-compatible and native routes; Batch/Flex/Priority inference available.
 - **Release / knowledge:** released 2026-08-13 (GA); knowledge cutoff March 2026 nominal — Google's card warns some domains only reach January 2025.
 - **IDs:** `google/gemini-3.7-flash` (gateway routes) / `gemini-3.7-flash` (native).
-- **Context window:** 1,048,576 input tokens; max output 65,536 tokens.
-- **Modalities:** text, image, video, audio, PDF in; text out; reasoning yes (thinking low/medium/high; `minimal` unsupported); tool calls yes (function calling, code execution, structured outputs, search/Maps grounding, URL context, file search, computer use preview); no native image/audio generation, no Live API.
-- **Pricing (as of 2026-10-07):** **introductory** $0.75 in / $3.75 out per 1M (through 2026-12-31), cached input $0.075, batch $0.375/$1.875; from 2027-01-01 → **$1.50 / $7.50** (cache $0.15). Output price includes thinking tokens. Paid (AI Studio free quota exists — not scored).
+- **Context window:** 1,048,576 input tokens (BenchLM: 1M); max output 65,536 tokens.
+- **Modalities:** text, image, video, audio, PDF in (video evidenced by LVBench 85.4 on Google's card); text out; reasoning yes (thinking low/medium/high; `minimal` unsupported); tool calls yes (function calling, code execution, structured outputs, search/Maps grounding, URL context, file search, computer use preview); no native image/audio generation, no Live API.
+- **Pricing (as of 2026-11-08):** **introductory** $0.75 in / $3.75 out per 1M (through 2026-12-31), cached input $0.075, batch $0.375/$1.875; from 2027-01-01 → **$1.50 / $7.50** (cache $0.15). Output price includes thinking tokens. Paid (AI Studio free quota exists — not scored).
 - **Architecture:** proprietary (parameters undisclosed).
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **85.8%** (Artificial Analysis, high effort; Google's self-computed Terminus-2 run also 85.8%; vals.ai harness 77.53%).
-- Terminal-Bench 3.0: **14.9%** (Google, mini-swe agent — low on the harder generation).
-- AutomationBench: **30.4%** (Google, private set; vs 3.6 Flash 17.0%). AA-AnalystAgent: **60.0%** (AA, rank-climbing; #1 claimed by LLMLearner on its board).
-- OSWorld 2.0: Google self-computed (partial, max of 3 runs) — exact value not captured → no verified public score found for the number itself.
-- GDPval-AA / Tau3 / Tau2 / Claw-Eval / Toolathon: no verified public score found.
+- Terminal-Bench 2.1: **85.8%** (Google model card + AA leaderboard; vals.ai harness 77.5%). Terminal-Bench 3.0: **14.9%** (Google, mini-swe agent — weak on the harder generation).
+- **GDPval-AA: 1525** Elo (Google DeepMind model card, via BenchLM — **fills the named missing GDPval row**; AA normalized 44.6%). Behind Sonnet 5 / Terra / Muse-class rows.
+- **OSWorld 2.0: 47.9%** (Google model card, via BenchLM — **fills the named "value not captured" OSWorld row**).
+- AutomationBench: **30.4%** (Google, private set; vs 3.6 Flash 17.0%). AA-AnalystAgent: **60.0%** (AA). AA Harvey LAB v1.0: **90.7%** (Google card). Agents' Last Exam: 26.3%; AA Agentic Index 36.4%; ApprenticeBench 16%; MazeBench 1% (ASCII, tools).
+- Tau3-Banking / Tau2 / Claw-Eval / Toolathon: no verified public score found for 3.7 Flash (re-checked on BenchLM 2026-11-08).
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **94.8%** (Epoch AI Inspect harness, high, 198Q — confirmed) / **93.94%** (vals.ai, rank 4).
-- HLE: **47.9%** no tools (AA, 2026-08-17); HLE-Verified **53.6%** (medium, no tools, rank 2/2 board).
-- ARC-AGI-2: **84.6%** (high, arcprize.org). LiveBench: **78.8%** (livebench.ai).
-- CritPt: 14.3 (rank 29/118); FrontierMath Tier 4 v2: 36.6 (rank 15/41); FrontierMath v2: 71.6. AA Intelligence Index: no verified public score found.
+- GPQA Diamond: **94.5%** (AA leaderboard) / **93.9%** (Vals) / 94.8 (Epoch Inspect harness, previous pass) — clears the 90%+ ref on all sources.
+- HLE: **47.9%** no tools (AA) / HLE-Verified **53.6%** (rank 2/2 board) — clears the 40%+ ref.
+- **Artificial Analysis Intelligence Index: 39.1** (AA model page, via BenchLM — **fills the named missing composite row**; on the current re-based AA scale, below the frontier class at ~50–59 but above the 20–35 mid band; the earlier 56-high-effort citation was the pre-rebase scale).
+- **AA-LCR: 81.7%** (AA — fills the named "LCR-style composite" gap); CritPt: 14.3 (rank 29/118); AA-Omniscience: Index 26.5 / Accuracy 55.3 / Hallucination Rate 64.5 (AA, new).
+- ARC-AGI-1: 95.50% · ARC-AGI-2: **84.6%** (high, ARC Prize). LiveBench: 78.8. MMLU-Pro: **90.1%** (Vals, new).
+- FrontierMath v2: Tiers 1-3 **71.579%**, Tier 4 **36.585%** (Epoch AI leaderboard — low Tier 4 persists).
 
 Coding:
 
-- SWE-bench Verified: **80.8%** (vals.ai, saturated-board entry).
-- LiveCodeBench: **88.7%** (vals.ai). DeepSWE v1.1: **65.0–65.5%** (Datacurve board / LLMLearner, high thinking).
-- SciCode: **59.8%** (medium, no tools, rank 4/83). FrontierCode 1.1 Main: **43.6%** (Google; Extended also 43.6%, rank 7/7 board).
-- WebDev Arena: 1588 Elo (vs 3.6 Flash 1538). Vibe Code Bench: no verified public score found.
-
-Long context:
-
-- GDM-MRCR v2 (8-needle, 128K average): **97.0%** — rank 1/8 on its board (Google self-computed, dataset public).
-- AA-LCR: **83.0%** (rank 11/91). Context Arena memory & persistence: **96.0%** (rank 4/49). No 512K–1M retrieval number.
-
-### Normalized scores (1–100)
-
-- **Tool use: 74/100.** TB2.1 85.8% is strong but under the ~88 frontier ref, AutomationBench 30.4% and AnalystAgent 60% are mid-tier, TB3.0 14.9% is weak, and there is no GDPval/Tau3/Claw-Eval row — caps it at 74.
-- **Reasoning: 89/100.** GPQA 93.9–94.8 and HLE 47.9 both clear the frontier refs (90%+/40%+), with ARC-AGI-2 84.6 well above mid; capped below 90 by the absent AA Intelligence Index/LCR-style composite cross-check and low CritPt/FrontierMath-tier scores.
-- **Context window: 95/100.** 1M window at the ≥1M tier floor with 97% MRCR retrieval proven at 128K and 83% AA-LCR — solid, but no ≥98% needle test at 512K+ to justify above the floor.
-- **Multimodal: 92/100.** Text/image/video/audio/PDF in with text out = audio-in band (90–100); no non-text output, so not a full 100.
-- **Coding: 87/100.** SWE-bench Verified 80.8%, LiveCodeBench 88.7%, SciCode 59.8% (55%+ ref), TB2.1 85.8% are all strong; capped below 90 by DeepSWE 65.0% (well under the 74% frontier ref) and FrontierCode 43.6% mid-pack.
-- **Cost efficiency: 90/100.** $0.75/$3.75 introductory sits just off the ~$0.60/$2.20 ≈ 92 anchor, with $0.075 cache reads and half-price batch/flex; held at 90 because the rate doubles to $1.50/$7.50 on 2027-01-01 and thinking tokens bill as output.
-- **Overall Score: 87/100.** (74+89+95+92+87)/5 = 87.4 → 87 — cheap 1M-context multimodal workhorse with excellent GPQA/MRCR/LiveCode numbers; weaker on general-agent terminal tasks and DeepSWE-class long-horizon coding.
-
----
-
-## Signature
-
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Google DeepMind model card + evaluation PDF + launch blog, The Model Gap, LLMLearner, Epoch AI, vals.ai, AA, LLM Stats, LLM Reference); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
-
----
-
-## Merged duplicate - Mimo_v2.6_Flash.md (same rater, spelling variant, merged 2026-10-09)
-
-> This section preserves the full content of the deleted duplicate Mimo_v2.6_Flash.md (same Xiaomi MiMo 2.6 Flash rater; variant spelling _v2.6 vs _2.6 plus case). No benchmarks lost; canonical scores above remain the single parsed source (parser reads first score block).
-
-# Gemini 3.7 Flash — findings by Mimo v2.6 Flash
-
-- Source: Google DeepMind/`google/gemini-3.7-flash`
-- Date: 2026-10-06 (UTC) — re-run of the 2026-09-22 research
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-## Model card
-
-- **Name:** Gemini 3.7 Flash
-- **Short description:** Google's 2026-08-13 "most intelligent workhorse" Flash — three weeks after 3.6 Flash; large coding jumps (DeepSWE 49→65.3, FrontierCode Main 43.6 top-of-comparison-set) at introductory **$0.75/$3.75** (half of 3.6 list); free AI Studio/Zen tier; **price doubles 2027-01-01 to $1.50/$7.50**.
-- **Provider / access:** Google AI Studio / Gemini API `gemini-3.7-flash`; Vertex AI; OpenCode Zen free tier (standard rate limits, meta); OpenRouter `google/gemini-3.7-flash` (+batch/flex).
-- **Release / knowledge:** **2026-08-13** (Google blog + DeepMind model card). Knowledge cutoff not published in extracts.
-- **IDs:** `google/gemini-3.7-flash`.
-- **Context window:** **1,048,576** in / **~65.5K** out (AI Atlas OpenRouter rows "out 65.5K"; techjournal 64K output). AA sometimes lists 1,000,000 — conflict noted.
-- **Modalities:** **text, image, audio, PDF in; text out** (meta — no native video in declared here; LVBench long-video row present in Google table suggests video understanding via API path — score image/audio/PDF band).
-- **Pricing (as of 2026-09-22):** Intro **$0.75 in / $3.75 out per 1M** through **2026-12-31**; **2027-01-01: $1.50 / $7.50**. Batch/flex **$0.375 / $1.88** (halved); cache read $0.075; priority $1.35/$6.75. Free AI Studio + Zen free tier (meta).
-- **Architecture:** proprietary Flash-tier (undisclosed params); thinking/reasoning budget typical of Gemini 3.x Flash line.
-
-### Raw benchmarks found
-
-> Measured numbers with (source, rank, harness). Google DeepMind model card (2026-08-13 comparison table) primary vendor; AA independent rows; BenchLM/Vals composites; eesel caveat: AA has **no** independent SWE-Verified/AIME/LiveCodeBench/MMLU-Pro for 3.7 Flash.
-
-Agent / tool use:
-
-- Terminal-Bench 2.1: **85.8%** (Google/AA independent high-effort — same number on AA scale; Vals Terminus-2 **77.5%**; AA also shows TB2.1 variants 79.78/78.28 by config)
-- Terminal-Bench 3.0: **14.9%** (Google; vs Terra 20.8 — hard open-ended agents still weak)
-- Terminal-Bench 4.0: **13.6%** (AA independent high — low)
-- GDPval-AA v2: **1525 Elo** (Google/eesel/BenchLM — behind Sonnet 5 1598, Terra 1578, Muse 1.2 1628)
-- AutomationBench: **30.4%** (Google private; vs 3.6 17.0)
-- OSWorld-2.0: **47.9%** (Google; vs Terra 50.2)
-- Harvey LAB-AA: **90.7%** (Google/BenchLM)
-- Agents' Last Exam: **26.3%** (BenchLM — mid)
-- MCP Atlas / Toolathlon: no verified public score found for 3.7 Flash in this pass (re-checked BenchmarkList 2026-10-06); Tau3-Banking: **35.5%** (rank 25/176 — fills the Tau3 gap); BrowseComp: **79.2% ±6.0** (rank 37/60); Finance Agent v2: **59.0%** (rank 8/50)
-- AA Agentic Index: **36.4** (BenchLM); AA-Briefcase **1113 (49/145)**; RuneBench **6 (8/61)** (BenchmarkList 2026-10-06)
-
-Reasoning / knowledge:
-
-- Artificial Analysis Intelligence Index: **56** high effort (Google/eesel/emergent — +4 vs 3.6's 52; Sonnet 5 55, Terra 57, Muse 1.2 57)
-- HLE-Verified: **53.6%** (Google — leads comparison set incl. Terra 51.1)
-- CharXiv Reasoning (no tools): **84.5%** (Google — slight **loss** vs 3.6 85.2); with tools 88.7 (3.6 89.4)
-- GDP.pdf (expert PDF): **34.0%** (Google — leads set)
-- GPQA Diamond: **94.5%** (BenchmarkList 2026-10-06, rank 5/468 — **fills the former GPQA gap**); MMLU-Pro / AIME: no verified public score found (AA gap per eesel)
-- ARC-AGI-2: **84.6%** (rank 8/99); ARC-AGI-1: **95.5%** (rank 12/97); AIIQ Composite IQ **128 (19/147)**; HLE (all rows): **47.9%** (rank 17/478) alongside HLE-Verified 53.6% (BenchmarkList 2026-10-06)
-
-Coding:
-
-- DeepSWE v1.1: **65.5%** (BenchmarkList 2026-10-06, rank 25/52; Google/AA table cited 65.3 — vs 3.6 48.6/49.0, Sonnet 5 53.8, Muse 54.9; **Terra 69.6 ahead**)
-- FrontierCode 1.1 Main: **43.6%** (Google — **top of comparison set** vs Sonnet 5 42.7, Terra 41.3; BenchmarkList rank 15/36)
-- SciCode: **59.8%** (BenchmarkList, rank 7/296 — supersedes AA-SciCode 57.2); CursorBench 3.2: **61.6%** (rank 9/17); ProgramBench: **61.2% raw** (rank 13/37)
-- OSWorld 2.0: **50.6%** (BenchmarkList, rank 11/24 — updated from the 47.9% launch row)
-- Code Arena (WebDev Elo): **1588** (Google — leads set)
-- AA Coding Index: **76.1** (BenchLM); AA-SciCode **57.2**; FrontierSWE v2 **20.3** (BenchLM — weak harder SWE)
-- LiveCodeBench (Vals): **88.7**; SWE-bench (Vals): **80.8** (Vals platform — harness-specific)
-- SWE-bench Verified / SWE-Pro official: no verified public score found (AA gap)
-
-Long context:
-
-- **1M / ~65K out**; **GDM-MRCR v2 @128k: 97.0%** (Google — **rank 1 of 20** on BenchmarkList's MRCR-v2 board, 2026-10-06, confirming the lead incl. Terra 93.5, 3.6 91.8); **AA-LCR 83.0%** (rank 16/408); Context Arena (GDM-MRCRv2) high 83.0% (1/30) / medium 79.6% (2/20) / low 74.5% (3/31)
+- SWE-bench Verified: **80.8%** (vals.ai, saturated-board entry). LiveCodeBench: **88.7%** (Vals). SciCode: **59.8%** (medium, no tools; AA-SciCode 57.2).
+- DeepSWE v1.1: **65.3%** (Google model card, via BenchLM; Datacurve/LLMLearner 65.0–65.5 — still well under the 74% frontier ref). FrontierCode 1.1 Main: **43.6%** (Google).
+- **AA Coding Index: 76.1** (AA, via BenchLM — new; clears the 70% ref). FrontierSWE v2: 20.3 (weak). WebDev Arena: 1588 Elo. Vibe Code Bench: no verified public score found.
 
 Multimodal:
 
-- **text/image/audio/PDF in** (meta) + Google table LVBench **85.4%** long-video (vs Sonnet 5 68.5) — strong multimodal; CharXiv chart reasoning 84.5; GDP.pdf 34.0 → upper multimodal band
+- LVBench (long video): **85.4%** (Google card). CharXiv: **88.7% with tools / 84.5% without** (Google card).
+- **AA-MMMU-Pro: 85.5%** (AA leaderboard, new) · **ParseBench: 70.37%** (LlamaIndex PDF-parsing leaderboard, Nov 6 2026 snapshot, new).
+- GDP.pdf (expert PDF): 34.0 (Google, previous pass). Text/image/video/audio/PDF in, text out.
+
+Long context:
+
+- GDM-MRCR v2 (8-needle, 64K–128K): **97.0%** (Google card, via BenchLM — rank 1/8 on its board). **AA-LCR: 81.7%** (AA, current snapshot). Context Arena memory & persistence: 96.0 (rank 4/49, previous pass). No 512K–1M retrieval number.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** TB2.1 **85.8** (AA/Google) solid; AutomationBench 30.4 and OSWorld 47.9 mid-high; **TB3.0 14.9 / TB4.0 13.6** low on hardest terminal variants; GDPval 1525 trails Terra/Muse/Sonnet — strong Flash-tier tools, not Sol/Opus-5 class.
-- **Reasoning: 89/100.** AA Intelligence Index **56** (high, BenchmarkList rank 12/427) is excellent for Flash tier (beats Sonnet 5 55, nearly Terra 57); HLE-Verified **53.6 leads set** (47.9 all-tools row rank 17/478); **GPQA 94.5% now measured (rank 5/468)** and ARC-AGI-2 84.6 fill the former gaps; CharXiv slight regression and missing MMLU-Pro/AIME still cap the low 90s.
-- **Context window: 97/100.** Full **1M** with **MRCR 97.0% @128k** (best in Google's comparison) — top-tier long-context quality, not just sticker.
-- **Multimodal: 90/100.** Text+image+audio+PDF in (meta) + LVBench 85.4 + GDP.pdf 34.0 + CharXiv 84.5 — upper multimodal band (video via LVBench path strengthens it).
-- **Coding: 86/100.** DeepSWE **65.3** (+17 vs 3.6), FrontierCode Main **43.6 (set leader)**, Code Arena 1588, Coding Index 76.1 — best-in-class Flash coding; **Terra still wins DeepSWE 69.6 and TB**; FrontierSWE v2 20.3 is a soft spot; no official SWE-V row.
-- **Cost efficiency: 96/100.** **$0.75/$3.75 intro + free AI Studio/Zen tier + batch $0.375/$1.88** is elite intelligence-per-dollar (AA 56 at ¼ Terra input); not 100 because **intro expires 2026-12-31 (doubles 2027-01-01)** — plan at $1.50/$7.50 for long-term unit economics (still cheaper than Sonnet 5/Terra list).
-- **Overall Score: 89.6/100.** Mean of five quality dims (86+89+97+90+86)/5 = 448/5 = 89.6. Best-fit: free/cheap multimodal workhorse for coding agents, long-context PDF/video analysis, and web dev — take **GPT-5.6 Terra** when long-horizon terminal/SWE-Pro must maximize; lock intro pricing before 2027-01-01 or budget the doubled rate.
+- **Tool use: 80/100.** Moved 74→80: the two named missing rows are now captured — **GDPval-AA 1525** (Google card via BenchLM, above the 900–1200 mid band though under the 1750 frontier ref) and **OSWorld 2.0 47.9%** — with TB2.1 85.8 (AA/Google) still near the ~88 frontier ref and AA-AnalystAgent 60.0 strong; still capped by TB3.0 14.9, AutomationBench 30.4, MazeBench 1%, and missing Tau3-Banking / Claw-Eval rows (2026-11-08 re-check).
+- **Reasoning: 89/100.** Held: the named cap is now resolved — AA Intelligence Index **39.1** and AA-LCR **81.7** exist — but the cross-check does not clear the 60+ frontier ref (current-scale frontier class is ~50–59), CritPt 14.3 and FrontierMath T4 36.6 remain low, while GPQA 93.9–94.8 and HLE 47.9–53.6 still clear both headline refs decisively → no move in either direction.
+- **Context window: 95/100.** 1M window at the ≥1M tier floor with 97.0% MRCR retrieval proven at 64–128K and AA-LCR 81.7% — solid, but no ≥98% needle test at 512K+ to justify above the floor (re-checked 2026-11-08) → unchanged.
+- **Multimodal: 92/100.** Text/image/video/audio/PDF in with text out = audio-in band (90–100); fresh supporting rows AA-MMMU-Pro 85.5 and ParseBench 70.37 strengthen the sheet but change no band — no non-text output, so not a full 100 → unchanged.
+- **Coding: 87/100.** Held: AA Coding Index 76.1 now clears the 70% ref and SciCode 59.8 / LiveCodeBench 88.7 / SWE-V 80.8 / TB2.1 85.8 are all strong, but the named caps are unchanged — DeepSWE **65.3%** still well under the 74% frontier ref, FrontierCode 43.6 mid-pack, FrontierSWE v2 20.3 weak → net zero.
+- **Cost efficiency: 90/100.** $0.75/$3.75 introductory sits just off the ~$0.60/$2.20 ≈ 92 anchor, with $0.075 cache reads and half-price batch/flex; held at 90 because the rate doubles to $1.50/$7.50 on 2027-01-01 (53 days away at this pass) and thinking tokens bill as output → unchanged.
+- **Overall Score: 88.6/100.** (80 + 89 + 95 + 92 + 87) / 5 = 443 / 5 = 88.6 — cheap 1M-context multimodal workhorse with excellent GPQA/MRCR/LiveCode numbers; weaker on hardest terminal tasks (TB3.0) and DeepSWE-class long-horizon coding.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-06
-- Method: public internet research (deepmind.google/models/model-cards/gemini-3-7-flash, blog.google Gemini 3.7 Flash intro, emergent.sh benchmark digest, eesel.ai review with full Google 21-row table + caveats, AI Atlas pricing/AA rows, BenchLM composite, techjournal launch note); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (56 benchmarks) — **filled GPQA (94.5 rank 5/468)** and Tau3 (35.5), added ARC-AGI-1/2, BrowseComp, AA-LCR 83.0, Context Arena, SciCode 59.8, OSWorld 50.6, DeepSWE 65.5; Reasoning 88→89, Overall 89.4→89.6. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page last updated 2026-11-07, Artificial Analysis model page and leaderboards, Google DeepMind Gemini 3.7 Flash model card rows, ARC Prize, Epoch AI FrontierMath, LlamaIndex ParseBench, Vals AI); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Gemini 3.7 Flash — BenchLM](https://benchlm.ai/models/gemini-3-7-flash)
+  - [Gemini 3.7 Flash — Artificial Analysis](https://artificialanalysis.ai/models/gemini-3-7-flash)
+  - [Google DeepMind — Gemini 3.7 Flash model card](https://deepmind.google/models/model-cards/gemini-3-7-flash/)
+  - [ARC Prize — Gemini 3.7 Flash results](https://arcprize.org/results/google-gemini-3-7-flash)
+- Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.

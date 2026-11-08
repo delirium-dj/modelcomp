@@ -39,7 +39,7 @@
 89.2 gpt-5.6-terra
 89.1 claude-opus-4.6
 89 deepseek-v4.1-flash
-88.9 muse-spark-1.1
+89 muse-spark-1.1
 88.8 claude-sonnet-5
 88.8 gpt-6-sol
 88.7 mimo-v2.6-flash
@@ -56,7 +56,7 @@
 86.7 claude-sonnet-4.6
 86.7 gemini-2.5-pro
 86.6 inkling-small
-86.5 qwen-3.8-27b
+86.6 qwen-3.8-27b
 86.4 gpt-5.2
 86.4 gpt-6.1-terra
 86.4 step-5-preview

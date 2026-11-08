@@ -1,70 +1,82 @@
 # DeepSeek-V4.1-Flash — findings by MiMo 2.6 Flash
 
 - Source: DeepSeek (`deepseek-flash`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 86). Fresh sources this pass: DeepSeek API docs (canonical
+> `deepseek-flash` is **now served by DeepSeek-V4.1-Flash-1017**, checked
+> 2026-11-08) and the BenchLM model page (updated 2026-11-07).
+> Changes: Reasoning 85→87 (served-snapshot HLE 42.6 clears the 40%+ ref;
+> FrontierMath v2 67.4 first row), Multimodal 69→70 (AA-MMMU-Pro 77.0,
+> ExtractBench 87.1); Tool 90, Context 95, Coding 90, Cost 97 held.
 
 ## Model card
 
 - **Name:** DeepSeek-V4.1-Flash
-- **Short description:** The smallest model of DeepSeek's new "architecture family" (released 2026-09-10) — **552B-param MoE with a Causal Encoder–Decoder split**: 8B active on prefill, 16B on decode (20-layer causal encoder + 20-layer decoder), CSA2 sparse attention, FP4 main KV at 890 bytes/token (¼ of V4-Flash's, 437× less than V1 on vendor arithmetic), SWA Bounded Replay (persistent KV ≈1/8 of V4-Flash's SSD footprint). Trained from scratch on 45T multimodal tokens; native image+text in. Beats the 1.6T flagship V4-Pro on several public agent benchmarks at ~40% of its cost-per-task — so convincingly that DeepSeek announced V4-Pro's retirement, then **reversed it on user demand** (V4 Pro stays with unchanged billing). V4-Flash and V4-Flash-Vision-Exp IDs now route here.
-- **Provider / access:** DeepSeek API (canonical ID **`deepseek-flash`**; Chat Completions, Responses, Anthropic-compatible surfaces), OpenRouter (19 providers), DeepInfra, Fireworks, Databricks, Novita, Parasail, Baseten, Inco, LithosAI; SGLang/vLLM day-zero open-source serving; MIT weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash`).
-- **Release / knowledge:** released 2026-09-10; knowledge cutoff not disclosed → not scored.
-- **IDs:** `deepseek/deepseek-v4.1-flash` (gateway routes) / `deepseek-flash` (native; legacy `deepseek-v4-flash`, `deepseek-v4-flash-vision-exp` accepted as aliases).
+- **Short description:** The smallest model of DeepSeek's "architecture family" (released 2026-09-10) — **552B-param MoE with a Causal Encoder–Decoder split**: 8B active on prefill, 16B on decode, CSA2 sparse attention, FP4 main KV at 890 bytes/token, SWA Bounded Replay. Trained from scratch on 45T multimodal tokens; native image+text in; MIT weights. Beats the 1.6T V4-Pro on several agent benchmarks at ~40% of its cost-per-task. **Update 2026-10-17:** the canonical API id `deepseek-flash` is now served by the **DeepSeek-V4.1-Flash-1017** snapshot (legacy `deepseek-v4-flash*` ids retired and routed there too, billed at Flash price) — BenchLM tracks it as family variant "flash-reasoning (1017)", composite 65.41, #31 of 1016.
+- **Provider / access:** DeepSeek API (canonical ID **`deepseek-flash`**, Chat Completions / Responses / Anthropic-compatible), OpenRouter (19 providers), DeepInfra, Fireworks, Databricks, Novita, Parasail, Baseten, Inco, LithosAI; SGLang/vLLM serving; MIT weights on Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash`, `…-1017`).
+- **Release / knowledge:** released 2026-09-10 (1017 snapshot 2026-10-17); knowledge cutoff not disclosed → not scored.
+- **IDs:** `deepseek/deepseek-v4.1-flash` (gateway) / `deepseek-flash` (native, now backed by the 1017 weights).
 - **Context window:** 1,048,576 (1M) tokens; max output **384,000**.
-- **Modalities:** text + images in; text out (JSON, function calling); reasoning yes (thinking on by default; effort low/high/**max** default high; the card also documents a continuous 1–100 effort for research runs); tool calls yes.
-- **Pricing (as of 2026-10-07):** peak **$0.30 in / $1.20 out** per 1M; **off-peak (50%) $0.15/$0.60** — all weekdays outside 01:00–04:00 & 06:00–10:00 UTC plus weekends; **cache hits $0.003/$0.006 (~98% off)**. AA measured: **$0.27 per Intelligence Index task** (vs V4 Pro 0813's $0.67). Open weights MIT. Paid (self-host = hardware only).
-- **Architecture:** MoE 552B / 8B-prefill–16B-decode, CED + CSA2, FP4 KV, Engram memory tables (the serving constraint; SGLang host-offload/vLLM mmap both in flight).
+- **Modalities:** text + images in; text out (JSON, function calling); reasoning yes (thinking default, effort low/high/max); tool calls yes.
+- **Pricing (as of 2026-11-08):** peak **$0.30 in / $1.20 out** per 1M; **off-peak (50%) $0.15/$0.60**; **cache hits ~98% off** — DeepSeek's docs confirm 1017 traffic is "billed at the Flash price" (no change found). AA measured: **$0.27 per Intelligence Index task** (vs V4 Pro 0813's $0.67). Open weights MIT. Paid (self-host = hardware only).
+- **Architecture:** MoE 552B / 8B-prefill–16B-decode, CED + CSA2, FP4 KV, Engram memory tables.
 
 ### Raw benchmarks found
 
-Agent / tool use (DeepSeek-run, max effort, DeepSeek Harness Minimal unless noted):
+Agent / tool use (DeepSeek-run unless noted):
 
-- Terminal-Bench 2.1: **90.6** (Pass@1 — above Opus 5.0's 89.1 and GPT-5.6 Sol's 88.8 in DeepSeek's table; **clears the 88% ref**). Scaffold spread disclosed: 84.1 (Codex) → 90.6 (DSH Minimal); 88.0 with Claude Code.
-- Terminal-Bench 3.0: **30.0**; Terminal-Bench 4.0: **31.2** (vs Opus 5.0's 43.3/51.8 — behind frontier on the next-gen harnesses).
-- AutomationBench: **54.8** (top of DeepSeek's table; Opus 5.0 50.3, GPT-5.6 Sol 45.8). Agent's Last Exam: **31.8** (top of table; Opus 5.0 28.6). CyberGym: **88.1** (top). SEC-Bench Pro: 62.8. ExploitGym: 15.3.
-- HLE with tools: **63.9** (top of table; Opus 5.0 63.6, GLM-5.3 62.5). GDPval-AA: no row found (not in DeepSeek's published set).
-- Independent (AA): index run cost **$0.27/task**, 212–236 tok/s first-party (well above the 73 tok/s class median); noted **very verbose** (250M vs 140M median output tokens on the index).
+- Terminal-Bench 2.1: **90.6** (DeepSeek-V4.1-Flash card, DSH Minimal — clears the 88% ref; scaffold spread 84.1 Codex → 88.0 Claude Code). **Independent check: Vals AI TB2.1 74.5** (BenchLM 2026-11-07 — Vals runs run systematically low, but this is a 16-pt gap from the self-report).
+- Terminal-Bench 3.0: **30.0** (base card); Terminal-Bench 4.0: **42.3** (1017 card — up from the base card's 31.2; Opus 5.0 43.3/51.8 still above).
+- AutomationBench: **60.5** (1017 card — up from base 54.8; Opus 5.0 50.3, Sol 45.8). Agents' Last Exam: **35.4** (1017 card; base 31.8). CyberGym: **88.1**. ExploitGym: 15.3. SEC-Bench Pro: 62.8.
+- GDPval-AA: normalized **55.0%** (AA, via BenchLM 2026-11-07 — percent scale, not Elo-comparable; still no Elo row). AA ITBench: 46.9. CWE-bench v1: 55.0; CWE-Bench-AA: 68.3; AA Cyber Index: 40.8.
+- HLE with tools: **63.9** (DeepSeek — top of its table vs Opus 5.0 63.6). Claw-Eval / MCP-Atlas / Toolathon / Tau3 / OSWorld: no verified public score found.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **90.9** (DeepSeek) — **clears the 90%+ ref** (V4 Pro higher at 92.4).
-- HLE: **36.8** Pass@1 (39.1 on the text-only subset) — **misses the 40%+ ref**; with tools 63.9 (as above).
-- AA Intelligence Index: **39–40** at max effort (AA; 6th of 113 in class, median 18; V4 Pro 0813: 36) — under the 60+ ref.
-- MathArena Apex: **65.6** (ties Kimi K3's best). Codeforces: **3471** rating. MMLU 91 / MMLU-Pro 81.2 (DeepInfra rows); AIME 2025 87.5; SimpleQA 49. SuperGPQA (base) 53.1.
+- GPQA Diamond: **90.9** (DeepSeek — clears the 90%+ ref).
+- HLE: **42.6** (DeepSeek-V4.1-Flash-1017 card — **now clears the 40%+ ref**; base card 36.8 / 39.1 text-only, which missed); **AA-HLE 39.2** (AA independent — a hair under the ref, effort-sensitive).
+- AA Intelligence Index: **39.5** (AA, via BenchLM — confirms the prior 39–40 reading; under the 60+ ref).
+- **FrontierMath v2: 67.368% T1-3 / 26.829% T4** (Epoch AI leaderboard — first math rows for this model). MathArena Apex: 65.6. Codeforces: **3471**. MMLU-Pro 81.2 / MMLU 91 (DeepInfra). CritPt: 14.3 (AA). AA-Omniscience: accuracy 46.4 / hallucination 96.5 (AA).
 
 Coding (DeepSeek-run unless noted):
 
-- DeepSWE v1.1: **74.2** Resolved (mini-SWE) — **clears the 74% frontier ref** (vs Opus 5.0 74.0, Sol 73.0); disclosed spread: 65.5 (OpenCode) → 74.2 (mini-SWE), N=8 samples.
-- NL2Repo-Bench: **64.0** (model card) vs **65.4** (changelog) — DeepSeek hasn't reconciled; both ahead of K3/GLM-5.3's 58.0.
-- ProgramBench (Almost@1): 20.3 (vs Opus 5.0 37.0 — long-horizon deficit). Codeforces 3471 as above.
-- No SWE-bench Verified / AA Coding Index / LiveCodeBench public row found for this model.
+- DeepSWE v1.1: **77.0** (1017 card — up from base 74.2, now clearly over the 74% frontier ref vs Opus 5.0 74.0 / Sol 73.0).
+- **AA-SciCode: 51.9** (AA, via BenchLM — first SciCode row; just under the 55% ref). ProgramBench: **29.1** (1017 card; base 20.3). NL2Repo-Bench: **68.2** (1017 card; base 64.0). FrontierCode 2.0: 19.3 (Cognition). ScarfBench: 69.0 (Kaggle/IBM).
+- Terminal-Bench 2.1: 90.6 (as above; Vals 74.5). Codeforces 3471. No SWE-bench Verified / AA Coding Index row found.
 
 Long context:
 
-- 1M context trained in at 34T tokens (sparse attention at 64K pretrain); LongBench-V2 (base): 45.2 — mid. No MRCR/needle score; efficiency story (890B/token KV, ¼ HBM) is the architectural claim.
+- 1M context trained in at 34T tokens; **AA-LCR: 84.0** (AA, via BenchLM 2026-11-07 — first independent retrieval row; still short of the ≥98% condition). LongBench-V2 (base): 45.2. No MRCR/needle score.
 
-Multimodal (DeepSeek-run):
+Multimodal (DeepSeek-run unless noted):
 
-- Native image+text in (first V4.1-family model with it). MMMU-Pro (base): 56.5; DocVQA (base): 95.6; CVBench 77.9; RefCOCO 86.0. Vision-agent rows: Chartography w/tools 78.9, BabyVision w/tools 89.6, ZeroBench-main w/tools 49.0.
+- **AA-MMMU-Pro: 77.0** (AA independent, via BenchLM — vs the base card's 56.5). ExtractBench (LlamaIndex): **87.11**; ParseBench: 64.38 (2026-11-06 snapshots). Base rows: DocVQA 95.6, CVBench 77.9, RefCOCO 86.0. Vision agents (1017 card): Chartography w/tools **83.0**, BabyVision w/Python **92.5**, ZeroBench w/Python 51.0.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** The first model in this batch to clear **both** agentic-coding refs outright — TB2.1 90.6 (88 ref) — plus AutomationBench 54.8 and ALE 31.8 topping DeepSeek's frontier comparison table, CyberGym 88.1, HLE-tools 63.9; held at 90 by TB3.0/TB4.0 (30/31 vs Opus 5's 43/52), ProgramBench 20.3, and no GDPval row.
-- **Reasoning: 85/100.** GPQA 90.9 clears the 90+ ref and MathArena/Codeforces are strong, but no-tools HLE 36.8 misses the 40+ ref (tools version clears) and the AA Index (40) is 20 points under 60+.
-- **Context window: 95/100.** 1M capacity = ≥1M tier floor, backed by a purpose-built KV-compression architecture; LongBench-V2 45.2 is mid and there's no needle result → floor.
-- **Multimodal: 69/100.** Text + image in, text out = image band (60–70); DocVQA 95.6 and BabyVision 89.6 are excellent, but MMMU-Pro 56.5 is weak and there's no video/audio/PDF input.
-- **Coding: 90/100.** DeepSWE 74.2 clears the 74% ref and TB2.1 90.6 clears the 88% ref — the only model here to clear both headline coding refs — with Codeforces 3471 and NL2Repo 64; next-gen harnesses (TB3/4 ~31), ProgramBench 20.3, the 8.7-point scaffold spread, and missing SWE-V/AA Coding rows keep it at 90 rather than 93+.
-- **Cost efficiency: 97/100.** Off-peak $0.15/$0.60 (peak $0.30/$1.20) is far below the $0.60/$2.20 ≈ 92 anchor, cache hits are 98% off, AA measured $0.27/index-task (vs $0.67 for the flagship it beats), and MIT self-hosting is free of license cost; the only deductions are peak/off-peak double-billing windows and heavy output verbosity on reasoning runs.
-- **Overall Score: 86/100.** (90+85+95+69+90)/5 = 85.8 → 86 — the open-weight efficiency story of September 2026: first in batch to clear both headline agentic-coding refs at dime-store prices, with HLE-without-tools, the AA Index gap, and the next-gen terminal scores marking the distance to full frontier.
+- **Tool use: 90/100.** Held: TB2.1 90.6 still clears the 88% ref, and the 1017 rows lift AutomationBench to 60.5 and ALE to 35.4 (both top of DeepSeek's frontier table); held at 90 by TB3/TB4 (30/42.3 vs Opus 5's 43/52), ProgramBench 29.1, the Vals TB2.1 74.5 independent reading (scaffold sensitivity), and no GDPval Elo / Tau3 / MCP / Claw rows.
+- **Reasoning: 87/100.** The served 1017 snapshot moves it (85→87): HLE **42.6** now clears the 40%+ ref (base card 36.8 missed) and FrontierMath v2 **67.368** T1-3 is a first, competitive math row; GPQA 90.9 still clears 90+. Capped below 88 by AA-HLE 39.2 (independent, just under the ref), AA Index 39.5 (20 points under 60+) and CritPt 14.3.
+- **Context window: 95/100.** Held: 1M capacity = ≥1M tier floor with a purpose-built KV-compression architecture; the new AA-LCR 84.0 is decent independent retrieval but far short of the ≥98% condition and there is no needle result → floor.
+- **Multimodal: 70/100.** New independent evidence lifts it to the image-band ceiling (69→70): **AA-MMMU-Pro 77.0** (vs base-card 56.5), ExtractBench 87.1 and strong vision-agent rows (Chartography 83.0, BabyVision 92.5); capped at 70 because input is text+image only — no verified video/audio/PDF-native input and text-only output.
+- **Coding: 90/100.** Held: DeepSWE **77.0** (1017) and TB2.1 90.6 keep it the only model clearing both headline coding refs (74/88), with Codeforces 3471, NL2Repo 68.2 and the new AA-SciCode 51.9 (just under the 55 ref); held below 93 by TB3/4, ProgramBench 29.1, FrontierCode 19.3, the Vals TB 74.5 reading, and no SWE-V / AA Coding Index row.
+- **Cost efficiency: 97/100.** Held: off-peak $0.15/$0.60 (peak $0.30/$1.20) stays far below the $0.60/$2.20 ≈ 92 anchor, cache hits ~98% off, AA measured $0.27/index-task, MIT self-hosting is free of license cost; DeepSeek confirms 1017 traffic bills at the same Flash price. Only deductions: peak/off-peak windows and heavy reasoning verbosity.
+- **Overall Score: 86/100.** (90+87+95+70+90)/5 = 86.4 → 86 — the open-weight efficiency story of late 2026: served snapshot now clears HLE 40%+ and DeepSWE 77 at dime-store prices, with the AA Intelligence Index gap and next-gen terminal scores marking the distance to full frontier.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (DeepSeek API docs + announcement, Hugging Face model card, Artificial Analysis, DeepInfra, OmniaKey, Orcarouter); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: DeepSeek API docs confirming `deepseek-flash` → V4.1-Flash-1017 serving, BenchLM model page updated 2026-11-07, Epoch AI FrontierMath leaderboard, AA mirror rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek API docs — Models (1017 serving note)](https://api-docs.deepseek.com/quick_start/models)
+  - [BenchLM — DeepSeek V4.1 Flash (updated 2026-11-07)](https://benchlm.ai/models/deepseek-v4-1-flash)
+  - [Hugging Face — DeepSeek-V4.1-Flash-1017 model card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+  - [Epoch AI — FrontierMath v2 leaderboard](https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2)
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
@@ -149,4 +161,3 @@ Multimodal:
 - Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
 - Method: public internet research (DeepSeek announcement + API docs news, arXiv technical report, Hugging Face model card README, llm-stats, modelbenchmark); scores are normalized 1–100 interpretations, not official vendor scores; many rows are DeepSeek-harness self-reported.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

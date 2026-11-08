@@ -1,73 +1,84 @@
 # Muse Spark 1.1 — findings by MiMo 2.6 Flash
 
 - Source: Meta Superintelligence Labs (`muse-spark-1.1`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 87). Fresh sources this pass: BenchLM model page
+> (updated 2026-11-07) surfacing the full Meta Muse Spark 1.1 evaluation
+> report table, plus an LLM Stats pricing re-check (unchanged).
+> Changes: Tool use 84→85 (first Toolathlon row, 75.6), Reasoning 83→86
+> (Vals GPQA 91.2 clears the 90%+ ref; vendor HLE-no-tools 52.2), Coding
+> 82→83 (first LiveCodeBench row, 85.9); Context 95, Multimodal 91, Cost 89 held.
 
 ## Model card
 
 - **Name:** Muse Spark 1.1
-- **Short description:** Meta Superintelligence Labs' second model (released 2026-07-09 with the public preview of the Meta Model API) and the first Muse Spark developers could actually build on — a multimodal reasoning model for agentic tasks with **native computer use**, active management of its full 1M window (remember/retrieve/compact), and what MSL called a "step-change" over the April original (code name Avocado; +8 AA Index points in three months, then re-based). AA launch analysis: Index **51**, tied with GPT-5.4 (xhigh) and GLM-5.2 (max), most token-efficient of its tie group (94M output tokens for the full Index), ~**$0.26 per Index task** — cheapest of its intelligence tier except GPT-5.6 Luna. Vendor claims parity with GPT-5.5/Opus 4.8 on agentic tasks; independent rows later softened (Index 33.7–34.3 on the current v4.3 scale).
-- **Provider / access:** Meta Model API public preview (launch: **US-only, waitlisted, deliberately off OpenRouter** per CNBC/Reuters; OpenRouter listing `meta/muse-spark-1.1` appeared ~2026-09-11), Meta AI app/meta.ai (Thinking mode), Command Code; $20 free credits at signup; expected to power WhatsApp/Instagram/Facebook/glasses chatbots.
+- **Short description:** Meta Superintelligence Labs' second model (released 2026-07-09 with the public preview of the Meta Model API) — a multimodal reasoning model for agentic tasks with **native computer use**, active management of its full 1M window (remember/retrieve/compact), and what MSL called a "step-change" over the April original. AA launch analysis: Index **51**, most token-efficient of its tie group, ~**$0.26 per Index task**; on today's scale the Index reads **33.7** (v4.3.x re-base). BenchLM composite 65.67, #28 of 1016 (2026-11-07) — ahead of sibling Muse Spark 1.2's 65.62.
+- **Provider / access:** Meta Model API public preview (launch US-only/waitlisted; OpenRouter listing `meta/muse-spark-1.1` appeared ~2026-09-11), Meta AI app/meta.ai (Thinking mode), Command Code; $20 free credits at signup.
 - **Release / knowledge:** released 2026-07-09; knowledge cutoff not published.
 - **IDs:** `muse-spark-1-1` / `meta/muse-spark-1.1`.
-- **Context window:** **1,048,576 tokens** (1.05M via OpenRouter), max output 131,072; self-managed context (retrieve + compact).
-- **Modalities:** **text + images + video + audio + PDF documents in** (AI Atlas/OpenRouter), text out; reasoning yes (`reasoning_effort`, thinking billed as output; launch evals at xhigh); tool calls yes (computer use driving a real desktop from plain-language goals, function calling, OpenAI/Anthropic SDK-compatible).
-- **Pricing (as of 2026-10-07):** **$1.25 in / $4.25 out** per 1M (exactly the methodology's mid-tier anchor — 88 baseline), cache read **$0.15** (~88% off; effective agent-loop input ~$0.48), $20 one-time credits; thinking tokens bill as output so heavy reasoning raises real cost.
-- **Architecture:** proprietary (closed weights), size undisclosed; MSL's follow-up "Watermelon" larger model was in training.
+- **Context window:** **1,048,576 tokens** (1.0M via Meta Model API per LLM Stats), max output 131,072; self-managed context (retrieve + compact).
+- **Modalities:** **text + images + video + audio + PDF documents in** (AI Atlas/OpenRouter/LLM Stats), text out; reasoning yes (`reasoning_effort`, thinking billed as output); tool calls yes (computer use, function calling, OpenAI/Anthropic SDK-compatible).
+- **Pricing (as of 2026-11-08):** **$1.25 in / $4.25 out** per 1M, cache read **$0.15** (~88% off) — re-confirmed on LLM Stats 2026-11-08; $20 one-time credits; thinking tokens bill as output so heavy reasoning raises real cost.
+- **Architecture:** proprietary (closed weights), size undisclosed.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- OSWorld-Verified: **80.8** (Meta, xhigh, provider-reported) — **clears the 75% ref**
-- MCP Atlas (1,000 tasks / 36 servers): **88.1 ±1.95** (Scale AI benchmark owner) — **clears the 75% ref**, top-band
-- Terminal-Bench 2.1: **80.0** (Meta) / **77.9** (AA independent, e2b) / 76.2 (TB2.1 verified submission) — **under the 85% ref**
-- Terminal-Bench 4.0: **6.06** (AA independent) — floor
-- AutomationBench-AA: 42.8 (AA independent); JobBench 54.7 (OpenCode harness); Finance Agent v2: 57.2 (Vals); τ³-Banking: 31.75 (AA); GDPval-AA v2: 43.66% / 1376 Elo at launch (+232 over 1.0); AA Agentic Index: 37.54 (BenchLM)
-- AA Coding Agents composite: **54.9** ($1.44/task, Opencode); ALE: no row found
+- **Toolathlon: 75.6** (Meta evaluation report, via BenchLM 2026-11-07 — **first verified Toolathlon row**; far above GPT-5.6 Sol 58, Fable 5 61.7, Opus 4.8 59.9 in the same table).
+- OSWorld-Verified: **80.8** (Meta, xhigh — clears the 75% ref). MCP Atlas (1,000 tasks / 36 servers): **88.1 ±1.95** (Scale AI benchmark owner — clears the 75% ref). WebArena-Verified: **69.0** (Meta). DeepSearchQA: **84.9** (Meta). Finance Agent v2: 57.2 (Vals). JobBench: 54.7. Cybench: 92.9 pass@1.
+- Terminal-Bench 2.1: **80.0** (Meta) / **77.9** (AA, e2b) / **69.3** (Vals — first Vals reading, the low end of the spread). Terminal-Bench 4.0: **6.06** (AA — floor). OSWorld 2.0: **14.2** (Meta; the newer harness reads far below OSWorld-Verified). ExploitGym: 0.8.
+- GDPval-AA v2: **1375** Elo (Meta report) / 35.6% normalized (AA) / 1376 at launch. AA Agentic Index: 27.5 (AA). τ³-Banking: 31.75 (AA). Claw-Eval / ALE: no verified public score found.
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **89.8** (AA independent, xhigh) — **misses the 90%+ ref by 0.2**
-- HLE text-only: **46.2** (AA independent) — **clears the 40%+ ref**; Meta's HLE with tools: 62.1 (bash + browser, provider-reported — different protocol, not merged)
-- AA Intelligence Index: **51** (AA, launch-era v4.1) → **34.3** (v4.3, 2026-09-16) / 33.7 (Command Code) — **under the 60+ ref on every scale** (scale correction noted)
-- LiveBench (2026-06-25): 75.3 overall, **Reasoning 87.7**, Mathematics 87.1 (official board); CritPt 15.1 (AA)
+- GPQA Diamond: **89.8** (AA independent, xhigh — misses the 90%+ ref by 0.2) / **91.2 (Vals — clears it)** (first independent ≥90 reading). MMLU-Pro (Vals): 88.7.
+- HLE: **62.1** with tools / **52.2 no tools** (Meta evaluation report — the no-tools figure is new and clears the 40%+ ref decisively); AA independent text-only **46.2** (also clears).
+- AA Intelligence Index: **33.7** (AA current, via BenchLM — confirms the 33.7–34.3 re-based reading; launch-era 51) — under the 60+ ref on every scale.
+- CritPt: 15.1 (AA). AA-Omniscience: index 28.1 / accuracy 52.1 / hallucination 50.0 (AA). HealthBench Professional: 59.3 (Meta).
 
 Coding:
 
-- SciCode: **58.2–58.8** (AA independent) — **clears the 55%+ ref**; was **#3 of all models at launch** (behind Fable 5 60, Gemini 3.1 Pro Preview 59)
-- AA Coding Index: **71** (launch, +12 over 1.0) / **71.3** current — **clears the 70+ ref**
-- DeepSWE 1.1: **53.0** (DataCurve benchmark owner, xhigh) — **under the 74%+ ref**
-- SWE-bench Pro (public): **61.5 ±3.1** (Scale AI, mini-swe-agent) — strong; LiveBench Coding 77.2, Agentic Coding 58.5 (official boards); no SWE-V / SWE-Interact rows
-- Meta Internal Coding Bench: "significantly improves on Muse Spark, competitive with leading alternatives" (vendor, no figure)
+- SciCode (AA): **58.8** — **clears the 55%+ ref** (#3 of all models at launch). AA Coding Index: **71.3** — **clears the 70+ ref**.
+- SWE-bench Pro (public): **61.5 ±3.1** (Scale AI, mini-swe-agent). DeepSWE 1.1: **53.0/53.3** (DataCurve/Meta — under the 74% ref).
+- **LiveCodeBench (Vals): 85.9** and **SWE-bench (Vals): 82.0** (Vals AI leaderboards, via BenchLM 2026-11-07 — **first LiveCodeBench row found for 1.1**).
+- Terminal-Bench 2.1/4.0 as above. No SWE-bench Verified row.
 
 Long context:
 
-- 1M window with active compaction; **AA-LCR: 81.3** (AA independent, 2026-08-27) — solid retrieval-at-length evidence.
+- **MRCR v2 1M: 54.1** (Meta evaluation report, via BenchLM — **first MRCR row for 1.1**; solid pointwise-at-1M but far short of the ≥98% condition).
+- AA-LCR: **77.7** (AA current; prior read 81.3). 1M window with active compaction.
 
 Multimodal (vendor rows):
 
-- BabyVision: 76.3; CharXiv-R (chart reasoning): **88.4**; full modality list includes video/audio/PDF but **no audio/video benchmark rows** were published.
+- CharXiv Reasoning: **88.4**; BabyVision: 76.3. Full modality list includes video/audio/PDF, but no audio/video benchmark rows were published.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 84/100.** Clears both headline tool refs — OSWorld 80.8 and MCP Atlas 88.1 — plus AutomationBench-AA 42.8 in the independent lane; TB2.1 77.9–80 misses the 85 ref, TB4.0 6.06 is a floor reading, no ALE row.
-- **Reasoning: 83/100.** HLE 46.2 (text-only, independent) clears its ref and GPQA 89.8 is a rounding error from it; the AA Index (51 launch → 34 current) never approaches 60 on any scale.
-- **Context window: 95/100.** 1.05M → ≥1M floor, actively managed, with AA-LCR 81.3 as independent retrieval confirmation — good but not the ≥98%-at-512K class needed to exceed the floor.
-- **Multimodal: 91/100.** The full non-text suite (image + video + audio + PDF) in → audio/non-text band (90–100); CharXiv-R 88.4 and BabyVision 76.3 are the only concrete rows, so it sits near the floor of its band.
-- **Coding: 82/100.** Two coding refs clear (SciCode 58.8 — top-3 at launch — and coding index 71.3), SWE-Pro 61.5 is respectable; DeepSWE 53 misses badly, TB2.1 misses the 85 ref, TB4.0 is 6.
-- **Cost efficiency: 89/100.** Exactly at the $1.25/$4.25 anchor with ~88% cache reads, ~$0.26 per Index task (cheapest in its intelligence tier but for Luna), and $20 free credits; docking for thinking-tokens-as-output inflation and the launch-era US-only waitlist (alleviated by the later OpenRouter listing).
-- **Overall Score: 87/100.** (84+83+95+91+82)/5 = 87.0 → 87 — Meta's strongest value play: full-modality input, ref-clearing OSWorld/MCP-Atlas/SciCode/HLE, 1M self-managing context, at anchor pricing — held to 87 by GPQA's 0.2 miss, an Index that re-based into the 30s, DeepSWE at 53, and a TB4.0 that never got off the floor.
+- **Tool use: 85/100.** The new **Toolathlon 75.6** — board-topping against Sol/Fable/Opus in Meta's own table — plus existing ref-clearers OSWorld 80.8 and MCP Atlas 88.1 lift this a point (84→85); capped below the frontier band by TB2.1 69.3–80 (under the 85 ref, wide harness spread), TB4.0 6.06, GDPval 1375 (<1750), no Tau3/Claw/ALE rows.
+- **Reasoning: 86/100.** Two old near-misses are now cleared: **Vals GPQA 91.2** clears the 90%+ ref (AA's 89.8 still a hair under) and vendor **HLE no-tools 52.2** clears the 40%+ ref outright (AA text-only 46.2 agrees) → 83→86; capped below 87+ by AA Intelligence Index 33.7 (re-based, far under 60+) and CritPt 15.1.
+- **Context window: 95/100.** Held: 1.05M → ≥1M floor; the new **MRCR 1M 54.1** row is real pointwise retrieval evidence (with AA-LCR 77.7 independent) but still nowhere near the ≥98%-at-512K+ condition needed to exceed the floor.
+- **Multimodal: 91/100.** Held: full non-text suite (image + video + audio + PDF) in → audio/non-text band (90–100); CharXiv-R 88.4 and BabyVision 76.3 remain the only concrete rows, so it sits near the floor of its band.
+- **Coding: 83/100.** The first **LiveCodeBench 85.9** row (Vals) plus Vals SWE-bench 82.0 lift this a point (82→83) alongside the two already-cleared refs (SciCode 58.8, Coding Index 71.3) and SWE-Pro 61.5; still capped by DeepSWE 53 (far under the 74 ref), TB2.1 under the 85 ref and TB4.0 at 6.
+- **Cost efficiency: 89/100.** Held: $1.25/$4.25 re-confirmed 2026-11-08 sits exactly on the mid-tier anchor (~88) with ~88% cache reads, ~$0.26 per Index task (cheapest in its intelligence tier but for GPT-5.6 Luna) and $20 free credits; docking for thinking-tokens-as-output inflation.
+- **Overall Score: 88/100.** (85+86+95+91+83)/5 = 88.0 → 88 — Meta's strongest value play: full-modality input, ref-clearing OSWorld/MCP-Atlas/SciCode/Toolathlon/GPQA/HLE, 1M self-managing context with a measured MRCR row, at anchor pricing — held to 88 by an Index that re-based into the 30s, DeepSWE at 53, and a TB4.0 that never got off the floor.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Meta AI launch blog, Artificial Analysis launch analysis + leaderboards, Writingmate spec sheet, Lumina evidence registry, AI Atlas, AReiter pricing guide, Command Code, Jason Futrill); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page updated 2026-11-07 with Meta's evaluation-report table rows, Meta Muse Spark 1.1 evaluation report, Vals AI leaderboards, LLM Stats pricing re-check); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta AI — Muse Spark 1.1 evaluation report](https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report)
+  - [BenchLM — Muse Spark 1.1 (updated 2026-11-07)](https://benchlm.ai/models/muse-spark-1-1)
+  - [Artificial Analysis — Muse Spark 1.1](https://artificialanalysis.ai/models/muse-spark-1-1)
+  - [LLM Stats — Muse Spark 1.1 (pricing/specs)](https://llm-stats.com/models/muse-spark-1.1)
+- Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
 
@@ -155,4 +166,3 @@ Multimodal:
 - Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
 - Method: public internet research (Artificial Analysis model page + launch article, Meta Muse Spark 1.1 Evaluation Report, LLMLearner, Lumina, Docsbot); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
