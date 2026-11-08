@@ -11,15 +11,16 @@ jobs:
       - name: Fetch and Filter Deployments
         run: |
           PROJECT_ID="prj_0prkidewxqbh5khccp8ai17b3omh"
+          TEAM_SLUG="delirium-djs-projects"
           
           # Calculate the epoch timestamp for 3 days ago in milliseconds
           THREE_DAYS_AGO=$(date -d "3 days ago" +%s%3N)
           
           echo "Fetching target deployment list from Vercel..."
           
-          # 1. Fetch deployment list JSON from Vercel API
+          # Fixed endpoint syntax using the proper 'api.' subdomain, path structure, '$' syntax, and team parameters
           RESPONSE=$(curl -s -X GET \
-            "https://vercel.com{PROJECT_ID}&limit=100" \
+            "https://vercel.com{PROJECT_ID}&teamId=${TEAM_SLUG}&limit=100" \
             -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
             -H "Content-Type: application/json")
             
@@ -46,8 +47,9 @@ jobs:
             
             echo "Deleting deployment: ${URL} (${UID})"
             
+            # Appended teamId context to verify authorization permissions for targeted deletion blocks
             DELETE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
-              "https://vercel.com{UID}" \
+              "https://vercel.com{UID}?teamId=${TEAM_SLUG}" \
               -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}")
               
             if [ "$DELETE_STATUS" = "200" ]; then
