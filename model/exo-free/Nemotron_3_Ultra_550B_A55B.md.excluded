@@ -1,25 +1,25 @@
-# Exo Free — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+# Exo Free — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED — INSUFFICIENT EVIDENCE)
 
-> Source: OpenCode Zen (`exo-free`)
-> Date: 2026-10-29 (UTC)
-> Overview and scoring methodology: `../../model-comparison.md`
-> Cross-model signed log: `../../model-findings.md`
+- Source: OpenCode Zen (`exo-free`)
+- Date: 2026-11-08 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Exo Free
-- **Short description:** OpenCode Zen's "stealth" free reasoning model added October 2026. 1M context window, multimodal (text+image), tool calls. **No public model card, no benchmark publications, no independent evaluations found.**
-- **Provider / access:** OpenCode Zen (`opencode/exo-free`). Chat Completions API.
-- **Release / knowledge:** ~2026-10-06 (OpenCode Zen announcement); knowledge cutoff unknown.
-- **IDs:** `opencode/exo-free` (free tier on OpenCode Zen)
-- **Context window:** 1,000,000 tokens claimed (OpenCode Zen); max output 131,072 tokens.
+- **Short description:** OpenCode Zen's "stealth" free reasoning model available October 6–9, 2026 (3 days only). 1M context window, multimodal (text+image), tool calls. **No public model card, no benchmark publications, no independent evaluations found. Vendor unidentified. Slot deprecated (HTTP 410 ModelDeprecated).**
+- **Provider / access:** OpenCode Zen (`opencode/exo-free`). Chat Completions API. **Now deprecated — endpoint returns HTTP 410.**
+- **Release / knowledge:** ~2026-10-06 (OpenCode Zen changelog); knowledge cutoff unknown.
+- **IDs:** `opencode/exo-free` (free tier on OpenCode Zen, now retired)
+- **Context window:** 1,048,576 tokens claimed (OpenCode Zen); max output 131,072 tokens.
 - **Modalities:** Text in, text out; image in (claimed); reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-29):** **FREE** on OpenCode Zen (rate-limited: ~20 req/min, 50/day typical for free tiers).
-- **Architecture:** Undisclosed; proprietary (OpenCode Zen); parameter count unknown.
+- **Pricing (as of 2026-11-08):** **FREE** on OpenCode Zen during limited preview (rate-limited: ~20 req/min, 50/day typical); **now unavailable (HTTP 410)**.
+- **Architecture:** Undisclosed; proprietary (OpenCode Zen); parameter count unknown. Vendor never identified.
 
 ### Raw benchmarks found
 
-> **SELF-EXCLUSION TRIGGERED:** ZERO verified public benchmark numbers found for this exact model/ID.
+> **DEEP RESEARCH CONFIRMED: ZERO verified public benchmark numbers found for this exact model/ID.**
 
 Agent / tool use:
 
@@ -52,7 +52,7 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> **NOT SCORED — EXCLUDED.** Per `model-report-TEMPLATE.md` self-exclusion rule: zero verified benchmarks → save as `.md.excluded`.
+> **NOT SCORED — EXCLUDED.** Per `model-report-TEMPLATE.md` self-exclusion rule: zero verified benchmarks → save as `.md.excluded`. Deep second-pass research (5+ source searches: OpenCode Zen changelog/docs, OpenCode Discord, Reddit r/opencode, AIProMoNow, YouTube reviews, Artificial Analysis, llm-stats.com, Hugging Face) confirms **no model card, no vendor identity, no independent evaluations, no benchmark publications**. The model lived 3 days (Oct 6–9, 2026), was the default for fresh installs briefly, and is now deprecated (HTTP 410). Reddit users reported instability/crashes. No verifiable evidence exists to score any dimension.
 
 - Tool use: **N/A (excluded)**
 - Reasoning: **N/A (excluded)**
@@ -66,6 +66,14 @@ Long context:
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-29
-- Method: public internet research (OpenCode Zen announcements, Reddit r/opencode, OpenCode AI compare tool, AIProMoNow, YouTube); **confirmed: zero public benchmarks, no model card, no independent evaluations**. Reddit users report instability/crashes. Queue score 55.8 appears to be placeholder.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-08
+- Method: Deep second-pass public internet research across 5+ independent sources (OpenCode Zen changelog & docs, OpenCode Discord community, Reddit r/opencode threads, AIProMoNow comparisons, YouTube reviews, Artificial Analysis model index, llm-stats.com, Hugging Face model hub); **confirmed: zero public benchmarks, no model card, no vendor identity, no independent evaluations**. Slot deprecated (HTTP 410). Queue score 55.8 appears to be placeholder/inferred.
+- Reference URLs:
+  - [OpenCode Zen Documentation](https://opencode.ai/docs/zen)
+  - [OpenCode Changelog](https://opencode.ai/changelog)
+  - [Artificial Analysis — Model Index](https://artificialanalysis.ai)
+  - [llm-stats.com](https://llm-stats.com)
+  - [Hugging Face Model Hub](https://huggingface.co/models)
 - Future sources: add a new file next to this one, e.g. `Exo_Free.md`, using the same headings — **only when verifiable public benchmarks exist**.
+
+---

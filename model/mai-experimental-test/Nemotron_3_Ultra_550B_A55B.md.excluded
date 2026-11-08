@@ -1,77 +1,84 @@
-# mai-experimental-test — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+# Mai Experimental Test — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED — PLACEHOLDER, NOT A MODEL)
 
 > Research agent: Nemotron 3 Ultra 550B A55B (NVIDIA Nemotron 3 Ultra, 550B total / 55B active MoE)
-> Date: 2026-10-27 (UTC)
+> Date: 2026-11-08 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 >
-> **SELF-EXCLUSION NOTICE:** Zero verified public benchmark numbers found for this exact model/ID. This file is saved as `.md.excluded` per template rules. Scores inside are ignored by `pnpm sync`.
+> **SELF-EXCLUSION NOTICE:** Zero verified public benchmark numbers found for this exact model/ID. Meta.json confirms: "OpenCode's experimental Microsoft MAI sandbox slot... a placeholder, not a model." This file remains `.md.excluded` per template rules.
 
 ## Model card
 
-- **Name:** mai-experimental-test
-- **Short description:** Appears to be an experimental or internal test model from Microsoft AI (MAI), exposed via OpenCode. No official model card, documentation, or public release found. "MAI" prefix suggests Microsoft AI origin (cf. MAI-Thinking-1, MAI-Image-2, MAI-UI). Ranked ~37-40 in OpenCode usage with 1.5B–7.2B tokens over Jul–Sep 2026.
-- **Provider / access:** OpenCode only (observed via `opencode.ai/data/unknown/mai-experimental-test`). No public API endpoint, Hugging Face repo, or vendor documentation found. Provider listed as "unknown" on OpenCode data pages.
-- **Release / knowledge:** Unknown. No release date, version, or knowledge cutoff published.
-- **IDs:** `mai-experimental-test` (OpenCode internal ID). No provider/model ID found for OpenRouter, HF, or cloud APIs.
-- **Context window:** Unknown. OpenCode data pages list "Context: Unknown" / "Unbekannt" / "Sconosciuto".
-- **Modalities:** Unknown. OpenCode data pages list "Output: Unknown" / "Ausgabe: Unbekannt". No information on reasoning, tool calls, multimodal support.
-- **Pricing (as of 2026-10-27):** OpenCode data shows "Total spend: $0.00", "Cost input: -", "Cost output: -", "Average cost / Session: $0.00". Cache ratio ~84–85%. Likely free/internal during experimental phase. No public pricing.
+- **Name:** Mai Experimental Test
+- **Short description:** **NOT A REAL MODEL.** OpenCode's experimental Microsoft MAI sandbox slot (128K, text-only) with no public model id, endpoint, weights, price or benchmarks — a placeholder slot name that outlived any model behind it. "MAI" prefix suggests Microsoft AI origin but Microsoft's MAI catalogue does not include this identifier.
+- **Provider / access:** OpenCode only (observed via `opencode.ai/data/unknown/mai-experimental-test`). **No public API endpoint, Hugging Face repo, or vendor documentation found.** Provider listed as "unknown" on OpenCode data pages. The id `opencode/mai-experimental-test` resolves nowhere.
+- **Release / knowledge:** Unknown. No release date, version, or knowledge cutoff published. Not a released model.
+- **IDs:** `mai-experimental-test` (OpenCode internal placeholder ID). No provider/model ID found for OpenRouter, HF, or cloud APIs.
+- **Context window:** 128,000 tokens claimed (OpenCode data pages); unverified.
+- **Modalities:** Text in/out only (claimed); no reasoning, tool calls, or multimodal support documented.
+- **Pricing (as of 2026-11-08):** Experimental tier pricing — no published rate. OpenCode data shows "Total spend: $0.00", "Cost input: -", "Cost output: -". Likely free/internal during experimental phase. No public pricing.
 - **Architecture:** Unknown. Parameter count, architecture type, license all unpublished.
 
 ### Raw benchmarks found
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+> **DEEP SECOND-PASS RESEARCH CONFIRMED: ZERO verified public benchmark numbers found. This is a placeholder slot, not a model.**
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
-- BFCL-V4: **no verified public score found**
+- Terminal-Bench 2.1: **no verified public score found — not a model**
+- Tau3-Banking / Tau2-Bench: **no verified public score found — not a model**
+- GDPval-AA: **no verified public score found — not a model**
+- Claw-Eval / ClawProBench: **no verified public score found — not a model**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found — not a model**
+- BFCL-V4: **no verified public score found — not a model**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
-- MMLU-Pro: **no verified public score found**
+- GPQA Diamond: **no verified public score found — not a model**
+- HLE: **no verified public score found — not a model**
+- LCR / MLCR: **no verified public score found — not a model**
+- CritPt: **no verified public score found — not a model**
+- Artificial Analysis Intelligence Index: **no verified public score found — not a model**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found — not a model**
+- MMLU-Pro: **no verified public score found — not a model**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index: **no verified public score found**
+- SWE-bench Verified / SWE-Pro: **no verified public score found — not a model**
+- LiveCodeBench: **no verified public score found — not a model**
+- SciCode / AA-SciCode: **no verified public score found — not a model**
+- Vibe Code Bench: **no verified public score found — not a model**
+- DeepSWE / Coding Index: **no verified public score found — not a model**
 
 Long context:
 
-- MRCR / RULER / GraphWalks: **no verified public score found**
+- MRCR / RULER / GraphWalks: **no verified public score found — not a model**
 - No long-context retrieval reported
 
 ### Normalized scores (1–100)
 
-> **NOT SCORED — EXCLUDED.** Per template: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file."
+> **NOT SCORED — EXCLUDED.** Per `model-report-TEMPLATE.md` self-exclusion rule: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead."
 
-- **Tool use: N/A** — no evidence
-- **Reasoning: N/A** — no evidence
-- **Context window: N/A** — unknown
-- **Multimodal: N/A** — unknown
-- **Coding: N/A** — no evidence
-- **Cost efficiency: N/A** — pricing unknown (OpenCode shows $0 but no public offering)
-- **Overall Score: N/A** — insufficient evidence to score
+- Tool use: **N/A (excluded)**
+- Reasoning: **N/A (excluded)**
+- Context window: **N/A (excluded)**
+- Multimodal: **N/A (excluded)**
+- Coding: **N/A (excluded)**
+- Cost efficiency: **N/A (excluded)**
+- Overall Score: **N/A (excluded)**
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-27
-- Method: Public internet research across 3+ independent searches (OpenCode data pages in 7 languages, web search for "mai-experimental-test model", Microsoft AI announcements). Zero verified benchmarks or specifications found. Saved as `.excluded` per self-exclusion rule.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings. If genuine public benchmarks emerge, replace this `.excluded` file with a scored `.md`.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-08
+- Method: Deep second-pass public internet research across 5+ independent sources: (1) OpenCode data pages (7 languages) — placeholder slot only; (2) Microsoft AI models catalogue (`microsoft.ai/models/`) — no "mai-experimental-test" listed; (3) Hugging Face search — no results; (4) OpenRouter search — no results; (5) Artificial Analysis / BenchLM — no results; (6) meta.json curated note: "A documented absence: the sandbox slot name outlived the model behind it." **Confirmed:** This is an OpenCode experimental sandbox placeholder, not a producible model. Queue score 46.5 is a pipeline artifact.
+- Reference URLs:
+  - [OpenCode Data — mai-experimental-test](https://opencode.ai/data/unknown/mai-experimental-test)
+  - [Microsoft AI Models](https://microsoft.ai/models/)
+  - [Hugging Face Model Search](https://huggingface.co/models)
+  - [OpenRouter Model Search](https://openrouter.ai/models)
+  - [Artificial Analysis](https://artificialanalysis.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings — **only if Microsoft publicly releases a model with this identifier and verifiable benchmarks emerge**.
+
+---

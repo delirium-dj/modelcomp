@@ -1,25 +1,25 @@
-# Grok 5 — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED)
+# Grok 5 — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED — MODEL UNRELEASED)
 
-> Source: xAI (`grok-5` — **NOT YET RELEASED**)
-> Date: 2026-10-29 (UTC)
+> Source: xAI (`grok-5` — **NOT YET RELEASED / UNANNOUNCED**)
+> Date: 2026-11-08 (UTC)
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 5
-- **Short description:** xAI's anticipated next-generation frontier model (rumored 6T parameters). **As of 2026-10-29, Grok 5 has NOT been released.** No model card, no spec sheet, no public benchmarks, no API access. Latest released xAI model is Grok 4.7 (July/August 2026).
-- **Provider / access:** xAI API (planned); **no current access**.
-- **Release / knowledge:** **Unreleased.** xAI Series E announcement states "Grok 5 is in training" (no public release date). Musk claimed Q1 2026 target (missed).
-- **IDs:** None (no API ID assigned).
-- **Context window:** Unknown (rumored large, unverified).
-- **Modalities:** Unknown (Grok 4.x has multimodal; Grok 5 specs unpublished).
-- **Pricing (as of 2026-10-29):** N/A — not released.
-- **Architecture:** Rumored 6 trillion parameters (Musk claim); MoE or dense unknown; proprietary.
+- **Short description:** xAI's anticipated next-generation frontier model. **As of 2026-11-08, Grok 5 has NOT been released or announced by xAI.** No model card, no spec sheet, no public benchmarks, no API access. Latest released xAI model is Grok 4.7 (July/August 2026). xAI Series E funding (2024) mentioned "Grok 5 is in training" with no public release date; Musk claimed Q1 2026 target (missed).
+- **Provider / access:** xAI API (planned); **no current access**. Model ID `opencode/grok-5` does not resolve on any platform.
+- **Release / knowledge:** **Unreleased / Unannounced.** No official release date. xAI docs show only Grok 4.x models.
+- **IDs:** None (no API ID assigned). `opencode/grok-5` is a placeholder.
+- **Context window:** Unknown (no vendor figure exists).
+- **Modalities:** Unknown (not announced).
+- **Pricing (as of 2026-11-08):** N/A — not released, no public API.
+- **Architecture:** Rumored 6 trillion parameters (Musk 2024 claim); MoE or dense unknown; proprietary.
 
 ### Raw benchmarks found
 
-> **SELF-EXCLUSION TRIGGERED:** ZERO verified public benchmark numbers found for this exact model/ID. Every row below reads "no verified public score found" because the model does not exist publicly.
+> **DEEP SECOND-PASS RESEARCH CONFIRMED: ZERO verified public benchmark numbers found. Model does not exist publicly.**
 
 Agent / tool use:
 
@@ -66,6 +66,14 @@ Long context:
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-29
-- Method: public internet research (xAI official news/blog, Geotoolbox.ai, Coursiv.io, YouTube analyses, Reddit, xAI API docs, Wikipedia). **Confirmed: Grok 5 is in training, not released. No model card, no benchmarks, no API. Latest release is Grok 4.7.** Queue score of 62.7 appears to be a placeholder/anticipated value.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-08
+- Method: Deep second-pass public internet research across 5+ independent sources: (1) xAI official docs (`docs.x.ai/docs/models`) — only Grok 4.x listed; (2) xAI blog/news — no Grok 5 announcement; (3) Artificial Analysis model index — no Grok 5; (4) BenchLM — no Grok 5; (5) Hugging Face model hub — no Grok 5; (6) OpenRouter — no Grok 5; (7) xAI API docs — only Grok 4.x endpoints. **Confirmed:** Grok 5 is unreleased/unannounced. Latest xAI release is Grok 4.7. Queue score 60.9 is a placeholder/anticipated value.
+- Reference URLs:
+  - [xAI Docs — Models](https://docs.x.ai/docs/models)
+  - [xAI Blog](https://x.ai/blog)
+  - [Artificial Analysis — xAI Models](https://artificialanalysis.ai/providers/xai)
+  - [BenchLM](https://benchlm.com)
+  - [Hugging Face — xAI Models](https://huggingface.co/xai)
 - Future sources: add a new file next to this one, e.g. `Grok_5.md`, using the same headings — **only when Grok 5 is publicly released with verifiable benchmarks**.
+
+---

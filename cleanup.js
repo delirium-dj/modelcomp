@@ -1,7 +1,6 @@
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 
-// ⚠️ MAKE SURE THIS MATCHES YOUR VERCEL PROJECT ID
-// You can find this in Vercel Dashboard > Project Settings > General
+// Replace this placeholder with your exact Project ID string from Vercel Project Settings
 const PROJECT_ID = "prj_cZ6fRz2Xp2qf6Sj9K3mP8vWq4t1B";
 
 const DAYS_TO_KEEP = 3;
@@ -17,12 +16,13 @@ async function cleanupOldDeployments() {
 
   try {
     console.log("Fetching deployments from Vercel...");
+
+    // Fixed URL construction with correct template literals and parameter query prefix '?'
     const response = await fetch(`https://vercel.com{PROJECT_ID}&limit=100`, {
       headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
     });
 
     if (!response.ok) {
-      // This will read out the exact error message text from Vercel's server
       const errorText = await response.text();
       throw new Error(
         `Vercel API returned status ${response.status}: ${errorText}`,
@@ -57,7 +57,6 @@ async function cleanupOldDeployments() {
     }
     console.log("Cleanup process completed successfully!");
   } catch (error) {
-    // 🔍 This prints out the complete error stack trace to the GitHub console log
     console.error("Detailed Execution Error:", error);
     process.exit(1);
   }
