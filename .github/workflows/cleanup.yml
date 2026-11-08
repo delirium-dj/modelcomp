@@ -18,6 +18,6 @@ jobs:
         run: node cleanup.js
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          PROJECT_ID: 'prj_0prkidewxqbh5khccp8ai17b3omh'
+          PROJECT_ID: 'prj_0prkiDEwxQBH5KhCcP8ai17b3OmH'
           TEAM_ID: 'delirium-djs-projects'
           DAYS_TO_KEEP: '3'
