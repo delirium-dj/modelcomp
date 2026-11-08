@@ -1,4 +1,4 @@
-const https = require('https');
+import https from 'https';
 
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 const PROJECT_ID = 'prj_0prkidewxqbh5khccp8ai17b3omh'; // Your verified Project ID
@@ -11,7 +11,7 @@ if (!VERCEL_TOKEN) {
 }
 
 const options = {
-  hostname: 'api.vercel.com',
+  hostname: '://vercel.com',
   path: `/v6/deployments?projectId=${PROJECT_ID}&limit=100`,
   method: 'GET',
   headers: {
@@ -44,7 +44,7 @@ const req = https.request(options, (res) => {
           console.log(`Deleting deployment: ${d.url} (${d.uid})`);
           
           const delOptions = {
-            hostname: 'api.vercel.com',
+            hostname: '://vercel.com',
             path: `/v13/deployments/${d.uid}`,
             method: 'DELETE',
             headers: {
