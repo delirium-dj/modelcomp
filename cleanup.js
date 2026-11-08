@@ -1,8 +1,5 @@
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-
-// ⚠️ MAKE SURE THIS IS YOUR ACTUAL PROJECT ID
-const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH";
-
+const PROJECT_ID = 'prj_0prkidewxqbh5khccp8ai17b3omh'; // Your verified Project ID
 const DAYS_TO_KEEP = 3;
 const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
 
@@ -14,19 +11,18 @@ async function cleanupOldDeployments() {
 
   try {
     console.log("Fetching deployments from Vercel...");
-
-    // Using regular quotes and plus signs to guarantee the URL builds correctly
-    const url = "https://vercel.com" + PROJECT_ID + "&limit=100";
-
+    
+    // Safely constructs: https://vercel.com
+    const query = new URLSearchParams({ projectId: PROJECT_ID, limit: '100' }).toString();
+    const url = 'https://vercel.com?' + query;
+    
     const response = await fetch(url, {
-      headers: { Authorization: "Bearer " + VERCEL_TOKEN },
+      headers: { 'Authorization': 'Bearer ' + VERCEL_TOKEN },
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(
-        "Vercel API status " + response.status + ": " + errorText,
-      );
+      throw new Error("Vercel API status " + response.status + ": " + errorText);
     }
 
     const data = await response.json();
@@ -34,30 +30,28 @@ async function cleanupOldDeployments() {
     console.log("Found " + deployments.length + " total deployments.");
 
     for (const deployment of deployments) {
-      if (deployment.target === "production") continue;
+      if (deployment.target === 'production') continue;
 
       if (deployment.createdAt < THREE_DAYS_AGO) {
         console.log("Deleting deployment: " + deployment.url);
-
-        const deleteUrl = "https://vercel.com" + deployment.uid;
+        
+        const deleteUrl = 'https://vercel.com' + deployment.uid;
         const deleteResponse = await fetch(deleteUrl, {
-          method: "DELETE",
-          headers: { Authorization: "Bearer " + VERCEL_TOKEN },
+          method: 'DELETE',
+          headers: { 'Authorization': 'Bearer ' + VERCEL_TOKEN },
         });
 
         if (!deleteResponse.ok) {
           const deleteError = await deleteResponse.text();
-          console.error(
-            "Failed to delete " + deployment.uid + ": " + deleteError,
-          );
+          console.error("Failed to delete " + deployment.uid + ": " + deleteError);
         } else {
           console.log("Successfully deleted " + deployment.uid);
         }
       }
     }
-    console.log("Cleanup process completed successfully!");
+    console.log('Cleanup process completed successfully!');
   } catch (error) {
-    console.error("Detailed Execution Error:", error);
+    console.error('Detailed Execution Error:', error);
     process.exit(1);
   }
 }
