@@ -196,6 +196,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.7_Plus.md": [93, 88, 85, 68, 93, 62, 85.4],
     "Qwen_3.8_Flash.md": [88, 84, 96, 70, 92, 28, 86],
     "Qwen_3.8_Max.md": [91, 93, 97, 86, 94, 55, 92],
+    "Solar_Mini_4.md": [85, 88, 95, 65, 85, 95, 84],
     "Step_5_Preview.md": [84, 92, 96, 68, 93, 30, 87],
     "Xing_4.0.29B_A4B.md": [92, 74, 85, 75, 90, 30, 83],
     "Xing_4.0_29B_A4B.md": [82, 85, 85, 70, 98, 35, 84],

@@ -1,4 +1,5 @@
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
+const VERCEL_TOKEN =
+  vcp_5HCtJObRBh9wvcDxTiWgkFcjl5GjAOYJEf4hfL5Gm7rIqjvnZx1Q7Hhn;
 const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH"; // Replace with your Vercel Project ID
 const DAYS_TO_KEEP = 3;
 const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
