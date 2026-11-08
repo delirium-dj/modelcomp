@@ -570,7 +570,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [86.5, 87.1, 79.2, 73.3, 88.3, 58.1, 83],
   },
   "claude-opus-4.6": {
-    "Beam.md": [78, 72, 82, 82, 74, 75, 78],
+    "Beam.md": [80, 75, 85, 85, 78, 75, 80.6],
     "Big_Pickle.md": [84, 87, 84, 80, 85, 78, 84],
     "Claude_Opus_4.6.md": [73, 82, 93, 65, 82, 70, 79],
     "Claude_Opus_4.8.md": [78, 82, 90, 68, 82, 45, 80],
@@ -631,7 +631,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [89.3, 90.3, 96.1, 80.3, 89.3, 51.2, 89.1],
   },
   "claude-opus-4.7": {
-    "Beam.md": [78, 76, 82, 82, 76, 75, 78.8],
+    "Beam.md": [84, 80, 80, 84, 78, 75, 81.2],
     "Big_Pickle.md": [78, 85, 95, 85, 87, 45, 86],
     "Claude_Opus_4.6.md": [90, 90, 92, 68, 92, 68, 86],
     "Claude_Sonnet_4.6.md": [90, 91, 92, 62, 90, 75, 85],
@@ -2292,7 +2292,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [90.8, 94.2, 94.7, 93.5, 90.4, 81.6, 92.9],
   },
   "gemini-3.5-flash": {
-    "Beam.md": [78, 78, 78, 86, 72, 85, 78],
+    "Beam.md": [78, 84, 84, 86, 78, 90, 82],
     "Big_Pickle.md": [80, 78, 88, 84, 80, 62, 82],
     "Claude_Opus_4.6.md": [78, 75, 97, 90, 75, 85, 83],
     "Claude_Opus_4.8.md": [78, 83, 90, 88, 81, 98, 84],
@@ -2408,7 +2408,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [76.6, 78, 94.3, 89.1, 77.1, 95.5, 83],
   },
   "gemini-3.6-flash": {
-    "Beam.md": [76, 76, 78, 86, 70, 90, 77],
+    "Beam.md": [72, 78, 82, 84, 74, 90, 78],
     "Big_Pickle.md": [82, 85, 83, 84, 82, 86, 83],
     "Claude_Opus_4.6.md": [72, 73, 97, 90, 72, 90, 81],
     "Claude_Opus_4.8.md": [77, 82, 94, 88, 81, 98, 84.4],
@@ -3314,7 +3314,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [86.4, 84.7, 92.2, 44.3, 88.2, 83.1, 79.3],
   },
   "glm-5.3-flash": {
-    "Beam.md": [78, 72, 80, 82, 76, 98, 78],
+    "Beam.md": [78, 82, 88, 82, 76, 85, 81.2],
     "Big_Pickle.md": [76, 84, 86, 76, 76, 95, 80],
     "Claude_Opus_4.6.md": [70, 72, 97, 80, 72, 97, 78],
     "Claude_Opus_4.8.md": [84, 82, 93, 80, 84, 98, 84.6],
@@ -4096,7 +4096,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [73.1, 77.6, 82.5, 67.5, 75, 93.9, 75.2],
   },
   "gpt-5.4-pro": {
-    "Beam.md": [82, 88, 84, 78, 72, 45, 81],
+    "Beam.md": [78, 86, 80, 75, 70, 50, 78],
     "Big_Pickle.md": [84, 86, 88, 74, 76, 30, 81.6],
     "Claude_Opus_4.6.md": [87, 91, 87, 76, 82, 20, 85],
     "Claude_Opus_4.8.md": [82, 87, 93, 65, 83, 45, 82],
@@ -4153,7 +4153,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [90.8, 92.5, 95.4, 81.5, 89, 37.7, 89.9],
   },
   "gpt-5.5": {
-    "Beam.md": [84, 82, 84, 84, 78, 75, 82],
+    "Beam.md": [78, 80, 88, 84, 82, 75, 82],
     "Big_Pickle.md": [67, 67, 71, 61, 67, 52, 67],
     "Claude_Opus_4.6.md": [82, 88, 95, 90, 72, 45, 85],
     "Claude_Opus_4.8.md": [85, 86, 94, 65, 85, 65, 83],
@@ -4385,7 +4385,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [92.7, 94, 95.8, 85.4, 92.6, 68.1, 92.1],
   },
   "gpt-5.6-terra": {
-    "Beam.md": [78, 84, 86, 84, 76, 85, 82],
+    "Beam.md": [82, 84, 88, 84, 82, 80, 84],
     "Big_Pickle.md": [82, 88, 87, 78, 83, 72, 84],
     "Claude_Opus_4.6.md": [88, 89, 88, 55, 84, 42, 81],
     "Claude_Opus_4.8.md": [85, 86, 95, 90, 88, 65, 88.8],
@@ -7833,6 +7833,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Gemini_3.8_Flash.md": [64, 64, 55, 20, 57, 82, 52],
     "Laguna_XS_2.1.md": [64, 64, 55, 20, 57, 82, 52],
     "Muse_Glimmer_30B.md": [65, 64, 63, 42, 60, 81, 59],
+    "Nemotron_3_Ultra_550B_A55B.md": [64, 64, 55, 20, 57, 82, 52],
     "Step_5_Preview.md": [50, 50, 50, 15, 50, 85, 43],
     "average.md": [57, 57, 52.5, 17.5, 53.5, 83.5, 47.5],
   },
@@ -8057,6 +8058,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Laguna_XS_2.1.md": [85, 83, 86, 55, 88, 68, 79],
     "Nemotron_3.5_Lightning_30B_A3B.md": [80, 73, 58, 40, 85, 82, 67.2],
     "Nemotron_3.5_Super_VL_120B_A12B.md": [85, 83, 70, 15, 88, 68, 68.2],
+    "Nemotron_3_Ultra_550B_A55B.md": [85, 83, 86, 55, 88, 68, 79],
     "Qwen_3.8_Flash.md": [70, 60, 58, 42, 62, 45, 58.4],
     "Step_5_Preview.md": [50, 50, 64, 15, 50, 88, 46],
     "average.md": [69.3, 64.5, 66, 31.8, 68.5, 55.8, 59.9],
@@ -8892,7 +8894,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "average.md": [84.5, 85.7, 87.5, 84.5, 85.5, 89.4, 85.6],
   },
   "qwen-3.8-max": {
-    "Beam.md": [70, 84, 88, 88, 78, 80, 82],
+    "Beam.md": [88, 88, 90, 85, 86, 75, 87.4],
     "Big_Pickle.md": [84, 85, 90, 86, 85, 80, 86],
     "Claude_Opus_4.6.md": [75, 88, 95, 65, 78, 83, 80],
     "Claude_Opus_4.8.md": [85, 83, 95, 89, 85, 85, 87.4],

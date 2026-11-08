@@ -1,57 +1,57 @@
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 
-// Replace this placeholder with your exact Project ID string from Vercel Project Settings
-const PROJECT_ID = "prj_cZ6fRz2Xp2qf6Sj9K3mP8vWq4t1B";
+// ⚠️ MAKE SURE THIS IS YOUR ACTUAL PROJECT ID
+const PROJECT_ID = "prj_0prkiDEwxQBH5KhCcP8ai17b3OmH";
 
 const DAYS_TO_KEEP = 3;
 const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
 
 async function cleanupOldDeployments() {
   if (!VERCEL_TOKEN) {
-    console.error(
-      "Error: VERCEL_TOKEN environment variable is missing in GitHub Secrets.",
-    );
+    console.error("Error: VERCEL_TOKEN environment variable is missing.");
     process.exit(1);
   }
 
   try {
     console.log("Fetching deployments from Vercel...");
 
-    // Fixed URL construction with correct template literals and parameter query prefix '?'
-    const response = await fetch(`https://vercel.com{PROJECT_ID}&limit=100`, {
-      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+    // Using regular quotes and plus signs to guarantee the URL builds correctly
+    const url = "https://vercel.com" + PROJECT_ID + "&limit=100";
+
+    const response = await fetch(url, {
+      headers: { Authorization: "Bearer " + VERCEL_TOKEN },
     });
 
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(
-        `Vercel API returned status ${response.status}: ${errorText}`,
+        "Vercel API status " + response.status + ": " + errorText,
       );
     }
 
     const data = await response.json();
     const deployments = data.deployments || [];
-    console.log(`Found ${deployments.length} total deployments.`);
+    console.log("Found " + deployments.length + " total deployments.");
 
     for (const deployment of deployments) {
       if (deployment.target === "production") continue;
 
       if (deployment.createdAt < THREE_DAYS_AGO) {
-        console.log(`Deleting deployment: ${deployment.url}`);
+        console.log("Deleting deployment: " + deployment.url);
 
-        const deleteResponse = await fetch(
-          `https://vercel.com{deployment.uid}`,
-          {
-            method: "DELETE",
-            headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
-          },
-        );
+        const deleteUrl = "https://vercel.com" + deployment.uid;
+        const deleteResponse = await fetch(deleteUrl, {
+          method: "DELETE",
+          headers: { Authorization: "Bearer " + VERCEL_TOKEN },
+        });
 
         if (!deleteResponse.ok) {
           const deleteError = await deleteResponse.text();
-          console.error(`Failed to delete ${deployment.uid}: ${deleteError}`);
+          console.error(
+            "Failed to delete " + deployment.uid + ": " + deleteError,
+          );
         } else {
-          console.log(`Successfully deleted ${deployment.uid}`);
+          console.log("Successfully deleted " + deployment.uid);
         }
       }
     }
