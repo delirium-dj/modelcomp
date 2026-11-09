@@ -16,21 +16,19 @@
     "kimi-k3",
     "qwen-3.8-27b",
     "gpt-oss-120b",
-    "minimax-m3",
-    "qwen-3.5-9b",
     "qwen-3.5-122b-a10b"
   ],
   "plans": [
     {
       "name": "Pay-as-you-go credits",
       "price": "Top up credits; no subscription or minimum spend",
-      "notes": "Per-token list prices across every model, e.g. GLM 5.3 Flash €0.10/€0.40 per 1M and DeepSeek V4.1 Flash €0.30/€1.20 per 1M; cached input from €0.02/1M.",
+      "notes": "Per-token list prices across every model, e.g. DeepSeek V4.1 Flash €0.20/€1.00 per 1M (cache €0.01), DeepSeek V4.1 Flash 1017 €0.30/€1.20 (cache €0.03), GLM 5.3 Flash €0.10/€0.40 (cache €0.02); cached input from €0.01/1M.",
       "evidenceUrl": "https://melious.ai/pricing"
     },
     {
       "name": "Coding subscriptions",
-      "price": "Basic €49/mo, Pro €149/mo, Unlimited 3x €499/mo, Unlimited 6x €1399/mo",
-      "notes": "Fixed monthly token allowances for coding agents (Cursor, Codex, Claude Code, OpenCode) on EU-hosted open models.",
+      "price": "Basic €49/mo, Pro €149/mo",
+      "notes": "Fixed monthly token allowances for coding agents (Cursor, Codex, Claude Code, OpenCode) on EU-hosted open models: Basic up to 3B tokens/mo (DeepSeek V4.1 Flash 1017; GLM 5.3 up to 700M; GLM 5.3 Flash up to 6.5B), Pro up to 10B (GLM 5.3 up to 2.5B; GLM 5.3 Flash up to 25B). Prices net, plus VAT; offer for businesses (§14 BGB); cancel monthly.",
       "evidenceUrl": "https://melious.ai/pricing"
     },
     {

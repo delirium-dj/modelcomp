@@ -52,7 +52,7 @@ export const halfUp1 = (x) => Math.round(x * 10) / 10;
 export function parseScoresPure(md) {
   const out = {};
   for (const label of LABELS) {
-    const m = md.match(new RegExp(`\\*\\*${label}:\\s*([\\d.]+)/100`));
+    const m = md.match(new RegExp(`- \\*\\*${label}:\\s*([\\d.]+)/100`));
     if (!m) return { ok: false, missingLabel: label };
     out[label] = Number(m[1]);
   }

@@ -36,6 +36,7 @@
 - **Context window: 75/100.** Documented 256K context (200K–500K tier) → ~75; 200K recommended.
 - **Multimodal: 65/100.** Text + image input, text out → image-in band (60–70).
 - **Coding: 60/100.** Proof-engineering coding via FLTEval; cost-adjusted comparisons vs Claude/OSS.
+- **Overall Score: 64/100**
 
 Mean of five quality dims (Tool 55 + Reasoning 65 + Context 75 + Multimodal 65 + Coding 60) / 5 = **64** → **Overall Score: 64/100.** Cost efficiency excluded from the mean.
 

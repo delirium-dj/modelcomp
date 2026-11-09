@@ -24,6 +24,7 @@ Each model uses the same fields and the same 1–100 scales so new models can be
 | Xiaomi MiMo-V2.5-Pro (`mimo-v2.5-pro` — requested as Free, no Free ID found on Zen) | 82 | 78 | 100 | 15 | 82 | 85 | 74 |
 | MiMo V2.6 Pro (`xiaomi/mimo-v2.6-pro`) | 89 | 89 | 96 | 92 | 89 | 92 | 91 |
 | Beam 1.0 (`reflection/Beam-1.0-501B-A23B`) | 73 | 86 | 95 | 15 | 72 | 100 | 68 |
+| Fledge Alpha (`stealth-model/fledge-alpha`) | 50 | 82 | 95 | 65 | 50 | 100 | 68 |
 | Mistral Large 3 (`opencode/mistral-large-3`) | 64 | 66 | 78 | 60 | 58 | 85 | 65 |
 | Mistral Small 4 (`opencode/mistral-small-4`) | 62 | 68 | 74 | 60 | 60 | 90 | 65 |
 
@@ -150,6 +151,13 @@ Full details moved to [`model/beam/Xing_4.0_29B_A4B.md`](model/beam/Xing_4.0_29B
 
 - **Scores:** Tool 73 / Reasoning 86 / Context 95 / Multimodal 15 / Coding 72 / Cost 100 → **Overall 68**
 - **One-liner:** frontier open-weight MoE for agentic coding with exceptional reasoning (AIME 97.7%, GPQA 90.6%); text-only multimodal caps the overall.
+
+## Fledge Alpha
+
+Full details moved to [`model/fledge-alpha/Xing_4.0_29B_A4B.md`](model/fledge-alpha/Xing_4.0_29B_A4B.md).
+
+- **Scores:** Tool 50 / Reasoning 82 / Context 95 / Multimodal 65 / Coding 50 / Cost 100 → **Overall 68**
+- **One-liner:** strong knowledge reasoning (GPQA 92.3%, MMLU-Pro 92%) with verified 1M context + image input; zero verified tool/coding benchmarks; suspected router model, access discontinued on OpenCode Zen as of Oct 2026.
 
 - **Scores:** Tool 89 / Reasoning 89 / Context 96 / Multimodal 92 / Coding 89 / Cost 92 → **Overall 91**
 - **One-liner:** best-in-class open-weight model with outstanding multimodal capabilities, large context window, and strong performance across multiple domains.

@@ -35,6 +35,7 @@
 - **Context window: 75/100.** Native **256K** context (extensible to 512K) falls in the 200K–500K tier (65–84; 200K = 70) → ~75.
 - **Multimodal: 15/100.** No multimodal evaluation performed (text in/text out + reasoning + tool use only) → text-only band.
 - **Coding: 85/100.** SWE-bench Verified **75.0** (frontier reference band: DeepSWE 74%+ → 90–100) and Terminal-Bench 2.1 **57.5**; self-reported vendor numbers flagged → coded in the ~85 band with self-report caveat.
+- **Overall Score: 61/100**
 
 Mean of five quality dims (Tool 60 + Reasoning 70 + Context 75 + Multimodal 15 + Coding 85) / 5 = **61** → **Overall Score: 61/100.** Cost efficiency excluded from the mean.
 

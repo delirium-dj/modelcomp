@@ -9,7 +9,7 @@
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "Free account with 25 MB storage and limited AI & Cloud access.",
+      "notes": "Free account with 25 MB storage and limited initial testing credits. External OpenAI-compatible API gateway calls require an active subscription once testing quota is exhausted or for restricted endpoints.",
       "evidenceUrl": "https://puter.com"
     },
     {
@@ -37,16 +37,16 @@
       "evidenceUrl": "https://puter.com"
     },
     {
-      "name": "Free model ids",
-      "price": "$0",
-      "notes": "Selected catalog ids bill $0 per 1M tokens (e.g. Recursive Flint, MiniMax M3.1 Flash, Fireworks Ember-1).",
+      "name": "Zero-token-cost models",
+      "price": "$0 / 1M tokens (sub required)",
+      "notes": "Selected catalog ids bill $0 per 1M tokens (e.g. Recursive Flint, Fireworks Ember-1, Cohere North Mini Code), but external API gateway access requires an active Puter subscription.",
       "evidenceUrl": "https://developer.puter.com/ai/models/"
     }
   ],
   "covers": [
     "beam", "claude-haiku-5.5", "claude-opus-5.5", "claude-sonnet-5.5", "ember-1", "flint",
     "gemini-4-argon", "gpt-6-luna", "gpt-6-sol", "gpt-6.1-sol", "grok-4.7", "ling-3.1-flash",
-    "mimo-v2.6-flash", "mimo-v2.6-pro", "minimax-m3.1-flash-preview", "mistral-large-4",
+    "mimo-v2.6-flash", "mimo-v2.6-pro", "minimax-m3.1-flash", "mistral-large-4",
     "muse-wonder-1.0", "nemotron-3.5-super-vl", "pareto-26.10-preview", "solar-mini-4", "step-5-preview"
   ]
 }

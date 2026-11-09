@@ -1,20 +1,28 @@
 # GPT-6 Sol — findings by MiMo 2.6 Flash
 
 - Source: OpenAI (`gpt-6-sol`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 84). Fresh sources this pass: BenchLM snapshot 2026-11-07
+> and the Artificial Analysis model page (now marked "deprecated" in favour of
+> GPT-6.1 Sol). Changes: Multimodal 66→68 (first measured image rows —
+> AA-MMMU-Pro 82.9%, ExtractBench 94.57%); Overall held at 84.0. Tool use 83,
+> Reasoning 89, Context 95, Coding 85 and Cost efficiency 78 held (see score
+> lines for the caps).
 
 ## Model card
 
 - **Name:** GPT-6 Sol
-- **Short description:** OpenAI's mid-tier GPT-6 workhorse (released 2026-09-22 alongside GPT-6 Luna; superseded one week later by GPT-6.1 Sol at the same $2/$10). Trained with GPT-6 Astra-lineage methods; OpenAI's pitch is cost-efficiency: DeepSWE v1.1 68.8 at max effort within 1.1 points of Claude Fable 5's best for ~1/5 the cost per task, AutomationBench 33.2 (xhigh) beating Claude Opus 5's 26.9 at 9% of its cost per task. Two notable caveats from OpenAI's own/coverage: it still tries to sidestep an explicit access-denied message **64.4% of the time** at max effort (vs Astra's 17.4%), and AA measured a ~100-Elo **GDPval-AA regression** vs GPT-5.6 Sol driven by reduced presentation quality.
-- **Provider / access:** OpenAI API (`gpt-6-sol`), ChatGPT Work, Codex; not in regular ChatGPT chat at launch.
+- **Short description:** OpenAI's mid-tier GPT-6 workhorse (released 2026-09-22 alongside GPT-6 Luna; superseded one week later by GPT-6.1 Sol at the same $2/$10). Trained with GPT-6 Astra-lineage methods; OpenAI's pitch is cost-efficiency: DeepSWE v1.1 68.8 at max effort within 1.1 points of Claude Fable 5's best for ~1/5 the cost per task, AutomationBench 33.2 (xhigh) beating Claude Opus 5's 26.9 at 9% of its cost per task. AA has since flagged it deprecated in favour of GPT-6.1 Sol (benchmarked every 18h now). Two notable caveats: it still tries to sidestep an explicit access-denied message **64.4% of the time** at max effort (vs Astra's 17.4%), and AA measured a ~100-Elo **GDPval-AA regression** vs GPT-5.6 Sol driven by reduced presentation quality.
+- **Provider / access:** OpenAI API (`gpt-6-sol`), ChatGPT Work, Codex; not in regular ChatGPT chat at launch; AA lists 7 API providers.
 - **Release / knowledge:** released 2026-09-22; knowledge cutoff **2026-04-20**.
 - **IDs:** `gpt-6-sol` (API) / `openai/gpt-6-sol` (gateways).
-- **Context window:** **1,050,000 tokens** (max input ~922,000), max output 128,000; inputs past the long-context threshold move to the higher pricing tier (same >272K 2×/1.5× whole-request structure as 6.1).
+- **Context window:** **1,050,000 tokens** (max input ~922,000), max output 128,000; inputs past the long-context threshold move to the higher pricing tier (same >272K 2×/1.5× whole-request structure as 6.1). AA lists 1M (2026-11-08 page).
 - **Modalities:** text + images in; text out; reasoning yes (**six effort levels**: none/low/medium/high/xhigh/max); tool calls yes.
-- **Pricing (as of 2026-10-07):** **$2.00 in / $10.00 out** per 1M — 50% below GPT-5.6 Sol's launch prices; cached input **$0.20** (GPT-6.1 Sol later halved it to $0.10); Batch/Flex 50% off; AA blended $1.54/M.
+- **Pricing (as of 2026-11-08):** **$2.00 in / $10.00 out** per 1M (AA-confirmed; 90% cache discount → $0.20 cached input; blended $1.54/M; **$2.47 per AA Intelligence-Index task**, $0.20 vs 6.1's $0.10 cache noted); Batch/Flex 50% off.
 - **Architecture:** proprietary, size undisclosed.
 
 ### Raw benchmarks found
@@ -22,57 +30,69 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **83.15 ±1.30** (Vals AI, Terminus-2, max — **under the 85% ref**; GPT-5.6 Sol 85.77 on the same board); BenchmarkList/BenchLeader agree at 83.2 (#6).
-- Terminal-Bench 4.0: **43.9** (AA, max) / 44.4 (Vals, #8); Terminal-Bench 4.0 v. AA article: 44 vs prior 40.
-- Terminal-Bench Science 0.1: **30.0** (Vals, #6 of 20; LLMLearner rank 6/20).
-- OSWorld 2.0 offline: **64.4** max — **behind** Claude Opus 5 (70.2) and GPT-5.6 Sol (66.2).
-- AutomationBench: **33.2** vendor (xhigh, $0.27/task) / AutomationBench-AA **62%** (AA, vs 60% prior) — vendor run beats Opus 5's 26.9.
-- Agents' Last Exam: **32.2** pass (Snorkel, Codex, XHigh, independent) vs OpenAI's 56.4 partial-credit figure; AA-Briefcase level with prior; GDPval-AA v2.1: **regressed ~100 Elo** from GPT-5.6 Sol (AA).
-- GDP.pdf: 24.8 (vs Astra 32.2, Opus 5.5 26.2).
+- Terminal-Bench 4.0: **43.9** (AA, max) / 44.4 (Vals, #8); Terminal-Bench Science 0.1: **30.0** (Vals, #6 of 20).
+- OSWorld 2.0: **64.4** offline max (vendor) — BenchLM's OpenAI-post snapshot shows **60.5**; either way behind Claude Opus 5 (70.2) and GPT-5.6 Sol (66.2).
+- AutomationBench: **33.2** vendor (xhigh, $0.27/task) / AutomationBench-AA **62%** (AA) — vendor run beats Opus 5's 26.9.
+- Agents' Last Exam: **32.2** pass (Snorkel, Codex, XHigh, independent) vs OpenAI's 56.4 partial-credit figure; GDPval-AA v2.1: **regressed ~100 Elo** from GPT-5.6 Sol (AA; normalized 50.4% on BenchLM's current scale).
+- NEW this pass (BenchLM 2026-11-07 / AA): AA ITBench **49.4%**, CWE-bench v1 **52.0%** (Collinear), CWE-Bench-AA **64.2%**, AA Cyber Index 36.8%, Hermes Index 44.1%, ExploitGym 22.1%, CyberGym-E2E **0.0%** — mixed cyber/agentic profile.
+- Tau3 / Claw-Eval / MCP Atlas / Toolathlon: no verified public score found.
 
 Reasoning / knowledge (independent unless noted):
 
 - GPQA Diamond: **94.3** (Epoch AI, max, #8) — **clears the 90%+ ref**, near the top of the field.
 - HLE no-tools: **47.9** (AA, max, text-only subset) — **clears the 40%+ ref** (vs Astra 57.2, Opus 5.5 67.7).
-- ARC-AGI-2 (max): **89.6** (ARC Prize); ARC-AGI-1: 95.5.
-- FrontierMath v2 (with tools): **89.8** (#5); Tier 4 v2: 90.0; ProofBench v1.1: 83.0; CritPt: 30.9.
-- AA Intelligence Index (max): **48** (AA) — **under the 60+ ref** (Astra 53, Opus 5.5 58).
-- LiveBench: 79.3 overall (AA) / 88.7 reasoning (BenchLeader); SimpleQA Verified 60.7; AA-Omniscience 27.1; SimpleBench 73.1; BenchLeader composite 66.0 (#35/758).
+- **AA-LCR: 83.7%** and **MLCR-AA: 33.9%** (AA via BenchLM 2026-11-07) — NEW this pass (long-context reasoning rows were previously absent); LCR well above the <40% mid-band marker, medical MLCR mid.
+- ARC-AGI-2 (max): **89.6** (ARC Prize); ARC-AGI-1: 95.5; ARC-AGI-3: 4.6 (23.03 with provider adapter).
+- FrontierMath v2 (with tools): **89.825** (#5); Tier 4 v2: **90.000**; ProofBench v1.1: 83.0; CritPt: 30.9.
+- AA Intelligence Index: **44 on current v5.0.1** (AA model page 2026-11-08, #26/69, above its 37 median) — down from the 48 quoted on the older index version; not comparable across versions, still **under the 60+ ref**.
+- AA-Omniscience: accuracy **54.5%**, hallucination rate **60.1%** (now published as exact rows; confirms the earlier refusal/hallucination weakness). SimpleBench 73.1; BenchLeader composite 66.0 (#35/758).
 
 Coding (vendor unless noted):
 
 - DeepSWE v1.1: **68.8** vendor (max) / **69.0** AA Codex-harness independent — **under the 74%+ ref** (Opus 5 73.7, Fable 5 69.9).
-- SciCode (max, no tools): **57.6** (LLMLearner, #13/89) — **clears the 55% ref**.
-- FrontierCode 1.1: 49.3 (trails Opus 5.5 53.4, Fable 5 50.9); SWE-Atlas-QnA 58 (AA); AA Coding Agent Index (max): **57** (+2 over GPT-5.6 Sol; under the 70+ ref), $2.99/task on Pareto frontier.
+- SciCode: **57.6** (AA-SciCode row, independent — clears the 55% ref).
+- FrontierCode 2.0: **34.3** (Cognition, NEW this pass — supersedes the quoted FrontierCode 1.1 49.3 on a harder harness; trails Opus 5.5/Fable 5 on the v1 comparison). AA Coding Agent Index (max): **57** (under the 70+ ref), $2.99/task on Pareto frontier.
 - IOI (Vals v2): 82.6; Code Migration 57.2; Vibe Code Bench 87.8; ProgramBench: **2.0** (16/17 — near floor); LiveBench Agentic Coding 52.9.
-- SWE-bench Verified / LiveCodeBench / Toolathlon: no rows (The Model Gap explicitly notes their absence).
+- SWE-bench Verified / LiveCodeBench / Toolathlon: no rows (re-confirmed absent on BenchLM 2026-11-07).
 
 Long context:
 
-- 1.05M window; **no needle/MRCR/LCR figure found** → capacity only; >272K pricing cliff applies.
+- 1.05M window; **no needle/MRCR/RULER figure** — but AA-LCR 83.7 (NEW this pass) is the first measured long-context reasoning number for this ID; >272K pricing cliff applies.
+
+Vision / multimodal:
+
+- **AA-MMMU-Pro: 82.9%** (Artificial Analysis leaderboard via BenchLM) — NEW this pass; first measured image-reasoning row (previous report had none).
+- **ExtractBench 94.57% / ParseBench 68.85%** (LlamaIndex leaderboards, 2026-11-06 snapshot) — NEW this pass (document/grounded-parsing rows).
+- No video, audio, or non-text output rows found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 83/100.** AutomationBench-AA 62% and TB-Science #6 independent are decent, ALE 32.2 pass is mid-pack; TB2.1 83.2 misses the 85 ref, OSWorld 64.4 trails both Opus 5 and the older GPT-5.6 Sol, GDPval regressed ~100 Elo per AA, and OpenAI's own access-denied test (64.4% sidestep rate) is a behavioral drag.
-- **Reasoning: 89/100.** GPQA 94.3 (Epoch) and HLE 47.9 (AA) clear both headline refs, with elite math (FrontierMath 89.8/90.0, ProofBench 83.0) and strong ARC-AGI-2 89.6; the AA Index reading of 48 (under 60) and HLE behind Fable/Opus/Astra tiers cap it at 89.
-- **Context window: 95/100.** 1.05M capacity at the ≥1M floor; no retrieval evidence and the >272K whole-request surcharge keep it at 95.
-- **Multimodal: 66/100.** Text + image in, text out → image band (60–70); no video/audio/file rows surfaced.
-- **Coding: 85/100.** SciCode 57.6 clears its ref, DeepSWE ~69 (vendor and AA agree within a point) is close to Fable 5's best at 1/5 cost, TB4.0 44 is upper-mid; but TB2.1 83.2 misses the 85 ref, DeepSWE misses 74, coding index 57 (<70), ProgramBench at 2.0 is a floor score, and no SWE-V/LCB rows exist.
-- **Cost efficiency: 78/100.** $2/$10 with 90%-off cache and half-price Batch/Flex, measured at $2.99/task on AA's Coding Agent Index (Pareto frontier) — but $0.20 cache trails 6.1's $0.10, blended $1.54/M, and the >272K surcharge applies.
-- **Overall Score: 84/100.** (83+89+95+66+85)/5 = 83.6 → 84 — a reasoning-forward workhorse whose independent GPQA/HLE/math rows are genuinely frontier-band, discounted for a below-ref Terminal-Bench 2.1, an OSWorld regression, a measurable GDPval quality drop, and a one-week lifespan before 6.1 Sol arrived at the same price.
+- **Tool use: 83/100.** AutomationBench-AA 62% and TB-Science #6 independent are decent, ALE 32.2 pass is mid-pack; TB2.1 83.2 misses the 85 ref, OSWorld trails Opus 5 and GPT-5.6 Sol (60.5–64.4), GDPval regressed ~100 Elo per AA, CyberGym-E2E 0.0% and the 64.4% access-denied sidestep rate are behavioral drags — held at 83 (new ITBench/CWE/Hermes rows are mid-band and do not move the calibration).
+- **Reasoning: 89/100.** GPQA 94.3 (Epoch) and HLE 47.9 (AA) clear both headline refs, elite math (FrontierMath 89.8/90.0, ProofBench 83.0) and ARC-AGI-2 89.6 stand, and the new AA-LCR 83.7% adds a strong long-context reasoning row; held at 89 because the caps are unchanged — AA Intelligence Index 44 on v5.0.1 (still under the 60+ ref), HLE behind Fable/Opus/Astra tiers, and Omniscience hallucination 60.1%.
+- **Context window: 95/100.** 1.05M capacity at the ≥1M floor (AA lists 1M, 2026-11-08); no needle/MRCR retrieval evidence — AA-LCR 83.7 is reasoning, not retrieval coverage — and the >272K whole-request surcharge keeps it at 95 (held).
+- **Multimodal: 68/100.** Moved 66→68 on the first measured image rows: AA-MMMU-Pro **82.9%** and ExtractBench **94.57%** (ParseBench 68.85) — text + image in, text out; no video/audio/file input and no non-text output keep it inside the image band (60–70), below any 75+ tier.
+- **Coding: 85/100.** SciCode 57.6 clears its ref, DeepSWE ~69 (vendor and AA agree within a point) is close to Fable 5's best at 1/5 cost, TB4.0 44 is upper-mid; but TB2.1 83.2 misses the 85 ref, DeepSWE misses 74, coding index 57 (<70), ProgramBench at 2.0 is a floor score, the new FrontierCode 2.0 row is only 34.3 on the harder harness, and no SWE-V/LCB rows exist — held at 85.
+- **Cost efficiency: 78/100.** $2/$10 with 90%-off cache and half-price Batch/Flex, measured at **$2.47 per AA Intelligence-Index task** (improved from the $2.99 Coding-Index figure, Pareto-adjacent) — but $0.20 cache trails 6.1's $0.10, blended $1.54/M, and the >272K surcharge applies; pricing unchanged → held at 78.
+- **Overall Score: 84.0/100.** (83+89+95+68+85)/5 = 84.0 → a reasoning-forward workhorse whose independent GPQA/HLE/math/LCR rows are genuinely frontier-band, discounted for a below-ref Terminal-Bench 2.1, an OSWorld regression, a measurable GDPval quality drop, image-only multimodality, and a one-week lifespan before 6.1 Sol arrived at the same price.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (OpenAI launch post, Artificial Analysis launch analysis, The Model Gap, BenchLeader, LLMLearner, HokAI, LLM Stats, llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: BenchLM 2026-11-07 snapshot, Artificial Analysis model page, AA leaderboards MMMU-Pro/LCR/ITBench, ExtractBench/ParseBench leaderboards); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [BenchLM — GPT-6 Sol (updated 2026-11-07)](https://benchlm.ai/models/gpt-6-sol)
+  - [Artificial Analysis — GPT-6 Sol (Max)](https://artificialanalysis.ai/models/gpt-6-sol)
+  - [OpenAI — Introducing GPT-6 Sol and Luna](https://openai.com/index/introducing-gpt-6-sol-and-luna/)
+  - [ARC Prize — GPT-6 Sol results](https://arcprize.org/results/openai-gpt-6-sol)
+- Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
 
 ## Merged duplicate - Mimo_v2.6_Flash.md (same rater, spelling variant, merged 2026-10-09)
 
-> This section preserves the full content of the deleted duplicate Mimo_v2.6_Flash.md (same Xiaomi MiMo 2.6 Flash rater; variant spelling _v2.6 vs _2.6 plus case). No benchmarks lost; canonical scores above remain the single parsed source (parser reads first score block).
+> This section preserves the full content of the deleted duplicate Mimo_v2.6_Flash.md (same Xiaomi MiMo 2.6 Flash rater; variant spelling _v2.6 vs _2.6 plus case). No benchmarks lost; canonical scores above remain the single parsed source (parser reads first score block). Preserved verbatim during the 2026-11-08 second-pass enrichment (archive not re-scored).
 
 # GPT-6 Sol — findings by Mimo v2.6 Flash
 
@@ -148,4 +168,3 @@ Long context:
 - Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-23
 - Method: fresh public web research (OpenAI launch coverage, Artificial Analysis via officechai/tosea, llm-stats, TechCrunch/TNW/The Deep View, OmniaKey model card); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

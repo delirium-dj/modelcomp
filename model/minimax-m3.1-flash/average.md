@@ -1,4 +1,4 @@
-# MiniMax M3.1 Flash Preview — Averaged findings
+# MiniMax M3.1 Flash — Averaged findings
 
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`

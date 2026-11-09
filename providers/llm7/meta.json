@@ -21,8 +21,8 @@
     {
       "name": "Pay as you go",
       "price": "Usage-based",
-      "notes": "Top up from $5; paid access unlocks Pro models with usage-billed pricing (e.g. DeepSeek $1.11/$3.33 per 1M).",
-      "evidenceUrl": "https://llm7.io"
+      "notes": "Top up from $5; paid access unlocks Pro models with usage-billed pricing (e.g. DeepSeek $1.11/$3.33 per 1M). Top-up billing confirmed in docs: after the Pro allowance is reached, requests continue from the topped-up balance at live model pricing.",
+      "evidenceUrl": "https://docs.llm7.io/limits"
     }
   ],
   "covers": [

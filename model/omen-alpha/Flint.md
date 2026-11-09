@@ -34,6 +34,7 @@
 - **Context window: 85/100.** ~500K token context (third-party listings; vendor-unconfirmed) sits in the 500K–1M tier (85–94) → ~85; 128K max output noted as a caveat.
 - **Multimodal: 65/100.** Text+image in, text out, reasoning + tool use reported via community/platform info; image input places it in the 60–70 multimodal band.
 - **Coding: 60/100.** 23.14/40 (~58%) on the four-project coding rubric → mid-low coding band; single dated snapshot, no independent replication.
+- **Overall Score: 65/100**
 
 Mean of five quality dims (Tool 55 + Reasoning 60 + Context 85 + Multimodal 65 + Coding 60) / 5 = **65** → **Overall Score: 65/100.** Cost efficiency excluded from the mean.
 

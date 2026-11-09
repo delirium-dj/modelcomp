@@ -1,0 +1,14 @@
+{
+  "id": "opencode/ternary-bonsai-27b",
+  "name": "Ternary Bonsai 27b",
+  "short": "Lightweight 27B parameter ternary-quantized open-weights model optimized for high-efficiency inference and low-latency text generation.",
+  "contextWindow": "128,000 total",
+  "modalities": "Text in/out only",
+  "pricingNote": "Open-weights ($0 self-host) or standard hosted API pricing",
+  "officialUrl": "https://opencode.ai",
+  "pricingLinks": [
+    "https://opencode.ai"
+  ],
+  "standout": "A 27B parameter ternary-quantized architecture designed for extreme inference efficiency.",
+  "tradeoff": "Specialized quantization trade-offs; limited public benchmark coverage."
+}

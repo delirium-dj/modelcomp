@@ -50,13 +50,13 @@ Long context:
 
 ### Normalized scores (1-100)
 
-* **Tool use: 62/100.** Demonstrates respectable agent performance for a 3B-active model with 47.2% on Tau3-Banking, 22.3% on AutomationBench-AA, and 1072 Elo on GDPval-AA 2.1. Capped below frontier level due to sub-50% Tau3 and lack of top-tier Terminal-Bench 2.1 scores.
-* **Reasoning: 58/100.** Achieves 24.1 on the Artificial Analysis Intelligence Index v4.3.2 and 19.6% on Humanity's Last Exam. Strong for its active parameter class, but capped by sub-20% HLE and lack of frontier-tier GPQA Diamond verification.
-* **Context window: 88/100.** Verified 524,288 token input capacity (500K-1M tier) with an exceptional 83.3% long-context reasoning score on AA-LCR v1.1.
-* **Multimodal: 15/100.** Strictly text-only input and output modalities.
-* **Coding: 55/100.** Reaches 47.6% (0.48) on SciCode scientific problem solving/code synthesis. Capped due to absence of verified public scores on SWE-bench Verified or LiveCodeBench.
-* **Cost efficiency: 98/100.** Highly cost-effective at $0.10/1M input, $0.01/1M cached, and $0.40/1M output tokens.
-* **Overall Score: 56/100.** Mean of non-cost dimensions ((62 + 58 + 88 + 15 + 55) / 5 = 55.6 -> 56). Best-fit workhorse choice for high-volume, cost-sensitive agent loops, document extraction, and long-context retrieval where sub-$0.15/1M execution is required.
+- **Tool use: 62/100.** Demonstrates respectable agent performance for a 3B-active model with 47.2% on Tau3-Banking, 22.3% on AutomationBench-AA, and 1072 Elo on GDPval-AA 2.1. Capped below frontier level due to sub-50% Tau3 and lack of top-tier Terminal-Bench 2.1 scores.
+- **Reasoning: 58/100.** Achieves 24.1 on the Artificial Analysis Intelligence Index v4.3.2 and 19.6% on Humanity's Last Exam. Strong for its active parameter class, but capped by sub-20% HLE and lack of frontier-tier GPQA Diamond verification.
+- **Context window: 88/100.** Verified 524,288 token input capacity (500K-1M tier) with an exceptional 83.3% long-context reasoning score on AA-LCR v1.1.
+- **Multimodal: 15/100.** Strictly text-only input and output modalities.
+- **Coding: 55/100.** Reaches 47.6% (0.48) on SciCode scientific problem solving/code synthesis. Capped due to absence of verified public scores on SWE-bench Verified or LiveCodeBench.
+- **Cost efficiency: 98/100.** Highly cost-effective at $0.10/1M input, $0.01/1M cached, and $0.40/1M output tokens.
+- **Overall Score: 56/100.** Mean of non-cost dimensions ((62 + 58 + 88 + 15 + 55) / 5 = 55.6 -> 56). Best-fit workhorse choice for high-volume, cost-sensitive agent loops, document extraction, and long-context retrieval where sub-$0.15/1M execution is required.
 
 ---
 

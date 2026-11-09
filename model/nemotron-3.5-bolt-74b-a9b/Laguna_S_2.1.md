@@ -56,7 +56,7 @@ Sources:
 - **Coding: 80/100** — PinchBench 87.8% (SWE-bench variant, excellent), Terminal-Bench 2.1 51.0%, SciCode 39.7%. The very strong PinchBench score elevates this dimension.
 - **Cost efficiency: 100/100** — Open weights (OpenMDW-1.1 license) on HuggingFace; completely free to download and self-host. No per-token API cost.
 
-**Overall Score: 76/100**
+- **Overall Score: 76/100**
 
 ### Conflict handling
 

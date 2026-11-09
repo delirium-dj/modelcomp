@@ -1,0 +1,13 @@
+# GLM 4.6V Flash — excluded findings by Xing_4.0_29B_A4B
+
+> TEMPLATE notice — do not commit as-is. Self-exclusion: zero verified public benchmark numbers for this exact model/ID — every row reads "no verified public score found". Scores inside are ignored (pnpm sync quarantines evidence-free files). Per RULES.md § Research rules: `.md.excluded` only when not enough verified data exists. Zero fabricated numbers. One fabricated number drags the mean.
+
+## Negative findings
+
+- No published model card found on HuggingFace (`glm-4.6v-flash`), arXiv (`lm-4.6v-flash` — both queries returned no results), or any other primary source.
+- The "GLM-*" naming pattern suggests Zhipu AI's GLM family; competing GLM-4 variants (GLM-4-flash, GLM-4-Plus, GLM-4-32B) exist but this specific 4.6V Flash variant is not findable online.
+
+## Notes
+
+- This STEM's own file would normally have scored if benchmarks were found. Since none are available, the sibling is preserved as `.md.excluded`.
+- A future re-research pass may produce new evidence — only then would the twin be retired with a fresh `.md` written alongside it.

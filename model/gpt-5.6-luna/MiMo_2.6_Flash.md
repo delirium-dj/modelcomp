@@ -1,68 +1,88 @@
 # GPT-5.6 Luna — findings by MiMo 2.6 Flash
 
-- Source: OpenAI GPT-5.6 launch page + system card (via BenchLM provenance), Artificial Analysis, Vals AI, ARC Prize, Cursor/Cognition/VulcanBench/NeoCognition leaderboards, repo meta
-- Date: 2026-10-07 (UTC)
+- Source: OpenAI GPT-5.6 launch page + system card (via BenchLM provenance), Artificial Analysis, Vals AI, ARC Prize, Cursor/Cognition/VulcanBench/NeoCognition leaderboards, llmbenchmark.ai (Epoch/METR/Vals rows), BenchLeader, repo meta
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 82). Fresh sources this pass: llmbenchmark.ai model page
+> (19 sources read 2026-11-09, 118 of 216 boards) and BenchLM (updated
+> 2026-11-07). Changes: Multimodal 67→70 (independent Vals Multimodal Index
+> 69.1% #7/33 + ExtractBench 91.16% lift it to the top of the image-in band);
+> Overall 82→83. Held: Tool use 83, Reasoning 82, Context 94, Coding 86,
+> Cost efficiency 94.
+
 ## Model card
 
-- **Name:** GPT-5.6 Luna — OpenAI's **cost-sensitive, high-volume tier of the GPT-5.6 family** (siblings: Sol, Terra, Cyber), released **2026-07-09** (AA, Max effort). Deprecated on AA in favor of **GPT-6 Luna** but still served (7 providers; id `openai/gpt-5.6-luna`).
-- **Short description:** The family's cheap workhorse: reasoning model benchmarked at **Max** effort by AA. AA verdict: "amongst the leading models in intelligence" for its price class (Index 37, #11/182 vs median 13), faster than average (117 t/s) — but **TTFT 137.4 s at Max** (extreme thinking latency) and somewhat verbose (150M tokens/task vs median 100M). BenchLM overall 65.98 (#30/887), clearly below siblings Sol (77.95) and Terra (72.36).
-- **Provider / access:** OpenAI API (7 providers, AA). Proprietary. **No free Zen id** (meta).
-- **Release / knowledge:** 2026-07-09; cutoff not stated on fetched pages.
-- **Context window:** **1,050,000 / 128K out** (meta); AA: 1M class.
-- **Modalities:** **text, image in; text out** (AA; MMMU-Pro rows confirm image input).
-- **Pricing:** **$0.20 in / $1.20 out per 1M**, **90% cache discount** ($0.18 cache), blended $0.17/1M, **$0.18 per Intelligence-Index task** (AA #42/182 cost) — a fraction of flagship tariffs.
+- **Name:** GPT-5.6 Luna — OpenAI's **cost-sensitive, high-volume tier of the GPT-5.6 family** (siblings: Sol, Terra, Cyber), released **2026-07-09** (AA, Max effort). Deprecated on AA in favor of **GPT-6 Luna** but still served (7 providers; id `openai/gpt-5.6-luna`); OpenRouter: "fast, cost-efficient … high-volume, latency-sensitive tasks and lightweight agentic workflows."
+- **Short description:** The family's cheap workhorse: reasoning model benchmarked at **Max** effort by AA. AA verdict: "amongst the leading models in intelligence" for its price class (Index 37, #11/182 vs median 13), faster than average (117 t/s) — but **TTFT 137.4 s at Max** (extreme thinking latency) and somewhat verbose. BenchLM overall **64.03 (#37/1016, updated 2026-11-07)**; llmbenchmark Index 57.1 (#60/114, 2026-11-09) — clearly below siblings Sol (74.81) and Terra (69.81).
+- **Provider / access:** OpenAI API (7 providers, AA), OpenRouter `openai/gpt-5.6-luna` (64 t/s, 1.8 s first token on OpenRouter). Proprietary. **No free Zen id** (meta).
+- **Release / knowledge:** 2026-07-09; knowledge cutoff **2026-02-16** (OpenAI docs via llmbenchmark).
+- **Context window:** **1,050,000 / 128K out** (meta; AA/OpenRouter confirm 1M-class).
+- **Modalities:** **text, images, files in; text out** (OpenRouter listing read 2026-11-09; AA) — MMMU-Pro rows confirm image input; reasoning effort through **max**; tool calls, JSON, caching ($0.02 cache read / $0.25 write).
+- **Pricing (as of 2026-11-08):** **$0.20 in / $1.20 out per 1M**, **90% cache discount** ($0.02–0.18 cache), blended $0.17/1M, **$0.18 per Intelligence-Index task** (AA) — llmbenchmark: **$0.04 per solved SWE-bench Verified task**, "#5 cheapest LLM per solved coding task of 82".
 
 ### Raw benchmarks found
 
 > Primary: OpenAI GPT-5.6 launch/system-card rows as attributed by BenchLM's
-> Luna page (updated 2026-10-07) + AA's independent Luna page + third-party leaderboards.
-> Note: BenchLM logs an "AA Intelligence Index 51.2%" attributed to the OpenAI post —
-> AA's own current Luna reading is **37**; version/attribution variance flagged.
+> Luna page (updated 2026-10-07 → 2026-11-07) + AA's independent Luna page +
+> third-party leaderboards. New this pass: llmbenchmark.ai's per-board ledger
+> (Epoch AI, Vals, DuelLab, tbench.ai — read 2026-11-09) and BenchLM's
+> November rows. AA-index variance (23.8 llmbenchmark / 37 AA / 51.2 OpenAI
+> v4.1 table) flagged, all readings kept.
 
 Agentic / tool use:
 
-- **Terminal-Bench 2.1: 84.7** (OpenAI; Vals 79.0) — just under the 85 reference. **BrowseComp: 83.3.**
-- **GDPval-AA: Elo 1582 / 48.2%** — strong. AA Agentic Index 42.7; APEX-Agents-AA 35.8.
-- Mid/weak: **OSWorld 2.0: 45.6**, Toolathlon 53.4, CyberGym 77.9, ExploitGym 12.4, Terminal-Bench 3.0 14.3 (frontier-new), ApprenticeBench 7.0 (NeoCognition GUI).
+- **Terminal-Bench 2.1: 84.7** (OpenAI), **79.0 (Vals, Terminus 2 — #11/67)**, **80.9 (AA run)** — just under the 85 reference across harnesses. **BrowseComp: 83.3.**
+- **Terminal-Bench 4.0: 11.6** (Vals, Mini-SWE-agent, $0.73/test) — NEW this pass; frontier-new generation, weak absolute.
+- **GDPval-AA: Elo 1582 / 48.0–48.2%** — strong. AA Agentic Index 42.1–42.7 (#17/92); APEX-Agents-AA 35.8; AA EnterpriseOps-Gym 40.8; AA ITBench 40.3.
+- NEW independent rows: **BALROG 45.6% (Max, #7/22)**, SkillsBench 60.5 (#6/33), Excel Modeling 67.1 (#16/72), Finance Agent 55.0 (#23/74), ALE-Bench 1667.4 Max (#17/108); weaker: Legal Research 36.5, Tax Agent 24.8 (#40/72), SREBench 1.5, ProgramBench 0.0, MazeBench 0 (ASCII, tools on).
+- Mid/weak (previous pass): **OSWorld 2.0: 45.6**, Toolathlon 53.4, CyberGym 77.9, ExploitGym 12.4, Terminal-Bench 3.0 14.3, ApprenticeBench 7.0.
 
 Coding:
 
-- **AA Coding Index: 71.5** — clears the 70 reference. **DeepSWE: 67.2**, SWE-bench Pro 62.7, FrontierCode 1.1-Extended 55.1 (Cognition/Devin), CursorBench 3.2 61.1 (4.0: 35.9), **VulcanBench v3: 85.5**, SWE-bench (Vals) 93.0; **AA-SciCode 53.6** — just under the 55 reference.
+- **AA Coding Index: 71.5 / 71.4 (llmbenchmark, #22/115)** — clears the 70 reference. **SWE-bench Verified (Vals): 93.0% ($0.04/test)**; SWE-bench Pro 62.7; **DeepSWE: 67.2**; FrontierCode 1.1-Extended 55.1 (Cognition/Devin), **FrontierCode 39.8** (llmbenchmark); CursorBench 3.2 61.1, CursorBench 4.0 35.9; **VulcanBench v3: 85.5**; **Vibe Code Bench 77.1% (OpenHands)** — NEW this pass; **IOI (Vals) 61.8%**, CyberBench 73.6 (#11/40), Code migration 44.5 — all NEW; **AA-SciCode 53.6** — just under 55.
 
 Reasoning & knowledge:
 
-- **GPQA Diamond: 92.3** (OpenAI), 91.1 (AA), 91.7 (Vals) — clears the 90 reference. **AA-HLE: 39.5** — misses 40 by half a point, flagged.
-- **FrontierMath: 78.6 (Tiers 1–3), 58.5 (Tier 4)** — elite math. ARC-AGI-1 88.0 (Luna Max, ARC Prize), ARC-AGI-2 59.5.
-- **AA Intelligence Index (v4.3.2): 37** — well above its price-class median (13), #11/182.
-- AA-Omniscience Index **−10.3** (accuracy 42.7, hallucination 92.6 — actively unreliable knowledge, flagged); MMLU-Pro 86.0 (Vals); HealthBench Hard 32.0 / Professional 55.7.
+- **GPQA Diamond: 92.3** (OpenAI), 91.1 (AA Max), 91.6 (Epoch AI), 91.7 (Vals) — clears the 90 reference on every harness. **AA-HLE: 39.5 (Max)** — misses 40 by half a point; xHigh 37.0, High 33.4 (effort ladder NEW this pass).
+- **FrontierMath: 78.6 (Tiers 1–3 vendor) / 82.1 (Epoch AI run, #16/78)** — NEW independent run; **Tier 4: 58.5 / 61.0 (Epoch, #16/64)**. OTIS Mock AIME 98.3 (#21/115), ProofBench 60.0 (#22/74) — NEW.
+- ARC-AGI-1 88.0 (Max; xHigh 87.7, High 76.5, Medium 56.5, Low 34.2 — effort ladder NEW), ARC-AGI-2 59.5 (Max; 47.6 xHigh), ARC-AGI-3 0.2.
+- **AA Intelligence Index: 37 (AA's own page) / 23.8 (llmbenchmark reading, #31/51) / 51.2 (OpenAI v4.1 table)** — version variance flagged; **Epoch Capabilities Index 156.8 (#30/122)** — NEW.
+- AA-Omniscience Index **−10.3** (accuracy 42.7, hallucination 92.6 — actively unreliable knowledge, flagged); MMLU-Pro 86.0 (Vals); TaxEval 76.2 (#5/88 — best placing); HealthBench Hard 32.0 / Professional 55.7.
 
 Multimodal:
 
 - **MMMU-Pro: 78.4 / 78.6 (AA) / 79.5 with Python** — top of the image band.
+- **Vals Multimodal Index: 69.1% (#7 of 33 models)** — NEW this pass (independent multimodal composite).
+- **ExtractBench: 91.16%**, **ParseBench: 66.86%** (LlamaIndex leaderboards, November 6, 2026 snapshots) — NEW document-understanding rows.
 
 Long context:
 
-- 1.05M window; **AA-LCR 83.7** — solid long-context reasoning; no retrieval row.
+- 1.05M window; **AA-LCR 83.7 (Max, #12/172)** — solid long-context reasoning; OpenAI's own MRCR v2 8-needle rows (256K–512K and 512K–1M both **41.3%**) and GraphWalks BFS 1M F1 **51.2%** (256K: 81.3%) remain the only direct retrieval measurements (from OpenAI's reported tables).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 83/100.** TB2.1 84.7, BrowseComp 83.3, GDPval 1582 are strong agentic results, but OSWorld 2.0 45.6, Toolathlon 53.4, TB3 14.3 and ApprenticeBench 7.0 keep it out of the top tier.
-- **Reasoning: 82/100.** GPQA 92.3 clears the reference and FrontierMath/ARC-AGI-1 are elite; HLE 39.5 narrowly misses, the composite index (37) is strong-for-price but not absolute-frontier, and Omniscience at −10.3 is the worst knowledge-reliability reading in this part of the queue.
-- **Context window: 94/100.** 1.05M native with LCR 83.7 — 1M-class (floor 95) held one point under by no retrieval row.
-- **Multimodal: 67/100.** Image input with MMMU-Pro 78.4–79.5 — solid top-of-image-band evidence, nothing beyond images.
-- **Coding: 86/100.** Coding Index 71.5 clears the reference, DeepSWE 67.2 and Vals SWE 93.0 are strong, TB2.1 84.7 near-reference; SciCode 53.6 and CursorBench 4.0 35.9 are the dings.
-- **Cost efficiency: 94/100** (excluded from Overall). $0.20/$1.20 with 90% cache and $0.18/AA-task is far below the $1.25/$4.25 ≈ 88 anchor — the family's headline value; discounted from 100 only by the 137 s Max-effort TTFT (latency is a real cost in production).
-- **Overall Score: 82/100.** (83+82+94+67+86)/5 = 82.4 → 82 — GPT-5.6's bargain tier: reference-clearing GPQA, elite math, TB2.1 84.7 and a 1.05M window at $0.20/$1.20 — mid OSWorld/Toolathlon depth, a narrow HLE miss, and catastrophic Omniscience keep it below its Sol/Terra siblings.
+- **Tool use: 83/100.** TB2.1 84.7/80.9/79.0 across three harnesses, BrowseComp 83.3 and GDPval 1582 are strong agentic results, and the new rows are mixed-positive (BALROG 45.6 #7/22, SkillsBench 60.5 #6/33, AA Agentic Index #17/92) — but OSWorld 2.0 45.6, Toolathlon 53.4, TB3 14.3, the new TB4 11.6, ProgramBench 0.0 and ApprenticeBench 7.0 keep it out of the top tier (held).
+- **Reasoning: 82/100.** GPQA clears 90 on all four harnesses (91.1–92.3) and math strengthens (Epoch FrontierMath T1–3 82.1, OTIS AIME 98.3, ProofBench 60.0); held because HLE 39.5 still misses by half a point, the composite index readings span 23.8–51.2 (none frontier on their own scale — BenchLeader calls reasoning its weakest category at 53), and Omniscience at −10.3 is the worst knowledge-reliability reading in this part of the queue.
+- **Context window: 94/100.** 1.05M native with AA-LCR 83.7 (#12/172) — 1M-class (floor 95) held one point under: no ≥98% retrieval evidence, and OpenAI's own MRCR 41.3% @256K–1M rows still stand (held).
+- **Multimodal: 70/100.** Raised from 67 this pass: the independent **Vals Multimodal Index 69.1% ranks #7 of 33 models**, and **ExtractBench 91.16%** (Nov 6 snapshot) alongside MMMU-Pro 78.4–79.5 puts it at the top of the image-in band (60–70); capped at the band ceiling by image/file input only — no video/audio, text-only output.
+- **Coding: 86/100.** Coding Index 71.4–71.5 clears the reference, Vals SWE-V 93.0 at $0.04/test, Vibe Code Bench 77.1, DeepSWE 67.2, VulcanBench 85.5, TB2.1 84.7 near-reference — held because SciCode 53.6 (<55), CursorBench 4.0 35.9, SWE-Pro 62.7 mid-pack, and the new hard rows (TB4 11.6, SREBench 1.5, ProgramBench 0.0) dings it.
+- **Cost efficiency: 94/100** (excluded from Overall). $0.20/$1.20 with 90% cache, $0.18/AA-task and **$0.04 per solved SWE-V task (#5 cheapest per solved coding task of 82, llmbenchmark)** — far below the $1.25/$4.25 ≈ 88 anchor; discounted from 100 only by the 137 s Max-effort TTFT (held).
+- **Overall Score: 83/100.** (83+82+94+70+86)/5 = 83.0 → 83 — GPT-5.6's bargain tier: reference-clearing GPQA on every harness, elite math, TB2.1 ~80–85 and a 1.05M window at $0.20/$1.20 with $0.04-per-solved-task economics — mid OSWorld/Toolathlon depth, a narrow HLE miss, and catastrophic Omniscience keep it below its Sol/Terra siblings.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research — AA model page (Max-tier spec/index/speed/cost + independent GPQA/HLE/LCR/MMMU-Pro/agentic/Omniscience rows), BenchLM aggregate (OpenAI-launch and leaderboard rows with per-row provenance URLs, updated 2026-10-07), ARC Prize / Vals / Cursor / Cognition / VulcanBench / NeoCognition leaderboards as cited, repo meta (tier positioning, 1.05M/128K, pricing). Scores are normalized 1–100 interpretations, not official vendor scores; AA-index 51.2-vs-37 variance flagged; family ordering checked against own GPT-5.6 Sol/Terra reports.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: llmbenchmark.ai model page read 2026-11-09 — Epoch AI GPQA/FrontierMath/ARC effort ladders, Vals TB4/SWE-V/Vibe/IOI/BALROG rows, LMArena; BenchLM updated 2026-11-07; AA model page; ARC Prize, Cursor, Cognition, VulcanBench, NeoCognition, LlamaIndex ExtractBench/ParseBench leaderboards); scores are normalized 1–100 interpretations, not official vendor scores; index-version variance (23.8/37/51.2) flagged.
+- Reference URLs:
+  - [OpenAI: GPT-5.6](https://openai.com/index/gpt-5-6/)
+  - [BenchLM: GPT-5.6 Luna (updated 2026-11-07)](https://benchlm.ai/models/gpt-5-6-luna)
+  - [llmbenchmark.ai: GPT-5.6 Luna (data 2026-11-09)](https://llmbenchmark.ai/models/gpt-5-6-luna)
+  - [Artificial Analysis: GPT-5.6 Luna](https://artificialanalysis.ai/models/gpt-5-6-luna)
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
@@ -149,4 +169,3 @@ Multimodal:
 - Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-22
 - Method: public internet research (OpenAI GPT-5.6 launch + price-cut posts, OpenAI API models docs, AA GPT-5.6 article, benchr launch/system-card coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

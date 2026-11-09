@@ -101,7 +101,8 @@ export type SourceKey =
   | "MiniMax M2.7"
   | "Mistral Medium 3.5"
   | "Mistral Large 4"
-  | "Ling 3.2 Flash";
+  | "Ling 3.2 Flash"
+  | "QoDuck";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -190,7 +191,7 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Nemotron 3.5 Super VL 120B A12B", label: "Nemotron 3.5 Super VL 120B A12B", file: "Nemotron_3.5_Super_VL_120B_A12B.md", slug: "nemotron-3.5-super-vl" },
   { key: "Beam", label: "Beam", file: "Beam.md", slug: "beam" },
   { key: "Nemotron 3 Ultra 550B A55B", label: "Nemotron 3 Ultra 550B A55B", file: "Nemotron_3_Ultra_550B_A55B.md", slug: "nemotron-3-ultra-free" },
-  { key: "MiniMax M3.1 Flash", label: "MiniMax M3.1 Flash", file: "MiniMax_M3.1_Flash.md", slug: "minimax-m3.1-flash-preview" },
+  { key: "MiniMax M3.1 Flash", label: "MiniMax M3.1 Flash", file: "MiniMax_M3.1_Flash.md", slug: "minimax-m3.1-flash" },
   { key: "Qwen 3.8 Max", label: "Qwen 3.8 Max", file: "Qwen_3.8_Max.md", slug: "qwen-3.8-max" },
   { key: "Muse Glimmer 30B", label: "Muse Glimmer 30B", file: "Muse_Glimmer_30B.md", slug: "muse-glimmer-30b" },
   { key: "LongCat 2.0", label: "LongCat 2.0", file: "LongCat_2.0.md", slug: "longcat-2.0" },
@@ -214,4 +215,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Mistral Medium 3.5", label: "Mistral Medium 3.5", file: "Mistral_Medium_3.5.md", slug: "mistral-medium-3.5" },
   { key: "Mistral Large 4", label: "Mistral Large 4", file: "Mistral_Large_4.md", slug: "mistral-large-4" },
   { key: "Ling 3.2 Flash", label: "Ling 3.2 Flash", file: "Ling_3.2_Flash.md", slug: "ling-3.2-flash" },
+  { key: "QoDuck", label: "QoDuck", file: "QoDuck.md", slug: "qoduck" },
 ];

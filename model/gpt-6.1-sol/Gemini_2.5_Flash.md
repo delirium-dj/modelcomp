@@ -44,13 +44,13 @@ Long context:
 
 ### Normalized scores (1-100)
 
-* **Tool use: 76/100.** Strong agentic performance evidenced by 71.4% on OSWorld 2.0 (max effort) and 56.1% on Terminal-Bench 4.0; capped by lack of official Terminal-Bench 2.1 and Tau3 public scores.
-* **Reasoning: 87/100.** Verified 52.9% on HLE (max effort, exceeding frontier 40%+ threshold) and #2 ReasoningRank on BenchLM; capped by AA Intelligence Index of 52 relative to top-tier 60+ benchmark baseline.
-* **Context window: 95/100.** Verified 1,050,000 (1.05M) token context window (>=1M tier); capped below 100 due to lack of public 512K+ MRCR/RULER retrieval accuracy data.
-* **Multimodal: 68/100.** Native text and vision (image) input with text output (+image tier); capped by absence of native audio/video inputs or non-text outputs.
-* **Coding: 91/100.** Frontier coding capability evidenced by 75.2% on DeepSWE v1.1 (high effort) and 55.8% on SciCode; capped slightly below flagship models like GPT-6 Astra.
-* **Cost efficiency: 78/100.** Standard API pricing of $2.00/1M input and $10.00/1M output ($0.10 cached) delivers near-Astra performance at ~20% of the cost.
-* **Overall Score: 83.4/100.** Mean of five non-cost dimensions ((76 + 87 + 95 + 68 + 91) / 5 = 83.4); best suited as a high-efficiency default for agentic software engineering, repository reviews, and multi-step enterprise workflows.
+- **Tool use: 76/100.** Strong agentic performance evidenced by 71.4% on OSWorld 2.0 (max effort) and 56.1% on Terminal-Bench 4.0; capped by lack of official Terminal-Bench 2.1 and Tau3 public scores.
+- **Reasoning: 87/100.** Verified 52.9% on HLE (max effort, exceeding frontier 40%+ threshold) and #2 ReasoningRank on BenchLM; capped by AA Intelligence Index of 52 relative to top-tier 60+ benchmark baseline.
+- **Context window: 95/100.** Verified 1,050,000 (1.05M) token context window (>=1M tier); capped below 100 due to lack of public 512K+ MRCR/RULER retrieval accuracy data.
+- **Multimodal: 68/100.** Native text and vision (image) input with text output (+image tier); capped by absence of native audio/video inputs or non-text outputs.
+- **Coding: 91/100.** Frontier coding capability evidenced by 75.2% on DeepSWE v1.1 (high effort) and 55.8% on SciCode; capped slightly below flagship models like GPT-6 Astra.
+- **Cost efficiency: 78/100.** Standard API pricing of $2.00/1M input and $10.00/1M output ($0.10 cached) delivers near-Astra performance at ~20% of the cost.
+- **Overall Score: 83.4/100.** Mean of five non-cost dimensions ((76 + 87 + 95 + 68 + 91) / 5 = 83.4); best suited as a high-efficiency default for agentic software engineering, repository reviews, and multi-step enterprise workflows.
 
 ---
 

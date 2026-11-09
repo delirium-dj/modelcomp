@@ -1,181 +1,64 @@
-import https from 'https';
-
-/**
- * cleanup.js
- *
- * Deletes Vercel deployments older than DAYS_TO_KEEP days, while always
- * keeping the latest KEEP_LATEST_PRODUCTION production deployments so the
- * live site never goes offline.
- *
- * Required env:
- *   VERCEL_TOKEN             Vercel API token
- *
- * Optional env (defaults shown):
- *   PROJECT_ID               prj_0prkiDEwxQBH5KhCcP8ai17b3OmH
- *   TEAM_ID                  delirium-djs-projects
- *   DAYS_TO_KEEP             3
- *   KEEP_LATEST_PRODUCTION   3   (number of recent production deploys to never delete)
- */
-
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-const PROJECT_ID = process.env.PROJECT_ID || 'prj_0prkiDEwxQBH5KhCcP8ai17b3OmH';
-const TEAM_ID = process.env.TEAM_ID || 'delirium-djs-projects';
-const DAYS_TO_KEEP = Number(process.env.DAYS_TO_KEEP || 3);
-const KEEP_LATEST_PRODUCTION = Number(process.env.KEEP_LATEST_PRODUCTION || 3);
-const CUTOFF = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
-const LIMIT = 100;
-const MAX_PAGES = 200;
+const PROJECT_ID = "your_project_id_here"; // Replace with your Vercel Project ID
+const DAYS_TO_KEEP = 3;
+const THREE_DAYS_AGO = Date.now() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000;
 
-if (!VERCEL_TOKEN) {
-  console.error('Error: VERCEL_TOKEN secret is missing.');
-  process.exit(1);
-}
-
-function request({ path, method }) {
-  return new Promise((resolve, reject) => {
-    const req = https.request(
-      {
-        hostname: 'api.vercel.com',
-        path,
-        method,
-        headers: {
-          Authorization: `Bearer ${VERCEL_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-      },
-      (res) => {
-        let data = '';
-        res.on('data', (chunk) => {
-          data += chunk;
-        });
-        res.on('end', () => {
-          resolve({ statusCode: res.statusCode, body: data });
-        });
-      },
-    );
-    req.on('error', reject);
-    req.end();
-  });
-}
-
-async function listDeployments() {
-  const deployments = [];
-  let until;
-  let pages = 0;
-
-  do {
-    pages += 1;
-    if (pages > MAX_PAGES) {
-      throw new Error(`Safety brake: stopped after ${MAX_PAGES} pages`);
-    }
-
-    const url = `/v7/deployments?projectId=${PROJECT_ID}&teamId=${TEAM_ID}&limit=${LIMIT}${until ? `&until=${until}` : ''}`;
-    console.log(`Fetching deployments page ${pages}...`);
-    const res = await request({ path: url, method: 'GET' });
-
-    if (res.statusCode !== 200) {
-      throw new Error(
-        `Failed to list deployments: HTTP ${res.statusCode} ${res.body}`,
-      );
-    }
-
-    let json;
-    try {
-      json = JSON.parse(res.body);
-    } catch (err) {
-      throw new Error(`Failed to parse deployments response: ${err.message}`);
-    }
-
-    const pageDeployments = Array.isArray(json.deployments) ? json.deployments : [];
-    deployments.push(...pageDeployments);
-
-    until = json.pagination?.next;
-    console.log(
-      `Page ${pages}: ${pageDeployments.length} deployments (next cursor: ${until ?? 'none'})`,
-    );
-  } while (until);
-
-  return deployments;
-}
-
-async function deleteDeployment(uid) {
-  const res = await request({ path: `/v13/deployments/${uid}?teamId=${TEAM_ID}`, method: 'DELETE' });
-  return res.statusCode;
-}
-
-async function run() {
-  const all = await listDeployments();
-  console.log(`Found ${all.length} total deployments.`);
-
-  // --- Protect the latest N production deployments so the site stays online ---
-  const production = all.filter((d) => d.target === 'production');
-  production.sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
-  const keepProduction = new Set(
-    production.slice(0, KEEP_LATEST_PRODUCTION).map((d) => d.uid),
-  );
-  console.log(
-    `Production deployments: ${production.length}. Keeping latest ${KEEP_LATEST_PRODUCTION}:`,
-  );
-  production
-    .slice(0, KEEP_LATEST_PRODUCTION)
-    .forEach((d) =>
-      console.log(`  KEEP  ${d.uid} (created ${d.createdAt})`),
-    );
-
-  // --- Decide what to delete ---
-  const toDelete = all.filter((d) => {
-    if (keepProduction.has(d.uid)) return false; // protected recent production
-    if (Number(d.createdAt) >= CUTOFF) return false; // still within retention
-    return true; // old and not protected
-  });
-
-  const nonProdDeleted = toDelete.filter((d) => d.target !== 'production').length;
-  const prodDeleted = toDelete.filter((d) => d.target === 'production').length;
-
-  console.log(
-    `Candidates for deletion: ${toDelete.length} (${nonProdDeleted} non-production, ${prodDeleted} old production beyond kept set).`,
-  );
-
-  if (toDelete.length === 0) {
-    console.log('Nothing to delete.');
-    return;
+async function cleanupOldDeployments() {
+  if (!VERCEL_TOKEN) {
+    console.error("Error: VERCEL_TOKEN environment variable is missing.");
+    process.exit(1);
   }
 
-  let deleted = 0;
-  let failed = 0;
+  try {
+    // 1. Fetch recent deployments from the Vercel API
+    console.log("Fetching deployments...");
+    const response = await fetch(`https://vercel.com{PROJECT_ID}&limit=100`, {
+      headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+    });
 
-  for (const d of toDelete) {
-    const uid = d.uid;
-    const url = d.url || '<no url>';
-    const createdAt = d.createdAt ?? '<unknown>';
+    if (!response.ok) {
+      throw new Error(`Failed to fetch deployments: ${response.statusText}`);
+    }
 
-    try {
-      const status = await deleteDeployment(uid);
+    const data = await response.json();
+    const deployments = data.deployments || [];
+    console.log(`Found ${deployments.length} total deployments.`);
 
-      if (status === 200) {
-        console.log(`Deleted ${uid} (${url}, created ${createdAt})`);
-        deleted += 1;
-      } else if (status === 404 || status === 410) {
-        console.log(`Already removed: ${uid} (${url}) — HTTP ${status}`);
-        deleted += 1;
-      } else {
-        console.error(`Failed to delete ${uid} (${url}): HTTP ${status}`);
-        failed += 1;
+    // 2. Loop through and delete deployments older than 3 days
+    for (const deployment of deployments) {
+      // Safety skip: Never delete active production deployments
+      if (deployment.target === "production") {
+        console.log(`Skipping active production deployment: ${deployment.url}`);
+        continue;
       }
-    } catch (err) {
-      console.error(`Error deleting ${uid} (${url}): ${err.message}`);
-      failed += 1;
+
+      if (deployment.createdAt < THREE_DAYS_AGO) {
+        console.log(
+          `Deleting deployment: ${deployment.url} (Created: ${new Date(deployment.createdAt).toDateString()})`,
+        );
+
+        const deleteResponse = await fetch(
+          `https://vercel.com{deployment.uid}`,
+          {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${VERCEL_TOKEN}` },
+          },
+        );
+
+        if (!deleteResponse.ok) {
+          console.error(
+            `Failed to delete ${deployment.uid}: ${deleteResponse.statusText}`,
+          );
+        } else {
+          console.log(`Successfully deleted ${deployment.uid}`);
+        }
+      }
     }
-  }
-
-  console.log(`Done: ${deleted} deleted, ${failed} failed.`);
-
-  if (failed > 0) {
+    console.log("Cleanup process completed!");
+  } catch (error) {
+    console.error("Error running cleanup:", error);
     process.exit(1);
   }
 }
 
-run().catch((err) => {
-  console.error('Fatal error:', err.message);
-  process.exit(1);
-});
+cleanupOldDeployments();

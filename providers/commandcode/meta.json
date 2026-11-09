@@ -9,7 +9,7 @@
   ],
   "catalogUrl": "https://commandcode.ai/models",
   "covers": [
-    "minimax-m3.1-flash-preview",
+    "minimax-m3.1-flash",
     "beam",
     "ling-3.1-flash",
     "nemotron-3.5-super-vl",

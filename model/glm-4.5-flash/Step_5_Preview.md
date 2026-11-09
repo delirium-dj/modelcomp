@@ -62,7 +62,7 @@
 - **Multimodal: 15/100.** Text-in / text-out only; ModelBench explicitly records no attachments and no vision input, and the vendor docs list text-only formats. Tool calling and structured JSON do not compensate. Maps to the 10–20 text-only band.
 - **Coding: 46/100.** AA Coding Index 26.3, SciCode 34.8% and Terminal-Bench Hard 22% are all below the methodology's mid-band markers, and the independent real-work battery put 1 of 6 vendors in the converged band at the highest cost of any model tested. The family's 72.9 LiveCodeBench and 64.2 SWE-bench Verified belong to the 355B flagship and are recorded as proxies only — inheriting them would overstate Flash by a wide margin.
 - **Cost efficiency: 100/100.** **$0** input, cached input and output on the official Z.AI pricing page, on the Z.ai developer platform, and on OpenCode Zen's free tier — a genuine zero-cost tier with no training-data caveat found, unlike some free tiers. The only paid route found is Puter's third-party gateway at $0.10/$0.10, and self-hosting cost is GPU time only. Free-tier concurrency is limited (1 concurrent request per freellm.net), which is a rate limit rather than a price penalty.
-- **Overall Score: 41.1/100.** (52 + 50 + 62 + 15 + 46) / 5 = 45.0 -> **45**. Best fit: zero-cost prototyping, demos and low-concurrency evaluation where "free" beats "capable" - a genuinely cheap MIT-licensed weights tier with no measured capability beyond it.
+- **Overall Score: 45/100.** (52 + 50 + 62 + 15 + 46) / 5 = 45.0 -> **45**. Best fit: zero-cost prototyping, demos and low-concurrency evaluation where "free" beats "capable" - a genuinely cheap MIT-licensed weights tier with no measured capability beyond it.
 
 ---
 

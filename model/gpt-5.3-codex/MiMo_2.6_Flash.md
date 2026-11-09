@@ -1,48 +1,63 @@
 # GPT-5.3 Codex — findings by MiMo 2.6 Flash
 
-- Source: OpenAI GPT-5.3-Codex System Card (cdn.openai.com PDF), Artificial Analysis, BenchLM, Vals AI, OpenRouter
-- Date: 2026-10-07 (UTC)
+- Source: OpenAI GPT-5.3-Codex System Card (cdn.openai.com PDF), Artificial Analysis, BenchLM, Vals AI, OpenRouter, llmbenchmark.ai (Epoch / tbench.ai / METR rows)
+- Date: 2026-11-08 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Second-pass enrichment — 2026-11-08** (user-approved). Previous Signature
+> 2026-10-07 (Overall 84). Fresh sources this pass: llmbenchmark.ai model page
+> (data read 2026-11-09, 33 of 216 boards) and BenchLM (updated 2026-11-07).
+> Changes: Tool use 86→88 (METR time horizons 74.5% #5/18, independent
+> Terminal-Bench rows 78.4% #3–#6, AA TB-Hard 53.0% #9/118 close the old
+> coverage gap). Held: Reasoning 85, Context 90, Multimodal 70, Coding 87,
+> Cost efficiency 64; Overall stays 84 (84.0 exact mean).
+
 ## Model card
 
-- **Name:** GPT-5.3 Codex — OpenAI's agentic coding model released **2026-02-05** (AA; meta: "Feb 2026"), unifying **GPT-5.2-Codex coding ability with GPT-5.2 reasoning** for long-horizon tool-using engineering work (meta). Served as `gpt-5.3-codex` with **xhigh** reasoning effort benchmarked by AA; lightweight sibling **GPT-5.3-Codex-Spark** exists (queue entry, 60.4).
-- **Short description:** Coding-focused derivative in the GPT-5.3 line: proprietary reasoning model positioned between the 5.2 generation and later 5.4/5.5/6.x flagships. AA describes it as "above average in intelligence but somewhat expensive" — a specialist pick for SWE work rather than a general flagship.
-- **Provider / access:** OpenAI API only (AA: 1 provider), OpenRouter `openai/gpt-5.3-codex` (400K ctx, $1.75/$14.00 confirmed). Proprietary.
-- **Release / knowledge:** 2026-02-05; knowledge cutoff **2025-08-31** (AA) — older than most queue entrants, flagged.
-- **Context window:** **400,000 total / 128,000 out** (meta; AA/OpenRouter confirm 400K).
-- **Modalities:** **text, image in; text out** — AA's spec and the **MMMU-Pro 78.5** row prove image input; the repo meta's "Text in/out" is stale, flagged (Codex screenshot-driven workflows are the reason image input exists here).
-- **Pricing:** **$1.75 in / $14.00 out per 1M**, **cached input $0.175 (90% discount)**; blended (7:2:1) $1.87/1M (AA). Serving: 87 t/s (above tier median) but **TTFT 71.5 s at xhigh** — heavy thinking latency, flagged.
+- **Name:** GPT-5.3 Codex — OpenAI's agentic coding model released **2026-02-05** (launch) / API availability **2026-02-24** (llmbenchmark.ai, OpenAI blog), unifying **GPT-5.2-Codex coding ability with GPT-5.2 reasoning** for long-horizon tool-using engineering work. Served as `gpt-5.3-codex` with **xhigh** reasoning effort benchmarked by AA; lightweight sibling **GPT-5.3-Codex-Spark** exists (separate queue entry).
+- **Short description:** Coding-focused derivative in the GPT-5.3 line: proprietary reasoning model positioned between the 5.2 generation and later 5.4/5.5/6.x flagships — a specialist pick for SWE work rather than a general flagship. OpenRouter's listing calls it "OpenAI's most advanced agentic coding model … state-of-the-art results."
+- **Provider / access:** OpenAI Responses/Chat Completions API (1 provider on AA), OpenRouter `openai/gpt-5.3-codex` (400K ctx; 68 t/s, 1.8 s first token on OpenRouter), Azure/Databricks/Vercel routes. Proprietary; web search billed $0.01/request (llmbenchmark).
+- **Release / knowledge:** 2026-02-05 launch; knowledge cutoff **2025-08-31** (AA / OpenAI docs) — older than most queue entrants, flagged; deprecation 2027-08-24 (catalog rows).
+- **Context window:** **400,000 total / 128,000 out** (meta; AA/OpenRouter/llmbenchmark confirm 400K).
+- **Modalities:** **text, image, files (PDF) in; text out** — AA spec + OpenRouter listing ("Text, Images, Files") + the **MMMU-Pro 78.5** row prove image input; no video/audio; reasoning low/medium/high/**xhigh**, tool calls, structured/JSON outputs, prompt caching.
+- **Pricing (as of 2026-11-08):** **$1.75 in / $14.00 out per 1M**, **cached input $0.175 (90% discount)**; blended (7:2:1) $1.87/1M (AA). Output price ranks **304 of 340** priced models from cheapest (llmbenchmark); **$0.59 per solved SWE-bench Verified task** ($0.46/test ÷ 78.0% solved, Vals run). Serving: 87 t/s (AA) but **TTFT 71.5 s at xhigh** (AA) vs 1.8 s on OpenRouter — effort-dependent latency flagged.
+- **Architecture:** proprietary closed weights; GPT-5.3 family lane (Codex released Feb 5, Instant Mar 3 2026).
 
 ### Raw benchmarks found
 
-> Primary: GPT-5.3-Codex System Card (OpenAI, 2026) for card rows; AA for independent
-> rows (index estimated, modality/spec); Vals/Gert/SWE-Rebench/JobBench leaderboards for
-> third-party verification.
+> Card rows: GPT-5.3-Codex System Card PDF (OpenAI). Independent rows: AA
+> (xHigh effort), Vals AI, Gert Labs, JobBench, plus fresh llmbenchmark.ai
+> aggregator rows (Epoch AI WeirdML, tbench.ai, METR, ALE-Bench — read
+> 2026-11-09) and BenchLM (updated 2026-11-07).
 
 Agentic / tool use:
 
 - **OSWorld-Verified: 64.7** (system card) — strong computer-use tier.
-- **τ²-bench: 86** (AA) — strong.
-- **Terminal-Bench 2.0: 77.3** (system card).
-- Gert Labs 57.47; JobBench 33.7 (arXiv:2605.26329). No BrowseComp/GDPval/TB2.1 rows found.
+- **τ²-bench: 86** (AA, xHigh; llmbenchmark ranks it #45/121) — strong, not top-decile.
+- **Terminal-Bench 2.0: 77.3** (system card) / **78.4 (SageAgent, tbench.ai — #3 of 34)** / 78.4 (Epoch Terminal-Bench, #6 of 38); **Terminal-Bench Hard (AA): 53.0 (xHigh, #9 of 118)**.
+- **METR time horizons: 74.5% (#5 of 18)** — NEW this pass (llmbenchmark/METR): solves the 50%-difficulty task horizon at 74.5%, elite long-horizon band.
+- **Vending-Bench 2: $5,940 (#23 of 60)** — NEW this pass (Epoch).
+- Gert Labs 57.47; JobBench 33.7 (arXiv:2605.26329). No BrowseComp/GDPval-AA Elo/TB2.1/Claw-Eval rows found (claw N/A → slight penalty noted).
 
 Coding:
 
-- **SWE-bench Verified: 85** (system card) — clears the coding references outright.
-- SWE-bench Pro **56.8** (system card) — mid-pack (Grok 4.5 64.7, Opus 4.6 ~64, Fable 80.4).
-- SWE-Rebench 58.2 (leaderboard); **LiveCodeBench (Vals) 87.3**; SWE-bench (Vals) 78.0; Vibe Code Bench 61.77.
+- **SWE-bench Verified: 85** (system card, OpenAI harness) — independent **Vals 78.0 (Mini-SWE-agent)**; clears the coding references.
+- SWE-bench Pro **56.8** (system card); SWE-Rebench 58.2; **LiveCodeBench (Vals) 87.3 (#16/91)**; Vibe Code Bench 61.77 (Vals OpenHands) → llmbenchmark **Vibe Coding Index 60.0 (#35/100)**.
+- **WeirdML: 79.3% (#12 of 89, Epoch AI)** — NEW this pass (xHigh 77.9 / best run 79.3).
+- **ALE-Bench: 1655.2 (xHigh, #18 of 108; $0.56/problem)** — NEW this pass; **IOI (Vals): 53.8%** — NEW.
+- SciCode / DeepSWE / FrontierCode: not measured (llmbenchmark).
 
 Reasoning & knowledge:
 
-- **AA-GPQA Diamond: 91.5** — clears the 90+ reference. **AA-HLE: 42.5** — clears 40+.
-- **AA Intelligence Index (v4.3.2): 33 (estimated)**, #86/225 (median 26) — AA flags "independent evaluation forthcoming."
-- AA-LCR 83.3; CritPt 16.9; AA-Omniscience Index 10.9 (accuracy 52.9, hallucination 89.2 — weak knowledge reliability); AA-IFBench 75.4.
+- **AA-GPQA Diamond: 91.5 (xHigh, #25/166)** — clears the 90+ reference. **AA-HLE: 42.5 (#36/184)** — clears 40+.
+- **AA-LCR: 83.3 (#14/172)**; AA-IFBench 75.4 (#24/123); CritPt 16.9.
+- **AA Intelligence Index: 33 (AA's own estimate, #86/225, v4.3.2 era)** — llmbenchmark: "not measured"; no newer independent index found this pass.
+- AA-Omniscience Index 10.9 (accuracy 52.9, hallucination 89.2 — weak knowledge reliability).
 
 Multimodal:
 
-- **AA-MMMU-Pro: 78.5** (image input confirmed); Design Arena Website 1169 (OpenRouter).
+- **AA-MMMU-Pro: 78.5** (image input confirmed); Design Arena Website 1159–1161 (OpenRouter/llmbenchmark, #90/131).
 
 Long context:
 
@@ -50,20 +65,25 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** OSWorld-Verified 64.7, τ² 86, TB2.0 77.3 are genuine frontier-band agent rows; held down by thin coverage (no BrowseComp/GDPval/TB2.1) and mid workflow rows (JobBench 33.7).
-- **Reasoning: 85/100.** Both references cleared (GPQA 91.5, HLE 42.5) with LCR 83.3; the AA Index of 33 (estimated) is only above-median, Omniscience is weak (10.9), and the Aug-2025 cutoff is stale relative to peers.
-- **Context window: 90/100.** 400K/128K — well above the 262K ≈ 90 tier anchor's little brother but under 1M; LCR 83.3 with no retrieval row.
-- **Multimodal: 70/100.** Image input with MMMU-Pro 78.5 (top of the image band) and a Design Arena presence; text-only repo meta contradicted by AA spec + measured row, flagged; no video/audio/PDF surface.
-- **Coding: 87/100.** SWE-bench Verified 85 is elite (only frontier flagships beat it), LCB 87.3 solid; SWE Pro 56.8 and Vibe 61.77 keep it off the ceiling — a Verified-king, Pro-mid coder.
-- **Cost efficiency: 64/100** (excluded from Overall). $1.75/$14 sits between the $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60 anchors (cheaper in, near-anchor out), 90% cache discount helps; a 71.5 s xhigh TTFT is a real latency cost.
-- **Overall Score: 84/100.** (86+85+90+70+87)/5 = 83.6 → 84 — OpenAI's Feb-2026 coding specialist: SWE-Verified 85, OSWorld 64.7, τ² 86, GPQA/HLE both clearing references, image input — held from the frontier by a stale cutoff, mid composite index, and Pro-tier (not flagship) coding depth.
+- **Tool use: 88/100.** Raised from 86 this pass: the old coverage gap is partly closed — **METR time horizons 74.5% ranks #5 of 18** (elite long-horizon autonomy), independent Terminal-Bench rows confirm 78.4 (#3/34 on tbench.ai, #6/38 Epoch) alongside the card's 77.3, and AA's Terminal-Bench Hard 53.0 sits #9/118; OSWorld-Verified 64.7, τ² 86 and Gert 57.47 hold. Still capped below 90: no BrowseComp/GDPval-AA/TB2.1/Claw-Eval rows, τ² is only #45/121, and JobBench 33.7 is mid.
+- **Reasoning: 85/100.** Both references cleared (AA-GPQA 91.5 #25/166, AA-HLE 42.5 #36/184) with LCR 83.3; the AA Index of 33 (estimated) is only above-median, Omniscience is weak (10.9 index, 89.2 hallucination rate), and the Aug-2025 cutoff is stale relative to peers — no new reasoning row this pass, score held.
+- **Context window: 90/100.** 400K/128K — upper-mid tier, well above 262K peers but under 1M; AA-LCR 83.3 with no MRCR/RULER retrieval row (held).
+- **Multimodal: 70/100.** Image + file input with MMMU-Pro 78.5 (top of the image band) and a Design Arena presence (#90/131 websites); no video/audio surface; text-only repo meta contradicted by AA spec + measured row (held).
+- **Coding: 87/100.** SWE-bench Verified 85 (Vals 78.0 independent) is elite, LCB 87.3 solid, and fresh WeirdML 79.3 (#12/89) + ALE-Bench 1655 (#18) + IOI 53.8 broaden the competitive-coding picture; held at 87 because SWE-Pro 56.8 and Vibe 61.77 (Index 60.0, #35/100) sit mid-pack and SciCode/DeepSWE/FrontierCode are unmeasured.
+- **Cost efficiency: 64/100** (excluded from Overall). $1.75/$14 sits between the $1.25/$4.25 ≈ 88 and $3/$15 ≈ 60 anchors (cheaper in, near-anchor out); $14 output is 304/340 cheapest-ranked and $0.59 per solved SWE-V task is real; 90% cache discount helps; a 71.5 s xhigh TTFT is a real latency cost.
+- **Overall Score: 84/100.** (88+85+90+70+87)/5 = 84.0 → 84 — OpenAI's Feb-2026 coding specialist: SWE-Verified 85, OSWorld 64.7, τ² 86, METR 74.5 #5/18, GPQA/HLE both clearing references, image input — held from the frontier by a stale cutoff, mid composite index, and Pro-tier (not flagship) coding depth.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research — AA model page (release date, spec, modality conflict resolution, index/speed/cost telemetry, GPQA/HLE/MMMU-Pro/LCR/Omniscience rows), BenchLM aggregate (system-card rows with PDF provenance URL, leaderboard rows, updated 2026-10-07), OpenRouter API + benchmarks page (pricing/context), repo meta (positioning, tiers). Scores are normalized 1–100 interpretations, not official vendor scores; AA index marked as its own estimate.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-08
+- Method: second-pass enrichment re-research (public internet research: llmbenchmark.ai model page read 2026-11-09 aggregating Epoch AI WeirdML, tbench.ai, METR time horizons, ALE-Bench, Vals and OpenRouter rows; BenchLM updated 2026-11-07; AA model page; OpenRouter listing); scores are normalized 1–100 interpretations, not official vendor scores; conflicting harness numbers reported side by side.
+- Reference URLs:
+  - [GPT-5.3-Codex System Card (OpenAI)](https://cdn.openai.com/pdf/23eca107-a9b1-4d2c-b156-7deb4fbc697c/GPT-5-3-Codex-System-Card-02.pdf)
+  - [BenchLM: GPT-5.3 Codex (updated 2026-11-07)](https://benchlm.ai/models/gpt-5-3-codex)
+  - [llmbenchmark.ai: GPT-5.3-Codex (data 2026-11-09)](https://llmbenchmark.ai/models/gpt-5-3-codex)
+  - [Artificial Analysis: GPT-5.3-Codex](https://artificialanalysis.ai/models/gpt-5-3-codex)
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---
@@ -147,4 +167,3 @@ Multimodal:
 - Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
 - Method: public internet research (OpenAI GPT-5.3-Codex launch blog benchmark table, AI Wiki family article, Wikipedia release/modalities, CloudPrice/getdeploying/ModelsAtlas catalog specs and pricing, BenchLM head-to-head ledgers, Vals SWE-bench Verified difficulty profile); scores are normalized 1–100 interpretations, not official vendor scores. Note: rounded catalog reasoning rows (GPQA/HLE) are flagged and not treated as harness-exact.
 - Future sources: add a new file next to this one, e.g. `GPT_5.3.md`, using the same headings.
-

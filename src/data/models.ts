@@ -316,7 +316,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * cards, no A/B/C slots, no per-model page, no prev/next links. Revealed
  * stealth aliases are NOT parked anymore (user rule 2026-10-24): `space-bunny`
  * and `cat-jam` were merged into their revealed models' canonical folders
- * (`minimax-m3.1-flash-preview/` resp. `beam/`) and deleted — they live in
+ * (`minimax-m3.1-flash/` resp. `beam/`) and deleted — they live in
  * MERGED_MODEL_SLUGS (scripts/lib/validate.mjs), never here; searching
  * "Space Bunny" / "Cat Jam" resolves via the revealed models' meta `aliases`.
  * User-ordered permanent parks (2026-10-26): `claude-opus-4.4` and

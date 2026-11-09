@@ -37,4 +37,4 @@
 - **Coding: 75/100**
 - **Cost efficiency: 90/100**
 
-**Overall Score: 73/100**
+- **Overall Score: 73/100**

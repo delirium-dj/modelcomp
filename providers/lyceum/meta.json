@@ -16,7 +16,7 @@
     {
       "name": "Serverless pay-as-you-go",
       "price": "Per token, no base fee; e.g. GLM-5.3 $1.40 input / $4.40 output per 1M",
-      "notes": "23 open models, OpenAI- and Anthropic-compatible endpoints, runs in European data centres.",
+      "notes": "20 open models, OpenAI- and Anthropic-compatible endpoints, runs in European data centres (Paris and Finland).",
       "evidenceUrl": "https://lyceum.technology/inference/"
     },
     {

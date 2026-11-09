@@ -75,6 +75,7 @@ No text-only reasoning benchmarks (HLE, GPQA, SWE-bench, LiveCodeBench) were pub
 - **Multimodal: 92/100** — Text+Image+Video+Audio input, text output. 11 HF benchmarks + new Oct 17 additions (MMMU 70.8%, Video-MME 72.2%, V* 85.6%, MathVision 78.2%, CharXiv 80.8%, VoiceBench 89.39).
 - **Coding: 40/100** — CRITICAL revision from 15. New from Oct 17: LiveCodeBench v5 63.2%, SciCode 32%, AA Coding Index 13.8%. No SWE-bench/DeepSWE.
 - **Cost efficiency: 100/100** — Free via NVIDIA Build API, open-weight checkpoints.
+- **Overall Score: 68/100**
 
 **Overall Score: 68/100** — Half-up mean of (56 + 50 + 100 + 92 + 40) / 5 = 338 / 5 = 67.6 → 68. CRITICAL revision from 72 ↓ to 68 due to weak text-only reasoning metrics (Intelligence Index 10.3, CritPt 0.0%, AA-HLE 4.8%) revealed by Oct 17 BenchLM page. Note: BenchLM aggregated score is 32.22/100 (lower due to negative Omniscience metrics not in 5-dimension model).
 

@@ -19,4 +19,4 @@
 
 - Based on 7 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Step 5 Preview.
 - Average from top 7 by Overall Score: Claude Opus 4.6, Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Nemotron 3 Ultra 550B A55B.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Nemotron 3 Ultra 550B A55B.

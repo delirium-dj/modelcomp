@@ -1,120 +1,127 @@
 # Gemini 3.8 Flash — findings by Nemotron 3 Ultra 550B A55B
 
 - Source: Google (`gemini-3.8-flash`)
-- Date: 2026-10-19 (UTC)
+- Date: 2026-11-08 (UTC) — **Deep second-pass re-research (original: 2026-10-19)**
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash (High effort tier)
-- **Short description:** Google's cost-efficient reasoning model (Gemini 3 family) with native multimodal input (text, image, audio, video), 1M context, and strong agentic coding performance at competitive pricing.
-- **Provider / access:** Google AI Studio / Gemini API (`gemini-3.8-flash` via `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash`), Google Cloud Vertex AI, OpenCode Zen (`opencode/gemini-3.8-flash` via `https://opencode.ai/inference/google/v1beta/models/gemini-3.8-flash`), Google Antigravity. Google GenAI API (not OpenAI-compatible).
-- **Release / knowledge:** 2026-09-02 release; knowledge cutoff March 2026 (some domains January 2025).
-- **IDs:** `google/gemini-3.8-flash` (Google AI Studio/Vertex), `opencode/gemini-3.8-flash` (OpenCode Zen). No Free tier on any platform.
-- **Context window:** 1,000,000 tokens input; 65,536 tokens max output (64K).
-- **Modalities:** Text, image, audio, video in; text out; reasoning yes (customizable effort levels); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-19):** Cached: $0.75/M in, $3.75/M out (Google AI Studio / AA). Regular: $1.50/M in, $7.50/M out (OpenCode Zen). Cache discount 90%. Blended 7:2:1 ≈ $0.58/M (AA). Cost per Intelligence Index task: $1.24 (AA).
+- **Short description:** Google's cost-efficient reasoning model (Gemini 3 family) with native multimodal input (text, image, audio, video), 1M context, and strong agentic coding performance at competitive pricing. **Unusual profile: flagship-grade scientific/visual knowledge in Flash-tier body — GPQA Diamond 95.3% (highest in series), but TB 4.0 19.1% and FrontierSWE v2 19.6% collapse.** BenchLM: 66.22/100, #27/1009.
+- **Provider / access:** Google AI Studio / Gemini API (`gemini-3.8-flash`), Google Cloud Vertex AI, OpenCode Zen (`opencode/gemini-3.8-flash`), Google Antigravity. Google GenAI API (not OpenAI-compatible). **No Free tier.**
+- **Release / knowledge:** 2026-09-02 release; **knowledge cutoff not disclosed** (some domains January 2025).
+- **IDs:** `google/gemini-3.8-flash` (Google AI Studio/Vertex), `opencode/gemini-3.8-flash` (OpenCode Zen).
+- **Context window:** 1,000,000 tokens input; **65,536 max output (64K)**. **No >200K surcharge tier** — full 1M window at flat rate.
+- **Modalities:** Text, image, audio, video in; text out. Reasoning: customizable effort levels. Tool calls: yes. JSON mode: yes.
+- **Pricing (as of 2026-11-08):** **$1.50/M in, $0.15/M cached, $7.50/M out** (Zen). **No >200K surcharge tier** — full 1M at flat rate. 90% cache discount (AA). Blended 7:2:1 ≈ $0.58/M (AA). Cost/task: $1.24 (AA).
 - **Architecture:** Proprietary (Google DeepMind); based on Gemini 3.7 Flash; parameter count not disclosed.
 
 ### Raw benchmarks found
 
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
+> **DEEP SECOND-PASS UPDATE:** Incorporates findings from Step 5 Preview (2026-11-05) + official Google sources. **Average of 34 qualifying raters: 92.5 Overall** (Tool 90, Reasoning 91.5, Context 96, Multimodal 93.4, Coding 91.5). Queue: 92.5. Step 5 Preview: 87. My original: 86.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **89.4%** (Google DeepMind model card / Google harness)
-- Terminal-Bench 2.1: **87.6%** (Artificial Analysis / AA leaderboard)
-- Terminal-Bench 2.1 (Vals): **81.3%** (Vals AI leaderboard)
-- Terminal-Bench 4.0: **19.1%** (Google DeepMind model card / Google harness)
-- Terminal-Bench 4.0: **19.7%** (Artificial Analysis / AA leaderboard)
-- GDPval-AA v2: **1545 Elo** (Google DeepMind model card / Google harness)
-- GDPval-AA normalized: **46.8%** (Artificial Analysis)
-- Finance Agent v2: **61.4%** (Google DeepMind model card)
-- OSWorld 2.0: **59.0%** partial (Google DeepMind model card)
-- AA Agentic Index: **41.1%** (Artificial Analysis)
-- AA Briefcase Elo: **1203** (Artificial Analysis)
-- AA AutomationBench: **59.9%** (Artificial Analysis)
-- AA ITBench: **52.5%** (Artificial Analysis)
-- AA Tau3 Banking: **44.9%** (Artificial Analysis)
-- ApprenticeBench: **24%** (NeoCognition)
-- Harvey Legal Agent Benchmark: **10.0%** all-pass (Google DeepMind model card)
-- GDP.PDF: **35.0%** all-pass (Google DeepMind model card)
-- Hermes Index: **38.1%** / Hermes Bench: **62.2%** (Nous Research)
-- MazeBench: **4%** (ASCII mode, tools)
+- Terminal-Bench 2.1: **89.4%** (Google) / **87.6%** (AA) / **81.3%** (Vals) — clears 88%+ ref on 2 of 3 harnesses
+- Terminal-Bench 4.0: **19.1%** (Google) / **19.7%** (AA) — **catastrophic drop from TB 2.1** (Step 5)
+- GDPval-AA v2: **1,545 Elo** (Google) / **46.8%** normalized (AA) — below 1,750+ frontier
+- AA Agentic Index: **41.1%** (AA) / **41.1%** (Step 5)
+- AA Tau3 Banking: **44.9%** (AA) / **44.9%** (Step 5) — below 50% frontier
+- AA AutomationBench: **59.9%** (AA) / **59.9%** (Step 5)
+- AA ITBench: **52.5%** (AA) / **52.5%** (Step 5)
+- Finance Agent v2: **61.4%** (Google) / **61.4%** (Step 5)
+- OSWorld 2.0: **59.0%** partial (Google) / **59.0%** (Step 5)
+- Terminal-Bench 4.0: **19.1%** (Google) / **19.7%** (AA) — **catastrophic drop from TB 2.1** (Step 5)
+- FrontierSWE v2: **19.6%** (Step 5)
+- MazeBench: **4%** (Step 5) / **4%** (GLM)
+- ApprenticeBench: **24%** (Step 5)
+- GDP.pdf: **21.0%** (Step 5)
+- AA AutomationBench: **59.9%** / AA ITBench: **52.5%** / OSWorld 2.0: **59.0%** / Finance Agent v2: **61.4%** / AA-AnalystAgent: **46.3%** / AA Agentic Index: **41.1%** / AA Briefcase: **1,202 Elo** / Hermes Bench: **62.2%** / Hermes Index: **38.1%** (Step 5)
+- **Claw-Eval: no verified public score found** (Step 5)
+- AA Agentic Index: **41.1%** (AA) / AA Tau3 Banking: **44.9%** (AA) (GLM)
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **95.3%** (Artificial Analysis / AA leaderboard)
-- GPQA Diamond (Vals): **94.4%** (Vals AI leaderboard)
-- HLE-Verified: **54.9%** (Google DeepMind model card)
-- AA-HLE: **47.8%** (Artificial Analysis)
-- HLE (Vals): not directly reported
-- AA Intelligence Index: **41** (rank #51/217) (Artificial Analysis)
-- AA LCR: **81.3%** (Artificial Analysis)
-- CritPt: **18.3%** (Artificial Analysis)
-- ARC-AGI-1: **98.50%** (ARC Prize semi-private)
-- ARC-AGI-2: **89.2%** (ARC Prize semi-private)
-- ARC-AGI-3: **10.4%** (ARC Prize semi-private)
-- ARC-AGI-3 Provider Adapter: **35.0%** (ARC Prize)
-- MLCR-AA: **21.7%** (Artificial Analysis)
-- AA Omniscience Index: **29.6%** (Artificial Analysis)
-- AA Omniscience Accuracy: **54.6%** (Artificial Analysis)
-- AA Omniscience Hallucination Rate: **55.2%** (Artificial Analysis)
-- MMLU-Pro (Vals): **90.2%** (Vals AI)
-- LABBench2: **86.2%** (Google DeepMind model card)
-- BioMysteryBench: **88.8%** solvable / **56.5%** difficult (Google DeepMind model card)
-- CharXiv (no tools): **86.2%** (Google DeepMind model card)
-- LVBench: **87.8%** agentic / **87.1%** static (Google DeepMind model card)
-- FrontierMath v2 Tiers 1-3: **68.421%** (Epoch AI)
-- FrontierMath v2 Tier 4: **21.951%** (Epoch AI)
-- Gray Swan IPI: **5.5%** (Google Gemini 4 Argon chart)
+- GPQA Diamond: **95.3%** (AA) / **94.4%** (Vals) — **highest in research series** (tied above Fable 5.1 93.7%) (Step 5 / GLM)
+- HLE-Verified: **54.9%** (Google) / AA-HLE: **47.8%** (AA) (Step 5 / GLM)
+- ARC-AGI-1: **98.50%** (ARC Prize semi-private) / **98.5%** (Step 5 / GLM)
+- ARC-AGI-2: **89.2%** (ARC Prize semi-private) / **89.2%** (Step 5 / GLM)
+- ARC-AGI-3: **10.4%** (ARC Prize semi-private) / Provider Adapter: **35.0%** (ARC Prize) (Step 5 / GLM)
+- LABBench2: **86.2%** (Google) / **86.2%** (Step 5)
+- BioMysteryBench: **88.8%** solvable / **56.5%** difficult (Google) (Step 5)
+- MMLU-Pro (Vals): **90.2%** (Vals) / **90.2%** (Step 5)
+- AA Intelligence Index: **30.6** (AA) / **41** (GLM) — **large discrepancy** (Step 5 / GLM)
+- AA LCR: **81.3%** (AA) / **81.3%** (Step 5 / GLM)
+- CritPt: **18.3%** (AA) / **18.3%** (Step 5 / GLM)
+- MLCR-AA: **10.6%** (Step 5) / **21.7%** (GLM)
+- AA Omniscience: index **23.3**, accuracy **50.5%**, hallucination **55.1%** (Step 5)
+- FrontierMath v2: Tiers 1-3 **68.4%** / Tier 4 **21.95%** (Epoch AI) / **68.4% / 21.95%** (Step 5 / GLM)
+- **MRCR: no verified public score found** (Step 5 / GLM)
+- LABBench2: **86.2%** (Step 5 / GLM)
+- BioMysteryBench: **88.8%** solvable / **56.5%** difficult (Step 5 / GLM)
+- CharXiv (no tools): **86.2%** (Google) (Step 5 / GLM)
+- LVBench: **87.8%** agentic / **87.1%** static (Google) (Step 5 / GLM)
+- Gray Swan IPI: **5.5%** (Google Gemini 4 Argon chart) (GLM)
 
 Coding:
 
-- DeepSWE v1.1: **73.7%** (Google DeepMind model card) / **73.8%** (DeepSWE leaderboard)
-- AA-SciCode: **56.6%** (Artificial Analysis)
-- AA Coding Index: **76.3%** (Artificial Analysis)
-- CursorBench 3.2: **69.2%** (Cursor evals)
-- CursorBench 4.0: **39.6%** (Cursor evals)
-- LiveCodeBench (Vals): **89.5%** (Vals AI)
-- SWE-bench (Vals): **80.0%** (Vals AI)
-- Terminal-Bench 2.1: **89.4%** (Google DeepMind model card)
-- FrontierSWE v2: **19.6%** (Proximal)
-- Bug Hunt Bench: **18.0 fixes** (public data)
+- DeepSWE v1.1: **73.7%** (Google) / **73.8%** (DeepSWE leaderboard) — **0.2 pts under 74% frontier ref** (GLM / Step 5)
+- Terminal-Bench 2.1: **89.4%** (Google) / **87.6%** (AA) / **81.3%** (Vals) (Step 5 / GLM)
+- SWE-bench (Vals): **80.0%** (Vals) / **80.0%** (Step 5 / GLM)
+- LiveCodeBench (Vals): **89.5%** (Vals) / **89.5%** (Step 5 / GLM)
+- AA Coding Index: **76.3%** (AA) — clears 70%+ frontier ref (GLM / Step 5)
+- AA-SciCode: **56.6%** (AA) / **56.6%** (Step 5) — clears 55%+ ref
+- CursorBench 3.2: **69.2%** / **4.0: 39.6%** (Cursor) (Step 5 / GLM)
+- SWE-bench (Vals): **80.0%** (Vals) (Step 5 / GLM)
+- FrontierSWE v2: **19.6%** (Proximal) / **19.6%** (Step 5) — very weak
+- Vibe Code Bench: **48.68%** (Vals) (Step 5 / GLM)
+- AA Coding Index: **76.3%** (AA) — clears 70%+ ref (Step 5 / GLM)
+- AA-SciCode: **56.6%** (AA) — clears 55%+ ref (Step 5 / GLM)
+- **SWE-bench Verified / SWE-bench Pro: no verified public score found** (Step 5 / GLM)
+- **FrontierCode: no verified public score found** (Step 5 / GLM)
 
 Multimodal:
 
-- MMMU-Pro: **85.6%** (Artificial Analysis)
-- CharXiv: **86.2%** no tools (Google DeepMind model card)
-- LVBench: **87.8%** agentic / **87.1%** static (Google DeepMind model card)
-- Design Arena Website: **1300** (OpenRouter)
+- MMMU-Pro: **85.6%** (AA) / **85.6%** (Step 5 / GLM)
+- CharXiv: **86.2%** no tools (Google) / **86.2%** (Step 5 / GLM)
+- LVBench: **87.8%** agentic / **87.1%** static (Google) / **87.1%** (Step 5 / GLM)
+- CharXiv: **86.2%** (Step 5 / GLM)
+- ExtractBench: **80.71%** / ParseBench: **71.50%** / Design Arena: **1,299 Elo** (Step 5)
+- Native audio/video input (omni-input) — places in 90-100 tier (Step 5)
 
 Long context:
 
-- AA LCR: **81.3%** (Artificial Analysis)
-- MLCR-AA: **21.7%** (Artificial Analysis)
+- AA LCR: **81.3%** (AA) / **81.3%** (Step 5 / GLM)
+- MLCR-AA: **10.6%** (Step 5) / **21.7%** (GLM) — discrepancy
+- **MRCR: no verified public score found** (Step 5 / GLM)
+- **No >200K surcharge tier** — full 1M at flat rate (Step 5)
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score.
+> **DEEP SECOND-PASS RECALCULATION:** Average of 34 qualifying raters = **92.5 Overall** (Tool 90, Reasoning 91.5, Context 96, Multimodal 93.4, Coding 91.5). Queue: 92.5. Step 5 Preview: 87. My original: 86.
 
-- **Tool use: 82/100.** TB 2.1 89.4% (frontier ref ~88%+), Tau3 44.9% (below 50% frontier), GDPval 1545 Elo (below 1750+ frontier), AA Agentic Index 41.1%, Finance Agent 61.4%. Strong on TB 2.1 but capped by weak TB 4.0 (19.1%), Tau3, and GDPval vs frontier leaders.
-- **Reasoning: 78/100.** GPQA Diamond 95.3% (exceeds 90%+ frontier), HLE 54.9% verified (exceeds 40%+ frontier), ARC-AGI-1 98.5% / ARC-AGI-2 89.2% (near-perfect), AA LCR 81.3%. Capped by AA Intelligence Index 41 (below 60 frontier), CritPt 18.3%, ARC-AGI-3 10.4%.
-- **Context window: 95/100.** 1M native context with 64K output; AA LCR 81.3% shows good long-context reasoning but no public MRCR/needle retrieval at 512K+ found for 100 tier. Methodology: ≥1M = 95–100 (100 if ≥98% retrieval at 512K+).
-- **Multimodal: 90/100.** Native text/image/audio/video input, text output. MMMU-Pro 85.6%, LVBench 87.8% agentic video, CharXiv 86.2% charts. Methodology: +video/PDF in = 75–90; +audio in = 90–100. Audio input present → 90.
-- **Coding: 85/100.** DeepSWE 73.7% (near 74%+ frontier), LiveCodeBench 89.5% (Vals), SWE-bench 80.0% (Vals), AA Coding Index 76.3% (ref 70%+), AA-SciCode 56.6% (ref 55%+). Capped by TB 4.0 19.1%, CursorBench 4.0 39.6%, FrontierSWE 19.6%.
-- **Cost efficiency: 95/100.** Cached $0.75/$3.75 per 1M (blended ~$0.58/M, cost/task $1.24). Methodology: ~$0.10/$0.20 = 97–99; $0.75/$3.75 is very competitive → 95. No free tier.
-- **Overall Score: 86/100.** Half-up mean of (82 + 78 + 95 + 90 + 85) / 5 = 86.0 → 86. Best-fit: best value-for-money frontier model; unmatched multimodal breadth (audio+video) and pricing for agentic workloads.
+- **Tool use: 84/100.** (was 82) TB 2.1 **89.4% / 87.6% / 81.3%** (clears 88%+ ref on 2/3 harnesses), Finance Agent **61.4%**, OSWorld 2.0 **59.0%**, AA AutomationBench **59.9%**, AA ITBench **52.5%**, GDPval **1,545 Elo** (below 1,750+ frontier). **Capped by:** TB 4.0 **19.1% / 19.7%** (catastrophic drop), AA Tau3 Banking **44.9%** (below 50% ref), MazeBench **4%**, ApprenticeBench **24%**, GDP.pdf **21.0%**, no τ³-Banking/Claw-Eval/GDPval-Elo.
+- **Reasoning: 83/100.** (was 78) **GPQA Diamond 95.3% / 94.4% (highest in series, tied above Fable 5.1)**, HLE-Verified **54.9%**, ARC-AGI-1 **98.5%**, ARC-AGI-2 **89.2%**, LABBench2 **86.2%**, BioMysteryBench **88.8%**, MMLU-Pro **90.2%**. **Capped by:** FrontierMath Tier 4 **21.95%** (1/4 of Argon's), CritPt **18.3%**, MLCR-AA **10.6%**, ARC-AGI-3 **10.4%**, AA Intelligence Index **30.6** (below 60+ frontier), hallucination **55.1%**.
+- **Context window: 96/100.** (was 95) 1M native; **Zen sells full 1M at flat $1.50/$7.50 — no >200K tier**, cheaper long-context access than all other 1M models. AA LCR **81.3%**. Held at 96 (not 100) due to no MRCR retrieval run, no max-output limit published.
+- **Multimodal: 92/100.** (was 90) Text, image, video, **audio** input (omni-input) — 90-100 tier. MMMU-Pro **85.6%**, CharXiv **86.2%**, LVBench **87.1%** (long video), ExtractBench **80.71%**, CharXiv **86.2%**, Design Arena **1,299 Elo**. Capped by text-only output, Design Arena **1,299 Elo** (below Argon's 1,316).
+- **Coding: 89/100.** (was 85) AA Coding Index **76.3%** (clears 70%+), TB 2.1 **89.4%** (clears 85% ref), DeepSWE **73.8%** (0.2 pts under 74% ref), AA-SciCode **56.6%** (clears 55% ref), SWE-bench **80.0%** (Vals), LiveCodeBench **89.5%** (Vals). **Capped by:** FrontierSWE v2 **19.6%**, CursorBench 4.0 **39.6%**, Bug Hunt **18.0 fixes**, no SWE-bench Verified/Pro, same agentic-execution weakness capping tool use.
+- **Cost efficiency: 85/100.** (was 95) $1.50/$7.50 with **no >200K tier** — full 1M at flat rate. Blended ~$0.58/M, cost/task $1.24. **Held below 88 by no free tier and dominated by Gemini 4 Argon at similar intro rate.** Methodology: $1.50/$7.50 between ~$1.25/$4.25 (≈88) and ~$3/$15 (≈60).
+- **Overall Score: 89/100.** (was 86) Half-up mean of (84 + 83 + 96 + 92 + 89) / 5 = 444 / 5 = 88.8 → **89**. **Below average of 34 qualifying raters (92.5).** Best-fit: **Cheap knowledge-and-vision engine** — GPQA 95.3% (series highest), MMMU-Pro 85.6%, LVBench 87.1%, 1M context at $1.50/$7.50 flat; **Do not deploy as autonomous coding agent** — TB 4.0 19.1%, FrontierSWE v2 19.6%, Gray Swan 5.5% (weakest Gemini/Claude with published figure).
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-19
-- Method: Public internet research across official model cards (Google DeepMind model card), independent benchmark aggregators (Artificial Analysis, BenchLM, ARC Prize, Epoch AI, Vals AI), and gateway pricing (OpenCode Zen); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-08
+- Method: **Deep second-pass re-research** (original 2026-10-19). Cross-rater synthesis from Step 5 Preview (2026-11-05, Overall 87) + official Google sources (Gemini 3.8 Flash model card, BenchLM catalog). **Average of 34 qualifying raters: 92.5 Overall.** Queue: 92.5. **Critical findings:** GPQA Diamond 95.3% (series highest); TB 2.1 89.4% vs TB 4.0 19.1% (catastrophic split); DeepSWE 73.8% (0.2 under 74% ref); FrontierMath T4 21.95%; ARC-AGI-3 10.4%; AA Intelligence Index 30.6 (large GLM discrepancy); no MRCR/SWE-bench Verified/Pro; audio input places in 90-100 multimodal tier.
+- Reference URLs:
+  - [Google DeepMind — Gemini 3.8 Flash Model Card](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
+  - [BenchLM — Gemini 3.8 Flash (66.22/100, #27/1009, 63 rows)](https://benchlm.ai/models/gemini-3-8-flash)
+  - [Artificial Analysis — Gemini 3.8 Flash](https://artificialanalysis.ai/models/gemini-3.8-flash)
+  - [Vals AI — Gemini 3.8 Flash](https://www.vals.ai/models/google_gemini-3.8-flash)
+  - [Epoch AI — FrontierMath v2](https://epoch.ai/benchmarks/frontiermath-tier-4-v2)
+  - [ARC Prize — Gemini 3.8 Flash](https://arcprize.org/leaderboard)
+- Future sources: add a file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---

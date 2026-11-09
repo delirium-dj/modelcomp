@@ -1,7 +1,9 @@
 {
-  "id": "minimax-ai/minimax-m3.1-flash-preview",
-  "name": "MiniMax M3.1 Flash Preview",
+  "id": "minimax-ai/minimax-m3.1-flash",
+  "name": "MiniMax M3.1 Flash",
   "aliases": [
+    "MiniMax M3.1 Flash Preview",
+    "minimax-m3.1-flash-preview",
     "Space Bunny",
     "Space Bunny Alpha",
     "Space Bunny Free",

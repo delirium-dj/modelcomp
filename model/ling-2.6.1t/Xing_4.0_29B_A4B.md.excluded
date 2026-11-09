@@ -1,0 +1,13 @@
+# Ling 2.6.1T — excluded findings by Xing_4.0_29B_A4B
+
+> TEMPLATE notice — do not commit as-is. Self-exclusion: zero verified public benchmark numbers for this exact model/ID — every row reads "no verified public score found". Scores inside are ignored (pnpm sync quarantines evidence-free files). Per RULES.md § Research rules: `.md.excluded` only when not enough verified data exists. Zero fabricated numbers. One fabricated number drags the mean.
+
+## Negative findings
+
+- No published model card found on HuggingFace, arXiv (`ling-2.6.1t` returned no results), or any other primary source.
+- The "ling-*" naming pattern suggests an LLM from a Chinese AI lab; competing names like ling-3.0-flash, ling-2.6-flash appear in the queue, suggesting some Ling-series models exist but this specific 2.6.1 variant is not findable online.
+
+## Notes
+
+- This STEM's own file would normally have scored if benchmarks were found. Since none are available, the sibling is preserved as `.md.excluded`.
+- A future re-research pass may produce new evidence — only then would the twin be retired with a fresh `.md` written alongside it.

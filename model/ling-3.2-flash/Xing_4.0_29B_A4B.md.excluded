@@ -1,0 +1,15 @@
+# Ling 3.2 Flash — excluded findings by Xing_4.0_29B_A4B
+
+> TEMPLATE notice — do not commit as-is. Self-exclusion: zero verified public benchmark numbers for this exact model/ID — every row reads "no verified public score found". Scores inside are ignored (pnpm sync quarantines evidence-free files). Per RULES.md § Research rules: `.md.excluded` only when not enough verified data exists. Zero fabricated numbers. One fabricated number drags the mean.
+
+## Negative findings
+
+- No published model card found on HuggingFace (`search=ling-3.2-flash` returned empty), arXiv (`ling-3.2` query returned no results), or any other primary source.
+- No benchmark leaderboard entry, no evaluation report, no technical paper referencing this model ID with any published score.
+- The name pattern "ling-*" suggests an LLM from a Chinese AI lab; competing brand names like "ling-3.0-flash" appear in the queue at 65 points, indicating some Ling-series models exist but this specific 3.2 variant with full benchmark coverage is not findable online.
+
+## Notes
+
+- This STEM's own file would normally have scored if benchmarks were found. Since none are available, the sibling is preserved as `.md.excluded` (content is preserved; quarantine stays ON until corrected evidence surfaces).
+- A future re-research pass, when this agent becomes unavailable or the queue resets, may produce new evidence — only then would the `.md.excluded` twin be retired with a fresh `.md` written alongside it.
+- The finding file itself must never carry placeholder numbers (0, 10, …); a fabricated number drags the mean for every reader. Only verified data passes through.
