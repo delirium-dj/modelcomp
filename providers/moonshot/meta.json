@@ -16,7 +16,7 @@
     {
       "name": "Moonshot API pay-as-you-go",
       "price": "$0.95/$4.00 per 1M (Kimi K2.6 / K2.7 Code) up to $3.00/$15.00 per 1M (Kimi K3)",
-      "notes": "Kimi K2.7 Code Highspeed $1.90/$8.00 per 1M; cached input $0.19–$0.30 per 1M.",
+      "notes": "Kimi K2.7 Code Highspeed $1.90/$8.00 per 1M; cached input $0.19–$0.30 per 1M. K3 series supports a 1,048,576-token context; kimi-k3.1-pro and kimi-k3 support Batch API at 60% of standard price. K2 series: closed to newly registered users since 2026-10-31, with full K2 retirement planned by end of December 2026 (existing users unaffected until then).",
       "evidenceUrl": "https://platform.moonshot.ai/docs/pricing/chat"
     },
     {
