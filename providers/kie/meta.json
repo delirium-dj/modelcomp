@@ -1,0 +1,28 @@
+{
+  "name": "Kie.ai",
+  "kind": "aggregator",
+  "short": "Multi-modal AI API aggregator specializing in video, image, music, and text generation. Provides unified API access to 200+ models (including Kling, Seedance, Veo, Flux, Suno, and frontier LLMs) via a credit-based pay-as-you-go system with welcome test credits.",
+  "officialUrl": "https://kie.ai",
+  "hosts": ["kie.ai", "docs.kie.ai"],
+  "catalogUrl": "https://kie.ai/market",
+  "plans": [
+    {
+      "name": "Free trial",
+      "price": "$0",
+      "notes": "One-time welcome grant of ~80 test credits (~$0.40 value) upon registration to test endpoints.",
+      "evidenceUrl": "https://kie.ai"
+    },
+    {
+      "name": "Pay-as-you-go",
+      "price": "~$0.005 / credit",
+      "notes": "Prepaid credit packs; billed per image, per second of video/audio, or per 1M tokens. Failed generation tasks are never charged.",
+      "evidenceUrl": "https://kie.ai/pricing"
+    }
+  ],
+  "covers": [
+    "gpt-5.4",
+    "claude-opus-5.5",
+    "claude-sonnet-5.5"
+  ]
+}
+

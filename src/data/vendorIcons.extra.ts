@@ -178,4 +178,5 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "llm-gateway":   { viewBox: llmgateway.viewBox, body: llmgateway.body },
   "cortecs":       { viewBox: cortecs.viewBox, body: cortecs.body },
   "scx-ai":        { viewBox: scx.viewBox, body: scx.body },
+  "kie":           { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#10B981"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">K</text>' },
 };

@@ -248,6 +248,7 @@ const VENDORS: VendorMatch[] = [
   { match: "fastrouter", icon: "fastrouter", label: "FastRouter" },
   { match: "llmgateway", icon: "llm-gateway", label: "LLM Gateway", adaptive: true },
   { slug: "llm-gateway", icon: "llm-gateway", label: "LLM Gateway", adaptive: true },
+  { slug: "kie", icon: "kie", label: "Kie.ai" },
   { match: "cortecs", icon: "cortecs", label: "Cortecs" },
   { match: "scx", icon: "scx-ai", label: "SCX.ai" },
   { slug: "scx-ai", icon: "scx-ai", label: "SCX.ai" },

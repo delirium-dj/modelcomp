@@ -1,0 +1,70 @@
+# Crouton Alpha — findings by Claude Opus 4.6
+
+- Source: Anonymous / Stealth (`crouton-alpha`)
+- Date: 2026-11-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Crouton Alpha
+- **Short description:** Anonymous stealth AI model on OpenRouter, optimized for high-volume developer workflows, agent sub-tasks, and scalable coding. Supports multimodal input (text, images, audio, video, files). 1M context window. Free during preview. Speculated to be from Meta's ecosystem based on deployment fingerprinting — unconfirmed.
+- **Provider / access:** OpenRouter (`stealth/crouton-alpha`). Anonymous provider.
+- **Release / knowledge:** 2026 (stealth preview); knowledge cutoff unknown.
+- **IDs:** `stealth/crouton-alpha`
+- **Context window:** 1,048,576 tokens (1M). Max output 943,718 tokens.
+- **Modalities:** Text, image, audio, video, files in; text out; configurable reasoning effort (minimal/low/medium/high).
+- **Pricing (as of 2026):** Free ($0.00/M in and out) during preview. Subject to change or sudden removal.
+- **Architecture:** Unknown. Anonymous stealth model. Speculated Meta ecosystem lineage (unconfirmed). No official parameter count or architecture details.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION triggered:** ZERO verified public benchmark numbers found for this exact model/ID. All evaluations are community anecdotes from StealthMark trials and Reddit discussions. No SWE-bench, GPQA, LiveCodeBench, or other standardized leaderboard entries exist.
+
+Agent / tool use:
+
+- Anecdotal: robust instruction-adherence in specialized agent workflows; strong structured programming and multi-file code review (reddit.com)
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- MCP-Atlas / Toolathon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- Community: "mid-to-high tier" visual reasoning, comparable to Meta Muse variants (reddit.com) — unverified
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- LiveCodeBench: no verified public score found
+- Community: "favorably against mid-tier flash models" in code generation tests — unverified
+
+Long context:
+
+- 1M context window claimed. Max output ~944K. No MRCR/RULER/GraphWalks scores.
+
+### Normalized scores (1–100)
+
+> Scores below are included for structural completeness but are ignored by the parser for `.md.excluded` files.
+
+- **Tool use: N/A.** No verified benchmarks.
+- **Reasoning: N/A.** No verified benchmarks.
+- **Context window: N/A.** No verified retrieval data.
+- **Multimodal: N/A.** Broad input coverage claimed but unverified.
+- **Coding: N/A.** No verified benchmarks.
+- **Cost efficiency: N/A.**
+- **Overall Score: N/A.** Excluded due to zero verified public benchmarks.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-09
+- Method: Public internet research; no verified public benchmark data found. All data is community anecdotes from OpenRouter stealth preview.
+- Reference URLs:
+  - [OpenRouter — Crouton Alpha](https://openrouter.ai)
+  - [MindStudio — Crouton Alpha Overview](https://mindstudio.ai)
+  - [Cellcog — Crouton Alpha Speculation](https://cellcog.ai)
+  - [Kingy — Crouton Alpha Details](https://kingy.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

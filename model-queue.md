@@ -147,10 +147,10 @@
 72.7 nemotron-3-ultra-free
 72.3 qwen3-max
 72.1 hy3
+72 ternary-bonsai-27b
 71.2 qwen-3.7-flash
 71 longcat-2.0
-71 ternary-bonsai-27b
-70.3 ling-3.2-flash
+70.8 ling-3.2-flash
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
 69.9 hy3-preview
@@ -170,8 +170,8 @@
 66.8 claude-haiku-3.5
 66.8 deepseek-v3.2
 66.5 glm-5
-66.5 mistral-small-4
 65.6 gpt-5.3-codex-spark
+65.6 mistral-small-4
 65.2 ling-3.0-flash
 65 glm-4.6v-flash
 65 ling-2.6.1t
@@ -179,8 +179,8 @@
 64.6 leanstral-1.5
 64.5 xing_4.0_29b_a4b
 64.1 mimo-v2.6-distill-qwen-9b
-63.9 mistral-large-3
 63 mai-code-1-flash
+63 mistral-large-3
 62.4 gemma-4-e4b
 61.4 gpt-oss-120b
 61.3 laguna-xs-2.1
@@ -204,11 +204,11 @@
 54.8 gemma-4-e2b
 53.6 gpt-oss-120b-lite
 53.3 ling-3.0-tiny
-50.5 codestral-25.08
 50.1 nemotron-3.5-bolt-e4b
+49.8 codestral-25.08
 47.5 neomorph
 47 mercury-2
 46.5 mai-experimental-test
 42.9 qwen-3.5-0.8b
-42.4 codestral
+41.9 codestral
 40.8 jev-1.13

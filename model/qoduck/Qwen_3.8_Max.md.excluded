@@ -1,0 +1,85 @@
+# QoDuck — findings by Qwen 3.8 Max
+
+> SELF-EXCLUDED — zero verified public benchmark numbers. The specs below are
+> vendor/community-confirmed, but no reproducible scored benchmark (SWE-bench,
+> HumanEval, GPQA, Artificial Analysis Intelligence Index, BenchLM, LMArena)
+> exists for this exact stealth ID. Normalized scores are intentionally OMITTED
+> (never invented); `pnpm sync` auto-quarantines evidence-free files.
+> Basis: `tasks/research.md` rule 9 + template SELF-EXCLUSION; permanence per `RULES.md`.
+
+- Source: Alibaba Cloud / Qoder (`opencode/qoduck`, upstream routing key `lmodel`)
+- Date: 2026-11-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** QoDuck (stealth model — official lineage undisclosed by Alibaba Cloud)
+- **Short description:** An unannounced agentic coding LLM deployed by Alibaba Cloud inside its Qoder development platform (first surfaced 2026-11-07) as an in-the-wild canary/eval release. Tokenizer fingerprint matches the Qwen family. Qoder-exclusive: not on Hugging Face, no public REST API, no CLI.
+- **Provider / access:** Alibaba Cloud / Qoder International desktop app only; model-picker entry "QoDuck", upstream gateway key `lmodel`; individual tiers Free / Pro Trial / Lite / Pro / Pro+ / Ultra (Teams & Enterprise excluded). No standalone API or open weights.
+- **Release / knowledge:** Released 2026-11-07 (promotional stealth preview); knowledge cutoff not published.
+- **IDs:** `opencode/qoduck`; upstream routing key `lmodel`. No public API ID outside the Qoder client.
+- **Context window:** Up to 1,000,000 tokens (1M) — confirmed via Qoder client catalog data; no long-context retrieval benchmark (MRCR/RULER) published.
+- **Modalities:** Text + code in/out; reasoning yes (adjustable "Thinking Intensity" → backend `parameters.reasoning_effort`, max level covered by the promo); tool calls yes (autonomous shell/file-execution loop). Multimodal image input "observed" by community testing but NOT officially confirmed by the vendor.
+- **Pricing (as of 2026-11-09):** Promotional daily free allowance at 0.0× Credits (resets every 24h, covers even max thinking intensity); beyond the allowance, 0.5× Credit multiplier (same tier as Qwen 3.8 Max). Credit-based, not per-token USD; promo end date "yet to be determined."
+- **Architecture:** Undisclosed. Community hypotheses: dense ~27B, or sparse MoE with Multi-Token-Prediction heads (throughput up to ~480 tok/s claimed). Neither confirmed by Alibaba. Proprietary hosted preview (no weights published).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model/ID — every row below reads "no verified public score found."
+> Per `tasks/research.md` rule 9 + template SELF-EXCLUSION, no scored `.md` is
+> written and no placeholder scores are invented.
+
+Agent / tool use:
+
+- Terminal-Bench / Tau-Bench / Toolathon / MCP-Atlas / SWE Atlas: **no verified public score found** — only qualitative community reports of "exceptional tool-use consistency … without getting caught in circular retry loops" (kie.ai; r/LocalLLaMA). No reproducible numbers.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / MLCR / CritPt: **no verified public score found**.
+- Artificial Analysis Intelligence Index: **not tracked** — `artificialanalysis.ai/models/qoduck` and `/models/lmodel` both return HTTP 404.
+- BenchLM overall: **not tracked** — `benchlm.ai/models/qoduck` returns HTTP 404.
+- Only claim: an unnamed group ("AI Tracker") reports QoDuck "systematically outperformed all previously released Qwen models" in controlled knowledge evals — no numeric scores, not reproducible, not attributable to a first-party/dedicated host.
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / HumanEval / SciCode / Vibe Code Bench: **no verified public score found**. kie.ai states explicitly: "no formal, reproducible benchmark results (such as SWE-bench or HumanEval scores) have been released."
+- Only anecdote: a head-to-head refactoring timing (QoDuck 40 min vs DeepSeek-V4.1-Flash 70 min) in unspecified user trials — a wall-clock anecdote, not a scored benchmark.
+
+Long context:
+
+- 1,000,000-token window confirmed via client catalog data, but **no long-context retrieval benchmark reported** (no MRCR / RULER / GraphWalks score).
+
+Multimodal:
+
+- Image/vision input "observed" by community testing (partially confirmed), text + code output; **no multimodal benchmark score found**, and the vendor has not confirmed image support.
+
+> Provenance & meta verification:
+> - `model/qoduck/meta.json` is a scaffolded stub (`"scaffolded": true`): it claims "128K total" context and "Text in/out". Both are CONTRADICTED by the Qoder client catalog (1M window) and community testing (code-first, observed multimodal). Premise-corrected above on the fresh vendor/community evidence — recommend the orchestrator regenerate this stub.
+> - Lineage: tokenizer fingerprint matches the Qwen 3.8 vocabulary (AI Tracker via kie.ai). Widely speculated to preview an unreleased Qwen checkpoint (a "Qwen 4" branch), but Alibaba has NOT confirmed generation or parameter scale — treat lineage as unconfirmed.
+
+### Normalized scores (1–100)
+
+> OMITTED — self-excluded. No verified public benchmark numbers exist, so no
+> quality dimension (Tool use / Reasoning / Context window / Multimodal / Coding)
+> can be scored without fabrication, and Cost efficiency alone is not scoreable
+> into an Overall. Per the template SELF-EXCLUSION block and `tasks/research.md`
+> rule 9, placeholder scores are never invented. The verified specs (1M context,
+> 0.5×/0.0× credit pricing, Qwen-family tokenizer, agentic-coding focus) are
+> documented above so a future pass can score this model the moment Alibaba or a
+> dedicated tracker (Artificial Analysis / BenchLM / LMArena) publishes
+> reproducible numbers.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Max (qwen/qwen-3.8-max)** — 2026-11-09
+- Method: public internet research (official vendor docs + independent spec/tokenizer analysis). SELF-EXCLUDED because zero verified public benchmark numbers were found for this exact stealth ID; normalized scores are omitted, never invented.
+- Reference URLs:
+  - [Qoder — Qoduck: Try the Stealth Model Free for a Limited Time (official event + pricing/access rules)](http://docs.qoder.com/events/qoduck-free)
+  - [Kie.ai — What Is QoDuck? Specs, Limits, and Qoder Access (independent spec + tokenizer analysis)](https://kie.ai/blog/what-is-qoduck)
+  - [Artificial Analysis — models/qoduck (HTTP 404, not tracked)](https://artificialanalysis.ai/models/qoduck)
+  - [BenchLM — models/qoduck (HTTP 404, not tracked)](https://benchlm.ai/models/qoduck)
+- Future sources: if Alibaba confirms the lineage, or a dedicated tracker publishes reproducible benchmarks, re-research per `tasks/research.md` Step 3.3 (twin procedure) and add a scored `Qwen_3.8_Max.md` beside this file using the same headings.

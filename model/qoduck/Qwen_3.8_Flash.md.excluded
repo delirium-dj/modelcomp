@@ -1,0 +1,57 @@
+# Qoduck — findings by Qwen 3.8 Flash (self-excluded: undisclosed stealth identity, zero verified benchmarks)
+
+- Source: Qoder (`Qoduck`, curated id `opencode/qoduck`) — Alibaba-linked AI coding product
+- Date: 2026-11-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is saved as `.md.excluded` because **Qoduck is an anonymous stealth route whose underlying model has not been disclosed**, and Qoder publishes **zero benchmark numbers, specs, or a model card** for it. Its own docs say so plainly: *"Qoduck is a stealth model whose identity has yet to be disclosed. Try it on your own tasks to see how it performs. More information will be shared at an appropriate time."* Per `RULES.md` / `tasks/research.md` Rule 9, a findings file with no verified public benchmark for the exact ID is **self-excluded, never fabricated**. Scoring it would require either inventing capability numbers or importing a guessed parent model's results — both prohibited.
+
+## Model card (verified facts only)
+
+- **Name:** Qoduck (`qoduck`)
+- **Status:** **LIVE BUT ANONYMOUS.** Surfaced **2026-11-07** (Singapore time) as a stealth model in Qoder International's model picker, with a limited-time daily free allowance. Promotion end date **TBD**; Qoder will bill at the model's published Credit rate once it ends.
+- **What it actually is:** undisclosed. Qoder explicitly declines to name the base model ("Don't ask where it came from" in its launch post). Community chatter on r/LocalLLaMA speculates *"maybe Qwen4"*, but that is an **unverified guess** and per the no-reattribution rule is **not** usable as identity or scoring evidence.
+- **Provider / access:** **Qoder International** only (IDE model picker); **individual** plans — Free, Pro Trial, Lite, Pro, Pro+, Ultra. **Teams/Enterprise are ineligible and do not see it.** Qoder IDE/JetBrains plugin/CLI do not carry the promotion. No public API endpoint, no OpenRouter/Zen ID, no Hugging Face checkpoint.
+- **Release / knowledge:** promotion started **2026-11-07**; no knowledge cutoff disclosed.
+- **IDs:** none published (picker name only).
+- **Context window:** **not disclosed.** The curated `meta.json` ("128K total") is a **scaffolded placeholder**, corroborated by nothing.
+- **Modalities:** **not disclosed.** `meta.json` "Text in/out" is scaffold boilerplate. Qoduck does expose selectable **thinking-intensity levels** ("even at the highest thinking intensity"), which implies a reasoning-capable model but confirms no I/O modality set.
+- **Pricing:** credit-based, not per-token. **Standard 0.5× Credit rate**; **0.0× (free)** inside a limited daily allowance that resets each day (paid plans get a larger allowance). **No $/1M token price exists** for this route.
+- **Architecture:** none disclosed.
+
+### Raw benchmarks found
+
+Every category: **no verified public score found** — Qoder publishes no evaluation table, no Artificial Analysis row exists for `qoduck` (it is not a public-API model), and there is no independent same-harness reproduction. Reported behavior is qualitative only (high demand; slower responses at peak).
+
+Agent / tool use:
+
+- Terminal-Bench / τ² / τ³ / GDPval / OSWorld / MCP-Atlas / BrowseComp: **no verified public score found for this exact ID**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index / AA-Omniscience: **no verified public score found** (no AA page exists for `qoduck`)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / AA-LCR: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found** (window and modalities undisclosed)
+
+### No scores asserted
+
+Because neither the model's identity nor a single benchmark can be verified, all seven dimensions (Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency, Overall Score) are left **unscored**. Assigning numbers would mean inventing capability data for an unidentified route or reattributing a guessed parent's (e.g. Qwen) results onto a non-disclosed alias — both prohibited by `RULES.md`, and either would corrupt the cohort mean for every reader.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-09
+- Method: public internet research — Qoder's official "Qoduck: Try the Stealth Model Free for a Limited Time" event doc (2026-11-07 launch; identity "yet to be disclosed"; 0.5× standard / 0.0× promotional Credit rate; daily allowance; individual plans only; no specs or benchmarks published), Qoder's launch announcement, and independent coverage (aicoder.com) plus community threads (r/LocalLLaMA) whose "maybe Qwen4" attribution is **unverified and deliberately not used** as identity or score evidence. Checked that Artificial Analysis exposes no `qoduck` row. The curated `meta.json` (128K / text / Standard pricing) is a **scaffolded placeholder** and was not treated as evidence. No benchmark values inferred from peers or borrowed from any guessed parent model. Self-excluded per `RULES.md` (zero verified benchmarks, never fabricate, never reattribute).
+- Reference URLs:
+  - [Qoder Docs — Qoduck: Try the Stealth Model Free for a Limited Time](https://docs.qoder.com/events/qoduck-free)
+  - [Qoder — stealth model launch announcement](https://x.com/qoder_ai_ide/status/2118889023339208755)
+  - [aicoder.com — Qoder Ships Stealth Model Qoduck (2026-11-07)](https://aicoder.com/news/news-20261107-qoder-qoduck-stealth-model-daily-free-0x-credits)
+- Revisit trigger: Qoder de-anonymizing Qoduck into a named model with a first-party model card and published benchmark numbers (AA Index / GPQA / SWE-bench / Terminal-Bench), or an independent evaluator exposing a distinct, reproducible capability row for this route. Until then, exclusion stands.
+- Future sources: convert to a scored `Qwen_3.8_Flash.md` once verifiable data exists, or add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

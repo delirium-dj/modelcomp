@@ -1,0 +1,73 @@
+# Qoduck — findings by Claude Opus 4.6
+
+- Source: Alibaba Cloud / Qoder (`qoduck`)
+- Date: 2026-11-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** Alibaba Cloud's stealth AI coding model deployed inside the Qoder development environment, surfacing in early November 2026. Widely speculated to be an early preview or checkpoint of the anticipated Qwen 4 family. Features adjustable reasoning intensity and agentic multi-step code generation. No official whitepaper or benchmark release.
+- **Provider / access:** Qoder IDE (Alibaba Cloud). API access limited; team/enterprise accounts restricted during stealth rollout.
+- **Release / knowledge:** November 2026 (stealth); knowledge cutoff not publicly stated.
+- **IDs:** `opencode/qoduck`
+- **Context window:** 1,000,000 tokens (1M) per community reports; meta.json states 128K — discrepancy likely due to stealth rollout configuration.
+- **Modalities:** Text in; text out; reasoning intensity settings; agentic tool calling and code execution loops.
+- **Pricing (as of 2026-11):** 0.5× credit multiplier on Qoder platform (sharing tier with Qwen Max). Promotional zero-credit daily allowance for individual users.
+- **Architecture:** Proprietary. Tokenizer and structural analysis confirm Qwen model family lineage. Suspected early Qwen 4 architecture with sparse MoE. No official parameter count disclosed.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION triggered:** ZERO verified public benchmark numbers found for this exact model/ID. All community evaluations are anecdotal or tied to internal lab tests without finalized leaderboard entries. Every benchmark row below reads "no verified public score found."
+
+Agent / tool use:
+
+- Anecdotal: strong proficiency in "render-inspect-fix" loops — generates code, catches errors via tool-calling/vision, iterates to functional product (reddit.com)
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- MCP-Atlas / Toolathon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- Reasoning intensity slider available in Qoder IDE (kie.ai)
+- Community reports suggest "near top-tier proprietary" reasoning capability — unverified
+
+Coding:
+
+- SWE-bench Verified: no verified public score found (no official leaderboard submission)
+- LiveCodeBench: no verified public score found
+- Community tests: "punches well above previous mid-sized models" in complex agentic workflows (kie.ai) — unverified
+- SciCode / AA-SciCode: no verified public score found
+
+Long context:
+
+- Claimed 1M context window. No verified long-context retrieval benchmarks published.
+
+### Normalized scores (1–100)
+
+> Scores below are included for structural completeness but are ignored by the parser for `.md.excluded` files.
+
+- **Tool use: N/A.** No verified benchmarks.
+- **Reasoning: N/A.** No verified benchmarks.
+- **Context window: N/A.** No verified retrieval data.
+- **Multimodal: N/A.** Text-only per available info.
+- **Coding: N/A.** No verified benchmarks.
+- **Cost efficiency: N/A.**
+- **Overall Score: N/A.** Excluded due to zero verified public benchmarks. Official scores expected when Alibaba lifts stealth label and publishes Qwen 4 technical report.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-09
+- Method: Public internet research; no verified public benchmark data found. All available information is anecdotal community reports from Qoder IDE testers.
+- Reference URLs:
+  - [Kie.ai — QoDuck Stealth Release Analysis](https://kie.ai)
+  - [YottaLabs — QoDuck / Qwen 4 Speculation](https://yottalabs.ai)
+  - [Reddit — QoDuck Developer Discussion](https://reddit.com)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
