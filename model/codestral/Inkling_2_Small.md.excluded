@@ -1,0 +1,63 @@
+# Codestral — findings by Inkling 2 Small
+
+- Source: Mistral (`codestral`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral
+- **Short description:** Bare-name tracked slug for Mistral's Codestral line — resolves to the hosted `codestral-latest` route (256K ctx), which models.dev maps to the only published lineage (`mistralai/Codestral-22B-v0.1`, May 2024, open weights) plus the later `codestral-25.08` SKU (tracked separately in this dataset). Flag for orchestrator: this bare slug likely aliases the 22B route, not a distinct model.
+- **Provider / access:** Mistral La Plateforme (hosted; `codestral-latest`); open weights (`mistralai/Codestral-22B-v0.1` on HF); 5 providers per models.dev.
+- **Release / knowledge:** 2024-05-29 (Codestral 22B v0.1 lineage); updated rows 2025-01-04.
+- **IDs:** `codestral` / `codestral-latest`; HF `mistralai/Codestral-22B-v0.1`
+- **Context window:** 256,000 tokens (codestral-latest; models.dev) / 32,768 (22B-v0.1).
+- **Modalities:** text in → text out; reasoning NO; tool calls yes.
+- **Pricing (as of 2026-11-10):** $0.30 / 1M input, $0.90 / 1M output (models.dev).
+- **Architecture:** proprietary/open MoE-class; Codestral 22B v0.1 = dense 22B (HF).
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID in current trackers (BenchLM 404; Artificial Analysis has no rows; models.dev carries the route but no measured table). Historical Mistral launch coverage of Codestral 22B cited in-fill completion and code benchmarks, but those numbers could not be re-verified from today's primary sources — treated as unverified.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found (2024-era launch claims unverifiable today; 25.08 is a separate tracked SKU)
+
+Long context:
+
+- 256,000 tokens (models.dev, codestral-latest); no verified public long-context retrieval score found
+
+Multimodal:
+
+- Text-only — no verified public multimodal evidence exists.
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Flag for orchestrator: bare `codestral` likely aliases `codestral-latest`/`codestral-22b-v0.1` — a candidate for parking if a distinct route is not confirmed.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence ($0.30/$0.90 noted for context)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — identity unverified.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (models.dev, Hugging Face, BenchLM); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [Codestral (latest) — models.dev](https://models.dev/models/mistral/codestral-latest)
+  - [mistralai/Codestral-22B-v0.1 — Hugging Face](https://huggingface.co/mistralai/Codestral-22B-v0.1)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

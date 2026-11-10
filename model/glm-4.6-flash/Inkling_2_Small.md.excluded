@@ -1,0 +1,64 @@
+# GLM-4.6 Flash — findings by Inkling 2 Small
+
+- Source: Z.AI (`glm-4.6-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.6 Flash
+- **Short description:** As of 2026-11-10 no text-only `GLM-4.6-Flash` exists in Z.AI's public catalogue: the Flash SKUs are `GLM-4.6V-Flash` (vision, 9B) and `GLM-4.7-Flash` (text, reasoning); the plain `GLM-4.6` route (204,800 ctx) is the base model. This tracked slug appears to conflate those siblings — see flag for orchestrator.
+- **Provider / access:** unknown — no vendor route found for the exact `glm-4.6-flash` ID (Z.ai docs, HF zai-org, models.dev, BenchLM).
+- **Release / knowledge:** unknown.
+- **IDs:** `glm-4.6-flash` (as tracked by this dataset; vendor route not found)
+- **Context window:** unknown (sibling tracks: GLM-4.6 204,800 / GLM-4.6V-Flash 128,000).
+- **Modalities:** unknown (sibling tracks: text-only GLM-4.6 vs text+image GLM-4.6V-Flash).
+- **Pricing (as of 2026-11-10):** no verified public price found.
+- **Architecture:** unknown.
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID. Every row below is intentionally empty.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found (BenchLM 404; HF zai-org search `GLM-4.6-Flash`: only GLM-4.6V-Flash; models.dev: no `glm-4.6-flash` entry)
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+Multimodal:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Flag for orchestrator: `glm-4.6-flash` may be a phantom/conflation of GLM-4.6V-Flash (vision) or GLM-4.7-Flash (text, reasoning) — verify and likely park it.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — identity unverified.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (Hugging Face zai-org, models.dev, BenchLM); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [zai-org on Hugging Face](https://huggingface.co/zai-org)
+  - [GLM-4.6V-Flash (vision sibling) — Hugging Face](https://huggingface.co/zai-org/GLM-4.6V-Flash)
+  - [GLM-4.6 — models.dev](https://models.dev/models/zhipuai/glm-4.6)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -22,7 +22,7 @@ const repoRoot = path.resolve(__dirname, "..");
 const isDryRun = process.argv.includes("--dry");
 
 // Target directories: model/ and sanctioned mirror trees
-const targetTrees = ["model", "models_cybersecurity", "models_finance", "models_health", "models_voice"];
+const targetTrees = ["model", "models_cybersecurity", "models_finance", "models_health", "models_voice", "models_legal"];
 
 // Exactly preserve files that already have Flint (opencode/flint) or the requested Flint target
 const EXACT_KEEP_PATTERNS = [

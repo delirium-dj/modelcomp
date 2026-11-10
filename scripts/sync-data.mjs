@@ -383,6 +383,7 @@ const phantomGuardRoots = [
   join(root, "models_finance"),
   join(root, "models_cybersecurity"),
   join(root, "models_health"),
+  join(root, "models_legal"),
 ];
 for (const guardRoot of phantomGuardRoots) {
   if (!existsSync(guardRoot)) continue;
@@ -456,7 +457,7 @@ for (const slug of slugs) {
 // trees. Single lookup behind both the rater gate and SOURCE_DEFS slug
 // emission (slug lives inline in SourceDef).
 const catalogNames = new Map(); // normalized name -> slug
-for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance"), join(root, "models_cybersecurity"), join(root, "models_health")]) {
+for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance"), join(root, "models_cybersecurity"), join(root, "models_health"), join(root, "models_legal")]) {
   if (!existsSync(rDir)) continue;
   for (const d of readdirSync(rDir)) {
     if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry

@@ -1,0 +1,38 @@
+# Ling 3.2 Flash — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmarks for "Ling 3.2 Flash"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Ling 3.2 Flash (folder slug `ling-3.2-flash`, id `opencode/ling-3.2-flash`).
+- **Finding:** Ant Group's native multimodal Ling-series MoE (560B total / 25B active, 1M context). Ant's official documentation describes capabilities qualitatively (complex visual understanding, multimodal long-horizon agent, 3D interaction, medical multimodal) but publishes no standardized benchmark scores (no SWE-bench, Terminal-Bench, GPQA, HLE, MRCR, OSWorld, or Artificial Analysis row) for this exact ID.
+- **Context window / modalities / pricing:** 1,000,000 total; text, image and video in, text out; $0.30/$0.90 per 1M (Ant Bailian; two-week free trial at launch, no standing free tier).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Ling 3.2 Flash in any first-party or independent source: Ant docs list capabilities only; no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench / OSWorld / GPQA / HLE row for this exact ID.
+
+## Deep second-pass research (2026-11-10)
+
+Independent sources checked (10+):
+1. https://developer.ant-ling.com/en/docs/models/ling/ — Ant official docs: Ling-3.2-flash described qualitatively (complex visual understanding, multimodal long-horizon agent, 3D interaction, medical multimodal); no standardized benchmark scores (no SWE-bench, Terminal-Bench, GPQA, HLE, MRCR, OSWorld, AA row).
+2. https://huggingface.co/inclusionAI — inclusionAI org; no Ling-3.2-flash model repo listed (only Ling-3.0-flash, Ling-3.1-flash, Ling-3.0-flash-VL, Ling-3.0-flash-Fin, Ling-3.0-flash-Sante).
+3. https://zenmux.ai/models — ZenMux model catalog; no Ling-3.2-flash entry (Ling-3.1-flash and Ling-3.0-flash present).
+4. https://models.dev — no Ling-3.2-flash entry.
+5. https://openrouter.ai — no Ling-3.2-flash route.
+6. https://artificialanalysis.ai/models — not listed.
+7. https://benchlm.ai — not listed.
+8. https://github.com/inclusionAI — no Ling-3.2-flash repo.
+9. https://www.swebench.com — no submission.
+10. https://huggingface.co (search) — no Ling-3.2-flash model card.
+
+Result: Ling 3.2 Flash remains a capability-described release with no published standardized benchmark for this exact ID. Conclusion unchanged: no verified benchmarks; scores withheld rather than fabricated.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-10
+- Method: public internet research (Ant developer docs, independent aggregators); no verified benchmarks found, so no scores reported.
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

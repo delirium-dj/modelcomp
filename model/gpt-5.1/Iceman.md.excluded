@@ -1,0 +1,67 @@
+# GPT-5.1 — findings by Iceman
+
+- Source: OpenAI/GPT-5.1
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1
+- **Short description:** OpenAI’s GPT-5.1 is a deprecated GPT-5-series revision (Instant/Thinking) aimed at improved conversational quality and instruction following, now superseded by newer models.
+- **Provider / access:** OpenAI ChatGPT and API (deprecated). Local metadata lists `opencode/gpt-5.1` and `noFreeId`.
+- **Release / knowledge:** Introduced November 12, 2025 (OpenAI announcement). Developer docs list snapshot `gpt-5.1-2025-11-13` and knowledge cutoff September 30, 2024.
+- **IDs:** `gpt-5.1`, `gpt-5.1-2025-11-13`, `gpt-5.1-chat-latest`.
+- **Context window:** 400,000 context window; 128,000 max output tokens (OpenAI developer docs).
+- **Modalities:** Text and image input; text output (OpenAI developer docs).
+- **Pricing (as of 2026-11-10):** $1.25 / 1M input tokens, $0.125 / 1M cached input tokens, $10 / 1M output tokens (OpenAI developer docs).
+- **Architecture:** Proprietary OpenAI model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI’s GPT-5.1 announcement and developer documentation, but the accessible official sources in this pass provided specifications, pricing, capabilities, and qualitative improvements without clearly extractable verified public benchmark scores for this exact model. Local metadata benchmark claims (e.g. SWE-Verified 66.0%) were not independently verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- AIME 2025: **no verified public score found** (announcement mentioned adaptive reasoning improvements but not a clear score for GPT-5.1 itself in extracted text)
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (independently verified)
+- Codeforces: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+
+- 400K context window documented; no standalone long-context retrieval benchmark score extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted/independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI announcement and developer docs; benchmark numerics not clearly extracted/verified for this exact model.
+- Reference URLs:
+  - [GPT-5.1 announcement (OpenAI)](https://openai.com/index/gpt-5-1/)
+  - [GPT-5.1 model documentation (OpenAI developers)](https://developers.openai.com/api/docs/models/gpt-5.1)
+  - Local repository metadata consulted: `model/gpt-5.1/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

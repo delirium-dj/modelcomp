@@ -1,0 +1,14 @@
+{
+  "id": "zai/glm-5.3-flashx-legal",
+  "name": "GLM 5.3 FlashX Legal",
+  "short": "Z.ai's legal-domain adaptation of GLM 5.3 FlashX (1M context) combining hybrid sparse/linear attention with domain post-training for contract analysis and compliance.",
+  "contextWindow": "1,048,576 total; 128K max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "$0.37/$1.25 per 1M",
+  "officialUrl": "https://open.zhipuai.cn/",
+  "pricingLinks": [
+    "https://docs.z.ai/guides/overview/pricing"
+  ],
+  "standout": "Native 1M context with domain-specialized legal reasoning and high-throughput streaming for document review.",
+  "tradeoff": "Specialized legal mid-training gives narrower general utility than general-domain FlashX variants."
+}

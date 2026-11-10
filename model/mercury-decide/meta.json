@@ -1,0 +1,14 @@
+{
+  "id": "inception/mercury-decide",
+  "name": "Mercury Decide",
+  "short": "Inception Labs' diffusion-based System One decision model for structured classification, confidence estimation, and agentic routing via typed log-probabilities.",
+  "contextWindow": "64,000 total",
+  "modalities": "Text in; text out",
+  "pricingNote": "$0.04/1M in; structured decision output",
+  "officialUrl": "https://inceptionlabs.ai/",
+  "pricingLinks": [
+    "https://docs.inceptionlabs.ai/get-started/models"
+  ],
+  "standout": "Native structured decision output and log-probabilities with sub-100ms latency via diffusion-based classification.",
+  "tradeoff": "Tuned strictly for typed choices and binary routing; not designed for conversational open-ended generation."
+}

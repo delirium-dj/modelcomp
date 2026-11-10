@@ -66,8 +66,59 @@ The Vals page is dated October 7; its recorded task costs need not use current p
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+Official September model-card evaluation [A1] and current docs/pricing pages
+[A2][A3]; harnesses differ from the AA and Scale numbers above — do not pool:
+
+- **Terminal-Bench 2.1: 89.4% but Terminal-Bench 4.0: 19.1%** (different test
+  generations; the main report's 20% was AA-displayed — the vendor value is
+  close but separately sourced). [A1]
+- **GDPval-AA v2: 1545 Elo** (main report has AA v2.1 1435 — different version
+  and source, no trend claim). [A1]
+- **Vals Finance Agent v2: 61.4%; OSWorld 2.0: 59.0% partial (batch tool
+  enabled).** [A1]
+- **HLE-Verified: 54.9%** (not the original full HLE set; main report has AA
+  HLE 48%); **LABBench2: 86.2%**. [A1]
+- **DeepSWE v1.1: 73.7%** (new — the main report had no verified DeepSWE
+  value). [A1]
+- Visual rows: **CharXiv Reasoning 86.2% (no tools); LVBench 87.8% (agentic);
+  GDP.PDF 35.0% (all-pass).** [A1]
+- **Knowledge cutoff March 2026, with some domains limited to January 2025**
+  (main report: unverified). [A1]
+- Pricing detail: cache $0.075 plus **$0.50 per million-token-hour storage
+  during the promotion**; grounding separately billed and unavailable on the
+  free tier; free tier uses data to improve products, paid tier does not. [A3]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench Verified, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or
+  full-window retrieval — consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 88**, **Reasoning 93**,
+**Context window 95**, **Multimodal 95**, **Coding 94**, **Cost efficiency
+100** (evaluates the documented $0 tier; data-use, quotas and unavailable
+grounding constrain applicability), **Overall 93** — mean (88 + 93 + 95 + 95 +
+94) / 5 = 93. The main report's score block above is the operative one; this
+block records the same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Model card and evaluations](https://deepmind.google/models/model-cards/gemini-3-8-flash/)
+- [A2 — API limits](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash)
+- [A3 — Pricing and data-use terms](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent fresh public research; normalized scores are interpretations. Launch and current benchmark versions are explicitly separated.
 - Future sources: add a separate signed report using these headings.

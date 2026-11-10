@@ -1,0 +1,38 @@
+# Codestral — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Codestral"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Codestral (folder slug `codestral`, id `opencode/codestral`).
+- **Finding:** Mistral AI's open-weight 22B code model for low-latency code completion, inline fill-in-the-middle (FIM), and developer tool assistance (released May 29, 2024; MNPL license). Mistral's announcement publishes benchmark charts (HumanEval, MBPP, Spider, RepoBench, multi-language HumanEval, FIM) but the figures are embedded in images not extractable as verified text; the Hugging Face model card lists no numeric benchmark values. No Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row exists for this exact ID.
+- **Context window / modalities / pricing:** 32,768 native (extended to 128K on later checkpoints); text and code in/out; $0.30 / $0.90 per 1M ($0.03 cached input; Mistral AI).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Codestral in accessible text: Mistral announcement benchmark figures are image-embedded and not extractable as verified numbers; Hugging Face model card lists no numeric values; no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row for this exact ID.
+
+## Deep second-pass research (2026-11-10)
+
+Independent sources checked (10+):
+1. https://mistral.ai/news/codestral — Mistral announcement; benchmark charts (HumanEval, MBPP, Spider, RepoBench, multi-language HumanEval, FIM) embedded as images, not extractable as verified text.
+2. https://huggingface.co/mistralai/Codestral-22B-v0.1 — HF model card; lists no numeric benchmark values; only 80+ language training claim.
+3. https://docs.mistral.ai/models/codestral — Mistral docs; specs only (128K context, $0.30/$0.90), no benchmark numbers.
+4. https://openrouter.ai/mistralai/codestral — OpenRouter; pricing only, no benchmarks.
+5. https://artificialanalysis.ai/models — Codestral not listed.
+6. https://benchlm.ai — no Codestral page.
+7. https://www.swebench.com — no Codestral submission.
+8. https://github.com/mistralai — no benchmark repo for Codestral.
+9. https://huggingface.co (model tree) — 4 adapters / 15 finetunes / 53 quantizations; no eval results.
+10. https://models.dev — no Codestral entry with benchmarks.
+
+Result: Codestral (22B) remains a real model whose benchmark figures are only published as images; no verified numeric scores extractable from accessible text. Conclusion unchanged: no verified benchmarks; scores withheld rather than fabricated.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-10
+- Method: public internet research (Mistral announcement + Hugging Face card); no verified benchmark numbers extractable, so no scores reported.
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

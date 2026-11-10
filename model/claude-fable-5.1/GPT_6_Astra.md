@@ -66,8 +66,56 @@ The old report assigned multimodal 70 and Overall 89. Confirmed PDF processing m
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+Anthropic's production release/evaluation page [A1] adds vendor self-reported
+rows (separate harnesses from the AA and Scale numbers above — do not pool):
+
+- **GDPval-AA v2: 1853 Elo** (main report has AA v2.1 1758 — different source
+  and version, no like-for-like trend claim). [A1]
+- **OSWorld 2.0: 77.9% partial / 41.7% strict; AutomationBench: 31.4%.** [A1]
+- **HLE: 60.9% no tools / 65.0% with tools** (60.9% unaided is new; 65.0%
+  with-tools matches the main report's OpenAI-comparison figure). [A1]
+- **Terminal-Bench Science 0.1: 52.6%; CursorBench 3.2.0: 73.4%.** [A1]
+- Reconfirmed with matching values: Terminal-Bench 4.0 55.8%, HLE with tools
+  65.0%, $10/$50 pricing, 1M context / 128K output, 2026-09-01 release and June
+  2026 cutoff. [A1][A2]
+- New pricing granularity: cache read $0.25; five-minute cache write $12.50;
+  one-hour write $20; batch 50% off input/output. [A2]
+- New claim: Fable 5.1 **shares underlying weights** with the separately
+  exposed Mythos 5.1 deployment (different safeguard configuration), per the
+  release page. [A1]
+- New caveats: production evaluations include earlier-model fallback on some
+  safeguard interventions; OSWorld interventions receive zero; Mythos's 60.9%
+  Terminal-Bench figure is explicitly not Fable's. [A1]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench Verified, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or
+  MRCR/RULER — consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 94**, **Reasoning 98**,
+**Context window 95**, **Multimodal 70**, **Coding 94**, **Cost efficiency 30**,
+**Overall 90** — mean (94 + 98 + 95 + 70 + 94) / 5 = 90.2, half-up 90. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Official release and evaluations](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+- [A2 — Model specifications and pricing](https://platform.claude.com/docs/en/models/fable-5-1/overview)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research 2026-10-03.
 - Method: Independent fresh web research; normalized interpretations, not official scores.
 - Future sources: add separate signed files with these headings.

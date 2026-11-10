@@ -131,8 +131,8 @@ describe("findMirror (user-directed relocations)", () => {
     assert.equal(findMirror(["model", "bar", "X.md"], roots, existsAt), undefined);
   });
 
-  it("MIRROR_ROOTS covers the voice + finance + cyber + health trees", () => {
-    assert.deepEqual(MIRROR_ROOTS, ["models_voice", "models_finance", "models_cybersecurity", "models_health"]);
+  it("MIRROR_ROOTS covers the voice + finance + cyber + health + legal trees", () => {
+    assert.deepEqual(MIRROR_ROOTS, ["models_voice", "models_finance", "models_cybersecurity", "models_health", "models_legal"]);
   });
 });
 

@@ -1,0 +1,38 @@
+# Codestral 25.08 — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Codestral 25.08"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Codestral 25.08 (folder slug `codestral-25.08`, id `opencode/codestral-25.08`).
+- **Finding:** Mistral AI's specialized low-latency code model for IDE autocomplete, fill-in-the-middle (FIM), and multi-language development (released July 30, 2025). Mistral's documentation publishes specs (128K context, $0.30/$0.90 per 1M, text+code in/out, structured outputs, function calling, FIM) but no standardized benchmark numbers for this exact ID in accessible text; the original Codestral announcement's benchmark figures are embedded in images not extractable as verified text. No Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row exists for this exact ID.
+- **Context window / modalities / pricing:** 128,000 total (8,192 max out per meta; docs state 128K); text and code in/out; $0.30 / $0.90 per 1M (Mistral La Plateforme and OpenRouter).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Codestral 25.08 in any first-party or independent source in accessible text: Mistral docs publish specs only; original Codestral benchmark figures are image-embedded and not extractable as verified numbers; no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row for this exact ID.
+
+## Deep second-pass research (2026-11-10)
+
+Independent sources checked (10+):
+1. https://docs.mistral.ai/models/codestral — Mistral docs; specs only (128K context, $0.30/$0.90, FIM, function calling, structured outputs); no benchmark numbers.
+2. https://mistral.ai/news/codestral-25-08 — Mistral announcement; no numeric benchmark table in accessible text.
+3. https://openrouter.ai/mistralai/codestral-2508 — OpenRouter; pricing only, no benchmarks.
+4. https://artificialanalysis.ai/models/codestral-25-08 — 404; not listed.
+5. https://benchlm.ai/models/codestral-25-08 — 404; not listed.
+6. https://www.swebench.com — no submission.
+7. https://huggingface.co — no Codestral 25.08 model card with benchmarks.
+8. https://github.com/mistralai — no benchmark repo.
+9. https://models.dev — no Codestral 25.08 entry with benchmarks.
+10. https://openrouter.ai (model page) — capability list only, no eval numbers.
+
+Result: Codestral 25.08 remains a real model whose specs are published but no standardized benchmark numbers for this exact ID are available in accessible text. Conclusion unchanged: no verified benchmarks; scores withheld rather than fabricated.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-10
+- Method: public internet research (Mistral docs + Hugging Face card + announcement); no verified benchmark numbers extractable, so no scores reported.
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

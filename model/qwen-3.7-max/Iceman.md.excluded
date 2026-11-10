@@ -1,0 +1,70 @@
+# Qwen 3.7 Max — findings by Iceman
+
+- Source: Alibaba Qwen/Qwen 3.7 Max
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 Max
+- **Short description:** Alibaba’s proprietary Qwen 3.7 Max agent model for long-horizon coding and office automation workflows (per local metadata).
+- **Provider / access:** Alibaba Cloud / Qwen hosted APIs and third-party routers (e.g. OpenRouter listing). Local metadata lists `opencode/qwen-3.7-max` and `noFreeId`.
+- **Release / knowledge:** Official blog page not accessible in this pass (404). Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `qwen-3.7-max`, `qwen/qwen3.7-max` (provider-specific).
+- **Context window:** 1,000,000 total tokens; 131,072 max output (local metadata/OpenRouter context).
+- **Modalities:** Text in/out (local metadata states text-only).
+- **Pricing (as of 2026-11-10):** Hosted pricing varies by provider (OpenRouter lists ~$1.475/$4.425 per 1M in/out for Alibaba Cloud Int. standard variant in reviewed page snippet; local metadata cites $1.48/$4.43).
+- **Architecture:** Proprietary Alibaba model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenRouter’s model listing for `qwen/qwen3.7-max`, but the accessible official/blog sources in this pass did not provide extractable verified public benchmark scores for this exact model. The Qwen blog URL was unavailable (404). Local metadata benchmark claims (e.g. SWE-bench Verified 80.4%, SWE Pro 60.6%) were not independently verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (independently verified)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M context window documented; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Text-only model per local metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenRouter listing; official Qwen blog unavailable (404) and no benchmark numerics extracted.
+- Reference URLs:
+  - [Qwen 3.7 Max listing (OpenRouter)](https://openrouter.ai/qwen/qwen3.7-max)
+  - [Qwen 3.7 Max blog URL attempted (404 in this pass)](https://qwenlm.github.io/blog/qwen3.7-max/)
+  - Local repository metadata consulted: `model/qwen-3.7-max/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

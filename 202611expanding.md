@@ -71,37 +71,59 @@ Totally aligned with "Simplicity" = using everything that could be used from the
 
 The document identifies the exact inflection point needed to transform this project from a specialized internal data artifact into a primary authority cited across the LLM and search ecosystems (GEO & SEO).
 
-However, to execute this cleanly while respecting the project's **Strict Simplicity Rule**, the static SSG architecture (`vite`/`pnpm build.types:direct`), and context/rate constraints, several underlying technical realities must be addressed:
+### Clarification & Architecture for the Dynamic Compare Engine (`/compare/`)
 
-### 1. The Head-to-Head `/compare/<a>/<b>/` Matrix Challenge
+#### 1. Why Hash URLs (`/compare#model-a...`) DO NOT Work for SEO
+- **The Core SEO Rule:** Search engine crawlers (Googlebot, Bingbot) and AI web indexers (GPTBot, OAI-SearchBot, PerplexityBot) **completely ignore URL fragment hashes (`#`)**. Everything after `#` is client-side only and never sent in HTTP GET requests.
+- If you use `/compare#claude-opus-5.5vs#gemini-4-argon`, Google sees only `/compare` for every single comparison. It will treat it as a single page with whatever default models are selected on first render. You get **zero** search indexation for specific head-to-head pairs ("Claude Opus vs Gemini Argon").
+- To rank and be cited, **each comparison must have a distinct, clean path**: e.g. `/compare/claude-opus-5.5-vs-gemini-4-argon/` or `/compare/claude-opus-5.5/gemini-4-argon/`.
 
-- **Combinatorial Explosion:** With ~370 models, the mathematical combinations ($N \times (N-1) / 2$) exceed 68,000 routes. SSG prerendering all routes would crash the build script and result in massive thin-content crawl budget waste.
-- **The Solution:**
-  - Restrict SSG generation via `onStaticGenerate` to the **Top 50 models** cross-compared within their respective tiers/categories (~300–500 curated, highly sought-after pairs).
-  - Enforce alphabetical slug sorting (`/compare/claude-sonnet-4.6-vs-gpt-5.4/` or `/compare/claude-sonnet-4.6/gpt-5.4/`) with an automatic canonical fallback or 301 redirect for the inverted pair.
-  - Dynamically generate structured comparison sentences and verdict badges derived directly from `average.md` subcategory deltas (e.g., Code Gen, Refactoring, Reasoning, Price/1M) to guarantee substance without manual copywriting.
+#### 2. Reusing the Homepage Engine: Yes, 100%!
+- You **absolutely should reuse the homepage compare engine** (`CompareSection.tsx` and `hex.ts`). You do not need to rewrite the radar chart, the subcategory table, or the model picker.
+- **How to wire it dynamically:**
+  - Create the route at `src/routes/compare/[...slug]/index.tsx` (or `[modelA]/[modelB]`).
+  - Read the URL parameters (`params.modelA`, `params.modelB`, optional `params.modelC`).
+  - Initialize the `cmpA`, `cmpB`, `cmpC` signals with those models on page load.
+  - Keep the interactive drop-down pickers active on the page! When a user visits `/compare/gpt-5.4/claude-sonnet-4.6/`, they get those two pre-selected with full SSR HTML. If they click the dropdown to change a model, the UI updates smoothly.
 
-### 2. References Provenance: Zero-Overhead Data Pipeline
+#### 3. Can We Generate "All Possible Combinations" for Google?
+- **Combinatorial scale:**
+  - In a catalog of ~208 models, the 2-model pairs are $208 \times 207 / 2 = 21,528$ combinations.
+  - Adding a 3rd model ($N \times (N-1) \times (N-2) / 6$) yields **over 1.48 million combinations**.
+- **The Risk (Google's "Thin Content" & Crawl Budget Trap):**
+  - Submitting 20,000+ or 1,000,000+ near-identical template pages to Google without manual content triggers algorithmic spam flags (Google Search Essentials / Site Reputation & Scaled Content Abuse).
+  - Google will simply refuse to index the vast majority of them, and it will hurt the domain authority of your high-value `/model/<slug>` pages.
+- **The Pragmatic Solution:**
+  1. **SSG Pre-render the Top 20 Overall Models (190 Clean Pairs for v1):**
+     - Taking the Top 20 models from `model-queue.md` yields exactly $\binom{20}{2} = \mathbf{190\text{ pairs}}$ (`/compare/model-a-vs-model-b/`).
+     - **Why this is easily manageable:**
+       - **Zero build penalty:** Adds only ~2–3 seconds to `pnpm build:direct`.
+       - **Zero spam risk:** Google easily crawls and indexes 190 high-intent flagship comparisons without triggering thin-content warnings.
+       - **Automated weekly expansion:** As new flagship models enter the Top 20, or as weekly sweeps land, `onStaticGenerate` automatically pulls from the freshly synced `model-queue.md`.
+  2. **SSR / Dynamic Fallback for the Rest:** Any arbitrary 2 or 3 model combination can still resolve on demand (or be rendered client-side on the `/compare/` route) if a user selects them or shares a link.
+  3. **Auto-Generated Verdicts:** For the indexed pages, derive a 2–3 sentence data-driven textual summary (e.g. *"Model A leads Model B by +8.2 points in Code Generation, while Model B offers 40% lower token cost"*). This guarantees unique, high-substance text for crawlers and LLM citations.
 
+---
+
+### Core Structural & Data Realities
+
+### 1. References Provenance: Zero-Overhead Data Pipeline
 - The proposal mentions showing "References" at the bottom of model pages.
 - **Do not parse markdown at runtime:** The site runs in static SSG mode. Markdown files (`model/<slug>/*.md`) are already parsed during `pnpm sync`.
 - **Implementation:** During `scripts/sync-*.mjs`, extract URLs, citation domains, and dates into a lightweight lookup object (`references.generated.ts` or directly inside `model-data.generated.ts`).
 - **Markup:** Render via a clean semantic `<details class="group ...">` accordion styled with existing Tailwind classes. This ensures all links and source domains exist directly in the initial SSR/HTML payload for search crawlers (Googlebot, GPTBot, PerplexityBot) without client hydration overhead or hidden modal states.
 
-### 3. Dedicated Authority Hubs (`/benchmarks/` & `/methodology/`)
-
+### 2. Dedicated Authority Hubs (`/benchmarks/` & `/methodology/`)
 - `/benchmarks/` must not just be an index; it should act as an entity anchor. Each primary benchmark (SWE-bench Verified, HumanEval, LiveCodeBench, etc.) should have its definition, evaluation harness, known saturation points, and an auto-derived leaderboard sorted by verified scores.
 - `/methodology/` solves the trust hurdle. Ingest the core principles from `RULES.md` and the existing `MethodologySection` to explain how research multi-agent sweeps work, outlier filtering, and the no-hallucination scoring policy.
 
-### 4. Commercial Boundaries (`/promotions/`)
-
+### 3. Commercial Boundaries (`/promotions/`)
 - Placing `/promotions/` (or affiliate tables) side-by-side with high-integrity research requires strict isolation:
   - Add explicit `rel="nofollow sponsored"` attributes to all outward referral links.
   - Include an unambiguous editorial independence banner above any affiliate offer.
   - Ensure rankings on `/best-*-for-*` pages are strictly computed from math and empirical scores—never promotional deals.
 
-### 5. GEO (Generative Engine Optimization) Specifics
-
+### 4. GEO (Generative Engine Optimization) Specifics
 - AI search engines (SearchGPT, Perplexity, Gemini Search) ingest factual claims from clean semantic HTML tables, lists, and Schema.org JSON-LD blocks.
 - Inject `Dataset`, `TechArticle`, and `ItemPage` microdata with `isAccessibleForFree=True` and citation arrays into `DocumentHead`.
 - Update `robots.txt` generation in `pnpm sync` to explicitly declare `Allow` rules for `OAI-SearchBot`, `GPTBot`, `PerplexityBot`, and `Claude-Web`.
@@ -117,8 +139,10 @@ However, to execute this cleanly while respecting the project's **Strict Simplic
    - Create `src/routes/methodology/index.tsx` (reusing `MethodologySection` and `RULES.md` foundations).
    - Create `src/routes/benchmarks/index.tsx` (listing all tracked benchmarks with summary tables).
    - Create `src/routes/data/index.tsx` (exposing raw downloadable JSON/CSV files generated at build time).
-4. **Step 4: Curated Pairwise Comparisons**
-   - Build `src/routes/compare/[modelA]/[modelB]/index.tsx` utilizing the existing `CompareSection` / `hex.ts` visualizers with auto-generated text verdicts.
+4. **Step 4: The `/compare/` Route Engine**
+   - Mount `src/routes/compare/[...slug]/index.tsx` wrapping the existing `CompareSection` and `hex.ts`.
+   - Configure `onStaticGenerate` for the Top 20 overall models (190 curated pairs) with canonical alphabetical URLs.
+   - Inject automated comparison verdict sentences into the SSR output.
 5. **Step 5: Intent Landing Pages**
    - Implement `src/routes/best-ai-models-for-coding/index.tsx` and `src/routes/best-free-llm-for-coding/index.tsx` dynamically fed by current top overall & free-tier filtered models.
 

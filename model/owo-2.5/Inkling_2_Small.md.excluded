@@ -1,20 +1,20 @@
-# Crouton Alpha — findings by Inkling 2 Small
+# OwO 2.5 — findings by Inkling 2 Small
 
-- Source: OpenCode Console / unknown (`crouton-alpha`)
+- Source: OpenCode Console / unknown (`owo-2.5`)
 - Date: 2026-11-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Crouton Alpha
-- **Short description:** Alpha/stealth-class model name tracked by this dataset; no vendor model card, announcement, or tracked leaderboard entry found in public sources as of 2026-11-10. Likely an embargoed stealth/evaluation handle (compare: owl-alpha, omen-alpha, beam-class stealth previews); identity and maker undisclosed.
-- **Provider / access:** not publicly documented (OpenCode Console stealth-class availability is typical for such handles; unverified for this ID).
+- **Name:** OwO 2.5
+- **Short description:** Stealth-class codename tracked by this dataset (OpenCode Console free-tier pattern). No vendor model card, announcement, or tracked leaderboard entry found as of 2026-11-10; identity undisclosed.
+- **Provider / access:** OpenCode Console free route (presumed); not verified.
 - **Release / knowledge:** unknown.
-- **IDs:** `crouton-alpha` (as tracked by this dataset; vendor confirmation not found)
+- **IDs:** `owo-2.5` (as tracked by this dataset; vendor confirmation not found)
 - **Context window:** unknown.
 - **Modalities:** unknown.
-- **Pricing (as of 2026-11-10):** no verified public price found (likely free/stealth-tier during evaluation; unverified).
+- **Pricing (as of 2026-11-10):** likely free; unverified.
 - **Architecture:** unknown.
 
 ### Raw benchmarks found
@@ -27,7 +27,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- no verified public score found (BenchLM 404; Artificial Analysis, Vals, Epoch AI: no rows; web search engines unreachable or challenged / returned zero results)
+- no verified public score found (BenchLM 404; models.dev catalog grep: no matches; HF search: nothing)
 
 Coding:
 
@@ -56,7 +56,7 @@ Not scored — zero verified public benchmark evidence exists for this exact mod
 ## Signature
 
 - Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
-- Method: public internet research (web search, BenchLM, OpenCode Console models page); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Method: public internet research (OpenCode Console, BenchLM, Hugging Face, models.dev); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
 - Reference URLs:
   - [OpenCode Console — Models](https://opencode.ai/models)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -31,7 +31,44 @@ No verified exact-Full GPQA, HLE, Tau3-Banking, Claw-Eval or full-1M MRCR retrie
 - **Cost efficiency: 60/100.** Provisional subscription-value judgment for $50/$200 monthly plans with usage limits, not a fabricated token-price conversion.
 - **Overall Score: 94/100.** Mean of (94 + 92 + 95 + 95 + 94)/5 = 94; strong subscription-access long-running coding and professional agents.
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one.
+
+### Findings (2026-11-10 pass)
+
+- Full reconfirmation, no new benchmark rows: JobBench 75.3%, AutomationBench-AA
+  45.4%, OSWorld v2.1 78.4% partial / 39.4% binary, Terminal-Bench 4.0-AA 57.1%,
+  AA Index 56, Vals Finance Agent v2 59.1%, GDP.pdf 33.2%, DeepSWE 1.1 79.0%,
+  SWE-Marathon 57.5% (xhigh), ProgramBench 59.0%, MemoryBench 85.5%, 1M context
+  and the $50/$200 Muse Code plans all match the main report's rows. [A1][A2]
+- The model page has moved to
+  [developer.meta.com/ai/models/muse-wonder/](https://developer.meta.com/ai/models/muse-wonder/)
+  (same content as the main report's dev.meta.ai URL). [A1]
+- Phrasing nuance recorded: **Active Memory is a system feature, not additional
+  native context** — consistent with the main report's retrieval caveat. [A1]
+- No verified exact-Full GPQA, HLE, CritPt, tau2/tau3, GDPval-AA or Claw-Eval
+  score found this pass — consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 94**, **Reasoning 90**,
+**Context window 95**, **Multimodal 70**, **Coding 98**, **Cost efficiency 60**,
+**Overall 89** — mean (94 + 90 + 95 + 70 + 98) / 5 = 89.4, half-up 89. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference (its higher Multimodal rests on
+independently documented audio/video input coverage).
+
+References (2026-11-10 pass):
+
+- [A1 — Models, exact Full benchmarks and subscription prices](https://developer.meta.com/ai/models/muse-wonder/)
+- [A2 — Official release](https://research.meta.ai/blog/introducing-muse-wonder/)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (openai/gpt-6-astra-ultrafast)** — 2026-10-28 UTC
 - Method: Three fresh searches, primary product/research/pricing pages and independent AA launch measurements; normalized interpretations with version and harness boundaries.

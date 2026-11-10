@@ -65,8 +65,67 @@ The Vals page is dated October 7; its recorded task costs need not use current p
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's new findings are listed.
+
+### Model-card updates (2026-11-10 pass)
+
+- Model card published 2026-10-13; **knowledge cutoff March 2026** (previously
+  unverified). IDs: `google/gemini-4-argon`, stable code `gemini-4-argon`. [2]
+- Context: unified input-plus-output limit **1,048,576** tokens; ordinary
+  synchronous output 65,536; long decode up to 1,048,576 within the same shared
+  budget. [1]
+- Modalities: text/image/video/audio/PDF input, text output; thinking, function
+  calling, structured output, code execution and computer use. No image/audio
+  generation or Live API. [1]
+- Pricing: $2/$10/$0.10 standard through November 30; **$4/$20/$0.20 from
+  December 1**. Thinking is billed. No free tier; paid data not used for product
+  improvement. Invite-only Contributor $1/$5 (permits product improvement);
+  batch/flex $1/$5 during the promotion. [3]
+- Current official documentation supersedes the main report's
+  "public ID not verified" status.
+
+### Raw benchmarks found (2026-11-10 pass)
+
+All figures are Google's October model-card evaluations [2], versions retained.
+Reconfirmed with matching values: AutomationBench 51.3%, DeepSWE v1.1 77.9%,
+LVBench 91.7%, Vibe Code Bench ≈91.9%. New in this pass:
+
+- **Vals Finance Agent v2: 65.4%; Agent's Last Exam: 39.5%; OSWorld 2.0 offline
+  subset (partial): 69.2%.** [2]
+- **Terminal-Bench 4.0: 57.4%** (vendor-precise; the main report's 57% was
+  AA-displayed). [2]
+- **Vals Index: 68.9%; LABBench 2: 88.8%; RiemannBench: 76.0%; Terminal-Bench
+  Science 0.1: 57.6%.** [2]
+- **FrontierSWE v2: 55.0%.** [2]
+- **GraphWalks BFS F1: 99.7% up to 128K; 84.2% at 256K–1M** — the short-window
+  result does not establish 98% retrieval at 512K+. [2]
+- **Chartography: 71.6%** (multimodal). [2]
+- No verified exact-model scores found this pass for tau2/tau3, GDPval-AA,
+  Claw-Eval, MCP-Atlas, GPQA, HLE, CritPt, Omniscience, LiveCodeBench, SciCode.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 93**, **Reasoning 94**,
+**Context window 96**, **Multimodal 95**, **Coding 97**, **Cost efficiency 73**,
+**Overall 95** — mean (93 + 94 + 96 + 95 + 97) / 5 = 95. The main report's score
+block above is the operative one; this block records the same-day independent
+judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — API specifications](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon)
+- [A2 — Official model card and evaluation table](https://deepmind.google/models/model-cards/gemini-4-argon/)
+- [A3 — Current pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-4-argon)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public web research; normalized scores are interpretations, not official vendor scores.
 - Future sources: Add a separate signed findings file alongside this report.

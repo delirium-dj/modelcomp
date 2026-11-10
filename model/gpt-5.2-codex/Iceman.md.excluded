@@ -1,0 +1,69 @@
+# GPT-5.2 Codex — findings by Iceman
+
+- Source: OpenAI/GPT-5.2 Codex
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.2 Codex
+- **Short description:** OpenAI’s GPT-5.2 Codex was an agentic coding model optimized for long-horizon coding tasks with native context compaction (now shut down per developer docs).
+- **Provider / access:** OpenAI Codex/API surfaces (shut down per docs). Local metadata lists `opencode/gpt-5.2-codex` and `noFreeId`.
+- **Release / knowledge:** Developer docs list knowledge cutoff August 31, 2025. Release announcement not separately reviewed in this pass.
+- **IDs:** `gpt-5.2-codex`.
+- **Context window:** 400,000 context window; 272,000 maximum input tokens; 128,000 max output tokens (OpenAI developer docs).
+- **Modalities:** Text and image input; text output (OpenAI developer docs).
+- **Pricing (as of 2026-11-10):** $1.75 / 1M input tokens, $0.175 / 1M cached input tokens, $14 / 1M output tokens (OpenAI developer docs).
+- **Architecture:** Proprietary OpenAI model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI developer documentation for GPT-5.2 Codex, but the accessible official source in this pass provided specifications, pricing, capabilities, and status information without extractable verified public benchmark scores for this exact model. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 400K context (272K max input, 128K output) documented; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Text and image input supported; no multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI developer docs; no benchmark numerics extracted.
+- Reference URLs:
+  - [GPT-5.2 Codex model documentation (OpenAI developers)](https://developers.openai.com/api/docs/models/gpt-5.2-codex)
+  - Local repository metadata consulted: `model/gpt-5.2-codex/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

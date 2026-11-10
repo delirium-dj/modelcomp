@@ -1,0 +1,66 @@
+# MiMo V2.6 Flash — findings by Iceman
+
+- Source: Xiaomi/MiMo V2.6 Flash
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MiMo V2.6 Flash
+- **Short description:** Xiaomi’s MiMo-V2.6-Flash is a full-modality, high-efficiency reasoning model positioned for high-frequency calls, large-scale tasks, and agent workflows with a 1M-token context window.
+- **Provider / access:** Xiaomi MiMo API/platform (`mimo-v2.6-flash`) via `https://api.xiaomimimo.com/v1` (per official model page). Local metadata lists `xiaomi/mimo-v2.6-flash` and `noFreeId`.
+- **Release / knowledge:** Release date and knowledge cutoff not clearly extracted from the reviewed model page in this pass.
+- **IDs:** `mimo-v2.6-flash`.
+- **Context window:** 1M tokens context; 128K max output (Xiaomi MiMo model page).
+- **Modalities:** Input modalities text, image, video, audio; output text (Xiaomi MiMo model page).
+- **Pricing (as of 2026-11-10):** USD pricing listed as $0.0028 / 1M input (cache hit), $0.14 / 1M input (cache miss), $0.28 / 1M output (Xiaomi MiMo model page).
+- **Architecture:** Detailed public architecture/parameter breakdown not fully specified on the reviewed page; local metadata describes 309B/15B-active omni-modal MoE (not independently verified from page text).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Xiaomi’s official MiMo-V2.6-Flash model page, but it provided specifications, pricing, positioning, and a benchmark image without clearly extractable standalone numeric benchmark values in accessible text for this exact model. Local metadata benchmark claims (e.g. Terminal-Bench 2.1 87.6%, DeepSWE 67.9%) were not independently verified from reviewed text. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (independently verified)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found** (independently verified)
+
+Long context:
+
+- 1M-token context / 128K max output documented; no standalone long-context retrieval benchmark score extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted/independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Xiaomi’s official model page; benchmark numerics not clearly extractable from accessible text.
+- Reference URLs:
+  - [MiMo-V2.6-Flash (Xiaomi MiMo model page)](https://mimo.mi.com/models/en-US/mimo-v2.6-flash)
+  - Local repository metadata consulted: `model/mimo-v2.6-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -71,8 +71,43 @@ Exact-ID GPQA, full-window retrieval, MCP Atlas, SWE-bench, LiveCodeBench and De
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+- Reconfirmed with matching values: Terminal-Bench 4.0 70.6%, GDPval-AA v2.1
+  1844 Elo, AA-Briefcase v1.1 1811, OSWorld 2.1 80.1% partial, HLE 64.5% with
+  tools, FrontierCode 1.1 Main 46.2% max, CursorBench 4.0 55.5%, Chartography
+  61.6% without tools, 1M context / 128K output / 300K batch beta, $2/$10 and
+  $0.10 cache read. [A1][A2]
+- **New pricing granularity: five-minute cache write $2.50, one-hour cache
+  write $4.00 per million; batch 50% off input/output.** [A2]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench Verified, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or
+  MRCR/RULER — consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 96**, **Reasoning 96**,
+**Context window 95**, **Multimodal 70**, **Coding 94**, **Cost efficiency 73**,
+**Overall 90** — mean (96 + 96 + 95 + 70 + 94) / 5 = 90.2, half-up 90. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Official announcement and benchmarks](https://www.anthropic.com/claude-sonnet-5-5)
+- [A2 — API specifications](https://platform.claude.com/docs/en/models/sonnet-5-5/overview)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public research; normalized judgments, not official vendor scores.
 - Future sources: add separate signed files with these headings.

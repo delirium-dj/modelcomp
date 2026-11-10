@@ -1,0 +1,14 @@
+{
+  "id": "inception/mercury-edit-2",
+  "name": "Mercury Edit 2",
+  "short": "Inception Labs' diffusion-based next-edit prediction model for code autocomplete and multi-line edits, aligned with Kahneman-Tversky Optimization (KTO).",
+  "contextWindow": "32,000 total; 8,192 max output",
+  "modalities": "Text in; text out",
+  "pricingNote": "$0.25/$0.75 per 1M ($0.025 cached)",
+  "officialUrl": "https://inceptionlabs.ai/",
+  "pricingLinks": [
+    "https://docs.inceptionlabs.ai/get-started/models"
+  ],
+  "standout": "Parallel denoising generates multi-line code diffs simultaneously for low-latency Tab completions.",
+  "tradeoff": "Specialized FIM and edit endpoint tuning rather than open-ended conversational coding."
+}

@@ -1,0 +1,38 @@
+# Iceman — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmarks for "Iceman"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Iceman (folder slug `iceman`, id `opencode/iceman-free`).
+- **Finding:** OpenCode's anonymous stealth reasoning model (262K/131K, free) available on OpenCode Console and Go. Marketed as "measured on StealthMark 1.8.10 with active tool calling," but StealthMark is an internal OpenCode eval harness, not a public standardized benchmark; no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench / OSWorld / GPQA / HLE row exists for this exact ID. OpenCode Zen's public catalogue lists it only as a stealth free route.
+- **Context window / modalities / pricing:** 262,144 in / 131,072 out; text in, text out; free (prompts/completions retained for model training).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Iceman in any first-party or independent source: only an internal StealthMark 1.8.10 mention; no standardized public benchmark row for this exact ID.
+
+## Deep second-pass research (2026-11-10)
+
+Independent sources checked (10+):
+1. https://opencode.ai/docs/console/models/ — Iceman Free listed as stealth free; "measured on StealthMark 1.8.10 with active tool calling" (internal eval harness, not public standardized benchmark); no AA/Epoch/vals/BenchLM/SWE-bench/Terminal-Bench/OSWorld/GPQA/HLE row.
+2. https://opencode.ai/docs/zen — OpenCode Console catalog; no Iceman benchmark.
+3. https://models.dev — no Iceman entry with benchmarks.
+4. https://openrouter.ai — no Iceman route with benchmarks.
+5. https://artificialanalysis.ai/models — not listed.
+6. https://benchlm.ai — not listed.
+7. https://www.swebench.com — no submission.
+8. https://huggingface.co — no Iceman model card.
+9. https://github.com (opencode) — no Iceman eval repo.
+10. https://www.reddit.com/r/opencode — no verified public benchmark thread surfaced.
+
+Result: Iceman remains an undisclosed stealth model with only an internal StealthMark mention; no public standardized benchmark for this exact ID. Conclusion unchanged: no verified benchmarks; scores withheld rather than fabricated.
+
+## Signature:
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-10
+- Method: public internet research (OpenCode Console docs, independent aggregators); no verified public benchmarks found, so no scores reported.
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

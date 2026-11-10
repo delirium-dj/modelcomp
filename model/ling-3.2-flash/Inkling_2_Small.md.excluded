@@ -1,21 +1,21 @@
 # Ling 3.2 Flash — findings by Inkling 2 Small
 
 - Source: inclusionAI (Ant Group) (`ling-3.2-flash`)
-- Date: 2026-11-10 (UTC)
+- Date: 2026-11-10 (UTC) — deep second pass 2026-11-10
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Ling 3.2 Flash
-- **Short description:** Purported successor to inclusionAI's Ling 3.x Flash line (Ling-3.1-flash, Ling-3.0-flash). As of 2026-11-10 no Ling 3.2 Flash model card, weights, or tracked leaderboard entry exists in public sources — the slug was queued in this dataset but the release is unverified/absent publicly.
-- **Provider / access:** unknown — no catalog route found (inclusionAI Hugging Face org lists only up to Ling-3.1-flash / Ling-3.1-flash-1019; models.dev catalog, 1311 models, contains no `ling-3.2-flash` entry; BenchLM 404).
-- **Release / knowledge:** unknown — no announcement found.
-- **IDs:** `ling-3.2-flash` (as tracked by this dataset; vendor route not found)
-- **Context window:** unknown (Ling 3.1 Flash sibling: 262,144 ctx / 32,768 out, per models.dev).
-- **Modalities:** unknown (Ling 3.x Flash siblings are text in / text out).
+- **Short description:** Does not publicly exist as of 2026-11-10. inclusionAI's Ling Flash line currently ships `Ling-3.0-flash` (2026-07-23), `Ling-3.1-flash` (2026-09-29) and a `Ling-3.1-flash-1019` snapshot (2026-10-27). No Ling 3.2 model, weights, API route, or benchmark table has been published anywhere public.
+- **Provider / access:** none found. inclusionAI Hugging Face org, ModelScope, GitHub org, models.dev, OpenRouter — no `Ling-3.2-flash` entry.
+- **Release / knowledge:** unreleased / unannounced.
+- **IDs:** `ling-3.2-flash` (as tracked by this dataset; no vendor route)
+- **Context window:** unknown (Ling 3.1 Flash sibling: 262,144 ctx / 32,768 out, MIT weights, $0.00).
+- **Modalities:** unknown (Ling 3.x Flash siblings: text in → text out, reasoning yes).
 - **Pricing (as of 2026-11-10):** no verified public price found.
-- **Architecture:** presumably inclusionAI `bailing_hybrid` MoE (family); unverified for this SKU.
+- **Architecture:** presumed inclusionAI `bailing_hybrid` MoE (family pattern); unverified for this SKU.
 
 ### Raw benchmarks found
 
@@ -27,7 +27,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- no verified public score found (BenchLM 404; models.dev full catalog grep for `ling-3.2`: no matches; HF inclusionAI search: nothing past Ling-3.1-flash)
+- no verified public score found (BenchLM 404; llmbenchmark 404; models.dev lab page: 5 models, no 3.2; OpenRouter catalog grep: no match)
 
 Coding:
 
@@ -35,15 +35,25 @@ Coding:
 
 Long context:
 
-- no verified public score found
+- no verified public score found (Ling 3.1 Flash sibling: 262K per models.dev)
 
 Multimodal:
 
 - no verified public score found
 
+### Conflicting/negative evidence compared (2nd pass)
+
+- models.dev inclusionAI lab (updated 2026-09-29): only Ling 3.1 Flash, 3.0 Flash VL, 3.0 Flash Sante, 3.0 Flash Fin, 3.0 Flash — no 3.2.
+- HF inclusionAI org (queried 2026-11-10): latest Ling releases are `Ling-3.1-flash` (2026-10-13) and `Ling-3.1-flash-1019` (2026-10-27); no `Ling-3.2-flash` or `Ling-3.2*`.
+- GitHub inclusionAI org (fetched 2026-11-10): no Ling 3.x repo; ling-cookbook targets the shipped series.
+- BenchLM + llmbenchmark: both 404 for the ID; llm-stats: no page; ModelScope API: 404.
+- HN Algolia "Ling-3.2": zero relevant hits; OpenRouter full catalog (fetched for routing audit 2026-11-10): zero `ling-3.2` matches.
+
+Net: the slug is a phantom or a pre-announcement tracker entry. No evidence supports a scored report; re-research when inclusionAI publishes (watch the HF inclusionAI org and the ling-cookbook repo).
+
 ### Normalized scores (1–100)
 
-Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. If inclusionAI publishes the weights/card, re-research then.
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design.
 
 - **Tool use: 15/100.** placeholder — no evidence
 - **Reasoning: 15/100.** placeholder — no evidence
@@ -51,13 +61,15 @@ Not scored — zero verified public benchmark evidence exists for this exact mod
 - **Multimodal: 15/100.** placeholder — no evidence
 - **Coding: 15/100.** placeholder — no evidence
 - **Cost efficiency: 15/100.** placeholder — no evidence
-- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — release unverified.
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — unreleased.
 
 ## Signature
 
-- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
-- Method: public internet research (models.dev catalog, Hugging Face inclusionAI org, BenchLM); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC (deep second pass)
+- Method: public internet research (models.dev lab page, Hugging Face inclusionAI org + API search, inclusionAI GitHub org, BenchLM, llmbenchmark, llm-stats, HN Algolia, OpenRouter catalog, ModelScope); ZERO verified public benchmarks found — remains self-excluded; scores inside are placeholders and are ignored.
 - Reference URLs:
+  - [inclusionAI — models.dev](https://models.dev/labs/inclusionai)
   - [inclusionAI on Hugging Face](https://huggingface.co/inclusionAI)
-  - [Ling 3.1 Flash (nearest tracked sibling) — models.dev](https://models.dev/models/inclusionai/ling-3.1-flash)
+  - [Ling-3.1-flash — Hugging Face (current Flash line)](https://huggingface.co/inclusionAI/Ling-3.1-flash)
+  - [ling-cookbook — GitHub](https://github.com/inclusionAI/ling-cookbook)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

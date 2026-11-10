@@ -1,0 +1,70 @@
+# Claude Opus 4.5 — findings by Iceman
+
+- Source: Anthropic/Claude Opus 4.5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.5
+- **Short description:** Anthropic’s legacy Opus 4.5 model for coding agents and complex tasks, now superseded by newer Opus models.
+- **Provider / access:** Anthropic Claude API `claude-opus-4-5-20251101` (legacy). Local metadata lists `anthropic/claude-opus-4.5` and `noFreeId`.
+- **Release / knowledge:** Released November 24, 2025 (Anthropic docs/announcement). Knowledge cutoff not fully specified in reviewed docs page.
+- **IDs:** `claude-opus-4-5-20251101`, `claude-opus-4-5`.
+- **Context window:** 200,000 tokens (platform docs).
+- **Modalities:** Text and image input; text output (local metadata/docs context).
+- **Pricing (as of 2026-11-10):** $5 / 1M input tokens, $25 / 1M output tokens (platform docs). Local metadata notes paid-tier pricing.
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Anthropic platform documentation for Claude Opus 4.5 (legacy overview), but the accessible official source in this pass provided specifications, lifecycle/pricing context, and migration guidance without clearly extractable verified public benchmark scores for this exact model. Local metadata benchmark claims (e.g. SWE-bench Verified 76.8%) were not independently verified in this pass. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (independently verified)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 200K context window documented; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Text and image input supported per metadata/docs context; no multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted/independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Anthropic platform docs; announcement/benchmark numerics not clearly extracted/verified for this exact model in this pass.
+- Reference URLs:
+  - [Claude Opus 4.5 model overview (Anthropic platform docs)](https://platform.claude.com/docs/en/models/opus-4-5/overview)
+  - [Claude Opus 4.5 announcement (Anthropic)](https://www.anthropic.com/news/claude-opus-4.5)
+  - Local repository metadata consulted: `model/claude-opus-4.5/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

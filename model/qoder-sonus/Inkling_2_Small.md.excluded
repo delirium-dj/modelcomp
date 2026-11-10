@@ -1,0 +1,75 @@
+# Qoder Sonus — findings by Inkling 2 Small
+
+- Source: Qoder (Alibaba) (`qoder-sonus`)
+- Date: 2026-11-10 (UTC) — deep second pass 2026-11-10
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Sonus (`Sonus (/ˈsoʊnəs/)`) — Qoder's 3.2x billing flagship, later recalibrated to 8x (2026-09-21 rate card)
+- **Short description:** Alibaba's built-in flagship model inside the Qoder family, launched 2026-09-10 — pitched for marathon-length autonomous tasks, the hardest knowledge work and serious coding, "at its best when using your computer" (Computer Use specialty, Qoder Desktop 0.2.3+). Identity/architecture officially undisclosed; community suspects GPT-6-class/Fable-class routing behind the alias.
+- **Provider / access:** Qoder International (app), Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents, Mobile — built-in for all account tiers (personal and enterprise). Individual/Enterprise full lineup.
+- **Release / knowledge:** launched 2026-09-10; a sibling route `Cantus` launched the same wave; "SOTA Daily Reset" and 2000-credit "Limited Time SOTA" promos ran Sept 15–19, 2026 (500/day → 1000/day); 3.2x → 8x reference-factor update effective 2026-09-21.
+- **IDs:** `sonus` (Qoder built-in catalog); no upstream API ID exposed; `cantus` is the sister built-in (3.2x → 4x).
+- **Context window:** not published officially (community reports "marathon-length" and "large-context" usage; unquantified).
+- **Modalities:** text in → text out (Computer Use operates the desktop pro software); reasoning yes (Thinking Intensity, max settings observed); tool/agentic capabilities yes (driven by Qoder Desktop).
+- **Pricing (as of 2026-11-10):** charged in Qoder Credits, reference factor **8x** (was 3.2x on launch, bumped 2026-09-21) for both personal and enterprise — the most expensive multiplier in the Qoder catalog (≈5.7x Kimi-K3's 1.4x, ≈16x Qwen3.8-Max's 0.5x; Qwen3.8-Max 0.5x, GLM-5.3 0.8x, Kimi-K3 1.4x per the official notice). No per-token price exists; no free tier exists (marketing "SOTA" promos granted temporary free credits only, Sept 15–19 + 2,000-credit gifts).
+- **Architecture:** undisclosed; Qoder built-in (routing-name model, no open weights).
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID — no SWE-bench / LiveCodeBench / τ-Bench / GPQA rows published anywhere (official or third party). Its sibling Qoduck and stealth peers (Iceman, Crouton Alpha Free) show the same pattern on this platform.
+
+Agent / tool use:
+
+- no verified public score found. Official positioning: "Computer Use"-class agentic desktop automation (drives Qoder Desktop 0.2.3+, pro software, spreadsheets, research, coding); user complaints of burning 400–4000+ credits per task (avg > 1,000 Credits per heavy task) — cost, not quality evidence.
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found (community reports: "surpasses DeepSeek in code work" claims anecdotal; no SWE-bench/LCB rows)
+
+Long context:
+
+- no verified public score found (marketing claims "large context"; unquantified)
+
+Multimodal:
+
+- no verified public score found (Computer Use implies screen understanding; no measured row)
+
+### Conflicting / official vs community evidence compared (2nd pass)
+
+- Official launch (forum, 2026-09-10, author @329327/Qoder staff): "built for marathon-length autonomous tasks, the hardest knowledge work, and serious coding — at its best when using your computer." Computer Use with Desktop 0.2.3. Credit multiplier 3.2x (personal & enterprise).
+- Official rate card (docs, 2026-09-21): Sonus 3.2x → **8x** (Kimi-K3 0.8x→1.4x, Cantus 3.2x → 4x, Qwen3.8-Max 0.5x, GLM-5.3 0.8x) — "the fastest consumption in the catalog", per docs narrative.
+- Official complaint replies (forum moderator, Sept 2026): "Sonus is our 3.2x billing flagship… the top SOTA model in the industry; high compute multiplier by design."
+- Official forum moderation + user reports: extreme consumption (400–4,000+ credits per heavy task; 8.7-min planning before first output in one report); "marathon" autonomous runs. No benchmark table was ever attached to any of these.
+- Community identity speculation (forum topic "sonus、cantus是什么模型", 2026-10-22): "sonus 就是 sol，cantus 就是 fable" / "sonus：gpt-6-astr" / "cantus：Fable5.1" — three mutually inconsistent claims; none confirmed by anyone.
+- Qoder docs: no model card published (docs search shows no Sonus/Cantus card; 193KB model pages absent).
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design.
+
+- **Tool use: 15/100.** placeholder — no evidence (official Computer Use positioning noted, unmeasured)
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — 8x Qoder credits (most expensive tier) noted for context
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public evaluation data.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC (deep second pass)
+- Method: public internet research (Qoder forum official launch + announcements, Qoder docs pricing/Credits/model-consumption notice, HF, models.dev, OpenRouter catalog, HF/Forum search); ZERO verified public benchmarks found — remains self-excluded; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [Sonus is here — our new built-in model, with a special talent for Computer Use (forum, 2026-09-10)](https://forum.qoder.com/t/sonus-is-here-our-new-built-in-model-with-a-special-talent-for-computer-use/12408)
+  - [SOTA Daily Reset: Sonus — 500 Credits/Day (forum, 2026-09-15)](https://forum.qoder.com/t/sota-daily-reset-sonus-500-credits-day-sept-15-19/12477)
+  - [Qoder Model Usage Reference Factor Adjustment Notice (docs, 2026-09-21)](https://docs.qoder.com/release-notes/model-consumption-reference-update)
+  - [Qoder Credits (docs)](https://docs.qoder.com/Credits)
+  - [Sonus、Cantus是什么模型 (community speculation thread)](https://forum.qoder.com/t/sonus-cantus/13435)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -69,8 +69,47 @@ The low full-window MRCR result remains a material limitation; capacity does not
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+- Reconfirmed with matching values: Terminal-Bench 2.0 68.5% (Terminus-2), GPQA
+  Diamond 94.3% (no tools), HLE 44.4% (no tools) / 51.4% (search+code), ARC-AGI-2
+  77.1% (ARC Prize verified), SWE-bench Verified 80.6%, SWE-bench Pro Public
+  54.2% (single attempt), MRCR v2 eight-needle 84.9% at 128K, 1M context with
+  65,536 output, $2/$12 up to 200K input and $4/$18 above. [A1][A2][A3]
+- **New: MMMU-Pro 80.5%, no tools** (model-card multimodal row). [A2]
+- **New: cache $0.20/$0.40 respectively plus $4.50 per million-token-hour
+  storage; batch halves input/output rates; no API free tier; paid data not used
+  to improve products.** [A3]
+- No verified exact-model scores found this pass for tau2/tau3, GDPval-AA,
+  Claw-Eval, CritPt, Omniscience, LiveCodeBench or SciCode — consistent with the
+  main report's gaps (its Scale MCP-Atlas and Vals rows are not re-measured
+  here).
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 85**, **Reasoning 96**,
+**Context window 95**, **Multimodal 95**, **Coding 90**, **Cost efficiency 70**,
+**Overall 92** — mean (85 + 96 + 95 + 95 + 90) / 5 = 92.2. The main report's
+score block above is the operative one; this block records the same-day
+independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — API specification](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
+- [A2 — Model card and benchmark table](https://deepmind.google/models/model-cards/gemini-3-1-pro/)
+- [A3 — API pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public-source research; scores are normalized interpretations, not vendor scores.
 - Future sources: add a separate signed report with these headings.

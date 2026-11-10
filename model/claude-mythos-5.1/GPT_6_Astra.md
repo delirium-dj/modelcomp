@@ -66,8 +66,43 @@ Previous ratings were Tool 90, Reasoning 92, Context 95, Multimodal 70, Coding 9
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+- Reconfirmed with matching values: Terminal-Bench 4.0 60.9% (exact Mythos 5.1
+  label), 1M context / 128K output, $10/$50 pricing with $0.25 cache read,
+  $12.50/$20 cache writes and 50% batch discount, 2026-09-01 release, June 2026
+  cutoff, same underlying weights as Fable 5.1. [A1][A2]
+- **New: vendor reports a nearly 50% binder hit rate across 12 targets,
+  experimentally validated with external organizations.** Domain-specific
+  research evidence, not a general reasoning benchmark. [A1]
+- No verified Mythos-specific GPQA, HLE, CritPt, SWE-bench, LiveCodeBench,
+  SciCode, tau2/tau3, GDPval-AA or Claw-Eval score found this pass — consistent
+  with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 93**, **Reasoning 92**,
+**Context window 95**, **Multimodal 70**, **Coding 94**, **Cost efficiency 30**,
+**Overall 89** — mean (93 + 92 + 95 + 70 + 94) / 5 = 88.8, half-up 89. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Anthropic announcement and exact Mythos result](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+- [A2 — Mythos specifications and access](https://platform.claude.com/docs/en/models/mythos-5-1/overview)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research 2026-10-03.
 - Method: Fresh independent public research; proxy evidence explicitly labeled; normalized scores are interpretations.
 - Future sources: add a separate signed report using these headings.

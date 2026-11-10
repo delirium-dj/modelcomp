@@ -1,0 +1,60 @@
+# QoDuck — findings by GPT-6.1 Sol
+
+- Source: Unresolved `qoduck` label; publisher not independently verified
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded — no verified model identity or exact-model public benchmarks.**
+
+## Model card
+
+- **Name:** QoDuck (unverified model label)
+- **Short description:** The queued name could not be tied to a documented model checkpoint, official vendor page, or live public provider route. This bounded research result is not proof that no private/custom model exists.
+- **Provider / access:** No exact `qoduck`/QoDuck record found in the live OpenCode Zen, OpenRouter, or models.dev catalogs accessed for this run.
+- **Release / knowledge:** No verified release or knowledge cutoff.
+- **IDs:** No verified vendor ID or Zen Free ID; do not invent `opencode/qoduck` from the folder name.
+- **Context window:** Unverified; no sibling/model-family limit is inherited.
+- **Modalities:** Unverified.
+- **Pricing (as of 2026-11-10):** No verified exact-model price; neither free inference nor a paid tariff can be claimed.
+- **Architecture:** Unverified publisher, parameter count, weights, and license.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval/ClawProBench, MCP-Atlas, and other exact-model tool evaluations: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Intelligence Index, and Omniscience: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified/SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: no verified public score found.
+
+Long context:
+
+- No verified exact-model retrieval measurement or documented window found.
+
+Search audit:
+
+- A fresh Bing exact-name query returned no result items. The configured search integration was unavailable with HTTP 402; failed or empty searches are not proof of nonexistence.
+- Hugging Face's public model search for `QoDuck` returned an empty list; live provider/model catalogs had no matching ID/name.
+- The attempted exact Artificial Analysis profile returned HTTP 404. No numerical evidence was inferred from missing pages or unrelated names.
+
+### Normalized scores (1–100)
+
+Not assigned. Without a verified exact subject or any public benchmark result, a five-quality-axis Overall would be invented. No placeholder dimensions or Overall are supplied.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-10
+- Method: Fresh public-source lookup, exact-name provider/weights catalog searches, and an evaluator-profile check. No peer findings read; this is an excluded negative-evidence report, not a numerical rating.
+- Reference URLs:
+  - [OpenCode Zen live model catalog](https://opencode.ai/zen/v1/models)
+  - [OpenRouter live model catalog](https://openrouter.ai/api/v1/models)
+  - [models.dev public catalog](https://models.dev/api.json)
+  - [Hugging Face exact-name search](https://huggingface.co/api/models?search=QoDuck&limit=10)
+- Future sources: Preserve these notes; a fresh scored sibling requires genuinely new verified evidence and exact identity resolution.

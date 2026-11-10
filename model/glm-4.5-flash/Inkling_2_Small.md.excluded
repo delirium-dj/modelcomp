@@ -1,0 +1,63 @@
+# GLM-4.5 Flash — findings by Inkling 2 Small
+
+- Source: Z.AI (`glm-4.5-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.5 Flash
+- **Short description:** Z.AI's hosted Flash-tier SKU of the GLM-4.5 generation (launch-family alongside GLM-4.5 / GLM-4.5-Air) — free hosted endpoint, reasoning-capable, 131K context. The open-weight siblings are GLM-4.5 / GLM-4.5-Air; Flash is the closed free API route.
+- **Provider / access:** Z.ai Open Platform (hosted, free; 5 listed providers per models.dev); OpenAI-compatible Chat Completions.
+- **Release / knowledge:** 2025-07-28; knowledge cutoff not publicly stated.
+- **IDs:** `glm-4.5-flash` (Z.ai)
+- **Context window:** 131,072 tokens; max output 98,304 tokens (models.dev).
+- **Modalities:** text in → text out; reasoning yes; tool calls yes; structured outputs yes.
+- **Pricing (as of 2026-11-10):** $0.00 / $0.00 — free hosted rate (models.dev); rate limits apply.
+- **Architecture:** proprietary hosted; parameter count undisclosed (GLM-4.5-family MoE pattern presumed).
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID (BenchLM 404; Artificial Analysis has no rows; Z.ai publishes no benchmark table for the free Flash SKU).
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found (models.dev lists tool-call + reasoning support; no measured rows)
+
+Coding:
+
+- no verified public score found (open-weight siblings measured elsewhere are not this ID)
+
+Long context:
+
+- 131,072 tokens (models.dev); no verified public long-context retrieval score found
+
+Multimodal:
+
+- Text-only (no vision rows for this SKU) — no verified public multimodal evidence exists.
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. The route is real (free hosted endpoint, tool calling) — re-research once AA / BenchLM / Vals publish rows.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence (free hosted rate noted for context: $0.00 per models.dev)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public evaluation data.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (models.dev catalog, BenchLM, Hugging Face zai-org, Artificial Analysis); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [GLM-4.5-Flash — models.dev](https://models.dev/models/zhipuai/glm-4.5-flash)
+  - [GLM-4.5 — Hugging Face](https://huggingface.co/zai-org/GLM-4.5)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

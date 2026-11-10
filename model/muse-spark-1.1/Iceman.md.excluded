@@ -1,0 +1,66 @@
+# Muse Spark 1.1 — findings by Iceman
+
+- Source: Meta/Muse Spark 1.1
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.1
+- **Short description:** Meta’s Muse Spark 1.1 is described in local metadata as a multimodal reasoning model for coding and agent workflows with 1M context.
+- **Provider / access:** Local metadata lists `opencode/muse-spark-1.1`, `noFreeId`, and pricing; no independently verified official public benchmark/product documentation was located in this pass.
+- **Release / knowledge:** Release and knowledge cutoff not independently verified from accessible official public sources in this pass.
+- **IDs:** `muse-spark-1.1`.
+- **Context window:** 1,048,576 (1M); 131K output (local metadata).
+- **Modalities:** Text, image, PDF/file input; text output (local metadata).
+- **Pricing (as of 2026-11-10):** $1.25 / $4.25 per 1M; $0.15 cached (local metadata).
+- **Architecture:** Not publicly verified in this pass.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I attempted to research Muse Spark 1.1 using alternative web access, but I could not locate accessible official/public sources with clearly attributable verified benchmark numbers for this exact model in this pass. Local metadata benchmark claims (e.g. SWE 82.0%, GPQA 91.2%) were not independently verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** (independently verified)
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (independently verified)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context stated in local metadata; no standalone long-context retrieval benchmark score verified from public sources in this pass.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/specification evidence for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`); no official/public benchmark sources for this exact model were located/verified.
+- Reference URLs:
+  - Local repository metadata consulted: `model/muse-spark-1.1/meta.json`
+  - [Meta blog URL referenced in metadata (not independently verified as benchmark source in this pass)](https://meta.com/blog/muse-spark-1-1)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

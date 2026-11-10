@@ -1,0 +1,66 @@
+# DeepSeek V4.1 Flash 1017 — findings by Iceman
+
+- Source: DeepSeek/DeepSeek V4.1 Flash 1017
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4.1 Flash 1017
+- **Short description:** DeepSeek V4.1 Flash 1017 is described in local metadata as an updated checkpoint served behind DeepSeek’s flash route (successor to retired v4-flash routes), with large context and multimodal input.
+- **Provider / access:** DeepSeek API (`deepseek-flash` now served by DeepSeek-V4.1-Flash-1017 per DeepSeek API docs). Local metadata lists `opencode/deepseek-v4.1-flash-1017` and `noFreeId`.
+- **Release / knowledge:** Checkpoint date implied by name (2026-10-17) but not independently verified from a dedicated official release note in this pass. Knowledge cutoff not stated in reviewed sources.
+- **IDs:** `deepseek-v4.1-flash-1017`, `deepseek-flash` (current serving model per DeepSeek API docs).
+- **Context window:** 1,000,000 total; 384,000 max output (local metadata). Not independently verified from a dedicated official model spec page in this pass.
+- **Modalities:** Text, image input; text output (local metadata).
+- **Pricing (as of 2026-11-10):** $0.30/$1.20 per 1M peak, $0.15/$0.60 off-peak for hosted deepseek-flash per local metadata; not independently verified from accessible official pricing page in this pass.
+- **Architecture:** 552B/16B-active CED MoE per local metadata (MIT license noted in metadata description); not independently verified in this pass.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I attempted to research DeepSeek V4.1 Flash 1017 using alternative web access. DeepSeek API docs confirm that `deepseek-flash` is now served by DeepSeek-V4.1-Flash-1017, but I could not locate accessible official/public sources with clearly attributable verified benchmark numbers for this exact checkpoint/model in this pass. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context stated in local metadata; no standalone long-context retrieval benchmark score verified from public sources in this pass.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/specification evidence for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`); serving identity confirmed in DeepSeek API docs but no verified benchmark numbers for this exact checkpoint located.
+- Reference URLs:
+  - [DeepSeek API quick start (deepseek-flash served by DeepSeek-V4.1-Flash-1017)](https://api-docs.deepseek.com/)
+  - Local repository metadata consulted: `model/deepseek-v4.1-flash-1017/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

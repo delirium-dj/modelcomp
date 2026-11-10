@@ -72,7 +72,48 @@ Historical values not independently refreshed: tau3 Banking 41.4% (September 22 
 
 Remaining gaps: standalone LiveCodeBench, SWE-bench Verified, MCP Atlas, Claw/Toolathlon, current tau3, and comparable MLCR/factuality metrics. Search absence is not zero performance.
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above (2026-10-09) stays the
+operative one; only this pass's new findings are listed.
+
+### Raw benchmarks found (2026-11-10 pass)
+
+Vendor figures from the official introduction/benchmark appendix [A1]; harnesses
+and efforts are not interchangeable. Reconfirmed in this pass with matching
+values: GPQA Diamond 96.0%, HLE with tools 57.2%, DeepSWE v1.1 74.1%,
+Terminal-Bench 4.0 57.9%, OSWorld 2.0 offline 72.6%, 1.05M-token context and
+$10/$50 pricing. New in this pass (absent from the main report):
+
+- **BrowseComp: 91.5%.** [A1]
+- **AutomationBench: 41.4%** — vendor-reported; the main report's
+  AutomationBench-AA 68% is a different Artificial-Analysis configuration; no
+  like-for-like trend claim. [A1]
+- **FrontierMath Tier 4 v2: 97.6%.** [A1]
+- **Terminal-Bench Science 0.1: 64.6%.** [A1]
+- **FrontierCode 1.1: Extended 64.5% / Main 53.3%.** [A1]
+- No verified exact-model scores found this pass for tau2/tau3, standalone
+  LiveCodeBench/SciCode, Claw-Eval, CritPt or Omniscience. GDPval-AA: no score
+  verified in this pass's source set; the main report's AA 1542 Elo stands.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 94**, **Reasoning 98**,
+**Context window 95**, **Multimodal 70**, **Coding 97**, **Cost efficiency 30**,
+**Overall 91** — mean (94 + 98 + 95 + 70 + 97) / 5 = 90.8, half-up 91. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Official introduction and benchmark appendix](https://openai.com/index/gpt-6-astra/)
+- [A2 — API model card](https://developers.openai.com/api/docs/models/gpt-6-astra)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
 - Method: User-authorized refresh of this reporter's existing file; fresh public primary-source research and comparison with its September 25 findings. No peer reports or local model tests. Scores are interpretations, not official benchmark scores. Historical claims and indexed-only leads are labeled separately.

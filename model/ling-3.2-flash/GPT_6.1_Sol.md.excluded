@@ -1,0 +1,62 @@
+# Ling 3.2 Flash — findings by GPT-6.1 Sol
+
+- Source: Unresolved exact `ling-3.2-flash` model label
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: [model-comparison.md](../../model-comparison.md)
+- Cross-model signed log: [model-findings.md](../../model-findings.md)
+- Status: **Self-excluded — no verified exact-model public benchmarks or independently resolved serving identity.**
+
+## Model card
+
+- **Name:** Ling 3.2 Flash (queued label, exact vendor identity unverified)
+- **Short description:** No public checkpoint/provider record for this exact version was established in the sources checked. Similar Ling family names do not establish this subject's weights, capabilities, or quality.
+- **Provider / access:** No matching exact ID/name found in live OpenCode Zen, OpenRouter, or models.dev catalogs. No authenticated request attempted.
+- **Release / knowledge:** No verified exact-model release or knowledge cutoff.
+- **IDs:** No verified vendor ID or Zen Free ID. An API route is not derived from the project folder name.
+- **Context window:** Unverified; no sibling's window or generic scaffold default adopted.
+- **Modalities:** Unverified for this exact version.
+- **Pricing (as of 2026-11-10):** No verified exact-model tariff or free entitlement.
+- **Architecture:** Parameter count, weights, license, and exact publisher identity unverified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas QnA: no verified exact-model public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index, and Omniscience: no verified exact-model public score found.
+
+Coding:
+
+- SWE-bench Verified/SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: no verified exact-model public score found.
+
+Long context:
+
+- No verified exact-model retrieval measurement or documented capacity found.
+
+Search audit:
+
+- Fresh Bing exact-name query produced no result items; configured search integration returned HTTP 402. Empty/failed searches do not prove that a private or differently indexed model cannot exist.
+- An inclusionAI-scoped Hugging Face query supplied no matching 3.2 record; a second global `Ling-flash-3.2` search returned an empty list.
+- Exact Artificial Analysis and BenchLM profile attempts returned HTTP 404. Shared navigation/sidebar content on a missing page was not treated as target-model evidence.
+- Provider/catalog misses are bounded observations on this date, not a claim that the broader Ling family is absent.
+
+### Normalized scores (1–100)
+
+Not assigned. Exact identity and benchmark evidence are insufficient for the five quality dimensions and Overall. No placeholder scores or copied sibling values are included.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-10
+- Method: Fresh public-source exact-name searches, provider/model catalogs, publisher/global weights searches, and evaluator-profile checks. No peer findings read; this is an excluded negative-evidence report rather than a numerical rating.
+- Reference URLs:
+  - [OpenCode Zen live model catalog](https://opencode.ai/zen/v1/models)
+  - [OpenRouter live model catalog](https://openrouter.ai/api/v1/models)
+  - [models.dev public provider catalog](https://models.dev/api.json)
+  - [Publisher-scoped Ling checkpoint search](https://huggingface.co/api/models?author=inclusionAI&search=Ling&limit=100)
+  - [Global exact-version weights search](https://huggingface.co/api/models?search=Ling-flash-3.2&limit=10)
+- Future sources: Preserve these notes; a scored sibling requires verified exact identity and genuinely new benchmark evidence.

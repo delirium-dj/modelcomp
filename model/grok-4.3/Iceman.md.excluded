@@ -1,0 +1,67 @@
+# Grok 4.3 — findings by Iceman
+
+- Source: xAI/Grok 4.3
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 4.3
+- **Short description:** xAI’s Grok 4.3 is described in local metadata as a 1M-context reasoning model with strong instruction-following and honesty characteristics at low pricing.
+- **Provider / access:** xAI API (`grok-4.3`). Local metadata lists `opencode/grok-4.3` and `noFreeId`.
+- **Release / knowledge:** Release date and knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `grok-4.3`, `grok-4.3-latest`.
+- **Context window:** 1,000,000 tokens (xAI developer docs).
+- **Modalities:** Text and image input; text output (xAI developer docs).
+- **Pricing (as of 2026-11-10):** $1.25 / 1M input, $0.20 / 1M cached input, $2.50 / 1M output for prompts < 200K tokens; $2.50 / $0.40 / $5.00 for prompts ≥ 200K tokens (all tokens billed at higher rate). Batch API 20% discount (xAI developer docs).
+- **Architecture:** Proprietary xAI model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed xAI developer documentation for Grok 4.3, but the accessible official sources in this pass provided specifications, pricing, capabilities, and limits without extractable verified public benchmark scores for this exact model. The referenced blog URL was unavailable (404) in this pass. Local metadata benchmark claims (e.g. IFBench 83.3% #1, honesty 83% non-hallucination) were not independently verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- IFBench: **no verified public score found** (independently verified)
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context window documented; no standalone long-context retrieval benchmark score extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to xAI developer docs; referenced blog unavailable (404) and no benchmark numerics extracted.
+- Reference URLs:
+  - [Grok 4.3 model documentation (xAI developers)](https://docs.x.ai/docs/models/grok-4.3)
+  - [Grok 4.3 blog URL attempted (404 in this pass)](https://x.ai/blog/grok-4.3)
+  - Local repository metadata consulted: `model/grok-4.3/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

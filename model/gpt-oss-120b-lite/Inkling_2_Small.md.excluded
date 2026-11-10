@@ -1,0 +1,62 @@
+# GPT-OSS 120B Lite — findings by Inkling 2 Small
+
+- Source: OpenAI (`gpt-oss-120b-lite`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-OSS 120B Lite
+- **Short description:** Not a model OpenAI publishes. OpenAI's open-weight releases are `gpt-oss-120b` and `gpt-oss-20b` (both Aug 2025); no `gpt-oss-120b-lite` route exists in the OpenAI model catalog, models.dev, BenchLM or Artificial Analysis. This tracked slug appears to be a conflation (likely `gpt-oss-120b` mislabelled "lite").
+- **Provider / access:** none found for the exact ID.
+- **Release / knowledge:** unknown — no such model announcement exists.
+- **IDs:** `gpt-oss-120b-lite` (as tracked by this dataset; vendor route not found)
+- **Context window:** unknown (family sibling: 131,072).
+- **Modalities:** unknown.
+- **Pricing (as of 2026-11-10):** no verified public price found.
+- **Architecture:** unknown (family sibling: open-weight MoE 120B).
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID. Every row below is intentionally empty.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found (OpenAI docs 404 for the ID; BenchLM 404; models.dev: no `gpt-oss-120b-lite` entry)
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+Multimodal:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Flag for orchestrator: `gpt-oss-120b-lite` is very likely a phantom/conflation of `gpt-oss-120b` (which IS tracked separately) — verify and likely park it.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no such OpenAI model exists publicly.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (OpenAI API docs, BenchLM, models.dev); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [GPT OSS 120B (the real sibling) — models.dev](https://models.dev/models/openai/gpt-oss-120b)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

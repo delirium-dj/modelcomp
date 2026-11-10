@@ -72,8 +72,50 @@ Long context:
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+- Reconfirmed with matching values on the current product page
+  ([developer.meta.com](https://developer.meta.com/ai/models/muse-spark/)):
+  GDPval-AA v2 1754 Elo, JobBench 64.9%, OSWorld 2.0 66.9% partial / 32.0%
+  binary, DeepSearchQA 90.3%, AutomationBench 49.6%, Terminal-Bench 2.1 88.8%,
+  MRCR 98.5% (256K–512K) / 98.1% (512K–1M), DeepSWE v1.1 75.4%, SWEAtlas
+  CodeBase QnA 59.4%, Standard $1.25/$4.25/$0.15 and Contributor
+  $0.10/$0.20/$0.002 pricing. [A1]
+- **New: Internal Agentic IF Index 57.8** (vendor max-reasoning metric). [A1]
+- New: OpenAI-compatible client support advertised; the retrieved product page
+  itself does not restate Chat Completions/Responses coverage — the main
+  report's 2026-10-09 docs finding stands. [A1]
+- New: a secondary catalog lists ~944K output; not treated as a confirmed
+  native limit (output cap remains unverified). [A3]
+- No verified exact-model scores found this pass for GPQA, HLE, CritPt,
+  Omniscience, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or MCP-Atlas —
+  consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 96**, **Reasoning 88**,
+**Context window 100**, **Multimodal 85**, **Coding 96**, **Cost efficiency 88**,
+**Overall 93** — mean (96 + 88 + 100 + 85 + 96) / 5 = 93. The main report's
+score block above is the operative one; this block records the same-day
+independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Meta specifications, benchmarks and prices](https://developer.meta.com/ai/models/muse-spark/)
+- [A2 — Official release announcement](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+- [A3 — Secondary catalog](https://llm-stats.com/models/muse-spark-1.3)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09
 - Method: Independent public web research; normalized scores are interpretations, not official vendor scores. Effort settings and harnesses remain explicitly distinguished.
 - Future sources: add a separate signed report using the same headings.

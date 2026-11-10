@@ -1,0 +1,38 @@
+# QoDuck — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmarks for "QoDuck"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** QoDuck (folder slug `qoduck`, id `opencode/qoduck`).
+- **Finding:** Alibaba stealth coding/reasoning preview model surfaced inside the Qoder desktop app (suspected Qwen 4 checkpoint) with adaptive thinking and 1M context. No first-party model card, system card, API documentation, or independent benchmark row exists for a model by that name; Qoder's own announcements describe capabilities qualitatively only. OpenCode Zen's public catalogue contains no `qoduck` route with verified specs.
+- **Context window / modalities / pricing:** unverified — adopted from scaffolded meta only (1,048,576 total / 65,536 max output; text+image in, text/code out; free preview tier).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for QoDuck in any first-party or independent source: no model card, no system card, no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row, no published parameter count.
+
+## Deep second-pass research (2026-11-10)
+
+Independent sources checked (10+):
+1. https://docs.qoder.com/events/qoduck-free — official Qoder doc: Qoduck is a stealth model whose identity has yet to be disclosed; no specs/benchmarks published; promotion Nov 7–11, 2026.
+2. https://qoder.com — Qoder product site; no model card or benchmark for Qoduck.
+3. https://qoder.ai — same; no Qoduck benchmark data.
+4. https://docs.qoder.com — Qoder docs index; no Qoduck benchmark page.
+5. https://github.com/qoder-ai — Qoder GitHub org; no Qoduck model repo or eval.
+6. https://qoder.com/blog — no Qoduck benchmark post.
+7. https://changelog.qoder.com/ — no Qoduck benchmark entry.
+8. https://forum.qoder.com — no verified benchmark thread surfaced.
+9. https://artificialanalysis.ai/models — Qoduck not listed.
+10. https://benchlm.ai — Qoduck not listed.
+
+Result: Qoduck remains an undisclosed stealth model with no public identity, parameters, or standardized benchmark. Conclusion unchanged: no verified benchmarks; scores withheld rather than fabricated.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-10
+- Method: public internet research (Qoder docs/forums, independent aggregators); no verified benchmarks found, so no scores reported.
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

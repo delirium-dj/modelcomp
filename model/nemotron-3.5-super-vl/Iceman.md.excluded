@@ -1,0 +1,69 @@
+# Nemotron 3.5 Super VL 120B A12B — findings by Iceman
+
+- Source: NVIDIA/Nemotron 3.5 Super VL 120B A12B (NVFP4)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** NVIDIA Nemotron 3.5 Super VL 120B A12B (NVFP4)
+- **Short description:** NVIDIA’s open-weight vision-language Mixture-of-Experts model (Mamba-Transformer hybrid) for multimodal and video-centric agent workflows.
+- **Provider / access:** Open weights on Hugging Face (`nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4`, OpenMDW-1.1 license per metadata/card context) and hosted providers. Local metadata lists `opencode/nemotron-3.5-super-vl` and `noFreeId`.
+- **Release / knowledge:** Hugging Face model card reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4`.
+- **Context window:** 1,000,000 native context (host-served context may vary, e.g. 262,144 per local metadata).
+- **Modalities:** Text, image, and video input; text output (vision-language model).
+- **Pricing (as of 2026-11-10):** Open weights available for self-hosting (license as stated on HF); hosted pricing varies by provider (local metadata cites NanoGPT $0.15/$0.50 per 1M, cache $0.02).
+- **Architecture:** Hybrid Mamba-Transformer MoE, 120B total / 12B active parameters (per local metadata/card naming); NVFP4 quantized release.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the Hugging Face model card for `nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4`, but the accessible extracted content in this pass did not provide a clearly extractable set of verified public benchmark scores for this exact model that I could confidently normalize across the required dimensions. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (local metadata mentions AA Index 26.5 but not independently verified from reviewed extracted card text)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M native context documented; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Vision-language/video capabilities described; no multimodal benchmark scores clearly extracted in this pass.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted/independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Hugging Face model card; benchmark numerics were not clearly extractable/verified in this pass.
+- Reference URLs:
+  - [NVIDIA Nemotron 3.5 Super VL 120B A12B NVFP4 model card (Hugging Face)](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4)
+  - Local repository metadata consulted: `model/nemotron-3.5-super-vl/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

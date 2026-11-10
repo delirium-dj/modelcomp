@@ -1,0 +1,69 @@
+# Muse Spark Open — findings by Iceman
+
+- Source: Meta/Muse Spark Open 816B A42B
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark Open 816B A42B
+- **Short description:** Meta Superintelligence Labs’ open-weight Mixture-of-Experts foundation model (816B total / ~42B active) for agentic coding, developer workflows, and long-horizon repository/document tasks.
+- **Provider / access:** Open weights on Hugging Face (`meta-models/Muse-Spark-Open-816B-A42B`, Apache 2.0). Local metadata lists `opencode/muse-spark-open`; free open-weight self-hosting noted.
+- **Release / knowledge:** Hugging Face model card reviewed 2026-11-10 (released Oct 2026 per local metadata/card context). Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `Muse-Spark-Open-816B-A42B`, `meta-models/Muse-Spark-Open-816B-A42B`.
+- **Context window:** 1,048,576 tokens (1M) context; up to 131,072 max output (local metadata/HF card context).
+- **Modalities:** Multimodal inputs described in local metadata/HF context (text/code/image/video/audio in; text/JSON out). Exact served modality support may vary by runtime; treated conservatively from reviewed card context.
+- **Pricing (as of 2026-11-10):** Free open-weight checkpoint (Apache 2.0) for self-hosting; hosted serving costs depend on provider/compute (e.g. OpenCode Zen or self-hosted infrastructure).
+- **Architecture:** Sparse Mixture-of-Experts, 816B total parameters / ~42B active parameters (HF card/metadata).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the Hugging Face model card for `meta-models/Muse-Spark-Open-816B-A42B`, but the accessible extracted content in this pass did not provide clearly attributable, independently verifiable public benchmark scores for this exact model that I could confidently tabulate. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M context window documented; no standalone MRCR/RULER/GraphWalks numeric retrieval benchmark score extracted.
+
+Multimodal:
+
+- Multimodal capability described in metadata/card context; no standalone multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted/independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Hugging Face model card; benchmark numerics were not clearly extractable/verified in this pass.
+- Reference URLs:
+  - [Muse Spark Open 816B A42B model card (Hugging Face)](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B)
+  - Local repository metadata consulted: `model/muse-spark-open/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

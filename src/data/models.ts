@@ -332,7 +332,7 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "kimi-k2.7-code-highspeed", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "qwen-3.7", "kimi-k2.7-code-highspeed", "glm-4.6-flash", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret", "gpt-oss-120b-lite"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from
