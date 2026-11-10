@@ -9,7 +9,7 @@
     {
       "name": "Free tier",
       "price": "$0",
-      "notes": "Free IDs on selected models (e.g. Beam, Big Pickle (GLM 4.6) ...); availability is labeled per model page.",
+      "notes": "Thirteen limited-time free IDs as of 2026-11-10: GLM-5.3-Flash Free, DeepSeek V4.1 Flash Free, MiMo-V2.6-Flash Free, Nemotron 3 Ultra / 3.5 Lightning / 3.5 Super VL Free, Big Pickle, Iceman Free, Inkling 2 Small Free, Beam Free, Flint 40B Free, LongCat 2.5 Free (100 requests/day) and Jev 1.13 Free. Some free endpoints log usage data (NVIDIA endpoints) or train on it (Inkling 2 Small); availability is labeled per model page.",
       "evidenceUrl": "https://opencode.ai/v2/docs/console/models/#free-models"
     },
     {
@@ -21,7 +21,7 @@
     {
       "name": "Pay-as-you-go",
       "price": "Per-model, per-token rates",
-      "notes": "Each covered model page links the rate claiming its price.",
+      "notes": "Each covered model page links the rate claiming its price. Sold at cost; a 4.6% + $0.31 processing fee applies to each credit purchase. Current promos: Gemini 4 Argon at 50% off (through 2026-11-30) and Gemini 3.8/3.7/3.6 Flash at 50% off (through 2026-12-31). Deprecated: DeepSeek V4 Flash (2026-10-26), MiniMax M2.5 and Kimi K2.5 (2026-08-05), Crouton Alpha Free (2026-11-09).",
       "evidenceUrl": "https://opencode.ai/v2/docs/console/models/"
     }
   ]

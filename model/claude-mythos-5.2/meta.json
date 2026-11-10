@@ -1,0 +1,18 @@
+{
+  "id": "anthropic/claude-mythos-5.2",
+  "name": "Claude Mythos 5.2",
+  "short": "Anthropic's restricted, security-vetted configuration of Fable 5.2 (1M/128K, $10/$50) deployed with lifted dual-use refusals for verified defensive cyber and biosecurity research.",
+  "contextWindow": "1M / 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid $10/$50 per 1M; vetted CVP/Glasswing access only",
+  "pricingTiers": [
+    "Paid $10/$50 per 1M"
+  ],
+  "noFreeId": true,
+  "officialUrl": "https://www.anthropic.com/news/claude-mythos-5.2",
+  "pricingLinks": [
+    "https://www.anthropic.com/pricing"
+  ],
+  "standout": "Shares frontier Fable 5.2 architecture while removing restrictive safety filters for authorized threat modeling, vulnerability research, and cyber defense.",
+  "tradeoff": "Strictly restricted under Anthropic's Cyber Verification Program (CVP) and Project Glasswing; inaccessible to general API consumers."
+}

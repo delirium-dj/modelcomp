@@ -154,7 +154,7 @@ Full details moved to [`model/beam/Xing_4.0_29B_A4B.md`](model/beam/Xing_4.0_29B
 
 ## Fledge Alpha
 
-Full details moved to [`model/fledge-alpha/Xing_4.0_29B_A4B.md`](model/fledge-alpha/Xing_4.0_29B_A4B.md).
+Full details moved to [`model/inkling-2-small/Xing_4.0_29B_A4B.md`](model/inkling-2-small/Xing_4.0_29B_A4B.md).
 
 - **Scores:** Tool 50 / Reasoning 82 / Context 95 / Multimodal 65 / Coding 50 / Cost 100 → **Overall 68**
 - **One-liner:** strong knowledge reasoning (GPQA 92.3%, MMLU-Pro 92%) with verified 1M context + image input; zero verified tool/coding benchmarks; suspected router model, access discontinued on OpenCode Zen as of Oct 2026.
@@ -281,3 +281,4 @@ All dimensions 1–100, higher = better. Score raw benchmarks first, then normal
 - 2026-10-04: v7 — added optional `meta.json` `category` (`"generative"` default, `"decision"` for typed-decision System-One models; schema in `model/README.md`). `jev-1.13/meta.json` curated with verified decision-native facts and `category: decision`. Decision models stay in `model/` and are separated at render time: own shelf in All models, excluded from A/B/C compare slots, never ranked against generative Overall. No folders renamed or moved.
 - 2026-10-30: v8 — added MiMo V2.6 Pro model to comparison table with averaged scores from 29 reporting sources. Overall score of 91 makes it the highest-scoring open-weight model in the comparison.
 - 2026-11-06: v9 — added Mistral Large 3 and Mistral Small 4 to comparison table and per-model sections using Beam findings (Overall 65/65).
+- 2026-11-10: v10 — renamed `model/fledge-alpha/` → `model/inkling-2-small/` and display name `Fledge Alpha` → `Inkling 2 Small` (user-confirmed: the production model derived from and succeeding the Fledge Alpha evaluation runs is Inkling 2 Small, a 594B-total / 17B-active MoE). All 155 findings files renamed as pure path moves (`Fledge_Alpha.md[.excluded]` → `Inkling_2_Small.md[.excluded]`, contents untouched); signed "Provided by" lines keep the original `Fledge Alpha` attribution as frozen history. The retired slug joins `MERGED_MODEL_SLUGS` and the retired stem `MERGED_SOURCE_STEMS` (never recreated; rosters: `model-aliases.generated.md`); the revealed model's `meta.json` `aliases` carry the stealth names so searching "Fledge Alpha" still resolves to `/model/inkling-2-small/`. The comparison-table row above stays frozen v1–v3 history — those figures were measured under the `stealth-model/fledge-alpha` ID and are lineage data.

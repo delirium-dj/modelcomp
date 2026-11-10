@@ -40,7 +40,7 @@ Long context:
 - **Multimodal: 15/100.** Text-only input and output.
 - **Coding: 82/100.** Efficient code snippet generation and debugging.
 - **Cost efficiency: 95/100.** Exceptional economy for high-volume automated workloads ($0.15/$0.60 per 1M tokens).
-- **Overall Score: 73.8/100.** (86 + 82 + 84 + 15 + 82) / 5 = 349 / 5 = 69.8. Best-fit recommendation: Balanced production applications, fast conversational agents, and cost-efficient API integration.
+- **Overall Score: 69.8/100.** (86 + 82 + 84 + 15 + 82) / 5 = 349 / 5 = 69.8. Best-fit recommendation: Balanced production applications, fast conversational agents, and cost-efficient API integration.
 
 ---
 

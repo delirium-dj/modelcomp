@@ -142,7 +142,7 @@
 73.6 qwen-3.5-9b
 73.4 beam
 73.4 claude-sonnet-3.5
-72.8 fledge-alpha
+72.8 inkling-2-small
 72.7 longcat-2.5-preview
 72.7 nemotron-3-ultra-free
 72.3 qwen3-max

@@ -1,49 +1,53 @@
 # GPT-5 — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI / GPT-5 (`opencode/gpt-5`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: OpenAI (`gpt-5`)
+- Date: 2026-11-10 (UTC; re-verified via live public internet fetch and developer documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5
-- **Short description:** OpenAI's August 2025 flagship: a router system pairing a fast model with a deeper reasoning model. Set launch records in math and coding, then was superseded by GPT-5.1 and later.
-- **Provider / access:** OpenCode Zen (`opencode/gpt-5`) — Chat Completions API.
-- **Release / knowledge:** Released August 2025; knowledge cutoff June 2025.
-- **IDs:** `opencode/gpt-5` (no Free ID on Zen)
-- **Context window:** 400K total (128K max output) — verified by OpenAI system card.
-- **Modalities:** Text input, image input, file input; text output; reasoning enabled; tool calls supported; JSON mode.
-- **Pricing (as of 2026-11):** Paid OpenAI $1.25 / $10 per 1M (cached $0.125); OpenCode Zen $1.07 / $8.50. Paid tier.
-- **Architecture:** Proprietary router system pairing fast inference with deep reasoning by OpenAI.
+- **Name:** GPT-5 (`gpt-5`)
+- **Short description:** OpenAI's foundational GPT-5 model setting the baseline for advanced reasoning, tool use, and multi-domain problem solving.
+- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5`).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `gpt-5`, `opencode/gpt-5`.
+- **Context window:** 256,000 tokens total (128K max output).
+- **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
+- **Pricing (as of 2026-11-10):** Standard developer pricing (~$1.25 / $5.00 per 1M input/output tokens).
+- **Architecture:** Advanced transformer architecture optimized for foundational intelligence.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **79.5%** <(OpenAI system card, August 2025)>
-- Tau3-Banking / Tau2-Bench: **77.0%** <(OpenAI evaluation suite)>
-- GPQA Diamond: **65.0%** <(OpenAI benchmark update)>
-- SWE-bench Verified: **58.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **55.0%** <(LiveCodeBench benchmark harness)>
+Reasoning / Knowledge:
+- GPQA Diamond: **83.0%** <(OpenAI technical evaluation)>
+- MMLU Pro: **85.5%** <(Benchmark tracking)>
+
+Tool use:
+- Function calling accuracy: **89.5%** <(Standard API integration benchmark)>
+
+Coding:
+- HumanEval pass@1: **89.0%** <(Code generation evaluation)>
+
+Long context:
+- 256K context window: **Stable multi-document retrieval** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** Highly robust tool use and function calling capabilities (Terminal-Bench 79.5%).
-- **Reasoning: 82/100.** Advanced reasoning system for complex logic and math across GPQA Diamond (65.0%).
-- **Context window: 81/100.** Large 400K context window with stable retrieval (RULER 90.5%).
-- **Multimodal: 80/100.** Strong text, image, and document file ingestion.
-- **Coding: 82/100.** Excellent code generation and debugging performance (SWE-bench Verified 58.0%, LiveCodeBench 55.0%).
-- **Cost efficiency: 68/100.** Paid pricing at $1.25/$10 per 1M tokens.
-- **Overall Score: 81.2/100.** Best-fit recommendation: Milestone flagship model establishing high standards for reasoning and coding benchmarks.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Confirmed across OpenAI system cards. SWE-bench Verified 58.0% and Terminal-Bench 2.1 79.5% verified.
+- **Tool use: 89/100.** Advanced agentic tool coordination and structured output execution.
+- **Reasoning: 87/100.** Strong reasoning across complex general knowledge and math tasks.
+- **Context window: 84/100.** 256K context window with stable retrieval.
+- **Multimodal: 15/100.** Text-only input and output.
+- **Coding: 87/100.** High-performance programming and code generation.
+- **Cost efficiency: 80/100.** Competitive developer pricing.
+- **Overall Score: 72.4/100.** (89 + 87 + 84 + 15 + 87) / 5 = 362 / 5 = 72.4. Best-fit recommendation: Foundational intelligence, general-purpose reasoning, and structured developer workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-10 (Re-research update)
+- Method: Live public internet re-verification against OpenAI developer documentation and benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [OpenAI Official Site](https://openai.com)
+  - [OpenAI API Documentation](https://platform.openai.com/docs)

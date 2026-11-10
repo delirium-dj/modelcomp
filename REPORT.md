@@ -1,5 +1,44 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-10 — Fledge Alpha renamed to Inkling 2 Small (user-confirmed reveal)
+
+1. **Identity.** User-confirmed: the production model derived from and succeeding the Fledge Alpha
+   evaluation runs is **Inkling 2 Small** (594B total / 17B active Mixture-of-Experts) — the
+   revealed-stealth merge rule (`RULES.md` § Serving-profile / revealed-stealth identity, user rule
+   2026-10-24 + 2026-10-26) applied to the free OpenCode Zen stealth preview `fledge-alpha-free`.
+2. **Renames (git mv, contents untouched per RULES.md permanence).** `model/fledge-alpha/` →
+   `model/inkling-2-small/` (52 files) — no revealed folder existed, so a plain rename with no merge
+   and no colliding stems. All **155** findings files renamed repo-wide:
+   `Fledge_Alpha.md[.excluded]` → `Inkling_2_Small.md[.excluded]` (152 under `model/`, 1 each under
+   `models_cybersecurity/`, `models_finance/`, `models_health/`; 4 of them `.md.excluded`). The
+   frozen `Provided by: Fledge Alpha (opencode/fledge-alpha-free)` signatures stay inside the files
+   as history.
+3. **Trace for search.** `model/inkling-2-small/meta.json` now carries `name` "Inkling 2 Small",
+   `id` `opencode/inkling-2-small` (slug-aligned, per the gemma dotted-rename precedent) and
+   `aliases` `["Fledge Alpha", "fledge-alpha", "fledge-alpha-free", "stealth/fledge-alpha",
+   "stealth-model/fledge-alpha"]` — the list search (`modelMatchesQuery` in
+   `src/components/v2/modelView.ts`, matching name/id/short/aliases) resolves the old name to the
+   renamed model's card and `/model/inkling-2-small/` profile.
+4. **Code lists (`scripts/lib/validate.mjs`).** `fledge-alpha` → `inkling-2-small` in
+   `MERGED_MODEL_SLUGS` (never re-scaffolded; also sanctions the old paths leaving HEAD for the
+   sync deletion tripwire as `merged-slug-folder`); `Fledge_Alpha` → `Inkling_2_Small` in
+   `MERGED_SOURCE_STEMS` (never recreated — a resurrect would double-count the rater);
+   `["Inkling_2_Small", ["Fledge Alpha"]]` in `SIGNATURE_STEM_EXCEPTIONS` (frozen stealth-era
+   signatures); matching `CASE_LAW_NOTES` for both, rendered into `model-aliases.generated.md`.
+5. **Docs.** `average.md` H1 in the renamed folder updated to "Inkling 2 Small — Averaged findings"
+   (sync preserves existing average heads); `model-comparison.md` per-model link repointed to the
+   new folder + changelog v10 (the frozen v1–v3 table row keeps the measured-as
+   `stealth-model/fledge-alpha` ID as lineage data); `src/components/VendorIcon.tsx` brand-comment
+   slug updated.
+6. **Left for the user (agent token policy).** `pnpm sync` regenerates `scores.generated.ts`
+   (new `Inkling_2_Small.md` keys + `inkling-2-small` slug), `sources.generated.ts`
+   (`{ key: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" }` — resolved
+   automatically via the catalog lookup on the new meta name), `verified.generated.ts`,
+   `model-queue.md` (`72.8 inkling-2-small`) and `model-aliases.generated.md` (merged-slug +
+   merged-stem sections); it also refreshes the ~150 other folders' `average.md` below-gate rater
+   lists (label "Fledge Alpha" → "Inkling 2 Small"). No findings prose was edited — it is frozen
+   history.
+
 ## 2026-11-01 — Purification & simplification pass (from task_DeepSeek_V4.1_Flash_2026-10-31.md)
 
 1. **Scratch removal.** `git rm` of 11 tracked one-off files (`_t10.txt`, `_test_ascii.txt`,

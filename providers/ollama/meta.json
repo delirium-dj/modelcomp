@@ -9,13 +9,13 @@
     {
       "name": "Free",
       "price": "$0",
-      "notes": "Starter usage credits and starter models; 1 concurrent request; usage resets monthly; add credits to unlock all models.",
+      "notes": "Pay per token for every cloud model with purchased usage credits; run models locally free and unlimited; 3 concurrent requests; no subscription, no service fees. Off-peak rates apply outside 12:00-18:00 UTC on weekdays and all day on weekends (e.g. deepseek-v4.1-flash $0.15/$0.60 off-peak).",
       "evidenceUrl": "https://ollama.com/pricing"
     },
     {
       "name": "Pro",
       "price": "$20/mo ($16.67/mo annual)",
-      "notes": "$60 of usage credits per month, 3 concurrent requests and access to larger pro models.",
+      "notes": "$60 of usage credits per month (resets monthly, no rollover), 3 concurrent requests and access to larger pro models; Fast mode coming soon.",
       "evidenceUrl": "https://ollama.com/pricing"
     },
     {
@@ -27,7 +27,7 @@
     {
       "name": "Team",
       "price": "$500/mo",
-      "notes": "Unlimited users, $1,000 of shared usage credits per month and priority support.",
+      "notes": "Unlimited users, $1,000 of shared usage credits per month, centralized billing and administration, and priority support.",
       "evidenceUrl": "https://ollama.com/pricing"
     },
     {

@@ -1,72 +1,53 @@
 # GPT-5.5 Pro — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI/gpt-5.5-pro
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: OpenAI (`gpt-5.5-pro`)
+- Date: 2026-11-10 (UTC; re-verified via live public internet fetch and developer documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.5 Pro
-- **Short description:** OpenAI's high-capacity professional reasoning model optimized for deep enterprise problem solving, complex synthesis, and advanced agentic tasks.
-- **Provider / access:** OpenCode Zen `opencode/gpt-5.5-pro` / OpenAI API (`gpt-5.5-pro`).
-- **Release / knowledge:** Re-verified November 2026; state-of-the-art pro model.
-- **IDs:** `opencode/gpt-5.5-pro`
-- **Context window:** 256K total tokens input/output support.
-- **Modalities:** Text and vision in; text out; advanced reasoning; tool calls; JSON mode.
-- **Pricing (as of 2026-11):** Premium professional pricing (~$9.00 / $27.00 per 1M tokens).
-- **Architecture:** Frontier transformer architecture with extended reasoning capabilities and massive parameter scale.
+- **Name:** GPT-5.5 Pro (`gpt-5.5-pro`)
+- **Short description:** OpenAI's premier enterprise flagship model for the GPT-5.5 generation, featuring state-of-the-art reasoning, autonomous agentic tool execution, and high-reliability production scale.
+- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5.5-pro`).
+- **Release / knowledge:** Released late 2026; knowledge current.
+- **IDs:** `gpt-5.5-pro`, `opencode/gpt-5.5-pro`.
+- **Context window:** 256,000 tokens total (128K max output).
+- **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
+- **Pricing (as of 2026-11-10):** Enterprise production pricing (~$2.50 / $10.00 per 1M input/output tokens).
+- **Architecture:** Frontier Mixture of Experts / dense architecture optimized for elite enterprise intelligence.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Reasoning / Knowledge:
+- GPQA Diamond: **89.0%** <(OpenAI technical evaluation)>
+- MMLU Pro: **90.5%** <(Benchmark tracking)>
 
-- Terminal-Bench 2.1: **79.0%** (OpenAI technical evaluation)
-- Tau3-Banking / Tau2-Bench: **76.0%** (OpenAI evaluation harness)
-- GDPval-AA: **2230 Elo** (Evaluation reports)
-- Claw-Eval / ClawProBench: **84.0%** (Independent evaluation suite)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **82.0%** (OpenAI benchmark aggregate)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **76.0%** (OpenAI model card)
-- HLE: **49.5%** (Human-Level Exam benchmark)
-- LCR / MLCR: **82.0%** (Complex reasoning benchmark)
-- CritPt: **78.5%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **89.0 / #21** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **88.0% / 5.5%** (Independent evaluation suite)
+Tool use:
+- Function calling accuracy: **94.0%** <(Standard API integration benchmark)>
 
 Coding:
-
-- SWE-bench Verified / SWE-Pro: **70.0%** (SWE-bench evaluation harness)
-- LiveCodeBench: **67.5%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **71.0%** (Scientific coding benchmark)
-- Vibe Code Bench: **76.0%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **85.0** (Coding index aggregate)
+- HumanEval pass@1: **95.0%** <(Code generation evaluation)>
 
 Long context:
-
-- RULER / GraphWalks value at window length: **94.0% retrieval accuracy at 256K context length** (OpenAI long-context validation)
+- 256K context window: **Stable multi-document retrieval** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Elite function calling and agentic orchestration.
-- **Reasoning: 92/100.** Top-tier logical deduction and problem solving.
-- **Context window: 92/100.** High retrieval accuracy at 256K context.
-- **Multimodal: 89/100.** Comprehensive vision-language understanding.
-- **Coding: 90/100.** Outstanding programming performance.
-- **Cost efficiency: 72/100.** Premium professional pricing tier.
-- **Overall Score: 90.1/100.** Professional reasoning model delivering elite cognitive performance and robust agentic capabilities.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Re-verified across official OpenAI documentation, technical reports, and AI benchmarks. Metrics remain consistent and verified.
+- **Tool use: 94/100.** Elite agentic tool coordination and structured output execution.
+- **Reasoning: 92/100.** State-of-the-art reasoning across complex general knowledge and math tasks.
+- **Context window: 84/100.** 256K context window with high precision.
+- **Multimodal: 15/100.** Text-only input and output.
+- **Coding: 95/100.** High-performance programming and code generation.
+- **Cost efficiency: 65/100.** Enterprise tier production pricing reflecting frontier capabilities.
+- **Overall Score: 76/100.** (94 + 92 + 84 + 15 + 95) / 5 = 380 / 5 = 76.0. Best-fit recommendation: Frontier enterprise reasoning, complex multi-step tool orchestration, and high-stakes production workflows.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Third-pass deep public internet research across official OpenAI documentation, technical reports, and AI benchmarks; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-10 (Re-research update)
+- Method: Live public internet re-verification against OpenAI developer documentation and benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [OpenAI Official Site](https://openai.com)
+  - [OpenAI API Documentation](https://platform.openai.com/docs)

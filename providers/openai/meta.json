@@ -1,7 +1,7 @@
 {
   "name": "OpenAI",
   "kind": "vendor",
-  "short": "GPT and Codex models direct from OpenAI's API; pay-as-you-go from $0.05/$0.40 per 1M (GPT-5 Nano) up to $21.00/$168.00 per 1M (GPT-5.2 Pro), with cached-input and long-prompt tiers.",
+  "short": "GPT and Codex models direct from OpenAI's API; pay-as-you-go from $0.05/$0.40 per 1M (GPT-5 Nano) up to $30.00/$180.00 per 1M (GPT-5.4 Pro / GPT-5.5 Pro), with cached-input and long-prompt tiers.",
   "officialUrl": "https://openai.com",
   "hosts": [
     "openai.com",
@@ -14,15 +14,9 @@
   "plans": [
     {
       "name": "OpenAI API pay-as-you-go",
-      "price": "from $0.05/$0.40 per 1M (GPT-5 Nano) up to $21.00/$168.00 per 1M (GPT-5.2 Pro)",
-      "notes": "Cached-input and long-prompt tiers are documented per model.",
-      "evidenceUrl": "https://openai.com/api/pricing/"
-    },
-    {
-      "name": "ChatGPT Pro preview",
-      "price": "Design-partner API only",
-      "notes": "GPT-5.3 Codex Spark has no public per-token rate.",
-      "evidenceUrl": "https://openai.com/api/pricing/"
+      "price": "from $0.05/$0.40 per 1M (GPT-5 Nano) up to $30.00/$180.00 per 1M (GPT-5.4 Pro / GPT-5.5 Pro)",
+      "notes": "Cached-input and long-prompt tiers are documented per model (e.g. GPT-5 Nano cached input $0.005). GPT-5.3 Codex Spark now carries a public rate ($1.75/$14.00 per OpenCode's at-cost console).",
+      "evidenceUrl": "https://platform.openai.com/docs/pricing"
     }
   ]
 }

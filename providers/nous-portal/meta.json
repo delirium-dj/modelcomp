@@ -1,7 +1,7 @@
 {
   "name": "Nous Portal",
   "kind": "aggregator",
-  "short": "Nous Research's model catalog and agent platform: 300+ models from frontier labs behind a single API key, with a free tier limited to free models and paid subscriptions that bundle monthly credits.",
+  "short": "Nous Research's Hermes Agent platform: 200+ models from frontier labs behind a single API key (plus a hosted Tool Gateway and agent cloud hosting), with a free tier limited to free models and paid subscriptions that include Hermes usage and cloud-agent hosting; API keys always bill pay-as-you-go credits. ChatGPT plan sharing available.",
   "officialUrl": "https://portal.nousresearch.com",
   "hosts": ["nousresearch.com", "portal.nousresearch.com"],
   "catalogUrl": "https://portal.nousresearch.com",
@@ -9,25 +9,25 @@
     {
       "name": "Free",
       "price": "$0",
-      "notes": "Free models only, standard rate limits, $0 monthly credits.",
+      "notes": "Free models only, standard rate limits, $0 monthly credits. ChatGPT plan sharing: connect an eligible ChatGPT account for supported inference with no paid Nous subscription (tools and Hermes Cloud hosting bill separately to credits).",
       "evidenceUrl": "https://portal.nousresearch.com"
     },
     {
       "name": "Plus",
       "price": "$20/mo",
-      "notes": "$22 monthly credits (10% bonus), $10 rollover cap, 200+ models, hosted tool usage, high rate limits.",
+      "notes": "Hermes Agent usage included within daily/weekly/monthly limits; one cloud agent with up to 4 GB RAM / 25 GB disk included; any model usable (pricier models consume included usage faster); hosted tools bill to the same credit balance. API keys always use pay-as-you-go credits.",
       "evidenceUrl": "https://portal.nousresearch.com"
     },
     {
       "name": "Super",
       "price": "$100/mo",
-      "notes": "$110 monthly credits (10% bonus), $50 rollover cap.",
+      "notes": "Hermes Agent usage included within daily/weekly/monthly limits; one cloud agent with up to 4 GB RAM / 100 GB disk included; API keys always use pay-as-you-go credits.",
       "evidenceUrl": "https://portal.nousresearch.com"
     },
     {
       "name": "Ultra",
       "price": "$200/mo",
-      "notes": "$220 monthly credits (10% bonus), $100 rollover cap.",
+      "notes": "Hermes Agent usage included within daily/weekly/monthly limits; one cloud agent with up to 8 GB RAM / 100 GB disk included; API keys always use pay-as-you-go credits.",
       "evidenceUrl": "https://portal.nousresearch.com"
     },
     {
@@ -54,7 +54,6 @@
     "hy4",
     "kimi-k2.6",
     "kimi-k3",
-    "laguna-s-2.1",
     "ling-3.1-flash",
     "longcat-2.0",
     "longcat-2.5-preview",

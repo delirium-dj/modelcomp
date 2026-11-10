@@ -253,7 +253,7 @@ const VENDORS: VendorMatch[] = [
   { match: "scx", icon: "scx-ai", label: "SCX.ai" },
   { slug: "scx-ai", icon: "scx-ai", label: "SCX.ai" },
   // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
-  // exo-free / fledge-alpha / flint / neomorph / omi / owo / ox / space-bunny
+  // exo-free / inkling-2-small / flint / neomorph / omi / owo / ox / space-bunny
   // pick up the OpenCode mark below; originals omen / owl have no brand SVG —
   // letter fallback. a4f / portkey / requesty have their own entries above.
   { match: "opencode", icon: "opencode", label: "OpenCode", adaptive: true },

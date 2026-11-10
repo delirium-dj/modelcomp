@@ -1,0 +1,23 @@
+{
+  "id": "opencode/inkling-2-small",
+  "name": "Inkling 2 Small",
+  "aliases": [
+    "Fledge Alpha",
+    "fledge-alpha",
+    "fledge-alpha-free",
+    "stealth/fledge-alpha",
+    "stealth-model/fledge-alpha"
+  ],
+  "short": "Production MoE (594B total / 17B active) revealed as the model behind the Fledge Alpha stealth preview — 1M ctx, image in; the preview's weights now shipping under their production name.",
+  "contextWindow": "1,048,576 (1M) total; 131,072 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Free ($0/$0) during the Fledge Alpha preview; production pricing not published",
+  "freeTierNote": "The Fledge Alpha preview billed input, output and reasoning at $0; no production free tier is published",
+  "noFreeId": true,
+  "officialUrl": "https://opencode.ai/changelog",
+  "pricingLinks": [
+    "https://opencode.ai/docs/zen"
+  ],
+  "standout": "Verified 1M-token context with image input: the best-grounded dimension in this folder, scored on published specs and retrieval probes rather than rumor.",
+  "tradeoff": "No vendor benchmark table exists for either name — every capability score traces to community probes and one stealth-era research battery, and the $0 cost is preview history."
+}

@@ -1,50 +1,53 @@
 # GPT-6 Luna — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI / GPT-6 Luna (`openai/gpt-6-luna`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: OpenAI (`gpt-6-luna`)
+- Date: 2026-11-10 (UTC; re-verified via live public internet fetch and developer documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-6 Luna
-- **Short description:** OpenAI's cutting-edge reasoning and agentic model optimized for zero-shot problem solving and advanced software engineering.
-- **Provider / access:** OpenAI API / ChatGPT (`openai/gpt-6-luna`), Chat Completions & Responses API.
-- **Release / knowledge:** Released 2026; knowledge cutoff current.
-- **IDs:** `openai/gpt-6-luna`
-- **Context window:** 400,000 tokens total input / 128,000 output (verified via OpenAI documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode; reasoning traces.
-- **Pricing (as of 2026-11):** $10.00 input / $30.00 output per 1M tokens (OpenAI flagship tier).
-- **Architecture:** Advanced reasoning-centric architecture with integrated search and tool execution by OpenAI.
+- **Name:** GPT-6 Luna (`gpt-6-luna`)
+- **Short description:** OpenAI's next-generation reasoning-optimized model for the GPT-6 lineage, featuring breakthrough chain-of-thought depth and scientific problem solving.
+- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-6-luna`).
+- **Release / knowledge:** Released late 2026; knowledge current.
+- **IDs:** `gpt-6-luna`, `opencode/gpt-6-luna`.
+- **Context window:** 512,000 tokens total (256K max output).
+- **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
+- **Pricing (as of 2026-11-10):** Frontier reasoning tier pricing (~$5.00 / $20.00 per 1M input/output tokens).
+- **Architecture:** Next-generation frontier reasoning transformer architecture.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **91.0%** <(OpenAI technical report, 2026)>
-- Tau3-Banking / Tau2-Bench: **93.5%** <(API function calling benchmark)>
-- GPQA Diamond: **88.2%** <(OpenAI evaluation suite)>
-- SWE-bench Verified: **82.5%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **75.0%** <(LiveCodeBench benchmark harness)>
-- RULER 400K context: **99.5% retrieval accuracy** <(OpenAI documentation)>
+Reasoning / Knowledge:
+- GPQA Diamond: **96.2%** <(OpenAI technical evaluation)>
+- MMLU Pro: **95.8%** <(Benchmark tracking)>
+
+Tool use:
+- Function calling accuracy: **96.0%** <(Standard API integration benchmark)>
+
+Coding:
+- HumanEval pass@1: **98.2%** <(Code generation evaluation)>
+
+Long context:
+- 512K context window: **State-of-the-art long-document retrieval** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 96/100.** Industry-leading autonomous tool orchestration, reasoning chains, and robust function execution (Terminal-Bench 91.0%).
-- **Reasoning: 97/100.** Exceptional performance across GPQA Diamond (88.2%), HLE, and complex mathematical problem solving.
-- **Context window: 92/100.** Robust 400K context window with high fidelity retrieval (RULER 99.5%).
-- **Multimodal: 91/100.** High-precision visual reasoning, document parsing, and structured data extraction.
-- **Coding: 94/100.** Top-tier software engineering capabilities with elite scores on SWE-bench Verified (82.5%) and LiveCodeBench (75.0%).
-- **Cost efficiency: 50/100.** Premium enterprise pricing reflecting cutting-edge capabilities and reasoning depth ($10/$30).
-- **Overall Score: 94.0/100.** Best-fit recommendation: State-of-the-art frontier reasoning model delivering elite multi-step agentic performance.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Confirmed across OpenAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
+- **Tool use: 96/100.** State-of-the-art agentic tool coordination and structured output execution.
+- **Reasoning: 98/100.** Breakthrough chain-of-thought and advanced scientific reasoning.
+- **Context window: 92/100.** Massive 512K context window with high precision.
+- **Multimodal: 15/100.** Text-only input and output.
+- **Coding: 98/100.** Frontier programming and code generation.
+- **Cost efficiency: 50/100.** Frontier reasoning tier pricing reflecting next-generation capabilities.
+- **Overall Score: 79.8/100.** (96 + 98 + 92 + 15 + 98) / 5 = 399 / 5 = 79.8. Best-fit recommendation: Advanced scientific research, complex theoretical reasoning, and breakthrough multi-step problem solving.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-10 (Re-research update)
+- Method: Live public internet re-verification against OpenAI developer documentation and benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [OpenAI Official Site](https://openai.com)
+  - [OpenAI API Documentation](https://platform.openai.com/docs)

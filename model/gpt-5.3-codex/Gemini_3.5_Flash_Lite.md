@@ -38,7 +38,7 @@ Long context:
 - **Multimodal: 15/100.** Text and code modalities only.
 - **Coding: 95/100.** Elite coding and software engineering performance (SWE-bench Verified 84.0%).
 - **Cost efficiency: 80/100.** Competitive developer-tier pricing ($1.00/$4.00 per 1M tokens).
-- **Overall Score: 78.4/100.** (85 + 88 + 84 + 15 + 95) / 5 = 367 / 5 = 73.4. Best-fit recommendation: Advanced software engineering, automated testing, and multi-file debugging across large codebases.
+- **Overall Score: 73.4/100.** (85 + 88 + 84 + 15 + 95) / 5 = 367 / 5 = 73.4. Best-fit recommendation: Advanced software engineering, automated testing, and multi-file debugging across large codebases.
 
 ---
 

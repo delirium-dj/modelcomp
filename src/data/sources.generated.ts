@@ -63,7 +63,6 @@ export type SourceKey =
   | "DeepSeek 4 Flash"
   | "Claude Sonnet 3.7"
   | "Qwen 3.8 Flash"
-  | "Fledge Alpha"
   | "North Mini Code"
   | "Ling 3.1 Flash"
   | "Claude Opus 4.8"
@@ -103,7 +102,8 @@ export type SourceKey =
   | "Mistral Large 4"
   | "Ling 3.2 Flash"
   | "QoDuck"
-  | "Crouton Alpha";
+  | "Crouton Alpha"
+  | "Inkling 2 Small";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -177,7 +177,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "DeepSeek 4 Flash", label: "DeepSeek V4 Flash", file: "DeepSeek_4_Flash.md", slug: "deepseek-v4-flash" },
   { key: "Claude Sonnet 3.7", label: "Claude Sonnet 3.7", file: "Claude_Sonnet_3.7.md", slug: "claude-sonnet-3.7" },
   { key: "Qwen 3.8 Flash", label: "Qwen 3.8 Flash", file: "Qwen_3.8_Flash.md", slug: "qwen-3.8-flash" },
-  { key: "Fledge Alpha", label: "Fledge Alpha", file: "Fledge_Alpha.md", slug: "fledge-alpha" },
   { key: "North Mini Code", label: "North Mini Code", file: "North_Mini_Code.md", slug: "north_mini_code" },
   { key: "Ling 3.1 Flash", label: "Ling 3.1 Flash", file: "Ling_3.1_Flash.md", slug: "ling-3.1-flash" },
   { key: "Claude Opus 4.8", label: "Claude Opus 4.8", file: "Claude_Opus_4.8.md", slug: "claude-opus-4.8" },
@@ -218,4 +217,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Ling 3.2 Flash", label: "Ling 3.2 Flash", file: "Ling_3.2_Flash.md", slug: "ling-3.2-flash" },
   { key: "QoDuck", label: "QoDuck", file: "QoDuck.md", slug: "qoduck" },
   { key: "Crouton Alpha", label: "Crouton Alpha", file: "Crouton_Alpha.md", slug: "crouton-alpha" },
+  { key: "Inkling 2 Small", label: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" },
 ];
