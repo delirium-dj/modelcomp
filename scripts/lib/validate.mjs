@@ -124,6 +124,19 @@ export const MERGED_MODEL_SLUGS = new Map([
   // the stealth names so search by the old name still resolves (RULES.md §
   // Revealed-stealth identity).
   ["crouton-alpha", "muse-ember"],
+  // Tier-alias merge (RULES.md tier identity, user-ordered 2026-11-10): the
+  // `-free` suffix on Ling-3.0-flash-Fin is an access tier, not a second model
+  // — OpenRouter ships only `inclusionai/ling-3.0-flash-fin` (the vendor's free
+  // route is the `:free` serving variant of the SAME base slug; HF carries ONE
+  // MIT checkpoint, 124B/5.1B, 256K — no separate free weights) and the tier
+  // folder's own reports record "same weights... pricing/route difference, not
+  // a different model". The 24-file models_finance/ling-3.0-flash-fin-free/
+  // folder was folded into models_finance/ling-3.0-flash-fin/ (18 files moved
+  // newest-wins; 4 collision losers + the duplicate meta deleted; the newer
+  // 5-rater average moved with it) and the tier folder deleted on user order;
+  // the canonical meta `aliases` carry the tier names (incl. the Zen route
+  // spelling `ling-3-0-flash-fin-free`). Never scaffold the tier folder again.
+  ["ling-3.0-flash-fin-free", "ling-3.0-flash-fin"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -321,6 +334,14 @@ export const SANCTIONED_DELETIONS = new Map([
   [
     "model/gpt-6-astra/Xing_4.0.29b_a4b.md.excluded",
     "user-ordered deletion — unwanted excluded rater report, keep deleted, never restore",
+  ],
+  [
+    "model/claude-mythos-5/GPT_6.1_Astra.md",
+    "user-ordered deletion — corrupted file, keep deleted, never restore",
+  ],
+  [
+    "model/gemini-4-carbon/GPT_6.1_Astra.md",
+    "user-ordered deletion — corrupted file, keep deleted, never restore",
   ],
 ]);
 
@@ -734,6 +755,7 @@ export const CASE_LAW_NOTES = new Map([
   ["Fledge_Alpha", "stealth-era rater stem of Inkling 2 Small (the Fledge Alpha evaluation-run agent, revealed 2026-11-10 as Inkling 2 Small, 594B/17B MoE) — every report was renamed to Inkling_2_Small.md with the model's folder (155 files, no twin collisions; the frozen `Provided by: Fledge Alpha` signatures stay inside as history, SIGNATURE_STEM_EXCEPTIONS); merged + deleted 2026-11-10 (user order) — research belongs in model/inkling-2-small/"],
   ["crouton-alpha", "revealed stealth preview of Muse Ember 1.0 (OpenCode Zen stealth route `opencode/crouton-alpha` / `crouton-alpha-free`, 1M ctx, free tier, served until 2026-11-09; revealed 2026-11-09 at the Muse Ember launch — Meta blog + HN announcement — as Meta's smallest, most-efficient model: Meta Model API `muse-ember-1.0`, OpenRouter `meta/muse-ember` at $0.10/$0.50, models.dev + OpenCode Console route `muse-ember-1.0`, and Console retired Crouton Alpha Free 2026-11-09 with muse-ember-1.0 as the successor) — folder renamed to model/muse-ember/ on user order 2026-11-10 (revealed-stealth merge rule, RULES.md; no merge, no collisions) — research belongs in model/muse-ember/; searching the old name resolves via the revealed model's meta `aliases`"],
   ["Crouton_Alpha", "stealth-era rater stem of Muse Ember 1.0 (the Crouton Alpha evaluation-run agent, revealed 2026-11-09 as Muse Ember, Meta's smallest/most-efficient model) — every report was renamed to Muse_Ember.md with the model's folder (36 files, no twin collisions; the frozen `Provided by: Crouton Alpha` signatures stay inside as history, SIGNATURE_STEM_EXCEPTIONS); merged + deleted 2026-11-10 (user order) — research belongs in model/muse-ember/"],
+  ["ling-3.0-flash-fin-free", "access-tier alias of ling-3.0-flash-fin (Ling-3.0-flash-Fin, InclusionAI / Ant Group) — the `-free` suffix is the $0 OpenCode Zen / Vercel promotional route and OpenRouter's `:free` serving variant of the same 124B/5.1B MIT weights, never a second model (vendor ships one route and one checkpoint; the tier folder's own reports: \"same weights... pricing/route difference, not a different model\"); tier folder merged into models_finance/ling-3.0-flash-fin/ on user order 2026-11-10 (18 files moved newest-wins, 4 collision losers + the duplicate meta deleted) and the canonical meta `aliases` carry the tier names — research belongs in models_finance/ling-3.0-flash-fin/"],
 ]);
 
 /**

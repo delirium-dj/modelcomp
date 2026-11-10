@@ -1,19 +1,28 @@
 {
   "id": "inclusion/ling-3.0-flash-fin",
   "name": "Ling 3.0 Flash Fin",
+  "aliases": [
+    "Ling 3.0 Flash Fin Free",
+    "ling-3.0-flash-fin-free",
+    "ling-3-0-flash-fin-free",
+    "inclusionai/ling-3.0-flash-fin:free"
+  ],
   "short": "InclusionAI / Ant Group's finance-specialized 124B/5.1B sparse MoE model optimized for real-time market analysis, financial statement parsing, and economic modeling.",
   "contextWindow": "262,144 total; 32,768 max output",
   "modalities": "Text in; text out",
-  "pricingNote": "~$0.07/$0.20 per 1M ($0.015 cached); open weights $0 self-host",
+  "pricingNote": "~$0.07/$0.20 per 1M ($0.015 cached); free Zen/Vercel promo tier; open weights $0 self-host",
+  "freeTierNote": "Free limited-time promotional tier via OpenCode Zen / Vercel AI Gateway — same weights; the $0 route is an access tier, not a separate model",
   "pricingTiers": [
     "Hosted API ~$0.07/1M in, $0.20/1M out",
+    "Free limited-time Zen/Vercel promo tier ($0 — same weights)",
     "Open weights $0 self-host (124B MoE / 5.1B active)"
   ],
-  "officialUrl": "https://huggingface.co/inclusionAI",
   "pricingLinks": [
     "https://openrouter.ai",
+    "https://vercel.com/ai-gateway/models/ling-3.0-flash-fin-free",
     "https://huggingface.co/inclusionAI"
   ],
+  "officialUrl": "https://huggingface.co/inclusionAI",
   "standout": "Ultra-low-cost financial domain intelligence with 256K context and rapid tabular accounting reasoning.",
   "tradeoff": "Narrower general conversational utility compared to general-domain frontier flagships."
 }

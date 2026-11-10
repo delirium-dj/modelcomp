@@ -104,7 +104,6 @@ export type SourceKey =
   | "QoDuck"
   | "Inkling 2 Small"
   | "Iceman"
-  | "GPT 6.1 Astra"
   | "Muse Ember";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
@@ -220,6 +219,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "QoDuck", label: "QoDuck", file: "QoDuck.md", slug: "qoduck" },
   { key: "Inkling 2 Small", label: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" },
   { key: "Iceman", label: "Iceman", file: "Iceman.md", slug: "iceman" },
-  { key: "GPT 6.1 Astra", label: "GPT-6.1 Astra", file: "GPT_6.1_Astra.md" },
   { key: "Muse Ember", label: "Muse Ember", file: "Muse_Ember.md", slug: "muse-ember" },
 ];

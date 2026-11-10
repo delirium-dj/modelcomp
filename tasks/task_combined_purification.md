@@ -537,13 +537,21 @@ Both needed by Qwik CLI. **Guidance:** no change.
 `RULES.md` makes every `model/<slug>/` file and folder permanent. Nothing below is a deletion
 proposal.
 
-### E1. `models_finance/` holds two folders for one product ⏳ PENDING
+### E1. `models_finance/` holds two folders for one product ✅ DONE
 
 `models_finance/ling-3.0-flash-fin/` (4 files incl. `meta.json`) and
 `models_finance/ling-3.0-flash-fin-free/` (24 files incl. `meta.json` + `average.md`). By the
 repo's tier-identity rule, `-free` suffix is an access tier, not a second model — reads as a
 duplicate split. Finance tree not scanned by `pnpm sync`. **Guidance:** human decision — confirm
 which tier is live; record in `model-aliases.generated.md` or `models_finance/README.md`.
+
+**Resolution (2026-11-10, user order):** the tiers merged — `-free` is the $0 Zen/Vercel promo
+route and OpenRouter's `:free` serving variant of the same weights (vendor ships one route, one HF
+checkpoint). `models_finance/ling-3.0-flash-fin-free/` was folded into
+`models_finance/ling-3.0-flash-fin/` (18 files moved newest-wins, 6 confirmed deletions) and the
+tier folder removed; the canonical `meta.json` carries the tier `aliases`, the slug joined
+`MERGED_MODEL_SLUGS` + `CASE_LAW_NOTES` (`scripts/lib/validate.mjs`, rendered in
+`model-aliases.generated.md`). Details: `REPORT.md` § 2026-11-10 Ling tier merge.
 
 ### E2. `models_voice/` and `models_finance/` remain unwired ⏳ PENDING
 

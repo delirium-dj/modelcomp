@@ -1,5 +1,38 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-10 — Ling 3.0 Flash Fin Free merged into Ling 3.0 Flash Fin (user-ordered tier merge)
+
+1. **Identity.** `Ling 3.0 Flash Fin Free` is an **access tier, not a second model** (RULES.md tier
+   identity): OpenRouter ships only `inclusionai/ling-3.0-flash-fin` — the free route is the `:free`
+   serving variant of the same base slug — and Hugging Face carries ONE MIT checkpoint
+   (`inclusionAI/Ling-3.0-flash-Fin`, 124B total / 5.1B active, 256K, base Ling-3.0-flash
+   continued-trained on financial data). The tier folder's own findings record "same weights...
+   pricing/route difference, not a different model"; the Zen route spelling `ling-3-0-flash-fin-free`
+   is a hyphen-version variant of the dotted slug. This resolves the open audit item
+   `tasks/task_combined_purification.md` **E1** (marked DONE).
+2. **Merge (user order 2026-11-10; per-file deletions confirmed).** `models_finance/ling-3.0-flash-fin-free/`
+   (24 files) folded into `models_finance/ling-3.0-flash-fin/` (7 files): **18 files moved**
+   (10 unique live reports, 5 unique `.md.excluded`, the newer `Inkling_2_Small.md` — free's
+   2026-11-10 beat the canonical 2026-10-08 — the grandfathered fossil `Ling_3.0.md.replaced-by-Flash`,
+   and the -free `average.md`); **6 deletions** — 4 collision losers (newest-wins / tie→canonical:
+   free's `Gemini_3.8_Flash.md` 2026-09-24, `Gemini_3.5_Flash_Lite.md` 2026-09-18,
+   `Qwen_3.8_Flash.md` tie 2026-11-10 both Overall 48, `Laguna_S_2.1.md` 2026-09-23; plus the
+   canonical `Inkling_2_Small.md` 2026-10-08 replaced by the newer copy) and the duplicate `meta.json`.
+   The tier folder was then removed. The canonical `meta.json` now carries the tier `aliases`
+   (`Ling 3.0 Flash Fin Free`, `ling-3.0-flash-fin-free`, `ling-3-0-flash-fin-free`,
+   `inclusionai/ling-3.0-flash-fin:free`), a `freeTierNote` and the promo tier in
+   `pricingTiers`/`pricingLinks`, so any search for the old tier name resolves to this folder.
+3. **Code lists (`scripts/lib/validate.mjs`).** `ling-3.0-flash-fin-free` → `ling-3.0-flash-fin` in
+   `MERGED_MODEL_SLUGS` (never re-scaffolded) with a matching `CASE_LAW_NOTES` entry rendered into
+   `model-aliases.generated.md`. `model-comparison.md`'s link into the tier folder repointed to
+   `models_finance/ling-3.0-flash-fin/Muse_Spark_1.3.md` (the frozen v1–v3 table row keeps the
+   tier name as lineage data).
+4. **Average note.** The moved `average.md` (H1 rewritten to "Ling 3.0 Flash Fin") is the tier
+   folder's 5-qualifying-rater pool — the same rater set that survives the merge, so the numbers
+   hold; it keeps the free-tier `Cost efficiency` read (Overall 58.5 unchanged — cost is excluded
+   from Overall). `models_finance/` is not scanned by `pnpm sync` (E2 stays open), so no
+   regeneration runs here; hand-recomputation was avoided per the sync-only rule.
+
 ## 2026-11-10 — Crouton Alpha merged into Muse Ember (user-confirmed reveal)
 
 1. **Identity.** User-confirmed: the model behind the free OpenCode Zen stealth preview

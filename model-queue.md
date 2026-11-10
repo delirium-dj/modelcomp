@@ -107,6 +107,7 @@
 79.5 kimi-k2.8-preview
 79.3 glm-5.3
 78.9 grok-4.1
+78.8 muse-ember
 78.7 qwen-3.5-flash
 78.7 union-alpha
 78.4 gemini-2.5-flash
@@ -117,7 +118,6 @@
 77.7 gemini-3.1-flash-lite
 77.5 gemini-1.5-pro
 77.4 gemini-2.0-flash
-77.4 muse-ember
 77 gpt-5.1-codex
 76.9 claude-sonnet-3.7
 76.9 glm-5.2-coding
@@ -125,6 +125,7 @@
 76.5 gemma-4.26b-a4b
 76.1 gemma-4.12b-unified
 76.1 ling-3.0-flash-vl
+75.9 inkling-2-small
 75.6 mistral-medium-3.5
 75.2 gpt-5.4-nano
 75.2 qwen-3.5-flash-lite
@@ -133,10 +134,10 @@
 74.9 gemma-4-12b-unified
 74.8 gemma-4-26b-a4b
 74.8 gpt-5-codex
-74.8 inkling-2-small
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
 73.9 hy4
+73.9 ternary-bonsai-2-27b
 73.8 nemotron-3.5-bolt-74b-a9b
 73.7 grok-build-0.1
 73.7 mai-code-1.1-flash
@@ -145,12 +146,11 @@
 73.6 qwen-3.5-9b
 73.4 beam
 73.4 claude-sonnet-3.5
-73.1 ternary-bonsai-2-27b
 72.7 longcat-2.5-preview
 72.7 nemotron-3-ultra-free
-72.6 ternary-bonsai-27b
 72.3 qwen3-max
 72.1 hy3
+72.1 ternary-bonsai-27b
 71.2 qwen-3.7-flash
 71 longcat-2.0
 70.8 ling-3.2-flash
@@ -161,7 +161,6 @@
 69.7 ling-3.1-flash
 69.5 solar-pro-4
 69.2 pixel_canary
-69 mercury-edit-2
 68.4 ring-2.6.1t
 67.7 mai-thinking-1
 67.7 minimax-m2.7
@@ -205,9 +204,10 @@
 55 mercury-2.5
 54.8 gemma-4-e2b
 54.5 glm-4.5-flash
+53.8 mercury-edit-2
 53.5 mercury-decide
 53.3 ling-3.0-tiny
-51.6 iceman
+52.1 iceman
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08
 47.5 neomorph
