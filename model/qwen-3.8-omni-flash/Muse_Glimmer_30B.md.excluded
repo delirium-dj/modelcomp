@@ -1,0 +1,27 @@
+# Qwen 3.8 Omni Flash — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Alibaba (`qwen/qwen-3.8-omni-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Omni Flash
+- **Short description:** Alibaba's native omnimodal model processing text, image, audio, and video streams in a 1M context window for high-throughput productivity and spatial audio reasoning.
+- **Provider / access:** Alibaba Model Studio `qwen/qwen-3.8-omni-flash`
+- **Release / knowledge:** unknown
+- **IDs:** `qwen/qwen-3.8-omni-flash`
+- **Context window:** 1,000,000 total; 131,072 max output
+- **Modalities:** Text, image, audio, video in; text out
+- **Pricing (as of 2026-11-11):** $0.15/$0.47 per 1M
+- **Architecture:** Proprietary
+
+### Research notes
+
+No verified public benchmark numbers found for independent evaluations of `qwen-3.8-omni-flash` as of 2026-11-11. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located

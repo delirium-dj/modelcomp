@@ -1,0 +1,27 @@
+# Ling-3.0-flash-VL — findings by Glyph Cluster (self-excluded)
+
+- Source: InclusionAI (`inclusionAI/Ling-3.0-flash-VL`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `ling-3.0-flash-vl` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis lists Ling-3.0-flash-VL as an open-weights reasoning model (released September 2026) supporting text/image/video input and text output, with 262k-token context window, 124B total / 5.5B active parameters (MoE), and MIT license. Intelligence Index and task-level benchmark aggregates were unavailable/N/A in the fetched snapshot.
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Ling-3.0-flash-VL](https://artificialanalysis.ai/models/ling-3-0-flash-vl)
+  - [Hugging Face — inclusionAI/Ling-3.0-flash-VL](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

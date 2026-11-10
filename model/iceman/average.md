@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): DeepSeek 4.1 Flash, Gemini 3.8 Flash, Qwen 3.8 Flash.
 - Average from top 3 by Overall Score: DeepSeek 4.1 Flash, Gemini 3.8 Flash, Qwen 3.8 Flash.
-- Ignored below-gate rater(s): Flint.
+- Ignored below-gate rater(s): Flint, Inkling 2 Small, Nemotron 3.5 Super VL 120B A12B.

@@ -62,8 +62,8 @@
 86.6 qwen-3.8-27b
 86.6 step-5-preview
 86.4 gpt-5.2
+86.4 qwen-3.8-omni-flash
 86.3 kimi-k2.6
-86.3 qwen-3.8-omni-flash
 86.1 grok-4.7
 86 grok-4.5
 86 qwen-3.6-plus

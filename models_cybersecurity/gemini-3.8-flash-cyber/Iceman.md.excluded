@@ -1,0 +1,57 @@
+# Gemini 3.8 Flash Cyber — findings by Iceman
+
+- Source: Google DeepMind/Gemini 3.8 Flash Cyber
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Flash Cyber
+- **Short description:** Google DeepMind’s security fine-tune of Gemini 3.8 Flash for vulnerability detection/patching workflows (Fairwind-gated, Google-only access per local metadata).
+- **Provider / access:** Restricted Fairwind Program / Google-only access. Local metadata lists `google/gemini-3-8-flash-cyber`, no public pricing, and `noFreeId`.
+- **Release / knowledge:** Not clearly established from accessible public sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gemini-3.8-flash-cyber`, `google/gemini-3-8-flash-cyber`.
+- **Context window:** 1,048,576 tokens input / 65K output (local metadata).
+- **Modalities:** Text and code input; text and code output.
+- **Pricing (as of 2026-11-10):** Restricted Fairwind Program; no public pricing.
+- **Architecture:** Proprietary security fine-tune of Gemini 3.8 Flash. Architecture/parameter details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed accessible Google DeepMind Gemini model pages, but they describe the general Gemini 3.8 Flash model rather than the restricted `Gemini 3.8 Flash Cyber` fine-tune. No independently verifiable, clearly attributable public benchmark numerics for this exact cyber variant were found in accessible sources during this pass (local metadata cites CWE-Bench 47.2% but it was not verified from an accessible public source here). This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text/code focused per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact restricted model variant; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable public benchmark source found for this exact cyber variant.
+- Reference URLs:
+  - [Gemini models (Google DeepMind)](https://deepmind.google/models/gemini/)
+  - Local repository metadata consulted: `models_cybersecurity/gemini-3.8-flash-cyber/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

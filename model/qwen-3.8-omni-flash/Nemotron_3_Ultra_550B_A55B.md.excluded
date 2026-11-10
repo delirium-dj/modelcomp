@@ -1,0 +1,79 @@
+# Qwen 3.8 Omni Flash — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Alibaba Cloud / Qwen (`qwen3.8-omni-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 Omni Flash
+- **Short description:** Alibaba's omni-modal flash model supporting text, image, audio, and video input with text output. Part of the Qwen 3.8 generation, optimized for speed and cost-efficiency with 1M token context. Released via Alibaba Cloud Model Studio (百炼).
+- **Provider / access:** Alibaba Cloud Model Studio (百炼) — API ID `qwen3.8-omni-flash`. Available in regions: Beijing, Singapore, Hong Kong, Tokyo, Frankfurt, Virginia. Chat Completions and Responses API. Also supports realtime variant `qwen3.8-omni-flash-realtime` for voice-to-voice.
+- **Release / knowledge:** Release date not explicitly stated in docs (Qwen 3.8 generation launched 2026); knowledge cutoff not published.
+- **IDs:** `qwen3.8-omni-flash` (Model Studio), realtime variant `qwen3.8-omni-flash-realtime`. No Free tier ID on OpenCode Zen.
+- **Context window:** 1,000,000 tokens total; max input 991,808 tokens (non-thinking), 983,616 tokens (thinking); max output 131,072 tokens. Verified via Model Studio docs.
+- **Modalities:** Text, image, audio, video input; text output. Reasoning: yes (deep thinking, default on, adjustable intensity). Tool calls: yes (Function Calling, web search via Responses API). JSON mode: supported. Audio: 113 languages/dialects, spatial audio support.
+- **Pricing (as of 2026-11-10, China mainland):** Input ¥0.80 / MTok (≈ $0.11); Cache read ¥0.10 / MTok (≈ $0.014); Output ¥2.70 / MTok (≈ $0.38). International regions ~37% higher. Free quota: 1M tokens in Beijing region (90 days). Paid tier.
+- **Architecture:** Proprietary (parameter count not disclosed). Not open weights. Part of Qwen 3.8 generation.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Artificial Analysis Intelligence Index: no verified public score found (model not yet evaluated on AA)
+- Terminal-Bench 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA v2.1: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE-Diamond: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported (model supports 1M context but no public MRCR/RULER/GraphWalks scores found)
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+- **Tool use: 65/100.** Supports Function Calling, web search, and code execution via server tools; omni-modal input enables rich agent workflows. Capped by no public agentic benchmark scores (AA-Briefcase, Terminal-Bench, GDPval-AA).
+- **Reasoning: 60/100.** Deep thinking enabled by default with adjustable intensity; Qwen 3.8 generation shows strong reasoning in Max/Plus variants. Capped by no public GPQA/HLE/CritPt scores for this specific Flash variant.
+- **Context window: 95/100.** 1M token context (131K max output) — top tier. Only capped by models with 2M+ windows (e.g., GPT-6 Sol, Muse Wonder).
+- **Multimodal: 95/100.** Full omni-modal input: text, image, audio (113 languages), video; text output. Realtime voice variant available. One of few models with native 4-modality input.
+- **Coding: 58/100.** Function Calling and tool use supported; Qwen 3.7/3.8 generation shows competitive coding. Capped by no public SWE-bench/LiveCodeBench scores for Flash variant.
+- **Cost efficiency: 92/100.** Extremely low pricing: ~$0.11/M input, ~$0.38/M output (China); cache reads ~$0.014/M. Among cheapest omni-modal models. Free 1M token quota in Beijing.
+- **Overall Score: 75/100.** Mean of (65+60+95+95+58)/5 = 74.6 → 75. Best-fit: cost-effective omni-modal model for audio/video understanding at scale; reasoning/coding need verification.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-10
+- Method: Public internet research via official Alibaba Cloud Model Studio documentation (help.aliyun.com); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Alibaba Cloud Model Studio: qwen3.8-omni-flash](https://help.aliyun.com/zh/model-studio/qwen3-8-omni-flash)
+  - [Alibaba Cloud Model Studio: Model Pricing (Omni section)](https://help.aliyun.com/zh/model-studio/model-pricing)
+  - [Alibaba Cloud Model Studio: Model Overview](https://help.aliyun.com/zh/model-studio/getting-started/models)
+  - [Qwen Omni Models Guide](https://help.aliyun.com/zh/model-studio/qwen-omni)
+
+---

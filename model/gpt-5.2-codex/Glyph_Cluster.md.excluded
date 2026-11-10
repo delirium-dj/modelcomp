@@ -1,0 +1,29 @@
+# GPT-5.2 Codex — findings by Glyph Cluster (self-excluded)
+
+- Source: OpenAI (`openai/gpt-5.2-codex`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gpt-5.2-codex` / `openai/gpt-5.2-codex` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis lists GPT-5.2 Codex (Xhigh) as a proprietary OpenAI reasoning model (released December 2025, deprecated in AA view with suggestion to consider GPT-5.3 Codex), supporting text/image input and text output, with 400k-token context window, knowledge cutoff Aug 31 2025, and pricing around $1.75/$14.00 per 1M tokens (cache discount 90%) in AA snapshots. OpenRouter lists `openai/gpt-5.2-codex` with provider routing and supported parameters.
+- OpenAI's "Introducing GPT-5.2-Codex" announcement describes capability improvements and states state-of-the-art performance on SWE-Bench Pro and Terminal-Bench 2.0, but the accessible fetched text did not provide extractable numeric benchmark scores for this exact model/ID (results were presented in non-extractable form in the fetched content).
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot; no standalone verified numeric benchmark scores for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (OpenAI announcement, Artificial Analysis, OpenRouter); no scored report produced due to absence of verified extractable benchmark numbers for the exact model.
+- Reference URLs:
+  - [OpenAI — Introducing GPT-5.2-Codex](https://openai.com/index/introducing-gpt-5-2-codex/)
+  - [Artificial Analysis — GPT-5.2 Codex (Xhigh)](https://artificialanalysis.ai/models/gpt-5-2-codex)
+  - [OpenRouter — openai/gpt-5.2-codex](https://openrouter.ai/openai/gpt-5.2-codex)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

@@ -1,0 +1,57 @@
+# GPT Realtime 2.1 — findings by Iceman
+
+- Source: OpenAI/GPT Realtime 2.1
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT Realtime 2.1
+- **Short description:** OpenAI’s speech-to-speech conversational model with enhanced alphanumeric acoustic fidelity, low-latency turn-taking, and adaptive test-time reasoning (per local metadata).
+- **Provider / access:** OpenAI Realtime API. Local metadata lists `openai/gpt-realtime-2.1`, session/context 128K, and audio/text pricing tiers.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gpt-realtime-2.1`, `openai/gpt-realtime-2.1`.
+- **Context window:** 128,000 tokens total per session (local metadata).
+- **Modalities:** Audio, text, and image input; audio and text output.
+- **Pricing (as of 2026-11-10):** $0.06/min audio input, $0.24/min audio output; text $2.50/1M input, $10.00/1M output (local metadata).
+- **Architecture:** Proprietary speech-to-speech realtime model. Architecture/parameter details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: This is a specialized realtime speech-to-speech model. I reviewed accessible OpenAI realtime materials but did not find independently verifiable, clearly attributable standardized benchmark numerics for this exact `GPT Realtime 2.1` version aligned with this repository’s required categories (SWE-bench, GPQA, AIME, Terminal-Bench, LiveCodeBench, etc.). Audio/realtime quality claims are not equivalent to those standardized benchmarks. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Realtime conversational/tool-capable workflows possible; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K session context per metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Audio/text/image I/O supported per metadata; no standardized multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Specialized voice/realtime model without independently verifiable standardized benchmark evidence for required categories; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable standardized benchmark source found for this exact model.
+- Reference URLs:
+  - [Introducing gpt-realtime and Realtime API updates (OpenAI)](https://openai.com/index/introducing-gpt-realtime/)
+  - Local repository metadata consulted: `models_voice/gpt-realtime-2.1/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

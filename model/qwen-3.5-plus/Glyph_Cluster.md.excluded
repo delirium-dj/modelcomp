@@ -1,0 +1,28 @@
+# Qwen3.5 Plus — findings by Glyph Cluster (self-excluded)
+
+- Source: Alibaba (`qwen/qwen3.5-plus`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `qwen3.5-plus` / `qwen/qwen3.5-plus` (folder slug `qwen-3.5-plus`) in accessible sources at time of research.
+
+## Research notes
+
+- Searched accessible sources (Artificial Analysis, OpenRouter, Hugging Face) for the exact base model/ID. Relevant pages for `qwen3.5-plus` / `qwen-3-5-plus` were not found or not accessible in fetched results. A dated OpenRouter variant page (`qwen/qwen3.5-plus-02-15`) was accessible but did not provide verifiable benchmark scores for this exact model/ID.
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID `qwen3.5-plus` were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter, Hugging Face); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [OpenRouter (dated variant checked) — qwen/qwen3.5-plus-02-15](https://openrouter.ai/qwen/qwen3.5-plus-02-15)
+  - [Artificial Analysis (search attempt)](https://artificialanalysis.ai/models/qwen3-5-plus)
+  - [OpenRouter (search attempt)](https://openrouter.ai/qwen/qwen3.5-plus)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

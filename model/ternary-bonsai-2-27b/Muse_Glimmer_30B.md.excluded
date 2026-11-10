@@ -1,0 +1,20 @@
+# Ternary Bonsai 2 27B — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: PrismML (`prismml/ternary-bonsai-2-27b`)
+- Date: 2026-11-11 (UTC)
+
+## Model card
+
+- **Name:** Ternary Bonsai 2 27B
+- **Short description:** PrismML's 1.58-bit ternary-quantized 27B model derived from Qwen3.8-27B, ~8.6 GB footprint.
+- **Context window:** 262,144 total
+- **Modalities:** Text in; text out
+- **Pricing:** ~$0.07/$0.50 per 1M; open weights $0 self-host
+
+### Research notes
+
+No verified public benchmark numbers found for independent evaluations as of 2026-11-11.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11

@@ -1,0 +1,57 @@
+# GLM 5.3 FlashX Legal — findings by Iceman
+
+- Source: Z.ai/GLM 5.3 FlashX Legal
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX Legal
+- **Short description:** Z.ai’s legal-domain adaptation of GLM 5.3 FlashX (1M context) combining hybrid sparse/linear attention with domain post-training for contract analysis and compliance workflows (per local metadata).
+- **Provider / access:** Z.ai / hosted API. Local metadata lists `zai/glm-5.3-flashx-legal`, pricing $0.37/$1.25 per 1M, and multimodal input support.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `glm-5.3-flashx-legal`, `zai/glm-5.3-flashx-legal`.
+- **Context window:** 1,048,576 tokens total; 128K max output (local metadata).
+- **Modalities:** Text, image, and video input; text output.
+- **Pricing (as of 2026-11-10):** $0.37/$1.25 per 1M in/out (local metadata).
+- **Architecture:** Proprietary legal-domain adaptation of GLM 5.3 FlashX. Detailed architecture/parameter count not publicly disclosed in accessible sources.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed accessible Z.ai pricing/docs pages, but no official model card or independently verifiable standardized public benchmark numerics for this exact legal-domain variant were found in this pass. Local metadata provides capability/positioning claims but no verifiable benchmark scores. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image/video input claimed in metadata; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact domain-specific model variant; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Z.ai docs/pricing and local metadata; no verifiable benchmark source found.
+- Reference URLs:
+  - [Z.ai pricing](https://docs.z.ai/guides/overview/pricing)
+  - Local repository metadata consulted: `models_legal/glm-5.3-flashx-legal/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

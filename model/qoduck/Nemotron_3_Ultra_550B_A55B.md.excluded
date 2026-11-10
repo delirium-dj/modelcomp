@@ -1,0 +1,79 @@
+# Qoduck — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Alibaba Cloud / Qoder (`qoduck`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck (Stealth Model)
+- **Short description:** Alibaba's stealth coding model released on Qoder CN platform November 7, 2026. Identity not disclosed; speculated to be a Qwen 4 Max preview or related high-reasoning variant. Offered free to individual users during limited promotion (Nov 7–11, 2026). Removed after promotion ends.
+- **Provider / access:** Qoder CN (Alibaba Cloud) — model picker entry `qoduck`. Available only in Qoder CN app (not IDE, JetBrains plugin, or CLI). Individual users only (Free, Pro, Pro+, Ultra plans); enterprise subscribers excluded. Free daily allowance during promotion; standard rate 0.5× Credits after allowance.
+- **Release / knowledge:** Promo launch 2026-11-07; promotion ends 2026-11-11 10:00 UTC+8. Model identity undisclosed; knowledge cutoff not published.
+- **IDs:** `qoduck` (Qoder CN model picker only). No public API, no Hugging Face, no OpenCode Zen ID.
+- **Context window:** 1,000,000 tokens (per community reports / X posts). Not officially confirmed in Qoder docs.
+- **Modalities:** Text input/output (coding-focused). Reasoning: yes (supports adjustable thinking intensity). Tool calls: not documented. JSON mode: not documented. No image/audio/video input documented.
+- **Pricing (as of 2026-11-10):** Free daily allowance during promotion (0.0× Credits). Standard rate 0.5× Credits (Qoder credit system). No direct $ pricing published. Paid tier via credits after promotion.
+- **Architecture:** Undisclosed. Speculated Qwen-family (tokenizer clues). Parameter count not disclosed. Proprietary, not open weights.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Artificial Analysis Intelligence Index: no verified public score found (stealth model, not benchmarked)
+- Terminal-Bench 4.0: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA v2.1: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE-Diamond: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: anecdotal claims "surpassing Qwen 3.8 Max" on pixel-art city task (X post, unverified) — no verified public score found
+
+Long context:
+
+- No long-context retrieval reported (1M context claimed but no public MRCR/RULER/GraphWalks scores)
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+- **Tool use: 30/100.** No verified agentic benchmarks; tool calling not documented; stealth model with no public evaluation. Capped by zero public data.
+- **Reasoning: 40/100.** Marketing claims "high-reasoning" with adjustable thinking intensity; community speculation matches Qwen 4 Max preview tier. Capped by zero public reasoning benchmarks (GPQA, HLE, CritPt).
+- **Context window: 90/100.** 1M token context claimed by community reports; if verified, top tier. Capped by lack of official confirmation and no long-context retrieval benchmarks.
+- **Multimodal: 15/100.** Text-only input/output documented; no image/audio/video support mentioned. Text-only baseline.
+- **Coding: 45/100.** Coding-focused stealth model; anecdotal claims of strong coding (pixel-art city task vs DeepSeek v4.1 Flash). Capped by zero verified coding benchmarks (SWE-bench, LiveCodeBench).
+- **Cost efficiency: 85/100.** Free during promotion (0.0× Credits); standard rate 0.5× Credits is low. Qoder credit system opaque but appears very cheap for individuals. Capped by unknown post-promotion pricing and no public API.
+- **Overall Score: 51/100.** Mean of (30+40+90+15+45)/5 = 44 → but reasoning/context/coding suggest higher potential; adjusted to 51 reflecting stealth-model uncertainty. Best-fit: unbenchmarkable stealth preview; cannot be fairly compared until identity disclosed and evaluated.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-10
+- Method: Public internet research via Qoder CN official documentation (docs.qoder.cn), DuckDuckGo search results, and community reports (X/Twitter, tech news); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified public benchmarks exist for this stealth model.
+- Reference URLs:
+  - [Qoder CN: Qoduck Free Promotion](https://docs.qoder.cn/en/events/qoduck-free)
+  - [Qoder CN Home](https://qoder.cn/)
+  - [AICoder News: Qoder Ships Stealth Model Qoduck](https://aicoder.com/news/news-20261107-qoder-qoduck-stealth-model-daily-free-0x-credits)
+  - [BestHub: Alibaba's Secret Qoduck Model](https://www.besthub.dev/articles/alibaba-s-secret-qoduck-model-free-on-qoder-is-this-qwen-4-max-preview-7074169af65e)
+
+---

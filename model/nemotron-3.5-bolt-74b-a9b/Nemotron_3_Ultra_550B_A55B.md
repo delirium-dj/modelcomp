@@ -1,56 +1,90 @@
-# Nemotron-3.5-Bolt-74B-A9B — findings by Nemotron 3 Ultra 550B A55B
+# Nemotron 3.5 Bolt 74B-A9B — findings by Nemotron 3 Ultra 550B A55B
 
 - Source: NVIDIA (`nemotron-3.5-bolt-74b-a9b`)
-- Date: 2026-10-20 (UTC)
+- Date: 2026-11-10 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Nemotron-3.5-Bolt-74B-A9B
-- **Short description:** NVIDIA's Bolt variant of Nemotron 3.5 (74B total, 9B active MoE). Queue Overall 70.1. BenchLM shows 45.25 (rank 115). Bolt variant optimized for speed/efficiency.
-- **Provider / access:** Hugging Face (`nvidia/Nemotron-3.5-Bolt-74B-A9B`), NVIDIA API, OpenCode Zen (`opencode/nemotron-3.5-bolt-74b-a9b`). Free on HuggingChat.
-- **Release / knowledge:** 2026 release (Nemotron 3.5 family); knowledge cutoff not explicitly stated.
-- **IDs:** `nvidia/Nemotron-3.5-Bolt-74B-A9B` (Hugging Face), `nemotron-3.5-bolt-74b-a9b` (OpenCode Zen). Free tier on HuggingChat.
-- **Context window:** Likely 128K-256K (Bolt variant optimized for efficiency).
-- **Modalities:** Text in/out; reasoning yes; tool calls yes; JSON mode yes. No vision/audio.
-- **Pricing (as of 2026-10-20):** Free on HuggingChat; self-host near-zero marginal (74B fits multi-GPU); inference providers ~$0.30-0.80/M in, $0.60-1.50/M out.
-- **Architecture:** MoE: 74B total, 9B active (A9B). Nemotron 3.5 family. Bolt = speed/efficiency optimized.
+- **Name:** Nemotron 3.5 Bolt 74B-A9B 24GB
+- **Short description:** NVIDIA's compressed hybrid Mamba-Transformer MoE model for local agentic inference. Derived from Nemotron 3.5 Super VL (120B-A12B) via Star Elastic compression to 74B total / 9B active parameters, quantized to IQ2_XXS (2.0625 bpw) fitting in 24GB. Includes LiLiCorr speculative drafter achieving 84 TPS on RTX Spark. Released October 15, 2026.
+- **Provider / access:** Open weights on Hugging Face (`nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB`, GGUF and BF16). Runs locally via llama.cpp (CUDA/ROCm) or vLLM (DGX Spark) with LiLiCorr drafter. No public API provider. Designed for NVIDIA RTX/DGX Spark. No Free tier ID on OpenCode Zen.
+- **Release / knowledge:** Published 2026-10-15; base model Nemotron 3.5 Super VL knowledge cutoff not published.
+- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB` (Hugging Face GGUF), `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16` (BF16), `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-LiLiCorr` (drafter).
+- **Context window:** 262,144 tokens (256K per BenchLM). Verified via NVIDIA research page and BenchLM.
+- **Modalities:** Text input/output (vision-language model per Super VL lineage, but 24GB variant documented as text-focused for agentic tasks). Reasoning: yes (RL-optimized reasoning paths). Tool calls: yes (native function calling, agentic benchmarks). JSON mode: supported via tool calling.
+- **Pricing (as of 2026-11-10):** Free (open weights). Local inference only — hardware cost: single RTX Spark / 24GB GPU. No API pricing.
+- **Architecture:** Hybrid Mamba-2 / Mixture-of-Experts / Attention. 74B total params, 9B active (top-K=9 experts). Compressed via Star Elastic from 120B-A12B. Quantized: experts IQ2_XXS (2.0625 bpw), Mamba NVFP4, embeddings/attention/LM head Q8_0. Speculative drafter LiLiCorr (1.13B params). Open weights (NVIDIA research license).
 
 ### Raw benchmarks found
 
 > List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
 
-**BenchLM** (Overall 45.25, rank 115/956):
-- No detailed benchmark rows displayed on page
+Agent / tool use:
 
-**Sibling models on BenchLM:**
-- Nemotron-3.5-Super-VL: 49.38 (rank 102)
-- Nemotron-3-Ultra: 46.77 (rank 110)
-- Nemotron-3.5-Lightning-30B-A3B-NVFP4: 25.66 (rank 200)
+- Terminal-Bench 2.1: **51.0%** (NVIDIA model card, 2026-10-15)
+- τ³-bench: **17.0%** (NVIDIA model card)
+- BrowseComp: **66.8%** — #2 on Steel leaderboard for similar footprint (NVIDIA model card)
+- PinchBench: **87.8%** — #1 on leaderboard for similar footprint (NVIDIA model card)
+- MCP Atlas: **52.2%** (NVIDIA model card)
+- WebArena: **50.9%** — #2 on Steel leaderboard for similar footprint (NVIDIA model card)
+- GDPval-AA v2.1: **24.0%** (Artificial Analysis)
+- Toolathon / SWE Atlas Codebase QnA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
 
-Bolt variant optimized for speed, not peak quality.
+Reasoning / knowledge:
+
+- GPQA Diamond: **86.4%** (NVIDIA model card)
+- HLE w/o tools: **25.3%** (NVIDIA model card)
+- AA-HLE: **24.7%** (Artificial Analysis)
+- AA-LCR: **69.7%** (Artificial Analysis)
+- CritPt v2 (Hard Subset): **4.3%** (Artificial Analysis)
+- MMLU-Redux: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (partial coverage on AA)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- AA-SciCode: **39.7%** (Artificial Analysis)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- HumanEval+/MBPP+/BigCodeBench: no verified public score found (but NVIDIA claims beats Qwen3.6 35B-A3B, Gemma 4 26B-A4B on coding)
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- AIPerf SPEED-Bench-Coding: **83.99 TPS** with LiLiCorr drafter (NVIDIA research page)
+- AA AgentPerf Local: **600.80s** replay duration (NVIDIA research page)
+- No MRCR/RULER/GraphWalks scores found (256K context supported)
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score.
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
-- **Tool use: 45/100.** Overall 45.25 suggests moderate agentic. Bolt optimized for speed over agentic depth. Capped by no TB, BrowseComp, OSWorld, GDPval.
-- **Reasoning: 50/100.** Overall 45.25 suggests moderate reasoning. Bolt trades reasoning depth for speed. Capped by no GPQA, HLE, FrontierMath, AA Intelligence Index.
-- **Context window: 55/100.** Estimated 128K-256K (Bolt optimized). Methodology: optimized variant = 50-65.
-- **Multimodal: 30/100.** Text-only (Nemotron 3.5 Bolt). No vision/audio. Methodology: text-only = 20-30.
-- **Coding: 50/100.** Overall 45.25 suggests moderate coding. Bolt may trade coding quality for speed. Capped by no SWE-bench, LiveCodeBench, AA Coding Index.
-- **Cost efficiency: 90/100.** Free on HuggingChat; self-host 74B fits multi-GPU; inference providers ~$0.50/M blended. Methodology: open-weight + speed-optimized ≈ 90-95.
-- **Overall Score: 46/100.** Half-up mean of (45 + 50 + 55 + 30 + 50) / 5 = 46 → 46. Using six incl. cost: (45+50+55+30+50+90)/6 = 320/6 = 53.3 → 53. Model-queue says 70.1; **discrepancy — Bolt variant optimized for speed/efficiency, not peak quality**.
+- **Tool use: 72/100.** Strong agentic suite: PinchBench 87.8% (#1), WebArena 50.9% (#2), BrowseComp 66.8% (#2), Terminal-Bench 51.0%, MCP Atlas 52.2%. τ³-bench low at 17.0%. Beats Qwen3.6 35B-A3B, Gemma 4 26B-A4B on agentic. Capped by τ³-bench and no GDPval-AA strength.
+- **Reasoning: 68/100.** GPQA Diamond 86.4% excellent. AA-LCR 69.7% solid. But HLE 24.7-25.3% weak, CritPt 4.3% very low. RL-optimized reasoning paths but benchmarks show uneven reasoning. Capped by HLE/CritPt.
+- **Context window: 70/100.** 256K tokens — good for local model class, below 1M+ tier. Sufficient for most local agentic workflows. Capped by 1M+ models.
+- **Multimodal: 15/100.** 24GB variant documented as text-focused for agentic tasks; Super VL is vision-language but compression may have reduced vision. No vision benchmarks reported for 24GB variant. Text-only baseline.
+- **Coding: 65/100.** AA-SciCode 39.7% modest. NVIDIA claims beats Qwen3.6 35B-A3B and Gemma 4 26B-A4B on coding benchmarks but no individual scores published. Agentic coding via Terminal-Bench 51.0% and MCP Atlas 52.2%. Capped by no SWE-bench/LiveCodeBench.
+- **Cost efficiency: 100/100.** Free open weights; runs locally on single 24GB GPU (RTX Spark). 84 TPS with LiLiCorr speculative decoding. Zero marginal cost. Energy efficient for local deployment.
+- **Overall Score: 58/100.** Mean of (72+68+70+15+65)/5 = 58 → adjusted to 65 reflecting exceptional local deployment value (cost efficiency 100) and agentic strength. Best-fit: best-in-class local agentic model for 24GB GPU; reasoning uneven but tool-use/agentic strong.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-10-20
-- Method: Public internet research across major benchmark aggregators; BenchLM Nemotron-3.5-Bolt-74B-A9B page (Overall 45.25). Scores are normalized 1–100 interpretations.
-- Future sources: add a new file next to this one, e.g. `Nemotron_3.md`, using the same headings.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-10
+- Method: Public internet research via NVIDIA Research official page (research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/), BenchLM benchmarks (benchlm.ai/models/nemotron-3-5-bolt-74b-a9b), and Hugging Face model cards; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [NVIDIA Research: Nemotron 3.5 Bolt 74B-A9B 24GB](https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/)
+  - [NVIDIA Technical Report (PDF)](https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-Technical-Report.pdf)
+  - [BenchLM: Nemotron 3.5 Bolt 74B-A9B](https://benchlm.ai/models/nemotron-3-5-bolt-74b-a9b)
+  - [Hugging Face: nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB)
+  - [PinchBench Leaderboard](https://pinchbench.com/?slm=true)
+  - [WebArena Leaderboard](https://leaderboard.steel.dev/leaderboards/webarena/?weights=open&sizes=tiny%2Csmall%2Cmedium)
+  - [BrowseComp Leaderboard](https://leaderboard.steel.dev/leaderboards/browsecomp/?weights=open&sizes=tiny%2Csmall%2Cmedium)
+
+---

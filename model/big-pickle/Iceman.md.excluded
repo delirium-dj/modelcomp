@@ -1,57 +1,71 @@
 # Big Pickle — findings by Iceman
 
 - Source: OpenCode Zen stealth slot (big-pickle)
-- Date: 2026-11-10 (UTC)
+- Date: 2026-11-11 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Big Pickle
-- **Short description:** OpenCode Zen’s long-running free stealth slot (200K context, text-only, $0) with disputed/unstable underlying model identity (maintainer-confirmed GLM-4.6 in 2025, DeepSeek-class by mid-2026 per metadata).
-- **Provider / access:** OpenCode Zen free stealth tier (`opencode/big-pickle`). Local metadata notes no published end date and that data may be used to improve the model.
-- **Release / knowledge:** Not officially announced as a stable named model; underlying checkpoint may have changed in place. Knowledge cutoff not stated.
+- **Short description:** OpenCode Zen’s long-running free stealth slot (`opencode/big-pickle`, 200K context, text-only, $0) with disputed and historically unstable underlying model identity/checkpoint behavior.
+- **Provider / access:** OpenCode Zen free stealth tier. OpenCode docs/changelog describe Zen/provider access but do not publish a stable official model card/spec page for `big-pickle` as a named model.
+- **Release / knowledge:** Not officially announced as a stable, versioned named model; evidence indicates the underlying checkpoint may change in place over time. Knowledge cutoff not stated.
 - **IDs:** `big-pickle`, `opencode/big-pickle`.
-- **Context window:** 200,000 tokens total (32,000 max output).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** Free $0/$0/$0 on OpenCode Zen (no published end date).
-- **Architecture:** Undisclosed/disputed; underlying checkpoint not stable or officially identified.
+- **Context window:** 200,000 tokens total (32,000 max output) per local metadata; not independently confirmed by an official stable model card in this pass.
+- **Modalities:** Text input/output (per metadata/community usage context).
+- **Pricing (as of 2026-11-11):** Free $0/$0/$0 on OpenCode Zen (no published end date in reviewed sources/metadata); local metadata notes data may be used to improve the model during free period.
+- **Architecture:** Undisclosed/disputed and potentially mutable; no stable public architecture disclosure.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: `big-pickle` is a stealth slot with disputed and potentially mutable underlying identity. Local metadata cites only one third-party measurement (SWE-Atlas 50.8%) and notes no tracker coverage/attribution to a stable model. I did not find an accessible official model card or independently verifiable, clearly attributable standardized benchmark suite for a stable `big-pickle` identity. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I performed a deep second-pass review using alternative web access (`webfetch`, PowerShell HTTP/API fetches) across official OpenCode sources, GitHub issues/releases, models.dev/OpenRouter lookups, and community/search endpoints. `big-pickle` is consistently evidenced as a stealth/experimental free slot in OpenCode Zen, but I found no official model card, no stable provider spec sheet, and no independently verifiable, clearly attributable standardized benchmark numerics for this exact slot/checkpoint aligned with this repository’s required categories (SWE-bench, Terminal-Bench, GPQA, AIME, LiveCodeBench, etc.). Community reports also indicate identity/behavior changes and quality issues, making attribution unreliable. This file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Community/issue evidence suggests agentic coding/chat usage in OpenCode, but no standardized attributable benchmark results.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified stable-model score found**
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**
 
 Long context:
 
-- 200K context claimed; no standalone long-context retrieval benchmark score found.
+- 200K/32K context claimed in local metadata; no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text-only.
+- Treated as text-only in local metadata; no multimodal benchmark evidence found.
+
+### Source comparison / conflicts
+
+- **Identity:** Local metadata notes maintainer-confirmed GLM-4.6 in 2025 and later DeepSeek-class characterization; GitHub issues (e.g. #52033, #54599, #55268 and others) show ongoing behavior/quality variability consistent with a mutable stealth slot rather than a fixed public model. No single authoritative current identity confirmed.
+- **Official documentation:** OpenCode Zen/changelog/release pages reviewed did not provide a dedicated stable spec/benchmark page for `big-pickle`.
+- **Catalog coverage:** models.dev canonical listing and OpenRouter model page lookup did not yield a stable benchmarked model record for `opencode/big-pickle` in this pass.
+- **Conclusion:** Evidence is sufficient to document existence/usage as a stealth slot, but insufficient and conflicting for attributable scoring.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified, clearly attributable benchmark evidence for a stable model identity; no scored assessment is issued and this report is self-excluded.
+Not provided. No independently verified, clearly attributable standardized benchmark/spec evidence for this exact (potentially mutable) model slot; no scored assessment is issued and this report remains self-excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent review using alternative web access (`webfetch`) to OpenCode Zen docs and local metadata; no verifiable stable-model benchmark source found.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/GitHub API searches) across official OpenCode docs/changelog/releases, GitHub issue tracker (anomalyco/opencode), models.dev/OpenRouter lookups, and Artificial Analysis search attempts; compared conflicting identity/behavior signals.
+- Research performed (>=10 successful independent web fetch/search attempts): OpenCode Zen docs (`/docs/zen`), OpenCode changelog, GitHub releases page, GitHub models/provider source attempt, GitHub issues search UI page, GitHub issues API search, models.dev models listing/page lookup, OpenRouter model lookup, Artificial Analysis models search, Reddit search endpoint attempt, plus local `meta.json`/prior report review.
 - Reference URLs:
   - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - [OpenCode changelog](https://opencode.ai/changelog)
+  - [OpenCode releases](https://github.com/anomalyco/opencode/releases)
+  - [OpenCode issues mentioning big-pickle](https://github.com/anomalyco/opencode/issues?q=big-pickle)
+  - [GitHub API issue search (big-pickle)](https://api.github.com/search/issues?q=repo:anomalyco/opencode+big-pickle)
+  - [Models.dev catalog](https://models.dev/models)
   - Local repository metadata consulted: `model/big-pickle/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

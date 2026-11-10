@@ -1,0 +1,21 @@
+# QoDuck — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: OpenCode (`opencode/qoduck`)
+- Date: 2026-11-11 (UTC)
+
+## Model card
+
+- **Name:** QoDuck
+- **Short description:** Alibaba stealth coding and reasoning preview model in Qoder desktop with adaptive thinking and 1M context.
+- **Provider / access:** Qoder desktop preview
+- **Context window:** 1,048,576 total
+- **Modalities:** Text, image in; text, code out
+- **Pricing:** Free preview tier
+
+### Research notes
+
+No verified public benchmark numbers found for QoDuck as of 2026-11-11. Stealth preview model with no standardized scorecards.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11

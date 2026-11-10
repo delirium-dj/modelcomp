@@ -1,0 +1,57 @@
+# GPT-Live-1 (Astra, medium) — findings by Iceman
+
+- Source: OpenAI/GPT-Live-1 (Astra, medium)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-Live-1 (Astra, medium)
+- **Short description:** OpenAI’s full-duplex speech-to-speech model with GPT-6 Astra (medium) as delegated reasoning backend, designed for tool-heavy spoken customer support (per local metadata).
+- **Provider / access:** OpenAI realtime/live voice stack (per metadata). Local metadata lists `openai/gpt-live-1-astra`, session pricing $0.05/min, and `noFreeId`.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gpt-live-1-astra`, `openai/gpt-live-1-astra`.
+- **Context window:** 128K tokens per Live session (local metadata).
+- **Modalities:** Audio and text input; audio and text output (image/video unsupported per metadata); tool calls and delegated reasoning.
+- **Pricing (as of 2026-11-10):** $0.05 per minute of voice session ($3.00/hour), billed per second; backend model and tools billed separately.
+- **Architecture:** Proprietary speech-to-speech voice layer with delegated backend reasoning model. Architecture details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: This is a specialized realtime voice/session product composed of a voice layer and delegated backend. I did not find independently verifiable, clearly attributable standardized benchmark numerics for this exact `GPT-Live-1 (Astra, medium)` configuration aligned with this repository’s required categories (SWE-bench, GPQA, AIME, Terminal-Bench, LiveCodeBench, etc.). This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool calls supported in live sessions; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- Reasoning delegated to backend model; GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** for this exact live configuration
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K session context per metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Audio/text I/O only per metadata; no standardized multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Specialized voice/live configuration without independently verifiable standardized benchmark evidence for required categories; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable standardized benchmark source found for this exact model/configuration.
+- Reference URLs:
+  - [OpenAI Realtime API](https://openai.com/index/introducing-gpt-realtime/)
+  - Local repository metadata consulted: `models_voice/gpt-live-1-astra/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,27 @@
+# Inkling 2 Small — findings by Glyph Cluster (self-excluded)
+
+- Source: Unknown / `inkling-2-small` (exact identity not confirmed)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `inkling-2-small` in accessible sources at time of research.
+
+## Research notes
+
+- Searched accessible sources for the exact model/ID (including Artificial Analysis and OpenRouter naming patterns); no definitive public model page with verifiable benchmark scores for this exact ID was found in fetched results.
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources; no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis](https://artificialanalysis.ai/)
+  - [OpenRouter](https://openrouter.ai/)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

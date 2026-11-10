@@ -1,0 +1,28 @@
+# Gemini 2.5 Flash — findings by Glyph Cluster (self-excluded)
+
+- Source: Google (`gemini-2.5-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gemini-2.5-flash` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Google AI developer docs describe Gemini 2.5 Flash (`gemini-2.5-flash`) as a deprecated price-performance model with 1,048,576-token input limit, 65,536-token output limit, multimodal inputs (text/image/video/audio), text output, thinking/tool-use capabilities, and knowledge cutoff January 2025. Artificial Analysis lists Gemini 2.5 Flash (Non-reasoning) with Intelligence Index and task-level aggregates unavailable/N/A in the fetched snapshot.
+- Searched accessible sources (Google AI docs, Artificial Analysis, OpenRouter) but did not find extractable, verifiable numeric benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) clearly attributable to the exact `gemini-2.5-flash` model/ID in the fetched content.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Google AI docs, Artificial Analysis, OpenRouter); no scored report produced due to absence of verified extractable benchmark numbers for the exact model.
+- Reference URLs:
+  - [Google AI — Gemini 2.5 Flash model page](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash)
+  - [Artificial Analysis — Gemini 2.5 Flash (Non-reasoning)](https://artificialanalysis.ai/models/gemini-2-5-flash)
+  - [OpenRouter — google/gemini-2.5-flash](https://openrouter.ai/google/gemini-2.5-flash)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

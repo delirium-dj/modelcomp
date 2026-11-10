@@ -1,0 +1,57 @@
+# Gemini 3.8 Live — findings by Iceman
+
+- Source: Google DeepMind/Gemini 3.8 Live
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.8 Live
+- **Short description:** Google DeepMind’s native speech-to-speech model for the Gemini Live API with audio/image/video input and synthesized speech/text output (per local metadata).
+- **Provider / access:** Google AI Studio / Gemini API (Live). Local metadata lists `google/gemini-3-8-live`, session context 131K/65K out, and text/audio pricing tiers.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gemini-3.8-live`, `google/gemini-3-8-live`.
+- **Context window:** 131K per session / 65K output (local metadata).
+- **Modalities:** Text, image, video, audio input; text and audio output.
+- **Pricing (as of 2026-11-10):** Free via AI Studio unpaid quota (per metadata); paid text $0.75/$4.50, audio $3/$12 per 1M.
+- **Architecture:** Proprietary native speech-to-speech/realtime multimodal model. Architecture details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: This is a specialized realtime speech-to-speech/live model. I reviewed accessible Google DeepMind/Gemini pages but did not find independently verifiable, clearly attributable standardized benchmark numerics for this exact `Gemini 3.8 Live` model aligned with this repository’s required categories (SWE-bench, GPQA, AIME, Terminal-Bench, LiveCodeBench, etc.). Voice/realtime quality metrics (if published) are not directly comparable to those standardized benchmarks. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Realtime/live interaction capabilities; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- Session context limits per metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Native audio/image/video support; no standardized multimodal benchmark scores found for this exact model.
+
+### Normalized scores (1–100)
+
+Not provided. Specialized voice/live model without independently verifiable standardized benchmark evidence for required categories; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable standardized benchmark source found for this exact model.
+- Reference URLs:
+  - [Gemini API docs](https://ai.google.dev/gemini-api/docs)
+  - Local repository metadata consulted: `models_voice/gemini-3.8-live/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

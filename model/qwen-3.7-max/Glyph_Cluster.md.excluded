@@ -1,0 +1,27 @@
+# Qwen3.7 Max — findings by Glyph Cluster (self-excluded)
+
+- Source: Alibaba (`qwen/qwen3.7-max`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `qwen3.7-max` / `qwen/qwen3.7-max` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis lists Qwen3.7 Max as a proprietary Alibaba reasoning model (released May 2026, deprecated in AA view with suggestion to consider Qwen3.8 Max), supporting text input and text output, with 1M-token context window, pricing around $2.50/$7.50 per 1M tokens (cache discount 80%), TTFA ~14.28s and output speed ~157 tok/s in AA snapshots. OpenRouter lists `qwen/qwen3.7-max` with provider routing and parameter support.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot; no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Qwen3.7 Max](https://artificialanalysis.ai/models/qwen3-7-max)
+  - [OpenRouter — qwen/qwen3.7-max](https://openrouter.ai/qwen/qwen3.7-max)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

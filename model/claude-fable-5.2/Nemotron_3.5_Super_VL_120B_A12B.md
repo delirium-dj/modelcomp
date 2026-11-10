@@ -1,7 +1,7 @@
 # Claude Fable 5.2 — findings by Nemotron 3.5 Super VL 120B A12B
 
 - Source: Anthropic / Claude Fable 5.2
-- Date: 2026-11-10 (UTC)
+- Date: 2026-11-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,16 +12,15 @@
 - **Provider / access:** Anthropic API; OpenRouter route `anthropic/claude-fable-5-2`; also served via Google Vertex, Amazon Bedrock, and Azure. Chat Completions and Responses API.
 - **Release / knowledge:** Released 2026-11-09; knowledge cutoff not disclosed.
 - **IDs:** `anthropic/claude-fable-5-2` (OpenRouter). No Free ID confirmed on OpenCode Zen.
-- **Context window:** 1M tokens total; 128,000 max output. Verified via OpenRouter models.dev listing and Artificial Analysis.
+- **Context window:** 1M tokens total; 128,000 max output. Verified via OpenRouter models.dev listing.
 - **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode / structured output yes.
-- **Pricing (as of 2026-11-10):** $8.00 per 1M input tokens, $40.00 per 1M output tokens (Anthropic / Bedrock / Vertex / Azure via OpenRouter). Paid; expensive relative to the median ($2.00/$10.00). Cache discount 98%.
+- **Pricing (as of 2026-11-11):** $8.00 per 1M input tokens, $40.00 per 1M output tokens (Anthropic / Bedrock / Vertex / Azure via OpenRouter). Paid; expensive relative to the median ($2.00/$10.00). Cache discount 98%.
 - **Architecture:** Proprietary; reasoning model; parameter count not disclosed by Anthropic.
 
 ### Raw benchmarks found
 
 > List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
 
 - Terminal-Bench: no verified public score found
 - Tau3 / Tau2: no verified public score found
@@ -33,9 +32,7 @@
 
 ### Normalized scores (1–100)
 
-> Derive each from the raw numbers above using the methodology in
-> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps the score.
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
 - **Tool use: 80/100.** Native tool calling supported; Intelligence Index includes Terminal-Bench 4.0 and AutomationBench-AA agentic components. Capped by absence of published Terminal-Bench 2.1 / Tau3 / GDPval figures.
 - **Reasoning: 85/100.** Artificial Analysis Intelligence Index 65 (frontier tier; Index 60+ maps to 90–100 per methodology); native reasoning mode. Capped by lack of published GPQA / HLE / CritPt individual numbers.
@@ -49,7 +46,7 @@
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/nemotron-3.5-super-vl-120b-a12b)** — 2026-11-10
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/nemotron-3.5-super-vl-120b-a12b)** — 2026-11-11
 - Method: public internet research (OpenRouter models.dev listing, Artificial Analysis model page, Anthropic launch post); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [OpenRouter: Anthropic Claude Fable 5.2 — pricing and specs](https://openrouter.ai/anthropic/claude-fable-5.2)

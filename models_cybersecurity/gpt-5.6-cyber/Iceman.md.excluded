@@ -1,0 +1,57 @@
+# GPT-5.6 Cyber — findings by Iceman
+
+- Source: OpenAI/GPT-5.6 Cyber
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.6 Cyber
+- **Short description:** OpenAI’s Daybreak Red cybersecurity fine-tune of GPT-5.6 for authorized vulnerability detection, exploit analysis, and defense patch verification (restricted access per local metadata).
+- **Provider / access:** Restricted Daybreak Red program; custom enterprise pricing. Local metadata lists `openai/gpt-5.6-cyber` and limited public details.
+- **Release / knowledge:** Not clearly established from accessible public sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gpt-5.6-cyber`, `openai/gpt-5.6-cyber`.
+- **Context window:** 1,048,576 tokens total; 128K max output (local metadata).
+- **Modalities:** Text and code input; text and code output.
+- **Pricing (as of 2026-11-10):** Restricted program access; custom enterprise pricing.
+- **Architecture:** Proprietary cybersecurity fine-tune of GPT-5.6. Architecture/parameter details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I attempted to find an accessible official/public announcement or model page for this exact restricted variant, but no verifiable public benchmark/spec source was obtained in this pass. No independently verifiable, clearly attributable public benchmark numerics for `GPT-5.6 Cyber` were found. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text/code focused per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact restricted model variant; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable public benchmark source found for this exact model.
+- Reference URLs:
+  - [OpenAI](https://openai.com)
+  - Local repository metadata consulted: `models_cybersecurity/gpt-5.6-cyber/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

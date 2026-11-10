@@ -1,0 +1,57 @@
+# Grok Voice Think Fast 2.0 — findings by Iceman
+
+- Source: xAI/Grok Voice Think Fast 2.0
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok Voice Think Fast 2.0
+- **Short description:** Local metadata describes Grok Voice Think Fast 2.0 as a Grok voice model evaluation entry (128K context) with limited public details.
+- **Provider / access:** xAI / OpenCode context per metadata. Local metadata lists `opencode/grok-voice-think-fast-2.0` and standard pricing note only.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `grok-voice-think-fast-2.0`, `opencode/grok-voice-think-fast-2.0`.
+- **Context window:** 128K total (local metadata).
+- **Modalities:** Text input/output (metadata; voice capabilities implied by name but not fully specified/verifiable in metadata).
+- **Pricing (as of 2026-11-10):** Standard pricing (local metadata; no detailed rates provided).
+- **Architecture:** Proprietary voice/realtime model. Architecture/parameter details not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed accessible xAI Grok Voice Agent API materials, which describe general Grok Voice performance (e.g. Big Bench Audio comparisons) but do not provide independently verifiable, clearly attributable standardized benchmark numerics for this exact `Grok Voice Think Fast 2.0` model/version aligned with this repository’s required categories (SWE-bench, GPQA, AIME, Terminal-Bench, LiveCodeBench, etc.). This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Voice agent/tool-calling capabilities discussed generally by xAI; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found** for this exact version
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Voice/audio capabilities implied; no standardized multimodal benchmark scores found for this exact model.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified standardized benchmark evidence for this exact model/version; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable standardized benchmark source found for this exact model.
+- Reference URLs:
+  - [Grok Voice Agent API (xAI)](https://x.ai/news/grok-voice-agent-api)
+  - Local repository metadata consulted: `models_voice/grok-voice-think-fast-2.0/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -19,4 +19,4 @@
 
 - Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, Qwen 3.8 Max.
 - Average from top 2 by Overall Score: Gemini 3.8 Flash, Qwen 3.8 Max.
-- Ignored below-gate rater(s): Flint.
+- Ignored below-gate rater(s): Flint, Nemotron 3.5 Super VL 120B A12B.

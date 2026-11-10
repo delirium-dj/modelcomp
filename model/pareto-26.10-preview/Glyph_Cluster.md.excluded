@@ -1,0 +1,27 @@
+# Pareto 26.10 Preview — findings by Glyph Cluster (self-excluded)
+
+- Source: Unbiased/Pareto (`pareto-26.10-preview`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `pareto-26.10-preview` in accessible sources at time of research.
+
+## Research notes
+
+- Searched accessible sources (Artificial Analysis, OpenRouter) for the exact model/ID and likely provider routes; relevant pages were not accessible/found in fetched results (404s or no extractable benchmark content).
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID `pareto-26.10-preview` were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis (search attempt)](https://artificialanalysis.ai/models/pareto-26-10-preview)
+  - [OpenRouter (search attempt)](https://openrouter.ai/unbiased/pareto-26.10-preview)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

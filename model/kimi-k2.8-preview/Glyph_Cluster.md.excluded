@@ -1,0 +1,28 @@
+# Kimi K2.8 Preview — findings by Glyph Cluster (self-excluded)
+
+- Source: Moonshot AI (`kimi-k2.8-preview`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `kimi-k2.8-preview` in accessible sources at time of research.
+
+## Research notes
+
+- Searched accessible sources for the exact model/ID, including Artificial Analysis and OpenRouter; relevant pages were not accessible/found (404) in fetched results. Hugging Face page for `moonshotai/Kimi-K2.8-Preview` was not accessible (401/gated) in fetched results.
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter, Hugging Face); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis (search attempt)](https://artificialanalysis.ai/models/kimi-k2-8-preview)
+  - [OpenRouter (search attempt)](https://openrouter.ai/moonshotai/kimi-k2.8-preview)
+  - [Hugging Face (access attempt)](https://huggingface.co/moonshotai/Kimi-K2.8-Preview)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

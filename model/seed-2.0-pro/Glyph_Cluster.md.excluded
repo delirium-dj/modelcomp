@@ -1,0 +1,27 @@
+# Seed 2.0 Pro — findings by Glyph Cluster (self-excluded)
+
+- Source: ByteDance Seed (`bytedance-seed/seed-2.0-pro`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `seed-2.0-pro` in accessible sources at time of research.
+
+## Research notes
+
+- Searched accessible sources (Artificial Analysis, OpenRouter) for the exact model/ID and common variants (e.g. `seed-2-0-pro`, `seed-2.0-pro`, ByteDance provider routes); relevant pages were not accessible/found in fetched results (404s or no extractable benchmark content).
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID `seed-2.0-pro` were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis (search attempt)](https://artificialanalysis.ai/models/seed-2-0-pro)
+  - [OpenRouter (search attempt)](https://openrouter.ai/bytedance-seed/seed-2.0-pro)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

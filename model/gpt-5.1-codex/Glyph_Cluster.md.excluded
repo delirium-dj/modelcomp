@@ -1,0 +1,26 @@
+# GPT-5.1 Codex — findings by Glyph Cluster (self-excluded)
+
+- Source: OpenAI (`gpt-5.1-codex`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gpt-5.1-codex` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis lists GPT-5.1 Codex (High) as a proprietary OpenAI reasoning model (released November 2025, deprecated in AA view), supporting text/image input and text output, with 400k-token context window, knowledge cutoff Sep 30 2024, and pricing around $1.25/$10.00 per 1M tokens (cache discount 90%) in AA snapshots.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot. A dedicated OpenAI announcement page for this exact model/ID was not accessible in fetched results (404 on attempted URL), and no extractable standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, AIME, LiveCodeBench, etc.) for the exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenAI web); no scored report produced due to absence of verified extractable benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis — GPT-5.1 Codex (High)](https://artificialanalysis.ai/models/gpt-5-1-codex)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.
