@@ -108,6 +108,22 @@ export const MERGED_MODEL_SLUGS = new Map([
   // stealth names so search by the old name still resolves (RULES.md §
   // Revealed-stealth identity).
   ["fledge-alpha", "inkling-2-small"],
+  // Revealed-stealth rename (RULES.md revealed-stealth identity, user rule
+  // 2026-10-24; user-confirmed reveal 2026-11-09, merge executed 2026-11-10):
+  // `crouton-alpha` was the free OpenCode Zen stealth preview
+  // (`opencode/crouton-alpha` / `crouton-alpha-free`, 1M ctx, free tier) served
+  // until 2026-11-09 — the production model behind it is Muse Ember 1.0 (Meta:
+  // 2026-11-09 blog + HN announcement; Meta Model API `muse-ember-1.0` at
+  // $0.10/$0.50, 1M ctx / 512K out, text+image+audio+video in, the first model
+  // trained using Muse Wonder Full; OpenRouter `meta/muse-ember`; models.dev +
+  // OpenCode Console route `muse-ember-1.0`; Console retired "Crouton Alpha
+  // Free" 2026-11-09 with muse-ember-1.0 as the successor route). The folder
+  // was renamed to model/muse-ember/ on user order (no revealed folder existed,
+  // so a plain rename, no merge); the stealth slug is gone from disk and must
+  // never be scaffolded again. The revealed model's meta.json `aliases` carry
+  // the stealth names so search by the old name still resolves (RULES.md §
+  // Revealed-stealth identity).
+  ["crouton-alpha", "muse-ember"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -255,7 +271,10 @@ export function deletedPhantomMessage(slug, canonical, family, root = "model") {
  * (155 renames where no twin existed — the Fledge Alpha evaluation-run stem
  * was renamed together with its model on user order 2026-11-10; the frozen
  * stealth-era signatures stay inside as history, see
- * SIGNATURE_STEM_EXCEPTIONS). The 2026-11-02 folder-slug spelling
+ * SIGNATURE_STEM_EXCEPTIONS). Same shape 2026-11-10: the Crouton Alpha stealth-era
+ * stem `Crouton_Alpha` -> `Muse_Ember` (36 renames where no twin existed — renamed
+ * together with its model on user order 2026-11-10; frozen signatures kept as
+ * history). The 2026-11-02 folder-slug spelling
  * merge folds the Xing 4.0 rater's lowercase variant `Xing_4.0_29b_a4b`
  * into the dotted canonical `Xing_4.0.29B_A4B` (87 + 90 excluded variant
  * files deleted, newest report wins). Variants never come back: a resurrect
@@ -270,6 +289,7 @@ export const MERGED_SOURCE_STEMS = new Map([
   ["Cat_Jam", "Beam"],
   ["Ox_Alpha", "GLM_5.3_Flash"],
   ["Fledge_Alpha", "Inkling_2_Small"],
+  ["Crouton_Alpha", "Muse_Ember"],
   ["Xing_4.0_29b_a4b", "Xing_4.0.29B_A4B"],
 ]);
 
@@ -572,6 +592,14 @@ export const SIGNATURE_STEM_EXCEPTIONS = new Map([
   // model's folder (model/fledge-alpha/ -> model/inkling-2-small/) on user
   // order; the frozen "Provided by: Fledge Alpha" signatures stay as history.
   ["Inkling_2_Small", ["Fledge Alpha"]],
+  // Same mechanism for the Crouton Alpha stealth-era stem (revealed
+  // 2026-11-09 as Muse Ember 1.0, Meta's smallest/most-efficient model): all
+  // 36 Crouton_Alpha.md files were renamed to Muse_Ember.md together with the
+  // model's folder (model/crouton-alpha/ -> model/muse-ember/) on user order
+  // 2026-11-10 (no twin collisions); the frozen
+  // "Provided by: Crouton Alpha (opencode/crouton-alpha-free)" signatures stay
+  // as history.
+  ["Muse_Ember", ["Crouton Alpha"]],
 ]);
 
 /** Signature-display candidates: raw, minus the trailing `(<id>)`, minus all parens. */
@@ -704,6 +732,8 @@ export const CASE_LAW_NOTES = new Map([
   // Fledge Alpha -> Inkling 2 Small (user-confirmed reveal 2026-11-10)
   ["fledge-alpha", "revealed stealth preview of Inkling 2 Small — the production model derived from and succeeding the Fledge Alpha evaluation runs (OpenCode Zen `fledge-alpha-free`, free 1M-ctx preview, listed 2026-10-01 and retired 2026-10-08; user-confirmed 2026-11-10 as Inkling 2 Small, a 594B-total / 17B-active MoE); folder renamed to model/inkling-2-small/ on user order (revealed-stealth merge rule, RULES.md) — research belongs in model/inkling-2-small/; searching the old name resolves via the revealed model's meta `aliases`"],
   ["Fledge_Alpha", "stealth-era rater stem of Inkling 2 Small (the Fledge Alpha evaluation-run agent, revealed 2026-11-10 as Inkling 2 Small, 594B/17B MoE) — every report was renamed to Inkling_2_Small.md with the model's folder (155 files, no twin collisions; the frozen `Provided by: Fledge Alpha` signatures stay inside as history, SIGNATURE_STEM_EXCEPTIONS); merged + deleted 2026-11-10 (user order) — research belongs in model/inkling-2-small/"],
+  ["crouton-alpha", "revealed stealth preview of Muse Ember 1.0 (OpenCode Zen stealth route `opencode/crouton-alpha` / `crouton-alpha-free`, 1M ctx, free tier, served until 2026-11-09; revealed 2026-11-09 at the Muse Ember launch — Meta blog + HN announcement — as Meta's smallest, most-efficient model: Meta Model API `muse-ember-1.0`, OpenRouter `meta/muse-ember` at $0.10/$0.50, models.dev + OpenCode Console route `muse-ember-1.0`, and Console retired Crouton Alpha Free 2026-11-09 with muse-ember-1.0 as the successor) — folder renamed to model/muse-ember/ on user order 2026-11-10 (revealed-stealth merge rule, RULES.md; no merge, no collisions) — research belongs in model/muse-ember/; searching the old name resolves via the revealed model's meta `aliases`"],
+  ["Crouton_Alpha", "stealth-era rater stem of Muse Ember 1.0 (the Crouton Alpha evaluation-run agent, revealed 2026-11-09 as Muse Ember, Meta's smallest/most-efficient model) — every report was renamed to Muse_Ember.md with the model's folder (36 files, no twin collisions; the frozen `Provided by: Crouton Alpha` signatures stay inside as history, SIGNATURE_STEM_EXCEPTIONS); merged + deleted 2026-11-10 (user order) — research belongs in model/muse-ember/"],
 ]);
 
 /**

@@ -1,0 +1,21 @@
+{
+  "id": "opencode/muse-ember-1.0",
+  "name": "Muse Ember 1.0",
+  "aliases": [
+    "Crouton Alpha",
+    "crouton-alpha",
+    "crouton-alpha-free",
+    "Crouton Alpha Free"
+  ],
+  "short": "Meta's smallest, most efficient reasoning model, revealed 2026-11-09 behind the Crouton Alpha stealth preview — 1M ctx, multimodal in; the first model trained using Muse Wonder Full.",
+  "contextWindow": "1,048,576 (1M) total; 524,288 max output",
+  "modalities": "Text, image, audio, video in; text out",
+  "pricingNote": "$0.10/$0.50 per 1M; $0.004 cached input (≤200K); over 200K: $0.30/$1.50",
+  "noFreeId": true,
+  "officialUrl": "https://research.meta.ai/blog/muse-ember",
+  "pricingLinks": [
+    "https://openrouter.ai/meta/muse-ember"
+  ],
+  "standout": "Efficiency frontier: more intelligence per dollar than Claude Haiku 5.5 or GPT-6 Luna at every reasoning setting — $0.116–0.136 per Artificial Analysis task (Meta, 2026-11-09).",
+  "tradeoff": "A small model by design — on the hardest novel problems it trails the frontier (FrontierCode 2.0-AA 27.2% vs Haiku 5.5's 34.9%); pair it with Muse Wonder for those."
+}

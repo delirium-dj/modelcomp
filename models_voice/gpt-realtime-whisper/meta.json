@@ -1,8 +1,14 @@
 {
-  "id": "opencode/gpt-realtime-whisper",
+  "id": "openai/gpt-realtime-whisper",
   "name": "GPT Realtime Whisper",
-  "short": "GPT Realtime Whisper model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's streaming speech-to-text recognition endpoint providing continuous real-time transcript deltas, live captioning, and speech timestamping.",
+  "contextWindow": "128,000 total per session",
+  "modalities": "Audio in; text out",
+  "pricingNote": "$0.006 per minute ($0.36/hr)",
+  "officialUrl": "https://openai.com",
+  "pricingLinks": [
+    "https://openai.com/pricing"
+  ],
+  "standout": "Ultra-low-latency streaming audio transcription with robust background noise suppression and speaker alignment.",
+  "tradeoff": "Pure speech-to-text transcription engine; does not synthesize speech responses or execute general tool logic."
 }

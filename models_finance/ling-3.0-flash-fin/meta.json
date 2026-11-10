@@ -1,9 +1,19 @@
 {
-  "id": "opencode/ling-3.0-flash-fin",
+  "id": "inclusion/ling-3.0-flash-fin",
   "name": "Ling 3.0 Flash Fin",
-  "short": "Ling 3.0 Flash Fin model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "InclusionAI / Ant Group's finance-specialized 124B/5.1B sparse MoE model optimized for real-time market analysis, financial statement parsing, and economic modeling.",
+  "contextWindow": "262,144 total; 32,768 max output",
+  "modalities": "Text in; text out",
+  "pricingNote": "~$0.07/$0.20 per 1M ($0.015 cached); open weights $0 self-host",
+  "pricingTiers": [
+    "Hosted API ~$0.07/1M in, $0.20/1M out",
+    "Open weights $0 self-host (124B MoE / 5.1B active)"
+  ],
+  "officialUrl": "https://huggingface.co/inclusionAI",
+  "pricingLinks": [
+    "https://openrouter.ai",
+    "https://huggingface.co/inclusionAI"
+  ],
+  "standout": "Ultra-low-cost financial domain intelligence with 256K context and rapid tabular accounting reasoning.",
+  "tradeoff": "Narrower general conversational utility compared to general-domain frontier flagships."
 }

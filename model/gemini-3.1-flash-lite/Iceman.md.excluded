@@ -1,0 +1,69 @@
+# Gemini 3.1 Flash Lite — findings by Iceman
+
+- Source: Google/Gemini 3.1 Flash-Lite
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.1 Flash-Lite
+- **Short description:** Google’s Gemini 3.1 Flash-Lite is a stable, low-latency, cost-effective multimodal model optimized for high-volume/lightweight tasks with 1M input context.
+- **Provider / access:** Google AI Studio / Gemini API (`gemini-3.1-flash-lite`). Local metadata lists `google/gemini-3.1-flash-lite`, notes AI Studio free tier and no verified OpenCode Console route.
+- **Release / knowledge:** Gemini API docs reviewed 2026-11-10 (latest update May 2026 per docs). API shutdown scheduled for 2027-05-07 per local metadata.
+- **IDs:** `gemini-3.1-flash-lite`.
+- **Context window:** 1,048,576 input tokens; 65,536 output tokens (Gemini API docs).
+- **Modalities:** Text, image, video, audio, and PDF input; text output (Gemini API docs).
+- **Pricing (as of 2026-11-10):** Paid standard pricing referenced in docs (local metadata cites $0.25/M text/image/video input, $0.50/M audio input, $1.50/M output); AI Studio free tier available per metadata.
+- **Architecture:** Proprietary Google model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Google Gemini API documentation for `gemini-3.1-flash-lite`, but the accessible official source in this pass provided specifications, capabilities, use-case guidance, and pricing references without extractable verified public benchmark scores for this exact stable model. Local metadata notes weak 1M retrieval in GDM-MRCR v2 (12.3% pointwise), but this was not independently verified from the reviewed docs in this pass. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M input context documented; no standalone long-context retrieval benchmark score extracted from reviewed docs.
+
+Multimodal:
+
+- Multimodal inputs supported (text/image/video/audio/PDF); no multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Google Gemini API docs; no benchmark numerics extracted for this exact stable model.
+- Reference URLs:
+  - [Gemini 3.1 Flash-Lite documentation (Google AI for Developers)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite)
+  - Local repository metadata consulted: `model/gemini-3.1-flash-lite/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

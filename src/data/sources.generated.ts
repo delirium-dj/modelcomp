@@ -102,10 +102,10 @@ export type SourceKey =
   | "Mistral Large 4"
   | "Ling 3.2 Flash"
   | "QoDuck"
-  | "Crouton Alpha"
   | "Inkling 2 Small"
   | "Iceman"
-  | "GPT 6.1 Astra";
+  | "GPT 6.1 Astra"
+  | "Muse Ember";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -218,8 +218,8 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Mistral Large 4", label: "Mistral Large 4", file: "Mistral_Large_4.md", slug: "mistral-large-4" },
   { key: "Ling 3.2 Flash", label: "Ling 3.2 Flash", file: "Ling_3.2_Flash.md", slug: "ling-3.2-flash" },
   { key: "QoDuck", label: "QoDuck", file: "QoDuck.md", slug: "qoduck" },
-  { key: "Crouton Alpha", label: "Crouton Alpha", file: "Crouton_Alpha.md", slug: "crouton-alpha" },
   { key: "Inkling 2 Small", label: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" },
   { key: "Iceman", label: "Iceman", file: "Iceman.md", slug: "iceman" },
   { key: "GPT 6.1 Astra", label: "GPT-6.1 Astra", file: "GPT_6.1_Astra.md" },
+  { key: "Muse Ember", label: "Muse Ember", file: "Muse_Ember.md", slug: "muse-ember" },
 ];

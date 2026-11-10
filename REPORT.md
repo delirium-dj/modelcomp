@@ -1,5 +1,45 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-10 — Crouton Alpha merged into Muse Ember (user-confirmed reveal)
+
+1. **Identity.** User-confirmed: the model behind the free OpenCode Zen stealth preview
+   `crouton-alpha` / `crouton-alpha-free` (1M ctx, free tier) is **Muse Ember** — Meta's smallest,
+   most efficient reasoning model, released 2026-11-09 (Meta blog "Introducing Our Smallest, Most
+   Efficient Model: Muse Ember" + HN announcement; Meta Model API `muse-ember-1.0`, $0.10/$0.50,
+   1M ctx / 512K out, text+image+audio+video in; the first model trained using Muse Wonder Full).
+   Live corroboration: OpenRouter `meta/muse-ember` ($0.10/$0.50), models.dev `meta/muse-ember-1.0`
+   (OpenCode route `muse-ember-1.0`), and OpenCode Console's deprecation table ("Crouton Alpha
+   Free" — November 9, 2026) with `muse-ember-1.0` as the listed successor route. The
+   revealed-stealth merge rule (`RULES.md` § Serving-profile / revealed-stealth identity, user rule
+   2026-10-24 + 2026-10-26) applied — MERGE, never park.
+2. **Renames (git mv, contents untouched per RULES.md permanence).** `model/crouton-alpha/` →
+   `model/muse-ember/` (11 files) — no revealed folder existed, so a plain rename with no merge and
+   no colliding stems. All **36** findings files renamed repo-wide: `Crouton_Alpha.md` →
+   `Muse_Ember.md` (all live `.md`, zero `.md.excluded`, zero twin collisions). The frozen
+   `Provided by: Crouton Alpha (opencode/crouton-alpha-free)` signatures stay inside the files as
+   history.
+3. **Trace for search.** `model/muse-ember/meta.json` now carries `name` "Muse Ember 1.0",
+   `id` `opencode/muse-ember-1.0` (the real Console route per models.dev) and `aliases`
+   `["Crouton Alpha", "crouton-alpha", "crouton-alpha-free", "Crouton Alpha Free"]` — the list
+   search (`modelMatchesQuery` in `src/components/v2/modelView.ts`, matching name/id/short/aliases)
+   resolves "Crouton Alpha" to the Muse Ember card and `/model/muse-ember/` profile.
+4. **Code lists (`scripts/lib/validate.mjs`).** `crouton-alpha` → `muse-ember` in
+   `MERGED_MODEL_SLUGS` (never re-scaffolded; also sanctions the old paths leaving HEAD for the
+   sync deletion tripwire as `merged-slug-folder`); `Crouton_Alpha` → `Muse_Ember` in
+   `MERGED_SOURCE_STEMS` (never recreated — a resurrect would double-count the rater);
+   `["Muse_Ember", ["Crouton Alpha"]]` in `SIGNATURE_STEM_EXCEPTIONS` (frozen stealth-era
+   signatures); matching `CASE_LAW_NOTES` for both, rendered into `model-aliases.generated.md`.
+   `SOURCE_OVERRIDES` (`scripts/sync-data.mjs`) gains `"Muse Ember" → muse-ember` so rater rows
+   deep-link to the revealed model's page.
+5. **Docs.** `average.md` H1 in the renamed folder updated to "Muse Ember 1.0 — Averaged findings"
+   (sync preserves existing average heads). No findings prose was edited — it is frozen history.
+6. **Left for the user (agent token policy).** `pnpm sync` regenerates `scores.generated.ts`
+   (new `Muse_Ember.md` keys + `muse-ember` slug), `sources.generated.ts`
+   (`{ key: "Muse Ember", file: "Muse_Ember.md", slug: "muse-ember" }`), `verified.generated.ts`,
+   `model-queue.md` (`74.6 muse-ember`) and `model-aliases.generated.md` (merged-slug +
+   merged-stem sections); it also refreshes the other folders' `average.md` below-gate rater lists
+   (label "Crouton Alpha" → "Muse Ember").
+
 ## 2026-11-10 — Fledge Alpha renamed to Inkling 2 Small (user-confirmed reveal)
 
 1. **Identity.** User-confirmed: the production model derived from and succeeding the Fledge Alpha

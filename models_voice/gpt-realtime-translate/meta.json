@@ -1,8 +1,19 @@
 {
-  "id": "opencode/gpt-realtime-translate",
+  "id": "openai/gpt-realtime-translate",
   "name": "GPT Realtime Translate",
-  "short": "GPT Realtime Translate model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's streaming speech-to-speech translation model converting live dialogue across 70+ spoken languages into 13 output languages with simultaneous audio streaming.",
+  "contextWindow": "128,000 total per session",
+  "modalities": "Audio, text in; audio, text out",
+  "pricingNote": "$0.05/min audio in, $0.20/min audio out",
+  "pricingTiers": [
+    "Audio in $0.05/min ($3.00/hr)",
+    "Audio out $0.20/min ($12.00/hr)"
+  ],
+  "officialUrl": "https://openai.com",
+  "pricingLinks": [
+    "https://openai.com/pricing",
+    "https://openai.com/pricing"
+  ],
+  "standout": "Simultaneous end-to-end voice translation without intermediary text-to-speech roundtrips.",
+  "tradeoff": "Specialized translation pipe; conversational agent reasoning is delegated to conversational models."
 }

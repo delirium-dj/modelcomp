@@ -1,0 +1,64 @@
+# GLM 5.3 FlashX Legal — findings by Inkling 2 Small
+
+- Source: Z.AI (`glm-5.3-flashx-legal`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.3 FlashX Legal
+- **Short description:** Z.AI's legal-domain adaptation of GLM 5.3 FlashX — same hosting stack, specialized mid-training for contract analysis and compliance work; 1M-context hybrid sparse/linear attention with domain tuning atop a very strong coding/agent base. Text+image+video in, text out.
+- **Provider / access:** Z.ai Open Platform / open.zhipuai.cn (China); Z.ai global API (hosted, closed; no weights published); OpenAI-compatible Chat Completions.
+- **Release / knowledge:** 2026 (GLM-5.3 generation); knowledge cutoff not publicly stated.
+- **IDs:** `zai/glm-5.3-flashx-legal` (Z.ai)
+- **Context window:** 1,048,576 tokens; max output 128,000 tokens (meta).
+- **Modalities:** text, image, video in; text out; reasoning yes (GLM-5.3 lineage); tool calls yes.
+- **Pricing (as of 2026-11-10):** $0.37 / 1M input, $1.25 / 1M output, $0.075 cached input (Z.ai pricing page).
+- **Architecture:** proprietary hosted; hybrid sparse/linear attention, parameter count undisclosed (FlashX = lightweight class).
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for this exact model/ID (BenchLM 404; HF zai-org search: no legal-specific model card or repo; Z.ai publishes no benchmark table for the Legal SKU).
+
+Agent / tool use:
+
+- no verified public score found. The sibling GLM-5.3-FlashX measured agentic tool use elsewhere (e.g. in this dataset's GLM-5.3-FlashX file exists) — Lineage, NOT evidence for this ID.
+
+Reasoning / knowledge:
+
+- no verified public score found (GLM-5.3-FlashX baseline family has AA Index ~55-63 across rankings; the -Legal adaptation is measured nowhere publicly)
+
+Coding:
+
+- no verified public score found (FlashX tier's LCB v6 measured ~66–70 in family sources; Legal variant unmeasured)
+
+Long context:
+
+- 1,048,576 tokens documented; no verified public long-context retrieval score found for this ID
+
+Multimodal:
+
+- Text, image, video in (meta); no verified public multimodal benchmark rows found for this ID
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. The route is real (official pricing page confirms); re-research once Z.AI or a third party publishes Legal-tier rows (e.g. on a legal benchmark like CUAD, LegalBench, or Harvey LAB-aa).
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence (pricing $0.37/$1.25 noted for context; same tier as FlashX base)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public evaluation data.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (Z.ai pricing docs, BenchLM, Hugging Face API search, dataset meta); ZERO verified public benchmarks found for this exact ID — saved as self-excluded per project rules; scores inside are placeholders and are ignored. Lineage (GLM-5.3-FlashX family) documented for orientation only.
+- Reference URLs:
+  - [Z.ai pricing — GLM-5.3-FlashX-Legal ($0.37/$1.25)](https://docs.z.ai/guides/overview/pricing)
+  - [GLM 5.3 FlashX Legal — meta (dataset)](../../models_legal/glm-5.3-flashx-legal/meta.json)
+  - [Z.ai platform](https://open.zhipuai.cn/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

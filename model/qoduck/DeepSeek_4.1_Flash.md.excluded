@@ -1,0 +1,46 @@
+# QoDuck — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Alibaba / Qoder — stealth model `qoduck` (`opencode/qoduck`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** QoDuck is a real stealth model on Alibaba's Qoder platform (launched 2026-11-07) but **no model card, weights, API identifier, parameter count, licence, context figure or benchmark has been published** by Alibaba/Qwen/Qoder or any third party. With zero verified numbers on any axis, no 1–100 scores are filed; the notes below are the verified facts only.
+
+## Model card (verified facts only)
+
+- **Name:** QoDuck ("a stealth model whose identity has yet to be disclosed" — Qoder's own words)
+- **Short description:** Alibaba/Qoder's anonymous coding-and-reasoning stealth preview inside Qoder desktop; the only firm facts are operational (free allowance), not technical.
+- **Provider / access:** Qoder International app only (individual accounts). Officially: IDE, JetBrains plugin and CLI do **not** support the promotion; Teams/Enterprise customers do not see it. No public API, no endpoint, no weights.
+- **Release / knowledge:** promotion started 2026-11-07 (Singapore time); end date "yet to be determined". Knowledge cutoff not published.
+- **IDs:** none published (`opencode/qoduck` is the dataset route).
+- **Context window:** not published by Qoder; community claims of ~1M are unverified (the folder's curated metadata lists 1,048,576 — unsourced).
+- **Modalities:** not published; text in/out assumed only.
+- **Pricing:** free daily allowance for individuals during the promo (credit rate 0.5× → 0.0×, including at the highest thinking intensity; resets daily); after the allowance 0.5×, or switch models. Qoder's 0.5× rate card is the tier it applies to Qwen3.8-Max / DeepSeek-V4-Pro (flagship tier).
+- **Architecture:** undisclosed. Community hypotheses (Qwen4-27B dense + n-gram table, Qwen tokenizer fingerprint, ~35 GB at Q8, ~480 tok/s) are unverified hearsay; a vendor-side kernel PR mentions "Qwen4-27B dense" but no checkpoint ran end-to-end. Qwen 4 itself remains unshipped (Alibaba: in training).
+
+### Raw benchmarks found
+
+Agent / tool use: **no verified public score found** (no model card, no leaderboard row)
+Reasoning / knowledge: **no verified public score found**
+Coding: **no verified public score found** (GitHub showcase pages are demonstrations, not benchmarks)
+Long context: **no verified public score found**
+
+### Why the file is excluded (evidence trail)
+
+- Qoder docs (qoduck-free promotion page): identity undisclosed; operational facts only.
+- OrcaRouter analysis (2026-11-09): "No model card exists. No weights, no API identifier, no parameter count, no licence, no context figure and no benchmark have been published."
+- Press coverage (startupfortune 2026-11-08: "its maker and benchmarks remain undisclosed"; aitoolranked 2026-11-09; aicoder 2026-11-07) — all coverage is about the free promo and identity guesses, not measurements.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified benchmarks → self-exclusion; no placeholder score invented.
+- Re-research trigger: vendor identity reveal + a dated model card/benchmark → write a scored `DeepSeek_4.1_Flash.md`.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-11-10
+- Method: public internet research (Qoder docs promotion page, OrcaRouter leak analysis, startupfortune/aicoder/aitoolranked coverage, GitHub showcase). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Reference URLs:
+  - [Qoder Docs — Qoduck: Try the Stealth Model Free for a Limited Time](http://docs.qoder.com/events/qoduck-free)
+  - [OrcaRouter — Qoduck leak analysis (unverified)](https://www.orcarouter.ai/blog/qoduck-qwen4-27b-leak)
+  - [StartupFortune — Alibaba's Qoder makes Qoduck free to use](https://startupfortune.com/alibabas-qoder-makes-a-mystery-coding-model-called-qoduck-free-to-use/)

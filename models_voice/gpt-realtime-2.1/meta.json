@@ -1,8 +1,21 @@
 {
-  "id": "opencode/gpt-realtime-2.1",
+  "id": "openai/gpt-realtime-2.1",
   "name": "GPT Realtime 2.1",
-  "short": "GPT Realtime 2.1 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing"
+  "short": "OpenAI's speech-to-speech conversational model with enhanced alphanumeric acoustic fidelity, low-latency audio turn-taking, and adaptive test-time reasoning.",
+  "contextWindow": "128,000 total per session",
+  "modalities": "Audio, text, image in; audio, text out",
+  "pricingNote": "$0.06/min audio input, $0.24/min audio output",
+  "pricingTiers": [
+    "Audio in $0.06/min ($3.60/hr)",
+    "Audio out $0.24/min ($14.40/hr)",
+    "Text input $2.50/1M, Text output $10.00/1M"
+  ],
+  "officialUrl": "https://openai.com",
+  "pricingLinks": [
+    "https://openai.com/pricing",
+    "https://openai.com/pricing",
+    "https://openai.com/pricing"
+  ],
+  "standout": "Native full-duplex speech reasoning with sharp alphanumeric comprehension for IDs, serials, and dates.",
+  "tradeoff": "Audio streaming rates exceed pure text processing costs; requires WebSocket/WebRTC audio client infrastructure."
 }

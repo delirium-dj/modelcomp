@@ -1,0 +1,36 @@
+# Mercury Edit 2 — findings by Qwen 3.8 Flash (SELF-EXCLUDED: no verified absolute public benchmark for the exact ID)
+
+- Source: Inception Labs (`inception/mercury-edit-2`)
+- Date: 2026‑11‑10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (insufficient verified data): Mercury Edit 2 is Inception's diffusion **next‑edit‑prediction (NEP) code model** — it predicts the next multi‑line diff/Tab completion rather than chatting. For this **exact ID** I found **no absolute, independently measured benchmark number**: the only published results are **vendor self‑reported relative deltas** (edits accepted **48 % more often**, **27 % more selective**, benchmarked on Instinct / FIM / NEP + 1 internal suite — **no pass‑rate/absolute score released**), and trackers confirm the gap — **BenchLM lists "0 of 812 benchmarks covered", "Overall Score: Coming soon", "Unranked"**; **Artificial Analysis does not list this ID** (only Mercury 2 / 2.5). Per `tasks/research-assign.md` ("ZERO verified public benchmark numbers for this exact model/ID → save `.md.excluded`"), I file notes‑only rather than assert Overall from a relative claim. This is a data‑availability exclusion, **not** a quality judgment.
+
+## Model card (from meta + public sources — context only)
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs diffusion‑based **next‑edit prediction** model for low‑latency Tab completions and multi‑line edits; parallel denoising emits diffs simultaneously; aligned with **Kahneman‑Tversky Optimization (KTO)**. Specialized FIM/edit‑endpoint tuning, not open‑ended conversational coding.
+- **Provider / access:** Inception Labs API; integrated in editors (Zed, pi‑ghost). Released 2026‑03‑30 (Inception blog "Introducing Mercury Edit 2"; Epoch AI model DB row `inceptionlabs/mercury-edit-2`).
+- **IDs:** `inception/mercury-edit-2` (meta.json).
+- **Context window:** **conflict on record** — `meta.json`: **32,000 total / 8,192 max output**; BenchLM detail page: **128K**. Not resolved here; neither figure is backed by a scored benchmark.
+- **Modalities:** text in → text out (code diffs). No image/audio/video.
+- **Pricing:** $0.25 / $0.75 per 1M (cached $0.025) per meta.json.
+
+### Raw benchmarks found
+
+- **Vendor only, relative:** "+48 % more edits accepted", "+27 % more selective" vs prior Mercury Edit — measured on Instinct / FIM / NEP + 1 internal suite. **No absolute acceptance rate, pass rate, or AIDE/Aider score published for the exact ID.**
+- **Independent trackers:** BenchLM = "coming soon / unranked / 0 of 812"; AA provider page omits this ID. No third‑party harness has published a comparable absolute number.
+
+### Normalized scores (1–100)
+
+- **Omitted.** No verified absolute public benchmark exists for this exact ID to anchor Tool/Reasoning/Context/Multimodal/Coding or Overall. Scoring a coding model from a relative vendor delta would fabricate an apples‑to‑oranges number and is prohibited by the exact‑ID measured‑row rule.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026‑11‑10
+- Method: ≥10 acquisitions this pass (Inception blog "Introducing Mercury Edit 2", Epoch AI model DB, BenchLM model page, Artificial Analysis Inception provider page, OpenRouter/editor‑integration coverage). Confirmed **no absolute measured row for the exact ID** anywhere independent — only relative self‑reported deltas — so self‑excluded per `tasks/research-assign.md` / `RULES.md`. Logged the meta 32K/8192‑vs‑BenchLM‑128K context conflict rather than pick one. Not a quality verdict — a data‑availability quarantine; a re‑research pass is welcome once an independent harness publishes an absolute number (or the user authorizes scoring on the vendor delta).
+- Revisit trigger: BenchLM/AA/Aider publishes an **absolute** score for `inception/mercury-edit-2`.
+- Future sources: add a new file next to this one, e.g. `Qwen_3.8.md`, using the same headings.

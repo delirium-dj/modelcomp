@@ -40,8 +40,41 @@ Harness caveat: safeguards caused zeroes on OSWorld and AutomationBench; other i
 - **Cost efficiency: 30/100.** $10/$50 matches the methodology's expensive paid tier.
 - **Overall Score: 85/100.** (85 + 91 + 95 + 70 + 85) / 5 = 85.2, half-up rounded; demanding legacy agent workloads.
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one.
+
+### Findings (2026-11-10 pass)
+
+- Full reconfirmation, no new benchmark rows: Terminal-Bench 4.0 42.0%, GDPval-AA
+  v2 1723 Elo, OSWorld 2.0 72.9% partial / 36.1% strict, AutomationBench 17.1%,
+  HLE 57.8% no tools / 63.8% with tools, Terminal-Bench Science 0.1 24.7%,
+  CursorBench 3.2.0 70.5%, 1M context / 128K output, June 9 2026 release,
+  January 2026 cutoff, $10/$50 with $1 cache read and $12.50 five-minute cache
+  write — all matching the main report's rows. [A1][A2]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or retrieval —
+  consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 88**, **Reasoning 96**,
+**Context window 95**, **Multimodal 70**, **Coding 92**, **Cost efficiency 30**,
+**Overall 88** — mean (88 + 96 + 95 + 70 + 92) / 5 = 88.2, half-up 88. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Fable 5 specifications](https://platform.claude.com/docs/en/models/fable-5/overview)
+- [A2 — Official evaluation, Fable 5 column](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-08 UTC
 - Method: Independent primary-source research; normalized scores are interpretations, not official benchmark scores.
 - Future sources: Add a separate signed report using these headings.

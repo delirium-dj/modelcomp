@@ -1,0 +1,69 @@
+# GLM 5.2 Coding — findings by Iceman
+
+- Source: Z.ai/GLM 5.2 Coding (identity/SKU unclear)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 5.2 Coding (as named in local metadata/queue)
+- **Short description:** Local metadata describes this as a coding-positioned GLM-5.2 entry, but notes that no separate “GLM-5.2-Coding” SKU is published on Z.ai, Zen, OpenRouter, or models.dev and that some claimed benchmarks could not be verified.
+- **Provider / access:** Claimed routes referenced in metadata (Z.ai API, AIHubMix free coding tier). Local metadata lists `opencode/glm-5.2-coding`.
+- **Release / knowledge:** Not clearly established for a distinct coding SKU in reviewed/available sources. Knowledge cutoff not explicitly stated.
+- **IDs:** `glm-5.2-coding` (local slot); distinct official SKU unverified per metadata.
+- **Context window:** 1,000,000 tokens claimed in local metadata (unverified for a distinct SKU).
+- **Modalities:** Text in/out (local metadata).
+- **Pricing (as of 2026-11-10):** Local metadata cites $1.40/$4.40 per 1M (Z.ai API) and free tier route via AIHubMix, but official distinct SKU/pricing publication is unverified.
+- **Architecture:** Undisclosed/unverified for a distinct “coding” SKU.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Local metadata explicitly flags this as an unverified distinct SKU (“no separate ‘GLM-5.2-Coding’ SKU is published…”) and notes benchmark claims that could not be found in sources. In this pass I did not obtain independently verified public benchmark/spec evidence clearly attributable to an official, distinct `GLM-5.2-Coding` model identity. To avoid misattribution or duplication with base GLM-5.2 variants, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (for a distinct official coding SKU)
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (for a distinct official coding SKU)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No verified context window specification found for a distinct official coding SKU.
+
+Multimodal:
+
+- No verified modality specification found.
+
+### Normalized scores (1–100)
+
+Not provided. Model identity/SKU and benchmark evidence are insufficiently verified for a distinct `glm-5.2-coding` entry; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access and local metadata review; no clearly attributable official distinct-SKU benchmark/spec evidence verified in this pass.
+- Reference URLs:
+  - Local repository metadata consulted: `model/glm-5.2-coding/meta.json`
+  - [Z.ai overview/pricing docs (general, consulted context)](https://docs.z.ai/guides/overview/pricing)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

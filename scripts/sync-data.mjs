@@ -107,6 +107,16 @@ const SOURCE_OVERRIDES = {
   // folders — tier-suffixed names must not resolve to a "-free"/"-max" folder.
   "Muse Spark 1.3": { slug: "muse-spark-1.3" },
   "Muse Spark 1.2": { slug: "muse-spark-1.2" },
+  // Revealed-stealth rater rename (user rule 2026-10-24/26; crouton-alpha
+  // revealed 2026-11-09 as Muse Ember, merged 2026-11-10): every
+  // Crouton_Alpha.md report was renamed to Muse_Ember.md together with the
+  // model's folder (model/crouton-alpha/ -> model/muse-ember/), frozen
+  // stealth-era signatures kept as history (SIGNATURE_STEM_EXCEPTIONS +
+  // MERGED_SOURCE_STEMS in scripts/lib/validate.mjs). The meta name
+  // "Muse Ember 1.0" doesn't norm-match the registry key "Muse Ember", so pin
+  // the slug — rater rows deep-link to the revealed model's page; never
+  // scaffold crouton-alpha* again.
+  "Muse Ember": { slug: "muse-ember" },
   // Revealed-stealth rater merge (user rule 2026-10-26): the stealth-era
   // rater stems "Space Bunny" (= MiniMax M3.1 Flash Free, revealed 2026-10-19),
   // "Cat Jam" (= Beam 1.0) and "Ox Alpha" (= GLM-5.3-Flash) no longer exist —

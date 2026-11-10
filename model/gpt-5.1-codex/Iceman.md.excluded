@@ -1,0 +1,68 @@
+# GPT-5.1 Codex — findings by Iceman
+
+- Source: OpenAI/GPT-5.1-Codex
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1 Codex
+- **Short description:** OpenAI’s GPT-5.1 Codex is an agentic coding model positioned between Codex Mini and Codex Max for repo-scale software engineering (per local metadata), exposed via Responses API in Codex surfaces.
+- **Provider / access:** OpenAI Codex/Responses API contexts. Local metadata lists `opencode/gpt-5.1-codex`, 400K/128K context, pricing $1.25/$10.00 (native) and Zen listing $1.07/$8.50, API shutdown 2026-07-23, `noFreeId`.
+- **Release / knowledge:** Codex changelog era (2025) per local metadata references. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `gpt-5.1-codex`, `GPT-5.1 Codex`.
+- **Context window:** 400,000 tokens total; 128,000 max output (local metadata).
+- **Modalities:** Text and image input; text output (local metadata).
+- **Pricing (as of 2026-11-10, historical):** OpenAI native $1.25/$10.00 per 1M ($0.125 cached); OpenCode Zen listed $1.07/$8.50 (local metadata).
+- **Architecture:** Proprietary OpenAI coding model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I attempted to review public OpenAI sources for this exact model (including Codex changelog/docs), but did not find clearly attributable, independently verified public benchmark scores for `gpt-5.1-codex` in the accessible sources during this pass. The GPT-5.1-Codex-Max announcement reports comparative numbers that include GPT-5.1-Codex on some evals (e.g. SWE-bench Verified 73.7% high, SWE-Lancer IC SWE 66.3%, Terminal-Bench 2.0 52.8% as comparison baselines), but I did not locate a dedicated official model card/page for GPT-5.1-Codex itself with full benchmark/spec disclosure in this pass. To avoid misattribution, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.0: **no verified public score found** (standalone for this exact model page)
+- Tau2-Bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (standalone official page for this exact model)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+
+- 400K context / 128K output stated in local metadata; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Image input supported per metadata; no multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly attributable, independently verified public benchmark evidence for this exact model in accessible sources during this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI Codex changelog/docs; no dedicated benchmark/spec page for this exact model found in this pass.
+- Reference URLs:
+  - [OpenAI Codex changelog (reviewed)](https://developers.openai.com/codex/changelog)
+  - Local repository metadata consulted: `model/gpt-5.1-codex/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

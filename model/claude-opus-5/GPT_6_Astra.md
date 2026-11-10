@@ -70,8 +70,54 @@ These rating changes reflect better evidence coverage, not measured improvement 
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+Exact Opus 5 column of Anthropic's later controlled comparison
+([A3](https://www.anthropic.com/claude-fable-and-mythos-5-1)) — vendor harness,
+separate from the AA and Scale rows above; partial/strict/tool-assisted metrics
+are not interchangeable:
+
+- **Terminal-Bench 4.0: 52.3%** (main report had AA's 49% — separate source).
+  [A3]
+- **GDPval-AA v2: 1824 Elo** (main report has AA v2.1 1726 — different version
+  and source, no like-for-like trend claim). [A3]
+- **OSWorld 2.0: 75.4% partial / 39.6% strict; AutomationBench: 26.9%** (the
+  main report's AA AutomationBench 57% is a different harness). [A3]
+- **HLE: 56.6% no tools / 63.6% with tools** (unaided value is new; close to
+  AA's 55%). [A3]
+- **Terminal-Bench Science 0.1: 29.0%; CursorBench 3.2.0: 70.0%.** [A3]
+- Reconfirmed with matching values: 1M context, 128K output, 300K batch beta,
+  $5/$25 pricing, $0.50 cache read, $6.25 five-minute cache write and 50% batch
+  discount, July 24 2026 release, May 2026 cutoff. [A2]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench Verified, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval or
+  model-specific retrieval — consistent with the main report's gaps.
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 92**, **Reasoning 96**,
+**Context window 95**, **Multimodal 70**, **Coding 93**, **Cost efficiency 48**,
+**Overall 89** — mean (92 + 96 + 95 + 70 + 93) / 5 = 89.2, half-up 89. The main
+report's score block above is the operative one; this block records the
+same-day independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Release announcement](https://www.anthropic.com/news/claude-opus-5)
+- [A2 — API specifications](https://platform.claude.com/docs/en/models/opus-5/overview)
+- [A3 — Official comparison, Opus 5 column](https://www.anthropic.com/claude-fable-and-mythos-5-1)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research 2026-10-03.
 - Method: Fresh independent web research; normalized scores are interpretations, not official scores.
 - Future sources: add a separate signed report with these headings.
