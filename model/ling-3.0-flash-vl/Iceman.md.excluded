@@ -1,0 +1,62 @@
+# Ling 3.0 Flash VL — findings by Iceman
+
+- Source: inclusionAI/Ling-3.0-flash-VL
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling-3.0-flash-VL
+- **Short description:** inclusionAI’s Ling-3.0-flash-VL is an MIT open-weight multimodal MoE model (124B total / 5.5B active) for vision-language understanding, reasoning, and GUI/agentic tasks with long context support.
+- **Provider / access:** Open weights on Hugging Face (`inclusionAI/Ling-3.0-flash-VL`, MIT license) and hosted providers. Local metadata lists `inclusionai/ling-3.0-flash-vl`, pricing ~$0.06/$0.18 per 1M, and `noFreeId`.
+- **Release / knowledge:** Hugging Face model card reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `Ling-3.0-flash-VL`, `inclusionAI/Ling-3.0-flash-VL`.
+- **Context window:** 131,072 native tokens (262,144 via YaRN per local metadata/HF card context); 32,768 max output (local metadata).
+- **Modalities:** Text, image, and video input; text output.
+- **Pricing (as of 2026-11-10):** Open weights free to self-host (MIT). Hosted ~$0.06/$0.18 per 1M in/out (local metadata; provider pricing varies).
+- **Architecture:** Sparse MoE multimodal model, 124B total / 5.5B active parameters, ViT visual encoder + MLP projector, VideoRoPE, hybrid KDA/Gated MLA backbone, up to 256K context support described (HF card).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the Hugging Face model card for `inclusionAI/Ling-3.0-flash-VL`, but the accessible text in this pass provided limited extractable verified benchmark numerics for standardized scoring. The card states an Artificial Analysis Intelligence Index v4.1.1 score of **42** and references multimodal capability dimensions (Understand/Reason/Act) and benchmark figures/images, but specific per-benchmark scores (e.g. WebVoyager/MMSearch/MMMU-Pro values cited in local metadata, or detailed coding/agent/tool metrics) were not clearly extractable as text from the reviewed source. To avoid scoring from non-extracted image content or unverified metadata claims, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: evaluated under Artificial Analysis (AA) protocol noted; **no verified numeric score extracted**
+- WebVoyager / MMSearch / GUI-agent benchmarks: referenced in metadata but **not independently verified/extracted** from reviewed text
+- TAU2/Tau3, GDPval-AA, Toolathon, MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index v4.1.1: **42** (stated in card text; overall index, not a direct per-dimension template benchmark)
+- GPQA Diamond / HLE / AIME / AA-LCR: **no verified public score found** (text-extracted)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+
+Long context:
+
+- 256K context support described (with YaRN extension noted in metadata); no standalone long-context retrieval benchmark numeric extracted.
+
+Multimodal:
+
+- Strong multimodal understanding/reasoning/acting capabilities described (image/video); MMMU-Pro referenced in metadata but not independently extracted from reviewed text.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extractable, independently verified standardized benchmark numerics for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Hugging Face model card; benchmark numerics largely presented in non-extracted figures and not sufficiently verified from text.
+- Reference URLs:
+  - [Ling-3.0-flash-VL model card (Hugging Face)](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL)
+  - Local repository metadata consulted: `model/ling-3.0-flash-vl/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

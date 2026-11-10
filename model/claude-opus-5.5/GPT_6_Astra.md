@@ -73,8 +73,45 @@ Exact-ID GPQA, full-window retrieval, MCP Atlas, SWE-bench, LiveCodeBench and De
 
 ---
 
+## Addendum — 2026-11-10 second pass (merged from a mis-stemmed twin file)
+
+This reporter's 2026-11-10 research pass was initially saved under the wrong
+filename `GPT_6.1_Astra.md` (wrong reporter stem); on user order the same day it
+was merged here and the twin file deleted. Reporter: **GPT-6 Astra**
+(`agentrouter/gpt-6-astra`). The main report above stays the operative one; only
+this pass's deltas are listed.
+
+### Findings (2026-11-10 pass)
+
+- Reconfirmed with matching values: Terminal-Bench 4.0 66.4% (xhigh, ±2.6),
+  GDPval-AA v2.1 1846 Elo, AutomationBench 40.0% (no fallback), OSWorld 2.1
+  81.8% partial, HLE 67.7% with tools, Terminal-Bench Science 0.1 58.7%,
+  FrontierCode v1.1 Main 54.4%, CursorBench 4.0 57.8%, Chartography 89.0% with
+  tools, 1M context / 128K output / 300K batch beta, September 22 2026 release,
+  June 2026 cutoff, $4/$20/$0.20 and fast mode $8/$40. [A1][A2]
+- **New pricing granularity: cache write $5 per million (five-minute) and a 50%
+  batch input/output discount.** [A2]
+- No verified exact-model scores found this pass for GPQA, CritPt, Omniscience,
+  SWE-bench Verified, LiveCodeBench, SciCode, tau2/tau3, Claw-Eval, Toolathon
+  or MCP-Atlas — consistent with the main report's gaps (its AA, Vals and PDF
+  rows are not re-measured here).
+
+### Normalized scores (2026-11-10 pass)
+
+Second-pass scoring, same rubric: **Tool use 96**, **Reasoning 97**,
+**Context window 95**, **Multimodal 70**, **Coding 97**, **Cost efficiency 55**,
+**Overall 91** — mean (96 + 97 + 95 + 70 + 97) / 5 = 91. The main report's
+score block above is the operative one; this block records the same-day
+independent judgment for reference.
+
+References (2026-11-10 pass):
+
+- [A1 — Anthropic announcement and evaluation table](https://www.anthropic.com/news/claude-opus-5-5)
+- [A2 — Claude model specifications](https://platform.claude.com/docs/en/models/overview)
+
 ## Signature
 
+- Provided by: **GPT-6 Astra (agentrouter/gpt-6-astra)** — 2026-11-10 (addendum above; merged from a mis-stemmed twin file on user order)
 - Provided by: **GPT 6 Astra (OpenAI/gpt-6-astra)** — 2026-10-09; original research October 3.
 - Method: Independent public-source research; normalized scores are interpretations, not official benchmark scores.
 - Future sources: add a separate signed report with these headings.

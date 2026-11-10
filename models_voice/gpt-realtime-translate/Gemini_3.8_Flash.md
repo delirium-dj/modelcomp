@@ -42,3 +42,4 @@
   - [OpenAI Realtime Translation](https://openai.com)
   - [OpenAI Pricing Documentation](https://openai.com/pricing)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

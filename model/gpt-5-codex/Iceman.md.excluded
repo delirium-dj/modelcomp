@@ -1,0 +1,63 @@
+# GPT-5 Codex — findings by Iceman
+
+- Source: OpenAI/GPT-5-Codex
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5-Codex
+- **Short description:** OpenAI’s GPT-5-Codex (Sep 2025) is a coding-specialized variant of GPT-5 optimized for agentic software engineering in Codex, with adaptive thinking time and strong code review capabilities.
+- **Provider / access:** OpenAI Codex surfaces (CLI, IDE extension, cloud, GitHub code review) and Responses API contexts. Local metadata lists `opencode/gpt-5-codex`, 400K/128K context, $1.25/$10 pricing, and `noFreeId`.
+- **Release / knowledge:** Announced September 15, 2025 (“Introducing upgrades to Codex”). Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `gpt-5-codex`, `GPT-5-Codex`.
+- **Context window:** 400,000 tokens total; 128,000 max output (local metadata).
+- **Modalities:** Text and image input; text output (local metadata/Codex multimodal context).
+- **Pricing (as of 2026-11-10, historical):** OpenAI native $1.25/$10.00 per 1M ($0.125 cached); OpenCode Zen $1.07/$8.50 (local metadata).
+- **Architecture:** Proprietary OpenAI coding/reasoning model trained for agentic software engineering. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI’s “Introducing upgrades to Codex” announcement for GPT-5-Codex, but the accessible text in this pass did not provide a sufficient set of clearly extractable standardized benchmark numerics for this exact model to produce a reliable scored comparison (key results are presented in charts/images and qualitative comparisons). Local metadata cites SWE-bench Verified 74.5% and code-refactor 51.3%, but I did not independently extract these exact numerics as clear text from the reviewed source in this pass. To avoid unverifiable/misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.0: **no verified public score found** (text-extracted)
+- TAU2-bench / Tau3-Banking: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- Adaptive thinking and agentic reasoning improvements described; standardized reasoning benchmark numerics not extracted.
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found** (independently text-extracted in this pass)
+- Code refactoring tasks: **no verified public score found** (text-extracted)
+- Strong real-world coding/code-review capabilities emphasized (qualitative and charted).
+
+Long context:
+
+- 400K context / 128K output stated in metadata; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Image/screenshot input supported in Codex workflows; no multimodal benchmark scores extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extractable, independently verified standardized benchmark numerics for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI announcement; benchmark numerics not sufficiently extracted as text for verification.
+- Reference URLs:
+  - [Introducing upgrades to Codex (OpenAI)](https://openai.com/index/introducing-upgrades-to-codex/)
+  - Local repository metadata consulted: `model/gpt-5-codex/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
