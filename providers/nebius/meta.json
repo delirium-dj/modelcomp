@@ -8,8 +8,8 @@
   "plans": [
     {
       "name": "Trial credit",
-      "price": "$1",
-      "notes": "One-time $1 trial credit on first sign-up, valid for 30 days. Billing setup (bank card) is mandatory during onboarding before the credit can be used.",
+      "price": "$1 (reported; unverified)",
+      "notes": "A small one-time trial credit on sign-up has been reported, but the official billing guide does not document it (could not verify the amount or a 30-day validity as of 2026-11-09). Verified: billing setup with a bank card is mandatory during onboarding before any usage; promo codes provide free credits, usually with an expiration date. Serverless models are deprecated on a published schedule - on 2026-11-09 DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash and Qwen3.5-397B-A17B were removed from Serverless (Dedicated Endpoints unaffected).",
       "evidenceUrl": "https://docs.tokenfactory.nebius.com/other-capabilities/billing-new.md"
     },
     {
@@ -20,8 +20,8 @@
     }
   ],
   "covers": [
-    "deepseek-v4-flash",
-    "qwen-3.5-397b",
+    "deepseek-v4.1-flash-1017",
+    "qwen-3.8-27b",
     "gpt-oss-120b",
     "gemma-4-31b",
     "minimax-m3",

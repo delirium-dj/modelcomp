@@ -1,0 +1,9 @@
+{
+  "id": "opencode/frantic-ferret",
+  "name": "Frantic Ferret",
+  "short": "Frantic Ferret model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

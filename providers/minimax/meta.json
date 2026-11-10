@@ -13,15 +13,15 @@
   "plans": [
     {
       "name": "MiniMax platform pay-as-you-go",
-      "price": "$0.15/$0.60 per 1M (M2.5) up to $0.30/$2.40 per 1M (M2.5-Lightning)",
-      "notes": "M2.7 and M3 both listed at $0.30/$1.20 per 1M.",
-      "evidenceUrl": "https://www.minimax.io/platform/pricing"
+      "price": "$0.15/$0.60 per 1M (M3.1-Flash) up to $0.60/$2.40 per 1M (M3, >512K input)",
+      "notes": "MiniMax-M3.1-Flash: $0.15 in / $0.60 out / $0.015 cache read per 1M. MiniMax-M3 (permanent 50% off): <=512K input $0.30/$1.20 (cache $0.06, list $0.60/$2.40); >512K input $0.60/$2.40 (list $1.20/$4.80). Priority service tier = 1.5x standard. M2.5/M2.7 are no longer on the public LLM price table.",
+      "evidenceUrl": "https://www.minimax.io/pricing"
     },
     {
-      "name": "MiniMax Code / Token Plan",
-      "price": "Plan-only (no public per-token price)",
-      "notes": "MiniMax M3.1 Flash Preview is available only through the Code / Token Plan.",
-      "evidenceUrl": "https://www.minimax.io/platform/pricing"
+      "name": "Audio & Video packages",
+      "price": "Audio from $5/mo; Video from $1,000/mo",
+      "notes": "Audio packages (Starter $5 to Business $999/mo) cover all speech models via T2A v2/T2A large v2. Video packages ($1,000-$6,000/mo) cover Hailuo video models only - MiniMax H3 is PAYG-only. Unused video points expire with the package. Music generation APIs closed to new users since 2026-08-20.",
+      "evidenceUrl": "https://www.minimax.io/pricing"
     }
   ]
 }

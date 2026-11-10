@@ -1,9 +1,15 @@
 {
   "id": "opencode/qoduck",
-  "name": "Qoduck",
-  "short": "Qoduck model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "name": "QoDuck",
+  "short": "Alibaba stealth coding and reasoning preview model in Qoder desktop (suspected Qwen 4 checkpoint) with adaptive thinking and 1M context.",
+  "contextWindow": "1,048,576 total (65,536 max output)",
+  "modalities": "Text, image in; text, code out",
+  "pricingNote": "Free preview tier (0.0x credits) in Qoder desktop; standard OpenCode Zen rate",
+  "freeTierNote": "Free daily preview allowance (0.0x credits) inside Qoder desktop app",
+  "officialUrl": "https://qoder.ai",
+  "pricingLinks": [
+    "https://qoder.ai"
+  ],
+  "standout": "Rapid repository-scale multi-file refactoring and migration inside the Qoder developer environment.",
+  "tradeoff": "Stealth preview without official standardized benchmark scorecards or public parameter weights."
 }

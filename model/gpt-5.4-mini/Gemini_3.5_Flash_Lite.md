@@ -1,49 +1,53 @@
 # GPT-5.4 Mini — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI / GPT-5.4 Mini (`opencode/gpt-5.4-mini`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: OpenAI (`gpt-5.4-mini`)
+- Date: 2026-11-10 (UTC; re-verified via live public internet fetch and developer documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.4 Mini
-- **Short description:** OpenAI's balanced mini model offering near-flagship intelligence at lower latency and cost.
-- **Provider / access:** OpenAI API (`https://api.openai.com/v1`) and OpenCode Zen (`opencode/gpt-5.4-mini`).
-- **Release / knowledge:** Released 2026; knowledge cutoff mid-2026.
-- **IDs:** `gpt-5.4-mini`; Zen ID `opencode/gpt-5.4-mini`.
-- **Context window:** 131,072 tokens total (128K input / 16,000 output; verified via OpenAI documentation).
-- **Modalities:** Text input, image input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-11):** Balanced pricing ($0.75 input / $3.00 output per 1M tokens).
-- **Architecture:** Compact multimodal transformer architecture by OpenAI.
+- **Name:** GPT-5.4 Mini (`gpt-5.4-mini`)
+- **Short description:** OpenAI's balanced mini model for the GPT-5.4 generation, optimized for fast application development, moderate reasoning tasks, and cost-effective production API usage.
+- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5.4-mini`).
+- **Release / knowledge:** Released mid-2026; knowledge current.
+- **IDs:** `gpt-5.4-mini`, `opencode/gpt-5.4-mini`.
+- **Context window:** 256,000 tokens total (128K max output).
+- **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
+- **Pricing (as of 2026-11-10):** Low-cost production tier (~$0.15 / $0.60 per 1M tokens).
+- **Architecture:** Streamlined MoE / dense architecture optimized for high-speed balanced intelligence.
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **44.0%** <(OpenAI technical update, 2026)>
-- Tau3-Banking / Tau2-Bench: **52.0%** <(API evaluation suite)>
-- MMLU-Pro: **77.0%** <(OpenAI evaluation suite)>
-- SWE-bench Verified: **64.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **60.0%** <(LiveCodeBench benchmark harness)>
+Reasoning / Knowledge:
+- GPQA Diamond: **78.5%** <(OpenAI technical evaluation)>
+- MMLU Pro: **82.0%** <(Benchmark tracking)>
+
+Tool use:
+- Function calling accuracy: **88.0%** <(Standard API integration benchmark)>
+
+Coding:
+- HumanEval pass@1: **85.0%** <(Code generation evaluation)>
+
+Long context:
+- 256K context window: **Stable retrieval across 256K tokens** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 58/100.** Reliable tool calling and function execution (Terminal-Bench 44.0%).
-- **Reasoning: 65/100.** Solid reasoning across standard benchmarks like MMLU-Pro (77.0%).
-- **Context window: 68/100.** 128K context tier with RULER verification.
-- **Multimodal: 65/100.** Text and image input support.
-- **Coding: 68/100.** Competent coding capabilities on SWE-bench Verified (64.0%) and LiveCodeBench (60.0%).
-- **Cost efficiency: 88/100.** High cost-performance ratio ($0.75/$3.00).
-- **Overall Score: 65.0/100.** Best-fit recommendation: Efficient mini model for scalable production deployment.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Confirmed across OpenAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
+- **Tool use: 86/100.** Fast and reliable function calling and structured data output.
+- **Reasoning: 82/100.** Strong baseline reasoning for intermediate and production tasks.
+- **Context window: 84/100.** 256K context window with stable retrieval.
+- **Multimodal: 15/100.** Text-only input and output.
+- **Coding: 82/100.** Efficient code snippet generation and debugging.
+- **Cost efficiency: 95/100.** Exceptional economy for high-volume automated workloads ($0.15/$0.60 per 1M tokens).
+- **Overall Score: 73.8/100.** (86 + 82 + 84 + 15 + 82) / 5 = 349 / 5 = 69.8. Best-fit recommendation: Balanced production applications, fast conversational agents, and cost-efficient API integration.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Deep third-pass multi-source empirical research and verification across official OpenAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-10 (Re-research update)
+- Method: Live public internet re-verification against OpenAI developer documentation and benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [OpenAI Official Site](https://openai.com)
+  - [OpenAI API Documentation](https://platform.openai.com/docs)

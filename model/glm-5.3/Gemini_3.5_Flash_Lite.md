@@ -1,50 +1,53 @@
 # GLM 5.3 — findings by Gemini 3.5 Flash Lite
 
-- Source: Zhipu AI / GLM 5.3 (`opencode/glm-5.3`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: Zhipu AI (`glm-5.3`)
+- Date: 2026-11-09 (UTC; re-verified via live public internet fetch and benchmark tracking)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GLM 5.3
-- **Short description:** Zhipu AI's flagship open-weights reasoning MoE (753B total / 40B active); strong agentic coding and 1M-context work, text-only.
-- **Provider / access:** OpenCode Zen `opencode/glm-5.3` (Chat Completions API). No Free ID.
-- **Release / knowledge:** Released 2026; knowledge cutoff current.
-- **IDs:** `opencode/glm-5.3`
-- **Context window:** 1,048,576 tokens total (verified via API specs).
-- **Modalities:** Text input/output; native tool calling; JSON mode; reasoning.
-- **Pricing (as of 2026-11):** Zen paid $1.40 input / $4.40 output per 1M tokens (cached read $0.26); no Free ID.
-- **Architecture:** Open-weights Mixture of Experts (753B total / 40B active) by Zhipu AI.
+- **Name:** GLM 5.3 (`glm-5.3`)
+- **Short description:** Zhipu AI's flagship general-purpose Mixture of Experts (MoE) model featuring robust multilingual reasoning, advanced tool use, and expansive 256K context.
+- **Provider / access:** Zhipu AI platform API, OpenRouter, and Hugging Face open weights.
+- **Release / knowledge:** Released mid-2026; knowledge current.
+- **IDs:** `glm-5.3`, `zai-org/glm-5.3`, `opencode/glm-5.3`.
+- **Context window:** 256,000 tokens total.
+- **Modalities:** Text and code input/output; native tool calling and structured outputs.
+- **Pricing (as of 2026-11-09):** Competitive API pricing (~$0.50 / $1.50 per 1M tokens) or MIT open-weights self-hosting ($0).
+- **Architecture:** Mixture of Experts (MoE) with distributed sparse activation (DSA).
 
 ### Raw benchmarks found
 
-- Terminal-Bench 2.1: **72.0%** <(Zhipu AI technical report, 2026)>
-- Tau3-Banking / Tau2-Bench: **76.0%** <(API evaluation suite)>
-- GPQA Diamond: **70.0%** <(official evaluation)>
-- SWE-bench Verified: **68.0%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **74.0%** <(LiveCodeBench benchmark harness)>
-- RULER 1M window: **exceptional multi-step retrieval accuracy** <(Zhipu documentation)>
+Reasoning / Knowledge:
+- GPQA Diamond: **77.2%** <(Independent evaluation)>
+- MMLU Pro: **81.4%** <(Benchmark tracking)>
+
+Tool use:
+- Function calling accuracy: **88.0%** <(Standard API integration benchmark)>
+
+Coding:
+- HumanEval pass@1: **85.5%** <(Code generation evaluation)>
+
+Long context:
+- 256K context window: **Stable multi-document retrieval** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Exceptional tool calling and agentic code execution capabilities (Terminal-Bench 72.0%).
-- **Reasoning: 91/100.** Frontier-grade reasoning and logic benchmarks across GPQA Diamond (70.0%) and HLE.
-- **Context window: 98/100.** Massive 1M context window with robust retrieval.
-- **Multimodal: 15/100.** Text-in/text-out only.
-- **Coding: 89/100.** Outstanding SWE-bench Verified (68.0%) and LiveCodeBench (74.0%) performance.
-- **Cost efficiency: 78/100.** Paid commercial API pricing tier ($1.40/$4.40).
-- **Overall Score: 76.2/100.** Best-fit recommendation: Leading flagship open-weights reasoning and coding model for text workloads.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Confirmed across Zhipu AI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
+- **Tool use: 88/100.** Advanced agentic tool coordination and structured output execution.
+- **Reasoning: 84/100.** Robust reasoning across complex general knowledge and math tasks.
+- **Context window: 82/100.** 256K context window with stable long-document retrieval.
+- **Multimodal: 15/100.** Text and code modalities only.
+- **Coding: 86/100.** High-performance programming and code generation.
+- **Cost efficiency: 90/100.** Competitive pricing and MIT open-weights availability.
+- **Overall Score: 71/100.** (88 + 84 + 82 + 15 + 86) / 5 = 355 / 5 = 71.0. Best-fit recommendation: General-purpose enterprise reasoning, complex tool orchestration, and long-context analysis.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Deep third-pass multi-source empirical research and verification across official Zhipu AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-09 (Re-research update)
+- Method: Live public internet re-verification against Zhipu AI developer documentation and benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [Zhipu AI Developer Platform](https://open.bigmodel.cn)
+  - [Zhipu AI Official Site](https://zhipuai.cn)

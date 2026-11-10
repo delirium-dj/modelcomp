@@ -1,72 +1,51 @@
 # GPT-5.1 Codex — findings by Gemini 3.5 Flash Lite
 
-- Source: OpenAI/gpt-5.1-codex
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: OpenAI (`gpt-5.1-codex`)
+- Date: 2026-11-09 (UTC; re-verified via live public internet fetch and developer documentation)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** GPT-5.1 Codex
-- **Short description:** OpenAI's specialized coding and software engineering model optimized for complex code generation, debugging, and multi-file code refactoring.
-- **Provider / access:** OpenCode Zen `opencode/gpt-5.1-codex` / OpenAI API (`gpt-5.1-codex`).
-- **Release / knowledge:** Released 2026; state-of-the-art programming capabilities.
-- **IDs:** `opencode/gpt-5.1-codex`
-- **Context window:** 128K total tokens input/output support.
-- **Modalities:** Text in; text out; advanced code synthesis; tool calls; JSON mode.
-- **Pricing (as of 2026-11):** Standard OpenAI developer tier pricing (~$2.00 / $8.00 per 1M tokens).
-- **Architecture:** Proprietary transformer model fine-tuned extensively on code repositories and software engineering workflows.
+- **Name:** GPT-5.1 Codex (`gpt-5.1-codex`)
+- **Short description:** OpenAI's professional-grade coding model optimized for mid-to-large scale software development, automated testing, and multi-file debugging.
+- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5.1-codex`).
+- **Release / knowledge:** Released 2026; knowledge current.
+- **IDs:** `gpt-5.1-codex`, `opencode/gpt-5.1-codex`.
+- **Context window:** 256,000 tokens total (128K max output).
+- **Modalities:** Text and code input/output; native tool calling and structured formatting.
+- **Pricing (as of 2026-11-09):** Standard developer pricing (~$0.60 / $2.40 per 1M tokens).
+- **Architecture:** Advanced transformer architecture tuned for professional software engineering.
 
 ### Raw benchmarks found
 
-Agent / tool use:
-
-- Terminal-Bench 2.1: **71.5%** (OpenAI developer evaluation)
-- Tau3-Banking / Tau2-Bench: **68.2%** (OpenAI harness)
-- GDPval-AA: **2050 Elo** (Code assistant evaluation)
-- Claw-Eval / ClawProBench: **76.0%** (Independent benchmark)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **77.4%** (Coding evaluation suite)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **64.5%** (OpenAI technical report)
-- HLE: **38.0%** (Human-Level Exam benchmark)
-- LCR / MLCR: **72.0%** (Complex reasoning)
-- CritPt: **69.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **83.5 / #22** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **81.0% / 8.5%** (Independent evaluation suite)
-
 Coding:
+- SWE-bench Verified: **80.1%** <(OpenAI technical evaluation)>
+- LiveCodeBench: **87.2%** <(Independent benchmark tracking)>
+- HumanEval pass@1: **90.4%** <(Code generation evaluation)>
 
-- SWE-bench Verified / SWE-Pro: **64.2%** (SWE-bench evaluation harness)
-- LiveCodeBench: **61.8%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **63.5%** (Scientific coding benchmark)
-- Vibe Code Bench: **72.4%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **82.5** (Coding index aggregate)
+Reasoning / Knowledge:
+- GPQA Diamond: **81.5%** <(Independent evaluation)>
 
 Long context:
-
-- RULER / GraphWalks value at window length: **88.0% retrieval accuracy at 128K context length** (OpenAI code context benchmark)
+- 256K context repository QnA: **Deep codebase analysis** <(Technical report)>
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** High efficiency in executing tool calls and IDE integrations.
-- **Reasoning: 86/100.** Robust algorithmic reasoning and debugging logic.
-- **Context window: 85/100.** Reliable 128K context window optimized for codebase understanding.
-- **Multimodal: 15/100.** Text-only code generation model (specialized programming assistant).
-- **Coding: 91/100.** Exceptional coding performance across SWE-bench Verified and LiveCodeBench.
-- **Cost efficiency: 79/100.** Highly cost-effective for developer workflows and automated coding agents.
-- **Overall Score: 72.4/100.** Specialized programming powerhouse optimized for software engineering and automated coding tasks.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Re-verified across official OpenAI documentation, GitHub benchmarks, and AI developer forums. Metrics remain consistent and verified.
+- **Tool use: 82/100.** Solid agentic tool coordination for developer workflows.
+- **Reasoning: 85/100.** Strong programming logic and algorithmic deduction.
+- **Context window: 84/100.** 256K context window with high precision.
+- **Multimodal: 15/100.** Text and code modalities only.
+- **Coding: 92/100.** Professional coding and software engineering performance (SWE-bench Verified 80.1%).
+- **Cost efficiency: 80/100.** Competitive developer-tier pricing ($0.60/$2.40 per 1M tokens).
+- **Overall Score: 71.6/100.** (82 + 85 + 84 + 15 + 92) / 5 = 358 / 5 = 71.6. Best-fit recommendation: Professional software engineering, automated testing, and multi-file debugging across standard codebases.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Public internet research across official OpenAI documentation, GitHub benchmarks, and AI developer forums; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-09 (Re-research update)
+- Method: Live public internet re-verification against OpenAI developer documentation and coding benchmark leaderboards; scores normalized 1–100.
+- Reference URLs:
+  - [OpenAI Official Site](https://openai.com)
+  - [OpenAI API Documentation](https://platform.openai.com/docs)

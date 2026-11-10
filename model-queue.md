@@ -129,6 +129,7 @@
 74.8 gpt-5-codex
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
+74.6 crouton-alpha
 74.4 qwen-3.7
 74.1 gemma-4-26b-a4b
 73.9 gemma-4-12b-unified
@@ -141,7 +142,6 @@
 73.6 qwen-3.5-9b
 73.4 beam
 73.4 claude-sonnet-3.5
-73 crouton-alpha
 72.8 fledge-alpha
 72.7 longcat-2.5-preview
 72.7 nemotron-3-ultra-free
@@ -204,6 +204,7 @@
 54.8 gemma-4-e2b
 53.6 gpt-oss-120b-lite
 53.3 ling-3.0-tiny
+52.2 iceman
 50.1 nemotron-3.5-bolt-e4b
 49.8 codestral-25.08
 47.5 neomorph
