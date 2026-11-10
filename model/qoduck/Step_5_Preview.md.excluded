@@ -1,0 +1,51 @@
+# Qoduck — findings by Step 5 Preview (self-excluded: no verified public benchmarks)
+
+- Source: Qoder (BRIGHT ZENITH PRIVATE LIMITED) / `Qoduck` (stealth, identity undisclosed)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** A stealth model in Qoder's model picker whose identity the vendor has not disclosed. Qoder is an Alibaba-linked AI coding product (Qoder International / Qoder CN); community fingerprint guesses pointing at the Qwen family are explicitly unconfirmed and are not treated as identity here. No parameter count, architecture, context window, knowledge cutoff or benchmark has been published.
+- **Provider / access:** Qoder International (web/desktop app) only — individual accounts on Free / Pro Trial / Lite / Pro / Pro+ / Ultra plans. Not available to Teams or Enterprise, and not (yet) in the Qoder IDE, JetBrains plugin or CLI. No public API route or OpenCode Console/Zen listing exists — verified absent from the live OpenCode Console catalog.
+- **Release / knowledge:** first surfaced 2026-11-07 (Qoder docs + official @qoder_ai_ide post, Singapore time); release date of the underlying weights unknown; knowledge cutoff unknown.
+- **IDs:** no vendor model ID published; it appears simply as "Qoduck" in the Qoder model picker.
+- **Context window:** not disclosed (no verified public score/spec found).
+- **Modalities:** not disclosed (an AI-coding-product chat model; text in/out assumed but not vendor-stated). "Thinking intensity" is selectable, implying a reasoning model — vendor wording, not a measured fact.
+- **Pricing (as of 2026-11-10):** Qoder Credit rate 0.5× standard; a limited-time promotion (2026-11-07 to 2026-11-11 10:00 UTC+8) drops the rate to 0.0× within a daily free allowance for individual users, including at maximum thinking intensity; paid subscribers get more free uses than free users. No per-1M-token dollar pricing published.
+- **Architecture:** undisclosed (stealth).
+
+### Raw benchmarks found
+
+- Every benchmark row reads **no verified public score found**: no official parameter counts, context window, leaderboard scores or head-to-head results have been published, and community "fingerprint" / pelican-test posts are unofficial and cannot be treated as identity or capability confirmation (per the AICoder newsroom summary of the official sources).
+- Terminal-Bench 2.1 / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found.
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found.
+- MRCR / RULER / GraphWalks long-context retrieval: no verified public score found.
+- The model is explicitly time-boxed on the vendor side: "Qoduck will be removed when the promotion ends" (2026-11-11 10:00 UTC+8), and the vendor warns of peak-hour queueing during high demand.
+
+### Normalized scores (1–100)
+
+Not computed — self-exclusion. With zero verified public benchmarks for this exact model/ID, no quality dimension (Tool use, Reasoning, Context window, Multimodal, Coding) can be normalized without hallucinating values, so no `Overall Score` exists and this file stays `.excluded` (per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md` permanence: one fabricated number would drag the mean for every reader).
+
+- Tool use: no verified public score found
+- Reasoning: no verified public score found
+- Context window: no verified public score found
+- Multimodal: no verified public score found
+- Coding: no verified public score found
+- Cost efficiency: no verified public score found (only Qoder Credit multipliers 0.5× standard / 0.0× promotional — no dollar pricing)
+- Overall Score: not computable (zero verified benchmarks)
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-10
+- Method: public internet research (Qoder official docs event page, official @qoder_ai_ide announcement, AICoder newsroom summary citing those sources, and an OpenCode Console catalog check); this is a negative-findings report for an undisclosed stealth model — no scores assigned.
+- Reference URLs:
+  - [Qoder docs — Qoduck: Try the Stealth Model Free for a Limited Time](https://docs.qoder.com/events/qoduck-free)
+  - [AICoder — Qoder Ships Stealth Model Qoduck: Daily Free Allowance at 0.0x Credits; Identity Undisclosed](https://aicoder.com/news/news-20261107-qoder-qoduck-stealth-model-daily-free-0x-credits)
+  - [OpenCode Console docs — model catalog (no Qoduck route)](https://opencode.ai/docs/zen/)
+- Future sources: if Qoder discloses Qoduck's identity and publishes benchmarks, a fresh scored report can replace this file with genuinely new verified evidence.

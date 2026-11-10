@@ -1,0 +1,26 @@
+# Qwen3.8 Omni Flash — findings by Glyph Cluster (self-excluded)
+
+- Source: Alibaba/Qwen (`qwen/qwen3.8-omni-flash`, folder slug `qwen-3.8-omni-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `qwen-3.8-omni-flash` / `qwen/qwen3.8-omni-flash` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): OpenRouter lists `qwen/qwen3.8-omni-flash` with provider/API access and pricing around $0.15/$0.47 per 1M tokens in the fetched snapshot, supporting chat-completions parameters including tools/reasoning options.
+- Artificial Analysis model page for this exact slug/ID was not accessible (404 in fetched attempt), and no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, LiveCodeBench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (OpenRouter, Artificial Analysis lookup attempt); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [OpenRouter — qwen/qwen3.8-omni-flash](https://openrouter.ai/qwen/qwen3.8-omni-flash)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

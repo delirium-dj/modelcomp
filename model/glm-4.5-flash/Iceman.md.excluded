@@ -1,0 +1,57 @@
+# GLM 4.5 Flash — findings by Iceman
+
+- Source: Z.ai/GLM-4.5-Flash
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM-4.5-Flash
+- **Short description:** Z.ai’s GLM-4.5-Flash is described in local metadata as a free-tier lightweight language model (128K context) with dual thinking modes and optimized agentic tool execution.
+- **Provider / access:** Z.ai developer platform / OpenCode Zen (per metadata). Local metadata lists `opencode/glm-4.5-flash`, pricing free ($0.00/$0.00), and `noFreeId: false`.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `glm-4.5-flash`, `opencode/glm-4.5-flash`.
+- **Context window:** 128,000 tokens total (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** Free on Zen; $0.00/$0.00 on Z.ai developer platform (local metadata/pricing page lists GLM-4.5-Flash as free).
+- **Architecture:** Lightweight/distilled variant relative to flagship GLM-4.5 per metadata; detailed architecture/parameter count not publicly disclosed in accessible sources.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Z.ai pricing documentation, which lists GLM-4.5-Flash as a free model, but I could not find an accessible official model card or independently verifiable standardized benchmark numerics for this exact model in this pass. Local metadata provides capability claims (thinking modes, tool calling, up to 98K output) but no verifiable benchmark scores. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool-calling support claimed in metadata; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Z.ai pricing/docs and local metadata; no verifiable standardized benchmark source found.
+- Reference URLs:
+  - [Z.ai pricing](https://docs.z.ai/guides/overview/pricing)
+  - Local repository metadata consulted: `model/glm-4.5-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

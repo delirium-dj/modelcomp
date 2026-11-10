@@ -1,0 +1,28 @@
+# Grok 4.5 — findings by Glyph Cluster (self-excluded)
+
+- Source: SpaceXAI/xAI (`x-ai/grok-4.5`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `grok-4.5` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): Artificial Analysis lists Grok 4.5 (High) as a deprecated proprietary reasoning model (released 2026-07-08) with 500k context window, text+image input, text output, and pricing around $2.00/$6.00 per 1M tokens in the fetched snapshot. xAI developer docs list `grok-4.5` with 500k context and tiered pricing ($2/$6 under 200k prompt tokens, $4/$12 at/above 200k). OpenRouter lists `x-ai/grok-4.5`.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot; no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, LiveCodeBench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, xAI developer docs, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Grok 4.5 (High)](https://artificialanalysis.ai/models/grok-4-5)
+  - [xAI Developers — Models](https://docs.x.ai/developers/models)
+  - [OpenRouter — x-ai/grok-4.5](https://openrouter.ai/x-ai/grok-4.5)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

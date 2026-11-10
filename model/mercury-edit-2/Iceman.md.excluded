@@ -1,0 +1,57 @@
+# Mercury Edit 2 — findings by Iceman
+
+- Source: Inception Labs/Mercury Edit 2
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs’ Mercury Edit 2 is a diffusion-based next-edit prediction model for code autocomplete (FIM) and multi-line edits, specialized for low-latency editor workflows.
+- **Provider / access:** Inception Labs API. Local metadata lists `inception/mercury-edit-2`, pricing $0.25/$0.75 per 1M ($0.025 cached), and 32K context.
+- **Release / knowledge:** Inception Labs docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `mercury-edit-2`, `inception/mercury-edit-2`.
+- **Context window:** 32,000 tokens total; 8,192 max output.
+- **Modalities:** Text input; text output.
+- **Pricing (as of 2026-11-10):** $0.25/$0.75 per 1M in/out ($0.025 cached) per metadata/docs.
+- **Architecture:** Proprietary diffusion-based code editing model (closed weights). Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Mercury Edit 2 is a specialized FIM/next-edit endpoint model rather than a general conversational/chat benchmark target. Inception Labs docs reviewed via `webfetch` provide API usage/specs and pricing but no independently verifiable standardized benchmark numerics (e.g. SWE-bench, LiveCodeBench, HumanEval-style public suite results) for this exact model. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Editor/editing workflow specialization (FIM, next-edit) supported; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- Specialized for autocomplete/multi-line diffs, but SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 32K context; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only.
+
+### Normalized scores (1–100)
+
+Not provided. Specialized edit model without independently verified standardized benchmark evidence in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Inception Labs docs and local metadata; no verifiable standardized benchmark numerics extracted.
+- Reference URLs:
+  - [Inception Labs models docs](https://docs.inceptionlabs.ai/get-started/models)
+  - Local repository metadata consulted: `model/mercury-edit-2/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

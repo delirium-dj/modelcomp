@@ -1,0 +1,28 @@
+# Gemini 3.6 Flash — findings by Glyph Cluster (self-excluded)
+
+- Source: Google (`google/gemini-3.6-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gemini-3.6-flash` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): Google AI docs describe `gemini-3.6-flash` as a previous-generation Flash model with 1,048,576 input token limit, 65,536 output token limit, text/image/video/audio/PDF inputs and text output, and capabilities including thinking, function calling, code execution, grounding, caching, structured outputs, and tool use. Artificial Analysis lists Gemini 3.6 Flash (High) as deprecated (released 2026-07-21) with 1M context, multimodal inputs, text output, and pricing around $0.75/$3.75 per 1M tokens in the fetched snapshot. OpenRouter lists `google/gemini-3.6-flash` with provider routing/pricing.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot; no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Google AI docs, Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Google AI docs — Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash)
+  - [Artificial Analysis — Gemini 3.6 Flash (High)](https://artificialanalysis.ai/models/gemini-3-6-flash)
+  - [OpenRouter — google/gemini-3.6-flash](https://openrouter.ai/google/gemini-3.6-flash)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

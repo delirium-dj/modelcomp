@@ -1,0 +1,57 @@
+# GLM 4.6V — findings by Iceman
+
+- Source: Zhipu AI/GLM-4.6V (folder `glm-4.6v-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 4.6V (as listed in local metadata for folder `glm-4.6v-flash`)
+- **Short description:** Local metadata describes this entry as Zhipu AI’s GLM 4.6V, a mid-range model (1M context) for general text tasks with limited public benchmark data.
+- **Provider / access:** Zhipu AI. Local metadata lists `zhipuai/glm-4.6v-flash`, 1M context, paid pricing ($5/$25 per 1M), and no clearly attributable official model page for this exact ID in accessible sources.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `glm-4.6v-flash`, `GLM 4.6V`.
+- **Context window:** 1,000,000 tokens (local metadata).
+- **Modalities:** Text input/output (local metadata).
+- **Pricing (as of 2026-11-10):** Paid $5/$25 per 1M in/out (local metadata).
+- **Architecture:** Proprietary/undisclosed. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I could not find a clearly attributable, accessible official model card or independently verifiable public benchmark/spec source for the exact `glm-4.6v-flash`/`GLM 4.6V` identity in this folder during this pass. Local metadata notes limited public benchmark data. Accessible Zhipu/third-party sources reviewed did not provide standardized benchmark numerics attributable to this exact ID. To avoid identity confusion or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata; no multimodal benchmark scores.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, clearly attributable public benchmark/spec evidence for this exact model identity; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no clearly attributable official/verified benchmark source found for this exact ID.
+- Reference URLs:
+  - [Zhipu AI (GLM models)](https://www.zhipuai.com/zh/model/glm)
+  - Local repository metadata consulted: `model/glm-4.6v-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

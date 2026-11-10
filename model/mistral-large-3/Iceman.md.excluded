@@ -1,0 +1,58 @@
+# Mistral Large 3 — findings by Iceman
+
+- Source: Mistral AI/Mistral Large 3
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mistral Large 3
+- **Short description:** Mistral Large 3 is an Apache-2.0 open-weights MoE flagship (675B total / 41B active, 256K context, text+image input) released 2025-12-02 and later superseded by Mistral Large 4.
+- **Provider / access:** Open weights (Apache 2.0) and hosted providers (e.g. Mistral La Plateforme). Local metadata lists `opencode/mistral-large-3`, pricing $0.50/$1.50 per 1M, and `noFreeId`.
+- **Release / knowledge:** Artificial Analysis model page and local metadata reviewed 2026-11-10. AA marks the model deprecated/superseded. Knowledge cutoff not explicitly stated in accessible reviewed content.
+- **IDs:** `mistral-large-3`, `mistral-large-3-2512`, `opencode/mistral-large-3`.
+- **Context window:** 256,000 tokens.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** $0.50/$1.50 per 1M in/out hosted (AA/metadata); self-host $0 under Apache 2.0.
+- **Architecture:** Sparse MoE, 675B total / 41B active parameters, native vision support (AA/metadata).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the Artificial Analysis page for Mistral Large 3, which indicates the model is deprecated and does not provide an Intelligence Index or clearly extractable standardized benchmark numerics in the accessible content. Local metadata also notes reasoning/tool/coding figures rest on provisional secondary evidence. No independently verifiable, clearly attributable standardized benchmark suite for this exact model was obtained in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** (AA shows N/A/deprecated context)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 256K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input supported; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, clearly extractable standardized public benchmark evidence for this exact deprecated model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Artificial Analysis and local metadata; no verifiable standardized benchmark numerics extracted.
+- Reference URLs:
+  - [Mistral Large 3 (Artificial Analysis)](https://artificialanalysis.ai/models/mistral-large-3)
+  - [Mistral pricing](https://mistral.ai/pricing)
+  - Local repository metadata consulted: `model/mistral-large-3/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

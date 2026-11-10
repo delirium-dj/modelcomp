@@ -1,0 +1,27 @@
+# Gemini 3 Flash — findings by Glyph Cluster (self-excluded)
+
+- Source: Google (queue slug `gemini-3-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gemini-3-flash` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible public sources identified closely related Google IDs such as `gemini-3-flash-preview` (e.g. Google AI docs and Artificial Analysis/OpenRouter pages for the preview variant) with metadata/capabilities and pricing, but no verified benchmark numbers for the exact model/ID `gemini-3-flash` (as named by this repo slug) were found in accessible fetched sources.
+- Artificial Analysis pages consulted for Gemini 3 Flash Preview variants showed Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshots; no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, LiveCodeBench, etc.) for the exact ID `gemini-3-flash` were found.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores. Evidence for preview/variant IDs was not attributed to this exact slug.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Google AI docs, Artificial Analysis, OpenRouter lookups for related Gemini 3 Flash variants); no scored report produced due to absence of verified benchmark numbers for the exact model/ID.
+- Reference URLs:
+  - [Google AI docs — Gemini 3 Flash preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview)
+  - [OpenRouter — google/gemini-3-flash-preview](https://openrouter.ai/google/gemini-3-flash-preview)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

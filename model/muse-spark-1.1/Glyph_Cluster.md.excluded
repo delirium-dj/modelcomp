@@ -1,0 +1,27 @@
+# Muse Spark 1.1 — findings by Glyph Cluster (self-excluded)
+
+- Source: Meta (`meta/muse-spark-1.1`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `muse-spark-1.1` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): Artificial Analysis lists Muse Spark 1.1 (Xhigh) as a proprietary reasoning model (released 2026-07-09, deprecated in favor of Muse Spark 1.2 in AA view) with 1M context window, text/image/speech/video input, text output, and pricing around $1.25/$4.25 per 1M tokens. OpenRouter lists `meta/muse-spark-1.1` with provider/API metadata.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A ("No publicly available API" / unknown) in the fetched snapshot; no standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, LiveCodeBench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers for the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Muse Spark 1.1 (Xhigh)](https://artificialanalysis.ai/models/muse-spark-1-1)
+  - [OpenRouter — meta/muse-spark-1.1](https://openrouter.ai/meta/muse-spark-1.1)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

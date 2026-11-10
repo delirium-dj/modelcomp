@@ -1,0 +1,58 @@
+# Exo Free — findings by Iceman
+
+- Source: OpenCode Zen stealth slot (exo-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** An unidentified vendor’s free OpenCode Zen stealth slot (1M context, image input) that was available briefly in Oct 2026 and is now deprecated/retired (HTTP 410), with no vendor card or published benchmarks.
+- **Provider / access:** Former OpenCode Zen free tier (`opencode/exo-free`). Local metadata states the slot is retired (HTTP 410) and the vendor was never identified.
+- **Release / knowledge:** Not officially announced; short-lived preview (~2026-10-06 to ~2026-10-09). Knowledge cutoff not stated.
+- **IDs:** `exo-free`, `opencode/exo-free`.
+- **Context window:** 1,048,576 tokens total (131,072 max output) per metadata.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** Was free $0/$0/$0 during limited preview; now deprecated/unavailable.
+- **Architecture:** Proprietary/undisclosed. Vendor and parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: The `exo-free` slot is retired/deprecated (HTTP 410 per metadata) and had no identified vendor, official model card, or published benchmark results. No independently verifiable public benchmark/spec evidence exists for this exact slot. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input claimed; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Retired stealth slot with no vendor disclosure or verified benchmark evidence; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review using alternative web access (`webfetch`) to OpenCode docs/changelog and local metadata; slot retired and no verifiable benchmark source found.
+- Reference URLs:
+  - [OpenCode changelog](https://opencode.ai/changelog)
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - Local repository metadata consulted: `model/exo-free/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

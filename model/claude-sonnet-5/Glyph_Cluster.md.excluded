@@ -1,0 +1,29 @@
+# Claude Sonnet 5 — findings by Glyph Cluster (self-excluded)
+
+- Source: Anthropic (`claude-sonnet-5`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `claude-sonnet-5` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): Anthropic announced Claude Sonnet 5 on 2026-06-30 as a more agentic Sonnet model (`claude-sonnet-5`) positioned close to Opus 4.8 at lower cost, with availability across Claude plans and API pricing reported as $2/$10 per 1M tokens (announcement notes pricing/tokenizer details). Artificial Analysis lists Claude Sonnet 5 (Max) as a proprietary reasoning model with 1M context window, text+image input, text output, and pricing around $2/$10 (snapshot). OpenRouter lists `anthropic/claude-sonnet-5` with provider routing and API capabilities.
+- The Anthropic announcement references benchmark comparisons (e.g. BrowseComp, OSWorld-Verified, Humanity's Last Exam, SWE-bench Verified, MRCR v2, GDPval-AA, etc.) and links to the Claude Sonnet 5 system card, but accessible fetched text did not provide extractable numeric benchmark scores for this exact model (charts/tables/images in announcement; system card fetched as unsupported PDF content type in this environment). Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Anthropic announcement, Artificial Analysis, OpenRouter); no scored report produced due to absence of extractable verified benchmark numbers for the exact model in accessible text sources.
+- Reference URLs:
+  - [Anthropic — Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)
+  - [Anthropic — Claude Sonnet 5 System Card](https://www.anthropic.com/claude-sonnet-5-system-card)
+  - [Artificial Analysis — Claude Sonnet 5 (Max)](https://artificialanalysis.ai/models/claude-sonnet-5)
+  - [OpenRouter — anthropic/claude-sonnet-5](https://openrouter.ai/anthropic/claude-sonnet-5)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

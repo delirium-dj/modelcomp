@@ -1,0 +1,57 @@
+# Big Pickle — findings by Iceman
+
+- Source: OpenCode Zen stealth slot (big-pickle)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Big Pickle
+- **Short description:** OpenCode Zen’s long-running free stealth slot (200K context, text-only, $0) with disputed/unstable underlying model identity (maintainer-confirmed GLM-4.6 in 2025, DeepSeek-class by mid-2026 per metadata).
+- **Provider / access:** OpenCode Zen free stealth tier (`opencode/big-pickle`). Local metadata notes no published end date and that data may be used to improve the model.
+- **Release / knowledge:** Not officially announced as a stable named model; underlying checkpoint may have changed in place. Knowledge cutoff not stated.
+- **IDs:** `big-pickle`, `opencode/big-pickle`.
+- **Context window:** 200,000 tokens total (32,000 max output).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** Free $0/$0/$0 on OpenCode Zen (no published end date).
+- **Architecture:** Undisclosed/disputed; underlying checkpoint not stable or officially identified.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: `big-pickle` is a stealth slot with disputed and potentially mutable underlying identity. Local metadata cites only one third-party measurement (SWE-Atlas 50.8%) and notes no tracker coverage/attribution to a stable model. I did not find an accessible official model card or independently verifiable, clearly attributable standardized benchmark suite for a stable `big-pickle` identity. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified stable-model score found**
+
+Long context:
+
+- 200K context claimed; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, clearly attributable benchmark evidence for a stable model identity; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review using alternative web access (`webfetch`) to OpenCode Zen docs and local metadata; no verifiable stable-model benchmark source found.
+- Reference URLs:
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - Local repository metadata consulted: `model/big-pickle/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

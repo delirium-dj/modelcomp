@@ -1,0 +1,57 @@
+# Mercury 2.5 — findings by Iceman
+
+- Source: Inception Labs/Mercury 2.5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury 2.5
+- **Short description:** Inception Labs’ Mercury 2.5 is a closed-weights diffusion LLM (260K context) focused on high-throughput/low-latency reasoning and tool-structured workflows.
+- **Provider / access:** Inception Labs API / hosted providers. Local metadata lists `inception/mercury-2.5`, pricing $0.20/$0.75 per 1M (list) with cached pricing, and notes closure to new users on 2026-10-19 (superseded by Mercury 3).
+- **Release / knowledge:** Inception Labs docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `mercury-2.5`, `inception/mercury-2.5`.
+- **Context window:** 260,000 tokens total (65,536 max output).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** $0.20/$0.75 per 1M in/out list ($0.02 cached) per metadata/docs; launch/lower prices may appear on some providers.
+- **Architecture:** Proprietary diffusion LLM (closed weights). Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Inception Labs model documentation via `webfetch`, which provides specs, pricing, and capabilities (chat completions, tool calling, structured outputs, reasoning effort) but does not provide independently verifiable standardized benchmark numerics (e.g. GPQA, SWE-bench, Terminal-Bench, AIME) for this exact model. Local metadata cites latency and tau3-bench figures, but these were not independently verified from an accessible official benchmark source in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool calling / structured outputs supported (docs). Standardized agent/tool benchmark numerics: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- Reasoning effort supported (docs). GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found** (metadata notes no code benchmark at all).
+
+Long context:
+
+- 260K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only model.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified standardized benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Inception Labs docs and local metadata; no verifiable standardized benchmark numerics extracted.
+- Reference URLs:
+  - [Inception Labs models docs](https://docs.inceptionlabs.ai/get-started/models)
+  - Local repository metadata consulted: `model/mercury-2.5/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

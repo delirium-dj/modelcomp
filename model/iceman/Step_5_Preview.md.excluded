@@ -1,0 +1,56 @@
+# Iceman — findings by Step 5 Preview (self-excluded: no verified public benchmark scores)
+
+- Source: Unknown vendor (OpenCode stealth listing) / `iceman-contributor-free` (OpenCode Go), `iceman-free` (OpenCode Zen)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Iceman (Iceman Contributor on OpenCode Go; Iceman Free on OpenCode Zen)
+- **Short description:** An unclaimed stealth model listed by OpenCode since 2026-10-24 — no lab has claimed it and OpenCode deliberately shows the lab as "Unknown". The strongest identity lead (not confirmed) points to Microsoft's MAI: an outside tracker reports it introducing itself as "MAI, created and trained by Microsoft AI" and matching MAI Thinking 1's prompt-token counts exactly, though the same test also matches OpenAI's GPT-6 models token-for-token, so a token count cannot settle the question. It stays its own stealth-model entry (like Big Pickle) until a vendor claims it.
+- **Provider / access:** two OpenCode routes, both free for a limited time and both data-for-access trades:
+  - OpenCode Zen as `opencode/iceman-free` (`https://opencode.ai/inference/openai/v1/chat/completions`) — free in the OpenCode app with no plan to buy, usage-limited on direct API; during the free period collected data is retained and used to improve the model.
+  - OpenCode Go as `opencode-go/iceman-contributor-free` (`https://opencode.ai/inference/go/openai/v1/chat/completions`) — free with no usage cap, but requires a Go subscription from $10/month and the "Allow paid endpoints that train on request data" privacy setting.
+  - No non-OpenCode route published; no paid tier.
+- **Release / knowledge:** first listed 2026-10-24 (OpenCode PR #58792, models.dev catalog); Iceman Free added to Zen 2026-11-10. Knowledge cutoff unknown.
+- **IDs:** `iceman-contributor-free` (Go), `iceman-free` (Zen). Both are Free IDs, time-limited.
+- **Context window:** 262,144 tokens with up to 131,072 output tokens (models.dev catalog, carried by both routes).
+- **Modalities:** text input, text output; reasoning model with four effort levels (low, medium, high, xhigh — `max` is rejected); tool calls supported; closed weights.
+- **Pricing (as of 2026-11-10):** $0 on both OpenCode routes during the free period (Go requires a $10/month subscription; Zen is app-free). Both retain prompts/responses for training — no Zero Data Retention.
+- **Architecture:** undisclosed (closed weights); tokenizer behavior matches MAI Thinking 1 and the GPT-6 family exactly on 23/23 measured phrases (Stealth Models' own test).
+
+### Raw benchmarks found
+
+- **No verified public benchmark scores exist for this model.** Stealth Models benchmarked it on StealthMark (physical-reasoning games + SVG drawing tasks, 2026-10-25) and links the results, but no absolute score for Iceman is published in any source reachable from the public web — it does not appear on BenchLM's 42-model StealthMark leaderboard either. Every quality row below therefore reads "no verified public score found".
+- Measured, but not quality benchmarks: Stealth Models' own runs on OpenCode Go streamed **18–62 tokens/second (~46 average)** at low effort with **~0.9s time to first answer token**.
+- Traffic evidence (OpenCode's public data page): 10,856 users and ~417 billion tokens on day one (2026-10-24); 3.37 trillion tokens across the two ids from 2026-10-23 to 2026-11-04; daily peak 653 billion tokens on 2026-10-28.
+- Terminal-Bench 2.1 / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / OSWorld: no verified public score found (tool calls documented, never measured publicly).
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found.
+- MRCR / RULER / GraphWalks long-context retrieval: no verified public score found (only the 262,144-token window itself is documented).
+
+### Normalized scores (1–100)
+
+Not computed — self-exclusion. With zero verified public benchmark numbers for this exact model/ID, none of the five quality dimensions can be normalized without hallucinating values, so no `Overall Score` exists and this file stays `.excluded` (per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md` permanence: one fabricated number would drag the mean for every reader).
+
+- Tool use: no verified public score found
+- Reasoning: no verified public score found
+- Context window: no verified public score found (262,144-token window documented; no retrieval measurement)
+- Multimodal: no verified public score found (text-only by documentation)
+- Coding: no verified public score found
+- Cost efficiency: no verified public score found ($0 on both OpenCode routes, but both retain data for training and the free period is time-limited)
+- Overall Score: not computable (zero verified benchmarks)
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-10
+- Method: public internet research (Stealth Models' independent Iceman Contributor guide, ArtificialWatch's usage analysis sourcing OpenCode's own data page and PR #58792, the OpenCode Zen docs catalog, and the models.dev entry); this is a negative-findings report on an unclaimed stealth model — no scores assigned.
+- Reference URLs:
+  - [Stealth Models — Iceman Contributor: the stealth model on OpenCode (identity tests, specs, access, speed runs)](https://stealthmodels.com/iceman-contributor)
+  - [ArtificialWatch — Iceman has run 3.4 trillion tokens; no lab has claimed it](https://artificialwatch.com/wire/iceman-opencode-stealth-model-3-trillion-tokens-unclaimed)
+  - [OpenCode Zen docs — model catalog, routes and free-tier privacy notes (Iceman Free)](https://opencode.ai/docs/zen/)
+  - [OpenCode Data — iceman usage board](https://opencode.ai/data/unknown/iceman)
+- Future sources: when a lab claims Iceman and publishes real benchmarks — or when StealthMark's absolute scores appear — a fresh scored report can replace this file with genuinely new verified evidence.

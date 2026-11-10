@@ -1,0 +1,59 @@
+# Mercury 3 — findings by Iceman
+
+- Source: Inception Labs/Mercury 3
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury 3
+- **Short description:** Inception Labs’ Mercury 3 is a flagship diffusion LLM (dLLM) with non-autoregressive parallel decoding (>1,000 tok/s), 1M context, and text-only tool/function-calling support.
+- **Provider / access:** Inception Labs / hosted providers (e.g. OpenRouter per metadata). Local metadata lists `inception/mercury-3`, pricing $0.10/$0.35 per 1M, and `noFreeId`.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `mercury-3`, `inception/mercury-3`.
+- **Context window:** 1,000,000 tokens total; 128,000 max output (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** $0.10/$0.35 per 1M in/out (local metadata).
+- **Architecture:** Proprietary diffusion LLM (non-autoregressive parallel decoding). Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Accessible official/provider pages attempted in this pass (`inceptionlabs.ai/mercury-3/`, OpenRouter model page) returned 404/unavailable content via `webfetch`, and no other independently verifiable public benchmark source with clearly attributable standardized numerics for this exact model was obtained. Local metadata cites figures (e.g. GPQA 89.2%, MRCR 75.5%, SWE-bench 38.5%) but these were not independently verified from an accessible source here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool/function calling and JSON mode claimed in metadata; standardized agent/tool benchmark numerics not found.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone verified long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only model.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`); attempted official/provider pages unavailable and no verified benchmark source obtained.
+- Reference URLs:
+  - Attempted (404): [Mercury 3 (Inception Labs)](https://inceptionlabs.ai/mercury-3/)
+  - Attempted (404): [Mercury 3 (OpenRouter)](https://openrouter.ai/inception/mercury-3)
+  - Local repository metadata consulted: `model/mercury-3/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

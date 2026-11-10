@@ -1,0 +1,57 @@
+# Owo 2.5 — findings by Iceman
+
+- Source: Owo/Owo 2.5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owo 2.5
+- **Short description:** Local metadata describes Owo 2.5 as a proprietary LLM (1M context) with multimodal input and tool use, hosted via the Owo API and OpenCode Zen.
+- **Provider / access:** Owo / hosted providers (per metadata). Local metadata lists `opencode/owo-2.5`, pricing $0.40/$3.20 per 1M, and 1M context.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `owo-2.5`, `opencode/owo-2.5`.
+- **Context window:** 1,048,576 tokens total; 256,000 max output (local metadata).
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** $0.40/$3.20 per 1M in/out (official Owo API docs per metadata).
+- **Architecture:** Proprietary/undisclosed. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the accessible OwO website content, but it did not provide an official model card or verifiable standardized benchmark/spec details for `Owo 2.5`. No independently verifiable public benchmark numerics for this exact model were obtained in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool use claimed in metadata; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input claimed; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable model card/benchmark source found.
+- Reference URLs:
+  - [OwO website](https://owo.ai)
+  - Local repository metadata consulted: `model/owo-2.5/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,28 @@
+# Gemini 2.5 Pro — findings by Glyph Cluster (self-excluded)
+
+- Source: Google (`google/gemini-2.5-pro`, `gemini-2.5-pro`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `gemini-2.5-pro` in accessible sources at time of research.
+
+## Research notes
+
+- Verified metadata from accessible sources (not benchmark scores): Google AI docs list `gemini-2.5-pro` as a deprecated thinking model (knowledge cutoff Jan 2025, 1,048,576 input / 65,536 output token limits) supporting audio/image/video/text/PDF inputs and text output, with capabilities including thinking, function calling, code execution, grounding, caching, structured outputs, and tool use. Artificial Analysis lists Gemini 2.5 Pro as a proprietary reasoning model (released 2025-06-05) with 1M context, multimodal inputs, and pricing around $1.25/$10.00 per 1M tokens in the fetched snapshot. OpenRouter lists `google/gemini-2.5-pro`.
+- Artificial Analysis reported Intelligence Index and task-level benchmark aggregates as unavailable/N/A in the fetched snapshot. Public benchmark claims for Gemini 2.5 Pro exist historically, but no extractable verified benchmark numbers for this exact model/ID were captured from the accessible fetched sources in this session (docs/aggregator pages did not provide numeric benchmark results in text).
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Google AI docs, Artificial Analysis, OpenRouter); no scored report produced due to absence of extractable verified benchmark numbers for the exact model in fetched sources.
+- Reference URLs:
+  - [Google AI docs — Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro)
+  - [Artificial Analysis — Gemini 2.5 Pro](https://artificialanalysis.ai/models/gemini-2-5-pro)
+  - [OpenRouter — google/gemini-2.5-pro](https://openrouter.ai/google/gemini-2.5-pro)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

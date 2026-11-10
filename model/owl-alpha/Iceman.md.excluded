@@ -1,0 +1,57 @@
+# Owl Alpha — findings by Iceman
+
+- Source: OpenRouter alias / unknown vendor (owl-alpha)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owl Alpha
+- **Short description:** Retired vendorless OpenRouter stealth alias with a reported ~1.05M context; endpoint is no longer available and no vendor, weights, or public benchmark scores are documented.
+- **Provider / access:** Former free OpenRouter alias endpoint (retired). Local metadata lists `owl-alpha`, `noFreeId`, and endpoint retirement (404).
+- **Release / knowledge:** Not publicly disclosed. Knowledge cutoff not stated.
+- **IDs:** `owl-alpha`.
+- **Context window:** ~1,048,576 tokens (third-party listing only, per metadata).
+- **Modalities:** Text input/output (reported).
+- **Pricing (as of 2026-11-10):** Was free on OpenRouter during alias period; endpoint retired (404).
+- **Architecture:** Proprietary/undisclosed. Vendor and parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: The OpenRouter model page for `owl-alpha` returned HTTP 404 during this pass, and no vendor, official model card, weights, or independently verifiable public benchmark/spec source for this exact alias was found. Local metadata explicitly characterizes the folder as a documented absence/self-exclusion context. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- ~1M context claimed in third-party listing; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- No multimodal capability verified.
+
+### Normalized scores (1–100)
+
+Not provided. No accessible endpoint, vendor documentation, or verified public benchmark/spec evidence exists for this retired alias; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`); OpenRouter page returned 404 and no verified source found.
+- Reference URLs:
+  - Attempted (404): [OpenRouter owl-alpha](https://openrouter.ai/owl-alpha)
+  - Local repository metadata consulted: `model/owl-alpha/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,59 @@
+# Glyph Cluster — findings by Flint
+
+- Source: Vercel (`stealth/glyph-cluster`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Glyph Cluster (anonymous stealth reasoning model; Vercel AI Gateway stealth listing)
+- **Short description:** Anonymous stealth reasoning model in early access (maker not confirmed; attributed to Microsoft AI / MAI research telemetry), text-only reasoning for coding and long-context work; free during its stealth period via Vercel AI Gateway (Pro/Enterprise teams with purchased AI Gateway credits) and OpenRouter (`stealth/glyph-cluster`).
+- **Provider / access:** Vercel AI Gateway / OpenRouter (`stealth/glyph-cluster`); free preview tier ($0/$0/$0); function calling present; no structured outputs; no image input; no zero data retention, so prompts and responses may be used for training.
+- **Release / knowledge:** Stealth catalog listing spotted 2026-10-07 (Vercel AI Gateway); early access.
+- **IDs:** `stealth/glyph-cluster`; attributed maker Microsoft AI / MAI.
+- **Context window:** 256,000 total; max output 256,000 — per curated meta (`model/glyph-cluster/meta.json`) and tracker listings.
+- **Modalities:** Text in; text out.
+- **Pricing (as of 2026-11-10):** Free preview tier ($0/$0/$0 via Vercel AI Gateway & OpenRouter).
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+
+- BenchLM decision reading: **53.6** out of 100, rank #84 of 214; strongest eligible category Instruction Following at #73; 21 source-displayable benchmark rows.
+- Terminal-Bench 2.1: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+
+Reasoning / knowledge:
+
+- Math: no verified public score found.
+- GPQA Diamond: no verified public score found.
+
+Coding:
+
+- no verified public score found.
+
+Long context:
+
+- no long-context retrieval reported.
+
+### Normalized scores (1–100)
+
+> **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every benchmark row above reads "no verified public score found" and no normalized capability scores could be derived. This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
+
+- **Overall Score: 0/100.** Zero verified benchmarks found; file excluded from scoring.
+
+---
+
+## Signature
+
+Provided by: **Flint (recursive/flint-v1.0)** — 2026-11-10
+Method: public internet research (Vercel changelog, AI Tracker, eval-source listings); scores are normalized 1-100 interpretations, not official vendor scores. No scores emitted — file is `.excluded`.
+- Reference URLs:
+  - [Vercel changelog: Glyph Cluster is now available in stealth for free on AI Gateway](https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway)
+  - [AI Tracker: stealth/glyph-cluster](https://live.aitracker.bot/glyph-cluster)
+  - [Vibehacker: Vercel puts stealth reasoning model Glyph Cluster free on AI Gateway for coding agents](https://www.vibehacker.com/news/vercel-puts-stealth-reasoning-model-glyph-cluster-free-on-ai-gateway-for-coding-/)
+- Future sources: add a new file next to this one, e.g. `Flint_2.md`, using the same headings.

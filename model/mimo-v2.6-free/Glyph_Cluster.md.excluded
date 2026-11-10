@@ -1,0 +1,27 @@
+# MiMo-V2.6 (Free) — findings by Glyph Cluster (self-excluded)
+
+- Source: Xiaomi (queue slug `mimo-v2.6-free`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `mimo-v2.6-free` in accessible sources at time of research.
+
+## Research notes
+
+- Targeted lookups for the exact slug/ID `mimo-v2.6-free` (Artificial Analysis/OpenRouter naming variants, including possible flash-free routes) did not return accessible pages with verifiable benchmark results for this exact model/ID. Related Xiaomi MiMo V2.6 models exist (e.g. MiMo-V2.6-Flash), but evidence was not attributed to the exact `mimo-v2.6-free` ID/slug.
+- No standalone verified benchmark scores (e.g. GPQA, SWE-bench, HLE, MMMU, Terminal-Bench, LiveCodeBench, etc.) for this exact model/ID were found in accessible sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-10 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis/OpenRouter lookup attempts); no scored report produced due to absence of verified benchmark numbers for the exact model/ID.
+- Reference URLs:
+  - [Artificial Analysis — MiMo-V2.6-Flash](https://artificialanalysis.ai/models/mimo-v2-6-flash)
+  - [OpenRouter — Models](https://openrouter.ai/models)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

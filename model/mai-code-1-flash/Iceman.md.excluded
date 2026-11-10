@@ -1,0 +1,58 @@
+# MAI-Code-1-Flash — findings by Iceman
+
+- Source: Microsoft/MAI-Code-1-Flash
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI-Code-1-Flash
+- **Short description:** Microsoft’s MAI-Code-1-Flash is described as a Copilot-native agentic coding model (5B active, 256K context) positioned for efficient software engineering tasks.
+- **Provider / access:** Microsoft AI / GitHub Copilot contexts per metadata. Local metadata lists `microsoft/mai-code-1-flash`, pricing $0.75/$4.50 per 1M, and `noFreeId`.
+- **Release / knowledge:** Models.dev listing and local metadata reviewed 2026-11-10. Official Microsoft announcement URL in metadata returned 404 in this pass. Knowledge cutoff listed as 2025-12 on models.dev.
+- **IDs:** `mai-code-1-flash`, `MAI-Code-1-Flash`.
+- **Context window:** 256,000 tokens total; 128,000 max output (models.dev/metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** $0.75/$4.50 per 1M in/out (GitHub Copilot/models.dev per metadata); no first-party Microsoft price card published.
+- **Architecture:** Proprietary closed model (5B active per metadata). Architecture details not publicly disclosed in accessible sources.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed models.dev and attempted the official Microsoft announcement URL from metadata, but the announcement returned 404 and no independently verifiable, clearly extractable standardized benchmark numerics for this exact model were obtained from accessible sources in this pass. Local metadata cites figures (e.g. SWE-Bench Pro 51.2%) but notes several evals exist only as chart images and were not independently verified here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+
+Long context:
+
+- 256K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only model.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, extractable public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to models.dev and attempted official announcement; no verifiable standardized benchmark numerics extracted.
+- Reference URLs:
+  - [MAI-Code-1-Flash (models.dev)](https://models.dev/models/microsoft/mai-code-1-flash)
+  - Attempted (404): `https://microsoft.ai/news/introducing-mai-code-1-flash/`
+  - Local repository metadata consulted: `model/mai-code-1-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

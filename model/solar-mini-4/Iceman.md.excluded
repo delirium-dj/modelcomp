@@ -1,0 +1,58 @@
+# Solar Mini 4 — findings by Iceman
+
+- Source: Upstage/Solar Mini 4
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Solar Mini 4
+- **Short description:** Upstage’s Solar Mini 4 is a compact proprietary reasoning MoE model (35B total/3B active, 512K context class) positioned for efficient long-context text reasoning.
+- **Provider / access:** Upstage API / hosted providers. Local metadata lists `upstage/solar-mini4`, pricing ~$0.10/$0.40 list (promo $0.05/$0.20), and `noFreeId`.
+- **Release / knowledge:** Upstage console docs page reviewed 2026-11-10 but did not yield extractable standardized benchmark numerics in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `solar-mini4`, `upstage/solar-mini4`.
+- **Context window:** 524,288 tokens total; 131,072 max output (metadata; AA states 1M in some contexts).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** List $0.10/$0.40 per 1M in/out, $0.01 cached; promo $0.05/$0.20 through 2026-10-23 per metadata.
+- **Architecture:** Proprietary closed MoE model (35B total/3B active per metadata). No open weights.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Upstage’s console/docs page for Solar Mini 4 via `webfetch`, but the accessible extracted content did not provide clearly verifiable standardized benchmark numerics for this exact model. Local metadata cites AA-based figures (e.g. AA Intelligence Index 24, AA-LCR 83.3%, Terminal-Bench 4.0 1.0%) but these were not independently verified from an accessible official benchmark source in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 512K context class claimed; no independently verified standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only model.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, extractable standardized benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Upstage console/docs and local metadata; benchmark numerics not clearly extractable/verifiable from accessible official content.
+- Reference URLs:
+  - [Solar Mini 4 docs (Upstage Console)](https://console.upstage.ai/docs/models/solar-mini-4)
+  - [Solar Mini 4 (OpenRouter)](https://openrouter.ai/upstage/solar-mini4)
+  - Local repository metadata consulted: `model/solar-mini-4/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,57 @@
+# Qoder Sonus — findings by Iceman
+
+- Source: Qoder/Sonus 1.0
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Local metadata describes Qoder Sonus as a computer-operation specialized model for coding, financial modeling, and complex desktop/software tasks (128K context, text in/out).
+- **Provider / access:** Qoder platform (`qoder.com`). Local metadata lists `qoder/sonus-1.0`, pricing via Qoder Credits, and limited public details.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `qoder-sonus`, `sonus-1.0`.
+- **Context window:** 128,000 tokens total (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** Qoder Credits (SOTA rate applies) per local metadata.
+- **Architecture:** Proprietary/undisclosed. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No accessible official model card or independently verifiable public benchmark/spec source for this exact model was found in this pass. Local metadata provides only high-level capability/positioning claims. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review of local metadata; no accessible official/verified public benchmark source found for this exact model ID.
+- Reference URLs:
+  - [Qoder](https://qoder.com)
+  - Local repository metadata consulted: `model/qoder-sonus/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
