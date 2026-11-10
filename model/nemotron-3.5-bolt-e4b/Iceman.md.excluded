@@ -1,0 +1,57 @@
+# Nemotron 3.5 Bolt E4B — findings by Iceman
+
+- Source: NVIDIA/Nemotron 3.5 Bolt E4B (announced, unreleased)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** Local metadata describes Nemotron 3.5 Bolt E4B as an announced ~4GB-class NVIDIA edge model for fast conversational agents on RTX and Jetson, scheduled for 2026-10-23 with no weights, specs, or benchmarks published yet.
+- **Provider / access:** NVIDIA (announced/unreleased). Local metadata lists `opencode/nemotron-3.5-bolt-e4b`, `noFreeId`, and notes no Hugging Face repo resolves yet.
+- **Release / knowledge:** Unreleased as of metadata state (scheduled 2026-10-23). Knowledge cutoff not stated.
+- **IDs:** `nemotron-3.5-bolt-e4b`, `opencode/nemotron-3.5-bolt-e4b`.
+- **Context window:** Not published.
+- **Modalities:** Not published/specified (text in/out implied; voice not specified).
+- **Pricing (as of 2026-11-10):** Not published; Bolt family expected to ship open weights (OpenMDW-1.1) per metadata.
+- **Architecture:** Not published.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: This is an announced/unreleased model with no published weights, official model card, specs, or benchmark results in accessible sources during this pass. Local metadata explicitly characterizes the entry as a documented absence/self-exclusion until release. No independently verifiable public benchmark/spec evidence exists. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- Not published.
+
+Multimodal:
+
+- Not published.
+
+### Normalized scores (1–100)
+
+Not provided. Unreleased model with no verifiable benchmark/spec evidence; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review using alternative web access (`webfetch`) and local metadata; model unreleased and no verifiable benchmark/spec source found.
+- Reference URLs:
+  - [NVIDIA Nemotron blog (announced context)](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+  - Local repository metadata consulted: `model/nemotron-3.5-bolt-e4b/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

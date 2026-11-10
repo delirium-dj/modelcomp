@@ -1,0 +1,57 @@
+# Codestral — findings by Iceman
+
+- Source: Mistral AI/Codestral
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral
+- **Short description:** Mistral AI’s Codestral is an open-weight 22B code model for low-latency code completion, fill-in-the-middle (FIM), and developer tool assistance (32K native context, extended on later checkpoints per metadata).
+- **Provider / access:** Mistral AI and open-weight distribution (per announcement/metadata). Local metadata lists `opencode/codestral`, pricing $0.30/$0.90 per 1M ($0.03 cached input), and `noFreeId`.
+- **Release / knowledge:** Mistral announcement reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `codestral`, `Codestral`.
+- **Context window:** 32,768 tokens total (extended to 128K on later checkpoints per local metadata).
+- **Modalities:** Text and code input/output.
+- **Pricing (as of 2026-11-10):** $0.30/$0.90 per 1M input/output tokens ($0.03 cached input) per metadata.
+- **Architecture:** 22B dense code model (open-weight as announced; licensing/variants may differ). Detailed architecture specifics beyond size not fully disclosed in reviewed content.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Mistral’s original Codestral announcement, which reports performance on code-oriented evaluations (e.g. HumanEval pass@1, MBPP, Spider, RepoBench, CruxEval, multi-language HumanEval, FIM) in comparative charts/tables not fully extractable as clearly verifiable standardized numerics for this exact model/version in accessible text form during this pass. The announcement also mixes comparisons across tasks/versions and does not map cleanly to this repository’s required standardized benchmark categories (SWE-bench, Terminal-Bench, GPQA, AIME, LiveCodeBench, etc.) for this exact identity. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tuned for completion/FIM and developer assistance rather than autonomous multi-turn tool loops. Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- HumanEval/MBPP/Spider/RepoBench/FIM results reported in announcement context but not clearly extractable/verifiable as standardized numerics here; SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 32K native context (extended on later checkpoints per metadata); RepoBench discussed but not clearly extractable as a verified numeric score in this pass.
+
+Multimodal:
+
+- Text/code only.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extractable, independently verifiable standardized benchmark evidence for this exact model identity in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Mistral announcement and local metadata; standardized benchmark numerics not clearly extractable/verifiable for required categories.
+- Reference URLs:
+  - [Codestral announcement (Mistral AI)](https://mistral.ai/news/codestral/)
+  - Local repository metadata consulted: `model/codestral/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

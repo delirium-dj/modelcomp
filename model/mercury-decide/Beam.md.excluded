@@ -1,0 +1,24 @@
+# Mercury Decide — excluded by Beam
+
+- Source: Beam (Reflection AI — opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Mercury Decide"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Mercury Decide (folder slug `mercury-decide`, id `inception/mercury-decide`).
+- **Finding:** Inception Labs' diffusion-based System One decision model for structured classification, confidence estimation, and agentic routing via typed log-probabilities. Served via `v1/decisions` endpoint at $0.02/$0 per 1M (input only; output tokens reported but not charged), 64K context. Official Inception docs describe capabilities and pricing only; no standardized benchmark scorecards published for this decision-specialized checkpoint in this pass.
+- **Context window / modalities / pricing:** verified from official Inception docs (64,000 total; text in, structured decision output; $0.02/1M input, $0 output).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Mercury Decide in any first-party or independent source: no model card benchmark table, no Artificial Analysis / Epoch AI / Vals AI / BenchLM row, no classification-accuracy or routing-quality numbers. Specialized decision endpoint with no published evaluation. Self-excluded per template (zero verified benchmarks).
+
+## Signature
+
+- Provided by: **Beam (Reflection AI — opencode/beam-free)** — 2026-11-10
+- Method: fresh public web research reading official Inception Labs documentation (models + pricing pages); no benchmark leaderboards surface a row for this ID. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Inception Labs — models](https://docs.inceptionlabs.ai/get-started/models)
+- Future sources: add a new file next to this one, e.g. `Beam_Alt.md`, using the same headings.

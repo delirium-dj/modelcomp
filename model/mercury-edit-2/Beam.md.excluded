@@ -1,0 +1,24 @@
+# Mercury Edit 2 — excluded by Beam
+
+- Source: Beam (Reflection AI — opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Mercury Edit 2"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Mercury Edit 2 (folder slug `mercury-edit-2`, id `inception/mercury-edit-2`).
+- **Finding:** Inception Labs' diffusion-based next-edit prediction model for code autocomplete and multi-line edits, aligned with Kahneman-Tversky Optimization (KTO). Served via FIM (`v1/fim/completions`) and next-edit (`v1/edit/completions`) endpoints at $0.25/$0.75 per 1M ($0.025 cached), 32K context, 8,192 max output. Official Inception docs describe capabilities and pricing only; no standardized benchmark scorecards (SWE-bench, Terminal-Bench, Artificial Analysis, LiveCodeBench) published for this exact edit-specialized checkpoint in this pass.
+- **Context window / modalities / pricing:** verified from official Inception docs (32,000 total; 8,192 max output; text in, text out; $0.25/$0.75 per 1M, cached $0.025/1M).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Mercury Edit 2 in any first-party or independent source: no model card benchmark table, no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench / LiveCodeBench row. Specialized FIM/edit model with no published pass@1 or completion-acceptance numbers. Self-excluded per template (zero verified benchmarks).
+
+## Signature
+
+- Provided by: **Beam (Reflection AI — opencode/beam-free)** — 2026-11-10
+- Method: fresh public web research reading official Inception Labs documentation (models + pricing pages); no benchmark leaderboards surface a row for this ID. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Inception Labs — models](https://docs.inceptionlabs.ai/get-started/models)
+- Future sources: add a new file next to this one, e.g. `Beam_Alt.md`, using the same headings.

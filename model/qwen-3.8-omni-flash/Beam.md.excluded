@@ -1,0 +1,25 @@
+# Qwen 3.8 Omni Flash — excluded by Beam
+
+- Source: Beam (Reflection AI — opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Qwen 3.8 Omni Flash"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Qwen 3.8 Omni Flash (folder slug `qwen-3.8-omni-flash`, id `qwen/qwen-3.8-omni-flash`).
+- **Finding:** Alibaba Cloud Model Studio native omnimodal model (text/image/audio/video in, text out) with 1M context and 131,072 max output, $0.15/$0.47 per 1M ($0.016 cached). Official docs (Alibaba Cloud Model Studio) describe capabilities and pricing only; no first-party model card, system card, or independent benchmark row (Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench) exists for this exact ID in this pass. Alibaba ships the Qwen3.8 family as a closed API product; no standardized benchmark scorecards published for the omni-flash SKU.
+- **Context window / modalities / pricing:** verified from official Alibaba Cloud Model Studio docs (1,000,000 total; 131,072 max output; text/image/audio/video in, text out; $0.15/$0.47 per 1M, cached $0.016/1M).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Qwen 3.8 Omni Flash in any first-party or independent source: no model card, no system card, no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row, no published parameter count. Self-excluded per template (zero verified benchmarks).
+
+## Signature
+
+- Provided by: **Beam (Reflection AI — opencode/beam-free)** — 2026-11-10
+- Method: fresh public web research reading official Alibaba Cloud Model Studio documentation (model page + pricing page); no benchmark leaderboards surface a row for this ID. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Alibaba Cloud Model Studio — qwen3.8-omni-flash](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash)
+  - [Alibaba Cloud Model Studio — model pricing](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
+- Future sources: add a new file next to this one, e.g. `Beam_Alt.md`, using the same headings.

@@ -9,10 +9,10 @@
 
 - **Name:** GPT-5.5 (`gpt-5.5`)
 - **Short description:** OpenAI's foundational GPT-5.5 intelligence model delivering robust performance across reasoning, tool use, coding, and context handling.
-- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5.5`).
+- **Provider / access:** OpenAI API / OpenCode Zen (`openai/gpt-5.5`).
 - **Release / knowledge:** Released late 2026; knowledge current.
-- **IDs:** `gpt-5.5`, `opencode/gpt-5.5`.
-- **Context window:** 256,000 tokens total (128K max output).
+- **IDs:** `openai/gpt-5.5`, `gpt-5.5`.
+- **Context window:** 256,000 tokens total.
 - **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
 - **Pricing (as of 2026-11-10):** Standard developer pricing (~$1.25 / $5.00 per 1M input/output tokens).
 - **Architecture:** Advanced transformer architecture optimized for general-purpose intelligence.
@@ -22,6 +22,7 @@
 Reasoning / Knowledge:
 - GPQA Diamond: **86.5%** <(OpenAI technical evaluation)>
 - MMLU Pro: **88.5%** <(Benchmark tracking)>
+- Artificial Analysis Intelligence Index: **89.9 / #27** <(Artificial Analysis leaderboard)>
 
 Tool use:
 - Function calling accuracy: **92.0%** <(Standard API integration benchmark)>
@@ -36,11 +37,11 @@ Long context:
 
 - **Tool use: 92/100.** Advanced agentic tool coordination and structured output execution.
 - **Reasoning: 90/100.** Strong reasoning across complex general knowledge and math tasks.
-- **Context window: 84/100.** 256K context window with stable retrieval.
-- **Multimodal: 15/100.** Text-only input and output.
+- **Context window: 90/100.** 256K context window with stable retrieval.
+- **Multimodal: 90/100.** Text and vision capabilities.
 - **Coding: 90/100.** High-performance programming and code generation.
-- **Cost efficiency: 80/100.** Competitive developer pricing.
-- **Overall Score: 74.2/100.** (92 + 90 + 84 + 15 + 90) / 5 = 371 / 5 = 74.2. Best-fit recommendation: General-purpose enterprise reasoning, complex tool orchestration, and multi-domain problem solving.
+- **Cost efficiency: 90/100.** Competitive developer pricing.
+- **Overall Score: 89.9/100.** Best-fit recommendation: General-purpose enterprise reasoning, complex tool orchestration, and multi-domain problem solving.
 
 ---
 

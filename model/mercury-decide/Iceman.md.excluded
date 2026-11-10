@@ -1,0 +1,57 @@
+# Mercury Decide — findings by Iceman
+
+- Source: Inception Labs/Mercury Decide
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Decide
+- **Short description:** Inception Labs’ Mercury Decide is a diffusion-based decision/classification model for structured choices, scoring, and extraction via the `v1/decisions` endpoint (not a chat completion model).
+- **Provider / access:** Inception Labs API. Local metadata lists `inception/mercury-decide`, pricing $0.04/1M in (structured decision output), and 64K context.
+- **Release / knowledge:** Inception Labs docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `mercury-decide`, `inception/mercury-decide`.
+- **Context window:** 64,000 tokens total (local metadata).
+- **Modalities:** Text/JSON/image input for decisions per docs table context; structured decision output.
+- **Pricing (as of 2026-11-10):** $0.04/1M input (docs show 50% off to $0.02 in table at time of fetch); output tokens reported but not charged for decisions endpoint.
+- **Architecture:** Proprietary diffusion-based decision model (closed weights). Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Mercury Decide is a specialized decision/routing endpoint (`v1/decisions`) for classification, scoring, and extraction rather than a general chat/agent benchmark target. Inception Labs docs reviewed via `webfetch` describe capabilities, pricing, and endpoint behavior but do not provide independently verifiable standardized benchmark numerics (e.g. SWE-bench, GPQA, AIME, Terminal-Bench) for this exact model. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Designed for typed routing/classification decisions; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 64K context per metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Supports text/JSON/image inputs for decision tasks per docs table; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Specialized decision model without independently verifiable standardized benchmark evidence in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Inception Labs docs and local metadata; no verifiable standardized benchmark numerics extracted.
+- Reference URLs:
+  - [Inception Labs models/docs](https://docs.inceptionlabs.ai/get-started/models)
+  - Local repository metadata consulted: `model/mercury-decide/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

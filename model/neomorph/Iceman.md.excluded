@@ -1,0 +1,56 @@
+# Neomorph — findings by Iceman
+
+- Source: OpenCode Zen experimental (Neomorph)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph
+- **Short description:** Local metadata describes Neomorph as an OpenCode Zen experimental model (64K context, $0.50/$1.50) with modular sub-network architecture and structured-output focus.
+- **Provider / access:** OpenCode Zen / provider documentation (per metadata). Local metadata lists `opencode/neomorph` and limited public details.
+- **Release / knowledge:** Experimental/unannounced as a broadly documented public model. Knowledge cutoff not stated.
+- **IDs:** `neomorph`, `opencode/neomorph`.
+- **Context window:** 64,000 tokens total; 4,096 max output (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** $0.50/$1.50 per 1M in/out per local metadata/provider documentation.
+- **Architecture:** Proprietary/experimental (modular sub-network architecture per metadata). Detailed architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No accessible official model card or independently verifiable public benchmark/spec source for this exact experimental model was found in this pass. Local metadata provides only high-level capability/positioning claims. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 64K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact experimental model; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review using local metadata; no accessible official/verified public benchmark source found for this exact model ID.
+- Reference URLs:
+  - Local repository metadata consulted: `model/neomorph/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

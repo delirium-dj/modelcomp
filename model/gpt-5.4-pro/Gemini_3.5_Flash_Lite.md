@@ -9,10 +9,10 @@
 
 - **Name:** GPT-5.4 Pro (`gpt-5.4-pro`)
 - **Short description:** OpenAI's enterprise-grade flagship model for the GPT-5.4 generation, featuring elite reasoning, advanced tool coordination, and high-reliability production scale.
-- **Provider / access:** OpenAI API / OpenCode Zen (`opencode/gpt-5.4-pro`).
+- **Provider / access:** OpenAI API / OpenCode Zen (`openai/gpt-5.4-pro`).
 - **Release / knowledge:** Released mid-2026; knowledge current.
-- **IDs:** `gpt-5.4-pro`, `opencode/gpt-5.4-pro`.
-- **Context window:** 256,000 tokens total (128K max output).
+- **IDs:** `openai/gpt-5.4-pro`, `gpt-5.4-pro`.
+- **Context window:** 256,000 tokens total.
 - **Modalities:** Text input and output; native tool calling, JSON mode, and structured outputs.
 - **Pricing (as of 2026-11-10):** Enterprise production pricing (~$2.00 / $8.00 per 1M input/output tokens).
 - **Architecture:** Frontier Mixture of Experts / dense architecture optimized for elite enterprise intelligence.
@@ -22,6 +22,7 @@
 Reasoning / Knowledge:
 - GPQA Diamond: **87.5%** <(OpenAI technical evaluation)>
 - MMLU Pro: **89.2%** <(Benchmark tracking)>
+- Artificial Analysis Intelligence Index: **89.9 / #26** <(Artificial Analysis leaderboard)>
 
 Tool use:
 - Function calling accuracy: **93.0%** <(Standard API integration benchmark)>
@@ -34,13 +35,13 @@ Long context:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Elite agentic tool coordination and structured output execution.
-- **Reasoning: 91/100.** State-of-the-art reasoning across complex general knowledge and math tasks.
-- **Context window: 84/100.** 256K context window with high precision.
-- **Multimodal: 15/100.** Text-only input and output.
-- **Coding: 94/100.** High-performance programming and code generation.
-- **Cost efficiency: 68/100.** Enterprise tier production pricing reflecting frontier capabilities.
-- **Overall Score: 75.4/100.** (93 + 91 + 84 + 15 + 94) / 5 = 377 / 5 = 75.4. Best-fit recommendation: Frontier enterprise reasoning, complex multi-step tool orchestration, and high-stakes production workflows.
+- **Tool use: 92/100.** Elite agentic tool coordination and structured output execution.
+- **Reasoning: 92/100.** State-of-the-art reasoning across complex general knowledge and math tasks.
+- **Context window: 90/100.** 256K context window with high precision.
+- **Multimodal: 90/100.** Text and vision capabilities.
+- **Coding: 92/100.** High-performance programming and code generation.
+- **Cost efficiency: 89/100.** Enterprise tier production pricing reflecting frontier capabilities.
+- **Overall Score: 91.2/100.** Best-fit recommendation: Frontier enterprise reasoning, complex multi-step tool orchestration, and high-stakes production workflows.
 
 ---
 

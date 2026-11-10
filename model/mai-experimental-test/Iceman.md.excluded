@@ -1,0 +1,57 @@
+# Mai Experimental Test — findings by Iceman
+
+- Source: OpenCode/Microsoft MAI experimental sandbox slot (mai-experimental-test)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** Local metadata describes this as an OpenCode experimental Microsoft MAI sandbox slot (128K, text-only) with no public model id, endpoint, weights, price, or benchmarks—a placeholder rather than a verifiable model.
+- **Provider / access:** OpenCode experimental tier / Microsoft MAI sandbox context (per metadata). Local metadata lists `opencode/mai-experimental-test`, `noFreeId`, and no published rate.
+- **Release / knowledge:** Not officially announced as a stable/public model. Knowledge cutoff not stated.
+- **IDs:** `mai-experimental-test`, `opencode/mai-experimental-test`.
+- **Context window:** 128,000 tokens total (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** Experimental tier pricing; no published per-token rate.
+- **Architecture:** Undisclosed/unresolved placeholder slot. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Local metadata and OpenCode/Microsoft catalogue context indicate this is an unresolved experimental placeholder slot rather than a clearly identified, accessible public model. No official model card, endpoint, weights, or independently verifiable public benchmark/spec source for this exact identity was found. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Placeholder/experimental slot with no verifiable model identity or benchmark evidence; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review using alternative web access (`webfetch`) and local metadata; no verifiable model/benchmark source found for this exact slot.
+- Reference URLs:
+  - [Microsoft AI models](https://microsoft.ai/models/)
+  - Local repository metadata consulted: `model/mai-experimental-test/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

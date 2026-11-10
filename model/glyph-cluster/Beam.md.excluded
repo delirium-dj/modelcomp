@@ -1,0 +1,24 @@
+# Glyph Cluster — excluded by Beam
+
+- Source: Beam (Reflection AI — opencode/beam-free)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Glyph Cluster"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Glyph Cluster (folder slug `glyph-cluster`, id `stealth/glyph-cluster`).
+- **Finding:** Anonymous stealth reasoning model (256K context, free preview tier) attributed to Microsoft AI / MAI research telemetry, tested on multi-step software engineering workflows. Served via Vercel AI Gateway and OpenRouter free endpoints. No first-party model card, system card, or independent benchmark row exists for a model by that name; routing is stealth with no committed SLA. OpenCode Zen public catalogue contains no verified specs.
+- **Context window / modalities / pricing:** adopted from scaffolded meta only (256,000 total; 256,000 max output; text in, text out; free preview tier $0/$0/$0).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Glyph Cluster in any first-party or independent source: no model card, no system card, no Artificial Analysis / Epoch AI / Vals AI / BenchLM / SWE-bench / Terminal-Bench row, no published parameter count. Stealth routing prevents attribution. Self-excluded per template (zero verified benchmarks).
+
+## Signature
+
+- Provided by: **Beam (Reflection AI — opencode/beam-free)** — 2026-11-10
+- Method: fresh public web research checking OpenRouter/Vercel gateway listings and Microsoft AI announcements; no benchmark leaderboards surface a row for this ID. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenRouter](https://openrouter.ai)
+- Future sources: add a new file next to this one, e.g. `Beam_Alt.md`, using the same headings.
