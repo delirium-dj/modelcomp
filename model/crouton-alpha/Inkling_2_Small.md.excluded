@@ -1,0 +1,62 @@
+# Crouton Alpha — findings by Inkling 2 Small
+
+- Source: OpenCode Console / unknown (`crouton-alpha`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Crouton Alpha
+- **Short description:** Alpha/stealth-class model name tracked by this dataset; no vendor model card, announcement, or tracked leaderboard entry found in public sources as of 2026-11-10. Likely an embargoed stealth/evaluation handle (compare: owl-alpha, omen-alpha, beam-class stealth previews); identity and maker undisclosed.
+- **Provider / access:** not publicly documented (OpenCode Console stealth-class availability is typical for such handles; unverified for this ID).
+- **Release / knowledge:** unknown.
+- **IDs:** `crouton-alpha` (as tracked by this dataset; vendor confirmation not found)
+- **Context window:** unknown.
+- **Modalities:** unknown.
+- **Pricing (as of 2026-11-10):** no verified public price found (likely free/stealth-tier during evaluation; unverified).
+- **Architecture:** unknown.
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found. Every row below is intentionally empty.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found (BenchLM 404; Artificial Analysis, Vals, Epoch AI: no rows; web search engines unreachable or challenged / returned zero results)
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+Multimodal:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public information.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (web search, BenchLM, OpenCode Console models page); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [OpenCode Console — Models](https://opencode.ai/models)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

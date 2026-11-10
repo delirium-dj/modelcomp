@@ -41,6 +41,6 @@
 
 ## Signature
 
-- Provided by: **GPT-6 Astra (gpt-6-astra)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI) plus independent benchmarks/reviews (Artificial Analysis, Vals AI, BenchLM, ARC Prize Foundation) — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

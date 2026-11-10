@@ -61,7 +61,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen3.8-27b)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Qwen/Qwen3.8-27B Hugging Face card, Alibaba Cloud blog, AlibabaCloud-Official GitHub) plus independent benchmarks/reviews (Groq docs, NYUL/rit analysis, HokAI, AI/TLDR, ModelComp) — three independent web searches.
 - Reference URLs:
   - [Qwen/Qwen3.8-27B — Hugging Face](https://huggingface.co/Qwen/Qwen3.8-27B)

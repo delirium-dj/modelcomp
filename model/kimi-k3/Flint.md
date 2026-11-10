@@ -53,6 +53,6 @@ Conflicts and resolutions:
 
 ## Signature
 
-- Provided by: **Flint (kimi-k3 / moonshotai/Kimi-K3)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public-internet research (Moonshot AI official repos, Tech Insider, Digital Applied, TechJuice, BenchLM); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Kimi_K2_6.md`, using the same headings.

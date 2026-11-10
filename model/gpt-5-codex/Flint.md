@@ -52,7 +52,7 @@ Independent (Vals AI, Terminal-Bench, BenchLM, Metatext, AI Rank):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5-codex)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI / Codex announcements, Codex developer docs) plus independent benchmarks/reviews (Vals AI, Terminal-Bench, BenchLM, Metatext, AI Rank) — three independent web searches.
 - Reference URLs:
   - [Introducing upgrades to Codex | OpenAI](https://openai.com/index/introducing-upgrades-to-codex)

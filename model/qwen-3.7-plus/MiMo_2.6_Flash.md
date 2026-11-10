@@ -1,9 +1,25 @@
 # Qwen3.7-Plus — findings by MiMo 2.6 Flash
 
 - Source: Alibaba Cloud / Qwen (`qwen-3.7-plus`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-10 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-10** (user-approved). Previous Signature
+> 2026-10-07 (Overall 83). Fresh source this pass: BenchLM model page
+> (snapshot 2026-11-10, overall 53.58, rank #83/1020, 70/804 rows — the
+> launch benchmark table now fully indexed, including the video rows that
+> were missing last pass). Changes: Multimodal 84→87 (Video-MME **88.0**,
+> VideoMMMU **85.4**, MathVision **90.3**, CharXiv 85.9, OmniDocBench 1.5
+> 91.4, independent AA-MMMU-Pro **80.5** — the previous cap "no
+> video-benchmark figure" is gone); Tool use 79→80 (previously-absent rows
+> now published at decent mid levels: Claw-Eval **62.7**, MCP Atlas
+> **73.2**, OSWorld-Verified **73.3**, BFCL v4 72.9 — offset by GDPval-AA
+> 886 Elo, APEX-Agents-AA 22.4, OSWorld 2.0 2.8). Held: Reasoning 80
+> (new FrontierMath v2 34.386% mid, HMMT 92.9/IMOAnswerBench 86.0 vendor
+> strong but Index still ~25), Context 95 (new MRCRv2 91.7% — real
+> retrieval row but <98% keeps floor band), Coding 76 (all four refs still
+> missed), Cost 94; Overall 83→84 (mean 83.6).
 
 ## Model card
 
@@ -25,8 +41,10 @@ Agent / tool use:
 - Terminal-Bench 4.0: **1.0** (AA, independent) — floor; Terminal-Bench Hard: 47.0 (AA)
 - Terminal-Bench 2.0 (Terminus-2): **70.3** (vendor self-run; matched by OrcaRouter) — strong for its class
 - AndroidWorld: **81** (vendor), ScreenSpot Pro (GUI grounding): **79** (vendor) — the signature capability
-- τ²-Bench Telecom: **93.0** (AA) vs τ-Bench Banking: 17.5 (AA); SkillsBench 54.3 (Vals); GDPval-AA: **13.5** (AA); Finance Agent 38.2, Legal Research 16.3, Tax Agent 38.7 (Vals)
-- MCP-Mark / Deep-Planning / Kernel Bench L3: "strong" per vendor blog, no figures extracted; ALE: none
+- Claw-Eval: **62.7%** (vendor launch table, via BenchLM 2026-11-10 — new); MCP Atlas: **73.2%** (vendor — new); BFCL v4 **72.9%**, QwenClawBench **61.8%**, DeepPlanning **62.3%**, VITA-Bench 45.6%, QwenWebBench 1536 Elo (vendor launch table — new)
+- OSWorld-Verified: **73.3%** (vendor — new, just under the 75% ref); OSWorld 2.0: **2.8%** (OSWorld 2.0 paper — new); APEX-Agents-AA: **22.4%** (AA leaderboard — new)
+- τ²-Bench Telecom: **93.0** (AA) vs τ-Bench Banking: 17.5 (AA); SkillsBench 54.3 (Vals); GDPval-AA: **886 Elo / 13.3% normalized** (AA — Elo now published); AA EnterpriseOps-Gym **40.6%** (AA — new); Finance Agent 38.2, Legal Research 16.3, Tax Agent 38.7 (Vals)
+- AA Agentic Index: **19.7** (AA current); ALE: none
 
 Reasoning / knowledge:
 
@@ -34,41 +52,50 @@ Reasoning / knowledge:
 - HLE (AA): **35.6%** — **under the 40%+ ref**
 - AA Intelligence Index: **25.2** (OpenRouter AA table) vs **39** (AI-TLDR citing AA) — **either reading well under the 60+ ref** (scale/re-base discrepancy noted, both fail the ref)
 - SuperGPQA: 71.4 (Model Beats, #4); CritPt 9.1 (AA); AA-Omniscience 22.5 accuracy / 72.3 non-hallucination
+- FrontierMath v2 (Tiers 1–3): **34.386%** (Epoch AI leaderboard, via BenchLM 2026-11-10 — new, mid-tier)
+- Contest math (vendor launch table — new): HMMT Feb 2026 **92.9%**, IMOAnswerBench **86.0%**, Apex 22.7%; MMLU-Pro 88.5, MMLU-Redux 94.5, MMMLU 89.0
 - AA Agentic Index: **17.5** (AA)
 
 Coding (vendor unless noted):
 
 - SWE-bench Verified: **77.7** vendor (AA-sourced list agrees) — solid mid-band
 - SWE-bench Pro: 57.6 (vendor/Model Beats #34); SWE-bench Multilingual: 75.8
-- SciCode: **46.1** (AA, independent) — **under the 55%+ ref**
+- SciCode: **46.1** (AA, independent) / **51.3** (vendor launch table — new, still under ref)
 - AA Coding Index: **55.9** — **under the 70+ ref**
-- Vibe Code Bench 46.4, Code Migration 12.9 (Vals); SWE Coding (Model Beats) 14.2
-- No DeepSWE row found for this model
+- Vibe Code Bench 46.4, Code Migration 12.9 (Vals); NL2Repo **41.1%** (vendor — new); SWE Coding (Model Beats) 14.2
+- No DeepSWE row found for this model; LiveCodeBench row on BenchLM (89.6) is sourced from the Qwen3.8-27B model card — not attributed to this model, excluded.
 
 Long context:
 
-- 1M window; **AA-LCR: 73.0** (AA, independent) — a real retrieval signal at length, middling score; no needle/MRCR figure.
+- 1M window; **AA-LCR: 73.0** (AA, independent) — a real retrieval signal at length, middling score; **MRCRv2: 91.7%** (vendor launch table, via BenchLM 2026-11-10 — new, first window-length retrieval row; under the ≥98% band for a top score); no needle figure.
 
 Multimodal (vendor unless noted):
 
-- Vals Multimodal Index: **53.9** (Vals, independent) — mediocre; ScreenSpot Pro 79 and AndroidWorld 81 are vendor-run; Video understanding is the headline feature but no LVBench/VideoMME figure found.
+- **Video-MME (w/ sub): 88.0%**, **VideoMMMU: 85.4%**, **MathVision: 90.3%**, CharXiv 85.9%, MLVU 87.4%, OmniDocBench 1.5 91.4%, RealWorldQA 86.9%, SimpleVQA 81.7%, MMMU-Pro **79%**, OCRBench V2 70.7%, ERQA 69.8%, MedXpertQA (MM) 71.0%, MMSearch-Plus 41.4%, ODINW13 51.1% (vendor launch table — new this pass; the video rows were missing last pass)
+- **AA-MMMU-Pro: 80.5%** (Artificial Analysis independent — new); Design Arena Website 1265 (OpenRouter)
+- Vals Multimodal Index: **53.9** (Vals, independent) — mediocre; ScreenSpot Pro 79 and AndroidWorld 81 are vendor-run. No audio input, no PDF rows.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 79/100.** Strong mobile/GUI rows (AndroidWorld 81, ScreenSpot 79 vendor) and τ²-Telecom 93 (AA), but independent terminal agent rows collapse (TB2.1 52.8–61, TB4.0 1.0), GDPval-AA 13.5 and AA Agentic Index 17.5 are bottom-tier, no ALE/MCP-Atlas figures.
-- **Reasoning: 80/100.** GPQA Diamond lands exactly on the 90+ ref with vendor and AA agreement (90.3/90.0) and SuperGPQA #4; HLE 35.6 and the AA Index (25.2–39) both miss their refs, and CritPt 9.1 is low.
-- **Context window: 95/100.** 1M → ≥1M floor; AA-LCR 73 is the rare independent long-context retrieval reading — helpful but not high enough to lift above the floor band.
-- **Multimodal: 84/100.** Image + video in → 75–90 band; GUI grounding (79) and mobile (81) are the class act, but Vals' Multimodal Index of 53.9 and the absence of video-benchmark figures cap it at 84.
-- **Coding: 76/100.** SWE-V 77.7 and SWE-ML 75.8 are respectable mid-band scores and TB2.0 70.3 is good, but all four coding refs miss: SciCode 46.1 (<55), coding index 55.9 (<70), TB2.1 52.8–61 (<85), no DeepSWE row; TB4.0 1.0 is a floor reading.
-- **Cost efficiency: 94/100.** $0.32/$1.28 (cache ~10-20%) for a 1M-context multimodal agent model — an order of magnitude below the $0.60/$2.20 anchor; only the >256K long-prompt tier ($1.06+/$4.25) and thinking-mode output surcharges prevent a top score.
-- **Overall Score: 83/100.** (79+80+95+84+76)/5 = 82.8 → 83 — the value play in the Qwen line: video-capable GUI/mobile agents at flash-tier prices, with a ref-clearing GPQA, discounted for independent terminal-agent numbers in the 50s/60s, a floor TB4.0, an AA Index nowhere near 60, and coding refs it doesn't clear.
+- **Tool use: 80/100.** Strong mobile/GUI rows (AndroidWorld 81, ScreenSpot 79 vendor) and τ²-Telecom 93 (AA), with the previously-absent rows now published at decent mid levels — Claw-Eval 62.7, MCP Atlas 73.2, OSWorld-Verified 73.3 (just under the 75 ref), BFCL v4 72.9 — but independent terminal agent rows still collapse (TB2.1 52.8–61, TB4.0 1.0), GDPval-AA 886 Elo and AA Agentic Index 19.7 remain bottom-tier, OSWorld 2.0 reads 2.8%, and ALE is absent → 80 (was 79).
+- **Reasoning: 80/100.** GPQA Diamond lands exactly on the 90+ ref with vendor and AA agreement (90.3/90.0) and SuperGPQA #4; HLE 35.6 and the AA Index (25.2–39) both miss their refs, CritPt 9.1 is low, and the new FrontierMath v2 34.386% is mid-tier — the new vendor contest-math rows (HMMT 92.9, IMOAnswerBench 86.0) are strong but don't move the refs.
+- **Context window: 95/100.** 1M → ≥1M floor; the new MRCRv2 91.7% is the first window-length retrieval row (welcome, but under the ≥98% band for a higher score) and AA-LCR 73 is middling.
+- **Multimodal: 87/100.** Image + video in → 75–90 band; the missing video rows are now published and strong — Video-MME 88.0, VideoMMMU 85.4, MathVision 90.3, CharXiv 85.9, OmniDocBench 1.5 91.4 — plus independent AA-MMMU-Pro 80.5 and the GUI/mobile pair (79/81); held below 90 by Vals' Multimodal Index 53.9, no audio, no PDF, and text-only output → 87 (was 84).
+- **Coding: 76/100.** SWE-V 77.7 and SWE-ML 75.8 are respectable mid-band scores and TB2.0 70.3 is good, but all four coding refs miss: SciCode 46.1/51.3 (<55), coding index 55.9 (<70), TB2.1 52.8–61 (<85), no DeepSWE row; TB4.0 1.0 is a floor reading.
+- **Cost efficiency: 94/100.** $0.32–0.40/$1.28–1.60 (cache ~10–20%) for a 1M-context multimodal agent model — an order of magnitude below the $0.60/$2.20 anchor; only the >256K long-prompt tier ($1.06+/$4.25) and thinking-mode output surcharges prevent a top score. Pricing confirmed unchanged on the AA model page (2026-11-10).
+- **Overall Score: 84/100.** (80+80+95+87+76)/5 = 418/5 = 83.6 → 84 — the value play in the Qwen line: video-capable GUI/mobile agents at flash-tier prices, with a ref-clearing GPQA and now-published video/vision rows, discounted for independent terminal-agent numbers in the 50s/60s, a floor TB4.0, an AA Index nowhere near 60, and coding refs it doesn't clear.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Alibaba Cloud blog, QwenCloud, OpenRouter, OrcaRouter, Model Beats, AI/TLDR, Traictory, AnotherWrapper); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-10
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page snapshot 2026-11-10 with its cited sources — Alibaba Cloud launch benchmark table, Artificial Analysis model page, Vals AI, Epoch AI FrontierMath v2, OSWorld 2.0 paper — plus OpenRouter and llm-stats); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qwen3.7 Plus (BenchLM, snapshot 2026-11-10)](https://benchlm.ai/models/qwen3-7-plus)
+  - [Qwen3.7 Plus (Artificial Analysis)](https://artificialanalysis.ai/models/qwen3-7-plus)
+  - [Qwen3.7-Plus launch benchmarks (Alibaba Cloud)](https://www.alibabacloud.com/blog/qwen3-7-plus-multimodal-agent-intelligence_603206)
+  - [Qwen3.7-Plus (llm-stats)](https://llm-stats.com/models/qwen3.7-plus)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---

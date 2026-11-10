@@ -59,7 +59,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen3.5-flash)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Alibaba Cloud Model Studio qwen3.5-flash docs, Qwen3.5 announcement) plus independent benchmarks/reviews (benchgap, Epoch AI, BenchmarkList, OnlySOTA, AIWire, Aggregate) — three independent web searches.
 - Reference URLs:
   - [Qwen3.5-Flash Model Info - Alibaba Cloud Model Studio](https://www.alibabacloud.com/help/en/model-studio/qwen3-5-flash)

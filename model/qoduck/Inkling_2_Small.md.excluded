@@ -1,0 +1,64 @@
+# Qoduck — findings by Inkling 2 Small
+
+- Source: Qoder (Alibaba) (`qoduck`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** Alibaba's Qoder platform (International) anonymous/stealth coding model, launched 2026-11-07 — identity, maker, parameter count, and benchmarks all undisclosed. Individual users get a limited-time daily free allowance (credit rate 0.0x). Speculated in press to be a Qwen 4-family model (tokenizer match); unverified.
+- **Provider / access:** Qoder International (Alibaba Cloud coding platform) — individual users only; free daily allowance since 2026-11-07; Teams/Enterprise and IDE/CLI out of scope. Identity officially undisclosed ("Don't ask where it came from").
+- **Release / knowledge:** 2026-11-07; architecture/vendor unknown; context claimed ~1M tokens (per Qoder promo/press), unverified.
+- **IDs:** no public model ID; served only inside Qoder's model picker.
+- **Context window:** ~1M tokens claimed (unverified).
+- **Modalities:** unknown; positioned as a coding/reasoning model with "maximum thinking intensity" option.
+- **Pricing (as of 2026-11-10):** free during the limited-time launch allowance (0.0x credits); normally 0.5x credits; no public per-token price.
+- **Architecture:** undisclosed; press speculation (Qwen 4 Max / MoE variants) is unverified.
+
+### Raw benchmarks found
+
+ZERO verified public benchmarks found for Qoduck. Every row below is intentionally empty — the model is a stealth release with no published model card, no benchmark table, and no tracker coverage (BenchLM/AA/Vals have no rows; only third-party press speculation exists).
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found (press claims of "stronger coding than Qwen 3.8 Max" are anecdotal, not benchmark-verified)
+
+Long context:
+
+- no verified public score found (~1M context is a press/promo claim, not a measurement)
+
+Multimodal:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Do not reactivate without verified benchmark evidence (published model card or independent benchmark run tied to this ID).
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 100/100.** free during the launch allowance — the one verifiable fact (limited-time, individual tier only)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — stealth model with undisclosed specs and no public evaluation.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (Qoder docs, launch press); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores above are placeholders and are ignored.
+- Reference URLs:
+  - [Qoduck: Try the Stealth Model Free for a Limited Time — Qoder docs](https://docs.qoder.com/events/qoduck-free)
+  - [Qoder's Qoduck: a free stealth coding model, origin unknown — aiToolRanked](https://aitoolranked.com/news/qoder-qoduck-stealth-model-free)
+  - [Alibaba's secret Qoduck model free on Qoder — BestHub](https://www.besthub.dev/articles/alibaba-s-secret-qoduck-model-free-on-qoder-is-this-qwen-4-max-preview-7074169af65e)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

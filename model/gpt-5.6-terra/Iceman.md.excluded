@@ -1,0 +1,66 @@
+# GPT-5.6 Terra — findings by Iceman
+
+- Source: OpenAI/GPT-5.6 Terra
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.6 Terra
+- **Short description:** OpenAI’s GPT-5.6 Terra is a GPT-5.6 family model positioned to balance intelligence and cost for coding, research, and general professional workloads with a large context window.
+- **Provider / access:** OpenAI API as `gpt-5.6-terra` (per developer docs; also listed for cloud providers). Local metadata lists `openai/gpt-5.6-terra` and `noFreeId` (with Codex quota notes).
+- **Release / knowledge:** Release date not explicitly stated in reviewed developer docs; knowledge cutoff February 16, 2026 (OpenAI developer docs).
+- **IDs:** `gpt-5.6-terra`.
+- **Context window:** 1,050,000 context window; 922,000 maximum input tokens; 128,000 max output tokens (OpenAI developer docs). Local metadata states 1,048,576 (1M).
+- **Modalities:** Text and image input; text output (OpenAI developer docs). Local metadata lists broader input modalities in text; reviewed official docs confirm text/image in, text out.
+- **Pricing (as of 2026-11-10):** $2 / 1M input tokens, $0.20 / 1M cached input tokens, $12 / 1M output tokens (OpenAI developer docs). Long-context (>272K) and cache-write multipliers apply per docs.
+- **Architecture:** Proprietary OpenAI model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI developer documentation for GPT-5.6 Terra, but it provided model specs/pricing/capabilities without extractable public benchmark scores. The announcement/index URL referenced in local metadata was unavailable (404) in this pass, and I could not locate an accessible replacement source with clearly attributable verified benchmark numbers for this exact model. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (independently verified)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (independently verified)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1,050,000-token context window documented; no standalone long-context retrieval benchmark score found (MRCR claim in local metadata not independently verified in this pass).
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark numbers for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI developer docs; announcement/index page unavailable (404) in this pass.
+- Reference URLs:
+  - [GPT-5.6 Terra model documentation (OpenAI developers)](https://developers.openai.com/api/docs/models/gpt-5.6-terra)
+  - [GPT-5.6 Terra index URL attempted (404 in this pass)](https://openai.com/index/gpt-5.6-terra/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

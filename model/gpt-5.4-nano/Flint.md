@@ -54,7 +54,7 @@ Independent (Vals AI, BenchLM, DataCamp):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5.4-nano)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI API docs, OpenAI product announcement) plus independent benchmarks/reviews (Vals AI, BenchLM, DataCamp) — three independent web searches.
 - Reference URLs:
   - [Introducing GPT-5.4 mini and nano | OpenAI](https://openai.com/index/introducing-gpt-5-4-mini-and-nano)

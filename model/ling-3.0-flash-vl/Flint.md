@@ -52,7 +52,7 @@ Independent (Artificial Analysis / BenchLM / OpenRouter / Model Beat):
 
 ## Signature
 
-- Provided by: **Flint (opencode/ling-3.0-flash-vl)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Ant Group / InclusionAI developer docs, Hugging Face `inclusionAI/Ling-3.0-flash-VL`, Ant Group press release, OpenRouter) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, OpenRouter rankings, Model Beat) — three independent web searches.
 - Reference URLs:
   - [Ling 3.0 Flash VL Benchmark Scores & Performance | BenchLM](https://benchlm.ai/models/ling-3-0-flash-vl)

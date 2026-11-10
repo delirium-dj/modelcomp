@@ -103,7 +103,9 @@ export type SourceKey =
   | "Ling 3.2 Flash"
   | "QoDuck"
   | "Crouton Alpha"
-  | "Inkling 2 Small";
+  | "Inkling 2 Small"
+  | "Iceman"
+  | "GPT 6.1 Astra";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -218,4 +220,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "QoDuck", label: "QoDuck", file: "QoDuck.md", slug: "qoduck" },
   { key: "Crouton Alpha", label: "Crouton Alpha", file: "Crouton_Alpha.md", slug: "crouton-alpha" },
   { key: "Inkling 2 Small", label: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" },
+  { key: "Iceman", label: "Iceman", file: "Iceman.md", slug: "iceman" },
+  { key: "GPT 6.1 Astra", label: "GPT-6.1 Astra", file: "GPT_6.1_Astra.md" },
 ];

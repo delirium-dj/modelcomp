@@ -43,7 +43,7 @@ Mean of five quality dims (Tool 60 + Reasoning 70 + Context 75 + Multimodal 15 +
 
 ## Signature
 
-- Provided by: **Flint (xing_4.0_29b_a4b)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Hugging Face `XingChen-AGI/Xing4.0-29B-A4B` card, GitHub repo README, arXiv training reports) plus independent benchmark/review sources (HF collections, aggregator references); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Xing 4.0 29B A4B — Hugging Face model card (benchmarks, architecture, citations)](https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B)

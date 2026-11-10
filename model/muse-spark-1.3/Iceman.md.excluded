@@ -1,0 +1,66 @@
+# Muse Spark 1.3 — findings by Iceman
+
+- Source: Meta/Muse Spark 1.3
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.3
+- **Short description:** Local repository metadata describes Muse Spark 1.3 as Meta’s frontier coding and long-horizon agentic model (1M context / 131K output) with Contributor/Free and paid tiers sharing the same weights. Independent public verification of this exact version (1.3) and its benchmarks could not be completed in this session.
+- **Provider / access:** No independently verified public API route confirmed for this exact model/version in this pass. Local metadata lists `opencode/muse-spark-1.3` and `noFreeId`.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found for Muse Spark 1.3.
+- **IDs:** `opencode/muse-spark-1.3` (local metadata; not independently verified).
+- **Context window:** Claimed 1,048,576 total / 131,072 max output in local metadata; not independently verified for Muse Spark 1.3.
+- **Modalities:** Claimed text, image, video, PDF input and text output in local metadata; not independently verified for Muse Spark 1.3.
+- **Pricing (as of 2026-11-10):** Local metadata lists Contributor $0.10/$0.20 and Standard & Max effort $1.25/$4.25 per 1M; not independently verified for Muse Spark 1.3 in this pass.
+- **Architecture:** No verified public architecture details found for Muse Spark 1.3.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: ZERO verified public benchmark numbers were found for this exact model/version ID (Muse Spark 1.3) during independent research in this session. Meta’s publicly fetched blog content confirmed Muse Spark 1.1 (not 1.3), and no version-specific 1.3 benchmark source was verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (for Muse Spark 1.3)
+- Tau3-Banking / Tau2-Bench: **no verified public score found** (for Muse Spark 1.3)
+- GDPval-AA: **no verified public score found** (for Muse Spark 1.3)
+- Claw-Eval / ClawProBench: **no verified public score found** (for Muse Spark 1.3)
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** (for Muse Spark 1.3)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** (for Muse Spark 1.3)
+- HLE: **no verified public score found** (for Muse Spark 1.3)
+- LCR / MLCR: **no verified public score found** (for Muse Spark 1.3)
+- CritPt: **no verified public score found** (for Muse Spark 1.3)
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (for Muse Spark 1.3)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found** (for Muse Spark 1.3)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (for Muse Spark 1.3)
+- LiveCodeBench: **no verified public score found** (for Muse Spark 1.3)
+- SciCode / AA-SciCode: **no verified public score found** (for Muse Spark 1.3)
+- Vibe Code Bench: **no verified public score found** (for Muse Spark 1.3)
+- DeepSWE / Coding Index / other: **no verified public score found** (for Muse Spark 1.3)
+
+Long context:
+
+- no verified public long-context retrieval benchmark reported for Muse Spark 1.3.
+
+### Normalized scores (1–100)
+
+Not provided. Zero verified public benchmark numbers were found for this exact model/version ID in this independent pass, so no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`/shell fetch attempts). Found Meta’s Muse Spark 1.1 announcement but no verified benchmark data for Muse Spark 1.3 specifically; scores are not provided due to lack of version-specific verified evidence.
+- Reference URLs:
+  - [Introducing Muse Spark 1.1 (Meta AI blog)](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)
+  - [Meta AI blog index (checked for Muse Spark 1.3)](https://ai.meta.com/blog/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

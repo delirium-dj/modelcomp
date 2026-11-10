@@ -47,7 +47,7 @@ Independent (OpenAI system card / third-party):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-5.1-codex-max)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI developer docs, OpenAI product pages, system card) plus independent benchmarks/reviews (Cline, CodeRabbit, Laude Institute, SWE-bench) — three independent web searches.
 - Reference URLs:
   - [Building more with GPT-5.1-Codex-Max | OpenAI](https://openai.com/index/gpt-5-1-codex-max/)

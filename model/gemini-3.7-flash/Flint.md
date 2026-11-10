@@ -57,6 +57,6 @@ Conflicts and resolutions:
 
 ## Signature
 
-- Provided by: **Flint (google/gemini-3.7-flash)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public-internet research (official Google DeepMind / Google AI release material, MarkTechPost, BenchLM, DataCamp, Reuters, BuildFastWithAI); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Gemini_3.7_Flash_Pro.md`, using the same headings.

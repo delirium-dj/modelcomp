@@ -1,9 +1,22 @@
 # Ember-1 — findings by MiMo 2.6 Flash
 
 - Source: Fireworks AI / Fireworks Research (`ember-1`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-10 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-10** (user-approved). Previous Signature
+> 2026-10-07 (Overall 81). Fresh source this pass: **Vals AI's independent
+> Ember-1 model page** — the first outside evaluator to publish rows (the
+> previous pass cited TensorFeed's "no independent evaluator has published a
+> score yet"). Vals runs 15 harnesses: Vibe Code Bench v1.1 **83.87%**
+> (#22/127), Terminal-Bench 4.0 **20.71%** (independently confirms the
+> vendor's 19.7), CyberBench v1.1 69.52%, Finance Agent v2 51.85%, SAGE
+> 86.38%, ProofBench v1.1 61.00%, overall accuracy 49.03%. Changes: Coding
+> 86→87 (vendor-only provenance cap partially relieved by an independent
+> Vibe Code Bench row at 83.87%). Held: Tool 81, Reasoning 77, Context 95,
+> Multimodal 64, Cost 66, Overall 81 (mean 80.8 → 81). Still no GPQA/HLE/
+> GDPval/OSWorld rows for this model.
 
 ## Model card
 
@@ -19,26 +32,29 @@
 
 ### Raw benchmarks found
 
-> **Every published number is vendor-run (Fireworks).** TensorFeed (2026-10): "no independent evaluator has published a score for Ember-1 yet."
+> **Every published number was vendor-run (Fireworks) at the previous pass.** TensorFeed (2026-10): "no independent evaluator has published a score for Ember-1 yet" — **superseded 2026-11-10: Vals AI now runs Ember-1 independently (15 rows, see below).**
 
 Agent / tool use:
 
 - Terminal-Bench 2.1: **82.0** (vendor, N=89) — beats K3-max's 80.9, **under the 85% ref**
-- Terminal-Bench 4.0: **19.7** (vendor)
+- Terminal-Bench 4.0: **19.7** (vendor) / **20.71%** (Vals AI independent, rank 35/63 — confirms the floor)
 - SWE-Interact: 20.0; τ²-Bench Airline: **66%** (vendor)
-- OSWorld / GDPval / ALE / MCP-Atlas / ALE rows: none found
+- Vals AI independent rows (new this pass): CyberBench v1.1 **69.52%** (#25/48), Finance Agent v2 **51.85%** (#39/81), SAGE **86.38%** (#13/29), Public Benefits Bench v1.1 **66.17%**, Legal Research Bench **44.71%**, Tax Agent Bench **31.08%**, overall accuracy **49.03%**; Terminal-Bench-Science **5.71%** (#26/45)
+- OSWorld / GDPval / ALE / MCP-Atlas rows: none found (still)
 - Doximity Bedside Bench (SII): new cost/task Pareto frontier across open and closed models incl. GPT-6 Astra, Claude Opus 5, GPT-5.6 Sol (vendor)
 
 Reasoning / knowledge:
 
 - **No GPQA / HLE / ARC-AGI / AA Intelligence Index rows published.**
-- The New Stack independent hands-on (5 runs each, 3 task types): Ember-1 14/15 perfect vs Kimi K3's 15/15 — one arithmetic slip in a probability test; logic puzzles and deploy scheduling both 5/5 perfect. Not a standard benchmark, but the only outside signal.
+- Vals AI independent reasoning-adjacent rows (new): Vals Science Index **31.76%** (#17/24), ProofBench v1.1 **61.00%** (#23/53), SAGE **86.38%**, MysteryMechanism 22.52%, BioMysteryBench 67.04%
+- The New Stack independent hands-on (5 runs each, 3 task types): Ember-1 14/15 perfect vs Kimi K3's 15/15 — one arithmetic slip in a probability test; logic puzzles and deploy scheduling both 5/5 perfect. Not a standard benchmark, but an outside signal.
 - Specialized Intelligence Index (Fireworks' own expert-task suite) and Bedside Bench clinical eval are the reasoning proxies; both vendor.
 
-Coding (vendor):
+Coding (vendor unless noted):
 
 - SWE-bench Verified: **92.2** (N=500) — near K3-max 93.2, top-band
 - DeepSWE 1.1: **75.2** (N=113) — **clears the 74%+ ref**, 8.8 pts above K3-max
+- Vibe Code Bench v1.1: **83.87%** (Vals AI independent, #22/127 — new this pass); IOI **46.33%** (#31/46); Code Migration **32.51%** (#39/79) — all Vals
 - Terminal-Bench 2.1 82.0 as above; Live A/B customer coding agents: 0.753 vs 0.751 quality at 39% fewer tokens
 - SciCode / FrontierCode / coding index rows: none found
 
@@ -52,20 +68,25 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 81/100.** Vendor TB2.1 82.0 (under the 85 ref), TB4.0 19.7 low, τ²-Bench 66; no OSWorld/GDPval/ALE/MCP and no independent runs at all.
-- **Reasoning: 77/100.** No verifiable reference rows (GPQA/HLE/AA Index all absent); the Doximity clinical Pareto frontier and New Stack's 14/15 logic/probability runs are encouraging proxies, but with zero refs on the board this cannot go higher.
-- **Context window: 95/100.** 1.04M → ≥1M floor; no retrieval evidence anywhere.
-- **Multimodal: 64/100.** Text + image in → image band (60–70); zero image-benchmark rows to place it.
-- **Coding: 86/100.** SWE-bench Verified 92.2 and DeepSWE 75.2 both clear refs (the latter beating K3-max outright), which is the strongest two-row coding combo at this price tier; held back by TB2.1 82.0 (misses 85), TB4.0 19.7, no SciCode/SWE-V rows, and vendor-only provenance.
-- **Cost efficiency: 66/100.** Sticker matches the $3/$15 anchor (~60) but the actual product is fewer billed tokens — A/B-verified 39% total spend cut, cache at 10%; undercut by K3's own $1/$9 discount providers and gated behind a two-week research-preview window with no free tier.
-- **Overall Score: 81/100.** (81+77+95+64+86)/5 = 80.6 → 81 — a leaner Kimi K3, not a new frontier model: two cleared coding refs, one cleared tool ref never reached, all evidence vendor-run, with the efficiency story (token and latency savings, 3.4× faster in hands-on testing) doing the heavy lifting.
+- **Tool use: 81/100.** Vendor TB2.1 82.0 (under the 85 ref), TB4.0 19.7 / independent Vals 20.71 low, τ²-Bench 66; Vals Finance Agent 51.85% and CyberBench 69.52% are new independent mid-tier rows, but still no OSWorld/GDPval/ALE/MCP and no frontier-clearing tool ref.
+- **Reasoning: 77/100.** No verifiable reference rows (GPQA/HLE/AA Index all absent); Vals Science Index 31.76% and ProofBench 61.00% are the first independent reasoning numbers — mid-tier, consistent with 77 rather than moving it; the Doximity clinical Pareto frontier and New Stack's 14/15 logic/probability runs remain encouraging proxies.
+- **Context window: 95/100.** 1.04M → ≥1M floor; no retrieval evidence anywhere (Vals lists 1M context, 131K max output — capacity confirmed).
+- **Multimodal: 64/100.** Text + image in → image band (60–70); zero image-benchmark rows to place it (Vals confirms image in, video/file not supported).
+- **Coding: 87/100.** SWE-bench Verified 92.2 and DeepSWE 75.2 both clear refs (the latter beating K3-max outright), and the vendor-only provenance cap is now partially relieved: Vals independently measures Vibe Code Bench v1.1 at 83.87% (#22/127) with IOI 46.33%; still held back by TB2.1 82.0 (misses 85), TB4.0 ~20, TB-Science 5.71, and no SciCode/SWE-Pro rows.
+- **Cost efficiency: 66/100.** Sticker matches the $3/$15 anchor (~60) but the actual product is fewer billed tokens — A/B-verified 39% total spend cut, cache at 10%; undercut by K3's own $1/$9 discount providers and gated behind a research-preview with no free tier.
+- **Overall Score: 81/100.** (81+77+95+64+87)/5 = 404/5 = 80.8 → 81 — a leaner Kimi K3, not a new frontier model: two cleared coding refs plus the first independent coding confirmation, one cleared tool ref never reached, with the efficiency story (token and latency savings, 3.4× faster in hands-on testing) doing the heavy lifting.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Fireworks launch blog, OpenRouter, LLM Reference, TensorFeed, The New Stack, modelpricewatch, wpnews, Sebastian Raschka's post-training review); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-10
+- Method: second-pass enrichment re-research (public internet research: Vals AI independent Ember-1 model page — first outside evaluator — BenchLM model page snapshot 2026-11-10, llmbenchmark/llm-stats, Fireworks launch blog rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Ember-1 (Vals AI, independent runs)](https://www.vals.ai/models/fireworks_ember-1)
+  - [Ember-1 (BenchLM, snapshot 2026-11-10)](https://benchlm.ai/models/ember-1)
+  - [Introducing Ember-1 (Fireworks Research)](https://fireworks.ai/blog/ember-1)
+  - [Ember-1 (llm-stats)](https://llm-stats.com/models/ember-1)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---

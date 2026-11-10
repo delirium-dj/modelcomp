@@ -54,7 +54,7 @@ Independent (Artificial Analysis / BenchLM / community):
 
 ## Signature
 
-- Provided by: **Flint (opencode/gemma-4-12b-unified)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind blog, Hugging Face `google/gemma-4-12B`, Gemma 4 Technical Report arXiv:2607.02770, ai.google.dev model card, LiteRT-LM) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, community write-ups) — five independent web searches.
 - Reference URLs:
   - [Introducing Gemma 4 12B: a unified, encoder-free multimodal model](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12B/)

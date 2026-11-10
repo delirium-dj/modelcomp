@@ -69,6 +69,6 @@ Conflicts and resolutions:
 
 ## Signature
 
-- Provided by: **Flint (anthropic/claude-sonnet-5-5)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public-internet research (official Anthropic release + docs, Artificial Analysis, third-party comparison coverage); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_5.5.md`, using the same headings.

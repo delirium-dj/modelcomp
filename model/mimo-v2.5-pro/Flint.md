@@ -51,7 +51,7 @@ Independent (Xiaomi-internal, Vals, AA, BenchLM, Aggregate, LMArena, LLM Referen
 
 ## Signature
 
-- Provided by: **Flint (opencode/mimo-v2.5-pro)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Xiaomi MiMo blog, Hugging Face `XiaomiMiMo/MiMo-V2.5-Pro`) plus independent benchmarks/reviews (Vals AI, BenchLM, Artificial Analysis, The Aggregate, LMArena, LLM Reference) — three independent web searches.
 - Reference URLs:
   - [MiMo-V2.5-Pro | Xiaomi](https://mimo.xiaomi.com/mimo-v2-5-pro)

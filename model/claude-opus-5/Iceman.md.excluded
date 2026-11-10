@@ -1,0 +1,67 @@
+# Claude Opus 5 — findings by Iceman
+
+- Source: Anthropic/Claude Opus 5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 5
+- **Short description:** Anthropic’s Claude Opus 5 is a legacy Opus-tier model (released July 24, 2026) for long autonomous coding and knowledge work, succeeded by Claude Opus 5.5. Public materials emphasize strong efficiency and agentic performance, but independently extractable benchmark numbers were limited in this pass.
+- **Provider / access:** Anthropic Claude API `claude-opus-5`; available on Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS per platform docs. No confirmed OpenCode Zen Free ID (`noFreeId` in local metadata).
+- **Release / knowledge:** Released July 24, 2026 (platform docs/announcement). Reliable knowledge cutoff May 2026; training data cutoff May 2026.
+- **IDs:** `claude-opus-5`, `anthropic.claude-opus-5` (Bedrock). Local metadata ID `anthropic/claude-opus-5`.
+- **Context window:** 1M tokens context, 128K max output (300K batch beta supported per docs).
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** Paid tier — $5 / 1M input, $25 / 1M output (per docs/announcement); cache/batch pricing per Anthropic pricing.
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: During this independent pass I reviewed Anthropic’s Claude Opus 5 announcement and platform docs, but could not extract sufficient clearly attributable, standalone verified public benchmark numbers for this exact model to produce a reliable scored report (many claims were comparative/qualitative in accessible text). This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (in reviewed accessible sources)
+- Frontier-Bench v0.1 / CursorBench 3.2 / AutomationBench / OSWorld 2.0: comparative claims reported by Anthropic, but specific standalone numeric scores for Claude Opus 5 were not clearly extractable in this pass.
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found** (specific numeric value not clearly extracted in this pass)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (specific numeric value not clearly extracted in this pass)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context / 128K output documented; no standalone long-context retrieval benchmark score extracted in this pass.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly attributable verified public benchmark numbers were extracted for this exact model in this independent pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Anthropic announcement and platform docs; insufficient clearly extractable benchmark numbers for scoring.
+- Reference URLs:
+  - [Introducing Claude Opus 5 (Anthropic announcement)](https://www.anthropic.com/news/claude-opus-5)
+  - [Claude Opus 5 model overview (Anthropic platform docs)](https://platform.claude.com/docs/en/models/opus-5/overview)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

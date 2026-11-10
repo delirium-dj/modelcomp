@@ -49,6 +49,6 @@ Conflicts:
 
 ## Signature
 
-- Provided by: **Flint (openai/gpt-oss-120b)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI / Hugging Face) plus independent benchmark sources (Artificial Analysis, Fireworks, Oumi, Benchgecko); conflicting results compared.
 - Future sources: add a new file next to this one, e.g. `GPT_OSS_120B.md`, using the same headings.

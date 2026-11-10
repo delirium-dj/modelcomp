@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "llm7/nemotron-3-nano:30b",
-  "provider": {
+  "providers": {
     "llm7": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "LLM7",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "env": ["LLM7_API_KEY"],
-      "options": {
+      "settings": {
         "baseURL": "https://api.llm7.io/v1",
         "apiKey": "{env:LLM7_API_KEY}"
       },
@@ -34,129 +34,134 @@
       }
     },
     "agentrouter": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "AgentRouter",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "env": ["AGENTROUTER_API_KEY"],
-      "options": {
+      "settings": {
         "baseURL": "https://agentrouter.org/v1",
         "apiKey": "{env:AGENTROUTER_API_KEY}"
       },
       "models": {
         "claude-opus-5-5": {
           "name": "Claude Opus 5.5",
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" }
-          }
+          "variants": [
+            { "id": "low", "settings": { "reasoningEffort": "low" } },
+            { "id": "medium", "settings": { "reasoningEffort": "medium" } },
+            { "id": "high", "settings": { "reasoningEffort": "high" } }
+          ]
         },
         "claude-opus-4-8": {
           "name": "Claude Opus 4.8",
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" }
-          }
+          "variants": [
+            { "id": "low", "settings": { "reasoningEffort": "low" } },
+            { "id": "medium", "settings": { "reasoningEffort": "medium" } },
+            { "id": "high", "settings": { "reasoningEffort": "high" } }
+          ]
         },
         "gpt-6.1-sol": {
           "name": "GPT-6.1 Sol",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": { "context": 1050000, "output": 128000 },
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" }
-          }
+          "body": { "store": false },
+          "variants": [
+            { "id": "low", "settings": { "reasoningEffort": "low" } },
+            { "id": "medium", "settings": { "reasoningEffort": "medium" } },
+            { "id": "high", "settings": { "reasoningEffort": "high" } }
+          ]
         },
         "gpt-6-astra": {
           "name": "GPT-6 Astra",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": { "context": 1050000, "output": 128000 },
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" }
-          }
+          "body": { "store": false },
+          "variants": [
+            { "id": "low", "settings": { "reasoningEffort": "low" } },
+            { "id": "medium", "settings": { "reasoningEffort": "medium" } },
+            { "id": "high", "settings": { "reasoningEffort": "high" } }
+          ]
         },
         "gpt-5.6-sol": {
           "name": "GPT-5.6 Sol",
           "limit": { "context": 1000000, "output": 128000 },
-          "variants": {
-            "low": { "reasoningEffort": "low" },
-            "medium": { "reasoningEffort": "medium" },
-            "high": { "reasoningEffort": "high" }
-          }
+          "variants": [
+            { "id": "low", "settings": { "reasoningEffort": "low" } },
+            { "id": "medium", "settings": { "reasoningEffort": "medium" } },
+            { "id": "high", "settings": { "reasoningEffort": "high" } }
+          ]
         }
       }
     },
     "kilocode": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "KiloCode",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "env": ["KILOCODE_API_KEY"],
-      "options": {
+      "settings": {
         "baseURL": "https://ai-gateway.kilo.ai/api/v1"
       },
       "models": {
         "nemotron-3.5-super-vl-free": {
-          "id": "nvidia/nemotron-3.5-super-vl:free",
+          "modelID": "nvidia/nemotron-3.5-super-vl:free",
           "name": "Nemotron 3.5 Super VL",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 1000000, "output": 131072 }
         },
         "nemotron-3.5-lightning-free": {
-          "id": "nvidia/nemotron-3.5-lightning:free",
+          "modelID": "nvidia/nemotron-3.5-lightning:free",
           "name": "Nemotron 3.5 Lightning",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 1000000, "output": 65536 }
         },
         "nemotron-3-ultra-free": {
-          "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "modelID": "nvidia/nemotron-3-ultra-550b-a55b:free",
           "name": "Nemotron 3 Ultra",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 1000000, "output": 65536 }
         },
         "nemotron-3-nano-omni-free": {
-          "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "modelID": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
           "name": "Nemotron 3 Nano Omni",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 256000, "output": 65536 }
         },
         "dots-3-note-preview-free": {
-          "id": "dots-studio/dots-3-note-preview:free",
+          "modelID": "dots-studio/dots-3-note-preview:free",
           "name": "Dots 3 Note Preview",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 512000, "output": 460800 }
         },
         "north-mini-code-free": {
-          "id": "cohere/north-mini-code:free",
+          "modelID": "cohere/north-mini-code:free",
           "name": "North Mini Code",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 256000, "output": 64000 }
         },
         "crouton-alpha-free": {
-          "id": "stealth/crouton-alpha",
-          "name": "Crouton Alpha",
+          "modelID": "stealth/crouton-alpha",
+          "name": "Crouton Alpha (retired by KiloCode)",
           "cost": { "input": 0, "output": 0 },
-          "limit": { "context": 1048576, "output": 943718 }
+          "limit": { "context": 1048576, "output": 943718 },
+          "disabled": true
         },
         "lfm-3-1.7b-free": {
-          "id": "liquid/lfm-3-1.7b:free",
+          "modelID": "liquid/lfm-3-1.7b:free",
           "name": "LFM3 1.7B",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 262144, "output": 8192 }
         },
         "glyph-cluster-free": {
-          "id": "stealth/glyph-cluster",
+          "modelID": "stealth/glyph-cluster",
           "name": "Glyph Cluster",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 256000, "output": 256000 }
         },
         "auto-free": {
-          "id": "kilo-auto/free",
+          "modelID": "kilo-auto/free",
           "name": "Auto Free (router)",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 256000, "output": 32768 }
         },
         "openrouter-free": {
-          "id": "openrouter/free",
+          "modelID": "openrouter/free",
           "name": "OpenRouter Free (router)",
           "cost": { "input": 0, "output": 0 },
           "limit": { "context": 200000, "output": 32768 }

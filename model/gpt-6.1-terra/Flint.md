@@ -59,7 +59,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/gpt-6.1-terra)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (OpenAI launch + GPT-6.1 Terra system card addendum + OpenAI API docs) plus independent benchmarks/reviews (Artificial Analysis, Epoch AI, OpenRouter/Vals, TheDecoder, TheModelIndex) — three independent web searches.
 - Reference URLs:
   - [Introducing GPT-6.1 Terra | OpenAI](https://openai.com/index/introducing-gpt-6-1-terra/)

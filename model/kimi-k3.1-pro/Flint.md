@@ -65,7 +65,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/kimi-k3.1-pro)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Moonshot kimi.ai blog, platform.kimi.ai quickstart/pricing, OpenLM.ai model summary) plus independent benchmarks/reviews (Artificial Analysis, TrustTheBench, benchgap, Kingy, IntuitionLabs, xenospectrum) — deep-research pass (2026-11-06) covering long-context retrieval, safety/cyber evaluations, Highspeed, HumanEval and coding-agent benchmarks; conflicts compared across official vs independent sources; ≥10 independent web searches.
 - Reference URLs:
   - [Kimi K3.1 Pro Tech Blog: Advancing Open Intelligence](https://www.kimi.ai/blog/kimi-k3-1-pro)

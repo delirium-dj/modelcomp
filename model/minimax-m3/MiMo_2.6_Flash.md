@@ -1,14 +1,28 @@
 # MiniMax-M3 — findings by MiMo 2.6 Flash
 
 - Source: MiniMax (`minimax-m3`)
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-10 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-10** (user-approved). Previous Signature
+> 2026-10-07 (Overall 86). Fresh sources this pass: BenchLM model page
+> (snapshot 2026-11-10, overall 48.95, rank #103/1020, 55/804 rows) and its
+> cited leaderboards (Vals AI, AA, OSWorld paper, ResearchClawBench).
+> Changes: Tool use 82→81 (independent Vals TB2.1 **53.6%** vs the vendor's
+> 66.0, plus new weak rows OSWorld 2.0 4.6%, ResearchClawBench 19.8% —
+> offset by MCP Atlas 74.2, AA Harvey LAB 88.4, Claw-Eval 74.5 now
+> documented); Reasoning 85→84 (AA Intelligence Index re-measured **18.9**,
+> down from 29, and AA-Omniscience index **-5.5** with 91.4% hallucination
+> — partially offset by new USAMO 2026 85.7% and Vals GPQA 92.7%).
+> Held: Context 95 (AA-LCR 83.0 now documented), Multimodal 87, Coding 81
+> (SciCode 47.1 and Coding Index 58.6 now published but both miss refs),
+> Cost 95; Overall 86 (mean 85.6 → 86).
 
 ## Model card
 
 - **Name:** MiniMax-M3
-- **Short description:** MiniMax's native-multimodal open-weights flagship (released ~2026-06-01; technical report arXiv:2606.13392) — **428B total / 23B active MoE** trained mixed-modality from step one (text, image, video), with **MiniMax Sparse Attention** delivering 9× prefill and 15× decode speedups vs M2 at 1M context (per-token compute down to 1/20). Vendor positions it at "frontier-level long-horizon agentic" performance; independent AA put it at Index **44** on the launch-era v4.1 scale (with 23B active — the highest of its size class at the time), re-based to **29** on today's v4.3.2. Distributed under the MiniMax Community License (commercial use with restrictions); 15 API providers.
+- **Short description:** MiniMax's native-multimodal open-weights flagship (released ~2026-06-01; technical report arXiv:2606.13392) — **428B total / 23B active MoE** trained mixed-modality from step one (text, image, video), with **MiniMax Sparse Attention** delivering 9× prefill and 15× decode speedups vs M2 at 1M context (per-token compute down to 1/20). Vendor positions it at "frontier-level long-horizon agentic" performance; independent AA put it at Index **44** on the launch-era v4.1 scale (with 23B active — the highest of its size class at the time), re-based to **29** on v4.3.2 and now re-measured at **18.9** on the current scale (2026-11-10). Distributed under the MiniMax Community License (commercial use with restrictions); 15 API providers.
 - **Provider / access:** Hugging Face (`MiniMaxAI/MiniMax-M3`), MiniMax API / MiniMax Agent, OpenRouter (`minimax/minimax-m3`), Novita and 13 others, SGLang/vLLM/Transformers/KTransformers/unsloth/ROCm ATOM; 57 community quantizations.
 - **Release / knowledge:** released 2026-06-01 (catalog-added 2026-05-31); knowledge cutoff not published.
 - **IDs:** `minimax-m3` / `MiniMaxAI/MiniMax-M3`.
@@ -21,48 +35,58 @@
 
 Agent / tool use:
 
-- OSWorld-Verified: **75.2** (OSWorld benchmark owner, 2026-06-07, 358 tasks, 100-step) — **clears the 75% ref**
-- APEX-Agents: **27.7** (Mercor benchmark owner, vendor-submitted); LHTB (Long-Horizon Terminal-Bench): 38.5 mean / **3 of 46 solved** (official Harbor harness); Claw-Eval: 74.5 (vendor)
-- Terminal-Bench 2.1 / 4.0, MCP-Atlas, GDPval, ALE: **no rows found** (AA Index components exist but individual values not published in accessible sources)
+- OSWorld-Verified: **75.2** (OSWorld benchmark owner, 2026-06-07, 358 tasks, 100-step) — **clears the 75% ref**; BenchLM's MiniMax-sourced row reads **70.1%**; **OSWorld 2.0: 4.6%** (OSWorld 2.0 paper, arXiv:2606.29537 — new, much harder harness)
+- APEX-Agents: **27.7** (Mercor benchmark owner, vendor-submitted); LHTB (Long-Horizon Terminal-Bench): 38.5 mean / **3 of 46 solved** (official Harbor harness); Claw-Eval: **74.5%** (vendor, via BenchLM)
+- Terminal-Bench 2.1: **66.0** (vendor) / **53.6%** (Vals AI independent — new); MCP Atlas: **74.2%** (vendor); GDPval-AA: **1304 Elo** / 37.1% normalized (AA — new); AA Harvey LAB v1.0: **88.4%** (AA leaderboard — new); ResearchClawBench **19.8%** (official leaderboard — new); AA Agentic Index **30.8**; τ²-Bench **88.9** (AA); BankerToolBench 76.1, GDPval rubrics 74.7 (HF model card); MazeBench 0%
+- ALE: no rows found
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.9** (Artificial Analysis, independent) — **clears the 90%+ ref**
+- GPQA Diamond: **92.9** (Artificial Analysis, independent) — **clears the 90%+ ref**; **92.7%** independently re-confirmed by Vals AI (new)
 - HLE text-only: **39.0** (AA independent, 2,158-question subset) — **misses the 40%+ ref by 1.0**
-- AA Intelligence Index: **44** (v4.1 launch-era, per AA's launch coverage) → **29** (v4.3.2 current, #18/117) — **under the 60+ ref on both scales** (scale correction noted)
+- AA Intelligence Index: **44** (v4.1 launch-era) → **29** (v4.3.2) → **18.9** (current AA row via BenchLM 2026-11-10 — re-measured down again) — **under the 60+ ref on every scale**
+- AA-Omniscience: index **-5.5**, accuracy **44.9%**, hallucination rate **91.4%** (current AA rows — new); CritPt **3.7**; AA-LCR **83.0**; AA-IFBench 82.9; MMLU-Pro **84.2** (Vals — new); **USAMO 2026: 85.7%** (MiniMax — new)
 - LiveBench (2026-06-25): 67.3 overall; Arena Text: 1,440 (#96, 58.8K votes); Arena WebDev: 1,482 (#58)
 
-Coding (vendor, HF eval results):
+Coding (vendor, HF eval results, unless noted):
 
-- SWE-bench Verified: **80.5** (internal infra, Claude Code scaffold, 4-run average) — strong
+- SWE-bench Verified: **80.5** (internal infra, Claude Code scaffold, 4-run average) — strong; **75.0%** independently (Vals AI SWE-bench — new)
 - SWE-bench Pro: **59.0** (Claude Code scaffold, aligned with official logic) — strong
-- SciCode / DeepSWE / TB2.1 / coding-index rows: **not published in accessible sources**
+- AA-SciCode: **47.1** (AA leaderboard — new, under the 55% ref); AA Coding Index: **58.6** (AA — new, under the 70% ref); LiveCodeBench **82.2%** (Vals — new)
+- VIBE V2 50.1, NL2Repo 42.1, SVG-Bench 63.7, KernelBench Hard 28.8, OpenHarmony Bench 48.4 (model card / official leaderboards)
+- DeepSWE / TB4.0 / FrontierCode rows: not published
 - YC-Bench: $2.1M final assets (monetary metric)
 
 Long context:
 
-- 1M window via MSA; **no needle/MRCR/LCR figure found** → capacity + efficiency story only.
+- 1M window via MSA; **AA-LCR: 83.0** (AA — new this pass, a genuine long-context reasoning signal); **no needle/MRCR/GraphWalks figure found** → capacity + efficiency story plus the LCR row.
 
 Multimodal:
 
-- **Video-MME (w/ sub): 85.4** (vendor) and **MMMU-Pro: 78.1** (vendor) — solid video+vision rows; no audio input, no PDF rows.
+- **Video-MME (w/ sub): 85.4**, **MMMU-Pro: 78.1** (vendor), **VideoMMMU 84.6**, **OmniDocBench 1.5: 91.6**, OfficeQA Pro 45.1, AA-MMMU-Pro **78.6%** (AA — new), Design Arena Website 1253 (OpenRouter) — solid video+vision rows; no audio input, no PDF rows.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 82/100.** OSWorld 75.2 clears the ref (benchmark-owner run), Claw-Eval 74.5 decent; but Terminal-Bench, MCP-Atlas, GDPval and ALE are all absent, and LHTB's 3-of-46 solve rate shows the long-horizon gap.
-- **Reasoning: 85/100.** GPQA 92.9 (AA independent) clears comfortably; HLE 39.0 lands a single point under its ref; the AA Index (44 → 29 across scale versions) never approaches 60.
-- **Context window: 95/100.** 1M → ≥1M floor, with MSA making the window genuinely cheap to serve; no retrieval benchmark at any length to score higher.
-- **Multimodal: 87/100.** Text + image + **video** in → video band (75–90); Video-MME 85.4 and MMMU-Pro 78.1 are both solid, held below 90 by no audio, no PDF, and vendor-only provenance on both rows.
-- **Coding: 81/100.** SWE-bench Verified 80.5 and SWE-Pro 59.0 (both Claude Code scaffold, vendor-run) are legitimately strong absolute numbers; not a single coding *ref* row (TB2.1, SciCode, DeepSWE, coding index) is published, so nothing can be verified against the methodology's anchors.
+- **Tool use: 81/100.** OSWorld-Verified 75.2 clears the ref (benchmark-owner run) and Claw-Eval 74.5 / MCP Atlas 74.2 / AA Harvey LAB 88.4 are solid independent-or-documented rows now; but the independent Vals TB2.1 run reads **53.6%** (vs the vendor's 66.0), OSWorld 2.0 collapses to 4.6%, ResearchClawBench 19.8%, and ALE remains absent, with LHTB's 3-of-46 solve rate showing the long-horizon gap → 81 (was 82).
+- **Reasoning: 84/100.** GPQA 92.9 (independently re-confirmed 92.7 by Vals) clears comfortably and the new USAMO 2026 85.7% is a strong math row; but HLE still lands a point under its ref, the AA Index re-measured down to **18.9** (never near 60), and AA-Omniscience now reads index -5.5 with a 91.4% hallucination rate → 84 (was 85).
+- **Context window: 95/100.** 1M → ≥1M floor, with MSA making the window genuinely cheap to serve and the new AA-LCR 83.0 as a real long-context reasoning signal; no needle/MRCR row at window length to score higher.
+- **Multimodal: 87/100.** Text + image + **video** in → video band (75–90); Video-MME 85.4, VideoMMMU 84.6, MMMU-Pro 78.1/78.6 and OmniDocBench 1.5 91.6 are all solid, held below 90 by no audio, no PDF, and vendor-only provenance on the headline rows.
+- **Coding: 81/100.** SWE-bench Verified 80.5 (Vals independent 75.0) and SWE-Pro 59.0 remain legitimately strong; the methodology's coding refs are now all published and all miss: AA-SciCode 47.1 (<55), AA Coding Index 58.6 (<70), TB2.1 66.0/53.6 (<85), DeepSWE unpublished — LiveCodeBench 82.2% (Vals) is the one bright new row.
 - **Cost efficiency: 95/100.** $0.30/$1.20 with 80% cache, $0.51 per Index task, plus free self-hosting under a community license — near the floor of frontier-capable pricing; docking only for the commercial-use restriction and multi-provider price variance.
-- **Overall Score: 86/100.** (82+85+95+87+81)/5 = 86.0 → 86 — the open-weights efficiency standout: ref-clearing GPQA and OSWorld, real video understanding, 80+ SWE scores from 23B active parameters, at a tenth of flagship prices — discounted for an HLE one point short, an Index that never clears 60, an LHTB solve-rate in the single digits, and benchmark silences where the methodology most wants to see Terminal-Bench and SciCode.
+- **Overall Score: 86/100.** (81+84+95+87+81)/5 = 428/5 = 85.6 → 86 — the open-weights efficiency standout: ref-clearing GPQA and OSWorld, real video understanding, 80+ SWE scores from 23B active parameters, at a tenth of flagship prices — discounted for an HLE one point short, an Index that fell to 18.9, an LHTB solve-rate in the single digits, and coding refs that are now visible and all missed.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research (Hugging Face model card + eval results YAML, Artificial Analysis model page, Writingmate spec/benchmark catalog, OpenRouter catalog); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-10
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page snapshot 2026-11-10 with its cited sources — Vals AI, Artificial Analysis, OSWorld 2.0 paper, ResearchClawBench, OpenHarmony Bench — plus the HF model card and MiniMax launch post rows); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [MiniMax M3 (BenchLM, snapshot 2026-11-10)](https://benchlm.ai/models/minimax-m3)
+  - [MiniMax M3 (Artificial Analysis)](https://artificialanalysis.ai/models/minimax-m3)
+  - [MiniMax M3 (Vals AI, independent runs)](https://www.vals.ai/models/minimax_MiniMax-M3)
+  - [MiniMax M3 launch post (MiniMax)](https://www.minimax.io/blog/minimax-m3)
+  - [MiniMaxAI/MiniMax-M3 model card (Hugging Face)](https://huggingface.co/MiniMaxAI/MiniMax-M3)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---

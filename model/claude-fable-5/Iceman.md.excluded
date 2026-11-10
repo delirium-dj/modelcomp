@@ -1,0 +1,66 @@
+# Claude Fable 5 — findings by Iceman
+
+- Source: Anthropic/Claude Fable 5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Fable 5
+- **Short description:** Anthropic’s Claude Fable 5 is the first generally released Mythos-class model (June 9, 2026), later superseded by Claude Fable 5.1. Public materials describe strong frontier capabilities, but clearly extractable standalone benchmark numbers for this exact model were limited in accessible sources during this pass.
+- **Provider / access:** Anthropic Claude API `claude-fable-5`; available on Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS per platform docs. No confirmed OpenCode Zen Free ID (`noFreeId` in local metadata).
+- **Release / knowledge:** Released June 9, 2026 (platform docs/announcement). Reliable knowledge cutoff January 2026; training data cutoff January 2026.
+- **IDs:** `claude-fable-5`, `anthropic.claude-fable-5` (Bedrock). Local metadata ID `opencode/claude-fable-5`.
+- **Context window:** 1M tokens context, 128K max output (per docs).
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** Paid tier — $10 / 1M input, $50 / 1M output; cache read $1/MTok noted in metadata/docs context.
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: During this independent pass I reviewed Anthropic’s Claude Fable 5/Mythos 5 announcement and platform docs, but could not extract sufficient clearly attributable, standalone verified public benchmark numbers for this exact model (Fable 5, as distinct from later Fable 5.1 comparisons) to produce a reliable scored report. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (in reviewed accessible sources)
+- FrontierCode / CursorBench / OSWorld / GDPval-AA / other agentic benchmarks: claims and comparative figures appear in announcement context, but exact standalone Fable 5 numeric values were not clearly extracted in this pass.
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context / 128K output documented; no standalone long-context retrieval benchmark score extracted in this pass.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly attributable verified public benchmark numbers were extracted for this exact model in this independent pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Anthropic announcement and platform docs; insufficient clearly extractable benchmark numbers for scoring.
+- Reference URLs:
+  - [Claude Fable 5 and Claude Mythos 5 (Anthropic announcement)](https://www.anthropic.com/news/claude-fable-5-mythos-5)
+  - [Claude Fable 5 model overview (Anthropic platform docs)](https://platform.claude.com/docs/en/models/fable-5/overview)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

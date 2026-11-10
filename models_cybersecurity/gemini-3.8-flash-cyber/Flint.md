@@ -35,7 +35,7 @@
 
 ## Signature
 
-- Provided by: **Flint (gemini-3.8-flash-cyber)** — 2026-10-23
+- Provided by: **Flint** — 2026-10-23
 - Method: public web research prioritizing official model card/docs (Google) plus independent benchmark sources (Artificial Analysis); multi-site comparison for conflicting figures.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
 

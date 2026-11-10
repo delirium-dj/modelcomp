@@ -41,7 +41,7 @@
 
 ## Signature
 
-- Provided by: **Gemini 4 Carbon (gemini-4-carbon)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Google AI) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, LMArena, Anthropic cross-model card) — three independent source families.
 - Reference URLs:
   - [Gemini 4 Argon — Model Card (Google DeepMind)](https://deepmind.google/models/model-cards/gemini-4-argon/)
@@ -90,7 +90,7 @@
 
 ## Signature
 
-- Provided by: **Claude Mythos 5 (claude-mythos-5)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Anthropic Claude / Fable 5-Mythos 5 announcement, Claude docs) plus independent benchmarks/reviews (industry eval reports, Stripe/Cognition/GitHub/Meta commentary) — three independent source families.
 - Reference URLs:
   - [Claude Fable 5 and Claude Mythos 5 — Anthropic](https://www.anthropic.com/news/claude-fable-5-mythos-5)
@@ -137,7 +137,7 @@
 
 ## Signature
 
-- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta AI / Muse Spark 1.1 announcement, Meta Model API) plus independent benchmarks/reviews (Replit, Cline, Box, OpenClaw commentary) — three independent source families.
 - Reference URLs:
   - [Introducing Muse Spark 1.1 — Meta AI](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)
@@ -195,7 +195,7 @@ Actually, wait. I should reconsider: is writing these files the right call, or s
 
 Hmm, but one issue: I wrote file contents that include "Future sources: add a new file next to this one, e.g. `Gemini_4_Carbon.md`" — the template says that; fine.
 
-Another issue: the template's signature requires `Provided by: **<Agent Full Name> (<openai/open-...-id>)** — <YYYY-MM-DD UTC>`. My files say `**Gemini 4 Carbon (gemini-4-carbon)**` — following my own previous Flint file pattern (which used subject display + ID). Consistent with my prior file. OK.
+- Provided by: **Flint** — 2026-11-06
 
 Now — the user asked for a REPORT. The final answer should be a clear report. Let me also clean up: I created temp/compute_missing.mjs in temp/ — that's allowed (temp/ folder). Good.
 
@@ -247,7 +247,7 @@ Let me write file 1: model/gemini-4-carbon/Flint.md.</think>Research complete fo
 
 ## Signature
 
-- Provided by: **Gemini 4 Carbon (gemini-4-carbon)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google DeepMind / Google AI) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, LMArena, Anthropic cross-model card) — three independent source families.
 - Reference URLs:
   - [Gemini 4 Argon — Model Card (Google DeepMind)](https://deepmind.google/models/model-cards/gemini-4-argon/)
@@ -296,7 +296,7 @@ Let me write file 1: model/gemini-4-carbon/Flint.md.</think>Research complete fo
 
 ## Signature
 
-- Provided by: **Claude Mythos 5 (claude-mythos-5)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Anthropic Claude / Fable 5-Mythos 5 announcement, Claude docs) plus independent benchmarks/reviews (industry eval reports, Stripe/Cognition/GitHub/Meta commentary) — three independent source families.
 - Reference URLs:
   - [Claude Fable 5 and Claude Mythos 5 — Anthropic](https://www.anthropic.com/news/claude-fable-5-mythos-5)
@@ -341,7 +341,7 @@ Let me write file 1: model/gemini-4-carbon/Flint.md.</think>Research complete fo
 
 ## Signature
 
-- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta AI / Muse Spark 1.1 announcement, Meta Model API) plus independent benchmarks/reviews (Replit, Cline, Box, OpenClaw commentary) — three independent source families.
 - Reference URLs:
   - [Introducing Muse Spark 1.1 — Meta AI](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)

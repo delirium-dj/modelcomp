@@ -37,6 +37,6 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash (gemini-3.5-flash)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Google AI) plus independent benchmarks/reviews (Artificial Analysis, Vals AI, BenchLM) — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

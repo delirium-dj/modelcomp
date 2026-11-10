@@ -1,17 +1,42 @@
 # Claude Sonnet 4.5 — findings by MiMo 2.6 Flash
 
 - Source: Anthropic launch post (Sep 29, 2025), BenchLM (Opus 4.5 system card + Epoch/leaderboard rows), Ars Technica, RD World, repo meta
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-10 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
+> **Second-pass enrichment — 2026-11-10** (user-approved). Previous Signature
+> 2026-10-07 (Overall 78). Fresh sources this pass: BenchLM model page
+> (snapshot 2026-11-10, **47.22/100, #112/1020, 20/804 rows** — was 48.6
+> #100/887, 12/623) with per-row provenance (Opus 4.5 system card PDF, Epoch
+> AI FrontierMath v2 leaderboards, VITA/Gert/JobBench, OpenRouter), plus
+> fresh web confirmation of the context-policy change (platform.claude.com,
+> claudelab.net, note.com, endoflife.ai results via DuckDuckGo). Change:
+> **Context 91→68** — the previous score's stated basis ("1M beta available
+> … held … only by the beta's existence") is void: the `context-1m-2025-08-07`
+> beta was **deprecated 2026-04-30 and 1M is now disabled for Sonnet
+> 4.5/Sonnet 4** → effective window is 200K GA (methodology tier "200K =
+> 70"); with zero retrieval rows at 200K and the model's only-ever retrieval
+> measurement (MRCR v2 8-needle **18.5%** at 1M, yage.ai — already recorded
+> in the merged-duplicate section below) the score lands at **68**, matching
+> that same-stem section's independent Context 68. **Overall 78→74** (mean
+> 78.4 → 73.8). Recorded, not credited as a move: **FrontierMath v2 revised**
+> — T1–3 13.495→**23.860**, T4 4.167→**2.439** (mixed revision, still far
+> below the 60–75 frontier T1–3 band) → Reasoning held at 78. Also fresh: the
+> model is **deprecated 2026-09-30, retiring 2026-11-30, replaced by Sonnet
+> 5.5**. Held: Tool 80 (TB2.0 50, OSWorld-V 61.4, VITA 17.0, Gert 48.51,
+> JobBench 27.7 re-confirm byte-identically), Multimodal 64 (no vision
+> rows), Coding 79 (SWE-V 77.2 re-confirms), Cost 62 (pricing unchanged
+> $3/$15). Design Arena 1196→1186 = noise. Merged-duplicate section below
+> untouched.
+
 ## Model card
 
-- **Name:** Claude Sonnet 4.5 — Anthropic's Sept 2025 Sonnet flagship, released **2025-09-29** (API id `claude-sonnet-4-5`), launched together with Claude Code 2.0 and the Claude Agent SDK; superseded by Sonnet 4.6 → 5 → 5.5 but still active.
-- **Short description:** "**The best model in the world for agents, coding, and computer use**" at launch: **SOTA SWE-bench Verified 77.2** (82.0 with parallel test-time compute), **OSWorld 61.4** (up from Sonnet 4's 42.2 four months earlier — a 45% jump), observed **maintaining focus for 30+ hours** on complex multi-step tasks, and Anthropic's most accurate/detailed model for long-running tasks with enhanced domain knowledge in coding, finance and cybersecurity. Drove the Claude for Chrome extension. BenchLM (2026-10-07): 48.6/100, #100/887 (12/623 rows — thin, flagged conservative), below Sonnet 4.6's 55.33.
+- **Name:** Claude Sonnet 4.5 — Anthropic's Sept 2025 Sonnet flagship, released **2025-09-29** (API id `claude-sonnet-4-5`), launched together with Claude Code 2.0 and the Claude Agent SDK; superseded by Sonnet 4.6 → 5 → 5.5; **deprecated 2026-09-30, scheduled to retire 2026-11-30, replaced by Sonnet 5.5** (fresh confirmation 2026-11-10).
+- **Short description:** "**The best model in the world for agents, coding, and computer use**" at launch: **SOTA SWE-bench Verified 77.2** (82.0 with parallel test-time compute), **OSWorld 61.4** (up from Sonnet 4's 42.2 four months earlier — a 45% jump), observed **maintaining focus for 30+ hours** on complex multi-step tasks, and Anthropic's most accurate/detailed model for long-running tasks with enhanced domain knowledge in coding, finance and cybersecurity. Drove the Claude for Chrome extension. BenchLM (2026-11-10): 47.22/100, #112/1020 (20/804 rows — thin, flagged conservative), below Sonnet 4.6's 55.51.
 - **Provider / access:** Anthropic API, Claude apps, clouds. Proprietary. No free id (meta).
 - **Release / knowledge:** 2025-09-29.
-- **Context window:** **200K standard (64K out) / 1M beta** (Tier 4+ or custom limits, per meta).
+- **Context window:** **200K standard (64K out)** — the 1M beta (`context-1m-2025-08-07`) was **deprecated 2026-04-30 and 1M is now disabled for Sonnet 4.5/Sonnet 4** (fresh confirmation 2026-11-10: platform.claude.com, claudelab.net, note.com, endoflife.ai); no longer a 1M-tier model.
 - **Modalities:** **text, image, file in; text out.**
 - **Pricing:** **$3.00 / $15.00 per 1M** (flat at 200K — same tariff as Sonnet 4), **cached input $0.30 (90% off)**.
 
@@ -19,13 +44,15 @@
 
 > Primary: Anthropic launch post (2025-09-29) + rows as re-hosted by BenchLM
 > (Opus 4.5 system card, Epoch leaderboard, VITA/Gert/JobBench leaderboards),
-> press coverage (Ars Technica, RD World). Only 12 BenchLM rows — thin profile, flagged.
+> press coverage (Ars Technica, RD World). BenchLM now lists 20 rows
+> (snapshot 2026-11-10; was 12 at the previous pass) — still a thin
+> profile, flagged.
 
 Agentic / tool use:
 
 - **OSWorld-Verified: 61.4** (system card; launch SOTA, 100 max steps, 4-run avg).
 - **Terminal-Bench 2.0: 50** (Opus 4.5 system card comparison) — mid.
-- Weak: VITA-Bench 17.0, Gert Labs 48.51, JobBench 27.7; Design Arena Website Elo 1196 (OpenRouter).
+- Weak: VITA-Bench 17.0, Gert Labs 48.51, JobBench 27.7; Design Arena Website Elo 1186 (OpenRouter — was 1196, noise-level revision).
 - Qualitative: 30-hour continuous focus on multi-step tasks (launch), Claude for Chrome production use.
 
 Coding:
@@ -35,29 +62,29 @@ Coding:
 Reasoning & knowledge:
 
 - **GPQA: 83.4** (Opus 4.5 system card) — misses the 90 reference. **AIME 2025: 87.**
-- FrontierMath v2 T1–3 13.495, T4 4.167 (Epoch); ARC-AGI-2 13.6.
+- FrontierMath v2 T1–3 **23.860**, T4 **2.439** (Epoch, revised on the 2026-11-10 BenchLM snapshot — was T1–3 13.495, T4 4.167; mixed revision, still far below the 60–75 frontier T1–3 band); ARC-AGI-2 13.6.
 - No HLE row for 4.5 in current coverage (launch-era HLE ~mid-20s per era, not on fetched pages — flagged absent).
 
 Multimodal / long context:
 
-- No MMMU/vision row in the 12-row profile (text+image+file input per spec); no MRCR/LCR retrieval row.
+- No MMMU/vision row in the 20-row profile (text+image+file input per spec); no MRCR/LCR retrieval row at the 200K GA window. The model's only-ever retrieval measurement is the deprecated 1M beta's **MRCR v2 8-needle 18.5%** (yage.ai timeline — recorded in the merged-duplicate section below), and the beta itself was retired 2026-04-30.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** OSWorld 61.4 was genuine launch-SOTA computer use with strong qualitative long-horizon evidence; TB2.0 50 is mid and VITA/JobBench-class rows are weak.
-- **Reasoning: 78/100.** AIME25 87 is solid, but GPQA 83.4 misses 90, FrontierMath 13.5 is mid-tier, and no HLE/AI-index row exists for this model in current coverage.
-- **Context window: 91/100.** 200K standard with 1M beta available — but zero retrieval-quality rows for this model, held below the 262K-class 90-plus range only by the beta's existence.
-- **Multimodal: 64/100.** Text+image+file in with no vision benchmark evidence — image band, evidence-free edge.
-- **Coding: 79/100.** Launch-SOTA SWE-V 77.2 (82 with TTC) is a real headline row; absolute level now sits under the 85 ref and modern TB2.1/SciCode anchors have no 4.5 rows to confirm against.
-- **Cost efficiency: 62/100** (excluded from Overall). $3/$15 sits on the $3/$15 ≈ 60 anchor; 90%-off cache ($0.30) and flat pricing (no 200K premium) nudge it to 62.
-- **Overall Score: 78/100.** (80+78+91+64+79)/5 = 78.4 → 78 — the September-2025 coding/computer-use champion (SWE-V 77.2, OSWorld 61.4, 30-hour focus), judged against today's references: sub-reference GPQA, mid TB2.0, a 12-row evidence profile, and benchmark rows the 4.6/5.x line has moved well past.
+- **Tool use: 80/100.** OSWorld 61.4 was genuine launch-SOTA computer use with strong qualitative long-horizon evidence; TB2.0 50 is mid and VITA/JobBench-class rows are weak — all agentic rows re-confirm byte-identically on the 2026-11-10 snapshot (no change).
+- **Reasoning: 78/100.** AIME25 87 is solid, but GPQA 83.4 misses 90, FrontierMath v2 is mid-tier (revised this pass: T1–3 13.495→23.860, T4 4.167→2.439 — mixed, still far below frontier), and no HLE/AI-index row exists for this model in current coverage (no change).
+- **Context window: 68/100.** The previous 91 rested explicitly on the 1M beta's existence — that beta was **deprecated 2026-04-30 and 1M is disabled for Sonnet 4.5** (freshly confirmed 2026-11-10), leaving 200K GA → methodology tier "200K = 70"; with zero retrieval rows at 200K and the model's only-ever retrieval figure (MRCR v2 8-needle 18.5% at 1M) it lands at 68 (was 91), matching the merged-duplicate section's independent reading.
+- **Multimodal: 64/100.** Text+image+file in with no vision benchmark evidence — image band, evidence-free edge (no change).
+- **Coding: 79/100.** Launch-SOTA SWE-V 77.2 (82 with TTC) re-confirms on the 2026-11-10 snapshot; absolute level now sits under the 85 ref and modern TB2.1/SciCode anchors have no 4.5 rows to confirm against (no change).
+- **Cost efficiency: 62/100** (excluded from Overall). $3/$15 sits on the $3/$15 ≈ 60 anchor; 90%-off cache ($0.30) and flat pricing (no 200K premium) nudge it to 62 (pricing unchanged this pass).
+- **Overall Score: 74/100.** (80+78+68+64+79)/5 = 369/5 = 73.8 → 74 — the September-2025 coding/computer-use champion (SWE-V 77.2, OSWorld 61.4, 30-hour focus) now priced as a legacy 200K-tier model: its 1M beta is gone (deprecated 2026-04-30), the SKU itself is deprecated with retirement set for 2026-11-30, and the benchmark rows the 4.6/5.x line has moved well past remain.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research — anthropic.com/news/claude-sonnet-4-5 (release date, SWE-V methodology, OSWorld claims, 30-hour focus), anthropic.com/claude/sonnet (positioning), BenchLM (12 rows with provenance incl. Opus 4.5 system card PDF and Epoch leaderboard; updated 2026-10-07), Ars Technica + RD World (SWE-V 82 TTC variant, pricing confirmation), repo meta. Scores are normalized 1–100 interpretations, not official vendor scores; thin-coverage flagged; family ordering checked against own Sonnet 4.6 (80), Sonnet 5 (84), Sonnet 5.5 (88) and Opus 4.5 (80) reports.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-10
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page snapshot 2026-11-10 with per-row provenance — Opus 4.5 system card PDF, Epoch AI FrontierMath v2 leaderboards, VITA/Gert/JobBench, OpenRouter — plus fresh web confirmation of the 1M-beta deprecation [platform.claude.com, claudelab.net, note.com, endoflife.ai] and the model's own deprecation/retirement dates; checked against the 2026-10-07 sources: anthropic.com launch post, anthropic.com/claude/sonnet, BenchLM 2026-10-07, Ars Technica, RD World, repo meta). Scores are normalized 1–100 interpretations, not official vendor scores; thin-coverage flagged; family ordering checked against own Sonnet 4.6 (80), Sonnet 5 (84), Sonnet 5.5 (88) and Opus 4.5 (80) reports — 4.5 (74) now correctly sits below Sonnet 4.6. Previous Signature 2026-10-07; merged-duplicate section (2026-10-06, Context 68) preserved untouched.
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---

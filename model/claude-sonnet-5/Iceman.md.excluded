@@ -1,0 +1,67 @@
+# Claude Sonnet 5 — findings by Iceman
+
+- Source: Anthropic/Claude Sonnet 5
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5
+- **Short description:** Anthropic’s Claude Sonnet 5 (released June 30, 2026) is an agentic Sonnet model positioned close to Opus 4.8 performance at lower cost, succeeded by Claude Sonnet 5.5. Benchmark comparison visuals in accessible announcement text were not fully extractable in this pass.
+- **Provider / access:** Anthropic Claude API `claude-sonnet-5`; available across Claude products/plans per announcement. No confirmed OpenCode Zen Free ID (`noFreeId` in local metadata).
+- **Release / knowledge:** Released June 30, 2026 (announcement). Knowledge cutoff not explicitly extracted from reviewed docs in this pass.
+- **IDs:** `claude-sonnet-5` (API). Local metadata ID `anthropic/claude-sonnet-5`.
+- **Context window:** Local metadata states 1M / 128K out.
+- **Modalities:** Local metadata states text, image, file in; text out.
+- **Pricing (as of 2026-11-10):** Announcement states $2 / 1M input and $10 / 1M output (later made permanent per changelog in fetched page). Local metadata lists $3/$15 in one field and may be outdated; primary announcement pricing used.
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Anthropic’s Claude Sonnet 5 announcement, but the benchmark comparison table was image-based/not clearly extractable as numeric text in this pass and I could not confidently compile sufficient standalone verified public benchmark numbers for this exact model. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- BrowseComp / OSWorld-Verified: performance curves and comparative claims shown in announcement, but exact standalone Sonnet 5 numeric scores not clearly extracted.
+- Terminal-Bench 2.1: **no verified public score found** (clearly extracted)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found** (clearly extracted)
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** (clearly extracted)
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M/128K context stated in metadata; no standalone long-context retrieval benchmark score extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extracted verified public benchmark numbers for this exact model in this independent pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Anthropic announcement; benchmark visuals not clearly extractable as numeric text.
+- Reference URLs:
+  - [Introducing Claude Sonnet 5 (Anthropic announcement)](https://www.anthropic.com/news/claude-sonnet-5)
+  - [Claude Sonnet 5 system card (referenced by announcement)](https://www.anthropic.com/claude-sonnet-5-system-card)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

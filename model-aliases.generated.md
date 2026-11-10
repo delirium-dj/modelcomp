@@ -10,6 +10,7 @@
 ## Parked (retired) slugs — folders stay on disk and in git; never researched
 
 - `omin-alpha` — misspelling of omen-alpha (Omen Alpha) — NOT a separate model: independent search for "Omin Alpha" returns no LLM, no model card, no tracker page and no queue entry; the folder's three reports are all self-excluded (`*.md.excluded`, zero verified benchmarks) and each independently identifies the slug as a typo/conflation of `omen-alpha`; never re-scaffold, never re-queue and never write research into it — it is parked in RETIRED_SLUGS, so sync can never queue, score or make it a rater; the folder stays on disk and in git under the research-permanence rule (parked 2026-11-04, reconfirmed 2026-11-06 after a research agent nearly filed a scored report under this slug) — research belongs in model/omen-alpha/
+- `frantic-ferret` — ephemeral stealth preview on OpenCode Console (`opencode/frantic-ferret-free`) deployed and withdrawn within ~2 hours on 2026-11-08 (PR #62780); zero verified public benchmarks or reproducible evaluation rows; all findings are self-excluded (`*.md.excluded`); parked in RETIRED_SLUGS on user order 2026-11-10 so sync and site hide it without emitting missing average warnings, while preserving the research files on disk and in git under research permanence
 
 ## Deleted phantom model folders — removed from disk + git 2026-11-03; never recreate or restore
 

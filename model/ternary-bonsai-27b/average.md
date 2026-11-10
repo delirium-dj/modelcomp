@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, Qwen 3.8 Flash, Qwen 3.8 Max.
 - Average from top 4 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, Qwen 3.8 Flash, Qwen 3.8 Max.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite.
+- Ignored below-gate rater(s): Flint, Gemini 3.5 Flash Lite, Inkling 2 Small.

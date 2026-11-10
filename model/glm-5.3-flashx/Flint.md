@@ -35,7 +35,7 @@
 
 ## Signature
 
-- Provided by: **Flint (z-ai/glm-5.3-flash / opencode/glm-5.3-flashx)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Z.ai) plus independent benchmark sources (Artificial Analysis, DeepSWE / YZ Index); multi-site comparison for conflicting figures.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
 

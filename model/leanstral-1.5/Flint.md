@@ -44,7 +44,7 @@ Mean of five quality dims (Tool 55 + Reasoning 65 + Context 75 + Multimodal 65 +
 
 ## Signature
 
-- Provided by: **Flint (leanstral-1.5)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model cards/docs (Hugging Face `mistralai/Leanstral-1.5-119B-A6B`, `mistralai/Leanstral-2603`, Mistral news blog, Mistral docs incl. retirement/replacement) plus official evaluation write-up/benchmark sources (Mistral Vibe scaffold FLTEval comparisons); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Leanstral 1.5 — Hugging Face model card (specs, usage, license)](https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B)

@@ -37,7 +37,7 @@
 
 ## Signature
 
-- Provided by: **Claude Mythos 5 (claude-mythos-5)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Anthropic Claude / Fable 5-Mythos 5 announcement, Claude docs) plus independent benchmarks/reviews (industry eval reports, Stripe/Cognition/GitHub/Meta commentary) — three independent source families.
 - Reference URLs:
   - [Claude Fable 5 and Claude Mythos 5 — Anthropic](https://www.anthropic.com/news/claude-fable-5-mythos-5)
@@ -82,7 +82,7 @@
 
 ## Signature
 
-- Provided by: **Muse Spark Open (muse-spark-open)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta AI / Muse Spark 1.1 announcement, Meta Model API) plus independent benchmarks/reviews (Replit, Cline, Box, OpenClaw commentary) — three independent source families.
 - Reference URLs:
   - [Introducing Muse Spark 1.1 — Meta AI](https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/)

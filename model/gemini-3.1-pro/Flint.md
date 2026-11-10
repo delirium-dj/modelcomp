@@ -56,6 +56,6 @@ Long context / multimodal:
 
 ## Signature
 
-- Provided by: **Flint (gemini-3.1-pro)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (DeepMind, Google AI) plus independent benchmarks/reviews (BenchGecko, LMArena, llmbenchmark.ai, Vals AI, Artificial Analysis) — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

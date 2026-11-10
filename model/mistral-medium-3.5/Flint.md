@@ -45,7 +45,7 @@ Independent (Artificial Analysis / BenchLM / Vals / community):
 
 ## Signature
 
-- Provided by: **Flint (opencode/mistral-medium-3.5)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Mistral AI docs, HF `mistralai/Mistral-Medium-3.5-128B`, Mistral blog) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, BenchLM) — three independent web searches.
 - Reference URLs:
   - [Mistral Medium 3.5 — Mistral AI Docs](https://docs.mistral.ai/models/mistral-medium-3.5-26-04)

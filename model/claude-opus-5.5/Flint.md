@@ -54,6 +54,6 @@ Long context:
 
 ## Signature
 
-- Provided by: **Flint (claude-opus-5-5)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Anthropic news + system card, Puter specs) plus independent benchmarks/reviews (Vals AI, Puter) — three independent web searches.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.

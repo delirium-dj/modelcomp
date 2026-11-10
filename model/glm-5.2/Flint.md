@@ -56,7 +56,7 @@ Independent (Vals AI, Artificial Analysis, BenchLM, LMArena, Kilo Code, NVIDIA, 
 
 ## Signature
 
-- Provided by: **Flint (opencode/glm-5.2)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Z.ai blog, docs.z.ai, Hugging Face, NVIDIA NIM) plus independent benchmarks/reviews (Vals AI, Artificial Analysis, BenchLM, LMArena, Kilo Code) — four independent web searches.
 - Reference URLs:
   - [GLM-5.2: Built for Long-Horizon Tasks | Z.ai](https://z.ai/blog/glm-5.2)

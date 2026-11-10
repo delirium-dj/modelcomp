@@ -43,6 +43,6 @@
 
 ## Signature
 
-- Provided by: **Flint (openai/gpt-6.1-sol)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public-internet research (OpenAI + Artificial Analysis + DataCamp); scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.5.md`, using the same headings.

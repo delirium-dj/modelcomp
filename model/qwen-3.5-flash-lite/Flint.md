@@ -48,7 +48,7 @@ Independent (Artificial Analysis / BenchLM / Vals AI / Bloomberg / VentureBeat /
 
 ## Signature
 
-- Provided by: **Flint (opencode/qwen-3.5-flash-lite)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Alibaba Qwen / Tongyi Lab announcements, Hugging Face `Qwen/qwen35`, Alibaba Cloud API docs) plus independent benchmarks/reviews (Vals AI, BenchmarkList, DeepLearning.ai / The Batch, GIGAZINE, VentureBeat) — three independent web searches.
 - Reference URLs:
   - [Qwen 3.5: Alibaba’s Native Multimodal Agent Model Arrives | DeepLearning.ai](https://www.deeplearning.ai/the-batch/qwen-3-5-alibabas-native-multimodal-agent-model-arrives)

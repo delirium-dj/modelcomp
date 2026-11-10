@@ -56,7 +56,7 @@ Independent (Artificial Analysis / BenchLM / Model Beats / Opper / MindStudio / 
 
 ## Signature
 
-- Provided by: **Flint (opencode/nemotron-3.5-bolt-74b-a9b)** — 2026-11-06
+- Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (NVIDIA Nemotron research blog, Hugging Face, arXiv technical report) plus independent benchmarks/reviews (Artificial Analysis, BenchLM, Model Beats, Opper, MindStudio) — three independent web searches.
 - Reference URLs:
   - [NVIDIA Nemotron 3.5 Bolt 74B-A9B 24GB: A Hybrid Vision-Language Model for Local AI](https://research.nvidia.com/labs/nemotron/Nemotron-3.5-Bolt-24GB/)

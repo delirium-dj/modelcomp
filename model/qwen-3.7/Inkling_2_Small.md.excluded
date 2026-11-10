@@ -1,0 +1,62 @@
+# Qwen 3.7 — findings by Inkling 2 Small
+
+- Source: Alibaba (`qwen-3.7`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 (bare)
+- **Short description:** Bare-name tracked slug for the Qwen3.7 generation. As of 2026-11-10 every public reference resolves to the suffixed SKUs — Qwen3.7 Flash (`$0.03/$0.13`), Qwen3.7 Plus (`$0.40/$1.60`), Qwen3.7 Max (`$2.50/$7.50`, all 1M ctx / 131,072 max output on Alibaba Model Studio) — not to a distinct bare `qwen-3.7` vendor route. No model card, benchmark table, or pricing row exists for the bare ID.
+- **Provider / access:** Alibaba Cloud Model Studio — only the suffixed routes (`qwen3.7-flash`, `qwen3.7-plus`, `qwen3.7-max`) are listed on the public catalog; the bare `qwen-3.7` route was not found.
+- **Release / knowledge:** unknown — no bare-model announcement found.
+- **IDs:** `qwen-3.7` (as tracked by this dataset; vendor route not found)
+- **Context window:** unknown for the bare ID (suffixed SKUs: 1,000,000).
+- **Modalities:** unknown for the bare ID (suffixed SKUs: text+image in).
+- **Pricing (as of 2026-11-10):** no verified public price found for the bare ID.
+- **Architecture:** proprietary hosted; parameter count undisclosed.
+
+### Raw benchmarks found
+
+ZERO verified public benchmark scores found for the bare `qwen-3.7` ID. Every row below is intentionally empty.
+
+Agent / tool use:
+
+- no verified public score found (BenchLM 404 for `qwen-3.7`; no rows anywhere)
+
+Reasoning / knowledge:
+
+- no verified public score found (BenchLM, Artificial Analysis, Vals, Epoch AI: no rows for the bare ID)
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+Multimodal:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Note for the orchestrator: this slug behaves like a family-shorthand for the suffixed Qwen3.7 SKUs — per project identity rules a bare family name with no distinct vendor route should be parked/redirected to the suffixed folders rather than tracked separately.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no evidence
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public information; see suffixed SKUs.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
+- Method: public internet research (models.dev Alibaba catalog, BenchLM, web search); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [Alibaba provider catalog — models.dev](https://models.dev/providers/alibaba)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

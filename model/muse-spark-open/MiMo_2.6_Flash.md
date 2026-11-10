@@ -1,9 +1,27 @@
 # Muse Spark Open — findings by MiMo 2.6 Flash
 
 - Source: Meta/Muse Spark Open
-- Date: 2026-11-04 (UTC)
+- Date: 2026-11-10 (UTC) — second-pass enrichment re-research (previous 2026-11-04)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-10** (user-approved). Previous Signature
+> 2026-11-04 (Overall 84). Fresh source this pass: BenchLM model page
+> (snapshot 2026-11-10, overall 51.08, rank #95/1020, 24/804 rows — the Meta
+> scorecard/model-card rows are now indexed). Changes: Tool use 79→80 (new
+> rows: **MCP Atlas 89.2%**, **Toolathlon-Verified 72.8%**, JobBench 61.8% —
+> the tool gaps that held 79 now have solid mid-upper evidence; capped still
+> by missing Tau3/OSWorld/Claw-Eval and the TB4.0 harness conflict), Overall
+> 84 unchanged (mean 84.0 → 84.2). Held: Reasoning 72 (new **HLE w/ tools
+> 61.0%** and HLE 43.9 no-tools are strong, but Intelligence Index 24.9 and
+> MLCR 7.8 remain the binding caps; BenchLM now reads CritPt 14.9 — AA's
+> hard-subset 29.5 stands as recorded), Context 96 (AA-LCR 78.3 unchanged,
+> still no retrieval-at-window figure), Multimodal 91 (new ZeroBench 50.0,
+> BabyVision 80.2, SimpleVQA 73.6, Design Arena 1302 confirm the vision
+> profile; text-only-out cap unchanged), Coding 82 (newly-published
+> **DeepSWE 60.0%** and **SWE-Atlas Codebase QnA 58.0%** fill the two "no
+> score found" slots but neither clears its ref — DeepSWE misses the 74%
+> ref; FrontierCode 2.0 6.2% Cognition), Cost 88 (pricing unchanged).
 
 ## Model card
 
@@ -26,6 +44,8 @@ Agent / tool use:
 - AA-Briefcase v1.1 Elo: **1278** (Meta's run at xhigh, low 1092 / medium 1240; Artificial Analysis reports the same 1278 — the two agree; described as 2nd-best open-weight result by independent coverage)
 - GDPval-AA: **1129 Elo** (Meta's run at xhigh; low 1022 / medium 1104) vs **1401 Elo** (Artificial Analysis) — see conflict note 4
 - AutomationBench (Artificial Analysis): **49.7%** at **$2.02/task**
+- **MCP Atlas: 89.2%** (Meta scorecard, via BenchLM 2026-11-10 — new, strong tool-orchestration row); **Toolathlon-Verified: 72.8%** (Meta model card — new); **JobBench: 61.8%** (Meta scorecard — new)
+- GDPval-AA normalized: **45.1%** (AA model page, via BenchLM — consistent with the 1401 Elo in conflict note 4); MazeBench **0%** (ASCII mode)
 - AA-Codeforces: **1495** (Meta at xhigh; low 1414 / medium 1489)
 - AA-CompEcon (Meta at xhigh): **8.0**
 - OSWorld / Tau3-Bench / Claw-Eval: **no verified public score found** (Claw-Eval missing = N/A note per rubric, no hallucinated score)
@@ -34,11 +54,11 @@ Reasoning / knowledge:
 
 - Artificial Analysis Intelligence Index (v5.0.1): **25**, **#11 of 24 open-weight models** at Xhigh effort — see conflict note 1
 - BenchLeader Index: **53.8**, #238 of 585 ranked configurations (coding 35, knowledge 61, long context 64, multimodal 64; composite = 15% each coding/knowledge/math/reasoning/long-context/multimodal + 10% agent)
-- BenchLM composite: **50.48/100**, #98 of 216 (8 source-displayable rows, estimated)
+- BenchLM composite: **51.08/100**, #95 of 1020 (24/804 rows, snapshot 2026-11-10 — was 50.48 #98/216)
 - GPQA Diamond (Meta's run): **83.3%** at xhigh (low 77.6% / medium 81.0% / high 83.3%; **81.3%** without tools) vs **89.0%** (Artificial Analysis) vs **81.5%** (sota-model.com aggregation) — see conflict note 3
-- HLE (Artificial Analysis): **43.9%**; HLE-Diamond: **26.3%** (different subsets, not a dispute)
+- HLE (Artificial Analysis): **43.9%**; HLE-Diamond: **26.3%** (different subsets, not a dispute); **HLE w/ tools: 61.0%** (Meta model card, via BenchLM 2026-11-10 — new)
 - AIME 2026 (Meta): **85.4%** at xhigh (low 79.2% / medium 85.0%)
-- CritPt v2, hard subset (Artificial Analysis): **29.5%**
+- CritPt v2, hard subset (Artificial Analysis): **29.5%**; BenchLM's standard CritPt row reads **14.9%** (different subset — both recorded)
 - AA-LCR (long-context reasoning): **78.3%**; MLCR: **7.8%** (weak multi-turn long-context)
 - AA-Omniscience: net **25.8** / accuracy **42.0%** / non-hallucination **72.0%** (Artificial Analysis)
 - Vals Index (Artificial Analysis): **48.6**; Vals HLAB v1.1: **25.0%**, **#2** (Artificial Analysis)
@@ -50,11 +70,13 @@ Coding:
 - Terminal-Bench 4.0: **77.2%** (Meta, xhigh) vs **8.1%** (Artificial Analysis) — see conflict note 2
 - SWE-Bench Pro (Meta): **55.8%** at xhigh (low 51.0% / medium 55.6%)
 - SWE-bench Verified: **72.6%** (sota-model.com aggregation, single source)
-- SciCode (Artificial Analysis): **58.5%** — above the rubric's 55%+ frontier reference
+- SciCode (Artificial Analysis): **58.5%** — above the rubric's 55%+ frontier reference (BenchLM row: **58.4%**)
+- **DeepSWE: 60.0%** (Meta scorecard, via BenchLM 2026-11-10 — **newly published**; below the 74%+ frontier ref)
+- **SWE-Atlas Codebase QnA: 58.0%** (Meta model card — newly published)
 - LiveCodeBench: **57.6%** (sota-model.com aggregation); Aider Polyglot: **83.2%** (same source)
 - MLE-Bench (Meta): **20.0%** at xhigh (low 16.6% / medium 20.0%)
-- FrontierCode v1.1: **27.6%**; v2.0: **7.6%** (Artificial Analysis) — well behind closed-frontier levels
-- DeepSWE / Vibe Code Bench / SWE-Atlas: **no verified public score found**
+- FrontierCode v1.1: **27.6%**; v2.0: **7.6%** (Artificial Analysis) / **6.2%** (Cognition, via BenchLM — new) — well behind closed-frontier levels
+- Vibe Code Bench: **no verified public score found** (DeepSWE and SWE-Atlas gaps now filled)
 
 Long context:
 
@@ -65,6 +87,7 @@ Long context:
 Multimodal:
 
 - MMMU-Pro (Artificial Analysis): **80.9%**
+- Vision rows (Meta scorecard, via BenchLM 2026-11-10 — new): **ZeroBench 50.0%**, **BabyVision 80.2%**, **SimpleVQA 73.6%**; **Design Arena Website: 1302 Elo** (OpenRouter — new)
 - Vals HLAB v1.1: **25.0%, #2** among tracked models (Artificial Analysis)
 - Input modalities text/image/video/audio confirmed by Meta and Hugging Face blog; output is text-only
 
@@ -80,20 +103,20 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 79/100.** Terminal-Bench 2.1 76.4% (mid band tops out at 60, frontier is 88+), GDPval-AA 1401 Elo (above the 900–1200 mid band, below the 1750+ frontier), AA-Briefcase 1278 (2nd among open weights), AutomationBench 49.7% at $2.02/task; capped by missing Tau3, OSWorld and Claw-Eval figures (Claw-Eval = N/A, slight penalty per rubric) and by the unresolved Terminal-Bench 4.0 harness conflict.
-- **Reasoning: 72/100.** HLE 43.9% exceeds the rubric's 40%+ frontier reference and GPQA Diamond 83.3–89.0% sits just under the 90%+ frontier; capped by the Intelligence Index at 25 (mid band 20–35 → 55–65), MLCR 7.8%, CritPt hard 29.5%, AA-Omniscience net 25.8 and index-version confusion (conflict note 1).
+- **Tool use: 80/100.** Terminal-Bench 2.1 76.4% (mid band tops out at 60, frontier is 88+), GDPval-AA 1401 Elo (above the 900–1200 mid band, below the 1750+ frontier), AA-Briefcase 1278 (2nd among open weights), AutomationBench 49.7% at $2.02/task — and now two previously-silent tool slots are filled at good levels: MCP Atlas **89.2%** and Toolathlon-Verified **72.8%** (plus JobBench 61.8) → 80 (was 79). Still capped by missing Tau3, OSWorld and Claw-Eval figures (Claw-Eval = N/A, slight penalty per rubric) and the unresolved Terminal-Bench 4.0 harness conflict.
+- **Reasoning: 72/100.** HLE 43.9% exceeds the rubric's 40%+ frontier reference (and the new HLE w/tools **61.0%** is a strong second reading) and GPQA Diamond 83.3–89.0% sits just under the 90%+ frontier; capped by the Intelligence Index at 24.9 (mid band 20–35 → 55–65), MLCR 7.8%, CritPt 14.9–29.5, AA-Omniscience net 25.8 and index-version confusion (conflict note 1).
 - **Context window: 96/100.** 1,048,576 tokens = top tier (≥1M → 95–100); not a 100 because no ≥98%-retrieval-at-512K+ figure is published (AA-LCR 78.3% and MLCR 7.8% are reasoning, not retrieval, and the MLCR number is weak).
-- **Multimodal: 91/100.** Text, image, video **and audio** input puts it in the rubric's top band (audio in → 90–100), with MMMU-Pro 80.9% and Vals HLAB 25.0% (#2) as anchors; capped because output is text-only.
-- **Coding: 82/100.** SciCode 58.5% clears the 55%+ frontier reference, SWE-bench Verified 72.6% and SWE-Bench Pro 55.8% are strong, Terminal-Bench 2.1 76.4% and Aider Polyglot 83.2% hold the mid-to-upper range; capped by Terminal-Bench 4.0's disputed 8.1% vs 77.2%, weak FrontierCode (27.6%/7.6%), BenchLeader's coding subscore of 35 (its weakest category), and no DeepSWE/SWE-Atlas number.
-- **Cost efficiency: 88/100.** Exactly the rubric's ~$1.25/$4.25 → ~88 anchor, helped by $0.15 cached input (88% off), $2.02 per AutomationBench task and $0-license-cost self-hosting of the open weights (hardware-bound: BF16 ≈ 420GB, so "free" applies to labs with clusters); free hosted tiers are license-capped (MAU), not a $0 API.
-- **Overall Score: 84/100.** Mean of the five non-cost quality dims (79+72+96+91+82)/5 = 84 — the strongest open-weight agentic-coding pick with a full 1M window and audio/video input, held below the 90s by a mid-tier Intelligence Index (25), weak long-context multi-turn reasoning (MLCR 7.8%) and the open-weights-vs-closed-frontier gap its own tradeoff line admits.
+- **Multimodal: 91/100.** Text, image, video **and audio** input puts it in the rubric's top band (audio in → 90–100), with MMMU-Pro 80.9% and Vals HLAB 25.0% (#2) as anchors — the new scorecard rows (ZeroBench 50.0, BabyVision 80.2, SimpleVQA 73.6, Design Arena 1302) confirm broad vision coverage without changing the band; capped because output is text-only.
+- **Coding: 82/100.** SciCode 58.5% clears the 55%+ frontier reference, SWE-bench Verified 72.6% and SWE-Bench Pro 55.8% are strong, Terminal-Bench 2.1 76.4% and Aider Polyglot 83.2% hold the mid-to-upper range — the two long-standing silences are now published and are mid-band: DeepSWE **60.0%** (misses the 74% ref) and SWE-Atlas QnA 58.0%; capped by Terminal-Bench 4.0's disputed 8.1% vs 77.2%, weak FrontierCode (27.6%/7.6%/6.2%), BenchLeader's coding subscore of 35 (its weakest category).
+- **Cost efficiency: 88/100.** Exactly the rubric's ~$1.25/$4.25 → ~88 anchor, helped by $0.15 cached input (88% off), $2.02 per AutomationBench task and $0-license-cost self-hosting of the open weights (hardware-bound: BF16 ≈ 420GB, so "free" applies to labs with clusters); free hosted tiers are license-capped (MAU), not a $0 API. Pricing re-confirmed unchanged this pass.
+- **Overall Score: 84/100.** Mean of the five non-cost quality dims (80+72+96+91+82)/5 = 84.2 → 84 — the strongest open-weight agentic-coding pick with a full 1M window and audio/video input, held below the 90s by a mid-tier Intelligence Index (24.9), weak long-context multi-turn reasoning (MLCR 7.8%) and the open-weights-vs-closed-frontier gap its own tradeoff line admits.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-11-04
-- Method: fresh public internet research — Meta's official launch post and Hugging Face/PyTorch engineering blogs, the Artificial Analysis model page and index, BenchLeader/BenchLM/LLM Stats/sota-model.com aggregators and independent coverage, cross-checked against each other; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-11-10
+- Method: second-pass enrichment re-research (public internet research: BenchLM model page snapshot 2026-11-10 with per-row provenance — Meta Muse Spark Open scorecard and Hugging Face model card, Artificial Analysis, Cognition FrontierCode 2.0, OpenRouter — checked against the 2026-11-04 sources: Meta launch post, Hugging Face/PyTorch blogs, AA model page, BenchLeader/LLM Stats/sota-model.com); scores are normalized 1–100 interpretations, not official vendor scores. Previous Signature 2026-11-04.
 - Reference URLs:
   - [Meta research blog — Introducing Muse Spark Open](https://research.meta.ai/blog/muse-spark-open)
   - [Hugging Face blog — Muse Spark Open](https://huggingface.co/blog/meta-muse-spark-open)

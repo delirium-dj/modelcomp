@@ -57,7 +57,7 @@ Cross-source comparison & conflicts:
 
 ## Signature
 
-- Provided by: **Flint (opencode/muse-wonder)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (Meta research.meta.ai Muse Wonder model card + dev hub, Meta research blog, FB news) plus independent benchmarks/reviews (Artificial Analysis, RankLLMs, benchgap, LMArena, systemcard.io) — three independent web searches.
 - Reference URLs:
   - [Muse Wonder Model Card](https://research.meta.ai/static/muse-wonder-model-card)

@@ -36,6 +36,6 @@
 
 ## Signature
 
-- Provided by: **Flint (opencode/mistral-small-4)** - 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research on Mistral AI documentation and independent benchmark coverage; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Mistral_Small_4.md`, using the same headings.

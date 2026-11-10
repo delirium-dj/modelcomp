@@ -42,7 +42,7 @@ Mean of five quality dims (Tool 55 + Reasoning 60 + Context 85 + Multimodal 65 +
 
 ## Signature
 
-- Provided by: **Flint (omen-alpha)** — 2026-11-06
+- Provided by: **Flint** — 2026-11-06
 - Method: public web research prioritizing official model card/docs (omenalpha.io — site, benchmarks page, model-identity page, API docs) plus independent benchmarks/reviews (Build Fast with AI coding review, explainx.ai stealth-model forensics, OpenCode Data usage telemetry, AI Coding Daily coverage); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Omen Alpha — official site, pricing, access](https://omenalpha.io)
