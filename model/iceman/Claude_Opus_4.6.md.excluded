@@ -1,0 +1,60 @@
+# Iceman — findings by Claude Opus 4.6
+
+- Source: OpenCode (`opencode/iceman-free`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Iceman
+- **Short description:** OpenCode's anonymous stealth reasoning model, offered as a free contributor-tier model where prompts and completions are retained for training. Speculated to be an upstream preview from a major lab (possibly Microsoft MAI series), but unattributed.
+- **Provider / access:** OpenCode Console and Go (`opencode/iceman-free`). Free contributor tier with data retention.
+- **Release / knowledge:** Released on OpenCode platform; exact date and knowledge cutoff unknown.
+- **IDs:** `opencode/iceman-free` (also referenced as `iceman-contributor-free`)
+- **Context window:** 262,144 tokens (262K) input / 131,072 tokens (131K) max output — per meta.json and platform docs.
+- **Modalities:** Text in; text out only. Reasoning capability and native tool-calling support.
+- **Pricing (as of 2026-11-10):** Free (prompts and completions retained for model training).
+- **Architecture:** Unknown/proprietary. Anonymous stealth model with no disclosed parameter count, architecture details, or open weights.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION TRIGGERED:** Zero verified public benchmark numbers were found for this exact model/ID. Iceman does not appear on any official benchmark leaderboard (Artificial Analysis, LMSYS, vals.ai, etc.). Community/developer consensus places it at a mid-tier generalist level comparable to GPT-4o class, but no standardized scores are published.
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- MMLU / MMLU-Pro: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- 262K context window per platform listing. No MRCR/RULER/GraphWalks retrieval benchmarks found.
+
+### Negative findings summary
+
+Iceman is an anonymous stealth/contributor model with no lab attribution and no published benchmark data. Community reports indicate mixed-to-disappointing performance on complex coding and reasoning tasks, with high hallucination rates on PhD-level scientific questions. It is primarily used for zero-cost prototyping rather than production workloads. The model does not feature on any standard AI benchmark leaderboard.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-10
+- Method: Public internet research (OpenCode docs, Reddit, aipromonow.com, tokendyno.com); zero verified benchmarks found — saved as `.md.excluded`.
+- Reference URLs:
+  - [aipromonow.com — Iceman contributor model](https://aipromonow.com)
+  - [OpenCode — Console models](https://opencode.ai/docs/console/models/)
+  - [Reddit — Iceman discussion](https://reddit.com)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

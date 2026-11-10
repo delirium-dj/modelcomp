@@ -1,9 +1,17 @@
 {
-  "id": "opencode/frantic-ferret",
+  "id": "opencode/frantic-ferret-free",
   "name": "Frantic Ferret",
-  "short": "Frantic Ferret model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenCode's ephemeral stealth evaluation model (1M/270K, Free) deployed and withdrawn on 2026-11-08; route removed after ~2 hours with no verified benchmark scores.",
+  "contextWindow": "1,048,576 total; 270,000 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Free ($0/$0/$0; historical 2-hour stealth preview)",
+  "pricingTiers": [
+    "Free ($0/$0/$0; route withdrawn)"
+  ],
+  "officialUrl": "https://opencode.ai/docs/console/models/",
+  "pricingLinks": [
+    "https://opencode.ai/pricing"
+  ],
+  "standout": "Briefly offered 1M context with multimodal inputs via OpenCode Responses API before withdrawal.",
+  "tradeoff": "Historical 2-hour preview endpoint now withdrawn; no reproducible third-party benchmark evaluations exist."
 }

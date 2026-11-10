@@ -21,7 +21,7 @@
     {
       "name": "Pay as you go",
       "price": "Usage-based",
-      "notes": "No commitment, per-token catalog pricing (e.g. Qwen 3.8 27B at €0.40/M input, €2.70/M output); 400 requests/minute per project and per model with an access key.",
+      "notes": "No commitment, per-token catalog pricing (e.g. Qwen 3.8 27B at €0.40/M input, €2.70/M output); 21 models across text, embeddings, speech and image; several catalog models are free (Qwen3Guard safety models, Stable Diffusion XL image generation, NVIDIA Riva TTS); 400 requests/minute per project and per model with an access key.",
       "evidenceUrl": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/qwen-3-8-27b/"
     }
   ],

@@ -1,7 +1,7 @@
 {
   "name": "Perplexity",
   "kind": "vendor",
-  "short": "Conversational search and Sonar API powered by leading foundation models; API pay-as-you-go from $1/$1 per 1M, plus Perplexity Pro $20/mo.",
+  "short": "Search-native API platform: Orchestrator API (private preview) serving Perplexity-hosted open models (Kimi K3, GLM 5.3, DeepSeek V4 Pro), an Agent API with third-party frontier models and paid tools, Search API billed per request, and Embeddings/Decisions APIs; Perplexity Pro $20/mo.",
   "officialUrl": "https://perplexity.ai",
   "hosts": [
     "perplexity.ai"
@@ -9,8 +9,8 @@
   "plans": [
     {
       "name": "API Pay-as-you-go",
-      "price": "Per 1M tokens",
-      "notes": "Sonar models starting at $1.00/$1.00 per 1M up to advanced search reasoning tiers.",
+      "price": "Per token (Orchestrator/Agent) or per request (Search)",
+      "notes": "Orchestrator API (private preview) bills per token at model rates - Perplexity-hosted: kimi-k3 $3.00/$15.00, glm-5.3 $1.40/$4.40, glm-5.3-flash $0.15/$0.50, deepseek-v4-pro-0813 $1.32/$3.96 per 1M, with discounted cache reads. Agent API adds third-party models (OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, NVIDIA) plus tool fees (web_search $0.0025/invocation, fetch_url $0.0005, sandbox $0.03/session). Search API $5.00 per 1K requests ($1.00 with Fast Search); Decisions API $0.01-$0.02 per 1M input tokens (output free); Embeddings $0.004-$0.05 per 1M.",
       "evidenceUrl": "https://docs.perplexity.ai/guides/pricing"
     },
     {

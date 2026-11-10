@@ -1,9 +1,17 @@
 {
-  "id": "opencode/iceman",
+  "id": "opencode/iceman-free",
   "name": "Iceman",
-  "short": "Iceman model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "OpenCode's anonymous stealth reasoning model (262K/131K, Free) available on OpenCode Console and Go; measured on StealthMark 1.8.10 with active tool calling.",
+  "contextWindow": "262,144 in / 131,072 out",
+  "modalities": "Text in, text out",
+  "pricingNote": "Free (prompts and completions retained for model training)",
+  "pricingTiers": [
+    "Free (data retained for training)"
+  ],
+  "officialUrl": "https://opencode.ai/docs/console/models/",
+  "pricingLinks": [
+    "https://opencode.ai/pricing"
+  ],
+  "standout": "Zero-cost reasoning and tool execution with 262K context for bulk coding prototypes and synthetic code tasks.",
+  "tradeoff": "Text-only with no multimodal support; prompts and completions are retained for training, and planning/physics benchmarks test mid-low."
 }

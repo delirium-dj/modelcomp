@@ -1,0 +1,58 @@
+# Neomorph — findings by Claude Opus 4.6
+
+- Source: OpenCode (`opencode/neomorph`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph
+- **Short description:** OpenCode Zen experimental model with modular sub-network architecture and structured-output focus. A small-context, paid experimental model positioned as a mid-tier offering.
+- **Provider / access:** OpenCode Zen (`opencode/neomorph`). Paid API access.
+- **Release / knowledge:** Release date and knowledge cutoff unknown. Experimental/stealth model.
+- **IDs:** `opencode/neomorph`
+- **Context window:** 64,000 tokens input / 4,096 tokens max output — per meta.json.
+- **Modalities:** Text in; text out only.
+- **Pricing (as of 2026-11-10):** $0.50/1M input, $1.50/1M output (per provider documentation).
+- **Architecture:** Unknown/proprietary. Described as having "modular sub-network architecture" with a structured-output focus. No open weights, no disclosed parameter count.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION TRIGGERED:** Zero verified public benchmark numbers were found for this exact model/ID. "Neomorph" does not appear on any official benchmark leaderboard (Artificial Analysis, LMSYS, vals.ai, etc.). Web searches return results for Neomorph Inc. (a biotech company) and generic OpenCode stealth model discussions — no LLM benchmark data exists under this name.
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- MMLU / MMLU-Pro: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- 64K context window per meta.json. Max output severely limited to 4K tokens. No retrieval benchmarks found.
+
+### Negative findings summary
+
+Neomorph is an experimental OpenCode Zen model with no published benchmark data, no lab attribution, and no community evaluations. Its small context window (64K in / 4K out) and lack of any performance data make it impossible to score. The model has zero presence on benchmark leaderboards or independent evaluation platforms.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-10
+- Method: Public internet research (OpenCode docs, web search for benchmarks); zero verified benchmarks found — saved as `.md.excluded`.
+- Reference URLs:
+  - [OpenCode — Console models](https://opencode.ai/docs/console/models/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,71 @@
+# Frantic Ferret - findings by Gemini 3.8 Flash (self-excluded: endpoint withdrawn, zero verified public benchmarks)
+
+- Source: OpenCode Console (`opencode/frantic-ferret-free`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION NOTE:** This file is saved with the `.md.excluded` extension in compliance with `RULES.md` and `tasks/research.md`. The route for `frantic-ferret-free` existed on OpenCode's production endpoints for approximately two hours on November 8, 2026 before being withdrawn via PR #62780. No independent testing harness (Artificial Analysis, LMArena, StealthMark, etc.) published verified, reproducible capability rows during this ephemeral window. In accordance with project policy against fabricating scores or importing lineage proxies, no numerical scores are asserted.
+
+## Model card
+
+- **Name:** Frantic Ferret
+- **Short description:** Ephemeral stealth preview model deployed briefly on OpenCode Console on November 8, 2026 and withdrawn the same evening; listed under Responses API before deprecation.
+- **Provider / access:** OpenCode Responses API (`https://opencode.ai/inference/openai/v1/responses`); catalog ID `opencode/frantic-ferret-free`. Route is no longer available.
+- **Release / knowledge:** Listed November 8, 2026 (~18:51 UTC) and withdrawn (~21:02 UTC).
+- **IDs:** `opencode/frantic-ferret-free`
+- **Context window:** 1,048,576 tokens input, with 270,000 maximum output tokens.
+- **Modalities:** Multimodal (text, image, video in; text out); supported six-level reasoning effort parameter (`minimal` to `max`).
+- **Pricing (as of 2026-11-08):** Free ($0.00 / 1M tokens) during its brief test listing.
+- **Architecture:** Unannounced frontier multimodal transformer with native extended reasoning.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- Humanity's Last Exam (HLE): no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 1,048,576 tokens listed in catalog specifications; no public MRCR or needle-in-a-haystack verification completed prior to route withdrawal.
+
+### Normalized scores (1-100)
+
+- **Tool use: unscored.** No verified public score found for this exact ID.
+- **Reasoning: unscored.** No verified public score found for this exact ID.
+- **Context window: unscored.** No verified public score found for this exact ID.
+- **Multimodal: unscored.** No verified public score found for this exact ID.
+- **Coding: unscored.** No verified public score found for this exact ID.
+- **Cost efficiency: unscored.** No verified public score found for this exact ID.
+- **Overall Score: unscored.** No verified benchmarks available; self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.8 Flash (google/gemini-3.8-flash)** - 2026-11-10
+- Method: Public documentation research, OpenCode console PR inspection, and catalog telemetry tracking. Excluded per `RULES.md` due to absence of verified public benchmarks.
+- Reference URLs:
+  - [OpenCode Repository PR #62780 (Docs removal diff)](https://github.com/anomalyco/opencode/pull/62780/files)
+  - [OpenCode Data - Unknown Lab Statistics](https://opencode.ai/data/unknown/frantic-ferret)
