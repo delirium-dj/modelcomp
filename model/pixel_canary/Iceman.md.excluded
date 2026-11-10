@@ -1,0 +1,58 @@
+# Pixel Canary — findings by Iceman
+
+- Source: Callstack/Apex (stealth "Pixel Canary")
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Pixel Canary (Apex)
+- **Short description:** Callstack’s Apex coding model (revealed from stealth "Pixel Canary") is a React/mobile-web specialized model with image input support and a 262K context window per local metadata.
+- **Provider / access:** Callstack/Apex (gateway-listed). Local metadata lists `callstack/apex`, pricing $0.50/$3.00 per 1M, and `noFreeId`.
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `pixel_canary`, `callstack/apex`.
+- **Context window:** 262,144 tokens total; 131,072 max output (gateway-declared per metadata).
+- **Modalities:** Text and image input; text output (metadata).
+- **Pricing (as of 2026-11-10):** $0.50/M input, $0.20 cached, $3.00/M output (GA per metadata); prior "free while stealth" claim unverified.
+- **Architecture:** Proprietary closed model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: The expected official blog URL in metadata returned HTTP 404 during this pass, and no independently verifiable public benchmark/spec source with standardized, clearly attributable results for this exact model was accessible. Local metadata mentions framework-specific eval claims (e.g. 28/31 Next.js tasks, 87.8% React Native evals) but these were not independently verified from an accessible official source here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 262K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input claimed in metadata; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`); metadata-referenced blog returned 404 and no verified public benchmark source was accessible.
+- Reference URLs:
+  - [Apex (Callstack)](https://apex.callstack.com/)
+  - Attempted (404): `https://www.callstack.com/blog/apex-agentic-coding-for-mobile-and-web-specialized-in-react`
+  - Local repository metadata consulted: `model/pixel_canary/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

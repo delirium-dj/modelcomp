@@ -1,0 +1,65 @@
+# Gemini 3 Pro — findings by Glyph Cluster (excluded)
+
+- Source: Google (`gemini-3-pro`, preview-era naming surfaced as Gemini 3 Pro Preview)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3 Pro (Google; "Gemini 3 Pro Preview (High)" surfaced on Artificial Analysis for closely related naming)
+- **Short description:** Google's Gemini 3 Pro reasoning model (preview-era), a multimodal frontier model later succeeded by newer Gemini 3.x releases. Proprietary.
+- **Provider / access:** Google provider surfaces (Google AI/Vertex context implied by AA/provider pages). Specific public API route for exact `gemini-3-pro` (non-preview) ID not verified from fetched sources in this run.
+- **Release / knowledge:** Gemini 3 Pro Preview (High) listed as released 2025-11-18 with knowledge cutoff 2025-01-01 on Artificial Analysis; exact GA/non-preview `gemini-3-pro` release metadata not separately verified from accessible sources in this run.
+- **IDs:** Exact non-preview ID not verified from fetched sources; AA page corresponds to `gemini-3-pro` preview listing.
+- **Context window:** 1,000,000 tokens (per Artificial Analysis preview listing). Max output not explicitly specified on fetched pages.
+- **Modalities:** Text, image, speech, and video input; text output. Reasoning yes (AA lists as reasoning model). Tool use not explicitly detailed on fetched pages.
+- **Pricing (as of 2026-11-10):** AA preview listing reports ~$2.00 / 1M input and ~$12.00 / 1M output (median across providers). Paid pricing.
+- **Architecture:** Proprietary (parameter count and detailed architecture not publicly disclosed).
+
+### Raw benchmarks found
+
+> Sources consulted: Artificial Analysis Gemini 3 Pro Preview (High) page. Web search tooling was unavailable during this run (HTTP 402), and accessible sources did not provide verified public benchmark numbers for this exact model/ID.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (AA page reports Intelligence Index N/A for this listing)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- Specific long-context retrieval benchmark results (MRCR/RULER/GraphWalks at 1M): **no verified public score found** (1M context window documented by AA)
+
+### Self-exclusion rationale
+
+No verified public benchmark numbers were found for this exact model/ID in accessible sources during this pass (only specifications/pricing and an AA page with Intelligence Index N/A for the closest accessible listing). Per project rules, this file is saved as `.md.excluded` with notes only and no fabricated/placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-10
+- Method: Public-source synthesis from fetched aggregator page (web search unavailable in-session; web fetch used for primary accessible pages). No verified public benchmark numbers found for this exact model/ID; self-excluded per template/rules.
+- Reference URLs:
+  - [Artificial Analysis — Gemini 3 Pro Preview (High)](https://artificialanalysis.ai/models/gemini-3-pro)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

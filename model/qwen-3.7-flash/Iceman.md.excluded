@@ -1,0 +1,57 @@
+# Qwen 3.7 Flash — findings by Iceman
+
+- Source: Alibaba/Qwen 3.7 Flash
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.7 Flash
+- **Short description:** Alibaba’s Qwen 3.7 Flash is described in local metadata as a proprietary API model (1M context) offering reasoning, function calling, and web search at ultra-low cost.
+- **Provider / access:** Alibaba Cloud / QwenCloud API contexts per local metadata (`opencode/qwen-3.7-flash`).
+- **Release / knowledge:** Local metadata references July 2026 Flash; knowledge cutoff not explicitly stated in reviewed accessible sources.
+- **IDs:** `qwen-3.7-flash`, `Qwen 3.7 Flash`.
+- **Context window:** 1,000,000 tokens total; 131,072 max output (local metadata).
+- **Modalities:** Text, image, and video input; text output (local metadata).
+- **Pricing (as of 2026-11-10):** $0.03/$0.13 per 1M in/out (<=32K input) on QwenCloud; cache $0.006 (local metadata).
+- **Architecture:** Proprietary closed/API model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No clearly attributable, independently verified public benchmark/spec evidence for this exact `qwen-3.7-flash` model ID was found in accessible sources during this pass. Local metadata provides capability/pricing claims but no verifiable standardized benchmark numerics. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Function calling and web search capabilities claimed in metadata; standardized agent/tool benchmark numerics not found.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image/video input claimed in metadata; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark evidence for this exact model ID in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review of local metadata; no accessible verified public benchmark source found for this exact model ID.
+- Reference URLs:
+  - Local repository metadata consulted: `model/qwen-3.7-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

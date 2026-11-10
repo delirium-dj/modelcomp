@@ -11,11 +11,21 @@ export default component$(() => {
   // NOTE: the site root normalizes to "" (the trailing-slash strip eats the
   // only slash), so it must be matched explicitly.
   const path = useLocation().url.pathname.replace(/^\/+/, "/").replace(/\/+$/, "");
+  // Standalone v2 canvases render their own V2Header/V2Footer — the shared
+  // layout chrome must skip them (else every page gets a double header).
+  const STANDALONE_PREFIXES = [
+    "/model/",
+    "/providers",
+    "/compare",
+    "/benchmarks",
+    "/methodology",
+    "/data",
+    "/best-",
+  ];
   if (
     path === "" ||
     path === "/" ||
-    path.startsWith("/model/") ||
-    path.startsWith("/providers")
+    STANDALONE_PREFIXES.some((p) => path.startsWith(p))
   ) {
     return <Slot />;
   }

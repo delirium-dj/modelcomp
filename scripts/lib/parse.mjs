@@ -82,10 +82,17 @@ export function shortenScores(scores) {
 /** Validated calendar date `YYYY-MM-DD` (zero-padded, sane month/day). */
 const DATE_PART = "(\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01]))";
 
-/** Newest date on one line (amended/second-pass touches count). */
-function maxDateOnLine(line) {
+/**
+ * Newest date on one line (amended/second-pass touches count). When
+ * `notAfter` (`YYYY-MM-DD`) is supplied, dates strictly later than it are
+ * ignored — a verification/report date can never be in the future, so this
+ * skips prose-embedded forward dates (e.g. a model's "retirement floor
+ * 2027-06-30") that would otherwise masquerade as the newest report date.
+ */
+function maxDateOnLine(line, notAfter) {
   let best = null;
   for (const m of line.matchAll(new RegExp(DATE_PART, "g"))) {
+    if (notAfter !== undefined && m[1] > notAfter) continue;
     if (best === null || m[1] > best) best = m[1];
   }
   return best;
@@ -99,19 +106,24 @@ function maxDateOnLine(line) {
  * carries no date. Pure + tested; sync takes the per-folder max as that
  * model's Last-verified signal.
  */
-export function extractReportDate(md) {
+export function extractReportDate(md, notAfter) {
   for (const line of md.split("\n")) {
     if (line.startsWith("Provided by:")) {
-      const d = maxDateOnLine(line);
+      const d = maxDateOnLine(line, notAfter);
       if (d !== null) return d;
     }
   }
   for (const line of md.split("\n")) {
     if (/^-\s*Date:/.test(line)) {
-      const d = maxDateOnLine(line);
+      const d = maxDateOnLine(line, notAfter);
       if (d !== null) return d;
     }
   }
+  // No eligible date: either the file carries none, or every date on its
+  // signature/Date line is in the future (prose forward-reference or typo).
+  // Either way the honest answer is null — a future date is never a valid
+  // Last-verified signal, and sync's per-folder max falls back to the other
+  // files' real dates.
   return null;
 }
 

@@ -1,0 +1,58 @@
+# GPT-5.1 Codex Mini — findings by Iceman
+
+- Source: OpenAI/GPT-5.1-Codex Mini
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.1-Codex Mini
+- **Short description:** OpenAI’s GPT-5.1-Codex Mini is a smaller, cheaper Codex-tier model (400K context, 128K max output) for coding tasks; now shut down/removed from Codex surfaces and deprecated on some routes.
+- **Provider / access:** OpenAI API (`gpt-5.1-codex-mini`, shut down). Local metadata lists `opencode/gpt-5.1-codex-mini`, pricing $0.25/$2.00 per 1M, and `noFreeId`.
+- **Release / knowledge:** OpenAI model docs reviewed 2026-11-10. Knowledge cutoff listed as 2024-09-30 in docs.
+- **IDs:** `gpt-5.1-codex-mini`.
+- **Context window:** 400,000 tokens; 128,000 max output.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** $0.25/$2.00 per 1M in/out, $0.025 cached input (OpenAI docs; Zen/native identical per metadata).
+- **Architecture:** Proprietary closed model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI’s GPT-5.1-Codex Mini model documentation via `webfetch`, which provides specifications, pricing, endpoints, and supported features/tools but no standardized benchmark numerics for this exact model. Local metadata cites figures (e.g. SWE-Bench Pro 49.0%, Terminal-Bench 2.0 46.1%) but these were not independently verified from an accessible official benchmark source in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Function calling and web search tool support indicated; standardized agent/tool benchmark numerics not found.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+
+Long context:
+
+- 400K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input supported; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, clearly attributable public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI model docs; specs/pricing available but no verifiable standardized benchmark numerics extracted for this exact model.
+- Reference URLs:
+  - [GPT-5.1-Codex Mini model docs (OpenAI Developers)](https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini)
+  - Local repository metadata consulted: `model/gpt-5.1-codex-mini/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

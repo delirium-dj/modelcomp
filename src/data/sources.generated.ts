@@ -104,7 +104,8 @@ export type SourceKey =
   | "QoDuck"
   | "Inkling 2 Small"
   | "Iceman"
-  | "Muse Ember";
+  | "Muse Ember"
+  | "Glyph Cluster";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -220,4 +221,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Inkling 2 Small", label: "Inkling 2 Small", file: "Inkling_2_Small.md", slug: "inkling-2-small" },
   { key: "Iceman", label: "Iceman", file: "Iceman.md", slug: "iceman" },
   { key: "Muse Ember", label: "Muse Ember", file: "Muse_Ember.md", slug: "muse-ember" },
+  { key: "Glyph Cluster", label: "Glyph Cluster", file: "Glyph_Cluster.md", slug: "glyph-cluster" },
 ];

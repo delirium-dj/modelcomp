@@ -104,6 +104,26 @@ describe("extractReportDate (signature first, frontmatter fallback)", () => {
   it("rejects impossible months", () => {
     assert.equal(extractReportDate("Provided by: **X** — 2026-13-01\n"), null);
   });
+
+  it("skips a future prose date on the Date line, keeping the newest past date", () => {
+    const doc =
+      "- Date: 2026-10-02 (UTC); second pass 2026-11-03 (UTC) — legacy status with 2027-06-30 floor documented\n";
+    assert.equal(extractReportDate(doc, "2026-11-10"), "2026-11-03");
+  });
+
+  it("skips a future date on the signature line", () => {
+    assert.equal(
+      extractReportDate("Provided by: **X (y)** — 2026-10-10, retirement 2027-06-30\n", "2026-11-10"),
+      "2026-10-10",
+    );
+  });
+
+  it("returns null when every date is in the future", () => {
+    assert.equal(
+      extractReportDate("# T\n\n- Date: 2027-06-30 retirement floor\n", "2026-11-10"),
+      null,
+    );
+  });
 });
 
 describe("extractSignatureName (reporter display, bold form only)", () => {

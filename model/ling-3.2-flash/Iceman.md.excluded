@@ -1,0 +1,60 @@
+# Ling 3.2 Flash — findings by Iceman
+
+- Source: Ant Group/Ling 3.2 Flash
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling-3.2-flash
+- **Short description:** Ant Group’s Ling-3.2-flash is a native multimodal MoE model (560B total / 25B active, 1M context) supporting image/text/video input, focused on complex visual understanding, multimodal agents, 3D/medical multimodal tasks.
+- **Provider / access:** Ant Ling developer platform / Ant Bailian and third-party platforms per docs. Local metadata lists `opencode/ling-3.2-flash`, pricing $0.30/$0.90 per 1M, and `noFreeId`.
+- **Release / knowledge:** Ant Ling model documentation reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `Ling-3.2-flash`, `ling-3.2-flash`.
+- **Context window:** 1,000,000 tokens (docs/local metadata).
+- **Modalities:** Text, image, and video input; text output.
+- **Pricing (as of 2026-11-10):** $0.30 / $0.90 per 1M input/output tokens on Ant Bailian launch pricing (local metadata; time-limited trial noted).
+- **Architecture:** MoE multimodal model, 560B total / 25B active parameters (docs).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Ant Ling’s official model documentation for Ling, which provides model positioning, architecture/capability descriptions, and context/spec details but does not publish standardized benchmark numerics for `Ling-3.2-flash`. Local metadata also notes that text reasoning, coding-agent, and tool-use benchmarks are not yet publicly verified. To avoid unverifiable scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Multimodal long-horizon agent capabilities described; standardized agent/tool benchmark numerics not found.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- Deep reasoning and multimodal understanding capabilities described; standardized reasoning benchmark numerics not found.
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- Coding-agent benchmark evidence not publicly verified per metadata; no standardized coding numerics found in reviewed docs.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Native image/text/video input and multimodal capability areas described; no standardized multimodal benchmark numerics found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark evidence for this exact model in reviewed official documentation; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Ant Ling official documentation; capability/spec information available but no standardized benchmark numerics found.
+- Reference URLs:
+  - [Ling model documentation (Ant Ling)](https://developer.ant-ling.com/en/docs/models/ling/)
+  - Local repository metadata consulted: `model/ling-3.2-flash/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

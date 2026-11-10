@@ -195,6 +195,81 @@ so the removal itself never FAILs. Real sibling SKUs are exempt
 `gemini-2.5-*`, `glm-5.3-flash`). Never restore a deleted phantom from git
 history and never re-scaffold a variant of it.
 
+## Merging a duplicate or alias folder (revealed-stealth rename, tier alias, spelling variant)
+
+A name that resolves to an already-tracked model — a revealed stealth preview,
+a pricing / access tier (`-free`, `-max`, …), a serving profile, or a spelling
+variant — MERGES into the canonical folder on explicit per-instance user
+sign-off naming the resolving IDs; it is never parked, never researched, never
+scaffolded. Same conventions in the mirror trees (`models_voice/`,
+`models_finance/`, `models_cybersecurity/`, `models_health/`); only `model/` is
+scanned by `pnpm sync`. Checklist:
+
+1. **Verify identity before anything.** Web: vendor docs, the weights registry
+   and the gateways must show ONE route/checkpoint behind both names (vendor
+   pricing page + Hugging Face org + OpenRouter author page + models.dev; a
+   `:free`/`-free` route is a serving variant of the same base slug, never a
+   model). Repo: the candidate folder's own findings usually already state the
+   equivalence ("same weights … pricing/route difference, not a different
+   model"). Keep the evidence for the REPORT.md entry.
+2. **Pick the canonical folder.** The tracked, vendor-ID-aligned folder wins and
+   keeps its `name`/`id`. If no revealed folder exists yet, RENAME the stealth
+   folder (`git mv model/<stealth>/ model/<revealed>/`, contents untouched —
+   the fledge-alpha → inkling-2-small form) and rewrite its meta.
+3. **Build the disposition matrix BEFORE touching files.** Per file in both
+   folders: unique → move; colliding stem → newest report wins (compare the
+   `- Date:` lines), exact tie → the canonical folder's copy wins; loser →
+   delete. Count `.md` and `.md.excluded` separately. Grandfathered
+   `*.replaced-by-*` fossils move untouched; findings prose is frozen history
+   (including `Provided by:` signatures) — never edit it.
+4. **One confirmation popup before any move/overwrite/delete** (RULES.md
+   file-deletion approval rule): name every exact path + reason (collision
+   loser, replaced older report, duplicate meta.json). No confirmation → no
+   operation.
+5. **Execute** with `git mv` / `git rm` (stages cleanly; contents
+   byte-identical). Agents never commit; a human committing the removal uses
+   the pre-commit bypass `ALLOW_MODEL_DELETE=1` (the committed hook ships
+   `.disabled`).
+6. **Rewrite the canonical `meta.json`**: keep the canonical `name`, real
+   provider `id`; add `aliases` carrying EVERY old name and route spelling
+   (incl. hyphen-version variants like `ling-3-0-flash-fin-free`) so the list
+   search (`modelMatchesQuery` in `src/components/v2/modelView.ts` matches
+   name/id/short/aliases) resolves the old name to the canonical card and
+   profile. Fold tiers into `pricingTiers` + `pricingLinks` (1:1) and
+   `freeTierNote`.
+7. **`average.md`.** `model/` tree: do not touch it — `pnpm sync` recomputes the
+   means; only fix the H1 of a moved file (`# <canonical name> — Averaged
+   findings`; sync preserves existing heads). Mirror trees (not scanned): move
+   the newer / larger-pool file, rewrite its H1, never hand-compute — the
+   numbers ride along until the tree is wired (audit E2 in
+   `tasks/task_combined_purification.md`).
+8. **Wire ALL FOUR identity lists (`scripts/lib/validate.mjs`)** plus the
+   registry override:
+   - `MERGED_MODEL_SLUGS` += `[alias, canonical]` — never re-scaffolded; also
+     sanctions the old paths leaving HEAD for the sync deletion tripwire;
+   - `MERGED_SOURCE_STEMS` += `[Old_Stem, New_Stem]` when rater files were
+     renamed — a resurrect double-counts the rater;
+   - `SIGNATURE_STEM_EXCEPTIONS` += `[New_Stem, ["Old Display Name"]]` — the
+     frozen in-file signatures;
+   - `CASE_LAW_NOTES` += one entry per merged slug AND per renamed stem —
+     evidence, resolving IDs, date, user order (renders into
+     `model-aliases.generated.md`);
+   - `SOURCE_OVERRIDES` (`scripts/sync-data.mjs`) += `{Key: {slug}}` when the
+     registry key won't norm-match the canonical meta name, so rater rows
+     deep-link to the canonical page.
+9. **Docs.** `REPORT.md` entry (evidence, file counts, the full disposition
+   matrix, list wiring, what sync regenerates); repoint in-repo links into the
+   deleted folder (frozen v1–v3 table rows keep the old name as lineage data);
+   close the matching audit item in `tasks/task_combined_purification.md`.
+10. **Handover.** Never run `pnpm sync`/builds yourself (AGENTS.md token
+    policy) — hand the user `pnpm sync && pnpm build.types:direct &&
+    pnpm build:direct` (Windows direct variants); it regenerates the queue /
+    roster / sources and relabels every below-gate rater list.
+
+Precedents: `git log --grep="stealth" -i` (space-bunny + cat-jam merge
+2026-10-24; Fledge rename 2026-11-10) and `REPORT.md` § 2026-11-10 (Crouton
+Alpha → Muse Ember rename; Ling 3.0 Flash Fin tier merge).
+
 ## Adding a new model
 
 1. Derive the slug (filesystem-safe, usually the Zen ID suffix), then

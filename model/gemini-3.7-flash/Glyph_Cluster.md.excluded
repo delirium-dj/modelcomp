@@ -1,0 +1,66 @@
+# Gemini 3.7 Flash — findings by Glyph Cluster (excluded)
+
+- Source: Google (`gemini-3.7-flash`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.7 Flash (Google; "High" reasoning variant surfaced on Artificial Analysis)
+- **Short description:** Google's Gemini 3.7 Flash reasoning model (succeeded by newer Gemini 3.8 Flash in AA tracking), an efficient multimodal model with broad input modalities. Proprietary.
+- **Provider / access:** Google AI Studio and Google Vertex AI (per OpenRouter/provider listings); served via OpenRouter as `google/gemini-3.7-flash`.
+- **Release / knowledge:** Released 2026-08-13 (per Artificial Analysis). Knowledge/training cutoff not explicitly stated on fetched sources.
+- **IDs:** `google/gemini-3.7-flash` (OpenRouter). No free-tier ID verified.
+- **Context window:** 1,000,000 tokens (per Artificial Analysis). Max output not explicitly specified on fetched pages.
+- **Modalities:** Text, image, speech, and video input; text output. Reasoning yes (AA lists as reasoning model). Tool use supported (OpenRouter advertises tools/tool_choice).
+- **Pricing (as of 2026-11-10):** Varies by provider/tier on OpenRouter (examples shown from ~$0.375/$1.875 to ~$1.35/$6.75 per 1M input/output). AA summary lists $0.75 / 1M input and $3.75 / 1M output. Paid, competitively priced.
+- **Architecture:** Proprietary (parameter count and detailed architecture not publicly disclosed).
+
+### Raw benchmarks found
+
+> Sources consulted: Artificial Analysis model page, OpenRouter model page. Web search tooling was unavailable during this run (HTTP 402), and accessible sources did not provide verified public benchmark numbers for this exact model/ID.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (AA page reports Intelligence Index N/A for this model)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- Specific long-context retrieval benchmark results (MRCR/RULER/GraphWalks at 1M): **no verified public score found** (1M context window documented by AA)
+
+### Self-exclusion rationale
+
+No verified public benchmark numbers were found for this exact model/ID in accessible sources during this pass (only specifications/pricing and an AA page with Intelligence Index N/A). Per project rules, this file is saved as `.md.excluded` with notes only and no fabricated/placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-10
+- Method: Public-source synthesis from fetched aggregator/provider pages (web search unavailable in-session; web fetch used for primary accessible pages). No verified public benchmark numbers found for this exact model/ID; self-excluded per template/rules.
+- Reference URLs:
+  - [Artificial Analysis — Gemini 3.7 Flash (High)](https://artificialanalysis.ai/models/gemini-3-7-flash)
+  - [OpenRouter — google/gemini-3.7-flash](https://openrouter.ai/google/gemini-3.7-flash)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

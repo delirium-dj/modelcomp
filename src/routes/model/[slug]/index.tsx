@@ -6,6 +6,7 @@ import { getEvidence } from "../../../data/evidence";
 import { V2Header } from "../../../components/v2/V2Header";
 import { V2Footer } from "../../../components/v2/V2Footer";
 import { withFreeZenLink } from "../../../components/freeZenLink";
+import { ReferencesSection } from "../../../components/v2/ReferencesSection";
 import { usePageTheme } from "../../../components/v2/theme";
 import { barWidth, hexPoint, hexPolygon, type HexGeometry } from "../../../components/v2/hex";
 import {
@@ -391,6 +392,8 @@ export default component$(() => {
           ) : (
             <p class="mt-6">No agreed benchmark figures are available yet.</p>
           )}
+
+          <ReferencesSection slug={slug} />
         </section>
 
         <section class="px-0 pb-0 pt-12" aria-labelledby="ratings-title">

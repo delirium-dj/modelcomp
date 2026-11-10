@@ -165,7 +165,7 @@ After that, check existence only for the folder you are currently writing (one c
      `models_voice/<slug>/` — check both trees for an existing folder first.
      Never create `voicemodels/` (retired pre-2026-09-28 name, forbidden
      duplicate of `models_voice/`); if you find one on disk, report it and
-     leave it for the orchestrator's merge pass.
+     leave it for the orchestrator's merge pass (checklist: `model/README.md` § Merging a duplicate or alias folder).
   2b. Domain-specialist check (`RULES.md`, absolute): if the slug ends in the
      `-cyber` suffix (cybersecurity specialist), it belongs under
      `models_cybersecurity/<slug>/`; a health / life-sciences SKU (e.g.

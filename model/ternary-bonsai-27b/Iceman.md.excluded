@@ -1,0 +1,57 @@
+# Ternary Bonsai 27b — findings by Iceman
+
+- Source: OpenCode/Ternary Bonsai 27b
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ternary Bonsai 27b
+- **Short description:** Local metadata describes Ternary Bonsai 27b as a lightweight 27B ternary-quantized open-weights model optimized for high-efficiency inference and low-latency text generation.
+- **Provider / access:** Open weights or hosted API contexts per local metadata (`opencode/ternary-bonsai-27b`).
+- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
+- **IDs:** `ternary-bonsai-27b`, `Ternary Bonsai 27b`.
+- **Context window:** 128,000 tokens total (local metadata).
+- **Modalities:** Text input/output (local metadata).
+- **Pricing (as of 2026-11-10):** Open weights ($0 self-host) or standard hosted API pricing (local metadata).
+- **Architecture:** 27B ternary-quantized architecture (local metadata; not independently verified from accessible official model card).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No accessible official model card or independently verifiable public benchmark/spec source for this exact model ID was found in this pass. Local metadata notes limited public benchmark coverage. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata; no multimodal benchmark scores.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review of local metadata; no accessible official model card or verified public benchmark source found for this exact ID.
+- Reference URLs:
+  - [OpenCode](https://opencode.ai)
+  - Local repository metadata consulted: `model/ternary-bonsai-27b/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

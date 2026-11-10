@@ -1,0 +1,59 @@
+# LongCat 2.5 Preview — findings by Iceman
+
+- Source: Meituan/LongCat 2.5 Preview
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** LongCat 2.5 Preview
+- **Short description:** Meituan’s LongCat 2.5 Preview is described as a hosted, API-only preview model (1M context, image input) for autonomous coding agents, with a free OpenCode Zen slot and no open weights or published benchmarks.
+- **Provider / access:** LongCat platform / OpenCode Zen (`opencode/longcat-2.5-preview-free`). Local metadata lists `noFreeId` and notes limited-time pricing.
+- **Release / knowledge:** Preview/changelog context referenced in local metadata. Knowledge cutoff not explicitly stated.
+- **IDs:** `longcat-2.5-preview`, `longcat-2.5-preview-free`.
+- **Context window:** 1,048,576 tokens (1M); 131,072 max output (local metadata).
+- **Modalities:** Text and image input; text output (local metadata).
+- **Pricing (as of 2026-11-10):** $0.30/$1.20 per 1M in/out, $0.006 cached (limited-time price) per metadata; free Zen slot available.
+- **Architecture:** Proprietary/undisclosed. No open weights or model card with architecture details in reviewed sources.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Local metadata and reviewed context indicate no open weights, no model card, and no published benchmark results for this exact preview model. No independently verifiable public benchmark/spec evidence sufficient for scoring was found in accessible sources during this pass. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input claimed in metadata; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark evidence for this exact preview model; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent review of local metadata and available references; no published/verifiable benchmark results found for this exact model.
+- Reference URLs:
+  - [LongCat platform changelog](https://longcat.chat/platform/docs/change-log)
+  - [LongCat 2.5 pricing](https://longcat.chat/platform/docs/pricing/longcat-2.5)
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - Local repository metadata consulted: `model/longcat-2.5-preview/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

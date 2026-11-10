@@ -1,0 +1,66 @@
+# GPT-5.6 Sol — findings by Glyph Cluster (excluded)
+
+- Source: OpenAI (`gpt-5.6-sol`)
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.6 Sol (OpenAI; hyphenated vendor style; "Max" variant surfaced on Artificial Analysis)
+- **Short description:** OpenAI's GPT-5.6 Sol reasoning model (succeeded by newer GPT-6 Sol in AA tracking), positioned for agentic/reasoning workloads with large context. Proprietary.
+- **Provider / access:** OpenAI and cloud/provider surfaces (OpenAI, Azure, Amazon Bedrock listed on OpenRouter); served via OpenRouter as `openai/gpt-5.6-sol`.
+- **Release / knowledge:** Released 2026-07-09 (per Artificial Analysis). Knowledge cutoff not explicitly stated on fetched sources.
+- **IDs:** `openai/gpt-5.6-sol` (OpenRouter). No free-tier ID verified.
+- **Context window:** 1,000,000 tokens (per Artificial Analysis). Max output not explicitly specified on fetched pages.
+- **Modalities:** Text and image input; text output. Reasoning yes (AA lists as reasoning model). Tool use supported (OpenRouter advertises tools/tool_choice).
+- **Pricing (as of 2026-11-10):** Varies by provider/tier on OpenRouter (examples shown from ~$2/$10 to ~$8/$40 per 1M input/output; see model page). AA comparison summary lists $4.00 / 1M input and $20.00 / 1M output. Paid pricing.
+- **Architecture:** Proprietary (parameter count and detailed architecture not publicly disclosed).
+
+### Raw benchmarks found
+
+> Sources consulted: Artificial Analysis model page, OpenRouter model page. Web search tooling was unavailable during this run (HTTP 402), and accessible sources did not provide verified public benchmark numbers for this exact model/ID.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** (AA page reports Intelligence Index N/A for this model)
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- Specific long-context retrieval benchmark results (MRCR/RULER/GraphWalks at 1M): **no verified public score found** (1M context window documented by AA)
+
+### Self-exclusion rationale
+
+No verified public benchmark numbers were found for this exact model/ID in accessible sources during this pass (only specifications/pricing and an AA page with Intelligence Index N/A). Per project rules, this file is saved as `.md.excluded` with notes only and no fabricated/placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-10
+- Method: Public-source synthesis from fetched aggregator/provider pages (web search unavailable in-session; web fetch used for primary accessible pages). No verified public benchmark numbers found for this exact model/ID; self-excluded per template/rules.
+- Reference URLs:
+  - [Artificial Analysis — GPT-5.6 Sol (Max)](https://artificialanalysis.ai/models/gpt-5-6-sol)
+  - [OpenRouter — openai/gpt-5.6-sol](https://openrouter.ai/openai/gpt-5.6-sol)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,60 @@
+# GPT-5 Nano — findings by Iceman
+
+- Source: OpenAI/GPT-5 nano
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5 nano
+- **Short description:** OpenAI’s GPT-5 nano is an ultra-compact, low-cost reasoning model tier (400K context, 128K max output) for high-volume classification/extraction and lightweight tasks; deprecated/superseded by newer nano tiers.
+- **Provider / access:** OpenAI API (`gpt-5-nano`, snapshot `gpt-5-nano-2025-08-07`, deprecated). Local metadata lists `opencode/gpt-5-nano`, pricing $0.05/$0.40 per 1M, and `noFreeId`.
+- **Release / knowledge:** OpenAI model docs reviewed 2026-11-10. Knowledge cutoff listed as 2024-05-31 in docs.
+- **IDs:** `gpt-5-nano`, `gpt-5-nano-2025-08-07`.
+- **Context window:** 400,000 tokens total (272,000 max input noted in docs); 128,000 max output.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-10):** $0.05/$0.40 per 1M in/out, $0.005 cached input (OpenAI docs).
+- **Architecture:** Proprietary closed model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed OpenAI’s GPT-5 nano model documentation and related GPT-5 pages via `webfetch`, which provide specifications, pricing, endpoints, and capabilities but no clearly attributable, standardized benchmark numerics for this exact `gpt-5-nano` model in the accessible extracted content. Local metadata cites benchmark figures (e.g. AIME 2025 85.2%, SWE-bench Verified 54.7%) but these were not independently verified from an accessible official benchmark source in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Tool/function calling and Responses API support indicated; standardized agent/tool benchmark numerics not found.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+
+Long context:
+
+- 400K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input supported; no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, clearly attributable public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to OpenAI model docs and GPT-5 pages; specs/pricing available but no verifiable standardized benchmark numerics extracted for this exact model.
+- Reference URLs:
+  - [GPT-5 nano model docs (OpenAI Developers)](https://developers.openai.com/api/docs/models/gpt-5-nano)
+  - [Introducing GPT-5 (OpenAI)](https://openai.com/index/introducing-gpt-5/)
+  - [OpenAI API pricing](https://openai.com/api/pricing/)
+  - Local repository metadata consulted: `model/gpt-5-nano/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

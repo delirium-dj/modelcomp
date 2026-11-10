@@ -1,0 +1,18 @@
+{
+  "id": "stealth/glyph-cluster",
+  "name": "Glyph Cluster",
+  "short": "Anonymous stealth reasoning model (256K context, free tier) attributed to Microsoft AI / MAI research telemetry, tested on multi-step software engineering workflows.",
+  "contextWindow": "256,000 total; 256,000 max output",
+  "modalities": "Text in; text out",
+  "pricingNote": "Free preview tier ($0/$0/$0 via Vercel AI Gateway & OpenRouter)",
+  "pricingTiers": [
+    "Free preview tier ($0/$0/$0 via Vercel AI Gateway & OpenRouter)"
+  ],
+  "officialUrl": "https://openrouter.ai",
+  "pricingLinks": [
+    "https://openrouter.ai"
+  ],
+  "standout": "Generous 256K input/output window with test-time reasoning offered via promotional free gateway endpoints.",
+  "tradeoff": "Stealth routing without committed SLAs; complex autonomous agent benchmarks show timeout sensitivity on pass@1 tests."
+}
+

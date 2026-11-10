@@ -1,0 +1,60 @@
+# Claude Sonnet 3.5 — findings by Iceman
+
+- Source: Anthropic/Claude 3.5 Sonnet
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude 3.5 Sonnet
+- **Short description:** Anthropic’s Claude 3.5 Sonnet (June 2024 release in the Claude 3.5 family) was a frontier mid-tier model for intelligence, coding, and vision tasks at the time of release; now retired/legacy.
+- **Provider / access:** Anthropic API, Claude.ai, Amazon Bedrock, Google Vertex AI (historical). Local metadata lists `anthropic/claude-3-5-sonnet-20241022`, 200K context, retired pricing $3/$15 per 1M, and `noFreeId`.
+- **Release / knowledge:** Announced June 21, 2024. Retired from Claude API on 2025-10-28 per local metadata. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `claude-3-5-sonnet-20241022`, `Claude 3.5 Sonnet`.
+- **Context window:** 200,000 tokens (announcement).
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of release, historical):** $3 / 1M input tokens, $15 / 1M output tokens (announcement).
+- **Architecture:** Proprietary Anthropic model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Anthropic’s “Claude 3.5 Sonnet” announcement, but most standardized benchmark results are presented as charts/images rather than clearly extractable text numerics for this exact model/version in this pass. The announcement states qualitative/relative claims (e.g. sets new industry benchmarks for GPQA/MMLU/HumanEval, outperforms Claude 3 Opus and competitors) and reports one internal agentic coding evaluation result (64% solved vs 38% for Claude 3 Opus), but does not provide a sufficient set of clearly extractable standardized benchmark scores for reliable scoring under the template. To avoid unverifiable or chart-derived scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Internal agentic coding evaluation: **64%** problems solved (text-stated; internal eval, not a standard public leaderboard score)
+- Terminal-Bench 2.1 / Tau2 / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA / MMLU: claimed state-of-the-art on charts; **no clearly extractable numeric scores found** in reviewed text
+- HLE / AIME / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- HumanEval: claimed strong performance on charts; **no clearly extractable numeric score found** in reviewed text
+- SWE-bench Verified / LiveCodeBench: **no verified public score found** in reviewed text
+
+Long context:
+
+- 200K context window; no standalone long-context retrieval benchmark score extracted.
+
+Multimodal:
+
+- Vision capabilities described as state-of-the-art vs Claude 3 Opus on charts; no standardized multimodal benchmark numerics extracted.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient clearly extractable, independently verified standardized benchmark numerics for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to Anthropic announcement; benchmark numerics largely presented in charts/images and not sufficiently extractable as text.
+- Reference URLs:
+  - [Claude 3.5 Sonnet announcement (Anthropic)](https://www.anthropic.com/news/claude-3-5-sonnet)
+  - Local repository metadata consulted: `model/claude-sonnet-3.5/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

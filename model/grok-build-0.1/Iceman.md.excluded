@@ -1,0 +1,58 @@
+# Grok Build 0.1 — findings by Iceman
+
+- Source: xAI/Grok Build 0.1
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok Build 0.1
+- **Short description:** xAI’s Grok Build 0.1 is a fast coding-oriented beta model for agentic software engineering and MCP/tooling workflows with 256K context and high throughput.
+- **Provider / access:** xAI API / OpenCode contexts per local metadata (`opencode/grok-build-0.1`, `noFreeId`).
+- **Release / knowledge:** xAI developer docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
+- **IDs:** `grok-build-0.1`, `grok-code-fast-1`, `grok-code-fast`, `grok-code-fast-1-0825` (aliases listed in docs).
+- **Context window:** 256,000 tokens total (230,400 max output per local metadata).
+- **Modalities:** Text and image input; text output (docs state text, image → text).
+- **Pricing (as of 2026-11-10):** $1.00/$2.00 per 1M in/out (<200K), cached $0.20; 2x rates at/above 200K prompt tokens (docs/metadata).
+- **Architecture:** Proprietary xAI coding model. Architecture/parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed xAI’s official developer documentation page for `grok-build-0.1`, which provides model capabilities, pricing, rate limits, and regions but does not publish standardized benchmark scores for this exact model. Local metadata references Terminal-Bench 2.1 52.06% and GPQA 89.5% (AA 0616) and notes that a circulated 70.8% SWE-bench Verified figure is inherited/misattributed; I could not independently verify benchmark numerics for this exact model from reviewed official docs in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Function calling: Yes; structured outputs: Yes; reasoning: Yes (docs).
+- Terminal-Bench 2.1 / Tau2 / Toolathon / MCP-Atlas: **no verified public score found** in reviewed official docs.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** in reviewed official docs.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / Terminal-Bench: **no verified public score found** in reviewed official docs.
+
+Long context:
+
+- 256K context supported; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Image input supported (text, image → text); no multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified public benchmark evidence for this exact model in reviewed official sources; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to xAI developer documentation; no standardized benchmark numerics found for this exact model.
+- Reference URLs:
+  - [Grok Build 0.1 developer docs (xAI)](https://docs.x.ai/developers/models/grok-build-0.1)
+  - Local repository metadata consulted: `model/grok-build-0.1/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

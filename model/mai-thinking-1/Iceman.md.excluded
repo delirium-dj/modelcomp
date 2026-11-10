@@ -1,0 +1,58 @@
+# MAI-Thinking-1 — findings by Iceman
+
+- Source: Microsoft AI/MAI-Thinking-1
+- Date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI-Thinking-1
+- **Short description:** Microsoft AI’s MAI-Thinking-1 is described as an in-house ~1T/35B-active reasoning MoE (256K context) for hard reasoning and code; closed with no published public API id or rate card.
+- **Provider / access:** Microsoft AI. Local metadata lists `microsoft/mai-thinking-1`, `noFreeId`, and notes no public token pricing.
+- **Release / knowledge:** Official Microsoft AI model page reviewed 2026-11-10. Knowledge cutoff not explicitly stated in accessible reviewed content.
+- **IDs:** `mai-thinking-1`, `MAI-Thinking-1`.
+- **Context window:** 256,000 tokens (256K); max output 25,000 (local metadata).
+- **Modalities:** Text input/output.
+- **Pricing (as of 2026-11-10):** No public rate card/token price published (metadata).
+- **Architecture:** Proprietary closed model (~1T/35B-active MoE per metadata); details not fully disclosed in accessible reviewed content.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed the official Microsoft AI MAI-Thinking-1 page via `webfetch`, but the accessible page content did not provide clearly extractable, standardized benchmark numerics in a form I could independently verify in this pass. Local metadata references vendor-published figures (e.g. SWE-bench Verified 73.5%, GPQA 84.2%) and notes no independent measurement; these were not verified from an accessible official benchmark table/PDF text extract here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found** (from accessible extract)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** (from accessible extract)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found** (from accessible extract)
+
+Long context:
+
+- 256K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text-only per metadata.
+
+### Normalized scores (1–100)
+
+Not provided. Insufficient independently verified, extractable public benchmark evidence in accessible sources during this pass; no scored assessment is issued and this report is self-excluded.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
+- Method: Independent public research attempt using alternative web access (`webfetch`) to official Microsoft AI page; benchmark numerics were not clearly extractable/verifiable from accessible content in this pass.
+- Reference URLs:
+  - [MAI-Thinking-1 (Microsoft AI)](https://microsoft.ai/models/mai-thinking-1/)
+  - [MAI-Thinking-1 PDF](https://microsoft.ai/pdf/mai-thinking-1.pdf)
+  - Local repository metadata consulted: `model/mai-thinking-1/meta.json`
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

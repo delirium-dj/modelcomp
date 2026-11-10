@@ -133,7 +133,8 @@ override.
   `model/<slug>/` removal, and only with explicit per-instance user sign-off
   (pre-commit bypass `ALLOW_MODEL_DELETE=1`; the sync tripwire clears on the
   deletion commit itself). These exceptions never extend to real model
-  folders.
+  folders. Operational checklist: `model/README.md` § *Merging a duplicate or
+  alias folder*.
 - **Vendor-prefix identity (absolute):** a leading vendor name is never part
   of the slug. A folder named `<vendor>-<rest>` whose `<rest>` already exists
   is a forbidden duplicate, never a new model: strip the prefix and check the
@@ -221,6 +222,8 @@ override.
   keeps the stealth-era `Provided by:` signature inside the file as frozen
   history). Figures measured under the
   stealth/alias name are cited labelled with the ID actually measured.
+  Operational checklist (rename/merge + list wiring): `model/README.md`
+  § *Merging a duplicate or alias folder*.
 - **Qwen 3.5 397B identity (user-confirmed 2026-10-08):** `Qwen/Qwen3.5-397B-A17B`
   and `opencode/qwen-3.5-397b` identify the same model; research belongs in
   `model/qwen-3.5-397b/`. The `397B` suffix is a parameter count, not a

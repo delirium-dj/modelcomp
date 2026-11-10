@@ -63,6 +63,10 @@ import {
   renderVerifiedFile,
   renderEvidenceFile,
   renderRobotsTxt,
+  harvestReferences,
+  renderReferencesFile,
+  buildBenchmarksData,
+  renderBenchmarksFile,
   ensureRaterGateLine,
 } from "./lib/codegen.mjs";
 import {
@@ -436,11 +440,25 @@ const scoreIndex = {};
 // src/data/verified.generated.ts (only on zero failures) for the site's
 // Last-verified display — never parsed from average.md files.
 const verifiedIndex = {};
+// Cutoff for report-date extraction: a Last-verified date can never be in the
+// future, so prose forward-references (e.g. a "retirement 2027-06-30" floor
+// mentioned on a Date line) must not masquerade as the newest report date.
+const TODAY_ISO = new Date().toISOString().slice(0, 10);
 // Agreed benchmark figures per slug (same figure cited by 2+ independent
 // files — scripts/lib/benchmarks.mjs). Emitted as
 // src/data/evidence.generated.ts (only on zero failures) for the model
 // pages' Verified-benchmarks section.
 const evidenceIndex = {};
+// External reference URLs harvested per slug from the findings files
+// (Markdown links + bare https:// URLs, deduped across a slug's files).
+// Emitted as src/data/references.generated.ts for the profile citations
+// drawer and the /compare/ + /benchmarks/ authority surfaces.
+const referencesIndex = {};
+// slug -> reference URLs already recorded (normalized), for cross-file dedup.
+const refSeen = {};
+// slug -> curated display name (meta.name), used to label benchmark
+// leaderboards in src/data/benchmarks.generated.ts.
+const modelNameBySlug = {};
 // SHORT lives in scripts/lib/parse.mjs (imported above).
 
 // ---- rater gate: only reports written by models whose own committed average
@@ -638,6 +656,8 @@ for (const slug of slugs) {
   for (const msg of checkMetaFile(slug, meta, META_REQUIRED)) {
     fail(msg);
   }
+  // Curated display name for benchmark leaderboards (benchmarks.generated.ts).
+  modelNameBySlug[slug] = meta.name;
 
   // Stem-vs-signature identity tripwire (validate.mjs checkSignatureStem,
   // tested): a findings file whose `Provided by: **<name>**` signature names
@@ -673,9 +693,19 @@ for (const slug of slugs) {
   const evidenceRows = [];
   for (const f of files) {
     const content = readFileSync(join(dir, f), "utf8");
-    const reportDate = extractReportDate(content);
+    const reportDate = extractReportDate(content, TODAY_ISO);
     if (reportDate !== null && (verifiedIndex[slug] === undefined || reportDate > verifiedIndex[slug])) {
       verifiedIndex[slug] = reportDate;
+    }
+    // Harvest external reference URLs (dedup across this slug's files),
+    // attributing each new URL to the file stem it was found in.
+    const stem = f.replace(/\.md$/, "");
+    const seen = (refSeen[slug] ||= new Set());
+    const bucket = (referencesIndex[slug] ||= []);
+    for (const ref of harvestReferences(content)) {
+      if (seen.has(ref.url)) continue;
+      seen.add(ref.url);
+      bucket.push({ url: ref.url, title: ref.title, domain: ref.domain, sourceStem: stem });
     }
     evidenceRows.push({ stem: f.replace(/\.md$/, ""), rows: parseBenchmarkRows(content) });
     const scores = parseScores(content, `model/${slug}/${f}`);
@@ -885,6 +915,19 @@ if (failures === 0) {
     join(root, "src", "data", "evidence.generated.ts"),
     renderEvidenceFile(evidenceIndex),
     `src/data/evidence.generated.ts (${Object.keys(evidenceIndex).length} slugs)`,
+  );
+  // External reference URLs harvested from findings files (per-slug, deduped).
+  writeIfChanged(
+    join(root, "src", "data", "references.generated.ts"),
+    renderReferencesFile(referencesIndex),
+    `src/data/references.generated.ts (${Object.keys(referencesIndex).length} slugs, ${Object.values(referencesIndex).reduce((a, r) => a + r.length, 0)} urls)`,
+  );
+  // Per-benchmark leaderboards grouped from the agreed-evidence index.
+  const benchmarksData = buildBenchmarksData(evidenceIndex, (slug) => modelNameBySlug[slug]);
+  writeIfChanged(
+    join(root, "src", "data", "benchmarks.generated.ts"),
+    renderBenchmarksFile(benchmarksData),
+    `src/data/benchmarks.generated.ts (${Object.keys(benchmarksData).length} benchmarks)`,
   );
   // Research queue for AI agents: pre-sorted `<Overall> <slug>` lines.
   writeIfChanged(

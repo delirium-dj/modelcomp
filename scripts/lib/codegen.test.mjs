@@ -14,6 +14,10 @@ import {
   renderVerifiedFile,
   renderEvidenceFile,
   renderRobotsTxt,
+  harvestReferences,
+  renderReferencesFile,
+  buildBenchmarksData,
+  renderBenchmarksFile,
   ensureRaterGateLine,
 } from "./codegen.mjs";
 const SOURCES_TS = `// AUTO-GENERATED
@@ -178,10 +182,69 @@ describe("renderScoresFile (deterministic tuple emit)", () => {
   });
 });
 
-describe("renderRobotsTxt (absolute Sitemap URL)", () => {
-  it("allows all, points at the origin sitemap, ends with newline", () => {
+describe("renderRobotsTxt (absolute Sitemap URL + AI search bots)", () => {
+  it("welcomes AI search indexers, allows all, points at the origin sitemap, ends with newline", () => {
     const text = renderRobotsTxt("https://example.com");
-    assert.equal(text, "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n");
+    for (const bot of ["OAI-SearchBot", "GPTBot", "PerplexityBot", "Claude-Web", "Google-Extended"]) {
+      assert.ok(text.includes(`User-agent: ${bot}\nAllow: /`), `missing allow block for ${bot}`);
+    }
+    assert.ok(text.includes("User-agent: *\nAllow: /"));
+    assert.ok(text.endsWith("Sitemap: https://example.com/sitemap.xml\n"));
+  });
+});
+
+describe("harvestReferences (external URL harvester)", () => {
+  it("keeps markdown + bare external URLs, drops relative/localhost/placeholders", () => {
+    const md = [
+      "- Card: [Official specs](https://platform.claude.com/docs/opus-5)",
+      "- Methodology: [link](../../model-comparison.md)",
+      "- Bare: https://artificialanalysis.ai/models/x, and more.",
+      "- Placeholder: <https://...> and https://<host>/v1",
+      "- Local: http://localhost:4173/foo",
+      "- Ref again: [Official specs](https://platform.claude.com/docs/opus-5)",
+    ].join("\n");
+    const refs = harvestReferences(md);
+    const urls = refs.map((r) => r.url);
+    assert.ok(urls.includes("https://platform.claude.com/docs/opus-5"));
+    assert.ok(urls.includes("https://artificialanalysis.ai/models/x"), "trailing punctuation should be trimmed");
+    assert.ok(!urls.some((u) => u.includes("model-comparison")), "relative link must be dropped");
+    assert.ok(!urls.some((u) => u.includes("localhost")), "localhost must be dropped");
+    assert.ok(!urls.some((u) => u.includes("<")), "placeholder must be dropped");
+    assert.equal(urls.filter((u) => u === "https://platform.claude.com/docs/opus-5").length, 1, "dedup by url");
+    const card = refs.find((r) => r.url === "https://platform.claude.com/docs/opus-5");
+    assert.equal(card.title, "Official specs");
+    assert.equal(card.domain, "platform.claude.com");
+  });
+});
+
+describe("renderReferencesFile + buildBenchmarksData + renderBenchmarksFile", () => {
+  it("emits deterministic references with the ReferenceItem shape", () => {
+    const text = renderReferencesFile({
+      "b-model": [{ url: "https://x.com/a", title: "A", domain: "x.com", sourceStem: "Rater" }],
+      "a-model": [],
+    });
+    assert.ok(text.includes("export const REFERENCES: Record<string, ReferenceItem[]>"));
+    assert.ok(text.indexOf('"b-model"') > text.indexOf("ReferenceItem {"));
+    assert.ok(!text.includes('"a-model"'), "empty slug arrays are skipped");
+    assert.ok(text.endsWith("};\n"));
+  });
+  it("groups agreed evidence into numeric-sorted benchmark leaderboards", () => {
+    const data = buildBenchmarksData(
+      {
+        "m-low": [{ benchmark: "SWE-bench Verified", value: "50%", raters: ["A", "B"] }],
+        "m-high": [{ benchmark: "SWE-bench Verified", value: "88.5%", raters: ["A", "B", "C"] }],
+      },
+      (slug) => slug.toUpperCase(),
+    );
+    const group = data["SWE-bench Verified"];
+    assert.equal(group[0].modelSlug, "m-high");
+    assert.equal(group[0].numericValue, 88.5);
+    assert.equal(group[0].modelName, "M-HIGH");
+    assert.equal(group[0].ratersCount, 3);
+    const text = renderBenchmarksFile(data);
+    assert.ok(text.includes("export const BENCHMARKS_DATA: Record<string, BenchmarkEntry[]>"));
+    assert.ok(text.includes('numericValue: 88.5'));
+    assert.ok(text.endsWith("};\n"));
   });
 });
 
