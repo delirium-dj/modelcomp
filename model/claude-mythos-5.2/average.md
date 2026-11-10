@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 93.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 94.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 95/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 71.3/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 94.5/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 34.8/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 90/100.** Mean of 4 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 93.6/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 94.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 95.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 73/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 94.8/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 37.2/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 90.4/100.** Mean of 5 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, Gemini 3.8 Flash, GPT-6.1 Sol, MiMo 2.6 Flash.
-- Average from top 4 by Overall Score: Claude Opus 4.6, Gemini 3.8 Flash, GPT-6.1 Sol, MiMo 2.6 Flash.
+- Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, MiMo 2.6 Flash.
+- Average from top 5 by Overall Score: Claude Opus 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GPT-6.1 Sol, MiMo 2.6 Flash.
 - Ignored below-gate rater(s): Beam, Flint, Gemini 3.5 Flash Lite, Inkling 2 Small, QoDuck.

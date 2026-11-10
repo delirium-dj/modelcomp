@@ -73,7 +73,6 @@ export const VERIFIED: Record<string, string> = {
   "glm-5.3": "2026-11-10",
   "glm-5.3-flash": "2026-11-09",
   "glm-5.3-flashx": "2026-11-09",
-  "glm-5.3-flashx-legal": "2026-11-10",
   "gpt-5": "2026-11-10",
   "gpt-5-codex": "2026-11-09",
   "gpt-5-nano": "2026-11-09",

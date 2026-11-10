@@ -7,9 +7,9 @@
 94.1 claude-opus-5.5
 93.8 gemini-4-argon
 93.8 muse-spark-1.3
+93.4 gemini-4-carbon
 93.4 gpt-6-astra
 92.9 gemini-3.1-pro
-92.9 gemini-4-carbon
 92.8 claude-fable-5.1
 92.6 claude-mythos-5.1
 92.5 claude-sonnet-5.5
@@ -24,12 +24,12 @@
 91.3 kimi-k3.1-pro
 91.2 gpt-6.1-sol
 91.1 kimi-k3
+91 claude-fable-5.2
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
-90.9 claude-fable-5.2
+90.4 claude-mythos-5.2
 90.4 muse-wonder-1.0
 90.3 claude-opus-4.8
-90 claude-mythos-5.2
 90 muse-spark-1.2
 89.9 claude-opus-4.7
 89.9 gpt-5.4-pro
@@ -97,7 +97,6 @@
 81.3 qwen-3.5-122b-a10b
 81.2 claude-sonnet-4.5
 81.2 gpt-5.2-codex
-81 glm-5.3-flashx-legal
 80.9 gemma-4-31b
 80.6 grok-4
 80.4 grok-4.20
