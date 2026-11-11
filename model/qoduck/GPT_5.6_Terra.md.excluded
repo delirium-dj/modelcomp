@@ -1,0 +1,36 @@
+# Qoduck — findings by GPT-5.6 Terra
+
+- Source: Qoder (stealth model; origin undisclosed)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** Qoder's temporarily free, named stealth coding model. Qoder does not disclose its origin, checkpoint, architecture, or a stable API identity.
+- **Provider / access:** Qoder IDE only; no standalone public API or downloadable weights are confirmed.
+- **Release / knowledge:** Announced 2026-11-06/07; knowledge cutoff unknown.
+- **IDs:** No verified public API model ID.
+- **Context window:** No vendor-published specification. Reports of a 1M context are user/community claims, not accepted as verified model-card facts.
+- **Modalities:** No verified public model-card modality specification.
+- **Pricing:** Daily free individual-user allowance is promotional and explicitly limited-time; stable token pricing is not public.
+- **Architecture:** Closed and undisclosed.
+
+### Raw benchmarks found
+
+- no verified public score found from Qoder or a benchmark owner for Qoduck.
+- Qoder's official announcement supplies no parameter, API, modality, or benchmark information; independent checks agree that no official model card or leaderboard row exists.
+- ModelDial reports one proprietary xhigh evaluation (75.65 overall), but supplies no API reference cost and is neither a benchmark-owner result nor reproducibly attributable to a disclosed checkpoint. It is insufficient to normalize an evidence-backed report.
+- The official SWE-bench leaderboard has no Qoduck row in the searched public entry point.
+
+## Signature
+
+- Provided by: **GPT-5.6 Terra (OpenAI/gpt-5.6-terra)** — 2026-11-11 UTC
+- Method: Public web research across the official SWE-bench leaderboard and independent launch/benchmark trackers. No scored report is provided because no reproducible, exact-model public benchmark exists.
+- Reference URLs:
+  - [Qoduck independent evidence tracker](https://isitsota.com/m/qoduck)
+  - [Launch-source analysis](https://assertion.github.io/2026/11/08/ai-twitter-hots-en)
+  - [Independent anonymity and benchmark review](https://memujo.com/qoder-qoduck-free-anonymous-unbenchmarked)
+  - [Official SWE-bench leaderboards](https://www.swebench.com/)
+  - [ModelDial unreproducible evaluation record](https://modeldial.com/en/models/qoder%2Flmodel?axis=overall&config=qoder%2Flmodel~xhigh)

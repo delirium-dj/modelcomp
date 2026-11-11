@@ -1,0 +1,34 @@
+# Qwen 4 Max — findings by GPT-5.6 Terra
+
+- Source: Alibaba Cloud / Qwen (`qwen4-max-preview`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen4-Max-Preview
+- **Short description:** Alibaba Cloud's next-generation flagship multimodal preview model, tracked in this folder as Qwen 4 Max.
+- **Provider / access:** QwenCloud Token Plan API using the dedicated `https://token-plan.maas.qwencloudapi.com` base URL.
+- **IDs:** `qwen4-max-preview`.
+- **Context window:** 1M tokens; QwenCloud documents a 393,216-token maximum thinking-plus-answer budget.
+- **Modalities:** Text, image, and video input; text output; function calling, JSON mode, and reasoning are documented.
+- **Pricing:** QwenCloud documentation confirms Token Plan access but this research did not find an exact public, stable Qwen4-Max-Preview rate card suitable for normalization.
+- **Architecture:** Proprietary; no verified parameter count or license was found.
+
+### Raw benchmarks found
+
+- no verified public score found for this exact `qwen4-max-preview` API model/ID.
+- QwenCloud's current text-generation catalogue verifies the model's modality and context specifications, but provides no benchmark table for this exact preview.
+- Search results for Qwen benchmark claims and Terminal-Bench resolve to Qwen3.8 Max or earlier Qwen Max routes, not Qwen4-Max-Preview; these cannot be transferred.
+- The official SWE-bench leaderboard did not provide a `qwen4-max-preview` result in the searched public entry points.
+
+## Signature
+
+- Provided by: **GPT-5.6 Terra (OpenAI/gpt-5.6-terra)** — 2026-11-11 UTC
+- Method: Public web research across QwenCloud documentation, the official SWE-bench leaderboard, and independent benchmark catalogues. No scored report is provided because the exact model has zero verified public benchmark numbers.
+- Reference URLs:
+  - [QwenCloud latest Qwen4-Max-Preview documentation](https://docs.qwencloud.com/developer-guides/getting-started/latest-model)
+  - [QwenCloud text-generation model catalogue](https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models)
+  - [Official SWE-bench leaderboards](https://www.swebench.com/)
+  - [Terminal-Bench 4.0 results catalogue](https://examenos.com/benchmarks/official/terminal-bench-4.0/)

@@ -1,0 +1,65 @@
+# Claude Fable 5.2 — findings by Qwen 4 Max
+
+- Source: Anthropic/claude-fable-5.2
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Fable 5.2 (API ID `claude-fable-5-2`)
+- **Short description:** Anthropic's frontier technical-work model (Nov 9, 2026), released alongside Claude Mythos 5.2 — the **same underlying model**; Fable carries cyber/biology safeguards for general availability, Mythos is verification-gated. Outputs up to **30% faster** than the 5.1 generation at a **20% lower price** ($8/$40 vs $10/$50). BenchLM ranks it **#1 of 1020 (91.41/100)**; its AA Intelligence Index **64.6** is the highest v5.0.1-era score recorded in this research run. Vendor highlights: HLE **74.2%** with tools, SWE-bench Pro **93%**, FrontierCode 2.0 **49.1%** (highest of any released model tested), FrontierMath v2 Tier 4 **100%** (Epoch), and a 1,000-agent team formalizing Fermat's Last Theorem in Lean in **30 hours**. Anthropic still recommends Opus 5.5 as the daily driver; Fable 5.2 targets the most ambitious open-ended work, plus Advisor/Orchestrator roles.
+- **Provider / access:** Claude Platform (`claude-fable-5-2`), claude.ai, Claude Code (now the default model), AWS Bedrock, Google Cloud, Microsoft Azure. **Fast mode** (up to 2.5x token speed, $16/$80) on Claude Code, Claude Platform, Google Cloud (Anthropic- and Google-managed), Microsoft Foundry (Anthropic-hosted). Mythos 5.2 only via the Cyber Verification / Life Sciences Verification Programs; Claude Security (Enterprise) now uses Mythos 5.2. Launch promo: eligible paid plans get 1–3 Fable usage resets; Fable counts up to 50% of weekly limits on Pro/Team standard seats.
+- **Release / knowledge:** Released 2026-11-09. Knowledge cutoff June 2026 per Anthropic's model-lineup docs (not restated in the launch post). Effort levels Low/Medium/High/Xhigh/Max; **Medium is the default** in Claude apps and Claude Code. Preserved thinking now applies to all accounts (anti-distillation).
+- **IDs:** `claude-fable-5-2`; sibling `claude-mythos-5-2` (same weights, safeguards removed, verification-gated). Predecessors: Fable 5.1, Fable 5. Distinct from Opus 5.5 / Sonnet 5.5 / Haiku 5.5.
+- **Context window:** 1M tokens (BenchLM + llm-stats); 128K max output per Anthropic's lineup docs. Cache reads **$0.20/M (2.5% of input — a 97.5% discount**, far cheaper than Fable 5/5.1's 10%/$1). No long-context surcharge documented. The 300K batch beta excludes the Fable/Mythos tier. AA-LCR **83.3%**, MLCR-AA **43.9%** (medical multi-hop — solid, not class-leading).
+- **Modalities:** Text + image input, text output (no video/audio). Vision is sharply upgraded: Chartography no-tools **73.4%** (Fable 5.1: 44.8), with-tools **91.6**; BenchCAD 2.1 with-tools **83.5** (5.1: 44.4); RoboDojo Sim **64.9%** (camera-image robot control); OSWorld 2.1 offline **89.3**.
+- **Pricing (as of 2026-11-11):** **$8 in / $40 out** per 1M; cache read $0.20; Fast mode $16/$80. No batch discount for this tier. Non-enterprise traffic carries 30-day retention for safety monitoring; Enterprise Frontier Safeguards (private beta: Bridgewater, Salesforce, Stripe) enables ZDR-compatible monitoring.
+- **Architecture:** Proprietary; not disclosed. Same base model as Mythos 5.2. Fable's safety classifiers block high-risk cyber (pen-testing, exploit generation, binary vulnerability work) and most research-biology tasks, falling back to **Opus 4.8 for cyber / Opus 5 for biology**; ~**55% fewer false-positive blocks** than Fable 5.1 (cyber −60%, bio −40%). Strongest-ever anti-distillation protections (90–99% reduction in harvested data). External pre-release evaluators: UK AI Security Institute, Frontier Design, METR.
+
+### Raw benchmarks found
+
+Vendor launch table (Anthropic, Nov 9; peers Fable 5.1 / Opus 5.5 / GPT-6 Astra / Gemini 4 Carbon; highest effort unless noted, safeguards on):
+
+- Agentic coding: FrontierCode 2.0 **49.1% Xhigh** (5.1: 32.4 Xhigh; Opus 45.5; Astra 42.8; Carbon 41.1 Medium); FrontierSWE v2 **69.9** (56.3 / 62.3 / 65.5 / 61.2)
+- Business/science agents: AutomationBench **51.4** (31.4 / 42.5 / 41.4 / **53.9 Carbon**); TB-Science 0.1 **74.6** (Mythos 5.2: 75.3; 52.6 / 58.7 / 68.1 / 64.8); WANDR relaxed **82.1** (68.7 / 72.3); Remote Labor Index **41.3 High** (17.9 / 21.3 / 20.8)
+- Computer use / robotics: OSWorld 2.1 offline (partial) **89.3** (83.5 / 87.2 / 79.5 / 81.5); RoboDojo Sim **64.9 Max** (internal runs; 5.1: 27.6; Opus 39.4; Astra 29.8; Argon 34.2 High)
+- Knowledge work: AA-Briefcase v1.1 rubric **66.1** (61.5 / 61.2 / 52.0 / 61.8) but Elo **1785 < Opus 5.5's 1800** (5.1: 1669; Astra 1569; Carbon 1611)
+- Reasoning/vision: HLE with tools **74.2** (65.6 / 67.7 / 57.2); Chartography no-tools **73.4** (44.8 / 64.4 / 71.0 / 72.5)
+- Mythos 5.2 only (safeguards off, verification-gated): CyScenarioBench **76.3** (Mythos 5.1: 61.7; Opus 5.5 no-safeguards 67.6; GPT-6 Cyber 61 — each lab uses unique tasks); CVE Rediscovery **89.6** (78.3 / 81.3); de novo binder design 24h **85.1** (79.1 / 82.6); AAV capsid folding 28/34 accurate
+
+System-card figures (via BenchLM's sourced profile, Nov 10): TB4.0 **67.6**, SWE-bench Pro **93**, SWE Multilingual **96.6**, SWE Multimodal **74.1**, DeepSWE **74.3**, ProgramBench **85.6**, HLE no-tools **73.2**, ARC-AGI-3 **65.7** (Provider Adapter 94.9), STEM Professor Bench 61.8, OfficeQA 83.4 / Pro **72.9**, BenchCAD 2.1 75.4 / tools **83.5**, GDPval-AA **1831**, DRACO 87.7, Real-World Finance v2 1637, PhysicianBench 64.4, HealthBench 58.8 raw / 59.6 adj, Professional 71.1 raw / 67.7 adj, GMMLU 96.0, MILU 94.1, Harvey LAB-AA v1.1 **7.2** (hallucination-gated all-pass).
+
+Independent runs: AA Intelligence Index **64.6** (v5.0.1-era — highest recorded here; not comparable to Opus 5.5's 58 v4.3.2 or Carbon's 59 v5.0); AA-HLE **74.3**; AA-Omniscience net **66.8** (accuracy 79.1, hallucination 59.3); AA TB4.0 **59.6**; AutomationBench-AA **76.4**; GDP.pdf 24.2; MKA 56.6; AA-LCR 83.3; CritPt **35.4**; MLCR-AA 43.9; AA-SciCode 67.7. Epoch: FrontierMath v2 T1–3 **95.088**, **T4 100.000**. Proximal: FrontierSWE v2 **69.9**. Cognition: FrontierCode 2.0 **49.1**. Cursor: CursorBench 4.0 **60.0**. Bug Hunt: **58.0 fixes**. BenchLM aggregate **91.41/100, #1 of 1020** (61/812 coverage — conservative).
+
+Effort/cost economics (vendor): FrontierCode High **45.3 ≈ Opus 5.5 Max 45.5 at ~half the cost**; WANDR Medium matches Opus's top at ~40% cost; HLE **Low** matches Opus's top at **<1/10 cost**; Chartography Medium 66.4 > Opus Max 64.4 at <1/10 cost; BenchCAD Max 83.5 vs Opus 65.3 / 5.1 44.4.
+
+Qualitative milestones (vendor/tester): Fermat's Last Theorem fully formalized in Lean by ~1,000 agents in **30h** (Opus 5.5 same setup: 26% at 18h, 27% at 30h); a working prototype OS from an empty folder (1,000+ subagents, 8 days); Python→Rust production migration with **26x faster startup**; **>90% of merged changes** in Anthropic's core codebase Claude-written; two open black-hole-physics problems solved; three working electronic devices designed end-to-end (with Diode); Jump Trading internal research-automation error **10% lower** than next best; Fundamental Research Labs eval **91% vs 86%**; Quantum ESPRESSO phonon code **36x faster**; iGent data-eng-bench (103 tasks) strongest measured; hypervisor with 3,500+ machine-checked proofs. Safety: automated behavioral audit (Mythos 5.2) **2.67/10** vs Mythos 5.1 3.28, Opus 5.5 2.79, Sonnet 5.5 3.10 (lower better); misalignment risk assessed low.
+
+### Normalized scores (1–100)
+
+- **Tool use: 96/100.** OSWorld 2.1 offline 89.3, WANDR 82.1, RLI 41.3 (2x Opus 5.5), TB-Science 74.6, RoboDojo 64.9 and AutomationBench-AA 76.4 are best-or-near-best recorded; capped by GDPval-AA 1831 and Briefcase Elo 1785 (both just below Opus 5.5's 1846/1800), Harvey LAB-AA v1.1 7.2, and vendor AutomationBench 51.4 trailing Carbon's 53.9.
+- **Reasoning: 97/100.** HLE 74.2 with tools / 73.2 without — independently confirmed at AA-HLE 74.3 — is the highest seen in this run; FrontierMath v2 T4 100 / T1–3 95.088 (Epoch), ARC-AGI-3 65.7, CritPt 35.4, AA index 64.6 (v5.0.1 high), Omniscience net 66.8. Capped by 59.3% hallucination rate, GDP.pdf 24.2 and MLCR 43.9 — elite, not flawless.
+- **Context window: 97/100.** 1M tokens, 128K output, cache reads at 2.5% ($0.20) — the cheapest frontier cache tier — and no long-context surcharge; AA-LCR 83.3. Deductions: Fable/Mythos excluded from the 300K batch beta, LCR/MLCR good but not class-leading.
+- **Multimodal: 80/100.** Image-in only (no video/audio), but the grounded-vision evidence is exceptional: Chartography 73.4/91.6 (+28.6 over 5.1), BenchCAD 83.5 hardware design, SWE Multimodal 74.1, RoboDojo 64.9 camera-based robot control, OSWorld 89.3. Capped by the modality ceiling and no published MMMU-Pro/CharXiv/video scores.
+- **Coding: 97/100.** SWE-bench Pro 93, SWE Multilingual 96.6, FrontierCode 2.0 49.1 (highest released, Cognition-confirmed), FrontierSWE v2 69.9 (Proximal), CursorBench 4.0 60.0 (highest), DeepSWE 74.3, TB4.0 67.6 vendor / 59.6 AA, Bug Hunt 58 fixes, plus the Fermat/OS/migration milestones. Capped by DeepSWE/TB4.0-AA merely tying the Opus/K3.1 class and SWE-Pro 93 lacking independent replication so far.
+- **Cost efficiency: 48/100.** $8/$40 is a 20% cut vs 5.1 with 30% faster output, 2.5% cache reads, and remarkable effort economics (High ≈ Opus Max at half cost; HLE Low at <1/10 cost); subscription resets and up-to-50% weekly-limit inclusion soften consumer cost. Still a premium tier: no batch discount, Fast mode doubles to $16/$80, 30-day retention for non-enterprise. Anchored between $5/$25→52 and $10/$50→40.
+- **Overall Score: 93.4/100.** Mean of the five quality dims (96+97+97+80+97)/5 = 93.4. The strongest reasoning-and-coding specialist measured in this run — BenchLM #1, the highest v5.0.1 AA index, unprecedented HLE/FrontierMath/ARC-3 results — trading multimodal breadth and price for depth. Best-fit: frontier software engineering, formal math, scientific research and long-horizon agent orchestration; Opus 5.5 remains the cheaper daily driver, and Fable's cyber/bio safeguards route blocked queries to Opus 4.8/5.
+
+---
+
+## Signature
+
+- Provided by: **Qwen 4 Max (qwen4-max)** — 2026-11-11
+- Method: public internet research (Anthropic's full launch announcement read in cache, the Fable 5.2/Mythos 5.2 system card via BenchLM's sourced Nov 10 profile, llm-stats' rate card, Artificial Analysis leaderboards as cited by BenchLM, and WebSearch corroboration incl. a VentureBeat snippet); scores are normalized 1–100 interpretations, not official vendor scores. Conflicts labelled, never averaged: AutomationBench vendor 51.4 vs AutomationBench-AA 76.4 and TB4.0 vendor 67.6 vs AA 59.6 (different harnesses); Briefcase rubric 66.1 > Opus 61.2 but Elo 1785 < 1800, and GDPval 1831 < Opus 1846 (Fable does not sweep every agentic metric); AA index 64.6 is v5.0.1-era and not comparable to Opus 5.5's 58 (v4.3.2) or Carbon's 59 (v5.0); Harvey LAB-AA v1.1 7.2 is the hallucination-gated all-pass metric (not v1.0 criterion pass-rate); CyScenarioBench uses per-lab unique tasks; RoboDojo figures are Anthropic-internal runs; OSWorld 2.1 is the offline partial set; Mythos 5.2 cyber/bio scores are safeguards-off and verification-gated, not Fable's; ProgramBench 85.6 is a system-card percentage on a different scale from the K3.1-card binary figures; knowledge cutoff June 2026 comes from lineup docs, not the launch post. VentureBeat (429) and kingy.ai (403) were unreachable; llm-stats returned a shell — pricing/context captured from its search snippet and corroborated by the official post. Identity: Fable 5.2 ≠ Fable 5.1 ≠ Fable 5; Fable 5.2 and Mythos 5.2 share weights but differ in safeguards/access; TB4.0 ≠ TB2.1; FrontierCode 2.0 ≠ v1.1; FrontierMath v2 ≠ legacy.
+- Reference URLs:
+  - [Introducing Claude Fable 5.2 and Claude Mythos 5.2 — Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2)
+  - [Claude Fable 5.2 and Mythos 5.2 System Card (PDF) — Anthropic](https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf)
+  - [Claude Fable 5.2 benchmark profile — BenchLM](https://benchlm.ai/models/claude-fable-5-2)
+  - [Claude Fable 5.2 — Artificial Analysis](https://artificialanalysis.ai/models/claude-fable-5-2)
+  - [Claude Fable 5.2 Benchmarks, Pricing & Context Window — llm-stats](https://llm-stats.com/models/claude-fable-5-2)
+  - [FrontierMath v2 leaderboard — Epoch AI](https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2)
+  - [FrontierSWE v2 leaderboard — Proximal](https://www.frontierswe.com/)
+  - [FrontierCode 2.0 — Cognition](https://cognition.com/blog/frontier-code-2.0)
+  - [CursorBench 4.0 — Cursor](https://cursor.com/cursorbench)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

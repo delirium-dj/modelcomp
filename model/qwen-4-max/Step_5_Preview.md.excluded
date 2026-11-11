@@ -1,0 +1,56 @@
+# Qwen4-Max-Preview — findings by Step 5 Preview (self-excluded: no verified public benchmark scores)
+
+- Source: Alibaba / `qwen4-max-preview` (QwenCloud Token Plan)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen4-Max-Preview (Qwen 4 Max / Qwen4-Max — the first member of Alibaba's Qwen4 generation to ship; a time-boxed preview, not a GA release)
+- **Short description:** Alibaba's next-generation flagship multimodal model, announced 2026-11-11 at 02:01 UTC and live the same day on the QwenCloud Token Plan. The vendor positions it for coding, office productivity, frontend design and complex agentic tasks, with text/image/video understanding and deep reasoning. No weights, no per-token pricing, no published benchmark figures on launch day; the preview retires after 2026-11-25.
+- **Provider / access:** QwenCloud Token Plan only — dedicated Base URL `https://token-plan.maas.qwencloudapi.com` with a Token Plan API key (Individual or Team); pay-as-you-go is explicitly not supported, scripts/app backends are not allowed on the plan. Also usable in Qwen Chat, the Qwen App, QwenStudio, QwenWork and Qoder. API compatibility: OpenAI Chat Completions, OpenAI Responses and Anthropic Messages.
+- **Release / knowledge:** preview window 10:00 2026-11-11 to 24:00 2026-11-25 (UTC+8) per the vendor spec, "no changes during this period", model retired after the preview ends. Knowledge cutoff not disclosed.
+- **IDs:** `qwen4-max-preview` (Token Plan). No pay-as-you-go ID; no weights; absent from OpenRouter, models.dev and the OpenCode catalog.
+- **Context window:** 1M tokens context (official spec; matches Qwen Code's pre-launch 1M sizing for every `qwen4*` ID), max output 393,216 tokens shared between thinking and the final answer. Contradicts this folder's curated meta claims of "2M / 128K out" — no vendor source supports a 2M window for Qwen4.
+- **Modalities:** text, image and video input (up to 16M pixels/image, up to 2h / 2GB per video, up to 2,048 images via URL), text output only; audio is NOT an input modality for this ID (the omni route for audio stays `qwen3.8-omni-flash`), contradicting the curated meta's "audio in" claim. Thinking on by default with `reasoning_effort` low/medium/xhigh (xhigh default); `max_tokens` on Chat Completions now caps thinking + answer combined.
+- **Pricing (as of 2026-11-11):** no per-token price — Token Plan subscription only (no dollar-per-1M figure published by the vendor), contradicting the curated meta's "~$2.50 / $10.00 per 1M tokens" claim, which has no vendor source. Because it is not a free endpoint, no free-tier data-usage caveat applies; Token Plan data terms were not published in a form I could verify.
+- **Architecture:** undisclosed — no parameter counts, MoE layout or training details published. Engineering traces for the Qwen4 generation: Gated DeltaNet + Qwen Sparse Attention kernel work (T-Head, "needed for Qwen4.0-Max"), a Qwen Sparse Attention path in vLLM-xpu-kernels, and transformers' `qwen4_exp` doc (Qwen3.8-Flash-Next, 125B main model + 51B learned n-gram table, is the released architecture precursor).
+
+### Raw benchmarks found
+
+- **No verified public benchmark scores exist for this exact model/ID.** Official launch coverage (ifeng, quoting the Qwen team's 2026-11-11 announcement) states Alibaba says Qwen4 will emphasize knowledge understanding, world perception, coding and agentic ability "但暂未披露具体测试项目和评分结果" — no specific test items or scores disclosed. The QwenCloud release entry and model guide publish capabilities only.
+- Terminal-Bench 2.1 / 4.0 / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / OSWorld: no verified public score found (tool calling, web-search and code-execution built-in tools documented, never measured publicly).
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found.
+- MRCR / RULER / GraphWalks long-context retrieval: no verified public score found (only the 1M-token window and 393,216-token output budget are documented).
+- Claims circulating without a primary source (explicitly flagged by Stealth Models' 2026-11-11 leak check as still tracing to nothing): an Artificial Analysis chart showing "Qwen 4 Max (Preview) 53" (absent from AA's own leaderboard and posts on launch day, still absent on 2026-11-11), "Qwen4-Coder 82% SWE-bench Verified" (the publishing page itself calls the figure illustrative), a phantom "Qwen 4 Coder 32B-A3B, 82%" aggregator entry, and Kalmia/Kerria Terminal-Bench numbers that belong to a Qwen3.8-27B paper. Stealth Models has not run Qwen4-Max on StealthMark; its ~+10-point outlook is an editorial estimate, not a measurement.
+
+### Normalized scores (1–100)
+
+Not computed — self-exclusion. With zero verified public benchmark numbers for this exact model/ID (launched hours ago, capability claims only, every circulating figure refuted by the 2026-11-11 leak check), none of the five quality dimensions can be normalized without inventing values, so no `Overall Score` exists and this file stays `.excluded` (per `model-report-TEMPLATE.md` SELF-EXCLUSION and `RULES.md` permanence: one fabricated number would drag the mean for every reader).
+
+- Tool use: no verified public score found (function calling, built-in web search/code execution, structured outputs documented — never measured publicly)
+- Reasoning: no verified public score found (thinking-by-default with three effort levels documented; no knowledge/reasoning benchmark published)
+- Context window: no verified public score found (1M-token window and 393,216-token shared output budget documented; no retrieval measurement)
+- Multimodal: no verified public score found (text/image/video in, text out per the vendor spec — documented, not benchmarked)
+- Coding: no verified public score found (vendor positions it for coding/frontend work with no published figure)
+- Cost efficiency: no verified public score found (Token Plan subscription, no published per-1M dollar price; not a $0 endpoint)
+- Overall Score: not computable (zero verified published benchmark scores)
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-11
+- Method: public internet research on launch day — QwenCloud's official Latest-model page and changelog (specced 2026-11-11), the text-generation model guide, models.dev and OpenRouter catalog checks (no Qwen4 listing), Stealth Models' Qwen 4 guide and leak check (2026-11-11), and ifeng's coverage of the Qwen team's own announcement confirming no scores were disclosed; this is a negative-findings report on a launch-day preview — no scores assigned.
+- Reference URLs:
+  - [QwenCloud docs — Latest model: Qwen4-Max-Preview (specs, Token Plan access, preview window)](https://docs.qwencloud.com/developer-guides/getting-started/latest-model)
+  - [QwenCloud changelog — Model releases: qwen4-max-preview (2026-11-11)](https://docs.qwencloud.com/changelog/models)
+  - [QwenCloud docs — Text generation models (qwen4-max-preview row: 1M context, modalities, built-in tools)](https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models)
+  - [Stealth Models — Qwen 4: release radar and leak check (every circulating Qwen 4 score traced to no primary source; re-checked 2026-11-11)](https://stealthmodels.com/qwen-4)
+  - [ifeng — 阿里宣布Qwen4即将发布，Qwen4-Max预览版上线（官方称暂未披露具体测试项目和评分结果）](https://original.ifeng.com/c/8xxdswhiWLE)
+  - [Alibaba Qwen on X — Qwen4-Max preview announcement (2026-11-11)](https://x.com/Alibaba_Qwen/status/2120335993643684315)
+  - [Qwen Code PR #15762 — every qwen4 model ID sized at 1M context (pre-launch engineering trace)](https://github.com/QwenLM/qwen-code/pull/15762)
+  - [Artificial Analysis — leaderboard (no Qwen4 model listed as of 2026-11-11)](https://artificialanalysis.ai/models)
+- Future sources: when Alibaba (or an independent evaluator) publishes real benchmark numbers for `qwen4-max-preview` — or when a GA `qwen4-max` snapshot with pay-as-you-go pricing lands — a fresh scored report can replace this file with genuinely new verified evidence. Note the curated meta for this folder (2M context, audio input, ~$2.50/$10 pricing, a 404 official-URL) contradicts the vendor spec and should be re-curated.
