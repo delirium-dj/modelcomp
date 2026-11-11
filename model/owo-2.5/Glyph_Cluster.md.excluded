@@ -1,0 +1,55 @@
+# Owo 2.5 — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID (`opencode/owo-2.5`) at time of research. This file contains notes only and is not scored.
+
+- Source: Owo (`opencode/owo-2.5`, per repo metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owo 2.5
+- **Short description:** Proprietary LLM listed in this repo as Owo's September 2026 model with long context, multimodal input, and tool use (per repo metadata). Public verifiable benchmark results for this exact model/ID were not found in this research pass.
+- **Provider / access:** Repo meta lists `opencode/owo-2.5` and states hosting via Owo API/OpenCode Zen. Fetched Owo website did not provide a public model card or benchmark data for Owo 2.5.
+- **Release / knowledge:** September 2026 stated in repo meta; not independently verified from fetched primary model documentation.
+- **IDs:** `opencode/owo-2.5` (repo/meta).
+- **Context window:** 1,048,576 total; 256,000 max output reported in repo meta.
+- **Modalities:** Text and image input; text output reported in repo meta.
+- **Pricing (as of 2026-11-11):** $0.40/$3.20 per 1M in/out reported in repo meta (official Owo API docs cited there); not independently verified from fetched pages in this run.
+- **Architecture:** Not publicly verified.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and fetched Owo website; web search unavailable in-session (HTTP 402). No verified public benchmark numbers for `opencode/owo-2.5` were found, so no scores are assigned.
+- Reference URLs:
+  - [OwO.AI](https://owo.ai)
+  - [Repo metadata — model/owo-2.5/meta.json](../../model/owo-2.5/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

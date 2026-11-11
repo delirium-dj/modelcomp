@@ -36,7 +36,7 @@ Coding:
 
 Reasoning / knowledge:
 - GPQA Diamond: **92.6%** (Benchgap, estimated ± 2.3 pp); OpenRouter AA: **93.5%** (Max) / **94.1%** (Xhigh)
-- MMLU: **94.2%** (Benchgap, estimated ± 1.0 pp)
+- MMLU: no verified public score found (the 94.2% figure is a Benchgap estimate, not a measurement)
 - MMLU-Pro: **86.2%** (Benchgap, estimated ± 4.1 pp); Vals: **88.6%**; AA: **87.7%**
 - AIME26: **99.2%** (Benchgap, estimated ± 1.2 pp)
 - HLE: **48.7%** (Benchgap, measured); OpenRouter AA Xhigh: **47.5%**

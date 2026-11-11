@@ -1,0 +1,58 @@
+# ERNIE 5.5 Flash — findings by Flint
+
+- Source: Baidu / ERNIE 5.5 Flash (`baidu/ernie-5.5-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** ERNIE 5.5 Flash
+- **Short description:** Baidu's post-trained efficient sparse MoE flagship — the first post-trained model built on the ERNIE 5.5 Flash Base (280B total / 14B active parameters, 1M-token context, >200 tok/s decode) positioned for coding, 3D modeling, knowledge work and content creation; released 2026-11-11 as ERNIE 5.5 Flash Preview on Qianfan and OpenRouter, weights promised under Apache 2.0.
+- **Provider / access:** Baidu (Qianfan; OpenRouter `baidu/ernie-5.5-flash-preview:free`); OpenAI-compatible Chat Completions with reasoning/tool controls; standard API text-in/text-out; open weights Base checkpoint on Hugging Face (`baidu/ERNIE-5.5-Flash-Base`) under a restricted community license.
+- **Release / knowledge:** Preview release 2026-11-11; knowledge cutoff not established.
+- **IDs:** `baidu/ernie-5.5-flash` (curated subject identity) / `baidu/ernie-5.5-flash-preview` (live release ID) / `baidu/ERNIE-5.5-Flash-Base` (open weights).
+- **Context window:** 1,000,000 tokens total; 131,072 max output (curated metadata); vendor release states 1M-token context.
+- **Modalities:** Text in; text out (curated metadata); broader Preview rollout includes agentic multimodal capability claims (game dev, 3D modeling, video pipelines) but no image/audio/video input confirmed for the standard API endpoint.
+- **Pricing (as of 2026-11-11):** ~$0.28 / $1.13 per 1M tokens (Qianfan); cached input reads ~$0.028 / 1M (per Qianfan listing); no free tier announced; Base weights free to download under the ERNIE 5.5 Flash Base Model License (restricted community license).
+- **Architecture:** 280B-total / 14B-active sparse MoE (43 layers, hidden 4096, 64 heads; 512 routed experts top-10 + 1 shared; 33.5T pre-train tokens; Muon FP8; hybrid MLA + HCA sparse attention with mHC residuals); >200 tok/s decode on optimized infrastructure.
+
+### Raw benchmarks found
+
+- no verified public score found — ERNIE 5.5 Flash (`baidu/ernie-5.5-flash` / `baidu/ernie-5.5-flash-preview`)
+
+Agent / tool use:
+
+- Terminal-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for the exact ID.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience Accuracy: no verified public score found for the exact ID.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found for the exact ID.
+
+Long context:
+
+- MRCR / RULER / GraphWalks at window length: no verified public score found for the exact ID.
+
+### Cross-source comparison
+
+- Official Baidu sources (ERNIE 5.5 Flash Preview release post with image-based benchmark appendix, ERNIE 5.5 Flash Base release, Qianfan/OpenRouter listings, Baidu technical docs) vs independent coverage (OrcaRouter launch-post analysis, BenchLM transcription, OpenRouter listing): benchmark numbers were published in image-based appendix material and secondary transcriptions without independently replicated standardized measurements; no independently verifiable standardized public benchmark numbers for this exact ID.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the ERNIE 5.5 Flash subject identity (`baidu/ernie-5.5-flash` / `baidu/ernie-5.5-flash-preview`) in independently accessible public sources as of 2026-11-11; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint** — 2026-11-11
+- Method: fresh public web research on ERNIE 5.5 Flash coverage (Baidu release pages, technical docs, aggregator listings, independent secondary analyses); scores are normalized 1–100 interpretations, not official vendor scores; this report is self-excluded (no verified public benchmarks).
+- Reference URLs:
+  - [Baidu — ERNIE 5.5 Flash Preview (official release post + benchmark appendix)](https://ernie.baidu.com/release/ernie-5-5-flash-preview/)
+  - [Baidu — ERNIE 5.5 Flash Base (predecessor checkpoint, architecture)](https://ernie.baidu.com/release/ernie-5-5-flash-base/)
+  - [Baidu — ERNIE 5.5 Flash Technical Documentation](https://cloud.baidu.com/doc/ERNIE/s/ernie-5.5-flash)
+  - [OrcaRouter — ERNIE 5.5 Flash Preview: launch post, twenty benchmarks and a weights promise](https://www.orcarouter.ai/blog/ernie-5-5-flash-preview-launch-post-benchmarks)
+  - [OpenRouter — baidu/ernie-5.5-flash-preview](https://openrouter.ai/baidu/ernie-5.5-flash-preview)
+- Future sources: add a new file next to this one, e.g. `Ernie_5.5_Flash.md`, using the same headings.

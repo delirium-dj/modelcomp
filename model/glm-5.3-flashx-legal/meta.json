@@ -1,0 +1,9 @@
+{
+  "id": "opencode/glm-5.3-flashx-legal",
+  "name": "Glm 5.3 Flashx Legal",
+  "short": "Glm 5.3 Flashx Legal model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

@@ -1,0 +1,55 @@
+# Qoder Sonus — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID (`qoder/sonus-1.0`) at time of research. This file contains notes only and is not scored.
+
+- Source: Qoder (`qoder/sonus-1.0`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoder Sonus
+- **Short description:** Model listed in this repo as a computer-operation/coding-specialized model associated with Qoder (per repo metadata). Public, independently verifiable benchmark and specification details were limited in this research pass.
+- **Provider / access:** Repo meta lists `qoder/sonus-1.0` with official URL `https://qoder.com`. Qoder is presented as an agentic coding platform; a distinct public model card/benchmark release for `sonus-1.0` was not found on fetched pages.
+- **Release / knowledge:** Not verified from fetched primary sources.
+- **IDs:** `qoder/sonus-1.0` (repo/meta).
+- **Context window:** 128K total reported in repo meta (not independently verified from a public model card in this run).
+- **Modalities:** Text in/out reported in repo meta.
+- **Pricing (as of 2026-11-11):** Repo meta states "Qoder Credits (SOTA rate applies)"; detailed public per-token pricing not verified.
+- **Architecture:** Not publicly verified.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and fetched Qoder website; web search unavailable in-session (HTTP 402). No verified public benchmark numbers for `qoder/sonus-1.0` were found, so no scores are assigned.
+- Reference URLs:
+  - [Qoder](https://qoder.com)
+  - [Repo metadata — model/qoder-sonus/meta.json](../../model/qoder-sonus/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

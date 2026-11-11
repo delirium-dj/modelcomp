@@ -1,0 +1,56 @@
+# Exo Free — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID. Repo metadata indicates a short-lived, unidentified OpenCode Zen stealth slot with no public vendor/model card/benchmarks and a now-deprecated endpoint. This file contains notes only and is not scored.
+
+- Source: Unknown vendor (`opencode/exo-free`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free
+- **Short description:** Unidentified free OpenCode Zen stealth model slot (per repo metadata) reportedly available briefly in October 2026 and later deprecated; no verified public vendor identity, model card, or benchmarks found.
+- **Provider / access:** Repo meta lists `opencode/exo-free` and notes the slot is deprecated (HTTP 410) with vendor never identified.
+- **Release / knowledge:** Brief limited window in October 2026 per repo meta; not independently verified from fetched primary sources in this run.
+- **IDs:** `opencode/exo-free` (repo/meta; reported retired).
+- **Context window:** 1,048,576 total (131,072 max output) reported in repo meta.
+- **Modalities:** Text and image input; text output reported in repo meta.
+- **Pricing (as of 2026-11-11):** Free ($0/$0/$0) during limited preview per repo meta; now deprecated.
+- **Architecture:** Unknown / not publicly disclosed.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and OpenCode documentation/changelog context; web search unavailable in-session (HTTP 402). No verified public benchmark numbers or stable model identity were found, so no scores are assigned.
+- Reference URLs:
+  - [OpenCode changelog](https://opencode.ai/changelog)
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - [Repo metadata — model/exo-free/meta.json](../../model/exo-free/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,54 @@
+# Flint 40B Free — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID at time of research. This file contains notes only and is not scored.
+
+- Source: Recursive (`opencode/flint`; "Flint 40B Free" per repo metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Flint 40B Free
+- **Short description:** Model listed in this repo as Recursive's Apache-2.0 40B/2.5B-active MoE with 262K context, always-on reasoning, and tool use, served free on OpenCode Zen as `flint-40b-free` (per repo metadata). Public primary model card/benchmark sources were not successfully retrieved in this research pass.
+- **Provider / access:** Repo meta lists `opencode/flint` and indicates free serving on OpenCode Zen plus Apache 2.0 open weights. Attempts to fetch likely Hugging Face pages were unsuccessful in-session.
+- **Release / knowledge:** Not verified from fetched primary sources.
+- **IDs:** `opencode/flint` (repo/meta).
+- **Context window:** 262,144 total; 65,536 max output reported in repo meta.
+- **Modalities:** Text in/out reported in repo meta.
+- **Pricing (as of 2026-11-11):** Free on OpenCode Zen ($0/$0) and Apache 2.0 self-host reported in repo meta.
+- **Architecture:** 40B total / 2.5B active MoE reported in repo meta (not independently verified from fetched primary model card).
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID from successfully fetched sources. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and attempted Hugging Face fetches; web search unavailable in-session (HTTP 402). No verified public benchmark numbers were found, so no scores are assigned.
+- Reference URLs:
+  - [Repo metadata — model/flint/meta.json](../../model/flint/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

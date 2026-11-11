@@ -42,7 +42,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **94%** (AA) / **93.5%** measured / **92.6%** estimated (BenchGap)
 - CritPt: **24.9%** measured (BenchGap)
 - SciCode: **59%** (AA) / **58.8%** measured / **58.4%** estimated (BenchGap)
-- MMLU: **94.2%** estimated (BenchGap)
+- MMLU: no verified public score found (the 94.2% figure is a BenchGap estimate, not a measurement)
 - MMLU-Pro: **86.2%** estimated / **87.7%** AA estimated (BenchGap)
 - AA-Omniscience Accuracy: **43.6%** measured (BenchGap)
 - MRCR 256K–512K: **98.5%** (Meta card); MRCR 512K–1M: **98.1%** (Meta card)

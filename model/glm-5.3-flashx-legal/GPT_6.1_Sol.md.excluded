@@ -1,0 +1,58 @@
+# GLM-5.3-FlashX-Legal — findings by GPT 6.1 Sol
+
+- Source: Z.ai / `glm-5.3-flashx-legal`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: distinct legal-trained model and exact specialist benchmark verified, but insufficient general reasoning/coding quality coverage for five axes.**
+
+## Model card
+
+- **Name:** GLM-5.3-FlashX-Legal / GLM-Legal.
+- **Short description:** Z.ai's legal-domain model for document understanding, legal reasoning, contract review, and drafting. The publisher explicitly describes legal mid-training and post-training/RL, making this a distinct specialization rather than merely a price or speed tier. Legal specialization is not one of the production tree's deferred voice/finance/health/cyber suffixes.[1]
+- **Provider / access:** Native Z.ai Chat Completions and OpenRouter's exact legal route; the publisher also offers an AutoClaw legal workspace and legal MCP integrations. Application tools are separate from the model. No authenticated inference performed.[1][2]
+- **Release / knowledge:** Gateway canonical listing date **2026-11-02**; exact original native release day and training knowledge cutoff not independently verified.[2]
+- **IDs:** Native `glm-5.3-flashx-legal`; OpenRouter `z-ai/glm-5.3-flashx-legal`. No exact Zen Free ID verified.[1][2]
+- **Context window:** Exact gateway record **1,048,576 total / 131,072 maximum output**, corroborating the shared publisher card's 1M/128K limits. No exact legal-model full-window retrieval score found.[1][2]
+- **Modalities:** Text, image, video in; text out. The shared native guide additionally describes files. Exact gateway controls include reasoning, tools, and structured output, with max/high/low efforts listed. No native audio or media generation verified.[1][2]
+- **Pricing (as of 2026-11-11):** Official legal-model pricing row and gateway agree on **$0.37 input / $1.25 output / $0.075 cached input per 1M tokens**. Free cached-input storage on the native table is not free inference. No model-specific ZDR/no-training guarantee assessed.[2][3]
+- **Architecture:** Legal-domain mid/post-trained derivative of FlashX. Exact legal-model parameter count, public weights, and weight license not independently verified; an official-publisher exact checkpoint query returned no matches. General Flash family's architecture or open-source comparison language does not supply an exact legal weight license.[1][4]
+
+### Raw benchmarks found
+
+Agent / specialist legal work:
+
+- **Harvey LAB: 19.2% all-criteria pass rate**, publisher's exact legal-model section, described as **12.5 percentage points** above its base comparison. Percentage points are not a relative 12.5% improvement; the implied base value is not recorded as an independently measured FlashX benchmark. This is vendor-reported specialist legal-agent evidence, not an independent rerun or general task score.[1]
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact legal-model public score found**.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact legal-model public score found**.
+- Standard Flash measurements on the same documentation page are not Legal measurements and are not transferred.[1]
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and Coding Index: **no verified exact legal-model public score found**. Legal MCP/Word integrations are not coding benchmarks.
+
+Long context / multimodal quality:
+
+- No exact legal-model MRCR / RULER / GraphWalks or image/video understanding score verified. 1M capacity and accepted media types are specifications, not accuracy measurements.[1][2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** The real Harvey LAB result merits a specialist evidence record, but it does not calibrate general reasoning, coding, and multimodal quality sufficiently for the five-quality-axis Overall. No parent-model scores, fabricated missing dimensions, or zero-quality placeholders are used.
+
+Fresh exact-name Bing RSS search exposed no result items; a guessed exact BenchLM profile returned 404. Direct official model/training/price documentation and the exact live gateway record supplied positive evidence despite search-integration HTTP 402. The exclusion reflects incomplete quality coverage, not an absent or fictitious model.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh exact-ID search, primary specialist-training/benchmark and price inspection, exact gateway configuration, and publisher checkpoint search. Notes-only partial-coverage self-exclusion; no peer findings read, parent benchmarks transferred, or metadata/averages manually scaffolded.
+- Reference URLs:
+  - [1 — Official shared card with exact Legal training and Harvey LAB section](https://docs.z.ai/guides/vlm/glm-5.3-flash.md)
+  - [2 — OpenRouter public exact legal-model catalog](https://openrouter.ai/api/v1/models)
+  - [3 — Official exact Legal price row](https://docs.z.ai/guides/overview/pricing.md)
+  - [4 — Official-publisher exact Legal checkpoint search](https://huggingface.co/api/models?author=zai-org&search=GLM-5.3-FlashX-Legal&limit=10)
+- Future sources: preserve this specialist dossier and add independently signed exact-model evidence when it supports a defensible broader quality assessment.

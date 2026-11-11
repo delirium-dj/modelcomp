@@ -1,0 +1,55 @@
+# Glyph Cluster — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID at time of research. This file contains notes only and is not scored.
+
+- Source: Stealth/anonymous (`stealth/glyph-cluster`, per repo metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Glyph Cluster
+- **Short description:** Anonymous stealth reasoning model listed in this repo with 256K context and free preview access via gateway endpoints (per repo metadata). Public verifiable identity, model card, and benchmark results for this exact model/ID were not found in this research pass.
+- **Provider / access:** Repo meta lists `stealth/glyph-cluster` with free preview tier references (e.g. Vercel AI Gateway/OpenRouter). No stable public vendor/model-card documentation was verified.
+- **Release / knowledge:** Not publicly announced/verified.
+- **IDs:** `stealth/glyph-cluster` (repo/meta).
+- **Context window:** 256,000 total; 256,000 max output reported in repo meta.
+- **Modalities:** Text in; text out reported in repo meta.
+- **Pricing (as of 2026-11-11):** Free preview tier ($0/$0/$0) reported in repo meta; availability/terms may change.
+- **Architecture:** Not publicly disclosed.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata; web search unavailable in-session (HTTP 402). No verified public benchmark numbers or stable public model documentation were found, so no scores are assigned.
+- Reference URLs:
+  - [OpenRouter](https://openrouter.ai)
+  - [Repo metadata — model/glyph-cluster/meta.json](../../model/glyph-cluster/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

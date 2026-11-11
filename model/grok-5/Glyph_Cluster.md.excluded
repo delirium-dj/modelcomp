@@ -1,0 +1,56 @@
+# Grok 5 — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID at time of research. xAI has not publicly released or announced a "Grok 5" model with verifiable specifications or benchmarks. This file contains notes only and is not scored.
+
+- Source: xAI (unannounced/unreleased placeholder ID in repo: `opencode/grok-5`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 (unannounced / no verified release)
+- **Short description:** Placeholder entry for a potential future xAI flagship. As of 2026-11-11, no verified public xAI announcement, model card, API/model ID, or benchmark release for "Grok 5" was found.
+- **Provider / access:** Not announced. Repo meta notes the ID does not resolve and xAI's current flagship is Grok 4.7 (per meta/docs reference). No verified public API route found.
+- **Release / knowledge:** Not announced.
+- **IDs:** No verified vendor-issued model ID found. Repo placeholder: `opencode/grok-5`.
+- **Context window:** Not announced.
+- **Modalities:** Not announced.
+- **Pricing (as of 2026-11-11):** Not announced; no public API/pricing found.
+- **Architecture:** Not announced.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for an exact "Grok 5" model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers and no verified public release for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and attempted fetch of xAI pages; web search unavailable in-session (HTTP 402). No verified public release or benchmark data for "Grok 5" was found, so no scores are assigned.
+- Reference URLs:
+  - [xAI — Models documentation](https://docs.x.ai/docs/models)
+  - [xAI — News (attempted Grok 5 page, not found)](https://x.ai/news/grok-5)
+  - [Repo metadata — model/grok-5/meta.json](../../model/grok-5/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

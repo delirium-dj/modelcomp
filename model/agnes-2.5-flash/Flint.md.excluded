@@ -1,0 +1,57 @@
+# Agnes 2.5 Flash — findings by Flint
+
+- Source: Agnes AI / Agnes 2.5 Flash (`opencode/agnes-2.5-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash
+- **Short description:** Agnes AI's fast and efficient flash-tier MoE model — an upgrade from Agnes 2.0 Flash focused on coding task generation, debugging and refactoring, agent workflows, tool calling, multi-turn dialogue, reasoning, and image understanding; positioned for everyday development work with free access.
+- **Provider / access:** Agnes AI (OpenAI-compatible Chat Completions at `https://apihub.agnes-ai.com/v1`, OpenAI Responses API, Anthropic-compatible Messages API); third-party gateways also route it (OpenRouter, AIHubMix); free tier ($0 in/out) with paid options.
+- **Release / knowledge:** Generally available upgrade of Agnes 2.0 Flash; release context 2026; knowledge cutoff not established.
+- **IDs:** `opencode/agnes-2.5-flash` (curated subject identity) / `agnes-2.5-flash` (live API model ID).
+- **Context window:** 512K total (vendor docs; corroborated by AIHubMix catalog listing of 512K); max output 65.5K (vendor docs; corroborated by AIHubMix).
+- **Modalities:** Text + image in; text out (vendor docs); capabilities include thinking, streaming, tool calling, web search, URL context, code interpreter, computer use, file search, memory tool, structured outputs/decision, citations, prompt caching, background mode, server-side sessions.
+- **Pricing (as of 2026-11-11):** Vendor docs: cached input $0.005 / input $0.05 / output $0.15 per 1M tokens; $0 trial. AIHubMix lists input $0.03 / output $0.15 per 1M — pricing discrepancy flagged (docs vs aggregator).
+- **Architecture:** Agnes flash-tier MoE upgrade over Agnes 2.0 Flash (parameter counts not disclosed in reviewed sources).
+
+### Raw benchmarks found
+
+- no verified public score found — Agnes 2.5 Flash (`agnes-2.5-flash`)
+
+Agent / tool use:
+
+- Terminal-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for the exact ID.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience Accuracy: no verified public score found for the exact ID.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found for the exact ID.
+
+Long context:
+
+- MRCR / RULER / GraphWalks at window length: no verified public score found for the exact ID.
+
+### Cross-source comparison
+
+- Official Agnes AI sources (wiki docs + API docs, AIHubMix catalog) vs independent coverage (We0 hands-on review carrying Agnes-internal benchmark table explicitly labeled directional and not independently reproduced; BenchLM, Artificial Analysis, llm-stats): benchmark figures exist only as company-reported internal results without independent reproduction; no independently verifiable standardized public benchmark numbers for this exact ID.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the Agnes 2.5 Flash subject identity (`opencode/agnes-2.5-flash` / `agnes-2.5-flash`) in independently accessible public sources as of 2026-11-11; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint** — 2026-11-11
+- Method: fresh public web research on Agnes 2.5 Flash coverage (official docs, API docs, aggregator catalog, independent reviews); scores are normalized 1–100 interpretations, not official vendor scores; this report is self-excluded (no verified public benchmarks).
+- Reference URLs:
+  - [Agnes AI — Agnes 2.5 Flash documentation](https://wiki.agnes-ai.com/en/docs/agnes-25-flash)
+  - [Agnes AI — API overview](https://agnes-ai.com/en/docs/overview)
+  - [We0 — Agnes-2.5-Flash review (Agnes-internal benchmark results)](https://we0.ai/articles/agnes-2-5-flash-review-a)
+  - [AIHubMix — Agnes 2.5 Flash](https://aihubmix.com/model/agnes-2.5-flash)
+- Future sources: add a new file next to this one, e.g. `Agnes_2.5_Flash.md`, using the same headings.

@@ -1,0 +1,64 @@
+# Agnes 3.0 Flash Preview — findings by GPT 6.1 Sol
+
+- Source: Agnes AI / `Agnes-AI/Agnes-3.0-Flash`, explicitly identified as Preview in the current card
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: public Preview weights and exact partial quality results verified, but no calibrated tool/multimodal task evidence and no verified production-checkpoint benchmark mapping.**
+
+## Model card
+
+- **Name:** Agnes-3.0-Flash Preview. Although the repository ID omits `Preview`, its current card explicitly adds that suffix and distinguishes a newer production/API checkpoint.[1]
+- **Short description:** Open-weight multimodal reasoning/coding Preview with a hybrid-attention decoder. The card expressly says its **33B / 262K** release is different from a claimed **1M production/API** configuration and that production scores must not be assigned to these weights.[1]
+- **Provider / access:** Downloadable weights and publisher-documented local Transformers/SGLang Chat Completions serving with custom model/processor code. No authenticated deployment test or remote model-code execution performed. No matching exact route found in the live OpenRouter or Zen lists.[1][4][5]
+- **Release / knowledge:** Repository creation **2026-09-11** and card citation September 2026; no separate verified production release date or exact knowledge cutoff.[1][3]
+- **IDs:** Exact available public weights `Agnes-AI/Agnes-3.0-Flash`; the documented local served name is `Agnes-3.0-Flash`. No verified production API ID or Zen Free ID. Community quantizations and the differently configured production claim are not interchangeable checkpoints.[1]
+- **Context window:** **262,144 total maximum positions**, corroborated by the exact config. No separate hard maximum output verified; suggested generation lengths are not architectural output limits. The card's claimed 1M production window is not Preview capacity.[1][2]
+- **Modalities:** Text, image, video in; text out, using the bundled processor. High/medium/low reasoning and thinking-off are documented, with high default. Tool calls use a text-emitted format that requires an appropriate serving parser to become structured API tool calls. No native audio or media generation verified.[1]
+- **Pricing (as of 2026-11-11):** Apache 2.0 open weights; no verified hosted per-token tariff or zero-cost inference entitlement for this Preview. The publisher describes approximately **66 GB BF16 weights** and recommends an H100/H200-class GPU; deployment costs and context/concurrency overhead remain.[1]
+- **Architecture:** Publisher **33B** model, **72 decoder layers**, **54 recurrent delta-rule / 18 global-attention** layers, hidden size **5120**, plus a **27-layer vision tower**. Exact config corroborates the hybrid layer layout and vision components; this is not the earlier sparse-MoE Agnes 2.5 Flash Base.[1][2]
+
+### Raw benchmarks found
+
+**Exact scope:** the publisher repeatedly identifies the Agnes column as the **Preview weights in this repository**. Its comparator columns combine different sources/harnesses/snapshots, so they are not controlled head-to-head results. This report preserves only the Preview column and does not claim independent reruns or unspecified evaluation effort/budgets.[1]
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact Preview public score found**. A documented tool-call format is not a measured reliability percentage.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **85.05%**; AA-LCR: **68.33%**; AA-Omniscience Accuracy: **23.00%**, all publisher-reported Preview results. Exact harness/version/attempt-budget details are not disclosed in the inspected table.[1]
+- IFBench: **74.20%**, publisher-reported Preview instruction following; not an Overall or general reasoning percentage.[1]
+- HLE, MLCR, CritPt, a separately measured Intelligence Index, and Omniscience hallucination rate: **no verified exact Preview public score found**.
+
+Coding:
+
+- SciCode: **38.08%**, publisher Preview column.[1]
+- SWE-bench Verified / Pro, LiveCodeBench, Vibe Code Bench, DeepSWE, and representative agentic Coding Index: **no verified exact Preview public score found**. Production/API or other Agnes version results are not transferred.
+
+Long context / multimodal quality:
+
+- AA-LCR **68.33%** is partial document-reasoning evidence, not measured full-window MRCR / RULER / GraphWalks retention.[1]
+- Image/video understanding is documented, but no exact Preview MMMU, video, or image-perception task result was independently verified. A vision-config field is not a quality benchmark.[1][2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact Preview reasoning/SciCode observations are preserved, but missing representative tool reliability and native perception quality prevent a defensible five-axis Overall. No fabricated missing scores, unverified production benchmarks, or free-inference assumption are used.
+
+Fresh exact-name Bing RSS search returned no result items and the configured search integration was unavailable with HTTP 402. The production AA URL linked by the card and a guessed BenchLM profile returned 404 in this session; those access/path findings do not refute the production claim, but cannot verify its benchmarks. Public Preview card/configuration and registry metadata were successfully inspected.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh exact-name research, primary Preview-versus-production clarification, exact public configuration/registry verification, and Preview-column benchmark inspection. Notes-only partial-coverage self-exclusion; no peer findings read, custom remote code executed, or production measurements assigned to Preview.
+- Reference URLs:
+  - [1 — Publisher's explicit Preview identity, native specifications, and scoped benchmark column](https://huggingface.co/Agnes-AI/Agnes-3.0-Flash/raw/main/README.md)
+  - [2 — Exact public Preview architecture and maximum positions](https://huggingface.co/Agnes-AI/Agnes-3.0-Flash/raw/main/config.json)
+  - [3 — Exact public repository metadata](https://huggingface.co/api/models/Agnes-AI/Agnes-3.0-Flash)
+  - [4 — OpenRouter live public catalog](https://openrouter.ai/api/v1/models)
+  - [5 — OpenCode Zen live public catalog](https://opencode.ai/zen/v1/models)
+  - [Production AA path cited by the card, inaccessible in this session](https://artificialanalysis.ai/models/agnes-3-0-flash)
+- Future sources: preserve these explicitly scoped Preview observations and add independently signed exact-checkpoint evidence when a defensible broader quality assessment becomes possible.

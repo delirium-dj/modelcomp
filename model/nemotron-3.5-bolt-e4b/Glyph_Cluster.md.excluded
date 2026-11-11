@@ -1,0 +1,55 @@
+# Nemotron 3.5 Bolt E4B — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID at time of research. Repo metadata indicates an announced/unreleased product with no published weights, specs, or benchmarks as of the referenced schedule. This file contains notes only and is not scored.
+
+- Source: NVIDIA (`opencode/nemotron-3.5-bolt-e4b`, per repo metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B (announced/unreleased)
+- **Short description:** NVIDIA-announced small edge model in the Nemotron 3.5 Bolt family (targeting ~4GB-class deployments on RTX/Jetson) with no published weights, specifications, or benchmarks at time of research (per repo metadata).
+- **Provider / access:** Not released. Repo meta notes no resolving Hugging Face repo and scheduled release context (2026-10-23 referenced).
+- **Release / knowledge:** Announced/scheduled; not publicly released with verifiable artifacts in this pass.
+- **IDs:** `opencode/nemotron-3.5-bolt-e4b` (repo/meta placeholder).
+- **Context window:** Not published.
+- **Modalities:** Not published/confirmed (repo meta suggests text in/out, voice implied but unspecified).
+- **Pricing (as of 2026-11-11):** Not published; Bolt family expected to include open weights in general, but no confirmed terms for this specific unreleased model.
+- **Architecture:** Not published.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers and unreleased status for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and referenced NVIDIA blog context; web search unavailable in-session (HTTP 402). No verified public benchmark numbers or released artifacts were found, so no scores are assigned.
+- Reference URLs:
+  - [NVIDIA blog — Nemotron 3.5 Super/VL announcement context](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+  - [Repo metadata — model/nemotron-3.5-bolt-e4b/meta.json](../../model/nemotron-3.5-bolt-e4b/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

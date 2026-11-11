@@ -1,0 +1,55 @@
+# Mai Experimental Test — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID. Repo metadata describes this as an experimental placeholder/sandbox slot without a public model identity, endpoint, weights, or benchmarks. This file contains notes only and is not scored.
+
+- Source: Microsoft MAI / OpenCode experimental slot (`opencode/mai-experimental-test`, per repo metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mai Experimental Test
+- **Short description:** Experimental OpenCode sandbox slot name associated with Microsoft MAI (per repo metadata) but with no verified public model ID, endpoint, weights, pricing, or benchmark results.
+- **Provider / access:** Not publicly resolvable as a concrete model in this research pass; repo meta states the ID resolves nowhere in known registries/catalogs.
+- **Release / knowledge:** Not verified.
+- **IDs:** `opencode/mai-experimental-test` (repo/meta placeholder).
+- **Context window:** 128,000 total reported in repo meta (placeholder context).
+- **Modalities:** Text in/out reported in repo meta.
+- **Pricing (as of 2026-11-11):** Experimental tier pricing; no published rate (per repo meta).
+- **Architecture:** Not publicly disclosed/verified.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for this exact model/ID. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers and lack of a verifiable concrete model identity.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and referenced Microsoft AI models page; web search unavailable in-session (HTTP 402). No verified public benchmark numbers or concrete model identity were found, so no scores are assigned.
+- Reference URLs:
+  - [Microsoft AI — Models](https://microsoft.ai/models/)
+  - [Repo metadata — model/mai-experimental-test/meta.json](../../model/mai-experimental-test/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

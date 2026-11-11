@@ -1,0 +1,69 @@
+# Agnes 2.5 Flash — findings by Inkling 2 Small
+
+- Source: Sapiens AI (Singapore) / Agnes AI (`agnes-2.5-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash (`agnes-2.5-flash`)
+- **Short description:** Sapiens AI's next-generation coding/agent text model — "generally available upgrade of Agnes 2.0 Flash" (Agnes AI docs) with improved coding capability, agent workflows, tool calling, multi-turn conversations, reasoning, and image understanding. Flagship of Singapore-based Agnes AI (`Sapiens Technology Pte. Ltd.`, founder/CEO Bruce Yang, ~$20M raised); companion to Agnes 2.5 Pro (unreleased/preview) in the Agnes Code desktop + API platform.
+- **Provider / access:** Agnes AI API — OpenAI-compatible base URL `https://apihub.agnes-ai.com/v1` (Chat Completions, Responses, and Anthropic Messages APIs all supported; model id `agnes-2.5-flash`). Free daily accounts reported; no open-weights release (the `Agnes-AI/Agnes-2.5-Flash-Base` Hugging Face entry exists; architecture details not disclosed).
+- **Release / knowledge:** 2026-07-13 (official release date per press coverage; Agnes AI docs list it as GA). Knowledge cutoff not published.
+- **IDs:** `agnes-2.5-flash` (deprecated predecessor `agnes-2.0-flash`, per docs migration note)
+- **Context window:** **512K tokens** per current Agnes AI docs "Limits and Pricing" (earlier 2026-07 press reported 256K — docs are newer; conflict noted). Maximum output **~65K** (65,536 tokens reported at launch; current docs say 65.5K).
+- **Modalities:** text + image URL in; text out; reasoning/thinking supported (`chat_template_kwargs.enable_thinking` / Anthropic-style `thinking` budget; recommended 2048 for coding tasks); tool calling (Function Calling) yes; streaming yes; JSON output via API compatibility.
+- **Pricing (as of 2026-11-11):** docs list list prices: cached input **$0.005/1M**, input **$0.05/1M**, output **$0.15/1M**; trial price **$0** (was "permanently free" in July 2026 press — docs now show paid list + free trial tier; press also reports free tier 30 RPM, ~20 RPM effective). Free availability per Agnes AI account entitlement.
+- **Architecture:** undisclosed parameter count/architecture; company claims fully self-developed stack (DSPO RL algorithm, codebase-agents orchestration). `Agnes-AI/Agnes-2.5-Flash-Base` on Hugging Face.
+
+### Raw benchmarks found
+
+ZERO verified public benchmark numbers found for `agnes-2.5-flash` (the exact model/ID). What exists is adjacent evidence, none of it a measured, reproducible number for this ID:
+
+- Press (einkcn/WeChat, 2026-07-25): Agnes-**2.0**-Flash at ~60.9% Pass@3 on Claw-Eval (global ~#9 at the time) — different model (2.0, not 2.5), single press source, not reproduced.
+- Press (same): Agnes-**2.5 Pro** (internal eval) SWE-bench Verified ~82.7, Multilingual SWE ~78.7 — different SKU (Pro preview, not Flash), vendor-internal numbers.
+- Agnes AI docs: qualitative capability notes only ("generally available upgrade … improved coding capability, agent workflows, tool calling"); no numbers.
+- BenchLM: does not track `agnes-2.5-flash` (404 for every spelling tried). Hugging Face shows a `Agnes-AI/Agnes-2.5-Flash-Base` repo; no eval table. DuckDuckGo: no SWE-bench/AIME/GPQA results for this ID.
+
+Agent / tool use:
+
+- no verified public score found (official positioning: agent workflows + tool calling; Agnes-2.0-Flash press-cited ~60.9% Pass@3 Claw-Eval is a different model)
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found (official positioning: code generation/debugging/refactoring; 2.5 Pro internal SWE-bench ~82.7 is a different SKU)
+
+Long context:
+
+- 512K context per current docs; no verified public long-context retrieval (MRCR/RULER-class) score found
+
+Multimodal:
+
+- Image URL input supported per docs; no verified public multimodal benchmark found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for `agnes-2.5-flash`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research when Agnes AI or a third party publishes benchmark numbers for this exact ID.
+
+- **Tool use: 15/100.** placeholder — no evidence (official agent/tool-calling positioning; unmeasured for this ID)
+- **Reasoning: 15/100.** placeholder — no evidence (thinking mode supported per docs; unmeasured)
+- **Context window: 15/100.** placeholder — no evidence (512K per current docs; unmeasured)
+- **Multimodal: 15/100.** placeholder — no evidence (image URL in per docs; unmeasured)
+- **Coding: 15/100.** placeholder — no evidence (official coding focus; unmeasured)
+- **Cost efficiency: 15/100.** placeholder — $0.05/$0.15 list (trial $0) noted for context; no measured value
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: attractive free-tier coding/agent route to try, but unrated — no verified public benchmarks for this exact ID.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-11 UTC
+- Method: public internet research (official Agnes AI docs `wiki.agnes-ai.com/en/docs/agnes-25-flash`, einkcn/WeChat launch coverage 2026-07-25, BenchLM (no page), Hugging Face, DuckDuckGo API/benchmark queries); ZERO verified public benchmarks for this exact ID — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Reference URLs:
+  - [Agnes 2.5 Flash — Agnes AI docs](https://wiki.agnes-ai.com/en/docs/agnes-25-flash)
+  - [Probably the Best Free Model — Agnes 2.5 Flash (einkcn, 2026-07-25)](https://einkcn.com/html/product_6a64170c4d15c8723.html)
+  - [Agnes-AI/Agnes-2.5-Flash-Base — Hugging Face](https://huggingface.co/Agnes-AI/Agnes-2.5-Flash-Base)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

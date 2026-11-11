@@ -1,0 +1,85 @@
+# Iceman — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: OpenCode / Anomaly (`opencode/iceman-free`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Iceman
+- **Short description:** OpenCode's anonymous stealth reasoning model (262K/131K context, Free) available on OpenCode Console and Go; measured on StealthMark 1.8.10 with active tool calling.
+- **Provider / access:** OpenCode Console (`opencode/iceman-free`), OpenCode Go subscription. Endpoint: `https://opencode.ai/inference/openai/v1/chat/completions`. Free during preview period (data retained for training).
+- **Release / knowledge:** Release date not publicly specified; "measured on StealthMark 1.8.10"; knowledge cutoff not publicly specified.
+- **IDs:** `opencode/iceman-free` (OpenCode Console/Go); no free ID on OpenRouter or OpenCode Zen outside Console.
+- **Context window:** 262,144 input / 131,072 output (per meta.json and OpenCode Console)
+- **Modalities:** Text in; text out; reasoning; tool calling (active tool calling per meta.json)
+- **Pricing (as of 2026-11-11):** Free during preview period (prompts and completions retained for model training). No paid tier publicly listed.
+- **Architecture:** Proprietary stealth model from OpenCode/Anomaly; parameter count not disclosed.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- StealthMark 1.8.10: measured (per meta.json) but no public score published
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 262,144 token context window claimed; no MRCR / RULER / GraphWalks public scores found for this exact model.
+
+Multimodal:
+
+- Text-only per meta.json and OpenCode Console; no verified public multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 45/100.** "Active tool calling" and "measured on StealthMark 1.8.10" per meta.json and OpenCode Console; capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification.
+- **Reasoning: 45/100.** "Stealth reasoning model" and StealthMark 1.8.10 measurement claimed; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores.
+- **Context window: 55/100.** 262K input / 131K output (mid-tier); capped by lack of MRCR/RULER/GraphWalks retrieval verification at length.
+- **Multimodal: 15/100.** Text-only per meta.json and OpenCode Console; 15 is the floor for text-only models.
+- **Coding: 45/100.** "Bulk coding prototypes and synthetic code tasks" per meta.json; capped by zero public SWE-bench, LiveCodeBench, SciCode verification.
+- **Cost efficiency: 100/100.** Free during preview period ($0/$0/$0) — maximum cost efficiency score.
+- **Overall Score: 41/100.** Mean of (45 + 45 + 55 + 15 + 45) / 5 = 41. Best fit: free stealth reasoning model with tool calling for coding prototypes; text-only, stealth routing, and zero public benchmarks limit confidence.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
+- Method: Public internet research of OpenCode Console documentation and model metadata; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenCode Console Models Documentation](https://opencode.ai/docs/console/models/)
+  - [OpenCode Console Pricing (Iceman Free listed)](https://opencode.ai/pricing)
+
+---

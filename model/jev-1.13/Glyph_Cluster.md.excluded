@@ -1,0 +1,67 @@
+# Jev 1.13 — findings by Glyph Cluster
+
+- Source: TypeSafe AI (`jev-1.13`, via OpenCode `opencode/jev-1.13`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Jev 1.13
+- **Short description:** TypeSafe AI's System One typed-decision model (not a generative chat LLM) that evaluates state against structured questions (noul/choice/score) and returns values/probabilities for routing, triage, and guardrail workflows.
+- **Provider / access:** TypeSafe API (`POST /v1/systemone`) and OpenCode Console inference endpoint (`https://opencode.ai/inference/systemone/v1/systemone`) for `jev-1.13` / `jev-1.13-free`.
+- **Release / knowledge:** Versioned model documented by TypeSafe; release date and knowledge cutoff not stated as conventional LLM fields in sources reviewed.
+- **IDs:** `jev-1.13.0` (TypeSafe model ID), aliases/context vary; OpenCode exposes `jev-1.13` and `jev-1.13-free`.
+- **Context window:** 64K per request (32K state + 32K question) by default; 262K opt-in via header per TypeSafe docs (per local meta/docs).
+- **Modalities:** Text, JSON, or array state in; typed decision outputs out (noul/choice/score). No text generation, no image/audio/video generation; Jev family supports image input in newer versions but Jev 1.13 question types listed as choice/score/noul in TypeSafe models docs.
+- **Pricing (as of 2026-11-11):** $0.042 per 1M input tokens; output free (per TypeSafe/OpenCode docs). Free limited-time slot `jev-1.13-free` available on OpenCode.
+- **Architecture:** Proprietary System One decision model; not a conventional autoregressive text LLM.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No independently verified public benchmark numbers for this exact model/ID (`jev-1.13`) were found in the TypeSafe/OpenCode sources reviewed. This file is saved as `.md.excluded`; scores are not provided.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) score found for this exact model.
+
+### Normalized scores (1–100)
+
+- Not scored due to absence of verified public benchmark numbers for this exact model/ID and because it is a typed decision engine rather than a generative LLM in the usual coding/reasoning/chat sense.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public internet research (TypeSafe documentation and OpenCode Console models/pricing docs); no scored values assigned because no verified public benchmark numbers were found for the exact model/ID.
+- Reference URLs:
+  - [Models — TypeSafe AI](https://docs.typesafe.ai/models.md)
+  - [System One — TypeSafe AI](https://docs.typesafe.ai/concepts/system-one)
+  - [Models — OpenCode](https://opencode.ai/docs/console/models/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

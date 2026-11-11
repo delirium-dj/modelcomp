@@ -1,0 +1,67 @@
+# Qwen3.8-2.4T-A95B — findings by GPT 6.1 Sol
+
+- Source: Alibaba Qwen / `Qwen/Qwen3.8-2.4T-A95B`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Slug note: `2400b` expresses the same **2.4 trillion** parameter count in billions. It preserves a parameter-size hyphen under the project's existing B-suffix validator without introducing a false dotted version or changing naming rules.
+- Status: **Self-excluded from Overall: exact open checkpoint, serving facts, and limited index proxies verified; broad exact-checkpoint reasoning benchmarks were not recovered.**
+
+## Model card
+
+- **Name:** Qwen3.8-2.4T-A95B, the post-trained open text checkpoint, not the hosted Qwen3.8-Max product.[1]
+- **Short description:** Open-weight sparse MoE language model for reasoning and agents. The publisher explicitly describes hosted Max as a version based on this checkpoint with additional vision/non-thinking features; shared lineage is not proof that every Max benchmark applies to these released text weights.[1]
+- **Provider / access:** Downloadable Hugging Face weights with documented vLLM/SGLang-compatible Chat Completions serving; exact paid OpenRouter route. No weights downloaded, remote model code executed, or authenticated inference performed.[1][2]
+- **Release / knowledge:** AA lists **2026-08-12**, matching the gateway canonical listing date; the model card's citation is August 2026. Exact knowledge cutoff not verified.[1][2][3]
+- **IDs:** Weights `Qwen/Qwen3.8-2.4T-A95B`; gateway `qwen/qwen3.8-2.4t-a95b`. No exact Zen Free ID verified. The bare family name and hosted Max route do not replace this exact sized identity.
+- **Context window:** Publisher **262,144 native**, extensible to **1,010,000**; AA evaluates/displays a 262K configuration. The gateway separately lists **1,048,576 total / 131,072 maximum completion**. Model-card recommended reasoning/final budgets are guidance, not simultaneous independent windows or proof of full-extension retention.[1][2][3]
+- **Modalities:** **Text in; text out**, mandatory thinking. Card supports xhigh/medium/low effort and preserved thinking; text tool/structured-output controls are listed by the gateway. Hosted Max's vision and disabled-thinking option do not transfer to these weights.[1][2]
+- **Pricing (as of 2026-11-11):** Gateway **$2.00 input / $6.00 output / $0.25 cached input per 1M tokens**, consistent with AA's price summary. Open weights are not free hosted inference or zero infrastructure cost.[2][3]
+- **Architecture:** **2.4T total / 95B active** MoE, **92 layers**, hybrid linear/full attention, **512 routed experts with 10 selected plus one shared expert**, as described by the publisher. This is not the different dense 27B model.[1]
+- **License:** Custom **Qwen3.8-Max License**, not Apache 2.0. It includes attribution requirements above specified service-scale thresholds and a separate-license requirement for qualifying Model-as-a-Service/AI Work Assistant businesses above **$50M aggregate revenue over a consecutive 12-month period**, with a stated internal-use exception. Consult the actual license rather than assuming unrestricted commercial hosting.[4]
+
+### Raw benchmarks found
+
+**Attribution boundary:** the weights repository's main benchmark table is explicitly headed **Qwen3.8-Max**. Its strong GPQA/HLE/terminal/coding/retention values remain Max results; placement in this weights repository does not establish a byte-identical evaluated serving checkpoint.[1]
+
+Agent / tool use:
+
+- OpenRouter republishes an **Artificial Analysis Agentic Index of 50.1** for the exact sized route. This is an index, not 50.1% task success; original version, configuration, and constituent per-task results were not independently recovered.[2]
+- Exact sized-checkpoint Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- Exact sized-checkpoint GPQA Diamond, HLE, LCR / MLCR, CritPt, and Omniscience accuracy / hallucination rate: **no verified public score found**. The repository's separately labeled Max column is not adopted.[1]
+- Exact AA profile currently shows **Intelligence Index N/A**; OpenRouter's exact record likewise has a null intelligence index. Neither is a measured zero.[2][3]
+
+Coding:
+
+- OpenRouter republishes an **AA Coding Index of 71.9** for this exact route; the constituent run/version/effort was not independently verified, so this is a limited secondary proxy rather than an independently replicated repair score.[2]
+- Exact sized-checkpoint SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified public score found** in the inspected sources. Max-labeled values are not copied into this subject.[1]
+
+Long context:
+
+- No exact sized-checkpoint MRCR / RULER / GraphWalks retrieval result verified at native or extended lengths. The card's MRCR table is Max-labeled, and source-specific 262K/1.01M/1.048M capacities are not measured retention.[1][2][3]
+
+Serving performance:
+
+- AA exact profile reports **38 output tokens/s / 112.48 seconds to first answer token** on its inspected provider workload. These are latency/throughput observations, not task quality or guarantees for every deployment.[3]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Limited agent/coding index proxies and verified capacities do not calibrate broad exact-checkpoint reasoning sufficiently for a five-quality-axis Overall. No hosted-Max, dense-27B, or fabricated missing scores are used.
+
+Fresh exact-name Bing RSS search returned no result items; a guessed BenchLM profile returned 404. Direct primary card/license, exact gateway catalog, and the correctly identified AA sized-model profile were inspected despite search-integration HTTP 402. Existing candidate folder spellings were checked before creating this B-unit slug; no duplicate/invalid T-unit folder or metadata/average was written.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh exact-checkpoint search, publisher identity/benchmark-label and license inspection, exact gateway index/configuration review, and AA native-sized profile. Notes-only partial-coverage self-exclusion; no peer findings read or hosted-Max benchmarks silently transferred.
+- Reference URLs:
+  - [1 — Exact post-trained text checkpoint, mandatory thinking, limits, and Max-labeled benchmark table](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/raw/main/README.md)
+  - [2 — OpenRouter exact sized-route catalog, tariff and index proxies](https://openrouter.ai/api/v1/models)
+  - [3 — AA exact 2.4T-A95B profile, evaluated context and serving measurements](https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b)
+  - [4 — Actual custom weight license and commercial-use conditions](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/raw/main/LICENSE)
+- Future sources: preserve this sized-checkpoint dossier and add independently signed exact-weight evidence without conflating it with the hosted Max product.

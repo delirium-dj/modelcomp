@@ -1,0 +1,55 @@
+# Big Pickle — findings by Glyph Cluster
+
+> **Self-excluded:** No independently verified public benchmark numbers for a stable, identifiable `opencode/big-pickle` model/ID were established in this research pass. Repo metadata notes a disputed/unstable underlying checkpoint and limited third-party measurement coverage. This file contains notes only and is not scored.
+
+- Source: OpenCode Zen stealth slot (`opencode/big-pickle`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Big Pickle
+- **Short description:** Long-running free OpenCode Zen stealth model slot with reported 200K context and text-only I/O (per repo metadata). The underlying model identity/checkpoint is reported as disputed and has changed over time, limiting attributable evaluation.
+- **Provider / access:** Repo meta lists `opencode/big-pickle` on OpenCode Zen as a free stealth tier.
+- **Release / knowledge:** Ongoing/rolling stealth slot per repo meta; stable release identity not established.
+- **IDs:** `opencode/big-pickle` (repo/meta).
+- **Context window:** 200,000 total (32,000 max output) reported in repo meta.
+- **Modalities:** Text in/out reported in repo meta.
+- **Pricing (as of 2026-11-11):** Free Zen stealth tier ($0/$0/$0) per repo meta; data-use caveats noted in meta.
+- **Architecture:** Unknown / not publicly disclosed; underlying checkpoint reportedly swapped over time.
+
+### Raw benchmarks found
+
+> No independently verified public benchmark numbers for this exact stable model/ID were found in fetched primary sources during this run. Repo meta mentions a third-party SWE-Atlas measurement (50.8%) but I could not verify its primary source here; therefore it is not recorded as a verified benchmark in this report. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+> Not scored due to lack of independently verified public benchmark numbers attributable to a stable, identified model for this slot.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of repo metadata and OpenCode Zen documentation context; web search unavailable in-session (HTTP 402). No independently verified, attributable benchmark numbers were established, so no scores are assigned.
+- Reference URLs:
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - [Repo metadata — model/big-pickle/meta.json](../../model/big-pickle/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

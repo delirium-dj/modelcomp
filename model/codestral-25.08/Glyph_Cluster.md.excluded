@@ -1,0 +1,68 @@
+# Codestral 25.08 — findings by Glyph Cluster
+
+- Source: Mistral AI (`codestral-2508` / `opencode/codestral-25.08`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral 25.08
+- **Short description:** Mistral AI's July 2025 update to Codestral, a specialized low-latency code model optimized for IDE autocomplete, fill-in-the-middle (FIM), and code generation/completion workflows.
+- **Provider / access:** Mistral AI La Plateforme / API (model id `codestral-2508` per Mistral docs) and partner gateways (e.g. OpenRouter/OpenCode listings). Supports chat completions and FIM endpoints per Mistral model documentation.
+- **Release / knowledge:** Announced July 30, 2025 (Mistral blog/docs); knowledge cutoff not stated in verified public sources reviewed.
+- **IDs:** `codestral-2508` (Mistral API), local folder mapped as `opencode/codestral-25.08` in this repo context.
+- **Context window:** 128K context shown on Mistral model page; local meta notes 256,000 total / 8,192 max output in this environment's listing. Exact limits may vary by endpoint/provider.
+- **Modalities:** Text and code in; text and code out (chat, structured outputs/function calling/prefix/predicted outputs/batching/FIM as listed by Mistral docs).
+- **Pricing (as of 2026-11-11):** $0.30 / $0.90 per 1M input/output tokens on Mistral La Plateforme (per Mistral model page/docs).
+- **Architecture:** Proprietary/specialized code model; parameter count not publicly disclosed on reviewed pages.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No independently verified public absolute benchmark scores were found for this exact model/ID in the sources reviewed. Mistral reported relative/product metrics (e.g. accepted-completion and chat-mode improvement deltas) but not absolute benchmark values required for scored normalization here. This file is saved as `.md.excluded`; scores are not provided.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) score found for this exact model.
+
+Vendor-reported relative/product measurements noted (not absolute benchmark scores): Mistral reported +30% accepted completions, +10% retained code after suggestion, 50% fewer runaway generations in live IDE usage, and chat-mode improvements (+5% IF eval v8, +5% average MultiPL-E) versus prior versions (Mistral announcement).
+
+### Normalized scores (1–100)
+
+- Not scored due to absence of verified public absolute benchmark scores for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public internet research (Mistral docs and announcement pages); no scored values assigned because no verified public absolute benchmark scores were found for the exact model/ID.
+- Reference URLs:
+  - [Codestral — Mistral AI Models](https://docs.mistral.ai/models/codestral-25-08/)
+  - [Announcing Codestral 25.08 and the Complete Mistral Coding Stack for Enterprise — Mistral AI](https://mistral.ai/news/codestral-25-08/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

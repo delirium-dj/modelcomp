@@ -1,0 +1,84 @@
+# ERNIE 5.5 Flash — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Baidu (`baidu/ernie-5.5-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** ERNIE 5.5 Flash
+- **Short description:** Baidu's 280B/14B sparse MoE model pre-trained on 33.5T tokens with HCA and MLA-DSA attention, delivering 1M context at >200 tok/s for high-volume coding and text.
+- **Provider / access:** Baidu Qianfan (`ernie-5.5-flash`), Baidu Cloud API. Standard and off-peak promotional pricing tiers.
+- **Release / knowledge:** Release date not publicly specified; pre-trained on 33.5T tokens; knowledge cutoff not publicly specified.
+- **IDs:** `baidu/ernie-5.5-flash` (Baidu Qianfan); no free ID on OpenCode Zen or OpenRouter.
+- **Context window:** 1,000,000 total / 131,072 max output (per meta.json)
+- **Modalities:** Text in; text out; reasoning; tool calls
+- **Pricing (as of 2026-11-11):** Standard: ~¥2/¥8 per 1M (input/output) ≈ $0.28/$1.13 per 1M; Off-peak promotional: ~¥1/¥4 per 1M ≈ $0.14/$0.56 per 1M. No free tier on OpenCode Zen or OpenRouter.
+- **Architecture:** 280B total / 14B active sparse MoE with HCA and MLA-DSA attention; proprietary.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 1,000,000 token context window claimed with >200 tok/s throughput; no MRCR / RULER / GraphWalks public scores found for this exact model.
+
+Multimodal:
+
+- Text-only per meta.json ("Standard API endpoint is text/code focused with limited multimodal input"); no verified public multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 55/100.** Tool calling supported per meta.json; capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification.
+- **Reasoning: 55/100.** "Complex multi-agent reasoning trails dense frontier flagships" per meta.json; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores.
+- **Context window: 90/100.** 1M context with >200 tok/s throughput (top-tier); capped by lack of MRCR/RULER/GraphWalks retrieval verification at length.
+- **Multimodal: 15/100.** Text-only per meta.json ("limited multimodal input"); 15 is the floor for text-only models.
+- **Coding: 55/100.** Marketed for "high-volume coding"; capped by zero public SWE-bench, LiveCodeBench, SciCode verification.
+- **Cost efficiency: 70/100.** $0.14-$0.28 / $0.56-$1.13 per 1M — competitive mid-tier pricing with off-peak discounts; no free tier.
+- **Overall Score: 54/100.** Mean of (55 + 55 + 90 + 15 + 55) / 5 = 54. Best fit: high-context sparse MoE optimized for throughput and cost-efficiency; text-only limitation and zero public benchmarks cap scores.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
+- Method: Public internet research of Baidu Qianfan platform listings and model metadata; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Baidu Qianfan Model Platform](https://qianfan.cloud.baidu.com)
+  - [Baidu Cloud Wenxin Workshop Pricing](https://cloud.baidu.com/product/wenxinworkshop)
+
+---

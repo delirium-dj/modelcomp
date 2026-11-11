@@ -1,0 +1,83 @@
+# Agnes 3.0 Flash — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Sapiens AI (`sapiens/agnes-3.0-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 3.0 Flash
+- **Short description:** Sapiens AI's next-generation flash-tier model (version 3.0), successor to Agnes 2.5 Flash. Specific capabilities and specifications not publicly documented.
+- **Provider / access:** Sapiens AI (presumed); no public API documentation found. Not listed on OpenCode Zen, OpenRouter, or major model catalogs.
+- **Release / knowledge:** Release date not publicly specified; knowledge cutoff not publicly specified.
+- **IDs:** `sapiens/agnes-3.0-flash` (inferred); no verified public API ID found.
+- **Context window:** Not publicly specified.
+- **Modalities:** Not publicly specified.
+- **Pricing (as of 2026-11-11):** Not publicly specified.
+- **Architecture:** Not publicly specified; presumed MoE like Agnes 2.5 Flash.
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No context window specification found; no MRCR / RULER / GraphWalks public scores found.
+
+Multimodal:
+
+- No modality specification found; no verified public multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 0/100.** No public information or benchmarks found for this model.
+- **Reasoning: 0/100.** No public information or benchmarks found for this model.
+- **Context window: 0/100.** No public context window specification found.
+- **Multimodal: 0/100.** No public modality specification found.
+- **Coding: 0/100.** No public coding benchmarks found for this model.
+- **Cost efficiency: 0/100.** No public pricing information found.
+- **Overall Score: 0/100.** Mean of (0 + 0 + 0 + 0 + 0) / 5 = 0. Zero verified public benchmarks or specifications found for this model.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
+- Method: Public internet research; no verified public documentation or benchmarks found for this model.
+- Reference URLs:
+  - [Sapiens AI (inferred provider)](https://sapiens.ai)
+
+---

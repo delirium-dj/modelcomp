@@ -1,0 +1,66 @@
+# Mercury Decide — findings by Glyph Cluster
+
+- Source: Inception Labs (`inception/mercury-decide`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Decide
+- **Short description:** Inception Labs' diffusion-based "System One" decision/classification model for structured evaluations (binary probabilities, categorical choices, ordinal scores) and extraction via typed outputs, designed for low-latency routing/triage workflows rather than open-ended chat.
+- **Provider / access:** Inception API `v1/decisions` endpoint (model id `mercury-decide`), separate from chat completions.
+- **Release / knowledge:** Release date and knowledge cutoff not stated in verified public sources reviewed.
+- **IDs:** `inception/mercury-decide`.
+- **Context window:** 64,000 total (per local meta/Inception context).
+- **Modalities:** Text/JSON/array state in; typed decision outputs out (classification/scoring/extraction). Not a conversational text-generation model.
+- **Pricing (as of 2026-11-11):** $0.04 per 1M input tokens (input-only billing) with promotional pricing shown in Inception docs; output tokens reported but not charged per docs. Pricing/availability subject to provider terms.
+- **Architecture:** Proprietary diffusion-based decision model; parameter count not publicly disclosed.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No independently verified public benchmark numbers were found for this exact model/ID (`inception/mercury-decide`) in the sources reviewed. This file is saved as `.md.excluded`; scores are not provided.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) score found for this exact model.
+
+### Normalized scores (1–100)
+
+- Not scored due to absence of verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public internet research (Inception models documentation and local model metadata); no scored values assigned because no verified public benchmark numbers were found for the exact model/ID.
+- Reference URLs:
+  - [Models — Inception Labs Documentation](https://docs.inceptionlabs.ai/get-started/models)
+  - [Decisions capability — Inception Labs Documentation](https://docs.inceptionlabs.ai/capabilities/decisions)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

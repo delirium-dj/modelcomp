@@ -1,0 +1,66 @@
+# GLM 4.5 Flash — findings by Glyph Cluster
+
+- Source: Z.ai / OpenCode (`opencode/glm-4.5-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GLM 4.5 Flash
+- **Short description:** Z.ai's lightweight, high-speed GLM 4.5-family flash variant exposed as a free/low-cost text model for developer and agentic workflows (per local metadata). Intended for fast responses with large context support.
+- **Provider / access:** Listed as `opencode/glm-4.5-flash` on OpenCode/Zen context (per local meta); Z.ai platform documentation referenced for pricing. API/runtime details for this exact variant were not independently verified from accessible public model-card pages during this research.
+- **Release / knowledge:** Release date and knowledge cutoff not verified from accessible public sources for this exact model ID.
+- **IDs:** `opencode/glm-4.5-flash` (free-tier availability indicated by local meta `noFreeId: false`).
+- **Context window:** 128K total (per local meta).
+- **Modalities:** Text in/out (per local meta).
+- **Pricing (as of 2026-11-11):** Free on Zen; $0.00/$0.00 listed on Z.ai developer platform for GLM-4.5-Flash in Z.ai pricing docs reviewed (subject to provider terms/availability).
+- **Architecture:** Not independently verified for this exact variant from accessible public sources; local meta describes it as a lightweight distilled footprint relative to flagship GLM-4.5.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: No independently verified public benchmark numbers were found for this exact model/ID (`opencode/glm-4.5-flash`) in the accessible sources reviewed. This file is saved as `.md.excluded`; scores are not provided.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) score found for this exact model.
+
+### Normalized scores (1–100)
+
+- Not scored due to absence of verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public internet research (Z.ai pricing/documentation pages and OpenCode context where available); no scored values assigned because no verified public benchmark numbers were found for the exact model/ID.
+- Reference URLs:
+  - [Pricing — Z.AI Developer Documentation](https://docs.z.ai/guides/overview/pricing)
+  - [Z.ai](https://z.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

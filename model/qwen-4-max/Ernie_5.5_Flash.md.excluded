@@ -1,0 +1,69 @@
+# Qwen4 Max — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — this file is `.md.excluded` on purpose: no verified public
+> benchmark row exists for this exact model ID, so no scored report is written
+> (template SELF-EXCLUSION rule; `pnpm sync` QUAR would quarantine it anyway).
+
+- Source: Alibaba Cloud/Qwen4 Max (`qwen-4-max`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen4 Max
+- **Short description:** Alibaba's Qwen4 Max flagship (next generation after Qwen3.8 Max) — tracked by BenchLM as a release, but no sourced benchmark row exists yet.
+- **Provider / access:** Alibaba Cloud Model Studio / Qwen Cloud (expected); no models.dev catalog entry at the time of this pass.
+- **Release / knowledge:** BenchLM lists the model without a published record; knowledge cutoff not published.
+- **IDs:** `qwen-4-max`, `qwen/qwen4-max` (expected; not yet verifiable in any catalog reached).
+- **Context window:** Not published in any source reached.
+- **Modalities:** Not published.
+- **Pricing (as of 2026-11-11):** Not published.
+- **Architecture:** proprietary/undisclosed (closed-weight Max tier).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for this exact model ID
+
+Reasoning / knowledge:
+
+- no verified public score found for this exact model ID
+
+Coding:
+
+- no verified public score found for this exact model ID
+
+Long context:
+
+- no context window or retrieval figure published
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes (why self-excluded)
+
+- BenchLM's profile (`benchlm.ai/models/qwen4-max`) reports "tracked, but not publicly ranked yet" with **0** sourced benchmark rows.
+- models.dev has no entry for `qwen-4-max` in the catalog snapshot used for this pass.
+- No vendor announcement, model card or spec sheet with a benchmark table was reachable for this SKU.
+- Resolution: no spec facts could be verified either, so nothing is asserted beyond the model's existence as a tracked name. Re-run this folder once Alibaba publishes the Qwen4 Max card.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-11
+- Method: public internet research (BenchLM model profile, models.dev catalog, Alibaba Cloud Model Studio docs); no verified benchmark row for this exact ID, so the file is self-excluded.
+- Reference URLs:
+  - [Qwen4 Max benchmarks & context — BenchLM](https://benchlm.ai/models/qwen4-max)
+  - [Qwen models — Alibaba Cloud Model Studio](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [models.dev provider catalog](https://models.dev)
+- Future sources: add a new file next to this one, e.g. `Qwen_4_Max.md`, once a verified record exists.

@@ -1,0 +1,55 @@
+# Agnes 2.5 Flash — findings by Glyph Cluster
+
+> **Self-excluded:** No verified public benchmark numbers were found for this exact model/ID at time of research. This file contains notes only and is not scored.
+
+- Source: Sapiens AI / Agnes AI (`opencode/agnes-2.5-flash`; related open-weight base checkpoint `Agnes-AI/Agnes-2.5-Flash-Base`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash
+- **Short description:** Flash-tier MoE language model associated with Sapiens AI/Agnes AI, positioned for high-throughput inference with tool calling and adaptive thinking. A related open-weight base checkpoint (`Agnes-AI/Agnes-2.5-Flash-Base`) is publicly available on Hugging Face.
+- **Provider / access:** Listed in this repo as `opencode/agnes-2.5-flash` (per `model/agnes-2.5-flash/meta.json`). Public open-weight base checkpoint available as `Agnes-AI/Agnes-2.5-Flash-Base` on Hugging Face.
+- **Release / knowledge:** Hugging Face base checkpoint page updated Aug 29 (year not explicitly stated on page fetch; release/cutoff not independently verified from primary vendor announcement).
+- **IDs:** `opencode/agnes-2.5-flash` (served/product ID per meta); `Agnes-AI/Agnes-2.5-Flash-Base` (HF base checkpoint).
+- **Context window:** 512K total reported in repo meta for `opencode/agnes-2.5-flash`; HF base model card states 1,048,576-token context (YaRN scaling over 64K base window). Relationship between served Flash product and base checkpoint not fully verified.
+- **Modalities:** Repo meta states text and image input, text output. HF base model card describes a text-generation decoder-only Transformer base model (no multimodal capability explicitly documented on fetched page).
+- **Pricing (as of 2026-11-11):** Repo meta reports $0.05 in / $0.15 out per 1M tokens with a $0 trial tier for `opencode/agnes-2.5-flash` (not independently verified against a live vendor pricing page in this run).
+- **Architecture:** HF base checkpoint (`Agnes-AI/Agnes-2.5-Flash-Base`): 202B total parameters, ~16B active per token, sparse MoE (48 layers, 160 routed experts with 6 active per token plus 1 shared expert), MLA with KV compression, hyper-connections, parallel dense FFN branch (layers 3–47), FP8 (e4m3) weights, Apache 2.0 license. Served Flash product architecture not independently verified.
+
+### Raw benchmarks found
+
+> No verified public benchmark numbers were found for the exact `opencode/agnes-2.5-flash` model/ID, and no benchmark leaderboard results were found for `Agnes-AI/Agnes-2.5-Flash-Base` on fetched sources. Per instructions, this file is saved as `.md.excluded` with no invented or placeholder scores.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- Context length claims found (512K meta / 1M HF base), but no verified long-context retrieval benchmark scores (e.g. MRCR/RULER/GraphWalks) found.
+
+### Normalized scores (1–100)
+
+> Not scored due to zero verified public benchmark numbers for this exact model/ID.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (glyph-cluster-free)** — 2026-11-11
+- Method: Public-source review of fetched Hugging Face model card and repo metadata; web search unavailable in-session (HTTP 402). Scores are not assigned because no verified public benchmark numbers were found.
+- Reference URLs:
+  - [Hugging Face — Agnes-AI/Agnes-2.5-Flash-Base](https://huggingface.co/Agnes-AI/Agnes-2.5-Flash-Base)
+  - [Repo metadata — model/agnes-2.5-flash/meta.json](../../model/agnes-2.5-flash/meta.json)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,85 @@
+# Qwen 3.8 2.4T A95B — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Alibaba (`alibaba/qwen-3.8-2400b-a95b`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.8 2.4T A95B
+- **Short description:** Alibaba's open-weight sparse MoE model (2.4T total, 95B active parameters), the open-weight twin of Qwen 3.8 Max for coding, research, complex reasoning, and agentic workflows.
+- **Provider / access:** 24+ providers including Hugging Face (`Qwen/Qwen3.8-2.4T-A95B`), OpenRouter (`qwen/qwen3.8-2.4t-a95b`), DeepInfra, Fireworks AI, SiliconFlow, Novita AI, Vercel AI Gateway, and others. Open weights available on Hugging Face.
+- **Release / knowledge:** 2026-08-12 release; knowledge cutoff not publicly specified.
+- **IDs:** `alibaba/qwen-3.8-2400b-a95b` (folder slug); provider IDs vary (e.g., `Qwen/Qwen3.8-2.4T-A95B` on HF, `qwen/qwen3.8-2.4t-a95b` on OpenRouter).
+- **Context window:** 262,144 standard (some providers offer up to 1,048,576) / 131,072 max output (per models.dev)
+- **Modalities:** Text in; text out; reasoning; tool calls; structured outputs; temperature control
+- **Pricing (as of 2026-11-11):** ~$2.00 / $6.00 per 1M (input / output) typical across providers; some variation ($1.95-$2.645 in / $5.70-$7.50 out). No free tier on major gateways.
+- **Architecture:** 2.4T total / 95B active sparse MoE; open weights (Apache 2.0 license per Hugging Face).
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 262,144 token context window standard (some providers 1M); no MRCR / RULER / GraphWalks public scores found for this exact model.
+
+Multimodal:
+
+- Text-only per models.dev capabilities; no verified public multimodal benchmark scores found.
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
+
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 55/100.** Tool calling and structured outputs supported per models.dev; capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification.
+- **Reasoning: 55/100.** "Complex reasoning" and reasoning capability listed; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores.
+- **Context window: 55/100.** 262K standard context (mid-tier); some providers offer 1M but not universal; capped by lack of MRCR/RULER/GraphWalks verification.
+- **Multimodal: 15/100.** Text-only per models.dev; 15 is the floor for text-only models.
+- **Coding: 55/100.** Marketed for "coding, research, complex reasoning, and agentic workflows"; capped by zero public SWE-bench, LiveCodeBench, SciCode verification.
+- **Cost efficiency: 60/100.** ~$2.00/$6.00 per 1M — competitive for 95B-active MoE; open weights enable self-hosting; no free gateway tier.
+- **Overall Score: 47/100.** Mean of (55 + 55 + 55 + 15 + 55) / 5 = 47. Best fit: large open-weight sparse MoE with strong claimed capabilities but zero public benchmark verification; text-only and mid-tier context limit scores.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
+- Method: Public internet research of models.dev catalog, provider listings, and Hugging Face model card; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [models.dev: Qwen3.8 2.4T A95B](https://models.dev/models/alibaba/qwen3.8-2.4t-a95b)
+  - [Hugging Face: Qwen3.8-2.4T-A95B](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B)
+  - [OpenRouter: qwen/qwen3.8-2.4t-a95b](https://openrouter.ai/models/qwen/qwen3.8-2.4t-a95b)
+
+---
