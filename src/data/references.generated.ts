@@ -57,6 +57,13 @@ export const REFERENCES: Record<string, ReferenceItem[]> = {
     { url: "https://epoch.ai/benchmarks/frontiermath-tier-4-v2", title: "Epoch AI — FrontierMath v2 leaderboard", domain: "epoch.ai", sourceStem: "Step_5_Preview" },
     { url: "https://opencode.ai/docs/zen/", title: "OpenCode Zen — model list and Console pricing", domain: "opencode.ai", sourceStem: "Step_5_Preview" },
   ],
+  "agnes-2.5-flash": [
+    { url: "https://wiki.agnes-ai.com/en/docs/agnes-25-flash", title: "Agnes 2.5 Flash — official docs", domain: "wiki.agnes-ai.com", sourceStem: "Nemotron_3.5_Super_VL_120B_A12B" },
+    { url: "https://aihubmix.com/model/agnes-2.5-flash", title: "Agnes 2.5 Flash — pricing & specs (AIHubMix)", domain: "aihubmix.com", sourceStem: "Nemotron_3.5_Super_VL_120B_A12B" },
+    { url: "https://we0.ai/articles/agnes-2-5-flash-review-a", title: "Agnes-2.5-Flash Review (We0)", domain: "we0.ai", sourceStem: "Nemotron_3.5_Super_VL_120B_A12B" },
+    { url: "https://apihub.agnes-ai.com/v1/chat/completions`", title: "completions`", domain: "apihub.agnes-ai.com", sourceStem: "Nemotron_3.5_Super_VL_120B_A12B" },
+    { url: "https://aihubmix.com/v1`", title: "v1`", domain: "aihubmix.com", sourceStem: "Nemotron_3.5_Super_VL_120B_A12B" },
+  ],
   "beam": [
     { url: "https://huggingface.co/reflection/Beam-1.0-501B-A23B", title: "Beam-1.0-501B-A23B", domain: "huggingface.co", sourceStem: "Big_Pickle" },
     { url: "https://huggingface.co/reflection/Beam-1.0-501B-A23B-NVFP4", title: "Beam-1.0-501B-A23B-NVFP4", domain: "huggingface.co", sourceStem: "Big_Pickle" },

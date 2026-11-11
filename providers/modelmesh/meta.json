@@ -1,0 +1,15 @@
+{
+  "name": "Modelmesh",
+  "kind": "aggregator",
+  "short": "Model marketplace aggregator brokering access to 290+ third-party models (OpenAI, Anthropic, Google, Meta, xAI, Tencent, Alibaba, Intern, Agnes, …) via OpenAI-compatible APIs; public per-token pricing in CNY, actual cost varies by routing provider.",
+  "officialUrl": "https://global.modelmesh.info/en/model?type=1&sort=price_asc&view=pricing",
+  "hosts": ["global.modelmesh.info", "modelmesh.info"],
+  "plans": [
+    {
+      "name": "Pay-as-you-go",
+      "price": "Per-1M-token usage pricing in CNY (varies by model; several models listed at ¥0/M input and output)",
+      "notes": "Actual pricing may vary when routed to different providers. See model details for per-model pricing.",
+      "evidenceUrl": "https://global.modelmesh.info/en/model?type=1&sort=price_asc&view=pricing"
+    }
+  ]
+}

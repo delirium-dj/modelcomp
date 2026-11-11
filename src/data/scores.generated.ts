@@ -58,6 +58,10 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Xing_4.0_29B_A4B.md": [87, 88, 94, 78, 87, 83, 86.8],
     "average.md": [79.3, 84.1, 94.7, 88.7, 82.9, 86.5, 85.9],
   },
+  "agnes-2.5-flash": {
+    "Nemotron_3.5_Super_VL_120B_A12B.md": [82, 68, 92, 70, 80, 98, 78],
+    "average.md": [82, 68, 92, 70, 80, 98, 78],
+  },
   "beam": {
     "Beam.md": [83, 76, 90, 10, 82, 100, 68.2],
     "Big_Pickle.md": [78, 78, 85, 5, 82, 92, 66],

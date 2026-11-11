@@ -1,0 +1,9 @@
+{
+  "id": "opencode/agnes-2.5-flash",
+  "name": "Agnes 2.5 Flash",
+  "short": "Agnes 2.5 Flash model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

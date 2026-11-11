@@ -20,6 +20,12 @@ export const BENCHMARKS = [
   { key: "swe-verified", display: "SWE-bench Verified", aliases: ["swe-bench verified", "swe verified", "swe-bench-verified"] },
   { key: "swe-pro", display: "SWE-bench Pro", aliases: ["swe-bench pro", "swe-bench-pro", "swe pro"] },
   { key: "livecodebench", display: "LiveCodeBench", aliases: ["livecodebench", "live-code-bench", "lcb"] },
+  // LiveCodeBench Pro is a SEPARATE Elo-rated competitive-programming variant
+  // (DeepMind model cards: "LiveCodeBench Pro: **2887 Elo**"). Folding it into
+  // the pass-rate row let an Elo figure out-vote the % figure and surface on
+  // /benchmarks/ as "2887 Elo" among percentages. Longest alias first keeps
+  // "LiveCodeBench Pro ..." rows out of the plain "LiveCodeBench" bucket.
+  { key: "livecodebench-pro", display: "LiveCodeBench Pro", aliases: ["livecodebench pro", "livecodebench-pro", "live-code-bench pro", "lcb pro"] },
   { key: "livebench", display: "LiveBench", aliases: ["livebench", "live-bench"] },
   { key: "gpqa", display: "GPQA Diamond", aliases: ["gpqa diamond", "gpqa-diamond", "gpqa"] },
   { key: "hle", display: "HLE", aliases: ["humanity's last exam", "hle"] },

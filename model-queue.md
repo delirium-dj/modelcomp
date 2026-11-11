@@ -114,6 +114,7 @@
 78.4 gemini-2.5-flash
 78.3 qwen-3.5-35b-a3b
 78.1 muse-glimmer-30b
+78 agnes-2.5-flash
 77.9 claude-sonnet-4
 77.7 gemini-3.1-flash-lite
 77.5 gemini-1.5-pro

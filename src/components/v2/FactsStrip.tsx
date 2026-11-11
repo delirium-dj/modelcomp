@@ -20,12 +20,12 @@ export const FactsStrip = component$<FactsStripProps>(
   ({ modelCount, sourceCount, leaders }) => {
     return (
       <section
-        class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-2 max-[520px]:block dark:border-b-[#274757]"
+        class="grid grid-cols-3 border-b border-b-[var(--color-border)] max-[800px]:grid-cols-2 max-[800px]:block dark:border-b-[#274757]"
         aria-label="Dataset facts"
       >
-        <div class="py-7 pr-7 text-right max-[800px]:text-center max-[520px]:border-b max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
+        <div class="py-7 pr-7 text-right max-[800px]:text-center max-[800px]:border-b max-[800px]:border-b-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-4 max-[800px]:dark:border-b-[#274757]">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Models tracked</span>
-          <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
+          <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[800px]:text-md">
             <span class="relative inline-block">
               Independent — {modelCount} models · {sourceCount} results sources
               <span
@@ -35,7 +35,7 @@ export const FactsStrip = component$<FactsStripProps>(
             </span>
           </strong>
         </div>
-        <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-center max-[520px]:border-b max-[520px]:border-l-0 max-[520px]:border-b-[#ccdae2] max-[520px]:px-0 max-[520px]:py-4 max-[520px]:dark:border-b-[#274757]">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-center max-[800px]:border-b max-[800px]:border-l-0 max-[800px]:border-b-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-4 max-[800px]:dark:border-b-[#274757]">
           {/* All six dimension leaders are rendered; the 30s keyframe in
               global.css fades each one in for 5s (6 × 5s cycle). Pure CSS on
               purpose: the old client timer never advanced on the deployed
@@ -50,7 +50,7 @@ export const FactsStrip = component$<FactsStripProps>(
                 aria-hidden={i === 0 ? undefined : "true"}
               >
                 <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">{leader.label}</span>
-                <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
+                <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[800px]:text-md">
                   <span class="inline-flex items-center gap-2 leading-none whitespace-nowrap">
                     <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center">
                       <VendorIcon id={leader.model.id} name={leader.model.name} />
@@ -64,9 +64,9 @@ export const FactsStrip = component$<FactsStripProps>(
             ))}
           </div>
         </div>
-        <div class="border-l border-l-[#ccdae2] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[520px]:border-0 max-[520px]:px-0 max-[520px]:py-4">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t border-t-[var(--color-border)] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[800px]:px-0 max-[800px]:py-4">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Scoring</span>
-          <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[520px]:text-md">
+          <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[800px]:text-md">
             Overall = mean of 5 quality dims, cost excluded
           </strong>
         </div>
@@ -74,3 +74,4 @@ export const FactsStrip = component$<FactsStripProps>(
     );
   },
 );
+

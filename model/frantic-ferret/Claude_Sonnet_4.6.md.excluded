@@ -1,0 +1,3 @@
+Frantic Ferret was an ephemeral stealth preview model deployed and then withdrawn by OpenCode on 2026-11-08 after approximately 2 hours. It was accessible via the OpenCode Responses API with a 1M/270K context window, text+image+video input, text output, at $0 (free). The route was removed before any third-party benchmark evaluation could be completed. No MMLU, HumanEval, SWE-bench, or any other standardised benchmark scores exist. Zero verified benchmarks: self-exclusion.
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21

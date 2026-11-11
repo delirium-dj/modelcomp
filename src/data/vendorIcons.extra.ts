@@ -25,6 +25,7 @@ import fastrouterRaw from "../../assets/vendor-icons/fastrouter.svg?raw";
 import llmgatewayRaw from "../../assets/vendor-icons/llmgateway.svg?raw";
 import cortecsRaw from "../../assets/vendor-icons/cortecs.svg?raw";
 import scxRaw from "../../assets/vendor-icons/scx.svg?raw";
+import modelmeshRaw from "../../assets/vendor-icons/modelmesh.svg?raw";
 
 // Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
 // file stays the single point of truth (edit it, not this module). `vite/client`
@@ -54,6 +55,7 @@ const fastrouter = svgRawEntry(fastrouterRaw);
 const llmgateway = svgRawEntry(llmgatewayRaw);
 const cortecs = svgRawEntry(cortecsRaw);
 const scx = svgRawEntry(scxRaw);
+const modelmesh = svgRawEntry(modelmeshRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
@@ -178,5 +180,5 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "llm-gateway":   { viewBox: llmgateway.viewBox, body: llmgateway.body },
   "cortecs":       { viewBox: cortecs.viewBox, body: cortecs.body },
   "scx-ai":        { viewBox: scx.viewBox, body: scx.body },
-  "kie":           { viewBox: "0 0 24 24", body: '<rect width="24" height="24" rx="5" fill="#10B981"/><text x="12" y="12" dy="0.35em" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-sans-serif,system-ui,sans-serif" fill="#ffffff">K</text>' },
+  "modelmesh":     { viewBox: modelmesh.viewBox, body: modelmesh.body },
 };

@@ -440,10 +440,6 @@ const scoreIndex = {};
 // src/data/verified.generated.ts (only on zero failures) for the site's
 // Last-verified display — never parsed from average.md files.
 const verifiedIndex = {};
-// Cutoff for report-date extraction: a Last-verified date can never be in the
-// future, so prose forward-references (e.g. a "retirement 2027-06-30" floor
-// mentioned on a Date line) must not masquerade as the newest report date.
-const TODAY_ISO = new Date().toISOString().slice(0, 10);
 // Agreed benchmark figures per slug (same figure cited by 2+ independent
 // files — scripts/lib/benchmarks.mjs). Emitted as
 // src/data/evidence.generated.ts (only on zero failures) for the model
@@ -693,7 +689,7 @@ for (const slug of slugs) {
   const evidenceRows = [];
   for (const f of files) {
     const content = readFileSync(join(dir, f), "utf8");
-    const reportDate = extractReportDate(content, TODAY_ISO);
+    const reportDate = extractReportDate(content);
     if (reportDate !== null && (verifiedIndex[slug] === undefined || reportDate > verifiedIndex[slug])) {
       verifiedIndex[slug] = reportDate;
     }

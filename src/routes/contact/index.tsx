@@ -54,7 +54,7 @@ export default component$(() => {
 
       {/* Facts strip — same anatomy as the homepage "Dataset facts" row. */}
       <section
-        class="grid grid-cols-3 border-b border-b-[#ccdae2] max-[800px]:grid-cols-1 dark:border-b-[#274757]"
+        class="grid grid-cols-3 border-b border-b-[var(--color-border)] max-[800px]:grid-cols-1 dark:border-b-[#274757]"
         aria-label="What to expect"
       >
         <div class="py-7 pr-7 max-[800px]:py-5 max-[800px]:pr-0">
@@ -65,7 +65,7 @@ export default component$(() => {
             Evidence links get priority review
           </strong>
         </div>
-        <div class="border-l border-l-[#ccdae2] px-7 py-7 max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:px-0 max-[800px]:py-5 max-[800px]:dark:border-t-[#274757] dark:border-l-[#274757]">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-5 max-[800px]:dark:border-t-[#274757] dark:border-l-[#274757]">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">
             New models
           </span>
@@ -73,7 +73,7 @@ export default component$(() => {
             Name a model and we research it from scratch
           </strong>
         </div>
-        <div class="border-l border-l-[#ccdae2] px-7 py-7 max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[#ccdae2] max-[800px]:px-0 max-[800px]:py-5 max-[800px]:dark:border-t-[#274757] dark:border-l-[#274757]">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 max-[800px]:border-l-0 max-[800px]:border-t max-[800px]:border-t-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-5 max-[800px]:dark:border-t-[#274757] dark:border-l-[#274757]">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">
             Independence
           </span>
@@ -85,8 +85,8 @@ export default component$(() => {
 
       {/* Form + guidance — heading-with-side-copy row, then the two-column
           form card / helper card layout (footer support-section anatomy). */}
-      <section class="pb-20 pt-12" aria-labelledby="contact-form-title">
-        <div class="flex items-start gap-6 ">
+      <section class="pb-20 pt-8" aria-labelledby="contact-form-title">
+        <div class="flex items-center gap-6 max-[520px]:flex-col">
           <h2
             id="contact-form-title"
             class="min-w-0 flex-[2_1_0%] font-[family-name:var(--font-display)] text-[clamp(32px,3.5vw,48px)] font-medium leading-none tracking-tighter max-[520px]:text-4xl"

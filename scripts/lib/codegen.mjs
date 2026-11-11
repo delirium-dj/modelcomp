@@ -284,6 +284,7 @@ export function renderRobotsTxt(origin) {
 const PLACEHOLDER_HOST_RE = /(^|\.)(example\.(com|org|net)|test\.com|your-domain\.com|localhost)$/i;
 
 /** True when a raw URL is a template placeholder / non-citable artifact. */
+// Checks if the given URL is a placeholder or template string, preventing invalid citations from being recorded.
 function isPlaceholderUrl(raw) {
   if (/[<>]/.test(raw)) return true; // <https://…>, https://<host>/v1
   if (raw.includes("...") || raw.includes("…")) return true;

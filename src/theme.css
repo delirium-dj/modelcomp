@@ -100,13 +100,14 @@
    indigo: 500 #6366f1 · 600 #4f46e5
    Full scales: https://tailwindcss.com/docs/customizing-colors ───────── */
 
-/* ── ONE-LINE SETTINGS (edit these six lines, nothing else) ─────────── */
+/* ── ONE-LINE SETTINGS (edit these seven lines, nothing else) ─────────── */
 :root {
   --font-body: "Ubuntu", "Segoe UI", sans-serif;
   --font-display: "Ubuntu", "Segoe UI", sans-serif;
   --color-page: #ecf3f6;
   --color-ink: #19384d;
   --color-primary: #557ddd;
+  --color-border: #ccdae2;
 }
 /* Dark theme reads the same variables from .dark (v2 toggles .dark on the
    page root; v1 toggles it on <html> — both are covered). */
