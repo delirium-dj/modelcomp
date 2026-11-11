@@ -1,0 +1,42 @@
+# Jev 1.13 — findings by Iceman
+
+- Source: TypeSafe AI / Jev 1.13
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Research status
+
+Self-excluded (`.md.excluded`): no verified public benchmark numbers were found for the exact model identity `jev-1.13.0` / "Jev 1.13" that map to this project's standard LLM evaluation dimensions. Official TypeSafe documentation describes Jev as a System One typed-decision model (not a text-generating LLM), with structured outputs (choice/score/noul/box depending on version) and probability/confidence-oriented behavior. Project metadata references "JevBench 1.5.4 score 72.13", but this score was not verified from a public source fetched in this run and is not a standard benchmark in this repo's scoring template; therefore no scored findings file is produced.
+
+## Verified model facts (non-benchmark)
+
+- **Name / identity:** Jev 1.13 (`jev-1.13.0`, alias context documented alongside newer versions). Project id: `opencode/jev-1.13`.
+- **Model type:** System One typed-decision model (TypeSafe) — evaluates state and returns typed decisions/probabilities rather than generated text, code, or explanations.
+- **Inputs/outputs:** Natural-language text state (string/JSON/arrays) and images supported per TypeSafe docs; Jev 1.13 supports question types Choice, Score, and Noul (Box requires Jev 1.14 per docs). Outputs are structured/typed decisions, not free-form text generation.
+- **Context window:** 64k per-request and 32k per-question context (default); long-context mode (opt-in header) raises both to 262k tokens per docs. Project meta also notes "64K per request (32K state + 32K question); 262K opt-in via header".
+- **Pricing:** $42 per billion tokens / $0.042 per million input tokens; output tokens free (TypeSafe docs). Project meta notes ~$0.042/M input with free output.
+- **Modalities/capabilities:** Text/JSON/array state input and image input supported by Jev models generally; no native audio/video acceptance stated. Not a chatbot/code-generation model.
+
+### Raw benchmarks found
+
+- **No verified public benchmark numbers found** for exact `jev-1.13` against this project's standard benchmark list (Tau/Terminal/GDPval/GPQA/HLE/SWE-bench/LiveCodeBench/MRCR etc.).
+- Agent / tool use: no verified public score found (model is a decision component, not a general agentic LLM).
+- Reasoning / knowledge: no verified public score found.
+- Coding: no verified public score found (cannot generate code/text).
+- Long context: documented 64k/32k limits and 262k opt-in mode, but no MRCR/RULER/GraphWalks retrieval benchmark numbers found.
+
+### Normalized scores (1–100)
+
+Not produced. Zero verified public benchmark numbers found for this exact model identity within the project's standard scoring framework; Jev 1.13 is a specialized decision model and scoring it as a general text/coding/multimodal LLM would be misleading without verified evidence.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
+- Method: Fresh public web research using official TypeSafe documentation fetched in this run; no scored assessment produced due to absence of verified public benchmark numbers for the exact model identity in this project's standard framework.
+- Reference URLs:
+  - [System One (TypeSafe docs)](https://docs.typesafe.ai/concepts/system-one)
+  - [Models (TypeSafe docs)](https://docs.typesafe.ai/models.md)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

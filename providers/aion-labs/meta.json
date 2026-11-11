@@ -1,7 +1,7 @@
 {
   "name": "Aion Labs",
   "kind": "vendor",
-  "short": "Aion Labs' own serverless inference cloud offering Aion-series models (aion-2.0, aion-3.0, aion-3.5, aion-rp-llama-3.1-8b) via an OpenAI-compatible API, with a free developer tier.",
+  "short": "Aion Labs' own serverless inference cloud offering Aion-series models (aion-2.0, aion-3.0, aion-3.0-mini, aion-3.5, aion-3.5-mini, aion-rp-llama-3.1-8b) via an OpenAI-compatible API, with a free developer tier.",
   "officialUrl": "https://aionlabs.ai",
   "hosts": ["aionlabs.ai", "api.aionlabs.ai"],
   "catalogUrl": "https://api.aionlabs.ai/v1/models",
@@ -17,6 +17,12 @@
       "price": "Usage-based per token",
       "notes": "Prepaid credit balance with higher throughput and no daily token cap. Per-token rates via the API models endpoint: aion-2.0 $0.80/$1.60 per 1M, aion-3.0 $3/$6 per 1M, aion-3.0-mini $0.70/$1.40 per 1M, aion-3.5 $3/$6 per 1M, aion-3.5-mini $0.70/$1.40 per 1M, aion-rp-llama-3.1-8b $0.80/$1.60 per 1M (input/output).",
       "evidenceUrl": "https://api.aionlabs.ai/v1/models"
+    },
+    {
+      "name": "Business",
+      "price": "Custom",
+      "notes": "Monthly invoicing. Usage reconciled at period close with reporting and manual charge workflows. For teams with volume.",
+      "evidenceUrl": "https://www.aionlabs.ai/pricing/"
     }
   ]
 }

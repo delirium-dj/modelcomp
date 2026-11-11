@@ -23,7 +23,7 @@ Reasoning / knowledge:
 
 - **Artificial Analysis Intelligence Index (v5.0): 30.6** (v5.0.1: 31) — up 18 pts over Inkling Small; matches Gemini 3.8 Flash (high, 30.8); below GLM 5.3 (31.7), DeepSeek-V4.1-Flash (32.6), Claude Haiku 5.5 (36.5). "Highest-scoring open-weights model developed outside China" pending weights release.
 - HLE-Diamond: **28.7%** (highest in cohort; up from Inkling Small's 12%)
-- CritPt v2 (research physics, Full/Hard): **55.7 / 35.0%** (2nd only to GPT-6 Luna / Gemini 3.8 Flash 65.1)
+- CritPt: no verified public score found for inkling-2-small (the 35.0% figure was inkling's agentic hard-subset variant, not the original CritPt; not counted as a CritPt result)
 - Apex 2025: **63.5%** (2nd-highest); Vals Index (v2.2): **56.1%**
 - AA-Omniscience v1.1: **16.1** score, **73.3%** non-hallucination rate (highest non-hallucination in cohort); hallucination down to 27% from Inkling Small's 61%
 - ComplexConstraints v1.0 (instruction following): **44.5%**

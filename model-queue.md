@@ -135,8 +135,8 @@
 74.8 gpt-5-codex
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
+74.3 ternary-bonsai-2-27b
 74 qoduck
-74 ternary-bonsai-2-27b
 73.9 hy4
 73.8 nemotron-3.5-bolt-74b-a9b
 73.7 grok-build-0.1
@@ -157,12 +157,12 @@
 71 longcat-2.0
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
+70.1 ernie-5.5-flash
 69.9 hy3-preview
 69.9 solar-open-2
 69.7 ling-3.1-flash
 69.5 solar-pro-4
 69.2 pixel_canary
-68.5 ernie-5.5-flash
 68.5 leanstral-1.5
 68.4 ring-2.6.1t
 67.7 mai-thinking-1

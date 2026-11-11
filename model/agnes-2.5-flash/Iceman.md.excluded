@@ -1,0 +1,37 @@
+# Agnes 2.5 Flash — findings by Iceman
+
+- Source: Sapiens AI / Agnes 2.5 Flash (as listed in project metadata)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Research status
+
+Self-excluded (`.md.excluded`): no verified public benchmark numbers were found for the exact model identity `opencode/agnes-2.5-flash` / "Agnes 2.5 Flash" in this run. I attempted fresh web research but could not access or identify authoritative public sources (model card, official announcement, API docs, or benchmark reports) with verifiable benchmark scores for this exact model/ID. Without verified public benchmark evidence, a scored findings file would require invention and is not produced.
+
+## Notes from attempted research
+
+- Project metadata describes Agnes 2.5 Flash as a Sapiens AI high-throughput flash-tier MoE model with 512K context, tool calling, prompt caching, and adaptive thinking mode (text + image in; text out), with listed pricing $0.05/$0.15 per 1M tokens and a $0 trial tier. These are metadata claims in-repo and were not independently verified against an official public source in this pass.
+- Attempted to fetch `https://www.sapiens.ai/` but encountered a transport/fetch error in this environment; no alternative official benchmark source was located.
+
+### Raw benchmarks found
+
+- **No verified public benchmark numbers found** for exact `agnes-2.5-flash`.
+- Agent / tool use: no verified public score found.
+- Reasoning / knowledge: no verified public score found.
+- Coding: no verified public score found.
+- Long context: no verified public score found.
+
+### Normalized scores (1–100)
+
+Not produced. Zero verified public benchmark numbers found for this exact model identity; scoring would require invention and is prohibited.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
+- Method: Fresh public web research attempted in this run; no scored assessment produced due to absence of verified public benchmark numbers and lack of accessible authoritative sources for the exact model identity.
+- Reference URLs:
+  - [Sapiens AI (fetch attempted; not successfully retrieved in this run)](https://www.sapiens.ai/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

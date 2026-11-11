@@ -171,6 +171,28 @@ const fail = (msg) => {
   failures++;
   console.error(`  FAIL  ${msg}`);
 };
+// Blocking (synchronous) sleep used to back off from transient Windows file
+// locks (antivirus / indexer / another process holding the handle). Node has
+// no built-in sleep; Atomics.wait blocks the main thread without a worker.
+const sleepSync = (ms) => {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+};
+// Resilient file write: Windows can transiently fail `open()` with UNKNOWN
+// (errno -4094, typically a sharing violation while another process/indexer
+// scans the file). Retry with backoff instead of crashing the whole sync run.
+const writeFileWithRetry = (path, text, retries = 12) => {
+  let lastErr;
+  for (let i = 0; i < retries; i++) {
+    try {
+      writeFileSync(path, text);
+      return;
+    } catch (e) {
+      lastErr = e;
+      sleepSync(100 * (i + 1));
+    }
+  }
+  throw lastErr;
+};
 // Deterministic generated-file write: read → compare → write only on change,
 // logging a WRITE line. Every codegen emitter goes through this so they all
 // share one freshness contract. Returns true when the file was (re)written.
@@ -182,7 +204,7 @@ const writeIfChanged = (path, text, label) => {
     // created below
   }
   if (prev === text) return false;
-  writeFileSync(path, text);
+  writeFileWithRetry(path, text);
   log(`  WRITE ${label}${prev === null ? " (created)" : ""}`);
   return true;
 };
@@ -626,7 +648,7 @@ for (const slug of slugs) {
     // so the stub stays visible on every run until curated.
     meta = buildScaffoldMeta(slug);
     scaffoldedNow = true;
-    writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+    writeFileWithRetry(metaPath, JSON.stringify(meta, null, 2));
     log(`  AUTO  model/${slug}/meta.json (auto-scaffolded missing file)`);
     log(`  WARN  model/${slug}/meta.json: "name" is a slug guess ("${meta.name}") — set the official vendor display name and verified facts`);
   }
@@ -643,7 +665,7 @@ for (const slug of slugs) {
       }
     } else {
       delete meta.scaffolded;
-      writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+      writeFileWithRetry(metaPath, JSON.stringify(meta, null, 2));
       log(`  CURATED  model/${slug}/meta.json: official name set — "scaffolded" stamp removed`);
     }
   }
@@ -742,7 +764,7 @@ for (const slug of slugs) {
         skipAverage = true;
         continue;
       }
-      writeFileSync(fp, next);
+      writeFileWithRetry(fp, next);
       log(`  AUTO  model/${slug}/${p.file}: Overall ${p.scores["Overall Score"]} -> ${corrected} (5-dim quality mean)`);
       p.scores["Overall Score"] = corrected;
       if (scoreIndex[slug]?.[p.file]) scoreIndex[slug][p.file].overall = corrected;
@@ -807,7 +829,7 @@ for (const slug of slugs) {
     log(`  NEW   model/${slug}/average.md (created)`);
   }
   if (!skipAverage && prev !== next) {
-    writeFileSync(avgPath, next);
+    writeFileWithRetry(avgPath, next);
     if (prev !== null) {
       updatedAverages.push(slug);
       log(`  WRITE model/${slug}/average.md (recomputed from top ${cohortSize} of ${totalSources} sources)`);
@@ -840,7 +862,7 @@ if (pending.length > 0) {
     fail("could not locate SourceKey union / SOURCE_DEFS registry in src/data/sources.generated.ts — register manually");
   } else {
     sourcesTs = text;
-    writeFileSync(sourcesTsPath, sourcesTs);
+    writeFileWithRetry(sourcesTsPath, sourcesTs);
     for (const p of pending) {
       log(`  REG   new reporting source "${p.key}" (${p.stem}.md) appended to SourceKey + SOURCES`);
     }
@@ -860,7 +882,7 @@ if (pending.length > 0) {
   );
   if (reconciled !== sourcesTs) {
     sourcesTs = reconciled;
-    writeFileSync(sourcesTsPath, sourcesTs);
+    writeFileWithRetry(sourcesTsPath, sourcesTs);
     log("  WRITE src/data/sources.generated.ts (labels/slugs reconciled, stale keys pruned)");
   }
 }
@@ -872,7 +894,7 @@ if (pending.length > 0) {
   const { changed, text } = ensureRaterGateLine(sourcesTs, RATER_GATE);
   if (changed) {
     sourcesTs = text;
-    writeFileSync(sourcesTsPath, sourcesTs);
+    writeFileWithRetry(sourcesTsPath, sourcesTs);
     log(`  WRITE src/data/sources.generated.ts (RATER_GATE = ${RATER_GATE})`);
   }
 }

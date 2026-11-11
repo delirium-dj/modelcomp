@@ -1,0 +1,66 @@
+# Codestral 22B v0.1 (24.05) — findings by GPT 6.1 Sol
+
+- Source: Mistral AI / original `codestral-2405`, `mistralai/Codestral-22B-v0.1`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: original-model identity and primary coding measurements verified, but no defensible broad reasoning/tool assessment or current exact tariff was recovered.**
+
+## Model card
+
+- **Name:** Original Codestral 22B v0.1 / Codestral 24.05. The historical May 2024 release, not the later 25.08 model or a rolling latest alias, is the explicitly identified subject here.[1][2][3]
+- **Short description:** Open-weight code/instruction/FIM model trained across more than 80 programming languages. It is a code specialist; later Codestral or Devstral performance does not transfer to this fixed checkpoint.[1][2]
+- **Provider / access:** Original release documented native Mistral instruction/FIM serving and downloadable weights. The current exact-model page marks `codestral-2405` **retired on 2025-06-16**, recommending the current Codestral replacement. Local weight availability does not imply that its native API remains live.[1][3]
+- **Release / knowledge:** Official launch **2024-05-29**; exact training knowledge cutoff not verified.[1][3]
+- **IDs:** Native historical `codestral-2405`; fixed weights `mistralai/Codestral-22B-v0.1`. No exact original model found in the current OpenRouter public list and no current Zen Free ID verified. A generic/latest Codestral endpoint is not accepted as the original checkpoint.[3][6]
+- **Context window:** **32,768 maximum positions**, independently corroborated by the exact public config and official 32K model page. No separate current serving/output allowance verified.[3][4]
+- **Modalities:** Text/code in; text/code out. The card documents instruct and FIM operation. A launch partner reports instruct tool-use integration, but no measured standardized tool reliability or native image/audio/video support is established.[1][2]
+- **Pricing (as of 2026-11-11):** No verified current exact-original per-token tariff. The original **eight-week beta** offer is historical, not a current free entitlement. Downloaded weights require local infrastructure; commercial deployment requires applicable licensing, not an assumed Apache/free-production license.[1][2][3]
+- **Architecture:** **22B dense parameters**, Mistral decoder architecture; exact config lists **56 layers**. Weight license is Mistral's **Non-Production License (MNPL)**, with separate commercial licenses described by the publisher. The card's `MNLP` spelling in one sentence is not a different permissive license.[1][2][3][4]
+
+### Raw benchmarks found
+
+**Primary evidence:** the original dated release article and its benchmark images were directly inspected. These are publisher-reported measurements; the Kotlin result is a quoted JetBrains evaluation, not this agent's rerun.[1][5]
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact-model public score found**. Application integration and a tool-use testimonial do not supply task-success percentages.[1]
+
+Reasoning / knowledge:
+
+- CruxEval-O: **51.3%**, Python output prediction, primary chart. This is code-execution reasoning, not broad scientific/general knowledge.[1][5]
+- GPQA Diamond, HLE, MMLU-style broad knowledge, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact-model public score found**.
+
+Coding:
+
+- HumanEval Python **81.1% pass@1**; sanitized MBPP **78.2% pass@1**; RepoBench **34.0% EM**; Spider **63.5%** as reported in the primary chart. The article does not fully document the Spider metric configuration.[1][5]
+- Multilingual HumanEval chart: C++ **65.2%**, Bash **42.4%**, Java **63.3%**, PHP **68.9%**, TypeScript **68.6%**, C# **43.7%**. Its reported aggregate **61.5%** is retained as a publisher aggregate; weighting/aggregation is not established and it is not ModelComp Overall.[1][5]
+- HumanEval FIM aggregate **91.6%** across the publisher's stated Python/JavaScript/Java FIM evaluation; this is not ordinary HumanEval or repository repair success.[1][5]
+- Quoted JetBrains Kotlin-HumanEval **73.75** at temperature **0.2**; task count and complete independent protocol are not recovered from the quote, so its scope remains limited.[1]
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified exact-model public score found** in the inspected sources.
+
+Long context:
+
+- RepoBench **34.0% exact match** measures repository-level code completion, not MRCR/RULER/GraphWalks retention. No full-32K retrieval score was independently verified.[1][5]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact specialist coding evidence warrants preservation, but output-prediction/SQL/completion tests cannot supply broad reasoning and autonomous tool reliability. No generic latest-model scores, fabricated missing axes, or expired free tariff are used to compute an Overall.
+
+Fresh exact-model Bing RSS search returned no result items; the configured search integration was unavailable with HTTP 402. Direct primary fixed-checkpoint documentation, config, lifecycle record, and original benchmark images were inspected. A guessed exact tracker page returned 404; that is not proof that no evaluation exists elsewhere.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, original-model versus later-release identity resolution, exact public card/config and lifecycle checks, and direct primary benchmark-image reading. Notes-only partial-coverage self-exclusion; no peer findings read, model code executed, or later Codestral/Devstral values transferred.
+- Reference URLs:
+  - [1 — Original dated May 2024 release and benchmark definitions](https://mistral.ai/news/codestral)
+  - [2 — Fixed original checkpoint card and licensing](https://huggingface.co/mistralai/Codestral-22B-v0.1/raw/main/README.md)
+  - [3 — Official original-model identity, retirement, parameters and context](https://docs.mistral.ai/models/codestral-24-05)
+  - [4 — Exact fixed-checkpoint configuration](https://huggingface.co/mistralai/Codestral-22B-v0.1/raw/main/config.json)
+  - [5 — Primary original benchmark chart](https://mistral.ai/_astro/d44e2f88-ea21-4ef7-bc7e-42b23b577643_2lDoyf.webp)
+  - [Primary multilingual HumanEval chart](https://mistral.ai/_astro/faad196f-0574-43fe-b3de-fc7e2e832c5c_cm8MW.webp)
+  - [6 — OpenRouter live public catalog](https://openrouter.ai/api/v1/models)
+- Future sources: preserve this historical specialist dossier and add independently signed quality evidence without conflating it with a rolling/latest endpoint.

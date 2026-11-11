@@ -32,7 +32,7 @@ Agent / tool use:
 Reasoning / knowledge:
 
 - AA Intelligence Index: **30.63**, displayed **31**, **rank 6/33** in the page's price/class comparison; a composite, not percentage accuracy.
-- HLE-Diamond: **28.7%** (`hleDiamond`); CritPt agentic hard-subset field: **35.0%** (`critptAgenticHard`). These are not original-HLE/no-tools or original-CritPt scores.
+- HLE-Diamond: **28.7%** (`hleDiamond`). The `critptAgenticHard` field (35.0%) is the agentic hard-subset variant, not the original CritPt score, and is not counted as a CritPt result for this model.
 - AA-Omniscience net field: **16.1**; accuracy **33.77%**; hallucination-rate field **26.67%**. Net score and the two rates are distinct metrics.
 - GPQA Diamond: no verified result (`gpqa` is null). An older `hle` field exists, but its setting/version was not resolved and is not used for scoring.
 

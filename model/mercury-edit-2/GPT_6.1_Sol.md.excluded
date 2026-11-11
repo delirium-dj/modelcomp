@@ -1,0 +1,60 @@
+# Mercury Edit 2 — findings by GPT 6.1 Sol
+
+- Source: Inception / `mercury-edit-2`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: exact specialized model and relative edit-quality evidence verified, but no complete five-axis quality assessment is supported.**
+
+## Model card
+
+- **Name:** Mercury Edit 2.
+- **Short description:** Purpose-built diffusion model for next-edit prediction from recent edits, nearby snippets, and code context. It is a specialized generative code-edit model, not Mercury 2 chat, Mercury 3, a decision model, or a speech model.[1][2]
+- **Provider / access:** Native `https://api.inceptionlabs.ai/v1/edit/completions` for next edits and `/v1/fim/completions` for fill-in-the-middle. The edit endpoint accepts one specially formatted user message and explicitly does **not** support streaming or tool calls; FIM has its own streaming behavior. Documentation examples are not authenticated successful inference.[1][2][3]
+- **Release / knowledge:** Exact original release date and knowledge cutoff not independently established. The retrieved introduction carries a **2026-10-29** page timestamp, which is recorded as publication/update metadata, not assumed to be the model's first release.[1]
+- **IDs:** Native `mercury-edit-2`; no exact match found in the current OpenRouter public model list and no exact Zen Free ID verified. Completion/edit-only API exposure is not evidence of absence from native serving.[2][5]
+- **Context window:** Current official model table specifies **32K for FIM and 32K for NextEdit**, **8,192 maximum output tokens**. BenchLM's 128K display and the OpenAPI's generic 128,000-token error example are not preferred over the exact-model table.[2][3][4]
+- **Modalities:** Text/code in; text/code out. No native image/audio/video, general chat reasoning, structured-output protocol, or tool calling verified for the edit model.[2][3]
+- **Pricing (as of 2026-11-11):** Native **$0.25 input / $0.75 output / $0.025 cached input per 1M tokens**, confirmed by the current official table and introduction. The introduction's limited trial/promotional claims do not establish today's perpetual unrestricted free inference.[1][2]
+- **Architecture:** Proprietary diffusion language model with undisclosed parameter count/weights. Publisher describes edit-data training and KTO preference alignment; that does not establish a public weight license.[1]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact-model public score found**. The documented edit endpoint has no tool-calling support.[3]
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact-model public score found**. No Mercury chat-model results are transferred.
+
+Coding:
+
+- Publisher reports edits are **48% more often accepted** and the model is **27% more selective** about displayed edits. These are relative changes from a previous next-edit model, not 48% acceptance accuracy or 27% test success; sample size and absolute baselines are not disclosed in readable text.[1]
+- Primary evaluation describes **Instinct, human-eval infilling/FIM, Next-edit Prediction, and an internal next-edit benchmark**. FIM uses code tests; the other three use LLM-judged similarity to human edits; the final quality value is an average of the four. Exact absolute values and latency numbers were not exposed in the inspected article text, so none is invented.[1]
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and an independently measured Coding Index: **no verified exact-model public score found**. BenchLM reports no sourced benchmark rows, not zero capability.[4]
+
+Long context:
+
+- No exact MRCR / RULER / GraphWalks result verified. The model's code-context request format and 32K allowance are not long-context retention measurements.[2][3]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Real specialized edit evidence is preserved, but it cannot calibrate general reasoning, autonomous tool reliability, and representative coding quality across the required axes. No placeholder ratings, sibling results, or invented absolute benchmark values are used to compute Overall.
+
+Fresh exact-name Bing RSS search returned no result items; the configured search integration returned HTTP 402. Direct primary model/API/launch documentation and the exact tracker page supplied positive evidence and bounded coverage gaps. No primary example token counts or sample timestamps are treated as benchmark results.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, native exact-ID/model-table and edit-contract inspection, publisher evaluation-method review, and tracker comparison. Notes-only partial-coverage self-exclusion; no peer findings read, promotional credentials used, or relative gains converted to absolute accuracy.
+- Reference URLs:
+  - [1 — Exact-model introduction, training and scoped evaluation claims](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
+  - [2 — Current official model pricing, endpoint, and limit table](https://docs.inceptionlabs.ai/get-started/models.md)
+  - [3 — Exact edit endpoint contract and non-streaming/non-tool restrictions](https://docs.inceptionlabs.ai/api-reference/edit/create-a-code-edit-completion.md)
+  - [4 — BenchLM exact-model coverage and conflicting context display](https://benchlm.ai/models/mercury-edit-2)
+  - [5 — OpenRouter public live catalog](https://openrouter.ai/api/v1/models)
+  - [6 — Official next-edit guide and required code-context format](https://docs.inceptionlabs.ai/capabilities/next-edit.md)
+- Future sources: preserve these notes and add an independently signed scored report only when genuinely new exact-model evidence supports a defensible Overall.

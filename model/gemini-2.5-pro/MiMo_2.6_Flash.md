@@ -145,10 +145,3 @@ Long context:
 - **Overall Score: 77.6/100.** Mean of the five quality dims (62 + 73 + 90 + 93 + 70) / 5 = 77.6; best-fit as a proven multimodal long-context workhorse when 1M window + audio/video input matter more than frontier agentic scores.
 
 ---
-
-## Signature
-
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-23
-- Method: fresh public web research (Google Gemini API model card, Gemini 2.5 tech report arXiv 2507.06261, BenchLM/Benchgen/AA/Neura/vals aggregates); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

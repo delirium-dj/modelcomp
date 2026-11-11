@@ -174,9 +174,3 @@ Multimodal:
 - **Overall Score: 80/100.** (78 + 89 + 82 + 65 + 88) / 5 = 80.4 → 80 — best-fit as a near-frontier flagship for science/math reasoning and serious coding with measured long-context retrieval; capped by Terminal-Bench-class agentic reliability, image-only multimodal input and $14 output pricing.
 
 ---
-
-## Signature
-
-- Provided by: **Mimo v2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-01
-- Method: public internet research (OpenAI "Introducing GPT-5.2" post, DeepLearning.AI The Batch coverage, Artificial Analysis rows via Requesty/44B normalization pages, the-decoder benchmark table, llm-stats shared-benchmark tables, glbgpt vendor table); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,66 @@
+# Glyph Cluster — findings by GPT 6.1 Sol
+
+- Source: Vercel AI Gateway / anonymous `stealth/glyph-cluster`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: real hosted identity and narrow independent experimental results verified, but insufficient broad tool/coding/reasoning coverage for five quality scores.**
+
+## Model card
+
+- **Name:** Glyph Cluster (free stealth preview).
+- **Short description:** Anonymous reasoning model for coding and long-context analysis. The host establishes a real preview, but neither its name nor matching tokenizer behavior establishes a disclosed vendor or fixed checkpoint.[1][2][3]
+- **Provider / access:** Vercel AI Gateway, OpenAI-compatible Chat Completions and Responses, plus AI SDK/coding-agent integrations. Launch eligibility is **Pro or Enterprise with purchased AI Gateway credits**; usage is free during the stealth period. Catalog access is not an authenticated inference test.[1][2]
+- **Release / knowledge:** Official host announcement **2026-10-07**; exact knowledge cutoff and underlying checkpoint date not verified.[1]
+- **IDs:** `stealth/glyph-cluster`. No exact Zen Free ID was found in the inspected Zen/Go catalogs. No revealed-vendor alias is asserted.
+- **Context window:** Host advertises **256K**; current Vercel catalog lists **256,000 context / 256,000 max_tokens**. The shared input/output budget should not be interpreted as two simultaneously usable full windows. No measured full-window retrieval result verified.[1][2]
+- **Modalities:** Text in; text out. Host explicitly excludes image/file input and structured outputs, while supporting streaming and function calling. Writing SVG text is not native image understanding or image generation.[1]
+- **Pricing (as of 2026-11-11):** Inspected gateway **$0 input/output** during stealth, subject to paid-plan/credit eligibility. **No ZDR**; prompts and responses may be retained and used for training/model improvement. Not suitable for assuming confidential inputs or perpetual unlimited free service.[1][2]
+- **Architecture:** Undisclosed vendor, parameters, weights, and weight license. The community Hugging Face card's **CC BY 4.0** applies to its text/images, not released model weights. Its matching-token-count observations are identity hypotheses, not a vendor reveal.[3]
+
+### Raw benchmarks found
+
+**Verified narrow independent evidence:** Stealth Models' exact-model StealthMark page, dated **2026-10-08** in its result record. These are original spatial/SVG/game experiments and proprietary judged aggregates, not standardized academic reasoning or software-engineering suites.[4]
+
+Agent / tool use:
+
+- Foresight: **6.4/100**, **0 of 3 levels survived**; Latch: **3.6/100**, **1 of 5 levels cleared**. Recorded game tasks assess planning/learning under their own rules, not generic tool-call success.[4]
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- StealthMark **18.9/100**; its “General Intelligence” **12.0/100** and “Visual Intelligence” **29.8/100**. The site's General Intelligence is physical/spatial reasoning; none is a ModelComp Overall, GPQA score, or broad intelligence index.[4]
+- Newton's Mirror **12.8**, Ground Truth **19.9**, Beach **46.3**, Selfie **32.4**, Mona Lisa **11.7**, Raccoon **35.7**, Pelican **44.3** on the evaluator's task scales.[4]
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Artificial Analysis Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified public score found**.
+
+Coding:
+
+- No exact SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, or representative coding index verified. Experimental SVG construction is a narrower programming task and cannot calibrate cross-repository repair success.[4]
+
+Long context:
+
+- No MRCR / RULER / GraphWalks result verified at a stated token length. Advertised 256K capacity is not measured retention.[1][2]
+
+Deployment observation:
+
+- Stealth Models reports **69 output tokens/s** in its tests; workload, current endpoint version, and long-context speed are not established, so this is not a general serving guarantee.[4]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Verified experiments are preserved without converting one small SVG/game suite into broad reasoning, tool reliability, and software-engineering scores. Stable checkpoint identity and representative cross-axis quality evidence remain insufficient for a defensible Overall; unknown quality is not zero.
+
+Fresh exact-name Bing RSS search returned no result items and the guessed AA profile returned 404. Public catalogs led to the real Vercel host announcement and independent experimental evaluator. Search integration HTTP 402 limited discovery, but does not invalidate the directly retrieved positive evidence or prove absent results elsewhere.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, exact host/catalog verification, community-card provenance review, and direct narrow experimental benchmark inspection. Notes-only partial-coverage self-exclusion; no peer findings read or speculative vendor benchmarks transferred.
+- Reference URLs:
+  - [1 — Official Vercel preview, eligibility, interfaces, and data-use caveats](https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway)
+  - [2 — Vercel AI Gateway live exact-model catalog](https://ai-gateway.vercel.sh/v1/models)
+  - [3 — Community card and explicitly unresolved identity hypothesis](https://huggingface.co/stealth-model/glyph-cluster/raw/main/README.md)
+  - [4 — Exact experimental benchmark results, dates, and methodology](https://stealthmodels.com/benchmarks/models/glyph-cluster)
+  - [5 — models.dev catalog, historical host entries and divergent timestamps](https://models.dev/api.json)
+- Future sources: preserve these exact observations and add an independently signed scored report only when genuinely new evidence supports all quality axes.

@@ -1,0 +1,26 @@
+# Qwen 4 Max — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Qwen 4 Max"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Qwen 4 Max (folder slug `qwen-4-max`, id `alibaba/qwen-4-max`). Vendor markets the Max-class route as "Qwen3.8-Max" (proprietary 2.4T MoE flagship, 1M context, $2.00/$6.00 per 1M; QwenCloud/Alibaba Cloud Model Studio).
+- **Finding:** Proprietary Max-class route served via QwenCloud (`qwen3.8-max`) and Alibaba Cloud Model Studio (`qwen4-max-preview`). QwenCloud lists specs (1,048,576 total context, 131,072 max output, $2.00/$6.00 per 1M, text+image in, text out) but no standardized benchmark table in accessible text for this exact ID. The open-weight Qwen3.8 family (2.4T-A95B, 27B) publishes benchmark figures on the Qwen3.8 GitHub README/model cards, but those belong to the open checkpoints, not the Max-class proprietary route, and are not transferable to this ID. No Artificial Analysis / BenchLM / SWE-bench Verified / Terminal-Bench / GPQA row found for `qwen-4-max` / `qwen3.8-max` in accessible text.
+- **Context window / modalities / pricing:** 1,048,576 total; 131,072 max output; text + image in, text out; $2.00 / $6.00 per 1M (QwenCloud published pricing).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Qwen 4 Max in any first-party or independent source in accessible text: QwenCloud and Alibaba Cloud Model Studio publish specs and pricing only; the Qwen3.8 GitHub README benchmark figures belong to the open-weight checkpoints, not the Max-class proprietary route; no Artificial Analysis / BenchLM / SWE-bench / Terminal-Bench / GPQA row for this exact ID.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-11
+- Method: public internet research (QwenCloud model page + Alibaba Cloud Model Studio recommended-models page + Qwen3.8 GitHub README + Qwen3.8-Max citation); no standardized benchmark numbers for the proprietary Max-class route found in accessible text, so no scores reported.
+- Reference URLs:
+  - [QwenCloud — Qwen3.8-Max model page](https://www.qwencloud.com/models/qwen3.8-max)
+  - [Alibaba Cloud Model Studio — Recommended models (qwen4-max-preview)](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Qwen3.8 GitHub README (open-weight family; Max-class is proprietary)](https://github.com/QwenLM/Qwen3.8)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

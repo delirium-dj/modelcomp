@@ -30,7 +30,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **52.0%**
 - HLE: **40.0%**
 - LCR / MLCR: **60.0%**
-- CritPt: **54.0%**
+- CritPt: no verified public score found (Laguna XS 2.1 has no published CritPt; the 54.0% figure is unattributed and conflicts with the model's own "zero reasoning benchmarks" record)
 - Artificial Analysis Intelligence Index / BenchLM overall: **82.0 / #22**
 - Omniscience Accuracy / Hallucination Rate: **89.0% / 4.5%**
 

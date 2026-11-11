@@ -16,8 +16,15 @@
 - **IDs:** `qwen3.8-omni-flash` (Model Studio), `qwen/qwen3.8-omni-flash` (OpenRouter). No free tier found on any cited route.
 - **Context window:** 1,048,576 (1M) total; 991,808 max input non-thinking / 983,616 thinking; 131,072 max output — verified from the official model page.
 - **Modalities:** Text, images (up to 2,048 by URL), audio (up to 3 h, 113 languages/dialects, stereo + 4-channel FOA spatial audio), video (up to 2 h, 64 files) in; text out only (no audio output — use Qwen3.5-Omni for speech generation). Thinking enabled by default with adjustable reasoning effort; custom function calling; web search tool; implicit + session context caching.
-- **Pricing (as of 2026-11-11):** OpenRouter (Alibaba Cloud Int., no markup): $0.15 in / $0.47 out per 1M tokens; video visual and audio tracks billed separately per the Model Studio docs.
+- **Pricing (as of 2026-11-11):** vendor-verified from Alibaba's own QwenCloud price table (International scope): **$0.15 in / $0.47 out per 1M tokens, cache-hit input $0.016** — matching OpenRouter's no-markup listing. Video visual and audio tracks billed separately per the Model Studio docs. The realtime twin `qwen3.8-omni-flash-realtime` prices at $0.23/$0.93 in (text/images/video vs audio) and $0.70/$1.87 out (text vs audio).
 - **Architecture:** proprietary, closed weights, not published on the official Qwen Hugging Face org; parameter count unverified.
+
+## Deeper-source sweep (second pass, 2026-11-11)
+
+- **Artificial Analysis absence, documented with a dated screenshot:** OrcaRouter's 2026-11-11 comparison post ("Gemini Omni Flash 1.2 vs Qwen 3.8 Omni Flash") shows AA's video leaderboards (T2V/I2V/editing, captured 11 Nov) with no Qwen3.8-Omni-Flash row — "Not ranked low: absent", because the model produces no video output to rank. This is now a cited third-party confirmation that no independent AA score exists, on top of the BenchLM "not computed" status.
+- **Third-party positioning, verified against Alibaba's docs:** OrcaRouter characterizes it as a multimodal reader (text/image/audio/video in — including hour-long footage in one call at 991,808 input tokens — text only out), distinct from video generators; the spec figures (991,808 in / 131,072 out, $0.15/$0.47) reconcile exactly with Alibaba's own docs, and video-frame tokenization rate is sampling-configuration-dependent, making hour-long ingest "cents, not dollars" at $0.15/1M input.
+- **models.dev catalog row confirmed:** `alibaba/qwen3.8-omni-flash`, 13 providers, 1,000,000 context / 131,072 output, $0.1126/$0.38, released 2026-09-17 — third-party corroboration of the official specs (their price row reflects a discounted/regional variant; the vendor's $0.15/$0.47 is authoritative).
+- Still zero benchmark rows on any surface (vendor docs, changelog, AA, BenchLM, models.dev, HF). The exclusion verdict is unchanged.
 
 ### Raw benchmarks found
 

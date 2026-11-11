@@ -19,4 +19,4 @@
 
 - Based on 1 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6.
 - Average from top 1 by Overall Score: Claude Sonnet 4.6.
-- Ignored below-gate rater(s): Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Nemotron 3.5 Super VL 120B A12B.

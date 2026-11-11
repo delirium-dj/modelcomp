@@ -1,0 +1,24 @@
+# Agnes 2.5 Flash — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Agnes 2.5 Flash"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Agnes 2.5 Flash (folder slug `agnes-2.5-flash`, id `opencode/agnes-2.5-flash`). Sapiens AI high-throughput flash-tier MoE, 512K context, tool calling, prompt caching, adaptive thinking; text + image in, text out.
+- **Finding:** Served via OpenCode Zen / Sapiens API ($0.05/$0.15 per 1M; $0 trial tier). No vendor-published standardized benchmark table (SWE-bench Verified, Terminal-Bench, GPQA Diamond, HLE, LiveCodeBench, MRCR/RULER, MMU, etc.) found for this exact ID in accessible text, and no Artificial Analysis / BenchLM / Epoch AI / Vals AI row exists for `agnes-2.5-flash` / `opencode/agnes-2.5-flash`. Specs (512K context, text+image in, $0.05/$0.15) are published; benchmark numbers are not.
+- **Context window / modalities / pricing:** 512,000 total; text + image in, text out; $0.05 / $0.15 per 1M (Sapiens API published pricing).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Agnes 2.5 Flash in any first-party or independent source in accessible text: Sapiens API publishes pricing and capability notes only; no Artificial Analysis / BenchLM / Epoch AI / Vals AI / SWE-bench / Terminal-Bench row for this exact ID.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-11
+- Method: public internet research (Sapiens API pricing/capability pages + OpenCode Zen model listing); no standardized benchmark numbers for this exact ID found in accessible text, so no scores reported.
+- Reference URLs:
+  - [Sapiens API — model listing / pricing](https://opencode.ai/docs/zen)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

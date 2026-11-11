@@ -1,0 +1,38 @@
+# ERNIE 5.5 Flash — findings by Iceman
+
+- Source: Baidu / ERNIE 5.5 Flash
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Research status
+
+Self-excluded (`.md.excluded`): no extractable verified public benchmark numbers were confirmed for the exact model identity `baidu/ernie-5.5-flash` / "ERNIE 5.5 Flash" in this run. I found official Baidu ERNIE pages for **ERNIE 5.5 Flash Preview** (released 2026-11-11 on ernie.baidu.com), which describe a 280B-total / 14B-active model with 1M-token context and present benchmark results as images/tables on the release page. However, the benchmark values were not available as extractable text in the fetched content, and the preview name/identity may differ from the non-preview `ernie-5.5-flash` folder identity. To avoid inventing or misattributing scores, no scored findings file is created.
+
+## Verified observations (non-benchmark)
+
+- **Closest official public release found:** ERNIE 5.5 Flash Preview (Baidu ERNIE site, 2026-11-11). Page states 280B total parameters, 14B active parameters, 1M-token context, strengths in coding/3D modeling/knowledge work/content creation, and API availability on Qianfan; weights noted as to be open-sourced under Apache 2.0 soon.
+- **Identity caution:** "ERNIE 5.5 Flash Preview" is not identical in name to "ERNIE 5.5 Flash"; benchmark attribution must be exact. Project metadata in this repo describes ERNIE 5.5 Flash as 280B/14B sparse MoE with 1M context and Qianfan pricing, but metadata claims were not treated as verified benchmark evidence.
+
+### Raw benchmarks found
+
+- **No verified/extractable public benchmark numbers recorded** for exact `ernie-5.5-flash` in this run.
+- Agent / tool use: no verified public score found.
+- Reasoning / knowledge: no verified public score found.
+- Coding: no verified public score found.
+- Long context: 1M context stated for ERNIE 5.5 Flash Preview; no MRCR/RULER/GraphWalks retrieval benchmark numbers extracted.
+
+### Normalized scores (1–100)
+
+Not produced. Zero verified/extractable public benchmark numbers confirmed for this exact model identity; scoring would require invention or uncertain attribution and is prohibited.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
+- Method: Fresh public web research using official Baidu ERNIE pages fetched in this run; no scored assessment produced due to lack of extractable verified benchmark numbers for the exact model identity.
+- Reference URLs:
+  - [ERNIE 5.5 Flash Preview (Baidu ERNIE)](https://ernie.baidu.com/release/ernie-5-5-flash-preview/)
+  - [ERNIE home (Baidu ERNIE)](https://ernie.baidu.com/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

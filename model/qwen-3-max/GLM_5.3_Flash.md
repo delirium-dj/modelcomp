@@ -36,7 +36,7 @@ Reasoning / knowledge:
 Coding:
 
 - Vibe Code Bench v1.1: **3.51%** (Vals, independent — fills the gap; floor-class)
-- SWE-bench Verified: **~70–75% (est)** (TokenMix, explicitly estimated — still provisional); HumanEval: **~90%** (TokenMix)
+- SWE-bench Verified: **~70–75% (est)** (TokenMix, explicitly estimated — still provisional); HumanEval: no verified public score found (the ~90% figure is a TokenMix estimate, not a measurement)
 - LiveCodeBench / SciCode / SWE-Pro / Terminal-Bench: no verified public score found
 
 Long context:

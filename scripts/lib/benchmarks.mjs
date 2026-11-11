@@ -43,7 +43,7 @@ export const BENCHMARKS = [
   { key: "mmlu", display: "MMLU", aliases: ["mmlu"] },
   { key: "arc-agi", display: "ARC-AGI", aliases: ["arc-agi-2", "arc-agi 2", "arc-agi"] },
   { key: "frontiermath", display: "FrontierMath", aliases: ["frontiermath", "frontier-math", "frontier math"] },
-  { key: "aider", display: "Aider Polyglot", aliases: ["aider polyglot", "aider"] },
+  { key: "aider", display: "Aider Polyglot", aliases: ["aider polyglot"] },
   { key: "deepswe", display: "DeepSWE", aliases: ["deepswe", "deep-swe"] },
   { key: "lmarena", display: "LMArena", aliases: ["lmarena", "lm-arena"] },
   { key: "vibe-code", display: "Vibe Code Bench", aliases: ["vibe code bench", "vibe-code", "vibe code"] },

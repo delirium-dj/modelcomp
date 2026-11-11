@@ -1,0 +1,64 @@
+# Mercury 2 — findings by GPT 6.1 Sol
+
+- Source: Inception / `mercury-2`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded: real legacy model, native specifications, and serving-speed evidence verified; no exact-model task-quality numbers sufficient for Overall found.**
+
+## Model card
+
+- **Name:** Mercury 2, distinct from Mercury 2.5, Mercury 3, Mercury Edit 2, Mercury Decide, and Mercury Voice.
+- **Short description:** Inception's earlier text reasoning diffusion LLM, generating through parallel refinement rather than strictly left-to-right decoding. General coding/chat/RAG use keeps it in the language-model tree; using its text in a separate speech stack does not give it native speech I/O.[1][2]
+- **Provider / access:** Native OpenAI-compatible `https://api.inceptionlabs.ai/v1/chat/completions`, documented model `mercury-2`. **Not available to new users**; existing customers with usage before **2026-10-19** keep access until **2026-11-15**, with enterprise agreements separately supported. Catalog/documentation access is not authenticated inference.[2][3]
+- **Release / knowledge:** AA dates the original release **2026-02-20**. The currently retrieved introduction page carries an October 29 publication/update timestamp, which is not treated as a new original-model release. Exact knowledge cutoff not verified.[1][4]
+- **IDs:** Native `mercury-2`. No exact match found in the current OpenRouter public list and no exact Zen Free ID verified; native legacy access is documented independently of those catalogs.[2][5]
+- **Context window:** Current official table **128K total / 50,000 maximum output tokens**. No exact full-window retrieval accuracy verified.[2]
+- **Modalities:** Text in; text out, with tool calling, structured output, and tunable reasoning. Do not inherit Mercury Decide's image input or the separately routed voice model's features.[1][2]
+- **Pricing (as of 2026-11-11):** Native legacy table **$0.25 input / $0.75 output / $0.025 cached input per 1M tokens**. Current new-account promotional tokens for the platform do not grant new users access to this retired legacy model.[2][3]
+- **Architecture:** Proprietary diffusion language model; exact parameter count, released weights, and weight license not verified.[1][4]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found** for Mercury 2. Documented function calling and customer quotes are not measured agent-task success.[1][2]
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact-model quality score found** in the inspected sources.
+- AA's current exact profile explicitly shows **Intelligence Index N/A**, not zero. BenchLM's exact page reports no sourced benchmark coverage and leaves the model unranked.[4][6]
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and Coding Index: **no verified exact-model public score found**. Coding use cases and successor performance cannot substitute for a Mercury 2 measurement.[1][2]
+
+Long context:
+
+- No exact MRCR / RULER / GraphWalks result verified. Native 128K capacity is a specification, not measured retention.[2]
+
+Serving performance, not task quality:
+
+- Publisher introduction claims **1,009 tokens/s** on NVIDIA Blackwell and more than fivefold faster generation; no reproducible workload/baseline details exposed in the inspected article.[1]
+- AA's current deprecated-model profile reports **332 output tokens/s / 4.51 seconds to first answer token**. Its end-to-end Performance v3 workload/averaging differs from the vendor headline; the figures are not averaged or converted to quality scores.[4]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Speed, price, features, and context do not supply exact tool, reasoning, and coding quality benchmarks. No sibling results, invented academic percentages, or placeholder dimensions are used to produce an Overall.
+
+Fresh exact-name Bing RSS search exposed no result items; the configured search integration was unavailable with HTTP 402. Direct native introduction/models documentation, lifecycle notice, and exact AA/BenchLM profiles supplied bounded positive and negative evidence, not a universal claim that no evaluator has ever tested the model.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, exact legacy-model API/table verification, lifecycle/eligibility review, and independently measured serving-profile comparison. Notes-only self-exclusion; no peer findings read or successor benchmarks transferred.
+- Reference URLs:
+  - [1 — Original-model introduction, diffusion design and speed claim](https://www.inceptionlabs.ai/blog/introducing-mercury-2)
+  - [2 — Current official exact-model table and API example](https://docs.inceptionlabs.ai/get-started/models.md)
+  - [3 — Official legacy eligibility and November 15 access deadline](https://www.inceptionlabs.ai/models)
+  - [4 — AA exact Mercury 2 profile: deprecated status, speed and missing quality index](https://artificialanalysis.ai/models/mercury-2)
+  - [5 — OpenRouter live public model catalog](https://openrouter.ai/api/v1/models)
+  - [6 — BenchLM exact-model coverage status](https://benchlm.ai/models/mercury-2)
+- Future sources: preserve these notes and add an independently signed scored report when genuinely new exact-model task evidence supports a defensible Overall.

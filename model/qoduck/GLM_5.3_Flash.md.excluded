@@ -19,6 +19,13 @@
 - **Pricing (as of 2026-11-11):** free within a daily allowance during the promo (Credit rate 0.5× → 0.0×, including at highest thinking intensity; does not draw the daily 100 general-purpose Credits); standard rate after the allowance is 0.5× — the same premium factor Qoder's consumption reference attaches to Qwen3.8-Max and DeepSeek-V4-Pro (Qwen3.8-Flash sits at 0.1×).
 - **Architecture:** unverified. The leading community reading (35 GB at Q8 vs ~29–31 GB for Qwen3.8-27B FP8, implying +5–7B parameters, plausibly an n-gram lookup table like Qwen3.8-Flash-Next's 51B table on its 125B backbone, plus MTP; 480 tok/s second-hand) is hearsay — no rig, quant or run published; Alibaba's only written Qwen 4 statement (2026-09-22) says Qwen 4 is in training, not shipped.
 
+## Deeper-source sweep (second pass, 2026-11-11)
+
+- **Qoder International docs** (docs.qoder.com/events/qoduck-free) mirror the CN promotion exactly: Nov 7 → Nov 11, 2026 10:00 (UTC+8), daily free allowance, Credit rate 0.5× → 0.0× even at highest thinking intensity, individual plans only (Free, Pro Trial, Lite, Pro, Pro+, Ultra; Teams/Enterprise ineligible), Qoduck removed when the promotion ends. Both vendor surfaces confirm the same facts and neither names the model.
+- **Operator entity:** the international docs footer names Bright Zenith Pte Ltd (© 2026) as Qoder International's operator; the CN docs name Tongyi Yunqi (Hangzhou) — both Alibaba-linked, consistent with the Qwen-family tokenizer evidence, but neither is a model-card statement.
+- **Qoder changelog** (changelog.qoder.cn/en/qoder, through v0.5.7 on 2026-11-09): no Qoduck-specific entry, no capability or benchmark notes — the model exists only as a picker slot inside the promotion.
+- Still no identity disclosure, no benchmark, no API identifier on any surface checked (both Qoder docs, changelog, OrcaRouter, news, models.dev, HF). The exclusion verdict is unchanged and now double-sourced on both vendor docs.
+
 ### Raw benchmarks found
 
 Agent / tool use: no verified public score found

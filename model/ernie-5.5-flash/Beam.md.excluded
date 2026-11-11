@@ -1,0 +1,24 @@
+# ERNIE 5.5 Flash — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "ERNIE 5.5 Flash"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** ERNIE 5.5 Flash (folder slug `ernie-5.5-flash`, id `baidu/ernie-5.5-flash`). Baidu 280B/14B sparse MoE pre-trained on 33.5T tokens with HCA and MLA-DSA attention, native 1M context, >200 tok/s; text in, text out.
+- **Finding:** Served via Baidu Qianfan (ernie-5.5-flash, ~2 CNY/8 CNY per 1M in/out; off-peak ~1 CNY/4 CNY). The Qianfan landing page lists specs and pricing only; no standardized benchmark table (SWE-bench Verified, Terminal-Bench, GPQA Diamond, HLE, LiveCodeBench, MRCR/RULER, SciCode, etc.) for this exact ID is published in accessible text, and no Artificial Analysis / BenchLM / Epoch AI row exists for `ernie-5.5-flash` / `baidu/ernie-5.5-flash`. (Baidu's ERNIE 5.0 flagship is listed on Qianfan with specs only; the 5.5 Flash variant has no public eval card found.)
+- **Context window / modalities / pricing:** 1,000,000 total; 131,072 max output; text in, text out; ~$0.28 / $1.13 per 1M (Baidu Qianfan standard; off-peak ~$0.14 / $0.56).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for ERNIE 5.5 Flash in any first-party or independent source in accessible text: Baidu Qianfan publishes specs and pricing only; no Artificial Analysis / BenchLM / Epoch AI / Vals AI / SWE-bench / Terminal-Bench / GPQA row for this exact ID.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-11
+- Method: public internet research (Baidu Qianfan platform page + model listing); no standardized benchmark numbers for this exact ID found in accessible text, so no scores reported.
+- Reference URLs:
+  - [Baidu Qianfan platform — ERNIE models](https://cloud.baidu.com/product/wenxinworkshop)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

@@ -158,10 +158,3 @@ Multimodal:
 - **Overall Score: 84.6/100.** Mean of Tool 86 + Reasoning 90 + Context 75 + Multimodal 88 + Coding 84 = 423/5 = 84.6 — best-fit for cost-efficient multimodal reasoning, competitive math, and agentic search/coding on 256K context.
 
 ---
-
-## Signature
-
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-24
-- Method: public internet research (ByteDance Seed model card PDF + seed.bytedance.com launch, APIYI digests, LLM Reference, Benchmark Atlas); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

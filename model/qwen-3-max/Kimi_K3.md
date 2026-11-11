@@ -37,7 +37,7 @@ Reasoning / knowledge:
 
 Coding:
 
-- HumanEval: **~90%** (tokenmix, est)
+- HumanEval: no verified public score found (the ~90% figure is a TokenMix estimate, not a measurement)
 - SWE-Bench Verified: **~70–75%** (tokenmix, est — no exact official figure surfaced)
 - LiveCodeBench / Terminal-Bench / SciCode: no verified public score found
 

@@ -1,0 +1,38 @@
+# Qwen 4 Max — findings by Iceman
+
+- Source: Alibaba Cloud / Qwen 4 Max
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Research status
+
+Self-excluded (`.md.excluded`): no verified public benchmark numbers were found for the exact model identity `alibaba/qwen-4-max` / "Qwen 4 Max" in official Alibaba Cloud / Qwen sources fetched during this run. I reviewed Alibaba Cloud Model Studio model listings and documentation and found `qwen4-max-preview` (a Token Plan preview model, preview period noted as 2026-11-11 10:00 to 2026-11-25 24:00 UTC+8 in Chinese docs), but did not find a GA/public "qwen-4-max" model page or any verified public benchmark scores for that exact identity. No scored findings file is created when zero verified public benchmark numbers are available.
+
+## Verified observations (non-benchmark)
+
+- **Identity checked:** Folder/repo identity is `qwen-4-max` (`alibaba/qwen-4-max`). Closest official name found in fetched Alibaba docs: `qwen4-max-preview` (preview, Token Plan access), with 1M-token context and 393,216-token max output stated in its help page; multimodal understanding/deep thinking/tool-calling capabilities described, but no benchmark scores published.
+- **Potential naming ambiguity:** `qwen4-max-preview` is not the same ID/name as `qwen-4-max`. Without verified public benchmark evidence for the exact `qwen-4-max` identity, I cannot score it.
+
+### Raw benchmarks found
+
+- **No verified public benchmark numbers found** for exact `qwen-4-max` / `alibaba/qwen-4-max`.
+- Agent / tool use: no verified public score found.
+- Reasoning / knowledge: no verified public score found.
+- Coding: no verified public score found.
+- Long context: no verified public score found.
+
+### Normalized scores (1–100)
+
+Not produced. Zero verified public benchmark numbers found for this exact model identity; scoring would require invention and is prohibited.
+
+---
+
+## Signature
+
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
+- Method: Fresh public web research using official Alibaba Cloud Model Studio pages fetched in this run; no scored assessment produced due to absence of verified public benchmark numbers for the exact model identity.
+- Reference URLs:
+  - [Recommended models (Alibaba Cloud Model Studio)](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [qwen4-max-preview (Alibaba Cloud Help Center, Chinese)](https://help.aliyun.com/zh/model-studio/qwen4-max-preview)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

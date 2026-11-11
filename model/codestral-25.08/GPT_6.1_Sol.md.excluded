@@ -1,0 +1,61 @@
+# Codestral 25.08 — findings by GPT 6.1 Sol
+
+- Source: Mistral AI / `codestral-2508`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: exact model and completion improvements verified, but insufficient calibrated reasoning/tool quality evidence for all five axes.**
+
+## Model card
+
+- **Name:** Codestral 25.08 / Codestral 2508.
+- **Short description:** Mistral's low-latency coding model for fill-in-the-middle, code correction, completion, and test generation. The launch article separately assigns autonomous repository work to Devstral; that model's SWE results do not belong to Codestral.[1][2]
+- **Provider / access:** Native Mistral Chat Completions and `/v1/fim/completions`; official model page also lists Conversations, function calling, structured output, and predicted output features. OpenRouter serves the exact 2508 route. Enterprise private deployment is described commercially, not as a public unrestricted weight download.[1][2][3]
+- **Release / knowledge:** Official release **2025-07-30**. OpenRouter lists **2025-03-31** as its knowledge-cutoff metadata; no independent native cutoff verification.[1][2][3]
+- **IDs:** Native `codestral-2508`; OpenRouter `mistralai/codestral-2508`. Do not equate a rolling `codestral-latest` alias, the original 22B v0.1, or Devstral with this dated checkpoint. No exact Zen Free ID verified.
+- **Context window:** Current official model page displays **128K**, while OpenRouter and multiple models.dev serving entries list **256,000**. This discrepancy is unresolved. Native maximum output was not found; OpenRouter lists **204,800** maximum completion tokens within its larger advertised context. Provider-specific claims are not silently treated as one native specification.[1][3][4]
+- **Modalities:** Text in; text out. Gateway file/PDF handling and the native Document QnA feature do not establish a native image/audio/video encoder. Function/structured-output support varies across the inspected hosting entries.[1][3][4]
+- **Pricing (as of 2026-11-11):** Official page and OpenRouter agree on paid **$0.30 input / $0.90 output per 1M tokens**; gateway cached input **$0.03/M**. No exact zero-cost inference entitlement verified. Private enterprise deployments have separate terms.[1][2][3]
+- **Architecture:** Exact parameter count, public weights, and weight license not verified for 2508. Official-publisher registry search exposed older Codestral checkpoints, not a 2508 weight release; the original 22B model's architecture/license is not transferred.[5]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact-model public score found**. API feature support is not a tool-task success rate.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact-model public score found**.
+- The launch's **5% IF eval v8 improvement** is a relative instruction-following claim with no absolute baseline or complete evaluation protocol exposed in readable text; it is not an academic reasoning score.[2]
+
+Coding:
+
+- Publisher live-IDE claims: **30% increase in accepted completions**, **10% more retained code**, **50% fewer runaway generations**. These are relative changes over prior versions, not 30/10/50% absolute accuracy. Task counts, denominators, and the exact baseline are not fully disclosed in the inspected article.[2]
+- Publisher reports **5% average MultiplE improvement**; no absolute score or complete per-language table was readable. Chart images were not independently numerically extracted.[2]
+- OpenRouter secondarily publishes a Design Arena code-category snapshot: **1001 Elo**, **38.5% win rate**, **rank 130**. The original arena run/version and comparison population were not independently inspected; this is not a standardized repair pass rate.[3]
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified exact Codestral 2508 score found**. Devstral scores appearing in the same launch article are explicitly excluded.[2]
+
+Long context:
+
+- No exact measured MRCR / RULER / GraphWalks result found. A qualitative statement about improved long-context FIM does not resolve the native/gateway window discrepancy or establish retrieval accuracy.[1][2][3]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact coding/access evidence is useful, but missing broad reasoning and tool-task calibration prevents a defensible five-quality-axis Overall. Relative completion improvements and unrelated Devstral measurements cannot fill those axes. No placeholder scores are included.
+
+Fresh exact-name Bing RSS results were unrelated and discarded. Exact guessed AA and BenchLM profile paths returned 404; these path/access findings do not establish universal absence of evaluations. The configured search integration was unavailable with HTTP 402, supplemented by direct primary and live catalog inspection.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, exact dated native model page and launch article, live gateway/serving-registry comparison, and publisher checkpoint search. Notes-only partial-coverage self-exclusion; no peer findings read, completion deltas converted to absolute accuracy, or Devstral results transferred.
+- Reference URLs:
+  - [1 — Official exact 25.08 model page and current features/pricing](https://docs.mistral.ai/models/codestral-25-08)
+  - [2 — Official dated release and scoped completion improvements](https://mistral.ai/news/codestral-25-08)
+  - [3 — OpenRouter public exact-model catalog and secondary arena snapshot](https://openrouter.ai/api/v1/models)
+  - [4 — models.dev route-specific configurations](https://models.dev/api.json)
+  - [5 — Official Mistral checkpoint search](https://huggingface.co/api/models?author=mistralai&search=Codestral&limit=20)
+- Future sources: preserve these notes and add an independently signed scored report when genuinely new exact-model evidence supports a complete quality assessment.

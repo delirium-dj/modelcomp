@@ -1,0 +1,61 @@
+# Mercury Decide — findings by GPT 6.1 Sol
+
+- Source: Inception / `mercury-decide`, typed decision system
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from generative Overall: verified decision-model contract, but no measured exact-model task-quality/calibration results were recovered and the generative axes are not directly comparable.**
+
+## Model card
+
+- **Name:** Mercury Decide.
+- **Short description:** Typed decision model for routing, classification, ordinal scoring, and extraction against a shared state. It returns answers/probabilities rather than ordinary generated chat prose; it should be handled as a **decision** paradigm, not ranked against generative models' Overall. This research does not edit category metadata or relocate its permanent subject folder.[1][2]
+- **Provider / access:** Native `POST https://api.inceptionlabs.ai/v1/decisions`, bearer-authenticated API. The exact model explicitly does **not** support Chat Completions, streaming, or tool calling. Documented request examples are not authenticated inference tests.[1][2]
+- **Release / knowledge:** Exact release date and training knowledge cutoff not verified; a guessed launch-blog path returned 404.
+- **IDs:** `mercury-decide`. No exact OpenRouter match or Zen Free ID verified. A decision-only route need not appear in a chat-model catalog.[1][5]
+- **Context window:** No exact token-state budget or generated-output maximum published in the inspected model table. The **20 MiB default request-body limit** is an HTTP payload constraint, not a context window.[1][2][3]
+- **Modalities:** State/instructions may contain text or JSON and base64 PNG/JPEG/WebP/GIF images. Remote image URLs and images in criteria are unsupported. Limit **16 images**, **10 MiB each**, subject to the smaller combined body allowance after base64 encoding. Output is typed JSON answers/probabilities, not native media or chat text.[1][2]
+- **Decision types:** `noul` gives a positive-answer probability; `choice` accepts **1–255 options** and returns the selected option, distribution, and confidence; `score` accepts **1–10 ordered levels** and returns their probability-weighted index mean. These are native result scales, not ModelComp scores.[1][2]
+- **Extraction discrepancy:** The capabilities guide documents `extract` with **1–26 named fields**, but the inspected Create Decision OpenAPI request/answer unions enumerate only `noul`, `choice`, and `score`. Extraction support is documented, but the schema discrepancy should be verified against the live service before integration.[1][2]
+- **Pricing (as of 2026-11-11):** **$0.02 per 1M input tokens**, a stated 50% launch discount from **$0.04**; output tokens are reported but **not billed**. Zero output billing is not free inference. No model-specific privacy/ZDR entitlement independently verified.[1][3]
+- **Architecture:** Proprietary/undisclosed parameters, weights, and internal decision architecture. Similar output contracts do not establish shared weights or identity with another decision system.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified exact-model tool-task benchmark found; the native decision endpoint explicitly has no tool calls. Routing a tool name as a categorical answer is not executing a tool.[1]
+
+Reasoning / knowledge and decision quality:
+
+- No exact measured classification accuracy, calibration error, Brier score, AUROC, abstention/selective risk, GPQA, HLE, or Intelligence Index recovered from the inspected sources.
+- The documentation's example probabilities are **explicitly illustrative**, not observed model accuracy, calibrated confidence measurements, or successful evaluated requests.[1][2]
+- BenchLM says seven source-displayable rows exist but exposes no numeric benchmark rows in the retrieved exact-model page and assigns no Overall. A coverage count is not seven verified results available to this report.[4]
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, and DeepSWE: **no verified exact-model public score found**; these generative coding tasks are not the model's documented output contract.
+
+Long context / multimodal quality:
+
+- No measured exact-model maximum-state retrieval, MRCR / RULER / GraphWalks, or image-decision quality result verified. HTTP image/body limits are specifications, not retention or perception benchmarks.[1][2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** The five generative quality axes and their Overall would misrepresent a typed decision system; missing native task-quality/calibration measurements also prevent a grounded alternative numerical rating. No invented coding/text-generation scores or conversion of example confidence to accuracy is made.
+
+Fresh exact-name Bing RSS search returned no result items; the configured search integration was unavailable with HTTP 402. Direct primary API/capability/pricing documentation and exact tracker inspection supplied the evidence, with schema and measurement limits explicitly retained.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, exact decision-model contract/schema and pricing inspection, native-paradigm distinction, and tracker coverage check. Notes-only self-exclusion; no peer findings read or illustrative response values treated as benchmark accuracy.
+- Reference URLs:
+  - [1 — Official typed-decision capabilities, image restrictions, and pricing](https://docs.inceptionlabs.ai/capabilities/decisions.md)
+  - [2 — Exact Create Decision OpenAPI contract and typed schemas](https://docs.inceptionlabs.ai/api-reference/decisions/create-a-decision.md)
+  - [3 — Official model table: decision-only route and input-only billing](https://docs.inceptionlabs.ai/get-started/models.md)
+  - [4 — BenchLM exact decision-system page, no retrieved numeric rows/Overall](https://benchlm.ai/models/mercury-decide)
+  - [5 — OpenRouter public chat-model catalog](https://openrouter.ai/api/v1/models)
+- Future sources: preserve this native decision dossier and add independently signed, explicitly scoped decision-quality evidence without conflating it with generative Overall.

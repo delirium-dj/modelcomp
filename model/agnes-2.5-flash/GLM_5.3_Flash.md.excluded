@@ -16,8 +16,14 @@
 - **IDs:** `agnes-2.5-flash` (the only current Flash SKU; `agnes-2.0-flash` deprecated, do not use as fallback).
 - **Context window:** 524,288 (512K) total; 65,536 (65.5K) max output — verified from the official limits table. NOTE: the folder's scaffolded meta.json says "128K total", which contradicts the vendor's own docs — 512K is the verified figure.
 - **Modalities:** Text + image URL in (publicly accessible `image_url` parts; screenshot analysis, image description, visual Q&A); text out. Tool calling (`tools`/`tool_choice`), streaming, Thinking mode (`chat_template_kwargs.enable_thinking` on OpenAI-style; `thinking.budget_tokens` on Anthropic-style, e.g. 2048 for coding tasks); structured agent workflows positioned as a core capability.
-- **Pricing (as of 2026-11-11):** list — $0.05 in / $0.15 out / $0.005 cached per 1M tokens; trial price — $0 across the board (models.dev records the $0 trial as its headline price). Rate limits and billing follow the account's entitlement; no free-standing public tier documented beyond the trial.
+- **Pricing (as of 2026-11-11):** list — $0.05 in / $0.15 out / $0.005 cached per 1M tokens (cached input = 10% of the input price, cache-hit only); **trial — $0 on all three items, and the official pricing page's "Current offers" confirm all three billing items are currently free for `agnes-2.5-flash`** (limited-time; same offer on `agnes-3.0-flash`). Token Plan credits can only be used with Flash models. No free-standing public tier beyond the trial/promo.
 - **Architecture:** undisclosed — closed weights, no parameter count, no architecture statement in any official surface.
+
+## Deeper-source sweep (second pass, 2026-11-11)
+
+- **Official pricing page verified in full** (wiki.agnes-ai.com/en/docs/pricing.md): the family table places `agnes-2.5-flash` at $0.05/$0.15/$0.005-cached list with a $0 trial, and the "Current offers" section states input, output and cached input are **currently free** for `agnes-2.5-flash` and `agnes-3.0-flash` — the $0 state is an active limited-time promotion, not the list price. Family price anchors: `agnes-2.5-pro` $0.45/$0.90 (billed, no trial discount), `agnes-2.5-pro-beta` and `-pro-theta` $0.10/$0.30, `agnes-3.0-flash` $0.05/$0.15 (trial free), `agnes-3.0-pro` coming soon at $0.10/$0.30. Cached input is defined as 10% of the input price; Agent Plan usage bills at list price and is excluded from free offers; Token Plan applies to Flash models only.
+- **`agnes-3.0-flash` model page** (the successor, released 2026-09): same 512K context / 65,536 output envelope, same text + image-URL input, same three API surfaces and Thinking mode, positioned for agentic coding and tool orchestration ("stronger Agnes Code task execution") — corroborating that the 2.5 Flash spec sheet is the family's stable baseline, and confirming Agnes publishes no benchmark rows for any family member on any docs page.
+- Still zero benchmark rows on any surface (official docs and pricing, models.dev, BenchLM 404, web search). The exclusion verdict is unchanged.
 
 ### Raw benchmarks found
 

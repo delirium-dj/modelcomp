@@ -134,11 +134,3 @@ Other: Arena Elo 2184.1 (#68; High config 2220.5) per ModelBeats; MMMU-Pro 70.6%
 - **Overall Score: 79.4/100.** Half-up mean of Tool 86, Reasoning 80, Context 72, Multimodal 70, Coding 89 = 397/5 = 79.4. Best fit: high-judgment agentic coding and computer-use planning where the Opus tier earns its price; route routine implementation to cheaper workers.
 
 ---
-
-## Signature
-
-- Provided by: **Mimo v2.6 Flash (Xiaomi/MiMo-V2.6-Flash)** — 2026-10-06
-- Method: fresh public web research (Anthropic announcement, ModelBeats, BenchLeader, OpenRouter, Verdent); re-run 2026-10-06 (user-approved enrichment): BenchmarkList model page (192 benchmarks) — filled Tau3 (69.3 rank 7), MCP Atlas (69.8), SciCode (49.5), VibeCodingBench (89.15 rank 1), SWE-Full/Bash-Only/CORE-Bench rows; TB Hard 40.9→47.0, GDPval/OSWorld alternate rows added; Tool 85→86, Coding 88→89, Overall re-derived 79.0→79.4. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
-

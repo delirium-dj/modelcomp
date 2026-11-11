@@ -134,10 +134,3 @@ Multimodal:
 - **Overall Score: 75/100.** Mean of Tool 85 + Reasoning 88 + Context 96 + Multimodal 15 + Coding 89 = 373/5 = 74.6 → **75** (best-fit: high-volume text-only coding/agentic worker at $0.435/$0.870 when vision/multimodal coverage is not required; multimodal dims cap the overall hard — step up to a vision model if image/video-in matters).
 
 ---
-
-## Signature
-
-- Provided by: **Mimo V2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-09-23
-- Method: public internet research (DeepSeek release notes, BenchmarkList, Qwen launch cross-table for TB2.0-Terminus, models.dev-class pricing rows); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-

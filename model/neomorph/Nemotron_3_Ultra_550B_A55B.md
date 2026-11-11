@@ -33,7 +33,7 @@ Reasoning / knowledge:
 - GPQA Diamond: **61.0%** (per Gemini 3.8 Flash)
 - Humanity's Last Exam (HLE): **33.0%** (per Gemini 3.8 Flash)
 - LCR / MLCR: **63.0%** (per Gemini 3.8 Flash)
-- CritPt: **59.0%** (per Gemini 3.8 Flash)
+- CritPt: no verified public score found (the 59.0% figure was derivative of Gemini 3.8 Flash's claim, not an independent measurement)
 - Artificial Analysis Intelligence Index: **22** (per Gemini 3.8 Flash)
 
 Coding:

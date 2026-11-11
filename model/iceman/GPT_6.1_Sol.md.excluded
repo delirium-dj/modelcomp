@@ -1,0 +1,66 @@
+# Iceman — findings by GPT 6.1 Sol
+
+- Source: OpenCode anonymous Iceman routes; exact underlying checkpoint undisclosed
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded from Overall: real serving records and narrow Contributor experiments verified, but insufficient representative quality coverage and unresolved cross-route checkpoint identity.**
+
+## Model card
+
+- **Name:** Iceman; current access labels are Iceman Free and Iceman Contributor Free. No tier-suffixed duplicate folder is created.
+- **Short description:** Anonymous text reasoning/tool-use model listed on OpenCode Zen and Go. Shared naming and limits suggest related serving, but the inspected independent guide explicitly says OpenCode has not confirmed that both routes use the same model; their results are not silently interchanged.[1][2][3]
+- **Provider / access:** Zen and Go expose OpenAI-compatible Chat Completions at their documented catalog bases. No authenticated inference performed. Go subscription eligibility and free-app access are distinct from the listed token tariff.[1][2][3]
+- **Release / knowledge:** Go registry date **2026-10-24**; Zen registry date **2026-11-06**, whereas the independent guide records the Zen addition on **November 10**. These are different listing observations, not a verified underlying model release. Knowledge cutoff undisclosed.[1][2][3]
+- **IDs:** Zen `opencode/iceman-free`; Go `opencode-go/iceman-contributor-free`. Both exact IDs were positively found in their live catalogs.[1][2]
+- **Context window:** Both catalogs list **262,144 total / 131,072 maximum output**. No measured full-window retention result verified.[1][2]
+- **Modalities:** Text in; text out, with reasoning and tool calling. No native image/audio/video or non-text generation verified. The independent guide's SVG tasks are text-generated code, not image perception.[1][2][3]
+- **Pricing (as of 2026-11-11):** Both catalogs list **$0 input/output/cache read**. The independent guide describes limited-time Zen access and a Go subscription for Contributor access; its observed API limits mean zero token price is not a guarantee of unrestricted free API calls. It also reports retained requests/model-improvement use. No model-specific ZDR/no-training guarantee was established here, so confidential data should not be assumed protected.[1][2][3]
+- **Architecture:** Closed/undisclosed weights and parameter counts; no weight license verified. Tokenizer matching and model self-identification are not reliable vendor evidence: the independent tokenizer test matches several different vendors' models and explicitly cannot identify a lab.[3]
+
+### Raw benchmarks found
+
+**Exact historical configuration:** Stealth Models' **Iceman Contributor**, result record **2026-10-25**. The following are narrow independent SVG/game experiments. They are not automatically measurements of the later Zen `iceman-free` endpoint or a broad software-engineering suite.[3][4]
+
+Agent / tool use:
+
+- Foresight: **3.2/100**, **0 of 3 levels survived**; Latch: **3.6/100**, **1 of 5 levels cleared**. Game rules and denominators are retained; these are not tool-call completion percentages.[4]
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- StealthMark: **19.2/100**; its “General Intelligence” **11.7/100**, “Visual Intelligence” **31.0/100**. These are the site's spatial/construction aggregates, not ModelComp Overall, GPQA, or a broad academic index.[4]
+- Newton's Mirror **10.1**, Selfie **39.3**, Mona Lisa **19.3**, Beach **46.4**, Ground Truth **20.2**, Raccoon **29.8**, Pelican **38.0** on the evaluator's task scales.[4]
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified public score found**.
+
+Coding:
+
+- No verified exact SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, or representative Coding Index. Generating SVG code does not establish repair/engineering reliability.[4]
+
+Long context:
+
+- No verified MRCR / RULER / GraphWalks retrieval result at a stated window length. Catalog capacity is not measured retention.[1][2]
+
+Deployment observation:
+
+- Independent guide reports three **low-effort Go** runs spanning **18–62 output tokens/s**, approximately **46 on average**, and about **0.9 seconds** to start answering. Workload and historical serving configuration limit generalization to today's endpoint.[3]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Narrow experiments and interface specifications do not establish enough calibrated tool, reasoning, and coding evidence for five quality scores. Cross-route equivalence is unconfirmed, and no missing axis is filled with speculative Microsoft/OpenAI or other models' benchmarks.
+
+Fresh exact-name public search yielded unrelated results, discarded. Direct Zen/Go catalogs and independent exact-label experiments supplied positive evidence. The configured search integration's HTTP 402 and catalog omissions elsewhere are access/scope limitations, not a nonexistent-model finding.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, exact live route verification, explicit historical-configuration/identity review, and direct experimental benchmark inspection. Notes-only partial-coverage self-exclusion; no peer findings read or unconfirmed tier/checkpoint results merged.
+- Reference URLs:
+  - [1 — Zen live catalog: Iceman Free](https://opencode.ai/zen/v1/models)
+  - [2 — Go live catalog: Iceman Contributor Free](https://opencode.ai/inference/go/v1/models)
+  - [3 — Independent dated model guide, access observations, and identity limitations](https://stealthmodels.com/iceman-contributor)
+  - [4 — Exact historical Contributor experiment results and methodology](https://stealthmodels.com/benchmarks/models/iceman-contributor)
+  - [5 — models.dev public provider metadata](https://models.dev/api.json)
+- Future sources: preserve these notes and add an independently signed report once genuinely new exact-model evidence supports a defensible Overall.

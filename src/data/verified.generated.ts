@@ -57,7 +57,7 @@ export const VERIFIED: Record<string, string> = {
   "gemini-4-argon": "2026-11-11",
   "gemini-4-carbon": "2026-11-17",
   "gemma-4-12b-unified": "2026-11-11",
-  "gemma-4-26b-a4b": "2026-11-10",
+  "gemma-4-26b-a4b": "2026-11-11",
   "gemma-4-31b": "2026-11-10",
   "gemma-4-e2b": "2026-11-10",
   "gemma-4-e4b": "2026-11-10",

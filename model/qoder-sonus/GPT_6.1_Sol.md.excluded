@@ -1,0 +1,59 @@
+# Qoder Sonus — findings by GPT 6.1 Sol
+
+- Source: Unresolved exact `qoder-sonus` label; Qoder product documentation inspected
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded: no exact Sonus model identity or public quality benchmark was verified.**
+
+## Model card
+
+- **Name:** Qoder Sonus (queued label; exact model/checkpoint unverified).
+- **Short description:** Qoder is a real agentic coding platform, but its product identity does not establish a separately documented Sonus foundation model. The inspected official selector distinguishes automatic/tier routing from named third-party models; Qoder application results cannot be attributed to Sonus without an exact mapping.[1][2]
+- **Provider / access:** No exact Sonus entry found in the inspected OpenRouter or Vercel AI Gateway live catalogs. Official Qoder application/SDK availability is not proof of an OpenAI-compatible `qoder-sonus` model endpoint. No authenticated inference attempted.[1][4][5]
+- **Release / knowledge:** No verified exact-model release date or knowledge cutoff.
+- **IDs:** No exact vendor model ID or Zen Free ID verified. Do not derive `opencode/qoder-sonus` from the subject folder or equate it with a similarly named Claude model.
+- **Context window:** Unverified for Sonus; no application context setting, routing tier, or underlying third-party model cap adopted.
+- **Modalities:** Unverified for the exact model. Qoder's browser, voice-input, and screenshot features are application features, not proof of Sonus's native media encoders.
+- **Pricing (as of 2026-11-11):** No exact Sonus token tariff or free entitlement verified. Qoder's subscriptions, trials, and Credit multipliers cannot be converted to a Sonus per-token price without a model-specific mapping.[1][2]
+- **Architecture:** Exact publisher/checkpoint, parameter counts, weights, and license not established. The exact-name Hugging Face query returned no matches.[6]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified exact-model public score found**.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified exact-model public score found**.
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and Coding Index: **no verified exact-model public score found**. Official Qoder customer case studies and product testimonials do not establish a Sonus checkpoint or a reproducible Sonus result.[1][3]
+
+Long context:
+
+- No verified exact-model MRCR / RULER / GraphWalks result or context-capacity contract found.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Exact identity and quality coverage are insufficient for a defensible five-quality-axis Overall. No routing-tier, application, Qwen, or Claude results are transferred and no placeholder dimensions are invented.
+
+Fresh exact-name Bing RSS search returned no result items. The configured search integration returned HTTP 402 earlier in this run; a guessed BenchLM exact profile returned 404. Official Qoder homepage, blog index, documentation index, and current selector were inspected; no Sonus identity was exposed there. These are source-bounded findings, not proof against a private or differently indexed model.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh public search, direct publisher/product documentation, and exact-name gateway/weights checks. Notes-only self-exclusion; no peer findings read or product performance attributed to an undocumented model.
+- Reference URLs:
+  - [1 — Official Qoder product and model-access description](https://qoder.com/)
+  - [2 — Official selector: routing tiers versus named models](https://docs.qoder.com/qoder/model-selector.md)
+  - [3 — Official Qoder blog index](https://qoder.com/blog)
+  - [4 — OpenRouter live public model catalog](https://openrouter.ai/api/v1/models)
+  - [5 — Vercel AI Gateway live public model catalog](https://ai-gateway.vercel.sh/v1/models)
+  - [6 — Exact-name public checkpoint search](https://huggingface.co/api/models?search=Qoder-Sonus&limit=10)
+  - [7 — Official documentation index](https://docs.qoder.com/llms.txt)
+- Future sources: preserve these notes and add an independently signed report when exact-model identity and benchmark evidence become available.

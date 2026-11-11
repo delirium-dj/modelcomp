@@ -142,11 +142,3 @@ Multimodal:
 - **Overall Score: 85/100.** (71 + 84 + 95 + 93 + 83) / 5 = 85.2 → 85 — best-fit: a fast, genuinely multimodal open-weights workhorse for fine-tuning and mid-frontier coding/agentic work (SWE-V 77.6%, 86 tok/s median per AA), when you want open weights or audio input without paying frontier prices.
 
 ---
-
-## Signature
-
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-09-25
-- Method: public internet research (Thinking Machines model card, BenchmarkList, models.dev / models.opencode.ai provider tables, AI Trend wiki snapshot of the AA leaderboard); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
-
