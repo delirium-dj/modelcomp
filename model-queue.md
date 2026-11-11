@@ -7,7 +7,7 @@
 94.1 claude-opus-5.5
 93.8 gemini-4-argon
 93.8 muse-spark-1.3
-93.4 gemini-4-carbon
+93.6 gemini-4-carbon
 93.4 gpt-6-astra
 92.9 gemini-3.1-pro
 92.8 claude-fable-5.1
