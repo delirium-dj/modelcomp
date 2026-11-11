@@ -1,0 +1,29 @@
+# Glyph Cluster — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Stealth (`stealth/glyph-cluster`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Glyph Cluster
+- **Short description:** Anonymous stealth reasoning model (256K context, free tier) attributed to Microsoft AI / MAI research telemetry, tested on multi-step software engineering workflows.
+- **Provider / access:** OpenRouter / Vercel AI Gateway `stealth/glyph-cluster`
+- **Release / knowledge:** Unknown
+- **IDs:** `stealth/glyph-cluster`
+- **Context window:** 256,000 total; 256,000 max output
+- **Modalities:** Text in; text out
+- **Pricing (as of 2026-11-11):** Free preview tier $0/$0/$0 via Vercel AI Gateway & OpenRouter
+- **Architecture:** Unknown
+
+### Research notes
+
+No verified public benchmark numbers found for `stealth/glyph-cluster` as of 2026-11-11. Artificial Analysis model page https://artificialanalysis.ai/models/glyph-cluster returns 404 / no data. Model is stealth routed with no committed SLAs and no independent Intelligence Index, context verification, or modality scores published. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [OpenRouter](https://openrouter.ai)

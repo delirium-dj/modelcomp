@@ -1,0 +1,29 @@
+# Mercury Edit 2 — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Inception Labs (`inception/mercury-edit-2`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs' diffusion-based next-edit prediction model for code autocomplete and multi-line edits, aligned with Kahneman-Tversky Optimization (KTO).
+- **Provider / access:** Inception Labs `inception/mercury-edit-2`
+- **Release / knowledge:** Unknown
+- **IDs:** `inception/mercury-edit-2`
+- **Context window:** 32,000 total; 8,192 max output
+- **Modalities:** Text in; text out
+- **Pricing (as of 2026-11-11):** $0.25/$0.75 per 1M ($0.025 cached)
+- **Architecture:** Diffusion-based edit model
+
+### Research notes
+
+No verified public benchmark numbers found for `inception/mercury-edit-2` as of 2026-11-11. Artificial Analysis model page https://artificialanalysis.ai/models/mercury-edit-2 returns 404 / no data. Model is specialized FIM/edit endpoint with no independent Intelligence Index, coding benchmark, or modality scores published. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [Inception Labs](https://inceptionlabs.ai/)

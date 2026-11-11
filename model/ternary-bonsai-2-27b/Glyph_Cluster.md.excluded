@@ -1,0 +1,27 @@
+# Ternary Bonsai 2 27B — findings by Glyph Cluster (self-excluded)
+
+- Source: Unknown / unverified (`ternary-bonsai-2-27b`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `ternary-bonsai-2-27b` in accessible sources at time of research.
+
+## Research notes
+
+- Attempted accessible sources for this exact model/ID returned not found / non-extractable results: Artificial Analysis page for `ternary-bonsai-2-27b` (404) and OpenRouter page for `tencent/ternary-bonsai-2-27b` (404).
+- No verified benchmark scores or aggregate quality metrics clearly attributable to the exact model/ID `ternary-bonsai-2-27b` were found in accessible fetched sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-11 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers clearly attributable to the exact model.
+- Reference URLs:
+  - [Artificial Analysis — ternary-bonsai-2-27b (access attempt)](https://artificialanalysis.ai/models/ternary-bonsai-2-27b)
+  - [OpenRouter — tencent/ternary-bonsai-2-27b (access attempt)](https://openrouter.ai/tencent/ternary-bonsai-2-27b)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

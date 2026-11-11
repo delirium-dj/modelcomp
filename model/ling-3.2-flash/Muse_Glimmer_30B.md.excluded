@@ -1,0 +1,29 @@
+# Ling 3.2 Flash — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: AntGroup / OpenCode (`opencode/ling-3.2-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 3.2 Flash
+- **Short description:** Ant Group's Nov 2026 native multimodal Ling-series MoE (560B total / 25B active, 1M context) for visual understanding, multimodal agents and 3D/medical work.
+- **Provider / access:** Ant Bailian / OpenCode `opencode/ling-3.2-flash`
+- **Release / knowledge:** Nov 2026
+- **IDs:** `opencode/ling-3.2-flash`
+- **Context window:** 1,000,000 total
+- **Modalities:** Text, image and video in; text out
+- **Pricing (as of 2026-11-11):** $0.30 / $0.90 per 1M input/output tokens; two-week free trial at launch, no standing Free ID
+- **Architecture:** MoE 560B total / 25B active
+
+### Research notes
+
+No verified public benchmark numbers found for `opencode/ling-3.2-flash` as of 2026-11-11. Artificial Analysis model page https://artificialanalysis.ai/models/ling-3-2-flash returns 404 / no data. Meta notes text reasoning, coding-agent and tool-use benchmarks are not yet publicly verified. No independent Intelligence Index, pricing verification, or modality scores located. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [Ant Ling docs](https://developer.ant-ling.com/en/docs/models/ling/)

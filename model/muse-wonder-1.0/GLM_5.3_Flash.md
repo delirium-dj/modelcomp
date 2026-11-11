@@ -1,90 +1,73 @@
-# Muse Wonder — findings by GLM 5.3 Flash
+# Muse Wonder 1.0 — findings by GLM 5.3 Flash
 
-- Source: Meta (`meta/muse-wonder`)
-- Date: 2026-11-01 (UTC)
+- Source: Meta (`muse-wonder-1.0`)
+- Date: 2026-11-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Muse Wonder (bare vendor ID `meta/muse-wonder`; the versioned SKU `muse-wonder-1.0` is the same 2026-10-12 launch as listed on OpenCode Zen and Meta's own pricing page — this folder tracks the bare-ID entry, `muse-wonder-1.0/` tracks the versioned one; every figure below is labelled with the ID actually measured)
-- **Short description:** Meta's frontier multimodal reasoning model for personal and professional agents — long-horizon coding, computer use, and complex document work. Combines "Active Memory" (carries relevant context across conversations) with "Active Focus" (keeps working through blockers toward a goal).
-- **Provider / access:** Meta Model API, OpenAI-compatible chat completions, exact API ID `meta/muse-wonder`; also served by OpenRouter and major gateways under the same ID. OpenCode Zen lists the launch under `opencode/muse-wonder-1.0` (Responses API, `@ai-sdk/openai`).
-- **Release / knowledge:** Released 2026-10-12; knowledge cutoff not published.
-- **IDs:** `meta/muse-wonder` (bare, Meta Model API / OpenRouter); `muse-wonder-1.0` (versioned; Zen + Meta docs). No Free ID exists on Zen.
-- **Context window:** 1,048,576 tokens total; max output 131,072 (OpenCode model data + models.dev provider table; YFarmX measured 1,048,576 read tokens directly on 2026-10-17; OpenRouter carries 943,718 output = 90% of the window where no max is declared).
-- **Modalities:** Text, image, video, PDF, audio in; text out. Reasoning always-on (levels max/xhigh/high/medium/low/minimal, medium default — cannot be fully disabled per the measured identity record). Tool calling yes; structured output support varies by gateway.
-- **Pricing (as of 2026-11-01):** $4.00 in / $20.00 out / $0.20 cached-read per 1M tokens (Meta standard mode and OpenCode Zen identical). No free tier; Contributor mode pricing "not available". Muse Wonder Full is the separate Muse Code subscriber tier (own folder).
-- **Architecture:** Proprietary, closed weights; parameter count not disclosed.
+- **Name:** Muse Wonder 1.0
+- **Short description:** Meta's frontier agentic model (Oct 2026) for long-running personal/professional agents — 1M context, Active Memory + Active Focus, sub-agent delegation and error recovery. The API SKU `muse-wonder-1.0` is distinct from the stronger Muse Wonder Full (`muse-wonder-full-1.0`, Muse Code subscription only); the bare "Muse Wonder" product name resolves to this SKU.
+- **Provider / access:** Meta Model API, OpenAI-SDK-compatible endpoint, ID `muse-wonder-1.0`; also OpenRouter `meta/muse-wonder` (Chat Completions; providers: Meta direct + Google Vertex at the same $4/$20) and Google Cloud Marketplace (`muse-wonder-1-0`). Chat Completions API, not Responses.
+- **Release / knowledge:** released 2026-10-12 (research blog); knowledge cutoff not published — unverified.
+- **IDs:** `muse-wonder-1.0` (Meta Model API), `meta/muse-wonder` (OpenRouter). No free tier found on any cited route.
+- **Context window:** 1M total ("Context window (Mtok): 1M" on the official pricing table); max output not published — unverified.
+- **Modalities:** Text in; image in for computer use (sees and operates browsers, desktop and mobile apps); text out. Tool calls (incl. parallel), reasoning-effort parameter, JSON/response_format, search-grounding tool documented in the cookbook.
+- **Pricing (as of 2026-11-11):** $4.00 in / $20.00 out per 1M; cached input $0.20. Muse Code subscription route ($50 Power / $200 Maximum Usage per month) carries Muse Wonder Full, not this SKU.
+- **Architecture:** proprietary, closed weights; trained at the gigawatt-scale Prometheus datacenter on the Muse Spark scaling line. Active Memory (cross-conversation context) and Active Focus (sustained long-task execution) are the two flagship features.
 
 ### Raw benchmarks found
 
-Agent / tool use:
+Agent / tool use (all "max" effort, Meta-published comparisons vs Full / Fable 5.1 / GPT-6 Astra / Opus 5.5):
 
-- Terminal-Bench 4.0: **49.49%** (Vals AI independent run at max effort, ± 2.20, rank 9/54 — used as primary for 4.0 entries; Artificial Analysis measures **52.0%**, the figure Meta's card quotes)
-- JobBench: **70.5%** (self-reported at launch, rank 4/57, 95th percentile; field leader Claude Opus 4.7-under-Code 75.4%)
-- AA-Briefcase (long-horizon knowledge work): **Elo 1,659** (rank 7/160, 96th percentile; rubric pass 61.2%)
-- OSWorld 2.1 (computer use): **72.6%** (measured); OSWorld-Verified **82.9%** (estimated ± 8.1)
-- Toolathlon-Verified: **79.2%** (estimated ± 1.3); Toolathlon **55.9%** (estimated)
-- AA Agentic Index: **62.4%** (estimated ± 2.9); AA AutomationBench **39.1%** (measured)
-- AA Tau3-Banking: **48.0%** (estimated ± 4.0)
-- MCP Atlas: **100.0%** (estimated ± 7.7, low confidence — treat as provisional ceiling)
-- SWE-Atlas Codebase QnA: **64.6%** (estimated)
+- JobBench (professional tool use): **70.5** (Full 75.3, Fable 5.1 73.1, Opus 5.5 75.4)
+- MemoryBench (remembering context): **85.6** — best of the comparison set (Full 85.5, Fable 5.1 79.0, Opus 5.5 81.5)
+- OSWorld V2.1 (agentic computer use): **72.6%** partial / **34.3%** binary (Full 78.4/39.4, Fable 5.1 80.7/43.1, Opus 5.5 81.8/–)
+- AutomationBench-AA (E2E business workflows): **39.1** (Full 45.4, Opus 5.5 41.2)
+- Vals Finance Agent V2 (financial analyst research): **56.6** (Full 59.1, Fable 5.1 58.9)
+- Harvey LAB-AA (legal agent work): **10.0** (Full 13.1, Opus 5.5 4.2)
+- GDP.pdf (professional work): **30.8** (Full 33.2, GPT-6 Astra 34.2)
+- Terminal-Bench 2.1 / Tau3-Banking / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
 
 Reasoning / knowledge:
 
-- HLE (no tools): **50.1%** (measured by Artificial Analysis at max effort, Intelligence Index v4.3.2 run) — the strongest verified reasoning figure for this model
-- Artificial Analysis Intelligence Index: **43.3%** (measured)
-- GPQA Diamond: no verified public score found (not on Meta's card; AA no longer runs it; third-party estimates only, 92–95% — provisional)
-- MMLU-Pro: **86.2%** (estimated ± 4.1, high confidence — provisional)
-- ARC-AGI-2: **86.4%** (estimated ± 14.6, low confidence — provisional); ARC-AGI-1 **81.4%** (estimated)
-- CritPt (research-level physics): **28.3%** (measured, rank 10/32)
-- AA-Omniscience Accuracy: **38.0%** (measured)
-- SimpleQA: **42.8%** (estimated)
+- Personal Superintelligence Index (Meta internal composite, personal + knowledge work): **54.3** (Full 59.1, Opus 5.5 55.2, Fable 5.1 49.9)
+- Artificial Analysis Index: **52** (Full 56, Fable 5.1 53, Opus 5.5 58)
+- HealthBench Pro (open-ended health queries): **60.5** (Full 62.3, Opus 5.5 65.6)
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Omniscience: no verified public score found
 
 Coding:
 
-- DeepSWE 1.1 (mini-SWE-agent harness, Datacurve): **78.8%** (launch scorecard figure, rank 2/61, 98th percentile; Meta reports Datacurve third-party runs for Muse Wonder/Full)
-- SWE-Marathon: **53.1%** (measured); ProgramBench **50.0%** (measured)
-- AA-SciCode: **60.3%** (measured); SciCode **59.8%** (estimated)
-- AA Coding Index: **77.1%** (estimated ± 2.4)
-- Vals LiveCodeBench: **77.4%** (estimated); LiveCodeBench v6 ceiling estimate **100.0%** (± 4.9 — treat as saturated, provisional)
-- CursorBench 3.1: **69.4%** (estimated ± 3.4); CursorBench 4.0 **42.2%** (estimated)
-- SWE-bench Verified: no vendor-verified public score found (Meta reports DeepSWE/SWE-Marathon/ProgramBench instead; third-party "estimates" only — not counted)
+- DeepSWE 1.1 (long-horizon coding): **78.8** (Full 79.0, Opus 5.5 74.2, Fable 5.1 67.4)
+- SWE-Marathon (ultra-long horizon engineering): **53.1** (Full 57.5 xhigh, Opus 5.5 46.3, Fable 5.1 45.6)
+- Terminal-Bench 4.0-AA (agentic terminal coding): **52.0** (Full 57.1, Opus 5.5 59.6)
+- ProgramBench (from-scratch programming): **50.0** (Full 59.0, Opus 5.5 70.5)
+- SWE-bench Verified / LiveCodeBench / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- AA-LCR (long-context reasoning): **80.7%** (measured, rank 41/423, 91st percentile)
-- MRCRv2: **85.8%** (estimated, low confidence); GraphWalks BFS 256K–1M **71.9%** (estimated)
-- MMLongBench-Doc: **61.4%** (estimated)
-
-Vision / multimodal:
-
-- HieroglyphBench (vision sign transcription): **29.7%** (measured, rank 11/34)
-- MMMU-Pro: no verified public score found (independent evaluation pending)
+- no long-context retrieval reported (no MRCR / RULER / GraphWalks value published); 1M window from the official pricing table
 
 ### Normalized scores (1–100)
 
-- **Tool use: 78/100.** Elite long-horizon agentic percentile (AA-Briefcase 96th, JobBench 95th, OSWorld 2.1 72.6 measured) capped by mid-pack Terminal-Bench 4.0 (~50–52% across Vals/AA) and a weak Tau3 (48).
-- **Reasoning: 88/100.** HLE no-tools 50.1% measured at max effort is frontier-grade; ARC-AGI-2/MMLU-Pro estimates agree (~86); capped by CritPt 28.3 (mid-pack) and AAII 43.3.
-- **Context window: 90/100.** Verified 1,048,576-token window (largest tier) with healthy retrieval evidence (AA-LCR 80.7 measured at 91st percentile, MRCRv2 ~86); max output 131K.
-- **Multimodal: 84/100.** Full omni-modal input (text/image/video/PDF/audio) with reasoning + tools, but only mid vision-eval evidence so far (HieroglyphBench 29.7, MMMU-Pro pending).
-- **Coding: 84/100.** DeepSWE 1.1 78.8% at 98th percentile anchors it; AA Coding Index ~77 and Vals LCB ~77 agree; capped by measured SWE-Marathon 53.1 and ProgramBench 50.0.
-- **Cost efficiency: 40/100.** $4.00/$20.00 per 1M (cached $0.20) — premium frontier pricing, same tier as Claude Opus 5.5; no free lane on Zen.
-- **Overall Score: 85/100.** Mean of the five quality dims (78+88+90+84+84)/5 = 84.8 → 85. Best fit: long-horizon professional agents and document-heavy work at frontier quality, priced accordingly.
+- **Tool use: 89/100.** MemoryBench 85.6 (best in set), JobBench 70.5, OSWorld V2.1 72.6% partial and documented parallel tool use + error recovery; capped by mid-pack AutomationBench-AA 39.1, Harvey 10.0 and OSWorld partial trailing Fable 5.1/Opus 5.5.
+- **Reasoning: 85/100.** AA Index 52 and PSI 54.3 sit a visible step below Opus 5.5 (58/55.2) with the same effort; HealthBench 60.5 and Vals 56.6 are solid; GDP.pdf 30.8 caps it.
+- **Context window: 94/100.** 1M total window (top published tier); max output unpublished, so held just under the 95–100 band top.
+- **Multimodal: 65/100.** Image input via computer-use vision (browser/desktop/mobile) is first-class, text-only output; no audio/video I/O — middle of the 60–70 image-in band.
+- **Coding: 90/100.** DeepSWE 1.1 78.8 and SWE-Marathon 53.1 are best-or-near-best against Opus 5.5/Fable 5.1 (long-horizon is the strength); Terminal-Bench 4.0-AA 52.0 and ProgramBench 50.0 (vs Opus 70.5) cap the single-shot side.
+- **Cost efficiency: 52/100.** $4/$20 per 1M — premium tier pricing (same as Opus 5.5, 2x Sonnet-class); between the $3/$15≈60 and $10/$50≈30 anchors; $0.20 cached input helps.
+- **Overall Score: 85/100.** Mean of the five non-cost dims (89+85+94+65+90)/5 = 84.6. Best-fit recommendation: long-running agentic workflows with memory across sessions; pair with a cheaper model for high-volume single-shot coding.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-01
-- Method: Public internet research (vendor announcement, Meta API docs, OpenCode Zen catalog, independent benchmark boards); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-11
+- Method: public internet research (official Meta developer model page, Meta research blog, OpenRouter API docs); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - [Introducing Muse Wonder and Muse Wonder Full — About Meta](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
-  - [Meta Model API — Pricing and rate limits](https://dev.meta.ai/docs/pricing-rate-limits)
-  - [OpenCode Console — verified model list & pricing](https://opencode.ai/v2/docs/console/models/)
-  - [benchgap — Muse Wonder benchmark board](https://benchgap.net/model/muse-wonder)
-  - [AI Model Timeline — Muse Wonder methodology notes (Vals TB4 primary, AA HLE measured)](https://ai-model-timeline.org/models/meta-muse-wonder)
-  - [BenchmarkList — Muse Wonder ranked evals (JobBench, AA-LCR, CritPt, DeepSWE)](https://benchmarklist.com/models/meta-muse-wonder/)
-  - [models.opencode.ai — Muse Wonder 1.0 provider/spec table (1M context, 131K output)](https://models.opencode.ai/models/meta/muse-wonder-1.0/)
+  - [Meta — Muse Wonder developer model page (specs, pricing, benchmark table)](https://dev.meta.ai/models/muse-wonder)
+  - [Meta Research — Muse Wonder: A Frontier Model For Personal & Professional AI Agents](https://research.meta.ai/blog/introducing-muse-wonder/)
+  - [Meta Muse Wonder model card (PDF report)](https://research.meta.ai/static/muse-wonder-model-card/)
+  - [OpenRouter — meta/muse-wonder API page](https://openrouter.ai/meta/muse-wonder)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

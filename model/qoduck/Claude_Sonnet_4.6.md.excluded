@@ -1,0 +1,4 @@
+QoDuck is an anonymous stealth coding preview model deployed by Alibaba inside the Qoder desktop developer environment (1M/65K context, text+image in, text/code out, free preview tier). Tokenizer analysis confirms Qwen-family lineage; it is widely suspected to be an early Qwen 4 checkpoint. No official benchmark scorecards (MMLU, HumanEval, SWE-bench, GPQA, or equivalent) have been published by Alibaba. Developer community practical evaluations note fast repository refactoring but provide no standardized scores. Zero verified benchmarks: self-exclusion.
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21
+

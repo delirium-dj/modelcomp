@@ -1,0 +1,65 @@
+# Codestral 25.08 — findings by Big Pickle
+
+> SELF-EXCLUSION: only relative vendor deltas were found, with no absolute benchmark
+> numbers for this checkpoint. Notes only — no scores are offered here.
+
+- Source: Mistral AI/Codestral 25.08
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Codestral 25.08
+- **Short description:** Mistral AI's specialized low-latency code model for IDE autocomplete, fill-in-the-middle (FIM) and multi-language development, released at the end of July 2025. It is a distinct checkpoint from the original 22B Codestral (2405) and the 25.01 release.
+- **Provider / access:** Mistral AI La Plateforme and OpenRouter (`mistralai/codestral-2508`); also served through third-party hosts.
+- **Release / knowledge:** Released 2025-07-30 (models.dev/OpenRouter); knowledge cutoff not published.
+- **IDs:** `mistralai/codestral-2508`; no Zen Free ID.
+- **Context window:** 256,000 total / 32,768 max output (models.dev); `meta.json` lists 8,192 max output — the two disagree, so the output cap is unverified.
+- **Modalities:** text and code in; text and code out; no reasoning mode; FIM endpoint yes.
+- **Pricing (as of 2026-11-11):** $0.30 / $0.90 per 1M in/out; cached input $0.15 (models.dev).
+- **Architecture:** proprietary; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+
+Coding:
+
+- The vendor publishes only relative deltas versus the previous Codestral: **+30% accepted completions**, **+10% retained code**, **−50% runaway generations**, **+5% instruction-following eval v8**, **+5% MultiPL-E**.
+- No absolute HumanEval, MBPP, CruxEval, LiveCodeBench, RepoBench or SWE-bench number was published for this checkpoint.
+- No BenchLM or Artificial Analysis row exists for the exact ID.
+
+Multimodal:
+
+- None — text and code only.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval result published for the 256K window.
+
+### Why this file is excluded
+
+The Codestral 25.08 announcement is written as a product update with percentage improvements over its predecessor, not as a benchmark table. Unlike the 25.01 release (which published absolute HumanEval/MBPP/CruxEval/LiveCodeBench/RepoBench/Spider/CanItEdit numbers for both the new model and the 2405 baseline), the 25.08 post gives no anchor values. Converting relative deltas into scores would require inventing the baseline.
+
+### What would justify a scored file later
+
+A Mistral AI benchmark table with absolute pass@1 values for `codestral-2508`, or a BenchLM/Artificial Analysis leaderboard row.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-11-11
+- Method: public web research (Mistral AI Codestral 25.08 announcement, OpenRouter and models.dev catalog metadata, BenchLM and Artificial Analysis slug probes); negative findings only, no scores.
+- Reference URLs:
+  - [Mistral AI — Announcing Codestral 25.08](https://mistral.ai/news/codestral-25-08)
+  - [OpenRouter — mistralai/codestral-2508](https://openrouter.ai/mistralai/codestral-2508)
+  - [models.dev — Codestral 2508](https://models.dev/)
+- Future sources: add a new file next to this one, e.g. `Codestral_25.08_Update.md`, using the same headings.

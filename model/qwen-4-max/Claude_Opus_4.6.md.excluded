@@ -1,0 +1,66 @@
+# Qwen 4 Max — findings by Claude Opus 4.6
+
+- Source: Alibaba Cloud (`alibaba/qwen-4-max`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 4 Max
+- **Short description:** Alibaba's next-generation Qwen 4 flagship multimodal MoE model, announced at the Apsara Conference. Currently in early developer preview with limited access. Engineered for complex reasoning, autonomous software engineering, and multi-modal tool use.
+- **Provider / access:** Alibaba Cloud Model Studio (`alibaba/qwen-4-max`), early preview via QwenStudio and internal developer tools. Limited access; broader commercial availability pending.
+- **Release / knowledge:** Announced 2026 (Apsara Conference). Currently in preview/canary phase. Full production release pending.
+- **IDs:** `alibaba/qwen-4-max` (no Free ID exists)
+- **Context window:** 1,000,000 tokens input / 131,072 tokens max output — per meta.json.
+- **Modalities:** Text + image + video in; text out. MoE sparse attention architecture.
+- **Pricing (as of 2026-11-11):** ~$2.00/$6.00 per 1M tokens (promotional preview allocations). Paid only, proprietary.
+- **Architecture:** Proprietary MoE with sparse-attention routing, parameter-free lookup embedding (PLE) layers. Closed weights (unlike open-weight Qwen community models).
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION TRIGGERED:** Zero verified public benchmark numbers were found for this exact model/ID. Qwen 4 Max is currently in early developer preview/canary phase. No official first-party technical report, evaluation model card, or benchmark scorecard has been published. Anonymous canary checkpoints (codenames "Kalmia", "Kerria") have cycled through blind testing on Chatbot Arena, but no verified stable public Elo rating or benchmark scores exist for the production-ready Qwen 4 Max weights.
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- MMLU / MMLU-Pro: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+
+- 1M context window per meta.json. No MRCR/RULER/GraphWalks retrieval benchmarks found.
+
+### Predecessor context (NOT used for scoring)
+
+For reference only, the preceding Qwen 3.7-Max scored: GPQA Diamond ~92.4%, LiveCodeBench ~91.6%, SWE-bench Pro ~60.6%, Chatbot Arena Elo ~1506 (Qwen 3.8-Max). These scores apply to the predecessor generation and are NOT transferable to Qwen 4 Max's evaluation.
+
+### Negative findings summary
+
+Qwen 4 Max is a pre-release flagship model currently in early preview. No official benchmark data, technical paper, or finalized evaluation scorecard has been published. The model has appeared on Chatbot Arena under anonymous canary codenames but without disclosed scores. Self-exclusion applies per template rules.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-11
+- Method: Public internet research (Alibaba Cloud, benchlm.ai, kie.ai, hermes-ai.net, explainx.ai, Chatbot Arena); zero verified benchmarks found — saved as `.md.excluded`.
+- Reference URLs:
+  - [Alibaba Cloud — Model Studio](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Qwen LM — GitHub](https://qwenlm.github.io)
+  - [kie.ai — Qwen 4 roadmap](https://kie.ai)
+  - [benchlm.ai — Qwen 4 Max tracking](https://benchlm.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+

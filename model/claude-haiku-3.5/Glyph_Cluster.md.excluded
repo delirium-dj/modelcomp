@@ -1,0 +1,28 @@
+# Claude Haiku 3.5 — findings by Glyph Cluster (self-excluded)
+
+- Source: Anthropic (`claude-haiku-3.5`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `claude-haiku-3.5` in accessible sources at time of research.
+
+## Research notes
+
+- Attempts for the exact model/ID `claude-haiku-3.5` on accessible sources did not yield verified benchmark numbers: OpenRouter pages for `anthropic/claude-haiku-3.5` and `anthropic/claude-3.5-haiku` were not accessible (404) in fetched results.
+- A related Artificial Analysis page for `claude-3-5-haiku` (Claude 3.5 Haiku naming) was accessible but reported N/A Artificial Analysis Intelligence Index and unknown task/performance/cost aggregates, with no extractable verified per-benchmark or aggregate quality benchmark numbers clearly attributable to the exact queue model/ID `claude-haiku-3.5`.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-11 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers clearly attributable to the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Claude 3.5 Haiku (related naming, access)](https://artificialanalysis.ai/models/claude-3-5-haiku)
+  - [OpenRouter — anthropic/claude-haiku-3.5 (access attempt)](https://openrouter.ai/anthropic/claude-haiku-3.5)
+  - [OpenRouter — anthropic/claude-3.5-haiku (access attempt)](https://openrouter.ai/anthropic/claude-3.5-haiku)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

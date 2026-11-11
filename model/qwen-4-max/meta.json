@@ -1,0 +1,15 @@
+{
+  "id": "alibaba/qwen-4-max",
+  "name": "Qwen 4 Max",
+  "short": "Alibaba's Qwen 4 Max frontier multimodal MoE model offering massive 2M context, elite reasoning, and advanced agentic capabilities.",
+  "contextWindow": "2M / 128K out",
+  "modalities": "Text, image, video, audio in; text out",
+  "pricingNote": "Paid API tier (~$2.50 / $10.00 per 1M tokens)",
+  "noFreeId": true,
+  "officialUrl": "https://qwenlm.github.io/blog/qwen-4-max/",
+  "pricingLinks": [
+    "https://www.alibabacloud.com/help/en/model-studio/models"
+  ],
+  "standout": "Alibaba's flagship Qwen 4 generation frontier model combining massive 2M context capacity with top-tier multi-domain intelligence.",
+  "tradeoff": "Premium API pricing and proprietary hosted model infrastructure."
+}

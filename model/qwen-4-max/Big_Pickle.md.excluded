@@ -1,0 +1,66 @@
+# Qwen4-Max — findings by Big Pickle
+
+> SELF-EXCLUSION: this model yielded zero verified public benchmark numbers for the
+> exact `qwen4-max-preview` ID. Notes only — no scores are offered here.
+
+- Source: Alibaba/Qwen4-Max (Preview)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen4-Max (Preview)
+- **Short description:** Alibaba's next-generation flagship multimodal model, published as a two-week preview (`qwen4-max-preview`) from 11 to 25 November 2026. It is the first member of the Qwen4 family (Max, Flash, Plus, 27B) and is aimed at coding, office productivity, frontend design and complex agentic tasks. This is a preview-tier release, not a general-availability model.
+- **Provider / access:** Alibaba QwenCloud Token Plan only (`qwen4-max-preview`), base URL `https://token-plan.maas.qwencloudapi.com`; OpenAI Chat Completions, OpenAI Responses and Anthropic Messages compatible. Also surfaced inside Qwen Chat, the Qwen App, QwenStudio, QwenWork and Qoder. No pay-as-you-go access during the preview.
+- **Release / knowledge:** Preview window 2026-11-11 10:00 to 2026-11-25 24:00 (UTC+8); the model is retired after the preview. Knowledge cutoff not published.
+- **IDs:** `qwen4-max-preview`; no OpenCode Zen or free ID exists.
+- **Context window:** 1,000,000 total / 393,216 max output, shared by thinking and the final answer (QwenCloud "Latest model" docs, checked 2026-11-11).
+- **Modalities:** text + image + video in; text out; reasoning yes (thinking on by default; `reasoning_effort` low/medium/xhigh, default xhigh); tool calls, web search, JSON Object and JSON Schema supported.
+- **Pricing (as of 2026-11-11):** no per-token rate published; access is bundled into the Token Plan subscription. `meta.json`'s "~$2.00/$6.00" figure is the Qwen3.8-Max rate, not a Qwen4-Max rate.
+- **Architecture:** proprietary, hosted only. Alibaba has published no parameter count. Qwen3.8-Flash-Next (125B main + 51B n-gram table, ultra-sparse MoE) is described by Qwen as an architecture preview for Qwen4, but none of its figures are confirmed to carry over to the Max tier.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.0, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+- BenchLM tracks a canonical page for `qwen4-max` but reports **0 of 812 benchmarks covered** and **Unranked**, last updated 2026-11-10 ("Benchmark data is coming soon for this model").
+- Artificial Analysis has no page for `qwen4-max` / `qwen4-max-preview`; Stealth Models' 2 November 2026 leak check states the circulating "AA score 53" chart is absent from AA's leaderboard and posts, and that no Qwen 4 score then circulating traces to a primary source.
+
+Coding:
+
+- SWE-bench Verified / Pro, DeepSWE, LiveCodeBench, SciCode, FrontierCode: no verified public score found.
+- A circulating "Qwen4-Coder 82% SWE-bench Verified" figure is labelled illustrative by the page that published it and cites no primary source.
+
+Multimodal:
+
+- MMMU-Pro, CharXiv, MathVision, LVBench: no verified public score found.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval result reported for the 1M window.
+
+### Why this file is excluded
+
+The model launched in preview on the same day this research ran, and Alibaba published capabilities and specs only — no model card, no benchmark table, no weights. Every numeric claim found in secondary coverage either belongs to Qwen3.8-Max (34 on AA Intelligence Index v5, $2/$6, 1M context), to the Qwen3.8-Flash-Next architecture preview, or is an unsourced leak. Per the self-exclusion rule, a scored file with placeholder values is not written.
+
+### What would justify a scored file later
+
+A first-party Qwen4-Max model card or QwenCloud benchmark table, an Artificial Analysis or BenchLM leaderboard row for the exact ID, or published SWE-bench/Terminal-Bench/GPQA numbers attributable to `qwen4-max-preview`.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-11-11
+- Method: public web research (QwenCloud "Latest model" documentation, BenchLM model page, Stealth Models Qwen 4 guide and leak check, Artificial Analysis slug probe); negative findings only, no scores.
+- Reference URLs:
+  - [QwenCloud — Latest model: Qwen4-Max-Preview](https://docs.qwencloud.com/developer-guides/getting-started/latest-model)
+  - [BenchLM — Qwen4 Max](https://benchlm.ai/models/qwen4-max)
+  - [Stealth Models — Qwen 4 family guide and leak check](https://stealthmodels.com/qwen-4)
+- Future sources: add a new file next to this one, e.g. `Qwen4_Max_Update.md`, using the same headings.

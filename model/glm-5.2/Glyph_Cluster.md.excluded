@@ -1,0 +1,27 @@
+# GLM-5.2 — findings by Glyph Cluster (self-excluded)
+
+- Source: Z AI (`glm-5.2` / `z-ai/glm-5.2`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `glm-5.2` / `z-ai/glm-5.2` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis lists GLM-5.2 (Max) with N/A Artificial Analysis Intelligence Index and unknown task/performance/cost aggregates ("No publicly available API" in benchmark sections), 1M context window, text input/output, reasoning support, 753B total / 40B active parameters, MIT license, and pricing metadata. OpenRouter lists provider routing/pricing and API capabilities for `z-ai/glm-5.2`.
+- No verified per-benchmark or aggregate quality benchmark numbers clearly attributable to the exact model/ID were extractable from accessible fetched sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-11 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers clearly attributable to the exact model.
+- Reference URLs:
+  - [Artificial Analysis — GLM-5.2](https://artificialanalysis.ai/models/glm-5-2)
+  - [OpenRouter — z-ai/glm-5.2](https://openrouter.ai/z-ai/glm-5.2)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

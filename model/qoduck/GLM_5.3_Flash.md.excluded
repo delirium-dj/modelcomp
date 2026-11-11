@@ -1,0 +1,47 @@
+# Qoduck — findings by GLM 5.3 Flash
+
+- Source: Alibaba Qoder (`qoduck` — stealth, no API identifier)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUDED — zero verified public benchmark numbers found for this model after a full pass over Qoder's official event documentation, an independent architecture analysis, news coverage and the models.dev/Hugging Face registries (no official entry anywhere). Qoduck is a stealth model with no model card, no published weights, no API identifier and no vendor-published benchmark — any score would be a placeholder. Verified facts recorded below for future re-research if Alibaba names it.
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** Alibaba Qoder's stealth coding model (Nov 2026) — identity undisclosed by the vendor; offered free inside a daily allowance to individual Qoder users for a limited time. Community guesses (Qwen4-27B with an n-gram lookup table) are unverified; the only firm fact is Qoder's own "stealth model whose identity has yet to be disclosed".
+- **Provider / access:** Qoder app model picker only (Qoder CN and Qoder International, individual accounts — Free/Pro/Pro+/Ultra plans and membership cards); IDE, JetBrains plugin and CLI excluded from the promo; Teams/Enterprise accounts do not see the model. No public API endpoint — cannot be called from user code.
+- **Release / knowledge:** appeared 2026-11-07 (Beijing/Singapore time); the free promo ran to 2026-11-11 10:00 (UTC+8), after which Qoder stated Qoduck "will be removed when the promotion ends". Knowledge cutoff unknown.
+- **IDs:** none published — no API identifier, no weights repo; not listed in models.dev or the official Qwen Hugging Face org.
+- **Context window:** Not announced — no vendor-published context figure (a 1M-token claim circulating on social media is unverified; the independent OrcaRouter analysis explicitly lists "no context figure" among unpublished facts).
+- **Modalities:** Text in / text out in practice (coding product); nothing official — no modality documentation exists.
+- **Pricing (as of 2026-11-11):** free within a daily allowance during the promo (Credit rate 0.5× → 0.0×, including at highest thinking intensity; does not draw the daily 100 general-purpose Credits); standard rate after the allowance is 0.5× — the same premium factor Qoder's consumption reference attaches to Qwen3.8-Max and DeepSeek-V4-Pro (Qwen3.8-Flash sits at 0.1×).
+- **Architecture:** unverified. The leading community reading (35 GB at Q8 vs ~29–31 GB for Qwen3.8-27B FP8, implying +5–7B parameters, plausibly an n-gram lookup table like Qwen3.8-Flash-Next's 51B table on its 125B backbone, plus MTP; 480 tok/s second-hand) is hearsay — no rig, quant or run published; Alibaba's only written Qwen 4 statement (2026-09-22) says Qwen 4 is in training, not shipped.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found
+
+Reasoning / knowledge: no verified public score found — a self-reported "beat every released Qwen we tested" knowledge check has no published items, scoring method or sample size; a "pixel-art city faster than DeepSeek v4.1 Flash" clip is anecdote, not a benchmark.
+
+Coding: no verified public score found
+
+Long context: no long-context retrieval reported
+
+### Normalized scores (1–100)
+
+Not computed — self-excluded per the zero-verified-benchmarks rule (`RULES.md`; template SELF-EXCLUSION). A vendor-declared stealth model with no model card and no reproducible evaluation cannot be scored without fabrication; the free-promo access window is a pricing event, not a capability measurement.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-11
+- Method: public internet research (Qoder official event docs, OrcaRouter independent analysis, news coverage, DuckDuckGo-indexed coverage, models.dev registry check); scores are normalized 1–100 interpretations, not official vendor scores — none computed here.
+- Reference URLs:
+  - [Qoder Docs — Qoduck: Try the Stealth Model Free for a Limited Time (official)](http://docs.qoder.cn/en/events/qoduck-free)
+  - [OrcaRouter — Qoduck Leak: Alibaba's Stealth Model Looks Like Qwen 4 (independent analysis)](https://www.orcarouter.ai/blog/qoduck-qwen4-27b-leak)
+  - [Startup Fortune — Alibaba's Qoder makes a mystery coding model called Qoduck free to use](https://startupfortune.com/alibabas-qoder-makes-a-mystery-coding-model-called-qoduck-free-to-use/)
+  - [AI Tool Ranked — Qoder's Qoduck: a free stealth coding model, origin unknown](https://aitoolranked.com/news/qoder-qoduck-stealth-model-free)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

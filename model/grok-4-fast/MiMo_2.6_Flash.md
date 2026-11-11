@@ -1,14 +1,44 @@
 # Grok 4 Fast — findings by MiMo 2.6 Flash
 
 - Source: Artificial Analysis (deprecated non-reasoning page + reasoning-variant benchmarks), BenchLM (AA re-runs, Vals rows), repo meta
-- Date: 2026-10-07 (UTC)
+- Date: 2026-11-11 (UTC) — second-pass enrichment re-research (previous 2026-10-07)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
+
+> **Second-pass enrichment — 2026-11-11** (user-approved). Previous Signature
+> 2026-10-07 (Overall 72). Fresh sources this pass: **Vals AI model page**
+> (`grok_grok-4-fast-reasoning`, evaluated 2025-09-20, current benchmark
+> table) and **BenchLM model page** (snapshot 2026-11-10, **43.3/100,
+> #127/1020, 17/812 rows**, slug `grok-4-fast-reasoning` — the plain
+> `grok-4-fast` slug 404s), plus the AA model page (deprecation notice,
+> pricing re-verified). Headline: **the canonical claim "the only coding
+> row anywhere … no SWE-bench/LiveCodeBench/Coding-Index/Terminal-Bench
+> figure exists" is falsified** — Vals publishes **LiveCodeBench 78.97**
+> (#76/143), **SWE-bench 45.40** (#84/88), **Terminal-Bench 2.0 29.21**
+> (#46/67), and BenchLM/AA publish **AA-LiveCodeBench 83.2** plus
+> **AA AIME 2025 89.7** and **AA MMLU-Pro 85.0**. Changes: **Coding
+> 61→65** — positive coding evidence now exists (LCB 78.97–83.2 is
+> respectable for a budget tier; SWE-bench 45.40 weak, Vibe 0.00 floor
+> and TB2.0 29.21 weak still hold it down) → 65 (was 61, scored on
+> absence of evidence). **Multimodal 63→66** — Vals **MMMU-Pro 72.78**
+> (#61/93) sits mid-band alongside the recorded AA 61.8 (two harnesses,
+> both recorded; average read = mid image band, was bottom-half-only) →
+> 66. **Overall 72→74** (71+73+94+66+65)/5 = 369/5 = 73.8 → 74. Held:
+> Tool 71 (new TB2.0 29.21 is weak, recorded, does not raise the τ² 65.8
+> anchor), Reasoning 73 (GPQA 84.7 re-confirms via Vals 85.35; new AIME
+> 89.7 partial offset vs unchanged HLE 19.1 / CritPt 2.9 / Omniscience
+> −29.9 anchors; **MMLU-Pro conflict: AA 85.0 vs Vals 79.70** recorded),
+> Context 94 (2M + LCR 73.7 re-confirmed), Cost 95 ($0.20/$0.50
+> re-verified by AA and Vals). AA Index now **N/A** (was 17.9/11-est —
+> unmeasured on the deprecated page, not a level change; BenchLM still
+> lists 17.9). Vals lists max output 2M vs canonical 30K (conflict
+> recorded) and "file input supported" (vs canonical no-PDF). Merged-
+> duplicate section below untouched.
 
 ## Model card
 
 - **Name:** Grok 4 Fast — xAI's **cost-efficient reasoning model (Sep 2025)** blending reasoning and non-reasoning modes **in one weights set**, at **~1/15 of Grok 4 cost**; best for high-volume grounded search and long-document work. **Deprecated May 2026** in favour of Grok 4.1 Fast (repo meta); AA also flags the deprecation ("only default 10k workload continues; consider Grok 4.1 Fast"). AA non-reasoning page: **released 2025-09-19**.
-- **Short description:** The budget tier of the Grok 4 line. AA's two variant pages: **non-reasoning index 11\* estimated (#23/75, above class median 9)** and, via BenchLM, the **reasoning variant's AA index 17.9** — both far below Grok 4's 22.5 and the reason this report lands where it does. BenchLM: **43.74/100, #119/887** (12/623 rows, conservative), between Grok 3 Mini (44.87 — effectively tied) and Grok 4.1 Fast Reasoning (46.33). AA prose: "above average in intelligence and reasonably priced" for its non-reasoning class.
+- **Short description:** The budget tier of the Grok 4 line. AA's two variant pages: **non-reasoning index 11\* estimated (#23/75, above class median 9)** and, via BenchLM, the **reasoning variant's AA index 17.9** — both far below Grok 4's 22.5 and the reason this report lands where it does. BenchLM (2026-11-10): **43.3/100, #127/1020** (17/812 rows, conservative), sitting between Grok 3 Mini (44.09) and Grok 4.1 Fast (36.41) — i.e. its successor's base variant scores *lower*. AA prose: "above average in intelligence and reasonably priced" for its non-reasoning class.
 - **Provider / access:** xAI API (1 provider per AA). Proprietary. No free id (meta).
 - **Release / knowledge:** September 19, 2025.
 - **Context window:** **2,000,000 (2M); 30,000 max out.**
@@ -22,39 +52,44 @@
 
 Agentic / tool use:
 
-- **τ²-bench: 65.8** (AA) — weak-mid multi-turn tool reliability (Grok 4 proper: 74.9; 2026 flagships: 86–97). No TB/OSWorld/GDPval/BrowseComp row.
+- **τ²-bench: 65.8** (AA, re-confirmed on BenchLM 2026-11-10) — weak-mid multi-turn tool reliability (Grok 4 proper: 74.9; 2026 flagships: 86–97).
+- **Terminal-Bench 2.0: 29.21** (Vals AI — **new**; weak, #46/67 — the canonical "no terminal row" gap is filled, and it does not help). No OSWorld/GDPval/BrowseComp row (re-checked 2026-11-11).
 
 Coding:
 
-- **Vibe Code Bench: 0.00** (Vals) — floor result, and the only coding row anywhere for this model; no SWE-bench/LiveCodeBench/Coding-Index/Terminal-Bench figure exists.
+- **Vibe Code Bench v1.1: 0.00** (Vals, re-confirmed BenchLM 2026-11-10 — still floor, #126/127).
+- **LiveCodeBench: 78.97** (Vals — **new**, #76/143) and **AA LiveCodeBench: 83.2** (AA leaderboard via BenchLM — **new**) — respectable for a budget tier.
+- **SWE-bench: 45.40** (Vals — **new**, #84/88, weak). The canonical "only coding row anywhere" claim is now falsified (2026-11-11): four coding rows exist. Still no Coding-Index/SWE-Pro/SciCode figure.
 
 Reasoning & knowledge:
 
-- **AA-GPQA Diamond: 84.7** — mid, well under the 90 reference. **AA-HLE: 19.1** — far under 40.
-- **AA Intelligence Index: 17.9** (reasoning variant) / **11\* estimated** (non-reasoning variant) — mid band at best.
-- AA-Omniscience: **Index −29.9** (accuracy 22.8, hallucination 68.3) — deeply negative knowledge reliability. CritPt 2.9; AA-IFBench 50.5.
+- **AA-GPQA Diamond: 84.7** (Vals: 85.35, #49/138 — independent corroboration) — mid, well under the 90 reference. **AA-HLE: 19.1** — far under 40.
+- **AA Intelligence Index: 17.9** (reasoning variant, still listed by BenchLM 2026-11-10) / **11\* estimated** (non-reasoning variant) — mid band at best; the AA model page itself now shows **N/A** (deprecated-model estimate withdrawn — unmeasured, not a level change).
+- AA-Omniscience: **Index −29.9** (accuracy 22.8, hallucination 68.3) — deeply negative knowledge reliability. CritPt 2.9; AA-IFBench 50.5. All re-confirmed byte-identically on BenchLM 2026-11-10.
+- **AIME 2025: 89.7** (AA via BenchLM — **new**, strong math for the tier). **MMLU-Pro: conflict — AA 85.0 vs Vals 79.70** (#95/138) — both mid, reported side by side.
 
 Multimodal / long context:
 
-- **AA-MMMU-Pro: 61.8** — lower-mid image band.
-- **AA-LCR: 73.7** — genuinely decent long-context retrieval for a budget model (Grok 4: 68.0).
+- **AA-MMMU-Pro: 61.8** (re-confirmed BenchLM) / **Vals MMMU-Pro: 72.78** (#61/93) — two harnesses, both recorded: bottom-half to mid image band.
+- **AA-LCR: 73.7** (re-confirmed BenchLM 2026-11-10) — genuinely decent long-context retrieval for a budget model (Grok 4: 68.0).
+- Vals spec lists **file input supported** (vs canonical "no PDF") and **max output 2M** (vs canonical 30K) — conflicts recorded.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 71/100.** τ² 65.8 is the only tool row and it is weak-mid; no terminal/OSWorld/GDPval-class evidence at all.
-- **Reasoning: 73/100.** GPQA 84.7 is respectable for a budget tier but nowhere near reference; HLE 19.1, index 17.9/11\*, CritPt 2.9 and an Omniscience index of −29.9 make this a clearly sub-frontier reasoning profile.
-- **Context window: 94/100.** A true 2M window with LCR 73.7 measured — the strongest dimension by evidence, and the model's whole reason to exist.
-- **Multimodal: 63/100.** Text+image with MMMU-Pro 61.8 — bottom half of the image band, no video/audio/PDF.
-- **Coding: 61/100.** One row, Vibe 0.00 — floor. Nothing contradicts it because nothing else exists; scored at the low end on absence of any positive coding evidence.
-- **Cost efficiency: 95/100** (excluded from Overall). $0.20/$0.50 is far beyond the $0.60/$2.20 ≈ 92 anchor (roughly 1/15 of Grok 4 per meta), cache $0.05, 2M context included; only deprecation and single-provider availability keep it out of the high-90s.
-- **Overall Score: 72/100.** (71+73+94+63+61)/5 = 72.4 → 72 — the Sep-2025 budget model does exactly what it was built for (cheap, fast, 2M-token document work), and the evidence says that is all: weak τ², sub-reference HLE, a negative Omniscience index, MMMU 61.8, and a single floor-level coding row.
+- **Tool use: 71/100.** τ² 65.8 is still the anchor tool row (re-confirmed on BenchLM) and it is weak-mid; the new Terminal-Bench 2.0 29.21 (Vals) fills the "no terminal evidence" gap but is itself weak — no upward movement, and still no OSWorld/GDPval-class evidence (no change).
+- **Reasoning: 73/100.** GPQA 84.7 (Vals 85.35 independent) is respectable for a budget tier but nowhere near reference; HLE 19.1, index 17.9/11\*, CritPt 2.9 and an Omniscience index of −29.9 keep this a clearly sub-frontier profile. New AIME 89.7 is a partial offset; MMLU-Pro conflict (AA 85.0 vs Vals 79.70) recorded, both mid (no change).
+- **Context window: 94/100.** A true 2M window (re-confirmed AA + Vals + BenchLM) with LCR 73.7 measured (re-confirmed) — the strongest dimension by evidence, and the model's whole reason to exist (no change).
+- **Multimodal: 66/100.** Text+image with MMMU-Pro now read across two harnesses — AA 61.8 and **Vals 72.78 (#61/93)** — landing mid image band rather than bottom-half-only → 66 (was 63); no video/audio, text-only output keep it out of the 75+ band (Vals's "file input supported" vs canonical no-PDF recorded as a conflict).
+- **Coding: 65/100.** The previous 61 was explicitly "scored at the low end on absence of any positive coding evidence" — that absence is gone: **LiveCodeBench 78.97 (Vals) / 83.2 (AA)** is respectable, but **SWE-bench 45.40 (#84/88)**, **TB2.0 29.21** and **Vibe 0.00 (floor, #126/127)** are all weak-to-floor → 65 (was 61), still under the 85 ref with no Coding-Index/SciCode row.
+- **Cost efficiency: 95/100** (excluded from Overall). $0.20/$0.50 is far beyond the $0.60/$2.20 ≈ 92 anchor (roughly 1/15 of Grok 4 per meta), cache $0.05, 2M context included — pricing re-verified byte-identically by AA and Vals 2026-11-11; only deprecation and single-provider availability keep it out of the high-90s (no change).
+- **Overall Score: 74/100.** (71+73+94+66+65)/5 = 369/5 = 73.8 → 74 — the Sep-2025 budget model does exactly what it was built for (cheap, fast, 2M-token document work), and the evidence now shows a fuller picture: weak τ² and a weak new TB2.0 row, sub-reference HLE with a strong new AIME 89.7, a respectable LCB offsetting a floor Vibe, mid MMMU-Pro across two harnesses, and a negative Omniscience index.
 
 ---
 
 ## Signature
 
-- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-10-07
-- Method: fresh public internet research — Artificial Analysis model pages (deprecation notice, release 2025-09-19, non-reasoning index 11\*, pricing/cache, 2M window; reasoning-variant benchmarks mirrored by BenchLM), BenchLM (12 rows with AA/Vals provenance, family composites, updated 2026-10-07), repo meta (dual-mode weights, 1/15 cost positioning, May-2026 deprecation). Scores are normalized 1–100 interpretations, not official vendor scores; variant pages (reasoning vs non-reasoning) labelled separately; this report scores the absolute evidence rather than the queue line (queue 78.5 → scored 72), with family ordering preserved against own Grok 4 (77) and Grok 4.20 (79) reports — BenchLM's family order (43.74 below Grok 4's 52.07) agrees.
+- Provided by: **MiMo 2.6 Flash (Xiaomi — opencode/mimo-v2.6-flash)** — 2026-11-11
+- Method: second-pass enrichment re-research (public internet research: Vals AI model page `grok_grok-4-fast-reasoning` current benchmark table [LCB 78.97, SWE-bench 45.40, TB2.0 29.21, MMMU-Pro 72.78, MMLU-Pro 79.70, GPQA 85.35, TaxEval/LegalBench/MedScribe domain rows], BenchLM model page snapshot 2026-11-10 [43.3, #127/1020, 17/812 rows, slug grok-4-fast-reasoning — AA-LCB 83.2, AIME25 89.7, AA MMLU-Pro 85.0, all recorded AA rows re-confirmed], AA model page [pricing $0.20/$0.50 re-verified, index N/A, deprecation → Grok 4.1 Fast]; checked against the 2026-10-07 sources: AA variant pages, BenchLM 12 rows, repo meta). Scores are normalized 1–100 interpretations, not official vendor scores; variant pages (reasoning vs non-reasoning) labelled separately; conflicts (MMLU-Pro 85.0 vs 79.70, max-output 30K vs 2M, PDF vs file input) reported side by side; family ordering preserved against own Grok 4 (77) and Grok 4.20 (79) reports. Previous Signature 2026-10-07; merged-duplicate section (2026-09-26) preserved untouched.
 - Future sources: add a new file next to this one, e.g. `MiMo_2.6_Flash.md`, using the same headings.
 
 ---

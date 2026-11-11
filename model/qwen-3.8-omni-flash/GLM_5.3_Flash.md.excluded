@@ -1,0 +1,47 @@
+# Qwen3.8 Omni Flash — findings by GLM 5.3 Flash
+
+- Source: Alibaba (`qwen3.8-omni-flash`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUDED — zero verified public benchmark numbers found for this exact model ID after a full pass over Alibaba Cloud Model Studio documentation, the Model Studio changelog, OpenRouter provider pages and the Hugging Face registry (no official open-weights repo exists — third-party merges of other Qwen checkpoints only). Scores would be placeholders, so none are computed. Verified model facts are recorded below for future re-research.
+
+## Model card
+
+- **Name:** Qwen3.8 Omni Flash
+- **Short description:** Alibaba's omni-modal understanding model (released 2026-09-17): text, image, audio and video in, text out — audio/video analysis, meeting summaries and agent work with thinking, function calling and web search. API-only (no open weights); a realtime speech-to-speech twin ships separately as `qwen3.8-omni-flash-realtime`.
+- **Provider / access:** Alibaba Cloud Model Studio, OpenAI-compatible Chat Completions and Responses APIs, ID `qwen3.8-omni-flash`; regions Beijing, Singapore, Hong Kong, Tokyo, Frankfurt, Virginia. OpenRouter lists it as `qwen/qwen3.8-omni-flash` (Alibaba Cloud Int.).
+- **Release / knowledge:** released 2026-09-17 (Model Studio changelog); knowledge cutoff not published — unverified.
+- **IDs:** `qwen3.8-omni-flash` (Model Studio), `qwen/qwen3.8-omni-flash` (OpenRouter). No free tier found on any cited route.
+- **Context window:** 1,048,576 (1M) total; 991,808 max input non-thinking / 983,616 thinking; 131,072 max output — verified from the official model page.
+- **Modalities:** Text, images (up to 2,048 by URL), audio (up to 3 h, 113 languages/dialects, stereo + 4-channel FOA spatial audio), video (up to 2 h, 64 files) in; text out only (no audio output — use Qwen3.5-Omni for speech generation). Thinking enabled by default with adjustable reasoning effort; custom function calling; web search tool; implicit + session context caching.
+- **Pricing (as of 2026-11-11):** OpenRouter (Alibaba Cloud Int., no markup): $0.15 in / $0.47 out per 1M tokens; video visual and audio tracks billed separately per the Model Studio docs.
+- **Architecture:** proprietary, closed weights, not published on the official Qwen Hugging Face org; parameter count unverified.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found
+
+Reasoning / knowledge: no verified public score found
+
+Coding: no verified public score found
+
+Long context: no long-context retrieval reported (1M window specified, no MRCR / RULER / GraphWalks value published)
+
+### Normalized scores (1–100)
+
+Not computed — self-excluded per the zero-verified-benchmarks rule (`RULES.md`; template SELF-EXCLUSION). Vendor capability claims alone (113-language audio, 2-hour video, 1M context, thinking + tool calling) are specs, not measured benchmark rows, and never justify inventing scores.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-11
+- Method: public internet research (Alibaba Cloud Model Studio docs + changelog, OpenRouter API page, Hugging Face registry search); scores are normalized 1–100 interpretations, not official vendor scores — none computed here.
+- Reference URLs:
+  - [Alibaba Cloud Model Studio — qwen3.8-omni-flash model page](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash)
+  - [Alibaba Cloud Model Studio — Qwen-Omni usage guide (non-real-time)](https://www.alibabacloud.com/help/en/model-studio/qwen-omni)
+  - [Alibaba Cloud Model Studio — model lifecycle and updates (release 2026-09-17)](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)
+  - [OpenRouter — qwen/qwen3.8-omni-flash API page](https://openrouter.ai/qwen/qwen3.8-omni-flash)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

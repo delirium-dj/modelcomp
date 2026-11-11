@@ -1,0 +1,29 @@
+# Mercury Decide — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Inception Labs (`inception/mercury-decide`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Decide
+- **Short description:** Inception Labs' diffusion-based System One decision model for structured classification, confidence estimation, and agentic routing via typed log-probabilities.
+- **Provider / access:** Inception Labs `inception/mercury-decide`
+- **Release / knowledge:** Unknown
+- **IDs:** `inception/mercury-decide`
+- **Context window:** 64,000 total
+- **Modalities:** Text in; text out
+- **Pricing (as of 2026-11-11):** $0.04/1M in; structured decision output
+- **Architecture:** Diffusion-based decision model
+
+### Research notes
+
+No verified public benchmark numbers found for `inception/mercury-decide` as of 2026-11-11. Artificial Analysis model page https://artificialanalysis.ai/models/mercury-decide returns 404 / no data. Model is tuned strictly for typed choices and binary routing with no independent Intelligence Index, reasoning, or coding benchmark scores published. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [Inception Labs](https://inceptionlabs.ai/)

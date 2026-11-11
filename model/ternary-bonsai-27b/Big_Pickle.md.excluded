@@ -1,0 +1,64 @@
+# Ternary Bonsai 27B — findings by Big Pickle
+
+> SELF-EXCLUSION: no verified public benchmark numbers were found for this exact
+> checkpoint. Notes only — no scores are offered here.
+
+- Source: PrismML/Ternary Bonsai 27B
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ternary Bonsai 27B
+- **Short description:** A 27B ternary-quantized open-weights model from PrismML, positioned for high-efficiency inference and low-latency text generation. It is a different checkpoint from the benchmarked Ternary Bonsai 2 27B (`prism-ml/ternary-bonsai-2-27b`) and must not be conflated with it.
+- **Provider / access:** open weights (self-host); `meta.json` lists OpenCode as the access point, but no hosted API ID was confirmed.
+- **Release / knowledge:** release date and knowledge cutoff not confirmed.
+- **IDs:** `opencode/ternary-bonsai-27b` in the dataset; no confirmed upstream Hugging Face repository (the `PrismML/Ternary-Bonsai-27B` path returns 401/404).
+- **Context window:** 128,000 total per `meta.json`; not independently verified.
+- **Modalities:** text in / text out per `meta.json`; not independently verified.
+- **Pricing (as of 2026-11-11):** open weights ($0 self-host) or standard hosted API pricing; no confirmed per-token rate.
+- **Architecture:** 27B ternary-quantized; licence not confirmed (the sibling Ternary Bonsai 2 27B is Apache 2.0, but that does not establish this checkpoint's licence).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.0, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+- BenchLM and Artificial Analysis have no page for this checkpoint; OpenRouter and models.dev list only the Ternary Bonsai 2 family.
+
+Coding:
+
+- SWE-bench Verified / Pro, DeepSWE, LiveCodeBench, SciCode: no verified public score found.
+
+Multimodal:
+
+- None confirmed; `meta.json` says text-only.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval result published for the 128K window.
+
+### Why this file is excluded
+
+The model card repository is gated or missing (`PrismML/Ternary-Bonsai-27B` returns 401/404), and no benchmark ledger carries this exact checkpoint. Every number that exists online belongs to Ternary Bonsai 2 27B, a separately named and separately benchmarked model. Copying those numbers here would attribute one checkpoint's results to another.
+
+### What would justify a scored file later
+
+A public model card with benchmark rows, an OpenRouter/models.dev listing with a distinct ID, or a BenchLM/Artificial Analysis page for this exact checkpoint.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-11-11
+- Method: public web research (Hugging Face repository probe, BenchLM and Artificial Analysis slug probes, OpenRouter and models.dev catalogs); negative findings only, no scores.
+- Reference URLs:
+  - [Hugging Face — PrismML/Ternary-Bonsai-27B (gated/404)](https://huggingface.co/PrismML/Ternary-Bonsai-27B)
+  - [BenchLM — model catalog](https://benchlm.ai/)
+  - [models.dev — model catalog](https://models.dev/)
+- Future sources: add a new file next to this one, e.g. `Ternary_Bonsai_27B_Update.md`, using the same headings.

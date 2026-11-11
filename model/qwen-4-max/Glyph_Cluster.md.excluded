@@ -1,0 +1,31 @@
+# Qwen 4 Max — findings by Glyph Cluster (self-excluded)
+
+- Source: Alibaba/Qwen (`qwen-4-max`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `qwen-4-max` in accessible sources at time of research.
+
+## Research notes
+
+- Attempted accessible sources for this exact model/ID returned not found, inaccessible, or non-extractable results: Artificial Analysis pages for `qwen-4-max`, `qwen4-max`, and `qwen4-max-thinking` (404); OpenRouter pages for `qwen/qwen-4-max` and `alibaba/qwen-4-max` (404); Hugging Face page `Qwen/Qwen4-Max` (401/inaccessible in fetched result); Qwen blog URL `https://qwenlm.github.io/blog/qwen4-max/` (404).
+- No verified benchmark scores or aggregate quality metrics clearly attributable to the exact model/ID `qwen-4-max` were found in accessible fetched sources.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-11 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter, Hugging Face, Qwen blog); no scored report produced due to absence of verified benchmark numbers clearly attributable to the exact model.
+- Reference URLs:
+  - [Artificial Analysis — qwen-4-max (access attempt)](https://artificialanalysis.ai/models/qwen-4-max)
+  - [Artificial Analysis — qwen4-max (access attempt)](https://artificialanalysis.ai/models/qwen4-max)
+  - [OpenRouter — qwen/qwen-4-max (access attempt)](https://openrouter.ai/qwen/qwen-4-max)
+  - [OpenRouter — alibaba/qwen-4-max (access attempt)](https://openrouter.ai/alibaba/qwen-4-max)
+  - [Hugging Face — Qwen/Qwen4-Max (access attempt)](https://huggingface.co/Qwen/Qwen4-Max)
+  - [Qwen blog — qwen4-max (access attempt)](https://qwenlm.github.io/blog/qwen4-max/)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

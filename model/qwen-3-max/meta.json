@@ -11,5 +11,10 @@
     "https://www.alibabacloud.com/help/en/model-studio/model-list-text-generation"
   ],
   "standout": "Alibaba's 2025 flagship Max tier - the reference point the Qwen3.6/3.7/3.8 Max line replaced.",
-  "tradeoff": "Closed weights, a modest measured profile for a flagship, and no public SWE-bench or Terminal-Bench figure was ever published for it."
+  "tradeoff": "Closed weights, a modest measured profile for a flagship, and no public SWE-bench or Terminal-Bench figure was ever published for it.",
+  "aliases": [
+    "qwen3-max",
+    "opencode/qwen3-max",
+    "alibaba/qwen3-max"
+  ]
 }

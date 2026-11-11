@@ -1,0 +1,64 @@
+# Mercury Edit 2 — findings by Big Pickle
+
+> SELF-EXCLUSION: only a relative vendor claim was found, with no absolute benchmark
+> numbers for this model. Notes only — no scores are offered here.
+
+- Source: Inception Labs/Mercury Edit 2
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs' diffusion-based next-edit prediction model for code autocomplete and multi-line edits, aligned with Kahneman-Tversky Optimization (KTO). It is tuned for low-latency Tab completions rather than open-ended conversational coding.
+- **Provider / access:** Inception Labs API (`inception/mercury-edit-2`), OpenAI-compatible; also proxied on third-party hosts.
+- **Release / knowledge:** release date and knowledge cutoff not published.
+- **IDs:** `inception/mercury-edit-2`; no Zen Free ID.
+- **Context window:** 32,000 total / 8,192 max output (`meta.json`; not independently confirmed).
+- **Modalities:** text in / text out; diffusion-based parallel denoising; no reasoning mode.
+- **Pricing (as of 2026-11-11):** $0.25 / $0.75 per 1M in/out; cached input $0.025.
+- **Architecture:** proprietary diffusion language model; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+
+Coding:
+
+- The vendor claims a **+30% relative improvement in accepted completions** over the previous Mercury Edit model; no absolute HumanEval, MBPP, LiveCodeBench, RepoBench or SWE-bench number was published.
+- No BenchLM or Artificial Analysis row exists for the exact ID.
+
+Multimodal:
+
+- None — text only.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval result published for the 32K window.
+
+### Why this file is excluded
+
+Inception Labs markets Mercury Edit 2 with relative deltas (accepted completions, latency) rather than absolute benchmark scores, and no independent ledger has run the model. A relative claim cannot be converted into a 1–100 dimension score without inventing the baseline, so the scored file is withheld.
+
+### What would justify a scored file later
+
+An Inception Labs benchmark table with absolute pass@1 or acceptance-rate baselines, or a BenchLM/Artificial Analysis row for `inception/mercury-edit-2`.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-11-11
+- Method: public web research (Inception Labs model documentation and launch material, BenchLM and Artificial Analysis slug probes); negative findings only, no scores.
+- Reference URLs:
+  - [Inception Labs — models documentation](https://docs.inceptionlabs.ai/get-started/models)
+  - [Inception Labs — Mercury Edit 2 announcement](https://inceptionlabs.ai/)
+  - [BenchLM — model catalog](https://benchlm.ai/)
+- Future sources: add a new file next to this one, e.g. `Mercury_Edit_2_Update.md`, using the same headings.

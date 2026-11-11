@@ -1,0 +1,29 @@
+# Iceman — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: OpenCode (`opencode/iceman-free`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Iceman
+- **Short description:** OpenCode's anonymous stealth reasoning model (262K/131K, Free) available on OpenCode Console and Go; measured on StealthMark 1.8.10 with active tool calling.
+- **Provider / access:** OpenCode `opencode/iceman-free`
+- **Release / knowledge:** Unknown
+- **IDs:** `opencode/iceman-free`
+- **Context window:** 262,144 in / 131,072 out
+- **Modalities:** Text in; text out
+- **Pricing (as of 2026-11-11):** Free (prompts and completions retained for model training)
+- **Architecture:** Unknown stealth reasoning
+
+### Research notes
+
+No verified public benchmark numbers found for `opencode/iceman-free` as of 2026-11-11. Artificial Analysis model page https://artificialanalysis.ai/models/iceman returns 404 / no data. No independent Intelligence Index, coding benchmark, or modality scores published. Self-excluding per RULES.md.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [OpenCode models](https://opencode.ai/docs/console/models/)

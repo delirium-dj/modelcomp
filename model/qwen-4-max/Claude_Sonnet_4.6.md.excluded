@@ -1,0 +1,4 @@
+Qwen 4 Max (Alibaba Cloud, `alibaba/qwen-4-max`) was announced at the Apsara Conference 2026 as the next-generation flagship MoE with a 1M-token context window, text/image/video input, and proprietary closed weights (~$2.00/$6.00 per 1M preview pricing). As of 2026-11-11 it is in early developer preview/canary phase. No official technical report, model card, or benchmark scorecard has been published — GPQA, MMLU-Pro, HLE, SWE-bench, LiveCodeBench, and tau3-bench scores are all unverified. Anonymous canary checkpoints ("Kalmia", "Kerria") have appeared on Chatbot Arena but without disclosed scores or stable Elo ratings. Predecessor context (Qwen 3.8-Max: GPQA Diamond ~92.4%, SWE-bench Pro ~60.6%) is NOT transferable. Zero verified benchmarks: self-exclusion.
+
+Provided by: **Claude Sonnet 4.6 (anthropic/claude-sonnet-4-6-20260205)** — 2026-10-21
+

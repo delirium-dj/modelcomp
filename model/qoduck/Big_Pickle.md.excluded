@@ -1,0 +1,65 @@
+# QoDuck — findings by Big Pickle
+
+> SELF-EXCLUSION: no verified public benchmark numbers were found for this stealth
+> model. Notes only — no scores are offered here.
+
+- Source: Alibaba/Qoder — QoDuck (stealth)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** QoDuck
+- **Short description:** An anonymous stealth coding and reasoning model launched inside Alibaba's Qoder desktop app on 7 November 2026 ("Don't ask where it came from"). Tokenizer tests place it in the Qwen family and it is widely suspected to be an early Qwen 4 checkpoint, but Alibaba has not named it. It has adaptive thinking and a switchable 1M-token window.
+- **Provider / access:** Qoder desktop app only (free daily allowance for individuals); no public API. `meta.json` also lists a standard OpenCode Zen rate, but no Zen ID was confirmed.
+- **Release / knowledge:** First seen 2026-11-07; knowledge cutoff not disclosed.
+- **IDs:** no confirmed public API ID; `opencode/qoduck` in the dataset.
+- **Context window:** 1,048,576 total / 65,536 max output (`meta.json`; not independently confirmed).
+- **Modalities:** text + image in; text and code out (`meta.json`; not independently confirmed).
+- **Pricing (as of 2026-11-11):** free daily preview allowance (0.0x credits) inside Qoder desktop; no published per-token rate.
+- **Architecture:** proprietary stealth model, closed weights; parameter count undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+- AIToolRanked's launch coverage explicitly states that QoDuck's benchmarks are unknown.
+
+Coding:
+
+- SWE-bench Verified / Pro, DeepSWE, LiveCodeBench, SciCode: no verified public score found.
+- A viral "beats Claude Opus" claim traces to a single indie GameFeel benchmark, not to a standardized coding evaluation.
+
+Multimodal:
+
+- None verified.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks retrieval result published for the 1M window.
+
+### Why this file is excluded
+
+QoDuck is a stealth preview with no model card, no public API ID, no parameter disclosure and no published benchmark table. The only numeric claims circulating are unsourced or trace to a single non-standard indie test. No BenchLM or Artificial Analysis row exists for the model.
+
+### What would justify a scored file later
+
+A Qoder or Alibaba model card with benchmark rows, a public API ID that a ledger can evaluate, or a BenchLM/Artificial Analysis page for QoDuck.
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** — 2026-11-11
+- Method: public web research (AIToolRanked launch coverage, Qoder announcement, Stealth Models Qwen 4 leak check, BenchLM and Artificial Analysis slug probes); negative findings only, no scores.
+- Reference URLs:
+  - [AIToolRanked — Qoder's Qoduck: a free stealth coding model, origin unknown](https://aitoolranked.com/news/qoder-qoduck-stealth-model-free)
+  - [Qoder — QoDuck free event](https://docs.qoder.com/events/qoduck-free)
+  - [Stealth Models — Qwen 4 leak check](https://stealthmodels.com/qwen-4)
+- Future sources: add a new file next to this one, e.g. `QoDuck_Update.md`, using the same headings.

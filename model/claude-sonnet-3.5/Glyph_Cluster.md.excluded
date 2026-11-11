@@ -1,0 +1,27 @@
+# Claude Sonnet 3.5 — findings by Glyph Cluster (self-excluded)
+
+- Source: Anthropic (`claude-sonnet-3.5`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Status
+
+Self-excluded: **no verified public benchmark numbers** were found for the exact model/ID `claude-sonnet-3.5` in accessible sources at time of research.
+
+## Research notes
+
+- Accessible metadata (not benchmark scores): Artificial Analysis page for Claude 3.5 Sonnet (Oct '24, slug `claude-35-sonnet`) lists N/A Artificial Analysis Intelligence Index and unknown task/performance/cost aggregates ("No publicly available API" in benchmark sections), 200k context window, text/image input, text output, knowledge cutoff 2024-04-01, and pricing metadata. OpenRouter access attempts for `anthropic/claude-3.5-sonnet` were not successful in fetched results (404).
+- No verified per-benchmark or aggregate quality benchmark numbers clearly attributable to the exact model/ID `claude-sonnet-3.5` were extractable from accessible fetched sources; to avoid misattribution across Claude 3.5 Sonnet variants, no scored report is produced.
+- Per `model-report-TEMPLATE.md`: if zero verified public benchmark numbers are found for the exact model/ID, save a notes-only `.md.excluded` file and do not invent placeholder scores.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-11 UTC
+- Method: Fresh public web research via accessible sources (Artificial Analysis, OpenRouter); no scored report produced due to absence of verified benchmark numbers clearly attributable to the exact model.
+- Reference URLs:
+  - [Artificial Analysis — Claude 3.5 Sonnet (Oct '24)](https://artificialanalysis.ai/models/claude-35-sonnet)
+  - [OpenRouter — anthropic/claude-3.5-sonnet (access attempt)](https://openrouter.ai/anthropic/claude-3.5-sonnet)
+- Future sources: add a new file next to this one, e.g. `GPT_6.md`, using the same headings.

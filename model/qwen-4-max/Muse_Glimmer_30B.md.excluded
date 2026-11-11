@@ -1,0 +1,32 @@
+# Qwen 4 Max — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Alibaba (`alibaba/qwen-4-max`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 4 Max
+- **Short description:** Alibaba's Qwen 4 generation flagship multimodal MoE model offering massive 2M context, elite reasoning, and advanced agentic capabilities per curated meta.
+- **Provider / access:** Alibaba Cloud Model Studio, Qwen Chat
+- **Release / knowledge:** 2026 release per meta; knowledge cutoff not publicly verified
+- **IDs:** `alibaba/qwen-4-max`
+- **Context window:** 2,000,000 total / 128,000 max output per meta.json
+- **Modalities:** Text, image, video, audio in; text out per meta.json
+- **Pricing (as of 2026-11-11):** Paid API tier ~$2.50 / $10.00 per 1M tokens per meta.json
+- **Architecture:** Proprietary MoE
+
+### Research notes
+
+No verified public benchmark numbers found for `qwen-4-max` in independently accessible sources as of 2026-11-11. Official blog URL https://qwenlm.github.io/blog/qwen-4-max/ returns 404 and no independent leaderboard entries, model card, or reproducible evaluation reports were located in public web research. Curated meta.json provides context, modalities and pricing but no measured benchmark figures.
+
+Self-excluding per RULES.md: zero verified public benchmark numbers for this exact model/ID, every row would read "no verified public score found". Scores inside are ignored.
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-11
+- Method: Public internet research — no verified public scores located
+- Reference URLs:
+  - [Alibaba Cloud Model Studio models](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [QwenLM blog](https://qwenlm.github.io)
