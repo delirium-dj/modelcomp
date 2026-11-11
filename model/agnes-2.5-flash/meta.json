@@ -1,9 +1,9 @@
 {
   "id": "opencode/agnes-2.5-flash",
   "name": "Agnes 2.5 Flash",
-  "short": "Agnes 2.5 Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Sapiens AI's high-throughput flash-tier MoE model with 512K context, tool calling, prompt caching, and adaptive thinking mode. Text + image in; text out.",
+  "contextWindow": "512K total",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.05 in / $0.15 out per 1M tokens; $0 trial tier",
+  "scaffolded": false
 }

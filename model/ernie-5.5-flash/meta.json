@@ -1,0 +1,20 @@
+{
+  "id": "baidu/ernie-5.5-flash",
+  "name": "ERNIE 5.5 Flash",
+  "short": "Baidu's 280B/14B sparse MoE model pre-trained on 33.5T tokens with HCA and MLA-DSA attention, delivering 1M context at >200 tok/s for high-volume coding and text.",
+  "contextWindow": "1,000,000 total; 131,072 max output",
+  "modalities": "Text in; text out",
+  "pricingNote": "~$0.28/$1.13 per 1M (2 to 8 CNY/1M on Baidu Qianfan)",
+  "pricingTiers": [
+    "Baidu Qianfan standard ~2 CNY/1M in, ~8 CNY/1M out (~$0.28/$1.13)",
+    "Off-peak / promotional ~1 CNY/1M in, ~4 CNY/1M out (~$0.14/$0.56)"
+  ],
+  "officialUrl": "https://qianfan.cloud.baidu.com",
+  "pricingLinks": [
+    "https://cloud.baidu.com/product/wenxinworkshop",
+    "https://cloud.baidu.com/product/wenxinworkshop"
+  ],
+  "standout": "280B sparse MoE activating only 14B parameters per token with native 1M context and throughput over 200 tok/s.",
+  "tradeoff": "Standard API endpoint is text/code focused with limited multimodal input; complex multi-agent reasoning trails dense frontier flagships."
+}
+

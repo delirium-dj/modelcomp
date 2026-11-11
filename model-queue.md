@@ -67,6 +67,7 @@
 86.1 grok-4.7
 86 grok-4.5
 86 qwen-3.6-plus
+86 qwen-3.8-omni-flash
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
 85.6 deepseek-v4.1-flash-1017
@@ -77,7 +78,6 @@
 85.2 gpt-5.3-codex
 85.2 gpt-5.6-luna
 85.2 mistral-large-4
-85.2 qwen-3.8-omni-flash
 84.8 grok-4.3
 84.6 gpt-5.1
 84.5 pareto-26.10-preview
@@ -114,7 +114,6 @@
 78.4 gemini-2.5-flash
 78.3 qwen-3.5-35b-a3b
 78.1 muse-glimmer-30b
-78 agnes-2.5-flash
 77.9 claude-sonnet-4
 77.7 gemini-3.1-flash-lite
 77.5 gemini-1.5-pro
@@ -154,6 +153,7 @@
 72 ling-3.2-flash
 71.7 ternary-bonsai-27b
 71.2 qwen-3.7-flash
+71 agnes-2.5-flash
 71 longcat-2.0
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
@@ -162,6 +162,7 @@
 69.7 ling-3.1-flash
 69.5 solar-pro-4
 69.2 pixel_canary
+68.5 ernie-5.5-flash
 68.5 leanstral-1.5
 68.4 ring-2.6.1t
 67.7 mai-thinking-1
@@ -203,18 +204,18 @@
 55.8 exo-free
 55.5 owo-2.5
 55 mercury-2.5
+54.9 glyph-cluster
 54.8 gemma-4-e2b
 54.5 glm-4.5-flash
-54 glyph-cluster
 53.3 ling-3.0-tiny
-51.6 iceman
+52.6 iceman
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08
 47.5 neomorph
 47.2 mercury-2
 46.5 mai-experimental-test
-45.4 mercury-edit-2
-44.9 mercury-decide
+43.5 mercury-edit-2
 43.2 qwen-3.5-0.8b
+42.7 mercury-decide
 41.9 codestral
 40.8 jev-1.13

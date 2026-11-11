@@ -1,0 +1,57 @@
+# Qwen4 Max Preview — findings by GPT 6.1 Sol
+
+- Source: Alibaba Cloud / `qwen4-max-preview`
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded: a real preview route is verified, but no exact-model quality benchmark numbers were found.**
+
+## Model card
+
+- **Name:** Qwen4 Max Preview. The existing `qwen-4-max` subject folder is retained, but the vendor's `-preview` suffix is never dropped from the cited ID or interpreted as general availability.
+- **Short description:** Alibaba's newly documented reasoning/visual-understanding model in Token Plan Personal Edition. It is a limited preview, not a verified generally available Qwen4 Max endpoint.[1]
+- **Provider / access:** Alibaba Cloud Model Studio Token Plan Personal Edition, Singapore region. The plan is for interactive coding/agent tools, not unattended scripts, custom application backends, or batch automation. Its documentation lists built-in Responses tools, but does not establish every exact-model custom-tool feature.[1]
+- **Release / knowledge:** Official preview window: **2026-11-11 10:00 through 2026-11-25 24:00, UTC+8**; the page says the model will be retired after the preview ends. No knowledge cutoff verified.[1]
+- **IDs:** `qwen4-max-preview`, with the explicitly documented alias `qwen4.0-max-preview`; bills use the latter. These are two names for one preview, not two models. No bare `qwen4-max`, OpenRouter route, or Zen Free ID verified.[1][3]
+- **Context window:** No exact total/input/output limit verified in the inspected documentation. Do not substitute Qwen3.8 limits.
+- **Modalities:** Reasoning, visual understanding, and text generation are documented. Precise accepted media types, audio support, and maximum media sizes are not established for the preview.[1]
+- **Pricing (as of 2026-11-11):** Access is subscription-credit based. Personal plans list **$6/$10/$18/$43 per month**, with limited new-user **$3/$5** promotions on the first two plans. Preview calls consume as little as **20%** of the standard Credits rate, or **8%** during the stated night window. These are plan/credit discounts, not verified input/output dollars per 1M tokens; they cannot be converted without the actual model credit tariff.[1]
+- **Architecture:** Parameter count, active parameters, weights, and license not verified. An official Qwen Hugging Face query returned no Qwen4-Max checkpoint; absence from this query is not proof of permanent non-release.[4]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found** for `qwen4-max-preview`.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified public score found**.
+- BenchLM's Qwen4 Max profile explicitly reports **zero covered benchmarks** and leaves the model unranked. A tracker placeholder is not a quality measurement.[2]
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and Coding Index: **no verified public score found**. The plan's support for coding tools is not a benchmark.
+
+Long context:
+
+- No exact context limit or measured MRCR / RULER / GraphWalks retrieval result verified.
+
+### Normalized scores (1–100)
+
+**Not assigned.** No verified exact-model quality benchmark was found, so no dimension scores or Overall are fabricated. The documented preview and pricing remain useful access facts, not substitutes for measured task performance.
+
+Fresh exact-name Bing RSS search exposed no result items; the configured search integration returned HTTP 402 earlier in the run. Direct official documentation, public catalog filtering, publisher registry search, and the exact tracker profile were inspected. These limitations support a bounded no-evidence conclusion, not a claim that the model does not exist.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh exact-ID search and official preview/access documentation, live public gateway catalog, official-publisher registry, and tracker inspection. Notes-only self-exclusion; no peer findings read and no sibling scores transferred.
+- Reference URLs:
+  - [1 — Official Token Plan preview, aliases, dates, pricing, and restrictions](https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview)
+  - [2 — BenchLM Qwen4 Max coverage status](https://benchlm.ai/models/qwen4-max)
+  - [3 — OpenRouter public model catalog, no exact preview match found](https://openrouter.ai/api/v1/models)
+  - [4 — Official Qwen checkpoint search](https://huggingface.co/api/models?author=Qwen&search=Qwen4-Max&limit=10)
+- Future sources: add an independently signed scored report only when exact-model benchmark evidence supports one.

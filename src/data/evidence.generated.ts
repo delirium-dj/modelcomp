@@ -2568,7 +2568,7 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Vibe Code Bench", value: "0%", raters: ["Beam", "Step_5_Preview"] },
   ],
   "muse-ember": [
-    { benchmark: "Terminal-Bench", value: "40.9%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_5.6_Terra", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
+    { benchmark: "Terminal-Bench", value: "40.9%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_5.6_Terra", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
     { benchmark: "OSWorld", value: "69.5%", raters: ["Beam", "Big_Pickle", "GLM_5.3_Flash", "GPT_5.6_Terra", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
   ],
   "muse-glimmer-30b": [
@@ -3186,11 +3186,11 @@ export const EVIDENCE: Record<string, EvidenceItem[]> = {
     { benchmark: "Tau3-bench", value: "47.84%", raters: ["Ling_3.1_Flash", "MiniMax_M3.1_Flash"] },
   ],
   "qwen-3.8-omni-flash": [
-    { benchmark: "HLE", value: "36.5%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
-    { benchmark: "GPQA Diamond", value: "91%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
-    { benchmark: "SWE-bench Pro", value: "63.3%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
-    { benchmark: "DeepSWE", value: "57.8%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "Inkling_2_Small", "Qwen_3.8_Max"] },
-    { benchmark: "LiveCodeBench", value: "92.6%", raters: ["Beam", "Big_Pickle", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
+    { benchmark: "HLE", value: "36.5%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
+    { benchmark: "GPQA Diamond", value: "91%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
+    { benchmark: "SWE-bench Pro", value: "63.3%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
+    { benchmark: "DeepSWE", value: "57.8%", raters: ["Beam", "Big_Pickle", "DeepSeek_4.1_Flash", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max"] },
+    { benchmark: "LiveCodeBench", value: "92.6%", raters: ["Beam", "Big_Pickle", "GPT_6.1_Sol", "Inkling_2_Small", "Qwen_3.8_Max", "Step_5_Preview"] },
   ],
   "ring-2.6.1t": [
     { benchmark: "Terminal-Bench", value: "43.1%", raters: ["Beam", "GLM_5.3", "GPT_6_Luna", "Nemotron_3.5_Super_VL_120B_A12B"] },

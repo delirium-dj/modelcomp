@@ -1,0 +1,47 @@
+# Agnes 2.5 Flash — findings by GLM 5.3 Flash
+
+- Source: Agnes AI (`agnes-2.5-flash` — Agnes AI API, apihub.agnes-ai.com)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUDED — zero verified public benchmark numbers found for this exact model/ID after a full pass over Agnes AI's official documentation (model page, wiki index, pricing), the models.dev catalog, BenchLM (not tracked — 404) and web search (no relevant third-party coverage). The vendor publishes no evaluation table and no independent harness has measured it. Saved as `.md.excluded` per the template's mandatory self-exclusion rule; verified model facts recorded below for future re-research.
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash
+- **Short description:** Agnes AI's generally available workhorse language model (2026-07, upgrade of the deprecated Agnes 2.0 Flash) for coding, agent workflows, multi-turn chat and image understanding — 512K context, tool calling, thinking mode, and OpenAI/Anthropic-compatible endpoints at list prices of $0.05/$0.15 per 1M with a $0 trial tier. Part of the Agnes family (2.0 Flash → 2.5 Flash → 2.5 Pro Beta/Theta → 3.0 Flash → 3.0 Pro coming soon).
+- **Provider / access:** Agnes AI API, base URL `https://apihub.agnes-ai.com/v1`; three protocol surfaces: OpenAI Chat Completions (`POST /v1/chat/completions`), OpenAI Responses (`POST /v1/responses`), and Anthropic-compatible Messages (`POST /v1/messages`). GA to accounts with Agnes API access; models.dev also catalogs it under the `agnes` provider.
+- **Release / knowledge:** released 2026-07 (models.dev release date; `agnes-2.0-flash` predecessor released 2026-05-25 and deprecated — migrations are a model-name change); knowledge cutoff not stated.
+- **IDs:** `agnes-2.5-flash` (the only current Flash SKU; `agnes-2.0-flash` deprecated, do not use as fallback).
+- **Context window:** 524,288 (512K) total; 65,536 (65.5K) max output — verified from the official limits table. NOTE: the folder's scaffolded meta.json says "128K total", which contradicts the vendor's own docs — 512K is the verified figure.
+- **Modalities:** Text + image URL in (publicly accessible `image_url` parts; screenshot analysis, image description, visual Q&A); text out. Tool calling (`tools`/`tool_choice`), streaming, Thinking mode (`chat_template_kwargs.enable_thinking` on OpenAI-style; `thinking.budget_tokens` on Anthropic-style, e.g. 2048 for coding tasks); structured agent workflows positioned as a core capability.
+- **Pricing (as of 2026-11-11):** list — $0.05 in / $0.15 out / $0.005 cached per 1M tokens; trial price — $0 across the board (models.dev records the $0 trial as its headline price). Rate limits and billing follow the account's entitlement; no free-standing public tier documented beyond the trial.
+- **Architecture:** undisclosed — closed weights, no parameter count, no architecture statement in any official surface.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found
+
+Reasoning / knowledge: no verified public score found
+
+Coding: no verified public score found (coding is the vendor's headline positioning — generation, debugging, refactoring, patch-style workflows — but no harness numbers are published anywhere)
+
+Long context: no long-context retrieval reported (512K window official; no MRCR/RULER/GraphWalks value published)
+
+### Normalized scores (1–100)
+
+Not computed — self-excluded per the zero-verified-benchmarks rule (`RULES.md`; template SELF-EXCLUSION). Verified specs (512K context, image-in, tool calling, thinking, three API protocols, $0.05/$0.15 pricing) are capabilities, not measured benchmark rows, and never justify inventing scores.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-11
+- Method: public internet research (Agnes AI official model documentation and wiki, models.dev catalog, BenchLM coverage check, web search with collision screening); scores are normalized 1–100 interpretations, not official vendor scores — none computed here.
+- Reference URLs:
+  - [Agnes AI Docs — Agnes 2.5 Flash model page (capabilities, limits, pricing)](https://wiki.agnes-ai.com/en/docs/agnes-25-flash.md)
+  - [Agnes AI Docs — API overview and base URL](https://agnes-ai.com/doc)
+  - [Agnes AI Docs wiki index (model family, pricing, integration guides)](https://wiki.agnes-ai.com/llms.txt)
+  - [models.dev — agnes provider catalog (family lineup, release dates, trial pricing)](https://models.dev)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

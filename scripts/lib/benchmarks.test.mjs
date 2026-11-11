@@ -16,6 +16,13 @@ describe("matchBenchmark (vocab, longest-first, anchored)", () => {
     assert.equal(matchBenchmark("- GPQA Diamond: **93.6%**").entry.key, "gpqa");
   });
 
+  it("keeps LiveCodeBench Pro (Elo) separate from the pass-rate row", () => {
+    assert.equal(matchBenchmark("- LiveCodeBench Pro: **2887 Elo** (DeepMind)").entry.key, "livecodebench-pro");
+    assert.equal(matchBenchmark("- LiveCodeBench Pro Elo: **2887** (DeepMind)").entry.key, "livecodebench-pro");
+    const rows = parseBenchmarkRows("- LiveCodeBench Pro: **2887 Elo**\n- LiveCodeBench: **88.5%**\n");
+    assert.deepEqual(rows.map((r) => r.key), ["livecodebench-pro", "livecodebench"]);
+  });
+
   it("ignores prose lines and unknown benchmarks", () => {
     assert.equal(matchBenchmark("Scores are normalized 1–100 interpretations."), null);
   });
@@ -129,5 +136,21 @@ describe("agreeEvidence (2+ distinct stems)", () => {
     assert.equal(tbRows[0].value, "78.2%");
     assert.equal(hleRows.length, 1);
     assert.equal(hleRows[0].value, "52.2%");
+  });
+
+  it("collapses LiveCodeBench and LiveCodeBench Pro independently", () => {
+    const pro = [{ key: "livecodebench-pro", benchmark: "LiveCodeBench Pro", value: "2887 Elo" }];
+    const plain = [{ key: "livecodebench", benchmark: "LiveCodeBench", value: "88.5%" }];
+    const out = agreeEvidence([
+      { stem: "A", rows: [...pro, ...plain] },
+      { stem: "B", rows: [...pro, ...plain] },
+    ]);
+    assert.deepEqual(
+      out.map((r) => [r.benchmark, r.value]),
+      [
+        ["LiveCodeBench", "88.5%"],
+        ["LiveCodeBench Pro", "2887 Elo"],
+      ],
+    );
   });
 });

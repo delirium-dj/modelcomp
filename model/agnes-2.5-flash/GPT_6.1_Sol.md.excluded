@@ -1,0 +1,57 @@
+# Agnes 2.5 Flash — findings by GPT 6.1 Sol
+
+- Source: Agnes AI / public `Agnes-AI/Agnes-2.5-Flash-Base` checkpoint
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- Status: **Self-excluded: a real base checkpoint is verified, but no exact-model public quality benchmark numbers were found.**
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash; the independently verified public release is explicitly **Agnes 2.5 Flash Base**. No separate instruction-tuned or hosted-chat version is established by this research.
+- **Short description:** Agnes AI's sparse MoE foundation model for continued pretraining, fine-tuning, and research. Its card explicitly says it is pretrained, not instruction-tuned or RLHF-aligned, and should not be expected to follow chat instructions reliably. The similar “2.5 Flash” wording does not make it a Google Gemini model.[1]
+- **Provider / access:** Downloadable FP8 checkpoint with publisher-provided SGLang serving instructions. The card recommends `/generate` or OpenAI-compatible `/v1/completions` rather than Chat Completions for this base model. No deployed endpoint was authenticated or tested.[1]
+- **Release / knowledge:** Hugging Face repository creation **2026-08-29**; this is a registry timestamp, not a separately verified release announcement. Knowledge cutoff not published in the inspected card.[3]
+- **IDs:** Exact public checkpoint `Agnes-AI/Agnes-2.5-Flash-Base`. The inspected OpenRouter and Zen live lists contained no Agnes match; no `opencode/agnes-2.5-flash` or Zen Free ID verified.[4][5]
+- **Context window:** Card and config agree on **1,048,576 maximum positions**, extended with YaRN from a **65,536-position** base. No separate output maximum or measured full-window retrieval accuracy verified.[1][2]
+- **Modalities:** Text in; text out. No native image/audio/video encoders, instruction-following tool-call protocol, or structured-output guarantee verified for this checkpoint.[1][2]
+- **Pricing (as of 2026-11-11):** Open weights under Apache 2.0, but no hosted per-token tariff or zero-cost inference entitlement verified. The publisher estimates about **190 GB** GPU memory for FP8 weights alone; free downloads are not free serving.[1]
+- **Architecture:** Publisher-described **202B total / approximately 16B active** sparse MoE, **48 layers**, **160 routed experts** with **6 selected plus one shared expert**. MLA/compressed attention, hyper-connections, and FP8 storage are documented. Architecture is source-reported, not independently audited from all tensors.[1][2]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1, Tau3-Banking / Tau2-Bench, GDPval-AA, Claw-Eval / ClawProBench, Toolathon, MCP-Atlas, and SWE Atlas Codebase QnA: **no verified public score found**. Self-hosting examples are not agent evaluations.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR / MLCR, CritPt, Intelligence Index, and Omniscience accuracy / hallucination rate: **no verified public score found**. The inspected official card contains architecture and deployment details, not quality tables.[1]
+
+Coding:
+
+- SWE-bench Verified / Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE, and Coding Index: **no verified public score found**.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks result found at a stated input length. Configured maximum positions and YaRN scaling are not measured retention.[1][2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** No exact-model quality benchmark was verified, and base-model specifications cannot establish a five-axis chat/agent Overall. No Gemini, sibling, or hypothetical instruction-tuned-model numbers are transferred.
+
+Fresh exact-name Bing RSS results were unrelated and discarded. The configured search integration was unavailable with HTTP 402. Publisher-registry discovery supplied the real base card/config; the guessed BenchLM profile returned 404 and the public Agnes website exposed no readable article. These are bounded access findings, not proof of nonexistence.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-11
+- Method: Independent fresh exact-name search, direct public checkpoint card/configuration, registry metadata, and live provider catalog checks. Notes-only self-exclusion; no peer findings read, model weights downloaded, or remote model code executed.
+- Reference URLs:
+  - [1 — Agnes AI exact Base model card](https://huggingface.co/Agnes-AI/Agnes-2.5-Flash-Base/raw/main/README.md)
+  - [2 — Publisher's exact checkpoint configuration](https://huggingface.co/Agnes-AI/Agnes-2.5-Flash-Base/raw/main/config.json)
+  - [3 — Exact public registry metadata](https://huggingface.co/api/models/Agnes-AI/Agnes-2.5-Flash-Base)
+  - [4 — OpenRouter public live model catalog](https://openrouter.ai/api/v1/models)
+  - [5 — OpenCode Zen public live model catalog](https://opencode.ai/zen/v1/models)
+- Future sources: preserve this evidence and add an independently signed scored report when exact-model quality measurements become available.

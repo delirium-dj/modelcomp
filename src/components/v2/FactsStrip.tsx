@@ -35,7 +35,7 @@ export const FactsStrip = component$<FactsStripProps>(
             </span>
           </strong>
         </div>
-        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-center max-[800px]:border-b max-[800px]:border-l-0 max-[800px]:border-b-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-4 max-[800px]:dark:border-b-[#274757]">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-center max-[800px]:border-b max-[800px]:border-l-0 max-[800px]:border-b-[var(--color-border)] max-[800px]:px-0 max-[800px]:py-4 max-[800px]:dark:border-b-[#274757] dark:border-l-[#274757]">
           {/* All six dimension leaders are rendered; the 30s keyframe in
               global.css fades each one in for 5s (6 × 5s cycle). Pure CSS on
               purpose: the old client timer never advanced on the deployed
@@ -64,7 +64,7 @@ export const FactsStrip = component$<FactsStripProps>(
             ))}
           </div>
         </div>
-        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t border-t-[var(--color-border)] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] max-[800px]:px-0 max-[800px]:py-4">
+        <div class="border-l border-l-[var(--color-border)] px-7 py-7 pb-8 text-left max-[800px]:col-span-full max-[800px]:border-l-0 max-[800px]:border-t border-t-[var(--color-border)] max-[800px]:pl-0 max-[800px]:text-center max-[800px]:dark:border-t-[#274757] dark:border-l-[#274757] max-[800px]:px-0 max-[800px]:py-4">
           <span class="mb-2 block text-xs text-[#577184] dark:text-[#93adbe]">Scoring</span>
           <strong class="block break-words text-lg font-semibold leading-normal max-[800px]:text-base max-[800px]:text-md">
             Overall = mean of 5 quality dims, cost excluded
@@ -74,4 +74,3 @@ export const FactsStrip = component$<FactsStripProps>(
     );
   },
 );
-

@@ -1,0 +1,49 @@
+# Qoduck — findings by Nemotron 3.5 Super VL 120B A12B (SELF-EXCLUDED)
+
+- Source: Qoder (`qoduck`), stealth model — identity undisclosed
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qoduck
+- **Short description:** Qoder's stealth model whose identity has yet to be disclosed. Available free during a limited-time promotion (November 7–11, 2026) for Qoder International individual users. Removed when the promotion ends.
+- **Provider / access:** Qoder International (Qoder IDE, JetBrains plugin, Qoder CLI, and other products do not support the promotion). Free during promotion (0.0× credit rate), then 0.5× standard rate after.
+- **Release / knowledge:** Promotion from November 7, 2026 to November 11, 2026 10:00 (UTC+8). Model removed after promotion ends.
+- **IDs:** `qoduck` (model picker name); real model identity undisclosed.
+- **Context window:** Not disclosed.
+- **Modalities:** Not disclosed.
+- **Pricing (as of 2026-11-11):** Free within daily allowance during promotion; 0.5× credit rate after. Free and paid users eligible; Teams/Enterprise ineligible.
+- **Architecture:** Undisclosed (stealth model).
+
+### Raw benchmarks found
+
+SELF-EXCLUSION (mandatory): zero verified public benchmark numbers found for Qoduck. The model is a stealth release with no disclosed specifications, no published benchmark results, and no public leaderboard entries. Every row would read "no verified public score found."
+
+Agent / tool use: no verified public score found
+Reasoning / knowledge: no verified public score found
+Coding: no verified public score found
+Long context: no verified public score found
+
+### Normalized scores (1–100)
+
+Not computed — self-excluded due to zero verified public benchmarks.
+
+- **Tool use:** no verified public score found
+- **Reasoning:** no verified public score found
+- **Context window:** no verified public score found
+- **Multimodal:** no verified public score found
+- **Coding:** no verified public score found
+- **Cost efficiency:** not applicable (excluded)
+- **Overall Score:** not computed (excluded)
+
+---
+
+## Signature
+
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-11-11
+- Method: public internet research (Qoder documentation); no verified public benchmarks found for this stealth model — self-excluded per template rules.
+- Reference URLs:
+  - [Qoduck — Qoder documentation](http://docs.qoder.com/events/qoduck-free)
+- Future sources: add a new file next to this one, e.g. `Nemotron_3.5_Super_VL_120B_A12B.md`, using the same headings.

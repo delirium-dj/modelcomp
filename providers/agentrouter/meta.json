@@ -1,16 +1,22 @@
 {
   "name": "AgentRouter",
   "kind": "aggregator",
-  "short": "Chinese-language multi-model gateway reselling Claude Opus 4.6-4.8, GPT-5.5 and GLM 5.2 through one API key at ~27% of official list price; pay-as-you-go only - no public free tier (enterprise trial quotas by sales request).",
-  "officialUrl": "https://co.agentrouter.org",
+  "short": "Chinese-language multi-model gateway reselling GPT-5.6 Sol, GPT-6 Astra and GPT-6.1 Sol through one API key at ~27% of official list price. Free credits via daily $25 check-in + $50/invite (no card top-up). GPT-6 Astra limited daily 10:00 Beijing time. Joining requires a GitHub account 6+ months old.",
+  "officialUrl": "https://agentrouter.org/register?aff=a4U6",
   "hosts": ["agentrouter.org", "co.agentrouter.org"],
   "catalogUrl": "https://co.agentrouter.org/portal/models",
   "plans": [
     {
+      "name": "Free check-in credits",
+      "price": "$0",
+      "notes": "No card top-up supported. Earn free credits: daily $25 check-in, $50 per invite, email bonus draws, official promos. Balance never expires; no minimum spend. (api/faq, agentrouter.org)",
+      "evidenceUrl": "https://agentrouter.org/register?aff=a4U6"
+    },
+    {
       "name": "Pay-as-you-go",
       "price": "Per 1M tokens",
-      "notes": "Claude Opus 4.8 $8/$40; Opus 4.7 $8/$40; Opus 4.6 $2/$10; GPT-5.5 $4/$8; GLM 5.2 $3/$4.5 (input/output). Balance never expires; no minimum spend. Claims ~27% of official list price.",
-      "evidenceUrl": "https://co.agentrouter.org/portal/models"
+      "notes": "GPT-5.6 Sol, GPT-6 Astra and GPT-6.1 Sol all listed at $0 per 1M tokens (free tier) per agentrouter.org/api/pricing. Balance never expires; no minimum spend.",
+      "evidenceUrl": "https://agentrouter.org/api/pricing"
     },
     {
       "name": "Enterprise seats",
@@ -20,10 +26,8 @@
     }
   ],
   "covers": [
-    "claude-opus-4.8",
-    "claude-opus-4.7",
-    "claude-opus-4.6",
-    "gpt-5.5",
-    "glm-5.2"
+    "gpt-5.6-sol",
+    "gpt-6-astra",
+    "gpt-6.1-sol"
   ]
 }

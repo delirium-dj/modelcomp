@@ -21,6 +21,7 @@ const BENCHMARK_DESC: Record<string, string> = {
   "SWE-bench Pro": "A harder, longer-horizon software-engineering split stressing multi-file reasoning and repo-scale edits.",
   DeepSWE: "Deep, multi-step software engineering evaluations beyond single-patch tasks.",
   LiveCodeBench: "Rolling, contamination-resistant coding problems drawn from recent competitive-programming sets.",
+  "LiveCodeBench Pro": "Elo-rated competitive-programming variant of LiveCodeBench (rating scale, not a pass rate).",
   HumanEval: "The classic function-level code-completion suite: write Python from a docstring prompt.",
   "Aider Polyglot": "Polyglot code-editing benchmark run through the Aider pair-programming harness.",
   "Vibe Code Bench": "Application-building evaluations measured end-to-end in an agentic coding harness.",
