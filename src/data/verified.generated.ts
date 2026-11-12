@@ -63,8 +63,6 @@ export const VERIFIED: Record<string, string> = {
   "gemma-4-31b": "2026-11-11",
   "gemma-4-e2b": "2026-11-11",
   "gemma-4-e4b": "2026-11-12",
-  "gemma-4.12b-unified": "2026-11-12",
-  "gemma-4.26b-a4b": "2026-11-11",
   "glm-4.5-flash": "2026-11-12",
   "glm-4.6-flash": "2026-11-06",
   "glm-4.6v-flash": "2026-11-10",

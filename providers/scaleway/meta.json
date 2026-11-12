@@ -34,7 +34,7 @@
   "covers": [
     "deepseek-v4.1-flash",
     "deepseek-v4-flash",
-    "gemma-4.26b-a4b",
+    "gemma-4-26b-a4b",
     "glm-5.2",
     "glm-5.3",
     "gpt-oss-120b",

@@ -13,5 +13,12 @@
     "https://huggingface.co/google/gemma-4-12B",
     "https://opencode.ai/docs/zen"
   ],
-  "freeTierNote": "Apache 2.0 open weights available for free self-hosting"
+  "freeTierNote": "Apache 2.0 open weights available for free self-hosting",
+  "aliases": [
+    "gemma-4.12b-unified",
+    "Gemma 4 12B",
+    "gemma-4-12B",
+    "google/gemma-4-12B",
+    "Gemma 4 12B Unified"
+  ]
 }

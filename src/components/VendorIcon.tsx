@@ -253,7 +253,15 @@ const VENDORS: VendorMatch[] = [
   { match: "cortecs", icon: "cortecs", label: "Cortecs" },
   { match: "scx", icon: "scx-ai", label: "SCX.ai" },
   { slug: "scx-ai", icon: "scx-ai", label: "SCX.ai" },
-  // OpenCode originals with no brand mark: beam / big-pickle / cat-jam / ember /
+  // PrismML (Ternary Bonsai models) — pyramid mark, dark brand mark made adaptive.
+  { match: "bonsai", icon: "prismml", label: "PrismML", adaptive: true },
+  { match: "prismml", icon: "prismml", label: "PrismML", adaptive: true },
+  { match: "prism", icon: "prismml", label: "PrismML", adaptive: true },
+  // Beam (Reflection AI) — formerly Cat Jam.
+  { match: "beam", icon: "reflection", label: "Reflection AI", adaptive: true },
+  // Agnes AI models.
+  { match: "agnes", icon: "agnes-ai", label: "Agnes AI" },
+  // OpenCode originals with no brand mark: big-pickle / cat-jam / ember /
   // exo-free / inkling-2-small / flint / neomorph / omi / owo / ox / space-bunny
   // pick up the OpenCode mark below; originals omen / owl have no brand SVG —
   // letter fallback. a4f / portkey / requesty have their own entries above.

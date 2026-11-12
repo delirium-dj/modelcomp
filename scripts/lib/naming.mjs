@@ -57,6 +57,37 @@ export const SLUG_VERSION_EXCEPTION = new Set([
 ]);
 
 /**
+ * Inverse of the hyphen-version gate: a slug that is ALREADY dotted but the
+ * dot joined a parameter size to a version, reading "Gemma 4.12" where the
+ * vendor means "Gemma 4, 12B params". `normalizeSlug` correctly refuses to
+ * PRODUCE this form (the `b`/`B` guard), so a researcher who mistypes the
+ * hyphenated param size as a dotted version is never corrected — the
+ * hyphen-version gate returns null for it and sync happily scaffolds a second
+ * folder for a model that is already tracked (exactly what happened with
+ * `gemma-4.12b-unified` / `gemma-4.26b-a4b` on 2026-11-12).
+ *
+ * The signal is a dot-joined digit-run immediately followed by `b`/`B`
+ * (`4.12b`, `4.26b`, `3.8.27b`): a real dotted version is never followed by a
+ * param-size letter, because a version like `4.12` is written bare. Reversing
+ * the dot back to a hyphen recovers the canonical spelling. Returns the
+ * hyphenated suggestion, or null when the slug is fine.
+ *
+ * Deliberately conservative: it only fires on `\d+\.\d+b`-shaped runs, so
+ * genuine dotted versions (`gpt-5.6-terra`, `qwen-3.8-27b`, `gemma-4.12b`
+ * as a *version* if a vendor ever shipped one) are left alone, and the caller
+ * still gates on the hyphenated form actually being a tracked slug — so a
+ * brand-new model whose vendor really did name it `gemma-4.12b` is not
+ * blocked, only a duplicate spelling of an already-tracked one.
+ */
+export function dottedParamSizeViolation(slug) {
+  const m = slug.match(/(\d+)\.(\d+)([bB])(?=[.-]|$)/);
+  if (!m) return null;
+  const hyphenated = slug.slice(0, m.index) + m[1] + "-" + m[2] + m[3] + slug.slice(m.index + m[0].length);
+  if (hyphenated === slug) return null;
+  return slug.includes(hyphenated) ? null : hyphenated;
+}
+
+/**
  * Canonical slug normalizer (single source of truth — RULES.md slug identity).
  * Version numbers use "." not "-": every digit-hyphen-digit join becomes a
  * dot (`gpt-5-6-terra` → `gpt-5.6-terra`, `gemma-4-12b-unified-2-1` →

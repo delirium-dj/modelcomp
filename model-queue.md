@@ -123,15 +123,13 @@
 76.9 claude-sonnet-3.7
 76.9 glm-5.2-coding
 76.7 gpt-5.1-codex-max
-76.5 gemma-4.26b-a4b
-76.1 gemma-4.12b-unified
+76.5 gemma-4-12b-unified
 76.1 ling-3.0-flash-vl
 75.9 inkling-2-small
 75.6 mistral-medium-3.5
 75.2 gpt-5.4-nano
 75 deepseek-v4-flash
 75 glm-5.2
-74.9 gemma-4-12b-unified
 74.8 gemma-4-26b-a4b
 74.8 gpt-5-codex
 74.7 mimo-v2.5-pro

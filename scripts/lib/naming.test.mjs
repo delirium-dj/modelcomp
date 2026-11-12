@@ -11,6 +11,7 @@ import {
   SLUG_VERSION_EXCEPTION,
   normalizeSlug,
   hyphenVersionViolation,
+  dottedParamSizeViolation,
   STEM_VERSION_EXCEPTION,
   normalizeStem,
   stemVersionViolation,
@@ -112,6 +113,57 @@ describe("hyphenVersionViolation (model/README.md convention)", () => {
   it("still flags real version joins before and after a param join", () => {
     // "2.1" in "unified-2-1" is a version join, dotted; the "4-12b" param join stays.
     assert.equal(hyphenVersionViolation("gemma-4-12b-unified-2-1"), "gemma-4-12b-unified-2.1");
+  });
+
+  describe("dottedParamSizeViolation (inverse gate: over-normalized param size read as a version)", () => {
+    it("recovers the hyphenated param size from a dotted spelling", () => {
+      assert.equal(dottedParamSizeViolation("gemma-4.12b-unified"), "gemma-4-12b-unified");
+      assert.equal(dottedParamSizeViolation("gemma-4.26b-a4b"), "gemma-4-26b-a4b");
+      assert.equal(dottedParamSizeViolation("gemma-4.12b"), "gemma-4-12b");
+      assert.equal(dottedParamSizeViolation("gemma-4.26b"), "gemma-4-26b");
+    });
+
+    it("leaves already-correct hyphenated param sizes alone", () => {
+      for (const s of [
+        "gemma-4-31b",
+        "gemma-4-12b-unified",
+        "gemma-4-26b-a4b",
+        "gemma-4-e2b",
+        "gemma-4-e4b",
+        "qwen-3.8-27b",
+        "qwen-3.8-325b",
+        "qwen-3.5-9b",
+        "qwen-3.5-397b",
+        "qwen-3.5-122b-a10b",
+      ]) {
+        assert.equal(dottedParamSizeViolation(s), null, s);
+      }
+    });
+
+    it("never fires on a genuine dotted version or a bare param slug", () => {
+      for (const s of [
+        "gpt-5.6-terra",
+        "gpt-5.5",
+        "gpt-5.5-pro",
+        "gpt-6.1-terra",
+        "claude-sonnet-5.4",
+        "claude-opus-4.8",
+        "qwen-3.8-max",
+        "qwen-4-max",
+        "deepseek-v4.1-flash",
+        "mimo-v2.5-free",
+        "gpt-oss-120b",
+        "nemotron-3-ultra-550b-a55b",
+        "gemini-3.1-flash-lite",
+      ]) {
+        assert.equal(dottedParamSizeViolation(s), null, s);
+      }
+    });
+
+    it("is idempotent - its own suggestion passes back through clean", () => {
+      const fixed = dottedParamSizeViolation("gemma-4.12b-unified");
+      assert.equal(dottedParamSizeViolation(fixed), null);
+    });
   });
 
   it("normalizeSlug is the canonical normalizer (gate delegates to it)", () => {

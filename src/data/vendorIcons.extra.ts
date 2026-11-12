@@ -26,6 +26,8 @@ import llmgatewayRaw from "../../assets/vendor-icons/llmgateway.svg?raw";
 import cortecsRaw from "../../assets/vendor-icons/cortecs.svg?raw";
 import scxRaw from "../../assets/vendor-icons/scx.svg?raw";
 import modelmeshRaw from "../../assets/vendor-icons/modelmesh.svg?raw";
+import prismmlRaw from "../../assets/vendor-icons/prismml.svg?raw";
+import agnesAiRaw from "../../assets/vendor-icons/agnes-ai.svg?raw";
 
 // Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
 // file stays the single point of truth (edit it, not this module). `vite/client`
@@ -56,6 +58,8 @@ const llmgateway = svgRawEntry(llmgatewayRaw);
 const cortecs = svgRawEntry(cortecsRaw);
 const scx = svgRawEntry(scxRaw);
 const modelmesh = svgRawEntry(modelmeshRaw);
+const prismml = svgRawEntry(prismmlRaw);
+const agnesAi = svgRawEntry(agnesAiRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
@@ -181,4 +185,7 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "cortecs":       { viewBox: cortecs.viewBox, body: cortecs.body },
   "scx-ai":        { viewBox: scx.viewBox, body: scx.body },
   "modelmesh":     { viewBox: modelmesh.viewBox, body: modelmesh.body },
+  "prismml":       { viewBox: prismml.viewBox, body: prismml.body, fill: "currentColor" },
+  // Agnes AI mark, sourced from assets/vendor-icons/agnes-ai.svg (shadows base key).
+  "agnes-ai":      { viewBox: agnesAi.viewBox, body: agnesAi.body },
 };

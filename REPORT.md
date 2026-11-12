@@ -1,5 +1,65 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-12 — gemma-4.12b-unified and gemma-4.26b-a4b merged into their hyphenated twins (over-normalized param sizes) + generic guard
+
+1. **Identity, and why the requested direction was reversed.** The user reported `gemma-4-12b-unified` /
+   `gemma-4-26b-a4b` as duplicates of the hyphenated folders and asked to merge the hyphenated ones into the
+   dotted ones. Investigation showed the **opposite** is correct: the DOTTED folders are the mistakes.
+   - Vendor: Hugging Face ships `google/gemma-4-12B`; the arXiv Gemma 4 technical report describes the MoE as
+     *"3.8B activated parameters for 26B total parameters (**26B-A4B**)"* — both **hyphenated**. Google's
+     family is **E2B / E4B / 12B / 26B A4B / 31B**, every member a *param size*.
+   - Repo rule: `scripts/lib/naming.mjs` documents param sizes staying hyphenated with `gemma-4-31b` as the
+     exemplar ("digits immediately followed by `b`/`B` are a parameter count, never a version").
+   - In-repo precedent: `gemma-4-31b` (80.9), `gemma-4-e2b`, `gemma-4-e4b` are already tracked hyphenated —
+     the same family.
+   - Same model, proven by the data: both folders' `meta.json` carried identical `name` and vendor `id`
+     (`Gemma 4 12B Unified` / `google/gemma-4-12B`, `Gemma 4 26B A4B` / `google/gemma-4-26b-a4b-it`).
+   So `gemma-4.12b-unified` is a **mis-normalization** that reads "Gemma 4, 12B params" as "Gemma 4.12".
+2. **Merges (user order 2026-11-12, corrected direction approved; per-file deletions confirmed).**
+   - `gemma-4.12b-unified` (52 files) → `gemma-4-12b-unified` (36 files): **24 unique reports moved**
+     (`Claude_Opus_4.8`, `Claude_Opus_5`, `DeepSeek_4_Flash`, `Ernie_5.5_Flash`, `Gemini_3.1_Flash_Lite`,
+     `Gemini_3.7_Flash`, `GLM_5.3`, `Glyph_Cluster`, `GPT_5.5`, `GPT_5.6_Terra`, `GPT_6_Luna`, `GPT_6_Sol`,
+     `Inkling.md.excluded`, `Kimi_K3`, `Laguna_S_2.1`, `Ling_3.1_Flash`, `LongCat_2.5_Preview`,
+     `Muse_Spark_1.3`, `Nemotron_3.5_Lightning_30B_A3B`, `Qwen_3.7_Plus`, `Qwen_3.8_27B`, `Qwen_3.8_Max`,
+     `Solar_Mini_4.md.excluded`, `Xing_4.0_29B_A4B`); **1 dotted report overwrote newest-wins**
+     (`Laguna_XS_2.1.md`, 2026-11-06 > 2026-10-28); **26 dotted copies deleted** (19 where the canonical was
+     newer, 6 exact ties, plus the duplicate `average.md` + `meta.json`). Canonical 36 → **60 files**.
+   - `gemma-4.26b-a4b` (51 files) → `gemma-4-26b-a4b` (37 files): all **49 findings were exact date ties**
+     (verified against both `- Date:` frontmatter and inline `Provided by` signature dates), so **nothing
+     moved**; all 51 dotted files deleted and the folder removed. Canonical unchanged at **37**.
+   - Verified zero tracked-file loss against HEAD for both canonical folders (0 missing).
+   - A date-parsing nuance worth recording: four collisions had no `- Date:` frontmatter line, which makes
+     them sort as "newer" under a naive string comparison. Reading the inline `Provided by … - <date>`
+     signature resolved all four correctly — `Big_Pickle.md` and `Claude_Sonnet_4.6.md` in the hyphenated
+     folder are dated 2026-10-27 / 2026-10-21 and win, and `Gemini_3.8_Flash.md` /
+     `Nemotron_3_Ultra_550B_A55B.md` are signed + dated in the hyphenated folder against unsigned undated
+     dotted stubs and win.
+3. **New generic guard — closes the actual gap.** The user's stated concern (`-` where `.` belongs for
+   versions) is **already enforced**: `hyphenVersionViolation` FAILs `gpt-5-6-terra` → `gpt-5.6-terra` and
+   `claude-sonnet-5-4` → `claude-sonnet-5.4`, and `sync-data.mjs` refuses to cement such a folder. The real
+   hole was the **inverse**: `normalizeSlug` correctly refuses to *produce* a dotted param size (the `b`/`B`
+   guard), so a slug that *arrives already dotted* passes the hyphen gate untouched and sync scaffolds a
+   second folder for a tracked model — the 2026-10-05 misdrop at `model/gemma-4-12b-unified/` recorded in
+   `sync-data.mjs`'s own comment. New `dottedParamSizeViolation(slug)` in `naming.mjs` detects a
+   `\d+\.\d+b`-shaped run (a real dotted version is never followed by a param-size letter) and returns the
+   hyphenated spelling. It is **deliberately conservative**: wired into `sync-data.mjs` it fires only when the
+   hyphenated form is itself an on-disk folder, so a genuinely new model whose vendor really named it
+   `brandnew-4.9b-model` is *not* blocked — only a duplicate spelling of an already-tracked one. Downstream
+   exclusions mirror the hyphen gate exactly (never a rater, SKIP with no files written). Four new
+   describe/it blocks added to `naming.test.mjs`, including the negative set (`gpt-5.6-terra`, `gpt-5.5`,
+   `claude-opus-4.8`, `qwen-3.8-max`, `gpt-oss-120b`, …) and an idempotence check.
+4. **Lists and search.** Both dotted slugs added to `MERGED_MODEL_SLUGS` (never re-scaffolded; a resurrected
+   folder FAILs both the merged-slug gate and the new dotted-param gate) with matching `CASE_LAW_NOTES`
+   entries. Canonical metas gained `aliases` so search resolves (`gemma-4.12b-unified`, `Gemma 4 12B`,
+   `gemma-4-12B`, `google/gemma-4-12B`, `Gemma 4 12B Unified`; and the `26b-a4b-it` vendor id for the pair).
+   Six provider catalogs repointed off the retired dotted slugs (`aimlapi`, `novita-ai`, `openrouter`,
+   `scaleway`, `siliconflow`, `vercel-ai-gateway`) — `gemma-4-26b-a4b` was listed in all six.
+   `checkMetaFile` clean for both. **697/697 tests green** (was 693; +4 describe blocks and the two
+   merged-slug notes).
+   Next: user runs `pnpm sync && pnpm build.types:direct && pnpm build:direct`, then spot-checks `#models`
+   search for `gemma-4.12b-unified`, `gemma-4-26b-a4b` and `Gemma 4 12B` — all must resolve to the two
+   hyphenated cards at `/model/gemma-4-12b-unified/` and `/model/gemma-4-26b-a4b/`.
+
 ## 2026-11-12 — owl-alpha merged into longcat-2.0 (vendor-confirmed stealth reveal)
 
 1. **Identity.** `owl-alpha` was Meituan LongCat's anonymous OpenRouter stealth listing (`openrouter/owl-alpha`,

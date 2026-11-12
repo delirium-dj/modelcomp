@@ -75,6 +75,7 @@ import {
   labelOf,
   resolveSourceMeta as resolveSourceMetaPure,
   hyphenVersionViolation,
+  dottedParamSizeViolation,
   stemVersionViolation,
   vendorPrefixViolation,
   buildScaffoldMeta,
@@ -377,6 +378,31 @@ for (const slug of slugs) {
   }
 }
 
+// Inverse of the hyphen gate — the over-normalized DOTTED param size
+// (RULES.md slug identity + the param-size rule in naming.mjs): a folder that
+// dot-joined a parameter size to the version, so `gemma-4.12b-unified` reads
+// as "Gemma 4.12" where Google means "Gemma 4, 12B params". `normalizeSlug`
+// refuses to PRODUCE this shape (digits + b/B are a param count, never a
+// version), so `hyphenVersionViolation` cannot catch it and the dotted
+// spelling scaffolds a second folder for an already-tracked model — exactly
+// the 2026-10-05 misdrop at `model/gemma-4-12b-unified/` that had to be
+// unpicked by hand and was finally merged into `model/gemma-4-12b-unified/` on
+// 2026-11-12. The gate fires ONLY when the hyphenated form is itself an
+// on-disk folder, so a brand-new model whose vendor genuinely shipped a dotted
+// param name is not blocked. Same hardening as the hyphen gate: FAIL plus no
+// cementing — no meta.json scaffold, no average.md rewrite, no score-index or
+// registry input.
+const dottedParamSlugs = new Set();
+for (const slug of slugs) {
+  const suggestion = dottedParamSizeViolation(slug);
+  if (suggestion !== null && slugs.includes(suggestion)) {
+    dottedParamSlugs.add(slug);
+    fail(
+      `model/${slug}/: that dot joined a parameter size to the version — a \`b\`/\`B\` suffix is a parameter count, never a version, so read it as "param size", not "x.y"; use "model/${suggestion}/" instead (e.g. gemma-4.12b-unified → gemma-4-12b-unified); merge into the existing folder, never create a dotted variant`,
+    );
+  }
+}
+
 // Merged + vendor-prefixed duplicate slugs (RULES.md vendor-prefix identity,
 // model/README.md merged-slug list): a folder that is a resurrected merged
 // slug or `<vendor>-<rest>` with `<rest>` on disk is a forbidden duplicate,
@@ -491,7 +517,8 @@ const modelNameBySlug = {};
 // (RATER_GATE, maintained above) — no manual sync needed.
 const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
-  if (hyphenSlugs.has(slug)) continue; // forbidden duplicate — never a rater
+  if (hyphenSlugs.has(slug)) continue; // forbidden duplicate - never a rater
+  if (dottedParamSlugs.has(slug)) continue; // dotted param-size duplicate - never a rater
   if (mergedSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   if (retiredAliasSlugs.has(slug)) continue; // retired alias — never a rater
   if (deletedPhantomSlugs.has(slug)) continue; // deleted phantom — never a rater
@@ -542,6 +569,10 @@ function raterSlugFor(stem) {
 for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) {
     log(`  SKIP  model/${slug}/ (hyphen-version duplicate — merge into the dotted folder first; no files written)`);
+    continue;
+  }
+  if (dottedParamSlugs.has(slug)) {
+    log(`  SKIP  model/${slug}/ (dotted param-size duplicate — merge into the hyphenated folder first; no files written)`);
     continue;
   }
   if (mergedSlugs.has(slug)) {

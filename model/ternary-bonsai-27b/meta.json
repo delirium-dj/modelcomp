@@ -1,6 +1,6 @@
 {
   "id": "opencode/ternary-bonsai-27b",
-  "name": "Ternary Bonsai 27b",
+  "name": "Ternary Bonsai 27B",
   "short": "Lightweight 27B parameter ternary-quantized open-weights model optimized for high-efficiency inference and low-latency text generation.",
   "contextWindow": "128,000 total",
   "modalities": "Text in/out only",
