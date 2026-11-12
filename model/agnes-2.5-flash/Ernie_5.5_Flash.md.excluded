@@ -1,0 +1,59 @@
+# Agnes 2.5 Flash — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — `.md.excluded` on purpose: BenchLM has no profile (HTTP 404),
+> models.dev carries only catalogue facts, and no vendor benchmark table was
+> reachable. No scored report (template SELF-EXCLUSION; QUAR would quarantine).
+
+- Source: Agnes/Agnes 2.5 Flash (`agnes-2.5-flash`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash
+- **Short description:** An upgraded Agnes model (2026-07) with improved coding, agent workflows, tool calling and multimodal understanding.
+- **Provider / access:** `agnes/agnes-2.5-flash` — the only catalogued route.
+- **Release / knowledge:** 2026-07; knowledge cutoff not published.
+- **IDs:** `agnes-2.5-flash`.
+- **Context window:** 512,000 tokens (models.dev); max output 65,536.
+- **Modalities:** text and image in; text out; tool calls and reasoning.
+- **Pricing (as of 2026-11-11/12):** not published ($0/$0 catalogue placeholder).
+- **Architecture:** undisclosed.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found for this exact model ID
+
+Reasoning / knowledge: no verified public score found for this exact model ID
+
+Coding: no verified public score found for this exact model ID
+
+Long context: 512K declared; no MRCR / RULER / GraphWalks row published
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes
+
+- `benchlm.ai/models/agnes-2-5-flash` → HTTP 404. models.dev has catalogue facts only (512K context, text+image in, 2026-07).
+- No vendor model card, blog or spec sheet with a benchmark table was reachable in this pass.
+- Resolution: spec facts above are catalog-verified; the benchmark columns stay empty.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12
+- Method: public internet research (BenchLM, models.dev, vendor index); no verified benchmark row, so self-excluded.
+- Reference URLs:
+  - [models.dev provider catalog](https://models.dev)
+  - [Agnes models — OpenRouter](https://openrouter.ai/agnes)
+- Future sources: add `Agnes_2.5_Flash.md` next to this file once a row exists.

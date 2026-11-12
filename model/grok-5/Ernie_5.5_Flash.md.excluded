@@ -1,0 +1,53 @@
+# Grok 5 — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — `.md.excluded` on purpose: Grok 5 is **not released** (no
+> model card, no route, no benchmark). No scored report. Candidate for parking.
+
+- Source: xAI/Grok 5 (`grok-5`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Grok 5 (unreleased)
+- **Short description:** xAI's next-generation Grok, announced as a roadmap item but not released as of 2026-11-12.
+- **Provider / access:** none — no API route or weights exist.
+- **Release / knowledge:** unreleased; the only official reference is a roadmap mention (January 2026), with later reporting describing a slipped date and a 4.7→4.9 interim roadmap.
+- **IDs:** `grok-5` (dataset slug only; no vendor ID).
+- **Context window / modalities / pricing / architecture:** not announced.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found for this exact model ID
+Reasoning / knowledge: no verified public score found for this exact model ID
+Coding: no verified public score found for this exact model ID
+Long context: nothing announced
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes
+
+- `benchlm.ai/models/grok-5` → HTTP 404 (its xAI index lists 11 released Grok models, not 5).
+- Grokipedia: "As of April 2026, xAI has not officially released Grok 5"; geotoolbox (Nov 2026): "Grok 5 isn't out yet."
+- Resolution: nothing asserted. This slug is a candidate for the parked list (phantom/unreleased), not for scoring — surfacing for your decision.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12
+- Method: public internet research (BenchLM xAI index, Grokipedia, geotoolbox, x.ai); model unreleased, so self-excluded.
+- Reference URLs:
+  - [Best xAI Grok models — BenchLM](https://benchlm.ai/best/xai-models)
+  - [Grok 5 — Grokipedia](https://grokipedia.com/page/Grok_5)
+  - [Grok 5: release date, specs & what's confirmed](https://geotoolbox.ai/blog/grok-5)
+- Future sources: add `Grok_5.md` next to this file if and when xAI ships the model.

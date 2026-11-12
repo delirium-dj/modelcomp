@@ -1,0 +1,62 @@
+# Owl Alpha — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — `.md.excluded` on purpose: Owl Alpha is a stealth preview with
+> no published benchmark rows, and it has been **revealed as LongCat-2.0**. Per the
+> revealed-stealth rule this folder should be merged into `model/longcat-2.0/`, not
+> scored under the stealth name. No scored report is written here.
+
+- Source: Stealth (OpenRouter) — Owl Alpha (`owl-alpha`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owl Alpha (stealth → revealed as LongCat-2.0)
+- **Short description:** A stealth model served on OpenRouter from 2026-04-28 with a ~1M-token context, native tool use and text-only I/O. Independent stealth tracking identifies it as **LongCat-2.0** (Meituan, MIT-licensed MoE weights).
+- **Provider / access:** OpenRouter stealth route (`openrouter/owl-alpha`); no first-party ID.
+- **Release / knowledge:** 2026-04-28 (stealth listing); knowledge cutoff not published.
+- **IDs:** `owl-alpha`, `openrouter/owl-alpha`; revealed target `longcat-2.0`.
+- **Context window:** 1,048,756 tokens (benchable) — ~1M.
+- **Modalities:** text in / text out; tool and function calling (no multimodal support).
+- **Pricing (as of 2026-11-11/12):** stealth preview, no per-token rate published.
+- **Architecture:** per the reveal, LongCat-2.0's MIT-licensed MoE with sparse attention and 1M context.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found for this exact model ID
+
+Reasoning / knowledge: no verified public score found for this exact model ID
+
+Coding: no verified public score found for this exact model ID
+
+Long context: ~1M declared; no MRCR / RULER / GraphWalks row published
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes
+
+- BenchLM has no profile (`benchlm.ai/models/owl-alpha` → HTTP 404); designforonline notes "no benchmark results, pricing, or multimodal support are provided".
+- stealthmodels.com carries the reveal: "Revealed from Owl Alpha, LongCat-2.0 provides MIT-licensed MoE weights, sparse attention and a million-token context."
+- AI BENCHY / benchable publish composites and reliability figures only — not benchmark rows.
+- Resolution: this is a stealth alias, so it must be **merged into `model/longcat-2.0/`** (revealed-stealth rule), never scored here and never kept as a second folder. Surfacing for orchestrator action — an agent may not rename folders without per-instance sign-off.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12
+- Method: public internet research (OpenRouter stealth listing, stealthmodels reveal, benchable, AI BENCHY, BenchLM, models.dev); no verified benchmark row and a revealed identity, so self-excluded.
+- Reference URLs:
+  - [Owl Alpha: coding, tools & identity clues — Stealth Models](https://stealthmodels.com/owl-alpha)
+  - [LongCat-2.0 benchmarks (revealed from Owl Alpha) — Stealth Models](https://stealthmodels.com/benchmarks/models/owl-alpha)
+  - [Owl Alpha — OpenRouter](https://openrouter.ai/owl-alpha)
+- Future sources: if the merge is confirmed, move research into `model/longcat-2.0/` and retire this folder's files per the merge checklist.

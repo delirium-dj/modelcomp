@@ -193,6 +193,11 @@ describe("merged duplicate slugs (never come back)", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("muse-wonder"), "muse-wonder-1.0");
   });
 
+  it("maps the qwen-3.8-2400b-a95b param respelling to the canonical qwen-3.8-max folder", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("qwen-3.8-2400b-a95b"), "qwen-3.8-max");
+    assert.equal(CASE_LAW_NOTES.has("qwen-3.8-2400b-a95b"), true);
+  });
+
   it("message names both slugs and the canonical research route", () => {
     const msg = mergedSlugMessage("google-gemini-2.5-flash-lite", "gemini-2.5-flash-lite");
     assert.match(msg, /google-gemini-2\.5-flash-lite/);

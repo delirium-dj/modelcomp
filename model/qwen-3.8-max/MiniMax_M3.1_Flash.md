@@ -1,96 +1,108 @@
-# Qwen3.8 Max — findings by MiniMax M3.1 Flash
+# Qwen3.8 2.4T A95B — findings by MiniMax M3.1 Flash
 
-- Source: Alibaba (`qwen3.8-max` — the 2026-09-02 "0902" snapshot)
-- Date: 2026-10-19 (UTC)
+- Source: Alibaba / Qwen (`qwen-3.8-2400b-a95b`)
+- Date: 2026-11-12 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen3.8 Max
-- **Short description:** Alibaba's Qwen-Max-class flagship — the model where "For the first time, Qwen3.8 brings a Qwen-Max-class model to open release". The undated `qwen3.8-max` id resolves to the current **0902 snapshot** (2 September 2026), an "upgraded snapshot of qwen3.8-max" that adds vision input, non-thinking support, 1M context by default and built-in tools. It is a distinct model from `qwen3.8-max-0803` (the August snapshot, deprecated), from `qwen3.8-max-prime` (a higher-throughput SKU at $4/$12), and from the open-weight base `qwen3.8-2.4t-a95b` (text-only, thinking-mandatory).
-- **Provider / access:** QwenCloud / Alibaba Cloud Model Studio `qwen3.8-max` (alias `qwen3.8-max-2026-09-02`); OpenRouter `qwen/qwen3.8-max-0902` (+ `qwen/qwen3.8-max-prime`, `qwen/qwen3.8-2.4t-a95b`); OpenCode Zen `opencode/qwen3.8-max` (`https://opencode.ai/inference/openai/v1/chat/completions`).
-- **Release / knowledge:** the 0902 snapshot is dated **2026-09-02** (OpenRouter `created` 2026-09-03); the base `qwen3.8-max` release is August 2026. Knowledge cutoff: **not published** by Alibaba.
-- **IDs:** `qwen3.8-max` / `qwen3.8-max-0902` (QwenCloud, Model Studio), `qwen/qwen3.8-max-0902` (OpenRouter), `opencode/qwen3.8-max` (Zen), `Qwen/Qwen3.8-2.4T-A95B` (Hugging Face, open base weights).
-- **Context window:** **1M** (max input 991K; 983K in thinking mode); max output **131K**, max reasoning **262K**. Artificial Analysis displays "984k" and its FAQ says "a context window of 980k tokens" — a tracker-side accounting figure, not a vendor number.
-- **Modalities:** input image, text and video; output text. Reasoning: `reasoning_effort` = xhigh (default) / medium / low, with `preserve_thinking` on by default; the base open model is thinking-mandatory. Tools: code_interpreter, web_search, web_extractor, pdf_parsing, t2i/i2i_search, web_fetch (Anthropic-protocol route).
-- **Pricing (as of 2026-10-19, per 1M tokens):** **$2.00 in / $6.00 out**, implicit-cache input $0.25, explicit cache create $2.50, explicit cache read $0.17. Rate limits: TPM 1M, RPM 15K (the base `qwen3.8-max` id shows TPM 2M). OpenCode Zen lists $2.00 / $6.00 / $0.25 / $2.50. EU in-region routing: not available.
-- **Architecture:** the hosted 0902 build is **proprietary** ("No, Qwen3.8 Max (0902) is proprietary. The model weights are not publicly available" — AA), but the **base weights are public**: `Qwen/Qwen3.8-2.4T-A95B` (2.4T total / 95B active, 92 layers, 512 experts), MIT-style open release, "Context Length: 262,144 natively and extensible up to 1,010,000 tokens". The HF card is explicit that the two are different artifacts: "Qwen3.8-Max is the official version based on Qwen3.8-2.4T-A95B with more features, such as vision input & non-thinking support, 1M context length by default, official built-in tools".
+- **Name:** Qwen3.8 2.4T A95B (catalogued in this repository as "Qwen 3.8 2400b A95b"; the vendor writes it "Qwen3.8 2.4T A95B")
+- **Short description:** The open-weight sparse mixture-of-experts checkpoint of the Qwen3.8 generation — 2.4 trillion total parameters with 95 billion active — released by Alibaba on 2026-08-12 as the open-weight twin of the hosted **Qwen3.8 Max** API model. It is a text-only, always-thinking instruction model aimed at coding, professional work, research and long-horizon agentic tasks, and it is the first time Alibaba has released a Max-class model as open weights. It is a distinct artifact from `qwen-3.8-max` (same base weights, but the hosted product adds vision input, non-thinking mode, a 1M default context and built-in tools).
+- **Provider / access:** Hugging Face weights `Qwen/Qwen3.8-2.4T-A95B` (213 safetensors shards, commercial "Qwen3.8-Max License"); OpenRouter `qwen/qwen3.8-2.4t-a95b` (canonical slug `qwen/qwen3.8-2.4t-a95b-20260812`), currently served by NovitaAI, Alibaba Cloud International, SiliconFlow and Venice — OpenAI-compatible Chat Completions at `https://openrouter.ai/api/v1/chat/completions`; the official **Qwen Cloud** API (`https://www.qwencloud.com`); and self-hosting via vLLM, SGLang or TokenSpeed. OpenCode Zen currently lists only `qwen3.8-max` and `qwen3.8-flash` — the 2.4T A95B checkpoint is **not** on the Zen catalogue as of 2026-11-12.
+- **Release / knowledge:** weights published **2026-08-12** (Hugging Face repository created 2026-08-08; OpenRouter and Artificial Analysis both date the release 2026-08-12). Knowledge cutoff not disclosed.
+- **IDs:** `Qwen/Qwen3.8-2.4T-A95B` (Hugging Face), `qwen/qwen3.8-2.4t-a95b` (OpenRouter), `qwen3.8-2.4t-a95b` (models.dev canonical id `alibaba/qwen3.8-2.4t-a95b`).
+- **Context window:** **262,144 tokens natively**, documented as extensible to **1,010,000 tokens** with a longer-context deployment configuration. Artificial Analysis measures the live deployment at 262,000 tokens; OpenRouter advertises 1.0M. Recommended output budget from the vendor card: 262,144 tokens of reasoning content plus 131,072 tokens of final response inside the 1M configuration.
+- **Modalities:** **text in / text out only** — the open checkpoint is explicitly text-only and rejects image or video input. Thinking mode **cannot be disabled** (`enable_thinking` is ignored / "Disabling thinking is not supported"); reasoning depth is set with `reasoning_effort` = `xhigh` (default), `medium` or `low`. Tool calling is supported through the Chat Completions `tools` parameter with an OpenAI-style `tool_call` block and a `tool` role for results; `preserve_thinking` keeps reasoning context across turns; structured output is **not** advertised for this checkpoint on Hugging Face inference.
+- **Pricing (as of 2026-11-12):** **$2.00 in / $6.00 out per 1M tokens**, cached input **$0.25** (87.5% discount) — the first-party Alibaba price recorded by Artificial Analysis and the same price posted by every OpenRouter provider (NovitaAI, Alibaba Cloud Int., SiliconFlow); Venice lists a 20% promotional discount. Hugging Face inference lists $2.50 / $6.25. Open-weights licensing means a self-hosted deployment pays only infrastructure, but 2.4T parameters is an enterprise-scale serving problem. No free tier of this model exists on Zen.
+- **Architecture:** sparse MoE — 2.4T total parameters, **95B activated**; 92 decoder layers laid out as 23 repetitions of (3 × Gated DeltaNet → MoE) followed by (1 × Gated Attention → MoE); 512 experts with **10 routed + 1 shared** active per token; hidden dimension 8,192; padded vocabulary 248,320; 128 linear-attention heads for V and 16 for QK (head dim 128) plus 64 query / 4 KV gated-attention heads (head dim 256, RoPE dim 64); multi-token prediction trained with multiple steps. The hybrid linear/attention stack is what keeps the KV cache affordable at 256K.
 
 ### Raw benchmarks found
 
-> Alibaba's published table is marked "vendor" (the figures appear to belong to the August/0803 build — no per-benchmark table for the 0902 checkpoint was published); Artificial Analysis, Vals AI, the BenchLM ledger, Epoch AI and Simon Willison's AA-cost note are independent.
+> Artificial Analysis (AA) measurements are of the **open 2.4T A95B checkpoint** as deployed by a host; Qwen's own published table in the checkpoint's model card is for the hosted **Qwen3.8-Max** product and is flagged as a proxy wherever it is the only source.
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **86.6%** (vendor) / **88.76%** (AA, 0902) — a 2-point harness gap
-- Terminal-Bench 4.0: **38.89%** (AA) / **34.34% ± 3.94** (Vals AI, #16/50) — the benchmark that now defines agentic terminal work
-- Terminal-Bench 3.0: not published; Terminal-Bench-Science 0.1 **11.90%** (AA) / 12.86% (Vals)
-- Toolathlon-Verified **72.5%** (vendor); Automation-Bench **27.3%** (vendor) / **56.19%** (AA AutomationBench-AA); JobBench **53.4%** (vendor); CoWorkBench 74.8% (vendor); SkillsBench 70.2% (vendor); WideSearch 81.9% (vendor); Agents' Last Exam **27.0% / 52.4%** (vendor)
-- OSWorld 2.0 **19.4%** (via BenchLM) / OSWorld-Verified **86.1%** (via BenchLM) — two different generations of the same benchmark family; PaperBench 93.0%, QwenReactBench 1724, MLS-Bench-Lite 41.0%
-- GDPval-AA **1665.58** (AA); τ³-Banking **47.84%** (AA); APEX-Agents **42.40%** (AA); EnterpriseOps-Gym-AA 47.63% (AA)
-- Claw-Eval / Toolathon (non-Verified): **no verified public score found**
+- Terminal-Bench 2.1: **82.0%** (AA, independent harness; `terminalBench21` 0.8202)
+- Terminal-Bench 4.0: **11.1%** (AA; `terminalBench40` 0.1111) — the current agentic-terminal bar, and the weakest number in this evaluation
+- Tau3-Banking: **49.1%** (AA; `tauBanking` 0.4907) — just under the rubric's frontier anchor of ~50%
+- GDPval-AA: **1615.72 Elo** (AA, 95% CI 1597.1–1634.34); GDPval-AA normalized pass rate **55.8%** (AA, as listed on the OpenRouter benchmark summary)
+- AutomationBench-AA: **57.2%** partial score (AA); Enterprise-Ops-Gym: **47.4%** (AA)
+- AA-Briefcase: **1430.36 Elo** (AA, 95% CI 1422.8–1438.3), rubric pass rate **50.0%**
+- Toolathlon Verified (Pass@1): **72.5%** (vendor, Qwen3.8-Max proxy); WideSearch **81.9%** (vendor, proxy); Agents' Last Exam v1.1 **27.0% pass / 52.4 score** (vendor, proxy); HLE with tools **56.2%** (vendor, proxy)
+- AA Agentic Index: **50.1** (AA composite, as listed on the OpenRouter benchmark summary)
+- Claw-Eval / ClawProBench, Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- OSWorld: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **92.6%** (vendor) / **92.83%** (AA) / **93.69%** (Vals) — BenchLM's "95.5%" could not be found in any source and is not used
-- HLE: **43.6%** (vendor) / **43.10%** (AA) / **56.2% with tools** (vendor); IFBench **82.8%** (vendor, and via BenchLM); HealthBench 60.2% (vendor); MLCR-AA 20% (AA); CritPt **17.71%** (AA)
-- Artificial Analysis Intelligence Index: **45** (#33/217) / 45.4 (per BenchLM's AA mirror)
-- FrontierMath v2: Tiers 1–3 **74.737%**, Tier 4 **46.341%** (Epoch AI, via BenchLM) — behind GPT-6 Astra's 93.684% / 100.000%
-- Omniscience accuracy **31.68%** with a **28.84%** hallucination rate (AA); MathVision 95.2%, ERQA 77.8%, MLVU 90.8%, VideoMMMU 88.7%, OmniDocBench 92.1%, CharXiv 93.5%, Video-MME 90.4%, RealWorldQA 88.0%, MMMU-Pro 82.77% (AA) / 82.3% (via BenchLM) / 88.03% (Vals)
-- MMLU-Pro 88.60% (Vals) / 88.6% (via BenchLM) — BenchLM's "92.4%" is not found in any source
+- GPQA Diamond: **93.5%** (AA; `gpqa` 0.9354) — above the rubric's 90% frontier anchor
+- HLE: **42.4%** (AA; `hle` 0.4245); HLE-Diamond **20.1%** (AA)
+- CritPt: **20.0%** (AA; `critpt` 0.20)
+- AA-LCR v1.1: **80.3%** (AA; `lcr` 0.8033); MLCR overall **30.6%** (AA)
+- Artificial Analysis Intelligence Index: **not published for this model** (AA's record carries a null index and an empty evaluation list — the model was added to the catalogue for targeted evaluations rather than a full index run). BenchLM-style overall ranking: **no verified public score found**
+- AA-Omniscience: accuracy **31.4%**, hallucination rate **34.5%** (non-hallucination **65.5%**) (AA)
+- MRCR v2 256K (8-needle): **92.9%** (vendor, Qwen3.8-Max proxy); LongBench v2 **66.3%** (vendor, proxy); IFBench **82.8%** (vendor, proxy)
 
 Coding:
 
-- SWE-bench Pro **67.7%** (vendor); SWE-bench **85.60%** (Vals AI) — no official swebench.com row
-- DeepSWE v1.1 **56.6%** (vendor); FrontierSWE **73.5%** (vendor, v1 generation)
-- Terminal-Bench 2.1 86.6–88.76%; Terminal-Bench 4.0 34.34–38.89%; LiveCodeBench **87.85%** (Vals)
-- NL2Repo 55.9% (vendor); FrontierCode 1.1 **43.16%** (AA); CursorBench: not published for this model
-- No Vibe Code Bench, no ProgramBench, no Bug Hunt Bench row for Qwen3.8 Max
+- Artificial Analysis Coding Index: **71.9** (AA composite, as listed on the OpenRouter benchmark summary) — inside the rubric's frontier band
+- SciCode: **54.1%** (AA; `scicode` 0.5405) — just under the rubric's 55% frontier anchor
+- SWE-bench Pro: **67.7%** (vendor, Qwen3.8-Max proxy); DeepSWE 1.1 **56.6%** (vendor, proxy); FrontierSWE **73.5%** (vendor, proxy); NL2Repo-Bench **55.9%** (vendor, proxy); PaperBench **93.0%** (vendor, proxy); QwenSWEBench **80.7%** (vendor, proxy); QwenQoderBench **58.4%** (vendor, proxy)
+- Terminal-Bench 2.1 **82.0%** and Terminal-Bench 4.0 **11.1%** (AA, see above)
+- SWE-bench Verified, LiveCodeBench, Vibe Code Bench: **no verified public score found**
 
 Long context:
 
-- MRCR v2 256K **92.9%** (vendor, and via BenchLM); LongBench v2 66.3% (vendor); no 512K–1M MRCR band, no GraphWalks/RULER figure
-- 1M context, 131K max output (262K reasoning)
+- No long-context retrieval test is published for this checkpoint by AA. The vendor's Qwen3.8-Max table reports **MRCR v2 256K (8-needle) 92.9%** and **LongBench v2 66.3%** for the hosted product built on the same weights.
+- Native window **262,144 tokens**, documented as extensible to 1,010,000 tokens; OpenRouter advertises 1.0M for the served route.
 
-Performance profile (AA, 0902): Index 45 (#33/217), output **38.6 t/s** (#183/186 — the slowest tier AA measures), cost per Index task **$5.41** (#108/114), **190M** output tokens (#106/116), TTFT 3.00s, first answer token 54.83s, end-to-end 67.51s, one provider. Simon Willison (2026-10-13) independently notes "Qwen3.8 Max (0902), $4,935" total cost to run the AA Index.
+Multimodal:
+
+- **Text only on this checkpoint.** The model card states plainly: "Qwen3.8-2.4T-A95B is a text-only model that requires thinking mode for all interactions. Multimodal inputs are not supported." Vision belongs to the hosted Qwen3.8-Max product, which is a different entry.
+- MMMU-Pro, Video-MME, audio benchmarks: **no verified public score found**
+
+Performance profile (AA): output **38.7 tok/s**, time to first token **4.50 s**, time to first answer token **104.95 s**, end-to-end **255.4 s** on a benchmark run; TTFT rises from 1.98 s at 1K-token prompts to 11.70 s at 100K-token prompts; AA also records a total cost of **$378** for the AA-Briefcase evaluation run of this deployment. On OpenRouter the same weights run at 33 tok/s (NovitaAI), 39 tok/s (Alibaba Cloud Int.), 34 tok/s (SiliconFlow) and 109 tok/s (Venice, a quantized 20%-off route).
 
 ### Normalized scores (1–100)
 
 > Derived using the rubric in `../../model-comparison.md` (v1 methodology, v4 Overall rule — cost excluded). Each dimension cites the evidence that sets it and what caps it.
 
-- **Tool use: 83/100.** Frontier-adjacent agentic profile — Terminal-Bench 2.1 86.6% (vendor) / 88.76% (AA), GDPval-AA 1665.58, Toolathlon-Verified 72.5%, WideSearch 81.9%, CoWorkBench 74.8%, SkillsBench 70.2%, PaperBench 93.0%, OSWorld-Verified 86.1%, τ³-Banking 47.84%, APEX-Agents 42.40%, ITBench/EnterpriseOps 47.63%. Capped below 88 by the rubric's anchors (τ3 ~50%+ → 47.84% is just short; GDPval ~1750+ → 1665.58 is short), by Terminal-Bench 4.0 at 34.34–38.89%, by Automation-Bench 27.3% in the vendor's own run, and by Agents' Last Exam 27.0%.
-- **Reasoning: 85/100.** GPQA Diamond 92.83% (AA) / 93.69% (Vals), MRCR v2 92.9% at 256K, IFBench 82.8%, HealthBench 60.2%, MathVision 95.2%, CharXiv 93.5%, MLVU 90.8%, FrontierMath v2 74.737% / 46.341%, AA Index 45. Capped below 90 by FrontierMath Tier 4 at 46.341%, CritPt 17.71%, MLCR-AA 20%, and an Omniscience accuracy of only 31.68% despite a comparatively low 28.84% hallucination rate.
-- **Context window: 96/100.** 1M-token context with a 131,000 max output (262,000 in reasoning mode) — the rubric's top tier (≥1M = 95–100), with the output cap above the 64K line — and a strong long-context anchor in MRCR v2 at 92.9% (256K). Not 100: no 512K–1M retrieval figure and no GraphWalks/RULER measurement exist, and Artificial Analysis's 984k/980k display differs from the vendor's 1M.
-- **Multimodal: 92/100.** Image, text and video input with text output — the rubric's "+video/PDF = 75–90" band, lifted by the video and document evals: Video-MME 90.4%, VideoMMMU 88.7%, MLVU 90.8%, OmniDocBench 92.1%, CharXiv 93.5%, MathVision 95.2%, ERQA 77.8%, RealWorldQA 88.0%, MMMU-Pro 82.77–88.03%. Held at 92 because AA lists only "text and image" for the 0902 build, so the video rows are the 0803-era or vendor-published ones.
-- **Coding: 82/100.** Terminal-Bench 2.1 88.76% (AA) / 86.6% (vendor) — above the rubric's 85% anchor — SWE-bench Pro 67.7% (vendor) / SWE-bench 85.60% (Vals), LiveCodeBench 87.85%, FrontierSWE 73.5%, NL2Repo 55.9%, SciCode 52.08%. Capped by DeepSWE 56.6% (well under the rubric's 74% anchor), Terminal-Bench 4.0 34.34–38.89%, Terminal-Bench-Science ~12%, FrontierCode 43.16%, and no Vibe Code Bench, ProgramBench or SWE-bench-Verified official row.
-- **Cost efficiency: 80/100.** The evaluated route — OpenCode Zen `opencode/qwen3.8-max` — is billed at **$2.00 in / $6.00 out** per 1M with $0.25 implicit cache and $2.50 explicit cache create. The rubric's anchors (~$1.25/$4.25 ≈ 88, ~$3/$15 ≈ 60) put $2/$06 at roughly 80. The deductions are real: Artificial Analysis measures **$5.41 per Intelligence Index task (#108 of 114)** — one of the most expensive models in the catalogue — because the model is extremely verbose (190 output tokens per $1 of spend) and slow (38.6 t/s, the slowest tier), so wall-clock cost per task is the issue even though the token price is mid-range.
-- **Overall Score: 87.6/100.** (83 + 85 + 96 + 92 + 82) / 5 = 87.6 — best-fit: the strongest *multimodal-Qwen* of the 2026 line (1M context, video/document input, MRCR 92.9%, GPQA 92.8%, MMMU-Pro 88%) and a solid agentic/coding model, but the slow, verbose serving profile (38.6 t/s, 190M tokens, $5.41 per Index task) means the sticker price understates the real cost — pair it with a fast model for bulk work.
+- **Tool use: 84/100.** Terminal-Bench 2.1 **82.0%** is close to the rubric's ~88% frontier anchor and is the strongest agentic-terminal result in this entry, and Tau3-Banking **49.1%** sits just under the ~50% frontier anchor; GDPval-AA **1615.72 Elo** and AA-Briefcase **1430 Elo** are strong but well under the ~1750 GDPval frontier; AutomationBench-AA **57.2%** and the vendor's Toolathlon Verified **72.5%** / WideSearch **81.9%** (Qwen3.8-Max proxies) support the upper-middle band. Capped below 90 because GDPval stays ~134 Elo short of the frontier figure, because the AA Agentic Index is only **50.1**, and because **Terminal-Bench 4.0 is 11.1%** — the current agentic-terminal bar is the one agentic measurement where this checkpoint shows almost nothing.
+- **Reasoning: 87/100.** GPQA Diamond **93.5%** clears the rubric's 90% frontier anchor, HLE **42.4%** clears the 40% anchor, AA-LCR **80.3%** is well above the mid band, MLCR **30.6%** and MRCR v2 256K **92.9%** (vendor proxy) show workable long-horizon recall, and CritPt **20.0%** is the one weak evaluation. Held well below 90 because **AA publishes no Intelligence Index for this model** (the rubric's "Index 60+" frontier anchor is therefore unmet and unmeasurable), because AA-Omniscience accuracy is only **31.4%** with a **34.5% hallucination rate**, and because HLE-Diamond is just **20.1%**.
+- **Context window: 78/100.** The native window is **262,144 tokens**, which the rubric places in the 200K–500K band (65–84, with 200K ≈ 70); the documented extension path to 1,010,000 tokens and the 1.0M context advertised on the OpenRouter route put it near the top of that band. It cannot reach the 85–100 band, because the rubric's higher tiers are reserved for a verified 500K–1M window and because **no AA retrieval measurement exists for this checkpoint** — the only retrieval figures are the vendor's Qwen3.8-Max proxies (MRCR v2 256K **92.9%**, LongBench v2 **66.3%**).
+- **Multimodal: 15/100.** Text-only: the checkpoint is documented as text-only with no image, video, PDF or audio input and text-only output, which is the rubric's 10–20 band. Vision on the Qwen3.8 family lives in the hosted Qwen3.8-Max product, not in these weights; that product is scored separately.
+- **Coding: 85/100.** AA's Coding Index **71.9** is inside the rubric's frontier band (70%+), Terminal-Bench 2.1 **82.0%** is just under the ~85% anchor, and the vendor's Qwen3.8-Max proxies are strong (SWE-bench Pro **67.7%**, DeepSWE 1.1 **56.6%**, FrontierSWE **73.5%**, PaperBench **93.0%**, QwenSWEBench **80.7%**). Capped below 90 because SciCode **54.1%** sits just under the 55% anchor, because **DeepSWE 1.1 at 56.6%** is far short of the rubric's 74% frontier reference, and because no SWE-bench Verified, LiveCodeBench or Vibe Code Bench result is published for the open checkpoint.
+- **Cost efficiency: 74/100.** The evaluated route is billed at **$2.00 in / $6.00 out per 1M** with cached input at $0.25 — between the rubric's ~$1.25/$4.25 ≈ 88 anchor and its $3/$15 ≈ 60 anchor, which on the token price alone lands in the high 70s. It is held at 74 because the *measured* cost of the model is far above the headline rate: AA records **38.7 tok/s output**, a **104.95 s** time-to-first-answer-token, a **255.4 s** end-to-end run and a **$378** total cost for its AA-Briefcase evaluation of this deployment, and because thinking cannot be switched off, so every request pays the full reasoning-token bill. Self-hosting removes the token price but not the 2.4T-parameter serving cost.
+- **Overall Score: 69.8/100.** (84 + 87 + 78 + 15 + 85) / 5 = 69.8 — best-fit: a genuinely frontier-class open-weight reasoning and agentic-coding model whose one structural weakness is that it is text-only and that its long-context ceiling is the native 256K; deploy it for hard coding, research and professional-writing work on text, and pair it with a multimodal model for image-bearing tasks.
 
 ### Conflicting evidence (vendor vs independent) and how it was resolved
 
-1. **Snapshot identity.** The undated `qwen3.8-max` id resolves to the **0902** build ("Qwen3.8-Max-0902 … is an upgraded snapshot of qwen3.8-max"), while the separately listed `qwen3.8-max-0803` page is deprecated. Many independent numbers (Vals, Epoch, OpenHarmony, FrontierMath) are labelled for the **August** build, so they describe 0803 rather than 0902 — recorded per figure.
-2. **Open vs closed.** AA says the 0902 checkpoint is proprietary ("The model weights are not publicly available"), while Vals/BenchLM label it an "open-weight model" — because the **base** `Qwen3.8-2.4T-A95B` weights are public (2.4T/95B, 512 experts, MIT-style release) but the 0902 host build adds vision, non-thinking, 1M context and built-in tools and is not itself downloadable. Resolved as a hybrid: open base, closed flagship build.
-3. **Terminal-Bench 2.1 — 86.6% (vendor) vs 88.76% (AA).** Harness gap.
-4. **Terminal-Bench 4.0 — 38.89% (AA) vs 34.34% ± 3.94 (Vals).** Same verdict, and not comparable to the 2.1 generation.
-5. **Context — 984k (AA header) / 980k (AA FAQ) / 1M (QwenCloud, OpenRouter, Vals, BenchLM).** The vendor figure wins; AA's number is its own accounting.
-6. **Modality — AA 0902 lists "text and image"; the vendor page lists Image/Text/Video.** Video appears to have been dropped in the 0902 build; the multimodal score leans on the published video/document evals with that caveat.
-7. **Index scales.** AA 45 (#33/217) vs BenchLM 69.73/100 (#18/956) — different composites; BenchLM itself warns "partial benchmark coverage for this model, so the overall score is conservative".
-8. **Speed 38.6 t/s is the bottom tier** (#183/186) while its 0803 sibling is 37.6 t/s — the 0902 refresh bought almost nothing in throughput; Simon Willison's $4,935 AA-index cost note corroborates the cost profile.
-9. **Hallucination 28.84% with 31.68% accuracy** — the low hallucination rate is better than most, but the low accuracy means the model is often wrong *and* says so, which is a knowledge caveat rather than a safety one.
-10. **BenchLM's "GPQA 95.5%" and "MMLU-Pro 92.4%"** could not be found in any fetched source; the vendor (92.6), AA (92.83) and Vals (93.69) GPQA figures and the Vals 88.60% MMLU-Pro are used instead.
-11. **Code Arena signal.** A Hacker News-linked title reports "Qwen3.8-Max-0902 takes second slot on Code Arena beating Claude Opus 5 max" — a single unverified community claim, recorded but not scored.
+1. **Which model the benchmark table belongs to.** The benchmark table shipped in the `Qwen/Qwen3.8-2.4T-A95B` model card is titled "Qwen3.8-Max" — the hosted product built on these weights with vision, non-thinking mode and a 1M default context. The independent AA figures are measured on the **open checkpoint itself** (262K window, text-only, always-thinking). Scoring therefore leans on the AA measurements and uses the vendor table only as a labelled proxy for capabilities AA does not publish (DeepSWE, SWE-bench Pro, MRCR, Toolathlon).
+2. **Context window: 262,144 native vs 1,010,000/1.0M advertised.** The model card states "262,144 natively and extensible up to 1,010,000 tokens"; OpenRouter advertises 1.0M; AA measures 262,000. Following the repository's existing convention (for example Nemotron Lightning 262K native scored at 262K, MiMo V2.5 Free's 200K Zen cap scored at 200K), the **native** window is scored.
+3. **Terminal-Bench 2.1 at 82.0% versus Terminal-Bench 4.0 at 11.1%.** Both are AA measurements of the same deployment but on very different benchmark versions; both are listed and the 4.0 result is treated as the current agentic-terminal cap on the Tool use score.
+4. **GPQA Diamond 93.5% versus Intelligence Index not published.** A single strong evaluation does not make a frontier model; the rubric's index anchor is unmet and unmeasurable for this entry.
+5. **Price: $2.00/$6.00 (AA first-party Alibaba, and every OpenRouter provider) versus $2.50/$6.25 (Hugging Face inference).** The AA/OpenRouter rate is the one actually payable on the hosted routes and is the one scored.
+6. **License.** The weights are released under a commercial "Qwen3.8-Max License", not Apache-2.0 or another permissive open-source license; AA classifies the model as open-weights with an openness index of 27.8 and no pre- or post-training transparency.
 
 ### Notes on identity
 
-- The folder slug `qwen-3.8-max` has no date, and the vendor ships dated snapshots: `qwen3.8-max` (current = 0902) and `qwen3.8-max-0803` (deprecated). This report scores the **0902** build, which is what the undated id and the Zen row resolve to.
-- `qwen3.8-max-prime` (created 2026-09-23, $4/$12) is a **higher-throughput SKU of the same model**, not a separate model — a price/service variant, like OpenRouter's `gpt-6.1-sol-pro`.
-- `qwen3.8-2.4t-a95b` is the open-weight base (text-only, thinking-mandatory, 262,144 native → 1,010,000 extensible) and is a different artifact from the hosted Max build.
+- `qwen-3.8-2400b-a95b` (this entry, the 2.4T-A95B **open checkpoint**) is not `qwen-3.8-max` (the hosted API product) and not `qwen-3.8` (the family entry). Same base weights for the first two; different modalities, context defaults and tool stack.
+- "2400b" is the catalogued rendering of 2.4T; "A95b" is the 95B active parameter count. The vendor writes the name "Qwen3.8 2.4T A95B".
+- There is no free tier, no `*-free` SKU and no OpenCode Zen route for this model; the paid hosted routes are OpenRouter and Qwen Cloud.
 
 ---
 
 ## Signature
 
-- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-10-19
-- Method: public internet research — QwenCloud / Alibaba Cloud Model Studio model pages (0902 vs 0803), the Qwen release blog, the Hugging Face `Qwen/Qwen3.8-2.4T-A95B` model card and GitHub repo (open base weights, 2.4T/95B, 512 experts), Artificial Analysis (0902 model page, per-evaluation payload), Vals AI, the BenchLM evidence ledger, Epoch AI, OpenRouter, OpenCode Zen, and Simon Willison's AA-cost note. Vendor-vs-independent conflicts — including the open-vs-closed question, the 0803/0902 snapshot mix and the untraceable BenchLM GPQA/MMLU-Pro rows — are listed explicitly rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max.md`, using the same headings.
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-11-12
+- Method: public internet research — the official Hugging Face model card and configuration for `Qwen/Qwen3.8-2.4T-A95B`, the Qwen3.8-Max launch blog referenced by that card, the Artificial Analysis model record and its per-evaluation JSON (fetched live on 2026-11-12), the OpenRouter model page for `qwen/qwen3.8-2.4t-a95b` with its AA-sourced benchmark summary and provider table, the OpenCode Zen model and pricing catalogue for route availability, and models.dev for canonical ids. Vendor-vs-independent conflicts are listed explicitly rather than averaged. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qwen/Qwen3.8-2.4T-A95B — model card and weights (Hugging Face)](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B)
+  - [Qwen3.8 Max: A New Bar for Coding and Cowork (Qwen blog, August 2026)](https://qwen.ai/blog?id=qwen3.8)
+  - [Qwen3.8 2.4T A95B — Intelligence, Performance & Price Analysis (Artificial Analysis)](https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b)
+  - [Qwen: Qwen3.8 2.4T A95B — API Pricing & Benchmarks (OpenRouter)](https://openrouter.ai/qwen/qwen3.8-2.4t-a95b)
+  - [Qwen Cloud — managed Qwen3.8 inference](https://www.qwencloud.com)
+  - [OpenCode Zen — model list and per-1M pricing](https://opencode.ai/docs/zen)
+  - [vLLM recipe for Qwen3.8-2.4T-A95B](https://recipes.vllm.ai/Qwen/Qwen3.8-2.4T-A95B)
+- Future sources: add a new file next to this one, e.g. `Qwen3.8_2.4T_A95B.md`, using the same headings.

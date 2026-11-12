@@ -142,6 +142,25 @@ export const MERGED_MODEL_SLUGS = new Map([
   // findings transferred cleanly via git mv; the old slug is mapped here so
   // sync never resurrects the unhyphenated name.
   ["qwen3-max", "qwen-3-max"],
+  // Param-size respelling of one checkpoint (RULES.md slug identity,
+  // user-ordered merge 2026-11-12): `qwen-3.8-2400b-a95b` is a param-size
+  // spelling (2400B total / 95B active) of Alibaba's vendor ID
+  // `Qwen3.8-2.4T-A95B`, and that checkpoint is the OPEN-WEIGHT release of
+  // the same model as the tracked hosted flagship `qwen-3.8-max` — the
+  // Qwen/Qwen3.8-2.4T-A95B model card states verbatim that "Qwen3.8-Max is
+  // the official version based on Qwen3.8-2.4T-A95B" and that Qwen3.8
+  // "brings a Qwen-Max-class model to open release"; NVIDIA's Day-0 post
+  // titles it "Qwen3.8-2.4T-A95B (Qwen3.8-Max)". Same 2.4T/95B MoE, same 92
+  // layers / 512 experts (10 routed + 1 shared), same 262,144-native /
+  // 1,010,000-extended window, same published benchmark table; the hosted
+  // API adds vision, non-thinking mode, 1M-by-default and 7 built-in tools.
+  // The folder held 8 files (4 collision reports folded newest-wins, 2
+  // unique .md.excluded moved, duplicate average.md + scaffolded meta.json
+  // deleted); canonical meta `aliases` carry every old name and route
+  // spelling (incl. `qwen-3.8-2400b-a95b`, `qwen/qwen3.8-2.4t-a95b`,
+  // `Qwen/Qwen3.8-2.4T-A95B`) so search by the old name resolves. Never
+  // scaffold it again.
+  ["qwen-3.8-2400b-a95b", "qwen-3.8-max"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -763,6 +782,7 @@ export const CASE_LAW_NOTES = new Map([
   ["Crouton_Alpha", "stealth-era rater stem of Muse Ember 1.0 (the Crouton Alpha evaluation-run agent, revealed 2026-11-09 as Muse Ember, Meta's smallest/most-efficient model) — every report was renamed to Muse_Ember.md with the model's folder (36 files, no twin collisions; the frozen `Provided by: Crouton Alpha` signatures stay inside as history, SIGNATURE_STEM_EXCEPTIONS); merged + deleted 2026-11-10 (user order) — research belongs in model/muse-ember/"],
   ["ling-3.0-flash-fin-free", "access-tier alias of ling-3.0-flash-fin (Ling-3.0-flash-Fin, InclusionAI / Ant Group) — the `-free` suffix is the $0 OpenCode Zen / Vercel promotional route and OpenRouter's `:free` serving variant of the same 124B/5.1B MIT weights, never a second model (vendor ships one route and one checkpoint; the tier folder's own reports: \"same weights... pricing/route difference, not a different model\"); tier folder merged into models_finance/ling-3.0-flash-fin/ on user order 2026-11-10 (18 files moved newest-wins, 4 collision losers + the duplicate meta deleted) and the canonical meta `aliases` carry the tier names — research belongs in models_finance/ling-3.0-flash-fin/"],
   ["qwen3-max", "unhyphenated slug variant of qwen-3-max (Qwen 3 Max) — renamed to canonical hyphenated slug model/qwen-3-max/ on user order 2026-11-11 to match family pattern (qwen-3.7-max, qwen-3.8-max, qwen-4-max); never recreate unhyphenated variant — research belongs in model/qwen-3-max/"],
+  ["qwen-3.8-2400b-a95b", "param-size respelling of Alibaba's vendor ID Qwen3.8-2.4T-A95B (2400B total / 95B active; repo slug convention keeps param sizes hyphenated, so the spelling is rule-legal but non-vendor), and that checkpoint is the open-weight release of the SAME model as the tracked hosted flagship qwen-3.8-max — the Qwen/Qwen3.8-2.4T-A95B card states \"Qwen3.8-Max is the official version based on Qwen3.8-2.4T-A95B\" and that Qwen3.8 \"brings a Qwen-Max-class model to open release\"; NVIDIA's Day-0 post titles it \"Qwen3.8-2.4T-A95B (Qwen3.8-Max)\". One checkpoint, two releases: same 2.4T/95B MoE, same 92 layers / 512 experts (10 routed + 1 shared), same 262,144-native / 1,010,000-extended window, same published benchmark table; the hosted API adds vision input, non-thinking support, 1M-by-default and 7 built-in tools (so the open artifact is text-only and thinking-mandatory). Folder merged into model/qwen-3.8-max/ on user order 2026-11-12 (4 colliding reports folded newest-wins, 2 unique .md.excluded moved, duplicate average.md + scaffolded meta.json deleted); canonical meta `aliases` carry every old name and route spelling (incl. `qwen-3.8-2400b-a95b`, `qwen/qwen3.8-2.4t-a95b`, `Qwen/Qwen3.8-2.4T-A95B`) so searching the old name resolves — research belongs in model/qwen-3.8-max/"],
 ]);
 
 /**

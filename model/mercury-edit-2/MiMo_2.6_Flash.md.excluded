@@ -1,0 +1,80 @@
+# Mercury Edit 2 — findings by MiMo 2.6 Flash (self-excluded: no verified public benchmarks)
+
+- Source: Inception (`inception/mercury-edit-2`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs' proprietary diffusion LLM (dLLM) for latency-sensitive code editing: fill-in-the-middle autocomplete plus next-edit prediction from recent edits and codebase context; KTO-aligned on human accept/reject feedback. Not a variant of a chat Mercury — a purpose-built edit-prediction endpoint (successor to Inception's previous next-edit model).
+- **Provider / access:** Inception API — `POST https://api.inceptionlabs.ai/v1/fim/completions` (autocomplete) and `POST .../v1/edit/completions` (next-edit), non-OpenAI chat surface (no `v1/chat/completions`); integrated in Zed (edit prediction) and ProxyAI; provider catalog entry `inception/mercury-edit-2` active.
+- **Release / knowledge:** vendor launch post "Introducing Mercury Edit 2" dated 2026-10-29 (provider catalog lists `released` 2026-03-30 — discrepancy noted, neither source resolves it); knowledge cutoff not published.
+- **IDs:** `inception/mercury-edit-2` (API model `mercury-edit-2`); no OpenCode Zen Free ID exists (not in the provider catalog as a free/Zen entry as of 2026-11-12).
+- **Context window:** 32,000 tokens for both FIM and NextEdit endpoints; max output 8,192 tokens (Inception docs, verified 2026-11-12). A third-party listing showing 128K conflicts with the vendor docs; vendor docs taken as authoritative.
+- **Modalities:** text in; text out; non-reasoning (BenchLM); no chat, no tool calling, no structured outputs — FIM and edit-diff completion only.
+- **Pricing (as of 2026-11-12):** $0.25 / 1M input, $0.75 / 1M output, $0.025 / 1M cached input (vendor docs, launch post, and provider catalog all agree); 10M free tokens on new Inception accounts; vendor blog also advertises a one-month Zed promo (promotional key on the launch post — not reproduced here).
+- **Architecture:** proprietary diffusion language model (Mercury dLLM family); trained on curated multi-language edit datasets and aligned with Kahneman-Tversky Optimization (KTO) on recorded accept/reject preference data; parameter count not disclosed.
+
+### Raw benchmarks found
+
+> Every standard row reads "no verified public score found": the vendor names four
+> evaluation suites (Instinct, Fill-in-the-Middle, Next-Edit Prediction, plus one
+> internal next-edit benchmark) but publishes **no absolute values** for any of
+> them — only relative production claims. BenchLM confirms: 0 of 815 benchmarks
+> covered, "Overall Score: Coming soon", unranked.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index: no verified public score found
+
+Coding:
+
+- Instinct (open, continuedev/instinct-data; LLM-judge vs gold edits): no verified public score found (suite named by vendor, scores unpublished)
+- FIM / HumanEval-Infilling (test-case validated): no verified public score found (suite named by vendor, scores unpublished)
+- Next-Edit Prediction (open, lurf21/NextEditPrediction; LLM-judge): no verified public score found (suite named by vendor, scores unpublished)
+- Internal next-edit benchmark (4-suite vendor average): no verified public score found (vendor states "superior quality and speed" with no numbers)
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE: no verified public score found
+
+Long context:
+
+- No long-context retrieval (MRCR/RULER) reported for the 32K FIM/NextEdit window
+
+Relative vendor claims (not benchmark scores — recorded for traceability):
+
+- Edits accepted **48% more often** than the predecessor; **27% more selective** in edits displayed (vendor launch post, 2026-10-29; production accept/reject A/B, no absolute acceptance rates or denominators published)
+- End-to-end latency benchmarked internally against "custom next-edit models and speed-optimized frontier models" — no ms/tok-s values published
+
+Third-party coverage (metadata only, no quality rows):
+
+- BenchLM: 0/815 benchmark coverage, unranked, "Coming soon" (verified 2026-11-11)
+- Serenities AI: cost/context percentile ranks only (input $0.25 = 188th of 413; specs checked 2026-09-14) — no quality benchmarks
+
+### Normalized scores (1–100)
+
+> SELF-EXCLUSION: zero verified public benchmark numbers exist for this exact
+> model — every row above reads "no verified public score found" — so no scored
+> `.md` file is saved and no scores are assigned (template SELF-EXCLUSION rule;
+> `tasks/research.md` rule 9). Scores would be fabricated placeholders.
+
+## Verdict
+
+`MiMo_2.6_Flash.md.excluded` — self-exclusion. Mercury Edit 2 is a real, well-documented product (endpoints, pricing, and integrations all verified from vendor docs and the launch post), but its quality evidence stops at unpublished vendor comparisons: four named benchmark suites with no published values, two relative improvement percentages with no absolutes, and zero coverage from every third-party aggregator checked (BenchLM 0/815, Serenities cost-only). Nothing supports the 5-dimension score contract.
+
+---
+
+## Signature
+
+- Provided by: **MiMo 2.6 Flash (opencode/mimo-v2.6-flash)** — 2026-11-12
+- Method: fresh public web research (vendor docs + launch post, BenchLM, Serenities AI, DuckDuckGo sweeps); notes only, scores ignored — no verified public benchmark numbers were found for this model.
+- Reference URLs:
+  - [Introducing Mercury Edit 2 — Inception launch post (2026-10-29)](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
+  - [Inception docs — Models (endpoints, pricing, 32K/8,192 specs)](https://docs.inceptionlabs.ai/get-started/models)
+  - [BenchLM — Mercury Edit 2 (0/815 coverage, unranked)](https://benchlm.ai/models/mercury-edit-2)
+  - [Serenities AI — Mercury Edit 2 pricing/specs](https://serenitiesai.com/benchmark/models/mercury-edit-2)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

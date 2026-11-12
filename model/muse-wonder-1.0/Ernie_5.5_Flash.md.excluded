@@ -1,0 +1,58 @@
+# Muse Wonder 1.0 — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — `.md.excluded` on purpose: BenchLM has no profile (404 on both
+> `muse-wonder-1-0` and `muse-wonder-1.0`) and no per-benchmark row was reachable.
+> The metered `muse-wonder-1.0` API SKU is the sibling of the subscription-only
+> `muse-wonder-full`; its figures are filed there.
+
+- Source: Meta/Muse Wonder 1.0 (`muse-wonder-1.0`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Wonder 1.0
+- **Short description:** Meta's frontier multimodal reasoning model (released 2026-10-12) for personal and professional agents, long-horizon coding and computer use. The metered API SKU of the Muse Wonder product; `muse-wonder-full` is its subscription-only lane.
+- **Provider / access:** Meta Model API (`muse-wonder-1.0`), plus ~4 routes. Proprietary.
+- **Release / knowledge:** 2026-10-12; knowledge cutoff not published.
+- **IDs:** `muse-wonder-1.0`, `meta/muse-wonder-1.0`, `muse-wonder-full` (subscription lane).
+- **Context window:** 1,048,576 tokens; max output 131,072.
+- **Modalities:** text, image, video, PDF and audio in; text out; reasoning and tool calls.
+- **Pricing (as of 2026-11-11/12):** $4.00 / $20.00 per 1M input/output; cache read $0.20.
+- **Architecture:** proprietary MoE (Meta; undisclosed size).
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found for this exact model ID
+Reasoning / knowledge: no verified public score found for this exact model ID
+Coding: no verified public score found for this exact model ID
+Long context: 1M declared; no MRCR / RULER / GraphWalks row published
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes
+
+- `benchlm.ai/models/muse-wonder-1-0` → HTTP 404; models.dev carries catalogue facts only.
+- The sibling `muse-wonder-full` folder (subscription lane) has 9 sourced rows and is scored there; per the tier-identity rule the two lanes are one model, so its figures were **not** duplicated here.
+- Resolution: spec facts above are catalog-verified; the benchmark columns stay empty. If you prefer a single folder, merge this one into `model/muse-wonder-full/` (or keep the metered SKU as canonical and fold the Full lane in) — your call.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12
+- Method: public internet research (Meta Muse Wonder model card, BenchLM, models.dev); no per-benchmark row for this exact SKU, so self-excluded.
+- Reference URLs:
+  - [Muse Wonder — Meta Model API](https://dev.meta.ai/models/muse-wonder)
+  - [Muse Wonder Full benchmarks & sources — BenchLM](https://benchlm.ai/models/muse-wonder-full)
+  - [models.dev provider catalog](https://models.dev)
+- Future sources: add `Muse_Wonder_1.0.md` next to this file once the metered SKU has its own row.
