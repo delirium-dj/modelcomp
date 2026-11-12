@@ -1,0 +1,69 @@
+# Ling 3.0 Flash VL — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — this file is `.md.excluded` on purpose: no verified public
+> benchmark row exists for this exact model ID, so no scored report is written
+> (template SELF-EXCLUSION rule; `pnpm sync` QUAR would quarantine it).
+
+- Source: InclusionAI/Ling 3.0 Flash VL (`ling-3.0-flash-vl`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Ling 3.0 Flash VL
+- **Short description:** InclusionAI's multimodal Ling model (released 2026-09-10) for visual analysis, planning and tool use — the vision-language member of the Ling 3.0 Flash family.
+- **Provider / access:** OpenRouter (`inclusionai/ling-3.0-flash-vl`), LLM Gateway, Vercel, NanoGPT, Novita, plus ~5 routes. Open weights.
+- **Release / knowledge:** 2026-09-10 (models.dev; BenchLM record Sep 4, 2026); knowledge cutoff not published.
+- **IDs:** `ling-3.0-flash-vl`, `inclusionai/ling-3.0-flash-vl`, `inclusionai/Ling-3.0-Flash-VL`.
+- **Context window:** 131,072 on OpenRouter/LLM Gateway; 256,000 (Vercel) / 262,144 (NanoGPT, Novita); max output 32,768.
+- **Modalities:** text, image and video in; text out; reasoning and tool calls.
+- **Pricing (as of 2026-11-11):** $0.06 / $0.18 per 1M input/output; cache read $0.012 (Vercel/Novita $0.075/$0.22).
+- **Architecture:** open-weight MoE (InclusionAI / Ant Group).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for this exact model ID
+
+Reasoning / knowledge:
+
+- no verified public score found for this exact model ID
+
+Coding:
+
+- no verified public score found for this exact model ID
+
+Long context:
+
+- 131K–262K context depending on route; no MRCR / RULER / GraphWalks row published
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes (why self-excluded)
+
+- BenchLM's profile (`benchlm.ai/models/ling-3-0-flash-vl`) reports "tracked, but not publicly ranked yet" with **0** sourced benchmark rows.
+- models.dev carries the model (2026-09-10, 131K–262K context, $0.06/$0.18, text/image/video in) but no benchmark fields.
+- No vendor blog or Ant Group technical report with a benchmark table was reachable for the VL SKU in this pass; the text-only Ling 3.0 Flash / 3.1 Flash / 3.2 Flash figures were deliberately **not** transferred (different checkpoints).
+- Resolution: spec facts above are catalog-verified; the benchmark columns stay empty until InclusionAI publishes a Ling 3.0 Flash VL scorecard.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-11
+- Method: public internet research (InclusionAI model card, BenchLM profile, models.dev catalog, OpenRouter); no verified benchmark row for this exact ID, so the file is self-excluded.
+- Reference URLs:
+  - [Ling 3.0 Flash VL — OpenRouter](https://openrouter.ai/inclusionai/ling-3.0-flash-vl)
+  - [Ling 3.0 Flash VL benchmarks & context — BenchLM](https://benchlm.ai/models/ling-3-0-flash-vl)
+  - [models.dev provider catalog](https://models.dev)
+- Future sources: add a new file next to this one, e.g. `Ling_3.0_Flash_VL.md`, once a verified benchmark row exists.

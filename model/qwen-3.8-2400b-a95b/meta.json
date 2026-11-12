@@ -5,5 +5,10 @@
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "officialUrl": "https://example.com/qwen-3.8-2400b-a95b",
+  "pricingLinks": [
+    "https://example.com/qwen-3.8-2400b-a95b/pricing"
+  ],
+  "standout": "Qwen 3.8 2400b A95b with enhanced coding and reasoning capabilities.",
+  "tradeoff": "Large parameter count (2400b) makes it resource-intensive; may be overkill for lighter workloads."
 }

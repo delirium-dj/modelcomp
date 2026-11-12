@@ -5,5 +5,10 @@
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "officialUrl": "https://example.com/glm-5.3-flashx-legal",
+  "pricingLinks": [
+    "https://example.com/glm-5.3-flashx-legal/pricing"
+  ],
+  "standout": "Glm 5.3 Flashx Legal tailored for legal document analysis and compliance tasks.",
+  "tradeoff": "Specialized for legal use case; general capabilities may be narrower than general-purpose GLM models."
 }

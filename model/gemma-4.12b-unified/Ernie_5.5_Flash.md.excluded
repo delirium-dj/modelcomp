@@ -1,0 +1,68 @@
+# Gemma 4 12B Unified — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — this file is `.md.excluded` on purpose: no verified public
+> benchmark row could be extracted for this exact model ID, so no scored report
+> is written (template SELF-EXCLUSION rule; `pnpm sync` QUAR would quarantine it).
+
+- Source: Google/Gemma 4 12B Unified (`gemma-4.12b-unified`)
+- Date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemma 4 12B Unified
+- **Short description:** The "unified" Gemma 4 12B build — a single checkpoint intended to cover text and multimodal tasks without a separate vision tower (naming per the dataset slug; vendor confirmation of the exact SKU was not reachable).
+- **Provider / access:** Expected self-hosted / hosted Gemma 4 lanes; no catalog entry was found for this exact ID in this pass.
+- **Release / knowledge:** not verified in this pass.
+- **IDs:** `gemma-4.12b-unified`, `gemma-4-12b-unified`, `google/gemma-4-12b-unified` (unverified).
+- **Context window:** not verified in this pass.
+- **Modalities:** expected text + image in / text out ("unified" naming), unverified.
+- **Pricing (as of 2026-11-11):** not verified in this pass.
+- **Architecture:** open-weight (Gemma 4 family), 12B — unverified for this SKU.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for this exact model ID
+
+Reasoning / knowledge:
+
+- no verified public score found for this exact model ID
+
+Coding:
+
+- no verified public score found for this exact model ID
+
+Long context:
+
+- no context window or retrieval figure verified for this exact ID
+
+### Normalized scores (1–100)
+
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
+
+## Search notes (why self-excluded)
+
+- BenchLM has no profile for either spelling: `benchlm.ai/models/gemma-4-12b-unified` and `gemma-4.12b-unified` both return HTTP 404.
+- models.dev has no entry for a `unified` SKU in the Gemma 4 line (the catalog lists `gemma-4-31b`, `gemma-4-26b-a4b`, `gemma-4-12b-*`, `gemma-4-e4b`, `gemma-4-e2b` variants but no "unified").
+- The sibling folder `model/gemma-4-12b-unified/` (queue Overall 74.9) is a separate spelling of the same family and was left untouched; neither folder has a verified vendor page.
+- Resolution: nothing is asserted rather than guessing a spec sheet. If this is a duplicate spelling of `gemma-4-12b-unified`, the orchestrator should merge the two folders under the dotted/undotted canonical form before any further research.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-11
+- Method: public internet research (BenchLM, models.dev, Google Gemma model index); no verified benchmark row for this exact ID, so the file is self-excluded.
+- Reference URLs:
+  - [Gemma 4 — Google DeepMind model card index](https://deepmind.google/models/model-cards/)
+  - [models.dev provider catalog](https://models.dev)
+- Future sources: add a new file next to this one, e.g. `Gemma_4_12B_Unified.md`, once the SKU is verified.

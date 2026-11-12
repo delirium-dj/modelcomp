@@ -19,4 +19,4 @@
 
 - Based on 5 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, Step 5 Preview.
 - Average from top 5 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash, GLM 5.3 Flash, GPT-6.1 Sol, Step 5 Preview.
-- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Glyph Cluster, Inkling 2 Small, Nemotron 3.5 Super VL 120B A12B.
+- Ignored below-gate rater(s): Gemini 3.5 Flash Lite, Glyph Cluster, Inkling 2 Small, MiniMax M3.1 Flash, Nemotron 3.5 Super VL 120B A12B.

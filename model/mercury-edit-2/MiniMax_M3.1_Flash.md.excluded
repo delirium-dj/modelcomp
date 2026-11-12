@@ -1,0 +1,109 @@
+# Mercury Edit 2 — findings by MiniMax M3.1 Flash
+
+- Source: Inception (mercury-edit-2)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** Inception Labs' purpose-built diffusion LLM (dLLM) for **next-edit prediction and fill-in-the-middle code completion** — an editor-side specialist that predicts the developer's next code change from recent snippets, the current file and the edit history, and is aligned to human accept/reject preferences with KTO. Not a general chat model: it has no chat endpoint, no reasoning control and no tool calling, so it must be judged as a code-editing component, not as an assistant.
+- **Provider / access:** Inception API only, on two dedicated endpoints — `POST https://api.inceptionlabs.ai/v1/fim/completions` (inline autocomplete with a prefix and optional suffix) and `POST https://api.inceptionlabs.ai/v1/edit/completions` (next-edit suggestion built from recently viewed snippets, the current file with an editable region, and a time-ordered unidiff edit history). Model id `mercury-edit-2`. Not listed on OpenRouter, and there is no OpenCode Zen route — the OpenCode Console catalog lists no Mercury model.
+- **Release / knowledge:** 2026-03-30 (Inception blog index date; models.dev release date 2026-03-30). Knowledge cutoff not disclosed.
+- **IDs:** `inception/mercury-edit-2` (models.dev canonical id); `mercury-edit-2` (Inception API). No free Zen ID exists.
+- **Context window:** 32,000 tokens for both the FIM and the Next-Edit endpoints, with 8,192 max output tokens — verified on the Inception models-and-pricing doc and the models.dev model record. (BenchLM's model page instead lists 128K; see the conflict section.)
+- **Modalities:** text in / text out only. Reasoning: no — BenchLM classifies it as a non-reasoning model and models.dev records reasoning as unsupported. Tool calling: no (the FIM endpoint explicitly does not support tool or function calling). Structured outputs: no. Temperature control: yes.
+- **Pricing (as of 2026-11-12):** $0.25 per 1M input tokens and $0.75 per 1M output tokens, cached input $0.025 per 1M. Paid model, with a time-limited allowance of 10 million free tokens automatically granted to every new Inception API account; Zed users could unlock one free month of edit suggestions with a vendor-issued key.
+- **Architecture:** proprietary diffusion LLM trained for edit prediction; trained on a curated multi-language edit dataset and then preference-aligned with Kahneman-Tversky Optimization (KTO), an unpaired reinforcement-learning method, using recorded accept/reject feedback. Parameter count not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+| Benchmark | Value | Who ran it | Note / source |
+|---|---|---|---|
+| Terminal-Bench 2.1 / 4.0 | no verified public score found | — | The model serves no chat or agent endpoint, so terminal harnesses do not apply |
+| Tau3 / Tau2 | no verified public score found | — | Not applicable — no agent surface |
+| GDPval-AA | no verified public score found | — | Not published |
+| Claw-Eval / ClawProBench | no verified public score found | — | Not published |
+| Toolathon / MCP-Atlas / SWE Atlas Codebase QnA | no verified public score found | — | Not published; the endpoint exposes no tool calling at all |
+
+Reasoning / knowledge:
+
+| Benchmark | Value | Who ran it | Note / source |
+|---|---|---|---|
+| GPQA Diamond | no verified public score found | — | No general-knowledge evaluation is published for this model |
+| HLE | no verified public score found | — | Not published |
+| LCR / MLCR | no verified public score found | — | Not published |
+| CritPt | no verified public score found | — | Not published |
+| Artificial Analysis Intelligence Index | no verified public score found | — | Artificial Analysis tracks only Mercury 2 and Mercury 2.5 for Inception |
+| Omniscience Accuracy / Hallucination Rate | no verified public score found | — | Not published |
+
+Coding (the model's actual job — all figures are vendor-measured, and all are relative):
+
+| Benchmark | Value | Who ran it | Note / source |
+|---|---|---|---|
+| Edit acceptance rate vs predecessor | 48% more often accepted | Reported by Inception | Launch post; relative delta, no absolute acceptance rate published |
+| Selectivity of displayed edits | 27% more selective | Reported by Inception | Launch post; relative delta, no absolute rate published |
+| Instinct (next-edit dataset) | no verified public score found | — | Named as one of four quality benchmarks; no absolute value published |
+| FIM / human-eval-infilling | no verified public score found | — | Validated by running test cases against the modified code; no absolute value published |
+| NEP / NextEditPrediction | no verified public score found | — | LLM-as-judge against a human gold-standard edit; no absolute value published |
+| Internal next-edit benchmark | no verified public score found | — | Named by the vendor; not published |
+| SWE-bench Verified / SWE-Pro | no verified public score found | — | Not applicable and not published |
+| LiveCodeBench | no verified public score found | — | Not published |
+| SciCode | no verified public score found | — | Not published |
+| Vibe Code Bench | no verified public score found | — | Not published |
+
+Long context:
+
+| Benchmark | Value | Who ran it | Note / source |
+|---|---|---|---|
+| MRCR / RULER / GraphWalks | no long-context retrieval reported | — | The model has no long-context benchmark |
+| Context window | 32,000 tokens, 8,192 max output | Vendor + independent | Inception docs; models.dev |
+| Practical working set | 10–15 lines (about 100–150 tokens) recommended per editable region; roughly 25 lines (about 250 tokens) is the practical upper bound | Vendor guidance | Inception Next-Edit docs |
+
+Throughput and latency:
+
+| Metric | Value | Who ran it | Note / source |
+|---|---|---|---|
+| Decoding speed | about 1,000 tokens/second | Reported by Inception | Next-Edit docs; the vendor's "fast enough to feel like part of your own thinking" claim rests on this |
+| End-to-end latency of a next-edit suggestion | no verified public score found | — | The launch post says speed was measured on representative requests but publishes no numbers |
+| Independent latency measurement | no verified public score found | — | LMSpeed has no page for this model; Benchize tracks no Mercury Edit 2 entry |
+
+### Conflicting evidence (vendor vs independent) and how it was resolved
+
+- **Context window.** BenchLM's Mercury Edit 2 model page lists a 128K context window, while Inception's own models-and-pricing table gives FIM 32K and NextEdit 32K with 8,192 max output, and the models.dev record gives 32,000 context / 8,192 output. Resolution: the vendor's own documentation and the independent models.dev catalogue are used (32K / 8,192); the 128K figure on BenchLM is treated as a catalogue error, most likely inherited from the general-purpose Mercury line.
+- **Benchmark coverage.** The launch post describes a four-benchmark quality suite (Instinct, FIM, NEP and one internal benchmark) and a latency measurement, and BenchLM independently confirms the situation — "publishes no exact scores", so it stores no scored rows and the entry stays unranked. Resolution: the absolute quality rows are reported as "no verified public score found" rather than approximated; only the two relative deltas the vendor actually published (48% more accepted edits, 27% more selective) are carried forward, clearly labelled as relative figures.
+- **No independent harness applies.** Benchize, LMSpeed, Artificial Analysis and OpenRouter all have no Mercury Edit 2 entry at all, so no third-party number can corroborate or contradict the vendor's quality claims. Resolution: the Coding score is anchored on documented capability and the published relative deltas, and is deliberately capped below a strong score because no absolute, independently reproducible quality figure exists.
+
+### Notes on identity
+
+- Mercury Edit 2 is a **specialist code-editing dLLM**: fill-in-the-middle autocomplete plus next-edit prediction, served only through the FIM and edit-completions endpoints. It has no chat endpoint, no reasoning-effort control, no tool calling and no structured-output mode.
+- It is **not** the general-purpose Mercury 2 or Mercury 3 diffusion LLMs, which are OpenAI-compatible chat models with tool calling, structured outputs and four reasoning-effort levels, and whose published benchmark suites (GPQA, τ³-bench, DeepSWE, MRCR) belong to those models, not to this one.
+- It is **not** Mercury Decide, the typed decision model that serves only the decisions endpoint and returns calibrated probabilities for yes/no, choice, score and extraction questions.
+- Within its own line, Mercury Edit 2 is the March 2026 upgrade of Inception's earlier next-edit model and complements the same company's autocomplete endpoint; it is the model Zed and other editors integrate for edit prediction.
+
+### Normalized scores (1–100)
+
+- **Tool use: 20/100.** A deliberate non-agent component: the FIM endpoint explicitly does not support tool or function calling, there is no chat surface, and no terminal, τ-bench, GDPval or claw-style harness result exists. Scored near the floor for tool use rather than as N/A, because the capability is absent by design rather than merely unmeasured.
+- **Reasoning: 12/100.** Explicitly a non-reasoning model (BenchLM: non-reasoning; models.dev: reasoning unsupported) with no reasoning-effort parameter, no GPQA/HLE/LCR/CritPt figure and no Artificial Analysis Intelligence Index — the lowest reasoning band, because the model is not built to reason.
+- **Context window: 32/100.** A verified 32,000-token window with 8,192 max output sits well under the 100K tier, which scales down to the 10–49 band; the vendor's own guidance that the practical editable region is 10–25 lines confirms the usable working set is small even though the nominal window is larger.
+- **Multimodal: 15/100.** Text-only in and out, with no image, audio, video or PDF input documented — the text-only floor.
+- **Coding: 68/100.** The strongest dimension by design: a purpose-built code-edit model, aligned with KTO to human preferences, with vendor-measured gains of 48% higher edit acceptance and 27% greater selectivity over its predecessor, evaluated across Instinct, FIM, NEP and an internal next-edit suite, and decoding at roughly 1,000 tokens/second for in-editor latency; capped because Inception publishes no absolute quality score and no independent harness has ever evaluated the model.
+- **Cost efficiency: 93/100.** $0.25 in / $0.75 out per 1M with cached input at $0.025 is a low paid tier, and every new Inception account receives 10 million free tokens (a time-limited allowance rather than a standing free tier), so the score sits just below the sub-$0.10 band.
+- **Overall Score: 29.4/100.** Mean of the five quality dimensions (20 + 12 + 32 + 15 + 68) / 5 = 29.4; best fit is an in-editor autocomplete / next-edit component behind an IDE integration, where it is not comparable to general chat models at all.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-11-12
+- Method: Fresh public web research (Inception launch post and product blog index, Inception API docs for models, FIM and next-edit, models.dev catalogue, BenchLM and Benchize catalogue checks, LMSpeed availability check, OpenRouter route check); scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Introducing Mercury Edit 2 — Inception](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
+  - [Autocomplete (FIM) — Inception API docs](https://docs.inceptionlabs.ai/capabilities/fim)
+  - [Next Edit — Inception API docs](https://docs.inceptionlabs.ai/capabilities/next-edit)
+  - [Models & Pricing — Inception API docs](https://docs.inceptionlabs.ai/get-started/models)
+  - [Mercury Edit 2 pricing, providers and specs — models.dev](https://models.opencode.ai/models/inception/mercury-edit-2/)
+  - [Mercury Edit 2 — BenchLM evidence ledger](https://benchlm.ai/models/mercury-edit-2)

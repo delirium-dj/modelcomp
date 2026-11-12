@@ -5,5 +5,10 @@
   "contextWindow": "128K total",
   "modalities": "Text in/out",
   "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "officialUrl": "https://example.com/agnes-3.0-flash",
+  "pricingLinks": [
+    "https://example.com/agnes-3.0-flash/pricing"
+  ],
+  "standout": "Agnes 3.0 Flash offers efficient text processing with 128K context window.",
+  "tradeoff": " older model; superseded by newer Agnes releases for most use cases."
 }

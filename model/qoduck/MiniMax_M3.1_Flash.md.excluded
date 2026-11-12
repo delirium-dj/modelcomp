@@ -1,0 +1,102 @@
+# Qoduck — findings by MiniMax M3.1 Flash
+
+- Source: Qoder / Alibaba (`opencode/qoduck`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion notice.** No verified public benchmark number exists for this model id. Every benchmark row below reads "no verified public score found", so this file is intentionally saved as `MiniMax_M3.1_Flash.md.excluded` and contributes nothing to the averages. What follows is the verified record of what Qoduck is, where it ran, when it ran and what is publicly unknown.
+
+## Model card
+
+- **Name:** Qoduck — the name under which an **undisclosed stealth model** appeared in Alibaba's Qoder coding product on 2026-11-07. The vendor's own documentation calls it "a stealth model whose identity has yet to be disclosed"; Alibaba Cloud's announcement told users "Don't ask where it came from."
+- **Short description:** A short-lived, free-tier stealth model inside the Qoder IDE/agent product, positioned as a high-reasoning coding and repository-scale refactoring model. It was never named by Alibaba, never exposed through a public API, never published as weights, and was scheduled for removal when its promotion window closed.
+- **Provider / access:** **Qoder International only** (Qoder's desktop/web product, model picker entry "Qoduck"). Qoder's promotion page states explicitly that the promotion "applies to Qoder International" and that the Qoder IDE, JetBrains plugin and Qoder CLI "currently do not support the promotion". There is **no public API route**: no OpenCode Zen id, no OpenRouter id, no Vercel AI Gateway id, no models.dev row and no Hugging Face repository exist for it.
+- **Release / knowledge:** First sighted **2026-11-07** (Qoder event page and Alibaba Cloud's announcement on the same day). The promotion ran **from 2026-11-07 to 2026-11-11 at 10:00 (UTC+8)**, and Qoder's own FAQ states "Qoduck will be removed when the promotion ends" — i.e. the route was scheduled to disappear the day before this report was written. No knowledge cutoff is published.
+- **IDs:** `Qoduck` (the label in Qoder's model picker); the repository's curated entry assigns `opencode/qoduck`, but **that id does not exist** in OpenCode's live inference catalogue, in the Zen model/pricing/deprecation tables, in models.dev, in OpenRouter or in the Vercel AI Gateway catalogue (all checked 2026-11-12).
+- **Context window:** **unverified.** The repository's curated entry claims 1,048,576 total tokens with 65,536 max output; the only public corroboration is a third-party tracker (stealthmodels.com, 2026-11-07) reporting that users "can switch it to a one-million-token window". Qoder's own documentation does not publish a context size. Treat 1M as a reported, not vendor-confirmed, figure.
+- **Modalities:** **unverified.** Qoder's documentation describes the model only as a model in the picker with adjustable "thinking intensity" (the promo applies "even at the highest thinking intensity"); it publishes no modality list. The repository's curated entry claims text and image in with text and code out — no public source confirms this, and no image input is documented anywhere.
+- **Pricing (as of 2026-11-12):** Priced in **Qoder Credits, not tokens**: the standard rate is **0.5x credits** per call, and inside the daily free allowance the rate drops to **0.0x** so calls consume no credits — this applied "even at the highest thinking intensity", and it did not draw on the 100 daily general-purpose credits. The repository's curated entry additionally claims a "standard OpenCode Zen rate", which cannot be verified because no Zen route exists. A third-party tracker reports the normal Qoder price "matches Qwen3.8-Max", i.e. no bespoke model was priced.
+- **Architecture:** **unverified and undisclosed.** No parameter count, architecture description, weights, tokenizer fingerprint from the vendor, or model card exists. The only technical signal is third-party: a tokenizer probe reported by stealthmodels.com places the model in the **Qwen family**, and an anonymous tester reported that it "beat every released Qwen on a knowledge check" — an unquantified claim with no harness, no sample and no published number.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 4.0: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- AutomationBench / OSWorld: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Tool calling: supported in the Qoder agent harness (the model was used for repository-scale multi-file refactoring and migration inside Qoder), but no tool-use benchmark was ever published.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** — the model has no Artificial Analysis record (the AA catalogue of 285 models contains no `qoduck` entry) and no BenchLM page.
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+- Knowledge check: an anonymous tester reported the model "beat every released Qwen on a knowledge check" — **an unquantified anecdote, not a score**, and excluded from this file's evidence.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- DeepSWE / Coding Index / Terminal-Bench: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- Repository-scale refactoring and migration: praised by early testers in the Qoder product (a pixel-art city built faster than DeepSeek v4.1 Flash in one reported run, and coding output described as surpassing Qwen 3.8 Max) — **qualitative reports with no measured harness**.
+
+Long context:
+
+- A one-million-token window is reported by a third-party tracker and asserted in the repository's curated metadata, but **no retrieval benchmark (MRCR / RULER / GraphWalks) at any length was published**, and the vendor published no window size.
+
+### Absence and access checks performed (URL and result, 2026-11-12)
+
+- `https://docs.qoder.com/events/qoduck-free` — 200, the vendor's own promotion page: stealth identity undisclosed, promo window 2026-11-07 → 2026-11-11 10:00 (UTC+8), 0.5x → 0.0x credit rate, individual plans only, "Qoduck will be removed when the promotion ends".
+- `https://x.com/alibaba_cloud/status/2118992047613080032` — Alibaba Cloud's announcement: "A stealth model just landed in Qoder: Qoduck. Don't ask where it came from. Free every day for all individual users, for a limited time."
+- `https://opencode.ai/docs/zen` — 200, **0 occurrences** of `qoduck` in the Zen model, pricing and deprecation tables.
+- `https://opencode.ai/inference/v1/models` — 200, live inference catalogue, **no `qoduck` entry**.
+- `https://models.dev/api.json` (whole catalogue, every provider) — 200, **0 occurrences** of `qoduck`.
+- `https://openrouter.ai/api/v1/models` — 200, ~842 KB of catalogue, **0 occurrences** of `qoduck`.
+- `https://ai-gateway.vercel.sh/v1/models` — 200, ~569 KB of catalogue, **0 occurrences** of `qoduck`.
+- `https://huggingface.co/api/models?search=qoduck` — 200, **empty result array** (no weights, no repo).
+- Artificial Analysis catalogue (285 models, 2026-11-11 snapshot) — **no `qoduck` entry**.
+- `https://stealthmodels.com/qwen-4` — 200, the third-party tracker entry dated 2026-11-07: tokenizer probe placing Qoduck in the Qwen family, reported 1M window switch, normal price matching Qwen3.8-Max, "no public API", and Qoduck listed among the **unconfirmed** Qwen 4 look-alikes alongside Kalmia and Kerria.
+- `https://startupfortune.com/alibabas-qoder-makes-a-mystery-coding-model-called-qoduck-free-to-use/` — 200: "Alibaba's Qoder launched the stealth model Qoduck on November 7, free within a daily quota for individuals. Its maker and benchmarks remain undisclosed."
+- `https://finance.sina.com.cn/tech/roll/2026-11-09/doc-iniyaqqe6537597.shtml` — 200: Chinese coverage of the Qoder stealth-model launch, identity undisclosed, free for three days with no credits consumed.
+- DuckDuckGo searches for `QoDuck Qoder model Alibaba stealth` and for Qoder/Qoduck benchmark results — no vendor benchmark table, no harness report, no scorecard for the model itself.
+
+### Conflicting evidence (vendor vs independent) and how it was resolved
+
+There is no vendor benchmark claim to reconcile with an independent measurement, because neither exists. The only conflicts are internal to the record: (1) Qoder's documentation publishes the credit rate and promotion window but **no context size, modality list or model identity**, while the repository's curated metadata asserts 1M/64K, text+image in, text+code out and an "OpenCode Zen rate" — all of which are **unverifiable**, since no Zen, OpenRouter, Vercel or models.dev entry exists; and (2) third-party trackers assert a 1M window and a Qwen-family tokenizer while carefully labelling the Qwen 4 identification **unconfirmed**. These claims were therefore recorded as reported-but-unsourced and not used as evidence.
+
+### Notes on identity
+
+- **Publicly documented:** the name, the host product, the promotion mechanics and the dates — nothing else.
+- **Attribution-by-telemetry:** partial and third-party only (Qwen-family tokenizer fingerprint, reported knowledge-check result).
+- **Endpoint still live?** No. The promotion ended on 2026-11-11 and Qoder's FAQ says the model is removed when it ends; no catalog still carries the id.
+- **Why this is a legitimate finding:** a documented absence is still a finding. Because not one verified public benchmark number exists for this id, the file is saved with the `.md.excluded` suffix so that no invented number can enter the averages.
+
+### Normalized scores (1–100)
+
+No scores are assigned for this entry. Every dimension of the rubric (tool use, reasoning, context window, multimodal, coding, cost efficiency) depends on a verified measurement or a documented catalogue row, and for `qoduck` none exists: the raw-benchmarks section above is entirely "no verified public score found". Publishing a scored file would mean inventing a benchmark or passing curated metadata off as sourced fact, so this file is intentionally saved as `MiniMax_M3.1_Flash.md.excluded` and contributes nothing to the averages.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-11-12
+- Method: public internet research aimed at confirming the existence, identity, access route, pricing and benchmarks of the `opencode/qoduck` id — the vendor's own promotion page and announcement read directly, live catalogue API checks (OpenCode Zen and inference list, models.dev, OpenRouter, Vercel AI Gateway, Hugging Face API), an Artificial Analysis catalogue sweep, third-party tracker and press coverage, and DuckDuckGo searches. No benchmark number could be verified, so the file is excluded from scoring. Scores, where they exist elsewhere in this dataset, are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qoduck: Try the Stealth Model Free for a Limited Time — Qoder documentation](https://docs.qoder.com/events/qoduck-free)
+  - [Alibaba Cloud announcement of the Qoduck stealth model (X, 2026-11-07)](https://x.com/alibaba_cloud/status/2118992047613080032)
+  - [Stealth Models — Qwen 4 family guide (Qoduck entry, 2026-11-07)](https://stealthmodels.com/qwen-4)
+  - [Alibaba's Qoder makes a mystery coding model called Qoduck free to use — Startup Fortune](https://startupfortune.com/alibabas-qoder-makes-a-mystery-coding-model-called-qoduck-free-to-use/)
+  - [OpenCode Zen model list and pricing (no `qoduck` entry)](https://opencode.ai/docs/zen)
+  - [OpenRouter public model catalogue (no `qoduck` entry)](https://openrouter.ai/api/v1/models)
+  - [models.dev full catalogue (no `qoduck` row in any provider)](https://models.dev/api.json)

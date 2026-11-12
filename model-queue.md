@@ -87,6 +87,7 @@
 84 qwen-3.5-397b
 83 claude-opus-4.5
 83 gemini-3.5-flash-lite
+83 glm-5.3-flashx-legal
 83 nemotron-3.5-super-vl
 82.7 kimi-k2.5
 82.3 gpt-5.2-pro
@@ -114,7 +115,6 @@
 78.4 gemini-2.5-flash
 78.3 qwen-3.5-35b-a3b
 78.1 muse-glimmer-30b
-78 qwen-3.8-2400b-a95b
 77.9 claude-sonnet-4
 77.7 gemini-3.1-flash-lite
 77.5 gemini-1.5-pro
@@ -124,11 +124,11 @@
 76.9 glm-5.2-coding
 76.7 gpt-5.1-codex-max
 76.5 gemma-4.26b-a4b
-76.2 glm-5.3-flashx-legal
 76.1 gemma-4.12b-unified
 76.1 ling-3.0-flash-vl
 75.9 inkling-2-small
 75.6 mistral-medium-3.5
+75.3 qwen-3.8-2400b-a95b
 75.2 gpt-5.4-nano
 75 deepseek-v4-flash
 75 glm-5.2
@@ -152,6 +152,7 @@
 72.7 nemotron-3-ultra-free
 72.3 qwen-3-max
 72.1 hy3
+72 agnes-3.0-flash
 72 ling-3.2-flash
 71.7 ternary-bonsai-27b
 71.2 qwen-3.7-flash
@@ -180,7 +181,6 @@
 66.5 glm-5
 66.2 glm-4.6v-flash
 65.6 gpt-5.3-codex-spark
-65.5 agnes-3.0-flash
 65.3 mistral-small-4
 65.2 ling-3.0-flash
 65 ling-2.6.1t

@@ -1,0 +1,100 @@
+# Owo 2.5 — findings by MiniMax M3.1 Flash
+
+- Source: Owo (`opencode/owo-2.5`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **Self-exclusion notice.** No verified public benchmark number exists for this model id, and no public source could be found that describes such a model at all. Every benchmark row below reads "no verified public score found", so this file is intentionally saved as `MiniMax_M3.1_Flash.md.excluded` and contributes nothing to the averages. What follows is the verified record of the searches performed and the near-misses that were ruled out.
+
+## Model card
+
+- **Name:** Owo 2.5 — the name carried by this repository's curated entry for a September 2026 proprietary LLM. **No vendor, model card, announcement or benchmark for a model of this name was located on the public internet on 2026-11-12.**
+- **Short description:** According to the repository's curated metadata only, a proprietary 1M-context multimodal model with tool use, released in September 2026 and served through "the Owo API" and OpenCode Zen. None of that description could be corroborated: no Owo API documentation page exists publicly (the developer section of the only name-matching company site is entirely "Coming Soon"), and OpenCode Zen does not list any `owo` route.
+- **Provider / access:** **None verifiable.** The repository's curated entry assigns `opencode/owo-2.5`, but that id is absent from OpenCode's live inference catalogue (`https://opencode.ai/inference/v1/models`), from the Zen model, pricing and deprecation tables (`https://opencode.ai/docs/zen`), from models.dev, from the OpenRouter catalogue and from the Vercel AI Gateway catalogue — all checked 2026-11-12. The name-matching vendor site `www.owo.ai` (OwO.AI) publishes no API reference, no SDK, no model list and no pricing: its Developers page carries three cards, each reading "Coming Soon".
+- **Release / knowledge:** The curated entry claims a September 2026 release; **no dated announcement exists to check it against**. No knowledge cutoff is published.
+- **IDs:** `opencode/owo-2.5` (repository-curated only; not a live route in any catalogue checked). No Hugging Face repository, no ModelScope repository, no vendor id and no gateway id was found.
+- **Context window:** **unverified.** The curated entry claims 1,048,576 total tokens with 256,000 max output; no public catalogue row, vendor page or API response confirms any window size.
+- **Modalities:** **unverified.** The curated entry claims text and image in with text out; no public source documents input or output modalities, and no multimodal benchmark exists for the name.
+- **Pricing (as of 2026-11-12):** **unverified.** The curated entry records "$0.40 / $3.20 per 1M in/out (official Owo API docs)", but no such pricing page could be reached — `https://docs.owo.ai/` does not resolve at all, and the OwO.AI developer pages are placeholders. No OpenRouter, Vercel AI Gateway, models.dev or Zen row carries an `owo` price.
+- **Architecture:** **unverified and undisclosed.** No parameter count, architecture description, weights or model card exists for this name in any source checked.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Terminal-Bench 4.0: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- AutomationBench / OSWorld: **no verified public score found**
+- Toolathlon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Tool calling: asserted in the repository's curated metadata, not documented anywhere public.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** — no Artificial Analysis record exists for any `owo` slug (the catalogue of 285 models contains none), and no BenchLM page.
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- DeepSWE / Coding Index / Terminal-Bench: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval benchmark reported** at any length, and no confirmed window size. The claimed 1M context appears only in the repository's curated metadata.
+
+### Absence checks performed (URL and result, 2026-11-12)
+
+- `https://opencode.ai/docs/zen` — 200, **0 occurrences** of `owo` in the Zen model, pricing and deprecation tables.
+- `https://opencode.ai/inference/v1/models` — 200, live inference catalogue, **no `owo` entry**.
+- `https://models.dev/api.json` (whole catalogue, every provider) — 200, **0 occurrences** of `owo` (the same scan finds `muse-spark-open` and `muse-ember` rows, so the string search was working).
+- `https://openrouter.ai/api/v1/models` — 200, ~842 KB of catalogue, **0 occurrences** of `owo`.
+- `https://ai-gateway.vercel.sh/v1/models` — 200, ~569 KB of catalogue, **0 occurrences** of `owo`.
+- Artificial Analysis catalogue (285 models, 2026-11-11 snapshot) — **no `owo` entry**; a live probe of `artificialanalysis.ai/models/owo-2-5` returns **HTTP 404**.
+- `https://www.owo.ai/` — 200, OwO.AI's company page: "We build Human World Models", news entries through **Mar 2026** (wearable sensing platform in development), **no language-model release** at any point in the timeline.
+- `https://owo.ai/developers/` — 200, the Developers page: Design System, API Reference and SDKs & Libraries all marked **"Coming Soon"**; no model ids, no endpoints, no prices.
+- `https://owo.ai/research/` — 200, empty page body.
+- `https://docs.owo.ai/` — **transport error** (host does not resolve / does not serve); no Owo API documentation is reachable.
+- `https://huggingface.co/api/models?search=owo-2.5` — 200, **empty result array** (no weights, no repo).
+- DuckDuckGo searches for `"Owo 2.5" LLM API pricing`, `"owo-2.5" OR "Owo 2.5" model benchmark`, `"Owo" AI model API 1M context multimodal September 2026 OpenCode`, and `owo.ai OR "Owo API" large language model 2026 OpenCode` — **no result describing an AI model of this name**; the hits are OwO.AI itself (an embodied-intelligence company whose developer pages are placeholders), an unrelated Rust "OwO AI Gateway" gateway tool on GitHub, Civitai image checkpoints tagged "owo", and a Chinese content creator.
+- DuckDuckGo search in Chinese (`"Owo" 大模型 API 2.5 价格`) — no language-model result.
+
+### Conflicting evidence (vendor vs independent) and how it was resolved
+
+There is no vendor claim and no independent measurement to reconcile: no vendor statement exists, and no independent source has ever published a number for this id. The only conflict is between this repository's curated metadata (which asserts a September 2026 release, a 1M/256K window, text+image input, tool use and $0.40/$3.20 pricing "per official Owo API docs") and the complete absence of those specs — and of the API documentation they cite — from every public source checked. It was resolved by treating every curated specification as unverified metadata rather than as sourced fact, and by filing this report as evidence-free.
+
+### Notes on identity
+
+- **Publicly documented:** nothing beyond the name. There is no vendor model page, no API documentation, no announcement, no model card, no weights, no Hugging Face repository, no pricing row, no context-window row and no benchmark result for `owo-2.5` in any public catalogue checked on 2026-11-12.
+- **Attribution-by-telemetry:** none. Unlike the other stealth entries in this dataset, there is not even a tokenizer or self-introduction lead — no community probe, tracker sighting or telemetry signal was found for this name.
+- **Endpoint still live?** No endpoint was found. The id is absent from OpenCode's live inference catalogue, from the Zen/Console pricing and deprecation tables, from models.dev, from OpenRouter and from the Vercel AI Gateway catalogue, so the entry appears either never to have shipped, to have been withdrawn before any catalogue snapshot was taken, or to be a curated placeholder whose public trail is empty. The only name-matching company on the internet (OwO.AI) is building embodied "Human World Models" and has published no language model and no API.
+- **Why this is a legitimate finding:** a documented absence is still a finding. Because there is no verified public benchmark number for this id, the sync pipeline quarantines this file on purpose — it is saved with the `.md.excluded` suffix so that no invented number can enter the averages.
+
+### Normalized scores (1–100)
+
+No scores are assigned for this entry. Every dimension of the rubric (tool use, reasoning, context window, multimodal, coding, cost efficiency) depends on a verified measurement or a documented catalogue row, and for `owo-2.5` none exists: the raw-benchmarks section above is entirely "no verified public score found". Publishing a scored file would mean inventing a benchmark or passing curated metadata off as sourced fact, so this file is intentionally saved as `MiniMax_M3.1_Flash.md.excluded` and contributes nothing to the averages.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-11-12
+- Method: public internet research aimed at confirming the existence, identity, access route, pricing and benchmarks of the `opencode/owo-2.5` id — live catalogue API checks (OpenCode inference list and Zen tables, models.dev, OpenRouter, Vercel AI Gateway, Hugging Face API), an Artificial Analysis catalogue sweep and live 404 probe, the OwO.AI company/developer/research pages, and repeated DuckDuckGo searches in English and Chinese. No benchmark number and no model could be verified, so the file is excluded from scoring. Scores, where they exist elsewhere in this dataset, are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OwO.AI company site (no language-model release; developer pages "Coming Soon")](https://www.owo.ai/)
+  - [OwO.AI Developers page (API reference and SDKs not published)](https://owo.ai/developers/)
+  - [OpenCode Console/Zen models, pricing and deprecation tables (no `owo` entry)](https://opencode.ai/docs/zen/)
+  - [OpenCode live inference model catalogue (no `owo` entry)](https://opencode.ai/inference/v1/models)
+  - [models.dev full catalogue (no `owo` row in any provider)](https://models.dev/api.json)
+  - [OpenRouter public model catalogue (no `owo` entry)](https://openrouter.ai/api/v1/models)
+  - [Vercel AI Gateway live model catalogue (no `owo` entry)](https://ai-gateway.vercel.sh/v1/models)

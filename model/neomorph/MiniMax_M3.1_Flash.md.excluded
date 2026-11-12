@@ -1,0 +1,105 @@
+# Neomorph — findings by MiniMax M3.1 Flash
+
+- Source: no public source found (name, id and specs only appear in this repository's own curated metadata)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph — no vendor product name, announcement or model card exists for this entry in any public source located on 2026-11-12. The name comes only from this repository's curated metadata and from the slug itself.
+- **Short description:** Nothing public describes it. The curated repository metadata for this slug describes an "OpenCode Zen experimental model with modular sub-network architecture and structured-output focus", but no catalog, vendor page, benchmark site, tracker or news item that could be checked confirms any of that. This file therefore records a documented absence, not a model description.
+- **Provider / access:** The curated entry names an id of `opencode/neomorph`. That id was **not** found in any OpenCode catalog checked: the OpenCode Console/Zen models page, the live inference model list (`https://opencode.ai/inference/v1/models`, 85 ids checked on 2026-11-12, zero matches for `neomorph`), the Zen pricing table and the Zen deprecation table. It was likewise absent from models.dev (all providers), from the OpenRouter public catalog and from the Vercel AI Gateway catalog. No endpoint, playground page or API documentation could be located.
+- **Release / knowledge:** Not published. No first sighting, announcement, changelog entry or tracker alert for `neomorph` was located.
+- **IDs:** `opencode/neomorph` per the curated entry — **unverified**; the id does not appear in any public model catalog checked.
+- **Context window:** Curated metadata claims 64,000 total tokens with 4,096 max output. **Unverified** — no public catalog row, vendor page or API response confirms it.
+- **Modalities:** Curated metadata claims text in / text out with a structured-output focus. **Unverified** — no public source documents input or output modalities for this entry.
+- **Pricing (as of 2026-11-12):** Curated metadata claims $0.50 input / $1.50 output per 1M tokens. **Unverified** — no pricing table, model card, models.dev row, OpenRouter row or AI Gateway entry carries this id.
+- **Architecture:** Curated metadata claims a "modular sub-network architecture". **Unverified** — no weights, card, technical report or parameter count exist publicly.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Tool calling: no public source confirms or denies tool support for this id; the OpenCode catalog row does not exist.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** — `https://benchlm.ai/models/neomorph` returns HTTP 404 and `https://artificialanalysis.ai/models/neomorph` returns HTTP 404 (both checked 2026-11-12).
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no entry** — `https://openvibeeval.com/models/neomorph/` returns HTTP 404 and the model is absent from the 47-model directory (checked 2026-11-12).
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No long-context retrieval result and no confirmed window size: **no verified public score found**.
+
+### Absence checks performed (URL and result, 2026-11-12)
+
+- `https://opencode.ai/docs/zen/` (OpenCode Console/Zen models, pricing and deprecation tables) — 200, **0 occurrences** of `neomorph`; the model list has 85 entries and no such id.
+- `https://opencode.ai/inference/v1/models` — 200, 85 model ids returned, **no `neomorph` entry** (the same list does contain `iceman-free`, `big-pickle`, `beam-free` and other stealth ids).
+- `https://models.dev/api.json` (whole catalog, every provider) — 200, **0 occurrences** of `neomorph` in ~6 MB of catalog data (the same scan finds `glyph-cluster` under vercel and kilo and `iceman-free` under opencode).
+- `https://openrouter.ai/api/v1/models` — 200, ~841 KB of catalog, **0 occurrences** of `neomorph` (and 0 occurrences of `glyph-cluster` or `iceman`, for reference).
+- `https://ai-gateway.vercel.sh/v1/models` — 200, ~569 KB of catalog, **0 occurrences** of `neomorph` (1 occurrence of `glyph-cluster`).
+- `https://vercel.com/ai-gateway/models/neomorph` — **HTTP 404**.
+- `https://benchlm.ai/models/neomorph` — **HTTP 404** ("404 — Page Not Found | BenchLM.ai").
+- `https://artificialanalysis.ai/models/neomorph` — **HTTP 404**.
+- `https://modelbenchmark.io/models/neomorph` — **HTTP 404**.
+- `https://openvibeeval.com/models/neomorph/` — **HTTP 404** ("Page Not Found · OpenVibeEval").
+- `https://pi.dev/models/opencode/neomorph` — **HTTP 404**.
+- `https://tokendyno.com/models/opencode/neomorph/` — **HTTP 404**.
+- `https://live.aitracker.bot/neomorph` — **HTTP 404** ("`neomorph` isn't on the radar yet"); the same site's model directory contains zero `neomorph` entries while it does list `glyph-cluster`.
+- `https://live.aitracker.bot/models` — 200, **0 occurrences** of `neomorph`.
+- `https://huggingface.co/api/models?search=neomorph` — 200, **empty result array** (no weights or repo).
+- GitHub commit search for `neomorph` in `anomalyco/opencode` and `anomalyco/models.dev` — **0 commits** in both repositories (checked 2026-11-12).
+- DuckDuckGo and Bing web searches for `"neomorph"` combined with `model`, `opencode`, `zen`, `LLM`, `API model`, `benchmark` and `per 1M` — no result describing an AI model of this name; the hits are the protein-degradation company Neomorph (neomorph.com), 3D-print models of the Alien franchise character, and unrelated uses of the word "neumorphism".
+- OpenCode's public changelog through v2.2.7 (2026-11-10) — **no mention** of `neomorph`.
+
+### Conflicting evidence (vendor vs independent) and how it was resolved
+
+There is no vendor claim and no independent measurement to reconcile: no vendor statement exists, and no independent source has ever published a number for this id. The only conflict is between this repository's curated metadata (which asserts a 64K context, 4,096 max output and $0.50/$1.50 pricing) and the complete absence of those specs from every public catalog checked. It was resolved by treating every curated specification as unverified metadata rather than as a sourced fact, and by filing this report as evidence-free.
+
+### Notes on identity
+
+- **Publicly documented:** nothing beyond the name. There is no vendor, no lab attribution, no announcement, no model card, no weights, no Hugging Face repository, no pricing row, no context-window row and no benchmark result for `neomorph` in any public catalog checked on 2026-11-12.
+- **Attribution-by-telemetry:** none. Unlike the other stealth slots in this dataset, there is not even a tokenizer or self-introduction lead for Neomorph — no community probe, tracker sighting or telemetry signal was found.
+- **Endpoint still live?** No endpoint was found. The id is absent from OpenCode's live inference catalog, from the Zen/Console pricing and deprecation tables, from models.dev, from OpenRouter and from the Vercel AI Gateway catalog, so the entry appears either to have never shipped, to have been removed before any catalog snapshot was taken, or to be a curated placeholder whose public trail is empty.
+- **Why this is a legitimate finding:** a documented absence is still a finding. Because there is no verified public benchmark number for this id, the sync pipeline quarantines this file on purpose — it is saved with the `.md.excluded` suffix so that no invented number can enter the averages.
+
+### Normalized scores (1–100)
+
+No scores are assigned for this entry. Every dimension of the rubric (tool use, reasoning, context window, multimodal, coding, cost efficiency) depends on a verified measurement or a documented catalog row, and for `neomorph` none exists: the raw-benchmarks section above is entirely "no verified public score found". Publishing a scored file would mean inventing a benchmark or passing curated metadata off as sourced fact, so this file is intentionally saved as `MiniMax_M3.1_Flash.md.excluded` and contributes nothing to the averages.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimax/minimax-m3.1-flash)** — 2026-11-12
+- Method: public internet research aimed at confirming the existence, identity, access route, pricing and benchmarks of the `opencode/neomorph` id — live catalog API checks (OpenCode inference list, models.dev, OpenRouter, Vercel AI Gateway), vendor and tracker page checks, benchmark-site 404 checks, GitHub commit search, and DuckDuckGo/Bing web searches. No benchmark number could be verified, so the file is excluded from scoring. Scores, where they exist elsewhere in this dataset, are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenCode Console/Zen models, pricing and deprecation tables](https://opencode.ai/docs/zen/)
+  - [OpenCode live inference model catalog (no `neomorph` entry)](https://opencode.ai/inference/v1/models)
+  - [models.dev full catalog (no `neomorph` row in any provider)](https://models.dev/api.json)
+  - [OpenRouter public model catalog (no `neomorph` entry)](https://openrouter.ai/api/v1/models)
+  - [Vercel AI Gateway live model catalog (no `neomorph` entry)](https://ai-gateway.vercel.sh/v1/models)
+  - [AI Tracker — `neomorph` is not on the radar (HTTP 404)](https://live.aitracker.bot/neomorph)
+  - [BenchLM — `neomorph` model page (HTTP 404)](https://benchlm.ai/models/neomorph)
+  - [Artificial Analysis — `neomorph` model page (HTTP 404)](https://artificialanalysis.ai/models/neomorph)
+  - [modelbenchmark.io — `neomorph` model page (HTTP 404)](https://modelbenchmark.io/models/neomorph)
+  - [OpenVibeEval — `neomorph` model page (HTTP 404)](https://openvibeeval.com/models/neomorph/)
+  - [Hugging Face model search for `neomorph` (empty)](https://huggingface.co/api/models?search=neomorph)
