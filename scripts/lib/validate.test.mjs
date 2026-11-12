@@ -203,6 +203,12 @@ describe("merged duplicate slugs (never come back)", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("longcat-2.5-preview"), "longcat-2.5");
     assert.equal(CASE_LAW_NOTES.has("longcat-2.5-preview"), true);
     assert.equal(RETIRED_SLUGS.has("longcat-2.5"), false);
+    assert.equal(DELETED_PHANTOM_SLUGS.has("longcat-2.5"), false);
+  });
+
+  it("maps the owl-alpha stealth alias to its revealed longcat-2.0 identity", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("owl-alpha"), "longcat-2.0");
+    assert.equal(CASE_LAW_NOTES.has("owl-alpha"), true);
   });
 
   it("message names both slugs and the canonical research route", () => {

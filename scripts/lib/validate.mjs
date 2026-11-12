@@ -175,6 +175,20 @@ export const MERGED_MODEL_SLUGS = new Map([
   // preview spelling so search by the old name still resolves. Never scaffold
   // model/longcat-2.5-preview/ again.
   ["longcat-2.5-preview", "longcat-2.5"],
+  // Revealed-stealth merge (RULES.md revealed-stealth identity, user rule
+  // 2026-10-24, merge executed 2026-11-12): `owl-alpha` was Meituan's
+  // anonymous OpenRouter stealth listing (`openrouter/owl-alpha`, free,
+  // 1,048,576 ctx, native tool calling) that appeared 2026-04-28. Meituan
+  // CONFIRMED LongCat-2.0 as the model behind it on 2026-06-29 and shipped
+  // the GA on 2026-06-30 (MIT weights 2026-07-12); Artificial Analysis has
+  // since benchmarked it under the revealed name, and the LongCat API docs
+  // carry an example response that self-identifies as `OWL`. Same 1.6T/48B
+  // MoE, LongCat Sparse Attention, native 1M window, text-only. The folder
+  // was folded into model/longcat-2.0/ (12 unique files moved, 13 collisions
+  // resolved newest-wins, 35 losers deleted) and the canonical meta `aliases`
+  // now carry the stealth spelling so search by "Owl Alpha" resolves. Never
+  // scaffold model/owl-alpha/ again.
+  ["owl-alpha", "longcat-2.0"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -803,6 +817,7 @@ export const CASE_LAW_NOTES = new Map([
   ["qwen3-max", "unhyphenated slug variant of qwen-3-max (Qwen 3 Max) — renamed to canonical hyphenated slug model/qwen-3-max/ on user order 2026-11-11 to match family pattern (qwen-3.7-max, qwen-3.8-max, qwen-4-max); never recreate unhyphenated variant — research belongs in model/qwen-3-max/"],
   ["qwen-3.8-2400b-a95b", "param-size respelling of Alibaba's vendor ID Qwen3.8-2.4T-A95B (2400B total / 95B active; repo slug convention keeps param sizes hyphenated, so the spelling is rule-legal but non-vendor), and that checkpoint is the open-weight release of the SAME model as the tracked hosted flagship qwen-3.8-max — the Qwen/Qwen3.8-2.4T-A95B card states \"Qwen3.8-Max is the official version based on Qwen3.8-2.4T-A95B\" and that Qwen3.8 \"brings a Qwen-Max-class model to open release\"; NVIDIA's Day-0 post titles it \"Qwen3.8-2.4T-A95B (Qwen3.8-Max)\". One checkpoint, two releases: same 2.4T/95B MoE, same 92 layers / 512 experts (10 routed + 1 shared), same 262,144-native / 1,010,000-extended window, same published benchmark table; the hosted API adds vision input, non-thinking support, 1M-by-default and 7 built-in tools (so the open artifact is text-only and thinking-mandatory). Folder merged into model/qwen-3.8-max/ on user order 2026-11-12 (4 colliding reports folded newest-wins, 2 unique .md.excluded moved, duplicate average.md + scaffolded meta.json deleted); canonical meta `aliases` carry every old name and route spelling (incl. `qwen-3.8-2400b-a95b`, `qwen/qwen3.8-2.4t-a95b`, `Qwen/Qwen3.8-2.4T-A95B`) so searching the old name resolves — research belongs in model/qwen-3.8-max/"],
   ["longcat-2.5-preview", "Meituan's preview model ID, superseded by the GA — the vendor shipped the GA on 2026-11-02 (change log: \"LongCat-2.5 Now Available\") and `GET /openai/v1/models` now returns exactly one model, `LongCat-2.5`, retiring the -Preview ID from the catalogue (same preview->GA pattern the vendor used for LongCat-2.0-Preview 2026-04-20 -> LongCat-2.0 2026-06-30). Tracked folder renamed `longcat-2.5-preview` -> `longcat-2.5` on user order 2026-11-12 (52 files moved as pure path moves; the rater stem LongCat_2.5_Preview stays frozen in the other 61 folders), which also UNPARKS `longcat-2.5` (parked 2026-10-22 as a phantom GA name — correct then, superseded now). Canonical meta `aliases` carry the retired preview spelling so search by the old name resolves — research belongs in model/longcat-2.5/; never re-scaffold model/longcat-2.5-preview/"],
+  ["owl-alpha", "Meituan LongCat's anonymous OpenRouter stealth listing (`openrouter/owl-alpha`, free, 1,048,576 ctx, native tool calling, Claude Code + OpenClaw), live 2026-04-28 and revealed 2026-06-29 when Meituan confirmed LongCat-2.0 as the model behind it (GA shipped 2026-06-30, MIT weights 2026-07-12; Artificial Analysis benchmarks it under the revealed name and the LongCat API docs carry an example response self-identifying as `OWL`). Same 1.6T/48B MoE, LongCat Sparse Attention, native 1M window, text-only — one model, two folders, so the alias folder was merged into model/longcat-2.0/ on user order 2026-11-12 (12 unique files moved, 13 collisions resolved newest-wins, 35 losers deleted) per RULES.md revealed-stealth merge rule. Canonical meta `aliases` carry the stealth spelling so search by \"Owl Alpha\" resolves — research belongs in model/longcat-2.0/; never re-scaffold model/owl-alpha/"],
 ]);
 
 /**

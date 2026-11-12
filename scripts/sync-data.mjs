@@ -408,8 +408,11 @@ for (const slug of slugs) {
 // spelling variant (case, leading vendor prefix, `-` vs `_` version
 // separators) or a suffixed derivative of a phantom checkpoint family — is a
 // loud FAIL and sync cements nothing for it. Real sibling SKUs
-// (gemini-3.1-flash-lite, longcat-2.5-preview, qwen-3.5-plus, glm-5.3-flash,
-// gemini-2.5-pro) never match. All five model trees are scanned so the guard
+// (gemini-3.1-flash-lite, qwen-3.5-plus, glm-5.3-flash, gemini-2.5-pro,
+// longcat-2.5) never match — `longcat-2.5` was a deleted phantom until
+// Meituan shipped the GA on 2026-11-02, and its retired preview spelling
+// `longcat-2.5-preview` now lives in MERGED_MODEL_SLUGS (merge gate above),
+// not here. All five model trees are scanned so the guard
 // cannot be dodged by scaffolding the name outside model/. The deletion
 // tripwire above sanctions the missing tracked files of the removal itself.
 const deletedPhantomSlugs = new Set();

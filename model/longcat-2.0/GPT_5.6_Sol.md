@@ -1,57 +1,57 @@
-# LongCat 2.0 — findings by GPT 5.6 Sol
+# Owl Alpha — findings by GPT 5.6 Sol
 
-- Source: Meituan (`meituan-longcat/LongCat-2.0`)
-- Date: 2026-10-07 (UTC)
+- Source: Meituan/LongCat-2.0 (Owl Alpha alias)
+- Date: 2026-10-09 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.0
-- **Short description:** Meituan's trillion-parameter open MoE built for long-horizon agentic coding and trained end-to-end on domestic Chinese accelerators.
-- **Provider / access:** Open weights and OpenRouter `meituan/longcat-2.0`; self-hosted OpenAI-compatible inference.
-- **Release / knowledge:** Released 2026-06-30; weights opened 2026-07-12; cutoff not disclosed.
-- **IDs:** `meituan-longcat/LongCat-2.0`, `meituan/longcat-2.0`; no verified Zen Free ID.
-- **Context window:** 1,000,000 tokens ([official repository](https://github.com/meituan-longcat/LongCat-2.0)).
-- **Modalities:** Text input/output, reasoning and tool calls; no verified image/audio support.
-- **Pricing (as of 2026-10-07):** Open weights; OpenRouter lists $0.30/M input and $1.20/M output.
-- **Architecture:** Sparse MoE, 1.6T total / about 48B active, LongCat Sparse Attention and N-gram embeddings.
+- **Name:** Owl Alpha
+- **Short description:** The former OpenRouter stealth alias for Meituan's LongCat-2.0, an open-weight large MoE aimed at agentic coding.
+- **Provider / access:** Formerly `openrouter/owl-alpha`; released identity is `meituan/longcat-2.0` with open weights/API access.
+- **Release / knowledge:** Alias appeared in 2026; LongCat-2.0 identity was publicly confirmed in 2026-07; cutoff undisclosed.
+- **IDs:** `openrouter/owl-alpha` (historical alias), `meituan/longcat-2.0`
+- **Context window:** 1,000,000 tokens.
+- **Modalities:** Text input/output, reasoning and tools; no native multimodal support verified.
+- **Pricing (as of 2026-10-09):** Historical alias pricing varied; open weights are MIT-licensed.
+- **Architecture:** About 1.6T total / 48B active sparse MoE, MIT license.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 **70.8%** ([Meituan release](https://www.meituan.com/news/NN260630164005904)).
-- Tau3, GDPval-AA, ClawEval, MCP-Atlas: no verified public score found.
+- LongCat-2.0 is reported above Gemini 3.1 Pro on Terminal-Bench 2.1; the accessible release summary did not expose the exact value.
 
 Reasoning / knowledge:
 
-- Official benchmark charts compare several reasoning benchmarks, but exact text values were not accessible in the fresh search.
-- GPQA, HLE, CritPt, Omniscience: no verified exact value found.
+- No independent AA/Arena capability score was available at release; vendor benchmark suite only.
 
 Coding:
 
-- SWE-bench Pro **59.5%**; SWE-bench Multilingual **77.3%** (Meituan official evaluation).
-- LiveCodeBench, SciCode, DeepSWE: no verified exact score found.
+- Reported above Gemini 3.1 Pro on SWE-bench Pro; exact accessible value not found.
 
 Long context:
 
-- Trained on hundreds of billions of 1M-context tokens; no accessible exact MRCR/RULER score was verified.
+- **1M-token** supported context.
+
+Sources: [Benchmark Atlas](https://atlas.kevinhu.io/models/longcat-2-0), [identity research](https://stealthmodels.com/owl-alpha/), [release coverage](https://www.techradar.com/pro/chinese-doordash-rival-smashes-open-source-record-with-1-6-trillion-parameter-llm-with-a-1-million-context-token-model-crafted-without-nvidia-hardware).
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Terminal-Bench 70.8 demonstrates strong terminal execution, with sparse evidence outside coding agents.
-- **Reasoning: 79/100.** Broad flagship comparisons support capable reasoning, capped by unavailable exact science rows.
-- **Context window: 95/100.** Native 1M training and capacity are excellent, though no comparable retrieval score was found.
-- **Multimodal: 15/100.** The released checkpoint is text-only.
-- **Coding: 87/100.** SWE-Pro 59.5 and multilingual 77.3 show strong repository engineering.
-- **Cost efficiency: 96/100.** Open weights and $0.30/$1.20 hosting provide exceptional economics, offset by large self-hosting hardware needs.
-- **Overall Score: 72/100.** Half-up mean of the five non-cost dimensions; best for economical text-only long-context coding agents.
+- **Tool use: 82/100.** Strong Terminal-Bench positioning supports agent use, capped by vendor-only evidence and alias ambiguity.
+- **Reasoning: 80/100.** Near-frontier release comparisons are credible but not independently reproduced.
+- **Context window: 93/100.** The 1M-token window is a major strength, with sparse public retrieval measurements.
+- **Multimodal: 15/100.** The identified model is text-only.
+- **Coding: 84/100.** SWE-Pro and terminal claims support high coding capability, capped by missing exact independent values.
+- **Cost efficiency: 78/100.** MIT weights help, but 48B active inference remains substantial.
+- **Overall Score: 71/100.** The half-up mean of the five quality dimensions; suited to long-context coding agents where the former alias is understood.
 
 ---
 
 ## Signature
 
-- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-07
-- Method: Fresh public internet research using Meituan's official release, repository, weights, and current provider pricing; scores are normalized interpretations.
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+- Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-09
+- Method: Fresh public-internet research resolving the stealth alias before scoring; scores are normalized interpretations, not official vendor scores.
+- Future sources: add a new file next to this one using the same headings.
+

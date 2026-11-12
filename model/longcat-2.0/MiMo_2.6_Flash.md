@@ -1,83 +1,63 @@
-# LongCat-2.0 — findings by Mimo v2.6 Flash
+# Owl Alpha — findings by MiMo 2.6_Flash
 
-- Source: Meituan/`meituan/longcat-2.0`
-- Date: 2026-10-09 (UTC; original research 2026-09-28, re-researched 2026-10-09)
+- Source: OpenRouter cloaked model (`owl-alpha`)
+- Date: 2026-10-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.0
-- **Short description:** Meituan's MIT-licensed open-weights MoE coding/agentic model (1.6T total / ~48B active), unveiled 2026-06-29 and open-sourced July 2026 — parent of the `longcat-2.5-preview` entry (2.0 base is text-only; the 2.5 Preview adds image/video input).
-- **Provider / access:** LongCat API platform (OpenAI- and Anthropic-compatible, `api.longcat.chat`), Hugging Face `meituan-longcat/LongCat-2.0`, ModelScope; AA lists 2 API providers. Not on OpenCode Zen (no Free ID found).
-- **Release / knowledge:** unveiled 2026-06-29 (AA release date; HF benchmark chart dated 2026-06-29); weights published July 2026 (BenchmarkList: 2026-07-20). Knowledge cutoff: not published.
-- **IDs:** `meituan/longcat-2.0`; no Zen Free ID bound to this slug.
-- **Context window:** 1,048,576 tokens (1M; trained on hundreds of billions of 1M-context tokens with LongCat Sparse Attention); max output not published.
-- **Modalities:** text in; text out; reasoning **yes** (thinking toggle: `enable_thinking`); tool calls yes (JSON tool-arguments format with `reasoning_content`); **no image input** (AA).
-- **Pricing (as of 2026-10-09):** LongCat direct API **$0.30 / 1M input, $0.006 cached (98% discount), $1.20 / 1M output**; AA's current median-across-providers view reads **$0.75 / $2.95** (only 1 API provider listed on AA) with $0.15 per Index-task — direct API remains the cheap route. No free tier found.
-- **Architecture:** sparse MoE **1.6T total / 48B active**; >35T-token pretraining entirely on AI-ASIC superpods; **MIT** weights (HF card).
+- **Name:** Owl Alpha
+- **Short description:** OpenRouter's cloaked / anonymized foundation model for agentic workloads, released April 28, 2026. Native tool use + 1M context + strong code generation / automated workflows positioning. Cloaked identity means underlying lab and architecture are undisclosed (feedback-gathering model like other OpenRouter "Alpha" cloaks: Sonoma, Sherlock, Elephant, Pony, etc.). Notable for very high real-world usage growth (↑38% weekly tokens) despite free pricing.
+- **Provider / access:** OpenRouter only (`openrouter/owl-alpha`); free ($0/$0) while in cloak/testing; compatible with Claude Code, OpenClaw, and mainstream agent productivity tools. Krater.ai lists as retired from OpenRouter as of mid-2026 review — status may fluctuate.
+- **Release / knowledge:** Released 2026-04-28 (OpenRouter). Knowledge cutoff not disclosed.
+- **IDs:** `openrouter/owl-alpha`.
+- **Context window:** 1,048,576 tokens (1M; ~1,048,756 reported); max output 262.1K tokens.
+- **Modalities:** text in; text out; tool use / function calling; long-context. No image input (per Admix "accepts images: No").
+- **Pricing (as of 2026-10-13):** Free — $0.00 / 1M input, $0.00 / 1M output during cloak/testing (prompts logged for feedback/training). No paid tier published.
+- **Architecture:** Undisclosed (cloaked). Marketed as high-performance foundation model, non-reasoning or hybrid unclear from public materials.
 
 ### Raw benchmarks found
 
-> Measured numbers with (source / rank / harness). Missing rows = "no verified public score found".
-
 Agent / tool use:
 
-- Terminal-Bench 2.1: **70.8%** <(BenchmarkList — rank 41/182, 78th pct; HF card same figure)>
-- Tau3-Banking: **13.2%** Pass@1 <(BenchmarkList / AA — rank 78/174; field leader GLM-5.3 50.3%)>
-- GDPval-AA: **Elo 1,032** <(BenchmarkList — rank 96/340, 72nd pct, AA run dated 2026-09-02)>
-- BrowseComp: **79.9%** <(BenchmarkList — rank 22/44, 51st pct)>
-- Terminal-Bench 4.0 / Claw-Eval / Toolathon / MCP-Atlas / OSWorld: **no verified public score found**
-- HF chat template (re-checked 2026-10-09): tool-calling with named namespaces plus a built-in **`code_interpreter`** tool type (stateful Jupyter sandbox, network-isolated, python/java/go/js/ts/c/c++, 60s timeout) — capability confirmation, no measured score
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **88.9%** <(BenchmarkList — rank 45/464, 90th percentile)>
-- HLE: **33.7%** <(BenchmarkList — rank 50/466)>
-- AA-LCR v1.1: **62.7%** <(BenchmarkList — 68th pct)>
-- Artificial Analysis Intelligence Index: **19, #54 / 116** <(AA model page, v4.3.2) — note: BenchmarkList's "AA Index 34" row conflicts and appears to be a stale feed; the AA-native page value 19 is taken as current actual. **Re-confirmed 2026-10-09:** AA page still reads **19** (#55/117 open-weights class, median 18; 140M verbosity, $0.15 per Index task) — the 34 outlier stands rejected>
-- IMO-AnswerBench **81.8%** / WritingBench **83.8** / ObviousBench **95.8** / AIIQ Composite **98** <(BenchmarkList, secondary rows)>
-- LCR / MLCR (other harnesses) / CritPt / MMLU-Pro: **no verified public score found**
+- Native tool use / function calling (OpenRouter model card)
+- Claude Code + OpenClaw compatibility (model card)
+- No public PinchBench/ClawEval/BFCL figures found for this cloak
 
 Coding:
 
-- SWE-bench Pro: **59.5%** <(BenchmarkList — rank 20/49, 60th pct; corroborated by Creative AI News launch coverage)>
-- SWE-bench Multilingual: **77.3%** <(BenchmarkList — rank 13/46, 73rd pct)>
-- SciCode: **35.4%** <(BenchmarkList — rank 187/458)>
-- LiveCodeBench / DeepSWE / Vibe Code Bench: **no verified public score found**
+- "strong performance in code generation, automated workflows" (marketing only)
+- No SWE-bench / LiveCodeBench public figures found
+
+Reasoning / knowledge:
+
+- No public GPQA / AIME / HLE figures found
+- Benchable / BenchLM coverage thin (cloak opacity)
+
+Usage signal (not a benchmark):
+
+- ~1.6T weekly tokens on OpenRouter usage trackers; ↑38% growth — among fastest-growing free models (llm-rankings snapshot 2026-06)
 
 Long context:
 
-- 1M-token window documented (HF card / AA); MRCR / RULER / GraphWalks retrieval: **no verified public score found**
-
-Multimodal:
-
-- Text-only input (AA); MMMU / CharXiv: **no verified public score found**
-
+- 1M window marketed for document-heavy / knowledge-retrieval workflows
+- No MRCR / RULER figures published
 
 ### Normalized scores (1–100)
 
-- **Tool use: 68/100.** Terminal-Bench 2.1 70.8 sits between the mid band's top and the ~88 frontier reference, with Tau3-Banking 13.2% and GDPval-AA Elo 1,032 both in the 50–70 mid band and BrowseComp 79.9 as a strength; capped by Tau3/GDPval staying far below frontier and no Terminal-Bench 4.0 number.
-- **Reasoning: 66/100.** GPQA Diamond 88.9 is near-frontier and HLE 33.7 approaches the 40%+ frontier band, but the AA Intelligence Index of 19 (#54/116) sits just below the 20–35 mid band and no MRCR/CritPt values exist, which drags the composite back to the upper-mid tier.
-- **Context window: 95/100.** 1,048,576 tokens lands in the ≥1M tier (95–100); not 100 because no long-context retrieval measurement (MRCR/RULER) has been published.
-- **Multimodal: 15/100.** Text-only input (10–20 band).
-- **Coding: 76/100.** SWE-bench Multilingual 77.3 and SWE-bench Pro 59.5 (rank 20/49) plus Terminal-Bench 2.1 70.8 make a solid coding profile; capped by SciCode 35.4 (well under the 55%+ frontier reference) and missing LiveCodeBench/DeepSWE rows.
-- **Cost efficiency: 94/100.** $0.30/$1.20 with a 98% cache discount ($0.006) and AA cost rank #5/116 beats the ~$0.60/$2.20 ≈ 92 anchor; scored on the paid LongCat API (no Zen Free ID).
-- **Overall Score: 64/100.** Mean of the five quality dims (68 + 66 + 95 + 15 + 76) / 5 = 64.0; best fit: budget 1M-context open-weights coding/agent driver where text-only input is acceptable.
+- **Tool use: 65/100.** Native tool calling + Claude Code/OpenClaw compatibility + high real-world agent usage (1.6T tokens/week growth) is a strong practical signal. Capped by zero public agentic benchmark figures and cloak opacity (unknown if frontier or mid-tier under the hood).
+- **Reasoning: 55/100.** No public math/science/knowledge benchmarks; marketed as foundation/agentic rather than deep-reasoning. Capped by total lack of verifiable reasoning evidence.
+- **Context window: 90/100.** 1M context + 262K max output is top-tier window size. Capped by no long-context retrieval measurements (MRCR/RULER unknown).
+- **Multimodal: 15/100.** Text-only (no image input per Admix). Capped at text-only floor.
+- **Coding: 58/100.** Marketing claims strong codegen; zero SWE-bench/LCB public numbers. Capped by unverifiable coding claims.
+- **Cost efficiency: 100/100.** Completely free ($0/$0) with 1M context — maximum cost efficiency while cloak lasts. Capped only by free-tier rate limits / logging tradeoffs (not scored down).
+- **Overall Score: 57/100.** Mean of (65 + 55 + 90 + 15 + 58) / 5 = 56.6 → **57**. Best-fit recommendation: free 1M-context cloak worth trying for document-heavy agent experiments and Claude Code/OpenClaw workflows where cost is zero and opacity is acceptable; do not rely on it for graded STEM reasoning or audited coding without independent verification.
 
 ---
 
 ## Signature
 
-- Provided by: **Mimo v2.6 Flash (xiaomi/mimo-v2.6-flash)** — 2026-10-09 (original: 2026-09-28; user-approved second pass)
-- Method: public internet research (Hugging Face `meituan-longcat/LongCat-2.0` model card, Artificial Analysis model page, BenchmarkList model page, Creative AI News coverage); second pass 2026-10-09 re-checked [AA LongCat 2.0](https://artificialanalysis.ai/models/longcat-2-0) (Index 19 re-confirmed, $0.75/$2.95 median pricing view) and the [HF card](https://huggingface.co/meituan-longcat/LongCat-2.0) (code_interpreter tool support in the template) — Grokipedia 404; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **MiMo 2.6 Flash (opencode/mimo-v2.6-flash-free)** — 2026-10-13
+- Method: fresh public internet research (openrouter.ai model card, krater.ai, ai-hippo.com, admix.software, designforonline.com, llmapi.ai, benchable.ai, llm-rankings.pages.dev usage snapshot); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-### Deep-research addendum (2026-10-09)
-
-- **Conflict re-confirmed:** AA-native Index **19** (#55/117) stands; BenchmarkList's 34 remains rejected as a stale feed.
-- **Pricing nuance:** AA median-across-providers $0.75/$2.95 vs LongCat direct $0.30/$1.20 (98% cache discount) — direct API is the value route; $0.15/Index-task.
-- **New capability detail:** built-in `code_interpreter` (Jupyter sandbox) tool in the HF template — no measured score yet.
-- **Scores:** no dimension changed; Overall held at 64.

@@ -1,14 +1,14 @@
 {
-  "id": "opencode/agnes-3.0-flash",
+  "id": "agnes-ai/agnes-3.0-flash",
   "name": "Agnes 3.0 Flash",
-  "short": "Agnes 3.0 Flash model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "officialUrl": "https://example.com/agnes-3.0-flash",
+  "short": "Agnes AI's proprietary high-throughput agentic model with 512K context, 226 tok/s decode, and native tool orchestration. Text + image in; text out.",
+  "contextWindow": "512,000 total; 65,536 max output",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "$0.05/$0.15 per 1M ($0 trial tier, $0.005 cached)",
+  "officialUrl": "https://wiki.agnes-ai.com/en/docs/agnes-30-flash",
   "pricingLinks": [
-    "https://example.com/agnes-3.0-flash/pricing"
+    "https://wiki.agnes-ai.com/en/docs/agnes-30-flash"
   ],
-  "standout": "Agnes 3.0 Flash offers efficient text processing with 128K context window.",
-  "tradeoff": " older model; superseded by newer Agnes releases for most use cases."
+  "standout": "Ultra-low list pricing ($0.05/$0.15 per 1M), 226 tok/s generation speed, and 512K context window with 92.4% GPQA Diamond accuracy.",
+  "tradeoff": "Sparse independent benchmark coverage on coding and agentic benchmarks; older flagship now superseded by Agnes 3.0 Pro."
 }

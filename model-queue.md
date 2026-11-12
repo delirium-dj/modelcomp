@@ -83,11 +83,11 @@
 84.5 pareto-26.10-preview
 84.3 gpt-5
 84 claude-haiku-5.5
-84 glm-5.3-flashx-legal
 84 gpt-6-luna
 84 qwen-3.5-397b
 83 claude-opus-4.5
 83 gemini-3.5-flash-lite
+83 glm-5.3-flashx-legal
 83 nemotron-3.5-super-vl
 82.7 kimi-k2.5
 82.3 gpt-5.2-pro
@@ -153,12 +153,12 @@
 72.3 qwen-3-max
 72.1 hy3
 72 ling-3.2-flash
-71.5 agnes-3.0-flash
 71.2 qwen-3.7-flash
-71 longcat-2.0
-70.3 agnes-2.5-flash
+70.5 longcat-2.0
+70.4 agnes-2.5-flash
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
+69.9 agnes-3.0-flash
 69.9 hy3-preview
 69.9 solar-open-2
 69.7 ling-3.1-flash
@@ -183,7 +183,6 @@
 65.3 mistral-small-4
 65.2 ling-3.0-flash
 65 ling-2.6.1t
-65 owl-alpha
 64.5 xing_4.0_29b_a4b
 64.1 mimo-v2.6-distill-qwen-9b
 63.1 mercury-3

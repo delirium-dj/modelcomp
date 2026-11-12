@@ -1,7 +1,7 @@
 {
   "id": "meituan/longcat-2.0",
   "name": "LongCat 2.0",
-  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M context) for coding agents; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8% self-reported vs 50.19% on AA.",
+  "short": "Meituan's MIT 1.6T/48B open-weights MoE (1M context) for coding agents - the revealed identity behind the retired owl-alpha stealth listing; SWE-bench Pro 59.5%, Terminal-Bench 2.1 70.8% self-reported vs 50.19% on AA.",
   "contextWindow": "1,000,000 (1M); max output not published",
   "modalities": "Text in/out",
   "pricingNote": "$0.30/$1.20 per 1M in/out, $0.006 cached (OpenRouter); $0.75/$2.95 on SiliconFlow; self-host $0 (MIT)",
@@ -15,6 +15,16 @@
     "https://openrouter.ai/meituan/longcat-2.0",
     "https://huggingface.co/meituan-longcat/LongCat-2.0"
   ],
-  "standout": "Meituan's open-weights preview for autonomous coding agents: 1M context at near-flat rates.",
-  "tradeoff": "Trillion-parameter serving is heavy, and every headline number is vendor-published - AA's Terminal-Bench 2.1 lands 20 points lower."
+  "standout": "Meituan's open-weights coding-agent model: 1M context at near-flat rates, with the only production-traffic evidence in this dataset (~10.1T monthly tokens, #1 Hermes Agent) from its owl-alpha stealth period.",
+  "tradeoff": "Trillion-parameter serving is heavy, and every headline number is vendor-published - AA's Terminal-Bench 2.1 lands 20 points lower. Text-only, and the ~10.1T-token traffic record predates the GA, so it corroborates the model line rather than the June release specifically.",
+  "aliases": [
+    "Owl Alpha",
+    "owl-alpha",
+    "openrouter/owl-alpha",
+    "LongCat-2.0-Preview",
+    "longcat-2.0-preview",
+    "meituan-longcat/LongCat-2.0",
+    "Meituan LongCat 2.0",
+    "OWL"
+  ]
 }

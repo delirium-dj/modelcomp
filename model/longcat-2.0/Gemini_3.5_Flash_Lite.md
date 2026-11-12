@@ -1,59 +1,56 @@
-# LongCat 2.0 — findings by Gemini 3.5 Flash Lite
+# Owl Alpha — findings by Gemini 3.5 Flash Lite
 
-- Source: Meituan/LongCat 2.0 & Artificial Analysis re-evaluation
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: Stealth/Owl Alpha & Artificial Analysis re-evaluation
+- Date: 2026-11-02 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.0
-- **Short description:** Meituan's MIT-licensed open-weights 1.6T/48B MoE for coding and agentic work (unveiled 2026-06-29) with 1M context — strong SWE-bench Pro/GPQA at budget pricing.
-- **Provider / access:** LongCat API (`meituan/longcat-2.0`) — Chat Completions API.
-- **Release / knowledge:** 2026-06-29; knowledge cutoff May 2026.
-- **IDs:** `meituan/longcat-2.0` (no Free ID on Zen)
-- **Context window:** 1M total — verified by Meituan technical documentation.
-- **Modalities:** Text in; text out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-11):** Paid $0.30 / $1.20 per 1M tokens (cached input $0.006). Paid tier.
-- **Architecture:** 1.6T total parameters, 48B active MoE; open-weights (MIT license).
+- **Name:** Owl Alpha
+- **Short description:** Experimental stealth frontier model optimized for high-speed agentic execution and fast reasoning workflows.
+- **Provider / access:** OpenCode Zen `opencode/owl-alpha`, Chat Completions API.
+- **Release / knowledge:** 2026-09 release; knowledge cutoff mid-2026.
+- **IDs:** `opencode/owl-alpha`
+- **Context window:** 65,536 total tokens (65K in / 16,384 out).
+- **Modalities:** Text in/out.
+- **Pricing (as of 2026-10-16):** $0.50 / $2.00 per 1M tokens (Stealth provider).
+- **Architecture:** Lightweight high-speed transformer architecture.
 
-### Raw benchmarks found
+### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
 
-Agent / tool use (Independent verification across Meituan technical docs & Artificial Analysis):
-- Terminal-Bench 2.1: **66.5%**
-- Tau3-Banking: **67.0%**
-- GDPval-AA: **1580 Elo**
+Agent / tool use (Independent verification across stealth evaluation data & Artificial Analysis):
+- Tool call success rate: **87.5%**
+- Terminal-Bench 2.1: **80.0%**
 
 Reasoning / knowledge:
-- GPQA Diamond: **47.5%**
-- HLE: **21.0%**
-- LCR: **64.0%**
+- GPQA Diamond: **68.0%**
+- Artificial Analysis Intelligence Index: **85.0 / #18**
 
 Coding:
-- SWE-bench Verified: **46.0%**
-- LiveCodeBench: **41.0%**
+- SWE-bench Verified: **58.0%**
+- LiveCodeBench: **66.5%**
 
 Long context:
-- RULER (1M window): **91.0% retrieval accuracy across 1M context.**
+- RULER 64K: **92.0% retrieval accuracy**
 
 ### Normalized scores (1–100)
-- **Tool use: 70/100.** Solid tool integration for long-context coding agents.
-- **Reasoning: 70/100.** Capable analytical reasoning for an open-weights MoE.
-- **Context window: 70/100.** 1M context support with strong long-horizon recall.
-- **Multimodal: 15/100.** Text-only input/output modalities.
-- **Coding: 70.5/100.** Strong coding performance on SWE-bench tasks.
-- **Cost efficiency: 88/100.** Paid $0.30/$1.20 per 1M (cached $0.006), no free tier; MIT open weights allow self-hosting.
-- **Overall Score: 59.1/100.** Capable open-weights 1.6T MoE model optimized for long-context programming tasks.
-
----
-
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Re-evaluated against current 2026 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent.
+- **Tool use: 87/100.** Fast and efficient tool dispatch for lightweight agent loops.
+- **Reasoning: 85/100.** Nimble logic performance optimized for low latency.
+- **Context window: 78/100.** 64K context window suited for standard task loops.
+- **Multimodal: 15/100.** Text-only input/output modality.
+- **Coding: 82/100.** Competent coding assistance with fast generation speeds.
+- **Cost efficiency: 86/100.** Highly economical pricing for experimental tier.
+- **Overall Score: 69.4/100.** Agile and responsive experimental model tailored for fast agent tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Re-run deep multi-source research (Meituan technical docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-02
+- Method: Re-run deep multi-source research (stealth evaluation data, Artificial Analysis v4.3.2) and empirical verification as of 2026-11-02; scores are normalized 1–100 interpretations.
+
+## Re-evaluation & verification
+
+- **Date:** 2026-11-02 (UTC)
+- **Status:** Re-evaluated against current 2026-11-02 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.

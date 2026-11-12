@@ -184,7 +184,6 @@ export const VERIFIED: Record<string, string> = {
   "north_mini_code": "2026-11-11",
   "omen-alpha": "2026-11-06",
   "omin-alpha": "2026-11-11",
-  "owl-alpha": "2026-11-06",
   "owo-2.5": "2026-11-08",
   "pareto-26.10-preview": "2026-11-11",
   "pixel_canary": "2026-11-06",

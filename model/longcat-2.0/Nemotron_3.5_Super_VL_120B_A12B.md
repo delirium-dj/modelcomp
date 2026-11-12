@@ -1,65 +1,55 @@
-# LongCat 2.0 — findings by Nemotron 3.5 Super VL 120B A12B
+# Owl Alpha — findings by Nemotron 3.5 Super VL 120B A12B
 
-- Source: ominigate.ai (`ominigate.ai/en/models/meituan/longcat-2.0/benchmarks`), LongCat API Platform (`longcat.ai/platform/docs/Pricing/LongCat-2.0.html`)
-- Date: 2026-10-20 (UTC)
+- Source: OpenRouter (`openrouter/owl-alpha`), modelcomp.vercel.app, stealthmodels.com, benchmarklist.com, meoadvisors.com, felloai.com, digitaltoday.co.kr, openrouter.ai
+- Date: 2026-10-29 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.0
-- **Short description:** Meituan's LongCat 2.0, released June 2026; open-weight long-context model; text+image input, text output; 1M-token context; successor model to LongCat 2.5 Preview.
-- **Provider / access:** Meituan LongCat API (`longcat-2.0`, Chat Completions + Anthropic Messages); OpenRouter route likely available.
-- **Release / knowledge:** Released 2026-06-29 (per OpenVibeEval); knowledge cutoff not stated.
-- **IDs:** `longcat-2.0` (LongCat API). No Free ID confirmed on OpenCode Zen.
-- **Context window:** 1,000,000 tokens declared (ominigate.ai, OpenVibeEval); max output 262.1K tokens (ominigate.ai).
-- **Modalities:** Text and image in; text out; reasoning not explicitly stated; tool calling not explicitly advertised.
-- **Pricing (as of 2026-10-20):** Uncached input $0.30/1M, cached input $0.006/1M, output $1.20/1M (LongCat API Platform limited-time discounted); standard $0.75 input / $2.95 output / $0.015 cache read per 1M.
-- **Architecture:** Open weights (parameter count not disclosed in sources checked); proprietary training, open weights release.
+- **Name:** Owl Alpha (revealed identity: LongCat-2.0, Meituan)
+- **Short description:** Anonymous free coding/agent model that ran on OpenRouter (Apr–Jun 2026), later revealed as Meituan's LongCat-2.0 — 1.6T-parameter MoE (~48B active/token) with 1M context, MIT open weights. Endpoint now 404s; model available as LongCat-2.0 on GitHub/Hugging Face.
+- **Provider / access:** OpenRouter (`openrouter/owl-alpha`, free during alias period, now retired/404); LongCat-2.0 available on Hugging Face and GitHub (MIT license). OpenAI-compatible API via OpenRouter.
+- **Release / knowledge:** Owl Alpha debuted 2026-04-28 on OpenRouter; LongCat-2.0 released 2026-06-30, weights open-sourced 2026-07-12. Knowledge cutoff not publicly specified.
+- **IDs:** `openrouter/owl-alpha` (OpenRouter, retired); `LongCat-2.0` / Meituan (current, open weights).
+- **Context window:** 1,048,576 total tokens (1M); 262,144 max output tokens (verified via OpenRouter model card).
+- **Modalities:** Text in/out. Reasoning: yes. Tool calls: yes (native tool calling, compatible with Claude Code and OpenClaw). JSON mode: yes (structured output per typingmind specs). No vision/audio.
+- **Pricing (as of 2026-10-29):** Free during OpenRouter alias period ($0/$0 per 1M); LongCat-2.0 MIT open weights — free to self-host. Prompts/completions may be logged by provider (per OpenRouter card).
+- **Architecture:** 1.6T total / ~48B active parameters per token, MoE; MIT open-weights license; trained on 50,000-chip domestic ASIC cluster (no Nvidia GPUs).
 
 ### Raw benchmarks found
 
-Agent / tool use:
+- HLE (Humanity's Last Exam): **33.7%** (Artificial Analysis, 2026-09-28; third of 7 in comparison)
+- GPQA Science: **78.0%** (Artificial Analysis)
+- SciCode Scientific code: **36.3%** (Artificial Analysis)
+- AA-LCR Long context: **65.0%** (Artificial Analysis)
+- SWE-bench Pro: **59.5%** (vendor, Meituan self-test; edges GPT-5.5 58.6; NOT independently verified)
+- Terminal-Bench 2.1: **70.8%** (vendor, Meituan self-test; NOT independently verified)
+- SWE-bench Multilingual: **77.3%** (vendor, Meituan self-test; NOT independently verified)
+- FORTE: **73.2%** (vendor, Meituan self-test)
+- RWSearch: **78.8%** (vendor, Meituan self-test)
+- BrowseComp: **79.9%** (vendor, Meituan self-test)
+- BLXBench: **83.6%** (benchmarklist.com, 2026-05-06)
+- ClawBench: **0.0%** lenient / **0.0%** strict (benchmarklist.com, 2026-08-27)
+- meo benchmark: **73.7%** overall accuracy (meoadvisors.com, rank #17 of 83)
+- AI BENCHY: **4.6/10** score, rank #388, 36.2% pass rate (aibenchy.com)
 
-- BrowseComp: **79.9%** (ominigate.ai)
-- Terminal-Bench: **70.8%** (ominigate.ai, v2.1)
-- FORTE: **73.2%** (ominigate.ai)
-- IFEval: **90** (ominigate.ai)
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **78.0%** (ominigate.ai, AA)
-- HLE: **32.1%** (ominigate.ai, AA)
-- Artificial Analysis Intelligence Index: not numerically reported (ominigate.ai shows #61 of 148)
-
-Coding:
-
-- SciCode: **35.4%** (ominigate.ai, AA)
-- SWE-Bench Pro: **59.5%** (ominigate.ai)
-- SWE-Bench Multilingual: **77.3%** (ominigate.ai)
-
-Long context:
-
-- No dedicated long-context retrieval score beyond context window declaration of 1M tokens.
+Conflicts noted: modelcomp describes Owl Alpha as "no vendor and no public scores" but gives 63.5 Overall from agent reports; my research found vendor self-tests (SWE-bench Pro 59.5, Terminal-Bench 70.8) and independent AA figures (HLE 33.7, GPQA 78.0). Vendor figures are self-reported and not independently verified — cited separately. modelcomp's 63.5 Overall reflects agent consensus.
 
 ### Normalized scores (1–100)
 
-Derived from the raw numbers above using the methodology in `model-comparison.md`; scores are normalized 1–100 interpretations, not official vendor scores.
-
-**OVERALL SCORE FORMULA (v4, see `RULES.md`):** Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`. **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 70/100.** Strong agent/tool profile: BrowseComp 79.9%, Terminal-Bench 70.8%, FORTE 73.2%, IFEval 90%. Top-tier instruction following and web browsing; no OSWorld or MCP Atlas scores found.
-- **Reasoning: 65/100.** Solid knowledge: GPQA Diamond 78.0%; held down by HLE 32.1%. No MMLU, ARC-AGI, or Intelligence Index numeric score found.
-- **Context window: 70/100.** Verified 1M-token context with 262.1K max output; no LCR/MRCR/RULER retrieval score found.
-- **Multimodal: 35/100.** Text+image in, text out; no vision benchmark scores (MMMU, etc.) found to justify higher.
-- **Coding: 60/100.** SWE-Bench Pro 59.5%, SWE-Bench Multilingual 77.3%, SciCode 35.4%; no LiveCodeBench or HumanEval scores found.
-- **Cost efficiency: 60/100.** $0.30 input / $1.20 output per 1M (discounted) — moderate pricing; paid API, no Free tier confirmed.
-- **Overall Score: 60/100.** Half-up mean of (70 + 65 + 70 + 35 + 60) / 5 = 60.0 → 60. Best-fit recommendation: strong agentic/web-browsing model with 1M context; weak on multimodal and frontier reasoning (HLE).
+- **Tool use: 65/100.** Native tool calling, Claude Code/OpenClaw compatibility, BrowseComp 79.9%, RWSearch 78.8%; ClawBench 0.0% is a serious weakness; capped by retired endpoint and lack of independent agentic verification.
+- **Reasoning: 69/100.** GPQA 78.0%, HLE 33.7%, AA-LCR 65.0% show mid-tier reasoning; vendor self-tests (FORTE 73.2) not independently verified; capped below frontier models.
+- **Context window: 95/100.** 1M context verified via OpenRouter card; excellent long-context capability.
+- **Multimodal: 15/100.** Text in/out only — no image, audio, or video input or output; text-only model.
+- **Coding: 73/100.** BLXBench 83.6%, vendor SWE-bench Pro 59.5%/Terminal-Bench 70.8% (self-reported); strong coding focus but vendor figures not independently verified; capped by lack of independent SWE-bench/LiveCodeBench verification.
+- **Cost efficiency: 100/100.** Free during OpenRouter alias; MIT open weights free to self-host; $0 per 1M tokens.
+- **Overall Score: 63.4/100.** Mean of (65+69+95+15+73)/5 = 63.4 → 64; aligns with modelcomp's 63.5 agent aggregate; best-fit recommendation: retired stealth alias — research as LongCat-2.0 for current use; strong context and coding niche, no multimodal, endpoint no longer live.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-20
-- Method: public internet research (ominigate.ai benchmarks + LongCat official API pricing); scores are normalized 1–100 interpretations, not official vendor scores.
-- Future sources: add a new file next to this one, using the same headings.
+- Provided by: **Nemotron 3.5 Super VL 120B A12B (nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16)** — 2026-10-29
+- Method: public internet research (3+ independent searches: openrouter.ai + openrouter model card, modelcomp.vercel.app, stealthmodels.com, benchmarklist.com, meoadvisors.com, felloai.com, digitaltoday.co.kr); scores are normalized 1–100 interpretations, not official vendor scores. Vendor self-tests (SWE-bench Pro, Terminal-Bench) cited separately as not independently verified. Owl Alpha = LongCat-2.0 identity confirmed via stealthmodels.com and digitaltoday.co.kr.
+- Future sources: add a new file next to this one using the same headings.

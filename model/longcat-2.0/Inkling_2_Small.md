@@ -1,63 +1,57 @@
-# LongCat-2.0 — findings by Fledge Alpha
+# Owl Alpha — findings by Fledge Alpha
 
-- Source: Meituan (`longcat-2.0`)
-- Date: 2026-10-05 (UTC)
+- Source: OpenRouter (stealth) — revealed as Meituan LongCat-2.0 (`openrouter/owl-alpha`)
+- Date: 2026-10-08 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat-2.0
-- **Short description:** Meituan's first trillion-parameter open-source MoE, trained end-to-end on 50K domestic compute for agentic coding and 1M-context work.
-- **Provider / access:** longcat.ai, OpenRouter `meituan/longcat-2.0`, LongCat API platform; weights/self-host guides announced on HF/GitHub.
-- **Release / knowledge:** June 30, 2026; knowledge cutoff not published.
-- **IDs:** `meituan/longcat-2.0`; no Zen Free ID verified.
-- **Context window:** 1,048,556 / 1M tokens; 262K max output.
-- **Modalities:** text in/out; reasoning; tool use via MOPD agent expert.
-- **Pricing (as of 2026-10-05):** $0.30 in / $1.20 out per 1M (promo; standard $0.75/$2.95).
-- **Architecture:** 1.6T total MoE, ~48B active (33–56B dynamic), LSA sparse attention, ScMoE with zero-compute experts, MOPD expert fusion (Agent/Reasoning/Interaction), MIT-licensed.
+- **Name:** Owl Alpha
+- **Short description:** Stealth foundation model that ran free on OpenRouter from April 2026 and broke into the platform's top 3 by usage before Meituan revealed it on 2026-06-30 as LongCat-2.0. Flag: alias/stealth identity of `longcat-2.0` — same weights; now archived/unavailable on OpenRouter.
+- **Provider / access:** OpenRouter `openrouter/owl-alpha` (OpenAI-compatible; archived — no longer served). Compatible with Claude Code, OpenClaw, Hermes during its run.
+- **Release / knowledge:** appeared 2026-04-28 on OpenRouter; identity revealed 2026-06-30 (Meituan LongCat on X).
+- **IDs:** `openrouter/owl-alpha` (was free during stealth)
+- **Context window:** 1M (1,048,576) tokens (OpenRouter, BenchGecko).
+- **Modalities:** text in; text out; native tool use; long-context agentic workloads.
+- **Pricing (as of 2026-10-08):** was $0.00 (free stealth listing); no longer available — successor access via Meituan LongCat API.
+- **Architecture:** 1.6T total / ~48B active MoE (per the LongCat-2.0 reveal; AI BENCHY lists the same for Owl Alpha); trained end-to-end on domestic Chinese ASICs, 35T+ tokens.
 
 ### Raw benchmarks found
 
 Agent / tool use:
 
-- RWSearch: **78.8** (vendor)
-- FORTE: **73.2** (vendor)
-- BrowseComp: **79.9** (vendor)
-- AA Agentic Index: 0.16 (aggregator)
+- AI BENCHY: tool-calling reliability **10.0/10**; overall reliability 10.0, 37.9% pass rate, composite 5.6 (#211, medium reasoning) (aibenchy.com)
+- Real-world signal: ~559B tokens/day processed, 242% MoM growth during stealth (pasqualepillitteri.it citing OpenRouter stats)
 
 Reasoning / knowledge:
 
-- AA Intelligence Index: 0.20 (aggregator)
-- GPQA/HLE: no verified public score found
+- Model Beat Reasoning & Knowledge composite: **44** (percentile, themodelbeat)
+- GPQA Diamond / HLE: no verified public score found for this ID
 
 Coding:
 
-- SWE-bench Pro: **59.5** (vendor — leads Gemini 3.1 Pro 54.2, GPT-5.5 58.6, Claude Opus 4.6 57.3)
-- SWE-bench Multilingual: **77.3** (vendor)
-- Terminal-Bench 2.1: **70.8** (vendor)
-- AA Coding Index: 0.45 (aggregator)
+- SWE-bench Pro: **59.5** (Meituan self-reported at reveal, vs GPT-5.5 58.6 — statistical tie; awaits independent verification)
+- Model Beat coding composite: 56th percentile (themodelbeat)
 
 Long context:
 
-- 1M native via LSA; no MRCR numeric published.
+- 1M-token window (OpenRouter); no MRCR/RULER public number found.
 
 ### Normalized scores (1–100)
 
-> OVERALL SCORE FORMULA (v4): Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`; Cost efficiency scored independently.
-
-- **Tool use: 78/100.** RWSearch 78.8, FORTE 73.2, BrowseComp 79.9 are verified vendor rows on agentic search/productivity.
-- **Reasoning: 64/100.** Vendor-reported general reasoning is decent but GPQA/HLE numbers are not published; AA index low.
-- **Context window: 97/100.** 1M native, LSA architecture, 262K output.
+- **Tool use: 60/100.** Agentic-first design with perfect tool-call reliability on AI BENCHY; no Tau/Terminal-Bench rows.
+- **Reasoning: 55/100.** Mid-tier reasoning composite (44th pct); no published GPQA/HLE rows for this ID.
+- **Context window: 85/100.** Verified 1M window; retrieval unmeasured publicly.
 - **Multimodal: 15/100.** Text-only.
-- **Coding: 82/100.** SWE-bench Pro 59.5 and Terminal-Bench 70.8 put it ahead of Gemini 3.1 Pro and GPT-5.5 per vendor table.
-- **Cost efficiency: 88/100.** $0.30/$1.20 per 1M promo is aggressive for a 1.6T model.
-- **Overall Score: 67/100.** Mean of five non-cost dims (78+64+97+15+82)/5 = 67.2 → 67; best fit: 1M-context open-weights coding agent at low price (general reasoning needs independent verification).
+- **Coding: 68/100.** Self-reported SWE-bench Pro 59.5 (frontier-adjacent) but vendor-run and unverified independently.
+- **Cost efficiency: 95/100.** Free during its entire public life; underlying model now open-weight (MIT) via the LongCat-2.0 reveal.
+- **Overall Score: 57/100.** Mean of (60, 55, 85, 15, 68) = 56.6 → 57. Best fit: historical interest — use the revealed LongCat-2.0 weights/API instead.
 
 ---
 
 ## Signature
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-05
-- Method: public internet research (longcatai.org release news and benchmark pages, OpenRouter, apxml); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-08
+- Method: public internet research (OpenRouter listing, AI BENCHY, BenchGecko, AI Hippo, pasqualepillitteri.it reveal coverage, themodelbeat); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

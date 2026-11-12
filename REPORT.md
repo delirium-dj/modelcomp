@@ -1,5 +1,61 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-12 — owl-alpha merged into longcat-2.0 (vendor-confirmed stealth reveal)
+
+1. **Identity.** `owl-alpha` was Meituan LongCat's anonymous OpenRouter stealth listing (`openrouter/owl-alpha`,
+   free, 1,048,576 context, native tool calling, Claude Code + OpenClaw), live from **2026-04-28** with no
+   developer named. **Meituan confirmed LongCat-2.0 as the model behind it on 2026-06-29**, shipped the GA on
+   **2026-06-30** and the MIT weights on **2026-07-12**. Corroboration is broad and consistent: Decrypt
+   ("the 1.6T MoE spent two months disguised as Owl Alpha before Meituan claimed it"), AlphaSignal
+   ("~10T tokens/month, #1 on OpenRouter's Hermes Agent leaderboard"), tensorfeed, ai-beat, lumichats, and
+   Stealth Models' dated clue trail — community named LongCat-2.0-Preview on 2026-04-30 (Meituan's April 20
+   announcement listed the same capabilities and the same two agent clients), users reported matching
+   dialogue/response times and **LongCat references appearing inside Owl's tool-call output** in May, and the
+   LongCat API docs now carry an example response that self-identifies as `OWL`. Artificial Analysis
+   benchmarks it under the revealed name. Architecture matches: 1.6T MoE, ~48B active, LongCat Sparse
+   Attention, native 1M, text-only, MIT. Recorded nuance: the April stealth deployment was specifically the
+   **Preview**, with the GA following on June 30 — the same preview→GA pattern Meituan repeated for 2.5.
+2. **This was an unwired double-count.** The repo already tracked one model in two folders —
+   `model/owl-alpha/` (Overall 65, 15 qualifying raters) and `model/longcat-2.0/` (Overall 71, 25 qualifying
+   raters) — and `owl-alpha` appeared in **no** identity list, so neither the double-count nor re-research of
+   the retired alias was prevented (RULES.md revealed-stealth merge rule, user rule 2026-10-24, with four
+   precedents wired: `space-bunny`→`minimax-m3.1-flash`, `cat-jam`→`beam`, `fledge-alpha`→`inkling-2-small`,
+   `crouton-alpha`→`muse-ember`). Search was broken in the mirror direction: `longcat-2.0` had **no `aliases`
+   at all**, so a search for "Owl Alpha" surfaced the wrong card and never resolved to this one.
+3. **Merge (user order 2026-11-12; per-file deletions confirmed).** `model/owl-alpha/` (47 files) folded into
+   `model/longcat-2.0/` (52 files): **12 unique files moved** (11 `.md.excluded` plus `Inkling.md`);
+   **13 collisions resolved newest-wins**, replacing older canonical reports
+   (`Claude_Opus_4.6` 10-20 > 10-19, `Gemini_3.5_Flash_Lite` 11-02 > 11-01, `Gemini_3.6_Flash` 10-08 > 10-03,
+   `GLM_5.3` 10-16 > 10-13, `GPT_5.6_Luna` 10-08 > 10-05, `GPT_5.6_Sol` 10-09 > 10-07, `Inkling_2_Small`
+   10-08 > 10-05, `Ling_3.1_Flash` 10-10 > 10-03, `LongCat_2.5_Preview` 10-18 > 09-29, `MiMo_2.6_Flash`
+   10-13 > 10-09, `Muse_Spark_1.3` 10-08 > 09-29, `Nemotron_3.5_Super_VL_120B_A12B` 10-29 > 10-20,
+   `Qwen_3.8_Flash` 10-08 > 10-02); **16 exact ties → canonical copy wins**; **7 deletions where the
+   canonical copy was newer or real** (`DeepSeek_4.1_Flash` 10-11, `Kimi_K3` 10-13,
+   `Nemotron_3_Ultra_550B_A55B` 11-08, plus `Big_Pickle.md`, where the owl copy is a 0.9 KB unsigned
+   auto-generated stub against a 12.3 KB signed dated report); and the duplicate `average.md` + `meta.json`.
+   The now-empty folder was then removed. Canonical folder 52 → **64 files**.
+4. **Canonical `meta.json` rewritten.** `name`/`id` unchanged (`LongCat 2.0`, `meituan/longcat-2.0`);
+   `checkMetaFile` clean. **`aliases` added — the folder previously had none** — so `modelMatchesQuery`
+   now resolves every spelling: `Owl Alpha`, `owl-alpha`, `openrouter/owl-alpha`, `LongCat-2.0-Preview`,
+   `longcat-2.0-preview`, `meituan-longcat/LongCat-2.0`, `Meituan LongCat 2.0`, `OWL`. The `standout` and
+   `tradeoff` lines were also corrected: the former claimed nothing distinctive existed, and the ~10.1T
+   monthly tokens / 559B per day / +242% MoM / #1 Hermes Agent / #2 Claude Code production-traffic record is
+   **the only such evidence in this research series** — it now lives in the canonical `standout`, with the
+   honest caveat in `tradeoff` that the traffic predates the GA and so corroborates the model line rather
+   than the June release specifically.
+5. **Code lists.** `owl-alpha` → `longcat-2.0` added to `MERGED_MODEL_SLUGS` (never re-scaffolded; a
+   resurrected folder FAILs `mergedSlugMessage`) with a matching `CASE_LAW_NOTES` entry carrying the full
+   dated evidence. `providers/openrouter/meta.json` `covers` dropped the retired `owl-alpha` slug
+   (`longcat-2.0` was already listed, so the entry was deleted rather than renamed — the test asserts cover
+   uniqueness). Three regression tests added; **693/693 green**.
+6. **Score note.** `owl-alpha`'s Overall 65 was a 15-rater below-gate-style mean and `longcat-2.0`'s 71 is a
+   25-rater above-gate mean; the merged folder keeps the 25-rater gate and `pnpm sync` will recompute from
+   the 64-file pool. Any rater that only ever reported on `owl-alpha` (the 12 moved `.md.excluded` files)
+   previously voted on a separate row for the same model; after the merge they vote on one.
+   Next: user runs `pnpm sync && pnpm build.types:direct && pnpm build:direct`, then spot-checks `#models`
+   search for `Owl Alpha`, `owl-alpha`, `longcat 2.0` and `LongCat-2.0-Preview` — all four must resolve to
+   the single `LongCat 2.0` card at `/model/longcat-2.0/`.
+
 ## 2026-11-12 — longcat-2.5-preview renamed to longcat-2.5 (Meituan's GA superseded its own preview)
 
 1. **Identity.** Verified against Meituan's own documentation, read fresh 2026-11-12. `LongCat 2.5` and
