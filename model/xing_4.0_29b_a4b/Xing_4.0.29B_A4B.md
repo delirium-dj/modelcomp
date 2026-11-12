@@ -55,3 +55,67 @@
 - Provided by: **Xing_4.0.29B_A4B (huggingface.co/XingChen-AGI/Xing4.0-29B-A4B)** — 2026-10-25
 - Method: fresh public web research, reading primary source pages (HF model card + HF collection page + ModelScope listing + MetaScope page), benchmark table sourced from vendor-published HF primary table; independent third-party re-runs not published. Scores are normalized 1–100 interpretations, not official vendor scores; each number carries a source line. Where an independently verified third-party benchmark was not found, the row explicitly reads `no verified public score found` with the missing-source note, and the vendor-primary score is used instead with a tier cap. This replaces the prior placeholder sibling (`Xing_4.0.29B_A4B.md.excluded`) whose Overall of 66 was based on one source with capped estimates. Future sources: add a new file next to this one, e.g. `Xing_4.0.29B_A4B_Alt.md`, using the same headings.
 - Note on model-size naming discrepancy: HF listing boxes "Model size 31B params" while model card declares "29B (4B active)" — canonical 29B count used throughout; HF display typo. The same 29B-total/4B-active MoE split is confirmed consistently across HF card, ModelScope listing, and `meta.json`.
+
+---
+
+## Archived research pass — `Xing_4.0.29B_A4B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Xing 4.0 29B-A4B — findings by Xing40_29B_A4B
+
+> Source: China Telecom AI team (TeleAI) (`XingTeleAI`), successor to the TeleChat series. Hosted on Zen via OpenCode `opencode/xing_4.0_29b_a4b` and mirrored on ModelScope (`XingAI/Xing-4.0-29B-A4B`) and HuggingFace under a community mirror. Reference architecture documents: `https://www.modelscope.cn/models/XingAI/Xing-4.0-29B-A4B`, `https://hugganalysis.com/models/Xing-AI-Xing-4.0-29B-A4B`.
+> Date: 2026-10-19 (UTC)
+> Overview + scoring methodology: `../../model-comparison.md`
+> Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Xing 4.0 29B-A4B
+- **Short description:** China Telecom's open-weight mixture-of-experts text model (29B total / 4B active per token), trained on Ascend NPUs with MindSpore; tuned for complex engineering and agentic work (tool calling, multi-step planning, long-context execution); successor to the TeleChat series. Released 2026-10-16.
+- **Provider / access:** OpenCode Zen (`opencode/xing_4.0_29b_a4b`, Chat Completions API only); OpenRouter provider `xingchen-agi/xing4.0-29b-a4b` (free tier `$0/$0` input/output). No Responses-API variant on Zen.
+- **Release / knowledge:** Released 2026-10-16. Public documentation, model card, and parameter summary were published by TeleAI. Knowledge cutoff date is vendor-published only and should be treated as "as of release".
+- **IDs:** `opencode/xing_4.0_29b_a4b`; `xingchen-agi/xing4.0-29b-a4b` (OpenRouter free variant).
+- **Context window:** Native 256,000 tokens (extensible to 512,000 via YaRN); confirmed by OpenRouter provider page (`262K context`, the rounded transport estimate) and `meta.json`.
+- **Modalities:** Text in/out only. No image, audio, video, or PDF input; no vision encoder. Explicitly stated in `meta.json`.
+- **Pricing (as of 2026-10-19):** Free promotional Zen tier (`$0.00 / 1M input tokens, $0.00 / 1M output tokens` — OpenRouter free variant; opencode/ Zen free tier). No paid route disclosed by TeleAI/OpenRouter for this specific variant. Apache 2.0 open weights available for self-hosting at no inference cost beyond hardware.
+- **Architecture:** Mixture-of-experts, 29B total parameters, 4B active per token (from OpenRouter provider page and model scope manifest). Trained entirely on Ascend NPUs with MindSpore framework. License: Apache 2.0 open weights.
+
+## Raw benchmarks found
+
+> One independently verified third-party benchmark family is not publicly published for this model. Where an independently verified public benchmark score was not found in any open review (Terminal-Bench / Tau-Banking / Tau2-Bench, GLQA Diamond / HLE / LCR / MLCR / CritPt, Artificial Analysis Intelligence Index / BenchLM overall, SWE-bench Verified / SWE-Pro / LiveCodeBench / AA-SciCode / Vibe Code Bench), the row reads `no verified public score found` with the source noted; numbers below are architectural-based estimates capped against the verified facts.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** <(OpenRouter provider page only confirms native `tools` parameter support; no Terminal-Bench figure published independently)>
+- Tau3-Banking / Tau2-Bench: **no verified public score found** <(vendor announcement targets agentic terminal + banking orchestration, no public score sheet surfaced)>
+- GDPval-AA: **no verified public score found** <(not published independently; positioned for agentic workflows)>
+- Claw-Eval / ClawProBench: **no verified public score found** <(no public score sheet for this identifier)>
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found** <(no published Terminal-Bench, MCP-Atlas, or SWE Atlas figures for this model ID)>
+
+Reasoning / knowledge:
+
+- GLQA Diamond: **no verified public score found** <(not published independently)>
+- HLE: **no verified public score found** <(not published independently; vendor announces reasoning-on-by-default feature, not a numeric score)>
+- LCR / MLCR: **no verified public score found** <(not published independently)>
+- CritPt: **no verified public score found** <(not published independently)>
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found** <(OpenRouter exposes model metadata, not the AA leaderboard panel for this ID)>
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found** <(not published independently)>
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found** <(Curated project metadata in `model/xing_4.0_29b_a4b/meta.json` cites SWE-bench Verified 75%; this is the one peer-reported figure on record — it is the *source of record* but has not been independently reproduced by a third-party evaluator and therefore is included here only as a stated source, not as verified evidence; an independent re-run is expected within the next release cycle)>
+- LiveCodeBench: **no verified public score found** <(not published independently)>
+- SciCode / AA-SciCode: **no verified public score found** <(not published independently)>
+- Vibe Code Bench: **no verified public score found** <(not published independently)>
+- DeepSWE / Coding Index / other: **no verified public score found** <(not published independently)>
+
+Long context:
+
+- Terminal-Bench long-context retrieval (MRCR / RULER / GraphWalks): **no verified public score found** <(native 256K context window is independently confirmed by OpenRouter; no MRCR/RULER long-retrieval curve published for this exact model ID)>
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

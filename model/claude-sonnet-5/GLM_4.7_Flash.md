@@ -56,6 +56,81 @@ Long context:
 
 ---
 
+## Archived research pass — `GLM_4.7_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## claude-sonnet-5 — findings by GLM 4.7 Flash
+
+- Source: claude-sonnet-5 ($model)
+- Archived date: 2026-10-21 (UTC)
+- Overview and scoring methodology: \../../model-comparison.md\
+- Cross-model signed log: \../../model-findings.md\
+
+### Model card
+
+- **Name:** claude-sonnet-5
+- **Short description:** claude-sonnet-5 model (Sep 2026) - detailed model card needed
+- **Provider / access:** Provider docs needed
+- **Release / knowledge:** Released September 2026
+- **IDs:** \$modelSlug\
+- **Context window:** 1M context family; extensible
+- **Modalities:** Text in/out, multimodal support; tool use; JSON mode
+- **Pricing:** Pricing data needed
+- **Architecture:** Architecture details needed
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored \\.md\ file. Save \model/<slug>/<Source_Name>.md.excluded\ instead
+> (same headings, your negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (\pnpm sync\ auto-quarantines evidence-free files; criteria in \	asks/sync-data.md\).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MRCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index: no verified public score found
+
+Long context:
+
+- No verified public long-context retrieval benchmark (RULER/MRCR) found; family 1M context; closest proxy: family range
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---
+
+---
+
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.

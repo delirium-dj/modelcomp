@@ -75,3 +75,54 @@ Image benchmarks (OpenAI, GPT-5 Nano high): MMMU **75.6%** and MMMU-Pro **62.6%*
   - [Models.dev GPT-5 Nano catalog](https://models.dev/models/openai/gpt-5-nano)
 
 ---
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5 Nano — findings by GPT-6 Luna
+
+- Source: OpenAI/GPT-5 Nano
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5 Nano
+- **Short description:** OpenAI lightweight GPT-5 variant represented by the tracked subject. Three independent searches did not verify exact-model benchmarks or a complete model card; GPT-5.4 Nano and base GPT-5 results are not substituted.
+- **Provider / access:** OpenAI; exact API model ID not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `GPT-5 Nano`; canonical ID unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** proprietary; details not verified.
+
+## Raw benchmarks found
+
+No traceable exact-Nano benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

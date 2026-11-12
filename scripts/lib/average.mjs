@@ -115,10 +115,15 @@ export function applyAverageToPrev(prev, modelName, body) {
  * `gemini-3.1-flash-lite` (own folder); DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id — RULES.md phantom
  * unsuffixed-name identity);
- * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
- * LongCat 2.5: the 2.5 generation exists only as the API-only LongCat-2.5-Preview
- * already tracked in `longcat-2.5-preview/`; the folder's own meta idNote records
- * that the id does not resolve — RULES.md family-shorthand identity);
+ * `longcat-2.5` — UNPARKED 2026-11-12 (reverses the 2026-10-22 park): parked
+ * as a "phantom GA name - Meituan published no standalone LongCat 2.5: the 2.5
+ * generation exists only as the API-only LongCat-2.5-Preview already tracked in
+ * `longcat-2.5-preview/`". That verdict was CORRECT WHEN MADE and is now
+ * SUPERSEDED: Meituan shipped the GA on 2026-11-02 (change log: "LongCat-2.5
+ * Now Available"; `GET /openai/v1/models` returns exactly one model,
+ * `LongCat-2.5`), so the folder was renamed `longcat-2.5-preview` ->
+ * `longcat-2.5` on user order. `longcat-2.5-preview` is now in
+ * MERGED_MODEL_SLUGS: RULES.md slug identity);
  * `claude-opus-4.4` and `claude-opus-3.7` (2026-10-26, phantom Anthropic
  * checkpoints — live-existence audit: Anthropic's deprecation/overview docs
  * show an Opus lineage of 3 → 4 → 4.1 → 4.5 → 4.6/4.7/4.8 → 5.x with neither
@@ -151,7 +156,7 @@ export function applyAverageToPrev(prev, modelName, body) {
  * model/README.md ("Parking a model" / "Deleting a parked phantom"). Never
  * invent a third list — the two mirror each other.
  */
-export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "qwen-3.7", "qwen-3.5-flash-lite", "kimi-k2.7-code-highspeed", "glm-4.6-flash", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret", "gpt-oss-120b-lite"]);
+export const RETIRED_SLUGS = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "qwen-3.7", "qwen-3.5-flash-lite", "kimi-k2.7-code-highspeed", "glm-4.6-flash", "gemini-3.1-flash", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret", "gpt-oss-120b-lite"]);
 
 /**
  * Research queue file for AI agents (model-queue.md): one line per model,

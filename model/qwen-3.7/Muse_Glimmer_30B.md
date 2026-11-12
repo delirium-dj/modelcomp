@@ -69,3 +69,38 @@ Long context:
   - [SWE-bench Pro Leaderboard BenchLM](https://benchlm.ai/benchmarks/swe-bench-pro)
 
 ---
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen3.7 Plus — findings by Muse Glimmer 30B (excluded)
+
+- Source: Alibaba Cloud Model Studio `qwen3.7-plus`
+- Archived date: 2026-10-26
+- Overview and scoring methodology: `../../model-comparison.md`
+
+### Model card
+
+- **Name:** Qwen 3.7
+- **Short description:** Alibaba Qwen 3.7 model entry. No distinct public model card or benchmark table found for the exact `qwen-3.7` slug; related tiers are Qwen3.7-Max/Plus/Flash with separate IDs.
+- **Provider / access:** Alibaba Cloud Model Studio API `qwen3.7-plus`, snapshots e.g. `qwen3.7-plus-2026-05-26`. Chat Completions API.
+- **Release / knowledge:** Snapshot 2026-05-26; page last updated 2026-10-11. Knowledge cutoff not published.
+- **IDs:** `qwen3.7-plus`
+- **Context window:** 1,000,000 tokens total; max input 991,808; max output 131,072; max input thinking 983,616; max CoT 262,144.
+- **Modalities:** Input Image/Text/Video; Output Text. Function calling, structured outputs, web search, prefix completion, context caching supported.
+- **Pricing (as of 2026-10-26):** China Beijing ≤256k input $0.276 /1M in, $1.101 /1M out; >256k $0.826 /1M in, $3.301 /1M out. Singapore $0.40 /1M in, $1.60 /1M out ≤256k; $1.20 /1M in, $4.80 /1M out >256k. Cache pricing applies.
+- **Architecture:** Parameter count undisclosed by vendor; proprietary MoE/dense architecture.
+
+## Raw benchmarks found
+
+No verified public benchmark numbers found for the exact commercial model ID `qwen3.7-plus`. Alibaba Model Studio pages list capabilities, context, pricing but publish no benchmark tables for Tool use, GPQA Diamond, HLE, SWE-bench, LiveCodeBench, etc. Independent third-party reviews with citable numbers were not found in searches.
+
+SELF-EXCLUSION: zero verified public scores for this exact model/ID. Findings retained for record; scores omitted.
+
+---

@@ -93,3 +93,45 @@
 - **Modalities:** Text + image input; text output. Adaptive (always-on) reasoning, default effort high. Tool calling supported.
 - **Pricing (as of 2026-11-08):** $10/MTok input, $50/MTok output; 5m cache write $12.50/MTok, 1h cache write $20/MTok, cache read $1/MTok; Batch API 50% discount on input and output.
 - **Architecture:** Proprietary, closed weights (Anthropic). Parameter count not disclosed; AA notes Fable 5 may be larger than previous public Anthropic models.
+
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Fable 5 — findings by Solar_Mini_4
+
+> Template → replaced with model-specific research; no placeholders remain.
+> Source of truth methodology: `../../model-comparison.md`.
+
+
+### Model card
+- **Name:** Claude Fable 5
+- **Short description:** Anthropic Claude Fable 5 model for agentic coding, long context, and multimodal reasoning.
+- **Provider / access:** Anthropic Claude API, Anthropic Console; OpenCode Zen `opencode/claude-fable-5`; GitHub `anthropic/claude-fable-5`.
+- **Release / knowledge:** Released 2026-09-18; knowledge cutoff not disclosed in accessible docs.
+- **IDs:** `anthropic/claude-fable-5` (Hugging Face registry slug); GitHub `anthropic/claude-fable-5`.
+- **Context window:** **1M** total, **256K** max output (official Anthropic API docs).
+- **Modalities:** text + image in/out; multimodal supported; text output only.
+- **Pricing (as of 2026-10-17):** Official Anthropic API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture:** Proprietary Anthropic Claude Fable 5; not open weights.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+
+- Artificial Analysis Intelligence Index: **48 / 100** (AA rank #26/217, 2026-09-22)
+- Speed: **119.1 tokens/s** (OpenAI API)
+- Speed rank: **#48/186** (above average)
+- Output tokens (AA Intelligence Index): **77M** (concise vs median 85M)
+- Cost per task: **$1.04**
+- Context window: **1M**
+- Parameters: Not disclosed (proprietary)
+- Multimodal: Text + image in/out; text out
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

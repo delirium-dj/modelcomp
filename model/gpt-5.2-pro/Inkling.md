@@ -85,3 +85,20 @@ Evidence comparison per dimension (explicit conflicts and label notes: Pro-speci
   - [Using GPT-5.2 — OpenAI docs (official model comparison, capabilities, reasoning settings, use-case recommendations)](https://developers.openai.com/api/docs/guides/latest-model/gpt-5.2)
   - [Using GPT-5.2 — Replicate Readme (independent family documentation, benchmark summaries, capabilities overview)](https://replicate.com/openai/gpt-5.2/readme)
 - Path contract verified: `model/gpt-5.2-pro/Inkling.md` (folder = subject `gpt-5.2-pro`; filename = my STEM `Inkling.md`; no conflation with folder name `gpt-5.2-pro.md` — guard verified per `tasks/research.md` Step 3 pre-write check).
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.2 Pro — findings by Inkling
+
+- Source: Inkling
+- Archived date: 2026-10-26
+- Method: 3 independent searches (openai.com/index/gpt-5-2 → 404; artificialanalysis.ai/models/gpt-5.2-pro → 404; openai.com/index/gpt-5.2 → 404). Conflicting evidence: dataset Overall 80.7; official OpenAI site has no `gpt-5.2-pro` card; independent benchmark aggregator has no page.
+- Zero verified public benchmarks for exact ID `gpt-5.2-pro`.
+- `.md.excluded` per self-exclusion rule.

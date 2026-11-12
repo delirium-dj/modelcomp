@@ -61,3 +61,65 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (thinkingmachines.ai, regolo.ai, reddit.com, datacamp.com, baseten.co, sebastianraschka.com, kie.ai, sourceforge.net); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Inkling — findings by Claude Opus 4.6
+
+- Source: Thinking Machines Lab (`Inkling`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Inkling
+- **Short description:** An open-weights multimodal MoE foundation model by Thinking Machines Lab (founded by former OpenAI CTO Mira Murati), released July 15, 2026. A 975B-parameter sparse MoE (41B active) with 1M context, trained on 45T tokens of multimodal data. Apache 2.0 licensed.
+- **Provider / access:** Open-weights via Hugging Face; compatible with vLLM, SGLang, llama.cpp, Unsloth. Tinker platform for fine-tuning.
+- **Release / knowledge:** 2026-07-15 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `thinking-machines/inkling`
+- **Context window:** 1,000,000 tokens total; max output not separately confirmed.
+- **Modalities:** Text + image + audio in (natively multimodal, 45T tokens multimodal pretraining); text out; controllable reasoning ("thinking effort" dial 0.00–0.99).
+- **Pricing (as of 2026-10-03):** Open-weights (Apache 2.0) — self-hosted or via third-party providers. No fixed API pricing from Thinking Machines.
+- **Architecture:** Sparse MoE; 975B total parameters, 41B active per token. 66 decoder layers. NVFP4 quantized versions available. Inkling-Small variant: 276B total / 12B active.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Artificial Analysis Intelligence Index: scored higher than Nemotron 3 Ultra among U.S. open-weights models.
+- Terminal-Bench: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public standalone score found.
+- Strong multi-step logical deduction per independent reviewers.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found.
+- Evaluated across coding tasks with noted token efficiency.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+
+Long context:
+
+- 1,000,000-token window confirmed. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

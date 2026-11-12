@@ -67,3 +67,54 @@ Long context:
 - Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
 - Method: Three independent Bing web searches, then cross-checked Anthropic's exact model documentation and launch announcement/system-card references against Artificial Analysis, BenchmarkList, BenchLM, and Vals AI. Evaluation settings and differences are labeled. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Opus 4.6 — findings by GPT-6 Luna
+
+- Source: Anthropic/Claude Opus 4.6
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Claude Opus 4.6
+- **Short description:** Anthropic Claude Opus release. Exact-version official documentation and benchmark results were not successfully verified in this three-search pass; no adjacent Opus version is used as a substitute.
+- **Provider / access:** Anthropic; exact API ID not verified.
+- **Release / knowledge:** no exact-version release or cutoff verified.
+- **IDs:** tracked name `Claude Opus 4.6`; canonical API identifier unverified.
+- **Context window:** no verified exact-version context specification found.
+- **Modalities:** no verified exact-version modalities found.
+- **Pricing (as of 2026-10-28):** no verified exact-version pricing found.
+- **Architecture:** proprietary; details not verified.
+
+## Raw benchmarks found
+
+Three independent searches did not retrieve exact-version benchmark data with sufficient source traceability.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

@@ -40,3 +40,25 @@
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-13
 - Method: Public internet research (geotoolbox.ai, cometapi.com, kie.ai, overchat.ai, youtube.com); scores are normalized 1–100 interpretations based on projections, not official vendor scores. All scores are SPECULATIVE.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 5 — findings by Claude Opus 4.6
+
+- Source: xAI (`grok-5`)
+- Archived date: 2026-10-03 (UTC)
+
+### Notes
+
+Grok 5 has **not been released** as of October 3, 2026. The current xAI flagship is Grok 4.7 (released September 21, 2026). All circulating specifications (6T parameters, 1.5M context, 16+ agents) are unverified rumors. No official benchmarks, pricing, or release date have been announced.
+
+Zero verified public benchmark numbers exist for this model. Self-exclusion applies per template rules.
+
+---

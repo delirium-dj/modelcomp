@@ -91,3 +91,19 @@ Evidence comparison per dimension (explicit conflicts: vendor 80.0% vs independe
   - [GPT-5.2 — Replicate Readme (independent model family documentation, capabilities, benchmarks)](https://replicate.com/openai/gpt-5.2/readme)
   - [GPT-5.2 for Science and Math — OpenAI (official science/math benchmark details for Pro/Thinking)](https://openai.com/index/gpt-5-2-for-science-and-math/)
 - Path contract verified: `model/gpt-5.2-codex/Inkling.md` (folder = subject `gpt-5.2-codex`; filename = my STEM `Inkling.md`; no conflation with folder name `gpt-5.2-codex.md` — guard verified per `tasks/research.md` Step 3 pre-write check).
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.2 Codex — findings by Inkling
+
+- Source: Inkling
+- Archived date: 2026-10-26
+- Method: 3 independent searches (official OpenAI site has no `gpt-5.2-codex` product page; independent benchmark aggregator 404; dataset Overall 79.7). Zero verified public benchmarks.
+- `.md.excluded`.

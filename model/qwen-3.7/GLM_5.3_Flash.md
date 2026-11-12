@@ -78,3 +78,63 @@ Long context / multilingual:
   - [Alibaba Cloud Model Studio — qwen3.7-flash model doc (VL capability matrix)](https://www.alibabacloud.com/help/zh/model-studio/qwen3-7-flash)
   - [LinkedIn/vibexp — Qwen3.7 shipped without open weights (community audit)](https://www.linkedin.com/posts/vibexp-io_ai-qwen-opensource-activity-7481996791211737088-bRZF)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GLM_5.3_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.7 — findings by GLM 5.3 Flash (SELF-EXCLUDED — generation name, no distinct vendor ID found)
+
+- Source: Alibaba Qwen team — no bare `qwen3.7` vendor ID found; the name resolves to the Qwen3.7 generation (members: Qwen3.7-Max / Qwen3.7-Plus / Qwen3.7-Flash)
+- Archived date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for a distinct
+> bare "Qwen3.7" model ID — every vendor surface ships only suffixed generation
+> members. Per the template's mandatory self-exclusion rule this file is saved as
+> `.md.excluded` (notes only; any scores inside are ignored) instead of a scored
+> `.md`.
+
+### Model card
+
+- **Name:** Qwen 3.7 (UNVERIFIED as a standalone model — suspected generation-name folder)
+- **Short description:** No evidence that Alibaba ships a bare "Qwen3.7" model. The Qwen3.7 generation is documented by Qwen's own materials as a family whose members are Qwen3.7-Max (closed flagship), Qwen3.7-Plus (397B total / 17B active MoE per Qwen's Qwen3.8-Flash-Next base-model comparison table), and Qwen3.7-Flash. This mirrors the already-parked `qwen-3.5` precedent ("generation name, never a model — members tracked separately").
+- **Provider / access:** Alibaba Cloud Model Studio lists **Qwen3.7-Max** and **Qwen3.7-Plus** (text/reasoning) — no bare `qwen3.7` model ID; OpenRouter/Together carried the suffixed members; Hugging Face hosts no `Qwen/Qwen3.7` repo found in searches.
+- **Release / knowledge:** generation window ~May 2026 (Qwen3.7-Max announced at Alibaba Cloud Summit, Hangzhou, 2026-05-20); no distinct release date for a bare "Qwen3.7".
+- **IDs:** none found for a bare ID; vendor IDs are `qwen3.7-max`, `qwen3.7-plus` (Model Studio), `moonshotai`-style third-party routes for members — no Free ID on Zen
+- **Context window / modalities / pricing / architecture:** no verified data for a distinct bare ID (member specs live in the member folders; e.g. Qwen3.7-Plus-Base: 397B/17B active; Qwen3.7-Max: 1M context, $2.50/$7.50 per Mtok, 92.4 GPQA Diamond / 80.4 SWE-bench Verified / 74.5 TB2.1 per Alibaba's table)
+
+#### Identity findings (2026-10-30, five independent searches)
+
+- **Alibaba Cloud Model Studio model list:** Qwen3.8-Max, Qwen3.7-Max, Qwen3.7-Plus, (Qwen3.7-Flash per coverage) — no bare `qwen3.7` SKU in the current catalog or token-plan model list.
+- **Qwen's own blog (Qwen3.8-Flash-Next):** compares `Qwen3.8-Flash-Next-Base / Qwen3.8-27B-Base / Qwen3.7-Plus-Base` — no `Qwen3.7-Base`; describes Qwen3.7 as a **series** ("the hybrid Gated DeltaNet + Gated Attention design... used across the Qwen3.5, Qwen3.6, Qwen3.7 and Qwen3.8 series").
+- **Hugging Face:** no `Qwen/Qwen3.7` repo surfaced; open releases in this generation carry param suffixes (precedent: `Qwen3.5-397B`).
+- **Vals AI SWE-bench leaderboard:** does carry a "Qwen 3.7" row (first-column ≈85%), but the captured table did not expose column semantics, so no value from it is citable as a verified per-benchmark score here; the row may itself measure a suffixed member served under a shorthand name.
+- **Precedent:** `qwen-3.5` is parked in `model-aliases.generated.md` as "generation name, never a model (members tracked separately)" — `qwen-3.7` presents the identical shape.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for a distinct bare "Qwen3.7" ID (member models have their own measured rows in their folders)
+
+Reasoning / knowledge:
+
+- no verified public score found for a distinct bare ID
+
+Coding:
+
+- no verified public score found for a distinct bare ID
+
+Long context:
+
+- no verified public score found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

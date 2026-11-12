@@ -60,3 +60,61 @@ Multimodal / vision:
 - Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.8 Flash — findings by Muse Glimmer 30B
+
+- Source: opencode/qwen-3.8-flash
+- Archived date: 2026-10-20
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.8 Flash
+- **Short description:** Alibaba's Qwen3.8 Flash sparse MoE (6B active, 1M hosted) for cheap high-volume coding/agents; LiveCodeBench 91.9%, GPQA 91.7% at $0.15/$0.47 per 1M.
+- **Provider / access:** Alibaba Cloud Model Studio / OpenCode `opencode/qwen-3.8-flash`. Hosted API; open weights available per meta.json.
+- **Release / knowledge:** Release date not verified publicly; knowledge cutoff not published.
+- **IDs:** opencode/qwen-3.8-flash
+- **Context window:** 1M API (262K native; 131K output) per meta.json
+- **Modalities:** Text, image, video in; text out per meta.json
+- **Pricing (as of 2026-10-20):** ~$0.15/$0.47 per 1M in/out; $0 self-host per meta.json
+- **Architecture:** Sparse MoE, 6B active — details from meta.json short description. Official page: https://qwenlm.github.io/blog/qwen-3.8-flash/
+
+## Raw benchmarks found
+
+SELF-EXCLUSION: Zero verified public benchmark numbers found for the exact model ID opencode/qwen-3.8-flash via independent web research on 2026-10-20. Meta.json short description cites LiveCodeBench 91.9% and GPQA 91.7% but no independent source or scorecard was located for this exact hosted ID. No verified public score found for any benchmark below.
+
+Agent / tool use:
+- Agent / tool use: no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- OSWorld-Verified / Tau3-Banking / Toolathlon: no verified public score found
+- GDPval-AA / Claw-Eval / ClawProBench: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- MRCRv2 / IFBench: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- DeepSWE / FrontierSWE / PaperBench: no verified public score found
+
+Long context:
+- MRCR / RULER / GraphWalks: no long-context retrieval reported publicly for this exact ID
+
+Multimodal:
+- RecreationBench / ClawEval-MM / OmniDocBench: no verified public score found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

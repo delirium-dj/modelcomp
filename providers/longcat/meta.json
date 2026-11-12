@@ -9,11 +9,11 @@
   ],
   "catalogUrl": "https://longcat.chat/platform/docs/pricing/longcat-2.5",
   "covers": [
-    "longcat-2.5-preview"
+    "longcat-2.5"
   ],
   "plans": [
     {
-      "name": "LongCat-2.5-Preview — pay-as-you-go",
+      "name": "LongCat-2.5 - pay-as-you-go",
       "price": "$0.30 in / $1.20 out per 1M",
       "notes": "Limited-time discounted rate; cached input $0.006/1M.",
       "evidenceUrl": "https://longcat.chat/platform/docs/pricing/longcat-2.5"

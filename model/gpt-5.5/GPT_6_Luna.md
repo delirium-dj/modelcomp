@@ -60,3 +60,54 @@ Long context:
 - Provided by: **GPT-6 Luna (openai/gpt-6-luna)** — 2026-10-28
 - Method: Three independent public searches; primary OpenAI API/launch documentation was checked against Artificial Analysis, BenchLM, and LLM Stats. Distinct benchmark versions and harnesses are reported separately. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.5 — findings by GPT-6 Luna
+
+- Source: OpenAI/gpt-5.5
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5.5
+- **Short description:** OpenAI proprietary GPT-5.5 model. Official pricing documentation identifies an API model with a tiered long-context rate; exact benchmark data for the base SKU was not recovered in this pass.
+- **Provider / access:** OpenAI API `gpt-5.5`.
+- **Release / knowledge:** no exact-model release date or knowledge cutoff verified.
+- **IDs:** `openai/gpt-5.5`.
+- **Context window:** Official pricing distinguishes input lengths below 272K from long-context use, but the exact total capacity was not verified.
+- **Modalities:** no exact-model official modality specification verified.
+- **Pricing (as of 2026-10-28):** Standard below 272K: $5 input and $30 output per 1M tokens; long context $10/$45. Official pricing page does not list cached-input rates in that table.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+## Raw benchmarks found
+
+Three independent public searches did not identify exact-SKU benchmark values with reliable provenance. GPT-5.5 Pro and GPT-5.6 results are not transferred to the base model.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model retrieval benchmark found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

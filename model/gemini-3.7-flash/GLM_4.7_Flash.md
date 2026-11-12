@@ -301,3 +301,296 @@ This is **15% of GPT-5.6 Sol's cost** and **7.5% of Claude Fable 5's cost**.
 ---
 
 **Key Takeaway**: Gemini 3.7 Flash is an exceptional cost-efficient model that delivers strong performance across coding, knowledge work, and scientific research. Its low pricing (15% of GPT-5.6 Sol's cost and 7.5% of Fable 5's cost) makes it an excellent choice for enterprises and developers. While it doesn't match the top frontier models on SWE-Bench Pro and Agent's Last Exam, its strong performance across multiple benchmarks and dramatically lower cost make it a highly attractive option for most use cases.
+
+---
+
+## Archived research pass — `GLM_4.7_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.1/100 — superseded by the active scores above.
+
+## GEMINI-3.7-FLASH — GLM_4.7_Flash Research Report
+
+
+---
+
+### Model card
+
+- **Name:** Gemini 3.7 Flash
+- **Short description:** Google's most intelligent "workhorse" model released August 13, 2026, designed for fast agentic workflows, coding, and complex multi-step reasoning with 1M token context window and competitive pricing ($0.75/$3.75 per 1M tokens).
+- **Provider / access:** Google DeepMind / Google Cloud AI Platform (proprietary)
+- **Release / knowledge:** Released August 13, 2026. Knowledge cutoff extends into 2026 for most domains.
+- **IDs:** `gemini-3.7-flash` / `gemini-3.7-flash`
+- **Context window:** 1,000,000 tokens (1M)
+- **Modalities:** text/image/audio/video/PDF in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $0.75 per 1M input tokens, $3.75 per 1M output tokens (introductory pricing through December 31, 2026)
+- **Architecture:** Proprietary (Google DeepMind)
+
+## Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Gemini 3.7 Flash official benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: 85.8% (verified)
+- Terminal-Bench 4.0: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- Toolathon-Verified: no verified public score found
+- CursorBench 3.2: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: 56 (verified)
+- BenchLM overall: 66.8/100 (rank #29 of 228, verified)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+### Executive Summary
+
+Gemini 3.7 Flash is Google's most intelligent "workhorse" model from their Gemini family, released August 13, 2026, designed for fast agentic workflows, coding, and complex multi-step reasoning. It features a massive 1M token context window, competitive introductory pricing ($0.75/$3.75 per 1M tokens, doubling to $1.50/$7.50 on January 1, 2027), and strong performance across agentic coding benchmarks (85.8% on Terminal-Bench 2.1). Gemini 3.7 Flash delivers substantial gains over its predecessor Gemini 3.6 Flash across software engineering, agentic tasks, and multi-step reasoning while maintaining the same low cost. The model ranks #29 of 228 models on BenchLM with a score of 66.8/100 and achieves 56 on the Artificial Analysis Intelligence Index. Gemini 3.7 Flash is positioned as Google's most intelligent Flash model yet for coding, AI agents, web development, and enterprise knowledge work, offering competitive performance to mid-frontier models like Claude Sonnet 5 and GPT-5.6 Terra while remaining significantly cheaper.
+
+---
+
+### Model Identity and Background
+
+**Developer:** Google DeepMind
+**Release Date:** August 13, 2026
+**Series:** Gemini Flash (Gemini 3.7 Flash)
+**Predecessor:** Gemini 3.6 Flash (July 21, 2026)
+**Successor:** Gemini 3.8 Flash (September 2, 2026)
+**License:** Proprietary
+**Context Window:** 1,000,000 tokens
+**Max Output:** 64,000 tokens
+
+Gemini 3.7 Flash is Google's latest Flash-tier model from their Gemini family, released just three weeks after Gemini 3.6 Flash. It represents a significant advancement over its predecessor, delivering substantial gains across software engineering, agentic tasks, and multi-step reasoning while maintaining the same low cost. The model is designed for high-volume, cost-sensitive applications where fast performance and reliable multi-step problem solving are essential. Gemini Flash models are Google's answer to the observation that most production AI traffic doesn't need a frontier-class model, trading some raw capability for speed and cost, then clawing capability back through architecture and training improvements.
+
+---
+
+### Official Documentation
+
+#### Google DeepMind Model Card
+**Snapshot:** August 2026
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 64K tokens
+- Pricing: $0.75 input / $3.75 output per 1M tokens (introductory through December 31, 2026)
+- Cache read: $0.075 per 1M tokens
+- Thinking: Adaptive (always on)
+- Knowledge cutoff: Training data extends into 2026 for most domains
+
+#### Google DeepMind Evals Methodology
+**Snapshot:** August 2026
+
+Detailed information about:
+- Model evaluation methodology
+- Benchmark results and their methodologies
+- Known limitations and mitigation approaches
+
+#### Google API Pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $0.75 per 1M tokens (introductory through December 31, 2026)
+- Output: $3.75 per 1M tokens (introductory through December 31, 2026)
+- Cache read: $0.075 per 1M tokens
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+- Free tier: Available with reduced quotas
+
+---
+
+### Independent Benchmarks and Reviews
+
+#### BenchLM Ranking
+**Snapshot:** October 2026
+
+Gemini 3.7 Flash ranks #29 of 228 models with a score of 66.8/100. Its strongest eligible category is Multimodal & Grounded at rank #11.
+
+#### Terminal Benchmarks
+**Snapshot:** October 2026
+
+- Terminal-Bench 2.1: 85.8% (verified)
+- Terminal-Bench 4.0: no verified public score found
+- Terminal-Bench-Science 0.1: no verified public score found
+
+Gemini 3.7 Flash achieves 85.8% on Terminal-Bench 2.1, a significant improvement over Gemini 3.6 Flash.
+
+#### DeepSWE Benchmarks
+**Snapshot:** October 2026
+
+- DeepSWE: 65.3% (verified)
+
+#### FrontierSWE Benchmarks
+**Snapshot:** October 2026
+
+- FrontierSWE v2: 20.3% (verified)
+
+#### Automation Benchmarks
+**Snapshot:** October 2026
+
+- AutomationBench: 30.4% (verified)
+
+#### Artificial Analysis Benchmarks
+**Snapshot:** August 2026
+
+- Intelligence Index: 56 (verified)
+- Coding Index: 71.5 (verified)
+- Agentic Index: Not available
+
+#### Model-Queue Ranking
+**Snapshot:** October 2026
+
+Gemini 3.7 Flash ranks 23rd overall with a score of 91.1/100, indicating strong performance in the frontier model landscape.
+
+#### Third-Party Comparisons
+**Snapshot:** August-October 2026
+
+Multiple independent sources provide comparative analysis:
+- Gemini 3.7 Flash vs Gemini 3.6 Flash: 3.7 Flash delivers substantial gains across software engineering, agentic tasks, and multi-step reasoning while maintaining the same low cost
+- Gemini 3.7 Flash vs Gemini 3.8 Flash: 3.8 Flash scores higher on coding (76.3 vs 71.5) and is faster (85.0 vs 71.0 tokens/second), but both have the same pricing
+- Gemini 3.7 Flash vs Claude Sonnet 5: Competes closely on practical coding and agentic tests while remaining significantly cheaper
+- Gemini 3.7 Flash vs GPT-5.6 Terra: Competes closely on practical coding and agentic tests while remaining significantly cheaper
+- Gemini 3.7 Flash vs Gemini 3.8 Flash: 3.8 Flash is slightly faster and has better coding performance, but both have the same pricing
+
+---
+
+### Availability and Pricing
+
+#### Distribution Channels
+**Snapshot:** 2026
+
+- Available through Google Cloud AI Platform
+- Available through Google AI Studio
+- Available through Google Vertex AI
+- Available through Google AI Enterprise Agent Platform
+- Available through OpenRouter (as google/gemini-3.7-flash)
+
+#### Pricing Information
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $0.75 per 1M tokens (introductory through December 31, 2026)
+- Output: $3.75 per 1M tokens (introductory through December 31, 2026)
+- Cache read: $0.075 per 1M tokens (90% discount on input)
+- Cache write: 90% discount on input
+- Batch API: 50% discount on input and output
+
+Pricing comparison:
+- Gemini 3.7 Flash: $0.75/$3.75 (introductory, doubles January 1, 2027)
+- Gemini 3.8 Flash: $0.75/$3.75 (same pricing)
+- Gemini 3.6 Flash: $0.75/$3.75 (same pricing)
+- Claude Haiku 4.5: $1/$5 (more expensive)
+- GPT-5 Mini: $0.25/$2 (cheaper, but less capable)
+
+#### Cost Efficiency Analysis
+**Snapshot:** 2026
+
+Gemini 3.7 Flash's real cost efficiency depends on:
+- Prompt caching usage (90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+
+Anthropic estimates that the 75% reduction in cache-read pricing cuts the cost of typical workloads by about 25% and highly agentic tasks by up to about 45%.
+
+---
+
+### Strengths
+
+1. **Excellent Cost Efficiency:** $0.75/$3.75 per 1M tokens is significantly cheaper than most frontier models
+2. **Strong Agentic Coding:** 85.8% on Terminal-Bench 2.1 (significant improvement over 3.6 Flash)
+3. **Multimodal Capabilities:** Strong performance across text, image, audio, video, and PDF understanding
+4. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+5. **Fast Performance:** 71 tokens per second (verified)
+6. **Google Ecosystem Integration:** Seamless integration with Google Workspace, Google Cloud, and other Google services
+7. **Pricing Transparency:** Clear pricing structure with explicit introductory rates and future increases
+8. **Knowledge Cutoff:** Extends into 2026 for most domains
+9. **Enterprise Features:** Strong security, compliance, and enterprise integration options
+10. **Multi-Provider Access:** Available through Google's various platforms and third-party providers like OpenRouter
+
+---
+
+### Weaknesses
+
+1. **Predecessor Status:** Gemini 3.8 Flash (released September 2, 2026) offers slightly better performance (76.3 vs 71.5 on Coding Index) and is faster (85.0 vs 71.0 tokens/second)
+2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Gemini 3.7 Flash
+3. **Documentation:** Available documentation is less detailed than OpenAI and Google's own marketing
+4. **Knowledge Cutoff:** Extends into 2026 for most domains, but some domains have January 2025 cutoff
+5. **Pricing Increases:** Pricing doubles to $1.50/$7.50 on January 1, 2027
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Google's own marketing materials
+7. **Ecosystem Maturity:** Less mature ecosystem and developer community compared to OpenAI and Anthropic
+
+---
+
+### Use Cases
+
+#### Best For:
+- High-volume, cost-sensitive applications
+- Agentic workflows requiring fast performance
+- Coding tasks and software engineering
+- Enterprise knowledge work
+- Multimodal applications requiring vision, audio, and video understanding
+- Long-context reasoning tasks (1M token context)
+- Organizations heavily invested in Google ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+
+#### Not Ideal For:
+- Cost-sensitive applications without prompt caching
+- Organizations outside Google ecosystem
+- Applications requiring frontier-level performance
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- Complex, long-running agentic workflows (better suited for Claude Opus 5.5 or GPT-6 Astra)
+
+---
+
+### Conflicting Evidence and Notes
+
+1. **Pricing Increases:** Gemini 3.7 Flash pricing doubles to $1.50/$7.50 on January 1, 2027, making it significantly more expensive going forward.
+
+2. **Benchmark Controversy:** The benchmarks where Gemini 3.7 Flash excels (Terminal-Bench 2.1) are not widely used in production, making it difficult to assess real-world performance.
+
+3. **Documentation Availability:** Available documentation is less detailed than OpenAI and Google's own marketing materials, making it difficult to assess full capabilities.
+
+4. **Ecosystem Integration:** Strongest when integrated with Google services, which may not be suitable for all organizations.
+
+5. **Predecessor Status:** Gemini 3.8 Flash (released September 2, 2026) offers slightly better performance and speed, suggesting 3.7 Flash may be a stepping stone rather than the final Flash model.
+
+6. **Pricing Transparency:** While pricing is clear, the increase on January 1, 2027 is not ideal for long-term budgeting.
+
+---
+
+### Conclusion
+
+Gemini 3.7 Flash is Google's most intelligent "workhorse" model from their Gemini family, released August 13, 2026, designed for fast agentic workflows, coding, and complex multi-step reasoning. It features a massive 1M token context window, competitive introductory pricing ($0.75/$3.75 per 1M tokens), and strong performance across agentic coding benchmarks (85.8% on Terminal-Bench 2.1). Gemini 3.7 Flash delivers substantial gains over its predecessor Gemini 3.6 Flash across software engineering, agentic tasks, and multi-step reasoning while maintaining the same low cost. The model ranks #29 of 228 models on BenchLM with a score of 66.8/100 and achieves 56 on the Artificial Analysis Intelligence Index.
+
+However, detailed public information about Gemini 3.7 Flash is limited compared to other frontier models from Western companies. The model's strengths in cost efficiency, agentic coding, and multimodal capabilities make it a strong contender in the current market, particularly for organizations needing fast, cost-effective performance for high-volume applications. The availability of Gemini 3.8 Flash (released September 2, 2026) which offers slightly better performance and speed suggests that 3.7 Flash may be a stepping stone rather than the final Flash model.
+
+For organizations heavily invested in the Google ecosystem and seeking fast, cost-effective performance for high-volume applications, Gemini 3.7 Flash could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The pricing increase on January 1, 2027 also makes it less attractive for long-term budgeting.
+
+**Overall Assessment:** Excellent cost efficiency and strong agentic coding capabilities; however, limited public documentation and benchmark data compared to other frontier models, and newer models (3.8 Flash) may offer better value and performance.

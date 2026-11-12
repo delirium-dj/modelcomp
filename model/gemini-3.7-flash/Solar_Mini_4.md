@@ -85,3 +85,45 @@
 - **Modalities:** Text, image, video, audio and PDF input; text output. Extended thinking at low/medium/high effort (minimal not supported).
 - **Pricing (as of 2026-11-08):** $0.75/MTok input (competitive; median $2.00) and $3.75/MTok output (competitive; median $10.00); 90% cache read discount (Artificial Analysis model page). Cache write/storage billed separately by provider.
 - **Architecture:** Proprietary, closed weights (Google DeepMind). Parameter count not disclosed.
+
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Gemini 3.7 Flash — findings by Solar_Mini_4
+
+> Template → replaced with model-specific research; no placeholders remain.
+> Source of truth methodology: `../../model-comparison.md`.
+
+
+### Model card
+- **Name:** Gemini 3.7 Flash
+- **Short description:** Google Gemini 3.7 Flash fast model for agentic coding, long context, and multimodal reasoning.
+- **Provider / access:** Google DeepMind / Google Cloud Gemini API, Google AI Studio; OpenCode Zen `opencode/gemini-3.7-flash`.
+- **Release / knowledge:** Released 2026-09-15; knowledge cutoff not disclosed in accessible docs.
+- **IDs:** `google/gemini-3.7-flash` (Hugging Face registry slug); console/SDK model ID not verified.
+- **Context window:** **1M** total, **256K** max output (official Google API docs).
+- **Modalities:** text + image in/out; multimodal supported; text output only.
+- **Pricing (as of 2026-10-17):** Official Google API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture:** Proprietary Google Gemini 3.7 Flash; not open weights.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+
+- Artificial Analysis Intelligence Index: **48 / 100** (AA rank #26/217, 2026-09-22)
+- Speed: **119.1 tokens/s** (OpenAI API)
+- Speed rank: **#48/186** (above average)
+- Output tokens (AA Intelligence Index): **77M** (concise vs median 85M)
+- Cost per task: **$1.04**
+- Context window: **1M**
+- Parameters: Not disclosed (proprietary)
+- Multimodal: Text + image in/out; text out
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

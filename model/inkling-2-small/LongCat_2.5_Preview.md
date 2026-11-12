@@ -61,3 +61,54 @@ Long context:
 - Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-18
 - Method: Public internet research (Stealth Models, Fellipe Soares, Bruno Vega/Youtube, Mikl on X, OpenCode Data, OpenVibeEval, AnyRouter, LLM List, TypingMind); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `LongCat_2.5_Preview.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `LongCat_2.5_Preview.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Fledge Alpha — findings by LongCat 2.5 Preview
+
+- Source: Unknown/Fledge Alpha (OpenCode Zen `unknown/fledge-alpha`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Fledge Alpha Free
+- **Short description:** Anonymous free-tier model that appeared on OpenCode in early October 2026. Developer, lab, and underlying architecture are unknown. Likely a multi-model routing gateway rather than a single model.
+- **Provider / access:** OpenCode Zen `unknown/fledge-alpha` (free tier, $0 input/output). Also listed on AnyRouter as `stealth/fledge-alpha`.
+- **Release / knowledge:** 2026-10-01 (first observed on OpenCode). Knowledge cutoff unknown.
+- **IDs:** `unknown/fledge-alpha` (OpenCode Zen)
+- **Context window:** 1,048,576 tokens (1M). Max output: 131,072 tokens. Verified via multiple community sources and models.dev catalog.
+- **Modalities:** Text + image input; text output. Reasoning: yes (low/high/max effort). Tool calls: yes.
+- **Pricing (as of 2026-10-03):** Free ($0 input / $0 output) on OpenCode Zen preview tier.
+- **Architecture:** Unknown. Community analysis suggests a router backed by multiple models (possibly DeepSeek V4.1, Kimi K3, and an unknown model). Based on sglang gateway. Not a single identifiable model.
+
+## Raw benchmarks found
+
+> No verified public benchmark numbers found for this exact model/ID.
+
+Agent / tool use:
+
+- No verified public score found. User-run tests (61/61 executable code checks) are anecdotal and not independently verified.
+
+Reasoning / knowledge:
+
+- No verified public score found. User-run tests (6/6 math checks, 4/4 logic checks) are anecdotal.
+
+Coding:
+
+- No verified public score found. User-run tests (61/61 code checks) are anecdotal.
+
+Long context:
+
+- 12/12 hidden-key retrieval checks from inputs up to ~1M characters (anecdotal, not a formal benchmark).
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

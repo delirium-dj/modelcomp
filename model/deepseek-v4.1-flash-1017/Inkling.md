@@ -78,3 +78,48 @@ Derived from verified raw evidence above (methodology: `model-comparison.md` v4;
 - Method: Independent public web research — official vendor model card (`huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017`, fetched directly; benchmark table read in full; evaluation harness references noted); independent benchmark source URLs verified (harborframework/terminal-bench, datacurve/deep-swe, programbench.com, claw-eval, etc.); dataset agreement checked (`model-queue.md`, `average.md`, `model-aliases.generated.md`) only after drafting.
 - Conflicting results handled: official card claims substantial improvement over V4.1-Flash; independent benchmark harness references (Terminal-Bench 4.0, DeepSWE v1.1, ProgramBench) confirm the numbers via linked datasets; no contradiction found. If independent review contradicts the card, the verified benchmark number takes precedence.
 - File identity check: filename = `Inkling.md` = my STEM (`Inkling`); folder = `deepseek-v4.1-flash-1017` (subject); no conflation. Slug identity verified: version uses dots (already correct: `v4.1-flash-1017` — note: the slug `deepseek-v4.1-flash-1017` uses dots correctly per slug identity rules; the `-1017` suffix is a parameter/date identifier, not a version split, and stays hyphenated).
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## DeepSeek V4.1 Flash 1017 — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Archived date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** DeepSeek V4.1 Flash 1017 (dataset label; no verified official DeepSeek product page for exact ID)
+- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.3). DeepSeek (`deepseek.com`) confirms `DeepSeek V4.1 Flash` as a release (`deepseek.com/en/news/deepseek-v4-1-flash/`) but not the `-1017` variant.
+- **Provider / access:** Not verified for exact ID (`-1017`). Base `v4.1-flash` exists.
+- **Release / knowledge:** Not confirmed for exact variant.
+- **IDs:** Not verified beyond dataset label for `-1017`.
+- **Context window:** Not verified for exact variant.
+- **Modalities:** Not verified for exact variant.
+- **Pricing (as of 2026-10-26):** Not verified for exact variant.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found (3 independent searches, compared)
+
+1. `deepseek.com/en/news/deepseek-v4-1-flash/` (official release page): Confirms `DeepSeek V4.1 Flash` exists; NO mention of a `-1017` variant or sub-checkpoint. The page discusses `DeepSeek V4.1` family, not a specific `1017` build.
+2. `deepseek.com/models/deepseek-v4.1-flash-1017` (direct product URL attempt): Returns 404 (`The path forks here`). Confirms no official product page for this exact ID.
+3. `artificialanalysis.ai` (independent benchmark aggregator): Not directly fetched for exact slug; dataset includes `deepseek-v4.1-flash-1017` (Overall 82.3) but no verified independent benchmark numbers were retrieved for the exact `-1017` label.
+
+> **Conflict / comparison:** The dataset (`model-queue.md`) treats `deepseek-v4.1-flash-1017` as a distinct model (Overall 82.3). DeepSeek's official site confirms a `V4.1 Flash` release but does not list a `-1017` sub-model or checkpoint. Independent benchmark sources did not confirm separate scores for the `-1017` variant. This suggests `-1017` may be a dataset/build label rather than a distinct public SKU.
+
+Agent / tool use: no verified public score found for exact `-1017` ID.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified for exact variant.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

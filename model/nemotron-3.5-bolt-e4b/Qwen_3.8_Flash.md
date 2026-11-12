@@ -65,3 +65,55 @@
 - Method: public internet research — **NVIDIA research page** (research.nvidia.com, tech report published Oct 23, 2026), **HF model cards** (`nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB`, BF16, DFlash variants), **NVIDIA blog** (blogs.nvidia.com/blog/nemotron-3-5-super-vl/, Oct 15: "optimized for intelligence per GB"), **Ollama** (`nemotron-3.5-bolt:e4b`, 50.6K downloads, updated 1 week ago, 7.2GB Q4_K_M), **BenchLM** (21/739 rows, unranked, all vendor + one AA), **mindstudio.ai** hands-on review (Oct 25: benchmark-vs-reality gap, agentic debugging failure, reasoning competence, multilingual shallow), **eesel.ai** (Oct 26: "70.2 in the smart and fast corner"), **cellcog.ai** (Oct 15: "for voice assistants and embedded agents"), **unite.ai** (Oct 15: "scheduled for October 23, 2026"), **marktechpost** (Oct 23: release confirmation). AA Intelligence Index page 404 (`nemotron-3-5-bolt-e4b`). Scores are normalized 1–100 interpretations, applied under a **heavy vendor-only discount**: this model shipped 12 days ago, only one independent measurement (AA-IFBench) exists, and the benchmark suite breadth (21 rows) is impressive but uniformly vendor-sourced. The prior `.excluded` (Oct 17, written when the model was unreleased) is superseded by this first-pass.
 - Revisit trigger: an **independent** AA Intelligence Index row (when AA adds the model to v5), a third-party SWE-bench/Terminal-Bench run, or a published hosted-API pricing. The SWE-bench and agentic-coding gap is the most significant missing measurement.
 - Future sources: add a new file next to this one, e.g. `Gemini_4_Argon.md`, using the same headings.
+
+---
+
+## Archived research pass — `Qwen_3.8_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Qwen_3.8_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Nemotron 3.5 Bolt E4B — findings by Qwen 3.8 Flash
+
+- Source: NVIDIA (`nvidia/Nemotron-3.5-Bolt-E4B`; curated id `opencode/nemotron-3.5-bolt-e4b`), cross-checked against Artificial Analysis and launch coverage
+- Archived date: 2026-10-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Exclusion note:** this report is written as `.md.excluded` because **NVIDIA has not yet released Nemotron 3.5 Bolt E4B** — the model was announced on 2026-10-15 alongside Super VL and Bolt 74B-A9B, but is scheduled to ship on **October 23, 2026**, i.e. six days after this report's date. As of 2026-10-17 there are **zero published benchmark numbers** for this exact ID: Artificial Analysis exposes model pages only for **Bolt 74B-A9B (Index 21)** and **Super VL (Index 26)**, with **no `bolt-e4b` row**; the NVIDIA blog and every secondary outlet (VentureBeat, Kie.ai, Technology.org, Medium/greekofai) describe E4B only as "coming Oct. 23" / "due to be released on October 23". Per `RULES.md`, a findings file is self-excluded (never fabricated) when there are zero verified benchmarks. Reattributing the 74B-A9B sibling's numbers to this slug would double-count a different model, so no scores are asserted. The panel's prior raters in this folder have reached the same verdict (see `DeepSeek_4.1_Flash.md.excluded`, `GLM_5.3.md.excluded`, `GLM_5.3_Flash.md.excluded`, `GPT_5.6_Luna.md.excluded`, `Laguna_S_2.1.md.excluded`, `MiMo_2.6_Flash.md.excluded`).
+
+### Model card (verified facts only)
+
+- **Name:** Nemotron 3.5 Bolt E4B (4GB)
+- **Status:** **ANNOUNCED, NOT YET RELEASED.** Unveiled 2026-10-15 as the third member of the Nemotron 3.5 Bolt family (after Super VL and Bolt 74B-A9B 24GB); NVIDIA states it is "coming Oct. 23" (2026-10-23). No weights, no model card, no API/OpenRouter listing, and no Artificial Analysis benchmark row exist for this exact ID as of 2026-10-17.
+- **Intended role (vendor description, not a benchmark):** "optimized for intelligence per GB for fast conversational agents"; "built for physical and conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark … natural conversation with multi-turn agentic capabilities to power fast local voice assistants, interactive characters and embedded interfaces." Positioning only — no capability numbers attached.
+- **Provider / access:** planned as open weights (Hugging Face / ModelScope / NIM), local via llama.cpp/Ollama/LM Studio/Unsloth/vLLM — but the E4B checkpoint itself is not yet published.
+- **Release / knowledge:** announced 2026-10-15; general availability scheduled 2026-10-23; no knowledge cutoff disclosed.
+- **Context window:** curated `meta.json` says "128K total" — `scaffolded: true` placeholder, not a verified spec.
+- **Modalities:** curated `meta.json` says "Text in/out" — placeholder; NVIDIA's own copy implies conversational/voice-agent framing but no modality spec sheet has shipped.
+- **Pricing:** curated `meta.json` "Standard pricing" — placeholder; no first-party rate exists (open-weight, self-hosted class).
+- **Architecture:** "E4B" naming implies an effective ~4B-active MoE in a 4 GB memory footprint; NVIDIA has not published a spec sheet for this exact checkpoint.
+
+## Raw benchmarks found
+
+Every category: **no verified public score found** — the model has not shipped; NVIDIA has published no E4B benchmark, and no aggregator (Artificial Analysis, BenchLM) exposes a `bolt-e4b` row. The released Bolt 74B-A9B sibling is scored separately in its own folder.
+
+Agent / tool use:
+
+- PinchBench / BrowseComp / AutomationBench-AA / AA-Briefcase / τ² / OSWorld: **no verified public score found for this exact model**
+
+Reasoning / knowledge:
+
+- Artificial Analysis Intelligence Index / GPQA Diamond / HLE / MMLU-Pro: **no verified public score found** (only Bolt 74B-A9B = 21 and Super VL = 26 have AA rows)
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / AA-LCR: **no verified public score found**
+
+Long context / Multimodal:
+
+- MRCR / RULER / MMMU-Pro / video / audio: **no verified public score found**
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

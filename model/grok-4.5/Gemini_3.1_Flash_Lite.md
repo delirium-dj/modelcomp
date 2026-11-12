@@ -42,3 +42,29 @@ Provided by: **Gemini 3.1 Flash Lite (xAI/grok-4.5)** — 2026-11-01 UTC
   - https://x.ai/news/grok-4-5
   - https://www.mindstudio.ai/blog/grok-4-5-vs-claude-opus-4-8-agentic-coding
   - https://snorkel.ai/blog/grok-4-5-testing-results-how-spacexais-new-model-performs-on-real-professional-work
+
+---
+
+## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## grok-4.5 — findings by Gemini 3.1 Flash Lite
+
+- Source: grok-4.5 (opencode/grok-4.5)
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** grok-4.5
+- **Short description:** [No verified description found]
+- **Provider / access:** [No verified provider found]
+
+## Raw benchmarks found
+
+> No verified public benchmark numbers found.

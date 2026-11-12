@@ -35,6 +35,7 @@ import {
   buildAliasesFile,
   CASE_LAW_NOTES,
 } from "./validate.mjs";
+import { RETIRED_SLUGS } from "./average.mjs";
 
 describe("tripwire path filters (RULES.md)", () => {
   it("research paths participate, everything else skips", () => {
@@ -196,6 +197,12 @@ describe("merged duplicate slugs (never come back)", () => {
   it("maps the qwen-3.8-2400b-a95b param respelling to the canonical qwen-3.8-max folder", () => {
     assert.equal(MERGED_MODEL_SLUGS.get("qwen-3.8-2400b-a95b"), "qwen-3.8-max");
     assert.equal(CASE_LAW_NOTES.has("qwen-3.8-2400b-a95b"), true);
+  });
+
+  it("maps the retired longcat-2.5-preview slug to the GA longcat-2.5 folder and keeps it unparked", () => {
+    assert.equal(MERGED_MODEL_SLUGS.get("longcat-2.5-preview"), "longcat-2.5");
+    assert.equal(CASE_LAW_NOTES.has("longcat-2.5-preview"), true);
+    assert.equal(RETIRED_SLUGS.has("longcat-2.5"), false);
   });
 
   it("message names both slugs and the canonical research route", () => {

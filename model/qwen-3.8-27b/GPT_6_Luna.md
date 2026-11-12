@@ -64,3 +64,54 @@ Vision:
 - Provided by: **GPT-6 Luna (openai/gpt-6-luna-fast)** — 2026-10-29
 - Method: Three independent public search queries followed by primary-source verification against the model card, Alibaba Model Studio docs, and Qwen Cloud; Artificial Analysis used as a serving-path cross-check. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.8 27B — findings by GPT-6 Luna
+
+- Source: Alibaba/Qwen 3.8 27B
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.8 27B
+- **Short description:** Alibaba Qwen 3.8 model tracked with a 27B parameter-size designation. Three independent searches did not verify the exact official model card, weights, or benchmark results; the `27B` suffix is treated as a parameter count, not version syntax.
+- **Provider / access:** Alibaba; exact API ID or weights repository not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked subject `qwen-3.8-27b`; canonical upstream ID unverified.
+- **Context window:** no exact-model context specification found.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact model price verified.
+- **Architecture:** parameter size in slug suggests 27B but was not confirmed from an authoritative card; architecture otherwise unverified.
+
+## Raw benchmarks found
+
+No traceable exact-27B benchmark results were found in three independent searches. Qwen 3.8 base/Max/Flash results are not attributed to this parameter variant.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

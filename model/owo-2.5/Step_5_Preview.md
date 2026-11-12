@@ -55,3 +55,88 @@ This report should be re-opened if any lab ships a product by this name, if Open
   - [Repo curated meta — `model/owo-2.5/meta.json` (catalogue fields, no vendor corroboration)](/model/owo-2.5/meta.json)
   - See also: [`model/big-pickle/`](big-pickle.md) — the one genuine OpenCode Zen stealth model, refreshed in this same batch; [`model/neomorph/`](neomorph.md) — the other common-word phantom
 - Future sources: add a new file next to this one, e.g. `Owo_3.md`, using the same headings.
+
+---
+
+## Archived research pass — `Step_5_Preview.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## owo-2.5 — negative findings by Step 5 Preview
+
+> SELF-EXCLUSION: no genuine AI model could be found under this slug across seven
+> independent authoritative checks — no model card, no weights repo, no API route,
+> no gateway listing and no benchmark-tracker entry. Per the template's
+> SELF-EXCLUSION clause (`RULES.md`, `tasks/research.md` step 3.9) this file is saved
+> as notes only and carries NO scores. Scores here are intentionally absent.
+
+- Source: unknown (`owo-2.5`) — **identity unverified / no such model found**
+- Archived date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** OWO 2.5 (as named by the slug; no such vendor product was found)
+- **Short description:** No model by this name exists in any authoritative source consulted, including OpenCode Zen's own full endpoint and pricing tables — which matters here, because a repo slug of this shape would normally indicate a Zen stealth model, and Zen lists exactly one of those (Big Pickle).
+- **Provider / access:** none found.
+- **Release / knowledge:** not found.
+- **IDs:** none verified.
+- **Context window:** not verifiable — no model to measure.
+- **Modalities:** not verifiable.
+- **Pricing:** not verifiable.
+- **Architecture:** not verifiable.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+#### Verification trail (seven independent checks, all run 2026-10-24)
+
+1. **Artificial Analysis:** `https://artificialanalysis.ai/models/owo-2-5` returns **404** — no model page, no benchmark-tracker entry.
+2. **DuckDuckGo** for `"owo-2.5" model`: returns literally **"No results found for "owo-2.5" model"** — an exact-phrase search across the open web finds nothing.
+3. **OpenCode Zen's own docs** (`https://opencode.ai/docs/zen`): the complete endpoint table and the complete per-1M pricing table both rendered in full. The only stealth model listed is **Big Pickle** (Free, "a stealth model that's free on OpenCode for a limited time"); other free entries are Beam Free, Flint 40B Free, the Nemotron variants, MiMo-V2.6-Flash Free, GLM-5.3-Flash Free, DeepSeek V4.1 Flash Free, LongCat 2.5 Preview Free and the Jev tiers. **No OWO / owo-2.5 in either table**, and it is absent from the deprecated-models list too. This is the most probative check, since the repo's slug convention is usually the Zen ID suffix.
+4. **Hugging Face search** (`https://huggingface.co/models?search=owo`): 1,043 results across 35 pages, and every one is emoticon/username noise — `Owos/tb-classifier`, `OwOOwO/kancho1-4` (7B toy repos, Feb 2024), `REI-owo/Snowman1` (0.1B), `OWOzhouker/xzq`, `Orion1227/UwU-OwO`. **No `owo-2.5` and no `owo` + version-named model of any kind.**
+5. **OpenRouter** (`https://openrouter.ai/models?q=owo`): no matching model; the page rendered the generic recent-models list (Kimi K3.1 Pro, Flint v1.0, Mammoth 1, DeepSeek V4.1 Flash…). Nothing named OWO.
+6. **Bing** for `"OWO-2.5" model LLM`: 79 results, zero AI-model hits — the top results are Instagram login/help/AI Studio/Reels pages (the emoticon sense of the word). No model card, API route or weights repo.
+7. **Bing** for `"owo-2.5" opencode OR zen OR stealth`: claims 7,560 results, but Bing's OR-matching failed entirely and every result was Serbian news stories about "Građani Brzog Broda" protests (2022-2026, danas.rs, politika.rs, juznevesti.com). Nothing about AI, OpenCode or Zen. Recorded as a failed query rather than evidence.
+
+#### Conflict / resolution notes
+
+- No conflicting sources were found. All seven checks agree that nothing exists under this name; the two low-quality Bing queries are disclosed individually and are not counted.
+- **Strictness note:** "OWO" is an internet emoticon and a brand as well as a possible model name, so a higher evidentiary bar was applied than for a distinctive slug. Nothing that qualifies was found — no model card, no weights repo, no API route, no gateway listing, no benchmark-tracker entry, and not even a passing mention in a genuine model listing.
+- **Why the Zen check carries the most weight:** the repo's folder slugs are usually Zen ID suffixes, so a slug like `owo-2.5` would most naturally be a Zen stealth or free-tier entry. OpenCode Zen's full endpoint and pricing tables list no such model, and its stealth list contains exactly one entry (Big Pickle). If this slug were a real Zen route, it would appear there.
+- **Surfaced for the orchestrator, not acted on:** this slug appears in `model-queue.md` with a computed Overall of 51, so other raters evidently produced reports for it. Under `RULES.md` a folder is permanent and only a *user* may park a slug (it must be removed from both `RETIRED_SLUGS` lists, `src/data/models.ts` + `scripts/lib/average.mjs`, to be rendered in `model-aliases.generated.md`). This file therefore makes no parking recommendation and no deletion — it records the negative finding and stops.
+- **Batch note:** this is the eighth phantom slug found in this queue. Together with `neomorph`, both are common-word collisions rather than suffix-transplant errors, and both were confirmed primarily by the Hugging Face zero-result search and the models.dev no-match rather than by URL 404s alone.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

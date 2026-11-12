@@ -67,3 +67,53 @@
   - [Lindy — Gemini 4 Argon: who can use it (Oct 14, 2026)](https://www.lindy.ai/blog/gemini-4-argon)
 
 ---
+
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+﻿# Gemini 4 Argon — findings by Solar_Mini_4
+
+- Source: Google DeepMind (`google/gemini-4-argon`)
+- Archived date: 2026-11-01 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google DeepMind's frontier reasoning model (announced Sep 30, 2026) built for deep multi-step professional work — software engineering, cybersecurity defense, enterprise knowledge work — with an industry-leading 1M-token unified input/output limit via the Gemini API.
+- **Provider / access:** Google AI Studio / Vertex AI paid API, Gemini app (Pro/Ultra), Google Antigravity, Gemini for business. Paid; no free tier. Cyber defenders can join the Fairwind Program (unrestricted cyber guardrails). Restricted access.
+- **Release / knowledge:** Announced 2026-09-30; generally available 2026-10-13. Knowledge cutoff not publicly confirmed.
+- **IDs:** `google/gemini-4-argon` (API model id), `gemini-4-argon` (curated).
+- **Context window:** 1M tokens unified input/output (continuation protocol); max output 65,536 default, up to 1M with long decode.
+- **Modalities:** Text, image, video, audio, PDF input; text output; reasoning (low/medium/high); tool calling; computer use (preview); code execution; search grounding; structured output.
+- **Pricing (as of 2026-10-13):** introductory $2.00 input / $10.00 output per 1M tokens, cached $0.10 (through Nov 30, 2026); standard $4.00/$20.00, cached $0.20 from Dec 1, 2026; batch 50% off ($1.00/$5.00) via OpenRouter.
+- **Architecture:** proprietary; parameter count undisclosed; specialised cybersecurity defensive training; automated misalignment monitor + Gray Swan IPI defenses (0.7% attack success across 15 adaptive attempts).
+
+## Raw benchmarks found
+
+**Agent / tool use (Google launch table, 19 rows):**
+- Vals Index: **68.9%** — vs Opus 5.5 67.0%, GPT-6 Astra 63.1%, Claude Fable 5.1 65.8%.
+- AutomationBench: **51.3%** — vs Opus 5.5 42.5%, GPT-6 Astra 41.4%, Fable 5.1 31.4% (#1).
+- Finance Agent v2: **65.4%**; Harvey Legal Agent: **19.6%** (Vals AI).
+- DeepSWE v1.1: **77.9%** — leads Opus 5.5 74.2%, Astra 74.1% (Google-run).
+- CursorBench (third-party): **52.8%** — "on par with Opus 5.5" (Apidog).
+- Scale AI HSS (third-party): **55.4%** — vs Astra 53.6% (Apidog).
+- Terminal-Bench 4.0: **57.4%** — vs Opus 5.5 66.4% (Google-run; loses).
+- FrontierSWE v2: **55.0%** — vs Astra 65.5%, Opus 5.5 62.3% (loses).
+- Terminal-Bench Science 0.1: **57.6%** — vs Astra 68.1% (loses).
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+- PostTrainBench: **45.3%** — vs Opus 5.5 49.3% (loses).
+- OSWorld-2.0 (offline): **69.2%** — vs Astra 72.6% (loses).
+- CWE-bench v1: **68.0%** — tied with GPT-6 Astra (Grok 4.7 also 68%, three-way).
+- GraphWalks 256K–1M: **84.2%** — vs Opus 5.5 66.8% (leads); BFS ≤128K: **99.7%** (loses only to Astra 71.8%).
+- Agents' Last Exam: **39.5%**; LabBench 2: **88.8%**; RiemannBench: **76.0%**; LVBench: **91.7%**.

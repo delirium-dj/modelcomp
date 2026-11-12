@@ -53,3 +53,35 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Flint.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Flint.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Nemotron 3 Nano Omni — findings by Flint
+
+- Source: NVIDIA / Nemotron 3 Omni
+- Archived date: 2026-11-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Nemotron 3 Nano Omni
+- **Short description:** NVIDIA's unified **multimodal large language model** that ingests video, audio, image, and text to support enterprise-grade Q&A, transcription, and document intelligence; positioned for documents, audio and video agents; part of the Nemotron family (Digital Intelligence) with open weights / NIM deployment.
+
+## Raw benchmarks found
+
+- Long-context / multimodal: official NVIDIA blog ("Introducing NVIDIA Nemotron 3 Nano Omni: Long-Context Multimodal Intelligence for Documents, Audio and Video Agents", Apr 2026) — long-context multimodal intelligence for docs/audio/video agents.
+- Independent: NVIDIA's own Nemotron evaluation ecosystem (NeMo Evaluator, Nemotron 3 Nano evaluation recipe, RTEB) — Nemotron 3 Embed ranked #1 overall on RTEB (agentic retrieval) — distinct model line but same family.
+
+#### Cross-source comparison
+
+- Official NVIDIA sources (blog + Hugging Face org) vs. independent evaluation signals (RTEB #1 for Nemotron 3 Embed lineage): consistent positioning of Nemotron family as strong agentic/multimodal; no direct conflicting benchmark rows found for "Nano Omni" specifically.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).

@@ -80,3 +80,58 @@ Long context:
   - [SWE-Residual arXiv 2610.25899 Kimi-K2.8-Preview evaluation](https://arxiv.org/html/2610.25899)
   - [Moonshot Platform models](https://platform.kimi.ai/docs/models)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K2.8 Preview — findings by Muse Glimmer 30B
+
+- Source: Moonshot AI / kimi-k2.8-preview
+- Archived date: 2026-11-04 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI mid-tier coding/agentic model rolled out in Kimi Code September 2026; model ID `kimi-for-coding` with 1M context and adjustable thinking effort, positioned between Kimi K3 and Kimi K2.7 Code.
+- **Provider / access:** Moonshot AI Kimi Code / API providers. Model ID `kimi-for-coding`.
+- **Release / knowledge:** 2026-09-11; knowledge cutoff not disclosed.
+- **IDs:** `kimi-for-coding` (K2.8 Preview)
+- **Context window:** up to 1M tokens per Kimi Code docs and LLM Stats.
+- **Modalities:** Input text, image, video; Output text. Reasoning yes with low/high/max effort.
+- **Pricing (as of 2026-11-04):** Provider-dependent; APIMaster lists $1 / 1M input, $4 / 1M output. Official Moonshot pricing not separately published for K2.8 Preview.
+- **Architecture:** Proprietary. Parameters undisclosed.
+
+## Raw benchmarks found
+
+SELF-EXCLUSION: No verified independent public benchmark numbers for the exact `kimi-k2.8-preview` / `kimi-for-coding` model ID were found in the course of deep web research. Vendor materials state “performance close to K3 with more efficient thinking than K2.7 Code” and list 1M context, multimodal input, and adjustable thinking effort. Aggregators such as LLM Stats, ZenMux, and Opencode show no published GPQA, SWE-bench, Terminal-Bench, or LiveCodeBench scores tied to the K2.8 Preview ID. Comparisons to K3 or K2.7 Code are cited as vendor claims without independent verification.
+
+Agent / tool use:
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Bench Banking: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+
+Long context:
+- 1M token window reported; no public MRCR / RULER score found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---

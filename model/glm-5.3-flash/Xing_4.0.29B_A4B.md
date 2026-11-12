@@ -35,3 +35,36 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 - Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
 - Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped.
 - Future sources: add a new file next to this one.
+
+---
+
+## Archived research pass — `Xing_4.0.29B_A4B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Z.AI GLM 5.3 Flash — findings by Xing40_29B_A4B
+
+> Source: Z.AI / GLM (glm-5.3-flash)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+### Model card
+- **Name:** GLM 5.3 Flash
+- **Short description:** Z.AI's latest GLM flash variant with strong coding and tool-use benchmarking; an open weights flagship successor within the GLM family. Flag if variant/alias.
+- **Provider / access:** Hosted via Z.AI API; OpenRouter glm-5.3-flash. Chat Completions API on OpenRouter.
+- **Release / knowledge:** 2026. Cutoff ~2025–2026.
+- **IDs:** <provider>/glm-5.3-flash
+- **Context window:** 1M tokens total (~500k in/out inferred).
+- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes. Audio lightly.
+- **Pricing (as 2026-10-21):** paid; .28/M input, .04/M output per AA comparison (GLM-5.3 Flash at rank 14 of class). Paid.
+- **Architecture:** open weights; active parameters ~5B (Z.AI GLM series). OpenWeights license per Z.AI docs; Apache-like commercial terms.
+
+## Raw benchmarks found
+(Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

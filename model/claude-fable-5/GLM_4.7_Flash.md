@@ -88,6 +88,297 @@ Long context:
 
 ---
 
+## Archived research pass — `GLM_4.7_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.6/100 — superseded by the active scores above.
+
+## CLAUDE-FABLE-5 — GLM_4.7_Flash Research Report
+
+
+---
+
+### Model card
+
+- **Name:** Claude Fable 5
+- **Short description:** Anthropic's general-availability Mythos-tier model released June 9, 2026, designed for complex, long-running agentic work, coding, and knowledge work with 1M token context window and exceptional performance on SWE-Bench Pro and cybersecurity benchmarks.
+- **Provider / access:** Anthropic API (proprietary)
+- **Release / knowledge:** Released June 9, 2026. Knowledge cutoff January 2026.
+- **IDs:** `claude-fable-5` / `claude-fable-5`
+- **Context window:** 1,000,000 tokens (1M)
+- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing (as of 2026-10-28):** $10 per 1M input tokens, $50 per 1M output tokens, $1 per 1M cached input tokens
+- **Architecture:** Proprietary (Mixture-of-Experts, Anthropic)
+
+## Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Claude Fable 5 official benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench-Science 0.1: 21.4% (verified)
+- SWE-Bench Pro: 80.3% (verified, highest in field)
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- Vals Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+### Executive Summary
+
+Claude Fable 5 is Anthropic's general-availability Mythos-tier model from their Claude family, released June 9, 2026, designed for complex, long-running agentic work, coding, and knowledge work. It features a massive 1M token context window, competitive pricing ($10/$50 per 1M tokens), and exceptional performance on SWE-Bench Pro (80.3%, highest in field) and cybersecurity benchmarks (78.0% on ExploitBench). Fable 5 was the first Mythos-class model to be made generally available, offering full capability with additional safeguards for high-risk cybersecurity, biology, chemistry, and distillation requests. The model was replaced by Claude Fable 5.1 on September 1, 2026, which offers 75% cheaper cache reads and significant improvements on long agentic work. Fable 5 remains available as a legacy route with the same $10/$50 pricing.
+
+---
+
+### Model Identity and Background
+
+**Developer:** Anthropic
+**Release Date:** June 9, 2026
+**Series:** Claude Fable (Fable 5)
+**Predecessor:** Claude Mythos Preview (April 2026)
+**Successor:** Claude Fable 5.1 (September 1, 2026)
+**License:** Proprietary
+**Context Window:** 1,000,000 tokens
+**Max Output:** 128,000 tokens
+
+Claude Fable 5 is Anthropic's first generally available Mythos-class model, released on June 9, 2026. It shares the same underlying model architecture with Claude Mythos 5 but includes additional safety guardrails for high-risk cybersecurity, biology, chemistry, and distillation requests. Fable 5 was released as part of Anthropic's "split" strategy, where the same underlying model is offered in two versions: Fable 5 (public, with safeguards) and Mythos 5 (restricted to vetted partners via Project Glasswing). The model was succeeded by Claude Fable 5.1 on September 1, 2026, which offers significant improvements on long agentic work and 75% cheaper cache reads.
+
+---
+
+### Official Documentation
+
+#### Anthropic Platform Documentation
+**Snapshot:** 2026-10-28
+
+Technical specifications include:
+- Context window: 1M tokens
+- Max output: 128K tokens
+- Pricing: $10 input / $50 output per 1M tokens
+- Cache read: $1 per 1M tokens
+- Cache write (5m): $12.50 per 1M tokens
+- Cache write (1h): $20 per 1M tokens
+- Thinking: Adaptive (always on)
+- Default effort: `high`
+- Knowledge cutoff: January 2026
+
+#### Anthropic System Card
+**Snapshot:** June 9, 2026
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+#### Anthropic API Pricing
+**Snapshot:** 2026-10-28
+
+Detailed pricing information including:
+- Input: $10 per 1M tokens
+- Output: $50 per 1M tokens
+- Cache read: $1 per 1M tokens
+- Cache write (5m window): $12.50 per 1M tokens
+- Cache write (1h window): $20 per 1M tokens
+- Batch API: 50% discount on input and output
+
+---
+
+### Independent Benchmarks and Reviews
+
+#### SWE Benchmarks
+**Snapshot:** June 2026
+
+- SWE-Bench Pro: 80.3% (verified, highest in field)
+- SWE-bench Verified / SWE-Pro: no verified public score found
+
+SWE-Bench Pro is a benchmark for agentic coding and software engineering capabilities. Fable 5's score of 80.3% is the highest among all models evaluated, demonstrating exceptional coding capabilities.
+
+#### Cybersecurity Benchmarks
+**Snapshot:** June 2026
+
+- ExploitBench: 78.0% (verified, highest in field)
+- Cybersecurity evaluation: 78.0% (highest in field)
+
+Fable 5 achieves the highest score on ExploitBench, a cybersecurity benchmark that measures the model's ability to find and exploit vulnerabilities. This score represents nearly double Opus 4.8's 40.0% score.
+
+#### Vision Benchmarks
+**Snapshot:** June 2026
+
+- GDP.pdf (vision, no tools): 29.8% (verified, highest in field)
+- GDP.pdf (vision, with tools): no verified public score found
+
+GDP.pdf is a vision evaluation that asks a model to reason over a rendered document with or without tools. Fable 5 leads the field at 29.8% without tools, ahead of GPT-5.5's 24.9% and Opus 4.8's 22.5%.
+
+#### Terminal Benchmarks
+**Snapshot:** June 2026
+
+- Terminal-Bench-Science 0.1: 21.4% (verified)
+- Terminal-Bench-Science 0.1 (Anthropic public leaderboard): 21.4% (verified)
+
+The standard error for Terminal-Bench-Science 0.1 is ±3.5-4.5 points per model.
+
+#### Model-Queue Ranking
+**Snapshot:** October 2026
+
+Claude Fable 5 ranks 21st overall with a score of 91.6/100, indicating strong performance in the frontier model landscape.
+
+#### Third-Party Comparisons
+**Snapshot:** June-September 2026
+
+Multiple independent sources provide comparative analysis:
+- Fable 5 vs Mythos 5: Fable 5 includes additional safety guardrails for high-risk cybersecurity and biology requests
+- Fable 5 vs Opus 4.8: Fable 5 costs 2x the price but offers significantly better performance on agentic coding and cybersecurity
+- Fable 5 vs GPT-5.5: Fable 5 leads on SWE-Bench Pro (80.3% vs 58.6%) and GDP.pdf (29.8% vs 24.9%)
+- Fable 5 vs Fable 5.1: Fable 5.1 offers 75% cheaper cache reads and significant improvements on long agentic work
+
+---
+
+### Availability and Pricing
+
+#### Distribution Channels
+**Snapshot:** 2026
+
+- Available through Anthropic API (legacy route)
+- Available via Claude Platform (web app)
+- Available through AWS Bedrock
+- Available via Google Cloud Vertex AI
+- Available via Microsoft Azure Foundry
+
+#### Pricing Information
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: $10 per 1M tokens
+- Output: $50 per 1M tokens
+- Cache read: $1 per 1M tokens
+- Cache write (5m window): $12.50 per 1M tokens
+- Cache write (1h window): $20 per 1M tokens
+- Batch API: 50% discount on input and output
+
+Pricing comparison:
+- Fable 5: $10/$50 (40% more expensive than Opus 4.8)
+- Fable 5.1: $10/$50 (same pricing, but 75% cheaper cache reads)
+- Opus 4.8: $5/$25
+- Mythos Preview: $25/$125
+
+#### Cost Efficiency Analysis
+**Snapshot:** 2026
+
+Fable 5's real cost efficiency depends on:
+- Prompt caching usage (up to 90% cost reduction on input tokens)
+- Batch API usage (50% discount on input and output)
+- Effort level selection (higher effort = more thinking tokens = higher cost)
+- Task complexity and length
+
+Fable 5 was included at no extra cost on Pro, Max, Team, and Enterprise plans from June 9 to June 22, 2026, but this window has since closed.
+
+---
+
+### Strengths
+
+1. **Exceptional Coding Performance:** 80.3% on SWE-Bench Pro (highest in field)
+2. **Cybersecurity Leadership:** 78.0% on ExploitBench (nearly double Opus 4.8's 40.0%)
+3. **Vision Reasoning:** 29.8% on GDP.pdf (highest in field)
+4. **Long-Context Reasoning:** 1M token context window enables complex, multi-hour workflows
+5. **Safety and Alignment:** Additional guardrails for high-risk cybersecurity, biology, chemistry, and distillation requests
+6. **Mythos-Tier Capabilities:** First generally available Mythos-class model with full frontier capabilities
+7. **Knowledge Cutoff:** January 2026 knowledge cutoff provides historical context
+8. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+9. **Multimodal Capabilities:** Text and image input, text output support
+10. **Legacy Support:** Still available as a legacy route with the same pricing as Fable 5.1
+
+---
+
+### Weaknesses
+
+1. **Predecessor Status:** Fable 5.1 (released September 1, 2026) offers 75% cheaper cache reads and significant improvements on long agentic work
+2. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Fable 5
+3. **Documentation:** Available documentation is less detailed than OpenAI and Anthropic's own marketing
+4. **Knowledge Cutoff:** January 2026 cutoff is older than Fable 5.1 (June 2026)
+5. **Safety Fallbacks:** In fewer than 5% of sessions, safety classifiers have the request handled by Opus models instead of Fable 5
+6. **Pricing:** Higher pricing than Opus 4.8 ($10/$50 vs $5/$25)
+7. **Replacement:** Fable 5.1 replaced Fable 5 as the current Mythos-tier model
+
+---
+
+### Use Cases
+
+#### Best For:
+- Complex, long-running agentic workflows (multi-hour coding sessions)
+- Cybersecurity and vulnerability analysis
+- Large-scale document analysis and synthesis
+- Enterprise applications requiring strong reasoning and coding
+- Organizations heavily invested in Anthropic ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Multimodal applications requiring vision capabilities
+- Organizations needing cybersecurity expertise
+
+#### Not Ideal For:
+- Cost-sensitive applications without prompt caching
+- Organizations outside Anthropic ecosystem
+- Applications requiring frequent Fable 5.1-level performance
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+
+---
+
+### Conflicting Evidence and Notes
+
+1. **Fable 5.1 Replacement:** Fable 5.1 (released September 1, 2026) offers 75% cheaper cache reads and significant improvements on long agentic work, making Fable 5 a legacy model.
+
+2. **Knowledge Cutoff Discrepancy:** Fable 5 has a January 2026 knowledge cutoff, while Fable 5.1 has a June 2026 cutoff, making Fable 5 significantly outdated in terms of knowledge.
+
+3. **Pricing Consistency:** Fable 5 and Fable 5.1 have the same base pricing ($10/$50 per 1M tokens), but Fable 5.1's cache reads are 75% cheaper ($0.25 vs $1 per 1M tokens).
+
+4. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+5. **Safety Fallbacks:** In fewer than 5% of sessions, safety classifiers have the request handled by Opus models instead of Fable 5, which could affect perceived performance.
+
+6. **Benchmark Controversy:** The benchmarks where Fable 5 excels (SWE-Bench Pro, ExploitBench, GDP.pdf) are not widely used in production, making it difficult to assess real-world performance.
+
+---
+
+### Conclusion
+
+Claude Fable 5 is Anthropic's first generally available Mythos-tier model from their Claude family, released June 9, 2026, designed for complex, long-running agentic work, coding, and knowledge work. It features a massive 1M token context window, competitive pricing ($10/$50 per 1M tokens), and exceptional performance on SWE-Bench Pro (80.3%, highest in field) and cybersecurity benchmarks (78.0% on ExploitBench). Fable 5 was the first Mythos-class model to be made generally available, offering full capability with additional safety guardrails for high-risk cybersecurity, biology, chemistry, and distillation requests.
+
+However, detailed public information about Claude Fable 5 is limited compared to other frontier models from Western companies. The model's strengths in agentic coding, cybersecurity, and vision reasoning make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and cybersecurity applications. The availability of Claude Fable 5.1 (released September 1, 2026) which offers 75% cheaper cache reads and significant improvements on long agentic work suggests that Fable 5 may be a stepping stone rather than the final frontier model.
+
+For organizations heavily invested in the Anthropic ecosystem and seeking complex, long-running agentic workflows and cybersecurity capabilities, Claude Fable 5 could still be a viable option. However, for organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The January 2026 knowledge cutoff and replacement by Fable 5.1 also make it less attractive for organizations needing up-to-date information.
+
+**Overall Assessment:** Exceptional coding and cybersecurity capabilities with strong vision reasoning; however, limited public documentation and benchmark data compared to other frontier models, and newer models (Fable 5.1) offer better value and performance.
+
+---
+
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.

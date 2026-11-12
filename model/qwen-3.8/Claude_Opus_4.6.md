@@ -61,3 +61,64 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (Alibaba/Qwen docs, huggingface.co, orcarouter.ai, OpenRouter, emergent.sh, qwen.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.8 — findings by Claude Opus 4.6
+
+- Source: Alibaba Cloud (`qwen-3.8`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.8 (base model designation)
+- **Short description:** Alibaba's flagship Qwen 3.8 generation base model, part of the September 2026 release wave. The Qwen 3.8 family includes Max (2.4T MoE), 27B (dense), and Flash variants. This entry covers the base "Qwen 3.8" API endpoint.
+- **Provider / access:** Alibaba Cloud DashScope / Model Studio API, OpenRouter.
+- **Release / knowledge:** September 2026 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `alibaba/qwen-3.8`
+- **Context window:** 1,000,000 tokens total; max output not separately confirmed for base variant.
+- **Modalities:** Text + image in (native multimodal, visual inputs); text out; thinking/non-thinking modes; tool calling; JSON mode.
+- **Pricing (as of 2026-10):** Estimated mid-tier, between Flash and Max pricing. Exact base-variant pricing not separately published.
+- **Architecture:** Part of Qwen 3.8 generation; likely MoE or dense architecture variant. The Max flagship is 2.4T total / ~95B active MoE.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified base-variant-specific score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public base-variant score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Note: Qwen 3.8-Max positioned as rival to Claude Fable 5; base variant expected lower.
+
+Coding:
+
+- SWE-bench Pro: evaluated for Qwen 3.8 family (exact base-variant score not separately available).
+- LiveCodeBench: evaluated for Qwen 3.8 family.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- 1,000,000-token window confirmed for the family. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

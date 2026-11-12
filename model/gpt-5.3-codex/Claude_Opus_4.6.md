@@ -61,3 +61,66 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (openai.com, cursor.com, datacamp.com, benchlm.ai, laravel-news.com, azure.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.3 Codex — findings by Claude Opus 4.6
+
+- Source: OpenAI (`gpt-5.3-codex`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5.3 Codex
+- **Short description:** OpenAI's dedicated agentic coding model released February 5, 2026, combining GPT-5.2-Codex software engineering performance with broader GPT-5.2 reasoning. Deprecated October 1, 2026; API removal scheduled April 1, 2027.
+- **Provider / access:** OpenAI API (`gpt-5.3-codex`). Deprecated; migration to GPT-6 models recommended.
+- **Release / knowledge:** 2026-02-05 release; knowledge cutoff August 31, 2025.
+- **IDs:** `openai/gpt-5.3-codex`
+- **Context window:** 400,000 tokens total; max output 128,000 tokens (verified via OpenAI docs, OpenRouter).
+- **Modalities:** Text + image in; text out; reasoning effort settings (low, medium, high, xhigh); tool calls; JSON mode.
+- **Pricing (at release):** $1.75 / $14.00 per 1M tokens (input / output). Cached input: $0.175.
+- **Architecture:** Proprietary; parameter count undisclosed. Specialized coding variant of the GPT-5.2/5.3 generation.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: positioned as high-performing at release (exact score not separately confirmed for 5.3-Codex).
+- OSWorld-Verified: positioned as high-performing at release.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public standalone score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Pro: set high scores at release (exact number not separately confirmed; GPT-5.2-Codex predecessor scored ~56.4%).
+- SWE-bench Verified: no verified 5.3-Codex-specific score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- 400,000-token window confirmed. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

@@ -69,3 +69,70 @@ General reasoning/coding benchmarks (GPQA/MMLU/SWE-class): none published — th
   - [AI/TLDR — release summary (BF16 + 4GB Q4_K_M, harness list)](https://ai-tldr.dev/models/nemotron-3-5-bolt-e4b/)
   - [Nohumans — independent launch-day testing roundup (OOM on 8GB Jetson, Tau2 gap, license status)](https://nohumans.jp/en/article/nvidia-4gb-nemotron-3-5-bolt-1-8gb-jetson-20261025-dlzj)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GLM_5.3_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Nemotron 3.5 Bolt E4B — findings by GLM 5.3 Flash
+
+- Source: NVIDIA (`Nemotron-3.5-Bolt-E4B`, announced 2026-10-15, ships 2026-10-23)
+- Archived date: 2026-10-16 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
+> zero verified public benchmark numbers exist for this exact model/ID — the
+> model has not shipped. NVIDIA's own announcement schedules it for
+> 2026-10-23 ("Bolt E4B coming Oct. 23"), and independent trackers confirm
+> the gap (BenchLM: "no source-displayable benchmark rows yet"). This file is
+> saved as `.md.excluded` with notes only; no scores are claimed.
+
+### Model card
+
+- **Name:** NVIDIA Nemotron 3.5 Bolt E4B (4GB)
+- **Short description:** Announced third member of NVIDIA's Bolt edge family — a ~4GB-footprint compact model for physical and conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark, targeting fast local voice assistants, interactive characters, and embedded interfaces.
+- **Provider / access:** not yet available — no weights, API, or Zen route as of 2026-10-16 (NVIDIA blog says "coming Oct. 23"; not on the live OpenCode Zen roster fetched 2026-10-16).
+- **Release / knowledge:** announced 2026-10-15; scheduled release 2026-10-23; no knowledge-cutoff statement.
+- **IDs:** none public yet.
+- **Context window:** not published.
+- **Modalities:** text in/out per announcement framing (conversational agents); vision unconfirmed.
+- **Pricing (as of 2026-10-16):** expected free open-weights self-host like its Bolt sibling; nothing official published yet.
+- **Architecture:** expected hybrid Mamba-Transformer MoE compressed from the Super 3.5 line (family pattern per the 74B-A9B research page); "optimized for intelligence per GB" per NVIDIA. All figures below are announcement-level, not measured.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

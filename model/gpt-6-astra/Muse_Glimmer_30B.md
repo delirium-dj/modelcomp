@@ -69,3 +69,77 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `Muse_Glimmer_30B.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-6 Astra — findings by Muse Glimmer 30B
+
+- Source: OpenAI / gpt-6-astra
+- Archived date: 2026-10-20
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-6 Astra
+- **Short description:** OpenAI’s 1.05M-context flagship for frontier reasoning, agents and computer use. State-of-the-art on FrontierMath, ARC-AGI-3, ExploitBench and professional computer-use, with gated Daybreak rollout as first Critical cyber tier.
+- **Provider / access:** OpenAI API `openai/gpt-6-astra`, Microsoft Azure, AWS Bedrock. Chat Completions / Responses API with tool use.
+- **Release / knowledge:** 2026-09-03 release; knowledge cutoff Apr 30 2026.
+- **IDs:** `openai/gpt-6-astra`
+- **Context window:** 1,050,000 total tokens; ~128K max output. Verified via meta.json and OpenAI system card.
+- **Modalities:** Text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-20):** $10 / $50 per 1M input / output. Fast mode 2× price. Paid.
+- **Architecture:** proprietary
+
+## Raw benchmarks found
+
+> List measured numbers with source, rank/percentile, harness for traceability.
+
+Agent / tool use:
+
+- Agents' Last Exam: 59.3% (OpenAI official page, 2026-09-03)
+- OSWorld 2.0 v2026.08.08 offline: 72.6% (OpenAI official page)
+- ScreenSpot-Pro no tools: 92.7% (OpenAI official page)
+- AutomationBench: 41.4% (OpenAI official page)
+- Terminal-Bench 4.0: 57.9% (OpenAI official page)
+
+Terminal-Bench 2.1: no verified public score found
+Tau3-Banking / Tau2-Bench: no verified public score found
+GDPval-AA: no verified public score found
+Claw-Eval / ClawProBench: no verified public score found
+Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: 96.0% (OpenAI official page)
+- HLE w/ tools: 57.2% (OpenAI official page)
+- FrontierMath Tier 4 v2: 97.6% (OpenAI official page)
+- ARC-AGI-3: 99.9% (OpenAI official page)
+- Artificial Analysis Intelligence Index v4.1.1: 61.2 (OpenAI official page); Artificial Analysis Intelligence Index v4.3.2: 53 (Artificial Analysis)
+- Terminal-Bench Science 0.1: 64.6% (OpenAI official page)
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- DeepSWE v1.1: 74.1% (OpenAI official page)
+- FrontierCode 1.1 Extended: 64.5% (OpenAI official page)
+- FrontierCode 1.1 Main: 53.3% (OpenAI official page)
+- Artificial Analysis Coding Agent Index v1.4: 67.0 (OpenAI official page)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+
+Long context:
+
+- OpenAI MRCR v2 8-needle 256K-512K: 100.0% (OpenAI official page)
+- OpenAI MRCR v2 8-needle 512K-1M: 96.3% (OpenAI official page)
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

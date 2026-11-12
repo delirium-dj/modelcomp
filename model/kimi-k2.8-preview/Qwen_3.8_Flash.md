@@ -79,3 +79,72 @@ Staleness-triggered re-research (prior pass 2026-10-17). Confirmation pass: trig
 - Method: public internet research — ZenMux live provider/benchmark panel, OpenCode Data comparison, llm-stats model page, kie.ai hands-on roundup; scores are normalized 1–100 interpretations, not official vendor scores. Coding/reasoning rows are provisional (Preview, no reproduced absolute benchmarks yet).
 - Second-pass signature: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)** — 2026-11-04. Three-way confirmation: no benchmarks published; trigger unfired; bands and Overall 78 stand.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Qwen_3.8_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Qwen_3.8_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K2.8 Preview — findings by Qwen 3.8 Flash
+
+- Source: public web research for `kimi-k2.8-preview` (`moonshot/kimi-k2-8-preview`)
+- Archived date: 2026-10-02 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+- **Status: SELF-EXCLUDED (`.md.excluded`)** — not enough *verified* benchmark data to compute an honest `Overall`. Identity and specs are confirmed; capability scores are not.
+
+### Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's mainstream/coding model, positioned between K2.7 Code and the flagship K3 (a "2.8" that arrives after "3"), delivered inside Kimi Code / Kimi Work and third-party clients under the unchanged `kimi-for-coding` model ID. Officially described as "close to K3" overall, but with **no benchmark table disclosed** — so this report makes no unsupported capability claim.
+- **Provider / access:** Moonshot AI — API + apps only (Kimi Code CLI, Kimi Work); **closed** (unlike the open-weight K2→K3 line). Same API model ID as K2.7 Code (`kimi-for-coding`; a `kimi-for-coding-highspeed` variant is noted).
+- **Release / knowledge:** 2026-09-11 (full rollout); knowledge cutoff not disclosed.
+- **IDs:** `moonshot/kimi-k2-8-preview` / `kimi-for-coding`.
+- **Context window:** **1M** tokens, available on every membership tier (confirmed across Moonshot/demandsphere/ai-all sources).
+- **Modalities:** Text + image + video in; text out (per ai-all.info and demandsphere; tiered reasoning effort low/high/max, max default).
+- **Pricing (as of 2026-10-02):** Subscription membership (¥0–699/month), **not** per-token; a free tier (Adagio) can call the model. No Zen Free API ID.
+- **Architecture:** proprietary/closed API tier of the K-series (KDA hybrid linear attention + Attention-Residuals mechanism, shared with K3, per ai-all.info).
+
+## Raw benchmarks found
+
+> Exhausted sources on 2026-10-02: BenchLM returns **404** (no `kimi-k2-8-preview` page, nor a `kimi-k2-8`/variant redirect); the demandsphere frontier tracker **added the model but recorded no benchmark table** and explicitly warns against trusting third-party directory figures (it flagged a directory "artifact" for a similarly-named non-existent model); the ai-all.info review states the benchmark is "not disclosed"; every numeric Kimi result surfaced resolves to **K2.5 / K2.6**, not K2.8. No independent (Artificial Analysis / Vals / system-card) number for K2.8 itself was found. Cross-variant borrowing from K2.7 Code / K3 is disallowed.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2-Tau3 / GDPval-AA / MCP-Atlas: **no verified public score for K2.8 found**
+- (A directory card's "SWE-Bench Verified ~70.9" could not be attributed to K2.8 by any primary or independent source and is treated as unconfirmed.)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience-Hallucination: **no verified public score for K2.8 found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE: **no verified public score for K2.8 found**
+
+Long context:
+
+- 1M window is specified, but no verified retrieval (MRCR/AA-LCR) result for K2.8 was found.
+
+Multimodal:
+
+- Image + video input is specified by secondary sources, but no verified MMMU-Pro/CharXiv/video score for K2.8 was found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+### Re-verification addendum — 2026-10-08 (UTC), RULES.md L17-21 deeper-research pass
+
+Deeper research was run on the revisit trigger above. **The trigger has not fired: every aggregator and the vendor itself still publish zero capability rows for this ID**, so `Overall` remains non-computable and the self-exclusion stands. Verified negatives (all checked 2026-10-08):
+
+- **BenchLM:** `benchlm.ai/models/kimi-k2-8-preview` → **404** (still no page). The provider index `benchlm.ai/providers/moonshot-ai` ("Last updated: October 8, 2026") tracks **7 Moonshot model families — K3 (70.6), K2.6 (58.6), K2.7 Code (52.1), K2 (29.3), K2.5 (52.0), Moonshot v1 (not ranked), Kimi-Audio 7B (not ranked)** — and **K2.8 Preview is absent from it entirely**. That is a stronger negative than a 404: BenchLM had the opportunity to add it and did not.
+- **Artificial Analysis:** `artificialanalysis.ai/providers/kimi` lists **exactly 5 measured Kimi models — K3 (max) 44, K3 (low) 30, K2.6 27, K2.7 Code 26, K2.6 (non-reasoning) 24**. **No K2.8 Preview entry**, therefore no AA Index, no cost, no speed, no verbosity row to anchor any dimension.
+- **Vendor's own API catalogue:** `platform.kimi.ai/docs/models` (fetched today) lists the current multimodal lineup as **`kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed`, `kimi-k2.6`** only. **`kimi-k2.8-preview` is not an API-documented model** — consistent with the September 11, 2026 in-place swap behind the unchanged `kimi-for-coding` alias inside Kimi Code. The quickstart names no benchmark table for it.
+- **Third-party directories:** secondary cards (ZenMux, models.dev, TrustList, llm-releases, Wokey, kie.ai, HasBeenReleased) repeat only the release fact, the 1,048,576-token context, the `kimi-for-coding` ID and the vendor's qualitative claim ("overall performance close to K3 with more efficient thinking"); their price figures conflict with each other (e.g. **$0.30/$1.20 vs an "official reference" of $1/$4**) and none is attributable to Moonshot. Reviews published the same week state plainly that **"Moonshot has not published an independent benchmark table for K2.8 Preview in the entry"**.
+- **Numeric results surfaced in searches all resolve to K2.5 / K2.6 / K2.7 Code / K3** (e.g. SWE-bench Verified 80.2 and Terminal-Bench 2.0 66.7 are K2.6 rows). Cross-variant borrowing remains disallowed, so **Tool / Reasoning / Coding still have zero verified rows** and a five-dimension mean cannot be produced.
+
+Conclusion: new *verified* evidence exists only on the **identity/spec** axis (three aggregators and the vendor model list now positively confirm the ID is unmeasured and not API-documented); nothing new is verified on the **capability** axis. Per `RULES.md` (never fabricate, self-exclusion when `Overall` is not computable) this file stays `.md.excluded`, with its original 2026-10-02 findings unmodified. Re-run this check if Moonshot publishes a K2.8 benchmark table or an aggregator opens a measured page.

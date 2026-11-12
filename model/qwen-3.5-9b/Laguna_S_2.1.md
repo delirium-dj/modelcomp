@@ -140,3 +140,61 @@ Multimodal & vision:
 - Future sources: add a new file next to this one using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Laguna_S_2.1.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Laguna_S_2.1.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.5 9b — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/qwen-3-5-9b`), HuggingFace, OpenRouter
+- Archived date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.5 9b
+- **Short description:** Alibaba Cloud's 9B parameter model variant of Qwen 3.5.
+- **Provider / access:** Alibaba Cloud Model Studio; OpenRouter
+- **IDs:** `opencode/qwen-3.5-9b` (per `meta.json`); `qwen-3-5-9b` (AA slug, dots→hyphens)
+- **Context window:** 128K total (per `meta.json`)
+- **Modalities:** Text in/out (per `meta.json`)
+
+#### Research log (2026-10-16 re-verification)
+
+1. Searched AA model page (`https://artificialanalysis.io/models/qwen-3-5-9b`) — **403 (blocked)** (previously 404 on 2026-10-01). Artificial Analysis page inaccessible.
+2. Searched AA alternate slug (`https://artificialanalysis.io/models/qwen3-5-9b`) — **403 (blocked)**.
+3. Searched BenchLM (`https://benchlm.ai/models/qwen-3-5-9b`) — **404 (page not found)**. BenchLM has no entry.
+4. Searched HuggingFace (`https://huggingface.co/Qwen3.5-9B`) — **404 (page not found)**.
+5. Searched OpenRouter for `qwen/qwen-3.5-9b` — model not listed.
+6. Searched AA models directory — Qwen 3.8 27B exists but Qwen 3.5 9b not listed.
+7. No official Alibaba launch post or tech report with benchmarks found.
+
+Previous research log (2026-10-01, original exclusion):
+1. AA model page — 404 (page not found).
+2. AA alternate slug — 404.
+3. BenchLM — 404.
+4. HuggingFace — 404.
+5. OpenRouter — not listed.
+6. AA directory — Qwen 3.8 27B exists but no Qwen 3.5 9b.
+7. No official announcement with benchmarks.
+
+### Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Qwen 3.5 9b / `opencode/qwen-3.5-9b`.
+
+The model does not have entries on Artificial Analysis (403 blocked; previously 404), BenchLM (404), HuggingFace (404), or OpenRouter. No official launch post, tech report, or other verified public source with benchmark numbers could be found.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 70.9) are derived from peer model ratings only, not from verified public benchmarks. When Qwen 3.5 9b publishes benchmark numbers and/or appears on Artificial Analysis or BenchLM, this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+---
+
+---

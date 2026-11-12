@@ -68,3 +68,35 @@ Long context:
   - [Anthropic — Introducing Claude Fable 5.2 and Claude Mythos 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2)
   - [Anthropic — Claude Fable 5.2 and Mythos 5.2 System Card](https://www.anthropic.com/document/claude-fable-5-2-mythos-5-2-system-card)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Mythos 5.2 — findings by Muse Glimmer 30B — SELF-EXCLUDED
+
+- Source: Anthropic (`claude-mythos-5.2`)
+- Archived date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Claude Mythos 5.2
+- **Short description:** Anthropic's restricted security-vetted configuration of Fable 5.2 deployed with lifted dual-use refusals for verified defensive cyber and biosecurity research.
+- **Provider / access:** Anthropic API, CVP/Glasswing vetted access only.
+- **Release / knowledge:** 2026-11-09 release per meta.
+- **IDs:** `anthropic/claude-mythos-5.2`
+- **Context window:** 1M / 128K out
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-11-11):** Paid $10/$50 per 1M
+- **Architecture:** Proprietary
+
+#### Research notes
+
+No verified public benchmark numbers found for `claude-mythos-5.2` in public sources as of 2026-11-11. Model is restricted-access and no independent evaluations published. Self-excluding per RULES.md.

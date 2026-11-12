@@ -305,13 +305,16 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * `gemini-3.1-flash-lite` (own folder). DeepMind card, Google Cloud docs,
  * OpenRouter, AA and BenchLM all 404 the bare id; folder findings scored
  * Flash-Lite data — RULES.md family-shorthand identity);
- * `longcat-2.5` (2026-10-22, phantom GA name — Meituan published no standalone
- * LongCat 2.5; the 2.5 generation exists only as the API-only LongCat-2.5-Preview
- * tracked in `longcat-2.5-preview/`, and the folder's own meta idNote records the
- * id does not resolve — RULES.md family-shorthand identity). The folders were
- * removed from disk and git on explicit user order 2026-11-03 (deleted
- * phantoms, `DELETED_PHANTOM_SLUGS` in scripts/lib/validate.mjs); this mirror
- * list stays as defense-in-depth so a restored folder is still hidden.
+ * `longcat-2.5` — UNPARKED 2026-11-12 (reverses the 2026-10-22 park): parked
+ * as a "phantom GA name — Meituan published no standalone LongCat 2.5; the 2.5
+ * generation exists only as the API-only LongCat-2.5-Preview tracked in
+ * `longcat-2.5-preview/`, and the folder's own meta idNote records the id does
+ * not resolve". That verdict was CORRECT WHEN MADE and is now SUPERSEDED:
+ * Meituan shipped the GA on 2026-11-02 (change log "LongCat-2.5 Now Available";
+ * `GET /openai/v1/models` returns exactly one model, `LongCat-2.5`), so the
+ * folder was renamed `longcat-2.5-preview` -> `longcat-2.5` on user order.
+ * `longcat-2.5-preview` is now in MERGED_MODEL_SLUGS (validate.mjs), never
+ * re-scaffolded. See the RETIRED_SLUGS note above.
  * Excluded from MODELS, so no
  * cards, no A/B/C slots, no per-model page, no prev/next links. Revealed
  * stealth aliases are NOT parked anymore (user rule 2026-10-24): `space-bunny`
@@ -327,12 +330,19 @@ function loadMetas(): { slug: string; meta: MetaFile }[] {
  * `ox_alpha` — user-ordered park overriding the revealed-stealth merge rule:
  * stealth preview of `glm-5.3-flash` (Z.ai-confirmed 2026-08-26); searches
  * for "Ox Alpha" resolve to the canonical model via its meta `aliases`.
+ * `longcat-2.5` — UNPARKED 2026-11-12 (reverses the 2026-10-22 park): the
+ * "phantom GA name" verdict was correct when made but Meituan shipped the
+ * GA on 2026-11-02 ("LongCat-2.5 Now Available" in the vendor change log,
+ * and `GET /openai/v1/models` now returns only `LongCat-2.5`), so the
+ * tracked folder was renamed `longcat-2.5-preview` → `longcat-2.5` on user
+ * order. Searches for the retired preview spelling resolve via the
+ * canonical meta `aliases` and `MERGED_MODEL_SLUGS`.
  * Mirror list for the research queue: RETIRED_SLUGS in scripts/lib/average.mjs;
  * convention documented in model/README.md ("Parking a model"). Never invent
  * a third list — the two mirror each other. Reversible: remove the slug here
  * (and there) and it reappears on the next build.
  */
-const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "qwen-3.7", "qwen-3.5-flash-lite", "kimi-k2.7-code-highspeed", "glm-4.6-flash", "gemini-3.1-flash", "longcat-2.5", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret", "gpt-oss-120b-lite"]);
+const RETIRED_SLUGS: ReadonlySet<string> = new Set(["glm-5.3-free", "gemini-2.5", "qwen-3.5", "qwen-3.7", "qwen-3.5-flash-lite", "kimi-k2.7-code-highspeed", "glm-4.6-flash", "gemini-3.1-flash", "claude-opus-4.4", "claude-opus-3.7", "claude-sonnet-5.4", "qwen-3.8-325b", "ox_alpha", "omi-alpha", "omin-alpha", "frantic-ferret", "gpt-oss-120b-lite"]);
 
 /**
  * Hydrated models, sorted by id for determinism. Scores/sources come from

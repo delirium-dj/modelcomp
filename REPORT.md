@@ -1,5 +1,71 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-12 — longcat-2.5-preview renamed to longcat-2.5 (Meituan's GA superseded its own preview)
+
+1. **Identity.** Verified against Meituan's own documentation, read fresh 2026-11-12. `LongCat 2.5` and
+   `LongCat 2.5 Preview` are **not two names for one model** — they are two sequential releases of one
+   model line, exactly parallel to the vendor's own 2.0 precedent:
+   `LongCat-2.0-Preview` (2026-04-20) → `LongCat-2.0` (2026-06-30 GA), and
+   `LongCat-2.5-Preview` (2026-09-25) → **`LongCat-2.5` (2026-11-02 GA)**.
+   Three independent confirmations from the vendor's current docs:
+   the change log carries a **2026-11-02** entry *"LongCat-2.5 Now Available"*;
+   `GET /openai/v1/models` now returns **exactly one model**, `{"id": "LongCat-2.5", "owned_by": "LongCat"}`
+   — the `-Preview` ID is **retired from the vendor catalogue**; and the pricing page H1 reads
+   *"Pay-As-You-GO currently supports LongCat-2.5"*. `Retrieve Model` for `LongCat-2.5` returns
+   `context_length: 1048576` with `input_modalities: ["text"]` — see the modality caveat below.
+2. **This reverses a prior user-ordered decision, deliberately.** `longcat-2.5` was parked on 2026-10-22
+   as a *"phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only
+   LongCat-2.5-Preview"*, and a folder `model/longcat-2.5/` was deleted on user order 2026-11-03.
+   That verdict was **correct when made** (no GA entry existed in the change log on 2026-10-22) and is
+   now **superseded**: the GA shipped 11 days later. The tracked folder was pointing at a
+   **retired vendor ID**, so the repo was tracking a dead endpoint. Unpark + rename approved by the
+   user on that basis.
+3. **Rename (user order 2026-11-12; per-file deletions confirmed).** `model/longcat-2.5-preview/`
+   (52 files on disk, 57 tracked) renamed to `model/longcat-2.5/`: **52 files moved as pure path
+   moves** (contents byte-identical), **5 deletions** of `.md.excluded` twins that a concurrent
+   research agent retired in-place minutes earlier (`GLM_5.3_Flash`, `LongCat_2.5_Preview`,
+   `MiMo_2.6_Flash`, `MiniMax_M3.1_Flash`, `Muse_Glimmer_30B`) — those came through as pure
+   deletions with their replacement live reports staged alongside. The moved `average.md` H1 was
+   fixed to "LongCat 2.5 - Averaged findings" (`pnpm sync` recomputes the means; applyAverageToPrev
+   preserves heads). The rater stem `LongCat_2.5_Preview` was **not** renamed — it is a separate
+   identity from the model slug, its 61 reports in other model folders stay frozen, and it keeps
+   resolving through the canonical meta `aliases`.
+4. **Canonical `meta.json` rewritten.** `name` `LongCat 2.5 Preview` → **`LongCat 2.5`**; `id` unchanged
+   (`opencode/longcat-2.5-preview-free` — the OpenCode Zen route, still the gateway route the repo
+   indexes; `checkMetaFile` clean). `aliases` now carry every spelling — `LongCat 2.5 Preview`,
+   `LongCat-2.5-Preview`, `longcat-2.5-preview`, `longcat-2.5-preview-free`, `LongCat-2.5`,
+   `longcat-2.5`, `meituan/longcat-2.5-preview`, `Meituan LongCat` — so searching by the retired
+   preview name still resolves to this one card on `#models`. The stale `tradeoff` line ("the folder's
+   own findings are a self-exclusion, so treat the scores as unknown") was corrected: the folder's
+   `average.md` reports a real 18-rater above-gate pool (Overall 72.7), not a self-exclusion.
+   `modalities` was corrected from `"Text, image in; text out"` to `"Text in; text out"` — see below.
+5. **Unresolved vendor contradiction, recorded rather than resolved.** The 2026-11-02 GA change log
+   claims *"Native Multimodality, Beyond Text"*, while the GA's own `Retrieve Model` reference returns
+   `input_modalities: ["text"]` / `modality: "text->text"` and the Chat Completions reference describes
+   `content` as a plain-text string with no image field. OrcaRouter documented the identical
+   contradiction in October for the Preview and it is still open in November. Because the repo's
+   previous meta asserted image input on the strength of the changelog alone, `modalities` is now set
+   to the conservative `Text in; text out` and the `tradeoff` line states the conflict explicitly.
+   **This is a score-affecting pending item**: the folder's `Multimodal` average (56.3) was earned by
+   raters who assumed vision; if the API reference is right, that dimension is overstated. No scores
+   were changed in this entry (findings prose is frozen history; only `meta.json` was corrected).
+6. **Code lists.** `longcat-2.5-preview` → `longcat-2.5` added to `MERGED_MODEL_SLUGS`
+   (never re-scaffolded; a resurrected folder FAILs `mergedSlugMessage`), with matching
+   `CASE_LAW_NOTES` entries for **both** `longcat-2.5` (rewritten to record the supersession) and
+   `longcat-2.5-preview` (new). `longcat-2.5` **removed from `RETIRED_SLUGS` in both mirror lists**
+   (`scripts/lib/average.mjs`, `src/data/models.ts`) and the now-wrong park comments rewritten in both.
+   Provider catalogs repointed at the GA slug: `providers/longcat/meta.json` (covers + plan name
+   `LongCat-2.5-Preview - pay-as-you-go` → `LongCat-2.5 - pay-as-you-go`), `providers/nous-portal/meta.json`,
+   `providers/vercel-ai-gateway/meta.json`. Two regression tests added; **692/692 green**.
+7. **Process note.** The rename was executed once and then **reverted by an external process** mid-task
+   (an active research swarm restored `model/longcat-2.5-preview/` from git, preserving working-tree
+   edits), which forced a second rename. All code-list edits survived both passes. The swarm was
+   writing across the whole tree at the time (15 files in 10 minutes) and had already retired five
+   `.md.excluded` twins inside this folder.
+   Next: user runs `pnpm sync && pnpm build.types:direct && pnpm build:direct`, then spot-checks
+   `#models` search for `longcat-2.5`, `longcat 2.5`, `longcat-2.5-preview` and `Meituan`, and
+   `http://localhost:5173/model/longcat-2.5/`.
+
 ## 2026-11-12 — Qwen 3.8 2400B A95B merged into Qwen 3.8 Max (one checkpoint, two releases)
 
 1. **Identity.** `qwen-3.8-2400b-a95b` is a **param-size respelling of one model**, not a second model

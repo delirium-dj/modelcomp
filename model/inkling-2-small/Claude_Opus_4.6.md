@@ -52,3 +52,64 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-20
 - Method: Meta.json analysis; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Fledge Alpha — findings by Claude Opus 4.6
+
+- Source: OpenCode / Thinking Machines (`fledge-alpha`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Fledge Alpha
+- **Short description:** A routing-based AI model appearing on the OpenCode platform around October 1, 2026. Intelligently directs queries to different underlying models (e.g., DeepSeek V4.1, Kimi, others) based on the prompt. Linked to Thinking Machines / "Inkling" project infrastructure.
+- **Provider / access:** OpenCode Zen (free/trial model); routing-based architecture.
+- **Release / knowledge:** ~2026-10-01 release (trial/feedback phase); knowledge cutoff dependent on underlying routed models.
+- **IDs:** `opencode/fledge-alpha` (estimated)
+- **Context window:** Dependent on underlying routed models; likely up to 1M tokens based on the models it routes to.
+- **Modalities:** Dependent on routed models; text in/out confirmed. Vision capability varies by routing.
+- **Pricing (as of 2026-10-03):** Free/trial during feedback phase. No standard pricing confirmed.
+- **Architecture:** Router/orchestrator layer directing queries to multiple underlying models (DeepSeek V4.1, Kimi, others). Not a single foundation model. Linked to Thinking Machines (U.S.-based).
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- No standardized benchmarks applicable — performance depends on which model is routed to per query.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- Performance varies per routed model; inconsistent behavior observed by users.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found.
+- Performance inherits from underlying models (DeepSeek V4.1, Kimi — both strong coders).
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+
+Long context:
+
+- Inherited from underlying models— likely up to 1M tokens. No specific MRCR / RULER / GraphWalks score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

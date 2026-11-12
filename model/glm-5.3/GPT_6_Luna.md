@@ -68,3 +68,54 @@ Long context / multimodal:
 - Method: Independent research across Z.AI's model documentation and hosted model card, the full GLM-5.3 license, Artificial Analysis, Vals AI's exact model page and archived/versioned leaderboards, BenchLM's sourced rollup, and OpenRouter's endpoint listing. Official, third-party, private, and cybersecurity-only evaluations are distinguished; Terminal-Bench versions and harnesses are not conflated. Scores are normalized interpretations, not official ratings.
 - Sources: [Z.AI GLM-5.3 model guide](https://docs.z.ai/guides/llm/glm-5.3); [Z.AI API pricing](https://docs.z.ai/guides/overview/pricing); [Z.AI GLM-5.3 Hugging Face model card and benchmark table](https://huggingface.co/zai-org/GLM-5.3); [GLM-5.3 license](https://huggingface.co/zai-org/GLM-5.3/raw/main/LICENSE); [Artificial Analysis GLM-5.3 (max)](https://artificialanalysis.ai/models/glm-5-3); [Vals AI GLM-5.3 exact-model results](https://www.vals.ai/models/zai_glm-5.3); [Vals AI Terminal-Bench 2.1 archived leaderboard](https://www.vals.ai/benchmarks/terminal-bench-2-1); [Vals AI Terminal-Bench 4.0 leaderboard and methodology](https://www.vals.ai/benchmarks/terminal-bench-4); [BenchLM sourced benchmark rollup](https://benchlm.ai/models/glm-5-3); [OpenRouter GLM-5.3 route](https://openrouter.ai/z-ai/glm-5.3).
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GLM 5.3 — findings by GPT-6 Luna
+
+- Source: Z AI/GLM 5.3
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GLM 5.3
+- **Short description:** Z AI GLM model tracked under the base 5.3 slug. Three searches did not retrieve exact-model primary documentation or benchmark evidence; Flash/FlashX variants are not used as proxies.
+- **Provider / access:** Z AI; exact API route not verified.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** tracked label `GLM 5.3`; canonical API identifier unverified.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+## Raw benchmarks found
+
+No traceable exact-base benchmark results found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

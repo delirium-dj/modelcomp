@@ -48,3 +48,63 @@ Exact FlashX capability coverage remains thin; the nearest public benchmark lane
   - [GLM-5.3 FlashX pricing/spec profile](https://commandcode.ai/models/glm-5-3-flashx)
   - [BenchLM GLM-5.3 Flash profile](https://benchlm.ai/models/glm-5-3-flash)
   - [GLM-5.3 FlashX provider pricing](https://ctrlaltdebrief.com/tools/pricing/models/glm-5-3-flashx)
+
+---
+
+## Archived research pass — `GPT_5.6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GLM-5.3 Flash X — findings by GPT 5.6 Luna
+
+- Source: Z.AI / purported `glm-5.3-flash-x`
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GLM-5.3 Flash X
+- **Short description:** The exact public identity of this purported GLM-5.3 Flash X variant could not be verified. It may be a provider label or an unindexed serving variant rather than a separately documented Z.AI model.
+- **Provider / access:** No authoritative provider page or exact API route was found. Searches for `glm-5.3-flash-x` did not establish whether it is distinct from GLM-5.3 Flash.
+- **Release / knowledge:** Not verified.
+- **IDs:** No verified provider/model ID found.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-23):** Not verified.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found
+
+Independent checks performed on 2026-10-23 UTC:
+
+- [Bing exact-name official/benchmark search](https://www.bing.com/search?q=%22GLM-5.3-Flash-X%22+official+benchmark) — no exact Z.AI model card or benchmark result surfaced.
+- [Hugging Face exact repository](https://huggingface.co/zai-org/GLM-5.3-Flash-X) — returned 401; no public exact model card was verified.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/glm-5-3-flash-x) — 404.
+- [BenchLM exact-model lookup](https://www.benchlm.ai/models/glm-5-3-flash-x) — 404.
+- [Models.dev model catalog lookup](https://models.dev/models/zai/glm-5.3-flash-x) — no exact model page; the catalog did not establish a canonical entry.
+- [OpenRouter catalog search](https://openrouter.ai/models?q=glm-5.3-flash-x) — no exact model listing was surfaced.
+
+No verified public benchmark number was found for the exact model/ID. Figures from GLM-5.3 Flash or GLM-5.3 FlashX were not substituted because the exact identity is unresolved. This report is self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public context or retrieval measurement found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

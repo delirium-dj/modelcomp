@@ -148,7 +148,7 @@
 73.6 ternary-bonsai-27b
 73.4 beam
 73.4 claude-sonnet-3.5
-72.7 longcat-2.5-preview
+72.7 longcat-2.5
 72.7 nemotron-3-ultra-free
 72.3 qwen-3-max
 72.1 hy3

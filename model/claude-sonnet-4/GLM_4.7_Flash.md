@@ -66,6 +66,269 @@ Long context:
 - Provided by: **GLM 4.7 Flash (zhipu-ai/glm-4.7-flash)** — 2026-10-25
 - Method: Average.md data from model comparison; scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GLM_4.7_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data. The archived pass (dated 2026-10-30) reported Overall 77.6/100 — superseded by the active scores above.
+
+## CLAUDE-SONNET-4 — GLM_4.7_Flash Research Report
+
+
+---
+
+### Model card
+
+- **Name:** Claude Sonnet 4
+- **Short description:** Anthropic's flagship general-purpose model from the Claude Sonnet 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
+- **Provider / access:** Anthropic API (proprietary)
+- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
+- **IDs:** Not specified
+- **Context window:** Not specified
+- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode supported
+- **Pricing:** Not specified
+- **Architecture:** Proprietary (Anthropic)
+
+## Raw benchmarks found
+
+> no verified public score found for this exact model/ID — closest proxy: Claude Sonnet 4 benchmarks
+
+Agent / tool use:
+
+- Terminal-Bench-Science 0.1: no verified public score found
+- OSWorld 2.0: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- CursorBench 3.2: no verified public score found
+- Toolathon-Verified: no verified public score found
+- Bug Hunt Bench: no verified public score found
+- SWE Multilingual: no verified public score found
+- DeepSWE: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+- ArXivMath (June 2026): no verified public score found
+- AA-Omniscience Net Score: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found
+- SWE-bench Pro: no verified public score found
+- LiveCodeBench Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench v1.1: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+### Executive Summary
+
+Claude Sonnet 4 is Anthropic's flagship general-purpose model from the Claude Sonnet 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 108th overall with a score of 77.6/100, indicating strong performance in the frontier model landscape. Claude Sonnet 4 is part of the Claude Sonnet 4 series alongside Claude Sonnet 4, Claude Sonnet 4.5, Claude Sonnet 4.3, and Claude Sonnet 4.2, offering different capabilities and pricing tiers.
+
+---
+
+### Model Identity and Background
+
+**Developer:** Anthropic
+**Release Date:** 2026
+**Series:** Claude Sonnet 4 (Claude Sonnet 4, Claude Sonnet 4.5, Claude Sonnet 4.3, Claude Sonnet 4.2)
+**Predecessor:** Claude Sonnet 3.7 (2026)
+**Successor:** Not yet announced
+**License:** Proprietary
+**Context Window:** Not specified
+**Max Output:** Not specified
+
+Claude Sonnet 4 is Anthropic's flagship general-purpose model from the Claude Sonnet 4 series, released in 2026. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 108th overall with a score of 77.6/100, indicating strong performance in the frontier model landscape. Claude Sonnet 4 is part of the Claude Sonnet 4 series alongside Claude Sonnet 4.5, Claude Sonnet 4.3, and Claude Sonnet 4.2, offering different capabilities and pricing tiers.
+
+---
+
+### Official Documentation
+
+#### Anthropic Model Documentation
+**Snapshot:** 2026-10-30
+
+Technical specifications include:
+- Context window: Not specified
+- Max output: Not specified
+- Pricing: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Thinking: Not specified
+- Default effort: Not specified
+- Knowledge cutoff: Not specified
+- Inputs: Text
+- Outputs: Text
+
+#### Anthropic System Card
+**Snapshot:** 2026-10-30
+
+The system card provides detailed information about:
+- Model capabilities and safety evaluations
+- Risk assessment and mitigation strategies
+- Benchmark results and performance metrics
+- Use cases and deployment recommendations
+- Responsible Scaling Policy (RSP) evaluations
+
+#### Anthropic API Pricing
+**Snapshot:** 2026-10-30
+
+Detailed pricing information including:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
+
+---
+
+### Independent Benchmarks and Reviews
+
+#### Model-Queue Ranking
+**Snapshot:** October 2026
+
+Claude Sonnet 4 ranks 108th overall with a score of 77.6/100, indicating strong performance in the frontier model landscape.
+
+#### Third-Party Comparisons
+**Snapshot:** 2026
+
+Multiple independent sources provide comparative analysis:
+- Claude Sonnet 4 vs Claude Sonnet 4.5: Same series with improved capabilities
+- Claude Sonnet 4 vs Claude Sonnet 4.3: Same series with improved capabilities
+- Claude Sonnet 4 vs Claude Sonnet 4.2: Same series with improved capabilities
+- Pricing: Not specified
+
+---
+
+### Availability and Pricing
+
+#### Distribution Channels
+**Snapshot:** 2026
+
+- Available through Anthropic API
+- Available through Amazon Bedrock
+- Available through Google Cloud Vertex AI
+- Available through Microsoft Foundry
+
+#### Pricing Information
+**Snapshot:** 2026
+
+Standard pricing:
+- Input: Not specified
+- Output: Not specified
+- Cache read: Not specified
+- Cache write: Not specified
+- Batch API: Not specified
+- Context window: Not specified
+
+Pricing comparison:
+- Claude Sonnet 4: Not specified
+- Claude Sonnet 4.5: Not specified
+- Claude Sonnet 4.3: Not specified
+- Claude Sonnet 4.2: Not specified
+
+#### Cost Efficiency Analysis
+**Snapshot:** 2026
+
+Claude Sonnet 4's real cost efficiency depends on:
+- Prompt caching usage (not specified)
+- Batch API usage (not specified)
+- Effort level selection (not specified)
+- Task complexity and length (not specified)
+- Context length (not specified)
+- Task type (not specified)
+
+The model is positioned as Anthropic's flagship general-purpose model for complex reasoning, coding, and knowledge work with optimized speed and extended context capabilities. Detailed pricing information is not available in public sources.
+
+---
+
+### Strengths
+
+1. **General-Purpose Performance:** Designed for complex reasoning, coding, and knowledge work
+2. **Anthropic Ecosystem Integration:** Seamless integration with Anthropic's various platforms and services
+3. **Knowledge Cutoff:** Not specified (likely current)
+4. **Enterprise Integration:** Available through AWS, Google Cloud, and Microsoft Azure
+5. **Multimodal Capabilities:** Text input support
+6. **Claude Sonnet 4 Series:** Part of the newest generation of Claude models
+7. **Optimized Speed:** Designed for faster inference
+8. **Extended Context:** Designed for longer contexts
+
+---
+
+### Weaknesses
+
+1. **Limited Independent Benchmarks:** Few third-party benchmark sources specifically for Claude Sonnet 4
+2. **Documentation:** Available documentation is less detailed than OpenAI, Anthropic, and Google's own marketing
+3. **Knowledge Cutoff:** Not specified (older than some competitors)
+4. **Pricing:** Not specified
+5. **Context Window:** Not specified
+6. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials
+7. **Self-Hosting:** Weights are not published (proprietary)
+
+---
+
+### Use Cases
+
+#### Best For:
+- Complex, long-running agentic workflows (multi-hour coding sessions and research)
+- Enterprise applications requiring strong reasoning and coding capabilities
+- Organizations heavily invested in Anthropic ecosystem
+- Cost-sensitive applications with good prompt caching strategies
+- Research-grade tasks requiring strong agentic performance
+- Applications requiring faster inference speed and extended context
+
+#### Not Ideal For:
+- Organizations outside Anthropic ecosystem
+- Applications requiring extensive third-party benchmark validation
+- Organizations with strict data sovereignty requirements
+- Real-time applications requiring ultra-low latency
+- General-purpose applications (other Claude models may offer better value)
+- Organizations preferring self-hosting capabilities
+
+---
+
+### Conflicting Evidence and Notes
+
+1. **Knowledge Cutoff:** Not specified, which may affect performance on recent events and information.
+
+2. **Documentation Availability:** Available documentation is less detailed than OpenAI, Anthropic, and Google's own marketing materials, making it difficult to assess full capabilities.
+
+3. **Ecosystem Integration:** Strongest when integrated with Anthropic services, which may not be suitable for all organizations.
+
+4. **Pricing Transparency:** Pricing is not specified in public sources, which may be unexpected for some users.
+
+5. **Documentation Availability:** Available documentation is less detailed than OpenAI and Anthropic's own marketing materials, making it difficult to assess full capabilities.
+
+6. **Self-Hosting:** Weights are not published, limiting customization and control.
+
+---
+
+### Conclusion
+
+Claude Sonnet 4 is Anthropic's flagship general-purpose model from the Claude Sonnet 4 series, released in 2026, designed for complex reasoning, coding, and knowledge work. It features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities. The model ranks 108th overall with a score of 77.6/100, indicating strong performance in the frontier model landscape.
+
+However, detailed public information about Claude Sonnet 4 is limited compared to other frontier models from Western companies. The model's strengths in general-purpose performance, speed, and extended context make it a strong contender in the current market, particularly for organizations needing sophisticated AI for complex, multi-hour workflows and research tasks with faster inference and longer contexts. The limited independent benchmark data and lack of specified knowledge cutoff, pricing, and context window may affect decision-making for some organizations.
+
+For organizations heavily invested in the Anthropic ecosystem and seeking flagship model capabilities for complex reasoning, coding, and knowledge work with optimized speed and extended context, Claude Sonnet 4 could be a viable option. For organizations requiring extensive documentation, benchmark validation, and third-party support, established models from OpenAI, Anthropic, or Google may offer better value and transparency. The lack of detailed pricing information and context window may also be a concern for organizations needing specific capabilities.
+
+**Overall Assessment:** Solid general-purpose performance with optimized speed and extended context; however, limited public documentation and benchmark data compared to other frontier models, and lack of specified knowledge cutoff, pricing, and context window may affect decision-making.
 
 ---
 

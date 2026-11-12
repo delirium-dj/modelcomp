@@ -48,3 +48,64 @@ Scores derived from composite Intelligence Index and specs; specific benchmark n
 - Provided by: **Muse Glimmer 30B (muse-glimmer-30b)** — 2026-11-03
 - Method: public internet research; scores are normalized interpretations, not official vendor scores. Specific per-benchmark numbers are not published by vendor.
 - Future sources: add a new file next to this one.
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 4 Fast — findings by Muse Glimmer 30B
+
+- Source: xAI / grok-4-fast
+- Archived date: 2026-10-24
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** Grok 4 Fast
+- **Short description:** Enterprise-oriented speed-optimised variant of Grok 4 family for tool-calling and agentic workflows.
+- **Provider / access:** xAI. Available via SuperGrok/Premium+, xAI API. No standalone model card for grok-4-fast published.
+- **Release / knowledge:** Released September 2025 per Wikipedia; knowledge cutoff not published for Fast variant. Grok 4.7 cutoff stated May 2026.
+- **IDs:** slug `grok-4-fast`
+- **Context window:** Wikipedia claims up to 2M tokens; official xAI docs list 256k for Grok 4 API and 500k for Grok 4.7. No official confirmation for Fast variant.
+- **Modalities:** Text input/output with native tool use and real-time search; multimodal per Grok 4 family.
+- **Pricing as of 2026-10-24:** No public per-token price listed for grok-4-fast on docs.x.ai. Grok 4.7 pricing published.
+- **Architecture:** Proprietary; not disclosed.
+
+## Raw benchmarks found
+
+SELF-EXCLUSION: No verified public benchmark numbers found for this exact model/ID in independent, citable sources. xAI does not publish a standalone model card for grok-4-fast; public raw scores for Terminal-Bench, GDPval-AA, Humanity’s Last Exam, SWE-bench, LiveCodeBench are not released for the Fast variant. Wikipedia cites independent analyses referencing performance similarity to Grok 4 with 40% fewer thinking tokens but provides no benchmark tables.
+
+Agent / tool use:
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- no long-context retrieval reported in publicly accessible numeric form
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

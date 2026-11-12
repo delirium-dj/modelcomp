@@ -63,3 +63,57 @@ Long context:
 - Provided by: **LongCat 2.5 Preview (meituan/longcat-2.5-preview)** — 2026-10-18
 - Method: Public internet research (OpenRouter, Stealth Models, Longshot AI, AI Benchy, RoboRhythms, AlphaSignal/Tabbit, Awesome Agents, FelloAI, LMRank, DigitalToday, Upend, SandBase, JustOBorn, Vijayasimha BR); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `LongCat_2.5_Preview.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `LongCat_2.5_Preview.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Owl Alpha — findings by LongCat 2.5 Preview
+
+- Source: OpenRouter/Owl Alpha
+- Archived date: 2026-10-09 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Owl Alpha
+- **Short description:** Stealth/anonymous high-performance foundation model on OpenRouter designed for agentic workloads. Natively supports tool use and long-context tasks. Reportedly identified as Meituan LongCat-2.0-Preview (unconfirmed). Free on OpenRouter.
+- **Provider / access:** OpenRouter (`openrouter/owl-alpha`). Free tier.
+- **Release / knowledge:** 2026-04-28.
+- **IDs:** `openrouter/owl-alpha`
+- **Context window:** 1,048,576 tokens (verified via OpenRouter, AI Hippo); up to 262,144 output tokens.
+- **Modalities:** Text input; Text output. Reasoning: yes. Tool calling: yes (function calling, structured output).
+- **Pricing (as of 2026-10-09):** Free ($0/$0) on OpenRouter. Proprietary license.
+- **Architecture:** Unknown. Reportedly 1.6T parameter MoE with 48B active (unconfirmed, allegedly Meituan LongCat-2.0-Preview).
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- Context window: 1,048,576 tokens (verified via OpenRouter)
+
+Multimodal:
+
+- Text input only (OpenRouter, ModelCompare)
+- No image, audio, or video support listed
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

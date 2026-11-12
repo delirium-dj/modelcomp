@@ -62,3 +62,54 @@ Long context:
   - [Qwen3.8 Max benchmarks & sources — BenchLM](https://benchlm.ai/models/qwen3-8-max)
   - [models.dev provider catalog](https://models.dev)
 - Future sources: add a new file next to this one, e.g. `Qwen_3.8_Max_v2.md`, using the same headings.
+
+---
+
+## Archived research pass — `Ernie_5.5_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Ernie_5.5_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen3.8-2.4T-A95B — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUSION — `.md.excluded` on purpose: this slug is the **open-weight
+> checkpoint of `qwen-3.8`** (same weights, already researched in
+> `model/qwen-3.8/`), and BenchLM/models.dev have no separate profile for the
+> suffixed name. Filing a second report here would double-count one model.
+
+- Source: Alibaba Cloud/Qwen3.8-2.4T-A95B (`qwen-3.8-2400b-a95b`)
+- Archived date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen3.8-2.4T-A95B
+- **Short description:** The open-weight checkpoint of the Qwen3.8 flagship: 2.4T total / 95B active sparse MoE, 1M context, released 2026-08-08/12. Identical weights to the model tracked under `qwen-3.8`.
+- **Provider / access:** Self-hosted (Hugging Face `Qwen/Qwen3.8-2.4T-A95B`, FP8 variant), ModelScope, plus gateway routes.
+- **Release / knowledge:** 2026-08-08 (weights) / 2026-08-12 (listings); knowledge cutoff not published.
+- **IDs:** `qwen-3.8-2400b-a95b`, `Qwen/Qwen3.8-2.4T-A95B`.
+- **Context window:** 1,000,000 tokens; max output 131,072.
+- **Modalities:** text in / text out (the open checkpoint is a language model; vision ships in the hosted Max service).
+- **Pricing (as of 2026-11-11/12):** open weights (Qwen3.8-Max licence), free to self-host; hosted Qwen3.8-Max-class routes ~$2/$6 per 1M.
+- **Architecture:** sparse MoE, 2.4T total / 95B active (Qwen).
+
+## Raw benchmarks found
+
+> The vendor's benchmark table is filed under the canonical `qwen-3.8` folder (terminal-bench 2.1 86.6, GPQA 92.6, SWE-bench Pro 67.7, DeepSWE 56.6, MRCR-style long-context rows). Those figures are **not repeated here** to avoid double-counting one checkpoint across two folders.
+
+Agent / tool use: see `model/qwen-3.8/Ernie_5.5_Flash.md`
+Reasoning / knowledge: see `model/qwen-3.8/Ernie_5.5_Flash.md`
+Coding: see `model/qwen-3.8/Ernie_5.5_Flash.md`
+Long context: 1M declared; no MRCR / RULER / GraphWalks row published for this exact slug
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+### Search notes
+
+- `benchlm.ai/models/qwen-3-8-2400b-a95b` → HTTP 404; models.dev has no entry under the parameter-qualified name.
+- Hugging Face `Qwen/Qwen3.8-2.4T-A95B` describes itself as the checkpoint behind Qwen3.8-Max; the `qwen-3.8` folder already carries its measurements.
+- Resolution: this slug is a **duplicate of `qwen-3.8`** — candidate for the merged-slug list rather than for scoring. Surfacing for your decision.
+
+---

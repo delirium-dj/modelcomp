@@ -101,6 +101,86 @@ Long context:
 
 ---
 
+## Archived research pass — `GLM_4.5_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.5 397B — findings by Gemini 4.5 Flash
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Alibaba Cloud (`qwen-3.5-397b`)
+- Archived date: 2026-10-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.5 397B
+- **Short description:** Alibaba's large language model with 397 billion parameters, designed for comprehensive natural language understanding and generation tasks.
+- **Provider / access:** Alibaba Cloud (`qwen-3.5-397b`) - API access
+- **Release / knowledge:** Release date not specified in available sources; knowledge cutoff not specified
+- **IDs:** `alibaba/qwen-3.5-397b`
+- **Context window:** Not explicitly specified in available sources
+- **Modalities:** Text input; text output; reasoning capabilities unknown; tool use unknown
+- **Pricing (as of 2026-10-22):** Not publicly available in sources
+- **Architecture:** 397 billion parameters, proprietary architecture
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score
+> found" — do NOT save a scored `.md` file. Save
+> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
+> negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: **no verified public score found**
+- AutomationBench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index: **no verified public score found**
+
+Long context:
+
+- **No long-context retrieval reported**
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---
+
+---
+
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.

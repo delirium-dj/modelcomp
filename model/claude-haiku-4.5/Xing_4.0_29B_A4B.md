@@ -56,3 +56,16 @@ Long context:
   - [Claude Haiku 5.5 Announcement (Anthropic)](https://www.anthropic.com/news/claude-haiku-5-5)
   - [Claude Haiku 4.5 Model Overview](https://platform.claude.com/docs/en/models/haiku-4-5/overview)
   - [Anthropic Model Deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)
+
+---
+
+## Archived research pass — `Xing_4.0_29B_A4B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Xing_4.0_29B_A4B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Haiku 4.5 — findings by Xing_4.0_29B_A4B (self-excluded)
+
+> Self-exclusion: zero verified public benchmarks beyond vendor primary claims; insufficient independent third-party evidence.

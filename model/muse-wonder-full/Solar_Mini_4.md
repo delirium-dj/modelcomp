@@ -67,3 +67,61 @@
 > Long context:
 > - No long-context retrieval at window length reported in the Vals suite (context window 1M).
 
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Muse Wonder Full (max) — findings by Solar Mini 4
+
+> Research completed 2026-10-31 by Solar Mini 4 (independent research; scores are normalized 1–100 interpretations, not official vendor scores).
+
+- **Overview & methodology:** `../../model-comparison.md` · **Log:** `../../model-findings.md`
+
+### Model card
+
+- **Name:** Muse Wonder Full (max) — alias `muse-wonder-full`; max-reasoning flagship of the Muse Wonder family
+- **Short description:** Meta's first frontier-class agentic model (2026-10-12, Meta Superintelligence Labs), tied #2 on the AA Intelligence Index v4.3.2 (56, behind Opus 5.5's 58). Access is Muse Code subscriptions only (Power $50/mo, Maximum $200/mo) — not on the Meta Model API; the API model is `muse-wonder-1.0`.
+- **Provider / access:** Meta Superintelligence Labs — newsroom launch 2026-10-12, Meta Developer docs, Muse Code Power/Maximum Usage subscriptions. No API access.
+- **Release / knowledge:** Released 2026-10-12. Knowledge cutoff: not disclosed.
+- **IDs:** `muse-wonder-full` (Muse Code); API counterpart `muse-wonder-1.0` (Wonder, Standard mode).
+- **Context window:** 1,048,576 tokens (1M) total. Max output: not disclosed.
+- **Modalities:** Text, image, video, audio, PDF input; text output; reasoning default on (max effort in Muse Code).
+- **Pricing (2026-10-31):** Subscription-only — Muse Code Power ($50/mo) or Maximum ($200/mo); default allows contributor training on submitted content (Contributor mode off = no training). **Not sold per token.** Conflict resolution: AICoder's "$4.00/$20.00 per 1M" matches the Wonder *API* pricing and is a quote error — AA/docs confirm Full is subscription-only.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+## Raw benchmarks found
+
+**Agent / tool use:**
+- Terminal-Bench 4.0 (max): `57%` (Meta-reported; Muse Spark 1.3 max was 33% — +24; level with Gemini 4 Argon high).
+- GDPval-AA v2.1 (max): `1,857 Elo` — independent AA board, #2 behind Opus 5.5 (1,866); within CI of Opus 5.5 and Sonnet 5.5 (1,838). Vals' Harvey legal-agent harness gives Wonder Full 4th (21.67%) — harness-dependent.
+- Coding Agent Index (Muse Code, max, independent AA): **68** — tied Claude Code Sonnet 5.5 max (68), Opus 5.5 max (66); Muse Spark 1.3 max = 54.
+- Agentic Index: **68.9** (BenchGap estimate, 2026-10-29).
+- DeepSWE 1.1: Wonder 78.8 vs Full 79.0; SWE-Marathon: Wonder 53.1 vs Full 57.5 (Meta table, max effort).
+
+**Reasoning / knowledge:**
+- GPQA Diamond: `95.7%` — BoardGap estimate, medium confidence.
+- HLE (no tools): `55.5%` measured.
+- AA-LCR: `83.7%` measured.
+- SciCode: `62.6%` measured (AA) / 62.1% estimated — #3 on SciCode.
+- CritPt: `32.9%` measured — #1 on CritPt leaderboard (nearest competitors 31–32%).
+- MMLU 93.7% / MMLU-Pro 86.2% / MMMLU 92.1% (BenchGap estimates).
+- AA-Omniscience accuracy 41.0% measured; hallucination rate 33% → 23% — least-hallucinating ≥45-IQ scorers.
+
+**Coding:**
+- SWE-bench Verified: `96.8%` estimated (BenchGap); Vals SWE-bench 94.8% estimated.
+- SWE-bench Pro: `78.9%` estimated; DeepSWE 79.0% estimated.
+- SWE-Marathon: **57.5%** measured (Full) vs 53.1% (Wonder) — max effort.
+
+**Multimodal / speed / cost:**
+- 1,048,576 ctx; max output not disclosed; no per-token pricing (subscription). Input ~6.44M tokens per AA-index task (16% less than Wonder's 7.69M).
+- Multimodal: text + image + video + audio + PDF in, text out — richest input set of the family.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+### Changelog
+
+- 2026-10-31: created by Solar Mini 4 via independent research; spans all five quality dims; access conflict (subscription-only vs per-token quote) documented.

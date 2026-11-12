@@ -35,3 +35,36 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 - Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
 - Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped.
 - Future sources: add a new file next to this one.
+
+---
+
+## Archived research pass — `Xing_4.0.29B_A4B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K3 — findings by Xing40_29B_A4B
+
+> Source: Moonshot Kimi (kimi-k3)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+### Model card
+- **Name:** Kimi K3
+- **Short description:** Moonshot's leading Chinese-market reasoning backbone, strong long-context and coding; built on the Kimi frontier track. Flag if variant/alias.
+- **Provider / access:** Hosted via Moonshot AI API; OpenRouter kimi-k3. Chat Completions API.
+- **Release / knowledge:** 2026. Cutoff ~2025.
+- **IDs:** <provider>/kimi-k3
+- **Context window:** 1.05M tokens (verified by AA leaderboard: "Kimi K3 (max)" entry shows 1.05M). Split unverified exactly (~500k in/out inferred).
+- **Modalities:** text in/out; image in; audio lightly; reasoning yes; tool calls yes; JSON mode yes. Video in moderate.
+- **Pricing (as 2026-10-21):** Max variant ~.00/M input, cache discount ~67%; output ~.00/M. US tier paid.
+- **Architecture:** proprietary Moonshot dense; params undisclosed. Not open weights.
+
+## Raw benchmarks found
+(Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

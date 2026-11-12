@@ -59,3 +59,22 @@ Long context:
 - Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** - 2026-10-18
 - Method: public internet research using Inception documentation plus Artificial Analysis, BenchLM, and Vals AI; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_5.6_Terra.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Mercury 2.5 — negative findings by GPT 5.6 Terra
+- Source: fresh public web research
+- Archived date: 2026-10-05 (UTC)
+### Model card
+- **Name:** Mercury 2.5
+- **Short description:** A folder label was present, but searches did not identify an attributable model card, publisher, endpoint, or exact-model benchmark.
+- **Provider / access:** no verified public provider or model ID found.
+## Raw benchmarks found
+- No verified public benchmark score found for this exact model/ID.

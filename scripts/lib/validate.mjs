@@ -161,6 +161,20 @@ export const MERGED_MODEL_SLUGS = new Map([
   // `Qwen/Qwen3.8-2.4T-A95B`) so search by the old name resolves. Never
   // scaffold it again.
   ["qwen-3.8-2400b-a95b", "qwen-3.8-max"],
+  // LongCat 2.5 GA supersession (RULES.md slug identity, user-ordered rename
+  // 2026-11-12): `longcat-2.5-preview` was the tracked folder for Meituan's
+  // API-only LongCat-2.5-Preview (live 2026-09-25). Meituan shipped the GA on
+  // 2026-11-02 - the vendor change log reads "LongCat-2.5 Now Available" and
+  // `GET /openai/v1/models` now returns exactly one model, `LongCat-2.5`, so
+  // the -Preview ID is retired from the vendor catalogue. This mirrors the
+  // vendor's own 2.0 precedent (LongCat-2.0-Preview 2026-04-20 -> LongCat-2.0
+  // 2026-06-30). The folder was renamed to model/longcat-2.5/ on user order,
+  // which also UNPARKS `longcat-2.5` (parked 2026-10-22 as a "phantom GA
+  // name" - correct when made, superseded by the GA release). All 52 files
+  // moved as pure path moves; the canonical meta `aliases` carry the retired
+  // preview spelling so search by the old name still resolves. Never scaffold
+  // model/longcat-2.5-preview/ again.
+  ["longcat-2.5-preview", "longcat-2.5"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */
@@ -208,7 +222,6 @@ export const DELETED_PHANTOM_SLUGS = new Map([
   ["qwen-3.5", undefined],
   ["kimi-k2.7-code-highspeed", "kimi-k2.7-code"],
   ["gemini-3.1-flash", "gemini-3.1-flash-lite"],
-  ["longcat-2.5", "longcat-2.5-preview"],
   ["claude-opus-4.4", undefined],
   ["claude-opus-3.7", undefined],
   ["claude-sonnet-5.4", undefined],
@@ -245,6 +258,9 @@ const DELETED_PHANTOM_KEYS = new Map(
  * begins with the phantom base belong here — `gemini-3.1-flash` is exact-only
  * because `gemini-3.1-flash-lite` is real, and `qwen-3.5` / `longcat-2.5` /
  * `gemini-2.5` are exact-only because their member SKUs are real.
+ * (`longcat-2.5` was exact-only while parked as a phantom; it is now a REAL GA
+ * model - Meituan shipped it 2026-11-02 - so it left this list entirely on
+ * 2026-11-12 and its retired preview spelling moved to MERGED_MODEL_SLUGS.)
  */
 export const PHANTOM_SLUG_FAMILIES = [
   {
@@ -270,7 +286,10 @@ export const PHANTOM_SLUG_FAMILIES = [
  * `{ slug, canonical, family? }` when the slug is (a normalized spelling of)
  * a deleted phantom, or a suffixed derivative of a phantom checkpoint family.
  * Returns null for a legitimate model — real sibling SKUs such as
- * gemini-3.1-flash-lite / longcat-2.5-preview / qwen-3.5-plus never match.
+ * gemini-3.1-flash-lite / qwen-3.5-plus never match. `longcat-2.5` was
+ * deleted-phantom while parked; it is now a live tracked GA folder
+ * (model/longcat-2.5/), and `longcat-2.5-preview` is a merged-and-retired
+ * spelling handled by MERGED_MODEL_SLUGS, not a phantom.
  */
 export function deletedPhantomViolation(slug) {
   const key = phantomSlugKey(slug);
@@ -739,7 +758,7 @@ export const CASE_LAW_NOTES = new Map([
   ["qwen-3.5", "generation name, never a model (members tracked as qwen-3.5-397b / qwen-3.5-plus / qwen-3.5-9b); parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in the member folder for the ID actually cited"],
   ["kimi-k2.7-code-highspeed", "serving profile of kimi-k2.7-code — same moonshotai/Kimi-K2.7-Code weights, same 262,144 window, exactly 2x API price; parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in model/kimi-k2.7-code/"],
   ["gemini-3.1-flash", "phantom name — Google ships no bare gemini-3.1-flash text SKU, the only 3.1 Flash text model is gemini-3.1-flash-lite; parked 2026-10-20, folder deleted 2026-11-03 (user order) — research belongs in model/gemini-3.1-flash-lite/ and the -Lite suffix is never dropped"],
-  ["longcat-2.5", "phantom GA name — Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview; parked 2026-10-22, folder deleted 2026-11-03 (user order) — research belongs in model/longcat-2.5-preview/"],
+  ["longcat-2.5", "was parked 2026-10-22 as a \"phantom GA name - Meituan published no standalone LongCat 2.5, only the API-only LongCat-2.5-Preview\" and the folder was deleted 2026-11-03 (user order) — that verdict was CORRECT WHEN MADE and is now SUPERSEDED: Meituan shipped the GA on 2026-11-02 (vendor change log: \"LongCat-2.5 Now Available\"; `GET /openai/v1/models` now returns exactly one model, `LongCat-2.5`, retiring the -Preview ID from the catalogue — the same preview→GA pattern the vendor used for LongCat-2.0-Preview 2026-04-20 → LongCat-2.0 2026-06-30). UNPARKED and the folder renamed `longcat-2.5-preview` → `longcat-2.5` on user order 2026-11-12; the canonical meta `aliases` carry the retired preview spelling (LongCat 2.5 Preview / longcat-2.5-preview / LongCat-2.5-Preview) so search by the old name resolves — research belongs in model/longcat-2.5/"],
   ["claude-opus-4.4", "phantom checkpoint — live-existence audit: Anthropic deprecations/overview show Opus 4.1 → 4.5 → 4.6/4.7/4.8, no Opus 4.4 ever released; parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
   ["claude-opus-3.7", "phantom checkpoint — Anthropic lineage has no Opus 3.7 (3.7 exists only as Sonnet); parked 2026-10-26, folder deleted 2026-11-03 (user order, never resurrect)"],
   ["claude-sonnet-5.4", "phantom checkpoint — Anthropic's Sonnet lineage runs 4 → 4.5 → 4.6 → 5 → 5.5, no Sonnet 5.4 ever released; live-verified absent from Anthropic's announcements, deprecation docs and system cards; parked 2026-11-02, folder deleted 2026-11-03 (user order, never resurrect)"],
@@ -783,6 +802,7 @@ export const CASE_LAW_NOTES = new Map([
   ["ling-3.0-flash-fin-free", "access-tier alias of ling-3.0-flash-fin (Ling-3.0-flash-Fin, InclusionAI / Ant Group) — the `-free` suffix is the $0 OpenCode Zen / Vercel promotional route and OpenRouter's `:free` serving variant of the same 124B/5.1B MIT weights, never a second model (vendor ships one route and one checkpoint; the tier folder's own reports: \"same weights... pricing/route difference, not a different model\"); tier folder merged into models_finance/ling-3.0-flash-fin/ on user order 2026-11-10 (18 files moved newest-wins, 4 collision losers + the duplicate meta deleted) and the canonical meta `aliases` carry the tier names — research belongs in models_finance/ling-3.0-flash-fin/"],
   ["qwen3-max", "unhyphenated slug variant of qwen-3-max (Qwen 3 Max) — renamed to canonical hyphenated slug model/qwen-3-max/ on user order 2026-11-11 to match family pattern (qwen-3.7-max, qwen-3.8-max, qwen-4-max); never recreate unhyphenated variant — research belongs in model/qwen-3-max/"],
   ["qwen-3.8-2400b-a95b", "param-size respelling of Alibaba's vendor ID Qwen3.8-2.4T-A95B (2400B total / 95B active; repo slug convention keeps param sizes hyphenated, so the spelling is rule-legal but non-vendor), and that checkpoint is the open-weight release of the SAME model as the tracked hosted flagship qwen-3.8-max — the Qwen/Qwen3.8-2.4T-A95B card states \"Qwen3.8-Max is the official version based on Qwen3.8-2.4T-A95B\" and that Qwen3.8 \"brings a Qwen-Max-class model to open release\"; NVIDIA's Day-0 post titles it \"Qwen3.8-2.4T-A95B (Qwen3.8-Max)\". One checkpoint, two releases: same 2.4T/95B MoE, same 92 layers / 512 experts (10 routed + 1 shared), same 262,144-native / 1,010,000-extended window, same published benchmark table; the hosted API adds vision input, non-thinking support, 1M-by-default and 7 built-in tools (so the open artifact is text-only and thinking-mandatory). Folder merged into model/qwen-3.8-max/ on user order 2026-11-12 (4 colliding reports folded newest-wins, 2 unique .md.excluded moved, duplicate average.md + scaffolded meta.json deleted); canonical meta `aliases` carry every old name and route spelling (incl. `qwen-3.8-2400b-a95b`, `qwen/qwen3.8-2.4t-a95b`, `Qwen/Qwen3.8-2.4T-A95B`) so searching the old name resolves — research belongs in model/qwen-3.8-max/"],
+  ["longcat-2.5-preview", "Meituan's preview model ID, superseded by the GA — the vendor shipped the GA on 2026-11-02 (change log: \"LongCat-2.5 Now Available\") and `GET /openai/v1/models` now returns exactly one model, `LongCat-2.5`, retiring the -Preview ID from the catalogue (same preview->GA pattern the vendor used for LongCat-2.0-Preview 2026-04-20 -> LongCat-2.0 2026-06-30). Tracked folder renamed `longcat-2.5-preview` -> `longcat-2.5` on user order 2026-11-12 (52 files moved as pure path moves; the rater stem LongCat_2.5_Preview stays frozen in the other 61 folders), which also UNPARKS `longcat-2.5` (parked 2026-10-22 as a phantom GA name — correct then, superseded now). Canonical meta `aliases` carry the retired preview spelling so search by the old name resolves — research belongs in model/longcat-2.5/; never re-scaffold model/longcat-2.5-preview/"],
 ]);
 
 /**

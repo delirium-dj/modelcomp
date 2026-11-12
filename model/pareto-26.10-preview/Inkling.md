@@ -87,3 +87,48 @@ Evidence comparison per dimension (conflicting sources cited, not hidden):
   - [Pareto's lower rates: independent critical review — NewRuntime](https://newruntime.com/analysis/pareto-s-lower-rates-are-a-test-of-cost-per-successful-task-not-a-cheaper-bill.md)
   - [Pareto 26.10 Preview review — OrcaRouter (independent analysis of vendor-run claims)](https://www.orcarouter.ai/blog/unbiased-pareto-26-10-preview)
 - Note on identity: file is `model/pareto-26.10-preview/Inkling.md` — the folder (`pareto-26.10-preview`) names the subject model; the filename (`Inkling.md`) is my agent STEM (never the subject's name), per `tasks/research.md` § Path contract.
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Pareto 26.10 Preview — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Archived date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Pareto 26.10 Preview (dataset label; no confirmed public product card)
+- **Short description:** Listed in the dataset (`model-queue.md`: Overall 84.3) but no verified standalone model card from Pareto. Pareto, Inc. (pareto.ai) is a data/research company, not a model vendor with a released preview SKU.
+- **Provider / access:** No verified API route found (`opencode/` or vendor endpoint not listed).
+- **Release / knowledge:** Not confirmed; dataset entry only.
+- **IDs:** `pareto/26.10-preview` (dataset reference only)
+- **Context window:** Not verified (no official spec)
+- **Modalities:** Not verified
+- **Pricing (as of 2026-10-26):** Not verified; no pricing page for this exact ID.
+- **Architecture:** Not verified (no weights/license info)
+
+## Raw benchmarks found (3 independent searches, compared)
+
+1. `pareto.ai/research` (official site): Confirms Pareto does AI research/data work; NO model card or benchmark page for "26.10 Preview" exists. Page lists research papers (LEAPBench, AttuneBench) — not a model release.
+2. `artificialanalysis.ai/models/pareto-26.10-preview` (independent benchmark aggregator): Returns 404. Not evaluated or listed in the public Artificial Analysis model roster.
+3. `pareto.ai` (official homepage): Company branding only; no product/model listing matches this exact ID.
+
+> **Conflict / comparison:** The dataset (`model-queue.md`) lists `pareto-26.10-preview` with Overall 84.3, implying a benchmarked model. Independent web searches (official site + independent aggregator + company homepage) all fail to confirm any public model card, API endpoint, or verified benchmark for the exact ID `pareto-26.10-preview`. The closest real-world context is Pareto's benchmark papers (LEAPBench, AttuneBench), not a released model SKU.
+
+Agent / tool use: no verified public score found (official site shows no model; benchmark aggregator 404).
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified (no official spec).
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

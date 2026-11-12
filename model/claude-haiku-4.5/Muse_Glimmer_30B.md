@@ -68,3 +68,69 @@ Long context:
   - [Anthropic — Introducing Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5)
   - [Anthropic — Claude Haiku 4.5 model page](https://docs.anthropic.com/en/docs/models/overview)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Haiku 4.5 — findings by Muse Glimmer 30B
+
+- Source: Anthropic Claude Haiku 4.5
+- Archived date: 2026-10-26
+- Overview and scoring methodology: `../../model-comparison.md`
+
+### Model card
+
+- **Name:** Claude Haiku 4.5
+- **Short description:** Anthropic high-volume, latency-sensitive model for classification, extraction, routing. Text and image input, text output.
+- **Provider / access:** Anthropic Claude API, Bedrock, Google Cloud, Microsoft Foundry.
+- **Release / knowledge:** Released Oct 15 2025. Reliable knowledge cutoff Feb 2025, training data cutoff Jul 2025.
+- **IDs:** `claude-haiku-4-5-20251001`, alias `claude-haiku-4-5`
+- **Context window:** 200K tokens
+- **Max output:** 64K tokens
+- **Modalities:** Input text and images → text output
+- **Pricing:** $1 / MTok input, $5 / MTok output. Batch 50% off.
+- **Architecture:** Proprietary Anthropic model. Extended thinking supported, not adaptive.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: 40.21% without thinking (6 runs), 41.75% with 32K thinking budget (5 runs) (Anthropic news claude-haiku-4-5 footnotes, Terminus 2 framework, XML parser, n-attempts=1)
+- Tau2-Bench: no verified public score found; Anthropic notes scores achieved with extended thinking 128k budget but numeric not published
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified: 73.3% (Anthropic news Introducing Claude Haiku 4.5, averaged over 50 trials, no test-time compute, 128K thinking budget, default sampling, full 500-problem dataset)
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No long-context retrieval reported for Haiku 4.5; 200K window documented, no MRCR/RULER/GraphWalks public score found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

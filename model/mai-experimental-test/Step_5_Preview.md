@@ -49,3 +49,38 @@ This report should be re-opened if Microsoft ships or lists a product by this na
   - [Repo curated meta — `model/mai-experimental-test/meta.json` (catalogue fields, no vendor corroboration)](/model/mai-experimental-test/meta.json)
   - See also: [`model/mai-code-1-flash/`](mai-code-1-flash.md) and [`model/mai-code-1.1-flash/`](mai-code-1.1-flash.md) — the real MAI-line products this report defers to, refreshed in this session
 - Future sources: add a new file next to this one, e.g. `MAI_Code_2.md`, using the same headings.
+
+---
+
+## Archived research pass — `Step_5_Preview.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## mai-experimental-test — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: OpenCode usage catalog (`unknown/mai-experimental-test`)
+- Archived date: 2026-10-09 (UTC)
+- Reason for exclusion: **this is an unmodeled test endpoint, not a released model** — no lab, no model card, no specs and zero published benchmarks of any kind. No scored findings file was written; the roster entry carries a placeholder Overall.
+
+### What is verified
+
+- The slug exists only in **OpenCode's usage-data catalog under the `unknown` provider** (`opencode.ai/data/unknown/mai-experimental-test`) — the same bucket as other test routes such as `test-novita-dsf4.1` and `alpha-space-bunny-test`.
+- Usage snapshot (week of ~2026-10-08): **rank #37 by tokens**, ~5.3B tokens, 2.3K unique users, 18,117 completed sessions, ~0% share of observed volume, weekly retention pending; neighbours in the ranking are grok-4.6, glm-5.1, qwen3.6-plus and qwen3.7-max.
+- **models.dev has no entry** for this slug (checked 2026-10-09 against the full catalog JSON) — confirming it is not a catalogued model.
+- OpenCode's own model-comparison pages render **"No data" for every capability dimension** (Reasoning, Coding, Cost efficiency, Context window, Multimodal, Tool use) when this endpoint is compared against real models.
+- Despite the "mai" prefix suggesting a Microsoft AI lineage, **no Microsoft documentation, announcement or model page references `mai-experimental-test`**; the naming is consistent with an internal/preview test route rather than a product.
+
+### What is missing (why exclusion)
+
+- No identity: no lab confirmation, no model ID, no weights, no API listing outside the OpenCode usage route.
+- No specs: no context window, no output limit, no modalities, no pricing, no knowledge cutoff.
+- No benchmarks: no GPQA/SWE-bench/Terminal-Bench/AA scores, no independent evaluation, no Artificial Analysis page.
+
+### Re-score trigger
+
+If a lab (most plausibly Microsoft AI) publishes a model card, benchmark table or catalog listing matching this endpoint, write a normal `Step_5_Preview.md` for this slug covering Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology.
+
+---

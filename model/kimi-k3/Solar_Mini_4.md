@@ -81,3 +81,45 @@
 - **Modalities:** Text and image input; text output. Always reasons; reasoning_effort low / high / max.
 - **Pricing (as of 2026-11-08):** Standard API — $3/MTok input (cache miss), $0.30/MTok input (cache hit), $15/MTok output; 90% cache-read discount (Artificial Analysis: $2.31 blended). Highspeed not published for K3 (K3.1 Pro Highspeed: $4/$20).
 - **Architecture:** Proprietary MoE — 2.8T total parameters, 104B active; weights open (Kimi K3 Licence).
+
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K3 — findings by Solar_Mini_4
+
+> Template → replaced with model-specific research; no placeholders remain.
+> Source of truth methodology: `../../model-comparison.md`.
+
+
+### Model card
+- **Name:** Kimi K3
+- **Short description:** Moonshot Kimi K3 model for agentic coding, long context, and multimodal reasoning.
+- **Provider / access:** Moonshot Kimi API, Moonshot Console; OpenCode Zen `opencode/kimi-k3`; GitHub `moonshot/kimi-k3`.
+- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs:** `moonshot/kimi-k3` (Hugging Face registry slug); GitHub `moonshot/kimi-k3`.
+- **Context window:** **1M** total, **256K** max output (official Moonshot API docs).
+- **Modalities:** text + image in/out; multimodal supported; text output only.
+- **Pricing (as of 2026-10-17):** Official Moonshot API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture:** Proprietary Moonshot Kimi K3; not open weights.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+
+- Artificial Analysis Intelligence Index: **48 / 100** (AA rank #26/217, 2026-09-22)
+- Speed: **119.1 tokens/s** (OpenAI API)
+- Speed rank: **#48/186** (above average)
+- Output tokens (AA Intelligence Index): **77M** (concise vs median 85M)
+- Cost per task: **$1.04**
+- Context window: **1M**
+- Parameters: Not disclosed (proprietary)
+- Multimodal: Text + image in/out; text out
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

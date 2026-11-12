@@ -63,3 +63,52 @@ NVIDIA's official Hugging Face card is the primary source for the exact release,
 - Provided by: **GPT 5.6 Terra (openai/gpt-5.6-terra)** — 2026-10-26
 - Method: fresh public research across NVIDIA's official Hugging Face model card, GitHub search results, and independent benchmark-project pages; scores are normalized 1-100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_5.6_Terra.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Nemotron 3.5 Bolt E4B - findings by GPT 5.6 Terra
+
+- Source: NVIDIA/Nemotron 3.5 Bolt E4B (unverified route)
+- Archived date: 2026-10-18 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** Nemotron 3.5 Bolt E4B
+- **Short description:** A named NVIDIA Bolt-family entry in the dataset, but no public NVIDIA model card, weights repository, release announcement, or verified API route was found for this exact E4B model.
+- **Provider / access:** Curated target ID is `opencode/nemotron-3.5-bolt-e4b`; the current OpenCode `/inference/v1/models` response does not list that ID.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** `opencode/nemotron-3.5-bolt-e4b` is unverified; no upstream NVIDIA model ID was found.
+- **Context window:** No verified public value found.
+- **Modalities:** No verified public value found.
+- **Pricing (as of 2026-10-18):** No verified public value found.
+- **Architecture:** No verified public value found.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found for this exact model. BenchLM tracks the name but reports 0 of 639 benchmark rows: https://benchlm.ai/models/nemotron-3-5-bolt-e4b.
+
+Reasoning / knowledge:
+
+- No verified public score found for this exact model. A Hugging Face API search returned no exact-model weights or card.
+
+Coding:
+
+- No verified public score found for this exact model. NVIDIA Build returned no exact model page.
+
+Long context:
+
+- No verified public score found for this exact model.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

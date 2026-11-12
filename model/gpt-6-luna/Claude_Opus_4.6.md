@@ -59,3 +59,64 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (openai.com, openrouter.ai, layer3labs.io, eigent.ai, medium.com, yottalabs.ai); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-6 Luna — findings by Claude Opus 4.6
+
+- Source: OpenAI (`gpt-6-luna`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-6 Luna
+- **Short description:** OpenAI's most cost-efficient model in the GPT-6 family, released September 22, 2026. Designed for high-volume, focused tasks like document processing, data extraction, and classification. Available to free-tier users.
+- **Provider / access:** OpenAI API (`gpt-6-luna`), ChatGPT Work, ChatGPT desktop (Free and Go users). Responses API and Chat Completions API.
+- **Release / knowledge:** 2026-09-22 release; knowledge cutoff May 18, 2026.
+- **IDs:** `openai/gpt-6-luna`
+- **Context window:** 1,050,000 tokens total; max output 128,000 tokens (verified via OpenAI docs).
+- **Modalities:** Text + image (vision) in; text out; tool calls; JSON mode. Communication styles improved similarly to Astra.
+- **Pricing (as of 2026-09-22):** $0.10 / $0.50 per 1M tokens (input / output). Cached input: $0.01. 50% reduction vs. GPT-5.6 promotional pricing.
+- **Architecture:** Proprietary; parameter count undisclosed. Smallest/most efficient in GPT-6 family.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 4.0: no verified Luna-specific score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified Luna-specific score found.
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified Luna-specific score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- 1,050,000-token window confirmed. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

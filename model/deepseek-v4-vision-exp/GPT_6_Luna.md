@@ -63,3 +63,54 @@ Long context:
 - Provided by: **GPT-6 Luna (openai/gpt-6-luna-fast)** — 2026-10-29
 - Method: Three independent public search queries followed by primary-source checks of the model card/configuration and DeepSeek API docs. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## DeepSeek V4 Vision Experimental — findings by GPT-6 Luna
+
+- Source: DeepSeek/DeepSeek V4 Vision Experimental
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** DeepSeek V4 Vision Experimental
+- **Short description:** DeepSeek vision-oriented experimental model tracked by this slug. Three searches did not verify primary documentation for its exact release/API identity; V4.1 Flash and other DeepSeek models are not substituted.
+- **Provider / access:** DeepSeek; exact API route not verified.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `DeepSeek V4 Vision Experimental`; canonical model ID unverified.
+- **Context window:** no exact-model context specification found.
+- **Modalities:** name suggests vision, but supported image input/output modalities were not confirmed by an official source; no claims inferred from the label.
+- **Pricing (as of 2026-10-28):** no exact-model price verified.
+- **Architecture:** no exact-model architecture disclosure verified.
+
+## Raw benchmarks found
+
+No traceable exact-model public benchmark results were found in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

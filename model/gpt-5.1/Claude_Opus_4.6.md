@@ -60,3 +60,65 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (openai.com, benchlm.ai, artificialanalysis.ai, SWE-bench leaderboard, cloudzero.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.1 — findings by Claude Opus 4.6
+
+- Source: OpenAI (`gpt-5.1`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5.1
+- **Short description:** OpenAI's iterative refinement of GPT-5, released November 2025. Focused on improved conversational tone, adaptive reasoning, and better instruction adherence. Now a legacy/deprecated model superseded by GPT-5.2 through GPT-6.
+- **Provider / access:** OpenAI API (`gpt-5.1`). Legacy/deprecated status.
+- **Release / knowledge:** 2025-11 release; knowledge cutoff estimated mid-2025.
+- **IDs:** `openai/gpt-5.1`
+- **Context window:** Estimated ~400,000 tokens (inherits GPT-5 generation spec); max output 128,000 tokens.
+- **Modalities:** Text + image in; text out; adaptive reasoning (dynamic thinking time based on query complexity); tool calls; JSON mode.
+- **Pricing (at release):** Not separately confirmed; estimated similar to GPT-5 ($1.25/$10 per 1M tokens range).
+- **Architecture:** Proprietary; parameter count undisclosed. Iterative refinement of GPT-5.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified GPT-5.1 score found (predates Terminal-Bench 4.0).
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public standalone score found.
+- Adaptive reasoning: dynamically adjusts thinking time based on complexity (OpenAI, Azure).
+- HLE: no verified public score found.
+- LCR / MLCR: no verified public score found.
+- CritPt: no verified public score found.
+- Omniscience Accuracy / Hallucination Rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified GPT-5.1-specific score found.
+- LiveCodeBench: no verified public score found.
+- SciCode / AA-SciCode: no verified public score found.
+- Vibe Code Bench: no verified public score found.
+- DeepSWE / Coding Index: no verified public score found.
+
+Long context:
+
+- ~400,000-token window estimated. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

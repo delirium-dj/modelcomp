@@ -70,3 +70,56 @@ Long context:
   - [ai-bio.cn — Sonus profile (no API, not open-source, architecture undisclosed)](https://ai-bio.cn/sonus/)
   - [Qoder forum — Sonus credits complaint thread (burn-rate evidence)](https://forum.qoder.com/t/qoder-sonus/12588)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GLM_5.3_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qoder Sonus — negative findings by GLM 5.3 Flash
+
+- Source: Alibaba Qoder (`sonus` — built-in Qoder platform model)
+- Archived date: 2026-11-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qoder Sonus (/ˈsoʊnəs/)
+- **Short description:** Alibaba's Qoder team's built-in flagship model for the Qoder agentic-coding platform, launched 2026-09-10. Positioned for marathon-length autonomous tasks, the hardest knowledge work, and serious coding, with Computer Use (direct desktop/software operation via Qoder Desktop 0.2.3) as its signature talent.
+- **Provider / access:** Qoder platform only — Qoder, Qoder IDE, Qoder CLI, JetBrains plugin, QoderWake, Cloud Agents. No standalone API, no open weights; not separately sold (bundled with Qoder subscriptions). Credit multiplier 3.2x at launch, raised to **8x** on 2026-09-21 — by far Qoder's most expensive model.
+- **Release / knowledge:** 2026-09-10 launch; knowledge cutoff unknown (not disclosed).
+- **IDs:** `sonus` (Qoder model selector / Cloud Agents API). No provider-external ID exists.
+- **Context window:** no official figure published for Sonus. The Qoder Cloud Agents "Ultimate" tier advertises max input 1,000,000 with selectable 200K/400K/1M windows, but Qoder does not confirm that the Ultimate tier is Sonus (Sonus/Cantus had left the selector table by mid-October). Unverified — cannot be scored.
+- **Modalities:** unverified. Community peers assume text in/out; the Ultimate-tier API object reports `is_vl: true` (vision), but no official Sonus spec sheet exists.
+- **Pricing (as of 2026-11-03):** Qoder Credits only, 8x reference factor (≈8x a base-model task). Community reports of extreme burn (~1000 credits in ~6 minutes of planning; ~2000 free promo credits consumed without completing a task) corroborate the premium rate.
+- **Architecture:** undisclosed. Qoder does not identify the underlying model. Community speculation only: a Qoder forum user claims "Sonus is Sol, Cantus is Fable," and another thread notes the output style is "exactly Astra" (OpenAI GPT-6 family) — all unverified, no vendor confirmation.
+
+## Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers exist for this model. Qoder published no eval table with the launch ("globally leading" marketing language only); Sonus is not API-accessible, so no independent harness (SWE-bench, Terminal-Bench, OSWorld, Artificial Analysis, etc.) has scored it. Not saved as a scored report per template rule.
+
+Agent / tool use:
+
+- Terminal-Bench (any version): no verified public score found
+- OSWorld-Verified: no verified public score found
+- Tau2/Tau3-Banking / GDPval-AA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / Intelligence Index: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: no verified public score found
+
+Long context:
+
+- no long-context retrieval reported
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

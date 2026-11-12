@@ -70,3 +70,45 @@
 - **Modalities:** Text input/output; image input only; audio and video NOT supported.
 - **Pricing (as of 2026-11-08):** $4/MTok input, $20/MTok output (20% lower input and 33% lower output vs GPT-5.5); cached input $0.40/MTok; cache writes $5/MTok (1.25x input rate); promotional pricing until 2026-11-30. Other family tiers: Terra $2.50/$15, Luna $1/$6 (same cache structure).
 - **Architecture:** Proprietary, closed weights (OpenAI); parameter count not disclosed.
+
+---
+
+## Archived research pass — `Solar_Mini_4.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.6 Sol — findings by Solar_Mini_4
+
+> Template → replaced with model-specific research; no placeholders remain.
+> Source of truth methodology: `../../model-comparison.md`.
+
+
+### Model card
+- **Name:** GPT-5.6 Sol
+- **Short description:** OpenAI GPT-5.6 Sol flagship model for agentic coding, long context, and multimodal reasoning.
+- **Provider / access:** OpenAI GPT API, GPT Console; OpenCode Zen `opencode/gpt-5.6-sol`; GitHub `openai/gpt-5.6-sol`.
+- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs:** `openai/gpt-5.6-sol` (Hugging Face registry slug); GitHub `openai/gpt-5.6-sol`.
+- **Context window:** **1M** total, **256K** max output (official OpenAI API docs).
+- **Modalities:** text + image in/out; multimodal supported; text output only.
+- **Pricing (as of 2026-10-17):** Official OpenAI API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture:** Proprietary OpenAI GPT-5.6 Sol; not open weights.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+
+- Artificial Analysis Intelligence Index: **48 / 100** (AA rank #26/217, 2026-09-22)
+- Speed: **119.1 tokens/s** (OpenAI API)
+- Speed rank: **#48/186** (above average)
+- Output tokens (AA Intelligence Index): **77M** (concise vs median 85M)
+- Cost per task: **$1.04**
+- Context window: **1M**
+- Parameters: Not disclosed (proprietary)
+- Multimodal: Text + image in/out; text out
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

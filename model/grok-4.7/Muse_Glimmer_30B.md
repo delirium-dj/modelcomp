@@ -66,3 +66,73 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 4.7 — findings by Muse Glimmer 30B
+
+- Source: xAI (opencode/grok-4.7)
+- Archived date: 2026-10-20 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Grok 4.7
+- **Short description:** xAI’s larger-base 500K flagship for repo-scale coding and legal agents; Harvey LAB #1 and Vibe Code 86.2%, below-frontier price.
+- **Provider / access:** OpenCode Zen `opencode/grok-4.7`; Chat Completions.
+- **Release / knowledge:** 2026-09-21 release; knowledge cutoff not publicly disclosed.
+- **IDs:** opencode/grok-4.7; no free ID on Zen.
+- **Context window:** 500,000 tokens total, verified by Artificial Analysis specification page (500k).
+- **Modalities:** Text and image in; text out; reasoning yes; tool calls not verified public; JSON mode not verified.
+- **Pricing (as of 2026-10-20):** $2.00/$6.00 per 1M standard; doubles past 200K. Fast variant $4.00/$12.00 per 1M per meta.json. No free tier.
+- **Architecture:** Proprietary; parameter count undisclosed.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: included in Artificial Analysis Intelligence Index v4.3.2; composite score 46/ — Artificial Analysis model page for Grok 4.7 (xhigh)
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: included in Artificial Analysis Intelligence Index v4.3.2; composite score 46
+- LCR / MLCR: no verified public score found
+- CritPt: included in Artificial Analysis Intelligence Index v4.3.2
+- Artificial Analysis Intelligence Index / BenchLM overall: 46 on Artificial Analysis Intelligence Index v4.3.2, #30 / 214; output speed 91.5 t/s; cost per Intelligence Index task $3.74 — artificialanalysis.ai/models/grok-4-7
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: included in Artificial Analysis Intelligence Index v4.3.2
+- Vibe Code Bench: 86.2% — meta.json short description: “Harvey LAB #1 and Vibe Code 86.2%”
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- MRCR / RULER / GraphWalks: no long-context retrieval reported; context window 500k verified
+
+Legal / specialist:
+
+- Harvey LAB: #1 ranking claimed in meta.json short description: “Harvey LAB #1”
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---

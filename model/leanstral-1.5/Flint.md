@@ -53,3 +53,52 @@ Mean of five quality dims (Tool 55 + Reasoning 65 + Context 75 + Multimodal 65 +
   - [Mistral docs — Leanstral](https://docs.mistral.ai/models/leanstral-26-03)
   - [Leanstral 1.5 — Hugging Face collection](https://huggingface.co/collections/mistralai/leanstral-15)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Flint.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Flint.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Leanstral 1.5 — findings by Flint
+
+- Source: Mistral AI / Leanstral
+- Archived date: 2026-11-06 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Leanstral 1.5
+- **Short description:** Mistral AI's compact coding-oriented model line (Leanstral), tuned for lightweight code generation and agentic editing at small parameter scale.
+- **Provider / access:** Mistral AI / OpenRouter (`mistralai/leanstral-1.5`); Zen route naming to be verified.
+- **Release / knowledge:** Leanstral releases 2026; knowledge cutoff not disclosed.
+- **IDs:** `mistralai/leanstral-1.5`.
+- **Context window:** Not verified for the 1.5 tier.
+- **Modalities:** Text in / text out; code generation / tool use targeted.
+- **Pricing (as of 2026-11-06):** Not verified.
+- **Architecture:** Open-weight small coding model (Leanstral class).
+
+## Raw benchmarks found
+
+Coding:
+
+- SWE-bench Verified: no verified public score found for the exact `mistralai/leanstral-1.5` ID.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / Intelligence Index: no verified public score found for the exact ID.
+
+Agent / tool use:
+
+- Terminal-Bench / GDPval-AA / Claw-Eval: no verified public score found for the exact ID.
+
+Long context:
+
+- No long-context retrieval reported.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

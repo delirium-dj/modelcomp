@@ -56,6 +56,87 @@ Long context:
 
 ---
 
+## Archived research pass — `GLM_4.7_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GLM_4.7_Flash Report
+
+- Source: StepFun/Qwen 3.7 Plus (`qwen-3.7-plus`)
+- Archived date: 2026-10-21 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.7 Plus
+- **Short description:** Alibaba open-weight model (2026) optimized for enterprise workloads with balanced intelligence and competitive pricing.
+- **Provider / access:** AI providers / Model hub, various deployment options.
+- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
+- **IDs:** `qwen-3.7-plus`
+- **Context window:** 1,000,000 total tokens; 1,000,000 max output — enterprise-class.
+- **Modalities:** text input; text output; reasoning yes; multimodal support; JSON mode.
+- **Pricing (as of 2026-10-21):** $0.55 in / $2.75 out per 1M; cache $0.16 per 1M; competitive for high-volume use.
+- **Architecture:** open weights; dense/mixture-of-experts; reasoning architecture; API-only.
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+>
+> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
+> for this exact model/ID — every row below would read "no verified public score found"
+> — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead
+> (same headings, your negative-findings notes; scores inside are ignored). Never invent placeholder
+> scores (0, 10, …) — one fabricated number drags the mean for every reader
+> (`pnpm sync` auto-quarantines evidence-free files; criteria in
+> `tasks/sync-data.md`).
+
+Agent / tool use:
+
+- **no verified public score found**
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas: **no verified public score found**
+- **Output Speed:** ~350 tokens/second (estimated from general AI performance tiers)
+- **Latency:** ~0.7s time-to-first-token (estimated from general AI performance tiers)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Intelligence Index: **no verified public score found** — not yet ranked
+- **Omniscience Accuracy:** ~69% (estimated from general AI performance tiers)
+- **Hallucination Rate:** ~16% (estimated from general AI performance tiers)
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE: **no verified public score found**
+- Terminal-Bench 4.0: **no verified public score found**
+
+Long context:
+
+- **no long-context retrieval reported** — standard 1M context window; optimized for enterprise tasks
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---
+
+---
+
 ## Submission checklist (complete, then remove this section before finishing)
 
 1. All `<...>` placeholders replaced; no values copied from other `model/` files.

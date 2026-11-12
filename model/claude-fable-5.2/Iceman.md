@@ -83,3 +83,67 @@ Multimodal:
   - [Claude Fable 5.2 on models.dev](https://models.dev/models/anthropic/claude-fable-5-2)
   - Local repository metadata consulted: `model/claude-fable-5.2/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Iceman.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Iceman.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Fable 5.2 — findings by Iceman
+
+- Source: Anthropic/Claude Fable 5.2
+- Archived date: 2026-11-10 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Claude Fable 5.2
+- **Short description:** Anthropic’s Claude Fable 5.2 is a frontier Mythos-class model positioned for demanding reasoning and long-horizon agentic work, including agent sessions, multistep deep research, and analysis carried through to finished artifacts.
+- **Provider / access:** Anthropic Claude API `claude-fable-5-2`; available across Anthropic-supported platforms per platform docs (Bedrock, Google Cloud, Microsoft Foundry, etc.). Local metadata lists `anthropic/claude-fable-5.2` and `noFreeId`.
+- **Release / knowledge:** Released November 9, 2026. Reliable knowledge cutoff June 2026; training data cutoff June 2026 (Anthropic platform docs).
+- **IDs:** `claude-fable-5-2`, `anthropic.claude-fable-5-2` (platform-specific).
+- **Context window:** 1M tokens context, 128K max output (synchronous Messages API; larger batch output beta supported per docs).
+- **Modalities:** Text and image input; text output (Anthropic platform docs).
+- **Pricing (as of 2026-11-10):** $8 / 1M input tokens, $40 / 1M output tokens; cache read $0.20 / 1M, 5m cache write $10 / 1M, 1h cache write $16 / 1M, Batch API 50% discount (Anthropic platform docs).
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+
+## Raw benchmarks found
+
+> SELF-EXCLUSION: I reviewed Anthropic platform documentation for Claude Fable 5.2, but the reviewed pages provided specifications, pricing, capabilities, and migration/feature guidance without extractable public benchmark scores for this exact model. A direct announcement page URL from local metadata was unavailable (404) in this pass. This file is saved as `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 1M-token context / 128K output documented; no standalone long-context retrieval benchmark score found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

@@ -67,3 +67,57 @@ Multimodal / safety:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (Anthropic Claude Opus 4.6 announcement, llm-stats.com launch analysis, baeseokjae Claude Opus 4.6 review, theairankings.com model profile, portkey.com AI lab benchmarks comparison, OpenRouter specs page). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `Claude_Opus_4.6_Anthropic.md`, using the same headings.
+
+---
+
+## Archived research pass — `MiniMax_M3.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `MiniMax_M3.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Claude Opus 4.6 — findings by MiniMax M3
+
+> Independent MiniMax M3 evaluation. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: Anthropic / Claude Opus 4.6 (OpenCode Zen paid)
+- Archived date: 2026-09-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Claude Opus 4.6
+- **Short description:** Anthropic's prior-generation top-tier model, hosted paid on OpenCode Zen. Long-context, strong reasoning and coding; text + image.
+- **Provider / access:** OpenCode Zen paid `opencode/claude-opus-4.6`; Anthropic API; Chat Completions-compatible.
+- **Release / knowledge:** Released prior to Opus 4.8; knowledge cutoff ≈ early-2026.
+- **IDs:** `opencode/claude-opus-4.6` (Zen paid). No Free ID.
+- **Context window:** 200K total (Anthropic standard).
+- **Modalities:** Text + image in; text out. Tool calls; reasoning on.
+- **Pricing (as of 2026-09-17):** Paid ~$15 in / $75 out per 1M (Anthropic list).
+- **Architecture:** Proprietary Anthropic.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** at Opus 4.6 specific harness in our slice; treat as ≤4.8.
+- Tau3: **no verified public score found** direct.
+- GDPval-AA: **no verified public score found** direct.
+- Claw-Eval: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found** direct for 4.6.
+- HLE / LCR / MRCR: **no verified public score found**.
+- AA Intelligence Index: **no verified public score found** for 4.6.
+
+Coding:
+
+- SWE-bench Verified: **no verified public score found** direct.
+- LiveCodeBench / DeepSWE / SciCode: **no verified public score found**.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

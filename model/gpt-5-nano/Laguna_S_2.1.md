@@ -66,3 +66,63 @@ Inference: GPT-5 nano (Overall 37.37) is lower than its sibling GPT-5.4 nano (46
 - Key finding: Previously self-excluded on 2026-10-02 based on stale BenchLM markdown ("0 of 618" benchmarks). On 2026-10-16, the BenchLM HTML page's `__NEXT_DATA__` JSON showed 4 source-displayable benchmark rows (GPQA 71.2%, AIME 85.2%, FrontierMath v2 T1-3 20%, T4 2.439%) with overallScore 37.37, rank #151/224. On 2026-10-17, the rendered BenchLM page shows regression: "0 of 639 benchmarks", "Sourced benchmark coverage is coming soon", "Overall Score: Coming soon", "Overall Rank: Unranked". The `__NEXT_DATA__` JSON was not re-verified via webfetch (which renders markdown only). The 4 verified benchmarks from Oct 16 are retained; note the rendered-page regression.
 
 ---
+
+---
+
+## Archived research pass — `Laguna_S_2.1.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Laguna_S_2.1.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5 nano — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (403), BenchLM (`https://benchlm.ai/models/gpt-5-nano`), OpenAI
+- Archived date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5 nano (High)
+- **Short description:** OpenAI's August 2025 ultra-fast, low-cost reasoning nanomodel. Deprecated by AA in favor of GPT-5.4 nano.
+- **Provider / access:** OpenAI API
+- **Release / knowledge:** Released August 7, 2025; knowledge cutoff May 2024; marked deprecated by AA (GPT-5.4 nano is the newer release)
+- **IDs:** `openai/gpt-5-nano` (AA slug); `opencode/gpt-5-nano` (`meta.json`)
+- **Context window:** 400K total (per AA model page); `meta.json` says 128K — **discrepancy noted**
+- **Modalities:** Text and image input, text output (per AA model page); `meta.json` says "Text in/out" — **discrepancy noted**
+- **Pricing (as of 2026-10-01):** $0.05 input / $0.40 output per 1M tokens; cache discount 90%
+- **Reasoning:** Yes (extended thinking / chain-of-thought)
+- **Speed:** 147.8 tokens/s output (per AA)
+
+#### Research log (2026-10-16 re-verification)
+
+1. Searched AA model page (`https://artificialanalysis.io/models/gpt-5-nano`) — **403 (blocked)**. Artificial Analysis page inaccessible.
+2. Searched BenchLM (`https://benchlm.ai/models/gpt-5-nano`) — page exists but shows "0 of 639" benchmarks covered with "Sourced benchmark coverage is coming soon." Last updated: October 16, 2026. No benchmark scores found. Context Window: 400K; Overall Score: "Coming soon"; Overall Rank: "Unranked".
+3. Searched OpenAI news for "gpt-5-nano" — no announcement with benchmark numbers found.
+4. Searched Vals AI leaderboards — no entry found.
+5. Note: BenchLM's sibling list includes GPT-5.4 nano (Score: 46.85) and GPT-5.3 Codex (Score: 60.47), but GPT-5 nano itself has no scores. The model was released August 7, 2025 (14 months prior) and still has zero public benchmark coverage.
+
+Previous research log (2026-10-01, original exclusion):
+1. AA model page — Intelligence Index 13 (estimated), all benchmarks "Not publicly available".
+2. BenchLM — 0 of 618 benchmarks.
+3. OpenAI news — no announcement with benchmarks.
+4. Vals AI — no entry.
+5. All AA individual benchmarks showed "Not publicly available".
+
+### Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for GPT-5 nano / `opencode/gpt-5-nano`.
+
+The AA model page is inaccessible (403). BenchLM's page exists but shows "0 of 639" benchmarks covered (updated 2026-10-16, increased from 618 to 639 total) with "Sourced benchmark coverage is coming soon." No official launch post, technical report, or other verified public source with benchmark numbers could be found. Even 14 months after release (August 7, 2025), no public benchmark scores exist. The `meta.json` note about 128K context vs AA's 400K remains: BenchLM confirms 400K context window.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (Overall: 66.5) are derived from peer model ratings only, not from verified public benchmarks. When GPT-5 nano publishes benchmark numbers on a public source (Artificial Analysis, BenchLM, official OpenAI announcement), this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+Note: `meta.json` discrepancies identified — meta.json lists 128K context window and text-only modalities, but the AA model page shows 400K context window with text+image input support. This suggests `meta.json` may be a placeholder or incorrect for this model.
+
+Re-verification (2026-10-17): Confirmed BenchLM page exists but 0/639 benchmarks covered ('Coming soon') — zero verified public benchmarks for this model ID.
+
+---

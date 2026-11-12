@@ -61,3 +61,63 @@ Conflicting evidence:
 - Provided by: **GPT 5.6 Sol (openai/gpt-5.6-sol)** — 2026-10-17
 - Method: Three independent exact-name web searches followed by review of official Z.ai documentation/pricing and independent Vercel, Benchable, and OmniaKey sources; conflicting route-versus-family evidence was kept separate.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_5.6_Sol.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Sol.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GLM-5.3-Flash-X — excluded findings by GPT-5.6 Sol
+
+- Source: Unverified/GLM-5.3-Flash-X
+- Archived date: 2026-10-24 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GLM-5.3-Flash-X (unverified identity)
+- **Short description:** No official Z.ai model or provider route could be verified with the exact hyphenated `glm-5.3-flash-x` identity. Provider catalogs instead expose `glm-5.3-flashx`, which is a separately tracked folder and cannot be silently substituted here.
+- **Provider / access:** No verified exact-model endpoint found.
+- **Release / knowledge:** No verified exact-model release date or knowledge cutoff found.
+- **IDs:** No verified `glm-5.3-flash-x` ID. The live IDs found use `glm-5.3-flashx` without the final hyphen.
+- **Context window:** No exact-model specification found.
+- **Modalities:** No exact-model specification found.
+- **Pricing (as of 2026-10-24):** No exact-model pricing found.
+- **Architecture:** No exact-model architecture or weights found.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau-bench / AutomationBench / GDPval-AA / Claw-Eval: no verified public score found for the exact hyphenated identity.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / Artificial Analysis Intelligence Index / CritPt: no verified public score found for the exact hyphenated identity.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / DeepSWE: no verified public score found for the exact hyphenated identity.
+
+Long context:
+
+- No verified context-window specification or retrieval benchmark found for the exact identity.
+
+#### Cross-source comparison
+
+- Three exact-name searches for `GLM-5.3-Flash-X`, its API spelling, and benchmarks returned unrelated or generic results rather than a Z.ai release or model card.
+- The guessed Z.ai documentation page, OpenRouter model page, Artificial Analysis page, and BenchLM page for `glm-5.3-flash-x` all returned 404.
+- A live OpenRouter catalog scan found no `z-ai/glm-5.3-flash-x` entry. It did find the differently spelled `z-ai/glm-5.3-flashx`, which is not treated as proof of this exact identity.
+- A live models.dev scan likewise found provider records for `glm-5.3-flashx` and `glm-5.3-flash`, but none for `glm-5.3-flash-x`. The repository already tracks the non-hyphenated FlashX identity separately.
+- No independent leaderboard exposed an exact-model benchmark under the hyphenated name. Importing the non-hyphenated model's specifications or measurements would double-count a likely spelling duplicate.
+
+#### Exclusion decision
+
+This exact identity has zero verified public benchmark numbers and no verified provider/model record. Per the mandatory self-exclusion rule, this file is saved as `.md.excluded` and contains no normalized scores.
+
+---

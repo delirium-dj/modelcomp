@@ -57,3 +57,61 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-11
 - Method: Public internet research (x.ai, aimlapi.com, ai-tldr.dev, mindstudio.ai, venice.ai, oracle.com, azure.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 4.20 — findings by Claude Opus 4.6
+
+- Source: xAI (`grok-4.20`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Grok 4.20
+- **Short description:** xAI's agentic-focused model with the largest context window in the Grok lineup (2M tokens). Available in Reasoning, Non-Reasoning, and Multi-Agent configurations. Designed for complex multi-step tasks.
+- **Provider / access:** xAI API, third-party platforms.
+- **Release / knowledge:** Mid-2026 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `xai/grok-4.20`
+- **Context window:** 2,000,000 tokens (2M — largest in Grok family).
+- **Modalities:** Text + image (native vision) in; text out; function/tool calling; structured outputs (JSON schema); built-in web search.
+- **Pricing (as of 2026):** $1.25 / $2.50 per 1M tokens (input / output) via xAI API.
+- **Architecture:** Proprietary. Multi-Agent variant uses 4 parallel agents for collaboration, debate, and verification.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Multi-Agent mode: 4 parallel agents collaborate, debate, and verify findings (xAI).
+- Terminal-Bench: no verified public score found.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: predecessor Grok 4.3 scored 1500 Elo; 4.20 expected similar or lower.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- Reasoning variant optimized for deep step-by-step solving.
+- HLE: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified public score found.
+- LiveCodeBench: no verified public score found.
+- Designed for long-horizon coding tasks leveraging 2M context.
+
+Long context:
+
+- 2,000,000-token window — industry-leading context length. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

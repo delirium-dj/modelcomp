@@ -53,3 +53,36 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Flint.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Flint.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok Build 0.1 — findings by Flint
+
+- Source: xAI / Grok Build
+- Archived date: 2026-11-05 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Grok Build 0.1
+- **Short description:** xAI's agentic coding model — **Grok Build**, an extensible coding agent (interactive TUI, headless scripts/bots, Agent Client Protocol) powered by **`grok-4.7`**, available on the SpaceXSI API; designed for agentic coding workflows and droppable into agent loops / IDE integrations / coding tools.
+- **Provider / access:** xAI (docs.x.ai; OpenAI-compatible API base `https://api.x.ai/v1`; Code API; Responses API).
+- **Release / knowledge:** `grok-4.7` is xAI's latest model per docs; docs current as of this research pass (2026-11-05).
+
+## Raw benchmarks found
+
+- No verified public benchmark numbers were found for **Grok Build 0.1** in this deep pass; the official xAI documentation describes capability and deployment surface but did not publish coding-bench figures in the fetched material.
+
+#### Cross-source comparison
+
+- Only official xAI sources were retrievable in this pass; no independent third-party benchmark or review sources were confirmed before the deep-research window closed.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).

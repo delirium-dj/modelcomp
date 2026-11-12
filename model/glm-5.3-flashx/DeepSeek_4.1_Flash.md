@@ -68,3 +68,63 @@ Multimodal / long context:
 - Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-10-18
 - Method: public internet research (Z.ai launch/model card, BenchLM, Vals AI, Artificial Analysis, OpenRouter, glm5.app, Benchable, OpenRouter AA panel); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `DeepSeek_4.1_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `DeepSeek_4.1_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GLM 5.3 Flash X — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified data)
+
+- Source: Z.ai/GLM-5.3-FlashX (`glm-5.3-flash-x`)
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** `GLM-5.3-FlashX` is a paid serving-speed variant priced
+> above GLM-5.3-Flash ($0.37/$1.25 vs $0.15/$0.50). Every published benchmark row
+> belongs to the base Flash checkpoint, and no X-specific measurement was found;
+> attributing base numbers to this route would mislabel the ID.
+
+### Model card (verified facts only)
+
+- **Name:** GLM 5.3 Flash X
+- **Short description:** Z.ai's speed-optimized paid route of the GLM-5.3-Flash 320B/18B-active MoE (1M window), positioned for agentic coding at lower latency and a higher price than the base Flash tier.
+- **Provider / access:** Z.ai developer platform (`GLM-5.3-FlashX`), OpenCode Zen (`opencode/glm-5.3-flash-x`), OpenAI-compatible Chat Completions.
+- **Release / knowledge:** GLM-5.3 generation (August 2026); exact FlashX date not published.
+- **IDs:** `glm-5.3-flash-x`, `opencode/glm-5.3-flash-x`.
+- **Context window:** 1,048,576 total; 131,072 max output (curated metadata / Z.ai catalogue).
+- **Modalities:** text, image, video and file in; text out (curated metadata).
+- **Pricing (as of 2026-10-23):** $0.37/$1.25 per 1M in/out, $0.075 cached — Z.ai pricing page.
+- **Architecture:** 320B total / 18B active MoE (shared with GLM-5.3-Flash); MIT open weights for the base checkpoint.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found for the FlashX route
+
+Reasoning / knowledge:
+
+- no verified public score found for the FlashX route
+
+Coding:
+
+- no verified public score found for the FlashX route
+
+Long context:
+
+- no long-context retrieval reported for the FlashX route
+
+#### Why the file is excluded (evidence trail)
+
+- The GLM-5.3-Flash launch post and Vals AI model page publish rows for `GLM-5.3-Flash` (e.g. GPQA Diamond 86.36 on Vals, 91.2 on BenchmarkList Epoch harness; SWE-bench 92.0; Terminal-Bench 2.1 62.9 Vals vs 84.3 vendor), not for `GLM-5.3-FlashX`.
+- Z.ai's pricing page lists FlashX separately ($0.37/$0.075/$1.25) but publishes no benchmark table for it; BenchLM and BenchmarkList have no `flashx` model page.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, a serving-speed variant without its own measurements is not scored on the base checkpoint's numbers; self-exclusion follows.
+- Re-research trigger: a vendor or harness row for `glm-5.3-flashx` → write a scored file and retire this twin (`RULES.md` twin rule).
+
+---

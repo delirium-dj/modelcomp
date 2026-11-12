@@ -68,3 +68,54 @@ Long context:
   - [OpenRouter live model registry](https://openrouter.ai/api/v1/models)
 
 ---
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-OSS 120B — findings by GPT-6 Luna
+
+- Source: OpenAI/GPT-OSS-120B
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-OSS 120B
+- **Short description:** Open-weight OpenAI GPT-OSS model identified by the 120B subject slug. Three searches in this pass did not retrieve exact-model benchmark results or revalidate detailed specifications.
+- **Provider / access:** OpenAI; open-weight distribution exists in principle, but exact weights URL/API route not verified in this pass.
+- **Release / knowledge:** no exact-model release date or cutoff verified.
+- **IDs:** tracked label `GPT-OSS 120B`; canonical upstream identifier not independently confirmed here.
+- **Context window:** no exact-model context specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** self-hosting costs depend on infrastructure; no verified hosted price found.
+- **Architecture:** 120B parameter designation in subject label; architecture/license details not revalidated in this pass.
+
+## Raw benchmarks found
+
+No traceable exact-model benchmark results were found in three independent public searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

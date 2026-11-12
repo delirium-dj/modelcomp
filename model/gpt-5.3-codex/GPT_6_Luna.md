@@ -59,3 +59,54 @@ Long context and multimodal:
 - Provided by: **GPT-6 Luna (openai/gpt-6-luna-fast)** — 2026-10-29
 - Method: Three independent public search queries, followed by primary-source verification against OpenAI's release post, system-card page, and exact API docs; BenchLM's provider-exact and Vals AI rows were used as a cross-check. Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.3 Codex — findings by GPT-6 Luna
+
+- Source: OpenAI/GPT-5.3 Codex
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5.3 Codex
+- **Short description:** OpenAI coding-oriented GPT-5.3 model. This research pass's searches did not retrieve exact-SKU benchmark evidence sufficient for scoring; GPT-5.3-Codex-Spark and other Codex variants are distinct and excluded.
+- **Provider / access:** OpenAI; canonical exact API ID not verified in this pass.
+- **Release / knowledge:** no exact release date or cutoff verified.
+- **IDs:** tracked subject `gpt-5.3-codex`; exact upstream identifier unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality details verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** proprietary; parameters undisclosed.
+
+## Raw benchmarks found
+
+No traceable exact-model benchmark scores were found in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

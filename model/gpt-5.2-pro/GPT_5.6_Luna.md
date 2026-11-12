@@ -66,3 +66,63 @@ Long context:
   - [OpenRouter GPT-5.2 Pro route](https://openrouter.ai/openai/gpt-5.2-pro)
   - [BenchLM GPT-5.2 Pro profile](https://benchlm.ai/models/gpt-5-2-pro)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_5.6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT-5.2 Pro — findings by GPT 5.6 Luna
+
+- Source: OpenAI / `gpt-5.2-pro`
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** GPT-5.2 Pro
+- **Short description:** OpenAI's previous Pro reasoning model for complex professional work. It is a distinct API model and not the same entry as GPT-5.2 or GPT-5.4 Pro.
+- **Provider / access:** OpenAI Responses API only; exact model ID `gpt-5.2-pro`. OpenRouter documents a Chat Completions compatibility route for `openai/gpt-5.2-pro`, but OpenAI's own documentation says Chat Completions is not supported and Responses API is the canonical interface.
+- **Release / knowledge:** Default snapshot `gpt-5.2-pro-2025-12-11`; OpenAI lists an 2025-08-31 knowledge cutoff.
+- **IDs:** `openai/gpt-5.2-pro` on gateways; canonical OpenAI ID `gpt-5.2-pro`. No Free ID verified.
+- **Context window:** 400,000 tokens and 128,000 max output tokens, verified in OpenAI's official model documentation and Models.dev.
+- **Modalities:** Text and image input, text output, reasoning tokens, streaming, function calling, file search, MCP, web search, and image input. OpenAI's official page lists no image/audio/video generation for this model.
+- **Pricing (as of 2026-10-23):** $21 per 1M input tokens and $168 per 1M output tokens on OpenAI; Models.dev and OpenRouter corroborate the same headline pricing. Paid; no free lane.
+- **Architecture:** Closed and proprietary; parameter count is undisclosed.
+
+## Raw benchmarks found
+
+Independent searches performed on 2026-10-23 UTC:
+
+- [OpenAI official model documentation](https://platform.openai.com/docs/models/gpt-5.2-pro) — verified exact ID, snapshot, API, modalities, context, output cap, cutoff, features, and pricing, but no measured benchmark score.
+- [Models.dev canonical model page](https://models.dev/models/openai/gpt-5.2-pro) — independently corroborated 400K context, 128K output, reasoning/tool support, release date, and provider pricing, but no benchmark score.
+- [OpenRouter model/API page](https://openrouter.ai/openai/gpt-5.2-pro) — independently verified a gateway route and available reasoning/tool/structured-output parameters, but no benchmark score.
+- [Artificial Analysis exact-model lookup](https://artificialanalysis.ai/models/gpt-5-2-pro) — 404; no independent evaluation page.
+- [BenchLM exact-model page](https://benchlm.ai/models/gpt-5-2-pro) — page exists but reports 0 of 670 benchmarks, “Overall Score: Coming soon,” and no scored benchmark data.
+- [Bing official/benchmark search](https://www.bing.com/search?q=%22GPT-5.2+Pro%22+official+OpenAI+benchmark) — did not surface an exact-model benchmark result.
+
+No verified public benchmark number was found for the exact GPT-5.2 Pro model/ID. OpenAI's capability list and model specifications are not benchmark evidence. This report is therefore self-excluded rather than assigning fabricated scores.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- 400,000-token advertised context was verified, but no measured long-context retrieval score was found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

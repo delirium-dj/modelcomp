@@ -10,10 +10,10 @@
 - **Name:** DeepSeek V4.1 Flash
 - **Short description:** DeepSeek's MIT-licensed 552B multimodal MoE update (Sept 10, 2026), engineered for KV-cache-efficient long-context agentic workloads. Uses Causal Encoder-Decoder architecture (16B active decode / 8B prefill), FP4 KV caching, and CSA2 cross-layer reuse — global KV footprint ~890 bytes/token in HBM. Beats GPT-5.6 Sol and Claude Opus 5 on several Terminal-Bench / DeepSWE rows at ~1/4 the V4-Pro price.
 - **Provider / access:** DeepSeek native API; Hugging Face (weights); OpenCode Zen `opencode/deepseek-v4.1-flash`. Chat Completions-compatible.
-- **Release / knowledge:** Released 2026-09-10; arXiv paper 2609.19969 (Sept 17). MIT license.
+- **Release / knowledge:** Released 2026-09-10; arXiv paper 2609.19969 (Sept 17). MIT license. Knowledge cutoff ≈ mid-2026 (earlier-pass estimate, not vendor-confirmed).
 - **IDs:** `deepseek/deepseek-v4.1-flash` (vendor / Zen); HF: `deepseek-ai/DeepSeek-V4.1-Flash`. No Free ID.
 - **Context window:** 1M tokens; 384K max output.
-- **Modalities:** Text and image in; text out (native multimodal MoE; image input confirmed in arXiv abstract).
+- **Modalities:** Text and image in; text out (native multimodal MoE; image input confirmed in arXiv abstract); reasoning on; tool calls.
 - **Pricing (as of 2026-10-13):** $0.15 input / $0.60 output per 1M (per ai-model-timeline.org). Cached input pricing per provider.
 - **Architecture:** Causal Encoder-Decoder MoE — 552B total parameters, 16B active during decode / 8B during prefill. FP4 KV cache, CSA2 cross-layer reuse, DSpark speculative decoding, SWA Bounded Replay. Pretrained on 45T-token multimodal corpus.
 
@@ -71,3 +71,32 @@ Multimodal / long context:
 - Provided by: **MiniMax M3 (MiniMax-M3)** — 2026-10-13
 - Method: public internet research (DeepSeek V4.1-Flash Hugging Face model card, arXiv paper 2609.19969, ashna.ai launch coverage, benchgap.net benchmark summary, ai-model-timeline.org technical summary, OpenRouter / DeepSeek API). Scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `DeepSeek_V4.1_Flash_DeepSeek.md`, using the same headings.
+
+---
+
+## Archived research pass — `MiniMax_M3.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `MiniMax_M3.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
+
+## DeepSeek V4.1 Flash — findings by MiniMax M3
+
+> Independent MiniMax M3 evaluation. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- Source: DeepSeek / V4.1 Flash (OpenCode Zen)
+- Archived date: 2026-09-17 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> Archived model card omitted — that pass was a speculative pre-release card (family-range context
+> guess, text-only modality); every conflicting value was checked against the cited arXiv abstract
+> (2609.19969), which confirms the active card's 1M context, multimodal input and architecture, so
+> the active values stand. Its two non-conflicting bits (knowledge-cutoff estimate; reasoning +
+> tool-call support) are folded into the active model card above.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score
+> found` in its research slice; superseded by the measured rows in the active report above.
+> Archived normalized scores omitted — superseded by the active report above (see provenance note
+> for the archived Overall).

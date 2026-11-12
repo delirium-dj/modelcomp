@@ -38,3 +38,29 @@ Provided by: **Gemini 3.1 Flash Lite (Meta/muse-wonder)** — 2026-11-01 UTC
   - https://artificialanalysis.ai/models/muse-wonder-full
   - https://www.agent-one.dev/blog/muse-wonder
   - https://shattered.io/meta-muse-wonder-ai-index-benchmark-2026
+
+---
+
+## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## muse-wonder-1.0 — findings by Gemini 3.1 Flash Lite
+
+- Source: muse-wonder-1.0 (opencode/muse-wonder-1.0)
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** muse-wonder-1.0
+- **Short description:** [No verified description found]
+- **Provider / access:** [No verified provider found]
+
+## Raw benchmarks found
+
+> No verified public benchmark numbers found.

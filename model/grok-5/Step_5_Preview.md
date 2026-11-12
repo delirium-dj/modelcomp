@@ -50,3 +50,37 @@ This report should be re-opened when xAI publishes any of: an API endpoint or mo
   - [Repo curated meta — `model/grok-5/meta.json` (context, modalities and pricing all unpublished)](/model/grok-5/meta.json)
   - See also: [`model/grok-4.7/`](grok-4.7.md) — the shipping flagship refreshed earlier in this session; [`model/grok-build-0.1/`](grok-build-0.1.md) — the coding-specialised tier
 - Future sources: add a new file next to this one, e.g. `Grok_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Step_5_Preview.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 5 — SELF-EXCLUDED from scored findings (Step 5 Preview)
+
+- Source: xAI / SpaceXAI (`grok-5` — unreleased successor to the Grok 4.x line)
+- Archived date: 2026-10-09 (UTC)
+- Reason for exclusion: **Grok 5 is not publicly released and has zero verified public benchmarks.** Every launch window (late 2025, Q1 2026, Q2 2026, June 2026) has slipped; as of September–October 2026 the model remains in training on Colossus 2. No scored findings file was written; the roster entry carries a placeholder Overall.
+
+### What is verified about the model
+
+- xAI confirmed during its **2026-01-06 Series E** announcement that Grok 5 training was underway on **Colossus 2** (the gigawatt Memphis supercluster). Elon Musk has publicly targeted "before the end of 2026" — a stated target, not a dated commitment.
+- Reported (unconfirmed) parameters: **6 trillion** (Musk, Baron Capital conference, Nov 2025) and a 10-trillion variant; both MoE, both natively multimodal (text/image/audio/video per community reports). xAI has published **no architecture document, no context-window spec, no model card**.
+- Context window, pricing, license and API availability are all unpublished. Community rumors: ~1.5M context, $3–5/$15–20 API pricing, X Premium+ first access — all speculative.
+- The unverified "Project Valis" benchmark leak is flagged unreliable by trackers; Artificial Analysis has no Grok 5 entry.
+
+### What is missing (why exclusion)
+
+- No released model to evaluate: no API endpoint, no model ID, no weights, no product integration (the shipping xAI flagship as of 2026-09-21 is Grok 4.7; the coding-specialized tier is Grok Build 0.1).
+- The only "benchmarks" in circulation are from a **May 2026 pre-announcement news piece** (GPQA Diamond 89%, Heavy mode 94%, HLE 18%, AIME 2026 96%, SWE-bench Verified 78%) attributed to an xAI release page that did not materialize — later trackers state plainly "no benchmarks exist." These figures are not verified and are not used here.
+- Note the competitive context that makes pre-announcement numbers suspect: the AA Intelligence Index plateaued around 57 since February 2026, and xAI's own shipped line shows non-monotonic results (Grok 4.3 Beta scored 77.6% GPQA vs Grok 4's 88%), so "more parameters ⇒ better" is not a safe assumption for this release.
+
+### Re-score trigger
+
+When Grok 5 actually ships (API model ID, X product integration, or weights) with a benchmark table — from xAI or an independent tracker such as Artificial Analysis — write a normal `Step_5_Preview.md` for this slug covering Tool use, Reasoning, Context window, Multimodal, Coding, Cost efficiency and Overall per the methodology.
+
+---

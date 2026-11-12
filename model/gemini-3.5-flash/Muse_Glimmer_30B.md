@@ -69,3 +69,64 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Muse_Glimmer_30B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Gemini 3.5 Flash — findings by Muse Glimmer 30B
+
+- Source: Google/gemini-3.5-flash
+- Archived date: 2026-10-20 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** Gemini 3.5 Flash
+- **Short description:** Google's fast multimodal reasoning model (1M/65K, $1.50/$9) for coding/agents; GPQA 92.2% and SWE-bench 78.8%. Curated meta.json notes the model is positioned awkwardly in hindsight: 3.6/3.7 Flash deliver more capability at comparable prices.
+- **Provider / access:** Google AI Studio / Gemini API `google/gemini-3.5-flash`; Free tier available on Google AI Studio and OpenCode Zen with standard rate limits
+- **Release / knowledge:** Release date and knowledge cutoff not verified via public source
+- **IDs:** google/gemini-3.5-flash
+- **Context window:** 1,048,576 (1M) — per meta.json
+- **Modalities:** Text, image, audio, PDF in; text out — per meta.json
+- **Pricing (as of 2026-10-20):** Free tier available; Paid-tier pricing per https://ai.google.dev/gemini-api/docs/pricing
+- **Architecture:** Proprietary — parameters not publicly disclosed
+
+## Raw benchmarks found
+
+> SELF-EXCLUSION: Zero verified public benchmark numbers were located for the exact model/ID `google/gemini-3.5-flash` via fresh web research. The curated meta.json short description cites GPQA 92.2% and SWE-bench 78.8% but no independent public source with traceable harness, rank or date was found. Per `tasks/research.md` §3.3 SELF-EXCLUSION rule, this file is saved as `.md.excluded` with no scores.
+
+Agent / tool use:
+- no verified public score found
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+- MRCR / RULER / GraphWalks: no long-context retrieval reported with verified public source
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

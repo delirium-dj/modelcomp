@@ -90,3 +90,19 @@ Evidence comparison per dimension (explicit conflicts: vendor vs independent est
   - [Grok 4.1 Fast (Reasoning) — Artificial Analysis review (independent evaluation note: deprecated status, 2025-11-19)](https://artificialanalysis.ai/models/grok-4-1-fast-reasoning)
   - [GPT-5.6 Sol vs Grok 4.1 Fast — independent benchmark comparison (aireleasetracker.com)](https://aireleasetracker.com/compare/openai/gpt-5.6-sol/x-ai/grok-4.1-fast)
 - Path contract verified: `model/grok-4.1-fast/Inkling.md` (folder = subject model `grok-4.1-fast`; filename = my STEM `Inkling.md`, not subject name `grok-4.1-fast.md`); no conflation with folder name.
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Grok 4.1 Fast — findings by Inkling
+
+- Source: Inkling
+- Archived date: 2026-10-26
+- Method: 3 searches (`docs.x.ai/models/grok-4.1-fast` shows family info but no benchmark numbers; no independent benchmark page retrieved for exact `grok-4.1-fast`; dataset lists 80.5). Zero verified public scores.
+- `.md.excluded`.

@@ -164,3 +164,74 @@ Long context:
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---
+
+---
+
+## Archived research pass — `Nemotron_3_Ultra_550B_A55B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Nemotron_3_Ultra_550B_A55B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.8 2.4T A95B — findings by Nemotron 3 Ultra 550B A55B
+
+- Source: Alibaba (`alibaba/qwen-3.8-2400b-a95b`)
+- Archived date: 2026-11-11 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.8 2.4T A95B
+- **Short description:** Alibaba's open-weight sparse MoE model (2.4T total, 95B active parameters), the open-weight twin of Qwen 3.8 Max for coding, research, complex reasoning, and agentic workflows.
+- **Provider / access:** 24+ providers including Hugging Face (`Qwen/Qwen3.8-2.4T-A95B`), OpenRouter (`qwen/qwen3.8-2.4t-a95b`), DeepInfra, Fireworks AI, SiliconFlow, Novita AI, Vercel AI Gateway, and others. Open weights available on Hugging Face.
+- **Release / knowledge:** 2026-08-12 release; knowledge cutoff not publicly specified.
+- **IDs:** `alibaba/qwen-3.8-2400b-a95b` (folder slug); provider IDs vary (e.g., `Qwen/Qwen3.8-2.4T-A95B` on HF, `qwen/qwen3.8-2.4t-a95b` on OpenRouter).
+- **Context window:** 262,144 standard (some providers offer up to 1,048,576) / 131,072 max output (per models.dev)
+- **Modalities:** Text in; text out; reasoning; tool calls; structured outputs; temperature control
+- **Pricing (as of 2026-11-11):** ~$2.00 / $6.00 per 1M (input / output) typical across providers; some variation ($1.95-$2.645 in / $5.70-$7.50 out). No free tier on major gateways.
+- **Architecture:** 2.4T total / 95B active sparse MoE; open weights (Apache 2.0 license per Hugging Face).
+
+## Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: no verified public score found
+- Tau3-Banking / Tau2-Bench: no verified public score found
+- GDPval-AA: no verified public score found
+- Claw-Eval / ClawProBench: no verified public score found
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- 262,144 token context window standard (some providers 1M); no MRCR / RULER / GraphWalks public scores found for this exact model.
+
+Multimodal:
+
+- Text-only per models.dev capabilities; no verified public multimodal benchmark scores found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+---

@@ -35,3 +35,36 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 - Provided by: **Xing40_29B_A4B (openrouter/xingchen-agi:free)** — 2026-10-21
 - Method: public internet research. Scores normalized 1–100. Where no verified benchmark, estimates capped.
 - Future sources: add a new file next to this one.
+
+---
+
+## Archived research pass — `Xing_4.0.29B_A4B.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## GPT 5.6 Sol — findings by Xing40_29B_A4B
+
+> Source: OpenAI (gpt-5.6-sol)
+> Date: 2026-10-21 (UTC)
+> Overview + scoring methodology: ../../model-comparison.md
+> Cross-model signed log: ../../model-findings.md
+
+### Model card
+- **Name:** GPT 5.6 Sol
+- **Short description:** OpenAI's Sol-track flagship targeting long-context reasoning + coding; positioned mid-tier above the latest Pro releases. Flag if variant/alias.
+- **Provider / access:** Hosted via OpenAI API; OpenRouter gpt-5.6-sol. Chat Completions API on OpenRouter.
+- **Release / knowledge:** 2026. Cutoff ~2026.
+- **IDs:** <provider>/gpt-5.6-sol
+- **Context window:** 1M tokens (industry standard for latest flagship). In/out split unverified exactly (~500k each).
+- **Modalities:** text in/out; image in; reasoning yes; tool calls yes; JSON mode yes. Audio lightly supported.
+- **Pricing (as 2026-10-21):** paid; ~.90/M input and ~.50/M output roughly (per AA comparison: GPT-6.1 Sol max at .72 blended overall cost suggests .30–.40/M input, .80–.20/M output). Cache discount ~90%.
+- **Architecture:** proprietary OpenAI dense transformer with extended chain-of-thought reasoning; params undisclosed.
+
+## Raw benchmarks found
+(Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

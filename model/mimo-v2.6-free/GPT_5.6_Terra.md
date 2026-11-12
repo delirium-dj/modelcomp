@@ -65,3 +65,39 @@ Evidence reconciliation: Xiaomi's table is checkpoint-specific but vendor-run. A
 - Method: Public internet research using Xiaomi's official model card, OpenCode's current model documentation, Artificial Analysis, BenchLM, and an independent access/pricing review. Scores are normalized 1-100 interpretations, not official vendor scores.
 - Sources: https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL ; https://opencode.ai/docs/zen ; https://artificialanalysis.ai/models/mimo-v2-6-flash ; https://benchlm.ai/models/mimo-v2-6-flash ; https://omidsaffari.com/blog/is-mimo-v2-6-free
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GPT_5.6_Terra.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Mimo V2 6 Free — findings by GPT 5.6 Terra
+
+- Source: Xiaomi / `opencode/mimo-v2-6-free`
+- Archived date: 2026-09-22 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Mimo V2 6 Free
+- **Short description:** This folder's exact OpenCode Free identifier could not be matched to Xiaomi's public V2.6 release identifiers.
+- **Provider / access:** The public Xiaomi release documents `mimo-v2.6-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro-ultraspeed`; it does not document `opencode/mimo-v2-6-free`.
+- **Release / knowledge:** Xiaomi released the MiMo-V2.6 Pro and Flash series on 2026-09-22.
+- **IDs:** No verified public mapping from `opencode/mimo-v2-6-free` to a Xiaomi V2.6 checkpoint.
+- **Context window:** no verified public value for this exact ID.
+- **Modalities:** no verified public matrix for this exact ID.
+- **Pricing (as of 2026-09-22):** no verified public price or free-tier terms for this exact ID.
+- **Architecture:** no verified public architecture for this exact ID.
+
+## Raw benchmarks found
+
+The Xiaomi announcement reports benchmark values for MiMo-V2.6-Pro and MiMo-V2.6-Flash, including DeepSWE v1.1, Terminal Bench and tool/visual-agent evaluations. Those measurements cannot be attributed to the distinct `opencode/mimo-v2-6-free` ID without a published provider mapping.
+
+- Exact-ID benchmark search: no verified public score found.
+
+---

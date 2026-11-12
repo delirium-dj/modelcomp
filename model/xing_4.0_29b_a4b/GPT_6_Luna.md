@@ -68,3 +68,54 @@ Long context:
   - [BenchmarkList model record](https://benchmarklist.com/models/xingchen-agi-xing4-0-29b-a4b/)
 
 ---
+
+---
+
+## Archived research pass — `GPT_6_Luna.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Xing 4.0 29B A4B — findings by GPT-6 Luna
+
+- Source: Xing/Xing 4.0 29B A4B
+- Archived date: 2026-10-28 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Xing 4.0 29B A4B
+- **Short description:** Model tracked under Xing 4.0 29B A4B. Three independent public searches did not verify the publisher, authoritative model card, or exact API/weights identity; no parameter or architecture claims are treated as independently established.
+- **Provider / access:** no verified exact-model provider or API route found.
+- **Release / knowledge:** no verified release date or cutoff.
+- **IDs:** tracked subject `xing_4.0_29b_a4b`; canonical ID unverified.
+- **Context window:** no exact-model specification verified.
+- **Modalities:** no exact-model modality evidence verified.
+- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
+- **Architecture:** slug encodes 29B/A4B, but this was not confirmed from an authoritative source in this pass.
+
+## Raw benchmarks found
+
+No exact-model benchmark results with sufficient traceable provenance were found in three independent searches.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified exact-model long-context result found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

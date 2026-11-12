@@ -46,3 +46,59 @@
 - Lifecycle flag: **`legacy`** — the `fledge-alpha-free` Zen route was retired by 2026-10-08; requests no longer resolve; no successor or paid tier was ever published.
 - Revisit trigger: only if OpenCode (or the anonymous vendor) republishes the route with attribution, a model card, or an Artificial Analysis / BenchLM row — at which point re-score all five quality dims from real data. Until then this file intentionally stays at the evidence floor.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Qwen_3.8_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Qwen_3.8_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Fledge Alpha — findings by Qwen 3.8 Flash (self-excluded: no verified benchmark)
+
+- Source: OpenCode Zen (`opencode/fledge-alpha-free`) — stealth/anonymous listing, **Lab: Unknown**
+- Archived date: 2026-10-04 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **EXCLUSION NOTE (RULES.md / `tasks/research.md` Rule 9 — SELF-EXCLUSION):**
+> Independent fresh web research returned **zero verified public benchmark numbers** for this exact model/ID. The authoritative OpenCode data page (updated 2026-10-04) lists Lab **Unknown** and every capability field — context window, max output, modalities, reasoning, tool calling, open weights, release date, pricing — as **`-` (undisclosed)**. With no GPQA / SWE-bench / Terminal-Bench / BFCL / AA-Index / HLE measurement for this ID, any normalized score would be invention, which drags the cohort mean for every reader (`pnpm sync` auto-quarantines evidence-free files). Saved as `.md.excluded`, **not** a scored report. Scores inside are intentionally absent.
+
+### Model card (verified facts only)
+
+- **Name:** Fledge Alpha (free stealth variant `opencode/fledge-alpha-free`)
+- **Short description:** An anonymous ("stealth") model dropped onto OpenCode Zen with no attributed lab. Community speculation (r/LocalLLaMA) floats DeepSeek V4.1 Pro / an unrevealed flagship, but **no identity has been confirmed** — unlike `Ox Alpha`, which was later revealed as Z.ai GLM-5.3-Flash, Fledge Alpha remains unrevealed.
+- **Provider / access:** OpenCode Zen `opencode/fledge-alpha-free`. (Mastra's router table renders a default `1.0M` context and blank pricing; the first-party OpenCode data page reports context/pricing as unknown, so the metadata is treated as **unconfirmed**.)
+- **Release / knowledge:** Not disclosed.
+- **IDs:** `opencode/fledge-alpha-free`
+- **Context window:** Undisclosed (`-` on the canonical data page; unverified `1M` only in a third-party router default).
+- **Modalities:** Undisclosed.
+- **Pricing:** Listed as free preview on Zen (`—` in/out); not confirmed.
+- **Architecture:** Unknown.
+- **Usage telemetry (the only measured signal found):** ~**543B** OpenCode tokens over the past 2 months; **0.1%** share of all tokens; **#13** by tokens last week; **147K** unique users. High *adoption*, but adoption is not a quality benchmark and cannot populate the five dims.
+
+## Raw benchmarks found
+
+Agent / tool use:
+- Terminal-Bench 2.1 / Tau3 / GDPval-AA / BFCL-V4: **no verified public score found**
+
+Reasoning / knowledge:
+- GPQA Diamond / HLE / MMLU-Pro / AA Intelligence Index / Omniscience: **no verified public score found**
+
+Coding:
+- SWE-bench Verified / LiveCodeBench / SciCode / DeepSWE / Vibe Code Bench: **no verified public score found**
+
+Long context:
+- MRCR / RULER / GraphWalks: **no verified public score found** (context window itself undisclosed)
+
+Multimodal:
+- Image / audio / video / PDF: **no verified public score found** (modalities undisclosed)
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---
+
+### Re-verification addendum — 2026‑10‑08 (UTC)
+
+Deeper research per `RULES.md` L17‑21. **Trigger has not fired.** The OpenCode Zen listing is still an **anonymous ID with no lab, no specs and no benchmark table** (community summary: "Fledge Alpha is the new free stealth model in OpenCode. **No lab, no specs, no benchmarks on the data page**. It went from 1 user to 1,818…"), and the routing hypothesis has strengthened rather than resolved: "New fledge alpha model is a **router** … Deepseek 4.1, kimi (k3?) and unknown". Two IDs exist — `fledge-alpha` and the free tier `opencode/fledge-alpha-free` (models.dev / Mastra confirm **1.0M context**, text+image in, reasoning low·high·max, **131,072 max output**, **no price published**). Third‑party probe pages (e.g. stealthmodels.com) publish **specs only, no attributable GPQA/SWE/Terminal‑Bench rows**. Because a router's output cannot be attributed to a single model, **no capability dimension is verifiable** and `Overall` is not computable — the self‑exclusion stands. Retire this only on an identity reveal (the Ox Alpha → GLM‑5.3‑Flash pattern) with published numbers.

@@ -68,3 +68,35 @@ Cross-source comparison & conflicts:
   - [Alibaba Unveils Qwen3.8-27B and Releases Weights of Qwen3.8 Flagship Model](https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463)
   - [Qwen 3.8 27B - GroqDocs](https://console.groq.com/docs/model/qwen/qwen3.8-27b)
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
+
+---
+
+## Archived research pass — `Flint.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Flint.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.8 27B — findings by Flint
+
+- Source: Qwen / Qwen 3.8 27B
+- Archived date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Qwen 3.8 27B
+- **Short description:** Qwen's open-weight 27B-parameter reasoning/coding model in the Qwen 3.8 family; small-parameter tier aimed at cost-efficient coding and reasoning.
+- **Provider / access:** OpenRouter (`qwen/qwen3.8-27b`), Qwen official API.
+
+## Raw benchmarks found
+
+- no verified public score found
+
+#### Cross-source comparison
+
+- Independent OpenRouter coverage confirmed the model ID and API surface; official Qwen pages could not be fetched during this research window; no independent benchmark figures captured.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).

@@ -76,3 +76,62 @@ Long context:
   - [BenchmarkList — Qwen3.5-Flash independent evals (conflict source)](https://benchmarklist.com/models/qwen-qwen3.5-flash-02-23/)
   - [NYU RITS — Qwen 3.5 Medium Series review](https://rits.shanghai.nyu.edu/ai/qwen-3-5-medium-series-frontier-ai-that-fits-on-your-gpu)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `GLM_5.3_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.5 Flash Lite — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified vendor ID or benchmarks)
+
+- Source: Alibaba Qwen team — no `qwen3.5-flash-lite` vendor route found in the surfaces checked
+- Archived date: 2026-10-30 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this
+> exact model/ID, and no vendor route carrying the "Flash-Lite" name was
+> verified. Per the template's mandatory self-exclusion rule this file is saved
+> as `.md.excluded` (notes only; any scores inside are ignored) instead of a
+> scored `.md`.
+
+### Model card
+
+- **Name:** Qwen 3.5 Flash Lite (UNVERIFIED — no vendor route found for the exact ID)
+- **Short description:** No evidence found that Alibaba ships a Qwen3.5-Flash-Lite SKU. The Qwen3.5 generation's documented members are Qwen3.5-397B-A17B, Qwen3.5-122B-A10B, Qwen3.5-35B-A3B, Qwen3.5-27B, Qwen3.5-9B, Qwen3.5-Flash (dated snapshot `qwen3.5-flash-02-23` on OpenRouter), and Qwen3.5-Plus (dated snapshots) — no Flash-Lite tier appears in the verified catalogs. A "Flash-Lite" name would pattern-match Google's Gemini Flash-Lite tier family, but no Qwen equivalent was found.
+- **Provider / access:** none found for the exact ID. OpenRouter's complete Qwen catalog (fetched 2026-10-30) lists the members above — no flash-lite entry. Alibaba Cloud Model Studio's current recommended-models page (updated 2026-10-28) has moved to the Qwen3.7/Qwen3.8 generation and lists no qwen3.5-flash-lite; the full Model Plaza catalog could not be programmatically verified (console-only).
+- **Release / knowledge:** no release record found
+- **IDs:** none found — no Free ID exists on Zen
+- **Context window / modalities / pricing / architecture:** no verified data
+
+#### Identity findings (2026-10-30, searches + catalog fetches; web search intermittently returned HTTP 403 late in the pass)
+
+- **OpenRouter full Qwen catalog** (https://openrouter.ai/qwen, fetched): Qwen3.5 members are `qwen3.5-397b-a17b`, `qwen3.5-122b-a10b`, `qwen3.5-35b-a3b`, `qwen3.5-27b`, `qwen3.5-9b`, `qwen3.5-flash-02-23`, `qwen3.5-plus-02-15`, `qwen3.5-plus-20260420` — **no flash-lite**. The 3.6/3.7/3.8 generations likewise list Flash but no Flash-Lite (`qwen3.6-flash`, `qwen3.7-flash`, `qwen3.8-flash`).
+- **Alibaba Cloud Model Studio docs** (fetched): current text-generation recommendations are qwen3.8-max / qwen3.7-plus / qwen3.8-flash; no qwen3.5-flash-lite.
+- **Benchmark locators:** no SWE-bench/GPQA/pricing row for a "Qwen3.5-Flash-Lite" surfaced in any search; the closest measured relatives are Qwen3.5-35B-A3B (SWE-bench Verified 67.0% full-set / 37.8% Hard per community run) and Qwen3.5-27B — different IDs, lineage data only.
+- **Possibility left open:** "Flash-Lite" may be (or have been) a Model Studio serving-tier label pointing at the Qwen3.5-Flash weights, or a regional/console-only SKU — neither verifiable from public sources in this pass. If the orchestrator finds such a route, re-research against it.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no vendor route verified for this exact ID)
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

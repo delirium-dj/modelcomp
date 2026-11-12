@@ -58,3 +58,61 @@ Long context:
 - Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4-6-20260205)** — 2026-10-12
 - Method: Public internet research (llm-stats.com, emergent.sh, medium.com, juliangoldie.com, hokai.io); scores are normalized 1–100 interpretations, not official vendor scores.
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
+
+## Archived research pass — `Claude_Opus_4.6.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K2.8 Preview — findings by Claude Opus 4.6
+
+- Source: Moonshot AI (`kimi-k2.8-preview`)
+- Archived date: 2026-10-03 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Kimi K2.8 Preview
+- **Short description:** Moonshot AI's intermediate multimodal coding model released September 11, 2026. First Kimi model with native vision understanding. Positioned between K2.7 Code and the flagship K3, optimized for agentic coding workflows.
+- **Provider / access:** Moonshot AI API (integrated under `kimi-for-coding` ID), Kimi Code, Kimi Work.
+- **Release / knowledge:** 2026-09-11 release; knowledge cutoff not publicly confirmed.
+- **IDs:** `moonshot/kimi-k2.8-preview` (accessed via `kimi-for-coding`)
+- **Context window:** 1,000,000 tokens (available across all membership tiers).
+- **Modalities:** Text + image in (first Kimi with native vision — screenshots, charts, document scans); text out; configurable thinking effort (Low, High, Max default).
+- **Pricing (as of 2026-10-03):** Billed through Kimi Code membership quotas (Adagio free tier and above), not per-token API pricing.
+- **Architecture:** Proprietary; parameter count undisclosed. Efficiency-focused intermediate model.
+
+## Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found.
+- Vendor claims "approaching Kimi K3" overall agentic performance.
+- Tau3-Banking / Tau2-Bench: no verified public score found.
+- GDPval-AA: no verified public score found.
+- Claw-Eval / ClawProBench: no verified public score found.
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found.
+- HLE: no verified public score found.
+- Configurable thinking effort (Low/High/Max) supports deep reasoning.
+
+Coding:
+
+- SWE-bench Verified / SWE-bench Pro: no verified K2.8-specific score found. Near-K3 performance claimed.
+- LiveCodeBench: no verified public score found.
+- Optimized for repository understanding, debugging, and testing in VS Code.
+
+Long context:
+
+- 1,000,000-token window confirmed across all tiers. No specific MRCR / RULER / GraphWalks retrieval score published.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

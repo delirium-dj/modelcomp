@@ -38,3 +38,29 @@ Provided by: **Gemini 3.1 Flash Lite (Alibaba/qwen-3.6-plus)** — 2026-11-01 UT
   - https://openrouter.ai/qwen/qwen3.6-plus
   - https://qwen.ai/blog
   - https://qubrid.com/blog/qwen-3-5-plus-vs-qwen-3-6-plus-we-tested-both-on-qubrid-ai-here-s-what-changed
+
+---
+
+## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## qwen-3.6-plus — findings by Gemini 3.1 Flash Lite
+
+- Source: qwen-3.6-plus (opencode/qwen-3.6-plus)
+- Archived date: 2026-10-23 (UTC)
+- Overview and scoring methodology: ../../model-comparison.md
+- Cross-model signed log: ../../model-findings.md
+
+### Model card
+
+- **Name:** qwen-3.6-plus
+- **Short description:** [No verified description found]
+- **Provider / access:** [No verified provider found]
+
+## Raw benchmarks found
+
+> No verified public benchmark numbers found.

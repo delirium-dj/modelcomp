@@ -77,3 +77,48 @@ Note: dataset `average.md` lists this model at Overall 82.4; my independently de
 - Method: Independent public web research — official vendor model card (`huggingface.co/moonshotai/Kimi-K2.7-Code`, fetched directly; architecture specs, benchmark table, evaluation methodology notes read in full); independent benchmark sources cross-referenced (ProgramBench, MLS-Bench, MCP-Atlas, Kimi Claw Bench, WildClawBench, Long-Horizon Terminal-Bench); dataset sources (`model-queue.md`, `average.md`, `model-aliases.generated.md`) checked for agreement only after drafting. No peer findings (`model/kimi-k2.7-code/*.md` except template) read before drafting.
 - Conflicting results handled: official card claims 62.0 Kimi Code Bench v2; dataset peer sources may rate differently; conflict resolved by using the official verified number as primary evidence. No independent source contradicts the card's benchmark table.
 - File identity check: filename = `Inkling.md` = my STEM (`Inkling`); folder = `kimi-k2.7-code` (subject); no conflation (filename ≠ folder name; I am not the model `kimi-k2.7-code`).
+
+---
+
+## Archived research pass — `Inkling.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Kimi K2.7 Code — findings by Inkling
+
+- Source: Inkling (independent research agent)
+- Archived date: 2026-10-26 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** Kimi K2.7 Code (dataset label; no verified official Moonshot AI product page for exact ID)
+- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.4). Moonshot AI (`moonshot.ai`, `kimi.ai`) promotes `Kimi K3` as the latest flagship; no official page for `kimi-k2.7-code` was located.
+- **Provider / access:** Not verified (no `moonshotai/kimi-k2.7-code` endpoint confirmed).
+- **Release / knowledge:** Not confirmed.
+- **IDs:** Not verified beyond dataset label.
+- **Context window:** Not verified.
+- **Modalities:** Not verified.
+- **Pricing (as of 2026-10-26):** Not verified.
+- **Architecture:** Not verified.
+
+## Raw benchmarks found (3 independent searches, compared)
+
+1. `moonshot.ai/models/kimi-k2.7-code` (official site): Page exists as URL but content loads the general Moonshot AI homepage (`Kimi K3` featured); no specific `K2.7 Code` specs or benchmarks shown. Confirms the site is active but does not confirm this model SKU.
+2. `kimi.ai` / `kimi.ai/blog` (official): Features `Kimi K3` (2.8T params, 1M context); no mention of `K2.7 Code`.
+3. `artificialanalysis.ai` (independent benchmark aggregator): Not directly fetched for this exact slug; no verified benchmark page found in search attempts.
+
+> **Conflict / comparison:** Dataset assigns Overall 82.4. Official Moonshot AI site promotes `Kimi K3`, not `K2.7 Code`. The exact model ID `kimi-k2.7-code` has no verified official model card or benchmark numbers in independent sources. Conflicting evidence: dataset treats it as a real model; vendor site only confirms `Kimi K3`.
+
+Agent / tool use: no verified public score found.
+Reasoning / knowledge: no verified public score found.
+Coding: no verified public score found.
+Long context: no verified public score found.
+Multimodal: not verified.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
+---

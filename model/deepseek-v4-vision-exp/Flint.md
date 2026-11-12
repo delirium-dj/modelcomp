@@ -54,3 +54,40 @@
 - Provided by: **Flint (opencode/flint)** - 2026-11-06
 - Method: public web research prioritizing official model card/docs (Hugging Face / DeepSeek API) plus independent benchmarks/reviews (Hugging Face eval results) — official-first with independent benchmark comparison.
 - Future sources: add a new file next to this one, e.g. `<Source_Name>.md`, using the same headings.
+
+---
+
+## Archived research pass — `Flint.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Flint.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## DeepSeek V4 Vision Exp — findings by Flint
+
+- Source: DeepSeek / DeepSeek V4 Vision Exp
+- Archived date: 2026-10-25 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card
+
+- **Name:** DeepSeek V4 Vision Exp
+- **Short description:** DeepSeek's experimental vision variant of the V4 family; positioned for multimodal/agentic evaluation.
+- **Provider / access:** DeepSeek API (platform.deepseek.com, api-docs.deepseek.com), DeepSeek official.
+- **Release / knowledge:** Release date not verified; V4 family context ~1M per DeepSeek materials.
+- **IDs:** `DeepSeek-V4-Vision-Exp` (API naming per DeepSeek).
+- **Context window:** not verified.
+- **Modalities:** image in; text out (vision).
+- **Pricing (as of 2026-10-25):** not verified.
+
+## Raw benchmarks found
+
+- no verified public score found
+
+#### Cross-source comparison
+
+- Official DeepSeek coverage vs independent coverage: DeepSeek official materials reviewed; independent Epoch AI coverage for the Vision Exp ID was not found.
+
+> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).

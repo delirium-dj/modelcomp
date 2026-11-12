@@ -143,3 +143,58 @@ Multimodal & grounded:
 - Re-verification (2026-10-17): Oct 17 BenchLM page (overall 53.76, #80/954, 71 of 639 benchmarks) added 57 new benchmark rows from Alibaba blog + AA leaderboards, expanding coverage from 14→71 benchmarks; GDPval-AA added (886 Elo / 13.4% normalized — weak, below frontier), τ²-bench 93% (near-frontier new), new agentic/coding/multimodal/reasoning benchmarks confirmed; normalized scores retained at 86.
 
 ---
+
+---
+
+## Archived research pass — `Laguna_S_2.1.md.excluded` (merged 2026-11-12 — own-twin retirement)
+
+> Merged from this folder's `Laguna_S_2.1.md.excluded` when the active scored report above made the
+> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
+> normalized scores and signature above remain authoritative; the content below is preserved
+> research history, not judged data.
+
+## Qwen 3.7 Plus — self-exclusion by Laguna S 2.1
+
+- Source: Artificial Analysis (403), BenchLM (404), HuggingFace (404), OpenRouter
+- Archived date: 2026-10-17 (UTC) — re-verification of 2026-10-01 exclusion
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+### Model card (partially verified)
+
+- **Name:** Qwen 3.7 Plus (Alibaba Cloud)
+- **Short description:** Alibaba's Qwen series model, positioned for agentic coding and general reasoning at 128K context. A proprietary model accessible via OpenAI-compatible API.
+- **Provider / access:** OpenAI-compatible Chat Completions API via Alibaba Cloud; ID `qwen-3.7-plus`. No verified Free ID on Zen.
+- **Release / knowledge:** 2026 (Qwen 3.x series). Knowledge cutoff: not published.
+- **IDs:** `qwen-3.7-plus` (repo meta id `opencode/qwen-3.7-plus`). noFreeId per repo `meta.json`.
+- **Context window:** **128K total** (per `meta.json`).
+- **Modalities:** **Text in/out** (per `meta.json`). Reasoning yes; tool calls yes; JSON mode yes.
+- **Pricing (as of 2026-10-01):** "Standard pricing" per `meta.json`. No concrete numbers published; priced as a mid-tier paid model.
+- **Architecture:** Proprietary dense transformer. No parameter count disclosed.
+
+#### Research log (2026-10-16 re-verification)
+
+1. Searched AA model page (`https://artificialanalysis.io/models/qwen-3-7-plus`) — **403 (blocked)**. Artificial Analysis page inaccessible.
+2. Searched BenchLM (`https://benchlm.ai/models/qwen-3-7-plus`) — **404 (page not found)**. BenchLM has no entry for this model variant.
+3. Searched HuggingFace (`https://huggingface.co/Qwen3.7-Plus`) — **404 (page not found)** (redirected to `/Qwen3.7-Plus/models` which also 404).
+4. Searched OpenRouter for `qwen/qwen-3.7-plus` — model not listed on OpenRouter models directory.
+5. No official Alibaba launch post or tech report with benchmark numbers found.
+
+Previous research log (2026-10-01, original exclusion):
+1. BenchLM returned 404 for this slug.
+2. AA and HF cards not found for this exact slug.
+3. No verified public benchmark numbers located.
+
+### Self-exclusion statement
+
+**Zero verified public benchmark numbers** found for Qwen 3.7 Plus / `opencode/qwen-3.7-plus`.
+
+The model does not have entries on Artificial Analysis (403 blocked; previously 404), BenchLM (404), HuggingFace (404), or OpenRouter. No official launch post, tech report, or other verified public source with benchmark numbers could be found.
+
+Per `RULES.md` §[Self-exclusion]: "if you found ZERO verified public benchmark numbers for this exact model/ID → refuse to score, write `Laguna_S_2.1.md.excluded` instead, and stop — do not fabricate or guess."
+
+This model is therefore **self-excluded** from scoring. The model's `average.md` scores (if any) are derived from peer model ratings only, not from verified public benchmarks. When Qwen 3.7 Plus publishes benchmark numbers on a public source (Artificial Analysis, BenchLM, or an official Alibaba announcement), this file should be replaced with a scored `Laguna_S_2.1.md`.
+
+---
+
+---
