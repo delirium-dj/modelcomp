@@ -14,6 +14,13 @@
 - **Name:** GLM-4.6-Flash — **as named by the slug; no such vendor product was found.**
 - **Provider / access:** **none found.** No Zhipu route, no gateway listing, no weights repo. **Re-verified 2026-11-06.**
 
+- **Short description (earlier pass 2026-10-24):** No text-only GLM-4.6-Flash exists. Zhipu's GLM 4.6 generation shipped three models — GLM-4.6 (text flagship), GLM-4.6V (vision flagship) and GLM-4.6V-Flash (vision, lightweight) — and the "Flash" tier was applied **only to the vision line**, never to the text line. The naming asymmetry is itself the evidence: the earlier GLM-4.5 generation *did* have a text `GLM-4.5-Flash`, so a 4.6 text-Flash would be expected if it existed, yet none does.
+- **Release / knowledge (earlier pass 2026-10-24):** not found.
+- **IDs (earlier pass 2026-10-24):** none verified.
+- **Context window (earlier pass 2026-10-24):** not verifiable — no model to measure.
+- **Modalities (earlier pass 2026-10-24):** not verifiable.
+- **Pricing (earlier pass 2026-10-24):** not verifiable.
+- **Architecture (earlier pass 2026-10-24):** not verifiable.
 ## What is verified
 
 - **No Zhipu/Z.ai route, no gateway listing, no weights repository, and no lab entry** for this name — re-verified 2026-11-06.
@@ -61,8 +68,8 @@ This report should be re-opened if Zhipu or Z.ai ships a product by this name, o
 
 > Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## glm-4.6-flash — negative findings by Step 5 Preview
 
@@ -77,47 +84,12 @@ This report should be re-opened if Zhipu or Z.ai ships a product by this name, o
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Short description, Release / knowledge, IDs, Context window,
+> Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled with the 2026-10-24 pass
+> date.
 
-- **Name:** GLM-4.6-Flash (as named by the slug; no such vendor product was found)
-- **Short description:** No text-only GLM-4.6-Flash exists. Zhipu's GLM 4.6 generation shipped three models — GLM-4.6 (text flagship), GLM-4.6V (vision flagship) and GLM-4.6V-Flash (vision, lightweight) — and the "Flash" tier was applied **only to the vision line**, never to the text line. The naming asymmetry is itself the evidence: the earlier GLM-4.5 generation *did* have a text `GLM-4.5-Flash`, so a 4.6 text-Flash would be expected if it existed, yet none does.
-- **Provider / access:** none found. No Zhipu route, no gateway listing, no weights repo.
-- **Release / knowledge:** not found.
-- **IDs:** none verified.
-- **Context window:** not verifiable — no model to measure.
-- **Modalities:** not verifiable.
-- **Pricing:** not verifiable.
-- **Architecture:** not verifiable.
-
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench (any version): no verified public score found.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- HLE: no verified public score found.
-- LCR / MLCR: no verified public score found.
-- CritPt: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404 for `/models/glm-4-6-flash`.
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SciCode / AA-SciCode: no verified public score found.
-- Vibe Code Bench: no verified public score found.
-- DeepSWE / Coding Index: no verified public score found.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Verification trail (six independent checks, all run 2026-10-24)
 

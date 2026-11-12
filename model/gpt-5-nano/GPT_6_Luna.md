@@ -82,8 +82,8 @@ Image benchmarks (OpenAI, GPT-5 Nano high): MMMU **75.6%** and MMMU-Pro **62.6%*
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5 Nano — findings by GPT-6 Luna
 
@@ -92,17 +92,8 @@ Image benchmarks (OpenAI, GPT-5 Nano high): MMMU **75.6%** and MMMU-Pro **62.6%*
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5 Nano
-- **Short description:** OpenAI lightweight GPT-5 variant represented by the tracked subject. Three independent searches did not verify exact-model benchmarks or a complete model card; GPT-5.4 Nano and base GPT-5 results are not substituted.
-- **Provider / access:** OpenAI; exact API model ID not verified.
-- **Release / knowledge:** no exact-model release date or cutoff verified.
-- **IDs:** tracked label `GPT-5 Nano`; canonical ID unverified.
-- **Context window:** no exact-model context specification verified.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** no exact-model price verified.
-- **Architecture:** proprietary; details not verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

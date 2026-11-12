@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Fable 5 — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** Claude Fable 5
-- **Short description:** Anthropic's flagship "extended task" flagship mixin; pushes agentic tool-use and long-context benchmarks high, billed as the best all-round agentic model. Flag if variant/alias.
-- **Provider / access:** Hosted via Anthropic Claude API; OpenRouter nthropic/claude-fable-5. Chat Completions API.
-- **Release / knowledge:** 2026. Knowledge cutoff ~2025–2026.
-- **IDs:** <provider>/claude-fable-5
-- **Context window:** 1M tokens total (~500k in/out). Not directly verified on AA this month; industry reports ~1M combined context.
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes; audio lightly supported.
-- **Pricing (as 2026-10-21):** EU via Google Vertex ~/M input, /M output; US ~.50/M input, .00/M output. Paid.
-- **Architecture:** proprietary Anthropic Claude dense; not disclosed publicly. Not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

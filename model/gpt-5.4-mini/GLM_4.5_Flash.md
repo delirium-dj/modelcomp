@@ -17,9 +17,9 @@
 - **Short description:** AI model with general-purpose capabilities
 - **Provider / access:** <PROVIDER> via API platform (`gpt-5.4-mini`)
 - **Release / knowledge:** Released in Unknown; knowledge cutoff Unknown
-- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen)
+- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen) (also recorded: `openai/gpt-5-4-mini`)
 - **Context window:** Unknown
-- **Modalities:** Text input/output
+- **Modalities:** Text input/output; tool calls; reasoning
 - **Pricing (as of 2026):** Unknown
 - **Architecture:** Unknown
 
@@ -105,8 +105,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.4 Mini — findings by Gemini 4.5 Flash
 
@@ -121,17 +121,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.4 Mini
-- **Short description:** OpenAI's compact version of GPT-5.4, designed for efficient inference while maintaining core capabilities.
-- **Provider / access:** OpenAI (`gpt-5-4-mini`) - Chat Completions API
-- **Release / knowledge:** Release date not specified in available sources; knowledge cutoff not specified
-- **IDs:** `openai/gpt-5-4-mini`
-- **Context window:** Not explicitly specified in available sources
-- **Modalities:** Text input; text output; reasoning capabilities unknown; tool use unknown
-- **Pricing (as of 2026-10-22):** Not publicly available in sources
-- **Architecture:** Proprietary compact architecture based on GPT-5.4
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Modalities +tool calls/reasoning. Every other archived field value was an
+> older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

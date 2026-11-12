@@ -9,9 +9,9 @@
 
 - **Name:** Fledge Alpha
 - **Short description:** A free-tier stealth preview model that appeared in OpenCode Zen on October 1, 2026, with no official vendor announcement. Strong evidence (effort dial mapping, Tinker reference in public PR, context window match) suggests it is a Thinking Machines Lab Inkling-family checkpoint. Closed weights.
-- **Provider / access:** OpenCode Zen `opencode/fledge-alpha-free` (only availability; no longer listed as of 2026-10-11). Not on OpenRouter, Cline, or other harnesses. No Zen Free ID.
+- **Provider / access:** OpenCode Zen `opencode/fledge-alpha-free` (only availability; no longer listed as of 2026-10-11). Not on OpenRouter, Cline, or other harnesses. No Zen Free ID. (also recorded: `unknown/fledge-alpha`, `stealth/fledge-alpha`)
 - **Release / knowledge:** Released 2026-10-01; no official knowledge cutoff disclosed.
-- **IDs:** `opencode/fledge-alpha-free` (no Free ID on Zen; free preview)
+- **IDs:** `opencode/fledge-alpha-free` (no Free ID on Zen; free preview) (also recorded: `unknown/fledge-alpha`)
 - **Context window:** 1,048,576 tokens (1M); max output 131,072 tokens.
 - **Modalities:** Text + image input → text output; tool calls; reasoning (always-on, 3 effort levels: low=0.2, high=0.9, max=0.99).
 - **Pricing (as of 2026-10-18):** Free during preview period ($0.00/$0.00 per MTok). Data may be used to improve the model (not zero-retention).
@@ -68,8 +68,8 @@ Long context:
 
 > Merged from this folder's `LongCat_2.5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Fledge Alpha — findings by LongCat 2.5 Preview
 
@@ -78,17 +78,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Fledge Alpha Free
-- **Short description:** Anonymous free-tier model that appeared on OpenCode in early October 2026. Developer, lab, and underlying architecture are unknown. Likely a multi-model routing gateway rather than a single model.
-- **Provider / access:** OpenCode Zen `unknown/fledge-alpha` (free tier, $0 input/output). Also listed on AnyRouter as `stealth/fledge-alpha`.
-- **Release / knowledge:** 2026-10-01 (first observed on OpenCode). Knowledge cutoff unknown.
-- **IDs:** `unknown/fledge-alpha` (OpenCode Zen)
-- **Context window:** 1,048,576 tokens (1M). Max output: 131,072 tokens. Verified via multiple community sources and models.dev catalog.
-- **Modalities:** Text + image input; text output. Reasoning: yes (low/high/max effort). Tool calls: yes.
-- **Pricing (as of 2026-10-03):** Free ($0 input / $0 output) on OpenCode Zen preview tier.
-- **Architecture:** Unknown. Community analysis suggests a router backed by multiple models (possibly DeepSeek V4.1, Kimi K3, and an unknown model). Based on sglang gateway. Not a single identifiable model.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +2. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found
 

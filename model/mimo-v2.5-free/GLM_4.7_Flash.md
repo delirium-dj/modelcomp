@@ -14,7 +14,7 @@
 - **IDs:** `mimo/mimo-v2.5-free`
 - **Context window:** 128K tokens (verified; extension to 256K theoretical)
 - **Modalities:** text in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026-10-25):** $0.08 per 1M input tokens; $0.20 per 1M output tokens (est. Mimo V2.5 Free tier)
+- **Pricing (as of 2026-10-25):** $0.08 per 1M input tokens; $0.20 per 1M output tokens (est. Mimo V2.5 Free tier) (earlier pass also recorded: $0.35 in / $1.75 out per 1M; cache $0.07 per 1M; highly competitive for high-volume use.)
 - **Architecture:** 26B parameters (dense); Apache 2.0 license
 
 ### Raw benchmarks found
@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM_4.7_Flash Report
 
@@ -70,17 +70,12 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** MiMo V2.5 Free
-- **Short description:** AI open-weight model (2026) optimized for high-volume workloads with balanced intelligence and competitive pricing.
-- **Provider / access:** AI providers / Model hub, various deployment options.
-- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
-- **IDs:** `mimo-v2.5-free`
-- **Context window:** 1,000,000 total tokens; 1,000,000 max output — enterprise-class.
-- **Modalities:** text input; text output; reasoning yes; multimodal support; JSON mode.
-- **Pricing (as of 2026-10-21):** $0.35 in / $1.75 out per 1M; cache $0.07 per 1M; highly competitive for high-volume use.
-- **Architecture:** open weights; mixture-of-experts; reasoning architecture; API-only.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Pricing: the two cards conflicted ($0.08/$0.20 vs $0.35/$1.75 per 1M); no official Xiaomi pricing page was
+> reachable, so the active value stands and the archived figures are preserved here for the record. The
+> archived context-window row was generic template filler ("1,000,000 total tokens; 1,000,000 max output —
+> enterprise-class"), not model-specific research — the active value stands. Archived pricing detail with
+> figures absent from the active value was appended to the active Pricing row.
 
 ## Raw benchmarks found
 

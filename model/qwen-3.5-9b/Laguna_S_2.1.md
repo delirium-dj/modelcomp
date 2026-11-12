@@ -147,8 +147,8 @@ Multimodal & vision:
 
 > Merged from this folder's `Laguna_S_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.5 9b — self-exclusion by Laguna S 2.1
 
@@ -157,14 +157,9 @@ Multimodal & vision:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.5 9b
-- **Short description:** Alibaba Cloud's 9B parameter model variant of Qwen 3.5.
-- **Provider / access:** Alibaba Cloud Model Studio; OpenRouter
-- **IDs:** `opencode/qwen-3.5-9b` (per `meta.json`); `qwen-3-5-9b` (AA slug, dots→hyphens)
-- **Context window:** 128K total (per `meta.json`)
-- **Modalities:** Text in/out (per `meta.json`)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Context window: the archived 128K (per meta.json) was checked against the Qwen3.5-9B Hugging Face model
+> card (262,144 native, extensible to 1,010,000 via YaRN) and refuted — the active value stands.
 
 #### Research log (2026-10-16 re-verification)
 

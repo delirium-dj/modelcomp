@@ -5,11 +5,11 @@
 - **Name:** Claude Fable 5
 - **Short description:** Frontier intelligence model optimized for coding, knowledge work, and everyday agents.
 - **Provider / access:** Anthropic (API-only), claude-fable-5
-- **Release / knowledge:** Not publicly disclosed; knowledge cutoff April 30, 2026
+- **Release / knowledge:** Released June 9, 2026; reliable knowledge cutoff January 2026 (per Anthropic's official Fable 5 page).
 - **IDs:** anthropic/claude-fable-5
-- **Context window:** 200,000 tokens (verified)
-- **Modalities:** text in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026-11-09):** $10 / $50 per 1M tokens; $10 input, $50 output; cache discount 90%
+- **Context window:** 1M tokens; 128K max output (per Anthropic's official Fable 5 page — the earlier active figure of 200K was wrong).
+- **Modalities:** text and image in; text out; reasoning yes; tool calls; JSON mode (image input per Anthropic's official Fable 5 page).
+- **Pricing (as of 2026-11-09):** $10 input / $50 output per 1M tokens; cache read $1, 5m cache write $12.50, 1h cache write $20 per 1M (per Anthropic's official Fable 5 page).
 - **Architecture:** Proprietary, closed weights
 
 ### Raw benchmarks found
@@ -92,25 +92,19 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.6/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.6/100 — superseded by the active scores above.
 
 ## CLAUDE-FABLE-5 — GLM_4.7_Flash Research Report
 
 
 ---
 
-### Model card
-
-- **Name:** Claude Fable 5
-- **Short description:** Anthropic's general-availability Mythos-tier model released June 9, 2026, designed for complex, long-running agentic work, coding, and knowledge work with 1M token context window and exceptional performance on SWE-Bench Pro and cybersecurity benchmarks.
-- **Provider / access:** Anthropic API (proprietary)
-- **Release / knowledge:** Released June 9, 2026. Knowledge cutoff January 2026.
-- **IDs:** `claude-fable-5` / `claude-fable-5`
-- **Context window:** 1,000,000 tokens (1M)
-- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing (as of 2026-10-28):** $10 per 1M input tokens, $50 per 1M output tokens, $1 per 1M cached input tokens
-- **Architecture:** Proprietary (Mixture-of-Experts, Anthropic)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> The two cards conflicted on context window, release, modalities and pricing; Anthropic's official Fable 5
+> page (platform.claude.com/docs/en/models/fable-5/overview) confirms 1M context / 128K max output, the June
+> 9 2026 release, the January 2026 cutoff, text+image input and the archived card's cache pricing — the
+> active card above was corrected to the official values, and the archived values stand.
 
 ## Raw benchmarks found
 

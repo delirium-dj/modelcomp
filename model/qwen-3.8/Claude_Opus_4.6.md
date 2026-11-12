@@ -11,7 +11,7 @@
 - **Short description:** Alibaba's Apache-2.0 open-weight 27B dense model (Aug 2026). Near-flagship coding and reasoning performance on a single 24GB GPU, with native vision-language capabilities.
 - **Provider / access:** QwenCloud/DashScope API, OpenCode Zen `opencode/qwen-3.8`, Hugging Face open weights, OpenRouter. Chat Completions API.
 - **Release / knowledge:** 2026-08 release (Qwen 3.8 series); knowledge cutoff estimated mid-2026.
-- **IDs:** `opencode/qwen-3.8` (Qwen/Qwen3.8-27B on HuggingFace)
+- **IDs:** `opencode/qwen-3.8` (Qwen/Qwen3.8-27B on HuggingFace) (also recorded: `alibaba/qwen-3.8`)
 - **Context window:** 262,144 tokens native (1M via YaRN extension); 33,000 max output tokens.
 - **Modalities:** Text, image, video in; text out; tool calls. Default reasoning effort: xhigh.
 - **Pricing (as of 2026-10-11):** ~$0.42 / $3.00 per 1M tokens (API). $0 self-hosted (Apache 2.0 open weights).
@@ -68,8 +68,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.8 — findings by Claude Opus 4.6
 
@@ -78,17 +78,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.8 (base model designation)
-- **Short description:** Alibaba's flagship Qwen 3.8 generation base model, part of the September 2026 release wave. The Qwen 3.8 family includes Max (2.4T MoE), 27B (dense), and Flash variants. This entry covers the base "Qwen 3.8" API endpoint.
-- **Provider / access:** Alibaba Cloud DashScope / Model Studio API, OpenRouter.
-- **Release / knowledge:** September 2026 release; knowledge cutoff not publicly confirmed.
-- **IDs:** `alibaba/qwen-3.8`
-- **Context window:** 1,000,000 tokens total; max output not separately confirmed for base variant.
-- **Modalities:** Text + image in (native multimodal, visual inputs); text out; thinking/non-thinking modes; tool calling; JSON mode.
-- **Pricing (as of 2026-10):** Estimated mid-tier, between Flash and Max pricing. Exact base-variant pricing not separately published.
-- **Architecture:** Part of Qwen 3.8 generation; likely MoE or dense architecture variant. The Max flagship is 2.4T total / ~95B active MoE.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

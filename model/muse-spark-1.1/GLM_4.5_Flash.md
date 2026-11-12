@@ -11,7 +11,7 @@
 - **Short description:** Multimodal reasoning model built for agentic tasks with strong tool use, computer use, coding, and multimodal understanding
 - **Provider / access:** Meta AI via Meta Model API (public preview)
 - **Release / knowledge:** Released on July 9, 2026; knowledge cutoff not explicitly disclosed
-- **IDs:** `muse-spark-1.1` (standard tier), `muse-spark-1.1-contributor` (discounted contributor tier)
+- **IDs:** `muse-spark-1.1` (standard tier), `muse-spark-1.1-contributor` (discounted contributor tier) (also recorded: `vicarious/muse-spark-1.1`)
 - **Context window:** 1 million tokens
 - **Modalities:** Text, image, video, audio, and PDF document inputs; text output
 - **Pricing (as of 2026):** Standard tier: $1.25 per million input tokens, $4.25 per million output tokens; Contributor tier: $0.10 per million input tokens, $0.20 per million output tokens
@@ -97,8 +97,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass reported Overall 88.4/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass reported Overall 88.4/100 — superseded by the active scores above.
 
 ## Muse Spark 1.1 — findings by GLM 4.5 Flash
 
@@ -113,15 +113,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Muse Spark 1.1
-- **Short description:** Vicarious AI's earlier generation of the Spark model, offering strong performance at a more accessible price point than the latest 1.3 version.
-- **Provider / access:** Vicarious AI platform (API access likely available through their developer portal)
-- **Release / knowledge:** Released in 2026 as part of the Muse model family, preceding the 1.3 version
-- **IDs:** `vicarious/muse-spark-1.1`
-- **Context window:** Unknown (not publicly documented in available sources)
-- **Parameters:** Unknown (proprietary information)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ### Technical specifications
 

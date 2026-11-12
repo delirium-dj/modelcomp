@@ -59,8 +59,8 @@ Long context:
 
 > Merged from this folder's `Claude_Sonnet_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Gemini 2.5 Flash-Lite — findings by Claude Sonnet 4.6
 
@@ -69,17 +69,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Gemini 2.5 Flash-Lite
-- **Short description:** Lightweight, ultra-low-latency variant of Gemini 2.5 Flash from Google DeepMind. Reached general availability in July 2025. Designed for high-volume, latency-sensitive tasks; thinking disabled by default. Scheduled for retirement ~October 16, 2026 — legacy status as of 2026-09-17. Approximately 4.9× cheaper per token than 2.5 Flash at launch.
-- **Provider / access:** Google AI Studio and Vertex AI (`gemini-2.5-flash-lite`); endpoint approaching retirement October 2026.
-- **Release / knowledge:** GA July 2025; retirement October 16, 2026 per Google enterprise docs. Knowledge cutoff not publicly disclosed.
-- **IDs:** `google/gemini-2.5-flash-lite`. No OpenCode Zen Free ID found; scored on paid pricing.
-- **Context window:** 1,048,576 tokens input (~1M); max output 65,536 tokens. Verified via openrouter.ai, google.com documentation.
-- **Modalities:** Text in; thinking optional (disabled by default). Tool calls (Google Search, code execution). Per positioning as "lite" cost tier: image/audio/video input not confirmed as fully supported — scored conservatively.
-- **Pricing (as of last-known active state, 2025–2026):** $0.10 / 1M input, $0.40 / 1M output (confirmed via openrouter.ai, androidcentral.com); among cheapest Google models. Retired endpoint pricing is archival.
-- **Architecture:** Proprietary (Google DeepMind); lighter compute variant of the 2.5 family; approximate param count undisclosed. Optimised for throughput speed over reasoning depth.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

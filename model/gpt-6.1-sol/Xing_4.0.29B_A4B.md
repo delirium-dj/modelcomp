@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT 6.1 Sol — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** GPT 6.1 Sol
-- **Short description:** OpenAI's latest Sol-series model, strong on long-context, agentic work, and frontier code generation; rated #5 on the AA capability indexes comparison table. Flag if variant/alias.
-- **Provider / access:** Hosted via OpenAI API; OpenRouter gpt-6.1-sol. Chat Completions API on OpenRouter.
-- **Release / knowledge:** 2026 (announced Sept–Oct). Cutoff ~2026.
-- **IDs:** <provider>/gpt-6.1-sol
-- **Context window:** 1M tokens total (~500k in/out inferred).
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes. Video in lightly.
-- **Pricing (as 2026-10-21):** paid; per AA comparison: max at .72 blended cost, xhigh at .39/M input (~.17/M output), high at .32/M input (~.89/M output), medium at .21/M input (~.63/M output).
-- **Architecture:** proprietary OpenAI dense transformer; params undisclosed. Not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

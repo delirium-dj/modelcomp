@@ -14,7 +14,7 @@
 - **IDs:** `anthropic/claude-mythos-5.2`
 - **Context window:** 1,000,000 tokens input / 128,000 tokens output — confirmed by Anthropic announcement and system card.
 - **Modalities:** Text + image in; text out. Reasoning enabled. Tool calls supported.
-- **Pricing (as of 2026-11-11):** $8.00 per 1M input, $40.00 per 1M output for Fable/Mythos base mode; $16/$80 fast mode — Anthropic announcement 2026-11-09.
+- **Pricing (as of 2026-11-11):** $8.00 per 1M input, $40.00 per 1M output for Fable/Mythos base mode; $16/$80 fast mode — Anthropic announcement 2026-11-09. (earlier pass also recorded: Paid $10/$50 per 1M)
 - **Architecture:** Proprietary. No open weights. Reasoning model.
 
 ### Raw benchmarks found
@@ -75,8 +75,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Mythos 5.2 — findings by Muse Glimmer 30B — SELF-EXCLUDED
 
@@ -85,17 +85,10 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Mythos 5.2
-- **Short description:** Anthropic's restricted security-vetted configuration of Fable 5.2 deployed with lifted dual-use refusals for verified defensive cyber and biosecurity research.
-- **Provider / access:** Anthropic API, CVP/Glasswing vetted access only.
-- **Release / knowledge:** 2026-11-09 release per meta.
-- **IDs:** `anthropic/claude-mythos-5.2`
-- **Context window:** 1M / 128K out
-- **Modalities:** Text, image in; text out
-- **Pricing (as of 2026-11-11):** Paid $10/$50 per 1M
-- **Architecture:** Proprietary
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Pricing: the archived $10/$50 was checked against Anthropic's official Mythos 5.2 page ($8/$40, same
+> pricing as Fable 5.2) and refuted — the active value stands. Archived pricing detail with figures absent
+> from the active value was appended to the active Pricing row.
 
 #### Research notes
 

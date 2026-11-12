@@ -42,8 +42,8 @@ Based on Vals AI and aggregated research data:
 
 > Merged from this folder's `Laguna_XS_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.2 Codex — findings by Laguna XS 2.1
 
@@ -52,17 +52,8 @@ Based on Vals AI and aggregated research data:
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.2 Codex
-- **Short description:** OpenAI's GPT-5.2 variant optimized for coding tasks and agent workflows.
-- **Provider / access:** OpenAI API (`gpt-5.2-codex`), Azure OpenAI, GitHub Copilot integrations.
-- **Release / knowledge:** December 11, 2025.
-- **IDs:** `gpt-5.2-codex` (OpenAI API).
-- **Context window:** 400K tokens; 128K max output.
-- **Modalities:** Text in/out; reasoning with adaptive thinking modes.
-- **Pricing (as of 2026-10-28):** $1.75 / $14 per 1M tokens.
-- **Architecture:** Proprietary; GPT architecture with coding optimization.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

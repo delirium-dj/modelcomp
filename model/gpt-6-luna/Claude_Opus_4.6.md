@@ -66,8 +66,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-6 Luna — findings by Claude Opus 4.6
 
@@ -76,17 +76,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-6 Luna
-- **Short description:** OpenAI's most cost-efficient model in the GPT-6 family, released September 22, 2026. Designed for high-volume, focused tasks like document processing, data extraction, and classification. Available to free-tier users.
-- **Provider / access:** OpenAI API (`gpt-6-luna`), ChatGPT Work, ChatGPT desktop (Free and Go users). Responses API and Chat Completions API.
-- **Release / knowledge:** 2026-09-22 release; knowledge cutoff May 18, 2026.
-- **IDs:** `openai/gpt-6-luna`
-- **Context window:** 1,050,000 tokens total; max output 128,000 tokens (verified via OpenAI docs).
-- **Modalities:** Text + image (vision) in; text out; tool calls; JSON mode. Communication styles improved similarly to Astra.
-- **Pricing (as of 2026-09-22):** $0.10 / $0.50 per 1M tokens (input / output). Cached input: $0.01. 50% reduction vs. GPT-5.6 promotional pricing.
-- **Architecture:** Proprietary; parameter count undisclosed. Smallest/most efficient in GPT-6 family.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

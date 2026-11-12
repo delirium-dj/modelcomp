@@ -9,11 +9,11 @@
 
 - **Name:** Claude Opus 4.6
 - **Short description:** Anthropic's flagship reasoning model from February through April 2026 (released Feb 5, 2026). First Opus-class model with a 1M-token context window in beta. Adds "Agent Teams" (parallel multi-agent coordination), "adaptive thinking" (auto token budget), and Microsoft 365 native integration.
-- **Provider / access:** Anthropic API (`claude-opus-4-6`); Claude.ai; AWS Bedrock; Google Vertex AI; Microsoft 365 (PowerPoint, Excel). Chat Completions + Messages API.
+- **Provider / access:** Anthropic API (`claude-opus-4-6`); Claude.ai; AWS Bedrock; Google Vertex AI; Microsoft 365 (PowerPoint, Excel). Chat Completions + Messages API. (also recorded: `opencode/claude-opus-4.6`)
 - **Release / knowledge:** Released 2026-02-05.
 - **IDs:** `anthropic/claude-opus-4.6`; `opencode/claude-opus-4.6` (Zen). No free ID.
 - **Context window:** 1M tokens (beta) / 200K standard. 128K max output (double Sonnet 4.5).
-- **Modalities:** Text, image in; text out. Tool calls: yes. Adaptive thinking (auto token allocation per prompt complexity).
+- **Modalities:** Text, image in; text out. Tool calls: yes. Adaptive thinking (auto token allocation per prompt complexity); reasoning
 - **Pricing (as of 2026-10-13):** Standard tier (<200K): $5 input / $25 output per 1M (parity with Opus 4.5). Long-context tier (>200K): $10 input / $37.50 output per 1M.
 - **Architecture:** Proprietary Anthropic. Adaptive thinking controller. Agent Teams parallel-orchestration feature.
 
@@ -74,8 +74,8 @@ Multimodal / safety:
 
 > Merged from this folder's `MiniMax_M3.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Opus 4.6 — findings by MiniMax M3
 
@@ -87,37 +87,10 @@ Multimodal / safety:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Safe unions applied: Provider +1; Modalities +reasoning. Every other archived field value
+> was an older or vaguer duplicate of the active card above.
 
-- **Name:** Claude Opus 4.6
-- **Short description:** Anthropic's prior-generation top-tier model, hosted paid on OpenCode Zen. Long-context, strong reasoning and coding; text + image.
-- **Provider / access:** OpenCode Zen paid `opencode/claude-opus-4.6`; Anthropic API; Chat Completions-compatible.
-- **Release / knowledge:** Released prior to Opus 4.8; knowledge cutoff ≈ early-2026.
-- **IDs:** `opencode/claude-opus-4.6` (Zen paid). No Free ID.
-- **Context window:** 200K total (Anthropic standard).
-- **Modalities:** Text + image in; text out. Tool calls; reasoning on.
-- **Pricing (as of 2026-09-17):** Paid ~$15 in / $75 out per 1M (Anthropic list).
-- **Architecture:** Proprietary Anthropic.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench 2.1: **no verified public score found** at Opus 4.6 specific harness in our slice; treat as ≤4.8.
-- Tau3: **no verified public score found** direct.
-- GDPval-AA: **no verified public score found** direct.
-- Claw-Eval: **no verified public score found**.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **no verified public score found** direct for 4.6.
-- HLE / LCR / MRCR: **no verified public score found**.
-- AA Intelligence Index: **no verified public score found** for 4.6.
-
-Coding:
-
-- SWE-bench Verified: **no verified public score found** direct.
-- LiveCodeBench / DeepSWE / SciCode: **no verified public score found**.
-
-> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
----

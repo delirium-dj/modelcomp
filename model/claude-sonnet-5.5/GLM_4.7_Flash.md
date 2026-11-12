@@ -86,25 +86,16 @@
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.9/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.9/100 — superseded by the active scores above.
 
 ## CLAUDE-SONNET-5.5 — GLM_4.7_Flash Research Report
 
 
 ---
 
-### Model card
-
-- **Name:** Claude Sonnet 5.5
-- **Short description:** Anthropic's fast, cost-effective Sonnet-tier model released September 28, 2026, designed for well-scoped everyday coding, documents, and spreadsheets with 30% faster performance and up to 30% lower cost than Sonnet 5.
-- **Provider / access:** Anthropic API (proprietary)
-- **Release / knowledge:** Released September 28, 2026. Knowledge cutoff June 2026.
-- **IDs:** `claude-sonnet-5-5` / `claude-sonnet-5-5`
-- **Context window:** 1,000,000 tokens (1M)
-- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing (as of 2026-10-28):** $2 per 1M input tokens, $10 per 1M output tokens, $0.20 per 1M cached input tokens
-- **Architecture:** Proprietary (Mixture-of-Experts, Anthropic)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

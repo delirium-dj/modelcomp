@@ -87,8 +87,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K2.8 Preview — findings by Muse Glimmer 30B
 
@@ -97,17 +97,8 @@ Long context:
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Kimi K2.8 Preview
-- **Short description:** Moonshot AI mid-tier coding/agentic model rolled out in Kimi Code September 2026; model ID `kimi-for-coding` with 1M context and adjustable thinking effort, positioned between Kimi K3 and Kimi K2.7 Code.
-- **Provider / access:** Moonshot AI Kimi Code / API providers. Model ID `kimi-for-coding`.
-- **Release / knowledge:** 2026-09-11; knowledge cutoff not disclosed.
-- **IDs:** `kimi-for-coding` (K2.8 Preview)
-- **Context window:** up to 1M tokens per Kimi Code docs and LLM Stats.
-- **Modalities:** Input text, image, video; Output text. Reasoning yes with low/high/max effort.
-- **Pricing (as of 2026-11-04):** Provider-dependent; APIMaster lists $1 / 1M input, $4 / 1M output. Official Moonshot pricing not separately published for K2.8 Preview.
-- **Architecture:** Proprietary. Parameters undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

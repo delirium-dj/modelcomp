@@ -9,9 +9,9 @@
 
 - **Name:** Muse Wonder (Meta's flagship model for frontier coding and advanced computer use)
 - **Short description:** Meta's Oct 12, 2026 flagship model series for frontier coding, long-running agents, and advanced computer use with 1M-token context and multimodal capabilities.
-- **Provider / access:** Meta Model API (`muse-wonder`), Muse Code, Vercel AI Gateway (`meta/muse-wonder`)
+- **Provider / access:** Meta Model API (`muse-wonder`), Muse Code, Vercel AI Gateway (`meta/muse-wonder`) (also recorded: `opencode/muse-wonder-1.0`)
 - **Release / knowledge:** Released 2026-10-12; knowledge cutoff not publicly specified
-- **IDs:** `meta/muse-wonder` (no Free ID confirmed on OpenCode Zen)
+- **IDs:** `meta/muse-wonder` (no Free ID confirmed on OpenCode Zen) (also recorded: `opencode/muse-wonder-1.0`)
 - **Context window:** 1,048,576 total tokens (1M); verified from official documentation
 - **Modalities:** Text, image, video, audio, PDF in; text out; reasoning: yes (levels minimal→max, max default for Full); tool calls: yes (parallel tool calls, structured output); JSON mode: yes
 - **Pricing (as of 2026-10-31):** Meta Model API Standard: $4.00 input / $20.00 output / $0.20 cached per 1M tokens; Muse Code: Power Usage $50/month, Maximum Usage $200/month
@@ -126,8 +126,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Muse Wonder 1.0 — findings by GLM 4.5 Flash
 
@@ -142,61 +142,12 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Safe unions applied: IDs +1; Provider +1. Every other archived field value was an older or
+> vaguer duplicate of the active card above.
 
-- **Name:** Muse Wonder 1.0
-- **Short description:** Meta's 2026-10-12 Muse-family frontier agent model (1M ctx, $4/$20) for personal and professional AI agents; proprietary, reasoning always on.
-- **Provider / access:** OpenCode Zen (`opencode/muse-wonder-1.0`) - paid only
-- **Release / knowledge:** Released October 12, 2026; knowledge cutoff not disclosed
-- **IDs:** `opencode/muse-wonder-1.0` (OpenCode Zen)
-- **Context window:** 1,048,576 total; 131,072 max output tokens
-- **Modalities:** Text, image, video, audio in; text out
-- **Pricing (as of 2026-10):** $4.00/$20.00 per 1M in/out; $0.20 cached input; paid only
-- **Architecture:** Proprietary, reasoning always on
-
-## Raw benchmarks found
-
-> List measured numbers with (source, rank/percentile, harness) for traceability.
-> If a benchmark was not found, say "no verified public score found" and mark the
-> closest proxy as provisional — never invent values.
->
-> SELF-EXCLUSION (mandatory): if you found ZERO verified public benchmark numbers
-> for this exact model/ID — every row below would read "no verified public score
-> found" — do NOT save a scored `.md` file. Save
-> `model/<slug>/<Source_Name>.md.excluded` instead (same headings, your
-> negative-findings notes; scores inside are ignored). Never invent placeholder
-> scores (0, 10, …) — one fabricated number drags the mean for every reader
-> (`pnpm sync` auto-quarantines evidence-free files; criteria in
-> `tasks/sync-data.md`).
-
-Agent / tool use:
-
-- Terminal-Bench 4.0: **no verified public score found**
-- Tau3-Banking / Tau2-Bench: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
-
-Reasoning / knowledge:
-
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MMLR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found / no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found / no verified public score found**
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
-
-Long context:
-
-- **no verified public score found**
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Additional benchmark data from independent sources:
 

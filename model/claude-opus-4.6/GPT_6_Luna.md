@@ -74,8 +74,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Opus 4.6 — findings by GPT-6 Luna
 
@@ -84,17 +84,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Opus 4.6
-- **Short description:** Anthropic Claude Opus release. Exact-version official documentation and benchmark results were not successfully verified in this three-search pass; no adjacent Opus version is used as a substitute.
-- **Provider / access:** Anthropic; exact API ID not verified.
-- **Release / knowledge:** no exact-version release or cutoff verified.
-- **IDs:** tracked name `Claude Opus 4.6`; canonical API identifier unverified.
-- **Context window:** no verified exact-version context specification found.
-- **Modalities:** no verified exact-version modalities found.
-- **Pricing (as of 2026-10-28):** no verified exact-version pricing found.
-- **Architecture:** proprietary; details not verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

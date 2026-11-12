@@ -11,10 +11,10 @@
 - **Short description:** OpenAI's proprietary reasoning model for complex coding, computer use, research, and professional work. This report covers the base GPT-5.5 API SKU, not GPT-5.5 Pro.
 - **Provider / access:** OpenAI API; Chat Completions (`v1/chat/completions`) and Responses (`v1/responses`). [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
 - **Release / knowledge:** Released April 23, 2026; API availability announced April 24; knowledge cutoff December 1, 2025. [Official launch post](https://openai.com/index/introducing-gpt-5-5/) · [API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
-- **IDs:** `gpt-5.5`; default snapshot `gpt-5.5-2026-04-23`. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
+- **IDs:** `gpt-5.5`; default snapshot `gpt-5.5-2026-04-23`. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5) (also recorded: `openai/gpt-5.5`)
 - **Context window:** 1,050,000 tokens; max output 128,000. Artificial Analysis reports 922K and LLM Stats rounds this to 1.1M; the official API spec is used here. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5) · [Artificial Analysis](https://artificialanalysis.ai/models/gpt-5-5) · [LLM Stats](https://llm-stats.com/models/gpt-5.5)
 - **Modalities:** Text and image input; text output. Reasoning effort supports none, low, medium, high, and xhigh. Responses API features include function calling, web/file search, image input, structured outputs, and computer-use tools. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
-- **Pricing (as of 2026-10-28):** $5 input / $30 output per 1M tokens; cached input $0.50/1M. Prompts over 272K input tokens incur 2× input and 1.5× output rates for the full session; regional processing adds 10%. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5)
+- **Pricing (as of 2026-10-28):** $5 input / $30 output per 1M tokens; cached input $0.50/1M. Prompts over 272K input tokens incur 2× input and 1.5× output rates for the full session; regional processing adds 10%. [Official API model documentation](https://developers.openai.com/api/docs/models/gpt-5.5) (earlier pass also recorded: Standard below 272K: $5 input and $30 output per 1M tokens; long context $10/$45. Official pricing page does not list cached-input rates in that table.)
 - **Architecture:** Proprietary; parameter count and detailed architecture are undisclosed. OpenAI says the model was co-designed, trained, and served on NVIDIA GB200/GB300 systems, which describes infrastructure, not model architecture. [Official launch post](https://openai.com/index/introducing-gpt-5-5/)
 
 ### Raw benchmarks found
@@ -67,8 +67,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.5 — findings by GPT-6 Luna
 
@@ -77,17 +77,10 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.5
-- **Short description:** OpenAI proprietary GPT-5.5 model. Official pricing documentation identifies an API model with a tiered long-context rate; exact benchmark data for the base SKU was not recovered in this pass.
-- **Provider / access:** OpenAI API `gpt-5.5`.
-- **Release / knowledge:** no exact-model release date or knowledge cutoff verified.
-- **IDs:** `openai/gpt-5.5`.
-- **Context window:** Official pricing distinguishes input lengths below 272K from long-context use, but the exact total capacity was not verified.
-- **Modalities:** no exact-model official modality specification verified.
-- **Pricing (as of 2026-10-28):** Standard below 272K: $5 input and $30 output per 1M tokens; long context $10/$45. Official pricing page does not list cached-input rates in that table.
-- **Architecture:** Proprietary; parameter count undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row. Safe unions applied: IDs +1.
 
 ## Raw benchmarks found
 

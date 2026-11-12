@@ -70,8 +70,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## DeepSeek V4 Vision Exp — findings by Claude Opus 4.6
 
@@ -80,17 +80,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** DeepSeek V4 Flash Vision Exp
-- **Short description:** DeepSeek's experimental vision-capable Flash variant. Now retired and replaced by DeepSeek-V4.1-Flash which includes native multimodal support. Legacy alias still accepted for backward compatibility.
-- **Provider / access:** DeepSeek API (aliases route to V4.1-Flash). Chat Completions API.
-- **Release / knowledge:** Pre-September 2026 experimental release; retired September 10, 2026. Knowledge cutoff not explicitly published.
-- **IDs:** `deepseek/deepseek-v4-flash-vision-exp` (legacy, routes to V4.1-Flash)
-- **Context window:** ~1,000,000 tokens (1M, as routed to V4.1-Flash). Original experimental context may have been smaller.
-- **Modalities:** Text, image in; text out. Experimental vision capabilities; now superseded by V4.1-Flash native vision.
-- **Pricing (as of 2026-09-19):** Billed at V4.1-Flash rates: Off-peak $0.15/$0.60. Peak $0.30/$1.20. Images tokenized (384 tokens/image cap) at text input rates.
-- **Architecture:** DeepSeek MoE with experimental vision encoder; specifics not fully disclosed for this variant.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

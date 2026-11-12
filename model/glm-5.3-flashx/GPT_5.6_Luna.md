@@ -55,8 +55,8 @@ Exact FlashX capability coverage remains thin; the nearest public benchmark lane
 
 > Merged from this folder's `GPT_5.6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM-5.3 Flash X — findings by GPT 5.6 Luna
 
@@ -65,17 +65,8 @@ Exact FlashX capability coverage remains thin; the nearest public benchmark lane
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GLM-5.3 Flash X
-- **Short description:** The exact public identity of this purported GLM-5.3 Flash X variant could not be verified. It may be a provider label or an unindexed serving variant rather than a separately documented Z.AI model.
-- **Provider / access:** No authoritative provider page or exact API route was found. Searches for `glm-5.3-flash-x` did not establish whether it is distinct from GLM-5.3 Flash.
-- **Release / knowledge:** Not verified.
-- **IDs:** No verified provider/model ID found.
-- **Context window:** Not verified.
-- **Modalities:** Not verified.
-- **Pricing (as of 2026-10-23):** Not verified.
-- **Architecture:** Not verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

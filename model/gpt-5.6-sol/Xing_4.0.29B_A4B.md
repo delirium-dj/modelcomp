@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT 5.6 Sol — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** GPT 5.6 Sol
-- **Short description:** OpenAI's Sol-track flagship targeting long-context reasoning + coding; positioned mid-tier above the latest Pro releases. Flag if variant/alias.
-- **Provider / access:** Hosted via OpenAI API; OpenRouter gpt-5.6-sol. Chat Completions API on OpenRouter.
-- **Release / knowledge:** 2026. Cutoff ~2026.
-- **IDs:** <provider>/gpt-5.6-sol
-- **Context window:** 1M tokens (industry standard for latest flagship). In/out split unverified exactly (~500k each).
-- **Modalities:** text in/out; image in; reasoning yes; tool calls yes; JSON mode yes. Audio lightly supported.
-- **Pricing (as 2026-10-21):** paid; ~.90/M input and ~.50/M output roughly (per AA comparison: GPT-6.1 Sol max at .72 blended overall cost suggests .30–.40/M input, .80–.20/M output). Cache discount ~90%.
-- **Architecture:** proprietary OpenAI dense transformer with extended chain-of-thought reasoning; params undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

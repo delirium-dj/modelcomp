@@ -11,7 +11,7 @@
 - **Short description:** Kimi Code's default coding/agent model: a 1M-context multimodal MoE with adjustable thinking effort (low / high / max, `max` by default) that Moonshot describes as "performance close to K3" with "significantly more efficient thinking than K2.7 Code". It is Kimi's everyday coding tier, sitting below the K3 / K3.1 Pro flagships.
 - **Provider / access:** Kimi Code (subscription product) at the model ID `kimi-for-coding` — Kimi Code Console API key works against OpenAI-compatible (`https://api.kimi.ai/coding/v1`) and Anthropic-compatible (`https://api.kimi.ai/coding/`) base URLs, so third-party agents (Claude Code, Codex, OpenCode) can call it. Third-party gateways also expose it as a pay-as-you-go route: APIMaster `kimi-k2.8-preview` and Tencent Cloud TokenHub (via TrustedRouter) `moonshotai/kimi-k2.8-preview`. **Moonshot's own public Open Platform has no K2.8 line** (platform.kimi.ai/docs/models lists `kimi-k3.1-pro`, `kimi-k3.1-pro-highspeed`, `kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed`, `kimi-k2.6` only).
 - **Release / knowledge:** 2026-09-11 (Kimi Code "What's New" release notes; tracked by llm-stats, llm-releases, models.dev and opencode.ai). Knowledge cutoff: not published.
-- **IDs:** `kimi-for-coding` (Kimi Code, = K2.8 Preview), `moonshotai/kimi-k2.8-preview` (canonical id on models.dev / opencode.ai / TrustedRouter), `kimi-k2.8-preview` (APIMaster gateway id), `tencent/kimi-k2.8-preview` (Tencent Cloud TokenHub route). **No OpenCode Zen route exists** for this model in the live Zen catalogue (fetched 2026-10-31).
+- **IDs:** `kimi-for-coding` (Kimi Code, = K2.8 Preview), `moonshotai/kimi-k2.8-preview` (canonical id on models.dev / opencode.ai / TrustedRouter), `kimi-k2.8-preview` (APIMaster gateway id), `tencent/kimi-k2.8-preview` (Tencent Cloud TokenHub route). **No OpenCode Zen route exists** for this model in the live Zen catalogue (fetched 2026-10-31). (also recorded: `moonshot/kimi-k2-8-preview`)
 - **Context window:** up to 1,048,576 tokens (Kimi Code model-configuration page, models.dev `limit.context` 1,000,000, opencode.ai "1M"). Max output: not published (opencode.ai shows "-"). The full 1M window requires Plus-and-above membership on new plans (Allegretto-and-above for 1M on legacy plans).
 - **Modalities:** input text + image + video; output text (+ tool calls / code). Reasoning: yes, with `reasoning_effort` low / high / max inside Kimi Code (max is the K2.8 default; K3 defaults to high); models.dev lists none / minimal / low / medium / high / xhigh / max. Tool calling and structured output: yes. Thinking-off requests to K3 or K2.8 are served by **K2.8 Preview in no-thinking mode** — it doubles as the flagship's fast path.
 - **Pricing (as of 2026-10-31):** no per-token price on Moonshot's public platform — access is bundled with a Kimi membership (Plus and above on new plans, Andante and above on legacy plans) with optional Extra Usage billed in RMB once quota is spent. Gateway routes are cheaper per token: **$1.00 in / $4.00 out / $0.25 cached** per 1M (models.dev + opencode.ai catalogue; APIMaster live check 2026-09-22 found one active route at $1/$4), and Tencent Cloud via TrustedRouter measured at $1.055 in / $4.22 out / $0.2638 cached with p50 TTFT 2.21 s (last sample 2026-10-31).
@@ -83,8 +83,8 @@ Long context:
 
 > Merged from this folder's `MiniMax_M3.1_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K2.8 Preview — findings by MiniMax M3.1 Flash
 
@@ -101,17 +101,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Kimi K2.8 Preview — **not verifiable as an existing model**
-- **Short description:** The repository folder claims a "Kimi K2.8 Preview" id (`moonshot/kimi-k2-8-preview`) — a 1M-context preview tier between Kimi K2.7 Code and Kimi K3, priced through a "Kimi membership plan" rather than per-token billing. Every Moonshot-controlled surface checked on 2026-10-20 lists only `kimi-k3`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed` and `kimi-k2.6`; there is no announcement, API id, model card or changelog entry for a "K2.8" anywhere. The claimed id prefix `moonshot/` also does not match Moonshot's own provider naming (`moonshotai` on OpenRouter and models.dev). Structurally the slot is redundant: K3 shipped in July 2026 with a 1M context and a per-token price.
-- **Provider / access:** none found. No API id, no Zen route, no OpenRouter id, no Hugging Face repository.
-- **Release / knowledge:** no release date found; no knowledge cutoff published.
-- **IDs:** none found. `moonshot/kimi-k2-8-preview` resolves nowhere.
-- **Context window:** no verified published figure (the repo's 1,048,576 claim is unverified).
-- **Modalities:** no verified published figure (the repo's "text, image in" claim is unverified).
-- **Pricing (as of 2026-10-20):** no verified published figure. The "Kimi membership plan" description is a subscription product, not a model price, and the Kimi API platform is explicitly pay-as-you-go with no subscription.
-- **Architecture:** unknown — no weights, no model card, no config published.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

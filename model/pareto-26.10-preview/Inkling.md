@@ -11,9 +11,9 @@
 
 - **Name:** Pareto 26.10 Preview (later GA as Pareto 26.10; same weights per vendor)
 - **Short description:** Unbiased AI's composite multimodal preview — runs multiple frontier/open models per request and blends outputs. Released 2026-10-01 as preview; GA 2026-10-15. Aimed at research, coding, and agentic workflows. 1M context, 131K output. Explicitly noted as preliminary/vendor-run measurements.
-- **Provider / access:** Unbiased API (`unbiased/pareto-26.10-preview`); OpenRouter (`unbiased/pareto-26.10-preview`); no verified OpenCode Zen Free route (paid only). Composite architecture (provider-side blend, not a single checkpoint) — behavior, token budget, and failure modes are opaque to the caller.
+- **Provider / access:** Unbiased API (`unbiased/pareto-26.10-preview`); OpenRouter (`unbiased/pareto-26.10-preview`); no verified OpenCode Zen Free route (paid only). Composite architecture (provider-side blend, not a single checkpoint) — behavior, token budget, and failure modes are opaque to the caller. (also recorded: `opencode/`)
 - **Release / knowledge:** Preview 2026-10-01; GA 2026-10-15 (vendor states same underlying weights, commercial label change). Knowledge cutoff not explicitly stated.
-- **IDs:** `unbiased/pareto-26.10-preview` (OpenRouter); `pareto-26.10-preview` (preview string); GA `pareto` / `pareto-26.10` (same model per vendor changelog).
+- **IDs:** `unbiased/pareto-26.10-preview` (OpenRouter); `pareto-26.10-preview` (preview string); GA `pareto` / `pareto-26.10` (same model per vendor changelog). (also recorded: `pareto/26.10-preview`)
 - **Context window:** 1,048,576 tokens total; 131,072 max output — verified by vendor docs, OpenRouter spec, and independent Puter/ARMES docs.
 - **Modalities:** Text + image input; text output; tool calling supported; reasoning enabled. Not video-in (per vendor card) — image-only multimodal input confirmed.
 - **Pricing (as of 2026-11-02):** $0.80 / $3.20 per 1M input/output; cached input $0.03. Per-task costs reported by vendor (preliminary): DeepSWE v1.1 $0.24, Terminal-Bench 4.0 $0.48, HLE $0.008, GPQA Diamond $0.004.
@@ -94,8 +94,8 @@ Evidence comparison per dimension (conflicting sources cited, not hidden):
 
 > Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Pareto 26.10 Preview — findings by Inkling
 
@@ -104,17 +104,9 @@ Evidence comparison per dimension (conflicting sources cited, not hidden):
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Pareto 26.10 Preview (dataset label; no confirmed public product card)
-- **Short description:** Listed in the dataset (`model-queue.md`: Overall 84.3) but no verified standalone model card from Pareto. Pareto, Inc. (pareto.ai) is a data/research company, not a model vendor with a released preview SKU.
-- **Provider / access:** No verified API route found (`opencode/` or vendor endpoint not listed).
-- **Release / knowledge:** Not confirmed; dataset entry only.
-- **IDs:** `pareto/26.10-preview` (dataset reference only)
-- **Context window:** Not verified (no official spec)
-- **Modalities:** Not verified
-- **Pricing (as of 2026-10-26):** Not verified; no pricing page for this exact ID.
-- **Architecture:** Not verified (no weights/license info)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +1. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found (3 independent searches, compared)
 

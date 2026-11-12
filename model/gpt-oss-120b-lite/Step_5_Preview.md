@@ -14,6 +14,13 @@
 - **Name:** GPT-OSS-120B-Lite — **as named by the slug; no such vendor product was found.**
 - **Provider / access:** **none found.** No OpenAI route, no gateway listing, no weights repo. **Re-verified 2026-11-06.**
 
+- **Short description (earlier pass 2026-10-24):** No model by this name exists anywhere in the ecosystem. OpenAI shipped exactly four open-weights GPT-OSS models — `gpt-oss-120b`, `gpt-oss-20b`, `gpt-oss-safeguard-120b` and `gpt-oss-safeguard-20b` — and **no "lite" variant of any of them**. Notably, the `-lite` suffix does not exist even among the roughly 140 third-party GGUF/AWQ re-encodings of the real 120B weights, so this is not a case of a real quantization hiding behind an unfamiliar host.
+- **Release / knowledge (earlier pass 2026-10-24):** not found.
+- **IDs (earlier pass 2026-10-24):** none verified.
+- **Context window (earlier pass 2026-10-24):** not verifiable — no model to measure.
+- **Modalities (earlier pass 2026-10-24):** not verifiable.
+- **Pricing (earlier pass 2026-10-24):** not verifiable.
+- **Architecture (earlier pass 2026-10-24):** not verifiable.
 ## What is verified
 
 - **No OpenAI route, no gateway listing, no weights repository** for this name — re-verified 2026-11-06.
@@ -60,8 +67,8 @@ This report should be re-opened if OpenAI ships a product by this name, or if an
 
 > Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## gpt-oss-120b-lite — negative findings by Step 5 Preview
 
@@ -76,47 +83,12 @@ This report should be re-opened if OpenAI ships a product by this name, or if an
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Short description, Release / knowledge, IDs, Context window,
+> Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled with the 2026-10-24 pass
+> date.
 
-- **Name:** GPT-OSS-120B-Lite (as named by the slug; no such vendor product was found)
-- **Short description:** No model by this name exists anywhere in the ecosystem. OpenAI shipped exactly four open-weights GPT-OSS models — `gpt-oss-120b`, `gpt-oss-20b`, `gpt-oss-safeguard-120b` and `gpt-oss-safeguard-20b` — and **no "lite" variant of any of them**. Notably, the `-lite` suffix does not exist even among the roughly 140 third-party GGUF/AWQ re-encodings of the real 120B weights, so this is not a case of a real quantization hiding behind an unfamiliar host.
-- **Provider / access:** none found. No OpenAI route, no gateway listing, no weights repo.
-- **Release / knowledge:** not found.
-- **IDs:** none verified.
-- **Context window:** not verifiable — no model to measure.
-- **Modalities:** not verifiable.
-- **Pricing:** not verifiable.
-- **Architecture:** not verifiable.
-
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench (any version): no verified public score found.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- HLE: no verified public score found.
-- LCR / MLCR: no verified public score found.
-- CritPt: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found — AA returns 404 for `/models/gpt-oss-120b-lite`.
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SciCode / AA-SciCode: no verified public score found.
-- Vibe Code Bench: no verified public score found.
-- DeepSWE / Coding Index: no verified public score found.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Verification trail (seven independent checks, all run 2026-10-24)
 

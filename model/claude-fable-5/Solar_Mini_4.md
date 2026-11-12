@@ -9,9 +9,15 @@
 
 - **Name:** Claude Fable 5 (Anthropic)
 - **Short description:** Anthropic Mythos-class 1 model, released 2026-06-09 for general use with built-in safeguards (fallback to Claude Opus 4.8 for flagged queries). The sibling Claude Mythos 5 is the same weights with cyber safeguards lifted, for verified cyberdefenders only.
-- **Provider / access:** Anthropic — Claude API (`claude-fable-5`), Amazon Bedrock (`anthropic.claude-fable-5`), Google Cloud (claude-fable-5), Microsoft Foundry (claude-fable-5). Status: **Legacy** (migrate to Claude Fable 5.1); subscription plans excluded after 2026-06-22 (usage credits required).
+- **Provider / access:** Anthropic — Claude API (`claude-fable-5`), Amazon Bedrock (`anthropic.claude-fable-5`), Google Cloud (claude-fable-5), Microsoft Foundry (claude-fable-5). Status: **Legacy** (migrate to Claude Fable 5.1); subscription plans excluded after 2026-06-22 (usage credits required). (also recorded: `opencode/claude-fable-5`, `anthropic/claude-fable-5`)
 
 
+- **Release / knowledge (earlier pass):** Released 2026-09-18; knowledge cutoff not disclosed in accessible docs.
+- **IDs (earlier pass):** `anthropic/claude-fable-5` (Hugging Face registry slug); GitHub `anthropic/claude-fable-5`.
+- **Context window (earlier pass):** **1M** total, **256K** max output (official Anthropic API docs).
+- **Modalities (earlier pass):** text + image in/out; multimodal supported; text output only.
+- **Pricing (earlier pass):** Official Anthropic API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture (earlier pass):** Proprietary Anthropic Claude Fable 5; not open weights.
 ### Raw benchmarks found
 
 > Sources: Anthropic announcement (2026-06-09); Artificial Analysis "Claude Fable 5 Launches at #1" (2026-06-09); BenchGap measured/estimated scores as of 2026-11-07 (`https://benchgap.net/model/claude-fable`). Benchmarks below are from these sources; no vendor-provided benchmark suite values were used.
@@ -100,8 +106,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Fable 5 — findings by Solar_Mini_4
 
@@ -109,16 +115,10 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** Claude Fable 5
-- **Short description:** Anthropic Claude Fable 5 model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** Anthropic Claude API, Anthropic Console; OpenCode Zen `opencode/claude-fable-5`; GitHub `anthropic/claude-fable-5`.
-- **Release / knowledge:** Released 2026-09-18; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `anthropic/claude-fable-5` (Hugging Face registry slug); GitHub `anthropic/claude-fable-5`.
-- **Context window:** **1M** total, **256K** max output (official Anthropic API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official Anthropic API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary Anthropic Claude Fable 5; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Release / knowledge, IDs, Context window, Modalities, Pricing,
+> Architecture) were folded in from the earlier pass, labelled as earlier-pass values. Safe unions applied:
+> Provider +2.
 
 ## Raw benchmarks found
 

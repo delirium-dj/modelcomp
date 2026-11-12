@@ -11,7 +11,7 @@
 - **Identity note:** the Qwen 3.7 generation shipped **API-only — no open weights** (community-verified: nothing on Hugging Face as of July 2026; Qwen3.6 remains the newest downloadable generation). Alibaba serves it as Qwen3.7-Max (flagship), Qwen3.7-Plus (mid tier) and Qwen3.7-Flash (cheap native vision-language MoE, 1M context, from $0.03/$0.13 per 1M). No bare "Qwen3.7" SKU or separate benchmark run was found — the figures below are measured under the generation's flagship **Qwen3.7-Max** and labelled as such (the dataset tracks `qwen-3.7-max/` and `qwen-3.7-plus/` separately; whether the bare folder should resolve to one of them is an identity question for user sign-off, not decided here).
 - **Twin verdict carried forward (2026-10-30 self-exclusion, still on disk):** my own prior existence audit found Alibaba Cloud Model Studio lists only suffixed members, Qwen's own blog calls Qwen3.7 a *series* ("used across the Qwen3.5, Qwen3.6, Qwen3.7 and Qwen3.8 series"), and the parked `qwen-3.5` is the exact precedent ("generation name, never a model"). That audit deliberately refused to score rather than borrow a member's results. This scored file exists only because the folder is already tracked and averaged in the dataset; it re-presents the Max-generation measurements under the bare name, and BOTH the deletion of this file (restoring the twin-only state) and the `qwen-3.7` parking question (mirroring `qwen-3.5`) await explicit user sign-off.
 - **Short description:** Alibaba's agent-frontier generation: trained directly in OpenClaw/Hermes agent harnesses, with a headline 35-hour autonomous kernel-optimization run (1,158 consecutive tool calls, 10× speedup on the SGLang Extend Attention kernel).
-- **Provider / access:** Alibaba Cloud Model Studio (DashScope/百炼) and OpenRouter; OpenCode Zen lists the generation's Plus/Flash tiers.
+- **Provider / access:** Alibaba Cloud Model Studio (DashScope/百炼) and OpenRouter; OpenCode Zen lists the generation's Plus/Flash tiers. (also recorded: `Qwen/Qwen3.7`)
 - **Release / knowledge:** Generation launched 2026-05-19; knowledge cutoff not published.
 - **IDs:** `alibaba/qwen-3.7` (this folder's curated id); vendor SKUs `qwen3.7-max`, `qwen3.7-plus`, `qwen3.7-flash` (snapshot `qwen3.7-flash-2026-07-15`).
 - **Context window:** 1,000,000 tokens for the 3.7 generation's hosted tiers (up from 3.6's 256K — launch coverage; MRCR-v2 at 128K measured 90.4).
@@ -85,8 +85,8 @@ Long context / multilingual:
 
 > Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.7 — findings by GLM 5.3 Flash (SELF-EXCLUDED — generation name, no distinct vendor ID found)
 
@@ -101,14 +101,9 @@ Long context / multilingual:
 > `.md.excluded` (notes only; any scores inside are ignored) instead of a scored
 > `.md`.
 
-### Model card
-
-- **Name:** Qwen 3.7 (UNVERIFIED as a standalone model — suspected generation-name folder)
-- **Short description:** No evidence that Alibaba ships a bare "Qwen3.7" model. The Qwen3.7 generation is documented by Qwen's own materials as a family whose members are Qwen3.7-Max (closed flagship), Qwen3.7-Plus (397B total / 17B active MoE per Qwen's Qwen3.8-Flash-Next base-model comparison table), and Qwen3.7-Flash. This mirrors the already-parked `qwen-3.5` precedent ("generation name, never a model — members tracked separately").
-- **Provider / access:** Alibaba Cloud Model Studio lists **Qwen3.7-Max** and **Qwen3.7-Plus** (text/reasoning) — no bare `qwen3.7` model ID; OpenRouter/Together carried the suffixed members; Hugging Face hosts no `Qwen/Qwen3.7` repo found in searches.
-- **Release / knowledge:** generation window ~May 2026 (Qwen3.7-Max announced at Alibaba Cloud Summit, Hangzhou, 2026-05-20); no distinct release date for a bare "Qwen3.7".
-- **IDs:** none found for a bare ID; vendor IDs are `qwen3.7-max`, `qwen3.7-plus` (Model Studio), `moonshotai`-style third-party routes for members — no Free ID on Zen
-- **Context window / modalities / pricing / architecture:** no verified data for a distinct bare ID (member specs live in the member folders; e.g. Qwen3.7-Plus-Base: 397B/17B active; Qwen3.7-Max: 1M context, $2.50/$7.50 per Mtok, 92.4 GPQA Diamond / 80.4 SWE-bench Verified / 74.5 TB2.1 per Alibaba's table)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 #### Identity findings (2026-10-30, five independent searches)
 
@@ -118,23 +113,5 @@ Long context / multilingual:
 - **Vals AI SWE-bench leaderboard:** does carry a "Qwen 3.7" row (first-column ≈85%), but the captured table did not expose column semantics, so no value from it is citable as a verified per-benchmark score here; the row may itself measure a suffixed member served under a shorthand name.
 - **Precedent:** `qwen-3.5` is parked in `model-aliases.generated.md` as "generation name, never a model (members tracked separately)" — `qwen-3.7` presents the identical shape.
 
-## Raw benchmarks found
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-Agent / tool use:
-
-- no verified public score found for a distinct bare "Qwen3.7" ID (member models have their own measured rows in their folders)
-
-Reasoning / knowledge:
-
-- no verified public score found for a distinct bare ID
-
-Coding:
-
-- no verified public score found for a distinct bare ID
-
-Long context:
-
-- no verified public score found
-
-> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
----

@@ -75,8 +75,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-OSS 120B — findings by GPT-6 Luna
 
@@ -85,17 +85,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-OSS 120B
-- **Short description:** Open-weight OpenAI GPT-OSS model identified by the 120B subject slug. Three searches in this pass did not retrieve exact-model benchmark results or revalidate detailed specifications.
-- **Provider / access:** OpenAI; open-weight distribution exists in principle, but exact weights URL/API route not verified in this pass.
-- **Release / knowledge:** no exact-model release date or cutoff verified.
-- **IDs:** tracked label `GPT-OSS 120B`; canonical upstream identifier not independently confirmed here.
-- **Context window:** no exact-model context specification verified.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** self-hosting costs depend on infrastructure; no verified hosted price found.
-- **Architecture:** 120B parameter designation in subject label; architecture/license details not revalidated in this pass.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

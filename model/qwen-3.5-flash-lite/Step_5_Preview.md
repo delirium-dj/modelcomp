@@ -15,6 +15,12 @@
 - **Short description:** No Qwen 3.5 Flash-Lite tier exists in any Alibaba Cloud Model Studio catalog or QwenCloud model-release changelog. The family's real tiers are **Qwen3.5-Flash** (corresponding to the open-weights **Qwen3.5-35B-A3B** architecture), **Qwen3.5-2B**, **Qwen3.5-0.8B**, **Qwen3.5-4B** and **Qwen3.5-9B** — all refreshed in this session — and a "-Lite" suffix is not a tier any of them uses.
 - **Provider / access:** **none found.** No Alibaba Cloud route, no gateway listing, no weights repository.
 
+- **Release / knowledge (earlier pass 2026-10-31):** not found.
+- **IDs (earlier pass 2026-10-31):** none verified. No `qwen3.5-flash-lite`, `qwen-flash-lite`, or equivalent appears in Alibaba Cloud Model Studio's recommended-models catalog or in QwenCloud's complete model-release changelog.
+- **Context window (earlier pass 2026-10-31):** not verifiable — no model to measure. (The folder's curated meta.json claims 1M total / 65,536 max output, but that claim is not corroborated by any vendor or third-party source.)
+- **Modalities (earlier pass 2026-10-31):** not verifiable (meta.json claims text/image/video in, text out — uncorroborated).
+- **Pricing (earlier pass 2026-10-31):** not verifiable (meta.json claims ~$0.10/$0.40 per 1M — uncorroborated).
+- **Architecture (earlier pass 2026-10-31):** not verifiable (meta.json claims ~35B total / 3B active MoE — uncorroborated; the real Qwen3.5-Flash corresponds to the open-weights Qwen3.5-35B-A3B architecture).
 ## What is verified (the negative finding)
 
 - **No `qwen3.5-flash-lite`, `qwen-flash-lite`, or equivalent appears in Alibaba Cloud Model Studio's recommended-models catalog or in QwenCloud's complete model-release changelog** — re-verified 2026-11-06.
@@ -65,8 +71,8 @@ This report should be re-opened if Alibaba ships or lists a product by this name
 
 > Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## qwen-3.5-flash-lite — negative findings by Step 5 Preview
 
@@ -81,47 +87,11 @@ This report should be re-opened if Alibaba ships or lists a product by this name
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Release / knowledge, IDs, Context window, Modalities, Pricing,
+> Architecture) were folded in from the earlier pass, labelled with the 2026-10-31 pass date.
 
-- **Name:** Qwen 3.5 Flash-Lite (as named by the folder slug and its curated meta.json; no such vendor product or API route was found)
-- **Short description:** No model or serving tier by this name exists in any authoritative source consulted. The real Qwen 3.5-era line runs Qwen3.5-Plus / Qwen3.5-Flash (plus open-weights Qwen3.5-27B, -35B-A3B, -122B-A10B, -397B-A17B and Omni variants) — there is no "Flash-Lite" checkpoint, API ID, or provider route. Under `RULES.md` tier identity, a "Lite" pricing/serving tier without distinct weights would not qualify as a model anyway.
-- **Provider / access:** none found. QwenCloud's current recommended text-generation list (qwen3.8-max, qwen3.8-max-0902, qwen3.8-flash, qwen3.7-plus, qwen3.7-flash, deepseek-v4.1-flash-1017, glm-5.3, kimi-k3, MiniMax-M2.5) contains no flash-lite entry; OpenCode Zen's Qwen entries are only Qwen3.8 Max, Qwen3.8 Flash, Qwen3.6 Plus, Qwen3.5 Plus.
-- **Release / knowledge:** not found.
-- **IDs:** none verified. No `qwen3.5-flash-lite`, `qwen-flash-lite`, or equivalent appears in Alibaba Cloud Model Studio's recommended-models catalog or in QwenCloud's complete model-release changelog.
-- **Context window:** not verifiable — no model to measure. (The folder's curated meta.json claims 1M total / 65,536 max output, but that claim is not corroborated by any vendor or third-party source.)
-- **Modalities:** not verifiable (meta.json claims text/image/video in, text out — uncorroborated).
-- **Pricing:** not verifiable (meta.json claims ~$0.10/$0.40 per 1M — uncorroborated).
-- **Architecture:** not verifiable (meta.json claims ~35B total / 3B active MoE — uncorroborated; the real Qwen3.5-Flash corresponds to the open-weights Qwen3.5-35B-A3B architecture).
-
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench 2.1 / 4.0: no verified public score found.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- HLE: no verified public score found.
-- LCR / MLCR: no verified public score found.
-- CritPt: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found (AA returns 404 for this slug).
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SciCode / AA-SciCode: no verified public score found.
-- Vibe Code Bench: no verified public score found.
-- DeepSWE / Coding Index: no verified public score found.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Verification trail (eight independent sources, all consulted 2026-10-31)
 

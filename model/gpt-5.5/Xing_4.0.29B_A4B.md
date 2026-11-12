@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## OpenAI GPT 5.5 — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** GPT 5.5
-- **Short description:** OpenAI's latest release progression beyond GPT-5.x line, with extended reasoning and coding; prior step above GPT 5.4 Pro tier. Flag if variant/alias.
-- **Provider / access:** Hosted via OpenAI API; OpenRouter accepts. Chat Completions API on OpenRouter.
-- **Release / knowledge:** 2026. Cutoff ~2026.
-- **IDs:** <provider>/gpt-5.5
-- **Context window:** 1M tokens total (~500k in/out inferred).
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes. Audio lightly supported.
-- **Pricing (as 2026-10-21):** paid; ~.00–.80/M input, ~–/M output roughly; cache discount ~70%.
-- **Architecture:** proprietary OpenAI dense transformer; params undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

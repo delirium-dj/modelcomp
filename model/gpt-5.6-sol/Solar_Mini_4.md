@@ -9,9 +9,15 @@
 
 - **Name:** GPT-5.6 Sol (OpenAI)
 - **Short description:** OpenAI's flagship model for complex professional work, built for frontier reasoning and long-horizon agentic work. One of three GPT-5.6 variants (Sol, Terra, Luna); Sol leads the family on frontier reasoning and coding and is the "simple" flagship corresponding to the unsuffixed GPT-5.6 tier.
-- **Provider / access:** OpenAI — GPT-5.6 Sol route via the GPT-5.6 alias (`gpt-5.6-sol` ID). APIs: Chat Completions, Responses, Realtime, Realtime translation/transcription, Assistants, Batch, Embeddings, Image generation/edit, Speech generation, Transcription, Translation, Moderation, Completions (legacy). Available via Cloud (Azure? no — OpenAI cloud) — check `https://platform.openai.com/docs/models/gpt-5.6-sol` for latest.
+- **Provider / access:** OpenAI — GPT-5.6 Sol route via the GPT-5.6 alias (`gpt-5.6-sol` ID). APIs: Chat Completions, Responses, Realtime, Realtime translation/transcription, Assistants, Batch, Embeddings, Image generation/edit, Speech generation, Transcription, Translation, Moderation, Completions (legacy). Available via Cloud (Azure? no — OpenAI cloud) — check `https://platform.openai.com/docs/models/gpt-5.6-sol` for latest. (also recorded: `opencode/gpt-5.6-sol`, `openai/gpt-5.6-sol`)
 
 
+- **Release / knowledge (earlier pass):** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs (earlier pass):** `openai/gpt-5.6-sol` (Hugging Face registry slug); GitHub `openai/gpt-5.6-sol`.
+- **Context window (earlier pass):** **1M** total, **256K** max output (official OpenAI API docs).
+- **Modalities (earlier pass):** text + image in/out; multimodal supported; text output only.
+- **Pricing (earlier pass):** Official OpenAI API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture (earlier pass):** Proprietary OpenAI GPT-5.6 Sol; not open weights.
 ### Raw benchmarks found
 
 > Sources: OpenAI announcement "Introducing GPT-5.6 series: Sol, Terra and Luna" (2026-06-26, community dev blog); OpenAI API model card (2026-11-08); Artificial Analysis "GPT-5.6 benchmarks across Intelligence, Speed and Cost" (2026-07-09); BenchGap 2026-11-07. Values for GPT-5.6 Sol per source, measured vs estimated noted.
@@ -77,8 +83,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.6 Sol — findings by Solar_Mini_4
 
@@ -86,16 +92,10 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** GPT-5.6 Sol
-- **Short description:** OpenAI GPT-5.6 Sol flagship model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** OpenAI GPT API, GPT Console; OpenCode Zen `opencode/gpt-5.6-sol`; GitHub `openai/gpt-5.6-sol`.
-- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `openai/gpt-5.6-sol` (Hugging Face registry slug); GitHub `openai/gpt-5.6-sol`.
-- **Context window:** **1M** total, **256K** max output (official OpenAI API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official OpenAI API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary OpenAI GPT-5.6 Sol; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Release / knowledge, IDs, Context window, Modalities, Pricing,
+> Architecture) were folded in from the earlier pass, labelled as earlier-pass values. Safe unions applied:
+> Provider +2.
 
 ## Raw benchmarks found
 

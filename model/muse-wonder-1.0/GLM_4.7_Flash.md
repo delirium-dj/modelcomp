@@ -73,8 +73,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM_4.7_Flash Report
 
@@ -83,17 +83,10 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Muse Wonder 1.0
-- **Short description:** Meta experimental model (2026) with balanced intelligence and competitive pricing for enterprise use.
-- **Provider / access:** Meta API / Model hub, various deployment options.
-- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
-- **IDs:** `muse-wonder-1.0`
-- **Context window:** 1,000,000 total tokens; 1,000,000 max output — standard for enterprise models.
-- **Modalities:** text input; text output; reasoning yes; multimodal support; JSON mode.
-- **Pricing (as of 2026-10-21):** $0.05 in / $0.25 out per 1M; cache $0.02 per 1M; highly competitive for enterprise use.
-- **Architecture:** proprietary open weights; mixture-of-experts; API-only.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. The archived context-window row was generic template filler ("1,000,000 total tokens;
+> 1,000,000 max output — enterprise-class"), not model-specific research — the active value stands.
 
 ## Raw benchmarks found
 

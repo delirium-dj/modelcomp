@@ -59,8 +59,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Fledge Alpha — findings by Claude Opus 4.6
 
@@ -69,17 +69,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Fledge Alpha
-- **Short description:** A routing-based AI model appearing on the OpenCode platform around October 1, 2026. Intelligently directs queries to different underlying models (e.g., DeepSeek V4.1, Kimi, others) based on the prompt. Linked to Thinking Machines / "Inkling" project infrastructure.
-- **Provider / access:** OpenCode Zen (free/trial model); routing-based architecture.
-- **Release / knowledge:** ~2026-10-01 release (trial/feedback phase); knowledge cutoff dependent on underlying routed models.
-- **IDs:** `opencode/fledge-alpha` (estimated)
-- **Context window:** Dependent on underlying routed models; likely up to 1M tokens based on the models it routes to.
-- **Modalities:** Dependent on routed models; text in/out confirmed. Vision capability varies by routing.
-- **Pricing (as of 2026-10-03):** Free/trial during feedback phase. No standard pricing confirmed.
-- **Architecture:** Router/orchestrator layer directing queries to multiple underlying models (DeepSeek V4.1, Kimi, others). Not a single foundation model. Linked to Thinking Machines (U.S.-based).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

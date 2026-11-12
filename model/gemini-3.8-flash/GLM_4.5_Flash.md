@@ -14,7 +14,7 @@
 - **IDs:** `google/gemini-3.8-flash` / `opencode/gemini-3.8-flash` (OpenCode Zen)
 - **Context window:** 1M tokens (verified against Google documentation)
 - **Modalities:** Text/image/audio/video/PDF in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026):** $1/1M input, $5/1M output (standard pricing)
+- **Pricing (as of 2026):** $0.75 input / $3.75 output per 1M tokens (paid tier per Google's official Gemini API pricing page — both earlier figures were wrong: the active $1/$5 and the archived $0.15/$0.50).
 - **Architecture:** Proprietary (exact parameter count not disclosed)
 
 ### Raw benchmarks found
@@ -72,8 +72,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Gemini 3.8 Flash — findings by GLM 4.5 Flash
 
@@ -88,17 +88,11 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Gemini 3.8 Flash
-- **Short description:** Google's most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows with the speed and cost efficiency of Flash.
-- **Provider / access:** Google AI Studio `gemini-3.8-flash`, Google Cloud `gemini-3.8-flash`
-- **Release / knowledge:** September 2026 release
-- **IDs:** `google/gemini-3.8-flash`
-- **Context window:** 1,048,576 input tokens / 65,536 output tokens (verified from official documentation)
-- **Modalities:** Text, Image, Video, Audio, PDF in; Text out; Tool calls yes; JSON mode yes
-- **Pricing (as of 2026-10-29):** $0.15 / 1M input tokens, $0.50 / 1M output tokens (paid)
-- **Architecture:** Proprietary
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Pricing: the two cards conflicted ($1/$5 vs $0.15/$0.50 per 1M); Google's official Gemini API pricing page
+> states $0.75/$3.75 per 1M for gemini-3.8-flash standard paid tier — the active card above was corrected to
+> the official value. Archived pricing detail with figures absent from the active value was appended to the
+> active Pricing row.
 
 ## Raw benchmarks found
 

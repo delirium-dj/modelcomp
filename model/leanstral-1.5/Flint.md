@@ -9,9 +9,9 @@
 
 - **Name:** Leanstral 1.5 (119B A6B) — updated version of the previously released Leanstral (`mistralai/Leanstral-2603`); built on the Mistral Small 4 family; first open-source code agent designed for Lean 4 formal proof engineering.
 - **Short description:** Mistral's open-source code agent for Lean 4 — a proof assistant capable of expressing complex mathematical objects (e.g. perfectoid spaces) and software specs (e.g. Rust fragment properties); combines multimodal capabilities with an efficient MoE architecture; trained for operating in realistic formal repositories; open weights under Apache 2.0.
-- **Provider / access:** Open weights — Apache 2.0: Hugging Face `mistralai/Leanstral-1.5-119B-A6B` (+ base `mistralai/Leanstral-2603`); Mistral Vibe agent mode (`/leanstall`, `vibe --agent lean`); Labs API free/near-free endpoint `labs-leanstral-2603`; Mistral API free plan; local vLLM deployment (Chat Completions / Function Calling / Agents & Conversations).
+- **Provider / access:** Open weights — Apache 2.0: Hugging Face `mistralai/Leanstral-1.5-119B-A6B` (+ base `mistralai/Leanstral-2603`); Mistral Vibe agent mode (`/leanstall`, `vibe --agent lean`); Labs API free/near-free endpoint `labs-leanstral-2603`; Mistral API free plan; local vLLM deployment (Chat Completions / Function Calling / Agents & Conversations). (also recorded: `mistralai/leanstral-1.5`)
 - **Release / knowledge:** Leanstral 2603 released 2026-03-16; Leanstral 1.5 is the updated model (HF updated 2026-07; docs retire v26.03 in favor of 1.5); knowledge cutoff not stated; Mistral released an accompanying tech report and evaluation suite (FLTEval).
-- **IDs:** `mistralai/Leanstral-1.5-119B-A6B` (HF), `mistralai/Leanstral-2603` (base/alias), `labs-leanstral-2603` (Labs API).
+- **IDs:** `mistralai/Leanstral-1.5-119B-A6B` (HF), `mistralai/Leanstral-2603` (base/alias), `labs-leanstral-2603` (Labs API). (also recorded: `mistralai/leanstral-1.5`)
 - **Context window:** 256K tokens (Mistral docs; HF cards) — recommended ≤200K tokens for use; local vLLM `--max-model-len 200000`.
 - **Modalities:** Text in / text out, reasoning (`high`/`none`), multimodal input (text + image → text), tool calling (lean-lsp-mcp, bash).
 - **Pricing (as of 2026-11-06):** Open weights Apache 2.0 → self-host free; Labs API free/near-free; Mistral API free plan → cost efficiency: effectively zero marginal cost.
@@ -60,8 +60,8 @@ Mean of five quality dims (Tool 55 + Reasoning 65 + Context 75 + Multimodal 65 +
 
 > Merged from this folder's `Flint.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Leanstral 1.5 — findings by Flint
 
@@ -70,17 +70,9 @@ Mean of five quality dims (Tool 55 + Reasoning 65 + Context 75 + Multimodal 65 +
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Leanstral 1.5
-- **Short description:** Mistral AI's compact coding-oriented model line (Leanstral), tuned for lightweight code generation and agentic editing at small parameter scale.
-- **Provider / access:** Mistral AI / OpenRouter (`mistralai/leanstral-1.5`); Zen route naming to be verified.
-- **Release / knowledge:** Leanstral releases 2026; knowledge cutoff not disclosed.
-- **IDs:** `mistralai/leanstral-1.5`.
-- **Context window:** Not verified for the 1.5 tier.
-- **Modalities:** Text in / text out; code generation / tool use targeted.
-- **Pricing (as of 2026-11-06):** Not verified.
-- **Architecture:** Open-weight small coding model (Leanstral class).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +1. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found
 

@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Z.AI GLM 5.3 Flash — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** GLM 5.3 Flash
-- **Short description:** Z.AI's latest GLM flash variant with strong coding and tool-use benchmarking; an open weights flagship successor within the GLM family. Flag if variant/alias.
-- **Provider / access:** Hosted via Z.AI API; OpenRouter glm-5.3-flash. Chat Completions API on OpenRouter.
-- **Release / knowledge:** 2026. Cutoff ~2025–2026.
-- **IDs:** <provider>/glm-5.3-flash
-- **Context window:** 1M tokens total (~500k in/out inferred).
-- **Modalities:** text + image in; text out; reasoning yes; tool calls yes; JSON mode yes. Audio lightly.
-- **Pricing (as 2026-10-21):** paid; .28/M input, .04/M output per AA comparison (GLM-5.3 Flash at rank 14 of class). Paid.
-- **Architecture:** open weights; active parameters ~5B (Z.AI GLM series). OpenWeights license per Z.AI docs; Apache-like commercial terms.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

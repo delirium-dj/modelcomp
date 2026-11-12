@@ -14,7 +14,7 @@
 - **IDs:** muse-wonder-full-1.0 (canonical API SKU per Meta/OpenRouter); curated id opencode/muse-wonder-full.
 - **Context window:** 1M tokens total; max output 131K (per Vals AI evaluation settings).
 - **Modalities:** Text, image, video and file input; text output. Evaluation settings: reasoning effort "max", Temperature 1, Top P default (per Vals AI).
-- **Pricing (as of 2026-11-08):** $4.00 per 1M input / $20.00 per 1M output (same as the base Wonder SKU); Vals Index cost per test around $6.81. Subscription-gated.
+- **Pricing (as of 2026-11-08):** $4.00 per 1M input / $20.00 per 1M output (same as the base Wonder SKU); Vals Index cost per test around $6.81. Subscription-gated. (earlier pass also recorded: Subscription-only — Muse Code Power ($50/mo) or Maximum ($200/mo); default allows contributor training on submitted content (Contributor mode off = no training). **Not sold per token.** Conflict resolution: AICoder's "$4.00/$20.00 per 1M" matches the Wonder *API* pricing and is a quote error — AA/docs confirm Full is subscription-only.)
 - **Architecture:** Proprietary, closed weights (Meta Superintelligence Labs). Parameter count and architecture not disclosed.
 
 
@@ -73,8 +73,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Muse Wonder Full (max) — findings by Solar Mini 4
 
@@ -82,17 +82,11 @@
 
 - **Overview & methodology:** `../../model-comparison.md` · **Log:** `../../model-findings.md`
 
-### Model card
-
-- **Name:** Muse Wonder Full (max) — alias `muse-wonder-full`; max-reasoning flagship of the Muse Wonder family
-- **Short description:** Meta's first frontier-class agentic model (2026-10-12, Meta Superintelligence Labs), tied #2 on the AA Intelligence Index v4.3.2 (56, behind Opus 5.5's 58). Access is Muse Code subscriptions only (Power $50/mo, Maximum $200/mo) — not on the Meta Model API; the API model is `muse-wonder-1.0`.
-- **Provider / access:** Meta Superintelligence Labs — newsroom launch 2026-10-12, Meta Developer docs, Muse Code Power/Maximum Usage subscriptions. No API access.
-- **Release / knowledge:** Released 2026-10-12. Knowledge cutoff: not disclosed.
-- **IDs:** `muse-wonder-full` (Muse Code); API counterpart `muse-wonder-1.0` (Wonder, Standard mode).
-- **Context window:** 1,048,576 tokens (1M) total. Max output: not disclosed.
-- **Modalities:** Text, image, video, audio, PDF input; text output; reasoning default on (max effort in Muse Code).
-- **Pricing (2026-10-31):** Subscription-only — Muse Code Power ($50/mo) or Maximum ($200/mo); default allows contributor training on submitted content (Contributor mode off = no training). **Not sold per token.** Conflict resolution: AICoder's "$4.00/$20.00 per 1M" matches the Wonder *API* pricing and is a quote error — AA/docs confirm Full is subscription-only.
-- **Architecture:** Proprietary; parameter count undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Pricing: the archived subscription-only claim was checked against Vals AI's Wonder Full page (token costs
+> $4.00/$20.00 — the same tracker the active report cites for its cost-per-test figure) and refuted — the
+> active value stands. Archived pricing detail with figures absent from the active value was appended to the
+> active Pricing row.
 
 ## Raw benchmarks found
 

@@ -9,11 +9,11 @@
 
 - **Name:** GPT-6 Astra
 - **Short description:** OpenAI flagship released Sep 2026 for hardest end-to-end work across complex reasoning, coding, computer use, research and document creation. Multimodal text+image in, text out.
-- **Provider / access:** OpenAI API `gpt-6-astra`.
+- **Provider / access:** OpenAI API `gpt-6-astra`. (also recorded: `openai/gpt-6-astra`)
 - **Release / knowledge:** 2026-09-04; knowledge cutoff April 2026 per LLM Stats / Artificial Analysis.
-- **IDs:** `gpt-6-astra`
+- **IDs:** `gpt-6-astra` (also recorded: `openai/gpt-6-astra`)
 - **Context window:** 1.1M tokens input, 128K output per LLM Stats; Artificial Analysis reports 1M context.
-- **Modalities:** Input text, image; Output text. Reasoning yes.
+- **Modalities:** Input text, image; Output text. Reasoning yes; tool calls
 - **Pricing (as of 2026-10-25):** $10.00 / 1M input, $1.00 / 1M cached input, $50.00 / 1M output via OpenAI.
 - **Architecture:** proprietary, parameters undisclosed.
 
@@ -76,8 +76,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-6 Astra — findings by Muse Glimmer 30B
 
@@ -86,17 +86,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-6 Astra
-- **Short description:** OpenAI’s 1.05M-context flagship for frontier reasoning, agents and computer use. State-of-the-art on FrontierMath, ARC-AGI-3, ExploitBench and professional computer-use, with gated Daybreak rollout as first Critical cyber tier.
-- **Provider / access:** OpenAI API `openai/gpt-6-astra`, Microsoft Azure, AWS Bedrock. Chat Completions / Responses API with tool use.
-- **Release / knowledge:** 2026-09-03 release; knowledge cutoff Apr 30 2026.
-- **IDs:** `openai/gpt-6-astra`
-- **Context window:** 1,050,000 total tokens; ~128K max output. Verified via meta.json and OpenAI system card.
-- **Modalities:** Text, image in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-10-20):** $10 / $50 per 1M input / output. Fast mode 2× price. Paid.
-- **Architecture:** proprietary
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +1; Modalities +tool calls. Every other archived field value was an
+> older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

@@ -76,8 +76,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Gemini 3.5 Flash — findings by Muse Glimmer 30B
 
@@ -86,17 +86,8 @@ Long context:
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Gemini 3.5 Flash
-- **Short description:** Google's fast multimodal reasoning model (1M/65K, $1.50/$9) for coding/agents; GPQA 92.2% and SWE-bench 78.8%. Curated meta.json notes the model is positioned awkwardly in hindsight: 3.6/3.7 Flash deliver more capability at comparable prices.
-- **Provider / access:** Google AI Studio / Gemini API `google/gemini-3.5-flash`; Free tier available on Google AI Studio and OpenCode Zen with standard rate limits
-- **Release / knowledge:** Release date and knowledge cutoff not verified via public source
-- **IDs:** google/gemini-3.5-flash
-- **Context window:** 1,048,576 (1M) — per meta.json
-- **Modalities:** Text, image, audio, PDF in; text out — per meta.json
-- **Pricing (as of 2026-10-20):** Free tier available; Paid-tier pricing per https://ai.google.dev/gemini-api/docs/pricing
-- **Architecture:** Proprietary — parameters not publicly disclosed
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

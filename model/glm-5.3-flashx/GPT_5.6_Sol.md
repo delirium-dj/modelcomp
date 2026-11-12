@@ -68,8 +68,8 @@ Conflicting evidence:
 
 > Merged from this folder's `GPT_5.6_Sol.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM-5.3-Flash-X — excluded findings by GPT-5.6 Sol
 
@@ -78,17 +78,8 @@ Conflicting evidence:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GLM-5.3-Flash-X (unverified identity)
-- **Short description:** No official Z.ai model or provider route could be verified with the exact hyphenated `glm-5.3-flash-x` identity. Provider catalogs instead expose `glm-5.3-flashx`, which is a separately tracked folder and cannot be silently substituted here.
-- **Provider / access:** No verified exact-model endpoint found.
-- **Release / knowledge:** No verified exact-model release date or knowledge cutoff found.
-- **IDs:** No verified `glm-5.3-flash-x` ID. The live IDs found use `glm-5.3-flashx` without the final hyphen.
-- **Context window:** No exact-model specification found.
-- **Modalities:** No exact-model specification found.
-- **Pricing (as of 2026-10-24):** No exact-model pricing found.
-- **Architecture:** No exact-model architecture or weights found.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

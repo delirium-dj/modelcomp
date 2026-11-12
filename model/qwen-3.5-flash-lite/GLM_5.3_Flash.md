@@ -83,8 +83,8 @@ Long context:
 
 > Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.5 Flash Lite — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified vendor ID or benchmarks)
 
@@ -99,14 +99,8 @@ Long context:
 > as `.md.excluded` (notes only; any scores inside are ignored) instead of a
 > scored `.md`.
 
-### Model card
-
-- **Name:** Qwen 3.5 Flash Lite (UNVERIFIED — no vendor route found for the exact ID)
-- **Short description:** No evidence found that Alibaba ships a Qwen3.5-Flash-Lite SKU. The Qwen3.5 generation's documented members are Qwen3.5-397B-A17B, Qwen3.5-122B-A10B, Qwen3.5-35B-A3B, Qwen3.5-27B, Qwen3.5-9B, Qwen3.5-Flash (dated snapshot `qwen3.5-flash-02-23` on OpenRouter), and Qwen3.5-Plus (dated snapshots) — no Flash-Lite tier appears in the verified catalogs. A "Flash-Lite" name would pattern-match Google's Gemini Flash-Lite tier family, but no Qwen equivalent was found.
-- **Provider / access:** none found for the exact ID. OpenRouter's complete Qwen catalog (fetched 2026-10-30) lists the members above — no flash-lite entry. Alibaba Cloud Model Studio's current recommended-models page (updated 2026-10-28) has moved to the Qwen3.7/Qwen3.8 generation and lists no qwen3.5-flash-lite; the full Model Plaza catalog could not be programmatically verified (console-only).
-- **Release / knowledge:** no release record found
-- **IDs:** none found — no Free ID exists on Zen
-- **Context window / modalities / pricing / architecture:** no verified data
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 #### Identity findings (2026-10-30, searches + catalog fetches; web search intermittently returned HTTP 403 late in the pass)
 
@@ -115,23 +109,5 @@ Long context:
 - **Benchmark locators:** no SWE-bench/GPQA/pricing row for a "Qwen3.5-Flash-Lite" surfaced in any search; the closest measured relatives are Qwen3.5-35B-A3B (SWE-bench Verified 67.0% full-set / 37.8% Hard per community run) and Qwen3.5-27B — different IDs, lineage data only.
 - **Possibility left open:** "Flash-Lite" may be (or have been) a Model Studio serving-tier label pointing at the Qwen3.5-Flash weights, or a regional/console-only SKU — neither verifiable from public sources in this pass. If the orchestrator finds such a route, re-research against it.
 
-## Raw benchmarks found
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-Agent / tool use:
-
-- no verified public score found (no vendor route verified for this exact ID)
-
-Reasoning / knowledge:
-
-- no verified public score found
-
-Coding:
-
-- no verified public score found
-
-Long context:
-
-- no verified public score found
-
-> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
----

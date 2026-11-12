@@ -72,25 +72,16 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.6/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 91.6/100 — superseded by the active scores above.
 
 ## CLAUDE-MYTHOS-5.1 — GLM_4.7_Flash Research Report
 
 
 ---
 
-### Model card
-
-- **Name:** Claude Mythos 5.1
-- **Short description:** Anthropic's restricted-access Mythos-tier model released September 1, 2026, designed for advanced cybersecurity and life sciences research with full frontier capabilities and reduced safety guardrails compared to Fable 5.1.
-- **Provider / access:** Anthropic API (restricted access)
-- **Release / knowledge:** Released September 1, 2026. Knowledge cutoff June 2026.
-- **IDs:** `claude-mythos-5-1` / `claude-mythos-5-1`
-- **Context window:** 1,000,000 tokens (1M)
-- **Modalities:** text/image in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing (as of 2026-10-28):** $10 per 1M input tokens, $50 per 1M output tokens, $0.25 per 1M cached input tokens
-- **Architecture:** Proprietary (Mixture-of-Experts, Anthropic)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

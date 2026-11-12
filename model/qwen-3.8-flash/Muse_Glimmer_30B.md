@@ -9,7 +9,7 @@
 
 - **Name:** Qwen3.8 Flash
 - **Short description:** Alibaba Qwen Team production multimodal LLM based on Qwen3.8-Flash-Next open weights. 125B total / 6B activated MoE with vision encoder, 1M context API, built-in tools for agentic use.
-- **Provider / access:** Qwen Cloud / Model Studio OpenAI-compatible API `qwen3.8-flash`; open weights Hugging Face `Qwen/Qwen3.8-Flash-Next`, ModelScope. Chat Completions API.
+- **Provider / access:** Qwen Cloud / Model Studio OpenAI-compatible API `qwen3.8-flash`; open weights Hugging Face `Qwen/Qwen3.8-Flash-Next`, ModelScope. Chat Completions API. (also recorded: `opencode/qwen-3.8-flash`)
 - **Release / knowledge:** GitHub news 2026-08-26 release of Qwen3.8-Flash-Next; Qwen Cloud production model live 2025-2026. Knowledge cutoff not published.
 - **IDs:** `qwencloud/qwen3.8-flash` ; HF `Qwen/Qwen3.8-Flash-Next`
 - **Context window:** 262,144 tokens natively, extensible to 1,000,000 tokens via YaRN. API advertises 1M default, max input 991K, max output 131K.
@@ -67,8 +67,8 @@ Multimodal / vision:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.8 Flash — findings by Muse Glimmer 30B
 
@@ -77,17 +77,9 @@ Multimodal / vision:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.8 Flash
-- **Short description:** Alibaba's Qwen3.8 Flash sparse MoE (6B active, 1M hosted) for cheap high-volume coding/agents; LiveCodeBench 91.9%, GPQA 91.7% at $0.15/$0.47 per 1M.
-- **Provider / access:** Alibaba Cloud Model Studio / OpenCode `opencode/qwen-3.8-flash`. Hosted API; open weights available per meta.json.
-- **Release / knowledge:** Release date not verified publicly; knowledge cutoff not published.
-- **IDs:** opencode/qwen-3.8-flash
-- **Context window:** 1M API (262K native; 131K output) per meta.json
-- **Modalities:** Text, image, video in; text out per meta.json
-- **Pricing (as of 2026-10-20):** ~$0.15/$0.47 per 1M in/out; $0 self-host per meta.json
-- **Architecture:** Sparse MoE, 6B active — details from meta.json short description. Official page: https://qwenlm.github.io/blog/qwen-3.8-flash/
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

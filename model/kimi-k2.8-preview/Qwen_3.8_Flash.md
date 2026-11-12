@@ -11,7 +11,7 @@
 - **Short description:** Moonshot AI's coding/agent-focused Preview (Sep 2026) that brings a 1M-token context and adjustable thinking (low/high/max) to the kimi-for-coding route; positioned as near-K3 quality at a faster, cheaper mid-tier. Proprietary hosted weights (unlike open-weight K2.7 Code / K3).
 - **Provider / access:** Moonshot AI via Kimi Code / Kimi Code CLI / Kimi Work; reachable through gateways ZenMux (`moonshotai/kimi-k2.8-preview`), OpenCode, Qoder, Cindy. Chat Completions with tool calling.
 - **Release / knowledge:** 2026-09-11 preview rollout; knowledge cutoff not announced.
-- **IDs:** `moonshotai/kimi-k2.8-preview` (gateway form); users keep the `kimi-for-coding` route ID which auto-points to K2.8.
+- **IDs:** `moonshotai/kimi-k2.8-preview` (gateway form); users keep the `kimi-for-coding` route ID which auto-points to K2.8. (also recorded: `moonshot/kimi-k2-8-preview`)
 - **Context window:** 1,000,000 tokens input (OpenCode Data + ZenMux 1.05M); max output not published (shown as "–" on OpenCode).
 - **Modalities:** text + image + video in; text out; reasoning yes (low/high/max effort, max default); tool calls yes.
 - **Pricing (as of 2026-10-17):** $1 / $4 per 1M input/output on the Moonshot route (ZenMux live provider table); cache read $0.25/1M, ~91.6% cache-hit; ~36.8 tok/s, 1.79 s TTFT. One early community sheet ($1/$4) matches; official Moonshot rate card still unpublished.
@@ -86,8 +86,8 @@ Staleness-triggered re-research (prior pass 2026-10-17). Confirmation pass: trig
 
 > Merged from this folder's `Qwen_3.8_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K2.8 Preview — findings by Qwen 3.8 Flash
 
@@ -97,17 +97,9 @@ Staleness-triggered re-research (prior pass 2026-10-17). Confirmation pass: trig
 - Cross-model signed log: `../../model-findings.md`
 - **Status: SELF-EXCLUDED (`.md.excluded`)** — not enough *verified* benchmark data to compute an honest `Overall`. Identity and specs are confirmed; capability scores are not.
 
-### Model card
-
-- **Name:** Kimi K2.8 Preview
-- **Short description:** Moonshot AI's mainstream/coding model, positioned between K2.7 Code and the flagship K3 (a "2.8" that arrives after "3"), delivered inside Kimi Code / Kimi Work and third-party clients under the unchanged `kimi-for-coding` model ID. Officially described as "close to K3" overall, but with **no benchmark table disclosed** — so this report makes no unsupported capability claim.
-- **Provider / access:** Moonshot AI — API + apps only (Kimi Code CLI, Kimi Work); **closed** (unlike the open-weight K2→K3 line). Same API model ID as K2.7 Code (`kimi-for-coding`; a `kimi-for-coding-highspeed` variant is noted).
-- **Release / knowledge:** 2026-09-11 (full rollout); knowledge cutoff not disclosed.
-- **IDs:** `moonshot/kimi-k2-8-preview` / `kimi-for-coding`.
-- **Context window:** **1M** tokens, available on every membership tier (confirmed across Moonshot/demandsphere/ai-all sources).
-- **Modalities:** Text + image + video in; text out (per ai-all.info and demandsphere; tiered reasoning effort low/high/max, max default).
-- **Pricing (as of 2026-10-02):** Subscription membership (¥0–699/month), **not** per-token; a free tier (Adagio) can call the model. No Zen Free API ID.
-- **Architecture:** proprietary/closed API tier of the K-series (KDA hybrid linear attention + Attention-Residuals mechanism, shared with K3, per ai-all.info).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

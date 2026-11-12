@@ -17,12 +17,12 @@
 
 - **Name:** GLM-5.3-FlashX
 - **Short description:** High-speed serving variant of GLM-5.3-Flash from Z.ai (Zhipu AI) — identical weights and capabilities as GLM-5.3-Flash, served at roughly 4x speed (~200 tokens/s). Explicitly a variant of the `glm-5.3-flash` entry, not new weights; use it when Flash-class multimodal quality is needed at lower latency. (See `../glm-5.3-flash/GLM_5.3_Flash.md` for this pass's fresh same-weights evidence.)
-- **Provider / access:** Z.ai API, Chat Completions (model ID `glm-5.3-flashx`). Also served via Vercel AI Gateway (~200 tok/s), OpenRouter, Merge Gateway, CometAPI, and AIHubMix.
+- **Provider / access:** Z.ai API, Chat Completions (model ID `glm-5.3-flashx`). Also served via Vercel AI Gateway (~200 tok/s), OpenRouter, Merge Gateway, CometAPI, and AIHubMix. (also recorded: `z-ai/glm-5.3-flashx`)
 - **Release / knowledge:** live on the Z.ai API 2026-09-17/18; knowledge cutoff not separately published — same weights (and thus same knowledge) as GLM-5.3-Flash, released 2026-08-26.
-- **IDs:** `zai/glm-5.3-flashx` (Z.ai native). No OpenCode Zen ID verified — cost is scored on paid pricing.
+- **IDs:** `zai/glm-5.3-flashx` (Z.ai native). No OpenCode Zen ID verified — cost is scored on paid pricing. (also recorded: `z-ai/glm-5.3-flashx`)
 - **Context window:** 1,048,576 tokens (1M) total, ~128K max output (Z.ai developer docs for the GLM-5.3 family; the shared-weights BenchLM row concurs at 1M).
 - **Modalities:** text + image + video in (inherits GLM-5.3-Flash's native multimodality), text out; explicit reasoning mode; tool calls supported; JSON mode not separately verified.
-- **Pricing (as of 2026-11-05):** $0.37 / 1M input, $1.25 / 1M output (Z.ai docs pricing table as verified 2026-10-11; **not re-verified this pass due to the search outage** — treat as unchanged-until-checked). Sits between GLM-5.3-Flash ($0.15/$0.50) and full GLM-5.3 ($1.40/$4.40). Note: OpenRouter's dynamically repriced Flash-family routes swung 3–6x during late October (see the glm-5.3-flash file) — aggregator snapshots are not list prices.
+- **Pricing (as of 2026-11-05):** $0.37 / 1M input, $1.25 / 1M output (Z.ai docs pricing table as verified 2026-10-11; **not re-verified this pass due to the search outage** — treat as unchanged-until-checked). Sits between GLM-5.3-Flash ($0.15/$0.50) and full GLM-5.3 ($1.40/$4.40). Note: OpenRouter's dynamically repriced Flash-family routes swung 3–6x during late October (see the glm-5.3-flash file) — aggregator snapshots are not list prices. (earlier pass also recorded: FlashX $0.37/$1.25 per Mtok (cache read $0.07) — vs base Flash $0.05/$0.18 list (OpenRouter medians lower): the price premium buys speed, not intelligence)
 - **Architecture:** same weights as GLM-5.3-Flash (vendor-stated: "same model weights and capabilities, optimized for fast inference"); ~320B total / ~18B active MoE, open weights with an NVFP4 quantized release published ~2026-09-09 (third-party trackers).
 
 ### Raw benchmarks found
@@ -92,8 +92,8 @@ Speed / other:
 
 > Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM 5.3 Flash X — findings by GLM 5.3 Flash (SELF-EXCLUDED — no verified data for this exact ID)
 
@@ -109,17 +109,11 @@ Speed / other:
 > saved as `.md.excluded` (notes only; any scores inside are ignored) instead of
 > a scored `.md`.
 
-### Model card
-
-- **Name:** "GLM 5.3 Flash X" — UNVERIFIED SPELLING. Z.ai's catalog ships exactly two SKUs in this family: **GLM-5.3-Flash** (`z-ai/glm-5.3-flash`, 2026-08-26) and **GLM-5.3-FlashX** (`z-ai/glm-5.3-flashx`, 2026-09-18, high-speed serving variant). No "Flash-X" (hyphenated) ID is listed by any vendor surface found.
-- **Short description:** If treated as GLM-5.3-FlashX: the same 320B-total/18B-active MoE weights as GLM-5.3-Flash (hybrid sparse + linear attention, mHC, 30T-token multimodal corpus), served at up to 200 tokens/s for a ~2.5× higher price — a serving profile, not a distinct checkpoint. Independent analysis: "You cannot buy GLM-5.3-FlashX and get a better model... Z.ai has published no FlashX benchmark because there is nothing new to benchmark" (orcarouter).
-- **Provider / access:** OpenRouter `z-ai/glm-5.3-flashx` ($0.37/$1.25 per Mtok; FlashX median 100 tok/s vs Flash's 37); Z.ai API per docs.z.ai "GLM-5.3-Flash/FlashX" guide. Some resellers use their own serving names (e.g. Lyceum's "GLM-5.3 Flash Instant") — provider serving labels, not vendor SKUs.
-- **Release / knowledge:** FlashX released 2026-09-18; same weights as Flash (2026-08-26); knowledge cutoff not separately disclosed.
-- **IDs:** canonical vendor ID is `z-ai/glm-5.3-flashx` — the hyphenated `glm-5.3-flash-x` form was not found on OpenRouter, Hugging Face, docs.z.ai, or Z.ai release notes
-- **Context window:** 1,048,576 tokens; 131,072-token max output (same specs as Flash — same weights)
-- **Modalities:** same as GLM-5.3-Flash: text/image/video/file input, text output, reasoning always on, function calling, structured output, context caching
-- **Pricing (as of 2026-10-30):** FlashX $0.37/$1.25 per Mtok (cache read $0.07) — vs base Flash $0.05/$0.18 list (OpenRouter medians lower): the price premium buys speed, not intelligence
-- **Architecture:** identical weights to GLM-5.3-Flash: 320B total / 18B active MoE, hybrid sparse+linear attention, Manifold-Constrained Hyper-Connections (mHC); MIT license (weights); serving profile differs (up to 200 tok/s)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row. Safe unions applied: IDs +1; Provider +1. Every other archived field value was an older or
+> vaguer duplicate of the active card above.
 
 #### Identity findings (2026-10-30, five independent searches)
 
@@ -128,23 +122,5 @@ Speed / other:
 - **Benchmarks:** GLM-5.3-FlashX has no independently published benchmark row of its own (Artificial Analysis: "not yet scored" as of the sources checked); measured figures for this family belong to `glm-5.3-flash` (e.g. AA Index 42, Vals SWE-bench 92.0%, TB2.1 84.3%, DeepSWE v1.1 63.4%) and are lineage data for the same weights — never re-scored here under a different slug.
 - **Conclusion:** `glm-5.3-flash-x` is a duplicate spelling of `glm-5.3-flashx`; FlashX itself is a serving-profile variant of the GLM-5.3-Flash weights (per the serving-profile identity rule, research on those weights belongs in `model/glm-5.3-flash/`).
 
-## Raw benchmarks found
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-Agent / tool use:
-
-- no verified public score found for this exact ID (no vendor or independent run of a separately-measured "Flash-X"/FlashX checkpoint exists)
-
-Reasoning / knowledge:
-
-- no verified public score found for this exact ID
-
-Coding:
-
-- no verified public score found for this exact ID
-
-Long context:
-
-- no verified public score found
-
-> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
----

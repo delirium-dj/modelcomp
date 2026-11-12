@@ -11,7 +11,7 @@
 - **Short description:** Thinking Machines Lab's flagship 975B-parameter open-weight MoE model (Jul 2026). Founded by former OpenAI CTO Mira Murati. Natively multimodal (text/image/audio), with controllable reasoning effort dial. Pretrained on 45T tokens.
 - **Provider / access:** Thinking Machines Tinker platform, Baseten, DeepInfra, OpenRouter. Hugging Face open weights. Apache 2.0.
 - **Release / knowledge:** 2026-07-15 release.
-- **IDs:** `thinkingmachines/inkling` (HuggingFace); various provider IDs
+- **IDs:** `thinkingmachines/inkling` (HuggingFace); various provider IDs (also recorded: `thinking-machines/inkling`)
 - **Context window:** 1,000,000 tokens (1M).
 - **Modalities:** Text, image, audio in; text out; tool calls. Reasoning effort dial (0.00–0.99). Hierarchical patch encoder for images, discrete dMel token encoding for audio.
 - **Pricing (as of 2026-10-11):** $0 self-hosted (Apache 2.0 open weights). API pricing varies by provider.
@@ -68,8 +68,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Inkling — findings by Claude Opus 4.6
 
@@ -78,17 +78,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Inkling
-- **Short description:** An open-weights multimodal MoE foundation model by Thinking Machines Lab (founded by former OpenAI CTO Mira Murati), released July 15, 2026. A 975B-parameter sparse MoE (41B active) with 1M context, trained on 45T tokens of multimodal data. Apache 2.0 licensed.
-- **Provider / access:** Open-weights via Hugging Face; compatible with vLLM, SGLang, llama.cpp, Unsloth. Tinker platform for fine-tuning.
-- **Release / knowledge:** 2026-07-15 release; knowledge cutoff not publicly confirmed.
-- **IDs:** `thinking-machines/inkling`
-- **Context window:** 1,000,000 tokens total; max output not separately confirmed.
-- **Modalities:** Text + image + audio in (natively multimodal, 45T tokens multimodal pretraining); text out; controllable reasoning ("thinking effort" dial 0.00–0.99).
-- **Pricing (as of 2026-10-03):** Open-weights (Apache 2.0) — self-hosted or via third-party providers. No fixed API pricing from Thinking Machines.
-- **Architecture:** Sparse MoE; 975B total parameters, 41B active per token. 66 decoder layers. NVFP4 quantized versions available. Inkling-Small variant: 276B total / 12B active.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

@@ -76,8 +76,8 @@ General reasoning/coding benchmarks (GPQA/MMLU/SWE-class): none published — th
 
 > Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Nemotron 3.5 Bolt E4B — findings by GLM 5.3 Flash
 
@@ -93,17 +93,8 @@ General reasoning/coding benchmarks (GPQA/MMLU/SWE-class): none published — th
 > the gap (BenchLM: "no source-displayable benchmark rows yet"). This file is
 > saved as `.md.excluded` with notes only; no scores are claimed.
 
-### Model card
-
-- **Name:** NVIDIA Nemotron 3.5 Bolt E4B (4GB)
-- **Short description:** Announced third member of NVIDIA's Bolt edge family — a ~4GB-footprint compact model for physical and conversational agents on GeForce RTX, Jetson, and RTX/DGX Spark, targeting fast local voice assistants, interactive characters, and embedded interfaces.
-- **Provider / access:** not yet available — no weights, API, or Zen route as of 2026-10-16 (NVIDIA blog says "coming Oct. 23"; not on the live OpenCode Zen roster fetched 2026-10-16).
-- **Release / knowledge:** announced 2026-10-15; scheduled release 2026-10-23; no knowledge-cutoff statement.
-- **IDs:** none public yet.
-- **Context window:** not published.
-- **Modalities:** text in/out per announcement framing (conversational agents); vision unconfirmed.
-- **Pricing (as of 2026-10-16):** expected free open-weights self-host like its Bolt sibling; nothing official published yet.
-- **Architecture:** expected hybrid Mamba-Transformer MoE compressed from the Super 3.5 line (family pattern per the 74B-A9B research page); "optimized for intelligence per GB" per NVIDIA. All figures below are announcement-level, not measured.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

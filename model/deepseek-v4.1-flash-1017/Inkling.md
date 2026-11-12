@@ -85,8 +85,8 @@ Derived from verified raw evidence above (methodology: `model-comparison.md` v4;
 
 > Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## DeepSeek V4.1 Flash 1017 — findings by Inkling
 
@@ -95,17 +95,8 @@ Derived from verified raw evidence above (methodology: `model-comparison.md` v4;
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** DeepSeek V4.1 Flash 1017 (dataset label; no verified official DeepSeek product page for exact ID)
-- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.3). DeepSeek (`deepseek.com`) confirms `DeepSeek V4.1 Flash` as a release (`deepseek.com/en/news/deepseek-v4-1-flash/`) but not the `-1017` variant.
-- **Provider / access:** Not verified for exact ID (`-1017`). Base `v4.1-flash` exists.
-- **Release / knowledge:** Not confirmed for exact variant.
-- **IDs:** Not verified beyond dataset label for `-1017`.
-- **Context window:** Not verified for exact variant.
-- **Modalities:** Not verified for exact variant.
-- **Pricing (as of 2026-10-26):** Not verified for exact variant.
-- **Architecture:** Not verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found (3 independent searches, compared)
 

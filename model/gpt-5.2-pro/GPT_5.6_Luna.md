@@ -73,8 +73,8 @@ Long context:
 
 > Merged from this folder's `GPT_5.6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.2 Pro — findings by GPT 5.6 Luna
 
@@ -83,17 +83,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.2 Pro
-- **Short description:** OpenAI's previous Pro reasoning model for complex professional work. It is a distinct API model and not the same entry as GPT-5.2 or GPT-5.4 Pro.
-- **Provider / access:** OpenAI Responses API only; exact model ID `gpt-5.2-pro`. OpenRouter documents a Chat Completions compatibility route for `openai/gpt-5.2-pro`, but OpenAI's own documentation says Chat Completions is not supported and Responses API is the canonical interface.
-- **Release / knowledge:** Default snapshot `gpt-5.2-pro-2025-12-11`; OpenAI lists an 2025-08-31 knowledge cutoff.
-- **IDs:** `openai/gpt-5.2-pro` on gateways; canonical OpenAI ID `gpt-5.2-pro`. No Free ID verified.
-- **Context window:** 400,000 tokens and 128,000 max output tokens, verified in OpenAI's official model documentation and Models.dev.
-- **Modalities:** Text and image input, text output, reasoning tokens, streaming, function calling, file search, MCP, web search, and image input. OpenAI's official page lists no image/audio/video generation for this model.
-- **Pricing (as of 2026-10-23):** $21 per 1M input tokens and $168 per 1M output tokens on OpenAI; Models.dev and OpenRouter corroborate the same headline pricing. Paid; no free lane.
-- **Architecture:** Closed and proprietary; parameter count is undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

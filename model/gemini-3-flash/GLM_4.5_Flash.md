@@ -101,8 +101,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass reported Overall 88/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass reported Overall 88/100 — superseded by the active scores above.
 
 ## Gemini 3 Flash — findings by GLM 4.5 Flash
 
@@ -117,15 +117,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Gemini 3 Flash
-- **Short description:** Google's Flash model from the Gemini 3 family, offering a balance of performance and efficiency for general-purpose tasks.
-- **Provider / access:** Google AI Studio `gemini-3-flash`, Google Cloud `gemini-3-flash`
-- **Release / knowledge:** Released in 2026 as part of the Gemini 3 family
-- **IDs:** `google/gemini-3-flash`
-- **Context window:** Unknown (not publicly documented in available sources, but likely similar to other Gemini models)
-- **Parameters:** Unknown (proprietary information)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ### Technical specifications
 

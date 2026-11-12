@@ -13,7 +13,7 @@
 - **Release / knowledge:** Released May 28, 2026 (official announcement). Knowledge cutoff January 2026 (Opus 4.x lineage).
 - **IDs:** `claude-opus-4-8` (Claude API); standard Anthropic model ID.
 - **Context window:** 1M tokens (official API/contract card); max output 16,384 tokens (official).
-- **Modalities:** Text + image input; text output. Thinking: default high effort, with "extra" (xhigh) and "max" overrides; effort control available in claude.ai and Cowork.
+- **Modalities:** Text + image input; text output. Thinking: default high effort, with "extra" (xhigh) and "max" overrides; effort control available in claude.ai and Cowork; tool calls
 - **Pricing (as of 2026-11-08):** $5/MTok input, $25/MTok output (regular); fast mode $10/MTok input, $50/MTok output (2.5x speed, 3x cheaper than prior fast mode). Opus family cache pricing: 5-min write $6.25/MTok, 1-hr write $12.50/MTok, cache read $0.50/MTok.
 - **Architecture:** Proprietary, closed weights (Anthropic). Parameter count not disclosed.
 
@@ -70,8 +70,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Opus 4.8 — findings by Solar Mini 4
 
@@ -82,17 +82,8 @@
 > - Overview and scoring methodology: `../../model-comparison.md`
 > - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Opus 4.8 (`claude-opus-4-8`; Platform IDs: Bedrock `anthropic.claude-opus-4-8`, Google Cloud, Azure Foundry)
-- **Short description:** Anthropic's flagship reasoning model with 1M context / 128K output, adaptive thinking, dynamic workflows (Claude Code), and agent teams — legacy model, migrate to Opus 5.5.
-- **Provider / access:** claude.ai, Claude API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry; Messages + Responses APIs.
-- **Release / knowledge:** released May 28, 2026; knowledge cutoff Jan 2026.
-- **IDs:** `claude-opus-4-8` (Claude API); `anthropic.claude-opus-4-8` (Bedrock). No free ID — paid only.
-- **Context window:** 1,048,576 (1M) total; 128K max output (batch API beta: 300K).
-- **Modalities:** text + image in → text out; adaptive thinking (default high; xhigh/max options); tool calls; JSON mode.
-- **Pricing (as of 2026-10-24):** $5/M input / $25/M output; cache 5m write $6.25, 1h write $10, read $0.50; batch 50%; fast mode $10/$50 (2.5x speed).
-- **Architecture:** proprietary, undisclosed param count; "Legacy" status in the lineup; retirement not sooner than May 28, 2027.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Modalities +tool calls.
 
 ## Raw benchmarks found
 

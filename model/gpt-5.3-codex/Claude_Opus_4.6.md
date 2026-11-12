@@ -13,7 +13,7 @@
 - **Release / knowledge:** 2026-02-05 release. Deprecated as of late 2026.
 - **IDs:** `openai/gpt-5.3-codex`
 - **Context window:** 400,000 tokens.
-- **Modalities:** Text, image in; text out; tool use; web search; terminal execution. Mid-task steerability.
+- **Modalities:** Text, image in; text out; tool use; web search; terminal execution. Mid-task steerability; reasoning
 - **Pricing (as of 2026-10-11):** $1.75 / $14.00 per 1M tokens (input/output). Now deprecated.
 - **Architecture:** Proprietary; OpenAI agentic coding model. Supports reasoning and multimodal input.
 
@@ -68,8 +68,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.3 Codex — findings by Claude Opus 4.6
 
@@ -78,17 +78,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.3 Codex
-- **Short description:** OpenAI's dedicated agentic coding model released February 5, 2026, combining GPT-5.2-Codex software engineering performance with broader GPT-5.2 reasoning. Deprecated October 1, 2026; API removal scheduled April 1, 2027.
-- **Provider / access:** OpenAI API (`gpt-5.3-codex`). Deprecated; migration to GPT-6 models recommended.
-- **Release / knowledge:** 2026-02-05 release; knowledge cutoff August 31, 2025.
-- **IDs:** `openai/gpt-5.3-codex`
-- **Context window:** 400,000 tokens total; max output 128,000 tokens (verified via OpenAI docs, OpenRouter).
-- **Modalities:** Text + image in; text out; reasoning effort settings (low, medium, high, xhigh); tool calls; JSON mode.
-- **Pricing (at release):** $1.75 / $14.00 per 1M tokens (input / output). Cached input: $0.175.
-- **Architecture:** Proprietary; parameter count undisclosed. Specialized coding variant of the GPT-5.2/5.3 generation.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Modalities +reasoning.
 
 ## Raw benchmarks found
 

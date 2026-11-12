@@ -11,6 +11,13 @@
 - **Short description:** OpenAI's most powerful GPT-5.5 variant: a slow, expensive flagship "highest reasoning" model designed for the hardest multi-step professional problems. It uses more compute to think harder than any other GPT-5.5 SKU, with image input but no audio/video.
 
 
+- **Provider / access (earlier pass):** OpenAI GPT API, GPT Console; OpenCode Zen `opencode/gpt-5.5-pro`; GitHub `openai/gpt-5.5-pro`.
+- **Release / knowledge (earlier pass):** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs (earlier pass):** `openai/gpt-5.5-pro` (Hugging Face registry slug); GitHub `openai/gpt-5.5-pro`.
+- **Context window (earlier pass):** **1M** total, **256K** max output (official OpenAI API docs).
+- **Modalities (earlier pass):** text + image in/out; multimodal supported; text output only.
+- **Pricing (earlier pass):** Official OpenAI API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture (earlier pass):** Proprietary OpenAI GPT-5.5 Pro; not open weights.
 ### Raw benchmarks found
 
 > Sources: BenchGap benchmark table as of 2026-11-07 (`https://benchgap.net/model/gpt-5-5-pro`) — measured vs estimated noted; Artificial Analysis GPT-5.5 Pro (Xhigh) model page (April 23, 2026). Rows are the documented values for this SKU; comparisons with the 3.7 Flash family figures are labelled where adopted from related GPT-5.5 reports.
@@ -90,8 +97,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.5 Pro — findings by Solar_Mini_4
 
@@ -99,16 +106,9 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** GPT-5.5 Pro
-- **Short description:** OpenAI GPT-5.5 Pro flagship model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** OpenAI GPT API, GPT Console; OpenCode Zen `opencode/gpt-5.5-pro`; GitHub `openai/gpt-5.5-pro`.
-- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `openai/gpt-5.5-pro` (Hugging Face registry slug); GitHub `openai/gpt-5.5-pro`.
-- **Context window:** **1M** total, **256K** max output (official OpenAI API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official OpenAI API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary OpenAI GPT-5.5 Pro; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Provider / access, Release / knowledge, IDs, Context window,
+> Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled as earlier-pass values.
 
 ## Raw benchmarks found
 

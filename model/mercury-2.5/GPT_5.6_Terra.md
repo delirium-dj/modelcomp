@@ -66,15 +66,14 @@ Long context:
 
 > Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Mercury 2.5 — negative findings by GPT 5.6 Terra
 - Source: fresh public web research
 - Archived date: 2026-10-05 (UTC)
-### Model card
-- **Name:** Mercury 2.5
-- **Short description:** A folder label was present, but searches did not identify an attributable model card, publisher, endpoint, or exact-model benchmark.
-- **Provider / access:** no verified public provider or model ID found.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
+
 ## Raw benchmarks found
 - No verified public benchmark score found for this exact model/ID.

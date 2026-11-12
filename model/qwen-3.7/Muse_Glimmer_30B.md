@@ -14,7 +14,7 @@
 - **IDs:** `qwen3.7-max`
 - **Context window:** 1,000,000 tokens input; max output 65,536 tokens reported.
 - **Modalities:** Max variant text in/out; Plus variant adds image/video input. Reasoning yes, tool calls yes.
-- **Pricing (as of 2026-11-04):** Published API ~ $2.50 / 1M input / $7.50 / 1M output; aggregator rates vary e.g. Yotta $1.25/$3.75, OpenRouter $1.475/$4.425. Cache pricing available.
+- **Pricing (as of 2026-11-04):** Published API ~ $2.50 / 1M input / $7.50 / 1M output; aggregator rates vary e.g. Yotta $1.25/$3.75, OpenRouter $1.475/$4.425. Cache pricing available. (earlier pass also recorded: China Beijing ≤256k input $0.276 /1M in, $1.101 /1M out; >256k $0.826 /1M in, $3.301 /1M out. Singapore $0.40 /1M in, $1.60 /1M out ≤256k; $1.20 /1M in, $4.80 /1M out >256k. Cache pricing applies.)
 - **Architecture:** Proprietary MoE. Parameters undisclosed.
 
 ### Raw benchmarks found
@@ -76,8 +76,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen3.7 Plus — findings by Muse Glimmer 30B (excluded)
 
@@ -85,17 +85,10 @@ Long context:
 - Archived date: 2026-10-26
 - Overview and scoring methodology: `../../model-comparison.md`
 
-### Model card
-
-- **Name:** Qwen 3.7
-- **Short description:** Alibaba Qwen 3.7 model entry. No distinct public model card or benchmark table found for the exact `qwen-3.7` slug; related tiers are Qwen3.7-Max/Plus/Flash with separate IDs.
-- **Provider / access:** Alibaba Cloud Model Studio API `qwen3.7-plus`, snapshots e.g. `qwen3.7-plus-2026-05-26`. Chat Completions API.
-- **Release / knowledge:** Snapshot 2026-05-26; page last updated 2026-10-11. Knowledge cutoff not published.
-- **IDs:** `qwen3.7-plus`
-- **Context window:** 1,000,000 tokens total; max input 991,808; max output 131,072; max input thinking 983,616; max CoT 262,144.
-- **Modalities:** Input Image/Text/Video; Output Text. Function calling, structured outputs, web search, prefix completion, context caching supported.
-- **Pricing (as of 2026-10-26):** China Beijing ≤256k input $0.276 /1M in, $1.101 /1M out; >256k $0.826 /1M in, $3.301 /1M out. Singapore $0.40 /1M in, $1.60 /1M out ≤256k; $1.20 /1M in, $4.80 /1M out >256k. Cache pricing applies.
-- **Architecture:** Parameter count undisclosed by vendor; proprietary MoE/dense architecture.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row.
 
 ## Raw benchmarks found
 

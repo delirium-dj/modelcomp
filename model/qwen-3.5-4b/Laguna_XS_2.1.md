@@ -45,8 +45,8 @@ Strong cost efficiency makes this an excellent option for lightweight deployment
 
 > Merged from this folder's `Laguna_XS_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.5 4B — findings by Laguna XS 2.1
 
@@ -55,17 +55,8 @@ Strong cost efficiency makes this an excellent option for lightweight deployment
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.5 4B
-- **Short description:** Alibaba's lightweight Qwen 3.5 4B parameter model for efficient inference.
-- **Provider / access:** Alibaba Cloud, HuggingFace, OpenRouter.
-- **Release / knowledge:** Released 2026 (Qwen 3.5 series).
-- **IDs:** `qwen-3.5-4b`.
-- **Context window:** ~1M tokens.
-- **Modalities:** Text in/out.
-- **Pricing:** Highly cost-efficient.
-- **Architecture:** Transformer decoder; 4B parameters.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 #### Key Findings
 

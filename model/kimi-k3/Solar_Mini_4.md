@@ -11,6 +11,13 @@
 - **Short description:** Moonshot AI's flagship 3T-class open-weight model ("world's first open 3T-class model"): a 2.8T-parameter MoE with 104B active, built for long-horizon coding, knowledge work and reasoning, with native vision and a 1M-token context window. Released July 2026; predecessor of Kimi K3.1 Pro (October 2026).
 
 
+- **Provider / access (earlier pass):** Moonshot Kimi API, Moonshot Console; OpenCode Zen `opencode/kimi-k3`; GitHub `moonshot/kimi-k3`.
+- **Release / knowledge (earlier pass):** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs (earlier pass):** `moonshot/kimi-k3` (Hugging Face registry slug); GitHub `moonshot/kimi-k3`.
+- **Context window (earlier pass):** **1M** total, **256K** max output (official Moonshot API docs).
+- **Modalities (earlier pass):** text + image in/out; multimodal supported; text output only.
+- **Pricing (earlier pass):** Official Moonshot API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture (earlier pass):** Proprietary Moonshot Kimi K3; not open weights.
 ### Raw benchmarks found
 
 > Sources: BenchGap benchmark table as of 2026-11-07 (`https://benchgap.net/model/kimi-k3`) — measured vs estimated noted; Artificial Analysis Kimi K3 (max) model page (July 16, 2026); official Moonshot AI pricing page (2026-10-27). Kimi K3 is the predecessor of Kimi K3.1 Pro (October 2026).
@@ -88,8 +95,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K3 — findings by Solar_Mini_4
 
@@ -97,16 +104,9 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** Kimi K3
-- **Short description:** Moonshot Kimi K3 model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** Moonshot Kimi API, Moonshot Console; OpenCode Zen `opencode/kimi-k3`; GitHub `moonshot/kimi-k3`.
-- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `moonshot/kimi-k3` (Hugging Face registry slug); GitHub `moonshot/kimi-k3`.
-- **Context window:** **1M** total, **256K** max output (official Moonshot API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official Moonshot API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary Moonshot Kimi K3; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Provider / access, Release / knowledge, IDs, Context window,
+> Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled as earlier-pass values.
 
 ## Raw benchmarks found
 

@@ -11,7 +11,7 @@
 - **Short description:** NVIDIA's ~4GB-class edge model, GA **2026-10-23**: an 8B-total / 4B-effective MoE post-trained from `google/gemma-4-E4B-it` for **low-latency local agents on RTX and Jetson** (voice/device assistants, interactive personas, embedded interfaces), with open weights under OpenMDW-1.1. It is a *general* model with a fast, instruction-following, tool-use profile — not a frontier coder.
 - **Provider / access:** **Hugging Face** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB` (Q4_K_M GGUF, 6.18 GB) plus the BF16 sibling `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16` and the speculative-decoding drafter `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB-DFlash`; **build.nvidia.com** route `nvidia/nemotron-3.5-bolt-e4b` (model card, GA 2026-10-23). Self-hosted through llama.cpp (`-c 65536`) or vLLM with an OpenAI-compatible Chat Completions surface; no public per-token price.
 - **Release / knowledge:** GA **2026-10-23** (Hugging Face + build.nvidia.com); model development window December 2025 – May 2026; **post-training data cutoff May 2026**.
-- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB`, `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`, `nvidia/nemotron-3.5-bolt-e4b` (build.nvidia.com), `nemotron-bolt` (llama.cpp alias). No OpenCode Zen slot, no OpenRouter id.
+- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB`, `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`, `nvidia/nemotron-3.5-bolt-e4b` (build.nvidia.com), `nemotron-bolt` (llama.cpp alias). No OpenCode Zen slot, no OpenRouter id. (also recorded: `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B`)
 - **Context window:** **input up to 64K tokens, output up to 64K tokens** (NVIDIA model card; llama.cpp runs with `-c 65536`); the only published long-context measurement is RULER at 64K. **Conflict:** the Artificial Analysis page for this model lists 131K context and text+image input — values evidently inherited from the Gemma-4-E4B base rather than the Nemotron card, so the NVIDIA spec is used here.
 - **Modalities:** text in / text out; reasoning toggle (`enable_thinking=True/False`) plus a runtime **thinking budget** (`--reasoning-budget`) and a **conversational mode** for spoken-style replies; tool calling supported (vLLM `--enable-auto-tool-choice`, `--tool-call-parser gemma4`); multilingual (primary post-training languages: English, French, German, Italian, Japanese, Spanish, Chinese; the card claims 35 supported languages); **no image input** per NVIDIA's own card.
 - **Pricing (as of 2026-11-12):** **no hosted price** — open weights (OpenMDW-1.1, base Gemma under Apache 2.0) mean self-hosting is the only access route, so the marginal cost is hardware: **3.1–5.0 GB VRAM**, ~**548 ms** time-to-first-token and **133.4 tokens/s** on an RTX 5070, ~**5,785 ms** TTFT and **15.5 tokens/s** on a Jetson Orin Nano (vendor measurements). No Zen free slot and no provider data-retention terms apply.
@@ -83,8 +83,8 @@ Long context:
 
 > Merged from this folder's `MiniMax_M3.1_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Nemotron 3.5 Bolt E4B — findings by MiniMax M3.1 Flash
 
@@ -102,17 +102,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Nemotron 3.5 Bolt E4B
-- **Short description:** NVIDIA's announced ~4 GB-class edge model in the Nemotron 3.5 Bolt family, "optimized for intelligence per GB" for fast conversational agents, voice assistants, interactive characters and embedded interfaces on GeForce RTX, Jetson and RTX/DGX Spark. Announced 2026-10-15, scheduled for **2026-10-23** — not yet downloadable or measurable.
-- **Provider / access:** none yet. NVIDIA's blog says Super VL and Bolt 74B-A9B are available now, with **Bolt E4B coming Oct. 23**.
-- **Release / knowledge:** announced **2026-10-15**; release date **2026-10-23** (scheduled, not confirmed shipped).
-- **IDs:** none published. Candidate Hugging Face ids (`nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B` and variants) all return HTTP 401, and HF searches for `Bolt-E4B` / `E4B` under the nvidia org return empty.
-- **Context window:** not published (BenchLM lists it as "Coming soon").
-- **Modalities:** not published. The blog mentions voice assistants and interactive characters, implying speech, but NVIDIA publishes no modality spec for it.
-- **Pricing (as of 2026-10-20):** not published. The Bolt family's licence is OpenMDW-1.1 (used by Lightning, Bolt 74B-A9B and Super VL) — expected, but **not confirmed** for E4B.
-- **Architecture:** undisclosed. "E4B" denotes the **4 GB memory-footprint class**, not a parameter count.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

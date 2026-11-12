@@ -11,7 +11,7 @@
 - **Short description:** Meta’s multimodal vision-instruct model released 2024-09-25. 11B and 90B variants for image reasoning, visual recognition, captioning and visual Q&A. Built on Llama 3.1 text model with a separately trained vision adapter using cross-attention. Positioned as an open-weights commercial-use multimodal model for image+text in / text out tasks.
 - **Provider / access:** Meta / Hugging Face repo meta-llama/Llama-3.2-11B-Vision-Instruct and Llama-3.2-90B-Vision-Instruct. Available via NVIDIA NIM, Microsoft Azure Model Catalog, IBM watsonx, Ollama. License gated.
 - **Release / knowledge:** 2024-09-25. Knowledge cutoff December 2023 per model card.
-- **IDs:** meta-llama/Llama-3.2-11B-Vision-Instruct ; meta-llama/Llama-3.2-90B-Vision-Instruct. No Free/OpenCode Zen ID.
+- **IDs:** meta-llama/Llama-3.2-11B-Vision-Instruct ; meta-llama/Llama-3.2-90B-Vision-Instruct. No Free/OpenCode Zen ID. (also recorded: `meta-llama/Llama-3.2-11B-Vision-Instruct`, `meta-llama/Llama-3.2-90B-Vision-Instruct`, `meta/llama-3.2-11b-vision-instruct`, `@cf/meta/llama-3.2-11b-vision-instruct`)
 - **Context window:** 128k total tokens. Verified on Hugging Face model card and NVIDIA NIM model card.
 - **Modalities:** Text + Image in; Text out. Reasoning yes for visual Q&A; tool calls no native; JSON mode not advertised.
 - **Pricing (as of 2026-10-28):** Open-weights; inference cost varies by provider. No official Meta pricing; community deployments are free to self-host under Llama 3.2 Community License.
@@ -70,8 +70,8 @@ Conflicting / missing:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Llama 3.2 Vision Instruct — findings by Muse Glimmer 30B
 
@@ -80,17 +80,9 @@ Conflicting / missing:
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Llama 3.2 Vision Instruct
-- **Short description:** Meta's September 2024 open-weights multimodal family for image understanding and visual reasoning. Released as 11B and 90B instruction-tuned variants built on Llama 3.1 with a cross-attention vision adapter. Optimized for document/chart/diagram QA and visual question answering, English-only for image+text. Now legacy, largely delisted by hosts.
-- **Provider / access:** Open weights under Llama 3.2 Community License; hosted via OpenAI-compatible Chat Completions on NVIDIA NIM, Cloudflare Workers AI, DeepInfra, io.net, Inference.net. No Responses API. No OpenCode Zen ID.
-- **Release / knowledge:** 2024-09-25; knowledge cutoff December 2023
-- **IDs:** `meta-llama/Llama-3.2-11B-Vision-Instruct`, `meta-llama/Llama-3.2-90B-Vision-Instruct` (Hugging Face gated); `meta/llama-3.2-11b-vision-instruct` (NVIDIA NIM), `@cf/meta/llama-3.2-11b-vision-instruct` (Cloudflare)
-- **Context window:** 128,000 tokens total, 4,096 max output verified on hosted endpoints. Verified by Meta model card and NVIDIA NIM spec.
-- **Modalities:** Input text + image; Output text. No audio/video. English only for image+text; text-only supports en/de/fr/it/pt/hi/es/th. No native reasoning mode, no verified tool calling on reference endpoint.
-- **Pricing (as of 2026-10-25):** Open weights free to self-host. Hosted $0.00/$0.00 on NVIDIA NIM developer credits, Cloudflare $0.0485/M in / $0.676/M out, DeepInfra $0.345/$0.345, Inference.net $0.055/$0.055 with 16K window. Llama 3.2 Community License with 700M MAU commercial threshold.
-- **Architecture:** 11B dense 10.6B params, 90B dense 88.8B params, GQA, cross-attention vision adapter on Llama 3.1. Pretrained on 6B image-text pairs; instruction tuned with public vision datasets + 3M synthetic examples. SFT + RLHF.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +4. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

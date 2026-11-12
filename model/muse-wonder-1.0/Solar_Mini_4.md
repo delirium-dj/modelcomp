@@ -11,6 +11,13 @@
 - **Short description:** Meta's frontier reasoning model for personal and professional agentic tasks — coding at the frontier, long-running agents that plan and delegate, and advanced computer use. The broadly available base SKU of the Muse Wonder family (the subscription-gated `muse-wonder-full-1.0` is the most advanced SKU).
 
 
+- **Provider / access (earlier pass):** Meta Model API, pay-as-you-go, Standard mode (no Contributor mode). Community route: OpenRouter `meta/muse-wonder`. Preview.
+- **Release / knowledge (earlier pass):** Released 2026-10-12. Knowledge cutoff: undisclosed.
+- **IDs (earlier pass):** `muse-wonder-1.0`; OpenRouter `meta/muse-wonder`.
+- **Context window (earlier pass):** 1,048,576 tokens (1M). Max output: undisclosed.
+- **Modalities (earlier pass):** Text, image, speech, video input; text output; tool calls, structured output, search grounding, computer use. Reasoning default on.
+- **Pricing (earlier pass):** $4.00/$0.20 cached/$20.00 per 1M tokens; web-search grounding $2.50/1,000 queries. Cost per AA-index task: $6.95 (AA).
+- **Architecture (earlier pass):** Proprietary, parameters undisclosed.
 ### Raw benchmarks found
 
 > Sources: official Meta Model API / Muse Code pages (2026-10-12 launch) — Muse Wonder "tops agentic and coding benchmarks, including DeepSWE and SWE-Marathon in independent third-party runs"; BenchGap benchmark table 2026-11-07 (`https://benchgap.net/model/muse-wonder-1.0`) with measured vs estimated noted. Benchmark figures below are the documented values for this SKU (the `muse-wonder-full-1.0` folder's `.excluded` notes contain some family-wide figures that must not be reused as Muse Wonder 1.0 numbers).
@@ -81,8 +88,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Muse Wonder (1.0) — findings by Solar Mini 4
 
@@ -90,18 +97,10 @@
 
 - **Overview & methodology:** `../../model-comparison.md` · **Log:** `../../model-findings.md`
 
-### Model card
-
-- **Name:** Muse Wonder (1.0) — alias `muse-wonder-1.0`, `meta/muse-wonder` (OpenRouter)
-- **Short description:** Meta's first frontier-class API model (2026-10-12, Meta Superintelligence Labs) — ~4 AA-index points above Muse Spark 1.3 (52 vs 48 at max) — with Active Memory + Active Focus agentic features. Pay-as-you-go API; not a Muse Code subscription product (that is Muse Wonder Full).
-- **Provider / access:** Meta Model API, pay-as-you-go, Standard mode (no Contributor mode). Community route: OpenRouter `meta/muse-wonder`. Preview.
-- **Release / knowledge:** Released 2026-10-12. Knowledge cutoff: undisclosed.
-- **IDs:** `muse-wonder-1.0`; OpenRouter `meta/muse-wonder`.
-- **Context window:** 1,048,576 tokens (1M). Max output: undisclosed.
-- **Modalities:** Text, image, speech, video input; text output; tool calls, structured output, search grounding, computer use. Reasoning default on.
-- **Pricing (2026-10-31):** $4.00/$0.20 cached/$20.00 per 1M tokens; web-search grounding $2.50/1,000 queries. Cost per AA-index task: $6.95 (AA).
-- **Rate limits:** 3,000 RPM / 4M TPM per team per model (Meta; community-reported), background 600/min.
-- **Architecture:** Proprietary, parameters undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Provider / access, Release / knowledge, IDs, Context window,
+> Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled as earlier-pass values.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

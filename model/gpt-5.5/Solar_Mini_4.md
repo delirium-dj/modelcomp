@@ -79,8 +79,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 **Agent / tool use:**
 - Terminal-Bench 2.0: **82.7%** (OpenAI) — vs GPT-5.4 75.1%, Claude Opus 4.7 69.4%, Gemini 3.1 Pro 68.5% (+7.6 pts vs GPT-5.4). Agentic public lane (BenchLM): 62.7 (#23/128).
@@ -121,17 +121,8 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.5
-- **Short description:** OpenAI's fully retrained base model (released 2026-04-23) for real work: agentic coding, complex knowledge tasks, computer use, scientific research. First fully retrained base since GPT-4.5. Premium pricing but strong per-task efficiency gains.
-- **Provider / access:** OpenAI API `gpt-5.5` (ChatGPT Plus/Pro/Business/Enterprise; API GA 2026-04-24), Codex, Azure. Paid.
-- **Release / knowledge:** Released 2026-04-23 (version `gpt-5.5-2026-04-23`); knowledge cutoff December 1, 2025 (vendor API docs).
-- **IDs:** `openai/gpt-5.5`, `gpt-5.5-2026-04-23`.
-- **Context window:** 1,050,000 tokens (vendor API docs); marketing shorthand "1M". Max output 128,000.
-- **Modalities:** Text in and out; image input only; audio/video unsupported. Reasoning: up to 5 effort levels (none/low/medium default/high/xhigh). Tooling: web search, file search, image generation, code interpreter, hosted shell, skills, computer use, MCP.
-- **Pricing (as of 2026-09-01):** $5.00 input / $0.50 cached input / $30.00 output per 1M tokens (batch prices); GPT-5.4 was $2.50/$15 (doubled). GPT-5.5 Pro: $30/$180 per 1M. >272K input tokens priced 2× input / 1.5× output; regional endpoints +10%.
-- **Architecture:** proprietary; params undisclosed; fully retrained base (first since GPT-4.5); parallel test-time compute for GPT-5.5 Pro.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 
@@ -141,16 +132,8 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** GPT-5.5
-- **Short description:** OpenAI GPT-5.5 flagship for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** OpenAI GPT API, GPT Console; OpenCode Zen `opencode/gpt-5.5`; GitHub `openai/gpt-5.5`.
-- **Release / knowledge:** Released 2026-09-18; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `openai/gpt-5.5` (Hugging Face registry slug); GitHub `openai/gpt-5.5`.
-- **Context window:** **1M** total, **256K** max output (verified by official OpenAI API docs).
-- **Modalities:** text in/out; vision not consistently advertised.
-- **Pricing (as of 2026-10-17):** `$0.40 per 1M input / $3.20 per 1M output` (official OpenAI API).
-- **Architecture:** proprietary OpenAI LLM; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

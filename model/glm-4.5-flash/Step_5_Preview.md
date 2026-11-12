@@ -11,7 +11,7 @@
 - **Short description:** Z.ai's **free-tier, distilled lightweight member of the GLM-4.5 family**, marketed as "Free · Strong Performance · Excellent for Reasoning, Coding & Agents." Shares the GLM-4.5 hybrid-reasoning design (thinking / non-thinking modes) but with a smaller parameter footprint than the 355B-A32B flagship. Optimized for tool invocation, web browsing, software engineering and front-end programming, and designed to drop into coding agents like Claude Code and Roo Code. It is a **distinct sub-variant, not an alias** of `glm-4.5` or `glm-4.5-air` — no shared weights are published for it.
 - **Provider / access:** Z.ai developer API (`https://api.z.ai/api/paas/v4`, OpenAI-compatible Chat Completions), Zhipu BigModel / `docs.bigmodel.cn` for the domestic route, plus third-party hosts: UnoRouter (`zhipu/glm-4.5-flash:free`, $0/$0, fp8 quant, expires Dec 2026), Tempr Gateway (`zai/glm-4.5-flash`), Puter, RentGPU. **Free on OpenCode Zen** (`$0` in/out) and `$0.00/$0.00` on the Z.ai developer platform.
 - **Release / knowledge:** released **2025-07-28** alongside GLM-4.5 and GLM-4.5-Air. Knowledge cutoff **2025-04** (freellm.net / ModelBench); UnoRouter lists **Dec 2024** — conflicting, both noted. **Lifecycle warning:** the Zhipu BigModel docs state GLM-4.5-Flash is being **retired on 2026-01-30**, after which requests auto-route to GLM-4.7-Flash; Ox Alpha nonetheless still lists it as free on Z.ai as of 2026-10-29, so the international route appears to outlive the domestic one.
-- **IDs:** `glm-4.5-flash` (Z.ai, BigModel, Puter); `zhipu/glm-4.5-flash:free` (UnoRouter); `zai/glm-4.5-flash` (Tempr Gateway); OpenCode Zen free tier.
+- **IDs:** `glm-4.5-flash` (Z.ai, BigModel, Puter); `zhipu/glm-4.5-flash:free` (UnoRouter); `zai/glm-4.5-flash` (Tempr Gateway); OpenCode Zen free tier. (also recorded: `zhipuai/glm-4.5-flash`)
 - **Context window:** **128K (128,000–131,072)** context — verified on the official Z.ai docs, Zhipu BigModel docs, ModelBench (131.072K), LiteLLM (128,000) and UnoRouter (131.1K). **Max output 96K** per the official docs and freellm.net, 98.304K per ModelBench, but **32,000** per LiteLLM — three sources disagree; treat 96K as the vendor figure and note the discrepancy. Hybrid reasoning toggled via `thinking.type` (`enabled` / `disabled`), dynamic thinking on by default.
 - **Modalities:** **text in / text out only** — no image, audio, video or PDF input (ModelBench: "Attachments No, Vision input No"). Reasoning yes (hybrid dual-mode), tool calling yes, structured/JSON output yes, streaming yes, temperature control yes (UnoRouter default 0.75). No non-text output.
 - **Pricing (as of 2026-11-04):** **Free** — `$0` input, `$0` cached input, `$0` output on the official Z.AI pricing page; `$0.00/$0.00` on the Z.ai developer platform and OpenCode Zen. Free-tier rate limits apply (freellm.net lists **1 concurrent request** as the provider policy). **Conflict:** Puter's gateway lists `$0.10/$0.10` per 1M — a paid third-party route, not the vendor free tier. Self-hosting is paid GPU time only.
@@ -96,8 +96,8 @@
 
 > Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## glm-4.5-flash — negative findings by Step 5 Preview
 
@@ -113,48 +113,12 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Safe unions applied: IDs +1. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
-- **Name:** GLM-4.5-Flash
-- **Short description:** Zhipu AI's July 2025 Flash-tier model in the GLM-4.5 family — notable as the only 4.5-family member with **closed** weights, while GLM-4.5 and GLM-4.5-Air are open. No benchmark numbers have ever been published for it, and it is absent from every independent tracker and gateway checked.
-- **Provider / access:** **none found.** Not listed on OpenRouter (its direct page returns 404) and not in the OpenCode Console/Zen catalog. The weights are closed, so self-hosting is not an option either. At the time of research this model appears to have no reachable serving route at all.
-- **Release / knowledge:** released **2025-07-28** (models.dev, both release and updated dates).
-- **IDs:** `zhipuai/glm-4.5-flash` (models.dev). No live provider ID was found.
-- **Context window:** **131,072 tokens** total with **98,304 max output** (models.dev — the only source that carries specs for this model).
-- **Modalities:** **not verifiable.** models.dev's input-modality field renders as a non-text icon set and cannot be read as text, and the gated Hugging Face repo cannot be read to corroborate. Reasoning is flagged Yes, tool calling Yes, structured output Yes.
-- **Pricing (as of 2026-10-24):** **$0.00 / $0.00** per 1M (models.dev). This is models.dev's default for a model with no served paid route rather than a verified free tier, so it is **not** treated as a real price here.
-- **Architecture:** **closed weights** (models.dev) — the only closed-weights member of the GLM-4.5 family, its siblings GLM-4.5 and GLM-4.5-Air both being open. Parameter count, license name and architecture details are all unverifiable because the Hugging Face repo is gated.
-
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench (any version): no verified public score found.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench: no verified public score found.
-- Toolathon / MCP-Atlas: no verified public score found.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- HLE: no verified public score found.
-- LCR / MLCR: no verified public score found.
-- CritPt: no verified public score found.
-- MMLU-Pro: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found — AA's page returns 404, so no Index, rank, output speed, TTFT or cost-per-task figure exists.
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- SciCode / AA-SciCode: no verified public score found.
-- Vibe Code Bench: no verified public score found.
-- DeepSWE / Coding Index: no verified public score found.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Verification trail (seven independent checks, all run 2026-10-24)
 

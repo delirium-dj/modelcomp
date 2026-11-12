@@ -69,25 +69,16 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-30) reported Overall 86.1/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-30) reported Overall 86.1/100 — superseded by the active scores above.
 
 ## KIMI-K2.6 — GLM_4.7_Flash Research Report
 
 
 ---
 
-### Model card
-
-- **Name:** Kimi K2.6
-- **Short description:** Moonshot AI's flagship general-purpose model from the Kimi K2 series, released in 2026, designed for complex reasoning, coding, and knowledge work. Features competitive pricing and strong performance across agentic benchmarks with optimized speed and extended context capabilities.
-- **Provider / access:** Moonshot AI API (proprietary)
-- **Release / knowledge:** Released 2026. Knowledge cutoff: not specified.
-- **IDs:** Not specified
-- **Context window:** Not specified
-- **Modalities:** text in; text out; reasoning yes; tool calls yes; JSON mode supported
-- **Pricing:** Not specified
-- **Architecture:** Proprietary (Moonshot AI)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

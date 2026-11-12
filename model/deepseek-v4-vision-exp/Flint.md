@@ -61,8 +61,8 @@
 
 > Merged from this folder's `Flint.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## DeepSeek V4 Vision Exp — findings by Flint
 
@@ -71,20 +71,10 @@
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
-- **Name:** DeepSeek V4 Vision Exp
-- **Short description:** DeepSeek's experimental vision variant of the V4 family; positioned for multimodal/agentic evaluation.
-- **Provider / access:** DeepSeek API (platform.deepseek.com, api-docs.deepseek.com), DeepSeek official.
-- **Release / knowledge:** Release date not verified; V4 family context ~1M per DeepSeek materials.
-- **IDs:** `DeepSeek-V4-Vision-Exp` (API naming per DeepSeek).
-- **Context window:** not verified.
-- **Modalities:** image in; text out (vision).
-- **Pricing (as of 2026-10-25):** not verified.
-
-## Raw benchmarks found
-
-- no verified public score found
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Cross-source comparison
 

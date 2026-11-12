@@ -9,7 +9,7 @@
 
 - **Name:** Grok Build 0.1
 - **Short description:** xAI's agentic coding / build-focused Grok model (docs.x.ai naming; the `grok-code-fast-1` alias resolves here), positioned for agentic software engineering.
-- **Provider / access:** xAI / docs.x.ai (`grok-build-0.1`); OpenRouter route naming to be verified.
+- **Provider / access:** xAI / docs.x.ai (`grok-build-0.1`); OpenRouter route naming to be verified. (also recorded: `https://api.x.ai/v1`)
 - **Release / knowledge:** Grok Build release 2026; knowledge cutoff not disclosed.
 - **IDs:** `grok-build-0.1`; retired alias `grok-code-fast-1` (docs.x.ai) resolves to this model — alias-measured figures are lineage data cited under the measured ID.
 - **Context window:** Not verified for the Build tier.
@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `Flint.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok Build 0.1 — findings by Flint
 
@@ -70,12 +70,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Grok Build 0.1
-- **Short description:** xAI's agentic coding model — **Grok Build**, an extensible coding agent (interactive TUI, headless scripts/bots, Agent Client Protocol) powered by **`grok-4.7`**, available on the SpaceXSI API; designed for agentic coding workflows and droppable into agent loops / IDE integrations / coding tools.
-- **Provider / access:** xAI (docs.x.ai; OpenAI-compatible API base `https://api.x.ai/v1`; Code API; Responses API).
-- **Release / knowledge:** `grok-4.7` is xAI's latest model per docs; docs current as of this research pass (2026-11-05).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1.
 
 ## Raw benchmarks found
 

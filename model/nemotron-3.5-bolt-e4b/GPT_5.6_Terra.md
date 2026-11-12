@@ -9,9 +9,9 @@
 
 - **Name:** NVIDIA Nemotron 3.5 Bolt E4B
 - **Short description:** NVIDIA's post-trained Gemma-4-E4B-derived small model for low-latency local assistants, multi-turn tool use, and instruction following. The released BF16 checkpoint includes configurable thinking and native tool-call parsing.
-- **Provider / access:** NVIDIA Hugging Face checkpoint `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`; self-host through vLLM using an OpenAI-compatible Chat Completions API.
+- **Provider / access:** NVIDIA Hugging Face checkpoint `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`; self-host through vLLM using an OpenAI-compatible Chat Completions API. (also recorded: `opencode/nemotron-3.5-bolt-e4b`, `/inference/v1/models`)
 - **Release / knowledge:** Released on Hugging Face 2026-10-23; the model card lists post-training data freshness through May 2026.
-- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`; the vLLM examples use served model name `nemotron-bolt`.
+- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`; the vLLM examples use served model name `nemotron-bolt`. (also recorded: `opencode/nemotron-3.5-bolt-e4b`)
 - **Context window:** 64K input / 64K output maximum, according to NVIDIA's official model card.
 - **Modalities:** Text input and text output. The card's vLLM recipe explicitly disables image, video, and audio input.
 - **Pricing (as of 2026-10-26):** No hosted API price found. NVIDIA publishes weights under OpenMDW-1.1, with a 4GB quantized variant for local deployment.
@@ -70,8 +70,8 @@ NVIDIA's official Hugging Face card is the primary source for the exact release,
 
 > Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Nemotron 3.5 Bolt E4B - findings by GPT 5.6 Terra
 
@@ -80,35 +80,9 @@ NVIDIA's official Hugging Face card is the primary source for the exact release,
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +2. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
-- **Name:** Nemotron 3.5 Bolt E4B
-- **Short description:** A named NVIDIA Bolt-family entry in the dataset, but no public NVIDIA model card, weights repository, release announcement, or verified API route was found for this exact E4B model.
-- **Provider / access:** Curated target ID is `opencode/nemotron-3.5-bolt-e4b`; the current OpenCode `/inference/v1/models` response does not list that ID.
-- **Release / knowledge:** No verified public release date or knowledge cutoff found.
-- **IDs:** `opencode/nemotron-3.5-bolt-e4b` is unverified; no upstream NVIDIA model ID was found.
-- **Context window:** No verified public value found.
-- **Modalities:** No verified public value found.
-- **Pricing (as of 2026-10-18):** No verified public value found.
-- **Architecture:** No verified public value found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-## Raw benchmarks found
-
-Agent / tool use:
-
-- No verified public score found for this exact model. BenchLM tracks the name but reports 0 of 639 benchmark rows: https://benchlm.ai/models/nemotron-3-5-bolt-e4b.
-
-Reasoning / knowledge:
-
-- No verified public score found for this exact model. A Hugging Face API search returned no exact-model weights or card.
-
-Coding:
-
-- No verified public score found for this exact model. NVIDIA Build returned no exact model page.
-
-Long context:
-
-- No verified public score found for this exact model.
-
-> Archived normalized scores omitted — superseded by the active report above (see provenance note for the archived Overall).
----

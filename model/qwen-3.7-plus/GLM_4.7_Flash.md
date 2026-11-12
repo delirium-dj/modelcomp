@@ -14,7 +14,7 @@
 - **IDs:** `qwen/Qwen3-3.7B-Plus-2507` (base 3.7B)
 - **Context window:** 128K tokens (verified; extension to 256K theoretical)
 - **Modalities:** text in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026-10-25):** $0.08 per 1M input tokens; $0.12 per 1M output tokens (est. Qwen3-Plus tier)
+- **Pricing (as of 2026-10-25):** $0.08 per 1M input tokens; $0.12 per 1M output tokens (est. Qwen3-Plus tier) (earlier pass also recorded: $0.55 in / $2.75 out per 1M; cache $0.16 per 1M; competitive for high-volume use.)
 - **Architecture:** 3.6B parameters (dense); Apache 2.0 license
 
 ### Raw benchmarks found
@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM_4.7_Flash Report
 
@@ -70,17 +70,11 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.7 Plus
-- **Short description:** Alibaba open-weight model (2026) optimized for enterprise workloads with balanced intelligence and competitive pricing.
-- **Provider / access:** AI providers / Model hub, various deployment options.
-- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
-- **IDs:** `qwen-3.7-plus`
-- **Context window:** 1,000,000 total tokens; 1,000,000 max output — enterprise-class.
-- **Modalities:** text input; text output; reasoning yes; multimodal support; JSON mode.
-- **Pricing (as of 2026-10-21):** $0.55 in / $2.75 out per 1M; cache $0.16 per 1M; competitive for high-volume use.
-- **Architecture:** open weights; dense/mixture-of-experts; reasoning architecture; API-only.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. The archived context-window row was generic template filler ("1,000,000 total tokens;
+> 1,000,000 max output — enterprise-class"), not model-specific research — the active value stands. Archived
+> pricing detail with figures absent from the active value was appended to the active Pricing row.
 
 ## Raw benchmarks found
 

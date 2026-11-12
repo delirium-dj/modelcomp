@@ -16,6 +16,7 @@
 - **Pricing (as of 2026-11-12):** Standard pricing tier.
 - **Architecture:** 4B effective parameters; bolt-optimized for speed.
 
+- **IDs (earlier pass):** No verified ID resolves; NVIDIA blog references but no HF repo exists.
 ### Raw benchmarks found
 
 Agent / tool use:
@@ -53,8 +54,8 @@ Coding:
 
 > Merged from this folder's `Laguna_XS_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Nemotron 3.5 Bolt E4B — findings by Laguna XS 2.1
 
@@ -63,16 +64,9 @@ Coding:
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Nemotron 3.5 Bolt E4B
-- **Short description:** NVIDIA's announced ~4GB-class edge model for fast conversational agents on RTX and Jetson hardware; scheduled for 2026-10-23 release; no weights, specs or benchmarks published yet.
-- **Provider / access:** No verified public access — model not yet released; scheduled for October 23, 2026 release.
-- **Release / knowledge:** Schedule announced for October 23, 2026; weights and specs not yet published.
-- **IDs:** No verified ID resolves; NVIDIA blog references but no HF repo exists.
-- **Context window:** Not published (awaiting scheduled release).
-- **Modalities:** Text in/out (unreleased); voice implied but not specified.
-- **Pricing:** Not published; expected open weights under OpenMDW-1.1 license.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (IDs) were folded in from the earlier pass, labelled as earlier-pass
+> values. Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

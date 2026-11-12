@@ -16,6 +16,7 @@
 - **Pricing (as of 2026-11-12):** Experimental/prerelease pricing.
 - **Architecture:** MAIMAI AI experimental architecture.
 
+- **IDs (earlier pass):** No verified model identifier resolves; Microsoft MAI catalog shows no matching entry.
 ### Raw benchmarks found
 
 Agent / tool use:
@@ -53,8 +54,8 @@ Coding:
 
 > Merged from this folder's `Laguna_XS_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Mai Experimental Test — findings by Laguna XS 2.1
 
@@ -63,16 +64,9 @@ Coding:
 > Overview and scoring methodology: `../../model-comparison.md`
 > Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Mai Experimental Test
-- **Short description:** OpenCode's experimental Microsoft MAI sandbox slot (128K, text-only) with no public model id, endpoint, weights, price or benchmarks - a placeholder, not a model.
-- **Provider / access:** No verified public access — no registry lists it; Microsoft's MAI catalogue does not include it.
-- **Release / knowledge:** Undocumented; no evidence of existence beyond placeholder naming.
-- **IDs:** No verified model identifier resolves; Microsoft MAI catalog shows no matching entry.
-- **Context window:** 128,000 total (placeholder spec only).
-- **Modalities:** Text in/out only.
-- **Pricing:** Experimental tier pricing — no published rate available.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (IDs) were folded in from the earlier pass, labelled as earlier-pass
+> values.
 
 ## Raw benchmarks found
 

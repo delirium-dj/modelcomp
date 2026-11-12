@@ -75,8 +75,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Xing 4.0 29B A4B — findings by GPT-6 Luna
 
@@ -85,17 +85,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Xing 4.0 29B A4B
-- **Short description:** Model tracked under Xing 4.0 29B A4B. Three independent public searches did not verify the publisher, authoritative model card, or exact API/weights identity; no parameter or architecture claims are treated as independently established.
-- **Provider / access:** no verified exact-model provider or API route found.
-- **Release / knowledge:** no verified release date or cutoff.
-- **IDs:** tracked subject `xing_4.0_29b_a4b`; canonical ID unverified.
-- **Context window:** no exact-model specification verified.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
-- **Architecture:** slug encodes 29B/A4B, but this was not confirmed from an authoritative source in this pass.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

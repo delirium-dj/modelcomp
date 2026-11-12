@@ -13,8 +13,8 @@
 - **Release / knowledge:** 2025-07-09 release. Retired from API May 2026.
 - **IDs:** `xai/grok-4` (retired)
 - **Context window:** 256,000 tokens.
-- **Modalities:** Text, image in; text out; tool calls; web search; X search; code execution.
-- **Pricing (as of 2026-10-11):** Retired. Historical pricing similar to current Grok family (~$2/$6 per 1M).
+- **Modalities:** Text, image in; text out; tool calls; web search; X search; code execution; reasoning
+- **Pricing (as of 2026-10-11):** Retired. Historical pricing similar to current Grok family (~$2/$6 per 1M). (earlier pass also recorded: Not separately confirmed; estimated competitive with xAI's later $1.25/$2.50 range.)
 - **Architecture:** Proprietary; trained on Colossus 200K-GPU cluster. RL at pretraining scale. "Grok 4 Heavy" tier for multi-agent workflows.
 
 ### Raw benchmarks found
@@ -65,8 +65,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4 — findings by Claude Opus 4.6
 
@@ -75,17 +75,11 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Grok 4
-- **Short description:** xAI's original Grok 4 generation model, originally launched July 9, 2025. A reasoning and coding-focused model that has since been retired from active service following the release of Grok 4.3, 4.5, 4.6, and 4.7.
-- **Provider / access:** Retired from active service (superseded by Grok 4.3+). Was available via xAI API.
-- **Release / knowledge:** 2025-07-09 original launch; knowledge cutoff not publicly confirmed.
-- **IDs:** `xai/grok-4`
-- **Context window:** Estimated ~256K–500K tokens (pre-generation specification; exact not separately confirmed).
-- **Modalities:** Text in; text out; reasoning modes; tool calling.
-- **Pricing (at release):** Not separately confirmed; estimated competitive with xAI's later $1.25/$2.50 range.
-- **Architecture:** Proprietary; parameter count undisclosed. First model in the Grok 4 generation.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row. Safe unions applied: Modalities +reasoning. Every other archived field value was an older or
+> vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

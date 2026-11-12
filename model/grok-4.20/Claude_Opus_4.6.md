@@ -64,8 +64,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4.20 — findings by Claude Opus 4.6
 
@@ -74,17 +74,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Grok 4.20
-- **Short description:** xAI's agentic-focused model with the largest context window in the Grok lineup (2M tokens). Available in Reasoning, Non-Reasoning, and Multi-Agent configurations. Designed for complex multi-step tasks.
-- **Provider / access:** xAI API, third-party platforms.
-- **Release / knowledge:** Mid-2026 release; knowledge cutoff not publicly confirmed.
-- **IDs:** `xai/grok-4.20`
-- **Context window:** 2,000,000 tokens (2M — largest in Grok family).
-- **Modalities:** Text + image (native vision) in; text out; function/tool calling; structured outputs (JSON schema); built-in web search.
-- **Pricing (as of 2026):** $1.25 / $2.50 per 1M tokens (input / output) via xAI API.
-- **Architecture:** Proprietary. Multi-Agent variant uses 4 parallel agents for collaboration, debate, and verification.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

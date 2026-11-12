@@ -9,7 +9,7 @@
 
 - **Name:** Kimi K2.7 Code (official model card: `Kimi K2.7 Code` — Moonshot AI coding-focused agentic model)
 - **Short description:** A coding-focused agentic model built on Kimi K2.6 with substantial improvements on real-world long-horizon coding tasks. Released by Moonshot AI (China) with open weights on Hugging Face (`moonshotai/Kimi-K2.7-Code`). Designed for software engineering workflows with image/video input support and thinking mode.
-- **Provider / access:** Moonshot AI — `https://platform.moonshot.ai` (official API, OpenAI-compatible); Hugging Face `moonshotai/Kimi-K2.7-Code` (open weights, MIT-modified license); `kimi_moonshot` vendor identity confirmed.
+- **Provider / access:** Moonshot AI — `https://platform.moonshot.ai` (official API, OpenAI-compatible); Hugging Face `moonshotai/Kimi-K2.7-Code` (open weights, MIT-modified license); `kimi_moonshot` vendor identity confirmed. (also recorded: `moonshotai/kimi-k2.7-code`)
 - **Release / knowledge:** Released 2025 (model card updated 2026-10; evaluation results referenced in card); knowledge cutoff not explicitly stated in card, but benchmark references indicate 2025-2026 evaluation cycle.
 - **IDs:** `moonshotai/Kimi-K2.7-Code` (HF); `kimi_k25` (config tag); official API via `platform.moonshot.ai`.
 - **Context window:** 262,144 tokens (documented model card: "262,144-token context length" for evaluation; architecture supports 256K standard).
@@ -84,8 +84,8 @@ Note: dataset `average.md` lists this model at Overall 82.4; my independently de
 
 > Merged from this folder's `Inkling.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K2.7 Code — findings by Inkling
 
@@ -94,17 +94,9 @@ Note: dataset `average.md` lists this model at Overall 82.4; my independently de
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Kimi K2.7 Code (dataset label; no verified official Moonshot AI product page for exact ID)
-- **Short description:** Listed in dataset (`model-queue.md`: Overall 82.4). Moonshot AI (`moonshot.ai`, `kimi.ai`) promotes `Kimi K3` as the latest flagship; no official page for `kimi-k2.7-code` was located.
-- **Provider / access:** Not verified (no `moonshotai/kimi-k2.7-code` endpoint confirmed).
-- **Release / knowledge:** Not confirmed.
-- **IDs:** Not verified beyond dataset label.
-- **Context window:** Not verified.
-- **Modalities:** Not verified.
-- **Pricing (as of 2026-10-26):** Not verified.
-- **Architecture:** Not verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found (3 independent searches, compared)
 

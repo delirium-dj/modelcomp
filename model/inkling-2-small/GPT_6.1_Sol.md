@@ -79,8 +79,8 @@ Multimodal/performance evidence:
 
 > Merged from this folder's `GPT_6.1_Sol.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Fledge Alpha — evidence-limited findings by GPT 6.1 Sol
 
@@ -90,12 +90,9 @@ Multimodal/performance evidence:
 - Cross-model signed log: [model-findings.md](../../model-findings.md)
 - Status: **Self-excluded: identity/serving metadata exists, but no verified exact-model capability benchmark found.**
 
-### Model card
-
-- **Name:** Fledge Alpha / Fledge Alpha Free. The free suffix denotes the documented preview route; it does not establish a separate underlying checkpoint.
-- **Identity / access:** Models.dev's exact OpenCode record **`fledge-alpha-free`** describes an OpenCode-only preview, operator-supplied metadata dated **2026-10-01**, provider base **`https://opencode.ai/inference/openai/v1`**, currently **deprecated**. Current **`https://opencode.ai/inference/v1/models`** and legacy **`https://opencode.ai/zen/v1/models`** both return200 with no Fledge entry; no authenticated successful inference performed. OpenCode Data independently preserves the historical usage name **`fledge-alpha`**, lab **Custom**, not an identified model developer.[1][2][3][4]
-- **Declared specifications:** Historical route **1,048,576 shared-context tokens/131,072 output**, text/image input→text, reasoning with **low/high/max** effort, tools and temperature, closed weights. Metadata comments explicitly say input/output/reasoning share context. These are operator/catalog claims, not independent image/tool/long-context success measurements. Exact architecture, parameter count, knowledge cutoff and underlying developer remain unverified.[1][2]
-- **Pricing:** Historical preview catalog **$0 input/$0 output**; usage dashboard reports$0 list-price spend. Current tariff/availability and exact historical retention/training terms not verified; generic policies for different current stealth models are not substituted. A retired preview does not earn a present-day free inference score.[1][2][4]
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand.
 
 ## Raw benchmarks found
 

@@ -11,7 +11,7 @@
 - **Short description:** Alibaba's flagship Qwen3.7 reasoning-agent model, built for long-horizon coding, tool use, math, and large-context workflows with 1M token context window.
 - **Provider / access:** OpenCode Zen opencode/qwen-3.7-max (Chat Completions); OpenRouter qwen/qwen3.7-max; Alibaba Cloud Model Studio / DashScope
 - **Release / knowledge:** Released May 19, 2026 (announced May 20 at Alibaba Cloud Summit); knowledge cutoff not published
-- **IDs:** opencode/qwen-3.7-max; OpenRouter qwen/qwen3.7-max
+- **IDs:** opencode/qwen-3.7-max; OpenRouter qwen/qwen3.7-max (also recorded: `alibaba/qwen-3-7-max`)
 - **Context window:** 1,000,000 total (131,072 max output)
 - **Modalities:** Text in/out; reasoning and tool calls
 - **Pricing (as of 2026-10-30):** .48 in / .43 out per 1M (OpenRouter); cached ~.25
@@ -74,8 +74,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.7 Max — findings by Gemini 4.5 Flash
 
@@ -90,17 +90,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.7 Max
-- **Short description:** Alibaba's enhanced version of the Qwen model series, positioned as their most capable model with maximum performance.
-- **Provider / access:** Alibaba Cloud (`qwen-3-7-max`) - API access
-- **Release / knowledge:** Release date not specified in available sources; knowledge cutoff not specified
-- **IDs:** `alibaba/qwen-3-7-max`
-- **Context window:** Not explicitly specified in available sources
-- **Modalities:** Text input; text output; reasoning capabilities unknown; tool use unknown
-- **Pricing (as of 2026-10-22):** Not publicly available in sources
-- **Architecture:** Proprietary enhanced architecture based on Qwen series
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

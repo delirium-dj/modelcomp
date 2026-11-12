@@ -73,25 +73,16 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 77.6/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 77.6/100 — superseded by the active scores above.
 
 ## GEMINI-3.1-FLASH-LITE — GLM_4.7_Flash Research Report
 
 
 ---
 
-### Model card
-
-- **Name:** Gemini 3.1 Flash Lite
-- **Short description:** Most lightweight flash variant of Gemini 3.1, designed for ultra-fast, cost-effective applications with minimal resource requirements.
-- **Provider / access:** Google Cloud AI Platform / Google AI Studio (proprietary)
-- **Release / knowledge:** 2026 (knowledge cutoff unknown)
-- **IDs:** `gemini-3.1-flash-lite` / `gemini-3.1-flash-lite@001`
-- **Context window:** Not explicitly specified in available documentation
-- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls unknown; JSON mode unknown
-- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
-- **Architecture:** Proprietary (Flash Lite variant)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

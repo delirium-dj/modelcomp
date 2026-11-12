@@ -14,7 +14,7 @@
 - **IDs:** `claude-fable-5-2`, `anthropic/claude-fable-5.2`, `anthropic.claude-fable-5-2` (platform-specific).
 - **Context window:** 1,000,000 tokens context; 128K max output (synchronous Messages API; larger batch output beta noted in docs).
 - **Modalities:** Text and image input; text output (Anthropic docs / AA / models.dev).
-- **Pricing (as of 2026-11-11):** $8 / 1M input tokens, $40 / 1M output tokens (base). Anthropic docs also list cache read/write and batch discounts; OpenRouter/AA reflect same base token pricing. Local metadata noted $10/$50 in one field but authoritative docs reviewed show $8/$40 — **conflict noted** (docs preferred).
+- **Pricing (as of 2026-11-11):** $8 / 1M input tokens, $40 / 1M output tokens (base). Anthropic docs also list cache read/write and batch discounts; OpenRouter/AA reflect same base token pricing. Local metadata noted $10/$50 in one field but authoritative docs reviewed show $8/$40 — **conflict noted** (docs preferred). (earlier pass also recorded: $8 / 1M input tokens, $40 / 1M output tokens; cache read $0.20 / 1M, 5m cache write $10 / 1M, 1h cache write $16 / 1M, Batch API 50% discount (Anthropic platform docs).)
 - **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed. Reasoning model with adaptive thinking (always on/default high effort per docs/AA).
 
 ### Raw benchmarks found
@@ -90,8 +90,8 @@ Multimodal:
 
 > Merged from this folder's `Iceman.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Fable 5.2 — findings by Iceman
 
@@ -100,17 +100,10 @@ Multimodal:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Fable 5.2
-- **Short description:** Anthropic’s Claude Fable 5.2 is a frontier Mythos-class model positioned for demanding reasoning and long-horizon agentic work, including agent sessions, multistep deep research, and analysis carried through to finished artifacts.
-- **Provider / access:** Anthropic Claude API `claude-fable-5-2`; available across Anthropic-supported platforms per platform docs (Bedrock, Google Cloud, Microsoft Foundry, etc.). Local metadata lists `anthropic/claude-fable-5.2` and `noFreeId`.
-- **Release / knowledge:** Released November 9, 2026. Reliable knowledge cutoff June 2026; training data cutoff June 2026 (Anthropic platform docs).
-- **IDs:** `claude-fable-5-2`, `anthropic.claude-fable-5-2` (platform-specific).
-- **Context window:** 1M tokens context, 128K max output (synchronous Messages API; larger batch output beta supported per docs).
-- **Modalities:** Text and image input; text output (Anthropic platform docs).
-- **Pricing (as of 2026-11-10):** $8 / 1M input tokens, $40 / 1M output tokens; cache read $0.20 / 1M, 5m cache write $10 / 1M, 1h cache write $16 / 1M, Batch API 50% discount (Anthropic platform docs).
-- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row.
 
 ## Raw benchmarks found
 

@@ -9,7 +9,7 @@
 
 - **Name:** Grok 4.7
 - **Short description:** SpaceXAI flagship released 21 September 2026, iterative upgrade over Grok 4.6 on a larger base with Cursor training data. Marketed for long-running agentic, coding and knowledge work; same $2/$6 pricing as 4.6 with higher token use on equal tasks.
-- **Provider / access:** Grok API `xai/grok-4.7`; also available via Cursor and Grok Build. Chat Completions style, reasoning low–xhigh tiers.
+- **Provider / access:** Grok API `xai/grok-4.7`; also available via Cursor and Grok Build. Chat Completions style, reasoning low–xhigh tiers. (also recorded: `opencode/grok-4.7`)
 - **Release / knowledge:** 2026-09-21; knowledge cutoff not publicly disclosed.
 - **IDs:** `xai/grok-4.7`. No OpenCode Zen Free ID found.
 - **Context window:** 500,000 tokens total per vendor/Artificial Analysis notes; unchanged vs 4.6. Verified via AA model page and xAI release notes.
@@ -73,8 +73,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4.7 — findings by Muse Glimmer 30B
 
@@ -83,17 +83,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Grok 4.7
-- **Short description:** xAI’s larger-base 500K flagship for repo-scale coding and legal agents; Harvey LAB #1 and Vibe Code 86.2%, below-frontier price.
-- **Provider / access:** OpenCode Zen `opencode/grok-4.7`; Chat Completions.
-- **Release / knowledge:** 2026-09-21 release; knowledge cutoff not publicly disclosed.
-- **IDs:** opencode/grok-4.7; no free ID on Zen.
-- **Context window:** 500,000 tokens total, verified by Artificial Analysis specification page (500k).
-- **Modalities:** Text and image in; text out; reasoning yes; tool calls not verified public; JSON mode not verified.
-- **Pricing (as of 2026-10-20):** $2.00/$6.00 per 1M standard; doubles past 200K. Fast variant $4.00/$12.00 per 1M per meta.json. No free tier.
-- **Architecture:** Proprietary; parameter count undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

@@ -11,7 +11,7 @@
 - **Short description:** OpenCode's temporary free route for Xiaomi MiMo-V2.6-Flash. The available benchmark evidence is for the released MiMo-V2.6-Flash-RL checkpoint, not for a separately trained free-tier model.
 - **Provider / access:** OpenCode documents `opencode/mimo-v2.6-flash-free` through its OpenAI-compatible Chat Completions endpoint; the target's legacy `opencode/mimo-v2-6-free` label is treated as this Flash free route. Xiaomi publishes the checkpoint as `XiaomiMiMo/MiMo-V2.6-Flash-RL`.
 - **Release / knowledge:** MiMo-V2.6 Flash was released in September 2026; no knowledge-cutoff date was found.
-- **IDs:** `opencode/mimo-v2.6-flash-free`; `XiaomiMiMo/MiMo-V2.6-Flash-RL`
+- **IDs:** `opencode/mimo-v2.6-flash-free`; `XiaomiMiMo/MiMo-V2.6-Flash-RL` (also recorded: `opencode/mimo-v2-6-free`)
 - **Context window:** 1,000,000 tokens for the released Flash checkpoint, confirmed by Xiaomi and Artificial Analysis. OpenCode does not publish a route-specific free-tier cap in its current model table.
 - **Modalities:** Xiaomi lists text, image, video, and audio input with text output. Artificial Analysis independently lists text and image input; the route-specific free endpoint's full media matrix is not published.
 - **Pricing (as of 2026-10-18):** OpenCode lists the temporary Flash Free route as free for input, output, and cached reads. Xiaomi's paid Flash API is $0.14 input and $0.28 output per 1M tokens.
@@ -72,8 +72,8 @@ Evidence reconciliation: Xiaomi's table is checkpoint-specific but vendor-run. A
 
 > Merged from this folder's `GPT_5.6_Terra.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Mimo V2 6 Free — findings by GPT 5.6 Terra
 
@@ -82,22 +82,8 @@ Evidence reconciliation: Xiaomi's table is checkpoint-specific but vendor-run. A
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1.
 
-- **Name:** Mimo V2 6 Free
-- **Short description:** This folder's exact OpenCode Free identifier could not be matched to Xiaomi's public V2.6 release identifiers.
-- **Provider / access:** The public Xiaomi release documents `mimo-v2.6-pro`, `mimo-v2.6-flash`, and `mimo-v2.6-pro-ultraspeed`; it does not document `opencode/mimo-v2-6-free`.
-- **Release / knowledge:** Xiaomi released the MiMo-V2.6 Pro and Flash series on 2026-09-22.
-- **IDs:** No verified public mapping from `opencode/mimo-v2-6-free` to a Xiaomi V2.6 checkpoint.
-- **Context window:** no verified public value for this exact ID.
-- **Modalities:** no verified public matrix for this exact ID.
-- **Pricing (as of 2026-09-22):** no verified public price or free-tier terms for this exact ID.
-- **Architecture:** no verified public architecture for this exact ID.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
-## Raw benchmarks found
-
-The Xiaomi announcement reports benchmark values for MiMo-V2.6-Pro and MiMo-V2.6-Flash, including DeepSWE v1.1, Terminal Bench and tool/visual-agent evaluations. Those measurements cannot be attributed to the distinct `opencode/mimo-v2-6-free` ID without a published provider mapping.
-
-- Exact-ID benchmark search: no verified public score found.
-
----

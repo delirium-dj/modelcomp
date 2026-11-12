@@ -75,8 +75,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Claude Haiku 4.5 — findings by Muse Glimmer 30B
 
@@ -84,18 +84,8 @@ Long context:
 - Archived date: 2026-10-26
 - Overview and scoring methodology: `../../model-comparison.md`
 
-### Model card
-
-- **Name:** Claude Haiku 4.5
-- **Short description:** Anthropic high-volume, latency-sensitive model for classification, extraction, routing. Text and image input, text output.
-- **Provider / access:** Anthropic Claude API, Bedrock, Google Cloud, Microsoft Foundry.
-- **Release / knowledge:** Released Oct 15 2025. Reliable knowledge cutoff Feb 2025, training data cutoff Jul 2025.
-- **IDs:** `claude-haiku-4-5-20251001`, alias `claude-haiku-4-5`
-- **Context window:** 200K tokens
-- **Max output:** 64K tokens
-- **Modalities:** Input text and images → text output
-- **Pricing:** $1 / MTok input, $5 / MTok output. Batch 50% off.
-- **Architecture:** Proprietary Anthropic model. Extended thinking supported, not adaptive.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

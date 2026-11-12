@@ -9,9 +9,9 @@
 
 - **Name:** Qwen 3.5 397B
 - **Short description:** Alibaba Cloud's flagship open-weights multimodal Mixture-of-Experts (MoE) foundation model, featuring 397B total parameters (17B active per token) and native text, image, and video comprehension.
-- **Provider / access:** Alibaba Cloud Model Studio, OpenRouter (`qwen/qwen-3.5-397b`), DeepInfra, HuggingFace open-weights release (Apache 2.0).
+- **Provider / access:** Alibaba Cloud Model Studio, OpenRouter (`qwen/qwen-3.5-397b`), DeepInfra, HuggingFace open-weights release (Apache 2.0). (also recorded: `opencode/qwen-3.5-397b`)
 - **Release / knowledge:** 2026-02-16 release; knowledge cutoff late 2025.
-- **IDs:** `qwen/qwen-3.5-397b`, `deepinfra/qwen3.5-397b`
+- **IDs:** `qwen/qwen-3.5-397b`, `deepinfra/qwen3.5-397b` (also recorded: `opencode/qwen-3.5-397b`)
 - **Context window:** 262,144 tokens native context window (256K native input, expandable up to 1,000,000 tokens with YaRN on hosted endpoints).
 - **Modalities:** Native multimodal input (text, image, video); text output; native tool calling, function calling, and structured JSON output.
 - **Pricing (as of 2026-10):** $0.39 – $0.48 / 1M input, $2.34 – $3.00 / 1M output (standard hosted serverless API).
@@ -65,8 +65,8 @@ Multimodal & Long context:
 
 > Merged from this folder's `Gemini_3.6_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.5 397b — findings by Gemini 3.6 Flash
 
@@ -75,17 +75,10 @@ Multimodal & Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.5 397b
-- **Short description:** Scaffolded placeholder evaluation entry for Alibaba Qwen 3.5 397B parameter open-weight model variant.
-- **Provider / access:** OpenCode Zen (`opencode/qwen-3.5-397b`).
-- **Release / knowledge:** Unreleased / unknown.
-- **IDs:** `opencode/qwen-3.5-397b`
-- **Context window:** 128,000 tokens total (unverified).
-- **Modalities:** text in, text out.
-- **Pricing (as of 2026-10-09):** Standard pricing (unspecified).
-- **Architecture:** Open-weight MoE / dense transformer architecture.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Context window: the archived 128K was self-labelled unverified; the repo's identity rules (RULES.md § Qwen
+> 3.5 397B identity) confirm the 262,144-native / 1,010,000-extended window — the active value stands. Safe
+> unions applied: IDs +1; Provider +1.
 
 ## Raw benchmarks found
 

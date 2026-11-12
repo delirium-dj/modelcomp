@@ -11,7 +11,7 @@
 - **Short description:** OpenAI's ultra-compact tier for high-volume classification and extraction; text+image in, $0.05/$0.40 per 1M tokens — the cheapest frontier-family tier.
 - **Provider / access:** OpenAI API (`gpt-5-nano`); `opencode/gpt-5-nano` (noFreeID)
 - **Release / knowledge:** September 2026 (GPT-5 family). Knowledge cutoff not disclosed.
-- **IDs:** `opencode/gpt-5-nano` (Zen); `gpt-5-nano` (OpenAI API)
+- **IDs:** `opencode/gpt-5-nano` (Zen); `gpt-5-nano` (OpenAI API) (also recorded: `openai/gpt-5-nano`)
 - **Context window:** 400,000 total (128K max output)
 - **Modalities:** Text, image in; text out
 - **Pricing (as of 2026-09-30):** $0.05 input / $0.40 output per 1M tokens ($0.005 cached). Azure: $0.055/$0.44. Paid-tier only (noFreeID).
@@ -73,8 +73,8 @@ Inference: GPT-5 nano (Overall 37.37) is lower than its sibling GPT-5.4 nano (46
 
 > Merged from this folder's `Laguna_S_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5 nano — self-exclusion by Laguna S 2.1
 
@@ -83,18 +83,8 @@ Inference: GPT-5 nano (Overall 37.37) is lower than its sibling GPT-5.4 nano (46
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5 nano (High)
-- **Short description:** OpenAI's August 2025 ultra-fast, low-cost reasoning nanomodel. Deprecated by AA in favor of GPT-5.4 nano.
-- **Provider / access:** OpenAI API
-- **Release / knowledge:** Released August 7, 2025; knowledge cutoff May 2024; marked deprecated by AA (GPT-5.4 nano is the newer release)
-- **IDs:** `openai/gpt-5-nano` (AA slug); `opencode/gpt-5-nano` (`meta.json`)
-- **Context window:** 400K total (per AA model page); `meta.json` says 128K — **discrepancy noted**
-- **Modalities:** Text and image input, text output (per AA model page); `meta.json` says "Text in/out" — **discrepancy noted**
-- **Pricing (as of 2026-10-01):** $0.05 input / $0.40 output per 1M tokens; cache discount 90%
-- **Reasoning:** Yes (extended thinking / chain-of-thought)
-- **Speed:** 147.8 tokens/s output (per AA)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1.
 
 #### Research log (2026-10-16 re-verification)
 

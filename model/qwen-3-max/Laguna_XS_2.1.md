@@ -15,6 +15,8 @@
 - **Modalities:** Text in; text out; Thinking variant supports tool-calling and extended reasoning.
 - **Architecture:** 1 trillion parameters, trained on 36 trillion tokens; global-batch load balancing loss optimization.
 
+- **IDs (earlier pass):** Model identification from available documentation.
+- **Pricing (earlier pass):** Evaluated from pricing documentation.
 ### Raw benchmarks found
 
 **Agent / tool use:**
@@ -94,8 +96,8 @@
 
 > Merged from this folder's `Laguna_XS_2.1.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen3 Max — findings by Laguna XS 2.1
 
@@ -104,16 +106,9 @@
 > Overview and scoring methodology: `../../model-comparison.md`  
 > Cross-model signed log: `../../model-findings.md`  
 
-### Model card
-
-- **Name:** Qwen3 Max
-- **Short description:** AI model research findings by Laguna XS 2.1.
-- **Provider / access:** Research-based evaluation from public sources.
-- **Release / knowledge:** Evaluated October 2026.
-- **IDs:** Model identification from available documentation.
-- **Context window:** Evaluated from available specifications.
-- **Modalities:** As per model capabilities.
-- **Pricing:** Evaluated from pricing documentation.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (IDs, Pricing) were folded in from the earlier pass, labelled as
+> earlier-pass values.
 
 ## Raw benchmarks found
 

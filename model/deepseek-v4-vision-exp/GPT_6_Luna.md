@@ -70,8 +70,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## DeepSeek V4 Vision Experimental — findings by GPT-6 Luna
 
@@ -80,17 +80,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** DeepSeek V4 Vision Experimental
-- **Short description:** DeepSeek vision-oriented experimental model tracked by this slug. Three searches did not verify primary documentation for its exact release/API identity; V4.1 Flash and other DeepSeek models are not substituted.
-- **Provider / access:** DeepSeek; exact API route not verified.
-- **Release / knowledge:** no exact-model release date or cutoff verified.
-- **IDs:** tracked label `DeepSeek V4 Vision Experimental`; canonical model ID unverified.
-- **Context window:** no exact-model context specification found.
-- **Modalities:** name suggests vision, but supported image input/output modalities were not confirmed by an official source; no claims inferred from the label.
-- **Pricing (as of 2026-10-28):** no exact-model price verified.
-- **Architecture:** no exact-model architecture disclosure verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

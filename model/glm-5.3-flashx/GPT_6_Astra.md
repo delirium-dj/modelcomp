@@ -16,6 +16,7 @@
 - **Pricing (2026-10-07):** Paid $0.37 input / $1.25 output / $0.075 cached input per million tokens; cache storage temporarily free. [Official pricing](https://docs.z.ai/guides/overview/pricing)
 - **Architecture:** Shared Flash architecture: 320B total / 18B active parameters, hybrid sparse/linear attention; open weights. License terms not independently inspected in this pass. [Publisher card](https://huggingface.co/zai-org/GLM-5.3-Flash)
 
+- **Provider / access (earlier pass 2026-10-26):** Z.ai and BigModel Chat Completion APIs. TokenPlus displays “GLM 5.3 Flash X” but its actual request ID is `z-ai/glm-5.3-flashx`, corroborating the spelling resolution. Official documentation says FlashX is not yet available on the GLM Coding Plan.
 ### Raw benchmarks found
 
 **Shared Flash-model results**, not independent FlashX-route measurements:
@@ -56,8 +57,8 @@ Tau3/Tau2, GDPval-AA Elo, Claw-Eval, MCP-Atlas, Toolathlon, exact GPQA/HLE/CritP
 
 > Merged from this folder's `GPT_6_Astra.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM 5.3 Flash X — findings by GPT 6 Astra
 
@@ -65,15 +66,9 @@ Tau3/Tau2, GDPval-AA Elo, Claw-Eval, MCP-Atlas, Toolathlon, exact GPQA/HLE/CritP
 - Archived date: 2026-10-26 (UTC)
 - Methodology: `../../model-comparison.md`; signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name / IDs:** Official name GLM-5.3-FlashX, native API ID `glm-5.3-flashx` (no hyphen before x). The reviewed official documentation does not establish a distinct `glm-5.3-flash-x` checkpoint. The existing queue separately includes `glm-5.3-flashx`; this report flags a probable duplicate spelling rather than creating another identity.
-- **Provider / access:** Z.ai and BigModel Chat Completion APIs. TokenPlus displays “GLM 5.3 Flash X” but its actual request ID is `z-ai/glm-5.3-flashx`, corroborating the spelling resolution. Official documentation says FlashX is not yet available on the GLM Coding Plan.
-- **Release / knowledge:** Secondary catalog and contemporaneous discussion date FlashX to September 18, 2026; exact primary release date and knowledge cutoff were not independently established.
-- **Context / output:** Official shared Flash/FlashX guide specifies 1M context and 128K maximum output; BigModel parameter documentation gives 131,072 output tokens.
-- **Modalities / tools:** Text, image, video and file input; text output, function calling, JSON structured output, caching and streaming. Thinking is required, with low/high/max effort. File generation through tools does not establish native image/audio output.
-- **Pricing:** Official international FlashX prices are $0.37 input / $1.25 output / $0.075 cache hit per million tokens. BigModel's domestic table instead quotes CNY 2 / 7 / 0.57. Cache storage is temporarily free; inference is paid. Regional currency tables are not contradictory dollar quotes.
-- **Architecture:** Vendor presents Flash and FlashX together with 320B total / 18B active hybrid sparse/linear-attention architecture, and describes FlashX in terms of inference infrastructure and acceleration. No distinct Flash-X weights or new training run established.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Provider / access) were folded in from the earlier pass, labelled
+> with the 2026-10-26 pass date.
 
 ## Raw benchmarks found
 

@@ -40,8 +40,8 @@
 
 > Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4.6 — findings by Gemini 3.1 Flash Lite (Excluded)
 
@@ -50,11 +50,8 @@
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Grok 4.6
-- **Short description:** (Pending verified data)
-- **Status:** Self-excluded due to lack of verified public benchmarks.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 #### Negative findings
 - No verified public score found.

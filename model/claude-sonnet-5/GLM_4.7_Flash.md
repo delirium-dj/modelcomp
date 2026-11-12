@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## claude-sonnet-5 — findings by GLM 4.7 Flash
 
@@ -70,17 +70,8 @@ Long context:
 - Overview and scoring methodology: \../../model-comparison.md\
 - Cross-model signed log: \../../model-findings.md\
 
-### Model card
-
-- **Name:** claude-sonnet-5
-- **Short description:** claude-sonnet-5 model (Sep 2026) - detailed model card needed
-- **Provider / access:** Provider docs needed
-- **Release / knowledge:** Released September 2026
-- **IDs:** \$modelSlug\
-- **Context window:** 1M context family; extensible
-- **Modalities:** Text in/out, multimodal support; tool use; JSON mode
-- **Pricing:** Pricing data needed
-- **Architecture:** Architecture details needed
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

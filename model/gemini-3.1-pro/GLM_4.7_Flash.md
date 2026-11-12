@@ -73,8 +73,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM_4.7_Flash Report
 
@@ -83,17 +83,10 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Gemini 3.1 Pro
-- **Short description:** Google enterprise model (2026) optimized for complex reasoning tasks with balanced intelligence and competitive pricing.
-- **Provider / access:** Google API / Vertex AI, various deployment options.
-- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
-- **IDs:** `gemini-3.1-pro`
-- **Context window:** 1,000,000 total tokens; 1,000,000 max output — enterprise-class.
-- **Modalities:** text and image input; text output; reasoning yes; multimodal support; JSON mode.
-- **Pricing (as of 2026-10-21):** $0.50 in / $2.50 out per 1M; cache $0.09 per 1M; competitive for enterprise use.
-- **Architecture:** proprietary dense/mixture-of-experts; reasoning architecture; API-only.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. The archived context-window row was generic template filler ("1,000,000 total tokens;
+> 1,000,000 max output — enterprise-class"), not model-specific research — the active value stands.
 
 ## Raw benchmarks found
 

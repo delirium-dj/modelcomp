@@ -9,7 +9,7 @@
 
 - **Name:** Inkling 2 Small
 - **Short description:** Thinking Machines Lab's second-generation Mixture-of-Experts model (594B total / 17B active), released 2026-11-05: a 1M-context, image-input general model trained for long-horizon agentic coding, autoresearch and knowledge work. **It is the production model behind the Fledge Alpha stealth preview** — the vendor states verbatim: *"We also tested early checkpoints of Inkling 2 Small on OpenCode under the name Fledge-Alpha"*. Every figure below is measured on the released `Inkling 2 Small` checkpoint, not on the earlier Fledge Alpha evaluation runs.
-- **Provider / access:** Thinking Machines Lab **Tinker** API (inference + fine-tuning, playground at `tinker.thinkingmachines.ai`); **OpenCode Zen** `opencode/inkling-2-small-free` — Chat Completions at `https://opencode.ai/inference/openai/v1/chat/completions`. Weights are **closed** under the Tinker Terms of Use for now; the vendor promises full weights under Apache 2.0 "next week", and as of 2026-11-12 the Hugging Face repo `thinkingmachines/Inkling-2-Small` does **not** resolve (HTTP 401).
+- **Provider / access:** Thinking Machines Lab **Tinker** API (inference + fine-tuning, playground at `tinker.thinkingmachines.ai`); **OpenCode Zen** `opencode/inkling-2-small-free` — Chat Completions at `https://opencode.ai/inference/openai/v1/chat/completions`. Weights are **closed** under the Tinker Terms of Use for now; the vendor promises full weights under Apache 2.0 "next week", and as of 2026-11-12 the Hugging Face repo `thinkingmachines/Inkling-2-Small` does **not** resolve (HTTP 401). (also recorded: `https://opencode.ai/inference/v1/models`)
 - **Release / knowledge:** released **2026-11-05** (vendor blog + model card); pretraining data cutoff **2026-06**; available via Tinker from launch.
 - **IDs:** `thinkingmachines/inkling-2-small` (Zen canonical id), `opencode/inkling-2-small-free` (Zen free slot, release_date 2026-11-05), Tinker model `Inkling 2 Small`. No public Hugging Face weight repo yet; the earlier stealth id `fledge-alpha` / `opencode/fledge-alpha-free` is retired and now resolves to this model.
 - **Context window:** **up to 1M tokens** (vendor model card: "supports a context window of up to 1M tokens"); the live Zen slot reports **1,048,576 total / 131,072 max output** (models endpoint). All vendor evals ran with a 1M-token maximum trajectory limit; RL itself used 256K context with compaction for longer trajectories.
@@ -101,8 +101,8 @@ Cost per task / speed (independent):
 
 > Merged from this folder's `MiniMax_M3.1_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Fledge Alpha — findings by MiniMax M3.1 Flash
 
@@ -119,17 +119,10 @@ Cost per task / speed (independent):
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Fledge Alpha (Free) — **no vendor, no announcement, no weights**
-- **Short description:** An unannounced, free, limited-time stealth model on OpenCode Zen, listed on **2026-10-01** and retired by **2026-10-08** — a roughly one-week preview that OpenCode's changelog only mentions when removing it. **Identity note:** the id in this folder (`opencode/fledge-alpha`) does not exist; the only real id is `opencode/fledge-alpha-free` (models.dev, `status: deprecated`).
-- **Provider / access:** OpenCode Zen `fledge-alpha-free` — **retired**; absent from today's Zen model table, Zen pricing table, Zen free-model list, Zen deprecation table and `https://opencode.ai/inference/v1/models`.
-- **Release / knowledge:** listed **2026-10-01** (models.dev `release_date`); retired on or before **2026-10-08** (OpenCode changelog v2.0.26: "Added Step 5 Preview Free to OpenCode's free models for a limited time and **removed the retired Fledge Alpha Free listing**"). Knowledge cutoff unknown.
-- **IDs:** `fledge-alpha-free` (models.dev, OpenCode provider) — no other id on any provider.
-- **Context window:** **1,048,576** tokens, **131,072** max output (models.dev only — no corroborating source exists).
-- **Modalities:** text and image input; text output; reasoning with effort levels low/high/max; tool calling and temperature supported (models.dev only).
-- **Pricing (as of 2026-10-20):** **$0 in / $0 out** (free tier, limited time — no zero-retention or no-training note is published for this model, unlike OpenCode's documented free models).
-- **Architecture:** unknown — no weights, no model card, no parameters disclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Safe unions applied: Provider +1. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found
 

@@ -18,6 +18,7 @@
 - **Architecture / weights:** **753B total / 40B active parameters**, a sparse MoE, per the Hugging Face model card and Artificial Analysis. Open weights under the custom **GLM-5.3 License**, not MIT or Apache-2.0. The license broadly permits use and redistribution but requires Z.AI security review before commercial use of a Model-as-a-Service product if the licensee and affiliates exceed $10B revenue in any consecutive 12 months.
 - **Evaluation caveat:** GLM-5.3's Terminal-Bench scores vary materially by benchmark version and harness. Z.AI reports its own Terminal-Bench 2.1 run under Claude Code, Vals AI reports a separate Terminus 2 run, and Vals' Terminal-Bench 4.0 uses a new task set and mini-swe-agent. Do not merge or compare these as one score.
 
+- **Architecture (earlier pass 2026-10-28):** no exact-model architecture disclosure verified.
 ### Raw benchmarks found
 
 Agent / tool use:
@@ -75,8 +76,8 @@ Long context / multimodal:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM 5.3 — findings by GPT-6 Luna
 
@@ -85,17 +86,9 @@ Long context / multimodal:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GLM 5.3
-- **Short description:** Z AI GLM model tracked under the base 5.3 slug. Three searches did not retrieve exact-model primary documentation or benchmark evidence; Flash/FlashX variants are not used as proxies.
-- **Provider / access:** Z AI; exact API route not verified.
-- **Release / knowledge:** no exact release date or cutoff verified.
-- **IDs:** tracked label `GLM 5.3`; canonical API identifier unverified.
-- **Context window:** no exact-model context specification verified.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** no exact-model pricing verified.
-- **Architecture:** no exact-model architecture disclosure verified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Architecture) were folded in from the earlier pass, labelled with
+> the 2026-10-28 pass date.
 
 ## Raw benchmarks found
 

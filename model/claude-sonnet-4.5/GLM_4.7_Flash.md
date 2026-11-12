@@ -14,7 +14,7 @@
 - **IDs:** `claude/claude-sonnet-4.5`
 - **Context window:** 128K tokens (verified; extension to 256K theoretical)
 - **Modalities:** text in; text out; reasoning yes; tool calls; JSON mode
-- **Pricing (as of 2026-10-25):** $0.10 per 1M input tokens; $0.30 per 1M output tokens (est. Claude Sonnet 4.5 tier)
+- **Pricing (as of 2026-10-25):** $3 input / $15 output per 1M tokens (per Anthropic's official Sonnet 4.5 page — both earlier figures were wrong: the active $0.10/$0.30 estimate and the archived $2/$10).
 - **Architecture:** 81.1B parameters (dense); proprietary
 
 ### Raw benchmarks found
@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GLM_4.7_Flash Report
 
@@ -70,17 +70,13 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Sonnet 4.5
-- **Short description:** Anthropic balanced-performance model (2026) optimized for general-purpose workloads with strong intelligence and competitive speed.
-- **Provider / access:** Anthropic API / Console, various deployment options.
-- **Release / knowledge:** Released 2026; knowledge cutoff 2026.
-- **IDs:** `claude-sonnet-4.5`
-- **Context window:** 1,000,000 total tokens; 1,000,000 max output — enterprise-class.
-- **Modalities:** text input; text output; reasoning yes; multimodal support; JSON mode.
-- **Pricing (as of 2026-10-21):** $2.00 in / $10.00 out per 1M; cache $0.22 per 1M; competitive for enterprise use.
-- **Architecture:** proprietary dense/mixture-of-experts; reasoning architecture; API-only.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Pricing: the two cards conflicted ($0.10/$0.30 vs $2/$10 per 1M); Anthropic's official Sonnet 4.5 page
+> (platform.claude.com/docs/en/models/sonnet-4-5/overview) states $3/$15 per MTok — the active card above
+> was corrected to the official value. The archived context-window row was generic template filler
+> ("1,000,000 total tokens; 1,000,000 max output — enterprise-class"), not model-specific research — the
+> active value stands. Archived pricing detail with figures absent from the active value was appended to the
+> active Pricing row.
 
 ## Raw benchmarks found
 

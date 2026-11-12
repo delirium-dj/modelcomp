@@ -42,8 +42,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 
 > Merged from this folder's `Xing_4.0.29B_A4B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Google Gemini 3.5 Flash — findings by Xing40_29B_A4B
 
@@ -52,16 +52,8 @@ Overall = half-up mean of [Tool + Reasoning + Context + Multimodal + Coding] / 5
 > Overview + scoring methodology: ../../model-comparison.md
 > Cross-model signed log: ../../model-findings.md
 
-### Model card
-- **Name:** Gemini 3.5 Flash
-- **Short description:** Google's latest flash model with superior speed, pricing, and context over 3.7 Flash; an earlier flash entry that is still competitive for lightweight agentic tasks. Flag if variant/alias.
-- **Provider / access:** Hosted via Google Cloud Vertex API; OpenRouter google/gemini-3.5-flash. Chat Completions API on OpenRouter.
-- **Release / knowledge:** 2025–2026 release window (AA notes this model is deprecated in favor of 3.8 Flash as of Oct 2026). Cutoff ~2025–2026.
-- **IDs:** <provider>/gemini-3.5-flash
-- **Context window:** 1M tokens total (~500k in/out inferred).
-- **Modalities:** text + image + audio + video in; text out; reasoning yes; tool calls yes; JSON mode yes.
-- **Pricing (as 2026-10-21):** paid; input ~.35–.55/M, output ~.60–.00/M (AA: 3.8 Flash at .93 input – so 3.5 Flash likely ~.35–.55/M). Cache discount ~90%.
-- **Architecture:** proprietary Google Gemini transformers; params undisclosed. Not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 (Agent/Tool use section, Reasoning/knowledge section, Coding section, Long context section)

@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.7_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 82.4/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass (dated 2026-10-28) reported Overall 82.4/100 — superseded by the active scores above.
 
 ## KIMI-K2.7-CODE — GLM_4.7_Flash Research Report
 
@@ -74,17 +74,8 @@ Kimi K2.7 Code is Moonshot AI's specialized coding-optimized variant of their K2
 
 ---
 
-### Model card
-
-- **Name:** Kimi K2.7 Code
-- **Short description:** Moonshot AI's specialized coding-optimized variant of their K2.7 series, designed specifically for software engineering, coding, and programming tasks.
-- **Provider / access:** Moonshot AI API (proprietary)
-- **Release / knowledge:** 2026 (knowledge cutoff unknown)
-- **IDs:** `kimi-k2.7-code` / `kimi-k2.7-code@001`
-- **Context window:** Not explicitly specified in available documentation
-- **Modalities:** text/image/audio/video in; text out; reasoning yes; tool calls unknown; JSON mode unknown
-- **Pricing (as of 2026-10-28):** Not explicitly specified in available documentation
-- **Architecture:** Proprietary (with open-source options for some variants)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

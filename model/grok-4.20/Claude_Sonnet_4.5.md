@@ -73,8 +73,8 @@ Long context:
 
 > Merged from this folder's `Claude_Sonnet_4.5.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4.20 — findings by Claude (anthropic/claude-sonnet-4-5)
 
@@ -83,17 +83,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Grok 4.20 (variants: Reasoning, Non-reasoning, Multi-Agent; also referred to as "Grok 4.2" / "Grok 420"). No Free tier on xAI API; paid only.
-- **Short description:** xAI's flagship reasoning model released March 2026, notable for a native four-agent council (Grok coordinator, Harper research, Benjamin math/code, Lucas synthesis) that runs at inference time on shared weights and debates intermediate results before the coordinator synthesizes the final answer. Top use case: long-context agentic workflows with tool calling and low hallucination.
-- **Provider / access:** xAI direct (`grok-4.20-0309-reasoning`, `grok-4.20-multi-agent-0309`); also available through OpenRouter as `x-ai/grok-4.20`, exposed as a reasoning model with the reasoning parameter toggleable via API. Chat Completions API (legacy) plus Responses API supported per xAI docs.
-- **Release / knowledge:** Beta released February 17, 2026; full API access March 10, 2026. Knowledge cutoff not officially published.
-- **IDs:** `xai/grok-4.20-0309-reasoning`, `xai/grok-4.20-multi-agent-0309` (per docs.x.ai). No Free-tier ID on OpenCode Zen verified.
-- **Context window:** Official docs.x.ai lists 1,000,000 tokens with Text + Image input and Text output; Artificial Analysis lists Grok 4.20 0309 v2 at 2M context. Verified via vendor docs and third-party AA listing.
-- **Modalities:** Text + image input; text output; reasoning (togglable); function calling; structured outputs (JSON schema). Grok 4.20 accepts tools and tool_choice for function calling and supports structured outputs via a JSON schema in response_format.
-- **Pricing (as of 2026-09-25):** Grok 4.3 and Grok 4.20 (reasoning, non-reasoning, multi-agent) all use $1.25 / $0.20 / $2.50 per 1M tokens (input / cached / output) on docs.x.ai; AA still records the launch tier at $2.00 per 1M input tokens and $6.00 per 1M output tokens. Paid only; no Free tier.
-- **Architecture:** Proprietary closed-weights. Grok 4.20 is a proprietary closed-weight model developed by xAI; access is provided through grok.com, the Grok apps, and API endpoints, and xAI has not announced plans to release weights publicly. Parameter count not disclosed; uses a native 4-agent council at inference.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

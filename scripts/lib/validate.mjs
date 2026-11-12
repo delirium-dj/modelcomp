@@ -189,6 +189,25 @@ export const MERGED_MODEL_SLUGS = new Map([
   // now carry the stealth spelling so search by "Owl Alpha" resolves. Never
   // scaffold model/owl-alpha/ again.
   ["owl-alpha", "longcat-2.0"],
+  // Over-normalized dotted param-size duplicates (RULES.md slug identity,
+  // user-ordered merges 2026-11-12): `gemma-4.12b-unified` and
+  // `gemma-4.26b-a4b` are NOT version-dotted spellings of the tracked
+  // hyphenated folders - they are mis-normalizations that read a PARAM SIZE
+  // as a version ("Gemma 4.12"). Google's own IDs are `google/gemma-4-12B`
+  // and `gemma-4-26b-a4b-it` (hyphenated; the arXiv technical report writes
+  // "26B-A4B"), the Gemma 4 family is E2B / E4B / 12B / 26B A4B / 31B - all
+  // param sizes - and the repo's param-size rule (naming.mjs, "digits
+  // immediately followed by b/B are a parameter count, never a version") keeps
+  // them hyphenated, exactly as `gemma-4-31b`, `gemma-4-e2b` and
+  // `gemma-4-e4b` already are. normalizeSlug correctly refuses to PRODUCE the
+  // dotted form, but a slug that arrives already dotted passes the
+  // hyphen-version gate untouched - the gap `dottedParamSizeViolation` now
+  // closes. Both dotted folders folded into their hyphenated canonical
+  // counterparts (12b-unified: 24 unique reports moved + Laguna_XS_2.1.md
+  // overwritten newest-wins, 60 files after; 26b-a4b: all 49 findings were
+  // exact ties so nothing moved). Never scaffold the dotted forms again.
+  ["gemma-4.12b-unified", "gemma-4-12b-unified"],
+  ["gemma-4.26b-a4b", "gemma-4-26b-a4b"],
 ]);
 
 /** Exact FAIL text for a resurrected merged slug present on disk. */

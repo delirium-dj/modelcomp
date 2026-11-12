@@ -11,7 +11,7 @@
 - **Short description:** OpenAI's mid-tier GPT-6 model (Sep 2026). Cost-efficient workhorse for agentic coding and professional workflows, positioned between GPT-6 Luna and GPT-6 Astra. Superseded by GPT-6.1 Sol one week later.
 - **Provider / access:** OpenAI API (`gpt-6-sol`), Azure OpenAI, OpenRouter. Responses API for tool calling.
 - **Release / knowledge:** 2026-09-22 release; rolled out to all ChatGPT users 2026-10-07 (replacing GPT-5.6 versions). Knowledge cutoff estimated early 2026.
-- **IDs:** `opencode/gpt-6-sol` (no Free ID on Zen)
+- **IDs:** `opencode/gpt-6-sol` (no Free ID on Zen) (also recorded: `openai/gpt-6-sol`)
 - **Context window:** 1,050,000 tokens total; 128,000 max output tokens.
 - **Modalities:** Text, image, file in; text out; tool calls; JSON mode.
 - **Pricing (as of 2026-10-11):** $2.00 / $10.00 per 1M tokens (input/output). Cached input: $0.20/1M.
@@ -71,8 +71,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-6 Sol — findings by Claude Opus 4.6
 
@@ -81,17 +81,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-6 Sol
-- **Short description:** OpenAI's mid-tier model in the GPT-6 family, released September 22, 2026. Designed for complex coding, automation, and professional workflows. Succeeded by GPT-6.1 Sol (September 29, 2026) but remains available via API.
-- **Provider / access:** OpenAI API (`gpt-6-sol`), ChatGPT Work, Codex. Responses API and Chat Completions API.
-- **Release / knowledge:** 2026-09-22 release; knowledge cutoff not publicly confirmed.
-- **IDs:** `openai/gpt-6-sol`
-- **Context window:** 1,050,000 tokens total; max output 128,000 tokens (verified via OpenAI docs).
-- **Modalities:** Text + image (vision) in; text out; function calling; web search; file search; computer use; JSON mode.
-- **Pricing (as of 2026-09-22):** $2.00 / $10.00 per 1M tokens (input / output). Cached input discounts available.
-- **Architecture:** Proprietary; parameter count undisclosed. Part of the GPT-6 generation.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ## Raw benchmarks found
 

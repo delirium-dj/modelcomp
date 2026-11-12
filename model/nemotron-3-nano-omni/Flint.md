@@ -60,8 +60,8 @@ Long context:
 
 > Merged from this folder's `Flint.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Nemotron 3 Nano Omni — findings by Flint
 
@@ -70,10 +70,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Nemotron 3 Nano Omni
-- **Short description:** NVIDIA's unified **multimodal large language model** that ingests video, audio, image, and text to support enterprise-grade Q&A, transcription, and document intelligence; positioned for documents, audio and video agents; part of the Nemotron family (Digital Intelligence) with open weights / NIM deployment.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

@@ -17,7 +17,7 @@
 - **Short description:** AI model with general-purpose capabilities
 - **Provider / access:** <PROVIDER> via API platform (`claude-sonnet-4.6`)
 - **Release / knowledge:** Released in Unknown; knowledge cutoff Unknown
-- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen)
+- **IDs:** `<provider>/<model-id>` (state explicitly if no Free ID exists on Zen) (also recorded: `anthropic/claude-sonnet-4.6`)
 - **Context window:** Unknown
 - **Modalities:** Text input/output
 - **Pricing (as of 2026):** Unknown
@@ -105,8 +105,8 @@ Long context:
 
 > Merged from this folder's `GLM_4.5_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data. The archived pass reported Overall 87.2/100 — superseded by the active scores above.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data. The archived pass reported Overall 87.2/100 — superseded by the active scores above.
 
 ## Claude Sonnet 4.6 — findings by GLM 4.5 Flash
 
@@ -121,15 +121,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Claude Sonnet 4.6
-- **Short description:** Anthropic's Sonnet model delivering frontier performance across coding, agents, and professional work at scale.
-- **Provider / access:** Anthropic API `claude-sonnet-4.6`, available through claude.ai and platform.claude.com
-- **Release / knowledge:** Released in 2026 (specific date not available in current sources)
-- **IDs:** `anthropic/claude-sonnet-4.6`
-- **Context window:** Unknown (not publicly documented in available sources, but likely similar to other Sonnet models)
-- **Parameters:** Unknown (proprietary information)
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
 ### Technical specifications
 

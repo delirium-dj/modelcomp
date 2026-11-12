@@ -16,9 +16,9 @@
 
 - **Name:** GLM-5.3-FlashX
 - **Short description:** **Not a new model** — the high-throughput serving tier of GLM-5.3-Flash (launched 2026-09-18, three weeks after the base model's 2026-08-26 reveal). Same checkpoint (320B total / 18B active MoE, 45 layers, hybrid sparse+linear attention with IndexPool, mHC, native multimodal), same 1M/128K limits, same benchmarks — served through an inference configuration Zhipu rates at up to **200 tok/s** (≈5× the Flash tier's decode speed) at ≈2.5× the token price. Zhipu attributes the speed to infrastructure work (100K+ domestic-chip cluster, GLM-5.3-built inference stack), not a different checkpoint; built on the same SGLang-derived engine as Flash.
-- **Provider / access:** Z.ai API (model ID `glm-5.3-flashx`, API + experience center open at launch); third-party routes (APIMaster from $0.32/$1.12, ≈13% under list). **Not** included in the GLM Coding Plan at launch (Flash remains the plan tier with 3× GLM-5.3 quota). Open weights (MIT) exist only for the base `GLM-5.3-Flash` — FlashX itself is a hosted endpoint.
+- **Provider / access:** Z.ai API (model ID `glm-5.3-flashx`, API + experience center open at launch); third-party routes (APIMaster from $0.32/$1.12, ≈13% under list). **Not** included in the GLM Coding Plan at launch (Flash remains the plan tier with 3× GLM-5.3 quota). Open weights (MIT) exist only for the base `GLM-5.3-Flash` — FlashX itself is a hosted endpoint. (also recorded: `z-ai/glm-5.3-flashx`)
 - **Release / knowledge:** serving tier released 2026-09-18; underlying model released 2026-08-26; knowledge cutoff not disclosed.
-- **IDs:** `z-ai/glm-5.3-flashx` (gateway routes) / `glm-5.3-flashx` (native; sibling `glm-5.3-flash`; sibling `glm-5.3-flashx-legal` also listed on llm-stats).
+- **IDs:** `z-ai/glm-5.3-flashx` (gateway routes) / `glm-5.3-flashx` (native; sibling `glm-5.3-flash`; sibling `glm-5.3-flashx-legal` also listed on llm-stats). (also recorded: `opencode/glm-5.3-flash-x`)
 - **Context window:** 1,048,576 tokens; max output 131,072 (128K).
 - **Modalities:** text, images, video, files in; text out; reasoning **always on** (`thinking.type: enabled` only — cannot be disabled; `reasoning_effort` low/high/max, default max); tool calls yes (function calling, context caching, structured output, streaming).
 - **Pricing (as of 2026-11-08):** Zhipu list **$0.37 in / $1.25 out** per 1M, cached input **$0.075** (≈2.5× the Flash tier's $0.15/$0.50/$0.03; re-confirmed by llm-stats sibling card this pass); APIMaster routes from $0.32/$1.12. OpenRouter third-party routes for the base Flash go as low as $0.02/$0.50 (provider-dependent). Paid; no free tier for FlashX.
@@ -86,8 +86,8 @@ Multimodal (Zhipu):
 
 > Merged from this folder's `MiMo_2.6_Flash.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Glm 5.3 Flash X — findings by MiMo 2.6 Flash
 
@@ -98,17 +98,9 @@ Multimodal (Zhipu):
 
 > **Self-exclusion:** zero verified public benchmark numbers were found for this exact model/ID — every capability benchmark row below reads "no verified public score found". This file is saved as `.excluded` so `pnpm sync` skips it; no scores below are used in averages.
 
-### Model card
-
-- **Name:** Glm 5.3 Flash X (GLM-5.3-FlashX)
-- **Short description:** Z.ai's high-speed serving tier for GLM-5.3-Flash (launched 2026-09-18) — same 320B-total / 18B-active MoE weights, same 1M context, sold at a 2.5× price premium for up to 200 tok/s peak inference (measured P50 ≈ 50 tok/s via OpenRouter monitoring). Explicitly "not a new model" per multiple launch recaps; no distinct FlashX checkpoint is published.
-- **Provider / access:** Zhipu Open Platform / Z.ai API (`glm-5.3-flashx`, chat-completions live at launch), OpenRouter (`z-ai/glm-5.3-flashx`), glm5.app and aggregators (sulat, naga); no local weights linked for FlashX (docs point at Flash weights).
-- **Release / knowledge:** released 2026-09-18 (Zhipu launch; Gate News/4SAPI/todayforai coverage); previously surfaced as codename "Ox Alpha" in blind tests. Knowledge cutoff not published for the tier.
-- **IDs:** `glm-5.3-flashx` (Zhipu API), `z-ai/glm-5.3-flashx` (OpenRouter), opencode id `opencode/glm-5.3-flash-x`.
-- **Context window:** 1,048,576 tokens (1M) input, 131,072 max output per Z.ai/OpenRouter (the repo's `meta.json` "128K total" conflicts with every public source and appears wrong). glm5.app's hosted proxy caps completions at 8,192.
-- **Modalities:** text, image, video, file in; text out (natively multimodal — inherited from Flash; glm5.app proxy currently forwards text only).
-- **Pricing (as of 2026-10-21):** $0.37 in / $1.25 out per 1M (OpenRouter; cache read $0.09) ≈ 2.5× Flash's $0.15/$0.50; China list ¥2.0 / ¥7.0 per 1M (2.5× Flash's ¥0.8/¥2.8); cache storage temporarily free. glm5.app credit route ≈ $1.85/$6.25 effective.
-- **Architecture:** identical to GLM-5.3-Flash — 320B total / 18B active MoE, hybrid sparse + linear attention, optimized operators on domestic chip clusters (5× throughput vs Flash's ~40 tok/s).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +1; Provider +1. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found
 

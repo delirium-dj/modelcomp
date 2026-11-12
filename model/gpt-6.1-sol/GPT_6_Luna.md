@@ -64,8 +64,8 @@ Long context:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-6.1 Sol — findings by ChatGPT 6 Luna
 
@@ -74,69 +74,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- Name: GPT-6.1 Sol (paid; no verified OpenCode Zen Free variant).
-
-- Short description: GPT-6.1 Sol is OpenAI's upgraded Sol-class reasoning model, released for complex coding, agentic workflows, computer use, and professional knowledge work. It approaches GPT-6 Astra's performance on several evaluations at substantially lower token prices. It is a distinct model, not an alias for GPT-6 Sol.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://openai.com\&sz=32)
-
-  OpenAI
-
-- Provider / access: OpenAI API `gpt-6.1-sol` through `/v1/responses` (tool calling supported) or `/v1/chat/completions` (without tool calling). OpenCode Zen `opencode/gpt-6.1-sol` through `https://opencode.ai/zen/v1/responses`. Also available through OpenRouter as `openai/gpt-6.1-sol`.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://developers.openai.com\&sz=32)
-
-  OpenAI API
-
-  +2
-
-- Release / knowledge: 2026-09-29 release; 2026-04-30 knowledge cutoff, verified through OpenAI's model documentation.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://benchmarklist.com\&sz=32)
-
-  BenchmarkList
-
-  +1
-
-- IDs: `openai/gpt-6.1-sol` (provider-qualified reference); `opencode/gpt-6.1-sol` (OpenCode configuration). No Free ID exists in the published Zen catalog. Reasoning effort supports `low`, `medium`, `high`, `xhigh`, and `max`; default is `medium`.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://developers.openai.com\&sz=32)
-
-  OpenAI API
-
-  +1
-
-- Context window: 1,050,000 total tokens; 128,000 maximum output tokens. Both verified from the official OpenAI API model specification. Maximum usable input depends on the output budget; no separate fixed input limit is published.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://developers.openai.com\&sz=32)
-
-  OpenAI API
-
-- Modalities: Text and images in; PDF documents through supported file-input processing; text out. No native audio or video input, and no native audio/image/video output. Reasoning: yes. Tool calls: yes through Responses API, including function calling, web search, file search, shell and computer use. JSON Schema structured outputs: supported.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://developers.openai.com\&sz=32)
-
-  OpenAI API
-
-  +2
-
-- Pricing (as of 2026-10-09): Standard paid API/Zen tier: $2.00 input, $10.00 output, $0.10 cached input, and $2.50 cache writes per 1M tokens. Above 272K input tokens: $4.00 input, $15.00 output, $0.20 cached input, and $5.00 cache writes per 1M; the higher rates apply to the full request. Not Free. No free-tier privacy concession applies to this paid Zen ID; provider data-handling terms still require separate review.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://developers.openai.com\&sz=32)
-
-  OpenAI API
-
-  +1
-
-- Architecture: Proprietary, closed-weights OpenAI reasoning model. Total parameters, active parameters, MoE configuration, and training compute are not publicly disclosed. No downloadable open-weights license.&#x20;
-
-  [image](https://www.google.com/s2/favicons?domain=https://epoch.ai\&sz=32)
-
-  Epoch AI
-
-
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

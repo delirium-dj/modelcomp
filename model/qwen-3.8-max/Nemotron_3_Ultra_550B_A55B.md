@@ -9,11 +9,11 @@
 
 - **Name:** Qwen3.8 Max (Qwen3.8-2.4T-A95B, 0902 snapshot)
 - **Short description:** Alibaba's flagship 2.4T-parameter sparse MoE for coding, office/agent work, research and long-horizon tasks — first Max-scale Qwen with open-weights release (Qwen3.8-2.4T-A95B, Apache 2.0, Aug 12, 2026). **0902 snapshot (Sep 2) upgrades coding depth and agentic collaboration at unchanged pricing.** BenchLM: 68.82/100 (not directly listed but implied).
-- **Provider / access:** Alibaba Cloud Model Studio / DashScope OpenAI-compatible endpoint (`qwen3.8-max` / `qwen3.8-max-0902`), 12+ third-party routes (DeepInfra, Fireworks, GMI, Novita, AIHubMix, SCX.ai). Open weights on Hugging Face (`Qwen/Qwen3.8-2.4T-A95B`, Apache 2.0, text-only, thinking-on). Not on OpenCode Zen.
+- **Provider / access:** Alibaba Cloud Model Studio / DashScope OpenAI-compatible endpoint (`qwen3.8-max` / `qwen3.8-max-0902`), 12+ third-party routes (DeepInfra, Fireworks, GMI, Novita, AIHubMix, SCX.ai). Open weights on Hugging Face (`Qwen/Qwen3.8-2.4T-A95B`, Apache 2.0, text-only, thinking-on). Not on OpenCode Zen. (also recorded: `qwen/qwen3.8-2.4t-a95b`)
 - **Release / knowledge:** 2026-08-03 release; **0902 snapshot Sep 2, 2026** (endpoint default since Sep 5). Knowledge cutoff not verified.
-- **IDs:** `qwen3.8-max` / `qwen3.8-max-0902` (DashScope); `Qwen/Qwen3.8-2.4T-A95B` (HF, Apache 2.0, text-only, thinking-on).
+- **IDs:** `qwen3.8-max` / `qwen3.8-max-0902` (DashScope); `Qwen/Qwen3.8-2.4T-A95B` (HF, Apache 2.0, text-only, thinking-on). (also recorded: `alibaba/qwen-3.8-2400b-a95b`, `qwen/qwen3.8-2.4t-a95b`)
 - **Context window:** 1,000,000 tokens configured (max input 991K; 983K with thinking; AA measures 984K on 0902); **max output 131,072** (LiteLLM/Alibaba — corrects 65,536 harness figure).
-- **Modalities:** Text, image, video in (≤2,048 images, ≤64 videos, ≤2h video); text out. Thinking/non-thinking modes; parallel tool calls; structured output; built-in tool ecosystem.
+- **Modalities:** Text, image, video in (≤2,048 images, ≤64 videos, ≤2h video); text out. Thinking/non-thinking modes; parallel tool calls; structured output; built-in tool ecosystem; reasoning
 - **Pricing (as of 2026-11-08):** $2.00 in / $6.00 out per 1M (Singapore international); $1.65/$4.95 China/Frankfurt/Virginia. Implicit cache read $0.25 (explicit $2.50 write / $0.17 read). Batch 50% off. Cheapest third-party blended promo $2.31/1M (SCX-ai-gp, −23% since Oct 12). AA blended $1.18/1M; cost/task $5.41 (verbosity-inflated). Apache 2.0 open weights enable self-hosting.
 - **Architecture:** 2.4T total / ~95B activated sparse MoE (Qwen 3.5 foundation). Open weights Apache 2.0 (text-only, thinking-on); served API proprietary. RL-scaling caveat: curve peaks at 0.725 near 4,000 envs then declines.
 
@@ -171,8 +171,8 @@ Long context:
 
 > Merged from this folder's `Nemotron_3_Ultra_550B_A55B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.8 2.4T A95B — findings by Nemotron 3 Ultra 550B A55B
 
@@ -181,17 +181,9 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.8 2.4T A95B
-- **Short description:** Alibaba's open-weight sparse MoE model (2.4T total, 95B active parameters), the open-weight twin of Qwen 3.8 Max for coding, research, complex reasoning, and agentic workflows.
-- **Provider / access:** 24+ providers including Hugging Face (`Qwen/Qwen3.8-2.4T-A95B`), OpenRouter (`qwen/qwen3.8-2.4t-a95b`), DeepInfra, Fireworks AI, SiliconFlow, Novita AI, Vercel AI Gateway, and others. Open weights available on Hugging Face.
-- **Release / knowledge:** 2026-08-12 release; knowledge cutoff not publicly specified.
-- **IDs:** `alibaba/qwen-3.8-2400b-a95b` (folder slug); provider IDs vary (e.g., `Qwen/Qwen3.8-2.4T-A95B` on HF, `qwen/qwen3.8-2.4t-a95b` on OpenRouter).
-- **Context window:** 262,144 standard (some providers offer up to 1,048,576) / 131,072 max output (per models.dev)
-- **Modalities:** Text in; text out; reasoning; tool calls; structured outputs; temperature control
-- **Pricing (as of 2026-11-11):** ~$2.00 / $6.00 per 1M (input / output) typical across providers; some variation ($1.95-$2.645 in / $5.70-$7.50 out). No free tier on major gateways.
-- **Architecture:** 2.4T total / 95B active sparse MoE; open weights (Apache 2.0 license per Hugging Face).
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: IDs +2; Provider +1; Modalities +reasoning. Every other archived field value was an
+> older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

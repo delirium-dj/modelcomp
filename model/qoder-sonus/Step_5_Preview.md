@@ -86,8 +86,8 @@ This report should be re-opened when any of the following appears: a first-party
 
 > Merged from this folder's `Step_5_Preview.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## qoder-sonus — negative findings by Step 5 Preview
 
@@ -104,46 +104,11 @@ This report should be re-opened when any of the following appears: a first-party
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Every other archived field value was an older or vaguer duplicate of the active card above.
 
-- **Name:** Sonus (Qoder built-in model)
-- **Short description:** Alibaba's closed built-in flagship for the Qoder agentic-coding platform, launched 2026-09-10 and shipped across Qoder, Qoder IDE, Qoder CLI, the JetBrains plugin, QoderWake and Cloud Agents. It is positioned for marathon-length autonomous tasks, the hardest knowledge work and serious coding, with Computer Use as its stated specialty — it drives the desktop and professional software directly (coding, financial modelling, research, spreadsheets). It is billed only in Qoder Credits and carries the highest consumption multiplier in the lineup (8x), so it is not available as an independently-callable per-token API model.
-- **Provider / access:** Alibaba (Qoder platform; the Qoder product footer names the operator "BRIGHT ZENITH PRIVATE LIMITED" and "Powered by Real Knowledge Buddy"). Access requires a paid Qoder subscription — the Lite plan explicitly does **not** include Sonus (Pro/Pro+/Ultimate or an approved Free-tier application only). Free access existed only as time-boxed credit promotions: the SOTA promotion 2026-09-15 → 09-25 (500–4,000 Credits/day) and the 1024 Community Boost 2026-10-22 → 10-30 (up to 10,240 Credits). No public per-token API route, no OpenRouter/Bedrock listing, no weights release.
-- **Release / knowledge:** launched **2026-09-10** (Qoder Desktop 0.2.3 shipped the paired Computer Use improvements). Knowledge cutoff, architecture and parameter count are not published.
-- **IDs:** `Sonus` (display name in the Qoder model picker); internal key `smodel` per third-party reverse-engineering of the Qoder model list. No vendor-published API model ID.
-- **Context window:** **not published by the vendor.** Qoder's Credits documentation only states qualitatively that "a request with a 200K context window consumes more than one with a 50K context window", and the product surface offers reference values at 50K / 200K. A third-party reverse-engineering report (qoder2api) claims selectable 200K / 400K / 1M tiers; that is *not* a vendor source and is recorded here as unverified. Max output likewise unpublished.
-- **Modalities:** **not formally published.** The published capability claims are coding, long-context work, desktop automation (Computer Use), research and spreadsheet analysis — i.e. a text/code agentic model. Qoder's product surface separately offers voice *interaction* ("reach Qoder naturally through voice"), which is a client feature of the platform, not a modality of this model. No vendor statement of image/video input support was found.
-- **Pricing:** no per-token pricing exists. Billing is subscription Credits only: Credit Pack $20 USD / 1,500 Credits (1-month validity), plans Free / Lite $10 / Pro $20 / Pro+ $60 / Ultra $200 per month. Sonus's consumption multiplier was **3.2x at launch and was recalibrated to 8x on 2026-09-21** — the highest in the lineup, above Cantus (4x) and Ultimate tier (2x). Qoder states the multipliers are *relative estimates*, not billing constants.
-- **Architecture:** proprietary, closed. Alibaba has not published the base architecture, parameter count, or whether Sonus is a Qwen-family checkpoint. (Contrast: Qoder's *other* built-in, Qwen-Coder-Qoder, is publicly documented as Qwen-Coder fine-tuned with large-scale RL for Qoder's agent architecture.)
-
-## Raw benchmarks found
-
-Agent / tool use:
-
-- Terminal-Bench 2.0 / 2.1 / 3.0 / 4.0: no verified public score found. Qoder's own launch post cites no terminal-bench number, and Sonus does not appear on the public Terminal-Bench boards (tbench.ai, Vals AI's Terminal-Bench 4.0 leaderboard of 45+ ranked rows, AnotherWrapper's 2.0/3.0 indices).
-- OSWorld / OSWorld-Verified: no verified public score found.
-- Tau3-Banking / Tau2-Bench: no verified public score found.
-- GDPval-AA: no verified public score found.
-- Claw-Eval / ClawProBench / ToolAthlon / MCP-Atlas: no verified public score found.
-- Qoder Bench (the vendor's own harness): no verified public score found — the only Qoder Bench results published are for Qwen-Coder-Qoder, a different model.
-
-Reasoning / knowledge:
-
-- GPQA Diamond: no verified public score found.
-- HLE: no verified public score found.
-- Artificial Analysis Intelligence Index: no verified public score found — no Sonus page exists on Artificial Analysis.
-- Vals Index / Vals AI suite: no verified public score found — Vals evaluates dozens of models but has no Sonus entry.
-
-Coding:
-
-- SWE-bench Verified / SWE-bench Pro: no verified public score found.
-- LiveCodeBench: no verified public score found.
-- Vibe Code Bench / CursorBench / FrontierCode: no verified public score found.
-- SciCode: no verified public score found.
-
-Long context:
-
-- MRCR / RULER / GraphWalks: no verified public score found.
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Verification trail (six independent source families, all consulted 2026-11-01)
 

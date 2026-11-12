@@ -71,8 +71,8 @@ Vision:
 
 > Merged from this folder's `GPT_6_Luna.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.8 27B — findings by GPT-6 Luna
 
@@ -81,17 +81,8 @@ Vision:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Qwen 3.8 27B
-- **Short description:** Alibaba Qwen 3.8 model tracked with a 27B parameter-size designation. Three independent searches did not verify the exact official model card, weights, or benchmark results; the `27B` suffix is treated as a parameter count, not version syntax.
-- **Provider / access:** Alibaba; exact API ID or weights repository not verified.
-- **Release / knowledge:** no exact-model release date or cutoff verified.
-- **IDs:** tracked subject `qwen-3.8-27b`; canonical upstream ID unverified.
-- **Context window:** no exact-model context specification found.
-- **Modalities:** no exact-model modality evidence verified.
-- **Pricing (as of 2026-10-28):** no exact model price verified.
-- **Architecture:** parameter size in slug suggests 27B but was not confirmed from an authoritative card; architecture otherwise unverified.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

@@ -10,6 +10,14 @@
 - **Name:** Gemini 3 Pro (Google DeepMind)
 
 
+- **Short description (earlier pass):** Google Gemini 3 Pro flagship model for agentic coding, long context, and multimodal reasoning.
+- **Provider / access (earlier pass):** Google DeepMind / Google Cloud Gemini API, Google AI Studio; OpenCode Zen `opencode/gemini-3-pro`.
+- **Release / knowledge (earlier pass):** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
+- **IDs (earlier pass):** `google/gemini-3-pro` (Hugging Face registry slug); console/SDK model ID not verified.
+- **Context window (earlier pass):** **1M** total, **256K** max output (official Google API docs).
+- **Modalities (earlier pass):** text + image in/out; multimodal supported; text output only.
+- **Pricing (earlier pass):** Official Google API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
+- **Architecture (earlier pass):** Proprietary Google Gemini 3 Pro; not open weights.
 ### Raw benchmarks found
 
 > Sources: BenchGap benchmark table as of 2026-11-07 (`https://benchgap.net/model/gemini-3-pro`) — measured vs estimated noted; Artificial Analysis Gemini 3 Pro Preview (High) model page (November 18, 2025 release; now superseded by Gemini 3.1 Pro Preview / 3.8 Flash).
@@ -87,8 +95,8 @@
 
 > Merged from this folder's `Solar_Mini_4.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Gemini 3 Pro — findings by Solar_Mini_4
 
@@ -96,16 +104,10 @@
 > Source of truth methodology: `../../model-comparison.md`.
 
 
-### Model card
-- **Name:** Gemini 3 Pro
-- **Short description:** Google Gemini 3 Pro flagship model for agentic coding, long context, and multimodal reasoning.
-- **Provider / access:** Google DeepMind / Google Cloud Gemini API, Google AI Studio; OpenCode Zen `opencode/gemini-3-pro`.
-- **Release / knowledge:** Released 2026-09-10; knowledge cutoff not disclosed in accessible docs.
-- **IDs:** `google/gemini-3-pro` (Hugging Face registry slug); console/SDK model ID not verified.
-- **Context window:** **1M** total, **256K** max output (official Google API docs).
-- **Modalities:** text + image in/out; multimodal supported; text output only.
-- **Pricing (as of 2026-10-17):** Official Google API at $0.40/$3.20 per 1M input/output (plus 50% discount through 2026-10-17).
-- **Architecture:** Proprietary Google Gemini 3 Pro; not open weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Field(s) absent from the active card (Short description, Provider / access, Release / knowledge, IDs,
+> Context window, Modalities, Pricing, Architecture) were folded in from the earlier pass, labelled as
+> earlier-pass values.
 
 ## Raw benchmarks found
 

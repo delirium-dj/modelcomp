@@ -70,8 +70,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Ember 1 — findings by Muse Glimmer 30B
 
@@ -80,17 +80,8 @@ Long context:
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Ember 1
-- **Short description:** Fireworks Research Kimi K3 fine-tune for agentic coding with ~40% fewer tokens.
-- **Provider / access:** Fireworks Serverless accounts/fireworks/models/ember-1; OpenCode Zen opencode/ember-1. No free tier.
-- **Release / knowledge:** Created 2026-09-22; public launch 2026-09-23.
-- **IDs:** opencode/ember-1 / fireworks/ember-1
-- **Context window:** 1,040,000 total; 131K output
-- **Modalities:** Text + image in; text out; function calling; reasoning; tool calls
-- **Pricing (as of 2026-10-20):** $3.00 / $0.30 cached / $15.00 per 1M
-- **Architecture:** MoE ~2.78T total parameters; based on Kimi K3
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

@@ -13,7 +13,7 @@
 - **Release / knowledge:** Released September 2025, FAQ specifies 19 Sep 2025. Knowledge cutoff not published.
 - **IDs:** provider model ID varies by vendor; Azure lists Grok 4 Fast.
 - **Context window:** 2,000,000 tokens.
-- **Modalities:** Input text, image; Output text. Function calling and JSON mode supported per Azure listing.
+- **Modalities:** Input text, image; Output text. Function calling and JSON mode supported per Azure listing; tool calls
 - **Pricing (as of 2026-10-26):** Aggregated via Azure $0.20 /1M input, $0.50 /1M output; blended ~$0.23 /1M tokens.
 - **Architecture:** Proprietary, parameter count undisclosed.
 
@@ -55,8 +55,8 @@ Scores derived from composite Intelligence Index and specs; specific benchmark n
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4 Fast — findings by Muse Glimmer 30B
 
@@ -65,17 +65,9 @@ Scores derived from composite Intelligence Index and specs; specific benchmark n
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Grok 4 Fast
-- **Short description:** Enterprise-oriented speed-optimised variant of Grok 4 family for tool-calling and agentic workflows.
-- **Provider / access:** xAI. Available via SuperGrok/Premium+, xAI API. No standalone model card for grok-4-fast published.
-- **Release / knowledge:** Released September 2025 per Wikipedia; knowledge cutoff not published for Fast variant. Grok 4.7 cutoff stated May 2026.
-- **IDs:** slug `grok-4-fast`
-- **Context window:** Wikipedia claims up to 2M tokens; official xAI docs list 256k for Grok 4 API and 500k for Grok 4.7. No official confirmation for Fast variant.
-- **Modalities:** Text input/output with native tool use and real-time search; multimodal per Grok 4 family.
-- **Pricing as of 2026-10-24:** No public per-token price listed for grok-4-fast on docs.x.ai. Grok 4.7 pricing published.
-- **Architecture:** Proprietary; not disclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Modalities +tool calls. Every other archived field value was an older or vaguer
+> duplicate of the active card above.
 
 ## Raw benchmarks found
 

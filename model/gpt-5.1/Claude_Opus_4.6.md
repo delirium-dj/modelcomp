@@ -67,8 +67,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## GPT-5.1 — findings by Claude Opus 4.6
 
@@ -77,17 +77,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** GPT-5.1
-- **Short description:** OpenAI's iterative refinement of GPT-5, released November 2025. Focused on improved conversational tone, adaptive reasoning, and better instruction adherence. Now a legacy/deprecated model superseded by GPT-5.2 through GPT-6.
-- **Provider / access:** OpenAI API (`gpt-5.1`). Legacy/deprecated status.
-- **Release / knowledge:** 2025-11 release; knowledge cutoff estimated mid-2025.
-- **IDs:** `openai/gpt-5.1`
-- **Context window:** Estimated ~400,000 tokens (inherits GPT-5 generation spec); max output 128,000 tokens.
-- **Modalities:** Text + image in; text out; adaptive reasoning (dynamic thinking time based on query complexity); tool calls; JSON mode.
-- **Pricing (at release):** Not separately confirmed; estimated similar to GPT-5 ($1.25/$10 per 1M tokens range).
-- **Architecture:** Proprietary; parameter count undisclosed. Iterative refinement of GPT-5.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

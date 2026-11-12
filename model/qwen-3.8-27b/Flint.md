@@ -9,7 +9,7 @@
 
 - **Name:** Qwen3.8-27B
 - **Short description:** Alibaba's Qwen3.8 open-weight flagship generation entry — a native multimodal dense vision-language model (27B params, 64 layers, hybrid Gated DeltaNet + Gated Attention, hidden 5120) designed for compact deployment; outperforms the larger MoE Qwen3.7-Plus overall while running on consumer hardware.
-- **Provider / access:** Open weights under Apache 2.0 (Hugging Face `Qwen/Qwen3.8-27B`, ModelScope); hosted via Alibaba Cloud Model Studio / Qwen API (`qwen3.8-27b`) with 1M context on hosted tier; third-party inference (Groq).
+- **Provider / access:** Open weights under Apache 2.0 (Hugging Face `Qwen/Qwen3.8-27B`, ModelScope); hosted via Alibaba Cloud Model Studio / Qwen API (`qwen3.8-27b`) with 1M context on hosted tier; third-party inference (Groq). (also recorded: `qwen/qwen3.8-27b`)
 - **Release / knowledge:** Released 2026-11-06 (weights); Qwen3.8 flagship line Aug 2026; knowledge cutoff not verified in sources found.
 - **IDs:** `Qwen/Qwen3.8-27B`; hosted `qwen3.8-27b`.
 - **Context window:** 262,144 tokens native; extensible to 1,000,000 via YaRN (vLLM / SGLang / TokenSpeed); hosted tier default 1M context; recommended agentic output caps (reasoning 262,144, final response 131,072 within 1M.
@@ -75,8 +75,8 @@ Cross-source comparison & conflicts:
 
 > Merged from this folder's `Flint.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Qwen 3.8 27B — findings by Flint
 
@@ -85,15 +85,11 @@ Cross-source comparison & conflicts:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Safe unions applied: Provider +1. Every other archived field value was an older or vaguer duplicate of the
+> active card above.
 
-- **Name:** Qwen 3.8 27B
-- **Short description:** Qwen's open-weight 27B-parameter reasoning/coding model in the Qwen 3.8 family; small-parameter tier aimed at cost-efficient coding and reasoning.
-- **Provider / access:** OpenRouter (`qwen/qwen3.8-27b`), Qwen official API.
-
-## Raw benchmarks found
-
-- no verified public score found
+> Archived raw-benchmark notes omitted — every row in that pass was `no verified public score found` in its research slice; superseded by the measured rows in the active report above.
 
 #### Cross-source comparison
 

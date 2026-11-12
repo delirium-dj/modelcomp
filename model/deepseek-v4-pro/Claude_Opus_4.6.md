@@ -14,7 +14,7 @@
 - **IDs:** `deepseek/deepseek-v4-pro` (HuggingFace: DeepSeek/DeepSeek-V4-Pro)
 - **Context window:** 1,000,000 tokens (1M).
 - **Modalities:** Text in; text out; tool calls. Reasoning modes: Non-think, Think High, Think Max. FP4/FP8 precision.
-- **Pricing (as of 2026-10-11):** Off-peak: $0.66 / $1.98 per 1M (input/output). Peak: $1.32 / $3.96. Cache hit: $0.022 off-peak.
+- **Pricing (as of 2026-10-11):** Off-peak: $0.66 / $1.98 per 1M (input/output). Peak: $1.32 / $3.96. Cache hit: $0.022 off-peak. (earlier pass also recorded: Peak: $1.32 / $3.96 per 1M tokens (input / output). Off-peak: $0.66 / $1.98. Cache hit: $0.044 peak / $0.022 off-peak.)
 - **Architecture:** 1.6T total parameters, 49B active per token. Sparse MoE with Hybrid Attention (Compressed Sparse + Heavily Compressed). FP4 experts, FP8 non-expert. Open weights.
 
 ### Raw benchmarks found
@@ -68,8 +68,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## DeepSeek V4 Pro — findings by Claude Opus 4.6
 
@@ -78,17 +78,10 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** DeepSeek-V4-Pro
-- **Short description:** DeepSeek's flagship reasoning model featuring a 1.6T-parameter MoE architecture (49B active). Designed for complex reasoning, software engineering, and long-horizon agentic tasks. Succeeded by V4.1-Flash for efficiency but remains available.
-- **Provider / access:** DeepSeek API (`deepseek-v4-pro`), OpenRouter, Fireworks AI, third-party providers.
-- **Release / knowledge:** Mid-2026 release (build 0813); knowledge cutoff not publicly confirmed.
-- **IDs:** `deepseek/deepseek-v4-pro`
-- **Context window:** 1,048,576 tokens (~1M total); max output 384,000 tokens (verified via DeepSeek docs).
-- **Modalities:** Text in; text out; multiple reasoning modes (including "Max" effort); tool calls.
-- **Pricing (as of 2026-10-03):** Peak: $1.32 / $3.96 per 1M tokens (input / output). Off-peak: $0.66 / $1.98. Cache hit: $0.044 peak / $0.022 off-peak.
-- **Architecture:** Mixture-of-Experts (MoE); 1.6T total parameters, 49B active per token. Hybrid attention (Compressed Sparse + Heavily Compressed), Manifold-Constrained Hyper-Connections, Muon optimizer. Open-weights.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> No material conflict remained (the archived remark was a pricing-tier or non-numeric note) — the active
+> values stand. Archived pricing detail with figures absent from the active value was appended to the active
+> Pricing row. Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 

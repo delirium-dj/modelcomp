@@ -77,8 +77,8 @@ Long context:
 
 > Merged from this folder's `Muse_Glimmer_30B.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Grok 4.20 — findings by Muse Glimmer 30B
 
@@ -87,17 +87,8 @@ Long context:
 - Overview and scoring methodology: ../../model-comparison.md
 - Cross-model signed log: ../../model-findings.md
 
-### Model card
-
-- **Name:** Grok 4.20
-- **Short description:** xAI March/April 2026 reasoning flagship with 2M window and multi-agent mode per repo meta.
-- **Provider / access:** xAI API docs.x.ai/developers/models/grok-4.20 referenced in repo meta; OpenRouter x-ai/grok-4.20.
-- **Release / knowledge:** Conflicting internal findings: 2026-03-31 vs 2026-03-10; knowledge cutoff Sep 1 2025 per GPT_5.md.
-- **IDs:** x-ai/grok-4.20
-- **Context window:** Repo meta 1,000,000-2,000,000 tokens; conflicting reports.
-- **Modalities:** Text, image, file/PDF in; text out per repo meta.
-- **Pricing as of 2026-10-24:** Conflicting: $1.25/$2.50 vs $2.00/$6.00 per repo findings.
-- **Architecture:** Proprietary; parameter count undisclosed.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
 
 ## Raw benchmarks found
 

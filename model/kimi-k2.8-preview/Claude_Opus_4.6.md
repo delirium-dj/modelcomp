@@ -65,8 +65,8 @@ Long context:
 
 > Merged from this folder's `Claude_Opus_4.6.md.excluded` when the active scored report above made the
 > twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
+> normalized scores and signature above remain authoritative — the archived model card was folded
+> into the active model card above; the content below is preserved research history, not judged data.
 
 ## Kimi K2.8 Preview — findings by Claude Opus 4.6
 
@@ -75,17 +75,8 @@ Long context:
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-### Model card
-
-- **Name:** Kimi K2.8 Preview
-- **Short description:** Moonshot AI's intermediate multimodal coding model released September 11, 2026. First Kimi model with native vision understanding. Positioned between K2.7 Code and the flagship K3, optimized for agentic coding workflows.
-- **Provider / access:** Moonshot AI API (integrated under `kimi-for-coding` ID), Kimi Code, Kimi Work.
-- **Release / knowledge:** 2026-09-11 release; knowledge cutoff not publicly confirmed.
-- **IDs:** `moonshot/kimi-k2.8-preview` (accessed via `kimi-for-coding`)
-- **Context window:** 1,000,000 tokens (available across all membership tiers).
-- **Modalities:** Text + image in (first Kimi with native vision — screenshots, charts, document scans); text out; configurable thinking effort (Low, High, Max default).
-- **Pricing (as of 2026-10-03):** Billed through Kimi Code membership quotas (Adagio free tier and above), not per-token API pricing.
-- **Architecture:** Proprietary; parameter count undisclosed. Efficiency-focused intermediate model.
+> Archived model card omitted — own-twin consolidation 2026-11-12.
+> Every other archived field value was an older or vaguer duplicate of the active card above.
 
 ## Raw benchmarks found
 
