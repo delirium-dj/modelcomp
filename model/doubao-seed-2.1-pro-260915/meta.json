@@ -1,9 +1,14 @@
 {
-  "id": "opencode/doubao-seed-2.1-pro-260915",
+  "id": "bytedance/doubao-seed-2.1-pro-260915",
   "name": "Doubao Seed 2.1 Pro 260915",
-  "short": "Doubao Seed 2.1 Pro 260915 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "ByteDance's flagship multimodal model on Volcano Engine Ark with 1M context, 256K output/reasoning budget, GUI grounding, and extensive enterprise tool integrations.",
+  "contextWindow": "1,024,000 total; 256,000 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "~$1.44 per full evaluation on ModelDial (Ark token rates apply)",
+  "officialUrl": "https://www.volcengine.com/docs/82379/1330310",
+  "pricingLinks": [
+    "https://www.volcengine.com/docs/82379/1330310"
+  ],
+  "standout": "1,024K context window with 256K max output/thinking chain, native GUI task agent execution, and deep platform tool integrations.",
+  "tradeoff": "Mid-pack ModelDial coding benchmark rank (40 of 52) despite strong raw long-context architectural specs."
 }

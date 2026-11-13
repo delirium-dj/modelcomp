@@ -1,9 +1,14 @@
 {
-  "id": "opencode/egg-alpha",
+  "id": "unverified/egg-alpha",
   "name": "Egg Alpha",
-  "short": "Egg Alpha model evaluation entry.",
-  "contextWindow": "128K total",
+  "short": "Anonymous stealth coding model evaluated on ModelDial's private benchmark suite with notable frontend and knowledge reasoning performance.",
+  "contextWindow": "128,000 total (estimated pending official vendor disclosure)",
   "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "pricingNote": "Unpriced / stealth slot",
+  "officialUrl": "https://modeldial.com/en/models/egg-alpha",
+  "pricingLinks": [
+    "https://modeldial.com/en/models/egg-alpha"
+  ],
+  "standout": "Strong Knowledge & Reasoning (90/100) and Frontend Interaction (78/100) on ModelDial private coding benchmarks (rank 20/52).",
+  "tradeoff": "Anonymous unverified provider with no published architectural specifications, context ceiling, or public pricing table."
 }

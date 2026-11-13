@@ -146,8 +146,8 @@
 73.6 ternary-bonsai-27b
 73.4 beam
 73.4 claude-sonnet-3.5
+73.1 doubao-seed-2.1-pro-260915
 72.7 nemotron-3-ultra-free
-72.6 doubao-seed-2.1-pro-260915
 72.3 qwen-3-max
 72.1 hy3
 72 ling-3.2-flash
@@ -207,7 +207,7 @@
 54.8 gemma-4-e2b
 54.5 glm-4.5-flash
 54.1 glyph-cluster
-53.4 egg-alpha
+53.8 egg-alpha
 53.3 ling-3.0-tiny
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08

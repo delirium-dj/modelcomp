@@ -505,6 +505,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.7_Plus.md": [58, 48, 90, 40, 48, 97, 56.8],
     "Qwen_3.8_Flash.md": [76, 80, 96, 78, 72, 92, 80],
     "Qwen_3.8_Max.md": [84, 82, 86, 78, 78, 90, 82],
+    "Qwen_4_Max.md": [82, 82, 83, 74, 76, 90, 79.4],
     "Step_5_Preview.md": [66, 82, 97, 58, 52, 88, 71],
     "Xing_4.0_29B_A4B.md": [80, 80, 94, 70, 78, 99, 80.4],
     "average.md": [83.4, 84.8, 94.9, 75, 82.1, 96.1, 84],
@@ -1890,11 +1891,13 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
   },
   "doubao-seed-2.1-pro-260915": {
     "GLM_5.3_Flash.md": [68, 60, 95, 78, 62, 65, 72.6],
-    "average.md": [68, 60, 95, 78, 62, 65, 72.6],
+    "Gemini_3.8_Flash.md": [70, 62, 95, 78, 63, 68, 73.6],
+    "average.md": [69, 61, 95, 78, 62.5, 66.5, 73.1],
   },
   "egg-alpha": {
     "GLM_5.3_Flash.md": [62, 80, 40, 15, 70, 50, 53.4],
-    "average.md": [62, 80, 40, 15, 70, 50, 53.4],
+    "Gemini_3.8_Flash.md": [64, 80, 40, 15, 72, 50, 54.2],
+    "average.md": [63, 80, 40, 15, 71, 50, 53.8],
   },
   "ember-1": {
     "Beam.md": [74, 72, 84, 70, 74, 75, 75],
@@ -4960,6 +4963,7 @@ export const GENERATED_SCORES: Record<string, Record<string, GeneratedScoreTuple
     "Qwen_3.8_27B.md": [66, 76, 95, 70, 74, 97, 76],
     "Qwen_3.8_Flash.md": [70, 66, 92, 66, 72, 93, 73],
     "Qwen_3.8_Max.md": [80, 81, 85, 78, 77, 94, 80],
+    "Qwen_4_Max.md": [80, 83, 87, 77, 80, 95, 81.4],
     "Step_5_Preview.md": [58, 78, 97, 82, 62, 99, 75],
     "Xing_4.0_29B_A4B.md": [80, 86, 90, 74, 80, 98, 82],
     "average.md": [82.1, 83.6, 94.6, 76.9, 83.1, 97.6, 84],
