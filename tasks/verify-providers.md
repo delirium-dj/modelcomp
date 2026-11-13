@@ -23,7 +23,11 @@ file or folder.
      (retired / renamed / acquired / site gone) still right?
      Fresh public web research only; cite only pages you actually opened. Never
      invent a price. A price visible only behind login/region-lock/aggregator
-     (not the provider's own page) is UNVERIFIABLE, not guessed.
+     (not the provider's own page) is UNVERIFIABLE, not guessed. If `WebSearch`
+     returns `402`/quota/outage, open the known `officialUrl`/`evidenceUrl`
+     links directly (`webfetch`, then `curl`/`Invoke-WebRequest`) — never treat
+     `meta.json` itself as proof of the live offer (`RULES.md` § Web-research
+     fallback).
 3. Verdict per plan — exactly one:
    - VERIFIED — official page still states this plan + price.
    - PRICE-CHANGED — plan exists, price differs.

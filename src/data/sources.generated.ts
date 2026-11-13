@@ -107,7 +107,8 @@ export type SourceKey =
   | "Muse Ember"
   | "Glyph Cluster"
   | "Qwen 4 Max"
-  | "Ernie 5.5 Flash";
+  | "Ernie 5.5 Flash"
+  | "Gemini 4 Hydrogen";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -226,4 +227,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Glyph Cluster", label: "Glyph Cluster", file: "Glyph_Cluster.md", slug: "glyph-cluster" },
   { key: "Qwen 4 Max", label: "Qwen 4 Max", file: "Qwen_4_Max.md", slug: "qwen-4-max" },
   { key: "Ernie 5.5 Flash", label: "Ernie 5.5 Flash", file: "Ernie_5.5_Flash.md", slug: "ernie-5.5-flash" },
+  { key: "Gemini 4 Hydrogen", label: "Gemini 4 Hydrogen", file: "Gemini_4_Hydrogen.md", slug: "gemini-4-hydrogen" },
 ];

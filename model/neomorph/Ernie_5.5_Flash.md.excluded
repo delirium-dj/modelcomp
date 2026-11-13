@@ -1,0 +1,51 @@
+# Neomorph — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUDED (`.md.excluded`): no verified public data of any kind was found for this model
+> in this research pass, so no score is published. Notes below are negative findings only.
+
+- Source: unknown / unattributed (`neomorph`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Neomorph (`neomorph`)
+- **Short description:** No public description could be verified. Exact-string searches return no model card, no vendor announcement, no tracker page and no API listing; the name appears only in unrelated graphics/typography contexts.
+- **Provider / access:** none verified; absent from the OpenCode Console model list and from every gateway catalogue checked in this pass.
+- **Release / knowledge:** unknown.
+- **IDs:** none verified.
+- **Context window:** not published / not found.
+- **Modalities:** unknown.
+- **Pricing (as of 2026-11-12):** not found.
+- **Architecture:** unknown.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / AA Intelligence Index / BenchLM: **not indexed; no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- No data.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded per `model-report-TEMPLATE.md` (zero verified evidence for this identity). Scores inside this file are ignored by `pnpm sync`.
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12 UTC
+- Method: public internet research (exact-string web search, OpenCode Console catalogue, gateway catalogues). No attributable model could be found; the file stays excluded and the slug is surfaced for the orchestrator's identity review.
+- Reference URLs:
+  - [OpenCode Console models (no `neomorph` entry)](https://opencode.ai/docs/zen)
+  - [DuckDuckGo exact-string search — no results](https://duckduckgo.com/html/?q=%22neomorph%22+LLM)

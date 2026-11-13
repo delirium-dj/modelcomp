@@ -2,6 +2,7 @@
 // Run: `pnpm test` (zero deps, node:test only).
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
+import { existsSync, readdirSync } from "node:fs";
 import {
   MIRROR_ROOTS,
   FORBIDDEN_ROOTS,
@@ -34,6 +35,8 @@ import {
   checkSignatureStem,
   buildAliasesFile,
   CASE_LAW_NOTES,
+  MIRROR_ROUTED_SLUGS,
+  mirrorRoutedMessage,
 } from "./validate.mjs";
 import { RETIRED_SLUGS } from "./average.mjs";
 
@@ -546,5 +549,61 @@ describe("deleted phantom folders (user order 2026-11-03)", () => {
     assert.match(msg, /deleted phantom model identity/);
     assert.match(msg, /model-aliases\.generated\.md/);
     assert.match(deletedPhantomMessage("gemini-2.5", "gemini-2.5-pro"), /model\/gemini-2\.5-pro\//);
+  });
+});
+
+describe("mirror-routed slugs (RULES.md domain routing: never also under model/)", () => {
+  it("covers every mirror-tree folder on disk and nothing stale", () => {
+    const mapped = new Map(MIRROR_ROUTED_SLUGS);
+    const roots = MIRROR_ROOTS;
+    const onDisk = {};
+    for (const r of roots) {
+      if (!existsSync(r)) continue;
+      for (const d of readdirSync(r, { withFileTypes: true }).filter((x) => x.isDirectory()).map((x) => x.name)) {
+        onDisk[d] = r;
+      }
+    }
+    for (const [slug, tree] of Object.entries(onDisk)) {
+      assert.equal(mapped.get(slug), tree, `\${slug} lives in \${tree} but is not mapped there`);
+    }
+    for (const [slug, tree] of mapped) {
+      assert.equal(onDisk[slug], tree, `\${slug} is mapped to \${tree} but is not on disk there`);
+    }
+  });
+
+  it("routes each routed slug to a real mirror tree and names the path in the message", () => {
+    for (const [slug, tree] of MIRROR_ROUTED_SLUGS) {
+      assert.ok(MIRROR_ROOTS.includes(tree), `\${slug} -> \${tree} is not a mirror root`);
+      const msg = mirrorRoutedMessage(slug, tree);
+      const re = new RegExp("model/" + slug + "/: this model is routed to " + tree + "/" + slug + "/");
+      assert.match(msg, re, slug + " message");
+      assert.match(msg, /never scaffold it under model\//, slug + " never-scaffold clause");
+    }
+  });
+
+  it("would FAIL the legal model if a model/ folder reappeared", () => {
+    const tree = MIRROR_ROUTED_SLUGS.get("glm-5.3-flashx-legal");
+    assert.equal(tree, "models_legal");
+    assert.match(
+      mirrorRoutedMessage("glm-5.3-flashx-legal", tree),
+      /never scaffold it under model\/; research\/report under models_legal\/glm-5\.3-flashx-legal\/ instead/,
+    );
+  });
+
+  it("renders into the ONE roster with a case note for every entry", () => {
+    const out = buildAliasesFile();
+    assert.match(out, /## Mirror-routed slugs - never under model\//);
+    for (const [slug, tree] of MIRROR_ROUTED_SLUGS) {
+      assert.match(out, new RegExp("- `" + slug + "` -> `" + tree + "/" + slug + "`"), slug + " roster row");
+      assert.ok(CASE_LAW_NOTES.has(slug), "\${slug} has no case note");
+    }
+  });
+
+  it("leaves every routed slug absent from the other forbidden lists", () => {
+    for (const slug of MIRROR_ROUTED_SLUGS.keys()) {
+      assert.equal(MERGED_MODEL_SLUGS.has(slug), false, `\${slug} should not be in MERGED_MODEL_SLUGS`);
+      assert.equal(DELETED_PHANTOM_SLUGS.has(slug), false, `\${slug} should not be in DELETED_PHANTOM_SLUGS`);
+      assert.equal(RETIRED_ALIAS_SLUGS.has(slug), false, `\${slug} should not be in RETIRED_ALIAS_SLUGS`);
+    }
   });
 });

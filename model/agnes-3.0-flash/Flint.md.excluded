@@ -1,0 +1,57 @@
+# Agnes 3.0 Flash — findings by Flint
+
+- Source: Agnes AI / Agnes 3.0 Flash (`opencode/agnes-3.0-flash`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 3.0 Flash
+- **Short description:** Agnes AI's new-generation text model for agentic coding and tool-driven task execution, focused on stable execution, reliable tool use, long-task context retention, and high-quality delivery; accompanied by an open-weights Agnes-3.0-Flash **Preview** checkpoint (33B multimodal reasoning) with Apache 2.0 distribution.
+- **Provider / access:** Agnes AI (Agnes API `https://apihub.agnes-ai.com/v1` — OpenAI-compatible Chat Completions / Responses API / Anthropic-compatible Messages API); third-party gateways not verified at research time.
+- **Release / knowledge:** Agnes 3.0 Flash released 2026-09-11; knowledge cutoff not established.
+- **IDs:** `opencode/agnes-3.0-flash` (curated subject identity) / `agnes-3.0-flash` (live API model ID); open-weights Preview: `Agnes-AI/Agnes-3.0-Flash` on Hugging Face (originally published without the `Preview` suffix, later relabeled to disambiguate from the production/API checkpoint).
+- **Context window:** 512K total (production/API checkpoint); maximum output 65,536 tokens; open-weights Agnes-3.0-Flash Preview: 262,144 tokens.
+- **Modalities:** Text + image URL in; text out (production/API); open-weights Preview additionally image + video understanding, text out, tool calling, adjustable reasoning effort (high/medium/low) plus thinking-off mode, streaming, OpenAI-compatible serving via SGLang.
+- **Pricing (as of 2026-11-13):** Cached input $0.005 / input $0.05 / output $0.15 per 1M tokens (Agnes API list price); Angel User Trial $0 for all items; production/API context 512K.
+- **Architecture:** Production/API: proprietary next-generation text model for agentic work (parameter count not disclosed). Open-weights Agnes-3.0-Flash Preview: 33B-parameter hybrid-attention decoder (54 gated-delta-rule recurrent layers + 18 global-attention layers), hidden size 5,120, BF16 ~66 GB on disk, Apache 2.0, vision tower 27 layers, SGLang OpenAI-compatible serving.
+
+### Raw benchmarks found
+
+- no verified public score found — Agnes 3.0 Flash (`opencode/agnes-3.0-flash` / `agnes-3.0-flash`)
+
+Agent / tool use:
+
+- Terminal-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found for the exact production/API ID.
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience Accuracy: no verified public score found for the exact production/API ID — Agnes published vendor results for the open-weights Agnes-3.0-Flash **Preview** checkpoint only (IFBench 74.20, SciCode 38.08, GPQA Diamond 85.05, AA-LCR 68.33, AA-Omniscience Accuracy 23.00; compiled from mixed sources/harnesses and snapshots, explicitly not a controlled head-to-head comparison); an independent third-party sync (Franklin AI Intelligence Index 35.5; GPQA 92.4% top / HLE 38.5% low) was flagged by other coverage as pending independent evaluation.
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE / Coding Index: no verified public score found for the exact production/API ID — Agnes Code task-execution benchmarks (IFBench, SciCode) published for the Agnes-3.0-Flash **Preview** open-weight checkpoint.
+
+Long context:
+
+- MRCR / RULER / GraphWalks at window length: no verified public score found for the exact production/API ID — vendor-documented context (262,144 tokens for the Preview open-weight checkpoint; 512K for the production/API checkpoint) without independent retrieval-eval verification.
+
+### Cross-source comparison
+
+- Official Agnes AI sources (wiki API docs, Hugging Face model card + benchmark chart/table, GitHub open-weights landing page, aggregator listings) vs independent coverage (Franklin AI, tracker leaderboards such as Luminara Bench / BenchSift / Caliper Bench / Vector Wire, third-party reviews): benchmark figures exist only for the Agnes-3.0-Flash **Preview** open-weight checkpoint, and Agnes itself states that production/API benchmark results must not be attributed to the Preview weights. Independent evaluation of the production/API subject identity remains pending.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the Agnes 3.0 Flash subject identity (`opencode/agnes-3.0-flash` / `agnes-3.0-flash`) in independently accessible public sources as of 2026-11-13; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint (opencode/flint)** — 2026-11-13
+- Method: fresh public web research on Agnes 3.0 Flash coverage (Agnes AI docs, Hugging Face model card, GitHub open-weights landing page, third-party trackers); scores are normalized 1-100 interpretations, not official vendor scores; this report is self-excluded (no verified public benchmarks).
+- Reference URLs:
+  - [Agnes AI — Agnes 3.0 Flash documentation](https://wiki.agnes-ai.com/en/docs/agnes-30-flash)
+  - [Agnes AI — Agnes 3.0 Flash (open-weights Preview) Hugging Face model card](https://huggingface.co/Agnes-AI/Agnes-3.0-Flash)
+  - [AgnesAI-Labs — Agnes-3.0-Flash Preview GitHub landing page](https://github.com/AgnesAI-Labs/Agnes-3.0-Flash)
+  - [Franklin AI — Agnes 3.0 Flash benchmark scores](https://franklineh.com/ai-benchmark/agnes-3-0-flash)
+- Future sources: add a new file next to this one, e.g. `Agnes_3.0_Flash.md`, using the same headings.

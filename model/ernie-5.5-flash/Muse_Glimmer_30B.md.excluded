@@ -1,0 +1,66 @@
+# ERNIE 5.5 Flash — findings by Muse Glimmer 30B
+
+- Source: Baidu/ernie-5.5-flash
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** ERNIE 5.5 Flash / ERNIE-5.5-Flash-Preview
+- **Short description:** Baidu Qianfan listed flagship text generation model with integrated web search. Public documentation as of 2026-11-13 is limited to product listing; no independent model card with architecture details verified.
+- **Provider / access:** Baidu Qianfan `baidu/ernie-5.5-flash`. Listed under Baidu Cloud Qianfan model service as ERNIE-5.5-Flash-Preview. Access via Qianfan Console.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** `baidu/ernie-5.5-flash`
+- **Context window:** No verified public score found
+- **Modalities:** Text in/out with web search integration reported on product page; no verified public confirmation of multimodal input, audio/video, or tool use capabilities for this exact ID.
+- **Pricing (as of 2026-11-13):** Listed on Baidu Qianfan product page as ¥0.001 /1k input tokens 08:00-22:00, ¥0.004 /1k output tokens 08:00-22:00, cache hit ¥0.0001 /1k tokens. Pricing source is product listing; no verified pricing API documentation retrieved.
+- **Architecture:** Proprietary. No verified public parameter count, MoE structure, or open-weights license found.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: Zero verified public benchmark numbers found for ernie-5.5-flash / ERNIE-5.5-Flash-Preview. All rows below are no verified public score found.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- No long-context retrieval reported verified for this exact model ID.
+
+### Normalized scores (1–100)
+
+No verified public benchmark data available to derive normalized scores. File excluded per SELF-EXCLUSION rule.
+
+---
+
+## Signature
+
+- Provided by: **Muse Glimmer 30B (meta/muse-glimmer-30b)** — 2026-11-13
+- Method: public internet research; Baidu Qianfan product listing review. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Baidu Qianfan – Model Service](https://cloud.baidu.com/product/qianfan)
+  - [Baidu Qianfan Console – ERNIE-5.5-Flash-Preview model detail](https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-abe18d298d70)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

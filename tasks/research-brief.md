@@ -77,9 +77,12 @@ every inline list you may have seen quoted in older docs.
 ## 5. Per-folder loop
 
 1. ONE folder at a time. Fresh public web research only — NEVER read peer
-   findings files (`model/<slug>/*.md`): zero influence. `model-queue.md`
-   (or, only in fallback, the single `- **Overall Score:` line of each
-   `average.md`) is the only permitted peek.
+   findings files (`model/<slug>/*.md`): zero influence. If web search fails
+   (`402`/quota/outage): one simpler retry, then `webfetch` the known official
+   URLs directly, then shell `curl`/`Invoke-WebRequest` — cite only what you
+   fetched, never a local repo file (`RULES.md` § Web-research fallback).
+   `model-queue.md` (or, only in fallback, the single `- **Overall Score:` line
+   of each `average.md`) is the only permitted peek.
 2. Draft fully per `model-report-TEMPLATE.md` (read it once): model card →
    raw benchmarks → normalized scores → signature
    `Provided by: **<Your_Display> (<your vendor/model-id>)** — <YYYY-MM-DD UTC>`
@@ -111,6 +114,12 @@ every inline list you may have seen quoted in older docs.
   — permanence (RULES.md). Every deletion needs a per-file user
   confirmation popup first; no confirmation → no delete.
 - Never read peer findings files before/during research.
+- Never let a dead search tool become a local shortcut: `402`/quota/outage →
+  one simpler retry, then `webfetch`/`curl` of official URLs. Local repo files
+  (peer findings, `model-comparison.md`, generated data, `meta.json`/`average.md`)
+  are NEVER evidence for scores, prices, or claims. No retrievable evidence →
+  `no verified public score found` or `.md.excluded`; global outage →
+  `WEB-ACCESS-BLOCKED` summary (`RULES.md` § Web-research fallback).
 - Never stop early: the task ends only when the queue is empty or the user
   revokes it. Quiet periods and "enough files" are NOT stop conditions.
 - Never run `pnpm sync`, `pnpm build.types`, `pnpm build`, or `pnpm dev` —

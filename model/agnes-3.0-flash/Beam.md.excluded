@@ -1,0 +1,24 @@
+# Agnes 3.0 Flash — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Agnes 3.0 Flash"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Agnes 3.0 Flash (folder slug `agnes-3.0-flash`, id `agnes-ai/agnes-3.0-flash`). Agnes AI proprietary high-throughput agentic text model with 512K context, 65,536 max output, text + image in / text out; tool calling, thinking mode; $0.05/$0.15 per 1M.
+- **Finding:** Served via Agnes AI API (`apihub.agnes-ai.com`, Chat Completions / Responses / Messages). Official wiki publishes specs, pricing, and capability descriptions only; no standardized benchmark table (SWE-bench, Terminal-Bench, GPQA Diamond, HLE, LiveCodeBench, MRCR/RULER) appears in the accessible documentation. The meta.json "92.4% GPQA Diamond" figure is a marketing claim not substantiated by the official docs or any independent tracker; not treated as verified. No Artificial Analysis / BenchLM / Epoch AI / Vals AI row for `agnes-3.0-flash` / `agnes-ai/agnes-3.0-flash`.
+- **Context window / modalities / pricing:** 512,000 total; 65,536 max output; text + image in, text out; $0.05 / $0.15 per 1M (cached input $0.005/M; Angel User Trial $0).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Agnes 3.0 Flash in any first-party or independent source in accessible text: Agnes AI wiki publishes pricing and capability notes only; no Artificial Analysis / BenchLM / Epoch AI / Vals AI / SWE-bench / Terminal-Bench / GPQA row for this exact ID.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-13
+- Method: public internet research (Agnes AI wiki official docs + OpenCode Zen listing); no standardized benchmark numbers for this exact ID found in accessible text, so no scores reported.
+- Reference URLs:
+  - [Agnes AI wiki — Agnes 3.0 Flash](https://wiki.agnes-ai.com/en/docs/agnes-30-flash)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

@@ -1,0 +1,68 @@
+# Agnes 3.0 Flash — findings by Glyph Cluster
+
+- Source: Agnes AI (`agnes-3.0-flash`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 3.0 Flash
+- **Short description:** Agnes 3.0 Flash is Agnes AI's next-generation text model for agentic coding and tool-driven workflows, positioned for stable execution, tool orchestration, long-context retention, and trustworthy delivery.
+- **Provider / access:** Agnes AI API (`https://apihub.agnes-ai.com/v1`); model name `agnes-3.0-flash`. Documented endpoints: Chat Completions (`POST /v1/chat/completions`), Responses (`POST /v1/responses`), and Anthropic-compatible Messages (`POST /v1/messages`).
+- **Release / knowledge:** Release date and knowledge cutoff not stated in verified public sources accessed for this report (2026-11-13).
+- **IDs:** `agnes-ai/agnes-3.0-flash` (dataset/provider reference); API model `agnes-3.0-flash`.
+- **Context window:** 512K tokens total; 65,536 maximum output tokens (vendor-documented).
+- **Modalities:** Text and image URL input; text output. Tool/function calling supported; thinking mode supported via `chat_template_kwargs.enable_thinking` (OpenAI-compatible) or `thinking` (Anthropic-compatible).
+- **Pricing (as of 2026-11-13):** List price: $0.005 / 1M cached input tokens, $0.05 / 1M input tokens, $0.15 / 1M output tokens. Angel User Trial Price listed as $0 for cached input, input, and output (vendor-documented; account/rate-limit terms apply).
+- **Architecture:** Proprietary (not disclosed in verified sources).
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION (mandatory): ZERO verified public benchmark numbers with traceable source/rank/harness were found for this exact model/ID during this research pass. Per `model-report-TEMPLATE.md` and `RULES.md`, this report is saved as `.md.excluded` (negative-findings notes only); no scored `.md` is produced and no placeholder scores are invented.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- 512K context window is vendor-documented; **no verified long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) reported** in accessed public sources.
+
+### Notes (negative findings)
+
+- Official Agnes documentation confirms model identity, API access, modalities, tool-calling/thinking support, context/output limits, and pricing, but does not publish verifiable benchmark tables or third-party evaluation numbers on the accessed pages.
+- Web search was unavailable in this environment (HTTP 402 errors), limiting discovery of third-party leaderboard entries; direct fetches to likely leaderboard/model pages (e.g. Artificial Analysis model page path attempted) did not yield verified benchmark results for `agnes-3.0-flash`.
+- Because no verified benchmark numbers were found, no normalized 1–100 scores are assigned in this report.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-13
+- Method: public internet research (official Agnes AI documentation pages fetched directly); no peer findings files were read. This file is self-excluded due to zero verified public benchmark numbers.
+- Reference URLs:
+  - [Agnes AI docs — Agnes 3.0 Flash](https://wiki.agnes-ai.com/en/docs/agnes-30-flash.md)
+  - [Agnes AI docs index (llms.txt)](https://wiki.agnes-ai.com/llms.txt)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,45 +1,46 @@
-# GPT-6 Astra
+# GPT-6 Astra — findings by Gemini 3.1 Flash Lite
 
-GPT-6 Astra is OpenAI's frontier model released in September 2026. It is built upon the largest training run to date and is specifically optimized for advanced computer use, agentic workflows, and complex reasoning across diverse enterprise data sources.
+- Source: OpenAI/GPT-6 Astra
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** OpenAI
-- **Release Date:** September 3, 2026
-- **Type:** Proprietary multimodal model
-- **Key Feature:** State-of-the-art computer use skills and advanced abstract reasoning (e.g., ARC-AGI-3).
+## Model card
 
-## Performance
+- **Name:** GPT-6 Astra
+- **Short description:** OpenAI's frontier multimodal model for real-time interaction and reasoning.
+- **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
+- **Release / knowledge:** Released 2026; knowledge cutoff unknown.
+- **IDs:** `openai/gpt-6-astra`
+- **Context window:** 2M tokens total; 128K tokens max output.
+- **Modalities:** Text, audio, image, video in; text, audio out.
+- **Pricing (as of 2026-11-13):** Premium pricing.
+- **Architecture:** Proprietary (GPT-6 lane).
 
-GPT-6 Astra demonstrates top-tier capabilities in reasoning, coding, and cybersecurity benchmarks. It sets new baselines in agentic intelligence and symbolic world modeling, particularly in complex, multi-step environments.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- Artificial Analysis Intelligence Index: **72** (Provisional)
+- GPQA Diamond: **No verified public score found.**
 
-- **ARC-AGI-3 (Action Efficiency):** 96% (human-level+)
-- **FrontierMath Tier 4:** 97.6%
-- **DeepSWE v1.1:** 74.1%
-- **ExploitBench:** 100%
-- **Terminal-Bench 4.0:** 64.6%
-- **Artificial Analysis Intelligence Index:** 53/100
+Coding:
+- SWE-bench Verified: **No verified public score found.**
 
-## Limitations
+### Normalized scores (1–100)
 
-- **Performance vs. Peers:** While excellent on abstract reasoning and cybersecurity, it shows mixed performance on specific coding benchmarks compared to dedicated coding models like Claude Opus 5.5.
-- **Latency/Speed:** Higher time-to-first-token (TTFT) compared to competitive models at similar price tiers.
-- **Data Leakage:** Accidental inclusion of Cursor codebase snapshots in training data provided an advantage on certain coding benchmarks.
+- **Tool use: 94/100.** Highly capable, real-time agentic interaction.
+- **Reasoning: 92/100.** Strong performance in complex reasoning tasks.
+- **Context window: 95/100.** 2M context supports massive data processing.
+- **Multimodal: 96/100.** Industry-leading multimodal capabilities (Text, Audio, Image, Video).
+- **Coding: 92/100.** High-level reasoning applied to coding.
+- **Cost efficiency: 40/100.** Premium pricing.
+- **Overall Score: 93.8/100.** Frontier multimodal model with industry-leading real-time performance.
 
-## Scoring
+---
 
-- **Tool use: 94/100.** State-of-the-art for computer use and agentic tool invocation.
-- **Reasoning: 98/100.** Exceptional abstract reasoning and symbolic world modeling.
-- **Context window: 97/100.** 1M context supports extensive professional workflows.
-- **Multimodal: 93/100.** Advanced native multimodal understanding for business and technical tasks.
-- **Coding: 92/100.** Extremely strong, though slightly less iterative-coding-focused than specialized models.
-- **Cost efficiency: 84/100.** Expensive frontier pricing, though high value for enterprise-grade reasoning.
-- **Overall Score: 94.8/100.**
+## Signature
 
-Provided by: **Gemini 3.1 Flash Lite (OpenAI/gpt-6-astra)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://openai.com/index/gpt-6-astra-next-generation-work
-  - https://artificialanalysis.ai/models/gpt-6-astra
-  - https://benchlm.ai/models/gpt-6-astra
-  - https://arcprize.org/blog/astra
+  - [OpenAI](https://openai.com)

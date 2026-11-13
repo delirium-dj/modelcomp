@@ -1,0 +1,25 @@
+# GLM 5.3 FlashX Legal — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "GLM 5.3 FlashX Legal"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** GLM 5.3 FlashX Legal (folder slug `glm-5.3-flashx-legal`, id `z-ai/glm-5.3-flashx-legal` / `opencode/glm-5.3-flashx-legal`). Z.ai legal-domain variant of GLM 5.3 FlashX with legal mid-training + RL; native multimodal (text + image + video in, text out), 1M context, reasoning + tool calling + structured outputs.
+- **Finding:** Served via OpenRouter / Z.ai (`z-ai/glm-5.3-flashx-legal`, released 2026-11-02; $0.37/$1.25 per 1M in/out, $0.075/M cache read). No vendor-published standardized benchmark table (SWE-bench Verified, Terminal-Bench, GPQA Diamond, HLE, LiveCodeBench, MRCR/RULER, MMU, etc.) found for this exact ID in accessible text, and no Artificial Analysis / BenchLM / Epoch AI / Vals AI row exists for `glm-5.3-flashx-legal` / `z-ai/glm-5.3-flashx-legal`. Specs (1M context, text+image+video in, reasoning, tools) are published; benchmark numbers are not.
+- **Context window / modalities / pricing:** 1,048,576 total; 131,072 max output; text + image + video in, text out; $0.37 / $1.25 per 1M (Z.ai via OpenRouter; cache read $0.075/M).
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for GLM 5.3 FlashX Legal in any first-party or independent source in accessible text: Z.ai / OpenRouter publishes pricing, context, and capability notes only; no Artificial Analysis / BenchLM / Epoch AI / Vals AI / SWE-bench / Terminal-Bench row for this exact ID.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-13
+- Method: public internet research (OpenRouter model endpoints metadata + Z.ai route); no standardized benchmark numbers for this exact ID found in accessible text, so no scores reported.
+- Reference URLs:
+  - [OpenRouter — Z.ai: GLM 5.3 FlashX Legal (endpoints)](https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flashx-legal/endpoints)
+  - [OpenRouter — model page](https://openrouter.ai/z-ai/glm-5.3-flashx-legal)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

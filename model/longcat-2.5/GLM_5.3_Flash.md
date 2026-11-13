@@ -1,118 +1,79 @@
-# LongCat 2.5 Preview — findings by GLM 5.3 Flash
+# LongCat-2.5-Preview — findings by GLM 5.3 Flash
 
-- Source: Meituan (`meituan/longcat-2.5-preview`; Zen free entry `opencode/longcat-2.5-preview-free`)
-- Date: 2026-10-16 (UTC)
+- Source: Meituan (`meituan/longcat-2.5-preview`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** LongCat 2.5 Preview
-- **Short description:** Meituan's multimodal reasoning model for coding and agentic workflows — ~1.6T-parameter MoE (~48B active) retooled around autonomous agents (long-horizon execution, tool use, multi-step planning). Flag: second-generation release built on the LongCat 2.0 family (1.6T/48B MoE, ASIC-trained).
-- **Provider / access:** OpenCode Zen `opencode/longcat-2.5-preview-free` (free tier, unlimited, zero retention); Meituan LongCat API Platform direct (Chat Completions); Vercel AI Gateway `meituan/longcat-2.5-preview`; Blackbox Router `blackboxai/meituan/longcat-2.5-preview`. Works with Claude Code, Hermes, OpenClaw, OpenCode, and Kilo Code per Meituan's changelog.
-- **Release / knowledge:** Released 2026-09-25 (Meituan changelog; models.dev/openCode catalogue date 25 September 2026); free on OpenCode effective 2026-09-26. Knowledge cutoff: no verified public data found.
-- **IDs:** `meituan/longcat-2.5-preview` (paid); `opencode/longcat-2.5-preview-free` (Zen/Go free tier)
-- **Context window:** 1,048,576 tokens total, max output 131,072 — verified via Blackbox model page/CloudPrice (retrieved 2026-10-01) and OrcaRouter's models.dev catalogue readout (1,000,000/131,072).
-- **Modalities:** text + image in (attachment support true in models.dev; vendor changelog claims image understanding for cross-modal QA, summarisation, visual reasoning); text out; reasoning toggle with interleaved `reasoning_content` trace; tool calling true. Caveat: Meituan's own "Retrieve Model" doc sample still shows `input_modalities: ["text"]` — treat image input as vendor-claimed until tested. Structured outputs: conflicting evidence (`structured-output` tag vs `native_structured_output: false`).
-- **Pricing (as of 2026-10-11):** Free on OpenCode Zen — $0 input/output/cached read, unlimited monthly usage, zero data retention (model training "Not used", retention "0 days" per Zen privacy table); free-window end date published nowhere ("two weeks" circulates in aggregators but OpenCode says only "limited time" — budget for an unannounced cliff). Paid fallback: $0.30 / $1.20 per 1M (cached $0.006) — a limited-time discounted rate; list rates $0.75 / $0.015 / $2.95 (explainx update citing Meituan's pricing page).
-- **Architecture:** ~1.6T total / ~48B active MoE (Meituan site metadata + Chinese trade coverage; no technical report yet); open weights false for the Preview API tier (LongCat 2.0 was MIT; 2.5 expected to follow but unconfirmed).
+- **Name:** LongCat-2.5-Preview
+- **Short description:** Meituan's multimodal reasoning model for long-horizon coding and agent tasks, with image understanding and a 1M-token context window — the API-only preview of the LongCat 2.5 generation (the open-weights LongCat-2.5 GA followed on Hugging Face under MIT, 1.6T-total/~48B-active MoE with native visual modeling). Flag: this folder tracks the preview SKU; the GA checkpoint of the same generation is the lineage source for its strongest benchmark figures, cited labelled below.
+- **Provider / access:** LongCat platform API (model ID `LongCat-2.5-Preview`, 1,048,576 context / 262,144 output per models.dev's provider row); NanoGPT (`meituan/longcat-2.5-preview`, $0.7875/$3.0975 per 1M); OpenCode Zen free lane (`longcat-2.5-preview-free`, $0.00/$0.00 — "free for a limited time", limit of 100 requests per day, hosted in China, provider follows a zero-retention policy and does not use data for training). Not on OpenRouter (only `meituan/longcat-2.0` is listed there). Dual OpenAI/Anthropic-format API compatibility reported by third-party coverage.
+- **Release / knowledge:** preview released 2026-09-25 (models.dev release field); knowledge cutoff not published.
+- **IDs:** `LongCat-2.5-Preview` (LongCat platform), `meituan/longcat-2.5-preview` (NanoGPT), `longcat-2.5-preview-free` (OpenCode Zen).
+- **Context window:** 1,048,576 (1M) tokens total — verified via the LongCat provider row on models.dev (NanoGPT/OpenCode rows round to 1,000,000); max output 131,072 (NanoGPT/OpenCode rows) or 262,144 (LongCat row). No independent long-context retrieval measurement published.
+- **Modalities:** text + image in, text out (models.dev: "multimodal reasoning model … with image understanding"; capabilities: tools, reasoning). Video/PDF input and audio are not documented for the preview SKU; the GA sibling's visual suite (video, charts, 3D) indicates where the generation landed, but is not verified for the preview checkpoint. Thinking + tool calling supported.
+- **Pricing (as of 2026-11-13):** LongCat platform $0.30 in / $1.20 out per 1M tokens (matching the family's longcat-2.0 OpenRouter price); NanoGPT $0.7875/$3.0975; OpenCode Zen free lane $0 during the limited-time window (100 requests/day cap; China-hosted, zero retention).
+- **Architecture:** preview weights closed (models.dev). The GA sibling of the same generation (meituan-longcat/LongCat-2.5, MIT) is a native multimodal sparse MoE: ~1.6T total / ~48B active per token, discrete-token visual alignment built on LongCat-Next, long-horizon agentic RL, multi-teacher KL distillation, hybrid thinking/non-thinking modes; a W4A4 INT4 quantization (LongCat-2.5-W4A4) ships for domestic NPUs. Preview parameter count unverified.
 
 ### Raw benchmarks found
 
-> Second-pass verification (2026-10-11): fresh BenchLM (`longcat-2-5-preview`, `longcat-25-preview`) and Artificial Analysis fetches all return 404 — no aggregator page exists for this released-3-weeks-ago preview, and Meituan has still published no vendor benchmark chart. The evidence base remains the single independent harness from the prior pass; scores are carried, not moved.
+> Figures below are measured on the open-weights LongCat-2.5 GA checkpoint (meituan-longcat/LongCat-2.5 model-card evaluation table, MIT, cited in-house unless marked) — lineage data for the same generation as the preview SKU, labelled as such; no benchmark table was published for the preview checkpoint itself. All values as published on the GA card.
 
 Agent / tool use:
 
-- AI Coding Daily LLM Coding Leaderboard (independent, evaluated 2026-09-28 with OpenCode): **#34, 44.25/60 total points**, avg cost N/A (free), avg time 16:50 — per-project: Laravel Code Quality **16.98/20**, React-TS Code Quality **16.67/20**, CSV Import (PHP) **3/5**, Offline Sync (PHP) **2.7/5**, Bank Feed (Dart/Flutter) **4/5**, Shipping Quotes (Go) **0.9/5**
-- Terminal-Bench 2.1 / Tau2-Bench / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found
+- Terminal-Bench v2.1: **88.4%** (GA card; frontier tier — GPT-5.6-Sol 88.8*, Kimi-K3 88.3*, DeepSeek-V4.1-Flash 90.6* on the same table)
+- Terminal-Bench v4.0: **38.5%** (GA card; Claude-Opus-5 53.9*, GLM-5.3 41.8*)
+- MCP Atlas: **83.1** (GA card; Claude-Opus-5 85.8*, DeepSeek-V4.1-Flash 84.4)
+- AutomationBench (v1.0.6): **51.8** (GA card; DeepSeek-V4.1-Flash 54.8, GPT-5.5 39.7)
+- BrowseComp: **91.9** (GA card; Kimi-K3 91.2*, DeepSeek-V4.1-Flash 91.5)
+- Claw-Eval (Pass^3): **78.3** (GA card; GPT-5.6-Sol 79.5, Claude-Opus-5 80.8)
+- GDPVal-AA rubrics: **84.8** (GA card; Claude-Opus-5 87.7)
+- JobBench **65.4** / SkillsBench **63.3** (GA card)
+- Tau3-Banking / Toolathon: no verified public score found
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / LCR / MLCR / CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found (OrcaRouter, 2026-09-26: "Meituan has published none for this model: no vendor chart, no independent score, no leaderboard entry" — still true per the 404s)
+- HLE (w/ tools): **63.1%** (GA card; Claude-Opus-5 64.7*, DeepSeek-V4.1-Flash 63.9 — frontier tier)
+- PaperBench: **82.1** (GA card; GPT-5.6-Sol 83.3)
+- FrontierScience: **77.0** (GA card; Claude-Opus-5 78.0)
+- ALE (v1.1): **38.5** (GA card; Kimi-K3 35.2*, GPT-5.6-Sol 30.3*)
+- ResearchRubrics: **81.0** (GA card)
+- GPQA Diamond / MRCR / CritPt / AA Intelligence Index: no verified public score found
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found for this exact ID
+- DeepSWE (v1.1): **64.6%** (GA card; DeepSeek-V4.1-Flash 74.2, GPT-5.6-Sol 72.7*)
+- SWE Atlas — Codebase QnA **58.3** / Refactoring **55.2** / Test Writing **47.8** (GA card)
+- NL2Repo: **60.5** (GA card; Claude-Opus-5 75.3*)
+- Vision2Web: **78.6** (GA card; Claude-Opus-5 80.2*)
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench: no verified public score found
 
 Long context:
 
-- No long-context retrieval reported (1M window advertised by three sources; no MRCR/RULER/GraphWalks numbers published)
+- No long-context retrieval reported (no MRCR / RULER / GraphWalks value at any window length; the 1M window is a listed spec, not a measured retrieval figure)
 
 ### Normalized scores (1–100)
 
-> Scores unchanged on the 2026-10-11 second pass: no aggregator page exists (three 404 confirmations) and no new benchmark rows surfaced; the single-harness evidence stands.
-
-- **Tool use: 65/100.** 44.25/60 (~74% relative) on AI Coding Daily's coding-agent harness with strong Laravel/React-TS quality (16.98 and 16.67 of 20), but weak Go (0.9/5), no agentic-harness benchmarks (TB2.1/Tau3/GDPval all absent), and a mid-low leaderboard rank cap it in the upper-mid band.
-- **Reasoning: 55/100.** No verified raw reasoning benchmark exists (GPQA/HLE/LCR absent; no vendor chart per OrcaRouter) — the reasoning toggle and vendor-claimed visual reasoning are unmeasured, so the score stays mid-band on spec-level evidence only.
-- **Context window: 95/100.** 1,048,576-token context window verified across Blackbox/CloudPrice and models.dev (≥1M tier = 95–100); no measured ≥98% retrieval at 512K+ to justify 100. Max output 131,072 is generous, not a caveat.
-- **Multimodal: 62/100.** Text + image input claimed (models.dev attachment flag + vendor changelog), but Meituan's own Retrieve Model doc sample still shows text-only input and no vision benchmark exists — the +image-in band (60–70) reduced for the conflicting vendor contract.
-- **Coding: 70/100.** AI Coding Daily coding leaderboard 44.25/60 (rank #34) with solid web-stack quality but weak Go/shipping performance; no SWE-bench/LiveCodeBench/SciCode numbers for this exact ID — mid band on the one independent harness available.
-- **Cost efficiency: 100/100.** $0 input/output/cached read on the OpenCode Zen free tier with unlimited monthly usage and zero data retention (the ideal free-tier profile); flagged as time-limited — the free window's end date is published nowhere, so budget for a price to appear overnight ($0.30/$1.20 discounted, $0.75/$2.95 list).
-- **Overall Score: 69.4/100.** Mean of the five quality dims per `RULES.md` (Cost excluded): (65 + 55 + 95 + 62 + 70) / 5 = 347/5 = 69.4 — unchanged. Best fit: zero-cost evaluation of long-context, image-input, and multi-harness compatibility workloads (the free window is ideal for exactly that); not yet a pick for production agentic or vision-heavy work until vendor-claimed capabilities are independently reproduced.
+- **Tool use: 88/100.** GA-lineage agentic suite: Terminal-Bench v2.1 88.4 (frontier band), MCP Atlas 83.1, AutomationBench 51.8, BrowseComp 91.9 — at or above GLM-5.3/Opus-4.8-class company on the same table; capped below the 90s because Terminal-Bench v4.0 (38.5) lags the true frontier and the preview checkpoint itself was never measured.
+- **Reasoning: 91/100.** HLE (w/ tools) 63.1 clears the 40% frontier reference by a wide margin, with PaperBench 82.1, BrowseComp 91.9 and FrontierScience 77.0 corroborating; no GPQA/Index anchor keeps it at the bottom of the 90–100 band.
+- **Context window: 95/100.** 1,048,576-token window verified on the LongCat provider row (≥1M tier = 95–100); no ≥98% retrieval measurement at 512K+ exists, so not 100; 131K/262K max-output tiers noted as caveat.
+- **Multimodal: 78/100.** Verified image understanding on the preview (models.dev description + capability row); the GA sibling's visual suite (VideoMME 85.2, CharXiv-RQ 90.2, MathVision 96.5, Vision2Web 78.6) shows the generation's ceiling, but video/PDF input is unverified for the preview SKU — held at the +image band rather than +video/audio.
+- **Coding: 85/100.** GA-lineage: Terminal-Bench v2.1 88.4 (≥85 frontier reference) with DeepSWE 64.6 (below the 74% frontier mark) and mid-pack SWE-Atlas rows — a strong agentic coder that is not yet DeepSeek-V4.1-Flash-class on DeepSWE; discounted slightly for being GA-measured rather than preview-measured.
+- **Cost efficiency: 100/100.** The evaluated Zen lane is $0 in / $0 out (limited time, 100 requests/day, China-hosted, zero-retention provider) — $0 = 100 under the contract, with the time-limited/rate-capped caveat recorded; the paid fallback ($0.30/$1.20 LongCat platform) would itself sit near the top of the paid band.
+- **Overall Score: 87.4/100.** Mean of the five quality dims (88+91+95+78+85)/5 — a frontier-adjacent long-context agentic multimodal whose preview SKU is best reached today through Zen's free lane; figures carry the GA-lineage label and should be re-anchored if Meituan ever publishes preview-checkpoint numbers.
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-07 (re-research pass; prior 2026-10-16)
-- Method: public internet re-research via direct page fetch (web-search quota exhausted): BenchLM still 404s this model (tried 2026-11-07, consistent with the prior 404 confirmations) and Meituan has still published no vendor benchmark chart — the single-harness AI Coding Daily evidence stands and scores are carried unchanged per the re-verification protocol; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-13
+- Method: public internet research (models.dev catalog rows, the meituan-longcat Hugging Face org and LongCat-2.5 GA model card, OpenCode Zen docs, OpenRouter model API, DuckDuckGo-indexed coverage); scores are normalized 1–100 interpretations, not official vendor scores. GA-checkpoint benchmark figures are cited labelled as lineage data for the preview SKU, never silently merged.
+- Reference URLs:
+  - [models.dev — LongCat-2.5-Preview (specs, 4 providers, pricing, release 2026-09-25)](https://models.dev/models/meituan/longcat-2.5-preview/)
+  - [Hugging Face — meituan-longcat/LongCat-2.5 model card (GA lineage: benchmark table, architecture, MIT license)](https://huggingface.co/meituan-longcat/LongCat-2.5)
+  - [OpenCode Zen docs — LongCat 2.5 Free lane (free, 100 req/day, zero retention)](https://opencode.ai/docs/zen)
+  - [OrcaRouter — LongCat-2.5-Preview free on OpenCode (1M tokens, free-window analysis)](https://www.orcarouter.ai/blog/longcat-2-5-preview-free-opencode)
+  - [General Labs — Meituan LongCat-2.5-Preview enterprise overview (1.6T MoE, 1M ctx, dual API)](https://www.eneralabs.com/blog/meituan-longcat-25-preview-enterprise-long-horizon-2026/)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
-
----
-
-## Archived research pass — `GLM_5.3_Flash.md.excluded` (merged 2026-11-12 — own-twin retirement)
-
-> Merged from this folder's `GLM_5.3_Flash.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
-
-## LongCat 2.5 Preview — findings by GLM 5.3 Flash (SELF-EXCLUDED, notes only)
-
-- Source: Meituan (`LongCat-2.5-Preview`), API-only preview
-- Archived date: 2026-10-21 (UTC)
-- Overview and scoring methodology: `../../model-comparison.md`
-- Cross-model signed log: `../../model-findings.md`
-
-### Self-exclusion note
-
-**Why excluded:** zero verified public benchmark numbers found for this exact
-model/ID across four independent sources checked on 2026-10-21. Meituan
-published no benchmarks for the preview (BenchmarkList: 0 score rows;
-TOKRACE's official-source check of the changelog, API/pricing pages,
-homepage, GitHub and HF organizations on 2026-10-20 found none either).
-TOKRACE's own 33 attempts are a custom micro-suite (15 trivial text tasks,
-3 small JS functions, 8 SVG renders) explicitly "not convertible into a
-SWE-bench score" — recorded below as qualitative notes, never as scores.
-Scores inside this file are ignored by the pipeline.
-
-### Notes (negative findings + verified facts)
-
-- **Identity:** Meituan LongCat 2.5 Preview (`LongCat-2.5-Preview`), introduced
-  2026-09-25 per the official changelog; CloudPrice lists release 2026-09-26.
-  Distinct from open-weight LongCat 2.0 (1.8T) and the older Flash models.
-- **Specs (CloudPrice, 2026-10-21):** 1.0M-token context, up to 131K max
-  output; image + text input, text output; function calling and prompt caching
-  supported; reasoning default-on with `{"thinking":{"type":"disabled"}}`
-  switch (official API docs). BenchmarkList describes a natively multimodal
-  MoE with 1.6T total / ~48B active parameters — vendor positioning, not an
-  independent measurement.
-- **Pricing (verified on two sources):** $0.30 / 1M input, $1.20 / 1M output,
-  $0.006 / 1M cached input — promotional, served via Vercel AI Gateway
-  (`meituan/longcat-2.5-preview`) and the official platform
-  (¥2 / ¥0.04 cached / ¥8 per 1M CNY schedule).
-- **No Free ID verified** on OpenCode Zen.
-- **Qualitative signals only (TOKRACE, 2026-10-10/20, single endpoint):**
-  15/15 short text tasks passed in both thinking modes; 2 of 3 small JS
-  coding tasks passed predeclared checks (the third hit a 4096-token output
-  budget); SVG renders mixed (1 of 4 renderable with thinking disabled);
-  median first-content 4.51 s (thinking) / 1.22 s (disabled) with slow-tail
-  observations up to 37.6 s and two 180 s timeouts on thinking-mode SVG jobs.
-  No official benchmark figures, no MRCR/RULER, no SWE-bench, no GPQA —
-  nothing that can anchor a normalized 1–100 score.
-- **Re-evaluation trigger:** any published official benchmark table or
-  independent leaderboard entry (Artificial Analysis, SWE-bench, LiveCodeBench)
-  for `LongCat-2.5-Preview` justifies re-research into a scored report.
-
----

@@ -50,6 +50,11 @@ are not supported` on any text-only turn. Therefore, during an active task:
 - Draft each file fully before writing — one write call = one done state,
   never write-then-overwrite. Chain shell commands with `;` / `&&` into a
   single call.
+- **A failed search is not a dead end.** `402`/quota/outage → one simpler
+  retry, then `webfetch` the known official URL, then shell `curl`/
+  `Invoke-WebRequest`; cite only what was actually fetched. Never substitute
+  local files (peer findings, generated data, `meta.json`/`average.md`) for
+  public-web evidence — full rule: `RULES.md` § *Web-research fallback*.
 
 ## Rule 4 — No builds mid-task; final handover only
 
@@ -86,6 +91,7 @@ instead (same steps via `node <bin>`, same output).
 | Read one file (any range) | 1 | Targeted ranges save TPM |
 | Write / create one file | 1 | Draft fully before calling |
 | Web search | 1 | — |
+| Web fetch fallback (search `402`/quota/outage) | 1 | `webfetch`/`curl` the known official URL once — never loop the failed search |
 | List directory | 1 | Skip if already known |
 | Terminal builds (`pnpm sync` / `pnpm build`) | **0 (Skipped)** | Delegate to user at completion |
 | Reasoning / thinking (no tool) | **0** | Use generously, inside reasoning |

@@ -1,0 +1,52 @@
+# Exo Free — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUDED (`.md.excluded`): no verified public benchmark number was found for this model
+> in this research pass, so no score is published. Notes below are negative findings only.
+
+- Source: OpenCode Zen stealth route (`opencode/exo-free`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Exo Free (`exo-free`)
+- **Short description:** A free stealth chat model briefly served by OpenCode Zen in October 2026 and then deprecated; no vendor was ever attributed and no model card was published.
+- **Provider / access:** OpenCode Zen `opencode/exo-free` (catalog id `exo-free`); **deprecated** — OpenCode issue #54065 (2026-10-09) reports `"Model exo-free has been deprecated."` while the catalog still listed it.
+- **Release / knowledge:** first observed in models.dev (opencode) on 2026-10-06 22:54 UTC; deprecated by 2026-10-09; knowledge cutoff not published.
+- **IDs:** `opencode/exo-free`
+- **Context window:** 1,048,576 tokens (models.dev sweep record).
+- **Modalities:** text in / text out (no modality rows published).
+- **Pricing (as of 2026-11-12):** $0 / $0 per 1M (models.dev listing); free-tier data-use terms unknown.
+- **Architecture:** undisclosed stealth weights; no attribution, parameter count or licence published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / MCP-Atlas / SWE Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / AA Intelligence Index / BenchLM: **not indexed; no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- No retrieval figures for the claimed 1M window.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded per `model-report-TEMPLATE.md` (zero verified benchmark numbers for this exact model). Scores inside this file are ignored by `pnpm sync`.
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12 UTC
+- Method: public internet research (models.dev catalog sweep record, OpenCode issue tracker, OpenCode Zen docs); the model was withdrawn before any evaluation was published, so the file stays excluded.
+- Reference URLs:
+  - [OpenCode issue #54065 — "Model exo-free has been deprecated"](https://github.com/anomalyco/opencode/issues/54065)
+  - [ArtificialWatch — exo-free radar record (1,048,576 ctx, $0/$0)](https://artificialwatch.com/wire/radar-opencode-exo-free)
+  - [OpenCode Zen docs — free models and deprecation policy](https://opencode.ai/docs/zen)

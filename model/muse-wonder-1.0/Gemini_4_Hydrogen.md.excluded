@@ -1,0 +1,38 @@
+# Muse Wonder 1.0 — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Meta (`muse-wonder-1-0`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Wonder 1.0
+- **Short description:** Meta's proprietary multimodal reasoning model (tracked on Artificial Analysis under `muse-wonder` / Muse Wonder Max).
+- **Provider / access:** Meta API.
+- **Release / knowledge:** 2026-10-12 release.
+- **IDs:** `meta/muse-wonder-1-0` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens.
+- **Modalities:** Text, image, speech, and video input; text output.
+- **Pricing (as of 2026-11-13):** $4.00 / 1M input tokens, $20.00 / 1M output tokens (via `muse-wonder`).
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (no separate `muse-wonder-1-0` entry on Artificial Analysis)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `muse-wonder-1-0` as a distinct entry on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores for this distinct slug.
+- Reference URLs:
+  - [Artificial Analysis — Muse Wonder](https://artificialanalysis.ai/models/muse-wonder)

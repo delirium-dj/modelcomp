@@ -58,7 +58,22 @@
 
 - `grok-code-fast-1` -> `grok-build-0.1` — docs.x.ai alias of grok-build-0.1 — never a folder; alias-measured figures are lineage data, cited only labelled with the measured ID
 
-## Merged-and-deleted duplicate findings-file stems — never recreate
+## Mirror-routed slugs - never under model/, live in a domain tree
+
+- `glm-5.3-flashx-legal` -> `models_legal/glm-5.3-flashx-legal` — legal-domain routing (RULES.md § Legal domain routing): Z.ai's legal-specialised variant of GLM-5.3-FlashX (legal mid-training + RL post-training on legal-workflow environments), living under models_legal/glm-5.3-flashx-legal/, NEVER under model/. A duplicate under model/ is blocked by MIRROR_ROUTED_SLUGS and rejected by pnpm sync.
+- `ling-3.0-flash-fin` -> `models_finance/ling-3.0-flash-fin` — finance domain routing (RULES.md, `-fin` suffix) — lives in models_finance/, never under model/. Its `-free` tier was merged into it on user order 2026-11-10 (see model-aliases.generated.md); the mirror tree is unscored by pnpm sync today (audit E2)
+- `ling-3.0-flash-sante` -> `models_health/ling-3.0-flash-sante` — health domain routing (RULES.md, `-sante` suffix) — lives in models_health/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gemini-3.8-flash-cyber` -> `models_cybersecurity/gemini-3.8-flash-cyber` — cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-5.6-cyber` -> `models_cybersecurity/gpt-5.6-cyber` — cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gemini-3.8-live` -> `models_voice/gemini-3.8-live` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-live-1-astra` -> `models_voice/gpt-live-1-astra` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-realtime-2` -> `models_voice/gpt-realtime-2` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-realtime-2.1` -> `models_voice/gpt-realtime-2.1` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-realtime-translate` -> `models_voice/gpt-realtime-translate` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `gpt-realtime-whisper` -> `models_voice/gpt-realtime-whisper` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+- `grok-voice-think-fast-2.0` -> `models_voice/grok-voice-think-fast-2.0` — voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)
+
+## Merged-and-deleted duplicate findings-file stems - never recreate
 
 - `Laguna_XS_2_1` -> `Laguna_XS_2.1` — underscore-version spelling of Laguna_XS_2.1 (one rater, two spellings, silent double-count risk); merged + deleted 2026-10-08
 - `Mimo_v2.6_Flash` -> `MiMo_2.6_Flash` — spelling variant of MiMo_2.6_Flash (same Xiaomi rater, lowercase + _v2.6); merged + deleted 2026-10-09

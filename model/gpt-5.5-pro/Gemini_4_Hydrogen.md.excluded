@@ -1,0 +1,38 @@
+# GPT-5.5 Pro — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: OpenAI (`gpt-5-5-pro`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.5 Pro
+- **Short description:** OpenAI's proprietary reasoning model with a 922k-token context window.
+- **Provider / access:** OpenAI API (`gpt-5-5-pro`).
+- **Release / knowledge:** 2026-04-23 release; knowledge cutoff not publicly specified.
+- **IDs:** `openai/gpt-5.5-pro` (no Free ID on OpenCode Zen)
+- **Context window:** 922k tokens input, verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output; reasoning enabled.
+- **Pricing (as of 2026-11-13):** Not listed on Artificial Analysis.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `gpt-5-5-pro` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — GPT-5.5 Pro](https://artificialanalysis.ai/models/gpt-5-5-pro)

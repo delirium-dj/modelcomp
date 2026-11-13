@@ -1,0 +1,39 @@
+# Claude Opus 4.8 — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Anthropic (`claude-opus-4-8`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 4.8
+- **Short description:** Anthropic's deprecated Opus-tier reasoning model with a 1M-token context window and 128K max output; superseded by Claude Opus 5 and 5.5.
+- **Provider / access:** Anthropic Messages API (`claude-opus-4-8`, 7 API providers tracked on Artificial Analysis).
+- **Release / knowledge:** 2026-05-28 release; deprecated on Artificial Analysis in favor of Claude Opus 5.
+- **IDs:** `anthropic/claude-opus-4-8` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input / 128K tokens max output, verified via Anthropic docs and Artificial Analysis.
+- **Modalities:** Text and image input; text output; adaptive reasoning enabled.
+- **Pricing (as of 2026-11-13):** $5.00 / 1M input tokens, $25.00 / 1M output tokens (90% cache discount; $3.85/1M blended 7:2:1).
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `claude-opus-4-8` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis and Anthropic documentation; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — Claude Opus 4.8](https://artificialanalysis.ai/models/claude-opus-4-8)
+  - [Anthropic Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview)

@@ -1,0 +1,51 @@
+# Owo 2.5 — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUDED (`.md.excluded`): no verified public data of any kind was found for this model
+> in this research pass, so no score is published. Notes below are negative findings only.
+
+- Source: unknown / unattributed (`owo-2.5`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Owo 2.5 (`owo-2.5`)
+- **Short description:** No public description could be verified. Searches on the exact string `owo-2.5` (DuckDuckGo web index, quoted and unquoted) return zero model cards, zero tracker pages, zero vendor announcements and zero API listings; the only "OwO" hits are unrelated Discord bot repositories.
+- **Provider / access:** none verified. The slug does not appear in the OpenCode Console model list, the Mistral/Z.ai/Alibaba/Google/NVIDIA catalogues checked, or any gateway listing surfaced in this pass.
+- **Release / knowledge:** unknown.
+- **IDs:** none verified (no `vendor/owo-2.5` route found).
+- **Context window:** not published / not found.
+- **Modalities:** unknown.
+- **Pricing (as of 2026-11-12):** not found.
+- **Architecture:** unknown.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR / AA Intelligence Index / BenchLM: **not indexed; no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found**
+
+Long context:
+
+- No data.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded per `model-report-TEMPLATE.md` (zero verified evidence for this identity). Scores inside this file are ignored by `pnpm sync`.
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12 UTC
+- Method: public internet research (exact-string web search, OpenCode Console catalogue, gateway catalogues). No attributable model, route or benchmark could be found; the folder's premise stays unverified and the file stays excluded. Flagged for the orchestrator: if this slug is a stealth codename that has since been revealed, it should be merged into the revealed model's folder per `RULES.md` (revealed-stealth identity), not researched here.
+- Reference URLs:
+  - [OpenCode Console models (no `owo` entry)](https://opencode.ai/docs/zen)
+  - [DuckDuckGo exact-string search — no results for "owo-2.5"](https://duckduckgo.com/html/?q=%22owo-2.5%22)

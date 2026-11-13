@@ -1,0 +1,39 @@
+# Kimi K3 — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Moonshot AI / Kimi (`kimi-k3`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Kimi K3
+- **Short description:** Moonshot AI's deprecated open-weights MoE reasoning model (2.8T total / 104B active parameters) with a 1M-token context window; superseded by Kimi K3.1 Pro.
+- **Provider / access:** Moonshot AI API (`kimi-k3`), Hugging Face (`moonshotai/Kimi-K3`), and 14 API providers tracked on Artificial Analysis.
+- **Release / knowledge:** 2026-07-16 release; deprecated on Artificial Analysis in favor of Kimi K3.1 Pro.
+- **IDs:** `kimi/kimi-k3` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input, verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output; reasoning enabled.
+- **Pricing (as of 2026-11-13):** $3.00 / 1M input tokens, $15.00 / 1M output tokens (90% cache discount; $2.31/1M blended 7:2:1).
+- **Architecture:** Mixture of Experts (MoE), 2.8T total / 104B active parameters; open weights under Kimi K3 License (commercial use with restrictions).
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `kimi-k3` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — Kimi K3](https://artificialanalysis.ai/models/kimi-k3)
+  - [Hugging Face — moonshotai/Kimi-K3](https://huggingface.co/moonshotai/Kimi-K3)

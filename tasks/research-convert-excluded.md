@@ -32,9 +32,15 @@ For each `model/<slug>/<STEM>.md.excluded`:
 1. **Identify (read-only):** read the twin, that folder's `meta.json`, and
    `average.md` to identify the model. Never copy the twin's scores or its
    (possibly placeholder) numbers.
-2. **Research — minimum bar:** perform AT LEAST 5 independent web searches, of
-   which AT LEAST 3 must be *successful* (a page with concrete model specs or
-   benchmark numbers for THIS exact model/ID). Prioritize, in order:
+2. **Research — minimum bar:** perform AT LEAST 5 independent web research
+   attempts, of which AT LEAST 3 must be *successful* (a page with concrete
+   model specs or benchmark numbers for THIS exact model/ID). A direct
+   `webfetch`/`curl` of a known official or leaderboard URL counts as a
+   successful attempt; a search that returns `402`/quota/outage does NOT. When
+   search fails, follow `RULES.md` § *Web-research fallback* — one simpler
+   retry, then direct fetches — and never substitute local repo files (peer
+   findings, `model-comparison.md`, generated data, `meta.json`) for
+   public-web evidence. Prioritize, in order:
    (a) official model card / docs / API reference from the vendor;
    (b) independent benchmarks — Artificial Analysis, BenchLM, Epoch AI, Vals AI,
        SWE-bench, Terminal-Bench, LiveCodeBench, GPQA Diamond, MMLU-Pro, HLE.

@@ -1,5 +1,122 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-13 — MIRROR_ROUTED_SLUGS guard: mirror-routed models can no longer also exist under model/
+
+1. **The question, verified rather than assumed.** After routing `glm-5.3-flashx-legal` to `models_legal/`, the
+   user asked whether anything prevents a future research agent from re-creating `model/glm-5.3-flashx-legal/`.
+   I simulated it and checked **every** gate the repo has — `hyphenVersionViolation`,
+   `dottedParamSizeViolation`, `MERGED_MODEL_SLUGS`, `DELETED_PHANTOM_SLUGS`, `RETIRED_ALIAS_SLUGS`,
+   `RETIRED_SLUGS`, `CASE_LAW_NOTES` — and **all seven returned NO**. Nothing fired. The answer was a clear
+   no, and the same test showed this is a **pre-existing gap affecting every mirror-tree model**, not something
+   the move introduced: `ling-3.0-flash-fin`, `ling-3.0-flash-sante`, `gemini-3.8-flash-cyber`,
+   `gpt-5.6-cyber` and `gemini-3.8-live` were all equally unprotected.
+2. **Why the gap existed.** `pnpm sync` builds `slugs` from `model/` only and `src/data/models.ts` globs only
+   `model/*/meta.json`, so mirror-tree models are invisible to scoring and the site today (audit E2). The
+   mirror trees are recognised in code (`MIRROR_ROOTS`, the catalog scan, the phantom-guard roots) but none of
+   the five forbidden-identity lists expresses "routed to a mirror tree", so `buildAliasesFile`
+   (`validate.mjs:898`) — the generator of `model-aliases.generated.md`, the ONE roster research agents read —
+   had nothing to render and sync would simply scaffold, score and queue a duplicate under `model/`. I
+   deliberately did **not** force this into `MERGED_MODEL_SLUGS`, because `mergedSlugMessage` hardcodes
+   `model/<canonical>/` and would emit a FAIL pointing at a folder that no longer exists.
+3. **New guard (user order 2026-11-13).** `MIRROR_ROUTED_SLUGS` (validate.mjs) maps each routed slug to its
+   destination tree, covering **all 12 mirror-tree folders** — `models_legal` 1, `models_finance` 1,
+   `models_health` 1, `models_cybersecurity` 2, `models_voice` 7 — with a dedicated `mirrorRoutedMessage` that
+   names the real path (`model/<slug>/: this model is routed to models_legal/<slug>/ by its domain-routing
+   rule — never scaffold it under model/; research/report under models_legal/<slug>/ instead`). Wired into
+   `sync-data.mjs` with exactly the same hardening as the hyphen / merged / phantom gates: **FAIL** on the
+   folder, never cement (no meta scaffold, no average rewrite, no score-index or registry input), never a
+   rater, never the catalog entry, and a SKIP log line. It also renders into `model-aliases.generated.md` as a
+   new "Mirror-routed slugs — never under model/" section, each with a `CASE_LAW_NOTES` entry, so research
+   agents see the redirect in the ONE roster *before* a folder is ever created. Five new tests, including one
+   that cross-checks the map against the mirror trees on disk in both directions (nothing uncovered, nothing
+   stale) and one asserting every routed slug stays out of the three neighbouring forbidden lists.
+   **Tests 697 → 702, all green.**
+4. **The guard immediately caught a real resurrection.** The post-change sweep across all six trees
+   flagged `model/longcat-2.5-preview` as `MERGED` — the swarm had re-created the slug I merged into
+   `longcat-2.5` the previous day. Its single file, `GLM_5.3_Flash.md` (2026-11-13), was folded into
+   `model/longcat-2.5/` newest-wins (dest was 2026-10-16) and the folder removed; `model/` is back to **220
+   folders with zero FAIL-gate violations**. The same sweep confirms no mirror-routed slug is present under
+   `model/`, the map agrees with the 12 on-disk mirror folders in both directions, and the roster renders
+   **12 of 12** rows with **0** missing case notes.
+5. **Live evidence that the gap was real.** During this task a research swarm re-created
+   `model/glm-5.3-flashx-legal/` **twice more** after the move (a `Flint.md` straggler and then a
+   `MiniMax_M3.1_Flash.md`, 2026-11-13, which won newest-wins against the 2026-11-12 copy). Both had to be
+   reconciled by hand. With the guard wired, the third occurrence would now FAIL `pnpm sync` instead.
+6. **What this does NOT fix.** `RULES.md` still carries **no legal routing rule** — zero mentions of `legal` —
+   so the roster entry for `glm-5.3-flashx-legal` documents a routing the ultimate-authority file does not yet
+   state; that is flagged inside the `CASE_LAW_NOTES` entry itself. It also does not wire audit **E2** (mirror
+   trees unscored by sync, invisible to the site), so the model remains off the site with a frozen
+   `average.md` at Overall 83. Both remain user-owned decisions.
+   Next: user runs `pnpm sync && pnpm build.types:direct && pnpm build:direct`. Expect sync to report **220**
+   model folders and a new "Mirror-routed slugs" section in `model-aliases.generated.md` listing all 12
+   routed models.
+
+## 2026-11-13 — glm-5.3-flashx-legal routed to models_legal/ (legal-domain routing) + dotted-param catalog-gap fix
+
+1. **The question.** Should `glm-5.3-flashx-legal` live in a separate legal-domain tree rather than
+   `model/`? Answer: **yes by the routing pattern — and it was already half-done.** Investigation found
+   `models_legal/glm-5.3-flashx-legal/` already existed on disk (6 files, Overall 81, 1 qualifying rater,
+   committed and clean) *alongside* `model/glm-5.3-flashx-legal/` (18 files, Overall 83, 3 qualifying
+   raters, live in the queue and on the site). One model, two trees — the same duplicate-folder class this
+   repo has now resolved four times (`ling-3.0-flash-fin-free`, `qwen-3.8-2400b-a95b`, `owl-alpha`,
+   `gemma-4.12b-unified`).
+2. **Why the routing is correct.** RULES.md's domain rules all share one shape: a model *designed
+   specifically for* a domain, identified by a domain suffix, moving to a mirror tree instead of `model/`.
+   `glm-5.3-flashx-legal` matches exactly — Z.ai's legal-domain adaptation of GLM-5.3-FlashX with
+   legal-domain mid-training plus RL post-training in task environments modelled on real legal workflows
+   (contract review, legal research, cross-document consistency checks, drafting), `-legal` suffix, standing
+   in the same relation to `glm-5.3-flashx` as `ling-3.0-flash-fin` does to `ling-3.0-flash` and
+   `ling-3.0-flash-sante` to `ling-3.0-flash`.
+3. **Three findings the user should keep on the record.** (a) **RULES.md has no legal routing rule at all** —
+   zero mentions of `legal` in the file. `models_legal` is recognised in code (`MIRROR_ROOTS` in
+   validate.mjs:20, the catalog scan in sync-data.mjs:536, the phantom-guard roots in sync-data.mjs:451) and
+   the tree exists on disk, but the *rule authorising the routing does not exist*, and RULES.md is
+   precedence #1. (b) **The mirror trees are unwired — audit item E2 is PENDING**: `sync-data.mjs:230`
+   builds `slugs` from **`model/` only**, and `src/data/models.ts:248` globs `../../model/*/meta.json` only,
+   so mirror-tree models are invisible to both sync scoring and the site (the 9 folders E2 counts). This is
+   why `models_finance/ling-3.0-flash-fin/average.md` has been frozen at 2026-11-10 since the E1 merge.
+   (c) **`findMirror` (validate.mjs:495) sanctions deletions**: it treats a missing `model/<slug>/<file>` as
+   a sanctioned mirror move when the mirror tree has the file, so keeping both copies would have made any
+   future `model/` deletion silently pass instead of tripping the RULES.md permanence tripwire.
+4. **Route executed (user order 2026-11-13).** `model/glm-5.3-flashx-legal/` (18 files) folded into
+   `models_legal/glm-5.3-flashx-legal/` (6 files): **15 unique reports moved** (`Beam.md.excluded`,
+   `Big_Pickle`, `DeepSeek_4.1_Flash`, `Ernie_5.5_Flash`, `Gemini_3.5_Flash_Lite`, `GLM_5.3_Flash`,
+   `GPT_6_Astra`, `GPT_6.1_Sol.md.excluded`, `Inkling_2_Small`, `Laguna_XS_2.1`, `MiMo_2.6_Flash`,
+   `MiniMax_M3.1_Flash`, `Nemotron_3_Ultra_550B_A55B.md.excluded`, `Nemotron_3.5_Super_VL_120B_A12B`,
+   `Step_5_Preview`) plus a straggler `Flint.md` a research agent dropped into the old folder *after* the
+   move began; **`Gemini_3.8_Flash.md` was an exact tie** (2026-11-10 both) so the destination copy won and
+   the source copy was deleted; the duplicate `average.md` + `meta.json` were resolved — the **sync-maintained
+   source `average.md` (Overall 83, 3 qualifying raters, mtime 2026-11-12 12:31) was carried and the stale
+   destination one (Overall 81, 1 qualifying rater, frozen 2026-11-10) discarded**, with the H1 corrected to
+   the curated `GLM 5.3 FlashX Legal`. The now-empty `model/` folder was removed. **22 files** remain in
+   `models_legal/`. Full gate sweep across all six trees (232 folders): **violations NONE**.
+5. **Consequences, accepted explicitly by the user.** The model is no longer scored by `pnpm sync` and no
+   longer appears on the site — no card, no list row, no profile page, no queue entry — exactly like the
+   9 folders in audit E2. Its `average.md` is now frozen at Overall 83 (3 qualifying raters out of 12 live
+   reports) and will not be recomputed until E2 is wired. `models_legal/` is still returned by the catalog
+   scan (sync-data.mjs:536), so research agents' rater rows can still deep-link to the slug.
+6. **Open risk (documented, not fixable in code).** No code list protects mirror-tree models from being
+   re-scaffolded under `model/` — verified: `ling-3.0-flash-sante`, `gemini-3.8-flash-cyber`,
+   `gpt-5.6-cyber` and `gemini-3.8-live` appear in **no** list, and the protection is the RULES.md rule
+   alone (which for legal does not exist yet). One straggler (`Flint.md`, 2026-11-13) already landed in the
+   old `model/` path after the move started and was folded in. Until a legal routing rule is added to
+   RULES.md **and/or** a mirror-routing list is introduced, an agent can recreate `model/glm-5.3-flashx-legal/`
+   and split the model a third time. Closing this needs user direction: either the RULES.md rule, or wiring
+   E2 so mirror models are validated like `model/` ones.
+7. **Also fixed — a gap in my own guard work from 2026-11-12.** `dottedParamSlugs` was missing from the
+   catalog-exclusion loop in `sync-data.mjs:539-543`, so a resurrected `gemma-4.12b-unified` would still
+   have FAILed elsewhere but could still have entered the name→slug catalog. Added with the same comment
+   style as its five siblings. **697/697 tests green.**
+8. **Two process notes.** A write tool call resolved to a stray `E:\qwj\` path instead of the repo and
+   created a duplicate `meta.json` outside the tree; detected by verification, deleted, and rewritten to the
+   correct path. Concurrently an active research swarm was writing across the whole tree (a new
+   `model/gemini-4-hydrogen/` folder plus three new raters) — those files were left untouched, as they are
+   another agent's in-flight work, not this task's.
+   Next: user runs `pnpm sync && pnpm build.types:direct && pnpm build:direct`. Note sync will now report
+   **220** model folders instead of 221, `glm-5.3-flashx-legal` will disappear from the queue, and the
+   generated rosters will no longer carry it. Deciding whether to add the RULES.md legal routing rule and/or
+   wire audit E2 is the remaining open item.
+
 ## 2026-11-12 — gemma-4.12b-unified and gemma-4.26b-a4b merged into their hyphenated twins (over-normalized param sizes) + generic guard
 
 1. **Identity, and why the requested direction was reversed.** The user reported `gemma-4-12b-unified` /

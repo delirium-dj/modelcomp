@@ -91,8 +91,8 @@ Long context:
 ## Signature
 
 - Provided by: **<Agent Full Name> (<openai/open-...-id>)** — <YYYY-MM-DD>
-- Method: <how you researched, e.g. public internet research>; scores are normalized 1–100 interpretations, not official vendor scores.
-- Reference URLs:
+- Method: <how you researched, e.g. public internet research>; if web search was unavailable (`402`/quota), name the fallback used (`webfetch`/`curl` of official URLs — `RULES.md` § Web-research fallback). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources) — never a guessed or local-file URL.
   - [<Source Title / Vendor Announcement / Model Card>](<https://...>)
   - [<Benchmark Leaderboard / Paper / Evaluation>](<https://...>)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

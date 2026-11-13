@@ -120,6 +120,61 @@ override.
   `-sante`) lives under `models_health/<slug>/`, never under `model/<slug>/`.
   Same permanence and file conventions (sync/site wiring pending like
   `models_voice/`).
+- **Legal domain routing (absolute):** a model designed specifically for
+  legal tasks / law-practice reasoning (e.g. `glm-5.3-flashx-legal`, ending in
+  `-legal`) lives under `models_legal/<slug>/`, never under `model/<slug>/`.
+  Any `model/<slug>-legal/` folder on disk is a forbidden duplicate of
+  `models_legal/<slug>-legal/`: merge its contents into `models_legal/<slug>-legal/`
+  and remove it from `model/`; `pnpm sync` FAILs loudly if any mirror-routed
+  slug reappears under `model/`. Same permanence and file conventions
+  (sync/site wiring pending like `models_voice/`).
+
+## Web-research fallback (absolute — a search outage never means local shortcuts)
+
+- **A broken search tool never lowers the evidence standard.** When web search
+  fails — HTTP `402 Payment Required`, quota/auth errors, `429`, provider
+  outage, empty results — switch to another **live public-web** route, never to
+  a local one. Forbidden substitutes in every research/audit task: peer findings
+  files (`model/<slug>/*.md`), `model-comparison.md`, `model-findings.md`,
+  `src/data/*.generated.ts`, `model-queue.md` scores, `meta.json` /
+  `average.md` fields, `REPORT.md`, or any other repository copy of the
+  dataset. Those files are inputs for **procedure only** (queue order, identity
+  roster, model identification by name/publisher, template, the provider card
+  being audited) — never a source for scores, benchmark numbers, pricing,
+  context windows, or factual claims.
+- **Fallback ladder (cheapest rung first, one call per attempt):**
+  1. Re-issue the search once with a simpler / exact-model-name query — a bare
+     `402` is often per-request or per-provider; never loop the same search.
+  2. Fetch the known official URL directly with `webfetch`: vendor model card,
+     docs / API reference, pricing page, release post, benchmark leaderboard,
+     Hugging Face model card, Artificial Analysis / BenchLM page — search is
+     unnecessary when the URL is known.
+  3. If `webfetch` itself fails, fetch over HTTP from the shell — `curl`
+     (or `Invoke-WebRequest` / `Invoke-RestMethod` in Windows PowerShell),
+     writing large bodies to a `temp/` file; one batched shell call per
+     `.agents/gemini-rate-limits.md` Rule 3.
+  4. Use an alternative live route to the same primary claim — another
+     aggregator / leaderboard / vendor mirror, a public search page fetched
+     directly (Bing / DuckDuckGo HTML / Google), or a site-specific search page
+     (Hugging Face, GitHub, leaderboard filters) — then cite the URL actually
+     read. A secondary page beats no page; it never silently replaces the
+     primary figure — label provenance.
+- **Cite what you fetched, not what you searched for.** `- Reference URLs:`
+  lists only URLs actually retrieved this pass; a guessed or recalled URL is
+  not evidence. `Method:` names the fallback used when search was unavailable.
+- **No evidence means no scored report — never a fabricated or copied one.**
+  If the model's pages stay unreachable after the ladder, write `no verified
+  public score found` where a specific figure is missing, or self-exclude as
+  `<STEM>.md.excluded` (notes only, name the access failure) when zero
+  verified benchmarks exist (`tasks/research.md` Step 3 / rule 9). Never fill
+  the gap from memory, a sibling SKU, or a local file.
+- **A blocked search is not a stop condition by itself.** Keep working the
+  queue through the ladder. If at least three consecutive folders are blocked
+  with search **and** direct fetch **and** shell fetch failing, end the run
+  with an explicit `WEB-ACCESS-BLOCKED` summary (what failed, which folders,
+  what was attempted) instead of manufacturing entries — the orchestrator
+  re-delegates the same STEM when access returns (resume-safe: written files
+  are skipped).
 
 ## Identity rules (general — every specific case lives in the generated roster)
 

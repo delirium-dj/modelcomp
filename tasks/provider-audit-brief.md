@@ -96,6 +96,10 @@ for the operator before the next pair.
 ## 4. Never-do (absolute)
 
 - Never fabricate a number, model, or deal. Unverified → report it, don't invent.
+- **Search 402/quota/outage:** fetch the provider's own pricing/docs/FAQ/rate-
+  limits pages directly (`WebFetch`, then `curl`/`Invoke-WebRequest`); the card
+  is the claim, never its own evidence. Cite only pages actually opened; still
+  unverifiable → `Unverified:` line (`RULES.md` § Web-research fallback).
 - Never present a promo/flash sale as a permanent price (RULES.md permanence).
 - **JSON gotcha:** inside strings `$` needs NO escape — `\$` is invalid and
   breaks the file. After each edit validate:

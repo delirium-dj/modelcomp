@@ -1,35 +1,43 @@
 # Agnes 2.5 Flash — findings by Ernie 5.5 Flash
 
-> SELF-EXCLUSION — `.md.excluded` on purpose: BenchLM has no profile (HTTP 404),
-> models.dev carries only catalogue facts, and no vendor benchmark table was
-> reachable. No scored report (template SELF-EXCLUSION; QUAR would quarantine).
-
-- Source: Agnes/Agnes 2.5 Flash (`agnes-2.5-flash`)
-- Date: 2026-11-12 (UTC)
+- Source: Agnes AI/Agnes 2.5 Flash (`agnes-2.5-flash`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Agnes 2.5 Flash
-- **Short description:** An upgraded Agnes model (2026-07) with improved coding, agent workflows, tool calling and multimodal understanding.
-- **Provider / access:** `agnes/agnes-2.5-flash` — the only catalogued route.
+- **Short description:** Agnes AI's July 2026 generally-available upgrade of Agnes 2.0 Flash — an API-only model focused on coding, agent workflows, tool calling and image understanding, positioned as a free/indefinite-cost tier for everyday development.
+- **Provider / access:** Agnes API (`https://apihub.agnes-ai.com/v1`, model `agnes-2.5-flash`) with OpenAI Chat Completions, Responses and Anthropic Messages compatibility; aihubmix gateway ($0.03/$0.15). No open weights.
 - **Release / knowledge:** 2026-07; knowledge cutoff not published.
-- **IDs:** `agnes-2.5-flash`.
-- **Context window:** 512,000 tokens (models.dev); max output 65,536.
-- **Modalities:** text and image in; text out; tool calls and reasoning.
-- **Pricing (as of 2026-11-11/12):** not published ($0/$0 catalogue placeholder).
-- **Architecture:** undisclosed.
+- **IDs:** `agnes-2.5-flash`; the Base checkpoint (`Agnes-2.5-Flash-Base`, ~190 GB FP8) exists on Hugging Face but the served model is the API checkpoint.
+- **Context window:** 512K tokens; max output 65.5K.
+- **Modalities:** text and image (public `image_url`) in, text out; thinking mode (`enable_thinking` / Anthropic `thinking.budget_tokens`); tool calling (`tools`/`tool_choice`); streaming; JSON via OpenAI-compatible structured output.
+- **Pricing (as of 2026-11-13):** $0.05 in / $0.15 out per 1M, cached input $0.005 — free during the Angel User trial / free-tier promotion; aihubmix $0.03/$0.15.
+- **Architecture:** undisclosed (sparse MoE per the Base repo landing page; served checkpoint proprietary).
 
 ### Raw benchmarks found
 
-Agent / tool use: no verified public score found for this exact model ID
+> No vendor benchmark table exists for this model. Agnes's docs and the third-party trackers (modelbenchmark.io, LLM Releases) carry no per-benchmark rows; a Chinese hands-on review (aiinking.com) reports only qualitative coding tests, explicitly claiming "SWE Atlas" improvement over 2.0 Flash without publishing a number.
 
-Reasoning / knowledge: no verified public score found for this exact model ID
+Agent / tool use:
 
-Coding: no verified public score found for this exact model ID
+- Terminal-Bench 2.1 / Tau2 / GDPval / Claw-Eval / Toolathon: no verified public score found
+- Tool calling supported (`tools`/`tool_choice`, multi-step agent workflows per vendor docs); no agentic benchmark row published
 
-Long context: 512K declared; no MRCR / RULER / GraphWalks row published
+Reasoning / knowledge:
+
+- GPQA / HLE / MMLU-Pro / AA Intelligence Index: no verified public score found
+- Thinking mode with adjustable budget is the only reasoning-related spec published
+
+Coding:
+
+- SWE-bench Verified / SWE Atlas / LiveCodeBench / DeepSWE: no verified public score found — the aiinking.com review claims SWE Atlas gains vs 2.0 Flash but publishes no value
+
+Long context:
+
+- 512K declared; no MRCR / RULER / GraphWalks row published.
 
 ### Normalized scores (1–100)
 
@@ -41,19 +49,22 @@ Long context: 512K declared; no MRCR / RULER / GraphWalks row published
 - **Cost efficiency: no verified public score found**
 - **Overall Score: no verified public score found**
 
-## Search notes
+## Search notes (why self-excluded)
 
-- `benchlm.ai/models/agnes-2-5-flash` → HTTP 404. models.dev has catalogue facts only (512K context, text+image in, 2026-07).
-- No vendor model card, blog or spec sheet with a benchmark table was reachable in this pass.
-- Resolution: spec facts above are catalog-verified; the benchmark columns stay empty.
+- Agnes's own docs (wiki.agnes-ai.com) publish specs, endpoints and pricing but **zero benchmark rows**.
+- modelbenchmark.io carries the spec sheet (512K ctx, $0/free pricing, text+image in) and no scores; LLM Releases has no Agnes 2.5 entry with figures.
+- The aiinking.com hands-on review (2026-07-16) is qualitative only (bug-fix, full-stack build, refactor demos) and names "SWE Atlas" without a number — not a usable benchmark row.
+- BenchLM: no profile (404, prior pass). The Agnes 3.0 Flash Preview table (GPQA 85.05 etc.) is a different checkpoint and was deliberately **not** transferred.
+- Resolution: catalog-verified specs above; every score column stays empty until Agnes publishes a per-benchmark table for this exact ID.
 
 ---
 
 ## Signature
 
-- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12
-- Method: public internet research (BenchLM, models.dev, vendor index); no verified benchmark row, so self-excluded.
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-13
+- Method: public internet research (Agnes AI docs, modelbenchmark.io, LLM Releases, aiinking.com hands-on review); no verified per-benchmark row for this exact ID, so the file stays self-excluded.
 - Reference URLs:
-  - [models.dev provider catalog](https://models.dev)
-  - [Agnes models — OpenRouter](https://openrouter.ai/agnes)
-- Future sources: add `Agnes_2.5_Flash.md` next to this file once a row exists.
+  - [Agnes 2.5 Flash — Agnes AI docs](https://wiki.agnes-ai.com/en/docs/agnes-25-flash)
+  - [Agnes 2.5 Flash — modelbenchmark.io spec sheet](https://modelbenchmark.io/models/agnes-2-5-flash)
+  - [Agnes-2.5-Flash-Base — GitHub landing page](https://github.com/AgnesAI-Labs/Agnes-2.5-Flash-Base)
+- Future sources: add a new file next to this one, e.g. `Ernie_5.5_Flash_v2.md`, once a per-benchmark row exists.

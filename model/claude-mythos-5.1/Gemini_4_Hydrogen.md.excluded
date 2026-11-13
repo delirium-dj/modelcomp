@@ -1,0 +1,38 @@
+# Claude Mythos 5.1 — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Anthropic (`claude-mythos-5-1`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Mythos 5.1
+- **Short description:** Anthropic's limited-availability model (available only to organizations verified through Anthropic's Cyber Verification Program), with a 1M-token context window and 128K max output.
+- **Provider / access:** Anthropic Messages API (`claude-mythos-5-1`, limited availability).
+- **Release / knowledge:** 2026 release; limited availability.
+- **IDs:** `anthropic/claude-mythos-5-1` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input / 128K tokens max output, verified via Anthropic Models Overview.
+- **Modalities:** Text and image input; text output; adaptive reasoning enabled; tool calls supported.
+- **Pricing (as of 2026-11-13):** $10.00 / 1M input tokens, $50.00 / 1M output tokens.
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `claude-mythos-5-1` (limited-availability model not listed on Artificial Analysis).
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Anthropic Models Overview and Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Anthropic Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview)

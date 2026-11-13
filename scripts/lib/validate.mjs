@@ -20,6 +20,64 @@ import { RETIRED_SLUGS } from "./average.mjs";
 export const MIRROR_ROOTS = ["models_voice", "models_finance", "models_cybersecurity", "models_health", "models_legal"];
 
 /**
+ * Mirror-routed slugs: models whose RULES.md domain-routing rule (voice /
+ * finance / cybersecurity / health / legal) moves them OUT of `model/` into a
+ * mirror tree. Values are the destination tree, so messages and roster entries
+ * can name the real path.
+ *
+ * Why this list has to exist at all: `pnpm sync` builds `slugs` from `model/`
+ * only (sync-data.mjs) and `src/data/models.ts` globs only the per-slug
+ * `meta.json` files under `model/`, so mirror-tree models are invisible to
+ * scoring and the site today
+ * (audit item E2). The mirror trees themselves are recognised in code
+ * (MIRROR_ROOTS above, the catalog scan, the phantom-guard roots), but until
+ * 2026-11-13 NOTHING stopped a folder of the same slug from also appearing
+ * under `model/` - which would split one model across two trees, double-count
+ * it in the queue, and put a card on the site for a model that is supposed to
+ * be hidden. That is exactly what happened to `glm-5.3-flashx-legal`: it was
+ * routed to `models_legal/` on 2026-11-13 while a research swarm kept dropping
+ * reports into the old `model/` path, and both copies had to be reconciled by
+ * hand.
+ *
+ * Enforcement mirrors the hyphen / merged / phantom gates exactly: sync FAILs,
+ * cements nothing (no meta scaffold, no average rewrite, no score-index or
+ * registry input), skips the folder for the rater loop, and never lets it
+ * become a catalog entry. The map also renders into
+ * model-aliases.generated.md, the ONE roster research agents read, so the
+ * redirect is caught before a folder is even created.
+ */
+export const MIRROR_ROUTED_SLUGS = new Map([
+  // Legal domain (Z.ai domain-specialised variant of GLM-5.3-FlashX). NOTE:
+  // RULES.md carries no legal routing rule yet - this entry enforces the
+  // routing the user ordered on 2026-11-13 and the roster documents it, but
+  // the rule itself is still owed in RULES.md (precedence #1).
+  ["glm-5.3-flashx-legal", "models_legal"],
+  // Finance domain (RULES.md finance routing: `-fin` suffix).
+  ["ling-3.0-flash-fin", "models_finance"],
+  // Health domain (RULES.md health routing: `-sante` suffix).
+  ["ling-3.0-flash-sante", "models_health"],
+  // Cybersecurity domain (RULES.md cyber routing: `-cyber` suffix).
+  ["gemini-3.8-flash-cyber", "models_cybersecurity"],
+  ["gpt-5.6-cyber", "models_cybersecurity"],
+  // Voice/speech domain (RULES.md voice routing: realtime / TTS / STT-first).
+  ["gemini-3.8-live", "models_voice"],
+  ["gpt-live-1-astra", "models_voice"],
+  ["gpt-realtime-2", "models_voice"],
+  ["gpt-realtime-2.1", "models_voice"],
+  ["gpt-realtime-translate", "models_voice"],
+  ["gpt-realtime-whisper", "models_voice"],
+  ["grok-voice-think-fast-2.0", "models_voice"],
+]);
+
+/** Exact FAIL text for a mirror-routed slug that reappeared under `model/`. */
+export function mirrorRoutedMessage(slug, tree) {
+  return (
+    `model/${slug}/: this model is routed to ${tree}/${slug}/ by its domain-routing rule - never scaffold it under model/; ` +
+    `research/report under ${tree}/${slug}/ instead`
+  );
+}
+
+/**
  * Forbidden duplicate roots: retired names that must never be recreated
  * (e.g. `voicemodels/` is the pre-2026-09-28 name of `models_voice/`).
  * Sync FAILs loudly while one exists on disk so the duplicate can never be
@@ -839,6 +897,20 @@ export const CASE_LAW_NOTES = new Map([
   ["owl-alpha", "Meituan LongCat's anonymous OpenRouter stealth listing (`openrouter/owl-alpha`, free, 1,048,576 ctx, native tool calling, Claude Code + OpenClaw), live 2026-04-28 and revealed 2026-06-29 when Meituan confirmed LongCat-2.0 as the model behind it (GA shipped 2026-06-30, MIT weights 2026-07-12; Artificial Analysis benchmarks it under the revealed name and the LongCat API docs carry an example response self-identifying as `OWL`). Same 1.6T/48B MoE, LongCat Sparse Attention, native 1M window, text-only — one model, two folders, so the alias folder was merged into model/longcat-2.0/ on user order 2026-11-12 (12 unique files moved, 13 collisions resolved newest-wins, 35 losers deleted) per RULES.md revealed-stealth merge rule. Canonical meta `aliases` carry the stealth spelling so search by \"Owl Alpha\" resolves — research belongs in model/longcat-2.0/; never re-scaffold model/owl-alpha/"],
   ["gemma-4.12b-unified", "over-normalized dotted param size — not a version spelling. Google's IDs are `google/gemma-4-12B` (Hugging Face) and the Gemini/Gemma 4 family is E2B / E4B / 12B / 26B A4B / 31B, all PARAM SIZES; the arXiv technical report writes \"26B-A4B\" hyphenated. The dot in `4.12b` misreads \"Gemma 4, 12B params\" as \"Gemma 4.12\", and normalizeSlug correctly refuses to produce that shape (digits + b/B are a param count, never a version — naming.mjs), so the hyphen-version gate cannot catch it and sync scaffolded a duplicate folder (the 2026-10-05 misdrop recorded in sync-data.mjs). Folded into model/gemma-4-12b-unified/ on user order 2026-11-12 (24 unique reports moved, Laguna_XS_2.1.md overwritten newest-wins, 25 dotted copies deleted incl. the duplicate average.md + meta.json). Canonical meta `aliases` carry the dotted spelling so search resolves; `dottedParamSizeViolation` (naming.mjs, wired into sync-data.mjs) now FAILs the dotted form whenever its hyphenated twin is tracked — never re-scaffold model/gemma-4.12b-unified/"],
   ["gemma-4.26b-a4b", "over-normalized dotted param size of gemma-4-26b-a4b (Gemma 4, 26B total / 4B active MoE; vendor id `google/gemma-4-26b-a4b-it`, arXiv writes \"26B-A4B\"). Same mis-normalization as gemma-4.12b-unified: `4.26b` reads as version 4.26 where the vendor means a 26B param size, and the hyphen-version gate cannot catch a slug that is already dotted. All 49 findings in the dotted folder were exact date ties, so nothing moved and all 51 files were deleted; the canonical folder is unchanged at 37. Guarded by MERGED_MODEL_SLUGS and by `dottedParamSizeViolation` + its sync-data.mjs gate — never re-scaffold model/gemma-4.26b-a4b/"],
+  // ---- mirror-routed slugs (RULES.md domain routing; enforced by
+  // MIRROR_ROUTED_SLUGS so a folder can never also appear under model/) ----
+  ["glm-5.3-flashx-legal", "legal-domain routing (RULES.md § Legal domain routing): Z.ai's legal-specialised variant of GLM-5.3-FlashX (legal mid-training + RL post-training on legal-workflow environments), living under models_legal/glm-5.3-flashx-legal/, NEVER under model/. A duplicate under model/ is blocked by MIRROR_ROUTED_SLUGS and rejected by pnpm sync."],
+  ["ling-3.0-flash-fin", "finance domain routing (RULES.md, `-fin` suffix) — lives in models_finance/, never under model/. Its `-free` tier was merged into it on user order 2026-11-10 (see model-aliases.generated.md); the mirror tree is unscored by pnpm sync today (audit E2)"],
+  ["ling-3.0-flash-sante", "health domain routing (RULES.md, `-sante` suffix) — lives in models_health/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gemini-3.8-flash-cyber", "cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-5.6-cyber", "cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gemini-3.8-live", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-live-1-astra", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-realtime-2", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-realtime-2.1", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-realtime-translate", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-realtime-whisper", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["grok-voice-think-fast-2.0", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
 ]);
 
 /**
@@ -923,7 +995,11 @@ export function buildAliasesFile(retired = RETIRED_SLUGS, deleted = DELETED_PHAN
   for (const [slug, canonical] of MERGED_MODEL_SLUGS) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
   lines.push("", "## Retired vendor aliases — never a folder", "");
   for (const [slug, canonical] of RETIRED_ALIAS_SLUGS) lines.push(aliasEntry(slug, canonical, CASE_LAW_NOTES));
-  lines.push("", "## Merged-and-deleted duplicate findings-file stems — never recreate", "");
+  lines.push("", "## Mirror-routed slugs - never under model/, live in a domain tree", "");
+  for (const [slug, tree] of MIRROR_ROUTED_SLUGS) {
+    lines.push(aliasEntry(slug, `${tree}/${slug}`, CASE_LAW_NOTES));
+  }
+  lines.push("", "## Merged-and-deleted duplicate findings-file stems - never recreate", "");
   for (const [stem, canonical] of MERGED_SOURCE_STEMS) lines.push(aliasEntry(stem, canonical, CASE_LAW_NOTES));
   lines.push("", "## Alias-family records (kept tracked) — research under the listed folder only", "");
   for (const [slug, note] of TRACKED_ALIAS_NOTES) lines.push(`- \`${slug}\` — ${note}`);

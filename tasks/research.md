@@ -80,7 +80,10 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    models_cybersecurity/ / models_health/, never placed under model/ per RULES.md). When you reach a folder, check that one folder only — never pre-verify the whole queue.
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<subject>/<YOUR_STEM>.md immediately,
-   then advance. Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
+   then advance. If web search fails (402/quota/outage): one simpler retry, then
+   webfetch/curl the known official URLs directly (RULES.md § Web-research
+   fallback) — never substitute local repo files for public-web evidence.
+   Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
    Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
 4. Retired/parked/deleted/merged/alias identities are NEVER queued, researched, or
    written — their one roster is `model-aliases.generated.md` (repo root, auto-generated):
@@ -94,7 +97,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
 
 ### Step 1: Directory audit + ordering (2 calls — never a directory walk)
 
-> Production scope (user-directed, 2026-09-30): `model/` only; defer `models_voice/` scan. `RULES.md` voice routing stays absolute — never place voice/speech findings under `model/`; park voice discoveries for later instead of researching them now. The same absolute carve-out and park-instead-of-research behaviour applies to the `models_finance/`, `models_cybersecurity/` (`-cyber` suffix), and `models_health/` trees — none of them is scanned by `pnpm sync` or queued for research. Full mode (when re-enabled) covers `model/` and the mirror trees.
+> Production scope (user-directed, 2026-09-30): `model/` only; defer `models_voice/` scan. `RULES.md` domain routing stays absolute — never place voice/speech, finance, cybersecurity, health, or legal findings under `model/`; park domain discoveries for later instead of researching them now. The same absolute carve-out and park-instead-of-research behaviour applies to `models_legal/` (`glm-5.3-flashx-legal`), `models_finance/`, `models_cybersecurity/` (`-cyber` suffix), and `models_health/` trees — none of them is scanned by `pnpm sync` or queued for research under `model/`. Slugs in `MIRROR_ROUTED_SLUGS` (`model-aliases.generated.md`) must NEVER be scaffolded under `model/`. Full mode (when re-enabled) covers `model/` and the mirror trees.
 
 With 160+ folders on disk, auditing folder-by-folder costs more requests than most runtimes allow per minute. Do this instead — exactly two calls, then start writing:
 
@@ -184,7 +187,10 @@ For each queued slug, in order:
 1. **Target identification:** model name + publisher from `<slug>` and web search.
 2. **Independent research (ground up):**
    - Do NOT read peer report files (`model/<slug>/*.md` except `model-report-TEMPLATE.md`).
-   - Fresh public web search only. Forget/clear memory of previous results per folder.
+   - Fresh public web research only — web search, or direct `webfetch` / shell
+     `curl` of official URLs when search fails (`RULES.md` § Web-research
+     fallback). Local repo files are NEVER a substitute for public-web
+     evidence. Forget/clear memory of previous results per folder.
 3. **Report generation & save:**
     - Format strictly per `model-report-TEMPLATE.md`; replace every `<...>` placeholder.
     - Strip all template notice blocks (`> TEMPLATE...`) and submission checklist blocks before saving.
@@ -289,3 +295,13 @@ For each queued slug, in order:
     empty or the user revokes it; a completed prefix (16 of 129, …) is never
     "the assigned queue". If asked why you stopped with work remaining,
     resume — never argue that a prefix was the whole task.
+15. **Search outage ≠ local shortcut:** if web search returns `402`/quota/
+    outage, follow the fallback ladder in `RULES.md` § *Web-research fallback*
+    — one retry with a simpler query, then direct `webfetch`, then shell
+    `curl`/`Invoke-WebRequest` of official/leaderboard URLs — and cite only
+    URLs actually fetched. Never source scores, prices, benchmarks, or claims
+    from local files (peer findings, `model-comparison.md`, generated data,
+    `meta.json`/`average.md`). No retrievable verified evidence for a folder →
+    `no verified public score found` or `.md.excluded` with the access failure
+    noted; a global outage → `WEB-ACCESS-BLOCKED` summary, never invented
+    output.

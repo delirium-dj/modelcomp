@@ -1,0 +1,52 @@
+# MAI Experimental Test — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUDED (`.md.excluded`): no verified public benchmark number was found for this model
+> in this research pass, so no score is published. Notes below are negative findings only.
+
+- Source: Microsoft (`mai-experimental-test`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** MAI Experimental Test (`mai-experimental-test`)
+- **Short description:** An internal/experimental Microsoft AI (MAI) test route rather than a published product model; no model card, parameter count, context window or benchmark table exists in public sources, and Microsoft's published MAI coding line is MAI-Code-1-Flash / MAI-Code-1.1-Flash.
+- **Provider / access:** no public API route verified; absent from the OpenCode Console model list and from the public Microsoft AI model catalogue.
+- **Release / knowledge:** unknown (no announcement).
+- **IDs:** none verified (`mai-experimental-test` appears only as a test identifier).
+- **Context window:** not published / not found.
+- **Modalities:** unknown.
+- **Pricing (as of 2026-11-12):** not published.
+- **Architecture:** unknown (Microsoft does not publish MAI parameter counts).
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / MMLU-Pro / LCR / AA Intelligence Index: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found** (the measured MAI coding numbers belong to `mai-code-1-flash` and `mai-code-1.1-flash`, not to this test route)
+
+Long context:
+
+- No data.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded per `model-report-TEMPLATE.md` (zero verified benchmark numbers for this exact route). Scores inside this file are ignored by `pnpm sync`.
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12 UTC
+- Method: public internet research (Microsoft MAI model cards, BenchmarkList, OpenCode Console catalogue). The test route has no public spec or evaluation; the file stays excluded and the slug is surfaced for the orchestrator's identity review.
+- Reference URLs:
+  - [Microsoft — MAI-Code-1-Flash model card (the published MAI coding model)](https://microsoft.ai/pdf/MAI-Code-1-Flash-Model-Card.PDF)
+  - [BenchmarkList — MAI-Code-1-Flash (8 first-party rows)](https://benchmarklist.com/models/microsoft-mai-code-1-flash/)
+  - [OpenCode Console models (no `mai-experimental-test` entry)](https://opencode.ai/docs/zen)

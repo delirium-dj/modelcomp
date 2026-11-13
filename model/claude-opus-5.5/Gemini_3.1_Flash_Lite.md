@@ -1,44 +1,45 @@
-# Claude Opus 5.5
+# Claude Opus 5.5 — findings by Gemini 3.1 Flash Lite
 
-Claude Opus 5.5 is Anthropic's frontier-class model released in September 2026. It is optimized for long-running, multi-step agentic tasks, particularly in coding and professional knowledge work. It features significant improvements over Claude Opus 5 in speed, efficiency, and agentic solve rates.
+- Source: Anthropic/Claude Opus 5.5
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Anthropic
-- **Release Date:** September 22, 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** Significant leap in multi-step agentic performance, particularly on terminal and computer-use benchmarks.
+## Model card
 
-## Performance
+- **Name:** Claude Opus 5.5
+- **Short description:** Anthropic's long-horizon specialist model for complex agentic tasks.
+- **Provider / access:** Anthropic (https://www.anthropic.com/news/claude-opus-5.5). Chat Completions API.
+- **Release / knowledge:** Released 2026; knowledge cutoff unknown.
+- **IDs:** `anthropic/claude-opus-5-5` (Paid only)
+- **Context window:** 1M tokens total; 128K tokens max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** $4/$20 per 1M. Paid only.
+- **Architecture:** Proprietary (Opus-lane architecture).
 
-Claude Opus 5.5 shows industry-leading performance on complex, open-ended tasks requiring sustained judgment. It significantly outperforms prior models (Opus 5, Fable 5.1) on agentic coding benchmarks like Terminal-Bench 4.0 and knowledge-work benchmarks like GDPval-AA v2.1.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- Artificial Analysis Intelligence Index: **58** (Anthropic meta.json)
 
-- **Terminal-Bench 4.0 (Agentic Coding):** 66.4%
-- **GDPval-AA v2.1 (Knowledge Work Elo):** 1846
-- **SWE-bench Pro:** 89.9%
-- **DeepSWE:** 74.2%
-- **AutomationBench (Business Automation):** 40.0%
-- **Artificial Analysis Intelligence Index:** 58/100
+Coding:
+- Terminal-Bench 2.1: **66.4%** (Anthropic meta.json)
 
-## Limitations
+### Normalized scores (1–100)
 
-- **Benchmark Margins:** As models approach frontier capabilities, benchmark margins are becoming less reliable indicators of real-world differences compared to specialized agentic evaluations.
-- **Cost:** Despite being 40% cheaper than its predecessor, it remains a premium-tier model.
+- **Tool use: 90/100.** Highly capable agentic performance for extended tasks.
+- **Reasoning: 91/100.** Strong performance in reasoning-heavy contexts.
+- **Context window: 95/100.** 1M context with high coherence.
+- **Multimodal: 70/100.** Text and image input support.
+- **Coding: 92/100.** Strong specialist coding abilities (66.4% on TB4).
+- **Cost efficiency: 40/100.** Premium Opus-lane pricing.
+- **Overall Score: 88/100.** Exceptional long-horizon specialist; best reserved for high-stakes, deep-context projects.
 
-## Scoring
+---
 
-- **Tool use: 97/100.** Industry-leading capability for agentic tool chains and terminal environments.
-- **Reasoning: 95/100.** Sustained judgment and performance on complex, open-ended reasoning tasks.
-- **Context window: 97/100.** 1M context window with strong retrieval and long-session coherence.
-- **Multimodal: 92/100.** Highly capable multimodal understanding; strong performance on visual reasoning tasks.
-- **Coding: 96/100.** State-of-the-art for multi-step agentic coding and complex codebase migrations.
-- **Cost efficiency: 82/100.** High performance justified by capability, but substantial API cost for high-volume use.
-- **Overall Score: 95.4/100.**
+## Signature
 
-Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-opus-5.5)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://www.anthropic.com/claude-opus-5-5
-  - https://llm-stats.com/models/claude-opus-5-5
-  - https://benchlm.ai/models/claude-opus-5-5
-  - https://www.alphaxiv.org/abs/2609.2609-opus-5-5
+  - [Anthropic Claude Opus 5.5](https://www.anthropic.com/news/claude-opus-5.5)

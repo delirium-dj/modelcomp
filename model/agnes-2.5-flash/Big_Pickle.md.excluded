@@ -1,0 +1,72 @@
+# Agnes 2.5 Flash — findings by Big Pickle
+
+> SELF-EXCLUSION: no verified public benchmark numbers were found for this exact
+> model ID. Notes only — no scores are offered here.
+
+- Source: Agnes AI/Agnes 2.5 Flash
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 2.5 Flash
+- **Short description:** Generally available upgrade of Agnes 2.0 Flash from Singapore-based Agnes AI, targeting coding assistance, agent workflows, tool calling, multi-turn chat and image understanding. It is the chat/API model; the separately published "Agnes 2.5 Flash Base" is a non-instruction-tuned open-weights base checkpoint and is not this model.
+- **Provider / access:** Agnes AI API, model name `agnes-2.5-flash`, base URL `https://apihub.agnes-ai.com/v1`; OpenAI-compatible Chat Completions and Responses endpoints plus an Anthropic-compatible Messages endpoint.
+- **Release / knowledge:** GA (upgrade from the deprecated `agnes-2.0-flash`); knowledge cutoff not published.
+- **IDs:** `agnes-ai/agnes-2.5-flash` (vendor ID `agnes-2.5-flash`)
+- **Context window:** 512K total; 65.5K max output (vendor docs, "Limits and Pricing").
+- **Modalities:** Text and image-URL input; text out. Thinking mode, tool calling, streaming and multi-turn conversation supported. No audio/video.
+- **Pricing (as of 2026-11-13):** $0.05 / 1M input, $0.15 / 1M output, $0.005 / 1M cached input. An "Angel User Trial" tier lists $0 across all three (entitlement-based, not a standing free tier).
+- **Architecture:** Proprietary hosted model; the open "Agnes 2.5 Flash Base" sibling is a 202B-total / ~16B-active sparse MoE (160 routed experts, 6 selected) under Apache 2.0 with a 1,048,576-token window — but no benchmark rows are published for either the base or the tuned API model.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.0, Tau2/Tau3, GDPval-AA, OSWorld, AutomationBench, Claw-Eval, Toolathon, MCP-Atlas: no verified public score found.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, AIME, LCR, CritPt, AA Intelligence Index: no verified public score found.
+- BenchLM, Artificial Analysis, Franklin AI and The Aggregate have no page or ranked row for `agnes-2.5-flash`; searches return only vendor docs and pricing catalogues.
+
+Coding:
+
+- SWE-bench Verified / Pro, DeepSWE, LiveCodeBench, SciCode, HumanEval: no verified public score found.
+
+Multimodal:
+
+- MMMU, CharXiv, MathVision, OCRBench: no verified public score found, despite the vendor's image-understanding claims.
+
+Long context:
+
+- No MRCR / RULER / GraphWalks result for the 512K window.
+
+### Why this file is excluded
+
+The vendor documentation is complete on integration, limits, pricing and capability
+prose, but publishes no measured numbers. Every independent ledger checked
+(Artificial Analysis, BenchLM, Franklin AI, The Aggregate) either has no entry or
+lists specs only. Vendor capability statements ("improved coding", "stronger
+instruction following") are unquantified and cannot be turned into scores without
+fabrication. The open-weights "Base" checkpoint is a different artifact with its
+own (also unpublished) evaluation status, so its specs do not justify scores here.
+
+### What would justify a scored file later
+
+A vendor launch post with benchmark tables, an Artificial Analysis/BenchLM ranked
+row, or any published GPQA/MMMU/SWE-bench/LiveCodeBench result attributable to
+`agnes-2.5-flash` (not to the Base checkpoint or to Agnes 3.0 Flash).
+
+---
+
+## Signature
+
+- Provided by: **Big Pickle (opencode/big-pickle)** - 2026-11-13
+- Method: public web research (Agnes AI documentation, GitHub model card, Artificial Analysis/BenchLM/Franklin AI slug probes, pricing catalogues); negative findings only, no scores.
+- Reference URLs:
+  - [Agnes AI docs — Agnes 2.5 Flash](https://wiki.agnes-ai.com/en/docs/agnes-25-flash)
+  - [GitHub — Agnes 2.5 Flash Base (Apache 2.0, 202B MoE)](https://github.com/AgnesAI-Labs/Agnes-2.5-Flash-Base)
+  - [Artificial Analysis — model catalog](https://artificialanalysis.ai/)
+- Future sources: add a new file next to this one, e.g. `Agnes_2.5_Flash_Update.md`, using the same headings.

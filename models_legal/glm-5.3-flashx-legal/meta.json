@@ -2,13 +2,27 @@
   "id": "zai/glm-5.3-flashx-legal",
   "name": "GLM 5.3 FlashX Legal",
   "short": "Z.ai's legal-domain adaptation of GLM 5.3 FlashX (1M context) combining hybrid sparse/linear attention with domain post-training for contract analysis and compliance.",
-  "contextWindow": "1,048,576 total; 128K max output",
+  "contextWindow": "1,048,576 total; 131,072 max output",
   "modalities": "Text, image, video in; text out",
-  "pricingNote": "$0.37/$1.25 per 1M",
-  "officialUrl": "https://open.zhipuai.cn/",
-  "pricingLinks": [
-    "https://docs.z.ai/guides/overview/pricing"
+  "pricingNote": "$0.37/$1.25 per 1M in/out, $0.075 cached read (limited-time)",
+  "pricingTiers": [
+    "Z.ai direct $0.37 in / $1.25 out per 1M, $0.075 cached read (limited-time; ZenMux labels all three limited-time)",
+    "AgentSky resell $0.429385 in / $1.450625 out, $0.087038 cache read"
   ],
-  "standout": "Native 1M context with domain-specialized legal reasoning and high-throughput streaming for document review.",
-  "tradeoff": "Specialized legal mid-training gives narrower general utility than general-domain FlashX variants."
+  "noFreeId": true,
+  "officialUrl": "https://docs.z.ai/guides/vlm/glm-5.3-flash",
+  "pricingLinks": [
+    "https://docs.z.ai/guides/overview/pricing",
+    "https://openrouter.ai/z-ai/glm-5.3-flashx-legal"
+  ],
+  "standout": "Native 1M context with domain-specialized legal reasoning and high-throughput streaming for document review; the only measured data is Benchable's category aggregate (coding 95.0% at the 85th percentile, complex multi-step reasoning 96.0% at the 75th).",
+  "tradeoff": "Specialized legal mid-training gives narrower general utility than general-domain FlashX variants, and the vendor's own docs still contradict each other on image input (change log claims native multimodality, the Retrieve Model reference returns input_modalities [\"text\"]), so treat the folder's vision scores as unverified. Legal-domain routing: this model lives under models_legal/, not model/, which pnpm sync does not score - the average below is frozen pending the mirror-tree wiring (audit item E2).",
+  "aliases": [
+    "GLM-5.3-FlashX-Legal",
+    "GLM-Legal",
+    "glm-5-3-flashx-legal",
+    "zai/glm-5.3-flashx-legal",
+    "z-ai/glm-5.3-flashx-legal",
+    "glm-5.3-flashx-legal-20261102"
+  ]
 }

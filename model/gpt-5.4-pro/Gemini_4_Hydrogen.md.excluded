@@ -1,0 +1,38 @@
+# GPT-5.4 Pro — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: OpenAI (`gpt-5-4-pro`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.4 Pro
+- **Short description:** OpenAI's deprecated Pro-tier reasoning model with a 1M-token context window; superseded by GPT-5.5 Pro.
+- **Provider / access:** OpenAI API (`gpt-5-4-pro`, 1 provider tracked on Artificial Analysis).
+- **Release / knowledge:** 2026-03-05 release; knowledge cutoff August 31, 2025.
+- **IDs:** `openai/gpt-5.4-pro` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input, verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output; reasoning enabled.
+- **Pricing (as of 2026-11-13):** $30.00 / 1M input tokens, $180.00 / 1M output tokens ($45.00/1M blended 7:2:1).
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `gpt-5-4-pro` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — GPT-5.4 Pro](https://artificialanalysis.ai/models/gpt-5-4-pro)

@@ -50,6 +50,8 @@ import {
   checkMetaFile,
   checkSignatureStem,
   buildAliasesFile,
+  MIRROR_ROUTED_SLUGS,
+  mirrorRoutedMessage,
 } from "./lib/validate.mjs";
 import { buildAverageEntry, buildAverageBody, applyAverageToPrev, buildQueueFile } from "./lib/average.mjs";
 import {
@@ -403,6 +405,24 @@ for (const slug of slugs) {
   }
 }
 
+// Mirror-routed slugs (RULES.md domain routing): a model whose routing rule
+// moves it out of `model/` into `models_voice/`, `models_finance/`,
+// `models_cybersecurity/`, `models_health/` or `models_legal/` must NEVER also
+// be a folder under `model/`. Sync scores only `model/`, so a second copy there
+// would split one model across two trees, double-count it in the queue, and put
+// a card on the site for a model that is supposed to be hidden — the failure
+// mode that bit `glm-5.3-flashx-legal` on 2026-11-13, when a research swarm
+// re-created `model/glm-5.3-flashx-legal/` three separate times after the move.
+// Same hardening as the gates above: FAIL plus never cement.
+const mirrorRoutedSlugs = new Set();
+for (const slug of slugs) {
+  const tree = MIRROR_ROUTED_SLUGS.get(slug);
+  if (tree !== undefined) {
+    mirrorRoutedSlugs.add(slug);
+    fail(mirrorRoutedMessage(slug, tree));
+  }
+}
+
 // Merged + vendor-prefixed duplicate slugs (RULES.md vendor-prefix identity,
 // model/README.md merged-slug list): a folder that is a resurrected merged
 // slug or `<vendor>-<rest>` with `<rest>` on disk is a forbidden duplicate,
@@ -519,6 +539,7 @@ const raterOwn = new Map(); // model slug -> committed average Overall
 for (const slug of slugs) {
   if (hyphenSlugs.has(slug)) continue; // forbidden duplicate - never a rater
   if (dottedParamSlugs.has(slug)) continue; // dotted param-size duplicate - never a rater
+  if (mirrorRoutedSlugs.has(slug)) continue; // mirror-routed - never a rater
   if (mergedSlugs.has(slug)) continue; // forbidden duplicate — never a rater
   if (retiredAliasSlugs.has(slug)) continue; // retired alias — never a rater
   if (deletedPhantomSlugs.has(slug)) continue; // deleted phantom — never a rater
@@ -536,11 +557,13 @@ const catalogNames = new Map(); // normalized name -> slug
 for (const rDir of [modelDir, join(root, "models_voice"), join(root, "models_finance"), join(root, "models_cybersecurity"), join(root, "models_health"), join(root, "models_legal")]) {
   if (!existsSync(rDir)) continue;
   for (const d of readdirSync(rDir)) {
-    if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate — never the catalog entry
-    if (MERGED_MODEL_SLUGS.has(d)) continue; // forbidden duplicate — never the catalog entry
-    if (RETIRED_ALIAS_SLUGS.has(d)) continue; // retired alias — never the catalog entry
-    if (deletedPhantomViolation(d) !== null) continue; // deleted phantom — never the catalog entry
-    if (vendorPrefixViolation(d, slugs) !== null) continue; // forbidden duplicate — never the catalog entry
+    if (hyphenVersionViolation(d) !== null) continue; // forbidden duplicate - never the catalog entry
+    if (MERGED_MODEL_SLUGS.has(d)) continue; // forbidden duplicate - never the catalog entry
+    if (RETIRED_ALIAS_SLUGS.has(d)) continue; // retired alias - never the catalog entry
+    if (deletedPhantomViolation(d) !== null) continue; // deleted phantom - never the catalog entry
+    if (vendorPrefixViolation(d, slugs) !== null) continue; // forbidden duplicate - never the catalog entry
+    if (dottedParamSlugs.has(d)) continue; // dotted param-size duplicate - never the catalog entry
+    if (mirrorRoutedSlugs.has(d)) continue; // mirror-routed - never the catalog entry
     const mPath = join(rDir, d, "meta.json");
     if (!existsSync(mPath)) continue;
     try {
@@ -573,6 +596,11 @@ for (const slug of slugs) {
   }
   if (dottedParamSlugs.has(slug)) {
     log(`  SKIP  model/${slug}/ (dotted param-size duplicate — merge into the hyphenated folder first; no files written)`);
+    continue;
+  }
+  if (mirrorRoutedSlugs.has(slug)) {
+    const tree = MIRROR_ROUTED_SLUGS.get(slug);
+    log(`  SKIP  model/${slug}/ (mirror-routed — belongs in ${tree}/${slug}/; no files written)`);
     continue;
   }
   if (mergedSlugs.has(slug)) {

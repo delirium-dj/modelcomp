@@ -122,6 +122,13 @@ interface ProviderPlan {
 - Use `WebSearch` to locate the live page, then `WebFetch` to read it. Quote the
   exact figure/wording you found. Do not rely on memory of what "a vendor like
   this usually does."
+- **Search outage fallback:** if `WebSearch` returns `402`/quota/outage, never
+  downgrade to local files — the card being audited is the CLAIM, never its own
+  evidence. Fetch the provider's official pages directly (`WebFetch`, then
+  shell `curl`/`Invoke-WebRequest`), re-open each `evidenceUrl` by URL, and
+  cite only pages actually opened this pass (`RULES.md` § Web-research
+  fallback). Unverifiable after that → report it, do not infer from
+  `meta.json` or another provider's card.
 - **Verify the `evidenceUrl` itself** — open it. If it 404s, redirects to a
   marketing page with no such claim, or points to the wrong thing, that is a
   finding. Correct the URL to one that actually carries the claim.
@@ -138,7 +145,8 @@ write the verified findings to `meta.json` → emit the §7 status):
    `kind`, each plan's `notes`, and each `evidenceUrl`.
 2. **Open every `evidenceUrl`** and confirm it (a) resolves, (b) contains the
    claimed figure/wording. Search official pages for anything the card asserts
-   but doesn't cite.
+   but doesn't cite. (`WebSearch` unavailable with `402`/quota → open the
+   known URL directly; see §4 *Search outage fallback*.)
 3. **Verify the entity is real.** Vendors sometimes get a fabricated corporate
    name. (Found this session: InclusionAI's card invented "Ant Intelligence" —
    no such entity; correct framing is *InclusionAI is Ant Group's AGI

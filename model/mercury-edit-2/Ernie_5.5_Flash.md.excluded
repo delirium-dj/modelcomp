@@ -1,0 +1,57 @@
+# Mercury Edit 2 — findings by Ernie 5.5 Flash
+
+> SELF-EXCLUDED (`.md.excluded`): no verified public benchmark NUMBER was found for this model
+> in this research pass (the vendor publishes only relative quality claims), so no score is
+> published. Notes below are negative findings only.
+
+- Source: Inception Labs (`mercury-edit-2`)
+- Date: 2026-11-12 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Mercury Edit 2
+- **Short description:** A purpose-built diffusion LLM for next-edit prediction (the latency-critical "what will you change next" step in an IDE), complementing Inception's fill-in-the-middle autocomplete endpoint. Trained on curated edit corpora plus KTO alignment on accept/reject feedback.
+- **Provider / access:** Inception API (`docs.inceptionlabs.ai/capabilities/next-edit`), Zed edit prediction, ProxyAI; no chat endpoint (edit-prediction API only).
+- **Release / knowledge:** 2026 (launch post dated 2026-03-30 in the blog index, updated 2026-09-09 / indexed as Oct 29, 2026); knowledge cutoff not published.
+- **IDs:** `inception/mercury-edit-2`, `mercury-edit-2`
+- **Context window:** 32,000 tokens with 8,192-token output per the models.dev record; Inception does not publish a context figure and BenchLM's record inherits 128K from the Mercury 2 family — treat 32K as the verified route value.
+- **Modalities:** text in / text out (code-edit prediction); non-reasoning.
+- **Pricing (as of 2026-11-12):** $0.25 / 1M input, $0.75 / 1M output, cached input $0.025 / 1M; every new Inception API account gets 10M free tokens.
+- **Architecture:** proprietary diffusion LLM (parallel denoising) tuned for next-edit prediction; no parameter count published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench / Tau3 / GDPval-AA / Claw-Eval / MCP-Atlas: **not applicable / no verified public score found** (edit-prediction API, not a chat/tool model)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / LCR: **not applicable** (non-reasoning edit model)
+
+Coding (the model's whole purpose — but no numbers published):
+
+- Instinct (continuedev), FIM (HumanEval-infilling), NextEditPrediction (lurf21) and an internal next-edit benchmark: Inception states Mercury Edit 2 is scored as **the average of these four**, and claims "superior quality and speed" versus custom next-edit models and speed-optimized frontier models — **no absolute score is printed in the launch post or on any leaderboard found** (BenchLM: 0 of 815 benchmarks covered).
+- Relative claims only: edits accepted **48% more often** than the previous next-edit model, and **27% more selective** in what it displays (vendor measurement).
+- SWE-bench Verified / LiveCodeBench / SciCode: **no verified public score found** (not a code-generation model)
+
+Long context:
+
+- No retrieval figures; the route's 32K window is the binding constraint.
+
+### Normalized scores (1–100)
+
+- Not scored — self-excluded per `model-report-TEMPLATE.md`: the only published quality evidence is relative ("48% more accepted"), which cannot be converted into a 1–100 score without inventing a baseline. Scores inside this file are ignored by `pnpm sync`.
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-12 UTC
+- Method: public internet research (Inception Mercury Edit 2 launch post, models.dev route record, modelpricewatch pricing, BenchlM record, Zed docs); no absolute benchmark number exists, so the file stays excluded.
+- Reference URLs:
+  - [Inception — Introducing Mercury Edit 2 (benchmark suite, KTO, pricing, 10M free tokens)](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
+  - [models.opencode.ai — Mercury Edit 2 route (32K ctx, 8,192 out, $0.25/$0.75)](https://models.opencode.ai/models/inception/mercury-edit-2/)
+  - [Inception docs — next-edit capability](https://docs.inceptionlabs.ai/capabilities/next-edit)
+  - [Zed — edit prediction providers (Mercury Edit 2 integration)](https://zed.dev/docs/ai/edit-prediction)
+  - [BenchLM — Mercury Edit 2 (0 of 815 benchmarks covered)](https://benchlm.ai/models/mercury-edit-2)

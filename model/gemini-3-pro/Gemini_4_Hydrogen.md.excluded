@@ -1,0 +1,39 @@
+# Gemini 3 Pro — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Google (`gemini-3-pro-preview`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3 Pro
+- **Short description:** Google's deprecated previous-generation Pro multimodal reasoning model with a 1M-token context window (shut down in Google AI docs; superseded by Gemini 3.1 Pro and Gemini 4).
+- **Provider / access:** Google Gemini API (`gemini-3-pro-preview`, shut down; 1 provider tracked on Artificial Analysis).
+- **Release / knowledge:** 2025-11-18 release; knowledge cutoff January 1, 2025.
+- **IDs:** `google/gemini-3-pro-preview` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input, verified via Artificial Analysis.
+- **Modalities:** Text, image, speech, and video input; text output; reasoning enabled.
+- **Pricing (as of 2026-11-13):** $2.00 / 1M input tokens, $12.00 / 1M output tokens (90% cache discount; $1.74/1M blended 7:2:1).
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `gemini-3-pro` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-13
+- Method: Public internet research via Artificial Analysis and Google AI documentation; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — Gemini 3 Pro Preview](https://artificialanalysis.ai/models/gemini-3-pro)
+  - [Google AI — Gemini Models](https://ai.google.dev/gemini-api/docs/models)
